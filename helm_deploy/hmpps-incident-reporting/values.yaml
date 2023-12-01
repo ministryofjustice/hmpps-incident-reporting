@@ -1,6 +1,6 @@
 generic-service:
   nameOverride: hmpps-incident-reporting
-  productId: "UNASSIGNED" # productId for the product that this belongs too, i.e. DPS001, see README.md for details
+  productId: DPS021
 
   replicaCount: 4
 

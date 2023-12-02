@@ -31,6 +31,7 @@ generic-service:
   # Environment variables to load into the deployment
   env:
     NODE_ENV: "production"
+    BUNYAN_NO_COLOR: "1"
     REDIS_ENABLED: "true"
     REDIS_TLS_ENABLED: "true"
     TOKEN_VERIFICATION_ENABLED: "true"
@@ -56,6 +57,8 @@ generic-service:
   allowlist:
     groups:
       - internal
+      - prisons
+      - private_prisons
 
 generic-prometheus-alerts:
   targetApplication: hmpps-incident-reporting

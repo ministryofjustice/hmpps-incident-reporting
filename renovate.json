@@ -1,6 +1,7 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": ["github>ministryofjustice/hmpps-renovate-config:node"],
+  "assigneesFromCodeOwners": true,
   "prBodyTemplate": "{{{table}}}{{{notes}}}{{{warnings}}}{{{controls}}}",
   "packageRules": [
     {
@@ -13,6 +14,10 @@
       "groupName": "all non major NPM dependencies",
       "groupSlug": "all-npm-minor-patch",
       "stabilityDays": 5
+    },
+    {
+      "matchDepTypes": ["engines"],
+      "enabled": false
     },
     {
       "matchPackageNames": ["typescript", "govuk-frontend"],

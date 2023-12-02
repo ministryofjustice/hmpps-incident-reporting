@@ -1,14 +1,24 @@
 version: '3.1'
 services:
 
-  wiremock:
+  irs-redis:
+    image: redis:7.1
+    networks:
+      - hmpps
+    container_name: irs-redis
+    environment:
+      - ALLOW_EMPTY_PASSWORD=yes
+    ports:
+      - "6379:6379"
+
+  irs-wiremock:
     image: wiremock/wiremock
     networks:
-    - hmpps_int
-    container_name: wiremock
+    - hmpps
+    container_name: irs-wiremock
     restart: always
     ports:
       - "9091:8080"
 
 networks:
-  hmpps_int:
+  hmpps:

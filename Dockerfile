@@ -11,7 +11,7 @@ ENV TZ=Europe/London
 RUN ln -snf "/usr/share/zoneinfo/$TZ" /etc/localtime && echo "$TZ" > /etc/timezone
 
 RUN addgroup --gid 2000 --system appgroup && \
-        adduser --uid 2000 --system appuser --gid 2000
+    adduser --uid 2000 --system appuser --gid 2000
 
 WORKDIR /app
 
@@ -26,9 +26,9 @@ ENV GIT_REF=${GIT_REF}
 ENV GIT_BRANCH=${GIT_BRANCH}
 
 RUN apt-get update && \
-        apt-get upgrade -y && \
-        apt-get autoremove -y && \
-        rm -rf /var/lib/apt/lists/*
+    apt-get upgrade -y && \
+    apt-get autoremove -y && \
+    rm -rf /var/lib/apt/lists/*
 
 # Stage: build assets
 FROM base as build
@@ -38,7 +38,7 @@ ARG GIT_REF
 ARG GIT_BRANCH
 
 RUN apt-get update && \
-        apt-get install -y make python g++
+    apt-get install -y make python g++
 
 COPY package*.json ./
 RUN CYPRESS_INSTALL_BINARY=0 npm ci --no-audit
@@ -52,18 +52,18 @@ RUN npm prune --no-audit --omit=dev
 FROM base
 
 COPY --from=build --chown=appuser:appgroup \
-        /app/package.json \
-        /app/package-lock.json \
-        ./
+    /app/package.json \
+    /app/package-lock.json \
+    ./
 
 COPY --from=build --chown=appuser:appgroup \
-        /app/assets ./assets
+    /app/assets ./assets
 
 COPY --from=build --chown=appuser:appgroup \
-        /app/dist ./dist
+    /app/dist ./dist
 
 COPY --from=build --chown=appuser:appgroup \
-        /app/node_modules ./node_modules
+    /app/node_modules ./node_modules
 
 EXPOSE 3000 3001
 ENV NODE_ENV='production'

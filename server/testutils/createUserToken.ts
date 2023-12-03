@@ -1,7 +1,10 @@
 import jwt from 'jsonwebtoken'
 
-export default function createUserToken(authorities: string[]) {
-  const payload = {
+import type { AuthToken } from '../services/userService'
+
+export default function createUserToken(roles: string[]) {
+  const authorities = roles.map(role => (role.startsWith('ROLE_') ? role : `ROLE_${role}`))
+  const payload: AuthToken = {
     user_name: 'user1',
     scope: ['read', 'write'],
     auth_source: 'nomis',

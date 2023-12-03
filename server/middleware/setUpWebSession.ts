@@ -1,10 +1,11 @@
-import { v4 as uuidv4 } from 'uuid'
-import session, { MemoryStore, Store } from 'express-session'
 import RedisStore from 'connect-redis'
-import express, { Router } from 'express'
-import { createRedisClient } from '../data/redisClient'
+import express, { type Router } from 'express'
+import session, { MemoryStore, type Store } from 'express-session'
+import { v4 as uuidv4 } from 'uuid'
+
 import config from '../config'
 import logger from '../../logger'
+import { createRedisClient } from '../data/redisClient'
 
 export default function setUpWebSession(): Router {
   let store: Store

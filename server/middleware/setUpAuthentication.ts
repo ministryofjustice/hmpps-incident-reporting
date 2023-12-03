@@ -14,9 +14,9 @@ export default function setUpAuth(): Router {
   router.use(passport.session())
   router.use(flash())
 
-  router.get('/autherror', (req, res) => {
+  router.get('/authError', (req, res) => {
     res.status(401)
-    return res.render('autherror')
+    return res.render('pages/authError')
   })
 
   router.get('/sign-in', passport.authenticate('oauth2'))

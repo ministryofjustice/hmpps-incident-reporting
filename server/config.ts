@@ -82,4 +82,6 @@ export default {
     },
   },
   domain: get('INGRESS_URL', 'http://localhost:3000', requiredInProduction),
+  dpsUrl: get('DPS_URL', 'http://dps.local', requiredInProduction),
+  supportUrl: get('SUPPORT_URL', 'http://support.dps.local', requiredInProduction),
 }

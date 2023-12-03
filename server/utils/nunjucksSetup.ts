@@ -14,6 +14,10 @@ export default function nunjucksSetup(app: express.Express, applicationInfo: App
   app.locals.production = config.production
   app.locals.environment = config.environment
 
+  app.locals.authUrl = config.apis.hmppsAuth.externalUrl
+  app.locals.dpsUrl = config.dpsUrl
+  app.locals.supportUrl = config.supportUrl
+
   // Cachebusting version string
   if (config.production) {
     // Version only changes with new commits

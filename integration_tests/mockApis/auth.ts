@@ -15,7 +15,7 @@ const getSignInUrl = (): Promise<string> =>
   })
 
 const mockHtmlResponse = (title: string) => `
-<html lang='en'>
+<html lang="en">
 <head>
   <title>${title} – Digital Prison Services</title>
 </head>
@@ -29,7 +29,7 @@ const favicon = () =>
   stubFor({
     request: {
       method: 'GET',
-      urlPattern: '/favicon.ico',
+      urlPath: '/favicon.ico',
     },
     response: {
       status: 200,
@@ -40,7 +40,7 @@ const ping = () =>
   stubFor({
     request: {
       method: 'GET',
-      urlPattern: '/auth/health/ping',
+      urlPath: '/auth/health/ping',
     },
     response: {
       status: 200,
@@ -97,7 +97,7 @@ const token = (roles: string[] = []) =>
   stubFor({
     request: {
       method: 'POST',
-      urlPattern: '/auth/oauth/token',
+      urlPath: '/auth/oauth/token',
     },
     response: {
       status: 200,
@@ -110,7 +110,7 @@ const token = (roles: string[] = []) =>
         token_type: 'bearer',
         user_name: 'USER1',
         expires_in: 599,
-        scope: 'read',
+        scope: 'read,write',
         internalUser: true,
       },
     },

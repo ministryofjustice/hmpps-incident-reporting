@@ -23,19 +23,19 @@ context('Sign In', () => {
   it('User name visible in header', () => {
     cy.signIn()
     const indexPage = Page.verifyOnPage(IndexPage)
-    indexPage.headerUserName().should('contain.text', 'J. Smith')
+    indexPage.headerUserName.should('contain.text', 'J. Smith')
   })
 
-  it('Phase banner visible in header', () => {
+  it('Environment tag visible in header', () => {
     cy.signIn()
     const indexPage = Page.verifyOnPage(IndexPage)
-    indexPage.headerPhaseBanner().should('contain.text', 'local')
+    indexPage.headerEnvironmentTag.should('contain.text', 'local')
   })
 
   it('User can sign out', () => {
     cy.signIn()
     const indexPage = Page.verifyOnPage(IndexPage)
-    indexPage.signOut().click()
+    indexPage.signOut.click()
     Page.verifyOnPage(AuthSignInPage)
   })
 
@@ -44,8 +44,8 @@ context('Sign In', () => {
     cy.task('stubAuthManageDetails')
     const indexPage = Page.verifyOnPage(IndexPage)
 
-    indexPage.manageDetails().get('a').invoke('removeAttr', 'target')
-    indexPage.manageDetails().click()
+    indexPage.manageDetails.get('a').invoke('removeAttr', 'target')
+    indexPage.manageDetails.click()
     Page.verifyOnPage(AuthManageDetailsPage)
   })
 
@@ -70,6 +70,6 @@ context('Sign In', () => {
     cy.task('stubManageUser', 'bobby brown')
     cy.signIn()
 
-    indexPage.headerUserName().contains('B. Brown')
+    indexPage.headerUserName.contains('B. Brown')
   })
 })

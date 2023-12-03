@@ -17,7 +17,11 @@ export default abstract class Page {
     cy.title().should('eq', `${this.pageTitle ?? this.h1} – Digital Prison Services`)
   }
 
-  signOut = (): PageElement<HTMLAnchorElement> => cy.get('[data-qa=signOut]')
+  get signOut(): PageElement<HTMLAnchorElement> {
+    return cy.get('[data-qa=signOut]')
+  }
 
-  manageDetails = (): PageElement<HTMLAnchorElement> => cy.get('[data-qa=manageDetails]')
+  get manageDetails(): PageElement<HTMLAnchorElement> {
+    return cy.get('[data-qa=manageDetails]')
+  }
 }

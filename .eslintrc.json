@@ -1,8 +1,11 @@
 {
+  "root": true,
+
   "env": {
-    "browser": true,
+    "browser": false,
     "node": true,
-    "jest": true
+    "jest": true,
+    "jquery": false
   },
 
   "plugins": ["import", "no-only-tests"],
@@ -36,6 +39,7 @@
         "@typescript-eslint/no-use-before-define": 0,
         "class-methods-use-this": 0,
         "no-useless-constructor": 0,
+        "quotes": ["error", "single", { "avoidEscape": true, "allowTemplateLiterals": false }],
         "@typescript-eslint/no-unused-vars": [
           1,
           {
@@ -46,12 +50,51 @@
         "@typescript-eslint/semi": 0,
         "import/no-unresolved": "error",
         "prettier/prettier": [
-          "error",
+          "warn",
           {
             "trailingComma": "all",
             "singleQuote": true,
             "printWidth": 120,
             "semi": false
+          }
+        ],
+        "@typescript-eslint/naming-convention": [
+          "warn",
+          {
+            "selector": "variable",
+            "format": ["camelCase", "UPPER_CASE"]
+          },
+          {
+            "selector": "parameter",
+            "format": ["camelCase"],
+            "leadingUnderscore": "allow"
+          },
+          // This is not very specific unfortunately
+          // {
+          //   "selector": "memberLike",
+          //   "modifiers": ["private"],
+          //   "format": ["camelCase"],
+          //   "leadingUnderscore": "allow"
+          // },
+          {
+            "selector": "typeLike",
+            "format": ["PascalCase"]
+          },
+          // Ignore properties that require quotes
+          // See: https://typescript-eslint.io/rules/naming-convention/#ignore-properties-that-require-quotes
+          {
+            "selector": [
+              "classProperty",
+              "objectLiteralProperty",
+              "typeProperty",
+              "classMethod",
+              "objectLiteralMethod",
+              "typeMethod",
+              "accessor",
+              "enumMember"
+            ],
+            "format": null,
+            "modifiers": ["requiresQuotes"]
           }
         ]
       }
@@ -69,6 +112,9 @@
       }
     ],
     "no-use-before-define": 0,
+    "no-restricted-syntax": ["error", "ForInStatement", "LabeledStatement", "WithStatement"],
+    "no-shadow": "off",
+    "@typescript-eslint/no-shadow": ["error"],
     "semi": 0,
     "import/no-unresolved": "error",
     "import/extensions": [
@@ -89,7 +135,7 @@
     ],
     "no-only-tests/no-only-tests": "error",
     "prettier/prettier": [
-      "error",
+      "warn",
       {
         "trailingComma": "all",
         "singleQuote": true,
@@ -98,5 +144,7 @@
       }
     ],
     "no-empty-function": ["error", { "allow": ["constructors", "arrowFunctions"] }]
-  }
+  },
+
+  "reportUnusedDisableDirectives": true
 }

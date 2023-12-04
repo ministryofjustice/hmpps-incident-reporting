@@ -30,11 +30,12 @@ export interface ApiConfig {
 }
 
 export default {
-  buildNumber: get('BUILD_NUMBER', '1_0_0', requiredInProduction),
   productId: get('PRODUCT_ID', 'UNASSIGNED', requiredInProduction),
+  buildNumber: get('BUILD_NUMBER', '1_0_0', requiredInProduction),
   gitRef: get('GIT_REF', 'xxxxxxxxxxxxxxxxxxx', requiredInProduction),
   branchName: get('GIT_BRANCH', 'xxxxxxxxxxxxxxxxxxx', requiredInProduction),
-  production,
+  environment: process.env.ENVIRONMENT || 'local',
+  production, // NB: this is true in _all_ deployed environments
   https: production,
   staticResourceCacheDuration: '1h',
   redis: {
@@ -81,5 +82,6 @@ export default {
     },
   },
   domain: get('INGRESS_URL', 'http://localhost:3000', requiredInProduction),
-  environmentName: get('ENVIRONMENT_NAME', ''),
+  dpsUrl: get('DPS_URL', 'http://dps.local', requiredInProduction),
+  supportUrl: get('SUPPORT_URL', 'http://support.dps.local', requiredInProduction),
 }

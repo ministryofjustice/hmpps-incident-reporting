@@ -1,19 +1,27 @@
-export type PageElement = Cypress.Chainable<JQuery>
+export type PageElement<TElement = HTMLElement> = Cypress.Chainable<JQuery<TElement>>
 
 export default abstract class Page {
-  static verifyOnPage<T>(constructor: new () => T): T {
-    return new constructor()
+  static verifyOnPage<T extends Page>(constructor: new (...args: unknown[]) => T, ...args: unknown[]): T {
+    return new constructor(...args)
   }
 
-  constructor(private readonly title: string) {
+  constructor(
+    protected readonly h1: string,
+    protected readonly pageTitle?: string,
+  ) {
     this.checkOnPage()
   }
 
   checkOnPage(): void {
-    cy.get('h1').contains(this.title)
+    cy.get('h1').contains(this.h1)
+    cy.title().should('eq', `${this.pageTitle ?? this.h1} – Digital Prison Services`)
   }
 
-  signOut = (): PageElement => cy.get('[data-qa=signOut]')
+  get signOut(): PageElement<HTMLAnchorElement> {
+    return cy.get('[data-qa=signOut]')
+  }
 
-  manageDetails = (): PageElement => cy.get('[data-qa=manageDetails]')
+  get manageDetails(): PageElement<HTMLAnchorElement> {
+    return cy.get('[data-qa=manageDetails]')
+  }
 }

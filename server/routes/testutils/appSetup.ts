@@ -1,5 +1,5 @@
-import express, { Express } from 'express'
 import cookieSession from 'cookie-session'
+import express, { type Express } from 'express'
 import { NotFound } from 'http-errors'
 
 import routes from '../index'
@@ -10,10 +10,10 @@ import type { Services } from '../../services'
 import type { ApplicationInfo } from '../../applicationInfo'
 
 const testAppInfo: ApplicationInfo = {
-  applicationName: 'test',
+  applicationName: 'hmpps-incident-reporting',
   buildNumber: '1',
-  gitRef: 'long ref',
-  gitShortHash: 'short ref',
+  gitRef: '9fb9f708131d3ff0251e0653ac25dc6d28a69247',
+  gitShortHash: '9fb9f70',
   branchName: 'main',
 }
 

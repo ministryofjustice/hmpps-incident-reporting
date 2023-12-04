@@ -1,6 +1,5 @@
 import express from 'express'
-
-import createError from 'http-errors'
+import { NotFound } from 'http-errors'
 
 import nunjucksSetup from './utils/nunjucksSetup'
 import errorHandler from './errorHandler'
@@ -16,6 +15,7 @@ import setUpWebRequestParsing from './middleware/setupRequestParsing'
 import setUpWebSecurity from './middleware/setUpWebSecurity'
 import setUpWebSession from './middleware/setUpWebSession'
 
+import config from './config'
 import routes from './routes'
 import type { Services } from './services'
 
@@ -40,8 +40,8 @@ export default function createApp(services: Services): express.Application {
 
   app.use(routes(services))
 
-  app.use((req, res, next) => next(createError(404, 'Not found')))
-  app.use(errorHandler(process.env.NODE_ENV === 'production'))
+  app.use((req, res, next) => next(new NotFound()))
+  app.use(errorHandler(config.production))
 
   return app
 }

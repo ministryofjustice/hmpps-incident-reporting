@@ -13,10 +13,6 @@ export interface User {
   activeCaseLoadId?: string // deprecated, use user roles api
 }
 
-export interface UserRole {
-  roleCode: string
-}
-
 export default class ManageUsersApiClient {
   constructor() {}
 

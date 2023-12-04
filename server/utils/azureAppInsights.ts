@@ -1,4 +1,5 @@
-import { setup, defaultClient, TelemetryClient, DistributedTracingModes } from 'applicationinsights'
+import { setup, defaultClient, type TelemetryClient, DistributedTracingModes } from 'applicationinsights'
+
 import type { ApplicationInfo } from '../applicationInfo'
 
 export function initialiseAppInsights(): void {

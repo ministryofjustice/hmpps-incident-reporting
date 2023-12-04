@@ -1,18 +1,18 @@
 generic-service:
-  nameOverride: hmpps-template-typescript
-  productId: "UNASSIGNED" # productId for the product that this belongs too, i.e. DPS001, see README.md for details
+  nameOverride: hmpps-incident-reporting
+  productId: DPS021
 
   replicaCount: 4
 
   image:
-    repository: quay.io/hmpps/hmpps-template-typescript
+    repository: quay.io/hmpps/hmpps-incident-reporting
     tag: app_version # override at deployment time
     port: 3000
 
   ingress:
     enabled: true
     host: app-hostname.local # override per environment
-    tlsSecretName: hmpps-template-typescript-cert
+    tlsSecretName: hmpps-incident-reporting-cert
 
   livenessProbe:
     httpGet:
@@ -31,6 +31,7 @@ generic-service:
   # Environment variables to load into the deployment
   env:
     NODE_ENV: "production"
+    BUNYAN_NO_COLOR: "1"
     REDIS_ENABLED: "true"
     REDIS_TLS_ENABLED: "true"
     TOKEN_VERIFICATION_ENABLED: "true"
@@ -42,7 +43,7 @@ generic-service:
   #     [name of environment variable as seen by app]: [key of kubernetes secret to load]
 
   namespace_secrets:
-    hmpps-template-typescript:
+    hmpps-incident-reporting:
       APPINSIGHTS_INSTRUMENTATIONKEY: "APPINSIGHTS_INSTRUMENTATIONKEY"
       API_CLIENT_ID: "API_CLIENT_ID"
       API_CLIENT_SECRET: "API_CLIENT_SECRET"
@@ -56,6 +57,8 @@ generic-service:
   allowlist:
     groups:
       - internal
+      - prisons
+      - private_prisons
 
 generic-prometheus-alerts:
-  targetApplication: hmpps-template-typescript
+  targetApplication: hmpps-incident-reporting

@@ -1,23 +1,26 @@
 /* eslint-disable no-param-reassign */
-import path from 'path'
+import path from 'node:path'
+
 import nunjucks from 'nunjucks'
 import express from 'express'
 import { initialiseName } from './utils'
 import { ApplicationInfo } from '../applicationInfo'
 import config from '../config'
 
-const production = process.env.NODE_ENV === 'production'
-
 export default function nunjucksSetup(app: express.Express, applicationInfo: ApplicationInfo): void {
   app.set('view engine', 'njk')
 
   app.locals.asset_path = '/assets/'
-  app.locals.applicationName = 'HMPPS Typescript Template'
-  app.locals.environmentName = config.environmentName
-  app.locals.environmentNameColour = config.environmentName === 'PRE-PRODUCTION' ? 'govuk-tag--green' : ''
+  app.locals.applicationName = 'Incident Reporting'
+  app.locals.production = config.production
+  app.locals.environment = config.environment
+
+  app.locals.authUrl = config.apis.hmppsAuth.externalUrl
+  app.locals.dpsUrl = config.dpsUrl
+  app.locals.supportUrl = config.supportUrl
 
   // Cachebusting version string
-  if (production) {
+  if (config.production) {
     // Version only changes with new commits
     app.locals.version = applicationInfo.gitShortHash
   } else {

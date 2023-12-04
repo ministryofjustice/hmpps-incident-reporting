@@ -1,4 +1,5 @@
 {% from "govuk/components/tag/macro.njk" import govukTag %}
+
 <header class="hmpps-header" role="banner">
   <div class="hmpps-header__container">
     <div class="hmpps-header__title">
@@ -13,12 +14,11 @@
 
       <a class="hmpps-header__link hmpps-header__title__service-name" href="/">{{ applicationName }}</a>
 
-      {% if environmentName %}
+      {% if environment %}
         <div class="govuk-phase-banner">
           {{ govukTag({
-            text: environmentName,
-            classes: environmentNameColour,
-            attributes: { "data-qa": "header-phase-banner" }
+            text: environment,
+            attributes: { "data-qa": "header-environment-tag" }
           }) }}
         </div>
       {% endif %}

@@ -5,18 +5,17 @@ import flash from 'connect-flash'
 import config from '../config'
 import auth from '../authentication/auth'
 
-const router = express.Router()
-
 export default function setUpAuth(): Router {
   auth.init()
 
+  const router = express.Router()
   router.use(passport.initialize())
   router.use(passport.session())
   router.use(flash())
 
-  router.get('/autherror', (req, res) => {
+  router.get('/authError', (req, res) => {
     res.status(401)
-    return res.render('autherror')
+    return res.render('pages/authError')
   })
 
   router.get('/sign-in', passport.authenticate('oauth2'))
@@ -24,7 +23,7 @@ export default function setUpAuth(): Router {
   router.get('/sign-in/callback', (req, res, next) =>
     passport.authenticate('oauth2', {
       successReturnToOrRedirect: req.session.returnTo || '/',
-      failureRedirect: '/autherror',
+      failureRedirect: '/authError',
     })(req, res, next),
   )
 

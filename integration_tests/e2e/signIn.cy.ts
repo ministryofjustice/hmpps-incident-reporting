@@ -8,6 +8,7 @@ context('Sign In', () => {
     cy.task('reset')
     cy.task('stubSignIn')
     cy.task('stubManageUser')
+    cy.task('stubFrontendComponentsFail')
   })
 
   it('Unauthenticated user directed to auth', () => {
@@ -29,7 +30,7 @@ context('Sign In', () => {
   it('Environment tag visible in header', () => {
     cy.signIn()
     const indexPage = Page.verifyOnPage(IndexPage)
-    indexPage.headerEnvironmentTag.should('contain.text', 'local')
+    indexPage.headerEnvironmentTag.should('contain.text', 'Local')
   })
 
   it('User can sign out', () => {

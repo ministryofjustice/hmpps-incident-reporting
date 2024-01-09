@@ -14,6 +14,7 @@ import setUpStaticResources from './middleware/setUpStaticResources'
 import setUpWebRequestParsing from './middleware/setupRequestParsing'
 import setUpWebSecurity from './middleware/setUpWebSecurity'
 import setUpWebSession from './middleware/setUpWebSession'
+import frontendComponents from './middleware/frontendComponents'
 
 import config from './config'
 import routes from './routes'
@@ -38,6 +39,7 @@ export default function createApp(services: Services): express.Application {
   app.use(setUpCsrf())
   app.use(setUpCurrentUser(services))
 
+  app.use(frontendComponents(services))
   app.use(routes(services))
 
   app.use((req, res, next) => next(new NotFound()))

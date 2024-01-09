@@ -18,16 +18,25 @@ export default function setUpWebSecurity(): Router {
 
   const authHost = new URL(config.apis.hmppsAuth.externalUrl).hostname
   const dpsHost = new URL(config.dpsUrl).hostname
+  const frontendComponentsHost = new URL(config.apis.frontendComponents.url).hostname
 
   router.use(
     helmet({
       contentSecurityPolicy: {
         directives: {
           defaultSrc: ["'self'"],
-          scriptSrc: ["'self'", (_req: Request, res: Response) => `'nonce-${res.locals.cspNonce}'`],
-          styleSrc: ["'self'", (_req: Request, res: Response) => `'nonce-${res.locals.cspNonce}'`],
-          imgSrc: ["'self'", 'data:'],
-          fontSrc: ["'self'"],
+          scriptSrc: [
+            "'self'",
+            frontendComponentsHost,
+            (_req: Request, res: Response) => `'nonce-${res.locals.cspNonce}'`,
+          ],
+          styleSrc: [
+            "'self'",
+            frontendComponentsHost,
+            (_req: Request, res: Response) => `'nonce-${res.locals.cspNonce}'`,
+          ],
+          imgSrc: ["'self'", 'data:', frontendComponentsHost],
+          fontSrc: ["'self'", frontendComponentsHost],
           formAction: ["'self'", authHost, dpsHost],
           connectSrc: ["'self'"],
         },

@@ -17,7 +17,7 @@
       {% if environment %}
         <div class="govuk-phase-banner">
           {{ govukTag({
-            text: environment,
+            text: environment | capitalize,
             attributes: { "data-qa": "header-environment-tag" }
           }) }}
         </div>

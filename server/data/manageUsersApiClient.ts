@@ -14,8 +14,6 @@ export interface User {
 }
 
 export default class ManageUsersApiClient {
-  constructor() {}
-
   private static restClient(token: string): RestClient {
     return new RestClient('Manage Users Api Client', config.apis.manageUsersApi, token)
   }

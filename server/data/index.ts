@@ -17,7 +17,7 @@ import RedisTokenStore from './tokenStore/redisTokenStore'
 import InMemoryTokenStore from './tokenStore/inMemoryTokenStore'
 import config from '../config'
 
-type RestClientBuilder<T> = (token: string) => T
+export type RestClientBuilder<T> = (token: string) => T
 
 export const dataAccess = () => ({
   applicationInfo,
@@ -28,5 +28,3 @@ export const dataAccess = () => ({
 })
 
 export type DataAccess = ReturnType<typeof dataAccess>
-
-export { HmppsAuthClient, RestClientBuilder, ManageUsersApiClient }

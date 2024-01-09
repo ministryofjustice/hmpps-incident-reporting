@@ -2,24 +2,44 @@
 
 {% block head %}
   <link href="/assets/stylesheets/application.css?{{ version }}" rel="stylesheet" />
+
+  {% if feComponents.jsIncludes %}
+    {% for js in feComponents.jsIncludes %}
+      <script src="{{ js }}" nonce="{{ cspNonce }}"></script>
+    {% endfor %}
+  {% endif %}
+
+  {% if feComponents.cssIncludes %}
+    {% for css in feComponents.cssIncludes %}
+      <link href="{{ css }}" nonce="{{ cspNonce }}" rel="stylesheet" />
+    {% endfor %}
+  {% endif %}
 {% endblock %}
 
 {% block pageTitle %}{{ pageTitle | default(applicationName) }} – Digital Prison Services{% endblock %}
 
 {% block header %}
-  {% include "./header.njk" %}
+  {% if feComponents.header %}
+    {{ feComponents.header | safe }}
+  {% else %}
+    {% include "./header.njk" %}
+  {% endif %}
 {% endblock %}
 
 {% block bodyStart %}
 {% endblock %}
 
 {% block footer %}
-  {% include "./footer.njk" %}
+  {% if feComponents.footer %}
+    {{ feComponents.footer | safe }}
+  {% else %}
+    {% include "./footer.njk" %}
+  {% endif %}
 {% endblock %}
 
 {% block bodyEnd %}
   <script src="/assets/js/jquery.min.js"></script>
-  <script src="/assets/govuk/all.js"></script>
+  <script type="module" src="/assets/govuk/govuk-frontend.min.js"></script>
   <script src="/assets/moj/all.js"></script>
-  <script src="/assets/application.js"></script>
+  <script type="module" src="/assets/application.js"></script>
 {% endblock %}

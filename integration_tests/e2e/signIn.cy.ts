@@ -29,7 +29,7 @@ context('Sign In', () => {
   it('Environment tag visible in header', () => {
     cy.signIn()
     const indexPage = Page.verifyOnPage(IndexPage)
-    indexPage.headerEnvironmentTag.should('contain.text', 'local')
+    indexPage.headerEnvironmentTag.should('contain.text', 'Local')
   })
 
   it('User can sign out', () => {

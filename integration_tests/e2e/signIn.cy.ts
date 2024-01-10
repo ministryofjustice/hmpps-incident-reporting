@@ -7,8 +7,8 @@ context('Sign In', () => {
   beforeEach(() => {
     cy.task('reset')
     cy.task('stubSignIn')
+    cy.task('stubFallbackHeaderAndFooter')
     cy.task('stubManageUser')
-    cy.task('stubFrontendComponentsFail')
   })
 
   it('Unauthenticated user directed to auth', () => {
@@ -21,13 +21,13 @@ context('Sign In', () => {
     Page.verifyOnPage(AuthSignInPage)
   })
 
-  it('User name visible in header', () => {
+  it('User name visible in fallback header', () => {
     cy.signIn()
     const indexPage = Page.verifyOnPage(IndexPage)
     indexPage.headerUserName.should('contain.text', 'J. Smith')
   })
 
-  it('Environment tag visible in header', () => {
+  it('Environment tag visible in fallback header', () => {
     cy.signIn()
     const indexPage = Page.verifyOnPage(IndexPage)
     indexPage.headerEnvironmentTag.should('contain.text', 'Local')
@@ -48,6 +48,23 @@ context('Sign In', () => {
     indexPage.manageDetails.get('a').invoke('removeAttr', 'target')
     indexPage.manageDetails.click()
     Page.verifyOnPage(AuthManageDetailsPage)
+  })
+
+  it('Official sensitive shows in fallback footer', () => {
+    cy.signIn()
+    const indexPage = Page.verifyOnPage(IndexPage)
+    indexPage.footer.should('include.text', 'Official sensitive')
+  })
+
+  it('Frontend components load', () => {
+    cy.signIn()
+    cy.task('stubFrontendComponentsHeaderAndFooter')
+    cy.visit('/')
+    Page.verifyOnPage(IndexPage)
+    cy.get('header').should('have.css', 'background-color', 'rgb(255, 0, 0)')
+    cy.get('footer').should('have.css', 'background-color', 'rgb(255, 255, 0)')
+    cy.window().its('FrontendComponentsHeaderDidLoad').should('be.true')
+    cy.window().its('FrontendComponentsFooterDidLoad').should('be.true')
   })
 
   it('Token verification failure takes user to sign in page', () => {

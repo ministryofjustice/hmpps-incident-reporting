@@ -1,11 +1,12 @@
 /* eslint-disable no-param-reassign */
 import path from 'node:path'
 
-import nunjucks from 'nunjucks'
 import express from 'express'
-import { initialiseName } from './utils'
-import { ApplicationInfo } from '../applicationInfo'
+import nunjucks from 'nunjucks'
+
 import config from '../config'
+import { ApplicationInfo } from '../applicationInfo'
+import { initialiseName } from './utils'
 
 export default function nunjucksSetup(app: express.Express, applicationInfo: ApplicationInfo): void {
   app.set('view engine', 'njk')

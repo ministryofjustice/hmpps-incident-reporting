@@ -17,9 +17,9 @@ export default class FrontendComponentsClient {
 
   getComponent(component: AvailableComponent, userToken: string): Promise<Component> {
     logger.info(`Getting frontend component ${component}`)
-    return FrontendComponentsClient.restClient(userToken).get({
+    return FrontendComponentsClient.restClient(userToken).get<Component>({
       path: `/${component}`,
       headers: { 'x-user-token': userToken },
-    }) as Promise<Component>
+    })
   }
 }

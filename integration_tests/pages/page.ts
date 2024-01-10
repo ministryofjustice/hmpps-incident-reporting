@@ -24,4 +24,8 @@ export default abstract class Page {
   get manageDetails(): PageElement<HTMLAnchorElement> {
     return cy.get('[data-qa=manageDetails]')
   }
+
+  get footer(): PageElement {
+    return cy.get('.govuk-footer')
+  }
 }

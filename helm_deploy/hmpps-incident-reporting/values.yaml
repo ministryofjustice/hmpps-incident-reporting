@@ -2,6 +2,8 @@ generic-service:
   nameOverride: hmpps-incident-reporting
   productId: DPS021
 
+  # serviceAccountName: "hmpps-incident-reporting"
+
   replicaCount: 4
 
   image:
@@ -35,6 +37,9 @@ generic-service:
     REDIS_TLS_ENABLED: "true"
     TOKEN_VERIFICATION_ENABLED: "true"
     APPLICATIONINSIGHTS_CONNECTION_STRING: "InstrumentationKey=$(APPINSIGHTS_INSTRUMENTATIONKEY);IngestionEndpoint=https://northeurope-0.in.applicationinsights.azure.com/;LiveEndpoint=https://northeurope.livediagnostics.monitor.azure.com/"
+    AUDIT_ENABLED: "false"
+    AUDIT_SQS_REGION: "eu-west-2"
+    AUDIT_SERVICE_NAME: "UNASSIGNED"
 
   envFrom:
     - secretRef:
@@ -44,6 +49,9 @@ generic-service:
     elasticache-redis:
       REDIS_HOST: "primary_endpoint_address"
       REDIS_AUTH_TOKEN: "auth_token"
+    # sqs-hmpps-audit-secret:
+    #   AUDIT_SQS_QUEUE_URL: "sqs_queue_url"
+    #   AUDIT_SQS_QUEUE_NAME: "sqs_queue_name"
 
   allowlist:
     groups:

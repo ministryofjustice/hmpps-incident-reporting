@@ -98,7 +98,7 @@
     ]
   },
   "dependencies": {
-    "@aws-sdk/client-sqs": "^3.547.0",
+    "@aws-sdk/client-sqs": "^3.549.0",
     "@ministryofjustice/frontend": "^2.1.2",
     "agentkeepalive": "^4.5.0",
     "applicationinsights": "^2.9.5",

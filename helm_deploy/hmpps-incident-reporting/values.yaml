@@ -24,12 +24,6 @@ generic-service:
     httpGet:
       path: /ping
 
-  custommetrics:
-    enabled: true
-    scrapeInterval: 15s
-    metricsPath: /metrics
-    metricsPort: 3001
-
   env:
     NODE_ENV: "production"
     BUNYAN_NO_COLOR: "1"

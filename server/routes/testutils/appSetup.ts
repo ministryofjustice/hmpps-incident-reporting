@@ -7,15 +7,6 @@ import nunjucksSetup from '../../utils/nunjucksSetup'
 import errorHandler from '../../errorHandler'
 import * as auth from '../../authentication/auth'
 import type { Services } from '../../services'
-import type { ApplicationInfo } from '../../applicationInfo'
-
-const testAppInfo: ApplicationInfo = {
-  applicationName: 'hmpps-incident-reporting',
-  buildNumber: '1',
-  gitRef: '9fb9f708131d3ff0251e0653ac25dc6d28a69247',
-  gitShortHash: '9fb9f70',
-  branchName: 'main',
-}
 
 export const user: Express.User = {
   name: 'FIRST LAST',
@@ -35,7 +26,7 @@ function appSetup(services: Services, production: boolean, userSupplier: () => E
 
   app.set('view engine', 'njk')
 
-  nunjucksSetup(app, testAppInfo)
+  nunjucksSetup(app)
   app.use(cookieSession({ keys: [''] }))
   app.use((req, res, next) => {
     req.user = userSupplier()

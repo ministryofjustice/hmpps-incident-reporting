@@ -1,6 +1,6 @@
 // eslint-disable-next-line max-classes-per-file
 import config from '../config'
-import { convertEventWithBasicReportsDates, toDateString } from './incidentReportingApiUtils'
+import { convertBasicReportDates, convertEventWithBasicReportsDates, toDateString } from './incidentReportingApiUtils'
 import RestClient from './restClient'
 
 /**
@@ -33,6 +33,7 @@ export type Paginated<T> = {
 }
 
 export type PaginatedEventsWithBasicReports = Paginated<EventWithBasicReports>
+export type PaginatedBasicReports = Paginated<ReportBasic>
 
 export type EventWithBasicReports = {
   id: string
@@ -69,11 +70,23 @@ export type ReportBasic = {
 export type ReportType = string
 // TODO: Add enums?
 export type ReportStatus = string
+export type ReportSource = 'DPS' | 'NOMIS'
 
 export type GetEventsParams = {
   prisonId: string
   eventDateFrom: Date // Inclusive
   eventDateUntil: Date // Inclusive
+} & PaginationSortingParams
+
+export type GetReportsParams = {
+  prisonId: string
+  source: ReportSource
+  status: ReportStatus
+  type: ReportType
+  incidentDateFrom: Date // Inclusive
+  incidentDateUntil: Date // Inclusive
+  reportedDateFrom: Date // Inclusive
+  reportedDateUntil: Date // Inclusive
 } & PaginationSortingParams
 
 export type PaginationSortingParams = {
@@ -134,5 +147,85 @@ export class IncidentReportingApi extends RestClient {
     return this.get<DatesAsStrings<EventWithBasicReports>>({
       path: `/incident-events/reference/${reference}`,
     }).then(convertEventWithBasicReportsDates)
+  }
+
+  getReports(
+    {
+      prisonId,
+      source,
+      status,
+      type,
+      incidentDateFrom,
+      incidentDateUntil,
+      reportedDateFrom,
+      reportedDateUntil,
+      page,
+      size,
+      sort,
+    }: Partial<GetReportsParams> = {
+      prisonId: null,
+      source: null,
+      status: null,
+      type: null,
+      incidentDateFrom: null,
+      incidentDateUntil: null,
+      reportedDateFrom: null,
+      reportedDateUntil: null,
+      page: 0,
+      size: 20,
+      sort: ['incidentDateAndTime,DESC'],
+    },
+  ): Promise<PaginatedBasicReports> {
+    const query: Partial<DatesAsStrings<GetReportsParams>> = {
+      page,
+      size,
+      sort,
+    }
+    if (prisonId) {
+      query.prisonId = prisonId
+    }
+    if (source) {
+      query.source = source
+    }
+    if (status) {
+      query.status = status
+    }
+    if (type) {
+      query.type = type
+    }
+    if (incidentDateFrom) {
+      query.incidentDateFrom = toDateString(incidentDateFrom)
+    }
+    if (incidentDateUntil) {
+      query.incidentDateUntil = toDateString(incidentDateUntil)
+    }
+    if (reportedDateFrom) {
+      query.reportedDateFrom = toDateString(reportedDateFrom)
+    }
+    if (reportedDateUntil) {
+      query.reportedDateUntil = toDateString(reportedDateUntil)
+    }
+
+    return this.get<DatesAsStrings<PaginatedBasicReports>>({
+      path: '/incident-reports',
+      query,
+    }).then(response => {
+      return {
+        ...response,
+        content: response.content.map(convertBasicReportDates),
+      }
+    })
+  }
+
+  getReportById(id: string): Promise<ReportBasic> {
+    return this.get<DatesAsStrings<ReportBasic>>({
+      path: `/incident-reports/${id}`,
+    }).then(convertBasicReportDates)
+  }
+
+  getReportByReference(reference: string): Promise<ReportBasic> {
+    return this.get<DatesAsStrings<ReportBasic>>({
+      path: `/incident-reports/reference/${reference}`,
+    }).then(convertBasicReportDates)
   }
 }

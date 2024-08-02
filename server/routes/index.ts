@@ -23,7 +23,12 @@ export default function routes(service: Services): Router {
     const systemToken = await hmppsAuthClient.getSystemClientToken(user.username)
     const incidentReportingApi = new IncidentReportingApi(systemToken)
 
-    const response = await incidentReportingApi.getEvents()
+    const response = await incidentReportingApi.getEvents({
+      prisonId: user.activeCaseLoadId,
+      // eventDateFrom: new Date('2024-07-30'),
+      // eventDateUntil: new Date('2024-07-30'),
+      // sort: ['eventDateAndTime,ASC'],
+    })
 
     res.render('pages/events', { response })
   })

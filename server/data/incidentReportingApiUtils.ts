@@ -19,3 +19,7 @@ export function convertEventWithBasicReportsDates(event: DatesAsStrings<EventWit
     reports: event.reports.map(convertBasicReportDates),
   }
 }
+
+export function toDateString(date: Date): string {
+  return date.toISOString().split('T')[0]
+}

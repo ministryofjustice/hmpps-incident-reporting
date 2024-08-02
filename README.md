@@ -42,12 +42,22 @@ npm run start:dev
 
 This will automatically restart it if server code or front-end assets are modified.
 
+### Using only local services
+
+**TODO:** the environment/settings are not properly set up for this application to work without using external services!
+
 ### Updating dependencies
 
 It’s prudent to periodically update npm dependencies; continuous integration will occasionally warn when it’s needed.
 Renovate (similar to dependabot) is set up to try to upgrade
 npm packages, base docker images, helm charts and CircleCI orbs
 by raising pull requests.
+
+This will attempt update npm packages manually and perform unit tests:
+
+```shell
+npx npm-check-updates --upgrade --doctor
+```
 
 ## Testing
 

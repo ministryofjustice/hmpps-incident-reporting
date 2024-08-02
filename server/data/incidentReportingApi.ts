@@ -113,8 +113,6 @@ export class IncidentReportingApi extends RestClient {
       query.eventDateUntil = toDateString(eventDateUntil)
     }
 
-    console.debug(query)
-
     return this.get<DatesAsStrings<PaginatedEventsWithBasicReports>>({
       path: '/incident-events',
       query,
@@ -124,5 +122,17 @@ export class IncidentReportingApi extends RestClient {
         content: response.content.map(convertEventWithBasicReportsDates),
       }
     })
+  }
+
+  getEventById(id: string): Promise<EventWithBasicReports> {
+    return this.get<DatesAsStrings<EventWithBasicReports>>({
+      path: `/incident-events/${id}`,
+    }).then(convertEventWithBasicReportsDates)
+  }
+
+  getEventByReference(reference: string): Promise<EventWithBasicReports> {
+    return this.get<DatesAsStrings<EventWithBasicReports>>({
+      path: `/incident-events/reference/${reference}`,
+    }).then(convertEventWithBasicReportsDates)
   }
 }

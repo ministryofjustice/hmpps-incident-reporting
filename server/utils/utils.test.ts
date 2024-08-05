@@ -1,4 +1,4 @@
-import { convertToTitleCase, initialiseName } from './utils'
+import { convertToTitleCase, initialiseName, toDateString } from './utils'
 
 describe('convert to title case', () => {
   it.each([
@@ -26,5 +26,12 @@ describe('initialise name', () => {
     ['Double barrelled', 'Robert-John Smith-Jones-Wilson', 'R. Smith-Jones-Wilson'],
   ])('%s initialiseName(%s, %s)', (_: string, a: string, expected: string) => {
     expect(initialiseName(a)).toEqual(expected)
+  })
+})
+
+describe('toDateString()', () => {
+  it('returns a string representing the date component of the Date', () => {
+    const datetime = new Date('2024-07-30T12:34:56')
+    expect(toDateString(datetime)).toEqual('2024-07-30')
   })
 })

@@ -81,7 +81,7 @@ export type ReportWithDetails = ReportBasic & {
   historyOfStatuses: HistoricStatus[]
   staffInvolved: StaffInvolvement[]
   prisonersInvolved: PrisonerInvolvement[]
-  // TODO: correctionRequests
+  correctionRequests: CorrectionRequest[]
 }
 
 // TODO: Add enums?
@@ -95,6 +95,8 @@ export type StaffRole = string
 export type PrisonerRole = string
 // TODO: Add enums?
 export type PrisonerInvolvementOutcome = string
+// TODO: Add enums?
+export type CorrectionRequestReason = string
 
 export type GetEventsParams = {
   prisonId: string
@@ -137,6 +139,13 @@ export type PrisonerInvolvement = {
   prisonerRole: PrisonerRole
   outcome: PrisonerInvolvementOutcome | null
   comment: string | null
+}
+
+export type CorrectionRequest = {
+  reason: CorrectionRequestReason
+  descriptionOfChange: string
+  correctionRequestedBy: string
+  correctionRequestedAt: Date
 }
 
 export class IncidentReportingApi extends RestClient {

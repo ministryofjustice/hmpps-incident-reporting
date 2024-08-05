@@ -2,6 +2,7 @@ import type {
   CorrectionRequest,
   Event,
   EventWithBasicReports,
+  HistoricReport,
   HistoricStatus,
   Question,
   ReportBasic,
@@ -25,6 +26,7 @@ export function convertReportWithDetailsDates(report: DatesAsStrings<ReportWithD
     ...convertBasicReportDates(report),
     event: convertEventDates(report.event),
     questions: report.questions.map(convertQuestionDates),
+    history: report.history.map(convertHistoricReportDates),
     historyOfStatuses: report.historyOfStatuses.map(convertHistoricStatusDates),
     correctionRequests: report.correctionRequests.map(convertCorrectionRequestDates),
   }
@@ -41,7 +43,6 @@ export function convertEventDates(event: DatesAsStrings<Event>): Event {
 
 export function convertEventWithBasicReportsDates(event: DatesAsStrings<EventWithBasicReports>): EventWithBasicReports {
   return {
-    ...event,
     ...convertEventDates(event),
     reports: event.reports.map(convertBasicReportDates),
   }
@@ -58,6 +59,14 @@ export function convertResponseDates(response: DatesAsStrings<Response>): Respon
   return {
     ...response,
     recordedAt: new Date(response.recordedAt),
+  }
+}
+
+export function convertHistoricReportDates(historicReport: DatesAsStrings<HistoricReport>): HistoricReport {
+  return {
+    ...historicReport,
+    changedAt: new Date(historicReport.changedAt),
+    questions: historicReport.questions.map(convertQuestionDates),
   }
 }
 

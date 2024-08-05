@@ -77,7 +77,7 @@ export type ReportBasic = {
 export type ReportWithDetails = ReportBasic & {
   event: Event
   questions: Question[]
-  // TODO: history
+  history: HistoricReport[]
   historyOfStatuses: HistoricStatus[]
   staffInvolved: StaffInvolvement[]
   prisonersInvolved: PrisonerInvolvement[]
@@ -134,6 +134,13 @@ export type Response = {
   recordedBy: string
   recordedAt: Date
   additionalInformation: string | null
+}
+
+export type HistoricReport = {
+  type: ReportType
+  changedAt: Date
+  changedBy: string
+  questions: Question[]
 }
 
 export type HistoricStatus = {

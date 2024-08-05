@@ -3,8 +3,10 @@ import type {
   Event,
   EventWithBasicReports,
   HistoricStatus,
+  Question,
   ReportBasic,
   ReportWithDetails,
+  Response,
 } from './incidentReportingApi'
 
 export function convertBasicReportDates(report: DatesAsStrings<ReportBasic>): ReportBasic {
@@ -22,6 +24,7 @@ export function convertReportWithDetailsDates(report: DatesAsStrings<ReportWithD
     ...report,
     ...convertBasicReportDates(report),
     event: convertEventDates(report.event),
+    questions: report.questions.map(convertQuestionDates),
     historyOfStatuses: report.historyOfStatuses.map(convertHistoricStatusDates),
     correctionRequests: report.correctionRequests.map(convertCorrectionRequestDates),
   }
@@ -41,6 +44,20 @@ export function convertEventWithBasicReportsDates(event: DatesAsStrings<EventWit
     ...event,
     ...convertEventDates(event),
     reports: event.reports.map(convertBasicReportDates),
+  }
+}
+
+export function convertQuestionDates(question: DatesAsStrings<Question>): Question {
+  return {
+    ...question,
+    responses: question.responses.map(convertResponseDates),
+  }
+}
+
+export function convertResponseDates(response: DatesAsStrings<Response>): Response {
+  return {
+    ...response,
+    recordedAt: new Date(response.recordedAt),
   }
 }
 

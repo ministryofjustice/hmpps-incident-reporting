@@ -76,7 +76,7 @@ export type ReportBasic = {
 
 export type ReportWithDetails = ReportBasic & {
   event: Event
-  // TODO: questions
+  questions: Question[]
   // TODO: history
   historyOfStatuses: HistoricStatus[]
   staffInvolved: StaffInvolvement[]
@@ -120,6 +120,20 @@ export type PaginationSortingParams = {
   size: number
   // TODO: Add enums?
   sort: string[]
+}
+
+export type Question = {
+  code: string
+  question: string
+  responses: Response[]
+  additionalInformation: string | null
+}
+
+export type Response = {
+  response: string
+  recordedBy: string
+  recordedAt: Date
+  additionalInformation: string | null
 }
 
 export type HistoricStatus = {

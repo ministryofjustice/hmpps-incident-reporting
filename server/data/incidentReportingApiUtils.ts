@@ -1,4 +1,10 @@
-import type { Event, EventWithBasicReports, ReportBasic, ReportWithDetails } from './incidentReportingApi'
+import type {
+  Event,
+  EventWithBasicReports,
+  HistoricStatus,
+  ReportBasic,
+  ReportWithDetails,
+} from './incidentReportingApi'
 
 export function convertBasicReportDates(report: DatesAsStrings<ReportBasic>): ReportBasic {
   return {
@@ -15,6 +21,7 @@ export function convertReportWithDetailsDates(report: DatesAsStrings<ReportWithD
     ...report,
     ...convertBasicReportDates(report),
     event: convertEventDates(report.event),
+    historyOfStatuses: report.historyOfStatuses.map(convertHistoricStatusDates),
   }
 }
 
@@ -32,5 +39,12 @@ export function convertEventWithBasicReportsDates(event: DatesAsStrings<EventWit
     ...event,
     ...convertEventDates(event),
     reports: event.reports.map(convertBasicReportDates),
+  }
+}
+
+export function convertHistoricStatusDates(historicStatus: DatesAsStrings<HistoricStatus>): HistoricStatus {
+  return {
+    ...historicStatus,
+    changedAt: new Date(historicStatus.changedAt),
   }
 }

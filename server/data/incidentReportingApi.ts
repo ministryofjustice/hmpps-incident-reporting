@@ -78,7 +78,7 @@ export type ReportWithDetails = ReportBasic & {
   event: Event
   // TODO: questions
   // TODO: history
-  // TODO: historyOfStatuses
+  historyOfStatuses: HistoricStatus[]
   // TODO: staffInvolved
   // TODO: prisonersInvolved
   // TODO: correctionRequests
@@ -112,6 +112,12 @@ export type PaginationSortingParams = {
   size: number
   // TODO: Add enums?
   sort: string[]
+}
+
+export type HistoricStatus = {
+  status: ReportStatus
+  changedAt: Date
+  changedBy: string
 }
 
 export class IncidentReportingApi extends RestClient {

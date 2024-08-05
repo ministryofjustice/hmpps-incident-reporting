@@ -1,7 +1,11 @@
 // eslint-disable-next-line max-classes-per-file
 import config from '../config'
 import { toDateString } from '../utils/utils'
-import { convertBasicReportDates, convertEventWithBasicReportsDates } from './incidentReportingApiUtils'
+import {
+  convertBasicReportDates,
+  convertEventWithBasicReportsDates,
+  convertReportWithDetailsDates,
+} from './incidentReportingApiUtils'
 import RestClient from './restClient'
 
 /**
@@ -36,7 +40,7 @@ export type Paginated<T> = {
 export type PaginatedEventsWithBasicReports = Paginated<EventWithBasicReports>
 export type PaginatedBasicReports = Paginated<ReportBasic>
 
-export type EventWithBasicReports = {
+export type Event = {
   id: string
   eventReference: string
   eventDateAndTime: Date
@@ -46,6 +50,9 @@ export type EventWithBasicReports = {
   createdAt: Date
   modifiedAt: Date
   modifiedBy: string
+}
+
+export type EventWithBasicReports = Event & {
   reports: ReportBasic[]
 }
 
@@ -65,6 +72,16 @@ export type ReportBasic = {
   modifiedAt: Date
   modifiedBy: string
   createdInNomis: boolean
+}
+
+export type ReportWithDetails = ReportBasic & {
+  event: Event
+  // TODO: questions
+  // TODO: history
+  // TODO: historyOfStatuses
+  // TODO: staffInvolved
+  // TODO: prisonersInvolved
+  // TODO: correctionRequests
 }
 
 // TODO: Add enums?
@@ -228,5 +245,17 @@ export class IncidentReportingApi extends RestClient {
     return this.get<DatesAsStrings<ReportBasic>>({
       path: `/incident-reports/reference/${reference}`,
     }).then(convertBasicReportDates)
+  }
+
+  getReportWithDetailsById(id: string): Promise<ReportWithDetails> {
+    return this.get<DatesAsStrings<ReportWithDetails>>({
+      path: `/incident-reports/${id}/with-details`,
+    }).then(convertReportWithDetailsDates)
+  }
+
+  getReportWithDetailsByReference(reference: string): Promise<ReportWithDetails> {
+    return this.get<DatesAsStrings<ReportWithDetails>>({
+      path: `/incident-reports/reference/${reference}/with-details`,
+    }).then(convertReportWithDetailsDates)
   }
 }

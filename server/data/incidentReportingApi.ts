@@ -1,6 +1,7 @@
 // eslint-disable-next-line max-classes-per-file
 import config from '../config'
-import { convertBasicReportDates, convertEventWithBasicReportsDates, toDateString } from './incidentReportingApiUtils'
+import { toDateString } from '../utils/utils'
+import { convertBasicReportDates, convertEventWithBasicReportsDates } from './incidentReportingApiUtils'
 import RestClient from './restClient'
 
 /**

@@ -212,13 +212,13 @@ export class IncidentReportingApi extends RestClient {
 
   getEventById(id: string): Promise<EventWithBasicReports> {
     return this.get<DatesAsStrings<EventWithBasicReports>>({
-      path: `/incident-events/${id}`,
+      path: `/incident-events/${encodeURIComponent(id)}`,
     }).then(convertEventWithBasicReportsDates)
   }
 
   getEventByReference(reference: string): Promise<EventWithBasicReports> {
     return this.get<DatesAsStrings<EventWithBasicReports>>({
-      path: `/incident-events/reference/${reference}`,
+      path: `/incident-events/reference/${encodeURIComponent(reference)}`,
     }).then(convertEventWithBasicReportsDates)
   }
 
@@ -292,25 +292,25 @@ export class IncidentReportingApi extends RestClient {
 
   getReportById(id: string): Promise<ReportBasic> {
     return this.get<DatesAsStrings<ReportBasic>>({
-      path: `/incident-reports/${id}`,
+      path: `/incident-reports/${encodeURIComponent(id)}`,
     }).then(convertBasicReportDates)
   }
 
   getReportByReference(reference: string): Promise<ReportBasic> {
     return this.get<DatesAsStrings<ReportBasic>>({
-      path: `/incident-reports/reference/${reference}`,
+      path: `/incident-reports/reference/${encodeURIComponent(reference)}`,
     }).then(convertBasicReportDates)
   }
 
   getReportWithDetailsById(id: string): Promise<ReportWithDetails> {
     return this.get<DatesAsStrings<ReportWithDetails>>({
-      path: `/incident-reports/${id}/with-details`,
+      path: `/incident-reports/${encodeURIComponent(id)}/with-details`,
     }).then(convertReportWithDetailsDates)
   }
 
   getReportWithDetailsByReference(reference: string): Promise<ReportWithDetails> {
     return this.get<DatesAsStrings<ReportWithDetails>>({
-      path: `/incident-reports/reference/${reference}/with-details`,
+      path: `/incident-reports/reference/${encodeURIComponent(reference)}/with-details`,
     }).then(convertReportWithDetailsDates)
   }
 }

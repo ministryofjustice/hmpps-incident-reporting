@@ -1,4 +1,14 @@
-import type { EventWithBasicReports, ReportBasic } from './incidentReportingApi'
+import type {
+  CorrectionRequest,
+  Event,
+  EventWithBasicReports,
+  HistoricReport,
+  HistoricStatus,
+  Question,
+  ReportBasic,
+  ReportWithDetails,
+  Response,
+} from './incidentReportingApi'
 
 export function convertBasicReportDates(report: DatesAsStrings<ReportBasic>): ReportBasic {
   return {
@@ -10,12 +20,66 @@ export function convertBasicReportDates(report: DatesAsStrings<ReportBasic>): Re
   }
 }
 
-export function convertEventWithBasicReportsDates(event: DatesAsStrings<EventWithBasicReports>): EventWithBasicReports {
+export function convertReportWithDetailsDates(report: DatesAsStrings<ReportWithDetails>): ReportWithDetails {
+  return {
+    ...report,
+    ...convertBasicReportDates(report),
+    event: convertEventDates(report.event),
+    questions: report.questions.map(convertQuestionDates),
+    history: report.history.map(convertHistoricReportDates),
+    historyOfStatuses: report.historyOfStatuses.map(convertHistoricStatusDates),
+    correctionRequests: report.correctionRequests.map(convertCorrectionRequestDates),
+  }
+}
+
+export function convertEventDates(event: DatesAsStrings<Event>): Event {
   return {
     ...event,
     eventDateAndTime: new Date(event.eventDateAndTime),
     createdAt: new Date(event.createdAt),
     modifiedAt: new Date(event.modifiedAt),
+  }
+}
+
+export function convertEventWithBasicReportsDates(event: DatesAsStrings<EventWithBasicReports>): EventWithBasicReports {
+  return {
+    ...convertEventDates(event),
     reports: event.reports.map(convertBasicReportDates),
+  }
+}
+
+export function convertQuestionDates(question: DatesAsStrings<Question>): Question {
+  return {
+    ...question,
+    responses: question.responses.map(convertResponseDates),
+  }
+}
+
+export function convertResponseDates(response: DatesAsStrings<Response>): Response {
+  return {
+    ...response,
+    recordedAt: new Date(response.recordedAt),
+  }
+}
+
+export function convertHistoricReportDates(historicReport: DatesAsStrings<HistoricReport>): HistoricReport {
+  return {
+    ...historicReport,
+    changedAt: new Date(historicReport.changedAt),
+    questions: historicReport.questions.map(convertQuestionDates),
+  }
+}
+
+export function convertHistoricStatusDates(historicStatus: DatesAsStrings<HistoricStatus>): HistoricStatus {
+  return {
+    ...historicStatus,
+    changedAt: new Date(historicStatus.changedAt),
+  }
+}
+
+export function convertCorrectionRequestDates(correctionRequest: DatesAsStrings<CorrectionRequest>): CorrectionRequest {
+  return {
+    ...correctionRequest,
+    correctionRequestedAt: new Date(correctionRequest.correctionRequestedAt),
   }
 }

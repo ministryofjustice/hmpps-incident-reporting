@@ -1,7 +1,11 @@
 // eslint-disable-next-line max-classes-per-file
 import config from '../config'
 import { toDateString } from '../utils/utils'
-import { convertBasicReportDates, convertEventWithBasicReportsDates } from './incidentReportingApiUtils'
+import {
+  convertBasicReportDates,
+  convertEventWithBasicReportsDates,
+  convertReportWithDetailsDates,
+} from './incidentReportingApiUtils'
 import RestClient from './restClient'
 
 /**
@@ -36,7 +40,7 @@ export type Paginated<T> = {
 export type PaginatedEventsWithBasicReports = Paginated<EventWithBasicReports>
 export type PaginatedBasicReports = Paginated<ReportBasic>
 
-export type EventWithBasicReports = {
+export type Event = {
   id: string
   eventReference: string
   eventDateAndTime: Date
@@ -46,6 +50,9 @@ export type EventWithBasicReports = {
   createdAt: Date
   modifiedAt: Date
   modifiedBy: string
+}
+
+export type EventWithBasicReports = Event & {
   reports: ReportBasic[]
 }
 
@@ -60,11 +67,21 @@ export type ReportBasic = {
   reportedBy: string
   reportedAt: Date
   status: ReportStatus
-  assignedTo: string
+  assignedTo: string | null
   createdAt: Date
   modifiedAt: Date
   modifiedBy: string
   createdInNomis: boolean
+}
+
+export type ReportWithDetails = ReportBasic & {
+  event: Event
+  questions: Question[]
+  history: HistoricReport[]
+  historyOfStatuses: HistoricStatus[]
+  staffInvolved: StaffInvolvement[]
+  prisonersInvolved: PrisonerInvolvement[]
+  correctionRequests: CorrectionRequest[]
 }
 
 // TODO: Add enums?
@@ -72,6 +89,14 @@ export type ReportType = string
 // TODO: Add enums?
 export type ReportStatus = string
 export type ReportSource = 'DPS' | 'NOMIS'
+// TODO: Add enums?
+export type StaffRole = string
+// TODO: Add enums?
+export type PrisonerRole = string
+// TODO: Add enums?
+export type PrisonerInvolvementOutcome = string
+// TODO: Add enums?
+export type CorrectionRequestReason = string
 
 export type GetEventsParams = {
   prisonId: string
@@ -95,6 +120,53 @@ export type PaginationSortingParams = {
   size: number
   // TODO: Add enums?
   sort: string[]
+}
+
+export type Question = {
+  code: string
+  question: string
+  responses: Response[]
+  additionalInformation: string | null
+}
+
+export type Response = {
+  response: string
+  recordedBy: string
+  recordedAt: Date
+  additionalInformation: string | null
+}
+
+export type HistoricReport = {
+  type: ReportType
+  changedAt: Date
+  changedBy: string
+  questions: Question[]
+}
+
+export type HistoricStatus = {
+  status: ReportStatus
+  changedAt: Date
+  changedBy: string
+}
+
+export type StaffInvolvement = {
+  staffUsername: string
+  staffRole: StaffRole
+  comment: string | null
+}
+
+export type PrisonerInvolvement = {
+  prisonerNumber: string
+  prisonerRole: PrisonerRole
+  outcome: PrisonerInvolvementOutcome | null
+  comment: string | null
+}
+
+export type CorrectionRequest = {
+  reason: CorrectionRequestReason
+  descriptionOfChange: string
+  correctionRequestedBy: string
+  correctionRequestedAt: Date
 }
 
 export class IncidentReportingApi extends RestClient {
@@ -140,13 +212,13 @@ export class IncidentReportingApi extends RestClient {
 
   getEventById(id: string): Promise<EventWithBasicReports> {
     return this.get<DatesAsStrings<EventWithBasicReports>>({
-      path: `/incident-events/${id}`,
+      path: `/incident-events/${encodeURIComponent(id)}`,
     }).then(convertEventWithBasicReportsDates)
   }
 
   getEventByReference(reference: string): Promise<EventWithBasicReports> {
     return this.get<DatesAsStrings<EventWithBasicReports>>({
-      path: `/incident-events/reference/${reference}`,
+      path: `/incident-events/reference/${encodeURIComponent(reference)}`,
     }).then(convertEventWithBasicReportsDates)
   }
 
@@ -220,13 +292,25 @@ export class IncidentReportingApi extends RestClient {
 
   getReportById(id: string): Promise<ReportBasic> {
     return this.get<DatesAsStrings<ReportBasic>>({
-      path: `/incident-reports/${id}`,
+      path: `/incident-reports/${encodeURIComponent(id)}`,
     }).then(convertBasicReportDates)
   }
 
   getReportByReference(reference: string): Promise<ReportBasic> {
     return this.get<DatesAsStrings<ReportBasic>>({
-      path: `/incident-reports/reference/${reference}`,
+      path: `/incident-reports/reference/${encodeURIComponent(reference)}`,
     }).then(convertBasicReportDates)
+  }
+
+  getReportWithDetailsById(id: string): Promise<ReportWithDetails> {
+    return this.get<DatesAsStrings<ReportWithDetails>>({
+      path: `/incident-reports/${encodeURIComponent(id)}/with-details`,
+    }).then(convertReportWithDetailsDates)
+  }
+
+  getReportWithDetailsByReference(reference: string): Promise<ReportWithDetails> {
+    return this.get<DatesAsStrings<ReportWithDetails>>({
+      path: `/incident-reports/reference/${encodeURIComponent(reference)}/with-details`,
+    }).then(convertReportWithDetailsDates)
   }
 }

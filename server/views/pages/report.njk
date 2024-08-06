@@ -4,6 +4,7 @@
 {% set mainClasses = "app-container govuk-body" %}
 {% block content %}
   <h1>Report '{{ report.title }}'</h1>
+
   {{ govukTable({
   caption: "Report details",
   captionClasses: "govuk-table__caption--m",
@@ -67,12 +68,64 @@
     ]
   ]
 }) }}
-  <strong>TODO</strong>
-  {%- for question in report.questions -%}
-    {{ question.question }}
-  {%- endfor -%}
-  {# DEBUG #}
-  <pre>
-    {{ report | dump(2) }}
-  </pre>
+
+  <h2>Prisoners involved</h2>
+  {%- if report.prisonersInvolved.length > 0 -%}
+    <ul>
+      {%- for prisonerInvolved in report.prisonersInvolved -%}
+        <li>{{ prisonerInvolved.prisonerNumber }} ({{ prisonerInvolved.prisonerRole }})</li>
+      {%- endfor -%}
+    </ul>
+  {%- else -%}
+    No prisoners involved.
+  {%- endif -%}
+
+  <h2>Staff involved</h2>
+  {%- if report.staffInvolved.length > 0 -%}
+    <ul>
+      {%- for staffInvolved in report.staffInvolved -%}
+        <li>{{ staffInvolved.staffUsername }} ({{ staffInvolved.staffRole }})</li>
+      {%- endfor -%}
+    </ul>
+  {%- else -%}
+    No staff involved.
+  {%- endif -%}
+
+  <h2>Responses</h2>
+  {%- if report.questions.length > 0 -%}
+      {%- set questionsRows = [] -%}
+      {%- for question in report.questions -%}
+        {%- if question.responses.length > 0 -%}
+          {%- set responses = question.responses | join('<br />', "response") -%}
+        {%- else -%}
+          {%- set responses = 'Not answered' -%}
+        {%- endif -%}
+
+        {# Rows of questions (with their responses) #}
+        {%- set questionsRows = (questionsRows.push([
+          {text: question.question},
+          {html: responses }
+        ]), questionsRows) -%}
+      {%- endfor -%}
+
+    {{ govukTable({
+        caption: "",
+        captionClasses: "govuk-table__caption--m",
+        firstCellIsHeader: true,
+        rows: questionsRows
+       }) }}
+  {%- else -%}
+    No responses.
+  {%- endif -%}
+
+  <h2>Correction requests</h2>
+  {%- if report.correctionRequests.length > 0 -%}
+    <ul>
+      {%- for correctionRequests in report.correctionRequests -%}
+        <li>{{ correctionRequest.reason }} ({{ correctionRequest.descriptionOfChange }})</li>
+      {%- endfor -%}
+    </ul>
+  {%- else -%}
+    No correction requests.
+  {%- endif -%}
 {% endblock %}

@@ -1,0 +1,96 @@
+{% extends "../partials/layout.njk" %}
+{% from "govuk/components/table/macro.njk" import govukTable %}
+{% set pageTitle = applicationName + " - Incident" %}
+{% set mainClasses = "app-container govuk-body" %}
+{% block content %}
+  <h1>Incident '{{ event.title }}'</h1>
+  {{ govukTable({
+  caption: "Incident details",
+  captionClasses: "govuk-table__caption--m",
+  firstCellIsHeader: true,
+  rows: [
+    [
+      {
+        text: "Title"
+      },
+      {
+        text: event.title
+      }
+    ],
+    [
+      {
+        text: "Reference"
+      },
+      {
+        text: event.eventReference
+      }
+    ],
+    [
+      {
+        text: "When occurred"
+      },
+      {
+        text: event.eventDateAndTime
+      }
+    ],
+    [
+      {
+        text: "Description"
+      },
+      {
+        text: event.description
+      }
+    ]
+  ]
+}) }}
+  {%- for report in event.reports -%}
+    <h2>{{ report.type }} Report</h2>
+    {{ govukTable({
+  caption: "Report details",
+  captionClasses: "govuk-table__caption--m",
+  firstCellIsHeader: true,
+  rows: [
+    [
+      {
+        text: "Reference"
+      },
+      {
+        text: report.reportReference
+      }
+    ],
+    [
+      {
+        text: "When reported"
+      },
+      {
+        text: report.reportedAt
+      }
+    ],
+    [
+      {
+        text: "Reported by"
+      },
+      {
+        text: report.reportedBy
+      }
+    ],
+    [
+      {
+        text: "Status"
+      },
+      {
+        text: report.status
+      }
+    ],
+    [
+      {
+        text: "Created in NOMIS?"
+      },
+      {
+        text: report.createdInNomis
+      }
+    ]
+  ]
+}) }}
+  {%- endfor -%}
+{% endblock %}

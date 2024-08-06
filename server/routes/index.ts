@@ -6,6 +6,7 @@ import HmppsAuthClient from '../data/hmppsAuthClient'
 import RedisTokenStore from '../data/tokenStore/redisTokenStore'
 import { createRedisClient } from '../data/redisClient'
 import { IncidentReportingApi } from '../data/incidentReportingApi'
+import config from '../config'
 
 const hmppsAuthClient = new HmppsAuthClient(new RedisTokenStore(createRedisClient()))
 
@@ -29,6 +30,11 @@ export default function routes(service: Services): Router {
       // eventDateUntil: new Date('2024-07-30'),
       // sort: ['eventDateAndTime,ASC'],
     })
+
+    // No authorisation at this point, no data shown in production
+    if (config.environment === 'prod') {
+      response.content = []
+    }
 
     res.render('pages/events', { response })
   })

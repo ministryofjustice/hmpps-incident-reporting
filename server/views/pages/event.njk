@@ -45,6 +45,14 @@
 }) }}
   {%- for report in event.reports -%}
     <h2>{{ report.type }} Report</h2>
+    {% set reportLink %}
+    <a href="/report/{{ report.id }}">
+      <span class="govuk-visually-hidden">
+        View report details
+      </span>
+      {{ report.reportReference }}
+    </a>
+    {% endset %}
     {{ govukTable({
   caption: "Report details",
   captionClasses: "govuk-table__caption--m",
@@ -55,7 +63,7 @@
         text: "Reference"
       },
       {
-        text: report.reportReference
+        html: reportLink
       }
     ],
     [

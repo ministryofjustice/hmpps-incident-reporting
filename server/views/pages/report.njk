@@ -1,0 +1,78 @@
+{% extends "../partials/layout.njk" %}
+{% from "govuk/components/table/macro.njk" import govukTable %}
+{% set pageTitle = applicationName + " - Report" %}
+{% set mainClasses = "app-container govuk-body" %}
+{% block content %}
+  <h1>Report '{{ report.title }}'</h1>
+  {{ govukTable({
+  caption: "Report details",
+  captionClasses: "govuk-table__caption--m",
+  firstCellIsHeader: true,
+  rows: [
+    [
+      {
+        text: "Type"
+      },
+      {
+        text: report.type
+      }
+    ],
+    [
+      {
+        text: "Title"
+      },
+      {
+        text: report.title
+      }
+    ],
+    [
+      {
+        text: "Reference"
+      },
+      {
+        text: report.reportReference
+      }
+    ],
+    [
+      {
+        text: "Status"
+      },
+      {
+        text: report.status
+      }
+    ],
+    [
+      {
+        text: "When reported"
+      },
+      {
+        text: report.reportedAt
+      }
+    ],
+    [
+      {
+        text: "Reported by"
+      },
+      {
+        text: report.reportedBy
+      }
+    ],
+    [
+      {
+        text: "Description"
+      },
+      {
+        text: report.description
+      }
+    ]
+  ]
+}) }}
+  <strong>TODO</strong>
+  {%- for question in report.questions -%}
+    {{ question.question }}
+  {%- endfor -%}
+  {# DEBUG #}
+  <pre>
+    {{ report | dump(2) }}
+  </pre>
+{% endblock %}

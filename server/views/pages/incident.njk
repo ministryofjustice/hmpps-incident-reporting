@@ -4,6 +4,7 @@
 {% set mainClasses = "app-container govuk-body" %}
 {% block content %}
   <h1>Incident '{{ event.title }}'</h1>
+
   {{ govukTable({
   caption: "Incident details",
   captionClasses: "govuk-table__caption--m",
@@ -42,63 +43,66 @@
       }
     ]
   ]
-}) }}
+  }) }}
+
   {%- for report in event.reports -%}
     <h2>{{ report.type }} Report</h2>
+
     {% set reportLink %}
-    <a href="/report/{{ report.id }}">
-      <span class="govuk-visually-hidden">
-        View report details
-      </span>
-      {{ report.reportReference }}
-    </a>
+      <a href="/report/{{ report.id }}">
+        <span class="govuk-visually-hidden">
+          View report details
+        </span>
+        {{ report.reportReference }}
+      </a>
     {% endset %}
+
     {{ govukTable({
-  caption: "Report details",
-  captionClasses: "govuk-table__caption--m",
-  firstCellIsHeader: true,
-  rows: [
-    [
-      {
-        text: "Reference"
-      },
-      {
-        html: reportLink
-      }
-    ],
-    [
-      {
-        text: "When reported"
-      },
-      {
-        text: report.reportedAt
-      }
-    ],
-    [
-      {
-        text: "Reported by"
-      },
-      {
-        text: report.reportedBy
-      }
-    ],
-    [
-      {
-        text: "Status"
-      },
-      {
-        text: report.status
-      }
-    ],
-    [
-      {
-        text: "Created in NOMIS?"
-      },
-      {
-        text: report.createdInNomis
-      }
-    ]
-  ]
-}) }}
+      caption: "Report details",
+      captionClasses: "govuk-table__caption--m",
+      firstCellIsHeader: true,
+      rows: [
+        [
+          {
+            text: "Reference"
+          },
+          {
+            html: reportLink
+          }
+        ],
+        [
+          {
+            text: "When reported"
+          },
+          {
+            text: report.reportedAt
+          }
+        ],
+        [
+          {
+            text: "Reported by"
+          },
+          {
+            text: report.reportedBy
+          }
+        ],
+        [
+          {
+            text: "Status"
+          },
+          {
+            text: report.status
+          }
+        ],
+        [
+          {
+            text: "Created in NOMIS?"
+          },
+          {
+            text: report.createdInNomis
+          }
+        ]
+      ]
+    }) }}
   {%- endfor -%}
 {% endblock %}

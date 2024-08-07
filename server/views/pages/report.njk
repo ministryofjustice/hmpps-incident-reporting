@@ -67,7 +67,7 @@
       }
     ]
   ]
-}) }}
+  }) }}
 
   <h2>Prisoners involved</h2>
   {%- if report.prisonersInvolved.length > 0 -%}
@@ -93,27 +93,27 @@
 
   <h2>Responses</h2>
   {%- if report.questions.length > 0 -%}
-      {%- set questionsRows = [] -%}
-      {%- for question in report.questions -%}
-        {%- if question.responses.length > 0 -%}
-          {%- set responses = question.responses | join('<br />', "response") -%}
-        {%- else -%}
-          {%- set responses = 'Not answered' -%}
-        {%- endif -%}
+    {%- set questionsRows = [] -%}
+    {%- for question in report.questions -%}
+      {%- if question.responses.length > 0 -%}
+        {%- set responses = question.responses | join('<br />', "response") -%}
+      {%- else -%}
+        {%- set responses = 'Not answered' -%}
+      {%- endif -%}
 
-        {# Rows of questions (with their responses) #}
-        {%- set questionsRows = (questionsRows.push([
-          {text: question.question},
-          {html: responses }
-        ]), questionsRows) -%}
-      {%- endfor -%}
+      {# Rows of questions (with their responses) #}
+      {%- set questionsRows = (questionsRows.push([
+        { text: question.question },
+        { html: responses }
+      ]), questionsRows) -%}
+    {%- endfor -%}
 
     {{ govukTable({
         caption: "",
         captionClasses: "govuk-table__caption--m",
         firstCellIsHeader: true,
         rows: questionsRows
-       }) }}
+    }) }}
   {%- else -%}
     No responses.
   {%- endif -%}
@@ -122,7 +122,9 @@
   {%- if report.correctionRequests.length > 0 -%}
     <ul>
       {%- for correctionRequests in report.correctionRequests -%}
-        <li>{{ correctionRequest.reason }} ({{ correctionRequest.descriptionOfChange }})</li>
+        <li>
+          {{ correctionRequest.reason }} ({{ correctionRequest.descriptionOfChange }})
+        </li>
       {%- endfor -%}
     </ul>
   {%- else -%}

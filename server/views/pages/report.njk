@@ -73,7 +73,14 @@
   {%- if report.prisonersInvolved.length > 0 -%}
     <ul>
       {%- for prisonerInvolved in report.prisonersInvolved -%}
-        <li>{{ prisonerInvolved.prisonerNumber }} ({{ prisonerInvolved.prisonerRole }})</li>
+        <li>
+          {{ prisonerInvolved.prisonerNumber }} ({{ prisonerInvolved.prisonerRole }}) -
+          {% if prisonerInvolved.outcome %}
+            Outcome: {{ prisonerInvolved.outcome }}
+          {% else %}
+            No outcome
+          {% endif %}
+        </li>
       {%- endfor -%}
     </ul>
   {%- else -%}

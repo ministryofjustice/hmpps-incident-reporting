@@ -74,7 +74,10 @@
     <ul>
       {%- for prisonerInvolved in report.prisonersInvolved -%}
         <li>
-          {{ prisonerInvolved.prisonerNumber }} ({{ prisonerInvolved.prisonerRole }}) -
+          <a href="{{ dpsUrl }}/prisoner/{{ prisonerInvolved.prisonerNumber }}">
+            {{ prisonerInvolved.prisonerNumber }}
+          </a>
+          ({{ prisonerInvolved.prisonerRole }}) -
           {% if prisonerInvolved.outcome %}
             Outcome: {{ prisonerInvolved.outcome }}
           {% else %}

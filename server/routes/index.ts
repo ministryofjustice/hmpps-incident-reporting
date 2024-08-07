@@ -1,4 +1,5 @@
 import { type RequestHandler, Router } from 'express'
+import { NotFound } from 'http-errors'
 
 import asyncMiddleware from '../middleware/asyncMiddleware'
 import type { Services } from '../services'
@@ -37,6 +38,40 @@ export default function routes(service: Services): Router {
     }
 
     res.render('pages/events', { response })
+  })
+
+  get('/incident/:id', async (req, res, next) => {
+    const { id } = req.params
+
+    const { user } = res.locals
+    const systemToken = await hmppsAuthClient.getSystemClientToken(user.username)
+    const incidentReportingApi = new IncidentReportingApi(systemToken)
+
+    // No authorisation at this point, no data shown in production
+    if (config.environment === 'prod') {
+      throw new NotFound()
+    }
+
+    const event = await incidentReportingApi.getEventById(id)
+
+    res.render('pages/incident', { event })
+  })
+
+  get('/report/:id', async (req, res, next) => {
+    const { id } = req.params
+
+    const { user } = res.locals
+    const systemToken = await hmppsAuthClient.getSystemClientToken(user.username)
+    const incidentReportingApi = new IncidentReportingApi(systemToken)
+
+    // No authorisation at this point, no data shown in production
+    if (config.environment === 'prod') {
+      throw new NotFound()
+    }
+
+    const report = await incidentReportingApi.getReportWithDetailsById(id)
+
+    res.render('pages/report', { report })
   })
 
   return router

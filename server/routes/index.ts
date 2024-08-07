@@ -40,7 +40,7 @@ export default function routes(service: Services): Router {
     res.render('pages/events', { response })
   })
 
-  get('/event/:id', async (req, res, next) => {
+  get('/incident/:id', async (req, res, next) => {
     const { id } = req.params
 
     const { user } = res.locals
@@ -54,7 +54,7 @@ export default function routes(service: Services): Router {
 
     const event = await incidentReportingApi.getEventById(id)
 
-    res.render('pages/event', { event })
+    res.render('pages/incident', { event })
   })
 
   get('/report/:id', async (req, res, next) => {

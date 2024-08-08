@@ -42,6 +42,11 @@ function gatherCheckInfo(aggregateStatus: Record<string, unknown>, currentStatus
 }
 
 const apiChecks = [
+  service(
+    'incidentReportingApi',
+    `${config.apis.hmppsIncidentReportingApi.url}/health/ping`,
+    config.apis.hmppsIncidentReportingApi.agent,
+  ),
   service('hmppsAuth', `${config.apis.hmppsAuth.url}/health/ping`, config.apis.hmppsAuth.agent),
   service('manageUsersApi', `${config.apis.manageUsersApi.url}/health/ping`, config.apis.manageUsersApi.agent),
   ...(config.apis.tokenVerification.enabled

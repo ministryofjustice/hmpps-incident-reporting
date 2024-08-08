@@ -31,7 +31,7 @@
         text: "When occurred"
       },
       {
-        text: event.eventDateAndTime
+        text: event.eventDateAndTime | dateAndTime
       }
     ],
     [
@@ -75,7 +75,7 @@
             text: "When reported"
           },
           {
-            text: report.reportedAt
+            text: report.reportedAt | dateAndTime
           }
         ],
         [

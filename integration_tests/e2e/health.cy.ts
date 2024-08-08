@@ -2,6 +2,7 @@ context('Healthcheck', () => {
   context('All healthy', () => {
     beforeEach(() => {
       cy.task('reset')
+      cy.task('stubIncidentReportingApiPing')
       cy.task('stubAuthPing')
       cy.task('stubManageUsersPing')
       cy.task('stubTokenVerificationPing')
@@ -23,6 +24,7 @@ context('Healthcheck', () => {
   context('Some unhealthy', () => {
     beforeEach(() => {
       cy.task('reset')
+      cy.task('stubIncidentReportingApiPing')
       cy.task('stubAuthPing')
       cy.task('stubManageUsersPing')
       cy.task('stubTokenVerificationPing', 500)
@@ -30,6 +32,7 @@ context('Healthcheck', () => {
 
     it('Reports correctly when token verification down', () => {
       cy.request({ url: '/health', method: 'GET', failOnStatusCode: false }).then(response => {
+        expect(response.body.components.incidentReportingApi.status).to.equal('UP')
         expect(response.body.components.hmppsAuth.status).to.equal('UP')
         expect(response.body.components.manageUsersApi.status).to.equal('UP')
         expect(response.body.components.tokenVerification.status).to.equal('DOWN')

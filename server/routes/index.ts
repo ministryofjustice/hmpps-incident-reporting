@@ -8,8 +8,9 @@ import RedisTokenStore from '../data/tokenStore/redisTokenStore'
 import { createRedisClient } from '../data/redisClient'
 import { IncidentReportingApi } from '../data/incidentReportingApi'
 import config from '../config'
-import ManageUsersApiClient, { type User } from '../data/manageUsersApiClient'
+import ManageUsersApiClient from '../data/manageUsersApiClient'
 import { makeUsernameLookup } from '../utils/utils'
+import { OffenderSearchApi } from '../data/offenderSearchApi'
 
 const hmppsAuthClient = new HmppsAuthClient(new RedisTokenStore(createRedisClient()))
 
@@ -54,16 +55,19 @@ export default function routes(service: Services): Router {
     const systemToken = await hmppsAuthClient.getSystemClientToken(user.username)
     const incidentReportingApi = new IncidentReportingApi(systemToken)
     const manageUsersApiClient = new ManageUsersApiClient()
+    const offenderSearchApi = new OffenderSearchApi(systemToken)
 
     // No authorisation at this point, no data shown in production
     if (config.environment === 'prod') {
       throw new NotFound()
     }
 
-    const report = await incidentReportingApi.getReportWithDetailsById(id)
+    const report = await incidentReportingApi.getReportWithDetailsById(id
     const reportedBy = (await manageUsersApiClient.getNamedUser(systemToken, report.reportedBy))?.name
+    const prisonerNumbers = report.prisonersInvolved.map(pi => pi.prisonerNumber)
+    const prisonersLookup = await offenderSearchApi.getPrisoners(prisonerNumbers)
 
-    res.render('pages/report', { report, reportedBy })
+    res.render('pages/report', { report, prisonersLookup, reportedBy })
   })
 
   get('/incidents', async (req, res, next) => {

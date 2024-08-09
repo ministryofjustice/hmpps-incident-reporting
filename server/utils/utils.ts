@@ -1,3 +1,5 @@
+import ManageUsersApiClient from '../data/manageUsersApiClient'
+
 const properCase = (word: string): string =>
   word.length >= 1 ? word[0].toUpperCase() + word.toLowerCase().slice(1) : word
 
@@ -24,4 +26,25 @@ export const initialiseName = (fullName?: string): string | null => {
 
 export function toDateString(date: Date): string {
   return date.toISOString().split('T')[0]
+}
+
+/**
+ * Creates a lookup containing unique (username: user's name) pairs to replace usernames with the user's name in templates
+ * @param manageUsersApi the API client for the manage users service to retrieve user information.
+ * @param systemToken the system token to use to access the API client.
+ * @param usernameSet Array containing all usernames that is required for the lookup
+ * @returns Object containing key:value pairs where the system username is the key and the corresponding user's name is the value
+ */
+export async function makeUsernameLookup(
+  manageUsersApi: ManageUsersApiClient,
+  systemToken: string,
+  usernameList: Array<string>,
+): Promise<Record<string, string>> {
+  const uniqueUsernames = [...new Set(usernameList)]
+  const users = [
+    ...(await Promise.allSettled(uniqueUsernames.map(username => manageUsersApi.getNamedUser(systemToken, username))))
+      .map(promise => (promise.status === 'fulfilled' ? promise.value : null))
+      .filter(user => user),
+  ]
+  return users.reduce((prev, user) => ({ ...prev, [user.username]: user.name }), {})
 }

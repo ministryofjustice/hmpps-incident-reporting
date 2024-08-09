@@ -8,6 +8,8 @@ import RedisTokenStore from '../data/tokenStore/redisTokenStore'
 import { createRedisClient } from '../data/redisClient'
 import { IncidentReportingApi } from '../data/incidentReportingApi'
 import config from '../config'
+import ManageUsersApiClient, { type User } from '../data/manageUsersApiClient'
+import { makeUsernameLookup } from '../utils/utils'
 
 const hmppsAuthClient = new HmppsAuthClient(new RedisTokenStore(createRedisClient()))
 
@@ -20,32 +22,13 @@ export default function routes(service: Services): Router {
     res.render('pages/index')
   })
 
-  get('/events', async (req, res, next) => {
-    const { user } = res.locals
-    const systemToken = await hmppsAuthClient.getSystemClientToken(user.username)
-    const incidentReportingApi = new IncidentReportingApi(systemToken)
-
-    const response = await incidentReportingApi.getEvents({
-      prisonId: user.activeCaseLoadId,
-      // eventDateFrom: new Date('2024-07-30'),
-      // eventDateUntil: new Date('2024-07-30'),
-      // sort: ['eventDateAndTime,ASC'],
-    })
-
-    // No authorisation at this point, no data shown in production
-    if (config.environment === 'prod') {
-      response.content = []
-    }
-
-    res.render('pages/events', { response })
-  })
-
   get('/incident/:id', async (req, res, next) => {
     const { id } = req.params
 
     const { user } = res.locals
     const systemToken = await hmppsAuthClient.getSystemClientToken(user.username)
     const incidentReportingApi = new IncidentReportingApi(systemToken)
+    const manageUsersApiClient = new ManageUsersApiClient()
 
     // No authorisation at this point, no data shown in production
     if (config.environment === 'prod') {
@@ -54,7 +37,14 @@ export default function routes(service: Services): Router {
 
     const event = await incidentReportingApi.getEventById(id)
 
-    res.render('pages/incident', { event })
+    const inputUsernames = []
+    for (const report of event.reports) {
+      inputUsernames.push(report.reportedBy)
+    }
+
+    const nameMappings = await makeUsernameLookup(manageUsersApiClient, systemToken, inputUsernames)
+
+    res.render('pages/incident', { event, nameMappings })
   })
 
   get('/report/:id', async (req, res, next) => {
@@ -63,6 +53,7 @@ export default function routes(service: Services): Router {
     const { user } = res.locals
     const systemToken = await hmppsAuthClient.getSystemClientToken(user.username)
     const incidentReportingApi = new IncidentReportingApi(systemToken)
+    const manageUsersApiClient = new ManageUsersApiClient()
 
     // No authorisation at this point, no data shown in production
     if (config.environment === 'prod') {
@@ -70,8 +61,34 @@ export default function routes(service: Services): Router {
     }
 
     const report = await incidentReportingApi.getReportWithDetailsById(id)
+    const reportedBy = (await manageUsersApiClient.getNamedUser(systemToken, report.reportedBy))?.name
 
-    res.render('pages/report', { report })
+    res.render('pages/report', { report, reportedBy })
+  })
+
+  get('/incidents', async (req, res, next) => {
+    const { user } = res.locals
+    const systemToken = await hmppsAuthClient.getSystemClientToken(user.username)
+    const incidentReportingApi = new IncidentReportingApi(systemToken)
+    const manageUsersApiClient = new ManageUsersApiClient()
+
+    const incidents = (
+      await incidentReportingApi.getEvents({
+        // prisonId: user.activeCaseLoadId,
+        // eventDateFrom: new Date('2024-07-30'),
+        // eventDateUntil: new Date('2024-07-30'),
+        // sort: ['eventDateAndTime,ASC'],
+      })
+    )?.content
+
+    const inputUsernames = []
+    for (const incident of incidents) {
+      inputUsernames.push(incident.modifiedBy)
+    }
+
+    const nameMappings = await makeUsernameLookup(manageUsersApiClient, systemToken, inputUsernames)
+
+    res.render('pages/showIncidents', { incidents, nameMappings })
   })
 
   return router

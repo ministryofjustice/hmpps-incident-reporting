@@ -37,12 +37,7 @@ export default function routes(service: Services): Router {
     }
 
     const event = await incidentReportingApi.getEventById(id)
-
-    const inputUsernames = []
-    for (const report of event.reports) {
-      inputUsernames.push(report.reportedBy)
-    }
-
+    const inputUsernames = event.reports.map(report => report.modifiedBy)
     const nameMappings = await makeUsernameLookup(manageUsersApiClient, systemToken, inputUsernames)
 
     res.render('pages/incident', { event, nameMappings })
@@ -62,7 +57,7 @@ export default function routes(service: Services): Router {
       throw new NotFound()
     }
 
-    const report = await incidentReportingApi.getReportWithDetailsById(id
+    const report = await incidentReportingApi.getReportWithDetailsById(id)
     const reportedBy = (await manageUsersApiClient.getNamedUser(systemToken, report.reportedBy))?.name
     const prisonerNumbers = report.prisonersInvolved.map(pi => pi.prisonerNumber)
     const prisonersLookup = await offenderSearchApi.getPrisoners(prisonerNumbers)
@@ -85,11 +80,7 @@ export default function routes(service: Services): Router {
       })
     )?.content
 
-    const inputUsernames = []
-    for (const incident of incidents) {
-      inputUsernames.push(incident.modifiedBy)
-    }
-
+    const inputUsernames = incidents.map(incident => incident.modifiedBy)
     const nameMappings = await makeUsernameLookup(manageUsersApiClient, systemToken, inputUsernames)
 
     res.render('pages/showIncidents', { incidents, nameMappings })

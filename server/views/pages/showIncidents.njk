@@ -12,7 +12,7 @@
       { html: "<a href='/incident/" + inc.id + "/'>" + inc.title + "</a>" },
       { text: inc.description },
       { text: nameMappings[inc.modifiedBy] },
-      { text: inc.modifiedAt },
+      { text: inc.modifiedAt | dateAndTime },
       { text: inc.reports.length }
       ]
     ), rows) %}

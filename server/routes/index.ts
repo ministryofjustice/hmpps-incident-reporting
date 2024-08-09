@@ -8,6 +8,7 @@ import RedisTokenStore from '../data/tokenStore/redisTokenStore'
 import { createRedisClient } from '../data/redisClient'
 import { IncidentReportingApi } from '../data/incidentReportingApi'
 import config from '../config'
+import { OffenderSearchApi } from '../data/offenderSearchApi'
 
 const hmppsAuthClient = new HmppsAuthClient(new RedisTokenStore(createRedisClient()))
 
@@ -63,6 +64,7 @@ export default function routes(service: Services): Router {
     const { user } = res.locals
     const systemToken = await hmppsAuthClient.getSystemClientToken(user.username)
     const incidentReportingApi = new IncidentReportingApi(systemToken)
+    const offenderSearchApi = new OffenderSearchApi(systemToken)
 
     // No authorisation at this point, no data shown in production
     if (config.environment === 'prod') {
@@ -70,8 +72,10 @@ export default function routes(service: Services): Router {
     }
 
     const report = await incidentReportingApi.getReportWithDetailsById(id)
+    const prisonerNumbers = report.prisonersInvolved.map(pi => pi.prisonerNumber)
+    const prisonersLookup = await offenderSearchApi.getPrisoners(prisonerNumbers)
 
-    res.render('pages/report', { report })
+    res.render('pages/report', { report, prisonersLookup })
   })
 
   return router

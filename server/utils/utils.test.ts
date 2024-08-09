@@ -1,4 +1,4 @@
-import { convertToTitleCase, initialiseName, toDateString } from './utils'
+import { convertToTitleCase, initialiseName, nameOfPerson, reversedNameOfPerson, toDateString } from './utils'
 
 describe('convert to title case', () => {
   it.each([
@@ -13,6 +13,36 @@ describe('convert to title case', () => {
     ['Hyphenated', 'Robert-John SmiTH-jONes-WILSON', 'Robert-John Smith-Jones-Wilson'],
   ])('%s convertToTitleCase(%s, %s)', (_: string, a: string, expected: string) => {
     expect(convertToTitleCase(a)).toEqual(expected)
+  })
+})
+
+describe('display of prisoner names', () => {
+  const prisoner = {
+    firstName: 'DAVID',
+    lastName: 'JONES',
+  }
+
+  it('normal', () => {
+    expect(nameOfPerson(prisoner)).toEqual('David Jones')
+  })
+
+  it('reversed', () => {
+    expect(reversedNameOfPerson(prisoner)).toEqual('Jones, David')
+  })
+
+  describe.each([
+    { scenario: 'only first name', firstName: 'DAVID', expected: 'David' },
+    { scenario: 'only surname', lastName: 'JONES', expected: 'Jones' },
+  ])('trimming whitespace if $scenario is present', person => {
+    it('normal', () => {
+      expect(nameOfPerson(person as unknown as { firstName: string; lastName: string })).toEqual(person.expected)
+    })
+
+    it('reversed', () => {
+      expect(reversedNameOfPerson(person as unknown as { firstName: string; lastName: string })).toEqual(
+        person.expected,
+      )
+    })
   })
 })
 

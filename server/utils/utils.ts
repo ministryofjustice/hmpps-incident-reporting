@@ -14,6 +14,27 @@ const properCaseName = (name: string): string => (isBlank(name) ? '' : name.spli
 export const convertToTitleCase = (sentence: string): string =>
   isBlank(sentence) ? '' : sentence.split(' ').map(properCaseName).join(' ')
 
+/**
+ * Normal display form of a person’s name (often a prisoner)
+ * { "firstName": "DAVID", "lastName": "JONES", … } → "David Jones"
+ */
+export const nameOfPerson = (prisoner: { firstName: string; lastName: string }): string =>
+  `${convertToTitleCase(prisoner.firstName)} ${convertToTitleCase(prisoner.lastName)}`.trim()
+
+/**
+ * Display form of a person’s name (often a prisoner) for lists and tables
+ * { "firstName": "DAVID", "lastName": "JONES", … } → "Jones, David"
+ */
+export const reversedNameOfPerson = (prisoner: { firstName: string; lastName: string }): string => {
+  if (!prisoner.lastName) {
+    return convertToTitleCase(prisoner.firstName)
+  }
+  if (!prisoner.firstName) {
+    return convertToTitleCase(prisoner.lastName)
+  }
+  return `${convertToTitleCase(prisoner.lastName)}, ${convertToTitleCase(prisoner.firstName)}`
+}
+
 export const initialiseName = (fullName?: string): string | null => {
   // this check is for the authError page
   if (!fullName) return null

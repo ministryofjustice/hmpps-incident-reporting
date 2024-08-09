@@ -7,7 +7,7 @@ import nunjucks from 'nunjucks'
 
 import logger from '../../logger'
 import config from '../config'
-import { initialiseName } from './utils'
+import { convertToTitleCase, initialiseName, nameOfPerson, reversedNameOfPerson } from './utils'
 import format from './format'
 
 export default function nunjucksSetup(app: express.Express): void {
@@ -44,8 +44,13 @@ export default function nunjucksSetup(app: express.Express): void {
     },
   )
 
-  njkEnv.addFilter('initialiseName', initialiseName)
   njkEnv.addFilter('assetMap', (url: string) => assetManifest[url] || url)
+
+  // name formatting
+  njkEnv.addFilter('convertToTitleCase', convertToTitleCase)
+  njkEnv.addFilter('initialiseName', initialiseName)
+  njkEnv.addFilter('nameOfPerson', nameOfPerson)
+  njkEnv.addFilter('reversedNameOfPerson', reversedNameOfPerson)
 
   // date/datetime formatting
   njkEnv.addFilter('dateAndTime', format.dateAndTime)

@@ -26,6 +26,11 @@ export default class UserService {
     return { ...user, roles: this.getUserRoles(token), displayName: convertToTitleCase(user.name) }
   }
 
+  async getNamedUser(token: string, username: string): Promise<UserDetails> {
+    const user = await this.manageUsersApiClient.getNamedUser(token, username)
+    return { ...user, roles: this.getUserRoles(token), displayName: convertToTitleCase(user.name) }
+  }
+
   getUserRoles(token: string): string[] {
     const { authorities: roles = [] } = jwtDecode<AuthToken>(token)
     return roles.map(role => role.substring(role.indexOf('_') + 1))

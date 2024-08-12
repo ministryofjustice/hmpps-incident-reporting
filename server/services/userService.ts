@@ -26,6 +26,20 @@ export default class UserService {
     return { ...user, roles: this.getUserRoles(token), displayName: convertToTitleCase(user.name) }
   }
 
+  async getUsers(token: string, usernameList: Array<string>): Promise<Record<string, User>> {
+    const uniqueUsernames = [...new Set(usernameList)]
+    const users = [
+      ...(
+        await Promise.allSettled(
+          uniqueUsernames.map(username => this.manageUsersApiClient.getNamedUser(token, username)),
+        )
+      )
+        .map(promise => (promise.status === 'fulfilled' ? promise.value : null))
+        .filter(user => user),
+    ]
+    return users.reduce((prev, user) => ({ ...prev, [user.username]: user }), {})
+  }
+
   getUserRoles(token: string): string[] {
     const { authorities: roles = [] } = jwtDecode<AuthToken>(token)
     return roles.map(role => role.substring(role.indexOf('_') + 1))

@@ -26,9 +26,18 @@ export default class UserService {
     return { ...user, roles: this.getUserRoles(token), displayName: convertToTitleCase(user.name) }
   }
 
-  async getNamedUser(token: string, username: string): Promise<UserDetails> {
-    const user = await this.manageUsersApiClient.getNamedUser(token, username)
-    return { ...user, roles: this.getUserRoles(token), displayName: convertToTitleCase(user.name) }
+  async getUsers(token: string, usernameList: Array<string>): Promise<Record<string, User>> {
+    const uniqueUsernames = [...new Set(usernameList)]
+    const users = [
+      ...(
+        await Promise.allSettled(
+          uniqueUsernames.map(username => this.manageUsersApiClient.getNamedUser(token, username)),
+        )
+      )
+        .map(promise => (promise.status === 'fulfilled' ? promise.value : null))
+        .filter(user => user),
+    ]
+    return users.reduce((prev, user) => ({ ...prev, [user.username]: user }), {})
   }
 
   getUserRoles(token: string): string[] {

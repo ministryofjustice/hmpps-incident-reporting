@@ -7,11 +7,12 @@
 {% block content %}
   {% set rows = [] %}
   {% for inc in incidents %}
+    {% set title %}{{ inc.title }}{% endset %}
     {% set rows = (rows.push(
       [
-      { html: "<a href='/incident/" + inc.id + "/'>" + inc.title + "</a>" },
+      { html: "<a href='/incident/" + inc.id + "/'>" + title + "</a>" },
       { text: inc.description },
-      { text: nameMappings[inc.modifiedBy] },
+      { text: users[inc.modifiedBy].name or inc.modifiedBy },
       { text: inc.modifiedAt | dateAndTime },
       { text: inc.reports.length }
       ]

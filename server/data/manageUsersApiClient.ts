@@ -24,6 +24,7 @@ export default class ManageUsersApiClient {
   }
 
   getNamedUser(token: string, username: string): Promise<User> {
+    logger.info(`Getting ${username} user details: calling HMPPS Manage Users Api`)
     return ManageUsersApiClient.restClient(token).get<User>({ path: `/users/${username}` })
   }
 }

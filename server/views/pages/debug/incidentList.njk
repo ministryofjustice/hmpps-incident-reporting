@@ -13,7 +13,7 @@
       [
         { html: "<a href='/incident/" + inc.id + "/'>" + title + "</a>" },
         { text: inc.description },
-        { text: users[inc.modifiedBy].name or inc.modifiedBy },
+        { text: usersLookup[inc.modifiedBy].name or inc.modifiedBy },
         { text: inc.modifiedAt | dateAndTime },
         { text: inc.reports.length }
       ]

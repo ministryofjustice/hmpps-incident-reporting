@@ -58,7 +58,7 @@
         text: "Reported by"
       },
       {
-        text: reportedBy
+        text: usersLookup[report.reportedBy].name or report.reportedBy
       }
     ],
     [
@@ -101,7 +101,7 @@
   {%- if report.staffInvolved.length > 0 -%}
     <ul>
       {%- for staffInvolved in report.staffInvolved -%}
-        <li>{{ staffInvolved.staffUsername }} ({{ staffInvolved.staffRole }})</li>
+        <li>{{ usersLookup[staffInvolved.staffUsername].name or staffInvolved.staffUsername }} ({{ staffInvolved.staffRole }})</li>
       {%- endfor -%}
     </ul>
   {%- else -%}
@@ -126,10 +126,10 @@
     {%- endfor -%}
 
     {{ govukTable({
-        caption: "",
-        captionClasses: "govuk-table__caption--m",
-        firstCellIsHeader: true,
-        rows: questionsRows
+      caption: "",
+      captionClasses: "govuk-table__caption--m",
+      firstCellIsHeader: true,
+      rows: questionsRows
     }) }}
   {%- else -%}
     No responses.

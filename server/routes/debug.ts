@@ -3,21 +3,16 @@ import { NotFound } from 'http-errors'
 
 import { pagination } from '../utils/pagination'
 import type { Services } from '../services'
-import HmppsAuthClient from '../data/hmppsAuthClient'
-import { createRedisClient } from '../data/redisClient'
-import RedisTokenStore from '../data/tokenStore/redisTokenStore'
 import { IncidentReportingApi } from '../data/incidentReportingApi'
 import { OffenderSearchApi } from '../data/offenderSearchApi'
 
 export default function makeDebugRoutes(services: Services): Record<string, RequestHandler> {
-  const hmppsAuthClient = new HmppsAuthClient(new RedisTokenStore(createRedisClient()))
-
   return {
     async incidentList(req, res) {
       const { page } = req.query
 
       const { user } = res.locals
-      const systemToken = await hmppsAuthClient.getSystemClientToken(user.username)
+      const systemToken = await services.hmppsAuthClient.getSystemClientToken(user.username)
       const incidentReportingApi = new IncidentReportingApi(systemToken)
 
       let pageNumber = (page && typeof page === 'string' && parseInt(page, 10)) || 1
@@ -56,7 +51,7 @@ export default function makeDebugRoutes(services: Services): Record<string, Requ
       }
 
       const { user } = res.locals
-      const systemToken = await hmppsAuthClient.getSystemClientToken(user.username)
+      const systemToken = await services.hmppsAuthClient.getSystemClientToken(user.username)
       const incidentReportingApi = new IncidentReportingApi(systemToken)
 
       const event = await incidentReportingApi.getEventById(id)
@@ -73,7 +68,7 @@ export default function makeDebugRoutes(services: Services): Record<string, Requ
       }
 
       const { user } = res.locals
-      const systemToken = await hmppsAuthClient.getSystemClientToken(user.username)
+      const systemToken = await services.hmppsAuthClient.getSystemClientToken(user.username)
       const incidentReportingApi = new IncidentReportingApi(systemToken)
       const offenderSearchApi = new OffenderSearchApi(systemToken)
 

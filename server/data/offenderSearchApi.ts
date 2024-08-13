@@ -13,14 +13,15 @@ export class OffenderSearchApi extends RestClient {
   }
 
   async getPrisoners(prisonerNumbers: string[]): Promise<Record<string, OffenderSearchPrisoner>> {
-    if (prisonerNumbers.length === 0) {
+    const uniquePrisonerNumbers = [...new Set(prisonerNumbers)]
+    if (uniquePrisonerNumbers.length === 0) {
       return {}
     }
 
     const prisoners = await this.post<OffenderSearchPrisoner[]>({
       path: '/prisoner-search/prisoner-numbers',
       data: {
-        prisonerNumbers,
+        prisonerNumbers: uniquePrisonerNumbers,
       },
     })
 

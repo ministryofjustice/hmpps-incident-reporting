@@ -28,6 +28,10 @@ export default class UserService {
 
   async getUsers(token: string, usernameList: Array<string>): Promise<Record<string, User>> {
     const uniqueUsernames = [...new Set(usernameList)]
+    if (uniqueUsernames.length === 0) {
+      return {}
+    }
+
     const users = (
       await Promise.allSettled(uniqueUsernames.map(username => this.manageUsersApiClient.getNamedUser(token, username)))
     )

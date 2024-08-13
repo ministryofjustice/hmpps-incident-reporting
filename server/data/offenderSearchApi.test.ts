@@ -1,7 +1,8 @@
 import nock from 'nock'
 
 import config from '../config'
-import { OffenderSearchApi, type OffenderSearchPrisoner } from './offenderSearchApi'
+import { OffenderSearchApi } from './offenderSearchApi'
+import { andrew, barry, chris } from './testData/offenderSearch'
 
 jest.mock('./tokenStore/redisTokenStore')
 
@@ -20,47 +21,18 @@ describe('offenderSearchApi', () => {
   })
 
   describe('getPrisoners', () => {
-    it('should de-duplicate prisoner numbers', () => {
+    it('should de-duplicate input prisoner numbers', () => {
       fakeApiClient.post('/prisoner-search/prisoner-numbers').reply(200, (_uri, requestBody) => {
         const request = requestBody as { prisonerNumbers: string[] }
         expect(request.prisonerNumbers).toHaveLength(3)
-        const response: OffenderSearchPrisoner[] = [
-          {
-            prisonerNumber: 'A3333CC',
-            firstName: 'DAVID',
-            lastName: 'JONES',
-          },
-          {
-            prisonerNumber: 'A2222BB',
-            firstName: 'FRED',
-            lastName: 'MILLS',
-          },
-          {
-            prisonerNumber: 'A1111AA',
-            firstName: 'ANDREW',
-            lastName: 'BROWN',
-          },
-        ]
-        return response
+        return [chris, barry, andrew]
       })
 
       const responseFuture = apiClient.getPrisoners(['A1111AA', 'A2222BB', 'A1111AA', 'A3333CC'])
       expect(responseFuture).resolves.toEqual({
-        A1111AA: {
-          prisonerNumber: 'A1111AA',
-          firstName: 'ANDREW',
-          lastName: 'BROWN',
-        },
-        A2222BB: {
-          prisonerNumber: 'A2222BB',
-          firstName: 'FRED',
-          lastName: 'MILLS',
-        },
-        A3333CC: {
-          prisonerNumber: 'A3333CC',
-          firstName: 'DAVID',
-          lastName: 'JONES',
-        },
+        A1111AA: andrew,
+        A2222BB: barry,
+        A3333CC: chris,
       })
     })
   })

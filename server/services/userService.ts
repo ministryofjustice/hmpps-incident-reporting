@@ -28,15 +28,16 @@ export default class UserService {
 
   async getUsers(token: string, usernameList: Array<string>): Promise<Record<string, User>> {
     const uniqueUsernames = [...new Set(usernameList)]
-    const users = [
-      ...(
-        await Promise.allSettled(
-          uniqueUsernames.map(username => this.manageUsersApiClient.getNamedUser(token, username)),
-        )
-      )
-        .map(promise => (promise.status === 'fulfilled' ? promise.value : null))
-        .filter(user => user),
-    ]
+    if (uniqueUsernames.length === 0) {
+      return {}
+    }
+
+    const users = (
+      await Promise.allSettled(uniqueUsernames.map(username => this.manageUsersApiClient.getNamedUser(token, username)))
+    )
+      .map(promise => (promise.status === 'fulfilled' ? promise.value : null))
+      .filter(user => user)
+
     return users.reduce((prev, user) => ({ ...prev, [user.username]: user }), {})
   }
 

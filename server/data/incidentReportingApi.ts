@@ -29,11 +29,19 @@ export class ErrorResponse {
 }
 
 export type Paginated<T> = {
+  /** Elements in this pages */
   content: T[]
+  /** Page number (0-based) */
   number: number
+  /** Page size */
   size: number
+  /** Number of elements in this page */
   numberOfElements: number
+  /** Total number of elements in all pages */
+  totalElements: number
+  /** Total number of pages */
   totalPages: number
+  /** Sort orders */
   sort: string[]
 }
 

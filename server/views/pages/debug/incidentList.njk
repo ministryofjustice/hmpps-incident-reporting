@@ -1,0 +1,56 @@
+{% extends "../../partials/layout.njk" %}
+
+{% from "govuk/components/table/macro.njk" import govukTable %}
+{% from "moj/components/pagination/macro.njk" import mojPagination %}
+
+{% set pageTitle = applicationName + " - Home" %}
+{% set mainClasses = "govuk-body" %}
+
+{% block content %}
+  {% if incidents.length > 0 %}
+
+    {% set rows = [] %}
+    {% for inc in incidents %}
+      {% set title %}{{ inc.title }}{% endset %}
+      {% set rows = (rows.push(
+        [
+          { html: "<a href='/incident/" + inc.id + "/'>" + title + "</a>" },
+          { text: inc.description },
+          { text: usersLookup[inc.modifiedBy].name or inc.modifiedBy },
+          { text: inc.modifiedAt | dateAndTime },
+          { text: inc.reports.length }
+        ]
+      ), rows) %}
+    {% endfor %}
+
+    {{ govukTable({
+      caption: "Incident events",
+      captionClasses: "govuk-table__caption--l",
+      firstCellIsHeader: true,
+      head: [
+        {
+          text: "Title"
+        },
+        {
+          text: "Description"
+        },
+        {
+          text: "Modified By"
+        },
+        {
+          text: "Modified At"
+        },
+        {
+          text: "Number of reports"
+        }
+      ],
+      rows: rows
+    }) }}
+
+    {{ mojPagination(paginationParams) }}
+
+  {% else %}
+    No incidents found.
+  {% endif %}
+
+{% endblock %}

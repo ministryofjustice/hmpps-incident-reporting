@@ -1,7 +1,10 @@
-{% extends "../partials/layout.njk" %}
+{% extends "../../partials/layout.njk" %}
+
 {% from "govuk/components/table/macro.njk" import govukTable %}
+
 {% set pageTitle = applicationName + " - Report" %}
 {% set mainClasses = "govuk-body" %}
+
 {% block content %}
   <h1>Report '{{ report.title }}'</h1>
 

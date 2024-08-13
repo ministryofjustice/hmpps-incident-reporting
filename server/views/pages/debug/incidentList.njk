@@ -1,8 +1,9 @@
-{% extends "../partials/layout.njk" %}
-{% set pageTitle = applicationName + " - Home" %}
-{% set mainClasses = "app-container govuk-body" %}
+{% extends "../../partials/layout.njk" %}
 
 {% from "govuk/components/table/macro.njk" import govukTable %}
+
+{% set pageTitle = applicationName + " - Home" %}
+{% set mainClasses = "govuk-body" %}
 
 {% block content %}
   {% set rows = [] %}
@@ -10,11 +11,11 @@
     {% set title %}{{ inc.title }}{% endset %}
     {% set rows = (rows.push(
       [
-      { html: "<a href='/incident/" + inc.id + "/'>" + title + "</a>" },
-      { text: inc.description },
-      { text: users[inc.modifiedBy].name or inc.modifiedBy },
-      { text: inc.modifiedAt | dateAndTime },
-      { text: inc.reports.length }
+        { html: "<a href='/incident/" + inc.id + "/'>" + title + "</a>" },
+        { text: inc.description },
+        { text: users[inc.modifiedBy].name or inc.modifiedBy },
+        { text: inc.modifiedAt | dateAndTime },
+        { text: inc.reports.length }
       ]
     ), rows) %}
   {% endfor %}

@@ -47,6 +47,22 @@
     ],
     [
       {
+        text: "Prison ID"
+      },
+      {
+        text: report.prisonId
+      }
+    ],
+    [
+      {
+        text: "Incident time"
+      },
+      {
+        text: report.incidentDateAndTime | dateAndTime
+      }
+    ],
+    [
+      {
         text: "When reported"
       },
       {
@@ -113,7 +129,22 @@
     {%- set questionsRows = [] -%}
     {%- for question in report.questions -%}
       {%- if question.responses.length > 0 -%}
-        {%- set responses = question.responses | join('<br />', "response") -%}
+        {% set responses %}
+          {% for response in question.responses %}
+            {{ response.response }}
+            {% if response.responseDate %}
+              <br />
+              Date: {{ response.responseDate }}
+            {% endif %}
+            {% if response.additionalInformation %}
+              <br />
+              Comment: {{ response.additionalInformation }}
+            {% endif %}
+            {% if not loop.last %}
+              <br />
+            {% endif %}
+          {% endfor %}
+        {% endset %}
       {%- else -%}
         {%- set responses = 'Not answered' -%}
       {%- endif -%}
@@ -138,9 +169,11 @@
   <h2>Correction requests</h2>
   {%- if report.correctionRequests.length > 0 -%}
     <ul>
-      {%- for correctionRequests in report.correctionRequests -%}
+      {%- for correctionRequest in report.correctionRequests -%}
         <li>
-          {{ correctionRequest.reason }} ({{ correctionRequest.descriptionOfChange }})
+          Reason: {{ correctionRequest.reason }}
+          <br />
+          {{ correctionRequest.descriptionOfChange }}
         </li>
       {%- endfor -%}
     </ul>

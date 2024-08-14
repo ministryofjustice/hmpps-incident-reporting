@@ -1,29 +1,58 @@
 import { v7 as uuidFromDate } from 'uuid'
 
-import type { Event, ReportBasic } from '../incidentReportingApi'
+import type { Event, EventWithBasicReports, ReportBasic } from '../incidentReportingApi'
 
-export function mockEvent({
-  eventReference,
-  eventDateAndTime,
-  prisonId = 'MDI',
-  reportingUsername = 'USER1',
-}: {
+interface MockEventConfig {
   eventReference: string
-  eventDateAndTime: Date
+  reportDateAndTime: Date
   prisonId?: string
   reportingUsername?: string
-}): DatesAsStrings<Event> {
-  return {
-    id: uuidFromDate({ msecs: eventDateAndTime }),
+}
+
+export function mockEvent(conf: MockEventConfig & { includeReports?: 0 }): DatesAsStrings<Event>
+export function mockEvent(conf: MockEventConfig & { includeReports: number }): DatesAsStrings<EventWithBasicReports>
+export function mockEvent({
+  eventReference,
+  reportDateAndTime,
+  prisonId = 'MDI',
+  reportingUsername = 'USER1',
+  includeReports = 0,
+}: MockEventConfig & { includeReports?: number }): DatesAsStrings<Event | EventWithBasicReports> {
+  const incidentDateAndTime = new Date(reportDateAndTime)
+  incidentDateAndTime.setHours(incidentDateAndTime.getHours() - 1)
+
+  const event: DatesAsStrings<Event> = {
+    id: uuidFromDate({ msecs: reportDateAndTime }),
     eventReference,
-    eventDateAndTime: eventDateAndTime.toISOString(),
+    eventDateAndTime: incidentDateAndTime.toISOString(),
     prisonId,
     title: 'An event occurred',
     description: 'Details of the event',
-    createdAt: eventDateAndTime.toISOString(),
-    modifiedAt: eventDateAndTime.toISOString(),
+    createdAt: reportDateAndTime.toISOString(),
+    modifiedAt: reportDateAndTime.toISOString(),
     modifiedBy: reportingUsername,
   }
+
+  if (includeReports > 0) {
+    return {
+      ...event,
+      reports: Array(includeReports).map((_, i) =>
+        mockBasicReport({ reportReference: (10000 + i).toString(), reportDateAndTime }),
+      ),
+    } satisfies DatesAsStrings<EventWithBasicReports>
+  }
+
+  return event
+}
+
+interface MockReportConfig {
+  reportReference: string
+  reportDateAndTime: Date
+  prisonId?: string
+  createdInNomis?: boolean
+  status?: string
+  type?: string
+  reportingUsername?: string
 }
 
 export function mockBasicReport({
@@ -34,15 +63,7 @@ export function mockBasicReport({
   status = 'DRAFT',
   type = 'FINDS',
   reportingUsername = 'USER1',
-}: {
-  reportReference: string
-  reportDateAndTime: Date
-  prisonId?: string
-  createdInNomis?: boolean
-  status?: string
-  type?: string
-  reportingUsername?: string
-}): DatesAsStrings<ReportBasic> {
+}: MockReportConfig): DatesAsStrings<ReportBasic> {
   const incidentDateAndTime = new Date(reportDateAndTime)
   incidentDateAndTime.setHours(incidentDateAndTime.getHours() - 1)
   return {

@@ -1,5 +1,6 @@
 import { v7 as uuidFromDate } from 'uuid'
 
+import { buildArray } from '../../utils/utils'
 import type { Event, EventWithBasicReports, ReportBasic, ReportWithDetails } from '../incidentReportingApi'
 
 interface MockEventConfig {
@@ -36,7 +37,7 @@ export function mockEvent({
   if (includeReports > 0) {
     return {
       ...event,
-      reports: Array(includeReports).map((_, i) =>
+      reports: buildArray(includeReports, i =>
         mockReport({ reportReference: (10000 + i).toString(), reportDateAndTime }),
       ),
     } satisfies DatesAsStrings<EventWithBasicReports>
@@ -133,11 +134,11 @@ export function mockReport({
           correctionRequestedAt: reportDateAndTime.toISOString(),
         },
       ],
-      questions: Array(2).map((_q, questionIndex) => ({
+      questions: buildArray(2, questionIndex => ({
         code: `QID-${(questionIndex + 1).toString().padStart(12, '0')}`,
         question: `Question #${questionIndex + 1}`,
         additionalInformation: `Explanation #${questionIndex + 1}`,
-        responses: Array(2).map((_r, responseIndex) => ({
+        responses: buildArray(2, responseIndex => ({
           response: `Response #${responseIndex + 1}`,
           responseDate: reportDateAndTime.toISOString(),
           recordedBy: 'some-user',
@@ -145,15 +146,15 @@ export function mockReport({
           additionalInformation: `comment #${responseIndex + 1}`,
         })),
       })),
-      history: Array(2).map(() => ({
+      history: buildArray(2, () => ({
         type: 'MISCELLANEOUS',
         changedAt: reportDateAndTime.toISOString(),
         changedBy: 'some-user-2',
-        questions: Array(2).map((_q, questionIndex) => ({
+        questions: buildArray(2, questionIndex => ({
           code: `QID-${(questionIndex + 1).toString().padStart(12, '0')}`,
           question: `Historic question #${questionIndex + 1}`,
           additionalInformation: '',
-          responses: Array(2).map((_r, responseIndex) => ({
+          responses: buildArray(2, responseIndex => ({
             response: `Historic response #${responseIndex + 1}`,
             responseDate: reportDateAndTime.toISOString(),
             additionalInformation: `Historic comment #${responseIndex + 1}`,

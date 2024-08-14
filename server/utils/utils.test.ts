@@ -1,4 +1,11 @@
-import { convertToTitleCase, initialiseName, nameOfPerson, reversedNameOfPerson, toDateString } from './utils'
+import {
+  buildArray,
+  convertToTitleCase,
+  initialiseName,
+  nameOfPerson,
+  reversedNameOfPerson,
+  toDateString,
+} from './utils'
 
 describe('convert to title case', () => {
   it.each([
@@ -63,5 +70,23 @@ describe('toDateString()', () => {
   it('returns a string representing the date component of the Date', () => {
     const datetime = new Date('2024-07-30T12:34:56')
     expect(toDateString(datetime)).toEqual('2024-07-30')
+  })
+})
+
+describe('buildArray()', () => {
+  type Scenario = {
+    scenario: string
+    input: { length: number; builder: (index: number) => unknown }
+    expected: unknown[]
+  }
+  const scenarios: Scenario[] = [
+    { scenario: 'empty', input: { length: 0, builder: () => 0 }, expected: [] },
+    { scenario: 'empty', input: { length: 1, builder: (index: number) => index }, expected: [0] },
+    { scenario: 'empty', input: { length: 3, builder: (index: number) => `${index}` }, expected: ['0', '1', '2'] },
+  ]
+  it.each(scenarios)('should work with $scenario', ({ input: { length, builder }, expected }) => {
+    const result = buildArray(length, builder)
+    expect(result).toHaveLength(expected.length)
+    expect(result).toEqual(expected)
   })
 })

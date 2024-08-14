@@ -1,4 +1,9 @@
 export default {
+  /**
+   * Format Date as Europe/London including time of day
+   *
+   * Example: `22 February 2022, 11:00`
+   */
   dateAndTime(date: Date): string {
     if (typeof date === 'undefined' || date === null) {
       return ''
@@ -15,6 +20,11 @@ export default {
     return formatted.replace(' at ', ', ')
   },
 
+  /**
+   * Format Date as Europe/London ignoring time-of-day
+   *
+   * Example: `22 February 2022`
+   */
   date(date: Date): string {
     if (typeof date === 'undefined' || date === null) {
       return ''
@@ -27,6 +37,11 @@ export default {
     })
   },
 
+  /**
+   * Format Date as Europe/London ignoring time-of-day
+   *
+   * Example: `22/02/2022`
+   */
   shortDate(date: Date): string {
     if (typeof date === 'undefined' || date === null) {
       return ''
@@ -37,5 +52,14 @@ export default {
       year: 'numeric',
       timeZone: 'Europe/London',
     })
+  },
+
+  /**
+   * Formats dates in ISO style, used when calling APIs
+   *
+   * Example: `2024-07-30`
+   */
+  isoDate(date: Date): string {
+    return date && date.toISOString().split('T')[0]
   },
 }

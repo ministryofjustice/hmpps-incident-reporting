@@ -1,6 +1,6 @@
 // eslint-disable-next-line max-classes-per-file
 import config from '../config'
-import { toDateString } from '../utils/utils'
+import format from '../utils/format'
 import {
   convertBasicReportDates,
   convertEventWithBasicReportsDates,
@@ -202,10 +202,10 @@ export class IncidentReportingApi extends RestClient {
       query.prisonId = prisonId
     }
     if (eventDateFrom) {
-      query.eventDateFrom = toDateString(eventDateFrom)
+      query.eventDateFrom = format.isoDate(eventDateFrom)
     }
     if (eventDateUntil) {
-      query.eventDateUntil = toDateString(eventDateUntil)
+      query.eventDateUntil = format.isoDate(eventDateUntil)
     }
 
     return this.get<DatesAsStrings<PaginatedEventsWithBasicReports>>({
@@ -276,16 +276,16 @@ export class IncidentReportingApi extends RestClient {
       query.type = type
     }
     if (incidentDateFrom) {
-      query.incidentDateFrom = toDateString(incidentDateFrom)
+      query.incidentDateFrom = format.isoDate(incidentDateFrom)
     }
     if (incidentDateUntil) {
-      query.incidentDateUntil = toDateString(incidentDateUntil)
+      query.incidentDateUntil = format.isoDate(incidentDateUntil)
     }
     if (reportedDateFrom) {
-      query.reportedDateFrom = toDateString(reportedDateFrom)
+      query.reportedDateFrom = format.isoDate(reportedDateFrom)
     }
     if (reportedDateUntil) {
-      query.reportedDateUntil = toDateString(reportedDateUntil)
+      query.reportedDateUntil = format.isoDate(reportedDateUntil)
     }
 
     return this.get<DatesAsStrings<PaginatedBasicReports>>({

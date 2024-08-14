@@ -43,10 +43,6 @@ export const initialiseName = (fullName?: string): string | null => {
   return `${array[0][0]}. ${array.reverse()[0]}`
 }
 
-export function toDateString(date: Date): string {
-  return date.toISOString().split('T')[0]
-}
-
 export function buildArray<T>(length: number, builder: (index: number) => T): T[] {
   const array = Array(length)
   for (let index = 0; index < length; index += 1) {

@@ -58,6 +58,7 @@ function convertQuestionDates(question: DatesAsStrings<Question>): Question {
 function convertResponseDates(response: DatesAsStrings<Response>): Response {
   return {
     ...response,
+    responseDate: response.responseDate && new Date(response.responseDate),
     recordedAt: new Date(response.recordedAt),
   }
 }

@@ -40,6 +40,7 @@ describe('Parsing dates in incident-reporting API responses', () => {
   }
 
   function expectCorrectDatesInResponse(response: Response) {
+    expect(response.responseDate).toEqual(reportDateAndTime)
     expect(response.recordedAt).toEqual(reportDateAndTime)
   }
 

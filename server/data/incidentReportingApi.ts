@@ -139,9 +139,10 @@ export type Question = {
 
 export type Response = {
   response: string
+  // recordedDate: Date | null // TODO: DatesAsStrings does not work on optional dates
+  additionalInformation: string | null
   recordedBy: string
   recordedAt: Date
-  additionalInformation: string | null
 }
 
 export type HistoricReport = {

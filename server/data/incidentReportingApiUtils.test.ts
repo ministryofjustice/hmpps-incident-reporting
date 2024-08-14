@@ -1,9 +1,10 @@
-import type { Event, ReportBasic } from './incidentReportingApi'
-import { mockEvent, mockBasicReport } from './testData/incidentReporting'
+import type { CorrectionRequest, Event, HistoricStatus, Question, ReportBasic, Response } from './incidentReportingApi'
+import { mockEvent, mockReport } from './testData/incidentReporting'
 import {
   convertEventDates,
   convertEventWithBasicReportsDates,
   convertBasicReportDates,
+  convertReportWithDetailsDates,
 } from './incidentReportingApiUtils'
 
 describe('Parsing dates in incident-reporting API responses', () => {
@@ -25,6 +26,23 @@ describe('Parsing dates in incident-reporting API responses', () => {
     expect(basicReport.modifiedAt).toEqual(reportDateAndTime)
   }
 
+  function expectCorrectDatesInCorrectionRequest(correctionRequest: CorrectionRequest) {
+    expect(correctionRequest.correctionRequestedAt).toEqual(reportDateAndTime)
+  }
+
+  function expectCorrectDatesInHistoricStatus(historicStatus: HistoricStatus) {
+    expect(historicStatus.changedAt).toEqual(reportDateAndTime)
+  }
+
+  function expectCorrectDatesInQuestion(question: Question) {
+    expect(question.responses).toHaveLength(2)
+    question.responses.forEach(expectCorrectDatesInResponse)
+  }
+
+  function expectCorrectDatesInResponse(response: Response) {
+    expect(response.recordedAt).toEqual(reportDateAndTime)
+  }
+
   it('should work for an event', () => {
     const event = convertEventDates(mockEvent({ eventReference: '12345', reportDateAndTime }))
     expectCorrectDatesInEvent(event)
@@ -40,7 +58,25 @@ describe('Parsing dates in incident-reporting API responses', () => {
   })
 
   it('should work for a report with basic details', () => {
-    const basicReport = convertBasicReportDates(mockBasicReport({ reportReference: '4321', reportDateAndTime }))
+    const basicReport = convertBasicReportDates(mockReport({ reportReference: '4321', reportDateAndTime }))
     expectCorrectDatesInBasicReport(basicReport)
+  })
+
+  it('should work for a report with full detauls', () => {
+    const reportWithDetails = convertReportWithDetailsDates(
+      mockReport({ reportReference: '4321', reportDateAndTime, withDetails: true }),
+    )
+    expectCorrectDatesInBasicReport(reportWithDetails)
+    expect(reportWithDetails.historyOfStatuses).toHaveLength(1)
+    reportWithDetails.historyOfStatuses.forEach(expectCorrectDatesInHistoricStatus)
+    expect(reportWithDetails.correctionRequests).toHaveLength(1)
+    reportWithDetails.correctionRequests.forEach(expectCorrectDatesInCorrectionRequest)
+    expect(reportWithDetails.questions).toHaveLength(2)
+    reportWithDetails.questions.forEach(expectCorrectDatesInQuestion)
+    expect(reportWithDetails.history).toHaveLength(2)
+    reportWithDetails.history.forEach(history => {
+      expect(history.questions).toHaveLength(2)
+      history.questions.forEach(expectCorrectDatesInQuestion)
+    })
   })
 })

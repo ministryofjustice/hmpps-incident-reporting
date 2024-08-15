@@ -1,7 +1,8 @@
 import nock from 'nock'
 
 import config from '../config'
-import { ErrorCode, IncidentReportingApi, isErrorResponse } from './incidentReportingApi'
+import type { SanitisedError } from '../sanitisedError'
+import { ErrorCode, type ErrorResponse, IncidentReportingApi, isErrorResponse } from './incidentReportingApi'
 import { mockErrorResponse, mockEvent, mockReport } from './testData/incidentReporting'
 import { unsortedPageOf } from './testData/paginatedResponses'
 
@@ -29,12 +30,65 @@ describe('Incident reporting API client', () => {
   })
 
   describe('error handling', () => {
+    const badRequest = mockErrorResponse({
+      message: 'Inactive incident type OLD_FINDS4',
+      errorCode: ErrorCode.ValidationFailure,
+    })
+
     it('should recognise error responses from the api', async () => {
-      const badRequest = mockErrorResponse({
-        message: 'Inactive incident type OLD_FINDS4',
-        errorCode: ErrorCode.ValidationFailure,
-      })
       expect(isErrorResponse(badRequest)).toBe(true)
+    })
+
+    it.each([
+      { method: 'getEvents', url: '/incident-events', testCase: () => apiClient.getEvents() },
+      {
+        method: 'getEventById',
+        url: `/incident-events/${eventWith1Report.id}`,
+        testCase: () => apiClient.getEventById(eventWith1Report.id),
+      },
+      {
+        method: 'getEventByReference',
+        url: `/incident-events/reference/${eventWith1Report.eventReference}`,
+        testCase: () => apiClient.getEventByReference(eventWith1Report.eventReference),
+      },
+      { method: 'getReports', url: '/incident-reports', testCase: () => apiClient.getReports() },
+      {
+        method: 'getReportById',
+        url: `/incident-reports/${basicReport.id}`,
+        testCase: () => apiClient.getReportById(basicReport.id),
+      },
+      {
+        method: 'getReportByReference',
+        url: `/incident-reports/reference/${basicReport.reportReference}`,
+        testCase: () => apiClient.getReportByReference(basicReport.reportReference),
+      },
+      {
+        method: 'getReportWithDetailsById',
+        url: `/incident-reports/${reportWithDetails.id}/with-details`,
+        testCase: () => apiClient.getReportWithDetailsById(reportWithDetails.id),
+      },
+      {
+        method: 'getReportWithDetailsByReference',
+        url: `/incident-reports/reference/${reportWithDetails.reportReference}/with-details`,
+        testCase: () => apiClient.getReportWithDetailsByReference(reportWithDetails.reportReference),
+      },
+    ])('should throw when calling $method on error responses from the api', async ({ url, testCase }) => {
+      fakeApiClient.get(url).query(true).reply(400, badRequest)
+
+      const expectedSantisedError: SanitisedError<ErrorResponse> = {
+        status: 400,
+        name: expect.any(String),
+        stack: expect.any(String),
+        message: expect.any(String),
+        data: {
+          status: 400,
+          errorCode: 100,
+          userMessage: 'Inactive incident type OLD_FINDS4',
+          developerMessage: 'Inactive incident type OLD_FINDS4',
+        },
+      }
+
+      await expect(testCase).rejects.toMatchObject(expectedSantisedError)
     })
   })
 

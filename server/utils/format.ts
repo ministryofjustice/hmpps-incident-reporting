@@ -38,4 +38,14 @@ export default {
       timeZone: 'Europe/London',
     })
   },
+
+  /** Formats a date, e.g. 31/10/2021 */
+  formDate(date: Date): string {
+    return date.toLocaleDateString('en-GB', {
+      day: 'numeric',
+      month: 'numeric',
+      year: 'numeric',
+      timeZone: 'Europe/London',
+    })
+  },
 }

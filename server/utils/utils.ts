@@ -1,3 +1,12 @@
+/**
+ * An item passed into the `errorList` property of a GOV.UK error summary component
+ * https://design-system.service.gov.uk/components/error-summary/
+ */
+export interface ErrorSummaryItem {
+  text: string
+  href: string
+}
+
 const properCase = (word: string): string =>
   word.length >= 1 ? word[0].toUpperCase() + word.toLowerCase().slice(1) : word
 
@@ -41,6 +50,33 @@ export const initialiseName = (fullName?: string): string | null => {
 
   const array = fullName.split(' ')
   return `${array[0][0]}. ${array.reverse()[0]}`
+}
+
+/** Parse date in the form DD/MM/YYYY. Throws an error when invalid */
+export const parseDateInput = (input: string): Date => {
+  const match = input && /^(?<day>\d{1,2})\/(?<month>\d{1,2})\/(?<year>\d{4})$/.exec(input.trim())
+  if (!match) throw new Error('Invalid date')
+  const { year, month, day } = match.groups
+  const y = parseInt(year, 10)
+  const m = parseInt(month, 10)
+  const d = parseInt(day, 10)
+  if (Number.isSafeInteger(y) && m >= 1 && m <= 12 && d >= 1 && d <= 31) {
+    const date = new Date(y, m - 1, d)
+    if (date) return date
+  }
+  throw new Error('Invalid date')
+}
+
+/** Find field error in error summary list */
+export const findFieldInErrorSummary = (list: ErrorSummaryItem[], formFieldId: string): { text: string } | null => {
+  if (!list) return null
+  const item = list.find(error => error.href === `#${formFieldId}`)
+  if (item) {
+    return {
+      text: item.text,
+    }
+  }
+  return null
 }
 
 export function toDateString(date: Date): string {

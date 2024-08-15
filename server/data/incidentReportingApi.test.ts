@@ -1,8 +1,8 @@
 import nock from 'nock'
 
 import config from '../config'
-import { IncidentReportingApi } from './incidentReportingApi'
-import { mockEvent, mockReport } from './testData/incidentReporting'
+import { ErrorCode, IncidentReportingApi, isErrorResponse } from './incidentReportingApi'
+import { mockErrorResponse, mockEvent, mockReport } from './testData/incidentReporting'
 import { unsortedPageOf } from './testData/paginatedResponses'
 
 jest.mock('./tokenStore/redisTokenStore')
@@ -26,6 +26,16 @@ describe('Incident reporting API client', () => {
   afterEach(() => {
     jest.resetAllMocks()
     nock.cleanAll()
+  })
+
+  describe('error handling', () => {
+    it('should recognise error responses from the api', async () => {
+      const badRequest = mockErrorResponse({
+        message: 'Inactive incident type OLD_FINDS4',
+        errorCode: ErrorCode.ValidationFailure,
+      })
+      expect(isErrorResponse(badRequest)).toBe(true)
+    })
   })
 
   describe('conversion of date fields', () => {

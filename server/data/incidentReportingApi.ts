@@ -1,4 +1,3 @@
-// eslint-disable-next-line max-classes-per-file
 import config from '../config'
 import format from '../utils/format'
 import {
@@ -9,23 +8,35 @@ import {
 import RestClient from './restClient'
 
 /**
- * Structure representing an error response from the incentives api
+ * Structure representing an error response from the incident reporting api
+ *
+ * Defined in uk.gov.justice.digital.hmpps.incidentreporting.resource.ErrorResponse class
+ * see https://github.com/ministryofjustice/hmpps-incident-reporting-api
  */
-export class ErrorResponse {
+export interface ErrorResponse {
   status: number
-
-  errorCode?: number
-
-  userMessage?: string
-
-  developerMessage?: string
-
+  errorCode?: ErrorCode
+  userMessage: string
+  developerMessage: string
   moreInfo?: string
+}
 
-  static isErrorResponse(obj: object): obj is ErrorResponse {
-    // TODO: would be nice to make userMessage & developerMessage non-nullable in the api
-    return obj && 'status' in obj && typeof obj.status === 'number'
-  }
+export function isErrorResponse(obj: unknown): obj is ErrorResponse {
+  // TODO: would be nice to make userMessage & developerMessage non-nullable in the api
+  return typeof obj === 'object' && 'status' in obj && typeof obj.status === 'number' && 'userMessage' in obj
+}
+
+/**
+ * Unique codes to discriminate errors returned from the incident reporting api
+ *
+ * Defined in uuk.gov.justice.digital.hmpps.incidentreporting.resource.ErrorCode enumeration
+ * see https://github.com/ministryofjustice/hmpps-incident-reporting-api
+ */
+export enum ErrorCode {
+  ValidationFailure = 100,
+  EventNotFound = 201,
+  ReportNotFound = 301,
+  ReportAlreadyExists = 302,
 }
 
 export const defaultPageSize = 20

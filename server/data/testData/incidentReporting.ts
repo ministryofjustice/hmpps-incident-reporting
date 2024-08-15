@@ -1,7 +1,14 @@
 import { v7 as uuidFromDate } from 'uuid'
 
 import { buildArray } from '../../utils/utils'
-import type { Event, EventWithBasicReports, ReportBasic, ReportWithDetails } from '../incidentReportingApi'
+import {
+  ErrorCode,
+  ErrorResponse,
+  Event,
+  EventWithBasicReports,
+  ReportBasic,
+  ReportWithDetails,
+} from '../incidentReportingApi'
 
 interface MockEventConfig {
   eventReference: string
@@ -167,4 +174,25 @@ export function mockReport({
   }
 
   return basicReport
+}
+
+/**
+ * Build an object that is returned by the api (as JSON) in case of errors.
+ * Used only in testing.
+ */
+export function mockErrorResponse({
+  message,
+  status = 400,
+  errorCode,
+}: {
+  message: string
+  status?: number
+  errorCode?: ErrorCode
+}): ErrorResponse {
+  return {
+    status,
+    developerMessage: message,
+    userMessage: message, // in practice, the messages differ but are not shown directly to users anyway
+    errorCode,
+  }
 }

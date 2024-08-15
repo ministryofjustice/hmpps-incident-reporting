@@ -28,7 +28,9 @@ export class ErrorResponse {
   }
 }
 
-export type Paginated<T> = {
+export const defaultPageSize = 20
+
+export interface Page<T> {
   /** Elements in this pages */
   content: T[]
   /** Page number (0-based) */
@@ -45,8 +47,8 @@ export type Paginated<T> = {
   sort: string[]
 }
 
-export type PaginatedEventsWithBasicReports = Paginated<EventWithBasicReports>
-export type PaginatedBasicReports = Paginated<ReportBasic>
+export type PaginatedEventsWithBasicReports = Page<EventWithBasicReports>
+export type PaginatedBasicReports = Page<ReportBasic>
 
 export type Event = {
   id: string
@@ -189,7 +191,7 @@ export class IncidentReportingApi extends RestClient {
       eventDateFrom: null,
       eventDateUntil: null,
       page: 0,
-      size: 20,
+      size: defaultPageSize,
       sort: ['eventDateAndTime,DESC'],
     },
   ): Promise<PaginatedEventsWithBasicReports> {
@@ -254,7 +256,7 @@ export class IncidentReportingApi extends RestClient {
       reportedDateFrom: null,
       reportedDateUntil: null,
       page: 0,
-      size: 20,
+      size: defaultPageSize,
       sort: ['incidentDateAndTime,DESC'],
     },
   ): Promise<PaginatedBasicReports> {

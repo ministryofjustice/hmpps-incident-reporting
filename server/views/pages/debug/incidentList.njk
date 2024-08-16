@@ -1,12 +1,59 @@
 {% extends "../../partials/layout.njk" %}
 
+{% from "govuk/components/button/macro.njk" import govukButton %}
 {% from "govuk/components/table/macro.njk" import govukTable %}
 {% from "moj/components/pagination/macro.njk" import mojPagination %}
+{% from "moj/components/date-picker/macro.njk" import mojDatePicker %}
 
 {% set pageTitle = applicationName + " - Home" %}
 {% set mainClasses = "govuk-body" %}
 
 {% block content %}
+  <div class="horizontal-form__wrapper govuk-!-padding-3 govuk-!-margin-bottom-5">
+    <h2 class="govuk-heading-m">Filter by</h2>
+
+    <form class="horizontal-form {% if errors.length > 0 %}horizontal-form--with-errors{% endif %} govuk-!-margin-bottom-3" method="GET" novalidate>
+      {{ mojDatePicker({
+        id: "fromDate",
+        name: "fromDate",
+        label: {
+          text: "Date from"
+        },
+        value: formValues.fromDate,
+        maxDate: todayAsShortDate,
+        errorMessage: errors | findFieldInErrorSummary("fromDate"),
+        leadingZeros: 1
+      }) }}
+
+      {{ mojDatePicker({
+        id: "toDate",
+        name: "toDate",
+        label: {
+          text: "Date to"
+        },
+        value: formValues.toDate,
+        maxDate: todayAsShortDate,
+        errorMessage: errors | findFieldInErrorSummary("toDate"),
+        leadingZeros: 1
+      }) }}
+
+      <div class="govuk-button-group">
+        {{ govukButton({
+          text: "Filter",
+          preventDoubleClick: true,
+          type: "submit",
+          attributes: {
+            "data-test": "filter-submit"
+          }
+        }) }}
+
+        {% if not noFiltersSupplied %}
+          <a href="?" class="govuk-link govuk-link--no-visited-state" id="clearFilter">Clear</a>
+        {% endif %}
+      </div>
+    </form>
+  </div>
+
   {% if incidents.length > 0 %}
 
     {% set rows = [] %}

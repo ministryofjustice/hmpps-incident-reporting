@@ -23,7 +23,7 @@ export default function makeDebugRoutes(services: Services): Record<string, Requ
       const systemToken = await services.hmppsAuthClient.getSystemClientToken(user.username)
       const incidentReportingApi = new IncidentReportingApi(systemToken)
 
-      const todayAsShortDate = format.formDate(new Date())
+      const todayAsShortDate = format.shortDate(new Date())
 
       // Parse page number
       let pageNumber = (page && typeof page === 'string' && parseInt(page, 10)) || 1

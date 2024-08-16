@@ -3,7 +3,7 @@
 {% from "govuk/components/button/macro.njk" import govukButton %}
 {% from "govuk/components/table/macro.njk" import govukTable %}
 {% from "moj/components/pagination/macro.njk" import mojPagination %}
-{% from "components/datepicker/macro.njk" import hmppsDatepicker %}
+{% from "moj/components/date-picker/macro.njk" import mojDatePicker %}
 
 {% set pageTitle = applicationName + " - Home" %}
 {% set mainClasses = "govuk-body" %}
@@ -13,10 +13,10 @@
     <h2 class="govuk-heading-m">Filter by</h2>
 
     <form class="horizontal-form {% if errors.length > 0 %}horizontal-form--with-errors{% endif %} govuk-!-margin-bottom-3" method="GET" novalidate>
-      {{ hmppsDatepicker({
+      {{ mojDatePicker({
         id: "fromDate",
         name: "fromDate",
-        classes: "hmpps-datepicker--fixed-width",
+        classes: "moj-datepicker--fixed-width",
         label: {
           text: "Date from"
         },
@@ -26,10 +26,10 @@
         dataQa: "fromDate"
       }) }}
 
-      {{ hmppsDatepicker({
+      {{ mojDatePicker({
         id: "toDate",
         name: "toDate",
-        classes: "hmpps-datepicker--fixed-width",
+        classes: "moj-datepicker--fixed-width",
         label: {
           text: "Date to"
         },

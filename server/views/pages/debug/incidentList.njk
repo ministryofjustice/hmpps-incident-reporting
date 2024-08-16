@@ -16,27 +16,25 @@
       {{ mojDatePicker({
         id: "fromDate",
         name: "fromDate",
-        classes: "moj-datepicker--fixed-width",
         label: {
           text: "Date from"
         },
         value: formValues.fromDate,
         maxDate: todayAsShortDate,
         errorMessage: errors | findFieldInErrorSummary("fromDate"),
-        dataQa: "fromDate"
+        leadingZeros: 1
       }) }}
 
       {{ mojDatePicker({
         id: "toDate",
         name: "toDate",
-        classes: "moj-datepicker--fixed-width",
         label: {
           text: "Date to"
         },
         value: formValues.toDate,
         maxDate: todayAsShortDate,
         errorMessage: errors | findFieldInErrorSummary("toDate"),
-        dataQa: "toDate"
+        leadingZeros: 1
       }) }}
 
       <div class="govuk-button-group">

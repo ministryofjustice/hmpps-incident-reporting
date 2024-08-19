@@ -1,12 +1,6 @@
 import type { RequestHandler } from 'express'
 import { NotFound } from 'http-errors'
 
-import type {
-  EventWithBasicReports,
-  PrisonerInvolvement,
-  ReportBasic,
-  StaffInvolvement,
-} from '../data/incidentReportingApi'
 import format from '../utils/format'
 import { pagination } from '../utils/pagination'
 import { type ErrorSummaryItem, parseDateInput } from '../utils/utils'
@@ -80,7 +74,7 @@ export default function makeDebugRoutes(services: Services): Record<string, Requ
       const noFiltersSupplied = Boolean(!fromDate && !toDate)
 
       const incidents = incidentsResponse.content
-      const usernames = incidents.map((incident: EventWithBasicReports) => incident.modifiedBy)
+      const usernames = incidents.map(incident => incident.modifiedBy)
       const usersLookup = await userService.getUsers(res.locals.systemToken, usernames)
 
       res.render('pages/debug/incidentList', {
@@ -104,7 +98,7 @@ export default function makeDebugRoutes(services: Services): Record<string, Requ
       }
 
       const event = await incidentReportingApi.getEventById(id)
-      const usernames = event.reports.map((report: ReportBasic) => report.reportedBy)
+      const usernames = event.reports.map(report => report.reportedBy)
       const usersLookup = await userService.getUsers(res.locals.systemToken, usernames)
       const prisonsLookup = await prisonApi.getPrisons()
 
@@ -122,10 +116,10 @@ export default function makeDebugRoutes(services: Services): Record<string, Requ
 
       const report = await incidentReportingApi.getReportWithDetailsById(id)
       const usersLookup = await userService.getUsers(res.locals.systemToken, [
-        ...report.staffInvolved.map((staff: StaffInvolvement) => staff.staffUsername),
+        ...report.staffInvolved.map(staff => staff.staffUsername),
         report.reportedBy,
       ])
-      const prisonerNumbers = report.prisonersInvolved.map((pi: PrisonerInvolvement) => pi.prisonerNumber)
+      const prisonerNumbers = report.prisonersInvolved.map(pi => pi.prisonerNumber)
       const prisonersLookup = await offenderSearchApi.getPrisoners(prisonerNumbers)
       const prisonsLookup = await prisonApi.getPrisons()
 

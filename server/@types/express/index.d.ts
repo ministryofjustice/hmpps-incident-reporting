@@ -1,4 +1,7 @@
 import type { UserDetails } from '../../services/userService'
+import type { IncidentReportingApi } from '../../data/incidentReportingApi'
+import type { OffenderSearchApi } from '../../data/offenderSearchApi'
+import type { PrisonApi } from '../../data/prisonApi'
 
 export default {}
 
@@ -25,6 +28,12 @@ export declare global {
 
     interface Locals {
       user: Express.User
+      systemToken: string
+      apis: {
+        incidentReportingApi: IncidentReportingApi
+        prisonApi: PrisonApi
+        offenderSearchApi: OffenderSearchApi
+      }
     }
   }
 }

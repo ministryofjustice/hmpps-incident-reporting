@@ -20,8 +20,7 @@ export default function makeDebugRoutes(services: Services): Record<string, Requ
     async incidentList(req, res) {
       const { page, fromDate: fromDateInput, toDate: toDateInput }: ListFormData = req.query
 
-      const { user } = res.locals
-      const systemToken = await services.hmppsAuthClient.getSystemClientToken(user.username)
+      const { systemToken } = res.locals
       const incidentReportingApi = new IncidentReportingApi(systemToken)
 
       const todayAsShortDate = format.shortDate(new Date())
@@ -99,8 +98,7 @@ export default function makeDebugRoutes(services: Services): Record<string, Requ
         throw new NotFound()
       }
 
-      const { user } = res.locals
-      const systemToken = await services.hmppsAuthClient.getSystemClientToken(user.username)
+      const { systemToken } = res.locals
       const incidentReportingApi = new IncidentReportingApi(systemToken)
       const prisonApi = new PrisonApi(systemToken)
 
@@ -118,8 +116,7 @@ export default function makeDebugRoutes(services: Services): Record<string, Requ
         throw new NotFound()
       }
 
-      const { user } = res.locals
-      const systemToken = await services.hmppsAuthClient.getSystemClientToken(user.username)
+      const { systemToken } = res.locals
       const incidentReportingApi = new IncidentReportingApi(systemToken)
       const offenderSearchApi = new OffenderSearchApi(systemToken)
       const prisonApi = new PrisonApi(systemToken)

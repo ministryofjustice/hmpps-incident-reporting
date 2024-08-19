@@ -4,7 +4,7 @@ import { PrisonApi } from '../data/prisonApi'
 import { OffenderSearchApi } from '../data/offenderSearchApi'
 
 export default function setApis(): RequestHandler {
-  return async (req, res, next) => {
+  return (req, res, next) => {
     const { systemToken } = res.locals
 
     res.locals.apis = {

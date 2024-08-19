@@ -4,6 +4,7 @@ context('Healthcheck', () => {
       cy.task('reset')
       cy.task('stubIncidentReportingApiPing')
       cy.task('stubAuthPing')
+      cy.task('stubPrisonApiPing')
       cy.task('stubManageUsersPing')
       cy.task('stubOffenderSearchApiPing')
       cy.task('stubTokenVerificationPing')
@@ -27,6 +28,7 @@ context('Healthcheck', () => {
       cy.task('reset')
       cy.task('stubIncidentReportingApiPing')
       cy.task('stubAuthPing')
+      cy.task('stubPrisonApiPing')
       cy.task('stubManageUsersPing')
       cy.task('stubOffenderSearchApiPing')
       cy.task('stubTokenVerificationPing', 500)
@@ -36,6 +38,7 @@ context('Healthcheck', () => {
       cy.request({ url: '/health', method: 'GET', failOnStatusCode: false }).then(response => {
         expect(response.body.components.incidentReportingApi.status).to.equal('UP')
         expect(response.body.components.hmppsAuth.status).to.equal('UP')
+        expect(response.body.components.hmppsPrisonApi.status).to.equal('UP')
         expect(response.body.components.manageUsersApi.status).to.equal('UP')
         expect(response.body.components.offenderSearchApi.status).to.equal('UP')
         expect(response.body.components.tokenVerification.status).to.equal('DOWN')

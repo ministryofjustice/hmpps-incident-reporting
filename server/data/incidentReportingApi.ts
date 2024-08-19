@@ -1,6 +1,5 @@
-// eslint-disable-next-line max-classes-per-file
 import config from '../config'
-import { toDateString } from '../utils/utils'
+import format from '../utils/format'
 import {
   convertBasicReportDates,
   convertEventWithBasicReportsDates,
@@ -9,26 +8,40 @@ import {
 import RestClient from './restClient'
 
 /**
- * Structure representing an error response from the incentives api
+ * Structure representing an error response from the incident reporting api
+ *
+ * Defined in uk.gov.justice.digital.hmpps.incidentreporting.resource.ErrorResponse class
+ * see https://github.com/ministryofjustice/hmpps-incident-reporting-api
  */
-export class ErrorResponse {
+export interface ErrorResponse {
   status: number
-
-  errorCode?: number
-
-  userMessage?: string
-
-  developerMessage?: string
-
+  errorCode?: ErrorCode
+  userMessage: string
+  developerMessage: string
   moreInfo?: string
-
-  static isErrorResponse(obj: object): obj is ErrorResponse {
-    // TODO: would be nice to make userMessage & developerMessage non-nullable in the api
-    return obj && 'status' in obj && typeof obj.status === 'number'
-  }
 }
 
-export type Paginated<T> = {
+export function isErrorResponse(obj: unknown): obj is ErrorResponse {
+  // TODO: would be nice to make userMessage & developerMessage non-nullable in the api
+  return typeof obj === 'object' && 'status' in obj && typeof obj.status === 'number' && 'userMessage' in obj
+}
+
+/**
+ * Unique codes to discriminate errors returned from the incident reporting api
+ *
+ * Defined in uuk.gov.justice.digital.hmpps.incidentreporting.resource.ErrorCode enumeration
+ * see https://github.com/ministryofjustice/hmpps-incident-reporting-api
+ */
+export enum ErrorCode {
+  ValidationFailure = 100,
+  EventNotFound = 201,
+  ReportNotFound = 301,
+  ReportAlreadyExists = 302,
+}
+
+export const defaultPageSize = 20
+
+export interface Page<T> {
   /** Elements in this pages */
   content: T[]
   /** Page number (0-based) */
@@ -45,8 +58,8 @@ export type Paginated<T> = {
   sort: string[]
 }
 
-export type PaginatedEventsWithBasicReports = Paginated<EventWithBasicReports>
-export type PaginatedBasicReports = Paginated<ReportBasic>
+export type PaginatedEventsWithBasicReports = Page<EventWithBasicReports>
+export type PaginatedBasicReports = Page<ReportBasic>
 
 export type Event = {
   id: string
@@ -139,9 +152,10 @@ export type Question = {
 
 export type Response = {
   response: string
+  responseDate: Date | null
+  additionalInformation: string | null
   recordedBy: string
   recordedAt: Date
-  additionalInformation: string | null
 }
 
 export type HistoricReport = {
@@ -188,7 +202,7 @@ export class IncidentReportingApi extends RestClient {
       eventDateFrom: null,
       eventDateUntil: null,
       page: 0,
-      size: 20,
+      size: defaultPageSize,
       sort: ['eventDateAndTime,DESC'],
     },
   ): Promise<PaginatedEventsWithBasicReports> {
@@ -201,10 +215,10 @@ export class IncidentReportingApi extends RestClient {
       query.prisonId = prisonId
     }
     if (eventDateFrom) {
-      query.eventDateFrom = toDateString(eventDateFrom)
+      query.eventDateFrom = format.isoDate(eventDateFrom)
     }
     if (eventDateUntil) {
-      query.eventDateUntil = toDateString(eventDateUntil)
+      query.eventDateUntil = format.isoDate(eventDateUntil)
     }
 
     return this.get<DatesAsStrings<PaginatedEventsWithBasicReports>>({
@@ -253,7 +267,7 @@ export class IncidentReportingApi extends RestClient {
       reportedDateFrom: null,
       reportedDateUntil: null,
       page: 0,
-      size: 20,
+      size: defaultPageSize,
       sort: ['incidentDateAndTime,DESC'],
     },
   ): Promise<PaginatedBasicReports> {
@@ -275,16 +289,16 @@ export class IncidentReportingApi extends RestClient {
       query.type = type
     }
     if (incidentDateFrom) {
-      query.incidentDateFrom = toDateString(incidentDateFrom)
+      query.incidentDateFrom = format.isoDate(incidentDateFrom)
     }
     if (incidentDateUntil) {
-      query.incidentDateUntil = toDateString(incidentDateUntil)
+      query.incidentDateUntil = format.isoDate(incidentDateUntil)
     }
     if (reportedDateFrom) {
-      query.reportedDateFrom = toDateString(reportedDateFrom)
+      query.reportedDateFrom = format.isoDate(reportedDateFrom)
     }
     if (reportedDateUntil) {
-      query.reportedDateUntil = toDateString(reportedDateUntil)
+      query.reportedDateUntil = format.isoDate(reportedDateUntil)
     }
 
     return this.get<DatesAsStrings<PaginatedBasicReports>>({

@@ -95,3 +95,17 @@ describe('shortDate(): Format shorts dates as Europe/London ignoring time-of-day
     expect(format.shortDate(undefined)).toEqual('')
   })
 })
+
+describe('isoDate(): Formats dates in ISO style, used when calling APIs', () => {
+  it.each([
+    ['2024-07-30T12:34:56', '2024-07-30'],
+    ['2024-07-30T12:34:56Z', '2024-07-30'],
+    ['2024-07-30T12:34:56+01:00', '2024-07-30'],
+  ])('new Date(%s) formats as %s in ISO date style', (date, expected) => {
+    expect(format.isoDate(new Date(date))).toEqual(expected)
+  })
+
+  it.each([null, undefined])('preserves %s', input => {
+    expect(format.isoDate(input)).toEqual(input)
+  })
+})

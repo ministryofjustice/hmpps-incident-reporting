@@ -1,12 +1,12 @@
 import type { RequestHandler } from 'express'
 import { NotFound } from 'http-errors'
 
+import format from '../utils/format'
 import { pagination } from '../utils/pagination'
+import { type ErrorSummaryItem, parseDateInput } from '../utils/utils'
 import type { Services } from '../services'
 import { IncidentReportingApi } from '../data/incidentReportingApi'
 import { OffenderSearchApi } from '../data/offenderSearchApi'
-import { ErrorSummaryItem, parseDateInput } from '../utils/utils'
-import format from '../utils/format'
 
 interface ListFormData {
   page?: string

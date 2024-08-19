@@ -48,21 +48,22 @@ export function convertEventWithBasicReportsDates(event: DatesAsStrings<EventWit
   }
 }
 
-export function convertQuestionDates(question: DatesAsStrings<Question>): Question {
+function convertQuestionDates(question: DatesAsStrings<Question>): Question {
   return {
     ...question,
     responses: question.responses.map(convertResponseDates),
   }
 }
 
-export function convertResponseDates(response: DatesAsStrings<Response>): Response {
+function convertResponseDates(response: DatesAsStrings<Response>): Response {
   return {
     ...response,
+    responseDate: response.responseDate && new Date(response.responseDate),
     recordedAt: new Date(response.recordedAt),
   }
 }
 
-export function convertHistoricReportDates(historicReport: DatesAsStrings<HistoricReport>): HistoricReport {
+function convertHistoricReportDates(historicReport: DatesAsStrings<HistoricReport>): HistoricReport {
   return {
     ...historicReport,
     changedAt: new Date(historicReport.changedAt),
@@ -70,14 +71,14 @@ export function convertHistoricReportDates(historicReport: DatesAsStrings<Histor
   }
 }
 
-export function convertHistoricStatusDates(historicStatus: DatesAsStrings<HistoricStatus>): HistoricStatus {
+function convertHistoricStatusDates(historicStatus: DatesAsStrings<HistoricStatus>): HistoricStatus {
   return {
     ...historicStatus,
     changedAt: new Date(historicStatus.changedAt),
   }
 }
 
-export function convertCorrectionRequestDates(correctionRequest: DatesAsStrings<CorrectionRequest>): CorrectionRequest {
+function convertCorrectionRequestDates(correctionRequest: DatesAsStrings<CorrectionRequest>): CorrectionRequest {
   return {
     ...correctionRequest,
     correctionRequestedAt: new Date(correctionRequest.correctionRequestedAt),

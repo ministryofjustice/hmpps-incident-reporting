@@ -79,6 +79,11 @@ export const findFieldInErrorSummary = (list: ErrorSummaryItem[], formFieldId: s
   return null
 }
 
-export function toDateString(date: Date): string {
-  return date.toISOString().split('T')[0]
+/** Make an array of given length with a builder function */
+export function buildArray<T>(length: number, builder: (index: number) => T): T[] {
+  const array = Array(length)
+  for (let index = 0; index < length; index += 1) {
+    array[index] = builder(index)
+  }
+  return array
 }

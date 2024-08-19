@@ -7,6 +7,7 @@ import { type ErrorSummaryItem, parseDateInput } from '../utils/utils'
 import type { Services } from '../services'
 import { IncidentReportingApi } from '../data/incidentReportingApi'
 import { OffenderSearchApi } from '../data/offenderSearchApi'
+import { PrisonApi } from '../data/prisonApi'
 
 interface ListFormData {
   page?: string
@@ -101,12 +102,14 @@ export default function makeDebugRoutes(services: Services): Record<string, Requ
       const { user } = res.locals
       const systemToken = await services.hmppsAuthClient.getSystemClientToken(user.username)
       const incidentReportingApi = new IncidentReportingApi(systemToken)
+      const prisonApi = new PrisonApi(systemToken)
 
       const event = await incidentReportingApi.getEventById(id)
       const inputUsernames = event.reports.map(report => report.reportedBy)
       const usersLookup = await services.userService.getUsers(systemToken, inputUsernames)
+      const prisonsLookup = await prisonApi.getPrisons()
 
-      res.render('pages/debug/incidentDetails', { event, usersLookup })
+      res.render('pages/debug/incidentDetails', { event, usersLookup, prisonsLookup })
     },
 
     async reportDetails(req, res) {
@@ -119,6 +122,7 @@ export default function makeDebugRoutes(services: Services): Record<string, Requ
       const systemToken = await services.hmppsAuthClient.getSystemClientToken(user.username)
       const incidentReportingApi = new IncidentReportingApi(systemToken)
       const offenderSearchApi = new OffenderSearchApi(systemToken)
+      const prisonApi = new PrisonApi(systemToken)
 
       const report = await incidentReportingApi.getReportWithDetailsById(id)
       const usersLookup = await services.userService.getUsers(systemToken, [
@@ -127,8 +131,9 @@ export default function makeDebugRoutes(services: Services): Record<string, Requ
       ])
       const prisonerNumbers = report.prisonersInvolved.map(pi => pi.prisonerNumber)
       const prisonersLookup = await offenderSearchApi.getPrisoners(prisonerNumbers)
+      const prisonsLookup = await prisonApi.getPrisons()
 
-      res.render('pages/debug/reportDetails', { report, prisonersLookup, usersLookup })
+      res.render('pages/debug/reportDetails', { report, prisonersLookup, usersLookup, prisonsLookup })
     },
   }
 }

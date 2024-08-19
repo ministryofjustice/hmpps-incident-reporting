@@ -1,13 +1,16 @@
 import type { RequestHandler } from 'express'
 import { NotFound } from 'http-errors'
 
+import type {
+  EventWithBasicReports,
+  PrisonerInvolvement,
+  ReportBasic,
+  StaffInvolvement,
+} from '../data/incidentReportingApi'
 import format from '../utils/format'
 import { pagination } from '../utils/pagination'
 import { type ErrorSummaryItem, parseDateInput } from '../utils/utils'
 import type { Services } from '../services'
-import { IncidentReportingApi } from '../data/incidentReportingApi'
-import { OffenderSearchApi } from '../data/offenderSearchApi'
-import { PrisonApi } from '../data/prisonApi'
 
 interface ListFormData {
   page?: string
@@ -18,11 +21,10 @@ interface ListFormData {
 export default function makeDebugRoutes(services: Services): Record<string, RequestHandler> {
   return {
     async incidentList(req, res) {
+      const { userService } = services
+      const { incidentReportingApi } = res.locals.apis
+
       const { page, fromDate: fromDateInput, toDate: toDateInput }: ListFormData = req.query
-
-      const { systemToken } = res.locals
-      const incidentReportingApi = new IncidentReportingApi(systemToken)
-
       const todayAsShortDate = format.shortDate(new Date())
 
       // Parse page number
@@ -78,8 +80,8 @@ export default function makeDebugRoutes(services: Services): Record<string, Requ
       const noFiltersSupplied = Boolean(!fromDate && !toDate)
 
       const incidents = incidentsResponse.content
-      const usernames = incidents.map(incident => incident.modifiedBy)
-      const usersLookup = await services.userService.getUsers(systemToken, usernames)
+      const usernames = incidents.map((incident: EventWithBasicReports) => incident.modifiedBy)
+      const usersLookup = await userService.getUsers(res.locals.systemToken, usernames)
 
       res.render('pages/debug/incidentList', {
         incidents,
@@ -93,40 +95,37 @@ export default function makeDebugRoutes(services: Services): Record<string, Requ
     },
 
     async incidentDetails(req, res) {
+      const { userService } = services
+      const { incidentReportingApi, prisonApi } = res.locals.apis
+
       const { id } = req.params
       if (!id) {
         throw new NotFound()
       }
 
-      const { systemToken } = res.locals
-      const incidentReportingApi = new IncidentReportingApi(systemToken)
-      const prisonApi = new PrisonApi(systemToken)
-
       const event = await incidentReportingApi.getEventById(id)
-      const inputUsernames = event.reports.map(report => report.reportedBy)
-      const usersLookup = await services.userService.getUsers(systemToken, inputUsernames)
+      const usernames = event.reports.map((report: ReportBasic) => report.reportedBy)
+      const usersLookup = await userService.getUsers(res.locals.systemToken, usernames)
       const prisonsLookup = await prisonApi.getPrisons()
 
       res.render('pages/debug/incidentDetails', { event, usersLookup, prisonsLookup })
     },
 
     async reportDetails(req, res) {
+      const { userService } = services
+      const { incidentReportingApi, prisonApi, offenderSearchApi } = res.locals.apis
+
       const { id } = req.params
       if (!id) {
         throw new NotFound()
       }
 
-      const { systemToken } = res.locals
-      const incidentReportingApi = new IncidentReportingApi(systemToken)
-      const offenderSearchApi = new OffenderSearchApi(systemToken)
-      const prisonApi = new PrisonApi(systemToken)
-
       const report = await incidentReportingApi.getReportWithDetailsById(id)
-      const usersLookup = await services.userService.getUsers(systemToken, [
-        ...report.staffInvolved.map(staff => staff.staffUsername),
+      const usersLookup = await userService.getUsers(res.locals.systemToken, [
+        ...report.staffInvolved.map((staff: StaffInvolvement) => staff.staffUsername),
         report.reportedBy,
       ])
-      const prisonerNumbers = report.prisonersInvolved.map(pi => pi.prisonerNumber)
+      const prisonerNumbers = report.prisonersInvolved.map((pi: PrisonerInvolvement) => pi.prisonerNumber)
       const prisonersLookup = await offenderSearchApi.getPrisoners(prisonerNumbers)
       const prisonsLookup = await prisonApi.getPrisons()
 

@@ -5,8 +5,6 @@ import format from '../utils/format'
 import { pagination } from '../utils/pagination'
 import { type ErrorSummaryItem, parseDateInput } from '../utils/utils'
 import type { Services } from '../services'
-import { IncidentReportingApi } from '../data/incidentReportingApi'
-import { OffenderSearchApi } from '../data/offenderSearchApi'
 
 interface ListFormData {
   page?: string
@@ -17,12 +15,10 @@ interface ListFormData {
 export default function makeDebugRoutes(services: Services): Record<string, RequestHandler> {
   return {
     async incidentList(req, res) {
+      const { userService } = services
+      const { incidentReportingApi } = res.locals.apis
+
       const { page, fromDate: fromDateInput, toDate: toDateInput }: ListFormData = req.query
-
-      const { user } = res.locals
-      const systemToken = await services.hmppsAuthClient.getSystemClientToken(user.username)
-      const incidentReportingApi = new IncidentReportingApi(systemToken)
-
       const todayAsShortDate = format.shortDate(new Date())
 
       // Parse page number
@@ -79,7 +75,7 @@ export default function makeDebugRoutes(services: Services): Record<string, Requ
 
       const incidents = incidentsResponse.content
       const usernames = incidents.map(incident => incident.modifiedBy)
-      const usersLookup = await services.userService.getUsers(systemToken, usernames)
+      const usersLookup = await userService.getUsers(res.locals.systemToken, usernames)
 
       res.render('pages/debug/incidentList', {
         incidents,
@@ -93,42 +89,41 @@ export default function makeDebugRoutes(services: Services): Record<string, Requ
     },
 
     async incidentDetails(req, res) {
+      const { userService } = services
+      const { incidentReportingApi, prisonApi } = res.locals.apis
+
       const { id } = req.params
       if (!id) {
         throw new NotFound()
       }
 
-      const { user } = res.locals
-      const systemToken = await services.hmppsAuthClient.getSystemClientToken(user.username)
-      const incidentReportingApi = new IncidentReportingApi(systemToken)
-
       const event = await incidentReportingApi.getEventById(id)
-      const inputUsernames = event.reports.map(report => report.reportedBy)
-      const usersLookup = await services.userService.getUsers(systemToken, inputUsernames)
+      const usernames = event.reports.map(report => report.reportedBy)
+      const usersLookup = await userService.getUsers(res.locals.systemToken, usernames)
+      const prisonsLookup = await prisonApi.getPrisons()
 
-      res.render('pages/debug/incidentDetails', { event, usersLookup })
+      res.render('pages/debug/incidentDetails', { event, usersLookup, prisonsLookup })
     },
 
     async reportDetails(req, res) {
+      const { userService } = services
+      const { incidentReportingApi, prisonApi, offenderSearchApi } = res.locals.apis
+
       const { id } = req.params
       if (!id) {
         throw new NotFound()
       }
 
-      const { user } = res.locals
-      const systemToken = await services.hmppsAuthClient.getSystemClientToken(user.username)
-      const incidentReportingApi = new IncidentReportingApi(systemToken)
-      const offenderSearchApi = new OffenderSearchApi(systemToken)
-
       const report = await incidentReportingApi.getReportWithDetailsById(id)
-      const usersLookup = await services.userService.getUsers(systemToken, [
+      const usersLookup = await userService.getUsers(res.locals.systemToken, [
         ...report.staffInvolved.map(staff => staff.staffUsername),
         report.reportedBy,
       ])
       const prisonerNumbers = report.prisonersInvolved.map(pi => pi.prisonerNumber)
       const prisonersLookup = await offenderSearchApi.getPrisoners(prisonerNumbers)
+      const prisonsLookup = await prisonApi.getPrisons()
 
-      res.render('pages/debug/reportDetails', { report, prisonersLookup, usersLookup })
+      res.render('pages/debug/reportDetails', { report, prisonersLookup, usersLookup, prisonsLookup })
     },
   }
 }

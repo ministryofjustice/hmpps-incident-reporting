@@ -18,6 +18,8 @@ import frontendComponents from './middleware/frontendComponents'
 import config from './config'
 import routes from './routes'
 import type { Services } from './services'
+import setSystemToken from './middleware/setSystemToken'
+import setApis from './middleware/setApis'
 
 export default function createApp(services: Services): express.Application {
   const app = express()
@@ -36,6 +38,8 @@ export default function createApp(services: Services): express.Application {
   app.use(authorisationMiddleware())
   app.use(setUpCsrf())
   app.use(setUpCurrentUser(services))
+  app.use(setSystemToken(services))
+  app.use(setApis())
 
   app.use(frontendComponents(services))
   app.use(routes(services))

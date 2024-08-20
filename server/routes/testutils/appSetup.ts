@@ -7,6 +7,9 @@ import nunjucksSetup from '../../utils/nunjucksSetup'
 import errorHandler from '../../errorHandler'
 import * as auth from '../../authentication/auth'
 import type { Services } from '../../services'
+import { IncidentReportingApi } from '../../data/incidentReportingApi'
+import { OffenderSearchApi } from '../../data/offenderSearchApi'
+import { PrisonApi } from '../../data/prisonApi'
 
 export const user: Express.User = {
   name: 'FIRST LAST',
@@ -24,6 +27,8 @@ export const flashProvider = jest.fn()
 function appSetup(services: Services, production: boolean, userSupplier: () => Express.User): Express {
   const app = express()
 
+  const systemToken = 'test-system-token'
+
   app.set('view engine', 'njk')
 
   nunjucksSetup(app)
@@ -33,6 +38,12 @@ function appSetup(services: Services, production: boolean, userSupplier: () => E
     req.flash = flashProvider
     res.locals = {
       user: { ...req.user },
+      systemToken,
+      apis: {
+        incidentReportingApi: new IncidentReportingApi(systemToken),
+        offenderSearchApi: new OffenderSearchApi(systemToken),
+        prisonApi: new PrisonApi(systemToken),
+      },
     }
     next()
   })

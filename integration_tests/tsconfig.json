@@ -10,8 +10,8 @@
     "esModuleInterop": true,
     "skipLibCheck": true,
     "sourceMap": false,
-    "typeRoots": ["../server/@types", "../node_modules/@types", "../node_modules"],
+    "typeRoots": ["../node_modules/@types", "../node_modules", "../server/@types"]
   },
   "exclude": [],
-  "include": ["**/*.ts"],
+  "include": ["**/*.ts"]
 }

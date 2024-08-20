@@ -21,7 +21,7 @@ describe('offenderSearchApi', () => {
   })
 
   describe('getPrisoners', () => {
-    it('should de-duplicate input prisoner numbers', () => {
+    it('should de-duplicate input prisoner numbers', async () => {
       fakeApiClient.post('/prisoner-search/prisoner-numbers').reply(200, (_uri, requestBody) => {
         const request = requestBody as { prisonerNumbers: string[] }
         expect(request.prisonerNumbers).toHaveLength(3)
@@ -29,7 +29,7 @@ describe('offenderSearchApi', () => {
       })
 
       const responseFuture = apiClient.getPrisoners(['A1111AA', 'A2222BB', 'A1111AA', 'A3333CC'])
-      expect(responseFuture).resolves.toEqual({
+      await expect(responseFuture).resolves.toEqual({
         A1111AA: andrew,
         A2222BB: barry,
         A3333CC: chris,

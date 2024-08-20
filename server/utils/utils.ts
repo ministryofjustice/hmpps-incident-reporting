@@ -7,6 +7,18 @@ export interface ErrorSummaryItem {
   href: string
 }
 
+/**
+ * An item passed into the `items` property of a GOV.UK select component
+ * https://design-system.service.gov.uk/components/select/
+ */
+export interface GovukSelectItem {
+  text: string
+  value?: string
+  selected?: boolean
+  disabled?: boolean
+  attributes?: object
+}
+
 const properCase = (word: string): string =>
   word.length >= 1 ? word[0].toUpperCase() + word.toLowerCase().slice(1) : word
 
@@ -86,4 +98,31 @@ export function buildArray<T>(length: number, builder: (index: number) => T): T[
     array[index] = builder(index)
   }
   return array
+}
+
+/** Insert an blank default value into a GOV.UK select component `items` list */
+export const govukSelectInsertDefault = (
+  items: GovukSelectItem[],
+  text: string,
+  selected = true,
+): GovukSelectItem[] => {
+  if (!items) return items
+  return [
+    {
+      text,
+      value: '',
+      selected,
+    },
+    ...items,
+  ]
+}
+
+/** Select an item inside a GOV.UK select component `items` list, by value */
+export const govukSelectSetSelected = (items: GovukSelectItem[], value: string): GovukSelectItem[] => {
+  if (!items) return items
+  if (value === undefined) return items
+  return items.map(entry => ({
+    ...entry,
+    selected: 'value' in entry ? entry.value === value : entry.text === value,
+  }))
 }

@@ -1,7 +1,7 @@
 import nock from 'nock'
 
 import config from '../config'
-import { PrisonApi, type Prison, type IncidentTypeConfiguration } from './prisonApi'
+import { PrisonApi, type Prison, type IncidentTypeConfiguration, type ReferenceCode } from './prisonApi'
 import { leeds, moorland } from './testData/prisonApi'
 
 jest.mock('./tokenStore/redisTokenStore')
@@ -152,6 +152,81 @@ describe('prisonApi', () => {
         expect(answer.answerExpiryDate).toBeInstanceOf(Date)
         expect(prisonerRole.expiryDate).toBeInstanceOf(Date)
       })
+    })
+  })
+
+  describe('getReferenceCodes', () => {
+    it('should convert date fields', async () => {
+      fakeApiClient
+        .get('/api/reference-domains/domains/DOM1/codes')
+        .query(true)
+        .reply(200, [
+          {
+            domain: 'DOM1',
+            code: 'SAMPL',
+            description: 'Sample',
+            listSeq: 1,
+            activeFlag: 'N',
+            expiredDate: '2022-08-20',
+            systemDataFlag: 'N',
+            subCodes: [
+              {
+                domain: 'DOM1',
+                code: 'SUBSAMP',
+                description: 'Sub-sample',
+                listSeq: 1,
+                activeFlag: 'N',
+                expiredDate: '2022-08-20',
+                systemDataFlag: 'N',
+                subCodes: [],
+              },
+            ],
+          },
+        ] satisfies DatesAsStrings<ReferenceCode[]>)
+
+      const codes = await apiClient.getReferenceCodes('DOM1')
+      expect(codes).toHaveLength(1)
+      const code = codes[0]
+      expect(code.expiredDate).toBeInstanceOf(Date)
+      expect(code.subCodes).toHaveLength(1)
+      const subCode = code.subCodes[0]
+      expect(subCode.expiredDate).toBeInstanceOf(Date)
+    })
+
+    it.each([
+      { method: 'getIncidentTypes' as const, domain: 'IR_TYPE' },
+      { method: 'getStaffInvolvementRoles' as const, domain: 'IR_STF_PART' },
+      { method: 'getPrisonerInvolvementRoles' as const, domain: 'IR_OFF_PART' },
+      { method: 'getPrisonerInvolvementOutcome' as const, domain: 'IR_OUTCOME' },
+    ])('$method should sort codes', async ({ method, domain }) => {
+      fakeApiClient
+        .get(`/api/reference-domains/domains/${domain}/codes`)
+        .query(true)
+        .reply(200, [
+          {
+            domain,
+            code: 'SAMPL2',
+            description: 'Sample 2',
+            listSeq: 2,
+            activeFlag: 'Y',
+            systemDataFlag: 'N',
+            subCodes: [],
+          },
+          {
+            domain,
+            code: 'SAMPL1',
+            description: 'Sample 1',
+            listSeq: 1,
+            activeFlag: 'Y',
+            systemDataFlag: 'N',
+            subCodes: [],
+          },
+        ] satisfies DatesAsStrings<ReferenceCode[]>)
+
+      await expect(apiClient[method].call(apiClient)).resolves.toMatchObject([
+        { code: 'SAMPL1', description: 'Sample 1' },
+        { code: 'SAMPL2', description: 'Sample 2' },
+      ])
     })
   })
 })

@@ -80,6 +80,19 @@ interface PrisonerRole {
   expiryDate?: Date
 }
 
+export interface ReferenceCode {
+  domain: string
+  code: string
+  description: string
+  listSeq: number
+  systemDataFlag: 'Y' | 'N'
+  activeFlag: 'Y' | 'N'
+  expiredDate?: Date
+  parentDomain?: string
+  parentCode?: string
+  subCodes: ReferenceCode[]
+}
+
 export class PrisonApi extends RestClient {
   constructor(systemToken: string) {
     super('HMPPS Prison API', config.apis.hmppsPrisonApi, systemToken)
@@ -132,5 +145,40 @@ export class PrisonApi extends RestClient {
           }) satisfies IncidentTypeConfiguration,
       ),
     )
+  }
+
+  /** Load reference data codes for given domain */
+  getReferenceCodes(domain: string): Promise<ReferenceCode[]> {
+    function parseDates(referenceCode: DatesAsStrings<ReferenceCode>): ReferenceCode {
+      return {
+        ...referenceCode,
+        expiredDate: referenceCode.expiredDate && new Date(referenceCode.expiredDate),
+        subCodes: (referenceCode.subCodes ?? []).map(parseDates),
+      }
+    }
+
+    return this.get<DatesAsStrings<ReferenceCode[]>>({
+      path: `/api/reference-domains/domains/${encodeURIComponent(domain)}/codes`,
+    }).then(codes => codes.map(parseDates).sort((code1, code2) => (code1.listSeq ?? 0) - (code2.listSeq ?? 0)))
+  }
+
+  /** List incident types (TODO: this reference data isn't actually the list of types, right?) */
+  getIncidentTypes(): Promise<ReferenceCode[]> {
+    return this.getReferenceCodes('IR_TYPE')
+  }
+
+  /** List options for roles of staff involvement */
+  getStaffInvolvementRoles(): Promise<ReferenceCode[]> {
+    return this.getReferenceCodes('IR_STF_PART')
+  }
+
+  /** List options for roles of prisoner involvement */
+  getPrisonerInvolvementRoles(): Promise<ReferenceCode[]> {
+    return this.getReferenceCodes('IR_OFF_PART')
+  }
+
+  /** List options for outcomes of prisoner involvement */
+  getPrisonerInvolvementOutcome(): Promise<ReferenceCode[]> {
+    return this.getReferenceCodes('IR_OUTCOME')
   }
 }

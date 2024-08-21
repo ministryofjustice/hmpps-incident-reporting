@@ -62,6 +62,54 @@ DRONE,Drone,2,FALSE,20/08/2020
       })
   })
 
+  it('should render a CSV file of questions for an incident type', () => {
+    prisonApi.getIncidentTypeConfiguration.mockResolvedValueOnce([
+      {
+        incidentType: 'ASSAULT',
+        incidentTypeDescription: 'Assault',
+        questionnaireId: 1,
+        questions: [
+          {
+            questionnaireQueId: 1,
+            questionSeq: 1,
+            questionDesc: 'WHO WAS INFORMED OF THE INCIDENT',
+            questionListSeq: 1,
+            questionActiveFlag: false,
+            questionExpiryDate: new Date(2022, 7, 20),
+            multipleAnswerFlag: true,
+            answers: [],
+          },
+          {
+            questionnaireQueId: 2,
+            questionSeq: 2,
+            questionDesc: 'WERE THE POLICE INFORMED OF THE INCIDENT',
+            questionListSeq: 2,
+            questionActiveFlag: true,
+            multipleAnswerFlag: false,
+            answers: [],
+          },
+        ],
+        prisonerRoles: [],
+        active: true,
+      },
+    ])
+
+    return request(app)
+      .get('/nomis-report-config/incident-type/ASSAULT/questions.csv')
+      .expect(200)
+      .expect('Content-Type', /text\/csv/)
+      .expect('Content-Disposition', /attachment; filename=/)
+      .expect(res => {
+        expect(res.text).toContain(
+          `
+Question ID,Sequence,List sequence,Question,Allows multiple answers,Active,Expired
+1,1,1,WHO WAS INFORMED OF THE INCIDENT,TRUE,FALSE,20/08/2022
+2,2,2,WERE THE POLICE INFORMED OF THE INCIDENT,FALSE,TRUE,
+        `.trim(),
+        )
+      })
+  })
+
   it.each([
     {
       scenario: 'staff involvement roles',

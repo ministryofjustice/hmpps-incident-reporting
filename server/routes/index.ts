@@ -26,6 +26,7 @@ export default function routes(services: Services): Router {
   // NOMIS data dumps should be available in production
   const downloadNomisConfigRoutes = makeDownloadNomisConfigRoutes()
   get('/nomis-report-config/incident-types.csv', downloadNomisConfigRoutes.incidentTypes)
+  get('/nomis-report-config/incident-type/:type/questions.csv', downloadNomisConfigRoutes.incidentTypeQuestions)
   get('/nomis-report-config/staff-involvement-roles.csv', downloadNomisConfigRoutes.staffInvolvementRoles)
   get('/nomis-report-config/prisoner-involvement-roles.csv', downloadNomisConfigRoutes.prisonerInvolvementRoles)
   get('/nomis-report-config/prisoner-involvement-outcome.csv', downloadNomisConfigRoutes.prisonerInvolvementOutcome)

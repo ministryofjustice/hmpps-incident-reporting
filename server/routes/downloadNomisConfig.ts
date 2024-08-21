@@ -1,4 +1,5 @@
 import type { RequestHandler, Response } from 'express'
+import { NotFound } from 'http-errors'
 
 import type { ReferenceCode } from '../data/prisonApi'
 import format from '../utils/format'
@@ -79,6 +80,39 @@ export default function makeDownloadNomisConfigRoutes(): Record<string, RequestH
         }
 
         streamCsvDownload(res, 'incident-types.csv', mapTypes())
+      })
+    },
+
+    incidentTypeQuestions(req, res): void {
+      const { type } = req.params
+      if (!type) {
+        throw new NotFound()
+      }
+
+      const { prisonApi } = res.locals.apis
+      prisonApi.getIncidentTypeConfiguration(type).then(incidentTypes => {
+        function* mapType(): Generator<CsvCellValue[]> {
+          if (incidentTypes.length !== 1) {
+            yield ['Type not found', type]
+            return
+          }
+
+          yield ['Question ID', 'Sequence', 'List sequence', 'Question', 'Allows multiple answers', 'Active', 'Expired']
+
+          for (const question of incidentTypes[0].questions) {
+            yield [
+              question.questionnaireQueId,
+              question.questionSeq,
+              question.questionListSeq,
+              question.questionDesc,
+              question.multipleAnswerFlag,
+              question.questionActiveFlag,
+              format.shortDate(question.questionExpiryDate),
+            ]
+          }
+        }
+
+        streamCsvDownload(res, `incident-type-questions-${type}.csv`, mapType())
       })
     },
 

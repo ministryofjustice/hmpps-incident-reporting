@@ -10,6 +10,8 @@ import config from '../config'
 import {
   convertToTitleCase,
   findFieldInErrorSummary,
+  govukSelectInsertDefault,
+  govukSelectSetSelected,
   initialiseName,
   nameOfPerson,
   reversedNameOfPerson,
@@ -60,6 +62,8 @@ export default function nunjucksSetup(app: express.Express): void {
 
   // form helpers
   njkEnv.addFilter('findFieldInErrorSummary', findFieldInErrorSummary)
+  njkEnv.addFilter('govukSelectInsertDefault', govukSelectInsertDefault)
+  njkEnv.addFilter('govukSelectSetSelected', govukSelectSetSelected)
 
   // date/datetime formatting
   njkEnv.addFilter('dateAndTime', format.dateAndTime)

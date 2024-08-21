@@ -7,27 +7,28 @@ import { type ErrorSummaryItem, parseDateInput } from '../utils/utils'
 import type { Services } from '../services'
 
 interface ListFormData {
-  page?: string
+  prisonId?: string
   fromDate?: string
   toDate?: string
+  page?: string
 }
 
 export default function makeDebugRoutes(services: Services): Record<string, RequestHandler> {
   return {
     async incidentList(req, res) {
       const { userService } = services
-      const { incidentReportingApi } = res.locals.apis
+      const { incidentReportingApi, prisonApi } = res.locals.apis
 
-      const { page, fromDate: fromDateInput, toDate: toDateInput }: ListFormData = req.query
-      const todayAsShortDate = format.shortDate(new Date())
-
-      // Parse page number
-      let pageNumber = (page && typeof page === 'string' && parseInt(page, 10)) || 1
-      if (pageNumber < 1) {
-        pageNumber = 1
+      const { prisonId, fromDate: fromDateInput, toDate: toDateInput, page }: ListFormData = req.query
+      const formValues: ListFormData = {
+        prisonId,
+        fromDate: fromDateInput,
+        toDate: toDateInput,
+        page,
       }
 
-      // Parse dates
+      // Parse params
+      const todayAsShortDate = format.shortDate(new Date())
       const errors: ErrorSummaryItem[] = []
       let fromDate: Date | null
       let toDate: Date | null
@@ -48,16 +49,33 @@ export default function makeDebugRoutes(services: Services): Record<string, Requ
         errors.push({ href: '#toDate', text: `Enter a valid to date, for example ${todayAsShortDate}` })
       }
 
+      // Parse page number
+      let pageNumber = (page && typeof page === 'string' && parseInt(page, 10)) || 1
+      if (pageNumber < 1) {
+        pageNumber = 1
+      }
+
       // Get incidents from API
       const incidentsResponse = await incidentReportingApi.getEvents({
-        // prisonId: user.activeCaseLoadId,
+        prisonId,
         eventDateFrom: fromDate,
         eventDateUntil: toDate,
         page: pageNumber - 1,
         // sort: ['eventDateAndTime,ASC'],
       })
 
-      const urlPrefix = `/incidents?fromDate=${encodeURIComponent(fromDateInput)}&toDate=${encodeURIComponent(toDateInput)}&`
+      const queryString = new URLSearchParams()
+      if (prisonId) {
+        queryString.append('prisonId', prisonId)
+      }
+      if (fromDateInput) {
+        queryString.append('fromDate', fromDateInput)
+      }
+      if (toDateInput) {
+        queryString.append('toDate', toDateInput)
+      }
+
+      const urlPrefix = `/incidents?${queryString}&`
       const paginationParams = pagination(
         pageNumber,
         incidentsResponse.totalPages,
@@ -66,19 +84,20 @@ export default function makeDebugRoutes(services: Services): Record<string, Requ
         incidentsResponse.totalElements,
         incidentsResponse.size,
       )
-      const formValues: ListFormData = {
-        page,
-        fromDate: fromDateInput,
-        toDate: toDateInput,
-      }
-      const noFiltersSupplied = Boolean(!fromDate && !toDate)
+      const noFiltersSupplied = Boolean(!prisonId && !fromDate && !toDate)
 
       const incidents = incidentsResponse.content
       const usernames = incidents.map(incident => incident.modifiedBy)
       const usersLookup = await userService.getUsers(res.locals.systemToken, usernames)
+      const prisonsLookup = await prisonApi.getPrisons()
+      const prisons = Object.values(prisonsLookup).map(prison => ({
+        value: prison.agencyId,
+        text: prison.description,
+      }))
 
       res.render('pages/debug/incidentList', {
         incidents,
+        prisons,
         usersLookup,
         formValues,
         errors,

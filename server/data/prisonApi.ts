@@ -164,7 +164,10 @@ export class PrisonApi extends RestClient {
     )
   }
 
-  /** List incident types (TODO: this reference data isn't actually the list of types, right?) */
+  /**
+   * List incident types
+   * NB: THIS DOES NOT MATCH THE ACTUAL REPORT TYPES
+   */
   getIncidentTypes(): Promise<ReferenceCode[]> {
     return this.getReferenceCodes('IR_TYPE')
   }

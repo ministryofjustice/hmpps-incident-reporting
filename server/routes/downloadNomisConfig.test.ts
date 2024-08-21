@@ -22,11 +22,6 @@ afterEach(() => {
 describe('NOMIS config downloads', () => {
   it.each([
     {
-      scenario: 'incident types',
-      url: '/nomis-report-config/incident-types.csv',
-      prisonApiMethod: 'getIncidentTypes' as const,
-    },
-    {
       scenario: 'staff involvement roles',
       url: '/nomis-report-config/staff-involvement-roles.csv',
       prisonApiMethod: 'getStaffInvolvementRoles' as const,

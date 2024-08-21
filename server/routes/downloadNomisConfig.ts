@@ -19,13 +19,13 @@ function escapeCsvCell(value: CsvCellValue): string {
   if (value === null || value === undefined) {
     return ''
   }
-  let mustQuote = false
   if (value === true) {
     return 'TRUE'
   }
   if (value === false) {
     return 'FALSE'
   }
+  let mustQuote = false
   if (typeof value === 'number') {
     value = value.toString()
   }
@@ -59,13 +59,6 @@ function* mapCodes(referenceCodes: ReferenceCode[]) {
 
 export default function makeDownloadNomisConfigRoutes(): Record<string, RequestHandler> {
   return {
-    incidentTypes(req, res): void {
-      const { prisonApi } = res.locals.apis
-      prisonApi
-        .getIncidentTypes()
-        .then(referenceCodes => streamCsvDownload(res, 'incident-types.csv', mapCodes(referenceCodes)))
-    },
-
     staffInvolvementRoles(req, res): void {
       const { prisonApi } = res.locals.apis
       prisonApi

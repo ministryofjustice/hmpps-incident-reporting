@@ -97,7 +97,26 @@ export default function makeDownloadNomisConfigRoutes(): Record<string, RequestH
             return
           }
 
-          yield ['Question ID', 'Sequence', 'List sequence', 'Question', 'Allows multiple answers', 'Active', 'Expired']
+          yield [
+            // question headers
+            'Question ID',
+            'Question sequence',
+            'Question list sequence',
+            'Question',
+            'Allows multiple answers?',
+            'Question is active',
+            'Question expired',
+            // answer headers
+            'Answer ID',
+            'Answer sequence',
+            'Answer list sequence',
+            'Answer',
+            'Answer requires comment',
+            'Answer requires date',
+            'Answer is active',
+            'Answer expired',
+            'Next question ID',
+          ]
 
           for (const question of incidentTypes[0].questions) {
             yield [
@@ -108,7 +127,22 @@ export default function makeDownloadNomisConfigRoutes(): Record<string, RequestH
               question.multipleAnswerFlag,
               question.questionActiveFlag,
               format.shortDate(question.questionExpiryDate),
+              ...Array(8),
             ]
+            for (const answer of question.answers) {
+              yield [
+                ...Array(7),
+                answer.questionnaireAnsId,
+                answer.answerSeq,
+                answer.answerListSeq,
+                answer.answerDesc,
+                answer.answerActiveFlag,
+                answer.commentRequiredFlag,
+                answer.dateRequiredFlag,
+                format.shortDate(answer.answerExpiryDate),
+                answer.nextQuestionnaireQueId ?? 'None',
+              ]
+            }
           }
         }
 

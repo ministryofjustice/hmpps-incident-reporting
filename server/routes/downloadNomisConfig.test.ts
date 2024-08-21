@@ -62,7 +62,7 @@ DRONE,Drone,2,FALSE,20/08/2020
       })
   })
 
-  it('should render a CSV file of questions for an incident type', () => {
+  it('should render a CSV file of questions and answers for an incident type', () => {
     prisonApi.getIncidentTypeConfiguration.mockResolvedValueOnce([
       {
         incidentType: 'ASSAULT',
@@ -77,7 +77,30 @@ DRONE,Drone,2,FALSE,20/08/2020
             questionActiveFlag: false,
             questionExpiryDate: new Date(2022, 7, 20),
             multipleAnswerFlag: true,
-            answers: [],
+            answers: [
+              {
+                questionnaireAnsId: 1,
+                answerSeq: 1,
+                answerDesc: 'POLICE (ENTER DATE)',
+                answerListSeq: 1,
+                answerActiveFlag: false,
+                answerExpiryDate: new Date(2022, 7, 20),
+                dateRequiredFlag: true,
+                commentRequiredFlag: false,
+                nextQuestionnaireQueId: 2,
+              },
+              {
+                questionnaireAnsId: 2,
+                answerSeq: 2,
+                answerDesc: 'SOMEONE ELSE (ENTER WHO IN COMMENT)',
+                answerListSeq: 2,
+                answerActiveFlag: false,
+                answerExpiryDate: new Date(2022, 7, 20),
+                dateRequiredFlag: false,
+                commentRequiredFlag: true,
+                nextQuestionnaireQueId: 2,
+              },
+            ],
           },
           {
             questionnaireQueId: 2,
@@ -86,7 +109,26 @@ DRONE,Drone,2,FALSE,20/08/2020
             questionListSeq: 2,
             questionActiveFlag: true,
             multipleAnswerFlag: false,
-            answers: [],
+            answers: [
+              {
+                questionnaireAnsId: 3,
+                answerSeq: 1,
+                answerDesc: 'YES',
+                answerListSeq: 1,
+                answerActiveFlag: true,
+                dateRequiredFlag: false,
+                commentRequiredFlag: false,
+              },
+              {
+                questionnaireAnsId: 4,
+                answerSeq: 2,
+                answerDesc: 'NO',
+                answerListSeq: 2,
+                answerActiveFlag: true,
+                dateRequiredFlag: false,
+                commentRequiredFlag: false,
+              },
+            ],
           },
         ],
         prisonerRoles: [],
@@ -102,9 +144,13 @@ DRONE,Drone,2,FALSE,20/08/2020
       .expect(res => {
         expect(res.text).toContain(
           `
-Question ID,Sequence,List sequence,Question,Allows multiple answers,Active,Expired
-1,1,1,WHO WAS INFORMED OF THE INCIDENT,TRUE,FALSE,20/08/2022
-2,2,2,WERE THE POLICE INFORMED OF THE INCIDENT,FALSE,TRUE,
+Question ID,Question sequence,Question list sequence,Question,Allows multiple answers?,Question is active,Question expired,Answer ID,Answer sequence,Answer list sequence,Answer,Answer requires comment,Answer requires date,Answer is active,Answer expired,Next question ID
+1,1,1,WHO WAS INFORMED OF THE INCIDENT,TRUE,FALSE,20/08/2022,,,,,,,,
+,,,,,,,1,1,1,POLICE (ENTER DATE),FALSE,FALSE,TRUE,20/08/2022,2
+,,,,,,,2,2,2,SOMEONE ELSE (ENTER WHO IN COMMENT),FALSE,TRUE,FALSE,20/08/2022,2
+2,2,2,WERE THE POLICE INFORMED OF THE INCIDENT,FALSE,TRUE,,,,,,,,,
+,,,,,,,3,1,1,YES,TRUE,FALSE,FALSE,,None
+,,,,,,,4,2,2,NO,TRUE,FALSE,FALSE,,None
         `.trim(),
         )
       })

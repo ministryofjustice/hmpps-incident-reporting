@@ -1,7 +1,7 @@
 import type { Express } from 'express'
 import request from 'supertest'
 
-import { buildArray } from '../utils/utils'
+import { buildArray, convertToTitleCase } from '../utils/utils'
 import { PrisonApi, type ReferenceCode } from '../data/prisonApi'
 import { appWithAllRoutes } from './testutils/appSetup'
 
@@ -20,6 +20,48 @@ afterEach(() => {
 })
 
 describe('NOMIS config downloads', () => {
+  it('should render a CSV file of incident types', () => {
+    prisonApi.getIncidentTypeConfiguration.mockResolvedValueOnce(
+      ['ASSAULT1', 'DRONE'].map((type, index) => {
+        const index1 = index + 1
+        return {
+          incidentType: type,
+          incidentTypeDescription: convertToTitleCase(type),
+          questionnaireId: index1,
+          questions: [
+            {
+              questionnaireQueId: index1,
+              questionSeq: 1,
+              questionDesc: 'WAS THE POLICE INVOLVED',
+              questionListSeq: 1,
+              questionActiveFlag: true,
+              multipleAnswerFlag: false,
+              answers: [],
+            },
+          ],
+          prisonerRoles: [],
+          active: false,
+          expiryDate: new Date(2020, 7, 20),
+        }
+      }),
+    )
+
+    return request(app)
+      .get('/nomis-report-config/incident-types.csv')
+      .expect(200)
+      .expect('Content-Type', /text\/csv/)
+      .expect('Content-Disposition', /attachment; filename=/)
+      .expect(res => {
+        expect(res.text).toContain(
+          `
+Type,Description,Questionnaire ID,Active,Expired
+ASSAULT1,Assault1,1,FALSE,20/08/2020
+DRONE,Drone,2,FALSE,20/08/2020
+        `.trim(),
+        )
+      })
+  })
+
   it.each([
     {
       scenario: 'staff involvement roles',
@@ -55,7 +97,14 @@ describe('NOMIS config downloads', () => {
       .expect('Content-Type', /text\/csv/)
       .expect('Content-Disposition', /attachment; filename=/)
       .expect(res => {
-        expect(res.text).toContain('Sample 2')
+        expect(res.text).toContain(
+          `
+Domain,Code,Description,Sequence,Active,System
+SAMPL,SAMPL1,Sample 1,1,TRUE,FALSE
+SAMPL,SAMPL2,Sample 2,2,TRUE,FALSE
+SAMPL,SAMPL3,Sample 3,3,TRUE,FALSE
+          `.trim(),
+        )
       })
   })
 })

@@ -1,6 +1,7 @@
 import type { RequestHandler, Response } from 'express'
 
 import type { ReferenceCode } from '../data/prisonApi'
+import format from '../utils/format'
 
 type CsvCellValue = string | number | boolean | null
 
@@ -45,6 +46,7 @@ function escapeCsvCell(value: CsvCellValue): string {
 
 function* mapCodes(referenceCodes: ReferenceCode[]) {
   yield ['Domain', 'Code', 'Description', 'Sequence', 'Active', 'System']
+
   for (const referenceCode of referenceCodes) {
     yield [
       referenceCode.domain,
@@ -59,6 +61,27 @@ function* mapCodes(referenceCodes: ReferenceCode[]) {
 
 export default function makeDownloadNomisConfigRoutes(): Record<string, RequestHandler> {
   return {
+    incidentTypes(req, res): void {
+      const { prisonApi } = res.locals.apis
+      prisonApi.getIncidentTypeConfiguration().then(incidentTypes => {
+        function* mapTypes(): Generator<CsvCellValue[]> {
+          yield ['Type', 'Description', 'Questionnaire ID', 'Active', 'Expired']
+
+          for (const incidentType of incidentTypes) {
+            yield [
+              incidentType.incidentType,
+              incidentType.incidentTypeDescription,
+              incidentType.questionnaireId,
+              incidentType.active,
+              format.shortDate(incidentType.expiryDate),
+            ]
+          }
+        }
+
+        streamCsvDownload(res, 'incident-types.csv', mapTypes())
+      })
+    },
+
     staffInvolvementRoles(req, res): void {
       const { prisonApi } = res.locals.apis
       prisonApi

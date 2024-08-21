@@ -19,6 +19,12 @@ export default function makeDebugRoutes(services: Services): Record<string, Requ
       const { incidentReportingApi } = res.locals.apis
 
       const { page, fromDate: fromDateInput, toDate: toDateInput }: ListFormData = req.query
+      const formValues: ListFormData = {
+        page,
+        fromDate: fromDateInput,
+        toDate: toDateInput,
+      }
+
       const todayAsShortDate = format.shortDate(new Date())
 
       // Parse page number
@@ -57,7 +63,15 @@ export default function makeDebugRoutes(services: Services): Record<string, Requ
         // sort: ['eventDateAndTime,ASC'],
       })
 
-      const urlPrefix = `/incidents?fromDate=${encodeURIComponent(fromDateInput)}&toDate=${encodeURIComponent(toDateInput)}&`
+      const queryString = new URLSearchParams()
+      if (fromDateInput) {
+        queryString.append('fromDate', fromDateInput)
+      }
+      if (toDateInput) {
+        queryString.append('toDate', toDateInput)
+      }
+
+      const urlPrefix = `/incidents?${queryString}&`
       const paginationParams = pagination(
         pageNumber,
         incidentsResponse.totalPages,
@@ -66,11 +80,6 @@ export default function makeDebugRoutes(services: Services): Record<string, Requ
         incidentsResponse.totalElements,
         incidentsResponse.size,
       )
-      const formValues: ListFormData = {
-        page,
-        fromDate: fromDateInput,
-        toDate: toDateInput,
-      }
       const noFiltersSupplied = Boolean(!fromDate && !toDate)
 
       const incidents = incidentsResponse.content

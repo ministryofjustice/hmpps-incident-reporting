@@ -13,9 +13,10 @@ interface ListFormData {
 }
 
 export default function makeDebugRoutes(services: Services): Record<string, RequestHandler> {
+  const { userService } = services
+
   return {
     async incidentList(req, res) {
-      const { userService } = services
       const { incidentReportingApi } = res.locals.apis
 
       const { page, fromDate: fromDateInput, toDate: toDateInput }: ListFormData = req.query
@@ -89,13 +90,12 @@ export default function makeDebugRoutes(services: Services): Record<string, Requ
     },
 
     async incidentDetails(req, res) {
-      const { userService } = services
-      const { incidentReportingApi, prisonApi } = res.locals.apis
-
       const { id } = req.params
       if (!id) {
         throw new NotFound()
       }
+
+      const { incidentReportingApi, prisonApi } = res.locals.apis
 
       const event = await incidentReportingApi.getEventById(id)
       const usernames = event.reports.map(report => report.reportedBy)
@@ -106,13 +106,12 @@ export default function makeDebugRoutes(services: Services): Record<string, Requ
     },
 
     async reportDetails(req, res) {
-      const { userService } = services
-      const { incidentReportingApi, prisonApi, offenderSearchApi } = res.locals.apis
-
       const { id } = req.params
       if (!id) {
         throw new NotFound()
       }
+
+      const { incidentReportingApi, prisonApi, offenderSearchApi } = res.locals.apis
 
       const report = await incidentReportingApi.getReportWithDetailsById(id)
       const usersLookup = await userService.getUsers(res.locals.systemToken, [

@@ -11,7 +11,7 @@ export default function routes(services: Services): Router {
 
   const router = Router()
 
-  get('/', (req, res, next) => {
+  get('/', (req, res) => {
     res.render('pages/index')
   })
 

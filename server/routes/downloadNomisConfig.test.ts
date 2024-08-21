@@ -41,21 +41,17 @@ describe('NOMIS config downloads', () => {
       url: '/nomis-report-config/prisoner-involvement-outcome.csv',
       prisonApiMethod: 'getPrisonerInvolvementOutcome' as const,
     },
-  ])('should render a CSV file for $scenario', ({ url, prisonApiMethod }) => {
+  ])('should render a CSV file of $scenario', ({ url, prisonApiMethod }) => {
     prisonApi[prisonApiMethod].mockResolvedValueOnce(
-      buildArray(
-        3,
-        index =>
-          ({
-            domain: 'SAMPL',
-            code: `SAMPL${index + 1}`,
-            description: `Sample ${index + 1}`,
-            listSeq: index + 1,
-            activeFlag: 'Y',
-            systemDataFlag: 'N',
-            subCodes: [],
-          }) satisfies ReferenceCode,
-      ),
+      buildArray<ReferenceCode>(3, index => ({
+        domain: 'SAMPL',
+        code: `SAMPL${index + 1}`,
+        description: `Sample ${index + 1}`,
+        listSeq: index + 1,
+        activeFlag: 'Y',
+        systemDataFlag: 'N',
+        subCodes: [],
+      })),
     )
 
     return request(app)

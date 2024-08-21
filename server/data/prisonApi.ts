@@ -159,7 +159,9 @@ export class PrisonApi extends RestClient {
 
     return this.get<DatesAsStrings<ReferenceCode[]>>({
       path: `/api/reference-domains/domains/${encodeURIComponent(domain)}/codes`,
-    }).then(codes => codes.map(parseDates).sort((code1, code2) => (code1.listSeq ?? 0) - (code2.listSeq ?? 0)))
+    }).then(codes =>
+      codes.map(parseDates).sort((code1, code2) => (code1.listSeq ?? Infinity) - (code2.listSeq ?? Infinity)),
+    )
   }
 
   /** List incident types (TODO: this reference data isn't actually the list of types, right?) */

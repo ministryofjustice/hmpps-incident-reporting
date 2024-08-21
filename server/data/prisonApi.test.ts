@@ -214,6 +214,15 @@ describe('prisonApi', () => {
           },
           {
             domain,
+            code: 'SAMPL3',
+            description: 'Sample 3',
+            listSeq: undefined,
+            activeFlag: 'Y',
+            systemDataFlag: 'N',
+            subCodes: [],
+          },
+          {
+            domain,
             code: 'SAMPL1',
             description: 'Sample 1',
             listSeq: 1,
@@ -226,6 +235,7 @@ describe('prisonApi', () => {
       await expect(apiClient[method].call(apiClient)).resolves.toMatchObject([
         { code: 'SAMPL1', description: 'Sample 1' },
         { code: 'SAMPL2', description: 'Sample 2' },
+        { code: 'SAMPL3', description: 'Sample 3' },
       ])
     })
   })

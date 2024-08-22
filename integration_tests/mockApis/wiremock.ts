@@ -8,7 +8,7 @@ const wiremockAdminUrl = 'http://localhost:9091/__admin'
  */
 export interface Mapping {
   request?: Partial<
-    { method: 'GET' | 'POST' } & (
+    { method: 'GET' | 'POST' | 'PATCH' | 'PUT' | 'DELETE' } & (
       | { url: string }
       | { urlPath: string }
       | { urlPathPattern: string }

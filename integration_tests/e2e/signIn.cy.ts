@@ -8,7 +8,7 @@ context('Sign In', () => {
     cy.task('resetStubs')
     cy.task('stubSignIn')
     cy.task('stubFallbackHeaderAndFooter')
-    cy.task('stubManageUser')
+    cy.task('stubManageUserMe')
   })
 
   it('Unauthenticated user directed to auth', () => {
@@ -85,7 +85,7 @@ context('Sign In', () => {
     cy.request('/').its('body').should('contain', 'Sign in')
 
     cy.task('stubVerifyToken', true)
-    cy.task('stubManageUser', 'bobby brown')
+    cy.task('stubManageUserMe', 'bobby brown')
     cy.signIn()
 
     indexPage.headerUserName.contains('B. Brown')

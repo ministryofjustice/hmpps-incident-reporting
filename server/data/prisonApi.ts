@@ -17,9 +17,9 @@ export interface IncidentTypeConfiguration {
   /** ID internal of this question set for this incident type */
   questionnaireId: number
   /** List of questions (with answers) for this incident type */
-  questions: Question[]
+  questions: QuestionConfiguration[]
   /** List of roles that can apply to a prisoner in this incident type */
-  prisonerRoles: PrisonerRole[]
+  prisonerRoles: PrisonerRoleConfiguration[]
   /** Indicates this incident type is still usable */
   active: boolean
   /** Date the incident type was expired */
@@ -27,7 +27,7 @@ export interface IncidentTypeConfiguration {
 }
 
 /** Incident type question */
-interface Question {
+interface QuestionConfiguration {
   /** Question ID */
   questionnaireQueId: number
   /** Question sequence number */
@@ -43,11 +43,11 @@ interface Question {
   /** Indicate multiple responses can be given */
   multipleAnswerFlag: boolean
   /** Order list of answers */
-  answers: Answer[]
+  answers: AnswerConfiguration[]
 }
 
 /** Incident Type Answer */
-interface Answer {
+interface AnswerConfiguration {
   /** ID for this Answer */
   questionnaireAnsId: number
   /** Sequence for this answer */
@@ -69,7 +69,7 @@ interface Answer {
 }
 
 /** Incident type prisoner role */
-interface PrisonerRole {
+interface PrisonerRoleConfiguration {
   /** Role type for this question set */
   prisonerRole: string
   /** If a single party can have this role in the question set */
@@ -130,16 +130,16 @@ export class PrisonApi extends RestClient {
                       ({
                         ...answer,
                         answerExpiryDate: answer.answerExpiryDate && new Date(answer.answerExpiryDate),
-                      }) satisfies Answer,
+                      }) satisfies AnswerConfiguration,
                   ),
-                }) satisfies Question,
+                }) satisfies QuestionConfiguration,
             ),
             prisonerRoles: incidentType.prisonerRoles.map(
               prisonerRole =>
                 ({
                   ...prisonerRole,
                   expiryDate: prisonerRole.expiryDate && new Date(prisonerRole.expiryDate),
-                }) satisfies PrisonerRole,
+                }) satisfies PrisonerRoleConfiguration,
             ),
             expiryDate: incidentType.expiryDate && new Date(incidentType.expiryDate),
           }) satisfies IncidentTypeConfiguration,

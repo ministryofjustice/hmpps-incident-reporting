@@ -111,44 +111,43 @@ export class PrisonApi extends RestClient {
    * Load current NOMIS configuration for all incident types, including inactive ones.
    * Optionally, can be filtered to return only 1 type.
    */
-  getIncidentTypeConfiguration(type?: string): Promise<IncidentTypeConfiguration[]> {
-    return this.get<DatesAsStrings<IncidentTypeConfiguration>[]>({
+  async getIncidentTypeConfiguration(type?: string): Promise<IncidentTypeConfiguration[]> {
+    const incidentTypes = await this.get<DatesAsStrings<IncidentTypeConfiguration>[]>({
       path: '/api/incidents/configuration',
       query: { 'incident-type': type },
-    }).then(incidentTypes =>
-      incidentTypes.map(
-        incidentType =>
-          ({
-            ...incidentType,
-            questions: incidentType.questions.map(
-              question =>
-                ({
-                  ...question,
-                  questionExpiryDate: question.questionExpiryDate && new Date(question.questionExpiryDate),
-                  answers: question.answers.map(
-                    answer =>
-                      ({
-                        ...answer,
-                        answerExpiryDate: answer.answerExpiryDate && new Date(answer.answerExpiryDate),
-                      }) satisfies AnswerConfiguration,
-                  ),
-                }) satisfies QuestionConfiguration,
-            ),
-            prisonerRoles: incidentType.prisonerRoles.map(
-              prisonerRole =>
-                ({
-                  ...prisonerRole,
-                  expiryDate: prisonerRole.expiryDate && new Date(prisonerRole.expiryDate),
-                }) satisfies PrisonerRoleConfiguration,
-            ),
-            expiryDate: incidentType.expiryDate && new Date(incidentType.expiryDate),
-          }) satisfies IncidentTypeConfiguration,
-      ),
+    })
+    return incidentTypes.map(
+      incidentType =>
+        ({
+          ...incidentType,
+          questions: incidentType.questions.map(
+            question =>
+              ({
+                ...question,
+                questionExpiryDate: question.questionExpiryDate && new Date(question.questionExpiryDate),
+                answers: question.answers.map(
+                  answer =>
+                    ({
+                      ...answer,
+                      answerExpiryDate: answer.answerExpiryDate && new Date(answer.answerExpiryDate),
+                    }) satisfies AnswerConfiguration,
+                ),
+              }) satisfies QuestionConfiguration,
+          ),
+          prisonerRoles: incidentType.prisonerRoles.map(
+            prisonerRole =>
+              ({
+                ...prisonerRole,
+                expiryDate: prisonerRole.expiryDate && new Date(prisonerRole.expiryDate),
+              }) satisfies PrisonerRoleConfiguration,
+          ),
+          expiryDate: incidentType.expiryDate && new Date(incidentType.expiryDate),
+        }) satisfies IncidentTypeConfiguration,
     )
   }
 
   /** Load reference data codes for given domain */
-  getReferenceCodes(domain: string): Promise<ReferenceCode[]> {
+  async getReferenceCodes(domain: string): Promise<ReferenceCode[]> {
     function parseDates(referenceCode: DatesAsStrings<ReferenceCode>): ReferenceCode {
       return {
         ...referenceCode,
@@ -157,11 +156,10 @@ export class PrisonApi extends RestClient {
       }
     }
 
-    return this.get<DatesAsStrings<ReferenceCode[]>>({
+    const codes = await this.get<DatesAsStrings<ReferenceCode[]>>({
       path: `/api/reference-domains/domains/${encodeURIComponent(domain)}/codes`,
-    }).then(codes =>
-      codes.map(parseDates).sort((code1, code2) => (code1.listSeq ?? Infinity) - (code2.listSeq ?? Infinity)),
-    )
+    })
+    return codes.map(parseDates).sort((code1, code2) => (code1.listSeq ?? Infinity) - (code2.listSeq ?? Infinity))
   }
 
   /**

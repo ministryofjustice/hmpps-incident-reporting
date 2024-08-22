@@ -156,6 +156,73 @@ Question ID,Question sequence,Question list sequence,Question,Allows multiple an
       })
   })
 
+  it('should render a CSV file of prisoner roles for an incident type', () => {
+    prisonApi.getPrisonerInvolvementRoles.mockResolvedValueOnce([
+      {
+        domain: 'IR_OFF_PART',
+        code: 'ACTINV',
+        description: 'Active Involvement',
+        listSeq: 1,
+        activeFlag: 'Y',
+        systemDataFlag: 'N',
+        subCodes: [],
+      },
+      {
+        domain: 'IR_OFF_PART',
+        code: 'IMPED',
+        description: 'Impeded Staff',
+        listSeq: 2,
+        activeFlag: 'Y',
+        systemDataFlag: 'N',
+        subCodes: [],
+      },
+    ])
+    prisonApi.getIncidentTypeConfiguration.mockResolvedValueOnce([
+      {
+        incidentType: 'ASSAULT',
+        incidentTypeDescription: 'Assault',
+        questionnaireId: 1,
+        questions: [],
+        prisonerRoles: [
+          {
+            prisonerRole: 'ACTINV',
+            singleRole: false,
+            active: true,
+          },
+          {
+            prisonerRole: 'IMPED',
+            singleRole: false,
+            active: false,
+            expiryDate: new Date(2022, 7, 20),
+          },
+          {
+            prisonerRole: 'LEAD',
+            singleRole: true,
+            active: false,
+            expiryDate: new Date(2010, 4, 12),
+          },
+        ],
+        active: true,
+      },
+    ])
+
+    return request(app)
+      .get('/nomis-report-config/incident-type/ASSAULT/prisoner-roles.csv')
+      .expect(200)
+      .expect('Content-Type', /text\/csv/)
+      .expect('Content-Disposition', /attachment; filename=/)
+      .expect(res => {
+        expect(res.text).toContain(
+          `
+Role,Description (from reference data),Only one prisoner can have this role,Active,Expired
+ACTINV,Active Involvement,FALSE,TRUE,
+IMPED,Impeded Staff,FALSE,FALSE,20/08/2022
+LEAD,,TRUE,FALSE,12/05/2010
+        `.trim(),
+        )
+      })
+  })
+
   it.each([
     {
       scenario: 'staff involvement roles',

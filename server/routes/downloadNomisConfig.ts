@@ -150,6 +150,47 @@ export default function makeDownloadNomisConfigRoutes(): Record<string, RequestH
       })
     },
 
+    incidentTypePrisonerRoles(req, res): void {
+      const { type } = req.params
+      if (!type) {
+        throw new NotFound()
+      }
+
+      const { prisonApi } = res.locals.apis
+      Promise.all([prisonApi.getPrisonerInvolvementRoles(), prisonApi.getIncidentTypeConfiguration(type)]).then(
+        ([prisonerInvolvementRoles, incidentTypes]) => {
+          const prisonerInvolvementMap = new Map(prisonerInvolvementRoles.map(code => [code.code, code.description]))
+
+          function* mapType(): Generator<CsvCellValue[]> {
+            if (incidentTypes.length !== 1) {
+              yield ['Type not found', type]
+              return
+            }
+
+            yield [
+              'Role',
+              'Description (from reference data)',
+              'Only one prisoner can have this role',
+              'Active',
+              'Expired',
+            ]
+
+            for (const prisonerRole of incidentTypes[0].prisonerRoles) {
+              yield [
+                prisonerRole.prisonerRole,
+                prisonerInvolvementMap.get(prisonerRole.prisonerRole) ?? '',
+                prisonerRole.singleRole,
+                prisonerRole.active,
+                format.shortDate(prisonerRole.expiryDate),
+              ]
+            }
+          }
+
+          streamCsvDownload(res, `incident-type-prisoner-roles-${type}.csv`, mapType())
+        },
+      )
+    },
+
     staffInvolvementRoles(req, res): void {
       const { prisonApi } = res.locals.apis
       prisonApi

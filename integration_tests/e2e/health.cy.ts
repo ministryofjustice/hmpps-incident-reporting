@@ -1,7 +1,7 @@
 context('Healthcheck', () => {
   context('All healthy', () => {
     beforeEach(() => {
-      cy.task('reset')
+      cy.task('resetStubs')
       cy.task('stubIncidentReportingApiPing')
       cy.task('stubAuthPing')
       cy.task('stubPrisonApiPing')
@@ -25,7 +25,7 @@ context('Healthcheck', () => {
 
   context('Some unhealthy', () => {
     beforeEach(() => {
-      cy.task('reset')
+      cy.task('resetStubs')
       cy.task('stubIncidentReportingApiPing')
       cy.task('stubAuthPing')
       cy.task('stubPrisonApiPing')

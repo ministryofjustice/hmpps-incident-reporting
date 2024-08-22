@@ -5,7 +5,7 @@ import AuthManageDetailsPage from '../pages/authManageDetails'
 
 context('Sign In', () => {
   beforeEach(() => {
-    cy.task('reset')
+    cy.task('resetStubs')
     cy.task('stubSignIn')
     cy.task('stubFallbackHeaderAndFooter')
     cy.task('stubManageUser')

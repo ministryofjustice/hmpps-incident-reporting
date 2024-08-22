@@ -115,6 +115,7 @@ const token = (roles: string[] = []) =>
       },
     },
   })
+
 export default {
   getSignInUrl,
   stubAuthPing: ping,

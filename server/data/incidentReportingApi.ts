@@ -196,7 +196,7 @@ export class IncidentReportingApi extends RestClient {
     super('HMPPS Incident Reporting API', config.apis.hmppsIncidentReportingApi, systemToken)
   }
 
-  getEvents(
+  async getEvents(
     { prisonId, eventDateFrom, eventDateUntil, page, size, sort }: Partial<GetEventsParams> = {
       prisonId: null,
       eventDateFrom: null,
@@ -221,30 +221,31 @@ export class IncidentReportingApi extends RestClient {
       query.eventDateUntil = format.isoDate(eventDateUntil)
     }
 
-    return this.get<DatesAsStrings<PaginatedEventsWithBasicReports>>({
+    const response = await this.get<DatesAsStrings<PaginatedEventsWithBasicReports>>({
       path: '/incident-events',
       query,
-    }).then(response => {
-      return {
-        ...response,
-        content: response.content.map(convertEventWithBasicReportsDates),
-      }
     })
+    return {
+      ...response,
+      content: response.content.map(convertEventWithBasicReportsDates),
+    }
   }
 
-  getEventById(id: string): Promise<EventWithBasicReports> {
-    return this.get<DatesAsStrings<EventWithBasicReports>>({
+  async getEventById(id: string): Promise<EventWithBasicReports> {
+    const event = await this.get<DatesAsStrings<EventWithBasicReports>>({
       path: `/incident-events/${encodeURIComponent(id)}`,
-    }).then(convertEventWithBasicReportsDates)
+    })
+    return convertEventWithBasicReportsDates(event)
   }
 
-  getEventByReference(reference: string): Promise<EventWithBasicReports> {
-    return this.get<DatesAsStrings<EventWithBasicReports>>({
+  async getEventByReference(reference: string): Promise<EventWithBasicReports> {
+    const event = await this.get<DatesAsStrings<EventWithBasicReports>>({
       path: `/incident-events/reference/${encodeURIComponent(reference)}`,
-    }).then(convertEventWithBasicReportsDates)
+    })
+    return convertEventWithBasicReportsDates(event)
   }
 
-  getReports(
+  async getReports(
     {
       prisonId,
       source,
@@ -301,38 +302,41 @@ export class IncidentReportingApi extends RestClient {
       query.reportedDateUntil = format.isoDate(reportedDateUntil)
     }
 
-    return this.get<DatesAsStrings<PaginatedBasicReports>>({
+    const response = await this.get<DatesAsStrings<PaginatedBasicReports>>({
       path: '/incident-reports',
       query,
-    }).then(response => {
-      return {
-        ...response,
-        content: response.content.map(convertBasicReportDates),
-      }
     })
+    return {
+      ...response,
+      content: response.content.map(convertBasicReportDates),
+    }
   }
 
-  getReportById(id: string): Promise<ReportBasic> {
-    return this.get<DatesAsStrings<ReportBasic>>({
+  async getReportById(id: string): Promise<ReportBasic> {
+    const report = await this.get<DatesAsStrings<ReportBasic>>({
       path: `/incident-reports/${encodeURIComponent(id)}`,
-    }).then(convertBasicReportDates)
+    })
+    return convertBasicReportDates(report)
   }
 
-  getReportByReference(reference: string): Promise<ReportBasic> {
-    return this.get<DatesAsStrings<ReportBasic>>({
+  async getReportByReference(reference: string): Promise<ReportBasic> {
+    const report = await this.get<DatesAsStrings<ReportBasic>>({
       path: `/incident-reports/reference/${encodeURIComponent(reference)}`,
-    }).then(convertBasicReportDates)
+    })
+    return convertBasicReportDates(report)
   }
 
-  getReportWithDetailsById(id: string): Promise<ReportWithDetails> {
-    return this.get<DatesAsStrings<ReportWithDetails>>({
+  async getReportWithDetailsById(id: string): Promise<ReportWithDetails> {
+    const report = await this.get<DatesAsStrings<ReportWithDetails>>({
       path: `/incident-reports/${encodeURIComponent(id)}/with-details`,
-    }).then(convertReportWithDetailsDates)
+    })
+    return convertReportWithDetailsDates(report)
   }
 
-  getReportWithDetailsByReference(reference: string): Promise<ReportWithDetails> {
-    return this.get<DatesAsStrings<ReportWithDetails>>({
+  async getReportWithDetailsByReference(reference: string): Promise<ReportWithDetails> {
+    const report = await this.get<DatesAsStrings<ReportWithDetails>>({
       path: `/incident-reports/reference/${encodeURIComponent(reference)}/with-details`,
-    }).then(convertReportWithDetailsDates)
+    })
+    return convertReportWithDetailsDates(report)
   }
 }

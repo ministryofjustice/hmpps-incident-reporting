@@ -14,9 +14,10 @@ interface ListFormData {
 }
 
 export default function makeDebugRoutes(services: Services): Record<string, RequestHandler> {
+  const { userService } = services
+
   return {
     async incidentList(req, res) {
-      const { userService } = services
       const { incidentReportingApi, prisonApi } = res.locals.apis
 
       const { prisonId, fromDate: fromDateInput, toDate: toDateInput, page }: ListFormData = req.query
@@ -108,7 +109,6 @@ export default function makeDebugRoutes(services: Services): Record<string, Requ
     },
 
     async incidentDetails(req, res) {
-      const { userService } = services
       const { incidentReportingApi, prisonApi } = res.locals.apis
 
       const { id } = req.params
@@ -125,7 +125,6 @@ export default function makeDebugRoutes(services: Services): Record<string, Requ
     },
 
     async reportDetails(req, res) {
-      const { userService } = services
       const { incidentReportingApi, prisonApi, offenderSearchApi } = res.locals.apis
 
       const { id } = req.params

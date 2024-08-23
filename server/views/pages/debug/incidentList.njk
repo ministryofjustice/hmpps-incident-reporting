@@ -72,7 +72,7 @@
       {% set title %}{{ inc.title }}{% endset %}
       {% set rows = (rows.push(
         [
-          { html: "<a href='/incident/" + inc.id + "/'>" + title + "</a>" },
+          { html: "<a href='/incident/" + inc.id + "'>" + title + "</a>" },
           { text: inc.description },
           { text: usersLookup[inc.modifiedBy].name or inc.modifiedBy },
           { text: inc.modifiedAt | dateAndTime },

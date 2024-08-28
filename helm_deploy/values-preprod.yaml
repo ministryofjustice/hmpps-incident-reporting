@@ -24,5 +24,5 @@ generic-service:
     COMPONENT_API_URL: "https://frontend-components-preprod.hmpps.service.justice.gov.uk"
 
 generic-prometheus-alerts:
-  alertSeverity: digital-prison-service-dev
+  alertSeverity: hmpps-incident-reporting-preprod
   businessHoursOnly: true

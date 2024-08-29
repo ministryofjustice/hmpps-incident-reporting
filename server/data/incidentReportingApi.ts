@@ -105,18 +105,18 @@ export type ReportWithDetails = ReportBasic & {
   correctionRequests: CorrectionRequest[]
 }
 
-// TODO: Add enums?
+// TODO: Add enums or load from api constants endpoint?
 export type ReportType = string
-// TODO: Add enums?
+// TODO: Add enums or load from api constants endpoint?
 export type ReportStatus = string
 export type ReportSource = 'DPS' | 'NOMIS'
-// TODO: Add enums?
+// TODO: Add enums or load from api constants endpoint?
 export type StaffRole = string
-// TODO: Add enums?
+// TODO: Add enums or load from api constants endpoint?
 export type PrisonerRole = string
-// TODO: Add enums?
+// TODO: Add enums or load from api constants endpoint?
 export type PrisonerInvolvementOutcome = string
-// TODO: Add enums?
+// TODO: Add enums or load from api constants endpoint?
 export type CorrectionRequestReason = string
 
 export type GetEventsParams = {
@@ -134,6 +134,8 @@ export type GetReportsParams = {
   incidentDateUntil: Date // Inclusive
   reportedDateFrom: Date // Inclusive
   reportedDateUntil: Date // Inclusive
+  involvingStaffUsername: string
+  involvingPrisonerNumber: string
 } & PaginationSortingParams
 
 export type PaginationSortingParams = {
@@ -255,6 +257,8 @@ export class IncidentReportingApi extends RestClient {
       incidentDateUntil,
       reportedDateFrom,
       reportedDateUntil,
+      involvingStaffUsername,
+      involvingPrisonerNumber,
       page,
       size,
       sort,
@@ -267,6 +271,8 @@ export class IncidentReportingApi extends RestClient {
       incidentDateUntil: null,
       reportedDateFrom: null,
       reportedDateUntil: null,
+      involvingStaffUsername: null,
+      involvingPrisonerNumber: null,
       page: 0,
       size: defaultPageSize,
       sort: ['incidentDateAndTime,DESC'],
@@ -300,6 +306,12 @@ export class IncidentReportingApi extends RestClient {
     }
     if (reportedDateUntil) {
       query.reportedDateUntil = format.isoDate(reportedDateUntil)
+    }
+    if (involvingStaffUsername) {
+      query.involvingStaffUsername = involvingStaffUsername
+    }
+    if (involvingPrisonerNumber) {
+      query.involvingPrisonerNumber = involvingPrisonerNumber
     }
 
     const response = await this.get<DatesAsStrings<PaginatedBasicReports>>({

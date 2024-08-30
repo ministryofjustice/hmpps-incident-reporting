@@ -5,6 +5,8 @@ import asyncMiddleware from '../middleware/asyncMiddleware'
 import type { Services } from '../services'
 import makeDebugRoutes from './debug'
 import makeDownloadNomisConfigRoutes from './downloadNomisConfig'
+import createIncidentRouter from './createIncident'
+import changeIncidentRouter from './changeIncident'
 
 export default function routes(services: Services): Router {
   const get = (path: string | string[], handler: RequestHandler) => router.get(path, asyncMiddleware(handler))
@@ -34,6 +36,9 @@ export default function routes(services: Services): Router {
   get('/nomis-report-config/staff-involvement-roles.csv', downloadNomisConfigRoutes.staffInvolvementRoles)
   get('/nomis-report-config/prisoner-involvement-roles.csv', downloadNomisConfigRoutes.prisonerInvolvementRoles)
   get('/nomis-report-config/prisoner-involvement-outcome.csv', downloadNomisConfigRoutes.prisonerInvolvementOutcome)
+
+  router.use('/create-incident', createIncidentRouter)
+  router.use('/change-incident/:id/', changeIncidentRouter)
 
   return router
 }

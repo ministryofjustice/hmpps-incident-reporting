@@ -65,6 +65,15 @@
     </form>
   </div>
 
+<div class="govuk-button-group">
+  {{ govukButton({
+  text: "Create new incident",
+  preventDoubleClick: true,
+  href: "/create-incident/",
+  isStartButton: true
+  }) }}
+</div>
+
   {% if incidents.length > 0 %}
 
     {% set rows = [] %}

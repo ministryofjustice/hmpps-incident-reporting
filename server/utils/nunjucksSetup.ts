@@ -4,6 +4,7 @@ import path from 'node:path'
 
 import express from 'express'
 import nunjucks from 'nunjucks'
+import { isFunction } from 'lodash'
 
 import logger from '../../logger'
 import config from '../config'
@@ -52,6 +53,18 @@ export default function nunjucksSetup(app: express.Express): void {
     },
   )
 
+  function callAsMacro(name: string) {
+    const macro = this.ctx[name]
+
+    if (!isFunction(macro)) {
+      // eslint-disable-next-line no-console
+      console.log(`'${name}' macro does not exist`)
+      return () => ''
+    }
+
+    return macro
+  }
+
   njkEnv.addFilter('assetMap', (url: string) => assetManifest[url] || url)
 
   // name formatting
@@ -69,4 +82,6 @@ export default function nunjucksSetup(app: express.Express): void {
   njkEnv.addFilter('dateAndTime', format.dateAndTime)
   njkEnv.addFilter('date', format.date)
   njkEnv.addFilter('shortDate', format.shortDate)
+
+  njkEnv.addGlobal('callAsMacro', callAsMacro)
 }

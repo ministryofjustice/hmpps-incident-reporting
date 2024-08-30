@@ -2,6 +2,8 @@
  * An item passed into the `errorList` property of a GOV.UK error summary component
  * https://design-system.service.gov.uk/components/error-summary/
  */
+import nunjucks from 'nunjucks'
+
 export interface ErrorSummaryItem {
   text: string
   href: string
@@ -125,4 +127,10 @@ export const govukSelectSetSelected = (items: GovukSelectItem[], value: string):
     ...entry,
     selected: 'value' in entry ? entry.value === value : entry.text === value,
   }))
+}
+
+const template = '{% from "govuk/components/input/macro.njk" import govukInput %}{{ govukInput(params) }}'
+
+export default function freeTextInput(params: object) {
+  return nunjucks.renderString(template, { params })
 }

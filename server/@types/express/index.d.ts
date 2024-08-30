@@ -2,6 +2,7 @@ import type { UserDetails } from '../../services/userService'
 import type { IncidentReportingApi } from '../../data/incidentReportingApi'
 import type { OffenderSearchApi } from '../../data/offenderSearchApi'
 import type { PrisonApi } from '../../data/prisonApi'
+import { Services } from '../../services'
 
 export default {}
 
@@ -10,6 +11,7 @@ declare module 'express-session' {
   interface SessionData {
     returnTo: string
     nowInMinutes: number
+    referrerUrl: string
   }
 }
 
@@ -24,6 +26,12 @@ export declare global {
       verified?: boolean
       id: string
       logout(done: (err: unknown) => void): void
+      services?: Services
+      flash(): { [key: string]: any[] }
+      flash(message: string): any[]
+      flash(type: string, message: any[] | any): number
+      flash(type: string, format: string, ...args: any[]): number
+      canAccess: (permission: string) => boolean
     }
 
     interface Locals {

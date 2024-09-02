@@ -44,7 +44,27 @@ This will automatically restart it if server code or front-end assets are modifi
 
 ### Using only local services
 
-**TODO:** the environment/settings are not properly set up for this application to work without using external services!
+Instead of running against shared services in the `dev` environment, they can all be run locally in Docker:
+
+```shell
+docker compose -f docker-compose.yml up -d
+npm run start:dev-local
+```
+
+…or all in one, for preview:
+
+```shell
+docker compose -f docker-compose.yml --profile include-frontend up
+```
+
+#### Local hmpps-auth logins
+
+Each user has 3 caseloads, Leeds(LEI), Brixton(BXI) and Moorland(MDI)
+
+| username        | password       | roles (some don't exist yet!)                                        |
+|-----------------|----------------|----------------------------------------------------------------------|
+| IR_VIEWER       | password123456 | VIEW_INCIDENT_REPORT<br/>GLOBAL_SEARCH                               |
+| IR_CREATOR      | password123456 | CREATE_INCIDENT_REPORT<br/>APPROVE_INCIDENT_REPORT<br/>GLOBAL_SEARCH |
 
 ### Updating dependencies
 

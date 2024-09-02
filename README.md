@@ -24,7 +24,7 @@ Run the application in development mode:
 ### Using only local services
 
 ```shell
-docker compose -d -f docker-compose.yml up
+docker compose -f docker-compose.yml up -d
 npm run start:dev-local
 ```
 

@@ -155,7 +155,8 @@ services:
     ports:
       - "3000:3000"
     environment:
-      - PRODUCT_ID=UNASSIGNED
+      - PRODUCT_ID=DPS021
+      - ENVIRONMENT=local
       - REDIS_HOST=redis
       - REDIS_ENABLED=true
       - HMPPS_INCIDENT_REPORTING_API_URL=http://incident-reporting-api:8080
@@ -176,6 +177,7 @@ services:
       - COMPONENT_API_URL=http://not-used-in-local-dev
       - COMMON_COMPONENTS_ENABLED=false
       - DPS_URL=http://localhost:3000
+      - SUPPORT_URL=http://localhost:3000
 
 networks:
   hmpps:

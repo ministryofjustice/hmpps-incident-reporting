@@ -84,8 +84,8 @@
           { html: "<a href='/incident/" + inc.id + "'>" + title + "</a>" },
           { text: inc.description },
           { text: usersLookup[inc.modifiedBy].name or inc.modifiedBy },
-          { text: inc.modifiedAt | dateAndTime },
-          { text: inc.reports.length }
+          { text: inc.createdAt | dateAndTime },
+          { text: inc.modifiedAt | dateAndTime }
         ]
       ), rows) %}
     {% endfor %}
@@ -105,10 +105,10 @@
           text: "Modified By"
         },
         {
-          text: "Modified At"
+          text: "Created At"
         },
         {
-          text: "Number of reports"
+          text: "Modified At"
         }
       ],
       rows: rows

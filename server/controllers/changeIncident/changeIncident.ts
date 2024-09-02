@@ -19,7 +19,7 @@ export default class ChangeIncident extends FormInitialStep {
       incidentTime: res.locals.incident.incidentDateAndTime.toLocaleString('en', { timeStyle: 'short', hour12: false }),
       prisonId: res.locals.incident.prisonId,
       incidentTitle: res.locals.incident.title,
-      incidentDescription: res.locals.incident.description
+      incidentDescription: res.locals.incident.description,
     }
   }
 
@@ -37,7 +37,7 @@ export default class ChangeIncident extends FormInitialStep {
 
   validateFields(req: FormWizard.Request, res: Response, callback: (errors: any) => void) {
     super.validateFields(req, res, errors => {
-      //const { values } = req.form
+      // const { values } = req.form
 
       const validationErrors: any = {}
       /**
@@ -57,26 +57,34 @@ export default class ChangeIncident extends FormInitialStep {
   }
 
   validate(req: FormWizard.Request, res: Response, next: NextFunction) {
-    /**
-    const { prisonId } = res.locals
-    const { newSignedOperationalCapacity } = req.form.values
-    const { currentSignedOperationalCapacity } = res.locals
-    if (Number(newSignedOperationalCapacity) === Number(currentSignedOperationalCapacity)) {
+    const incidentId = res.locals.incident.id
+    const { incident } = res.locals
+    const formValues = req.form.values
+
+    if (
+      formValues.incidentDate === incident.incidentDateAndTime.toLocaleString('en-gb', { dateStyle: 'short' }) &&
+      formValues.incidentTime ===
+        incident.incidentDateAndTime.toLocaleString('en', { timeStyle: 'short', hour12: false }) &&
+      formValues.prisonId === incident.prisonId &&
+      formValues.incidentTitle === incident.title &&
+      formValues.incidentDescription === incident.description
+    ) {
       return res.redirect(
         backUrl(req, {
-          fallbackUrl: `/incidents/`,
+          fallbackUrl: `/report/${incidentId}`,
         }),
       )
     }
-*/
+
     return next()
   }
 
   locals(req: FormWizard.Request, res: Response): object {
     const locals = super.locals(req, res)
+    const incidentId = res.locals.incident.id
 
     const backLink = backUrl(req, {
-      fallbackUrl: '/incidents/',
+      fallbackUrl: `/report/${incidentId}`,
     })
 
     return {
@@ -99,7 +107,7 @@ export default class ChangeIncident extends FormInitialStep {
       const systemToken = await hmppsAuthClient.getSystemClientToken(user.username)
       const incidentReportingApi = new IncidentReportingApi(systemToken)
 
-      const tempDate: string[] = (incidentDate as string).split('/').map(String);
+      const tempDate: string[] = (incidentDate as string).split('/').map(String)
       const outDate = `${tempDate[2]}-${tempDate[1]}-${tempDate[0]}`
 
       const updateIncidentData: updateIncident = {
@@ -108,7 +116,7 @@ export default class ChangeIncident extends FormInitialStep {
         title: incidentTitle,
         description: incidentDescription,
         updateEvent: true,
-        isEmpty: false
+        isEmpty: false,
       }
 
       await incidentReportingApi.updateIncident(res.locals.incident.id, updateIncidentData)

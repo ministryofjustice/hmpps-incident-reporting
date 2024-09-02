@@ -21,9 +21,11 @@ Run the application in development mode:
 * in separate shell sessions, for local development
   * This will automatically restart it if server code or front-end assets are modified.
 
+### Using services in `local` environment
+
 ```shell
-docker compose -f docker-compose.yml up
-npm run starvt:dev-local
+docker compose -d -f docker-compose.yml up
+npm run start:dev-local
 ```
 
 * all in one, for preview:
@@ -35,7 +37,7 @@ docker compose -f docker-compose.yml --profile include-frontend up
 #### Dev logins
 Each user has 3 caseloads, Leeds(LEI), Brixton(BXI) and Moorland(MDI)
 
-| username        | password       | roles (these don't exist yet!)                                       |
+| username        | password       | roles (some don't exist yet!)                                        |
 |-----------------|----------------|----------------------------------------------------------------------|
 | IR_VIEWER       | password123456 | VIEW_INCIDENT_REPORT<br/>GLOBAL_SEARCH                               |
 | IR_CREATOR      | password123456 | CREATE_INCIDENT_REPORT<br/>APPROVE_INCIDENT_REPORT<br/>GLOBAL_SEARCH |

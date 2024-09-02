@@ -48,7 +48,6 @@ services:
       - HMPPS_AUTH_ENDPOINT_URL=http://hmpps-auth:8080/auth
       - HMPPS_AUTH_EXTERNAL_ENDPOINT_URL=http://localhost:8080/auth
       - NOMIS_ENDPOINT_URL=http://nomis-user-roles-api:8080
-      - AUTHORIZATION_SERVER_TOKEN_ENDPOINT_URL=http://hmpps-auth:8080/auth/oauth/token
 
   prison-api:
     image: quay.io/hmpps/prison-api:latest
@@ -60,9 +59,10 @@ services:
     ports:
       - "8084:8080"
     healthcheck:
-      test: ["CMD", "curl", "-f", "http://localhost:8080/auth/health"]
+      test: ["CMD", "curl", "-f", "http://localhost:8080/health/ping"]
     environment:
       - SPRING_PROFILES_ACTIVE=nomis-hsqldb
+      - SPRING_SECURITY_OAUTH2_RESOURCESERVER_JWT_JWK_SET_URI=http://hmpps-auth:8080/auth/.well-known/jwks.json
 
   incident-reporting-api:
     image: quay.io/hmpps/hmpps-incident-reporting-api:latest

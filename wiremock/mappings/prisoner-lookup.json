@@ -1,0 +1,13 @@
+{
+  "request": {
+    "method": "GET",
+    "urlPattern": "/prisoner/([a-zA-Z][0-9]{4}[a-zA-Z]{2})"
+  },
+  "response": {
+    "status": 200,
+    "bodyFileName": "prisoner-lookup.json",
+    "headers": {
+      "Content-Type": "application/json"
+    }
+  }
+}

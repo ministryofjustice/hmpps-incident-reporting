@@ -1,0 +1,18 @@
+{
+  "request": {
+    "method": "POST",
+    "urlPath": "/attribute-search",
+    "bodyPatterns": [
+      {
+        "matchesJsonPath": "$.queries[*].matchers[?(@.searchTerm != 'BXI')]"
+      }
+    ]
+  },
+  "response": {
+    "status": 200,
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "bodyFileName": "attribute-search-noresult.json"
+  }
+}

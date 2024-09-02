@@ -11,37 +11,6 @@ It is backed by [hmpps-incident-reporting-api](https://github.com/ministryofjust
 
 The application needs a suite of services to work.
 
-### Using services in `dev` environment
-
-This is the easiest way to run and develop on your machine: by hooking into services that already exist
-in the `dev` environment.
-
-Run the application in development mode:
-
-* in separate shell sessions, for local development
-  * This will automatically restart it if server code or front-end assets are modified.
-
-### Using only local services
-
-```shell
-docker compose -f docker-compose.yml up -d
-npm run start:dev-local
-```
-
-* all in one, for preview:
-
-```shell
-docker compose -f docker-compose.yml --profile include-frontend up
-```
-
-#### Local logins
-Each user has 3 caseloads, Leeds(LEI), Brixton(BXI) and Moorland(MDI)
-
-| username        | password       | roles (some don't exist yet!)                                        |
-|-----------------|----------------|----------------------------------------------------------------------|
-| IR_VIEWER       | password123456 | VIEW_INCIDENT_REPORT<br/>GLOBAL_SEARCH                               |
-| IR_CREATOR      | password123456 | CREATE_INCIDENT_REPORT<br/>APPROVE_INCIDENT_REPORT<br/>GLOBAL_SEARCH |
-
 ### Requirements
 
 This application is built for Node.js and docker will be needed to run it locally.
@@ -73,6 +42,29 @@ npm run start:dev
 
 This will automatically restart it if server code or front-end assets are modified.
 
+### Using only local services
+
+Instead of running against shared services in the `dev` environment, they can all be run locally in Docker:
+
+```shell
+docker compose -f docker-compose.yml up -d
+npm run start:dev-local
+```
+
+…or all in one, for preview:
+
+```shell
+docker compose -f docker-compose.yml --profile include-frontend up
+```
+
+#### Local hmpps-auth logins
+
+Each user has 3 caseloads, Leeds(LEI), Brixton(BXI) and Moorland(MDI)
+
+| username        | password       | roles (some don't exist yet!)                                        |
+|-----------------|----------------|----------------------------------------------------------------------|
+| IR_VIEWER       | password123456 | VIEW_INCIDENT_REPORT<br/>GLOBAL_SEARCH                               |
+| IR_CREATOR      | password123456 | CREATE_INCIDENT_REPORT<br/>APPROVE_INCIDENT_REPORT<br/>GLOBAL_SEARCH |
 
 ### Updating dependencies
 

@@ -4,6 +4,7 @@ services:
 
   hmpps-auth:
     image: quay.io/hmpps/hmpps-auth:latest
+    pull_policy: always
     container_name: hmpps-auth
     networks:
       - hmpps
@@ -20,6 +21,7 @@ services:
 
   nomis-user-roles-api:
     image: quay.io/hmpps/nomis-user-roles-api:latest
+    pull_policy: always
     container_name: nomis-user-roles-api
     networks:
       - hmpps
@@ -34,6 +36,7 @@ services:
 
   manage-users-api:
     image: quay.io/hmpps/hmpps-manage-users-api:latest
+    pull_policy: always
     container_name: manage-users-api
     networks:
       - hmpps
@@ -53,6 +56,7 @@ services:
 
   prison-api:
     image: quay.io/hmpps/prison-api:latest
+    pull_policy: always
     container_name: prison-api
     networks:
       - hmpps
@@ -68,6 +72,7 @@ services:
 
   incident-reporting-api:
     image: quay.io/hmpps/hmpps-incident-reporting-api:latest
+    pull_policy: always
     container_name: incident-reporting-api
     depends_on:
       - hmpps-auth

@@ -1,0 +1,13 @@
+{
+  "request": {
+    "method": "POST",
+    "urlPath": "/prisoner-search/prisoner-numbers"
+  },
+  "response": {
+    "status": 200,
+    "bodyFileName": "prisoners-lookup.json",
+    "headers": {
+      "Content-Type": "application/json"
+    }
+  }
+}

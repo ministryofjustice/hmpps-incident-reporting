@@ -1,10 +1,12 @@
+# Runs the services needed for running the application entirely locally
+
 services:
 
   hmpps-auth:
     image: quay.io/hmpps/hmpps-auth:latest
+    container_name: hmpps-auth
     networks:
       - hmpps
-    container_name: hmpps-auth
     ports:
       - "8080:8080"
     healthcheck:
@@ -51,9 +53,9 @@ services:
 
   prison-api:
     image: quay.io/hmpps/prison-api:latest
+    container_name: prison-api
     networks:
       - hmpps
-    container_name: prison-api
     depends_on:
       - hmpps-auth
     ports:
@@ -87,10 +89,10 @@ services:
       - INCIDENT_REPORTING_API_CLIENT_SECRET=clientsecret
 
   localstack:
-    image: localstack/localstack:stable
+    image: localstack/localstack:3
+    container_name: irs-localstack
     networks:
       - hmpps
-    container_name: localstack
     ports:
       - "4566:4566"
       - "8999:8080"
@@ -102,10 +104,10 @@ services:
       - "/var/run/docker.sock:/var/run/docker.sock"
 
   incident-reporting-db:
-    image: postgres
+    image: postgres:16
+    container_name: irs-postgres
     networks:
       - hmpps
-    container_name: incident-reporting-db
     restart: unless-stopped
     ports:
       - "5432:5432"
@@ -115,24 +117,24 @@ services:
       - POSTGRES_DB=incident_reporting
 
   prisoner-search:
-    image: wiremock/wiremock:latest
+    image: wiremock/wiremock:3x
+    container_name: prisoner-search
     networks:
       - hmpps
-    container_name: prisoner-search
     ports:
       - "8083:8080"
     volumes:
       - ./wiremock:/home/wiremock
 
   redis:
-    image: 'redis:7.2'
+    image: redis:7
+    container_name: irs-redis
     networks:
       - hmpps
-    container_name: redis
     environment:
       - ALLOW_EMPTY_PASSWORD=yes
     ports:
-      - '6379:6379'
+      - "6379:6379"
 
   app:
     build:

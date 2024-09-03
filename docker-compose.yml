@@ -148,6 +148,7 @@ services:
         BUILD_NUMBER: "1.0.0"
         GIT_REF: "a1b2c3"
         GIT_BRANCH: main
+    container_name: irs-app
     networks:
       - hmpps
     depends_on:

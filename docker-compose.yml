@@ -152,12 +152,12 @@ services:
     networks:
       - hmpps
     depends_on:
-      - manage-users-api
       - hmpps-auth
       - incident-reporting-api
+      - manage-users-api
       - nomis-user-roles-api
-      - prisoner-search
       - prison-api
+      - prisoner-search
     profiles:
       - include-frontend
     ports:
@@ -166,13 +166,13 @@ services:
       - local.env
     environment:
       - REDIS_HOST=redis
-      - HMPPS_INCIDENT_REPORTING_API_URL=http://incident-reporting-api:8080
-      - NOMIS_USER_ROLES_API_URL=http://nomis-user-roles-api:8080
-      - HMPPS_PRISON_API_URL=http://prison-api:8080
-      - OFFENDER_SEARCH_API_URL=http://prisoner-search:8080
       - HMPPS_AUTH_EXTERNAL_URL=http://localhost:8080/auth
       - HMPPS_AUTH_URL=http://hmpps-auth:8080/auth
+      - HMPPS_INCIDENT_REPORTING_API_URL=http://incident-reporting-api:8080
+      - HMPPS_PRISON_API_URL=http://prison-api:8080
       - MANAGE_USERS_API_URL=http://manage-users-api:8080
+      - NOMIS_USER_ROLES_API_URL=http://nomis-user-roles-api:8080
+      - OFFENDER_SEARCH_API_URL=http://prisoner-search:8080
 
 networks:
   hmpps:

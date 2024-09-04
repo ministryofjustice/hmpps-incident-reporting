@@ -3,7 +3,7 @@ import FormWizard from 'hmpo-form-wizard'
 import backUrl from '../../utils/backUrl'
 import FormInitialStep from '../base/formInitialStep'
 import HmppsAuthClient from '../../data/hmppsAuthClient'
-import { IncidentReportingApi, type updateIncident } from '../../data/incidentReportingApi'
+import { IncidentReportingApi, type UpdateIncident } from '../../data/incidentReportingApi'
 import RedisTokenStore from '../../data/tokenStore/redisTokenStore'
 import { createRedisClient } from '../../data/redisClient'
 
@@ -33,27 +33,6 @@ export default class ChangeIncident extends FormInitialStep {
     }))
 
     next()
-  }
-
-  validateFields(req: FormWizard.Request, res: Response, callback: (errors: any) => void) {
-    super.validateFields(req, res, errors => {
-      // const { values } = req.form
-
-      const validationErrors: any = {}
-      /**
-      if (!errors.newSignedOperationalCapacity) {
-        const { newSignedOperationalCapacity } = values
-        if (Number(newSignedOperationalCapacity) > Number(maxCapacity)) {
-          validationErrors.newSignedOperationalCapacity = this.formError(
-            'newSignedOperationalCapacity',
-            'doesNotExceedEstMaxCap',
-          )
-        }
-      }
-      */
-
-      callback({ ...errors, ...validationErrors })
-    })
   }
 
   validate(req: FormWizard.Request, res: Response, next: NextFunction) {
@@ -110,7 +89,7 @@ export default class ChangeIncident extends FormInitialStep {
       const tempDate: string[] = (incidentDate as string).split('/').map(String)
       const outDate = `${tempDate[2]}-${tempDate[1]}-${tempDate[0]}`
 
-      const updateIncidentData: updateIncident = {
+      const updateIncidentData: UpdateIncident = {
         incidentDateAndTime: `${outDate}T${incidentTime}`,
         prisonId: incidentPrisonId,
         title: incidentTitle,
@@ -127,18 +106,18 @@ export default class ChangeIncident extends FormInitialStep {
     }
   }
 
-  /**
   successHandler(req: FormWizard.Request, res: Response, next: NextFunction) {
-    const { prisonId } = res.locals
+    const incidentId = res.locals.incident.id
 
     req.journeyModel.reset()
     req.sessionModel.reset()
 
+    /**
     req.flash('success', {
       title: 'Signed operational capacity updated',
       content: `You have updated the establishment's signed operational capacity.`,
-    })
+    }) */
 
-    res.redirect(`/incidents`)
-  } */
+    res.redirect(`/report/${incidentId}`)
+  }
 }

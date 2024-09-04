@@ -39,6 +39,7 @@ export default function routes(services: Services): Router {
 
   router.use('/create-incident', createIncidentRouter)
   router.use('/change-incident/:id/', changeIncidentRouter)
+  router.use('/report/:incidentId/add-prisoner/:prisonerId', changeIncidentRouter)
 
   return router
 }

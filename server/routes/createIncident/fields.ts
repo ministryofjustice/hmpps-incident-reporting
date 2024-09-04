@@ -1,5 +1,5 @@
 const fields = {
-  incidentType:{
+  incidentType: {
     component: 'govukSelect',
     validate: ['required'],
     id: 'incidentType',
@@ -11,17 +11,17 @@ const fields = {
     items: [
       {
         text: 'Please select one',
-        selected: true
+        selected: true,
       },
       {
         value: 'ASSAULT',
-        text: 'Assault'
+        text: 'Assault',
       },
       {
         value: 'ABSCONDER',
-        text: 'Absconder'
-      }
-    ]
+        text: 'Absconder',
+      },
+    ],
   },
   incidentDate: {
     component: 'mojDatePicker',
@@ -49,7 +49,7 @@ const fields = {
     },
     autocomplete: 'off',
   },
-  prisonId:{
+  prisonId: {
     component: 'govukSelect',
     validate: ['required'],
     id: 'prisonId',
@@ -61,9 +61,9 @@ const fields = {
     items: [
       {
         text: 'Please select one',
-        selected: true
+        selected: true,
       },
-    ]
+    ],
   },
   incidentTitle: {
     component: 'govukInput',
@@ -157,7 +157,7 @@ const fields = {
         text: 'Yes',
         value: 'yes',
         conditional: {
-          html: 'set during setup'
+          html: 'set during setup',
         },
       },
       {
@@ -170,7 +170,7 @@ const fields = {
     component: 'govukInput',
     id: 'policeInformedDate',
     name: 'policeInformedDate',
-    classes: "govuk-!-width-one-third",
+    classes: 'govuk-!-width-one-third',
     label: {
       text: 'When were the police informed?',
       classes: 'govuk-fieldset__legend--m',

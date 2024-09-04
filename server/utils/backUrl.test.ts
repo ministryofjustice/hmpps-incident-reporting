@@ -1,6 +1,7 @@
 import backUrl from './backUrl'
 
 describe('backUrl', () => {
+  /* eslint-disable-next-line */
   let req: any
 
   beforeEach(() => {
@@ -12,8 +13,8 @@ describe('backUrl', () => {
   it('returns the referrer if present', () => {
     req.session.referrerUrl = '/the/referrer/url'
     const result = backUrl(req, {
-      fallbackUrl: `/the/fallback/url`,
-      nextStepUrl: `/form-journey-1/step-2`,
+      fallbackUrl: '/the/fallback/url',
+      nextStepUrl: '/form-journey-1/step-2',
     })
 
     expect(result).toEqual('/the/referrer/url')
@@ -22,8 +23,8 @@ describe('backUrl', () => {
   it('returns the fallback URL if referred by clicking back from the next step', () => {
     req.session.referrerUrl = '/form-journey-1/step-2'
     const result = backUrl(req, {
-      fallbackUrl: `/the/fallback/url`,
-      nextStepUrl: `/form-journey-1/step-2`,
+      fallbackUrl: '/the/fallback/url',
+      nextStepUrl: '/form-journey-1/step-2',
     })
 
     expect(result).toEqual('/the/fallback/url')
@@ -31,7 +32,7 @@ describe('backUrl', () => {
 
   it('returns the fallback URL if there is no referrer', () => {
     const result = backUrl(req, {
-      fallbackUrl: `/the/fallback/url`,
+      fallbackUrl: '/the/fallback/url',
     })
 
     expect(result).toEqual('/the/fallback/url')

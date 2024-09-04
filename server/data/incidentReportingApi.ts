@@ -193,22 +193,29 @@ export type CorrectionRequest = {
   correctionRequestedAt: Date
 }
 
-export type newIncident = {
-  type: string | string[],
-  incidentDateAndTime: string | string[],
-  prisonId: string | string[],
-  title: string | string[],
-  description: string | string[],
+export type NewIncident = {
+  type: string | string[]
+  incidentDateAndTime: string | string[]
+  prisonId: string | string[]
+  title: string | string[]
+  description: string | string[]
   createNewEvent: boolean
 }
 
-export type updateIncident = {
-  incidentDateAndTime: string | string[],
-  prisonId: string | string[],
-  title: string | string[],
-  description: string | string[],
-  updateEvent: boolean,
+export type UpdateIncident = {
+  incidentDateAndTime: string | string[]
+  prisonId: string | string[]
+  title: string | string[]
+  description: string | string[]
+  updateEvent: boolean
   isEmpty: boolean
+}
+
+export type NewPrisoner = {
+  prisonerNumber: string | string[]
+  prisonerRole: string | string[]
+  outcome?: string | string[]
+  comment?: string | string[]
 }
 
 export class IncidentReportingApi extends RestClient {
@@ -370,17 +377,24 @@ export class IncidentReportingApi extends RestClient {
     return convertReportWithDetailsDates(report)
   }
 
-  createIncident(data: newIncident): Promise<newIncident> {
+  createIncident(data: NewIncident): Promise<NewIncident> {
     return this.post({
       path: '/incident-reports',
-      data
+      data,
     })
   }
 
-  updateIncident(incidentId: string, data: updateIncident): Promise<updateIncident> {
+  updateIncident(incidentId: string, data: UpdateIncident): Promise<UpdateIncident> {
     return this.patch({
       path: `/incident-reports/${incidentId}`,
-      data
+      data,
+    })
+  }
+
+  addPrisonerToReport(reportId: string, data: NewPrisoner): Promise<NewPrisoner> {
+    return this.post({
+      path: `/incident-reports/${reportId}/prisoners-involved`,
+      data,
     })
   }
 }

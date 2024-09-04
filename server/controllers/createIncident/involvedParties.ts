@@ -1,4 +1,4 @@
-import { NextFunction, Response } from 'express'
+import { Response } from 'express'
 import FormWizard from 'hmpo-form-wizard'
 import backUrl from '../../utils/backUrl'
 import FormInitialStep from '../base/formInitialStep'
@@ -6,80 +6,42 @@ import FormInitialStep from '../base/formInitialStep'
 export default class TestNewIncidentPage2 extends FormInitialStep {
   middlewareSetup() {
     super.middlewareSetup()
-    //this.use(this.getSignedOperationalCapacity)
-  }
-
-  validateFields(req: FormWizard.Request, res: Response, callback: (errors: any) => void) {
-    super.validateFields(req, res, errors => {
-      //const { values } = req.form
-
-      const validationErrors: any = {}
-      /**
-      if (!errors.newSignedOperationalCapacity) {
-        const { newSignedOperationalCapacity } = values
-        if (Number(newSignedOperationalCapacity) > Number(maxCapacity)) {
-          validationErrors.newSignedOperationalCapacity = this.formError(
-            'newSignedOperationalCapacity',
-            'doesNotExceedEstMaxCap',
-          )
-        }
-      }
-      */
-
-      callback({ ...errors, ...validationErrors })
-    })
-  }
-
-  validate(req: FormWizard.Request, res: Response, next: NextFunction) {
-    /**
-    const { prisonId } = res.locals
-    const { newSignedOperationalCapacity } = req.form.values
-    const { currentSignedOperationalCapacity } = res.locals
-    if (Number(newSignedOperationalCapacity) === Number(currentSignedOperationalCapacity)) {
-      return res.redirect(
-        backUrl(req, {
-          fallbackUrl: `/incidents/`,
-        }),
-      )
-    }
-*/
-    return next()
   }
 
   locals(req: FormWizard.Request, res: Response): object {
     const locals = super.locals(req, res)
 
     const backLink = backUrl(req, {
-      fallbackUrl: `/incidents/page1`,
+      fallbackUrl: '/incidents/page1',
     })
 
     return {
       ...locals,
       backLink,
-      cancelLink: `/incidents`,
+      cancelLink: '/incidents',
     }
   }
-
+  /**
   async saveValues(req: FormWizard.Request, res: Response, next: NextFunction) {
     try {
       const { user } = res.locals
-      //const { locationsService } = req.services
+      // const { locationsService } = req.services
       const { prisonersInvolved } = req.form.values
       const { staffInvolved } = req.form.values
       const vals = req.form.values
-      console.log("Page 2 activated")
+      console.log('Page 2 activated')
 
       console.log(vals)
-      //console.log(prisonersInvolved)
-      //console.log(staffInvolved)
-      /**
+      // console.log(prisonersInvolved)
+      // console.log(staffInvolved)
+
       const token = await req.services.authService.getSystemClientToken(user.username)
       await locationsService.updateSignedOperationalCapacity(
         token,
         res.locals.prisonId,
         Number(newSignedOperationalCapacity),
         user.username,
-      )*/
+      )
 
       next()
     } catch (error) {
@@ -87,7 +49,7 @@ export default class TestNewIncidentPage2 extends FormInitialStep {
     }
   }
 
-/**
+
   successHandler(req: FormWizard.Request, res: Response, next: NextFunction) {
     const { prisonId } = res.locals
 
@@ -100,6 +62,5 @@ export default class TestNewIncidentPage2 extends FormInitialStep {
     })
 
     res.redirect(`/view-and-update-locations/${prisonId}`)
-  }*/
+  } */
 }
-

@@ -2,11 +2,13 @@ import { Response } from 'express'
 import FormWizard from 'hmpo-form-wizard'
 
 export default class FormInitialStep extends FormWizard.Controller {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   getInitialValues(_req: FormWizard.Request, _res: Response): { [key: string]: any } {
     // Override in subclass to return initial values for form
     return {}
   }
 
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   getValues(req: FormWizard.Request, res: Response, callback: (err: any, values?: any) => void) {
     return super.getValues(req, res, (err, values) => {
       if (err) return callback(err)
@@ -28,6 +30,7 @@ export default class FormInitialStep extends FormWizard.Controller {
     return typeof arg === 'number' ? arg : `the ${fields[arg?.field]?.label?.text?.toLowerCase()}`
   }
 
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   getErrorDetail(error: { args: any; key: string; type: string }, res: Response): { text: string; href: string } {
     const { fields } = res.locals.options
     const field = fields[error.key]
@@ -50,6 +53,7 @@ export default class FormInitialStep extends FormWizard.Controller {
     }
   }
 
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   locals(_req: FormWizard.Request, res: Response): Record<string, any> {
     const { fields } = res.locals.options
     const { values } = res.locals
@@ -58,7 +62,7 @@ export default class FormInitialStep extends FormWizard.Controller {
     })
 
     const validationErrors: { text: string; href: string }[] = []
-
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     res.locals.errorlist.forEach((error: { args: any; key: string; type: string }) => {
       const errorDetail = this.getErrorDetail(error, res)
       validationErrors.push(errorDetail)

@@ -1,12 +1,12 @@
 // Copied from https://github.com/ministryofjustice/hmpps-strengths-based-needs-assessments-ui/blob/c1d2e0ac64ce2be0ea0a27919cd34f8882b2d5c0/server/%40types/hmpo-form-wizard/index.d.ts
 
 /* eslint-disable max-classes-per-file */
+// eslint-disable @typescript-eslint/no-explicit-any
 declare module 'hmpo-form-wizard' {
   import Express from 'express'
 
   // These enums have to live here because of TS/Jest and Enums work..  ¯\_(ツ)_/¯
   // Also this ESLint override because of how TS/Eslint works.
-  // eslint-disable-next-line no-shadow
   export const enum FieldType {
     Text = 'TEXT',
     Radio = 'RADIO',
@@ -16,7 +16,6 @@ declare module 'hmpo-form-wizard' {
     Dropdown = 'DROPDOWN',
   }
 
-  // eslint-disable-next-line no-shadow
   export const enum ValidationType {
     String = 'string',
     Regex = 'regex',
@@ -47,7 +46,6 @@ declare module 'hmpo-form-wizard' {
     AfterDateField = 'afterField',
   }
 
-  // eslint-disable-next-line no-shadow
   export const enum FormatterType {
     Trim = 'trim',
     Boolean = 'boolean',
@@ -65,7 +63,6 @@ declare module 'hmpo-form-wizard' {
     Base64Decode = 'base64decode',
   }
 
-  // eslint-disable-next-line no-shadow
   export const enum Gender {
     NotKnown = 0,
     Male = 1,
@@ -108,6 +105,7 @@ declare module 'hmpo-form-wizard' {
 
       middlewareSetup(): void
 
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
       use(...args: any): any
 
       get(req: Request, res: Express.Response, next: Express.NextFunction): Promise
@@ -120,10 +118,12 @@ declare module 'hmpo-form-wizard' {
 
       validate(req: Request, res: Express.Response, next: Express.NextFunction): Promise
 
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
       validateFields(req: FormWizard.Request, res: Express.Response, callback: (errors: any) => void)
 
       locals(req: Request, res: Express.Response, next: Express.NextFunction): Promise
 
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
       getValues(req: Request, res: Express.Response, next: (err: any, values?: any) => void): Promise
 
       saveValues(req: Request, res: Express.Response, next: Express.NextFunction): Promise

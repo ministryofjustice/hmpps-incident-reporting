@@ -11,7 +11,7 @@ const steps = {
   '/change': {
     fields: ['incidentDate', 'incidentTime', 'prisonId', 'incidentTitle', 'incidentDescription'],
     controller: ChangeIncident,
-  }
+  },
 }
 
 export default steps

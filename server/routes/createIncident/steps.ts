@@ -11,7 +11,7 @@ const steps = {
   '/inputForm': {
     fields: ['incidentType', 'incidentDate', 'incidentTime', 'prisonId', 'incidentTitle', 'incidentDescription'],
     controller: CreateIncident,
-  }
+  },
 }
 
 export default steps

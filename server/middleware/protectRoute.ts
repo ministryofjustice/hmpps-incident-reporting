@@ -5,7 +5,7 @@ export default function protectRoute(permission: string): RequestHandler {
     if (req.canAccess(permission)) {
       return next()
     }
-
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const error: any = new Error(`Forbidden. Missing permission: '${permission}'`)
     error.status = 403
 

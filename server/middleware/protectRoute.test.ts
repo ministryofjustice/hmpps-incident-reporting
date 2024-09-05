@@ -1,8 +1,11 @@
 import protectRoute from './protectRoute'
 
 describe('protectRoute', () => {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   let req: any
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   let res: any
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   let next: any
 
   beforeEach(() => {
@@ -17,7 +20,7 @@ describe('protectRoute', () => {
       req.canAccess = jest.fn(_param => false)
       protectRoute('required_permission')(req, res, next)
 
-      expect(next).toHaveBeenCalledWith(new Error(`Forbidden. Missing permission: 'required_permission'`))
+      expect(next).toHaveBeenCalledWith(new Error("Forbidden. Missing permission: 'required_permission'"))
       expect(next.mock.lastCall[0].status).toEqual(403)
     })
   })

@@ -1,14 +1,43 @@
+import flash from 'connect-flash'
 import type { Router } from 'express'
 import express from 'express'
 import passport from 'passport'
-import flash from 'connect-flash'
+import { Strategy } from 'passport-oauth2'
+
 import config from '../config'
-import auth from '../authentication/auth'
+import tokenVerifier from '../data/tokenVerification'
+import generateOauthClientToken from '../authentication/clientCredentials'
 
-export default function setUpAuth(): Router {
-  auth.init()
+passport.serializeUser((user, done) => {
+  // Not used but required for Passport
+  done(null, user)
+})
 
+passport.deserializeUser((user, done) => {
+  // Not used but required for Passport
+  done(null, user as Express.User)
+})
+
+passport.use(
+  new Strategy(
+    {
+      authorizationURL: `${config.apis.hmppsAuth.externalUrl}/oauth/authorize`,
+      tokenURL: `${config.apis.hmppsAuth.url}/oauth/token`,
+      clientID: config.apis.hmppsAuth.apiClientId,
+      clientSecret: config.apis.hmppsAuth.apiClientSecret,
+      callbackURL: `${config.domain}/sign-in/callback`,
+      state: true,
+      customHeaders: { Authorization: generateOauthClientToken() },
+    },
+    (token, refreshToken, params, profile, done) => {
+      return done(null, { token, username: params.user_name, authSource: params.auth_source })
+    },
+  ),
+)
+
+export default function setUpAuthentication(): Router {
   const router = express.Router()
+
   router.use(passport.initialize())
   router.use(passport.session())
   router.use(flash())
@@ -42,6 +71,14 @@ export default function setUpAuth(): Router {
 
   router.use('/account-details', (req, res) => {
     res.redirect(`${authUrl}/account-details?${authParameters}`)
+  })
+
+  router.use(async (req, res, next) => {
+    if (req.isAuthenticated() && (await tokenVerifier(req))) {
+      return next()
+    }
+    req.session.returnTo = req.originalUrl
+    return res.redirect('/sign-in')
   })
 
   router.use((req, res, next) => {

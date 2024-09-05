@@ -2,10 +2,7 @@ import { NextFunction, Response } from 'express'
 import FormWizard from 'hmpo-form-wizard'
 import backUrl from '../../utils/backUrl'
 import FormInitialStep from '../base/formInitialStep'
-import HmppsAuthClient from '../../data/hmppsAuthClient'
-import { IncidentReportingApi, type NewIncident } from '../../data/incidentReportingApi'
-import RedisTokenStore from '../../data/tokenStore/redisTokenStore'
-import { createRedisClient } from '../../data/redisClient'
+import { type NewIncident } from '../../data/incidentReportingApi'
 
 export default class CreateIncident extends FormInitialStep {
   middlewareSetup() {
@@ -41,7 +38,6 @@ export default class CreateIncident extends FormInitialStep {
 
   async saveValues(req: FormWizard.Request, res: Response, next: NextFunction) {
     try {
-      const { user } = res.locals
       const { incidentType } = req.form.values
       const { incidentDate } = req.form.values
       const { incidentTime } = req.form.values

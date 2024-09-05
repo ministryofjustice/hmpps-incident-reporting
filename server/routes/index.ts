@@ -23,6 +23,9 @@ export default function routes(services: Services): Router {
     get('/incidents', debugRoutes.incidentList)
     get('/incident/:id', debugRoutes.incidentDetails)
     get('/report/:id', debugRoutes.reportDetails)
+    router.use('/create-incident', createIncidentRouter)
+    router.use('/change-incident/:id/', changeIncidentRouter)
+    router.use('/report/:incidentId/add-prisoner/:prisonerId', changeIncidentRouter)
   }
 
   // NOMIS data dumps should be available in production
@@ -36,10 +39,6 @@ export default function routes(services: Services): Router {
   get('/nomis-report-config/staff-involvement-roles.csv', downloadNomisConfigRoutes.staffInvolvementRoles)
   get('/nomis-report-config/prisoner-involvement-roles.csv', downloadNomisConfigRoutes.prisonerInvolvementRoles)
   get('/nomis-report-config/prisoner-involvement-outcome.csv', downloadNomisConfigRoutes.prisonerInvolvementOutcome)
-
-  router.use('/create-incident', createIncidentRouter)
-  router.use('/change-incident/:id/', changeIncidentRouter)
-  router.use('/report/:incidentId/add-prisoner/:prisonerId', changeIncidentRouter)
 
   return router
 }

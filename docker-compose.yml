@@ -1,10 +1,13 @@
+# Runs the services needed for running the application entirely locally
+
 services:
 
   hmpps-auth:
     image: quay.io/hmpps/hmpps-auth:latest
+    pull_policy: always
+    container_name: hmpps-auth
     networks:
       - hmpps
-    container_name: hmpps-auth
     ports:
       - "8080:8080"
     healthcheck:
@@ -18,6 +21,7 @@ services:
 
   nomis-user-roles-api:
     image: quay.io/hmpps/nomis-user-roles-api:latest
+    pull_policy: always
     container_name: nomis-user-roles-api
     networks:
       - hmpps
@@ -32,6 +36,7 @@ services:
 
   manage-users-api:
     image: quay.io/hmpps/hmpps-manage-users-api:latest
+    pull_policy: always
     container_name: manage-users-api
     networks:
       - hmpps
@@ -51,9 +56,10 @@ services:
 
   prison-api:
     image: quay.io/hmpps/prison-api:latest
+    pull_policy: always
+    container_name: prison-api
     networks:
       - hmpps
-    container_name: prison-api
     depends_on:
       - hmpps-auth
     ports:
@@ -66,6 +72,7 @@ services:
 
   incident-reporting-api:
     image: quay.io/hmpps/hmpps-incident-reporting-api:latest
+    pull_policy: always
     container_name: incident-reporting-api
     depends_on:
       - hmpps-auth
@@ -79,7 +86,7 @@ services:
       test: ["CMD", "curl", "-f", "http://localhost:8080/health/ping"]
     environment:
       - SERVER_PORT=8080
-      - SPRING_PROFILES_ACTIVE=dev
+      - SPRING_PROFILES_ACTIVE=seed
       - API_BASE_URL_OAUTH=http://hmpps-auth:8080/auth
       - SPRING_DATASOURCE_URL=jdbc:postgresql://incident-reporting-db:5432/incident_reporting?sslmode=prefer
       - HMPPS_SQS_LOCALSTACK_URL=http://localstack:4566
@@ -87,10 +94,10 @@ services:
       - INCIDENT_REPORTING_API_CLIENT_SECRET=clientsecret
 
   localstack:
-    image: localstack/localstack:stable
+    image: localstack/localstack:3
+    container_name: irs-localstack
     networks:
       - hmpps
-    container_name: localstack
     ports:
       - "4566:4566"
       - "8999:8080"
@@ -102,10 +109,10 @@ services:
       - "/var/run/docker.sock:/var/run/docker.sock"
 
   incident-reporting-db:
-    image: postgres
+    image: postgres:16
+    container_name: irs-postgres
     networks:
       - hmpps
-    container_name: incident-reporting-db
     restart: unless-stopped
     ports:
       - "5432:5432"
@@ -115,24 +122,24 @@ services:
       - POSTGRES_DB=incident_reporting
 
   prisoner-search:
-    image: wiremock/wiremock:latest
+    image: wiremock/wiremock:3x
+    container_name: prisoner-search
     networks:
       - hmpps
-    container_name: prisoner-search
     ports:
       - "8083:8080"
     volumes:
       - ./wiremock:/home/wiremock
 
   redis:
-    image: 'redis:7.2'
+    image: redis:7
+    container_name: irs-redis
     networks:
       - hmpps
-    container_name: redis
     environment:
       - ALLOW_EMPTY_PASSWORD=yes
     ports:
-      - '6379:6379'
+      - "6379:6379"
 
   app:
     build:
@@ -141,43 +148,31 @@ services:
         BUILD_NUMBER: "1.0.0"
         GIT_REF: "a1b2c3"
         GIT_BRANCH: main
+    container_name: irs-app
     networks:
       - hmpps
     depends_on:
-      - manage-users-api
       - hmpps-auth
       - incident-reporting-api
+      - manage-users-api
       - nomis-user-roles-api
-      - prisoner-search
       - prison-api
+      - prisoner-search
     profiles:
       - include-frontend
     ports:
       - "3000:3000"
+    env_file:
+      - local.env
     environment:
-      - PRODUCT_ID=DPS021
-      - ENVIRONMENT=local
       - REDIS_HOST=redis
-      - REDIS_ENABLED=true
-      - HMPPS_INCIDENT_REPORTING_API_URL=http://incident-reporting-api:8080
-      - NOMIS_USER_ROLES_API_URL=http://nomis-user-roles-api:8080
-      - HMPPS_PRISON_API_URL=http://prison-api:8080
-      - OFFENDER_SEARCH_API_URL=http://prisoner-search:8080
       - HMPPS_AUTH_EXTERNAL_URL=http://localhost:8080/auth
       - HMPPS_AUTH_URL=http://hmpps-auth:8080/auth
+      - HMPPS_INCIDENT_REPORTING_API_URL=http://incident-reporting-api:8080
+      - HMPPS_PRISON_API_URL=http://prison-api:8080
       - MANAGE_USERS_API_URL=http://manage-users-api:8080
-      - API_CLIENT_ID=hmpps-incident-reporting
-      - API_CLIENT_SECRET=clientsecret
-      - SYSTEM_CLIENT_ID=hmpps-incident-reporting-ui-client
-      - SYSTEM_CLIENT_SECRET=clientsecret
-      - SESSION_SECRET=somesecretvalue
-      - TOKEN_VERIFICATION_ENABLED=false
-      - TOKEN_VERIFICATION_API_URL=http://localhost:8080
-      - INGRESS_URL=http://localhost:3000
-      - COMPONENT_API_URL=http://not-used-in-local-dev
-      - COMMON_COMPONENTS_ENABLED=false
-      - DPS_URL=http://localhost:3000
-      - SUPPORT_URL=http://localhost:3000
+      - NOMIS_USER_ROLES_API_URL=http://nomis-user-roles-api:8080
+      - OFFENDER_SEARCH_API_URL=http://prisoner-search:8080
 
 networks:
   hmpps:

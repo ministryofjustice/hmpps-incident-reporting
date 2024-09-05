@@ -54,8 +54,8 @@ export default {
   gitRef: get('GIT_REF', 'xxxxxxxxxxxxxxxxxxx', requiredInProduction),
   branchName: get('GIT_BRANCH', 'xxxxxxxxxxxxxxxxxxx', requiredInProduction),
   environment: process.env.ENVIRONMENT || 'local',
-  production, // NB: this is true in _all_ deployed environments
-  https: production,
+  production, // NB: this is true in _all_ deployed environments and when running locally in docker
+  https: process.env.NO_HTTPS === 'true' ? false : production,
   staticResourceCacheDuration: '1h',
   redis: {
     enabled: get('REDIS_ENABLED', 'false', requiredInProduction) === 'true',

@@ -194,28 +194,27 @@ export type CorrectionRequest = {
 }
 
 export type NewIncident = {
-  type: string | string[]
-  incidentDateAndTime: string | string[]
-  prisonId: string | string[]
-  title: string | string[]
-  description: string | string[]
+  type: string
+  incidentDateAndTime: string
+  prisonId: string
+  title: string
+  description: string
   createNewEvent: boolean
 }
 
 export type UpdateIncident = {
-  incidentDateAndTime: string | string[]
-  prisonId: string | string[]
-  title: string | string[]
-  description: string | string[]
+  incidentDateAndTime: string
+  prisonId: string
+  title: string
+  description: string
   updateEvent: boolean
-  isEmpty: boolean
 }
 
 export type NewPrisoner = {
-  prisonerNumber: string | string[]
-  prisonerRole: string | string[]
-  outcome?: string | string[]
-  comment?: string | string[]
+  prisonerNumber: string
+  prisonerRole: string
+  outcome?: string
+  comment?: string
 }
 
 export class IncidentReportingApi extends RestClient {

@@ -82,20 +82,17 @@ export default class ChangeIncident extends FormInitialStep {
       const { incidentTitle } = req.form.values
       const { incidentDescription } = req.form.values
 
-      const hmppsAuthClient = new HmppsAuthClient(new RedisTokenStore(createRedisClient()))
-      const systemToken = await hmppsAuthClient.getSystemClientToken(user.username)
-      const incidentReportingApi = new IncidentReportingApi(systemToken)
+      const { incidentReportingApi } = res.locals.apis
 
       const tempDate: string[] = (incidentDate as string).split('/').map(String)
       const outDate = `${tempDate[2]}-${tempDate[1]}-${tempDate[0]}`
 
       const updateIncidentData: UpdateIncident = {
         incidentDateAndTime: `${outDate}T${incidentTime}`,
-        prisonId: incidentPrisonId,
-        title: incidentTitle,
-        description: incidentDescription,
+        prisonId: incidentPrisonId as string,
+        title: incidentTitle as string,
+        description: incidentDescription as string,
         updateEvent: true,
-        isEmpty: false,
       }
 
       await incidentReportingApi.updateIncident(res.locals.incident.id, updateIncidentData)

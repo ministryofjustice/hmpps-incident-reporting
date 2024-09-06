@@ -4,7 +4,6 @@ import path from 'node:path'
 
 import express from 'express'
 import nunjucks from 'nunjucks'
-import { isFunction } from 'lodash'
 
 import logger from '../../logger'
 import config from '../config'
@@ -53,13 +52,11 @@ export default function nunjucksSetup(app: express.Express): void {
     },
   )
 
-  function callAsMacro(name: string) {
+  function callAsMacro(name: string): (...args: unknown[]) => unknown {
     const macro = this.ctx[name]
 
-    if (!isFunction(macro)) {
-      // eslint-disable-next-line no-console
-      console.log(`'${name}' macro does not exist`)
-      return () => ''
+    if (typeof macro !== 'function') {
+      throw Error(`Macro ${name} not found`)
     }
 
     return macro

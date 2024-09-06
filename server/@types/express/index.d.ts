@@ -21,20 +21,12 @@ export declare global {
       token: string
       authSource: string
     }
-
+    // TODO: Add flash back in for success banners
     interface Request {
       verified?: boolean
       id: string
       logout(done: (err: unknown) => void): void
       services?: Services
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      flash(): { [key: string]: any[] }
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      flash(message: string): any[]
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      flash(type: string, message: any[] | any): number
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      flash(type: string, format: string, ...args: any[]): number
       canAccess: (permission: string) => boolean
     }
 

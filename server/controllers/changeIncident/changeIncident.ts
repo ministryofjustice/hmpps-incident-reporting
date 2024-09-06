@@ -72,11 +72,7 @@ export default class ChangeIncident extends FormInitialStep {
 
   async saveValues(req: FormWizard.Request, res: Response, next: NextFunction) {
     try {
-      const { incidentDate } = req.form.values
-      const { incidentTime } = req.form.values
-      const { incidentPrisonId } = req.form.values
-      const { incidentTitle } = req.form.values
-      const { incidentDescription } = req.form.values
+      const { incidentDate, incidentTime, incidentPrisonId, incidentTitle, incidentDescription } = req.form.values
 
       const { incidentReportingApi } = res.locals.apis
 

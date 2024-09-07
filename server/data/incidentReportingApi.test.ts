@@ -72,8 +72,49 @@ describe('Incident reporting API client', () => {
         url: `/incident-reports/reference/${reportWithDetails.reportReference}/with-details`,
         testCase: () => apiClient.getReportWithDetailsByReference(reportWithDetails.reportReference),
       },
-    ])('should throw when calling $method on error responses from the api', async ({ url, testCase }) => {
-      fakeApiClient.get(url).query(true).reply(400, badRequest)
+      {
+        method: 'createReport',
+        url: '/incident-reports',
+        urlMethod: 'post',
+        testCase: () =>
+          apiClient.createReport({
+            createNewEvent: true,
+            type: 'FINDS',
+            title: 'Chewing gum',
+            description: 'Chewing gum found in cell',
+            incidentDateAndTime: '2023-12-05T12:34:56',
+            prisonId: 'MDI',
+          }),
+      },
+      {
+        method: 'updateReport',
+        url: `/incident-reports/${basicReport.id}`,
+        urlMethod: 'patch',
+        testCase: () => apiClient.updateReport(basicReport.id, { description: 'Police informed' }),
+      },
+      {
+        method: 'changeReportStatus',
+        url: `/incident-reports/${reportWithDetails.id}/status`,
+        urlMethod: 'patch',
+        testCase: () => apiClient.changeReportStatus(reportWithDetails.id, { newStatus: 'IN_ANALYSIS' }),
+      },
+      {
+        method: 'changeReportType',
+        url: `/incident-reports/${reportWithDetails.id}/type`,
+        urlMethod: 'patch',
+        testCase: () => apiClient.changeReportType(reportWithDetails.id, { newType: 'MISCELLANEOUS' }),
+      },
+      {
+        method: 'deleteReport',
+        url: `/incident-reports/${reportWithDetails.id}`,
+        urlMethod: 'delete',
+        testCase: () => apiClient.deleteReport(reportWithDetails.id),
+      },
+    ])('should throw when calling $method on error responses from the api', async ({ url, urlMethod, testCase }) => {
+      fakeApiClient
+        .intercept(url, urlMethod ?? 'get')
+        .query(true)
+        .reply(400, badRequest)
 
       const expectedSantisedError: SanitisedError<ErrorResponse> = {
         status: 400,
@@ -163,8 +204,14 @@ describe('Incident reporting API client', () => {
         url: `/incident-reports/reference/${basicReport.reportReference}`,
         testCase: () => apiClient.getReportByReference(basicReport.reportReference),
       },
-    ])('should work for $method returning a basic report', async ({ testCase, url }) => {
-      fakeApiClient.get(url).reply(200, basicReport)
+      {
+        method: 'updateReport',
+        url: `/incident-reports/${basicReport.id}`,
+        urlMethod: 'patch',
+        testCase: () => apiClient.updateReport(basicReport.id, { description: 'Police informed' }),
+      },
+    ])('should work for $method returning a basic report', async ({ testCase, url, urlMethod }) => {
+      fakeApiClient.intercept(url, urlMethod ?? 'get').reply(200, basicReport)
       const response = await testCase()
       const shouldBeDates = [response.incidentDateAndTime, response.reportedAt, response.createdAt, response.modifiedAt]
       shouldBeDates.forEach(value => expect(value).toBeInstanceOf(Date))
@@ -181,8 +228,43 @@ describe('Incident reporting API client', () => {
         url: `/incident-reports/reference/${reportWithDetails.reportReference}/with-details`,
         testCase: () => apiClient.getReportWithDetailsByReference(reportWithDetails.reportReference),
       },
-    ])('should work for $method returning a basic report', async ({ testCase, url }) => {
-      fakeApiClient.get(url).reply(200, reportWithDetails)
+      {
+        method: 'createReport',
+        url: '/incident-reports',
+        urlMethod: 'post',
+        testCase: () =>
+          apiClient.createReport({
+            createNewEvent: true,
+            type: 'FINDS',
+            title: 'Chewing gum',
+            description: 'Chewing gum found in cell',
+            incidentDateAndTime: '2023-12-05T12:34:56',
+            prisonId: 'MDI',
+          }),
+      },
+      {
+        method: 'changeReportStatus',
+        url: `/incident-reports/${reportWithDetails.id}/status`,
+        urlMethod: 'patch',
+        testCase: () => apiClient.changeReportStatus(reportWithDetails.id, { newStatus: 'IN_ANALYSIS' }),
+      },
+      {
+        method: 'changeReportType',
+        url: `/incident-reports/${reportWithDetails.id}/type`,
+        urlMethod: 'patch',
+        testCase: () => apiClient.changeReportType(reportWithDetails.id, { newType: 'MISCELLANEOUS' }),
+      },
+      {
+        method: 'deleteReport',
+        url: `/incident-reports/${reportWithDetails.id}`,
+        urlMethod: 'delete',
+        testCase: () => apiClient.deleteReport(reportWithDetails.id),
+      },
+    ])('should work for $method returning a report with details', async ({ testCase, url, urlMethod }) => {
+      fakeApiClient
+        .intercept(url, urlMethod ?? 'get')
+        .query(true)
+        .reply(200, reportWithDetails)
       const response = await testCase()
       const shouldBeDates = [
         response.incidentDateAndTime,

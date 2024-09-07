@@ -2,7 +2,7 @@ import { NextFunction, Response } from 'express'
 import FormWizard from 'hmpo-form-wizard'
 import backUrl from '../../utils/backUrl'
 import FormInitialStep from '../base/formInitialStep'
-import { type NewIncident } from '../../data/incidentReportingApi'
+import type { CreateReportRequest } from '../../data/incidentReportingApi'
 
 export default class CreateIncident extends FormInitialStep {
   middlewareSetup() {
@@ -46,7 +46,7 @@ export default class CreateIncident extends FormInitialStep {
       const tempDate: string[] = (incidentDate as string).split('/').map(String)
       const outDate = `${tempDate[2]}-${tempDate[1]}-${tempDate[0]}`
 
-      const newIncidentData: NewIncident = {
+      const newIncidentData: CreateReportRequest = {
         type: incidentType as string,
         incidentDateAndTime: `${outDate}T${incidentTime}`,
         prisonId: incidentPrisonId as string,
@@ -55,7 +55,7 @@ export default class CreateIncident extends FormInitialStep {
         createNewEvent: true,
       }
 
-      await incidentReportingApi.createIncident(newIncidentData)
+      await incidentReportingApi.createReport(newIncidentData)
 
       next()
     } catch (error) {

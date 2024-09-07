@@ -1,0 +1,57 @@
+import { Response } from 'express'
+import FormWizard from 'hmpo-form-wizard'
+import backUrl from '../../utils/backUrl'
+import FormInitialStep from '../base/formInitialStep'
+
+export default class TestNewIncidentPage3 extends FormInitialStep {
+  middlewareSetup() {
+    super.middlewareSetup()
+  }
+
+  locals(req: FormWizard.Request, res: Response): object {
+    const locals = super.locals(req, res)
+
+    const backLink = backUrl(req, {
+      fallbackUrl: '/incidents/involvedParties',
+    })
+
+    return {
+      ...locals,
+      backLink,
+      cancelLink: '/incidents',
+    }
+  }
+  /**
+  async saveValues(req: FormWizard.Request, res: Response, next: NextFunction) {
+    try {
+      const { policeInformed } = req.form.values
+      console.log('Page 3 activated')
+
+      const token = await req.services.authService.getSystemClientToken(user.username)
+      await locationsService.updateSignedOperationalCapacity(
+        token,
+        res.locals.prisonId,
+        Number(newSignedOperationalCapacity),
+        user.username,
+      )
+
+      next()
+    } catch (error) {
+      next(error)
+    }
+  }
+
+  successHandler(req: FormWizard.Request, res: Response, next: NextFunction) {
+    const { prisonId } = res.locals
+
+    req.journeyModel.reset()
+    req.sessionModel.reset()
+
+    req.flash('success', {
+      title: 'Signed operational capacity updated',
+      content: `You have updated the establishment's signed operational capacity.`,
+    })
+
+    res.redirect(`/view-and-update-locations/${prisonId}`)
+  } */
+}

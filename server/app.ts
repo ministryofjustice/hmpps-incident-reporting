@@ -1,5 +1,6 @@
 import express from 'express'
 import { NotFound } from 'http-errors'
+import cookieParser from 'cookie-parser'
 
 import nunjucksSetup from './utils/nunjucksSetup'
 import errorHandler from './errorHandler'
@@ -32,6 +33,7 @@ export default function createApp(services: Services): express.Application {
   app.use(setUpWebSecurity())
   app.use(setUpWebSession())
   app.use(setUpWebRequestParsing())
+  app.use(cookieParser())
   app.use(setUpStaticResources())
   nunjucksSetup(app)
   app.use(setUpAuthentication())

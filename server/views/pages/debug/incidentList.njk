@@ -65,6 +65,15 @@
     </form>
   </div>
 
+<div class="govuk-button-group">
+  {{ govukButton({
+  text: "Create new incident",
+  preventDoubleClick: true,
+  href: "/create-incident/",
+  isStartButton: true
+  }) }}
+</div>
+
   {% if incidents.length > 0 %}
 
     {% set rows = [] %}
@@ -75,8 +84,8 @@
           { html: "<a href='/incident/" + inc.id + "'>" + title + "</a>" },
           { text: inc.description },
           { text: usersLookup[inc.modifiedBy].name or inc.modifiedBy },
-          { text: inc.modifiedAt | dateAndTime },
-          { text: inc.reports.length }
+          { text: inc.createdAt | dateAndTime },
+          { text: inc.modifiedAt | dateAndTime }
         ]
       ), rows) %}
     {% endfor %}
@@ -93,13 +102,13 @@
           text: "Description"
         },
         {
-          text: "Modified By"
+          text: "Updated By"
+        },
+        {
+          text: "Created At"
         },
         {
           text: "Modified At"
-        },
-        {
-          text: "Number of reports"
         }
       ],
       rows: rows

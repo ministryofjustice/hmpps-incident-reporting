@@ -2,8 +2,15 @@ import nock from 'nock'
 
 import config from '../config'
 import type { SanitisedError } from '../sanitisedError'
-import type { ErrorResponse, CreateReportRequest, UpdateReportRequest } from './incidentReportingApi'
-import { ErrorCode, IncidentReportingApi, isErrorResponse } from './incidentReportingApi'
+import {
+  ErrorResponse,
+  CreateReportRequest,
+  UpdateReportRequest,
+  AddQuestionWithResponses,
+  ErrorCode,
+  IncidentReportingApi,
+  isErrorResponse,
+} from './incidentReportingApi'
 import {
   mockCorrectionRequest,
   mockErrorResponse,
@@ -215,6 +222,17 @@ describe('Incident reporting API client', () => {
         url: `/incident-reports/${basicReport.id}/questions`,
         testCase: () => apiClient.getQuestions(basicReport.id),
       },
+      {
+        method: 'addQuestionWithResponses',
+        url: `/incident-reports/${basicReport.id}/questions`,
+        urlMethod: 'post',
+        testCase: () =>
+          apiClient.addQuestionWithResponses(basicReport.id, {
+            code: 'QID-001',
+            question: 'Was the police informed?',
+            responses: [{ response: 'Yes', responseDate: now }],
+          }),
+      },
     ])('should throw when calling $method on error responses from the api', async ({ url, urlMethod, testCase }) => {
       fakeApiClient
         .intercept(url, urlMethod ?? 'get')
@@ -398,23 +416,49 @@ describe('Incident reporting API client', () => {
             incidentDateAndTime: now,
             prisonId: 'MDI',
           }),
+        mockResponse: { status: 201, data: reportWithDetails },
+        responseDateExtractor: (request: DatesAsStrings<CreateReportRequest>) => [request.incidentDateAndTime],
       },
       {
         method: 'updateReport',
         url: `/incident-reports/${basicReport.id}`,
         urlMethod: 'patch',
         testCase: () => apiClient.updateReport(basicReport.id, { incidentDateAndTime: now }),
+        mockResponse: { status: 200, data: basicReport },
+        responseDateExtractor: (request: DatesAsStrings<UpdateReportRequest>) => [request.incidentDateAndTime],
       },
-    ])('should work on input request data for $method', async ({ testCase, url, urlMethod }) => {
-      fakeApiClient.intercept(url, urlMethod).reply((_uri, requestBody) => {
-        const request = requestBody as DatesAsStrings<CreateReportRequest | UpdateReportRequest>
-        if (request.incidentDateAndTime?.includes('2023-12-05T12:34:56')) {
-          return [200, reportWithDetails]
-        }
-        return [400, { status: 400, userMessage: 'Invalid input date', developerMessage: '' } satisfies ErrorResponse]
-      })
-      await testCase()
-    })
+      {
+        method: 'addQuestionWithResponses',
+        url: `/incident-reports/${basicReport.id}/questions`,
+        urlMethod: 'post',
+        testCase: () =>
+          apiClient.addQuestionWithResponses(basicReport.id, {
+            code: 'QID-001',
+            question: 'Was the police informed?',
+            responses: [{ response: 'Yes', responseDate: now }],
+          }),
+        mockResponse: { status: 201, data: [] },
+        responseDateExtractor: (request: DatesAsStrings<AddQuestionWithResponses>) =>
+          request.responses.map(response => response.responseDate),
+      },
+    ])(
+      'should work on input request data for $method',
+      async ({ testCase, url, urlMethod, mockResponse, responseDateExtractor }) => {
+        fakeApiClient.intercept(url, urlMethod).reply((_uri, requestBody) => {
+          const request = requestBody as DatesAsStrings<
+            CreateReportRequest | UpdateReportRequest | AddQuestionWithResponses
+          >
+          // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+          // @ts-ignore because responseDateExtractor is appropriate for each request but TS cannot tell that
+          const fieldsWithDates = responseDateExtractor(request)
+          if (fieldsWithDates.every(field => field?.includes('2023-12-05T12:34:56'))) {
+            return [mockResponse.status, mockResponse.data]
+          }
+          return [400, { status: 400, userMessage: 'Invalid input date', developerMessage: '' } satisfies ErrorResponse]
+        })
+        await testCase()
+      },
+    )
 
     it.each([
       {
@@ -464,9 +508,20 @@ describe('Incident reporting API client', () => {
         url: `/incident-reports/${reportWithDetails.id}/questions`,
         testCase: () => apiClient.getQuestions(reportWithDetails.id),
       },
-    ])('should work for $method returning a list of question', async ({ url, testCase }) => {
+      {
+        method: 'addQuestionWithResponses',
+        url: `/incident-reports/${basicReport.id}/questions`,
+        urlMethod: 'post',
+        testCase: () =>
+          apiClient.addQuestionWithResponses(basicReport.id, {
+            code: 'QID-001',
+            question: 'Was the police informed?',
+            responses: [{ response: 'Yes', responseDate: now }],
+          }),
+      },
+    ])('should work for $method returning a list of question', async ({ url, urlMethod, testCase }) => {
       fakeApiClient
-        .get(url)
+        .intercept(url, urlMethod ?? 'get')
         .query(true)
         .reply(200, [mockQuestion(0, now, 1), mockQuestion(1, now, 2)])
       const response = await testCase()

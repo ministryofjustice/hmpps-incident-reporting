@@ -217,6 +217,19 @@ export type UpdateReportRequest = {
 export type ChangeStatusRequest = { newStatus: ReportStatus }
 export type ChangeTypeRequest = { newType: ReportType }
 
+export type AddQuestionWithResponses = {
+  code: string
+  question: string
+  responses: AddQuestionResponse[]
+  additionalInformation?: string
+}
+
+type AddQuestionResponse = {
+  response: string
+  responseDate?: Date
+  additionalInformation?: string
+}
+
 export class IncidentReportingApi extends RestClient {
   constructor(systemToken: string) {
     super('HMPPS Incident Reporting API', config.apis.hmppsIncidentReportingApi, systemToken)
@@ -439,6 +452,24 @@ export class IncidentReportingApi extends RestClient {
   async getQuestions(reportId: string): Promise<Question[]> {
     const questions = await this.get<DatesAsStrings<Question[]>>({
       path: `/incident-reports/${encodeURIComponent(reportId)}/questions`,
+    })
+    return questions.map(convertQuestionDates)
+  }
+
+  async addQuestionWithResponses(
+    reportId: string,
+    questionWithResponses: AddQuestionWithResponses,
+  ): Promise<Question[]> {
+    const data: DatesAsStrings<AddQuestionWithResponses> = {
+      ...questionWithResponses,
+      responses: questionWithResponses.responses.map(response => ({
+        ...response,
+        responseDate: response.responseDate?.toISOString(),
+      })),
+    }
+    const questions = await this.post<DatesAsStrings<Question[]>>({
+      path: `/incident-reports/${encodeURIComponent(reportId)}/questions`,
+      data,
     })
     return questions.map(convertQuestionDates)
   }

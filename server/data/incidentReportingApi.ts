@@ -518,4 +518,11 @@ class RelatedObjects<
     })
     return response.map(this.responseDateConverter)
   }
+
+  async deleteFromReport(reportId: string, index: number): Promise<ResponseType[]> {
+    const response = await this.apiClient.delete<DatesAsStrings<ResponseType>[]>({
+      path: this.itemUrl(reportId, index),
+    })
+    return response.map(this.responseDateConverter)
+  }
 }

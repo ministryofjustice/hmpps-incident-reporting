@@ -137,6 +137,12 @@ describe('Incident reporting API client', () => {
           }),
       },
       {
+        method: 'staffInvolved.deleteFromReport',
+        url: `/incident-reports/${reportWithDetails.id}/staff-involved/1`,
+        urlMethod: 'delete',
+        testCase: () => apiClient.staffInvolved.deleteFromReport(reportWithDetails.id, 1),
+      },
+      {
         method: 'prisonersInvolved.listForReport',
         url: `/incident-reports/${reportWithDetails.id}/prisoners-involved`,
         testCase: () => apiClient.prisonersInvolved.listForReport(reportWithDetails.id),
@@ -162,6 +168,12 @@ describe('Incident reporting API client', () => {
           }),
       },
       {
+        method: 'prisonersInvolved.deleteFromReport',
+        url: `/incident-reports/${reportWithDetails.id}/prisoners-involved/1`,
+        urlMethod: 'delete',
+        testCase: () => apiClient.prisonersInvolved.deleteFromReport(reportWithDetails.id, 1),
+      },
+      {
         method: 'correctionRequests.listForReport',
         url: `/incident-reports/${reportWithDetails.id}/correction-requests`,
         testCase: () => apiClient.correctionRequests.listForReport(reportWithDetails.id),
@@ -185,6 +197,12 @@ describe('Incident reporting API client', () => {
             descriptionOfChange: 'MISTAKE',
             reason: 'Name misspelled',
           }),
+      },
+      {
+        method: 'correctionRequests.deleteFromReport',
+        url: `/incident-reports/${reportWithDetails.id}/correction-requests/1`,
+        urlMethod: 'delete',
+        testCase: () => apiClient.correctionRequests.deleteFromReport(reportWithDetails.id, 1),
       },
     ])('should throw when calling $method on error responses from the api', async ({ url, urlMethod, testCase }) => {
       fakeApiClient
@@ -412,6 +430,12 @@ describe('Incident reporting API client', () => {
             descriptionOfChange: 'MISTAKE',
             reason: 'Name misspelled',
           }),
+      },
+      {
+        method: 'correctionRequests.deleteFromReport',
+        url: `/incident-reports/${reportWithDetails.id}/correction-requests/1`,
+        urlMethod: 'delete',
+        testCase: () => apiClient.correctionRequests.deleteFromReport(reportWithDetails.id, 1),
       },
     ])('should work for $method returning a list of correction requests', async ({ url, urlMethod, testCase }) => {
       fakeApiClient

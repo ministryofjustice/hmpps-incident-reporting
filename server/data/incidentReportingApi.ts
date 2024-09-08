@@ -423,20 +423,38 @@ export class IncidentReportingApi extends RestClient {
     return convertReportWithDetailsDates(report)
   }
 
-  get staffInvolved(): RelatedObjects<StaffInvolvement> {
+  get staffInvolved(): RelatedObjects<StaffInvolvement, AddStaffInvolvement> {
     return new RelatedObjects(this, 'staff-involved')
   }
 
-  get prisonersInvolved(): RelatedObjects<PrisonerInvolvement> {
+  get prisonersInvolved(): RelatedObjects<PrisonerInvolvement, AddPrisonerInvolvement> {
     return new RelatedObjects(this, 'prisoners-involved')
   }
 
-  get correctionRequests(): RelatedObjects<CorrectionRequest> {
+  get correctionRequests(): RelatedObjects<CorrectionRequest, AddCorrectionRequest> {
     return new RelatedObjects(this, 'correction-requests', convertCorrectionRequestDates)
   }
 }
 
-class RelatedObjects<ResponseType> {
+type AddStaffInvolvement = {
+  staffUsername: string
+  staffRole: StaffRole
+  comment?: string
+}
+
+type AddPrisonerInvolvement = {
+  prisonerNumber: string
+  prisonerRole: PrisonerRole
+  outcome?: PrisonerInvolvementOutcome
+  comment?: string
+}
+
+type AddCorrectionRequest = {
+  reason: CorrectionRequestReason
+  descriptionOfChange: string
+}
+
+class RelatedObjects<ResponseType, AddRequestType extends Record<string, unknown>> {
   constructor(
     private readonly apiClient: IncidentReportingApi,
     private readonly urlSlug: string,
@@ -455,6 +473,14 @@ class RelatedObjects<ResponseType> {
   async listForReport(reportId: string): Promise<ResponseType[]> {
     const response = await this.apiClient.get<DatesAsStrings<ResponseType>[]>({
       path: this.listUrl(reportId),
+    })
+    return response.map(this.responseDateConverter)
+  }
+
+  async addToReport(reportId: string, data: AddRequestType): Promise<ResponseType[]> {
+    const response = await this.apiClient.post<DatesAsStrings<ResponseType>[]>({
+      path: this.listUrl(reportId),
+      data,
     })
     return response.map(this.responseDateConverter)
   }

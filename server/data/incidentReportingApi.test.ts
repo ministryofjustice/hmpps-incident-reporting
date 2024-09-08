@@ -117,14 +117,44 @@ describe('Incident reporting API client', () => {
         testCase: () => apiClient.staffInvolved.listForReport(reportWithDetails.id),
       },
       {
+        method: 'staffInvolved.addToReport',
+        url: `/incident-reports/${reportWithDetails.id}/staff-involved`,
+        urlMethod: 'post',
+        testCase: () =>
+          apiClient.staffInvolved.addToReport(reportWithDetails.id, {
+            staffRole: 'ACTIVELY_INVOLVED',
+            staffUsername: 'staff-1',
+          }),
+      },
+      {
         method: 'prisonersInvolved.listForReport',
         url: `/incident-reports/${reportWithDetails.id}/prisoners-involved`,
         testCase: () => apiClient.prisonersInvolved.listForReport(reportWithDetails.id),
       },
       {
+        method: 'prisonersInvolved.addToReport',
+        url: `/incident-reports/${reportWithDetails.id}/prisoners-involved`,
+        urlMethod: 'post',
+        testCase: () =>
+          apiClient.prisonersInvolved.addToReport(reportWithDetails.id, {
+            prisonerNumber: 'A1111AA',
+            prisonerRole: 'ACTIVE_INVOLVEMENT',
+          }),
+      },
+      {
         method: 'correctionRequests.listForReport',
         url: `/incident-reports/${reportWithDetails.id}/correction-requests`,
         testCase: () => apiClient.correctionRequests.listForReport(reportWithDetails.id),
+      },
+      {
+        method: 'correctionRequests.addToReport',
+        url: `/incident-reports/${reportWithDetails.id}/correction-requests`,
+        urlMethod: 'post',
+        testCase: () =>
+          apiClient.correctionRequests.addToReport(reportWithDetails.id, {
+            descriptionOfChange: 'MISTAKE',
+            reason: 'Name misspelled',
+          }),
       },
     ])('should throw when calling $method on error responses from the api', async ({ url, urlMethod, testCase }) => {
       fakeApiClient
@@ -327,12 +357,28 @@ describe('Incident reporting API client', () => {
       await testCase()
     })
 
-    it('should work for correctionRequests.listForReport returning a list of correction requests', async () => {
+    it.each([
+      {
+        method: 'correctionRequests.listForReport',
+        url: `/incident-reports/${reportWithDetails.id}/correction-requests`,
+        testCase: () => apiClient.correctionRequests.listForReport(reportWithDetails.id),
+      },
+      {
+        method: 'correctionRequests.addToReport',
+        url: `/incident-reports/${reportWithDetails.id}/correction-requests`,
+        urlMethod: 'post',
+        testCase: () =>
+          apiClient.correctionRequests.addToReport(reportWithDetails.id, {
+            descriptionOfChange: 'MISTAKE',
+            reason: 'Name misspelled',
+          }),
+      },
+    ])('should work for $method returning a list of correction requests', async ({ url, urlMethod, testCase }) => {
       fakeApiClient
-        .get(`/incident-reports/${basicReport.id}/correction-requests`)
+        .intercept(url, urlMethod ?? 'get')
         .query(true)
         .reply(200, [mockCorrectionRequest(0, now), mockCorrectionRequest(1, now)])
-      const response = await apiClient.correctionRequests.listForReport(basicReport.id)
+      const response = await testCase()
       const shouldBeDates = response.map(item => item.correctionRequestedAt)
       shouldBeDates.forEach(value => expect(value).toBeInstanceOf(Date))
     })

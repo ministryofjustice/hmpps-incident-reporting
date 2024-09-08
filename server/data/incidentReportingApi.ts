@@ -5,6 +5,7 @@ import {
   convertBasicReportDates,
   convertCorrectionRequestDates,
   convertEventWithBasicReportsDates,
+  convertQuestionDates,
   convertReportWithDetailsDates,
 } from './incidentReportingApiUtils'
 import RestClient from './restClient'
@@ -434,6 +435,13 @@ export class IncidentReportingApi extends RestClient {
   get correctionRequests(): RelatedObjects<CorrectionRequest, AddCorrectionRequest, UpdateCorrectionRequest> {
     return new RelatedObjects(this, 'correction-requests', convertCorrectionRequestDates)
   }
+
+  async getQuestions(reportId: string): Promise<Question[]> {
+    const questions = await this.get<DatesAsStrings<Question[]>>({
+      path: `/incident-reports/${encodeURIComponent(reportId)}/questions`,
+    })
+    return questions.map(convertQuestionDates)
+  }
 }
 
 type AddStaffInvolvement = {
@@ -489,11 +497,11 @@ class RelatedObjects<
   private readonly responseDateConverter: (response: DatesAsStrings<ResponseType>) => ResponseType
 
   private listUrl(reportId: string): string {
-    return `/incident-reports/${reportId}/${this.urlSlug}`
+    return `/incident-reports/${encodeURIComponent(reportId)}/${this.urlSlug}`
   }
 
   private itemUrl(reportId: string, index: number): string {
-    return `/incident-reports/${reportId}/${this.urlSlug}/${index}`
+    return `/incident-reports/${encodeURIComponent(reportId)}/${this.urlSlug}/${encodeURIComponent(index)}`
   }
 
   async listForReport(reportId: string): Promise<ResponseType[]> {

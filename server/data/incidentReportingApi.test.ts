@@ -4,7 +4,13 @@ import config from '../config'
 import type { SanitisedError } from '../sanitisedError'
 import type { ErrorResponse, CreateReportRequest, UpdateReportRequest } from './incidentReportingApi'
 import { ErrorCode, IncidentReportingApi, isErrorResponse } from './incidentReportingApi'
-import { mockCorrectionRequest, mockErrorResponse, mockEvent, mockReport } from './testData/incidentReporting'
+import {
+  mockCorrectionRequest,
+  mockErrorResponse,
+  mockEvent,
+  mockQuestion,
+  mockReport,
+} from './testData/incidentReporting'
 import { unsortedPageOf } from './testData/paginatedResponses'
 
 jest.mock('./tokenStore/redisTokenStore')
@@ -203,6 +209,11 @@ describe('Incident reporting API client', () => {
         url: `/incident-reports/${reportWithDetails.id}/correction-requests/1`,
         urlMethod: 'delete',
         testCase: () => apiClient.correctionRequests.deleteFromReport(reportWithDetails.id, 1),
+      },
+      {
+        method: 'getQuestions',
+        url: `/incident-reports/${basicReport.id}/questions`,
+        testCase: () => apiClient.getQuestions(basicReport.id),
       },
     ])('should throw when calling $method on error responses from the api', async ({ url, urlMethod, testCase }) => {
       fakeApiClient
@@ -444,6 +455,24 @@ describe('Incident reporting API client', () => {
         .reply(200, [mockCorrectionRequest(0, now), mockCorrectionRequest(1, now)])
       const response = await testCase()
       const shouldBeDates = response.map(item => item.correctionRequestedAt)
+      shouldBeDates.forEach(value => expect(value).toBeInstanceOf(Date))
+    })
+
+    it.each([
+      {
+        method: 'getQuestions',
+        url: `/incident-reports/${reportWithDetails.id}/questions`,
+        testCase: () => apiClient.getQuestions(reportWithDetails.id),
+      },
+    ])('should work for $method returning a list of question', async ({ url, testCase }) => {
+      fakeApiClient
+        .get(url)
+        .query(true)
+        .reply(200, [mockQuestion(0, now, 1), mockQuestion(1, now, 2)])
+      const response = await testCase()
+      const shouldBeDates = response.flatMap(question =>
+        question.responses.flatMap(item => [item.responseDate, item.recordedAt]),
+      )
       shouldBeDates.forEach(value => expect(value).toBeInstanceOf(Date))
     })
   })

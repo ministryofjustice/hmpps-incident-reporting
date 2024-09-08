@@ -11,6 +11,7 @@ import type {
   StaffInvolvement,
   PrisonerInvolvement,
   CorrectionRequest,
+  Question,
 } from '../incidentReportingApi'
 
 interface MockEventConfig {
@@ -113,18 +114,7 @@ export function mockReport({
       staffInvolved: [mockStaffInvolvement(0), mockStaffInvolvement(1)],
       prisonersInvolved: [mockPrisonerInvolvement(0), mockPrisonerInvolvement(1)],
       correctionRequests: [mockCorrectionRequest(0, reportDateAndTime)],
-      questions: buildArray(2, questionIndex => ({
-        code: `QID-${(questionIndex + 1).toString().padStart(12, '0')}`,
-        question: `Question #${questionIndex + 1}`,
-        additionalInformation: `Explanation #${questionIndex + 1}`,
-        responses: buildArray(2, responseIndex => ({
-          response: `Response #${responseIndex + 1}`,
-          responseDate: reportDateAndTime.toISOString(),
-          recordedBy: 'some-user',
-          recordedAt: reportDateAndTime.toISOString(),
-          additionalInformation: `comment #${responseIndex + 1}`,
-        })),
-      })),
+      questions: buildArray(2, questionIndex => mockQuestion(questionIndex, reportDateAndTime, 2)),
       history: buildArray(2, () => ({
         type: 'MISCELLANEOUS',
         changedAt: reportDateAndTime.toISOString(),
@@ -206,6 +196,25 @@ export function mockCorrectionRequest(index: number, correctionRequestedAt: Date
       }
     default:
       throw new Error('not implemented')
+  }
+}
+
+export function mockQuestion(
+  questionIndex: number,
+  responseDate: Date,
+  numberOfResponses = 0,
+): DatesAsStrings<Question> {
+  return {
+    code: `QID-${(questionIndex + 1).toString().padStart(12, '0')}`,
+    question: `Question #${questionIndex + 1}`,
+    additionalInformation: `Explanation #${questionIndex + 1}`,
+    responses: buildArray(numberOfResponses, responseIndex => ({
+      response: `Response #${responseIndex + 1}`,
+      responseDate: responseDate.toISOString(),
+      recordedBy: 'some-user',
+      recordedAt: responseDate.toISOString(),
+      additionalInformation: `comment #${responseIndex + 1}`,
+    })),
   }
 }
 

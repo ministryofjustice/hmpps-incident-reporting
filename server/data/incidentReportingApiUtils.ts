@@ -48,7 +48,7 @@ export function convertEventWithBasicReportsDates(event: DatesAsStrings<EventWit
   }
 }
 
-function convertQuestionDates(question: DatesAsStrings<Question>): Question {
+export function convertQuestionDates(question: DatesAsStrings<Question>): Question {
   return {
     ...question,
     responses: question.responses.map(convertResponseDates),

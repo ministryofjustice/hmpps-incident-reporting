@@ -1,7 +1,9 @@
+// eslint-disable-next-line max-classes-per-file
 import config from '../config'
 import format from '../utils/format'
 import {
   convertBasicReportDates,
+  convertCorrectionRequestDates,
   convertEventWithBasicReportsDates,
   convertReportWithDetailsDates,
 } from './incidentReportingApiUtils'
@@ -419,5 +421,41 @@ export class IncidentReportingApi extends RestClient {
       query: { deleteOrphanedEvents },
     })
     return convertReportWithDetailsDates(report)
+  }
+
+  get staffInvolved(): RelatedObjects<StaffInvolvement> {
+    return new RelatedObjects(this, 'staff-involved')
+  }
+
+  get prisonersInvolved(): RelatedObjects<PrisonerInvolvement> {
+    return new RelatedObjects(this, 'prisoners-involved')
+  }
+
+  get correctionRequests(): RelatedObjects<CorrectionRequest> {
+    return new RelatedObjects(this, 'correction-requests', convertCorrectionRequestDates)
+  }
+}
+
+class RelatedObjects<ResponseType> {
+  constructor(
+    private readonly apiClient: IncidentReportingApi,
+    private readonly urlSlug: string,
+    responseDateConverter?: (response: DatesAsStrings<ResponseType>) => ResponseType,
+  ) {
+    this.responseDateConverter =
+      responseDateConverter ?? ((response: DatesAsStrings<ResponseType>) => response as ResponseType)
+  }
+
+  private readonly responseDateConverter: (response: DatesAsStrings<ResponseType>) => ResponseType
+
+  private listUrl(reportId: string): string {
+    return `/incident-reports/${reportId}/${this.urlSlug}`
+  }
+
+  async listForReport(reportId: string): Promise<ResponseType[]> {
+    const response = await this.apiClient.get<DatesAsStrings<ResponseType>[]>({
+      path: this.listUrl(reportId),
+    })
+    return response.map(this.responseDateConverter)
   }
 }

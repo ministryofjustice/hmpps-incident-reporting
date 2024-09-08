@@ -4,7 +4,7 @@ import config from '../config'
 import type { SanitisedError } from '../sanitisedError'
 import type { ErrorResponse, CreateReportRequest, UpdateReportRequest } from './incidentReportingApi'
 import { ErrorCode, IncidentReportingApi, isErrorResponse } from './incidentReportingApi'
-import { mockErrorResponse, mockEvent, mockReport } from './testData/incidentReporting'
+import { mockCorrectionRequest, mockErrorResponse, mockEvent, mockReport } from './testData/incidentReporting'
 import { unsortedPageOf } from './testData/paginatedResponses'
 
 jest.mock('./tokenStore/redisTokenStore')
@@ -110,6 +110,21 @@ describe('Incident reporting API client', () => {
         url: `/incident-reports/${reportWithDetails.id}`,
         urlMethod: 'delete',
         testCase: () => apiClient.deleteReport(reportWithDetails.id),
+      },
+      {
+        method: 'staffInvolved.listForReport',
+        url: `/incident-reports/${reportWithDetails.id}/staff-involved`,
+        testCase: () => apiClient.staffInvolved.listForReport(reportWithDetails.id),
+      },
+      {
+        method: 'prisonersInvolved.listForReport',
+        url: `/incident-reports/${reportWithDetails.id}/prisoners-involved`,
+        testCase: () => apiClient.prisonersInvolved.listForReport(reportWithDetails.id),
+      },
+      {
+        method: 'correctionRequests.listForReport',
+        url: `/incident-reports/${reportWithDetails.id}/correction-requests`,
+        testCase: () => apiClient.correctionRequests.listForReport(reportWithDetails.id),
       },
     ])('should throw when calling $method on error responses from the api', async ({ url, urlMethod, testCase }) => {
       fakeApiClient
@@ -310,6 +325,16 @@ describe('Incident reporting API client', () => {
         return [400, { status: 400, userMessage: 'Invalid input date', developerMessage: '' } satisfies ErrorResponse]
       })
       await testCase()
+    })
+
+    it('should work for correctionRequests.listForReport returning a list of correction requests', async () => {
+      fakeApiClient
+        .get(`/incident-reports/${basicReport.id}/correction-requests`)
+        .query(true)
+        .reply(200, [mockCorrectionRequest(0, now), mockCorrectionRequest(1, now)])
+      const response = await apiClient.correctionRequests.listForReport(basicReport.id)
+      const shouldBeDates = response.map(item => item.correctionRequestedAt)
+      shouldBeDates.forEach(value => expect(value).toBeInstanceOf(Date))
     })
   })
 })

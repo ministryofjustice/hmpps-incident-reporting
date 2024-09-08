@@ -78,7 +78,7 @@ function convertHistoricStatusDates(historicStatus: DatesAsStrings<HistoricStatu
   }
 }
 
-function convertCorrectionRequestDates(correctionRequest: DatesAsStrings<CorrectionRequest>): CorrectionRequest {
+export function convertCorrectionRequestDates(correctionRequest: DatesAsStrings<CorrectionRequest>): CorrectionRequest {
   return {
     ...correctionRequest,
     correctionRequestedAt: new Date(correctionRequest.correctionRequestedAt),

@@ -127,6 +127,16 @@ describe('Incident reporting API client', () => {
           }),
       },
       {
+        method: 'staffInvolved.updateForReport',
+        url: `/incident-reports/${reportWithDetails.id}/staff-involved/1`,
+        urlMethod: 'patch',
+        testCase: () =>
+          apiClient.staffInvolved.updateForReport(reportWithDetails.id, 1, {
+            staffRole: 'ACTIVELY_INVOLVED',
+            staffUsername: 'staff-1',
+          }),
+      },
+      {
         method: 'prisonersInvolved.listForReport',
         url: `/incident-reports/${reportWithDetails.id}/prisoners-involved`,
         testCase: () => apiClient.prisonersInvolved.listForReport(reportWithDetails.id),
@@ -142,6 +152,16 @@ describe('Incident reporting API client', () => {
           }),
       },
       {
+        method: 'prisonersInvolved.updateForReport',
+        url: `/incident-reports/${reportWithDetails.id}/prisoners-involved/1`,
+        urlMethod: 'patch',
+        testCase: () =>
+          apiClient.prisonersInvolved.updateForReport(reportWithDetails.id, 1, {
+            prisonerNumber: 'A1111AA',
+            prisonerRole: 'ACTIVE_INVOLVEMENT',
+          }),
+      },
+      {
         method: 'correctionRequests.listForReport',
         url: `/incident-reports/${reportWithDetails.id}/correction-requests`,
         testCase: () => apiClient.correctionRequests.listForReport(reportWithDetails.id),
@@ -152,6 +172,16 @@ describe('Incident reporting API client', () => {
         urlMethod: 'post',
         testCase: () =>
           apiClient.correctionRequests.addToReport(reportWithDetails.id, {
+            descriptionOfChange: 'MISTAKE',
+            reason: 'Name misspelled',
+          }),
+      },
+      {
+        method: 'correctionRequests.updateForReport',
+        url: `/incident-reports/${reportWithDetails.id}/correction-requests/1`,
+        urlMethod: 'patch',
+        testCase: () =>
+          apiClient.correctionRequests.updateForReport(reportWithDetails.id, 1, {
             descriptionOfChange: 'MISTAKE',
             reason: 'Name misspelled',
           }),
@@ -369,6 +399,16 @@ describe('Incident reporting API client', () => {
         urlMethod: 'post',
         testCase: () =>
           apiClient.correctionRequests.addToReport(reportWithDetails.id, {
+            descriptionOfChange: 'MISTAKE',
+            reason: 'Name misspelled',
+          }),
+      },
+      {
+        method: 'correctionRequests.updateForReport',
+        url: `/incident-reports/${reportWithDetails.id}/correction-requests/1`,
+        urlMethod: 'patch',
+        testCase: () =>
+          apiClient.correctionRequests.updateForReport(reportWithDetails.id, 1, {
             descriptionOfChange: 'MISTAKE',
             reason: 'Name misspelled',
           }),

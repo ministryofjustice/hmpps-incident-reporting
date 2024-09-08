@@ -423,15 +423,15 @@ export class IncidentReportingApi extends RestClient {
     return convertReportWithDetailsDates(report)
   }
 
-  get staffInvolved(): RelatedObjects<StaffInvolvement, AddStaffInvolvement> {
+  get staffInvolved(): RelatedObjects<StaffInvolvement, AddStaffInvolvement, UpdateStaffInvolvement> {
     return new RelatedObjects(this, 'staff-involved')
   }
 
-  get prisonersInvolved(): RelatedObjects<PrisonerInvolvement, AddPrisonerInvolvement> {
+  get prisonersInvolved(): RelatedObjects<PrisonerInvolvement, AddPrisonerInvolvement, UpdatePrisonerInvolvement> {
     return new RelatedObjects(this, 'prisoners-involved')
   }
 
-  get correctionRequests(): RelatedObjects<CorrectionRequest, AddCorrectionRequest> {
+  get correctionRequests(): RelatedObjects<CorrectionRequest, AddCorrectionRequest, UpdateCorrectionRequest> {
     return new RelatedObjects(this, 'correction-requests', convertCorrectionRequestDates)
   }
 }
@@ -442,6 +442,12 @@ type AddStaffInvolvement = {
   comment?: string
 }
 
+type UpdateStaffInvolvement = {
+  staffUsername?: string
+  staffRole?: string
+  comment?: string | null
+}
+
 type AddPrisonerInvolvement = {
   prisonerNumber: string
   prisonerRole: PrisonerRole
@@ -449,12 +455,28 @@ type AddPrisonerInvolvement = {
   comment?: string
 }
 
+type UpdatePrisonerInvolvement = {
+  prisonerNumber?: string
+  prisonerRole?: PrisonerRole
+  outcome?: PrisonerInvolvementOutcome | null
+  comment?: string | null
+}
+
 type AddCorrectionRequest = {
   reason: CorrectionRequestReason
   descriptionOfChange: string
 }
 
-class RelatedObjects<ResponseType, AddRequestType extends Record<string, unknown>> {
+type UpdateCorrectionRequest = {
+  reason?: CorrectionRequestReason
+  descriptionOfChange?: string
+}
+
+class RelatedObjects<
+  ResponseType,
+  AddRequestType extends Record<string, unknown>,
+  UpdateRequestType extends Record<string, unknown>,
+> {
   constructor(
     private readonly apiClient: IncidentReportingApi,
     private readonly urlSlug: string,
@@ -470,6 +492,10 @@ class RelatedObjects<ResponseType, AddRequestType extends Record<string, unknown
     return `/incident-reports/${reportId}/${this.urlSlug}`
   }
 
+  private itemUrl(reportId: string, index: number): string {
+    return `/incident-reports/${reportId}/${this.urlSlug}/${index}`
+  }
+
   async listForReport(reportId: string): Promise<ResponseType[]> {
     const response = await this.apiClient.get<DatesAsStrings<ResponseType>[]>({
       path: this.listUrl(reportId),
@@ -480,6 +506,14 @@ class RelatedObjects<ResponseType, AddRequestType extends Record<string, unknown
   async addToReport(reportId: string, data: AddRequestType): Promise<ResponseType[]> {
     const response = await this.apiClient.post<DatesAsStrings<ResponseType>[]>({
       path: this.listUrl(reportId),
+      data,
+    })
+    return response.map(this.responseDateConverter)
+  }
+
+  async updateForReport(reportId: string, index: number, data: UpdateRequestType): Promise<ResponseType[]> {
+    const response = await this.apiClient.patch<DatesAsStrings<ResponseType>[]>({
+      path: this.itemUrl(reportId, index),
       data,
     })
     return response.map(this.responseDateConverter)

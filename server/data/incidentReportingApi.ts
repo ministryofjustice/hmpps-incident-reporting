@@ -195,7 +195,7 @@ export type CorrectionRequest = {
 
 export type CreateReportRequest = {
   type: string
-  incidentDateAndTime: string
+  incidentDateAndTime: Date
   prisonId: string
   title: string
   description: string
@@ -204,7 +204,7 @@ export type CreateReportRequest = {
 }
 
 export type UpdateReportRequest = {
-  incidentDateAndTime?: string
+  incidentDateAndTime?: Date
   prisonId?: string
   title?: string
   description?: string
@@ -374,17 +374,25 @@ export class IncidentReportingApi extends RestClient {
   }
 
   async createReport(data: CreateReportRequest): Promise<ReportWithDetails> {
+    const dataWithDatesAsStrings: DatesAsStrings<CreateReportRequest> = {
+      ...data,
+      incidentDateAndTime: data.incidentDateAndTime.toISOString(),
+    }
     const report = await this.post<DatesAsStrings<ReportWithDetails>>({
       path: '/incident-reports',
-      data,
+      data: dataWithDatesAsStrings,
     })
     return convertReportWithDetailsDates(report)
   }
 
   async updateReport(id: string, data: UpdateReportRequest): Promise<ReportBasic> {
+    const dataWithDatesAsStrings: DatesAsStrings<UpdateReportRequest> = {
+      ...data,
+      incidentDateAndTime: data.incidentDateAndTime?.toISOString(),
+    }
     const report = await this.patch<DatesAsStrings<ReportBasic>>({
       path: `/incident-reports/${encodeURIComponent(id)}`,
-      data,
+      data: dataWithDatesAsStrings,
     })
     return convertBasicReportDates(report)
   }

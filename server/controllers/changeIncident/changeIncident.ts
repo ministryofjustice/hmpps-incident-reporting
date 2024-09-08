@@ -76,11 +76,16 @@ export default class ChangeIncident extends FormInitialStep {
 
       const { incidentReportingApi } = res.locals.apis
 
-      const tempDate: string[] = (incidentDate as string).split('/').map(String)
-      const outDate = `${tempDate[2]}-${tempDate[1]}-${tempDate[0]}`
+      // TODO: add proper date validation to form options; in the meantime assume input is correct
+      const [year, month, day] = (incidentDate as string)
+        .split('/')
+        .map(part => parseInt(part, 10))
+        .reverse()
+      const [hour, minute] = (incidentTime as string).split(':').map(part => parseInt(part, 10))
+      const incidentDateAndTime = new Date(year, month - 1, day, hour, minute)
 
       const updateIncidentData: UpdateReportRequest = {
-        incidentDateAndTime: `${outDate}T${incidentTime}`,
+        incidentDateAndTime,
         prisonId: incidentPrisonId as string,
         title: incidentTitle as string,
         description: incidentDescription as string,

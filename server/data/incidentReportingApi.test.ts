@@ -2,7 +2,8 @@ import nock from 'nock'
 
 import config from '../config'
 import type { SanitisedError } from '../sanitisedError'
-import { ErrorCode, type ErrorResponse, IncidentReportingApi, isErrorResponse } from './incidentReportingApi'
+import type { ErrorResponse, CreateReportRequest, UpdateReportRequest } from './incidentReportingApi'
+import { ErrorCode, IncidentReportingApi, isErrorResponse } from './incidentReportingApi'
 import { mockErrorResponse, mockEvent, mockReport } from './testData/incidentReporting'
 import { unsortedPageOf } from './testData/paginatedResponses'
 
@@ -82,7 +83,7 @@ describe('Incident reporting API client', () => {
             type: 'FINDS',
             title: 'Chewing gum',
             description: 'Chewing gum found in cell',
-            incidentDateAndTime: '2023-12-05T12:34:56',
+            incidentDateAndTime: now,
             prisonId: 'MDI',
           }),
       },
@@ -238,7 +239,7 @@ describe('Incident reporting API client', () => {
             type: 'FINDS',
             title: 'Chewing gum',
             description: 'Chewing gum found in cell',
-            incidentDateAndTime: '2023-12-05T12:34:56',
+            incidentDateAndTime: now,
             prisonId: 'MDI',
           }),
       },
@@ -277,6 +278,38 @@ describe('Incident reporting API client', () => {
         // NB: other children are checked in incidentReportingApiUtils.test.ts
       ]
       shouldBeDates.forEach(value => expect(value).toBeInstanceOf(Date))
+    })
+
+    it.each([
+      {
+        method: 'createReport',
+        url: '/incident-reports',
+        urlMethod: 'post',
+        testCase: () =>
+          apiClient.createReport({
+            createNewEvent: true,
+            type: 'FINDS',
+            title: 'Chewing gum',
+            description: 'Chewing gum found in cell',
+            incidentDateAndTime: now,
+            prisonId: 'MDI',
+          }),
+      },
+      {
+        method: 'updateReport',
+        url: `/incident-reports/${basicReport.id}`,
+        urlMethod: 'patch',
+        testCase: () => apiClient.updateReport(basicReport.id, { incidentDateAndTime: now }),
+      },
+    ])('should work on input request data for $method', async ({ testCase, url, urlMethod }) => {
+      fakeApiClient.intercept(url, urlMethod).reply((_uri, requestBody) => {
+        const request = requestBody as DatesAsStrings<CreateReportRequest | UpdateReportRequest>
+        if (request.incidentDateAndTime?.includes('2023-12-05T12:34:56')) {
+          return [200, reportWithDetails]
+        }
+        return [400, { status: 400, userMessage: 'Invalid input date', developerMessage: '' } satisfies ErrorResponse]
+      })
+      await testCase()
     })
   })
 })

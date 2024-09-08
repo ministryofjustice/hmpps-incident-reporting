@@ -233,6 +233,12 @@ describe('Incident reporting API client', () => {
             responses: [{ response: 'Yes', responseDate: now }],
           }),
       },
+      {
+        method: 'deleteLastQuestionWithResponses',
+        url: `/incident-reports/${basicReport.id}/questions`,
+        urlMethod: 'delete',
+        testCase: () => apiClient.deleteLastQuestionWithResponses(basicReport.id),
+      },
     ])('should throw when calling $method on error responses from the api', async ({ url, urlMethod, testCase }) => {
       fakeApiClient
         .intercept(url, urlMethod ?? 'get')
@@ -505,8 +511,8 @@ describe('Incident reporting API client', () => {
     it.each([
       {
         method: 'getQuestions',
-        url: `/incident-reports/${reportWithDetails.id}/questions`,
-        testCase: () => apiClient.getQuestions(reportWithDetails.id),
+        url: `/incident-reports/${basicReport.id}/questions`,
+        testCase: () => apiClient.getQuestions(basicReport.id),
       },
       {
         method: 'addQuestionWithResponses',
@@ -518,6 +524,12 @@ describe('Incident reporting API client', () => {
             question: 'Was the police informed?',
             responses: [{ response: 'Yes', responseDate: now }],
           }),
+      },
+      {
+        method: 'deleteLastQuestionWithResponses',
+        url: `/incident-reports/${basicReport.id}/questions`,
+        urlMethod: 'delete',
+        testCase: () => apiClient.deleteLastQuestionWithResponses(basicReport.id),
       },
     ])('should work for $method returning a list of question', async ({ url, urlMethod, testCase }) => {
       fakeApiClient

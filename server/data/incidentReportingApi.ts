@@ -473,6 +473,13 @@ export class IncidentReportingApi extends RestClient {
     })
     return questions.map(convertQuestionDates)
   }
+
+  async deleteLastQuestionWithResponses(reportId: string): Promise<Question[]> {
+    const questions = await this.delete<DatesAsStrings<Question[]>>({
+      path: `/incident-reports/${encodeURIComponent(reportId)}/questions`,
+    })
+    return questions.map(convertQuestionDates)
+  }
 }
 
 type AddStaffInvolvement = {

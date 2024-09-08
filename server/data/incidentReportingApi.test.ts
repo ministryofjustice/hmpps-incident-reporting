@@ -543,4 +543,103 @@ describe('Incident reporting API client', () => {
       shouldBeDates.forEach(value => expect(value).toBeInstanceOf(Date))
     })
   })
+
+  describe('updates to nullable fields', () => {
+    describe.each([
+      {
+        method: 'staffInvolved.updateForReport',
+        url: `/incident-reports/${reportWithDetails.id}/staff-involved/2`,
+        nullableFields: ['comment'] as const,
+        testCaseAbsentFields: () =>
+          apiClient.staffInvolved.updateForReport(reportWithDetails.id, 2, {
+            staffRole: 'ACTIVELY_INVOLVED',
+            staffUsername: 'staff-1',
+          }),
+        testCaseNullFields: () =>
+          apiClient.staffInvolved.updateForReport(reportWithDetails.id, 2, {
+            staffRole: 'ACTIVELY_INVOLVED',
+            staffUsername: 'staff-1',
+            comment: null,
+          }),
+        testCaseNonNullFields: () =>
+          apiClient.staffInvolved.updateForReport(reportWithDetails.id, 2, {
+            staffRole: 'ACTIVELY_INVOLVED',
+            staffUsername: 'staff-1',
+            comment: 'Staff member helped calm the situation',
+          }),
+      },
+      {
+        method: 'prisonersInvolved.updateForReport',
+        url: `/incident-reports/${reportWithDetails.id}/prisoners-involved/2`,
+        nullableFields: ['outcome', 'comment'] as const,
+        testCaseAbsentFields: () =>
+          apiClient.prisonersInvolved.updateForReport(reportWithDetails.id, 2, {
+            prisonerNumber: 'A1111AA',
+            prisonerRole: 'ACTIVE_INVOLVEMENT',
+          }),
+        testCaseNullFields: () =>
+          apiClient.prisonersInvolved.updateForReport(reportWithDetails.id, 2, {
+            prisonerNumber: 'A1111AA',
+            prisonerRole: 'ACTIVE_INVOLVEMENT',
+            outcome: null,
+            comment: null,
+          }),
+        testCaseNonNullFields: () =>
+          apiClient.prisonersInvolved.updateForReport(reportWithDetails.id, 2, {
+            prisonerNumber: 'A1111AA',
+            prisonerRole: 'ACTIVE_INVOLVEMENT',
+            outcome: 'SEEN_HEALTHCARE',
+            comment: 'Was hurt',
+          }),
+      },
+    ])(
+      'in $method request data',
+      ({ url, nullableFields, testCaseAbsentFields, testCaseNullFields, testCaseNonNullFields }) => {
+        it('should omit fields when they are absent in the request', () => {
+          fakeApiClient.patch(url).reply((_uri, requestBody) => {
+            // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+            // @ts-ignore because nock cannot know about request data type
+            if (nullableFields.some(fieldName => fieldName in requestBody)) {
+              return [
+                400,
+                { status: 400, userMessage: 'Fields should be absent', developerMessage: '' } satisfies ErrorResponse,
+              ]
+            }
+            return [200, []]
+          })
+          return testCaseAbsentFields()
+        })
+
+        it('should include null fields when they are present in the request', () => {
+          fakeApiClient.patch(url).reply((_uri, requestBody) => {
+            // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+            // @ts-ignore because nock cannot know about request data type
+            if (nullableFields.some(fieldName => requestBody[fieldName] !== null)) {
+              return [
+                400,
+                { status: 400, userMessage: 'Fields should be null', developerMessage: '' } satisfies ErrorResponse,
+              ]
+            }
+            return [200, []]
+          })
+          return testCaseNullFields()
+        })
+
+        it('should include non-null fields when they are present in the request', () => {
+          fakeApiClient.patch(url).reply((_uri, requestBody) => {
+            // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+            // @ts-ignore because nock cannot know about request data type
+            if (nullableFields.some(fieldName => typeof requestBody[fieldName] !== 'string')) {
+              return [
+                400,
+                { status: 400, userMessage: 'Fields should be strings', developerMessage: '' } satisfies ErrorResponse,
+              ]
+            }
+            return [200, []]
+          })
+          return testCaseNonNullFields()
+        })
+      },
+    )
+  })
 })

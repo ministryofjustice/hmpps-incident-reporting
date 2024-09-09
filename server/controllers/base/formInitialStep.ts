@@ -1,10 +1,9 @@
-import { Response } from 'express'
+import type { Response } from 'express'
 import FormWizard from 'hmpo-form-wizard'
 
 export default class FormInitialStep extends FormWizard.Controller {
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  getInitialValues(_req: FormWizard.Request, _res: Response): { [key: string]: any } {
-    // Override in subclass to return initial values for form
+  /** Override in subclass to return initial values for form */
+  getInitialValues(_req: FormWizard.Request, _res: Response): Record<string, unknown> {
     return {}
   }
 

@@ -1,8 +1,11 @@
+// eslint-disable-next-line max-classes-per-file
 import config from '../config'
 import format from '../utils/format'
 import {
   convertBasicReportDates,
+  convertCorrectionRequestDates,
   convertEventWithBasicReportsDates,
+  convertQuestionDates,
   convertReportWithDetailsDates,
 } from './incidentReportingApiUtils'
 import RestClient from './restClient'
@@ -193,28 +196,38 @@ export type CorrectionRequest = {
   correctionRequestedAt: Date
 }
 
-export type NewIncident = {
+export type CreateReportRequest = {
   type: string
-  incidentDateAndTime: string
+  incidentDateAndTime: Date
   prisonId: string
   title: string
   description: string
   createNewEvent: boolean
+  linkedEventReference?: string
 }
 
-export type UpdateIncident = {
-  incidentDateAndTime: string
-  prisonId: string
-  title: string
-  description: string
-  updateEvent: boolean
+export type UpdateReportRequest = {
+  incidentDateAndTime?: Date
+  prisonId?: string
+  title?: string
+  description?: string
+  updateEvent?: boolean
 }
 
-export type NewPrisoner = {
-  prisonerNumber: string
-  prisonerRole: string
-  outcome?: string
-  comment?: string
+export type ChangeStatusRequest = { newStatus: ReportStatus }
+export type ChangeTypeRequest = { newType: ReportType }
+
+export type AddQuestionWithResponsesRequest = {
+  code: string
+  question: string
+  responses: AddQuestionResponseRequest[]
+  additionalInformation?: string
+}
+
+type AddQuestionResponseRequest = {
+  response: string
+  responseDate?: Date
+  additionalInformation?: string
 }
 
 export class IncidentReportingApi extends RestClient {
@@ -376,24 +389,194 @@ export class IncidentReportingApi extends RestClient {
     return convertReportWithDetailsDates(report)
   }
 
-  createIncident(data: NewIncident): Promise<NewIncident> {
-    return this.post({
+  async createReport(data: CreateReportRequest): Promise<ReportWithDetails> {
+    const dataWithDatesAsStrings: DatesAsStrings<CreateReportRequest> = {
+      ...data,
+      incidentDateAndTime: data.incidentDateAndTime.toISOString(),
+    }
+    const report = await this.post<DatesAsStrings<ReportWithDetails>>({
       path: '/incident-reports',
-      data,
+      data: dataWithDatesAsStrings,
     })
+    return convertReportWithDetailsDates(report)
   }
 
-  updateIncident(incidentId: string, data: UpdateIncident): Promise<UpdateIncident> {
-    return this.patch({
-      path: `/incident-reports/${incidentId}`,
-      data,
+  async updateReport(id: string, data: UpdateReportRequest): Promise<ReportBasic> {
+    const dataWithDatesAsStrings: DatesAsStrings<UpdateReportRequest> = {
+      ...data,
+      incidentDateAndTime: data.incidentDateAndTime?.toISOString(),
+    }
+    const report = await this.patch<DatesAsStrings<ReportBasic>>({
+      path: `/incident-reports/${encodeURIComponent(id)}`,
+      data: dataWithDatesAsStrings,
     })
+    return convertBasicReportDates(report)
   }
 
-  addPrisonerToReport(reportId: string, data: NewPrisoner): Promise<NewPrisoner> {
-    return this.post({
-      path: `/incident-reports/${reportId}/prisoners-involved`,
+  async changeReportStatus(id: string, data: ChangeStatusRequest): Promise<ReportWithDetails> {
+    const report = await this.patch<DatesAsStrings<ReportWithDetails>>({
+      path: `/incident-reports/${encodeURIComponent(id)}/status`,
       data,
     })
+    return convertReportWithDetailsDates(report)
+  }
+
+  async changeReportType(id: string, data: ChangeTypeRequest): Promise<ReportWithDetails> {
+    const report = await this.patch<DatesAsStrings<ReportWithDetails>>({
+      path: `/incident-reports/${encodeURIComponent(id)}/type`,
+      data,
+    })
+    return convertReportWithDetailsDates(report)
+  }
+
+  async deleteReport(id: string, deleteOrphanedEvents: boolean = true): Promise<ReportWithDetails> {
+    const report = await this.delete<DatesAsStrings<ReportWithDetails>>({
+      path: `/incident-reports/${encodeURIComponent(id)}`,
+      query: { deleteOrphanedEvents },
+    })
+    return convertReportWithDetailsDates(report)
+  }
+
+  get staffInvolved(): RelatedObjects<StaffInvolvement, AddStaffInvolvementRequest, UpdateStaffInvolvementRequest> {
+    return new RelatedObjects(this, 'staff-involved')
+  }
+
+  get prisonersInvolved(): RelatedObjects<
+    PrisonerInvolvement,
+    AddPrisonerInvolvementRequest,
+    UpdatePrisonerInvolvementRequest
+  > {
+    return new RelatedObjects(this, 'prisoners-involved')
+  }
+
+  get correctionRequests(): RelatedObjects<
+    CorrectionRequest,
+    AddCorrectionRequestRequest,
+    UpdateCorrectionRequestRequest
+  > {
+    return new RelatedObjects(this, 'correction-requests', convertCorrectionRequestDates)
+  }
+
+  async getQuestions(reportId: string): Promise<Question[]> {
+    const questions = await this.get<DatesAsStrings<Question[]>>({
+      path: `/incident-reports/${encodeURIComponent(reportId)}/questions`,
+    })
+    return questions.map(convertQuestionDates)
+  }
+
+  async addQuestionWithResponses(
+    reportId: string,
+    questionWithResponses: AddQuestionWithResponsesRequest,
+  ): Promise<Question[]> {
+    const data: DatesAsStrings<AddQuestionWithResponsesRequest> = {
+      ...questionWithResponses,
+      responses: questionWithResponses.responses.map(response => ({
+        ...response,
+        responseDate: response.responseDate?.toISOString(),
+      })),
+    }
+    const questions = await this.post<DatesAsStrings<Question[]>>({
+      path: `/incident-reports/${encodeURIComponent(reportId)}/questions`,
+      data,
+    })
+    return questions.map(convertQuestionDates)
+  }
+
+  async deleteLastQuestionAndItsResponses(reportId: string): Promise<Question[]> {
+    const questions = await this.delete<DatesAsStrings<Question[]>>({
+      path: `/incident-reports/${encodeURIComponent(reportId)}/questions`,
+    })
+    return questions.map(convertQuestionDates)
+  }
+}
+
+type AddStaffInvolvementRequest = {
+  staffUsername: string
+  staffRole: StaffRole
+  comment?: string
+}
+
+type UpdateStaffInvolvementRequest = {
+  staffUsername?: string
+  staffRole?: string
+  comment?: string | null
+}
+
+type AddPrisonerInvolvementRequest = {
+  prisonerNumber: string
+  prisonerRole: PrisonerRole
+  outcome?: PrisonerInvolvementOutcome
+  comment?: string
+}
+
+type UpdatePrisonerInvolvementRequest = {
+  prisonerNumber?: string
+  prisonerRole?: PrisonerRole
+  outcome?: PrisonerInvolvementOutcome | null
+  comment?: string | null
+}
+
+type AddCorrectionRequestRequest = {
+  reason: CorrectionRequestReason
+  descriptionOfChange: string
+}
+
+type UpdateCorrectionRequestRequest = {
+  reason?: CorrectionRequestReason
+  descriptionOfChange?: string
+}
+
+class RelatedObjects<
+  ResponseType,
+  AddRequestType extends Record<string, unknown>,
+  UpdateRequestType extends Record<string, unknown>,
+> {
+  constructor(
+    private readonly apiClient: IncidentReportingApi,
+    private readonly urlSlug: string,
+    responseDateConverter?: (response: DatesAsStrings<ResponseType>) => ResponseType,
+  ) {
+    this.responseDateConverter =
+      responseDateConverter ?? ((response: DatesAsStrings<ResponseType>) => response as ResponseType)
+  }
+
+  private readonly responseDateConverter: (response: DatesAsStrings<ResponseType>) => ResponseType
+
+  private listUrl(reportId: string): string {
+    return `/incident-reports/${encodeURIComponent(reportId)}/${this.urlSlug}`
+  }
+
+  private itemUrl(reportId: string, index: number): string {
+    return `/incident-reports/${encodeURIComponent(reportId)}/${this.urlSlug}/${encodeURIComponent(index)}`
+  }
+
+  async listForReport(reportId: string): Promise<ResponseType[]> {
+    const response = await this.apiClient.get<DatesAsStrings<ResponseType>[]>({
+      path: this.listUrl(reportId),
+    })
+    return response.map(this.responseDateConverter)
+  }
+
+  async addToReport(reportId: string, data: AddRequestType): Promise<ResponseType[]> {
+    const response = await this.apiClient.post<DatesAsStrings<ResponseType>[]>({
+      path: this.listUrl(reportId),
+      data,
+    })
+    return response.map(this.responseDateConverter)
+  }
+
+  async updateForReport(reportId: string, index: number, data: UpdateRequestType): Promise<ResponseType[]> {
+    const response = await this.apiClient.patch<DatesAsStrings<ResponseType>[]>({
+      path: this.itemUrl(reportId, index),
+      data,
+    })
+    return response.map(this.responseDateConverter)
+  }
+
+  async deleteFromReport(reportId: string, index: number): Promise<ResponseType[]> {
+    const response = await this.apiClient.delete<DatesAsStrings<ResponseType>[]>({
+      path: this.itemUrl(reportId, index),
+    })
+    return response.map(this.responseDateConverter)
   }
 }

@@ -6,6 +6,7 @@ import { Strategy } from 'passport-oauth2'
 
 import config from '../config'
 import tokenVerifier from '../data/tokenVerification'
+import type { Services } from '../services'
 import generateOauthClientToken from '../authentication/clientCredentials'
 
 passport.serializeUser((user, done) => {
@@ -35,7 +36,7 @@ passport.use(
   ),
 )
 
-export default function setUpAuthentication(): Router {
+export default function setUpAuthentication(services: Services): Router {
   const router = express.Router()
 
   router.use(passport.initialize())
@@ -83,6 +84,10 @@ export default function setUpAuthentication(): Router {
 
   router.use((req, res, next) => {
     res.locals.user = req.user
+    res.locals.userHasRole = (role: string) => {
+      const userRoles = res.locals?.user?.roles || services.userService.getUserRoles(res.locals?.user?.token) || []
+      return Boolean(userRoles.includes(role))
+    }
     next()
   })
 

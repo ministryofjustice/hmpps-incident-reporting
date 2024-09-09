@@ -36,7 +36,7 @@ export default function createApp(services: Services): express.Application {
   app.use(cookieParser())
   app.use(setUpStaticResources())
   nunjucksSetup(app)
-  app.use(setUpAuthentication())
+  app.use(setUpAuthentication(services))
   app.use(authorisationMiddleware())
   app.use(setUpCsrf())
   app.use(setUpCurrentUser(services))

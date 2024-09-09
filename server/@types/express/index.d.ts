@@ -26,11 +26,12 @@ export declare global {
       verified?: boolean
       id: string
       logout(done: (err: unknown) => void): void
-      canAccess: (permission: string) => boolean
     }
 
     interface Locals {
       user: Express.User
+      /** Returns true if current user has given role (NB: remove ROLE_ prefix) */
+      userHasRole(role: string): boolean
       systemToken: string
       apis: {
         incidentReportingApi: IncidentReportingApi

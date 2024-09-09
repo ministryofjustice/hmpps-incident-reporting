@@ -217,14 +217,14 @@ export type UpdateReportRequest = {
 export type ChangeStatusRequest = { newStatus: ReportStatus }
 export type ChangeTypeRequest = { newType: ReportType }
 
-export type AddQuestionWithResponses = {
+export type AddQuestionWithResponsesRequest = {
   code: string
   question: string
-  responses: AddQuestionResponse[]
+  responses: AddQuestionResponseRequest[]
   additionalInformation?: string
 }
 
-type AddQuestionResponse = {
+type AddQuestionResponseRequest = {
   response: string
   responseDate?: Date
   additionalInformation?: string
@@ -437,15 +437,23 @@ export class IncidentReportingApi extends RestClient {
     return convertReportWithDetailsDates(report)
   }
 
-  get staffInvolved(): RelatedObjects<StaffInvolvement, AddStaffInvolvement, UpdateStaffInvolvement> {
+  get staffInvolved(): RelatedObjects<StaffInvolvement, AddStaffInvolvementRequest, UpdateStaffInvolvementRequest> {
     return new RelatedObjects(this, 'staff-involved')
   }
 
-  get prisonersInvolved(): RelatedObjects<PrisonerInvolvement, AddPrisonerInvolvement, UpdatePrisonerInvolvement> {
+  get prisonersInvolved(): RelatedObjects<
+    PrisonerInvolvement,
+    AddPrisonerInvolvementRequest,
+    UpdatePrisonerInvolvementRequest
+  > {
     return new RelatedObjects(this, 'prisoners-involved')
   }
 
-  get correctionRequests(): RelatedObjects<CorrectionRequest, AddCorrectionRequest, UpdateCorrectionRequest> {
+  get correctionRequests(): RelatedObjects<
+    CorrectionRequest,
+    AddCorrectionRequestRequest,
+    UpdateCorrectionRequestRequest
+  > {
     return new RelatedObjects(this, 'correction-requests', convertCorrectionRequestDates)
   }
 
@@ -458,9 +466,9 @@ export class IncidentReportingApi extends RestClient {
 
   async addQuestionWithResponses(
     reportId: string,
-    questionWithResponses: AddQuestionWithResponses,
+    questionWithResponses: AddQuestionWithResponsesRequest,
   ): Promise<Question[]> {
-    const data: DatesAsStrings<AddQuestionWithResponses> = {
+    const data: DatesAsStrings<AddQuestionWithResponsesRequest> = {
       ...questionWithResponses,
       responses: questionWithResponses.responses.map(response => ({
         ...response,
@@ -482,38 +490,38 @@ export class IncidentReportingApi extends RestClient {
   }
 }
 
-type AddStaffInvolvement = {
+type AddStaffInvolvementRequest = {
   staffUsername: string
   staffRole: StaffRole
   comment?: string
 }
 
-type UpdateStaffInvolvement = {
+type UpdateStaffInvolvementRequest = {
   staffUsername?: string
   staffRole?: string
   comment?: string | null
 }
 
-type AddPrisonerInvolvement = {
+type AddPrisonerInvolvementRequest = {
   prisonerNumber: string
   prisonerRole: PrisonerRole
   outcome?: PrisonerInvolvementOutcome
   comment?: string
 }
 
-type UpdatePrisonerInvolvement = {
+type UpdatePrisonerInvolvementRequest = {
   prisonerNumber?: string
   prisonerRole?: PrisonerRole
   outcome?: PrisonerInvolvementOutcome | null
   comment?: string | null
 }
 
-type AddCorrectionRequest = {
+type AddCorrectionRequestRequest = {
   reason: CorrectionRequestReason
   descriptionOfChange: string
 }
 
-type UpdateCorrectionRequest = {
+type UpdateCorrectionRequestRequest = {
   reason?: CorrectionRequestReason
   descriptionOfChange?: string
 }

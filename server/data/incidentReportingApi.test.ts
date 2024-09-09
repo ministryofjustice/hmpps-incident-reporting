@@ -6,7 +6,7 @@ import {
   ErrorResponse,
   CreateReportRequest,
   UpdateReportRequest,
-  AddQuestionWithResponses,
+  AddQuestionWithResponsesRequest,
   ErrorCode,
   IncidentReportingApi,
   isErrorResponse,
@@ -444,7 +444,7 @@ describe('Incident reporting API client', () => {
             responses: [{ response: 'Yes', responseDate: now }],
           }),
         mockResponse: { status: 201, data: [] },
-        responseDateExtractor: (request: DatesAsStrings<AddQuestionWithResponses>) =>
+        responseDateExtractor: (request: DatesAsStrings<AddQuestionWithResponsesRequest>) =>
           request.responses.map(response => response.responseDate),
       },
     ])(
@@ -452,7 +452,7 @@ describe('Incident reporting API client', () => {
       async ({ testCase, url, urlMethod, mockResponse, responseDateExtractor }) => {
         fakeApiClient.intercept(url, urlMethod).reply((_uri, requestBody) => {
           const request = requestBody as DatesAsStrings<
-            CreateReportRequest | UpdateReportRequest | AddQuestionWithResponses
+            CreateReportRequest | UpdateReportRequest | AddQuestionWithResponsesRequest
           >
           // eslint-disable-next-line @typescript-eslint/ban-ts-comment
           // @ts-ignore because responseDateExtractor is appropriate for each request but TS cannot tell that

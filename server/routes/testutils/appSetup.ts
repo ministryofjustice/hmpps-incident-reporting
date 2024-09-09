@@ -1,3 +1,4 @@
+import flash from 'connect-flash'
 import cookieSession from 'cookie-session'
 import express, { type Express } from 'express'
 import { NotFound } from 'http-errors'
@@ -21,9 +22,6 @@ export const user: Express.User = {
   authSource: 'NOMIS',
 }
 
-/** Mocked req.flash() */
-export const flashProvider: jest.Mocked<Express.Request['flash']> = jest.fn()
-
 /** Returns true if current user has given role (NB: remove ROLE_ prefix) */
 export const userHasRole = jest.fn((_role: string) => true)
 
@@ -32,13 +30,11 @@ function appSetup(services: Services, production: boolean, userSupplier: () => E
 
   const systemToken = 'test-system-token'
 
-  app.set('view engine', 'njk')
-
-  nunjucksSetup(app)
   app.use(cookieSession({ keys: [''] }))
+  app.use(flash())
+  nunjucksSetup(app)
   app.use((req, res, next) => {
     req.user = userSupplier()
-    req.flash = flashProvider
     res.locals = {
       user: { ...req.user },
       userHasRole,

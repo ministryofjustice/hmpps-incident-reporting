@@ -1,4 +1,3 @@
-import flash from 'connect-flash'
 import type { Router } from 'express'
 import express from 'express'
 import passport from 'passport'
@@ -41,7 +40,6 @@ export default function setUpAuthentication(services: Services): Router {
 
   router.use(passport.initialize())
   router.use(passport.session())
-  router.use(flash())
 
   router.get('/authError', (req, res) => {
     res.status(401)

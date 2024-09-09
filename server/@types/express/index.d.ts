@@ -21,7 +21,6 @@ export declare global {
       authSource: string
     }
 
-    // TODO: Add flash back in for success banners
     interface Request {
       verified?: boolean
       id: string

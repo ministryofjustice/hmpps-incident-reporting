@@ -21,7 +21,8 @@ export const user: Express.User = {
   authSource: 'NOMIS',
 }
 
-export const flashProvider = jest.fn()
+/** Mocked req.flash() */
+export const flashProvider: jest.Mocked<Express.Request['flash']> = jest.fn()
 
 /** Returns true if current user has given role (NB: remove ROLE_ prefix) */
 export const userHasRole = jest.fn((_role: string) => true)

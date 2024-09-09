@@ -1,13 +1,17 @@
 import { v7 as uuidFromDate } from 'uuid'
 
 import { buildArray } from '../../utils/utils'
-import {
+import type {
   ErrorCode,
   ErrorResponse,
   Event,
   EventWithBasicReports,
   ReportBasic,
   ReportWithDetails,
+  StaffInvolvement,
+  PrisonerInvolvement,
+  CorrectionRequest,
+  Question,
 } from '../incidentReportingApi'
 
 interface MockEventConfig {
@@ -107,52 +111,10 @@ export function mockReport({
           changedBy: reportingUsername,
         },
       ],
-      staffInvolved: [
-        {
-          staffUsername: 'staff-1',
-          staffRole: 'ACTIVELY_INVOLVED',
-          comment: 'Comment about staff-1',
-        },
-        {
-          staffUsername: 'staff-2',
-          staffRole: 'PRESENT_AT_SCENE',
-          comment: null,
-        },
-      ],
-      prisonersInvolved: [
-        {
-          prisonerNumber: 'A1111AA',
-          prisonerRole: 'ACTIVE_INVOLVEMENT',
-          outcome: 'LOCAL_INVESTIGATION',
-          comment: 'Comment about A1111AA',
-        },
-        {
-          prisonerNumber: 'A2222BB',
-          prisonerRole: 'SUSPECTED_INVOLVED',
-          outcome: null,
-          comment: null,
-        },
-      ],
-      correctionRequests: [
-        {
-          reason: 'NOT_SPECIFIED',
-          descriptionOfChange: 'Please amend question 2',
-          correctionRequestedBy: 'USER2',
-          correctionRequestedAt: reportDateAndTime.toISOString(),
-        },
-      ],
-      questions: buildArray(2, questionIndex => ({
-        code: `QID-${(questionIndex + 1).toString().padStart(12, '0')}`,
-        question: `Question #${questionIndex + 1}`,
-        additionalInformation: `Explanation #${questionIndex + 1}`,
-        responses: buildArray(2, responseIndex => ({
-          response: `Response #${responseIndex + 1}`,
-          responseDate: reportDateAndTime.toISOString(),
-          recordedBy: 'some-user',
-          recordedAt: reportDateAndTime.toISOString(),
-          additionalInformation: `comment #${responseIndex + 1}`,
-        })),
-      })),
+      staffInvolved: [mockStaffInvolvement(0), mockStaffInvolvement(1)],
+      prisonersInvolved: [mockPrisonerInvolvement(0), mockPrisonerInvolvement(1)],
+      correctionRequests: [mockCorrectionRequest(0, reportDateAndTime)],
+      questions: buildArray(2, questionIndex => mockQuestion(questionIndex, reportDateAndTime, 2)),
       history: buildArray(2, () => ({
         type: 'MISCELLANEOUS',
         changedAt: reportDateAndTime.toISOString(),
@@ -174,6 +136,86 @@ export function mockReport({
   }
 
   return basicReport
+}
+
+export function mockStaffInvolvement(index: number): DatesAsStrings<StaffInvolvement> {
+  switch (index) {
+    case 0:
+      return {
+        staffUsername: 'staff-1',
+        staffRole: 'ACTIVELY_INVOLVED',
+        comment: 'Comment about staff-1',
+      }
+    case 1:
+      return {
+        staffUsername: 'staff-2',
+        staffRole: 'PRESENT_AT_SCENE',
+        comment: null,
+      }
+    default:
+      throw new Error('not implemented')
+  }
+}
+
+export function mockPrisonerInvolvement(index: number): DatesAsStrings<PrisonerInvolvement> {
+  switch (index) {
+    case 0:
+      return {
+        prisonerNumber: 'A1111AA',
+        prisonerRole: 'ACTIVE_INVOLVEMENT',
+        outcome: 'LOCAL_INVESTIGATION',
+        comment: 'Comment about A1111AA',
+      }
+    case 1:
+      return {
+        prisonerNumber: 'A2222BB',
+        prisonerRole: 'SUSPECTED_INVOLVED',
+        outcome: null,
+        comment: null,
+      }
+    default:
+      throw new Error('not implemented')
+  }
+}
+
+export function mockCorrectionRequest(index: number, correctionRequestedAt: Date): DatesAsStrings<CorrectionRequest> {
+  switch (index) {
+    case 0:
+      return {
+        reason: 'NOT_SPECIFIED',
+        descriptionOfChange: 'Please amend question 2',
+        correctionRequestedBy: 'USER2',
+        correctionRequestedAt: correctionRequestedAt.toISOString(),
+      }
+    case 1:
+      return {
+        reason: 'MISTAKE',
+        descriptionOfChange: 'Name misspelled',
+        correctionRequestedBy: 'USER2',
+        correctionRequestedAt: correctionRequestedAt.toISOString(),
+      }
+    default:
+      throw new Error('not implemented')
+  }
+}
+
+export function mockQuestion(
+  questionIndex: number,
+  responseDate: Date,
+  numberOfResponses = 0,
+): DatesAsStrings<Question> {
+  return {
+    code: `QID-${(questionIndex + 1).toString().padStart(12, '0')}`,
+    question: `Question #${questionIndex + 1}`,
+    additionalInformation: `Explanation #${questionIndex + 1}`,
+    responses: buildArray(numberOfResponses, responseIndex => ({
+      response: `Response #${responseIndex + 1}`,
+      responseDate: responseDate.toISOString(),
+      recordedBy: 'some-user',
+      recordedAt: responseDate.toISOString(),
+      additionalInformation: `comment #${responseIndex + 1}`,
+    })),
+  }
 }
 
 /**

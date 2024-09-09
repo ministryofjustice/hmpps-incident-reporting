@@ -2,7 +2,7 @@ import { NextFunction, Response } from 'express'
 import FormWizard from 'hmpo-form-wizard'
 import backUrl from '../../utils/backUrl'
 import FormInitialStep from '../base/formInitialStep'
-import { type UpdateIncident } from '../../data/incidentReportingApi'
+import type { UpdateReportRequest } from '../../data/incidentReportingApi'
 
 export default class ChangeIncident extends FormInitialStep {
   middlewareSetup() {
@@ -76,18 +76,23 @@ export default class ChangeIncident extends FormInitialStep {
 
       const { incidentReportingApi } = res.locals.apis
 
-      const tempDate: string[] = (incidentDate as string).split('/').map(String)
-      const outDate = `${tempDate[2]}-${tempDate[1]}-${tempDate[0]}`
+      // TODO: add proper date validation to form options; in the meantime assume input is correct
+      const [year, month, day] = (incidentDate as string)
+        .split('/')
+        .map(part => parseInt(part, 10))
+        .reverse()
+      const [hour, minute] = (incidentTime as string).split(':').map(part => parseInt(part, 10))
+      const incidentDateAndTime = new Date(year, month - 1, day, hour, minute)
 
-      const updateIncidentData: UpdateIncident = {
-        incidentDateAndTime: `${outDate}T${incidentTime}`,
+      const updateIncidentData: UpdateReportRequest = {
+        incidentDateAndTime,
         prisonId: incidentPrisonId as string,
         title: incidentTitle as string,
         description: incidentDescription as string,
         updateEvent: true,
       }
 
-      await incidentReportingApi.updateIncident(res.locals.incident.id, updateIncidentData)
+      await incidentReportingApi.updateReport(res.locals.incident.id, updateIncidentData)
 
       next()
     } catch (error) {

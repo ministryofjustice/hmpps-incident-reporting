@@ -234,10 +234,10 @@ describe('Incident reporting API client', () => {
           }),
       },
       {
-        method: 'deleteLastQuestionWithResponses',
+        method: 'deleteLastQuestionAndItsResponses',
         url: `/incident-reports/${basicReport.id}/questions`,
         urlMethod: 'delete',
-        testCase: () => apiClient.deleteLastQuestionWithResponses(basicReport.id),
+        testCase: () => apiClient.deleteLastQuestionAndItsResponses(basicReport.id),
       },
     ])('should throw when calling $method on error responses from the api', async ({ url, urlMethod, testCase }) => {
       fakeApiClient
@@ -526,10 +526,10 @@ describe('Incident reporting API client', () => {
           }),
       },
       {
-        method: 'deleteLastQuestionWithResponses',
+        method: 'deleteLastQuestionAndItsResponses',
         url: `/incident-reports/${basicReport.id}/questions`,
         urlMethod: 'delete',
-        testCase: () => apiClient.deleteLastQuestionWithResponses(basicReport.id),
+        testCase: () => apiClient.deleteLastQuestionAndItsResponses(basicReport.id),
       },
     ])('should work for $method returning a list of question', async ({ url, urlMethod, testCase }) => {
       fakeApiClient

@@ -2,7 +2,6 @@ import type { UserDetails } from '../../services/userService'
 import type { IncidentReportingApi } from '../../data/incidentReportingApi'
 import type { OffenderSearchApi } from '../../data/offenderSearchApi'
 import type { PrisonApi } from '../../data/prisonApi'
-import { Services } from '../../services'
 
 export default {}
 
@@ -21,12 +20,12 @@ export declare global {
       token: string
       authSource: string
     }
+
     // TODO: Add flash back in for success banners
     interface Request {
       verified?: boolean
       id: string
       logout(done: (err: unknown) => void): void
-      services?: Services
       canAccess: (permission: string) => boolean
     }
 

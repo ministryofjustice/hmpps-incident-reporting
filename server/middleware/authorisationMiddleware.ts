@@ -1,11 +1,17 @@
-import { jwtDecode } from 'jwt-decode'
 import type { RequestHandler } from 'express'
+import { jwtDecode } from 'jwt-decode'
 
 import logger from '../../logger'
-import asyncMiddleware from './asyncMiddleware'
+import type { Services } from '../services'
 
-export default function authorisationMiddleware(authorisedRoles: string[] = []): RequestHandler {
-  return asyncMiddleware((req, res, next) => {
+export default function authorisationMiddleware(services: Services, authorisedRoles: string[] = []): RequestHandler {
+  return (req, res, next) => {
+    /** Returns true if current user has given role (NB: remove ROLE_ prefix) */
+    res.locals.userHasRole = (role: string) => {
+      const userRoles = res.locals?.user?.roles || services.userService.getUserRoles(res.locals?.user?.token) || []
+      return Boolean(userRoles.includes(role))
+    }
+
     // authorities in the user token will always be prefixed by ROLE_.
     // Convert roles that are passed into this function without the prefix so that we match correctly.
     const authorisedAuthorities = authorisedRoles.map(role => (role.startsWith('ROLE_') ? role : `ROLE_${role}`))
@@ -22,5 +28,5 @@ export default function authorisationMiddleware(authorisedRoles: string[] = []):
 
     req.session.returnTo = req.originalUrl
     return res.redirect('/sign-in')
-  })
+  }
 }

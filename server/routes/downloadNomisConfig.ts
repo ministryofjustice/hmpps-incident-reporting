@@ -4,11 +4,22 @@ import { NotFound } from 'http-errors'
 import type { ReferenceCode } from '../data/prisonApi'
 import format from '../utils/format'
 
+function isFileTypeSupported(fileType: string): fileType is 'csv' | 'json' {
+  return ['csv', 'json'].includes(fileType)
+}
+
+function jsonDownload<T>(res: Response, fileName: string, data: T): void {
+  res.header('Content-Type', 'application/json')
+  res.header('Content-Disposition', `attachment; filename="${fileName}.json"`)
+  res.send(JSON.stringify(data))
+  res.end()
+}
+
 type CsvCellValue = string | number | boolean | null
 
 function streamCsvDownload(res: Response, fileName: string, lines: Generator<CsvCellValue[]>): void {
   res.header('Content-Type', 'text/csv')
-  res.header('Content-Disposition', `attachment; filename="${fileName}"`)
+  res.header('Content-Disposition', `attachment; filename="${fileName}.csv"`)
   for (const line of lines) {
     const lineString = line.map(escapeCsvCell).join(',')
     res.write(`${lineString}\n`)
@@ -46,8 +57,18 @@ function escapeCsvCell(value: CsvCellValue): string {
 }
 
 async function downloadIncidentTypes(req: Request, res: Response): Promise<void> {
+  const { fileType } = req.params
+  if (!isFileTypeSupported(fileType)) {
+    throw new NotFound()
+  }
+
+  const fileName = 'incident-types'
   const { prisonApi } = res.locals.apis
   const incidentTypes = await prisonApi.getIncidentTypeConfiguration()
+
+  if (fileType === 'json') {
+    return jsonDownload(res, fileName, incidentTypes)
+  }
 
   function* mapTypes(): Generator<CsvCellValue[]> {
     yield ['Type', 'Description', 'Questionnaire ID', 'Active', 'Expired']
@@ -63,17 +84,25 @@ async function downloadIncidentTypes(req: Request, res: Response): Promise<void>
     }
   }
 
-  return streamCsvDownload(res, 'incident-types.csv', mapTypes())
+  return streamCsvDownload(res, fileName, mapTypes())
 }
 
 async function downloadIncidentTypeQuestions(req: Request, res: Response): Promise<void> {
-  const { type } = req.params
-  if (!type) {
+  const { type, fileType } = req.params
+  if (!type || !isFileTypeSupported(fileType)) {
     throw new NotFound()
   }
 
+  const fileName = `incident-type-questions-${type}`
   const { prisonApi } = res.locals.apis
   const incidentTypes = await prisonApi.getIncidentTypeConfiguration(type)
+  if (incidentTypes.length === 0) {
+    throw new NotFound(`Incident type “${type}” not found`)
+  }
+
+  if (fileType === 'json') {
+    return jsonDownload(res, fileName, incidentTypes[0])
+  }
 
   function* mapType(): Generator<CsvCellValue[]> {
     if (incidentTypes.length !== 1) {
@@ -130,20 +159,29 @@ async function downloadIncidentTypeQuestions(req: Request, res: Response): Promi
     }
   }
 
-  return streamCsvDownload(res, `incident-type-questions-${type}.csv`, mapType())
+  return streamCsvDownload(res, fileName, mapType())
 }
 
 async function downloadIncidentTypePrisonerRoles(req: Request, res: Response): Promise<void> {
-  const { type } = req.params
-  if (!type) {
+  const { type, fileType } = req.params
+  if (!type || !isFileTypeSupported(fileType)) {
     throw new NotFound()
   }
 
+  const fileName = `incident-type-prisoner-roles-${type}`
   const { prisonApi } = res.locals.apis
   const [prisonerInvolvementRoles, incidentTypes] = await Promise.all([
     prisonApi.getPrisonerInvolvementRoles(),
     prisonApi.getIncidentTypeConfiguration(type),
   ])
+  if (incidentTypes.length === 0) {
+    throw new NotFound(`Incident type “${type}” not found`)
+  }
+
+  if (fileType === 'json') {
+    return jsonDownload(res, fileName, prisonerInvolvementRoles)
+  }
+
   const prisonerInvolvementMap = new Map(prisonerInvolvementRoles.map(code => [code.code, code.description]))
 
   function* mapType(): Generator<CsvCellValue[]> {
@@ -165,7 +203,7 @@ async function downloadIncidentTypePrisonerRoles(req: Request, res: Response): P
     }
   }
 
-  return streamCsvDownload(res, `incident-type-prisoner-roles-${type}.csv`, mapType())
+  return streamCsvDownload(res, fileName, mapType())
 }
 
 function* mapCodes(referenceCodes: ReferenceCode[]) {
@@ -184,32 +222,62 @@ function* mapCodes(referenceCodes: ReferenceCode[]) {
 }
 
 async function downloadStaffInvolvementRoles(req: Request, res: Response): Promise<void> {
+  const { fileType } = req.params
+  if (!isFileTypeSupported(fileType)) {
+    throw new NotFound()
+  }
+
+  const fileName = 'staff-involvement-roles'
   const { prisonApi } = res.locals.apis
   const referenceCodes = await prisonApi.getStaffInvolvementRoles()
-  return streamCsvDownload(res, 'staff-involvement-roles.csv', mapCodes(referenceCodes))
+
+  if (fileType === 'json') {
+    return jsonDownload(res, fileName, referenceCodes)
+  }
+  return streamCsvDownload(res, fileName, mapCodes(referenceCodes))
 }
 
 async function downloadPrisonerInvolvementRoles(req: Request, res: Response): Promise<void> {
+  const { fileType } = req.params
+  if (!isFileTypeSupported(fileType)) {
+    throw new NotFound()
+  }
+
+  const fileName = 'prisoner-involvement-roles'
   const { prisonApi } = res.locals.apis
   const referenceCodes = await prisonApi.getPrisonerInvolvementRoles()
-  return streamCsvDownload(res, 'prisoner-involvement-roles.csv', mapCodes(referenceCodes))
+
+  if (fileType === 'json') {
+    return jsonDownload(res, fileName, referenceCodes)
+  }
+  return streamCsvDownload(res, fileName, mapCodes(referenceCodes))
 }
 
 async function downloadPrisonerInvolvementOutcome(req: Request, res: Response): Promise<void> {
+  const { fileType } = req.params
+  if (!isFileTypeSupported(fileType)) {
+    throw new NotFound()
+  }
+
+  const fileName = 'prisoner-involvement-outcome'
   const { prisonApi } = res.locals.apis
   const referenceCodes = await prisonApi.getPrisonerInvolvementOutcome()
-  return streamCsvDownload(res, 'prisoner-involvement-outcome.csv', mapCodes(referenceCodes))
+
+  if (fileType === 'json') {
+    return jsonDownload(res, fileName, referenceCodes)
+  }
+  return streamCsvDownload(res, fileName, mapCodes(referenceCodes))
 }
 
 export default function makeNomisConfigRouter(): Router {
   const router = Router()
 
-  router.get('/incident-types.csv', downloadIncidentTypes)
-  router.get('/incident-type/:type/questions.csv', downloadIncidentTypeQuestions)
-  router.get('/incident-type/:type/prisoner-roles.csv', downloadIncidentTypePrisonerRoles)
-  router.get('/staff-involvement-roles.csv', downloadStaffInvolvementRoles)
-  router.get('/prisoner-involvement-roles.csv', downloadPrisonerInvolvementRoles)
-  router.get('/prisoner-involvement-outcome.csv', downloadPrisonerInvolvementOutcome)
+  router.get('/incident-types.:fileType', downloadIncidentTypes)
+  router.get('/incident-type/:type/questions.:fileType', downloadIncidentTypeQuestions)
+  router.get('/incident-type/:type/prisoner-roles.:fileType', downloadIncidentTypePrisonerRoles)
+  router.get('/staff-involvement-roles.:fileType', downloadStaffInvolvementRoles)
+  router.get('/prisoner-involvement-roles.:fileType', downloadPrisonerInvolvementRoles)
+  router.get('/prisoner-involvement-outcome.:fileType', downloadPrisonerInvolvementOutcome)
 
   return router
 }

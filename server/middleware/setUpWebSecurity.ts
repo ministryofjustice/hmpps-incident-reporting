@@ -1,6 +1,6 @@
 import crypto from 'node:crypto'
 
-import express, { Router, Request, Response, NextFunction } from 'express'
+import express, { type Router, type Request, type Response, type NextFunction } from 'express'
 import helmet from 'helmet'
 
 import config from '../config'

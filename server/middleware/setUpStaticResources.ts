@@ -1,7 +1,7 @@
 import path from 'node:path'
 
 import compression from 'compression'
-import express, { Router } from 'express'
+import express, { type Router } from 'express'
 import noCache from 'nocache'
 
 import config from '../config'

@@ -1,14 +1,18 @@
-import { RequestHandler } from 'express'
+import type { RequestHandler } from 'express'
+import { Forbidden } from 'http-errors'
 
-export default function protectRoute(permission: string): RequestHandler {
-  return async (req, res, next) => {
-    if (req.canAccess(permission)) {
+// TODO: why use this in place of the standard authorisationMiddleware?
+
+/**
+ * Request handler that requires current user to have given role
+ * NB: remove ROLE_ prefix
+ */
+export default function protectRoute(role: string): RequestHandler {
+  return (_req, res, next) => {
+    if (res.locals?.userHasRole(role)) {
       return next()
     }
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    const error: any = new Error(`Forbidden. Missing permission: '${permission}'`)
-    error.status = 403
 
-    return next(error)
+    return next(new Forbidden(`Forbidden. Missing role '${role}'`))
   }
 }

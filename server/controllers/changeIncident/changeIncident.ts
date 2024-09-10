@@ -10,7 +10,7 @@ export default class ChangeIncident extends FormInitialStep {
     this.use(this.setOptions)
   }
 
-  getInitialValues(req: FormWizard.Request, res: Response) {
+  getInitialValues(_req: FormWizard.Request, res: Response): Record<string, unknown> {
     return {
       incidentDate: res.locals.incident.incidentDateAndTime.toLocaleString('en-gb', { dateStyle: 'short' }),
       incidentTime: res.locals.incident.incidentDateAndTime.toLocaleString('en', { timeStyle: 'short', hour12: false }),

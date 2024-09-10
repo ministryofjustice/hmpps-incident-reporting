@@ -41,8 +41,12 @@ export default class UserService {
     return users.reduce((prev, user) => ({ ...prev, [user.username]: user }), {})
   }
 
+  /**
+   * Extracts roles from oauth jwt token, stripping ROLE_ prefix.
+   * Returns an empty list if cannot be decoded.
+   */
   getUserRoles(token: string): string[] {
     const { authorities: roles = [] } = jwtDecode<AuthToken>(token)
-    return roles.map(role => role.substring(role.indexOf('_') + 1))
+    return roles.map(role => (role.startsWith('ROLE_') ? role.substring(5) : role))
   }
 }

@@ -1,4 +1,4 @@
-import express, { Router } from 'express'
+import express, { type Router } from 'express'
 
 export default function setUpWebRequestParsing(): Router {
   const router = express.Router()

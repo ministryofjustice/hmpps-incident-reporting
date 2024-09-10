@@ -29,8 +29,6 @@ export declare global {
 
     interface Locals {
       user: Express.User
-      /** Returns true if current user has given role (NB: remove ROLE_ prefix) */
-      userHasRole(role: string): boolean
       systemToken: string
       apis: {
         incidentReportingApi: IncidentReportingApi

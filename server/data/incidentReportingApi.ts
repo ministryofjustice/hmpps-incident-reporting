@@ -235,6 +235,10 @@ export class IncidentReportingApi extends RestClient {
     super('HMPPS Incident Reporting API', config.apis.hmppsIncidentReportingApi, systemToken)
   }
 
+  get constants(): Constants {
+    return new Constants(this)
+  }
+
   async getEvents(
     { prisonId, eventDateFrom, eventDateUntil, page, size, sort }: Partial<GetEventsParams> = {
       prisonId: null,
@@ -578,5 +582,58 @@ class RelatedObjects<
       path: this.itemUrl(reportId, index),
     })
     return response.map(this.responseDateConverter)
+  }
+}
+
+interface Constant {
+  code: string
+  description: string
+}
+
+interface TypeConstant extends Constant {
+  active: boolean
+  /** @deprecated */
+  nomisCode: string
+}
+
+class Constants {
+  constructor(private readonly apiClient: IncidentReportingApi) {}
+
+  private listConstants<T extends Constant>(urlSlug: string): Promise<T[]> {
+    return this.apiClient.get({
+      path: `/constants/${urlSlug}`,
+    })
+  }
+
+  types(): Promise<TypeConstant[]> {
+    return this.listConstants('types')
+  }
+
+  statuses(): Promise<Constant[]> {
+    return this.listConstants('statuses')
+  }
+
+  informationSources(): Promise<Constant[]> {
+    return this.listConstants('information-sources')
+  }
+
+  staffInvolvementRoles(): Promise<Constant[]> {
+    return this.listConstants('staff-roles')
+  }
+
+  prisonerInvolvementRoles(): Promise<Constant[]> {
+    return this.listConstants('prisoner-roles')
+  }
+
+  prisonerInvolvementOutcomes(): Promise<Constant[]> {
+    return this.listConstants('prisoner-outcomes')
+  }
+
+  correctionRequestReasons(): Promise<Constant[]> {
+    return this.listConstants('correction-reasons')
+  }
+
+  errorCodes(): Promise<Constant[]> {
+    return this.listConstants('error-codes')
   }
 }

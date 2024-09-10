@@ -2,6 +2,7 @@ import {
   type ErrorSummaryItem,
   buildArray,
   convertToTitleCase,
+  datesAsStrings,
   findFieldInErrorSummary,
   initialiseName,
   nameOfPerson,
@@ -138,6 +139,44 @@ describe('buildArray()', () => {
     expect(result).toHaveLength(expected.length)
     expect(result).toEqual(expected)
   })
+})
+
+describe('datesAsStrings()', () => {
+  const date = new Date()
+  const dateString = date.toISOString()
+
+  type Scenario<T> = {
+    scenario: string
+    input: T
+    expected: DatesAsStrings<T>
+  }
+  it.each([
+    { scenario: 'null', input: null, expected: null } satisfies Scenario<null>,
+    { scenario: 'undefined', input: undefined, expected: undefined } satisfies Scenario<undefined>,
+    { scenario: 'number', input: 123, expected: 123 } satisfies Scenario<number>,
+    { scenario: 'boolean', input: true, expected: true } satisfies Scenario<boolean>,
+    { scenario: 'string', input: 'abc', expected: 'abc' } satisfies Scenario<string>,
+    { scenario: 'empty object', input: {}, expected: {} } satisfies Scenario<object>,
+    { scenario: 'empty array', input: [], expected: [] } satisfies Scenario<object[]>,
+    {
+      scenario: 'simple object',
+      input: { str: 'abc', date },
+      expected: { str: 'abc', date: dateString },
+    } satisfies Scenario<{ str: string; date: Date }>,
+    { scenario: 'simple array', input: ['abc', date, 123], expected: ['abc', dateString, 123] } satisfies Scenario<
+      [string, Date, number]
+    >,
+    {
+      scenario: 'nested object',
+      input: { str: 'abc', nested: { date } },
+      expected: { str: 'abc', nested: { date: dateString } },
+    } satisfies Scenario<{ str: string; nested: { date: Date } }>,
+    {
+      scenario: 'nested array',
+      input: { str: 'abc', array: [date], nested: { dates: [date] } },
+      expected: { str: 'abc', array: [dateString], nested: { dates: [dateString] } },
+    } satisfies Scenario<{ str: string; array: [Date]; nested: { dates: [Date] } }>,
+  ])('should work on $scenario', ({ input, expected }) => expect(datesAsStrings(input)).toEqual(expected))
 })
 
 describe('govukSelectInsertDefault', () => {

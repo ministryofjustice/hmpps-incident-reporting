@@ -22,9 +22,6 @@ export const user: Express.User = {
   authSource: 'NOMIS',
 }
 
-/** Returns true if current user has given role (NB: remove ROLE_ prefix) */
-export const userHasRole = jest.fn((_role: string) => true)
-
 function appSetup(services: Services, production: boolean, userSupplier: () => Express.User): Express {
   const app = express()
 
@@ -37,7 +34,6 @@ function appSetup(services: Services, production: boolean, userSupplier: () => E
     req.user = userSupplier()
     res.locals = {
       user: { ...req.user },
-      userHasRole,
       systemToken,
       apis: {
         incidentReportingApi: new IncidentReportingApi(systemToken),

@@ -4,7 +4,7 @@ import config from '../config'
 import asyncMiddleware from '../middleware/asyncMiddleware'
 import type { Services } from '../services'
 import makeDebugRoutes from './debug'
-import makeNomisConfigRouter from './downloadNomisConfig'
+import makeDownloadConfigRouter from './downloadReportConfig'
 import createIncidentRouter from './createIncident'
 import changeIncidentRouter from './changeIncident'
 import genericRouter from './generic'
@@ -33,7 +33,7 @@ export default function routes(services: Services): Router {
   }
 
   // NOMIS data dumps should be available in production
-  router.use('/nomis-report-config', makeNomisConfigRouter())
+  router.use('/download-report-config', makeDownloadConfigRouter())
 
   return router
 }

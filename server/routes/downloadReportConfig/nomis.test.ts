@@ -1,11 +1,11 @@
 import type { Express } from 'express'
 import request from 'supertest'
 
-import { buildArray, convertToTitleCase, datesAsStrings } from '../utils/utils'
-import { PrisonApi, type IncidentTypeConfiguration, type ReferenceCode } from '../data/prisonApi'
-import { appWithAllRoutes } from './testutils/appSetup'
+import { buildArray, convertToTitleCase, datesAsStrings } from '../../utils/utils'
+import { PrisonApi, type IncidentTypeConfiguration, type ReferenceCode } from '../../data/prisonApi'
+import { appWithAllRoutes } from '../testutils/appSetup'
 
-jest.mock('../data/prisonApi')
+jest.mock('../../data/prisonApi')
 
 let app: Express
 let prisonApi: jest.Mocked<PrisonApi>
@@ -53,7 +53,7 @@ describe('NOMIS config downloads', () => {
       prisonApi.getIncidentTypeConfiguration.mockResolvedValueOnce(nomisData)
 
       return request(app)
-        .get(`/nomis-report-config/incident-types.${fileType}`)
+        .get(`/download-report-config/nomis/incident-types.${fileType}`)
         .expect(200)
         .expect('Content-Type', expectedContentType)
         .expect('Content-Disposition', expectedContentDisposition)
@@ -146,7 +146,7 @@ DRONE,Drone,2,FALSE,20/08/2020
       prisonApi.getIncidentTypeConfiguration.mockResolvedValueOnce([nomisData])
 
       return request(app)
-        .get(`/nomis-report-config/incident-type/ASSAULT/questions.${fileType}`)
+        .get(`/download-report-config/nomis/incident-type/ASSAULT/questions.${fileType}`)
         .expect(200)
         .expect('Content-Type', expectedContentType)
         .expect('Content-Disposition', expectedContentDisposition)
@@ -221,7 +221,7 @@ Question ID,Question sequence,Question list sequence,Question,Allows multiple an
       ])
 
       return request(app)
-        .get(`/nomis-report-config/incident-type/ASSAULT/prisoner-roles.${fileType}`)
+        .get(`/download-report-config/nomis/incident-type/ASSAULT/prisoner-roles.${fileType}`)
         .expect(200)
         .expect('Content-Type', expectedContentType)
         .expect('Content-Disposition', expectedContentDisposition)
@@ -244,17 +244,17 @@ LEAD,,TRUE,FALSE,12/05/2010
     it.each([
       {
         scenario: 'staff involvement roles',
-        url: `/nomis-report-config/staff-involvement-roles.${fileType}`,
+        url: `/download-report-config/nomis/staff-involvement-roles.${fileType}`,
         prisonApiMethod: 'getStaffInvolvementRoles' as const,
       },
       {
         scenario: 'prisoner involvement roles',
-        url: `/nomis-report-config/prisoner-involvement-roles.${fileType}`,
+        url: `/download-report-config/nomis/prisoner-involvement-roles.${fileType}`,
         prisonApiMethod: 'getPrisonerInvolvementRoles' as const,
       },
       {
         scenario: 'prisoner involvement outcomes',
-        url: `/nomis-report-config/prisoner-involvement-outcome.${fileType}`,
+        url: `/download-report-config/nomis/prisoner-involvement-outcome.${fileType}`,
         prisonApiMethod: 'getPrisonerInvolvementOutcome' as const,
       },
     ])('$scenario', ({ url, prisonApiMethod }) => {

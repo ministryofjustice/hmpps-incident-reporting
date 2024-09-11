@@ -30,9 +30,9 @@ function printHelp(): never {
   const help = `
 Imports constants from incident reporting api downloaded as JSON files.
 Usage:
-  ./scripts/importDpsConstants.ts [type] [file path]
+  ./scripts/importDpsConstants.ts <type> <file path>
 
-Where [type] is one of ${templates.map(template => template.method).join(', ')}
+Where <type> is one of ${templates.map(template => template.method).join(', ')}
 `.trim()
   process.stderr.write(`${help}\n`)
   process.exit(1)

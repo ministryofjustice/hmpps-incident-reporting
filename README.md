@@ -66,6 +66,31 @@ Each user has 3 caseloads, Leeds(LEI), Brixton(BXI) and Moorland(MDI)
 | IR_VIEWER       | password123456 | VIEW_INCIDENT_REPORT<br/>GLOBAL_SEARCH                               |
 | IR_CREATOR      | password123456 | CREATE_INCIDENT_REPORT<br/>APPROVE_INCIDENT_REPORT<br/>GLOBAL_SEARCH |
 
+### Import configuration from external sources
+
+#### Download DPS & NOMIS configuration as CSV or JSON
+
+Prints links to download configuration files:
+
+```shell
+./scripts/listDownloadLinks.ts <env>
+```
+
+#### Import DPS configuration JSON files
+
+Import the DPS JSON files downloaded above with:
+
+```shell
+./scripts/importDpsConstants.ts <type> <file path>
+```
+
+This will create typescript definitions for the latest constants and enumerations.
+Make sure to check these into git.
+
+#### Import NOMIS configuration JSON files
+
+TODO: not yet implemented
+
 ### Updating dependencies
 
 It’s prudent to periodically update npm dependencies; continuous integration will occasionally warn when it’s needed.

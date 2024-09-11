@@ -27,7 +27,7 @@ export interface IncidentTypeConfiguration {
 }
 
 /** Incident type question */
-interface QuestionConfiguration {
+export interface QuestionConfiguration {
   /** Question ID */
   questionnaireQueId: number
   /** Question sequence number */
@@ -47,7 +47,7 @@ interface QuestionConfiguration {
 }
 
 /** Incident Type Answer */
-interface AnswerConfiguration {
+export interface AnswerConfiguration {
   /** ID for this Answer */
   questionnaireAnsId: number
   /** Sequence for this answer */

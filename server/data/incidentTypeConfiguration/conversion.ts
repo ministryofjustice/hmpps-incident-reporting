@@ -35,7 +35,6 @@ export function fromNomis(nomisConfig: NomisIncidentTypeConfiguration): DpsIncid
         multipleAnswers: q.multipleAnswerFlag === true,
         answers: nomisAnswers.map(ans => {
           return {
-            id: ans.questionnaireAnsId.toString(),
             label: ans.answerDesc,
             commentRequired: ans.commentRequiredFlag === true,
             dateRequired: ans.dateRequiredFlag === true,

@@ -1,8 +1,8 @@
 import { v7 as uuidFromDate } from 'uuid'
 
 import { buildArray } from '../../utils/utils'
+import type { ErrorCode, Status, Type } from '../../reportConfiguration/dpsConstants'
 import type {
-  ErrorCode,
   ErrorResponse,
   Event,
   EventWithBasicReports,
@@ -62,8 +62,8 @@ interface MockReportConfig {
   reportDateAndTime: Date
   prisonId?: string
   createdInNomis?: boolean
-  status?: string
-  type?: string
+  status?: Status
+  type?: Type
   reportingUsername?: string
 }
 

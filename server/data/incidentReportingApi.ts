@@ -1,6 +1,16 @@
 // eslint-disable-next-line max-classes-per-file
 import config from '../config'
 import format from '../utils/format'
+import type {
+  Type,
+  Status,
+  InformationSource,
+  StaffInvolvementRole,
+  PrisonerInvolvementRole,
+  PrisonerInvolvementOutcome,
+  CorrectionRequestReason,
+  ErrorCode,
+} from '../reportConfiguration/dpsConstants'
 import {
   convertBasicReportDates,
   convertCorrectionRequestDates,
@@ -27,19 +37,6 @@ export interface ErrorResponse {
 export function isErrorResponse(obj: unknown): obj is ErrorResponse {
   // TODO: would be nice to make userMessage & developerMessage non-nullable in the api
   return typeof obj === 'object' && 'status' in obj && typeof obj.status === 'number' && 'userMessage' in obj
-}
-
-/**
- * Unique codes to discriminate errors returned from the incident reporting api
- *
- * Defined in uuk.gov.justice.digital.hmpps.incidentreporting.resource.ErrorCode enumeration
- * see https://github.com/ministryofjustice/hmpps-incident-reporting-api
- */
-export enum ErrorCode {
-  ValidationFailure = 100,
-  EventNotFound = 201,
-  ReportNotFound = 301,
-  ReportAlreadyExists = 302,
 }
 
 export const defaultPageSize = 20
@@ -83,14 +80,14 @@ export type EventWithBasicReports = Event & {
 export type ReportBasic = {
   id: string
   reportReference: string
-  type: ReportType
+  type: Type
   incidentDateAndTime: Date
   prisonId: string
   title: string
   description: string
   reportedBy: string
   reportedAt: Date
-  status: ReportStatus
+  status: Status
   assignedTo: string | null
   createdAt: Date
   modifiedAt: Date
@@ -108,20 +105,6 @@ export type ReportWithDetails = ReportBasic & {
   correctionRequests: CorrectionRequest[]
 }
 
-// TODO: Add enums or load from api constants endpoint?
-export type ReportType = string
-// TODO: Add enums or load from api constants endpoint?
-export type ReportStatus = string
-export type ReportSource = 'DPS' | 'NOMIS'
-// TODO: Add enums or load from api constants endpoint?
-export type StaffRole = string
-// TODO: Add enums or load from api constants endpoint?
-export type PrisonerRole = string
-// TODO: Add enums or load from api constants endpoint?
-export type PrisonerInvolvementOutcome = string
-// TODO: Add enums or load from api constants endpoint?
-export type CorrectionRequestReason = string
-
 export type GetEventsParams = {
   prisonId: string
   eventDateFrom: Date // Inclusive
@@ -130,9 +113,9 @@ export type GetEventsParams = {
 
 export type GetReportsParams = {
   prisonId: string
-  source: ReportSource
-  status: ReportStatus
-  type: ReportType
+  source: InformationSource
+  status: Status
+  type: Type
   incidentDateFrom: Date // Inclusive
   incidentDateUntil: Date // Inclusive
   reportedDateFrom: Date // Inclusive
@@ -164,27 +147,27 @@ export type Response = {
 }
 
 export type HistoricReport = {
-  type: ReportType
+  type: Type
   changedAt: Date
   changedBy: string
   questions: Question[]
 }
 
 export type HistoricStatus = {
-  status: ReportStatus
+  status: Status
   changedAt: Date
   changedBy: string
 }
 
 export type StaffInvolvement = {
   staffUsername: string
-  staffRole: StaffRole
+  staffRole: StaffInvolvementRole
   comment: string | null
 }
 
 export type PrisonerInvolvement = {
   prisonerNumber: string
-  prisonerRole: PrisonerRole
+  prisonerRole: PrisonerInvolvementRole
   outcome: PrisonerInvolvementOutcome | null
   comment: string | null
 }
@@ -214,8 +197,8 @@ export type UpdateReportRequest = {
   updateEvent?: boolean
 }
 
-export type ChangeStatusRequest = { newStatus: ReportStatus }
-export type ChangeTypeRequest = { newType: ReportType }
+export type ChangeStatusRequest = { newStatus: Status }
+export type ChangeTypeRequest = { newType: Type }
 
 export type AddQuestionWithResponsesRequest = {
   code: string
@@ -496,7 +479,7 @@ export class IncidentReportingApi extends RestClient {
 
 type AddStaffInvolvementRequest = {
   staffUsername: string
-  staffRole: StaffRole
+  staffRole: StaffInvolvementRole
   comment?: string
 }
 
@@ -508,14 +491,14 @@ type UpdateStaffInvolvementRequest = {
 
 type AddPrisonerInvolvementRequest = {
   prisonerNumber: string
-  prisonerRole: PrisonerRole
+  prisonerRole: PrisonerInvolvementRole
   outcome?: PrisonerInvolvementOutcome
   comment?: string
 }
 
 type UpdatePrisonerInvolvementRequest = {
   prisonerNumber?: string
-  prisonerRole?: PrisonerRole
+  prisonerRole?: PrisonerInvolvementRole
   outcome?: PrisonerInvolvementOutcome | null
   comment?: string | null
 }
@@ -585,12 +568,12 @@ class RelatedObjects<
   }
 }
 
-interface Constant {
+export interface Constant {
   code: string
   description: string
 }
 
-interface TypeConstant extends Constant {
+export interface TypeConstant extends Constant {
   active: boolean
   /** @deprecated */
   nomisCode: string

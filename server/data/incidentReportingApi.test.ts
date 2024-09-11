@@ -2,12 +2,12 @@ import nock from 'nock'
 
 import config from '../config'
 import type { SanitisedError } from '../sanitisedError'
+import { ErrorCode } from '../reportConfiguration/dpsConstants'
 import {
   ErrorResponse,
   CreateReportRequest,
   UpdateReportRequest,
   AddQuestionWithResponsesRequest,
-  ErrorCode,
   IncidentReportingApi,
   isErrorResponse,
 } from './incidentReportingApi'
@@ -197,8 +197,8 @@ describe('Incident reporting API client', () => {
         urlMethod: 'post',
         testCase: () =>
           apiClient.correctionRequests.addToReport(reportWithDetails.id, {
-            descriptionOfChange: 'MISTAKE',
-            reason: 'Name misspelled',
+            reason: 'MISTAKE',
+            descriptionOfChange: 'Name misspelled',
           }),
       },
       {
@@ -207,8 +207,8 @@ describe('Incident reporting API client', () => {
         urlMethod: 'patch',
         testCase: () =>
           apiClient.correctionRequests.updateForReport(reportWithDetails.id, 1, {
-            descriptionOfChange: 'MISTAKE',
-            reason: 'Name misspelled',
+            reason: 'MISTAKE',
+            descriptionOfChange: 'Name misspelled',
           }),
       },
       {
@@ -518,8 +518,8 @@ describe('Incident reporting API client', () => {
         urlMethod: 'post',
         testCase: () =>
           apiClient.correctionRequests.addToReport(reportWithDetails.id, {
-            descriptionOfChange: 'MISTAKE',
-            reason: 'Name misspelled',
+            reason: 'MISTAKE',
+            descriptionOfChange: 'Name misspelled',
           }),
       },
       {
@@ -528,8 +528,8 @@ describe('Incident reporting API client', () => {
         urlMethod: 'patch',
         testCase: () =>
           apiClient.correctionRequests.updateForReport(reportWithDetails.id, 1, {
-            descriptionOfChange: 'MISTAKE',
-            reason: 'Name misspelled',
+            reason: 'MISTAKE',
+            descriptionOfChange: 'Name misspelled',
           }),
       },
       {

@@ -72,7 +72,10 @@ if (method === 'errorCodes') {
   fs.writeSync(outputFile, `export const ${method} = [\n`)
   constants.forEach((constant: TypeConstant) => {
     fs.writeSync(outputFile, `/** ${constant.description} */\n`)
-    fs.writeSync(outputFile, `{ code: ${JSON.stringify(constant.code)}, active: ${constant.active} },\n`)
+    fs.writeSync(
+      outputFile,
+      `{ code: ${JSON.stringify(constant.code)}, active: ${constant.active}, nomisCode: ${JSON.stringify(constant.nomisCode)} },\n`,
+    )
   })
   fs.writeSync(outputFile, '] as const\n\n')
   if (documentation) {

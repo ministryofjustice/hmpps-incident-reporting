@@ -1,5 +1,6 @@
-// Generated with ./scripts/importDpsConstants.ts 2024-09-11T10:04:11.653Z
+// Generated with ./scripts/importDpsConstants.ts at 2024-09-11T16:52:06.458Z
 
+/** Reasons for correction requests made about a report */
 export const correctionRequestReasons = [
   /** Mistake */
   'MISTAKE',
@@ -13,4 +14,5 @@ export const correctionRequestReasons = [
   'NOT_SPECIFIED',
 ] as const
 
+/** Reasons for correction requests made about a report */
 export type CorrectionRequestReason = (typeof correctionRequestReasons)[number]

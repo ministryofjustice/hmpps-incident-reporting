@@ -1,5 +1,6 @@
-// Generated with ./scripts/importDpsConstants.ts 2024-09-11T10:04:10.982Z
+// Generated with ./scripts/importDpsConstants.ts at 2024-09-11T16:52:05.750Z
 
+/** Outcomes from a prisoner’s involvement in an incident */
 export const prisonerInvolvementOutcomes = [
   /** ACCT */
   'ACCT',
@@ -37,4 +38,5 @@ export const prisonerInvolvementOutcomes = [
   'TRIAL',
 ] as const
 
+/** Outcomes from a prisoner’s involvement in an incident */
 export type PrisonerInvolvementOutcome = (typeof prisonerInvolvementOutcomes)[number]

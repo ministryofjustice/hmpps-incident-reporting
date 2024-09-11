@@ -1,5 +1,6 @@
-// Generated with ./scripts/importDpsConstants.ts 2024-09-11T10:04:09.546Z
+// Generated with ./scripts/importDpsConstants.ts at 2024-09-11T16:52:04.480Z
 
+/** Roles of staff involvement in an incident */
 export const staffInvolvementRoles = [
   /** Actively involved */
   'ACTIVELY_INVOLVED',
@@ -37,4 +38,5 @@ export const staffInvolvementRoles = [
   'WITNESS',
 ] as const
 
+/** Roles of staff involvement in an incident */
 export type StaffInvolvementRole = (typeof staffInvolvementRoles)[number]

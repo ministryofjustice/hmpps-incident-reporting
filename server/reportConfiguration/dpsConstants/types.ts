@@ -1,5 +1,6 @@
-// Generated with ./scripts/importDpsConstants.ts 2024-09-11T11:21:23.335Z
+// Generated with ./scripts/importDpsConstants.ts at 2024-09-11T16:52:02.348Z
 
+/** Types of reportable incidents */
 export const types = [
   /** Absconder */
   { code: 'ABSCONDER', active: true, nomisCode: 'ABSCOND' },
@@ -97,4 +98,9 @@ export const types = [
   { code: 'OLD_TEMPORARY_RELEASE_FAILURE2', active: false, nomisCode: 'TRF2' },
 ] as const
 
+/** Types of reportable incidents */
 export type Type = (typeof types)[number]['code']
+/** Types of reportable incidents
+ * @deprecated
+ */
+export type NomisType = (typeof types)[number]['nomisCode']

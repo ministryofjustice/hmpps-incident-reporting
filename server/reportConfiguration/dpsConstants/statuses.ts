@@ -1,5 +1,6 @@
-// Generated with ./scripts/importDpsConstants.ts 2024-09-11T10:04:08.101Z
+// Generated with ./scripts/importDpsConstants.ts at 2024-09-11T16:52:02.996Z
 
+/** Report statuses */
 export const statuses = [
   /** Draft */
   'DRAFT',
@@ -21,4 +22,5 @@ export const statuses = [
   'DUPLICATE',
 ] as const
 
+/** Report statuses */
 export type Status = (typeof statuses)[number]

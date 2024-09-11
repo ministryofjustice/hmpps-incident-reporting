@@ -9,16 +9,36 @@ type ConstantsMethod = keyof IncidentReportingApi['constants']
 interface Template {
   method: ConstantsMethod
   enumName: string
-  documentation?: string
+  documentation: string
 }
 const templates: Template[] = [
-  { method: 'types', enumName: 'Type' },
-  { method: 'statuses', enumName: 'Status' },
-  { method: 'informationSources', enumName: 'InformationSource' },
-  { method: 'staffInvolvementRoles', enumName: 'StaffInvolvementRole' },
-  { method: 'prisonerInvolvementRoles', enumName: 'PrisonerInvolvementRole' },
-  { method: 'prisonerInvolvementOutcomes', enumName: 'PrisonerInvolvementOutcome' },
-  { method: 'correctionRequestReasons', enumName: 'CorrectionRequestReason' },
+  { method: 'types', enumName: 'Type', documentation: 'Types of reportable incidents' },
+  { method: 'statuses', enumName: 'Status', documentation: 'Report statuses' },
+  {
+    method: 'informationSources',
+    enumName: 'InformationSource',
+    documentation: 'Whether the report was first created in DPS or NOMIS',
+  },
+  {
+    method: 'staffInvolvementRoles',
+    enumName: 'StaffInvolvementRole',
+    documentation: 'Roles of staff involvement in an incident',
+  },
+  {
+    method: 'prisonerInvolvementRoles',
+    enumName: 'PrisonerInvolvementRole',
+    documentation: 'Roles of a prisoner’s involvement in an incident',
+  },
+  {
+    method: 'prisonerInvolvementOutcomes',
+    enumName: 'PrisonerInvolvementOutcome',
+    documentation: 'Outcomes from a prisoner’s involvement in an incident',
+  },
+  {
+    method: 'correctionRequestReasons',
+    enumName: 'CorrectionRequestReason',
+    documentation: 'Reasons for correction requests made about a report',
+  },
   {
     method: 'errorCodes',
     enumName: 'ErrorCode',
@@ -53,13 +73,11 @@ const constants: Constant[] = JSON.parse(fs.readFileSync(filePath, { encoding: '
 const outputPath = path.resolve(__dirname, `../server/reportConfiguration/dpsConstants/${method}.ts`)
 const outputFile = fs.openSync(outputPath, 'w')
 
-fs.writeSync(outputFile, `// Generated with ./scripts/importDpsConstants.ts ${new Date().toISOString()}\n\n`)
+fs.writeSync(outputFile, `// Generated with ./scripts/importDpsConstants.ts at ${new Date().toISOString()}\n\n`)
 if (method === 'errorCodes') {
   // error codes are numbers so need special treatment
 
-  if (documentation) {
-    fs.writeSync(outputFile, `/** ${documentation} */\n`)
-  }
+  fs.writeSync(outputFile, `/** ${documentation} */\n`)
   fs.writeSync(outputFile, '// eslint-disable-next-line import/prefer-default-export\n')
   fs.writeSync(outputFile, `export enum ${enumName} {\n`)
   constants.forEach(constant => {
@@ -69,6 +87,7 @@ if (method === 'errorCodes') {
 } else if (method === 'types') {
   // types are string constants but have extra info
 
+  fs.writeSync(outputFile, `/** ${documentation} */\n`)
   fs.writeSync(outputFile, `export const ${method} = [\n`)
   constants.forEach((constant: TypeConstant) => {
     fs.writeSync(outputFile, `/** ${constant.description} */\n`)
@@ -78,13 +97,14 @@ if (method === 'errorCodes') {
     )
   })
   fs.writeSync(outputFile, '] as const\n\n')
-  if (documentation) {
-    fs.writeSync(outputFile, `/** ${documentation} */\n`)
-  }
+  fs.writeSync(outputFile, `/** ${documentation} */\n`)
   fs.writeSync(outputFile, `export type ${enumName} = (typeof ${method})[number]['code']\n`)
+  fs.writeSync(outputFile, `/** ${documentation}\n * @deprecated\n */\n`)
+  fs.writeSync(outputFile, `export type Nomis${enumName} = (typeof ${method})[number]['nomisCode']\n`)
 } else {
   // all other constants are just strings
 
+  fs.writeSync(outputFile, `/** ${documentation} */\n`)
   fs.writeSync(outputFile, `export const ${method} = [\n`)
   constants.forEach(constant => {
     fs.writeSync(outputFile, `/** ${constant.description} */\n`)

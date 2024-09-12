@@ -30,14 +30,31 @@ export function analyseNomisReportConfiguration(incidentTypes: readonly Incident
     types.add(incidentType.incidentType)
     questionCount += incidentType.questions.length
 
+    let firstQuestionId: number | null = null
+    const questionConnections = new Map<number, Set<number>>()
+
     incidentType.questions.forEach(question => {
       questionIds.add(question.questionnaireQueId)
       answerCount += question.answers.length
+
+      if (firstQuestionId === null) {
+        firstQuestionId = question.questionnaireQueId
+      }
+      questionConnections.set(
+        question.questionnaireQueId,
+        new Set(question.answers.map(answer => answer.nextQuestionnaireQueId)),
+      )
 
       question.answers.forEach(answer => {
         answerIds.add(answer.questionnaireAnsId)
       })
     })
+
+    try {
+      enumeratePaths(firstQuestionId, questionConnections)
+    } catch (e) {
+      results.push(e)
+    }
   })
 
   if (ids.size !== incidentTypes.length) {
@@ -54,4 +71,38 @@ export function analyseNomisReportConfiguration(incidentTypes: readonly Incident
   }
 
   return results
+}
+
+function enumeratePaths(firstQuestionId: number, questionConnections: Map<number, Set<number>>): number {
+  function walkPath(paths: number[][], path: number[], nextQuestionId: number | null) {
+    if (nextQuestionId === null || nextQuestionId === undefined) {
+      return
+    }
+    const nextQuestionIds = questionConnections.get(nextQuestionId)
+    if (!nextQuestionIds) {
+      throw new Error(`Question id ${nextQuestionId} is not within report`)
+    }
+    if (path.includes(nextQuestionId)) {
+      throw new Error(`Question cycle detected: ${path} loops back to ${nextQuestionId}`)
+    }
+    path.push(nextQuestionId)
+    const clonedPath = structuredClone(path)
+    let extendedExistingPath = false
+    nextQuestionIds.forEach(questionId => {
+      if (!extendedExistingPath) {
+        extendedExistingPath = true
+        walkPath(paths, path, questionId)
+      } else {
+        const newPath = structuredClone(clonedPath)
+        paths.push(newPath)
+        walkPath(paths, newPath, questionId)
+      }
+    })
+  }
+
+  const paths: number[][] = []
+  const firstPath: number[] = []
+  paths.push(firstPath)
+  walkPath(paths, firstPath, firstQuestionId)
+  return paths.length
 }

@@ -6,11 +6,16 @@ import type { IncidentTypeConfiguration } from '../data/prisonApi'
  * - ensures types are unique
  * - ensures question ids are unique
  * - ensures answer ids are unique
+ * - TODO: ensure question routes all end with null next question
+ * - TODO: ensure question routes remain within one type
+ * - TODO: ensure question routes are acyclic
+ * - TODO: ensure active question routes only go through other active questions if configuration is active
+ * - TODO: ensure only known prisoner roles are listed
  *
  * @param incidentTypes must include ALL report configuration, not just active
  */
 // eslint-disable-next-line import/prefer-default-export
-export function analyseNomisReportConfiguration(incidentTypes: IncidentTypeConfiguration[]): Error[] {
+export function analyseNomisReportConfiguration(incidentTypes: readonly IncidentTypeConfiguration[]): Error[] {
   const results: Error[] = []
 
   const ids = new Set<number>()

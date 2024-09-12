@@ -1,4 +1,5 @@
 import config from '../config'
+import { NomisType } from '../reportConfiguration/constants'
 import RestClient from './restClient'
 
 export type Prison = {
@@ -11,7 +12,7 @@ export type Prison = {
 /** Incident Type Configuration */
 export interface IncidentTypeConfiguration {
   /** Incident type of this configuration */
-  incidentType: string
+  incidentType: NomisType
   /** Incident type description */
   incidentTypeDescription: string
   /** ID internal of this question set for this incident type */

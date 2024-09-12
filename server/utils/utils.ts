@@ -102,6 +102,34 @@ export function buildArray<T>(length: number, builder: (index: number) => T): T[
   return array
 }
 
+/** Converts all nested Dates into strings */
+export function datesAsStrings<T>(obj: T): DatesAsStrings<T> {
+  if (
+    obj === undefined ||
+    obj === null ||
+    typeof obj === 'boolean' ||
+    typeof obj === 'number' ||
+    typeof obj === 'string'
+  ) {
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore
+    return obj
+  }
+  if (obj instanceof Date) {
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore
+    return obj.toISOString()
+  }
+  if (Array.isArray(obj)) {
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore
+    return obj.map(datesAsStrings)
+  }
+  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+  // @ts-ignore
+  return Object.fromEntries(Object.entries(obj).map(([property, value]) => [property, datesAsStrings(value)]))
+}
+
 /** Insert an blank default value into a GOV.UK select component `items` list */
 export const govukSelectInsertDefault = (
   items: GovukSelectItem[],

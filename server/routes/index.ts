@@ -4,7 +4,7 @@ import config from '../config'
 import asyncMiddleware from '../middleware/asyncMiddleware'
 import type { Services } from '../services'
 import makeDebugRoutes from './debug'
-import makeDownloadNomisConfigRoutes from './downloadNomisConfig'
+import makeDownloadConfigRouter from './downloadReportConfig'
 import createIncidentRouter from './createIncident'
 import changeIncidentRouter from './changeIncident'
 import genericRouter from './generic'
@@ -18,28 +18,22 @@ export default function routes(services: Services): Router {
     res.render('pages/index')
   })
 
-  // No role-based authorisation exists; debug routes are not added in production
+  // No role-based authorisation exists; not adding unfinished routes in production
   if (config.environment !== 'prod') {
+    // view-only debug pages
     const debugRoutes = makeDebugRoutes(services)
     get('/incidents', debugRoutes.incidentList)
     get('/incident/:id', debugRoutes.incidentDetails)
     get('/report/:id', debugRoutes.reportDetails)
+
+    // proof-of-concept form wizard
     router.use('/create-incident', createIncidentRouter)
     router.use('/change-incident/:id/', changeIncidentRouter)
     router.use('/generic-route', genericRouter)
   }
 
   // NOMIS data dumps should be available in production
-  const downloadNomisConfigRoutes = makeDownloadNomisConfigRoutes()
-  get('/nomis-report-config/incident-types.csv', downloadNomisConfigRoutes.incidentTypes)
-  get('/nomis-report-config/incident-type/:type/questions.csv', downloadNomisConfigRoutes.incidentTypeQuestions)
-  get(
-    '/nomis-report-config/incident-type/:type/prisoner-roles.csv',
-    downloadNomisConfigRoutes.incidentTypePrisonerRoles,
-  )
-  get('/nomis-report-config/staff-involvement-roles.csv', downloadNomisConfigRoutes.staffInvolvementRoles)
-  get('/nomis-report-config/prisoner-involvement-roles.csv', downloadNomisConfigRoutes.prisonerInvolvementRoles)
-  get('/nomis-report-config/prisoner-involvement-outcome.csv', downloadNomisConfigRoutes.prisonerInvolvementOutcome)
+  router.use('/download-report-config', makeDownloadConfigRouter())
 
   return router
 }

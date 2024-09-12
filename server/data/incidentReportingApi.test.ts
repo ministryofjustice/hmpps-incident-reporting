@@ -2,12 +2,12 @@ import nock from 'nock'
 
 import config from '../config'
 import type { SanitisedError } from '../sanitisedError'
+import { ErrorCode } from '../reportConfiguration/constants'
 import {
   ErrorResponse,
   CreateReportRequest,
   UpdateReportRequest,
   AddQuestionWithResponsesRequest,
-  ErrorCode,
   IncidentReportingApi,
   isErrorResponse,
 } from './incidentReportingApi'
@@ -197,8 +197,8 @@ describe('Incident reporting API client', () => {
         urlMethod: 'post',
         testCase: () =>
           apiClient.correctionRequests.addToReport(reportWithDetails.id, {
-            descriptionOfChange: 'MISTAKE',
-            reason: 'Name misspelled',
+            reason: 'MISTAKE',
+            descriptionOfChange: 'Name misspelled',
           }),
       },
       {
@@ -207,8 +207,8 @@ describe('Incident reporting API client', () => {
         urlMethod: 'patch',
         testCase: () =>
           apiClient.correctionRequests.updateForReport(reportWithDetails.id, 1, {
-            descriptionOfChange: 'MISTAKE',
-            reason: 'Name misspelled',
+            reason: 'MISTAKE',
+            descriptionOfChange: 'Name misspelled',
           }),
       },
       {
@@ -238,6 +238,46 @@ describe('Incident reporting API client', () => {
         url: `/incident-reports/${basicReport.id}/questions`,
         urlMethod: 'delete',
         testCase: () => apiClient.deleteLastQuestionAndItsResponses(basicReport.id),
+      },
+      {
+        method: 'constants.types',
+        url: '/constants/types',
+        testCase: () => apiClient.constants.types(),
+      },
+      {
+        method: 'constants.statuses',
+        url: '/constants/statuses',
+        testCase: () => apiClient.constants.statuses(),
+      },
+      {
+        method: 'constants.informationSources',
+        url: '/constants/information-sources',
+        testCase: () => apiClient.constants.informationSources(),
+      },
+      {
+        method: 'constants.staffInvolvementRoles',
+        url: '/constants/staff-roles',
+        testCase: () => apiClient.constants.staffInvolvementRoles(),
+      },
+      {
+        method: 'constants.prisonerInvolvementRoles',
+        url: '/constants/prisoner-roles',
+        testCase: () => apiClient.constants.prisonerInvolvementRoles(),
+      },
+      {
+        method: 'constants.prisonerInvolvementOutcomes',
+        url: '/constants/prisoner-outcomes',
+        testCase: () => apiClient.constants.prisonerInvolvementOutcomes(),
+      },
+      {
+        method: 'constants.correctionRequestReasons',
+        url: '/constants/correction-reasons',
+        testCase: () => apiClient.constants.correctionRequestReasons(),
+      },
+      {
+        method: 'constants.errorCodes',
+        url: '/constants/error-codes',
+        testCase: () => apiClient.constants.errorCodes(),
       },
     ])('should throw when calling $method on error responses from the api', async ({ url, urlMethod, testCase }) => {
       fakeApiClient
@@ -478,8 +518,8 @@ describe('Incident reporting API client', () => {
         urlMethod: 'post',
         testCase: () =>
           apiClient.correctionRequests.addToReport(reportWithDetails.id, {
-            descriptionOfChange: 'MISTAKE',
-            reason: 'Name misspelled',
+            reason: 'MISTAKE',
+            descriptionOfChange: 'Name misspelled',
           }),
       },
       {
@@ -488,8 +528,8 @@ describe('Incident reporting API client', () => {
         urlMethod: 'patch',
         testCase: () =>
           apiClient.correctionRequests.updateForReport(reportWithDetails.id, 1, {
-            descriptionOfChange: 'MISTAKE',
-            reason: 'Name misspelled',
+            reason: 'MISTAKE',
+            descriptionOfChange: 'Name misspelled',
           }),
       },
       {

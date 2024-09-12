@@ -21,7 +21,7 @@ export interface IncidentTypeConfiguration {
   /** List of roles that can apply to a prisoner in this incident type */
   prisonerRoles: PrisonerRoleConfiguration[]
   /** Indicates this incident type is still usable */
-  active: boolean
+  active?: boolean
   /** Date the incident type was expired */
   expiryDate?: Date
 }

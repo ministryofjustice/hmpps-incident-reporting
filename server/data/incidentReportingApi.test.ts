@@ -2,7 +2,7 @@ import nock from 'nock'
 
 import config from '../config'
 import type { SanitisedError } from '../sanitisedError'
-import { ErrorCode } from '../reportConfiguration/dpsConstants'
+import { ErrorCode } from '../reportConfiguration/constants'
 import {
   ErrorResponse,
   CreateReportRequest,

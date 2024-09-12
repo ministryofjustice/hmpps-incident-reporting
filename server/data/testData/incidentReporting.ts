@@ -1,7 +1,7 @@
 import { v7 as uuidFromDate } from 'uuid'
 
 import { buildArray } from '../../utils/utils'
-import type { ErrorCode, Status, Type } from '../../reportConfiguration/dpsConstants'
+import type { ErrorCode, Status, Type } from '../../reportConfiguration/constants'
 import type {
   ErrorResponse,
   Event,

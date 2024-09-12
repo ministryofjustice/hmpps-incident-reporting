@@ -10,7 +10,7 @@ import type {
   PrisonerInvolvementOutcome,
   CorrectionRequestReason,
   ErrorCode,
-} from '../reportConfiguration/dpsConstants'
+} from '../reportConfiguration/constants'
 import {
   convertBasicReportDates,
   convertCorrectionRequestDates,

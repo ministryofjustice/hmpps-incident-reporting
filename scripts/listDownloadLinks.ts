@@ -4,6 +4,8 @@ import path from 'node:path'
 
 import { parse as parseYaml } from 'yaml'
 
+const scriptName = path.basename(process.argv[1])
+
 const helmRootPath = path.resolve(__dirname, '../helm_deploy')
 const environments = fs
   .readdirSync(helmRootPath, { encoding: 'utf8' })
@@ -22,7 +24,7 @@ function printHelp(): never {
   const help = `
 Prints download links for DPS and NOMIS configuration:
 Usage:
-  ./scripts/${path.basename(process.argv[1])} <env>
+  ./scripts/${scriptName} <env>
 
 Where <env> is one of ${environments.map(e => e.environment).join(', ')}
 `.trim()

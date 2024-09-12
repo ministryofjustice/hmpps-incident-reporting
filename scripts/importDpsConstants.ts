@@ -46,11 +46,13 @@ const templates: Template[] = [
   },
 ]
 
+const scriptName = path.basename(process.argv[1])
+
 function printHelp(): never {
   const help = `
 Imports constants from incident reporting api downloaded as JSON files.
 Usage:
-  ./scripts/importDpsConstants.ts <type> <file path>
+  ./scripts/${scriptName} <type> <file path>
 
 Where <type> is one of ${templates.map(template => template.method).join(', ')}
 `.trim()
@@ -68,12 +70,12 @@ if (!template) {
 }
 const { method, enumName, documentation } = template
 
-const constants: Constant[] = JSON.parse(fs.readFileSync(filePath, { encoding: 'utf8' }))
+const constants: (Constant | TypeConstant)[] = JSON.parse(fs.readFileSync(filePath, { encoding: 'utf8' }))
 
-const outputPath = path.resolve(__dirname, `../server/reportConfiguration/dpsConstants/${method}.ts`)
+const outputPath = path.resolve(__dirname, `../server/reportConfiguration/constants/${method}.ts`)
 const outputFile = fs.openSync(outputPath, 'w')
 
-fs.writeSync(outputFile, `// Generated with ./scripts/importDpsConstants.ts at ${new Date().toISOString()}\n\n`)
+fs.writeSync(outputFile, `// Generated with ./scripts/${scriptName} at ${new Date().toISOString()}\n\n`)
 if (method === 'errorCodes') {
   // error codes are numbers so need special treatment
 
@@ -84,37 +86,29 @@ if (method === 'errorCodes') {
     fs.writeSync(outputFile, `${constant.description} = ${constant.code},\n`)
   })
   fs.writeSync(outputFile, '}\n')
-} else if (method === 'types') {
-  // types are string constants but have extra info
-
-  fs.writeSync(outputFile, `/** ${documentation} */\n`)
-  fs.writeSync(outputFile, `export const ${method} = [\n`)
-  constants.forEach((constant: TypeConstant) => {
-    fs.writeSync(outputFile, `/** ${constant.description} */\n`)
-    fs.writeSync(
-      outputFile,
-      `{ code: ${JSON.stringify(constant.code)}, active: ${constant.active}, nomisCode: ${JSON.stringify(constant.nomisCode)} },\n`,
-    )
-  })
-  fs.writeSync(outputFile, '] as const\n\n')
-  fs.writeSync(outputFile, `/** ${documentation} */\n`)
-  fs.writeSync(outputFile, `export type ${enumName} = (typeof ${method})[number]['code']\n`)
-  fs.writeSync(outputFile, `/** ${documentation}\n * @deprecated\n */\n`)
-  fs.writeSync(outputFile, `export type Nomis${enumName} = (typeof ${method})[number]['nomisCode']\n`)
 } else {
-  // all other constants are just strings
+  // other constants are strings with extra info
 
   fs.writeSync(outputFile, `/** ${documentation} */\n`)
   fs.writeSync(outputFile, `export const ${method} = [\n`)
   constants.forEach(constant => {
-    fs.writeSync(outputFile, `/** ${constant.description} */\n`)
-    fs.writeSync(outputFile, `${JSON.stringify(constant.code)},\n`)
+    fs.writeSync(
+      outputFile,
+      `{ code: ${JSON.stringify(constant.code)}, description: ${JSON.stringify(constant.description)},\n`,
+    )
+    if ('active' in constant) {
+      fs.writeSync(outputFile, `active: ${constant.active}, nomisCode: ${JSON.stringify(constant.nomisCode)} },\n`)
+    } else {
+      fs.writeSync(outputFile, '},\n')
+    }
   })
   fs.writeSync(outputFile, '] as const\n\n')
-  if (documentation) {
-    fs.writeSync(outputFile, `/** ${documentation} */\n`)
+  fs.writeSync(outputFile, `/** ${documentation} */\n`)
+  fs.writeSync(outputFile, `export type ${enumName} = (typeof ${method})[number]['code']\n`)
+  if (method === 'types') {
+    fs.writeSync(outputFile, `\n/** ${documentation}\n * @deprecated\n */\n`)
+    fs.writeSync(outputFile, `export type Nomis${enumName} = (typeof ${method})[number]['nomisCode']\n`)
   }
-  fs.writeSync(outputFile, `export type ${enumName} = (typeof ${method})[number]\n`)
 }
 fs.closeSync(outputFile)
 

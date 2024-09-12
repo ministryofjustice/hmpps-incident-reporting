@@ -22,7 +22,9 @@ function main() {
 
   for (const nomisConfig of nomisIncidentTypes) {
     const dpsConfig = fromNomis(nomisConfig)
-    saveAsTypescript({ scriptName, dpsConfig })
+    const outputFile = saveAsTypescript({ scriptName, dpsConfig })
+
+    process.stderr.write(`Config for ${dpsConfig.incidentType} written to ${outputFile}\n`)
   }
 }
 

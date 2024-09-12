@@ -11,7 +11,7 @@ export function saveAsTypescript({
 }: {
   scriptName: string
   dpsConfig: IncidentTypeConfiguration
-}) {
+}): string {
   const outputPath = path.resolve(__dirname, `../../../server/reportConfiguration/types/${dpsConfig.incidentType}.ts`)
   const outputFile = fs.openSync(outputPath, 'w')
 
@@ -37,4 +37,6 @@ export function saveAsTypescript({
 
   // Make TypeScript file pretty
   spawnSync('npx', ['prettier', '--write', outputPath], { encoding: 'utf8' })
+
+  return outputPath
 }

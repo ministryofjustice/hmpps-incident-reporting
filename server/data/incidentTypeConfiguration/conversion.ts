@@ -1,3 +1,4 @@
+import { NomisType, Type, types } from '../../reportConfiguration/constants'
 import {
   type IncidentTypeConfiguration as NomisIncidentTypeConfiguration,
   type QuestionConfiguration as NomisQuestionConfiguration,
@@ -20,8 +21,7 @@ export function fromNomis(nomisConfig: NomisIncidentTypeConfiguration): DpsIncid
 
   const nomisQuestions = nomisConfig.questions.sort(sortByQuestionSequence)
   return {
-    // TODO: Convert NOMIS report type into DPS one
-    incidentType: nomisConfig.incidentType,
+    incidentType: typeFromNomisCode(nomisConfig.incidentType),
     active: nomisConfig.active === true,
     // 1st question is starting question
     startingQuestionId: nomisQuestions[0].questionnaireQueId.toString(),
@@ -45,4 +45,14 @@ export function fromNomis(nomisConfig: NomisIncidentTypeConfiguration): DpsIncid
       return qs
     }, {}),
   }
+}
+
+function typeFromNomisCode(nomisCode: NomisType): Type {
+  const dpsType = types.find(type => type.nomisCode === nomisCode)
+
+  if (!dpsType) {
+    throw new Error(`NomisType with code ${nomisCode} not found`)
+  }
+
+  return dpsType.code
 }

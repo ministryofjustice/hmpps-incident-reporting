@@ -1,9 +1,9 @@
-// Generated with ./scripts/updateNomisIncidentTypeConfigurations.ts at 2024-09-11T17:11:31.189Z
+// Generated with ./scripts/updateNomisIncidentTypeConfigurations.ts at 2024-09-12T16:19:47.573Z
 
 import { type IncidentTypeConfiguration } from '../../data/incidentTypeConfiguration/types'
 
-const FINDS: IncidentTypeConfiguration = {
-  incidentType: 'FINDS',
+const OLD_FINDS: IncidentTypeConfiguration = {
+  incidentType: 'OLD_FINDS',
   active: true,
   startingQuestionId: '1',
   questions: {
@@ -61,4 +61,4 @@ const FINDS: IncidentTypeConfiguration = {
   },
 } as const
 
-export default FINDS
+export default OLD_FINDS

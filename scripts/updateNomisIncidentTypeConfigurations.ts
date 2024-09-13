@@ -1,21 +1,21 @@
 #!/usr/bin/env npx tsx
 
 import fs from 'node:fs'
+import path from 'node:path'
 
 import { fromNomis } from '../server/data/incidentTypeConfiguration/conversion'
 import { saveAsTypescript } from '../server/data/incidentTypeConfiguration/persistance'
 import { type IncidentTypeConfiguration } from '../server/data/prisonApi'
 
-const scriptName = './scripts/updateNomisIncidentTypeConfigurations.ts'
-
 interface Arguments {
+  scriptName: string
   nomisConfigFile: string
 }
 
 main()
 
 function main() {
-  const { nomisConfigFile } = parseArgs()
+  const { scriptName, nomisConfigFile } = parseArgs()
 
   const jsonConfig = fs.readFileSync(nomisConfigFile, { encoding: 'utf8' })
   const nomisIncidentTypes: IncidentTypeConfiguration[] = JSON.parse(jsonConfig)
@@ -29,15 +29,16 @@ function main() {
 }
 
 function parseArgs(): Arguments {
-  const [, , nomisConfigFile] = process.argv
+  const [, fullPath, nomisConfigFile] = process.argv
+  const scriptName = `./scripts/${path.basename(fullPath)}`
   if (!nomisConfigFile) {
-    printHelp()
+    printHelp(scriptName)
   }
 
-  return { nomisConfigFile }
+  return { scriptName, nomisConfigFile }
 }
 
-function printHelp(): never {
+function printHelp(scriptName: string): never {
   const help = `
 Regenarates Incident Types configuration for NOMIS types.
 

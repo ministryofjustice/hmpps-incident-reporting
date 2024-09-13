@@ -5,6 +5,12 @@ import path from 'node:path'
 
 import type { IncidentReportingApi, Constant, TypeConstant } from '../server/data/incidentReportingApi'
 
+interface Arguments {
+  scriptName: string
+  filePath: string
+  template: Template
+}
+
 type ConstantsMethod = keyof IncidentReportingApi['constants']
 interface Template {
   method: ConstantsMethod
@@ -46,70 +52,81 @@ const templates: Template[] = [
   },
 ]
 
-const scriptName = path.basename(process.argv[1])
+main()
 
-function printHelp(): never {
+function main() {
+  const { scriptName, filePath, template } = parseArgs()
+
+  const { method, enumName, documentation } = template
+
+  const constants: (Constant | TypeConstant)[] = JSON.parse(fs.readFileSync(filePath, { encoding: 'utf8' }))
+
+  const outputPath = path.resolve(__dirname, `../server/reportConfiguration/constants/${method}.ts`)
+  const outputFile = fs.openSync(outputPath, 'w')
+
+  fs.writeSync(outputFile, `// Generated with ${scriptName} at ${new Date().toISOString()}\n\n`)
+  if (method === 'errorCodes') {
+    // error codes are numbers so need special treatment
+
+    fs.writeSync(outputFile, `/** ${documentation} */\n`)
+    fs.writeSync(outputFile, '// eslint-disable-next-line import/prefer-default-export\n')
+    fs.writeSync(outputFile, `export enum ${enumName} {\n`)
+    constants.forEach(constant => {
+      fs.writeSync(outputFile, `${constant.description} = ${constant.code},\n`)
+    })
+    fs.writeSync(outputFile, '}\n')
+  } else {
+    // other constants are strings with extra info
+
+    fs.writeSync(outputFile, `/** ${documentation} */\n`)
+    fs.writeSync(outputFile, `export const ${method} = [\n`)
+    constants.forEach(constant => {
+      fs.writeSync(
+        outputFile,
+        `{ code: ${JSON.stringify(constant.code)}, description: ${JSON.stringify(constant.description)},\n`,
+      )
+      if ('active' in constant) {
+        fs.writeSync(outputFile, `active: ${constant.active}, nomisCode: ${JSON.stringify(constant.nomisCode)} },\n`)
+      } else {
+        fs.writeSync(outputFile, '},\n')
+      }
+    })
+    fs.writeSync(outputFile, '] as const\n\n')
+    fs.writeSync(outputFile, `/** ${documentation} */\n`)
+    fs.writeSync(outputFile, `export type ${enumName} = (typeof ${method})[number]['code']\n`)
+    if (method === 'types') {
+      fs.writeSync(outputFile, `\n/** ${documentation}\n * @deprecated\n */\n`)
+      fs.writeSync(outputFile, `export type Nomis${enumName} = (typeof ${method})[number]['nomisCode']\n`)
+    }
+  }
+  fs.closeSync(outputFile)
+
+  spawnSync('npx', ['prettier', '--write', outputPath], { encoding: 'utf8' })
+}
+
+function parseArgs(): Arguments {
+  const [, fullPath, type, filePath] = process.argv
+  const scriptName = `./scripts/${path.basename(fullPath)}`
+
+  if (!type || !filePath) {
+    printHelp(scriptName)
+  }
+  const template = templates.find(t => t.method === type)
+  if (!template) {
+    printHelp(scriptName)
+  }
+
+  return { scriptName, filePath, template }
+}
+
+function printHelp(scriptName: string): never {
   const help = `
 Imports constants from incident reporting api downloaded as JSON files.
 Usage:
-  ./scripts/${scriptName} <type> <file path>
+  ${scriptName} <type> <file path>
 
 Where <type> is one of ${templates.map(template => template.method).join(', ')}
 `.trim()
   process.stderr.write(`${help}\n`)
   process.exit(1)
 }
-
-const [, , type, filePath] = process.argv
-if (!type || !filePath) {
-  printHelp()
-}
-const template = templates.find(t => t.method === type)
-if (!template) {
-  printHelp()
-}
-const { method, enumName, documentation } = template
-
-const constants: (Constant | TypeConstant)[] = JSON.parse(fs.readFileSync(filePath, { encoding: 'utf8' }))
-
-const outputPath = path.resolve(__dirname, `../server/reportConfiguration/constants/${method}.ts`)
-const outputFile = fs.openSync(outputPath, 'w')
-
-fs.writeSync(outputFile, `// Generated with ./scripts/${scriptName} at ${new Date().toISOString()}\n\n`)
-if (method === 'errorCodes') {
-  // error codes are numbers so need special treatment
-
-  fs.writeSync(outputFile, `/** ${documentation} */\n`)
-  fs.writeSync(outputFile, '// eslint-disable-next-line import/prefer-default-export\n')
-  fs.writeSync(outputFile, `export enum ${enumName} {\n`)
-  constants.forEach(constant => {
-    fs.writeSync(outputFile, `${constant.description} = ${constant.code},\n`)
-  })
-  fs.writeSync(outputFile, '}\n')
-} else {
-  // other constants are strings with extra info
-
-  fs.writeSync(outputFile, `/** ${documentation} */\n`)
-  fs.writeSync(outputFile, `export const ${method} = [\n`)
-  constants.forEach(constant => {
-    fs.writeSync(
-      outputFile,
-      `{ code: ${JSON.stringify(constant.code)}, description: ${JSON.stringify(constant.description)},\n`,
-    )
-    if ('active' in constant) {
-      fs.writeSync(outputFile, `active: ${constant.active}, nomisCode: ${JSON.stringify(constant.nomisCode)} },\n`)
-    } else {
-      fs.writeSync(outputFile, '},\n')
-    }
-  })
-  fs.writeSync(outputFile, '] as const\n\n')
-  fs.writeSync(outputFile, `/** ${documentation} */\n`)
-  fs.writeSync(outputFile, `export type ${enumName} = (typeof ${method})[number]['code']\n`)
-  if (method === 'types') {
-    fs.writeSync(outputFile, `\n/** ${documentation}\n * @deprecated\n */\n`)
-    fs.writeSync(outputFile, `export type Nomis${enumName} = (typeof ${method})[number]['nomisCode']\n`)
-  }
-}
-fs.closeSync(outputFile)
-
-spawnSync('npx', ['prettier', '--write', outputPath], { encoding: 'utf8' })

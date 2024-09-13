@@ -14,41 +14,44 @@ interface Arguments {
 type ConstantsMethod = keyof IncidentReportingApi['constants']
 interface Template {
   method: ConstantsMethod
-  enumName: string
+  identifier: string
   documentation: string
+  includeNomisType?: boolean
+  asEnum?: boolean
 }
 const templates: Template[] = [
-  { method: 'types', enumName: 'Type', documentation: 'Types of reportable incidents' },
-  { method: 'statuses', enumName: 'Status', documentation: 'Report statuses' },
+  { method: 'types', identifier: 'Type', documentation: 'Types of reportable incidents', includeNomisType: true },
+  { method: 'statuses', identifier: 'Status', documentation: 'Report statuses' },
   {
     method: 'informationSources',
-    enumName: 'InformationSource',
+    identifier: 'InformationSource',
     documentation: 'Whether the report was first created in DPS or NOMIS',
   },
   {
     method: 'staffInvolvementRoles',
-    enumName: 'StaffInvolvementRole',
+    identifier: 'StaffInvolvementRole',
     documentation: 'Roles of staff involvement in an incident',
   },
   {
     method: 'prisonerInvolvementRoles',
-    enumName: 'PrisonerInvolvementRole',
+    identifier: 'PrisonerInvolvementRole',
     documentation: 'Roles of a prisoner’s involvement in an incident',
   },
   {
     method: 'prisonerInvolvementOutcomes',
-    enumName: 'PrisonerInvolvementOutcome',
+    identifier: 'PrisonerInvolvementOutcome',
     documentation: 'Outcomes from a prisoner’s involvement in an incident',
   },
   {
     method: 'correctionRequestReasons',
-    enumName: 'CorrectionRequestReason',
+    identifier: 'CorrectionRequestReason',
     documentation: 'Reasons for correction requests made about a report',
   },
   {
     method: 'errorCodes',
-    enumName: 'ErrorCode',
+    identifier: 'ErrorCode',
     documentation: 'Unique codes to discriminate errors returned from the incident reporting api',
+    asEnum: true,
   },
 ]
 
@@ -56,8 +59,7 @@ main()
 
 function main() {
   const { scriptName, filePath, template } = parseArgs()
-
-  const { method, enumName, documentation } = template
+  const { method, identifier, documentation, asEnum, includeNomisType } = template
 
   const constants: (Constant | TypeConstant)[] = JSON.parse(fs.readFileSync(filePath, { encoding: 'utf8' }))
 
@@ -65,12 +67,13 @@ function main() {
   const outputFile = fs.openSync(outputPath, 'w')
 
   fs.writeSync(outputFile, `// Generated with ${scriptName} at ${new Date().toISOString()}\n\n`)
-  if (method === 'errorCodes') {
+
+  if (asEnum) {
     // error codes are numbers so need special treatment
 
     fs.writeSync(outputFile, `/** ${documentation} */\n`)
     fs.writeSync(outputFile, '// eslint-disable-next-line import/prefer-default-export\n')
-    fs.writeSync(outputFile, `export enum ${enumName} {\n`)
+    fs.writeSync(outputFile, `export enum ${identifier} {\n`)
     constants.forEach(constant => {
       fs.writeSync(outputFile, `${constant.description} = ${constant.code},\n`)
     })
@@ -79,26 +82,17 @@ function main() {
     // other constants are strings with extra info
 
     fs.writeSync(outputFile, `/** ${documentation} */\n`)
-    fs.writeSync(outputFile, `export const ${method} = [\n`)
-    constants.forEach(constant => {
-      fs.writeSync(
-        outputFile,
-        `{ code: ${JSON.stringify(constant.code)}, description: ${JSON.stringify(constant.description)},\n`,
-      )
-      if ('active' in constant) {
-        fs.writeSync(outputFile, `active: ${constant.active}, nomisCode: ${JSON.stringify(constant.nomisCode)} },\n`)
-      } else {
-        fs.writeSync(outputFile, '},\n')
-      }
-    })
-    fs.writeSync(outputFile, '] as const\n\n')
+    fs.writeSync(outputFile, `export const ${method} = ${JSON.stringify(constants)} as const\n\n`)
+
     fs.writeSync(outputFile, `/** ${documentation} */\n`)
-    fs.writeSync(outputFile, `export type ${enumName} = (typeof ${method})[number]['code']\n`)
-    if (method === 'types') {
+    fs.writeSync(outputFile, `export type ${identifier} = (typeof ${method})[number]['code']\n`)
+
+    if (includeNomisType) {
       fs.writeSync(outputFile, `\n/** ${documentation}\n * @deprecated\n */\n`)
-      fs.writeSync(outputFile, `export type Nomis${enumName} = (typeof ${method})[number]['nomisCode']\n`)
+      fs.writeSync(outputFile, `export type Nomis${identifier} = (typeof ${method})[number]['nomisCode']\n`)
     }
   }
+
   fs.closeSync(outputFile)
 
   spawnSync('npx', ['prettier', '--write', outputPath], { encoding: 'utf8' })

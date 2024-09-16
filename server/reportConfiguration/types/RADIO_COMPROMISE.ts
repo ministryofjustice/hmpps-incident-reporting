@@ -1,4 +1,4 @@
-// Generated with ./scripts/updateNomisIncidentTypeConfigurations.ts at 2024-09-12T16:33:59.267Z
+// Generated with ./scripts/updateNomisIncidentTypeConfigurations.ts at 2024-09-16T15:42:18.716Z
 
 import { type IncidentTypeConfiguration } from '../../data/incidentTypeConfiguration/types'
 
@@ -9,16 +9,19 @@ const RADIO_COMPROMISE: IncidentTypeConfiguration = {
   questions: {
     '44125': {
       id: '44125',
+      code: 'IS THE INCIDENT THE SUBJECT OF AN INTERNAL INVESTIGATION',
       label: 'IS THE INCIDENT THE SUBJECT OF AN INTERNAL INVESTIGATION',
       multipleAnswers: false,
       answers: [
         {
+          code: 'YES',
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44811',
         },
         {
+          code: 'NO',
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -28,16 +31,19 @@ const RADIO_COMPROMISE: IncidentTypeConfiguration = {
     },
     '44132': {
       id: '44132',
+      code: 'HAS THE RADIO BEEN RECOVERED',
       label: 'HAS THE RADIO BEEN RECOVERED',
       multipleAnswers: false,
       answers: [
         {
+          code: 'YES',
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '45123',
         },
         {
+          code: 'NO',
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -47,16 +53,19 @@ const RADIO_COMPROMISE: IncidentTypeConfiguration = {
     },
     '44173': {
       id: '44173',
+      code: 'IS THERE ANY MEDIA INTEREST IN THIS INCIDENT',
       label: 'IS THERE ANY MEDIA INTEREST IN THIS INCIDENT',
       multipleAnswers: false,
       answers: [
         {
+          code: 'YES',
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44916',
         },
         {
+          code: 'NO',
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -66,16 +75,19 @@ const RADIO_COMPROMISE: IncidentTypeConfiguration = {
     },
     '44184': {
       id: '44184',
+      code: 'IS THE INTERFERENCE/JAM THOUGHT TO BE',
       label: 'IS THE INTERFERENCE/JAM THOUGHT TO BE',
       multipleAnswers: false,
       answers: [
         {
+          code: 'MALICIOUS',
           label: 'MALICIOUS',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: null,
         },
         {
+          code: 'UNINTENTIONAL',
           label: 'UNINTENTIONAL',
           commentRequired: false,
           dateRequired: false,
@@ -85,16 +97,19 @@ const RADIO_COMPROMISE: IncidentTypeConfiguration = {
     },
     '44252': {
       id: '44252',
+      code: 'HAS THE RADIO BEEN ISOLATED FROM THE NET',
       label: 'HAS THE RADIO BEEN ISOLATED FROM THE NET',
       multipleAnswers: false,
       answers: [
         {
+          code: 'YES',
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44282',
         },
         {
+          code: 'NO',
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -104,16 +119,19 @@ const RADIO_COMPROMISE: IncidentTypeConfiguration = {
     },
     '44282': {
       id: '44282',
+      code: 'HAS THE LOCAL FREQUENCY BEEN CHANGED',
       label: 'HAS THE LOCAL FREQUENCY BEEN CHANGED',
       multipleAnswers: false,
       answers: [
         {
+          code: 'YES',
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44618',
         },
         {
+          code: 'NO',
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -123,22 +141,26 @@ const RADIO_COMPROMISE: IncidentTypeConfiguration = {
     },
     '44453': {
       id: '44453',
+      code: 'WHAT IS THE TYPE OF COMPROMISE',
       label: 'WHAT IS THE TYPE OF COMPROMISE',
       multipleAnswers: false,
       answers: [
         {
+          code: 'INTERFERENCE',
           label: 'INTERFERENCE',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44648',
         },
         {
+          code: 'NET JAM',
           label: 'NET JAM',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44648',
         },
         {
+          code: 'MISSING RADIO',
           label: 'MISSING RADIO',
           commentRequired: false,
           dateRequired: false,
@@ -148,16 +170,19 @@ const RADIO_COMPROMISE: IncidentTypeConfiguration = {
     },
     '44618': {
       id: '44618',
+      code: 'WHAT ACTION WAS TAKEN TO RECOVER THE RADIO',
       label: 'WHAT ACTION WAS TAKEN TO RECOVER THE RADIO',
       multipleAnswers: false,
       answers: [
         {
+          code: 'FULL SEARCH',
           label: 'FULL SEARCH',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44132',
         },
         {
+          code: 'PARTIAL SEARCH',
           label: 'PARTIAL SEARCH',
           commentRequired: false,
           dateRequired: false,
@@ -167,22 +192,26 @@ const RADIO_COMPROMISE: IncidentTypeConfiguration = {
     },
     '44648': {
       id: '44648',
+      code: 'DESCRIBE THE SOURCE OF THE INTERFERENCE/JAM',
       label: 'DESCRIBE THE SOURCE OF THE INTERFERENCE/JAM',
       multipleAnswers: false,
       answers: [
         {
+          code: 'INTERNAL',
           label: 'INTERNAL',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44184',
         },
         {
+          code: 'EXTERNAL',
           label: 'EXTERNAL',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44184',
         },
         {
+          code: 'NOT KNOWN',
           label: 'NOT KNOWN',
           commentRequired: false,
           dateRequired: false,
@@ -192,16 +221,19 @@ const RADIO_COMPROMISE: IncidentTypeConfiguration = {
     },
     '44712': {
       id: '44712',
+      code: 'IS THE RADIO STILL OPERATIONAL',
       label: 'IS THE RADIO STILL OPERATIONAL',
       multipleAnswers: false,
       answers: [
         {
+          code: 'YES',
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44252',
         },
         {
+          code: 'NO',
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -211,16 +243,19 @@ const RADIO_COMPROMISE: IncidentTypeConfiguration = {
     },
     '44799': {
       id: '44799',
+      code: 'IS ANY MEMBER OF STAFF FACING DISCIPLINARY CHARGES',
       label: 'IS ANY MEMBER OF STAFF FACING DISCIPLINARY CHARGES',
       multipleAnswers: false,
       answers: [
         {
+          code: 'YES',
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44173',
         },
         {
+          code: 'NO',
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -230,16 +265,19 @@ const RADIO_COMPROMISE: IncidentTypeConfiguration = {
     },
     '44801': {
       id: '44801',
+      code: 'IS THE INCIDENT THE SUBJECT OF A POLICE INVESTIGATION',
       label: 'IS THE INCIDENT THE SUBJECT OF A POLICE INVESTIGATION',
       multipleAnswers: false,
       answers: [
         {
+          code: 'YES',
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44125',
         },
         {
+          code: 'NO',
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -249,16 +287,19 @@ const RADIO_COMPROMISE: IncidentTypeConfiguration = {
     },
     '44802': {
       id: '44802',
+      code: 'WERE THE POLICE INFORMED OF THE INCIDENT',
       label: 'WERE THE POLICE INFORMED OF THE INCIDENT',
       multipleAnswers: false,
       answers: [
         {
+          code: 'YES',
           label: 'YES',
           commentRequired: false,
           dateRequired: true,
           nextQuestionId: '44801',
         },
         {
+          code: 'NO',
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -268,16 +309,19 @@ const RADIO_COMPROMISE: IncidentTypeConfiguration = {
     },
     '44811': {
       id: '44811',
+      code: "IS THE INCIDENT SUBJECT TO A GOVERNOR'S ADJUDICATION",
       label: "IS THE INCIDENT SUBJECT TO A GOVERNOR'S ADJUDICATION",
       multipleAnswers: false,
       answers: [
         {
+          code: 'YES',
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44799',
         },
         {
+          code: 'NO',
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -287,22 +331,26 @@ const RADIO_COMPROMISE: IncidentTypeConfiguration = {
     },
     '44841': {
       id: '44841',
+      code: 'IS THE MISSING RADIO THOUGHT TO BE',
       label: 'IS THE MISSING RADIO THOUGHT TO BE',
       multipleAnswers: false,
       answers: [
         {
+          code: 'LOST',
           label: 'LOST',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44856',
         },
         {
+          code: 'MISLAID',
           label: 'MISLAID',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44856',
         },
         {
+          code: 'STOLEN',
           label: 'STOLEN',
           commentRequired: false,
           dateRequired: false,
@@ -312,16 +360,19 @@ const RADIO_COMPROMISE: IncidentTypeConfiguration = {
     },
     '44856': {
       id: '44856',
+      code: 'IS THE RADIO THOUGHT TO BE IN POSSESSION OF PRISONERS',
       label: 'IS THE RADIO THOUGHT TO BE IN POSSESSION OF PRISONERS',
       multipleAnswers: false,
       answers: [
         {
+          code: 'YES',
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44712',
         },
         {
+          code: 'NO',
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -331,16 +382,19 @@ const RADIO_COMPROMISE: IncidentTypeConfiguration = {
     },
     '44916': {
       id: '44916',
+      code: 'HAS THE PRISON SERVICE PRESS OFFICE BEEN INFORMED',
       label: 'HAS THE PRISON SERVICE PRESS OFFICE BEEN INFORMED',
       multipleAnswers: false,
       answers: [
         {
+          code: 'YES',
           label: 'YES',
           commentRequired: false,
           dateRequired: true,
           nextQuestionId: '44453',
         },
         {
+          code: 'NO',
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -350,34 +404,40 @@ const RADIO_COMPROMISE: IncidentTypeConfiguration = {
     },
     '45123': {
       id: '45123',
+      code: 'WHERE WAS THE RADIO FOUND',
       label: 'WHERE WAS THE RADIO FOUND',
       multipleAnswers: false,
       answers: [
         {
+          code: 'PRISONER POSSESSION',
           label: 'PRISONER POSSESSION',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: null,
         },
         {
+          code: 'CONCEALED',
           label: 'CONCEALED',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: null,
         },
         {
+          code: 'DISCARDED',
           label: 'DISCARDED',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: null,
         },
         {
+          code: 'MISLAID/LOST',
           label: 'MISLAID/LOST',
           commentRequired: true,
           dateRequired: false,
           nextQuestionId: null,
         },
         {
+          code: 'OTHER',
           label: 'OTHER',
           commentRequired: true,
           dateRequired: false,

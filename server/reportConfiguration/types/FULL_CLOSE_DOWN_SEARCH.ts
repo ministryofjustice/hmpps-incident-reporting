@@ -1,4 +1,4 @@
-// Generated with ./scripts/updateNomisIncidentTypeConfigurations.ts at 2024-09-12T16:33:55.509Z
+// Generated with ./scripts/updateNomisIncidentTypeConfigurations.ts at 2024-09-16T15:42:14.991Z
 
 import { type IncidentTypeConfiguration } from '../../data/incidentTypeConfiguration/types'
 
@@ -9,16 +9,19 @@ const FULL_CLOSE_DOWN_SEARCH: IncidentTypeConfiguration = {
   questions: {
     '44146': {
       id: '44146',
+      code: 'IS THERE ANY MEDIA INTEREST IN THIS INCIDENT',
       label: 'IS THERE ANY MEDIA INTEREST IN THIS INCIDENT',
       multipleAnswers: false,
       answers: [
         {
+          code: 'YES',
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44677',
         },
         {
+          code: 'NO',
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -28,16 +31,19 @@ const FULL_CLOSE_DOWN_SEARCH: IncidentTypeConfiguration = {
     },
     '44385': {
       id: '44385',
+      code: 'WERE ANY ILLICIT ITEMS FOUND',
       label: 'WERE ANY ILLICIT ITEMS FOUND',
       multipleAnswers: false,
       answers: [
         {
+          code: 'YES',
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44969',
         },
         {
+          code: 'NO',
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -47,58 +53,68 @@ const FULL_CLOSE_DOWN_SEARCH: IncidentTypeConfiguration = {
     },
     '44432': {
       id: '44432',
+      code: 'WHAT WAS THE PURPOSE OF THE SEARCH',
       label: 'WHAT WAS THE PURPOSE OF THE SEARCH',
       multipleAnswers: true,
       answers: [
         {
+          code: 'FIREARM',
           label: 'FIREARM',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44385',
         },
         {
+          code: 'AMMUNITION',
           label: 'AMMUNITION',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44385',
         },
         {
+          code: 'C.I SPRAY',
           label: 'C.I SPRAY',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44385',
         },
         {
+          code: 'OTHER WEAPON',
           label: 'OTHER WEAPON',
           commentRequired: true,
           dateRequired: false,
           nextQuestionId: '44385',
         },
         {
+          code: 'EXPLOSIVES',
           label: 'EXPLOSIVES',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44385',
         },
         {
+          code: 'DRUGS',
           label: 'DRUGS',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44385',
         },
         {
+          code: 'ESCAPE EQUIPMENT',
           label: 'ESCAPE EQUIPMENT',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44385',
         },
         {
+          code: 'GATHER EVIDENCE',
           label: 'GATHER EVIDENCE',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44385',
         },
         {
+          code: 'OTHER',
           label: 'OTHER',
           commentRequired: true,
           dateRequired: false,
@@ -108,16 +124,19 @@ const FULL_CLOSE_DOWN_SEARCH: IncidentTypeConfiguration = {
     },
     '44570': {
       id: '44570',
+      code: 'WERE SUPPORT STAFF FROM OTHER PRISONS DEPLOYED',
       label: 'WERE SUPPORT STAFF FROM OTHER PRISONS DEPLOYED',
       multipleAnswers: false,
       answers: [
         {
+          code: 'YES',
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: null,
         },
         {
+          code: 'NO',
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -127,16 +146,19 @@ const FULL_CLOSE_DOWN_SEARCH: IncidentTypeConfiguration = {
     },
     '44677': {
       id: '44677',
+      code: 'HAS THE PRISON SERVICE PRESS OFFICE BEEN INFORMED',
       label: 'HAS THE PRISON SERVICE PRESS OFFICE BEEN INFORMED',
       multipleAnswers: false,
       answers: [
         {
+          code: 'YES',
           label: 'YES',
           commentRequired: false,
           dateRequired: true,
           nextQuestionId: '45062',
         },
         {
+          code: 'NO',
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -146,16 +168,19 @@ const FULL_CLOSE_DOWN_SEARCH: IncidentTypeConfiguration = {
     },
     '44723': {
       id: '44723',
+      code: 'IS THE INCIDENT THE SUBJECT OF A POLICE INVESTIGATION',
       label: 'IS THE INCIDENT THE SUBJECT OF A POLICE INVESTIGATION',
       multipleAnswers: false,
       answers: [
         {
+          code: 'YES',
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '45018',
         },
         {
+          code: 'NO',
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -165,16 +190,19 @@ const FULL_CLOSE_DOWN_SEARCH: IncidentTypeConfiguration = {
     },
     '44803': {
       id: '44803',
+      code: 'WERE SPECIALIST DOGS USED',
       label: 'WERE SPECIALIST DOGS USED',
       multipleAnswers: false,
       answers: [
         {
+          code: 'YES',
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44570',
         },
         {
+          code: 'NO',
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -184,40 +212,47 @@ const FULL_CLOSE_DOWN_SEARCH: IncidentTypeConfiguration = {
     },
     '44969': {
       id: '44969',
+      code: 'DESCRIBE THE ILLICIT ITEMS',
       label: 'DESCRIBE THE ILLICIT ITEMS',
       multipleAnswers: true,
       answers: [
         {
+          code: 'WEAPONS',
           label: 'WEAPONS',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44803',
         },
         {
+          code: 'HOOCH/ALCOHOL',
           label: 'HOOCH/ALCOHOL',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44803',
         },
         {
+          code: 'CASH',
           label: 'CASH',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44803',
         },
         {
+          code: 'MOBILE PHONE',
           label: 'MOBILE PHONE',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44803',
         },
         {
+          code: 'INCENDIARY DEVICE',
           label: 'INCENDIARY DEVICE',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44803',
         },
         {
+          code: 'OTHER',
           label: 'OTHER',
           commentRequired: true,
           dateRequired: false,
@@ -227,16 +262,19 @@ const FULL_CLOSE_DOWN_SEARCH: IncidentTypeConfiguration = {
     },
     '45018': {
       id: '45018',
+      code: 'IS THE INCIDENT THE SUBJECT OF AN INTERNAL INVESTIGATION',
       label: 'IS THE INCIDENT THE SUBJECT OF AN INTERNAL INVESTIGATION',
       multipleAnswers: false,
       answers: [
         {
+          code: 'YES',
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44146',
         },
         {
+          code: 'NO',
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -246,34 +284,40 @@ const FULL_CLOSE_DOWN_SEARCH: IncidentTypeConfiguration = {
     },
     '45062': {
       id: '45062',
+      code: 'WHY WAS SEARCH CARRIED OUT',
       label: 'WHY WAS SEARCH CARRIED OUT',
       multipleAnswers: false,
       answers: [
         {
+          code: 'INFORMATION/INTELLIGENCE',
           label: 'INFORMATION/INTELLIGENCE',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44432',
         },
         {
+          code: 'SPECIFIC FIND',
           label: 'SPECIFIC FIND',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44432',
         },
         {
+          code: 'HEADQUARTERS INSTRUCTIONS',
           label: 'HEADQUARTERS INSTRUCTIONS',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44432',
         },
         {
+          code: 'ROUTINE REQUIREMENT',
           label: 'ROUTINE REQUIREMENT',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44432',
         },
         {
+          code: 'OTHER',
           label: 'OTHER',
           commentRequired: true,
           dateRequired: false,
@@ -283,16 +327,19 @@ const FULL_CLOSE_DOWN_SEARCH: IncidentTypeConfiguration = {
     },
     '45067': {
       id: '45067',
+      code: 'WERE THE POLICE INFORMED OF THE INCIDENT',
       label: 'WERE THE POLICE INFORMED OF THE INCIDENT',
       multipleAnswers: false,
       answers: [
         {
+          code: 'YES',
           label: 'YES',
           commentRequired: false,
           dateRequired: true,
           nextQuestionId: '44723',
         },
         {
+          code: 'NO',
           label: 'NO',
           commentRequired: false,
           dateRequired: false,

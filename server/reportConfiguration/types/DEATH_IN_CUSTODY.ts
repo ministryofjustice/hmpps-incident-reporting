@@ -1,4 +1,4 @@
-// Generated with ./scripts/updateNomisIncidentTypeConfigurations.ts at 2024-09-12T16:33:40.624Z
+// Generated with ./scripts/updateNomisIncidentTypeConfigurations.ts at 2024-09-16T15:41:59.655Z
 
 import { type IncidentTypeConfiguration } from '../../data/incidentTypeConfiguration/types'
 
@@ -9,28 +9,33 @@ const DEATH_IN_CUSTODY: IncidentTypeConfiguration = {
   questions: {
     '44159': {
       id: '44159',
+      code: 'WHAT WERE THE CIRCUMSTANCES OF THE DEATH',
       label: 'WHAT WERE THE CIRCUMSTANCES OF THE DEATH',
       multipleAnswers: false,
       answers: [
         {
+          code: 'APPARENT SELF INFLICTED',
           label: 'APPARENT SELF INFLICTED',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44383',
         },
         {
+          code: 'APPARENT NATURAL CAUSES',
           label: 'APPARENT NATURAL CAUSES',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44384',
         },
         {
+          code: 'ACCIDENTAL',
           label: 'ACCIDENTAL',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '45144',
         },
         {
+          code: 'SUSPICIOUS CIRCUMSTANCES',
           label: 'SUSPICIOUS CIRCUMSTANCES',
           commentRequired: true,
           dateRequired: false,
@@ -40,16 +45,19 @@ const DEATH_IN_CUSTODY: IncidentTypeConfiguration = {
     },
     '44292': {
       id: '44292',
+      code: 'IS THE DEATH SUBJECT TO A HEALTH AND SAFETY INVESTIGATION',
       label: 'IS THE DEATH SUBJECT TO A HEALTH AND SAFETY INVESTIGATION',
       multipleAnswers: false,
       answers: [
         {
+          code: 'YES',
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44159',
         },
         {
+          code: 'NO',
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -59,40 +67,47 @@ const DEATH_IN_CUSTODY: IncidentTypeConfiguration = {
     },
     '44303': {
       id: '44303',
+      code: 'WHAT VERDICT DID THE INQUEST REACH',
       label: 'WHAT VERDICT DID THE INQUEST REACH',
       multipleAnswers: false,
       answers: [
         {
+          code: 'NATURAL CAUSES',
           label: 'NATURAL CAUSES',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: null,
         },
         {
+          code: 'SUICIDE',
           label: 'SUICIDE',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: null,
         },
         {
+          code: 'ACCIDENTAL',
           label: 'ACCIDENTAL',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: null,
         },
         {
+          code: 'MISADVENTURE',
           label: 'MISADVENTURE',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: null,
         },
         {
+          code: 'OPEN VERDICT',
           label: 'OPEN VERDICT',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: null,
         },
         {
+          code: 'OTHER',
           label: 'OTHER',
           commentRequired: true,
           dateRequired: false,
@@ -102,58 +117,68 @@ const DEATH_IN_CUSTODY: IncidentTypeConfiguration = {
     },
     '44366': {
       id: '44366',
+      code: 'WHERE WAS THE PRISONER LOCATED AT THE TIME OF DEATH',
       label: 'WHERE WAS THE PRISONER LOCATED AT THE TIME OF DEATH',
       multipleAnswers: false,
       answers: [
         {
+          code: 'SINGLE CELL: ORDINARY LOCATION',
           label: 'SINGLE CELL: ORDINARY LOCATION',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44680',
         },
         {
+          code: 'SINGLE CELL: SEGREGATION UNIT',
           label: 'SINGLE CELL: SEGREGATION UNIT',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44680',
         },
         {
+          code: 'SHARED CELL: ORDINARY LOCATION',
           label: 'SHARED CELL: ORDINARY LOCATION',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44680',
         },
         {
+          code: 'SPECIAL CELL: SEGREGATION UNIT',
           label: 'SPECIAL CELL: SEGREGATION UNIT',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44680',
         },
         {
+          code: 'SINGLE CELL:HEALTH CARE CENTRE',
           label: 'SINGLE CELL:HEALTH CARE CENTRE',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44680',
         },
         {
+          code: 'WARD: HEALTH CARE CENTRE',
           label: 'WARD: HEALTH CARE CENTRE',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44680',
         },
         {
+          code: 'UNFURNISHED ROOM: H.C.C.',
           label: 'UNFURNISHED ROOM: H.C.C.',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44680',
         },
         {
+          code: 'PROTECTIVE ROOM: H.C.C.',
           label: 'PROTECTIVE ROOM: H.C.C.',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44680',
         },
         {
+          code: 'OTHER',
           label: 'OTHER',
           commentRequired: true,
           dateRequired: false,
@@ -163,28 +188,33 @@ const DEATH_IN_CUSTODY: IncidentTypeConfiguration = {
     },
     '44383': {
       id: '44383',
+      code: 'WHAT METHOD WAS USED',
       label: 'WHAT METHOD WAS USED',
       multipleAnswers: false,
       answers: [
         {
+          code: 'HANGING',
           label: 'HANGING',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44929',
         },
         {
+          code: 'CUTTING',
           label: 'CUTTING',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '45023',
         },
         {
+          code: 'SUFFOCATION',
           label: 'SUFFOCATION',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '45023',
         },
         {
+          code: 'OTHER',
           label: 'OTHER',
           commentRequired: true,
           dateRequired: false,
@@ -194,28 +224,33 @@ const DEATH_IN_CUSTODY: IncidentTypeConfiguration = {
     },
     '44384': {
       id: '44384',
+      code: 'WHAT WAS THE LIKELY CAUSE OF DEATH',
       label: 'WHAT WAS THE LIKELY CAUSE OF DEATH',
       multipleAnswers: false,
       answers: [
         {
+          code: 'MYOCARDIAL INFARCTION',
           label: 'MYOCARDIAL INFARCTION',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44468',
         },
         {
+          code: 'LONG TERM ALCOHOL MISUSE',
           label: 'LONG TERM ALCOHOL MISUSE',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44468',
         },
         {
+          code: 'LONG TERM DRUG MISUSE',
           label: 'LONG TERM DRUG MISUSE',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44468',
         },
         {
+          code: 'OTHER',
           label: 'OTHER',
           commentRequired: true,
           dateRequired: false,
@@ -225,16 +260,19 @@ const DEATH_IN_CUSTODY: IncidentTypeConfiguration = {
     },
     '44418': {
       id: '44418',
+      code: 'WAS THE PRISONER RECEIVING MEDICATION AT THE TIME OF DEATH',
       label: 'WAS THE PRISONER RECEIVING MEDICATION AT THE TIME OF DEATH',
       multipleAnswers: false,
       answers: [
         {
+          code: 'YES',
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44691',
         },
         {
+          code: 'NO',
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -244,16 +282,19 @@ const DEATH_IN_CUSTODY: IncidentTypeConfiguration = {
     },
     '44420': {
       id: '44420',
+      code: 'IS THERE ANY MEDIA INTEREST IN THIS INCIDENT',
       label: 'IS THERE ANY MEDIA INTEREST IN THIS INCIDENT',
       multipleAnswers: false,
       answers: [
         {
+          code: 'YES',
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44743',
         },
         {
+          code: 'NO',
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -263,16 +304,19 @@ const DEATH_IN_CUSTODY: IncidentTypeConfiguration = {
     },
     '44468': {
       id: '44468',
+      code: 'HAS THE NEXT OF KIN BEEN INFORMED',
       label: 'HAS THE NEXT OF KIN BEEN INFORMED',
       multipleAnswers: false,
       answers: [
         {
+          code: 'YES',
           label: 'YES',
           commentRequired: true,
           dateRequired: false,
           nextQuestionId: '45063',
         },
         {
+          code: 'NO',
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -282,28 +326,33 @@ const DEATH_IN_CUSTODY: IncidentTypeConfiguration = {
     },
     '44537': {
       id: '44537',
+      code: 'WHERE WAS THE PRISONER AT THE TIME OF DEATH',
       label: 'WHERE WAS THE PRISONER AT THE TIME OF DEATH',
       multipleAnswers: false,
       answers: [
         {
+          code: 'IN THE PRISON',
           label: 'IN THE PRISON',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44366',
         },
         {
+          code: 'CUSTODY OF STAFF OUT OF PRISON',
           label: 'CUSTODY OF STAFF OUT OF PRISON',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '45166',
         },
         {
+          code: 'ON TEMPORARY RELEASE',
           label: 'ON TEMPORARY RELEASE',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44721',
         },
         {
+          code: 'UNLAWFULLY AT LARGE',
           label: 'UNLAWFULLY AT LARGE',
           commentRequired: false,
           dateRequired: false,
@@ -313,16 +362,19 @@ const DEATH_IN_CUSTODY: IncidentTypeConfiguration = {
     },
     '44640': {
       id: '44640',
+      code: "HAS A CORONER'S INQUEST BEEN HELD",
       label: "HAS A CORONER'S INQUEST BEEN HELD",
       multipleAnswers: false,
       answers: [
         {
+          code: 'YES',
           label: 'YES',
           commentRequired: false,
           dateRequired: true,
           nextQuestionId: '44303',
         },
         {
+          code: 'NO',
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -332,16 +384,19 @@ const DEATH_IN_CUSTODY: IncidentTypeConfiguration = {
     },
     '44646': {
       id: '44646',
+      code: 'WERE THE POLICE INFORMED OF THE INCIDENT',
       label: 'WERE THE POLICE INFORMED OF THE INCIDENT',
       multipleAnswers: false,
       answers: [
         {
+          code: 'YES',
           label: 'YES',
           commentRequired: false,
           dateRequired: true,
           nextQuestionId: '45038',
         },
         {
+          code: 'NO',
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -351,16 +406,19 @@ const DEATH_IN_CUSTODY: IncidentTypeConfiguration = {
     },
     '44680': {
       id: '44680',
+      code: 'WAS THE PRISONER ALONE AT THE TIME OF DEATH',
       label: 'WAS THE PRISONER ALONE AT THE TIME OF DEATH',
       multipleAnswers: false,
       answers: [
         {
+          code: 'YES',
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44418',
         },
         {
+          code: 'NO',
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -370,28 +428,33 @@ const DEATH_IN_CUSTODY: IncidentTypeConfiguration = {
     },
     '44691': {
       id: '44691',
+      code: 'WHO FOUND THE PRISONER',
       label: 'WHO FOUND THE PRISONER',
       multipleAnswers: false,
       answers: [
         {
+          code: 'PRISON STAFF',
           label: 'PRISON STAFF',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '45108',
         },
         {
+          code: 'CELL MATE',
           label: 'CELL MATE',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '45108',
         },
         {
+          code: 'OTHER PRISONER',
           label: 'OTHER PRISONER',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '45108',
         },
         {
+          code: 'OTHER',
           label: 'OTHER',
           commentRequired: true,
           dateRequired: false,
@@ -401,22 +464,26 @@ const DEATH_IN_CUSTODY: IncidentTypeConfiguration = {
     },
     '44720': {
       id: '44720',
+      code: 'WHO PRONOUNCED DEATH',
       label: 'WHO PRONOUNCED DEATH',
       multipleAnswers: false,
       answers: [
         {
+          code: 'PRISON MEDICAL OFFICER',
           label: 'PRISON MEDICAL OFFICER',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44962',
         },
         {
+          code: 'HOSPITAL DOCTOR',
           label: 'HOSPITAL DOCTOR',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44962',
         },
         {
+          code: 'OTHER',
           label: 'OTHER',
           commentRequired: true,
           dateRequired: false,
@@ -426,16 +493,19 @@ const DEATH_IN_CUSTODY: IncidentTypeConfiguration = {
     },
     '44721': {
       id: '44721',
+      code: 'WAS THE PRISONER ON T/R IN OUTSIDE HOSPITAL',
       label: 'WAS THE PRISONER ON T/R IN OUTSIDE HOSPITAL',
       multipleAnswers: false,
       answers: [
         {
+          code: 'YES',
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44720',
         },
         {
+          code: 'NO',
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -445,16 +515,19 @@ const DEATH_IN_CUSTODY: IncidentTypeConfiguration = {
     },
     '44743': {
       id: '44743',
+      code: 'HAS THE PRISON SERVICE PRESS OFFICE BEEN INFORMED',
       label: 'HAS THE PRISON SERVICE PRESS OFFICE BEEN INFORMED',
       multipleAnswers: false,
       answers: [
         {
+          code: 'YES',
           label: 'YES',
           commentRequired: false,
           dateRequired: true,
           nextQuestionId: '44537',
         },
         {
+          code: 'NO',
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -464,34 +537,40 @@ const DEATH_IN_CUSTODY: IncidentTypeConfiguration = {
     },
     '44770': {
       id: '44770',
+      code: 'WHAT WAS THE LIGATURE ATTACHED TO',
       label: 'WHAT WAS THE LIGATURE ATTACHED TO',
       multipleAnswers: false,
       answers: [
         {
+          code: 'WINDOW BARS',
           label: 'WINDOW BARS',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '45023',
         },
         {
+          code: 'CELL DOOR',
           label: 'CELL DOOR',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '45023',
         },
         {
+          code: 'LIGHT FITTINGS',
           label: 'LIGHT FITTINGS',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '45023',
         },
         {
+          code: 'BED',
           label: 'BED',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '45023',
         },
         {
+          code: 'OTHER',
           label: 'OTHER',
           commentRequired: true,
           dateRequired: false,
@@ -501,16 +580,19 @@ const DEATH_IN_CUSTODY: IncidentTypeConfiguration = {
     },
     '44862': {
       id: '44862',
+      code: 'IS ANY MEMBER OF STAFF FACING DISCIPLINARY CHARGES',
       label: 'IS ANY MEMBER OF STAFF FACING DISCIPLINARY CHARGES',
       multipleAnswers: false,
       answers: [
         {
+          code: 'YES',
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44420',
         },
         {
+          code: 'NO',
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -520,16 +602,19 @@ const DEATH_IN_CUSTODY: IncidentTypeConfiguration = {
     },
     '44876': {
       id: '44876',
+      code: 'WAS RESUSCITATION ATTEMPTED',
       label: 'WAS RESUSCITATION ATTEMPTED',
       multipleAnswers: false,
       answers: [
         {
+          code: 'YES',
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44901',
         },
         {
+          code: 'NO',
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -539,16 +624,19 @@ const DEATH_IN_CUSTODY: IncidentTypeConfiguration = {
     },
     '44901': {
       id: '44901',
+      code: 'WAS THE PRISONER TAKEN TO AN OUTSIDE HOSPITAL',
       label: 'WAS THE PRISONER TAKEN TO AN OUTSIDE HOSPITAL',
       multipleAnswers: false,
       answers: [
         {
+          code: 'YES',
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44720',
         },
         {
+          code: 'NO',
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -558,28 +646,33 @@ const DEATH_IN_CUSTODY: IncidentTypeConfiguration = {
     },
     '44929': {
       id: '44929',
+      code: 'WHAT WAS THE LIGATURE MADE FROM',
       label: 'WHAT WAS THE LIGATURE MADE FROM',
       multipleAnswers: false,
       answers: [
         {
+          code: 'BEDDING',
           label: 'BEDDING',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44770',
         },
         {
+          code: 'SHOELACES',
           label: 'SHOELACES',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44770',
         },
         {
+          code: 'CLOTHING',
           label: 'CLOTHING',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44770',
         },
         {
+          code: 'OTHER',
           label: 'OTHER',
           commentRequired: true,
           dateRequired: false,
@@ -589,16 +682,19 @@ const DEATH_IN_CUSTODY: IncidentTypeConfiguration = {
     },
     '44962': {
       id: '44962',
+      code: 'WHAT TIME WAS DEATH PRONOUNCED',
       label: 'WHAT TIME WAS DEATH PRONOUNCED',
       multipleAnswers: true,
       answers: [
         {
+          code: 'DATE',
           label: 'DATE',
           commentRequired: false,
           dateRequired: true,
           nextQuestionId: '44292',
         },
         {
+          code: 'TIME',
           label: 'TIME',
           commentRequired: true,
           dateRequired: false,
@@ -608,16 +704,19 @@ const DEATH_IN_CUSTODY: IncidentTypeConfiguration = {
     },
     '45023': {
       id: '45023',
+      code: 'WAS A F2052SH/ACCT OPEN AT THE TIME OF DEATH',
       label: 'WAS A F2052SH/ACCT OPEN AT THE TIME OF DEATH',
       multipleAnswers: false,
       answers: [
         {
+          code: 'YES',
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44468',
         },
         {
+          code: 'NO',
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -627,16 +726,19 @@ const DEATH_IN_CUSTODY: IncidentTypeConfiguration = {
     },
     '45038': {
       id: '45038',
+      code: 'IS THE INCIDENT THE SUBJECT OF A POLICE INVESTIGATION',
       label: 'IS THE INCIDENT THE SUBJECT OF A POLICE INVESTIGATION',
       multipleAnswers: false,
       answers: [
         {
+          code: 'YES',
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '45120',
         },
         {
+          code: 'NO',
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -646,16 +748,19 @@ const DEATH_IN_CUSTODY: IncidentTypeConfiguration = {
     },
     '45043': {
       id: '45043',
+      code: 'IS THE PLACE OF DEATH KNOWN',
       label: 'IS THE PLACE OF DEATH KNOWN',
       multipleAnswers: false,
       answers: [
         {
+          code: 'YES',
           label: 'YES',
           commentRequired: true,
           dateRequired: false,
           nextQuestionId: '44159',
         },
         {
+          code: 'NO',
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -665,16 +770,19 @@ const DEATH_IN_CUSTODY: IncidentTypeConfiguration = {
     },
     '45063': {
       id: '45063',
+      code: 'HAS CORONER BEEN INFORMED',
       label: 'HAS CORONER BEEN INFORMED',
       multipleAnswers: false,
       answers: [
         {
+          code: 'YES',
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44640',
         },
         {
+          code: 'NO',
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -684,16 +792,19 @@ const DEATH_IN_CUSTODY: IncidentTypeConfiguration = {
     },
     '45108': {
       id: '45108',
+      code: 'AT WHAT TIME WAS THE PRISONER FOUND',
       label: 'AT WHAT TIME WAS THE PRISONER FOUND',
       multipleAnswers: false,
       answers: [
         {
+          code: 'DATE',
           label: 'DATE',
           commentRequired: false,
           dateRequired: true,
           nextQuestionId: '44876',
         },
         {
+          code: 'TIME',
           label: 'TIME',
           commentRequired: true,
           dateRequired: false,
@@ -703,16 +814,19 @@ const DEATH_IN_CUSTODY: IncidentTypeConfiguration = {
     },
     '45120': {
       id: '45120',
+      code: 'IS THE INCIDENT THE SUBJECT OF AN INTERNAL INVESTIGATION',
       label: 'IS THE INCIDENT THE SUBJECT OF AN INTERNAL INVESTIGATION',
       multipleAnswers: false,
       answers: [
         {
+          code: 'YES',
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44862',
         },
         {
+          code: 'NO',
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -722,34 +836,40 @@ const DEATH_IN_CUSTODY: IncidentTypeConfiguration = {
     },
     '45144': {
       id: '45144',
+      code: 'WAS THE ACCIDENTAL DEATH CAUSED BY',
       label: 'WAS THE ACCIDENTAL DEATH CAUSED BY',
       multipleAnswers: false,
       answers: [
         {
+          code: 'DRUG OVERDOSE',
           label: 'DRUG OVERDOSE',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44468',
         },
         {
+          code: 'FALL',
           label: 'FALL',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44468',
         },
         {
+          code: 'TRANSPORT ACCIDENT',
           label: 'TRANSPORT ACCIDENT',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44468',
         },
         {
+          code: 'ACCIDENT INVOLVING MACHINERY',
           label: 'ACCIDENT INVOLVING MACHINERY',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44468',
         },
         {
+          code: 'OTHER',
           label: 'OTHER',
           commentRequired: true,
           dateRequired: false,
@@ -759,40 +879,47 @@ const DEATH_IN_CUSTODY: IncidentTypeConfiguration = {
     },
     '45166': {
       id: '45166',
+      code: 'WHERE DID THE DEATH TAKE PLACE',
       label: 'WHERE DID THE DEATH TAKE PLACE',
       multipleAnswers: false,
       answers: [
         {
+          code: 'OUTSIDE HOSPITAL',
           label: 'OUTSIDE HOSPITAL',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44720',
         },
         {
+          code: 'OUTSIDE WORKING PARTY',
           label: 'OUTSIDE WORKING PARTY',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44876',
         },
         {
+          code: 'OUTSIDE P.E. ACTIVITY',
           label: 'OUTSIDE P.E. ACTIVITY',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44876',
         },
         {
+          code: 'AT COURT',
           label: 'AT COURT',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44876',
         },
         {
+          code: 'OTHER ESCORT',
           label: 'OTHER ESCORT',
           commentRequired: true,
           dateRequired: false,
           nextQuestionId: '44876',
         },
         {
+          code: 'OTHER',
           label: 'OTHER',
           commentRequired: true,
           dateRequired: false,

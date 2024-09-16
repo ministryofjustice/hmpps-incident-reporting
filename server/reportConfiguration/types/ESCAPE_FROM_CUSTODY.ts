@@ -1,4 +1,4 @@
-// Generated with ./scripts/updateNomisIncidentTypeConfigurations.ts at 2024-09-12T16:33:46.639Z
+// Generated with ./scripts/updateNomisIncidentTypeConfigurations.ts at 2024-09-16T15:42:05.832Z
 
 import { type IncidentTypeConfiguration } from '../../data/incidentTypeConfiguration/types'
 
@@ -9,52 +9,61 @@ const ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
   questions: {
     '44121': {
       id: '44121',
+      code: 'WHOSE WAS THE VEHICLE',
       label: 'WHOSE WAS THE VEHICLE',
       multipleAnswers: false,
       answers: [
         {
+          code: 'PRISON SERVICE VEHICLE',
           label: 'PRISON SERVICE VEHICLE',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44251',
         },
         {
+          code: 'CONTRACTORS',
           label: 'CONTRACTORS',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44251',
         },
         {
+          code: 'ESCORT CONTRACTOR',
           label: 'ESCORT CONTRACTOR',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44251',
         },
         {
+          code: 'OFFICIAL VEHICLE',
           label: 'OFFICIAL VEHICLE',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44251',
         },
         {
+          code: 'STAFF VEHICLE',
           label: 'STAFF VEHICLE',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44251',
         },
         {
+          code: 'PRIVATE VEHICLE',
           label: 'PRIVATE VEHICLE',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44251',
         },
         {
+          code: 'TAXI',
           label: 'TAXI',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44251',
         },
         {
+          code: 'OTHER',
           label: 'OTHER',
           commentRequired: true,
           dateRequired: false,
@@ -64,88 +73,103 @@ const ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
     },
     '44126': {
       id: '44126',
+      code: 'WHAT WAS THE SOURCE OF THE TOOLS',
       label: 'WHAT WAS THE SOURCE OF THE TOOLS',
       multipleAnswers: true,
       answers: [
         {
+          code: 'WORKS DEPARTMENT',
           label: 'WORKS DEPARTMENT',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44436',
         },
         {
+          code: 'CONTRACTORS',
           label: 'CONTRACTORS',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44436',
         },
         {
+          code: 'EDUCATION',
           label: 'EDUCATION',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44436',
         },
         {
+          code: 'HEALTH CARE CENTRE',
           label: 'HEALTH CARE CENTRE',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44436',
         },
         {
+          code: 'FARMS AND GARDENS',
           label: 'FARMS AND GARDENS',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44436',
         },
         {
+          code: 'GYMNASIUM/SPORTS FIELD',
           label: 'GYMNASIUM/SPORTS FIELD',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44436',
         },
         {
+          code: 'WORKSHOPS',
           label: 'WORKSHOPS',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44436',
         },
         {
+          code: 'KITCHEN',
           label: 'KITCHEN',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44436',
         },
         {
+          code: 'HOBBIES',
           label: 'HOBBIES',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44436',
         },
         {
+          code: 'CELL FURNISHINGS',
           label: 'CELL FURNISHINGS',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44436',
         },
         {
+          code: 'WING/HOUSEBLOCK FURNISHINGS',
           label: 'WING/HOUSEBLOCK FURNISHINGS',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44436',
         },
         {
+          code: 'SMUGGLED',
           label: 'SMUGGLED',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44436',
         },
         {
+          code: 'NOT KNOWN',
           label: 'NOT KNOWN',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44436',
         },
         {
+          code: 'OTHER',
           label: 'OTHER',
           commentRequired: true,
           dateRequired: false,
@@ -155,16 +179,19 @@ const ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
     },
     '44138': {
       id: '44138',
+      code: 'WAS AN AIRCRAFT INVOLVED',
       label: 'WAS AN AIRCRAFT INVOLVED',
       multipleAnswers: false,
       answers: [
         {
+          code: 'YES',
           label: 'YES',
           commentRequired: true,
           dateRequired: false,
           nextQuestionId: '44621',
         },
         {
+          code: 'NO',
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -174,52 +201,61 @@ const ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
     },
     '44165': {
       id: '44165',
+      code: 'WHAT TYPE OF FORCE WAS USED',
       label: 'WHAT TYPE OF FORCE WAS USED',
       multipleAnswers: false,
       answers: [
         {
+          code: 'CUT WINDOW OR BARS',
           label: 'CUT WINDOW OR BARS',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44931',
         },
         {
+          code: 'FORCED WINDOW OR BARS',
           label: 'FORCED WINDOW OR BARS',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44931',
         },
         {
+          code: 'CUT AND FORCED WINDOW AND BARS',
           label: 'CUT AND FORCED WINDOW AND BARS',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44931',
         },
         {
+          code: 'DUG THROUGH EXTERNAL WALL',
           label: 'DUG THROUGH EXTERNAL WALL',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44931',
         },
         {
+          code: 'DUG THROUGH INTERNAL WALL',
           label: 'DUG THROUGH INTERNAL WALL',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44931',
         },
         {
+          code: 'DUG THROUGH FLOOR',
           label: 'DUG THROUGH FLOOR',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44931',
         },
         {
+          code: 'BROKE THROUGH CEILING',
           label: 'BROKE THROUGH CEILING',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44931',
         },
         {
+          code: 'FORCED DOOR',
           label: 'FORCED DOOR',
           commentRequired: false,
           dateRequired: false,
@@ -229,16 +265,19 @@ const ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
     },
     '44169': {
       id: '44169',
+      code: 'WAS A CHEMICAL INCAPACITANT SPRAY USED DURING THE ESCAPE',
       label: 'WAS A CHEMICAL INCAPACITANT SPRAY USED DURING THE ESCAPE',
       multipleAnswers: false,
       answers: [
         {
+          code: 'YES',
           label: 'YES',
           commentRequired: true,
           dateRequired: false,
           nextQuestionId: '44633',
         },
         {
+          code: 'NO',
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -248,16 +287,19 @@ const ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
     },
     '44178': {
       id: '44178',
+      code: 'WAS THE EXIT THROUGH AN UNLOCKED DOOR OR GATE',
       label: 'WAS THE EXIT THROUGH AN UNLOCKED DOOR OR GATE',
       multipleAnswers: false,
       answers: [
         {
+          code: 'YES',
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44851',
         },
         {
+          code: 'NO',
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -267,16 +309,19 @@ const ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
     },
     '44192': {
       id: '44192',
+      code: 'WERE TOOLS USED',
       label: 'WERE TOOLS USED',
       multipleAnswers: false,
       answers: [
         {
+          code: 'YES',
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44590',
         },
         {
+          code: 'NO',
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -286,16 +331,19 @@ const ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
     },
     '44212': {
       id: '44212',
+      code: 'WHERE WERE THE INJURED PRISONERS TREATED',
       label: 'WHERE WERE THE INJURED PRISONERS TREATED',
       multipleAnswers: false,
       answers: [
         {
+          code: 'PRISON HEALTH CARE CENTRE',
           label: 'PRISON HEALTH CARE CENTRE',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44388',
         },
         {
+          code: 'OUTSIDE HOSPITAL',
           label: 'OUTSIDE HOSPITAL',
           commentRequired: false,
           dateRequired: false,
@@ -305,16 +353,19 @@ const ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
     },
     '44217': {
       id: '44217',
+      code: 'DID THE EXIT GIVE ACCESS TO THE EXTERNAL PERIMETER',
       label: 'DID THE EXIT GIVE ACCESS TO THE EXTERNAL PERIMETER',
       multipleAnswers: false,
       answers: [
         {
+          code: 'YES',
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44851',
         },
         {
+          code: 'NO',
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -324,16 +375,19 @@ const ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
     },
     '44220': {
       id: '44220',
+      code: 'WERE THERE ANY INJURIES CAUSED BY USE OF WEAPONS',
       label: 'WERE THERE ANY INJURIES CAUSED BY USE OF WEAPONS',
       multipleAnswers: false,
       answers: [
         {
+          code: 'YES',
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44406',
         },
         {
+          code: 'NO',
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -343,16 +397,19 @@ const ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
     },
     '44221': {
       id: '44221',
+      code: 'WAS FORCE USED TO LEAVE THE CELL',
       label: 'WAS FORCE USED TO LEAVE THE CELL',
       multipleAnswers: false,
       answers: [
         {
+          code: 'YES',
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44790',
         },
         {
+          code: 'NO',
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -362,88 +419,103 @@ const ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
     },
     '44231': {
       id: '44231',
+      code: 'WHAT WAS THE SOURCE OF THE TOOLS',
       label: 'WHAT WAS THE SOURCE OF THE TOOLS',
       multipleAnswers: true,
       answers: [
         {
+          code: 'WORKS DEPARTMENT',
           label: 'WORKS DEPARTMENT',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44178',
         },
         {
+          code: 'CONTRACTORS',
           label: 'CONTRACTORS',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44178',
         },
         {
+          code: 'EDUCATION',
           label: 'EDUCATION',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44178',
         },
         {
+          code: 'HEALTH CARE CENTRE',
           label: 'HEALTH CARE CENTRE',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44178',
         },
         {
+          code: 'FARMS AND GARDENS',
           label: 'FARMS AND GARDENS',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44178',
         },
         {
+          code: 'GYMNASIUM/SPORTS FIELD',
           label: 'GYMNASIUM/SPORTS FIELD',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44178',
         },
         {
+          code: 'WORKSHOPS',
           label: 'WORKSHOPS',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44178',
         },
         {
+          code: 'KITCHEN',
           label: 'KITCHEN',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44178',
         },
         {
+          code: 'HOBBIES',
           label: 'HOBBIES',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44178',
         },
         {
+          code: 'CELL FURNISHINGS',
           label: 'CELL FURNISHINGS',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44178',
         },
         {
+          code: 'WING/HOUSEBLOCK FURNISHINGS',
           label: 'WING/HOUSEBLOCK FURNISHINGS',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44178',
         },
         {
+          code: 'SMUGGLED',
           label: 'SMUGGLED',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44178',
         },
         {
+          code: 'NOT KNOWN',
           label: 'NOT KNOWN',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44178',
         },
         {
+          code: 'OTHER',
           label: 'OTHER',
           commentRequired: true,
           dateRequired: false,
@@ -453,16 +525,19 @@ const ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
     },
     '44241': {
       id: '44241',
+      code: 'NUMBER OF STAFF INJURED',
       label: 'NUMBER OF STAFF INJURED',
       multipleAnswers: true,
       answers: [
         {
+          code: 'MALE',
           label: 'MALE',
           commentRequired: true,
           dateRequired: false,
           nextQuestionId: '44549',
         },
         {
+          code: 'FEMALE',
           label: 'FEMALE',
           commentRequired: true,
           dateRequired: false,
@@ -472,58 +547,68 @@ const ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
     },
     '44245': {
       id: '44245',
+      code: 'WHAT TOOLS WERE USED',
       label: 'WHAT TOOLS WERE USED',
       multipleAnswers: true,
       answers: [
         {
+          code: 'HACKSAW BLADE',
           label: 'HACKSAW BLADE',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44628',
         },
         {
+          code: 'OTHER BLADE',
           label: 'OTHER BLADE',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44628',
         },
         {
+          code: 'WIRE CUTTERS',
           label: 'WIRE CUTTERS',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44628',
         },
         {
+          code: 'BOLT CROPPERS',
           label: 'BOLT CROPPERS',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44628',
         },
         {
+          code: 'DIGGING TOOL',
           label: 'DIGGING TOOL',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44628',
         },
         {
+          code: 'CROW BAR',
           label: 'CROW BAR',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44628',
         },
         {
+          code: 'IMPROVISED TOOL',
           label: 'IMPROVISED TOOL',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44628',
         },
         {
+          code: 'OTHER TOOL',
           label: 'OTHER TOOL',
           commentRequired: true,
           dateRequired: false,
           nextQuestionId: '44628',
         },
         {
+          code: 'NOT KNOWN',
           label: 'NOT KNOWN',
           commentRequired: false,
           dateRequired: false,
@@ -533,16 +618,19 @@ const ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
     },
     '44251': {
       id: '44251',
+      code: 'ARE THE GROUNDS PATROLLED BY DOGS',
       label: 'ARE THE GROUNDS PATROLLED BY DOGS',
       multipleAnswers: false,
       answers: [
         {
+          code: 'YES',
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44138',
         },
         {
+          code: 'NO',
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -552,34 +640,40 @@ const ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
     },
     '44258': {
       id: '44258',
+      code: 'WHICH MINOR INJURIES WERE SUSTAINED',
       label: 'WHICH MINOR INJURIES WERE SUSTAINED',
       multipleAnswers: true,
       answers: [
         {
+          code: 'GRAZES, SCRATCHES OR ABRASIONS',
           label: 'GRAZES, SCRATCHES OR ABRASIONS',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44485',
         },
         {
+          code: 'MINOR BRUISES',
           label: 'MINOR BRUISES',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44485',
         },
         {
+          code: 'SWELLINGS',
           label: 'SWELLINGS',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44485',
         },
         {
+          code: 'SUPERFICIAL CUTS',
           label: 'SUPERFICIAL CUTS',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44485',
         },
         {
+          code: 'OTHER',
           label: 'OTHER',
           commentRequired: true,
           dateRequired: false,
@@ -589,22 +683,26 @@ const ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
     },
     '44262': {
       id: '44262',
+      code: 'DESCRIBE THE DAMAGE',
       label: 'DESCRIBE THE DAMAGE',
       multipleAnswers: false,
       answers: [
         {
+          code: 'MINOR',
           label: 'MINOR',
           commentRequired: true,
           dateRequired: false,
           nextQuestionId: '44363',
         },
         {
+          code: 'SERIOUS',
           label: 'SERIOUS',
           commentRequired: true,
           dateRequired: false,
           nextQuestionId: '44363',
         },
         {
+          code: 'EXTENSIVE',
           label: 'EXTENSIVE',
           commentRequired: true,
           dateRequired: false,
@@ -614,16 +712,19 @@ const ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
     },
     '44270': {
       id: '44270',
+      code: 'WAS THE FIREARM DISCHARGED',
       label: 'WAS THE FIREARM DISCHARGED',
       multipleAnswers: false,
       answers: [
         {
+          code: 'YES',
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44897',
         },
         {
+          code: 'NO',
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -633,16 +734,19 @@ const ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
     },
     '44291': {
       id: '44291',
+      code: 'WERE TOOLS USED',
       label: 'WERE TOOLS USED',
       multipleAnswers: false,
       answers: [
         {
+          code: 'YES',
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44245',
         },
         {
+          code: 'NO',
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -652,16 +756,19 @@ const ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
     },
     '44309': {
       id: '44309',
+      code: 'WERE ANY INJURIES SUSTAINED BY STAFF',
       label: 'WERE ANY INJURIES SUSTAINED BY STAFF',
       multipleAnswers: false,
       answers: [
         {
+          code: 'YES',
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44241',
         },
         {
+          code: 'NO',
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -671,16 +778,19 @@ const ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
     },
     '44310': {
       id: '44310',
+      code: 'HAS THE PRISON SERVICE PRESS OFFICE BEEN INFORMED',
       label: 'HAS THE PRISON SERVICE PRESS OFFICE BEEN INFORMED',
       multipleAnswers: false,
       answers: [
         {
+          code: 'YES',
           label: 'YES',
           commentRequired: false,
           dateRequired: true,
           nextQuestionId: '45032',
         },
         {
+          code: 'NO',
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -690,34 +800,40 @@ const ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
     },
     '44321': {
       id: '44321',
+      code: 'GIVE DETAILS OF SECURITY MEASURE OVERCOME',
       label: 'GIVE DETAILS OF SECURITY MEASURE OVERCOME',
       multipleAnswers: true,
       answers: [
         {
+          code: 'UV HAND STAMP',
           label: 'UV HAND STAMP',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44546',
         },
         {
+          code: 'HAND GEOMETRY',
           label: 'HAND GEOMETRY',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44546',
         },
         {
+          code: 'PHOTOGRAPHIC RECORD',
           label: 'PHOTOGRAPHIC RECORD',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44546',
         },
         {
+          code: 'IDENTIFYING CLOTHING',
           label: 'IDENTIFYING CLOTHING',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44546',
         },
         {
+          code: 'STAFF SUPERVISION',
           label: 'STAFF SUPERVISION',
           commentRequired: false,
           dateRequired: false,
@@ -727,22 +843,26 @@ const ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
     },
     '44325': {
       id: '44325',
+      code: 'WHO USED THE FIREARM',
       label: 'WHO USED THE FIREARM',
       multipleAnswers: true,
       answers: [
         {
+          code: 'PRISONER WHO ESCAPED',
           label: 'PRISONER WHO ESCAPED',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44169',
         },
         {
+          code: 'OTHER PRISONER',
           label: 'OTHER PRISONER',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44169',
         },
         {
+          code: 'OUTSIDE ACCOMPLICE',
           label: 'OUTSIDE ACCOMPLICE',
           commentRequired: false,
           dateRequired: false,
@@ -752,22 +872,26 @@ const ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
     },
     '44329': {
       id: '44329',
+      code: 'WAS THE KNIFE OR BLADE USED PURPOSE MADE OR IMPROVISED',
       label: 'WAS THE KNIFE OR BLADE USED PURPOSE MADE OR IMPROVISED',
       multipleAnswers: false,
       answers: [
         {
+          code: 'PURPOSE MADE',
           label: 'PURPOSE MADE',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44787',
         },
         {
+          code: 'IMPROVISED',
           label: 'IMPROVISED',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44787',
         },
         {
+          code: 'NOT KNOWN',
           label: 'NOT KNOWN',
           commentRequired: false,
           dateRequired: false,
@@ -777,10 +901,12 @@ const ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
     },
     '44363': {
       id: '44363',
+      code: 'ESTIMATED COST OF DAMAGE',
       label: 'ESTIMATED COST OF DAMAGE',
       multipleAnswers: false,
       answers: [
         {
+          code: 'ENTER AMOUNT IN POUND STERLING',
           label: 'ENTER AMOUNT IN POUND STERLING',
           commentRequired: true,
           dateRequired: false,
@@ -790,16 +916,19 @@ const ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
     },
     '44369': {
       id: '44369',
+      code: 'WERE ANY OTHER WEAPONS USED DURING THE ESCAPE',
       label: 'WERE ANY OTHER WEAPONS USED DURING THE ESCAPE',
       multipleAnswers: false,
       answers: [
         {
+          code: 'YES',
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44761',
         },
         {
+          code: 'NO',
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -809,52 +938,61 @@ const ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
     },
     '44370': {
       id: '44370',
+      code: 'HOW DID THE PRISONER GAIN ACCESS TO THE EXTERNAL PERIMETER',
       label: 'HOW DID THE PRISONER GAIN ACCESS TO THE EXTERNAL PERIMETER',
       multipleAnswers: false,
       answers: [
         {
+          code: 'WINDOW',
           label: 'WINDOW',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44726',
         },
         {
+          code: 'EXTERNAL WALL',
           label: 'EXTERNAL WALL',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44726',
         },
         {
+          code: 'FLOOR',
           label: 'FLOOR',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44726',
         },
         {
+          code: 'ROOF',
           label: 'ROOF',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44726',
         },
         {
+          code: 'DOOR/GATE',
           label: 'DOOR/GATE',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44726',
         },
         {
+          code: 'THROUGH FENCE',
           label: 'THROUGH FENCE',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44726',
         },
         {
+          code: 'UNDER FENCE',
           label: 'UNDER FENCE',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44726',
         },
         {
+          code: 'OVER FENCE',
           label: 'OVER FENCE',
           commentRequired: false,
           dateRequired: false,
@@ -864,76 +1002,89 @@ const ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
     },
     '44373': {
       id: '44373',
+      code: 'WITH WHAT OFFENCE HAS THE PRISONER BEEN CHARGED',
       label: 'WITH WHAT OFFENCE HAS THE PRISONER BEEN CHARGED',
       multipleAnswers: true,
       answers: [
         {
+          code: 'MURDER/ATTEMPTED MURDER',
           label: 'MURDER/ATTEMPTED MURDER',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44699',
         },
         {
+          code: 'MANSLAUGHTER',
           label: 'MANSLAUGHTER',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44699',
         },
         {
+          code: 'ASSAULT',
           label: 'ASSAULT',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44699',
         },
         {
+          code: 'RAPE/ATTEMPTED RAPE',
           label: 'RAPE/ATTEMPTED RAPE',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44699',
         },
         {
+          code: 'OTHER SEXUAL OFFENCE',
           label: 'OTHER SEXUAL OFFENCE',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44699',
         },
         {
+          code: 'THEFT',
           label: 'THEFT',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44699',
         },
         {
+          code: 'ROBBERY',
           label: 'ROBBERY',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44699',
         },
         {
+          code: 'FIREARM OFFENCE',
           label: 'FIREARM OFFENCE',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44699',
         },
         {
+          code: 'DRUG OFFENCE',
           label: 'DRUG OFFENCE',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44699',
         },
         {
+          code: 'VEHICLE CRIME',
           label: 'VEHICLE CRIME',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44699',
         },
         {
+          code: 'PUBLIC ORDER OFFENCE',
           label: 'PUBLIC ORDER OFFENCE',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44699',
         },
         {
+          code: 'OTHER',
           label: 'OTHER',
           commentRequired: true,
           dateRequired: false,
@@ -943,16 +1094,19 @@ const ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
     },
     '44376': {
       id: '44376',
+      code: 'WERE THE POLICE INFORMED OF THE INCIDENT',
       label: 'WERE THE POLICE INFORMED OF THE INCIDENT',
       multipleAnswers: false,
       answers: [
         {
+          code: 'YES',
           label: 'YES',
           commentRequired: false,
           dateRequired: true,
           nextQuestionId: '45177',
         },
         {
+          code: 'NO',
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -962,76 +1116,89 @@ const ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
     },
     '44377': {
       id: '44377',
+      code: 'WHICH SERIOUS INJURIES WERE SUSTAINED',
       label: 'WHICH SERIOUS INJURIES WERE SUSTAINED',
       multipleAnswers: true,
       answers: [
         {
+          code: 'FRACTURE',
           label: 'FRACTURE',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44872',
         },
         {
+          code: 'SCALD OR BURN',
           label: 'SCALD OR BURN',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44872',
         },
         {
+          code: 'STABBING',
           label: 'STABBING',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44872',
         },
         {
+          code: 'CRUSHING',
           label: 'CRUSHING',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44872',
         },
         {
+          code: 'EXTENSIVE/MULTIPLE BRUISING',
           label: 'EXTENSIVE/MULTIPLE BRUISING',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44872',
         },
         {
+          code: 'BLACK EYE',
           label: 'BLACK EYE',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44872',
         },
         {
+          code: 'BROKEN NOSE',
           label: 'BROKEN NOSE',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44872',
         },
         {
+          code: 'BROKEN TEETH',
           label: 'BROKEN TEETH',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44872',
         },
         {
+          code: 'CUTS REQUIRING SUTURES',
           label: 'CUTS REQUIRING SUTURES',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44872',
         },
         {
+          code: 'BITES',
           label: 'BITES',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44872',
         },
         {
+          code: 'GUN SHOT WOUND',
           label: 'GUN SHOT WOUND',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44872',
         },
         {
+          code: 'TEMPORARY/PERMANENT BLINDNESS',
           label: 'TEMPORARY/PERMANENT BLINDNESS',
           commentRequired: false,
           dateRequired: false,
@@ -1041,40 +1208,47 @@ const ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
     },
     '44381': {
       id: '44381',
+      code: 'STATE THE NATURE OF ASSISTANCE',
       label: 'STATE THE NATURE OF ASSISTANCE',
       multipleAnswers: true,
       answers: [
         {
+          code: 'SMUGGLED WEAPONS',
           label: 'SMUGGLED WEAPONS',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44689',
         },
         {
+          code: 'SMUGGLED TOOLS/EQUIPMENT',
           label: 'SMUGGLED TOOLS/EQUIPMENT',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44689',
         },
         {
+          code: 'SWAPPED IDENTITY',
           label: 'SWAPPED IDENTITY',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44689',
         },
         {
+          code: 'BREACHED PERIMETER',
           label: 'BREACHED PERIMETER',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44689',
         },
         {
+          code: 'PROVIDED GET AWAY VEHICLE',
           label: 'PROVIDED GET AWAY VEHICLE',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44689',
         },
         {
+          code: 'OTHER',
           label: 'OTHER',
           commentRequired: true,
           dateRequired: false,
@@ -1084,16 +1258,19 @@ const ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
     },
     '44388': {
       id: '44388',
+      code: 'HAS PRISONER BEEN RECAPTURED',
       label: 'HAS PRISONER BEEN RECAPTURED',
       multipleAnswers: false,
       answers: [
         {
+          code: 'YES',
           label: 'YES',
           commentRequired: false,
           dateRequired: true,
           nextQuestionId: '45147',
         },
         {
+          code: 'NO',
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -1103,16 +1280,19 @@ const ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
     },
     '44406': {
       id: '44406',
+      code: 'WHERE THE INJURIES CAUSED BY WEAPONS',
       label: 'WHERE THE INJURIES CAUSED BY WEAPONS',
       multipleAnswers: false,
       answers: [
         {
+          code: 'INTENTIONAL',
           label: 'INTENTIONAL',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44309',
         },
         {
+          code: 'ACCIDENTAL',
           label: 'ACCIDENTAL',
           commentRequired: false,
           dateRequired: false,
@@ -1122,16 +1302,19 @@ const ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
     },
     '44415': {
       id: '44415',
+      code: 'HAS THE PRISONER BEEN CHARGED WITH A FURTHER OFFENCE',
       label: 'HAS THE PRISONER BEEN CHARGED WITH A FURTHER OFFENCE',
       multipleAnswers: false,
       answers: [
         {
+          code: 'YES',
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44373',
         },
         {
+          code: 'NO',
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -1141,16 +1324,19 @@ const ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
     },
     '44428': {
       id: '44428',
+      code: 'WAS A SERIOUS INJURY SUSTAINED BY A PRISONER',
       label: 'WAS A SERIOUS INJURY SUSTAINED BY A PRISONER',
       multipleAnswers: false,
       answers: [
         {
+          code: 'YES',
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44377',
         },
         {
+          code: 'NO',
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -1160,16 +1346,19 @@ const ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
     },
     '44436': {
       id: '44436',
+      code: 'ARE ANY SECURITY AIDS COVERING THE WALL OR FENCE AT THE ESCAPE SITE',
       label: 'ARE ANY SECURITY AIDS COVERING THE WALL OR FENCE AT THE ESCAPE SITE',
       multipleAnswers: false,
       answers: [
         {
+          code: 'YES',
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '45039',
         },
         {
+          code: 'NO',
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -1179,22 +1368,26 @@ const ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
     },
     '44442': {
       id: '44442',
+      code: 'WHERE WERE THE INJURED STAFF TREATED',
       label: 'WHERE WERE THE INJURED STAFF TREATED',
       multipleAnswers: false,
       answers: [
         {
+          code: 'PRISON HEALTH CARE CENTRE',
           label: 'PRISON HEALTH CARE CENTRE',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '45164',
         },
         {
+          code: 'OUTSIDE HOSPITAL',
           label: 'OUTSIDE HOSPITAL',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '45164',
         },
         {
+          code: 'OWN GP',
           label: 'OWN GP',
           commentRequired: false,
           dateRequired: false,
@@ -1204,16 +1397,19 @@ const ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
     },
     '44476': {
       id: '44476',
+      code: 'HOW WAS THE CLADDING BREACHED',
       label: 'HOW WAS THE CLADDING BREACHED',
       multipleAnswers: false,
       answers: [
         {
+          code: 'CUT',
           label: 'CUT',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44192',
         },
         {
+          code: 'REMOVED',
           label: 'REMOVED',
           commentRequired: false,
           dateRequired: false,
@@ -1223,16 +1419,19 @@ const ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
     },
     '44485': {
       id: '44485',
+      code: 'DID ANY PRISONER REQUIRE MEDICAL TREATMENT FOR INJURIES',
       label: 'DID ANY PRISONER REQUIRE MEDICAL TREATMENT FOR INJURIES',
       multipleAnswers: false,
       answers: [
         {
+          code: 'YES',
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44212',
         },
         {
+          code: 'NO',
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -1242,16 +1441,19 @@ const ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
     },
     '44499': {
       id: '44499',
+      code: 'IS THERE ANY MEDIA INTEREST IN THIS INCIDENT',
       label: 'IS THERE ANY MEDIA INTEREST IN THIS INCIDENT',
       multipleAnswers: false,
       answers: [
         {
+          code: 'YES',
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44310',
         },
         {
+          code: 'NO',
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -1261,22 +1463,26 @@ const ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
     },
     '44501': {
       id: '44501',
+      code: 'WAS THE FIREARM',
       label: 'WAS THE FIREARM',
       multipleAnswers: false,
       answers: [
         {
+          code: 'REAL',
           label: 'REAL',
           commentRequired: true,
           dateRequired: false,
           nextQuestionId: '44270',
         },
         {
+          code: 'REPLICA',
           label: 'REPLICA',
           commentRequired: true,
           dateRequired: false,
           nextQuestionId: '44270',
         },
         {
+          code: 'NOT KNOWN',
           label: 'NOT KNOWN',
           commentRequired: true,
           dateRequired: false,
@@ -1286,16 +1492,19 @@ const ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
     },
     '44527': {
       id: '44527',
+      code: 'WAS THE EXIT THROUGH AN UNLOCKED DOOR OR GATE',
       label: 'WAS THE EXIT THROUGH AN UNLOCKED DOOR OR GATE',
       multipleAnswers: false,
       answers: [
         {
+          code: 'YES',
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44321',
         },
         {
+          code: 'NO',
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -1305,46 +1514,54 @@ const ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
     },
     '44540': {
       id: '44540',
+      code: 'WHERE WAS THE CELL SITUATED',
       label: 'WHERE WAS THE CELL SITUATED',
       multipleAnswers: false,
       answers: [
         {
+          code: 'SSU',
           label: 'SSU',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44558',
         },
         {
+          code: 'WING/HOUSEBLOCK',
           label: 'WING/HOUSEBLOCK',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44558',
         },
         {
+          code: 'CRC',
           label: 'CRC',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44558',
         },
         {
+          code: 'HEALTH CARE CENTRE',
           label: 'HEALTH CARE CENTRE',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44558',
         },
         {
+          code: 'SEGREGATION UNIT',
           label: 'SEGREGATION UNIT',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44558',
         },
         {
+          code: 'RULE 45 UNIT (OR)',
           label: 'RULE 45 UNIT (OR)',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44558',
         },
         {
+          code: 'RULE 45 UNIT (GOAD)',
           label: 'RULE 45 UNIT (GOAD)',
           commentRequired: false,
           dateRequired: false,
@@ -1354,16 +1571,19 @@ const ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
     },
     '44546': {
       id: '44546',
+      code: 'WAS THERE A SWITCH OF IDENTITY',
       label: 'WAS THERE A SWITCH OF IDENTITY',
       multipleAnswers: false,
       answers: [
         {
+          code: 'YES',
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44651',
         },
         {
+          code: 'NO',
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -1373,16 +1593,19 @@ const ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
     },
     '44549': {
       id: '44549',
+      code: 'WAS A SERIOUS INJURY SUSTAINED BY STAFF',
       label: 'WAS A SERIOUS INJURY SUSTAINED BY STAFF',
       multipleAnswers: false,
       answers: [
         {
+          code: 'YES',
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44858',
         },
         {
+          code: 'NO',
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -1392,16 +1615,19 @@ const ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
     },
     '44558': {
       id: '44558',
+      code: 'HOW WAS THE CELL OCCUPIED',
       label: 'HOW WAS THE CELL OCCUPIED',
       multipleAnswers: false,
       answers: [
         {
+          code: 'SINGLE',
           label: 'SINGLE',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44221',
         },
         {
+          code: 'MULTIPLE OCCUPANCY',
           label: 'MULTIPLE OCCUPANCY',
           commentRequired: true,
           dateRequired: false,
@@ -1411,22 +1637,26 @@ const ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
     },
     '44568': {
       id: '44568',
+      code: 'HOW DID THE PRISONER LEAVE THE ESTABLISHMENT',
       label: 'HOW DID THE PRISONER LEAVE THE ESTABLISHMENT',
       multipleAnswers: false,
       answers: [
         {
+          code: 'ON FOOT',
           label: 'ON FOOT',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '45048',
         },
         {
+          code: 'DROVE VEHICLE OUT',
           label: 'DROVE VEHICLE OUT',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44121',
         },
         {
+          code: 'CONCEALED IN VEHICLE',
           label: 'CONCEALED IN VEHICLE',
           commentRequired: false,
           dateRequired: false,
@@ -1436,46 +1666,54 @@ const ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
     },
     '44578': {
       id: '44578',
+      code: 'HOW DID THE PRISONER GAIN ACCESS TO THE TOP OF THE FENCE',
       label: 'HOW DID THE PRISONER GAIN ACCESS TO THE TOP OF THE FENCE',
       multipleAnswers: true,
       answers: [
         {
+          code: 'LADDER',
           label: 'LADDER',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '45036',
         },
         {
+          code: 'ROPE',
           label: 'ROPE',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '45036',
         },
         {
+          code: 'CLIMBING AIDS',
           label: 'CLIMBING AIDS',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '45036',
         },
         {
+          code: 'FURNITURE ITEMS',
           label: 'FURNITURE ITEMS',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '45036',
         },
         {
+          code: 'SPORTS ITEMS',
           label: 'SPORTS ITEMS',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '45036',
         },
         {
+          code: 'GROUNDS ITEMS',
           label: 'GROUNDS ITEMS',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '45036',
         },
         {
+          code: 'OTHER',
           label: 'OTHER',
           commentRequired: true,
           dateRequired: false,
@@ -1485,58 +1723,68 @@ const ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
     },
     '44590': {
       id: '44590',
+      code: 'WHAT TOOLS WERE USED',
       label: 'WHAT TOOLS WERE USED',
       multipleAnswers: true,
       answers: [
         {
+          code: 'HACKSAW BLADE',
           label: 'HACKSAW BLADE',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44126',
         },
         {
+          code: 'OTHER BLADE',
           label: 'OTHER BLADE',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44126',
         },
         {
+          code: 'WIRE CUTTERS',
           label: 'WIRE CUTTERS',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44126',
         },
         {
+          code: 'BOLT CROPPERS',
           label: 'BOLT CROPPERS',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44126',
         },
         {
+          code: 'DIGGING TOOL',
           label: 'DIGGING TOOL',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44126',
         },
         {
+          code: 'CROW BAR',
           label: 'CROW BAR',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44126',
         },
         {
+          code: 'IMPROVISED TOOL',
           label: 'IMPROVISED TOOL',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44126',
         },
         {
+          code: 'OTHER TOOL',
           label: 'OTHER TOOL',
           commentRequired: true,
           dateRequired: false,
           nextQuestionId: '44126',
         },
         {
+          code: 'NOT KNOWN',
           label: 'NOT KNOWN',
           commentRequired: false,
           dateRequired: false,
@@ -1546,16 +1794,19 @@ const ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
     },
     '44621': {
       id: '44621',
+      code: 'WAS OPERATION LEWIS USED',
       label: 'WAS OPERATION LEWIS USED',
       multipleAnswers: false,
       answers: [
         {
+          code: 'YES',
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44781',
         },
         {
+          code: 'NO',
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -1565,88 +1816,103 @@ const ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
     },
     '44628': {
       id: '44628',
+      code: 'WHAT WAS THE SOURCE OF THE TOOLS',
       label: 'WHAT WAS THE SOURCE OF THE TOOLS',
       multipleAnswers: true,
       answers: [
         {
+          code: 'WORKS DEPARTMENT',
           label: 'WORKS DEPARTMENT',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44436',
         },
         {
+          code: 'CONTRACTORS',
           label: 'CONTRACTORS',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44436',
         },
         {
+          code: 'EDUCATION',
           label: 'EDUCATION',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44436',
         },
         {
+          code: 'HEALTH CARE CENTRE',
           label: 'HEALTH CARE CENTRE',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44436',
         },
         {
+          code: 'FARMS AND GARDENS',
           label: 'FARMS AND GARDENS',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44436',
         },
         {
+          code: 'GYMNASIUM/SPORTS FIELD',
           label: 'GYMNASIUM/SPORTS FIELD',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44436',
         },
         {
+          code: 'WORKSHOPS',
           label: 'WORKSHOPS',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44436',
         },
         {
+          code: 'KITCHEN',
           label: 'KITCHEN',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44436',
         },
         {
+          code: 'HOBBIES',
           label: 'HOBBIES',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44436',
         },
         {
+          code: 'CELL FURNISHINGS',
           label: 'CELL FURNISHINGS',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44436',
         },
         {
+          code: 'WING/HOUSEBLOCK FURNISHINGS',
           label: 'WING/HOUSEBLOCK FURNISHINGS',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44436',
         },
         {
+          code: 'SMUGGLED',
           label: 'SMUGGLED',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44436',
         },
         {
+          code: 'NOT KNOWN',
           label: 'NOT KNOWN',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44436',
         },
         {
+          code: 'OTHER',
           label: 'OTHER',
           commentRequired: true,
           dateRequired: false,
@@ -1656,34 +1922,40 @@ const ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
     },
     '44633': {
       id: '44633',
+      code: 'DESCRIBE THE TYPE OF SPRAY',
       label: 'DESCRIBE THE TYPE OF SPRAY',
       multipleAnswers: true,
       answers: [
         {
+          code: 'C.N (CHLORACETOPHEONE)',
           label: 'C.N (CHLORACETOPHEONE)',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44848',
         },
         {
+          code: 'C.S (ORTHO..NITRILE)',
           label: 'C.S (ORTHO..NITRILE)',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44848',
         },
         {
+          code: 'O.C (MACE/PEPPER)',
           label: 'O.C (MACE/PEPPER)',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44848',
         },
         {
+          code: 'OTHER',
           label: 'OTHER',
           commentRequired: true,
           dateRequired: false,
           nextQuestionId: '44848',
         },
         {
+          code: 'NOT KNOWN',
           label: 'NOT KNOWN',
           commentRequired: false,
           dateRequired: false,
@@ -1693,16 +1965,19 @@ const ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
     },
     '44641': {
       id: '44641',
+      code: 'WAS A KNIFE OR BLADE USED DURING THE ESCAPE',
       label: 'WAS A KNIFE OR BLADE USED DURING THE ESCAPE',
       multipleAnswers: false,
       answers: [
         {
+          code: 'YES',
           label: 'YES',
           commentRequired: true,
           dateRequired: false,
           nextQuestionId: '44329',
         },
         {
+          code: 'NO',
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -1712,16 +1987,19 @@ const ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
     },
     '44651': {
       id: '44651',
+      code: 'WAS THE SWITCH WITH',
       label: 'WAS THE SWITCH WITH',
       multipleAnswers: false,
       answers: [
         {
+          code: 'ANOTHER PRISONER',
           label: 'ANOTHER PRISONER',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44217',
         },
         {
+          code: 'A VISITOR',
           label: 'A VISITOR',
           commentRequired: false,
           dateRequired: false,
@@ -1731,58 +2009,68 @@ const ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
     },
     '44657': {
       id: '44657',
+      code: 'WHAT TOOLS WERE USED',
       label: 'WHAT TOOLS WERE USED',
       multipleAnswers: true,
       answers: [
         {
+          code: 'HACKSAW BLADE',
           label: 'HACKSAW BLADE',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '45037',
         },
         {
+          code: 'OTHER BLADE',
           label: 'OTHER BLADE',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '45037',
         },
         {
+          code: 'WIRE CUTTERS',
           label: 'WIRE CUTTERS',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '45037',
         },
         {
+          code: 'BOLT CROPPERS',
           label: 'BOLT CROPPERS',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '45037',
         },
         {
+          code: 'DIGGING TOOL',
           label: 'DIGGING TOOL',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '45037',
         },
         {
+          code: 'CROW BAR',
           label: 'CROW BAR',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '45037',
         },
         {
+          code: 'IMPROVISED TOOL',
           label: 'IMPROVISED TOOL',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '45037',
         },
         {
+          code: 'OTHER TOOL',
           label: 'OTHER TOOL',
           commentRequired: true,
           dateRequired: false,
           nextQuestionId: '45037',
         },
         {
+          code: 'NOT KNOWN',
           label: 'NOT KNOWN',
           commentRequired: false,
           dateRequired: false,
@@ -1792,16 +2080,19 @@ const ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
     },
     '44659': {
       id: '44659',
+      code: 'WAS DAMAGE CAUSED TO PRISON PROPERTY',
       label: 'WAS DAMAGE CAUSED TO PRISON PROPERTY',
       multipleAnswers: false,
       answers: [
         {
+          code: 'YES',
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44262',
         },
         {
+          code: 'NO',
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -1811,22 +2102,26 @@ const ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
     },
     '44683': {
       id: '44683',
+      code: 'WHO USED THE OTHER WEAPONS',
       label: 'WHO USED THE OTHER WEAPONS',
       multipleAnswers: true,
       answers: [
         {
+          code: 'PRISONER WHO ESCAPED',
           label: 'PRISONER WHO ESCAPED',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44220',
         },
         {
+          code: 'OTHER PRISONER',
           label: 'OTHER PRISONER',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44220',
         },
         {
+          code: 'OUTSIDE ACCOMPLICE',
           label: 'OUTSIDE ACCOMPLICE',
           commentRequired: false,
           dateRequired: false,
@@ -1836,16 +2131,19 @@ const ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
     },
     '44689': {
       id: '44689',
+      code: 'WAS A FIREARM USED DURING THE ESCAPE',
       label: 'WAS A FIREARM USED DURING THE ESCAPE',
       multipleAnswers: false,
       answers: [
         {
+          code: 'YES',
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44501',
         },
         {
+          code: 'NO',
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -1855,16 +2153,19 @@ const ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
     },
     '44699': {
       id: '44699',
+      code: 'HAS ANY PROSECUTION TAKEN PLACE OR IS ANY PENDING',
       label: 'HAS ANY PROSECUTION TAKEN PLACE OR IS ANY PENDING',
       multipleAnswers: false,
       answers: [
         {
+          code: 'YES',
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44968',
         },
         {
+          code: 'NO',
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -1874,16 +2175,19 @@ const ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
     },
     '44705': {
       id: '44705',
+      code: 'DOES THE SPORTSFIELD HAVE ACCESS TO EXTERNAL PERIMETER',
       label: 'DOES THE SPORTSFIELD HAVE ACCESS TO EXTERNAL PERIMETER',
       multipleAnswers: false,
       answers: [
         {
+          code: 'YES',
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44851',
         },
         {
+          code: 'NO',
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -1893,16 +2197,19 @@ const ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
     },
     '44726': {
       id: '44726',
+      code: 'WAS FORCE USED',
       label: 'WAS FORCE USED',
       multipleAnswers: false,
       answers: [
         {
+          code: 'YES',
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44165',
         },
         {
+          code: 'NO',
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -1912,64 +2219,75 @@ const ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
     },
     '44761': {
       id: '44761',
+      code: 'WHAT OTHER WEAPONS WERE USED',
       label: 'WHAT OTHER WEAPONS WERE USED',
       multipleAnswers: true,
       answers: [
         {
+          code: 'OTHER SHARP INSTRUMENT',
           label: 'OTHER SHARP INSTRUMENT',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44683',
         },
         {
+          code: 'BLUNT INSTRUMENT',
           label: 'BLUNT INSTRUMENT',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44683',
         },
         {
+          code: 'LIGATURE',
           label: 'LIGATURE',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44683',
         },
         {
+          code: 'DANGEROUS LIQUID',
           label: 'DANGEROUS LIQUID',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44683',
         },
         {
+          code: 'EXCRETA/URINE',
           label: 'EXCRETA/URINE',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44683',
         },
         {
+          code: 'SPITTING',
           label: 'SPITTING',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44683',
         },
         {
+          code: 'FOOD',
           label: 'FOOD',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44683',
         },
         {
+          code: 'THROWN FURNITURE',
           label: 'THROWN FURNITURE',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44683',
         },
         {
+          code: 'THROWN EQUIPMENT',
           label: 'THROWN EQUIPMENT',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44683',
         },
         {
+          code: 'OTHER',
           label: 'OTHER',
           commentRequired: true,
           dateRequired: false,
@@ -1979,16 +2297,19 @@ const ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
     },
     '44781': {
       id: '44781',
+      code: 'WAS OUTSIDE ASSISTANCE INVOLVED IN THE ESCAPE',
       label: 'WAS OUTSIDE ASSISTANCE INVOLVED IN THE ESCAPE',
       multipleAnswers: false,
       answers: [
         {
+          code: 'YES',
           label: 'YES',
           commentRequired: true,
           dateRequired: false,
           nextQuestionId: '44381',
         },
         {
+          code: 'NO',
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -1998,22 +2319,26 @@ const ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
     },
     '44787': {
       id: '44787',
+      code: 'WHO USED THE KNIFE OR BLADE',
       label: 'WHO USED THE KNIFE OR BLADE',
       multipleAnswers: true,
       answers: [
         {
+          code: 'PRISONER WHO ESCAPED',
           label: 'PRISONER WHO ESCAPED',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44369',
         },
         {
+          code: 'OTHER PRISONER',
           label: 'OTHER PRISONER',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44369',
         },
         {
+          code: 'OUTSIDE ACCOMPLICE',
           label: 'OUTSIDE ACCOMPLICE',
           commentRequired: false,
           dateRequired: false,
@@ -2023,52 +2348,61 @@ const ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
     },
     '44790': {
       id: '44790',
+      code: 'WHAT TYPE OF FORCE WAS USED',
       label: 'WHAT TYPE OF FORCE WAS USED',
       multipleAnswers: false,
       answers: [
         {
+          code: 'CUT WINDOW OR BARS',
           label: 'CUT WINDOW OR BARS',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44936',
         },
         {
+          code: 'FORCED WINDOW OR BARS',
           label: 'FORCED WINDOW OR BARS',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44936',
         },
         {
+          code: 'CUT AND FORCED WINDOW AND BARS',
           label: 'CUT AND FORCED WINDOW AND BARS',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44936',
         },
         {
+          code: 'DUG THROUGH EXTERNAL WALL',
           label: 'DUG THROUGH EXTERNAL WALL',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44936',
         },
         {
+          code: 'DUG THROUGH INTERNAL WALL',
           label: 'DUG THROUGH INTERNAL WALL',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '45009',
         },
         {
+          code: 'DUG THROUGH FLOOR',
           label: 'DUG THROUGH FLOOR',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '45009',
         },
         {
+          code: 'BROKE THROUGH CEILING',
           label: 'BROKE THROUGH CEILING',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '45009',
         },
         {
+          code: 'FORCED DOOR',
           label: 'FORCED DOOR',
           commentRequired: false,
           dateRequired: false,
@@ -2078,16 +2412,19 @@ const ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
     },
     '44798': {
       id: '44798',
+      code: 'IS ANY MEMBER OF STAFF FACING DISCIPLINARY CHARGES',
       label: 'IS ANY MEMBER OF STAFF FACING DISCIPLINARY CHARGES',
       multipleAnswers: false,
       answers: [
         {
+          code: 'YES',
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44499',
         },
         {
+          code: 'NO',
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -2097,16 +2434,19 @@ const ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
     },
     '44824': {
       id: '44824',
+      code: 'WAS THE WALL BREACHED FROM',
       label: 'WAS THE WALL BREACHED FROM',
       multipleAnswers: true,
       answers: [
         {
+          code: 'INSIDE',
           label: 'INSIDE',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '45103',
         },
         {
+          code: 'OUTSIDE',
           label: 'OUTSIDE',
           commentRequired: false,
           dateRequired: false,
@@ -2116,16 +2456,19 @@ const ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
     },
     '44830': {
       id: '44830',
+      code: 'WAS THE FENCE',
       label: 'WAS THE FENCE',
       multipleAnswers: false,
       answers: [
         {
+          code: 'CLAD',
           label: 'CLAD',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44903',
         },
         {
+          code: 'UNCLAD',
           label: 'UNCLAD',
           commentRequired: false,
           dateRequired: false,
@@ -2135,16 +2478,19 @@ const ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
     },
     '44834': {
       id: '44834',
+      code: 'WAS THE FENCE CUT OR BREACHED FROM',
       label: 'WAS THE FENCE CUT OR BREACHED FROM',
       multipleAnswers: true,
       answers: [
         {
+          code: 'INSIDE',
           label: 'INSIDE',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44830',
         },
         {
+          code: 'OUTSIDE',
           label: 'OUTSIDE',
           commentRequired: false,
           dateRequired: false,
@@ -2154,58 +2500,68 @@ const ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
     },
     '44844': {
       id: '44844',
+      code: 'WHAT TOOLS WERE USED',
       label: 'WHAT TOOLS WERE USED',
       multipleAnswers: true,
       answers: [
         {
+          code: 'HACKSAW BLADE',
           label: 'HACKSAW BLADE',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44231',
         },
         {
+          code: 'OTHER BLADE',
           label: 'OTHER BLADE',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44231',
         },
         {
+          code: 'WIRE CUTTERS',
           label: 'WIRE CUTTERS',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44231',
         },
         {
+          code: 'BOLT CROPPERS',
           label: 'BOLT CROPPERS',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44231',
         },
         {
+          code: 'DIGGING TOOL',
           label: 'DIGGING TOOL',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44231',
         },
         {
+          code: 'CROW BAR',
           label: 'CROW BAR',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44231',
         },
         {
+          code: 'IMPROVISED TOOL',
           label: 'IMPROVISED TOOL',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44231',
         },
         {
+          code: 'OTHER TOOL',
           label: 'OTHER TOOL',
           commentRequired: true,
           dateRequired: false,
           nextQuestionId: '44231',
         },
         {
+          code: 'NOT KNOWN',
           label: 'NOT KNOWN',
           commentRequired: false,
           dateRequired: false,
@@ -2215,22 +2571,26 @@ const ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
     },
     '44848': {
       id: '44848',
+      code: 'WHO USED THE SPRAY',
       label: 'WHO USED THE SPRAY',
       multipleAnswers: true,
       answers: [
         {
+          code: 'PRISONER WHO ESCAPED',
           label: 'PRISONER WHO ESCAPED',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44641',
         },
         {
+          code: 'OTHER PRISONER',
           label: 'OTHER PRISONER',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44641',
         },
         {
+          code: 'OUTSIDE ACCOMPLICE',
           label: 'OUTSIDE ACCOMPLICE',
           commentRequired: false,
           dateRequired: false,
@@ -2240,52 +2600,61 @@ const ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
     },
     '44851': {
       id: '44851',
+      code: 'HOW WAS THE EXTERNAL PERIMETER BREACHED',
       label: 'HOW WAS THE EXTERNAL PERIMETER BREACHED',
       multipleAnswers: false,
       answers: [
         {
+          code: 'MAIN GATE',
           label: 'MAIN GATE',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44568',
         },
         {
+          code: 'OTHER GATE IN PERIMETER',
           label: 'OTHER GATE IN PERIMETER',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44568',
         },
         {
+          code: 'OVER WALL',
           label: 'OVER WALL',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44852',
         },
         {
+          code: 'OVER FENCE',
           label: 'OVER FENCE',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44852',
         },
         {
+          code: 'THROUGH FENCE',
           label: 'THROUGH FENCE',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44834',
         },
         {
+          code: 'THROUGH WALL',
           label: 'THROUGH WALL',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44824',
         },
         {
+          code: 'UNDER FENCE',
           label: 'UNDER FENCE',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44834',
         },
         {
+          code: 'UNDER WALL',
           label: 'UNDER WALL',
           commentRequired: false,
           dateRequired: false,
@@ -2295,46 +2664,54 @@ const ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
     },
     '44852': {
       id: '44852',
+      code: 'HOW DID THE PRISONER GAIN ACCESS TO THE TOP OF THE WALL OR FENCE',
       label: 'HOW DID THE PRISONER GAIN ACCESS TO THE TOP OF THE WALL OR FENCE',
       multipleAnswers: true,
       answers: [
         {
+          code: 'LADDER',
           label: 'LADDER',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '45052',
         },
         {
+          code: 'ROPE',
           label: 'ROPE',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '45052',
         },
         {
+          code: 'CLIMBING AIDS',
           label: 'CLIMBING AIDS',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '45052',
         },
         {
+          code: 'FURNITURE ITEMS',
           label: 'FURNITURE ITEMS',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '45052',
         },
         {
+          code: 'SPORTS ITEMS',
           label: 'SPORTS ITEMS',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '45052',
         },
         {
+          code: 'GROUNDS ITEMS',
           label: 'GROUNDS ITEMS',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '45052',
         },
         {
+          code: 'OTHER',
           label: 'OTHER',
           commentRequired: true,
           dateRequired: false,
@@ -2344,76 +2721,89 @@ const ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
     },
     '44858': {
       id: '44858',
+      code: 'WHICH SERIOUS INJURIES WERE SUSTAINED',
       label: 'WHICH SERIOUS INJURIES WERE SUSTAINED',
       multipleAnswers: true,
       answers: [
         {
+          code: 'FRACTURE',
           label: 'FRACTURE',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44981',
         },
         {
+          code: 'SCALD OR BURN',
           label: 'SCALD OR BURN',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44981',
         },
         {
+          code: 'STABBING',
           label: 'STABBING',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44981',
         },
         {
+          code: 'CRUSHING',
           label: 'CRUSHING',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44981',
         },
         {
+          code: 'EXTENSIVE/MULTIPLE BRUISING',
           label: 'EXTENSIVE/MULTIPLE BRUISING',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44981',
         },
         {
+          code: 'BLACK EYE',
           label: 'BLACK EYE',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44981',
         },
         {
+          code: 'BROKEN NOSE',
           label: 'BROKEN NOSE',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44981',
         },
         {
+          code: 'BROKEN TEETH',
           label: 'BROKEN TEETH',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44981',
         },
         {
+          code: 'CUTS REQUIRING SUTURES',
           label: 'CUTS REQUIRING SUTURES',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44981',
         },
         {
+          code: 'BITES',
           label: 'BITES',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44981',
         },
         {
+          code: 'GUN SHOT WOUND',
           label: 'GUN SHOT WOUND',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44981',
         },
         {
+          code: 'TEMPORARY/PERMANENT BLINDNESS',
           label: 'TEMPORARY/PERMANENT BLINDNESS',
           commentRequired: false,
           dateRequired: false,
@@ -2423,16 +2813,19 @@ const ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
     },
     '44872': {
       id: '44872',
+      code: 'WAS A MINOR INJURY SUSTAINED BY A PRISONER',
       label: 'WAS A MINOR INJURY SUSTAINED BY A PRISONER',
       multipleAnswers: false,
       answers: [
         {
+          code: 'YES',
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44258',
         },
         {
+          code: 'NO',
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -2442,22 +2835,26 @@ const ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
     },
     '44897': {
       id: '44897',
+      code: 'WERE THE ROUNDS DISCHARGED',
       label: 'WERE THE ROUNDS DISCHARGED',
       multipleAnswers: false,
       answers: [
         {
+          code: 'LIVE',
           label: 'LIVE',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44325',
         },
         {
+          code: 'BLANK',
           label: 'BLANK',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44325',
         },
         {
+          code: 'NOT KNOWN',
           label: 'NOT KNOWN',
           commentRequired: false,
           dateRequired: false,
@@ -2467,22 +2864,26 @@ const ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
     },
     '44903': {
       id: '44903',
+      code: 'WAS THE FENCE BREACHED',
       label: 'WAS THE FENCE BREACHED',
       multipleAnswers: false,
       answers: [
         {
+          code: 'THROUGH THE CLADDING',
           label: 'THROUGH THE CLADDING',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44476',
         },
         {
+          code: 'ABOVE THE CLADDING',
           label: 'ABOVE THE CLADDING',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44192',
         },
         {
+          code: 'BELOW THE CLADDING',
           label: 'BELOW THE CLADDING',
           commentRequired: false,
           dateRequired: false,
@@ -2492,16 +2893,19 @@ const ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
     },
     '44931': {
       id: '44931',
+      code: 'WERE TOOLS USED',
       label: 'WERE TOOLS USED',
       multipleAnswers: false,
       answers: [
         {
+          code: 'YES',
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44844',
         },
         {
+          code: 'NO',
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -2511,16 +2915,19 @@ const ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
     },
     '44936': {
       id: '44936',
+      code: 'WERE TOOLS USED',
       label: 'WERE TOOLS USED',
       multipleAnswers: false,
       answers: [
         {
+          code: 'YES',
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44657',
         },
         {
+          code: 'NO',
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -2530,34 +2937,40 @@ const ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
     },
     '44961': {
       id: '44961',
+      code: 'WHICH MINOR INJURIES WERE SUSTAINED',
       label: 'WHICH MINOR INJURIES WERE SUSTAINED',
       multipleAnswers: true,
       answers: [
         {
+          code: 'GRAZES, SCRATCHES OR ABRASIONS',
           label: 'GRAZES, SCRATCHES OR ABRASIONS',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '45132',
         },
         {
+          code: 'MINOR BRUISES',
           label: 'MINOR BRUISES',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '45132',
         },
         {
+          code: 'SWELLINGS',
           label: 'SWELLINGS',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '45132',
         },
         {
+          code: 'SUPERFICIAL CUTS',
           label: 'SUPERFICIAL CUTS',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '45132',
         },
         {
+          code: 'OTHER',
           label: 'OTHER',
           commentRequired: true,
           dateRequired: false,
@@ -2567,16 +2980,19 @@ const ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
     },
     '44968': {
       id: '44968',
+      code: 'WAS THIS A KPI ESCAPE',
       label: 'WAS THIS A KPI ESCAPE',
       multipleAnswers: false,
       answers: [
         {
+          code: 'YES',
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44659',
         },
         {
+          code: 'NO',
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -2586,16 +3002,19 @@ const ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
     },
     '44981': {
       id: '44981',
+      code: 'WERE MINOR INJURIES SUSTAINED BY STAFF',
       label: 'WERE MINOR INJURIES SUSTAINED BY STAFF',
       multipleAnswers: false,
       answers: [
         {
+          code: 'YES',
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44961',
         },
         {
+          code: 'NO',
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -2605,58 +3024,68 @@ const ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
     },
     '45009': {
       id: '45009',
+      code: 'WHICH AREA DID THIS GIVE ACCESS TO',
       label: 'WHICH AREA DID THIS GIVE ACCESS TO',
       multipleAnswers: false,
       answers: [
         {
+          code: 'ANOTHER CELL',
           label: 'ANOTHER CELL',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44936',
         },
         {
+          code: 'RECESS/SHOWERS',
           label: 'RECESS/SHOWERS',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44936',
         },
         {
+          code: 'STORE ROOM',
           label: 'STORE ROOM',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44936',
         },
         {
+          code: 'ASSOCIATION AREA',
           label: 'ASSOCIATION AREA',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44936',
         },
         {
+          code: 'OFFICE',
           label: 'OFFICE',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44936',
         },
         {
+          code: 'CANTEEN',
           label: 'CANTEEN',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44936',
         },
         {
+          code: 'KITCHEN/SERVERY',
           label: 'KITCHEN/SERVERY',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44936',
         },
         {
+          code: 'ROOF SPACE',
           label: 'ROOF SPACE',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44936',
         },
         {
+          code: 'BASEMENT',
           label: 'BASEMENT',
           commentRequired: false,
           dateRequired: false,
@@ -2666,118 +3095,138 @@ const ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
     },
     '45032': {
       id: '45032',
+      code: 'WHERE WAS THE PRISONER PRIOR TO THE ESCAPE',
       label: 'WHERE WAS THE PRISONER PRIOR TO THE ESCAPE',
       multipleAnswers: false,
       answers: [
         {
+          code: 'SPORTS FIELD',
           label: 'SPORTS FIELD',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44705',
         },
         {
+          code: 'CELL',
           label: 'CELL',
           commentRequired: true,
           dateRequired: false,
           nextQuestionId: '44540',
         },
         {
+          code: 'VISITS',
           label: 'VISITS',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44527',
         },
         {
+          code: 'WING/HOUSEBLOCK',
           label: 'WING/HOUSEBLOCK',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44370',
         },
         {
+          code: 'DORMITORY',
           label: 'DORMITORY',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44370',
         },
         {
+          code: 'HEALTH CARE CENTRE',
           label: 'HEALTH CARE CENTRE',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44370',
         },
         {
+          code: 'CHAPEL',
           label: 'CHAPEL',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44370',
         },
         {
+          code: 'KITCHEN',
           label: 'KITCHEN',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44370',
         },
         {
+          code: 'EDUCATION/LIBRARY',
           label: 'EDUCATION/LIBRARY',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44370',
         },
         {
+          code: 'WORKSHOP',
           label: 'WORKSHOP',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44370',
         },
         {
+          code: 'STORES',
           label: 'STORES',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44370',
         },
         {
+          code: 'ADMINISTRATION',
           label: 'ADMINISTRATION',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44370',
         },
         {
+          code: 'GYMNASIUM',
           label: 'GYMNASIUM',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44370',
         },
         {
+          code: 'RECEPTION',
           label: 'RECEPTION',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44370',
         },
         {
+          code: 'WORKS DEPARTMENT',
           label: 'WORKS DEPARTMENT',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44370',
         },
         {
+          code: 'EXERCISE YARD',
           label: 'EXERCISE YARD',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44370',
         },
         {
+          code: 'OTHER SECURE AREA',
           label: 'OTHER SECURE AREA',
           commentRequired: true,
           dateRequired: false,
           nextQuestionId: '44370',
         },
         {
+          code: 'GROUNDS WITH NO ACCESS TO EXTERNAL PERIMITER',
           label: 'GROUNDS WITH NO ACCESS TO EXTERNAL PERIMITER',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44370',
         },
         {
+          code: 'GROUNDS WITH ACCESS TO EXTERNAL PERIMITER',
           label: 'GROUNDS WITH ACCESS TO EXTERNAL PERIMITER',
           commentRequired: false,
           dateRequired: false,
@@ -2787,82 +3236,96 @@ const ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
     },
     '45036': {
       id: '45036',
+      code: 'WHAT WAS THE SOURCE OF THE ITEMS',
       label: 'WHAT WAS THE SOURCE OF THE ITEMS',
       multipleAnswers: true,
       answers: [
         {
+          code: 'WORKS DEPARTMENT',
           label: 'WORKS DEPARTMENT',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44851',
         },
         {
+          code: 'CONTRACTORS',
           label: 'CONTRACTORS',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44851',
         },
         {
+          code: 'EDUCATION',
           label: 'EDUCATION',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44851',
         },
         {
+          code: 'HEALTH CARE CENTRE',
           label: 'HEALTH CARE CENTRE',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44851',
         },
         {
+          code: 'FARMS AND GARDENS',
           label: 'FARMS AND GARDENS',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44851',
         },
         {
+          code: 'GYMNASIUM/SPORTS FIELD',
           label: 'GYMNASIUM/SPORTS FIELD',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44851',
         },
         {
+          code: 'WORKSHOPS',
           label: 'WORKSHOPS',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44851',
         },
         {
+          code: 'KITCHEN',
           label: 'KITCHEN',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44851',
         },
         {
+          code: 'HOBBIES',
           label: 'HOBBIES',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44851',
         },
         {
+          code: 'CELL FURNISHINGS',
           label: 'CELL FURNISHINGS',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44851',
         },
         {
+          code: 'WING/HOUSEBLOCK FURNISHINGS',
           label: 'WING/HOUSEBLOCK FURNISHINGS',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44851',
         },
         {
+          code: 'SMUGGLED',
           label: 'SMUGGLED',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44851',
         },
         {
+          code: 'NOT KNOWN',
           label: 'NOT KNOWN',
           commentRequired: false,
           dateRequired: false,
@@ -2872,88 +3335,103 @@ const ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
     },
     '45037': {
       id: '45037',
+      code: 'WHAT WAS THE SOURCE OF THE TOOLS',
       label: 'WHAT WAS THE SOURCE OF THE TOOLS',
       multipleAnswers: true,
       answers: [
         {
+          code: 'WORKS DEPARTMENT',
           label: 'WORKS DEPARTMENT',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44217',
         },
         {
+          code: 'CONTRACTORS',
           label: 'CONTRACTORS',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44217',
         },
         {
+          code: 'EDUCATION',
           label: 'EDUCATION',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44217',
         },
         {
+          code: 'HEALTH CARE CENTRE',
           label: 'HEALTH CARE CENTRE',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44217',
         },
         {
+          code: 'FARMS AND GARDENS',
           label: 'FARMS AND GARDENS',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44217',
         },
         {
+          code: 'GYMNASIUM/SPORTS FIELD',
           label: 'GYMNASIUM/SPORTS FIELD',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44217',
         },
         {
+          code: 'WORKSHOPS',
           label: 'WORKSHOPS',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44217',
         },
         {
+          code: 'KITCHEN',
           label: 'KITCHEN',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44217',
         },
         {
+          code: 'HOBBIES',
           label: 'HOBBIES',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44217',
         },
         {
+          code: 'CELL FURNISHINGS',
           label: 'CELL FURNISHINGS',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44217',
         },
         {
+          code: 'WING/HOUSEBLOCK FURNISHINGS',
           label: 'WING/HOUSEBLOCK FURNISHINGS',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44217',
         },
         {
+          code: 'SMUGGLED',
           label: 'SMUGGLED',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44217',
         },
         {
+          code: 'NOT KNOWN',
           label: 'NOT KNOWN',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44217',
         },
         {
+          code: 'OTHER',
           label: 'OTHER',
           commentRequired: true,
           dateRequired: false,
@@ -2963,82 +3441,96 @@ const ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
     },
     '45039': {
       id: '45039',
+      code: 'WHAT ARE THE AIDS',
       label: 'WHAT ARE THE AIDS',
       multipleAnswers: true,
       answers: [
         {
+          code: 'GANDER',
           label: 'GANDER',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '45048',
         },
         {
+          code: 'PIPE',
           label: 'PIPE',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '45048',
         },
         {
+          code: "'S' WIRE",
           label: "'S' WIRE",
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '45048',
         },
         {
+          code: 'SCARE STRIP',
           label: 'SCARE STRIP',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '45048',
         },
         {
+          code: 'TAUT WIRE',
           label: 'TAUT WIRE',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '45048',
         },
         {
+          code: 'GEOPHONES',
           label: 'GEOPHONES',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '45048',
         },
         {
+          code: 'INFRA RED DETECTORS',
           label: 'INFRA RED DETECTORS',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '45048',
         },
         {
+          code: 'MICROPHONIC CABLE',
           label: 'MICROPHONIC CABLE',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '45048',
         },
         {
+          code: 'FIBRE OPTIC SYSTEM',
           label: 'FIBRE OPTIC SYSTEM',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '45048',
         },
         {
+          code: 'LEAKY CO-AXIL CABLE',
           label: 'LEAKY CO-AXIL CABLE',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '45048',
         },
         {
+          code: 'PRESSURE SENSORS',
           label: 'PRESSURE SENSORS',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '45048',
         },
         {
+          code: 'CCTV',
           label: 'CCTV',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '45048',
         },
         {
+          code: 'OTHER',
           label: 'OTHER',
           commentRequired: true,
           dateRequired: false,
@@ -3048,16 +3540,19 @@ const ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
     },
     '45048': {
       id: '45048',
+      code: 'WAS A VEHICLE INVOLVED IN THE ESCAPE',
       label: 'WAS A VEHICLE INVOLVED IN THE ESCAPE',
       multipleAnswers: false,
       answers: [
         {
+          code: 'YES',
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44121',
         },
         {
+          code: 'NO',
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -3067,82 +3562,96 @@ const ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
     },
     '45052': {
       id: '45052',
+      code: 'WHAT WAS THE SOURCE OF THE ITEMS',
       label: 'WHAT WAS THE SOURCE OF THE ITEMS',
       multipleAnswers: true,
       answers: [
         {
+          code: 'WORKS DEPARTMENT',
           label: 'WORKS DEPARTMENT',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44436',
         },
         {
+          code: 'CONTRACTORS',
           label: 'CONTRACTORS',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44436',
         },
         {
+          code: 'EDUCATION',
           label: 'EDUCATION',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44436',
         },
         {
+          code: 'HEALTH CARE CENTRE',
           label: 'HEALTH CARE CENTRE',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44436',
         },
         {
+          code: 'FARMS AND GARDENS',
           label: 'FARMS AND GARDENS',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44436',
         },
         {
+          code: 'GYMNASIUM/SPORTS FIELD',
           label: 'GYMNASIUM/SPORTS FIELD',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44436',
         },
         {
+          code: 'WORKSHOPS',
           label: 'WORKSHOPS',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44436',
         },
         {
+          code: 'KITCHEN',
           label: 'KITCHEN',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44436',
         },
         {
+          code: 'HOBBIES',
           label: 'HOBBIES',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44436',
         },
         {
+          code: 'CELL FURNISHINGS',
           label: 'CELL FURNISHINGS',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44436',
         },
         {
+          code: 'WING/HOUSEBLOCK FURNISHINGS',
           label: 'WING/HOUSEBLOCK FURNISHINGS',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44436',
         },
         {
+          code: 'SMUGGLED',
           label: 'SMUGGLED',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44436',
         },
         {
+          code: 'NOT KNOWN',
           label: 'NOT KNOWN',
           commentRequired: false,
           dateRequired: false,
@@ -3152,40 +3661,47 @@ const ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
     },
     '45103': {
       id: '45103',
+      code: 'HOW WAS THE WALL BREACHED',
       label: 'HOW WAS THE WALL BREACHED',
       multipleAnswers: false,
       answers: [
         {
+          code: 'DUG THROUGH',
           label: 'DUG THROUGH',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44291',
         },
         {
+          code: 'DUG UNDER',
           label: 'DUG UNDER',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44291',
         },
         {
+          code: 'EXPLOSION',
           label: 'EXPLOSION',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44291',
         },
         {
+          code: 'RAMMED BY VEHICLE',
           label: 'RAMMED BY VEHICLE',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44291',
         },
         {
+          code: 'OTHER',
           label: 'OTHER',
           commentRequired: true,
           dateRequired: false,
           nextQuestionId: '44291',
         },
         {
+          code: 'NOT KNOWN',
           label: 'NOT KNOWN',
           commentRequired: false,
           dateRequired: false,
@@ -3195,16 +3711,19 @@ const ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
     },
     '45132': {
       id: '45132',
+      code: 'DID ANY STAFF REQUIRE MEDICAL TREATMENT FOR INJURY',
       label: 'DID ANY STAFF REQUIRE MEDICAL TREATMENT FOR INJURY',
       multipleAnswers: false,
       answers: [
         {
+          code: 'YES',
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44442',
         },
         {
+          code: 'NO',
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -3214,28 +3733,33 @@ const ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
     },
     '45147': {
       id: '45147',
+      code: 'HOW WAS THE PRISONER RECAPTURED',
       label: 'HOW WAS THE PRISONER RECAPTURED',
       multipleAnswers: false,
       answers: [
         {
+          code: 'POLICE ARREST',
           label: 'POLICE ARREST',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44415',
         },
         {
+          code: 'PRISON STAFF ARREST',
           label: 'PRISON STAFF ARREST',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44415',
         },
         {
+          code: 'SURRENDER',
           label: 'SURRENDER',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44415',
         },
         {
+          code: 'OTHER',
           label: 'OTHER',
           commentRequired: true,
           dateRequired: false,
@@ -3245,16 +3769,19 @@ const ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
     },
     '45164': {
       id: '45164',
+      code: 'WERE ANY INJURIES SUSTAINED BY PRISONERS',
       label: 'WERE ANY INJURIES SUSTAINED BY PRISONERS',
       multipleAnswers: false,
       answers: [
         {
+          code: 'YES',
           label: 'YES',
           commentRequired: true,
           dateRequired: false,
           nextQuestionId: '44428',
         },
         {
+          code: 'NO',
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -3264,28 +3791,33 @@ const ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
     },
     '45177': {
       id: '45177',
+      code: 'THE INCIDENT IS SUBJECT TO',
       label: 'THE INCIDENT IS SUBJECT TO',
       multipleAnswers: true,
       answers: [
         {
+          code: 'INVESTIGATION BY POLICE',
           label: 'INVESTIGATION BY POLICE',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44798',
         },
         {
+          code: 'INVESTIGATION INTERNALLY',
           label: 'INVESTIGATION INTERNALLY',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44798',
         },
         {
+          code: "GOVERNOR'S ADJUDICATION",
           label: "GOVERNOR'S ADJUDICATION",
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44798',
         },
         {
+          code: 'NO INVESTIGATION',
           label: 'NO INVESTIGATION',
           commentRequired: false,
           dateRequired: false,

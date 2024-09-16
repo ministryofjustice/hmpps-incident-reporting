@@ -1,4 +1,4 @@
-// Generated with ./scripts/updateNomisIncidentTypeConfigurations.ts at 2024-09-12T16:33:37.654Z
+// Generated with ./scripts/updateNomisIncidentTypeConfigurations.ts at 2024-09-16T15:41:56.546Z
 
 import { type IncidentTypeConfiguration } from '../../data/incidentTypeConfiguration/types'
 
@@ -9,58 +9,68 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
   questions: {
     '44128': {
       id: '44128',
+      code: 'WAS THE ITEM DISCOVERED',
       label: 'WAS THE ITEM DISCOVERED',
       multipleAnswers: true,
       answers: [
         {
+          code: 'BLAST BOMB',
           label: 'BLAST BOMB',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44669',
         },
         {
+          code: 'VEHICLE BOMB',
           label: 'VEHICLE BOMB',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44669',
         },
         {
+          code: 'POSTAL BOMB',
           label: 'POSTAL BOMB',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44669',
         },
         {
+          code: 'INCENDIARY DEVICE',
           label: 'INCENDIARY DEVICE',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44669',
         },
         {
+          code: 'HOAX PACKAGE',
           label: 'HOAX PACKAGE',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44669',
         },
         {
+          code: 'SUSPECT PACKAGE',
           label: 'SUSPECT PACKAGE',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44669',
         },
         {
+          code: 'DETONATORS',
           label: 'DETONATORS',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44669',
         },
         {
+          code: 'FUSES',
           label: 'FUSES',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44669',
         },
         {
+          code: 'EXPLOSIVE',
           label: 'EXPLOSIVE',
           commentRequired: true,
           dateRequired: false,
@@ -70,76 +80,89 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
     },
     '44135': {
       id: '44135',
+      code: 'WHICH SERIOUS INJURIES WERE SUSTAINED',
       label: 'WHICH SERIOUS INJURIES WERE SUSTAINED',
       multipleAnswers: true,
       answers: [
         {
+          code: 'FRACTURE',
           label: 'FRACTURE',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44745',
         },
         {
+          code: 'SCALD OR BURN',
           label: 'SCALD OR BURN',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44745',
         },
         {
+          code: 'STABBING',
           label: 'STABBING',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44745',
         },
         {
+          code: 'CRUSHING',
           label: 'CRUSHING',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44745',
         },
         {
+          code: 'EXTENSIVE/MULTIPLE BRUISING',
           label: 'EXTENSIVE/MULTIPLE BRUISING',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44745',
         },
         {
+          code: 'BLACK EYE',
           label: 'BLACK EYE',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44745',
         },
         {
+          code: 'BROKEN NOSE',
           label: 'BROKEN NOSE',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44745',
         },
         {
+          code: 'BROKEN TEETH',
           label: 'BROKEN TEETH',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44745',
         },
         {
+          code: 'CUTS REQUIRING SUTURES',
           label: 'CUTS REQUIRING SUTURES',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44745',
         },
         {
+          code: 'BITES',
           label: 'BITES',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44745',
         },
         {
+          code: 'GUN SHOT WOUND',
           label: 'GUN SHOT WOUND',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44745',
         },
         {
+          code: 'TEMPORARY/PERMANENT BLINDNESS',
           label: 'TEMPORARY/PERMANENT BLINDNESS',
           commentRequired: false,
           dateRequired: false,
@@ -149,16 +172,19 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
     },
     '44149': {
       id: '44149',
+      code: 'INDICATE THE NATURE OF THE SHUT DOWN',
       label: 'INDICATE THE NATURE OF THE SHUT DOWN',
       multipleAnswers: true,
       answers: [
         {
+          code: 'TELEPHONY',
           label: 'TELEPHONY',
           commentRequired: true,
           dateRequired: false,
           nextQuestionId: '45109',
         },
         {
+          code: 'IT',
           label: 'IT',
           commentRequired: true,
           dateRequired: false,
@@ -168,16 +194,19 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
     },
     '44187': {
       id: '44187',
+      code: 'WHAT TYPE OF EXPLOSION',
       label: 'WHAT TYPE OF EXPLOSION',
       multipleAnswers: false,
       answers: [
         {
+          code: 'CONTROLLED',
           label: 'CONTROLLED',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44277',
         },
         {
+          code: 'UNCONTROLLED',
           label: 'UNCONTROLLED',
           commentRequired: false,
           dateRequired: false,
@@ -187,16 +216,19 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
     },
     '44197': {
       id: '44197',
+      code: 'IS THE INCIDENT THE SUBJECT OF A POLICE INVESTIGATION',
       label: 'IS THE INCIDENT THE SUBJECT OF A POLICE INVESTIGATION',
       multipleAnswers: false,
       answers: [
         {
+          code: 'YES',
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44587',
         },
         {
+          code: 'NO',
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -206,10 +238,12 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
     },
     '44236': {
       id: '44236',
+      code: 'ESTIMATED COST OF DAMAGE',
       label: 'ESTIMATED COST OF DAMAGE',
       multipleAnswers: false,
       answers: [
         {
+          code: 'ENTER AMOUNT IN POUND STERLING',
           label: 'ENTER AMOUNT IN POUND STERLING',
           commentRequired: true,
           dateRequired: false,
@@ -219,16 +253,19 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
     },
     '44260': {
       id: '44260',
+      code: 'IS THE INCIDENT THE SUBJECT OF AN INTERNAL INVESTIGATION',
       label: 'IS THE INCIDENT THE SUBJECT OF AN INTERNAL INVESTIGATION',
       multipleAnswers: false,
       answers: [
         {
+          code: 'YES',
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44579',
         },
         {
+          code: 'NO',
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -238,10 +275,12 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
     },
     '44261': {
       id: '44261',
+      code: 'DESCRIBE WHAT WAS COMPROMISED AND BY WHOM',
       label: 'DESCRIBE WHAT WAS COMPROMISED AND BY WHOM',
       multipleAnswers: false,
       answers: [
         {
+          code: 'ENTER DESCRIPTION',
           label: 'ENTER DESCRIPTION',
           commentRequired: true,
           dateRequired: false,
@@ -251,10 +290,12 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
     },
     '44276': {
       id: '44276',
+      code: 'WHEN WAS THE SYSTEM RE-ACTIVATED?',
       label: 'WHEN WAS THE SYSTEM RE-ACTIVATED?',
       multipleAnswers: false,
       answers: [
         {
+          code: 'ENTER COMMENT AND DATE',
           label: 'ENTER COMMENT AND DATE',
           commentRequired: true,
           dateRequired: true,
@@ -264,16 +305,19 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
     },
     '44277': {
       id: '44277',
+      code: 'WAS DAMAGE CAUSED TO PRISON PROPERTY',
       label: 'WAS DAMAGE CAUSED TO PRISON PROPERTY',
       multipleAnswers: false,
       answers: [
         {
+          code: 'YES',
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44523',
         },
         {
+          code: 'NO',
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -283,10 +327,12 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
     },
     '44283': {
       id: '44283',
+      code: 'WHO RECEIVED THE THREAT OR WARNING',
       label: 'WHO RECEIVED THE THREAT OR WARNING',
       multipleAnswers: false,
       answers: [
         {
+          code: 'SPECIFY',
           label: 'SPECIFY',
           commentRequired: true,
           dateRequired: false,
@@ -296,16 +342,19 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
     },
     '44305': {
       id: '44305',
+      code: 'IS AN OUTSIDE ORGANISATION SUSPECTED OF INVOLVEMENT',
       label: 'IS AN OUTSIDE ORGANISATION SUSPECTED OF INVOLVEMENT',
       multipleAnswers: false,
       answers: [
         {
+          code: 'YES',
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44260',
         },
         {
+          code: 'NO',
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -315,16 +364,19 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
     },
     '44361': {
       id: '44361',
+      code: 'WAS THE AMBULANCE SERVICE PRESENT',
       label: 'WAS THE AMBULANCE SERVICE PRESENT',
       multipleAnswers: false,
       answers: [
         {
+          code: 'YES',
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44380',
         },
         {
+          code: 'NO',
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -334,16 +386,19 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
     },
     '44362': {
       id: '44362',
+      code: 'WAS THE SYSTEM COMPROMISED?',
       label: 'WAS THE SYSTEM COMPROMISED?',
       multipleAnswers: false,
       answers: [
         {
+          code: 'YES',
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44261',
         },
         {
+          code: 'NO',
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -353,16 +408,19 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
     },
     '44371': {
       id: '44371',
+      code: 'WERE THE POLICE INFORMED OF THE INCIDENT',
       label: 'WERE THE POLICE INFORMED OF THE INCIDENT',
       multipleAnswers: false,
       answers: [
         {
+          code: 'YES',
           label: 'YES',
           commentRequired: false,
           dateRequired: true,
           nextQuestionId: '44978',
         },
         {
+          code: 'NO',
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -372,16 +430,19 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
     },
     '44380': {
       id: '44380',
+      code: 'WAS THE FIRE SERVICE PRESENT',
       label: 'WAS THE FIRE SERVICE PRESENT',
       multipleAnswers: false,
       answers: [
         {
+          code: 'YES',
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44197',
         },
         {
+          code: 'NO',
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -391,16 +452,19 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
     },
     '44393': {
       id: '44393',
+      code: 'WERE ANY INJURIES RECEIVED DURING THIS INCIDENT',
       label: 'WERE ANY INJURIES RECEIVED DURING THIS INCIDENT',
       multipleAnswers: false,
       answers: [
         {
+          code: 'YES',
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44716',
         },
         {
+          code: 'NO',
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -410,16 +474,19 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
     },
     '44404': {
       id: '44404',
+      code: 'IS THERE ANY MEDIA INTEREST IN THIS INCIDENT',
       label: 'IS THERE ANY MEDIA INTEREST IN THIS INCIDENT',
       multipleAnswers: false,
       answers: [
         {
+          code: 'YES',
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44547',
         },
         {
+          code: 'NO',
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -429,34 +496,40 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
     },
     '44472': {
       id: '44472',
+      code: 'ENTER THE DESCRIPTION OF THE FATALITIES',
       label: 'ENTER THE DESCRIPTION OF THE FATALITIES',
       multipleAnswers: true,
       answers: [
         {
+          code: 'STAFF',
           label: 'STAFF',
           commentRequired: true,
           dateRequired: false,
           nextQuestionId: '44393',
         },
         {
+          code: 'PRISONERS',
           label: 'PRISONERS',
           commentRequired: true,
           dateRequired: false,
           nextQuestionId: '44393',
         },
         {
+          code: 'CIVILIAN GRADES',
           label: 'CIVILIAN GRADES',
           commentRequired: true,
           dateRequired: false,
           nextQuestionId: '44393',
         },
         {
+          code: 'POLICE',
           label: 'POLICE',
           commentRequired: true,
           dateRequired: false,
           nextQuestionId: '44393',
         },
         {
+          code: 'EXTERNAL CIVILIANS',
           label: 'EXTERNAL CIVILIANS',
           commentRequired: true,
           dateRequired: false,
@@ -466,16 +539,19 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
     },
     '44510': {
       id: '44510',
+      code: 'WAS THE BOMB DISPOSAL UNIT PRESENT',
       label: 'WAS THE BOMB DISPOSAL UNIT PRESENT',
       multipleAnswers: false,
       answers: [
         {
+          code: 'YES',
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '45113',
         },
         {
+          code: 'NO',
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -485,16 +561,19 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
     },
     '44516': {
       id: '44516',
+      code: 'HAS THE SERVICE SUPPLIER BEEN NOTIFIED OF A REPLACEMENT KEYWORD?',
       label: 'HAS THE SERVICE SUPPLIER BEEN NOTIFIED OF A REPLACEMENT KEYWORD?',
       multipleAnswers: false,
       answers: [
         {
+          code: 'YES',
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44149',
         },
         {
+          code: 'NO',
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -504,22 +583,26 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
     },
     '44523': {
       id: '44523',
+      code: 'DESCRIBE THE DAMAGE',
       label: 'DESCRIBE THE DAMAGE',
       multipleAnswers: false,
       answers: [
         {
+          code: 'MINOR',
           label: 'MINOR',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44236',
         },
         {
+          code: 'SERIOUS',
           label: 'SERIOUS',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44236',
         },
         {
+          code: 'EXTENSIVE',
           label: 'EXTENSIVE',
           commentRequired: false,
           dateRequired: false,
@@ -529,16 +612,19 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
     },
     '44547': {
       id: '44547',
+      code: 'HAS THE PRISON SERVICE PRESS OFFICE BEEN INFORMED',
       label: 'HAS THE PRISON SERVICE PRESS OFFICE BEEN INFORMED',
       multipleAnswers: false,
       answers: [
         {
+          code: 'YES',
           label: 'YES',
           commentRequired: false,
           dateRequired: true,
           nextQuestionId: '44974',
         },
         {
+          code: 'NO',
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -548,10 +634,12 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
     },
     '44560': {
       id: '44560',
+      code: 'WHO MADE THE THREAT OR WARNING',
       label: 'WHO MADE THE THREAT OR WARNING',
       multipleAnswers: false,
       answers: [
         {
+          code: 'SPECIFY',
           label: 'SPECIFY',
           commentRequired: true,
           dateRequired: false,
@@ -561,16 +649,19 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
     },
     '44579': {
       id: '44579',
+      code: 'WAS THE TELEPHONE/IT SYSTEM SHUT DOWN DURING THE INCIDENT?',
       label: 'WAS THE TELEPHONE/IT SYSTEM SHUT DOWN DURING THE INCIDENT?',
       multipleAnswers: false,
       answers: [
         {
+          code: 'YES',
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '45100',
         },
         {
+          code: 'NO',
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -580,16 +671,19 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
     },
     '44587': {
       id: '44587',
+      code: 'HAVE ANY ARRESTS BEEN MADE',
       label: 'HAVE ANY ARRESTS BEEN MADE',
       multipleAnswers: false,
       answers: [
         {
+          code: 'YES',
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '45007',
         },
         {
+          code: 'NO',
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -599,16 +693,19 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
     },
     '44642': {
       id: '44642',
+      code: 'WERE THE POLICE PRESENT',
       label: 'WERE THE POLICE PRESENT',
       multipleAnswers: false,
       answers: [
         {
+          code: 'YES',
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44510',
         },
         {
+          code: 'NO',
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -618,10 +715,12 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
     },
     '44669': {
       id: '44669',
+      code: 'WHERE WAS THE DEVICE FOUND',
       label: 'WHERE WAS THE DEVICE FOUND',
       multipleAnswers: false,
       answers: [
         {
+          code: 'SPECIFY',
           label: 'SPECIFY',
           commentRequired: true,
           dateRequired: false,
@@ -631,10 +730,12 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
     },
     '44671': {
       id: '44671',
+      code: 'QUOTE THE VANTIVE CASE NUMBER',
       label: 'QUOTE THE VANTIVE CASE NUMBER',
       multipleAnswers: false,
       answers: [
         {
+          code: 'ENTER NUMBER',
           label: 'ENTER NUMBER',
           commentRequired: true,
           dateRequired: false,
@@ -644,16 +745,19 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
     },
     '44716': {
       id: '44716',
+      code: 'WAS A SERIOUS INJURY SUSTAINED',
       label: 'WAS A SERIOUS INJURY SUSTAINED',
       multipleAnswers: false,
       answers: [
         {
+          code: 'YES',
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44135',
         },
         {
+          code: 'NO',
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -663,16 +767,19 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
     },
     '44719': {
       id: '44719',
+      code: 'WAS THERE AN EXPLOSION',
       label: 'WAS THERE AN EXPLOSION',
       multipleAnswers: false,
       answers: [
         {
+          code: 'YES',
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44187',
         },
         {
+          code: 'NO',
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -682,34 +789,40 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
     },
     '44742': {
       id: '44742',
+      code: 'WHO WAS DETAINED IN OUTSIDE HOSPITAL',
       label: 'WHO WAS DETAINED IN OUTSIDE HOSPITAL',
       multipleAnswers: true,
       answers: [
         {
+          code: 'STAFF',
           label: 'STAFF',
           commentRequired: true,
           dateRequired: false,
           nextQuestionId: '44361',
         },
         {
+          code: 'PRISONERS',
           label: 'PRISONERS',
           commentRequired: true,
           dateRequired: false,
           nextQuestionId: '44361',
         },
         {
+          code: 'CIVILIAN GRADES',
           label: 'CIVILIAN GRADES',
           commentRequired: true,
           dateRequired: false,
           nextQuestionId: '44361',
         },
         {
+          code: 'POLICE',
           label: 'POLICE',
           commentRequired: true,
           dateRequired: false,
           nextQuestionId: '44361',
         },
         {
+          code: 'EXTERNAL CIVILIANS',
           label: 'EXTERNAL CIVILIANS',
           commentRequired: true,
           dateRequired: false,
@@ -719,16 +832,19 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
     },
     '44745': {
       id: '44745',
+      code: 'WAS A MINOR INJURY SUSTAINED',
       label: 'WAS A MINOR INJURY SUSTAINED',
       multipleAnswers: false,
       answers: [
         {
+          code: 'YES',
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '45126',
         },
         {
+          code: 'NO',
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -738,16 +854,19 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
     },
     '44778': {
       id: '44778',
+      code: 'WAS THE KEYWORD REQUESTED?',
       label: 'WAS THE KEYWORD REQUESTED?',
       multipleAnswers: false,
       answers: [
         {
+          code: 'YES',
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44516',
         },
         {
+          code: 'NO',
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -757,16 +876,19 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
     },
     '44812': {
       id: '44812',
+      code: 'WAS THIS A FULL OR PARTIAL SHUT DOWN?',
       label: 'WAS THIS A FULL OR PARTIAL SHUT DOWN?',
       multipleAnswers: false,
       answers: [
         {
+          code: 'FULL',
           label: 'FULL',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '45140',
         },
         {
+          code: 'PARTIAL (ENTER DETAILS)',
           label: 'PARTIAL (ENTER DETAILS)',
           commentRequired: true,
           dateRequired: false,
@@ -776,34 +898,40 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
     },
     '44896': {
       id: '44896',
+      code: 'ENTER DESCRIPTION OF PERSON(S) INJURED',
       label: 'ENTER DESCRIPTION OF PERSON(S) INJURED',
       multipleAnswers: true,
       answers: [
         {
+          code: 'STAFF',
           label: 'STAFF',
           commentRequired: true,
           dateRequired: false,
           nextQuestionId: '44956',
         },
         {
+          code: 'PRISONERS',
           label: 'PRISONERS',
           commentRequired: true,
           dateRequired: false,
           nextQuestionId: '44956',
         },
         {
+          code: 'CIVILIAN GRADES',
           label: 'CIVILIAN GRADES',
           commentRequired: true,
           dateRequired: false,
           nextQuestionId: '44956',
         },
         {
+          code: 'POLICE',
           label: 'POLICE',
           commentRequired: true,
           dateRequired: false,
           nextQuestionId: '44956',
         },
         {
+          code: 'EXTERNAL CIVILIANS',
           label: 'EXTERNAL CIVILIANS',
           commentRequired: true,
           dateRequired: false,
@@ -813,16 +941,19 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
     },
     '44911': {
       id: '44911',
+      code: 'IS THE LOCATION OF THE INCIDENT KNOWN',
       label: 'IS THE LOCATION OF THE INCIDENT KNOWN',
       multipleAnswers: false,
       answers: [
         {
+          code: 'YES',
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '45178',
         },
         {
+          code: 'NO',
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -832,28 +963,33 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
     },
     '44948': {
       id: '44948',
+      code: 'WHAT ACTION WAS TAKEN',
       label: 'WHAT ACTION WAS TAKEN',
       multipleAnswers: false,
       answers: [
         {
+          code: 'EVACUATION',
           label: 'EVACUATION',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '45040',
         },
         {
+          code: 'PARTIAL SEARCH',
           label: 'PARTIAL SEARCH',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44642',
         },
         {
+          code: 'FULL CLOSE DOWN',
           label: 'FULL CLOSE DOWN',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44642',
         },
         {
+          code: 'DOG SEARCH',
           label: 'DOG SEARCH',
           commentRequired: false,
           dateRequired: false,
@@ -863,16 +999,19 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
     },
     '44956': {
       id: '44956',
+      code: 'DID INJURIES RESULT IN DETENTION IN OUTSIDE HOSPITAL AS AN IN-PATIENT',
       label: 'DID INJURIES RESULT IN DETENTION IN OUTSIDE HOSPITAL AS AN IN-PATIENT',
       multipleAnswers: false,
       answers: [
         {
+          code: 'YES',
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44742',
         },
         {
+          code: 'NO',
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -882,40 +1021,47 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
     },
     '44974': {
       id: '44974',
+      code: 'WHAT SUGGESTED AN EXPLOSIVE DEVICE WAS PRESENT',
       label: 'WHAT SUGGESTED AN EXPLOSIVE DEVICE WAS PRESENT',
       multipleAnswers: false,
       answers: [
         {
+          code: 'THREAT',
           label: 'THREAT',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44283',
         },
         {
+          code: 'WARNING',
           label: 'WARNING',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44283',
         },
         {
+          code: 'EXPLOSION',
           label: 'EXPLOSION',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44948',
         },
         {
+          code: 'SUSPICIOUS PACKAGE',
           label: 'SUSPICIOUS PACKAGE',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44948',
         },
         {
+          code: 'INTELLIGENCE',
           label: 'INTELLIGENCE',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44948',
         },
         {
+          code: 'DOG SEARCH',
           label: 'DOG SEARCH',
           commentRequired: false,
           dateRequired: false,
@@ -925,16 +1071,19 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
     },
     '44978': {
       id: '44978',
+      code: 'IS ANY MEMBER OF STAFF FACING DISCIPLINARY CHARGES',
       label: 'IS ANY MEMBER OF STAFF FACING DISCIPLINARY CHARGES',
       multipleAnswers: false,
       answers: [
         {
+          code: 'YES',
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44404',
         },
         {
+          code: 'NO',
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -944,16 +1093,19 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
     },
     '45007': {
       id: '45007',
+      code: 'HAS ANY PROSECUTION TAKEN PLACE OR IS ANY PENDING',
       label: 'HAS ANY PROSECUTION TAKEN PLACE OR IS ANY PENDING',
       multipleAnswers: false,
       answers: [
         {
+          code: 'YES',
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44305',
         },
         {
+          code: 'NO',
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -963,16 +1115,19 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
     },
     '45010': {
       id: '45010',
+      code: 'WERE THERE ANY FATALITIES DURING THE INCIDENT',
       label: 'WERE THERE ANY FATALITIES DURING THE INCIDENT',
       multipleAnswers: false,
       answers: [
         {
+          code: 'YES',
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44472',
         },
         {
+          code: 'NO',
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -982,22 +1137,26 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
     },
     '45040': {
       id: '45040',
+      code: 'WAS THE EVACUATION',
       label: 'WAS THE EVACUATION',
       multipleAnswers: false,
       answers: [
         {
+          code: 'TO ANOTHER AREA OF THE PRISON',
           label: 'TO ANOTHER AREA OF THE PRISON',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44642',
         },
         {
+          code: 'OUTSIDE THE PRISON',
           label: 'OUTSIDE THE PRISON',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44642',
         },
         {
+          code: 'TO ANOTHER PRISON',
           label: 'TO ANOTHER PRISON',
           commentRequired: false,
           dateRequired: false,
@@ -1007,16 +1166,19 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
     },
     '45100': {
       id: '45100',
+      code: 'WAS THE TELEPHONE/IT SYSTEM SHUT DOWN LOCALLY OR BY THE SERVICE SUPPLIER',
       label: 'WAS THE TELEPHONE/IT SYSTEM SHUT DOWN LOCALLY OR BY THE SERVICE SUPPLIER',
       multipleAnswers: false,
       answers: [
         {
+          code: 'LOCAL',
           label: 'LOCAL',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44149',
         },
         {
+          code: 'SERVICE SUPPLIER',
           label: 'SERVICE SUPPLIER',
           commentRequired: false,
           dateRequired: false,
@@ -1026,10 +1188,12 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
     },
     '45109': {
       id: '45109',
+      code: 'WHAT TIME WAS THE SYSTEM SHUT DOWN?',
       label: 'WHAT TIME WAS THE SYSTEM SHUT DOWN?',
       multipleAnswers: false,
       answers: [
         {
+          code: 'ENTER TIME',
           label: 'ENTER TIME',
           commentRequired: true,
           dateRequired: false,
@@ -1039,16 +1203,19 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
     },
     '45113': {
       id: '45113',
+      code: 'WAS ANY ITEM DISCOVERED',
       label: 'WAS ANY ITEM DISCOVERED',
       multipleAnswers: false,
       answers: [
         {
+          code: 'YES',
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44128',
         },
         {
+          code: 'NO',
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -1058,34 +1225,40 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
     },
     '45126': {
       id: '45126',
+      code: 'WHICH MINOR INJURIES WERE SUSTAINED',
       label: 'WHICH MINOR INJURIES WERE SUSTAINED',
       multipleAnswers: true,
       answers: [
         {
+          code: 'GRAZES, SCRATCHES OR ABRASIONS',
           label: 'GRAZES, SCRATCHES OR ABRASIONS',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44896',
         },
         {
+          code: 'MINOR BRUISES',
           label: 'MINOR BRUISES',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44896',
         },
         {
+          code: 'SWELLINGS',
           label: 'SWELLINGS',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44896',
         },
         {
+          code: 'SUPERFICIAL CUTS',
           label: 'SUPERFICIAL CUTS',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44896',
         },
         {
+          code: 'OTHER',
           label: 'OTHER',
           commentRequired: true,
           dateRequired: false,
@@ -1095,28 +1268,33 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
     },
     '45140': {
       id: '45140',
+      code: 'WHO AUTHORISED THE SHUT DOWN?',
       label: 'WHO AUTHORISED THE SHUT DOWN?',
       multipleAnswers: false,
       answers: [
         {
+          code: 'GOVERNOR',
           label: 'GOVERNOR',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44362',
         },
         {
+          code: 'DEPUTY GOVERNOR',
           label: 'DEPUTY GOVERNOR',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44362',
         },
         {
+          code: 'DUTY GOVERNOR',
           label: 'DUTY GOVERNOR',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44362',
         },
         {
+          code: 'OTHER',
           label: 'OTHER',
           commentRequired: true,
           dateRequired: false,
@@ -1126,16 +1304,19 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
     },
     '45176': {
       id: '45176',
+      code: 'WAS THE SYSTEM RE-ACTIVATED LOCALLY OR BY THE SERVICE SUPPLIER',
       label: 'WAS THE SYSTEM RE-ACTIVATED LOCALLY OR BY THE SERVICE SUPPLIER',
       multipleAnswers: false,
       answers: [
         {
+          code: 'LOCAL',
           label: 'LOCAL',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: null,
         },
         {
+          code: 'SERVICE SUPPLIER',
           label: 'SERVICE SUPPLIER',
           commentRequired: false,
           dateRequired: false,
@@ -1145,202 +1326,236 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
     },
     '45178': {
       id: '45178',
+      code: 'WHAT WAS THE LOCATION OF THE INCIDENT',
       label: 'WHAT WAS THE LOCATION OF THE INCIDENT',
       multipleAnswers: false,
       answers: [
         {
+          code: 'ADMINISTRATION',
           label: 'ADMINISTRATION',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44371',
         },
         {
+          code: 'ASSOCIATION AREA',
           label: 'ASSOCIATION AREA',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44371',
         },
         {
+          code: 'CELL',
           label: 'CELL',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44371',
         },
         {
+          code: 'CHAPEL',
           label: 'CHAPEL',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44371',
         },
         {
+          code: 'DINING ROOM',
           label: 'DINING ROOM',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44371',
         },
         {
+          code: 'DORMITORY',
           label: 'DORMITORY',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44371',
         },
         {
+          code: 'EDUCATION',
           label: 'EDUCATION',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44371',
         },
         {
+          code: 'EXERCISE YARD',
           label: 'EXERCISE YARD',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44371',
         },
         {
+          code: 'GATE',
           label: 'GATE',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44371',
         },
         {
+          code: 'GYM',
           label: 'GYM',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44371',
         },
         {
+          code: 'HEALTH CARE CENTRE',
           label: 'HEALTH CARE CENTRE',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44371',
         },
         {
+          code: 'KITCHEN',
           label: 'KITCHEN',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44371',
         },
         {
+          code: 'OFFICE',
           label: 'OFFICE',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44371',
         },
         {
+          code: 'RECEPTION',
           label: 'RECEPTION',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44371',
         },
         {
+          code: 'RECESS',
           label: 'RECESS',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44371',
         },
         {
+          code: 'SEGREGATION UNIT',
           label: 'SEGREGATION UNIT',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44371',
         },
         {
+          code: 'SPECIAL UNIT',
           label: 'SPECIAL UNIT',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44371',
         },
         {
+          code: 'SHOWERS/CHANGING ROOM',
           label: 'SHOWERS/CHANGING ROOM',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44371',
         },
         {
+          code: 'VISITS',
           label: 'VISITS',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44371',
         },
         {
+          code: 'WING',
           label: 'WING',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44371',
         },
         {
+          code: 'WORKS DEPARTMENT',
           label: 'WORKS DEPARTMENT',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44371',
         },
         {
+          code: 'WORKSHOP',
           label: 'WORKSHOP',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44371',
         },
         {
+          code: 'WITHIN PERIMETER',
           label: 'WITHIN PERIMETER',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44371',
         },
         {
+          code: 'ELSEWHERE',
           label: 'ELSEWHERE',
           commentRequired: true,
           dateRequired: false,
           nextQuestionId: '44371',
         },
         {
+          code: 'FUNERAL',
           label: 'FUNERAL',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44371',
         },
         {
+          code: 'HOSPITAL OUTSIDE (PATIENT)',
           label: 'HOSPITAL OUTSIDE (PATIENT)',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44371',
         },
         {
+          code: 'HOSPITAL OUTSIDE (VISITING)',
           label: 'HOSPITAL OUTSIDE (VISITING)',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44371',
         },
         {
+          code: 'OUTSIDE WORKING PARTY',
           label: 'OUTSIDE WORKING PARTY',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44371',
         },
         {
+          code: 'SPORTS FIELD',
           label: 'SPORTS FIELD',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44371',
         },
         {
+          code: 'VEHICLE',
           label: 'VEHICLE',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44371',
         },
         {
+          code: 'WEDDINGS',
           label: 'WEDDINGS',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44371',
         },
         {
+          code: 'MAGISTRATES COURT',
           label: 'MAGISTRATES COURT',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44371',
         },
         {
+          code: 'CROWN COURT',
           label: 'CROWN COURT',
           commentRequired: false,
           dateRequired: false,

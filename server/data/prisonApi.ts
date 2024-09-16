@@ -1,4 +1,5 @@
 import config from '../config'
+import { NomisType } from '../reportConfiguration/constants'
 import RestClient from './restClient'
 
 export type Prison = {
@@ -11,7 +12,7 @@ export type Prison = {
 /** Incident Type Configuration */
 export interface IncidentTypeConfiguration {
   /** Incident type of this configuration */
-  incidentType: string
+  incidentType: NomisType
   /** Incident type description */
   incidentTypeDescription: string
   /** ID internal of this question set for this incident type */
@@ -21,13 +22,13 @@ export interface IncidentTypeConfiguration {
   /** List of roles that can apply to a prisoner in this incident type */
   prisonerRoles: PrisonerRoleConfiguration[]
   /** Indicates this incident type is still usable */
-  active: boolean
+  active?: boolean
   /** Date the incident type was expired */
   expiryDate?: Date
 }
 
 /** Incident type question */
-interface QuestionConfiguration {
+export interface QuestionConfiguration {
   /** Question ID */
   questionnaireQueId: number
   /** Question sequence number */
@@ -47,7 +48,7 @@ interface QuestionConfiguration {
 }
 
 /** Incident Type Answer */
-interface AnswerConfiguration {
+export interface AnswerConfiguration {
   /** ID for this Answer */
   questionnaireAnsId: number
   /** Sequence for this answer */

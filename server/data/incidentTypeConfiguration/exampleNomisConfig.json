@@ -1,0 +1,88 @@
+[
+  {
+    "incidentType": "FINDS",
+    "active": true,
+    "questions": [
+      {
+        "questionnaireQueId": 1,
+        "questionSeq": 1,
+        "questionDesc": "What did you find?",
+        "questionListSeq": 1,
+        "questionActiveFlag": true,
+        "multipleAnswerFlag": false,
+        "answers": [
+          {
+            "questionnaireAnsId": 1,
+            "answerSeq": 1,
+            "answerDesc": "Phone (specify model)",
+            "answerListSeq": 1,
+            "answerActiveFlag": true,
+            "dateRequiredFlag": false,
+            "commentRequiredFlag": true,
+            "nextQuestionnaireQueId": 2
+          },
+          {
+            "questionnaireAnsId": 2,
+            "answerSeq": 2,
+            "answerDesc": "Drug (specify drug)",
+            "answerListSeq": 2,
+            "answerActiveFlag": true,
+            "dateRequiredFlag": false,
+            "commentRequiredFlag": true,
+            "nextQuestionnaireQueId": 3
+          }
+        ]
+      },
+      {
+        "questionnaireQueId": 2,
+        "questionSeq": 2,
+        "questionDesc": "Did it had a memory card?",
+        "questionListSeq": 2,
+        "questionActiveFlag": true,
+        "multipleAnswerFlag": false,
+        "answers": [
+          {
+            "questionnaireAnsId": 3,
+            "answerSeq": 1,
+            "answerDesc": "Yes",
+            "answerListSeq": 1,
+            "answerActiveFlag": true,
+            "dateRequiredFlag": false,
+            "commentRequiredFlag": false,
+            "nextQuestionnaireQueId": null
+          },
+          {
+            "questionnaireAnsId": 3,
+            "answerSeq": 2,
+            "answerDesc": "No",
+            "answerListSeq": 2,
+            "answerActiveFlag": true,
+            "dateRequiredFlag": false,
+            "commentRequiredFlag": false,
+            "nextQuestionnaireQueId": null
+          }
+        ]
+      },
+      {
+        "questionnaireQueId": 3,
+        "questionSeq": 3,
+        "questionDesc": "What was the weight of the drug you found?",
+        "questionListSeq": 3,
+        "questionActiveFlag": true,
+        "multipleAnswerFlag": false,
+        "answers": [
+          {
+            "questionnaireAnsId": 4,
+            "answerSeq": 1,
+            "answerDesc": "Weight",
+            "answerListSeq": 1,
+            "answerActiveFlag": true,
+            "dateRequiredFlag": false,
+            "commentRequiredFlag": true,
+            "nextQuestionnaireQueId": null
+          }
+        ]
+      }
+    ]
+  }
+]

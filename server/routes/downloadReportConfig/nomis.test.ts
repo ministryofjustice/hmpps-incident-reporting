@@ -4,6 +4,7 @@ import request from 'supertest'
 import { buildArray, convertToTitleCase, datesAsStrings } from '../../utils/utils'
 import { PrisonApi, type IncidentTypeConfiguration, type ReferenceCode } from '../../data/prisonApi'
 import { appWithAllRoutes } from '../testutils/appSetup'
+import { NomisType } from '../../reportConfiguration/constants'
 
 jest.mock('../../data/prisonApi')
 
@@ -28,7 +29,7 @@ describe('NOMIS config downloads', () => {
       fileType === 'csv' ? /attachment; filename=.*\.csv/ : /attachment; filename=.*\.json/
 
     it('incident types', () => {
-      const nomisData: IncidentTypeConfiguration[] = ['ASSAULT1', 'DRONE'].map((type, index) => {
+      const nomisData: IncidentTypeConfiguration[] = ['ASSAULTS1', 'DRONE'].map((type: NomisType, index) => {
         const index1 = index + 1
         return {
           incidentType: type,
@@ -62,7 +63,7 @@ describe('NOMIS config downloads', () => {
             expect(res.text).toContain(
               `
 Type,Description,Questionnaire ID,Active,Expired
-ASSAULT1,Assault1,1,FALSE,20/08/2020
+ASSAULTS1,Assaults1,1,FALSE,20/08/2020
 DRONE,Drone,2,FALSE,20/08/2020
               `.trim(),
             )

@@ -31,10 +31,12 @@ export function fromNomis(nomisConfig: NomisIncidentTypeConfiguration): DpsIncid
       // eslint-disable-next-line no-param-reassign
       qs[q.questionnaireQueId.toString()] = {
         id: q.questionnaireQueId.toString(),
+        code: q.questionDesc,
         label: q.questionDesc,
         multipleAnswers: q.multipleAnswerFlag === true,
         answers: nomisAnswers.map(ans => {
           return {
+            code: ans.answerDesc,
             label: ans.answerDesc,
             commentRequired: ans.commentRequiredFlag === true,
             dateRequired: ans.dateRequiredFlag === true,

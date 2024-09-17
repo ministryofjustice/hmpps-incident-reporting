@@ -24,23 +24,25 @@ export function fromNomis(nomisConfig: NomisIncidentTypeConfiguration): DpsIncid
     incidentType: typeFromNomisCode(nomisConfig.incidentType),
     active: nomisConfig.active === true,
     // 1st question is starting question
-    startingQuestionId: nomisQuestions[0].questionnaireQueId.toString(),
+    startingQuestionId: nomisQuestions[0]?.questionnaireQueId?.toString() ?? null,
     questions: nomisQuestions.reduce((qs: Record<string, DpsQuestionConfiguration>, q: NomisQuestionConfiguration) => {
       const nomisAnswers = q.answers.sort(sortByAnswerSequence)
 
+      const questionId = q.questionnaireQueId?.toString() ?? null
       // eslint-disable-next-line no-param-reassign
-      qs[q.questionnaireQueId.toString()] = {
-        id: q.questionnaireQueId.toString(),
+      qs[questionId] = {
+        id: questionId,
         code: q.questionDesc,
         label: q.questionDesc,
         multipleAnswers: q.multipleAnswerFlag === true,
         answers: nomisAnswers.map(ans => {
+          const nextQuestionId = ans.nextQuestionnaireQueId?.toString() ?? null
           return {
             code: ans.answerDesc,
             label: ans.answerDesc,
             commentRequired: ans.commentRequiredFlag === true,
             dateRequired: ans.dateRequiredFlag === true,
-            nextQuestionId: ans.nextQuestionnaireQueId?.toString() || null,
+            nextQuestionId,
           }
         }),
       }

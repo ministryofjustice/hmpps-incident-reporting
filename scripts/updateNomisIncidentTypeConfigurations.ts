@@ -5,7 +5,9 @@ import path from 'node:path'
 
 import { fromNomis } from '../server/data/incidentTypeConfiguration/conversion'
 import { saveAsTypescript } from '../server/data/incidentTypeConfiguration/persistance'
-import { type IncidentTypeConfiguration } from '../server/data/prisonApi'
+import { type IncidentTypeConfiguration as DpsIncidentTypeConfiguration } from '../server/data/incidentTypeConfiguration/types'
+import { validateConfig } from '../server/data/incidentTypeConfiguration/validation'
+import { type IncidentTypeConfiguration as NomisIncidentTypeConfiguration } from '../server/data/prisonApi'
 
 interface Arguments {
   scriptName: string
@@ -18,14 +20,30 @@ function main() {
   const { scriptName, nomisConfigFile } = parseArgs()
 
   const jsonConfig = fs.readFileSync(nomisConfigFile, { encoding: 'utf8' })
-  const nomisIncidentTypes: IncidentTypeConfiguration[] = JSON.parse(jsonConfig)
+  const nomisIncidentTypes: NomisIncidentTypeConfiguration[] = JSON.parse(jsonConfig)
 
   for (const nomisConfig of nomisIncidentTypes) {
     const dpsConfig = fromNomis(nomisConfig)
-    const outputFile = saveAsTypescript({ scriptName, dpsConfig })
 
-    process.stderr.write(`Config for ${dpsConfig.incidentType} written to ${outputFile}\n`)
+    const outputFile = saveAsTypescript({ scriptName, dpsConfig })
+    process.stderr.write(`\n\nConfig for ${dpsConfig.incidentType} written to ${outputFile}\n`)
+
+    checkConfig(dpsConfig)
   }
+}
+
+function checkConfig(config: DpsIncidentTypeConfiguration) {
+  const errors = validateConfig(config)
+  if (errors.length > 0) {
+    process.stderr.write(`${red('WARNING')}: Config for ${config.incidentType} has the following errors:\n`)
+    for (const error of errors) {
+      process.stderr.write(` - ${error.message}\n`)
+    }
+  }
+}
+
+function red(text: string): string {
+  return `\x1b[31m${text}\x1b[0m`
 }
 
 function parseArgs(): Arguments {

@@ -1,4 +1,4 @@
-// Generated with ./scripts/updateNomisIncidentTypeConfigurations.ts at 2024-09-12T16:33:42.509Z
+// Generated with ./scripts/updateNomisIncidentTypeConfigurations.ts at 2024-09-16T15:42:01.445Z
 
 import { type IncidentTypeConfiguration } from '../../data/incidentTypeConfiguration/types'
 
@@ -9,28 +9,33 @@ const OLD_DISORDER: IncidentTypeConfiguration = {
   questions: {
     '49179': {
       id: '49179',
+      code: 'What Type Of Disorder Incident Was This?',
       label: 'What Type Of Disorder Incident Was This?',
       multipleAnswers: false,
       answers: [
         {
+          code: 'Barricade / Prevention Of Access',
           label: 'Barricade / Prevention Of Access',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '49180',
         },
         {
+          code: 'Hostage',
           label: 'Hostage',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '49180',
         },
         {
+          code: 'Incident At Height',
           label: 'Incident At Height',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '49180',
         },
         {
+          code: 'Concerted Indiscipline',
           label: 'Concerted Indiscipline',
           commentRequired: false,
           dateRequired: false,
@@ -40,34 +45,40 @@ const OLD_DISORDER: IncidentTypeConfiguration = {
     },
     '49180': {
       id: '49180',
+      code: 'What Was The Main Management Outcome Of This Incident?',
       label: 'What Was The Main Management Outcome Of This Incident?',
       multipleAnswers: false,
       answers: [
         {
+          code: 'No Further Action',
           label: 'No Further Action',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '49181',
         },
         {
+          code: 'IEP Regression',
           label: 'IEP Regression',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '49181',
         },
         {
+          code: 'Placed On Report/Adjudication Referral',
           label: 'Placed On Report/Adjudication Referral',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '49181',
         },
         {
+          code: 'Police Referral',
           label: 'Police Referral',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '49181',
         },
         {
+          code: 'Police And Prosecution Referral',
           label: 'Police And Prosecution Referral',
           commentRequired: false,
           dateRequired: false,
@@ -77,16 +88,19 @@ const OLD_DISORDER: IncidentTypeConfiguration = {
     },
     '49181': {
       id: '49181',
+      code: 'Is The Location Of The Incident Known?',
       label: 'Is The Location Of The Incident Known?',
       multipleAnswers: false,
       answers: [
         {
+          code: 'Yes',
           label: 'Yes',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '49182',
         },
         {
+          code: 'No',
           label: 'No',
           commentRequired: false,
           dateRequired: false,
@@ -96,220 +110,257 @@ const OLD_DISORDER: IncidentTypeConfiguration = {
     },
     '49182': {
       id: '49182',
+      code: 'What Was The Location Of The Incident?',
       label: 'What Was The Location Of The Incident?',
       multipleAnswers: false,
       answers: [
         {
+          code: 'Administration',
           label: 'Administration',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '49183',
         },
         {
+          code: 'Association Area',
           label: 'Association Area',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '49183',
         },
         {
+          code: 'Cell',
           label: 'Cell',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '49183',
         },
         {
+          code: 'Chapel',
           label: 'Chapel',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '49183',
         },
         {
+          code: 'Crown Court',
           label: 'Crown Court',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '49183',
         },
         {
+          code: 'Dining Room',
           label: 'Dining Room',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '49183',
         },
         {
+          code: 'Dormitory',
           label: 'Dormitory',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '49183',
         },
         {
+          code: 'Education',
           label: 'Education',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '49183',
         },
         {
+          code: 'Elsewhere (Enter Details)',
           label: 'Elsewhere (Enter Details)',
           commentRequired: true,
           dateRequired: false,
           nextQuestionId: '49183',
         },
         {
+          code: 'Exercise Yard',
           label: 'Exercise Yard',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '49183',
         },
         {
+          code: 'Funeral',
           label: 'Funeral',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '49183',
         },
         {
+          code: 'Gate',
           label: 'Gate',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '49183',
         },
         {
+          code: 'Gym',
           label: 'Gym',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '49183',
         },
         {
+          code: 'Health Care Centre',
           label: 'Health Care Centre',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '49183',
         },
         {
+          code: 'Hospital Outside (Patient)',
           label: 'Hospital Outside (Patient)',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '49183',
         },
         {
+          code: 'Hospital Outside (Visiting)',
           label: 'Hospital Outside (Visiting)',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '49183',
         },
         {
+          code: 'Kitchen',
           label: 'Kitchen',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '49183',
         },
         {
+          code: 'Magistrates Court',
           label: 'Magistrates Court',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '49183',
         },
         {
+          code: 'Office',
           label: 'Office',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '49183',
         },
         {
+          code: 'Outside Working Party',
           label: 'Outside Working Party',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '49183',
         },
         {
+          code: 'Reception',
           label: 'Reception',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '49183',
         },
         {
+          code: 'Recess',
           label: 'Recess',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '49183',
         },
         {
+          code: 'Segregation Unit',
           label: 'Segregation Unit',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '49183',
         },
         {
+          code: 'Showers / Changing Room',
           label: 'Showers / Changing Room',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '49183',
         },
         {
+          code: 'Special Unit',
           label: 'Special Unit',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '49183',
         },
         {
+          code: 'Sports Field',
           label: 'Sports Field',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '49183',
         },
         {
+          code: 'Vehicle',
           label: 'Vehicle',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '49183',
         },
         {
+          code: 'Visits',
           label: 'Visits',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '49183',
         },
         {
+          code: 'Weddings',
           label: 'Weddings',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '49183',
         },
         {
+          code: 'Wing',
           label: 'Wing',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '49183',
         },
         {
+          code: 'Within Perimeter',
           label: 'Within Perimeter',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '49183',
         },
         {
+          code: 'Works Department',
           label: 'Works Department',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '49183',
         },
         {
+          code: 'Workshop',
           label: 'Workshop',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '49183',
         },
         {
+          code: 'Induction / 1st Night Centre',
           label: 'Induction / 1st Night Centre',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '49183',
         },
         {
+          code: 'External Roof',
           label: 'External Roof',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '49183',
         },
         {
+          code: 'Vulnerable Prisoners Unit',
           label: 'Vulnerable Prisoners Unit',
           commentRequired: false,
           dateRequired: false,
@@ -319,16 +370,19 @@ const OLD_DISORDER: IncidentTypeConfiguration = {
     },
     '49183': {
       id: '49183',
+      code: 'Were Any Injuries Received During This Incident?',
       label: 'Were Any Injuries Received During This Incident?',
       multipleAnswers: false,
       answers: [
         {
+          code: 'Yes',
           label: 'Yes',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '49184',
         },
         {
+          code: 'No',
           label: 'No',
           commentRequired: false,
           dateRequired: false,
@@ -338,16 +392,19 @@ const OLD_DISORDER: IncidentTypeConfiguration = {
     },
     '49184': {
       id: '49184',
+      code: 'Was A Serious Injury Sustained?',
       label: 'Was A Serious Injury Sustained?',
       multipleAnswers: false,
       answers: [
         {
+          code: 'Yes',
           label: 'Yes',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '49185',
         },
         {
+          code: 'No',
           label: 'No',
           commentRequired: false,
           dateRequired: false,
@@ -357,76 +414,89 @@ const OLD_DISORDER: IncidentTypeConfiguration = {
     },
     '49185': {
       id: '49185',
+      code: 'Which Serious Injuries Were Sustained?',
       label: 'Which Serious Injuries Were Sustained?',
       multipleAnswers: true,
       answers: [
         {
+          code: 'Bites',
           label: 'Bites',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '49186',
         },
         {
+          code: 'Black Eye',
           label: 'Black Eye',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '49186',
         },
         {
+          code: 'Broken Nose',
           label: 'Broken Nose',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '49186',
         },
         {
+          code: 'Broken Teeth',
           label: 'Broken Teeth',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '49186',
         },
         {
+          code: 'Crushing',
           label: 'Crushing',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '49186',
         },
         {
+          code: 'Cuts Requiring Sutures',
           label: 'Cuts Requiring Sutures',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '49186',
         },
         {
+          code: 'Extensive / Mutliple Bruising',
           label: 'Extensive / Mutliple Bruising',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '49186',
         },
         {
+          code: 'Fracture',
           label: 'Fracture',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '49186',
         },
         {
+          code: 'Gun Shot Wound',
           label: 'Gun Shot Wound',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '49186',
         },
         {
+          code: 'Scald Or Burn',
           label: 'Scald Or Burn',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '49186',
         },
         {
+          code: 'Stabbing',
           label: 'Stabbing',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '49186',
         },
         {
+          code: 'Temporary / Permanent Blindness',
           label: 'Temporary / Permanent Blindness',
           commentRequired: false,
           dateRequired: false,
@@ -436,16 +506,19 @@ const OLD_DISORDER: IncidentTypeConfiguration = {
     },
     '49186': {
       id: '49186',
+      code: 'Was A Minor Injury Sustained?',
       label: 'Was A Minor Injury Sustained?',
       multipleAnswers: false,
       answers: [
         {
+          code: 'Yes',
           label: 'Yes',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '49187',
         },
         {
+          code: 'No',
           label: 'No',
           commentRequired: false,
           dateRequired: false,
@@ -455,34 +528,40 @@ const OLD_DISORDER: IncidentTypeConfiguration = {
     },
     '49187': {
       id: '49187',
+      code: 'Which Minor Injuries Were Sustained?',
       label: 'Which Minor Injuries Were Sustained?',
       multipleAnswers: true,
       answers: [
         {
+          code: 'Grazes. Scratches or Abrasions',
           label: 'Grazes. Scratches or Abrasions',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '49188',
         },
         {
+          code: 'Minor Bruises',
           label: 'Minor Bruises',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '49188',
         },
         {
+          code: 'Other',
           label: 'Other',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '49188',
         },
         {
+          code: 'Superficial Cuts',
           label: 'Superficial Cuts',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '49188',
         },
         {
+          code: 'Swellings',
           label: 'Swellings',
           commentRequired: false,
           dateRequired: false,
@@ -492,34 +571,40 @@ const OLD_DISORDER: IncidentTypeConfiguration = {
     },
     '49188': {
       id: '49188',
+      code: 'Enter Descriptions of Person(s) Injured',
       label: 'Enter Descriptions of Person(s) Injured',
       multipleAnswers: true,
       answers: [
         {
+          code: 'Civilian Grades',
           label: 'Civilian Grades',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '49189',
         },
         {
+          code: 'External Citizens',
           label: 'External Citizens',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '49189',
         },
         {
+          code: 'Police',
           label: 'Police',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '49189',
         },
         {
+          code: 'Prisoners',
           label: 'Prisoners',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '49189',
         },
         {
+          code: 'Staff',
           label: 'Staff',
           commentRequired: false,
           dateRequired: false,
@@ -529,16 +614,19 @@ const OLD_DISORDER: IncidentTypeConfiguration = {
     },
     '49189': {
       id: '49189',
+      code: 'Did Injuries Result in Detention in Outside Hospital As An In-Patient?',
       label: 'Did Injuries Result in Detention in Outside Hospital As An In-Patient?',
       multipleAnswers: false,
       answers: [
         {
+          code: 'Yes',
           label: 'Yes',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '49190',
         },
         {
+          code: 'No',
           label: 'No',
           commentRequired: false,
           dateRequired: false,
@@ -548,34 +636,40 @@ const OLD_DISORDER: IncidentTypeConfiguration = {
     },
     '49190': {
       id: '49190',
+      code: 'Who Was Detained In Outside Hospital?',
       label: 'Who Was Detained In Outside Hospital?',
       multipleAnswers: true,
       answers: [
         {
+          code: 'Civilian Grades',
           label: 'Civilian Grades',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '49191',
         },
         {
+          code: 'External Civilians',
           label: 'External Civilians',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '49191',
         },
         {
+          code: 'Police',
           label: 'Police',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '49191',
         },
         {
+          code: 'Prisoners',
           label: 'Prisoners',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '49192',
         },
         {
+          code: 'Staff',
           label: 'Staff',
           commentRequired: false,
           dateRequired: false,
@@ -585,16 +679,19 @@ const OLD_DISORDER: IncidentTypeConfiguration = {
     },
     '49191': {
       id: '49191',
+      code: 'Are There Any Staff Now Off Duty As A Result Of This Incident?',
       label: 'Are There Any Staff Now Off Duty As A Result Of This Incident?',
       multipleAnswers: false,
       answers: [
         {
+          code: 'No',
           label: 'No',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '49192',
         },
         {
+          code: 'Yes',
           label: 'Yes',
           commentRequired: false,
           dateRequired: false,
@@ -604,16 +701,19 @@ const OLD_DISORDER: IncidentTypeConfiguration = {
     },
     '49192': {
       id: '49192',
+      code: 'Was There An Apparent Reason For The Incident?',
       label: 'Was There An Apparent Reason For The Incident?',
       multipleAnswers: false,
       answers: [
         {
+          code: 'Yes',
           label: 'Yes',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '49193',
         },
         {
+          code: 'No',
           label: 'No',
           commentRequired: false,
           dateRequired: false,
@@ -623,64 +723,75 @@ const OLD_DISORDER: IncidentTypeConfiguration = {
     },
     '49193': {
       id: '49193',
+      code: 'Describe The Apparent Reason For The Incident?',
       label: 'Describe The Apparent Reason For The Incident?',
       multipleAnswers: true,
       answers: [
         {
+          code: 'Facilities',
           label: 'Facilities',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '49194',
         },
         {
+          code: 'Food',
           label: 'Food',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '49194',
         },
         {
+          code: 'Other',
           label: 'Other',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '49194',
         },
         {
+          code: 'Pay',
           label: 'Pay',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '49194',
         },
         {
+          code: 'Time Out Of Cell',
           label: 'Time Out Of Cell',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '49194',
         },
         {
+          code: 'Visits',
           label: 'Visits',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '49194',
         },
         {
+          code: 'Demanding Internal Transfer',
           label: 'Demanding Internal Transfer',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '49194',
         },
         {
+          code: 'Refusing Internal Transfer',
           label: 'Refusing Internal Transfer',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '49194',
         },
         {
+          code: 'Demanding External Transfer',
           label: 'Demanding External Transfer',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '49194',
         },
         {
+          code: 'Refusing External Transfer',
           label: 'Refusing External Transfer',
           commentRequired: false,
           dateRequired: false,
@@ -690,34 +801,40 @@ const OLD_DISORDER: IncidentTypeConfiguration = {
     },
     '49194': {
       id: '49194',
+      code: 'Describe How The Incident Was Resolved',
       label: 'Describe How The Incident Was Resolved',
       multipleAnswers: true,
       answers: [
         {
+          code: 'Negotiation',
           label: 'Negotiation',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '49195',
         },
         {
+          code: 'Intervention (Local Staff)',
           label: 'Intervention (Local Staff)',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '49195',
         },
         {
+          code: 'Intervention (NTRG Staff)',
           label: 'Intervention (NTRG Staff)',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '49195',
         },
         {
+          code: 'Complied With Order Or Instruction',
           label: 'Complied With Order Or Instruction',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '49195',
         },
         {
+          code: 'Other',
           label: 'Other',
           commentRequired: false,
           dateRequired: false,
@@ -727,16 +844,19 @@ const OLD_DISORDER: IncidentTypeConfiguration = {
     },
     '49195': {
       id: '49195',
+      code: 'Was A Door Jack Used?',
       label: 'Was A Door Jack Used?',
       multipleAnswers: false,
       answers: [
         {
+          code: 'No',
           label: 'No',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '49196',
         },
         {
+          code: 'Yes',
           label: 'Yes',
           commentRequired: false,
           dateRequired: false,
@@ -746,16 +866,19 @@ const OLD_DISORDER: IncidentTypeConfiguration = {
     },
     '49196': {
       id: '49196',
+      code: 'Were Water Hoses Used?',
       label: 'Were Water Hoses Used?',
       multipleAnswers: false,
       answers: [
         {
+          code: 'No',
           label: 'No',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '49197',
         },
         {
+          code: 'Yes',
           label: 'Yes',
           commentRequired: false,
           dateRequired: false,
@@ -765,16 +888,19 @@ const OLD_DISORDER: IncidentTypeConfiguration = {
     },
     '49197': {
       id: '49197',
+      code: 'Was Control And Restraint Employed?',
       label: 'Was Control And Restraint Employed?',
       multipleAnswers: false,
       answers: [
         {
+          code: 'No',
           label: 'No',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '49198',
         },
         {
+          code: 'Yes',
           label: 'Yes',
           commentRequired: false,
           dateRequired: false,
@@ -784,16 +910,19 @@ const OLD_DISORDER: IncidentTypeConfiguration = {
     },
     '49198': {
       id: '49198',
+      code: 'Were Weapons Used By The Perpetrator?',
       label: 'Were Weapons Used By The Perpetrator?',
       multipleAnswers: false,
       answers: [
         {
+          code: 'Yes',
           label: 'Yes',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '49199',
         },
         {
+          code: 'No',
           label: 'No',
           commentRequired: false,
           dateRequired: false,
@@ -803,82 +932,96 @@ const OLD_DISORDER: IncidentTypeConfiguration = {
     },
     '49199': {
       id: '49199',
+      code: 'Describe Weapons Used By The Perpetrator?',
       label: 'Describe Weapons Used By The Perpetrator?',
       multipleAnswers: true,
       answers: [
         {
+          code: 'Blunt Instrument',
           label: 'Blunt Instrument',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '49200',
         },
         {
+          code: 'Chemical Incapicitant',
           label: 'Chemical Incapicitant',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '49200',
         },
         {
+          code: 'Dangerous Liquid',
           label: 'Dangerous Liquid',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '49200',
         },
         {
+          code: 'Excreta/Urine',
           label: 'Excreta/Urine',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '49200',
         },
         {
+          code: 'Firearm',
           label: 'Firearm',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '49200',
         },
         {
+          code: 'Food',
           label: 'Food',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '49200',
         },
         {
+          code: 'Knife / Blade',
           label: 'Knife / Blade',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '49200',
         },
         {
+          code: 'Ligature',
           label: 'Ligature',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '49200',
         },
         {
+          code: 'Other',
           label: 'Other',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '49200',
         },
         {
+          code: 'Other Sharp Instrument',
           label: 'Other Sharp Instrument',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '49200',
         },
         {
+          code: 'Spitting',
           label: 'Spitting',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '49200',
         },
         {
+          code: 'Thrown Equipment',
           label: 'Thrown Equipment',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '49200',
         },
         {
+          code: 'Thrown Furniture',
           label: 'Thrown Furniture',
           commentRequired: false,
           dateRequired: false,
@@ -888,16 +1031,19 @@ const OLD_DISORDER: IncidentTypeConfiguration = {
     },
     '49200': {
       id: '49200',
+      code: 'Was Damage Caused To Prison Property',
       label: 'Was Damage Caused To Prison Property',
       multipleAnswers: false,
       answers: [
         {
+          code: 'Yes',
           label: 'Yes',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '49201',
         },
         {
+          code: 'No',
           label: 'No',
           commentRequired: false,
           dateRequired: false,
@@ -907,22 +1053,26 @@ const OLD_DISORDER: IncidentTypeConfiguration = {
     },
     '49201': {
       id: '49201',
+      code: 'Describe the Damage',
       label: 'Describe the Damage',
       multipleAnswers: false,
       answers: [
         {
+          code: 'Extensive',
           label: 'Extensive',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '49202',
         },
         {
+          code: 'Minor',
           label: 'Minor',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '49202',
         },
         {
+          code: 'Serious',
           label: 'Serious',
           commentRequired: false,
           dateRequired: false,
@@ -932,76 +1082,89 @@ const OLD_DISORDER: IncidentTypeConfiguration = {
     },
     '49202': {
       id: '49202',
+      code: 'What Was The Estimated Cost Of The Damage?',
       label: 'What Was The Estimated Cost Of The Damage?',
       multipleAnswers: false,
       answers: [
         {
+          code: '£0',
           label: '£0',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '49203',
         },
         {
+          code: '£1 to £20',
           label: '£1 to £20',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '49203',
         },
         {
+          code: '£21 to £50',
           label: '£21 to £50',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '49203',
         },
         {
+          code: '£51 to £100',
           label: '£51 to £100',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '49203',
         },
         {
+          code: '£101 to £500',
           label: '£101 to £500',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '49203',
         },
         {
+          code: '£501 to £1,000',
           label: '£501 to £1,000',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '49203',
         },
         {
+          code: '£1,001 to £5,000',
           label: '£1,001 to £5,000',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '49203',
         },
         {
+          code: '£5001 to £10,000',
           label: '£5001 to £10,000',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '49203',
         },
         {
+          code: '£10,001 to £50,000',
           label: '£10,001 to £50,000',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '49203',
         },
         {
+          code: '£50,001 to £100,000',
           label: '£50,001 to £100,000',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '49203',
         },
         {
+          code: '> £100,000',
           label: '> £100,000',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '49203',
         },
         {
+          code: 'Unknown',
           label: 'Unknown',
           commentRequired: false,
           dateRequired: false,
@@ -1011,76 +1174,89 @@ const OLD_DISORDER: IncidentTypeConfiguration = {
     },
     '49203': {
       id: '49203',
+      code: 'What Was The Duration Of The Incident?',
       label: 'What Was The Duration Of The Incident?',
       multipleAnswers: false,
       answers: [
         {
+          code: '< 1 Minute',
           label: '< 1 Minute',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '49204',
         },
         {
+          code: '1 Min to < 5 Mins',
           label: '1 Min to < 5 Mins',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '49204',
         },
         {
+          code: '5 Mins to < 10 Mins',
           label: '5 Mins to < 10 Mins',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '49204',
         },
         {
+          code: '10 Mins to < 15 Mins',
           label: '10 Mins to < 15 Mins',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '49204',
         },
         {
+          code: '15 Mins to < 30 Mins',
           label: '15 Mins to < 30 Mins',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '49204',
         },
         {
+          code: '30 Mins to < 1 Hour',
           label: '30 Mins to < 1 Hour',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '49204',
         },
         {
+          code: '1 Hour to < 2 Hours',
           label: '1 Hour to < 2 Hours',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '49204',
         },
         {
+          code: '2 Hours to < 3 Hours',
           label: '2 Hours to < 3 Hours',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '49204',
         },
         {
+          code: '3 Hours to < 4 Hours',
           label: '3 Hours to < 4 Hours',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '49204',
         },
         {
+          code: '4 Hours to < 5 Hours',
           label: '4 Hours to < 5 Hours',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '49204',
         },
         {
+          code: '5 Hours Plus',
           label: '5 Hours Plus',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '49204',
         },
         {
+          code: 'Unknown',
           label: 'Unknown',
           commentRequired: false,
           dateRequired: false,
@@ -1090,16 +1266,19 @@ const OLD_DISORDER: IncidentTypeConfiguration = {
     },
     '49204': {
       id: '49204',
+      code: 'Was The Telephone/IT System Shut Down During The Incident?',
       label: 'Was The Telephone/IT System Shut Down During The Incident?',
       multipleAnswers: false,
       answers: [
         {
+          code: 'Yes',
           label: 'Yes',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '49205',
         },
         {
+          code: 'No',
           label: 'No',
           commentRequired: false,
           dateRequired: false,
@@ -1109,16 +1288,19 @@ const OLD_DISORDER: IncidentTypeConfiguration = {
     },
     '49205': {
       id: '49205',
+      code: 'Was The Telephone System Shur Down Locally Or By The Service Supplier?',
       label: 'Was The Telephone System Shur Down Locally Or By The Service Supplier?',
       multipleAnswers: false,
       answers: [
         {
+          code: 'Service Supplier',
           label: 'Service Supplier',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '49206',
         },
         {
+          code: 'Local',
           label: 'Local',
           commentRequired: false,
           dateRequired: false,
@@ -1128,10 +1310,12 @@ const OLD_DISORDER: IncidentTypeConfiguration = {
     },
     '49206': {
       id: '49206',
+      code: 'Quote The Helpdesk Case Number',
       label: 'Quote The Helpdesk Case Number',
       multipleAnswers: false,
       answers: [
         {
+          code: 'Enter Number',
           label: 'Enter Number',
           commentRequired: true,
           dateRequired: false,
@@ -1141,16 +1325,19 @@ const OLD_DISORDER: IncidentTypeConfiguration = {
     },
     '49207': {
       id: '49207',
+      code: 'Was The Keyword Requested?',
       label: 'Was The Keyword Requested?',
       multipleAnswers: false,
       answers: [
         {
+          code: 'Yes',
           label: 'Yes',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '49208',
         },
         {
+          code: 'No',
           label: 'No',
           commentRequired: false,
           dateRequired: false,
@@ -1160,16 +1347,19 @@ const OLD_DISORDER: IncidentTypeConfiguration = {
     },
     '49208': {
       id: '49208',
+      code: 'Has The Service Supplier Been Notified Of A Replacement Keyword?',
       label: 'Has The Service Supplier Been Notified Of A Replacement Keyword?',
       multipleAnswers: false,
       answers: [
         {
+          code: 'No',
           label: 'No',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '49209',
         },
         {
+          code: 'Yes',
           label: 'Yes',
           commentRequired: false,
           dateRequired: false,
@@ -1179,16 +1369,19 @@ const OLD_DISORDER: IncidentTypeConfiguration = {
     },
     '49209': {
       id: '49209',
+      code: 'Indicate The Nature Of The Shut Down',
       label: 'Indicate The Nature Of The Shut Down',
       multipleAnswers: true,
       answers: [
         {
+          code: 'IT',
           label: 'IT',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '49210',
         },
         {
+          code: 'Telephony',
           label: 'Telephony',
           commentRequired: false,
           dateRequired: false,
@@ -1198,10 +1391,12 @@ const OLD_DISORDER: IncidentTypeConfiguration = {
     },
     '49210': {
       id: '49210',
+      code: 'What Time Was The System Shut Down?',
       label: 'What Time Was The System Shut Down?',
       multipleAnswers: false,
       answers: [
         {
+          code: 'Enter Time',
           label: 'Enter Time',
           commentRequired: true,
           dateRequired: false,
@@ -1211,16 +1406,19 @@ const OLD_DISORDER: IncidentTypeConfiguration = {
     },
     '49211': {
       id: '49211',
+      code: 'Was This A Full or Partial Shut Down?',
       label: 'Was This A Full or Partial Shut Down?',
       multipleAnswers: false,
       answers: [
         {
+          code: 'Full',
           label: 'Full',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '49212',
         },
         {
+          code: 'Partial',
           label: 'Partial',
           commentRequired: false,
           dateRequired: false,
@@ -1230,28 +1428,33 @@ const OLD_DISORDER: IncidentTypeConfiguration = {
     },
     '49212': {
       id: '49212',
+      code: 'Who Authorised The Shut Down?',
       label: 'Who Authorised The Shut Down?',
       multipleAnswers: false,
       answers: [
         {
+          code: 'Deputy Governor',
           label: 'Deputy Governor',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '49213',
         },
         {
+          code: 'Duty Governor',
           label: 'Duty Governor',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '49213',
         },
         {
+          code: 'Governor',
           label: 'Governor',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '49213',
         },
         {
+          code: 'Other',
           label: 'Other',
           commentRequired: false,
           dateRequired: false,
@@ -1261,16 +1464,19 @@ const OLD_DISORDER: IncidentTypeConfiguration = {
     },
     '49213': {
       id: '49213',
+      code: 'Was The System Compromised?',
       label: 'Was The System Compromised?',
       multipleAnswers: false,
       answers: [
         {
+          code: 'Yes',
           label: 'Yes',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '49214',
         },
         {
+          code: 'No',
           label: 'No',
           commentRequired: false,
           dateRequired: false,
@@ -1280,10 +1486,12 @@ const OLD_DISORDER: IncidentTypeConfiguration = {
     },
     '49214': {
       id: '49214',
+      code: 'Describe What Was Compromised And By Whom',
       label: 'Describe What Was Compromised And By Whom',
       multipleAnswers: false,
       answers: [
         {
+          code: 'Describe Compromise',
           label: 'Describe Compromise',
           commentRequired: true,
           dateRequired: false,
@@ -1293,10 +1501,12 @@ const OLD_DISORDER: IncidentTypeConfiguration = {
     },
     '49215': {
       id: '49215',
+      code: 'When Was The System Re-Activated?',
       label: 'When Was The System Re-Activated?',
       multipleAnswers: false,
       answers: [
         {
+          code: 'Enter Comment And Date',
           label: 'Enter Comment And Date',
           commentRequired: true,
           dateRequired: false,
@@ -1306,16 +1516,19 @@ const OLD_DISORDER: IncidentTypeConfiguration = {
     },
     '49216': {
       id: '49216',
+      code: 'Was The System Re-Activated Locally Or By The IT And Telephony Service Supplier?',
       label: 'Was The System Re-Activated Locally Or By The IT And Telephony Service Supplier?',
       multipleAnswers: false,
       answers: [
         {
+          code: 'Local',
           label: 'Local',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '49217',
         },
         {
+          code: 'Service Supplier',
           label: 'Service Supplier',
           commentRequired: false,
           dateRequired: false,
@@ -1325,16 +1538,19 @@ const OLD_DISORDER: IncidentTypeConfiguration = {
     },
     '49217': {
       id: '49217',
+      code: 'Is Any Member Of Staff Facing Disciplinary Charges?',
       label: 'Is Any Member Of Staff Facing Disciplinary Charges?',
       multipleAnswers: false,
       answers: [
         {
+          code: 'No',
           label: 'No',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '49218',
         },
         {
+          code: 'Yes',
           label: 'Yes',
           commentRequired: false,
           dateRequired: false,
@@ -1344,16 +1560,19 @@ const OLD_DISORDER: IncidentTypeConfiguration = {
     },
     '49218': {
       id: '49218',
+      code: 'Was A Barricade Used?',
       label: 'Was A Barricade Used?',
       multipleAnswers: false,
       answers: [
         {
+          code: 'No',
           label: 'No',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '49219',
         },
         {
+          code: 'Yes',
           label: 'Yes',
           commentRequired: false,
           dateRequired: false,
@@ -1363,16 +1582,19 @@ const OLD_DISORDER: IncidentTypeConfiguration = {
     },
     '49219': {
       id: '49219',
+      code: 'Was A C And R Advisor Present?',
       label: 'Was A C And R Advisor Present?',
       multipleAnswers: false,
       answers: [
         {
+          code: 'No',
           label: 'No',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '49220',
         },
         {
+          code: 'Yes',
           label: 'Yes',
           commentRequired: false,
           dateRequired: false,
@@ -1382,16 +1604,19 @@ const OLD_DISORDER: IncidentTypeConfiguration = {
     },
     '49220': {
       id: '49220',
+      code: 'Was The Emergency Response Vehicle Present?',
       label: 'Was The Emergency Response Vehicle Present?',
       multipleAnswers: false,
       answers: [
         {
+          code: 'No',
           label: 'No',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '49221',
         },
         {
+          code: 'Yes',
           label: 'Yes',
           commentRequired: false,
           dateRequired: false,
@@ -1401,16 +1626,19 @@ const OLD_DISORDER: IncidentTypeConfiguration = {
     },
     '49221': {
       id: '49221',
+      code: 'Were Trained Negotiators Deployed?',
       label: 'Were Trained Negotiators Deployed?',
       multipleAnswers: false,
       answers: [
         {
+          code: 'No',
           label: 'No',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '49222',
         },
         {
+          code: 'Yes',
           label: 'Yes',
           commentRequired: false,
           dateRequired: false,
@@ -1420,16 +1648,19 @@ const OLD_DISORDER: IncidentTypeConfiguration = {
     },
     '49222': {
       id: '49222',
+      code: 'Was An Incident Liaison Officer Present?',
       label: 'Was An Incident Liaison Officer Present?',
       multipleAnswers: false,
       answers: [
         {
+          code: 'No',
           label: 'No',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '49223',
         },
         {
+          code: 'Yes',
           label: 'Yes',
           commentRequired: false,
           dateRequired: false,
@@ -1439,22 +1670,26 @@ const OLD_DISORDER: IncidentTypeConfiguration = {
     },
     '49223': {
       id: '49223',
+      code: 'Were Healthcare Centre Staff Present?',
       label: 'Were Healthcare Centre Staff Present?',
       multipleAnswers: false,
       answers: [
         {
+          code: 'No',
           label: 'No',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '49224',
         },
         {
+          code: 'Yes',
           label: 'Yes',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '49225',
         },
         {
+          code: 'Yes',
           label: 'Yes',
           commentRequired: false,
           dateRequired: false,
@@ -1464,16 +1699,19 @@ const OLD_DISORDER: IncidentTypeConfiguration = {
     },
     '49224': {
       id: '49224',
+      code: 'Were Works Services Staff Present?',
       label: 'Were Works Services Staff Present?',
       multipleAnswers: false,
       answers: [
         {
+          code: 'No',
           label: 'No',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '49225',
         },
         {
+          code: 'Yes',
           label: 'Yes',
           commentRequired: false,
           dateRequired: false,
@@ -1483,16 +1721,19 @@ const OLD_DISORDER: IncidentTypeConfiguration = {
     },
     '49225': {
       id: '49225',
+      code: 'Were Independent Monitoring Board Members Present?',
       label: 'Were Independent Monitoring Board Members Present?',
       multipleAnswers: false,
       answers: [
         {
+          code: 'No',
           label: 'No',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '49226',
         },
         {
+          code: 'Yes',
           label: 'Yes',
           commentRequired: false,
           dateRequired: false,
@@ -1502,16 +1743,19 @@ const OLD_DISORDER: IncidentTypeConfiguration = {
     },
     '49226': {
       id: '49226',
+      code: 'Was The Ambulance Service Present?',
       label: 'Was The Ambulance Service Present?',
       multipleAnswers: false,
       answers: [
         {
+          code: 'No',
           label: 'No',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '49227',
         },
         {
+          code: 'Yes',
           label: 'Yes',
           commentRequired: false,
           dateRequired: false,
@@ -1521,16 +1765,19 @@ const OLD_DISORDER: IncidentTypeConfiguration = {
     },
     '49227': {
       id: '49227',
+      code: 'Was The Fire Service Present?',
       label: 'Was The Fire Service Present?',
       multipleAnswers: false,
       answers: [
         {
+          code: 'No',
           label: 'No',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '49228',
         },
         {
+          code: 'Yes',
           label: 'Yes',
           commentRequired: false,
           dateRequired: false,
@@ -1540,16 +1787,19 @@ const OLD_DISORDER: IncidentTypeConfiguration = {
     },
     '49228': {
       id: '49228',
+      code: 'Were The Police Present?',
       label: 'Were The Police Present?',
       multipleAnswers: false,
       answers: [
         {
+          code: 'No',
           label: 'No',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '49229',
         },
         {
+          code: 'Yes',
           label: 'Yes',
           commentRequired: false,
           dateRequired: false,
@@ -1559,16 +1809,19 @@ const OLD_DISORDER: IncidentTypeConfiguration = {
     },
     '49229': {
       id: '49229',
+      code: 'Was Any Evacuation Necessary?',
       label: 'Was Any Evacuation Necessary?',
       multipleAnswers: false,
       answers: [
         {
+          code: 'No',
           label: 'No',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '49230',
         },
         {
+          code: 'Yes',
           label: 'Yes',
           commentRequired: false,
           dateRequired: false,
@@ -1578,16 +1831,19 @@ const OLD_DISORDER: IncidentTypeConfiguration = {
     },
     '49230': {
       id: '49230',
+      code: 'Describe The Incident As Either Active Or Passive?',
       label: 'Describe The Incident As Either Active Or Passive?',
       multipleAnswers: false,
       answers: [
         {
+          code: 'Active',
           label: 'Active',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '49231',
         },
         {
+          code: 'Passive',
           label: 'Passive',
           commentRequired: false,
           dateRequired: false,
@@ -1597,16 +1853,19 @@ const OLD_DISORDER: IncidentTypeConfiguration = {
     },
     '49231': {
       id: '49231',
+      code: 'How Many Prisoners Were Involved?',
       label: 'How Many Prisoners Were Involved?',
       multipleAnswers: false,
       answers: [
         {
+          code: 'State Number',
           label: 'State Number',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '49232',
         },
         {
+          code: 'State Number',
           label: 'State Number',
           commentRequired: true,
           dateRequired: false,
@@ -1616,16 +1875,19 @@ const OLD_DISORDER: IncidentTypeConfiguration = {
     },
     '49232': {
       id: '49232',
+      code: 'Have The Ring Leaders Been Identified?',
       label: 'Have The Ring Leaders Been Identified?',
       multipleAnswers: false,
       answers: [
         {
+          code: 'No',
           label: 'No',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '49234',
         },
         {
+          code: 'Yes',
           label: 'Yes',
           commentRequired: false,
           dateRequired: false,
@@ -1635,16 +1897,19 @@ const OLD_DISORDER: IncidentTypeConfiguration = {
     },
     '49233': {
       id: '49233',
+      code: 'Have the Ring Leaders Been Entered On Inmate Involvement?',
       label: 'Have the Ring Leaders Been Entered On Inmate Involvement?',
       multipleAnswers: false,
       answers: [
         {
+          code: 'No',
           label: 'No',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '49234',
         },
         {
+          code: 'Yes',
           label: 'Yes',
           commentRequired: false,
           dateRequired: false,
@@ -1654,16 +1919,19 @@ const OLD_DISORDER: IncidentTypeConfiguration = {
     },
     '49234': {
       id: '49234',
+      code: 'Was Operation Tornado Used?',
       label: 'Was Operation Tornado Used?',
       multipleAnswers: false,
       answers: [
         {
+          code: 'No',
           label: 'No',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '49235',
         },
         {
+          code: 'Yes',
           label: 'Yes',
           commentRequired: false,
           dateRequired: false,
@@ -1673,16 +1941,19 @@ const OLD_DISORDER: IncidentTypeConfiguration = {
     },
     '49235': {
       id: '49235',
+      code: 'Were Extendable Batons Used?',
       label: 'Were Extendable Batons Used?',
       multipleAnswers: false,
       answers: [
         {
+          code: 'No',
           label: 'No',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '49236',
         },
         {
+          code: 'Yes',
           label: 'Yes',
           commentRequired: false,
           dateRequired: false,
@@ -1692,16 +1963,19 @@ const OLD_DISORDER: IncidentTypeConfiguration = {
     },
     '49236': {
       id: '49236',
+      code: 'Was The Incident In Public View?',
       label: 'Was The Incident In Public View?',
       multipleAnswers: false,
       answers: [
         {
+          code: 'No',
           label: 'No',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '49237',
         },
         {
+          code: 'Yes',
           label: 'Yes',
           commentRequired: false,
           dateRequired: false,
@@ -1711,10 +1985,12 @@ const OLD_DISORDER: IncidentTypeConfiguration = {
     },
     '49237': {
       id: '49237',
+      code: 'Enter Number Of Perpetrators',
       label: 'Enter Number Of Perpetrators',
       multipleAnswers: false,
       answers: [
         {
+          code: 'State Number',
           label: 'State Number',
           commentRequired: true,
           dateRequired: false,
@@ -1724,10 +2000,12 @@ const OLD_DISORDER: IncidentTypeConfiguration = {
     },
     '49238': {
       id: '49238',
+      code: 'Enter Number of Hostages',
       label: 'Enter Number of Hostages',
       multipleAnswers: false,
       answers: [
         {
+          code: 'State Number',
           label: 'State Number',
           commentRequired: true,
           dateRequired: false,
@@ -1737,34 +2015,40 @@ const OLD_DISORDER: IncidentTypeConfiguration = {
     },
     '49239': {
       id: '49239',
+      code: 'Describe Status of Hostages',
       label: 'Describe Status of Hostages',
       multipleAnswers: true,
       answers: [
         {
+          code: 'Civilian Staff',
           label: 'Civilian Staff',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '49240',
         },
         {
+          code: 'Officer',
           label: 'Officer',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '49240',
         },
         {
+          code: 'Other',
           label: 'Other',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '49240',
         },
         {
+          code: 'Prisoner',
           label: 'Prisoner',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '49240',
         },
         {
+          code: 'Staff',
           label: 'Staff',
           commentRequired: false,
           dateRequired: false,
@@ -1774,22 +2058,26 @@ const OLD_DISORDER: IncidentTypeConfiguration = {
     },
     '49240': {
       id: '49240',
+      code: 'Describe Status of Perpetrators',
       label: 'Describe Status of Perpetrators',
       multipleAnswers: true,
       answers: [
         {
+          code: 'Other',
           label: 'Other',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '49241',
         },
         {
+          code: 'Prisoner',
           label: 'Prisoner',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '49241',
         },
         {
+          code: 'Visitor',
           label: 'Visitor',
           commentRequired: false,
           dateRequired: false,
@@ -1799,16 +2087,19 @@ const OLD_DISORDER: IncidentTypeConfiguration = {
     },
     '49241': {
       id: '49241',
+      code: 'Was A Hostage Part Of The Barricade?',
       label: 'Was A Hostage Part Of The Barricade?',
       multipleAnswers: false,
       answers: [
         {
+          code: 'No',
           label: 'No',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '49242',
         },
         {
+          code: 'Yes',
           label: 'Yes',
           commentRequired: false,
           dateRequired: false,
@@ -1818,16 +2109,19 @@ const OLD_DISORDER: IncidentTypeConfiguration = {
     },
     '49242': {
       id: '49242',
+      code: 'Was Physical Violence Used Towards Hostage?',
       label: 'Was Physical Violence Used Towards Hostage?',
       multipleAnswers: false,
       answers: [
         {
+          code: 'No',
           label: 'No',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '49243',
         },
         {
+          code: 'Yes',
           label: 'Yes',
           commentRequired: false,
           dateRequired: false,
@@ -1837,16 +2131,19 @@ const OLD_DISORDER: IncidentTypeConfiguration = {
     },
     '49243': {
       id: '49243',
+      code: 'Was The Hostage Physically Restrained By The Perpetrator',
       label: 'Was The Hostage Physically Restrained By The Perpetrator',
       multipleAnswers: false,
       answers: [
         {
+          code: 'No',
           label: 'No',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '49244',
         },
         {
+          code: 'Yes',
           label: 'Yes',
           commentRequired: false,
           dateRequired: false,
@@ -1856,16 +2153,19 @@ const OLD_DISORDER: IncidentTypeConfiguration = {
     },
     '49244': {
       id: '49244',
+      code: 'Was There Evidence Of The Stockholm Syndrome?',
       label: 'Was There Evidence Of The Stockholm Syndrome?',
       multipleAnswers: false,
       answers: [
         {
+          code: 'No',
           label: 'No',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '49245',
         },
         {
+          code: 'Yes',
           label: 'Yes',
           commentRequired: false,
           dateRequired: false,
@@ -1875,16 +2175,19 @@ const OLD_DISORDER: IncidentTypeConfiguration = {
     },
     '49245': {
       id: '49245',
+      code: 'Was There Evidence Of Collusion?',
       label: 'Was There Evidence Of Collusion?',
       multipleAnswers: false,
       answers: [
         {
+          code: 'No',
           label: 'No',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '49246',
         },
         {
+          code: 'Yes',
           label: 'Yes',
           commentRequired: false,
           dateRequired: false,
@@ -1894,16 +2197,19 @@ const OLD_DISORDER: IncidentTypeConfiguration = {
     },
     '49246': {
       id: '49246',
+      code: 'Was A Hostage Negotiator Adviser Present?',
       label: 'Was A Hostage Negotiator Adviser Present?',
       multipleAnswers: false,
       answers: [
         {
+          code: 'No',
           label: 'No',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '49247',
         },
         {
+          code: 'Yes',
           label: 'Yes',
           commentRequired: false,
           dateRequired: false,
@@ -1913,16 +2219,19 @@ const OLD_DISORDER: IncidentTypeConfiguration = {
     },
     '49247': {
       id: '49247',
+      code: 'Was A Medical Officer Present',
       label: 'Was A Medical Officer Present',
       multipleAnswers: false,
       answers: [
         {
+          code: 'No',
           label: 'No',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '49248',
         },
         {
+          code: 'Yes',
           label: 'Yes',
           commentRequired: false,
           dateRequired: false,
@@ -1932,34 +2241,40 @@ const OLD_DISORDER: IncidentTypeConfiguration = {
     },
     '49248': {
       id: '49248',
+      code: 'Was A Technical Support Unit Present',
       label: 'Was A Technical Support Unit Present',
       multipleAnswers: false,
       answers: [
         {
+          code: 'No',
           label: 'No',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '49249',
         },
         {
+          code: 'Yes',
           label: 'Yes',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '49250',
         },
         {
+          code: 'Yes',
           label: 'Yes',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '49249',
         },
         {
+          code: 'No',
           label: 'No',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '53179',
         },
         {
+          code: 'Yes',
           label: 'Yes',
           commentRequired: false,
           dateRequired: false,
@@ -1969,16 +2284,19 @@ const OLD_DISORDER: IncidentTypeConfiguration = {
     },
     '49249': {
       id: '49249',
+      code: 'Did A Tactical Firearms Adviser Attend?',
       label: 'Did A Tactical Firearms Adviser Attend?',
       multipleAnswers: false,
       answers: [
         {
+          code: 'No',
           label: 'No',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '49250',
         },
         {
+          code: 'Yes',
           label: 'Yes',
           commentRequired: false,
           dateRequired: false,
@@ -1988,16 +2306,19 @@ const OLD_DISORDER: IncidentTypeConfiguration = {
     },
     '49250': {
       id: '49250',
+      code: 'Were Firearms Officers Deployed?',
       label: 'Were Firearms Officers Deployed?',
       multipleAnswers: false,
       answers: [
         {
+          code: 'No',
           label: 'No',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '49254',
         },
         {
+          code: 'Yes',
           label: 'Yes',
           commentRequired: false,
           dateRequired: false,
@@ -2007,64 +2328,75 @@ const OLD_DISORDER: IncidentTypeConfiguration = {
     },
     '49254': {
       id: '49254',
+      code: 'Describe Method Of Gaining Access To Area At Height',
       label: 'Describe Method Of Gaining Access To Area At Height',
       multipleAnswers: true,
       answers: [
         {
+          code: 'Internal Access: Netting',
           label: 'Internal Access: Netting',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '49255',
         },
         {
+          code: 'Internal Access: Landing/Railings',
           label: 'Internal Access: Landing/Railings',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '49255',
         },
         {
+          code: 'Internal Access: Window/Gate Bars',
           label: 'Internal Access: Window/Gate Bars',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '49255',
         },
         {
+          code: 'Internal Other',
           label: 'Internal Other',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '49255',
         },
         {
+          code: 'External Access: Roof',
           label: 'External Access: Roof',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '49255',
         },
         {
+          code: 'External Access: Tree',
           label: 'External Access: Tree',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '49255',
         },
         {
+          code: 'External Access: Fencing',
           label: 'External Access: Fencing',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '49255',
         },
         {
+          code: 'External Other',
           label: 'External Other',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '49255',
         },
         {
+          code: 'Contractors Equipment',
           label: 'Contractors Equipment',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '49255',
         },
         {
+          code: 'Not Applicable',
           label: 'Not Applicable',
           commentRequired: false,
           dateRequired: false,
@@ -2074,58 +2406,68 @@ const OLD_DISORDER: IncidentTypeConfiguration = {
     },
     '49255': {
       id: '49255',
+      code: 'What Aggravating Factors Were Present?',
       label: 'What Aggravating Factors Were Present?',
       multipleAnswers: true,
       answers: [
         {
+          code: 'Access Difficulties',
           label: 'Access Difficulties',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '49256',
         },
         {
+          code: 'Damage Resulting In Loss Of Facilities Or Utilities',
           label: 'Damage Resulting In Loss Of Facilities Or Utilities',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '49256',
         },
         {
+          code: 'Damage Resulting in The Loss Of Accommodation',
           label: 'Damage Resulting in The Loss Of Accommodation',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '49256',
         },
         {
+          code: 'Media Interest',
           label: 'Media Interest',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '49256',
         },
         {
+          code: 'NTRG And / Or NDTSG Assistance Requested',
           label: 'NTRG And / Or NDTSG Assistance Requested',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '49256',
         },
         {
+          code: 'Perpetrator Under Influence Of Drugs Or Alcohol',
           label: 'Perpetrator Under Influence Of Drugs Or Alcohol',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '49256',
         },
         {
+          code: 'Threat Or Actual Self Harm',
           label: 'Threat Or Actual Self Harm',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '49256',
         },
         {
+          code: 'Use Of Weapons',
           label: 'Use Of Weapons',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '49256',
         },
         {
+          code: 'Violence Directed Against Staff',
           label: 'Violence Directed Against Staff',
           commentRequired: false,
           dateRequired: false,
@@ -2135,34 +2477,40 @@ const OLD_DISORDER: IncidentTypeConfiguration = {
     },
     '49256': {
       id: '49256',
+      code: 'What Height Did The Incident Take Place?',
       label: 'What Height Did The Incident Take Place?',
       multipleAnswers: false,
       answers: [
         {
+          code: 'Between 3 Feet and < 1st Floor',
           label: 'Between 3 Feet and < 1st Floor',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: null,
         },
         {
+          code: '1st Floor',
           label: '1st Floor',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: null,
         },
         {
+          code: '2nd Floor',
           label: '2nd Floor',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: null,
         },
         {
+          code: '3rd Floor Or Higher',
           label: '3rd Floor Or Higher',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: null,
         },
         {
+          code: 'Not Applicable',
           label: 'Not Applicable',
           commentRequired: false,
           dateRequired: false,
@@ -2172,16 +2520,19 @@ const OLD_DISORDER: IncidentTypeConfiguration = {
     },
     '53179': {
       id: '53179',
+      code: 'Did A Tactical Firearms Adviser Attend?',
       label: 'Did A Tactical Firearms Adviser Attend?',
       multipleAnswers: false,
       answers: [
         {
+          code: 'Yes',
           label: 'Yes',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '53180',
         },
         {
+          code: 'No',
           label: 'No',
           commentRequired: false,
           dateRequired: false,
@@ -2191,16 +2542,19 @@ const OLD_DISORDER: IncidentTypeConfiguration = {
     },
     '53180': {
       id: '53180',
+      code: 'Were Firearms Officers Deployed?',
       label: 'Were Firearms Officers Deployed?',
       multipleAnswers: false,
       answers: [
         {
+          code: 'No',
           label: 'No',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '53182',
         },
         {
+          code: 'Yes',
           label: 'Yes',
           commentRequired: false,
           dateRequired: false,
@@ -2210,10 +2564,12 @@ const OLD_DISORDER: IncidentTypeConfiguration = {
     },
     '53181': {
       id: '53181',
+      code: 'Describe Method Of Gaining Access To Area At Height',
       label: 'Describe Method Of Gaining Access To Area At Height',
       multipleAnswers: false,
       answers: [
         {
+          code: 'Not Applicable',
           label: 'Not Applicable',
           commentRequired: false,
           dateRequired: false,
@@ -2223,64 +2579,75 @@ const OLD_DISORDER: IncidentTypeConfiguration = {
     },
     '53182': {
       id: '53182',
+      code: 'Describe Method Of Gaining Access To Area At Height',
       label: 'Describe Method Of Gaining Access To Area At Height',
       multipleAnswers: true,
       answers: [
         {
+          code: 'Internal Access: Netting',
           label: 'Internal Access: Netting',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '53183',
         },
         {
+          code: 'Internal Access: Landing/Railings',
           label: 'Internal Access: Landing/Railings',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '53183',
         },
         {
+          code: 'Internal Access: Window/Gate Bars',
           label: 'Internal Access: Window/Gate Bars',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '53183',
         },
         {
+          code: 'Internal Other',
           label: 'Internal Other',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '53183',
         },
         {
+          code: 'External Access: Roof',
           label: 'External Access: Roof',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '53183',
         },
         {
+          code: 'External Access: Tree',
           label: 'External Access: Tree',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '53183',
         },
         {
+          code: 'External Access: Fencing',
           label: 'External Access: Fencing',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '53183',
         },
         {
+          code: 'External Access Other',
           label: 'External Access Other',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '53183',
         },
         {
+          code: 'Contractors Equipment',
           label: 'Contractors Equipment',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '53183',
         },
         {
+          code: 'Not Applicable',
           label: 'Not Applicable',
           commentRequired: false,
           dateRequired: false,
@@ -2290,58 +2657,68 @@ const OLD_DISORDER: IncidentTypeConfiguration = {
     },
     '53183': {
       id: '53183',
+      code: 'What Aggravating Factors Were Present?',
       label: 'What Aggravating Factors Were Present?',
       multipleAnswers: true,
       answers: [
         {
+          code: 'Access Difficulties',
           label: 'Access Difficulties',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '53184',
         },
         {
+          code: 'Damage Resulting in Loss of Facilities or Utilities',
           label: 'Damage Resulting in Loss of Facilities or Utilities',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '53184',
         },
         {
+          code: 'Damage Resulting in The Loss of Accommodation',
           label: 'Damage Resulting in The Loss of Accommodation',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '53184',
         },
         {
+          code: 'Media Interest',
           label: 'Media Interest',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '53184',
         },
         {
+          code: 'NRTG And/Or NDTSG Assistance Required',
           label: 'NRTG And/Or NDTSG Assistance Required',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '53184',
         },
         {
+          code: 'Perpetrator Under Influence of Drugs or Alcohol',
           label: 'Perpetrator Under Influence of Drugs or Alcohol',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '53184',
         },
         {
+          code: 'Threat or Actual Self Harm',
           label: 'Threat or Actual Self Harm',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '53184',
         },
         {
+          code: 'Use Of Weapons',
           label: 'Use Of Weapons',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '53184',
         },
         {
+          code: 'Violence Directed Against Staff',
           label: 'Violence Directed Against Staff',
           commentRequired: false,
           dateRequired: false,
@@ -2351,34 +2728,40 @@ const OLD_DISORDER: IncidentTypeConfiguration = {
     },
     '53184': {
       id: '53184',
+      code: 'What Height Did The Incident Take Place?',
       label: 'What Height Did The Incident Take Place?',
       multipleAnswers: false,
       answers: [
         {
+          code: 'Between 3 Feet and < 1st Floor',
           label: 'Between 3 Feet and < 1st Floor',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: null,
         },
         {
+          code: '1st Floor',
           label: '1st Floor',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: null,
         },
         {
+          code: '2nd Floor',
           label: '2nd Floor',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: null,
         },
         {
+          code: '3rd Floor or Higher',
           label: '3rd Floor or Higher',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: null,
         },
         {
+          code: 'Not Applicable',
           label: 'Not Applicable',
           commentRequired: false,
           dateRequired: false,

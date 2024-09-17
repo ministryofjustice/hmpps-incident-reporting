@@ -1,4 +1,4 @@
-// Generated with ./scripts/updateNomisIncidentTypeConfigurations.ts at 2024-09-12T16:33:38.282Z
+// Generated with ./scripts/updateNomisIncidentTypeConfigurations.ts at 2024-09-16T15:41:57.136Z
 
 import { type IncidentTypeConfiguration } from '../../data/incidentTypeConfiguration/types'
 
@@ -9,16 +9,19 @@ const BREACH_OF_SECURITY: IncidentTypeConfiguration = {
   questions: {
     '44124': {
       id: '44124',
+      code: 'WAS DAMAGE CAUSED TO PRISON PROPERTY',
       label: 'WAS DAMAGE CAUSED TO PRISON PROPERTY',
       multipleAnswers: false,
       answers: [
         {
+          code: 'YES',
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44136',
         },
         {
+          code: 'NO',
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -28,34 +31,40 @@ const BREACH_OF_SECURITY: IncidentTypeConfiguration = {
     },
     '44136': {
       id: '44136',
+      code: 'WHAT WAS DAMAGED',
       label: 'WHAT WAS DAMAGED',
       multipleAnswers: true,
       answers: [
         {
+          code: 'FURNITURE',
           label: 'FURNITURE',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '45016',
         },
         {
+          code: 'FITTINGS',
           label: 'FITTINGS',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '45016',
         },
         {
+          code: 'MACHINERY',
           label: 'MACHINERY',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '45016',
         },
         {
+          code: 'EQUIPMENT',
           label: 'EQUIPMENT',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '45016',
         },
         {
+          code: 'OTHER',
           label: 'OTHER',
           commentRequired: true,
           dateRequired: false,
@@ -65,16 +74,19 @@ const BREACH_OF_SECURITY: IncidentTypeConfiguration = {
     },
     '44249': {
       id: '44249',
+      code: 'WERE ANY INJURIES RECEIVED DURING THIS INCIDENT',
       label: 'WERE ANY INJURIES RECEIVED DURING THIS INCIDENT',
       multipleAnswers: false,
       answers: [
         {
+          code: 'YES',
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '45137',
         },
         {
+          code: 'NO',
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -84,16 +96,19 @@ const BREACH_OF_SECURITY: IncidentTypeConfiguration = {
     },
     '44253': {
       id: '44253',
+      code: 'WERE THE POLICE INFORMED OF THE INCIDENT',
       label: 'WERE THE POLICE INFORMED OF THE INCIDENT',
       multipleAnswers: false,
       answers: [
         {
+          code: 'YES',
           label: 'YES',
           commentRequired: false,
           dateRequired: true,
           nextQuestionId: '44286',
         },
         {
+          code: 'NO',
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -103,16 +118,19 @@ const BREACH_OF_SECURITY: IncidentTypeConfiguration = {
     },
     '44286': {
       id: '44286',
+      code: 'IS THE INCIDENT THE SUBJECT OF A POLICE INVESTIGATION',
       label: 'IS THE INCIDENT THE SUBJECT OF A POLICE INVESTIGATION',
       multipleAnswers: false,
       answers: [
         {
+          code: 'YES',
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44364',
         },
         {
+          code: 'NO',
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -122,52 +140,61 @@ const BREACH_OF_SECURITY: IncidentTypeConfiguration = {
     },
     '44301': {
       id: '44301',
+      code: 'DESCRIBE THE ILLICIT ITEM FOUND',
       label: 'DESCRIBE THE ILLICIT ITEM FOUND',
       multipleAnswers: true,
       answers: [
         {
+          code: 'WEAPONS',
           label: 'WEAPONS',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: null,
         },
         {
+          code: 'ALCOHOL',
           label: 'ALCOHOL',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: null,
         },
         {
+          code: 'CIGARETTES',
           label: 'CIGARETTES',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: null,
         },
         {
+          code: 'TOBACCO',
           label: 'TOBACCO',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: null,
         },
         {
+          code: 'CASH',
           label: 'CASH',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: null,
         },
         {
+          code: 'ESCAPE EQUIPMENT',
           label: 'ESCAPE EQUIPMENT',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: null,
         },
         {
+          code: 'TOOLS',
           label: 'TOOLS',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: null,
         },
         {
+          code: 'OTHER',
           label: 'OTHER',
           commentRequired: true,
           dateRequired: false,
@@ -177,16 +204,19 @@ const BREACH_OF_SECURITY: IncidentTypeConfiguration = {
     },
     '44333': {
       id: '44333',
+      code: 'HAS ANY PROSECUTION TAKEN PLACE OR IS ANY PENDING',
       label: 'HAS ANY PROSECUTION TAKEN PLACE OR IS ANY PENDING',
       multipleAnswers: false,
       answers: [
         {
+          code: 'YES',
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44124',
         },
         {
+          code: 'NO',
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -196,16 +226,19 @@ const BREACH_OF_SECURITY: IncidentTypeConfiguration = {
     },
     '44364': {
       id: '44364',
+      code: 'IS THE INCIDENT THE SUBJECT OF AN INTERNAL INVESTIGATION',
       label: 'IS THE INCIDENT THE SUBJECT OF AN INTERNAL INVESTIGATION',
       multipleAnswers: false,
       answers: [
         {
+          code: 'YES',
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44786',
         },
         {
+          code: 'NO',
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -215,16 +248,19 @@ const BREACH_OF_SECURITY: IncidentTypeConfiguration = {
     },
     '44389': {
       id: '44389',
+      code: 'HAS ANY PROSECUTION TAKEN PLACE OR IS ANY PENDING',
       label: 'HAS ANY PROSECUTION TAKEN PLACE OR IS ANY PENDING',
       multipleAnswers: false,
       answers: [
         {
+          code: 'YES',
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44883',
         },
         {
+          code: 'NO',
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -234,16 +270,19 @@ const BREACH_OF_SECURITY: IncidentTypeConfiguration = {
     },
     '44500': {
       id: '44500',
+      code: 'WAS THE DEMONSTRATION KNOWN ABOUT IN ADVANCE',
       label: 'WAS THE DEMONSTRATION KNOWN ABOUT IN ADVANCE',
       multipleAnswers: false,
       answers: [
         {
+          code: 'YES',
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44606',
         },
         {
+          code: 'NO',
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -253,16 +292,19 @@ const BREACH_OF_SECURITY: IncidentTypeConfiguration = {
     },
     '44514': {
       id: '44514',
+      code: 'DID UNAUTHORISED PERSONS ENTER THE PRISON',
       label: 'DID UNAUTHORISED PERSONS ENTER THE PRISON',
       multipleAnswers: false,
       answers: [
         {
+          code: 'YES',
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44543',
         },
         {
+          code: 'NO',
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -272,16 +314,19 @@ const BREACH_OF_SECURITY: IncidentTypeConfiguration = {
     },
     '44543': {
       id: '44543',
+      code: 'WERE THESE PERSONS APPREHENDED',
       label: 'WERE THESE PERSONS APPREHENDED',
       multipleAnswers: false,
       answers: [
         {
+          code: 'YES',
           label: 'YES',
           commentRequired: true,
           dateRequired: false,
           nextQuestionId: '44855',
         },
         {
+          code: 'NO',
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -291,16 +336,19 @@ const BREACH_OF_SECURITY: IncidentTypeConfiguration = {
     },
     '44561': {
       id: '44561',
+      code: 'WAS A KNOWN ORGANISATION INVOLVED',
       label: 'WAS A KNOWN ORGANISATION INVOLVED',
       multipleAnswers: false,
       answers: [
         {
+          code: 'YES',
           label: 'YES',
           commentRequired: true,
           dateRequired: false,
           nextQuestionId: '44500',
         },
         {
+          code: 'NO',
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -310,28 +358,33 @@ const BREACH_OF_SECURITY: IncidentTypeConfiguration = {
     },
     '44606': {
       id: '44606',
+      code: 'HOW WAS IT KNOWN ABOUT',
       label: 'HOW WAS IT KNOWN ABOUT',
       multipleAnswers: false,
       answers: [
         {
+          code: 'INFORMATION FROM PRISONERS',
           label: 'INFORMATION FROM PRISONERS',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44658',
         },
         {
+          code: 'INFORMATION FROM POLICE',
           label: 'INFORMATION FROM POLICE',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44658',
         },
         {
+          code: 'INFORMATION FROM HQ/AM',
           label: 'INFORMATION FROM HQ/AM',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44658',
         },
         {
+          code: 'OTHER',
           label: 'OTHER',
           commentRequired: true,
           dateRequired: false,
@@ -341,10 +394,12 @@ const BREACH_OF_SECURITY: IncidentTypeConfiguration = {
     },
     '44616': {
       id: '44616',
+      code: 'ESTIMATED COST OF DAMAGE',
       label: 'ESTIMATED COST OF DAMAGE',
       multipleAnswers: false,
       answers: [
         {
+          code: 'ENTER AMOUNT IN POUND STERLING',
           label: 'ENTER AMOUNT IN POUND STERLING',
           commentRequired: true,
           dateRequired: false,
@@ -354,28 +409,33 @@ const BREACH_OF_SECURITY: IncidentTypeConfiguration = {
     },
     '44658': {
       id: '44658',
+      code: 'WHAT WAS THE REASON FOR THE DEMONSTRATION',
       label: 'WHAT WAS THE REASON FOR THE DEMONSTRATION',
       multipleAnswers: false,
       answers: [
         {
+          code: 'PARTICULAR PRISONER',
           label: 'PARTICULAR PRISONER',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44686',
         },
         {
+          code: 'LOCAL ISSUE',
           label: 'LOCAL ISSUE',
           commentRequired: true,
           dateRequired: false,
           nextQuestionId: '44686',
         },
         {
+          code: 'GENERAL ISSUE',
           label: 'GENERAL ISSUE',
           commentRequired: true,
           dateRequired: false,
           nextQuestionId: '44686',
         },
         {
+          code: 'OTHER',
           label: 'OTHER',
           commentRequired: true,
           dateRequired: false,
@@ -385,16 +445,19 @@ const BREACH_OF_SECURITY: IncidentTypeConfiguration = {
     },
     '44686': {
       id: '44686',
+      code: 'DID THE POLICE ATTEND',
       label: 'DID THE POLICE ATTEND',
       multipleAnswers: false,
       answers: [
         {
+          code: 'YES',
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44728',
         },
         {
+          code: 'NO',
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -404,16 +467,19 @@ const BREACH_OF_SECURITY: IncidentTypeConfiguration = {
     },
     '44709': {
       id: '44709',
+      code: 'WAS THE DEMONSTRATION ORGANISED OR SPONTANEOUS',
       label: 'WAS THE DEMONSTRATION ORGANISED OR SPONTANEOUS',
       multipleAnswers: false,
       answers: [
         {
+          code: 'ORGANISED',
           label: 'ORGANISED',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44561',
         },
         {
+          code: 'SPONTANEOUS',
           label: 'SPONTANEOUS',
           commentRequired: false,
           dateRequired: false,
@@ -423,16 +489,19 @@ const BREACH_OF_SECURITY: IncidentTypeConfiguration = {
     },
     '44728': {
       id: '44728',
+      code: 'WERE ANY ARRESTS MADE',
       label: 'WERE ANY ARRESTS MADE',
       multipleAnswers: false,
       answers: [
         {
+          code: 'YES',
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44333',
         },
         {
+          code: 'NO',
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -442,16 +511,19 @@ const BREACH_OF_SECURITY: IncidentTypeConfiguration = {
     },
     '44786': {
       id: '44786',
+      code: 'IS THERE ANY MEDIA INTEREST IN THIS INCIDENT',
       label: 'IS THERE ANY MEDIA INTEREST IN THIS INCIDENT',
       multipleAnswers: false,
       answers: [
         {
+          code: 'YES',
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '45095',
         },
         {
+          code: 'NO',
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -461,16 +533,19 @@ const BREACH_OF_SECURITY: IncidentTypeConfiguration = {
     },
     '44855': {
       id: '44855',
+      code: 'WERE THESE PERSONS ARRESTED BY THE POLICE',
       label: 'WERE THESE PERSONS ARRESTED BY THE POLICE',
       multipleAnswers: false,
       answers: [
         {
+          code: 'YES',
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44389',
         },
         {
+          code: 'NO',
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -480,16 +555,19 @@ const BREACH_OF_SECURITY: IncidentTypeConfiguration = {
     },
     '44864': {
       id: '44864',
+      code: 'WAS THE SECURE PERIMETER BREACHED',
       label: 'WAS THE SECURE PERIMETER BREACHED',
       multipleAnswers: false,
       answers: [
         {
+          code: 'YES',
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44918',
         },
         {
+          code: 'NO',
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -499,16 +577,19 @@ const BREACH_OF_SECURITY: IncidentTypeConfiguration = {
     },
     '44883': {
       id: '44883',
+      code: 'WAS THE INCIDENT A DEMONSTRATION',
       label: 'WAS THE INCIDENT A DEMONSTRATION',
       multipleAnswers: false,
       answers: [
         {
+          code: 'YES',
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44709',
         },
         {
+          code: 'NO',
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -518,16 +599,19 @@ const BREACH_OF_SECURITY: IncidentTypeConfiguration = {
     },
     '44906': {
       id: '44906',
+      code: 'WERE ANY ILLICIT ITEMS FOUND',
       label: 'WERE ANY ILLICIT ITEMS FOUND',
       multipleAnswers: false,
       answers: [
         {
+          code: 'YES',
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44301',
         },
         {
+          code: 'NO',
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -537,40 +621,47 @@ const BREACH_OF_SECURITY: IncidentTypeConfiguration = {
     },
     '44918': {
       id: '44918',
+      code: 'DESCRIBE HOW THE SECURE PERIMETER WAS BREACHED',
       label: 'DESCRIBE HOW THE SECURE PERIMETER WAS BREACHED',
       multipleAnswers: false,
       answers: [
         {
+          code: 'THROWN OVER',
           label: 'THROWN OVER',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44514',
         },
         {
+          code: 'CLIMBED OVER',
           label: 'CLIMBED OVER',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44514',
         },
         {
+          code: 'CUT THROUGH',
           label: 'CUT THROUGH',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44514',
         },
         {
+          code: 'VEHICLE RAMMED',
           label: 'VEHICLE RAMMED',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44514',
         },
         {
+          code: 'EXPLOSIVES',
           label: 'EXPLOSIVES',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44514',
         },
         {
+          code: 'OTHER',
           label: 'OTHER',
           commentRequired: true,
           dateRequired: false,
@@ -580,16 +671,19 @@ const BREACH_OF_SECURITY: IncidentTypeConfiguration = {
     },
     '44946': {
       id: '44946',
+      code: 'WHAT WAS THE INCIDENT LOCATION',
       label: 'WHAT WAS THE INCIDENT LOCATION',
       multipleAnswers: false,
       answers: [
         {
+          code: 'INSIDE PRISON',
           label: 'INSIDE PRISON',
           commentRequired: true,
           dateRequired: false,
           nextQuestionId: '44864',
         },
         {
+          code: 'OUTSIDE PRISON',
           label: 'OUTSIDE PRISON',
           commentRequired: false,
           dateRequired: false,
@@ -599,22 +693,26 @@ const BREACH_OF_SECURITY: IncidentTypeConfiguration = {
     },
     '45016': {
       id: '45016',
+      code: 'DESCRIBE THE DAMAGE',
       label: 'DESCRIBE THE DAMAGE',
       multipleAnswers: false,
       answers: [
         {
+          code: 'MINOR',
           label: 'MINOR',
           commentRequired: true,
           dateRequired: false,
           nextQuestionId: '44616',
         },
         {
+          code: 'SERIOUS',
           label: 'SERIOUS',
           commentRequired: true,
           dateRequired: false,
           nextQuestionId: '44616',
         },
         {
+          code: 'EXTENSIVE',
           label: 'EXTENSIVE',
           commentRequired: true,
           dateRequired: false,
@@ -624,16 +722,19 @@ const BREACH_OF_SECURITY: IncidentTypeConfiguration = {
     },
     '45095': {
       id: '45095',
+      code: 'HAS THE PRISON SERVICE PRESS OFFICE BEEN INFORMED',
       label: 'HAS THE PRISON SERVICE PRESS OFFICE BEEN INFORMED',
       multipleAnswers: false,
       answers: [
         {
+          code: 'YES',
           label: 'YES',
           commentRequired: false,
           dateRequired: true,
           nextQuestionId: '44946',
         },
         {
+          code: 'NO',
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -643,34 +744,40 @@ const BREACH_OF_SECURITY: IncidentTypeConfiguration = {
     },
     '45137': {
       id: '45137',
+      code: 'ENTER DESCRIPTION OF PERSON(S) INJURED',
       label: 'ENTER DESCRIPTION OF PERSON(S) INJURED',
       multipleAnswers: true,
       answers: [
         {
+          code: 'STAFF',
           label: 'STAFF',
           commentRequired: true,
           dateRequired: false,
           nextQuestionId: '44906',
         },
         {
+          code: 'PRISONERS',
           label: 'PRISONERS',
           commentRequired: true,
           dateRequired: false,
           nextQuestionId: '44906',
         },
         {
+          code: 'CIVILIAN GRADES',
           label: 'CIVILIAN GRADES',
           commentRequired: true,
           dateRequired: false,
           nextQuestionId: '44906',
         },
         {
+          code: 'POLICE',
           label: 'POLICE',
           commentRequired: true,
           dateRequired: false,
           nextQuestionId: '44906',
         },
         {
+          code: 'EXTERNAL CIVILIANS',
           label: 'EXTERNAL CIVILIANS',
           commentRequired: true,
           dateRequired: false,

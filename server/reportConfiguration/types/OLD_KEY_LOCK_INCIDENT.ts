@@ -1,4 +1,4 @@
-// Generated with ./scripts/updateNomisIncidentTypeConfigurations.ts at 2024-09-12T16:33:57.915Z
+// Generated with ./scripts/updateNomisIncidentTypeConfigurations.ts at 2024-09-16T15:42:17.515Z
 
 import { type IncidentTypeConfiguration } from '../../data/incidentTypeConfiguration/types'
 
@@ -9,16 +9,19 @@ const OLD_KEY_LOCK_INCIDENT: IncidentTypeConfiguration = {
   questions: {
     '44166': {
       id: '44166',
+      code: 'HAS ANY PROSECUTION TAKEN PLACE OR IS ANY PENDING',
       label: 'HAS ANY PROSECUTION TAKEN PLACE OR IS ANY PENDING',
       multipleAnswers: false,
       answers: [
         {
+          code: 'YES',
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44331',
         },
         {
+          code: 'NO',
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -28,16 +31,19 @@ const OLD_KEY_LOCK_INCIDENT: IncidentTypeConfiguration = {
     },
     '44228': {
       id: '44228',
+      code: 'HAS THE PRISON SERVICE PRESS OFFICE BEEN INFORMED',
       label: 'HAS THE PRISON SERVICE PRESS OFFICE BEEN INFORMED',
       multipleAnswers: false,
       answers: [
         {
+          code: 'YES',
           label: 'YES',
           commentRequired: false,
           dateRequired: true,
           nextQuestionId: '44972',
         },
         {
+          code: 'NO',
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -47,16 +53,19 @@ const OLD_KEY_LOCK_INCIDENT: IncidentTypeConfiguration = {
     },
     '44331': {
       id: '44331',
+      code: 'IS THE INCIDENT THE SUBJECT OF AN INTERNAL INVESTIGATION',
       label: 'IS THE INCIDENT THE SUBJECT OF AN INTERNAL INVESTIGATION',
       multipleAnswers: false,
       answers: [
         {
+          code: 'YES',
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44386',
         },
         {
+          code: 'NO',
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -66,16 +75,19 @@ const OLD_KEY_LOCK_INCIDENT: IncidentTypeConfiguration = {
     },
     '44355': {
       id: '44355',
+      code: 'HAS A REPLICA BEEN FOUND',
       label: 'HAS A REPLICA BEEN FOUND',
       multipleAnswers: false,
       answers: [
         {
+          code: 'YES',
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44894',
         },
         {
+          code: 'NO',
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -85,16 +97,19 @@ const OLD_KEY_LOCK_INCIDENT: IncidentTypeConfiguration = {
     },
     '44386': {
       id: '44386',
+      code: "IS THE INCIDENT SUBJECT TO A GOVERNOR'S ADJUDICATION",
       label: "IS THE INCIDENT SUBJECT TO A GOVERNOR'S ADJUDICATION",
       multipleAnswers: false,
       answers: [
         {
+          code: 'YES',
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44414',
         },
         {
+          code: 'NO',
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -104,58 +119,68 @@ const OLD_KEY_LOCK_INCIDENT: IncidentTypeConfiguration = {
     },
     '44407': {
       id: '44407',
+      code: 'WHAT TOOLS WERE USED',
       label: 'WHAT TOOLS WERE USED',
       multipleAnswers: true,
       answers: [
         {
+          code: 'HACKSAW BLADE',
           label: 'HACKSAW BLADE',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44925',
         },
         {
+          code: 'OTHER BLADE',
           label: 'OTHER BLADE',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44925',
         },
         {
+          code: 'WIRE CUTTERS',
           label: 'WIRE CUTTERS',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44925',
         },
         {
+          code: 'BOLT CROPPERS',
           label: 'BOLT CROPPERS',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44925',
         },
         {
+          code: 'DIGGING TOOL',
           label: 'DIGGING TOOL',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44925',
         },
         {
+          code: 'CROW BAR',
           label: 'CROW BAR',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44925',
         },
         {
+          code: 'IMPROVISED TOOL',
           label: 'IMPROVISED TOOL',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44925',
         },
         {
+          code: 'OTHER TOOL',
           label: 'OTHER TOOL',
           commentRequired: true,
           dateRequired: false,
           nextQuestionId: '44925',
         },
         {
+          code: 'NOT KNOWN',
           label: 'NOT KNOWN',
           commentRequired: false,
           dateRequired: false,
@@ -165,16 +190,19 @@ const OLD_KEY_LOCK_INCIDENT: IncidentTypeConfiguration = {
     },
     '44414': {
       id: '44414',
+      code: 'IS ANY MEMBER OF STAFF FACING DISCIPLINARY CHARGES',
       label: 'IS ANY MEMBER OF STAFF FACING DISCIPLINARY CHARGES',
       multipleAnswers: false,
       answers: [
         {
+          code: 'YES',
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44678',
         },
         {
+          code: 'NO',
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -184,28 +212,33 @@ const OLD_KEY_LOCK_INCIDENT: IncidentTypeConfiguration = {
     },
     '44449': {
       id: '44449',
+      code: 'DESCRIBE THE REMEDIAL ACTION TAKEN',
       label: 'DESCRIBE THE REMEDIAL ACTION TAKEN',
       multipleAnswers: false,
       answers: [
         {
+          code: 'COMPLETE RELOCK',
           label: 'COMPLETE RELOCK',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44921',
         },
         {
+          code: 'PARTIAL RELOCK',
           label: 'PARTIAL RELOCK',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44921',
         },
         {
+          code: 'COMPLETE REPLACEMENT',
           label: 'COMPLETE REPLACEMENT',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44921',
         },
         {
+          code: 'PARTIAL REPLACEMENT',
           label: 'PARTIAL REPLACEMENT',
           commentRequired: false,
           dateRequired: false,
@@ -215,16 +248,19 @@ const OLD_KEY_LOCK_INCIDENT: IncidentTypeConfiguration = {
     },
     '44598': {
       id: '44598',
+      code: 'WERE THE POLICE INFORMED OF THE INCIDENT',
       label: 'WERE THE POLICE INFORMED OF THE INCIDENT',
       multipleAnswers: false,
       answers: [
         {
+          code: 'YES',
           label: 'YES',
           commentRequired: false,
           dateRequired: true,
           nextQuestionId: '45072',
         },
         {
+          code: 'NO',
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -234,16 +270,19 @@ const OLD_KEY_LOCK_INCIDENT: IncidentTypeConfiguration = {
     },
     '44619': {
       id: '44619',
+      code: 'HAVE THE LOST ITEM(S) BEEN FOUND',
       label: 'HAVE THE LOST ITEM(S) BEEN FOUND',
       multipleAnswers: false,
       answers: [
         {
+          code: 'YES',
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44894',
         },
         {
+          code: 'NO',
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -253,16 +292,19 @@ const OLD_KEY_LOCK_INCIDENT: IncidentTypeConfiguration = {
     },
     '44678': {
       id: '44678',
+      code: 'IS THERE ANY MEDIA INTEREST IN THIS INCIDENT',
       label: 'IS THERE ANY MEDIA INTEREST IN THIS INCIDENT',
       multipleAnswers: false,
       answers: [
         {
+          code: 'YES',
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44228',
         },
         {
+          code: 'NO',
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -272,16 +314,19 @@ const OLD_KEY_LOCK_INCIDENT: IncidentTypeConfiguration = {
     },
     '44775': {
       id: '44775',
+      code: 'HAS ANY REMEDIAL ACTION BEEN TAKEN',
       label: 'HAS ANY REMEDIAL ACTION BEEN TAKEN',
       multipleAnswers: false,
       answers: [
         {
+          code: 'YES',
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44449',
         },
         {
+          code: 'NO',
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -291,16 +336,19 @@ const OLD_KEY_LOCK_INCIDENT: IncidentTypeConfiguration = {
     },
     '44866': {
       id: '44866',
+      code: 'WERE TOOLS USED',
       label: 'WERE TOOLS USED',
       multipleAnswers: false,
       answers: [
         {
+          code: 'YES',
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44407',
         },
         {
+          code: 'NO',
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -310,22 +358,26 @@ const OLD_KEY_LOCK_INCIDENT: IncidentTypeConfiguration = {
     },
     '44894': {
       id: '44894',
+      code: 'WHAT ACTION WAS TAKEN TO FIND THESE ITEMS',
       label: 'WHAT ACTION WAS TAKEN TO FIND THESE ITEMS',
       multipleAnswers: false,
       answers: [
         {
+          code: 'FULL CLOSE DOWN SEARCH',
           label: 'FULL CLOSE DOWN SEARCH',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44866',
         },
         {
+          code: 'PARTIAL SEARCH',
           label: 'PARTIAL SEARCH',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44866',
         },
         {
+          code: 'OTHER',
           label: 'OTHER',
           commentRequired: true,
           dateRequired: false,
@@ -335,10 +387,12 @@ const OLD_KEY_LOCK_INCIDENT: IncidentTypeConfiguration = {
     },
     '44921': {
       id: '44921',
+      code: 'ESTIMATED COST OF THIS ACTION',
       label: 'ESTIMATED COST OF THIS ACTION',
       multipleAnswers: false,
       answers: [
         {
+          code: 'ENTER AMOUNT IN POUND STERLING',
           label: 'ENTER AMOUNT IN POUND STERLING',
           commentRequired: true,
           dateRequired: false,
@@ -348,88 +402,103 @@ const OLD_KEY_LOCK_INCIDENT: IncidentTypeConfiguration = {
     },
     '44925': {
       id: '44925',
+      code: 'WHAT WAS THE SOURCE OF THE TOOLS',
       label: 'WHAT WAS THE SOURCE OF THE TOOLS',
       multipleAnswers: true,
       answers: [
         {
+          code: 'WORKS DEPARTMENT',
           label: 'WORKS DEPARTMENT',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44775',
         },
         {
+          code: 'CONTRACTORS',
           label: 'CONTRACTORS',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44775',
         },
         {
+          code: 'EDUCATION',
           label: 'EDUCATION',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44775',
         },
         {
+          code: 'HEALTH CARE CENTRE',
           label: 'HEALTH CARE CENTRE',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44775',
         },
         {
+          code: 'FARMS AND GARDENS',
           label: 'FARMS AND GARDENS',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44775',
         },
         {
+          code: 'GYMNASIUM/SPORTS FIELD',
           label: 'GYMNASIUM/SPORTS FIELD',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44775',
         },
         {
+          code: 'WORKSHOPS',
           label: 'WORKSHOPS',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44775',
         },
         {
+          code: 'KITCHEN',
           label: 'KITCHEN',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44775',
         },
         {
+          code: 'HOBBIES',
           label: 'HOBBIES',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44775',
         },
         {
+          code: 'CELL FURNISHINGS',
           label: 'CELL FURNISHINGS',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44775',
         },
         {
+          code: 'WING/HOUSEBLOCK FURNISHINGS',
           label: 'WING/HOUSEBLOCK FURNISHINGS',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44775',
         },
         {
+          code: 'SMUGGLED',
           label: 'SMUGGLED',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44775',
         },
         {
+          code: 'NOT KNOWN',
           label: 'NOT KNOWN',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44775',
         },
         {
+          code: 'OTHER',
           label: 'OTHER',
           commentRequired: true,
           dateRequired: false,
@@ -439,100 +508,117 @@ const OLD_KEY_LOCK_INCIDENT: IncidentTypeConfiguration = {
     },
     '44972': {
       id: '44972',
+      code: 'DESCRIBE THE TYPE OF KEY OR LOCK COMPROMISE',
       label: 'DESCRIBE THE TYPE OF KEY OR LOCK COMPROMISE',
       multipleAnswers: true,
       answers: [
         {
+          code: 'CLASS 1 PASS KEY',
           label: 'CLASS 1 PASS KEY',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '45015',
         },
         {
+          code: 'CLASS 2 PASS KEY',
           label: 'CLASS 2 PASS KEY',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '45015',
         },
         {
+          code: 'CELL KEY',
           label: 'CELL KEY',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '45015',
         },
         {
+          code: 'CLASS 3 A1 SUITE KEY',
           label: 'CLASS 3 A1 SUITE KEY',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '45015',
         },
         {
+          code: 'CLASS 3 ACCOUNTABLE KEY',
           label: 'CLASS 3 ACCOUNTABLE KEY',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '45015',
         },
         {
+          code: 'HANDCUFF KEY',
           label: 'HANDCUFF KEY',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '45015',
         },
         {
+          code: 'CLOSETING/ESCORT CHAIN KEY',
           label: 'CLOSETING/ESCORT CHAIN KEY',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '45015',
         },
         {
+          code: 'CLASS 1 LOCK',
           label: 'CLASS 1 LOCK',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '45015',
         },
         {
+          code: 'CLASS 2 LOCK',
           label: 'CLASS 2 LOCK',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '45015',
         },
         {
+          code: 'CELL LOCK',
           label: 'CELL LOCK',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '45015',
         },
         {
+          code: 'CLASS 3 A1 SUITE LOCK',
           label: 'CLASS 3 A1 SUITE LOCK',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '45015',
         },
         {
+          code: 'CLASS 3 ACCOUNTABLE LOCK',
           label: 'CLASS 3 ACCOUNTABLE LOCK',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '45015',
         },
         {
+          code: 'HANDCUFF',
           label: 'HANDCUFF',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '45015',
         },
         {
+          code: 'CLOSETING/ESCORT CHAIN',
           label: 'CLOSETING/ESCORT CHAIN',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '45015',
         },
         {
+          code: 'ELECTRONIC LOCK SYSTEM',
           label: 'ELECTRONIC LOCK SYSTEM',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '45015',
         },
         {
+          code: 'OTHER',
           label: 'OTHER',
           commentRequired: true,
           dateRequired: false,
@@ -542,58 +628,68 @@ const OLD_KEY_LOCK_INCIDENT: IncidentTypeConfiguration = {
     },
     '45015': {
       id: '45015',
+      code: 'DESCRIBE THE NATURE OF THE COMPROMISE',
       label: 'DESCRIBE THE NATURE OF THE COMPROMISE',
       multipleAnswers: true,
       answers: [
         {
+          code: 'LOSS OF KEY(S)',
           label: 'LOSS OF KEY(S)',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44619',
         },
         {
+          code: 'LOSS OF HANDCUFFS',
           label: 'LOSS OF HANDCUFFS',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44619',
         },
         {
+          code: 'LOSS OF CLOSETING/ESCORT CHAIN',
           label: 'LOSS OF CLOSETING/ESCORT CHAIN',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44619',
         },
         {
+          code: 'COMPLETE LOCK REMOVED',
           label: 'COMPLETE LOCK REMOVED',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44619',
         },
         {
+          code: 'PART LOCK REMOVED',
           label: 'PART LOCK REMOVED',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44619',
         },
         {
+          code: 'REPLICA KEY USED',
           label: 'REPLICA KEY USED',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44355',
         },
         {
+          code: 'LOCKS PICKED',
           label: 'LOCKS PICKED',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44866',
         },
         {
+          code: 'ELECTRONICS OVERCOME',
           label: 'ELECTRONICS OVERCOME',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44866',
         },
         {
+          code: 'OTHER',
           label: 'OTHER',
           commentRequired: true,
           dateRequired: false,
@@ -603,16 +699,19 @@ const OLD_KEY_LOCK_INCIDENT: IncidentTypeConfiguration = {
     },
     '45072': {
       id: '45072',
+      code: 'IS THE INCIDENT THE SUBJECT OF A POLICE INVESTIGATION',
       label: 'IS THE INCIDENT THE SUBJECT OF A POLICE INVESTIGATION',
       multipleAnswers: false,
       answers: [
         {
+          code: 'YES',
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44166',
         },
         {
+          code: 'NO',
           label: 'NO',
           commentRequired: false,
           dateRequired: false,

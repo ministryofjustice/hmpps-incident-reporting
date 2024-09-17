@@ -1,4 +1,4 @@
-// Generated with ./scripts/updateNomisIncidentTypeConfigurations.ts at 2024-09-12T16:33:51.914Z
+// Generated with ./scripts/updateNomisIncidentTypeConfigurations.ts at 2024-09-16T15:42:11.287Z
 
 import { type IncidentTypeConfiguration } from '../../data/incidentTypeConfiguration/types'
 
@@ -9,28 +9,33 @@ const OLD_TEMPORARY_RELEASE_FAILURE1: IncidentTypeConfiguration = {
   questions: {
     '49308': {
       id: '49308',
+      code: 'What Type Of Temporary Licence Was Breached',
       label: 'What Type Of Temporary Licence Was Breached',
       multipleAnswers: false,
       answers: [
         {
+          code: 'Resettlement Day',
           label: 'Resettlement Day',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '49309',
         },
         {
+          code: 'Resettlement Overnight',
           label: 'Resettlement Overnight',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '49309',
         },
         {
+          code: 'Childcare Resettlement',
           label: 'Childcare Resettlement',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '49309',
         },
         {
+          code: 'Special Purpose',
           label: 'Special Purpose',
           commentRequired: false,
           dateRequired: false,
@@ -40,58 +45,68 @@ const OLD_TEMPORARY_RELEASE_FAILURE1: IncidentTypeConfiguration = {
     },
     '49309': {
       id: '49309',
+      code: 'What Was The Specific Purpose Of Temporary Release',
       label: 'What Was The Specific Purpose Of Temporary Release',
       multipleAnswers: false,
       answers: [
         {
+          code: 'Court / Legal / Police',
           label: 'Court / Legal / Police',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '49310',
         },
         {
+          code: 'CRL',
           label: 'CRL',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '49310',
         },
         {
+          code: 'Funeral / Visiting A Dying Relative',
           label: 'Funeral / Visiting A Dying Relative',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '49310',
         },
         {
+          code: 'Maintaining Family Ties',
           label: 'Maintaining Family Ties',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '49310',
         },
         {
+          code: 'Other Compassionate Reason',
           label: 'Other Compassionate Reason',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '49310',
         },
         {
+          code: 'Other RDR Linked to Sentence Plan',
           label: 'Other RDR Linked to Sentence Plan',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '49310',
         },
         {
+          code: 'Outside Prison Activity (OPA)',
           label: 'Outside Prison Activity (OPA)',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '49310',
         },
         {
+          code: 'Resettlement Overnight Release (ROR)',
           label: 'Resettlement Overnight Release (ROR)',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '49310',
         },
         {
+          code: 'Training Or Education',
           label: 'Training Or Education',
           commentRequired: false,
           dateRequired: false,
@@ -101,16 +116,19 @@ const OLD_TEMPORARY_RELEASE_FAILURE1: IncidentTypeConfiguration = {
     },
     '49310': {
       id: '49310',
+      code: 'Were The Police Informed Of The Incident',
       label: 'Were The Police Informed Of The Incident',
       multipleAnswers: false,
       answers: [
         {
+          code: 'Yes (Enter Date)',
           label: 'Yes (Enter Date)',
           commentRequired: true,
           dateRequired: false,
           nextQuestionId: '49311',
         },
         {
+          code: 'No',
           label: 'No',
           commentRequired: false,
           dateRequired: false,
@@ -120,16 +138,19 @@ const OLD_TEMPORARY_RELEASE_FAILURE1: IncidentTypeConfiguration = {
     },
     '49311': {
       id: '49311',
+      code: 'Is The Incident The Subject Of A Police Investigation',
       label: 'Is The Incident The Subject Of A Police Investigation',
       multipleAnswers: false,
       answers: [
         {
+          code: 'Yes',
           label: 'Yes',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '49312',
         },
         {
+          code: 'No',
           label: 'No',
           commentRequired: false,
           dateRequired: false,
@@ -139,28 +160,33 @@ const OLD_TEMPORARY_RELEASE_FAILURE1: IncidentTypeConfiguration = {
     },
     '49312': {
       id: '49312',
+      code: 'Is The Incident The Subject Of An Internal Investigation',
       label: 'Is The Incident The Subject Of An Internal Investigation',
       multipleAnswers: false,
       answers: [
         {
+          code: 'Yes - Local Only',
           label: 'Yes - Local Only',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '49313',
         },
         {
+          code: 'Yes - DDC Commissioned',
           label: 'Yes - DDC Commissioned',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '49313',
         },
         {
+          code: 'Yes - SFO Investigation',
           label: 'Yes - SFO Investigation',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '49313',
         },
         {
+          code: 'No (Enter Reasons)',
           label: 'No (Enter Reasons)',
           commentRequired: true,
           dateRequired: false,
@@ -170,16 +196,19 @@ const OLD_TEMPORARY_RELEASE_FAILURE1: IncidentTypeConfiguration = {
     },
     '49313': {
       id: '49313',
+      code: "Is the Incident Subject To A Governor's Adjudication",
       label: "Is the Incident Subject To A Governor's Adjudication",
       multipleAnswers: false,
       answers: [
         {
+          code: 'Yes',
           label: 'Yes',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '49314',
         },
         {
+          code: 'No',
           label: 'No',
           commentRequired: false,
           dateRequired: false,
@@ -189,16 +218,19 @@ const OLD_TEMPORARY_RELEASE_FAILURE1: IncidentTypeConfiguration = {
     },
     '49314': {
       id: '49314',
+      code: 'Is There Likely To Be Any Media Interest In This Incident',
       label: 'Is There Likely To Be Any Media Interest In This Incident',
       multipleAnswers: false,
       answers: [
         {
+          code: 'Yes',
           label: 'Yes',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '49315',
         },
         {
+          code: 'No',
           label: 'No',
           commentRequired: false,
           dateRequired: false,
@@ -208,16 +240,19 @@ const OLD_TEMPORARY_RELEASE_FAILURE1: IncidentTypeConfiguration = {
     },
     '49315': {
       id: '49315',
+      code: 'Has The Prison Service Press Office Been Informed',
       label: 'Has The Prison Service Press Office Been Informed',
       multipleAnswers: false,
       answers: [
         {
+          code: 'Yes (Enter Date)',
           label: 'Yes (Enter Date)',
           commentRequired: true,
           dateRequired: false,
           nextQuestionId: '49316',
         },
         {
+          code: 'No (Enter Reason)',
           label: 'No (Enter Reason)',
           commentRequired: true,
           dateRequired: false,
@@ -227,16 +262,19 @@ const OLD_TEMPORARY_RELEASE_FAILURE1: IncidentTypeConfiguration = {
     },
     '49316': {
       id: '49316',
+      code: 'Is The Prisoner Subject To Restricted ROTL',
       label: 'Is The Prisoner Subject To Restricted ROTL',
       multipleAnswers: false,
       answers: [
         {
+          code: 'Yes',
           label: 'Yes',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '49317',
         },
         {
+          code: 'No',
           label: 'No',
           commentRequired: false,
           dateRequired: false,
@@ -246,16 +284,19 @@ const OLD_TEMPORARY_RELEASE_FAILURE1: IncidentTypeConfiguration = {
     },
     '49317': {
       id: '49317',
+      code: 'Has The Deputy Director Of Custody Been Informed',
       label: 'Has The Deputy Director Of Custody Been Informed',
       multipleAnswers: false,
       answers: [
         {
+          code: 'Yes (Enter Date)',
           label: 'Yes (Enter Date)',
           commentRequired: true,
           dateRequired: false,
           nextQuestionId: '49318',
         },
         {
+          code: 'No (Enter Reason)',
           label: 'No (Enter Reason)',
           commentRequired: true,
           dateRequired: false,
@@ -265,16 +306,19 @@ const OLD_TEMPORARY_RELEASE_FAILURE1: IncidentTypeConfiguration = {
     },
     '49318': {
       id: '49318',
+      code: 'Have PPCS Been Informed',
       label: 'Have PPCS Been Informed',
       multipleAnswers: false,
       answers: [
         {
+          code: 'Yes (Enter Date)',
           label: 'Yes (Enter Date)',
           commentRequired: true,
           dateRequired: false,
           nextQuestionId: '49319',
         },
         {
+          code: 'No (Enter Reasons)',
           label: 'No (Enter Reasons)',
           commentRequired: true,
           dateRequired: false,
@@ -284,16 +328,19 @@ const OLD_TEMPORARY_RELEASE_FAILURE1: IncidentTypeConfiguration = {
     },
     '49319': {
       id: '49319',
+      code: 'Was The Failure Of Temporary Licence Or Any Part Of The Breach Failing To Return Or Returning Late',
       label: 'Was The Failure Of Temporary Licence Or Any Part Of The Breach Failing To Return Or Returning Late',
       multipleAnswers: false,
       answers: [
         {
+          code: 'Yes',
           label: 'Yes',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '49320',
         },
         {
+          code: 'No',
           label: 'No',
           commentRequired: false,
           dateRequired: false,
@@ -303,17 +350,20 @@ const OLD_TEMPORARY_RELEASE_FAILURE1: IncidentTypeConfiguration = {
     },
     '49320': {
       id: '49320',
+      code: 'Was The Failure To Return Reported To The Police As The Offence Of Failure To Return From Temporary Licence',
       label:
         'Was The Failure To Return Reported To The Police As The Offence Of Failure To Return From Temporary Licence',
       multipleAnswers: false,
       answers: [
         {
+          code: 'Yes',
           label: 'Yes',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '49321',
         },
         {
+          code: 'No (Enter Reasons)',
           label: 'No (Enter Reasons)',
           commentRequired: true,
           dateRequired: false,
@@ -323,16 +373,19 @@ const OLD_TEMPORARY_RELEASE_FAILURE1: IncidentTypeConfiguration = {
     },
     '49321': {
       id: '49321',
+      code: 'Did The Prisoner Surrender To HMPS Custody On The Same Day The Licence Expired',
       label: 'Did The Prisoner Surrender To HMPS Custody On The Same Day The Licence Expired',
       multipleAnswers: false,
       answers: [
         {
+          code: 'Yes',
           label: 'Yes',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '49322',
         },
         {
+          code: 'No',
           label: 'No',
           commentRequired: false,
           dateRequired: false,
@@ -342,16 +395,19 @@ const OLD_TEMPORARY_RELEASE_FAILURE1: IncidentTypeConfiguration = {
     },
     '49322': {
       id: '49322',
+      code: 'Has The Prisoner Been Recaptured',
       label: 'Has The Prisoner Been Recaptured',
       multipleAnswers: false,
       answers: [
         {
+          code: 'Yes (Enter Date)',
           label: 'Yes (Enter Date)',
           commentRequired: true,
           dateRequired: false,
           nextQuestionId: '49323',
         },
         {
+          code: 'No',
           label: 'No',
           commentRequired: false,
           dateRequired: false,
@@ -361,34 +417,40 @@ const OLD_TEMPORARY_RELEASE_FAILURE1: IncidentTypeConfiguration = {
     },
     '49323': {
       id: '49323',
+      code: 'How Was The Prisoner Recaptured',
       label: 'How Was The Prisoner Recaptured',
       multipleAnswers: false,
       answers: [
         {
+          code: 'Surrender To HMPS',
           label: 'Surrender To HMPS',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '49324',
         },
         {
+          code: 'Surrender To Police',
           label: 'Surrender To Police',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '49324',
         },
         {
+          code: 'Arrest By HMPS',
           label: 'Arrest By HMPS',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '49324',
         },
         {
+          code: 'Arrest By Police',
           label: 'Arrest By Police',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '49324',
         },
         {
+          code: 'Other (Provide Details)',
           label: 'Other (Provide Details)',
           commentRequired: true,
           dateRequired: false,
@@ -398,17 +460,20 @@ const OLD_TEMPORARY_RELEASE_FAILURE1: IncidentTypeConfiguration = {
     },
     '49324': {
       id: '49324',
+      code: 'Was Any Part Of The Failure Failing To Comply With Any Other Licence Conditions (These Can Be Standard or Bespoke)',
       label:
         'Was Any Part Of The Failure Failing To Comply With Any Other Licence Conditions (These Can Be Standard or Bespoke)',
       multipleAnswers: false,
       answers: [
         {
+          code: 'Yes',
           label: 'Yes',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '49325',
         },
         {
+          code: 'No',
           label: 'No',
           commentRequired: false,
           dateRequired: false,
@@ -418,52 +483,61 @@ const OLD_TEMPORARY_RELEASE_FAILURE1: IncidentTypeConfiguration = {
     },
     '49325': {
       id: '49325',
+      code: 'Please Specify Which Conditions (Select As Many As Appropriate)',
       label: 'Please Specify Which Conditions (Select As Many As Appropriate)',
       multipleAnswers: true,
       answers: [
         {
+          code: 'Alcohol',
           label: 'Alcohol',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '49326',
         },
         {
+          code: 'Gambling',
           label: 'Gambling',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '49326',
         },
         {
+          code: 'Drugs',
           label: 'Drugs',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '49326',
         },
         {
+          code: 'Location',
           label: 'Location',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '49326',
         },
         {
+          code: 'Social Media',
           label: 'Social Media',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '49326',
         },
         {
+          code: 'Bad Behaviour',
           label: 'Bad Behaviour',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '49326',
         },
         {
+          code: 'Media Contact',
           label: 'Media Contact',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '49326',
         },
         {
+          code: 'Other (Provide Details)',
           label: 'Other (Provide Details)',
           commentRequired: true,
           dateRequired: false,
@@ -473,16 +547,19 @@ const OLD_TEMPORARY_RELEASE_FAILURE1: IncidentTypeConfiguration = {
     },
     '49326': {
       id: '49326',
+      code: 'Has The Prisoner Been Arrested (Including For The Offence Of Failure To Return)',
       label: 'Has The Prisoner Been Arrested (Including For The Offence Of Failure To Return)',
       multipleAnswers: false,
       answers: [
         {
+          code: 'Yes',
           label: 'Yes',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '49327',
         },
         {
+          code: 'No',
           label: 'No',
           commentRequired: false,
           dateRequired: false,
@@ -492,22 +569,26 @@ const OLD_TEMPORARY_RELEASE_FAILURE1: IncidentTypeConfiguration = {
     },
     '49327': {
       id: '49327',
+      code: 'Has The Prisoner Been Charged With Any Offence (Including The Offence Of Failure To Return)',
       label: 'Has The Prisoner Been Charged With Any Offence (Including The Offence Of Failure To Return)',
       multipleAnswers: false,
       answers: [
         {
+          code: 'Yes',
           label: 'Yes',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '49328',
         },
         {
+          code: 'No',
           label: 'No',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '49328',
         },
         {
+          code: 'No',
           label: 'No',
           commentRequired: false,
           dateRequired: false,
@@ -517,64 +598,75 @@ const OLD_TEMPORARY_RELEASE_FAILURE1: IncidentTypeConfiguration = {
     },
     '49328': {
       id: '49328',
+      code: 'With What Type Of Offence or Offences Has The Prisoner Been Charged (Select As Many As Appropriate)',
       label: 'With What Type Of Offence or Offences Has The Prisoner Been Charged (Select As Many As Appropriate)',
       multipleAnswers: true,
       answers: [
         {
+          code: 'Violence Against The Person',
           label: 'Violence Against The Person',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '49331',
         },
         {
+          code: 'Sexual Offences',
           label: 'Sexual Offences',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '49331',
         },
         {
+          code: 'Robbery',
           label: 'Robbery',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '49331',
         },
         {
+          code: 'Burglary',
           label: 'Burglary',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '49331',
         },
         {
+          code: 'Theft And Handling',
           label: 'Theft And Handling',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '49331',
         },
         {
+          code: 'Fraud And Forgery',
           label: 'Fraud And Forgery',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '49331',
         },
         {
+          code: 'Drug Offences',
           label: 'Drug Offences',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '49331',
         },
         {
+          code: 'Motoring Offences',
           label: 'Motoring Offences',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '49331',
         },
         {
+          code: 'Failure To Return From ROTL',
           label: 'Failure To Return From ROTL',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '49331',
         },
         {
+          code: 'Other Offence',
           label: 'Other Offence',
           commentRequired: false,
           dateRequired: false,
@@ -584,16 +676,19 @@ const OLD_TEMPORARY_RELEASE_FAILURE1: IncidentTypeConfiguration = {
     },
     '49331': {
       id: '49331',
+      code: 'Has The Prisoner Been Found Guilty Of Offences Committed On ROTL',
       label: 'Has The Prisoner Been Found Guilty Of Offences Committed On ROTL',
       multipleAnswers: false,
       answers: [
         {
+          code: 'Yes',
           label: 'Yes',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '49334',
         },
         {
+          code: 'No',
           label: 'No',
           commentRequired: false,
           dateRequired: false,
@@ -603,64 +698,75 @@ const OLD_TEMPORARY_RELEASE_FAILURE1: IncidentTypeConfiguration = {
     },
     '49334': {
       id: '49334',
+      code: 'What Offence Or Offences Has The Prisoner Been Found Guilty Of (Select As Many As Appropriate)',
       label: 'What Offence Or Offences Has The Prisoner Been Found Guilty Of (Select As Many As Appropriate)',
       multipleAnswers: true,
       answers: [
         {
+          code: 'Violence Against The Person',
           label: 'Violence Against The Person',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '49335',
         },
         {
+          code: 'Sexual Offences',
           label: 'Sexual Offences',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '49335',
         },
         {
+          code: 'Robbery',
           label: 'Robbery',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '49335',
         },
         {
+          code: 'Burglary',
           label: 'Burglary',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '49335',
         },
         {
+          code: 'Theft And Handling',
           label: 'Theft And Handling',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '49335',
         },
         {
+          code: 'Fraud And Forgery',
           label: 'Fraud And Forgery',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '49335',
         },
         {
+          code: 'Drug Offences',
           label: 'Drug Offences',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '49335',
         },
         {
+          code: 'Motoring Offences',
           label: 'Motoring Offences',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '49335',
         },
         {
+          code: 'Failure To Return From ROTL',
           label: 'Failure To Return From ROTL',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '49335',
         },
         {
+          code: 'Other Offence',
           label: 'Other Offence',
           commentRequired: false,
           dateRequired: false,
@@ -670,11 +776,13 @@ const OLD_TEMPORARY_RELEASE_FAILURE1: IncidentTypeConfiguration = {
     },
     '49335': {
       id: '49335',
+      code: 'Confirm SFO Team, Offender Manager In The Community, Victim Liaison Officer And Employer (where appropriate) Informed',
       label:
         'Confirm SFO Team, Offender Manager In The Community, Victim Liaison Officer And Employer (where appropriate) Informed',
       multipleAnswers: false,
       answers: [
         {
+          code: 'Yes (Date)',
           label: 'Yes (Date)',
           commentRequired: true,
           dateRequired: false,

@@ -1,4 +1,4 @@
-// Generated with ./scripts/updateNomisIncidentTypeConfigurations.ts at 2024-09-12T16:33:53.145Z
+// Generated with ./scripts/updateNomisIncidentTypeConfigurations.ts at 2024-09-16T15:42:12.512Z
 
 import { type IncidentTypeConfiguration } from '../../data/incidentTypeConfiguration/types'
 
@@ -9,40 +9,47 @@ const TEMPORARY_RELEASE_FAILURE: IncidentTypeConfiguration = {
   questions: {
     '59179': {
       id: '59179',
+      code: 'What was the main management outcome of the incident?',
       label: 'What was the main management outcome of the incident?',
       multipleAnswers: true,
       answers: [
         {
+          code: 'No further action',
           label: 'No further action',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '59180',
         },
         {
+          code: 'IEP Regression',
           label: 'IEP Regression',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '59180',
         },
         {
+          code: 'Placed on report/adjudication referral',
           label: 'Placed on report/adjudication referral',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '59180',
         },
         {
+          code: 'Police referral',
           label: 'Police referral',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '59180',
         },
         {
+          code: 'CPS referral',
           label: 'CPS referral',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '59180',
         },
         {
+          code: 'Prosecution referral',
           label: 'Prosecution referral',
           commentRequired: false,
           dateRequired: false,
@@ -52,16 +59,19 @@ const TEMPORARY_RELEASE_FAILURE: IncidentTypeConfiguration = {
     },
     '59180': {
       id: '59180',
+      code: 'Is any member of staff facing disciplinary charges?',
       label: 'Is any member of staff facing disciplinary charges?',
       multipleAnswers: false,
       answers: [
         {
+          code: 'Yes',
           label: 'Yes',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '59181',
         },
         {
+          code: 'No',
           label: 'No',
           commentRequired: false,
           dateRequired: false,
@@ -71,16 +81,19 @@ const TEMPORARY_RELEASE_FAILURE: IncidentTypeConfiguration = {
     },
     '59181': {
       id: '59181',
+      code: 'Was ROTL Standard or Restricted?',
       label: 'Was ROTL Standard or Restricted?',
       multipleAnswers: false,
       answers: [
         {
+          code: 'Standard ROTL',
           label: 'Standard ROTL',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '59182',
         },
         {
+          code: 'Restricted ROTL',
           label: 'Restricted ROTL',
           commentRequired: false,
           dateRequired: false,
@@ -90,34 +103,40 @@ const TEMPORARY_RELEASE_FAILURE: IncidentTypeConfiguration = {
     },
     '59182': {
       id: '59182',
+      code: 'What Type Of Temporary Licence Was Breached?',
       label: 'What Type Of Temporary Licence Was Breached?',
       multipleAnswers: false,
       answers: [
         {
+          code: 'Resettlement Day',
           label: 'Resettlement Day',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '59183',
         },
         {
+          code: 'Resettlement Overnight',
           label: 'Resettlement Overnight',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '59183',
         },
         {
+          code: 'Childcare Resettlement',
           label: 'Childcare Resettlement',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '59183',
         },
         {
+          code: 'Special Purpose (medical)',
           label: 'Special Purpose (medical)',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '59183',
         },
         {
+          code: 'Special Purpose (other)',
           label: 'Special Purpose (other)',
           commentRequired: false,
           dateRequired: false,
@@ -127,82 +146,96 @@ const TEMPORARY_RELEASE_FAILURE: IncidentTypeConfiguration = {
     },
     '59183': {
       id: '59183',
+      code: 'What Was The Specific Purpose Of Temporary Release?',
       label: 'What Was The Specific Purpose Of Temporary Release?',
       multipleAnswers: false,
       answers: [
         {
+          code: 'Training or Education',
           label: 'Training or Education',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '59184',
         },
         {
+          code: 'Unpaid Work Placements',
           label: 'Unpaid Work Placements',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '59184',
         },
         {
+          code: 'Paid Work Placements',
           label: 'Paid Work Placements',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '59184',
         },
         {
+          code: 'Maintain Family Ties',
           label: 'Maintain Family Ties',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '59184',
         },
         {
+          code: 'Outside Prison Activity',
           label: 'Outside Prison Activity',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '59184',
         },
         {
+          code: 'Accommodation Related',
           label: 'Accommodation Related',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '59184',
         },
         {
+          code: 'Other Day Release linked to Sentence/Resettlement Plan',
           label: 'Other Day Release linked to Sentence/Resettlement Plan',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '59184',
         },
         {
+          code: 'Resettlement Overnight Release',
           label: 'Resettlement Overnight Release',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '59184',
         },
         {
+          code: 'Childcare Resettlement Leave',
           label: 'Childcare Resettlement Leave',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '59184',
         },
         {
+          code: 'Funeral/Visiting Dying Relative',
           label: 'Funeral/Visiting Dying Relative',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '59184',
         },
         {
+          code: 'Medical Treatment',
           label: 'Medical Treatment',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '59184',
         },
         {
+          code: 'Other Compassionate Reason',
           label: 'Other Compassionate Reason',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '59184',
         },
         {
+          code: 'Court/Legal/Police',
           label: 'Court/Legal/Police',
           commentRequired: false,
           dateRequired: false,
@@ -212,16 +245,19 @@ const TEMPORARY_RELEASE_FAILURE: IncidentTypeConfiguration = {
     },
     '59184': {
       id: '59184',
+      code: 'Were UAL contingency plans (including notification to the police) activated?',
       label: 'Were UAL contingency plans (including notification to the police) activated?',
       multipleAnswers: false,
       answers: [
         {
+          code: 'Yes',
           label: 'Yes',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '59185',
         },
         {
+          code: 'No',
           label: 'No',
           commentRequired: false,
           dateRequired: false,
@@ -231,16 +267,19 @@ const TEMPORARY_RELEASE_FAILURE: IncidentTypeConfiguration = {
     },
     '59185': {
       id: '59185',
+      code: 'Why were UAL contingency plans activated?',
       label: 'Why were UAL contingency plans activated?',
       multipleAnswers: false,
       answers: [
         {
+          code: 'Apparent failure to return',
           label: 'Apparent failure to return',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '59186',
         },
         {
+          code: "Revocation of the prisoner's licence",
           label: "Revocation of the prisoner's licence",
           commentRequired: false,
           dateRequired: false,
@@ -250,16 +289,19 @@ const TEMPORARY_RELEASE_FAILURE: IncidentTypeConfiguration = {
     },
     '59186': {
       id: '59186',
+      code: 'Has the prisoner surrendered/been recaptured?',
       label: 'Has the prisoner surrendered/been recaptured?',
       multipleAnswers: false,
       answers: [
         {
+          code: 'Yes (Enter Date)',
           label: 'Yes (Enter Date)',
           commentRequired: false,
           dateRequired: true,
           nextQuestionId: '59187',
         },
         {
+          code: 'No',
           label: 'No',
           commentRequired: false,
           dateRequired: false,
@@ -269,52 +311,61 @@ const TEMPORARY_RELEASE_FAILURE: IncidentTypeConfiguration = {
     },
     '59187': {
       id: '59187',
+      code: 'How did prisoner surrender/get recaptured?',
       label: 'How did prisoner surrender/get recaptured?',
       multipleAnswers: false,
       answers: [
         {
+          code: 'Surrendered before midnight on return date',
           label: 'Surrendered before midnight on return date',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '59188',
         },
         {
+          code: 'Surrender To HMPS (after midnight on return date)',
           label: 'Surrender To HMPS (after midnight on return date)',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '59188',
         },
         {
+          code: 'Surrender To Police (after midnight on return date)',
           label: 'Surrender To Police (after midnight on return date)',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '59188',
         },
         {
+          code: 'Arrest By HMPS',
           label: 'Arrest By HMPS',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '59188',
         },
         {
+          code: 'Arrest By Police',
           label: 'Arrest By Police',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '59188',
         },
         {
+          code: 'Admitted to hospital for treatment',
           label: 'Admitted to hospital for treatment',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '59188',
         },
         {
+          code: 'Deceased',
           label: 'Deceased',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '59188',
         },
         {
+          code: 'Other (Provide Details)',
           label: 'Other (Provide Details)',
           commentRequired: true,
           dateRequired: false,
@@ -324,16 +375,19 @@ const TEMPORARY_RELEASE_FAILURE: IncidentTypeConfiguration = {
     },
     '59188': {
       id: '59188',
+      code: 'Was the prisoner late returning back to prison?',
       label: 'Was the prisoner late returning back to prison?',
       multipleAnswers: false,
       answers: [
         {
+          code: 'Yes',
           label: 'Yes',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '59189',
         },
         {
+          code: 'No',
           label: 'No',
           commentRequired: false,
           dateRequired: false,
@@ -343,17 +397,20 @@ const TEMPORARY_RELEASE_FAILURE: IncidentTypeConfiguration = {
     },
     '59189': {
       id: '59189',
+      code: 'Was prisoner arrested for an offence allegedly committed whilst temp released? (do not include FAILURE TO RETURN)',
       label:
         'Was prisoner arrested for an offence allegedly committed whilst temp released? (do not include FAILURE TO RETURN)',
       multipleAnswers: false,
       answers: [
         {
+          code: 'Yes',
           label: 'Yes',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '59190',
         },
         {
+          code: 'No',
           label: 'No',
           commentRequired: false,
           dateRequired: false,
@@ -363,64 +420,75 @@ const TEMPORARY_RELEASE_FAILURE: IncidentTypeConfiguration = {
     },
     '59190': {
       id: '59190',
+      code: 'For What Type Of Offence Or Offences Has The Prisoner Been Arrested?',
       label: 'For What Type Of Offence Or Offences Has The Prisoner Been Arrested?',
       multipleAnswers: true,
       answers: [
         {
+          code: 'Violence Against The Person',
           label: 'Violence Against The Person',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '59191',
         },
         {
+          code: 'Sexual Offences',
           label: 'Sexual Offences',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '59191',
         },
         {
+          code: 'Robbery',
           label: 'Robbery',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '59191',
         },
         {
+          code: 'Burglary',
           label: 'Burglary',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '59191',
         },
         {
+          code: 'Theft And Handling',
           label: 'Theft And Handling',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '59191',
         },
         {
+          code: 'Fraud And Forgery',
           label: 'Fraud And Forgery',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '59191',
         },
         {
+          code: 'Drug Offences',
           label: 'Drug Offences',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '59191',
         },
         {
+          code: 'Motoring Offences',
           label: 'Motoring Offences',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '59191',
         },
         {
+          code: 'Other Offence (Please specify)',
           label: 'Other Offence (Please specify)',
           commentRequired: true,
           dateRequired: false,
           nextQuestionId: '59191',
         },
         {
+          code: 'Unknown',
           label: 'Unknown',
           commentRequired: false,
           dateRequired: false,
@@ -430,16 +498,19 @@ const TEMPORARY_RELEASE_FAILURE: IncidentTypeConfiguration = {
     },
     '59191': {
       id: '59191',
+      code: 'Has The Prisoner Been Charged With Any Offence (INCLUDE the offence of failure to return)?',
       label: 'Has The Prisoner Been Charged With Any Offence (INCLUDE the offence of failure to return)?',
       multipleAnswers: false,
       answers: [
         {
+          code: 'Yes',
           label: 'Yes',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '59192',
         },
         {
+          code: 'No',
           label: 'No',
           commentRequired: false,
           dateRequired: false,
@@ -449,58 +520,68 @@ const TEMPORARY_RELEASE_FAILURE: IncidentTypeConfiguration = {
     },
     '59192': {
       id: '59192',
+      code: 'With What Type Of Offence or Offences Has The Prisoner Been Charged?',
       label: 'With What Type Of Offence or Offences Has The Prisoner Been Charged?',
       multipleAnswers: true,
       answers: [
         {
+          code: 'Violence Against The Person',
           label: 'Violence Against The Person',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '59193',
         },
         {
+          code: 'Sexual Offences',
           label: 'Sexual Offences',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '59193',
         },
         {
+          code: 'Robbery',
           label: 'Robbery',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '59193',
         },
         {
+          code: 'Burglary',
           label: 'Burglary',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '59193',
         },
         {
+          code: 'Theft And Handling',
           label: 'Theft And Handling',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '59193',
         },
         {
+          code: 'Fraud And Forgery',
           label: 'Fraud And Forgery',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '59193',
         },
         {
+          code: 'Drug Offences',
           label: 'Drug Offences',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '59193',
         },
         {
+          code: 'Motoring Offences',
           label: 'Motoring Offences',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '59193',
         },
         {
+          code: 'Other Offence (Please specify)',
           label: 'Other Offence (Please specify)',
           commentRequired: true,
           dateRequired: false,
@@ -510,16 +591,19 @@ const TEMPORARY_RELEASE_FAILURE: IncidentTypeConfiguration = {
     },
     '59193': {
       id: '59193',
+      code: 'Has The Prisoner Been Found Guilty Of Offences Committed On ROTL?',
       label: 'Has The Prisoner Been Found Guilty Of Offences Committed On ROTL?',
       multipleAnswers: false,
       answers: [
         {
+          code: 'Yes',
           label: 'Yes',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '59194',
         },
         {
+          code: 'No',
           label: 'No',
           commentRequired: false,
           dateRequired: false,
@@ -529,64 +613,75 @@ const TEMPORARY_RELEASE_FAILURE: IncidentTypeConfiguration = {
     },
     '59194': {
       id: '59194',
+      code: 'What Offence Or Offences Has The Prisoner Been Found Guilty Of?',
       label: 'What Offence Or Offences Has The Prisoner Been Found Guilty Of?',
       multipleAnswers: true,
       answers: [
         {
+          code: 'Violence Against The Person',
           label: 'Violence Against The Person',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '59195',
         },
         {
+          code: 'Sexual Offences',
           label: 'Sexual Offences',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '59195',
         },
         {
+          code: 'Robbery',
           label: 'Robbery',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '59195',
         },
         {
+          code: 'Burglary',
           label: 'Burglary',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '59195',
         },
         {
+          code: 'Theft And Handling',
           label: 'Theft And Handling',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '59195',
         },
         {
+          code: 'Fraud And Forgery',
           label: 'Fraud And Forgery',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '59195',
         },
         {
+          code: 'Drug Offences',
           label: 'Drug Offences',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '59195',
         },
         {
+          code: 'Motoring Offences',
           label: 'Motoring Offences',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '59195',
         },
         {
+          code: 'Failure To Return From ROTL',
           label: 'Failure To Return From ROTL',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '59195',
         },
         {
+          code: 'Other Offence (Please specify)',
           label: 'Other Offence (Please specify)',
           commentRequired: true,
           dateRequired: false,
@@ -596,16 +691,19 @@ const TEMPORARY_RELEASE_FAILURE: IncidentTypeConfiguration = {
     },
     '59195': {
       id: '59195',
+      code: 'Was Any Part Of The Failure Failing To Comply With Any Other Licence Conditions (Standard or Bespoke)?',
       label: 'Was Any Part Of The Failure Failing To Comply With Any Other Licence Conditions (Standard or Bespoke)?',
       multipleAnswers: false,
       answers: [
         {
+          code: 'Yes',
           label: 'Yes',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '59196',
         },
         {
+          code: 'No',
           label: 'No',
           commentRequired: false,
           dateRequired: false,
@@ -615,52 +713,61 @@ const TEMPORARY_RELEASE_FAILURE: IncidentTypeConfiguration = {
     },
     '59196': {
       id: '59196',
+      code: 'Please Specify Which Conditions apply',
       label: 'Please Specify Which Conditions apply',
       multipleAnswers: true,
       answers: [
         {
+          code: 'Location',
           label: 'Location',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '59197',
         },
         {
+          code: 'Alcohol/drugs (under influence)',
           label: 'Alcohol/drugs (under influence)',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '59197',
         },
         {
+          code: 'Gambling',
           label: 'Gambling',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '59197',
         },
         {
+          code: 'Finds (fill in separate report)',
           label: 'Finds (fill in separate report)',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '59197',
         },
         {
+          code: 'Social Media',
           label: 'Social Media',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '59197',
         },
         {
+          code: 'Bad Behaviour',
           label: 'Bad Behaviour',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '59197',
         },
         {
+          code: 'Media Contact',
           label: 'Media Contact',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '59197',
         },
         {
+          code: 'Other (Provide Details)',
           label: 'Other (Provide Details)',
           commentRequired: true,
           dateRequired: false,
@@ -670,16 +777,19 @@ const TEMPORARY_RELEASE_FAILURE: IncidentTypeConfiguration = {
     },
     '59197': {
       id: '59197',
+      code: 'Was failure due to matters beyond the prisoner’s control?',
       label: 'Was failure due to matters beyond the prisoner’s control?',
       multipleAnswers: false,
       answers: [
         {
+          code: 'Yes',
           label: 'Yes',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '59198',
         },
         {
+          code: 'No',
           label: 'No',
           commentRequired: false,
           dateRequired: false,
@@ -689,16 +799,19 @@ const TEMPORARY_RELEASE_FAILURE: IncidentTypeConfiguration = {
     },
     '59198': {
       id: '59198',
+      code: 'Has the NOMS SFO Team been informed (SFO CASES only)',
       label: 'Has the NOMS SFO Team been informed (SFO CASES only)',
       multipleAnswers: false,
       answers: [
         {
+          code: 'Yes',
           label: 'Yes',
           commentRequired: false,
           dateRequired: true,
           nextQuestionId: '59199',
         },
         {
+          code: 'No',
           label: 'No',
           commentRequired: true,
           dateRequired: false,
@@ -708,16 +821,19 @@ const TEMPORARY_RELEASE_FAILURE: IncidentTypeConfiguration = {
     },
     '59199': {
       id: '59199',
+      code: 'Has the Offender Manager been informed?',
       label: 'Has the Offender Manager been informed?',
       multipleAnswers: false,
       answers: [
         {
+          code: 'Yes',
           label: 'Yes',
           commentRequired: false,
           dateRequired: true,
           nextQuestionId: '59200',
         },
         {
+          code: 'No',
           label: 'No',
           commentRequired: true,
           dateRequired: false,
@@ -727,16 +843,19 @@ const TEMPORARY_RELEASE_FAILURE: IncidentTypeConfiguration = {
     },
     '59200': {
       id: '59200',
+      code: 'Has the Victim Liaison Officer been informed (where appropriate)?',
       label: 'Has the Victim Liaison Officer been informed (where appropriate)?',
       multipleAnswers: false,
       answers: [
         {
+          code: 'Yes',
           label: 'Yes',
           commentRequired: false,
           dateRequired: true,
           nextQuestionId: '59201',
         },
         {
+          code: 'No',
           label: 'No',
           commentRequired: true,
           dateRequired: false,
@@ -746,16 +865,19 @@ const TEMPORARY_RELEASE_FAILURE: IncidentTypeConfiguration = {
     },
     '59201': {
       id: '59201',
+      code: 'Has the ROTL Placement Provider been informed (where appropriate)?',
       label: 'Has the ROTL Placement Provider been informed (where appropriate)?',
       multipleAnswers: false,
       answers: [
         {
+          code: 'Yes',
           label: 'Yes',
           commentRequired: false,
           dateRequired: true,
           nextQuestionId: '59202',
         },
         {
+          code: 'No',
           label: 'No',
           commentRequired: true,
           dateRequired: false,
@@ -765,16 +887,19 @@ const TEMPORARY_RELEASE_FAILURE: IncidentTypeConfiguration = {
     },
     '59202': {
       id: '59202',
+      code: 'Has The Deputy Director Of Custody Been Informed?',
       label: 'Has The Deputy Director Of Custody Been Informed?',
       multipleAnswers: false,
       answers: [
         {
+          code: 'Yes',
           label: 'Yes',
           commentRequired: false,
           dateRequired: true,
           nextQuestionId: '59203',
         },
         {
+          code: 'No',
           label: 'No',
           commentRequired: true,
           dateRequired: false,
@@ -784,16 +909,19 @@ const TEMPORARY_RELEASE_FAILURE: IncidentTypeConfiguration = {
     },
     '59203': {
       id: '59203',
+      code: 'Have PPCS Been Informed?',
       label: 'Have PPCS Been Informed?',
       multipleAnswers: false,
       answers: [
         {
+          code: 'Yes',
           label: 'Yes',
           commentRequired: false,
           dateRequired: true,
           nextQuestionId: null,
         },
         {
+          code: 'No',
           label: 'No',
           commentRequired: true,
           dateRequired: false,

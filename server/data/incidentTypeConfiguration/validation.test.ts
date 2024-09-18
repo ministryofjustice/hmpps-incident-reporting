@@ -27,6 +27,23 @@ describe('DPS config validation', () => {
     })
   })
 
+  describe('when config has some invalid next questions', () => {
+    it('returns an error', () => {
+      // '1' (START)
+      //   - yes  =>  '42'   // no such a question
+      //   - no   =>  '2'
+      // '2' (END)
+      //   - yes  =>  /
+      //   - no   =>  '100'  // no such a question
+      const config: IncidentTypeConfiguration = buildValidConfig()
+      config.questions['1'].answers[0].nextQuestionId = '42'
+      config.questions['2'].answers[1].nextQuestionId = '100'
+
+      const errors = validateConfig(config).map(err => err.message)
+      expect(errors).toContain('Some answers lead to these unknown questions: 42, 100')
+    })
+  })
+
   describe('when config has unreachable questions', () => {
     it('returns an error', () => {
       // '1' (START)

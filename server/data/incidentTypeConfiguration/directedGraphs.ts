@@ -1,53 +1,89 @@
-import { setToString } from '../../utils/setUtils'
+import { setDifference, setToString } from '../../utils/setUtils'
 
-export type Graph<T> = Map<T, Set<T>>
+type Adjacency<T> = Map<T, Set<T>>
 
-export type Path<T> = T[]
+type Path<T> = T[]
 
-export type VisitResult<T> = {
+export type DfsResult<T> = {
   visited: Set<T>
   cycles: Path<T>[]
 }
 
-type VisitState<T> = VisitResult<T> & {
+type VisitState<T> = DfsResult<T> & {
   currentPath: T[]
 }
 
-export function dfs<T>(start: T, graph: Graph<T>): VisitResult<T> {
-  const state: VisitState<T> = {
-    visited: new Set(),
-    cycles: [],
-    currentPath: [],
+export class Graph<T> {
+  private adjacency: Adjacency<T>
+
+  constructor() {
+    this.adjacency = new Map<T, Set<T>>()
   }
 
-  walk(start, graph, state)
+  addEdge(from: T, to: T) {
+    if (!this.adjacency.get(from)) {
+      this.adjacency.set(from, new Set())
+    }
 
-  return state
-}
-
-function walk<T>(node: T, graph: Graph<T>, state: VisitState<T>) {
-  state.visited.add(node)
-  state.currentPath.push(node)
-
-  const children = graph.get(node)
-  if (children !== undefined) {
-    for (const child of children) {
-      if (!state.visited.has(child)) {
-        walk(child, graph, state)
-      } else if (state.currentPath.includes(child)) {
-        // Cycle detected
-        state.cycles.push([...state.currentPath])
-      }
+    if (to !== null && to !== undefined) {
+      const adjacents = this.adjacency.get(from)
+      adjacents.add(to)
     }
   }
 
-  state.currentPath.pop()
-}
-
-export function graphToString<T>(graph: Graph<T>): string {
-  let result = ''
-  for (const [node, children] of graph.entries()) {
-    result += `${node} => { ${setToString(children)} }\n`
+  toString(): string {
+    let result = ''
+    for (const [node, adjacents] of this.adjacency.entries()) {
+      result += `${node} => { ${setToString(adjacents)} }\n`
+    }
+    return result
   }
-  return result
+
+  getInvalidNodes(): Set<T> {
+    const allAdjacents = new Set<T>()
+    for (const adjacentsSet of this.adjacency.values()) {
+      adjacentsSet.forEach(adjacent => allAdjacents.add(adjacent))
+    }
+
+    const invalidNodes = [...allAdjacents].filter(node => !this.adjacency.has(node))
+    return new Set(invalidNodes)
+  }
+
+  getUnreachableNodes(dfsResult: DfsResult<T>): Set<T> {
+    const allNodes = new Set<T>(this.adjacency.keys())
+    const unreachableNodes = setDifference(allNodes, dfsResult.visited)
+
+    return unreachableNodes
+  }
+
+  dfs(start: T): DfsResult<T> {
+    const state: VisitState<T> = {
+      visited: new Set(),
+      cycles: [],
+      currentPath: [],
+    }
+
+    this.dfsWalk(start, state)
+
+    return state
+  }
+
+  private dfsWalk(node: T, state: VisitState<T>) {
+    state.visited.add(node)
+    state.currentPath.push(node)
+
+    const adjacents = this.adjacency.get(node)
+    if (adjacents !== undefined) {
+      for (const child of adjacents) {
+        if (!state.visited.has(child)) {
+          this.dfsWalk(child, state)
+        } else if (state.currentPath.includes(child)) {
+          // Cycle detected
+          state.cycles.push([...state.currentPath])
+        }
+      }
+    }
+
+    state.currentPath.pop()
+  }
 }

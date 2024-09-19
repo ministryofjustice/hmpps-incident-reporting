@@ -1,3 +1,4 @@
+import ESCAPE_FROM_CUSTODY from '../../reportConfiguration/types/ESCAPE_FROM_CUSTODY'
 import { type QuestionConfiguration, type AnswerConfiguration, type IncidentTypeConfiguration } from './types'
 import { validateConfig } from './validation'
 
@@ -175,6 +176,15 @@ describe('DPS config validation', () => {
 
       const errors = validateConfig(config).map(err => err.message)
       expect(errors).toContain('Question cycle detected: 1,2,3,4 loops back to 1')
+    })
+  })
+
+  describe('when config is big/complex', () => {
+    it('completes in a reasonable time and without throwing exceptions', () => {
+      const config: IncidentTypeConfiguration = ESCAPE_FROM_CUSTODY
+
+      const errors = validateConfig(config).map(err => err.message)
+      expect(errors).toEqual([])
     })
   })
 })

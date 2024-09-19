@@ -1,4 +1,6 @@
 /* eslint-disable import/prefer-default-export */
+import { setDifference, setToString } from '../../utils/setUtils'
+import { dfs, graphToString, type Graph, type Path } from './directedGraphs'
 import { type IncidentTypeConfiguration } from './types'
 
 export function validateConfig(config: IncidentTypeConfiguration): Error[] {
@@ -6,18 +8,12 @@ export function validateConfig(config: IncidentTypeConfiguration): Error[] {
 
   checkStartingQuestion(config, errors)
 
-  const questionsConnections = buildQuestionsConnections(config)
+  const questionsConnections = buildQuestionnaireGraph(config)
   checkUnknownQuestions(questionsConnections, errors)
 
-  let paths: string[][] = []
-  try {
-    paths = enumeratePaths(config.startingQuestionId, questionsConnections, errors)
-  } catch (e) {
-    errors.push(e)
-  }
-
-  const allQuestions: Set<string> = new Set(Object.keys(config.questions))
-  checkUnreachableQuestions(allQuestions, paths, errors)
+  const dfsResult = dfs(config.startingQuestionId, questionsConnections)
+  checkCycles(dfsResult.cycles, errors)
+  checkUnreachableQuestions(questionsConnections, dfsResult.visited, errors)
 
   return errors
 }
@@ -32,90 +28,48 @@ function checkStartingQuestion(config: IncidentTypeConfiguration, errors: Error[
   }
 }
 
-function checkUnknownQuestions<Q>(questionConnections: Map<Q, Set<Q>>, errors: Error[]) {
+function checkUnknownQuestions<Q>(questionConnections: Graph<Q>, errors: Error[]) {
   const allNextQuestionIds = new Set<Q>()
   for (const nextQuestionIds of questionConnections.values()) {
     nextQuestionIds.forEach(nextQuestionId => allNextQuestionIds.add(nextQuestionId))
   }
 
-  const unknownQuestions = [...allNextQuestionIds].filter(
-    questionId => questionId !== null && !questionConnections.has(questionId),
-  )
+  const unknownQuestions = [...allNextQuestionIds].filter(questionId => !questionConnections.has(questionId))
 
   if (unknownQuestions.length > 0) {
     errors.push(new Error(`Some answers lead to these unknown questions: ${unknownQuestions.join(', ')}`))
   }
 }
 
-function buildQuestionsConnections(config: IncidentTypeConfiguration): Map<string, Set<string>> {
+function checkUnreachableQuestions<Q>(questionConnections: Graph<Q>, visitedQuestions: Set<Q>, errors: Error[]) {
+  const allQuestions: Set<Q> = new Set(questionConnections.keys())
+  const unreachableQuestions = setDifference(allQuestions, visitedQuestions)
+
+  if (unreachableQuestions.size > 0) {
+    errors.push(new Error(`The following questions are unreachable: ${setToString(unreachableQuestions)}`))
+  }
+}
+
+function buildQuestionnaireGraph(config: IncidentTypeConfiguration): Graph<string> {
   const connections: Map<string, Set<string>> = new Map()
 
   for (const question of Object.values(config.questions)) {
-    const nextQuestionIds = new Set(question.answers.map(q => q.nextQuestionId))
+    const nextQuestionIds = new Set<string>()
+    for (const answer of question.answers) {
+      // Skip null/undefined next question ids (usually in final questions)
+      if (answer.nextQuestionId !== null && answer.nextQuestionId !== undefined) {
+        nextQuestionIds.add(answer.nextQuestionId)
+      }
+    }
+
     connections.set(question.id, nextQuestionIds)
   }
 
   return connections
 }
 
-function enumeratePaths<Q>(firstQuestionId: Q, questionConnections: Map<Q, Set<Q>>, errors: Error[]): Q[][] {
-  function walkPath(paths: Q[][], path: Q[], nextQuestionId: Q | null) {
-    if (nextQuestionId === null || nextQuestionId === undefined) {
-      return
-    }
-    const nextQuestionIds = questionConnections.get(nextQuestionId)
-    if (!nextQuestionIds) {
-      // Invalid next question
-      return
-    }
-
-    if (path.includes(nextQuestionId)) {
-      errors.push(new Error(`Question cycle detected: ${path} loops back to ${nextQuestionId}`))
-      return
-    }
-    path.push(nextQuestionId)
-    const clonedPath = structuredClone(path)
-    let extendedExistingPath = false
-    nextQuestionIds.forEach(questionId => {
-      if (!extendedExistingPath) {
-        extendedExistingPath = true
-        walkPath(paths, path, questionId)
-      } else {
-        const newPath = structuredClone(clonedPath)
-        paths.push(newPath)
-        walkPath(paths, newPath, questionId)
-      }
-    })
+function checkCycles<T>(cycles: Path<T>[], errors: Error[]) {
+  for (const cycle of cycles) {
+    errors.push(new Error(`Question cycle detected: ${cycle} loops back to ${cycle[0]}`))
   }
-
-  const paths: Q[][] = []
-  const firstPath: Q[] = []
-  paths.push(firstPath)
-  walkPath(paths, firstPath, firstQuestionId)
-
-  return paths
-}
-
-function checkUnreachableQuestions<Q>(allQuestions: Set<Q>, paths: Q[][], errors: Error[]) {
-  const reachedQuestions = new Set<Q>()
-  for (const path of paths) {
-    for (const questionId of path) {
-      reachedQuestions.add(questionId)
-    }
-  }
-
-  const unreachableQuestions = setDifference(allQuestions, reachedQuestions)
-
-  if (unreachableQuestions.size > 0) {
-    const listUnreachableQuestions = [...unreachableQuestions.values()].join(', ')
-    errors.push(new Error(`The following questions are unreachable: ${listUnreachableQuestions}`))
-  }
-}
-
-function setDifference<T>(a: Set<T>, b: Set<T>): Set<T> {
-  const diff = new Set<T>(a)
-
-  b.forEach(elem => diff.delete(elem))
-
-  return diff
 }

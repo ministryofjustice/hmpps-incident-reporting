@@ -1,5 +1,5 @@
 /**
- * Returns the a set with the elements of A which are not in B
+ * Returns a new set with the elements of A which are not in B
  *
  * @param a first Set
  * @param b second Set

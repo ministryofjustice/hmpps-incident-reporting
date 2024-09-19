@@ -57,6 +57,6 @@ function buildConfigGraph(config: IncidentTypeConfiguration): Graph<string> {
 
 function checkCycles<T>(dfsResult: DfsResult<T>, errors: Error[]) {
   for (const cycle of dfsResult.cycles) {
-    errors.push(new Error(`Question cycle detected: ${cycle} loops back to ${cycle[0]}`))
+    errors.push(new Error(`Question cycle detected: ${cycle}`))
   }
 }

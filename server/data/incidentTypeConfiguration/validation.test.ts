@@ -175,7 +175,7 @@ describe('DPS config validation', () => {
       }
 
       const errors = validateConfig(config).map(err => err.message)
-      expect(errors).toContain('Question cycle detected: 1,2,3,4 loops back to 1')
+      expect(errors).toContain('Question cycle detected: 1,2,3,4,1')
     })
   })
 

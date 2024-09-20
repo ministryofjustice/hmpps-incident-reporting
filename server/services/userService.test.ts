@@ -4,6 +4,7 @@ import createUserToken from '../testutils/createUserToken'
 import { NomisUserRolesApi } from '../data/nomisUserRolesApi'
 
 jest.mock('../data/manageUsersApiClient')
+jest.mock('../data/nomisUserRolesApi')
 
 describe('User service', () => {
   let manageUsersApiClient: jest.Mocked<ManageUsersApiClient>

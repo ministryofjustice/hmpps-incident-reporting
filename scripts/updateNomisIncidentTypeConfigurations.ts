@@ -4,7 +4,7 @@ import fs from 'node:fs'
 import path from 'node:path'
 
 import { fromNomis } from '../server/data/incidentTypeConfiguration/conversion'
-import { saveAsTypescript } from '../server/data/incidentTypeConfiguration/persistance'
+import { saveAsGraphviz, saveAsTypescript } from '../server/data/incidentTypeConfiguration/persistance'
 import { type IncidentTypeConfiguration as DpsIncidentTypeConfiguration } from '../server/data/incidentTypeConfiguration/types'
 import { validateConfig } from '../server/data/incidentTypeConfiguration/validation'
 import { type IncidentTypeConfiguration as NomisIncidentTypeConfiguration } from '../server/data/prisonApi'
@@ -25,10 +25,12 @@ function main() {
   for (const nomisConfig of nomisIncidentTypes) {
     const dpsConfig = fromNomis(nomisConfig)
 
-    const outputFile = saveAsTypescript({ scriptName, dpsConfig })
-    process.stderr.write(`\n\nConfig for ${dpsConfig.incidentType} written to ${outputFile}\n`)
+    const tsFile = saveAsTypescript({ scriptName, dpsConfig })
+    process.stderr.write(`\n\nConfig for ${dpsConfig.incidentType} written to ${tsFile}\n`)
 
     checkConfig(dpsConfig)
+
+    saveAsGraphviz(dpsConfig)
   }
 }
 

@@ -1,6 +1,6 @@
+/* eslint-disable import/prefer-default-export */
 import { type IncidentTypeConfiguration } from './types'
 
-// eslint-disable-next-line import/prefer-default-export
 export function toGraphviz(config: IncidentTypeConfiguration): string {
   const questions = Object.values(config.questions)
 

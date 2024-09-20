@@ -3,8 +3,8 @@ import fs from 'node:fs'
 import path from 'node:path'
 
 import { IncidentTypeConfiguration } from './types'
+import { toGraphviz } from './graphviz'
 
-// eslint-disable-next-line import/prefer-default-export
 export function saveAsTypescript({
   scriptName,
   dpsConfig,
@@ -39,4 +39,18 @@ export function saveAsTypescript({
   spawnSync('npx', ['prettier', '--write', outputPath], { encoding: 'utf8' })
 
   return outputPath
+}
+
+export function saveAsGraphviz(config: IncidentTypeConfiguration): string {
+  const dir = path.resolve(__dirname, '../../../server/reportConfiguration/types')
+  const graphvizPath = path.resolve(dir, `${config.incidentType}.dot`)
+  const svgPath = path.resolve(dir, `${config.incidentType}.svg`)
+
+  const graphviz = toGraphviz(config)
+  fs.writeFileSync(graphvizPath, graphviz)
+
+  // Converts to SVG using graphviz's dot command
+  spawnSync('dot', ['-T', 'svg', '-o', svgPath, graphvizPath])
+
+  return graphvizPath
 }

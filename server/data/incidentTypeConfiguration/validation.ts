@@ -31,7 +31,7 @@ function checkUnknownQuestions<Q>(configGraph: Graph<Q>, errors: Error[]) {
   const unknownQuestions = configGraph.getInvalidNodes()
 
   if (unknownQuestions.size > 0) {
-    errors.push(new Error(`Some answers lead to these unknown questions: ${setToString(unknownQuestions)}`))
+    errors.push(new Error(`Some answers lead to these unknown or inactive questions: ${setToString(unknownQuestions)}`))
   }
 }
 
@@ -46,8 +46,10 @@ function checkUnreachableQuestions<Q>(configGraph: Graph<Q>, dfsResult: DfsResul
 function buildConfigGraph(config: IncidentTypeConfiguration): Graph<string> {
   const graph = new Graph<string>()
 
-  for (const question of Object.values(config.questions)) {
-    for (const answer of question.answers) {
+  const activeQuestions = Object.values(config.questions).filter(q => q.active === true)
+  for (const question of activeQuestions) {
+    const activeAnswers = question.answers.filter(ans => ans.active === true)
+    for (const answer of activeAnswers) {
       graph.addEdge(question.id, answer.nextQuestionId)
     }
   }

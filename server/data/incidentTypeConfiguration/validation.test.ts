@@ -41,7 +41,7 @@ describe('DPS config validation', () => {
       config.questions['2'].answers[1].nextQuestionId = '100'
 
       const errors = validateConfig(config).map(err => err.message)
-      expect(errors).toContain('Some answers lead to these unknown questions: 42, 100')
+      expect(errors).toContain('Some answers lead to these unknown or inactive questions: 42, 100')
     })
   })
 

@@ -107,7 +107,7 @@ export function toGraphviz(config: DpsIncidentTypeConfiguration): string {
     }
   }
 
-  result += '}'
+  result += '}\n'
 
   return result
 }

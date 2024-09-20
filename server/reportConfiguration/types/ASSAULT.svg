@@ -1066,7 +1066,7 @@
 <!-- 61304 -->
 <g id="node30" class="node">
 <title>61304</title>
-<ellipse fill="none" stroke="black" cx="14253.7" cy="-1800.72" rx="212.06" ry="212.06"/>
+<ellipse fill="#dddddd" stroke="#dddddd" cx="14253.7" cy="-1800.72" rx="212.06" ry="212.06"/>
 <text text-anchor="middle" x="14253.7" y="-1795.67" font-family="Times,serif" font-size="14.00">WHO WAS ADMMITED TO OUTSIDE HOSPITAL</text>
 </g>
 <!-- 61303&#45;&gt;61304 -->
@@ -1100,22 +1100,22 @@
 <!-- 61304&#45;&gt;END_NODE -->
 <g id="edge128" class="edge">
 <title>61304&#45;&gt;END_NODE</title>
-<path fill="none" stroke="black" d="M14465.45,-1816.19C14641.88,-1827.81 14900.33,-1841.72 15126.21,-1841.72 15126.21,-1841.72 15126.21,-1841.72 18845.41,-1841.72 18956.6,-1841.72 19004.37,-1887.32 19094.86,-1822.72 19151.71,-1782.13 19174.61,-1699.9 19183.62,-1648.56"/>
-<polygon fill="black" stroke="black" points="19187.03,-1649.4 19185.19,-1638.97 19180.12,-1648.27 19187.03,-1649.4"/>
+<path fill="none" stroke="#dddddd" d="M14465.45,-1816.19C14641.88,-1827.81 14900.33,-1841.72 15126.21,-1841.72 15126.21,-1841.72 15126.21,-1841.72 18845.41,-1841.72 18956.6,-1841.72 19004.37,-1887.32 19094.86,-1822.72 19151.71,-1782.13 19174.61,-1699.9 19183.62,-1648.56"/>
+<polygon fill="#dddddd" stroke="#dddddd" points="19187.03,-1649.4 19185.19,-1638.97 19180.12,-1648.27 19187.03,-1649.4"/>
 <text text-anchor="middle" x="17115.83" y="-1844.92" font-family="Times,serif" font-size="14.00">OPERATIONAL STAFF &#45; OTHER</text>
 </g>
 <!-- 61304&#45;&gt;61305 -->
 <g id="edge126" class="edge">
 <title>61304&#45;&gt;61305</title>
-<path fill="none" stroke="black" d="M14450.28,-1720.6C14545.91,-1681.43 14663.98,-1633.06 14774.55,-1587.77"/>
-<polygon fill="black" stroke="black" points="14775.55,-1591.14 14783.48,-1584.11 14772.9,-1584.67 14775.55,-1591.14"/>
+<path fill="none" stroke="#dddddd" d="M14450.28,-1720.6C14545.91,-1681.43 14663.98,-1633.06 14774.55,-1587.77"/>
+<polygon fill="#dddddd" stroke="#dddddd" points="14775.55,-1591.14 14783.48,-1584.11 14772.9,-1584.67 14775.55,-1591.14"/>
 <text text-anchor="middle" x="14611.64" y="-1708.18" font-family="Times,serif" font-size="14.00">PRISONERS</text>
 </g>
 <!-- 61304&#45;&gt;61305 -->
 <g id="edge127" class="edge">
 <title>61304&#45;&gt;61305</title>
-<path fill="none" stroke="black" d="M14465.81,-1790C14553.08,-1780.03 14653.71,-1761.17 14739.51,-1725.72 14769.61,-1713.28 14799.56,-1698.05 14828.69,-1681.16"/>
-<polygon fill="black" stroke="black" points="14830.39,-1684.22 14837.24,-1676.13 14826.84,-1678.18 14830.39,-1684.22"/>
+<path fill="none" stroke="#dddddd" d="M14465.81,-1790C14553.08,-1780.03 14653.71,-1761.17 14739.51,-1725.72 14769.61,-1713.28 14799.56,-1698.05 14828.69,-1681.16"/>
+<polygon fill="#dddddd" stroke="#dddddd" points="14830.39,-1684.22 14837.24,-1676.13 14826.84,-1678.18 14830.39,-1684.22"/>
 <text text-anchor="middle" x="14611.64" y="-1789.66" font-family="Times,serif" font-size="14.00">OPERATIONAL STAFF &#45; PRISON OFFICER</text>
 </g>
 <!-- 61308 -->

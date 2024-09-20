@@ -169,7 +169,7 @@
 <!-- 69185 -->
 <g id="node10" class="node">
 <title>69185</title>
-<ellipse fill="none" stroke="black" cx="10412.84" cy="-2039.77" rx="232.53" ry="232.53"/>
+<ellipse fill="#dddddd" stroke="#dddddd" cx="10412.84" cy="-2039.77" rx="232.53" ry="232.53"/>
 <text text-anchor="middle" x="10412.84" y="-2034.72" font-family="Times,serif" font-size="14.00">WHAT WAS THE DRONE(S) TYPE/AIRFRAME SHAPE</text>
 </g>
 <!-- 69185&#45;&gt;END_NODE -->
@@ -182,7 +182,7 @@
 <!-- 69186 -->
 <g id="node11" class="node">
 <title>69186</title>
-<ellipse fill="none" stroke="black" cx="10412.84" cy="-1597.77" rx="191.08" ry="191.08"/>
+<ellipse fill="#dddddd" stroke="#dddddd" cx="10412.84" cy="-1597.77" rx="191.08" ry="191.08"/>
 <text text-anchor="middle" x="10412.84" y="-1592.72" font-family="Times,serif" font-size="14.00">WHAT WAS THE DRONE(S) MAKE/MODEL</text>
 </g>
 <!-- 69186&#45;&gt;END_NODE -->
@@ -195,20 +195,20 @@
 <!-- 69187 -->
 <g id="node12" class="node">
 <title>69187</title>
-<ellipse fill="none" stroke="black" cx="10412.84" cy="-1140.77" rx="248.4" ry="248.4"/>
+<ellipse fill="#dddddd" stroke="#dddddd" cx="10412.84" cy="-1140.77" rx="248.4" ry="248.4"/>
 <text text-anchor="middle" x="10412.84" y="-1135.72" font-family="Times,serif" font-size="14.00">WHAT WAS THE APPROXIMATE SIZE OF THE DRONE(S)</text>
 </g>
 <!-- 69187&#45;&gt;END_NODE -->
 <g id="edge12" class="edge">
 <title>69187&#45;&gt;END_NODE</title>
-<path fill="none" stroke="black" d="M10618.13,-1280.75C10660.3,-1315.71 10701.99,-1355.43 10735.45,-1397.77 10773.55,-1445.99 10800.89,-1512.1 10816.04,-1554.87"/>
-<polygon fill="black" stroke="black" points="10812.64,-1555.75 10819.22,-1564.06 10819.25,-1553.46 10812.64,-1555.75"/>
+<path fill="none" stroke="#dddddd" d="M10618.13,-1280.75C10660.3,-1315.71 10701.99,-1355.43 10735.45,-1397.77 10773.55,-1445.99 10800.89,-1512.1 10816.04,-1554.87"/>
+<polygon fill="#dddddd" stroke="#dddddd" points="10812.64,-1555.75 10819.22,-1564.06 10819.25,-1553.46 10812.64,-1555.75"/>
 <text text-anchor="middle" x="10766.2" y="-1467.44" font-family="Times,serif" font-size="14.00">Junk</text>
 </g>
 <!-- 69188 -->
 <g id="node13" class="node">
 <title>69188</title>
-<ellipse fill="none" stroke="black" cx="10412.84" cy="-623.77" rx="250.44" ry="250.44"/>
+<ellipse fill="#dddddd" stroke="#dddddd" cx="10412.84" cy="-623.77" rx="250.44" ry="250.44"/>
 <text text-anchor="middle" x="10412.84" y="-618.72" font-family="Times,serif" font-size="14.00">WHAT MODIFICATIONS WERE MADE TO THE DRONE(S)</text>
 </g>
 <!-- 69188&#45;&gt;END_NODE -->
@@ -221,7 +221,7 @@
 <!-- 69189 -->
 <g id="node14" class="node">
 <title>69189</title>
-<ellipse fill="none" stroke="black" cx="10412.84" cy="-177.77" rx="177.77" ry="177.77"/>
+<ellipse fill="#dddddd" stroke="#dddddd" cx="10412.84" cy="-177.77" rx="177.77" ry="177.77"/>
 <text text-anchor="middle" x="10412.84" y="-172.72" font-family="Times,serif" font-size="14.00">HOW WAS THE DRONE(S) RECOVERED</text>
 </g>
 <!-- 69189&#45;&gt;END_NODE -->

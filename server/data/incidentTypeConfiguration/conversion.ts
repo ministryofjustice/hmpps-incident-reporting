@@ -86,6 +86,7 @@ export function toTypescript({
  * @returns string containing the DOT format output
  */
 export function toGraphviz(config: DpsIncidentTypeConfiguration): string {
+  const inactiveStyle = ', style="filled", color="#DDD"'
   const questions = Object.values(config.questions)
 
   let result = `digraph ${config.incidentType} {`
@@ -101,11 +102,15 @@ export function toGraphviz(config: DpsIncidentTypeConfiguration): string {
 
   // Adds the questions as nodes, answers as edges
   for (const question of questions) {
-    result += `  ${question.id} [label = "${question.label}"];\n`
+    const questionStyle = question.active === true ? '' : inactiveStyle
+
+    result += `  ${question.id} [label = "${question.label}"${questionStyle}];\n`
     for (const answer of question.answers) {
+      const answerStyle = answer.active === true ? '' : inactiveStyle
+
       const nextNode = answer.nextQuestionId ?? 'END_NODE'
 
-      result += `  ${question.id} -> ${nextNode} [label = "${answer.label}"];\n`
+      result += `  ${question.id} -> ${nextNode} [label = "${answer.label}"${answerStyle}];\n`
     }
   }
 

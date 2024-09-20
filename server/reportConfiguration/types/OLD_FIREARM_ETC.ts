@@ -1,4 +1,4 @@
-// Generated with ./scripts/updateNomisIncidentTypeConfigurations.ts at 2024-09-16T15:42:13.742Z
+// Generated with ./scripts/updateNomisIncidentTypeConfigurations.ts at 2024-09-20T16:52:35.791Z
 
 import { type IncidentTypeConfiguration } from '../../data/incidentTypeConfiguration/types'
 
@@ -9,12 +9,14 @@ const OLD_FIREARM_ETC: IncidentTypeConfiguration = {
   questions: {
     '44123': {
       id: '44123',
+      active: false,
       code: 'HOW WAS THE ITEM FOUND',
       label: 'HOW WAS THE ITEM FOUND',
       multipleAnswers: false,
       answers: [
         {
           code: 'TARGET SEARCH',
+          active: false,
           label: 'TARGET SEARCH',
           commentRequired: false,
           dateRequired: false,
@@ -22,6 +24,7 @@ const OLD_FIREARM_ETC: IncidentTypeConfiguration = {
         },
         {
           code: 'ROUTINE SEARCH',
+          active: false,
           label: 'ROUTINE SEARCH',
           commentRequired: false,
           dateRequired: false,
@@ -29,6 +32,7 @@ const OLD_FIREARM_ETC: IncidentTypeConfiguration = {
         },
         {
           code: 'CHANCE',
+          active: false,
           label: 'CHANCE',
           commentRequired: false,
           dateRequired: false,
@@ -38,12 +42,14 @@ const OLD_FIREARM_ETC: IncidentTypeConfiguration = {
     },
     '44160': {
       id: '44160',
+      active: false,
       code: 'WHAT WAS THE COUNTRY OF MANUFACTURE OF THE SPRAY',
       label: 'WHAT WAS THE COUNTRY OF MANUFACTURE OF THE SPRAY',
       multipleAnswers: false,
       answers: [
         {
           code: 'SPECIFY',
+          active: false,
           label: 'SPECIFY',
           commentRequired: true,
           dateRequired: false,
@@ -53,12 +59,14 @@ const OLD_FIREARM_ETC: IncidentTypeConfiguration = {
     },
     '44172': {
       id: '44172',
+      active: false,
       code: 'WAS A CHEMICAL INCAPACITANT SPRAY FOUND',
       label: 'WAS A CHEMICAL INCAPACITANT SPRAY FOUND',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: false,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -66,6 +74,7 @@ const OLD_FIREARM_ETC: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: false,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -75,12 +84,14 @@ const OLD_FIREARM_ETC: IncidentTypeConfiguration = {
     },
     '44189': {
       id: '44189',
+      active: false,
       code: 'WAS THE FIREARM AN AUTOMATIC',
       label: 'WAS THE FIREARM AN AUTOMATIC',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: false,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -88,6 +99,7 @@ const OLD_FIREARM_ETC: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: false,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -97,12 +109,14 @@ const OLD_FIREARM_ETC: IncidentTypeConfiguration = {
     },
     '44193': {
       id: '44193',
+      active: false,
       code: 'WAS THE TELEPHONE/IT SYSTEM SHUT DOWN DURING THE INCIDENT?',
       label: 'WAS THE TELEPHONE/IT SYSTEM SHUT DOWN DURING THE INCIDENT?',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: false,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -110,6 +124,7 @@ const OLD_FIREARM_ETC: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: false,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -119,12 +134,14 @@ const OLD_FIREARM_ETC: IncidentTypeConfiguration = {
     },
     '44208': {
       id: '44208',
+      active: false,
       code: 'IS THERE ANY SUSPICION OF TRAFFICKING',
       label: 'IS THERE ANY SUSPICION OF TRAFFICKING',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: false,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -132,6 +149,7 @@ const OLD_FIREARM_ETC: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: false,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -141,12 +159,14 @@ const OLD_FIREARM_ETC: IncidentTypeConfiguration = {
     },
     '44209': {
       id: '44209',
+      active: false,
       code: 'WAS THE SYSTEM RE-ACTIVATED LOCALLY OR BY THE SERVICE SUPPLIER',
       label: 'WAS THE SYSTEM RE-ACTIVATED LOCALLY OR BY THE SERVICE SUPPLIER',
       multipleAnswers: false,
       answers: [
         {
           code: 'LOCAL',
+          active: false,
           label: 'LOCAL',
           commentRequired: false,
           dateRequired: false,
@@ -154,6 +174,7 @@ const OLD_FIREARM_ETC: IncidentTypeConfiguration = {
         },
         {
           code: 'SERVICE SUPPLIER',
+          active: false,
           label: 'SERVICE SUPPLIER',
           commentRequired: false,
           dateRequired: false,
@@ -163,12 +184,14 @@ const OLD_FIREARM_ETC: IncidentTypeConfiguration = {
     },
     '44323': {
       id: '44323',
+      active: false,
       code: 'DESCRIBE WHAT WAS COMPROMISED AND BY WHOM',
       label: 'DESCRIBE WHAT WAS COMPROMISED AND BY WHOM',
       multipleAnswers: false,
       answers: [
         {
           code: 'DESCRIPTION',
+          active: false,
           label: 'DESCRIPTION',
           commentRequired: true,
           dateRequired: false,
@@ -178,12 +201,14 @@ const OLD_FIREARM_ETC: IncidentTypeConfiguration = {
     },
     '44330': {
       id: '44330',
+      active: false,
       code: 'HAS THE SERVICE SUPPLIER BEEN NOTIFIED OF A REPLACEMENT KEYWORD?',
       label: 'HAS THE SERVICE SUPPLIER BEEN NOTIFIED OF A REPLACEMENT KEYWORD?',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: false,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -191,6 +216,7 @@ const OLD_FIREARM_ETC: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: false,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -200,12 +226,14 @@ const OLD_FIREARM_ETC: IncidentTypeConfiguration = {
     },
     '44390': {
       id: '44390',
+      active: false,
       code: 'WHAT TYPE OF AMMUNITION WAS FOUND',
       label: 'WHAT TYPE OF AMMUNITION WAS FOUND',
       multipleAnswers: true,
       answers: [
         {
           code: 'PISTOL/REVOLVER',
+          active: false,
           label: 'PISTOL/REVOLVER',
           commentRequired: false,
           dateRequired: false,
@@ -213,6 +241,7 @@ const OLD_FIREARM_ETC: IncidentTypeConfiguration = {
         },
         {
           code: 'RIFLE',
+          active: false,
           label: 'RIFLE',
           commentRequired: false,
           dateRequired: false,
@@ -220,6 +249,7 @@ const OLD_FIREARM_ETC: IncidentTypeConfiguration = {
         },
         {
           code: 'SHOTGUN',
+          active: false,
           label: 'SHOTGUN',
           commentRequired: false,
           dateRequired: false,
@@ -227,6 +257,7 @@ const OLD_FIREARM_ETC: IncidentTypeConfiguration = {
         },
         {
           code: 'HILTI GUN',
+          active: false,
           label: 'HILTI GUN',
           commentRequired: false,
           dateRequired: false,
@@ -234,6 +265,7 @@ const OLD_FIREARM_ETC: IncidentTypeConfiguration = {
         },
         {
           code: 'OTHER',
+          active: false,
           label: 'OTHER',
           commentRequired: true,
           dateRequired: false,
@@ -243,12 +275,14 @@ const OLD_FIREARM_ETC: IncidentTypeConfiguration = {
     },
     '44398': {
       id: '44398',
+      active: false,
       code: 'WHAT TIME WAS THE SYSTEM SHUT DOWN?',
       label: 'WHAT TIME WAS THE SYSTEM SHUT DOWN?',
       multipleAnswers: false,
       answers: [
         {
           code: 'ENTER TIME',
+          active: false,
           label: 'ENTER TIME',
           commentRequired: true,
           dateRequired: false,
@@ -258,12 +292,14 @@ const OLD_FIREARM_ETC: IncidentTypeConfiguration = {
     },
     '44430': {
       id: '44430',
+      active: false,
       code: 'HOW MANY ROUNDS ETC WERE FOUND',
       label: 'HOW MANY ROUNDS ETC WERE FOUND',
       multipleAnswers: false,
       answers: [
         {
           code: 'NUMBER',
+          active: false,
           label: 'NUMBER',
           commentRequired: true,
           dateRequired: false,
@@ -273,12 +309,14 @@ const OLD_FIREARM_ETC: IncidentTypeConfiguration = {
     },
     '44446': {
       id: '44446',
+      active: false,
       code: 'HAS ANY PERSON BEEN ARRESTED BY THE POLICE',
       label: 'HAS ANY PERSON BEEN ARRESTED BY THE POLICE',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: false,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -286,6 +324,7 @@ const OLD_FIREARM_ETC: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: false,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -295,12 +334,14 @@ const OLD_FIREARM_ETC: IncidentTypeConfiguration = {
     },
     '44451': {
       id: '44451',
+      active: false,
       code: 'WAS THE TELEPHONE/IT SYSTEM SHUT DOWN LOCALLY OR BY THE SERVICE SUPPLIER',
       label: 'WAS THE TELEPHONE/IT SYSTEM SHUT DOWN LOCALLY OR BY THE SERVICE SUPPLIER',
       multipleAnswers: false,
       answers: [
         {
           code: 'LOCAL',
+          active: false,
           label: 'LOCAL',
           commentRequired: false,
           dateRequired: false,
@@ -308,6 +349,7 @@ const OLD_FIREARM_ETC: IncidentTypeConfiguration = {
         },
         {
           code: 'SERVICE SUPPLIER',
+          active: false,
           label: 'SERVICE SUPPLIER',
           commentRequired: false,
           dateRequired: false,
@@ -317,12 +359,14 @@ const OLD_FIREARM_ETC: IncidentTypeConfiguration = {
     },
     '44455': {
       id: '44455',
+      active: false,
       code: 'WHAT WAS THE SOURCE OF THE INFORMATION/INTELLIGENCE',
       label: 'WHAT WAS THE SOURCE OF THE INFORMATION/INTELLIGENCE',
       multipleAnswers: false,
       answers: [
         {
           code: 'PRISONER',
+          active: false,
           label: 'PRISONER',
           commentRequired: false,
           dateRequired: false,
@@ -330,6 +374,7 @@ const OLD_FIREARM_ETC: IncidentTypeConfiguration = {
         },
         {
           code: 'STAFF',
+          active: false,
           label: 'STAFF',
           commentRequired: false,
           dateRequired: false,
@@ -337,6 +382,7 @@ const OLD_FIREARM_ETC: IncidentTypeConfiguration = {
         },
         {
           code: 'POLICE',
+          active: false,
           label: 'POLICE',
           commentRequired: false,
           dateRequired: false,
@@ -344,6 +390,7 @@ const OLD_FIREARM_ETC: IncidentTypeConfiguration = {
         },
         {
           code: 'VISITOR',
+          active: false,
           label: 'VISITOR',
           commentRequired: false,
           dateRequired: false,
@@ -351,6 +398,7 @@ const OLD_FIREARM_ETC: IncidentTypeConfiguration = {
         },
         {
           code: 'OTHER',
+          active: false,
           label: 'OTHER',
           commentRequired: true,
           dateRequired: false,
@@ -360,12 +408,14 @@ const OLD_FIREARM_ETC: IncidentTypeConfiguration = {
     },
     '44470': {
       id: '44470',
+      active: false,
       code: 'WAS THE ITEM CONCEALED/DISCARDED',
       label: 'WAS THE ITEM CONCEALED/DISCARDED',
       multipleAnswers: false,
       answers: [
         {
           code: 'CONCEALED',
+          active: false,
           label: 'CONCEALED',
           commentRequired: false,
           dateRequired: false,
@@ -373,6 +423,7 @@ const OLD_FIREARM_ETC: IncidentTypeConfiguration = {
         },
         {
           code: 'DISCARDED',
+          active: false,
           label: 'DISCARDED',
           commentRequired: false,
           dateRequired: false,
@@ -382,12 +433,14 @@ const OLD_FIREARM_ETC: IncidentTypeConfiguration = {
     },
     '44473': {
       id: '44473',
+      active: false,
       code: 'IS THERE ANY MEDIA INTEREST IN THIS INCIDENT',
       label: 'IS THERE ANY MEDIA INTEREST IN THIS INCIDENT',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: false,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -395,6 +448,7 @@ const OLD_FIREARM_ETC: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: false,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -404,12 +458,14 @@ const OLD_FIREARM_ETC: IncidentTypeConfiguration = {
     },
     '44504': {
       id: '44504',
+      active: false,
       code: 'WHAT WAS THE CALIBRE OF THE FIREARM',
       label: 'WHAT WAS THE CALIBRE OF THE FIREARM',
       multipleAnswers: false,
       answers: [
         {
           code: 'SPECIFY',
+          active: false,
           label: 'SPECIFY',
           commentRequired: true,
           dateRequired: false,
@@ -419,12 +475,14 @@ const OLD_FIREARM_ETC: IncidentTypeConfiguration = {
     },
     '44513': {
       id: '44513',
+      active: false,
       code: 'IS THE INCIDENT THE SUBJECT OF A POLICE INVESTIGATION',
       label: 'IS THE INCIDENT THE SUBJECT OF A POLICE INVESTIGATION',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: false,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -432,6 +490,7 @@ const OLD_FIREARM_ETC: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: false,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -441,12 +500,14 @@ const OLD_FIREARM_ETC: IncidentTypeConfiguration = {
     },
     '44524': {
       id: '44524',
+      active: false,
       code: 'DESCRIBE THE PERSON ARRESTED',
       label: 'DESCRIBE THE PERSON ARRESTED',
       multipleAnswers: true,
       answers: [
         {
           code: 'PRISONER',
+          active: false,
           label: 'PRISONER',
           commentRequired: false,
           dateRequired: false,
@@ -454,6 +515,7 @@ const OLD_FIREARM_ETC: IncidentTypeConfiguration = {
         },
         {
           code: 'STAFF',
+          active: false,
           label: 'STAFF',
           commentRequired: false,
           dateRequired: false,
@@ -461,6 +523,7 @@ const OLD_FIREARM_ETC: IncidentTypeConfiguration = {
         },
         {
           code: 'SOCIAL VISITOR',
+          active: false,
           label: 'SOCIAL VISITOR',
           commentRequired: false,
           dateRequired: false,
@@ -468,6 +531,7 @@ const OLD_FIREARM_ETC: IncidentTypeConfiguration = {
         },
         {
           code: 'OFFICIAL VISITOR',
+          active: false,
           label: 'OFFICIAL VISITOR',
           commentRequired: false,
           dateRequired: false,
@@ -475,6 +539,7 @@ const OLD_FIREARM_ETC: IncidentTypeConfiguration = {
         },
         {
           code: 'OTHER',
+          active: false,
           label: 'OTHER',
           commentRequired: true,
           dateRequired: false,
@@ -484,12 +549,14 @@ const OLD_FIREARM_ETC: IncidentTypeConfiguration = {
     },
     '44526': {
       id: '44526',
+      active: false,
       code: 'WHERE WAS THE ITEM FOUND',
       label: 'WHERE WAS THE ITEM FOUND',
       multipleAnswers: false,
       answers: [
         {
           code: 'ADMINISTRATION',
+          active: false,
           label: 'ADMINISTRATION',
           commentRequired: false,
           dateRequired: false,
@@ -497,6 +564,7 @@ const OLD_FIREARM_ETC: IncidentTypeConfiguration = {
         },
         {
           code: 'CELL',
+          active: false,
           label: 'CELL',
           commentRequired: false,
           dateRequired: false,
@@ -504,6 +572,7 @@ const OLD_FIREARM_ETC: IncidentTypeConfiguration = {
         },
         {
           code: 'ASSOCIATION AREA',
+          active: false,
           label: 'ASSOCIATION AREA',
           commentRequired: false,
           dateRequired: false,
@@ -511,6 +580,7 @@ const OLD_FIREARM_ETC: IncidentTypeConfiguration = {
         },
         {
           code: 'CHAPEL',
+          active: false,
           label: 'CHAPEL',
           commentRequired: false,
           dateRequired: false,
@@ -518,6 +588,7 @@ const OLD_FIREARM_ETC: IncidentTypeConfiguration = {
         },
         {
           code: 'DINING ROOM',
+          active: false,
           label: 'DINING ROOM',
           commentRequired: false,
           dateRequired: false,
@@ -525,6 +596,7 @@ const OLD_FIREARM_ETC: IncidentTypeConfiguration = {
         },
         {
           code: 'DORMITORY',
+          active: false,
           label: 'DORMITORY',
           commentRequired: false,
           dateRequired: false,
@@ -532,6 +604,7 @@ const OLD_FIREARM_ETC: IncidentTypeConfiguration = {
         },
         {
           code: 'EDUCATION',
+          active: false,
           label: 'EDUCATION',
           commentRequired: false,
           dateRequired: false,
@@ -539,6 +612,7 @@ const OLD_FIREARM_ETC: IncidentTypeConfiguration = {
         },
         {
           code: 'EXERCISE YARD',
+          active: false,
           label: 'EXERCISE YARD',
           commentRequired: false,
           dateRequired: false,
@@ -546,6 +620,7 @@ const OLD_FIREARM_ETC: IncidentTypeConfiguration = {
         },
         {
           code: 'GATE',
+          active: false,
           label: 'GATE',
           commentRequired: false,
           dateRequired: false,
@@ -553,6 +628,7 @@ const OLD_FIREARM_ETC: IncidentTypeConfiguration = {
         },
         {
           code: 'GYM',
+          active: false,
           label: 'GYM',
           commentRequired: false,
           dateRequired: false,
@@ -560,6 +636,7 @@ const OLD_FIREARM_ETC: IncidentTypeConfiguration = {
         },
         {
           code: 'HEALTH CARE CENTRE',
+          active: false,
           label: 'HEALTH CARE CENTRE',
           commentRequired: false,
           dateRequired: false,
@@ -567,6 +644,7 @@ const OLD_FIREARM_ETC: IncidentTypeConfiguration = {
         },
         {
           code: 'KITCHEN',
+          active: false,
           label: 'KITCHEN',
           commentRequired: false,
           dateRequired: false,
@@ -574,6 +652,7 @@ const OLD_FIREARM_ETC: IncidentTypeConfiguration = {
         },
         {
           code: 'OFFICE',
+          active: false,
           label: 'OFFICE',
           commentRequired: false,
           dateRequired: false,
@@ -581,6 +660,7 @@ const OLD_FIREARM_ETC: IncidentTypeConfiguration = {
         },
         {
           code: 'RECEPTION',
+          active: false,
           label: 'RECEPTION',
           commentRequired: false,
           dateRequired: false,
@@ -588,6 +668,7 @@ const OLD_FIREARM_ETC: IncidentTypeConfiguration = {
         },
         {
           code: 'RECESS',
+          active: false,
           label: 'RECESS',
           commentRequired: false,
           dateRequired: false,
@@ -595,6 +676,7 @@ const OLD_FIREARM_ETC: IncidentTypeConfiguration = {
         },
         {
           code: 'SEGREGATION UNIT',
+          active: false,
           label: 'SEGREGATION UNIT',
           commentRequired: false,
           dateRequired: false,
@@ -602,6 +684,7 @@ const OLD_FIREARM_ETC: IncidentTypeConfiguration = {
         },
         {
           code: 'SPECIAL UNIT',
+          active: false,
           label: 'SPECIAL UNIT',
           commentRequired: false,
           dateRequired: false,
@@ -609,6 +692,7 @@ const OLD_FIREARM_ETC: IncidentTypeConfiguration = {
         },
         {
           code: 'SHOWERS/CHANGING ROOM',
+          active: false,
           label: 'SHOWERS/CHANGING ROOM',
           commentRequired: false,
           dateRequired: false,
@@ -616,6 +700,7 @@ const OLD_FIREARM_ETC: IncidentTypeConfiguration = {
         },
         {
           code: 'VISITS',
+          active: false,
           label: 'VISITS',
           commentRequired: false,
           dateRequired: false,
@@ -623,6 +708,7 @@ const OLD_FIREARM_ETC: IncidentTypeConfiguration = {
         },
         {
           code: 'WING',
+          active: false,
           label: 'WING',
           commentRequired: false,
           dateRequired: false,
@@ -630,6 +716,7 @@ const OLD_FIREARM_ETC: IncidentTypeConfiguration = {
         },
         {
           code: 'WORKS DEPARTMENT',
+          active: false,
           label: 'WORKS DEPARTMENT',
           commentRequired: false,
           dateRequired: false,
@@ -637,6 +724,7 @@ const OLD_FIREARM_ETC: IncidentTypeConfiguration = {
         },
         {
           code: 'WORKSHOP',
+          active: false,
           label: 'WORKSHOP',
           commentRequired: false,
           dateRequired: false,
@@ -644,6 +732,7 @@ const OLD_FIREARM_ETC: IncidentTypeConfiguration = {
         },
         {
           code: 'WITHIN PERIMETER',
+          active: false,
           label: 'WITHIN PERIMETER',
           commentRequired: false,
           dateRequired: false,
@@ -651,6 +740,7 @@ const OLD_FIREARM_ETC: IncidentTypeConfiguration = {
         },
         {
           code: 'ELSEWHERE',
+          active: false,
           label: 'ELSEWHERE',
           commentRequired: true,
           dateRequired: false,
@@ -658,6 +748,7 @@ const OLD_FIREARM_ETC: IncidentTypeConfiguration = {
         },
         {
           code: 'FUNERAL',
+          active: false,
           label: 'FUNERAL',
           commentRequired: false,
           dateRequired: false,
@@ -665,6 +756,7 @@ const OLD_FIREARM_ETC: IncidentTypeConfiguration = {
         },
         {
           code: 'HOSPITAL OUTSIDE (PATIENT)',
+          active: false,
           label: 'HOSPITAL OUTSIDE (PATIENT)',
           commentRequired: false,
           dateRequired: false,
@@ -672,6 +764,7 @@ const OLD_FIREARM_ETC: IncidentTypeConfiguration = {
         },
         {
           code: 'HOSPITAL OUTSIDE (VISITING)',
+          active: false,
           label: 'HOSPITAL OUTSIDE (VISITING)',
           commentRequired: false,
           dateRequired: false,
@@ -679,6 +772,7 @@ const OLD_FIREARM_ETC: IncidentTypeConfiguration = {
         },
         {
           code: 'OUTSIDE WORKING PARTY',
+          active: false,
           label: 'OUTSIDE WORKING PARTY',
           commentRequired: false,
           dateRequired: false,
@@ -686,6 +780,7 @@ const OLD_FIREARM_ETC: IncidentTypeConfiguration = {
         },
         {
           code: 'SPORTSFIELD',
+          active: false,
           label: 'SPORTSFIELD',
           commentRequired: false,
           dateRequired: false,
@@ -693,6 +788,7 @@ const OLD_FIREARM_ETC: IncidentTypeConfiguration = {
         },
         {
           code: 'VEHICLE',
+          active: false,
           label: 'VEHICLE',
           commentRequired: false,
           dateRequired: false,
@@ -700,6 +796,7 @@ const OLD_FIREARM_ETC: IncidentTypeConfiguration = {
         },
         {
           code: 'WEDDING',
+          active: false,
           label: 'WEDDING',
           commentRequired: false,
           dateRequired: false,
@@ -707,6 +804,7 @@ const OLD_FIREARM_ETC: IncidentTypeConfiguration = {
         },
         {
           code: 'MAGISTRATES COURT',
+          active: false,
           label: 'MAGISTRATES COURT',
           commentRequired: false,
           dateRequired: false,
@@ -714,6 +812,7 @@ const OLD_FIREARM_ETC: IncidentTypeConfiguration = {
         },
         {
           code: 'CROWN COURT',
+          active: false,
           label: 'CROWN COURT',
           commentRequired: false,
           dateRequired: false,
@@ -723,12 +822,14 @@ const OLD_FIREARM_ETC: IncidentTypeConfiguration = {
     },
     '44548': {
       id: '44548',
+      active: false,
       code: 'DESCRIBE THE TYPE OF SPRAY',
       label: 'DESCRIBE THE TYPE OF SPRAY',
       multipleAnswers: true,
       answers: [
         {
           code: 'C.N (CHLORACETOPHEONE)',
+          active: false,
           label: 'C.N (CHLORACETOPHEONE)',
           commentRequired: false,
           dateRequired: false,
@@ -736,6 +837,7 @@ const OLD_FIREARM_ETC: IncidentTypeConfiguration = {
         },
         {
           code: 'C.S (ORTHO..NITRILE)',
+          active: false,
           label: 'C.S (ORTHO..NITRILE)',
           commentRequired: false,
           dateRequired: false,
@@ -743,6 +845,7 @@ const OLD_FIREARM_ETC: IncidentTypeConfiguration = {
         },
         {
           code: 'O.C (MACE/PEPPER)',
+          active: false,
           label: 'O.C (MACE/PEPPER)',
           commentRequired: false,
           dateRequired: false,
@@ -750,6 +853,7 @@ const OLD_FIREARM_ETC: IncidentTypeConfiguration = {
         },
         {
           code: 'OTHER',
+          active: false,
           label: 'OTHER',
           commentRequired: true,
           dateRequired: false,
@@ -757,6 +861,7 @@ const OLD_FIREARM_ETC: IncidentTypeConfiguration = {
         },
         {
           code: 'NOT KNOWN',
+          active: false,
           label: 'NOT KNOWN',
           commentRequired: false,
           dateRequired: false,
@@ -766,12 +871,14 @@ const OLD_FIREARM_ETC: IncidentTypeConfiguration = {
     },
     '44622': {
       id: '44622',
+      active: false,
       code: 'WHAT WAS THE BRAND NAME OF THE SPRAY',
       label: 'WHAT WAS THE BRAND NAME OF THE SPRAY',
       multipleAnswers: false,
       answers: [
         {
           code: 'SPECIFY',
+          active: false,
           label: 'SPECIFY',
           commentRequired: true,
           dateRequired: false,
@@ -781,12 +888,14 @@ const OLD_FIREARM_ETC: IncidentTypeConfiguration = {
     },
     '44624': {
       id: '44624',
+      active: false,
       code: 'CAN ITEMS BE ATTRIBUTED TO A PARTICULAR PRISONER',
       label: 'CAN ITEMS BE ATTRIBUTED TO A PARTICULAR PRISONER',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: false,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -794,6 +903,7 @@ const OLD_FIREARM_ETC: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: false,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -803,12 +913,14 @@ const OLD_FIREARM_ETC: IncidentTypeConfiguration = {
     },
     '44637': {
       id: '44637',
+      active: false,
       code: 'WAS THE SEARCH AS A RESULT OF INFORMATION/INTELLIGENCE',
       label: 'WAS THE SEARCH AS A RESULT OF INFORMATION/INTELLIGENCE',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: false,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -816,6 +928,7 @@ const OLD_FIREARM_ETC: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: false,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -825,12 +938,14 @@ const OLD_FIREARM_ETC: IncidentTypeConfiguration = {
     },
     '44676': {
       id: '44676',
+      active: false,
       code: 'HAS THE PRISON SERVICE PRESS OFFICE BEEN INFORMED',
       label: 'HAS THE PRISON SERVICE PRESS OFFICE BEEN INFORMED',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: false,
           label: 'YES',
           commentRequired: false,
           dateRequired: true,
@@ -838,6 +953,7 @@ const OLD_FIREARM_ETC: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: false,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -847,12 +963,14 @@ const OLD_FIREARM_ETC: IncidentTypeConfiguration = {
     },
     '44692': {
       id: '44692',
+      active: false,
       code: 'HAS THE PRISONER BEEN ENTERED ON THE INMATE INVOLVEMENT',
       label: 'HAS THE PRISONER BEEN ENTERED ON THE INMATE INVOLVEMENT',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: false,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -860,6 +978,7 @@ const OLD_FIREARM_ETC: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: false,
           label: 'NO',
           commentRequired: true,
           dateRequired: false,
@@ -869,12 +988,14 @@ const OLD_FIREARM_ETC: IncidentTypeConfiguration = {
     },
     '44698': {
       id: '44698',
+      active: false,
       code: 'WHAT WAS THE CALIBRE OF THE AMMUNITION',
       label: 'WHAT WAS THE CALIBRE OF THE AMMUNITION',
       multipleAnswers: false,
       answers: [
         {
           code: 'SPECIFY',
+          active: false,
           label: 'SPECIFY',
           commentRequired: true,
           dateRequired: false,
@@ -884,12 +1005,14 @@ const OLD_FIREARM_ETC: IncidentTypeConfiguration = {
     },
     '44703': {
       id: '44703',
+      active: false,
       code: 'WAS AMMUNITION FOUND',
       label: 'WAS AMMUNITION FOUND',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: false,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -897,6 +1020,7 @@ const OLD_FIREARM_ETC: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: false,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -906,12 +1030,14 @@ const OLD_FIREARM_ETC: IncidentTypeConfiguration = {
     },
     '44755': {
       id: '44755',
+      active: false,
       code: 'INDICATE THE NATURE OF THE SHUT DOWN',
       label: 'INDICATE THE NATURE OF THE SHUT DOWN',
       multipleAnswers: true,
       answers: [
         {
           code: 'TELEPHONY',
+          active: false,
           label: 'TELEPHONY',
           commentRequired: true,
           dateRequired: false,
@@ -919,6 +1045,7 @@ const OLD_FIREARM_ETC: IncidentTypeConfiguration = {
         },
         {
           code: 'IT',
+          active: false,
           label: 'IT',
           commentRequired: true,
           dateRequired: false,
@@ -928,12 +1055,14 @@ const OLD_FIREARM_ETC: IncidentTypeConfiguration = {
     },
     '44776': {
       id: '44776',
+      active: false,
       code: 'WERE THE POLICE INFORMED OF THE INCIDENT',
       label: 'WERE THE POLICE INFORMED OF THE INCIDENT',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: false,
           label: 'YES',
           commentRequired: false,
           dateRequired: true,
@@ -941,6 +1070,7 @@ const OLD_FIREARM_ETC: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: false,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -950,12 +1080,14 @@ const OLD_FIREARM_ETC: IncidentTypeConfiguration = {
     },
     '44779': {
       id: '44779',
+      active: false,
       code: 'WHEN WAS THE SYSTEM RE-ACTIVATED?',
       label: 'WHEN WAS THE SYSTEM RE-ACTIVATED?',
       multipleAnswers: false,
       answers: [
         {
           code: 'ENTER COMMENT AND DATE',
+          active: false,
           label: 'ENTER COMMENT AND DATE',
           commentRequired: true,
           dateRequired: true,
@@ -965,12 +1097,14 @@ const OLD_FIREARM_ETC: IncidentTypeConfiguration = {
     },
     '44820': {
       id: '44820',
+      active: false,
       code: 'WAS THE SYSTEM COMPROMISED?',
       label: 'WAS THE SYSTEM COMPROMISED?',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: false,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -978,6 +1112,7 @@ const OLD_FIREARM_ETC: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: false,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -987,12 +1122,14 @@ const OLD_FIREARM_ETC: IncidentTypeConfiguration = {
     },
     '44827': {
       id: '44827',
+      active: false,
       code: 'WHAT PARTS OF A FIREARM WERE FOUND',
       label: 'WHAT PARTS OF A FIREARM WERE FOUND',
       multipleAnswers: true,
       answers: [
         {
           code: 'BARREL',
+          active: false,
           label: 'BARREL',
           commentRequired: false,
           dateRequired: false,
@@ -1000,6 +1137,7 @@ const OLD_FIREARM_ETC: IncidentTypeConfiguration = {
         },
         {
           code: 'BUTT',
+          active: false,
           label: 'BUTT',
           commentRequired: false,
           dateRequired: false,
@@ -1007,6 +1145,7 @@ const OLD_FIREARM_ETC: IncidentTypeConfiguration = {
         },
         {
           code: 'MAGAZINE',
+          active: false,
           label: 'MAGAZINE',
           commentRequired: false,
           dateRequired: false,
@@ -1014,6 +1153,7 @@ const OLD_FIREARM_ETC: IncidentTypeConfiguration = {
         },
         {
           code: 'OTHER',
+          active: false,
           label: 'OTHER',
           commentRequired: true,
           dateRequired: false,
@@ -1023,12 +1163,14 @@ const OLD_FIREARM_ETC: IncidentTypeConfiguration = {
     },
     '44832': {
       id: '44832',
+      active: false,
       code: 'WAS THE KEYWORD REQUESTED?',
       label: 'WAS THE KEYWORD REQUESTED?',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: false,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -1036,6 +1178,7 @@ const OLD_FIREARM_ETC: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: false,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -1045,12 +1188,14 @@ const OLD_FIREARM_ETC: IncidentTypeConfiguration = {
     },
     '44846': {
       id: '44846',
+      active: false,
       code: 'WHAT WAS THE NAME OF THE MANUFACTURER',
       label: 'WHAT WAS THE NAME OF THE MANUFACTURER',
       multipleAnswers: false,
       answers: [
         {
           code: 'SPECIFY',
+          active: false,
           label: 'SPECIFY',
           commentRequired: true,
           dateRequired: false,
@@ -1060,12 +1205,14 @@ const OLD_FIREARM_ETC: IncidentTypeConfiguration = {
     },
     '44870': {
       id: '44870',
+      active: false,
       code: 'DESCRIBE THE AMMUNITION',
       label: 'DESCRIBE THE AMMUNITION',
       multipleAnswers: true,
       answers: [
         {
           code: 'LIVE',
+          active: false,
           label: 'LIVE',
           commentRequired: false,
           dateRequired: false,
@@ -1073,6 +1220,7 @@ const OLD_FIREARM_ETC: IncidentTypeConfiguration = {
         },
         {
           code: 'BLANK',
+          active: false,
           label: 'BLANK',
           commentRequired: false,
           dateRequired: false,
@@ -1080,6 +1228,7 @@ const OLD_FIREARM_ETC: IncidentTypeConfiguration = {
         },
         {
           code: 'DISABLED',
+          active: false,
           label: 'DISABLED',
           commentRequired: false,
           dateRequired: false,
@@ -1087,6 +1236,7 @@ const OLD_FIREARM_ETC: IncidentTypeConfiguration = {
         },
         {
           code: 'CARTRIDGE CASE',
+          active: false,
           label: 'CARTRIDGE CASE',
           commentRequired: false,
           dateRequired: false,
@@ -1094,6 +1244,7 @@ const OLD_FIREARM_ETC: IncidentTypeConfiguration = {
         },
         {
           code: 'OTHER',
+          active: false,
           label: 'OTHER',
           commentRequired: true,
           dateRequired: false,
@@ -1103,12 +1254,14 @@ const OLD_FIREARM_ETC: IncidentTypeConfiguration = {
     },
     '44874': {
       id: '44874',
+      active: false,
       code: 'HAS ANY PROSECUTION TAKEN PLACE OR IS ANY PENDING',
       label: 'HAS ANY PROSECUTION TAKEN PLACE OR IS ANY PENDING',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: false,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -1116,6 +1269,7 @@ const OLD_FIREARM_ETC: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: false,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -1125,12 +1279,14 @@ const OLD_FIREARM_ETC: IncidentTypeConfiguration = {
     },
     '44907': {
       id: '44907',
+      active: false,
       code: 'WHO AUTHORISED THE SHUT DOWN?',
       label: 'WHO AUTHORISED THE SHUT DOWN?',
       multipleAnswers: false,
       answers: [
         {
           code: 'GOVERNOR',
+          active: false,
           label: 'GOVERNOR',
           commentRequired: false,
           dateRequired: false,
@@ -1138,6 +1294,7 @@ const OLD_FIREARM_ETC: IncidentTypeConfiguration = {
         },
         {
           code: 'DEPUTY GOVERNOR',
+          active: false,
           label: 'DEPUTY GOVERNOR',
           commentRequired: false,
           dateRequired: false,
@@ -1145,6 +1302,7 @@ const OLD_FIREARM_ETC: IncidentTypeConfiguration = {
         },
         {
           code: 'DUTY GOVERNOR',
+          active: false,
           label: 'DUTY GOVERNOR',
           commentRequired: false,
           dateRequired: false,
@@ -1152,6 +1310,7 @@ const OLD_FIREARM_ETC: IncidentTypeConfiguration = {
         },
         {
           code: 'OTHER',
+          active: false,
           label: 'OTHER',
           commentRequired: true,
           dateRequired: false,
@@ -1161,12 +1320,14 @@ const OLD_FIREARM_ETC: IncidentTypeConfiguration = {
     },
     '44922': {
       id: '44922',
+      active: false,
       code: 'WHICH DETECTION AIDS WERE USED',
       label: 'WHICH DETECTION AIDS WERE USED',
       multipleAnswers: true,
       answers: [
         {
           code: 'METAL DETECTING PORTAL',
+          active: false,
           label: 'METAL DETECTING PORTAL',
           commentRequired: false,
           dateRequired: false,
@@ -1174,6 +1335,7 @@ const OLD_FIREARM_ETC: IncidentTypeConfiguration = {
         },
         {
           code: 'HAND HELD METAL DETECTOR',
+          active: false,
           label: 'HAND HELD METAL DETECTOR',
           commentRequired: false,
           dateRequired: false,
@@ -1181,6 +1343,7 @@ const OLD_FIREARM_ETC: IncidentTypeConfiguration = {
         },
         {
           code: 'X-RAY MACHINE',
+          active: false,
           label: 'X-RAY MACHINE',
           commentRequired: false,
           dateRequired: false,
@@ -1188,6 +1351,7 @@ const OLD_FIREARM_ETC: IncidentTypeConfiguration = {
         },
         {
           code: 'OTHER',
+          active: false,
           label: 'OTHER',
           commentRequired: true,
           dateRequired: false,
@@ -1197,12 +1361,14 @@ const OLD_FIREARM_ETC: IncidentTypeConfiguration = {
     },
     '44928': {
       id: '44928',
+      active: false,
       code: 'WERE DETECTION AIDS USED',
       label: 'WERE DETECTION AIDS USED',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: false,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -1210,6 +1376,7 @@ const OLD_FIREARM_ETC: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: false,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -1219,12 +1386,14 @@ const OLD_FIREARM_ETC: IncidentTypeConfiguration = {
     },
     '44964': {
       id: '44964',
+      active: false,
       code: 'WAS THIS A FULL OR PARTIAL SHUT DOWN?',
       label: 'WAS THIS A FULL OR PARTIAL SHUT DOWN?',
       multipleAnswers: false,
       answers: [
         {
           code: 'FULL',
+          active: false,
           label: 'FULL',
           commentRequired: false,
           dateRequired: false,
@@ -1232,6 +1401,7 @@ const OLD_FIREARM_ETC: IncidentTypeConfiguration = {
         },
         {
           code: 'PARTIAL',
+          active: false,
           label: 'PARTIAL',
           commentRequired: true,
           dateRequired: false,
@@ -1241,12 +1411,14 @@ const OLD_FIREARM_ETC: IncidentTypeConfiguration = {
     },
     '44980': {
       id: '44980',
+      active: false,
       code: 'WERE SPECIALIST DOGS USED',
       label: 'WERE SPECIALIST DOGS USED',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: false,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -1254,6 +1426,7 @@ const OLD_FIREARM_ETC: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: false,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -1263,12 +1436,14 @@ const OLD_FIREARM_ETC: IncidentTypeConfiguration = {
     },
     '44988': {
       id: '44988',
+      active: false,
       code: 'QUOTE THE VANTIVE CASE NUMBER',
       label: 'QUOTE THE VANTIVE CASE NUMBER',
       multipleAnswers: false,
       answers: [
         {
           code: 'NUMBER',
+          active: false,
           label: 'NUMBER',
           commentRequired: true,
           dateRequired: false,
@@ -1278,12 +1453,14 @@ const OLD_FIREARM_ETC: IncidentTypeConfiguration = {
     },
     '45000': {
       id: '45000',
+      active: false,
       code: 'IS THE INCIDENT THE SUBJECT OF AN INTERNAL INVESTIGATION',
       label: 'IS THE INCIDENT THE SUBJECT OF AN INTERNAL INVESTIGATION',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: false,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -1291,6 +1468,7 @@ const OLD_FIREARM_ETC: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: false,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -1300,12 +1478,14 @@ const OLD_FIREARM_ETC: IncidentTypeConfiguration = {
     },
     '45001': {
       id: '45001',
+      active: false,
       code: 'WAS THE FIREARM COMPLETE',
       label: 'WAS THE FIREARM COMPLETE',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: false,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -1313,6 +1493,7 @@ const OLD_FIREARM_ETC: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: false,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -1322,12 +1503,14 @@ const OLD_FIREARM_ETC: IncidentTypeConfiguration = {
     },
     '45005': {
       id: '45005',
+      active: false,
       code: 'IS ANY MEMBER OF STAFF FACING DISCIPLINARY CHARGES',
       label: 'IS ANY MEMBER OF STAFF FACING DISCIPLINARY CHARGES',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: false,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -1335,6 +1518,7 @@ const OLD_FIREARM_ETC: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: false,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -1344,12 +1528,14 @@ const OLD_FIREARM_ETC: IncidentTypeConfiguration = {
     },
     '45026': {
       id: '45026',
+      active: false,
       code: 'WAS A FIREARM FOUND',
       label: 'WAS A FIREARM FOUND',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: false,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -1357,6 +1543,7 @@ const OLD_FIREARM_ETC: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: false,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -1366,12 +1553,14 @@ const OLD_FIREARM_ETC: IncidentTypeConfiguration = {
     },
     '45029': {
       id: '45029',
+      active: false,
       code: 'WHAT TYPE OF FIREARM WAS FOUND',
       label: 'WHAT TYPE OF FIREARM WAS FOUND',
       multipleAnswers: false,
       answers: [
         {
           code: 'PISTOL',
+          active: false,
           label: 'PISTOL',
           commentRequired: false,
           dateRequired: false,
@@ -1379,6 +1568,7 @@ const OLD_FIREARM_ETC: IncidentTypeConfiguration = {
         },
         {
           code: 'REVOLVER',
+          active: false,
           label: 'REVOLVER',
           commentRequired: false,
           dateRequired: false,
@@ -1386,6 +1576,7 @@ const OLD_FIREARM_ETC: IncidentTypeConfiguration = {
         },
         {
           code: 'RIFLE',
+          active: false,
           label: 'RIFLE',
           commentRequired: false,
           dateRequired: false,
@@ -1393,6 +1584,7 @@ const OLD_FIREARM_ETC: IncidentTypeConfiguration = {
         },
         {
           code: 'SHOTGUN',
+          active: false,
           label: 'SHOTGUN',
           commentRequired: false,
           dateRequired: false,
@@ -1400,6 +1592,7 @@ const OLD_FIREARM_ETC: IncidentTypeConfiguration = {
         },
         {
           code: 'OTHER',
+          active: false,
           label: 'OTHER',
           commentRequired: true,
           dateRequired: false,
@@ -1409,12 +1602,14 @@ const OLD_FIREARM_ETC: IncidentTypeConfiguration = {
     },
     '45049': {
       id: '45049',
+      active: false,
       code: 'WHO NOW HAS CUSTODY OF THE ITEMS',
       label: 'WHO NOW HAS CUSTODY OF THE ITEMS',
       multipleAnswers: false,
       answers: [
         {
           code: 'PRISON',
+          active: false,
           label: 'PRISON',
           commentRequired: false,
           dateRequired: false,
@@ -1422,6 +1617,7 @@ const OLD_FIREARM_ETC: IncidentTypeConfiguration = {
         },
         {
           code: 'POLICE',
+          active: false,
           label: 'POLICE',
           commentRequired: false,
           dateRequired: false,
@@ -1429,6 +1625,7 @@ const OLD_FIREARM_ETC: IncidentTypeConfiguration = {
         },
         {
           code: 'OTHER',
+          active: false,
           label: 'OTHER',
           commentRequired: true,
           dateRequired: false,
@@ -1438,12 +1635,14 @@ const OLD_FIREARM_ETC: IncidentTypeConfiguration = {
     },
     '45056': {
       id: '45056',
+      active: false,
       code: 'DESCRIBE THE PERSON',
       label: 'DESCRIBE THE PERSON',
       multipleAnswers: false,
       answers: [
         {
           code: 'PRISONER',
+          active: false,
           label: 'PRISONER',
           commentRequired: false,
           dateRequired: false,
@@ -1451,6 +1650,7 @@ const OLD_FIREARM_ETC: IncidentTypeConfiguration = {
         },
         {
           code: 'STAFF',
+          active: false,
           label: 'STAFF',
           commentRequired: false,
           dateRequired: false,
@@ -1458,6 +1658,7 @@ const OLD_FIREARM_ETC: IncidentTypeConfiguration = {
         },
         {
           code: 'SOCIAL VISITOR',
+          active: false,
           label: 'SOCIAL VISITOR',
           commentRequired: false,
           dateRequired: false,
@@ -1465,6 +1666,7 @@ const OLD_FIREARM_ETC: IncidentTypeConfiguration = {
         },
         {
           code: 'OFFICIAL VISITOR',
+          active: false,
           label: 'OFFICIAL VISITOR',
           commentRequired: false,
           dateRequired: false,
@@ -1472,6 +1674,7 @@ const OLD_FIREARM_ETC: IncidentTypeConfiguration = {
         },
         {
           code: 'OTHER',
+          active: false,
           label: 'OTHER',
           commentRequired: true,
           dateRequired: false,
@@ -1481,12 +1684,14 @@ const OLD_FIREARM_ETC: IncidentTypeConfiguration = {
     },
     '45102': {
       id: '45102',
+      active: false,
       code: 'WHERE WAS THE ITEM CONCEALED',
       label: 'WHERE WAS THE ITEM CONCEALED',
       multipleAnswers: false,
       answers: [
         {
           code: 'ON A PERSON',
+          active: false,
           label: 'ON A PERSON',
           commentRequired: false,
           dateRequired: false,
@@ -1494,6 +1699,7 @@ const OLD_FIREARM_ETC: IncidentTypeConfiguration = {
         },
         {
           code: 'BURIED',
+          active: false,
           label: 'BURIED',
           commentRequired: false,
           dateRequired: false,
@@ -1501,6 +1707,7 @@ const OLD_FIREARM_ETC: IncidentTypeConfiguration = {
         },
         {
           code: 'IN I/P PROPERTY',
+          active: false,
           label: 'IN I/P PROPERTY',
           commentRequired: false,
           dateRequired: false,
@@ -1508,6 +1715,7 @@ const OLD_FIREARM_ETC: IncidentTypeConfiguration = {
         },
         {
           code: 'IN STORED PROPERTY',
+          active: false,
           label: 'IN STORED PROPERTY',
           commentRequired: false,
           dateRequired: false,
@@ -1515,6 +1723,7 @@ const OLD_FIREARM_ETC: IncidentTypeConfiguration = {
         },
         {
           code: 'IN CELL FURNITURE',
+          active: false,
           label: 'IN CELL FURNITURE',
           commentRequired: true,
           dateRequired: false,
@@ -1522,6 +1731,7 @@ const OLD_FIREARM_ETC: IncidentTypeConfiguration = {
         },
         {
           code: 'IN BUILDING FABRIC',
+          active: false,
           label: 'IN BUILDING FABRIC',
           commentRequired: true,
           dateRequired: false,
@@ -1529,6 +1739,7 @@ const OLD_FIREARM_ETC: IncidentTypeConfiguration = {
         },
         {
           code: 'STORES ITEMS',
+          active: false,
           label: 'STORES ITEMS',
           commentRequired: true,
           dateRequired: false,
@@ -1536,6 +1747,7 @@ const OLD_FIREARM_ETC: IncidentTypeConfiguration = {
         },
         {
           code: 'DELIVERED FOODS/PARCELS',
+          active: false,
           label: 'DELIVERED FOODS/PARCELS',
           commentRequired: false,
           dateRequired: false,
@@ -1543,6 +1755,7 @@ const OLD_FIREARM_ETC: IncidentTypeConfiguration = {
         },
         {
           code: 'VEHICLE',
+          active: false,
           label: 'VEHICLE',
           commentRequired: false,
           dateRequired: false,
@@ -1550,6 +1763,7 @@ const OLD_FIREARM_ETC: IncidentTypeConfiguration = {
         },
         {
           code: 'ELSEWHERE',
+          active: false,
           label: 'ELSEWHERE',
           commentRequired: true,
           dateRequired: false,
@@ -1559,12 +1773,14 @@ const OLD_FIREARM_ETC: IncidentTypeConfiguration = {
     },
     '45119': {
       id: '45119',
+      active: false,
       code: 'DESCRIBE THE FIREARM',
       label: 'DESCRIBE THE FIREARM',
       multipleAnswers: false,
       answers: [
         {
           code: 'REAL (FUNCTIONAL)',
+          active: false,
           label: 'REAL (FUNCTIONAL)',
           commentRequired: false,
           dateRequired: false,
@@ -1572,6 +1788,7 @@ const OLD_FIREARM_ETC: IncidentTypeConfiguration = {
         },
         {
           code: 'REAL (NON-FUNCTIONAL)',
+          active: false,
           label: 'REAL (NON-FUNCTIONAL)',
           commentRequired: false,
           dateRequired: false,
@@ -1579,6 +1796,7 @@ const OLD_FIREARM_ETC: IncidentTypeConfiguration = {
         },
         {
           code: 'REPLICA',
+          active: false,
           label: 'REPLICA',
           commentRequired: false,
           dateRequired: false,
@@ -1586,6 +1804,7 @@ const OLD_FIREARM_ETC: IncidentTypeConfiguration = {
         },
         {
           code: 'HOME MADE',
+          active: false,
           label: 'HOME MADE',
           commentRequired: false,
           dateRequired: false,
@@ -1593,6 +1812,7 @@ const OLD_FIREARM_ETC: IncidentTypeConfiguration = {
         },
         {
           code: 'TOY',
+          active: false,
           label: 'TOY',
           commentRequired: false,
           dateRequired: false,

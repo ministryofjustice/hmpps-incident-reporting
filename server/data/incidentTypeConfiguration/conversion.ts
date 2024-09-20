@@ -33,6 +33,7 @@ export function fromNomis(nomisConfig: NomisIncidentTypeConfiguration): DpsIncid
       // eslint-disable-next-line no-param-reassign
       qs[questionId] = {
         id: questionId,
+        active: q.questionActiveFlag === true,
         code: q.questionDesc,
         label: q.questionDesc,
         multipleAnswers: q.multipleAnswerFlag === true,
@@ -40,6 +41,7 @@ export function fromNomis(nomisConfig: NomisIncidentTypeConfiguration): DpsIncid
           const nextQuestionId = ans.nextQuestionnaireQueId?.toString() ?? null
           return {
             code: ans.answerDesc,
+            active: ans.answerActiveFlag === true,
             label: ans.answerDesc,
             commentRequired: ans.commentRequiredFlag === true,
             dateRequired: ans.dateRequiredFlag === true,

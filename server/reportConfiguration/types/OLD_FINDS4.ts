@@ -1,4 +1,4 @@
-// Generated with ./scripts/updateNomisIncidentTypeConfigurations.ts at 2024-09-16T15:42:10.033Z
+// Generated with ./scripts/updateNomisIncidentTypeConfigurations.ts at 2024-09-20T16:52:31.382Z
 
 import { type IncidentTypeConfiguration } from '../../data/incidentTypeConfiguration/types'
 
@@ -9,12 +9,14 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
   questions: {
     '57284': {
       id: '57284',
+      active: false,
       code: 'WHAT WAS THE MAIN MANAGEMENT OUTCOME OF THIS INCIDENT?',
       label: 'WHAT WAS THE MAIN MANAGEMENT OUTCOME OF THIS INCIDENT?',
       multipleAnswers: true,
       answers: [
         {
           code: 'NO FURTHER ACTION',
+          active: true,
           label: 'NO FURTHER ACTION',
           commentRequired: false,
           dateRequired: false,
@@ -22,6 +24,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
         },
         {
           code: 'IEP REGRESSION',
+          active: true,
           label: 'IEP REGRESSION',
           commentRequired: false,
           dateRequired: false,
@@ -29,6 +32,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
         },
         {
           code: 'PLACED ON REPORT/ADJUDICATION REFERRAL',
+          active: true,
           label: 'PLACED ON REPORT/ADJUDICATION REFERRAL',
           commentRequired: false,
           dateRequired: false,
@@ -36,6 +40,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
         },
         {
           code: 'POLICE REFERRAL',
+          active: true,
           label: 'POLICE REFERRAL',
           commentRequired: false,
           dateRequired: false,
@@ -43,6 +48,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
         },
         {
           code: 'CPS REFRRAL',
+          active: false,
           label: 'CPS REFRRAL',
           commentRequired: false,
           dateRequired: false,
@@ -50,6 +56,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
         },
         {
           code: 'PROSECUTION REFERRAL',
+          active: true,
           label: 'PROSECUTION REFERRAL',
           commentRequired: false,
           dateRequired: false,
@@ -59,12 +66,14 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
     },
     '57285': {
       id: '57285',
+      active: true,
       code: 'IS ANY MEMBER OF STAFF FACING DISCIPLINARY CHARGES?',
       label: 'IS ANY MEMBER OF STAFF FACING DISCIPLINARY CHARGES?',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: true,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -72,6 +81,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: true,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -81,12 +91,14 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
     },
     '57286': {
       id: '57286',
+      active: true,
       code: 'IS THE LOCATION OF THE INCIDENT KNOWN?',
       label: 'IS THE LOCATION OF THE INCIDENT KNOWN?',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: true,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -94,6 +106,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: true,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -103,12 +116,14 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
     },
     '57287': {
       id: '57287',
+      active: true,
       code: 'WHAT WAS THE LOCATION OF THE INCIDENT?',
       label: 'WHAT WAS THE LOCATION OF THE INCIDENT?',
       multipleAnswers: false,
       answers: [
         {
           code: 'ADMINISTRATION',
+          active: true,
           label: 'ADMINISTRATION',
           commentRequired: false,
           dateRequired: false,
@@ -116,6 +131,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
         },
         {
           code: 'ASSOCIATION AREA',
+          active: true,
           label: 'ASSOCIATION AREA',
           commentRequired: false,
           dateRequired: false,
@@ -123,6 +139,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
         },
         {
           code: 'CELL',
+          active: true,
           label: 'CELL',
           commentRequired: false,
           dateRequired: false,
@@ -130,6 +147,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
         },
         {
           code: 'CHAPEL',
+          active: true,
           label: 'CHAPEL',
           commentRequired: false,
           dateRequired: false,
@@ -137,6 +155,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
         },
         {
           code: 'CROWN COURT',
+          active: true,
           label: 'CROWN COURT',
           commentRequired: false,
           dateRequired: false,
@@ -144,6 +163,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
         },
         {
           code: 'DINING ROOM',
+          active: true,
           label: 'DINING ROOM',
           commentRequired: false,
           dateRequired: false,
@@ -151,6 +171,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
         },
         {
           code: 'DORMITORY',
+          active: true,
           label: 'DORMITORY',
           commentRequired: false,
           dateRequired: false,
@@ -158,6 +179,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
         },
         {
           code: 'EDUCATION',
+          active: true,
           label: 'EDUCATION',
           commentRequired: false,
           dateRequired: false,
@@ -165,6 +187,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
         },
         {
           code: 'ELSEWHERE',
+          active: true,
           label: 'ELSEWHERE',
           commentRequired: true,
           dateRequired: false,
@@ -172,6 +195,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
         },
         {
           code: 'EXERCISE YARD',
+          active: true,
           label: 'EXERCISE YARD',
           commentRequired: false,
           dateRequired: false,
@@ -179,6 +203,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
         },
         {
           code: 'FUNERAL',
+          active: true,
           label: 'FUNERAL',
           commentRequired: false,
           dateRequired: false,
@@ -186,6 +211,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
         },
         {
           code: 'GATE',
+          active: true,
           label: 'GATE',
           commentRequired: false,
           dateRequired: false,
@@ -193,6 +219,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
         },
         {
           code: 'GYM',
+          active: true,
           label: 'GYM',
           commentRequired: false,
           dateRequired: false,
@@ -200,6 +227,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
         },
         {
           code: 'HEALTH CARE CENTRE',
+          active: true,
           label: 'HEALTH CARE CENTRE',
           commentRequired: false,
           dateRequired: false,
@@ -207,6 +235,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
         },
         {
           code: 'HOSPITAL OUTSIDE (PATIENT)',
+          active: true,
           label: 'HOSPITAL OUTSIDE (PATIENT)',
           commentRequired: false,
           dateRequired: false,
@@ -214,6 +243,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
         },
         {
           code: 'HOSPITAL OUTSIDE (VISITING)',
+          active: true,
           label: 'HOSPITAL OUTSIDE (VISITING)',
           commentRequired: false,
           dateRequired: false,
@@ -221,6 +251,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
         },
         {
           code: 'KITCHEN',
+          active: true,
           label: 'KITCHEN',
           commentRequired: false,
           dateRequired: false,
@@ -228,6 +259,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
         },
         {
           code: 'MAGISTRATES COURT',
+          active: true,
           label: 'MAGISTRATES COURT',
           commentRequired: false,
           dateRequired: false,
@@ -235,6 +267,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
         },
         {
           code: 'OFFICE',
+          active: true,
           label: 'OFFICE',
           commentRequired: false,
           dateRequired: false,
@@ -242,6 +275,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
         },
         {
           code: 'OUTSIDE WORKING PARTY',
+          active: true,
           label: 'OUTSIDE WORKING PARTY',
           commentRequired: false,
           dateRequired: false,
@@ -249,6 +283,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
         },
         {
           code: 'RECEPTION',
+          active: true,
           label: 'RECEPTION',
           commentRequired: false,
           dateRequired: false,
@@ -256,6 +291,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
         },
         {
           code: 'RECESS',
+          active: true,
           label: 'RECESS',
           commentRequired: false,
           dateRequired: false,
@@ -263,6 +299,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
         },
         {
           code: 'SEGREGATION UNIT',
+          active: true,
           label: 'SEGREGATION UNIT',
           commentRequired: false,
           dateRequired: false,
@@ -270,6 +307,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
         },
         {
           code: 'SHOWERS/CHANGING ROOM',
+          active: true,
           label: 'SHOWERS/CHANGING ROOM',
           commentRequired: false,
           dateRequired: false,
@@ -277,6 +315,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
         },
         {
           code: 'SPECIAL UNIT',
+          active: true,
           label: 'SPECIAL UNIT',
           commentRequired: false,
           dateRequired: false,
@@ -284,6 +323,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
         },
         {
           code: 'SPORTS FIELD',
+          active: true,
           label: 'SPORTS FIELD',
           commentRequired: false,
           dateRequired: false,
@@ -291,6 +331,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
         },
         {
           code: 'VEHICLE',
+          active: true,
           label: 'VEHICLE',
           commentRequired: false,
           dateRequired: false,
@@ -298,6 +339,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
         },
         {
           code: 'VISITS',
+          active: true,
           label: 'VISITS',
           commentRequired: false,
           dateRequired: false,
@@ -305,6 +347,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
         },
         {
           code: 'WEDDINGS',
+          active: true,
           label: 'WEDDINGS',
           commentRequired: false,
           dateRequired: false,
@@ -312,6 +355,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
         },
         {
           code: 'WING',
+          active: true,
           label: 'WING',
           commentRequired: false,
           dateRequired: false,
@@ -319,6 +363,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
         },
         {
           code: 'WITHIN PERIMETER',
+          active: true,
           label: 'WITHIN PERIMETER',
           commentRequired: false,
           dateRequired: false,
@@ -326,6 +371,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
         },
         {
           code: 'WORKS DEPARTMENT',
+          active: true,
           label: 'WORKS DEPARTMENT',
           commentRequired: false,
           dateRequired: false,
@@ -333,6 +379,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
         },
         {
           code: 'WORKSHOP',
+          active: true,
           label: 'WORKSHOP',
           commentRequired: false,
           dateRequired: false,
@@ -340,6 +387,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
         },
         {
           code: 'INDUCTION/1ST NIGHT CENTRE',
+          active: true,
           label: 'INDUCTION/1ST NIGHT CENTRE',
           commentRequired: false,
           dateRequired: false,
@@ -347,6 +395,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
         },
         {
           code: 'MAIL ROOM',
+          active: true,
           label: 'MAIL ROOM',
           commentRequired: false,
           dateRequired: false,
@@ -354,6 +403,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
         },
         {
           code: 'EXTERNAL ROOF',
+          active: true,
           label: 'EXTERNAL ROOF',
           commentRequired: false,
           dateRequired: false,
@@ -361,6 +411,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
         },
         {
           code: 'VULNERABLE PRISONERS UNIT (VPU)',
+          active: true,
           label: 'VULNERABLE PRISONERS UNIT (VPU)',
           commentRequired: false,
           dateRequired: false,
@@ -370,12 +421,14 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
     },
     '57288': {
       id: '57288',
+      active: true,
       code: 'WAS A DRUG FOUND?',
       label: 'WAS A DRUG FOUND?',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: true,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -383,6 +436,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: true,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -392,12 +446,14 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
     },
     '57289': {
       id: '57289',
+      active: true,
       code: 'DESCRIBE THE DRUG FOUND',
       label: 'DESCRIBE THE DRUG FOUND',
       multipleAnswers: true,
       answers: [
         {
           code: 'AMPHETAMINES',
+          active: true,
           label: 'AMPHETAMINES',
           commentRequired: false,
           dateRequired: false,
@@ -405,6 +461,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
         },
         {
           code: 'BARBITURATES',
+          active: true,
           label: 'BARBITURATES',
           commentRequired: false,
           dateRequired: false,
@@ -412,6 +469,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
         },
         {
           code: 'BENZODIAZEPINES',
+          active: true,
           label: 'BENZODIAZEPINES',
           commentRequired: false,
           dateRequired: false,
@@ -419,6 +477,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
         },
         {
           code: 'BUPRENORPHINE/SUBUTEX',
+          active: true,
           label: 'BUPRENORPHINE/SUBUTEX',
           commentRequired: false,
           dateRequired: false,
@@ -426,6 +485,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
         },
         {
           code: 'CANNABIS',
+          active: true,
           label: 'CANNABIS',
           commentRequired: false,
           dateRequired: false,
@@ -433,6 +493,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
         },
         {
           code: 'CANNABIS PLANT',
+          active: true,
           label: 'CANNABIS PLANT',
           commentRequired: false,
           dateRequired: false,
@@ -440,6 +501,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
         },
         {
           code: 'COCAINE',
+          active: true,
           label: 'COCAINE',
           commentRequired: false,
           dateRequired: false,
@@ -447,6 +509,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
         },
         {
           code: 'CRACK',
+          active: true,
           label: 'CRACK',
           commentRequired: false,
           dateRequired: false,
@@ -454,6 +517,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
         },
         {
           code: 'HEROIN',
+          active: true,
           label: 'HEROIN',
           commentRequired: false,
           dateRequired: false,
@@ -461,6 +525,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
         },
         {
           code: 'LSD',
+          active: true,
           label: 'LSD',
           commentRequired: false,
           dateRequired: false,
@@ -468,6 +533,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
         },
         {
           code: 'METHADONE',
+          active: true,
           label: 'METHADONE',
           commentRequired: false,
           dateRequired: false,
@@ -475,6 +541,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
         },
         {
           code: 'PREGABALIN',
+          active: true,
           label: 'PREGABALIN',
           commentRequired: false,
           dateRequired: false,
@@ -482,6 +549,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
         },
         {
           code: 'TRANQUILISERS',
+          active: true,
           label: 'TRANQUILISERS',
           commentRequired: false,
           dateRequired: false,
@@ -489,6 +557,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
         },
         {
           code: 'TRAMADOL',
+          active: true,
           label: 'TRAMADOL',
           commentRequired: false,
           dateRequired: false,
@@ -496,6 +565,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
         },
         {
           code: 'GABAPENTIN',
+          active: true,
           label: 'GABAPENTIN',
           commentRequired: false,
           dateRequired: false,
@@ -503,6 +573,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
         },
         {
           code: 'NPS: SPICE',
+          active: true,
           label: 'NPS: SPICE',
           commentRequired: false,
           dateRequired: false,
@@ -510,6 +581,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
         },
         {
           code: 'NPS: BLACK MAMBA',
+          active: true,
           label: 'NPS: BLACK MAMBA',
           commentRequired: false,
           dateRequired: false,
@@ -517,6 +589,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
         },
         {
           code: 'NPS: OTHER',
+          active: true,
           label: 'NPS: OTHER',
           commentRequired: false,
           dateRequired: false,
@@ -524,6 +597,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
         },
         {
           code: 'STEROIDS',
+          active: true,
           label: 'STEROIDS',
           commentRequired: false,
           dateRequired: false,
@@ -531,6 +605,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
         },
         {
           code: 'OTHER (PLEASE SPECIFY)',
+          active: true,
           label: 'OTHER (PLEASE SPECIFY)',
           commentRequired: true,
           dateRequired: false,
@@ -538,6 +613,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
         },
         {
           code: 'UNKNOWN',
+          active: true,
           label: 'UNKNOWN',
           commentRequired: false,
           dateRequired: false,
@@ -547,12 +623,14 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
     },
     '57290': {
       id: '57290',
+      active: true,
       code: 'WHAT WAS THE ESTIMATED WEIGHT OF ALL DRUGS/SUBSTANCES FOUND?',
       label: 'WHAT WAS THE ESTIMATED WEIGHT OF ALL DRUGS/SUBSTANCES FOUND?',
       multipleAnswers: false,
       answers: [
         {
           code: '<1g',
+          active: true,
           label: '<1g',
           commentRequired: false,
           dateRequired: false,
@@ -560,6 +638,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
         },
         {
           code: '2g to 5g',
+          active: true,
           label: '2g to 5g',
           commentRequired: false,
           dateRequired: false,
@@ -567,6 +646,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
         },
         {
           code: '6g to 10g',
+          active: true,
           label: '6g to 10g',
           commentRequired: false,
           dateRequired: false,
@@ -574,6 +654,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
         },
         {
           code: '11g to 20g',
+          active: true,
           label: '11g to 20g',
           commentRequired: false,
           dateRequired: false,
@@ -581,6 +662,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
         },
         {
           code: '21g to 30g',
+          active: true,
           label: '21g to 30g',
           commentRequired: false,
           dateRequired: false,
@@ -588,6 +670,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
         },
         {
           code: '31g to 40g',
+          active: true,
           label: '31g to 40g',
           commentRequired: false,
           dateRequired: false,
@@ -595,6 +678,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
         },
         {
           code: '41g to 50g',
+          active: true,
           label: '41g to 50g',
           commentRequired: false,
           dateRequired: false,
@@ -602,6 +686,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
         },
         {
           code: '51g to 100g',
+          active: true,
           label: '51g to 100g',
           commentRequired: false,
           dateRequired: false,
@@ -609,6 +694,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
         },
         {
           code: '101g to 200g',
+          active: true,
           label: '101g to 200g',
           commentRequired: false,
           dateRequired: false,
@@ -616,6 +702,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
         },
         {
           code: '201g to 300g',
+          active: true,
           label: '201g to 300g',
           commentRequired: false,
           dateRequired: false,
@@ -623,6 +710,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
         },
         {
           code: '301g to 400g',
+          active: true,
           label: '301g to 400g',
           commentRequired: false,
           dateRequired: false,
@@ -630,6 +718,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
         },
         {
           code: '401g to 500g',
+          active: true,
           label: '401g to 500g',
           commentRequired: false,
           dateRequired: false,
@@ -637,6 +726,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
         },
         {
           code: '501g to 1,000g',
+          active: true,
           label: '501g to 1,000g',
           commentRequired: false,
           dateRequired: false,
@@ -644,6 +734,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
         },
         {
           code: 'More than 1kg',
+          active: true,
           label: 'More than 1kg',
           commentRequired: false,
           dateRequired: false,
@@ -651,6 +742,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
         },
         {
           code: 'UNKNOWN',
+          active: true,
           label: 'UNKNOWN',
           commentRequired: false,
           dateRequired: false,
@@ -660,12 +752,14 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
     },
     '57291': {
       id: '57291',
+      active: true,
       code: 'WAS THE SUBSTANCE FOUND ANALYSED?',
       label: 'WAS THE SUBSTANCE FOUND ANALYSED?',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: true,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -673,6 +767,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: true,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -682,12 +777,14 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
     },
     '57292': {
       id: '57292',
+      active: true,
       code: 'HOW WAS THE SUBSTANCE ANALYSED?',
       label: 'HOW WAS THE SUBSTANCE ANALYSED?',
       multipleAnswers: false,
       answers: [
         {
           code: 'FORENSIC LABORATORY',
+          active: true,
           label: 'FORENSIC LABORATORY',
           commentRequired: false,
           dateRequired: false,
@@ -695,6 +792,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
         },
         {
           code: 'LOCAL WITH BDH KIT OR SIMILAR',
+          active: true,
           label: 'LOCAL WITH BDH KIT OR SIMILAR',
           commentRequired: false,
           dateRequired: false,
@@ -704,12 +802,14 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
     },
     '57293': {
       id: '57293',
+      active: true,
       code: 'TO WHICH POLICE STATION WERE SEIZED DRUGS SENT FOR DESTRUCTION?',
       label: 'TO WHICH POLICE STATION WERE SEIZED DRUGS SENT FOR DESTRUCTION?',
       multipleAnswers: false,
       answers: [
         {
           code: 'NAME',
+          active: true,
           label: 'NAME',
           commentRequired: true,
           dateRequired: false,
@@ -719,12 +819,14 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
     },
     '57294': {
       id: '57294',
+      active: true,
       code: 'WAS DRUG EQUIPMENT FOUND?',
       label: 'WAS DRUG EQUIPMENT FOUND?',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: true,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -732,6 +834,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: true,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -741,12 +844,14 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
     },
     '57295': {
       id: '57295',
+      active: true,
       code: 'DESCRIBE DRUG EQUIPMENT FOUND',
       label: 'DESCRIBE DRUG EQUIPMENT FOUND',
       multipleAnswers: true,
       answers: [
         {
           code: 'AUTHENTIC NEEDLE',
+          active: true,
           label: 'AUTHENTIC NEEDLE',
           commentRequired: false,
           dateRequired: false,
@@ -754,6 +859,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
         },
         {
           code: 'AUTHENTIC SYRINGE',
+          active: true,
           label: 'AUTHENTIC SYRINGE',
           commentRequired: false,
           dateRequired: false,
@@ -761,6 +867,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
         },
         {
           code: 'IMPROVISED NEEDLE',
+          active: true,
           label: 'IMPROVISED NEEDLE',
           commentRequired: false,
           dateRequired: false,
@@ -768,6 +875,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
         },
         {
           code: 'IMPROVISED SYRINGE',
+          active: true,
           label: 'IMPROVISED SYRINGE',
           commentRequired: false,
           dateRequired: false,
@@ -775,6 +883,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
         },
         {
           code: 'PIPE(S)',
+          active: true,
           label: 'PIPE(S)',
           commentRequired: false,
           dateRequired: false,
@@ -782,6 +891,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
         },
         {
           code: 'ROACH',
+          active: true,
           label: 'ROACH',
           commentRequired: false,
           dateRequired: false,
@@ -789,6 +899,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
         },
         {
           code: 'OTHER (PLEASE SPECIFY)',
+          active: true,
           label: 'OTHER (PLEASE SPECIFY)',
           commentRequired: true,
           dateRequired: false,
@@ -798,12 +909,14 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
     },
     '57296': {
       id: '57296',
+      active: true,
       code: 'WAS A MOBILE PHONE RELATED ITEM FOUND?',
       label: 'WAS A MOBILE PHONE RELATED ITEM FOUND?',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: true,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -811,6 +924,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: true,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -820,12 +934,14 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
     },
     '57297': {
       id: '57297',
+      active: true,
       code: 'WAS A MOBILE PHONE FOUND?',
       label: 'WAS A MOBILE PHONE FOUND?',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: true,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -833,6 +949,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: true,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -842,12 +959,14 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
     },
     '57298': {
       id: '57298',
+      active: true,
       code: 'ENTER NUMBER OF MOBILES FOUND',
       label: 'ENTER NUMBER OF MOBILES FOUND',
       multipleAnswers: false,
       answers: [
         {
           code: '1',
+          active: true,
           label: '1',
           commentRequired: false,
           dateRequired: false,
@@ -855,6 +974,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
         },
         {
           code: '2',
+          active: true,
           label: '2',
           commentRequired: false,
           dateRequired: false,
@@ -862,6 +982,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
         },
         {
           code: '3',
+          active: true,
           label: '3',
           commentRequired: false,
           dateRequired: false,
@@ -869,6 +990,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
         },
         {
           code: '4',
+          active: true,
           label: '4',
           commentRequired: false,
           dateRequired: false,
@@ -876,6 +998,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
         },
         {
           code: '5',
+          active: true,
           label: '5',
           commentRequired: false,
           dateRequired: false,
@@ -883,6 +1006,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
         },
         {
           code: '6',
+          active: true,
           label: '6',
           commentRequired: false,
           dateRequired: false,
@@ -890,6 +1014,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
         },
         {
           code: '7',
+          active: true,
           label: '7',
           commentRequired: false,
           dateRequired: false,
@@ -897,6 +1022,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
         },
         {
           code: '8',
+          active: true,
           label: '8',
           commentRequired: false,
           dateRequired: false,
@@ -904,6 +1030,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
         },
         {
           code: '9',
+          active: true,
           label: '9',
           commentRequired: false,
           dateRequired: false,
@@ -911,6 +1038,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
         },
         {
           code: '10',
+          active: true,
           label: '10',
           commentRequired: false,
           dateRequired: false,
@@ -918,6 +1046,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
         },
         {
           code: '11',
+          active: true,
           label: '11',
           commentRequired: false,
           dateRequired: false,
@@ -925,6 +1054,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
         },
         {
           code: '12',
+          active: true,
           label: '12',
           commentRequired: false,
           dateRequired: false,
@@ -932,6 +1062,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
         },
         {
           code: '13',
+          active: true,
           label: '13',
           commentRequired: false,
           dateRequired: false,
@@ -939,6 +1070,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
         },
         {
           code: '14',
+          active: true,
           label: '14',
           commentRequired: false,
           dateRequired: false,
@@ -946,6 +1078,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
         },
         {
           code: '15',
+          active: true,
           label: '15',
           commentRequired: false,
           dateRequired: false,
@@ -953,6 +1086,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
         },
         {
           code: '16',
+          active: true,
           label: '16',
           commentRequired: false,
           dateRequired: false,
@@ -960,6 +1094,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
         },
         {
           code: '17',
+          active: true,
           label: '17',
           commentRequired: false,
           dateRequired: false,
@@ -967,6 +1102,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
         },
         {
           code: '18',
+          active: true,
           label: '18',
           commentRequired: false,
           dateRequired: false,
@@ -974,6 +1110,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
         },
         {
           code: '19',
+          active: true,
           label: '19',
           commentRequired: false,
           dateRequired: false,
@@ -981,6 +1118,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
         },
         {
           code: '20',
+          active: true,
           label: '20',
           commentRequired: false,
           dateRequired: false,
@@ -988,6 +1126,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
         },
         {
           code: 'MORE THAN 20',
+          active: true,
           label: 'MORE THAN 20',
           commentRequired: false,
           dateRequired: false,
@@ -995,6 +1134,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
         },
         {
           code: 'UNKNOWN',
+          active: true,
           label: 'UNKNOWN',
           commentRequired: false,
           dateRequired: false,
@@ -1004,12 +1144,14 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
     },
     '57299': {
       id: '57299',
+      active: true,
       code: 'WAS A SIM CARD FOUND?',
       label: 'WAS A SIM CARD FOUND?',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: true,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -1017,6 +1159,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: true,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -1026,12 +1169,14 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
     },
     '57300': {
       id: '57300',
+      active: true,
       code: 'ENTER NUMBER OF SIM CARDS FOUND',
       label: 'ENTER NUMBER OF SIM CARDS FOUND',
       multipleAnswers: false,
       answers: [
         {
           code: '1',
+          active: true,
           label: '1',
           commentRequired: false,
           dateRequired: false,
@@ -1039,6 +1184,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
         },
         {
           code: '2',
+          active: true,
           label: '2',
           commentRequired: false,
           dateRequired: false,
@@ -1046,6 +1192,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
         },
         {
           code: '3',
+          active: true,
           label: '3',
           commentRequired: false,
           dateRequired: false,
@@ -1053,6 +1200,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
         },
         {
           code: '4',
+          active: true,
           label: '4',
           commentRequired: false,
           dateRequired: false,
@@ -1060,6 +1208,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
         },
         {
           code: '5',
+          active: true,
           label: '5',
           commentRequired: false,
           dateRequired: false,
@@ -1067,6 +1216,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
         },
         {
           code: '6',
+          active: true,
           label: '6',
           commentRequired: false,
           dateRequired: false,
@@ -1074,6 +1224,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
         },
         {
           code: '7',
+          active: true,
           label: '7',
           commentRequired: false,
           dateRequired: false,
@@ -1081,6 +1232,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
         },
         {
           code: '8',
+          active: true,
           label: '8',
           commentRequired: false,
           dateRequired: false,
@@ -1088,6 +1240,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
         },
         {
           code: '9',
+          active: true,
           label: '9',
           commentRequired: false,
           dateRequired: false,
@@ -1095,6 +1248,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
         },
         {
           code: '10',
+          active: true,
           label: '10',
           commentRequired: false,
           dateRequired: false,
@@ -1102,6 +1256,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
         },
         {
           code: '11',
+          active: true,
           label: '11',
           commentRequired: false,
           dateRequired: false,
@@ -1109,6 +1264,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
         },
         {
           code: '12',
+          active: true,
           label: '12',
           commentRequired: false,
           dateRequired: false,
@@ -1116,6 +1272,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
         },
         {
           code: '13',
+          active: true,
           label: '13',
           commentRequired: false,
           dateRequired: false,
@@ -1123,6 +1280,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
         },
         {
           code: '14',
+          active: true,
           label: '14',
           commentRequired: false,
           dateRequired: false,
@@ -1130,6 +1288,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
         },
         {
           code: '15',
+          active: true,
           label: '15',
           commentRequired: false,
           dateRequired: false,
@@ -1137,6 +1296,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
         },
         {
           code: '16',
+          active: true,
           label: '16',
           commentRequired: false,
           dateRequired: false,
@@ -1144,6 +1304,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
         },
         {
           code: '17',
+          active: true,
           label: '17',
           commentRequired: false,
           dateRequired: false,
@@ -1151,6 +1312,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
         },
         {
           code: '18',
+          active: true,
           label: '18',
           commentRequired: false,
           dateRequired: false,
@@ -1158,6 +1320,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
         },
         {
           code: '19',
+          active: true,
           label: '19',
           commentRequired: false,
           dateRequired: false,
@@ -1165,6 +1328,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
         },
         {
           code: '20',
+          active: true,
           label: '20',
           commentRequired: false,
           dateRequired: false,
@@ -1172,6 +1336,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
         },
         {
           code: 'MORE THAN 20',
+          active: true,
           label: 'MORE THAN 20',
           commentRequired: false,
           dateRequired: false,
@@ -1179,6 +1344,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
         },
         {
           code: 'UNKNOWN',
+          active: true,
           label: 'UNKNOWN',
           commentRequired: false,
           dateRequired: false,
@@ -1188,12 +1354,14 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
     },
     '57301': {
       id: '57301',
+      active: true,
       code: ' WAS A MEMORY CARD FOUND?',
       label: ' WAS A MEMORY CARD FOUND?',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: true,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -1201,6 +1369,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: true,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -1210,12 +1379,14 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
     },
     '57302': {
       id: '57302',
+      active: true,
       code: 'ENTER NUMBER OF MEMORY CARDS FOUND',
       label: 'ENTER NUMBER OF MEMORY CARDS FOUND',
       multipleAnswers: false,
       answers: [
         {
           code: '1',
+          active: true,
           label: '1',
           commentRequired: false,
           dateRequired: false,
@@ -1223,6 +1394,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
         },
         {
           code: '2',
+          active: true,
           label: '2',
           commentRequired: false,
           dateRequired: false,
@@ -1230,6 +1402,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
         },
         {
           code: '3',
+          active: true,
           label: '3',
           commentRequired: false,
           dateRequired: false,
@@ -1237,6 +1410,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
         },
         {
           code: '4',
+          active: true,
           label: '4',
           commentRequired: false,
           dateRequired: false,
@@ -1244,6 +1418,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
         },
         {
           code: '5',
+          active: true,
           label: '5',
           commentRequired: false,
           dateRequired: false,
@@ -1251,6 +1426,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
         },
         {
           code: '6',
+          active: true,
           label: '6',
           commentRequired: false,
           dateRequired: false,
@@ -1258,6 +1434,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
         },
         {
           code: '7',
+          active: true,
           label: '7',
           commentRequired: false,
           dateRequired: false,
@@ -1265,6 +1442,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
         },
         {
           code: '8',
+          active: true,
           label: '8',
           commentRequired: false,
           dateRequired: false,
@@ -1272,6 +1450,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
         },
         {
           code: '9',
+          active: true,
           label: '9',
           commentRequired: false,
           dateRequired: false,
@@ -1279,6 +1458,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
         },
         {
           code: '10',
+          active: true,
           label: '10',
           commentRequired: false,
           dateRequired: false,
@@ -1286,6 +1466,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
         },
         {
           code: '11',
+          active: true,
           label: '11',
           commentRequired: false,
           dateRequired: false,
@@ -1293,6 +1474,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
         },
         {
           code: '12',
+          active: true,
           label: '12',
           commentRequired: false,
           dateRequired: false,
@@ -1300,6 +1482,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
         },
         {
           code: '13',
+          active: true,
           label: '13',
           commentRequired: false,
           dateRequired: false,
@@ -1307,6 +1490,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
         },
         {
           code: '14',
+          active: true,
           label: '14',
           commentRequired: false,
           dateRequired: false,
@@ -1314,6 +1498,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
         },
         {
           code: '15',
+          active: true,
           label: '15',
           commentRequired: false,
           dateRequired: false,
@@ -1321,6 +1506,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
         },
         {
           code: '16',
+          active: true,
           label: '16',
           commentRequired: false,
           dateRequired: false,
@@ -1328,6 +1514,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
         },
         {
           code: '17',
+          active: true,
           label: '17',
           commentRequired: false,
           dateRequired: false,
@@ -1335,6 +1522,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
         },
         {
           code: '18',
+          active: true,
           label: '18',
           commentRequired: false,
           dateRequired: false,
@@ -1342,6 +1530,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
         },
         {
           code: '19',
+          active: true,
           label: '19',
           commentRequired: false,
           dateRequired: false,
@@ -1349,6 +1538,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
         },
         {
           code: '20',
+          active: true,
           label: '20',
           commentRequired: false,
           dateRequired: false,
@@ -1356,6 +1546,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
         },
         {
           code: 'MORE THAN 20',
+          active: true,
           label: 'MORE THAN 20',
           commentRequired: false,
           dateRequired: false,
@@ -1363,6 +1554,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
         },
         {
           code: 'UNKNOWN',
+          active: true,
           label: 'UNKNOWN',
           commentRequired: false,
           dateRequired: false,
@@ -1372,12 +1564,14 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
     },
     '57303': {
       id: '57303',
+      active: true,
       code: 'WAS A CHARGER FOUND?',
       label: 'WAS A CHARGER FOUND?',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: true,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -1385,6 +1579,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: true,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -1394,12 +1589,14 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
     },
     '57304': {
       id: '57304',
+      active: true,
       code: 'WAS ANY OTHER MOBILE PHONE/COMMUNICATION RELATED ITEM FOUND?',
       label: 'WAS ANY OTHER MOBILE PHONE/COMMUNICATION RELATED ITEM FOUND?',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES (PLEASE SPECIFY)',
+          active: true,
           label: 'YES (PLEASE SPECIFY)',
           commentRequired: true,
           dateRequired: false,
@@ -1407,6 +1604,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: true,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -1416,12 +1614,14 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
     },
     '57305': {
       id: '57305',
+      active: true,
       code: 'HAS PHONE/SIM/MEMORY CARD BEEN SENT TO NDTSG?',
       label: 'HAS PHONE/SIM/MEMORY CARD BEEN SENT TO NDTSG?',
       multipleAnswers: true,
       answers: [
         {
           code: 'YES (PLEASE ENTER DATE)',
+          active: true,
           label: 'YES (PLEASE ENTER DATE)',
           commentRequired: false,
           dateRequired: true,
@@ -1429,6 +1629,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
         },
         {
           code: 'EVIDENCE BAG (PLEASE ENTER BAG NUMBER)',
+          active: true,
           label: 'EVIDENCE BAG (PLEASE ENTER BAG NUMBER)',
           commentRequired: true,
           dateRequired: false,
@@ -1436,6 +1637,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
         },
         {
           code: 'NO (PLEASE STATE WHY)',
+          active: true,
           label: 'NO (PLEASE STATE WHY)',
           commentRequired: true,
           dateRequired: false,
@@ -1445,12 +1647,14 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
     },
     '57306': {
       id: '57306',
+      active: true,
       code: 'HAS PHONE/SIM/EQUIPMENT BEEN RETAINED BY POLICE?',
       label: 'HAS PHONE/SIM/EQUIPMENT BEEN RETAINED BY POLICE?',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: true,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -1458,6 +1662,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: true,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -1467,12 +1672,14 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
     },
     '57307': {
       id: '57307',
+      active: true,
       code: 'WAS A WEAPON FOUND?',
       label: 'WAS A WEAPON FOUND?',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: true,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -1480,6 +1687,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: true,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -1489,12 +1697,14 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
     },
     '57308': {
       id: '57308',
+      active: true,
       code: 'DESCRIBE THE WEAPON',
       label: 'DESCRIBE THE WEAPON',
       multipleAnswers: true,
       answers: [
         {
           code: 'BLUNT INSTRUMENT (COSH, ITEM IN SOCK ETC.)',
+          active: true,
           label: 'BLUNT INSTRUMENT (COSH, ITEM IN SOCK ETC.)',
           commentRequired: false,
           dateRequired: false,
@@ -1502,6 +1712,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
         },
         {
           code: 'KNIFE/BLADED ARTICLE',
+          active: true,
           label: 'KNIFE/BLADED ARTICLE',
           commentRequired: false,
           dateRequired: false,
@@ -1509,6 +1720,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
         },
         {
           code: 'FIREARM (FAKE GUNS, AMMUNITION, CHEMIICAL INCAPACITANT ETC.)',
+          active: true,
           label: 'FIREARM (FAKE GUNS, AMMUNITION, CHEMIICAL INCAPACITANT ETC.)',
           commentRequired: false,
           dateRequired: false,
@@ -1516,6 +1728,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
         },
         {
           code: 'OTHER (PLEASE SPECIFY)',
+          active: true,
           label: 'OTHER (PLEASE SPECIFY)',
           commentRequired: true,
           dateRequired: false,
@@ -1525,12 +1738,14 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
     },
     '57309': {
       id: '57309',
+      active: true,
       code: 'WAS ANY ALCOHOL/HOOCH FOUND?',
       label: 'WAS ANY ALCOHOL/HOOCH FOUND?',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: true,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -1538,6 +1753,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: true,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -1547,12 +1763,14 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
     },
     '57310': {
       id: '57310',
+      active: true,
       code: 'WHAT QUANTITY OF ALCOHOL/HOOCH WAS FOUND?',
       label: 'WHAT QUANTITY OF ALCOHOL/HOOCH WAS FOUND?',
       multipleAnswers: false,
       answers: [
         {
           code: '< 1 litre',
+          active: true,
           label: '< 1 litre',
           commentRequired: false,
           dateRequired: false,
@@ -1560,6 +1778,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
         },
         {
           code: '1 to 2 litres',
+          active: true,
           label: '1 to 2 litres',
           commentRequired: false,
           dateRequired: false,
@@ -1567,6 +1786,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
         },
         {
           code: '2 to 3 litres',
+          active: true,
           label: '2 to 3 litres',
           commentRequired: false,
           dateRequired: false,
@@ -1574,6 +1794,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
         },
         {
           code: '3 to 4 litres',
+          active: true,
           label: '3 to 4 litres',
           commentRequired: false,
           dateRequired: false,
@@ -1581,6 +1802,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
         },
         {
           code: ' 4 to 5 litres',
+          active: true,
           label: ' 4 to 5 litres',
           commentRequired: false,
           dateRequired: false,
@@ -1588,6 +1810,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
         },
         {
           code: '6 to 10 litres',
+          active: true,
           label: '6 to 10 litres',
           commentRequired: false,
           dateRequired: false,
@@ -1595,6 +1818,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
         },
         {
           code: '11 to 20 litres',
+          active: true,
           label: '11 to 20 litres',
           commentRequired: false,
           dateRequired: false,
@@ -1602,6 +1826,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
         },
         {
           code: 'More than 20 litres',
+          active: true,
           label: 'More than 20 litres',
           commentRequired: false,
           dateRequired: false,
@@ -1609,6 +1834,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
         },
         {
           code: 'UNKNOWN',
+          active: true,
           label: 'UNKNOWN',
           commentRequired: false,
           dateRequired: false,
@@ -1618,12 +1844,14 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
     },
     '57311': {
       id: '57311',
+      active: true,
       code: 'WAS ANY DISTILLING EQUIPMENT FOUND?',
       label: 'WAS ANY DISTILLING EQUIPMENT FOUND?',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: true,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -1631,6 +1859,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: true,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -1640,12 +1869,14 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
     },
     '57312': {
       id: '57312',
+      active: true,
       code: 'WAS ANY TOBACCO FOUND?',
       label: 'WAS ANY TOBACCO FOUND?',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: true,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -1653,6 +1884,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: true,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -1662,12 +1894,14 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
     },
     '57313': {
       id: '57313',
+      active: true,
       code: 'DESCRIBE THE TOBACCO FOUND',
       label: 'DESCRIBE THE TOBACCO FOUND',
       multipleAnswers: true,
       answers: [
         {
           code: 'LOOSE TOBACCO',
+          active: true,
           label: 'LOOSE TOBACCO',
           commentRequired: false,
           dateRequired: false,
@@ -1675,6 +1909,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
         },
         {
           code: 'CIGARETTES/CIGARS',
+          active: true,
           label: 'CIGARETTES/CIGARS',
           commentRequired: false,
           dateRequired: false,
@@ -1682,6 +1917,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
         },
         {
           code: 'OTHER (INC PACKAGING AND ROACHES)',
+          active: true,
           label: 'OTHER (INC PACKAGING AND ROACHES)',
           commentRequired: false,
           dateRequired: false,
@@ -1691,12 +1927,14 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
     },
     '57314': {
       id: '57314',
+      active: true,
       code: 'APPROX WEIGHT OF TOBACCO?',
       label: 'APPROX WEIGHT OF TOBACCO?',
       multipleAnswers: false,
       answers: [
         {
           code: '<1g',
+          active: true,
           label: '<1g',
           commentRequired: false,
           dateRequired: false,
@@ -1704,6 +1942,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
         },
         {
           code: '2g to 5g',
+          active: true,
           label: '2g to 5g',
           commentRequired: false,
           dateRequired: false,
@@ -1711,6 +1950,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
         },
         {
           code: '6g to 10g',
+          active: true,
           label: '6g to 10g',
           commentRequired: false,
           dateRequired: false,
@@ -1718,6 +1958,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
         },
         {
           code: '10g+',
+          active: true,
           label: '10g+',
           commentRequired: false,
           dateRequired: false,
@@ -1727,12 +1968,14 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
     },
     '57315': {
       id: '57315',
+      active: true,
       code: 'WERE ANY OTHER REPORTABLE ITEMS FOUND?',
       label: 'WERE ANY OTHER REPORTABLE ITEMS FOUND?',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: true,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -1740,6 +1983,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: true,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -1749,12 +1993,14 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
     },
     '57316': {
       id: '57316',
+      active: true,
       code: 'DESCRIBE THE ITEM',
       label: 'DESCRIBE THE ITEM',
       multipleAnswers: false,
       answers: [
         {
           code: 'PLEASE SPECIFY',
+          active: true,
           label: 'PLEASE SPECIFY',
           commentRequired: true,
           dateRequired: false,
@@ -1764,12 +2010,14 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
     },
     '57317': {
       id: '57317',
+      active: true,
       code: 'DESCRIBE HOW THE ITEM WAS FOUND?',
       label: 'DESCRIBE HOW THE ITEM WAS FOUND?',
       multipleAnswers: true,
       answers: [
         {
           code: 'BOSS CHAIR',
+          active: true,
           label: 'BOSS CHAIR',
           commentRequired: false,
           dateRequired: false,
@@ -1777,6 +2025,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
         },
         {
           code: 'CELL SEARCH',
+          active: true,
           label: 'CELL SEARCH',
           commentRequired: false,
           dateRequired: false,
@@ -1784,6 +2033,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
         },
         {
           code: 'CRIME SCENE',
+          active: true,
           label: 'CRIME SCENE',
           commentRequired: false,
           dateRequired: false,
@@ -1791,6 +2041,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
         },
         {
           code: 'DOG SEARCH',
+          active: true,
           label: 'DOG SEARCH',
           commentRequired: false,
           dateRequired: false,
@@ -1798,6 +2049,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
         },
         {
           code: 'DRONE RECOVERY',
+          active: true,
           label: 'DRONE RECOVERY',
           commentRequired: false,
           dateRequired: false,
@@ -1805,6 +2057,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
         },
         {
           code: 'HIGH SENSITIVITY WAND',
+          active: true,
           label: 'HIGH SENSITIVITY WAND',
           commentRequired: false,
           dateRequired: false,
@@ -1812,6 +2065,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
         },
         {
           code: 'INFORMATION RECEIVED',
+          active: true,
           label: 'INFORMATION RECEIVED',
           commentRequired: false,
           dateRequired: false,
@@ -1819,6 +2073,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
         },
         {
           code: 'INTELLIGENCE LED SEARCH',
+          active: true,
           label: 'INTELLIGENCE LED SEARCH',
           commentRequired: false,
           dateRequired: false,
@@ -1826,6 +2081,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
         },
         {
           code: 'ITEM OBSERVED',
+          active: true,
           label: 'ITEM OBSERVED',
           commentRequired: false,
           dateRequired: false,
@@ -1833,6 +2089,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
         },
         {
           code: 'MOBILE PHONE SIGNAL DETECTOR',
+          active: true,
           label: 'MOBILE PHONE SIGNAL DETECTOR',
           commentRequired: false,
           dateRequired: false,
@@ -1840,6 +2097,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
         },
         {
           code: 'MOBILE PHONE ROD',
+          active: true,
           label: 'MOBILE PHONE ROD',
           commentRequired: false,
           dateRequired: false,
@@ -1847,6 +2105,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
         },
         {
           code: 'OTHER SEARCH (INMATE)',
+          active: true,
           label: 'OTHER SEARCH (INMATE)',
           commentRequired: false,
           dateRequired: false,
@@ -1854,6 +2113,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
         },
         {
           code: 'OTHER SEARCH (PREMISES)',
+          active: true,
           label: 'OTHER SEARCH (PREMISES)',
           commentRequired: false,
           dateRequired: false,
@@ -1861,6 +2121,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
         },
         {
           code: 'OTHER SEARCH (VISITOR)',
+          active: true,
           label: 'OTHER SEARCH (VISITOR)',
           commentRequired: false,
           dateRequired: false,
@@ -1868,6 +2129,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
         },
         {
           code: 'PRE-OCCUPATION SEARCH',
+          active: true,
           label: 'PRE-OCCUPATION SEARCH',
           commentRequired: false,
           dateRequired: false,
@@ -1875,6 +2137,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
         },
         {
           code: 'UNUSUAL BEHAVIOUR',
+          active: true,
           label: 'UNUSUAL BEHAVIOUR',
           commentRequired: false,
           dateRequired: false,
@@ -1882,6 +2145,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
         },
         {
           code: 'OTHER (PLEASE SPECIFY)',
+          active: true,
           label: 'OTHER (PLEASE SPECIFY)',
           commentRequired: true,
           dateRequired: false,
@@ -1891,12 +2155,14 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
     },
     '57318': {
       id: '57318',
+      active: true,
       code: 'DESCRIBE THE METHOD OF ENTRY INTO THE ESTABLISHMENT',
       label: 'DESCRIBE THE METHOD OF ENTRY INTO THE ESTABLISHMENT',
       multipleAnswers: true,
       answers: [
         {
           code: 'PRISONER',
+          active: true,
           label: 'PRISONER',
           commentRequired: false,
           dateRequired: false,
@@ -1904,6 +2170,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
         },
         {
           code: 'STAFF',
+          active: true,
           label: 'STAFF',
           commentRequired: false,
           dateRequired: false,
@@ -1911,6 +2178,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
         },
         {
           code: 'VISITOR (FRIEND)',
+          active: true,
           label: 'VISITOR (FRIEND)',
           commentRequired: false,
           dateRequired: false,
@@ -1918,6 +2186,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
         },
         {
           code: 'VISITOR (OFFICIAL)',
+          active: true,
           label: 'VISITOR (OFFICIAL)',
           commentRequired: false,
           dateRequired: false,
@@ -1925,6 +2194,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
         },
         {
           code: 'VISITOR (RELATIVE)',
+          active: true,
           label: 'VISITOR (RELATIVE)',
           commentRequired: false,
           dateRequired: false,
@@ -1932,6 +2202,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
         },
         {
           code: 'CONTRACTOR',
+          active: true,
           label: 'CONTRACTOR',
           commentRequired: false,
           dateRequired: false,
@@ -1939,6 +2210,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
         },
         {
           code: 'POST (RULE 39)',
+          active: true,
           label: 'POST (RULE 39)',
           commentRequired: false,
           dateRequired: false,
@@ -1946,6 +2218,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
         },
         {
           code: 'POST (OTHER)',
+          active: true,
           label: 'POST (OTHER)',
           commentRequired: false,
           dateRequired: false,
@@ -1953,6 +2226,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
         },
         {
           code: 'THROWN IN',
+          active: true,
           label: 'THROWN IN',
           commentRequired: false,
           dateRequired: false,
@@ -1960,6 +2234,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
         },
         {
           code: 'DRONE/UAV',
+          active: true,
           label: 'DRONE/UAV',
           commentRequired: false,
           dateRequired: false,
@@ -1967,6 +2242,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
         },
         {
           code: 'OTHER (PLEASE SPECIFY)',
+          active: true,
           label: 'OTHER (PLEASE SPECIFY)',
           commentRequired: true,
           dateRequired: false,
@@ -1974,6 +2250,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
         },
         {
           code: 'UNKNOWN',
+          active: true,
           label: 'UNKNOWN',
           commentRequired: false,
           dateRequired: false,
@@ -1983,12 +2260,14 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
     },
     '57319': {
       id: '57319',
+      active: true,
       code: 'IF FOUND IN POSSESSION, WHOSE WAS IT FOUND IN?',
       label: 'IF FOUND IN POSSESSION, WHOSE WAS IT FOUND IN?',
       multipleAnswers: false,
       answers: [
         {
           code: 'PRISONER',
+          active: true,
           label: 'PRISONER',
           commentRequired: false,
           dateRequired: false,
@@ -1996,6 +2275,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
         },
         {
           code: 'STAFF',
+          active: true,
           label: 'STAFF',
           commentRequired: false,
           dateRequired: false,
@@ -2003,6 +2283,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
         },
         {
           code: 'VISITOR (FRIEND)',
+          active: true,
           label: 'VISITOR (FRIEND)',
           commentRequired: false,
           dateRequired: false,
@@ -2010,6 +2291,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
         },
         {
           code: 'VISITOR (OFFICIAL)',
+          active: true,
           label: 'VISITOR (OFFICIAL)',
           commentRequired: false,
           dateRequired: false,
@@ -2017,6 +2299,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
         },
         {
           code: 'VISITOR (RELATIVE)',
+          active: true,
           label: 'VISITOR (RELATIVE)',
           commentRequired: false,
           dateRequired: false,
@@ -2024,6 +2307,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
         },
         {
           code: 'CONTRACTOR',
+          active: true,
           label: 'CONTRACTOR',
           commentRequired: false,
           dateRequired: false,
@@ -2031,6 +2315,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
         },
         {
           code: 'OTHER (PLEASE SPECIFY)',
+          active: true,
           label: 'OTHER (PLEASE SPECIFY)',
           commentRequired: true,
           dateRequired: false,
@@ -2038,6 +2323,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
         },
         {
           code: 'NOT APPLICABLE',
+          active: true,
           label: 'NOT APPLICABLE',
           commentRequired: false,
           dateRequired: false,
@@ -2047,12 +2333,14 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
     },
     '57320': {
       id: '57320',
+      active: true,
       code: 'WHAT WAS THE METHOD OF CONCEALMENT?',
       label: 'WHAT WAS THE METHOD OF CONCEALMENT?',
       multipleAnswers: false,
       answers: [
         {
           code: 'NOT CONCEALED',
+          active: true,
           label: 'NOT CONCEALED',
           commentRequired: false,
           dateRequired: false,
@@ -2060,6 +2348,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
         },
         {
           code: 'BED/BEDDING',
+          active: true,
           label: 'BED/BEDDING',
           commentRequired: false,
           dateRequired: false,
@@ -2067,6 +2356,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
         },
         {
           code: 'BOOK/PAPERS',
+          active: true,
           label: 'BOOK/PAPERS',
           commentRequired: false,
           dateRequired: false,
@@ -2074,6 +2364,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
         },
         {
           code: 'CELL/BUILDING FABRIC',
+          active: true,
           label: 'CELL/BUILDING FABRIC',
           commentRequired: false,
           dateRequired: false,
@@ -2081,6 +2372,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
         },
         {
           code: 'FOOD/CONTAINER',
+          active: true,
           label: 'FOOD/CONTAINER',
           commentRequired: false,
           dateRequired: false,
@@ -2088,6 +2380,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
         },
         {
           code: 'IN CLOTHING',
+          active: true,
           label: 'IN CLOTHING',
           commentRequired: false,
           dateRequired: false,
@@ -2095,6 +2388,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
         },
         {
           code: 'IN HAND',
+          active: true,
           label: 'IN HAND',
           commentRequired: false,
           dateRequired: false,
@@ -2102,6 +2396,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
         },
         {
           code: 'IN MOUTH',
+          active: true,
           label: 'IN MOUTH',
           commentRequired: false,
           dateRequired: false,
@@ -2109,6 +2404,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
         },
         {
           code: 'INTERNALLY/PLUGGED',
+          active: true,
           label: 'INTERNALLY/PLUGGED',
           commentRequired: false,
           dateRequired: false,
@@ -2116,6 +2412,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
         },
         {
           code: 'LETTER/PARCEL',
+          active: true,
           label: 'LETTER/PARCEL',
           commentRequired: false,
           dateRequired: false,
@@ -2123,6 +2420,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
         },
         {
           code: 'LIGHT FITTINGS',
+          active: true,
           label: 'LIGHT FITTINGS',
           commentRequired: false,
           dateRequired: false,
@@ -2130,6 +2428,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
         },
         {
           code: 'PIPEWORK',
+          active: true,
           label: 'PIPEWORK',
           commentRequired: false,
           dateRequired: false,
@@ -2137,6 +2436,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
         },
         {
           code: 'RULE 39/LEGAL PAPERS',
+          active: true,
           label: 'RULE 39/LEGAL PAPERS',
           commentRequired: false,
           dateRequired: false,
@@ -2144,6 +2444,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
         },
         {
           code: 'TV/RADIO/DVD/CONSOLES ETC.',
+          active: true,
           label: 'TV/RADIO/DVD/CONSOLES ETC.',
           commentRequired: false,
           dateRequired: false,
@@ -2151,6 +2452,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
         },
         {
           code: 'OTHER (PLEASE SPECIFY)',
+          active: true,
           label: 'OTHER (PLEASE SPECIFY)',
           commentRequired: true,
           dateRequired: false,
@@ -2160,12 +2462,14 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
     },
     '57321': {
       id: '57321',
+      active: true,
       code: 'IS THE ITEM HEAVILY CONTAMINATED? (E.G. BLOOD, FAECES)',
       label: 'IS THE ITEM HEAVILY CONTAMINATED? (E.G. BLOOD, FAECES)',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: true,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -2173,6 +2477,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: true,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -2182,12 +2487,14 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
     },
     '57322': {
       id: '57322',
+      active: true,
       code: 'WAS A VISITOR SUSPECTED OF INVOLVEMENT AND ARRESTED BY THE POLICE?',
       label: 'WAS A VISITOR SUSPECTED OF INVOLVEMENT AND ARRESTED BY THE POLICE?',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: true,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -2195,6 +2502,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: true,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -2204,12 +2512,14 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
     },
     '57323': {
       id: '57323',
+      active: true,
       code: 'DESCRIBE CIRCUMSTANCES OF VISITORS ARREST',
       label: 'DESCRIBE CIRCUMSTANCES OF VISITORS ARREST',
       multipleAnswers: false,
       answers: [
         {
           code: 'AFTER ENTERING PRISON',
+          active: true,
           label: 'AFTER ENTERING PRISON',
           commentRequired: false,
           dateRequired: false,
@@ -2217,6 +2527,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
         },
         {
           code: 'BEFORE ENTERING PRISON',
+          active: true,
           label: 'BEFORE ENTERING PRISON',
           commentRequired: false,
           dateRequired: false,
@@ -2226,12 +2537,14 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
     },
     '57324': {
       id: '57324',
+      active: true,
       code: 'TO WHICH POLICE STATION WAS THE VISITOR TAKEN TO?',
       label: 'TO WHICH POLICE STATION WAS THE VISITOR TAKEN TO?',
       multipleAnswers: false,
       answers: [
         {
           code: 'PLEASE SPECIFY',
+          active: true,
           label: 'PLEASE SPECIFY',
           commentRequired: true,
           dateRequired: false,
@@ -2241,12 +2554,14 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
     },
     '57325': {
       id: '57325',
+      active: true,
       code: 'WERE THE ITEMS OBTAINED ON TEMPORARY RELEASE?',
       label: 'WERE THE ITEMS OBTAINED ON TEMPORARY RELEASE?',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: true,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -2254,6 +2569,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: true,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -2261,6 +2577,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
         },
         {
           code: 'UNKNOWN',
+          active: true,
           label: 'UNKNOWN',
           commentRequired: false,
           dateRequired: false,
@@ -2270,12 +2587,14 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
     },
     '57326': {
       id: '57326',
+      active: true,
       code: 'DESCRIBE THE TYPE OF TEMPORARY RELEASE',
       label: 'DESCRIBE THE TYPE OF TEMPORARY RELEASE',
       multipleAnswers: false,
       answers: [
         {
           code: 'COMMUNITY VISIT',
+          active: true,
           label: 'COMMUNITY VISIT',
           commentRequired: false,
           dateRequired: false,
@@ -2283,6 +2602,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
         },
         {
           code: 'COMPASSIONATE',
+          active: true,
           label: 'COMPASSIONATE',
           commentRequired: false,
           dateRequired: false,
@@ -2290,6 +2610,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
         },
         {
           code: 'FACILITY',
+          active: true,
           label: 'FACILITY',
           commentRequired: false,
           dateRequired: false,
@@ -2297,6 +2618,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
         },
         {
           code: 'RESETTLEMENT',
+          active: true,
           label: 'RESETTLEMENT',
           commentRequired: false,
           dateRequired: false,
@@ -2304,6 +2626,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
         },
         {
           code: 'UNKNOWN',
+          active: true,
           label: 'UNKNOWN',
           commentRequired: false,
           dateRequired: false,
@@ -2313,12 +2636,14 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
     },
     '57327': {
       id: '57327',
+      active: true,
       code: 'WHAT WAS THE TOTAL ESTIMATED VALUE OF THE FIND? (DRUGS, MOBILE PHONES ETC.)',
       label: 'WHAT WAS THE TOTAL ESTIMATED VALUE OF THE FIND? (DRUGS, MOBILE PHONES ETC.)',
       multipleAnswers: false,
       answers: [
         {
           code: '£0',
+          active: true,
           label: '£0',
           commentRequired: false,
           dateRequired: false,
@@ -2326,6 +2651,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
         },
         {
           code: '£1 to £100',
+          active: true,
           label: '£1 to £100',
           commentRequired: false,
           dateRequired: false,
@@ -2333,6 +2659,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
         },
         {
           code: '£101 to £200',
+          active: true,
           label: '£101 to £200',
           commentRequired: false,
           dateRequired: false,
@@ -2340,6 +2667,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
         },
         {
           code: '£201 to £300',
+          active: true,
           label: '£201 to £300',
           commentRequired: false,
           dateRequired: false,
@@ -2347,6 +2675,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
         },
         {
           code: '£301 to £400',
+          active: true,
           label: '£301 to £400',
           commentRequired: false,
           dateRequired: false,
@@ -2354,6 +2683,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
         },
         {
           code: '£401 to £500',
+          active: true,
           label: '£401 to £500',
           commentRequired: false,
           dateRequired: false,
@@ -2361,6 +2691,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
         },
         {
           code: '£501 to £1,000',
+          active: true,
           label: '£501 to £1,000',
           commentRequired: false,
           dateRequired: false,
@@ -2368,6 +2699,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
         },
         {
           code: '£1,001 to £5,000',
+          active: true,
           label: '£1,001 to £5,000',
           commentRequired: false,
           dateRequired: false,
@@ -2375,6 +2707,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
         },
         {
           code: '£5,001 to £10,000',
+          active: true,
           label: '£5,001 to £10,000',
           commentRequired: false,
           dateRequired: false,
@@ -2382,6 +2715,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
         },
         {
           code: '£10,001 to £20,000',
+          active: true,
           label: '£10,001 to £20,000',
           commentRequired: false,
           dateRequired: false,
@@ -2389,6 +2723,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
         },
         {
           code: '£20,001 to £30,000',
+          active: true,
           label: '£20,001 to £30,000',
           commentRequired: false,
           dateRequired: false,
@@ -2396,6 +2731,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
         },
         {
           code: '£30,001 to £40,000',
+          active: true,
           label: '£30,001 to £40,000',
           commentRequired: false,
           dateRequired: false,
@@ -2403,6 +2739,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
         },
         {
           code: '£40,001 to £50,000',
+          active: true,
           label: '£40,001 to £50,000',
           commentRequired: false,
           dateRequired: false,
@@ -2410,6 +2747,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
         },
         {
           code: 'More than £50,000',
+          active: true,
           label: 'More than £50,000',
           commentRequired: false,
           dateRequired: false,
@@ -2417,6 +2755,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
         },
         {
           code: 'UNKNOWN',
+          active: true,
           label: 'UNKNOWN',
           commentRequired: false,
           dateRequired: false,

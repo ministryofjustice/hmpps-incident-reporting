@@ -1,4 +1,4 @@
-// Generated with ./scripts/updateNomisIncidentTypeConfigurations.ts at 2024-09-16T15:42:03.318Z
+// Generated with ./scripts/updateNomisIncidentTypeConfigurations.ts at 2024-09-20T16:52:23.463Z
 
 import { type IncidentTypeConfiguration } from '../../data/incidentTypeConfiguration/types'
 
@@ -9,12 +9,14 @@ const OLD_DRONE_SIGHTING1: IncidentTypeConfiguration = {
   questions: {
     '57253': {
       id: '57253',
+      active: true,
       code: 'Was a drone sighted in mid-flight?',
       label: 'Was a drone sighted in mid-flight?',
       multipleAnswers: false,
       answers: [
         {
           code: 'Yes',
+          active: true,
           label: 'Yes',
           commentRequired: false,
           dateRequired: false,
@@ -22,6 +24,7 @@ const OLD_DRONE_SIGHTING1: IncidentTypeConfiguration = {
         },
         {
           code: 'No',
+          active: true,
           label: 'No',
           commentRequired: false,
           dateRequired: false,
@@ -31,12 +34,14 @@ const OLD_DRONE_SIGHTING1: IncidentTypeConfiguration = {
     },
     '57254': {
       id: '57254',
+      active: true,
       code: 'What time was the drone(s) sighted?',
       label: 'What time was the drone(s) sighted?',
       multipleAnswers: false,
       answers: [
         {
           code: '12am to 6am',
+          active: true,
           label: '12am to 6am',
           commentRequired: false,
           dateRequired: false,
@@ -44,6 +49,7 @@ const OLD_DRONE_SIGHTING1: IncidentTypeConfiguration = {
         },
         {
           code: '6am to 12pm',
+          active: true,
           label: '6am to 12pm',
           commentRequired: false,
           dateRequired: false,
@@ -51,6 +57,7 @@ const OLD_DRONE_SIGHTING1: IncidentTypeConfiguration = {
         },
         {
           code: '12pm to 6pm',
+          active: true,
           label: '12pm to 6pm',
           commentRequired: false,
           dateRequired: false,
@@ -58,6 +65,7 @@ const OLD_DRONE_SIGHTING1: IncidentTypeConfiguration = {
         },
         {
           code: '6pm to 12am',
+          active: true,
           label: '6pm to 12am',
           commentRequired: false,
           dateRequired: false,
@@ -67,12 +75,14 @@ const OLD_DRONE_SIGHTING1: IncidentTypeConfiguration = {
     },
     '57255': {
       id: '57255',
+      active: true,
       code: 'Number of drones observed?',
       label: 'Number of drones observed?',
       multipleAnswers: false,
       answers: [
         {
           code: '1',
+          active: true,
           label: '1',
           commentRequired: false,
           dateRequired: false,
@@ -80,6 +90,7 @@ const OLD_DRONE_SIGHTING1: IncidentTypeConfiguration = {
         },
         {
           code: '2',
+          active: true,
           label: '2',
           commentRequired: false,
           dateRequired: false,
@@ -87,6 +98,7 @@ const OLD_DRONE_SIGHTING1: IncidentTypeConfiguration = {
         },
         {
           code: '3',
+          active: true,
           label: '3',
           commentRequired: false,
           dateRequired: false,
@@ -94,6 +106,7 @@ const OLD_DRONE_SIGHTING1: IncidentTypeConfiguration = {
         },
         {
           code: '4',
+          active: true,
           label: '4',
           commentRequired: false,
           dateRequired: false,
@@ -101,6 +114,7 @@ const OLD_DRONE_SIGHTING1: IncidentTypeConfiguration = {
         },
         {
           code: '5',
+          active: true,
           label: '5',
           commentRequired: false,
           dateRequired: false,
@@ -108,6 +122,7 @@ const OLD_DRONE_SIGHTING1: IncidentTypeConfiguration = {
         },
         {
           code: '6+',
+          active: true,
           label: '6+',
           commentRequired: false,
           dateRequired: false,
@@ -117,12 +132,14 @@ const OLD_DRONE_SIGHTING1: IncidentTypeConfiguration = {
     },
     '57256': {
       id: '57256',
+      active: true,
       code: 'Where was the drone(s) sighted?',
       label: 'Where was the drone(s) sighted?',
       multipleAnswers: true,
       answers: [
         {
           code: 'Beyond the external perimeter border',
+          active: true,
           label: 'Beyond the external perimeter border',
           commentRequired: false,
           dateRequired: false,
@@ -130,6 +147,7 @@ const OLD_DRONE_SIGHTING1: IncidentTypeConfiguration = {
         },
         {
           code: 'Exercise yard',
+          active: true,
           label: 'Exercise yard',
           commentRequired: false,
           dateRequired: false,
@@ -137,6 +155,7 @@ const OLD_DRONE_SIGHTING1: IncidentTypeConfiguration = {
         },
         {
           code: 'External Roof',
+          active: true,
           label: 'External Roof',
           commentRequired: false,
           dateRequired: false,
@@ -144,6 +163,7 @@ const OLD_DRONE_SIGHTING1: IncidentTypeConfiguration = {
         },
         {
           code: 'Gate',
+          active: true,
           label: 'Gate',
           commentRequired: false,
           dateRequired: false,
@@ -151,6 +171,7 @@ const OLD_DRONE_SIGHTING1: IncidentTypeConfiguration = {
         },
         {
           code: 'Near Cell window',
+          active: true,
           label: 'Near Cell window',
           commentRequired: false,
           dateRequired: false,
@@ -158,6 +179,7 @@ const OLD_DRONE_SIGHTING1: IncidentTypeConfiguration = {
         },
         {
           code: 'Sports Field',
+          active: true,
           label: 'Sports Field',
           commentRequired: false,
           dateRequired: false,
@@ -165,6 +187,7 @@ const OLD_DRONE_SIGHTING1: IncidentTypeConfiguration = {
         },
         {
           code: 'Within Perimeter',
+          active: true,
           label: 'Within Perimeter',
           commentRequired: false,
           dateRequired: false,
@@ -172,6 +195,7 @@ const OLD_DRONE_SIGHTING1: IncidentTypeConfiguration = {
         },
         {
           code: 'Other (Please Specify)',
+          active: true,
           label: 'Other (Please Specify)',
           commentRequired: true,
           dateRequired: false,
@@ -181,12 +205,14 @@ const OLD_DRONE_SIGHTING1: IncidentTypeConfiguration = {
     },
     '57257': {
       id: '57257',
+      active: true,
       code: 'For drone(s) sighted beyond perimeter border, how close did the nearest drone get to the wall?',
       label: 'For drone(s) sighted beyond perimeter border, how close did the nearest drone get to the wall?',
       multipleAnswers: false,
       answers: [
         {
           code: 'Not applicable',
+          active: true,
           label: 'Not applicable',
           commentRequired: false,
           dateRequired: false,
@@ -194,6 +220,7 @@ const OLD_DRONE_SIGHTING1: IncidentTypeConfiguration = {
         },
         {
           code: '0 to less than 10 metres',
+          active: true,
           label: '0 to less than 10 metres',
           commentRequired: false,
           dateRequired: false,
@@ -201,6 +228,7 @@ const OLD_DRONE_SIGHTING1: IncidentTypeConfiguration = {
         },
         {
           code: '10 to less than 100 metres',
+          active: true,
           label: '10 to less than 100 metres',
           commentRequired: false,
           dateRequired: false,
@@ -208,6 +236,7 @@ const OLD_DRONE_SIGHTING1: IncidentTypeConfiguration = {
         },
         {
           code: '100 to less than 200 metres',
+          active: true,
           label: '100 to less than 200 metres',
           commentRequired: false,
           dateRequired: false,
@@ -215,6 +244,7 @@ const OLD_DRONE_SIGHTING1: IncidentTypeConfiguration = {
         },
         {
           code: '200 metres or more',
+          active: true,
           label: '200 metres or more',
           commentRequired: false,
           dateRequired: false,
@@ -224,12 +254,14 @@ const OLD_DRONE_SIGHTING1: IncidentTypeConfiguration = {
     },
     '57258': {
       id: '57258',
+      active: true,
       code: 'What was the estimated speed of the drone(s)?',
       label: 'What was the estimated speed of the drone(s)?',
       multipleAnswers: false,
       answers: [
         {
           code: 'Static',
+          active: true,
           label: 'Static',
           commentRequired: false,
           dateRequired: false,
@@ -237,6 +269,7 @@ const OLD_DRONE_SIGHTING1: IncidentTypeConfiguration = {
         },
         {
           code: 'Walking pace',
+          active: true,
           label: 'Walking pace',
           commentRequired: false,
           dateRequired: false,
@@ -244,6 +277,7 @@ const OLD_DRONE_SIGHTING1: IncidentTypeConfiguration = {
         },
         {
           code: 'Running pace',
+          active: true,
           label: 'Running pace',
           commentRequired: false,
           dateRequired: false,
@@ -251,6 +285,7 @@ const OLD_DRONE_SIGHTING1: IncidentTypeConfiguration = {
         },
         {
           code: 'Faster than running',
+          active: true,
           label: 'Faster than running',
           commentRequired: false,
           dateRequired: false,
@@ -258,6 +293,7 @@ const OLD_DRONE_SIGHTING1: IncidentTypeConfiguration = {
         },
         {
           code: 'Unknown',
+          active: true,
           label: 'Unknown',
           commentRequired: false,
           dateRequired: false,
@@ -267,12 +303,14 @@ const OLD_DRONE_SIGHTING1: IncidentTypeConfiguration = {
     },
     '57259': {
       id: '57259',
+      active: true,
       code: 'What was the flying pattern of the drone(s)?',
       label: 'What was the flying pattern of the drone(s)?',
       multipleAnswers: true,
       answers: [
         {
           code: 'Hovering',
+          active: true,
           label: 'Hovering',
           commentRequired: false,
           dateRequired: false,
@@ -280,6 +318,7 @@ const OLD_DRONE_SIGHTING1: IncidentTypeConfiguration = {
         },
         {
           code: 'Circling a point',
+          active: true,
           label: 'Circling a point',
           commentRequired: false,
           dateRequired: false,
@@ -287,6 +326,7 @@ const OLD_DRONE_SIGHTING1: IncidentTypeConfiguration = {
         },
         {
           code: 'Straight flight',
+          active: true,
           label: 'Straight flight',
           commentRequired: false,
           dateRequired: false,
@@ -294,6 +334,7 @@ const OLD_DRONE_SIGHTING1: IncidentTypeConfiguration = {
         },
         {
           code: 'Direct attack',
+          active: true,
           label: 'Direct attack',
           commentRequired: false,
           dateRequired: false,
@@ -301,6 +342,7 @@ const OLD_DRONE_SIGHTING1: IncidentTypeConfiguration = {
         },
         {
           code: 'Other (Please Specify)',
+          active: true,
           label: 'Other (Please Specify)',
           commentRequired: true,
           dateRequired: false,
@@ -310,12 +352,14 @@ const OLD_DRONE_SIGHTING1: IncidentTypeConfiguration = {
     },
     '57260': {
       id: '57260',
+      active: true,
       code: 'How many times has the drone(s) been seen here before?',
       label: 'How many times has the drone(s) been seen here before?',
       multipleAnswers: false,
       answers: [
         {
           code: 'Not believed to have been seen before',
+          active: true,
           label: 'Not believed to have been seen before',
           commentRequired: false,
           dateRequired: false,
@@ -323,6 +367,7 @@ const OLD_DRONE_SIGHTING1: IncidentTypeConfiguration = {
         },
         {
           code: '1',
+          active: true,
           label: '1',
           commentRequired: false,
           dateRequired: false,
@@ -330,6 +375,7 @@ const OLD_DRONE_SIGHTING1: IncidentTypeConfiguration = {
         },
         {
           code: '2',
+          active: true,
           label: '2',
           commentRequired: false,
           dateRequired: false,
@@ -337,6 +383,7 @@ const OLD_DRONE_SIGHTING1: IncidentTypeConfiguration = {
         },
         {
           code: '3',
+          active: true,
           label: '3',
           commentRequired: false,
           dateRequired: false,
@@ -344,6 +391,7 @@ const OLD_DRONE_SIGHTING1: IncidentTypeConfiguration = {
         },
         {
           code: '5',
+          active: true,
           label: '5',
           commentRequired: false,
           dateRequired: false,
@@ -351,6 +399,7 @@ const OLD_DRONE_SIGHTING1: IncidentTypeConfiguration = {
         },
         {
           code: '6 or more (Please specify)',
+          active: true,
           label: '6 or more (Please specify)',
           commentRequired: true,
           dateRequired: false,
@@ -360,12 +409,14 @@ const OLD_DRONE_SIGHTING1: IncidentTypeConfiguration = {
     },
     '57261': {
       id: '57261',
+      active: true,
       code: 'What were the weather conditions at the time of the sighting?',
       label: 'What were the weather conditions at the time of the sighting?',
       multipleAnswers: true,
       answers: [
         {
           code: 'Clear visibility',
+          active: true,
           label: 'Clear visibility',
           commentRequired: false,
           dateRequired: false,
@@ -373,6 +424,7 @@ const OLD_DRONE_SIGHTING1: IncidentTypeConfiguration = {
         },
         {
           code: 'Poor visibility',
+          active: true,
           label: 'Poor visibility',
           commentRequired: false,
           dateRequired: false,
@@ -380,6 +432,7 @@ const OLD_DRONE_SIGHTING1: IncidentTypeConfiguration = {
         },
         {
           code: 'Light',
+          active: true,
           label: 'Light',
           commentRequired: false,
           dateRequired: false,
@@ -387,6 +440,7 @@ const OLD_DRONE_SIGHTING1: IncidentTypeConfiguration = {
         },
         {
           code: 'Dark',
+          active: true,
           label: 'Dark',
           commentRequired: false,
           dateRequired: false,
@@ -394,6 +448,7 @@ const OLD_DRONE_SIGHTING1: IncidentTypeConfiguration = {
         },
         {
           code: 'Rain',
+          active: true,
           label: 'Rain',
           commentRequired: false,
           dateRequired: false,
@@ -401,6 +456,7 @@ const OLD_DRONE_SIGHTING1: IncidentTypeConfiguration = {
         },
         {
           code: 'High wind',
+          active: true,
           label: 'High wind',
           commentRequired: false,
           dateRequired: false,
@@ -408,6 +464,7 @@ const OLD_DRONE_SIGHTING1: IncidentTypeConfiguration = {
         },
         {
           code: 'Low wind',
+          active: true,
           label: 'Low wind',
           commentRequired: false,
           dateRequired: false,
@@ -415,6 +472,7 @@ const OLD_DRONE_SIGHTING1: IncidentTypeConfiguration = {
         },
         {
           code: 'Calm',
+          active: true,
           label: 'Calm',
           commentRequired: false,
           dateRequired: false,
@@ -424,12 +482,14 @@ const OLD_DRONE_SIGHTING1: IncidentTypeConfiguration = {
     },
     '57262': {
       id: '57262',
+      active: true,
       code: 'Was the drone(s) recovered?',
       label: 'Was the drone(s) recovered?',
       multipleAnswers: false,
       answers: [
         {
           code: 'Yes',
+          active: true,
           label: 'Yes',
           commentRequired: false,
           dateRequired: false,
@@ -437,6 +497,7 @@ const OLD_DRONE_SIGHTING1: IncidentTypeConfiguration = {
         },
         {
           code: 'No',
+          active: true,
           label: 'No',
           commentRequired: false,
           dateRequired: false,
@@ -446,12 +507,14 @@ const OLD_DRONE_SIGHTING1: IncidentTypeConfiguration = {
     },
     '57263': {
       id: '57263',
+      active: true,
       code: 'Was a drone recovered?',
       label: 'Was a drone recovered?',
       multipleAnswers: false,
       answers: [
         {
           code: 'Yes',
+          active: true,
           label: 'Yes',
           commentRequired: false,
           dateRequired: false,
@@ -459,6 +522,7 @@ const OLD_DRONE_SIGHTING1: IncidentTypeConfiguration = {
         },
         {
           code: 'No',
+          active: true,
           label: 'No',
           commentRequired: false,
           dateRequired: false,
@@ -468,12 +532,14 @@ const OLD_DRONE_SIGHTING1: IncidentTypeConfiguration = {
     },
     '57264': {
       id: '57264',
+      active: true,
       code: 'How many drone(s) was recovered?',
       label: 'How many drone(s) was recovered?',
       multipleAnswers: false,
       answers: [
         {
           code: '1',
+          active: true,
           label: '1',
           commentRequired: false,
           dateRequired: false,
@@ -481,6 +547,7 @@ const OLD_DRONE_SIGHTING1: IncidentTypeConfiguration = {
         },
         {
           code: '2',
+          active: true,
           label: '2',
           commentRequired: false,
           dateRequired: false,
@@ -488,6 +555,7 @@ const OLD_DRONE_SIGHTING1: IncidentTypeConfiguration = {
         },
         {
           code: '3',
+          active: true,
           label: '3',
           commentRequired: false,
           dateRequired: false,
@@ -495,6 +563,7 @@ const OLD_DRONE_SIGHTING1: IncidentTypeConfiguration = {
         },
         {
           code: '4',
+          active: true,
           label: '4',
           commentRequired: false,
           dateRequired: false,
@@ -502,6 +571,7 @@ const OLD_DRONE_SIGHTING1: IncidentTypeConfiguration = {
         },
         {
           code: '5',
+          active: true,
           label: '5',
           commentRequired: false,
           dateRequired: false,
@@ -509,6 +579,7 @@ const OLD_DRONE_SIGHTING1: IncidentTypeConfiguration = {
         },
         {
           code: '6+',
+          active: true,
           label: '6+',
           commentRequired: false,
           dateRequired: false,
@@ -518,12 +589,14 @@ const OLD_DRONE_SIGHTING1: IncidentTypeConfiguration = {
     },
     '57265': {
       id: '57265',
+      active: true,
       code: 'Where was the drone(s) recovered?',
       label: 'Where was the drone(s) recovered?',
       multipleAnswers: true,
       answers: [
         {
           code: 'Exercise yard',
+          active: true,
           label: 'Exercise yard',
           commentRequired: false,
           dateRequired: false,
@@ -531,6 +604,7 @@ const OLD_DRONE_SIGHTING1: IncidentTypeConfiguration = {
         },
         {
           code: 'External Roof',
+          active: true,
           label: 'External Roof',
           commentRequired: false,
           dateRequired: false,
@@ -538,6 +612,7 @@ const OLD_DRONE_SIGHTING1: IncidentTypeConfiguration = {
         },
         {
           code: 'Gate',
+          active: true,
           label: 'Gate',
           commentRequired: false,
           dateRequired: false,
@@ -545,6 +620,7 @@ const OLD_DRONE_SIGHTING1: IncidentTypeConfiguration = {
         },
         {
           code: 'Near Cell window',
+          active: true,
           label: 'Near Cell window',
           commentRequired: false,
           dateRequired: false,
@@ -552,6 +628,7 @@ const OLD_DRONE_SIGHTING1: IncidentTypeConfiguration = {
         },
         {
           code: 'External perimeter border',
+          active: true,
           label: 'External perimeter border',
           commentRequired: false,
           dateRequired: false,
@@ -559,6 +636,7 @@ const OLD_DRONE_SIGHTING1: IncidentTypeConfiguration = {
         },
         {
           code: 'Sports Field',
+          active: true,
           label: 'Sports Field',
           commentRequired: false,
           dateRequired: false,
@@ -566,6 +644,7 @@ const OLD_DRONE_SIGHTING1: IncidentTypeConfiguration = {
         },
         {
           code: 'Within Perimeter',
+          active: true,
           label: 'Within Perimeter',
           commentRequired: false,
           dateRequired: false,
@@ -573,6 +652,7 @@ const OLD_DRONE_SIGHTING1: IncidentTypeConfiguration = {
         },
         {
           code: 'Other (Please Specify)',
+          active: true,
           label: 'Other (Please Specify)',
           commentRequired: true,
           dateRequired: false,
@@ -582,12 +662,14 @@ const OLD_DRONE_SIGHTING1: IncidentTypeConfiguration = {
     },
     '57266': {
       id: '57266',
+      active: true,
       code: 'What was the drone(s) type/airframe shape?',
       label: 'What was the drone(s) type/airframe shape?',
       multipleAnswers: true,
       answers: [
         {
           code: 'Multicopter: Square',
+          active: true,
           label: 'Multicopter: Square',
           commentRequired: false,
           dateRequired: false,
@@ -595,6 +677,7 @@ const OLD_DRONE_SIGHTING1: IncidentTypeConfiguration = {
         },
         {
           code: 'Multicopter: Circular',
+          active: true,
           label: 'Multicopter: Circular',
           commentRequired: false,
           dateRequired: false,
@@ -602,6 +685,7 @@ const OLD_DRONE_SIGHTING1: IncidentTypeConfiguration = {
         },
         {
           code: 'Multicopter: X-Shape',
+          active: true,
           label: 'Multicopter: X-Shape',
           commentRequired: false,
           dateRequired: false,
@@ -609,6 +693,7 @@ const OLD_DRONE_SIGHTING1: IncidentTypeConfiguration = {
         },
         {
           code: 'Multicopter: Hourglass',
+          active: true,
           label: 'Multicopter: Hourglass',
           commentRequired: false,
           dateRequired: false,
@@ -616,6 +701,7 @@ const OLD_DRONE_SIGHTING1: IncidentTypeConfiguration = {
         },
         {
           code: 'Multicopter: Other',
+          active: true,
           label: 'Multicopter: Other',
           commentRequired: false,
           dateRequired: false,
@@ -623,6 +709,7 @@ const OLD_DRONE_SIGHTING1: IncidentTypeConfiguration = {
         },
         {
           code: 'Fixed wing: Standard aircraft',
+          active: true,
           label: 'Fixed wing: Standard aircraft',
           commentRequired: false,
           dateRequired: false,
@@ -630,6 +717,7 @@ const OLD_DRONE_SIGHTING1: IncidentTypeConfiguration = {
         },
         {
           code: 'Fixed wing: Delta-wing',
+          active: true,
           label: 'Fixed wing: Delta-wing',
           commentRequired: false,
           dateRequired: false,
@@ -637,6 +725,7 @@ const OLD_DRONE_SIGHTING1: IncidentTypeConfiguration = {
         },
         {
           code: 'Fixed wing: Other',
+          active: true,
           label: 'Fixed wing: Other',
           commentRequired: false,
           dateRequired: false,
@@ -644,6 +733,7 @@ const OLD_DRONE_SIGHTING1: IncidentTypeConfiguration = {
         },
         {
           code: 'Other (Please Specify)',
+          active: true,
           label: 'Other (Please Specify)',
           commentRequired: true,
           dateRequired: false,
@@ -651,6 +741,7 @@ const OLD_DRONE_SIGHTING1: IncidentTypeConfiguration = {
         },
         {
           code: 'Unknown',
+          active: true,
           label: 'Unknown',
           commentRequired: false,
           dateRequired: false,
@@ -660,12 +751,14 @@ const OLD_DRONE_SIGHTING1: IncidentTypeConfiguration = {
     },
     '57267': {
       id: '57267',
+      active: true,
       code: 'What is the drone model?',
       label: 'What is the drone model?',
       multipleAnswers: true,
       answers: [
         {
           code: 'DJI Phantom',
+          active: true,
           label: 'DJI Phantom',
           commentRequired: false,
           dateRequired: false,
@@ -673,6 +766,7 @@ const OLD_DRONE_SIGHTING1: IncidentTypeConfiguration = {
         },
         {
           code: 'Syma X8C Venture',
+          active: true,
           label: 'Syma X8C Venture',
           commentRequired: false,
           dateRequired: false,
@@ -680,6 +774,7 @@ const OLD_DRONE_SIGHTING1: IncidentTypeConfiguration = {
         },
         {
           code: 'DIY Racing UAV',
+          active: true,
           label: 'DIY Racing UAV',
           commentRequired: false,
           dateRequired: false,
@@ -687,6 +782,7 @@ const OLD_DRONE_SIGHTING1: IncidentTypeConfiguration = {
         },
         {
           code: 'T600 Inspire 1',
+          active: true,
           label: 'T600 Inspire 1',
           commentRequired: false,
           dateRequired: false,
@@ -694,6 +790,7 @@ const OLD_DRONE_SIGHTING1: IncidentTypeConfiguration = {
         },
         {
           code: 'Century NEO660',
+          active: true,
           label: 'Century NEO660',
           commentRequired: false,
           dateRequired: false,
@@ -701,6 +798,7 @@ const OLD_DRONE_SIGHTING1: IncidentTypeConfiguration = {
         },
         {
           code: 'X-8 Flyingwing',
+          active: true,
           label: 'X-8 Flyingwing',
           commentRequired: false,
           dateRequired: false,
@@ -708,6 +806,7 @@ const OLD_DRONE_SIGHTING1: IncidentTypeConfiguration = {
         },
         {
           code: 'TALON X-UAV',
+          active: true,
           label: 'TALON X-UAV',
           commentRequired: false,
           dateRequired: false,
@@ -715,6 +814,7 @@ const OLD_DRONE_SIGHTING1: IncidentTypeConfiguration = {
         },
         {
           code: 'Sky Hunter',
+          active: true,
           label: 'Sky Hunter',
           commentRequired: false,
           dateRequired: false,
@@ -722,6 +822,7 @@ const OLD_DRONE_SIGHTING1: IncidentTypeConfiguration = {
         },
         {
           code: 'Piper model aircraft',
+          active: true,
           label: 'Piper model aircraft',
           commentRequired: false,
           dateRequired: false,
@@ -729,6 +830,7 @@ const OLD_DRONE_SIGHTING1: IncidentTypeConfiguration = {
         },
         {
           code: 'Other (Please Specify)',
+          active: true,
           label: 'Other (Please Specify)',
           commentRequired: true,
           dateRequired: false,
@@ -736,6 +838,7 @@ const OLD_DRONE_SIGHTING1: IncidentTypeConfiguration = {
         },
         {
           code: 'Unknown',
+          active: true,
           label: 'Unknown',
           commentRequired: false,
           dateRequired: false,
@@ -745,12 +848,14 @@ const OLD_DRONE_SIGHTING1: IncidentTypeConfiguration = {
     },
     '57268': {
       id: '57268',
+      active: true,
       code: 'How many motors does the drone(s) have?',
       label: 'How many motors does the drone(s) have?',
       multipleAnswers: true,
       answers: [
         {
           code: '1',
+          active: true,
           label: '1',
           commentRequired: false,
           dateRequired: false,
@@ -758,6 +863,7 @@ const OLD_DRONE_SIGHTING1: IncidentTypeConfiguration = {
         },
         {
           code: '2',
+          active: true,
           label: '2',
           commentRequired: false,
           dateRequired: false,
@@ -765,6 +871,7 @@ const OLD_DRONE_SIGHTING1: IncidentTypeConfiguration = {
         },
         {
           code: '3',
+          active: true,
           label: '3',
           commentRequired: false,
           dateRequired: false,
@@ -772,6 +879,7 @@ const OLD_DRONE_SIGHTING1: IncidentTypeConfiguration = {
         },
         {
           code: '4',
+          active: true,
           label: '4',
           commentRequired: false,
           dateRequired: false,
@@ -779,6 +887,7 @@ const OLD_DRONE_SIGHTING1: IncidentTypeConfiguration = {
         },
         {
           code: '5',
+          active: true,
           label: '5',
           commentRequired: false,
           dateRequired: false,
@@ -786,6 +895,7 @@ const OLD_DRONE_SIGHTING1: IncidentTypeConfiguration = {
         },
         {
           code: '6',
+          active: true,
           label: '6',
           commentRequired: false,
           dateRequired: false,
@@ -793,6 +903,7 @@ const OLD_DRONE_SIGHTING1: IncidentTypeConfiguration = {
         },
         {
           code: '7',
+          active: true,
           label: '7',
           commentRequired: false,
           dateRequired: false,
@@ -800,6 +911,7 @@ const OLD_DRONE_SIGHTING1: IncidentTypeConfiguration = {
         },
         {
           code: '8+',
+          active: true,
           label: '8+',
           commentRequired: false,
           dateRequired: false,
@@ -807,6 +919,7 @@ const OLD_DRONE_SIGHTING1: IncidentTypeConfiguration = {
         },
         {
           code: 'Unknown',
+          active: true,
           label: 'Unknown',
           commentRequired: false,
           dateRequired: false,
@@ -816,12 +929,14 @@ const OLD_DRONE_SIGHTING1: IncidentTypeConfiguration = {
     },
     '57269': {
       id: '57269',
+      active: true,
       code: 'What was the approximate length of the drone(s)?',
       label: 'What was the approximate length of the drone(s)?',
       multipleAnswers: true,
       answers: [
         {
           code: '0 to less than 1m',
+          active: true,
           label: '0 to less than 1m',
           commentRequired: false,
           dateRequired: false,
@@ -829,6 +944,7 @@ const OLD_DRONE_SIGHTING1: IncidentTypeConfiguration = {
         },
         {
           code: '1m to less than 2m',
+          active: true,
           label: '1m to less than 2m',
           commentRequired: false,
           dateRequired: false,
@@ -836,6 +952,7 @@ const OLD_DRONE_SIGHTING1: IncidentTypeConfiguration = {
         },
         {
           code: '2m to less than 3m',
+          active: true,
           label: '2m to less than 3m',
           commentRequired: false,
           dateRequired: false,
@@ -843,6 +960,7 @@ const OLD_DRONE_SIGHTING1: IncidentTypeConfiguration = {
         },
         {
           code: '3m or longer',
+          active: true,
           label: '3m or longer',
           commentRequired: false,
           dateRequired: false,
@@ -850,6 +968,7 @@ const OLD_DRONE_SIGHTING1: IncidentTypeConfiguration = {
         },
         {
           code: 'Unknown',
+          active: true,
           label: 'Unknown',
           commentRequired: false,
           dateRequired: false,
@@ -859,12 +978,14 @@ const OLD_DRONE_SIGHTING1: IncidentTypeConfiguration = {
     },
     '57270': {
       id: '57270',
+      active: true,
       code: 'What was the approximate width of the drone(s)?',
       label: 'What was the approximate width of the drone(s)?',
       multipleAnswers: true,
       answers: [
         {
           code: '0 to less than 1m',
+          active: true,
           label: '0 to less than 1m',
           commentRequired: false,
           dateRequired: false,
@@ -872,6 +993,7 @@ const OLD_DRONE_SIGHTING1: IncidentTypeConfiguration = {
         },
         {
           code: '1m to less than 2m',
+          active: true,
           label: '1m to less than 2m',
           commentRequired: false,
           dateRequired: false,
@@ -879,6 +1001,7 @@ const OLD_DRONE_SIGHTING1: IncidentTypeConfiguration = {
         },
         {
           code: '2m to less than 3m',
+          active: true,
           label: '2m to less than 3m',
           commentRequired: false,
           dateRequired: false,
@@ -886,6 +1009,7 @@ const OLD_DRONE_SIGHTING1: IncidentTypeConfiguration = {
         },
         {
           code: '3m or longer',
+          active: true,
           label: '3m or longer',
           commentRequired: false,
           dateRequired: false,
@@ -893,6 +1017,7 @@ const OLD_DRONE_SIGHTING1: IncidentTypeConfiguration = {
         },
         {
           code: 'Unknown',
+          active: true,
           label: 'Unknown',
           commentRequired: false,
           dateRequired: false,
@@ -902,12 +1027,14 @@ const OLD_DRONE_SIGHTING1: IncidentTypeConfiguration = {
     },
     '57271': {
       id: '57271',
+      active: true,
       code: 'What modifications were made to the drone(s)?',
       label: 'What modifications were made to the drone(s)?',
       multipleAnswers: true,
       answers: [
         {
           code: 'Painted black',
+          active: true,
           label: 'Painted black',
           commentRequired: false,
           dateRequired: false,
@@ -915,6 +1042,7 @@ const OLD_DRONE_SIGHTING1: IncidentTypeConfiguration = {
         },
         {
           code: 'Removed camera',
+          active: true,
           label: 'Removed camera',
           commentRequired: false,
           dateRequired: false,
@@ -922,6 +1050,7 @@ const OLD_DRONE_SIGHTING1: IncidentTypeConfiguration = {
         },
         {
           code: 'Added hook',
+          active: true,
           label: 'Added hook',
           commentRequired: false,
           dateRequired: false,
@@ -929,6 +1058,7 @@ const OLD_DRONE_SIGHTING1: IncidentTypeConfiguration = {
         },
         {
           code: 'Covered lights',
+          active: true,
           label: 'Covered lights',
           commentRequired: false,
           dateRequired: false,
@@ -936,6 +1066,7 @@ const OLD_DRONE_SIGHTING1: IncidentTypeConfiguration = {
         },
         {
           code: 'Other (Please specify)',
+          active: true,
           label: 'Other (Please specify)',
           commentRequired: true,
           dateRequired: false,
@@ -943,6 +1074,7 @@ const OLD_DRONE_SIGHTING1: IncidentTypeConfiguration = {
         },
         {
           code: 'None',
+          active: true,
           label: 'None',
           commentRequired: false,
           dateRequired: false,
@@ -952,12 +1084,14 @@ const OLD_DRONE_SIGHTING1: IncidentTypeConfiguration = {
     },
     '57272': {
       id: '57272',
+      active: true,
       code: 'How was the drone(s) recovered?',
       label: 'How was the drone(s) recovered?',
       multipleAnswers: true,
       answers: [
         {
           code: 'Intercepted',
+          active: true,
           label: 'Intercepted',
           commentRequired: false,
           dateRequired: false,
@@ -965,6 +1099,7 @@ const OLD_DRONE_SIGHTING1: IncidentTypeConfiguration = {
         },
         {
           code: 'Crashed',
+          active: true,
           label: 'Crashed',
           commentRequired: false,
           dateRequired: false,
@@ -974,12 +1109,14 @@ const OLD_DRONE_SIGHTING1: IncidentTypeConfiguration = {
     },
     '57273': {
       id: '57273',
+      active: true,
       code: 'Did the drone(s) carry any package(s)?',
       label: 'Did the drone(s) carry any package(s)?',
       multipleAnswers: false,
       answers: [
         {
           code: 'Yes',
+          active: true,
           label: 'Yes',
           commentRequired: false,
           dateRequired: false,
@@ -987,6 +1124,7 @@ const OLD_DRONE_SIGHTING1: IncidentTypeConfiguration = {
         },
         {
           code: 'No',
+          active: true,
           label: 'No',
           commentRequired: false,
           dateRequired: false,
@@ -996,12 +1134,14 @@ const OLD_DRONE_SIGHTING1: IncidentTypeConfiguration = {
     },
     '57274': {
       id: '57274',
+      active: true,
       code: 'Was the package(s) recovered?',
       label: 'Was the package(s) recovered?',
       multipleAnswers: false,
       answers: [
         {
           code: 'Yes (please enter the Finds report incident number)',
+          active: true,
           label: 'Yes (please enter the Finds report incident number)',
           commentRequired: true,
           dateRequired: false,
@@ -1009,6 +1149,7 @@ const OLD_DRONE_SIGHTING1: IncidentTypeConfiguration = {
         },
         {
           code: 'No',
+          active: true,
           label: 'No',
           commentRequired: false,
           dateRequired: false,
@@ -1018,12 +1159,14 @@ const OLD_DRONE_SIGHTING1: IncidentTypeConfiguration = {
     },
     '57275': {
       id: '57275',
+      active: true,
       code: 'Total weight of the package(s)?',
       label: 'Total weight of the package(s)?',
       multipleAnswers: false,
       answers: [
         {
           code: '0 to less than 100g',
+          active: true,
           label: '0 to less than 100g',
           commentRequired: false,
           dateRequired: false,
@@ -1031,6 +1174,7 @@ const OLD_DRONE_SIGHTING1: IncidentTypeConfiguration = {
         },
         {
           code: '100g to less than 200g',
+          active: true,
           label: '100g to less than 200g',
           commentRequired: false,
           dateRequired: false,
@@ -1038,6 +1182,7 @@ const OLD_DRONE_SIGHTING1: IncidentTypeConfiguration = {
         },
         {
           code: '200g to less than 300g',
+          active: true,
           label: '200g to less than 300g',
           commentRequired: false,
           dateRequired: false,
@@ -1045,6 +1190,7 @@ const OLD_DRONE_SIGHTING1: IncidentTypeConfiguration = {
         },
         {
           code: '300g to less than 400g',
+          active: true,
           label: '300g to less than 400g',
           commentRequired: false,
           dateRequired: false,
@@ -1052,6 +1198,7 @@ const OLD_DRONE_SIGHTING1: IncidentTypeConfiguration = {
         },
         {
           code: '400g to less than 500g',
+          active: true,
           label: '400g to less than 500g',
           commentRequired: false,
           dateRequired: false,
@@ -1059,6 +1206,7 @@ const OLD_DRONE_SIGHTING1: IncidentTypeConfiguration = {
         },
         {
           code: '500g to less than 1kg',
+          active: true,
           label: '500g to less than 1kg',
           commentRequired: false,
           dateRequired: false,
@@ -1066,6 +1214,7 @@ const OLD_DRONE_SIGHTING1: IncidentTypeConfiguration = {
         },
         {
           code: '1kg to less than 2kg',
+          active: true,
           label: '1kg to less than 2kg',
           commentRequired: false,
           dateRequired: false,
@@ -1073,6 +1222,7 @@ const OLD_DRONE_SIGHTING1: IncidentTypeConfiguration = {
         },
         {
           code: '2kg to less than 3kg',
+          active: true,
           label: '2kg to less than 3kg',
           commentRequired: false,
           dateRequired: false,
@@ -1080,6 +1230,7 @@ const OLD_DRONE_SIGHTING1: IncidentTypeConfiguration = {
         },
         {
           code: '3kg to less than 4kg',
+          active: true,
           label: '3kg to less than 4kg',
           commentRequired: false,
           dateRequired: false,
@@ -1087,6 +1238,7 @@ const OLD_DRONE_SIGHTING1: IncidentTypeConfiguration = {
         },
         {
           code: '4kg to less than 5kg',
+          active: true,
           label: '4kg to less than 5kg',
           commentRequired: false,
           dateRequired: false,
@@ -1094,6 +1246,7 @@ const OLD_DRONE_SIGHTING1: IncidentTypeConfiguration = {
         },
         {
           code: '5kg to less than 6kg',
+          active: true,
           label: '5kg to less than 6kg',
           commentRequired: false,
           dateRequired: false,
@@ -1101,6 +1254,7 @@ const OLD_DRONE_SIGHTING1: IncidentTypeConfiguration = {
         },
         {
           code: '6kg to less than 7kg',
+          active: true,
           label: '6kg to less than 7kg',
           commentRequired: false,
           dateRequired: false,
@@ -1108,6 +1262,7 @@ const OLD_DRONE_SIGHTING1: IncidentTypeConfiguration = {
         },
         {
           code: '7kg to less than 8kg',
+          active: true,
           label: '7kg to less than 8kg',
           commentRequired: false,
           dateRequired: false,
@@ -1115,6 +1270,7 @@ const OLD_DRONE_SIGHTING1: IncidentTypeConfiguration = {
         },
         {
           code: '8kg to less than 9kg',
+          active: true,
           label: '8kg to less than 9kg',
           commentRequired: false,
           dateRequired: false,
@@ -1122,6 +1278,7 @@ const OLD_DRONE_SIGHTING1: IncidentTypeConfiguration = {
         },
         {
           code: '9kg to less than 10kg',
+          active: true,
           label: '9kg to less than 10kg',
           commentRequired: false,
           dateRequired: false,
@@ -1129,6 +1286,7 @@ const OLD_DRONE_SIGHTING1: IncidentTypeConfiguration = {
         },
         {
           code: 'More than 10kg',
+          active: true,
           label: 'More than 10kg',
           commentRequired: false,
           dateRequired: false,
@@ -1136,6 +1294,7 @@ const OLD_DRONE_SIGHTING1: IncidentTypeConfiguration = {
         },
         {
           code: 'Unknown',
+          active: true,
           label: 'Unknown',
           commentRequired: false,
           dateRequired: false,
@@ -1145,12 +1304,14 @@ const OLD_DRONE_SIGHTING1: IncidentTypeConfiguration = {
     },
     '57276': {
       id: '57276',
+      active: true,
       code: 'What items were in the package(s)?',
       label: 'What items were in the package(s)?',
       multipleAnswers: true,
       answers: [
         {
           code: 'Cameras',
+          active: true,
           label: 'Cameras',
           commentRequired: false,
           dateRequired: false,
@@ -1158,6 +1319,7 @@ const OLD_DRONE_SIGHTING1: IncidentTypeConfiguration = {
         },
         {
           code: 'Mobile phone devices',
+          active: true,
           label: 'Mobile phone devices',
           commentRequired: false,
           dateRequired: false,
@@ -1165,6 +1327,7 @@ const OLD_DRONE_SIGHTING1: IncidentTypeConfiguration = {
         },
         {
           code: 'Drugs',
+          active: true,
           label: 'Drugs',
           commentRequired: false,
           dateRequired: false,
@@ -1172,6 +1335,7 @@ const OLD_DRONE_SIGHTING1: IncidentTypeConfiguration = {
         },
         {
           code: 'Weapons',
+          active: true,
           label: 'Weapons',
           commentRequired: false,
           dateRequired: false,
@@ -1179,6 +1343,7 @@ const OLD_DRONE_SIGHTING1: IncidentTypeConfiguration = {
         },
         {
           code: 'Alcohol/hooch',
+          active: true,
           label: 'Alcohol/hooch',
           commentRequired: false,
           dateRequired: false,
@@ -1186,6 +1351,7 @@ const OLD_DRONE_SIGHTING1: IncidentTypeConfiguration = {
         },
         {
           code: 'Tobacco',
+          active: true,
           label: 'Tobacco',
           commentRequired: false,
           dateRequired: false,
@@ -1193,6 +1359,7 @@ const OLD_DRONE_SIGHTING1: IncidentTypeConfiguration = {
         },
         {
           code: 'Other (please specify)',
+          active: true,
           label: 'Other (please specify)',
           commentRequired: true,
           dateRequired: false,
@@ -1202,12 +1369,14 @@ const OLD_DRONE_SIGHTING1: IncidentTypeConfiguration = {
     },
     '57277': {
       id: '57277',
+      active: true,
       code: 'Were any photos taken of the drone and/or payload?',
       label: 'Were any photos taken of the drone and/or payload?',
       multipleAnswers: false,
       answers: [
         {
           code: 'Yes (specify where sent)',
+          active: true,
           label: 'Yes (specify where sent)',
           commentRequired: true,
           dateRequired: false,
@@ -1215,6 +1384,7 @@ const OLD_DRONE_SIGHTING1: IncidentTypeConfiguration = {
         },
         {
           code: 'No',
+          active: true,
           label: 'No',
           commentRequired: false,
           dateRequired: false,
@@ -1224,12 +1394,14 @@ const OLD_DRONE_SIGHTING1: IncidentTypeConfiguration = {
     },
     '57278': {
       id: '57278',
+      active: true,
       code: 'Was the pilot identified?',
       label: 'Was the pilot identified?',
       multipleAnswers: false,
       answers: [
         {
           code: 'Yes',
+          active: true,
           label: 'Yes',
           commentRequired: false,
           dateRequired: false,
@@ -1237,6 +1409,7 @@ const OLD_DRONE_SIGHTING1: IncidentTypeConfiguration = {
         },
         {
           code: 'No',
+          active: true,
           label: 'No',
           commentRequired: false,
           dateRequired: false,
@@ -1246,12 +1419,14 @@ const OLD_DRONE_SIGHTING1: IncidentTypeConfiguration = {
     },
     '57279': {
       id: '57279',
+      active: true,
       code: 'Do you know if the pilot was using line of sight?',
       label: 'Do you know if the pilot was using line of sight?',
       multipleAnswers: false,
       answers: [
         {
           code: 'Yes',
+          active: true,
           label: 'Yes',
           commentRequired: false,
           dateRequired: false,
@@ -1259,6 +1434,7 @@ const OLD_DRONE_SIGHTING1: IncidentTypeConfiguration = {
         },
         {
           code: 'No',
+          active: true,
           label: 'No',
           commentRequired: false,
           dateRequired: false,
@@ -1268,12 +1444,14 @@ const OLD_DRONE_SIGHTING1: IncidentTypeConfiguration = {
     },
     '57280': {
       id: '57280',
+      active: true,
       code: 'Do you know the distance of the pilot from the prison?',
       label: 'Do you know the distance of the pilot from the prison?',
       multipleAnswers: false,
       answers: [
         {
           code: 'Yes',
+          active: true,
           label: 'Yes',
           commentRequired: false,
           dateRequired: false,
@@ -1281,6 +1459,7 @@ const OLD_DRONE_SIGHTING1: IncidentTypeConfiguration = {
         },
         {
           code: 'No',
+          active: true,
           label: 'No',
           commentRequired: false,
           dateRequired: false,
@@ -1290,12 +1469,14 @@ const OLD_DRONE_SIGHTING1: IncidentTypeConfiguration = {
     },
     '57281': {
       id: '57281',
+      active: true,
       code: 'What was the distance?',
       label: 'What was the distance?',
       multipleAnswers: false,
       answers: [
         {
           code: '0 to less than 10 metres',
+          active: true,
           label: '0 to less than 10 metres',
           commentRequired: false,
           dateRequired: false,
@@ -1303,6 +1484,7 @@ const OLD_DRONE_SIGHTING1: IncidentTypeConfiguration = {
         },
         {
           code: '10 to less than 100 metres',
+          active: true,
           label: '10 to less than 100 metres',
           commentRequired: false,
           dateRequired: false,
@@ -1310,6 +1492,7 @@ const OLD_DRONE_SIGHTING1: IncidentTypeConfiguration = {
         },
         {
           code: '100 to less than 200 metres',
+          active: true,
           label: '100 to less than 200 metres',
           commentRequired: false,
           dateRequired: false,
@@ -1317,6 +1500,7 @@ const OLD_DRONE_SIGHTING1: IncidentTypeConfiguration = {
         },
         {
           code: '200 metres or more',
+          active: true,
           label: '200 metres or more',
           commentRequired: false,
           dateRequired: false,
@@ -1326,12 +1510,14 @@ const OLD_DRONE_SIGHTING1: IncidentTypeConfiguration = {
     },
     '57282': {
       id: '57282',
+      active: true,
       code: 'Were the police contacted?',
       label: 'Were the police contacted?',
       multipleAnswers: false,
       answers: [
         {
           code: 'Yes',
+          active: true,
           label: 'Yes',
           commentRequired: false,
           dateRequired: false,
@@ -1339,6 +1525,7 @@ const OLD_DRONE_SIGHTING1: IncidentTypeConfiguration = {
         },
         {
           code: 'No',
+          active: true,
           label: 'No',
           commentRequired: false,
           dateRequired: false,
@@ -1348,12 +1535,14 @@ const OLD_DRONE_SIGHTING1: IncidentTypeConfiguration = {
     },
     '57283': {
       id: '57283',
+      active: true,
       code: 'To the extent of your knowledge, was the pilot apprehended?',
       label: 'To the extent of your knowledge, was the pilot apprehended?',
       multipleAnswers: false,
       answers: [
         {
           code: 'Yes',
+          active: true,
           label: 'Yes',
           commentRequired: false,
           dateRequired: false,
@@ -1361,6 +1550,7 @@ const OLD_DRONE_SIGHTING1: IncidentTypeConfiguration = {
         },
         {
           code: 'No',
+          active: true,
           label: 'No',
           commentRequired: false,
           dateRequired: false,

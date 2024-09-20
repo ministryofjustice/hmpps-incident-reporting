@@ -1,4 +1,4 @@
-// Generated with ./scripts/updateNomisIncidentTypeConfigurations.ts at 2024-09-16T15:42:16.854Z
+// Generated with ./scripts/updateNomisIncidentTypeConfigurations.ts at 2024-09-20T16:52:39.534Z
 
 import { type IncidentTypeConfiguration } from '../../data/incidentTypeConfiguration/types'
 
@@ -9,12 +9,14 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
   questions: {
     '44145': {
       id: '44145',
+      active: false,
       code: 'WAS THIS A FULL OR PARTIAL SHUT DOWN?',
       label: 'WAS THIS A FULL OR PARTIAL SHUT DOWN?',
       multipleAnswers: false,
       answers: [
         {
           code: 'FULL',
+          active: false,
           label: 'FULL',
           commentRequired: false,
           dateRequired: false,
@@ -22,6 +24,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
         },
         {
           code: 'PARTIAL',
+          active: false,
           label: 'PARTIAL',
           commentRequired: true,
           dateRequired: false,
@@ -31,12 +34,14 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
     },
     '44150': {
       id: '44150',
+      active: false,
       code: 'ESTIMATED COST OF DAMAGE',
       label: 'ESTIMATED COST OF DAMAGE',
       multipleAnswers: false,
       answers: [
         {
           code: 'ENTER AMOUNT IN POUND STERLING',
+          active: false,
           label: 'ENTER AMOUNT IN POUND STERLING',
           commentRequired: true,
           dateRequired: false,
@@ -46,12 +51,14 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
     },
     '44151': {
       id: '44151',
+      active: false,
       code: 'WERE ANY INJURIES RECEIVED DURING THIS INCIDENT',
       label: 'WERE ANY INJURIES RECEIVED DURING THIS INCIDENT',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: false,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -59,6 +66,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: false,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -68,12 +76,14 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
     },
     '44175': {
       id: '44175',
+      active: false,
       code: 'WHO WAS DETAINED IN OUTSIDE HOSPITAL',
       label: 'WHO WAS DETAINED IN OUTSIDE HOSPITAL',
       multipleAnswers: true,
       answers: [
         {
           code: 'STAFF',
+          active: false,
           label: 'STAFF',
           commentRequired: true,
           dateRequired: false,
@@ -81,6 +91,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
         },
         {
           code: 'PRISONERS',
+          active: false,
           label: 'PRISONERS',
           commentRequired: true,
           dateRequired: false,
@@ -88,6 +99,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
         },
         {
           code: 'CIVILIAN GRADES',
+          active: false,
           label: 'CIVILIAN GRADES',
           commentRequired: true,
           dateRequired: false,
@@ -95,6 +107,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
         },
         {
           code: 'POLICE',
+          active: false,
           label: 'POLICE',
           commentRequired: true,
           dateRequired: false,
@@ -102,6 +115,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
         },
         {
           code: 'EXTERNAL CIVILIANS',
+          active: false,
           label: 'EXTERNAL CIVILIANS',
           commentRequired: true,
           dateRequired: false,
@@ -111,12 +125,14 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
     },
     '44177': {
       id: '44177',
+      active: false,
       code: 'WHEN WAS THE SYSTEM RE-ACTIVATED?',
       label: 'WHEN WAS THE SYSTEM RE-ACTIVATED?',
       multipleAnswers: false,
       answers: [
         {
           code: 'ENTER COMMENT AND DATE',
+          active: false,
           label: 'ENTER COMMENT AND DATE',
           commentRequired: true,
           dateRequired: true,
@@ -126,12 +142,14 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
     },
     '44183': {
       id: '44183',
+      active: false,
       code: 'DURATION OF INCIDENT IN HOURS',
       label: 'DURATION OF INCIDENT IN HOURS',
       multipleAnswers: false,
       answers: [
         {
           code: 'NUMBER OF HOURS',
+          active: false,
           label: 'NUMBER OF HOURS',
           commentRequired: true,
           dateRequired: false,
@@ -141,12 +159,14 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
     },
     '44196': {
       id: '44196',
+      active: false,
       code: 'WAS THERE AN APPARENT REASON FOR THE INCIDENT',
       label: 'WAS THERE AN APPARENT REASON FOR THE INCIDENT',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: false,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -154,6 +174,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: false,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -163,12 +184,14 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
     },
     '44273': {
       id: '44273',
+      active: false,
       code: 'ARE ANY STAFF ON SICK LEAVE AS A RESULT OF THIS INCIDENT',
       label: 'ARE ANY STAFF ON SICK LEAVE AS A RESULT OF THIS INCIDENT',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: false,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -176,6 +199,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: false,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -185,12 +209,14 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
     },
     '44289': {
       id: '44289',
+      active: false,
       code: 'WAS THE KEYWORD REQUESTED?',
       label: 'WAS THE KEYWORD REQUESTED?',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: false,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -198,6 +224,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: false,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -207,12 +234,14 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
     },
     '44328': {
       id: '44328',
+      active: false,
       code: 'WAS THE SYSTEM RE-ACTIVATED LOCALLY OR BY THE SERVICE SUPPLIER',
       label: 'WAS THE SYSTEM RE-ACTIVATED LOCALLY OR BY THE SERVICE SUPPLIER',
       multipleAnswers: false,
       answers: [
         {
           code: 'LOCAL',
+          active: false,
           label: 'LOCAL',
           commentRequired: false,
           dateRequired: false,
@@ -220,6 +249,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
         },
         {
           code: 'SERVICE SUPPLIER',
+          active: false,
           label: 'SERVICE SUPPLIER',
           commentRequired: false,
           dateRequired: false,
@@ -229,12 +259,14 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
     },
     '44334': {
       id: '44334',
+      active: false,
       code: 'WAS DAMAGE CAUSED TO PRISON PROPERTY',
       label: 'WAS DAMAGE CAUSED TO PRISON PROPERTY',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: false,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -242,6 +274,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: false,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -251,12 +284,14 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
     },
     '44337': {
       id: '44337',
+      active: false,
       code: 'DESCRIBE THE APPARENT REASON FOR THE INCIDENT',
       label: 'DESCRIBE THE APPARENT REASON FOR THE INCIDENT',
       multipleAnswers: false,
       answers: [
         {
           code: 'FACILITIES',
+          active: false,
           label: 'FACILITIES',
           commentRequired: false,
           dateRequired: false,
@@ -264,6 +299,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
         },
         {
           code: 'FOOD',
+          active: false,
           label: 'FOOD',
           commentRequired: false,
           dateRequired: false,
@@ -271,6 +307,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
         },
         {
           code: 'PAY',
+          active: false,
           label: 'PAY',
           commentRequired: false,
           dateRequired: false,
@@ -278,6 +315,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
         },
         {
           code: 'VISITS',
+          active: false,
           label: 'VISITS',
           commentRequired: false,
           dateRequired: false,
@@ -285,6 +323,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
         },
         {
           code: 'TIME OUT OF CELL',
+          active: false,
           label: 'TIME OUT OF CELL',
           commentRequired: false,
           dateRequired: false,
@@ -292,6 +331,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
         },
         {
           code: 'OTHER',
+          active: false,
           label: 'OTHER',
           commentRequired: true,
           dateRequired: false,
@@ -301,12 +341,14 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
     },
     '44359': {
       id: '44359',
+      active: false,
       code: 'IS THERE ANY MEDIA INTEREST IN THIS INCIDENT',
       label: 'IS THERE ANY MEDIA INTEREST IN THIS INCIDENT',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: false,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -314,6 +356,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: false,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -323,12 +366,14 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
     },
     '44374': {
       id: '44374',
+      active: false,
       code: 'WAS THE AMBULANCE SERVICE PRESENT',
       label: 'WAS THE AMBULANCE SERVICE PRESENT',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: false,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -336,6 +381,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: false,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -345,12 +391,14 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
     },
     '44375': {
       id: '44375',
+      active: false,
       code: 'HAS THE PRISON SERVICE PRESS OFFICE BEEN INFORMED',
       label: 'HAS THE PRISON SERVICE PRESS OFFICE BEEN INFORMED',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: false,
           label: 'YES',
           commentRequired: false,
           dateRequired: true,
@@ -358,6 +406,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: false,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -367,12 +416,14 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
     },
     '44394': {
       id: '44394',
+      active: false,
       code: 'WHICH MINOR INJURIES WERE SUSTAINED',
       label: 'WHICH MINOR INJURIES WERE SUSTAINED',
       multipleAnswers: true,
       answers: [
         {
           code: 'GRAZES, SCRATCHES OR ABRASIONS',
+          active: false,
           label: 'GRAZES, SCRATCHES OR ABRASIONS',
           commentRequired: false,
           dateRequired: false,
@@ -380,6 +431,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
         },
         {
           code: 'MINOR BRUISES',
+          active: false,
           label: 'MINOR BRUISES',
           commentRequired: false,
           dateRequired: false,
@@ -387,6 +439,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
         },
         {
           code: 'SWELLINGS',
+          active: false,
           label: 'SWELLINGS',
           commentRequired: false,
           dateRequired: false,
@@ -394,6 +447,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
         },
         {
           code: 'SUPERFICIAL CUTS',
+          active: false,
           label: 'SUPERFICIAL CUTS',
           commentRequired: false,
           dateRequired: false,
@@ -401,6 +455,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
         },
         {
           code: 'OTHER',
+          active: false,
           label: 'OTHER',
           commentRequired: true,
           dateRequired: false,
@@ -410,12 +465,14 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
     },
     '44417': {
       id: '44417',
+      active: false,
       code: 'IS THE LOCATION OF THE INCIDENT KNOWN',
       label: 'IS THE LOCATION OF THE INCIDENT KNOWN',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: false,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -423,6 +480,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: false,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -432,12 +490,14 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
     },
     '44422': {
       id: '44422',
+      active: false,
       code: 'IS THE INCIDENT THE SUBJECT OF A POLICE INVESTIGATION',
       label: 'IS THE INCIDENT THE SUBJECT OF A POLICE INVESTIGATION',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: false,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -445,6 +505,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: false,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -454,12 +515,14 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
     },
     '44462': {
       id: '44462',
+      active: false,
       code: 'ENTER DESCRIPTION OF PERSON(S) INJURED',
       label: 'ENTER DESCRIPTION OF PERSON(S) INJURED',
       multipleAnswers: true,
       answers: [
         {
           code: 'STAFF',
+          active: false,
           label: 'STAFF',
           commentRequired: true,
           dateRequired: false,
@@ -467,6 +530,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
         },
         {
           code: 'PRISONERS',
+          active: false,
           label: 'PRISONERS',
           commentRequired: true,
           dateRequired: false,
@@ -474,6 +538,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
         },
         {
           code: 'CIVILIAN GRADES',
+          active: false,
           label: 'CIVILIAN GRADES',
           commentRequired: true,
           dateRequired: false,
@@ -481,6 +546,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
         },
         {
           code: 'POLICE',
+          active: false,
           label: 'POLICE',
           commentRequired: true,
           dateRequired: false,
@@ -488,6 +554,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
         },
         {
           code: 'EXTERNAL CIVILIANS',
+          active: false,
           label: 'EXTERNAL CIVILIANS',
           commentRequired: true,
           dateRequired: false,
@@ -497,12 +564,14 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
     },
     '44465': {
       id: '44465',
+      active: false,
       code: 'IS ANY MEMBER OF STAFF FACING DISCIPLINARY CHARGES',
       label: 'IS ANY MEMBER OF STAFF FACING DISCIPLINARY CHARGES',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: false,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -510,6 +579,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: false,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -519,12 +589,14 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
     },
     '44469': {
       id: '44469',
+      active: false,
       code: 'WERE WORKS SERVICES STAFF PRESENT',
       label: 'WERE WORKS SERVICES STAFF PRESENT',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: false,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -532,6 +604,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: false,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -541,12 +614,14 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
     },
     '44475': {
       id: '44475',
+      active: false,
       code: 'WERE EXTENDABLE BATONS USED',
       label: 'WERE EXTENDABLE BATONS USED',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: false,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -554,6 +629,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: false,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -563,12 +639,14 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
     },
     '44487': {
       id: '44487',
+      active: false,
       code: 'DESCRIBE METHOD OF GAINING ACCESS TO AREA AT HEIGHT',
       label: 'DESCRIBE METHOD OF GAINING ACCESS TO AREA AT HEIGHT',
       multipleAnswers: false,
       answers: [
         {
           code: 'EXTERNAL ACCESS',
+          active: false,
           label: 'EXTERNAL ACCESS',
           commentRequired: false,
           dateRequired: false,
@@ -576,6 +654,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
         },
         {
           code: 'INTERNAL ACCESS',
+          active: false,
           label: 'INTERNAL ACCESS',
           commentRequired: false,
           dateRequired: false,
@@ -583,6 +662,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
         },
         {
           code: 'WORKS EQUIPMENT',
+          active: false,
           label: 'WORKS EQUIPMENT',
           commentRequired: false,
           dateRequired: false,
@@ -590,6 +670,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
         },
         {
           code: 'CONTRACTORS EQUIPMENT',
+          active: false,
           label: 'CONTRACTORS EQUIPMENT',
           commentRequired: false,
           dateRequired: false,
@@ -597,6 +678,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
         },
         {
           code: 'OTHER',
+          active: false,
           label: 'OTHER',
           commentRequired: true,
           dateRequired: false,
@@ -606,12 +688,14 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
     },
     '44518': {
       id: '44518',
+      active: false,
       code: 'WAS A SERIOUS INJURY SUSTAINED',
       label: 'WAS A SERIOUS INJURY SUSTAINED',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: false,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -619,6 +703,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: false,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -628,12 +713,14 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
     },
     '44533': {
       id: '44533',
+      active: false,
       code: 'DID INJURIES RESULT IN DETENTION IN OUTSIDE HOSPITAL AS AN IN-PATIENT',
       label: 'DID INJURIES RESULT IN DETENTION IN OUTSIDE HOSPITAL AS AN IN-PATIENT',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: false,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -641,6 +728,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: false,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -650,12 +738,14 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
     },
     '44536': {
       id: '44536',
+      active: false,
       code: 'WAS THE FIRE SERVICE PRESENT',
       label: 'WAS THE FIRE SERVICE PRESENT',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: false,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -663,6 +753,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: false,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -672,12 +763,14 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
     },
     '44553': {
       id: '44553',
+      active: false,
       code: "IS THE INCIDENT SUBJECT TO A GOVERNOR'S ADJUDICATION",
       label: "IS THE INCIDENT SUBJECT TO A GOVERNOR'S ADJUDICATION",
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: false,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -685,6 +778,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: false,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -694,12 +788,14 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
     },
     '44580': {
       id: '44580',
+      active: false,
       code: 'WERE HEALTH CARE CENTRE STAFF PRESENT',
       label: 'WERE HEALTH CARE CENTRE STAFF PRESENT',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: false,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -707,6 +803,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: false,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -716,12 +813,14 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
     },
     '44596': {
       id: '44596',
+      active: false,
       code: 'WERE THE POLICE INFORMED OF THE INCIDENT',
       label: 'WERE THE POLICE INFORMED OF THE INCIDENT',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: false,
           label: 'YES',
           commentRequired: false,
           dateRequired: true,
@@ -729,6 +828,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: false,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -738,12 +838,14 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
     },
     '44610': {
       id: '44610',
+      active: false,
       code: 'WERE WATER HOSES USED',
       label: 'WERE WATER HOSES USED',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: false,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -751,6 +853,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: false,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -760,12 +863,14 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
     },
     '44625': {
       id: '44625',
+      active: false,
       code: 'WERE IMB MEMBERS PRESENT',
       label: 'WERE IMB MEMBERS PRESENT',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: false,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -773,6 +878,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: false,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -782,12 +888,14 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
     },
     '44630': {
       id: '44630',
+      active: false,
       code: 'HAVE THE RING LEADERS BEEN ENTERED ON INMATE INVOLVEMENT',
       label: 'HAVE THE RING LEADERS BEEN ENTERED ON INMATE INVOLVEMENT',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: false,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -795,6 +903,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: false,
           label: 'NO',
           commentRequired: true,
           dateRequired: false,
@@ -804,12 +913,14 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
     },
     '44639': {
       id: '44639',
+      active: false,
       code: 'WAS THE INCIDENT IN PUBLIC VIEW',
       label: 'WAS THE INCIDENT IN PUBLIC VIEW',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: false,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -817,6 +928,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: false,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -826,12 +938,14 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
     },
     '44660': {
       id: '44660',
+      active: false,
       code: 'HOW MANY PRISONERS WERE INVOLVED',
       label: 'HOW MANY PRISONERS WERE INVOLVED',
       multipleAnswers: false,
       answers: [
         {
           code: 'ENTER NUMBER',
+          active: false,
           label: 'ENTER NUMBER',
           commentRequired: true,
           dateRequired: false,
@@ -841,12 +955,14 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
     },
     '44687': {
       id: '44687',
+      active: false,
       code: 'DESCRIBE WEAPONS USED',
       label: 'DESCRIBE WEAPONS USED',
       multipleAnswers: true,
       answers: [
         {
           code: 'FIREARM',
+          active: false,
           label: 'FIREARM',
           commentRequired: false,
           dateRequired: false,
@@ -854,6 +970,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
         },
         {
           code: 'CHEMICAL INCAPACITANT',
+          active: false,
           label: 'CHEMICAL INCAPACITANT',
           commentRequired: false,
           dateRequired: false,
@@ -861,6 +978,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
         },
         {
           code: 'KNIFE/BLADE',
+          active: false,
           label: 'KNIFE/BLADE',
           commentRequired: false,
           dateRequired: false,
@@ -868,6 +986,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
         },
         {
           code: 'OTHER SHARP INSTRUMENT',
+          active: false,
           label: 'OTHER SHARP INSTRUMENT',
           commentRequired: false,
           dateRequired: false,
@@ -875,6 +994,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
         },
         {
           code: 'BLUNT INSTRUMENT',
+          active: false,
           label: 'BLUNT INSTRUMENT',
           commentRequired: false,
           dateRequired: false,
@@ -882,6 +1002,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
         },
         {
           code: 'LIGATURE',
+          active: false,
           label: 'LIGATURE',
           commentRequired: false,
           dateRequired: false,
@@ -889,6 +1010,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
         },
         {
           code: 'DANGEROUS LIQUID',
+          active: false,
           label: 'DANGEROUS LIQUID',
           commentRequired: false,
           dateRequired: false,
@@ -896,6 +1018,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
         },
         {
           code: 'EXCRETA/URINE',
+          active: false,
           label: 'EXCRETA/URINE',
           commentRequired: false,
           dateRequired: false,
@@ -903,6 +1026,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
         },
         {
           code: 'SPITTING',
+          active: false,
           label: 'SPITTING',
           commentRequired: false,
           dateRequired: false,
@@ -910,6 +1034,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
         },
         {
           code: 'FOOD',
+          active: false,
           label: 'FOOD',
           commentRequired: false,
           dateRequired: false,
@@ -917,6 +1042,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
         },
         {
           code: 'THROWN FURNITURE',
+          active: false,
           label: 'THROWN FURNITURE',
           commentRequired: false,
           dateRequired: false,
@@ -924,6 +1050,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
         },
         {
           code: 'THROWN EQUIPMENT',
+          active: false,
           label: 'THROWN EQUIPMENT',
           commentRequired: false,
           dateRequired: false,
@@ -931,6 +1058,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
         },
         {
           code: 'OTHER',
+          active: false,
           label: 'OTHER',
           commentRequired: true,
           dateRequired: false,
@@ -940,12 +1068,14 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
     },
     '44710': {
       id: '44710',
+      active: false,
       code: 'WAS CONTROL AND RESTRAINTS EMPLOYED',
       label: 'WAS CONTROL AND RESTRAINTS EMPLOYED',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: false,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -953,6 +1083,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: false,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -962,12 +1093,14 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
     },
     '44714': {
       id: '44714',
+      active: false,
       code: 'QUOTE THE VANTIVE CASE NUMBER',
       label: 'QUOTE THE VANTIVE CASE NUMBER',
       multipleAnswers: false,
       answers: [
         {
           code: 'NUMBER',
+          active: false,
           label: 'NUMBER',
           commentRequired: true,
           dateRequired: false,
@@ -977,12 +1110,14 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
     },
     '44725': {
       id: '44725',
+      active: false,
       code: 'WAS ANY EVACUATION NECESSARY',
       label: 'WAS ANY EVACUATION NECESSARY',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: false,
           label: 'YES',
           commentRequired: true,
           dateRequired: false,
@@ -990,6 +1125,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: false,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -999,12 +1135,14 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
     },
     '44756': {
       id: '44756',
+      active: false,
       code: 'WAS OPERATION TORNADO USED',
       label: 'WAS OPERATION TORNADO USED',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: false,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -1012,6 +1150,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: false,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -1021,12 +1160,14 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
     },
     '44767': {
       id: '44767',
+      active: false,
       code: 'HAS THE SERVICE SUPPLIER BEEN NOTIFIED OF A REPLACEMENT KEYWORD?',
       label: 'HAS THE SERVICE SUPPLIER BEEN NOTIFIED OF A REPLACEMENT KEYWORD?',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: false,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -1034,6 +1175,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: false,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -1043,12 +1185,14 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
     },
     '44780': {
       id: '44780',
+      active: false,
       code: 'DESCRIBE HOW THE INCIDENT WAS RESOLVED',
       label: 'DESCRIBE HOW THE INCIDENT WAS RESOLVED',
       multipleAnswers: false,
       answers: [
         {
           code: 'NEGOTIATION',
+          active: false,
           label: 'NEGOTIATION',
           commentRequired: false,
           dateRequired: false,
@@ -1056,6 +1200,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
         },
         {
           code: 'INTERVENTION',
+          active: false,
           label: 'INTERVENTION',
           commentRequired: false,
           dateRequired: false,
@@ -1063,6 +1208,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
         },
         {
           code: 'OTHER',
+          active: false,
           label: 'OTHER',
           commentRequired: true,
           dateRequired: false,
@@ -1072,12 +1218,14 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
     },
     '44797': {
       id: '44797',
+      active: false,
       code: 'WERE THE POLICE PRESENT',
       label: 'WERE THE POLICE PRESENT',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: false,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -1085,6 +1233,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: false,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -1094,12 +1243,14 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
     },
     '44804': {
       id: '44804',
+      active: false,
       code: 'IS THE INCIDENT THE SUBJECT OF AN INTERNAL INVESTIGATION',
       label: 'IS THE INCIDENT THE SUBJECT OF AN INTERNAL INVESTIGATION',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: false,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -1107,6 +1258,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: false,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -1116,12 +1268,14 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
     },
     '44806': {
       id: '44806',
+      active: false,
       code: 'WHO AUTHORISED THE SHUT DOWN?',
       label: 'WHO AUTHORISED THE SHUT DOWN?',
       multipleAnswers: false,
       answers: [
         {
           code: 'GOVERNOR',
+          active: false,
           label: 'GOVERNOR',
           commentRequired: false,
           dateRequired: false,
@@ -1129,6 +1283,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
         },
         {
           code: 'DEPUTY GOVERNOR',
+          active: false,
           label: 'DEPUTY GOVERNOR',
           commentRequired: false,
           dateRequired: false,
@@ -1136,6 +1291,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
         },
         {
           code: 'DUTY GOVERNOR',
+          active: false,
           label: 'DUTY GOVERNOR',
           commentRequired: false,
           dateRequired: false,
@@ -1143,6 +1299,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
         },
         {
           code: 'OTHER',
+          active: false,
           label: 'OTHER',
           commentRequired: true,
           dateRequired: false,
@@ -1152,12 +1309,14 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
     },
     '44815': {
       id: '44815',
+      active: false,
       code: 'WERE TRAINED NEGOTIATORS DEPLOYED',
       label: 'WERE TRAINED NEGOTIATORS DEPLOYED',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: false,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -1165,6 +1324,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: false,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -1174,12 +1334,14 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
     },
     '44825': {
       id: '44825',
+      active: false,
       code: 'WAS THE SYSTEM COMPROMISED?',
       label: 'WAS THE SYSTEM COMPROMISED?',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: false,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -1187,6 +1349,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: false,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -1196,12 +1359,14 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
     },
     '44842': {
       id: '44842',
+      active: false,
       code: 'ARE THERE ANY STAFF NOW OFF DUTY AS A RESULT OF THIS INCIDENT',
       label: 'ARE THERE ANY STAFF NOW OFF DUTY AS A RESULT OF THIS INCIDENT',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: false,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -1209,6 +1374,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: false,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -1218,12 +1384,14 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
     },
     '44847': {
       id: '44847',
+      active: false,
       code: 'DESCRIBE WHAT WAS COMPROMISED AND BY WHOM',
       label: 'DESCRIBE WHAT WAS COMPROMISED AND BY WHOM',
       multipleAnswers: false,
       answers: [
         {
           code: 'DESCRIPTION',
+          active: false,
           label: 'DESCRIPTION',
           commentRequired: true,
           dateRequired: false,
@@ -1233,12 +1401,14 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
     },
     '44853': {
       id: '44853',
+      active: false,
       code: 'HAS ANY PROSECUTION TAKEN PLACE OR IS ANY PENDING',
       label: 'HAS ANY PROSECUTION TAKEN PLACE OR IS ANY PENDING',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: false,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -1246,6 +1416,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: false,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -1255,12 +1426,14 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
     },
     '44873': {
       id: '44873',
+      active: false,
       code: 'WERE WEAPONS USED BY THE PERPETRATOR',
       label: 'WERE WEAPONS USED BY THE PERPETRATOR',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: false,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -1268,6 +1441,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: false,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -1277,12 +1451,14 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
     },
     '44889': {
       id: '44889',
+      active: false,
       code: 'HAVE THE RING LEADERS BEEN IDENTIFIED',
       label: 'HAVE THE RING LEADERS BEEN IDENTIFIED',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: false,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -1290,6 +1466,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: false,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -1299,12 +1476,14 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
     },
     '44892': {
       id: '44892',
+      active: false,
       code: 'WAS THE EMERGENCY RESPONSE VEHICLE PRESENT',
       label: 'WAS THE EMERGENCY RESPONSE VEHICLE PRESENT',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: false,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -1312,6 +1491,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: false,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -1321,12 +1501,14 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
     },
     '44927': {
       id: '44927',
+      active: false,
       code: 'WHAT WAS THE LOCATION OF THE INCIDENT',
       label: 'WHAT WAS THE LOCATION OF THE INCIDENT',
       multipleAnswers: false,
       answers: [
         {
           code: 'ADMINISTRATION',
+          active: false,
           label: 'ADMINISTRATION',
           commentRequired: false,
           dateRequired: false,
@@ -1334,6 +1516,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
         },
         {
           code: 'ASSOCIATION AREA',
+          active: false,
           label: 'ASSOCIATION AREA',
           commentRequired: false,
           dateRequired: false,
@@ -1341,6 +1524,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
         },
         {
           code: 'CELL',
+          active: false,
           label: 'CELL',
           commentRequired: false,
           dateRequired: false,
@@ -1348,6 +1532,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
         },
         {
           code: 'CHAPEL',
+          active: false,
           label: 'CHAPEL',
           commentRequired: false,
           dateRequired: false,
@@ -1355,6 +1540,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
         },
         {
           code: 'DINING ROOM',
+          active: false,
           label: 'DINING ROOM',
           commentRequired: false,
           dateRequired: false,
@@ -1362,6 +1548,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
         },
         {
           code: 'DORMITORY',
+          active: false,
           label: 'DORMITORY',
           commentRequired: false,
           dateRequired: false,
@@ -1369,6 +1556,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
         },
         {
           code: 'EDUCATION',
+          active: false,
           label: 'EDUCATION',
           commentRequired: false,
           dateRequired: false,
@@ -1376,6 +1564,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
         },
         {
           code: 'EXERCISE YARD',
+          active: false,
           label: 'EXERCISE YARD',
           commentRequired: false,
           dateRequired: false,
@@ -1383,6 +1572,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
         },
         {
           code: 'GATE',
+          active: false,
           label: 'GATE',
           commentRequired: false,
           dateRequired: false,
@@ -1390,6 +1580,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
         },
         {
           code: 'GYM',
+          active: false,
           label: 'GYM',
           commentRequired: false,
           dateRequired: false,
@@ -1397,6 +1588,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
         },
         {
           code: 'HEALTH CARE CENTRE',
+          active: false,
           label: 'HEALTH CARE CENTRE',
           commentRequired: false,
           dateRequired: false,
@@ -1404,6 +1596,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
         },
         {
           code: 'KITCHEN',
+          active: false,
           label: 'KITCHEN',
           commentRequired: false,
           dateRequired: false,
@@ -1411,6 +1604,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
         },
         {
           code: 'OFFICE',
+          active: false,
           label: 'OFFICE',
           commentRequired: false,
           dateRequired: false,
@@ -1418,6 +1612,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
         },
         {
           code: 'RECEPTION',
+          active: false,
           label: 'RECEPTION',
           commentRequired: false,
           dateRequired: false,
@@ -1425,6 +1620,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
         },
         {
           code: 'RECESS',
+          active: false,
           label: 'RECESS',
           commentRequired: false,
           dateRequired: false,
@@ -1432,6 +1628,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
         },
         {
           code: 'SEGREGATION UNIT',
+          active: false,
           label: 'SEGREGATION UNIT',
           commentRequired: false,
           dateRequired: false,
@@ -1439,6 +1636,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
         },
         {
           code: 'SPECIAL UNIT',
+          active: false,
           label: 'SPECIAL UNIT',
           commentRequired: false,
           dateRequired: false,
@@ -1446,6 +1644,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
         },
         {
           code: 'SHOWERS/CHANGING ROOM',
+          active: false,
           label: 'SHOWERS/CHANGING ROOM',
           commentRequired: false,
           dateRequired: false,
@@ -1453,6 +1652,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
         },
         {
           code: 'VISITS',
+          active: false,
           label: 'VISITS',
           commentRequired: false,
           dateRequired: false,
@@ -1460,6 +1660,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
         },
         {
           code: 'WING',
+          active: false,
           label: 'WING',
           commentRequired: false,
           dateRequired: false,
@@ -1467,6 +1668,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
         },
         {
           code: 'WORKS DEPARTMENT',
+          active: false,
           label: 'WORKS DEPARTMENT',
           commentRequired: false,
           dateRequired: false,
@@ -1474,6 +1676,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
         },
         {
           code: 'WORKSHOP',
+          active: false,
           label: 'WORKSHOP',
           commentRequired: false,
           dateRequired: false,
@@ -1481,6 +1684,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
         },
         {
           code: 'WITHIN PERIMETER',
+          active: false,
           label: 'WITHIN PERIMETER',
           commentRequired: false,
           dateRequired: false,
@@ -1488,6 +1692,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
         },
         {
           code: 'ELSEWHERE',
+          active: false,
           label: 'ELSEWHERE',
           commentRequired: true,
           dateRequired: false,
@@ -1495,6 +1700,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
         },
         {
           code: 'FUNERAL',
+          active: false,
           label: 'FUNERAL',
           commentRequired: false,
           dateRequired: false,
@@ -1502,6 +1708,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
         },
         {
           code: 'HOSPITAL OUTSIDE (PATIENT)',
+          active: false,
           label: 'HOSPITAL OUTSIDE (PATIENT)',
           commentRequired: false,
           dateRequired: false,
@@ -1509,6 +1716,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
         },
         {
           code: 'HOSPITAL OUTSIDE (VISITING)',
+          active: false,
           label: 'HOSPITAL OUTSIDE (VISITING)',
           commentRequired: false,
           dateRequired: false,
@@ -1516,6 +1724,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
         },
         {
           code: 'OUTSIDE WORKING PARTY',
+          active: false,
           label: 'OUTSIDE WORKING PARTY',
           commentRequired: false,
           dateRequired: false,
@@ -1523,6 +1732,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
         },
         {
           code: 'SPORTS FIELD',
+          active: false,
           label: 'SPORTS FIELD',
           commentRequired: false,
           dateRequired: false,
@@ -1530,6 +1740,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
         },
         {
           code: 'VEHICLE',
+          active: false,
           label: 'VEHICLE',
           commentRequired: false,
           dateRequired: false,
@@ -1537,6 +1748,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
         },
         {
           code: 'WEDDINGS',
+          active: false,
           label: 'WEDDINGS',
           commentRequired: false,
           dateRequired: false,
@@ -1544,6 +1756,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
         },
         {
           code: 'MAGISTRATES COURT',
+          active: false,
           label: 'MAGISTRATES COURT',
           commentRequired: false,
           dateRequired: false,
@@ -1551,6 +1764,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
         },
         {
           code: 'CROWN COURT',
+          active: false,
           label: 'CROWN COURT',
           commentRequired: false,
           dateRequired: false,
@@ -1560,12 +1774,14 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
     },
     '44951': {
       id: '44951',
+      active: false,
       code: 'WAS AN INCIDENT LIAISON OFFICER PRESENT',
       label: 'WAS AN INCIDENT LIAISON OFFICER PRESENT',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: false,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -1573,6 +1789,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: false,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -1582,12 +1799,14 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
     },
     '44985': {
       id: '44985',
+      active: false,
       code: 'WAS THE TELEPHONE/IT SYSTEM SHUT DOWN LOCALLY OR BY THE SERVICE SUPPLIER',
       label: 'WAS THE TELEPHONE/IT SYSTEM SHUT DOWN LOCALLY OR BY THE SERVICE SUPPLIER',
       multipleAnswers: false,
       answers: [
         {
           code: 'LOCAL',
+          active: false,
           label: 'LOCAL',
           commentRequired: false,
           dateRequired: false,
@@ -1595,6 +1814,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
         },
         {
           code: 'SERVICE SUPPLIER',
+          active: false,
           label: 'SERVICE SUPPLIER',
           commentRequired: false,
           dateRequired: false,
@@ -1604,12 +1824,14 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
     },
     '44986': {
       id: '44986',
+      active: false,
       code: 'WAS A CANDR ADVISOR PRESENT',
       label: 'WAS A CANDR ADVISOR PRESENT',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: false,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -1617,6 +1839,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: false,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -1626,12 +1849,14 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
     },
     '45028': {
       id: '45028',
+      active: false,
       code: 'WHAT TIME WAS THE SYSTEM SHUT DOWN?',
       label: 'WHAT TIME WAS THE SYSTEM SHUT DOWN?',
       multipleAnswers: false,
       answers: [
         {
           code: 'ENTER TIME',
+          active: false,
           label: 'ENTER TIME',
           commentRequired: true,
           dateRequired: false,
@@ -1641,12 +1866,14 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
     },
     '45098': {
       id: '45098',
+      active: false,
       code: 'DESCRIBE THE DAMAGE',
       label: 'DESCRIBE THE DAMAGE',
       multipleAnswers: false,
       answers: [
         {
           code: 'MINOR',
+          active: false,
           label: 'MINOR',
           commentRequired: false,
           dateRequired: false,
@@ -1654,6 +1881,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
         },
         {
           code: 'SERIOUS',
+          active: false,
           label: 'SERIOUS',
           commentRequired: false,
           dateRequired: false,
@@ -1661,6 +1889,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
         },
         {
           code: 'EXTENSIVE',
+          active: false,
           label: 'EXTENSIVE',
           commentRequired: false,
           dateRequired: false,
@@ -1670,12 +1899,14 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
     },
     '45127': {
       id: '45127',
+      active: false,
       code: 'WAS THE TELEPHONE/IT SYSTEM SHUT DOWN DURING THE INCIDENT?',
       label: 'WAS THE TELEPHONE/IT SYSTEM SHUT DOWN DURING THE INCIDENT?',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: false,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -1683,6 +1914,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: false,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -1692,12 +1924,14 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
     },
     '45128': {
       id: '45128',
+      active: false,
       code: 'DESCRIBE THE INCIDENT AS EITHER ACTIVE OR PASSIVE',
       label: 'DESCRIBE THE INCIDENT AS EITHER ACTIVE OR PASSIVE',
       multipleAnswers: false,
       answers: [
         {
           code: 'ACTIVE',
+          active: false,
           label: 'ACTIVE',
           commentRequired: false,
           dateRequired: false,
@@ -1705,6 +1939,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
         },
         {
           code: 'PASSIVE',
+          active: false,
           label: 'PASSIVE',
           commentRequired: false,
           dateRequired: false,
@@ -1714,12 +1949,14 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
     },
     '45155': {
       id: '45155',
+      active: false,
       code: 'WHICH SERIOUS INJURIES WERE SUSTAINED',
       label: 'WHICH SERIOUS INJURIES WERE SUSTAINED',
       multipleAnswers: true,
       answers: [
         {
           code: 'FRACTURE',
+          active: false,
           label: 'FRACTURE',
           commentRequired: false,
           dateRequired: false,
@@ -1727,6 +1964,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
         },
         {
           code: 'SCALD OR BURN',
+          active: false,
           label: 'SCALD OR BURN',
           commentRequired: false,
           dateRequired: false,
@@ -1734,6 +1972,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
         },
         {
           code: 'STABBING',
+          active: false,
           label: 'STABBING',
           commentRequired: false,
           dateRequired: false,
@@ -1741,6 +1980,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
         },
         {
           code: 'CRUSHING',
+          active: false,
           label: 'CRUSHING',
           commentRequired: false,
           dateRequired: false,
@@ -1748,6 +1988,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
         },
         {
           code: 'EXTENSIVE/MULTIPLE BRUISING',
+          active: false,
           label: 'EXTENSIVE/MULTIPLE BRUISING',
           commentRequired: false,
           dateRequired: false,
@@ -1755,6 +1996,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
         },
         {
           code: 'BLACK EYE',
+          active: false,
           label: 'BLACK EYE',
           commentRequired: false,
           dateRequired: false,
@@ -1762,6 +2004,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
         },
         {
           code: 'BROKEN NOSE',
+          active: false,
           label: 'BROKEN NOSE',
           commentRequired: false,
           dateRequired: false,
@@ -1769,6 +2012,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
         },
         {
           code: 'BROKEN TEETH',
+          active: false,
           label: 'BROKEN TEETH',
           commentRequired: false,
           dateRequired: false,
@@ -1776,6 +2020,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
         },
         {
           code: 'CUTS REQUIRING SUTURES',
+          active: false,
           label: 'CUTS REQUIRING SUTURES',
           commentRequired: false,
           dateRequired: false,
@@ -1783,6 +2028,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
         },
         {
           code: 'BITES',
+          active: false,
           label: 'BITES',
           commentRequired: false,
           dateRequired: false,
@@ -1790,6 +2036,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
         },
         {
           code: 'GUN SHOT WOUND',
+          active: false,
           label: 'GUN SHOT WOUND',
           commentRequired: false,
           dateRequired: false,
@@ -1797,6 +2044,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
         },
         {
           code: 'TEMPORARY/PERMANENT BLINDNESS',
+          active: false,
           label: 'TEMPORARY/PERMANENT BLINDNESS',
           commentRequired: false,
           dateRequired: false,
@@ -1806,12 +2054,14 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
     },
     '45163': {
       id: '45163',
+      active: false,
       code: 'INDICATE THE NATURE OF THE SHUT DOWN',
       label: 'INDICATE THE NATURE OF THE SHUT DOWN',
       multipleAnswers: true,
       answers: [
         {
           code: 'TELEPHONY',
+          active: false,
           label: 'TELEPHONY',
           commentRequired: true,
           dateRequired: false,
@@ -1819,6 +2069,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
         },
         {
           code: 'IT',
+          active: false,
           label: 'IT',
           commentRequired: true,
           dateRequired: false,
@@ -1828,12 +2079,14 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
     },
     '45175': {
       id: '45175',
+      active: false,
       code: 'WAS A MINOR INJURY SUSTAINED',
       label: 'WAS A MINOR INJURY SUSTAINED',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: false,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -1841,6 +2094,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: false,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,

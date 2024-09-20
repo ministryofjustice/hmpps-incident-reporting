@@ -1,4 +1,4 @@
-// Generated with ./scripts/updateNomisIncidentTypeConfigurations.ts at 2024-09-16T15:42:00.278Z
+// Generated with ./scripts/updateNomisIncidentTypeConfigurations.ts at 2024-09-20T16:52:19.591Z
 
 import { type IncidentTypeConfiguration } from '../../data/incidentTypeConfiguration/types'
 
@@ -9,12 +9,14 @@ const DAMAGE: IncidentTypeConfiguration = {
   questions: {
     '44167': {
       id: '44167',
+      active: true,
       code: 'DID INJURIES RESULT IN DETENTION IN OUTSIDE HOSPITAL AS AN IN-PATIENT',
       label: 'DID INJURIES RESULT IN DETENTION IN OUTSIDE HOSPITAL AS AN IN-PATIENT',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: true,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -22,6 +24,7 @@ const DAMAGE: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: true,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -31,12 +34,14 @@ const DAMAGE: IncidentTypeConfiguration = {
     },
     '44190': {
       id: '44190',
+      active: true,
       code: 'IS THE INCIDENT THE SUBJECT OF A POLICE INVESTIGATION',
       label: 'IS THE INCIDENT THE SUBJECT OF A POLICE INVESTIGATION',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: true,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -44,6 +49,7 @@ const DAMAGE: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: true,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -53,12 +59,14 @@ const DAMAGE: IncidentTypeConfiguration = {
     },
     '44200': {
       id: '44200',
+      active: true,
       code: 'IS THE INCIDENT THE SUBJECT OF AN INTERNAL INVESTIGATION',
       label: 'IS THE INCIDENT THE SUBJECT OF AN INTERNAL INVESTIGATION',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: true,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -66,6 +74,7 @@ const DAMAGE: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: true,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -75,12 +84,14 @@ const DAMAGE: IncidentTypeConfiguration = {
     },
     '44230': {
       id: '44230',
+      active: true,
       code: 'ENTER DESCRIPTION OF PERSON(S) INJURED',
       label: 'ENTER DESCRIPTION OF PERSON(S) INJURED',
       multipleAnswers: true,
       answers: [
         {
           code: 'STAFF',
+          active: true,
           label: 'STAFF',
           commentRequired: true,
           dateRequired: false,
@@ -88,6 +99,7 @@ const DAMAGE: IncidentTypeConfiguration = {
         },
         {
           code: 'PRISONERS',
+          active: true,
           label: 'PRISONERS',
           commentRequired: true,
           dateRequired: false,
@@ -95,6 +107,7 @@ const DAMAGE: IncidentTypeConfiguration = {
         },
         {
           code: 'CIVILIAN GRADES',
+          active: true,
           label: 'CIVILIAN GRADES',
           commentRequired: true,
           dateRequired: false,
@@ -102,6 +115,7 @@ const DAMAGE: IncidentTypeConfiguration = {
         },
         {
           code: 'POLICE',
+          active: true,
           label: 'POLICE',
           commentRequired: true,
           dateRequired: false,
@@ -109,6 +123,7 @@ const DAMAGE: IncidentTypeConfiguration = {
         },
         {
           code: 'EXTERNAL CIVILIANS',
+          active: true,
           label: 'EXTERNAL CIVILIANS',
           commentRequired: true,
           dateRequired: false,
@@ -118,12 +133,14 @@ const DAMAGE: IncidentTypeConfiguration = {
     },
     '44295': {
       id: '44295',
+      active: true,
       code: 'WAS A SERIOUS INJURY SUSTAINED',
       label: 'WAS A SERIOUS INJURY SUSTAINED',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: true,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -131,6 +148,7 @@ const DAMAGE: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: true,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -140,12 +158,14 @@ const DAMAGE: IncidentTypeConfiguration = {
     },
     '44324': {
       id: '44324',
+      active: true,
       code: 'WHAT WAS THE LOCATION OF THE INCIDENT',
       label: 'WHAT WAS THE LOCATION OF THE INCIDENT',
       multipleAnswers: false,
       answers: [
         {
           code: 'ADMINISTRATION',
+          active: true,
           label: 'ADMINISTRATION',
           commentRequired: false,
           dateRequired: false,
@@ -153,6 +173,7 @@ const DAMAGE: IncidentTypeConfiguration = {
         },
         {
           code: 'ASSOCIATION AREA',
+          active: true,
           label: 'ASSOCIATION AREA',
           commentRequired: false,
           dateRequired: false,
@@ -160,6 +181,7 @@ const DAMAGE: IncidentTypeConfiguration = {
         },
         {
           code: 'CELL',
+          active: true,
           label: 'CELL',
           commentRequired: false,
           dateRequired: false,
@@ -167,6 +189,7 @@ const DAMAGE: IncidentTypeConfiguration = {
         },
         {
           code: 'CHAPEL',
+          active: true,
           label: 'CHAPEL',
           commentRequired: false,
           dateRequired: false,
@@ -174,6 +197,7 @@ const DAMAGE: IncidentTypeConfiguration = {
         },
         {
           code: 'DINING ROOM',
+          active: true,
           label: 'DINING ROOM',
           commentRequired: false,
           dateRequired: false,
@@ -181,6 +205,7 @@ const DAMAGE: IncidentTypeConfiguration = {
         },
         {
           code: 'DORMITORY',
+          active: true,
           label: 'DORMITORY',
           commentRequired: false,
           dateRequired: false,
@@ -188,6 +213,7 @@ const DAMAGE: IncidentTypeConfiguration = {
         },
         {
           code: 'EDUCATION',
+          active: true,
           label: 'EDUCATION',
           commentRequired: false,
           dateRequired: false,
@@ -195,6 +221,7 @@ const DAMAGE: IncidentTypeConfiguration = {
         },
         {
           code: 'EXERCISE YARD',
+          active: true,
           label: 'EXERCISE YARD',
           commentRequired: false,
           dateRequired: false,
@@ -202,6 +229,7 @@ const DAMAGE: IncidentTypeConfiguration = {
         },
         {
           code: 'GATE',
+          active: true,
           label: 'GATE',
           commentRequired: false,
           dateRequired: false,
@@ -209,6 +237,7 @@ const DAMAGE: IncidentTypeConfiguration = {
         },
         {
           code: 'GYM',
+          active: true,
           label: 'GYM',
           commentRequired: false,
           dateRequired: false,
@@ -216,6 +245,7 @@ const DAMAGE: IncidentTypeConfiguration = {
         },
         {
           code: 'HEALTH CARE CENTRE',
+          active: true,
           label: 'HEALTH CARE CENTRE',
           commentRequired: false,
           dateRequired: false,
@@ -223,6 +253,7 @@ const DAMAGE: IncidentTypeConfiguration = {
         },
         {
           code: 'KITCHEN',
+          active: true,
           label: 'KITCHEN',
           commentRequired: false,
           dateRequired: false,
@@ -230,6 +261,7 @@ const DAMAGE: IncidentTypeConfiguration = {
         },
         {
           code: 'OFFICE',
+          active: true,
           label: 'OFFICE',
           commentRequired: false,
           dateRequired: false,
@@ -237,6 +269,7 @@ const DAMAGE: IncidentTypeConfiguration = {
         },
         {
           code: 'RECEPTION',
+          active: true,
           label: 'RECEPTION',
           commentRequired: false,
           dateRequired: false,
@@ -244,6 +277,7 @@ const DAMAGE: IncidentTypeConfiguration = {
         },
         {
           code: 'RECESS',
+          active: true,
           label: 'RECESS',
           commentRequired: false,
           dateRequired: false,
@@ -251,6 +285,7 @@ const DAMAGE: IncidentTypeConfiguration = {
         },
         {
           code: 'SEGREGATION UNIT',
+          active: true,
           label: 'SEGREGATION UNIT',
           commentRequired: false,
           dateRequired: false,
@@ -258,6 +293,7 @@ const DAMAGE: IncidentTypeConfiguration = {
         },
         {
           code: 'SPECIAL UNIT',
+          active: true,
           label: 'SPECIAL UNIT',
           commentRequired: false,
           dateRequired: false,
@@ -265,6 +301,7 @@ const DAMAGE: IncidentTypeConfiguration = {
         },
         {
           code: 'SHOWERS/CHANGING ROOM',
+          active: true,
           label: 'SHOWERS/CHANGING ROOM',
           commentRequired: false,
           dateRequired: false,
@@ -272,6 +309,7 @@ const DAMAGE: IncidentTypeConfiguration = {
         },
         {
           code: 'VISITS',
+          active: true,
           label: 'VISITS',
           commentRequired: false,
           dateRequired: false,
@@ -279,6 +317,7 @@ const DAMAGE: IncidentTypeConfiguration = {
         },
         {
           code: 'WING',
+          active: true,
           label: 'WING',
           commentRequired: false,
           dateRequired: false,
@@ -286,6 +325,7 @@ const DAMAGE: IncidentTypeConfiguration = {
         },
         {
           code: 'WORKS DEPARTMENT',
+          active: true,
           label: 'WORKS DEPARTMENT',
           commentRequired: false,
           dateRequired: false,
@@ -293,6 +333,7 @@ const DAMAGE: IncidentTypeConfiguration = {
         },
         {
           code: 'WORKSHOP',
+          active: true,
           label: 'WORKSHOP',
           commentRequired: false,
           dateRequired: false,
@@ -300,6 +341,7 @@ const DAMAGE: IncidentTypeConfiguration = {
         },
         {
           code: 'WITHIN PERIMETER',
+          active: true,
           label: 'WITHIN PERIMETER',
           commentRequired: false,
           dateRequired: false,
@@ -307,6 +349,7 @@ const DAMAGE: IncidentTypeConfiguration = {
         },
         {
           code: 'ELSEWHERE',
+          active: true,
           label: 'ELSEWHERE',
           commentRequired: true,
           dateRequired: false,
@@ -314,6 +357,7 @@ const DAMAGE: IncidentTypeConfiguration = {
         },
         {
           code: 'FUNERAL',
+          active: true,
           label: 'FUNERAL',
           commentRequired: false,
           dateRequired: false,
@@ -321,6 +365,7 @@ const DAMAGE: IncidentTypeConfiguration = {
         },
         {
           code: 'HOSPITAL OUTSIDE (PATIENT)',
+          active: true,
           label: 'HOSPITAL OUTSIDE (PATIENT)',
           commentRequired: false,
           dateRequired: false,
@@ -328,6 +373,7 @@ const DAMAGE: IncidentTypeConfiguration = {
         },
         {
           code: 'HOSPITAL OUTSIDE (VISITING)',
+          active: true,
           label: 'HOSPITAL OUTSIDE (VISITING)',
           commentRequired: false,
           dateRequired: false,
@@ -335,6 +381,7 @@ const DAMAGE: IncidentTypeConfiguration = {
         },
         {
           code: 'OUTSIDE WORKING PARTY',
+          active: true,
           label: 'OUTSIDE WORKING PARTY',
           commentRequired: false,
           dateRequired: false,
@@ -342,6 +389,7 @@ const DAMAGE: IncidentTypeConfiguration = {
         },
         {
           code: 'SPORTS FIELD',
+          active: true,
           label: 'SPORTS FIELD',
           commentRequired: false,
           dateRequired: false,
@@ -349,6 +397,7 @@ const DAMAGE: IncidentTypeConfiguration = {
         },
         {
           code: 'VEHICLE',
+          active: true,
           label: 'VEHICLE',
           commentRequired: false,
           dateRequired: false,
@@ -356,6 +405,7 @@ const DAMAGE: IncidentTypeConfiguration = {
         },
         {
           code: 'WEDDINGS',
+          active: true,
           label: 'WEDDINGS',
           commentRequired: false,
           dateRequired: false,
@@ -363,6 +413,7 @@ const DAMAGE: IncidentTypeConfiguration = {
         },
         {
           code: 'MAGISTRATES COURT',
+          active: true,
           label: 'MAGISTRATES COURT',
           commentRequired: false,
           dateRequired: false,
@@ -370,6 +421,7 @@ const DAMAGE: IncidentTypeConfiguration = {
         },
         {
           code: 'CROWN COURT',
+          active: true,
           label: 'CROWN COURT',
           commentRequired: false,
           dateRequired: false,
@@ -379,12 +431,14 @@ const DAMAGE: IncidentTypeConfiguration = {
     },
     '44343': {
       id: '44343',
+      active: true,
       code: 'WHAT WAS DAMAGED',
       label: 'WHAT WAS DAMAGED',
       multipleAnswers: true,
       answers: [
         {
           code: 'FURNITURE',
+          active: true,
           label: 'FURNITURE',
           commentRequired: false,
           dateRequired: false,
@@ -392,6 +446,7 @@ const DAMAGE: IncidentTypeConfiguration = {
         },
         {
           code: 'FITTINGS',
+          active: true,
           label: 'FITTINGS',
           commentRequired: false,
           dateRequired: false,
@@ -399,6 +454,7 @@ const DAMAGE: IncidentTypeConfiguration = {
         },
         {
           code: 'MACHINERY',
+          active: true,
           label: 'MACHINERY',
           commentRequired: false,
           dateRequired: false,
@@ -406,6 +462,7 @@ const DAMAGE: IncidentTypeConfiguration = {
         },
         {
           code: 'EQUIPMENT',
+          active: true,
           label: 'EQUIPMENT',
           commentRequired: false,
           dateRequired: false,
@@ -413,6 +470,7 @@ const DAMAGE: IncidentTypeConfiguration = {
         },
         {
           code: 'OTHER',
+          active: true,
           label: 'OTHER',
           commentRequired: true,
           dateRequired: false,
@@ -422,12 +480,14 @@ const DAMAGE: IncidentTypeConfiguration = {
     },
     '44379': {
       id: '44379',
+      active: true,
       code: 'WERE ANY INJURIES RECEIVED DURING THIS INCIDENT',
       label: 'WERE ANY INJURIES RECEIVED DURING THIS INCIDENT',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: true,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -435,6 +495,7 @@ const DAMAGE: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: true,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -444,12 +505,14 @@ const DAMAGE: IncidentTypeConfiguration = {
     },
     '44466': {
       id: '44466',
+      active: true,
       code: 'DESCRIBE THE DAMAGE',
       label: 'DESCRIBE THE DAMAGE',
       multipleAnswers: false,
       answers: [
         {
           code: 'MINOR',
+          active: true,
           label: 'MINOR',
           commentRequired: true,
           dateRequired: false,
@@ -457,6 +520,7 @@ const DAMAGE: IncidentTypeConfiguration = {
         },
         {
           code: 'SERIOUS',
+          active: true,
           label: 'SERIOUS',
           commentRequired: true,
           dateRequired: false,
@@ -464,6 +528,7 @@ const DAMAGE: IncidentTypeConfiguration = {
         },
         {
           code: 'EXTENSIVE',
+          active: true,
           label: 'EXTENSIVE',
           commentRequired: true,
           dateRequired: false,
@@ -473,12 +538,14 @@ const DAMAGE: IncidentTypeConfiguration = {
     },
     '44512': {
       id: '44512',
+      active: true,
       code: 'IS THERE ANY MEDIA INTEREST IN THIS INCIDENT',
       label: 'IS THERE ANY MEDIA INTEREST IN THIS INCIDENT',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: true,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -486,6 +553,7 @@ const DAMAGE: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: true,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -495,12 +563,14 @@ const DAMAGE: IncidentTypeConfiguration = {
     },
     '44572': {
       id: '44572',
+      active: true,
       code: 'HAS ANY PROSECUTION TAKEN PLACE OR IS ANY PENDING',
       label: 'HAS ANY PROSECUTION TAKEN PLACE OR IS ANY PENDING',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: true,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -508,6 +578,7 @@ const DAMAGE: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: true,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -517,12 +588,14 @@ const DAMAGE: IncidentTypeConfiguration = {
     },
     '44576': {
       id: '44576',
+      active: true,
       code: 'WHICH MINOR INJURIES WERE SUSTAINED',
       label: 'WHICH MINOR INJURIES WERE SUSTAINED',
       multipleAnswers: true,
       answers: [
         {
           code: 'GRAZES, SCRATCHES OR ABRASIONS',
+          active: true,
           label: 'GRAZES, SCRATCHES OR ABRASIONS',
           commentRequired: false,
           dateRequired: false,
@@ -530,6 +603,7 @@ const DAMAGE: IncidentTypeConfiguration = {
         },
         {
           code: 'MINOR BRUISES',
+          active: true,
           label: 'MINOR BRUISES',
           commentRequired: false,
           dateRequired: false,
@@ -537,6 +611,7 @@ const DAMAGE: IncidentTypeConfiguration = {
         },
         {
           code: 'SWELLINGS',
+          active: true,
           label: 'SWELLINGS',
           commentRequired: false,
           dateRequired: false,
@@ -544,6 +619,7 @@ const DAMAGE: IncidentTypeConfiguration = {
         },
         {
           code: 'SUPERFICIAL CUTS',
+          active: true,
           label: 'SUPERFICIAL CUTS',
           commentRequired: false,
           dateRequired: false,
@@ -551,6 +627,7 @@ const DAMAGE: IncidentTypeConfiguration = {
         },
         {
           code: 'OTHER',
+          active: true,
           label: 'OTHER',
           commentRequired: true,
           dateRequired: false,
@@ -560,12 +637,14 @@ const DAMAGE: IncidentTypeConfiguration = {
     },
     '44655': {
       id: '44655',
+      active: true,
       code: 'ARE THERE ANY STAFF NOW OFF DUTY AS A RESULT OF THIS INCIDENT',
       label: 'ARE THERE ANY STAFF NOW OFF DUTY AS A RESULT OF THIS INCIDENT',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: true,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -573,6 +652,7 @@ const DAMAGE: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: true,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -582,12 +662,14 @@ const DAMAGE: IncidentTypeConfiguration = {
     },
     '44735': {
       id: '44735',
+      active: true,
       code: 'ARE ANY STAFF ON SICK LEAVE AS A RESULT OF THIS INCIDENT',
       label: 'ARE ANY STAFF ON SICK LEAVE AS A RESULT OF THIS INCIDENT',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: true,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -595,6 +677,7 @@ const DAMAGE: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: true,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -604,12 +687,14 @@ const DAMAGE: IncidentTypeConfiguration = {
     },
     '44763': {
       id: '44763',
+      active: true,
       code: 'ESTIMATED COST OF DAMAGE',
       label: 'ESTIMATED COST OF DAMAGE',
       multipleAnswers: false,
       answers: [
         {
           code: 'ENTER AMOUNT IN POUND STERLING',
+          active: true,
           label: 'ENTER AMOUNT IN POUND STERLING',
           commentRequired: true,
           dateRequired: false,
@@ -619,12 +704,14 @@ const DAMAGE: IncidentTypeConfiguration = {
     },
     '44784': {
       id: '44784',
+      active: true,
       code: 'WERE THE POLICE INFORMED OF THE INCIDENT',
       label: 'WERE THE POLICE INFORMED OF THE INCIDENT',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: true,
           label: 'YES',
           commentRequired: false,
           dateRequired: true,
@@ -632,6 +719,7 @@ const DAMAGE: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: true,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -641,12 +729,14 @@ const DAMAGE: IncidentTypeConfiguration = {
     },
     '44785': {
       id: '44785',
+      active: true,
       code: 'WHICH SERIOUS INJURIES WERE SUSTAINED',
       label: 'WHICH SERIOUS INJURIES WERE SUSTAINED',
       multipleAnswers: true,
       answers: [
         {
           code: 'FRACTURE',
+          active: true,
           label: 'FRACTURE',
           commentRequired: false,
           dateRequired: false,
@@ -654,6 +744,7 @@ const DAMAGE: IncidentTypeConfiguration = {
         },
         {
           code: 'SCALD OR BURN',
+          active: true,
           label: 'SCALD OR BURN',
           commentRequired: false,
           dateRequired: false,
@@ -661,6 +752,7 @@ const DAMAGE: IncidentTypeConfiguration = {
         },
         {
           code: 'STABBING',
+          active: true,
           label: 'STABBING',
           commentRequired: false,
           dateRequired: false,
@@ -668,6 +760,7 @@ const DAMAGE: IncidentTypeConfiguration = {
         },
         {
           code: 'CRUSHING',
+          active: true,
           label: 'CRUSHING',
           commentRequired: false,
           dateRequired: false,
@@ -675,6 +768,7 @@ const DAMAGE: IncidentTypeConfiguration = {
         },
         {
           code: 'EXTENSIVE/MULTIPLE BRUISING',
+          active: true,
           label: 'EXTENSIVE/MULTIPLE BRUISING',
           commentRequired: false,
           dateRequired: false,
@@ -682,6 +776,7 @@ const DAMAGE: IncidentTypeConfiguration = {
         },
         {
           code: 'BLACK EYE',
+          active: true,
           label: 'BLACK EYE',
           commentRequired: false,
           dateRequired: false,
@@ -689,6 +784,7 @@ const DAMAGE: IncidentTypeConfiguration = {
         },
         {
           code: 'BROKEN NOSE',
+          active: true,
           label: 'BROKEN NOSE',
           commentRequired: false,
           dateRequired: false,
@@ -696,6 +792,7 @@ const DAMAGE: IncidentTypeConfiguration = {
         },
         {
           code: 'BROKEN TEETH',
+          active: true,
           label: 'BROKEN TEETH',
           commentRequired: false,
           dateRequired: false,
@@ -703,6 +800,7 @@ const DAMAGE: IncidentTypeConfiguration = {
         },
         {
           code: 'CUTS REQUIRING SUTURES',
+          active: true,
           label: 'CUTS REQUIRING SUTURES',
           commentRequired: false,
           dateRequired: false,
@@ -710,6 +808,7 @@ const DAMAGE: IncidentTypeConfiguration = {
         },
         {
           code: 'BITES',
+          active: true,
           label: 'BITES',
           commentRequired: false,
           dateRequired: false,
@@ -717,6 +816,7 @@ const DAMAGE: IncidentTypeConfiguration = {
         },
         {
           code: 'GUN SHOT WOUND',
+          active: true,
           label: 'GUN SHOT WOUND',
           commentRequired: false,
           dateRequired: false,
@@ -724,6 +824,7 @@ const DAMAGE: IncidentTypeConfiguration = {
         },
         {
           code: 'TEMPORARY/PERMANENT BLINDNESS',
+          active: true,
           label: 'TEMPORARY/PERMANENT BLINDNESS',
           commentRequired: false,
           dateRequired: false,
@@ -733,12 +834,14 @@ const DAMAGE: IncidentTypeConfiguration = {
     },
     '44971': {
       id: '44971',
+      active: true,
       code: 'WAS A MINOR INJURY SUSTAINED',
       label: 'WAS A MINOR INJURY SUSTAINED',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: true,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -746,6 +849,7 @@ const DAMAGE: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: true,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -755,12 +859,14 @@ const DAMAGE: IncidentTypeConfiguration = {
     },
     '45002': {
       id: '45002',
+      active: true,
       code: 'WHO WAS DETAINED IN OUTSIDE HOSPITAL',
       label: 'WHO WAS DETAINED IN OUTSIDE HOSPITAL',
       multipleAnswers: true,
       answers: [
         {
           code: 'STAFF',
+          active: true,
           label: 'STAFF',
           commentRequired: true,
           dateRequired: false,
@@ -768,6 +874,7 @@ const DAMAGE: IncidentTypeConfiguration = {
         },
         {
           code: 'PRISONERS',
+          active: true,
           label: 'PRISONERS',
           commentRequired: true,
           dateRequired: false,
@@ -775,6 +882,7 @@ const DAMAGE: IncidentTypeConfiguration = {
         },
         {
           code: 'CIVILIAN GRADES',
+          active: true,
           label: 'CIVILIAN GRADES',
           commentRequired: true,
           dateRequired: false,
@@ -782,6 +890,7 @@ const DAMAGE: IncidentTypeConfiguration = {
         },
         {
           code: 'POLICE',
+          active: true,
           label: 'POLICE',
           commentRequired: true,
           dateRequired: false,
@@ -789,6 +898,7 @@ const DAMAGE: IncidentTypeConfiguration = {
         },
         {
           code: 'EXTERNAL CIVILIANS',
+          active: true,
           label: 'EXTERNAL CIVILIANS',
           commentRequired: true,
           dateRequired: false,
@@ -798,12 +908,14 @@ const DAMAGE: IncidentTypeConfiguration = {
     },
     '45050': {
       id: '45050',
+      active: true,
       code: "IS THE INCIDENT SUBJECT TO A GOVERNOR'S ADJUDICATION",
       label: "IS THE INCIDENT SUBJECT TO A GOVERNOR'S ADJUDICATION",
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: true,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -811,6 +923,7 @@ const DAMAGE: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: true,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -820,12 +933,14 @@ const DAMAGE: IncidentTypeConfiguration = {
     },
     '45082': {
       id: '45082',
+      active: true,
       code: 'HAS THE PRISON SERVICE PRESS OFFICE BEEN INFORMED',
       label: 'HAS THE PRISON SERVICE PRESS OFFICE BEEN INFORMED',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: true,
           label: 'YES',
           commentRequired: false,
           dateRequired: true,
@@ -833,6 +948,7 @@ const DAMAGE: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: true,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,

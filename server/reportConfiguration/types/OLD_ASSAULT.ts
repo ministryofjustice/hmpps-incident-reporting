@@ -1,4 +1,4 @@
-// Generated with ./scripts/updateNomisIncidentTypeConfigurations.ts at 2024-09-16T15:41:51.344Z
+// Generated with ./scripts/updateNomisIncidentTypeConfigurations.ts at 2024-09-20T16:52:08.703Z
 
 import { type IncidentTypeConfiguration } from '../../data/incidentTypeConfiguration/types'
 
@@ -9,12 +9,14 @@ const OLD_ASSAULT: IncidentTypeConfiguration = {
   questions: {
     '44127': {
       id: '44127',
+      active: true,
       code: 'WERE THE POLICE INFORMED OF THE INCIDENT',
       label: 'WERE THE POLICE INFORMED OF THE INCIDENT',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES (ENTER DATE)',
+          active: true,
           label: 'YES (ENTER DATE)',
           commentRequired: false,
           dateRequired: true,
@@ -22,6 +24,7 @@ const OLD_ASSAULT: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: true,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -31,12 +34,14 @@ const OLD_ASSAULT: IncidentTypeConfiguration = {
     },
     '44141': {
       id: '44141',
+      active: true,
       code: 'WAS A MINOR INJURY SUSTAINED',
       label: 'WAS A MINOR INJURY SUSTAINED',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: true,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -44,6 +49,7 @@ const OLD_ASSAULT: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: true,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -53,12 +59,14 @@ const OLD_ASSAULT: IncidentTypeConfiguration = {
     },
     '44153': {
       id: '44153',
+      active: true,
       code: 'IS THERE ANY MEDIA INTEREST IN THIS INCIDENT',
       label: 'IS THERE ANY MEDIA INTEREST IN THIS INCIDENT',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: true,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -66,6 +74,7 @@ const OLD_ASSAULT: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: true,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -75,12 +84,14 @@ const OLD_ASSAULT: IncidentTypeConfiguration = {
     },
     '44186': {
       id: '44186',
+      active: true,
       code: 'HAS THE PRISON SERVICE PRESS OFFICE BEEN INFORMED',
       label: 'HAS THE PRISON SERVICE PRESS OFFICE BEEN INFORMED',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: true,
           label: 'YES',
           commentRequired: false,
           dateRequired: true,
@@ -88,6 +99,7 @@ const OLD_ASSAULT: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: true,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -97,12 +109,14 @@ const OLD_ASSAULT: IncidentTypeConfiguration = {
     },
     '44201': {
       id: '44201',
+      active: true,
       code: 'IS THE LOCATION OF THE INCIDENT KNOWN',
       label: 'IS THE LOCATION OF THE INCIDENT KNOWN',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: true,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -110,6 +124,7 @@ const OLD_ASSAULT: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: true,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -119,12 +134,14 @@ const OLD_ASSAULT: IncidentTypeConfiguration = {
     },
     '44254': {
       id: '44254',
+      active: true,
       code: 'WERE ANY INJURIES RECEIVED DURING THIS INCIDENT',
       label: 'WERE ANY INJURIES RECEIVED DURING THIS INCIDENT',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: true,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -132,6 +149,7 @@ const OLD_ASSAULT: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: true,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -141,12 +159,14 @@ const OLD_ASSAULT: IncidentTypeConfiguration = {
     },
     '44344': {
       id: '44344',
+      active: true,
       code: 'WERE ANY WEAPONS USED',
       label: 'WERE ANY WEAPONS USED',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: true,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -154,6 +174,7 @@ const OLD_ASSAULT: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: true,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -163,12 +184,14 @@ const OLD_ASSAULT: IncidentTypeConfiguration = {
     },
     '44367': {
       id: '44367',
+      active: true,
       code: 'WHAT TYPE OF ASSAULT WAS IT',
       label: 'WHAT TYPE OF ASSAULT WAS IT',
       multipleAnswers: false,
       answers: [
         {
           code: 'PRISONER ON PRISONER',
+          active: true,
           label: 'PRISONER ON PRISONER',
           commentRequired: false,
           dateRequired: false,
@@ -176,6 +199,7 @@ const OLD_ASSAULT: IncidentTypeConfiguration = {
         },
         {
           code: 'PRISONER ON OFFICER',
+          active: true,
           label: 'PRISONER ON OFFICER',
           commentRequired: false,
           dateRequired: false,
@@ -183,6 +207,7 @@ const OLD_ASSAULT: IncidentTypeConfiguration = {
         },
         {
           code: 'PRISONER ON OTHER',
+          active: true,
           label: 'PRISONER ON OTHER',
           commentRequired: false,
           dateRequired: false,
@@ -190,6 +215,7 @@ const OLD_ASSAULT: IncidentTypeConfiguration = {
         },
         {
           code: 'OTHER',
+          active: true,
           label: 'OTHER',
           commentRequired: true,
           dateRequired: false,
@@ -199,12 +225,14 @@ const OLD_ASSAULT: IncidentTypeConfiguration = {
     },
     '44391': {
       id: '44391',
+      active: true,
       code: 'ARE THERE ANY STAFF NOW OFF DUTY AS A RESULT OF THIS INCIDENT',
       label: 'ARE THERE ANY STAFF NOW OFF DUTY AS A RESULT OF THIS INCIDENT',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: true,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -212,6 +240,7 @@ const OLD_ASSAULT: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: true,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -221,12 +250,14 @@ const OLD_ASSAULT: IncidentTypeConfiguration = {
     },
     '44405': {
       id: '44405',
+      active: true,
       code: 'IS THE INCIDENT THE SUBJECT OF AN INTERNAL INVESTIGATION',
       label: 'IS THE INCIDENT THE SUBJECT OF AN INTERNAL INVESTIGATION',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: true,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -234,6 +265,7 @@ const OLD_ASSAULT: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: true,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -243,12 +275,14 @@ const OLD_ASSAULT: IncidentTypeConfiguration = {
     },
     '44460': {
       id: '44460',
+      active: true,
       code: 'DID INJURIES RESULT IN DETENTION IN OUTSIDE HOSPITAL AS AN IN-PATIENT',
       label: 'DID INJURIES RESULT IN DETENTION IN OUTSIDE HOSPITAL AS AN IN-PATIENT',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: true,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -256,6 +290,7 @@ const OLD_ASSAULT: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: true,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -265,12 +300,14 @@ const OLD_ASSAULT: IncidentTypeConfiguration = {
     },
     '44464': {
       id: '44464',
+      active: true,
       code: 'DESCRIBE WEAPONS USED',
       label: 'DESCRIBE WEAPONS USED',
       multipleAnswers: true,
       answers: [
         {
           code: 'FIREARM',
+          active: true,
           label: 'FIREARM',
           commentRequired: false,
           dateRequired: false,
@@ -278,6 +315,7 @@ const OLD_ASSAULT: IncidentTypeConfiguration = {
         },
         {
           code: 'CHEMICAL INCAPACITANT',
+          active: true,
           label: 'CHEMICAL INCAPACITANT',
           commentRequired: false,
           dateRequired: false,
@@ -285,6 +323,7 @@ const OLD_ASSAULT: IncidentTypeConfiguration = {
         },
         {
           code: 'KNIFE/BLADE',
+          active: true,
           label: 'KNIFE/BLADE',
           commentRequired: false,
           dateRequired: false,
@@ -292,6 +331,7 @@ const OLD_ASSAULT: IncidentTypeConfiguration = {
         },
         {
           code: 'OTHER SHARP INSTRUMENT',
+          active: true,
           label: 'OTHER SHARP INSTRUMENT',
           commentRequired: false,
           dateRequired: false,
@@ -299,6 +339,7 @@ const OLD_ASSAULT: IncidentTypeConfiguration = {
         },
         {
           code: 'BLUNT INSTRUMENT',
+          active: true,
           label: 'BLUNT INSTRUMENT',
           commentRequired: false,
           dateRequired: false,
@@ -306,6 +347,7 @@ const OLD_ASSAULT: IncidentTypeConfiguration = {
         },
         {
           code: 'LIGATURE',
+          active: true,
           label: 'LIGATURE',
           commentRequired: false,
           dateRequired: false,
@@ -313,6 +355,7 @@ const OLD_ASSAULT: IncidentTypeConfiguration = {
         },
         {
           code: 'DANGEROUS LIQUID',
+          active: true,
           label: 'DANGEROUS LIQUID',
           commentRequired: false,
           dateRequired: false,
@@ -320,6 +363,7 @@ const OLD_ASSAULT: IncidentTypeConfiguration = {
         },
         {
           code: 'EXCRETA/URINE',
+          active: true,
           label: 'EXCRETA/URINE',
           commentRequired: false,
           dateRequired: false,
@@ -327,6 +371,7 @@ const OLD_ASSAULT: IncidentTypeConfiguration = {
         },
         {
           code: 'SPITTING',
+          active: true,
           label: 'SPITTING',
           commentRequired: false,
           dateRequired: false,
@@ -334,6 +379,7 @@ const OLD_ASSAULT: IncidentTypeConfiguration = {
         },
         {
           code: 'FOOD',
+          active: true,
           label: 'FOOD',
           commentRequired: false,
           dateRequired: false,
@@ -341,6 +387,7 @@ const OLD_ASSAULT: IncidentTypeConfiguration = {
         },
         {
           code: 'THROWN FURNITURE',
+          active: true,
           label: 'THROWN FURNITURE',
           commentRequired: false,
           dateRequired: false,
@@ -348,6 +395,7 @@ const OLD_ASSAULT: IncidentTypeConfiguration = {
         },
         {
           code: 'THROWN EQUIPMENT',
+          active: true,
           label: 'THROWN EQUIPMENT',
           commentRequired: false,
           dateRequired: false,
@@ -355,6 +403,7 @@ const OLD_ASSAULT: IncidentTypeConfiguration = {
         },
         {
           code: 'OTHER',
+          active: true,
           label: 'OTHER',
           commentRequired: true,
           dateRequired: false,
@@ -364,12 +413,14 @@ const OLD_ASSAULT: IncidentTypeConfiguration = {
     },
     '44495': {
       id: '44495',
+      active: true,
       code: 'DID THE ASSAULT OCCUR IN PUBLIC VIEW',
       label: 'DID THE ASSAULT OCCUR IN PUBLIC VIEW',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: true,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -377,6 +428,7 @@ const OLD_ASSAULT: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: true,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -386,12 +438,14 @@ const OLD_ASSAULT: IncidentTypeConfiguration = {
     },
     '44522': {
       id: '44522',
+      active: true,
       code: 'WAS MEDICAL TREATMENT FOR CONCUSSION OR INTERNAL INJURIES REQUIRED',
       label: 'WAS MEDICAL TREATMENT FOR CONCUSSION OR INTERNAL INJURIES REQUIRED',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: true,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -399,6 +453,7 @@ const OLD_ASSAULT: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: true,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -408,12 +463,14 @@ const OLD_ASSAULT: IncidentTypeConfiguration = {
     },
     '44586': {
       id: '44586',
+      active: true,
       code: 'WAS THIS A SEXUAL ASSAULT',
       label: 'WAS THIS A SEXUAL ASSAULT',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: true,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -421,6 +478,7 @@ const OLD_ASSAULT: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: true,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -430,12 +488,14 @@ const OLD_ASSAULT: IncidentTypeConfiguration = {
     },
     '44612': {
       id: '44612',
+      active: true,
       code: 'WHICH MINOR INJURIES WERE SUSTAINED',
       label: 'WHICH MINOR INJURIES WERE SUSTAINED',
       multipleAnswers: true,
       answers: [
         {
           code: 'GRAZES, SCRATCHES OR ABRASIONS',
+          active: true,
           label: 'GRAZES, SCRATCHES OR ABRASIONS',
           commentRequired: false,
           dateRequired: false,
@@ -443,6 +503,7 @@ const OLD_ASSAULT: IncidentTypeConfiguration = {
         },
         {
           code: 'MINOR BRUISES',
+          active: true,
           label: 'MINOR BRUISES',
           commentRequired: false,
           dateRequired: false,
@@ -450,6 +511,7 @@ const OLD_ASSAULT: IncidentTypeConfiguration = {
         },
         {
           code: 'SWELLINGS',
+          active: true,
           label: 'SWELLINGS',
           commentRequired: false,
           dateRequired: false,
@@ -457,6 +519,7 @@ const OLD_ASSAULT: IncidentTypeConfiguration = {
         },
         {
           code: 'SUPERFICIAL CUTS',
+          active: true,
           label: 'SUPERFICIAL CUTS',
           commentRequired: false,
           dateRequired: false,
@@ -464,6 +527,7 @@ const OLD_ASSAULT: IncidentTypeConfiguration = {
         },
         {
           code: 'OTHER',
+          active: true,
           label: 'OTHER',
           commentRequired: true,
           dateRequired: false,
@@ -473,12 +537,14 @@ const OLD_ASSAULT: IncidentTypeConfiguration = {
     },
     '44652': {
       id: '44652',
+      active: true,
       code: 'ARE ANY STAFF ON SICK LEAVE AS A RESULT OF THIS INCIDENT',
       label: 'ARE ANY STAFF ON SICK LEAVE AS A RESULT OF THIS INCIDENT',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: true,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -486,6 +552,7 @@ const OLD_ASSAULT: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: true,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -495,12 +562,14 @@ const OLD_ASSAULT: IncidentTypeConfiguration = {
     },
     '44773': {
       id: '44773',
+      active: true,
       code: 'WAS A SERIOUS INJURY SUSTAINED',
       label: 'WAS A SERIOUS INJURY SUSTAINED',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: true,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -508,6 +577,7 @@ const OLD_ASSAULT: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: true,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -517,12 +587,14 @@ const OLD_ASSAULT: IncidentTypeConfiguration = {
     },
     '44793': {
       id: '44793',
+      active: true,
       code: 'ENTER DESCRIPTION OF PERSON(S) INJURED',
       label: 'ENTER DESCRIPTION OF PERSON(S) INJURED',
       multipleAnswers: true,
       answers: [
         {
           code: 'STAFF',
+          active: true,
           label: 'STAFF',
           commentRequired: true,
           dateRequired: false,
@@ -530,6 +602,7 @@ const OLD_ASSAULT: IncidentTypeConfiguration = {
         },
         {
           code: 'PRISONERS',
+          active: true,
           label: 'PRISONERS',
           commentRequired: true,
           dateRequired: false,
@@ -537,6 +610,7 @@ const OLD_ASSAULT: IncidentTypeConfiguration = {
         },
         {
           code: 'CIVILIAN GRADES',
+          active: true,
           label: 'CIVILIAN GRADES',
           commentRequired: true,
           dateRequired: false,
@@ -544,6 +618,7 @@ const OLD_ASSAULT: IncidentTypeConfiguration = {
         },
         {
           code: 'POLICE',
+          active: true,
           label: 'POLICE',
           commentRequired: true,
           dateRequired: false,
@@ -551,6 +626,7 @@ const OLD_ASSAULT: IncidentTypeConfiguration = {
         },
         {
           code: 'EXTERNAL CIVILIANS',
+          active: true,
           label: 'EXTERNAL CIVILIANS',
           commentRequired: true,
           dateRequired: false,
@@ -560,12 +636,14 @@ const OLD_ASSAULT: IncidentTypeConfiguration = {
     },
     '44880': {
       id: '44880',
+      active: true,
       code: 'IS ANY MEMBER OF STAFF FACING DISCIPLINARY CHARGES',
       label: 'IS ANY MEMBER OF STAFF FACING DISCIPLINARY CHARGES',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: true,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -573,6 +651,7 @@ const OLD_ASSAULT: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: true,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -582,12 +661,14 @@ const OLD_ASSAULT: IncidentTypeConfiguration = {
     },
     '44913': {
       id: '44913',
+      active: true,
       code: 'IS THE INCIDENT THE SUBJECT OF A POLICE INVESTIGATION',
       label: 'IS THE INCIDENT THE SUBJECT OF A POLICE INVESTIGATION',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: true,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -595,6 +676,7 @@ const OLD_ASSAULT: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: true,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -604,12 +686,14 @@ const OLD_ASSAULT: IncidentTypeConfiguration = {
     },
     '44943': {
       id: '44943',
+      active: true,
       code: 'WHO WAS DETAINED IN OUTSIDE HOSPITAL',
       label: 'WHO WAS DETAINED IN OUTSIDE HOSPITAL',
       multipleAnswers: true,
       answers: [
         {
           code: 'STAFF',
+          active: true,
           label: 'STAFF',
           commentRequired: true,
           dateRequired: false,
@@ -617,6 +701,7 @@ const OLD_ASSAULT: IncidentTypeConfiguration = {
         },
         {
           code: 'PRISONERS',
+          active: true,
           label: 'PRISONERS',
           commentRequired: true,
           dateRequired: false,
@@ -624,6 +709,7 @@ const OLD_ASSAULT: IncidentTypeConfiguration = {
         },
         {
           code: 'CIVILIAN GRADES',
+          active: true,
           label: 'CIVILIAN GRADES',
           commentRequired: true,
           dateRequired: false,
@@ -631,6 +717,7 @@ const OLD_ASSAULT: IncidentTypeConfiguration = {
         },
         {
           code: 'POLICE',
+          active: true,
           label: 'POLICE',
           commentRequired: true,
           dateRequired: false,
@@ -638,6 +725,7 @@ const OLD_ASSAULT: IncidentTypeConfiguration = {
         },
         {
           code: 'EXTERNAL CIVILIANS',
+          active: true,
           label: 'EXTERNAL CIVILIANS',
           commentRequired: true,
           dateRequired: false,
@@ -647,12 +735,14 @@ const OLD_ASSAULT: IncidentTypeConfiguration = {
     },
     '45042': {
       id: '45042',
+      active: true,
       code: 'WHICH SERIOUS INJURIES WERE SUSTAINED',
       label: 'WHICH SERIOUS INJURIES WERE SUSTAINED',
       multipleAnswers: true,
       answers: [
         {
           code: 'FRACTURE',
+          active: true,
           label: 'FRACTURE',
           commentRequired: false,
           dateRequired: false,
@@ -660,6 +750,7 @@ const OLD_ASSAULT: IncidentTypeConfiguration = {
         },
         {
           code: 'SCALD OR BURN',
+          active: true,
           label: 'SCALD OR BURN',
           commentRequired: false,
           dateRequired: false,
@@ -667,6 +758,7 @@ const OLD_ASSAULT: IncidentTypeConfiguration = {
         },
         {
           code: 'STABBING',
+          active: true,
           label: 'STABBING',
           commentRequired: false,
           dateRequired: false,
@@ -674,6 +766,7 @@ const OLD_ASSAULT: IncidentTypeConfiguration = {
         },
         {
           code: 'CRUSHING',
+          active: true,
           label: 'CRUSHING',
           commentRequired: false,
           dateRequired: false,
@@ -681,6 +774,7 @@ const OLD_ASSAULT: IncidentTypeConfiguration = {
         },
         {
           code: 'EXTENSIVE/MULTIPLE BRUISING',
+          active: true,
           label: 'EXTENSIVE/MULTIPLE BRUISING',
           commentRequired: false,
           dateRequired: false,
@@ -688,6 +782,7 @@ const OLD_ASSAULT: IncidentTypeConfiguration = {
         },
         {
           code: 'BLACK EYE',
+          active: true,
           label: 'BLACK EYE',
           commentRequired: false,
           dateRequired: false,
@@ -695,6 +790,7 @@ const OLD_ASSAULT: IncidentTypeConfiguration = {
         },
         {
           code: 'BROKEN NOSE',
+          active: true,
           label: 'BROKEN NOSE',
           commentRequired: false,
           dateRequired: false,
@@ -702,6 +798,7 @@ const OLD_ASSAULT: IncidentTypeConfiguration = {
         },
         {
           code: 'BROKEN TEETH',
+          active: true,
           label: 'BROKEN TEETH',
           commentRequired: false,
           dateRequired: false,
@@ -709,6 +806,7 @@ const OLD_ASSAULT: IncidentTypeConfiguration = {
         },
         {
           code: 'CUTS REQUIRING SUTURES',
+          active: true,
           label: 'CUTS REQUIRING SUTURES',
           commentRequired: false,
           dateRequired: false,
@@ -716,6 +814,7 @@ const OLD_ASSAULT: IncidentTypeConfiguration = {
         },
         {
           code: 'BITES',
+          active: true,
           label: 'BITES',
           commentRequired: false,
           dateRequired: false,
@@ -723,6 +822,7 @@ const OLD_ASSAULT: IncidentTypeConfiguration = {
         },
         {
           code: 'GUN SHOT WOUND',
+          active: true,
           label: 'GUN SHOT WOUND',
           commentRequired: false,
           dateRequired: false,
@@ -730,6 +830,7 @@ const OLD_ASSAULT: IncidentTypeConfiguration = {
         },
         {
           code: 'TEMPORARY/PERMANENT BLINDNESS',
+          active: true,
           label: 'TEMPORARY/PERMANENT BLINDNESS',
           commentRequired: false,
           dateRequired: false,
@@ -739,12 +840,14 @@ const OLD_ASSAULT: IncidentTypeConfiguration = {
     },
     '45074': {
       id: '45074',
+      active: true,
       code: 'WAS THERE AN APPARENT REASON FOR THE ASSAULT',
       label: 'WAS THERE AN APPARENT REASON FOR THE ASSAULT',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: true,
           label: 'YES',
           commentRequired: true,
           dateRequired: false,
@@ -752,6 +855,7 @@ const OLD_ASSAULT: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: true,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -761,12 +865,14 @@ const OLD_ASSAULT: IncidentTypeConfiguration = {
     },
     '45088': {
       id: '45088',
+      active: true,
       code: "IS THE INCIDENT SUBJECT TO A GOVERNOR'S ADJUDICATION",
       label: "IS THE INCIDENT SUBJECT TO A GOVERNOR'S ADJUDICATION",
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: true,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -774,6 +880,7 @@ const OLD_ASSAULT: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: true,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -783,12 +890,14 @@ const OLD_ASSAULT: IncidentTypeConfiguration = {
     },
     '45092': {
       id: '45092',
+      active: true,
       code: 'HAS ANY PROSECUTION TAKEN PLACE OR IS ANY PENDING',
       label: 'HAS ANY PROSECUTION TAKEN PLACE OR IS ANY PENDING',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: true,
           label: 'YES',
           commentRequired: true,
           dateRequired: false,
@@ -796,6 +905,7 @@ const OLD_ASSAULT: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: true,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -805,12 +915,14 @@ const OLD_ASSAULT: IncidentTypeConfiguration = {
     },
     '45130': {
       id: '45130',
+      active: true,
       code: 'DID THE ASSAULT OCCUR DURING A FIGHT',
       label: 'DID THE ASSAULT OCCUR DURING A FIGHT',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: true,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -818,6 +930,7 @@ const OLD_ASSAULT: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: true,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -827,12 +940,14 @@ const OLD_ASSAULT: IncidentTypeConfiguration = {
     },
     '45134': {
       id: '45134',
+      active: true,
       code: 'WHAT WAS THE LOCATION OF THE INCIDENT',
       label: 'WHAT WAS THE LOCATION OF THE INCIDENT',
       multipleAnswers: false,
       answers: [
         {
           code: 'ADMINISTRATION',
+          active: true,
           label: 'ADMINISTRATION',
           commentRequired: false,
           dateRequired: false,
@@ -840,6 +955,7 @@ const OLD_ASSAULT: IncidentTypeConfiguration = {
         },
         {
           code: 'ASSOCIATION AREA',
+          active: true,
           label: 'ASSOCIATION AREA',
           commentRequired: false,
           dateRequired: false,
@@ -847,6 +963,7 @@ const OLD_ASSAULT: IncidentTypeConfiguration = {
         },
         {
           code: 'CELL',
+          active: true,
           label: 'CELL',
           commentRequired: false,
           dateRequired: false,
@@ -854,6 +971,7 @@ const OLD_ASSAULT: IncidentTypeConfiguration = {
         },
         {
           code: 'CHAPEL',
+          active: true,
           label: 'CHAPEL',
           commentRequired: false,
           dateRequired: false,
@@ -861,6 +979,7 @@ const OLD_ASSAULT: IncidentTypeConfiguration = {
         },
         {
           code: 'DINING ROOM',
+          active: true,
           label: 'DINING ROOM',
           commentRequired: false,
           dateRequired: false,
@@ -868,6 +987,7 @@ const OLD_ASSAULT: IncidentTypeConfiguration = {
         },
         {
           code: 'DORMITORY',
+          active: true,
           label: 'DORMITORY',
           commentRequired: false,
           dateRequired: false,
@@ -875,6 +995,7 @@ const OLD_ASSAULT: IncidentTypeConfiguration = {
         },
         {
           code: 'EDUCATION',
+          active: true,
           label: 'EDUCATION',
           commentRequired: false,
           dateRequired: false,
@@ -882,6 +1003,7 @@ const OLD_ASSAULT: IncidentTypeConfiguration = {
         },
         {
           code: 'EXERCISE YARD',
+          active: true,
           label: 'EXERCISE YARD',
           commentRequired: false,
           dateRequired: false,
@@ -889,6 +1011,7 @@ const OLD_ASSAULT: IncidentTypeConfiguration = {
         },
         {
           code: 'GATE',
+          active: true,
           label: 'GATE',
           commentRequired: false,
           dateRequired: false,
@@ -896,6 +1019,7 @@ const OLD_ASSAULT: IncidentTypeConfiguration = {
         },
         {
           code: 'GYM',
+          active: true,
           label: 'GYM',
           commentRequired: false,
           dateRequired: false,
@@ -903,6 +1027,7 @@ const OLD_ASSAULT: IncidentTypeConfiguration = {
         },
         {
           code: 'HEALTH CARE CENTRE',
+          active: true,
           label: 'HEALTH CARE CENTRE',
           commentRequired: false,
           dateRequired: false,
@@ -910,6 +1035,7 @@ const OLD_ASSAULT: IncidentTypeConfiguration = {
         },
         {
           code: 'KITCHEN',
+          active: true,
           label: 'KITCHEN',
           commentRequired: false,
           dateRequired: false,
@@ -917,6 +1043,7 @@ const OLD_ASSAULT: IncidentTypeConfiguration = {
         },
         {
           code: 'OFFICE',
+          active: true,
           label: 'OFFICE',
           commentRequired: false,
           dateRequired: false,
@@ -924,6 +1051,7 @@ const OLD_ASSAULT: IncidentTypeConfiguration = {
         },
         {
           code: 'RECEPTION',
+          active: true,
           label: 'RECEPTION',
           commentRequired: false,
           dateRequired: false,
@@ -931,6 +1059,7 @@ const OLD_ASSAULT: IncidentTypeConfiguration = {
         },
         {
           code: 'RECESS',
+          active: true,
           label: 'RECESS',
           commentRequired: false,
           dateRequired: false,
@@ -938,6 +1067,7 @@ const OLD_ASSAULT: IncidentTypeConfiguration = {
         },
         {
           code: 'SEGREGATION UNIT',
+          active: true,
           label: 'SEGREGATION UNIT',
           commentRequired: false,
           dateRequired: false,
@@ -945,6 +1075,7 @@ const OLD_ASSAULT: IncidentTypeConfiguration = {
         },
         {
           code: 'SPECIAL UNIT',
+          active: true,
           label: 'SPECIAL UNIT',
           commentRequired: false,
           dateRequired: false,
@@ -952,6 +1083,7 @@ const OLD_ASSAULT: IncidentTypeConfiguration = {
         },
         {
           code: 'SHOWERS/CHANGING ROOM',
+          active: true,
           label: 'SHOWERS/CHANGING ROOM',
           commentRequired: false,
           dateRequired: false,
@@ -959,6 +1091,7 @@ const OLD_ASSAULT: IncidentTypeConfiguration = {
         },
         {
           code: 'VISITS',
+          active: true,
           label: 'VISITS',
           commentRequired: false,
           dateRequired: false,
@@ -966,6 +1099,7 @@ const OLD_ASSAULT: IncidentTypeConfiguration = {
         },
         {
           code: 'WING',
+          active: true,
           label: 'WING',
           commentRequired: false,
           dateRequired: false,
@@ -973,6 +1107,7 @@ const OLD_ASSAULT: IncidentTypeConfiguration = {
         },
         {
           code: 'WORKS DEPARTMENT',
+          active: true,
           label: 'WORKS DEPARTMENT',
           commentRequired: false,
           dateRequired: false,
@@ -980,6 +1115,7 @@ const OLD_ASSAULT: IncidentTypeConfiguration = {
         },
         {
           code: 'WORKSHOP',
+          active: true,
           label: 'WORKSHOP',
           commentRequired: false,
           dateRequired: false,
@@ -987,6 +1123,7 @@ const OLD_ASSAULT: IncidentTypeConfiguration = {
         },
         {
           code: 'WITHIN PERIMETER',
+          active: true,
           label: 'WITHIN PERIMETER',
           commentRequired: false,
           dateRequired: false,
@@ -994,6 +1131,7 @@ const OLD_ASSAULT: IncidentTypeConfiguration = {
         },
         {
           code: 'ELSEWHERE',
+          active: true,
           label: 'ELSEWHERE',
           commentRequired: true,
           dateRequired: false,
@@ -1001,6 +1139,7 @@ const OLD_ASSAULT: IncidentTypeConfiguration = {
         },
         {
           code: 'FUNERAL',
+          active: true,
           label: 'FUNERAL',
           commentRequired: false,
           dateRequired: false,
@@ -1008,6 +1147,7 @@ const OLD_ASSAULT: IncidentTypeConfiguration = {
         },
         {
           code: 'HOSPITAL OUTSIDE (PATIENT)',
+          active: true,
           label: 'HOSPITAL OUTSIDE (PATIENT)',
           commentRequired: false,
           dateRequired: false,
@@ -1015,6 +1155,7 @@ const OLD_ASSAULT: IncidentTypeConfiguration = {
         },
         {
           code: 'HOSPITAL OUTSIDE (VISITING)',
+          active: true,
           label: 'HOSPITAL OUTSIDE (VISITING)',
           commentRequired: false,
           dateRequired: false,
@@ -1022,6 +1163,7 @@ const OLD_ASSAULT: IncidentTypeConfiguration = {
         },
         {
           code: 'OUTSIDE WORKING PARTY',
+          active: true,
           label: 'OUTSIDE WORKING PARTY',
           commentRequired: false,
           dateRequired: false,
@@ -1029,6 +1171,7 @@ const OLD_ASSAULT: IncidentTypeConfiguration = {
         },
         {
           code: 'SPORTS FIELD',
+          active: true,
           label: 'SPORTS FIELD',
           commentRequired: false,
           dateRequired: false,
@@ -1036,6 +1179,7 @@ const OLD_ASSAULT: IncidentTypeConfiguration = {
         },
         {
           code: 'VEHICLE',
+          active: true,
           label: 'VEHICLE',
           commentRequired: false,
           dateRequired: false,
@@ -1043,6 +1187,7 @@ const OLD_ASSAULT: IncidentTypeConfiguration = {
         },
         {
           code: 'WEDDINGS',
+          active: true,
           label: 'WEDDINGS',
           commentRequired: false,
           dateRequired: false,
@@ -1050,6 +1195,7 @@ const OLD_ASSAULT: IncidentTypeConfiguration = {
         },
         {
           code: 'MAGISTRATES COURT',
+          active: true,
           label: 'MAGISTRATES COURT',
           commentRequired: false,
           dateRequired: false,
@@ -1057,6 +1203,7 @@ const OLD_ASSAULT: IncidentTypeConfiguration = {
         },
         {
           code: 'CROWN COURT',
+          active: true,
           label: 'CROWN COURT',
           commentRequired: false,
           dateRequired: false,

@@ -1,4 +1,4 @@
-// Generated with ./scripts/updateNomisIncidentTypeConfigurations.ts at 2024-09-16T15:41:55.893Z
+// Generated with ./scripts/updateNomisIncidentTypeConfigurations.ts at 2024-09-20T16:52:14.303Z
 
 import { type IncidentTypeConfiguration } from '../../data/incidentTypeConfiguration/types'
 
@@ -9,12 +9,14 @@ const OLD_BARRICADE: IncidentTypeConfiguration = {
   questions: {
     '44174': {
       id: '44174',
+      active: false,
       code: 'WHO WAS DETAINED IN OUTSIDE HOSPITAL',
       label: 'WHO WAS DETAINED IN OUTSIDE HOSPITAL',
       multipleAnswers: true,
       answers: [
         {
           code: 'STAFF',
+          active: false,
           label: 'STAFF',
           commentRequired: true,
           dateRequired: false,
@@ -22,6 +24,7 @@ const OLD_BARRICADE: IncidentTypeConfiguration = {
         },
         {
           code: 'PRISONERS',
+          active: false,
           label: 'PRISONERS',
           commentRequired: true,
           dateRequired: false,
@@ -29,6 +32,7 @@ const OLD_BARRICADE: IncidentTypeConfiguration = {
         },
         {
           code: 'CIVILIAN GRADES',
+          active: false,
           label: 'CIVILIAN GRADES',
           commentRequired: true,
           dateRequired: false,
@@ -36,6 +40,7 @@ const OLD_BARRICADE: IncidentTypeConfiguration = {
         },
         {
           code: 'POLICE',
+          active: false,
           label: 'POLICE',
           commentRequired: true,
           dateRequired: false,
@@ -43,6 +48,7 @@ const OLD_BARRICADE: IncidentTypeConfiguration = {
         },
         {
           code: 'EXTERNAL CIVILIANS',
+          active: false,
           label: 'EXTERNAL CIVILIANS',
           commentRequired: true,
           dateRequired: false,
@@ -52,12 +58,14 @@ const OLD_BARRICADE: IncidentTypeConfiguration = {
     },
     '44185': {
       id: '44185',
+      active: false,
       code: 'HAS THE PRISON SERVICE PRESS OFFICE BEEN INFORMED',
       label: 'HAS THE PRISON SERVICE PRESS OFFICE BEEN INFORMED',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: false,
           label: 'YES',
           commentRequired: false,
           dateRequired: true,
@@ -65,6 +73,7 @@ const OLD_BARRICADE: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: false,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -74,12 +83,14 @@ const OLD_BARRICADE: IncidentTypeConfiguration = {
     },
     '44191': {
       id: '44191',
+      active: false,
       code: 'WAS A DOOR JACK USED',
       label: 'WAS A DOOR JACK USED',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: false,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -87,6 +98,7 @@ const OLD_BARRICADE: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: false,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -96,12 +108,14 @@ const OLD_BARRICADE: IncidentTypeConfiguration = {
     },
     '44206': {
       id: '44206',
+      active: false,
       code: 'WAS THE SYSTEM COMPROMISED?',
       label: 'WAS THE SYSTEM COMPROMISED?',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: false,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -109,6 +123,7 @@ const OLD_BARRICADE: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: false,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -118,12 +133,14 @@ const OLD_BARRICADE: IncidentTypeConfiguration = {
     },
     '44222': {
       id: '44222',
+      active: false,
       code: 'ARE ANY STAFF ON SICK LEAVE AS A RESULT OF THIS INCIDENT',
       label: 'ARE ANY STAFF ON SICK LEAVE AS A RESULT OF THIS INCIDENT',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: false,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -131,6 +148,7 @@ const OLD_BARRICADE: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: false,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -140,12 +158,14 @@ const OLD_BARRICADE: IncidentTypeConfiguration = {
     },
     '44227': {
       id: '44227',
+      active: false,
       code: 'WAS THE TELEPHONE/IT SYSTEM SHUT DOWN DURING THE INCIDENT?',
       label: 'WAS THE TELEPHONE/IT SYSTEM SHUT DOWN DURING THE INCIDENT?',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: false,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -153,6 +173,7 @@ const OLD_BARRICADE: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: false,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -162,12 +183,14 @@ const OLD_BARRICADE: IncidentTypeConfiguration = {
     },
     '44263': {
       id: '44263',
+      active: false,
       code: 'IS THE LOCATION OF THE INCIDENT KNOWN',
       label: 'IS THE LOCATION OF THE INCIDENT KNOWN',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: false,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -175,6 +198,7 @@ const OLD_BARRICADE: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: false,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -184,12 +208,14 @@ const OLD_BARRICADE: IncidentTypeConfiguration = {
     },
     '44348': {
       id: '44348',
+      active: false,
       code: 'DESCRIBE THE DAMAGE',
       label: 'DESCRIBE THE DAMAGE',
       multipleAnswers: false,
       answers: [
         {
           code: 'EXTENSIVE',
+          active: false,
           label: 'EXTENSIVE',
           commentRequired: true,
           dateRequired: false,
@@ -197,6 +223,7 @@ const OLD_BARRICADE: IncidentTypeConfiguration = {
         },
         {
           code: 'MINOR',
+          active: false,
           label: 'MINOR',
           commentRequired: true,
           dateRequired: false,
@@ -204,6 +231,7 @@ const OLD_BARRICADE: IncidentTypeConfiguration = {
         },
         {
           code: 'SERIOUS',
+          active: false,
           label: 'SERIOUS',
           commentRequired: true,
           dateRequired: false,
@@ -213,12 +241,14 @@ const OLD_BARRICADE: IncidentTypeConfiguration = {
     },
     '44357': {
       id: '44357',
+      active: false,
       code: 'IS THE INCIDENT THE SUBJECT OF A POLICE INVESTIGATION',
       label: 'IS THE INCIDENT THE SUBJECT OF A POLICE INVESTIGATION',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: false,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -226,6 +256,7 @@ const OLD_BARRICADE: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: false,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -235,12 +266,14 @@ const OLD_BARRICADE: IncidentTypeConfiguration = {
     },
     '44378': {
       id: '44378',
+      active: false,
       code: 'WAS DAMAGE CAUSED TO PRISON PROPERTY',
       label: 'WAS DAMAGE CAUSED TO PRISON PROPERTY',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: false,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -248,6 +281,7 @@ const OLD_BARRICADE: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: false,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -257,12 +291,14 @@ const OLD_BARRICADE: IncidentTypeConfiguration = {
     },
     '44401': {
       id: '44401',
+      active: false,
       code: 'WAS THE KEYWORD REQUESTED?',
       label: 'WAS THE KEYWORD REQUESTED?',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: false,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -270,6 +306,7 @@ const OLD_BARRICADE: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: false,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -279,12 +316,14 @@ const OLD_BARRICADE: IncidentTypeConfiguration = {
     },
     '44413': {
       id: '44413',
+      active: false,
       code: 'ESTIMATED COST OF DAMAGE',
       label: 'ESTIMATED COST OF DAMAGE',
       multipleAnswers: false,
       answers: [
         {
           code: 'ENTER AMOUNT IN POUND STERLING',
+          active: false,
           label: 'ENTER AMOUNT IN POUND STERLING',
           commentRequired: true,
           dateRequired: false,
@@ -294,12 +333,14 @@ const OLD_BARRICADE: IncidentTypeConfiguration = {
     },
     '44439': {
       id: '44439',
+      active: false,
       code: 'WERE THE POLICE INFORMED OF THE INCIDENT',
       label: 'WERE THE POLICE INFORMED OF THE INCIDENT',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: false,
           label: 'YES',
           commentRequired: false,
           dateRequired: true,
@@ -307,6 +348,7 @@ const OLD_BARRICADE: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: false,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -316,12 +358,14 @@ const OLD_BARRICADE: IncidentTypeConfiguration = {
     },
     '44461': {
       id: '44461',
+      active: false,
       code: 'DESCRIBE WEAPONS USED',
       label: 'DESCRIBE WEAPONS USED',
       multipleAnswers: true,
       answers: [
         {
           code: 'FIREARM',
+          active: false,
           label: 'FIREARM',
           commentRequired: false,
           dateRequired: false,
@@ -329,6 +373,7 @@ const OLD_BARRICADE: IncidentTypeConfiguration = {
         },
         {
           code: 'CHEMICAL INCAPACITANT',
+          active: false,
           label: 'CHEMICAL INCAPACITANT',
           commentRequired: false,
           dateRequired: false,
@@ -336,6 +381,7 @@ const OLD_BARRICADE: IncidentTypeConfiguration = {
         },
         {
           code: 'KNIFE/BLADE',
+          active: false,
           label: 'KNIFE/BLADE',
           commentRequired: false,
           dateRequired: false,
@@ -343,6 +389,7 @@ const OLD_BARRICADE: IncidentTypeConfiguration = {
         },
         {
           code: 'OTHER SHARP INSTRUMENT',
+          active: false,
           label: 'OTHER SHARP INSTRUMENT',
           commentRequired: false,
           dateRequired: false,
@@ -350,6 +397,7 @@ const OLD_BARRICADE: IncidentTypeConfiguration = {
         },
         {
           code: 'BLUNT INSTRUMENT',
+          active: false,
           label: 'BLUNT INSTRUMENT',
           commentRequired: false,
           dateRequired: false,
@@ -357,6 +405,7 @@ const OLD_BARRICADE: IncidentTypeConfiguration = {
         },
         {
           code: 'LIGATURE',
+          active: false,
           label: 'LIGATURE',
           commentRequired: false,
           dateRequired: false,
@@ -364,6 +413,7 @@ const OLD_BARRICADE: IncidentTypeConfiguration = {
         },
         {
           code: 'DANGEROUS LIQUID',
+          active: false,
           label: 'DANGEROUS LIQUID',
           commentRequired: false,
           dateRequired: false,
@@ -371,6 +421,7 @@ const OLD_BARRICADE: IncidentTypeConfiguration = {
         },
         {
           code: 'EXCRETA/URINE',
+          active: false,
           label: 'EXCRETA/URINE',
           commentRequired: false,
           dateRequired: false,
@@ -378,6 +429,7 @@ const OLD_BARRICADE: IncidentTypeConfiguration = {
         },
         {
           code: 'SPITTING',
+          active: false,
           label: 'SPITTING',
           commentRequired: false,
           dateRequired: false,
@@ -385,6 +437,7 @@ const OLD_BARRICADE: IncidentTypeConfiguration = {
         },
         {
           code: 'FOOD',
+          active: false,
           label: 'FOOD',
           commentRequired: false,
           dateRequired: false,
@@ -392,6 +445,7 @@ const OLD_BARRICADE: IncidentTypeConfiguration = {
         },
         {
           code: 'THROWN FURNITURE',
+          active: false,
           label: 'THROWN FURNITURE',
           commentRequired: false,
           dateRequired: false,
@@ -399,6 +453,7 @@ const OLD_BARRICADE: IncidentTypeConfiguration = {
         },
         {
           code: 'THROWN EQUIPMENT',
+          active: false,
           label: 'THROWN EQUIPMENT',
           commentRequired: false,
           dateRequired: false,
@@ -406,6 +461,7 @@ const OLD_BARRICADE: IncidentTypeConfiguration = {
         },
         {
           code: 'OTHER',
+          active: false,
           label: 'OTHER',
           commentRequired: true,
           dateRequired: false,
@@ -415,12 +471,14 @@ const OLD_BARRICADE: IncidentTypeConfiguration = {
     },
     '44482': {
       id: '44482',
+      active: false,
       code: 'QUOTE THE VANTIVE CASE NUMBER',
       label: 'QUOTE THE VANTIVE CASE NUMBER',
       multipleAnswers: false,
       answers: [
         {
           code: 'ENTER NUMBER',
+          active: false,
           label: 'ENTER NUMBER',
           commentRequired: true,
           dateRequired: false,
@@ -430,12 +488,14 @@ const OLD_BARRICADE: IncidentTypeConfiguration = {
     },
     '44492': {
       id: '44492',
+      active: false,
       code: 'WHO AUTHORISED THE SHUT DOWN?',
       label: 'WHO AUTHORISED THE SHUT DOWN?',
       multipleAnswers: false,
       answers: [
         {
           code: 'GOVERNOR',
+          active: false,
           label: 'GOVERNOR',
           commentRequired: false,
           dateRequired: false,
@@ -443,6 +503,7 @@ const OLD_BARRICADE: IncidentTypeConfiguration = {
         },
         {
           code: 'DEPUTY GOVERNOR',
+          active: false,
           label: 'DEPUTY GOVERNOR',
           commentRequired: false,
           dateRequired: false,
@@ -450,6 +511,7 @@ const OLD_BARRICADE: IncidentTypeConfiguration = {
         },
         {
           code: 'DUTY GOVERNOR',
+          active: false,
           label: 'DUTY GOVERNOR',
           commentRequired: false,
           dateRequired: false,
@@ -457,6 +519,7 @@ const OLD_BARRICADE: IncidentTypeConfiguration = {
         },
         {
           code: 'OTHER',
+          active: false,
           label: 'OTHER',
           commentRequired: true,
           dateRequired: false,
@@ -466,12 +529,14 @@ const OLD_BARRICADE: IncidentTypeConfiguration = {
     },
     '44505': {
       id: '44505',
+      active: false,
       code: 'DESCRIBE HOW THE INCIDENT WAS RESOLVED',
       label: 'DESCRIBE HOW THE INCIDENT WAS RESOLVED',
       multipleAnswers: false,
       answers: [
         {
           code: 'NEGOTIATION',
+          active: false,
           label: 'NEGOTIATION',
           commentRequired: false,
           dateRequired: false,
@@ -479,6 +544,7 @@ const OLD_BARRICADE: IncidentTypeConfiguration = {
         },
         {
           code: 'INTERVENTION',
+          active: false,
           label: 'INTERVENTION',
           commentRequired: false,
           dateRequired: false,
@@ -486,6 +552,7 @@ const OLD_BARRICADE: IncidentTypeConfiguration = {
         },
         {
           code: 'OTHER',
+          active: false,
           label: 'OTHER',
           commentRequired: true,
           dateRequired: false,
@@ -495,12 +562,14 @@ const OLD_BARRICADE: IncidentTypeConfiguration = {
     },
     '44515': {
       id: '44515',
+      active: false,
       code: 'WERE WEAPONS USED BY THE PERPETRATOR',
       label: 'WERE WEAPONS USED BY THE PERPETRATOR',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: false,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -508,6 +577,7 @@ const OLD_BARRICADE: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: false,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -517,12 +587,14 @@ const OLD_BARRICADE: IncidentTypeConfiguration = {
     },
     '44530': {
       id: '44530',
+      active: false,
       code: 'INDICATE THE NATURE OF THE SHUT DOWN',
       label: 'INDICATE THE NATURE OF THE SHUT DOWN',
       multipleAnswers: true,
       answers: [
         {
           code: 'TELEPHONY',
+          active: false,
           label: 'TELEPHONY',
           commentRequired: true,
           dateRequired: false,
@@ -530,6 +602,7 @@ const OLD_BARRICADE: IncidentTypeConfiguration = {
         },
         {
           code: 'IT',
+          active: false,
           label: 'IT',
           commentRequired: true,
           dateRequired: false,
@@ -539,12 +612,14 @@ const OLD_BARRICADE: IncidentTypeConfiguration = {
     },
     '44532': {
       id: '44532',
+      active: false,
       code: 'WHAT WAS THE LOCATION OF THE INCIDENT',
       label: 'WHAT WAS THE LOCATION OF THE INCIDENT',
       multipleAnswers: false,
       answers: [
         {
           code: 'ADMINISTRATION',
+          active: false,
           label: 'ADMINISTRATION',
           commentRequired: false,
           dateRequired: false,
@@ -552,6 +627,7 @@ const OLD_BARRICADE: IncidentTypeConfiguration = {
         },
         {
           code: 'ASSOCIATION AREA',
+          active: false,
           label: 'ASSOCIATION AREA',
           commentRequired: false,
           dateRequired: false,
@@ -559,6 +635,7 @@ const OLD_BARRICADE: IncidentTypeConfiguration = {
         },
         {
           code: 'CELL',
+          active: false,
           label: 'CELL',
           commentRequired: false,
           dateRequired: false,
@@ -566,6 +643,7 @@ const OLD_BARRICADE: IncidentTypeConfiguration = {
         },
         {
           code: 'CHAPEL',
+          active: false,
           label: 'CHAPEL',
           commentRequired: false,
           dateRequired: false,
@@ -573,6 +651,7 @@ const OLD_BARRICADE: IncidentTypeConfiguration = {
         },
         {
           code: 'DINING ROOM',
+          active: false,
           label: 'DINING ROOM',
           commentRequired: false,
           dateRequired: false,
@@ -580,6 +659,7 @@ const OLD_BARRICADE: IncidentTypeConfiguration = {
         },
         {
           code: 'DORMITORY',
+          active: false,
           label: 'DORMITORY',
           commentRequired: false,
           dateRequired: false,
@@ -587,6 +667,7 @@ const OLD_BARRICADE: IncidentTypeConfiguration = {
         },
         {
           code: 'EDUCATION',
+          active: false,
           label: 'EDUCATION',
           commentRequired: false,
           dateRequired: false,
@@ -594,6 +675,7 @@ const OLD_BARRICADE: IncidentTypeConfiguration = {
         },
         {
           code: 'EXERCISE YARD',
+          active: false,
           label: 'EXERCISE YARD',
           commentRequired: false,
           dateRequired: false,
@@ -601,6 +683,7 @@ const OLD_BARRICADE: IncidentTypeConfiguration = {
         },
         {
           code: 'GATE',
+          active: false,
           label: 'GATE',
           commentRequired: false,
           dateRequired: false,
@@ -608,6 +691,7 @@ const OLD_BARRICADE: IncidentTypeConfiguration = {
         },
         {
           code: 'GYM',
+          active: false,
           label: 'GYM',
           commentRequired: false,
           dateRequired: false,
@@ -615,6 +699,7 @@ const OLD_BARRICADE: IncidentTypeConfiguration = {
         },
         {
           code: 'HEALTH CARE CENTRE',
+          active: false,
           label: 'HEALTH CARE CENTRE',
           commentRequired: false,
           dateRequired: false,
@@ -622,6 +707,7 @@ const OLD_BARRICADE: IncidentTypeConfiguration = {
         },
         {
           code: 'KITCHEN',
+          active: false,
           label: 'KITCHEN',
           commentRequired: false,
           dateRequired: false,
@@ -629,6 +715,7 @@ const OLD_BARRICADE: IncidentTypeConfiguration = {
         },
         {
           code: 'OFFICE',
+          active: false,
           label: 'OFFICE',
           commentRequired: false,
           dateRequired: false,
@@ -636,6 +723,7 @@ const OLD_BARRICADE: IncidentTypeConfiguration = {
         },
         {
           code: 'RECEPTION',
+          active: false,
           label: 'RECEPTION',
           commentRequired: false,
           dateRequired: false,
@@ -643,6 +731,7 @@ const OLD_BARRICADE: IncidentTypeConfiguration = {
         },
         {
           code: 'RECESS',
+          active: false,
           label: 'RECESS',
           commentRequired: false,
           dateRequired: false,
@@ -650,6 +739,7 @@ const OLD_BARRICADE: IncidentTypeConfiguration = {
         },
         {
           code: 'SEGREGATION UNIT',
+          active: false,
           label: 'SEGREGATION UNIT',
           commentRequired: false,
           dateRequired: false,
@@ -657,6 +747,7 @@ const OLD_BARRICADE: IncidentTypeConfiguration = {
         },
         {
           code: 'SPECIAL UNIT',
+          active: false,
           label: 'SPECIAL UNIT',
           commentRequired: false,
           dateRequired: false,
@@ -664,6 +755,7 @@ const OLD_BARRICADE: IncidentTypeConfiguration = {
         },
         {
           code: 'SHOWERS/CHANGING ROOM',
+          active: false,
           label: 'SHOWERS/CHANGING ROOM',
           commentRequired: false,
           dateRequired: false,
@@ -671,6 +763,7 @@ const OLD_BARRICADE: IncidentTypeConfiguration = {
         },
         {
           code: 'VISITS',
+          active: false,
           label: 'VISITS',
           commentRequired: false,
           dateRequired: false,
@@ -678,6 +771,7 @@ const OLD_BARRICADE: IncidentTypeConfiguration = {
         },
         {
           code: 'WING',
+          active: false,
           label: 'WING',
           commentRequired: false,
           dateRequired: false,
@@ -685,6 +779,7 @@ const OLD_BARRICADE: IncidentTypeConfiguration = {
         },
         {
           code: 'WORKS DEPARTMENT',
+          active: false,
           label: 'WORKS DEPARTMENT',
           commentRequired: false,
           dateRequired: false,
@@ -692,6 +787,7 @@ const OLD_BARRICADE: IncidentTypeConfiguration = {
         },
         {
           code: 'WORKSHOP',
+          active: false,
           label: 'WORKSHOP',
           commentRequired: false,
           dateRequired: false,
@@ -699,6 +795,7 @@ const OLD_BARRICADE: IncidentTypeConfiguration = {
         },
         {
           code: 'WITHIN PERIMETER',
+          active: false,
           label: 'WITHIN PERIMETER',
           commentRequired: false,
           dateRequired: false,
@@ -706,6 +803,7 @@ const OLD_BARRICADE: IncidentTypeConfiguration = {
         },
         {
           code: 'ELSEWHERE (ENTER DETAILS)',
+          active: false,
           label: 'ELSEWHERE (ENTER DETAILS)',
           commentRequired: true,
           dateRequired: false,
@@ -713,6 +811,7 @@ const OLD_BARRICADE: IncidentTypeConfiguration = {
         },
         {
           code: 'FUNERAL',
+          active: false,
           label: 'FUNERAL',
           commentRequired: false,
           dateRequired: false,
@@ -720,6 +819,7 @@ const OLD_BARRICADE: IncidentTypeConfiguration = {
         },
         {
           code: 'HOSPITAL OUTSIDE (PATIENT)',
+          active: false,
           label: 'HOSPITAL OUTSIDE (PATIENT)',
           commentRequired: false,
           dateRequired: false,
@@ -727,6 +827,7 @@ const OLD_BARRICADE: IncidentTypeConfiguration = {
         },
         {
           code: 'HOSPITAL OUTSIDE (VISITING)',
+          active: false,
           label: 'HOSPITAL OUTSIDE (VISITING)',
           commentRequired: false,
           dateRequired: false,
@@ -734,6 +835,7 @@ const OLD_BARRICADE: IncidentTypeConfiguration = {
         },
         {
           code: 'OUTSIDE WORKING PARTY',
+          active: false,
           label: 'OUTSIDE WORKING PARTY',
           commentRequired: false,
           dateRequired: false,
@@ -741,6 +843,7 @@ const OLD_BARRICADE: IncidentTypeConfiguration = {
         },
         {
           code: 'SPORTS FIELD',
+          active: false,
           label: 'SPORTS FIELD',
           commentRequired: false,
           dateRequired: false,
@@ -748,6 +851,7 @@ const OLD_BARRICADE: IncidentTypeConfiguration = {
         },
         {
           code: 'VEHICLE',
+          active: false,
           label: 'VEHICLE',
           commentRequired: false,
           dateRequired: false,
@@ -755,6 +859,7 @@ const OLD_BARRICADE: IncidentTypeConfiguration = {
         },
         {
           code: 'WEDDINGS',
+          active: false,
           label: 'WEDDINGS',
           commentRequired: false,
           dateRequired: false,
@@ -762,6 +867,7 @@ const OLD_BARRICADE: IncidentTypeConfiguration = {
         },
         {
           code: 'MAGISTRATES COURT',
+          active: false,
           label: 'MAGISTRATES COURT',
           commentRequired: false,
           dateRequired: false,
@@ -769,6 +875,7 @@ const OLD_BARRICADE: IncidentTypeConfiguration = {
         },
         {
           code: 'CROWN COURT',
+          active: false,
           label: 'CROWN COURT',
           commentRequired: false,
           dateRequired: false,
@@ -778,12 +885,14 @@ const OLD_BARRICADE: IncidentTypeConfiguration = {
     },
     '44563': {
       id: '44563',
+      active: false,
       code: 'ENTER DESCRIPTION OF PERSON(S) INJURED',
       label: 'ENTER DESCRIPTION OF PERSON(S) INJURED',
       multipleAnswers: true,
       answers: [
         {
           code: 'STAFF',
+          active: false,
           label: 'STAFF',
           commentRequired: true,
           dateRequired: false,
@@ -791,6 +900,7 @@ const OLD_BARRICADE: IncidentTypeConfiguration = {
         },
         {
           code: 'PRISONERS',
+          active: false,
           label: 'PRISONERS',
           commentRequired: true,
           dateRequired: false,
@@ -798,6 +908,7 @@ const OLD_BARRICADE: IncidentTypeConfiguration = {
         },
         {
           code: 'CIVILIAN GRADES',
+          active: false,
           label: 'CIVILIAN GRADES',
           commentRequired: true,
           dateRequired: false,
@@ -805,6 +916,7 @@ const OLD_BARRICADE: IncidentTypeConfiguration = {
         },
         {
           code: 'POLICE',
+          active: false,
           label: 'POLICE',
           commentRequired: true,
           dateRequired: false,
@@ -812,6 +924,7 @@ const OLD_BARRICADE: IncidentTypeConfiguration = {
         },
         {
           code: 'EXTERNAL CIVILIANS',
+          active: false,
           label: 'EXTERNAL CIVILIANS',
           commentRequired: true,
           dateRequired: false,
@@ -821,12 +934,14 @@ const OLD_BARRICADE: IncidentTypeConfiguration = {
     },
     '44620': {
       id: '44620',
+      active: false,
       code: 'WAS THE SYSTEM RE-ACTIVATED LOCALLY OR BY THE IT AND T SERVICE SUPPLIER?',
       label: 'WAS THE SYSTEM RE-ACTIVATED LOCALLY OR BY THE IT AND T SERVICE SUPPLIER?',
       multipleAnswers: false,
       answers: [
         {
           code: 'LOCAL',
+          active: false,
           label: 'LOCAL',
           commentRequired: false,
           dateRequired: false,
@@ -834,6 +949,7 @@ const OLD_BARRICADE: IncidentTypeConfiguration = {
         },
         {
           code: 'SERVICE SUPPLIER',
+          active: false,
           label: 'SERVICE SUPPLIER',
           commentRequired: false,
           dateRequired: false,
@@ -843,12 +959,14 @@ const OLD_BARRICADE: IncidentTypeConfiguration = {
     },
     '44629': {
       id: '44629',
+      active: false,
       code: 'WAS THE TELEPHONE/IT SYSTEM SHUT DOWN LOCALLY OR BY THE SERVICE SUPPLIER',
       label: 'WAS THE TELEPHONE/IT SYSTEM SHUT DOWN LOCALLY OR BY THE SERVICE SUPPLIER',
       multipleAnswers: false,
       answers: [
         {
           code: 'LOCAL',
+          active: false,
           label: 'LOCAL',
           commentRequired: false,
           dateRequired: false,
@@ -856,6 +974,7 @@ const OLD_BARRICADE: IncidentTypeConfiguration = {
         },
         {
           code: 'SERVICE SUPPLIER',
+          active: false,
           label: 'SERVICE SUPPLIER',
           commentRequired: false,
           dateRequired: false,
@@ -865,12 +984,14 @@ const OLD_BARRICADE: IncidentTypeConfiguration = {
     },
     '44632': {
       id: '44632',
+      active: false,
       code: 'WHEN WAS THE SYSTEM RE-ACTIVATED?',
       label: 'WHEN WAS THE SYSTEM RE-ACTIVATED?',
       multipleAnswers: false,
       answers: [
         {
           code: 'ENTER COMMENT AND DATE',
+          active: false,
           label: 'ENTER COMMENT AND DATE',
           commentRequired: true,
           dateRequired: true,
@@ -880,12 +1001,14 @@ const OLD_BARRICADE: IncidentTypeConfiguration = {
     },
     '44634': {
       id: '44634',
+      active: false,
       code: 'WHICH MINOR INJURIES WERE SUSTAINED',
       label: 'WHICH MINOR INJURIES WERE SUSTAINED',
       multipleAnswers: true,
       answers: [
         {
           code: 'GRAZES, SCRATCHES OR ABRASIONS',
+          active: false,
           label: 'GRAZES, SCRATCHES OR ABRASIONS',
           commentRequired: false,
           dateRequired: false,
@@ -893,6 +1016,7 @@ const OLD_BARRICADE: IncidentTypeConfiguration = {
         },
         {
           code: 'MINOR BRUISES',
+          active: false,
           label: 'MINOR BRUISES',
           commentRequired: false,
           dateRequired: false,
@@ -900,6 +1024,7 @@ const OLD_BARRICADE: IncidentTypeConfiguration = {
         },
         {
           code: 'SWELLINGS',
+          active: false,
           label: 'SWELLINGS',
           commentRequired: false,
           dateRequired: false,
@@ -907,6 +1032,7 @@ const OLD_BARRICADE: IncidentTypeConfiguration = {
         },
         {
           code: 'SUPERFICIAL CUTS',
+          active: false,
           label: 'SUPERFICIAL CUTS',
           commentRequired: false,
           dateRequired: false,
@@ -914,6 +1040,7 @@ const OLD_BARRICADE: IncidentTypeConfiguration = {
         },
         {
           code: 'OTHER',
+          active: false,
           label: 'OTHER',
           commentRequired: true,
           dateRequired: false,
@@ -923,12 +1050,14 @@ const OLD_BARRICADE: IncidentTypeConfiguration = {
     },
     '44665': {
       id: '44665',
+      active: false,
       code: 'WAS THERE AN APPARENT REASON FOR THE INCIDENT',
       label: 'WAS THERE AN APPARENT REASON FOR THE INCIDENT',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: false,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -936,6 +1065,7 @@ const OLD_BARRICADE: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: false,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -945,12 +1075,14 @@ const OLD_BARRICADE: IncidentTypeConfiguration = {
     },
     '44666': {
       id: '44666',
+      active: false,
       code: 'WHAT TIME WAS THE SYSTEM SHUT DOWN?',
       label: 'WHAT TIME WAS THE SYSTEM SHUT DOWN?',
       multipleAnswers: false,
       answers: [
         {
           code: 'ENTER TIME',
+          active: false,
           label: 'ENTER TIME',
           commentRequired: true,
           dateRequired: false,
@@ -960,12 +1092,14 @@ const OLD_BARRICADE: IncidentTypeConfiguration = {
     },
     '44704': {
       id: '44704',
+      active: false,
       code: 'DESCRIBE THE APPARENT REASON FOR THE INCIDENT',
       label: 'DESCRIBE THE APPARENT REASON FOR THE INCIDENT',
       multipleAnswers: true,
       answers: [
         {
           code: 'FACILITIES',
+          active: false,
           label: 'FACILITIES',
           commentRequired: false,
           dateRequired: false,
@@ -973,6 +1107,7 @@ const OLD_BARRICADE: IncidentTypeConfiguration = {
         },
         {
           code: 'FOOD',
+          active: false,
           label: 'FOOD',
           commentRequired: false,
           dateRequired: false,
@@ -980,6 +1115,7 @@ const OLD_BARRICADE: IncidentTypeConfiguration = {
         },
         {
           code: 'PAY',
+          active: false,
           label: 'PAY',
           commentRequired: false,
           dateRequired: false,
@@ -987,6 +1123,7 @@ const OLD_BARRICADE: IncidentTypeConfiguration = {
         },
         {
           code: 'VISITS',
+          active: false,
           label: 'VISITS',
           commentRequired: false,
           dateRequired: false,
@@ -994,6 +1131,7 @@ const OLD_BARRICADE: IncidentTypeConfiguration = {
         },
         {
           code: 'TIME OUT OF CELL',
+          active: false,
           label: 'TIME OUT OF CELL',
           commentRequired: false,
           dateRequired: false,
@@ -1001,6 +1139,7 @@ const OLD_BARRICADE: IncidentTypeConfiguration = {
         },
         {
           code: 'OTHER',
+          active: false,
           label: 'OTHER',
           commentRequired: true,
           dateRequired: false,
@@ -1010,12 +1149,14 @@ const OLD_BARRICADE: IncidentTypeConfiguration = {
     },
     '44722': {
       id: '44722',
+      active: false,
       code: 'WHICH SERIOUS INJURIES WERE SUSTAINED',
       label: 'WHICH SERIOUS INJURIES WERE SUSTAINED',
       multipleAnswers: true,
       answers: [
         {
           code: 'FRACTURE',
+          active: false,
           label: 'FRACTURE',
           commentRequired: false,
           dateRequired: false,
@@ -1023,6 +1164,7 @@ const OLD_BARRICADE: IncidentTypeConfiguration = {
         },
         {
           code: 'SCALD OR BURN',
+          active: false,
           label: 'SCALD OR BURN',
           commentRequired: false,
           dateRequired: false,
@@ -1030,6 +1172,7 @@ const OLD_BARRICADE: IncidentTypeConfiguration = {
         },
         {
           code: 'STABBING',
+          active: false,
           label: 'STABBING',
           commentRequired: false,
           dateRequired: false,
@@ -1037,6 +1180,7 @@ const OLD_BARRICADE: IncidentTypeConfiguration = {
         },
         {
           code: 'CRUSHING',
+          active: false,
           label: 'CRUSHING',
           commentRequired: false,
           dateRequired: false,
@@ -1044,6 +1188,7 @@ const OLD_BARRICADE: IncidentTypeConfiguration = {
         },
         {
           code: 'EXTENSIVE/MULTIPLE BRUISING',
+          active: false,
           label: 'EXTENSIVE/MULTIPLE BRUISING',
           commentRequired: false,
           dateRequired: false,
@@ -1051,6 +1196,7 @@ const OLD_BARRICADE: IncidentTypeConfiguration = {
         },
         {
           code: 'BLACK EYE',
+          active: false,
           label: 'BLACK EYE',
           commentRequired: false,
           dateRequired: false,
@@ -1058,6 +1204,7 @@ const OLD_BARRICADE: IncidentTypeConfiguration = {
         },
         {
           code: 'BROKEN NOSE',
+          active: false,
           label: 'BROKEN NOSE',
           commentRequired: false,
           dateRequired: false,
@@ -1065,6 +1212,7 @@ const OLD_BARRICADE: IncidentTypeConfiguration = {
         },
         {
           code: 'BROKEN TEETH',
+          active: false,
           label: 'BROKEN TEETH',
           commentRequired: false,
           dateRequired: false,
@@ -1072,6 +1220,7 @@ const OLD_BARRICADE: IncidentTypeConfiguration = {
         },
         {
           code: 'CUTS REQUIRING SUTURES',
+          active: false,
           label: 'CUTS REQUIRING SUTURES',
           commentRequired: false,
           dateRequired: false,
@@ -1079,6 +1228,7 @@ const OLD_BARRICADE: IncidentTypeConfiguration = {
         },
         {
           code: 'BITES',
+          active: false,
           label: 'BITES',
           commentRequired: false,
           dateRequired: false,
@@ -1086,6 +1236,7 @@ const OLD_BARRICADE: IncidentTypeConfiguration = {
         },
         {
           code: 'GUN SHOT WOUND',
+          active: false,
           label: 'GUN SHOT WOUND',
           commentRequired: false,
           dateRequired: false,
@@ -1093,6 +1244,7 @@ const OLD_BARRICADE: IncidentTypeConfiguration = {
         },
         {
           code: 'TEMPORARY/PERMANENT BLINDNESS',
+          active: false,
           label: 'TEMPORARY/PERMANENT BLINDNESS',
           commentRequired: false,
           dateRequired: false,
@@ -1102,12 +1254,14 @@ const OLD_BARRICADE: IncidentTypeConfiguration = {
     },
     '44796': {
       id: '44796',
+      active: false,
       code: 'DID INJURIES RESULT IN DETENTION IN OUTSIDE HOSPITAL AS AN IN-PATIENT',
       label: 'DID INJURIES RESULT IN DETENTION IN OUTSIDE HOSPITAL AS AN IN-PATIENT',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: false,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -1115,6 +1269,7 @@ const OLD_BARRICADE: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: false,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -1124,12 +1279,14 @@ const OLD_BARRICADE: IncidentTypeConfiguration = {
     },
     '44816': {
       id: '44816',
+      active: false,
       code: "IS THE INCIDENT SUBJECT TO A GOVERNOR'S ADJUDICATION",
       label: "IS THE INCIDENT SUBJECT TO A GOVERNOR'S ADJUDICATION",
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: false,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -1137,6 +1294,7 @@ const OLD_BARRICADE: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: false,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -1146,12 +1304,14 @@ const OLD_BARRICADE: IncidentTypeConfiguration = {
     },
     '44860': {
       id: '44860',
+      active: false,
       code: 'WERE WATER HOSES USED',
       label: 'WERE WATER HOSES USED',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: false,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -1159,6 +1319,7 @@ const OLD_BARRICADE: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: false,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -1168,12 +1329,14 @@ const OLD_BARRICADE: IncidentTypeConfiguration = {
     },
     '44879': {
       id: '44879',
+      active: false,
       code: 'HAS ANY PROSECUTION TAKEN PLACE OR IS ANY PENDING',
       label: 'HAS ANY PROSECUTION TAKEN PLACE OR IS ANY PENDING',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: false,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -1181,6 +1344,7 @@ const OLD_BARRICADE: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: false,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -1190,12 +1354,14 @@ const OLD_BARRICADE: IncidentTypeConfiguration = {
     },
     '44914': {
       id: '44914',
+      active: false,
       code: 'IS THERE ANY MEDIA INTEREST IN THIS INCIDENT',
       label: 'IS THERE ANY MEDIA INTEREST IN THIS INCIDENT',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: false,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -1203,6 +1369,7 @@ const OLD_BARRICADE: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: false,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -1212,12 +1379,14 @@ const OLD_BARRICADE: IncidentTypeConfiguration = {
     },
     '44932': {
       id: '44932',
+      active: false,
       code: 'HAS THE SERVICE SUPPLIER BEEN NOTIFIED OF A REPLACEMENT KEYWORD?',
       label: 'HAS THE SERVICE SUPPLIER BEEN NOTIFIED OF A REPLACEMENT KEYWORD?',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: false,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -1225,6 +1394,7 @@ const OLD_BARRICADE: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: false,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -1234,12 +1404,14 @@ const OLD_BARRICADE: IncidentTypeConfiguration = {
     },
     '44938': {
       id: '44938',
+      active: false,
       code: 'WERE ANY INJURIES RECEIVED DURING THIS INCIDENT',
       label: 'WERE ANY INJURIES RECEIVED DURING THIS INCIDENT',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: false,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -1247,6 +1419,7 @@ const OLD_BARRICADE: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: false,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -1256,12 +1429,14 @@ const OLD_BARRICADE: IncidentTypeConfiguration = {
     },
     '44947': {
       id: '44947',
+      active: false,
       code: 'WAS THIS A FULL OR PARTIAL SHUT DOWN?',
       label: 'WAS THIS A FULL OR PARTIAL SHUT DOWN?',
       multipleAnswers: false,
       answers: [
         {
           code: 'FULL',
+          active: false,
           label: 'FULL',
           commentRequired: false,
           dateRequired: false,
@@ -1269,6 +1444,7 @@ const OLD_BARRICADE: IncidentTypeConfiguration = {
         },
         {
           code: 'PARTIAL',
+          active: false,
           label: 'PARTIAL',
           commentRequired: true,
           dateRequired: false,
@@ -1278,12 +1454,14 @@ const OLD_BARRICADE: IncidentTypeConfiguration = {
     },
     '44987': {
       id: '44987',
+      active: false,
       code: 'DESCRIBE WHAT WAS COMPROMISED AND BY WHOM',
       label: 'DESCRIBE WHAT WAS COMPROMISED AND BY WHOM',
       multipleAnswers: false,
       answers: [
         {
           code: 'DESCRIBE COMPROMISE',
+          active: false,
           label: 'DESCRIBE COMPROMISE',
           commentRequired: true,
           dateRequired: false,
@@ -1293,12 +1471,14 @@ const OLD_BARRICADE: IncidentTypeConfiguration = {
     },
     '45022': {
       id: '45022',
+      active: false,
       code: 'WAS CONTROL AND RESTRAINTS EMPLOYED',
       label: 'WAS CONTROL AND RESTRAINTS EMPLOYED',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: false,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -1306,6 +1486,7 @@ const OLD_BARRICADE: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: false,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -1315,12 +1496,14 @@ const OLD_BARRICADE: IncidentTypeConfiguration = {
     },
     '45071': {
       id: '45071',
+      active: false,
       code: 'ARE THERE ANY STAFF NOW OFF DUTY AS A RESULT OF THIS INCIDENT',
       label: 'ARE THERE ANY STAFF NOW OFF DUTY AS A RESULT OF THIS INCIDENT',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: false,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -1328,6 +1511,7 @@ const OLD_BARRICADE: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: false,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -1337,12 +1521,14 @@ const OLD_BARRICADE: IncidentTypeConfiguration = {
     },
     '45075': {
       id: '45075',
+      active: false,
       code: 'WAS A SERIOUS INJURY SUSTAINED',
       label: 'WAS A SERIOUS INJURY SUSTAINED',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: false,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -1350,6 +1536,7 @@ const OLD_BARRICADE: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: false,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -1359,12 +1546,14 @@ const OLD_BARRICADE: IncidentTypeConfiguration = {
     },
     '45083': {
       id: '45083',
+      active: false,
       code: 'WAS A MINOR INJURY SUSTAINED',
       label: 'WAS A MINOR INJURY SUSTAINED',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: false,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -1372,6 +1561,7 @@ const OLD_BARRICADE: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: false,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -1381,12 +1571,14 @@ const OLD_BARRICADE: IncidentTypeConfiguration = {
     },
     '45086': {
       id: '45086',
+      active: false,
       code: 'IS THE INCIDENT THE SUBJECT OF AN INTERNAL INVESTIGATION',
       label: 'IS THE INCIDENT THE SUBJECT OF AN INTERNAL INVESTIGATION',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: false,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -1394,6 +1586,7 @@ const OLD_BARRICADE: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: false,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -1403,12 +1596,14 @@ const OLD_BARRICADE: IncidentTypeConfiguration = {
     },
     '45171': {
       id: '45171',
+      active: false,
       code: 'DURATION OF INCIDENT IN HOURS',
       label: 'DURATION OF INCIDENT IN HOURS',
       multipleAnswers: false,
       answers: [
         {
           code: 'ENTER HOURS',
+          active: false,
           label: 'ENTER HOURS',
           commentRequired: true,
           dateRequired: false,

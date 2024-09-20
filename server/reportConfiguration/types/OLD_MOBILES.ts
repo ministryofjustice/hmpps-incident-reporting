@@ -1,4 +1,4 @@
-// Generated with ./scripts/updateNomisIncidentTypeConfigurations.ts at 2024-09-16T15:42:19.989Z
+// Generated with ./scripts/updateNomisIncidentTypeConfigurations.ts at 2024-09-20T16:52:43.935Z
 
 import { type IncidentTypeConfiguration } from '../../data/incidentTypeConfiguration/types'
 
@@ -9,12 +9,14 @@ const OLD_MOBILES: IncidentTypeConfiguration = {
   questions: {
     '45209': {
       id: '45209',
+      active: false,
       code: 'Item found. Must enter value (how many found) in comments field',
       label: 'Item found. Must enter value (how many found) in comments field',
       multipleAnswers: true,
       answers: [
         {
           code: 'Mobile:',
+          active: false,
           label: 'Mobile:',
           commentRequired: true,
           dateRequired: false,
@@ -22,6 +24,7 @@ const OLD_MOBILES: IncidentTypeConfiguration = {
         },
         {
           code: 'SIM:',
+          active: false,
           label: 'SIM:',
           commentRequired: true,
           dateRequired: false,
@@ -29,6 +32,7 @@ const OLD_MOBILES: IncidentTypeConfiguration = {
         },
         {
           code: 'Charger:',
+          active: false,
           label: 'Charger:',
           commentRequired: true,
           dateRequired: false,
@@ -36,6 +40,7 @@ const OLD_MOBILES: IncidentTypeConfiguration = {
         },
         {
           code: 'Other please specify:',
+          active: false,
           label: 'Other please specify:',
           commentRequired: true,
           dateRequired: false,
@@ -43,6 +48,7 @@ const OLD_MOBILES: IncidentTypeConfiguration = {
         },
         {
           code: 'Mobile:',
+          active: false,
           label: 'Mobile:',
           commentRequired: true,
           dateRequired: false,
@@ -50,6 +56,7 @@ const OLD_MOBILES: IncidentTypeConfiguration = {
         },
         {
           code: 'SIM:',
+          active: false,
           label: 'SIM:',
           commentRequired: true,
           dateRequired: false,
@@ -57,6 +64,7 @@ const OLD_MOBILES: IncidentTypeConfiguration = {
         },
         {
           code: 'Charger:',
+          active: false,
           label: 'Charger:',
           commentRequired: true,
           dateRequired: false,
@@ -64,6 +72,7 @@ const OLD_MOBILES: IncidentTypeConfiguration = {
         },
         {
           code: 'Other please specify:',
+          active: false,
           label: 'Other please specify:',
           commentRequired: true,
           dateRequired: false,
@@ -73,12 +82,14 @@ const OLD_MOBILES: IncidentTypeConfiguration = {
     },
     '45210': {
       id: '45210',
+      active: false,
       code: 'Date item was found',
       label: 'Date item was found',
       multipleAnswers: false,
       answers: [
         {
           code: 'Enter Date:',
+          active: false,
           label: 'Enter Date:',
           commentRequired: false,
           dateRequired: true,
@@ -86,6 +97,7 @@ const OLD_MOBILES: IncidentTypeConfiguration = {
         },
         {
           code: 'Enter Date:',
+          active: false,
           label: 'Enter Date:',
           commentRequired: false,
           dateRequired: true,
@@ -95,12 +107,14 @@ const OLD_MOBILES: IncidentTypeConfiguration = {
     },
     '45211': {
       id: '45211',
+      active: false,
       code: 'Time item was found',
       label: 'Time item was found',
       multipleAnswers: false,
       answers: [
         {
           code: 'Enter Time:',
+          active: true,
           label: 'Enter Time:',
           commentRequired: true,
           dateRequired: false,
@@ -108,6 +122,7 @@ const OLD_MOBILES: IncidentTypeConfiguration = {
         },
         {
           code: 'Enter Time:',
+          active: true,
           label: 'Enter Time:',
           commentRequired: true,
           dateRequired: false,
@@ -117,12 +132,14 @@ const OLD_MOBILES: IncidentTypeConfiguration = {
     },
     '45212': {
       id: '45212',
+      active: false,
       code: 'Is the method of entry into the establishment known?',
       label: 'Is the method of entry into the establishment known?',
       multipleAnswers: false,
       answers: [
         {
           code: 'Yes',
+          active: false,
           label: 'Yes',
           commentRequired: false,
           dateRequired: false,
@@ -130,6 +147,7 @@ const OLD_MOBILES: IncidentTypeConfiguration = {
         },
         {
           code: 'No',
+          active: false,
           label: 'No',
           commentRequired: false,
           dateRequired: false,
@@ -137,6 +155,7 @@ const OLD_MOBILES: IncidentTypeConfiguration = {
         },
         {
           code: 'Yes',
+          active: false,
           label: 'Yes',
           commentRequired: false,
           dateRequired: false,
@@ -144,6 +163,7 @@ const OLD_MOBILES: IncidentTypeConfiguration = {
         },
         {
           code: 'No',
+          active: false,
           label: 'No',
           commentRequired: false,
           dateRequired: false,
@@ -153,12 +173,14 @@ const OLD_MOBILES: IncidentTypeConfiguration = {
     },
     '45213': {
       id: '45213',
+      active: false,
       code: 'Describe the method of entry into the establishment',
       label: 'Describe the method of entry into the establishment',
       multipleAnswers: false,
       answers: [
         {
           code: 'Staff',
+          active: false,
           label: 'Staff',
           commentRequired: false,
           dateRequired: false,
@@ -166,6 +188,7 @@ const OLD_MOBILES: IncidentTypeConfiguration = {
         },
         {
           code: 'Prisoner/Young Offender',
+          active: false,
           label: 'Prisoner/Young Offender',
           commentRequired: false,
           dateRequired: false,
@@ -173,6 +196,7 @@ const OLD_MOBILES: IncidentTypeConfiguration = {
         },
         {
           code: 'Visitor: Specify:',
+          active: false,
           label: 'Visitor: Specify:',
           commentRequired: true,
           dateRequired: false,
@@ -180,6 +204,7 @@ const OLD_MOBILES: IncidentTypeConfiguration = {
         },
         {
           code: 'Social',
+          active: false,
           label: 'Social',
           commentRequired: false,
           dateRequired: false,
@@ -187,6 +212,7 @@ const OLD_MOBILES: IncidentTypeConfiguration = {
         },
         {
           code: 'Official',
+          active: false,
           label: 'Official',
           commentRequired: false,
           dateRequired: false,
@@ -194,6 +220,7 @@ const OLD_MOBILES: IncidentTypeConfiguration = {
         },
         {
           code: 'Contractor',
+          active: false,
           label: 'Contractor',
           commentRequired: false,
           dateRequired: false,
@@ -201,6 +228,7 @@ const OLD_MOBILES: IncidentTypeConfiguration = {
         },
         {
           code: 'Thrown In',
+          active: false,
           label: 'Thrown In',
           commentRequired: false,
           dateRequired: false,
@@ -208,6 +236,7 @@ const OLD_MOBILES: IncidentTypeConfiguration = {
         },
         {
           code: 'Post - Social/Rule 39',
+          active: false,
           label: 'Post - Social/Rule 39',
           commentRequired: false,
           dateRequired: false,
@@ -215,6 +244,7 @@ const OLD_MOBILES: IncidentTypeConfiguration = {
         },
         {
           code: 'Not attributable',
+          active: false,
           label: 'Not attributable',
           commentRequired: false,
           dateRequired: false,
@@ -222,6 +252,7 @@ const OLD_MOBILES: IncidentTypeConfiguration = {
         },
         {
           code: 'Other: Please specify',
+          active: false,
           label: 'Other: Please specify',
           commentRequired: true,
           dateRequired: false,
@@ -229,6 +260,7 @@ const OLD_MOBILES: IncidentTypeConfiguration = {
         },
         {
           code: 'Staff',
+          active: false,
           label: 'Staff',
           commentRequired: false,
           dateRequired: false,
@@ -236,6 +268,7 @@ const OLD_MOBILES: IncidentTypeConfiguration = {
         },
         {
           code: 'Prisoner / Young Offender',
+          active: false,
           label: 'Prisoner / Young Offender',
           commentRequired: false,
           dateRequired: false,
@@ -243,6 +276,7 @@ const OLD_MOBILES: IncidentTypeConfiguration = {
         },
         {
           code: 'Visitor: Social',
+          active: false,
           label: 'Visitor: Social',
           commentRequired: false,
           dateRequired: false,
@@ -250,6 +284,7 @@ const OLD_MOBILES: IncidentTypeConfiguration = {
         },
         {
           code: 'Visitor: Official',
+          active: false,
           label: 'Visitor: Official',
           commentRequired: false,
           dateRequired: false,
@@ -257,6 +292,7 @@ const OLD_MOBILES: IncidentTypeConfiguration = {
         },
         {
           code: 'Contractor',
+          active: false,
           label: 'Contractor',
           commentRequired: false,
           dateRequired: false,
@@ -264,6 +300,7 @@ const OLD_MOBILES: IncidentTypeConfiguration = {
         },
         {
           code: 'Thrown In',
+          active: false,
           label: 'Thrown In',
           commentRequired: false,
           dateRequired: false,
@@ -271,6 +308,7 @@ const OLD_MOBILES: IncidentTypeConfiguration = {
         },
         {
           code: 'Post – Social / Rule 39',
+          active: false,
           label: 'Post – Social / Rule 39',
           commentRequired: false,
           dateRequired: false,
@@ -278,6 +316,7 @@ const OLD_MOBILES: IncidentTypeConfiguration = {
         },
         {
           code: 'Not attributable',
+          active: false,
           label: 'Not attributable',
           commentRequired: false,
           dateRequired: false,
@@ -285,6 +324,7 @@ const OLD_MOBILES: IncidentTypeConfiguration = {
         },
         {
           code: 'Other : Please Specify',
+          active: false,
           label: 'Other : Please Specify',
           commentRequired: true,
           dateRequired: false,
@@ -294,12 +334,14 @@ const OLD_MOBILES: IncidentTypeConfiguration = {
     },
     '45214': {
       id: '45214',
+      active: false,
       code: 'Describe how item/s were found',
       label: 'Describe how item/s were found',
       multipleAnswers: true,
       answers: [
         {
           code: 'Boss Chair',
+          active: false,
           label: 'Boss Chair',
           commentRequired: false,
           dateRequired: false,
@@ -307,6 +349,7 @@ const OLD_MOBILES: IncidentTypeConfiguration = {
         },
         {
           code: 'High Sensitivity Wand',
+          active: false,
           label: 'High Sensitivity Wand',
           commentRequired: false,
           dateRequired: false,
@@ -314,6 +357,7 @@ const OLD_MOBILES: IncidentTypeConfiguration = {
         },
         {
           code: 'Mobile Phone Detection Dog',
+          active: false,
           label: 'Mobile Phone Detection Dog',
           commentRequired: false,
           dateRequired: false,
@@ -321,6 +365,7 @@ const OLD_MOBILES: IncidentTypeConfiguration = {
         },
         {
           code: 'Physical search',
+          active: false,
           label: 'Physical search',
           commentRequired: false,
           dateRequired: false,
@@ -328,6 +373,7 @@ const OLD_MOBILES: IncidentTypeConfiguration = {
         },
         {
           code: 'Cell search',
+          active: false,
           label: 'Cell search',
           commentRequired: false,
           dateRequired: false,
@@ -335,6 +381,7 @@ const OLD_MOBILES: IncidentTypeConfiguration = {
         },
         {
           code: 'Unusual/Suspicious behaviour',
+          active: false,
           label: 'Unusual/Suspicious behaviour',
           commentRequired: false,
           dateRequired: false,
@@ -342,6 +389,7 @@ const OLD_MOBILES: IncidentTypeConfiguration = {
         },
         {
           code: 'Mobile phone signal detector',
+          active: false,
           label: 'Mobile phone signal detector',
           commentRequired: false,
           dateRequired: false,
@@ -349,6 +397,7 @@ const OLD_MOBILES: IncidentTypeConfiguration = {
         },
         {
           code: 'Intelligence led search',
+          active: false,
           label: 'Intelligence led search',
           commentRequired: false,
           dateRequired: false,
@@ -356,6 +405,7 @@ const OLD_MOBILES: IncidentTypeConfiguration = {
         },
         {
           code: 'Information received',
+          active: false,
           label: 'Information received',
           commentRequired: false,
           dateRequired: false,
@@ -363,6 +413,7 @@ const OLD_MOBILES: IncidentTypeConfiguration = {
         },
         {
           code: 'Other: Please specify',
+          active: false,
           label: 'Other: Please specify',
           commentRequired: true,
           dateRequired: false,
@@ -370,6 +421,7 @@ const OLD_MOBILES: IncidentTypeConfiguration = {
         },
         {
           code: 'Boss Chair',
+          active: false,
           label: 'Boss Chair',
           commentRequired: false,
           dateRequired: false,
@@ -377,6 +429,7 @@ const OLD_MOBILES: IncidentTypeConfiguration = {
         },
         {
           code: 'High Sensitivity Wand',
+          active: false,
           label: 'High Sensitivity Wand',
           commentRequired: false,
           dateRequired: false,
@@ -384,6 +437,7 @@ const OLD_MOBILES: IncidentTypeConfiguration = {
         },
         {
           code: 'Mobile phone detection Dog',
+          active: false,
           label: 'Mobile phone detection Dog',
           commentRequired: false,
           dateRequired: false,
@@ -391,6 +445,7 @@ const OLD_MOBILES: IncidentTypeConfiguration = {
         },
         {
           code: 'Physical Search',
+          active: false,
           label: 'Physical Search',
           commentRequired: false,
           dateRequired: false,
@@ -398,6 +453,7 @@ const OLD_MOBILES: IncidentTypeConfiguration = {
         },
         {
           code: 'Cell Search',
+          active: false,
           label: 'Cell Search',
           commentRequired: false,
           dateRequired: false,
@@ -405,6 +461,7 @@ const OLD_MOBILES: IncidentTypeConfiguration = {
         },
         {
           code: 'Unusual/Suspicious Behaviour',
+          active: false,
           label: 'Unusual/Suspicious Behaviour',
           commentRequired: false,
           dateRequired: false,
@@ -412,6 +469,7 @@ const OLD_MOBILES: IncidentTypeConfiguration = {
         },
         {
           code: 'Mobile phone signal detector',
+          active: false,
           label: 'Mobile phone signal detector',
           commentRequired: false,
           dateRequired: false,
@@ -419,6 +477,7 @@ const OLD_MOBILES: IncidentTypeConfiguration = {
         },
         {
           code: 'Intelligence led search',
+          active: false,
           label: 'Intelligence led search',
           commentRequired: false,
           dateRequired: false,
@@ -426,6 +485,7 @@ const OLD_MOBILES: IncidentTypeConfiguration = {
         },
         {
           code: 'Information Received',
+          active: false,
           label: 'Information Received',
           commentRequired: false,
           dateRequired: false,
@@ -433,6 +493,7 @@ const OLD_MOBILES: IncidentTypeConfiguration = {
         },
         {
           code: 'Other: Please Specify',
+          active: false,
           label: 'Other: Please Specify',
           commentRequired: true,
           dateRequired: false,
@@ -442,12 +503,14 @@ const OLD_MOBILES: IncidentTypeConfiguration = {
     },
     '45215': {
       id: '45215',
+      active: false,
       code: 'If the item was found in possession - Whose possession was it found in?',
       label: 'If the item was found in possession - Whose possession was it found in?',
       multipleAnswers: false,
       answers: [
         {
           code: 'Prisoner/Young Offender',
+          active: false,
           label: 'Prisoner/Young Offender',
           commentRequired: false,
           dateRequired: false,
@@ -455,6 +518,7 @@ const OLD_MOBILES: IncidentTypeConfiguration = {
         },
         {
           code: 'Staff',
+          active: false,
           label: 'Staff',
           commentRequired: false,
           dateRequired: false,
@@ -462,6 +526,7 @@ const OLD_MOBILES: IncidentTypeConfiguration = {
         },
         {
           code: 'Contractor',
+          active: false,
           label: 'Contractor',
           commentRequired: false,
           dateRequired: false,
@@ -469,6 +534,7 @@ const OLD_MOBILES: IncidentTypeConfiguration = {
         },
         {
           code: 'Visitor: Please specify',
+          active: false,
           label: 'Visitor: Please specify',
           commentRequired: true,
           dateRequired: false,
@@ -476,6 +542,7 @@ const OLD_MOBILES: IncidentTypeConfiguration = {
         },
         {
           code: 'Official',
+          active: false,
           label: 'Official',
           commentRequired: false,
           dateRequired: false,
@@ -483,6 +550,7 @@ const OLD_MOBILES: IncidentTypeConfiguration = {
         },
         {
           code: 'Other: Please specify',
+          active: false,
           label: 'Other: Please specify',
           commentRequired: true,
           dateRequired: false,
@@ -490,6 +558,7 @@ const OLD_MOBILES: IncidentTypeConfiguration = {
         },
         {
           code: 'Prisoner/Young Offender',
+          active: false,
           label: 'Prisoner/Young Offender',
           commentRequired: false,
           dateRequired: false,
@@ -497,6 +566,7 @@ const OLD_MOBILES: IncidentTypeConfiguration = {
         },
         {
           code: 'Staff',
+          active: false,
           label: 'Staff',
           commentRequired: false,
           dateRequired: false,
@@ -504,6 +574,7 @@ const OLD_MOBILES: IncidentTypeConfiguration = {
         },
         {
           code: 'Contractor',
+          active: false,
           label: 'Contractor',
           commentRequired: false,
           dateRequired: false,
@@ -511,6 +582,7 @@ const OLD_MOBILES: IncidentTypeConfiguration = {
         },
         {
           code: 'Visitor: Social',
+          active: false,
           label: 'Visitor: Social',
           commentRequired: false,
           dateRequired: false,
@@ -518,6 +590,7 @@ const OLD_MOBILES: IncidentTypeConfiguration = {
         },
         {
           code: 'Visitor: Official',
+          active: false,
           label: 'Visitor: Official',
           commentRequired: false,
           dateRequired: false,
@@ -525,6 +598,7 @@ const OLD_MOBILES: IncidentTypeConfiguration = {
         },
         {
           code: 'Other: Please Specify',
+          active: false,
           label: 'Other: Please Specify',
           commentRequired: true,
           dateRequired: false,
@@ -534,12 +608,14 @@ const OLD_MOBILES: IncidentTypeConfiguration = {
     },
     '45216': {
       id: '45216',
+      active: false,
       code: 'Where was the mobile phone found?',
       label: 'Where was the mobile phone found?',
       multipleAnswers: false,
       answers: [
         {
           code: 'Administration Area',
+          active: false,
           label: 'Administration Area',
           commentRequired: false,
           dateRequired: false,
@@ -547,6 +623,7 @@ const OLD_MOBILES: IncidentTypeConfiguration = {
         },
         {
           code: 'Association Area',
+          active: false,
           label: 'Association Area',
           commentRequired: false,
           dateRequired: false,
@@ -554,6 +631,7 @@ const OLD_MOBILES: IncidentTypeConfiguration = {
         },
         {
           code: 'Prisoner Accommodation',
+          active: false,
           label: 'Prisoner Accommodation',
           commentRequired: false,
           dateRequired: false,
@@ -561,6 +639,7 @@ const OLD_MOBILES: IncidentTypeConfiguration = {
         },
         {
           code: 'Chapel',
+          active: false,
           label: 'Chapel',
           commentRequired: false,
           dateRequired: false,
@@ -568,6 +647,7 @@ const OLD_MOBILES: IncidentTypeConfiguration = {
         },
         {
           code: 'Dormitory',
+          active: false,
           label: 'Dormitory',
           commentRequired: false,
           dateRequired: false,
@@ -575,6 +655,7 @@ const OLD_MOBILES: IncidentTypeConfiguration = {
         },
         {
           code: 'Education',
+          active: false,
           label: 'Education',
           commentRequired: false,
           dateRequired: false,
@@ -582,6 +663,7 @@ const OLD_MOBILES: IncidentTypeConfiguration = {
         },
         {
           code: 'Exercise Yard',
+          active: false,
           label: 'Exercise Yard',
           commentRequired: false,
           dateRequired: false,
@@ -589,6 +671,7 @@ const OLD_MOBILES: IncidentTypeConfiguration = {
         },
         {
           code: 'External Area (within prison grounds)',
+          active: false,
           label: 'External Area (within prison grounds)',
           commentRequired: false,
           dateRequired: false,
@@ -596,6 +679,7 @@ const OLD_MOBILES: IncidentTypeConfiguration = {
         },
         {
           code: 'Gate',
+          active: false,
           label: 'Gate',
           commentRequired: false,
           dateRequired: false,
@@ -603,6 +687,7 @@ const OLD_MOBILES: IncidentTypeConfiguration = {
         },
         {
           code: 'Gym',
+          active: false,
           label: 'Gym',
           commentRequired: false,
           dateRequired: false,
@@ -610,6 +695,7 @@ const OLD_MOBILES: IncidentTypeConfiguration = {
         },
         {
           code: 'Health Care Centre',
+          active: false,
           label: 'Health Care Centre',
           commentRequired: false,
           dateRequired: false,
@@ -617,6 +703,7 @@ const OLD_MOBILES: IncidentTypeConfiguration = {
         },
         {
           code: 'Kitchen',
+          active: false,
           label: 'Kitchen',
           commentRequired: false,
           dateRequired: false,
@@ -624,6 +711,7 @@ const OLD_MOBILES: IncidentTypeConfiguration = {
         },
         {
           code: 'Post/Parcel',
+          active: false,
           label: 'Post/Parcel',
           commentRequired: false,
           dateRequired: false,
@@ -631,6 +719,7 @@ const OLD_MOBILES: IncidentTypeConfiguration = {
         },
         {
           code: 'Reception',
+          active: false,
           label: 'Reception',
           commentRequired: false,
           dateRequired: false,
@@ -638,6 +727,7 @@ const OLD_MOBILES: IncidentTypeConfiguration = {
         },
         {
           code: 'Recess',
+          active: false,
           label: 'Recess',
           commentRequired: false,
           dateRequired: false,
@@ -645,6 +735,7 @@ const OLD_MOBILES: IncidentTypeConfiguration = {
         },
         {
           code: 'Segregation Unit',
+          active: false,
           label: 'Segregation Unit',
           commentRequired: false,
           dateRequired: false,
@@ -652,6 +743,7 @@ const OLD_MOBILES: IncidentTypeConfiguration = {
         },
         {
           code: 'Special Unit',
+          active: false,
           label: 'Special Unit',
           commentRequired: false,
           dateRequired: false,
@@ -659,6 +751,7 @@ const OLD_MOBILES: IncidentTypeConfiguration = {
         },
         {
           code: 'Showers/Changing Room',
+          active: false,
           label: 'Showers/Changing Room',
           commentRequired: false,
           dateRequired: false,
@@ -666,6 +759,7 @@ const OLD_MOBILES: IncidentTypeConfiguration = {
         },
         {
           code: 'Visits',
+          active: false,
           label: 'Visits',
           commentRequired: false,
           dateRequired: false,
@@ -673,6 +767,7 @@ const OLD_MOBILES: IncidentTypeConfiguration = {
         },
         {
           code: 'Wing',
+          active: false,
           label: 'Wing',
           commentRequired: false,
           dateRequired: false,
@@ -680,6 +775,7 @@ const OLD_MOBILES: IncidentTypeConfiguration = {
         },
         {
           code: 'Works Department',
+          active: false,
           label: 'Works Department',
           commentRequired: false,
           dateRequired: false,
@@ -687,6 +783,7 @@ const OLD_MOBILES: IncidentTypeConfiguration = {
         },
         {
           code: 'Workshop',
+          active: false,
           label: 'Workshop',
           commentRequired: false,
           dateRequired: false,
@@ -694,6 +791,7 @@ const OLD_MOBILES: IncidentTypeConfiguration = {
         },
         {
           code: 'Sports field',
+          active: false,
           label: 'Sports field',
           commentRequired: false,
           dateRequired: false,
@@ -701,6 +799,7 @@ const OLD_MOBILES: IncidentTypeConfiguration = {
         },
         {
           code: 'Staff Area',
+          active: false,
           label: 'Staff Area',
           commentRequired: false,
           dateRequired: false,
@@ -708,6 +807,7 @@ const OLD_MOBILES: IncidentTypeConfiguration = {
         },
         {
           code: 'Other: Please Specify',
+          active: false,
           label: 'Other: Please Specify',
           commentRequired: true,
           dateRequired: false,
@@ -715,6 +815,7 @@ const OLD_MOBILES: IncidentTypeConfiguration = {
         },
         {
           code: 'Administration Area',
+          active: false,
           label: 'Administration Area',
           commentRequired: false,
           dateRequired: false,
@@ -722,6 +823,7 @@ const OLD_MOBILES: IncidentTypeConfiguration = {
         },
         {
           code: 'Association Area',
+          active: false,
           label: 'Association Area',
           commentRequired: false,
           dateRequired: false,
@@ -729,6 +831,7 @@ const OLD_MOBILES: IncidentTypeConfiguration = {
         },
         {
           code: 'Prisoner Accommodation',
+          active: false,
           label: 'Prisoner Accommodation',
           commentRequired: false,
           dateRequired: false,
@@ -736,6 +839,7 @@ const OLD_MOBILES: IncidentTypeConfiguration = {
         },
         {
           code: 'Chapel',
+          active: false,
           label: 'Chapel',
           commentRequired: false,
           dateRequired: false,
@@ -743,6 +847,7 @@ const OLD_MOBILES: IncidentTypeConfiguration = {
         },
         {
           code: 'Dormitory',
+          active: false,
           label: 'Dormitory',
           commentRequired: false,
           dateRequired: false,
@@ -750,6 +855,7 @@ const OLD_MOBILES: IncidentTypeConfiguration = {
         },
         {
           code: 'Education',
+          active: false,
           label: 'Education',
           commentRequired: false,
           dateRequired: false,
@@ -757,6 +863,7 @@ const OLD_MOBILES: IncidentTypeConfiguration = {
         },
         {
           code: 'Exercise Yard',
+          active: false,
           label: 'Exercise Yard',
           commentRequired: false,
           dateRequired: false,
@@ -764,6 +871,7 @@ const OLD_MOBILES: IncidentTypeConfiguration = {
         },
         {
           code: 'External Area (within prison grounds)',
+          active: false,
           label: 'External Area (within prison grounds)',
           commentRequired: false,
           dateRequired: false,
@@ -771,6 +879,7 @@ const OLD_MOBILES: IncidentTypeConfiguration = {
         },
         {
           code: 'Gate',
+          active: false,
           label: 'Gate',
           commentRequired: false,
           dateRequired: false,
@@ -778,6 +887,7 @@ const OLD_MOBILES: IncidentTypeConfiguration = {
         },
         {
           code: 'Gym',
+          active: false,
           label: 'Gym',
           commentRequired: false,
           dateRequired: false,
@@ -785,6 +895,7 @@ const OLD_MOBILES: IncidentTypeConfiguration = {
         },
         {
           code: 'Health Care Centre',
+          active: false,
           label: 'Health Care Centre',
           commentRequired: false,
           dateRequired: false,
@@ -792,6 +903,7 @@ const OLD_MOBILES: IncidentTypeConfiguration = {
         },
         {
           code: 'Kitchen',
+          active: false,
           label: 'Kitchen',
           commentRequired: false,
           dateRequired: false,
@@ -799,6 +911,7 @@ const OLD_MOBILES: IncidentTypeConfiguration = {
         },
         {
           code: 'Post/Parcel',
+          active: false,
           label: 'Post/Parcel',
           commentRequired: false,
           dateRequired: false,
@@ -806,6 +919,7 @@ const OLD_MOBILES: IncidentTypeConfiguration = {
         },
         {
           code: 'Reception',
+          active: false,
           label: 'Reception',
           commentRequired: false,
           dateRequired: false,
@@ -813,6 +927,7 @@ const OLD_MOBILES: IncidentTypeConfiguration = {
         },
         {
           code: 'Recess',
+          active: false,
           label: 'Recess',
           commentRequired: false,
           dateRequired: false,
@@ -820,6 +935,7 @@ const OLD_MOBILES: IncidentTypeConfiguration = {
         },
         {
           code: 'Segregation Unit',
+          active: false,
           label: 'Segregation Unit',
           commentRequired: false,
           dateRequired: false,
@@ -827,6 +943,7 @@ const OLD_MOBILES: IncidentTypeConfiguration = {
         },
         {
           code: 'Special Unit',
+          active: false,
           label: 'Special Unit',
           commentRequired: false,
           dateRequired: false,
@@ -834,6 +951,7 @@ const OLD_MOBILES: IncidentTypeConfiguration = {
         },
         {
           code: 'Showers/Changing Room',
+          active: false,
           label: 'Showers/Changing Room',
           commentRequired: false,
           dateRequired: false,
@@ -841,6 +959,7 @@ const OLD_MOBILES: IncidentTypeConfiguration = {
         },
         {
           code: 'Visits',
+          active: false,
           label: 'Visits',
           commentRequired: false,
           dateRequired: false,
@@ -848,6 +967,7 @@ const OLD_MOBILES: IncidentTypeConfiguration = {
         },
         {
           code: 'Wing',
+          active: false,
           label: 'Wing',
           commentRequired: false,
           dateRequired: false,
@@ -855,6 +975,7 @@ const OLD_MOBILES: IncidentTypeConfiguration = {
         },
         {
           code: 'Works Department',
+          active: false,
           label: 'Works Department',
           commentRequired: false,
           dateRequired: false,
@@ -862,6 +983,7 @@ const OLD_MOBILES: IncidentTypeConfiguration = {
         },
         {
           code: 'Workshop',
+          active: false,
           label: 'Workshop',
           commentRequired: false,
           dateRequired: false,
@@ -869,6 +991,7 @@ const OLD_MOBILES: IncidentTypeConfiguration = {
         },
         {
           code: 'Sports field',
+          active: false,
           label: 'Sports field',
           commentRequired: false,
           dateRequired: false,
@@ -876,6 +999,7 @@ const OLD_MOBILES: IncidentTypeConfiguration = {
         },
         {
           code: 'Staff Area',
+          active: false,
           label: 'Staff Area',
           commentRequired: false,
           dateRequired: false,
@@ -883,6 +1007,7 @@ const OLD_MOBILES: IncidentTypeConfiguration = {
         },
         {
           code: 'Other: Please Specify',
+          active: false,
           label: 'Other: Please Specify',
           commentRequired: true,
           dateRequired: false,
@@ -892,12 +1017,14 @@ const OLD_MOBILES: IncidentTypeConfiguration = {
     },
     '45217': {
       id: '45217',
+      active: false,
       code: 'Is make of phone/sims/equipment known?',
       label: 'Is make of phone/sims/equipment known?',
       multipleAnswers: false,
       answers: [
         {
           code: 'Yes: Please specify',
+          active: false,
           label: 'Yes: Please specify',
           commentRequired: true,
           dateRequired: false,
@@ -905,6 +1032,7 @@ const OLD_MOBILES: IncidentTypeConfiguration = {
         },
         {
           code: 'No',
+          active: false,
           label: 'No',
           commentRequired: false,
           dateRequired: false,
@@ -912,6 +1040,7 @@ const OLD_MOBILES: IncidentTypeConfiguration = {
         },
         {
           code: 'Yes: Please specify',
+          active: false,
           label: 'Yes: Please specify',
           commentRequired: true,
           dateRequired: false,
@@ -919,6 +1048,7 @@ const OLD_MOBILES: IncidentTypeConfiguration = {
         },
         {
           code: 'No',
+          active: false,
           label: 'No',
           commentRequired: false,
           dateRequired: false,
@@ -928,12 +1058,14 @@ const OLD_MOBILES: IncidentTypeConfiguration = {
     },
     '45218': {
       id: '45218',
+      active: false,
       code: 'Has Phone/SIM/Equipment been sent to NDTSG?',
       label: 'Has Phone/SIM/Equipment been sent to NDTSG?',
       multipleAnswers: true,
       answers: [
         {
           code: 'Yes: Date',
+          active: false,
           label: 'Yes: Date',
           commentRequired: false,
           dateRequired: true,
@@ -941,6 +1073,7 @@ const OLD_MOBILES: IncidentTypeConfiguration = {
         },
         {
           code: 'Evidence Bag Number:',
+          active: false,
           label: 'Evidence Bag Number:',
           commentRequired: true,
           dateRequired: false,
@@ -948,6 +1081,7 @@ const OLD_MOBILES: IncidentTypeConfiguration = {
         },
         {
           code: 'No: Please state why',
+          active: false,
           label: 'No: Please state why',
           commentRequired: true,
           dateRequired: false,
@@ -955,6 +1089,7 @@ const OLD_MOBILES: IncidentTypeConfiguration = {
         },
         {
           code: 'Yes: Date',
+          active: false,
           label: 'Yes: Date',
           commentRequired: false,
           dateRequired: true,
@@ -962,6 +1097,7 @@ const OLD_MOBILES: IncidentTypeConfiguration = {
         },
         {
           code: 'Evidence Bag Number:',
+          active: false,
           label: 'Evidence Bag Number:',
           commentRequired: true,
           dateRequired: false,
@@ -969,6 +1105,7 @@ const OLD_MOBILES: IncidentTypeConfiguration = {
         },
         {
           code: 'No: Please state why',
+          active: false,
           label: 'No: Please state why',
           commentRequired: true,
           dateRequired: false,
@@ -978,12 +1115,14 @@ const OLD_MOBILES: IncidentTypeConfiguration = {
     },
     '45219': {
       id: '45219',
+      active: false,
       code: 'Name and grade of member of staff who has authorised for the mobile/SIM to be interrogated',
       label: 'Name and grade of member of staff who has authorised for the mobile/SIM to be interrogated',
       multipleAnswers: true,
       answers: [
         {
           code: 'Name:',
+          active: false,
           label: 'Name:',
           commentRequired: true,
           dateRequired: false,
@@ -991,6 +1130,7 @@ const OLD_MOBILES: IncidentTypeConfiguration = {
         },
         {
           code: 'Grade:',
+          active: false,
           label: 'Grade:',
           commentRequired: true,
           dateRequired: false,
@@ -998,6 +1138,7 @@ const OLD_MOBILES: IncidentTypeConfiguration = {
         },
         {
           code: 'Name:',
+          active: false,
           label: 'Name:',
           commentRequired: true,
           dateRequired: false,
@@ -1005,6 +1146,7 @@ const OLD_MOBILES: IncidentTypeConfiguration = {
         },
         {
           code: 'Grade:',
+          active: false,
           label: 'Grade:',
           commentRequired: true,
           dateRequired: false,
@@ -1014,12 +1156,14 @@ const OLD_MOBILES: IncidentTypeConfiguration = {
     },
     '45220': {
       id: '45220',
+      active: false,
       code: 'Has Phone/SIM/Equipment been retained by Police?',
       label: 'Has Phone/SIM/Equipment been retained by Police?',
       multipleAnswers: true,
       answers: [
         {
           code: 'Yes: Date',
+          active: false,
           label: 'Yes: Date',
           commentRequired: false,
           dateRequired: true,
@@ -1027,6 +1171,7 @@ const OLD_MOBILES: IncidentTypeConfiguration = {
         },
         {
           code: 'Police Incident Number:',
+          active: false,
           label: 'Police Incident Number:',
           commentRequired: true,
           dateRequired: false,
@@ -1034,6 +1179,7 @@ const OLD_MOBILES: IncidentTypeConfiguration = {
         },
         {
           code: 'No',
+          active: false,
           label: 'No',
           commentRequired: false,
           dateRequired: false,
@@ -1041,6 +1187,7 @@ const OLD_MOBILES: IncidentTypeConfiguration = {
         },
         {
           code: 'Yes: Date',
+          active: false,
           label: 'Yes: Date',
           commentRequired: false,
           dateRequired: true,
@@ -1048,6 +1195,7 @@ const OLD_MOBILES: IncidentTypeConfiguration = {
         },
         {
           code: 'Police Incident Number:',
+          active: false,
           label: 'Police Incident Number:',
           commentRequired: true,
           dateRequired: false,
@@ -1055,6 +1203,7 @@ const OLD_MOBILES: IncidentTypeConfiguration = {
         },
         {
           code: 'No',
+          active: false,
           label: 'No',
           commentRequired: false,
           dateRequired: false,
@@ -1064,12 +1213,14 @@ const OLD_MOBILES: IncidentTypeConfiguration = {
     },
     '45221': {
       id: '45221',
+      active: false,
       code: 'Has incident been referred to Police for consideration under OMA or Crime & Security Act?',
       label: 'Has incident been referred to Police for consideration under OMA or Crime & Security Act?',
       multipleAnswers: true,
       answers: [
         {
           code: 'Yes: Date',
+          active: false,
           label: 'Yes: Date',
           commentRequired: false,
           dateRequired: true,
@@ -1077,6 +1228,7 @@ const OLD_MOBILES: IncidentTypeConfiguration = {
         },
         {
           code: 'Police Ref Number:',
+          active: false,
           label: 'Police Ref Number:',
           commentRequired: true,
           dateRequired: false,
@@ -1084,6 +1236,7 @@ const OLD_MOBILES: IncidentTypeConfiguration = {
         },
         {
           code: 'No',
+          active: false,
           label: 'No',
           commentRequired: false,
           dateRequired: false,
@@ -1091,6 +1244,7 @@ const OLD_MOBILES: IncidentTypeConfiguration = {
         },
         {
           code: 'Yes: Date',
+          active: false,
           label: 'Yes: Date',
           commentRequired: false,
           dateRequired: true,
@@ -1098,6 +1252,7 @@ const OLD_MOBILES: IncidentTypeConfiguration = {
         },
         {
           code: 'Police Ref Number:',
+          active: false,
           label: 'Police Ref Number:',
           commentRequired: true,
           dateRequired: false,
@@ -1105,6 +1260,7 @@ const OLD_MOBILES: IncidentTypeConfiguration = {
         },
         {
           code: 'No',
+          active: false,
           label: 'No',
           commentRequired: false,
           dateRequired: false,
@@ -1114,12 +1270,14 @@ const OLD_MOBILES: IncidentTypeConfiguration = {
     },
     '45222': {
       id: '45222',
+      active: false,
       code: 'NDTSG Priority',
       label: 'NDTSG Priority',
       multipleAnswers: false,
       answers: [
         {
           code: '1',
+          active: false,
           label: '1',
           commentRequired: false,
           dateRequired: false,
@@ -1127,6 +1285,7 @@ const OLD_MOBILES: IncidentTypeConfiguration = {
         },
         {
           code: '2',
+          active: false,
           label: '2',
           commentRequired: false,
           dateRequired: false,
@@ -1134,6 +1293,7 @@ const OLD_MOBILES: IncidentTypeConfiguration = {
         },
         {
           code: 'Urgent',
+          active: false,
           label: 'Urgent',
           commentRequired: false,
           dateRequired: false,
@@ -1141,6 +1301,7 @@ const OLD_MOBILES: IncidentTypeConfiguration = {
         },
         {
           code: '1',
+          active: false,
           label: '1',
           commentRequired: false,
           dateRequired: false,
@@ -1148,6 +1309,7 @@ const OLD_MOBILES: IncidentTypeConfiguration = {
         },
         {
           code: '2',
+          active: false,
           label: '2',
           commentRequired: false,
           dateRequired: false,
@@ -1155,6 +1317,7 @@ const OLD_MOBILES: IncidentTypeConfiguration = {
         },
         {
           code: 'Urgent',
+          active: false,
           label: 'Urgent',
           commentRequired: false,
           dateRequired: false,
@@ -1162,6 +1325,7 @@ const OLD_MOBILES: IncidentTypeConfiguration = {
         },
         {
           code: 'N/A Not Applicable',
+          active: false,
           label: 'N/A Not Applicable',
           commentRequired: false,
           dateRequired: false,
@@ -1171,6 +1335,7 @@ const OLD_MOBILES: IncidentTypeConfiguration = {
     },
     '45223': {
       id: '45223',
+      active: false,
       code: 'If a mobile / SIM was found on a person, please state where (this will assist with identifying contaminated mobiles)',
       label:
         'If a mobile / SIM was found on a person, please state where (this will assist with identifying contaminated mobiles)',
@@ -1178,6 +1343,7 @@ const OLD_MOBILES: IncidentTypeConfiguration = {
       answers: [
         {
           code: 'Please state where on person mobile phone was found:',
+          active: false,
           label: 'Please state where on person mobile phone was found:',
           commentRequired: true,
           dateRequired: false,
@@ -1185,6 +1351,7 @@ const OLD_MOBILES: IncidentTypeConfiguration = {
         },
         {
           code: 'Please state where on person mobile phone was found:',
+          active: false,
           label: 'Please state where on person mobile phone was found:',
           commentRequired: true,
           dateRequired: false,
@@ -1194,12 +1361,14 @@ const OLD_MOBILES: IncidentTypeConfiguration = {
     },
     '45224': {
       id: '45224',
+      active: false,
       code: 'Is the item heavily contaminated?',
       label: 'Is the item heavily contaminated?',
       multipleAnswers: false,
       answers: [
         {
           code: 'Yes',
+          active: false,
           label: 'Yes',
           commentRequired: false,
           dateRequired: false,
@@ -1207,6 +1376,7 @@ const OLD_MOBILES: IncidentTypeConfiguration = {
         },
         {
           code: 'No',
+          active: false,
           label: 'No',
           commentRequired: false,
           dateRequired: false,
@@ -1214,6 +1384,7 @@ const OLD_MOBILES: IncidentTypeConfiguration = {
         },
         {
           code: 'Yes',
+          active: false,
           label: 'Yes',
           commentRequired: false,
           dateRequired: false,
@@ -1221,6 +1392,7 @@ const OLD_MOBILES: IncidentTypeConfiguration = {
         },
         {
           code: 'No',
+          active: false,
           label: 'No',
           commentRequired: false,
           dateRequired: false,
@@ -1230,12 +1402,14 @@ const OLD_MOBILES: IncidentTypeConfiguration = {
     },
     '45225': {
       id: '45225',
+      active: false,
       code: 'If the item is heavily contaminated is interrogation still required?',
       label: 'If the item is heavily contaminated is interrogation still required?',
       multipleAnswers: false,
       answers: [
         {
           code: 'Yes: Please state why',
+          active: false,
           label: 'Yes: Please state why',
           commentRequired: true,
           dateRequired: false,
@@ -1243,6 +1417,7 @@ const OLD_MOBILES: IncidentTypeConfiguration = {
         },
         {
           code: 'No',
+          active: false,
           label: 'No',
           commentRequired: false,
           dateRequired: false,
@@ -1250,6 +1425,7 @@ const OLD_MOBILES: IncidentTypeConfiguration = {
         },
         {
           code: 'Yes: Please state why',
+          active: false,
           label: 'Yes: Please state why',
           commentRequired: true,
           dateRequired: false,
@@ -1257,6 +1433,7 @@ const OLD_MOBILES: IncidentTypeConfiguration = {
         },
         {
           code: 'No',
+          active: false,
           label: 'No',
           commentRequired: false,
           dateRequired: false,
@@ -1266,12 +1443,14 @@ const OLD_MOBILES: IncidentTypeConfiguration = {
     },
     '45226': {
       id: '45226',
+      active: false,
       code: 'Has written consent been given to interrogate item (Only necessary for staff, visitors and contractors)',
       label: 'Has written consent been given to interrogate item (Only necessary for staff, visitors and contractors)',
       multipleAnswers: false,
       answers: [
         {
           code: 'Yes',
+          active: false,
           label: 'Yes',
           commentRequired: false,
           dateRequired: false,
@@ -1279,6 +1458,7 @@ const OLD_MOBILES: IncidentTypeConfiguration = {
         },
         {
           code: 'No: Please state why',
+          active: false,
           label: 'No: Please state why',
           commentRequired: true,
           dateRequired: false,
@@ -1286,6 +1466,7 @@ const OLD_MOBILES: IncidentTypeConfiguration = {
         },
         {
           code: 'Yes',
+          active: false,
           label: 'Yes',
           commentRequired: false,
           dateRequired: false,
@@ -1293,6 +1474,7 @@ const OLD_MOBILES: IncidentTypeConfiguration = {
         },
         {
           code: 'No: Please state why',
+          active: false,
           label: 'No: Please state why',
           commentRequired: true,
           dateRequired: false,
@@ -1302,12 +1484,14 @@ const OLD_MOBILES: IncidentTypeConfiguration = {
     },
     '45227': {
       id: '45227',
+      active: false,
       code: 'Has any prosecution taken place or are any pending?',
       label: 'Has any prosecution taken place or are any pending?',
       multipleAnswers: false,
       answers: [
         {
           code: 'Yes',
+          active: false,
           label: 'Yes',
           commentRequired: false,
           dateRequired: false,
@@ -1315,6 +1499,7 @@ const OLD_MOBILES: IncidentTypeConfiguration = {
         },
         {
           code: 'No',
+          active: false,
           label: 'No',
           commentRequired: false,
           dateRequired: false,
@@ -1322,6 +1507,7 @@ const OLD_MOBILES: IncidentTypeConfiguration = {
         },
         {
           code: 'Yes',
+          active: false,
           label: 'Yes',
           commentRequired: false,
           dateRequired: false,
@@ -1329,6 +1515,7 @@ const OLD_MOBILES: IncidentTypeConfiguration = {
         },
         {
           code: 'No',
+          active: false,
           label: 'No',
           commentRequired: false,
           dateRequired: false,
@@ -1338,12 +1525,14 @@ const OLD_MOBILES: IncidentTypeConfiguration = {
     },
     '45228': {
       id: '45228',
+      active: false,
       code: 'Is the Incident subject to an internal investigation?',
       label: 'Is the Incident subject to an internal investigation?',
       multipleAnswers: false,
       answers: [
         {
           code: 'Yes',
+          active: false,
           label: 'Yes',
           commentRequired: false,
           dateRequired: false,
@@ -1351,6 +1540,7 @@ const OLD_MOBILES: IncidentTypeConfiguration = {
         },
         {
           code: 'No',
+          active: false,
           label: 'No',
           commentRequired: false,
           dateRequired: false,
@@ -1358,6 +1548,7 @@ const OLD_MOBILES: IncidentTypeConfiguration = {
         },
         {
           code: 'Yes',
+          active: false,
           label: 'Yes',
           commentRequired: false,
           dateRequired: false,
@@ -1365,6 +1556,7 @@ const OLD_MOBILES: IncidentTypeConfiguration = {
         },
         {
           code: 'No',
+          active: false,
           label: 'No',
           commentRequired: false,
           dateRequired: false,
@@ -1374,12 +1566,14 @@ const OLD_MOBILES: IncidentTypeConfiguration = {
     },
     '45229': {
       id: '45229',
+      active: false,
       code: 'Is the incident subject to an adjudication?',
       label: 'Is the incident subject to an adjudication?',
       multipleAnswers: false,
       answers: [
         {
           code: 'Yes',
+          active: false,
           label: 'Yes',
           commentRequired: false,
           dateRequired: false,
@@ -1387,6 +1581,7 @@ const OLD_MOBILES: IncidentTypeConfiguration = {
         },
         {
           code: 'No',
+          active: false,
           label: 'No',
           commentRequired: false,
           dateRequired: false,
@@ -1394,6 +1589,7 @@ const OLD_MOBILES: IncidentTypeConfiguration = {
         },
         {
           code: 'Yes',
+          active: false,
           label: 'Yes',
           commentRequired: false,
           dateRequired: false,
@@ -1401,6 +1597,7 @@ const OLD_MOBILES: IncidentTypeConfiguration = {
         },
         {
           code: 'No',
+          active: false,
           label: 'No',
           commentRequired: false,
           dateRequired: false,
@@ -1410,12 +1607,14 @@ const OLD_MOBILES: IncidentTypeConfiguration = {
     },
     '45230': {
       id: '45230',
+      active: false,
       code: 'Is any member of staff facing disciplinary charges?',
       label: 'Is any member of staff facing disciplinary charges?',
       multipleAnswers: false,
       answers: [
         {
           code: 'Yes',
+          active: false,
           label: 'Yes',
           commentRequired: false,
           dateRequired: false,
@@ -1423,6 +1622,7 @@ const OLD_MOBILES: IncidentTypeConfiguration = {
         },
         {
           code: 'No',
+          active: false,
           label: 'No',
           commentRequired: false,
           dateRequired: false,
@@ -1430,6 +1630,7 @@ const OLD_MOBILES: IncidentTypeConfiguration = {
         },
         {
           code: 'Yes',
+          active: false,
           label: 'Yes',
           commentRequired: false,
           dateRequired: false,
@@ -1437,6 +1638,7 @@ const OLD_MOBILES: IncidentTypeConfiguration = {
         },
         {
           code: 'No',
+          active: false,
           label: 'No',
           commentRequired: false,
           dateRequired: false,
@@ -1446,12 +1648,14 @@ const OLD_MOBILES: IncidentTypeConfiguration = {
     },
     '45231': {
       id: '45231',
+      active: false,
       code: 'Have items been returned: Please specify who to in comments field',
       label: 'Have items been returned: Please specify who to in comments field',
       multipleAnswers: false,
       answers: [
         {
           code: 'Yes: Date',
+          active: false,
           label: 'Yes: Date',
           commentRequired: true,
           dateRequired: true,
@@ -1459,6 +1663,7 @@ const OLD_MOBILES: IncidentTypeConfiguration = {
         },
         {
           code: 'No',
+          active: false,
           label: 'No',
           commentRequired: false,
           dateRequired: false,
@@ -1466,6 +1671,7 @@ const OLD_MOBILES: IncidentTypeConfiguration = {
         },
         {
           code: 'Yes: Date',
+          active: false,
           label: 'Yes: Date',
           commentRequired: true,
           dateRequired: true,
@@ -1473,6 +1679,7 @@ const OLD_MOBILES: IncidentTypeConfiguration = {
         },
         {
           code: 'No',
+          active: false,
           label: 'No',
           commentRequired: false,
           dateRequired: false,
@@ -1482,12 +1689,14 @@ const OLD_MOBILES: IncidentTypeConfiguration = {
     },
     '45232': {
       id: '45232',
+      active: false,
       code: 'Establishment Category',
       label: 'Establishment Category',
       multipleAnswers: false,
       answers: [
         {
           code: 'HSE',
+          active: false,
           label: 'HSE',
           commentRequired: false,
           dateRequired: false,
@@ -1495,6 +1704,7 @@ const OLD_MOBILES: IncidentTypeConfiguration = {
         },
         {
           code: 'Local Male',
+          active: false,
           label: 'Local Male',
           commentRequired: false,
           dateRequired: false,
@@ -1502,6 +1712,7 @@ const OLD_MOBILES: IncidentTypeConfiguration = {
         },
         {
           code: 'Cat B Male',
+          active: false,
           label: 'Cat B Male',
           commentRequired: false,
           dateRequired: false,
@@ -1509,6 +1720,7 @@ const OLD_MOBILES: IncidentTypeConfiguration = {
         },
         {
           code: 'Cat C Male',
+          active: false,
           label: 'Cat C Male',
           commentRequired: false,
           dateRequired: false,
@@ -1516,6 +1728,7 @@ const OLD_MOBILES: IncidentTypeConfiguration = {
         },
         {
           code: 'Open Male',
+          active: false,
           label: 'Open Male',
           commentRequired: false,
           dateRequired: false,
@@ -1523,6 +1736,7 @@ const OLD_MOBILES: IncidentTypeConfiguration = {
         },
         {
           code: 'Cluster',
+          active: false,
           label: 'Cluster',
           commentRequired: false,
           dateRequired: false,
@@ -1530,6 +1744,7 @@ const OLD_MOBILES: IncidentTypeConfiguration = {
         },
         {
           code: 'YOI Male',
+          active: false,
           label: 'YOI Male',
           commentRequired: false,
           dateRequired: false,
@@ -1537,6 +1752,7 @@ const OLD_MOBILES: IncidentTypeConfiguration = {
         },
         {
           code: 'Young People',
+          active: false,
           label: 'Young People',
           commentRequired: false,
           dateRequired: false,
@@ -1544,6 +1760,7 @@ const OLD_MOBILES: IncidentTypeConfiguration = {
         },
         {
           code: 'Female Estate',
+          active: false,
           label: 'Female Estate',
           commentRequired: false,
           dateRequired: false,
@@ -1551,6 +1768,7 @@ const OLD_MOBILES: IncidentTypeConfiguration = {
         },
         {
           code: 'HSE',
+          active: false,
           label: 'HSE',
           commentRequired: false,
           dateRequired: false,
@@ -1558,6 +1776,7 @@ const OLD_MOBILES: IncidentTypeConfiguration = {
         },
         {
           code: 'Local Male',
+          active: false,
           label: 'Local Male',
           commentRequired: false,
           dateRequired: false,
@@ -1565,6 +1784,7 @@ const OLD_MOBILES: IncidentTypeConfiguration = {
         },
         {
           code: 'Cat B Male',
+          active: false,
           label: 'Cat B Male',
           commentRequired: false,
           dateRequired: false,
@@ -1572,6 +1792,7 @@ const OLD_MOBILES: IncidentTypeConfiguration = {
         },
         {
           code: 'Cat C Male',
+          active: false,
           label: 'Cat C Male',
           commentRequired: false,
           dateRequired: false,
@@ -1579,6 +1800,7 @@ const OLD_MOBILES: IncidentTypeConfiguration = {
         },
         {
           code: 'Open Male',
+          active: false,
           label: 'Open Male',
           commentRequired: false,
           dateRequired: false,
@@ -1586,6 +1808,7 @@ const OLD_MOBILES: IncidentTypeConfiguration = {
         },
         {
           code: 'Cluster',
+          active: false,
           label: 'Cluster',
           commentRequired: false,
           dateRequired: false,
@@ -1593,6 +1816,7 @@ const OLD_MOBILES: IncidentTypeConfiguration = {
         },
         {
           code: 'YOI Male',
+          active: false,
           label: 'YOI Male',
           commentRequired: false,
           dateRequired: false,
@@ -1600,6 +1824,7 @@ const OLD_MOBILES: IncidentTypeConfiguration = {
         },
         {
           code: 'Young People',
+          active: false,
           label: 'Young People',
           commentRequired: false,
           dateRequired: false,
@@ -1607,6 +1832,7 @@ const OLD_MOBILES: IncidentTypeConfiguration = {
         },
         {
           code: 'Female Estate',
+          active: false,
           label: 'Female Estate',
           commentRequired: false,
           dateRequired: false,
@@ -1616,12 +1842,14 @@ const OLD_MOBILES: IncidentTypeConfiguration = {
     },
     '45233': {
       id: '45233',
+      active: false,
       code: 'Establishment Name',
       label: 'Establishment Name',
       multipleAnswers: false,
       answers: [
         {
           code: 'Enter Establishment name in comments:',
+          active: false,
           label: 'Enter Establishment name in comments:',
           commentRequired: true,
           dateRequired: false,
@@ -1629,6 +1857,7 @@ const OLD_MOBILES: IncidentTypeConfiguration = {
         },
         {
           code: 'Enter Establishment name in comments:',
+          active: false,
           label: 'Enter Establishment name in comments:',
           commentRequired: true,
           dateRequired: false,
@@ -1638,12 +1867,14 @@ const OLD_MOBILES: IncidentTypeConfiguration = {
     },
     '45234': {
       id: '45234',
+      active: false,
       code: 'Area/Region',
       label: 'Area/Region',
       multipleAnswers: false,
       answers: [
         {
           code: 'High Security',
+          active: false,
           label: 'High Security',
           commentRequired: false,
           dateRequired: false,
@@ -1651,6 +1882,7 @@ const OLD_MOBILES: IncidentTypeConfiguration = {
         },
         {
           code: 'East Midlands',
+          active: false,
           label: 'East Midlands',
           commentRequired: false,
           dateRequired: false,
@@ -1658,6 +1890,7 @@ const OLD_MOBILES: IncidentTypeConfiguration = {
         },
         {
           code: 'West Midlands',
+          active: false,
           label: 'West Midlands',
           commentRequired: false,
           dateRequired: false,
@@ -1665,6 +1898,7 @@ const OLD_MOBILES: IncidentTypeConfiguration = {
         },
         {
           code: 'Greater London',
+          active: false,
           label: 'Greater London',
           commentRequired: false,
           dateRequired: false,
@@ -1672,6 +1906,7 @@ const OLD_MOBILES: IncidentTypeConfiguration = {
         },
         {
           code: 'South West',
+          active: false,
           label: 'South West',
           commentRequired: false,
           dateRequired: false,
@@ -1679,6 +1914,7 @@ const OLD_MOBILES: IncidentTypeConfiguration = {
         },
         {
           code: 'Kent & Sussex',
+          active: false,
           label: 'Kent & Sussex',
           commentRequired: false,
           dateRequired: false,
@@ -1686,6 +1922,7 @@ const OLD_MOBILES: IncidentTypeConfiguration = {
         },
         {
           code: 'North East',
+          active: false,
           label: 'North East',
           commentRequired: false,
           dateRequired: false,
@@ -1693,6 +1930,7 @@ const OLD_MOBILES: IncidentTypeConfiguration = {
         },
         {
           code: 'South Central',
+          active: false,
           label: 'South Central',
           commentRequired: false,
           dateRequired: false,
@@ -1700,6 +1938,7 @@ const OLD_MOBILES: IncidentTypeConfiguration = {
         },
         {
           code: 'East of England',
+          active: false,
           label: 'East of England',
           commentRequired: false,
           dateRequired: false,
@@ -1707,6 +1946,7 @@ const OLD_MOBILES: IncidentTypeConfiguration = {
         },
         {
           code: 'North West',
+          active: false,
           label: 'North West',
           commentRequired: false,
           dateRequired: false,
@@ -1714,6 +1954,7 @@ const OLD_MOBILES: IncidentTypeConfiguration = {
         },
         {
           code: 'Wales',
+          active: false,
           label: 'Wales',
           commentRequired: false,
           dateRequired: false,
@@ -1721,6 +1962,7 @@ const OLD_MOBILES: IncidentTypeConfiguration = {
         },
         {
           code: 'Yorkshire & Humberside',
+          active: false,
           label: 'Yorkshire & Humberside',
           commentRequired: false,
           dateRequired: false,
@@ -1728,6 +1970,7 @@ const OLD_MOBILES: IncidentTypeConfiguration = {
         },
         {
           code: 'Contracted',
+          active: false,
           label: 'Contracted',
           commentRequired: false,
           dateRequired: false,
@@ -1737,12 +1980,14 @@ const OLD_MOBILES: IncidentTypeConfiguration = {
     },
     '47179': {
       id: '47179',
+      active: false,
       code: 'Item found. Must enter how many found in comments field',
       label: 'Item found. Must enter how many found in comments field',
       multipleAnswers: true,
       answers: [
         {
           code: 'Mobile:',
+          active: false,
           label: 'Mobile:',
           commentRequired: true,
           dateRequired: false,
@@ -1750,6 +1995,7 @@ const OLD_MOBILES: IncidentTypeConfiguration = {
         },
         {
           code: 'SIM:',
+          active: false,
           label: 'SIM:',
           commentRequired: true,
           dateRequired: false,
@@ -1757,6 +2003,7 @@ const OLD_MOBILES: IncidentTypeConfiguration = {
         },
         {
           code: 'Charger:',
+          active: false,
           label: 'Charger:',
           commentRequired: true,
           dateRequired: false,
@@ -1764,6 +2011,7 @@ const OLD_MOBILES: IncidentTypeConfiguration = {
         },
         {
           code: 'Other please specify:',
+          active: false,
           label: 'Other please specify:',
           commentRequired: true,
           dateRequired: false,

@@ -222,6 +222,7 @@ function buildQuestion({
 }): QuestionConfiguration {
   return {
     id,
+    active: true,
     code: label.toUpperCase(),
     label,
     multipleAnswers: false,
@@ -236,6 +237,7 @@ function yesNoAnswers(nextQuestionId: string | null): AnswerConfiguration[] {
 function buildAnswer({ label, nextQuestionId }: { label: string; nextQuestionId: string | null }): AnswerConfiguration {
   return {
     code: label.toUpperCase(),
+    active: true,
     label,
     dateRequired: false,
     commentRequired: false,

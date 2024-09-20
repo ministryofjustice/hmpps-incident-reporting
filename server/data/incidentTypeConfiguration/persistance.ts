@@ -3,7 +3,7 @@ import fs from 'node:fs'
 import path from 'node:path'
 
 import { IncidentTypeConfiguration } from './types'
-import { toGraphviz } from './conversion'
+import { toGraphviz, toTypescript } from './conversion'
 
 export function saveAsTypescript({
   scriptName,
@@ -12,45 +12,32 @@ export function saveAsTypescript({
   scriptName: string
   dpsConfig: IncidentTypeConfiguration
 }): string {
-  const outputPath = path.resolve(__dirname, `../../../server/reportConfiguration/types/${dpsConfig.incidentType}.ts`)
-  const outputFile = fs.openSync(outputPath, 'w')
+  const typesDir = typesPath()
+  const tsPath = path.resolve(typesDir, `${dpsConfig.incidentType}.ts`)
 
-  fs.writeSync(outputFile, `// Generated with ${scriptName} at ${new Date().toISOString()}\n\n`)
-
-  // Import type
-  fs.writeSync(
-    outputFile,
-    // eslint-disable-next-line quotes
-    `import { type IncidentTypeConfiguration } from '../../data/incidentTypeConfiguration/types'\n\n`,
-  )
-
-  // Declare incident type configuration constant
-  fs.writeSync(
-    outputFile,
-    `const ${dpsConfig.incidentType}: IncidentTypeConfiguration = ${JSON.stringify(dpsConfig, null, 2)} as const\n\n`,
-  )
-
-  // Export as default
-  fs.writeSync(outputFile, `export default ${dpsConfig.incidentType}\n`)
-
-  fs.closeSync(outputFile)
+  const tsData = toTypescript({ dpsConfig, scriptName })
+  fs.writeFileSync(tsPath, tsData)
 
   // Make TypeScript file pretty
-  spawnSync('npx', ['prettier', '--write', outputPath], { encoding: 'utf8' })
+  spawnSync('npx', ['prettier', '--write', tsPath], { encoding: 'utf8' })
 
-  return outputPath
+  return tsPath
 }
 
 export function saveAsGraphviz(config: IncidentTypeConfiguration): string {
-  const dir = path.resolve(__dirname, '../../../server/reportConfiguration/types')
-  const graphvizPath = path.resolve(dir, `${config.incidentType}.dot`)
-  const svgPath = path.resolve(dir, `${config.incidentType}.svg`)
+  const typesDir = typesPath()
+  const graphvizPath = path.resolve(typesDir, `${config.incidentType}.dot`)
+  const svgPath = path.resolve(typesDir, `${config.incidentType}.svg`)
 
-  const graphviz = toGraphviz(config)
-  fs.writeFileSync(graphvizPath, graphviz)
+  const graphvizData = toGraphviz(config)
+  fs.writeFileSync(graphvizPath, graphvizData)
 
   // Converts to SVG using graphviz's dot command
   spawnSync('dot', ['-T', 'svg', '-o', svgPath, graphvizPath])
 
   return svgPath
+}
+
+function typesPath(): string {
+  return path.resolve(__dirname, '../../../server/reportConfiguration/types')
 }

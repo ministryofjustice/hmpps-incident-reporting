@@ -11,6 +11,8 @@ import {
 
 /**
  * Converts a NOMIS incident type configuration into the new DPS one
+ *
+ * @returns DpsIncidentTypeConfiguration
  */
 export function fromNomis(nomisConfig: NomisIncidentTypeConfiguration): DpsIncidentTypeConfiguration {
   const sortByQuestionSequence = (q1: NomisQuestionConfiguration, q2: NomisQuestionConfiguration) =>
@@ -51,7 +53,35 @@ export function fromNomis(nomisConfig: NomisIncidentTypeConfiguration): DpsIncid
 }
 
 /**
+ * Converts a DPS incident type into TypeScript
+ *
+ * @returns string containing the TS output
+ */
+export function toTypescript({
+  scriptName,
+  dpsConfig,
+}: {
+  scriptName: string
+  dpsConfig: DpsIncidentTypeConfiguration
+}): string {
+  let result = `// Generated with ${scriptName} at ${new Date().toISOString()}\n\n`
+
+  // Import type
+  result += "import { type IncidentTypeConfiguration } from '../../data/incidentTypeConfiguration/types'\n\n"
+
+  // Declare incident type configuration constant
+  result += `const ${dpsConfig.incidentType}: IncidentTypeConfiguration = ${JSON.stringify(dpsConfig, null, 2)} as const\n\n`
+
+  // Export as default
+  result += `export default ${dpsConfig.incidentType}\n`
+
+  return result
+}
+
+/**
  * Converts a DPS incident type into the graphviz/DOT format
+ *
+ * @returns string containing the DOT format output
  */
 export function toGraphviz(config: DpsIncidentTypeConfiguration): string {
   const questions = Object.values(config.questions)

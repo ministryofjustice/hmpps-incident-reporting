@@ -114,6 +114,15 @@
     No prisoners involved.
   {%- endif -%}
 
+<div class="govuk-button-group">
+  {{ govukButton({
+  text: "Add Prisoner",
+  preventDoubleClick: true,
+  href: "/report/" + report.id + "/prisoner-search",
+  isStartButton: true
+  }) }}
+</div>
+
   <h2>Staff involved</h2>
   {%- if report.staffInvolved.length > 0 -%}
     <ul>

@@ -8,6 +8,8 @@ import makeDownloadConfigRouter from './downloadReportConfig'
 import createIncidentRouter from './createIncident'
 import changeIncidentRouter from './changeIncident'
 import genericRouter from './generic'
+import prisonerSearchRoutes from '../controllers/addPrisoner/prisonerSearch'
+import addPrisonerRouter from './addPrisoner'
 
 export default function routes(services: Services): Router {
   const get = (path: string | string[], handler: RequestHandler) => router.get(path, asyncMiddleware(handler))
@@ -30,6 +32,8 @@ export default function routes(services: Services): Router {
     router.use('/create-incident', createIncidentRouter)
     router.use('/change-incident/:id/', changeIncidentRouter)
     router.use('/generic-route', genericRouter)
+    router.use('/report/:id/prisoner-search', prisonerSearchRoutes(services))
+    router.use('/report/:id/add-prisoner/:prisonerId', addPrisonerRouter)
   }
 
   // NOMIS data dumps should be available in production

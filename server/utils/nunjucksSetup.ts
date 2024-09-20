@@ -15,7 +15,10 @@ import {
   initialiseName,
   nameOfPerson,
   reversedNameOfPerson,
+  prisonerLocation,
 } from './utils'
+import { checkedItems, multipleCheckedItems } from './checkedItems'
+import { isBeingTransferred, isOutside, isInPrison } from '../data/offenderSearch'
 import format from './format'
 
 export default function nunjucksSetup(app: express.Express): void {
@@ -80,5 +83,14 @@ export default function nunjucksSetup(app: express.Express): void {
   njkEnv.addFilter('date', format.date)
   njkEnv.addFilter('shortDate', format.shortDate)
 
+  // prisoner utils
+  njkEnv.addFilter('prisonerLocation', prisonerLocation)
+  njkEnv.addFilter('isBeingTransferred', isBeingTransferred)
+  njkEnv.addFilter('isOutside', isOutside)
+  njkEnv.addFilter('isInPrison', isInPrison)
+
+  // utils for GDS & MoJ components
+  njkEnv.addFilter('checkedItems', checkedItems)
+  njkEnv.addFilter('multipleCheckedItems', multipleCheckedItems)
   njkEnv.addGlobal('callAsMacro', callAsMacro)
 }

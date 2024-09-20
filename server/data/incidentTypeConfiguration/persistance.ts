@@ -3,7 +3,7 @@ import fs from 'node:fs'
 import path from 'node:path'
 
 import { IncidentTypeConfiguration } from './types'
-import { toGraphviz } from './graphviz'
+import { toGraphviz } from './conversion'
 
 export function saveAsTypescript({
   scriptName,
@@ -52,5 +52,5 @@ export function saveAsGraphviz(config: IncidentTypeConfiguration): string {
   // Converts to SVG using graphviz's dot command
   spawnSync('dot', ['-T', 'svg', '-o', svgPath, graphvizPath])
 
-  return graphvizPath
+  return svgPath
 }

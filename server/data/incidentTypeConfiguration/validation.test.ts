@@ -28,6 +28,16 @@ describe('DPS config validation', () => {
     })
   })
 
+  describe('when config starting question is unknown', () => {
+    it('returns an error', () => {
+      const config: IncidentTypeConfiguration = buildValidConfig()
+      config.startingQuestionId = 'unknown question'
+
+      const errors = validateConfig(config).map(err => err.message)
+      expect(errors).toContain('starting question is unknown')
+    })
+  })
+
   describe('when config starting question is inactive', () => {
     it('returns an error', () => {
       const config: IncidentTypeConfiguration = buildValidConfig()

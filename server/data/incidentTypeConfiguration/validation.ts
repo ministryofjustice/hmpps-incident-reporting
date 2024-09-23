@@ -26,7 +26,10 @@ function checkStartingQuestion(config: IncidentTypeConfiguration, errors: Error[
     errors.push(new Error('startingQuestionId is empty string'))
   }
 
-  if (config?.questions[config.startingQuestionId]?.active !== true) {
+  const startingQuestion = config?.questions[config.startingQuestionId]
+  if (!startingQuestion) {
+    errors.push(new Error('starting question is unknown'))
+  } else if (startingQuestion?.active !== true) {
     errors.push(new Error('starting question is inactive'))
   }
 }

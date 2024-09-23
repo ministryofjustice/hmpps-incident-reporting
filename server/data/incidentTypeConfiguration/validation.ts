@@ -35,7 +35,7 @@ function checkUnknownQuestions<Q>(configGraph: Graph<Q>, errors: Error[]) {
   const unknownQuestions = configGraph.getInvalidNodes()
 
   if (unknownQuestions.size > 0) {
-    errors.push(new Error(`Some answers lead to these unknown or inactive questions: ${setToString(unknownQuestions)}`))
+    errors.push(new Error(`some answers lead to these unknown or inactive questions: ${setToString(unknownQuestions)}`))
   }
 }
 
@@ -43,7 +43,7 @@ function checkUnreachableQuestions<Q>(configGraph: Graph<Q>, dfsResult: DfsResul
   const unreachableQuestions = configGraph.getUnreachableNodes(dfsResult)
 
   if (unreachableQuestions.size > 0) {
-    errors.push(new Error(`The following questions are unreachable: ${setToString(unreachableQuestions)}`))
+    errors.push(new Error(`the following questions are unreachable: ${setToString(unreachableQuestions)}`))
   }
 }
 
@@ -63,6 +63,6 @@ function buildConfigGraph(config: IncidentTypeConfiguration): Graph<string> {
 
 function checkCycles<T>(dfsResult: DfsResult<T>, errors: Error[]) {
   for (const cycle of dfsResult.cycles) {
-    errors.push(new Error(`Question cycle detected: ${cycle}`))
+    errors.push(new Error(`question cycle detected: ${cycle}`))
   }
 }

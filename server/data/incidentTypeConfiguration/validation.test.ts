@@ -51,7 +51,7 @@ describe('DPS config validation', () => {
       config.questions['2'].answers[1].nextQuestionId = '100'
 
       const errors = validateConfig(config).map(err => err.message)
-      expect(errors).toContain('Some answers lead to these unknown or inactive questions: 42, 100')
+      expect(errors).toContain('some answers lead to these unknown or inactive questions: 42, 100')
     })
   })
 
@@ -82,7 +82,7 @@ describe('DPS config validation', () => {
       })
 
       const errors = validateConfig(config).map(err => err.message)
-      expect(errors).toContain('The following questions are unreachable: unreachable_1, unreachable_2')
+      expect(errors).toContain('the following questions are unreachable: unreachable_1, unreachable_2')
     })
   })
 
@@ -185,7 +185,7 @@ describe('DPS config validation', () => {
       }
 
       const errors = validateConfig(config).map(err => err.message)
-      expect(errors).toContain('Question cycle detected: 1,2,3,4,1')
+      expect(errors).toContain('question cycle detected: 1,2,3,4,1')
     })
   })
 

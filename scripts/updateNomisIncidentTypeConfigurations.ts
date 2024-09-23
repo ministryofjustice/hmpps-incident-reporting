@@ -40,6 +40,9 @@ function checkConfig(config: DpsIncidentTypeConfiguration) {
   const errors = validateConfig(config)
   if (errors.length > 0) {
     process.stderr.write(`${red('WARNING')}: Config for ${config.incidentType} has the following errors:\n`)
+    if (config.active === true) {
+      process.stderr.write(' - config is active\n')
+    }
     for (const error of errors) {
       process.stderr.write(` - ${error.message}\n`)
     }

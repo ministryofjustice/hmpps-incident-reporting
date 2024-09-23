@@ -26,7 +26,9 @@ function main() {
     const dpsConfig = fromNomis(nomisConfig)
 
     const tsFile = saveAsTypescript({ scriptName, dpsConfig })
-    process.stderr.write(`\n\nConfig for ${dpsConfig.incidentType} written to ${tsFile}\n`)
+    process.stderr.write(
+      `\n\nConfig for ${dpsConfig.incidentType} (NOMIS code '${nomisConfig.incidentType}') written to ${tsFile}\n`,
+    )
 
     checkConfig(dpsConfig)
 

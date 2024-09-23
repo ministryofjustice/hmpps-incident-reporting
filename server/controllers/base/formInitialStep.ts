@@ -33,16 +33,13 @@ export default class FormInitialStep extends FormWizard.Controller {
   getErrorDetail(error: { args: any; key: string; type: string }, res: Response): { text: string; href: string } {
     const { fields } = res.locals.options
     const field = fields[error.key]
-    const fieldName: string = field.label.text
+    const fieldName: string = field.nameForErrors || field?.label?.text
     const errorMessageOverrides = field.errorMessages || {}
 
     const errorMessages: Record<string, string> = {
-      isNoLessThanOccupancy: `${fieldName} cannot be less than the number of people currently occupying the cell`,
       lessThanOrEqualTo: `${fieldName} cannot be more than ${this.valueOrFieldName(error.args.lessThanOrEqualTo, fields)}`,
-      nonZeroForNormalCell: `${fieldName} cannot be 0 for a non-specialist cell`,
       numeric: `${fieldName} must be a number`,
-      required: `Enter a ${fieldName.toLowerCase()}`,
-      doesNotExceedEstMaxCap: `${fieldName} cannot be more than the establishment's maximum capacity`,
+      required: `Enter a ${fieldName?.toLowerCase()}`,
     }
 
     const errorMessage = errorMessageOverrides[error.type] || errorMessages[error.type] || `${fieldName} is invalid`

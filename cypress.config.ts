@@ -7,6 +7,7 @@ import incidentReportingApi from './integration_tests/mockApis/incidentReporting
 import frontendComponents from './integration_tests/mockApis/frontendComponents'
 import manageUsersApi from './integration_tests/mockApis/manageUsersApi'
 import offenderSearchApi from './integration_tests/mockApis/offenderSearchApi'
+import nomisUserRolesApi from './integration_tests/mockApis/nomisUserRolesApi'
 import tokenVerification from './integration_tests/mockApis/tokenVerification'
 
 export default defineConfig({
@@ -31,6 +32,7 @@ export default defineConfig({
         ...prisonApi,
         ...manageUsersApi,
         ...offenderSearchApi,
+        ...nomisUserRolesApi,
         ...tokenVerification,
         ...frontendComponents,
       })

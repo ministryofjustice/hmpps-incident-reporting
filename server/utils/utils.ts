@@ -3,6 +3,7 @@
  * https://design-system.service.gov.uk/components/error-summary/
  */
 import nunjucks from 'nunjucks'
+import { isBeingTransferred, isOutside, type OffenderSearchResult } from '../data/offenderSearch'
 
 export interface ErrorSummaryItem {
   text: string
@@ -161,4 +162,17 @@ const template = '{% from "govuk/components/input/macro.njk" import govukInput %
 
 export default function freeTextInput(params: object) {
   return nunjucks.renderString(template, { params })
+}
+
+/**
+ * Display location of a prisoner in prison, during transfer and outside/released
+ */
+export const prisonerLocation = (prisoner: OffenderSearchResult): string => {
+  if (isBeingTransferred(prisoner)) {
+    return prisoner.locationDescription || 'Transfer'
+  }
+  if (isOutside(prisoner)) {
+    return prisoner.locationDescription || 'Outside'
+  }
+  return prisoner.cellLocation || 'Not known'
 }

@@ -7,6 +7,7 @@ context('Sign In', () => {
   beforeEach(() => {
     cy.task('resetStubs')
     cy.task('stubSignIn')
+    cy.task('stubNomisUserCaseloads')
     cy.task('stubFallbackHeaderAndFooter')
     cy.task('stubManageUserMe')
   })

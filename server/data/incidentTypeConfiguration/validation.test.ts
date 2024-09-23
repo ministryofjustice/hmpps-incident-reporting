@@ -28,6 +28,16 @@ describe('DPS config validation', () => {
     })
   })
 
+  describe('when config starting question is inactive', () => {
+    it('returns an error', () => {
+      const config: IncidentTypeConfiguration = buildValidConfig()
+      config.questions[config.startingQuestionId].active = false
+
+      const errors = validateConfig(config).map(err => err.message)
+      expect(errors).toContain('starting question is inactive')
+    })
+  })
+
   describe('when config has some invalid next questions', () => {
     it('returns an error', () => {
       // '1' (START)

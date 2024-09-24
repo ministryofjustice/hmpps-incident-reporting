@@ -70,7 +70,10 @@ Regenarates Incident Types configuration for NOMIS types.
 Usage:
   ${scriptName} <nomisConfigFile>
 
-Where <nomisConfigFile> is a JSON file with a list of NOMIS IncidentTypeConfiguration values
+Where <nomisConfigFile> is a JSON file with a list of NOMIS IncidentTypeConfiguration values.
+
+NOTE: The script uses Graphviz cli to generate SVG files for the questionnaires flows:
+      https://graphviz.org/download/
   `.trim()
 
   process.stderr.write(`${help}\n`)

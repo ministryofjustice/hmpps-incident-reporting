@@ -211,7 +211,7 @@ Question ID,Question sequence,Question list sequence,Question,Allows multiple an
               expiryDate: new Date(2022, 7, 20),
             },
             {
-              prisonerRole: 'LEAD',
+              prisonerRole: 'PRESENT',
               singleRole: true,
               active: false,
               expiryDate: new Date(2010, 4, 12),
@@ -233,7 +233,7 @@ Question ID,Question sequence,Question list sequence,Question,Allows multiple an
 Role,Description (from reference data),Only one prisoner can have this role,Active,Expired
 ACTINV,Active Involvement,FALSE,TRUE,
 IMPED,Impeded Staff,FALSE,FALSE,20/08/2022
-LEAD,,TRUE,FALSE,12/05/2010
+PRESENT,,TRUE,FALSE,12/05/2010
             `.trim(),
             )
           } else {

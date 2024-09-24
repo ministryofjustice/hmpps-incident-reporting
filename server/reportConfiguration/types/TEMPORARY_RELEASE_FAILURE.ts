@@ -1,4 +1,4 @@
-// Generated with ./scripts/updateNomisIncidentTypeConfigurations.ts at 2024-09-20T16:52:34.262Z
+// Generated with ./scripts/updateNomisIncidentTypeConfigurations.ts at 2024-09-25T09:26:11.433Z
 
 import { type IncidentTypeConfiguration } from '../../data/incidentTypeConfiguration/types'
 
@@ -1058,6 +1058,18 @@ const TEMPORARY_RELEASE_FAILURE: IncidentTypeConfiguration = {
       ],
     },
   },
+  prisonerRoles: [
+    {
+      prisonerRole: 'ABSCONDER',
+      onlyOneAllowed: false,
+      active: false,
+    },
+    {
+      prisonerRole: 'TEMPORARY_RELEASE_FAILURE',
+      onlyOneAllowed: false,
+      active: true,
+    },
+  ],
 } as const
 
 export default TEMPORARY_RELEASE_FAILURE

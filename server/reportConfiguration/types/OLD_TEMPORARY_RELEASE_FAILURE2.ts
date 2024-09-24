@@ -1,4 +1,4 @@
-// Generated with ./scripts/updateNomisIncidentTypeConfigurations.ts at 2024-09-20T16:52:33.548Z
+// Generated with ./scripts/updateNomisIncidentTypeConfigurations.ts at 2024-09-25T09:26:10.700Z
 
 import { type IncidentTypeConfiguration } from '../../data/incidentTypeConfiguration/types'
 
@@ -845,6 +845,13 @@ const OLD_TEMPORARY_RELEASE_FAILURE2: IncidentTypeConfiguration = {
       ],
     },
   },
+  prisonerRoles: [
+    {
+      prisonerRole: 'ABSCONDER',
+      onlyOneAllowed: false,
+      active: true,
+    },
+  ],
 } as const
 
 export default OLD_TEMPORARY_RELEASE_FAILURE2

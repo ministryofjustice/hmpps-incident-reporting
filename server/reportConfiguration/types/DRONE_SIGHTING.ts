@@ -1,4 +1,4 @@
-// Generated with ./scripts/updateNomisIncidentTypeConfigurations.ts at 2024-09-20T16:52:24.246Z
+// Generated with ./scripts/updateNomisIncidentTypeConfigurations.ts at 2024-09-25T09:25:59.790Z
 
 import { type IncidentTypeConfiguration } from '../../data/incidentTypeConfiguration/types'
 
@@ -734,6 +734,7 @@ const DRONE_SIGHTING: IncidentTypeConfiguration = {
       ],
     },
   },
+  prisonerRoles: [],
 } as const
 
 export default DRONE_SIGHTING

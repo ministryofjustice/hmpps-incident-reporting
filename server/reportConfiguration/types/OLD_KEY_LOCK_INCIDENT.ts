@@ -1,4 +1,4 @@
-// Generated with ./scripts/updateNomisIncidentTypeConfigurations.ts at 2024-09-20T16:52:40.331Z
+// Generated with ./scripts/updateNomisIncidentTypeConfigurations.ts at 2024-09-25T09:26:17.489Z
 
 import { type IncidentTypeConfiguration } from '../../data/incidentTypeConfiguration/types'
 
@@ -819,6 +819,33 @@ const OLD_KEY_LOCK_INCIDENT: IncidentTypeConfiguration = {
       ],
     },
   },
+  prisonerRoles: [
+    {
+      prisonerRole: 'ACTIVE_INVOLVEMENT',
+      onlyOneAllowed: false,
+      active: false,
+    },
+    {
+      prisonerRole: 'ASSISTED_STAFF',
+      onlyOneAllowed: false,
+      active: false,
+    },
+    {
+      prisonerRole: 'IMPEDED_STAFF',
+      onlyOneAllowed: false,
+      active: false,
+    },
+    {
+      prisonerRole: 'PERPETRATOR',
+      onlyOneAllowed: false,
+      active: false,
+    },
+    {
+      prisonerRole: 'SUSPECTED_INVOLVED',
+      onlyOneAllowed: false,
+      active: false,
+    },
+  ],
 } as const
 
 export default OLD_KEY_LOCK_INCIDENT

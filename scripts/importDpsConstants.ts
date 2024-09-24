@@ -36,6 +36,7 @@ const templates: Template[] = [
     method: 'prisonerInvolvementRoles',
     identifier: 'PrisonerInvolvementRole',
     documentation: 'Roles of a prisoner’s involvement in an incident',
+    includeNomisType: true,
   },
   {
     method: 'prisonerInvolvementOutcomes',

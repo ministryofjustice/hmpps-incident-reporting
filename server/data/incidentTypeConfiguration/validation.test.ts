@@ -226,6 +226,7 @@ function buildValidConfig(): IncidentTypeConfiguration {
         nextQuestionId: null,
       }),
     },
+    prisonerRoles: [],
   }
 }
 

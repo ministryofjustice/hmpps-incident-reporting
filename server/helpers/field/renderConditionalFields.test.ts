@@ -2,19 +2,19 @@ import FormWizard from 'hmpo-form-wizard'
 import renderConditionalFields, { FieldEntry } from './renderConditionalFields'
 import FrontendComponentsService from '../../services/frontendComponentsService'
 
-const feComponentsService = jest.mocked(new FrontendComponentsService(null))
+const frontendComponentsService = jest.mocked(new FrontendComponentsService(null))
 const req: FormWizard.Request = {
   services: {
-    feComponentsService,
+    feComponentsService: frontendComponentsService,
   },
 } as unknown as typeof req
 
 describe('Field helpers', () => {
   describe('#renderConditionalFields()', () => {
     beforeEach(() => {
-      feComponentsService.getComponent = jest.fn(
+      frontendComponentsService.getComponent = jest.fn(
         (n?: string) => n,
-      ) as unknown as typeof feComponentsService.getComponent
+      ) as unknown as typeof frontendComponentsService.getComponent
     })
 
     describe("when field doesn't contain items", () => {
@@ -71,18 +71,18 @@ describe('Field helpers', () => {
           })
 
           it('should call component service for each item', () => {
-            expect(feComponentsService.getComponent).toBeCalledTimes(2)
+            expect(frontendComponentsService.getComponent).toBeCalledTimes(2)
           })
 
           it('should call component service with correct args', () => {
-            expect(feComponentsService.getComponent).toHaveBeenNthCalledWith(1, 'govukInput', {
+            expect(frontendComponentsService.getComponent).toHaveBeenNthCalledWith(1, 'govukInput', {
               component: 'govukInput',
               classes: 'input-classes',
             })
           })
 
           it('should call component service with correct args', () => {
-            expect(feComponentsService.getComponent).toHaveBeenNthCalledWith(2, 'govukTextarea', {
+            expect(frontendComponentsService.getComponent).toHaveBeenNthCalledWith(2, 'govukTextarea', {
               component: 'govukTextarea',
               classes: 'input-classes',
             })
@@ -129,7 +129,7 @@ describe('Field helpers', () => {
           })
 
           it('should not call component service for each item', () => {
-            expect(feComponentsService.getComponent).toBeCalledTimes(0)
+            expect(frontendComponentsService.getComponent).toBeCalledTimes(0)
           })
 
           it('should render original item', () => {
@@ -168,7 +168,7 @@ describe('Field helpers', () => {
         })
 
         it('should not call component service for each item', () => {
-          expect(feComponentsService.getComponent).toBeCalledTimes(0)
+          expect(frontendComponentsService.getComponent).toBeCalledTimes(0)
         })
 
         it('should render conditional content', () => {
@@ -227,18 +227,18 @@ describe('Field helpers', () => {
         })
 
         it('should call component service for each item', () => {
-          expect(feComponentsService.getComponent).toBeCalledTimes(2)
+          expect(frontendComponentsService.getComponent).toBeCalledTimes(2)
         })
 
         it('should call component service with correct args', () => {
-          expect(feComponentsService.getComponent).toHaveBeenNthCalledWith(1, 'govukInput', {
+          expect(frontendComponentsService.getComponent).toHaveBeenNthCalledWith(1, 'govukInput', {
             component: 'govukInput',
             classes: 'input-classes',
           })
         })
 
         it('should call component service with correct args', () => {
-          expect(feComponentsService.getComponent).toHaveBeenNthCalledWith(2, 'govukTextarea', {
+          expect(frontendComponentsService.getComponent).toHaveBeenNthCalledWith(2, 'govukTextarea', {
             component: 'govukTextarea',
             classes: 'input-classes',
           })

@@ -1,7 +1,7 @@
 import FrontendComponentsService from './frontendComponentsService'
 import FrontendComponentsClient, { FrontendComponentsResponse } from '../data/frontendComponentsClient'
 
-jest.mock('../data/feComponentsClient')
+jest.mock('../data/frontendComponentsClient')
 
 const token = 'some token'
 

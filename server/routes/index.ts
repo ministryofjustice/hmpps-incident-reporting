@@ -3,6 +3,7 @@ import { type RequestHandler, Router } from 'express'
 import config from '../config'
 import asyncMiddleware from '../middleware/asyncMiddleware'
 import type { Services } from '../services'
+import { PrisonApi } from '../data/prisonApi'
 import makeDebugRoutes from './debug'
 import makeDownloadConfigRouter from './downloadReportConfig'
 import createIncidentRouter from './createIncident'
@@ -27,6 +28,24 @@ export default function routes(services: Services): Router {
     get('/incidents', debugRoutes.incidentList)
     get('/incident/:id', debugRoutes.incidentDetails)
     get('/report/:id', debugRoutes.reportDetails)
+
+    get('/prisoner/:prisonerNumber/photo.jpeg', async (req, res) => {
+      const { user } = res.locals
+      const { prisonerNumber } = req.params
+
+      const prisonApi = new PrisonApi(user.token)
+      const photoData = await prisonApi.getPhoto(prisonerNumber)
+
+      const oneDay = 86400 as const
+      res.setHeader('Cache-Control', `private, max-age=${oneDay}`)
+      res.setHeader('Content-Type', 'image/jpeg')
+
+      if (!photoData) {
+        res.sendFile('prisoner.jpeg', { root: `${services.applicationInfo.packageJsonPath}/assets/images` })
+      } else {
+        res.send(photoData)
+      }
+    })
 
     // proof-of-concept form wizard
     router.use('/create-incident', createIncidentRouter)

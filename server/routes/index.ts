@@ -10,11 +10,13 @@ import changeIncidentRouter from './changeIncident'
 import genericRouter from './generic'
 import prisonerSearchRoutes from '../controllers/addPrisoner/prisonerSearch'
 import addPrisonerRouter from './addPrisoner'
+import addServicesToRequest from '../middleware/addServicesToRequest'
 
 export default function routes(services: Services): Router {
   const get = (path: string | string[], handler: RequestHandler) => router.get(path, asyncMiddleware(handler))
 
   const router = Router()
+  router.use(addServicesToRequest(services))
 
   get('/', (req, res) => {
     res.render('pages/index')

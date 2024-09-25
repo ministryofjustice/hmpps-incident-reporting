@@ -10,10 +10,6 @@ const fields = {
     },
     items: [
       {
-        text: 'Please select one',
-        selected: true,
-      },
-      {
         value: 'ASSAULT',
         text: 'Assault',
       },
@@ -61,7 +57,7 @@ const fields = {
     items: [
       {
         text: 'Please select one',
-        selected: true,
+        value: 'select',
       },
     ],
   },

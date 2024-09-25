@@ -29,7 +29,7 @@ export const testAppInfo: ApplicationInfo = {
   gitRef: '9fb9f708131d3ff0251e0653ac25dc6d28a69247',
   gitShortHash: '9fb9f70',
   branchName: 'main',
-  packageJsonPath: '.',
+  assetsPath: './assets',
 }
 
 function appSetup(services: Services, production: boolean, userSupplier: () => Express.User): Express {

@@ -5,7 +5,7 @@ import FrontendComponentsService from '../../services/frontendComponentsService'
 const frontendComponentsService = jest.mocked(new FrontendComponentsService(null))
 const req: FormWizard.Request = {
   services: {
-    feComponentsService: frontendComponentsService,
+    frontendComponentsService,
   },
 } as unknown as typeof req
 

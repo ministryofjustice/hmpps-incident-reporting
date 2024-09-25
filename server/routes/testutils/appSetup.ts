@@ -1,3 +1,5 @@
+import { randomUUID } from 'node:crypto'
+
 import flash from 'connect-flash'
 import cookieSession from 'cookie-session'
 import express, { type Express } from 'express'
@@ -41,6 +43,8 @@ function appSetup(services: Services, production: boolean, userSupplier: () => E
   app.use(flash())
   nunjucksSetup(app)
   app.use((req, res, next) => {
+    req.id = randomUUID()
+
     req.user = userSupplier()
     Object.assign(res.locals, {
       user: { ...req.user },
@@ -51,6 +55,7 @@ function appSetup(services: Services, production: boolean, userSupplier: () => E
         prisonApi: new PrisonApi(systemToken),
       },
     })
+
     next()
   })
   app.use(express.json())

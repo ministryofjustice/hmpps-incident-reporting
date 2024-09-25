@@ -5,6 +5,7 @@ import { NotFound } from 'http-errors'
 
 import routes from '../index'
 import nunjucksSetup from '../../utils/nunjucksSetup'
+import type { ApplicationInfo } from '../../applicationInfo'
 import errorHandler from '../../errorHandler'
 import type { Services } from '../../services'
 import { IncidentReportingApi } from '../../data/incidentReportingApi'
@@ -20,6 +21,15 @@ export const user: Express.User = {
   active: true,
   activeCaseLoadId: 'MDI',
   authSource: 'NOMIS',
+}
+
+export const testAppInfo: ApplicationInfo = {
+  applicationName: 'hmpps-incident-reporting',
+  buildNumber: '1',
+  gitRef: '9fb9f708131d3ff0251e0653ac25dc6d28a69247',
+  gitShortHash: '9fb9f70',
+  branchName: 'main',
+  assetsPath: './assets',
 }
 
 function appSetup(services: Services, production: boolean, userSupplier: () => Express.User): Express {
@@ -54,7 +64,7 @@ function appSetup(services: Services, production: boolean, userSupplier: () => E
 
 export function appWithAllRoutes({
   production = false,
-  services = {},
+  services = { applicationInfo: testAppInfo },
   userSupplier = () => user,
 }: {
   production?: boolean

@@ -7,12 +7,13 @@ import { leeds, moorland } from './testData/prisonApi'
 jest.mock('./tokenStore/redisTokenStore')
 
 describe('prisonApi', () => {
+  const accessToken = 'token'
   let fakeApiClient: nock.Scope
   let apiClient: PrisonApi
 
   beforeEach(() => {
     fakeApiClient = nock(config.apis.hmppsPrisonApi.url)
-    apiClient = new PrisonApi('token')
+    apiClient = new PrisonApi(accessToken)
   })
 
   afterEach(() => {
@@ -22,12 +23,66 @@ describe('prisonApi', () => {
 
   describe('getPrisons', () => {
     it('should create a map of prisons from api', async () => {
-      fakeApiClient.get('/api/agencies/prisons').reply(200, [moorland, leeds] satisfies Prison[])
+      fakeApiClient
+        .get('/api/agencies/prisons')
+        .matchHeader('authorization', `Bearer ${accessToken}`)
+        .reply(200, [moorland, leeds] satisfies Prison[])
 
       await expect(apiClient.getPrisons()).resolves.toEqual<Record<string, Prison>>({
         LEI: leeds,
         MDI: moorland,
       })
+    })
+  })
+
+  describe('getPhoto()', () => {
+    const prisonerNumber = 'A1234BC'
+
+    it('should return an image', async () => {
+      const imageData = Buffer.from('image data')
+      fakeApiClient
+        .get(`/api/bookings/offenderNo/${prisonerNumber}/image/data`)
+        .query({ fullSizeImage: 'false' })
+        .matchHeader('authorization', `Bearer ${accessToken}`)
+        .reply(200, imageData, { 'Content-Type': 'image/jpeg' })
+
+      const response = await apiClient.getPhoto(prisonerNumber)
+      expect(response).toEqual(imageData)
+    })
+
+    it('should return null if not found', async () => {
+      fakeApiClient
+        .get(`/api/bookings/offenderNo/${prisonerNumber}/image/data`)
+        .query({ fullSizeImage: 'false' })
+        .matchHeader('authorization', `Bearer ${accessToken}`)
+        .thrice()
+        .reply(404)
+
+      const response = await apiClient.getPhoto(prisonerNumber)
+      expect(response).toBeNull()
+    })
+
+    it('should return null if unauthorised', async () => {
+      fakeApiClient
+        .get(`/api/bookings/offenderNo/${prisonerNumber}/image/data`)
+        .query({ fullSizeImage: 'false' })
+        .matchHeader('authorization', `Bearer ${accessToken}`)
+        .thrice()
+        .reply(403)
+
+      const response = await apiClient.getPhoto(prisonerNumber)
+      expect(response).toBeNull()
+    })
+
+    it('should throw when it receives another error', async () => {
+      fakeApiClient
+        .get(`/api/bookings/offenderNo/${prisonerNumber}/image/data`)
+        .query({ fullSizeImage: 'false' })
+        .matchHeader('authorization', `Bearer ${accessToken}`)
+        .thrice()
+        .reply(500)
+
+      await expect(apiClient.getPhoto(prisonerNumber)).rejects.toThrow('Internal Server Error')
     })
   })
 
@@ -37,6 +92,7 @@ describe('prisonApi', () => {
         fakeApiClient
           .get('/api/incidents/configuration')
           .query(true)
+          .matchHeader('authorization', `Bearer ${accessToken}`)
           .reply(200, [
             {
               incidentType: 'ASSAULT',
@@ -95,6 +151,7 @@ describe('prisonApi', () => {
         fakeApiClient
           .get('/api/incidents/configuration')
           .query(true)
+          .matchHeader('authorization', `Bearer ${accessToken}`)
           .reply(200, [
             {
               incidentType: 'ASSAULT',
@@ -160,6 +217,7 @@ describe('prisonApi', () => {
       fakeApiClient
         .get('/api/reference-domains/domains/DOM1/codes')
         .query(true)
+        .matchHeader('authorization', `Bearer ${accessToken}`)
         .reply(200, [
           {
             domain: 'DOM1',
@@ -202,6 +260,7 @@ describe('prisonApi', () => {
       fakeApiClient
         .get(`/api/reference-domains/domains/${domain}/codes`)
         .query(true)
+        .matchHeader('authorization', `Bearer ${accessToken}`)
         .reply(200, [
           {
             domain,

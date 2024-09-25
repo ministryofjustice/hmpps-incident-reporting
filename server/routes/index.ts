@@ -29,24 +29,6 @@ export default function routes(services: Services): Router {
     get('/incident/:id', debugRoutes.incidentDetails)
     get('/report/:id', debugRoutes.reportDetails)
 
-    get('/prisoner/:prisonerNumber/photo.jpeg', async (req, res) => {
-      const { user } = res.locals
-      const { prisonerNumber } = req.params
-
-      const prisonApi = new PrisonApi(user.token)
-      const photoData = await prisonApi.getPhoto(prisonerNumber)
-
-      const oneDay = 86400 as const
-      res.setHeader('Cache-Control', `private, max-age=${oneDay}`)
-      res.setHeader('Content-Type', 'image/jpeg')
-
-      if (!photoData) {
-        res.sendFile('prisoner.jpeg', { root: `${services.applicationInfo.packageJsonPath}/assets/images` })
-      } else {
-        res.send(photoData)
-      }
-    })
-
     // proof-of-concept form wizard
     router.use('/create-incident', createIncidentRouter)
     router.use('/change-incident/:id/', changeIncidentRouter)
@@ -54,6 +36,25 @@ export default function routes(services: Services): Router {
     router.use('/report/:id/prisoner-search', prisonerSearchRoutes(services))
     router.use('/report/:id/add-prisoner/:prisonerId', addPrisonerRouter)
   }
+
+  // Auxiliary routes
+  get('/prisoner/:prisonerNumber/photo.jpeg', async (req, res) => {
+    const { user } = res.locals
+    const { prisonerNumber } = req.params
+
+    const prisonApi = new PrisonApi(user.token)
+    const photoData = await prisonApi.getPhoto(prisonerNumber)
+
+    const oneDay = 86400 as const
+    res.setHeader('Cache-Control', `private, max-age=${oneDay}`)
+    res.setHeader('Content-Type', 'image/jpeg')
+
+    if (!photoData) {
+      res.sendFile('images/prisoner.jpeg', { root: services.applicationInfo.assetsPath })
+    } else {
+      res.send(photoData)
+    }
+  })
 
   // NOMIS data dumps should be available in production
   router.use('/download-report-config', makeDownloadConfigRouter())

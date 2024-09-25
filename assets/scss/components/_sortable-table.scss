@@ -1,0 +1,63 @@
+@include govuk-media-query($until: desktop) {
+  .app-sortable-table-container {
+    overflow-x: scroll;
+
+    .app-sortable-table {
+      min-width: $moj-page-width;
+    }
+  }
+}
+
+.app-sortable-table {
+  .govuk-table__header {
+    padding: govuk-spacing(4) govuk-spacing(4) govuk-spacing(4) 0;
+  }
+
+  thead {
+    th a {
+      display: inline-block;
+      position: relative;
+      padding-right: 20px;
+      color: $govuk-link-colour;
+
+      &::before, &::after {
+        position: absolute;
+        right: 0;
+        font-size: 14px;
+        line-height: 1;
+      }
+
+      @media print {
+        text-decoration: none;
+        color: #000;
+      }
+    }
+
+    th[aria-sort='none'] {
+      a::before {
+        content: ' ▲' / '';
+        top: 0;
+        font-size: 12px;
+      }
+      a::after {
+        content: ' ▼' / '';
+        top: 12px;
+        font-size: 12px;
+      }
+    }
+
+    th[aria-sort='ascending'] {
+      a::before {
+        content: ' ▲' / '';
+        top: 4px;
+      }
+    }
+
+    th[aria-sort='descending'] {
+      a::after {
+        content: ' ▼' / '';
+        top: 6px;
+      }
+    }
+  }
+}

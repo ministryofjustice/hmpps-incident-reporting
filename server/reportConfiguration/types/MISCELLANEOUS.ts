@@ -1,4 +1,4 @@
-// Generated with ./scripts/updateNomisIncidentTypeConfigurations.ts at 2024-09-16T15:42:18.119Z
+// Generated with ./scripts/updateNomisIncidentTypeConfigurations.ts at 2024-09-20T16:52:41.255Z
 
 import { type IncidentTypeConfiguration } from '../../data/incidentTypeConfiguration/types'
 
@@ -9,12 +9,14 @@ const MISCELLANEOUS: IncidentTypeConfiguration = {
   questions: {
     '44129': {
       id: '44129',
+      active: true,
       code: 'DID INJURIES RESULT IN DETENTION IN OUTSIDE HOSPITAL AS AN IN-PATIENT',
       label: 'DID INJURIES RESULT IN DETENTION IN OUTSIDE HOSPITAL AS AN IN-PATIENT',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: true,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -22,6 +24,7 @@ const MISCELLANEOUS: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: true,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -31,12 +34,14 @@ const MISCELLANEOUS: IncidentTypeConfiguration = {
     },
     '44133': {
       id: '44133',
+      active: true,
       code: 'IS THE INCIDENT THE SUBJECT OF AN INTERNAL INVESTIGATION',
       label: 'IS THE INCIDENT THE SUBJECT OF AN INTERNAL INVESTIGATION',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: true,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -44,6 +49,7 @@ const MISCELLANEOUS: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: true,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -53,12 +59,14 @@ const MISCELLANEOUS: IncidentTypeConfiguration = {
     },
     '44144': {
       id: '44144',
+      active: true,
       code: 'WHICH MINOR INJURIES WERE SUSTAINED',
       label: 'WHICH MINOR INJURIES WERE SUSTAINED',
       multipleAnswers: true,
       answers: [
         {
           code: 'GRAZES, SCRATCHES OR ABRASIONS',
+          active: true,
           label: 'GRAZES, SCRATCHES OR ABRASIONS',
           commentRequired: false,
           dateRequired: false,
@@ -66,6 +74,7 @@ const MISCELLANEOUS: IncidentTypeConfiguration = {
         },
         {
           code: 'MINOR BRUISES',
+          active: true,
           label: 'MINOR BRUISES',
           commentRequired: false,
           dateRequired: false,
@@ -73,6 +82,7 @@ const MISCELLANEOUS: IncidentTypeConfiguration = {
         },
         {
           code: 'SWELLINGS',
+          active: true,
           label: 'SWELLINGS',
           commentRequired: false,
           dateRequired: false,
@@ -80,6 +90,7 @@ const MISCELLANEOUS: IncidentTypeConfiguration = {
         },
         {
           code: 'SUPERFICIAL CUTS',
+          active: true,
           label: 'SUPERFICIAL CUTS',
           commentRequired: false,
           dateRequired: false,
@@ -87,6 +98,7 @@ const MISCELLANEOUS: IncidentTypeConfiguration = {
         },
         {
           code: 'OTHER',
+          active: true,
           label: 'OTHER',
           commentRequired: true,
           dateRequired: false,
@@ -96,12 +108,14 @@ const MISCELLANEOUS: IncidentTypeConfiguration = {
     },
     '44223': {
       id: '44223',
+      active: true,
       code: 'HAS ANY PROSECUTION TAKEN PLACE OR IS ANY PENDING',
       label: 'HAS ANY PROSECUTION TAKEN PLACE OR IS ANY PENDING',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: true,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -109,6 +123,7 @@ const MISCELLANEOUS: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: true,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -118,12 +133,14 @@ const MISCELLANEOUS: IncidentTypeConfiguration = {
     },
     '44290': {
       id: '44290',
+      active: true,
       code: 'WERE THE POLICE INFORMED OF THE INCIDENT',
       label: 'WERE THE POLICE INFORMED OF THE INCIDENT',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: true,
           label: 'YES',
           commentRequired: false,
           dateRequired: true,
@@ -131,6 +148,7 @@ const MISCELLANEOUS: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: true,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -140,12 +158,14 @@ const MISCELLANEOUS: IncidentTypeConfiguration = {
     },
     '44456': {
       id: '44456',
+      active: true,
       code: 'WAS A SERIOUS INJURY SUSTAINED',
       label: 'WAS A SERIOUS INJURY SUSTAINED',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: true,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -153,6 +173,7 @@ const MISCELLANEOUS: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: true,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -162,12 +183,14 @@ const MISCELLANEOUS: IncidentTypeConfiguration = {
     },
     '44503': {
       id: '44503',
+      active: true,
       code: 'WHO WAS DETAINED IN OUTSIDE HOSPITAL',
       label: 'WHO WAS DETAINED IN OUTSIDE HOSPITAL',
       multipleAnswers: true,
       answers: [
         {
           code: 'STAFF',
+          active: true,
           label: 'STAFF',
           commentRequired: true,
           dateRequired: false,
@@ -175,6 +198,7 @@ const MISCELLANEOUS: IncidentTypeConfiguration = {
         },
         {
           code: 'PRISONERS',
+          active: true,
           label: 'PRISONERS',
           commentRequired: true,
           dateRequired: false,
@@ -182,6 +206,7 @@ const MISCELLANEOUS: IncidentTypeConfiguration = {
         },
         {
           code: 'CIVILIAN GRADES',
+          active: true,
           label: 'CIVILIAN GRADES',
           commentRequired: true,
           dateRequired: false,
@@ -189,6 +214,7 @@ const MISCELLANEOUS: IncidentTypeConfiguration = {
         },
         {
           code: 'POLICE',
+          active: true,
           label: 'POLICE',
           commentRequired: true,
           dateRequired: false,
@@ -196,6 +222,7 @@ const MISCELLANEOUS: IncidentTypeConfiguration = {
         },
         {
           code: 'EXTERNAL CIVILIANS',
+          active: true,
           label: 'EXTERNAL CIVILIANS',
           commentRequired: true,
           dateRequired: false,
@@ -205,12 +232,14 @@ const MISCELLANEOUS: IncidentTypeConfiguration = {
     },
     '44541': {
       id: '44541',
+      active: true,
       code: 'ARE ANY STAFF ON SICK LEAVE AS A RESULT OF THIS INCIDENT',
       label: 'ARE ANY STAFF ON SICK LEAVE AS A RESULT OF THIS INCIDENT',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: true,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -218,6 +247,7 @@ const MISCELLANEOUS: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: true,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -227,12 +257,14 @@ const MISCELLANEOUS: IncidentTypeConfiguration = {
     },
     '44588': {
       id: '44588',
+      active: true,
       code: 'ARE THERE ANY STAFF NOW OFF DUTY AS A RESULT OF THIS INCIDENT',
       label: 'ARE THERE ANY STAFF NOW OFF DUTY AS A RESULT OF THIS INCIDENT',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: true,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -240,6 +272,7 @@ const MISCELLANEOUS: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: true,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -249,12 +282,14 @@ const MISCELLANEOUS: IncidentTypeConfiguration = {
     },
     '44591': {
       id: '44591',
+      active: true,
       code: 'IS THERE ANY MEDIA INTEREST IN THIS INCIDENT',
       label: 'IS THERE ANY MEDIA INTEREST IN THIS INCIDENT',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: true,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -262,6 +297,7 @@ const MISCELLANEOUS: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: true,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -271,12 +307,14 @@ const MISCELLANEOUS: IncidentTypeConfiguration = {
     },
     '44601': {
       id: '44601',
+      active: true,
       code: 'WAS DAMAGE CAUSED TO PRISON PROPERTY',
       label: 'WAS DAMAGE CAUSED TO PRISON PROPERTY',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: true,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -284,6 +322,7 @@ const MISCELLANEOUS: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: true,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -293,12 +332,14 @@ const MISCELLANEOUS: IncidentTypeConfiguration = {
     },
     '44607': {
       id: '44607',
+      active: true,
       code: 'IS THE INCIDENT THE SUBJECT OF A POLICE INVESTIGATION',
       label: 'IS THE INCIDENT THE SUBJECT OF A POLICE INVESTIGATION',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: true,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -306,6 +347,7 @@ const MISCELLANEOUS: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: true,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -315,12 +357,14 @@ const MISCELLANEOUS: IncidentTypeConfiguration = {
     },
     '44667': {
       id: '44667',
+      active: true,
       code: 'WHICH SERIOUS INJURIES WERE SUSTAINED',
       label: 'WHICH SERIOUS INJURIES WERE SUSTAINED',
       multipleAnswers: true,
       answers: [
         {
           code: 'FRACTURE',
+          active: true,
           label: 'FRACTURE',
           commentRequired: false,
           dateRequired: false,
@@ -328,6 +372,7 @@ const MISCELLANEOUS: IncidentTypeConfiguration = {
         },
         {
           code: 'SCALD OR BURN',
+          active: true,
           label: 'SCALD OR BURN',
           commentRequired: false,
           dateRequired: false,
@@ -335,6 +380,7 @@ const MISCELLANEOUS: IncidentTypeConfiguration = {
         },
         {
           code: 'STABBING',
+          active: true,
           label: 'STABBING',
           commentRequired: false,
           dateRequired: false,
@@ -342,6 +388,7 @@ const MISCELLANEOUS: IncidentTypeConfiguration = {
         },
         {
           code: 'CRUSHING',
+          active: true,
           label: 'CRUSHING',
           commentRequired: false,
           dateRequired: false,
@@ -349,6 +396,7 @@ const MISCELLANEOUS: IncidentTypeConfiguration = {
         },
         {
           code: 'EXTENSIVE OR MULTIPLE BRUISING',
+          active: true,
           label: 'EXTENSIVE OR MULTIPLE BRUISING',
           commentRequired: false,
           dateRequired: false,
@@ -356,6 +404,7 @@ const MISCELLANEOUS: IncidentTypeConfiguration = {
         },
         {
           code: 'BLACK EYE',
+          active: true,
           label: 'BLACK EYE',
           commentRequired: false,
           dateRequired: false,
@@ -363,6 +412,7 @@ const MISCELLANEOUS: IncidentTypeConfiguration = {
         },
         {
           code: 'BROKEN NOSE',
+          active: true,
           label: 'BROKEN NOSE',
           commentRequired: false,
           dateRequired: false,
@@ -370,6 +420,7 @@ const MISCELLANEOUS: IncidentTypeConfiguration = {
         },
         {
           code: 'BROKEN TEETH',
+          active: true,
           label: 'BROKEN TEETH',
           commentRequired: false,
           dateRequired: false,
@@ -377,6 +428,7 @@ const MISCELLANEOUS: IncidentTypeConfiguration = {
         },
         {
           code: 'CUTS REQUIRING SUTURING',
+          active: true,
           label: 'CUTS REQUIRING SUTURING',
           commentRequired: false,
           dateRequired: false,
@@ -384,6 +436,7 @@ const MISCELLANEOUS: IncidentTypeConfiguration = {
         },
         {
           code: 'BITES',
+          active: true,
           label: 'BITES',
           commentRequired: false,
           dateRequired: false,
@@ -391,6 +444,7 @@ const MISCELLANEOUS: IncidentTypeConfiguration = {
         },
         {
           code: 'TEMPORARY/PERMANENT BLINDNESS',
+          active: true,
           label: 'TEMPORARY/PERMANENT BLINDNESS',
           commentRequired: false,
           dateRequired: false,
@@ -400,12 +454,14 @@ const MISCELLANEOUS: IncidentTypeConfiguration = {
     },
     '44730': {
       id: '44730',
+      active: true,
       code: 'ENTER DESCRIPTION OF PERSON(S) INJURED',
       label: 'ENTER DESCRIPTION OF PERSON(S) INJURED',
       multipleAnswers: true,
       answers: [
         {
           code: 'STAFF',
+          active: true,
           label: 'STAFF',
           commentRequired: true,
           dateRequired: false,
@@ -413,6 +469,7 @@ const MISCELLANEOUS: IncidentTypeConfiguration = {
         },
         {
           code: 'PRISONERS',
+          active: true,
           label: 'PRISONERS',
           commentRequired: true,
           dateRequired: false,
@@ -420,6 +477,7 @@ const MISCELLANEOUS: IncidentTypeConfiguration = {
         },
         {
           code: 'CIVILIAN GRADES',
+          active: true,
           label: 'CIVILIAN GRADES',
           commentRequired: true,
           dateRequired: false,
@@ -427,6 +485,7 @@ const MISCELLANEOUS: IncidentTypeConfiguration = {
         },
         {
           code: 'POLICE',
+          active: true,
           label: 'POLICE',
           commentRequired: true,
           dateRequired: false,
@@ -434,6 +493,7 @@ const MISCELLANEOUS: IncidentTypeConfiguration = {
         },
         {
           code: 'EXTERNAL CIVILIANS',
+          active: true,
           label: 'EXTERNAL CIVILIANS',
           commentRequired: true,
           dateRequired: false,
@@ -443,12 +503,14 @@ const MISCELLANEOUS: IncidentTypeConfiguration = {
     },
     '44857': {
       id: '44857',
+      active: true,
       code: 'WERE ANY INJURIES RECEIVED DURING THIS INCIDENT',
       label: 'WERE ANY INJURIES RECEIVED DURING THIS INCIDENT',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: true,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -456,6 +518,7 @@ const MISCELLANEOUS: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: true,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -465,12 +528,14 @@ const MISCELLANEOUS: IncidentTypeConfiguration = {
     },
     '44995': {
       id: '44995',
+      active: true,
       code: 'HAS THE PRISON SERVICE PRESS OFFICE BEEN INFORMED',
       label: 'HAS THE PRISON SERVICE PRESS OFFICE BEEN INFORMED',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: true,
           label: 'YES',
           commentRequired: false,
           dateRequired: true,
@@ -478,6 +543,7 @@ const MISCELLANEOUS: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: true,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -487,12 +553,14 @@ const MISCELLANEOUS: IncidentTypeConfiguration = {
     },
     '45106': {
       id: '45106',
+      active: true,
       code: 'ESTIMATED COST OF DAMAGE',
       label: 'ESTIMATED COST OF DAMAGE',
       multipleAnswers: false,
       answers: [
         {
           code: 'ENTER AMOUNT IN POUND STERLING',
+          active: true,
           label: 'ENTER AMOUNT IN POUND STERLING',
           commentRequired: true,
           dateRequired: false,
@@ -502,12 +570,14 @@ const MISCELLANEOUS: IncidentTypeConfiguration = {
     },
     '45122': {
       id: '45122',
+      active: true,
       code: "IS THE INCIDENT SUBJECT TO A GOVERNOR'S ADJUDICATION",
       label: "IS THE INCIDENT SUBJECT TO A GOVERNOR'S ADJUDICATION",
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: true,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -515,6 +585,7 @@ const MISCELLANEOUS: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: true,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -524,12 +595,14 @@ const MISCELLANEOUS: IncidentTypeConfiguration = {
     },
     '45125': {
       id: '45125',
+      active: true,
       code: 'DESCRIBE THE DAMAGE',
       label: 'DESCRIBE THE DAMAGE',
       multipleAnswers: false,
       answers: [
         {
           code: 'MINOR',
+          active: true,
           label: 'MINOR',
           commentRequired: false,
           dateRequired: false,
@@ -537,6 +610,7 @@ const MISCELLANEOUS: IncidentTypeConfiguration = {
         },
         {
           code: 'SERIOUS',
+          active: true,
           label: 'SERIOUS',
           commentRequired: false,
           dateRequired: false,
@@ -544,6 +618,7 @@ const MISCELLANEOUS: IncidentTypeConfiguration = {
         },
         {
           code: 'EXTENSIVE',
+          active: true,
           label: 'EXTENSIVE',
           commentRequired: false,
           dateRequired: false,
@@ -553,12 +628,14 @@ const MISCELLANEOUS: IncidentTypeConfiguration = {
     },
     '45139': {
       id: '45139',
+      active: true,
       code: 'IS ANY MEMBER OF STAFF FACING DISCIPLINARY CHARGES',
       label: 'IS ANY MEMBER OF STAFF FACING DISCIPLINARY CHARGES',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: true,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -566,6 +643,7 @@ const MISCELLANEOUS: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: true,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -575,12 +653,14 @@ const MISCELLANEOUS: IncidentTypeConfiguration = {
     },
     '45159': {
       id: '45159',
+      active: true,
       code: 'WHAT WAS DAMAGED',
       label: 'WHAT WAS DAMAGED',
       multipleAnswers: true,
       answers: [
         {
           code: 'FURNITURE',
+          active: true,
           label: 'FURNITURE',
           commentRequired: false,
           dateRequired: false,
@@ -588,6 +668,7 @@ const MISCELLANEOUS: IncidentTypeConfiguration = {
         },
         {
           code: 'FITTINGS',
+          active: true,
           label: 'FITTINGS',
           commentRequired: false,
           dateRequired: false,
@@ -595,6 +676,7 @@ const MISCELLANEOUS: IncidentTypeConfiguration = {
         },
         {
           code: 'MACHINERY',
+          active: true,
           label: 'MACHINERY',
           commentRequired: false,
           dateRequired: false,
@@ -602,6 +684,7 @@ const MISCELLANEOUS: IncidentTypeConfiguration = {
         },
         {
           code: 'EQUIPMENT',
+          active: true,
           label: 'EQUIPMENT',
           commentRequired: false,
           dateRequired: false,
@@ -609,6 +692,7 @@ const MISCELLANEOUS: IncidentTypeConfiguration = {
         },
         {
           code: 'OTHER',
+          active: true,
           label: 'OTHER',
           commentRequired: true,
           dateRequired: false,
@@ -618,12 +702,14 @@ const MISCELLANEOUS: IncidentTypeConfiguration = {
     },
     '45161': {
       id: '45161',
+      active: true,
       code: 'WAS A MINOR INJURY SUSTAINED',
       label: 'WAS A MINOR INJURY SUSTAINED',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: true,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -631,6 +717,7 @@ const MISCELLANEOUS: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: true,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,

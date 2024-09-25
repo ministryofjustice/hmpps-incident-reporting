@@ -1,4 +1,4 @@
-// Generated with ./scripts/updateNomisIncidentTypeConfigurations.ts at 2024-09-16T15:42:13.125Z
+// Generated with ./scripts/updateNomisIncidentTypeConfigurations.ts at 2024-09-20T16:52:35.032Z
 
 import { type IncidentTypeConfiguration } from '../../data/incidentTypeConfiguration/types'
 
@@ -9,12 +9,14 @@ const FIRE: IncidentTypeConfiguration = {
   questions: {
     '44131': {
       id: '44131',
+      active: true,
       code: 'HAS THE SERVICE SUPPLIER BEEN NOTIFIED OF A REPLACEMENT KEYWORD?',
       label: 'HAS THE SERVICE SUPPLIER BEEN NOTIFIED OF A REPLACEMENT KEYWORD?',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: true,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -22,6 +24,7 @@ const FIRE: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: true,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -31,12 +34,14 @@ const FIRE: IncidentTypeConfiguration = {
     },
     '44154': {
       id: '44154',
+      active: true,
       code: 'QUOTE THE VANTIVE CASE NUMBER',
       label: 'QUOTE THE VANTIVE CASE NUMBER',
       multipleAnswers: false,
       answers: [
         {
           code: 'NUMBER',
+          active: true,
           label: 'NUMBER',
           commentRequired: true,
           dateRequired: false,
@@ -46,12 +51,14 @@ const FIRE: IncidentTypeConfiguration = {
     },
     '44158': {
       id: '44158',
+      active: true,
       code: 'HOW LONG DID IT TAKE THE FIRE BRIGADE TO ARRIVE',
       label: 'HOW LONG DID IT TAKE THE FIRE BRIGADE TO ARRIVE',
       multipleAnswers: false,
       answers: [
         {
           code: '5 MINUTES AND LESS',
+          active: true,
           label: '5 MINUTES AND LESS',
           commentRequired: true,
           dateRequired: false,
@@ -59,6 +66,7 @@ const FIRE: IncidentTypeConfiguration = {
         },
         {
           code: '5 - 10 MINUTES',
+          active: true,
           label: '5 - 10 MINUTES',
           commentRequired: true,
           dateRequired: false,
@@ -66,6 +74,7 @@ const FIRE: IncidentTypeConfiguration = {
         },
         {
           code: '10 - 15 MINUTES',
+          active: true,
           label: '10 - 15 MINUTES',
           commentRequired: true,
           dateRequired: false,
@@ -73,6 +82,7 @@ const FIRE: IncidentTypeConfiguration = {
         },
         {
           code: 'OTHER',
+          active: true,
           label: 'OTHER',
           commentRequired: true,
           dateRequired: false,
@@ -82,12 +92,14 @@ const FIRE: IncidentTypeConfiguration = {
     },
     '44176': {
       id: '44176',
+      active: true,
       code: 'WHEN WAS THE SYSTEM RE-ACTIVATED?',
       label: 'WHEN WAS THE SYSTEM RE-ACTIVATED?',
       multipleAnswers: false,
       answers: [
         {
           code: 'ENTER COMMENT AND DATE',
+          active: true,
           label: 'ENTER COMMENT AND DATE',
           commentRequired: true,
           dateRequired: true,
@@ -97,12 +109,14 @@ const FIRE: IncidentTypeConfiguration = {
     },
     '44181': {
       id: '44181',
+      active: true,
       code: 'DID ANYONE DIE',
       label: 'DID ANYONE DIE',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: true,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -110,6 +124,7 @@ const FIRE: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: true,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -119,12 +134,14 @@ const FIRE: IncidentTypeConfiguration = {
     },
     '44194': {
       id: '44194',
+      active: true,
       code: 'WHAT WAS THE LOCATION OF THE INCIDENT',
       label: 'WHAT WAS THE LOCATION OF THE INCIDENT',
       multipleAnswers: false,
       answers: [
         {
           code: 'ADMINISTRATION',
+          active: true,
           label: 'ADMINISTRATION',
           commentRequired: false,
           dateRequired: false,
@@ -132,6 +149,7 @@ const FIRE: IncidentTypeConfiguration = {
         },
         {
           code: 'ASSOCIATION AREA',
+          active: true,
           label: 'ASSOCIATION AREA',
           commentRequired: false,
           dateRequired: false,
@@ -139,6 +157,7 @@ const FIRE: IncidentTypeConfiguration = {
         },
         {
           code: 'CELL',
+          active: true,
           label: 'CELL',
           commentRequired: false,
           dateRequired: false,
@@ -146,6 +165,7 @@ const FIRE: IncidentTypeConfiguration = {
         },
         {
           code: 'CHAPEL',
+          active: true,
           label: 'CHAPEL',
           commentRequired: false,
           dateRequired: false,
@@ -153,6 +173,7 @@ const FIRE: IncidentTypeConfiguration = {
         },
         {
           code: 'DINING ROOM',
+          active: true,
           label: 'DINING ROOM',
           commentRequired: false,
           dateRequired: false,
@@ -160,6 +181,7 @@ const FIRE: IncidentTypeConfiguration = {
         },
         {
           code: 'DORMITORY',
+          active: true,
           label: 'DORMITORY',
           commentRequired: false,
           dateRequired: false,
@@ -167,6 +189,7 @@ const FIRE: IncidentTypeConfiguration = {
         },
         {
           code: 'EDUCATION',
+          active: true,
           label: 'EDUCATION',
           commentRequired: false,
           dateRequired: false,
@@ -174,6 +197,7 @@ const FIRE: IncidentTypeConfiguration = {
         },
         {
           code: 'EXERCISE YARD',
+          active: true,
           label: 'EXERCISE YARD',
           commentRequired: false,
           dateRequired: false,
@@ -181,6 +205,7 @@ const FIRE: IncidentTypeConfiguration = {
         },
         {
           code: 'GATE',
+          active: true,
           label: 'GATE',
           commentRequired: false,
           dateRequired: false,
@@ -188,6 +213,7 @@ const FIRE: IncidentTypeConfiguration = {
         },
         {
           code: 'GYM',
+          active: true,
           label: 'GYM',
           commentRequired: false,
           dateRequired: false,
@@ -195,6 +221,7 @@ const FIRE: IncidentTypeConfiguration = {
         },
         {
           code: 'HEALTH CARE CENTRE',
+          active: true,
           label: 'HEALTH CARE CENTRE',
           commentRequired: false,
           dateRequired: false,
@@ -202,6 +229,7 @@ const FIRE: IncidentTypeConfiguration = {
         },
         {
           code: 'KITCHEN',
+          active: true,
           label: 'KITCHEN',
           commentRequired: false,
           dateRequired: false,
@@ -209,6 +237,7 @@ const FIRE: IncidentTypeConfiguration = {
         },
         {
           code: 'OFFICE',
+          active: true,
           label: 'OFFICE',
           commentRequired: false,
           dateRequired: false,
@@ -216,6 +245,7 @@ const FIRE: IncidentTypeConfiguration = {
         },
         {
           code: 'RECEPTION',
+          active: true,
           label: 'RECEPTION',
           commentRequired: false,
           dateRequired: false,
@@ -223,6 +253,7 @@ const FIRE: IncidentTypeConfiguration = {
         },
         {
           code: 'RECESS',
+          active: true,
           label: 'RECESS',
           commentRequired: false,
           dateRequired: false,
@@ -230,6 +261,7 @@ const FIRE: IncidentTypeConfiguration = {
         },
         {
           code: 'SEGREGATION UNIT',
+          active: true,
           label: 'SEGREGATION UNIT',
           commentRequired: false,
           dateRequired: false,
@@ -237,6 +269,7 @@ const FIRE: IncidentTypeConfiguration = {
         },
         {
           code: 'SPECIAL UNIT',
+          active: true,
           label: 'SPECIAL UNIT',
           commentRequired: false,
           dateRequired: false,
@@ -244,6 +277,7 @@ const FIRE: IncidentTypeConfiguration = {
         },
         {
           code: 'SHOWERS/CHANGING ROOM',
+          active: true,
           label: 'SHOWERS/CHANGING ROOM',
           commentRequired: false,
           dateRequired: false,
@@ -251,6 +285,7 @@ const FIRE: IncidentTypeConfiguration = {
         },
         {
           code: 'VISITS',
+          active: true,
           label: 'VISITS',
           commentRequired: false,
           dateRequired: false,
@@ -258,6 +293,7 @@ const FIRE: IncidentTypeConfiguration = {
         },
         {
           code: 'WING',
+          active: true,
           label: 'WING',
           commentRequired: false,
           dateRequired: false,
@@ -265,6 +301,7 @@ const FIRE: IncidentTypeConfiguration = {
         },
         {
           code: 'WORKS DEPARTMENT',
+          active: true,
           label: 'WORKS DEPARTMENT',
           commentRequired: false,
           dateRequired: false,
@@ -272,6 +309,7 @@ const FIRE: IncidentTypeConfiguration = {
         },
         {
           code: 'WORKSHOP',
+          active: true,
           label: 'WORKSHOP',
           commentRequired: false,
           dateRequired: false,
@@ -279,6 +317,7 @@ const FIRE: IncidentTypeConfiguration = {
         },
         {
           code: 'WITHIN PERIMETER',
+          active: true,
           label: 'WITHIN PERIMETER',
           commentRequired: false,
           dateRequired: false,
@@ -286,6 +325,7 @@ const FIRE: IncidentTypeConfiguration = {
         },
         {
           code: 'ELSEWHERE',
+          active: true,
           label: 'ELSEWHERE',
           commentRequired: true,
           dateRequired: false,
@@ -293,6 +333,7 @@ const FIRE: IncidentTypeConfiguration = {
         },
         {
           code: 'FUNERAL',
+          active: true,
           label: 'FUNERAL',
           commentRequired: false,
           dateRequired: false,
@@ -300,6 +341,7 @@ const FIRE: IncidentTypeConfiguration = {
         },
         {
           code: 'HOSPITAL OUTSIDE (PATIENT)',
+          active: true,
           label: 'HOSPITAL OUTSIDE (PATIENT)',
           commentRequired: false,
           dateRequired: false,
@@ -307,6 +349,7 @@ const FIRE: IncidentTypeConfiguration = {
         },
         {
           code: 'HOSPITAL OUTSIDE (VISITING)',
+          active: true,
           label: 'HOSPITAL OUTSIDE (VISITING)',
           commentRequired: false,
           dateRequired: false,
@@ -314,6 +357,7 @@ const FIRE: IncidentTypeConfiguration = {
         },
         {
           code: 'OUTSIDE WORKING PARTY',
+          active: true,
           label: 'OUTSIDE WORKING PARTY',
           commentRequired: false,
           dateRequired: false,
@@ -321,6 +365,7 @@ const FIRE: IncidentTypeConfiguration = {
         },
         {
           code: 'SPORTS FIELD',
+          active: true,
           label: 'SPORTS FIELD',
           commentRequired: false,
           dateRequired: false,
@@ -328,6 +373,7 @@ const FIRE: IncidentTypeConfiguration = {
         },
         {
           code: 'VEHICLE',
+          active: true,
           label: 'VEHICLE',
           commentRequired: false,
           dateRequired: false,
@@ -335,6 +381,7 @@ const FIRE: IncidentTypeConfiguration = {
         },
         {
           code: 'WEDDINGS',
+          active: true,
           label: 'WEDDINGS',
           commentRequired: false,
           dateRequired: false,
@@ -342,6 +389,7 @@ const FIRE: IncidentTypeConfiguration = {
         },
         {
           code: 'MAGISTRATES COURT',
+          active: true,
           label: 'MAGISTRATES COURT',
           commentRequired: false,
           dateRequired: false,
@@ -349,6 +397,7 @@ const FIRE: IncidentTypeConfiguration = {
         },
         {
           code: 'CROWN COURT',
+          active: true,
           label: 'CROWN COURT',
           commentRequired: false,
           dateRequired: false,
@@ -358,12 +407,14 @@ const FIRE: IncidentTypeConfiguration = {
     },
     '44202': {
       id: '44202',
+      active: true,
       code: 'WAS THE KEYWORD REQUESTED?',
       label: 'WAS THE KEYWORD REQUESTED?',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: true,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -371,6 +422,7 @@ const FIRE: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: true,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -380,12 +432,14 @@ const FIRE: IncidentTypeConfiguration = {
     },
     '44232': {
       id: '44232',
+      active: true,
       code: 'IS THE INCIDENT THE SUBJECT OF AN INTERNAL INVESTIGATION',
       label: 'IS THE INCIDENT THE SUBJECT OF AN INTERNAL INVESTIGATION',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: true,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -393,6 +447,7 @@ const FIRE: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: true,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -402,12 +457,14 @@ const FIRE: IncidentTypeConfiguration = {
     },
     '44264': {
       id: '44264',
+      active: true,
       code: 'WAS SHORT DURATION BREATHING APPARATUS USED',
       label: 'WAS SHORT DURATION BREATHING APPARATUS USED',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: true,
           label: 'YES',
           commentRequired: true,
           dateRequired: false,
@@ -415,6 +472,7 @@ const FIRE: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: true,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -424,12 +482,14 @@ const FIRE: IncidentTypeConfiguration = {
     },
     '44268': {
       id: '44268',
+      active: true,
       code: 'WHO RAISED THE ALARM',
       label: 'WHO RAISED THE ALARM',
       multipleAnswers: false,
       answers: [
         {
           code: 'STAFF',
+          active: true,
           label: 'STAFF',
           commentRequired: false,
           dateRequired: false,
@@ -437,6 +497,7 @@ const FIRE: IncidentTypeConfiguration = {
         },
         {
           code: 'PRISONER',
+          active: true,
           label: 'PRISONER',
           commentRequired: false,
           dateRequired: false,
@@ -444,6 +505,7 @@ const FIRE: IncidentTypeConfiguration = {
         },
         {
           code: 'OTHER',
+          active: true,
           label: 'OTHER',
           commentRequired: true,
           dateRequired: false,
@@ -453,12 +515,14 @@ const FIRE: IncidentTypeConfiguration = {
     },
     '44272': {
       id: '44272',
+      active: true,
       code: 'DO YOU KNOW WHERE THE FIRE STARTED',
       label: 'DO YOU KNOW WHERE THE FIRE STARTED',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: true,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -466,6 +530,7 @@ const FIRE: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: true,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -475,12 +540,14 @@ const FIRE: IncidentTypeConfiguration = {
     },
     '44287': {
       id: '44287',
+      active: true,
       code: 'IS THERE ANY MEDIA INTEREST IN THIS INCIDENT',
       label: 'IS THERE ANY MEDIA INTEREST IN THIS INCIDENT',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: true,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -488,6 +555,7 @@ const FIRE: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: true,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -497,12 +565,14 @@ const FIRE: IncidentTypeConfiguration = {
     },
     '44314': {
       id: '44314',
+      active: true,
       code: "IS THE INCIDENT SUBJECT TO A GOVERNOR'S ADJUDICATION",
       label: "IS THE INCIDENT SUBJECT TO A GOVERNOR'S ADJUDICATION",
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: true,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -510,6 +580,7 @@ const FIRE: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: true,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -519,12 +590,14 @@ const FIRE: IncidentTypeConfiguration = {
     },
     '44342': {
       id: '44342',
+      active: true,
       code: 'WERE FIRE EXTINGUISHERS USED',
       label: 'WERE FIRE EXTINGUISHERS USED',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: true,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -532,6 +605,7 @@ const FIRE: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: true,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -541,12 +615,14 @@ const FIRE: IncidentTypeConfiguration = {
     },
     '44354': {
       id: '44354',
+      active: true,
       code: 'ESTIMATED COST OF DAMAGE',
       label: 'ESTIMATED COST OF DAMAGE',
       multipleAnswers: false,
       answers: [
         {
           code: 'ENTER AMOUNT IN POUND STERLING',
+          active: true,
           label: 'ENTER AMOUNT IN POUND STERLING',
           commentRequired: true,
           dateRequired: false,
@@ -556,12 +632,14 @@ const FIRE: IncidentTypeConfiguration = {
     },
     '44410': {
       id: '44410',
+      active: true,
       code: 'DESCRIBE WHAT WAS COMPROMISED AND BY WHOM',
       label: 'DESCRIBE WHAT WAS COMPROMISED AND BY WHOM',
       multipleAnswers: false,
       answers: [
         {
           code: 'DESCRIPTION',
+          active: true,
           label: 'DESCRIPTION',
           commentRequired: true,
           dateRequired: false,
@@ -571,12 +649,14 @@ const FIRE: IncidentTypeConfiguration = {
     },
     '44424': {
       id: '44424',
+      active: true,
       code: 'WAS THE SYSTEM RE-ACTIVATED LOCALLY OR BY THE SERVICE SUPPLIER',
       label: 'WAS THE SYSTEM RE-ACTIVATED LOCALLY OR BY THE SERVICE SUPPLIER',
       multipleAnswers: false,
       answers: [
         {
           code: 'LOCAL',
+          active: true,
           label: 'LOCAL',
           commentRequired: false,
           dateRequired: false,
@@ -584,6 +664,7 @@ const FIRE: IncidentTypeConfiguration = {
         },
         {
           code: 'SERVICE SUPPLIER',
+          active: true,
           label: 'SERVICE SUPPLIER',
           commentRequired: false,
           dateRequired: false,
@@ -593,12 +674,14 @@ const FIRE: IncidentTypeConfiguration = {
     },
     '44454': {
       id: '44454',
+      active: true,
       code: 'WHO USED THE FIRE EXTINGUISHERS',
       label: 'WHO USED THE FIRE EXTINGUISHERS',
       multipleAnswers: true,
       answers: [
         {
           code: 'STAFF',
+          active: true,
           label: 'STAFF',
           commentRequired: false,
           dateRequired: false,
@@ -606,6 +689,7 @@ const FIRE: IncidentTypeConfiguration = {
         },
         {
           code: 'PRISONERS',
+          active: true,
           label: 'PRISONERS',
           commentRequired: false,
           dateRequired: false,
@@ -613,6 +697,7 @@ const FIRE: IncidentTypeConfiguration = {
         },
         {
           code: 'FIRE BRIGADE',
+          active: true,
           label: 'FIRE BRIGADE',
           commentRequired: false,
           dateRequired: false,
@@ -620,6 +705,7 @@ const FIRE: IncidentTypeConfiguration = {
         },
         {
           code: 'OTHER',
+          active: true,
           label: 'OTHER',
           commentRequired: true,
           dateRequired: false,
@@ -629,12 +715,14 @@ const FIRE: IncidentTypeConfiguration = {
     },
     '44478': {
       id: '44478',
+      active: true,
       code: 'DID ANYONE SUFFER BURN INJURIES',
       label: 'DID ANYONE SUFFER BURN INJURIES',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: true,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -642,6 +730,7 @@ const FIRE: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: true,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -651,12 +740,14 @@ const FIRE: IncidentTypeConfiguration = {
     },
     '44486': {
       id: '44486',
+      active: true,
       code: 'WAS ANYONE HOSPITALISED',
       label: 'WAS ANYONE HOSPITALISED',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: true,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -664,6 +755,7 @@ const FIRE: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: true,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -673,12 +765,14 @@ const FIRE: IncidentTypeConfiguration = {
     },
     '44493': {
       id: '44493',
+      active: true,
       code: 'WAS THE SYSTEM COMPROMISED?',
       label: 'WAS THE SYSTEM COMPROMISED?',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: true,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -686,6 +780,7 @@ const FIRE: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: true,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -695,12 +790,14 @@ const FIRE: IncidentTypeConfiguration = {
     },
     '44520': {
       id: '44520',
+      active: true,
       code: 'WHO DIED',
       label: 'WHO DIED',
       multipleAnswers: true,
       answers: [
         {
           code: 'STAFF',
+          active: true,
           label: 'STAFF',
           commentRequired: true,
           dateRequired: false,
@@ -708,6 +805,7 @@ const FIRE: IncidentTypeConfiguration = {
         },
         {
           code: 'PRISONERS',
+          active: true,
           label: 'PRISONERS',
           commentRequired: true,
           dateRequired: false,
@@ -715,6 +813,7 @@ const FIRE: IncidentTypeConfiguration = {
         },
         {
           code: 'OTHERS',
+          active: true,
           label: 'OTHERS',
           commentRequired: true,
           dateRequired: false,
@@ -724,12 +823,14 @@ const FIRE: IncidentTypeConfiguration = {
     },
     '44556': {
       id: '44556',
+      active: true,
       code: 'WAS THE TELEPHONE/IT SYSTEM SHUT DOWN LOCALLY OR BY THE SERVICE SUPPLIER',
       label: 'WAS THE TELEPHONE/IT SYSTEM SHUT DOWN LOCALLY OR BY THE SERVICE SUPPLIER',
       multipleAnswers: false,
       answers: [
         {
           code: 'LOCAL',
+          active: true,
           label: 'LOCAL',
           commentRequired: false,
           dateRequired: false,
@@ -737,6 +838,7 @@ const FIRE: IncidentTypeConfiguration = {
         },
         {
           code: 'SERVICE SUPPLIER',
+          active: true,
           label: 'SERVICE SUPPLIER',
           commentRequired: false,
           dateRequired: false,
@@ -746,12 +848,14 @@ const FIRE: IncidentTypeConfiguration = {
     },
     '44567': {
       id: '44567',
+      active: true,
       code: 'WHAT WAS THE POSSIBLE CAUSE OF THE FIRE',
       label: 'WHAT WAS THE POSSIBLE CAUSE OF THE FIRE',
       multipleAnswers: false,
       answers: [
         {
           code: 'MALICIOUS IGNITION',
+          active: true,
           label: 'MALICIOUS IGNITION',
           commentRequired: false,
           dateRequired: false,
@@ -759,6 +863,7 @@ const FIRE: IncidentTypeConfiguration = {
         },
         {
           code: 'ELECTRICAL FAULT',
+          active: true,
           label: 'ELECTRICAL FAULT',
           commentRequired: false,
           dateRequired: false,
@@ -766,6 +871,7 @@ const FIRE: IncidentTypeConfiguration = {
         },
         {
           code: 'SMOKING MATERIAL',
+          active: true,
           label: 'SMOKING MATERIAL',
           commentRequired: false,
           dateRequired: false,
@@ -773,6 +879,7 @@ const FIRE: IncidentTypeConfiguration = {
         },
         {
           code: 'OVERHEATING',
+          active: true,
           label: 'OVERHEATING',
           commentRequired: true,
           dateRequired: false,
@@ -780,6 +887,7 @@ const FIRE: IncidentTypeConfiguration = {
         },
         {
           code: 'OTHER',
+          active: true,
           label: 'OTHER',
           commentRequired: true,
           dateRequired: false,
@@ -789,12 +897,14 @@ const FIRE: IncidentTypeConfiguration = {
     },
     '44668': {
       id: '44668',
+      active: true,
       code: 'WERE THE POLICE INFORMED OF THE INCIDENT',
       label: 'WERE THE POLICE INFORMED OF THE INCIDENT',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: true,
           label: 'YES',
           commentRequired: false,
           dateRequired: true,
@@ -802,6 +912,7 @@ const FIRE: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: true,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -811,12 +922,14 @@ const FIRE: IncidentTypeConfiguration = {
     },
     '44695': {
       id: '44695',
+      active: true,
       code: 'IS THE ITEM FIRST IGNITED KNOWN',
       label: 'IS THE ITEM FIRST IGNITED KNOWN',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: true,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -824,6 +937,7 @@ const FIRE: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: true,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -833,12 +947,14 @@ const FIRE: IncidentTypeConfiguration = {
     },
     '44732': {
       id: '44732',
+      active: true,
       code: 'WAS THE FIRE BRIGADE CALLED',
       label: 'WAS THE FIRE BRIGADE CALLED',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: true,
           label: 'YES',
           commentRequired: true,
           dateRequired: false,
@@ -846,6 +962,7 @@ const FIRE: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: true,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -855,12 +972,14 @@ const FIRE: IncidentTypeConfiguration = {
     },
     '44740': {
       id: '44740',
+      active: true,
       code: 'SPECIFY THOSE HOSPITALISED',
       label: 'SPECIFY THOSE HOSPITALISED',
       multipleAnswers: true,
       answers: [
         {
           code: 'STAFF',
+          active: true,
           label: 'STAFF',
           commentRequired: true,
           dateRequired: false,
@@ -868,6 +987,7 @@ const FIRE: IncidentTypeConfiguration = {
         },
         {
           code: 'PRISONERS',
+          active: true,
           label: 'PRISONERS',
           commentRequired: true,
           dateRequired: false,
@@ -875,6 +995,7 @@ const FIRE: IncidentTypeConfiguration = {
         },
         {
           code: 'OTHER',
+          active: true,
           label: 'OTHER',
           commentRequired: true,
           dateRequired: false,
@@ -884,12 +1005,14 @@ const FIRE: IncidentTypeConfiguration = {
     },
     '44741': {
       id: '44741',
+      active: true,
       code: 'WAS ANY ACTION TAKEN TO PREVENT RECURRENCE',
       label: 'WAS ANY ACTION TAKEN TO PREVENT RECURRENCE',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: true,
           label: 'YES',
           commentRequired: true,
           dateRequired: false,
@@ -897,6 +1020,7 @@ const FIRE: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: true,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -906,12 +1030,14 @@ const FIRE: IncidentTypeConfiguration = {
     },
     '44744': {
       id: '44744',
+      active: true,
       code: 'WAS THE TELEPHONE/IT SYSTEM SHUT DOWN DURING THE INCIDENT?',
       label: 'WAS THE TELEPHONE/IT SYSTEM SHUT DOWN DURING THE INCIDENT?',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: true,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -919,6 +1045,7 @@ const FIRE: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: true,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -928,12 +1055,14 @@ const FIRE: IncidentTypeConfiguration = {
     },
     '44747': {
       id: '44747',
+      active: true,
       code: 'SPECIFY THOSE WITH OTHER INJURIES',
       label: 'SPECIFY THOSE WITH OTHER INJURIES',
       multipleAnswers: true,
       answers: [
         {
           code: 'STAFF',
+          active: true,
           label: 'STAFF',
           commentRequired: true,
           dateRequired: false,
@@ -941,6 +1070,7 @@ const FIRE: IncidentTypeConfiguration = {
         },
         {
           code: 'PRISONERS',
+          active: true,
           label: 'PRISONERS',
           commentRequired: true,
           dateRequired: false,
@@ -948,6 +1078,7 @@ const FIRE: IncidentTypeConfiguration = {
         },
         {
           code: 'OTHERS',
+          active: true,
           label: 'OTHERS',
           commentRequired: true,
           dateRequired: false,
@@ -957,12 +1088,14 @@ const FIRE: IncidentTypeConfiguration = {
     },
     '44762': {
       id: '44762',
+      active: true,
       code: 'DID ANYONE SUFFER LACERATION INJURIES',
       label: 'DID ANYONE SUFFER LACERATION INJURIES',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: true,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -970,6 +1103,7 @@ const FIRE: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: true,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -979,12 +1113,14 @@ const FIRE: IncidentTypeConfiguration = {
     },
     '44813': {
       id: '44813',
+      active: true,
       code: 'WHICH ITEM(S) WERE FIRST IGNITED',
       label: 'WHICH ITEM(S) WERE FIRST IGNITED',
       multipleAnswers: true,
       answers: [
         {
           code: 'WOOD',
+          active: true,
           label: 'WOOD',
           commentRequired: false,
           dateRequired: false,
@@ -992,6 +1128,7 @@ const FIRE: IncidentTypeConfiguration = {
         },
         {
           code: 'PAPER',
+          active: true,
           label: 'PAPER',
           commentRequired: false,
           dateRequired: false,
@@ -999,6 +1136,7 @@ const FIRE: IncidentTypeConfiguration = {
         },
         {
           code: 'OIL',
+          active: true,
           label: 'OIL',
           commentRequired: false,
           dateRequired: false,
@@ -1006,6 +1144,7 @@ const FIRE: IncidentTypeConfiguration = {
         },
         {
           code: 'FLAMMABLE LIQUID',
+          active: true,
           label: 'FLAMMABLE LIQUID',
           commentRequired: false,
           dateRequired: false,
@@ -1013,6 +1152,7 @@ const FIRE: IncidentTypeConfiguration = {
         },
         {
           code: 'OTHER',
+          active: true,
           label: 'OTHER',
           commentRequired: true,
           dateRequired: false,
@@ -1022,12 +1162,14 @@ const FIRE: IncidentTypeConfiguration = {
     },
     '44829': {
       id: '44829',
+      active: true,
       code: 'WAS DAMAGE CAUSED TO PRISON PROPERTY',
       label: 'WAS DAMAGE CAUSED TO PRISON PROPERTY',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: true,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -1035,6 +1177,7 @@ const FIRE: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: true,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -1044,12 +1187,14 @@ const FIRE: IncidentTypeConfiguration = {
     },
     '44833': {
       id: '44833',
+      active: true,
       code: 'WERE ANY INJURIES RECEIVED DURING THIS INCIDENT',
       label: 'WERE ANY INJURIES RECEIVED DURING THIS INCIDENT',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: true,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -1057,6 +1202,7 @@ const FIRE: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: true,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -1066,12 +1212,14 @@ const FIRE: IncidentTypeConfiguration = {
     },
     '44837': {
       id: '44837',
+      active: true,
       code: 'WHO SUFFERED LACERATION INJURIES',
       label: 'WHO SUFFERED LACERATION INJURIES',
       multipleAnswers: true,
       answers: [
         {
           code: 'STAFF',
+          active: true,
           label: 'STAFF',
           commentRequired: true,
           dateRequired: false,
@@ -1079,6 +1227,7 @@ const FIRE: IncidentTypeConfiguration = {
         },
         {
           code: 'PRISONERS',
+          active: true,
           label: 'PRISONERS',
           commentRequired: true,
           dateRequired: false,
@@ -1086,6 +1235,7 @@ const FIRE: IncidentTypeConfiguration = {
         },
         {
           code: 'OTHERS',
+          active: true,
           label: 'OTHERS',
           commentRequired: true,
           dateRequired: false,
@@ -1095,12 +1245,14 @@ const FIRE: IncidentTypeConfiguration = {
     },
     '44865': {
       id: '44865',
+      active: true,
       code: 'WHO SUFFERED BURN INJURIES',
       label: 'WHO SUFFERED BURN INJURIES',
       multipleAnswers: true,
       answers: [
         {
           code: 'STAFF',
+          active: true,
           label: 'STAFF',
           commentRequired: true,
           dateRequired: false,
@@ -1108,6 +1260,7 @@ const FIRE: IncidentTypeConfiguration = {
         },
         {
           code: 'PRISONERS',
+          active: true,
           label: 'PRISONERS',
           commentRequired: true,
           dateRequired: false,
@@ -1115,6 +1268,7 @@ const FIRE: IncidentTypeConfiguration = {
         },
         {
           code: 'OTHER',
+          active: true,
           label: 'OTHER',
           commentRequired: true,
           dateRequired: false,
@@ -1124,12 +1278,14 @@ const FIRE: IncidentTypeConfiguration = {
     },
     '44878': {
       id: '44878',
+      active: true,
       code: 'WHICH FIXED INSTALLATIONS WERE OPERATED',
       label: 'WHICH FIXED INSTALLATIONS WERE OPERATED',
       multipleAnswers: false,
       answers: [
         {
           code: 'SPRINKLERS',
+          active: true,
           label: 'SPRINKLERS',
           commentRequired: false,
           dateRequired: false,
@@ -1137,6 +1293,7 @@ const FIRE: IncidentTypeConfiguration = {
         },
         {
           code: 'KITCHEN SUPPRESSION SYSTEM',
+          active: true,
           label: 'KITCHEN SUPPRESSION SYSTEM',
           commentRequired: false,
           dateRequired: false,
@@ -1144,6 +1301,7 @@ const FIRE: IncidentTypeConfiguration = {
         },
         {
           code: 'OTHER',
+          active: true,
           label: 'OTHER',
           commentRequired: true,
           dateRequired: false,
@@ -1153,12 +1311,14 @@ const FIRE: IncidentTypeConfiguration = {
     },
     '44895': {
       id: '44895',
+      active: true,
       code: 'WAS A CELL SNATCH REQUIRED',
       label: 'WAS A CELL SNATCH REQUIRED',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: true,
           label: 'YES',
           commentRequired: true,
           dateRequired: false,
@@ -1166,6 +1326,7 @@ const FIRE: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: true,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -1175,12 +1336,14 @@ const FIRE: IncidentTypeConfiguration = {
     },
     '44898': {
       id: '44898',
+      active: true,
       code: 'DESCRIBE THE DAMAGE',
       label: 'DESCRIBE THE DAMAGE',
       multipleAnswers: false,
       answers: [
         {
           code: 'MINOR',
+          active: true,
           label: 'MINOR',
           commentRequired: true,
           dateRequired: false,
@@ -1188,6 +1351,7 @@ const FIRE: IncidentTypeConfiguration = {
         },
         {
           code: 'SERIOUS',
+          active: true,
           label: 'SERIOUS',
           commentRequired: true,
           dateRequired: false,
@@ -1195,6 +1359,7 @@ const FIRE: IncidentTypeConfiguration = {
         },
         {
           code: 'EXTENSIVE',
+          active: true,
           label: 'EXTENSIVE',
           commentRequired: true,
           dateRequired: false,
@@ -1204,12 +1369,14 @@ const FIRE: IncidentTypeConfiguration = {
     },
     '44945': {
       id: '44945',
+      active: true,
       code: 'WERE FIXED INSTALLATIONS OPERATED',
       label: 'WERE FIXED INSTALLATIONS OPERATED',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: true,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -1217,6 +1384,7 @@ const FIRE: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: true,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -1226,12 +1394,14 @@ const FIRE: IncidentTypeConfiguration = {
     },
     '44949': {
       id: '44949',
+      active: true,
       code: 'IS THE INCIDENT THE SUBJECT OF A POLICE INVESTIGATION',
       label: 'IS THE INCIDENT THE SUBJECT OF A POLICE INVESTIGATION',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: true,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -1239,6 +1409,7 @@ const FIRE: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: true,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -1248,12 +1419,14 @@ const FIRE: IncidentTypeConfiguration = {
     },
     '44957': {
       id: '44957',
+      active: true,
       code: 'WHAT TIME WAS THE SYSTEM SHUT DOWN?',
       label: 'WHAT TIME WAS THE SYSTEM SHUT DOWN?',
       multipleAnswers: false,
       answers: [
         {
           code: 'ENTER TIME',
+          active: true,
           label: 'ENTER TIME',
           commentRequired: true,
           dateRequired: false,
@@ -1263,12 +1436,14 @@ const FIRE: IncidentTypeConfiguration = {
     },
     '44996': {
       id: '44996',
+      active: true,
       code: 'WAS THE SMOKE EXTRACTION SYSTEM OPERATED',
       label: 'WAS THE SMOKE EXTRACTION SYSTEM OPERATED',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: true,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -1276,6 +1451,7 @@ const FIRE: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: true,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -1285,12 +1461,14 @@ const FIRE: IncidentTypeConfiguration = {
     },
     '44999': {
       id: '44999',
+      active: true,
       code: 'WHO WAS EVACUATED',
       label: 'WHO WAS EVACUATED',
       multipleAnswers: true,
       answers: [
         {
           code: 'STAFF',
+          active: true,
           label: 'STAFF',
           commentRequired: true,
           dateRequired: false,
@@ -1298,6 +1476,7 @@ const FIRE: IncidentTypeConfiguration = {
         },
         {
           code: 'PRISONERS',
+          active: true,
           label: 'PRISONERS',
           commentRequired: true,
           dateRequired: false,
@@ -1305,6 +1484,7 @@ const FIRE: IncidentTypeConfiguration = {
         },
         {
           code: 'OTHERS',
+          active: true,
           label: 'OTHERS',
           commentRequired: true,
           dateRequired: false,
@@ -1314,12 +1494,14 @@ const FIRE: IncidentTypeConfiguration = {
     },
     '45017': {
       id: '45017',
+      active: true,
       code: 'WERE OTHER ARTICLES INVOLVED',
       label: 'WERE OTHER ARTICLES INVOLVED',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: true,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -1327,6 +1509,7 @@ const FIRE: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: true,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -1336,12 +1519,14 @@ const FIRE: IncidentTypeConfiguration = {
     },
     '45027': {
       id: '45027',
+      active: true,
       code: 'WAS THIS A FULL OR PARTIAL SHUT DOWN?',
       label: 'WAS THIS A FULL OR PARTIAL SHUT DOWN?',
       multipleAnswers: false,
       answers: [
         {
           code: 'FULL',
+          active: true,
           label: 'FULL',
           commentRequired: false,
           dateRequired: false,
@@ -1349,6 +1534,7 @@ const FIRE: IncidentTypeConfiguration = {
         },
         {
           code: 'PARTIAL',
+          active: true,
           label: 'PARTIAL',
           commentRequired: true,
           dateRequired: false,
@@ -1358,12 +1544,14 @@ const FIRE: IncidentTypeConfiguration = {
     },
     '45046': {
       id: '45046',
+      active: true,
       code: 'DID ANYONE SUFFER SMOKE INHALATION INJURIES',
       label: 'DID ANYONE SUFFER SMOKE INHALATION INJURIES',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: true,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -1371,6 +1559,7 @@ const FIRE: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: true,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -1380,12 +1569,14 @@ const FIRE: IncidentTypeConfiguration = {
     },
     '45053': {
       id: '45053',
+      active: true,
       code: 'WHICH ARTICLES WERE INVOLVED',
       label: 'WHICH ARTICLES WERE INVOLVED',
       multipleAnswers: true,
       answers: [
         {
           code: 'FURNISHINGS',
+          active: true,
           label: 'FURNISHINGS',
           commentRequired: false,
           dateRequired: false,
@@ -1393,6 +1584,7 @@ const FIRE: IncidentTypeConfiguration = {
         },
         {
           code: 'BEDDING',
+          active: true,
           label: 'BEDDING',
           commentRequired: false,
           dateRequired: false,
@@ -1400,6 +1592,7 @@ const FIRE: IncidentTypeConfiguration = {
         },
         {
           code: 'CLOTHING',
+          active: true,
           label: 'CLOTHING',
           commentRequired: false,
           dateRequired: false,
@@ -1407,6 +1600,7 @@ const FIRE: IncidentTypeConfiguration = {
         },
         {
           code: 'EQUIPMENT',
+          active: true,
           label: 'EQUIPMENT',
           commentRequired: false,
           dateRequired: false,
@@ -1414,6 +1608,7 @@ const FIRE: IncidentTypeConfiguration = {
         },
         {
           code: 'RUBBISH/REFUSE',
+          active: true,
           label: 'RUBBISH/REFUSE',
           commentRequired: false,
           dateRequired: false,
@@ -1421,6 +1616,7 @@ const FIRE: IncidentTypeConfiguration = {
         },
         {
           code: 'VEHICLE/PLANT',
+          active: true,
           label: 'VEHICLE/PLANT',
           commentRequired: false,
           dateRequired: false,
@@ -1428,6 +1624,7 @@ const FIRE: IncidentTypeConfiguration = {
         },
         {
           code: 'OTHER',
+          active: true,
           label: 'OTHER',
           commentRequired: true,
           dateRequired: false,
@@ -1437,12 +1634,14 @@ const FIRE: IncidentTypeConfiguration = {
     },
     '45055': {
       id: '45055',
+      active: true,
       code: 'ANY OTHER INJURIES',
       label: 'ANY OTHER INJURIES',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: true,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -1450,6 +1649,7 @@ const FIRE: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: true,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -1459,12 +1659,14 @@ const FIRE: IncidentTypeConfiguration = {
     },
     '45058': {
       id: '45058',
+      active: true,
       code: 'WAS EVACUATION NECESSARY',
       label: 'WAS EVACUATION NECESSARY',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: true,
           label: 'YES',
           commentRequired: true,
           dateRequired: false,
@@ -1472,6 +1674,7 @@ const FIRE: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: true,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -1481,12 +1684,14 @@ const FIRE: IncidentTypeConfiguration = {
     },
     '45064': {
       id: '45064',
+      active: true,
       code: 'HOW WAS THE ALARM RAISED',
       label: 'HOW WAS THE ALARM RAISED',
       multipleAnswers: false,
       answers: [
         {
           code: 'FIRE ALARM',
+          active: true,
           label: 'FIRE ALARM',
           commentRequired: false,
           dateRequired: false,
@@ -1494,6 +1699,7 @@ const FIRE: IncidentTypeConfiguration = {
         },
         {
           code: 'TELEPHONE',
+          active: true,
           label: 'TELEPHONE',
           commentRequired: false,
           dateRequired: false,
@@ -1501,6 +1707,7 @@ const FIRE: IncidentTypeConfiguration = {
         },
         {
           code: 'RADIO',
+          active: true,
           label: 'RADIO',
           commentRequired: false,
           dateRequired: false,
@@ -1508,6 +1715,7 @@ const FIRE: IncidentTypeConfiguration = {
         },
         {
           code: 'AUTOMATIC FIRE ALARM',
+          active: true,
           label: 'AUTOMATIC FIRE ALARM',
           commentRequired: false,
           dateRequired: false,
@@ -1515,6 +1723,7 @@ const FIRE: IncidentTypeConfiguration = {
         },
         {
           code: 'OTHER',
+          active: true,
           label: 'OTHER',
           commentRequired: true,
           dateRequired: false,
@@ -1524,12 +1733,14 @@ const FIRE: IncidentTypeConfiguration = {
     },
     '45069': {
       id: '45069',
+      active: true,
       code: 'HAS THE PRISON SERVICE PRESS OFFICE BEEN INFORMED',
       label: 'HAS THE PRISON SERVICE PRESS OFFICE BEEN INFORMED',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: true,
           label: 'YES',
           commentRequired: false,
           dateRequired: true,
@@ -1537,6 +1748,7 @@ const FIRE: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: true,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -1546,12 +1758,14 @@ const FIRE: IncidentTypeConfiguration = {
     },
     '45084': {
       id: '45084',
+      active: true,
       code: 'INDICATE THE NATURE OF THE SHUT DOWN',
       label: 'INDICATE THE NATURE OF THE SHUT DOWN',
       multipleAnswers: true,
       answers: [
         {
           code: 'TELEPHONY',
+          active: true,
           label: 'TELEPHONY',
           commentRequired: true,
           dateRequired: false,
@@ -1559,6 +1773,7 @@ const FIRE: IncidentTypeConfiguration = {
         },
         {
           code: 'IT',
+          active: true,
           label: 'IT',
           commentRequired: true,
           dateRequired: false,
@@ -1568,12 +1783,14 @@ const FIRE: IncidentTypeConfiguration = {
     },
     '45085': {
       id: '45085',
+      active: true,
       code: 'WHO SUFFERED SMOKE INHALATION INJURIES',
       label: 'WHO SUFFERED SMOKE INHALATION INJURIES',
       multipleAnswers: true,
       answers: [
         {
           code: 'STAFF',
+          active: true,
           label: 'STAFF',
           commentRequired: true,
           dateRequired: false,
@@ -1581,6 +1798,7 @@ const FIRE: IncidentTypeConfiguration = {
         },
         {
           code: 'PRISONERS',
+          active: true,
           label: 'PRISONERS',
           commentRequired: true,
           dateRequired: false,
@@ -1588,6 +1806,7 @@ const FIRE: IncidentTypeConfiguration = {
         },
         {
           code: 'OTHERS',
+          active: true,
           label: 'OTHERS',
           commentRequired: true,
           dateRequired: false,
@@ -1597,12 +1816,14 @@ const FIRE: IncidentTypeConfiguration = {
     },
     '45091': {
       id: '45091',
+      active: true,
       code: 'WHO SUFFERED BROKEN BONE INJURIES',
       label: 'WHO SUFFERED BROKEN BONE INJURIES',
       multipleAnswers: true,
       answers: [
         {
           code: 'STAFF',
+          active: true,
           label: 'STAFF',
           commentRequired: true,
           dateRequired: false,
@@ -1610,6 +1831,7 @@ const FIRE: IncidentTypeConfiguration = {
         },
         {
           code: 'PRISONERS',
+          active: true,
           label: 'PRISONERS',
           commentRequired: true,
           dateRequired: false,
@@ -1617,6 +1839,7 @@ const FIRE: IncidentTypeConfiguration = {
         },
         {
           code: 'OTHERS',
+          active: true,
           label: 'OTHERS',
           commentRequired: true,
           dateRequired: false,
@@ -1626,12 +1849,14 @@ const FIRE: IncidentTypeConfiguration = {
     },
     '45116': {
       id: '45116',
+      active: true,
       code: 'WHAT EQUIPMENT WAS USED TO EXTINGUISH THE FIRE',
       label: 'WHAT EQUIPMENT WAS USED TO EXTINGUISH THE FIRE',
       multipleAnswers: true,
       answers: [
         {
           code: 'WATER EXTINGUISHER',
+          active: true,
           label: 'WATER EXTINGUISHER',
           commentRequired: true,
           dateRequired: false,
@@ -1639,6 +1864,7 @@ const FIRE: IncidentTypeConfiguration = {
         },
         {
           code: 'FOAM EXTINGUISHERS',
+          active: true,
           label: 'FOAM EXTINGUISHERS',
           commentRequired: true,
           dateRequired: false,
@@ -1646,6 +1872,7 @@ const FIRE: IncidentTypeConfiguration = {
         },
         {
           code: 'DRY POWDER EXTINGUISHER',
+          active: true,
           label: 'DRY POWDER EXTINGUISHER',
           commentRequired: true,
           dateRequired: false,
@@ -1653,6 +1880,7 @@ const FIRE: IncidentTypeConfiguration = {
         },
         {
           code: 'AFFF EXTINGUISHER',
+          active: true,
           label: 'AFFF EXTINGUISHER',
           commentRequired: true,
           dateRequired: false,
@@ -1660,6 +1888,7 @@ const FIRE: IncidentTypeConfiguration = {
         },
         {
           code: 'HOSE REEL',
+          active: true,
           label: 'HOSE REEL',
           commentRequired: true,
           dateRequired: false,
@@ -1667,6 +1896,7 @@ const FIRE: IncidentTypeConfiguration = {
         },
         {
           code: 'FIRE BLANKET',
+          active: true,
           label: 'FIRE BLANKET',
           commentRequired: true,
           dateRequired: false,
@@ -1674,6 +1904,7 @@ const FIRE: IncidentTypeConfiguration = {
         },
         {
           code: 'CELL SPRAY NOZZLE',
+          active: true,
           label: 'CELL SPRAY NOZZLE',
           commentRequired: true,
           dateRequired: false,
@@ -1681,6 +1912,7 @@ const FIRE: IncidentTypeConfiguration = {
         },
         {
           code: 'CO2 EXTINGUISHER',
+          active: true,
           label: 'CO2 EXTINGUISHER',
           commentRequired: true,
           dateRequired: false,
@@ -1688,6 +1920,7 @@ const FIRE: IncidentTypeConfiguration = {
         },
         {
           code: 'OTHER',
+          active: true,
           label: 'OTHER',
           commentRequired: true,
           dateRequired: false,
@@ -1697,12 +1930,14 @@ const FIRE: IncidentTypeConfiguration = {
     },
     '45131': {
       id: '45131',
+      active: true,
       code: 'DID ANYONE SUFFER BROKEN BONE INJURIES',
       label: 'DID ANYONE SUFFER BROKEN BONE INJURIES',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: true,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -1710,6 +1945,7 @@ const FIRE: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: true,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -1719,12 +1955,14 @@ const FIRE: IncidentTypeConfiguration = {
     },
     '45133': {
       id: '45133',
+      active: true,
       code: 'IS THE POSSIBLE CAUSE OF THE FIRE KNOWN',
       label: 'IS THE POSSIBLE CAUSE OF THE FIRE KNOWN',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: true,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -1732,6 +1970,7 @@ const FIRE: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: true,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -1741,12 +1980,14 @@ const FIRE: IncidentTypeConfiguration = {
     },
     '45146': {
       id: '45146',
+      active: true,
       code: 'HAS ANY PROSECUTION TAKEN PLACE OR IS ANY PENDING',
       label: 'HAS ANY PROSECUTION TAKEN PLACE OR IS ANY PENDING',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: true,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -1754,6 +1995,7 @@ const FIRE: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: true,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -1763,12 +2005,14 @@ const FIRE: IncidentTypeConfiguration = {
     },
     '45173': {
       id: '45173',
+      active: true,
       code: 'WHO AUTHORISED THE SHUT DOWN?',
       label: 'WHO AUTHORISED THE SHUT DOWN?',
       multipleAnswers: false,
       answers: [
         {
           code: 'GOVERNOR',
+          active: true,
           label: 'GOVERNOR',
           commentRequired: false,
           dateRequired: false,
@@ -1776,6 +2020,7 @@ const FIRE: IncidentTypeConfiguration = {
         },
         {
           code: 'DEPUTY GOVERNOR',
+          active: true,
           label: 'DEPUTY GOVERNOR',
           commentRequired: false,
           dateRequired: false,
@@ -1783,6 +2028,7 @@ const FIRE: IncidentTypeConfiguration = {
         },
         {
           code: 'DUTY GOVERNOR',
+          active: true,
           label: 'DUTY GOVERNOR',
           commentRequired: false,
           dateRequired: false,
@@ -1790,6 +2036,7 @@ const FIRE: IncidentTypeConfiguration = {
         },
         {
           code: 'OTHER',
+          active: true,
           label: 'OTHER',
           commentRequired: true,
           dateRequired: false,

@@ -1,4 +1,4 @@
-// Generated with ./scripts/updateNomisIncidentTypeConfigurations.ts at 2024-09-16T15:41:55.197Z
+// Generated with ./scripts/updateNomisIncidentTypeConfigurations.ts at 2024-09-20T16:52:13.403Z
 
 import { type IncidentTypeConfiguration } from '../../data/incidentTypeConfiguration/types'
 
@@ -9,12 +9,14 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
   questions: {
     '44147': {
       id: '44147',
+      active: true,
       code: 'WAS FORCE USED',
       label: 'WAS FORCE USED',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: true,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -22,6 +24,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: true,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -31,12 +34,14 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
     },
     '44152': {
       id: '44152',
+      active: true,
       code: 'HOW DID THE PRISONER GAIN ACCESS TO THE TOP OF THE FENCE',
       label: 'HOW DID THE PRISONER GAIN ACCESS TO THE TOP OF THE FENCE',
       multipleAnswers: true,
       answers: [
         {
           code: 'LADDER',
+          active: true,
           label: 'LADDER',
           commentRequired: false,
           dateRequired: false,
@@ -44,6 +49,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'ROPE',
+          active: true,
           label: 'ROPE',
           commentRequired: false,
           dateRequired: false,
@@ -51,6 +57,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'CLIMBING AIDS',
+          active: true,
           label: 'CLIMBING AIDS',
           commentRequired: false,
           dateRequired: false,
@@ -58,6 +65,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'FURNITURE ITEMS',
+          active: true,
           label: 'FURNITURE ITEMS',
           commentRequired: false,
           dateRequired: false,
@@ -65,6 +73,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'SPORTS ITEMS',
+          active: true,
           label: 'SPORTS ITEMS',
           commentRequired: false,
           dateRequired: false,
@@ -72,6 +81,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'GROUNDS ITEMS',
+          active: true,
           label: 'GROUNDS ITEMS',
           commentRequired: false,
           dateRequired: false,
@@ -79,6 +89,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'OTHER',
+          active: true,
           label: 'OTHER',
           commentRequired: true,
           dateRequired: false,
@@ -88,12 +99,14 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
     },
     '44163': {
       id: '44163',
+      active: true,
       code: 'WHERE WAS THE CELL SITUATED',
       label: 'WHERE WAS THE CELL SITUATED',
       multipleAnswers: false,
       answers: [
         {
           code: 'SSU',
+          active: true,
           label: 'SSU',
           commentRequired: false,
           dateRequired: false,
@@ -101,6 +114,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'CRC',
+          active: true,
           label: 'CRC',
           commentRequired: false,
           dateRequired: false,
@@ -108,6 +122,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'WING/HOUSEBLOCK',
+          active: true,
           label: 'WING/HOUSEBLOCK',
           commentRequired: false,
           dateRequired: false,
@@ -115,6 +130,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'HEALTH CARE CENTRE',
+          active: true,
           label: 'HEALTH CARE CENTRE',
           commentRequired: false,
           dateRequired: false,
@@ -122,6 +138,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'SEGREGATION UNIT',
+          active: true,
           label: 'SEGREGATION UNIT',
           commentRequired: false,
           dateRequired: false,
@@ -129,6 +146,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'RULE 43 UNIT (OR)',
+          active: true,
           label: 'RULE 43 UNIT (OR)',
           commentRequired: false,
           dateRequired: false,
@@ -136,6 +154,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'RULE 43 UNIT (GOAD)',
+          active: true,
           label: 'RULE 43 UNIT (GOAD)',
           commentRequired: false,
           dateRequired: false,
@@ -145,12 +164,14 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
     },
     '44171': {
       id: '44171',
+      active: true,
       code: 'HOW DID THE PRISONER GAIN ACCESS TO THE EXTERNAL PERIMETER',
       label: 'HOW DID THE PRISONER GAIN ACCESS TO THE EXTERNAL PERIMETER',
       multipleAnswers: false,
       answers: [
         {
           code: 'WINDOW',
+          active: true,
           label: 'WINDOW',
           commentRequired: false,
           dateRequired: false,
@@ -158,6 +179,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'EXTERNAL WALL',
+          active: true,
           label: 'EXTERNAL WALL',
           commentRequired: false,
           dateRequired: false,
@@ -165,6 +187,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'FLOOR',
+          active: true,
           label: 'FLOOR',
           commentRequired: false,
           dateRequired: false,
@@ -172,6 +195,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'ROOF',
+          active: true,
           label: 'ROOF',
           commentRequired: false,
           dateRequired: false,
@@ -179,6 +203,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'DOOR/GATE',
+          active: true,
           label: 'DOOR/GATE',
           commentRequired: false,
           dateRequired: false,
@@ -186,6 +211,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'THROUGH FENCE',
+          active: true,
           label: 'THROUGH FENCE',
           commentRequired: false,
           dateRequired: false,
@@ -193,6 +219,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'UNDER FENCE',
+          active: true,
           label: 'UNDER FENCE',
           commentRequired: false,
           dateRequired: false,
@@ -200,6 +227,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'OVER FENCE',
+          active: true,
           label: 'OVER FENCE',
           commentRequired: false,
           dateRequired: false,
@@ -209,12 +237,14 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
     },
     '44225': {
       id: '44225',
+      active: true,
       code: 'WAS THE FENCE',
       label: 'WAS THE FENCE',
       multipleAnswers: false,
       answers: [
         {
           code: 'CLAD',
+          active: true,
           label: 'CLAD',
           commentRequired: false,
           dateRequired: false,
@@ -222,6 +252,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'UNCLAD',
+          active: true,
           label: 'UNCLAD',
           commentRequired: false,
           dateRequired: false,
@@ -231,12 +262,14 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
     },
     '44229': {
       id: '44229',
+      active: true,
       code: 'WAS THE EXIT THROUGH AN UNLOCKED DOOR OR GATE',
       label: 'WAS THE EXIT THROUGH AN UNLOCKED DOOR OR GATE',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: true,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -244,6 +277,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: true,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -253,12 +287,14 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
     },
     '44233': {
       id: '44233',
+      active: true,
       code: 'ENTER DESCRIPTION OF PERSON(S) INJURED',
       label: 'ENTER DESCRIPTION OF PERSON(S) INJURED',
       multipleAnswers: true,
       answers: [
         {
           code: 'STAFF',
+          active: true,
           label: 'STAFF',
           commentRequired: true,
           dateRequired: false,
@@ -266,6 +302,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'PRISONERS',
+          active: true,
           label: 'PRISONERS',
           commentRequired: true,
           dateRequired: false,
@@ -273,6 +310,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'CIVILIAN GRADES',
+          active: true,
           label: 'CIVILIAN GRADES',
           commentRequired: true,
           dateRequired: false,
@@ -280,6 +318,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'POLICE',
+          active: true,
           label: 'POLICE',
           commentRequired: true,
           dateRequired: false,
@@ -287,6 +326,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'EXTERNAL CIVILIANS',
+          active: true,
           label: 'EXTERNAL CIVILIANS',
           commentRequired: true,
           dateRequired: false,
@@ -296,12 +336,14 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
     },
     '44242': {
       id: '44242',
+      active: true,
       code: 'DID THE PRISONER LEAVE THE CELL',
       label: 'DID THE PRISONER LEAVE THE CELL',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: true,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -309,6 +351,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: true,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -318,12 +361,14 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
     },
     '44247': {
       id: '44247',
+      active: true,
       code: 'WAS AN ATTEMPT MADE TO CUT OR BREACH THE FENCE',
       label: 'WAS AN ATTEMPT MADE TO CUT OR BREACH THE FENCE',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: true,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -331,6 +376,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: true,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -340,12 +386,14 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
     },
     '44255': {
       id: '44255',
+      active: true,
       code: 'WAS THIS A FULL OR PARTIAL SHUT DOWN?',
       label: 'WAS THIS A FULL OR PARTIAL SHUT DOWN?',
       multipleAnswers: false,
       answers: [
         {
           code: 'FULL',
+          active: true,
           label: 'FULL',
           commentRequired: false,
           dateRequired: false,
@@ -353,6 +401,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'PARTIAL (ENTER DETAILS)',
+          active: true,
           label: 'PARTIAL (ENTER DETAILS)',
           commentRequired: true,
           dateRequired: false,
@@ -362,12 +411,14 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
     },
     '44274': {
       id: '44274',
+      active: true,
       code: 'DOES THE SPORTSFIELD HAVE ACCESS TO EXTERNAL PERIMETER',
       label: 'DOES THE SPORTSFIELD HAVE ACCESS TO EXTERNAL PERIMETER',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: true,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -375,6 +426,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: true,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -384,12 +436,14 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
     },
     '44278': {
       id: '44278',
+      active: true,
       code: 'WAS THE FENCE CUT OR BREACHED FROM',
       label: 'WAS THE FENCE CUT OR BREACHED FROM',
       multipleAnswers: true,
       answers: [
         {
           code: 'INSIDE',
+          active: true,
           label: 'INSIDE',
           commentRequired: false,
           dateRequired: false,
@@ -397,6 +451,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'OUTSIDE',
+          active: true,
           label: 'OUTSIDE',
           commentRequired: false,
           dateRequired: false,
@@ -406,12 +461,14 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
     },
     '44285': {
       id: '44285',
+      active: true,
       code: 'WAS THE TELEPHONE/IT SYSTEM SHUT DOWN LOCALLY OR BY THE SERVICE SUPPLIER',
       label: 'WAS THE TELEPHONE/IT SYSTEM SHUT DOWN LOCALLY OR BY THE SERVICE SUPPLIER',
       multipleAnswers: false,
       answers: [
         {
           code: 'LOCAL',
+          active: true,
           label: 'LOCAL',
           commentRequired: false,
           dateRequired: false,
@@ -419,6 +476,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'SERVICE SUPPLIER',
+          active: true,
           label: 'SERVICE SUPPLIER',
           commentRequired: false,
           dateRequired: false,
@@ -428,12 +486,14 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
     },
     '44297': {
       id: '44297',
+      active: true,
       code: 'WHAT WAS THE SOURCE OF THE ITEMS',
       label: 'WHAT WAS THE SOURCE OF THE ITEMS',
       multipleAnswers: true,
       answers: [
         {
           code: 'WORKS DEPARTMENT',
+          active: true,
           label: 'WORKS DEPARTMENT',
           commentRequired: false,
           dateRequired: false,
@@ -441,6 +501,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'CONTRACTORS',
+          active: true,
           label: 'CONTRACTORS',
           commentRequired: false,
           dateRequired: false,
@@ -448,6 +509,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'EDUCATION',
+          active: true,
           label: 'EDUCATION',
           commentRequired: false,
           dateRequired: false,
@@ -455,6 +517,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'HEALTH CARE CENTRE',
+          active: true,
           label: 'HEALTH CARE CENTRE',
           commentRequired: false,
           dateRequired: false,
@@ -462,6 +525,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'FARMS AND GARDENS',
+          active: true,
           label: 'FARMS AND GARDENS',
           commentRequired: false,
           dateRequired: false,
@@ -469,6 +533,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'GYMNASIUM/SPORTS FIELD',
+          active: true,
           label: 'GYMNASIUM/SPORTS FIELD',
           commentRequired: false,
           dateRequired: false,
@@ -476,6 +541,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'WORKSHOPS',
+          active: true,
           label: 'WORKSHOPS',
           commentRequired: false,
           dateRequired: false,
@@ -483,6 +549,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'KITCHEN',
+          active: true,
           label: 'KITCHEN',
           commentRequired: false,
           dateRequired: false,
@@ -490,6 +557,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'HOBBIES',
+          active: true,
           label: 'HOBBIES',
           commentRequired: false,
           dateRequired: false,
@@ -497,6 +565,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'CELL FURNISHINGS',
+          active: true,
           label: 'CELL FURNISHINGS',
           commentRequired: false,
           dateRequired: false,
@@ -504,6 +573,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'WING/HOUSEBLOCK FURNISHINGS',
+          active: true,
           label: 'WING/HOUSEBLOCK FURNISHINGS',
           commentRequired: false,
           dateRequired: false,
@@ -511,6 +581,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'SMUGGLED',
+          active: true,
           label: 'SMUGGLED',
           commentRequired: false,
           dateRequired: false,
@@ -518,6 +589,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'NOT KNOWN',
+          active: true,
           label: 'NOT KNOWN',
           commentRequired: false,
           dateRequired: false,
@@ -527,12 +599,14 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
     },
     '44300': {
       id: '44300',
+      active: true,
       code: 'WHAT WAS THE SOURCE OF THE TOOLS',
       label: 'WHAT WAS THE SOURCE OF THE TOOLS',
       multipleAnswers: true,
       answers: [
         {
           code: 'WORKS DEPARTMENT',
+          active: true,
           label: 'WORKS DEPARTMENT',
           commentRequired: false,
           dateRequired: false,
@@ -540,6 +614,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'CONTRACTORS',
+          active: true,
           label: 'CONTRACTORS',
           commentRequired: false,
           dateRequired: false,
@@ -547,6 +622,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'EDUCATION',
+          active: true,
           label: 'EDUCATION',
           commentRequired: false,
           dateRequired: false,
@@ -554,6 +630,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'HEALTH CARE CENTRE',
+          active: true,
           label: 'HEALTH CARE CENTRE',
           commentRequired: false,
           dateRequired: false,
@@ -561,6 +638,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'FARMS AND GARDENS',
+          active: true,
           label: 'FARMS AND GARDENS',
           commentRequired: false,
           dateRequired: false,
@@ -568,6 +646,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'GYMNASIUM/SPORTS FIELD',
+          active: true,
           label: 'GYMNASIUM/SPORTS FIELD',
           commentRequired: false,
           dateRequired: false,
@@ -575,6 +654,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'WORKSHOPS',
+          active: true,
           label: 'WORKSHOPS',
           commentRequired: false,
           dateRequired: false,
@@ -582,6 +662,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'KITCHEN',
+          active: true,
           label: 'KITCHEN',
           commentRequired: false,
           dateRequired: false,
@@ -589,6 +670,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'HOBBIES',
+          active: true,
           label: 'HOBBIES',
           commentRequired: false,
           dateRequired: false,
@@ -596,6 +678,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'CELL FURNISHINGS',
+          active: true,
           label: 'CELL FURNISHINGS',
           commentRequired: false,
           dateRequired: false,
@@ -603,6 +686,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'WING/HOUSEBLOCK FURNISHINGS',
+          active: true,
           label: 'WING/HOUSEBLOCK FURNISHINGS',
           commentRequired: false,
           dateRequired: false,
@@ -610,6 +694,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'SMUGGLED',
+          active: true,
           label: 'SMUGGLED',
           commentRequired: false,
           dateRequired: false,
@@ -617,6 +702,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'NOT KNOWN',
+          active: true,
           label: 'NOT KNOWN',
           commentRequired: false,
           dateRequired: false,
@@ -624,6 +710,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'OTHER',
+          active: true,
           label: 'OTHER',
           commentRequired: true,
           dateRequired: false,
@@ -633,12 +720,14 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
     },
     '44313': {
       id: '44313',
+      active: true,
       code: 'WAS THE WALL BREACHED FROM',
       label: 'WAS THE WALL BREACHED FROM',
       multipleAnswers: true,
       answers: [
         {
           code: 'INSIDE',
+          active: true,
           label: 'INSIDE',
           commentRequired: false,
           dateRequired: false,
@@ -646,6 +735,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'OUTSIDE',
+          active: true,
           label: 'OUTSIDE',
           commentRequired: false,
           dateRequired: false,
@@ -655,12 +745,14 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
     },
     '44315': {
       id: '44315',
+      active: true,
       code: 'WHAT TOOLS WERE USED',
       label: 'WHAT TOOLS WERE USED',
       multipleAnswers: true,
       answers: [
         {
           code: 'HACKSAW BLADE',
+          active: true,
           label: 'HACKSAW BLADE',
           commentRequired: false,
           dateRequired: false,
@@ -668,6 +760,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'OTHER BLADE',
+          active: true,
           label: 'OTHER BLADE',
           commentRequired: false,
           dateRequired: false,
@@ -675,6 +768,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'WIRE CUTTERS',
+          active: true,
           label: 'WIRE CUTTERS',
           commentRequired: false,
           dateRequired: false,
@@ -682,6 +776,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'BOLT CROPPERS',
+          active: true,
           label: 'BOLT CROPPERS',
           commentRequired: false,
           dateRequired: false,
@@ -689,6 +784,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'DIGGING TOOL',
+          active: true,
           label: 'DIGGING TOOL',
           commentRequired: false,
           dateRequired: false,
@@ -696,6 +792,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'CROW BAR',
+          active: true,
           label: 'CROW BAR',
           commentRequired: false,
           dateRequired: false,
@@ -703,6 +800,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'IMPROVISED TOOL',
+          active: true,
           label: 'IMPROVISED TOOL',
           commentRequired: false,
           dateRequired: false,
@@ -710,6 +808,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'OTHER TOOL',
+          active: true,
           label: 'OTHER TOOL',
           commentRequired: true,
           dateRequired: false,
@@ -717,6 +816,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'NOT KNOWN',
+          active: true,
           label: 'NOT KNOWN',
           commentRequired: false,
           dateRequired: false,
@@ -726,12 +826,14 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
     },
     '44320': {
       id: '44320',
+      active: true,
       code: 'WERE ANY WEAPONS USED',
       label: 'WERE ANY WEAPONS USED',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: true,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -739,6 +841,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: true,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -748,12 +851,14 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
     },
     '44327': {
       id: '44327',
+      active: true,
       code: 'WERE TOOLS USED',
       label: 'WERE TOOLS USED',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: true,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -761,6 +866,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: true,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -770,12 +876,14 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
     },
     '44340': {
       id: '44340',
+      active: true,
       code: 'WAS THE KEYWORD REQUESTED?',
       label: 'WAS THE KEYWORD REQUESTED?',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: true,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -783,6 +891,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: true,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -792,12 +901,14 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
     },
     '44341': {
       id: '44341',
+      active: true,
       code: 'WHICH AREA DID THIS GIVE ACCESS TO',
       label: 'WHICH AREA DID THIS GIVE ACCESS TO',
       multipleAnswers: false,
       answers: [
         {
           code: 'ANOTHER CELL',
+          active: true,
           label: 'ANOTHER CELL',
           commentRequired: false,
           dateRequired: false,
@@ -805,6 +916,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'RECESS/SHOWERS',
+          active: true,
           label: 'RECESS/SHOWERS',
           commentRequired: false,
           dateRequired: false,
@@ -812,6 +924,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'STORE ROOM',
+          active: true,
           label: 'STORE ROOM',
           commentRequired: false,
           dateRequired: false,
@@ -819,6 +932,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'ASSOCIATION AREA',
+          active: true,
           label: 'ASSOCIATION AREA',
           commentRequired: false,
           dateRequired: false,
@@ -826,6 +940,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'OFFICE',
+          active: true,
           label: 'OFFICE',
           commentRequired: false,
           dateRequired: false,
@@ -833,6 +948,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'CANTEEN',
+          active: true,
           label: 'CANTEEN',
           commentRequired: false,
           dateRequired: false,
@@ -840,6 +956,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'KITCHEN/SERVERY',
+          active: true,
           label: 'KITCHEN/SERVERY',
           commentRequired: false,
           dateRequired: false,
@@ -847,6 +964,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'ROOF SPACE',
+          active: true,
           label: 'ROOF SPACE',
           commentRequired: false,
           dateRequired: false,
@@ -854,6 +972,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'BASEMENT',
+          active: true,
           label: 'BASEMENT',
           commentRequired: false,
           dateRequired: false,
@@ -861,6 +980,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'OTHER',
+          active: true,
           label: 'OTHER',
           commentRequired: true,
           dateRequired: false,
@@ -870,12 +990,14 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
     },
     '44346': {
       id: '44346',
+      active: true,
       code: 'WHO AUTHORISED THE SHUT DOWN?',
       label: 'WHO AUTHORISED THE SHUT DOWN?',
       multipleAnswers: false,
       answers: [
         {
           code: 'GOVERNOR',
+          active: true,
           label: 'GOVERNOR',
           commentRequired: false,
           dateRequired: false,
@@ -883,6 +1005,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'DEPUTY GOVERNOR',
+          active: true,
           label: 'DEPUTY GOVERNOR',
           commentRequired: false,
           dateRequired: false,
@@ -890,6 +1013,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'DUTY GOVERNOR',
+          active: true,
           label: 'DUTY GOVERNOR',
           commentRequired: false,
           dateRequired: false,
@@ -897,6 +1021,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'OTHER',
+          active: true,
           label: 'OTHER',
           commentRequired: true,
           dateRequired: false,
@@ -906,12 +1031,14 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
     },
     '44349': {
       id: '44349',
+      active: true,
       code: 'HOW WAS THE ESCAPE ATTEMPT FOILED',
       label: 'HOW WAS THE ESCAPE ATTEMPT FOILED',
       multipleAnswers: false,
       answers: [
         {
           code: 'STAFF INTERVENTION',
+          active: true,
           label: 'STAFF INTERVENTION',
           commentRequired: false,
           dateRequired: false,
@@ -919,6 +1046,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'PRISONER ABANDONED ATTEMPT',
+          active: true,
           label: 'PRISONER ABANDONED ATTEMPT',
           commentRequired: false,
           dateRequired: false,
@@ -926,6 +1054,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'PRISONER INJURED',
+          active: true,
           label: 'PRISONER INJURED',
           commentRequired: false,
           dateRequired: false,
@@ -933,6 +1062,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'PHYSICAL BARRIER',
+          active: true,
           label: 'PHYSICAL BARRIER',
           commentRequired: false,
           dateRequired: false,
@@ -942,12 +1072,14 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
     },
     '44352': {
       id: '44352',
+      active: true,
       code: 'ARE THERE SECURITY AIDS AT SITE OF THE ATTEMPTED ESCAPE',
       label: 'ARE THERE SECURITY AIDS AT SITE OF THE ATTEMPTED ESCAPE',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: true,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -955,6 +1087,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: true,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -964,12 +1097,14 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
     },
     '44353': {
       id: '44353',
+      active: true,
       code: 'WHAT WAS THE SOURCE OF THE TOOLS',
       label: 'WHAT WAS THE SOURCE OF THE TOOLS',
       multipleAnswers: true,
       answers: [
         {
           code: 'WORKS DEPARTMENT',
+          active: true,
           label: 'WORKS DEPARTMENT',
           commentRequired: false,
           dateRequired: false,
@@ -977,6 +1112,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'CONTRACTORS',
+          active: true,
           label: 'CONTRACTORS',
           commentRequired: false,
           dateRequired: false,
@@ -984,6 +1120,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'EDUCATION',
+          active: true,
           label: 'EDUCATION',
           commentRequired: false,
           dateRequired: false,
@@ -991,6 +1128,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'HEALTH CARE CENTRE',
+          active: true,
           label: 'HEALTH CARE CENTRE',
           commentRequired: false,
           dateRequired: false,
@@ -998,6 +1136,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'FARMS AND GARDENS',
+          active: true,
           label: 'FARMS AND GARDENS',
           commentRequired: false,
           dateRequired: false,
@@ -1005,6 +1144,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'GYMNASIUM/SPORTS FIELD',
+          active: true,
           label: 'GYMNASIUM/SPORTS FIELD',
           commentRequired: false,
           dateRequired: false,
@@ -1012,6 +1152,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'WORKSHOPS',
+          active: true,
           label: 'WORKSHOPS',
           commentRequired: false,
           dateRequired: false,
@@ -1019,6 +1160,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'KITCHEN',
+          active: true,
           label: 'KITCHEN',
           commentRequired: false,
           dateRequired: false,
@@ -1026,6 +1168,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'HOBBIES',
+          active: true,
           label: 'HOBBIES',
           commentRequired: false,
           dateRequired: false,
@@ -1033,6 +1176,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'CELL FURNISHINGS',
+          active: true,
           label: 'CELL FURNISHINGS',
           commentRequired: false,
           dateRequired: false,
@@ -1040,6 +1184,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'WING/HOUSEBLOCK FURNISHINGS',
+          active: true,
           label: 'WING/HOUSEBLOCK FURNISHINGS',
           commentRequired: false,
           dateRequired: false,
@@ -1047,6 +1192,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'SMUGGLED',
+          active: true,
           label: 'SMUGGLED',
           commentRequired: false,
           dateRequired: false,
@@ -1054,6 +1200,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'NOT KNOWN',
+          active: true,
           label: 'NOT KNOWN',
           commentRequired: false,
           dateRequired: false,
@@ -1061,6 +1208,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'OTHER',
+          active: true,
           label: 'OTHER',
           commentRequired: true,
           dateRequired: false,
@@ -1070,12 +1218,14 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
     },
     '44368': {
       id: '44368',
+      active: true,
       code: 'WAS THE ATTEMPT MADE',
       label: 'WAS THE ATTEMPT MADE',
       multipleAnswers: false,
       answers: [
         {
           code: 'THROUGH THE CLADDING',
+          active: true,
           label: 'THROUGH THE CLADDING',
           commentRequired: false,
           dateRequired: false,
@@ -1083,6 +1233,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'ABOVE THE CLADDING',
+          active: true,
           label: 'ABOVE THE CLADDING',
           commentRequired: false,
           dateRequired: false,
@@ -1090,6 +1241,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'BELOW THE CLADDING',
+          active: true,
           label: 'BELOW THE CLADDING',
           commentRequired: false,
           dateRequired: false,
@@ -1099,12 +1251,14 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
     },
     '44433': {
       id: '44433',
+      active: true,
       code: 'WHEN WAS THE SYSTEM RE-ACTIVATED?',
       label: 'WHEN WAS THE SYSTEM RE-ACTIVATED?',
       multipleAnswers: false,
       answers: [
         {
           code: 'ENTER COMMENT AND DATE',
+          active: true,
           label: 'ENTER COMMENT AND DATE',
           commentRequired: true,
           dateRequired: true,
@@ -1114,12 +1268,14 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
     },
     '44440': {
       id: '44440',
+      active: true,
       code: 'WHAT TOOLS WERE USED',
       label: 'WHAT TOOLS WERE USED',
       multipleAnswers: true,
       answers: [
         {
           code: 'HACKSAW BLADE',
+          active: true,
           label: 'HACKSAW BLADE',
           commentRequired: false,
           dateRequired: false,
@@ -1127,6 +1283,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'OTHER BLADE',
+          active: true,
           label: 'OTHER BLADE',
           commentRequired: false,
           dateRequired: false,
@@ -1134,6 +1291,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'WIRE CUTTERS',
+          active: true,
           label: 'WIRE CUTTERS',
           commentRequired: false,
           dateRequired: false,
@@ -1141,6 +1299,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'BOLT CROPPERS',
+          active: true,
           label: 'BOLT CROPPERS',
           commentRequired: false,
           dateRequired: false,
@@ -1148,6 +1307,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'DIGGING TOOL',
+          active: true,
           label: 'DIGGING TOOL',
           commentRequired: false,
           dateRequired: false,
@@ -1155,6 +1315,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'CROW BAR',
+          active: true,
           label: 'CROW BAR',
           commentRequired: false,
           dateRequired: false,
@@ -1162,6 +1323,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'IMPROVISED TOOL',
+          active: true,
           label: 'IMPROVISED TOOL',
           commentRequired: false,
           dateRequired: false,
@@ -1169,6 +1331,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'OTHER TOOL',
+          active: true,
           label: 'OTHER TOOL',
           commentRequired: true,
           dateRequired: false,
@@ -1176,6 +1339,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'NOT KNOWN',
+          active: true,
           label: 'NOT KNOWN',
           commentRequired: false,
           dateRequired: false,
@@ -1185,12 +1349,14 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
     },
     '44441': {
       id: '44441',
+      active: true,
       code: 'DID THE PRISONER ATTEMPT TO GAIN ACCESS TO THE EXTERNAL PERIMETER',
       label: 'DID THE PRISONER ATTEMPT TO GAIN ACCESS TO THE EXTERNAL PERIMETER',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: true,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -1198,6 +1364,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: true,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -1207,12 +1374,14 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
     },
     '44444': {
       id: '44444',
+      active: true,
       code: 'WHAT WAS THE SOURCE OF THE ITEMS',
       label: 'WHAT WAS THE SOURCE OF THE ITEMS',
       multipleAnswers: true,
       answers: [
         {
           code: 'WORKS DEPARTMENT',
+          active: true,
           label: 'WORKS DEPARTMENT',
           commentRequired: false,
           dateRequired: false,
@@ -1220,6 +1389,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'CONTRACTORS',
+          active: true,
           label: 'CONTRACTORS',
           commentRequired: false,
           dateRequired: false,
@@ -1227,6 +1397,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'EDUCATION',
+          active: true,
           label: 'EDUCATION',
           commentRequired: false,
           dateRequired: false,
@@ -1234,6 +1405,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'HEALTH CARE CENTRE',
+          active: true,
           label: 'HEALTH CARE CENTRE',
           commentRequired: false,
           dateRequired: false,
@@ -1241,6 +1413,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'FARMS AND GARDENS',
+          active: true,
           label: 'FARMS AND GARDENS',
           commentRequired: false,
           dateRequired: false,
@@ -1248,6 +1421,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'GYMNASIUM/SPORTS FIELD',
+          active: true,
           label: 'GYMNASIUM/SPORTS FIELD',
           commentRequired: false,
           dateRequired: false,
@@ -1255,6 +1429,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'WORKSHOPS',
+          active: true,
           label: 'WORKSHOPS',
           commentRequired: false,
           dateRequired: false,
@@ -1262,6 +1437,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'KITCHEN',
+          active: true,
           label: 'KITCHEN',
           commentRequired: false,
           dateRequired: false,
@@ -1269,6 +1445,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'HOBBIES',
+          active: true,
           label: 'HOBBIES',
           commentRequired: false,
           dateRequired: false,
@@ -1276,6 +1453,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'CELL FURNISHINGS',
+          active: true,
           label: 'CELL FURNISHINGS',
           commentRequired: false,
           dateRequired: false,
@@ -1283,6 +1461,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'WING/HOUSEBLOCK FURNISHINGS',
+          active: true,
           label: 'WING/HOUSEBLOCK FURNISHINGS',
           commentRequired: false,
           dateRequired: false,
@@ -1290,6 +1469,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'SMUGGLED',
+          active: true,
           label: 'SMUGGLED',
           commentRequired: false,
           dateRequired: false,
@@ -1297,6 +1477,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'NOT KNOWN',
+          active: true,
           label: 'NOT KNOWN',
           commentRequired: false,
           dateRequired: false,
@@ -1306,12 +1487,14 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
     },
     '44447': {
       id: '44447',
+      active: true,
       code: 'WAS DAMAGE CAUSED TO PRISON PROPERTY',
       label: 'WAS DAMAGE CAUSED TO PRISON PROPERTY',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: true,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -1319,6 +1502,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: true,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -1328,12 +1512,14 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
     },
     '44450': {
       id: '44450',
+      active: true,
       code: 'WAS THE SWITCH WITH',
       label: 'WAS THE SWITCH WITH',
       multipleAnswers: false,
       answers: [
         {
           code: 'ANOTHER PRISONER',
+          active: true,
           label: 'ANOTHER PRISONER',
           commentRequired: false,
           dateRequired: false,
@@ -1341,6 +1527,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'A VISITOR (ENTER IDENTITY IF KNOWN)',
+          active: true,
           label: 'A VISITOR (ENTER IDENTITY IF KNOWN)',
           commentRequired: true,
           dateRequired: false,
@@ -1350,12 +1537,14 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
     },
     '44471': {
       id: '44471',
+      active: true,
       code: 'WHAT WAS THE SOURCE OF THE TOOLS',
       label: 'WHAT WAS THE SOURCE OF THE TOOLS',
       multipleAnswers: true,
       answers: [
         {
           code: 'WORKS DEPARTMENT',
+          active: true,
           label: 'WORKS DEPARTMENT',
           commentRequired: false,
           dateRequired: false,
@@ -1363,6 +1552,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'CONTRACTORS',
+          active: true,
           label: 'CONTRACTORS',
           commentRequired: false,
           dateRequired: false,
@@ -1370,6 +1560,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'EDUCATION',
+          active: true,
           label: 'EDUCATION',
           commentRequired: false,
           dateRequired: false,
@@ -1377,6 +1568,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'HEALTH CARE CENTRE',
+          active: true,
           label: 'HEALTH CARE CENTRE',
           commentRequired: false,
           dateRequired: false,
@@ -1384,6 +1576,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'FARMS AND GARDENS',
+          active: true,
           label: 'FARMS AND GARDENS',
           commentRequired: false,
           dateRequired: false,
@@ -1391,6 +1584,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'GYMNASIUM/SPORTS FIELD',
+          active: true,
           label: 'GYMNASIUM/SPORTS FIELD',
           commentRequired: false,
           dateRequired: false,
@@ -1398,6 +1592,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'WORKSHOPS',
+          active: true,
           label: 'WORKSHOPS',
           commentRequired: false,
           dateRequired: false,
@@ -1405,6 +1600,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'KITCHEN',
+          active: true,
           label: 'KITCHEN',
           commentRequired: false,
           dateRequired: false,
@@ -1412,6 +1608,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'HOBBIES',
+          active: true,
           label: 'HOBBIES',
           commentRequired: false,
           dateRequired: false,
@@ -1419,6 +1616,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'CELL FURNISHINGS',
+          active: true,
           label: 'CELL FURNISHINGS',
           commentRequired: false,
           dateRequired: false,
@@ -1426,6 +1624,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'WING/HOUSEBLOCK FURNISHINGS',
+          active: true,
           label: 'WING/HOUSEBLOCK FURNISHINGS',
           commentRequired: false,
           dateRequired: false,
@@ -1433,6 +1632,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'SMUGGLED',
+          active: true,
           label: 'SMUGGLED',
           commentRequired: false,
           dateRequired: false,
@@ -1440,6 +1640,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'NOT KNOWN',
+          active: true,
           label: 'NOT KNOWN',
           commentRequired: false,
           dateRequired: false,
@@ -1447,6 +1648,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'OTHER',
+          active: true,
           label: 'OTHER',
           commentRequired: true,
           dateRequired: false,
@@ -1456,12 +1658,14 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
     },
     '44480': {
       id: '44480',
+      active: true,
       code: 'WHAT WAS THE SOURCE OF THE ITEMS',
       label: 'WHAT WAS THE SOURCE OF THE ITEMS',
       multipleAnswers: true,
       answers: [
         {
           code: 'WORKS DEPARTMENT',
+          active: true,
           label: 'WORKS DEPARTMENT',
           commentRequired: false,
           dateRequired: false,
@@ -1469,6 +1673,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'CONTRACTORS',
+          active: true,
           label: 'CONTRACTORS',
           commentRequired: false,
           dateRequired: false,
@@ -1476,6 +1681,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'EDUCATION',
+          active: true,
           label: 'EDUCATION',
           commentRequired: false,
           dateRequired: false,
@@ -1483,6 +1689,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'HEALTH CARE CENTRE',
+          active: true,
           label: 'HEALTH CARE CENTRE',
           commentRequired: false,
           dateRequired: false,
@@ -1490,6 +1697,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'FARMS AND GARDENS',
+          active: true,
           label: 'FARMS AND GARDENS',
           commentRequired: false,
           dateRequired: false,
@@ -1497,6 +1705,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'GYMNASIUM/SPORTS FIELD',
+          active: true,
           label: 'GYMNASIUM/SPORTS FIELD',
           commentRequired: false,
           dateRequired: false,
@@ -1504,6 +1713,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'WORKSHOPS',
+          active: true,
           label: 'WORKSHOPS',
           commentRequired: false,
           dateRequired: false,
@@ -1511,6 +1721,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'KITCHEN',
+          active: true,
           label: 'KITCHEN',
           commentRequired: false,
           dateRequired: false,
@@ -1518,6 +1729,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'HOBBIES',
+          active: true,
           label: 'HOBBIES',
           commentRequired: false,
           dateRequired: false,
@@ -1525,6 +1737,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'CELL FURNISHINGS',
+          active: true,
           label: 'CELL FURNISHINGS',
           commentRequired: false,
           dateRequired: false,
@@ -1532,6 +1745,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'WING/HOUSEBLOCK FURNISHINGS',
+          active: true,
           label: 'WING/HOUSEBLOCK FURNISHINGS',
           commentRequired: false,
           dateRequired: false,
@@ -1539,6 +1753,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'SMUGGLED',
+          active: true,
           label: 'SMUGGLED',
           commentRequired: false,
           dateRequired: false,
@@ -1546,6 +1761,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'NOT KNOWN',
+          active: true,
           label: 'NOT KNOWN',
           commentRequired: false,
           dateRequired: false,
@@ -1553,6 +1769,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'OTHER',
+          active: true,
           label: 'OTHER',
           commentRequired: true,
           dateRequired: false,
@@ -1562,12 +1779,14 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
     },
     '44484': {
       id: '44484',
+      active: true,
       code: 'WAS THE VEHICLE AUTHORISED',
       label: 'WAS THE VEHICLE AUTHORISED',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: true,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -1575,6 +1794,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: true,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -1584,12 +1804,14 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
     },
     '44494': {
       id: '44494',
+      active: true,
       code: 'WHERE WERE THE INJURED TREATED',
       label: 'WHERE WERE THE INJURED TREATED',
       multipleAnswers: false,
       answers: [
         {
           code: 'PRISON HEALTH CARE CENTRE',
+          active: true,
           label: 'PRISON HEALTH CARE CENTRE',
           commentRequired: false,
           dateRequired: false,
@@ -1597,6 +1819,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'OUTSIDE HOSPITAL',
+          active: true,
           label: 'OUTSIDE HOSPITAL',
           commentRequired: false,
           dateRequired: false,
@@ -1606,12 +1829,14 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
     },
     '44498': {
       id: '44498',
+      active: true,
       code: 'WHAT WAS THE SOURCE OF THE TOOLS',
       label: 'WHAT WAS THE SOURCE OF THE TOOLS',
       multipleAnswers: true,
       answers: [
         {
           code: 'WORKS DEPARTMENT',
+          active: true,
           label: 'WORKS DEPARTMENT',
           commentRequired: false,
           dateRequired: false,
@@ -1619,6 +1844,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'CONTRACTORS',
+          active: true,
           label: 'CONTRACTORS',
           commentRequired: false,
           dateRequired: false,
@@ -1626,6 +1852,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'EDUCATION',
+          active: true,
           label: 'EDUCATION',
           commentRequired: false,
           dateRequired: false,
@@ -1633,6 +1860,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'HEALTH CARE CENTRE',
+          active: true,
           label: 'HEALTH CARE CENTRE',
           commentRequired: false,
           dateRequired: false,
@@ -1640,6 +1868,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'FARMS AND GARDENS',
+          active: true,
           label: 'FARMS AND GARDENS',
           commentRequired: false,
           dateRequired: false,
@@ -1647,6 +1876,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'GYMNASIUM/SPORTS FIELD',
+          active: true,
           label: 'GYMNASIUM/SPORTS FIELD',
           commentRequired: false,
           dateRequired: false,
@@ -1654,6 +1884,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'WORKSHOPS',
+          active: true,
           label: 'WORKSHOPS',
           commentRequired: false,
           dateRequired: false,
@@ -1661,6 +1892,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'KITCHEN',
+          active: true,
           label: 'KITCHEN',
           commentRequired: false,
           dateRequired: false,
@@ -1668,6 +1900,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'HOBBIES',
+          active: true,
           label: 'HOBBIES',
           commentRequired: false,
           dateRequired: false,
@@ -1675,6 +1908,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'CELL FURNISHINGS',
+          active: true,
           label: 'CELL FURNISHINGS',
           commentRequired: false,
           dateRequired: false,
@@ -1682,6 +1916,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'WING/HOUSEBLOCK FURNISHINGS',
+          active: true,
           label: 'WING/HOUSEBLOCK FURNISHINGS',
           commentRequired: false,
           dateRequired: false,
@@ -1689,6 +1924,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'SMUGGLED',
+          active: true,
           label: 'SMUGGLED',
           commentRequired: false,
           dateRequired: false,
@@ -1696,6 +1932,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'NOT KNOWN',
+          active: true,
           label: 'NOT KNOWN',
           commentRequired: false,
           dateRequired: false,
@@ -1703,6 +1940,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'OTHER',
+          active: true,
           label: 'OTHER',
           commentRequired: true,
           dateRequired: false,
@@ -1712,12 +1950,14 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
     },
     '44506': {
       id: '44506',
+      active: true,
       code: 'HOW WAS THE CELL OCCUPIED',
       label: 'HOW WAS THE CELL OCCUPIED',
       multipleAnswers: false,
       answers: [
         {
           code: 'SINGLE',
+          active: true,
           label: 'SINGLE',
           commentRequired: false,
           dateRequired: false,
@@ -1725,6 +1965,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'MULTIPLE OCCUPANCY (ENTER CAPACITY)',
+          active: true,
           label: 'MULTIPLE OCCUPANCY (ENTER CAPACITY)',
           commentRequired: true,
           dateRequired: false,
@@ -1734,12 +1975,14 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
     },
     '44517': {
       id: '44517',
+      active: true,
       code: 'GIVE DETAILS OF SECURITY MEASURE OVERCOME',
       label: 'GIVE DETAILS OF SECURITY MEASURE OVERCOME',
       multipleAnswers: true,
       answers: [
         {
           code: 'UV HAND STAMP',
+          active: true,
           label: 'UV HAND STAMP',
           commentRequired: false,
           dateRequired: false,
@@ -1747,6 +1990,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'HAND GEOMETRY',
+          active: true,
           label: 'HAND GEOMETRY',
           commentRequired: false,
           dateRequired: false,
@@ -1754,6 +1998,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'PHOTOGRAPHIC RECORD',
+          active: true,
           label: 'PHOTOGRAPHIC RECORD',
           commentRequired: false,
           dateRequired: false,
@@ -1761,6 +2006,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'IDENTIFYING CLOTHING',
+          active: true,
           label: 'IDENTIFYING CLOTHING',
           commentRequired: false,
           dateRequired: false,
@@ -1768,6 +2014,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'STAFF SUPERVISION',
+          active: true,
           label: 'STAFF SUPERVISION',
           commentRequired: false,
           dateRequired: false,
@@ -1775,6 +2022,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'OTHER',
+          active: true,
           label: 'OTHER',
           commentRequired: true,
           dateRequired: false,
@@ -1784,12 +2032,14 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
     },
     '44525': {
       id: '44525',
+      active: true,
       code: 'WHAT TOOLS WERE USED',
       label: 'WHAT TOOLS WERE USED',
       multipleAnswers: true,
       answers: [
         {
           code: 'HACKSAW BLADE',
+          active: true,
           label: 'HACKSAW BLADE',
           commentRequired: false,
           dateRequired: false,
@@ -1797,6 +2047,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'OTHER BLADE',
+          active: true,
           label: 'OTHER BLADE',
           commentRequired: false,
           dateRequired: false,
@@ -1804,6 +2055,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'WIRE CUTTERS',
+          active: true,
           label: 'WIRE CUTTERS',
           commentRequired: false,
           dateRequired: false,
@@ -1811,6 +2063,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'BOLT CROPPERS',
+          active: true,
           label: 'BOLT CROPPERS',
           commentRequired: false,
           dateRequired: false,
@@ -1818,6 +2071,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'DIGGING TOOL',
+          active: true,
           label: 'DIGGING TOOL',
           commentRequired: false,
           dateRequired: false,
@@ -1825,6 +2079,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'CROW BAR',
+          active: true,
           label: 'CROW BAR',
           commentRequired: false,
           dateRequired: false,
@@ -1832,6 +2087,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'IMPROVISED TOOL',
+          active: true,
           label: 'IMPROVISED TOOL',
           commentRequired: false,
           dateRequired: false,
@@ -1839,6 +2095,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'OTHER TOOL',
+          active: true,
           label: 'OTHER TOOL',
           commentRequired: true,
           dateRequired: false,
@@ -1846,6 +2103,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'NOT KNOWN',
+          active: true,
           label: 'NOT KNOWN',
           commentRequired: false,
           dateRequired: false,
@@ -1855,12 +2113,14 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
     },
     '44528': {
       id: '44528',
+      active: true,
       code: 'WERE TOOLS USED',
       label: 'WERE TOOLS USED',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: true,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -1868,6 +2128,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: true,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -1877,12 +2138,14 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
     },
     '44544': {
       id: '44544',
+      active: true,
       code: 'ESTIMATED COST OF DAMAGE',
       label: 'ESTIMATED COST OF DAMAGE',
       multipleAnswers: false,
       answers: [
         {
           code: 'ENTER AMOUNT IN POUND STERLING',
+          active: true,
           label: 'ENTER AMOUNT IN POUND STERLING',
           commentRequired: true,
           dateRequired: false,
@@ -1892,12 +2155,14 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
     },
     '44545': {
       id: '44545',
+      active: true,
       code: 'DID PRISONER GAIN ACCESS TO THE EXTERNAL PERIMETER',
       label: 'DID PRISONER GAIN ACCESS TO THE EXTERNAL PERIMETER',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: true,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -1905,6 +2170,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: true,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -1914,12 +2180,14 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
     },
     '44550': {
       id: '44550',
+      active: true,
       code: 'DESCRIBE WHAT WAS COMPROMISED AND BY WHOM',
       label: 'DESCRIBE WHAT WAS COMPROMISED AND BY WHOM',
       multipleAnswers: false,
       answers: [
         {
           code: 'DESCRIPTION',
+          active: true,
           label: 'DESCRIPTION',
           commentRequired: true,
           dateRequired: false,
@@ -1929,12 +2197,14 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
     },
     '44554': {
       id: '44554',
+      active: true,
       code: 'DESCRIBE WEAPONS USED',
       label: 'DESCRIBE WEAPONS USED',
       multipleAnswers: true,
       answers: [
         {
           code: 'FIREARM',
+          active: true,
           label: 'FIREARM',
           commentRequired: false,
           dateRequired: false,
@@ -1942,6 +2212,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'CHEMICAL INCAPACITANT',
+          active: true,
           label: 'CHEMICAL INCAPACITANT',
           commentRequired: false,
           dateRequired: false,
@@ -1949,6 +2220,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'KNIFE/BLADE',
+          active: true,
           label: 'KNIFE/BLADE',
           commentRequired: false,
           dateRequired: false,
@@ -1956,6 +2228,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'OTHER SHARP INSTRUMENT',
+          active: true,
           label: 'OTHER SHARP INSTRUMENT',
           commentRequired: false,
           dateRequired: false,
@@ -1963,6 +2236,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'BLUNT INSTRUMENT',
+          active: true,
           label: 'BLUNT INSTRUMENT',
           commentRequired: false,
           dateRequired: false,
@@ -1970,6 +2244,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'LIGATURE',
+          active: true,
           label: 'LIGATURE',
           commentRequired: false,
           dateRequired: false,
@@ -1977,6 +2252,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'DANGEROUS LIQUID',
+          active: true,
           label: 'DANGEROUS LIQUID',
           commentRequired: false,
           dateRequired: false,
@@ -1984,6 +2260,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'EXCRETA/URINE',
+          active: true,
           label: 'EXCRETA/URINE',
           commentRequired: false,
           dateRequired: false,
@@ -1991,6 +2268,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'SPITTING',
+          active: true,
           label: 'SPITTING',
           commentRequired: false,
           dateRequired: false,
@@ -1998,6 +2276,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'FOOD',
+          active: true,
           label: 'FOOD',
           commentRequired: false,
           dateRequired: false,
@@ -2005,6 +2284,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'THROWN FURNITURE',
+          active: true,
           label: 'THROWN FURNITURE',
           commentRequired: false,
           dateRequired: false,
@@ -2012,6 +2292,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'THROWN EQUIPMENT',
+          active: true,
           label: 'THROWN EQUIPMENT',
           commentRequired: false,
           dateRequired: false,
@@ -2019,6 +2300,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'OTHER',
+          active: true,
           label: 'OTHER',
           commentRequired: true,
           dateRequired: false,
@@ -2028,12 +2310,14 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
     },
     '44574': {
       id: '44574',
+      active: true,
       code: 'WERE TOOLS USED',
       label: 'WERE TOOLS USED',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: true,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -2041,6 +2325,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: true,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -2050,12 +2335,14 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
     },
     '44582': {
       id: '44582',
+      active: true,
       code: 'WERE TOOLS USED',
       label: 'WERE TOOLS USED',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: true,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -2063,6 +2350,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: true,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -2072,12 +2360,14 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
     },
     '44589': {
       id: '44589',
+      active: true,
       code: 'WERE TOOLS USED',
       label: 'WERE TOOLS USED',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: true,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -2085,6 +2375,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: true,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -2094,12 +2385,14 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
     },
     '44592': {
       id: '44592',
+      active: true,
       code: 'WERE TOOLS USED',
       label: 'WERE TOOLS USED',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: true,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -2107,6 +2400,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: true,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -2116,12 +2410,14 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
     },
     '44594': {
       id: '44594',
+      active: true,
       code: 'WHERE WAS THE PRISONER PRIOR TO THE START OF THE ATTEMPTED ESCAPE',
       label: 'WHERE WAS THE PRISONER PRIOR TO THE START OF THE ATTEMPTED ESCAPE',
       multipleAnswers: false,
       answers: [
         {
           code: 'SPORTS FIELD',
+          active: true,
           label: 'SPORTS FIELD',
           commentRequired: false,
           dateRequired: false,
@@ -2129,6 +2425,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'CELL (ENTER LOCATION)',
+          active: true,
           label: 'CELL (ENTER LOCATION)',
           commentRequired: true,
           dateRequired: false,
@@ -2136,6 +2433,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'VISITS',
+          active: true,
           label: 'VISITS',
           commentRequired: false,
           dateRequired: false,
@@ -2143,6 +2441,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'WING/HOUSEBLOCK',
+          active: true,
           label: 'WING/HOUSEBLOCK',
           commentRequired: false,
           dateRequired: false,
@@ -2150,6 +2449,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'DORMITORY',
+          active: true,
           label: 'DORMITORY',
           commentRequired: false,
           dateRequired: false,
@@ -2157,6 +2457,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'HEALTH CARE CENTRE',
+          active: true,
           label: 'HEALTH CARE CENTRE',
           commentRequired: false,
           dateRequired: false,
@@ -2164,6 +2465,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'CHAPEL',
+          active: true,
           label: 'CHAPEL',
           commentRequired: false,
           dateRequired: false,
@@ -2171,6 +2473,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'KITCHEN',
+          active: true,
           label: 'KITCHEN',
           commentRequired: false,
           dateRequired: false,
@@ -2178,6 +2481,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'EDUCATION/LIBRARY',
+          active: true,
           label: 'EDUCATION/LIBRARY',
           commentRequired: false,
           dateRequired: false,
@@ -2185,6 +2489,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'WORKSHOP',
+          active: true,
           label: 'WORKSHOP',
           commentRequired: false,
           dateRequired: false,
@@ -2192,6 +2497,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'STORES',
+          active: true,
           label: 'STORES',
           commentRequired: false,
           dateRequired: false,
@@ -2199,6 +2505,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'ADMINISTRATION',
+          active: true,
           label: 'ADMINISTRATION',
           commentRequired: false,
           dateRequired: false,
@@ -2206,6 +2513,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'GYMNASIUM',
+          active: true,
           label: 'GYMNASIUM',
           commentRequired: false,
           dateRequired: false,
@@ -2213,6 +2521,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'RECEPTION',
+          active: true,
           label: 'RECEPTION',
           commentRequired: false,
           dateRequired: false,
@@ -2220,6 +2529,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'WORKS DEPARTMENT',
+          active: true,
           label: 'WORKS DEPARTMENT',
           commentRequired: false,
           dateRequired: false,
@@ -2227,6 +2537,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'EXERCISE YARD',
+          active: true,
           label: 'EXERCISE YARD',
           commentRequired: false,
           dateRequired: false,
@@ -2234,6 +2545,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'OTHER SECURE AREA',
+          active: true,
           label: 'OTHER SECURE AREA',
           commentRequired: true,
           dateRequired: false,
@@ -2241,6 +2553,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'GROUNDS WITH NO ACCESS TO EXTERNAL PERIMITER',
+          active: true,
           label: 'GROUNDS WITH NO ACCESS TO EXTERNAL PERIMITER',
           commentRequired: false,
           dateRequired: false,
@@ -2248,6 +2561,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'GROUNDS WITH ACCESS TO EXTERNAL PERIMITER',
+          active: true,
           label: 'GROUNDS WITH ACCESS TO EXTERNAL PERIMITER',
           commentRequired: false,
           dateRequired: false,
@@ -2257,12 +2571,14 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
     },
     '44595': {
       id: '44595',
+      active: true,
       code: 'WAS AN AIRCRAFT INVOLVED',
       label: 'WAS AN AIRCRAFT INVOLVED',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: true,
           label: 'YES',
           commentRequired: true,
           dateRequired: false,
@@ -2270,6 +2586,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: true,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -2279,12 +2596,14 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
     },
     '44597': {
       id: '44597',
+      active: true,
       code: 'WAS THERE A SWITCH OF IDENTITY',
       label: 'WAS THERE A SWITCH OF IDENTITY',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: true,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -2292,6 +2611,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: true,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -2301,12 +2621,14 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
     },
     '44617': {
       id: '44617',
+      active: true,
       code: 'WHAT TOOLS WERE USED',
       label: 'WHAT TOOLS WERE USED',
       multipleAnswers: true,
       answers: [
         {
           code: 'HACKSAW BLADE',
+          active: true,
           label: 'HACKSAW BLADE',
           commentRequired: false,
           dateRequired: false,
@@ -2314,6 +2636,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'OTHER BLADE',
+          active: true,
           label: 'OTHER BLADE',
           commentRequired: false,
           dateRequired: false,
@@ -2321,6 +2644,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'WIRE CUTTERS',
+          active: true,
           label: 'WIRE CUTTERS',
           commentRequired: false,
           dateRequired: false,
@@ -2328,6 +2652,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'BOLT CROPPERS',
+          active: true,
           label: 'BOLT CROPPERS',
           commentRequired: false,
           dateRequired: false,
@@ -2335,6 +2660,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'DIGGING TOOL',
+          active: true,
           label: 'DIGGING TOOL',
           commentRequired: false,
           dateRequired: false,
@@ -2342,6 +2668,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'CROW BAR',
+          active: true,
           label: 'CROW BAR',
           commentRequired: false,
           dateRequired: false,
@@ -2349,6 +2676,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'IMPROVISED TOOL',
+          active: true,
           label: 'IMPROVISED TOOL',
           commentRequired: false,
           dateRequired: false,
@@ -2356,6 +2684,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'OTHER TOOL',
+          active: true,
           label: 'OTHER TOOL',
           commentRequired: true,
           dateRequired: false,
@@ -2363,6 +2692,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'NOT KNOWN',
+          active: true,
           label: 'NOT KNOWN',
           commentRequired: false,
           dateRequired: false,
@@ -2372,12 +2702,14 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
     },
     '44631': {
       id: '44631',
+      active: true,
       code: 'HOW DID THE PRISONER LEAVE THE ESTABLISHMENT',
       label: 'HOW DID THE PRISONER LEAVE THE ESTABLISHMENT',
       multipleAnswers: false,
       answers: [
         {
           code: 'ON FOOT',
+          active: true,
           label: 'ON FOOT',
           commentRequired: false,
           dateRequired: false,
@@ -2385,6 +2717,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'DROVE VEHICLE OUT',
+          active: true,
           label: 'DROVE VEHICLE OUT',
           commentRequired: false,
           dateRequired: false,
@@ -2392,6 +2725,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'CONCEALED IN VEHICLE',
+          active: true,
           label: 'CONCEALED IN VEHICLE',
           commentRequired: false,
           dateRequired: false,
@@ -2401,12 +2735,14 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
     },
     '44636': {
       id: '44636',
+      active: true,
       code: 'IS THERE ANY MEDIA INTEREST IN THIS INCIDENT',
       label: 'IS THERE ANY MEDIA INTEREST IN THIS INCIDENT',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: true,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -2414,6 +2750,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: true,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -2423,12 +2760,14 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
     },
     '44670': {
       id: '44670',
+      active: true,
       code: 'HOW WAS THE ATTEMPT MADE',
       label: 'HOW WAS THE ATTEMPT MADE',
       multipleAnswers: true,
       answers: [
         {
           code: 'DIGGING THROUGH',
+          active: true,
           label: 'DIGGING THROUGH',
           commentRequired: false,
           dateRequired: false,
@@ -2436,6 +2775,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'DIGGING UNDER',
+          active: true,
           label: 'DIGGING UNDER',
           commentRequired: false,
           dateRequired: false,
@@ -2443,6 +2783,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'EXPLOSION',
+          active: true,
           label: 'EXPLOSION',
           commentRequired: false,
           dateRequired: false,
@@ -2450,6 +2791,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'RAMMED BY VEHICLE',
+          active: true,
           label: 'RAMMED BY VEHICLE',
           commentRequired: false,
           dateRequired: false,
@@ -2457,6 +2799,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'OTHER',
+          active: true,
           label: 'OTHER',
           commentRequired: true,
           dateRequired: false,
@@ -2464,6 +2807,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'NOT KNOWN',
+          active: true,
           label: 'NOT KNOWN',
           commentRequired: false,
           dateRequired: false,
@@ -2473,12 +2817,14 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
     },
     '44674': {
       id: '44674',
+      active: true,
       code: 'WAS THE SYSTEM RE-ACTIVATED LOCALLY OR BY THE SERVICE SUPPLIER',
       label: 'WAS THE SYSTEM RE-ACTIVATED LOCALLY OR BY THE SERVICE SUPPLIER',
       multipleAnswers: false,
       answers: [
         {
           code: 'LOCAL',
+          active: true,
           label: 'LOCAL',
           commentRequired: false,
           dateRequired: false,
@@ -2486,6 +2832,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'SERVICE SUPPLIER',
+          active: true,
           label: 'SERVICE SUPPLIER',
           commentRequired: false,
           dateRequired: false,
@@ -2495,12 +2842,14 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
     },
     '44681': {
       id: '44681',
+      active: true,
       code: 'DID THE PRISONER ATTEMPT TO BREACH THE EXTERNAL PERIMETER',
       label: 'DID THE PRISONER ATTEMPT TO BREACH THE EXTERNAL PERIMETER',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: true,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -2508,6 +2857,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: true,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -2517,12 +2867,14 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
     },
     '44685': {
       id: '44685',
+      active: true,
       code: 'WERE TOOLS USED',
       label: 'WERE TOOLS USED',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: true,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -2530,6 +2882,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: true,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -2539,12 +2892,14 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
     },
     '44707': {
       id: '44707',
+      active: true,
       code: 'WAS THE FENCE',
       label: 'WAS THE FENCE',
       multipleAnswers: false,
       answers: [
         {
           code: 'CLAD',
+          active: true,
           label: 'CLAD',
           commentRequired: false,
           dateRequired: false,
@@ -2552,6 +2907,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'UNCLAD',
+          active: true,
           label: 'UNCLAD',
           commentRequired: false,
           dateRequired: false,
@@ -2561,12 +2917,14 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
     },
     '44713': {
       id: '44713',
+      active: true,
       code: 'WHAT TIME WAS THE SYSTEM SHUT DOWN?',
       label: 'WHAT TIME WAS THE SYSTEM SHUT DOWN?',
       multipleAnswers: false,
       answers: [
         {
           code: 'ENTER TIME',
+          active: true,
           label: 'ENTER TIME',
           commentRequired: true,
           dateRequired: false,
@@ -2576,12 +2934,14 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
     },
     '44731': {
       id: '44731',
+      active: true,
       code: 'WERE ANY INJURIES RECEIVED DURING THIS INCIDENT',
       label: 'WERE ANY INJURIES RECEIVED DURING THIS INCIDENT',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: true,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -2589,6 +2949,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: true,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -2598,12 +2959,14 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
     },
     '44737': {
       id: '44737',
+      active: true,
       code: 'WAS THE ATTEMPT MADE',
       label: 'WAS THE ATTEMPT MADE',
       multipleAnswers: true,
       answers: [
         {
           code: 'FROM INSIDE',
+          active: true,
           label: 'FROM INSIDE',
           commentRequired: false,
           dateRequired: false,
@@ -2611,6 +2974,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'FROM OUTSIDE',
+          active: true,
           label: 'FROM OUTSIDE',
           commentRequired: false,
           dateRequired: false,
@@ -2620,12 +2984,14 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
     },
     '44746': {
       id: '44746',
+      active: true,
       code: 'ARE THE GROUNDS PATROLLED BY DOGS',
       label: 'ARE THE GROUNDS PATROLLED BY DOGS',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: true,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -2633,6 +2999,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: true,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -2642,12 +3009,14 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
     },
     '44749': {
       id: '44749',
+      active: true,
       code: 'HAS THE PRISON SERVICE PRESS OFFICE BEEN INFORMED',
       label: 'HAS THE PRISON SERVICE PRESS OFFICE BEEN INFORMED',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: true,
           label: 'YES',
           commentRequired: false,
           dateRequired: true,
@@ -2655,6 +3024,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: true,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -2664,12 +3034,14 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
     },
     '44752': {
       id: '44752',
+      active: true,
       code: 'WAS A VEHICLE INVOLVED IN THE ATTEMPTED ESCAPE',
       label: 'WAS A VEHICLE INVOLVED IN THE ATTEMPTED ESCAPE',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: true,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -2677,6 +3049,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: true,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -2686,12 +3059,14 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
     },
     '44759': {
       id: '44759',
+      active: true,
       code: 'WAS THE WALL ACTUALLY BREACHED',
       label: 'WAS THE WALL ACTUALLY BREACHED',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: true,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -2699,6 +3074,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: true,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -2708,12 +3084,14 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
     },
     '44769': {
       id: '44769',
+      active: true,
       code: 'WERE THE POLICE INFORMED OF THE INCIDENT',
       label: 'WERE THE POLICE INFORMED OF THE INCIDENT',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: true,
           label: 'YES',
           commentRequired: false,
           dateRequired: true,
@@ -2721,6 +3099,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: true,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -2730,12 +3109,14 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
     },
     '44789': {
       id: '44789',
+      active: true,
       code: 'WHAT WAS THE SOURCE OF THE TOOLS',
       label: 'WHAT WAS THE SOURCE OF THE TOOLS',
       multipleAnswers: true,
       answers: [
         {
           code: 'WORKS DEPARTMENT',
+          active: true,
           label: 'WORKS DEPARTMENT',
           commentRequired: false,
           dateRequired: false,
@@ -2743,6 +3124,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'CONTRACTORS',
+          active: true,
           label: 'CONTRACTORS',
           commentRequired: false,
           dateRequired: false,
@@ -2750,6 +3132,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'EDUCATION',
+          active: true,
           label: 'EDUCATION',
           commentRequired: false,
           dateRequired: false,
@@ -2757,6 +3140,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'HEALTH CARE CENTRE',
+          active: true,
           label: 'HEALTH CARE CENTRE',
           commentRequired: false,
           dateRequired: false,
@@ -2764,6 +3148,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'FARMS AND GARDENS',
+          active: true,
           label: 'FARMS AND GARDENS',
           commentRequired: false,
           dateRequired: false,
@@ -2771,6 +3156,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'GYMNASIUM/SPORTS FIELD',
+          active: true,
           label: 'GYMNASIUM/SPORTS FIELD',
           commentRequired: false,
           dateRequired: false,
@@ -2778,6 +3164,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'WORKSHOPS',
+          active: true,
           label: 'WORKSHOPS',
           commentRequired: false,
           dateRequired: false,
@@ -2785,6 +3172,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'KITCHEN',
+          active: true,
           label: 'KITCHEN',
           commentRequired: false,
           dateRequired: false,
@@ -2792,6 +3180,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'HOBBIES',
+          active: true,
           label: 'HOBBIES',
           commentRequired: false,
           dateRequired: false,
@@ -2799,6 +3188,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'CELL FURNISHINGS',
+          active: true,
           label: 'CELL FURNISHINGS',
           commentRequired: false,
           dateRequired: false,
@@ -2806,6 +3196,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'WING/HOUSEBLOCK FURNISHINGS',
+          active: true,
           label: 'WING/HOUSEBLOCK FURNISHINGS',
           commentRequired: false,
           dateRequired: false,
@@ -2813,6 +3204,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'SMUGGLED',
+          active: true,
           label: 'SMUGGLED',
           commentRequired: false,
           dateRequired: false,
@@ -2820,6 +3212,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'NOT KNOWN',
+          active: true,
           label: 'NOT KNOWN',
           commentRequired: false,
           dateRequired: false,
@@ -2827,6 +3220,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'OTHER',
+          active: true,
           label: 'OTHER',
           commentRequired: true,
           dateRequired: false,
@@ -2836,12 +3230,14 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
     },
     '44822': {
       id: '44822',
+      active: true,
       code: 'WAS THE FENCE ACTUALLY CUT OR BREACHED',
       label: 'WAS THE FENCE ACTUALLY CUT OR BREACHED',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: true,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -2849,6 +3245,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: true,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -2858,12 +3255,14 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
     },
     '44840': {
       id: '44840',
+      active: true,
       code: 'HOW DID THE PRISONER ATTEMPT ACCESS TO THE TOP OF THE FENCE OR WALL',
       label: 'HOW DID THE PRISONER ATTEMPT ACCESS TO THE TOP OF THE FENCE OR WALL',
       multipleAnswers: true,
       answers: [
         {
           code: 'LADDER',
+          active: true,
           label: 'LADDER',
           commentRequired: false,
           dateRequired: false,
@@ -2871,6 +3270,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'ROPE',
+          active: true,
           label: 'ROPE',
           commentRequired: false,
           dateRequired: false,
@@ -2878,6 +3278,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'CLIMBING AIDS',
+          active: true,
           label: 'CLIMBING AIDS',
           commentRequired: false,
           dateRequired: false,
@@ -2885,6 +3286,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'FURNITURE ITEMS',
+          active: true,
           label: 'FURNITURE ITEMS',
           commentRequired: false,
           dateRequired: false,
@@ -2892,6 +3294,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'SPORTS ITEMS',
+          active: true,
           label: 'SPORTS ITEMS',
           commentRequired: false,
           dateRequired: false,
@@ -2899,6 +3302,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'GROUNDS ITEMS',
+          active: true,
           label: 'GROUNDS ITEMS',
           commentRequired: false,
           dateRequired: false,
@@ -2906,6 +3310,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'OTHER',
+          active: true,
           label: 'OTHER',
           commentRequired: true,
           dateRequired: false,
@@ -2915,12 +3320,14 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
     },
     '44843': {
       id: '44843',
+      active: true,
       code: 'DESCRIBE THE DAMAGE',
       label: 'DESCRIBE THE DAMAGE',
       multipleAnswers: false,
       answers: [
         {
           code: 'MINOR',
+          active: true,
           label: 'MINOR',
           commentRequired: true,
           dateRequired: false,
@@ -2928,6 +3335,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'SERIOUS',
+          active: true,
           label: 'SERIOUS',
           commentRequired: true,
           dateRequired: false,
@@ -2935,6 +3343,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'EXTENSIVE',
+          active: true,
           label: 'EXTENSIVE',
           commentRequired: true,
           dateRequired: false,
@@ -2944,12 +3353,14 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
     },
     '44849': {
       id: '44849',
+      active: true,
       code: 'WAS AN ATTEMPT MADE TO BREACH THE WALL',
       label: 'WAS AN ATTEMPT MADE TO BREACH THE WALL',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: true,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -2957,6 +3368,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: true,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -2966,12 +3378,14 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
     },
     '44863': {
       id: '44863',
+      active: true,
       code: 'WAS THE TELEPHONE/IT SYSTEM SHUT DOWN DURING THE INCIDENT?',
       label: 'WAS THE TELEPHONE/IT SYSTEM SHUT DOWN DURING THE INCIDENT?',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES (ENTER DATE)',
+          active: true,
           label: 'YES (ENTER DATE)',
           commentRequired: false,
           dateRequired: true,
@@ -2979,6 +3393,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: true,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -2988,12 +3403,14 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
     },
     '44869': {
       id: '44869',
+      active: true,
       code: 'WHAT WAS THE SOURCE OF THE TOOLS',
       label: 'WHAT WAS THE SOURCE OF THE TOOLS',
       multipleAnswers: true,
       answers: [
         {
           code: 'WORKS DEPARTMENT',
+          active: true,
           label: 'WORKS DEPARTMENT',
           commentRequired: false,
           dateRequired: false,
@@ -3001,6 +3418,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'CONTRACTORS',
+          active: true,
           label: 'CONTRACTORS',
           commentRequired: false,
           dateRequired: false,
@@ -3008,6 +3426,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'EDUCATION',
+          active: true,
           label: 'EDUCATION',
           commentRequired: false,
           dateRequired: false,
@@ -3015,6 +3434,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'HEALTH CARE CENTRE',
+          active: true,
           label: 'HEALTH CARE CENTRE',
           commentRequired: false,
           dateRequired: false,
@@ -3022,6 +3442,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'FARMS AND GARDENS',
+          active: true,
           label: 'FARMS AND GARDENS',
           commentRequired: false,
           dateRequired: false,
@@ -3029,6 +3450,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'GYMNASIUM/SPORTS FIELD',
+          active: true,
           label: 'GYMNASIUM/SPORTS FIELD',
           commentRequired: false,
           dateRequired: false,
@@ -3036,6 +3458,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'WORKSHOPS',
+          active: true,
           label: 'WORKSHOPS',
           commentRequired: false,
           dateRequired: false,
@@ -3043,6 +3466,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'KITCHEN',
+          active: true,
           label: 'KITCHEN',
           commentRequired: false,
           dateRequired: false,
@@ -3050,6 +3474,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'HOBBIES',
+          active: true,
           label: 'HOBBIES',
           commentRequired: false,
           dateRequired: false,
@@ -3057,6 +3482,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'CELL FURNISHINGS',
+          active: true,
           label: 'CELL FURNISHINGS',
           commentRequired: false,
           dateRequired: false,
@@ -3064,6 +3490,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'WING/HOUSEBLOCK FURNISHINGS',
+          active: true,
           label: 'WING/HOUSEBLOCK FURNISHINGS',
           commentRequired: false,
           dateRequired: false,
@@ -3071,6 +3498,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'SMUGGLED',
+          active: true,
           label: 'SMUGGLED',
           commentRequired: false,
           dateRequired: false,
@@ -3078,6 +3506,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'NOT KNOWN',
+          active: true,
           label: 'NOT KNOWN',
           commentRequired: false,
           dateRequired: false,
@@ -3085,6 +3514,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'OTHER',
+          active: true,
           label: 'OTHER',
           commentRequired: true,
           dateRequired: false,
@@ -3094,12 +3524,14 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
     },
     '44871': {
       id: '44871',
+      active: true,
       code: 'WHAT WAS THE SOURCE OF THE TOOLS',
       label: 'WHAT WAS THE SOURCE OF THE TOOLS',
       multipleAnswers: true,
       answers: [
         {
           code: 'WORKS DEPARTMENT',
+          active: true,
           label: 'WORKS DEPARTMENT',
           commentRequired: false,
           dateRequired: false,
@@ -3107,6 +3539,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'CONTRACTORS',
+          active: true,
           label: 'CONTRACTORS',
           commentRequired: false,
           dateRequired: false,
@@ -3114,6 +3547,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'EDUCATION',
+          active: true,
           label: 'EDUCATION',
           commentRequired: false,
           dateRequired: false,
@@ -3121,6 +3555,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'HEALTH CARE CENTRE',
+          active: true,
           label: 'HEALTH CARE CENTRE',
           commentRequired: false,
           dateRequired: false,
@@ -3128,6 +3563,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'FARMS AND GARDENS',
+          active: true,
           label: 'FARMS AND GARDENS',
           commentRequired: false,
           dateRequired: false,
@@ -3135,6 +3571,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'GYMNASIUM/SPORTS FIELD',
+          active: true,
           label: 'GYMNASIUM/SPORTS FIELD',
           commentRequired: false,
           dateRequired: false,
@@ -3142,6 +3579,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'WORKSHOPS',
+          active: true,
           label: 'WORKSHOPS',
           commentRequired: false,
           dateRequired: false,
@@ -3149,6 +3587,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'KITCHEN',
+          active: true,
           label: 'KITCHEN',
           commentRequired: false,
           dateRequired: false,
@@ -3156,6 +3595,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'HOBBIES',
+          active: true,
           label: 'HOBBIES',
           commentRequired: false,
           dateRequired: false,
@@ -3163,6 +3603,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'CELL FURNISHINGS',
+          active: true,
           label: 'CELL FURNISHINGS',
           commentRequired: false,
           dateRequired: false,
@@ -3170,6 +3611,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'WING/HOUSEBLOCK FURNISHINGS',
+          active: true,
           label: 'WING/HOUSEBLOCK FURNISHINGS',
           commentRequired: false,
           dateRequired: false,
@@ -3177,6 +3619,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'SMUGGLED',
+          active: true,
           label: 'SMUGGLED',
           commentRequired: false,
           dateRequired: false,
@@ -3184,6 +3627,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'NOT KNOWN',
+          active: true,
           label: 'NOT KNOWN',
           commentRequired: false,
           dateRequired: false,
@@ -3191,6 +3635,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'OTHER',
+          active: true,
           label: 'OTHER',
           commentRequired: true,
           dateRequired: false,
@@ -3200,12 +3645,14 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
     },
     '44875': {
       id: '44875',
+      active: true,
       code: 'WHAT TOOLS WERE USED',
       label: 'WHAT TOOLS WERE USED',
       multipleAnswers: true,
       answers: [
         {
           code: 'HACKSAW BLADE',
+          active: true,
           label: 'HACKSAW BLADE',
           commentRequired: false,
           dateRequired: false,
@@ -3213,6 +3660,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'OTHER BLADE',
+          active: true,
           label: 'OTHER BLADE',
           commentRequired: false,
           dateRequired: false,
@@ -3220,6 +3668,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'WIRE CUTTERS',
+          active: true,
           label: 'WIRE CUTTERS',
           commentRequired: false,
           dateRequired: false,
@@ -3227,6 +3676,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'BOLT CROPPERS',
+          active: true,
           label: 'BOLT CROPPERS',
           commentRequired: false,
           dateRequired: false,
@@ -3234,6 +3684,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'DIGGING TOOL',
+          active: true,
           label: 'DIGGING TOOL',
           commentRequired: false,
           dateRequired: false,
@@ -3241,6 +3692,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'CROW BAR',
+          active: true,
           label: 'CROW BAR',
           commentRequired: false,
           dateRequired: false,
@@ -3248,6 +3700,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'IMPROVISED TOOL',
+          active: true,
           label: 'IMPROVISED TOOL',
           commentRequired: false,
           dateRequired: false,
@@ -3255,6 +3708,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'OTHER TOOL',
+          active: true,
           label: 'OTHER TOOL',
           commentRequired: true,
           dateRequired: false,
@@ -3262,6 +3716,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'NOT KNOWN',
+          active: true,
           label: 'NOT KNOWN',
           commentRequired: false,
           dateRequired: false,
@@ -3271,12 +3726,14 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
     },
     '44909': {
       id: '44909',
+      active: true,
       code: 'WHAT TOOLS WERE USED',
       label: 'WHAT TOOLS WERE USED',
       multipleAnswers: true,
       answers: [
         {
           code: 'HACKSAW BLADE',
+          active: true,
           label: 'HACKSAW BLADE',
           commentRequired: false,
           dateRequired: false,
@@ -3284,6 +3741,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'OTHER BLADE',
+          active: true,
           label: 'OTHER BLADE',
           commentRequired: false,
           dateRequired: false,
@@ -3291,6 +3749,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'WIRE CUTTERS',
+          active: true,
           label: 'WIRE CUTTERS',
           commentRequired: false,
           dateRequired: false,
@@ -3298,6 +3757,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'BOLT CROPPERS',
+          active: true,
           label: 'BOLT CROPPERS',
           commentRequired: false,
           dateRequired: false,
@@ -3305,6 +3765,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'DIGGING TOOL',
+          active: true,
           label: 'DIGGING TOOL',
           commentRequired: false,
           dateRequired: false,
@@ -3312,6 +3773,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'CROW BAR',
+          active: true,
           label: 'CROW BAR',
           commentRequired: false,
           dateRequired: false,
@@ -3319,6 +3781,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'IMPROVISED TOOL',
+          active: true,
           label: 'IMPROVISED TOOL',
           commentRequired: false,
           dateRequired: false,
@@ -3326,6 +3789,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'OTHER TOOL',
+          active: true,
           label: 'OTHER TOOL',
           commentRequired: true,
           dateRequired: false,
@@ -3333,6 +3797,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'NOT KNOWN',
+          active: true,
           label: 'NOT KNOWN',
           commentRequired: false,
           dateRequired: false,
@@ -3342,12 +3807,14 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
     },
     '44912': {
       id: '44912',
+      active: true,
       code: 'WAS OPERATION LEWIS USED',
       label: 'WAS OPERATION LEWIS USED',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: true,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -3355,6 +3822,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: true,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -3364,12 +3832,14 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
     },
     '44919': {
       id: '44919',
+      active: true,
       code: 'THE INCIDENT IS SUBJECT TO',
       label: 'THE INCIDENT IS SUBJECT TO',
       multipleAnswers: true,
       answers: [
         {
           code: 'INVESTIGATION BY POLICE',
+          active: true,
           label: 'INVESTIGATION BY POLICE',
           commentRequired: false,
           dateRequired: false,
@@ -3377,6 +3847,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'INVESTIGATION INTERNALLY',
+          active: true,
           label: 'INVESTIGATION INTERNALLY',
           commentRequired: false,
           dateRequired: false,
@@ -3384,6 +3855,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: "GOVERNOR'S ADJUDICATION",
+          active: true,
           label: "GOVERNOR'S ADJUDICATION",
           commentRequired: false,
           dateRequired: false,
@@ -3391,6 +3863,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'NO INVESTIGATION',
+          active: true,
           label: 'NO INVESTIGATION',
           commentRequired: false,
           dateRequired: false,
@@ -3400,12 +3873,14 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
     },
     '44920': {
       id: '44920',
+      active: true,
       code: 'QUOTE THE VANTIVE CASE NUMBER',
       label: 'QUOTE THE VANTIVE CASE NUMBER',
       multipleAnswers: false,
       answers: [
         {
           code: 'NUMBER',
+          active: true,
           label: 'NUMBER',
           commentRequired: true,
           dateRequired: false,
@@ -3415,12 +3890,14 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
     },
     '44923': {
       id: '44923',
+      active: true,
       code: 'WHAT TOOLS WERE USED',
       label: 'WHAT TOOLS WERE USED',
       multipleAnswers: true,
       answers: [
         {
           code: 'HACKSAW BLADE',
+          active: true,
           label: 'HACKSAW BLADE',
           commentRequired: false,
           dateRequired: false,
@@ -3428,6 +3905,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'OTHER BLADE',
+          active: true,
           label: 'OTHER BLADE',
           commentRequired: false,
           dateRequired: false,
@@ -3435,6 +3913,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'WIRE CUTTERS',
+          active: true,
           label: 'WIRE CUTTERS',
           commentRequired: false,
           dateRequired: false,
@@ -3442,6 +3921,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'BOLT CROPPERS',
+          active: true,
           label: 'BOLT CROPPERS',
           commentRequired: false,
           dateRequired: false,
@@ -3449,6 +3929,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'DIGGING TOOL',
+          active: true,
           label: 'DIGGING TOOL',
           commentRequired: false,
           dateRequired: false,
@@ -3456,6 +3937,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'CROW BAR',
+          active: true,
           label: 'CROW BAR',
           commentRequired: false,
           dateRequired: false,
@@ -3463,6 +3945,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'IMPROVISED TOOL',
+          active: true,
           label: 'IMPROVISED TOOL',
           commentRequired: false,
           dateRequired: false,
@@ -3470,6 +3953,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'OTHER TOOL',
+          active: true,
           label: 'OTHER TOOL',
           commentRequired: true,
           dateRequired: false,
@@ -3477,6 +3961,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'NOT KNOWN',
+          active: true,
           label: 'NOT KNOWN',
           commentRequired: false,
           dateRequired: false,
@@ -3486,12 +3971,14 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
     },
     '44933': {
       id: '44933',
+      active: true,
       code: 'HOW WAS THE CLADDING BREACHED',
       label: 'HOW WAS THE CLADDING BREACHED',
       multipleAnswers: false,
       answers: [
         {
           code: 'CUT',
+          active: true,
           label: 'CUT',
           commentRequired: false,
           dateRequired: false,
@@ -3499,6 +3986,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'REMOVED',
+          active: true,
           label: 'REMOVED',
           commentRequired: false,
           dateRequired: false,
@@ -3508,12 +3996,14 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
     },
     '44935': {
       id: '44935',
+      active: true,
       code: 'DID THE EXIT GIVE ACCESS TO THE EXTERNAL PERIMETER',
       label: 'DID THE EXIT GIVE ACCESS TO THE EXTERNAL PERIMETER',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: true,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -3521,6 +4011,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: true,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -3530,12 +4021,14 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
     },
     '44940': {
       id: '44940',
+      active: true,
       code: 'HOW DID THE PRISONER ATTEMPT TO BREACH THE EXTERNAL PERIMETER',
       label: 'HOW DID THE PRISONER ATTEMPT TO BREACH THE EXTERNAL PERIMETER',
       multipleAnswers: true,
       answers: [
         {
           code: 'MAIN GATE',
+          active: true,
           label: 'MAIN GATE',
           commentRequired: false,
           dateRequired: false,
@@ -3543,6 +4036,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'OTHER GATE IN PERIMETER',
+          active: true,
           label: 'OTHER GATE IN PERIMETER',
           commentRequired: false,
           dateRequired: false,
@@ -3550,6 +4044,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'OVER WALL',
+          active: true,
           label: 'OVER WALL',
           commentRequired: false,
           dateRequired: false,
@@ -3557,6 +4052,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'OVER FENCE',
+          active: true,
           label: 'OVER FENCE',
           commentRequired: false,
           dateRequired: false,
@@ -3564,6 +4060,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'THROUGH FENCE',
+          active: true,
           label: 'THROUGH FENCE',
           commentRequired: false,
           dateRequired: false,
@@ -3571,6 +4068,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'UNDER FENCE',
+          active: true,
           label: 'UNDER FENCE',
           commentRequired: false,
           dateRequired: false,
@@ -3578,6 +4076,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'THROUGH WALL',
+          active: true,
           label: 'THROUGH WALL',
           commentRequired: false,
           dateRequired: false,
@@ -3585,6 +4084,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'UNDER WALL',
+          active: true,
           label: 'UNDER WALL',
           commentRequired: false,
           dateRequired: false,
@@ -3594,12 +4094,14 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
     },
     '44952': {
       id: '44952',
+      active: true,
       code: 'WAS FORCE USED',
       label: 'WAS FORCE USED',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: true,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -3607,6 +4109,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: true,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -3616,12 +4119,14 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
     },
     '44953': {
       id: '44953',
+      active: true,
       code: 'WHAT TYPE OF FORCE WAS USED',
       label: 'WHAT TYPE OF FORCE WAS USED',
       multipleAnswers: false,
       answers: [
         {
           code: 'CUT WINDOW OR BARS',
+          active: true,
           label: 'CUT WINDOW OR BARS',
           commentRequired: false,
           dateRequired: false,
@@ -3629,6 +4134,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'FORCED WINDOW OR BARS',
+          active: true,
           label: 'FORCED WINDOW OR BARS',
           commentRequired: false,
           dateRequired: false,
@@ -3636,6 +4142,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'CUT AND FORCED WINDOW AND BARS',
+          active: true,
           label: 'CUT AND FORCED WINDOW AND BARS',
           commentRequired: false,
           dateRequired: false,
@@ -3643,6 +4150,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'DUG THROUGH EXTERNAL WALL',
+          active: true,
           label: 'DUG THROUGH EXTERNAL WALL',
           commentRequired: false,
           dateRequired: false,
@@ -3650,6 +4158,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'DUG THROUGH INTERNAL WALL',
+          active: true,
           label: 'DUG THROUGH INTERNAL WALL',
           commentRequired: false,
           dateRequired: false,
@@ -3657,6 +4166,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'DUG THROUGH FLOOR',
+          active: true,
           label: 'DUG THROUGH FLOOR',
           commentRequired: false,
           dateRequired: false,
@@ -3664,6 +4174,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'BROKE THROUGH CEILING',
+          active: true,
           label: 'BROKE THROUGH CEILING',
           commentRequired: false,
           dateRequired: false,
@@ -3671,6 +4182,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'FORCED DOOR',
+          active: true,
           label: 'FORCED DOOR',
           commentRequired: false,
           dateRequired: false,
@@ -3680,12 +4192,14 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
     },
     '44958': {
       id: '44958',
+      active: true,
       code: 'WAS THE SYSTEM COMPROMISED?',
       label: 'WAS THE SYSTEM COMPROMISED?',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: true,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -3693,6 +4207,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: true,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -3702,12 +4217,14 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
     },
     '44977': {
       id: '44977',
+      active: true,
       code: 'STATE THE NATURE OF ASSISTANCE',
       label: 'STATE THE NATURE OF ASSISTANCE',
       multipleAnswers: true,
       answers: [
         {
           code: 'SMUGGLED WEAPONS',
+          active: true,
           label: 'SMUGGLED WEAPONS',
           commentRequired: false,
           dateRequired: false,
@@ -3715,6 +4232,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'SMUGGLED TOOLS/EQUIPMENT',
+          active: true,
           label: 'SMUGGLED TOOLS/EQUIPMENT',
           commentRequired: false,
           dateRequired: false,
@@ -3722,6 +4240,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'SWAPPED IDENTITY',
+          active: true,
           label: 'SWAPPED IDENTITY',
           commentRequired: false,
           dateRequired: false,
@@ -3729,6 +4248,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'BREACHED PERIMETER',
+          active: true,
           label: 'BREACHED PERIMETER',
           commentRequired: false,
           dateRequired: false,
@@ -3736,6 +4256,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'PROVIDED GET AWAY VEHICLE',
+          active: true,
           label: 'PROVIDED GET AWAY VEHICLE',
           commentRequired: false,
           dateRequired: false,
@@ -3743,6 +4264,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'OTHER',
+          active: true,
           label: 'OTHER',
           commentRequired: true,
           dateRequired: false,
@@ -3752,12 +4274,14 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
     },
     '44983': {
       id: '44983',
+      active: true,
       code: 'WAS OUTSIDE ASSISTANCE INVOLVED IN THE ATTEMPTED ESCAPE',
       label: 'WAS OUTSIDE ASSISTANCE INVOLVED IN THE ATTEMPTED ESCAPE',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: true,
           label: 'YES',
           commentRequired: true,
           dateRequired: false,
@@ -3765,6 +4289,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: true,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -3774,12 +4299,14 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
     },
     '44984': {
       id: '44984',
+      active: true,
       code: 'WHAT TYPE OF FORCE WAS USED',
       label: 'WHAT TYPE OF FORCE WAS USED',
       multipleAnswers: false,
       answers: [
         {
           code: 'CUT WINDOW OR BARS',
+          active: true,
           label: 'CUT WINDOW OR BARS',
           commentRequired: false,
           dateRequired: false,
@@ -3787,6 +4314,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'FORCED WINDOW OR BARS',
+          active: true,
           label: 'FORCED WINDOW OR BARS',
           commentRequired: false,
           dateRequired: false,
@@ -3794,6 +4322,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'CUT AND FORCED WINDOW AND BARS',
+          active: true,
           label: 'CUT AND FORCED WINDOW AND BARS',
           commentRequired: false,
           dateRequired: false,
@@ -3801,6 +4330,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'DUG THROUGH EXTERNAL WALL',
+          active: true,
           label: 'DUG THROUGH EXTERNAL WALL',
           commentRequired: false,
           dateRequired: false,
@@ -3808,6 +4338,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'DUG THROUGH INTERNAL WALL',
+          active: true,
           label: 'DUG THROUGH INTERNAL WALL',
           commentRequired: false,
           dateRequired: false,
@@ -3815,6 +4346,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'DUG THROUGH FLOOR',
+          active: true,
           label: 'DUG THROUGH FLOOR',
           commentRequired: false,
           dateRequired: false,
@@ -3822,6 +4354,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'BROKE THROUGH CEILING',
+          active: true,
           label: 'BROKE THROUGH CEILING',
           commentRequired: false,
           dateRequired: false,
@@ -3829,6 +4362,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'FORCED DOOR',
+          active: true,
           label: 'FORCED DOOR',
           commentRequired: false,
           dateRequired: false,
@@ -3838,12 +4372,14 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
     },
     '44992': {
       id: '44992',
+      active: true,
       code: 'HOW WAS THE WALL BREACHED',
       label: 'HOW WAS THE WALL BREACHED',
       multipleAnswers: true,
       answers: [
         {
           code: 'DUG THROUGH',
+          active: true,
           label: 'DUG THROUGH',
           commentRequired: false,
           dateRequired: false,
@@ -3851,6 +4387,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'DUG UNDER',
+          active: true,
           label: 'DUG UNDER',
           commentRequired: false,
           dateRequired: false,
@@ -3858,6 +4395,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'EXPLOSION',
+          active: true,
           label: 'EXPLOSION',
           commentRequired: false,
           dateRequired: false,
@@ -3865,6 +4403,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'RAMMED BY VEHICLE',
+          active: true,
           label: 'RAMMED BY VEHICLE',
           commentRequired: false,
           dateRequired: false,
@@ -3872,6 +4411,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'OTHER',
+          active: true,
           label: 'OTHER',
           commentRequired: true,
           dateRequired: false,
@@ -3879,6 +4419,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'NOT KNOWN',
+          active: true,
           label: 'NOT KNOWN',
           commentRequired: false,
           dateRequired: false,
@@ -3888,12 +4429,14 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
     },
     '45003': {
       id: '45003',
+      active: true,
       code: 'WAS FORCE USED IN AN ATTEMPT TO LEAVE THE CELL',
       label: 'WAS FORCE USED IN AN ATTEMPT TO LEAVE THE CELL',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: true,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -3901,6 +4444,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: true,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -3910,12 +4454,14 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
     },
     '45006': {
       id: '45006',
+      active: true,
       code: 'WAS FORCE USED TO LEAVE THE CELL',
       label: 'WAS FORCE USED TO LEAVE THE CELL',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: true,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -3923,6 +4469,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: true,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -3932,12 +4479,14 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
     },
     '45014': {
       id: '45014',
+      active: true,
       code: 'WAS MEDICAL TREATMENT NEEDED',
       label: 'WAS MEDICAL TREATMENT NEEDED',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: true,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -3945,6 +4494,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: true,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -3954,12 +4504,14 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
     },
     '45019': {
       id: '45019',
+      active: true,
       code: 'WAS THE FENCE BREACHED',
       label: 'WAS THE FENCE BREACHED',
       multipleAnswers: false,
       answers: [
         {
           code: 'THROUGH THE CLADDING',
+          active: true,
           label: 'THROUGH THE CLADDING',
           commentRequired: false,
           dateRequired: false,
@@ -3967,6 +4519,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'ABOVE THE CLADDING',
+          active: true,
           label: 'ABOVE THE CLADDING',
           commentRequired: false,
           dateRequired: false,
@@ -3974,6 +4527,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'BELOW THE CLADDING',
+          active: true,
           label: 'BELOW THE CLADDING',
           commentRequired: false,
           dateRequired: false,
@@ -3983,12 +4537,14 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
     },
     '45021': {
       id: '45021',
+      active: true,
       code: 'WHAT TOOLS WERE USED',
       label: 'WHAT TOOLS WERE USED',
       multipleAnswers: true,
       answers: [
         {
           code: 'HACKSAW BLADE',
+          active: true,
           label: 'HACKSAW BLADE',
           commentRequired: false,
           dateRequired: false,
@@ -3996,6 +4552,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'OTHER BLADE',
+          active: true,
           label: 'OTHER BLADE',
           commentRequired: false,
           dateRequired: false,
@@ -4003,6 +4560,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'WIRE CUTTERS',
+          active: true,
           label: 'WIRE CUTTERS',
           commentRequired: false,
           dateRequired: false,
@@ -4010,6 +4568,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'BOLT CROPPERS',
+          active: true,
           label: 'BOLT CROPPERS',
           commentRequired: false,
           dateRequired: false,
@@ -4017,6 +4576,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'DIGGING TOOL',
+          active: true,
           label: 'DIGGING TOOL',
           commentRequired: false,
           dateRequired: false,
@@ -4024,6 +4584,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'CROW BAR',
+          active: true,
           label: 'CROW BAR',
           commentRequired: false,
           dateRequired: false,
@@ -4031,6 +4592,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'IMPROVISED TOOL',
+          active: true,
           label: 'IMPROVISED TOOL',
           commentRequired: false,
           dateRequired: false,
@@ -4038,6 +4600,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'OTHER TOOL',
+          active: true,
           label: 'OTHER TOOL',
           commentRequired: true,
           dateRequired: false,
@@ -4045,6 +4608,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'NOT KNOWN',
+          active: true,
           label: 'NOT KNOWN',
           commentRequired: false,
           dateRequired: false,
@@ -4054,12 +4618,14 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
     },
     '45033': {
       id: '45033',
+      active: true,
       code: 'IS ANY MEMBER OF STAFF FACING DISCIPLINARY CHARGES',
       label: 'IS ANY MEMBER OF STAFF FACING DISCIPLINARY CHARGES',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: true,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -4067,6 +4633,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: true,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -4076,12 +4643,14 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
     },
     '45047': {
       id: '45047',
+      active: true,
       code: 'WERE TOOLS USED',
       label: 'WERE TOOLS USED',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: true,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -4089,6 +4658,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: true,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -4098,12 +4668,14 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
     },
     '45073': {
       id: '45073',
+      active: true,
       code: 'HOW WAS THE ESCAPE ATTEMPT DISCOVERED',
       label: 'HOW WAS THE ESCAPE ATTEMPT DISCOVERED',
       multipleAnswers: true,
       answers: [
         {
           code: 'STAFF VIGILANCE',
+          active: true,
           label: 'STAFF VIGILANCE',
           commentRequired: false,
           dateRequired: false,
@@ -4111,6 +4683,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'EQUIPMENT FOUND',
+          active: true,
           label: 'EQUIPMENT FOUND',
           commentRequired: false,
           dateRequired: false,
@@ -4118,6 +4691,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'INFORMATION/INTELLIGENCE',
+          active: true,
           label: 'INFORMATION/INTELLIGENCE',
           commentRequired: false,
           dateRequired: false,
@@ -4125,6 +4699,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'OBSERVED IN PROGRESS',
+          active: true,
           label: 'OBSERVED IN PROGRESS',
           commentRequired: false,
           dateRequired: false,
@@ -4132,6 +4707,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'ALERTED BY SECURITY AID',
+          active: true,
           label: 'ALERTED BY SECURITY AID',
           commentRequired: true,
           dateRequired: false,
@@ -4139,6 +4715,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'OTHER',
+          active: true,
           label: 'OTHER',
           commentRequired: true,
           dateRequired: false,
@@ -4148,12 +4725,14 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
     },
     '45090': {
       id: '45090',
+      active: true,
       code: 'WHAT ARE THE AIDS',
       label: 'WHAT ARE THE AIDS',
       multipleAnswers: true,
       answers: [
         {
           code: 'GANDER',
+          active: true,
           label: 'GANDER',
           commentRequired: false,
           dateRequired: false,
@@ -4161,6 +4740,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'PIPE',
+          active: true,
           label: 'PIPE',
           commentRequired: false,
           dateRequired: false,
@@ -4168,6 +4748,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: "'S' WIRE",
+          active: true,
           label: "'S' WIRE",
           commentRequired: false,
           dateRequired: false,
@@ -4175,6 +4756,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'SCARE STRIP',
+          active: true,
           label: 'SCARE STRIP',
           commentRequired: false,
           dateRequired: false,
@@ -4182,6 +4764,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'TAUT WIRE',
+          active: true,
           label: 'TAUT WIRE',
           commentRequired: false,
           dateRequired: false,
@@ -4189,6 +4772,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'GEOPHONES',
+          active: true,
           label: 'GEOPHONES',
           commentRequired: false,
           dateRequired: false,
@@ -4196,6 +4780,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'INFRA RED DETECTORS',
+          active: true,
           label: 'INFRA RED DETECTORS',
           commentRequired: false,
           dateRequired: false,
@@ -4203,6 +4788,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'MICROPHONIC CABLE',
+          active: true,
           label: 'MICROPHONIC CABLE',
           commentRequired: false,
           dateRequired: false,
@@ -4210,6 +4796,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'FIBRE OPTIC SYSTEM',
+          active: true,
           label: 'FIBRE OPTIC SYSTEM',
           commentRequired: false,
           dateRequired: false,
@@ -4217,6 +4804,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'LEAKY CO-AXIL CABLE',
+          active: true,
           label: 'LEAKY CO-AXIL CABLE',
           commentRequired: false,
           dateRequired: false,
@@ -4224,6 +4812,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'PRESSURE SENSORS',
+          active: true,
           label: 'PRESSURE SENSORS',
           commentRequired: false,
           dateRequired: false,
@@ -4231,6 +4820,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'CCTV',
+          active: true,
           label: 'CCTV',
           commentRequired: false,
           dateRequired: false,
@@ -4238,6 +4828,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'OTHER',
+          active: true,
           label: 'OTHER',
           commentRequired: true,
           dateRequired: false,
@@ -4247,12 +4838,14 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
     },
     '45096': {
       id: '45096',
+      active: true,
       code: 'WHAT TYPE OF FORCE WAS USED',
       label: 'WHAT TYPE OF FORCE WAS USED',
       multipleAnswers: false,
       answers: [
         {
           code: 'CUT WINDOW OR BARS',
+          active: true,
           label: 'CUT WINDOW OR BARS',
           commentRequired: false,
           dateRequired: false,
@@ -4260,6 +4853,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'FORCED WINDOW OR BARS',
+          active: true,
           label: 'FORCED WINDOW OR BARS',
           commentRequired: false,
           dateRequired: false,
@@ -4267,6 +4861,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'CUT AND FORCED WINDOW AND BARS',
+          active: true,
           label: 'CUT AND FORCED WINDOW AND BARS',
           commentRequired: false,
           dateRequired: false,
@@ -4274,6 +4869,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'DUG THROUGH EXTERNAL WALL',
+          active: true,
           label: 'DUG THROUGH EXTERNAL WALL',
           commentRequired: false,
           dateRequired: false,
@@ -4281,6 +4877,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'DUG THROUGH INTERNAL WALL',
+          active: true,
           label: 'DUG THROUGH INTERNAL WALL',
           commentRequired: false,
           dateRequired: false,
@@ -4288,6 +4885,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'DUG THROUGH FLOOR',
+          active: true,
           label: 'DUG THROUGH FLOOR',
           commentRequired: false,
           dateRequired: false,
@@ -4295,6 +4893,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'BROKE THROUGH CEILING',
+          active: true,
           label: 'BROKE THROUGH CEILING',
           commentRequired: false,
           dateRequired: false,
@@ -4302,6 +4901,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'FORCED DOOR',
+          active: true,
           label: 'FORCED DOOR',
           commentRequired: false,
           dateRequired: false,
@@ -4311,12 +4911,14 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
     },
     '45107': {
       id: '45107',
+      active: true,
       code: 'HAS THE SERVICE SUPPLIER BEEN NOTIFIED OF A REPLACEMENT KEYWORD?',
       label: 'HAS THE SERVICE SUPPLIER BEEN NOTIFIED OF A REPLACEMENT KEYWORD?',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: true,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -4324,6 +4926,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: true,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -4333,12 +4936,14 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
     },
     '45111': {
       id: '45111',
+      active: true,
       code: 'HOW DID THE PRISONER ATTEMPT TO GAIN ACCESS TO THE EXTERNAL PERIMETER',
       label: 'HOW DID THE PRISONER ATTEMPT TO GAIN ACCESS TO THE EXTERNAL PERIMETER',
       multipleAnswers: true,
       answers: [
         {
           code: 'WINDOW',
+          active: true,
           label: 'WINDOW',
           commentRequired: false,
           dateRequired: false,
@@ -4346,6 +4951,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'EXTERNAL WALL',
+          active: true,
           label: 'EXTERNAL WALL',
           commentRequired: false,
           dateRequired: false,
@@ -4353,6 +4959,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'FLOOR',
+          active: true,
           label: 'FLOOR',
           commentRequired: false,
           dateRequired: false,
@@ -4360,6 +4967,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'ROOF',
+          active: true,
           label: 'ROOF',
           commentRequired: false,
           dateRequired: false,
@@ -4367,6 +4975,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'DOOR/GATE',
+          active: true,
           label: 'DOOR/GATE',
           commentRequired: false,
           dateRequired: false,
@@ -4374,6 +4983,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'THROUGH FENCE',
+          active: true,
           label: 'THROUGH FENCE',
           commentRequired: false,
           dateRequired: false,
@@ -4381,6 +4991,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'UNDER FENCE',
+          active: true,
           label: 'UNDER FENCE',
           commentRequired: false,
           dateRequired: false,
@@ -4388,6 +4999,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'OVER FENCE',
+          active: true,
           label: 'OVER FENCE',
           commentRequired: false,
           dateRequired: false,
@@ -4397,12 +5009,14 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
     },
     '45114': {
       id: '45114',
+      active: true,
       code: 'HOW DID THE PRISONER ATTEMPT TO GAIN ACCESS TO THE TOP OF THE FENCE',
       label: 'HOW DID THE PRISONER ATTEMPT TO GAIN ACCESS TO THE TOP OF THE FENCE',
       multipleAnswers: true,
       answers: [
         {
           code: 'LADDER',
+          active: true,
           label: 'LADDER',
           commentRequired: false,
           dateRequired: false,
@@ -4410,6 +5024,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'ROPE',
+          active: true,
           label: 'ROPE',
           commentRequired: false,
           dateRequired: false,
@@ -4417,6 +5032,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'CLIMBING AIDS',
+          active: true,
           label: 'CLIMBING AIDS',
           commentRequired: false,
           dateRequired: false,
@@ -4424,6 +5040,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'FURNITURE ITEMS',
+          active: true,
           label: 'FURNITURE ITEMS',
           commentRequired: false,
           dateRequired: false,
@@ -4431,6 +5048,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'SPORTS ITEMS',
+          active: true,
           label: 'SPORTS ITEMS',
           commentRequired: false,
           dateRequired: false,
@@ -4438,6 +5056,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'GROUNDS ITEMS',
+          active: true,
           label: 'GROUNDS ITEMS',
           commentRequired: false,
           dateRequired: false,
@@ -4445,6 +5064,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'OTHER',
+          active: true,
           label: 'OTHER',
           commentRequired: true,
           dateRequired: false,
@@ -4454,12 +5074,14 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
     },
     '45121': {
       id: '45121',
+      active: true,
       code: 'WHAT WAS THE SOURCE OF THE TOOLS',
       label: 'WHAT WAS THE SOURCE OF THE TOOLS',
       multipleAnswers: true,
       answers: [
         {
           code: 'WORKS DEPARTMENT',
+          active: true,
           label: 'WORKS DEPARTMENT',
           commentRequired: false,
           dateRequired: false,
@@ -4467,6 +5089,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'CONTRACTORS',
+          active: true,
           label: 'CONTRACTORS',
           commentRequired: false,
           dateRequired: false,
@@ -4474,6 +5097,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'EDUCATION',
+          active: true,
           label: 'EDUCATION',
           commentRequired: false,
           dateRequired: false,
@@ -4481,6 +5105,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'HEALTH CARE CENTRE',
+          active: true,
           label: 'HEALTH CARE CENTRE',
           commentRequired: false,
           dateRequired: false,
@@ -4488,6 +5113,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'FARMS AND GARDENS',
+          active: true,
           label: 'FARMS AND GARDENS',
           commentRequired: false,
           dateRequired: false,
@@ -4495,6 +5121,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'GYMNASIUM/SPORTS FIELD',
+          active: true,
           label: 'GYMNASIUM/SPORTS FIELD',
           commentRequired: false,
           dateRequired: false,
@@ -4502,6 +5129,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'WORKSHOPS',
+          active: true,
           label: 'WORKSHOPS',
           commentRequired: false,
           dateRequired: false,
@@ -4509,6 +5137,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'KITCHEN',
+          active: true,
           label: 'KITCHEN',
           commentRequired: false,
           dateRequired: false,
@@ -4516,6 +5145,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'HOBBIES',
+          active: true,
           label: 'HOBBIES',
           commentRequired: false,
           dateRequired: false,
@@ -4523,6 +5153,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'CELL FURNISHINGS',
+          active: true,
           label: 'CELL FURNISHINGS',
           commentRequired: false,
           dateRequired: false,
@@ -4530,6 +5161,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'WING/HOUSEBLOCK FURNISHINGS',
+          active: true,
           label: 'WING/HOUSEBLOCK FURNISHINGS',
           commentRequired: false,
           dateRequired: false,
@@ -4537,6 +5169,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'SMUGGLED',
+          active: true,
           label: 'SMUGGLED',
           commentRequired: false,
           dateRequired: false,
@@ -4544,6 +5177,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'NOT KNOWN',
+          active: true,
           label: 'NOT KNOWN',
           commentRequired: false,
           dateRequired: false,
@@ -4551,6 +5185,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'OTHER',
+          active: true,
           label: 'OTHER',
           commentRequired: true,
           dateRequired: false,
@@ -4560,12 +5195,14 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
     },
     '45124': {
       id: '45124',
+      active: true,
       code: 'WAS THE EXIT THROUGH AN UNLOCKED DOOR OR GATE',
       label: 'WAS THE EXIT THROUGH AN UNLOCKED DOOR OR GATE',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: true,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -4573,6 +5210,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: true,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -4582,12 +5220,14 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
     },
     '45150': {
       id: '45150',
+      active: true,
       code: 'INDICATE THE NATURE OF THE SHUT DOWN',
       label: 'INDICATE THE NATURE OF THE SHUT DOWN',
       multipleAnswers: true,
       answers: [
         {
           code: 'TELEPHONY',
+          active: true,
           label: 'TELEPHONY',
           commentRequired: true,
           dateRequired: false,
@@ -4595,6 +5235,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'IT',
+          active: true,
           label: 'IT',
           commentRequired: true,
           dateRequired: false,
@@ -4604,12 +5245,14 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
     },
     '45152': {
       id: '45152',
+      active: true,
       code: 'WHOSE WAS THE VEHICLE',
       label: 'WHOSE WAS THE VEHICLE',
       multipleAnswers: false,
       answers: [
         {
           code: 'PRISON SERVICE VEHICLE',
+          active: true,
           label: 'PRISON SERVICE VEHICLE',
           commentRequired: false,
           dateRequired: false,
@@ -4617,6 +5260,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'CONTRACTORS',
+          active: true,
           label: 'CONTRACTORS',
           commentRequired: false,
           dateRequired: false,
@@ -4624,6 +5268,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'ESCORT CONTRACTOR',
+          active: true,
           label: 'ESCORT CONTRACTOR',
           commentRequired: false,
           dateRequired: false,
@@ -4631,6 +5276,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'OFFICIAL VEHICLE',
+          active: true,
           label: 'OFFICIAL VEHICLE',
           commentRequired: false,
           dateRequired: false,
@@ -4638,6 +5284,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'STAFF VEHICLE',
+          active: true,
           label: 'STAFF VEHICLE',
           commentRequired: false,
           dateRequired: false,
@@ -4645,6 +5292,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'PRIVATE VEHICLE',
+          active: true,
           label: 'PRIVATE VEHICLE',
           commentRequired: false,
           dateRequired: false,
@@ -4652,6 +5300,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'TAXI',
+          active: true,
           label: 'TAXI',
           commentRequired: false,
           dateRequired: false,
@@ -4659,6 +5308,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'OTHER',
+          active: true,
           label: 'OTHER',
           commentRequired: true,
           dateRequired: false,
@@ -4668,12 +5318,14 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
     },
     '45170': {
       id: '45170',
+      active: true,
       code: 'WAS THE ATTEMPT MADE',
       label: 'WAS THE ATTEMPT MADE',
       multipleAnswers: true,
       answers: [
         {
           code: 'FROM INSIDE',
+          active: true,
           label: 'FROM INSIDE',
           commentRequired: false,
           dateRequired: false,
@@ -4681,6 +5333,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'FROM OUTSIDE',
+          active: true,
           label: 'FROM OUTSIDE',
           commentRequired: false,
           dateRequired: false,
@@ -4690,12 +5343,14 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
     },
     '45172': {
       id: '45172',
+      active: true,
       code: 'WHAT TYPE OF FORCE WAS USED',
       label: 'WHAT TYPE OF FORCE WAS USED',
       multipleAnswers: false,
       answers: [
         {
           code: 'CUT WINDOW OR BARS',
+          active: true,
           label: 'CUT WINDOW OR BARS',
           commentRequired: false,
           dateRequired: false,
@@ -4703,6 +5358,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'FORCED WINDOW OR BARS',
+          active: true,
           label: 'FORCED WINDOW OR BARS',
           commentRequired: false,
           dateRequired: false,
@@ -4710,6 +5366,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'CUT AND FORCED WINDOW AND BARS',
+          active: true,
           label: 'CUT AND FORCED WINDOW AND BARS',
           commentRequired: false,
           dateRequired: false,
@@ -4717,6 +5374,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'DUG THROUGH EXTERNAL WALL',
+          active: true,
           label: 'DUG THROUGH EXTERNAL WALL',
           commentRequired: false,
           dateRequired: false,
@@ -4724,6 +5382,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'DUG THROUGH INTERNAL WALL',
+          active: true,
           label: 'DUG THROUGH INTERNAL WALL',
           commentRequired: false,
           dateRequired: false,
@@ -4731,6 +5390,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'DUG THROUGH FLOOR',
+          active: true,
           label: 'DUG THROUGH FLOOR',
           commentRequired: false,
           dateRequired: false,
@@ -4738,6 +5398,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'BROKE THROUGH CEILING',
+          active: true,
           label: 'BROKE THROUGH CEILING',
           commentRequired: false,
           dateRequired: false,
@@ -4745,6 +5406,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'FORCED DOOR',
+          active: true,
           label: 'FORCED DOOR',
           commentRequired: false,
           dateRequired: false,

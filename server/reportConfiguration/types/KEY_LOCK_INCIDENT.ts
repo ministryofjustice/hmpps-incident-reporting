@@ -1,4 +1,4 @@
-// Generated with ./scripts/updateNomisIncidentTypeConfigurations.ts at 2024-09-16T15:42:16.215Z
+// Generated with ./scripts/updateNomisIncidentTypeConfigurations.ts at 2024-09-20T16:52:38.770Z
 
 import { type IncidentTypeConfiguration } from '../../data/incidentTypeConfiguration/types'
 
@@ -9,12 +9,14 @@ const KEY_LOCK_INCIDENT: IncidentTypeConfiguration = {
   questions: {
     '45196': {
       id: '45196',
+      active: true,
       code: 'Describe the nature of the Incident',
       label: 'Describe the nature of the Incident',
       multipleAnswers: true,
       answers: [
         {
           code: 'Keys taken out of the establishment',
+          active: false,
           label: 'Keys taken out of the establishment',
           commentRequired: false,
           dateRequired: false,
@@ -22,6 +24,7 @@ const KEY_LOCK_INCIDENT: IncidentTypeConfiguration = {
         },
         {
           code: 'Keys lost',
+          active: false,
           label: 'Keys lost',
           commentRequired: false,
           dateRequired: false,
@@ -29,6 +32,7 @@ const KEY_LOCK_INCIDENT: IncidentTypeConfiguration = {
         },
         {
           code: 'Key left unattended in prison',
+          active: false,
           label: 'Key left unattended in prison',
           commentRequired: false,
           dateRequired: false,
@@ -36,6 +40,7 @@ const KEY_LOCK_INCIDENT: IncidentTypeConfiguration = {
         },
         {
           code: 'Key issued to wrong person',
+          active: false,
           label: 'Key issued to wrong person',
           commentRequired: false,
           dateRequired: false,
@@ -43,6 +48,7 @@ const KEY_LOCK_INCIDENT: IncidentTypeConfiguration = {
         },
         {
           code: 'Doors/Gates/Cell door left unlocked',
+          active: false,
           label: 'Doors/Gates/Cell door left unlocked',
           commentRequired: false,
           dateRequired: false,
@@ -50,6 +56,7 @@ const KEY_LOCK_INCIDENT: IncidentTypeConfiguration = {
         },
         {
           code: 'Loss of handcuffs',
+          active: false,
           label: 'Loss of handcuffs',
           commentRequired: false,
           dateRequired: false,
@@ -57,6 +64,7 @@ const KEY_LOCK_INCIDENT: IncidentTypeConfiguration = {
         },
         {
           code: 'Loss of escort chain',
+          active: false,
           label: 'Loss of escort chain',
           commentRequired: false,
           dateRequired: false,
@@ -64,6 +72,7 @@ const KEY_LOCK_INCIDENT: IncidentTypeConfiguration = {
         },
         {
           code: 'Other handcuff key/lock issues',
+          active: false,
           label: 'Other handcuff key/lock issues',
           commentRequired: true,
           dateRequired: false,
@@ -71,6 +80,7 @@ const KEY_LOCK_INCIDENT: IncidentTypeConfiguration = {
         },
         {
           code: 'Broken/Damaged keys',
+          active: false,
           label: 'Broken/Damaged keys',
           commentRequired: false,
           dateRequired: false,
@@ -78,6 +88,7 @@ const KEY_LOCK_INCIDENT: IncidentTypeConfiguration = {
         },
         {
           code: 'Worn locks (not malicious)',
+          active: false,
           label: 'Worn locks (not malicious)',
           commentRequired: false,
           dateRequired: false,
@@ -85,6 +96,7 @@ const KEY_LOCK_INCIDENT: IncidentTypeConfiguration = {
         },
         {
           code: 'Malicious damage to/blockage of locks',
+          active: false,
           label: 'Malicious damage to/blockage of locks',
           commentRequired: false,
           dateRequired: false,
@@ -92,6 +104,7 @@ const KEY_LOCK_INCIDENT: IncidentTypeConfiguration = {
         },
         {
           code: 'Lock picked',
+          active: false,
           label: 'Lock picked',
           commentRequired: false,
           dateRequired: false,
@@ -99,6 +112,7 @@ const KEY_LOCK_INCIDENT: IncidentTypeConfiguration = {
         },
         {
           code: 'Part of lock removed',
+          active: false,
           label: 'Part of lock removed',
           commentRequired: false,
           dateRequired: false,
@@ -106,6 +120,7 @@ const KEY_LOCK_INCIDENT: IncidentTypeConfiguration = {
         },
         {
           code: 'Complete lock removed',
+          active: false,
           label: 'Complete lock removed',
           commentRequired: false,
           dateRequired: false,
@@ -113,6 +128,7 @@ const KEY_LOCK_INCIDENT: IncidentTypeConfiguration = {
         },
         {
           code: 'Electronics overcome (electronic door)',
+          active: false,
           label: 'Electronics overcome (electronic door)',
           commentRequired: false,
           dateRequired: false,
@@ -120,6 +136,7 @@ const KEY_LOCK_INCIDENT: IncidentTypeConfiguration = {
         },
         {
           code: 'Electronics failure (electronic door)',
+          active: false,
           label: 'Electronics failure (electronic door)',
           commentRequired: false,
           dateRequired: false,
@@ -127,6 +144,7 @@ const KEY_LOCK_INCIDENT: IncidentTypeConfiguration = {
         },
         {
           code: 'Replica key found/used',
+          active: false,
           label: 'Replica key found/used',
           commentRequired: false,
           dateRequired: false,
@@ -134,6 +152,7 @@ const KEY_LOCK_INCIDENT: IncidentTypeConfiguration = {
         },
         {
           code: 'Key viewed by prisoner',
+          active: false,
           label: 'Key viewed by prisoner',
           commentRequired: false,
           dateRequired: false,
@@ -141,6 +160,7 @@ const KEY_LOCK_INCIDENT: IncidentTypeConfiguration = {
         },
         {
           code: 'Other: (anything else including prisoner grabbing key chain, etc)',
+          active: false,
           label: 'Other: (anything else including prisoner grabbing key chain, etc)',
           commentRequired: true,
           dateRequired: false,
@@ -148,6 +168,7 @@ const KEY_LOCK_INCIDENT: IncidentTypeConfiguration = {
         },
         {
           code: 'Keys taken out of the establishment',
+          active: true,
           label: 'Keys taken out of the establishment',
           commentRequired: false,
           dateRequired: false,
@@ -155,6 +176,7 @@ const KEY_LOCK_INCIDENT: IncidentTypeConfiguration = {
         },
         {
           code: 'Keys lost',
+          active: true,
           label: 'Keys lost',
           commentRequired: false,
           dateRequired: false,
@@ -162,6 +184,7 @@ const KEY_LOCK_INCIDENT: IncidentTypeConfiguration = {
         },
         {
           code: 'Key left unattended in prison',
+          active: true,
           label: 'Key left unattended in prison',
           commentRequired: false,
           dateRequired: false,
@@ -169,6 +192,7 @@ const KEY_LOCK_INCIDENT: IncidentTypeConfiguration = {
         },
         {
           code: 'Key issued to wrong person',
+          active: true,
           label: 'Key issued to wrong person',
           commentRequired: false,
           dateRequired: false,
@@ -176,6 +200,7 @@ const KEY_LOCK_INCIDENT: IncidentTypeConfiguration = {
         },
         {
           code: 'Doors/Gates/cell door left unlocked',
+          active: true,
           label: 'Doors/Gates/cell door left unlocked',
           commentRequired: false,
           dateRequired: false,
@@ -183,6 +208,7 @@ const KEY_LOCK_INCIDENT: IncidentTypeConfiguration = {
         },
         {
           code: 'Loss of handcuffs',
+          active: true,
           label: 'Loss of handcuffs',
           commentRequired: false,
           dateRequired: false,
@@ -190,6 +216,7 @@ const KEY_LOCK_INCIDENT: IncidentTypeConfiguration = {
         },
         {
           code: 'Loss of escort chain',
+          active: true,
           label: 'Loss of escort chain',
           commentRequired: false,
           dateRequired: false,
@@ -197,6 +224,7 @@ const KEY_LOCK_INCIDENT: IncidentTypeConfiguration = {
         },
         {
           code: 'Other handcuff key/lock issues',
+          active: true,
           label: 'Other handcuff key/lock issues',
           commentRequired: false,
           dateRequired: false,
@@ -204,6 +232,7 @@ const KEY_LOCK_INCIDENT: IncidentTypeConfiguration = {
         },
         {
           code: 'Broken/Damaged keys',
+          active: true,
           label: 'Broken/Damaged keys',
           commentRequired: false,
           dateRequired: false,
@@ -211,6 +240,7 @@ const KEY_LOCK_INCIDENT: IncidentTypeConfiguration = {
         },
         {
           code: 'Worn locks (not malicious)',
+          active: true,
           label: 'Worn locks (not malicious)',
           commentRequired: false,
           dateRequired: false,
@@ -218,6 +248,7 @@ const KEY_LOCK_INCIDENT: IncidentTypeConfiguration = {
         },
         {
           code: 'Malicious damage to/blockage of locks',
+          active: true,
           label: 'Malicious damage to/blockage of locks',
           commentRequired: false,
           dateRequired: false,
@@ -225,6 +256,7 @@ const KEY_LOCK_INCIDENT: IncidentTypeConfiguration = {
         },
         {
           code: 'Lock picked',
+          active: true,
           label: 'Lock picked',
           commentRequired: false,
           dateRequired: false,
@@ -232,6 +264,7 @@ const KEY_LOCK_INCIDENT: IncidentTypeConfiguration = {
         },
         {
           code: 'Part of lock removed',
+          active: true,
           label: 'Part of lock removed',
           commentRequired: false,
           dateRequired: false,
@@ -239,6 +272,7 @@ const KEY_LOCK_INCIDENT: IncidentTypeConfiguration = {
         },
         {
           code: 'Complete lock removed',
+          active: true,
           label: 'Complete lock removed',
           commentRequired: false,
           dateRequired: false,
@@ -246,6 +280,7 @@ const KEY_LOCK_INCIDENT: IncidentTypeConfiguration = {
         },
         {
           code: 'Electronics overcome (electronic door)',
+          active: true,
           label: 'Electronics overcome (electronic door)',
           commentRequired: false,
           dateRequired: false,
@@ -253,6 +288,7 @@ const KEY_LOCK_INCIDENT: IncidentTypeConfiguration = {
         },
         {
           code: 'Electronics failure (electronic door)',
+          active: true,
           label: 'Electronics failure (electronic door)',
           commentRequired: false,
           dateRequired: false,
@@ -260,6 +296,7 @@ const KEY_LOCK_INCIDENT: IncidentTypeConfiguration = {
         },
         {
           code: 'Replica key found/used',
+          active: true,
           label: 'Replica key found/used',
           commentRequired: false,
           dateRequired: false,
@@ -267,6 +304,7 @@ const KEY_LOCK_INCIDENT: IncidentTypeConfiguration = {
         },
         {
           code: 'Key viewed by prisoner',
+          active: true,
           label: 'Key viewed by prisoner',
           commentRequired: false,
           dateRequired: false,
@@ -274,6 +312,7 @@ const KEY_LOCK_INCIDENT: IncidentTypeConfiguration = {
         },
         {
           code: 'Other  (anything else including prisoner grabbing key chain, etc)',
+          active: true,
           label: 'Other  (anything else including prisoner grabbing key chain, etc)',
           commentRequired: true,
           dateRequired: false,
@@ -283,12 +322,14 @@ const KEY_LOCK_INCIDENT: IncidentTypeConfiguration = {
     },
     '45197': {
       id: '45197',
+      active: true,
       code: 'Describe the type of key or lock',
       label: 'Describe the type of key or lock',
       multipleAnswers: true,
       answers: [
         {
           code: 'Class 1 pass key',
+          active: false,
           label: 'Class 1 pass key',
           commentRequired: false,
           dateRequired: false,
@@ -296,6 +337,7 @@ const KEY_LOCK_INCIDENT: IncidentTypeConfiguration = {
         },
         {
           code: 'Class 2 pass key',
+          active: false,
           label: 'Class 2 pass key',
           commentRequired: false,
           dateRequired: false,
@@ -303,6 +345,7 @@ const KEY_LOCK_INCIDENT: IncidentTypeConfiguration = {
         },
         {
           code: 'Cell key',
+          active: false,
           label: 'Cell key',
           commentRequired: false,
           dateRequired: false,
@@ -310,6 +353,7 @@ const KEY_LOCK_INCIDENT: IncidentTypeConfiguration = {
         },
         {
           code: 'Class 3 A1 Suite key',
+          active: false,
           label: 'Class 3 A1 Suite key',
           commentRequired: false,
           dateRequired: false,
@@ -317,6 +361,7 @@ const KEY_LOCK_INCIDENT: IncidentTypeConfiguration = {
         },
         {
           code: 'Class 3 Accountable key',
+          active: false,
           label: 'Class 3 Accountable key',
           commentRequired: false,
           dateRequired: false,
@@ -324,6 +369,7 @@ const KEY_LOCK_INCIDENT: IncidentTypeConfiguration = {
         },
         {
           code: 'Handcuff key',
+          active: false,
           label: 'Handcuff key',
           commentRequired: false,
           dateRequired: false,
@@ -331,6 +377,7 @@ const KEY_LOCK_INCIDENT: IncidentTypeConfiguration = {
         },
         {
           code: 'Escort Chain key',
+          active: false,
           label: 'Escort Chain key',
           commentRequired: false,
           dateRequired: false,
@@ -338,6 +385,7 @@ const KEY_LOCK_INCIDENT: IncidentTypeConfiguration = {
         },
         {
           code: 'Class 1 Lock',
+          active: false,
           label: 'Class 1 Lock',
           commentRequired: false,
           dateRequired: false,
@@ -345,6 +393,7 @@ const KEY_LOCK_INCIDENT: IncidentTypeConfiguration = {
         },
         {
           code: 'Class 2 Lock',
+          active: false,
           label: 'Class 2 Lock',
           commentRequired: false,
           dateRequired: false,
@@ -352,6 +401,7 @@ const KEY_LOCK_INCIDENT: IncidentTypeConfiguration = {
         },
         {
           code: 'Cell Lock',
+          active: false,
           label: 'Cell Lock',
           commentRequired: false,
           dateRequired: false,
@@ -359,6 +409,7 @@ const KEY_LOCK_INCIDENT: IncidentTypeConfiguration = {
         },
         {
           code: 'Class 3 A1 Suite Lock',
+          active: false,
           label: 'Class 3 A1 Suite Lock',
           commentRequired: false,
           dateRequired: false,
@@ -366,6 +417,7 @@ const KEY_LOCK_INCIDENT: IncidentTypeConfiguration = {
         },
         {
           code: 'Class 3 Accountable Lock',
+          active: false,
           label: 'Class 3 Accountable Lock',
           commentRequired: false,
           dateRequired: false,
@@ -373,6 +425,7 @@ const KEY_LOCK_INCIDENT: IncidentTypeConfiguration = {
         },
         {
           code: 'Handcuffs',
+          active: false,
           label: 'Handcuffs',
           commentRequired: false,
           dateRequired: false,
@@ -380,6 +433,7 @@ const KEY_LOCK_INCIDENT: IncidentTypeConfiguration = {
         },
         {
           code: 'Escort chain',
+          active: false,
           label: 'Escort chain',
           commentRequired: false,
           dateRequired: false,
@@ -387,6 +441,7 @@ const KEY_LOCK_INCIDENT: IncidentTypeConfiguration = {
         },
         {
           code: 'Electronic Lock System',
+          active: false,
           label: 'Electronic Lock System',
           commentRequired: false,
           dateRequired: false,
@@ -394,6 +449,7 @@ const KEY_LOCK_INCIDENT: IncidentTypeConfiguration = {
         },
         {
           code: 'Magnetic Keys',
+          active: false,
           label: 'Magnetic Keys',
           commentRequired: false,
           dateRequired: false,
@@ -401,6 +457,7 @@ const KEY_LOCK_INCIDENT: IncidentTypeConfiguration = {
         },
         {
           code: 'Magnetic Lock',
+          active: false,
           label: 'Magnetic Lock',
           commentRequired: false,
           dateRequired: false,
@@ -408,6 +465,7 @@ const KEY_LOCK_INCIDENT: IncidentTypeConfiguration = {
         },
         {
           code: 'Cell Door',
+          active: false,
           label: 'Cell Door',
           commentRequired: false,
           dateRequired: false,
@@ -415,6 +473,7 @@ const KEY_LOCK_INCIDENT: IncidentTypeConfiguration = {
         },
         {
           code: 'Brent Keys',
+          active: false,
           label: 'Brent Keys',
           commentRequired: false,
           dateRequired: false,
@@ -422,6 +481,7 @@ const KEY_LOCK_INCIDENT: IncidentTypeConfiguration = {
         },
         {
           code: 'Other: Specify',
+          active: false,
           label: 'Other: Specify',
           commentRequired: true,
           dateRequired: false,
@@ -429,6 +489,7 @@ const KEY_LOCK_INCIDENT: IncidentTypeConfiguration = {
         },
         {
           code: 'Class 1 pass key',
+          active: true,
           label: 'Class 1 pass key',
           commentRequired: false,
           dateRequired: false,
@@ -436,6 +497,7 @@ const KEY_LOCK_INCIDENT: IncidentTypeConfiguration = {
         },
         {
           code: 'Class 2 pass key',
+          active: true,
           label: 'Class 2 pass key',
           commentRequired: false,
           dateRequired: false,
@@ -443,6 +505,7 @@ const KEY_LOCK_INCIDENT: IncidentTypeConfiguration = {
         },
         {
           code: 'Cell key',
+          active: true,
           label: 'Cell key',
           commentRequired: false,
           dateRequired: false,
@@ -450,6 +513,7 @@ const KEY_LOCK_INCIDENT: IncidentTypeConfiguration = {
         },
         {
           code: 'Class 3 A1 Suite key',
+          active: true,
           label: 'Class 3 A1 Suite key',
           commentRequired: false,
           dateRequired: false,
@@ -457,6 +521,7 @@ const KEY_LOCK_INCIDENT: IncidentTypeConfiguration = {
         },
         {
           code: 'Class 3 Accountable key',
+          active: true,
           label: 'Class 3 Accountable key',
           commentRequired: false,
           dateRequired: false,
@@ -464,6 +529,7 @@ const KEY_LOCK_INCIDENT: IncidentTypeConfiguration = {
         },
         {
           code: 'Handcuff key',
+          active: true,
           label: 'Handcuff key',
           commentRequired: false,
           dateRequired: false,
@@ -471,6 +537,7 @@ const KEY_LOCK_INCIDENT: IncidentTypeConfiguration = {
         },
         {
           code: 'Escort Chain key',
+          active: true,
           label: 'Escort Chain key',
           commentRequired: false,
           dateRequired: false,
@@ -478,6 +545,7 @@ const KEY_LOCK_INCIDENT: IncidentTypeConfiguration = {
         },
         {
           code: 'Class 1 Lock',
+          active: true,
           label: 'Class 1 Lock',
           commentRequired: false,
           dateRequired: false,
@@ -485,6 +553,7 @@ const KEY_LOCK_INCIDENT: IncidentTypeConfiguration = {
         },
         {
           code: 'Class 2 Lock',
+          active: true,
           label: 'Class 2 Lock',
           commentRequired: false,
           dateRequired: false,
@@ -492,6 +561,7 @@ const KEY_LOCK_INCIDENT: IncidentTypeConfiguration = {
         },
         {
           code: 'Cell Lock',
+          active: true,
           label: 'Cell Lock',
           commentRequired: false,
           dateRequired: false,
@@ -499,6 +569,7 @@ const KEY_LOCK_INCIDENT: IncidentTypeConfiguration = {
         },
         {
           code: 'Class 3 A1 Suite Lock',
+          active: true,
           label: 'Class 3 A1 Suite Lock',
           commentRequired: false,
           dateRequired: false,
@@ -506,6 +577,7 @@ const KEY_LOCK_INCIDENT: IncidentTypeConfiguration = {
         },
         {
           code: 'Class 3 Accountable Lock',
+          active: true,
           label: 'Class 3 Accountable Lock',
           commentRequired: false,
           dateRequired: false,
@@ -513,6 +585,7 @@ const KEY_LOCK_INCIDENT: IncidentTypeConfiguration = {
         },
         {
           code: 'Handcuffs',
+          active: true,
           label: 'Handcuffs',
           commentRequired: false,
           dateRequired: false,
@@ -520,6 +593,7 @@ const KEY_LOCK_INCIDENT: IncidentTypeConfiguration = {
         },
         {
           code: 'Escort chain',
+          active: true,
           label: 'Escort chain',
           commentRequired: false,
           dateRequired: false,
@@ -527,6 +601,7 @@ const KEY_LOCK_INCIDENT: IncidentTypeConfiguration = {
         },
         {
           code: 'Electronic Lock System',
+          active: true,
           label: 'Electronic Lock System',
           commentRequired: false,
           dateRequired: false,
@@ -534,6 +609,7 @@ const KEY_LOCK_INCIDENT: IncidentTypeConfiguration = {
         },
         {
           code: 'Magnetic Keys',
+          active: true,
           label: 'Magnetic Keys',
           commentRequired: false,
           dateRequired: false,
@@ -541,6 +617,7 @@ const KEY_LOCK_INCIDENT: IncidentTypeConfiguration = {
         },
         {
           code: 'Magnetic Lock',
+          active: true,
           label: 'Magnetic Lock',
           commentRequired: false,
           dateRequired: false,
@@ -548,6 +625,7 @@ const KEY_LOCK_INCIDENT: IncidentTypeConfiguration = {
         },
         {
           code: 'Cell Door',
+          active: true,
           label: 'Cell Door',
           commentRequired: false,
           dateRequired: false,
@@ -555,6 +633,7 @@ const KEY_LOCK_INCIDENT: IncidentTypeConfiguration = {
         },
         {
           code: 'Brent Keys',
+          active: true,
           label: 'Brent Keys',
           commentRequired: false,
           dateRequired: false,
@@ -562,6 +641,7 @@ const KEY_LOCK_INCIDENT: IncidentTypeConfiguration = {
         },
         {
           code: 'Other :  Specify',
+          active: true,
           label: 'Other :  Specify',
           commentRequired: true,
           dateRequired: false,
@@ -571,12 +651,14 @@ const KEY_LOCK_INCIDENT: IncidentTypeConfiguration = {
     },
     '45198': {
       id: '45198',
+      active: true,
       code: 'Incident Level: 1-5. 1 High Risk, 5 No Risk',
       label: 'Incident Level: 1-5. 1 High Risk, 5 No Risk',
       multipleAnswers: false,
       answers: [
         {
           code: 'Enter Value:',
+          active: false,
           label: 'Enter Value:',
           commentRequired: true,
           dateRequired: false,
@@ -584,6 +666,7 @@ const KEY_LOCK_INCIDENT: IncidentTypeConfiguration = {
         },
         {
           code: 'Enter Value:',
+          active: true,
           label: 'Enter Value:',
           commentRequired: true,
           dateRequired: false,
@@ -593,12 +676,14 @@ const KEY_LOCK_INCIDENT: IncidentTypeConfiguration = {
     },
     '45199': {
       id: '45199',
+      active: true,
       code: 'Has any remedial action been taken?',
       label: 'Has any remedial action been taken?',
       multipleAnswers: false,
       answers: [
         {
           code: 'Yes',
+          active: false,
           label: 'Yes',
           commentRequired: false,
           dateRequired: false,
@@ -606,6 +691,7 @@ const KEY_LOCK_INCIDENT: IncidentTypeConfiguration = {
         },
         {
           code: 'No',
+          active: false,
           label: 'No',
           commentRequired: false,
           dateRequired: false,
@@ -613,6 +699,7 @@ const KEY_LOCK_INCIDENT: IncidentTypeConfiguration = {
         },
         {
           code: 'Yes',
+          active: true,
           label: 'Yes',
           commentRequired: false,
           dateRequired: false,
@@ -620,6 +707,7 @@ const KEY_LOCK_INCIDENT: IncidentTypeConfiguration = {
         },
         {
           code: 'No',
+          active: false,
           label: 'No',
           commentRequired: false,
           dateRequired: false,
@@ -627,6 +715,7 @@ const KEY_LOCK_INCIDENT: IncidentTypeConfiguration = {
         },
         {
           code: 'No',
+          active: false,
           label: 'No',
           commentRequired: false,
           dateRequired: false,
@@ -634,6 +723,7 @@ const KEY_LOCK_INCIDENT: IncidentTypeConfiguration = {
         },
         {
           code: 'No',
+          active: false,
           label: 'No',
           commentRequired: false,
           dateRequired: false,
@@ -641,6 +731,7 @@ const KEY_LOCK_INCIDENT: IncidentTypeConfiguration = {
         },
         {
           code: 'No',
+          active: true,
           label: 'No',
           commentRequired: false,
           dateRequired: false,
@@ -650,12 +741,14 @@ const KEY_LOCK_INCIDENT: IncidentTypeConfiguration = {
     },
     '45200': {
       id: '45200',
+      active: true,
       code: 'Describe the remedial action taken',
       label: 'Describe the remedial action taken',
       multipleAnswers: false,
       answers: [
         {
           code: 'Complete relock',
+          active: false,
           label: 'Complete relock',
           commentRequired: false,
           dateRequired: false,
@@ -663,6 +756,7 @@ const KEY_LOCK_INCIDENT: IncidentTypeConfiguration = {
         },
         {
           code: 'Partial relock',
+          active: false,
           label: 'Partial relock',
           commentRequired: false,
           dateRequired: false,
@@ -670,6 +764,7 @@ const KEY_LOCK_INCIDENT: IncidentTypeConfiguration = {
         },
         {
           code: 'Complete replacement',
+          active: false,
           label: 'Complete replacement',
           commentRequired: false,
           dateRequired: false,
@@ -677,6 +772,7 @@ const KEY_LOCK_INCIDENT: IncidentTypeConfiguration = {
         },
         {
           code: 'Partial replacement',
+          active: false,
           label: 'Partial replacement',
           commentRequired: false,
           dateRequired: false,
@@ -684,6 +780,7 @@ const KEY_LOCK_INCIDENT: IncidentTypeConfiguration = {
         },
         {
           code: 'Forensic testing',
+          active: false,
           label: 'Forensic testing',
           commentRequired: false,
           dateRequired: false,
@@ -691,6 +788,7 @@ const KEY_LOCK_INCIDENT: IncidentTypeConfiguration = {
         },
         {
           code: 'Complete relock',
+          active: true,
           label: 'Complete relock',
           commentRequired: false,
           dateRequired: false,
@@ -698,6 +796,7 @@ const KEY_LOCK_INCIDENT: IncidentTypeConfiguration = {
         },
         {
           code: 'Partial relock',
+          active: true,
           label: 'Partial relock',
           commentRequired: false,
           dateRequired: false,
@@ -705,6 +804,7 @@ const KEY_LOCK_INCIDENT: IncidentTypeConfiguration = {
         },
         {
           code: 'Complete replacement',
+          active: true,
           label: 'Complete replacement',
           commentRequired: false,
           dateRequired: false,
@@ -712,6 +812,7 @@ const KEY_LOCK_INCIDENT: IncidentTypeConfiguration = {
         },
         {
           code: 'Partial replacement',
+          active: true,
           label: 'Partial replacement',
           commentRequired: false,
           dateRequired: false,
@@ -719,6 +820,7 @@ const KEY_LOCK_INCIDENT: IncidentTypeConfiguration = {
         },
         {
           code: 'Forensic testing',
+          active: true,
           label: 'Forensic testing',
           commentRequired: false,
           dateRequired: false,
@@ -726,6 +828,7 @@ const KEY_LOCK_INCIDENT: IncidentTypeConfiguration = {
         },
         {
           code: 'Other',
+          active: true,
           label: 'Other',
           commentRequired: true,
           dateRequired: false,
@@ -735,12 +838,14 @@ const KEY_LOCK_INCIDENT: IncidentTypeConfiguration = {
     },
     '45201': {
       id: '45201',
+      active: true,
       code: 'Estimated cost of this action',
       label: 'Estimated cost of this action',
       multipleAnswers: false,
       answers: [
         {
           code: '£',
+          active: false,
           label: '£',
           commentRequired: true,
           dateRequired: false,
@@ -748,6 +853,7 @@ const KEY_LOCK_INCIDENT: IncidentTypeConfiguration = {
         },
         {
           code: '£',
+          active: true,
           label: '£',
           commentRequired: true,
           dateRequired: false,
@@ -755,6 +861,7 @@ const KEY_LOCK_INCIDENT: IncidentTypeConfiguration = {
         },
         {
           code: 'N/A',
+          active: true,
           label: 'N/A',
           commentRequired: false,
           dateRequired: false,
@@ -764,12 +871,14 @@ const KEY_LOCK_INCIDENT: IncidentTypeConfiguration = {
     },
     '45202': {
       id: '45202',
+      active: true,
       code: 'Have the lost item (s) been found?',
       label: 'Have the lost item (s) been found?',
       multipleAnswers: false,
       answers: [
         {
           code: 'Yes',
+          active: false,
           label: 'Yes',
           commentRequired: false,
           dateRequired: false,
@@ -777,6 +886,7 @@ const KEY_LOCK_INCIDENT: IncidentTypeConfiguration = {
         },
         {
           code: 'No',
+          active: false,
           label: 'No',
           commentRequired: false,
           dateRequired: false,
@@ -784,6 +894,7 @@ const KEY_LOCK_INCIDENT: IncidentTypeConfiguration = {
         },
         {
           code: 'Yes',
+          active: true,
           label: 'Yes',
           commentRequired: false,
           dateRequired: false,
@@ -791,6 +902,7 @@ const KEY_LOCK_INCIDENT: IncidentTypeConfiguration = {
         },
         {
           code: 'No',
+          active: true,
           label: 'No',
           commentRequired: false,
           dateRequired: false,
@@ -798,6 +910,7 @@ const KEY_LOCK_INCIDENT: IncidentTypeConfiguration = {
         },
         {
           code: 'N/A',
+          active: true,
           label: 'N/A',
           commentRequired: false,
           dateRequired: false,
@@ -807,12 +920,14 @@ const KEY_LOCK_INCIDENT: IncidentTypeConfiguration = {
     },
     '45203': {
       id: '45203',
+      active: true,
       code: 'Has a replica key been found?',
       label: 'Has a replica key been found?',
       multipleAnswers: false,
       answers: [
         {
           code: 'Yes',
+          active: false,
           label: 'Yes',
           commentRequired: false,
           dateRequired: false,
@@ -820,6 +935,7 @@ const KEY_LOCK_INCIDENT: IncidentTypeConfiguration = {
         },
         {
           code: 'No',
+          active: false,
           label: 'No',
           commentRequired: false,
           dateRequired: false,
@@ -827,6 +943,7 @@ const KEY_LOCK_INCIDENT: IncidentTypeConfiguration = {
         },
         {
           code: 'Yes',
+          active: true,
           label: 'Yes',
           commentRequired: false,
           dateRequired: false,
@@ -834,6 +951,7 @@ const KEY_LOCK_INCIDENT: IncidentTypeConfiguration = {
         },
         {
           code: 'No',
+          active: false,
           label: 'No',
           commentRequired: false,
           dateRequired: false,
@@ -841,6 +959,7 @@ const KEY_LOCK_INCIDENT: IncidentTypeConfiguration = {
         },
         {
           code: 'No',
+          active: true,
           label: 'No',
           commentRequired: false,
           dateRequired: false,
@@ -848,6 +967,7 @@ const KEY_LOCK_INCIDENT: IncidentTypeConfiguration = {
         },
         {
           code: 'N/A',
+          active: true,
           label: 'N/A',
           commentRequired: false,
           dateRequired: false,
@@ -857,12 +977,14 @@ const KEY_LOCK_INCIDENT: IncidentTypeConfiguration = {
     },
     '45204': {
       id: '45204',
+      active: true,
       code: 'What action was taken to find these items?',
       label: 'What action was taken to find these items?',
       multipleAnswers: false,
       answers: [
         {
           code: 'Full close down search',
+          active: false,
           label: 'Full close down search',
           commentRequired: false,
           dateRequired: false,
@@ -870,6 +992,7 @@ const KEY_LOCK_INCIDENT: IncidentTypeConfiguration = {
         },
         {
           code: 'Partial search',
+          active: false,
           label: 'Partial search',
           commentRequired: false,
           dateRequired: false,
@@ -877,6 +1000,7 @@ const KEY_LOCK_INCIDENT: IncidentTypeConfiguration = {
         },
         {
           code: 'Other: Specify',
+          active: false,
           label: 'Other: Specify',
           commentRequired: true,
           dateRequired: false,
@@ -884,6 +1008,7 @@ const KEY_LOCK_INCIDENT: IncidentTypeConfiguration = {
         },
         {
           code: 'Full close down search',
+          active: true,
           label: 'Full close down search',
           commentRequired: false,
           dateRequired: false,
@@ -891,6 +1016,7 @@ const KEY_LOCK_INCIDENT: IncidentTypeConfiguration = {
         },
         {
           code: 'Partial search',
+          active: true,
           label: 'Partial search',
           commentRequired: false,
           dateRequired: false,
@@ -898,6 +1024,7 @@ const KEY_LOCK_INCIDENT: IncidentTypeConfiguration = {
         },
         {
           code: 'Other: Please specify',
+          active: true,
           label: 'Other: Please specify',
           commentRequired: true,
           dateRequired: false,
@@ -907,12 +1034,14 @@ const KEY_LOCK_INCIDENT: IncidentTypeConfiguration = {
     },
     '45205': {
       id: '45205',
+      active: true,
       code: 'Were tools used in the Incident?',
       label: 'Were tools used in the Incident?',
       multipleAnswers: false,
       answers: [
         {
           code: 'Yes',
+          active: false,
           label: 'Yes',
           commentRequired: false,
           dateRequired: false,
@@ -920,6 +1049,7 @@ const KEY_LOCK_INCIDENT: IncidentTypeConfiguration = {
         },
         {
           code: 'No',
+          active: false,
           label: 'No',
           commentRequired: false,
           dateRequired: false,
@@ -927,6 +1057,7 @@ const KEY_LOCK_INCIDENT: IncidentTypeConfiguration = {
         },
         {
           code: 'Yes',
+          active: true,
           label: 'Yes',
           commentRequired: false,
           dateRequired: false,
@@ -934,6 +1065,7 @@ const KEY_LOCK_INCIDENT: IncidentTypeConfiguration = {
         },
         {
           code: 'No',
+          active: false,
           label: 'No',
           commentRequired: false,
           dateRequired: false,
@@ -941,6 +1073,7 @@ const KEY_LOCK_INCIDENT: IncidentTypeConfiguration = {
         },
         {
           code: 'No',
+          active: true,
           label: 'No',
           commentRequired: false,
           dateRequired: false,
@@ -950,12 +1083,14 @@ const KEY_LOCK_INCIDENT: IncidentTypeConfiguration = {
     },
     '45206': {
       id: '45206',
+      active: true,
       code: 'What tools/foreign objects were used?',
       label: 'What tools/foreign objects were used?',
       multipleAnswers: true,
       answers: [
         {
           code: 'Hacksaw blade',
+          active: false,
           label: 'Hacksaw blade',
           commentRequired: false,
           dateRequired: false,
@@ -963,6 +1098,7 @@ const KEY_LOCK_INCIDENT: IncidentTypeConfiguration = {
         },
         {
           code: 'Other Blade',
+          active: false,
           label: 'Other Blade',
           commentRequired: false,
           dateRequired: false,
@@ -970,6 +1106,7 @@ const KEY_LOCK_INCIDENT: IncidentTypeConfiguration = {
         },
         {
           code: 'Wire cutters',
+          active: false,
           label: 'Wire cutters',
           commentRequired: false,
           dateRequired: false,
@@ -977,6 +1114,7 @@ const KEY_LOCK_INCIDENT: IncidentTypeConfiguration = {
         },
         {
           code: 'Bolt cutters',
+          active: false,
           label: 'Bolt cutters',
           commentRequired: false,
           dateRequired: false,
@@ -984,6 +1122,7 @@ const KEY_LOCK_INCIDENT: IncidentTypeConfiguration = {
         },
         {
           code: 'Digging tool',
+          active: false,
           label: 'Digging tool',
           commentRequired: false,
           dateRequired: false,
@@ -991,6 +1130,7 @@ const KEY_LOCK_INCIDENT: IncidentTypeConfiguration = {
         },
         {
           code: 'Crow bar',
+          active: false,
           label: 'Crow bar',
           commentRequired: false,
           dateRequired: false,
@@ -998,6 +1138,7 @@ const KEY_LOCK_INCIDENT: IncidentTypeConfiguration = {
         },
         {
           code: 'Improvised tool',
+          active: false,
           label: 'Improvised tool',
           commentRequired: false,
           dateRequired: false,
@@ -1005,6 +1146,7 @@ const KEY_LOCK_INCIDENT: IncidentTypeConfiguration = {
         },
         {
           code: 'Other: Specify',
+          active: false,
           label: 'Other: Specify',
           commentRequired: false,
           dateRequired: false,
@@ -1012,6 +1154,7 @@ const KEY_LOCK_INCIDENT: IncidentTypeConfiguration = {
         },
         {
           code: 'Not Known',
+          active: false,
           label: 'Not Known',
           commentRequired: false,
           dateRequired: false,
@@ -1019,6 +1162,7 @@ const KEY_LOCK_INCIDENT: IncidentTypeConfiguration = {
         },
         {
           code: 'Hacksaw blade',
+          active: true,
           label: 'Hacksaw blade',
           commentRequired: false,
           dateRequired: false,
@@ -1026,6 +1170,7 @@ const KEY_LOCK_INCIDENT: IncidentTypeConfiguration = {
         },
         {
           code: 'Other blade',
+          active: true,
           label: 'Other blade',
           commentRequired: false,
           dateRequired: false,
@@ -1033,6 +1178,7 @@ const KEY_LOCK_INCIDENT: IncidentTypeConfiguration = {
         },
         {
           code: 'Wire cutters',
+          active: true,
           label: 'Wire cutters',
           commentRequired: false,
           dateRequired: false,
@@ -1040,6 +1186,7 @@ const KEY_LOCK_INCIDENT: IncidentTypeConfiguration = {
         },
         {
           code: 'Bolt cutters',
+          active: true,
           label: 'Bolt cutters',
           commentRequired: false,
           dateRequired: false,
@@ -1047,6 +1194,7 @@ const KEY_LOCK_INCIDENT: IncidentTypeConfiguration = {
         },
         {
           code: 'Digging tool',
+          active: true,
           label: 'Digging tool',
           commentRequired: false,
           dateRequired: false,
@@ -1054,6 +1202,7 @@ const KEY_LOCK_INCIDENT: IncidentTypeConfiguration = {
         },
         {
           code: 'Crow bar',
+          active: true,
           label: 'Crow bar',
           commentRequired: false,
           dateRequired: false,
@@ -1061,6 +1210,7 @@ const KEY_LOCK_INCIDENT: IncidentTypeConfiguration = {
         },
         {
           code: 'Improvised tool',
+          active: true,
           label: 'Improvised tool',
           commentRequired: false,
           dateRequired: false,
@@ -1068,6 +1218,7 @@ const KEY_LOCK_INCIDENT: IncidentTypeConfiguration = {
         },
         {
           code: 'Other: Please specify',
+          active: true,
           label: 'Other: Please specify',
           commentRequired: true,
           dateRequired: false,
@@ -1075,6 +1226,7 @@ const KEY_LOCK_INCIDENT: IncidentTypeConfiguration = {
         },
         {
           code: 'Not Known',
+          active: true,
           label: 'Not Known',
           commentRequired: false,
           dateRequired: false,
@@ -1084,12 +1236,14 @@ const KEY_LOCK_INCIDENT: IncidentTypeConfiguration = {
     },
     '45207': {
       id: '45207',
+      active: true,
       code: 'What was the source of the tools/foreign object?',
       label: 'What was the source of the tools/foreign object?',
       multipleAnswers: false,
       answers: [
         {
           code: 'Works Department',
+          active: false,
           label: 'Works Department',
           commentRequired: false,
           dateRequired: false,
@@ -1097,6 +1251,7 @@ const KEY_LOCK_INCIDENT: IncidentTypeConfiguration = {
         },
         {
           code: 'Contractors',
+          active: false,
           label: 'Contractors',
           commentRequired: false,
           dateRequired: false,
@@ -1104,6 +1259,7 @@ const KEY_LOCK_INCIDENT: IncidentTypeConfiguration = {
         },
         {
           code: 'Education',
+          active: false,
           label: 'Education',
           commentRequired: false,
           dateRequired: false,
@@ -1111,6 +1267,7 @@ const KEY_LOCK_INCIDENT: IncidentTypeConfiguration = {
         },
         {
           code: 'Heathcare Centre',
+          active: false,
           label: 'Heathcare Centre',
           commentRequired: false,
           dateRequired: false,
@@ -1118,6 +1275,7 @@ const KEY_LOCK_INCIDENT: IncidentTypeConfiguration = {
         },
         {
           code: 'Farms and Gardens',
+          active: false,
           label: 'Farms and Gardens',
           commentRequired: false,
           dateRequired: false,
@@ -1125,6 +1283,7 @@ const KEY_LOCK_INCIDENT: IncidentTypeConfiguration = {
         },
         {
           code: 'Staff',
+          active: false,
           label: 'Staff',
           commentRequired: false,
           dateRequired: false,
@@ -1132,6 +1291,7 @@ const KEY_LOCK_INCIDENT: IncidentTypeConfiguration = {
         },
         {
           code: 'Visitor',
+          active: false,
           label: 'Visitor',
           commentRequired: false,
           dateRequired: false,
@@ -1139,6 +1299,7 @@ const KEY_LOCK_INCIDENT: IncidentTypeConfiguration = {
         },
         {
           code: 'Other: Specify',
+          active: false,
           label: 'Other: Specify',
           commentRequired: true,
           dateRequired: false,
@@ -1146,6 +1307,7 @@ const KEY_LOCK_INCIDENT: IncidentTypeConfiguration = {
         },
         {
           code: 'Not Known',
+          active: false,
           label: 'Not Known',
           commentRequired: false,
           dateRequired: false,
@@ -1153,6 +1315,7 @@ const KEY_LOCK_INCIDENT: IncidentTypeConfiguration = {
         },
         {
           code: 'Works Department',
+          active: true,
           label: 'Works Department',
           commentRequired: false,
           dateRequired: false,
@@ -1160,6 +1323,7 @@ const KEY_LOCK_INCIDENT: IncidentTypeConfiguration = {
         },
         {
           code: 'Contractors',
+          active: true,
           label: 'Contractors',
           commentRequired: false,
           dateRequired: false,
@@ -1167,6 +1331,7 @@ const KEY_LOCK_INCIDENT: IncidentTypeConfiguration = {
         },
         {
           code: 'Education',
+          active: true,
           label: 'Education',
           commentRequired: false,
           dateRequired: false,
@@ -1174,6 +1339,7 @@ const KEY_LOCK_INCIDENT: IncidentTypeConfiguration = {
         },
         {
           code: 'Health Care Centre',
+          active: true,
           label: 'Health Care Centre',
           commentRequired: false,
           dateRequired: false,
@@ -1181,6 +1347,7 @@ const KEY_LOCK_INCIDENT: IncidentTypeConfiguration = {
         },
         {
           code: 'Farms and Gardens',
+          active: true,
           label: 'Farms and Gardens',
           commentRequired: false,
           dateRequired: false,
@@ -1188,6 +1355,7 @@ const KEY_LOCK_INCIDENT: IncidentTypeConfiguration = {
         },
         {
           code: 'Staff',
+          active: true,
           label: 'Staff',
           commentRequired: false,
           dateRequired: false,
@@ -1195,6 +1363,7 @@ const KEY_LOCK_INCIDENT: IncidentTypeConfiguration = {
         },
         {
           code: 'Visitor',
+          active: true,
           label: 'Visitor',
           commentRequired: false,
           dateRequired: false,
@@ -1202,6 +1371,7 @@ const KEY_LOCK_INCIDENT: IncidentTypeConfiguration = {
         },
         {
           code: 'Other: Please specify',
+          active: true,
           label: 'Other: Please specify',
           commentRequired: true,
           dateRequired: false,
@@ -1209,6 +1379,7 @@ const KEY_LOCK_INCIDENT: IncidentTypeConfiguration = {
         },
         {
           code: 'Not Known',
+          active: true,
           label: 'Not Known',
           commentRequired: false,
           dateRequired: false,
@@ -1218,12 +1389,14 @@ const KEY_LOCK_INCIDENT: IncidentTypeConfiguration = {
     },
     '45208': {
       id: '45208',
+      active: true,
       code: 'Has the Key Lock Incident been reported to NOU?',
       label: 'Has the Key Lock Incident been reported to NOU?',
       multipleAnswers: true,
       answers: [
         {
           code: 'Yes: Date',
+          active: true,
           label: 'Yes: Date',
           commentRequired: false,
           dateRequired: true,
@@ -1231,6 +1404,7 @@ const KEY_LOCK_INCIDENT: IncidentTypeConfiguration = {
         },
         {
           code: 'No',
+          active: true,
           label: 'No',
           commentRequired: false,
           dateRequired: false,
@@ -1238,6 +1412,7 @@ const KEY_LOCK_INCIDENT: IncidentTypeConfiguration = {
         },
         {
           code: 'Incident Ref No:',
+          active: true,
           label: 'Incident Ref No:',
           commentRequired: true,
           dateRequired: false,

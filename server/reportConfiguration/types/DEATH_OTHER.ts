@@ -1,4 +1,4 @@
-// Generated with ./scripts/updateNomisIncidentTypeConfigurations.ts at 2024-09-16T15:41:59.070Z
+// Generated with ./scripts/updateNomisIncidentTypeConfigurations.ts at 2024-09-20T16:52:17.980Z
 
 import { type IncidentTypeConfiguration } from '../../data/incidentTypeConfiguration/types'
 
@@ -9,12 +9,14 @@ const DEATH_OTHER: IncidentTypeConfiguration = {
   questions: {
     '44130': {
       id: '44130',
+      active: true,
       code: 'NAME OF DECEASED',
       label: 'NAME OF DECEASED',
       multipleAnswers: false,
       answers: [
         {
           code: 'NAME',
+          active: true,
           label: 'NAME',
           commentRequired: true,
           dateRequired: false,
@@ -24,12 +26,14 @@ const DEATH_OTHER: IncidentTypeConfiguration = {
     },
     '44142': {
       id: '44142',
+      active: true,
       code: 'HAS THE PRISON SERVICE PRESS OFFICE BEEN INFORMED',
       label: 'HAS THE PRISON SERVICE PRESS OFFICE BEEN INFORMED',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: true,
           label: 'YES',
           commentRequired: false,
           dateRequired: true,
@@ -37,6 +41,7 @@ const DEATH_OTHER: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: true,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -46,12 +51,14 @@ const DEATH_OTHER: IncidentTypeConfiguration = {
     },
     '44237': {
       id: '44237',
+      active: true,
       code: 'WHAT VERDICT DID THE INQUEST REACH',
       label: 'WHAT VERDICT DID THE INQUEST REACH',
       multipleAnswers: false,
       answers: [
         {
           code: 'NATURAL CAUSES',
+          active: true,
           label: 'NATURAL CAUSES',
           commentRequired: false,
           dateRequired: false,
@@ -59,6 +66,7 @@ const DEATH_OTHER: IncidentTypeConfiguration = {
         },
         {
           code: 'SUICIDE',
+          active: true,
           label: 'SUICIDE',
           commentRequired: false,
           dateRequired: false,
@@ -66,6 +74,7 @@ const DEATH_OTHER: IncidentTypeConfiguration = {
         },
         {
           code: 'ACCIDENTAL',
+          active: true,
           label: 'ACCIDENTAL',
           commentRequired: false,
           dateRequired: false,
@@ -73,6 +82,7 @@ const DEATH_OTHER: IncidentTypeConfiguration = {
         },
         {
           code: 'MISADVENTURE',
+          active: true,
           label: 'MISADVENTURE',
           commentRequired: false,
           dateRequired: false,
@@ -80,6 +90,7 @@ const DEATH_OTHER: IncidentTypeConfiguration = {
         },
         {
           code: 'OPEN VERDICT',
+          active: true,
           label: 'OPEN VERDICT',
           commentRequired: false,
           dateRequired: false,
@@ -87,6 +98,7 @@ const DEATH_OTHER: IncidentTypeConfiguration = {
         },
         {
           code: 'OTHER',
+          active: true,
           label: 'OTHER',
           commentRequired: true,
           dateRequired: false,
@@ -96,12 +108,14 @@ const DEATH_OTHER: IncidentTypeConfiguration = {
     },
     '44248': {
       id: '44248',
+      active: true,
       code: 'WHO PRONOUNCED DEATH',
       label: 'WHO PRONOUNCED DEATH',
       multipleAnswers: false,
       answers: [
         {
           code: 'PRISON MEDICAL OFFICER',
+          active: true,
           label: 'PRISON MEDICAL OFFICER',
           commentRequired: false,
           dateRequired: false,
@@ -109,6 +123,7 @@ const DEATH_OTHER: IncidentTypeConfiguration = {
         },
         {
           code: 'HOSPITAL DOCTOR',
+          active: true,
           label: 'HOSPITAL DOCTOR',
           commentRequired: false,
           dateRequired: false,
@@ -116,6 +131,7 @@ const DEATH_OTHER: IncidentTypeConfiguration = {
         },
         {
           code: 'OTHER',
+          active: true,
           label: 'OTHER',
           commentRequired: true,
           dateRequired: false,
@@ -125,12 +141,14 @@ const DEATH_OTHER: IncidentTypeConfiguration = {
     },
     '44350': {
       id: '44350',
+      active: true,
       code: 'HAS AN INQUEST BEEN HELD',
       label: 'HAS AN INQUEST BEEN HELD',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: true,
           label: 'YES',
           commentRequired: false,
           dateRequired: true,
@@ -138,6 +156,7 @@ const DEATH_OTHER: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: true,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -147,12 +166,14 @@ const DEATH_OTHER: IncidentTypeConfiguration = {
     },
     '44382': {
       id: '44382',
+      active: true,
       code: 'IS THE DEATH SUBJECT TO A HEALTH AND SAFETY INVESTIGATION',
       label: 'IS THE DEATH SUBJECT TO A HEALTH AND SAFETY INVESTIGATION',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: true,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -160,6 +181,7 @@ const DEATH_OTHER: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: true,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -169,12 +191,14 @@ const DEATH_OTHER: IncidentTypeConfiguration = {
     },
     '44392': {
       id: '44392',
+      active: true,
       code: 'STATUS OF DECEASED',
       label: 'STATUS OF DECEASED',
       multipleAnswers: false,
       answers: [
         {
           code: 'OFFICER',
+          active: true,
           label: 'OFFICER',
           commentRequired: false,
           dateRequired: false,
@@ -182,6 +206,7 @@ const DEATH_OTHER: IncidentTypeConfiguration = {
         },
         {
           code: 'CIVILIAN STAFF',
+          active: true,
           label: 'CIVILIAN STAFF',
           commentRequired: false,
           dateRequired: false,
@@ -189,6 +214,7 @@ const DEATH_OTHER: IncidentTypeConfiguration = {
         },
         {
           code: 'EXTERNAL CIVILIAN',
+          active: true,
           label: 'EXTERNAL CIVILIAN',
           commentRequired: false,
           dateRequired: false,
@@ -196,6 +222,7 @@ const DEATH_OTHER: IncidentTypeConfiguration = {
         },
         {
           code: 'OTHER',
+          active: true,
           label: 'OTHER',
           commentRequired: true,
           dateRequired: false,
@@ -205,12 +232,14 @@ const DEATH_OTHER: IncidentTypeConfiguration = {
     },
     '44395': {
       id: '44395',
+      active: true,
       code: 'WAS RESUSCITATION ATTEMPTED',
       label: 'WAS RESUSCITATION ATTEMPTED',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: true,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -218,6 +247,7 @@ const DEATH_OTHER: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: true,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -227,12 +257,14 @@ const DEATH_OTHER: IncidentTypeConfiguration = {
     },
     '44397': {
       id: '44397',
+      active: true,
       code: 'HAS CORONER BEEN INFORMED',
       label: 'HAS CORONER BEEN INFORMED',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: true,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -240,6 +272,7 @@ const DEATH_OTHER: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: true,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -249,12 +282,14 @@ const DEATH_OTHER: IncidentTypeConfiguration = {
     },
     '44425': {
       id: '44425',
+      active: true,
       code: 'WHAT WERE THE CIRCUMSTANCES OF THE DEATH',
       label: 'WHAT WERE THE CIRCUMSTANCES OF THE DEATH',
       multipleAnswers: false,
       answers: [
         {
           code: 'APPARENT SELF INFLICTED',
+          active: true,
           label: 'APPARENT SELF INFLICTED',
           commentRequired: false,
           dateRequired: false,
@@ -262,6 +297,7 @@ const DEATH_OTHER: IncidentTypeConfiguration = {
         },
         {
           code: 'APPARENT NATURAL CAUSES',
+          active: true,
           label: 'APPARENT NATURAL CAUSES',
           commentRequired: false,
           dateRequired: false,
@@ -269,6 +305,7 @@ const DEATH_OTHER: IncidentTypeConfiguration = {
         },
         {
           code: 'ACCIDENTAL',
+          active: true,
           label: 'ACCIDENTAL',
           commentRequired: false,
           dateRequired: false,
@@ -276,6 +313,7 @@ const DEATH_OTHER: IncidentTypeConfiguration = {
         },
         {
           code: 'SUSPICIOUS CIRCUMSTANCES',
+          active: true,
           label: 'SUSPICIOUS CIRCUMSTANCES',
           commentRequired: true,
           dateRequired: false,
@@ -285,12 +323,14 @@ const DEATH_OTHER: IncidentTypeConfiguration = {
     },
     '44434': {
       id: '44434',
+      active: true,
       code: 'IS THE INCIDENT THE SUBJECT OF A POLICE INVESTIGATION',
       label: 'IS THE INCIDENT THE SUBJECT OF A POLICE INVESTIGATION',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: true,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -298,6 +338,7 @@ const DEATH_OTHER: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: true,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -307,12 +348,14 @@ const DEATH_OTHER: IncidentTypeConfiguration = {
     },
     '44645': {
       id: '44645',
+      active: true,
       code: 'HAVE NEXT OF KIN BEEN INFORMED',
       label: 'HAVE NEXT OF KIN BEEN INFORMED',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: true,
           label: 'YES',
           commentRequired: true,
           dateRequired: false,
@@ -320,6 +363,7 @@ const DEATH_OTHER: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: true,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -329,12 +373,14 @@ const DEATH_OTHER: IncidentTypeConfiguration = {
     },
     '44702': {
       id: '44702',
+      active: true,
       code: 'WHAT TIME WAS DEATH PRONOUNCED',
       label: 'WHAT TIME WAS DEATH PRONOUNCED',
       multipleAnswers: true,
       answers: [
         {
           code: 'DATE',
+          active: true,
           label: 'DATE',
           commentRequired: false,
           dateRequired: true,
@@ -342,6 +388,7 @@ const DEATH_OTHER: IncidentTypeConfiguration = {
         },
         {
           code: 'TIME',
+          active: true,
           label: 'TIME',
           commentRequired: true,
           dateRequired: false,
@@ -351,12 +398,14 @@ const DEATH_OTHER: IncidentTypeConfiguration = {
     },
     '44748': {
       id: '44748',
+      active: true,
       code: 'IS THERE ANY MEDIA INTEREST IN THIS INCIDENT',
       label: 'IS THERE ANY MEDIA INTEREST IN THIS INCIDENT',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: true,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -364,6 +413,7 @@ const DEATH_OTHER: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: true,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -373,12 +423,14 @@ const DEATH_OTHER: IncidentTypeConfiguration = {
     },
     '44751': {
       id: '44751',
+      active: true,
       code: 'WHAT WAS THE LOCATION OF THE INCIDENT',
       label: 'WHAT WAS THE LOCATION OF THE INCIDENT',
       multipleAnswers: false,
       answers: [
         {
           code: 'SPECIFY',
+          active: true,
           label: 'SPECIFY',
           commentRequired: true,
           dateRequired: false,
@@ -388,12 +440,14 @@ const DEATH_OTHER: IncidentTypeConfiguration = {
     },
     '44839': {
       id: '44839',
+      active: true,
       code: 'IS THE INCIDENT THE SUBJECT OF AN INTERNAL INVESTIGATION',
       label: 'IS THE INCIDENT THE SUBJECT OF AN INTERNAL INVESTIGATION',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: true,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -401,6 +455,7 @@ const DEATH_OTHER: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: true,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -410,12 +465,14 @@ const DEATH_OTHER: IncidentTypeConfiguration = {
     },
     '45031': {
       id: '45031',
+      active: true,
       code: 'WAS THE PERSON TAKEN TO AN OUTSIDE HOSPITAL',
       label: 'WAS THE PERSON TAKEN TO AN OUTSIDE HOSPITAL',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: true,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -423,6 +480,7 @@ const DEATH_OTHER: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: true,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -432,12 +490,14 @@ const DEATH_OTHER: IncidentTypeConfiguration = {
     },
     '45054': {
       id: '45054',
+      active: true,
       code: 'WERE THE POLICE INFORMED OF THE INCIDENT',
       label: 'WERE THE POLICE INFORMED OF THE INCIDENT',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: true,
           label: 'YES',
           commentRequired: false,
           dateRequired: true,
@@ -445,6 +505,7 @@ const DEATH_OTHER: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: true,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,

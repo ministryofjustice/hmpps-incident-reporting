@@ -108,18 +108,20 @@ export class PrisonApi extends RestClient {
     return prisons.reduce((prev, prisonInfo) => ({ ...prev, [prisonInfo.agencyId]: prisonInfo }), {})
   }
 
-  getPhoto(prisonerNumber: string): Promise<Buffer | null> {
-    return this.get<Buffer>({
-      path: `/api/bookings/offenderNo/${encodeURIComponent(prisonerNumber)}/image/data`,
-      query: { fullSizeImage: 'false' },
-    }).catch(error => {
+  async getPhoto(prisonerNumber: string): Promise<Buffer | null> {
+    try {
+      return await this.get<Buffer>({
+        path: `/api/bookings/offenderNo/${encodeURIComponent(prisonerNumber)}/image/data`,
+        query: { fullSizeImage: 'false' },
+      })
+    } catch (error) {
       const status = error?.status
       if (status === 403 || status === 404) {
         // return null if unauthorised or not found
         return null
       }
       throw error
-    })
+    }
   }
 
   /**

@@ -157,22 +157,6 @@ const fields = {
     },
     autocomplete: 'off',
   },
-  prisonId: {
-    component: 'govukSelect',
-    validate: ['required'],
-    id: 'prisonId',
-    name: 'prisonId',
-    label: {
-      text: 'Prison where incident occurred',
-      classes: 'govuk-fieldset__legend--m',
-    },
-    items: [
-      {
-        text: 'Please select one',
-        selected: true,
-      },
-    ],
-  },
   incidentTitle: {
     component: 'govukInput',
     validate: ['required'],
@@ -384,6 +368,8 @@ const fields = {
         text: 'Stabbing',
       },
       {
+        value: 'or',
+        text: 'or',
         divider: 'or',
       },
       {
@@ -430,6 +416,8 @@ const fields = {
         text: 'Other',
       },
       {
+        value: 'or',
+        text: 'or',
         divider: 'or',
       },
       {
@@ -488,6 +476,7 @@ const fields = {
       {
         value: 'YES',
         text: 'Yes',
+        conditional: 'whereOutsideHospital',
       },
       {
         value: 'NO',
@@ -496,6 +485,30 @@ const fields = {
       {
         value: 'UNKNOWN',
         text: 'Unknown',
+      },
+    ],
+  },
+  whereOutsideHospital: {
+    component: 'govukRadios',
+    validate: ['required'],
+    id: 'whereOutsideHospital',
+    name: 'whereOutsideHospital',
+    items: [
+      {
+        value: 'A&E',
+        text: 'A&E',
+      },
+      {
+        value: 'INPATIENT_OVERNIGHT_ONLY',
+        text: 'Inpatient - overnight only',
+      },
+      {
+        value: 'INPATIENT_OVER_24_HOURS',
+        text: 'Inpatient- over 24 hours',
+      },
+      {
+        value: 'LIFE_SUPPORT',
+        text: 'Life support',
       },
     ],
   },

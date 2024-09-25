@@ -9,6 +9,7 @@ export interface IncidentTypeConfiguration {
 
 export interface QuestionConfiguration {
   id: string
+  active: boolean
   /** Question as seen by machines, e.g. it shouldn't change.
    *
    * For example: 'WHAT WAS THE METHOD OF CONCEALMENT'
@@ -28,6 +29,7 @@ export interface AnswerConfiguration {
    *
    * For example 'DRONE RECOVERY' */
   code: string
+  active: boolean
   /** Answer as shown to humans.
    *
    * For example 'Drone recovery' */

@@ -1,4 +1,4 @@
-// Generated with ./scripts/updateNomisIncidentTypeConfigurations.ts at 2024-09-16T15:41:58.435Z
+// Generated with ./scripts/updateNomisIncidentTypeConfigurations.ts at 2024-09-20T16:52:17.282Z
 
 import { type IncidentTypeConfiguration } from '../../data/incidentTypeConfiguration/types'
 
@@ -9,12 +9,14 @@ const TOOL_LOSS: IncidentTypeConfiguration = {
   questions: {
     '44195': {
       id: '44195',
+      active: true,
       code: 'WHAT ACTION WAS TAKEN TO FIND THESE ITEMS',
       label: 'WHAT ACTION WAS TAKEN TO FIND THESE ITEMS',
       multipleAnswers: false,
       answers: [
         {
           code: 'FULL CLOSE DOWN SEARCH',
+          active: true,
           label: 'FULL CLOSE DOWN SEARCH',
           commentRequired: false,
           dateRequired: false,
@@ -22,6 +24,7 @@ const TOOL_LOSS: IncidentTypeConfiguration = {
         },
         {
           code: 'PARTIAL SEARCH',
+          active: true,
           label: 'PARTIAL SEARCH',
           commentRequired: false,
           dateRequired: false,
@@ -29,6 +32,7 @@ const TOOL_LOSS: IncidentTypeConfiguration = {
         },
         {
           code: 'OTHER',
+          active: true,
           label: 'OTHER',
           commentRequired: true,
           dateRequired: false,
@@ -38,12 +42,14 @@ const TOOL_LOSS: IncidentTypeConfiguration = {
     },
     '44372': {
       id: '44372',
+      active: true,
       code: 'IS THE MISSING ITEM THOUGHT TO BE',
       label: 'IS THE MISSING ITEM THOUGHT TO BE',
       multipleAnswers: false,
       answers: [
         {
           code: 'LOST',
+          active: true,
           label: 'LOST',
           commentRequired: false,
           dateRequired: false,
@@ -51,6 +57,7 @@ const TOOL_LOSS: IncidentTypeConfiguration = {
         },
         {
           code: 'MISLAID',
+          active: true,
           label: 'MISLAID',
           commentRequired: false,
           dateRequired: false,
@@ -58,6 +65,7 @@ const TOOL_LOSS: IncidentTypeConfiguration = {
         },
         {
           code: 'STOLEN',
+          active: true,
           label: 'STOLEN',
           commentRequired: false,
           dateRequired: false,
@@ -67,12 +75,14 @@ const TOOL_LOSS: IncidentTypeConfiguration = {
     },
     '44412': {
       id: '44412',
+      active: true,
       code: 'HAS THE PRISON SERVICE PRESS OFFICE BEEN INFORMED',
       label: 'HAS THE PRISON SERVICE PRESS OFFICE BEEN INFORMED',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: true,
           label: 'YES',
           commentRequired: false,
           dateRequired: true,
@@ -80,6 +90,7 @@ const TOOL_LOSS: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: true,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -89,12 +100,14 @@ const TOOL_LOSS: IncidentTypeConfiguration = {
     },
     '44445': {
       id: '44445',
+      active: true,
       code: "IS THE MISSING ITEM THOUGHT TO BE IN A PRISONER'S POSSESSION",
       label: "IS THE MISSING ITEM THOUGHT TO BE IN A PRISONER'S POSSESSION",
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: true,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -102,6 +115,7 @@ const TOOL_LOSS: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: true,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -111,12 +125,14 @@ const TOOL_LOSS: IncidentTypeConfiguration = {
     },
     '44477': {
       id: '44477',
+      active: true,
       code: 'HOW ARE TOOLS/IMPLEMENTS STORED',
       label: 'HOW ARE TOOLS/IMPLEMENTS STORED',
       multipleAnswers: false,
       answers: [
         {
           code: 'SHADOW BOARD',
+          active: true,
           label: 'SHADOW BOARD',
           commentRequired: false,
           dateRequired: false,
@@ -124,6 +140,7 @@ const TOOL_LOSS: IncidentTypeConfiguration = {
         },
         {
           code: 'SECURE CABINET',
+          active: true,
           label: 'SECURE CABINET',
           commentRequired: false,
           dateRequired: false,
@@ -131,6 +148,7 @@ const TOOL_LOSS: IncidentTypeConfiguration = {
         },
         {
           code: 'SECURE ROOM',
+          active: true,
           label: 'SECURE ROOM',
           commentRequired: false,
           dateRequired: false,
@@ -138,6 +156,7 @@ const TOOL_LOSS: IncidentTypeConfiguration = {
         },
         {
           code: 'OTHER',
+          active: true,
           label: 'OTHER',
           commentRequired: true,
           dateRequired: false,
@@ -147,12 +166,14 @@ const TOOL_LOSS: IncidentTypeConfiguration = {
     },
     '44489': {
       id: '44489',
+      active: true,
       code: 'IS THE INCIDENT THE SUBJECT OF AN INTERNAL INVESTIGATION',
       label: 'IS THE INCIDENT THE SUBJECT OF AN INTERNAL INVESTIGATION',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: true,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -160,6 +181,7 @@ const TOOL_LOSS: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: true,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -169,12 +191,14 @@ const TOOL_LOSS: IncidentTypeConfiguration = {
     },
     '44509': {
       id: '44509',
+      active: true,
       code: 'IS THE F78A CHECKING SYSTEM IN OPERATION',
       label: 'IS THE F78A CHECKING SYSTEM IN OPERATION',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: true,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -182,6 +206,7 @@ const TOOL_LOSS: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: true,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -191,12 +216,14 @@ const TOOL_LOSS: IncidentTypeConfiguration = {
     },
     '44565': {
       id: '44565',
+      active: true,
       code: 'HAS THE ITEM BEEN FOUND',
       label: 'HAS THE ITEM BEEN FOUND',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: true,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -204,6 +231,7 @@ const TOOL_LOSS: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: true,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -213,12 +241,14 @@ const TOOL_LOSS: IncidentTypeConfiguration = {
     },
     '44593': {
       id: '44593',
+      active: true,
       code: 'WHAT TOOL OR IMPLEMENT IS MISSING',
       label: 'WHAT TOOL OR IMPLEMENT IS MISSING',
       multipleAnswers: true,
       answers: [
         {
           code: 'KNIFE',
+          active: true,
           label: 'KNIFE',
           commentRequired: true,
           dateRequired: false,
@@ -226,6 +256,7 @@ const TOOL_LOSS: IncidentTypeConfiguration = {
         },
         {
           code: 'HACKSAW',
+          active: true,
           label: 'HACKSAW',
           commentRequired: false,
           dateRequired: false,
@@ -233,6 +264,7 @@ const TOOL_LOSS: IncidentTypeConfiguration = {
         },
         {
           code: 'OTHER SAW',
+          active: true,
           label: 'OTHER SAW',
           commentRequired: false,
           dateRequired: false,
@@ -240,6 +272,7 @@ const TOOL_LOSS: IncidentTypeConfiguration = {
         },
         {
           code: 'SPADE',
+          active: true,
           label: 'SPADE',
           commentRequired: false,
           dateRequired: false,
@@ -247,6 +280,7 @@ const TOOL_LOSS: IncidentTypeConfiguration = {
         },
         {
           code: 'AXE',
+          active: true,
           label: 'AXE',
           commentRequired: false,
           dateRequired: false,
@@ -254,6 +288,7 @@ const TOOL_LOSS: IncidentTypeConfiguration = {
         },
         {
           code: 'PICKAXE',
+          active: true,
           label: 'PICKAXE',
           commentRequired: false,
           dateRequired: false,
@@ -261,6 +296,7 @@ const TOOL_LOSS: IncidentTypeConfiguration = {
         },
         {
           code: 'PLIERS',
+          active: true,
           label: 'PLIERS',
           commentRequired: false,
           dateRequired: false,
@@ -268,6 +304,7 @@ const TOOL_LOSS: IncidentTypeConfiguration = {
         },
         {
           code: 'SCREWDRIVER',
+          active: true,
           label: 'SCREWDRIVER',
           commentRequired: false,
           dateRequired: false,
@@ -275,6 +312,7 @@ const TOOL_LOSS: IncidentTypeConfiguration = {
         },
         {
           code: 'WIRE CUTTERS',
+          active: true,
           label: 'WIRE CUTTERS',
           commentRequired: false,
           dateRequired: false,
@@ -282,6 +320,7 @@ const TOOL_LOSS: IncidentTypeConfiguration = {
         },
         {
           code: 'BOLT CROPPERS',
+          active: true,
           label: 'BOLT CROPPERS',
           commentRequired: false,
           dateRequired: false,
@@ -289,6 +328,7 @@ const TOOL_LOSS: IncidentTypeConfiguration = {
         },
         {
           code: 'SCISSORS',
+          active: true,
           label: 'SCISSORS',
           commentRequired: false,
           dateRequired: false,
@@ -296,6 +336,7 @@ const TOOL_LOSS: IncidentTypeConfiguration = {
         },
         {
           code: 'OTHER',
+          active: true,
           label: 'OTHER',
           commentRequired: true,
           dateRequired: false,
@@ -305,12 +346,14 @@ const TOOL_LOSS: IncidentTypeConfiguration = {
     },
     '44603': {
       id: '44603',
+      active: true,
       code: 'IS ANY MEMBER OF STAFF FACING DISCIPLINARY CHARGES',
       label: 'IS ANY MEMBER OF STAFF FACING DISCIPLINARY CHARGES',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: true,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -318,6 +361,7 @@ const TOOL_LOSS: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: true,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -327,12 +371,14 @@ const TOOL_LOSS: IncidentTypeConfiguration = {
     },
     '44672': {
       id: '44672',
+      active: true,
       code: 'IS THERE ANY MEDIA INTEREST IN THIS INCIDENT',
       label: 'IS THERE ANY MEDIA INTEREST IN THIS INCIDENT',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: true,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -340,6 +386,7 @@ const TOOL_LOSS: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: true,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -349,12 +396,14 @@ const TOOL_LOSS: IncidentTypeConfiguration = {
     },
     '44808': {
       id: '44808',
+      active: true,
       code: 'IS THE INCIDENT THE SUBJECT OF A POLICE INVESTIGATION',
       label: 'IS THE INCIDENT THE SUBJECT OF A POLICE INVESTIGATION',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: true,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -362,6 +411,7 @@ const TOOL_LOSS: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: true,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -371,12 +421,14 @@ const TOOL_LOSS: IncidentTypeConfiguration = {
     },
     '44950': {
       id: '44950',
+      active: true,
       code: 'WHERE WAS THE TOOLS LOST FROM',
       label: 'WHERE WAS THE TOOLS LOST FROM',
       multipleAnswers: true,
       answers: [
         {
           code: 'WORKS DEPARTMENT',
+          active: true,
           label: 'WORKS DEPARTMENT',
           commentRequired: false,
           dateRequired: false,
@@ -384,6 +436,7 @@ const TOOL_LOSS: IncidentTypeConfiguration = {
         },
         {
           code: 'CONTRACTORS',
+          active: true,
           label: 'CONTRACTORS',
           commentRequired: false,
           dateRequired: false,
@@ -391,6 +444,7 @@ const TOOL_LOSS: IncidentTypeConfiguration = {
         },
         {
           code: 'EDUCATION',
+          active: true,
           label: 'EDUCATION',
           commentRequired: false,
           dateRequired: false,
@@ -398,6 +452,7 @@ const TOOL_LOSS: IncidentTypeConfiguration = {
         },
         {
           code: 'HEALTH CARE CENTRE',
+          active: true,
           label: 'HEALTH CARE CENTRE',
           commentRequired: false,
           dateRequired: false,
@@ -405,6 +460,7 @@ const TOOL_LOSS: IncidentTypeConfiguration = {
         },
         {
           code: 'FARMS AND GARDENS',
+          active: true,
           label: 'FARMS AND GARDENS',
           commentRequired: false,
           dateRequired: false,
@@ -412,6 +468,7 @@ const TOOL_LOSS: IncidentTypeConfiguration = {
         },
         {
           code: 'GYMNASIUM/SPORTSFIELD',
+          active: true,
           label: 'GYMNASIUM/SPORTSFIELD',
           commentRequired: false,
           dateRequired: false,
@@ -419,6 +476,7 @@ const TOOL_LOSS: IncidentTypeConfiguration = {
         },
         {
           code: 'WORKSHOP',
+          active: true,
           label: 'WORKSHOP',
           commentRequired: false,
           dateRequired: false,
@@ -426,6 +484,7 @@ const TOOL_LOSS: IncidentTypeConfiguration = {
         },
         {
           code: 'KITCHEN',
+          active: true,
           label: 'KITCHEN',
           commentRequired: false,
           dateRequired: false,
@@ -433,6 +492,7 @@ const TOOL_LOSS: IncidentTypeConfiguration = {
         },
         {
           code: 'CELL HOBBIES',
+          active: true,
           label: 'CELL HOBBIES',
           commentRequired: false,
           dateRequired: false,
@@ -440,6 +500,7 @@ const TOOL_LOSS: IncidentTypeConfiguration = {
         },
         {
           code: 'WING OFFICE',
+          active: true,
           label: 'WING OFFICE',
           commentRequired: false,
           dateRequired: false,
@@ -447,6 +508,7 @@ const TOOL_LOSS: IncidentTypeConfiguration = {
         },
         {
           code: 'OTHER',
+          active: true,
           label: 'OTHER',
           commentRequired: true,
           dateRequired: false,
@@ -456,12 +518,14 @@ const TOOL_LOSS: IncidentTypeConfiguration = {
     },
     '44993': {
       id: '44993',
+      active: true,
       code: "IS THE INCIDENT SUBJECT TO A GOVERNOR'S ADJUDICATION",
       label: "IS THE INCIDENT SUBJECT TO A GOVERNOR'S ADJUDICATION",
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: true,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -469,6 +533,7 @@ const TOOL_LOSS: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: true,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -478,12 +543,14 @@ const TOOL_LOSS: IncidentTypeConfiguration = {
     },
     '45142': {
       id: '45142',
+      active: true,
       code: 'WERE THE POLICE INFORMED OF THE INCIDENT',
       label: 'WERE THE POLICE INFORMED OF THE INCIDENT',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: true,
           label: 'YES',
           commentRequired: false,
           dateRequired: true,
@@ -491,6 +558,7 @@ const TOOL_LOSS: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: true,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -500,12 +568,14 @@ const TOOL_LOSS: IncidentTypeConfiguration = {
     },
     '45169': {
       id: '45169',
+      active: true,
       code: 'WHERE WAS THE ITEM FOUND',
       label: 'WHERE WAS THE ITEM FOUND',
       multipleAnswers: false,
       answers: [
         {
           code: 'PRISONERS POSSESSION',
+          active: true,
           label: 'PRISONERS POSSESSION',
           commentRequired: false,
           dateRequired: false,
@@ -513,6 +583,7 @@ const TOOL_LOSS: IncidentTypeConfiguration = {
         },
         {
           code: 'CONCEALED',
+          active: true,
           label: 'CONCEALED',
           commentRequired: false,
           dateRequired: false,
@@ -520,6 +591,7 @@ const TOOL_LOSS: IncidentTypeConfiguration = {
         },
         {
           code: 'DISCARDED',
+          active: true,
           label: 'DISCARDED',
           commentRequired: false,
           dateRequired: false,
@@ -527,6 +599,7 @@ const TOOL_LOSS: IncidentTypeConfiguration = {
         },
         {
           code: 'WHERE MISLAID/LOST',
+          active: true,
           label: 'WHERE MISLAID/LOST',
           commentRequired: false,
           dateRequired: false,
@@ -534,6 +607,7 @@ const TOOL_LOSS: IncidentTypeConfiguration = {
         },
         {
           code: 'OTHER',
+          active: true,
           label: 'OTHER',
           commentRequired: true,
           dateRequired: false,

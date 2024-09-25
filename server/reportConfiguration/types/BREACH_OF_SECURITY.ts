@@ -1,4 +1,4 @@
-// Generated with ./scripts/updateNomisIncidentTypeConfigurations.ts at 2024-09-16T15:41:57.136Z
+// Generated with ./scripts/updateNomisIncidentTypeConfigurations.ts at 2024-09-20T16:52:15.825Z
 
 import { type IncidentTypeConfiguration } from '../../data/incidentTypeConfiguration/types'
 
@@ -9,12 +9,14 @@ const BREACH_OF_SECURITY: IncidentTypeConfiguration = {
   questions: {
     '44124': {
       id: '44124',
+      active: true,
       code: 'WAS DAMAGE CAUSED TO PRISON PROPERTY',
       label: 'WAS DAMAGE CAUSED TO PRISON PROPERTY',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: true,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -22,6 +24,7 @@ const BREACH_OF_SECURITY: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: true,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -31,12 +34,14 @@ const BREACH_OF_SECURITY: IncidentTypeConfiguration = {
     },
     '44136': {
       id: '44136',
+      active: true,
       code: 'WHAT WAS DAMAGED',
       label: 'WHAT WAS DAMAGED',
       multipleAnswers: true,
       answers: [
         {
           code: 'FURNITURE',
+          active: true,
           label: 'FURNITURE',
           commentRequired: false,
           dateRequired: false,
@@ -44,6 +49,7 @@ const BREACH_OF_SECURITY: IncidentTypeConfiguration = {
         },
         {
           code: 'FITTINGS',
+          active: true,
           label: 'FITTINGS',
           commentRequired: false,
           dateRequired: false,
@@ -51,6 +57,7 @@ const BREACH_OF_SECURITY: IncidentTypeConfiguration = {
         },
         {
           code: 'MACHINERY',
+          active: true,
           label: 'MACHINERY',
           commentRequired: false,
           dateRequired: false,
@@ -58,6 +65,7 @@ const BREACH_OF_SECURITY: IncidentTypeConfiguration = {
         },
         {
           code: 'EQUIPMENT',
+          active: true,
           label: 'EQUIPMENT',
           commentRequired: false,
           dateRequired: false,
@@ -65,6 +73,7 @@ const BREACH_OF_SECURITY: IncidentTypeConfiguration = {
         },
         {
           code: 'OTHER',
+          active: true,
           label: 'OTHER',
           commentRequired: true,
           dateRequired: false,
@@ -74,12 +83,14 @@ const BREACH_OF_SECURITY: IncidentTypeConfiguration = {
     },
     '44249': {
       id: '44249',
+      active: true,
       code: 'WERE ANY INJURIES RECEIVED DURING THIS INCIDENT',
       label: 'WERE ANY INJURIES RECEIVED DURING THIS INCIDENT',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: true,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -87,6 +98,7 @@ const BREACH_OF_SECURITY: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: true,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -96,12 +108,14 @@ const BREACH_OF_SECURITY: IncidentTypeConfiguration = {
     },
     '44253': {
       id: '44253',
+      active: true,
       code: 'WERE THE POLICE INFORMED OF THE INCIDENT',
       label: 'WERE THE POLICE INFORMED OF THE INCIDENT',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: true,
           label: 'YES',
           commentRequired: false,
           dateRequired: true,
@@ -109,6 +123,7 @@ const BREACH_OF_SECURITY: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: true,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -118,12 +133,14 @@ const BREACH_OF_SECURITY: IncidentTypeConfiguration = {
     },
     '44286': {
       id: '44286',
+      active: true,
       code: 'IS THE INCIDENT THE SUBJECT OF A POLICE INVESTIGATION',
       label: 'IS THE INCIDENT THE SUBJECT OF A POLICE INVESTIGATION',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: true,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -131,6 +148,7 @@ const BREACH_OF_SECURITY: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: true,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -140,12 +158,14 @@ const BREACH_OF_SECURITY: IncidentTypeConfiguration = {
     },
     '44301': {
       id: '44301',
+      active: true,
       code: 'DESCRIBE THE ILLICIT ITEM FOUND',
       label: 'DESCRIBE THE ILLICIT ITEM FOUND',
       multipleAnswers: true,
       answers: [
         {
           code: 'WEAPONS',
+          active: true,
           label: 'WEAPONS',
           commentRequired: false,
           dateRequired: false,
@@ -153,6 +173,7 @@ const BREACH_OF_SECURITY: IncidentTypeConfiguration = {
         },
         {
           code: 'ALCOHOL',
+          active: true,
           label: 'ALCOHOL',
           commentRequired: false,
           dateRequired: false,
@@ -160,6 +181,7 @@ const BREACH_OF_SECURITY: IncidentTypeConfiguration = {
         },
         {
           code: 'CIGARETTES',
+          active: true,
           label: 'CIGARETTES',
           commentRequired: false,
           dateRequired: false,
@@ -167,6 +189,7 @@ const BREACH_OF_SECURITY: IncidentTypeConfiguration = {
         },
         {
           code: 'TOBACCO',
+          active: true,
           label: 'TOBACCO',
           commentRequired: false,
           dateRequired: false,
@@ -174,6 +197,7 @@ const BREACH_OF_SECURITY: IncidentTypeConfiguration = {
         },
         {
           code: 'CASH',
+          active: true,
           label: 'CASH',
           commentRequired: false,
           dateRequired: false,
@@ -181,6 +205,7 @@ const BREACH_OF_SECURITY: IncidentTypeConfiguration = {
         },
         {
           code: 'ESCAPE EQUIPMENT',
+          active: true,
           label: 'ESCAPE EQUIPMENT',
           commentRequired: false,
           dateRequired: false,
@@ -188,6 +213,7 @@ const BREACH_OF_SECURITY: IncidentTypeConfiguration = {
         },
         {
           code: 'TOOLS',
+          active: true,
           label: 'TOOLS',
           commentRequired: false,
           dateRequired: false,
@@ -195,6 +221,7 @@ const BREACH_OF_SECURITY: IncidentTypeConfiguration = {
         },
         {
           code: 'OTHER',
+          active: true,
           label: 'OTHER',
           commentRequired: true,
           dateRequired: false,
@@ -204,12 +231,14 @@ const BREACH_OF_SECURITY: IncidentTypeConfiguration = {
     },
     '44333': {
       id: '44333',
+      active: true,
       code: 'HAS ANY PROSECUTION TAKEN PLACE OR IS ANY PENDING',
       label: 'HAS ANY PROSECUTION TAKEN PLACE OR IS ANY PENDING',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: true,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -217,6 +246,7 @@ const BREACH_OF_SECURITY: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: true,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -226,12 +256,14 @@ const BREACH_OF_SECURITY: IncidentTypeConfiguration = {
     },
     '44364': {
       id: '44364',
+      active: true,
       code: 'IS THE INCIDENT THE SUBJECT OF AN INTERNAL INVESTIGATION',
       label: 'IS THE INCIDENT THE SUBJECT OF AN INTERNAL INVESTIGATION',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: true,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -239,6 +271,7 @@ const BREACH_OF_SECURITY: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: true,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -248,12 +281,14 @@ const BREACH_OF_SECURITY: IncidentTypeConfiguration = {
     },
     '44389': {
       id: '44389',
+      active: true,
       code: 'HAS ANY PROSECUTION TAKEN PLACE OR IS ANY PENDING',
       label: 'HAS ANY PROSECUTION TAKEN PLACE OR IS ANY PENDING',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: true,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -261,6 +296,7 @@ const BREACH_OF_SECURITY: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: true,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -270,12 +306,14 @@ const BREACH_OF_SECURITY: IncidentTypeConfiguration = {
     },
     '44500': {
       id: '44500',
+      active: true,
       code: 'WAS THE DEMONSTRATION KNOWN ABOUT IN ADVANCE',
       label: 'WAS THE DEMONSTRATION KNOWN ABOUT IN ADVANCE',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: true,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -283,6 +321,7 @@ const BREACH_OF_SECURITY: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: true,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -292,12 +331,14 @@ const BREACH_OF_SECURITY: IncidentTypeConfiguration = {
     },
     '44514': {
       id: '44514',
+      active: true,
       code: 'DID UNAUTHORISED PERSONS ENTER THE PRISON',
       label: 'DID UNAUTHORISED PERSONS ENTER THE PRISON',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: true,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -305,6 +346,7 @@ const BREACH_OF_SECURITY: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: true,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -314,12 +356,14 @@ const BREACH_OF_SECURITY: IncidentTypeConfiguration = {
     },
     '44543': {
       id: '44543',
+      active: true,
       code: 'WERE THESE PERSONS APPREHENDED',
       label: 'WERE THESE PERSONS APPREHENDED',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: true,
           label: 'YES',
           commentRequired: true,
           dateRequired: false,
@@ -327,6 +371,7 @@ const BREACH_OF_SECURITY: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: true,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -336,12 +381,14 @@ const BREACH_OF_SECURITY: IncidentTypeConfiguration = {
     },
     '44561': {
       id: '44561',
+      active: true,
       code: 'WAS A KNOWN ORGANISATION INVOLVED',
       label: 'WAS A KNOWN ORGANISATION INVOLVED',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: true,
           label: 'YES',
           commentRequired: true,
           dateRequired: false,
@@ -349,6 +396,7 @@ const BREACH_OF_SECURITY: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: true,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -358,12 +406,14 @@ const BREACH_OF_SECURITY: IncidentTypeConfiguration = {
     },
     '44606': {
       id: '44606',
+      active: true,
       code: 'HOW WAS IT KNOWN ABOUT',
       label: 'HOW WAS IT KNOWN ABOUT',
       multipleAnswers: false,
       answers: [
         {
           code: 'INFORMATION FROM PRISONERS',
+          active: true,
           label: 'INFORMATION FROM PRISONERS',
           commentRequired: false,
           dateRequired: false,
@@ -371,6 +421,7 @@ const BREACH_OF_SECURITY: IncidentTypeConfiguration = {
         },
         {
           code: 'INFORMATION FROM POLICE',
+          active: true,
           label: 'INFORMATION FROM POLICE',
           commentRequired: false,
           dateRequired: false,
@@ -378,6 +429,7 @@ const BREACH_OF_SECURITY: IncidentTypeConfiguration = {
         },
         {
           code: 'INFORMATION FROM HQ/AM',
+          active: true,
           label: 'INFORMATION FROM HQ/AM',
           commentRequired: false,
           dateRequired: false,
@@ -385,6 +437,7 @@ const BREACH_OF_SECURITY: IncidentTypeConfiguration = {
         },
         {
           code: 'OTHER',
+          active: true,
           label: 'OTHER',
           commentRequired: true,
           dateRequired: false,
@@ -394,12 +447,14 @@ const BREACH_OF_SECURITY: IncidentTypeConfiguration = {
     },
     '44616': {
       id: '44616',
+      active: true,
       code: 'ESTIMATED COST OF DAMAGE',
       label: 'ESTIMATED COST OF DAMAGE',
       multipleAnswers: false,
       answers: [
         {
           code: 'ENTER AMOUNT IN POUND STERLING',
+          active: true,
           label: 'ENTER AMOUNT IN POUND STERLING',
           commentRequired: true,
           dateRequired: false,
@@ -409,12 +464,14 @@ const BREACH_OF_SECURITY: IncidentTypeConfiguration = {
     },
     '44658': {
       id: '44658',
+      active: true,
       code: 'WHAT WAS THE REASON FOR THE DEMONSTRATION',
       label: 'WHAT WAS THE REASON FOR THE DEMONSTRATION',
       multipleAnswers: false,
       answers: [
         {
           code: 'PARTICULAR PRISONER',
+          active: true,
           label: 'PARTICULAR PRISONER',
           commentRequired: false,
           dateRequired: false,
@@ -422,6 +479,7 @@ const BREACH_OF_SECURITY: IncidentTypeConfiguration = {
         },
         {
           code: 'LOCAL ISSUE',
+          active: true,
           label: 'LOCAL ISSUE',
           commentRequired: true,
           dateRequired: false,
@@ -429,6 +487,7 @@ const BREACH_OF_SECURITY: IncidentTypeConfiguration = {
         },
         {
           code: 'GENERAL ISSUE',
+          active: true,
           label: 'GENERAL ISSUE',
           commentRequired: true,
           dateRequired: false,
@@ -436,6 +495,7 @@ const BREACH_OF_SECURITY: IncidentTypeConfiguration = {
         },
         {
           code: 'OTHER',
+          active: true,
           label: 'OTHER',
           commentRequired: true,
           dateRequired: false,
@@ -445,12 +505,14 @@ const BREACH_OF_SECURITY: IncidentTypeConfiguration = {
     },
     '44686': {
       id: '44686',
+      active: true,
       code: 'DID THE POLICE ATTEND',
       label: 'DID THE POLICE ATTEND',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: true,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -458,6 +520,7 @@ const BREACH_OF_SECURITY: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: true,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -467,12 +530,14 @@ const BREACH_OF_SECURITY: IncidentTypeConfiguration = {
     },
     '44709': {
       id: '44709',
+      active: true,
       code: 'WAS THE DEMONSTRATION ORGANISED OR SPONTANEOUS',
       label: 'WAS THE DEMONSTRATION ORGANISED OR SPONTANEOUS',
       multipleAnswers: false,
       answers: [
         {
           code: 'ORGANISED',
+          active: true,
           label: 'ORGANISED',
           commentRequired: false,
           dateRequired: false,
@@ -480,6 +545,7 @@ const BREACH_OF_SECURITY: IncidentTypeConfiguration = {
         },
         {
           code: 'SPONTANEOUS',
+          active: true,
           label: 'SPONTANEOUS',
           commentRequired: false,
           dateRequired: false,
@@ -489,12 +555,14 @@ const BREACH_OF_SECURITY: IncidentTypeConfiguration = {
     },
     '44728': {
       id: '44728',
+      active: true,
       code: 'WERE ANY ARRESTS MADE',
       label: 'WERE ANY ARRESTS MADE',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: true,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -502,6 +570,7 @@ const BREACH_OF_SECURITY: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: true,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -511,12 +580,14 @@ const BREACH_OF_SECURITY: IncidentTypeConfiguration = {
     },
     '44786': {
       id: '44786',
+      active: true,
       code: 'IS THERE ANY MEDIA INTEREST IN THIS INCIDENT',
       label: 'IS THERE ANY MEDIA INTEREST IN THIS INCIDENT',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: true,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -524,6 +595,7 @@ const BREACH_OF_SECURITY: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: true,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -533,12 +605,14 @@ const BREACH_OF_SECURITY: IncidentTypeConfiguration = {
     },
     '44855': {
       id: '44855',
+      active: true,
       code: 'WERE THESE PERSONS ARRESTED BY THE POLICE',
       label: 'WERE THESE PERSONS ARRESTED BY THE POLICE',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: true,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -546,6 +620,7 @@ const BREACH_OF_SECURITY: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: true,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -555,12 +630,14 @@ const BREACH_OF_SECURITY: IncidentTypeConfiguration = {
     },
     '44864': {
       id: '44864',
+      active: true,
       code: 'WAS THE SECURE PERIMETER BREACHED',
       label: 'WAS THE SECURE PERIMETER BREACHED',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: true,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -568,6 +645,7 @@ const BREACH_OF_SECURITY: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: true,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -577,12 +655,14 @@ const BREACH_OF_SECURITY: IncidentTypeConfiguration = {
     },
     '44883': {
       id: '44883',
+      active: true,
       code: 'WAS THE INCIDENT A DEMONSTRATION',
       label: 'WAS THE INCIDENT A DEMONSTRATION',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: true,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -590,6 +670,7 @@ const BREACH_OF_SECURITY: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: true,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -599,12 +680,14 @@ const BREACH_OF_SECURITY: IncidentTypeConfiguration = {
     },
     '44906': {
       id: '44906',
+      active: true,
       code: 'WERE ANY ILLICIT ITEMS FOUND',
       label: 'WERE ANY ILLICIT ITEMS FOUND',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: true,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -612,6 +695,7 @@ const BREACH_OF_SECURITY: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: true,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -621,12 +705,14 @@ const BREACH_OF_SECURITY: IncidentTypeConfiguration = {
     },
     '44918': {
       id: '44918',
+      active: true,
       code: 'DESCRIBE HOW THE SECURE PERIMETER WAS BREACHED',
       label: 'DESCRIBE HOW THE SECURE PERIMETER WAS BREACHED',
       multipleAnswers: false,
       answers: [
         {
           code: 'THROWN OVER',
+          active: true,
           label: 'THROWN OVER',
           commentRequired: false,
           dateRequired: false,
@@ -634,6 +720,7 @@ const BREACH_OF_SECURITY: IncidentTypeConfiguration = {
         },
         {
           code: 'CLIMBED OVER',
+          active: true,
           label: 'CLIMBED OVER',
           commentRequired: false,
           dateRequired: false,
@@ -641,6 +728,7 @@ const BREACH_OF_SECURITY: IncidentTypeConfiguration = {
         },
         {
           code: 'CUT THROUGH',
+          active: true,
           label: 'CUT THROUGH',
           commentRequired: false,
           dateRequired: false,
@@ -648,6 +736,7 @@ const BREACH_OF_SECURITY: IncidentTypeConfiguration = {
         },
         {
           code: 'VEHICLE RAMMED',
+          active: true,
           label: 'VEHICLE RAMMED',
           commentRequired: false,
           dateRequired: false,
@@ -655,6 +744,7 @@ const BREACH_OF_SECURITY: IncidentTypeConfiguration = {
         },
         {
           code: 'EXPLOSIVES',
+          active: true,
           label: 'EXPLOSIVES',
           commentRequired: false,
           dateRequired: false,
@@ -662,6 +752,7 @@ const BREACH_OF_SECURITY: IncidentTypeConfiguration = {
         },
         {
           code: 'OTHER',
+          active: true,
           label: 'OTHER',
           commentRequired: true,
           dateRequired: false,
@@ -671,12 +762,14 @@ const BREACH_OF_SECURITY: IncidentTypeConfiguration = {
     },
     '44946': {
       id: '44946',
+      active: true,
       code: 'WHAT WAS THE INCIDENT LOCATION',
       label: 'WHAT WAS THE INCIDENT LOCATION',
       multipleAnswers: false,
       answers: [
         {
           code: 'INSIDE PRISON',
+          active: true,
           label: 'INSIDE PRISON',
           commentRequired: true,
           dateRequired: false,
@@ -684,6 +777,7 @@ const BREACH_OF_SECURITY: IncidentTypeConfiguration = {
         },
         {
           code: 'OUTSIDE PRISON',
+          active: true,
           label: 'OUTSIDE PRISON',
           commentRequired: false,
           dateRequired: false,
@@ -693,12 +787,14 @@ const BREACH_OF_SECURITY: IncidentTypeConfiguration = {
     },
     '45016': {
       id: '45016',
+      active: true,
       code: 'DESCRIBE THE DAMAGE',
       label: 'DESCRIBE THE DAMAGE',
       multipleAnswers: false,
       answers: [
         {
           code: 'MINOR',
+          active: true,
           label: 'MINOR',
           commentRequired: true,
           dateRequired: false,
@@ -706,6 +802,7 @@ const BREACH_OF_SECURITY: IncidentTypeConfiguration = {
         },
         {
           code: 'SERIOUS',
+          active: true,
           label: 'SERIOUS',
           commentRequired: true,
           dateRequired: false,
@@ -713,6 +810,7 @@ const BREACH_OF_SECURITY: IncidentTypeConfiguration = {
         },
         {
           code: 'EXTENSIVE',
+          active: true,
           label: 'EXTENSIVE',
           commentRequired: true,
           dateRequired: false,
@@ -722,12 +820,14 @@ const BREACH_OF_SECURITY: IncidentTypeConfiguration = {
     },
     '45095': {
       id: '45095',
+      active: true,
       code: 'HAS THE PRISON SERVICE PRESS OFFICE BEEN INFORMED',
       label: 'HAS THE PRISON SERVICE PRESS OFFICE BEEN INFORMED',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: true,
           label: 'YES',
           commentRequired: false,
           dateRequired: true,
@@ -735,6 +835,7 @@ const BREACH_OF_SECURITY: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: true,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -744,12 +845,14 @@ const BREACH_OF_SECURITY: IncidentTypeConfiguration = {
     },
     '45137': {
       id: '45137',
+      active: true,
       code: 'ENTER DESCRIPTION OF PERSON(S) INJURED',
       label: 'ENTER DESCRIPTION OF PERSON(S) INJURED',
       multipleAnswers: true,
       answers: [
         {
           code: 'STAFF',
+          active: true,
           label: 'STAFF',
           commentRequired: true,
           dateRequired: false,
@@ -757,6 +860,7 @@ const BREACH_OF_SECURITY: IncidentTypeConfiguration = {
         },
         {
           code: 'PRISONERS',
+          active: true,
           label: 'PRISONERS',
           commentRequired: true,
           dateRequired: false,
@@ -764,6 +868,7 @@ const BREACH_OF_SECURITY: IncidentTypeConfiguration = {
         },
         {
           code: 'CIVILIAN GRADES',
+          active: true,
           label: 'CIVILIAN GRADES',
           commentRequired: true,
           dateRequired: false,
@@ -771,6 +876,7 @@ const BREACH_OF_SECURITY: IncidentTypeConfiguration = {
         },
         {
           code: 'POLICE',
+          active: true,
           label: 'POLICE',
           commentRequired: true,
           dateRequired: false,
@@ -778,6 +884,7 @@ const BREACH_OF_SECURITY: IncidentTypeConfiguration = {
         },
         {
           code: 'EXTERNAL CIVILIANS',
+          active: true,
           label: 'EXTERNAL CIVILIANS',
           commentRequired: true,
           dateRequired: false,

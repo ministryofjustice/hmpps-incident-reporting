@@ -1,4 +1,4 @@
-// Generated with ./scripts/updateNomisIncidentTypeConfigurations.ts at 2024-09-16T15:42:05.154Z
+// Generated with ./scripts/updateNomisIncidentTypeConfigurations.ts at 2024-09-20T16:52:25.679Z
 
 import { type IncidentTypeConfiguration } from '../../data/incidentTypeConfiguration/types'
 
@@ -9,12 +9,14 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
   questions: {
     '44134': {
       id: '44134',
+      active: true,
       code: 'WERE ANY INJURIES SUSTAINED BY PRISONERS',
       label: 'WERE ANY INJURIES SUSTAINED BY PRISONERS',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: true,
           label: 'YES',
           commentRequired: true,
           dateRequired: false,
@@ -22,6 +24,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: true,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -31,12 +34,14 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
     },
     '44143': {
       id: '44143',
+      active: true,
       code: 'WHAT WERE THE CATEGORIES OF THE PRISONERS UNDER ESCORT',
       label: 'WHAT WERE THE CATEGORIES OF THE PRISONERS UNDER ESCORT',
       multipleAnswers: true,
       answers: [
         {
           code: 'CATEGORY A',
+          active: true,
           label: 'CATEGORY A',
           commentRequired: true,
           dateRequired: false,
@@ -44,6 +49,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
         },
         {
           code: 'CATEGORY B',
+          active: true,
           label: 'CATEGORY B',
           commentRequired: true,
           dateRequired: false,
@@ -51,6 +57,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
         },
         {
           code: 'CATEGORY C',
+          active: true,
           label: 'CATEGORY C',
           commentRequired: true,
           dateRequired: false,
@@ -58,6 +65,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
         },
         {
           code: 'CATEGORISED YO',
+          active: true,
           label: 'CATEGORISED YO',
           commentRequired: true,
           dateRequired: false,
@@ -65,6 +73,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
         },
         {
           code: 'CATEGORY D',
+          active: true,
           label: 'CATEGORY D',
           commentRequired: true,
           dateRequired: false,
@@ -72,6 +81,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
         },
         {
           code: 'UNCATEGORISED YO',
+          active: true,
           label: 'UNCATEGORISED YO',
           commentRequired: true,
           dateRequired: false,
@@ -79,6 +89,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
         },
         {
           code: 'CATEGORISED FEMALE',
+          active: true,
           label: 'CATEGORISED FEMALE',
           commentRequired: true,
           dateRequired: false,
@@ -86,6 +97,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
         },
         {
           code: 'UNCATEGORISED FEMALE',
+          active: true,
           label: 'UNCATEGORISED FEMALE',
           commentRequired: true,
           dateRequired: false,
@@ -93,6 +105,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
         },
         {
           code: 'UNCATEGORISED ADULT MALE',
+          active: true,
           label: 'UNCATEGORISED ADULT MALE',
           commentRequired: true,
           dateRequired: false,
@@ -102,12 +115,14 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
     },
     '44164': {
       id: '44164',
+      active: true,
       code: 'WHICH MINOR INJURIES WERE SUSTAINED',
       label: 'WHICH MINOR INJURIES WERE SUSTAINED',
       multipleAnswers: true,
       answers: [
         {
           code: 'GRAZES, SCRATCHES OR ABRASIONS',
+          active: true,
           label: 'GRAZES, SCRATCHES OR ABRASIONS',
           commentRequired: false,
           dateRequired: false,
@@ -115,6 +130,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
         },
         {
           code: 'MINOR BRUISES',
+          active: true,
           label: 'MINOR BRUISES',
           commentRequired: false,
           dateRequired: false,
@@ -122,6 +138,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
         },
         {
           code: 'SWELLINGS',
+          active: true,
           label: 'SWELLINGS',
           commentRequired: false,
           dateRequired: false,
@@ -129,6 +146,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
         },
         {
           code: 'SUPERFICIAL CUTS',
+          active: true,
           label: 'SUPERFICIAL CUTS',
           commentRequired: false,
           dateRequired: false,
@@ -136,6 +154,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
         },
         {
           code: 'OTHER',
+          active: true,
           label: 'OTHER',
           commentRequired: true,
           dateRequired: false,
@@ -145,12 +164,14 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
     },
     '44188': {
       id: '44188',
+      active: true,
       code: 'WHAT TYPE OF VEHICLE WAS IT',
       label: 'WHAT TYPE OF VEHICLE WAS IT',
       multipleAnswers: false,
       answers: [
         {
           code: 'COACH',
+          active: true,
           label: 'COACH',
           commentRequired: false,
           dateRequired: false,
@@ -158,6 +179,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
         },
         {
           code: 'MINIBUS',
+          active: true,
           label: 'MINIBUS',
           commentRequired: false,
           dateRequired: false,
@@ -165,6 +187,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
         },
         {
           code: 'TAXI',
+          active: true,
           label: 'TAXI',
           commentRequired: false,
           dateRequired: false,
@@ -172,6 +195,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
         },
         {
           code: 'CELLULAR VEHICLE',
+          active: true,
           label: 'CELLULAR VEHICLE',
           commentRequired: false,
           dateRequired: false,
@@ -179,6 +203,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
         },
         {
           code: 'SECURE TRANSIT',
+          active: true,
           label: 'SECURE TRANSIT',
           commentRequired: false,
           dateRequired: false,
@@ -186,6 +211,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
         },
         {
           code: 'OTHER',
+          active: true,
           label: 'OTHER',
           commentRequired: true,
           dateRequired: false,
@@ -195,12 +221,14 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
     },
     '44211': {
       id: '44211',
+      active: true,
       code: 'WAS THE RESTRAINT OVERCOME AT THE POINT OF ESCAPE',
       label: 'WAS THE RESTRAINT OVERCOME AT THE POINT OF ESCAPE',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: true,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -208,6 +236,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: true,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -217,12 +246,14 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
     },
     '44215': {
       id: '44215',
+      active: true,
       code: 'WERE THE ROUNDS DISCHARGED',
       label: 'WERE THE ROUNDS DISCHARGED',
       multipleAnswers: false,
       answers: [
         {
           code: 'LIVE',
+          active: true,
           label: 'LIVE',
           commentRequired: false,
           dateRequired: false,
@@ -230,6 +261,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
         },
         {
           code: 'BLANK',
+          active: true,
           label: 'BLANK',
           commentRequired: false,
           dateRequired: false,
@@ -237,6 +269,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
         },
         {
           code: 'NOT KNOWN',
+          active: true,
           label: 'NOT KNOWN',
           commentRequired: false,
           dateRequired: false,
@@ -246,12 +279,14 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
     },
     '44246': {
       id: '44246',
+      active: true,
       code: 'WAS THE FIREARM',
       label: 'WAS THE FIREARM',
       multipleAnswers: false,
       answers: [
         {
           code: 'REAL',
+          active: true,
           label: 'REAL',
           commentRequired: true,
           dateRequired: false,
@@ -259,6 +294,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
         },
         {
           code: 'REPLICA',
+          active: true,
           label: 'REPLICA',
           commentRequired: true,
           dateRequired: false,
@@ -266,6 +302,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
         },
         {
           code: 'NOT KNOWN',
+          active: true,
           label: 'NOT KNOWN',
           commentRequired: true,
           dateRequired: false,
@@ -275,12 +312,14 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
     },
     '44281': {
       id: '44281',
+      active: true,
       code: 'WAS THE OTHER PRISONER',
       label: 'WAS THE OTHER PRISONER',
       multipleAnswers: false,
       answers: [
         {
           code: 'A CO-DEFENDANT',
+          active: true,
           label: 'A CO-DEFENDANT',
           commentRequired: false,
           dateRequired: false,
@@ -288,6 +327,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
         },
         {
           code: 'A RELATIVE',
+          active: true,
           label: 'A RELATIVE',
           commentRequired: false,
           dateRequired: false,
@@ -295,6 +335,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
         },
         {
           code: 'A KNOWN ASSOCIATE',
+          active: true,
           label: 'A KNOWN ASSOCIATE',
           commentRequired: false,
           dateRequired: false,
@@ -302,6 +343,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
         },
         {
           code: 'AN E LIST PRISONER',
+          active: true,
           label: 'AN E LIST PRISONER',
           commentRequired: false,
           dateRequired: false,
@@ -309,6 +351,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
         },
         {
           code: 'NONE OF THE ABOVE',
+          active: true,
           label: 'NONE OF THE ABOVE',
           commentRequired: false,
           dateRequired: false,
@@ -318,12 +361,14 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
     },
     '44298': {
       id: '44298',
+      active: true,
       code: 'HAS THE PRISONER BEEN CHARGED WITH A FURTHER OFFENCE',
       label: 'HAS THE PRISONER BEEN CHARGED WITH A FURTHER OFFENCE',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: true,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -331,6 +376,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: true,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -340,12 +386,14 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
     },
     '44360': {
       id: '44360',
+      active: true,
       code: 'THE INCIDENT IS SUBJECT TO',
       label: 'THE INCIDENT IS SUBJECT TO',
       multipleAnswers: true,
       answers: [
         {
           code: 'INVESTIGATION BY POLICE',
+          active: true,
           label: 'INVESTIGATION BY POLICE',
           commentRequired: false,
           dateRequired: false,
@@ -353,6 +401,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
         },
         {
           code: 'INVESTIGATION INTERNALLY',
+          active: true,
           label: 'INVESTIGATION INTERNALLY',
           commentRequired: false,
           dateRequired: false,
@@ -360,6 +409,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
         },
         {
           code: "GOVERNOR'S ADJUDICATION",
+          active: true,
           label: "GOVERNOR'S ADJUDICATION",
           commentRequired: false,
           dateRequired: false,
@@ -367,6 +417,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
         },
         {
           code: 'NO INVESTIGATION',
+          active: true,
           label: 'NO INVESTIGATION',
           commentRequired: false,
           dateRequired: false,
@@ -376,12 +427,14 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
     },
     '44409': {
       id: '44409',
+      active: true,
       code: 'WAS THE ESCORT FOR CHILD BIRTH OR PRE/POST NATAL TREATMENT',
       label: 'WAS THE ESCORT FOR CHILD BIRTH OR PRE/POST NATAL TREATMENT',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: true,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -389,6 +442,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: true,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -398,12 +452,14 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
     },
     '44419': {
       id: '44419',
+      active: true,
       code: 'WAS THE PRISONER RESTRAINED AT THE POINT OF ESCAPE',
       label: 'WAS THE PRISONER RESTRAINED AT THE POINT OF ESCAPE',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: true,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -411,6 +467,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: true,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -420,12 +477,14 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
     },
     '44426': {
       id: '44426',
+      active: true,
       code: 'ESTIMATED COST OF DAMAGE',
       label: 'ESTIMATED COST OF DAMAGE',
       multipleAnswers: false,
       answers: [
         {
           code: 'ENTER AMOUNT IN POUND STERLING',
+          active: true,
           label: 'ENTER AMOUNT IN POUND STERLING',
           commentRequired: true,
           dateRequired: false,
@@ -435,12 +494,14 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
     },
     '44443': {
       id: '44443',
+      active: true,
       code: 'WAS OUTSIDE ASSISTANCE INVOLVED IN THE ESCAPE',
       label: 'WAS OUTSIDE ASSISTANCE INVOLVED IN THE ESCAPE',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: true,
           label: 'YES',
           commentRequired: true,
           dateRequired: false,
@@ -448,6 +509,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: true,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -457,12 +519,14 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
     },
     '44448': {
       id: '44448',
+      active: true,
       code: 'NUMBER OF STAFF ON ESCORT',
       label: 'NUMBER OF STAFF ON ESCORT',
       multipleAnswers: true,
       answers: [
         {
           code: 'MALE',
+          active: true,
           label: 'MALE',
           commentRequired: true,
           dateRequired: false,
@@ -470,6 +534,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
         },
         {
           code: 'FEMALE',
+          active: true,
           label: 'FEMALE',
           commentRequired: true,
           dateRequired: false,
@@ -479,12 +544,14 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
     },
     '44490': {
       id: '44490',
+      active: true,
       code: 'FROM WHAT ESCORT TYPE DID THE ESCAPE OCCUR',
       label: 'FROM WHAT ESCORT TYPE DID THE ESCAPE OCCUR',
       multipleAnswers: false,
       answers: [
         {
           code: 'HOSPITAL OUTPATIENT',
+          active: true,
           label: 'HOSPITAL OUTPATIENT',
           commentRequired: true,
           dateRequired: false,
@@ -492,6 +559,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
         },
         {
           code: 'HOSPITAL INPATIENT',
+          active: true,
           label: 'HOSPITAL INPATIENT',
           commentRequired: true,
           dateRequired: false,
@@ -499,6 +567,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
         },
         {
           code: 'INTER PRISON TRANSFER',
+          active: true,
           label: 'INTER PRISON TRANSFER',
           commentRequired: false,
           dateRequired: false,
@@ -506,6 +575,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
         },
         {
           code: 'MAGISTRATES COURT',
+          active: true,
           label: 'MAGISTRATES COURT',
           commentRequired: true,
           dateRequired: false,
@@ -513,6 +583,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
         },
         {
           code: 'CROWN COURT',
+          active: true,
           label: 'CROWN COURT',
           commentRequired: true,
           dateRequired: false,
@@ -520,6 +591,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
         },
         {
           code: 'COUNTY COURT',
+          active: true,
           label: 'COUNTY COURT',
           commentRequired: true,
           dateRequired: false,
@@ -527,6 +599,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
         },
         {
           code: 'FUNERAL',
+          active: true,
           label: 'FUNERAL',
           commentRequired: false,
           dateRequired: false,
@@ -534,6 +607,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
         },
         {
           code: 'WEDDING',
+          active: true,
           label: 'WEDDING',
           commentRequired: false,
           dateRequired: false,
@@ -541,6 +615,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
         },
         {
           code: 'HOME VISIT',
+          active: true,
           label: 'HOME VISIT',
           commentRequired: false,
           dateRequired: false,
@@ -548,6 +623,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
         },
         {
           code: 'HOSP VISIT (DYING RELATIVE)',
+          active: true,
           label: 'HOSP VISIT (DYING RELATIVE)',
           commentRequired: true,
           dateRequired: false,
@@ -555,6 +631,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
         },
         {
           code: 'OTHER',
+          active: true,
           label: 'OTHER',
           commentRequired: true,
           dateRequired: false,
@@ -564,12 +641,14 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
     },
     '44507': {
       id: '44507',
+      active: true,
       code: 'WHAT WAS THE SOURCE OF THE WEAPONS USED',
       label: 'WHAT WAS THE SOURCE OF THE WEAPONS USED',
       multipleAnswers: false,
       answers: [
         {
           code: 'SECRETED ON PRISONER',
+          active: true,
           label: 'SECRETED ON PRISONER',
           commentRequired: false,
           dateRequired: false,
@@ -577,6 +656,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
         },
         {
           code: 'FOUND IN VEHICLE/AREA',
+          active: true,
           label: 'FOUND IN VEHICLE/AREA',
           commentRequired: false,
           dateRequired: false,
@@ -584,6 +664,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
         },
         {
           code: 'BROUGHT BY OUTSIDE ACCOMPLICE',
+          active: true,
           label: 'BROUGHT BY OUTSIDE ACCOMPLICE',
           commentRequired: false,
           dateRequired: false,
@@ -591,6 +672,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
         },
         {
           code: 'NOT KNOWN',
+          active: true,
           label: 'NOT KNOWN',
           commentRequired: false,
           dateRequired: false,
@@ -600,12 +682,14 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
     },
     '44519': {
       id: '44519',
+      active: true,
       code: 'WAS A MINOR INJURY SUSTAINED BY A PRISONER',
       label: 'WAS A MINOR INJURY SUSTAINED BY A PRISONER',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: true,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -613,6 +697,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: true,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -622,12 +707,14 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
     },
     '44521': {
       id: '44521',
+      active: true,
       code: 'WAS A CHEMICAL INCAPACITANT SPRAY USED DURING THE ESCAPE',
       label: 'WAS A CHEMICAL INCAPACITANT SPRAY USED DURING THE ESCAPE',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: true,
           label: 'YES',
           commentRequired: true,
           dateRequired: false,
@@ -635,6 +722,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: true,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -644,12 +732,14 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
     },
     '44538': {
       id: '44538',
+      active: true,
       code: 'WHERE WERE THE INJURED STAFF TREATED',
       label: 'WHERE WERE THE INJURED STAFF TREATED',
       multipleAnswers: false,
       answers: [
         {
           code: 'PRISON HEALTH CARE CENTRE',
+          active: true,
           label: 'PRISON HEALTH CARE CENTRE',
           commentRequired: false,
           dateRequired: false,
@@ -657,6 +747,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
         },
         {
           code: 'OUTSIDE HOSPITAL',
+          active: true,
           label: 'OUTSIDE HOSPITAL',
           commentRequired: false,
           dateRequired: false,
@@ -664,6 +755,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
         },
         {
           code: 'OWN GP',
+          active: true,
           label: 'OWN GP',
           commentRequired: false,
           dateRequired: false,
@@ -673,12 +765,14 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
     },
     '44539': {
       id: '44539',
+      active: true,
       code: 'WERE MINOR INJURIES SUSTAINED BY STAFF',
       label: 'WERE MINOR INJURIES SUSTAINED BY STAFF',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: true,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -686,6 +780,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: true,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -695,12 +790,14 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
     },
     '44571': {
       id: '44571',
+      active: true,
       code: 'DID ANY PRISONER REQUIRE MEDICAL TREATMENT FOR INJURIES',
       label: 'DID ANY PRISONER REQUIRE MEDICAL TREATMENT FOR INJURIES',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: true,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -708,6 +805,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: true,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -717,12 +815,14 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
     },
     '44581': {
       id: '44581',
+      active: true,
       code: 'WAS DAMAGE CAUSED TO PRISON PROPERTY',
       label: 'WAS DAMAGE CAUSED TO PRISON PROPERTY',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: true,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -730,6 +830,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: true,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -739,12 +840,14 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
     },
     '44605': {
       id: '44605',
+      active: true,
       code: 'WHO USED THE OTHER WEAPONS',
       label: 'WHO USED THE OTHER WEAPONS',
       multipleAnswers: true,
       answers: [
         {
           code: 'PRISONER WHO ESCAPED',
+          active: true,
           label: 'PRISONER WHO ESCAPED',
           commentRequired: false,
           dateRequired: false,
@@ -752,6 +855,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
         },
         {
           code: 'OTHER PRISONER',
+          active: true,
           label: 'OTHER PRISONER',
           commentRequired: false,
           dateRequired: false,
@@ -759,6 +863,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
         },
         {
           code: 'OUTSIDE ACCOMPLICE',
+          active: true,
           label: 'OUTSIDE ACCOMPLICE',
           commentRequired: false,
           dateRequired: false,
@@ -768,12 +873,14 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
     },
     '44644': {
       id: '44644',
+      active: true,
       code: 'HAS THE KEY BEEN RECOVERED',
       label: 'HAS THE KEY BEEN RECOVERED',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: true,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -781,6 +888,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: true,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -790,12 +898,14 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
     },
     '44650': {
       id: '44650',
+      active: true,
       code: 'DESCRIBE THE DAMAGE',
       label: 'DESCRIBE THE DAMAGE',
       multipleAnswers: false,
       answers: [
         {
           code: 'MINOR',
+          active: true,
           label: 'MINOR',
           commentRequired: true,
           dateRequired: false,
@@ -803,6 +913,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
         },
         {
           code: 'SERIOUS',
+          active: true,
           label: 'SERIOUS',
           commentRequired: true,
           dateRequired: false,
@@ -810,6 +921,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
         },
         {
           code: 'EXTENSIVE',
+          active: true,
           label: 'EXTENSIVE',
           commentRequired: true,
           dateRequired: false,
@@ -819,12 +931,14 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
     },
     '44673': {
       id: '44673',
+      active: true,
       code: 'WERE INSERTS USED',
       label: 'WERE INSERTS USED',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: true,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -832,6 +946,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: true,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -841,12 +956,14 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
     },
     '44675': {
       id: '44675',
+      active: true,
       code: 'WAS THE KEY USED',
       label: 'WAS THE KEY USED',
       multipleAnswers: false,
       answers: [
         {
           code: 'REAL',
+          active: true,
           label: 'REAL',
           commentRequired: false,
           dateRequired: false,
@@ -854,6 +971,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
         },
         {
           code: 'IMPROVISED',
+          active: true,
           label: 'IMPROVISED',
           commentRequired: false,
           dateRequired: false,
@@ -861,6 +979,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
         },
         {
           code: 'NOT KNOWN',
+          active: true,
           label: 'NOT KNOWN',
           commentRequired: false,
           dateRequired: false,
@@ -870,12 +989,14 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
     },
     '44696': {
       id: '44696',
+      active: true,
       code: 'WAS THIS A KPI ESCAPE',
       label: 'WAS THIS A KPI ESCAPE',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: true,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -883,6 +1004,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: true,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -892,12 +1014,14 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
     },
     '44706': {
       id: '44706',
+      active: true,
       code: 'WHERE WERE THE INJURED PRISONERS TREATED',
       label: 'WHERE WERE THE INJURED PRISONERS TREATED',
       multipleAnswers: false,
       answers: [
         {
           code: 'PRISON HEALTH CARE CENTRE',
+          active: true,
           label: 'PRISON HEALTH CARE CENTRE',
           commentRequired: false,
           dateRequired: false,
@@ -905,6 +1029,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
         },
         {
           code: 'OUTSIDE HOSPITAL',
+          active: true,
           label: 'OUTSIDE HOSPITAL',
           commentRequired: false,
           dateRequired: false,
@@ -914,12 +1039,14 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
     },
     '44715': {
       id: '44715',
+      active: true,
       code: 'WHO USED THE SPRAY',
       label: 'WHO USED THE SPRAY',
       multipleAnswers: true,
       answers: [
         {
           code: 'PRISONER WHO ESCAPED',
+          active: true,
           label: 'PRISONER WHO ESCAPED',
           commentRequired: false,
           dateRequired: false,
@@ -927,6 +1054,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
         },
         {
           code: 'OTHER PRISONER',
+          active: true,
           label: 'OTHER PRISONER',
           commentRequired: false,
           dateRequired: false,
@@ -934,6 +1062,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
         },
         {
           code: 'OUTSIDE ACCOMPLICE',
+          active: true,
           label: 'OUTSIDE ACCOMPLICE',
           commentRequired: false,
           dateRequired: false,
@@ -943,12 +1072,14 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
     },
     '44727': {
       id: '44727',
+      active: true,
       code: 'WHY WAS A RESTRAINT NOT APPLIED AT THE POINT OF ESCAPE',
       label: 'WHY WAS A RESTRAINT NOT APPLIED AT THE POINT OF ESCAPE',
       multipleAnswers: true,
       answers: [
         {
           code: 'GOVERNORS INSTRUCTION',
+          active: true,
           label: 'GOVERNORS INSTRUCTION',
           commentRequired: false,
           dateRequired: false,
@@ -956,6 +1087,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
         },
         {
           code: 'PREVENTED BY DISABILITY',
+          active: true,
           label: 'PREVENTED BY DISABILITY',
           commentRequired: false,
           dateRequired: false,
@@ -963,6 +1095,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
         },
         {
           code: 'PREVENTED BY INJURY',
+          active: true,
           label: 'PREVENTED BY INJURY',
           commentRequired: false,
           dateRequired: false,
@@ -970,6 +1103,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
         },
         {
           code: 'MEDICAL TREATMENT/REQUEST',
+          active: true,
           label: 'MEDICAL TREATMENT/REQUEST',
           commentRequired: false,
           dateRequired: false,
@@ -977,6 +1111,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
         },
         {
           code: 'IN COURT ROOM',
+          active: true,
           label: 'IN COURT ROOM',
           commentRequired: false,
           dateRequired: false,
@@ -984,6 +1119,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
         },
         {
           code: 'LOCATED IN SECURE AREA',
+          active: true,
           label: 'LOCATED IN SECURE AREA',
           commentRequired: false,
           dateRequired: false,
@@ -991,6 +1127,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
         },
         {
           code: 'IN CELL OF CELLULAR VEHICLE',
+          active: true,
           label: 'IN CELL OF CELLULAR VEHICLE',
           commentRequired: false,
           dateRequired: false,
@@ -998,6 +1135,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
         },
         {
           code: 'TRANSFER TO MENTAL HOSPITAL',
+          active: true,
           label: 'TRANSFER TO MENTAL HOSPITAL',
           commentRequired: false,
           dateRequired: false,
@@ -1005,6 +1143,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
         },
         {
           code: 'DURING MARRIAGE CEREMONY',
+          active: true,
           label: 'DURING MARRIAGE CEREMONY',
           commentRequired: false,
           dateRequired: false,
@@ -1012,6 +1151,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
         },
         {
           code: 'NONE AVAILABLE',
+          active: true,
           label: 'NONE AVAILABLE',
           commentRequired: false,
           dateRequired: false,
@@ -1019,6 +1159,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
         },
         {
           code: 'FAILURE TO USE',
+          active: true,
           label: 'FAILURE TO USE',
           commentRequired: false,
           dateRequired: false,
@@ -1026,6 +1167,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
         },
         {
           code: 'OTHER',
+          active: true,
           label: 'OTHER',
           commentRequired: true,
           dateRequired: false,
@@ -1035,12 +1177,14 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
     },
     '44729': {
       id: '44729',
+      active: true,
       code: 'WAS A KNIFE OR BLADE USED DURING THE ESCAPE',
       label: 'WAS A KNIFE OR BLADE USED DURING THE ESCAPE',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: true,
           label: 'YES',
           commentRequired: true,
           dateRequired: false,
@@ -1048,6 +1192,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: true,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -1057,12 +1202,14 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
     },
     '44754': {
       id: '44754',
+      active: true,
       code: 'WHO USED THE KNIFE OR BLADE',
       label: 'WHO USED THE KNIFE OR BLADE',
       multipleAnswers: true,
       answers: [
         {
           code: 'PRISONER WHO ESCAPED',
+          active: true,
           label: 'PRISONER WHO ESCAPED',
           commentRequired: false,
           dateRequired: false,
@@ -1070,6 +1217,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
         },
         {
           code: 'OTHER PRISONER',
+          active: true,
           label: 'OTHER PRISONER',
           commentRequired: false,
           dateRequired: false,
@@ -1077,6 +1225,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
         },
         {
           code: 'OUTSIDE ACCOMPLICE',
+          active: true,
           label: 'OUTSIDE ACCOMPLICE',
           commentRequired: false,
           dateRequired: false,
@@ -1086,12 +1235,14 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
     },
     '44757': {
       id: '44757',
+      active: true,
       code: 'NUMBER OF PRISONERS ON ESCORT',
       label: 'NUMBER OF PRISONERS ON ESCORT',
       multipleAnswers: true,
       answers: [
         {
           code: 'MALE',
+          active: true,
           label: 'MALE',
           commentRequired: true,
           dateRequired: false,
@@ -1099,6 +1250,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
         },
         {
           code: 'FEMALE',
+          active: true,
           label: 'FEMALE',
           commentRequired: true,
           dateRequired: false,
@@ -1108,12 +1260,14 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
     },
     '44828': {
       id: '44828',
+      active: true,
       code: 'IS THERE ANY MEDIA INTEREST IN THIS INCIDENT',
       label: 'IS THERE ANY MEDIA INTEREST IN THIS INCIDENT',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: true,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -1121,6 +1275,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: true,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -1130,12 +1285,14 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
     },
     '44838': {
       id: '44838',
+      active: true,
       code: 'WHAT WAS THE SOURCE OF THE SPRAY',
       label: 'WHAT WAS THE SOURCE OF THE SPRAY',
       multipleAnswers: false,
       answers: [
         {
           code: 'SECRETED ON THE PRISONER',
+          active: true,
           label: 'SECRETED ON THE PRISONER',
           commentRequired: false,
           dateRequired: false,
@@ -1143,6 +1300,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
         },
         {
           code: 'FOUND IN VEHICLE/AREA',
+          active: true,
           label: 'FOUND IN VEHICLE/AREA',
           commentRequired: false,
           dateRequired: false,
@@ -1150,6 +1308,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
         },
         {
           code: 'BROUGHT BY ACCOMPLICE',
+          active: true,
           label: 'BROUGHT BY ACCOMPLICE',
           commentRequired: false,
           dateRequired: false,
@@ -1157,6 +1316,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
         },
         {
           code: 'NOT KNOWN',
+          active: true,
           label: 'NOT KNOWN',
           commentRequired: false,
           dateRequired: false,
@@ -1166,12 +1326,14 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
     },
     '44845': {
       id: '44845',
+      active: true,
       code: 'WERE ANY OTHER WEAPONS USED DURING THE ESCAPE',
       label: 'WERE ANY OTHER WEAPONS USED DURING THE ESCAPE',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: true,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -1179,6 +1341,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: true,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -1188,12 +1351,14 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
     },
     '44850': {
       id: '44850',
+      active: true,
       code: 'PRIOR TO PRIVATE SECTOR INVOLVEMENT WOULD THE ESCORT HAVE BEEN',
       label: 'PRIOR TO PRIVATE SECTOR INVOLVEMENT WOULD THE ESCORT HAVE BEEN',
       multipleAnswers: false,
       answers: [
         {
           code: 'PRISON SERVICE',
+          active: true,
           label: 'PRISON SERVICE',
           commentRequired: false,
           dateRequired: false,
@@ -1201,6 +1366,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
         },
         {
           code: 'POLICE',
+          active: true,
           label: 'POLICE',
           commentRequired: false,
           dateRequired: false,
@@ -1210,12 +1376,14 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
     },
     '44859': {
       id: '44859',
+      active: true,
       code: 'HOW WAS THE RESTRAINT OVERCOME AT THE POINT OF ESCAPE',
       label: 'HOW WAS THE RESTRAINT OVERCOME AT THE POINT OF ESCAPE',
       multipleAnswers: false,
       answers: [
         {
           code: 'PRISONER USED KEY',
+          active: true,
           label: 'PRISONER USED KEY',
           commentRequired: false,
           dateRequired: false,
@@ -1223,6 +1391,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
         },
         {
           code: 'SLIPPED RESTRAINT',
+          active: true,
           label: 'SLIPPED RESTRAINT',
           commentRequired: false,
           dateRequired: false,
@@ -1230,6 +1399,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
         },
         {
           code: 'PICKED LOCK',
+          active: true,
           label: 'PICKED LOCK',
           commentRequired: false,
           dateRequired: false,
@@ -1237,6 +1407,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
         },
         {
           code: 'STAFF UNLOCKED UNDER THREAT',
+          active: true,
           label: 'STAFF UNLOCKED UNDER THREAT',
           commentRequired: false,
           dateRequired: false,
@@ -1244,6 +1415,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
         },
         {
           code: 'IMPROPER APPLICATION',
+          active: true,
           label: 'IMPROPER APPLICATION',
           commentRequired: false,
           dateRequired: false,
@@ -1251,6 +1423,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
         },
         {
           code: 'OTHER',
+          active: true,
           label: 'OTHER',
           commentRequired: true,
           dateRequired: false,
@@ -1258,6 +1431,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
         },
         {
           code: 'NOT KNOWN',
+          active: true,
           label: 'NOT KNOWN',
           commentRequired: false,
           dateRequired: false,
@@ -1267,12 +1441,14 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
     },
     '44882': {
       id: '44882',
+      active: true,
       code: 'WHAT OTHER WEAPONS WERE USED',
       label: 'WHAT OTHER WEAPONS WERE USED',
       multipleAnswers: true,
       answers: [
         {
           code: 'OTHER SHARP INSTRUMENT',
+          active: true,
           label: 'OTHER SHARP INSTRUMENT',
           commentRequired: false,
           dateRequired: false,
@@ -1280,6 +1456,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
         },
         {
           code: 'BLUNT INSTRUMENT',
+          active: true,
           label: 'BLUNT INSTRUMENT',
           commentRequired: false,
           dateRequired: false,
@@ -1287,6 +1464,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
         },
         {
           code: 'LIGATURE',
+          active: true,
           label: 'LIGATURE',
           commentRequired: false,
           dateRequired: false,
@@ -1294,6 +1472,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
         },
         {
           code: 'DANGEROUS LIQUID',
+          active: true,
           label: 'DANGEROUS LIQUID',
           commentRequired: false,
           dateRequired: false,
@@ -1301,6 +1480,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
         },
         {
           code: 'EXCRETA/URINE',
+          active: true,
           label: 'EXCRETA/URINE',
           commentRequired: false,
           dateRequired: false,
@@ -1308,6 +1488,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
         },
         {
           code: 'SPITTING',
+          active: true,
           label: 'SPITTING',
           commentRequired: false,
           dateRequired: false,
@@ -1315,6 +1496,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
         },
         {
           code: 'FOOD',
+          active: true,
           label: 'FOOD',
           commentRequired: false,
           dateRequired: false,
@@ -1322,6 +1504,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
         },
         {
           code: 'THROWN FURNITURE',
+          active: true,
           label: 'THROWN FURNITURE',
           commentRequired: false,
           dateRequired: false,
@@ -1329,6 +1512,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
         },
         {
           code: 'THROWN EQUIPMENT',
+          active: true,
           label: 'THROWN EQUIPMENT',
           commentRequired: false,
           dateRequired: false,
@@ -1336,6 +1520,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
         },
         {
           code: 'OTHER',
+          active: true,
           label: 'OTHER',
           commentRequired: true,
           dateRequired: false,
@@ -1345,12 +1530,14 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
     },
     '44904': {
       id: '44904',
+      active: true,
       code: 'DESCRIBE THE TYPE OF SPRAY',
       label: 'DESCRIBE THE TYPE OF SPRAY',
       multipleAnswers: true,
       answers: [
         {
           code: 'C.N (CHLORACETOPHEONE)',
+          active: true,
           label: 'C.N (CHLORACETOPHEONE)',
           commentRequired: false,
           dateRequired: false,
@@ -1358,6 +1545,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
         },
         {
           code: 'C.S (ORTHO..NITRILE)',
+          active: true,
           label: 'C.S (ORTHO..NITRILE)',
           commentRequired: false,
           dateRequired: false,
@@ -1365,6 +1553,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
         },
         {
           code: 'O.C (MACE/PEPPER)',
+          active: true,
           label: 'O.C (MACE/PEPPER)',
           commentRequired: false,
           dateRequired: false,
@@ -1372,6 +1561,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
         },
         {
           code: 'OTHER',
+          active: true,
           label: 'OTHER',
           commentRequired: true,
           dateRequired: false,
@@ -1379,6 +1569,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
         },
         {
           code: 'NOT KNOWN',
+          active: true,
           label: 'NOT KNOWN',
           commentRequired: false,
           dateRequired: false,
@@ -1388,12 +1579,14 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
     },
     '44908': {
       id: '44908',
+      active: true,
       code: 'HAS PRISONER BEEN RECAPTURED',
       label: 'HAS PRISONER BEEN RECAPTURED',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: true,
           label: 'YES',
           commentRequired: false,
           dateRequired: true,
@@ -1401,6 +1594,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: true,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -1410,12 +1604,14 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
     },
     '44930': {
       id: '44930',
+      active: true,
       code: 'TO WHOM WAS THE PRISONER HANDCUFFED',
       label: 'TO WHOM WAS THE PRISONER HANDCUFFED',
       multipleAnswers: false,
       answers: [
         {
           code: 'OFFICER',
+          active: true,
           label: 'OFFICER',
           commentRequired: false,
           dateRequired: false,
@@ -1423,6 +1619,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
         },
         {
           code: 'OTHER PRISONER',
+          active: true,
           label: 'OTHER PRISONER',
           commentRequired: false,
           dateRequired: false,
@@ -1432,12 +1629,14 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
     },
     '44966': {
       id: '44966',
+      active: true,
       code: 'WHAT RESTRAINT WAS BEING USED AT THE POINT OF ESCAPE',
       label: 'WHAT RESTRAINT WAS BEING USED AT THE POINT OF ESCAPE',
       multipleAnswers: false,
       answers: [
         {
           code: 'HANDCUFFS',
+          active: true,
           label: 'HANDCUFFS',
           commentRequired: false,
           dateRequired: false,
@@ -1445,6 +1644,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
         },
         {
           code: 'ESCORT CHAIN',
+          active: true,
           label: 'ESCORT CHAIN',
           commentRequired: false,
           dateRequired: false,
@@ -1452,6 +1652,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
         },
         {
           code: 'CLOSETING CHAIN',
+          active: true,
           label: 'CLOSETING CHAIN',
           commentRequired: false,
           dateRequired: false,
@@ -1459,6 +1660,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
         },
         {
           code: 'OTHER',
+          active: true,
           label: 'OTHER',
           commentRequired: true,
           dateRequired: false,
@@ -1468,12 +1670,14 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
     },
     '44970': {
       id: '44970',
+      active: true,
       code: 'WITH WHAT OFFENCE HAS THE PRISONER BEEN CHARGED',
       label: 'WITH WHAT OFFENCE HAS THE PRISONER BEEN CHARGED',
       multipleAnswers: true,
       answers: [
         {
           code: 'MURDER/ATTEMPTED MURDER',
+          active: true,
           label: 'MURDER/ATTEMPTED MURDER',
           commentRequired: false,
           dateRequired: false,
@@ -1481,6 +1685,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
         },
         {
           code: 'MANSLAUGHTER',
+          active: true,
           label: 'MANSLAUGHTER',
           commentRequired: false,
           dateRequired: false,
@@ -1488,6 +1693,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
         },
         {
           code: 'ASSAULT',
+          active: true,
           label: 'ASSAULT',
           commentRequired: false,
           dateRequired: false,
@@ -1495,6 +1701,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
         },
         {
           code: 'RAPE/ATTEMPTED RAPE',
+          active: true,
           label: 'RAPE/ATTEMPTED RAPE',
           commentRequired: false,
           dateRequired: false,
@@ -1502,6 +1709,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
         },
         {
           code: 'OTHER SEXUAL OFFENCE',
+          active: true,
           label: 'OTHER SEXUAL OFFENCE',
           commentRequired: false,
           dateRequired: false,
@@ -1509,6 +1717,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
         },
         {
           code: 'THEFT',
+          active: true,
           label: 'THEFT',
           commentRequired: false,
           dateRequired: false,
@@ -1516,6 +1725,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
         },
         {
           code: 'ROBBERY',
+          active: true,
           label: 'ROBBERY',
           commentRequired: false,
           dateRequired: false,
@@ -1523,6 +1733,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
         },
         {
           code: 'FIREARM OFFENCE',
+          active: true,
           label: 'FIREARM OFFENCE',
           commentRequired: false,
           dateRequired: false,
@@ -1530,6 +1741,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
         },
         {
           code: 'DRUG OFFENCE',
+          active: true,
           label: 'DRUG OFFENCE',
           commentRequired: false,
           dateRequired: false,
@@ -1537,6 +1749,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
         },
         {
           code: 'VEHICLE CRIME',
+          active: true,
           label: 'VEHICLE CRIME',
           commentRequired: false,
           dateRequired: false,
@@ -1544,6 +1757,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
         },
         {
           code: 'PUBLIC ORDER OFFENCE',
+          active: true,
           label: 'PUBLIC ORDER OFFENCE',
           commentRequired: false,
           dateRequired: false,
@@ -1551,6 +1765,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
         },
         {
           code: 'OTHER',
+          active: true,
           label: 'OTHER',
           commentRequired: true,
           dateRequired: false,
@@ -1560,12 +1775,14 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
     },
     '44975': {
       id: '44975',
+      active: true,
       code: 'WERE THE POLICE INFORMED OF THE INCIDENT',
       label: 'WERE THE POLICE INFORMED OF THE INCIDENT',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: true,
           label: 'YES',
           commentRequired: false,
           dateRequired: true,
@@ -1573,6 +1790,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: true,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -1582,12 +1800,14 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
     },
     '44994': {
       id: '44994',
+      active: true,
       code: 'WHO USED THE FIREARM',
       label: 'WHO USED THE FIREARM',
       multipleAnswers: true,
       answers: [
         {
           code: 'PRISONER WHO ESCAPED',
+          active: true,
           label: 'PRISONER WHO ESCAPED',
           commentRequired: false,
           dateRequired: false,
@@ -1595,6 +1815,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
         },
         {
           code: 'OTHER PRISONER',
+          active: true,
           label: 'OTHER PRISONER',
           commentRequired: false,
           dateRequired: false,
@@ -1602,6 +1823,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
         },
         {
           code: 'OUTSIDE ACCOMPLICE',
+          active: true,
           label: 'OUTSIDE ACCOMPLICE',
           commentRequired: false,
           dateRequired: false,
@@ -1611,12 +1833,14 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
     },
     '44998': {
       id: '44998',
+      active: true,
       code: 'WAS THE FIREARM DISCHARGED',
       label: 'WAS THE FIREARM DISCHARGED',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: true,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -1624,6 +1848,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: true,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -1633,12 +1858,14 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
     },
     '45024': {
       id: '45024',
+      active: true,
       code: 'DID ANY STAFF REQUIRE MEDICAL TREATMENT FOR INJURY',
       label: 'DID ANY STAFF REQUIRE MEDICAL TREATMENT FOR INJURY',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: true,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -1646,6 +1873,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: true,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -1655,12 +1883,14 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
     },
     '45025': {
       id: '45025',
+      active: true,
       code: 'HOW WAS THE PRISONER RECAPTURED',
       label: 'HOW WAS THE PRISONER RECAPTURED',
       multipleAnswers: false,
       answers: [
         {
           code: 'POLICE ARREST',
+          active: true,
           label: 'POLICE ARREST',
           commentRequired: false,
           dateRequired: false,
@@ -1668,6 +1898,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
         },
         {
           code: 'PRISON STAFF ARREST',
+          active: true,
           label: 'PRISON STAFF ARREST',
           commentRequired: false,
           dateRequired: false,
@@ -1675,6 +1906,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
         },
         {
           code: 'SURRENDER',
+          active: true,
           label: 'SURRENDER',
           commentRequired: false,
           dateRequired: false,
@@ -1682,6 +1914,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
         },
         {
           code: 'OTHER',
+          active: true,
           label: 'OTHER',
           commentRequired: true,
           dateRequired: false,
@@ -1691,12 +1924,14 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
     },
     '45030': {
       id: '45030',
+      active: true,
       code: 'WHICH SERIOUS INJURIES WERE SUSTAINED',
       label: 'WHICH SERIOUS INJURIES WERE SUSTAINED',
       multipleAnswers: true,
       answers: [
         {
           code: 'FRACTURE',
+          active: true,
           label: 'FRACTURE',
           commentRequired: false,
           dateRequired: false,
@@ -1704,6 +1939,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
         },
         {
           code: 'SCALD OR BURN',
+          active: true,
           label: 'SCALD OR BURN',
           commentRequired: false,
           dateRequired: false,
@@ -1711,6 +1947,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
         },
         {
           code: 'STABBING',
+          active: true,
           label: 'STABBING',
           commentRequired: false,
           dateRequired: false,
@@ -1718,6 +1955,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
         },
         {
           code: 'CRUSHING',
+          active: true,
           label: 'CRUSHING',
           commentRequired: false,
           dateRequired: false,
@@ -1725,6 +1963,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
         },
         {
           code: 'EXTENSIVE/MULTIPLE BRUISING',
+          active: true,
           label: 'EXTENSIVE/MULTIPLE BRUISING',
           commentRequired: false,
           dateRequired: false,
@@ -1732,6 +1971,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
         },
         {
           code: 'BLACK EYE',
+          active: true,
           label: 'BLACK EYE',
           commentRequired: false,
           dateRequired: false,
@@ -1739,6 +1979,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
         },
         {
           code: 'BROKEN NOSE',
+          active: true,
           label: 'BROKEN NOSE',
           commentRequired: false,
           dateRequired: false,
@@ -1746,6 +1987,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
         },
         {
           code: 'BROKEN TEETH',
+          active: true,
           label: 'BROKEN TEETH',
           commentRequired: false,
           dateRequired: false,
@@ -1753,6 +1995,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
         },
         {
           code: 'CUTS REQUIRING SUTURES',
+          active: true,
           label: 'CUTS REQUIRING SUTURES',
           commentRequired: false,
           dateRequired: false,
@@ -1760,6 +2003,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
         },
         {
           code: 'BITES',
+          active: true,
           label: 'BITES',
           commentRequired: false,
           dateRequired: false,
@@ -1767,6 +2011,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
         },
         {
           code: 'GUN SHOT WOUND',
+          active: true,
           label: 'GUN SHOT WOUND',
           commentRequired: false,
           dateRequired: false,
@@ -1774,6 +2019,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
         },
         {
           code: 'TEMPORARY/PERMANENT BLINDNESS',
+          active: true,
           label: 'TEMPORARY/PERMANENT BLINDNESS',
           commentRequired: false,
           dateRequired: false,
@@ -1783,12 +2029,14 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
     },
     '45035': {
       id: '45035',
+      active: true,
       code: 'WHICH SERIOUS INJURIES WERE SUSTAINED',
       label: 'WHICH SERIOUS INJURIES WERE SUSTAINED',
       multipleAnswers: true,
       answers: [
         {
           code: 'FRACTURE',
+          active: true,
           label: 'FRACTURE',
           commentRequired: false,
           dateRequired: false,
@@ -1796,6 +2044,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
         },
         {
           code: 'SCALD OR BURN',
+          active: true,
           label: 'SCALD OR BURN',
           commentRequired: false,
           dateRequired: false,
@@ -1803,6 +2052,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
         },
         {
           code: 'STABBING',
+          active: true,
           label: 'STABBING',
           commentRequired: false,
           dateRequired: false,
@@ -1810,6 +2060,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
         },
         {
           code: 'CRUSHING',
+          active: true,
           label: 'CRUSHING',
           commentRequired: false,
           dateRequired: false,
@@ -1817,6 +2068,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
         },
         {
           code: 'EXTENSIVE/MULTIPLE BRUISING',
+          active: true,
           label: 'EXTENSIVE/MULTIPLE BRUISING',
           commentRequired: false,
           dateRequired: false,
@@ -1824,6 +2076,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
         },
         {
           code: 'BLACK EYE',
+          active: true,
           label: 'BLACK EYE',
           commentRequired: false,
           dateRequired: false,
@@ -1831,6 +2084,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
         },
         {
           code: 'BROKEN NOSE',
+          active: true,
           label: 'BROKEN NOSE',
           commentRequired: false,
           dateRequired: false,
@@ -1838,6 +2092,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
         },
         {
           code: 'BROKEN TEETH',
+          active: true,
           label: 'BROKEN TEETH',
           commentRequired: false,
           dateRequired: false,
@@ -1845,6 +2100,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
         },
         {
           code: 'CUTS REQUIRING SUTURES',
+          active: true,
           label: 'CUTS REQUIRING SUTURES',
           commentRequired: false,
           dateRequired: false,
@@ -1852,6 +2108,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
         },
         {
           code: 'BITES',
+          active: true,
           label: 'BITES',
           commentRequired: false,
           dateRequired: false,
@@ -1859,6 +2116,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
         },
         {
           code: 'GUN SHOT WOUND',
+          active: true,
           label: 'GUN SHOT WOUND',
           commentRequired: false,
           dateRequired: false,
@@ -1866,6 +2124,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
         },
         {
           code: 'TEMPORARY/PERMANENT BLINDNESS',
+          active: true,
           label: 'TEMPORARY/PERMANENT BLINDNESS',
           commentRequired: false,
           dateRequired: false,
@@ -1875,12 +2134,14 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
     },
     '45066': {
       id: '45066',
+      active: true,
       code: 'IS ANY MEMBER OF STAFF FACING DISCIPLINARY CHARGES',
       label: 'IS ANY MEMBER OF STAFF FACING DISCIPLINARY CHARGES',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: true,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -1888,6 +2149,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: true,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -1897,12 +2159,14 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
     },
     '45068': {
       id: '45068',
+      active: true,
       code: 'WAS THE KNIFE OR BLADE USED PURPOSE MADE OR IMPROVISED',
       label: 'WAS THE KNIFE OR BLADE USED PURPOSE MADE OR IMPROVISED',
       multipleAnswers: false,
       answers: [
         {
           code: 'PURPOSE MADE',
+          active: true,
           label: 'PURPOSE MADE',
           commentRequired: false,
           dateRequired: false,
@@ -1910,6 +2174,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
         },
         {
           code: 'IMPROVISED',
+          active: true,
           label: 'IMPROVISED',
           commentRequired: false,
           dateRequired: false,
@@ -1917,6 +2182,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
         },
         {
           code: 'NOT KNOWN',
+          active: true,
           label: 'NOT KNOWN',
           commentRequired: false,
           dateRequired: false,
@@ -1926,12 +2192,14 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
     },
     '45070': {
       id: '45070',
+      active: true,
       code: 'NUMBER OF STAFF INJURED',
       label: 'NUMBER OF STAFF INJURED',
       multipleAnswers: false,
       answers: [
         {
           code: 'MALE',
+          active: true,
           label: 'MALE',
           commentRequired: true,
           dateRequired: false,
@@ -1939,6 +2207,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
         },
         {
           code: 'FEMALE',
+          active: true,
           label: 'FEMALE',
           commentRequired: true,
           dateRequired: false,
@@ -1948,12 +2217,14 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
     },
     '45080': {
       id: '45080',
+      active: true,
       code: 'WHAT WAS THE SOURCE OF THE KNIFE OR BLADE',
       label: 'WHAT WAS THE SOURCE OF THE KNIFE OR BLADE',
       multipleAnswers: false,
       answers: [
         {
           code: 'SECRETED ON THE PRISONER',
+          active: true,
           label: 'SECRETED ON THE PRISONER',
           commentRequired: false,
           dateRequired: false,
@@ -1961,6 +2232,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
         },
         {
           code: 'FOUND IN VEHICLE/AREA',
+          active: true,
           label: 'FOUND IN VEHICLE/AREA',
           commentRequired: false,
           dateRequired: false,
@@ -1968,6 +2240,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
         },
         {
           code: 'BROUGHT BY ACCOMPLICE',
+          active: true,
           label: 'BROUGHT BY ACCOMPLICE',
           commentRequired: false,
           dateRequired: false,
@@ -1975,6 +2248,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
         },
         {
           code: 'NOT KNOWN',
+          active: true,
           label: 'NOT KNOWN',
           commentRequired: false,
           dateRequired: false,
@@ -1984,12 +2258,14 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
     },
     '45089': {
       id: '45089',
+      active: true,
       code: 'HAS THE PRISON SERVICE PRESS OFFICE BEEN INFORMED',
       label: 'HAS THE PRISON SERVICE PRESS OFFICE BEEN INFORMED',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: true,
           label: 'YES',
           commentRequired: false,
           dateRequired: true,
@@ -1997,6 +2273,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: true,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -2006,12 +2283,14 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
     },
     '45104': {
       id: '45104',
+      active: true,
       code: 'WHAT WAS THE SOURCE OF THE FIREARM',
       label: 'WHAT WAS THE SOURCE OF THE FIREARM',
       multipleAnswers: false,
       answers: [
         {
           code: 'SECRETED ON THE PRISONER',
+          active: true,
           label: 'SECRETED ON THE PRISONER',
           commentRequired: false,
           dateRequired: false,
@@ -2019,6 +2298,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
         },
         {
           code: 'FOUND IN VEHICLE/AREA',
+          active: true,
           label: 'FOUND IN VEHICLE/AREA',
           commentRequired: false,
           dateRequired: false,
@@ -2026,6 +2306,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
         },
         {
           code: 'BROUGHT BY ACCOMPLICE',
+          active: true,
           label: 'BROUGHT BY ACCOMPLICE',
           commentRequired: false,
           dateRequired: false,
@@ -2033,6 +2314,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
         },
         {
           code: 'NOT KNOWN',
+          active: true,
           label: 'NOT KNOWN',
           commentRequired: false,
           dateRequired: false,
@@ -2042,12 +2324,14 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
     },
     '45110': {
       id: '45110',
+      active: true,
       code: 'WHO WAS RESPONSIBLE FOR THE ESCORT',
       label: 'WHO WAS RESPONSIBLE FOR THE ESCORT',
       multipleAnswers: false,
       answers: [
         {
           code: 'PUBLIC SECTOR',
+          active: true,
           label: 'PUBLIC SECTOR',
           commentRequired: false,
           dateRequired: false,
@@ -2055,6 +2339,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
         },
         {
           code: 'PRIVATE SECTOR',
+          active: true,
           label: 'PRIVATE SECTOR',
           commentRequired: false,
           dateRequired: false,
@@ -2064,12 +2349,14 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
     },
     '45112': {
       id: '45112',
+      active: true,
       code: 'WHERE DID THE ESCAPE TAKE PLACE',
       label: 'WHERE DID THE ESCAPE TAKE PLACE',
       multipleAnswers: false,
       answers: [
         {
           code: 'VEHICLE EN ROUTE TO VENUE',
+          active: true,
           label: 'VEHICLE EN ROUTE TO VENUE',
           commentRequired: false,
           dateRequired: false,
@@ -2077,6 +2364,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
         },
         {
           code: 'VEHICLE EN ROUTE FROM VENUE',
+          active: true,
           label: 'VEHICLE EN ROUTE FROM VENUE',
           commentRequired: false,
           dateRequired: false,
@@ -2084,6 +2372,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
         },
         {
           code: 'LEAVING VEHICLE (DEBUSSING)',
+          active: true,
           label: 'LEAVING VEHICLE (DEBUSSING)',
           commentRequired: false,
           dateRequired: false,
@@ -2091,6 +2380,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
         },
         {
           code: 'ENTERING VEHICLE (EMBUSSING)',
+          active: true,
           label: 'ENTERING VEHICLE (EMBUSSING)',
           commentRequired: false,
           dateRequired: false,
@@ -2098,6 +2388,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
         },
         {
           code: 'UNSCHEDULED STOP',
+          active: true,
           label: 'UNSCHEDULED STOP',
           commentRequired: false,
           dateRequired: false,
@@ -2105,6 +2396,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
         },
         {
           code: 'CELL AT COURT',
+          active: true,
           label: 'CELL AT COURT',
           commentRequired: false,
           dateRequired: false,
@@ -2112,6 +2404,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
         },
         {
           code: 'COURT CELLS AREA',
+          active: true,
           label: 'COURT CELLS AREA',
           commentRequired: false,
           dateRequired: false,
@@ -2119,6 +2412,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
         },
         {
           code: 'COURT VISITS AREA',
+          active: true,
           label: 'COURT VISITS AREA',
           commentRequired: false,
           dateRequired: false,
@@ -2126,6 +2420,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
         },
         {
           code: 'COURT DOCK',
+          active: true,
           label: 'COURT DOCK',
           commentRequired: false,
           dateRequired: false,
@@ -2133,6 +2428,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
         },
         {
           code: 'HOSPITAL WARD/ROOM',
+          active: true,
           label: 'HOSPITAL WARD/ROOM',
           commentRequired: false,
           dateRequired: false,
@@ -2140,6 +2436,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
         },
         {
           code: 'HOSPITAL TREATMENT ROOM',
+          active: true,
           label: 'HOSPITAL TREATMENT ROOM',
           commentRequired: false,
           dateRequired: false,
@@ -2147,6 +2444,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
         },
         {
           code: 'HOSPITAL WAITING AREA',
+          active: true,
           label: 'HOSPITAL WAITING AREA',
           commentRequired: false,
           dateRequired: false,
@@ -2154,6 +2452,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
         },
         {
           code: 'OTHER',
+          active: true,
           label: 'OTHER',
           commentRequired: true,
           dateRequired: false,
@@ -2163,12 +2462,14 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
     },
     '45118': {
       id: '45118',
+      active: true,
       code: 'WAS A SERIOUS INJURY SUSTAINED BY A PRISONER',
       label: 'WAS A SERIOUS INJURY SUSTAINED BY A PRISONER',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: true,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -2176,6 +2477,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: true,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -2185,12 +2487,14 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
     },
     '45136': {
       id: '45136',
+      active: true,
       code: 'WAS A FIREARM USED DURING THE ESCAPE',
       label: 'WAS A FIREARM USED DURING THE ESCAPE',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: true,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -2198,6 +2502,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: true,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -2207,12 +2512,14 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
     },
     '45145': {
       id: '45145',
+      active: true,
       code: 'HAS ANY PROSECUTION TAKEN PLACE OR IS ANY PENDING',
       label: 'HAS ANY PROSECUTION TAKEN PLACE OR IS ANY PENDING',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: true,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -2220,6 +2527,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: true,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -2229,12 +2537,14 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
     },
     '45149': {
       id: '45149',
+      active: true,
       code: 'WAS DOUBLE CUFFING EMPLOYED',
       label: 'WAS DOUBLE CUFFING EMPLOYED',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: true,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -2242,6 +2552,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: true,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -2251,12 +2562,14 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
     },
     '45151': {
       id: '45151',
+      active: true,
       code: 'WERE ANY INJURIES SUSTAINED BY STAFF',
       label: 'WERE ANY INJURIES SUSTAINED BY STAFF',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: true,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -2264,6 +2577,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: true,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -2273,12 +2587,14 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
     },
     '45154': {
       id: '45154',
+      active: true,
       code: 'WHICH MINOR INJURIES WERE SUSTAINED',
       label: 'WHICH MINOR INJURIES WERE SUSTAINED',
       multipleAnswers: true,
       answers: [
         {
           code: 'GRAZES, SCRATCHES OR ABRASIONS',
+          active: true,
           label: 'GRAZES, SCRATCHES OR ABRASIONS',
           commentRequired: false,
           dateRequired: false,
@@ -2286,6 +2602,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
         },
         {
           code: 'MINOR BRUISES',
+          active: true,
           label: 'MINOR BRUISES',
           commentRequired: false,
           dateRequired: false,
@@ -2293,6 +2610,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
         },
         {
           code: 'SWELLINGS',
+          active: true,
           label: 'SWELLINGS',
           commentRequired: false,
           dateRequired: false,
@@ -2300,6 +2618,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
         },
         {
           code: 'SUPERFICIAL CUTS',
+          active: true,
           label: 'SUPERFICIAL CUTS',
           commentRequired: false,
           dateRequired: false,
@@ -2307,6 +2626,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
         },
         {
           code: 'OTHER',
+          active: true,
           label: 'OTHER',
           commentRequired: true,
           dateRequired: false,
@@ -2316,12 +2636,14 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
     },
     '45156': {
       id: '45156',
+      active: true,
       code: 'WAS THE PRISONER WHO ESCAPED ON THE ESCAPE LIST',
       label: 'WAS THE PRISONER WHO ESCAPED ON THE ESCAPE LIST',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: true,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -2329,6 +2651,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: true,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -2338,12 +2661,14 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
     },
     '45157': {
       id: '45157',
+      active: true,
       code: 'WAS A SERIOUS INJURY SUSTAINED BY STAFF',
       label: 'WAS A SERIOUS INJURY SUSTAINED BY STAFF',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: true,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -2351,6 +2676,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: true,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,

@@ -1,4 +1,4 @@
-// Generated with ./scripts/updateNomisIncidentTypeConfigurations.ts at 2024-09-16T15:42:03.934Z
+// Generated with ./scripts/updateNomisIncidentTypeConfigurations.ts at 2024-09-20T16:52:24.246Z
 
 import { type IncidentTypeConfiguration } from '../../data/incidentTypeConfiguration/types'
 
@@ -9,12 +9,14 @@ const DRONE_SIGHTING: IncidentTypeConfiguration = {
   questions: {
     '69179': {
       id: '69179',
+      active: true,
       code: 'WAS A DRONE SIGHTED IN MID-FLIGHT?',
       label: 'WAS A DRONE SIGHTED IN MID-FLIGHT?',
       multipleAnswers: false,
       answers: [
         {
           code: 'NO',
+          active: true,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -22,6 +24,7 @@ const DRONE_SIGHTING: IncidentTypeConfiguration = {
         },
         {
           code: 'YES',
+          active: true,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -31,12 +34,14 @@ const DRONE_SIGHTING: IncidentTypeConfiguration = {
     },
     '69180': {
       id: '69180',
+      active: true,
       code: 'NUMBER OF DRONES SIGHTED',
       label: 'NUMBER OF DRONES SIGHTED',
       multipleAnswers: false,
       answers: [
         {
           code: 'Please Specify',
+          active: true,
           label: 'Please Specify',
           commentRequired: true,
           dateRequired: false,
@@ -46,12 +51,14 @@ const DRONE_SIGHTING: IncidentTypeConfiguration = {
     },
     '69181': {
       id: '69181',
+      active: true,
       code: 'WHERE WERE THE DRONE(S) SIGHTED',
       label: 'WHERE WERE THE DRONE(S) SIGHTED',
       multipleAnswers: false,
       answers: [
         {
           code: 'Please Specify location of each Drone',
+          active: true,
           label: 'Please Specify location of each Drone',
           commentRequired: true,
           dateRequired: false,
@@ -61,12 +68,14 @@ const DRONE_SIGHTING: IncidentTypeConfiguration = {
     },
     '69182': {
       id: '69182',
+      active: true,
       code: 'FOR DRONE(S) SIGHTED BEYOND THE PERIMETER HOW CLOSE TO THE WALL',
       label: 'FOR DRONE(S) SIGHTED BEYOND THE PERIMETER HOW CLOSE TO THE WALL',
       multipleAnswers: false,
       answers: [
         {
           code: 'Please Specify',
+          active: true,
           label: 'Please Specify',
           commentRequired: true,
           dateRequired: false,
@@ -76,12 +85,14 @@ const DRONE_SIGHTING: IncidentTypeConfiguration = {
     },
     '69183': {
       id: '69183',
+      active: true,
       code: 'WHAT WERE THE WEATHER CONDITIONS AT THE TIME OF THE SIGHTING',
       label: 'WHAT WERE THE WEATHER CONDITIONS AT THE TIME OF THE SIGHTING',
       multipleAnswers: false,
       answers: [
         {
           code: 'Please Specify',
+          active: true,
           label: 'Please Specify',
           commentRequired: true,
           dateRequired: false,
@@ -91,12 +102,14 @@ const DRONE_SIGHTING: IncidentTypeConfiguration = {
     },
     '69184': {
       id: '69184',
+      active: true,
       code: 'WAS THE DRONE(S) RECOVERED',
       label: 'WAS THE DRONE(S) RECOVERED',
       multipleAnswers: false,
       answers: [
         {
           code: 'NO',
+          active: true,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -104,6 +117,7 @@ const DRONE_SIGHTING: IncidentTypeConfiguration = {
         },
         {
           code: 'YES - PLEASE ADDITIONALLY LOG A SEPRATE FIND INCIDENT',
+          active: true,
           label: 'YES - PLEASE ADDITIONALLY LOG A SEPRATE FIND INCIDENT',
           commentRequired: false,
           dateRequired: false,
@@ -113,12 +127,14 @@ const DRONE_SIGHTING: IncidentTypeConfiguration = {
     },
     '69185': {
       id: '69185',
+      active: false,
       code: 'WHAT WAS THE DRONE(S) TYPE/AIRFRAME SHAPE',
       label: 'WHAT WAS THE DRONE(S) TYPE/AIRFRAME SHAPE',
       multipleAnswers: false,
       answers: [
         {
           code: 'Junk',
+          active: true,
           label: 'Junk',
           commentRequired: false,
           dateRequired: false,
@@ -128,12 +144,14 @@ const DRONE_SIGHTING: IncidentTypeConfiguration = {
     },
     '69186': {
       id: '69186',
+      active: false,
       code: 'WHAT WAS THE DRONE(S) MAKE/MODEL',
       label: 'WHAT WAS THE DRONE(S) MAKE/MODEL',
       multipleAnswers: false,
       answers: [
         {
           code: 'Junk',
+          active: true,
           label: 'Junk',
           commentRequired: false,
           dateRequired: false,
@@ -143,12 +161,14 @@ const DRONE_SIGHTING: IncidentTypeConfiguration = {
     },
     '69187': {
       id: '69187',
+      active: false,
       code: 'WHAT WAS THE APPROXIMATE SIZE OF THE DRONE(S)',
       label: 'WHAT WAS THE APPROXIMATE SIZE OF THE DRONE(S)',
       multipleAnswers: false,
       answers: [
         {
           code: 'Junk',
+          active: false,
           label: 'Junk',
           commentRequired: false,
           dateRequired: false,
@@ -158,12 +178,14 @@ const DRONE_SIGHTING: IncidentTypeConfiguration = {
     },
     '69188': {
       id: '69188',
+      active: false,
       code: 'WHAT MODIFICATIONS WERE MADE TO THE DRONE(S)',
       label: 'WHAT MODIFICATIONS WERE MADE TO THE DRONE(S)',
       multipleAnswers: false,
       answers: [
         {
           code: 'junk',
+          active: true,
           label: 'junk',
           commentRequired: false,
           dateRequired: false,
@@ -173,12 +195,14 @@ const DRONE_SIGHTING: IncidentTypeConfiguration = {
     },
     '69189': {
       id: '69189',
+      active: false,
       code: 'HOW WAS THE DRONE(S) RECOVERED',
       label: 'HOW WAS THE DRONE(S) RECOVERED',
       multipleAnswers: false,
       answers: [
         {
           code: 'junk',
+          active: true,
           label: 'junk',
           commentRequired: false,
           dateRequired: false,
@@ -188,12 +212,14 @@ const DRONE_SIGHTING: IncidentTypeConfiguration = {
     },
     '69190': {
       id: '69190',
+      active: true,
       code: 'WHAT WAS THE DRONE(S) TYPE/AIRFRAME SHAPE',
       label: 'WHAT WAS THE DRONE(S) TYPE/AIRFRAME SHAPE',
       multipleAnswers: true,
       answers: [
         {
           code: 'FIXED WING / PLANE',
+          active: true,
           label: 'FIXED WING / PLANE',
           commentRequired: false,
           dateRequired: false,
@@ -201,6 +227,7 @@ const DRONE_SIGHTING: IncidentTypeConfiguration = {
         },
         {
           code: 'MULTI-COPTER 4 MOTORS',
+          active: true,
           label: 'MULTI-COPTER 4 MOTORS',
           commentRequired: false,
           dateRequired: false,
@@ -208,6 +235,7 @@ const DRONE_SIGHTING: IncidentTypeConfiguration = {
         },
         {
           code: 'MULTI-COPTER 6 MOTORS',
+          active: true,
           label: 'MULTI-COPTER 6 MOTORS',
           commentRequired: false,
           dateRequired: false,
@@ -215,6 +243,7 @@ const DRONE_SIGHTING: IncidentTypeConfiguration = {
         },
         {
           code: 'UNKNOWN',
+          active: true,
           label: 'UNKNOWN',
           commentRequired: false,
           dateRequired: false,
@@ -222,6 +251,7 @@ const DRONE_SIGHTING: IncidentTypeConfiguration = {
         },
         {
           code: 'OTHER (PLEASE SPECIFY)',
+          active: true,
           label: 'OTHER (PLEASE SPECIFY)',
           commentRequired: true,
           dateRequired: false,
@@ -231,12 +261,14 @@ const DRONE_SIGHTING: IncidentTypeConfiguration = {
     },
     '69191': {
       id: '69191',
+      active: true,
       code: 'WHAT WAS THE DRONE(S) MAKE/MODEL',
       label: 'WHAT WAS THE DRONE(S) MAKE/MODEL',
       multipleAnswers: true,
       answers: [
         {
           code: 'Da-Jiang Innovations (DJI) - PHANTHOM',
+          active: true,
           label: 'Da-Jiang Innovations (DJI) - PHANTHOM',
           commentRequired: false,
           dateRequired: false,
@@ -244,6 +276,7 @@ const DRONE_SIGHTING: IncidentTypeConfiguration = {
         },
         {
           code: 'Da-Jiang Innovations (DJI) - INSPIRE',
+          active: true,
           label: 'Da-Jiang Innovations (DJI) - INSPIRE',
           commentRequired: false,
           dateRequired: false,
@@ -251,6 +284,7 @@ const DRONE_SIGHTING: IncidentTypeConfiguration = {
         },
         {
           code: 'Da-Jiang Innovations (DJI) - MAVIC',
+          active: true,
           label: 'Da-Jiang Innovations (DJI) - MAVIC',
           commentRequired: false,
           dateRequired: false,
@@ -258,6 +292,7 @@ const DRONE_SIGHTING: IncidentTypeConfiguration = {
         },
         {
           code: 'Da-Jiang Innovations (DJI) - MINI',
+          active: true,
           label: 'Da-Jiang Innovations (DJI) - MINI',
           commentRequired: false,
           dateRequired: false,
@@ -265,6 +300,7 @@ const DRONE_SIGHTING: IncidentTypeConfiguration = {
         },
         {
           code: 'AUTEL EVO',
+          active: true,
           label: 'AUTEL EVO',
           commentRequired: false,
           dateRequired: false,
@@ -272,6 +308,7 @@ const DRONE_SIGHTING: IncidentTypeConfiguration = {
         },
         {
           code: 'PARROTT',
+          active: true,
           label: 'PARROTT',
           commentRequired: false,
           dateRequired: false,
@@ -279,6 +316,7 @@ const DRONE_SIGHTING: IncidentTypeConfiguration = {
         },
         {
           code: 'SWELLPRO',
+          active: true,
           label: 'SWELLPRO',
           commentRequired: false,
           dateRequired: false,
@@ -286,6 +324,7 @@ const DRONE_SIGHTING: IncidentTypeConfiguration = {
         },
         {
           code: 'YUNEEC',
+          active: true,
           label: 'YUNEEC',
           commentRequired: false,
           dateRequired: false,
@@ -293,6 +332,7 @@ const DRONE_SIGHTING: IncidentTypeConfiguration = {
         },
         {
           code: 'UNKNOWN',
+          active: true,
           label: 'UNKNOWN',
           commentRequired: false,
           dateRequired: false,
@@ -300,6 +340,7 @@ const DRONE_SIGHTING: IncidentTypeConfiguration = {
         },
         {
           code: 'OTHER (PLEASE SPECIFY)',
+          active: true,
           label: 'OTHER (PLEASE SPECIFY)',
           commentRequired: true,
           dateRequired: false,
@@ -309,12 +350,14 @@ const DRONE_SIGHTING: IncidentTypeConfiguration = {
     },
     '69192': {
       id: '69192',
+      active: true,
       code: 'WHAT WAS THE APPROXIMATE SIZE OF THE DRONE(S)',
       label: 'WHAT WAS THE APPROXIMATE SIZE OF THE DRONE(S)',
       multipleAnswers: true,
       answers: [
         {
           code: '0 TO LESS THAN 0.5M',
+          active: true,
           label: '0 TO LESS THAN 0.5M',
           commentRequired: false,
           dateRequired: false,
@@ -322,6 +365,7 @@ const DRONE_SIGHTING: IncidentTypeConfiguration = {
         },
         {
           code: '0.5M TO LESS THAN 1.0M',
+          active: true,
           label: '0.5M TO LESS THAN 1.0M',
           commentRequired: false,
           dateRequired: false,
@@ -329,6 +373,7 @@ const DRONE_SIGHTING: IncidentTypeConfiguration = {
         },
         {
           code: '1.0M TO LESS THAN 2.0M',
+          active: true,
           label: '1.0M TO LESS THAN 2.0M',
           commentRequired: false,
           dateRequired: false,
@@ -336,6 +381,7 @@ const DRONE_SIGHTING: IncidentTypeConfiguration = {
         },
         {
           code: '2.0M TO LESS THAN 3.0M',
+          active: true,
           label: '2.0M TO LESS THAN 3.0M',
           commentRequired: false,
           dateRequired: false,
@@ -343,6 +389,7 @@ const DRONE_SIGHTING: IncidentTypeConfiguration = {
         },
         {
           code: '3.0M OR LONGER',
+          active: true,
           label: '3.0M OR LONGER',
           commentRequired: false,
           dateRequired: false,
@@ -350,6 +397,7 @@ const DRONE_SIGHTING: IncidentTypeConfiguration = {
         },
         {
           code: 'UNKNOWN',
+          active: true,
           label: 'UNKNOWN',
           commentRequired: false,
           dateRequired: false,
@@ -359,12 +407,14 @@ const DRONE_SIGHTING: IncidentTypeConfiguration = {
     },
     '69193': {
       id: '69193',
+      active: true,
       code: 'WHAT MODIFICATIONS WERE MADE TO THE DRONE(S)',
       label: 'WHAT MODIFICATIONS WERE MADE TO THE DRONE(S)',
       multipleAnswers: true,
       answers: [
         {
           code: 'ADDED HOOK',
+          active: true,
           label: 'ADDED HOOK',
           commentRequired: false,
           dateRequired: false,
@@ -372,6 +422,7 @@ const DRONE_SIGHTING: IncidentTypeConfiguration = {
         },
         {
           code: 'COVERED LIGHTS',
+          active: true,
           label: 'COVERED LIGHTS',
           commentRequired: false,
           dateRequired: false,
@@ -379,6 +430,7 @@ const DRONE_SIGHTING: IncidentTypeConfiguration = {
         },
         {
           code: 'DROP MECHANISM FITTED',
+          active: true,
           label: 'DROP MECHANISM FITTED',
           commentRequired: false,
           dateRequired: false,
@@ -386,6 +438,7 @@ const DRONE_SIGHTING: IncidentTypeConfiguration = {
         },
         {
           code: 'NONE',
+          active: true,
           label: 'NONE',
           commentRequired: false,
           dateRequired: false,
@@ -393,6 +446,7 @@ const DRONE_SIGHTING: IncidentTypeConfiguration = {
         },
         {
           code: 'PAINTED BLACK',
+          active: true,
           label: 'PAINTED BLACK',
           commentRequired: false,
           dateRequired: false,
@@ -400,6 +454,7 @@ const DRONE_SIGHTING: IncidentTypeConfiguration = {
         },
         {
           code: 'TETHER ATTACHED',
+          active: true,
           label: 'TETHER ATTACHED',
           commentRequired: false,
           dateRequired: false,
@@ -407,6 +462,7 @@ const DRONE_SIGHTING: IncidentTypeConfiguration = {
         },
         {
           code: 'OTHER (PLEASE SPECIFY)',
+          active: true,
           label: 'OTHER (PLEASE SPECIFY)',
           commentRequired: true,
           dateRequired: false,
@@ -416,12 +472,14 @@ const DRONE_SIGHTING: IncidentTypeConfiguration = {
     },
     '69194': {
       id: '69194',
+      active: true,
       code: 'HOW WAS THE DRONE(S) RECOVERED',
       label: 'HOW WAS THE DRONE(S) RECOVERED',
       multipleAnswers: true,
       answers: [
         {
           code: 'CRASHED',
+          active: true,
           label: 'CRASHED',
           commentRequired: false,
           dateRequired: false,
@@ -429,6 +487,7 @@ const DRONE_SIGHTING: IncidentTypeConfiguration = {
         },
         {
           code: 'INTERCEPTED',
+          active: true,
           label: 'INTERCEPTED',
           commentRequired: false,
           dateRequired: false,
@@ -436,6 +495,7 @@ const DRONE_SIGHTING: IncidentTypeConfiguration = {
         },
         {
           code: 'NOT RECOVERED',
+          active: true,
           label: 'NOT RECOVERED',
           commentRequired: false,
           dateRequired: false,
@@ -445,12 +505,14 @@ const DRONE_SIGHTING: IncidentTypeConfiguration = {
     },
     '69195': {
       id: '69195',
+      active: true,
       code: 'DID THE DRONE(S) CARRY ANY PACKAGES',
       label: 'DID THE DRONE(S) CARRY ANY PACKAGES',
       multipleAnswers: false,
       answers: [
         {
           code: 'NO PACKAGE OBSERVED/RECOVERED',
+          active: true,
           label: 'NO PACKAGE OBSERVED/RECOVERED',
           commentRequired: false,
           dateRequired: false,
@@ -458,6 +520,7 @@ const DRONE_SIGHTING: IncidentTypeConfiguration = {
         },
         {
           code: 'YES - UNKNOWN',
+          active: true,
           label: 'YES - UNKNOWN',
           commentRequired: false,
           dateRequired: false,
@@ -465,6 +528,7 @@ const DRONE_SIGHTING: IncidentTypeConfiguration = {
         },
         {
           code: 'YES 0 TO 100G (MORE OPTIONS BELOW)',
+          active: true,
           label: 'YES 0 TO 100G (MORE OPTIONS BELOW)',
           commentRequired: false,
           dateRequired: false,
@@ -472,6 +536,7 @@ const DRONE_SIGHTING: IncidentTypeConfiguration = {
         },
         {
           code: 'YES 101G TO 200G',
+          active: true,
           label: 'YES 101G TO 200G',
           commentRequired: false,
           dateRequired: false,
@@ -479,6 +544,7 @@ const DRONE_SIGHTING: IncidentTypeConfiguration = {
         },
         {
           code: 'YES 201G TO 300G',
+          active: true,
           label: 'YES 201G TO 300G',
           commentRequired: false,
           dateRequired: false,
@@ -486,6 +552,7 @@ const DRONE_SIGHTING: IncidentTypeConfiguration = {
         },
         {
           code: 'YES 301G TO 400G',
+          active: true,
           label: 'YES 301G TO 400G',
           commentRequired: false,
           dateRequired: false,
@@ -493,6 +560,7 @@ const DRONE_SIGHTING: IncidentTypeConfiguration = {
         },
         {
           code: 'YES 401G TO 500G',
+          active: true,
           label: 'YES 401G TO 500G',
           commentRequired: false,
           dateRequired: false,
@@ -500,6 +568,7 @@ const DRONE_SIGHTING: IncidentTypeConfiguration = {
         },
         {
           code: 'YES 501G TO 1000G',
+          active: true,
           label: 'YES 501G TO 1000G',
           commentRequired: false,
           dateRequired: false,
@@ -507,6 +576,7 @@ const DRONE_SIGHTING: IncidentTypeConfiguration = {
         },
         {
           code: 'YES MORE THAN 1001G',
+          active: true,
           label: 'YES MORE THAN 1001G',
           commentRequired: false,
           dateRequired: false,
@@ -516,12 +586,14 @@ const DRONE_SIGHTING: IncidentTypeConfiguration = {
     },
     '69196': {
       id: '69196',
+      active: true,
       code: 'WERE ANY PHOTOS OR CCTV TAKEN OF THE DRONE(S) OR PAYLOAD',
       label: 'WERE ANY PHOTOS OR CCTV TAKEN OF THE DRONE(S) OR PAYLOAD',
       multipleAnswers: false,
       answers: [
         {
           code: 'NO',
+          active: true,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -529,6 +601,7 @@ const DRONE_SIGHTING: IncidentTypeConfiguration = {
         },
         {
           code: 'YES',
+          active: true,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -538,12 +611,14 @@ const DRONE_SIGHTING: IncidentTypeConfiguration = {
     },
     '69197': {
       id: '69197',
+      active: true,
       code: 'WAS THE PILOT IDENTIFIED',
       label: 'WAS THE PILOT IDENTIFIED',
       multipleAnswers: false,
       answers: [
         {
           code: 'NO',
+          active: true,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -551,6 +626,7 @@ const DRONE_SIGHTING: IncidentTypeConfiguration = {
         },
         {
           code: 'YES',
+          active: true,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -560,12 +636,14 @@ const DRONE_SIGHTING: IncidentTypeConfiguration = {
     },
     '69198': {
       id: '69198',
+      active: true,
       code: 'WHAT WAS THE DISTANCE OF THE PILOT FROM THE PRISON PERIMETER',
       label: 'WHAT WAS THE DISTANCE OF THE PILOT FROM THE PRISON PERIMETER',
       multipleAnswers: false,
       answers: [
         {
           code: '0 TO LESS THAN 10 METRES',
+          active: true,
           label: '0 TO LESS THAN 10 METRES',
           commentRequired: false,
           dateRequired: false,
@@ -573,6 +651,7 @@ const DRONE_SIGHTING: IncidentTypeConfiguration = {
         },
         {
           code: '10 TO LESS THAN 100 METRES',
+          active: true,
           label: '10 TO LESS THAN 100 METRES',
           commentRequired: false,
           dateRequired: false,
@@ -580,6 +659,7 @@ const DRONE_SIGHTING: IncidentTypeConfiguration = {
         },
         {
           code: '100 TO LESS THAN 200 METRES',
+          active: true,
           label: '100 TO LESS THAN 200 METRES',
           commentRequired: false,
           dateRequired: false,
@@ -587,6 +667,7 @@ const DRONE_SIGHTING: IncidentTypeConfiguration = {
         },
         {
           code: '200 METRES OR MORE',
+          active: true,
           label: '200 METRES OR MORE',
           commentRequired: false,
           dateRequired: false,
@@ -594,6 +675,7 @@ const DRONE_SIGHTING: IncidentTypeConfiguration = {
         },
         {
           code: 'UNKNOWN',
+          active: true,
           label: 'UNKNOWN',
           commentRequired: false,
           dateRequired: false,
@@ -603,12 +685,14 @@ const DRONE_SIGHTING: IncidentTypeConfiguration = {
     },
     '69199': {
       id: '69199',
+      active: true,
       code: 'WERE THE POLICE CONTACTED',
       label: 'WERE THE POLICE CONTACTED',
       multipleAnswers: false,
       answers: [
         {
           code: 'NO',
+          active: true,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -616,6 +700,7 @@ const DRONE_SIGHTING: IncidentTypeConfiguration = {
         },
         {
           code: 'YES',
+          active: true,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -625,12 +710,14 @@ const DRONE_SIGHTING: IncidentTypeConfiguration = {
     },
     '69200': {
       id: '69200',
+      active: true,
       code: 'TO THE EXTENT OF YOUR KNOWLEDGE WAS THE PILOT APPRHENDED?',
       label: 'TO THE EXTENT OF YOUR KNOWLEDGE WAS THE PILOT APPRHENDED?',
       multipleAnswers: false,
       answers: [
         {
           code: 'NO',
+          active: true,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -638,6 +725,7 @@ const DRONE_SIGHTING: IncidentTypeConfiguration = {
         },
         {
           code: 'YES',
+          active: true,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,

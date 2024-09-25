@@ -1,4 +1,4 @@
-// Generated with ./scripts/updateNomisIncidentTypeConfigurations.ts at 2024-09-16T15:42:04.518Z
+// Generated with ./scripts/updateNomisIncidentTypeConfigurations.ts at 2024-09-20T16:52:24.938Z
 
 import { type IncidentTypeConfiguration } from '../../data/incidentTypeConfiguration/types'
 
@@ -9,12 +9,14 @@ const OLD_DRUGS: IncidentTypeConfiguration = {
   questions: {
     '44179': {
       id: '44179',
+      active: false,
       code: 'WAS A VISITOR SUSPECTED OF INVOLVEMENT AND ARRESTED BY THE POLICE',
       label: 'WAS A VISITOR SUSPECTED OF INVOLVEMENT AND ARRESTED BY THE POLICE',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: false,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -22,6 +24,7 @@ const OLD_DRUGS: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: false,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -31,12 +34,14 @@ const OLD_DRUGS: IncidentTypeConfiguration = {
     },
     '44204': {
       id: '44204',
+      active: false,
       code: 'IS ANY MEMBER OF STAFF FACING DISCIPLINARY CHARGES',
       label: 'IS ANY MEMBER OF STAFF FACING DISCIPLINARY CHARGES',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: false,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -44,6 +49,7 @@ const OLD_DRUGS: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: false,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -53,12 +59,14 @@ const OLD_DRUGS: IncidentTypeConfiguration = {
     },
     '44205': {
       id: '44205',
+      active: false,
       code: 'DESCRIBE THE DRUG FOUND',
       label: 'DESCRIBE THE DRUG FOUND',
       multipleAnswers: true,
       answers: [
         {
           code: 'HEROIN',
+          active: false,
           label: 'HEROIN',
           commentRequired: true,
           dateRequired: false,
@@ -66,6 +74,7 @@ const OLD_DRUGS: IncidentTypeConfiguration = {
         },
         {
           code: 'COCAINE',
+          active: false,
           label: 'COCAINE',
           commentRequired: true,
           dateRequired: false,
@@ -73,6 +82,7 @@ const OLD_DRUGS: IncidentTypeConfiguration = {
         },
         {
           code: 'LSD',
+          active: false,
           label: 'LSD',
           commentRequired: true,
           dateRequired: false,
@@ -80,6 +90,7 @@ const OLD_DRUGS: IncidentTypeConfiguration = {
         },
         {
           code: 'AMPHETAMINES',
+          active: false,
           label: 'AMPHETAMINES',
           commentRequired: true,
           dateRequired: false,
@@ -87,6 +98,7 @@ const OLD_DRUGS: IncidentTypeConfiguration = {
         },
         {
           code: 'BARBITURATES',
+          active: false,
           label: 'BARBITURATES',
           commentRequired: true,
           dateRequired: false,
@@ -94,6 +106,7 @@ const OLD_DRUGS: IncidentTypeConfiguration = {
         },
         {
           code: 'CANNABIS',
+          active: false,
           label: 'CANNABIS',
           commentRequired: true,
           dateRequired: false,
@@ -101,6 +114,7 @@ const OLD_DRUGS: IncidentTypeConfiguration = {
         },
         {
           code: 'CANNABIS PLANT',
+          active: false,
           label: 'CANNABIS PLANT',
           commentRequired: true,
           dateRequired: false,
@@ -108,6 +122,7 @@ const OLD_DRUGS: IncidentTypeConfiguration = {
         },
         {
           code: 'CRACK',
+          active: false,
           label: 'CRACK',
           commentRequired: true,
           dateRequired: false,
@@ -115,6 +130,7 @@ const OLD_DRUGS: IncidentTypeConfiguration = {
         },
         {
           code: 'TRANQUILISERS',
+          active: false,
           label: 'TRANQUILISERS',
           commentRequired: true,
           dateRequired: false,
@@ -122,6 +138,7 @@ const OLD_DRUGS: IncidentTypeConfiguration = {
         },
         {
           code: 'OTHER',
+          active: false,
           label: 'OTHER',
           commentRequired: true,
           dateRequired: false,
@@ -131,12 +148,14 @@ const OLD_DRUGS: IncidentTypeConfiguration = {
     },
     '44219': {
       id: '44219',
+      active: false,
       code: 'WAS HOSPITALISATION REQUIRED',
       label: 'WAS HOSPITALISATION REQUIRED',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: false,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -144,6 +163,7 @@ const OLD_DRUGS: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: false,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -153,12 +173,14 @@ const OLD_DRUGS: IncidentTypeConfiguration = {
     },
     '44224': {
       id: '44224',
+      active: false,
       code: 'DESCRIBE DRUG EQUIPMENT FOUND',
       label: 'DESCRIBE DRUG EQUIPMENT FOUND',
       multipleAnswers: true,
       answers: [
         {
           code: 'AUTHENTIC SYRINGE',
+          active: false,
           label: 'AUTHENTIC SYRINGE',
           commentRequired: false,
           dateRequired: false,
@@ -166,6 +188,7 @@ const OLD_DRUGS: IncidentTypeConfiguration = {
         },
         {
           code: 'IMPROVISED SYRINGE',
+          active: false,
           label: 'IMPROVISED SYRINGE',
           commentRequired: false,
           dateRequired: false,
@@ -173,6 +196,7 @@ const OLD_DRUGS: IncidentTypeConfiguration = {
         },
         {
           code: 'AUTHENTIC NEEDLE',
+          active: false,
           label: 'AUTHENTIC NEEDLE',
           commentRequired: false,
           dateRequired: false,
@@ -180,6 +204,7 @@ const OLD_DRUGS: IncidentTypeConfiguration = {
         },
         {
           code: 'IMPROVISED NEEDLE',
+          active: false,
           label: 'IMPROVISED NEEDLE',
           commentRequired: false,
           dateRequired: false,
@@ -187,6 +212,7 @@ const OLD_DRUGS: IncidentTypeConfiguration = {
         },
         {
           code: 'PIPE(S)',
+          active: false,
           label: 'PIPE(S)',
           commentRequired: false,
           dateRequired: false,
@@ -194,6 +220,7 @@ const OLD_DRUGS: IncidentTypeConfiguration = {
         },
         {
           code: 'ROACH',
+          active: false,
           label: 'ROACH',
           commentRequired: false,
           dateRequired: false,
@@ -201,6 +228,7 @@ const OLD_DRUGS: IncidentTypeConfiguration = {
         },
         {
           code: 'OTHER',
+          active: false,
           label: 'OTHER',
           commentRequired: false,
           dateRequired: false,
@@ -210,12 +238,14 @@ const OLD_DRUGS: IncidentTypeConfiguration = {
     },
     '44243': {
       id: '44243',
+      active: false,
       code: 'IS THE INCIDENT THE SUBJECT OF A POLICE INVESTIGATION',
       label: 'IS THE INCIDENT THE SUBJECT OF A POLICE INVESTIGATION',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: false,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -223,6 +253,7 @@ const OLD_DRUGS: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: false,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -232,12 +263,14 @@ const OLD_DRUGS: IncidentTypeConfiguration = {
     },
     '44316': {
       id: '44316',
+      active: false,
       code: 'IS THE LOCATION OF THE INCIDENT KNOWN',
       label: 'IS THE LOCATION OF THE INCIDENT KNOWN',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: false,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -245,6 +278,7 @@ const OLD_DRUGS: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: false,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -254,12 +288,14 @@ const OLD_DRUGS: IncidentTypeConfiguration = {
     },
     '44396': {
       id: '44396',
+      active: false,
       code: 'WAS A DRUG FOUND',
       label: 'WAS A DRUG FOUND',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: false,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -267,6 +303,7 @@ const OLD_DRUGS: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: false,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -276,12 +313,14 @@ const OLD_DRUGS: IncidentTypeConfiguration = {
     },
     '44408': {
       id: '44408',
+      active: false,
       code: 'DESCRIBE HOW THE DRUG OR EQUIPMENT WAS FOUND',
       label: 'DESCRIBE HOW THE DRUG OR EQUIPMENT WAS FOUND',
       multipleAnswers: true,
       answers: [
         {
           code: 'SPECIAL SEARCH',
+          active: false,
           label: 'SPECIAL SEARCH',
           commentRequired: false,
           dateRequired: false,
@@ -289,6 +328,7 @@ const OLD_DRUGS: IncidentTypeConfiguration = {
         },
         {
           code: 'STRIP SEARCH',
+          active: false,
           label: 'STRIP SEARCH',
           commentRequired: false,
           dateRequired: false,
@@ -296,6 +336,7 @@ const OLD_DRUGS: IncidentTypeConfiguration = {
         },
         {
           code: 'CELL SEARCH',
+          active: false,
           label: 'CELL SEARCH',
           commentRequired: false,
           dateRequired: false,
@@ -303,6 +344,7 @@ const OLD_DRUGS: IncidentTypeConfiguration = {
         },
         {
           code: 'DOG SEARCH',
+          active: false,
           label: 'DOG SEARCH',
           commentRequired: false,
           dateRequired: false,
@@ -310,6 +352,7 @@ const OLD_DRUGS: IncidentTypeConfiguration = {
         },
         {
           code: 'OTHER SEARCH (INMATE)',
+          active: false,
           label: 'OTHER SEARCH (INMATE)',
           commentRequired: false,
           dateRequired: false,
@@ -317,6 +360,7 @@ const OLD_DRUGS: IncidentTypeConfiguration = {
         },
         {
           code: 'OTHER SEARCH (VISITOR)',
+          active: true,
           label: 'OTHER SEARCH (VISITOR)',
           commentRequired: false,
           dateRequired: false,
@@ -324,6 +368,7 @@ const OLD_DRUGS: IncidentTypeConfiguration = {
         },
         {
           code: 'OTHER SEARCH (PREMISES)',
+          active: false,
           label: 'OTHER SEARCH (PREMISES)',
           commentRequired: false,
           dateRequired: false,
@@ -331,6 +376,7 @@ const OLD_DRUGS: IncidentTypeConfiguration = {
         },
         {
           code: 'INFORMATION RECEIVED',
+          active: false,
           label: 'INFORMATION RECEIVED',
           commentRequired: false,
           dateRequired: false,
@@ -338,6 +384,7 @@ const OLD_DRUGS: IncidentTypeConfiguration = {
         },
         {
           code: 'SUBSTANCE OBSERVED',
+          active: false,
           label: 'SUBSTANCE OBSERVED',
           commentRequired: false,
           dateRequired: false,
@@ -345,6 +392,7 @@ const OLD_DRUGS: IncidentTypeConfiguration = {
         },
         {
           code: 'UNUSUAL BEHAVIOUR',
+          active: false,
           label: 'UNUSUAL BEHAVIOUR',
           commentRequired: false,
           dateRequired: false,
@@ -352,6 +400,7 @@ const OLD_DRUGS: IncidentTypeConfiguration = {
         },
         {
           code: 'OTHER',
+          active: false,
           label: 'OTHER',
           commentRequired: true,
           dateRequired: false,
@@ -361,12 +410,14 @@ const OLD_DRUGS: IncidentTypeConfiguration = {
     },
     '44458': {
       id: '44458',
+      active: false,
       code: 'DESCRIBE THE TYPE OF TEMPORARY RELEASE',
       label: 'DESCRIBE THE TYPE OF TEMPORARY RELEASE',
       multipleAnswers: false,
       answers: [
         {
           code: 'COMPASSIONATE',
+          active: false,
           label: 'COMPASSIONATE',
           commentRequired: false,
           dateRequired: false,
@@ -374,6 +425,7 @@ const OLD_DRUGS: IncidentTypeConfiguration = {
         },
         {
           code: 'FACILITY',
+          active: false,
           label: 'FACILITY',
           commentRequired: false,
           dateRequired: false,
@@ -381,6 +433,7 @@ const OLD_DRUGS: IncidentTypeConfiguration = {
         },
         {
           code: 'RESETTLEMENT',
+          active: false,
           label: 'RESETTLEMENT',
           commentRequired: false,
           dateRequired: false,
@@ -388,6 +441,7 @@ const OLD_DRUGS: IncidentTypeConfiguration = {
         },
         {
           code: 'COMMUNITY VISIT',
+          active: false,
           label: 'COMMUNITY VISIT',
           commentRequired: false,
           dateRequired: false,
@@ -397,12 +451,14 @@ const OLD_DRUGS: IncidentTypeConfiguration = {
     },
     '44502': {
       id: '44502',
+      active: false,
       code: 'HAS ANY PROSECUTION TAKEN PLACE OR IS ANY PENDING',
       label: 'HAS ANY PROSECUTION TAKEN PLACE OR IS ANY PENDING',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: false,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -410,6 +466,7 @@ const OLD_DRUGS: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: false,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -419,12 +476,14 @@ const OLD_DRUGS: IncidentTypeConfiguration = {
     },
     '44508': {
       id: '44508',
+      active: false,
       code: 'ENTER DESCRIPTION OF PERSON HOSPITALISED',
       label: 'ENTER DESCRIPTION OF PERSON HOSPITALISED',
       multipleAnswers: true,
       answers: [
         {
           code: 'OFFICER',
+          active: false,
           label: 'OFFICER',
           commentRequired: true,
           dateRequired: false,
@@ -432,6 +491,7 @@ const OLD_DRUGS: IncidentTypeConfiguration = {
         },
         {
           code: 'PRISONER',
+          active: false,
           label: 'PRISONER',
           commentRequired: true,
           dateRequired: false,
@@ -439,6 +499,7 @@ const OLD_DRUGS: IncidentTypeConfiguration = {
         },
         {
           code: 'CIVILIAN GRADES',
+          active: false,
           label: 'CIVILIAN GRADES',
           commentRequired: true,
           dateRequired: false,
@@ -446,6 +507,7 @@ const OLD_DRUGS: IncidentTypeConfiguration = {
         },
         {
           code: 'POLICE',
+          active: false,
           label: 'POLICE',
           commentRequired: true,
           dateRequired: false,
@@ -453,6 +515,7 @@ const OLD_DRUGS: IncidentTypeConfiguration = {
         },
         {
           code: 'EXTERNAL CIVILIANS',
+          active: false,
           label: 'EXTERNAL CIVILIANS',
           commentRequired: true,
           dateRequired: false,
@@ -462,12 +525,14 @@ const OLD_DRUGS: IncidentTypeConfiguration = {
     },
     '44557': {
       id: '44557',
+      active: false,
       code: 'IS THE INCIDENT THE SUBJECT OF AN INTERNAL INVESTIGATION',
       label: 'IS THE INCIDENT THE SUBJECT OF AN INTERNAL INVESTIGATION',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: false,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -475,6 +540,7 @@ const OLD_DRUGS: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: false,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -484,12 +550,14 @@ const OLD_DRUGS: IncidentTypeConfiguration = {
     },
     '44635': {
       id: '44635',
+      active: false,
       code: 'HOW WAS THE SUBSTANCE ANALYSED',
       label: 'HOW WAS THE SUBSTANCE ANALYSED',
       multipleAnswers: false,
       answers: [
         {
           code: 'LOCAL WITH BDH KIT OR SIMILAR',
+          active: false,
           label: 'LOCAL WITH BDH KIT OR SIMILAR',
           commentRequired: false,
           dateRequired: false,
@@ -497,6 +565,7 @@ const OLD_DRUGS: IncidentTypeConfiguration = {
         },
         {
           code: 'FORENSIC LABORATORY',
+          active: false,
           label: 'FORENSIC LABORATORY',
           commentRequired: true,
           dateRequired: false,
@@ -506,12 +575,14 @@ const OLD_DRUGS: IncidentTypeConfiguration = {
     },
     '44649': {
       id: '44649',
+      active: false,
       code: 'WAS THE SUBSTANCE FOUND ANALYSED',
       label: 'WAS THE SUBSTANCE FOUND ANALYSED',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: false,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -519,6 +590,7 @@ const OLD_DRUGS: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: false,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -528,12 +600,14 @@ const OLD_DRUGS: IncidentTypeConfiguration = {
     },
     '44664': {
       id: '44664',
+      active: false,
       code: "IS THE INCIDENT SUBJECT TO A GOVERNOR'S ADJUDICATION",
       label: "IS THE INCIDENT SUBJECT TO A GOVERNOR'S ADJUDICATION",
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: false,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -541,6 +615,7 @@ const OLD_DRUGS: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: false,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -550,12 +625,14 @@ const OLD_DRUGS: IncidentTypeConfiguration = {
     },
     '44682': {
       id: '44682',
+      active: false,
       code: 'IS THERE ANY MEDIA INTEREST IN THIS INCIDENT',
       label: 'IS THERE ANY MEDIA INTEREST IN THIS INCIDENT',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: false,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -563,6 +640,7 @@ const OLD_DRUGS: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: false,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -572,12 +650,14 @@ const OLD_DRUGS: IncidentTypeConfiguration = {
     },
     '44700': {
       id: '44700',
+      active: false,
       code: 'WHAT WAS THE LOCATION OF THE INCIDENT',
       label: 'WHAT WAS THE LOCATION OF THE INCIDENT',
       multipleAnswers: false,
       answers: [
         {
           code: 'ADMINISTRATION',
+          active: false,
           label: 'ADMINISTRATION',
           commentRequired: false,
           dateRequired: false,
@@ -585,6 +665,7 @@ const OLD_DRUGS: IncidentTypeConfiguration = {
         },
         {
           code: 'ASSOCIATION AREA',
+          active: false,
           label: 'ASSOCIATION AREA',
           commentRequired: false,
           dateRequired: false,
@@ -592,6 +673,7 @@ const OLD_DRUGS: IncidentTypeConfiguration = {
         },
         {
           code: 'CELL',
+          active: false,
           label: 'CELL',
           commentRequired: false,
           dateRequired: false,
@@ -599,6 +681,7 @@ const OLD_DRUGS: IncidentTypeConfiguration = {
         },
         {
           code: 'CHAPEL',
+          active: false,
           label: 'CHAPEL',
           commentRequired: false,
           dateRequired: false,
@@ -606,6 +689,7 @@ const OLD_DRUGS: IncidentTypeConfiguration = {
         },
         {
           code: 'DINING ROOM',
+          active: false,
           label: 'DINING ROOM',
           commentRequired: false,
           dateRequired: false,
@@ -613,6 +697,7 @@ const OLD_DRUGS: IncidentTypeConfiguration = {
         },
         {
           code: 'DORMITORY',
+          active: false,
           label: 'DORMITORY',
           commentRequired: false,
           dateRequired: false,
@@ -620,6 +705,7 @@ const OLD_DRUGS: IncidentTypeConfiguration = {
         },
         {
           code: 'EDUCATION',
+          active: false,
           label: 'EDUCATION',
           commentRequired: false,
           dateRequired: false,
@@ -627,6 +713,7 @@ const OLD_DRUGS: IncidentTypeConfiguration = {
         },
         {
           code: 'EXERCISE YARD',
+          active: false,
           label: 'EXERCISE YARD',
           commentRequired: false,
           dateRequired: false,
@@ -634,6 +721,7 @@ const OLD_DRUGS: IncidentTypeConfiguration = {
         },
         {
           code: 'GATE',
+          active: false,
           label: 'GATE',
           commentRequired: false,
           dateRequired: false,
@@ -641,6 +729,7 @@ const OLD_DRUGS: IncidentTypeConfiguration = {
         },
         {
           code: 'GYM',
+          active: false,
           label: 'GYM',
           commentRequired: false,
           dateRequired: false,
@@ -648,6 +737,7 @@ const OLD_DRUGS: IncidentTypeConfiguration = {
         },
         {
           code: 'HEALTH CARE CENTRE',
+          active: false,
           label: 'HEALTH CARE CENTRE',
           commentRequired: false,
           dateRequired: false,
@@ -655,6 +745,7 @@ const OLD_DRUGS: IncidentTypeConfiguration = {
         },
         {
           code: 'KITCHEN',
+          active: false,
           label: 'KITCHEN',
           commentRequired: false,
           dateRequired: false,
@@ -662,6 +753,7 @@ const OLD_DRUGS: IncidentTypeConfiguration = {
         },
         {
           code: 'OFFICE',
+          active: false,
           label: 'OFFICE',
           commentRequired: false,
           dateRequired: false,
@@ -669,6 +761,7 @@ const OLD_DRUGS: IncidentTypeConfiguration = {
         },
         {
           code: 'RECEPTION',
+          active: false,
           label: 'RECEPTION',
           commentRequired: false,
           dateRequired: false,
@@ -676,6 +769,7 @@ const OLD_DRUGS: IncidentTypeConfiguration = {
         },
         {
           code: 'RECESS',
+          active: false,
           label: 'RECESS',
           commentRequired: false,
           dateRequired: false,
@@ -683,6 +777,7 @@ const OLD_DRUGS: IncidentTypeConfiguration = {
         },
         {
           code: 'SEGREGATION UNIT',
+          active: false,
           label: 'SEGREGATION UNIT',
           commentRequired: false,
           dateRequired: false,
@@ -690,6 +785,7 @@ const OLD_DRUGS: IncidentTypeConfiguration = {
         },
         {
           code: 'SPECIAL UNIT',
+          active: false,
           label: 'SPECIAL UNIT',
           commentRequired: false,
           dateRequired: false,
@@ -697,6 +793,7 @@ const OLD_DRUGS: IncidentTypeConfiguration = {
         },
         {
           code: 'SHOWERS/CHANGING ROOM',
+          active: false,
           label: 'SHOWERS/CHANGING ROOM',
           commentRequired: false,
           dateRequired: false,
@@ -704,6 +801,7 @@ const OLD_DRUGS: IncidentTypeConfiguration = {
         },
         {
           code: 'VISITS',
+          active: false,
           label: 'VISITS',
           commentRequired: false,
           dateRequired: false,
@@ -711,6 +809,7 @@ const OLD_DRUGS: IncidentTypeConfiguration = {
         },
         {
           code: 'WING',
+          active: false,
           label: 'WING',
           commentRequired: false,
           dateRequired: false,
@@ -718,6 +817,7 @@ const OLD_DRUGS: IncidentTypeConfiguration = {
         },
         {
           code: 'WORKS DEPARTMENT',
+          active: false,
           label: 'WORKS DEPARTMENT',
           commentRequired: false,
           dateRequired: false,
@@ -725,6 +825,7 @@ const OLD_DRUGS: IncidentTypeConfiguration = {
         },
         {
           code: 'WORKSHOP',
+          active: false,
           label: 'WORKSHOP',
           commentRequired: false,
           dateRequired: false,
@@ -732,6 +833,7 @@ const OLD_DRUGS: IncidentTypeConfiguration = {
         },
         {
           code: 'WITHIN PERIMETER',
+          active: false,
           label: 'WITHIN PERIMETER',
           commentRequired: false,
           dateRequired: false,
@@ -739,6 +841,7 @@ const OLD_DRUGS: IncidentTypeConfiguration = {
         },
         {
           code: 'ELSEWHERE',
+          active: false,
           label: 'ELSEWHERE',
           commentRequired: true,
           dateRequired: false,
@@ -746,6 +849,7 @@ const OLD_DRUGS: IncidentTypeConfiguration = {
         },
         {
           code: 'FUNERAL',
+          active: false,
           label: 'FUNERAL',
           commentRequired: false,
           dateRequired: false,
@@ -753,6 +857,7 @@ const OLD_DRUGS: IncidentTypeConfiguration = {
         },
         {
           code: 'HOSPITAL OUTSIDE (PATIENT)',
+          active: false,
           label: 'HOSPITAL OUTSIDE (PATIENT)',
           commentRequired: false,
           dateRequired: false,
@@ -760,6 +865,7 @@ const OLD_DRUGS: IncidentTypeConfiguration = {
         },
         {
           code: 'HOSPITAL OUTSIDE (VISITING)',
+          active: false,
           label: 'HOSPITAL OUTSIDE (VISITING)',
           commentRequired: false,
           dateRequired: false,
@@ -767,6 +873,7 @@ const OLD_DRUGS: IncidentTypeConfiguration = {
         },
         {
           code: 'OUTSIDE WORKING PARTY',
+          active: false,
           label: 'OUTSIDE WORKING PARTY',
           commentRequired: false,
           dateRequired: false,
@@ -774,6 +881,7 @@ const OLD_DRUGS: IncidentTypeConfiguration = {
         },
         {
           code: 'SPORTS FIELD',
+          active: false,
           label: 'SPORTS FIELD',
           commentRequired: false,
           dateRequired: false,
@@ -781,6 +889,7 @@ const OLD_DRUGS: IncidentTypeConfiguration = {
         },
         {
           code: 'VEHICLE',
+          active: false,
           label: 'VEHICLE',
           commentRequired: false,
           dateRequired: false,
@@ -788,6 +897,7 @@ const OLD_DRUGS: IncidentTypeConfiguration = {
         },
         {
           code: 'WEDDINGS',
+          active: false,
           label: 'WEDDINGS',
           commentRequired: false,
           dateRequired: false,
@@ -795,6 +905,7 @@ const OLD_DRUGS: IncidentTypeConfiguration = {
         },
         {
           code: 'MAGISTRATES COURT',
+          active: false,
           label: 'MAGISTRATES COURT',
           commentRequired: false,
           dateRequired: false,
@@ -802,6 +913,7 @@ const OLD_DRUGS: IncidentTypeConfiguration = {
         },
         {
           code: 'CROWN COURT',
+          active: false,
           label: 'CROWN COURT',
           commentRequired: false,
           dateRequired: false,
@@ -811,12 +923,14 @@ const OLD_DRUGS: IncidentTypeConfiguration = {
     },
     '44765': {
       id: '44765',
+      active: false,
       code: 'IS THIS INCIDENT ASSOCIATED WITH AN ASSAULT',
       label: 'IS THIS INCIDENT ASSOCIATED WITH AN ASSAULT',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: false,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -824,6 +938,7 @@ const OLD_DRUGS: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: false,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -833,12 +948,14 @@ const OLD_DRUGS: IncidentTypeConfiguration = {
     },
     '44792': {
       id: '44792',
+      active: false,
       code: 'HAS THE PRISON SERVICE PRESS OFFICE BEEN INFORMED',
       label: 'HAS THE PRISON SERVICE PRESS OFFICE BEEN INFORMED',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: false,
           label: 'YES',
           commentRequired: false,
           dateRequired: true,
@@ -846,6 +963,7 @@ const OLD_DRUGS: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: false,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -855,12 +973,14 @@ const OLD_DRUGS: IncidentTypeConfiguration = {
     },
     '44795': {
       id: '44795',
+      active: false,
       code: 'DESCRIBE THE DRUG/EQUIPMENT METHOD OF ENTRY INTO THE ESTABLISHMENT',
       label: 'DESCRIBE THE DRUG/EQUIPMENT METHOD OF ENTRY INTO THE ESTABLISHMENT',
       multipleAnswers: false,
       answers: [
         {
           code: 'PRISONER',
+          active: false,
           label: 'PRISONER',
           commentRequired: false,
           dateRequired: false,
@@ -868,6 +988,7 @@ const OLD_DRUGS: IncidentTypeConfiguration = {
         },
         {
           code: 'VISITOR',
+          active: false,
           label: 'VISITOR',
           commentRequired: false,
           dateRequired: false,
@@ -875,6 +996,7 @@ const OLD_DRUGS: IncidentTypeConfiguration = {
         },
         {
           code: 'THROWN IN',
+          active: false,
           label: 'THROWN IN',
           commentRequired: false,
           dateRequired: false,
@@ -882,6 +1004,7 @@ const OLD_DRUGS: IncidentTypeConfiguration = {
         },
         {
           code: 'OTHER',
+          active: false,
           label: 'OTHER',
           commentRequired: true,
           dateRequired: false,
@@ -891,12 +1014,14 @@ const OLD_DRUGS: IncidentTypeConfiguration = {
     },
     '44807': {
       id: '44807',
+      active: false,
       code: 'TO WHICH POLICE STATION WAS THE VISITOR TAKEN TO',
       label: 'TO WHICH POLICE STATION WAS THE VISITOR TAKEN TO',
       multipleAnswers: false,
       answers: [
         {
           code: 'SPECIFY',
+          active: false,
           label: 'SPECIFY',
           commentRequired: true,
           dateRequired: false,
@@ -906,12 +1031,14 @@ const OLD_DRUGS: IncidentTypeConfiguration = {
     },
     '44818': {
       id: '44818',
+      active: false,
       code: 'TO WHICH POLICE STATION ARE SEIZED DRUGS SENT FOR DESTRUCTION',
       label: 'TO WHICH POLICE STATION ARE SEIZED DRUGS SENT FOR DESTRUCTION',
       multipleAnswers: false,
       answers: [
         {
           code: 'NAME',
+          active: false,
           label: 'NAME',
           commentRequired: true,
           dateRequired: false,
@@ -921,12 +1048,14 @@ const OLD_DRUGS: IncidentTypeConfiguration = {
     },
     '44821': {
       id: '44821',
+      active: false,
       code: 'WAS DRUG EQUIPMENT FOUND',
       label: 'WAS DRUG EQUIPMENT FOUND',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: false,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -934,6 +1063,7 @@ const OLD_DRUGS: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: false,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -943,12 +1073,14 @@ const OLD_DRUGS: IncidentTypeConfiguration = {
     },
     '44835': {
       id: '44835',
+      active: false,
       code: 'WERE THE POLICE INFORMED OF THE INCIDENT',
       label: 'WERE THE POLICE INFORMED OF THE INCIDENT',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: false,
           label: 'YES',
           commentRequired: false,
           dateRequired: true,
@@ -956,6 +1088,7 @@ const OLD_DRUGS: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: false,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -965,12 +1098,14 @@ const OLD_DRUGS: IncidentTypeConfiguration = {
     },
     '44899': {
       id: '44899',
+      active: false,
       code: 'DESCRIBE CIRCUMSTANCES OF VISITORS ARREST',
       label: 'DESCRIBE CIRCUMSTANCES OF VISITORS ARREST',
       multipleAnswers: false,
       answers: [
         {
           code: 'BEFORE ENTERING PRISON',
+          active: false,
           label: 'BEFORE ENTERING PRISON',
           commentRequired: false,
           dateRequired: false,
@@ -978,6 +1113,7 @@ const OLD_DRUGS: IncidentTypeConfiguration = {
         },
         {
           code: 'AFTER ENTERING PRISON',
+          active: false,
           label: 'AFTER ENTERING PRISON',
           commentRequired: false,
           dateRequired: false,
@@ -987,12 +1123,14 @@ const OLD_DRUGS: IncidentTypeConfiguration = {
     },
     '44982': {
       id: '44982',
+      active: false,
       code: 'WAS THE SUBSTANCE A DRUG',
       label: 'WAS THE SUBSTANCE A DRUG',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: false,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -1000,6 +1138,7 @@ const OLD_DRUGS: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: false,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -1009,12 +1148,14 @@ const OLD_DRUGS: IncidentTypeConfiguration = {
     },
     '45008': {
       id: '45008',
+      active: false,
       code: 'WERE THE DRUGS OBTAINED ON TEMPORARY RELEASE',
       label: 'WERE THE DRUGS OBTAINED ON TEMPORARY RELEASE',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: false,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -1022,6 +1163,7 @@ const OLD_DRUGS: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: false,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -1031,12 +1173,14 @@ const OLD_DRUGS: IncidentTypeConfiguration = {
     },
     '45057': {
       id: '45057',
+      active: false,
       code: 'DESCRIBE THE REASON FOR HOSPITALISATION',
       label: 'DESCRIBE THE REASON FOR HOSPITALISATION',
       multipleAnswers: false,
       answers: [
         {
           code: 'SPECIFY',
+          active: false,
           label: 'SPECIFY',
           commentRequired: true,
           dateRequired: false,
@@ -1046,12 +1190,14 @@ const OLD_DRUGS: IncidentTypeConfiguration = {
     },
     '45097': {
       id: '45097',
+      active: false,
       code: 'IS THE METHOD OF ENTRY OF DRUG/EQUIPMENT INTO THE ESTABLISHMENT KNOWN',
       label: 'IS THE METHOD OF ENTRY OF DRUG/EQUIPMENT INTO THE ESTABLISHMENT KNOWN',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: false,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -1059,6 +1205,7 @@ const OLD_DRUGS: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: false,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -1068,12 +1215,14 @@ const OLD_DRUGS: IncidentTypeConfiguration = {
     },
     '45168': {
       id: '45168',
+      active: false,
       code: 'DESCRIBE THE VISITOR',
       label: 'DESCRIBE THE VISITOR',
       multipleAnswers: false,
       answers: [
         {
           code: 'RELATIVE',
+          active: false,
           label: 'RELATIVE',
           commentRequired: false,
           dateRequired: false,
@@ -1081,6 +1230,7 @@ const OLD_DRUGS: IncidentTypeConfiguration = {
         },
         {
           code: 'FRIEND',
+          active: false,
           label: 'FRIEND',
           commentRequired: false,
           dateRequired: false,
@@ -1088,6 +1238,7 @@ const OLD_DRUGS: IncidentTypeConfiguration = {
         },
         {
           code: 'OFFICIAL VISITOR',
+          active: false,
           label: 'OFFICIAL VISITOR',
           commentRequired: true,
           dateRequired: false,

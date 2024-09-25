@@ -1,4 +1,4 @@
-// Generated with ./scripts/updateNomisIncidentTypeConfigurations.ts at 2024-09-16T15:42:00.843Z
+// Generated with ./scripts/updateNomisIncidentTypeConfigurations.ts at 2024-09-20T16:52:20.379Z
 
 import { type IncidentTypeConfiguration } from '../../data/incidentTypeConfiguration/types'
 
@@ -9,12 +9,14 @@ const SELF_HARM: IncidentTypeConfiguration = {
   questions: {
     '44155': {
       id: '44155',
+      active: true,
       code: 'TREATMENT REQUIRED FOLLOWING CUT SCRATCH',
       label: 'TREATMENT REQUIRED FOLLOWING CUT SCRATCH',
       multipleAnswers: false,
       answers: [
         {
           code: 'NO TREATMENT',
+          active: true,
           label: 'NO TREATMENT',
           commentRequired: false,
           dateRequired: false,
@@ -22,6 +24,7 @@ const SELF_HARM: IncidentTypeConfiguration = {
         },
         {
           code: 'STERI STRIPS OR SUTURES',
+          active: true,
           label: 'STERI STRIPS OR SUTURES',
           commentRequired: false,
           dateRequired: false,
@@ -29,6 +32,7 @@ const SELF_HARM: IncidentTypeConfiguration = {
         },
         {
           code: 'CLEANED AND DRESSED',
+          active: true,
           label: 'CLEANED AND DRESSED',
           commentRequired: false,
           dateRequired: false,
@@ -36,6 +40,7 @@ const SELF_HARM: IncidentTypeConfiguration = {
         },
         {
           code: 'OTHER',
+          active: true,
           label: 'OTHER',
           commentRequired: true,
           dateRequired: false,
@@ -45,12 +50,14 @@ const SELF_HARM: IncidentTypeConfiguration = {
     },
     '44207': {
       id: '44207',
+      active: true,
       code: 'DID SELF HARM METHOD INVOLVE SELF STRANGULATION',
       label: 'DID SELF HARM METHOD INVOLVE SELF STRANGULATION',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: true,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -58,6 +65,7 @@ const SELF_HARM: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: true,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -67,12 +75,14 @@ const SELF_HARM: IncidentTypeConfiguration = {
     },
     '44214': {
       id: '44214',
+      active: true,
       code: 'WAS RESUSCITATION REQUIRED',
       label: 'WAS RESUSCITATION REQUIRED',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: true,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -80,6 +90,7 @@ const SELF_HARM: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: true,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -89,12 +100,14 @@ const SELF_HARM: IncidentTypeConfiguration = {
     },
     '44244': {
       id: '44244',
+      active: true,
       code: 'DID SELF HARM METHOD INVOLVE HANGING',
       label: 'DID SELF HARM METHOD INVOLVE HANGING',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: true,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -102,6 +115,7 @@ const SELF_HARM: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: true,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -111,12 +125,14 @@ const SELF_HARM: IncidentTypeConfiguration = {
     },
     '44332': {
       id: '44332',
+      active: true,
       code: 'WHO ADMINISTERED TREATMENT',
       label: 'WHO ADMINISTERED TREATMENT',
       multipleAnswers: true,
       answers: [
         {
           code: 'NON HEALTHCARE STAFF',
+          active: true,
           label: 'NON HEALTHCARE STAFF',
           commentRequired: false,
           dateRequired: false,
@@ -124,6 +140,7 @@ const SELF_HARM: IncidentTypeConfiguration = {
         },
         {
           code: 'NURSE/HCO',
+          active: true,
           label: 'NURSE/HCO',
           commentRequired: false,
           dateRequired: false,
@@ -131,6 +148,7 @@ const SELF_HARM: IncidentTypeConfiguration = {
         },
         {
           code: 'MEDICAL OFFICER',
+          active: true,
           label: 'MEDICAL OFFICER',
           commentRequired: false,
           dateRequired: false,
@@ -138,6 +156,7 @@ const SELF_HARM: IncidentTypeConfiguration = {
         },
         {
           code: 'PARAMEDICS/AMBULANCE',
+          active: true,
           label: 'PARAMEDICS/AMBULANCE',
           commentRequired: false,
           dateRequired: false,
@@ -147,12 +166,14 @@ const SELF_HARM: IncidentTypeConfiguration = {
     },
     '44339': {
       id: '44339',
+      active: true,
       code: 'OCCUPANCY',
       label: 'OCCUPANCY',
       multipleAnswers: false,
       answers: [
         {
           code: 'SINGLE',
+          active: true,
           label: 'SINGLE',
           commentRequired: false,
           dateRequired: false,
@@ -160,6 +181,7 @@ const SELF_HARM: IncidentTypeConfiguration = {
         },
         {
           code: 'DOUBLE',
+          active: true,
           label: 'DOUBLE',
           commentRequired: false,
           dateRequired: false,
@@ -167,6 +189,7 @@ const SELF_HARM: IncidentTypeConfiguration = {
         },
         {
           code: 'DOUBLE BUT ALONE',
+          active: true,
           label: 'DOUBLE BUT ALONE',
           commentRequired: false,
           dateRequired: false,
@@ -174,6 +197,7 @@ const SELF_HARM: IncidentTypeConfiguration = {
         },
         {
           code: 'MULTIPLE (3 OR  MORE)',
+          active: true,
           label: 'MULTIPLE (3 OR  MORE)',
           commentRequired: false,
           dateRequired: false,
@@ -183,12 +207,14 @@ const SELF_HARM: IncidentTypeConfiguration = {
     },
     '44400': {
       id: '44400',
+      active: true,
       code: 'WAS A F2052SH/ACCT OPEN',
       label: 'WAS A F2052SH/ACCT OPEN',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: true,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -196,6 +222,7 @@ const SELF_HARM: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: true,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -205,12 +232,14 @@ const SELF_HARM: IncidentTypeConfiguration = {
     },
     '44435': {
       id: '44435',
+      active: true,
       code: 'WHEN WAS THE LAST F2052SH/ACCT CLOSED',
       label: 'WHEN WAS THE LAST F2052SH/ACCT CLOSED',
       multipleAnswers: false,
       answers: [
         {
           code: 'WITHIN ONE MONTH',
+          active: true,
           label: 'WITHIN ONE MONTH',
           commentRequired: false,
           dateRequired: false,
@@ -218,6 +247,7 @@ const SELF_HARM: IncidentTypeConfiguration = {
         },
         {
           code: 'MORE THAN ONE MONTH',
+          active: true,
           label: 'MORE THAN ONE MONTH',
           commentRequired: false,
           dateRequired: false,
@@ -225,6 +255,7 @@ const SELF_HARM: IncidentTypeConfiguration = {
         },
         {
           code: 'NOT APPLICABLE',
+          active: true,
           label: 'NOT APPLICABLE',
           commentRequired: false,
           dateRequired: false,
@@ -234,12 +265,14 @@ const SELF_HARM: IncidentTypeConfiguration = {
     },
     '44511': {
       id: '44511',
+      active: true,
       code: 'WAS TREATMENT ADMINISTERED',
       label: 'WAS TREATMENT ADMINISTERED',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: true,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -247,6 +280,7 @@ const SELF_HARM: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: true,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -256,12 +290,14 @@ const SELF_HARM: IncidentTypeConfiguration = {
     },
     '44552': {
       id: '44552',
+      active: true,
       code: 'WAS ANY OTHER SELF HARM METHOD INVOLVED',
       label: 'WAS ANY OTHER SELF HARM METHOD INVOLVED',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: true,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -269,6 +305,7 @@ const SELF_HARM: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: true,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -278,12 +315,14 @@ const SELF_HARM: IncidentTypeConfiguration = {
     },
     '44573': {
       id: '44573',
+      active: true,
       code: 'SELF POISONING/OVERDOSE/SUBSTANCES/SWALLOWING',
       label: 'SELF POISONING/OVERDOSE/SUBSTANCES/SWALLOWING',
       multipleAnswers: true,
       answers: [
         {
           code: 'OWN MEDICATION',
+          active: true,
           label: 'OWN MEDICATION',
           commentRequired: false,
           dateRequired: false,
@@ -291,6 +330,7 @@ const SELF_HARM: IncidentTypeConfiguration = {
         },
         {
           code: 'OTHER PERSONS MEDICATION',
+          active: true,
           label: 'OTHER PERSONS MEDICATION',
           commentRequired: false,
           dateRequired: false,
@@ -298,6 +338,7 @@ const SELF_HARM: IncidentTypeConfiguration = {
         },
         {
           code: 'ILLEGAL DRUGS',
+          active: true,
           label: 'ILLEGAL DRUGS',
           commentRequired: false,
           dateRequired: false,
@@ -305,6 +346,7 @@ const SELF_HARM: IncidentTypeConfiguration = {
         },
         {
           code: 'CLEANING MATERIALS',
+          active: true,
           label: 'CLEANING MATERIALS',
           commentRequired: false,
           dateRequired: false,
@@ -312,6 +354,7 @@ const SELF_HARM: IncidentTypeConfiguration = {
         },
         {
           code: 'RAZOR BLADES',
+          active: true,
           label: 'RAZOR BLADES',
           commentRequired: false,
           dateRequired: false,
@@ -319,6 +362,7 @@ const SELF_HARM: IncidentTypeConfiguration = {
         },
         {
           code: 'BATTERIES',
+          active: true,
           label: 'BATTERIES',
           commentRequired: false,
           dateRequired: false,
@@ -326,6 +370,7 @@ const SELF_HARM: IncidentTypeConfiguration = {
         },
         {
           code: 'OTHER',
+          active: true,
           label: 'OTHER',
           commentRequired: true,
           dateRequired: false,
@@ -335,12 +380,14 @@ const SELF_HARM: IncidentTypeConfiguration = {
     },
     '44583': {
       id: '44583',
+      active: true,
       code: 'LIGATURE TYPE',
       label: 'LIGATURE TYPE',
       multipleAnswers: false,
       answers: [
         {
           code: 'BEDDING',
+          active: true,
           label: 'BEDDING',
           commentRequired: false,
           dateRequired: false,
@@ -348,6 +395,7 @@ const SELF_HARM: IncidentTypeConfiguration = {
         },
         {
           code: 'SHOELACES',
+          active: true,
           label: 'SHOELACES',
           commentRequired: false,
           dateRequired: false,
@@ -355,6 +403,7 @@ const SELF_HARM: IncidentTypeConfiguration = {
         },
         {
           code: 'TOWEL',
+          active: true,
           label: 'TOWEL',
           commentRequired: false,
           dateRequired: false,
@@ -362,6 +411,7 @@ const SELF_HARM: IncidentTypeConfiguration = {
         },
         {
           code: 'CLOTHING',
+          active: true,
           label: 'CLOTHING',
           commentRequired: false,
           dateRequired: false,
@@ -369,6 +419,7 @@ const SELF_HARM: IncidentTypeConfiguration = {
         },
         {
           code: 'BELT',
+          active: true,
           label: 'BELT',
           commentRequired: false,
           dateRequired: false,
@@ -376,6 +427,7 @@ const SELF_HARM: IncidentTypeConfiguration = {
         },
         {
           code: 'OTHER',
+          active: true,
           label: 'OTHER',
           commentRequired: true,
           dateRequired: false,
@@ -385,12 +437,14 @@ const SELF_HARM: IncidentTypeConfiguration = {
     },
     '44584': {
       id: '44584',
+      active: true,
       code: 'TYPE OF HOSPITAL',
       label: 'TYPE OF HOSPITAL',
       multipleAnswers: false,
       answers: [
         {
           code: 'A AND E',
+          active: true,
           label: 'A AND E',
           commentRequired: false,
           dateRequired: false,
@@ -398,6 +452,7 @@ const SELF_HARM: IncidentTypeConfiguration = {
         },
         {
           code: 'IN PATIENT (OVERNIGHT ONLY)',
+          active: true,
           label: 'IN PATIENT (OVERNIGHT ONLY)',
           commentRequired: false,
           dateRequired: false,
@@ -405,6 +460,7 @@ const SELF_HARM: IncidentTypeConfiguration = {
         },
         {
           code: 'IN PATIENT (OVER 24HR)',
+          active: true,
           label: 'IN PATIENT (OVER 24HR)',
           commentRequired: false,
           dateRequired: false,
@@ -412,6 +468,7 @@ const SELF_HARM: IncidentTypeConfiguration = {
         },
         {
           code: 'LIFE SUPPORT',
+          active: true,
           label: 'LIFE SUPPORT',
           commentRequired: false,
           dateRequired: false,
@@ -421,12 +478,14 @@ const SELF_HARM: IncidentTypeConfiguration = {
     },
     '44643': {
       id: '44643',
+      active: true,
       code: 'TYPE OF BURNING',
       label: 'TYPE OF BURNING',
       multipleAnswers: false,
       answers: [
         {
           code: 'SUPERFICIAL E.G. CIGARETTE',
+          active: true,
           label: 'SUPERFICIAL E.G. CIGARETTE',
           commentRequired: false,
           dateRequired: false,
@@ -434,6 +493,7 @@ const SELF_HARM: IncidentTypeConfiguration = {
         },
         {
           code: 'NON SUPERFICIAL CELL/SELF FIRE',
+          active: true,
           label: 'NON SUPERFICIAL CELL/SELF FIRE',
           commentRequired: false,
           dateRequired: false,
@@ -443,12 +503,14 @@ const SELF_HARM: IncidentTypeConfiguration = {
     },
     '44653': {
       id: '44653',
+      active: true,
       code: 'WHAT WAS THE LIGATURE POINT',
       label: 'WHAT WAS THE LIGATURE POINT',
       multipleAnswers: false,
       answers: [
         {
           code: 'WINDOW',
+          active: true,
           label: 'WINDOW',
           commentRequired: false,
           dateRequired: false,
@@ -456,6 +518,7 @@ const SELF_HARM: IncidentTypeConfiguration = {
         },
         {
           code: 'BED',
+          active: true,
           label: 'BED',
           commentRequired: false,
           dateRequired: false,
@@ -463,6 +526,7 @@ const SELF_HARM: IncidentTypeConfiguration = {
         },
         {
           code: 'DOOR',
+          active: true,
           label: 'DOOR',
           commentRequired: false,
           dateRequired: false,
@@ -470,6 +534,7 @@ const SELF_HARM: IncidentTypeConfiguration = {
         },
         {
           code: 'PIPES',
+          active: true,
           label: 'PIPES',
           commentRequired: false,
           dateRequired: false,
@@ -477,6 +542,7 @@ const SELF_HARM: IncidentTypeConfiguration = {
         },
         {
           code: 'TOILET AREA',
+          active: true,
           label: 'TOILET AREA',
           commentRequired: false,
           dateRequired: false,
@@ -484,6 +550,7 @@ const SELF_HARM: IncidentTypeConfiguration = {
         },
         {
           code: 'OTHER',
+          active: true,
           label: 'OTHER',
           commentRequired: true,
           dateRequired: false,
@@ -493,12 +560,14 @@ const SELF_HARM: IncidentTypeConfiguration = {
     },
     '44718': {
       id: '44718',
+      active: true,
       code: 'HANGING SELF STRANGULATION METHOD',
       label: 'HANGING SELF STRANGULATION METHOD',
       multipleAnswers: false,
       answers: [
         {
           code: 'FEET OFF FLOOR',
+          active: true,
           label: 'FEET OFF FLOOR',
           commentRequired: false,
           dateRequired: false,
@@ -506,6 +575,7 @@ const SELF_HARM: IncidentTypeConfiguration = {
         },
         {
           code: 'KNEELING OR OTHER',
+          active: true,
           label: 'KNEELING OR OTHER',
           commentRequired: false,
           dateRequired: false,
@@ -513,6 +583,7 @@ const SELF_HARM: IncidentTypeConfiguration = {
         },
         {
           code: 'NEITHER OF ABOVE',
+          active: true,
           label: 'NEITHER OF ABOVE',
           commentRequired: false,
           dateRequired: false,
@@ -522,12 +593,14 @@ const SELF_HARM: IncidentTypeConfiguration = {
     },
     '44733': {
       id: '44733',
+      active: true,
       code: 'DID SELF HARM INVOLVE SELF POISONING/ OVERDOSE/SWALLOWING OBJECTS',
       label: 'DID SELF HARM INVOLVE SELF POISONING/ OVERDOSE/SWALLOWING OBJECTS',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: true,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -535,6 +608,7 @@ const SELF_HARM: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: true,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -544,12 +618,14 @@ const SELF_HARM: IncidentTypeConfiguration = {
     },
     '44753': {
       id: '44753',
+      active: true,
       code: 'DID SELF HARM METHOD INVOLVE CUTTING',
       label: 'DID SELF HARM METHOD INVOLVE CUTTING',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: true,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -557,6 +633,7 @@ const SELF_HARM: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: true,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -566,12 +643,14 @@ const SELF_HARM: IncidentTypeConfiguration = {
     },
     '44791': {
       id: '44791',
+      active: true,
       code: 'WHAT WAS THE CELL TYPE',
       label: 'WHAT WAS THE CELL TYPE',
       multipleAnswers: false,
       answers: [
         {
           code: 'ORDINARY',
+          active: true,
           label: 'ORDINARY',
           commentRequired: false,
           dateRequired: false,
@@ -579,6 +658,7 @@ const SELF_HARM: IncidentTypeConfiguration = {
         },
         {
           code: 'GATED',
+          active: true,
           label: 'GATED',
           commentRequired: false,
           dateRequired: false,
@@ -586,6 +666,7 @@ const SELF_HARM: IncidentTypeConfiguration = {
         },
         {
           code: 'SAFE ANTI-LIGATURE',
+          active: true,
           label: 'SAFE ANTI-LIGATURE',
           commentRequired: false,
           dateRequired: false,
@@ -593,6 +674,7 @@ const SELF_HARM: IncidentTypeConfiguration = {
         },
         {
           code: 'TIME OUT ROOM',
+          active: true,
           label: 'TIME OUT ROOM',
           commentRequired: false,
           dateRequired: false,
@@ -600,6 +682,7 @@ const SELF_HARM: IncidentTypeConfiguration = {
         },
         {
           code: 'CARE SUITE',
+          active: true,
           label: 'CARE SUITE',
           commentRequired: false,
           dateRequired: false,
@@ -607,6 +690,7 @@ const SELF_HARM: IncidentTypeConfiguration = {
         },
         {
           code: 'UNFURNISHED/STRONG BOX',
+          active: true,
           label: 'UNFURNISHED/STRONG BOX',
           commentRequired: false,
           dateRequired: false,
@@ -614,6 +698,7 @@ const SELF_HARM: IncidentTypeConfiguration = {
         },
         {
           code: 'WARD/DORM',
+          active: true,
           label: 'WARD/DORM',
           commentRequired: false,
           dateRequired: false,
@@ -621,6 +706,7 @@ const SELF_HARM: IncidentTypeConfiguration = {
         },
         {
           code: 'OTHER',
+          active: true,
           label: 'OTHER',
           commentRequired: true,
           dateRequired: false,
@@ -630,12 +716,14 @@ const SELF_HARM: IncidentTypeConfiguration = {
     },
     '44890': {
       id: '44890',
+      active: true,
       code: 'TYPE OF IMPLEMENT USED',
       label: 'TYPE OF IMPLEMENT USED',
       multipleAnswers: false,
       answers: [
         {
           code: 'RAZOR',
+          active: true,
           label: 'RAZOR',
           commentRequired: false,
           dateRequired: false,
@@ -643,6 +731,7 @@ const SELF_HARM: IncidentTypeConfiguration = {
         },
         {
           code: 'BROKEN GLASS',
+          active: true,
           label: 'BROKEN GLASS',
           commentRequired: false,
           dateRequired: false,
@@ -650,6 +739,7 @@ const SELF_HARM: IncidentTypeConfiguration = {
         },
         {
           code: 'PLASTIC MATERIAL',
+          active: true,
           label: 'PLASTIC MATERIAL',
           commentRequired: false,
           dateRequired: false,
@@ -657,6 +747,7 @@ const SELF_HARM: IncidentTypeConfiguration = {
         },
         {
           code: 'OTHER',
+          active: true,
           label: 'OTHER',
           commentRequired: true,
           dateRequired: false,
@@ -666,12 +757,14 @@ const SELF_HARM: IncidentTypeConfiguration = {
     },
     '44944': {
       id: '44944',
+      active: true,
       code: 'WERE THEY ADMITTED TO HEALTHCARE',
       label: 'WERE THEY ADMITTED TO HEALTHCARE',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: true,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -679,6 +772,7 @@ const SELF_HARM: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: true,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -686,6 +780,7 @@ const SELF_HARM: IncidentTypeConfiguration = {
         },
         {
           code: 'ALREADY IN HEALTHCARE',
+          active: true,
           label: 'ALREADY IN HEALTHCARE',
           commentRequired: false,
           dateRequired: false,
@@ -695,12 +790,14 @@ const SELF_HARM: IncidentTypeConfiguration = {
     },
     '44954': {
       id: '44954',
+      active: true,
       code: 'DID THEY GO TO OUTSIDE HOSPITAL',
       label: 'DID THEY GO TO OUTSIDE HOSPITAL',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: true,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -708,6 +805,7 @@ const SELF_HARM: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: true,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -717,12 +815,14 @@ const SELF_HARM: IncidentTypeConfiguration = {
     },
     '44965': {
       id: '44965',
+      active: true,
       code: 'IS A F2052SH/ACCT OPEN NOW',
       label: 'IS A F2052SH/ACCT OPEN NOW',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: true,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -730,6 +830,7 @@ const SELF_HARM: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: true,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -739,12 +840,14 @@ const SELF_HARM: IncidentTypeConfiguration = {
     },
     '44991': {
       id: '44991',
+      active: true,
       code: 'LOCATION OF CUTS',
       label: 'LOCATION OF CUTS',
       multipleAnswers: true,
       answers: [
         {
           code: 'WRIST',
+          active: true,
           label: 'WRIST',
           commentRequired: false,
           dateRequired: false,
@@ -752,6 +855,7 @@ const SELF_HARM: IncidentTypeConfiguration = {
         },
         {
           code: 'ARMS/LEGS',
+          active: true,
           label: 'ARMS/LEGS',
           commentRequired: false,
           dateRequired: false,
@@ -759,6 +863,7 @@ const SELF_HARM: IncidentTypeConfiguration = {
         },
         {
           code: 'TORSO',
+          active: true,
           label: 'TORSO',
           commentRequired: false,
           dateRequired: false,
@@ -766,6 +871,7 @@ const SELF_HARM: IncidentTypeConfiguration = {
         },
         {
           code: 'THROAT',
+          active: true,
           label: 'THROAT',
           commentRequired: false,
           dateRequired: false,
@@ -773,6 +879,7 @@ const SELF_HARM: IncidentTypeConfiguration = {
         },
         {
           code: 'OTHER',
+          active: true,
           label: 'OTHER',
           commentRequired: true,
           dateRequired: false,
@@ -782,12 +889,14 @@ const SELF_HARM: IncidentTypeConfiguration = {
     },
     '45020': {
       id: '45020',
+      active: true,
       code: 'LIGATURE TYPE',
       label: 'LIGATURE TYPE',
       multipleAnswers: false,
       answers: [
         {
           code: 'BEDDING',
+          active: true,
           label: 'BEDDING',
           commentRequired: false,
           dateRequired: false,
@@ -795,6 +904,7 @@ const SELF_HARM: IncidentTypeConfiguration = {
         },
         {
           code: 'SHOELACES',
+          active: true,
           label: 'SHOELACES',
           commentRequired: false,
           dateRequired: false,
@@ -802,6 +912,7 @@ const SELF_HARM: IncidentTypeConfiguration = {
         },
         {
           code: 'TOWEL',
+          active: true,
           label: 'TOWEL',
           commentRequired: false,
           dateRequired: false,
@@ -809,6 +920,7 @@ const SELF_HARM: IncidentTypeConfiguration = {
         },
         {
           code: 'CLOTHING',
+          active: true,
           label: 'CLOTHING',
           commentRequired: false,
           dateRequired: false,
@@ -816,6 +928,7 @@ const SELF_HARM: IncidentTypeConfiguration = {
         },
         {
           code: 'BELT',
+          active: true,
           label: 'BELT',
           commentRequired: false,
           dateRequired: false,
@@ -823,6 +936,7 @@ const SELF_HARM: IncidentTypeConfiguration = {
         },
         {
           code: 'OTHER',
+          active: true,
           label: 'OTHER',
           commentRequired: true,
           dateRequired: false,
@@ -832,12 +946,14 @@ const SELF_HARM: IncidentTypeConfiguration = {
     },
     '45051': {
       id: '45051',
+      active: true,
       code: 'WHERE DID THE INCIDENT TAKE PLACE',
       label: 'WHERE DID THE INCIDENT TAKE PLACE',
       multipleAnswers: true,
       answers: [
         {
           code: 'ORDINARY',
+          active: true,
           label: 'ORDINARY',
           commentRequired: true,
           dateRequired: false,
@@ -845,6 +961,7 @@ const SELF_HARM: IncidentTypeConfiguration = {
         },
         {
           code: 'VPU/OTHER PROTECTED',
+          active: true,
           label: 'VPU/OTHER PROTECTED',
           commentRequired: true,
           dateRequired: false,
@@ -852,6 +969,7 @@ const SELF_HARM: IncidentTypeConfiguration = {
         },
         {
           code: 'HEALTH CARE CENTRE',
+          active: true,
           label: 'HEALTH CARE CENTRE',
           commentRequired: true,
           dateRequired: false,
@@ -859,6 +977,7 @@ const SELF_HARM: IncidentTypeConfiguration = {
         },
         {
           code: "INDCT'N/RECP'N/1ST NIGHTCENTRE",
+          active: true,
           label: "INDCT'N/RECP'N/1ST NIGHTCENTRE",
           commentRequired: true,
           dateRequired: false,
@@ -866,6 +985,7 @@ const SELF_HARM: IncidentTypeConfiguration = {
         },
         {
           code: 'SEGREGATION UNIT',
+          active: true,
           label: 'SEGREGATION UNIT',
           commentRequired: true,
           dateRequired: false,
@@ -873,6 +993,7 @@ const SELF_HARM: IncidentTypeConfiguration = {
         },
         {
           code: 'DETOX UNIT',
+          active: true,
           label: 'DETOX UNIT',
           commentRequired: true,
           dateRequired: false,
@@ -880,6 +1001,7 @@ const SELF_HARM: IncidentTypeConfiguration = {
         },
         {
           code: 'PRISON ESCORT VEHICLE',
+          active: true,
           label: 'PRISON ESCORT VEHICLE',
           commentRequired: true,
           dateRequired: false,
@@ -887,6 +1009,7 @@ const SELF_HARM: IncidentTypeConfiguration = {
         },
         {
           code: 'COURT CELL',
+          active: true,
           label: 'COURT CELL',
           commentRequired: true,
           dateRequired: false,
@@ -894,6 +1017,7 @@ const SELF_HARM: IncidentTypeConfiguration = {
         },
         {
           code: 'OTHER',
+          active: true,
           label: 'OTHER',
           commentRequired: true,
           dateRequired: false,
@@ -903,12 +1027,14 @@ const SELF_HARM: IncidentTypeConfiguration = {
     },
     '45105': {
       id: '45105',
+      active: true,
       code: 'WHAT OTHER METHOD OF SELF HARM WAS INVOLVED',
       label: 'WHAT OTHER METHOD OF SELF HARM WAS INVOLVED',
       multipleAnswers: true,
       answers: [
         {
           code: 'HEAD BANGING',
+          active: true,
           label: 'HEAD BANGING',
           commentRequired: false,
           dateRequired: false,
@@ -916,6 +1042,7 @@ const SELF_HARM: IncidentTypeConfiguration = {
         },
         {
           code: 'SUFFOCATION',
+          active: true,
           label: 'SUFFOCATION',
           commentRequired: false,
           dateRequired: false,
@@ -923,6 +1050,7 @@ const SELF_HARM: IncidentTypeConfiguration = {
         },
         {
           code: 'WOUND',
+          active: true,
           label: 'WOUND',
           commentRequired: false,
           dateRequired: false,
@@ -930,6 +1058,7 @@ const SELF_HARM: IncidentTypeConfiguration = {
         },
         {
           code: 'NOOSE LIGATURE MAKING',
+          active: true,
           label: 'NOOSE LIGATURE MAKING',
           commentRequired: false,
           dateRequired: false,
@@ -937,6 +1066,7 @@ const SELF_HARM: IncidentTypeConfiguration = {
         },
         {
           code: 'OTHER',
+          active: true,
           label: 'OTHER',
           commentRequired: true,
           dateRequired: false,
@@ -946,12 +1076,14 @@ const SELF_HARM: IncidentTypeConfiguration = {
     },
     '45167': {
       id: '45167',
+      active: true,
       code: 'DID SELF HARM METHOD INVOLVE BURNING',
       label: 'DID SELF HARM METHOD INVOLVE BURNING',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: true,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -959,6 +1091,7 @@ const SELF_HARM: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: true,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,

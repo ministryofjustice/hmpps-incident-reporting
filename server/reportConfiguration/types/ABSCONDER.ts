@@ -1,4 +1,4 @@
-// Generated with ./scripts/updateNomisIncidentTypeConfigurations.ts at 2024-09-16T15:41:50.737Z
+// Generated with ./scripts/updateNomisIncidentTypeConfigurations.ts at 2024-09-20T16:52:07.631Z
 
 import { type IncidentTypeConfiguration } from '../../data/incidentTypeConfiguration/types'
 
@@ -9,12 +9,14 @@ const ABSCONDER: IncidentTypeConfiguration = {
   questions: {
     '44198': {
       id: '44198',
+      active: true,
       code: 'HAS THE PRISONER BEEN CHARGED WITH A FURTHER OFFENCE',
       label: 'HAS THE PRISONER BEEN CHARGED WITH A FURTHER OFFENCE',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: true,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -22,6 +24,7 @@ const ABSCONDER: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: true,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -31,12 +34,14 @@ const ABSCONDER: IncidentTypeConfiguration = {
     },
     '44271': {
       id: '44271',
+      active: true,
       code: 'WAS ANY FORM OF DECEPTION USED IN THE ABSCOND',
       label: 'WAS ANY FORM OF DECEPTION USED IN THE ABSCOND',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: true,
           label: 'YES',
           commentRequired: true,
           dateRequired: false,
@@ -44,6 +49,7 @@ const ABSCONDER: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: true,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -53,12 +59,14 @@ const ABSCONDER: IncidentTypeConfiguration = {
     },
     '44284': {
       id: '44284',
+      active: true,
       code: 'WAS THE ABSCOND IN THE COMPANY OF OTHER PRISONERS',
       label: 'WAS THE ABSCOND IN THE COMPANY OF OTHER PRISONERS',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: true,
           label: 'YES',
           commentRequired: true,
           dateRequired: false,
@@ -66,6 +74,7 @@ const ABSCONDER: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: true,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -75,12 +84,14 @@ const ABSCONDER: IncidentTypeConfiguration = {
     },
     '44326': {
       id: '44326',
+      active: true,
       code: 'HAS THE PRISON SERVICE PRESS OFFICE BEEN INFORMED',
       label: 'HAS THE PRISON SERVICE PRESS OFFICE BEEN INFORMED',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES (ENTER DATE)',
+          active: true,
           label: 'YES (ENTER DATE)',
           commentRequired: false,
           dateRequired: true,
@@ -88,6 +99,7 @@ const ABSCONDER: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: true,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -97,12 +109,14 @@ const ABSCONDER: IncidentTypeConfiguration = {
     },
     '44402': {
       id: '44402',
+      active: true,
       code: 'HOW WAS THE PRISONER RECAPTURED',
       label: 'HOW WAS THE PRISONER RECAPTURED',
       multipleAnswers: false,
       answers: [
         {
           code: 'POLICE ARREST',
+          active: true,
           label: 'POLICE ARREST',
           commentRequired: false,
           dateRequired: false,
@@ -110,6 +124,7 @@ const ABSCONDER: IncidentTypeConfiguration = {
         },
         {
           code: 'PRISON STAFF ARREST',
+          active: true,
           label: 'PRISON STAFF ARREST',
           commentRequired: false,
           dateRequired: false,
@@ -117,6 +132,7 @@ const ABSCONDER: IncidentTypeConfiguration = {
         },
         {
           code: 'SURRENDER',
+          active: true,
           label: 'SURRENDER',
           commentRequired: false,
           dateRequired: false,
@@ -124,6 +140,7 @@ const ABSCONDER: IncidentTypeConfiguration = {
         },
         {
           code: 'OTHER',
+          active: true,
           label: 'OTHER',
           commentRequired: true,
           dateRequired: false,
@@ -133,12 +150,14 @@ const ABSCONDER: IncidentTypeConfiguration = {
     },
     '44416': {
       id: '44416',
+      active: true,
       code: 'HAS ANY PROSECUTION TAKEN PLACE OR IS ANY PENDING',
       label: 'HAS ANY PROSECUTION TAKEN PLACE OR IS ANY PENDING',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: true,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -146,6 +165,7 @@ const ABSCONDER: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: true,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -155,12 +175,14 @@ const ABSCONDER: IncidentTypeConfiguration = {
     },
     '44467': {
       id: '44467',
+      active: true,
       code: 'ESTIMATED COST OF DAMAGE',
       label: 'ESTIMATED COST OF DAMAGE',
       multipleAnswers: false,
       answers: [
         {
           code: 'ENTER AMOUNT IN POUND STERLING',
+          active: true,
           label: 'ENTER AMOUNT IN POUND STERLING',
           commentRequired: true,
           dateRequired: false,
@@ -170,12 +192,14 @@ const ABSCONDER: IncidentTypeConfiguration = {
     },
     '44534': {
       id: '44534',
+      active: true,
       code: 'WERE THE POLICE INFORMED OF THE INCIDENT',
       label: 'WERE THE POLICE INFORMED OF THE INCIDENT',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: true,
           label: 'YES',
           commentRequired: false,
           dateRequired: true,
@@ -183,6 +207,7 @@ const ABSCONDER: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: true,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -192,12 +217,14 @@ const ABSCONDER: IncidentTypeConfiguration = {
     },
     '44609': {
       id: '44609',
+      active: true,
       code: "IS THE INCIDENT SUBJECT TO A GOVERNOR'S ADJUDICATION",
       label: "IS THE INCIDENT SUBJECT TO A GOVERNOR'S ADJUDICATION",
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: true,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -205,6 +232,7 @@ const ABSCONDER: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: true,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -214,12 +242,14 @@ const ABSCONDER: IncidentTypeConfiguration = {
     },
     '44615': {
       id: '44615',
+      active: true,
       code: 'WAS DAMAGE CAUSED TO PRISON PROPERTY',
       label: 'WAS DAMAGE CAUSED TO PRISON PROPERTY',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: true,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -227,6 +257,7 @@ const ABSCONDER: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: true,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -236,12 +267,14 @@ const ABSCONDER: IncidentTypeConfiguration = {
     },
     '44717': {
       id: '44717',
+      active: true,
       code: 'FROM WHICH AREA DID THE ABSCOND TAKE PLACE',
       label: 'FROM WHICH AREA DID THE ABSCOND TAKE PLACE',
       multipleAnswers: false,
       answers: [
         {
           code: 'FROM ESTABLISHMENT',
+          active: true,
           label: 'FROM ESTABLISHMENT',
           commentRequired: false,
           dateRequired: false,
@@ -249,6 +282,7 @@ const ABSCONDER: IncidentTypeConfiguration = {
         },
         {
           code: 'SUPERVISED OUTSIDE PARTY',
+          active: true,
           label: 'SUPERVISED OUTSIDE PARTY',
           commentRequired: false,
           dateRequired: false,
@@ -256,6 +290,7 @@ const ABSCONDER: IncidentTypeConfiguration = {
         },
         {
           code: 'UNSUPERVISED OUTSIDE PARTY',
+          active: true,
           label: 'UNSUPERVISED OUTSIDE PARTY',
           commentRequired: false,
           dateRequired: false,
@@ -263,6 +298,7 @@ const ABSCONDER: IncidentTypeConfiguration = {
         },
         {
           code: 'OTHER',
+          active: true,
           label: 'OTHER',
           commentRequired: true,
           dateRequired: false,
@@ -272,12 +308,14 @@ const ABSCONDER: IncidentTypeConfiguration = {
     },
     '44766': {
       id: '44766',
+      active: true,
       code: 'IS THE INCIDENT THE SUBJECT OF AN INTERNAL INVESTIGATION',
       label: 'IS THE INCIDENT THE SUBJECT OF AN INTERNAL INVESTIGATION',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: true,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -285,6 +323,7 @@ const ABSCONDER: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: true,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -294,12 +333,14 @@ const ABSCONDER: IncidentTypeConfiguration = {
     },
     '44800': {
       id: '44800',
+      active: true,
       code: 'DESCRIBE THE DAMAGE',
       label: 'DESCRIBE THE DAMAGE',
       multipleAnswers: false,
       answers: [
         {
           code: 'MINOR',
+          active: true,
           label: 'MINOR',
           commentRequired: true,
           dateRequired: false,
@@ -307,6 +348,7 @@ const ABSCONDER: IncidentTypeConfiguration = {
         },
         {
           code: 'SERIOUS',
+          active: true,
           label: 'SERIOUS',
           commentRequired: true,
           dateRequired: false,
@@ -314,6 +356,7 @@ const ABSCONDER: IncidentTypeConfiguration = {
         },
         {
           code: 'EXTENSIVE',
+          active: true,
           label: 'EXTENSIVE',
           commentRequired: true,
           dateRequired: false,
@@ -323,12 +366,14 @@ const ABSCONDER: IncidentTypeConfiguration = {
     },
     '44854': {
       id: '44854',
+      active: true,
       code: 'WITH WHAT OFFENCE HAS THE PRISONER BEEN CHARGED',
       label: 'WITH WHAT OFFENCE HAS THE PRISONER BEEN CHARGED',
       multipleAnswers: true,
       answers: [
         {
           code: 'MURDER/ATTEMPTED MURDER',
+          active: true,
           label: 'MURDER/ATTEMPTED MURDER',
           commentRequired: false,
           dateRequired: false,
@@ -336,6 +381,7 @@ const ABSCONDER: IncidentTypeConfiguration = {
         },
         {
           code: 'MANSLAUGHTER',
+          active: true,
           label: 'MANSLAUGHTER',
           commentRequired: false,
           dateRequired: false,
@@ -343,6 +389,7 @@ const ABSCONDER: IncidentTypeConfiguration = {
         },
         {
           code: 'ASSAULT',
+          active: true,
           label: 'ASSAULT',
           commentRequired: false,
           dateRequired: false,
@@ -350,6 +397,7 @@ const ABSCONDER: IncidentTypeConfiguration = {
         },
         {
           code: 'RAPE/ATTEMPTED RAPE',
+          active: true,
           label: 'RAPE/ATTEMPTED RAPE',
           commentRequired: false,
           dateRequired: false,
@@ -357,6 +405,7 @@ const ABSCONDER: IncidentTypeConfiguration = {
         },
         {
           code: 'OTHER SEXUAL OFFENCE',
+          active: true,
           label: 'OTHER SEXUAL OFFENCE',
           commentRequired: false,
           dateRequired: false,
@@ -364,6 +413,7 @@ const ABSCONDER: IncidentTypeConfiguration = {
         },
         {
           code: 'THEFT',
+          active: true,
           label: 'THEFT',
           commentRequired: false,
           dateRequired: false,
@@ -371,6 +421,7 @@ const ABSCONDER: IncidentTypeConfiguration = {
         },
         {
           code: 'ROBBERY',
+          active: true,
           label: 'ROBBERY',
           commentRequired: false,
           dateRequired: false,
@@ -378,6 +429,7 @@ const ABSCONDER: IncidentTypeConfiguration = {
         },
         {
           code: 'FIREARM OFFENCE',
+          active: true,
           label: 'FIREARM OFFENCE',
           commentRequired: false,
           dateRequired: false,
@@ -385,6 +437,7 @@ const ABSCONDER: IncidentTypeConfiguration = {
         },
         {
           code: 'DRUG OFFENCE',
+          active: true,
           label: 'DRUG OFFENCE',
           commentRequired: false,
           dateRequired: false,
@@ -392,6 +445,7 @@ const ABSCONDER: IncidentTypeConfiguration = {
         },
         {
           code: 'VEHICLE CRIME',
+          active: true,
           label: 'VEHICLE CRIME',
           commentRequired: false,
           dateRequired: false,
@@ -399,6 +453,7 @@ const ABSCONDER: IncidentTypeConfiguration = {
         },
         {
           code: 'PUBLIC ORDER OFFENCE',
+          active: true,
           label: 'PUBLIC ORDER OFFENCE',
           commentRequired: false,
           dateRequired: false,
@@ -406,6 +461,7 @@ const ABSCONDER: IncidentTypeConfiguration = {
         },
         {
           code: 'OTHER',
+          active: true,
           label: 'OTHER',
           commentRequired: true,
           dateRequired: false,
@@ -415,12 +471,14 @@ const ABSCONDER: IncidentTypeConfiguration = {
     },
     '44861': {
       id: '44861',
+      active: true,
       code: 'HAS PRISONER BEEN RECAPTURED',
       label: 'HAS PRISONER BEEN RECAPTURED',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES (ENTER DATE)',
+          active: true,
           label: 'YES (ENTER DATE)',
           commentRequired: false,
           dateRequired: true,
@@ -428,6 +486,7 @@ const ABSCONDER: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: true,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -437,12 +496,14 @@ const ABSCONDER: IncidentTypeConfiguration = {
     },
     '44868': {
       id: '44868',
+      active: true,
       code: 'DESCRIBE THE DAMAGE',
       label: 'DESCRIBE THE DAMAGE',
       multipleAnswers: false,
       answers: [
         {
           code: 'MINOR',
+          active: true,
           label: 'MINOR',
           commentRequired: true,
           dateRequired: false,
@@ -450,6 +511,7 @@ const ABSCONDER: IncidentTypeConfiguration = {
         },
         {
           code: 'SERIOUS',
+          active: true,
           label: 'SERIOUS',
           commentRequired: true,
           dateRequired: false,
@@ -457,6 +519,7 @@ const ABSCONDER: IncidentTypeConfiguration = {
         },
         {
           code: 'EXTENSIVE',
+          active: true,
           label: 'EXTENSIVE',
           commentRequired: true,
           dateRequired: false,
@@ -466,12 +529,14 @@ const ABSCONDER: IncidentTypeConfiguration = {
     },
     '44941': {
       id: '44941',
+      active: true,
       code: 'IS THE INCIDENT THE SUBJECT OF A POLICE INVESTIGATION',
       label: 'IS THE INCIDENT THE SUBJECT OF A POLICE INVESTIGATION',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: true,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -479,6 +544,7 @@ const ABSCONDER: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: true,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -488,12 +554,14 @@ const ABSCONDER: IncidentTypeConfiguration = {
     },
     '44976': {
       id: '44976',
+      active: true,
       code: 'WAS ANY DAMAGE CAUSED TO PRIVATE PROPERTY DURING ABSCOND',
       label: 'WAS ANY DAMAGE CAUSED TO PRIVATE PROPERTY DURING ABSCOND',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: true,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -501,6 +569,7 @@ const ABSCONDER: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: true,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -510,12 +579,14 @@ const ABSCONDER: IncidentTypeConfiguration = {
     },
     '45077': {
       id: '45077',
+      active: true,
       code: 'IS THERE ANY MEDIA INTEREST IN THIS INCIDENT',
       label: 'IS THERE ANY MEDIA INTEREST IN THIS INCIDENT',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: true,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -523,6 +594,7 @@ const ABSCONDER: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: true,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,

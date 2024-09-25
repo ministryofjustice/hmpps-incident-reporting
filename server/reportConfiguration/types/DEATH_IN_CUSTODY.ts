@@ -1,4 +1,4 @@
-// Generated with ./scripts/updateNomisIncidentTypeConfigurations.ts at 2024-09-16T15:41:59.655Z
+// Generated with ./scripts/updateNomisIncidentTypeConfigurations.ts at 2024-09-20T16:52:18.668Z
 
 import { type IncidentTypeConfiguration } from '../../data/incidentTypeConfiguration/types'
 
@@ -9,12 +9,14 @@ const DEATH_IN_CUSTODY: IncidentTypeConfiguration = {
   questions: {
     '44159': {
       id: '44159',
+      active: true,
       code: 'WHAT WERE THE CIRCUMSTANCES OF THE DEATH',
       label: 'WHAT WERE THE CIRCUMSTANCES OF THE DEATH',
       multipleAnswers: false,
       answers: [
         {
           code: 'APPARENT SELF INFLICTED',
+          active: true,
           label: 'APPARENT SELF INFLICTED',
           commentRequired: false,
           dateRequired: false,
@@ -22,6 +24,7 @@ const DEATH_IN_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'APPARENT NATURAL CAUSES',
+          active: true,
           label: 'APPARENT NATURAL CAUSES',
           commentRequired: false,
           dateRequired: false,
@@ -29,6 +32,7 @@ const DEATH_IN_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'ACCIDENTAL',
+          active: true,
           label: 'ACCIDENTAL',
           commentRequired: false,
           dateRequired: false,
@@ -36,6 +40,7 @@ const DEATH_IN_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'SUSPICIOUS CIRCUMSTANCES',
+          active: true,
           label: 'SUSPICIOUS CIRCUMSTANCES',
           commentRequired: true,
           dateRequired: false,
@@ -45,12 +50,14 @@ const DEATH_IN_CUSTODY: IncidentTypeConfiguration = {
     },
     '44292': {
       id: '44292',
+      active: true,
       code: 'IS THE DEATH SUBJECT TO A HEALTH AND SAFETY INVESTIGATION',
       label: 'IS THE DEATH SUBJECT TO A HEALTH AND SAFETY INVESTIGATION',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: true,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -58,6 +65,7 @@ const DEATH_IN_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: true,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -67,12 +75,14 @@ const DEATH_IN_CUSTODY: IncidentTypeConfiguration = {
     },
     '44303': {
       id: '44303',
+      active: true,
       code: 'WHAT VERDICT DID THE INQUEST REACH',
       label: 'WHAT VERDICT DID THE INQUEST REACH',
       multipleAnswers: false,
       answers: [
         {
           code: 'NATURAL CAUSES',
+          active: true,
           label: 'NATURAL CAUSES',
           commentRequired: false,
           dateRequired: false,
@@ -80,6 +90,7 @@ const DEATH_IN_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'SUICIDE',
+          active: true,
           label: 'SUICIDE',
           commentRequired: false,
           dateRequired: false,
@@ -87,6 +98,7 @@ const DEATH_IN_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'ACCIDENTAL',
+          active: true,
           label: 'ACCIDENTAL',
           commentRequired: false,
           dateRequired: false,
@@ -94,6 +106,7 @@ const DEATH_IN_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'MISADVENTURE',
+          active: true,
           label: 'MISADVENTURE',
           commentRequired: false,
           dateRequired: false,
@@ -101,6 +114,7 @@ const DEATH_IN_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'OPEN VERDICT',
+          active: true,
           label: 'OPEN VERDICT',
           commentRequired: false,
           dateRequired: false,
@@ -108,6 +122,7 @@ const DEATH_IN_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'OTHER',
+          active: true,
           label: 'OTHER',
           commentRequired: true,
           dateRequired: false,
@@ -117,12 +132,14 @@ const DEATH_IN_CUSTODY: IncidentTypeConfiguration = {
     },
     '44366': {
       id: '44366',
+      active: true,
       code: 'WHERE WAS THE PRISONER LOCATED AT THE TIME OF DEATH',
       label: 'WHERE WAS THE PRISONER LOCATED AT THE TIME OF DEATH',
       multipleAnswers: false,
       answers: [
         {
           code: 'SINGLE CELL: ORDINARY LOCATION',
+          active: true,
           label: 'SINGLE CELL: ORDINARY LOCATION',
           commentRequired: false,
           dateRequired: false,
@@ -130,6 +147,7 @@ const DEATH_IN_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'SINGLE CELL: SEGREGATION UNIT',
+          active: true,
           label: 'SINGLE CELL: SEGREGATION UNIT',
           commentRequired: false,
           dateRequired: false,
@@ -137,6 +155,7 @@ const DEATH_IN_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'SHARED CELL: ORDINARY LOCATION',
+          active: true,
           label: 'SHARED CELL: ORDINARY LOCATION',
           commentRequired: false,
           dateRequired: false,
@@ -144,6 +163,7 @@ const DEATH_IN_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'SPECIAL CELL: SEGREGATION UNIT',
+          active: true,
           label: 'SPECIAL CELL: SEGREGATION UNIT',
           commentRequired: false,
           dateRequired: false,
@@ -151,6 +171,7 @@ const DEATH_IN_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'SINGLE CELL:HEALTH CARE CENTRE',
+          active: true,
           label: 'SINGLE CELL:HEALTH CARE CENTRE',
           commentRequired: false,
           dateRequired: false,
@@ -158,6 +179,7 @@ const DEATH_IN_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'WARD: HEALTH CARE CENTRE',
+          active: true,
           label: 'WARD: HEALTH CARE CENTRE',
           commentRequired: false,
           dateRequired: false,
@@ -165,6 +187,7 @@ const DEATH_IN_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'UNFURNISHED ROOM: H.C.C.',
+          active: true,
           label: 'UNFURNISHED ROOM: H.C.C.',
           commentRequired: false,
           dateRequired: false,
@@ -172,6 +195,7 @@ const DEATH_IN_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'PROTECTIVE ROOM: H.C.C.',
+          active: true,
           label: 'PROTECTIVE ROOM: H.C.C.',
           commentRequired: false,
           dateRequired: false,
@@ -179,6 +203,7 @@ const DEATH_IN_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'OTHER',
+          active: true,
           label: 'OTHER',
           commentRequired: true,
           dateRequired: false,
@@ -188,12 +213,14 @@ const DEATH_IN_CUSTODY: IncidentTypeConfiguration = {
     },
     '44383': {
       id: '44383',
+      active: true,
       code: 'WHAT METHOD WAS USED',
       label: 'WHAT METHOD WAS USED',
       multipleAnswers: false,
       answers: [
         {
           code: 'HANGING',
+          active: true,
           label: 'HANGING',
           commentRequired: false,
           dateRequired: false,
@@ -201,6 +228,7 @@ const DEATH_IN_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'CUTTING',
+          active: true,
           label: 'CUTTING',
           commentRequired: false,
           dateRequired: false,
@@ -208,6 +236,7 @@ const DEATH_IN_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'SUFFOCATION',
+          active: true,
           label: 'SUFFOCATION',
           commentRequired: false,
           dateRequired: false,
@@ -215,6 +244,7 @@ const DEATH_IN_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'OTHER',
+          active: true,
           label: 'OTHER',
           commentRequired: true,
           dateRequired: false,
@@ -224,12 +254,14 @@ const DEATH_IN_CUSTODY: IncidentTypeConfiguration = {
     },
     '44384': {
       id: '44384',
+      active: true,
       code: 'WHAT WAS THE LIKELY CAUSE OF DEATH',
       label: 'WHAT WAS THE LIKELY CAUSE OF DEATH',
       multipleAnswers: false,
       answers: [
         {
           code: 'MYOCARDIAL INFARCTION',
+          active: true,
           label: 'MYOCARDIAL INFARCTION',
           commentRequired: false,
           dateRequired: false,
@@ -237,6 +269,7 @@ const DEATH_IN_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'LONG TERM ALCOHOL MISUSE',
+          active: true,
           label: 'LONG TERM ALCOHOL MISUSE',
           commentRequired: false,
           dateRequired: false,
@@ -244,6 +277,7 @@ const DEATH_IN_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'LONG TERM DRUG MISUSE',
+          active: true,
           label: 'LONG TERM DRUG MISUSE',
           commentRequired: false,
           dateRequired: false,
@@ -251,6 +285,7 @@ const DEATH_IN_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'OTHER',
+          active: true,
           label: 'OTHER',
           commentRequired: true,
           dateRequired: false,
@@ -260,12 +295,14 @@ const DEATH_IN_CUSTODY: IncidentTypeConfiguration = {
     },
     '44418': {
       id: '44418',
+      active: true,
       code: 'WAS THE PRISONER RECEIVING MEDICATION AT THE TIME OF DEATH',
       label: 'WAS THE PRISONER RECEIVING MEDICATION AT THE TIME OF DEATH',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: true,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -273,6 +310,7 @@ const DEATH_IN_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: true,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -282,12 +320,14 @@ const DEATH_IN_CUSTODY: IncidentTypeConfiguration = {
     },
     '44420': {
       id: '44420',
+      active: true,
       code: 'IS THERE ANY MEDIA INTEREST IN THIS INCIDENT',
       label: 'IS THERE ANY MEDIA INTEREST IN THIS INCIDENT',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: true,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -295,6 +335,7 @@ const DEATH_IN_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: true,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -304,12 +345,14 @@ const DEATH_IN_CUSTODY: IncidentTypeConfiguration = {
     },
     '44468': {
       id: '44468',
+      active: true,
       code: 'HAS THE NEXT OF KIN BEEN INFORMED',
       label: 'HAS THE NEXT OF KIN BEEN INFORMED',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: true,
           label: 'YES',
           commentRequired: true,
           dateRequired: false,
@@ -317,6 +360,7 @@ const DEATH_IN_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: true,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -326,12 +370,14 @@ const DEATH_IN_CUSTODY: IncidentTypeConfiguration = {
     },
     '44537': {
       id: '44537',
+      active: true,
       code: 'WHERE WAS THE PRISONER AT THE TIME OF DEATH',
       label: 'WHERE WAS THE PRISONER AT THE TIME OF DEATH',
       multipleAnswers: false,
       answers: [
         {
           code: 'IN THE PRISON',
+          active: true,
           label: 'IN THE PRISON',
           commentRequired: false,
           dateRequired: false,
@@ -339,6 +385,7 @@ const DEATH_IN_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'CUSTODY OF STAFF OUT OF PRISON',
+          active: true,
           label: 'CUSTODY OF STAFF OUT OF PRISON',
           commentRequired: false,
           dateRequired: false,
@@ -346,6 +393,7 @@ const DEATH_IN_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'ON TEMPORARY RELEASE',
+          active: true,
           label: 'ON TEMPORARY RELEASE',
           commentRequired: false,
           dateRequired: false,
@@ -353,6 +401,7 @@ const DEATH_IN_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'UNLAWFULLY AT LARGE',
+          active: true,
           label: 'UNLAWFULLY AT LARGE',
           commentRequired: false,
           dateRequired: false,
@@ -362,12 +411,14 @@ const DEATH_IN_CUSTODY: IncidentTypeConfiguration = {
     },
     '44640': {
       id: '44640',
+      active: true,
       code: "HAS A CORONER'S INQUEST BEEN HELD",
       label: "HAS A CORONER'S INQUEST BEEN HELD",
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: true,
           label: 'YES',
           commentRequired: false,
           dateRequired: true,
@@ -375,6 +426,7 @@ const DEATH_IN_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: true,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -384,12 +436,14 @@ const DEATH_IN_CUSTODY: IncidentTypeConfiguration = {
     },
     '44646': {
       id: '44646',
+      active: true,
       code: 'WERE THE POLICE INFORMED OF THE INCIDENT',
       label: 'WERE THE POLICE INFORMED OF THE INCIDENT',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: true,
           label: 'YES',
           commentRequired: false,
           dateRequired: true,
@@ -397,6 +451,7 @@ const DEATH_IN_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: true,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -406,12 +461,14 @@ const DEATH_IN_CUSTODY: IncidentTypeConfiguration = {
     },
     '44680': {
       id: '44680',
+      active: true,
       code: 'WAS THE PRISONER ALONE AT THE TIME OF DEATH',
       label: 'WAS THE PRISONER ALONE AT THE TIME OF DEATH',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: true,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -419,6 +476,7 @@ const DEATH_IN_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: true,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -428,12 +486,14 @@ const DEATH_IN_CUSTODY: IncidentTypeConfiguration = {
     },
     '44691': {
       id: '44691',
+      active: true,
       code: 'WHO FOUND THE PRISONER',
       label: 'WHO FOUND THE PRISONER',
       multipleAnswers: false,
       answers: [
         {
           code: 'PRISON STAFF',
+          active: true,
           label: 'PRISON STAFF',
           commentRequired: false,
           dateRequired: false,
@@ -441,6 +501,7 @@ const DEATH_IN_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'CELL MATE',
+          active: true,
           label: 'CELL MATE',
           commentRequired: false,
           dateRequired: false,
@@ -448,6 +509,7 @@ const DEATH_IN_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'OTHER PRISONER',
+          active: true,
           label: 'OTHER PRISONER',
           commentRequired: false,
           dateRequired: false,
@@ -455,6 +517,7 @@ const DEATH_IN_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'OTHER',
+          active: true,
           label: 'OTHER',
           commentRequired: true,
           dateRequired: false,
@@ -464,12 +527,14 @@ const DEATH_IN_CUSTODY: IncidentTypeConfiguration = {
     },
     '44720': {
       id: '44720',
+      active: true,
       code: 'WHO PRONOUNCED DEATH',
       label: 'WHO PRONOUNCED DEATH',
       multipleAnswers: false,
       answers: [
         {
           code: 'PRISON MEDICAL OFFICER',
+          active: true,
           label: 'PRISON MEDICAL OFFICER',
           commentRequired: false,
           dateRequired: false,
@@ -477,6 +542,7 @@ const DEATH_IN_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'HOSPITAL DOCTOR',
+          active: true,
           label: 'HOSPITAL DOCTOR',
           commentRequired: false,
           dateRequired: false,
@@ -484,6 +550,7 @@ const DEATH_IN_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'OTHER',
+          active: true,
           label: 'OTHER',
           commentRequired: true,
           dateRequired: false,
@@ -493,12 +560,14 @@ const DEATH_IN_CUSTODY: IncidentTypeConfiguration = {
     },
     '44721': {
       id: '44721',
+      active: true,
       code: 'WAS THE PRISONER ON T/R IN OUTSIDE HOSPITAL',
       label: 'WAS THE PRISONER ON T/R IN OUTSIDE HOSPITAL',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: true,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -506,6 +575,7 @@ const DEATH_IN_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: true,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -515,12 +585,14 @@ const DEATH_IN_CUSTODY: IncidentTypeConfiguration = {
     },
     '44743': {
       id: '44743',
+      active: true,
       code: 'HAS THE PRISON SERVICE PRESS OFFICE BEEN INFORMED',
       label: 'HAS THE PRISON SERVICE PRESS OFFICE BEEN INFORMED',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: true,
           label: 'YES',
           commentRequired: false,
           dateRequired: true,
@@ -528,6 +600,7 @@ const DEATH_IN_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: true,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -537,12 +610,14 @@ const DEATH_IN_CUSTODY: IncidentTypeConfiguration = {
     },
     '44770': {
       id: '44770',
+      active: true,
       code: 'WHAT WAS THE LIGATURE ATTACHED TO',
       label: 'WHAT WAS THE LIGATURE ATTACHED TO',
       multipleAnswers: false,
       answers: [
         {
           code: 'WINDOW BARS',
+          active: true,
           label: 'WINDOW BARS',
           commentRequired: false,
           dateRequired: false,
@@ -550,6 +625,7 @@ const DEATH_IN_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'CELL DOOR',
+          active: true,
           label: 'CELL DOOR',
           commentRequired: false,
           dateRequired: false,
@@ -557,6 +633,7 @@ const DEATH_IN_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'LIGHT FITTINGS',
+          active: true,
           label: 'LIGHT FITTINGS',
           commentRequired: false,
           dateRequired: false,
@@ -564,6 +641,7 @@ const DEATH_IN_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'BED',
+          active: true,
           label: 'BED',
           commentRequired: false,
           dateRequired: false,
@@ -571,6 +649,7 @@ const DEATH_IN_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'OTHER',
+          active: true,
           label: 'OTHER',
           commentRequired: true,
           dateRequired: false,
@@ -580,12 +659,14 @@ const DEATH_IN_CUSTODY: IncidentTypeConfiguration = {
     },
     '44862': {
       id: '44862',
+      active: true,
       code: 'IS ANY MEMBER OF STAFF FACING DISCIPLINARY CHARGES',
       label: 'IS ANY MEMBER OF STAFF FACING DISCIPLINARY CHARGES',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: true,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -593,6 +674,7 @@ const DEATH_IN_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: true,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -602,12 +684,14 @@ const DEATH_IN_CUSTODY: IncidentTypeConfiguration = {
     },
     '44876': {
       id: '44876',
+      active: true,
       code: 'WAS RESUSCITATION ATTEMPTED',
       label: 'WAS RESUSCITATION ATTEMPTED',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: true,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -615,6 +699,7 @@ const DEATH_IN_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: true,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -624,12 +709,14 @@ const DEATH_IN_CUSTODY: IncidentTypeConfiguration = {
     },
     '44901': {
       id: '44901',
+      active: true,
       code: 'WAS THE PRISONER TAKEN TO AN OUTSIDE HOSPITAL',
       label: 'WAS THE PRISONER TAKEN TO AN OUTSIDE HOSPITAL',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: true,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -637,6 +724,7 @@ const DEATH_IN_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: true,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -646,12 +734,14 @@ const DEATH_IN_CUSTODY: IncidentTypeConfiguration = {
     },
     '44929': {
       id: '44929',
+      active: true,
       code: 'WHAT WAS THE LIGATURE MADE FROM',
       label: 'WHAT WAS THE LIGATURE MADE FROM',
       multipleAnswers: false,
       answers: [
         {
           code: 'BEDDING',
+          active: true,
           label: 'BEDDING',
           commentRequired: false,
           dateRequired: false,
@@ -659,6 +749,7 @@ const DEATH_IN_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'SHOELACES',
+          active: true,
           label: 'SHOELACES',
           commentRequired: false,
           dateRequired: false,
@@ -666,6 +757,7 @@ const DEATH_IN_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'CLOTHING',
+          active: true,
           label: 'CLOTHING',
           commentRequired: false,
           dateRequired: false,
@@ -673,6 +765,7 @@ const DEATH_IN_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'OTHER',
+          active: true,
           label: 'OTHER',
           commentRequired: true,
           dateRequired: false,
@@ -682,12 +775,14 @@ const DEATH_IN_CUSTODY: IncidentTypeConfiguration = {
     },
     '44962': {
       id: '44962',
+      active: true,
       code: 'WHAT TIME WAS DEATH PRONOUNCED',
       label: 'WHAT TIME WAS DEATH PRONOUNCED',
       multipleAnswers: true,
       answers: [
         {
           code: 'DATE',
+          active: true,
           label: 'DATE',
           commentRequired: false,
           dateRequired: true,
@@ -695,6 +790,7 @@ const DEATH_IN_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'TIME',
+          active: true,
           label: 'TIME',
           commentRequired: true,
           dateRequired: false,
@@ -704,12 +800,14 @@ const DEATH_IN_CUSTODY: IncidentTypeConfiguration = {
     },
     '45023': {
       id: '45023',
+      active: true,
       code: 'WAS A F2052SH/ACCT OPEN AT THE TIME OF DEATH',
       label: 'WAS A F2052SH/ACCT OPEN AT THE TIME OF DEATH',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: true,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -717,6 +815,7 @@ const DEATH_IN_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: true,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -726,12 +825,14 @@ const DEATH_IN_CUSTODY: IncidentTypeConfiguration = {
     },
     '45038': {
       id: '45038',
+      active: true,
       code: 'IS THE INCIDENT THE SUBJECT OF A POLICE INVESTIGATION',
       label: 'IS THE INCIDENT THE SUBJECT OF A POLICE INVESTIGATION',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: true,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -739,6 +840,7 @@ const DEATH_IN_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: true,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -748,12 +850,14 @@ const DEATH_IN_CUSTODY: IncidentTypeConfiguration = {
     },
     '45043': {
       id: '45043',
+      active: true,
       code: 'IS THE PLACE OF DEATH KNOWN',
       label: 'IS THE PLACE OF DEATH KNOWN',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: true,
           label: 'YES',
           commentRequired: true,
           dateRequired: false,
@@ -761,6 +865,7 @@ const DEATH_IN_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: true,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -770,12 +875,14 @@ const DEATH_IN_CUSTODY: IncidentTypeConfiguration = {
     },
     '45063': {
       id: '45063',
+      active: true,
       code: 'HAS CORONER BEEN INFORMED',
       label: 'HAS CORONER BEEN INFORMED',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: true,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -783,6 +890,7 @@ const DEATH_IN_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: true,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -792,12 +900,14 @@ const DEATH_IN_CUSTODY: IncidentTypeConfiguration = {
     },
     '45108': {
       id: '45108',
+      active: true,
       code: 'AT WHAT TIME WAS THE PRISONER FOUND',
       label: 'AT WHAT TIME WAS THE PRISONER FOUND',
       multipleAnswers: false,
       answers: [
         {
           code: 'DATE',
+          active: true,
           label: 'DATE',
           commentRequired: false,
           dateRequired: true,
@@ -805,6 +915,7 @@ const DEATH_IN_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'TIME',
+          active: true,
           label: 'TIME',
           commentRequired: true,
           dateRequired: false,
@@ -814,12 +925,14 @@ const DEATH_IN_CUSTODY: IncidentTypeConfiguration = {
     },
     '45120': {
       id: '45120',
+      active: true,
       code: 'IS THE INCIDENT THE SUBJECT OF AN INTERNAL INVESTIGATION',
       label: 'IS THE INCIDENT THE SUBJECT OF AN INTERNAL INVESTIGATION',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: true,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -827,6 +940,7 @@ const DEATH_IN_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: true,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -836,12 +950,14 @@ const DEATH_IN_CUSTODY: IncidentTypeConfiguration = {
     },
     '45144': {
       id: '45144',
+      active: true,
       code: 'WAS THE ACCIDENTAL DEATH CAUSED BY',
       label: 'WAS THE ACCIDENTAL DEATH CAUSED BY',
       multipleAnswers: false,
       answers: [
         {
           code: 'DRUG OVERDOSE',
+          active: true,
           label: 'DRUG OVERDOSE',
           commentRequired: false,
           dateRequired: false,
@@ -849,6 +965,7 @@ const DEATH_IN_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'FALL',
+          active: true,
           label: 'FALL',
           commentRequired: false,
           dateRequired: false,
@@ -856,6 +973,7 @@ const DEATH_IN_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'TRANSPORT ACCIDENT',
+          active: true,
           label: 'TRANSPORT ACCIDENT',
           commentRequired: false,
           dateRequired: false,
@@ -863,6 +981,7 @@ const DEATH_IN_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'ACCIDENT INVOLVING MACHINERY',
+          active: true,
           label: 'ACCIDENT INVOLVING MACHINERY',
           commentRequired: false,
           dateRequired: false,
@@ -870,6 +989,7 @@ const DEATH_IN_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'OTHER',
+          active: true,
           label: 'OTHER',
           commentRequired: true,
           dateRequired: false,
@@ -879,12 +999,14 @@ const DEATH_IN_CUSTODY: IncidentTypeConfiguration = {
     },
     '45166': {
       id: '45166',
+      active: true,
       code: 'WHERE DID THE DEATH TAKE PLACE',
       label: 'WHERE DID THE DEATH TAKE PLACE',
       multipleAnswers: false,
       answers: [
         {
           code: 'OUTSIDE HOSPITAL',
+          active: true,
           label: 'OUTSIDE HOSPITAL',
           commentRequired: false,
           dateRequired: false,
@@ -892,6 +1014,7 @@ const DEATH_IN_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'OUTSIDE WORKING PARTY',
+          active: true,
           label: 'OUTSIDE WORKING PARTY',
           commentRequired: false,
           dateRequired: false,
@@ -899,6 +1022,7 @@ const DEATH_IN_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'OUTSIDE P.E. ACTIVITY',
+          active: true,
           label: 'OUTSIDE P.E. ACTIVITY',
           commentRequired: false,
           dateRequired: false,
@@ -906,6 +1030,7 @@ const DEATH_IN_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'AT COURT',
+          active: true,
           label: 'AT COURT',
           commentRequired: false,
           dateRequired: false,
@@ -913,6 +1038,7 @@ const DEATH_IN_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'OTHER ESCORT',
+          active: true,
           label: 'OTHER ESCORT',
           commentRequired: true,
           dateRequired: false,
@@ -920,6 +1046,7 @@ const DEATH_IN_CUSTODY: IncidentTypeConfiguration = {
         },
         {
           code: 'OTHER',
+          active: true,
           label: 'OTHER',
           commentRequired: true,
           dateRequired: false,

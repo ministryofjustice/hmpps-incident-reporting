@@ -1,4 +1,4 @@
-// Generated with ./scripts/updateNomisIncidentTypeConfigurations.ts at 2024-09-16T15:42:11.899Z
+// Generated with ./scripts/updateNomisIncidentTypeConfigurations.ts at 2024-09-20T16:52:33.548Z
 
 import { type IncidentTypeConfiguration } from '../../data/incidentTypeConfiguration/types'
 
@@ -9,12 +9,14 @@ const OLD_TEMPORARY_RELEASE_FAILURE2: IncidentTypeConfiguration = {
   questions: {
     '55179': {
       id: '55179',
+      active: false,
       code: 'What was the main management outcome of the incident?',
       label: 'What was the main management outcome of the incident?',
       multipleAnswers: true,
       answers: [
         {
           code: 'No further action',
+          active: false,
           label: 'No further action',
           commentRequired: false,
           dateRequired: false,
@@ -22,6 +24,7 @@ const OLD_TEMPORARY_RELEASE_FAILURE2: IncidentTypeConfiguration = {
         },
         {
           code: 'IEP Regression',
+          active: false,
           label: 'IEP Regression',
           commentRequired: false,
           dateRequired: false,
@@ -29,6 +32,7 @@ const OLD_TEMPORARY_RELEASE_FAILURE2: IncidentTypeConfiguration = {
         },
         {
           code: 'Placed on report/adjudication referal',
+          active: false,
           label: 'Placed on report/adjudication referal',
           commentRequired: false,
           dateRequired: false,
@@ -36,6 +40,7 @@ const OLD_TEMPORARY_RELEASE_FAILURE2: IncidentTypeConfiguration = {
         },
         {
           code: 'Police referral',
+          active: false,
           label: 'Police referral',
           commentRequired: false,
           dateRequired: false,
@@ -43,6 +48,7 @@ const OLD_TEMPORARY_RELEASE_FAILURE2: IncidentTypeConfiguration = {
         },
         {
           code: 'CPS referral',
+          active: false,
           label: 'CPS referral',
           commentRequired: false,
           dateRequired: false,
@@ -50,6 +56,7 @@ const OLD_TEMPORARY_RELEASE_FAILURE2: IncidentTypeConfiguration = {
         },
         {
           code: 'Prosecution referral',
+          active: false,
           label: 'Prosecution referral',
           commentRequired: false,
           dateRequired: false,
@@ -59,12 +66,14 @@ const OLD_TEMPORARY_RELEASE_FAILURE2: IncidentTypeConfiguration = {
     },
     '55180': {
       id: '55180',
+      active: false,
       code: 'Is any member of staff facing disciplinary charges?',
       label: 'Is any member of staff facing disciplinary charges?',
       multipleAnswers: false,
       answers: [
         {
           code: 'Yes',
+          active: false,
           label: 'Yes',
           commentRequired: false,
           dateRequired: false,
@@ -72,6 +81,7 @@ const OLD_TEMPORARY_RELEASE_FAILURE2: IncidentTypeConfiguration = {
         },
         {
           code: 'No',
+          active: false,
           label: 'No',
           commentRequired: false,
           dateRequired: false,
@@ -81,12 +91,14 @@ const OLD_TEMPORARY_RELEASE_FAILURE2: IncidentTypeConfiguration = {
     },
     '55181': {
       id: '55181',
+      active: false,
       code: 'Was ROTL Standard or Restricted?',
       label: 'Was ROTL Standard or Restricted?',
       multipleAnswers: false,
       answers: [
         {
           code: 'Standard ROTL',
+          active: false,
           label: 'Standard ROTL',
           commentRequired: false,
           dateRequired: false,
@@ -94,6 +106,7 @@ const OLD_TEMPORARY_RELEASE_FAILURE2: IncidentTypeConfiguration = {
         },
         {
           code: 'Restricted ROTL',
+          active: false,
           label: 'Restricted ROTL',
           commentRequired: false,
           dateRequired: false,
@@ -103,12 +116,14 @@ const OLD_TEMPORARY_RELEASE_FAILURE2: IncidentTypeConfiguration = {
     },
     '55182': {
       id: '55182',
+      active: false,
       code: 'What Type Of Temporary Licence Was Breached?',
       label: 'What Type Of Temporary Licence Was Breached?',
       multipleAnswers: false,
       answers: [
         {
           code: 'Resettlement Day',
+          active: false,
           label: 'Resettlement Day',
           commentRequired: false,
           dateRequired: false,
@@ -116,6 +131,7 @@ const OLD_TEMPORARY_RELEASE_FAILURE2: IncidentTypeConfiguration = {
         },
         {
           code: 'Resettlement Overnight',
+          active: false,
           label: 'Resettlement Overnight',
           commentRequired: false,
           dateRequired: false,
@@ -123,6 +139,7 @@ const OLD_TEMPORARY_RELEASE_FAILURE2: IncidentTypeConfiguration = {
         },
         {
           code: 'Childcare Resettlement',
+          active: false,
           label: 'Childcare Resettlement',
           commentRequired: false,
           dateRequired: false,
@@ -130,6 +147,7 @@ const OLD_TEMPORARY_RELEASE_FAILURE2: IncidentTypeConfiguration = {
         },
         {
           code: 'Special Purpose (medical)',
+          active: false,
           label: 'Special Purpose (medical)',
           commentRequired: false,
           dateRequired: false,
@@ -137,6 +155,7 @@ const OLD_TEMPORARY_RELEASE_FAILURE2: IncidentTypeConfiguration = {
         },
         {
           code: 'Special Purpose (other)',
+          active: false,
           label: 'Special Purpose (other)',
           commentRequired: false,
           dateRequired: false,
@@ -146,12 +165,14 @@ const OLD_TEMPORARY_RELEASE_FAILURE2: IncidentTypeConfiguration = {
     },
     '55183': {
       id: '55183',
+      active: false,
       code: 'What Was The Specific Purpose Of Temporary Release?',
       label: 'What Was The Specific Purpose Of Temporary Release?',
       multipleAnswers: false,
       answers: [
         {
           code: 'Court / Legal / Police',
+          active: false,
           label: 'Court / Legal / Police',
           commentRequired: false,
           dateRequired: false,
@@ -159,6 +180,7 @@ const OLD_TEMPORARY_RELEASE_FAILURE2: IncidentTypeConfiguration = {
         },
         {
           code: 'Maintaining Family Ties',
+          active: false,
           label: 'Maintaining Family Ties',
           commentRequired: false,
           dateRequired: false,
@@ -166,6 +188,7 @@ const OLD_TEMPORARY_RELEASE_FAILURE2: IncidentTypeConfiguration = {
         },
         {
           code: 'Other Compassionate Reason (emergency child care, attend funeral etc.)',
+          active: false,
           label: 'Other Compassionate Reason (emergency child care, attend funeral etc.)',
           commentRequired: false,
           dateRequired: false,
@@ -173,6 +196,7 @@ const OLD_TEMPORARY_RELEASE_FAILURE2: IncidentTypeConfiguration = {
         },
         {
           code: 'Other RDR Linked to Sentence Plan',
+          active: false,
           label: 'Other RDR Linked to Sentence Plan',
           commentRequired: false,
           dateRequired: false,
@@ -180,6 +204,7 @@ const OLD_TEMPORARY_RELEASE_FAILURE2: IncidentTypeConfiguration = {
         },
         {
           code: 'Training Or Education',
+          active: false,
           label: 'Training Or Education',
           commentRequired: false,
           dateRequired: false,
@@ -187,6 +212,7 @@ const OLD_TEMPORARY_RELEASE_FAILURE2: IncidentTypeConfiguration = {
         },
         {
           code: 'Medical',
+          active: false,
           label: 'Medical',
           commentRequired: false,
           dateRequired: false,
@@ -194,6 +220,7 @@ const OLD_TEMPORARY_RELEASE_FAILURE2: IncidentTypeConfiguration = {
         },
         {
           code: 'Paid and unpaid work placements',
+          active: false,
           label: 'Paid and unpaid work placements',
           commentRequired: false,
           dateRequired: false,
@@ -201,6 +228,7 @@ const OLD_TEMPORARY_RELEASE_FAILURE2: IncidentTypeConfiguration = {
         },
         {
           code: 'Marriage or civil partnership of the offender',
+          active: false,
           label: 'Marriage or civil partnership of the offender',
           commentRequired: false,
           dateRequired: false,
@@ -208,6 +236,7 @@ const OLD_TEMPORARY_RELEASE_FAILURE2: IncidentTypeConfiguration = {
         },
         {
           code: 'Inter-prison transfers',
+          active: false,
           label: 'Inter-prison transfers',
           commentRequired: false,
           dateRequired: false,
@@ -217,12 +246,14 @@ const OLD_TEMPORARY_RELEASE_FAILURE2: IncidentTypeConfiguration = {
     },
     '55184': {
       id: '55184',
+      active: false,
       code: 'Were UAL contingency plans (including notification to the police) activated?',
       label: 'Were UAL contingency plans (including notification to the police) activated?',
       multipleAnswers: false,
       answers: [
         {
           code: 'Yes',
+          active: false,
           label: 'Yes',
           commentRequired: false,
           dateRequired: false,
@@ -230,6 +261,7 @@ const OLD_TEMPORARY_RELEASE_FAILURE2: IncidentTypeConfiguration = {
         },
         {
           code: 'No',
+          active: false,
           label: 'No',
           commentRequired: false,
           dateRequired: false,
@@ -239,12 +271,14 @@ const OLD_TEMPORARY_RELEASE_FAILURE2: IncidentTypeConfiguration = {
     },
     '55185': {
       id: '55185',
+      active: false,
       code: 'Why were UAL contingency plans activated?',
       label: 'Why were UAL contingency plans activated?',
       multipleAnswers: false,
       answers: [
         {
           code: 'Apparent failure to return',
+          active: false,
           label: 'Apparent failure to return',
           commentRequired: false,
           dateRequired: false,
@@ -252,6 +286,7 @@ const OLD_TEMPORARY_RELEASE_FAILURE2: IncidentTypeConfiguration = {
         },
         {
           code: "Revocation of the prisoner's licence",
+          active: false,
           label: "Revocation of the prisoner's licence",
           commentRequired: false,
           dateRequired: false,
@@ -261,12 +296,14 @@ const OLD_TEMPORARY_RELEASE_FAILURE2: IncidentTypeConfiguration = {
     },
     '55186': {
       id: '55186',
+      active: false,
       code: 'Has the prisoner surrendered/been recaptured?',
       label: 'Has the prisoner surrendered/been recaptured?',
       multipleAnswers: false,
       answers: [
         {
           code: 'Yes (Enter Date)',
+          active: false,
           label: 'Yes (Enter Date)',
           commentRequired: false,
           dateRequired: true,
@@ -274,6 +311,7 @@ const OLD_TEMPORARY_RELEASE_FAILURE2: IncidentTypeConfiguration = {
         },
         {
           code: 'No',
+          active: false,
           label: 'No',
           commentRequired: false,
           dateRequired: false,
@@ -283,12 +321,14 @@ const OLD_TEMPORARY_RELEASE_FAILURE2: IncidentTypeConfiguration = {
     },
     '55187': {
       id: '55187',
+      active: false,
       code: 'How did prisoner surrender/get recaptured?',
       label: 'How did prisoner surrender/get recaptured?',
       multipleAnswers: false,
       answers: [
         {
           code: 'Surrendered before midnight on return date',
+          active: false,
           label: 'Surrendered before midnight on return date',
           commentRequired: false,
           dateRequired: false,
@@ -296,6 +336,7 @@ const OLD_TEMPORARY_RELEASE_FAILURE2: IncidentTypeConfiguration = {
         },
         {
           code: 'Surrender To HMPS (after midnight on return date)',
+          active: false,
           label: 'Surrender To HMPS (after midnight on return date)',
           commentRequired: false,
           dateRequired: false,
@@ -303,6 +344,7 @@ const OLD_TEMPORARY_RELEASE_FAILURE2: IncidentTypeConfiguration = {
         },
         {
           code: 'Surrender To Police  (after midnight on return date)',
+          active: false,
           label: 'Surrender To Police  (after midnight on return date)',
           commentRequired: false,
           dateRequired: false,
@@ -310,6 +352,7 @@ const OLD_TEMPORARY_RELEASE_FAILURE2: IncidentTypeConfiguration = {
         },
         {
           code: 'Arrest By HMPS',
+          active: false,
           label: 'Arrest By HMPS',
           commentRequired: false,
           dateRequired: false,
@@ -317,6 +360,7 @@ const OLD_TEMPORARY_RELEASE_FAILURE2: IncidentTypeConfiguration = {
         },
         {
           code: 'Arrest By Police',
+          active: false,
           label: 'Arrest By Police',
           commentRequired: false,
           dateRequired: false,
@@ -324,6 +368,7 @@ const OLD_TEMPORARY_RELEASE_FAILURE2: IncidentTypeConfiguration = {
         },
         {
           code: 'Admitted to hospital for treatment',
+          active: false,
           label: 'Admitted to hospital for treatment',
           commentRequired: false,
           dateRequired: false,
@@ -331,6 +376,7 @@ const OLD_TEMPORARY_RELEASE_FAILURE2: IncidentTypeConfiguration = {
         },
         {
           code: 'Deceased',
+          active: false,
           label: 'Deceased',
           commentRequired: false,
           dateRequired: false,
@@ -338,6 +384,7 @@ const OLD_TEMPORARY_RELEASE_FAILURE2: IncidentTypeConfiguration = {
         },
         {
           code: 'Other (Provide Details)',
+          active: false,
           label: 'Other (Provide Details)',
           commentRequired: true,
           dateRequired: false,
@@ -347,12 +394,14 @@ const OLD_TEMPORARY_RELEASE_FAILURE2: IncidentTypeConfiguration = {
     },
     '55188': {
       id: '55188',
+      active: false,
       code: 'Was the prisoner arrested for an offence allegedly committed whilst temporarily released?',
       label: 'Was the prisoner arrested for an offence allegedly committed whilst temporarily released?',
       multipleAnswers: false,
       answers: [
         {
           code: 'Yes',
+          active: false,
           label: 'Yes',
           commentRequired: false,
           dateRequired: false,
@@ -360,6 +409,7 @@ const OLD_TEMPORARY_RELEASE_FAILURE2: IncidentTypeConfiguration = {
         },
         {
           code: 'No',
+          active: false,
           label: 'No',
           commentRequired: false,
           dateRequired: false,
@@ -369,12 +419,14 @@ const OLD_TEMPORARY_RELEASE_FAILURE2: IncidentTypeConfiguration = {
     },
     '55189': {
       id: '55189',
+      active: false,
       code: 'Has The Prisoner Been Charged With Any Offence (INCLUDE the offence of failure to return)?',
       label: 'Has The Prisoner Been Charged With Any Offence (INCLUDE the offence of failure to return)?',
       multipleAnswers: false,
       answers: [
         {
           code: 'Yes',
+          active: false,
           label: 'Yes',
           commentRequired: false,
           dateRequired: false,
@@ -382,6 +434,7 @@ const OLD_TEMPORARY_RELEASE_FAILURE2: IncidentTypeConfiguration = {
         },
         {
           code: 'No',
+          active: false,
           label: 'No',
           commentRequired: false,
           dateRequired: false,
@@ -391,12 +444,14 @@ const OLD_TEMPORARY_RELEASE_FAILURE2: IncidentTypeConfiguration = {
     },
     '55190': {
       id: '55190',
+      active: false,
       code: 'With What Type Of Offence or Offences Has The Prisoner Been Charged?',
       label: 'With What Type Of Offence or Offences Has The Prisoner Been Charged?',
       multipleAnswers: true,
       answers: [
         {
           code: 'Violence Against The Person',
+          active: false,
           label: 'Violence Against The Person',
           commentRequired: false,
           dateRequired: false,
@@ -404,6 +459,7 @@ const OLD_TEMPORARY_RELEASE_FAILURE2: IncidentTypeConfiguration = {
         },
         {
           code: 'Sexual Offences',
+          active: false,
           label: 'Sexual Offences',
           commentRequired: false,
           dateRequired: false,
@@ -411,6 +467,7 @@ const OLD_TEMPORARY_RELEASE_FAILURE2: IncidentTypeConfiguration = {
         },
         {
           code: 'Robbery',
+          active: false,
           label: 'Robbery',
           commentRequired: false,
           dateRequired: false,
@@ -418,6 +475,7 @@ const OLD_TEMPORARY_RELEASE_FAILURE2: IncidentTypeConfiguration = {
         },
         {
           code: 'Burglary',
+          active: false,
           label: 'Burglary',
           commentRequired: false,
           dateRequired: false,
@@ -425,6 +483,7 @@ const OLD_TEMPORARY_RELEASE_FAILURE2: IncidentTypeConfiguration = {
         },
         {
           code: 'Theft And Handling',
+          active: false,
           label: 'Theft And Handling',
           commentRequired: false,
           dateRequired: false,
@@ -432,6 +491,7 @@ const OLD_TEMPORARY_RELEASE_FAILURE2: IncidentTypeConfiguration = {
         },
         {
           code: 'Fraud And Forgery',
+          active: false,
           label: 'Fraud And Forgery',
           commentRequired: false,
           dateRequired: false,
@@ -439,6 +499,7 @@ const OLD_TEMPORARY_RELEASE_FAILURE2: IncidentTypeConfiguration = {
         },
         {
           code: 'Drug Offences',
+          active: false,
           label: 'Drug Offences',
           commentRequired: false,
           dateRequired: false,
@@ -446,6 +507,7 @@ const OLD_TEMPORARY_RELEASE_FAILURE2: IncidentTypeConfiguration = {
         },
         {
           code: 'Motoring Offences',
+          active: false,
           label: 'Motoring Offences',
           commentRequired: false,
           dateRequired: false,
@@ -453,6 +515,7 @@ const OLD_TEMPORARY_RELEASE_FAILURE2: IncidentTypeConfiguration = {
         },
         {
           code: 'Failure To Return From ROTL',
+          active: false,
           label: 'Failure To Return From ROTL',
           commentRequired: false,
           dateRequired: false,
@@ -460,6 +523,7 @@ const OLD_TEMPORARY_RELEASE_FAILURE2: IncidentTypeConfiguration = {
         },
         {
           code: 'Other Offence',
+          active: false,
           label: 'Other Offence',
           commentRequired: false,
           dateRequired: false,
@@ -469,12 +533,14 @@ const OLD_TEMPORARY_RELEASE_FAILURE2: IncidentTypeConfiguration = {
     },
     '55191': {
       id: '55191',
+      active: false,
       code: 'Has The Prisoner Been Found Guilty Of Offences Committed On ROTL?',
       label: 'Has The Prisoner Been Found Guilty Of Offences Committed On ROTL?',
       multipleAnswers: false,
       answers: [
         {
           code: 'Yes',
+          active: false,
           label: 'Yes',
           commentRequired: false,
           dateRequired: false,
@@ -482,6 +548,7 @@ const OLD_TEMPORARY_RELEASE_FAILURE2: IncidentTypeConfiguration = {
         },
         {
           code: 'No',
+          active: false,
           label: 'No',
           commentRequired: false,
           dateRequired: false,
@@ -491,12 +558,14 @@ const OLD_TEMPORARY_RELEASE_FAILURE2: IncidentTypeConfiguration = {
     },
     '55192': {
       id: '55192',
+      active: false,
       code: 'What Offence Or Offences Has The Prisoner Been Found Guilty Of?',
       label: 'What Offence Or Offences Has The Prisoner Been Found Guilty Of?',
       multipleAnswers: true,
       answers: [
         {
           code: 'Violence Against The Person',
+          active: false,
           label: 'Violence Against The Person',
           commentRequired: false,
           dateRequired: false,
@@ -504,6 +573,7 @@ const OLD_TEMPORARY_RELEASE_FAILURE2: IncidentTypeConfiguration = {
         },
         {
           code: 'Sexual Offences',
+          active: false,
           label: 'Sexual Offences',
           commentRequired: false,
           dateRequired: false,
@@ -511,6 +581,7 @@ const OLD_TEMPORARY_RELEASE_FAILURE2: IncidentTypeConfiguration = {
         },
         {
           code: 'Robbery',
+          active: false,
           label: 'Robbery',
           commentRequired: false,
           dateRequired: false,
@@ -518,6 +589,7 @@ const OLD_TEMPORARY_RELEASE_FAILURE2: IncidentTypeConfiguration = {
         },
         {
           code: 'Burglary',
+          active: false,
           label: 'Burglary',
           commentRequired: false,
           dateRequired: false,
@@ -525,6 +597,7 @@ const OLD_TEMPORARY_RELEASE_FAILURE2: IncidentTypeConfiguration = {
         },
         {
           code: 'Theft And Handling',
+          active: false,
           label: 'Theft And Handling',
           commentRequired: false,
           dateRequired: false,
@@ -532,6 +605,7 @@ const OLD_TEMPORARY_RELEASE_FAILURE2: IncidentTypeConfiguration = {
         },
         {
           code: 'Fraud And Forgery',
+          active: false,
           label: 'Fraud And Forgery',
           commentRequired: false,
           dateRequired: false,
@@ -539,6 +613,7 @@ const OLD_TEMPORARY_RELEASE_FAILURE2: IncidentTypeConfiguration = {
         },
         {
           code: 'Drug Offences',
+          active: false,
           label: 'Drug Offences',
           commentRequired: false,
           dateRequired: false,
@@ -546,6 +621,7 @@ const OLD_TEMPORARY_RELEASE_FAILURE2: IncidentTypeConfiguration = {
         },
         {
           code: 'Motoring Offences',
+          active: false,
           label: 'Motoring Offences',
           commentRequired: false,
           dateRequired: false,
@@ -553,6 +629,7 @@ const OLD_TEMPORARY_RELEASE_FAILURE2: IncidentTypeConfiguration = {
         },
         {
           code: 'Failure To Return From ROTL',
+          active: false,
           label: 'Failure To Return From ROTL',
           commentRequired: false,
           dateRequired: false,
@@ -560,6 +637,7 @@ const OLD_TEMPORARY_RELEASE_FAILURE2: IncidentTypeConfiguration = {
         },
         {
           code: 'Other Offence',
+          active: false,
           label: 'Other Offence',
           commentRequired: false,
           dateRequired: false,
@@ -569,12 +647,14 @@ const OLD_TEMPORARY_RELEASE_FAILURE2: IncidentTypeConfiguration = {
     },
     '55193': {
       id: '55193',
+      active: false,
       code: 'Was Any Part Of The Failure Failing To Comply With Any Other Licence Conditions (Standard or Bespoke)?',
       label: 'Was Any Part Of The Failure Failing To Comply With Any Other Licence Conditions (Standard or Bespoke)?',
       multipleAnswers: false,
       answers: [
         {
           code: 'Yes',
+          active: false,
           label: 'Yes',
           commentRequired: false,
           dateRequired: false,
@@ -582,6 +662,7 @@ const OLD_TEMPORARY_RELEASE_FAILURE2: IncidentTypeConfiguration = {
         },
         {
           code: 'No',
+          active: false,
           label: 'No',
           commentRequired: false,
           dateRequired: false,
@@ -591,12 +672,14 @@ const OLD_TEMPORARY_RELEASE_FAILURE2: IncidentTypeConfiguration = {
     },
     '55194': {
       id: '55194',
+      active: false,
       code: 'Please Specify Which Conditions apply',
       label: 'Please Specify Which Conditions apply',
       multipleAnswers: true,
       answers: [
         {
           code: 'Location',
+          active: false,
           label: 'Location',
           commentRequired: false,
           dateRequired: false,
@@ -604,6 +687,7 @@ const OLD_TEMPORARY_RELEASE_FAILURE2: IncidentTypeConfiguration = {
         },
         {
           code: 'Alcohol/drugs (under influence)',
+          active: false,
           label: 'Alcohol/drugs (under influence)',
           commentRequired: false,
           dateRequired: false,
@@ -611,6 +695,7 @@ const OLD_TEMPORARY_RELEASE_FAILURE2: IncidentTypeConfiguration = {
         },
         {
           code: 'Gambling',
+          active: false,
           label: 'Gambling',
           commentRequired: false,
           dateRequired: false,
@@ -618,6 +703,7 @@ const OLD_TEMPORARY_RELEASE_FAILURE2: IncidentTypeConfiguration = {
         },
         {
           code: 'Finds (fill in separate report)',
+          active: false,
           label: 'Finds (fill in separate report)',
           commentRequired: false,
           dateRequired: false,
@@ -625,6 +711,7 @@ const OLD_TEMPORARY_RELEASE_FAILURE2: IncidentTypeConfiguration = {
         },
         {
           code: 'Social Media',
+          active: false,
           label: 'Social Media',
           commentRequired: false,
           dateRequired: false,
@@ -632,6 +719,7 @@ const OLD_TEMPORARY_RELEASE_FAILURE2: IncidentTypeConfiguration = {
         },
         {
           code: 'Bad Behaviour',
+          active: false,
           label: 'Bad Behaviour',
           commentRequired: false,
           dateRequired: false,
@@ -639,6 +727,7 @@ const OLD_TEMPORARY_RELEASE_FAILURE2: IncidentTypeConfiguration = {
         },
         {
           code: 'Media Contact',
+          active: false,
           label: 'Media Contact',
           commentRequired: false,
           dateRequired: false,
@@ -646,6 +735,7 @@ const OLD_TEMPORARY_RELEASE_FAILURE2: IncidentTypeConfiguration = {
         },
         {
           code: 'Other (Provide Details)',
+          active: false,
           label: 'Other (Provide Details)',
           commentRequired: true,
           dateRequired: false,
@@ -655,12 +745,14 @@ const OLD_TEMPORARY_RELEASE_FAILURE2: IncidentTypeConfiguration = {
     },
     '55195': {
       id: '55195',
+      active: false,
       code: 'Was failure due to matters beyond the prisoner’s control?',
       label: 'Was failure due to matters beyond the prisoner’s control?',
       multipleAnswers: false,
       answers: [
         {
           code: 'Yes',
+          active: false,
           label: 'Yes',
           commentRequired: false,
           dateRequired: false,
@@ -668,6 +760,7 @@ const OLD_TEMPORARY_RELEASE_FAILURE2: IncidentTypeConfiguration = {
         },
         {
           code: 'No',
+          active: false,
           label: 'No',
           commentRequired: false,
           dateRequired: false,
@@ -677,6 +770,7 @@ const OLD_TEMPORARY_RELEASE_FAILURE2: IncidentTypeConfiguration = {
     },
     '55196': {
       id: '55196',
+      active: false,
       code: 'Have SFO Team, Offender Manager In The Community, Victim Liaison Officer And Employer (where appropriate) been informed?',
       label:
         'Have SFO Team, Offender Manager In The Community, Victim Liaison Officer And Employer (where appropriate) been informed?',
@@ -684,6 +778,7 @@ const OLD_TEMPORARY_RELEASE_FAILURE2: IncidentTypeConfiguration = {
       answers: [
         {
           code: 'Yes (Enter Date)',
+          active: false,
           label: 'Yes (Enter Date)',
           commentRequired: false,
           dateRequired: true,
@@ -691,6 +786,7 @@ const OLD_TEMPORARY_RELEASE_FAILURE2: IncidentTypeConfiguration = {
         },
         {
           code: 'No (Enter Reason)',
+          active: false,
           label: 'No (Enter Reason)',
           commentRequired: true,
           dateRequired: false,
@@ -700,12 +796,14 @@ const OLD_TEMPORARY_RELEASE_FAILURE2: IncidentTypeConfiguration = {
     },
     '55197': {
       id: '55197',
+      active: false,
       code: 'Has The Deputy Director Of Custody Been Informed?',
       label: 'Has The Deputy Director Of Custody Been Informed?',
       multipleAnswers: false,
       answers: [
         {
           code: 'Yes (Enter Date)',
+          active: false,
           label: 'Yes (Enter Date)',
           commentRequired: false,
           dateRequired: true,
@@ -713,6 +811,7 @@ const OLD_TEMPORARY_RELEASE_FAILURE2: IncidentTypeConfiguration = {
         },
         {
           code: 'No (Enter Reason)',
+          active: false,
           label: 'No (Enter Reason)',
           commentRequired: true,
           dateRequired: false,
@@ -722,12 +821,14 @@ const OLD_TEMPORARY_RELEASE_FAILURE2: IncidentTypeConfiguration = {
     },
     '55198': {
       id: '55198',
+      active: false,
       code: 'Have PPCS Been Informed?',
       label: 'Have PPCS Been Informed?',
       multipleAnswers: false,
       answers: [
         {
           code: 'Yes (Enter Date)',
+          active: false,
           label: 'Yes (Enter Date)',
           commentRequired: false,
           dateRequired: true,
@@ -735,6 +836,7 @@ const OLD_TEMPORARY_RELEASE_FAILURE2: IncidentTypeConfiguration = {
         },
         {
           code: 'No (Enter Reasons)',
+          active: false,
           label: 'No (Enter Reasons)',
           commentRequired: true,
           dateRequired: false,

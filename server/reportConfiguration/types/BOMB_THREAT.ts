@@ -1,4 +1,4 @@
-// Generated with ./scripts/updateNomisIncidentTypeConfigurations.ts at 2024-09-16T15:41:56.546Z
+// Generated with ./scripts/updateNomisIncidentTypeConfigurations.ts at 2024-09-20T16:52:15.075Z
 
 import { type IncidentTypeConfiguration } from '../../data/incidentTypeConfiguration/types'
 
@@ -9,12 +9,14 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
   questions: {
     '44128': {
       id: '44128',
+      active: true,
       code: 'WAS THE ITEM DISCOVERED',
       label: 'WAS THE ITEM DISCOVERED',
       multipleAnswers: true,
       answers: [
         {
           code: 'BLAST BOMB',
+          active: true,
           label: 'BLAST BOMB',
           commentRequired: false,
           dateRequired: false,
@@ -22,6 +24,7 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
         },
         {
           code: 'VEHICLE BOMB',
+          active: true,
           label: 'VEHICLE BOMB',
           commentRequired: false,
           dateRequired: false,
@@ -29,6 +32,7 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
         },
         {
           code: 'POSTAL BOMB',
+          active: true,
           label: 'POSTAL BOMB',
           commentRequired: false,
           dateRequired: false,
@@ -36,6 +40,7 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
         },
         {
           code: 'INCENDIARY DEVICE',
+          active: true,
           label: 'INCENDIARY DEVICE',
           commentRequired: false,
           dateRequired: false,
@@ -43,6 +48,7 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
         },
         {
           code: 'HOAX PACKAGE',
+          active: true,
           label: 'HOAX PACKAGE',
           commentRequired: false,
           dateRequired: false,
@@ -50,6 +56,7 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
         },
         {
           code: 'SUSPECT PACKAGE',
+          active: true,
           label: 'SUSPECT PACKAGE',
           commentRequired: false,
           dateRequired: false,
@@ -57,6 +64,7 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
         },
         {
           code: 'DETONATORS',
+          active: true,
           label: 'DETONATORS',
           commentRequired: false,
           dateRequired: false,
@@ -64,6 +72,7 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
         },
         {
           code: 'FUSES',
+          active: true,
           label: 'FUSES',
           commentRequired: false,
           dateRequired: false,
@@ -71,6 +80,7 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
         },
         {
           code: 'EXPLOSIVE',
+          active: true,
           label: 'EXPLOSIVE',
           commentRequired: true,
           dateRequired: false,
@@ -80,12 +90,14 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
     },
     '44135': {
       id: '44135',
+      active: true,
       code: 'WHICH SERIOUS INJURIES WERE SUSTAINED',
       label: 'WHICH SERIOUS INJURIES WERE SUSTAINED',
       multipleAnswers: true,
       answers: [
         {
           code: 'FRACTURE',
+          active: true,
           label: 'FRACTURE',
           commentRequired: false,
           dateRequired: false,
@@ -93,6 +105,7 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
         },
         {
           code: 'SCALD OR BURN',
+          active: true,
           label: 'SCALD OR BURN',
           commentRequired: false,
           dateRequired: false,
@@ -100,6 +113,7 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
         },
         {
           code: 'STABBING',
+          active: true,
           label: 'STABBING',
           commentRequired: false,
           dateRequired: false,
@@ -107,6 +121,7 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
         },
         {
           code: 'CRUSHING',
+          active: true,
           label: 'CRUSHING',
           commentRequired: false,
           dateRequired: false,
@@ -114,6 +129,7 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
         },
         {
           code: 'EXTENSIVE/MULTIPLE BRUISING',
+          active: true,
           label: 'EXTENSIVE/MULTIPLE BRUISING',
           commentRequired: false,
           dateRequired: false,
@@ -121,6 +137,7 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
         },
         {
           code: 'BLACK EYE',
+          active: true,
           label: 'BLACK EYE',
           commentRequired: false,
           dateRequired: false,
@@ -128,6 +145,7 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
         },
         {
           code: 'BROKEN NOSE',
+          active: true,
           label: 'BROKEN NOSE',
           commentRequired: false,
           dateRequired: false,
@@ -135,6 +153,7 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
         },
         {
           code: 'BROKEN TEETH',
+          active: true,
           label: 'BROKEN TEETH',
           commentRequired: false,
           dateRequired: false,
@@ -142,6 +161,7 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
         },
         {
           code: 'CUTS REQUIRING SUTURES',
+          active: true,
           label: 'CUTS REQUIRING SUTURES',
           commentRequired: false,
           dateRequired: false,
@@ -149,6 +169,7 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
         },
         {
           code: 'BITES',
+          active: true,
           label: 'BITES',
           commentRequired: false,
           dateRequired: false,
@@ -156,6 +177,7 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
         },
         {
           code: 'GUN SHOT WOUND',
+          active: true,
           label: 'GUN SHOT WOUND',
           commentRequired: false,
           dateRequired: false,
@@ -163,6 +185,7 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
         },
         {
           code: 'TEMPORARY/PERMANENT BLINDNESS',
+          active: true,
           label: 'TEMPORARY/PERMANENT BLINDNESS',
           commentRequired: false,
           dateRequired: false,
@@ -172,12 +195,14 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
     },
     '44149': {
       id: '44149',
+      active: true,
       code: 'INDICATE THE NATURE OF THE SHUT DOWN',
       label: 'INDICATE THE NATURE OF THE SHUT DOWN',
       multipleAnswers: true,
       answers: [
         {
           code: 'TELEPHONY',
+          active: true,
           label: 'TELEPHONY',
           commentRequired: true,
           dateRequired: false,
@@ -185,6 +210,7 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
         },
         {
           code: 'IT',
+          active: true,
           label: 'IT',
           commentRequired: true,
           dateRequired: false,
@@ -194,12 +220,14 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
     },
     '44187': {
       id: '44187',
+      active: true,
       code: 'WHAT TYPE OF EXPLOSION',
       label: 'WHAT TYPE OF EXPLOSION',
       multipleAnswers: false,
       answers: [
         {
           code: 'CONTROLLED',
+          active: true,
           label: 'CONTROLLED',
           commentRequired: false,
           dateRequired: false,
@@ -207,6 +235,7 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
         },
         {
           code: 'UNCONTROLLED',
+          active: true,
           label: 'UNCONTROLLED',
           commentRequired: false,
           dateRequired: false,
@@ -216,12 +245,14 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
     },
     '44197': {
       id: '44197',
+      active: true,
       code: 'IS THE INCIDENT THE SUBJECT OF A POLICE INVESTIGATION',
       label: 'IS THE INCIDENT THE SUBJECT OF A POLICE INVESTIGATION',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: true,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -229,6 +260,7 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: true,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -238,12 +270,14 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
     },
     '44236': {
       id: '44236',
+      active: true,
       code: 'ESTIMATED COST OF DAMAGE',
       label: 'ESTIMATED COST OF DAMAGE',
       multipleAnswers: false,
       answers: [
         {
           code: 'ENTER AMOUNT IN POUND STERLING',
+          active: true,
           label: 'ENTER AMOUNT IN POUND STERLING',
           commentRequired: true,
           dateRequired: false,
@@ -253,12 +287,14 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
     },
     '44260': {
       id: '44260',
+      active: true,
       code: 'IS THE INCIDENT THE SUBJECT OF AN INTERNAL INVESTIGATION',
       label: 'IS THE INCIDENT THE SUBJECT OF AN INTERNAL INVESTIGATION',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: true,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -266,6 +302,7 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: true,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -275,12 +312,14 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
     },
     '44261': {
       id: '44261',
+      active: true,
       code: 'DESCRIBE WHAT WAS COMPROMISED AND BY WHOM',
       label: 'DESCRIBE WHAT WAS COMPROMISED AND BY WHOM',
       multipleAnswers: false,
       answers: [
         {
           code: 'ENTER DESCRIPTION',
+          active: true,
           label: 'ENTER DESCRIPTION',
           commentRequired: true,
           dateRequired: false,
@@ -290,12 +329,14 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
     },
     '44276': {
       id: '44276',
+      active: true,
       code: 'WHEN WAS THE SYSTEM RE-ACTIVATED?',
       label: 'WHEN WAS THE SYSTEM RE-ACTIVATED?',
       multipleAnswers: false,
       answers: [
         {
           code: 'ENTER COMMENT AND DATE',
+          active: true,
           label: 'ENTER COMMENT AND DATE',
           commentRequired: true,
           dateRequired: true,
@@ -305,12 +346,14 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
     },
     '44277': {
       id: '44277',
+      active: true,
       code: 'WAS DAMAGE CAUSED TO PRISON PROPERTY',
       label: 'WAS DAMAGE CAUSED TO PRISON PROPERTY',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: true,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -318,6 +361,7 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: true,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -327,12 +371,14 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
     },
     '44283': {
       id: '44283',
+      active: true,
       code: 'WHO RECEIVED THE THREAT OR WARNING',
       label: 'WHO RECEIVED THE THREAT OR WARNING',
       multipleAnswers: false,
       answers: [
         {
           code: 'SPECIFY',
+          active: true,
           label: 'SPECIFY',
           commentRequired: true,
           dateRequired: false,
@@ -342,12 +388,14 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
     },
     '44305': {
       id: '44305',
+      active: true,
       code: 'IS AN OUTSIDE ORGANISATION SUSPECTED OF INVOLVEMENT',
       label: 'IS AN OUTSIDE ORGANISATION SUSPECTED OF INVOLVEMENT',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: true,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -355,6 +403,7 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: true,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -364,12 +413,14 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
     },
     '44361': {
       id: '44361',
+      active: true,
       code: 'WAS THE AMBULANCE SERVICE PRESENT',
       label: 'WAS THE AMBULANCE SERVICE PRESENT',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: true,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -377,6 +428,7 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: true,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -386,12 +438,14 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
     },
     '44362': {
       id: '44362',
+      active: true,
       code: 'WAS THE SYSTEM COMPROMISED?',
       label: 'WAS THE SYSTEM COMPROMISED?',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: true,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -399,6 +453,7 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: true,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -408,12 +463,14 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
     },
     '44371': {
       id: '44371',
+      active: true,
       code: 'WERE THE POLICE INFORMED OF THE INCIDENT',
       label: 'WERE THE POLICE INFORMED OF THE INCIDENT',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: true,
           label: 'YES',
           commentRequired: false,
           dateRequired: true,
@@ -421,6 +478,7 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: true,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -430,12 +488,14 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
     },
     '44380': {
       id: '44380',
+      active: true,
       code: 'WAS THE FIRE SERVICE PRESENT',
       label: 'WAS THE FIRE SERVICE PRESENT',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: true,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -443,6 +503,7 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: true,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -452,12 +513,14 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
     },
     '44393': {
       id: '44393',
+      active: true,
       code: 'WERE ANY INJURIES RECEIVED DURING THIS INCIDENT',
       label: 'WERE ANY INJURIES RECEIVED DURING THIS INCIDENT',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: true,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -465,6 +528,7 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: true,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -474,12 +538,14 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
     },
     '44404': {
       id: '44404',
+      active: true,
       code: 'IS THERE ANY MEDIA INTEREST IN THIS INCIDENT',
       label: 'IS THERE ANY MEDIA INTEREST IN THIS INCIDENT',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: true,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -487,6 +553,7 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: true,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -496,12 +563,14 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
     },
     '44472': {
       id: '44472',
+      active: true,
       code: 'ENTER THE DESCRIPTION OF THE FATALITIES',
       label: 'ENTER THE DESCRIPTION OF THE FATALITIES',
       multipleAnswers: true,
       answers: [
         {
           code: 'STAFF',
+          active: true,
           label: 'STAFF',
           commentRequired: true,
           dateRequired: false,
@@ -509,6 +578,7 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
         },
         {
           code: 'PRISONERS',
+          active: true,
           label: 'PRISONERS',
           commentRequired: true,
           dateRequired: false,
@@ -516,6 +586,7 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
         },
         {
           code: 'CIVILIAN GRADES',
+          active: true,
           label: 'CIVILIAN GRADES',
           commentRequired: true,
           dateRequired: false,
@@ -523,6 +594,7 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
         },
         {
           code: 'POLICE',
+          active: true,
           label: 'POLICE',
           commentRequired: true,
           dateRequired: false,
@@ -530,6 +602,7 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
         },
         {
           code: 'EXTERNAL CIVILIANS',
+          active: true,
           label: 'EXTERNAL CIVILIANS',
           commentRequired: true,
           dateRequired: false,
@@ -539,12 +612,14 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
     },
     '44510': {
       id: '44510',
+      active: true,
       code: 'WAS THE BOMB DISPOSAL UNIT PRESENT',
       label: 'WAS THE BOMB DISPOSAL UNIT PRESENT',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: true,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -552,6 +627,7 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: true,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -561,12 +637,14 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
     },
     '44516': {
       id: '44516',
+      active: true,
       code: 'HAS THE SERVICE SUPPLIER BEEN NOTIFIED OF A REPLACEMENT KEYWORD?',
       label: 'HAS THE SERVICE SUPPLIER BEEN NOTIFIED OF A REPLACEMENT KEYWORD?',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: true,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -574,6 +652,7 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: true,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -583,12 +662,14 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
     },
     '44523': {
       id: '44523',
+      active: true,
       code: 'DESCRIBE THE DAMAGE',
       label: 'DESCRIBE THE DAMAGE',
       multipleAnswers: false,
       answers: [
         {
           code: 'MINOR',
+          active: true,
           label: 'MINOR',
           commentRequired: false,
           dateRequired: false,
@@ -596,6 +677,7 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
         },
         {
           code: 'SERIOUS',
+          active: true,
           label: 'SERIOUS',
           commentRequired: false,
           dateRequired: false,
@@ -603,6 +685,7 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
         },
         {
           code: 'EXTENSIVE',
+          active: true,
           label: 'EXTENSIVE',
           commentRequired: false,
           dateRequired: false,
@@ -612,12 +695,14 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
     },
     '44547': {
       id: '44547',
+      active: true,
       code: 'HAS THE PRISON SERVICE PRESS OFFICE BEEN INFORMED',
       label: 'HAS THE PRISON SERVICE PRESS OFFICE BEEN INFORMED',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: true,
           label: 'YES',
           commentRequired: false,
           dateRequired: true,
@@ -625,6 +710,7 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: true,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -634,12 +720,14 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
     },
     '44560': {
       id: '44560',
+      active: true,
       code: 'WHO MADE THE THREAT OR WARNING',
       label: 'WHO MADE THE THREAT OR WARNING',
       multipleAnswers: false,
       answers: [
         {
           code: 'SPECIFY',
+          active: true,
           label: 'SPECIFY',
           commentRequired: true,
           dateRequired: false,
@@ -649,12 +737,14 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
     },
     '44579': {
       id: '44579',
+      active: true,
       code: 'WAS THE TELEPHONE/IT SYSTEM SHUT DOWN DURING THE INCIDENT?',
       label: 'WAS THE TELEPHONE/IT SYSTEM SHUT DOWN DURING THE INCIDENT?',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: true,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -662,6 +752,7 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: true,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -671,12 +762,14 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
     },
     '44587': {
       id: '44587',
+      active: true,
       code: 'HAVE ANY ARRESTS BEEN MADE',
       label: 'HAVE ANY ARRESTS BEEN MADE',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: true,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -684,6 +777,7 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: true,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -693,12 +787,14 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
     },
     '44642': {
       id: '44642',
+      active: true,
       code: 'WERE THE POLICE PRESENT',
       label: 'WERE THE POLICE PRESENT',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: true,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -706,6 +802,7 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: true,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -715,12 +812,14 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
     },
     '44669': {
       id: '44669',
+      active: true,
       code: 'WHERE WAS THE DEVICE FOUND',
       label: 'WHERE WAS THE DEVICE FOUND',
       multipleAnswers: false,
       answers: [
         {
           code: 'SPECIFY',
+          active: true,
           label: 'SPECIFY',
           commentRequired: true,
           dateRequired: false,
@@ -730,12 +829,14 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
     },
     '44671': {
       id: '44671',
+      active: true,
       code: 'QUOTE THE VANTIVE CASE NUMBER',
       label: 'QUOTE THE VANTIVE CASE NUMBER',
       multipleAnswers: false,
       answers: [
         {
           code: 'ENTER NUMBER',
+          active: true,
           label: 'ENTER NUMBER',
           commentRequired: true,
           dateRequired: false,
@@ -745,12 +846,14 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
     },
     '44716': {
       id: '44716',
+      active: true,
       code: 'WAS A SERIOUS INJURY SUSTAINED',
       label: 'WAS A SERIOUS INJURY SUSTAINED',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: true,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -758,6 +861,7 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: true,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -767,12 +871,14 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
     },
     '44719': {
       id: '44719',
+      active: true,
       code: 'WAS THERE AN EXPLOSION',
       label: 'WAS THERE AN EXPLOSION',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: true,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -780,6 +886,7 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: true,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -789,12 +896,14 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
     },
     '44742': {
       id: '44742',
+      active: true,
       code: 'WHO WAS DETAINED IN OUTSIDE HOSPITAL',
       label: 'WHO WAS DETAINED IN OUTSIDE HOSPITAL',
       multipleAnswers: true,
       answers: [
         {
           code: 'STAFF',
+          active: true,
           label: 'STAFF',
           commentRequired: true,
           dateRequired: false,
@@ -802,6 +911,7 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
         },
         {
           code: 'PRISONERS',
+          active: true,
           label: 'PRISONERS',
           commentRequired: true,
           dateRequired: false,
@@ -809,6 +919,7 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
         },
         {
           code: 'CIVILIAN GRADES',
+          active: true,
           label: 'CIVILIAN GRADES',
           commentRequired: true,
           dateRequired: false,
@@ -816,6 +927,7 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
         },
         {
           code: 'POLICE',
+          active: true,
           label: 'POLICE',
           commentRequired: true,
           dateRequired: false,
@@ -823,6 +935,7 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
         },
         {
           code: 'EXTERNAL CIVILIANS',
+          active: true,
           label: 'EXTERNAL CIVILIANS',
           commentRequired: true,
           dateRequired: false,
@@ -832,12 +945,14 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
     },
     '44745': {
       id: '44745',
+      active: true,
       code: 'WAS A MINOR INJURY SUSTAINED',
       label: 'WAS A MINOR INJURY SUSTAINED',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: true,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -845,6 +960,7 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: true,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -854,12 +970,14 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
     },
     '44778': {
       id: '44778',
+      active: true,
       code: 'WAS THE KEYWORD REQUESTED?',
       label: 'WAS THE KEYWORD REQUESTED?',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: true,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -867,6 +985,7 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: true,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -876,12 +995,14 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
     },
     '44812': {
       id: '44812',
+      active: true,
       code: 'WAS THIS A FULL OR PARTIAL SHUT DOWN?',
       label: 'WAS THIS A FULL OR PARTIAL SHUT DOWN?',
       multipleAnswers: false,
       answers: [
         {
           code: 'FULL',
+          active: true,
           label: 'FULL',
           commentRequired: false,
           dateRequired: false,
@@ -889,6 +1010,7 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
         },
         {
           code: 'PARTIAL (ENTER DETAILS)',
+          active: true,
           label: 'PARTIAL (ENTER DETAILS)',
           commentRequired: true,
           dateRequired: false,
@@ -898,12 +1020,14 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
     },
     '44896': {
       id: '44896',
+      active: true,
       code: 'ENTER DESCRIPTION OF PERSON(S) INJURED',
       label: 'ENTER DESCRIPTION OF PERSON(S) INJURED',
       multipleAnswers: true,
       answers: [
         {
           code: 'STAFF',
+          active: true,
           label: 'STAFF',
           commentRequired: true,
           dateRequired: false,
@@ -911,6 +1035,7 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
         },
         {
           code: 'PRISONERS',
+          active: true,
           label: 'PRISONERS',
           commentRequired: true,
           dateRequired: false,
@@ -918,6 +1043,7 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
         },
         {
           code: 'CIVILIAN GRADES',
+          active: true,
           label: 'CIVILIAN GRADES',
           commentRequired: true,
           dateRequired: false,
@@ -925,6 +1051,7 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
         },
         {
           code: 'POLICE',
+          active: true,
           label: 'POLICE',
           commentRequired: true,
           dateRequired: false,
@@ -932,6 +1059,7 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
         },
         {
           code: 'EXTERNAL CIVILIANS',
+          active: true,
           label: 'EXTERNAL CIVILIANS',
           commentRequired: true,
           dateRequired: false,
@@ -941,12 +1069,14 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
     },
     '44911': {
       id: '44911',
+      active: true,
       code: 'IS THE LOCATION OF THE INCIDENT KNOWN',
       label: 'IS THE LOCATION OF THE INCIDENT KNOWN',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: true,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -954,6 +1084,7 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: true,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -963,12 +1094,14 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
     },
     '44948': {
       id: '44948',
+      active: true,
       code: 'WHAT ACTION WAS TAKEN',
       label: 'WHAT ACTION WAS TAKEN',
       multipleAnswers: false,
       answers: [
         {
           code: 'EVACUATION',
+          active: true,
           label: 'EVACUATION',
           commentRequired: false,
           dateRequired: false,
@@ -976,6 +1109,7 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
         },
         {
           code: 'PARTIAL SEARCH',
+          active: true,
           label: 'PARTIAL SEARCH',
           commentRequired: false,
           dateRequired: false,
@@ -983,6 +1117,7 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
         },
         {
           code: 'FULL CLOSE DOWN',
+          active: true,
           label: 'FULL CLOSE DOWN',
           commentRequired: false,
           dateRequired: false,
@@ -990,6 +1125,7 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
         },
         {
           code: 'DOG SEARCH',
+          active: true,
           label: 'DOG SEARCH',
           commentRequired: false,
           dateRequired: false,
@@ -999,12 +1135,14 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
     },
     '44956': {
       id: '44956',
+      active: true,
       code: 'DID INJURIES RESULT IN DETENTION IN OUTSIDE HOSPITAL AS AN IN-PATIENT',
       label: 'DID INJURIES RESULT IN DETENTION IN OUTSIDE HOSPITAL AS AN IN-PATIENT',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: true,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -1012,6 +1150,7 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: true,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -1021,12 +1160,14 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
     },
     '44974': {
       id: '44974',
+      active: true,
       code: 'WHAT SUGGESTED AN EXPLOSIVE DEVICE WAS PRESENT',
       label: 'WHAT SUGGESTED AN EXPLOSIVE DEVICE WAS PRESENT',
       multipleAnswers: false,
       answers: [
         {
           code: 'THREAT',
+          active: true,
           label: 'THREAT',
           commentRequired: false,
           dateRequired: false,
@@ -1034,6 +1175,7 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
         },
         {
           code: 'WARNING',
+          active: true,
           label: 'WARNING',
           commentRequired: false,
           dateRequired: false,
@@ -1041,6 +1183,7 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
         },
         {
           code: 'EXPLOSION',
+          active: true,
           label: 'EXPLOSION',
           commentRequired: false,
           dateRequired: false,
@@ -1048,6 +1191,7 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
         },
         {
           code: 'SUSPICIOUS PACKAGE',
+          active: true,
           label: 'SUSPICIOUS PACKAGE',
           commentRequired: false,
           dateRequired: false,
@@ -1055,6 +1199,7 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
         },
         {
           code: 'INTELLIGENCE',
+          active: true,
           label: 'INTELLIGENCE',
           commentRequired: false,
           dateRequired: false,
@@ -1062,6 +1207,7 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
         },
         {
           code: 'DOG SEARCH',
+          active: true,
           label: 'DOG SEARCH',
           commentRequired: false,
           dateRequired: false,
@@ -1071,12 +1217,14 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
     },
     '44978': {
       id: '44978',
+      active: true,
       code: 'IS ANY MEMBER OF STAFF FACING DISCIPLINARY CHARGES',
       label: 'IS ANY MEMBER OF STAFF FACING DISCIPLINARY CHARGES',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: true,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -1084,6 +1232,7 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: true,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -1093,12 +1242,14 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
     },
     '45007': {
       id: '45007',
+      active: true,
       code: 'HAS ANY PROSECUTION TAKEN PLACE OR IS ANY PENDING',
       label: 'HAS ANY PROSECUTION TAKEN PLACE OR IS ANY PENDING',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: true,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -1106,6 +1257,7 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: true,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -1115,12 +1267,14 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
     },
     '45010': {
       id: '45010',
+      active: true,
       code: 'WERE THERE ANY FATALITIES DURING THE INCIDENT',
       label: 'WERE THERE ANY FATALITIES DURING THE INCIDENT',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: true,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -1128,6 +1282,7 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: true,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -1137,12 +1292,14 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
     },
     '45040': {
       id: '45040',
+      active: true,
       code: 'WAS THE EVACUATION',
       label: 'WAS THE EVACUATION',
       multipleAnswers: false,
       answers: [
         {
           code: 'TO ANOTHER AREA OF THE PRISON',
+          active: true,
           label: 'TO ANOTHER AREA OF THE PRISON',
           commentRequired: false,
           dateRequired: false,
@@ -1150,6 +1307,7 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
         },
         {
           code: 'OUTSIDE THE PRISON',
+          active: true,
           label: 'OUTSIDE THE PRISON',
           commentRequired: false,
           dateRequired: false,
@@ -1157,6 +1315,7 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
         },
         {
           code: 'TO ANOTHER PRISON',
+          active: true,
           label: 'TO ANOTHER PRISON',
           commentRequired: false,
           dateRequired: false,
@@ -1166,12 +1325,14 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
     },
     '45100': {
       id: '45100',
+      active: true,
       code: 'WAS THE TELEPHONE/IT SYSTEM SHUT DOWN LOCALLY OR BY THE SERVICE SUPPLIER',
       label: 'WAS THE TELEPHONE/IT SYSTEM SHUT DOWN LOCALLY OR BY THE SERVICE SUPPLIER',
       multipleAnswers: false,
       answers: [
         {
           code: 'LOCAL',
+          active: true,
           label: 'LOCAL',
           commentRequired: false,
           dateRequired: false,
@@ -1179,6 +1340,7 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
         },
         {
           code: 'SERVICE SUPPLIER',
+          active: true,
           label: 'SERVICE SUPPLIER',
           commentRequired: false,
           dateRequired: false,
@@ -1188,12 +1350,14 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
     },
     '45109': {
       id: '45109',
+      active: true,
       code: 'WHAT TIME WAS THE SYSTEM SHUT DOWN?',
       label: 'WHAT TIME WAS THE SYSTEM SHUT DOWN?',
       multipleAnswers: false,
       answers: [
         {
           code: 'ENTER TIME',
+          active: true,
           label: 'ENTER TIME',
           commentRequired: true,
           dateRequired: false,
@@ -1203,12 +1367,14 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
     },
     '45113': {
       id: '45113',
+      active: true,
       code: 'WAS ANY ITEM DISCOVERED',
       label: 'WAS ANY ITEM DISCOVERED',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: true,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -1216,6 +1382,7 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: true,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -1225,12 +1392,14 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
     },
     '45126': {
       id: '45126',
+      active: true,
       code: 'WHICH MINOR INJURIES WERE SUSTAINED',
       label: 'WHICH MINOR INJURIES WERE SUSTAINED',
       multipleAnswers: true,
       answers: [
         {
           code: 'GRAZES, SCRATCHES OR ABRASIONS',
+          active: true,
           label: 'GRAZES, SCRATCHES OR ABRASIONS',
           commentRequired: false,
           dateRequired: false,
@@ -1238,6 +1407,7 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
         },
         {
           code: 'MINOR BRUISES',
+          active: true,
           label: 'MINOR BRUISES',
           commentRequired: false,
           dateRequired: false,
@@ -1245,6 +1415,7 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
         },
         {
           code: 'SWELLINGS',
+          active: true,
           label: 'SWELLINGS',
           commentRequired: false,
           dateRequired: false,
@@ -1252,6 +1423,7 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
         },
         {
           code: 'SUPERFICIAL CUTS',
+          active: true,
           label: 'SUPERFICIAL CUTS',
           commentRequired: false,
           dateRequired: false,
@@ -1259,6 +1431,7 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
         },
         {
           code: 'OTHER',
+          active: true,
           label: 'OTHER',
           commentRequired: true,
           dateRequired: false,
@@ -1268,12 +1441,14 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
     },
     '45140': {
       id: '45140',
+      active: true,
       code: 'WHO AUTHORISED THE SHUT DOWN?',
       label: 'WHO AUTHORISED THE SHUT DOWN?',
       multipleAnswers: false,
       answers: [
         {
           code: 'GOVERNOR',
+          active: true,
           label: 'GOVERNOR',
           commentRequired: false,
           dateRequired: false,
@@ -1281,6 +1456,7 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
         },
         {
           code: 'DEPUTY GOVERNOR',
+          active: true,
           label: 'DEPUTY GOVERNOR',
           commentRequired: false,
           dateRequired: false,
@@ -1288,6 +1464,7 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
         },
         {
           code: 'DUTY GOVERNOR',
+          active: true,
           label: 'DUTY GOVERNOR',
           commentRequired: false,
           dateRequired: false,
@@ -1295,6 +1472,7 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
         },
         {
           code: 'OTHER',
+          active: true,
           label: 'OTHER',
           commentRequired: true,
           dateRequired: false,
@@ -1304,12 +1482,14 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
     },
     '45176': {
       id: '45176',
+      active: true,
       code: 'WAS THE SYSTEM RE-ACTIVATED LOCALLY OR BY THE SERVICE SUPPLIER',
       label: 'WAS THE SYSTEM RE-ACTIVATED LOCALLY OR BY THE SERVICE SUPPLIER',
       multipleAnswers: false,
       answers: [
         {
           code: 'LOCAL',
+          active: true,
           label: 'LOCAL',
           commentRequired: false,
           dateRequired: false,
@@ -1317,6 +1497,7 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
         },
         {
           code: 'SERVICE SUPPLIER',
+          active: true,
           label: 'SERVICE SUPPLIER',
           commentRequired: false,
           dateRequired: false,
@@ -1326,12 +1507,14 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
     },
     '45178': {
       id: '45178',
+      active: true,
       code: 'WHAT WAS THE LOCATION OF THE INCIDENT',
       label: 'WHAT WAS THE LOCATION OF THE INCIDENT',
       multipleAnswers: false,
       answers: [
         {
           code: 'ADMINISTRATION',
+          active: true,
           label: 'ADMINISTRATION',
           commentRequired: false,
           dateRequired: false,
@@ -1339,6 +1522,7 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
         },
         {
           code: 'ASSOCIATION AREA',
+          active: true,
           label: 'ASSOCIATION AREA',
           commentRequired: false,
           dateRequired: false,
@@ -1346,6 +1530,7 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
         },
         {
           code: 'CELL',
+          active: true,
           label: 'CELL',
           commentRequired: false,
           dateRequired: false,
@@ -1353,6 +1538,7 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
         },
         {
           code: 'CHAPEL',
+          active: true,
           label: 'CHAPEL',
           commentRequired: false,
           dateRequired: false,
@@ -1360,6 +1546,7 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
         },
         {
           code: 'DINING ROOM',
+          active: true,
           label: 'DINING ROOM',
           commentRequired: false,
           dateRequired: false,
@@ -1367,6 +1554,7 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
         },
         {
           code: 'DORMITORY',
+          active: true,
           label: 'DORMITORY',
           commentRequired: false,
           dateRequired: false,
@@ -1374,6 +1562,7 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
         },
         {
           code: 'EDUCATION',
+          active: true,
           label: 'EDUCATION',
           commentRequired: false,
           dateRequired: false,
@@ -1381,6 +1570,7 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
         },
         {
           code: 'EXERCISE YARD',
+          active: true,
           label: 'EXERCISE YARD',
           commentRequired: false,
           dateRequired: false,
@@ -1388,6 +1578,7 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
         },
         {
           code: 'GATE',
+          active: true,
           label: 'GATE',
           commentRequired: false,
           dateRequired: false,
@@ -1395,6 +1586,7 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
         },
         {
           code: 'GYM',
+          active: true,
           label: 'GYM',
           commentRequired: false,
           dateRequired: false,
@@ -1402,6 +1594,7 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
         },
         {
           code: 'HEALTH CARE CENTRE',
+          active: true,
           label: 'HEALTH CARE CENTRE',
           commentRequired: false,
           dateRequired: false,
@@ -1409,6 +1602,7 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
         },
         {
           code: 'KITCHEN',
+          active: true,
           label: 'KITCHEN',
           commentRequired: false,
           dateRequired: false,
@@ -1416,6 +1610,7 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
         },
         {
           code: 'OFFICE',
+          active: true,
           label: 'OFFICE',
           commentRequired: false,
           dateRequired: false,
@@ -1423,6 +1618,7 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
         },
         {
           code: 'RECEPTION',
+          active: true,
           label: 'RECEPTION',
           commentRequired: false,
           dateRequired: false,
@@ -1430,6 +1626,7 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
         },
         {
           code: 'RECESS',
+          active: true,
           label: 'RECESS',
           commentRequired: false,
           dateRequired: false,
@@ -1437,6 +1634,7 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
         },
         {
           code: 'SEGREGATION UNIT',
+          active: true,
           label: 'SEGREGATION UNIT',
           commentRequired: false,
           dateRequired: false,
@@ -1444,6 +1642,7 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
         },
         {
           code: 'SPECIAL UNIT',
+          active: true,
           label: 'SPECIAL UNIT',
           commentRequired: false,
           dateRequired: false,
@@ -1451,6 +1650,7 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
         },
         {
           code: 'SHOWERS/CHANGING ROOM',
+          active: true,
           label: 'SHOWERS/CHANGING ROOM',
           commentRequired: false,
           dateRequired: false,
@@ -1458,6 +1658,7 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
         },
         {
           code: 'VISITS',
+          active: true,
           label: 'VISITS',
           commentRequired: false,
           dateRequired: false,
@@ -1465,6 +1666,7 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
         },
         {
           code: 'WING',
+          active: true,
           label: 'WING',
           commentRequired: false,
           dateRequired: false,
@@ -1472,6 +1674,7 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
         },
         {
           code: 'WORKS DEPARTMENT',
+          active: true,
           label: 'WORKS DEPARTMENT',
           commentRequired: false,
           dateRequired: false,
@@ -1479,6 +1682,7 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
         },
         {
           code: 'WORKSHOP',
+          active: true,
           label: 'WORKSHOP',
           commentRequired: false,
           dateRequired: false,
@@ -1486,6 +1690,7 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
         },
         {
           code: 'WITHIN PERIMETER',
+          active: true,
           label: 'WITHIN PERIMETER',
           commentRequired: false,
           dateRequired: false,
@@ -1493,6 +1698,7 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
         },
         {
           code: 'ELSEWHERE',
+          active: true,
           label: 'ELSEWHERE',
           commentRequired: true,
           dateRequired: false,
@@ -1500,6 +1706,7 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
         },
         {
           code: 'FUNERAL',
+          active: true,
           label: 'FUNERAL',
           commentRequired: false,
           dateRequired: false,
@@ -1507,6 +1714,7 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
         },
         {
           code: 'HOSPITAL OUTSIDE (PATIENT)',
+          active: true,
           label: 'HOSPITAL OUTSIDE (PATIENT)',
           commentRequired: false,
           dateRequired: false,
@@ -1514,6 +1722,7 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
         },
         {
           code: 'HOSPITAL OUTSIDE (VISITING)',
+          active: true,
           label: 'HOSPITAL OUTSIDE (VISITING)',
           commentRequired: false,
           dateRequired: false,
@@ -1521,6 +1730,7 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
         },
         {
           code: 'OUTSIDE WORKING PARTY',
+          active: true,
           label: 'OUTSIDE WORKING PARTY',
           commentRequired: false,
           dateRequired: false,
@@ -1528,6 +1738,7 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
         },
         {
           code: 'SPORTS FIELD',
+          active: true,
           label: 'SPORTS FIELD',
           commentRequired: false,
           dateRequired: false,
@@ -1535,6 +1746,7 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
         },
         {
           code: 'VEHICLE',
+          active: true,
           label: 'VEHICLE',
           commentRequired: false,
           dateRequired: false,
@@ -1542,6 +1754,7 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
         },
         {
           code: 'WEDDINGS',
+          active: true,
           label: 'WEDDINGS',
           commentRequired: false,
           dateRequired: false,
@@ -1549,6 +1762,7 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
         },
         {
           code: 'MAGISTRATES COURT',
+          active: true,
           label: 'MAGISTRATES COURT',
           commentRequired: false,
           dateRequired: false,
@@ -1556,6 +1770,7 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
         },
         {
           code: 'CROWN COURT',
+          active: true,
           label: 'CROWN COURT',
           commentRequired: false,
           dateRequired: false,

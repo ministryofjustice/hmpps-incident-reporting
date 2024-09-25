@@ -1,4 +1,4 @@
-// Generated with ./scripts/updateNomisIncidentTypeConfigurations.ts at 2024-09-16T15:41:57.781Z
+// Generated with ./scripts/updateNomisIncidentTypeConfigurations.ts at 2024-09-20T16:52:16.529Z
 
 import { type IncidentTypeConfiguration } from '../../data/incidentTypeConfiguration/types'
 
@@ -9,12 +9,14 @@ const OLD_CONCERTED_INDISCIPLINE: IncidentTypeConfiguration = {
   questions: {
     '44122': {
       id: '44122',
+      active: false,
       code: 'WAS CONTROL AND RESTRAINTS EMPLOYED',
       label: 'WAS CONTROL AND RESTRAINTS EMPLOYED',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: false,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -22,6 +24,7 @@ const OLD_CONCERTED_INDISCIPLINE: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: false,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -31,12 +34,14 @@ const OLD_CONCERTED_INDISCIPLINE: IncidentTypeConfiguration = {
     },
     '44140': {
       id: '44140',
+      active: false,
       code: "IS THE INCIDENT SUBJECT TO A GOVERNOR'S ADJUDICATION",
       label: "IS THE INCIDENT SUBJECT TO A GOVERNOR'S ADJUDICATION",
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: false,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -44,6 +49,7 @@ const OLD_CONCERTED_INDISCIPLINE: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: false,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -53,12 +59,14 @@ const OLD_CONCERTED_INDISCIPLINE: IncidentTypeConfiguration = {
     },
     '44156': {
       id: '44156',
+      active: false,
       code: 'HAS THE PRISON SERVICE PRESS OFFICE BEEN INFORMED',
       label: 'HAS THE PRISON SERVICE PRESS OFFICE BEEN INFORMED',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: false,
           label: 'YES',
           commentRequired: false,
           dateRequired: true,
@@ -66,6 +74,7 @@ const OLD_CONCERTED_INDISCIPLINE: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: false,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -75,12 +84,14 @@ const OLD_CONCERTED_INDISCIPLINE: IncidentTypeConfiguration = {
     },
     '44161': {
       id: '44161',
+      active: false,
       code: 'WERE WORKS SERVICES STAFF PRESENT',
       label: 'WERE WORKS SERVICES STAFF PRESENT',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: false,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -88,6 +99,7 @@ const OLD_CONCERTED_INDISCIPLINE: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: false,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -97,12 +109,14 @@ const OLD_CONCERTED_INDISCIPLINE: IncidentTypeConfiguration = {
     },
     '44162': {
       id: '44162',
+      active: false,
       code: 'HAS THE SERVICE SUPPLIER BEEN NOTIFIED OF A REPLACEMENT KEYWORD?',
       label: 'HAS THE SERVICE SUPPLIER BEEN NOTIFIED OF A REPLACEMENT KEYWORD?',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: false,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -110,6 +124,7 @@ const OLD_CONCERTED_INDISCIPLINE: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: false,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -119,12 +134,14 @@ const OLD_CONCERTED_INDISCIPLINE: IncidentTypeConfiguration = {
     },
     '44170': {
       id: '44170',
+      active: false,
       code: 'HOW MANY PRISONERS WERE INVOLVED',
       label: 'HOW MANY PRISONERS WERE INVOLVED',
       multipleAnswers: false,
       answers: [
         {
           code: 'NUMBER',
+          active: false,
           label: 'NUMBER',
           commentRequired: true,
           dateRequired: false,
@@ -134,12 +151,14 @@ const OLD_CONCERTED_INDISCIPLINE: IncidentTypeConfiguration = {
     },
     '44182': {
       id: '44182',
+      active: false,
       code: 'IS THE INCIDENT THE SUBJECT OF A POLICE INVESTIGATION',
       label: 'IS THE INCIDENT THE SUBJECT OF A POLICE INVESTIGATION',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: false,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -147,6 +166,7 @@ const OLD_CONCERTED_INDISCIPLINE: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: false,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -156,12 +176,14 @@ const OLD_CONCERTED_INDISCIPLINE: IncidentTypeConfiguration = {
     },
     '44216': {
       id: '44216',
+      active: false,
       code: 'INDICATE THE NATURE OF THE SHUT DOWN',
       label: 'INDICATE THE NATURE OF THE SHUT DOWN',
       multipleAnswers: true,
       answers: [
         {
           code: 'TELEPHONY',
+          active: false,
           label: 'TELEPHONY',
           commentRequired: true,
           dateRequired: false,
@@ -169,6 +191,7 @@ const OLD_CONCERTED_INDISCIPLINE: IncidentTypeConfiguration = {
         },
         {
           code: 'IT',
+          active: false,
           label: 'IT',
           commentRequired: true,
           dateRequired: false,
@@ -178,12 +201,14 @@ const OLD_CONCERTED_INDISCIPLINE: IncidentTypeConfiguration = {
     },
     '44238': {
       id: '44238',
+      active: false,
       code: 'WERE EXTENDABLE BATONS USED',
       label: 'WERE EXTENDABLE BATONS USED',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: false,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -191,6 +216,7 @@ const OLD_CONCERTED_INDISCIPLINE: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: false,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -200,12 +226,14 @@ const OLD_CONCERTED_INDISCIPLINE: IncidentTypeConfiguration = {
     },
     '44250': {
       id: '44250',
+      active: false,
       code: 'WAS THE KEYWORD REQUESTED?',
       label: 'WAS THE KEYWORD REQUESTED?',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: false,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -213,6 +241,7 @@ const OLD_CONCERTED_INDISCIPLINE: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: false,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -222,12 +251,14 @@ const OLD_CONCERTED_INDISCIPLINE: IncidentTypeConfiguration = {
     },
     '44256': {
       id: '44256',
+      active: false,
       code: 'IS ANY MEMBER OF STAFF FACING DISCIPLINARY CHARGES',
       label: 'IS ANY MEMBER OF STAFF FACING DISCIPLINARY CHARGES',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: false,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -235,6 +266,7 @@ const OLD_CONCERTED_INDISCIPLINE: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: false,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -244,12 +276,14 @@ const OLD_CONCERTED_INDISCIPLINE: IncidentTypeConfiguration = {
     },
     '44267': {
       id: '44267',
+      active: false,
       code: 'WERE ANY INJURIES RECEIVED DURING THIS INCIDENT',
       label: 'WERE ANY INJURIES RECEIVED DURING THIS INCIDENT',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: false,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -257,6 +291,7 @@ const OLD_CONCERTED_INDISCIPLINE: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: false,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -266,12 +301,14 @@ const OLD_CONCERTED_INDISCIPLINE: IncidentTypeConfiguration = {
     },
     '44279': {
       id: '44279',
+      active: false,
       code: 'QUOTE THE VANTIVE CASE NUMBER',
       label: 'QUOTE THE VANTIVE CASE NUMBER',
       multipleAnswers: false,
       answers: [
         {
           code: 'NUMBER',
+          active: false,
           label: 'NUMBER',
           commentRequired: true,
           dateRequired: false,
@@ -281,12 +318,14 @@ const OLD_CONCERTED_INDISCIPLINE: IncidentTypeConfiguration = {
     },
     '44296': {
       id: '44296',
+      active: false,
       code: 'WERE TRAINED NEGOTIATORS DEPLOYED',
       label: 'WERE TRAINED NEGOTIATORS DEPLOYED',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: false,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -294,6 +333,7 @@ const OLD_CONCERTED_INDISCIPLINE: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: false,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -303,12 +343,14 @@ const OLD_CONCERTED_INDISCIPLINE: IncidentTypeConfiguration = {
     },
     '44299': {
       id: '44299',
+      active: false,
       code: 'WAS THE FIRE SERVICE PRESENT',
       label: 'WAS THE FIRE SERVICE PRESENT',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: false,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -316,6 +358,7 @@ const OLD_CONCERTED_INDISCIPLINE: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: false,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -325,12 +368,14 @@ const OLD_CONCERTED_INDISCIPLINE: IncidentTypeConfiguration = {
     },
     '44304': {
       id: '44304',
+      active: false,
       code: 'WHAT WAS THE LOCATION OF THE INCIDENT',
       label: 'WHAT WAS THE LOCATION OF THE INCIDENT',
       multipleAnswers: false,
       answers: [
         {
           code: 'ADMINISTRATION',
+          active: false,
           label: 'ADMINISTRATION',
           commentRequired: false,
           dateRequired: false,
@@ -338,6 +383,7 @@ const OLD_CONCERTED_INDISCIPLINE: IncidentTypeConfiguration = {
         },
         {
           code: 'ASSOCIATION AREA',
+          active: false,
           label: 'ASSOCIATION AREA',
           commentRequired: false,
           dateRequired: false,
@@ -345,6 +391,7 @@ const OLD_CONCERTED_INDISCIPLINE: IncidentTypeConfiguration = {
         },
         {
           code: 'CELL',
+          active: false,
           label: 'CELL',
           commentRequired: false,
           dateRequired: false,
@@ -352,6 +399,7 @@ const OLD_CONCERTED_INDISCIPLINE: IncidentTypeConfiguration = {
         },
         {
           code: 'CHAPEL',
+          active: false,
           label: 'CHAPEL',
           commentRequired: false,
           dateRequired: false,
@@ -359,6 +407,7 @@ const OLD_CONCERTED_INDISCIPLINE: IncidentTypeConfiguration = {
         },
         {
           code: 'DINING ROOM',
+          active: false,
           label: 'DINING ROOM',
           commentRequired: false,
           dateRequired: false,
@@ -366,6 +415,7 @@ const OLD_CONCERTED_INDISCIPLINE: IncidentTypeConfiguration = {
         },
         {
           code: 'DORMITORY',
+          active: false,
           label: 'DORMITORY',
           commentRequired: false,
           dateRequired: false,
@@ -373,6 +423,7 @@ const OLD_CONCERTED_INDISCIPLINE: IncidentTypeConfiguration = {
         },
         {
           code: 'EDUCATION',
+          active: false,
           label: 'EDUCATION',
           commentRequired: false,
           dateRequired: false,
@@ -380,6 +431,7 @@ const OLD_CONCERTED_INDISCIPLINE: IncidentTypeConfiguration = {
         },
         {
           code: 'EXERCISE YARD',
+          active: false,
           label: 'EXERCISE YARD',
           commentRequired: false,
           dateRequired: false,
@@ -387,6 +439,7 @@ const OLD_CONCERTED_INDISCIPLINE: IncidentTypeConfiguration = {
         },
         {
           code: 'GATE',
+          active: false,
           label: 'GATE',
           commentRequired: false,
           dateRequired: false,
@@ -394,6 +447,7 @@ const OLD_CONCERTED_INDISCIPLINE: IncidentTypeConfiguration = {
         },
         {
           code: 'GYM',
+          active: false,
           label: 'GYM',
           commentRequired: false,
           dateRequired: false,
@@ -401,6 +455,7 @@ const OLD_CONCERTED_INDISCIPLINE: IncidentTypeConfiguration = {
         },
         {
           code: 'HEALTH CARE CENTRE',
+          active: false,
           label: 'HEALTH CARE CENTRE',
           commentRequired: false,
           dateRequired: false,
@@ -408,6 +463,7 @@ const OLD_CONCERTED_INDISCIPLINE: IncidentTypeConfiguration = {
         },
         {
           code: 'KITCHEN',
+          active: false,
           label: 'KITCHEN',
           commentRequired: false,
           dateRequired: false,
@@ -415,6 +471,7 @@ const OLD_CONCERTED_INDISCIPLINE: IncidentTypeConfiguration = {
         },
         {
           code: 'OFFICE',
+          active: false,
           label: 'OFFICE',
           commentRequired: false,
           dateRequired: false,
@@ -422,6 +479,7 @@ const OLD_CONCERTED_INDISCIPLINE: IncidentTypeConfiguration = {
         },
         {
           code: 'RECEPTION',
+          active: false,
           label: 'RECEPTION',
           commentRequired: false,
           dateRequired: false,
@@ -429,6 +487,7 @@ const OLD_CONCERTED_INDISCIPLINE: IncidentTypeConfiguration = {
         },
         {
           code: 'RECESS',
+          active: false,
           label: 'RECESS',
           commentRequired: false,
           dateRequired: false,
@@ -436,6 +495,7 @@ const OLD_CONCERTED_INDISCIPLINE: IncidentTypeConfiguration = {
         },
         {
           code: 'SEGREGATION UNIT',
+          active: false,
           label: 'SEGREGATION UNIT',
           commentRequired: false,
           dateRequired: false,
@@ -443,6 +503,7 @@ const OLD_CONCERTED_INDISCIPLINE: IncidentTypeConfiguration = {
         },
         {
           code: 'SPECIAL UNIT',
+          active: false,
           label: 'SPECIAL UNIT',
           commentRequired: false,
           dateRequired: false,
@@ -450,6 +511,7 @@ const OLD_CONCERTED_INDISCIPLINE: IncidentTypeConfiguration = {
         },
         {
           code: 'SHOWERS/CHANGING ROOM',
+          active: false,
           label: 'SHOWERS/CHANGING ROOM',
           commentRequired: false,
           dateRequired: false,
@@ -457,6 +519,7 @@ const OLD_CONCERTED_INDISCIPLINE: IncidentTypeConfiguration = {
         },
         {
           code: 'VISITS',
+          active: false,
           label: 'VISITS',
           commentRequired: false,
           dateRequired: false,
@@ -464,6 +527,7 @@ const OLD_CONCERTED_INDISCIPLINE: IncidentTypeConfiguration = {
         },
         {
           code: 'WING',
+          active: false,
           label: 'WING',
           commentRequired: false,
           dateRequired: false,
@@ -471,6 +535,7 @@ const OLD_CONCERTED_INDISCIPLINE: IncidentTypeConfiguration = {
         },
         {
           code: 'WORKS DEPARTMENT',
+          active: false,
           label: 'WORKS DEPARTMENT',
           commentRequired: false,
           dateRequired: false,
@@ -478,6 +543,7 @@ const OLD_CONCERTED_INDISCIPLINE: IncidentTypeConfiguration = {
         },
         {
           code: 'WORKSHOP',
+          active: false,
           label: 'WORKSHOP',
           commentRequired: false,
           dateRequired: false,
@@ -485,6 +551,7 @@ const OLD_CONCERTED_INDISCIPLINE: IncidentTypeConfiguration = {
         },
         {
           code: 'WITHIN PERIMETER',
+          active: false,
           label: 'WITHIN PERIMETER',
           commentRequired: false,
           dateRequired: false,
@@ -492,6 +559,7 @@ const OLD_CONCERTED_INDISCIPLINE: IncidentTypeConfiguration = {
         },
         {
           code: 'ELSEWHERE',
+          active: false,
           label: 'ELSEWHERE',
           commentRequired: true,
           dateRequired: false,
@@ -499,6 +567,7 @@ const OLD_CONCERTED_INDISCIPLINE: IncidentTypeConfiguration = {
         },
         {
           code: 'FUNERAL',
+          active: false,
           label: 'FUNERAL',
           commentRequired: false,
           dateRequired: false,
@@ -506,6 +575,7 @@ const OLD_CONCERTED_INDISCIPLINE: IncidentTypeConfiguration = {
         },
         {
           code: 'HOSPITAL OUTSIDE (PATIENT)',
+          active: false,
           label: 'HOSPITAL OUTSIDE (PATIENT)',
           commentRequired: false,
           dateRequired: false,
@@ -513,6 +583,7 @@ const OLD_CONCERTED_INDISCIPLINE: IncidentTypeConfiguration = {
         },
         {
           code: 'HOSPITAL OUTSIDE (VISITING)',
+          active: false,
           label: 'HOSPITAL OUTSIDE (VISITING)',
           commentRequired: false,
           dateRequired: false,
@@ -520,6 +591,7 @@ const OLD_CONCERTED_INDISCIPLINE: IncidentTypeConfiguration = {
         },
         {
           code: 'OUTSIDE WORKING PARTY',
+          active: false,
           label: 'OUTSIDE WORKING PARTY',
           commentRequired: false,
           dateRequired: false,
@@ -527,6 +599,7 @@ const OLD_CONCERTED_INDISCIPLINE: IncidentTypeConfiguration = {
         },
         {
           code: 'SPORTS FIELD',
+          active: false,
           label: 'SPORTS FIELD',
           commentRequired: false,
           dateRequired: false,
@@ -534,6 +607,7 @@ const OLD_CONCERTED_INDISCIPLINE: IncidentTypeConfiguration = {
         },
         {
           code: 'VEHICLE',
+          active: false,
           label: 'VEHICLE',
           commentRequired: false,
           dateRequired: false,
@@ -541,6 +615,7 @@ const OLD_CONCERTED_INDISCIPLINE: IncidentTypeConfiguration = {
         },
         {
           code: 'WEDDINGS',
+          active: false,
           label: 'WEDDINGS',
           commentRequired: false,
           dateRequired: false,
@@ -548,6 +623,7 @@ const OLD_CONCERTED_INDISCIPLINE: IncidentTypeConfiguration = {
         },
         {
           code: 'MAGISTRATES COURT',
+          active: false,
           label: 'MAGISTRATES COURT',
           commentRequired: false,
           dateRequired: false,
@@ -555,6 +631,7 @@ const OLD_CONCERTED_INDISCIPLINE: IncidentTypeConfiguration = {
         },
         {
           code: 'CROWN COURT',
+          active: false,
           label: 'CROWN COURT',
           commentRequired: false,
           dateRequired: false,
@@ -564,12 +641,14 @@ const OLD_CONCERTED_INDISCIPLINE: IncidentTypeConfiguration = {
     },
     '44317': {
       id: '44317',
+      active: false,
       code: 'WAS AN INCIDENT LIAISON OFFICER PRESENT',
       label: 'WAS AN INCIDENT LIAISON OFFICER PRESENT',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: false,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -577,6 +656,7 @@ const OLD_CONCERTED_INDISCIPLINE: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: false,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -586,12 +666,14 @@ const OLD_CONCERTED_INDISCIPLINE: IncidentTypeConfiguration = {
     },
     '44336': {
       id: '44336',
+      active: false,
       code: 'WAS ANY EVACUATION NECESSARY',
       label: 'WAS ANY EVACUATION NECESSARY',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: false,
           label: 'YES',
           commentRequired: true,
           dateRequired: false,
@@ -599,6 +681,7 @@ const OLD_CONCERTED_INDISCIPLINE: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: false,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -608,12 +691,14 @@ const OLD_CONCERTED_INDISCIPLINE: IncidentTypeConfiguration = {
     },
     '44338': {
       id: '44338',
+      active: false,
       code: 'DURATION OF INCIDENT IN HOURS',
       label: 'DURATION OF INCIDENT IN HOURS',
       multipleAnswers: false,
       answers: [
         {
           code: 'NUMBER OF HOURS',
+          active: false,
           label: 'NUMBER OF HOURS',
           commentRequired: true,
           dateRequired: false,
@@ -623,12 +708,14 @@ const OLD_CONCERTED_INDISCIPLINE: IncidentTypeConfiguration = {
     },
     '44387': {
       id: '44387',
+      active: false,
       code: 'DESCRIBE THE DAMAGE',
       label: 'DESCRIBE THE DAMAGE',
       multipleAnswers: false,
       answers: [
         {
           code: 'MINOR',
+          active: false,
           label: 'MINOR',
           commentRequired: false,
           dateRequired: false,
@@ -636,6 +723,7 @@ const OLD_CONCERTED_INDISCIPLINE: IncidentTypeConfiguration = {
         },
         {
           code: 'SERIOUS',
+          active: false,
           label: 'SERIOUS',
           commentRequired: false,
           dateRequired: false,
@@ -643,6 +731,7 @@ const OLD_CONCERTED_INDISCIPLINE: IncidentTypeConfiguration = {
         },
         {
           code: 'EXTENSIVE',
+          active: false,
           label: 'EXTENSIVE',
           commentRequired: false,
           dateRequired: false,
@@ -652,12 +741,14 @@ const OLD_CONCERTED_INDISCIPLINE: IncidentTypeConfiguration = {
     },
     '44438': {
       id: '44438',
+      active: false,
       code: 'WERE WEAPONS USED BY THE PERPETRATORS',
       label: 'WERE WEAPONS USED BY THE PERPETRATORS',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: false,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -665,6 +756,7 @@ const OLD_CONCERTED_INDISCIPLINE: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: false,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -674,12 +766,14 @@ const OLD_CONCERTED_INDISCIPLINE: IncidentTypeConfiguration = {
     },
     '44483': {
       id: '44483',
+      active: false,
       code: 'WAS THERE AN APPARENT REASON FOR THE INCIDENT',
       label: 'WAS THERE AN APPARENT REASON FOR THE INCIDENT',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: false,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -687,6 +781,7 @@ const OLD_CONCERTED_INDISCIPLINE: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: false,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -696,12 +791,14 @@ const OLD_CONCERTED_INDISCIPLINE: IncidentTypeConfiguration = {
     },
     '44531': {
       id: '44531',
+      active: false,
       code: 'WAS A MINOR INJURY SUSTAINED',
       label: 'WAS A MINOR INJURY SUSTAINED',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: false,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -709,6 +806,7 @@ const OLD_CONCERTED_INDISCIPLINE: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: false,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -718,12 +816,14 @@ const OLD_CONCERTED_INDISCIPLINE: IncidentTypeConfiguration = {
     },
     '44551': {
       id: '44551',
+      active: false,
       code: 'HAVE THE RING LEADERS BEEN IDENTIFIED',
       label: 'HAVE THE RING LEADERS BEEN IDENTIFIED',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: false,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -731,6 +831,7 @@ const OLD_CONCERTED_INDISCIPLINE: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: false,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -740,12 +841,14 @@ const OLD_CONCERTED_INDISCIPLINE: IncidentTypeConfiguration = {
     },
     '44562': {
       id: '44562',
+      active: false,
       code: 'WHAT TIME WAS THE SYSTEM SHUT DOWN?',
       label: 'WHAT TIME WAS THE SYSTEM SHUT DOWN?',
       multipleAnswers: false,
       answers: [
         {
           code: 'ENTER TIME',
+          active: false,
           label: 'ENTER TIME',
           commentRequired: true,
           dateRequired: false,
@@ -755,12 +858,14 @@ const OLD_CONCERTED_INDISCIPLINE: IncidentTypeConfiguration = {
     },
     '44577': {
       id: '44577',
+      active: false,
       code: 'WAS THIS A FULL OR PARTIAL SHUT DOWN?',
       label: 'WAS THIS A FULL OR PARTIAL SHUT DOWN?',
       multipleAnswers: false,
       answers: [
         {
           code: 'FULL',
+          active: false,
           label: 'FULL',
           commentRequired: false,
           dateRequired: false,
@@ -768,6 +873,7 @@ const OLD_CONCERTED_INDISCIPLINE: IncidentTypeConfiguration = {
         },
         {
           code: 'PARTIAL',
+          active: false,
           label: 'PARTIAL',
           commentRequired: true,
           dateRequired: false,
@@ -777,12 +883,14 @@ const OLD_CONCERTED_INDISCIPLINE: IncidentTypeConfiguration = {
     },
     '44623': {
       id: '44623',
+      active: false,
       code: 'HAVE THE RING LEADERS BEEN ENTERED ON INMATE INVOLVEMENT',
       label: 'HAVE THE RING LEADERS BEEN ENTERED ON INMATE INVOLVEMENT',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: false,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -790,6 +898,7 @@ const OLD_CONCERTED_INDISCIPLINE: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: false,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -799,12 +908,14 @@ const OLD_CONCERTED_INDISCIPLINE: IncidentTypeConfiguration = {
     },
     '44654': {
       id: '44654',
+      active: false,
       code: 'DESCRIBE WEAPONS USED',
       label: 'DESCRIBE WEAPONS USED',
       multipleAnswers: true,
       answers: [
         {
           code: 'FIREARM',
+          active: false,
           label: 'FIREARM',
           commentRequired: false,
           dateRequired: false,
@@ -812,6 +923,7 @@ const OLD_CONCERTED_INDISCIPLINE: IncidentTypeConfiguration = {
         },
         {
           code: 'CHEMICAL INCAPACITANT',
+          active: false,
           label: 'CHEMICAL INCAPACITANT',
           commentRequired: false,
           dateRequired: false,
@@ -819,6 +931,7 @@ const OLD_CONCERTED_INDISCIPLINE: IncidentTypeConfiguration = {
         },
         {
           code: 'KNIFE/BLADE',
+          active: false,
           label: 'KNIFE/BLADE',
           commentRequired: false,
           dateRequired: false,
@@ -826,6 +939,7 @@ const OLD_CONCERTED_INDISCIPLINE: IncidentTypeConfiguration = {
         },
         {
           code: 'OTHER SHARP INSTRUMENT',
+          active: false,
           label: 'OTHER SHARP INSTRUMENT',
           commentRequired: false,
           dateRequired: false,
@@ -833,6 +947,7 @@ const OLD_CONCERTED_INDISCIPLINE: IncidentTypeConfiguration = {
         },
         {
           code: 'BLUNT INSTRUMENT',
+          active: false,
           label: 'BLUNT INSTRUMENT',
           commentRequired: false,
           dateRequired: false,
@@ -840,6 +955,7 @@ const OLD_CONCERTED_INDISCIPLINE: IncidentTypeConfiguration = {
         },
         {
           code: 'LIGATURE',
+          active: false,
           label: 'LIGATURE',
           commentRequired: false,
           dateRequired: false,
@@ -847,6 +963,7 @@ const OLD_CONCERTED_INDISCIPLINE: IncidentTypeConfiguration = {
         },
         {
           code: 'DANGEROUS LIQUID',
+          active: false,
           label: 'DANGEROUS LIQUID',
           commentRequired: false,
           dateRequired: false,
@@ -854,6 +971,7 @@ const OLD_CONCERTED_INDISCIPLINE: IncidentTypeConfiguration = {
         },
         {
           code: 'EXCRETA/URINE',
+          active: false,
           label: 'EXCRETA/URINE',
           commentRequired: false,
           dateRequired: false,
@@ -861,6 +979,7 @@ const OLD_CONCERTED_INDISCIPLINE: IncidentTypeConfiguration = {
         },
         {
           code: 'SPITTING',
+          active: false,
           label: 'SPITTING',
           commentRequired: false,
           dateRequired: false,
@@ -868,6 +987,7 @@ const OLD_CONCERTED_INDISCIPLINE: IncidentTypeConfiguration = {
         },
         {
           code: 'FOOD',
+          active: false,
           label: 'FOOD',
           commentRequired: false,
           dateRequired: false,
@@ -875,6 +995,7 @@ const OLD_CONCERTED_INDISCIPLINE: IncidentTypeConfiguration = {
         },
         {
           code: 'THROWN FURNITURE',
+          active: false,
           label: 'THROWN FURNITURE',
           commentRequired: false,
           dateRequired: false,
@@ -882,6 +1003,7 @@ const OLD_CONCERTED_INDISCIPLINE: IncidentTypeConfiguration = {
         },
         {
           code: 'THROWN EQUIPMENT',
+          active: false,
           label: 'THROWN EQUIPMENT',
           commentRequired: false,
           dateRequired: false,
@@ -889,6 +1011,7 @@ const OLD_CONCERTED_INDISCIPLINE: IncidentTypeConfiguration = {
         },
         {
           code: 'OTHER',
+          active: false,
           label: 'OTHER',
           commentRequired: true,
           dateRequired: false,
@@ -898,12 +1021,14 @@ const OLD_CONCERTED_INDISCIPLINE: IncidentTypeConfiguration = {
     },
     '44656': {
       id: '44656',
+      active: false,
       code: 'DESCRIBE THE APPARENT REASON FOR THE INCIDENT',
       label: 'DESCRIBE THE APPARENT REASON FOR THE INCIDENT',
       multipleAnswers: false,
       answers: [
         {
           code: 'FACILITIES',
+          active: false,
           label: 'FACILITIES',
           commentRequired: false,
           dateRequired: false,
@@ -911,6 +1036,7 @@ const OLD_CONCERTED_INDISCIPLINE: IncidentTypeConfiguration = {
         },
         {
           code: 'FOOD',
+          active: false,
           label: 'FOOD',
           commentRequired: false,
           dateRequired: false,
@@ -918,6 +1044,7 @@ const OLD_CONCERTED_INDISCIPLINE: IncidentTypeConfiguration = {
         },
         {
           code: 'PAY',
+          active: false,
           label: 'PAY',
           commentRequired: false,
           dateRequired: false,
@@ -925,6 +1052,7 @@ const OLD_CONCERTED_INDISCIPLINE: IncidentTypeConfiguration = {
         },
         {
           code: 'VISITS',
+          active: false,
           label: 'VISITS',
           commentRequired: false,
           dateRequired: false,
@@ -932,6 +1060,7 @@ const OLD_CONCERTED_INDISCIPLINE: IncidentTypeConfiguration = {
         },
         {
           code: 'TIME OUT OF CELL',
+          active: false,
           label: 'TIME OUT OF CELL',
           commentRequired: false,
           dateRequired: false,
@@ -939,6 +1068,7 @@ const OLD_CONCERTED_INDISCIPLINE: IncidentTypeConfiguration = {
         },
         {
           code: 'OTHER',
+          active: false,
           label: 'OTHER',
           commentRequired: true,
           dateRequired: false,
@@ -948,12 +1078,14 @@ const OLD_CONCERTED_INDISCIPLINE: IncidentTypeConfiguration = {
     },
     '44661': {
       id: '44661',
+      active: false,
       code: 'ESTIMATED COST OF DAMAGE',
       label: 'ESTIMATED COST OF DAMAGE',
       multipleAnswers: false,
       answers: [
         {
           code: 'ENTER AMOUNT IN POUND STERLING',
+          active: false,
           label: 'ENTER AMOUNT IN POUND STERLING',
           commentRequired: true,
           dateRequired: false,
@@ -963,12 +1095,14 @@ const OLD_CONCERTED_INDISCIPLINE: IncidentTypeConfiguration = {
     },
     '44662': {
       id: '44662',
+      active: false,
       code: 'WAS THE SYSTEM RE-ACTIVATED LOCALLY OR BY THE SERVICE SUPPLIER',
       label: 'WAS THE SYSTEM RE-ACTIVATED LOCALLY OR BY THE SERVICE SUPPLIER',
       multipleAnswers: false,
       answers: [
         {
           code: 'LOCAL',
+          active: false,
           label: 'LOCAL',
           commentRequired: false,
           dateRequired: false,
@@ -976,6 +1110,7 @@ const OLD_CONCERTED_INDISCIPLINE: IncidentTypeConfiguration = {
         },
         {
           code: 'SERVICE SUPPLIER',
+          active: false,
           label: 'SERVICE SUPPLIER',
           commentRequired: false,
           dateRequired: false,
@@ -985,12 +1120,14 @@ const OLD_CONCERTED_INDISCIPLINE: IncidentTypeConfiguration = {
     },
     '44663': {
       id: '44663',
+      active: false,
       code: 'WAS A CANDR ADVISOR PRESENT',
       label: 'WAS A CANDR ADVISOR PRESENT',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: false,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -998,6 +1135,7 @@ const OLD_CONCERTED_INDISCIPLINE: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: false,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -1007,12 +1145,14 @@ const OLD_CONCERTED_INDISCIPLINE: IncidentTypeConfiguration = {
     },
     '44679': {
       id: '44679',
+      active: false,
       code: 'ARE ANY STAFF ON SICK LEAVE AS A RESULT OF THIS INCIDENT',
       label: 'ARE ANY STAFF ON SICK LEAVE AS A RESULT OF THIS INCIDENT',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: false,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -1020,6 +1160,7 @@ const OLD_CONCERTED_INDISCIPLINE: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: false,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -1029,12 +1170,14 @@ const OLD_CONCERTED_INDISCIPLINE: IncidentTypeConfiguration = {
     },
     '44684': {
       id: '44684',
+      active: false,
       code: 'WAS THE EMERGENCY RESPONSE VEHICLE PRESENT',
       label: 'WAS THE EMERGENCY RESPONSE VEHICLE PRESENT',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: false,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -1042,6 +1185,7 @@ const OLD_CONCERTED_INDISCIPLINE: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: false,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -1051,12 +1195,14 @@ const OLD_CONCERTED_INDISCIPLINE: IncidentTypeConfiguration = {
     },
     '44697': {
       id: '44697',
+      active: false,
       code: 'WHO WAS DETAINED IN OUTSIDE HOSPITAL',
       label: 'WHO WAS DETAINED IN OUTSIDE HOSPITAL',
       multipleAnswers: true,
       answers: [
         {
           code: 'STAFF',
+          active: false,
           label: 'STAFF',
           commentRequired: true,
           dateRequired: false,
@@ -1064,6 +1210,7 @@ const OLD_CONCERTED_INDISCIPLINE: IncidentTypeConfiguration = {
         },
         {
           code: 'PRISONERS',
+          active: false,
           label: 'PRISONERS',
           commentRequired: true,
           dateRequired: false,
@@ -1071,6 +1218,7 @@ const OLD_CONCERTED_INDISCIPLINE: IncidentTypeConfiguration = {
         },
         {
           code: 'CIVILIAN GRADES',
+          active: false,
           label: 'CIVILIAN GRADES',
           commentRequired: true,
           dateRequired: false,
@@ -1078,6 +1226,7 @@ const OLD_CONCERTED_INDISCIPLINE: IncidentTypeConfiguration = {
         },
         {
           code: 'POLICE',
+          active: false,
           label: 'POLICE',
           commentRequired: true,
           dateRequired: false,
@@ -1085,6 +1234,7 @@ const OLD_CONCERTED_INDISCIPLINE: IncidentTypeConfiguration = {
         },
         {
           code: 'EXTERNAL CIVILIANS',
+          active: false,
           label: 'EXTERNAL CIVILIANS',
           commentRequired: true,
           dateRequired: false,
@@ -1094,12 +1244,14 @@ const OLD_CONCERTED_INDISCIPLINE: IncidentTypeConfiguration = {
     },
     '44724': {
       id: '44724',
+      active: false,
       code: 'WHICH SERIOUS INJURIES WERE SUSTAINED',
       label: 'WHICH SERIOUS INJURIES WERE SUSTAINED',
       multipleAnswers: true,
       answers: [
         {
           code: 'FRACTURE',
+          active: false,
           label: 'FRACTURE',
           commentRequired: false,
           dateRequired: false,
@@ -1107,6 +1259,7 @@ const OLD_CONCERTED_INDISCIPLINE: IncidentTypeConfiguration = {
         },
         {
           code: 'SCALD OR BURN',
+          active: false,
           label: 'SCALD OR BURN',
           commentRequired: false,
           dateRequired: false,
@@ -1114,6 +1267,7 @@ const OLD_CONCERTED_INDISCIPLINE: IncidentTypeConfiguration = {
         },
         {
           code: 'STABBING',
+          active: false,
           label: 'STABBING',
           commentRequired: false,
           dateRequired: false,
@@ -1121,6 +1275,7 @@ const OLD_CONCERTED_INDISCIPLINE: IncidentTypeConfiguration = {
         },
         {
           code: 'CRUSHING',
+          active: false,
           label: 'CRUSHING',
           commentRequired: false,
           dateRequired: false,
@@ -1128,6 +1283,7 @@ const OLD_CONCERTED_INDISCIPLINE: IncidentTypeConfiguration = {
         },
         {
           code: 'EXTENSIVE/MULTIPLE BRUISING',
+          active: false,
           label: 'EXTENSIVE/MULTIPLE BRUISING',
           commentRequired: false,
           dateRequired: false,
@@ -1135,6 +1291,7 @@ const OLD_CONCERTED_INDISCIPLINE: IncidentTypeConfiguration = {
         },
         {
           code: 'BLACK EYE',
+          active: false,
           label: 'BLACK EYE',
           commentRequired: false,
           dateRequired: false,
@@ -1142,6 +1299,7 @@ const OLD_CONCERTED_INDISCIPLINE: IncidentTypeConfiguration = {
         },
         {
           code: 'BROKEN NOSE',
+          active: false,
           label: 'BROKEN NOSE',
           commentRequired: false,
           dateRequired: false,
@@ -1149,6 +1307,7 @@ const OLD_CONCERTED_INDISCIPLINE: IncidentTypeConfiguration = {
         },
         {
           code: 'BROKEN TEETH',
+          active: false,
           label: 'BROKEN TEETH',
           commentRequired: false,
           dateRequired: false,
@@ -1156,6 +1315,7 @@ const OLD_CONCERTED_INDISCIPLINE: IncidentTypeConfiguration = {
         },
         {
           code: 'CUTS REQUIRING SUTURES',
+          active: false,
           label: 'CUTS REQUIRING SUTURES',
           commentRequired: false,
           dateRequired: false,
@@ -1163,6 +1323,7 @@ const OLD_CONCERTED_INDISCIPLINE: IncidentTypeConfiguration = {
         },
         {
           code: 'BITES',
+          active: false,
           label: 'BITES',
           commentRequired: false,
           dateRequired: false,
@@ -1170,6 +1331,7 @@ const OLD_CONCERTED_INDISCIPLINE: IncidentTypeConfiguration = {
         },
         {
           code: 'GUN SHOT WOUND',
+          active: false,
           label: 'GUN SHOT WOUND',
           commentRequired: false,
           dateRequired: false,
@@ -1177,6 +1339,7 @@ const OLD_CONCERTED_INDISCIPLINE: IncidentTypeConfiguration = {
         },
         {
           code: 'TEMPORARY/PERMANENT BLINDNESS',
+          active: false,
           label: 'TEMPORARY/PERMANENT BLINDNESS',
           commentRequired: false,
           dateRequired: false,
@@ -1186,12 +1349,14 @@ const OLD_CONCERTED_INDISCIPLINE: IncidentTypeConfiguration = {
     },
     '44734': {
       id: '44734',
+      active: false,
       code: 'ENTER DESCRIPTION OF PERSON(S) INJURED',
       label: 'ENTER DESCRIPTION OF PERSON(S) INJURED',
       multipleAnswers: true,
       answers: [
         {
           code: 'STAFF',
+          active: false,
           label: 'STAFF',
           commentRequired: true,
           dateRequired: false,
@@ -1199,6 +1364,7 @@ const OLD_CONCERTED_INDISCIPLINE: IncidentTypeConfiguration = {
         },
         {
           code: 'PRISONERS',
+          active: false,
           label: 'PRISONERS',
           commentRequired: true,
           dateRequired: false,
@@ -1206,6 +1372,7 @@ const OLD_CONCERTED_INDISCIPLINE: IncidentTypeConfiguration = {
         },
         {
           code: 'CIVILIAN GRADES',
+          active: false,
           label: 'CIVILIAN GRADES',
           commentRequired: true,
           dateRequired: false,
@@ -1213,6 +1380,7 @@ const OLD_CONCERTED_INDISCIPLINE: IncidentTypeConfiguration = {
         },
         {
           code: 'POLICE',
+          active: false,
           label: 'POLICE',
           commentRequired: true,
           dateRequired: false,
@@ -1220,6 +1388,7 @@ const OLD_CONCERTED_INDISCIPLINE: IncidentTypeConfiguration = {
         },
         {
           code: 'EXTERNAL CIVILIANS',
+          active: false,
           label: 'EXTERNAL CIVILIANS',
           commentRequired: true,
           dateRequired: false,
@@ -1229,12 +1398,14 @@ const OLD_CONCERTED_INDISCIPLINE: IncidentTypeConfiguration = {
     },
     '44738': {
       id: '44738',
+      active: false,
       code: 'DESCRIBE THE INCIDENT AS EITHER ACTIVE OR PASSIVE',
       label: 'DESCRIBE THE INCIDENT AS EITHER ACTIVE OR PASSIVE',
       multipleAnswers: false,
       answers: [
         {
           code: 'ACTIVE',
+          active: false,
           label: 'ACTIVE',
           commentRequired: false,
           dateRequired: false,
@@ -1242,6 +1413,7 @@ const OLD_CONCERTED_INDISCIPLINE: IncidentTypeConfiguration = {
         },
         {
           code: 'PASSIVE',
+          active: false,
           label: 'PASSIVE',
           commentRequired: false,
           dateRequired: false,
@@ -1251,12 +1423,14 @@ const OLD_CONCERTED_INDISCIPLINE: IncidentTypeConfiguration = {
     },
     '44750': {
       id: '44750',
+      active: false,
       code: 'IS THE LOCATION OF THE INCIDENT KNOWN',
       label: 'IS THE LOCATION OF THE INCIDENT KNOWN',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: false,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -1264,6 +1438,7 @@ const OLD_CONCERTED_INDISCIPLINE: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: false,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -1273,12 +1448,14 @@ const OLD_CONCERTED_INDISCIPLINE: IncidentTypeConfiguration = {
     },
     '44758': {
       id: '44758',
+      active: false,
       code: 'WAS THE TELEPHONE/IT SYSTEM SHUT DOWN LOCALLY OR BY THE SERVICE SUPPLIER',
       label: 'WAS THE TELEPHONE/IT SYSTEM SHUT DOWN LOCALLY OR BY THE SERVICE SUPPLIER',
       multipleAnswers: false,
       answers: [
         {
           code: 'LOCAL',
+          active: false,
           label: 'LOCAL',
           commentRequired: false,
           dateRequired: false,
@@ -1286,6 +1463,7 @@ const OLD_CONCERTED_INDISCIPLINE: IncidentTypeConfiguration = {
         },
         {
           code: 'SERVICE SUPPLIER',
+          active: false,
           label: 'SERVICE SUPPLIER',
           commentRequired: false,
           dateRequired: false,
@@ -1295,12 +1473,14 @@ const OLD_CONCERTED_INDISCIPLINE: IncidentTypeConfiguration = {
     },
     '44760': {
       id: '44760',
+      active: false,
       code: 'DESCRIBE HOW THE INCIDENT WAS RESOLVED',
       label: 'DESCRIBE HOW THE INCIDENT WAS RESOLVED',
       multipleAnswers: false,
       answers: [
         {
           code: 'NEGOTIATION',
+          active: false,
           label: 'NEGOTIATION',
           commentRequired: false,
           dateRequired: false,
@@ -1308,6 +1488,7 @@ const OLD_CONCERTED_INDISCIPLINE: IncidentTypeConfiguration = {
         },
         {
           code: 'INTERVENTION',
+          active: false,
           label: 'INTERVENTION',
           commentRequired: false,
           dateRequired: false,
@@ -1315,6 +1496,7 @@ const OLD_CONCERTED_INDISCIPLINE: IncidentTypeConfiguration = {
         },
         {
           code: 'OTHER',
+          active: false,
           label: 'OTHER',
           commentRequired: true,
           dateRequired: false,
@@ -1324,12 +1506,14 @@ const OLD_CONCERTED_INDISCIPLINE: IncidentTypeConfiguration = {
     },
     '44764': {
       id: '44764',
+      active: false,
       code: 'WAS THE SYSTEM COMPROMISED?',
       label: 'WAS THE SYSTEM COMPROMISED?',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: false,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -1337,6 +1521,7 @@ const OLD_CONCERTED_INDISCIPLINE: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: false,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -1346,12 +1531,14 @@ const OLD_CONCERTED_INDISCIPLINE: IncidentTypeConfiguration = {
     },
     '44774': {
       id: '44774',
+      active: false,
       code: 'IS THE INCIDENT THE SUBJECT OF AN INTERNAL INVESTIGATION',
       label: 'IS THE INCIDENT THE SUBJECT OF AN INTERNAL INVESTIGATION',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: false,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -1359,6 +1546,7 @@ const OLD_CONCERTED_INDISCIPLINE: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: false,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -1368,12 +1556,14 @@ const OLD_CONCERTED_INDISCIPLINE: IncidentTypeConfiguration = {
     },
     '44783': {
       id: '44783',
+      active: false,
       code: 'HAS ANY PROSECUTION TAKEN PLACE OR IS ANY PENDING',
       label: 'HAS ANY PROSECUTION TAKEN PLACE OR IS ANY PENDING',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: false,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -1381,6 +1571,7 @@ const OLD_CONCERTED_INDISCIPLINE: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: false,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -1390,12 +1581,14 @@ const OLD_CONCERTED_INDISCIPLINE: IncidentTypeConfiguration = {
     },
     '44809': {
       id: '44809',
+      active: false,
       code: 'WHO AUTHORISED THE SHUT DOWN?',
       label: 'WHO AUTHORISED THE SHUT DOWN?',
       multipleAnswers: false,
       answers: [
         {
           code: 'GOVERNOR',
+          active: false,
           label: 'GOVERNOR',
           commentRequired: false,
           dateRequired: false,
@@ -1403,6 +1596,7 @@ const OLD_CONCERTED_INDISCIPLINE: IncidentTypeConfiguration = {
         },
         {
           code: 'DEPUTY GOVERNOR',
+          active: false,
           label: 'DEPUTY GOVERNOR',
           commentRequired: false,
           dateRequired: false,
@@ -1410,6 +1604,7 @@ const OLD_CONCERTED_INDISCIPLINE: IncidentTypeConfiguration = {
         },
         {
           code: 'DUTY GOVERNOR',
+          active: false,
           label: 'DUTY GOVERNOR',
           commentRequired: false,
           dateRequired: false,
@@ -1417,6 +1612,7 @@ const OLD_CONCERTED_INDISCIPLINE: IncidentTypeConfiguration = {
         },
         {
           code: 'OTHER',
+          active: false,
           label: 'OTHER',
           commentRequired: true,
           dateRequired: false,
@@ -1426,12 +1622,14 @@ const OLD_CONCERTED_INDISCIPLINE: IncidentTypeConfiguration = {
     },
     '44810': {
       id: '44810',
+      active: false,
       code: 'WAS THE TELEPHONE/IT SYSTEM SHUT DOWN DURING THE INCIDENT?',
       label: 'WAS THE TELEPHONE/IT SYSTEM SHUT DOWN DURING THE INCIDENT?',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: false,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -1439,6 +1637,7 @@ const OLD_CONCERTED_INDISCIPLINE: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: false,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -1448,12 +1647,14 @@ const OLD_CONCERTED_INDISCIPLINE: IncidentTypeConfiguration = {
     },
     '44867': {
       id: '44867',
+      active: false,
       code: 'WAS A BARRICADE USED',
       label: 'WAS A BARRICADE USED',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: false,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -1461,6 +1662,7 @@ const OLD_CONCERTED_INDISCIPLINE: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: false,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -1470,12 +1672,14 @@ const OLD_CONCERTED_INDISCIPLINE: IncidentTypeConfiguration = {
     },
     '44877': {
       id: '44877',
+      active: false,
       code: 'WHICH MINOR INJURIES WERE SUSTAINED',
       label: 'WHICH MINOR INJURIES WERE SUSTAINED',
       multipleAnswers: true,
       answers: [
         {
           code: 'GRAZES, SCRATCHES OR ABRASIONS',
+          active: false,
           label: 'GRAZES, SCRATCHES OR ABRASIONS',
           commentRequired: false,
           dateRequired: false,
@@ -1483,6 +1687,7 @@ const OLD_CONCERTED_INDISCIPLINE: IncidentTypeConfiguration = {
         },
         {
           code: 'MINOR BRUISES',
+          active: false,
           label: 'MINOR BRUISES',
           commentRequired: false,
           dateRequired: false,
@@ -1490,6 +1695,7 @@ const OLD_CONCERTED_INDISCIPLINE: IncidentTypeConfiguration = {
         },
         {
           code: 'SWELLINGS',
+          active: false,
           label: 'SWELLINGS',
           commentRequired: false,
           dateRequired: false,
@@ -1497,6 +1703,7 @@ const OLD_CONCERTED_INDISCIPLINE: IncidentTypeConfiguration = {
         },
         {
           code: 'SUPERFICIAL CUTS',
+          active: false,
           label: 'SUPERFICIAL CUTS',
           commentRequired: false,
           dateRequired: false,
@@ -1504,6 +1711,7 @@ const OLD_CONCERTED_INDISCIPLINE: IncidentTypeConfiguration = {
         },
         {
           code: 'OTHER',
+          active: false,
           label: 'OTHER',
           commentRequired: true,
           dateRequired: false,
@@ -1513,12 +1721,14 @@ const OLD_CONCERTED_INDISCIPLINE: IncidentTypeConfiguration = {
     },
     '44884': {
       id: '44884',
+      active: false,
       code: 'ARE THERE ANY STAFF NOW OFF DUTY AS A RESULT OF THIS INCIDENT',
       label: 'ARE THERE ANY STAFF NOW OFF DUTY AS A RESULT OF THIS INCIDENT',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: false,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -1526,6 +1736,7 @@ const OLD_CONCERTED_INDISCIPLINE: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: false,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -1535,12 +1746,14 @@ const OLD_CONCERTED_INDISCIPLINE: IncidentTypeConfiguration = {
     },
     '44902': {
       id: '44902',
+      active: false,
       code: 'WHEN WAS THE SYSTEM RE-ACTIVATED?',
       label: 'WHEN WAS THE SYSTEM RE-ACTIVATED?',
       multipleAnswers: false,
       answers: [
         {
           code: 'ENTER COMMENT AND DATE',
+          active: false,
           label: 'ENTER COMMENT AND DATE',
           commentRequired: true,
           dateRequired: true,
@@ -1550,12 +1763,14 @@ const OLD_CONCERTED_INDISCIPLINE: IncidentTypeConfiguration = {
     },
     '44910': {
       id: '44910',
+      active: false,
       code: 'WERE THE POLICE INFORMED OF THE INCIDENT',
       label: 'WERE THE POLICE INFORMED OF THE INCIDENT',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: false,
           label: 'YES',
           commentRequired: false,
           dateRequired: true,
@@ -1563,6 +1778,7 @@ const OLD_CONCERTED_INDISCIPLINE: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: false,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -1572,12 +1788,14 @@ const OLD_CONCERTED_INDISCIPLINE: IncidentTypeConfiguration = {
     },
     '44917': {
       id: '44917',
+      active: false,
       code: 'WAS OPERATION TORNADO USED',
       label: 'WAS OPERATION TORNADO USED',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: false,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -1585,6 +1803,7 @@ const OLD_CONCERTED_INDISCIPLINE: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: false,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -1594,12 +1813,14 @@ const OLD_CONCERTED_INDISCIPLINE: IncidentTypeConfiguration = {
     },
     '44973': {
       id: '44973',
+      active: false,
       code: 'DID INJURIES RESULT IN DETENTION IN OUTSIDE HOSPITAL AS AN IN-PATIENT',
       label: 'DID INJURIES RESULT IN DETENTION IN OUTSIDE HOSPITAL AS AN IN-PATIENT',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: false,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -1607,6 +1828,7 @@ const OLD_CONCERTED_INDISCIPLINE: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: false,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -1616,12 +1838,14 @@ const OLD_CONCERTED_INDISCIPLINE: IncidentTypeConfiguration = {
     },
     '44979': {
       id: '44979',
+      active: false,
       code: 'WERE WATER HOSES USED',
       label: 'WERE WATER HOSES USED',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: false,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -1629,6 +1853,7 @@ const OLD_CONCERTED_INDISCIPLINE: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: false,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -1638,12 +1863,14 @@ const OLD_CONCERTED_INDISCIPLINE: IncidentTypeConfiguration = {
     },
     '45013': {
       id: '45013',
+      active: false,
       code: 'DESCRIBE WHAT WAS COMPROMISED AND BY WHOM',
       label: 'DESCRIBE WHAT WAS COMPROMISED AND BY WHOM',
       multipleAnswers: false,
       answers: [
         {
           code: 'DESCRIPTION',
+          active: false,
           label: 'DESCRIPTION',
           commentRequired: true,
           dateRequired: false,
@@ -1653,12 +1880,14 @@ const OLD_CONCERTED_INDISCIPLINE: IncidentTypeConfiguration = {
     },
     '45045': {
       id: '45045',
+      active: false,
       code: 'WERE HEALTH CARE CENTRE STAFF PRESENT',
       label: 'WERE HEALTH CARE CENTRE STAFF PRESENT',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: false,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -1666,6 +1895,7 @@ const OLD_CONCERTED_INDISCIPLINE: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: false,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -1675,12 +1905,14 @@ const OLD_CONCERTED_INDISCIPLINE: IncidentTypeConfiguration = {
     },
     '45065': {
       id: '45065',
+      active: false,
       code: 'IS THERE ANY MEDIA INTEREST IN THIS INCIDENT',
       label: 'IS THERE ANY MEDIA INTEREST IN THIS INCIDENT',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: false,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -1688,6 +1920,7 @@ const OLD_CONCERTED_INDISCIPLINE: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: false,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -1697,12 +1930,14 @@ const OLD_CONCERTED_INDISCIPLINE: IncidentTypeConfiguration = {
     },
     '45117': {
       id: '45117',
+      active: false,
       code: 'WAS DAMAGE CAUSED TO PRISON PROPERTY',
       label: 'WAS DAMAGE CAUSED TO PRISON PROPERTY',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: false,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -1710,6 +1945,7 @@ const OLD_CONCERTED_INDISCIPLINE: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: false,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -1719,12 +1955,14 @@ const OLD_CONCERTED_INDISCIPLINE: IncidentTypeConfiguration = {
     },
     '45129': {
       id: '45129',
+      active: false,
       code: 'WAS A SERIOUS INJURY SUSTAINED',
       label: 'WAS A SERIOUS INJURY SUSTAINED',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: false,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -1732,6 +1970,7 @@ const OLD_CONCERTED_INDISCIPLINE: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: false,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -1741,12 +1980,14 @@ const OLD_CONCERTED_INDISCIPLINE: IncidentTypeConfiguration = {
     },
     '45153': {
       id: '45153',
+      active: false,
       code: 'WAS THE INCIDENT IN PUBLIC VIEW',
       label: 'WAS THE INCIDENT IN PUBLIC VIEW',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: false,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -1754,6 +1995,7 @@ const OLD_CONCERTED_INDISCIPLINE: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: false,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -1763,12 +2005,14 @@ const OLD_CONCERTED_INDISCIPLINE: IncidentTypeConfiguration = {
     },
     '45158': {
       id: '45158',
+      active: false,
       code: 'WAS THE AMBULANCE SERVICE PRESENT',
       label: 'WAS THE AMBULANCE SERVICE PRESENT',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: false,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -1776,6 +2020,7 @@ const OLD_CONCERTED_INDISCIPLINE: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: false,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -1785,12 +2030,14 @@ const OLD_CONCERTED_INDISCIPLINE: IncidentTypeConfiguration = {
     },
     '45165': {
       id: '45165',
+      active: false,
       code: 'WERE BOARD OF VISITORS MEMBERS PRESENT',
       label: 'WERE BOARD OF VISITORS MEMBERS PRESENT',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: false,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -1798,6 +2045,7 @@ const OLD_CONCERTED_INDISCIPLINE: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: false,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,
@@ -1807,12 +2055,14 @@ const OLD_CONCERTED_INDISCIPLINE: IncidentTypeConfiguration = {
     },
     '45174': {
       id: '45174',
+      active: false,
       code: 'WERE THE POLICE PRESENT',
       label: 'WERE THE POLICE PRESENT',
       multipleAnswers: false,
       answers: [
         {
           code: 'YES',
+          active: false,
           label: 'YES',
           commentRequired: false,
           dateRequired: false,
@@ -1820,6 +2070,7 @@ const OLD_CONCERTED_INDISCIPLINE: IncidentTypeConfiguration = {
         },
         {
           code: 'NO',
+          active: false,
           label: 'NO',
           commentRequired: false,
           dateRequired: false,

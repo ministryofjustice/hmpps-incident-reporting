@@ -1,4 +1,4 @@
-// Generated with ./scripts/updateNomisIncidentTypeConfigurations.ts at 2024-09-20T16:52:07.631Z
+// Generated with ./scripts/updateNomisIncidentTypeConfigurations.ts at 2024-09-25T09:25:40.554Z
 
 import { type IncidentTypeConfiguration } from '../../data/incidentTypeConfiguration/types'
 
@@ -603,6 +603,13 @@ const ABSCONDER: IncidentTypeConfiguration = {
       ],
     },
   },
+  prisonerRoles: [
+    {
+      prisonerRole: 'ABSCONDER',
+      onlyOneAllowed: true,
+      active: true,
+    },
+  ],
 } as const
 
 export default ABSCONDER

@@ -1,4 +1,4 @@
-// Generated with ./scripts/updateNomisIncidentTypeConfigurations.ts at 2024-09-20T16:52:28.174Z
+// Generated with ./scripts/updateNomisIncidentTypeConfigurations.ts at 2024-09-25T09:26:04.438Z
 
 import { type IncidentTypeConfiguration } from '../../data/incidentTypeConfiguration/types'
 
@@ -4041,6 +4041,43 @@ const OLD_FINDS3: IncidentTypeConfiguration = {
       ],
     },
   },
+  prisonerRoles: [
+    {
+      prisonerRole: 'ASSISTED_STAFF',
+      onlyOneAllowed: false,
+      active: true,
+    },
+    {
+      prisonerRole: 'IMPEDED_STAFF',
+      onlyOneAllowed: false,
+      active: true,
+    },
+    {
+      prisonerRole: 'IN_POSSESSION',
+      onlyOneAllowed: false,
+      active: true,
+    },
+    {
+      prisonerRole: 'INTENDED_RECIPIENT',
+      onlyOneAllowed: false,
+      active: true,
+    },
+    {
+      prisonerRole: 'PERPETRATOR',
+      onlyOneAllowed: false,
+      active: true,
+    },
+    {
+      prisonerRole: 'PRESENT_AT_SCENE',
+      onlyOneAllowed: false,
+      active: true,
+    },
+    {
+      prisonerRole: 'SUSPECTED_INVOLVED',
+      onlyOneAllowed: false,
+      active: true,
+    },
+  ],
 } as const
 
 export default OLD_FINDS3

@@ -1,4 +1,4 @@
-// Generated with ./scripts/updateNomisIncidentTypeConfigurations.ts at 2024-09-20T16:52:11.090Z
+// Generated with ./scripts/updateNomisIncidentTypeConfigurations.ts at 2024-09-25T09:25:44.128Z
 
 import { type IncidentTypeConfiguration } from '../../data/incidentTypeConfiguration/types'
 
@@ -961,6 +961,7 @@ const OLD_ASSAULT2: IncidentTypeConfiguration = {
       ],
     },
   },
+  prisonerRoles: [],
 } as const
 
 export default OLD_ASSAULT2

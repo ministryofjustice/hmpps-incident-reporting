@@ -1,10 +1,12 @@
-import { Type } from '../../reportConfiguration/constants'
+import { type PrisonerInvolvementRole, type Type } from '../../reportConfiguration/constants'
 
 export interface IncidentTypeConfiguration {
   incidentType: Type
   active: boolean
   startingQuestionId: string
   questions: Record<string, QuestionConfiguration>
+  /** Allowed prisoner involvement roles for this report type */
+  prisonerRoles: PrisonerRoleConfiguration[]
 }
 
 export interface QuestionConfiguration {
@@ -37,4 +39,14 @@ export interface AnswerConfiguration {
   dateRequired: boolean
   commentRequired: boolean
   nextQuestionId: string | null
+}
+
+/** Report type prisoner role configuration */
+interface PrisonerRoleConfiguration {
+  /** Role type for this report type */
+  prisonerRole: PrisonerInvolvementRole
+  /** If only one prisoner can have this role in a given report */
+  onlyOneAllowed: boolean
+  /** Indicates this role is active */
+  active: boolean
 }

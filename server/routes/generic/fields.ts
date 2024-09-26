@@ -140,7 +140,7 @@ const fields = {
       text: 'On which date did the incident occur?',
       classes: 'govuk-fieldset__legend--m',
     },
-    leadingZeros: 1,
+    leadingZeros: 'true',
   },
   incidentTime: {
     component: 'govukInput',

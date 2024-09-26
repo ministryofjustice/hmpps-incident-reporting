@@ -9,6 +9,7 @@ router.use(
   wizard(steps, fields, {
     name: 'generic',
     templatePath: 'pages/generic',
+    checkSession: false,
     csrf: false,
   }),
 )

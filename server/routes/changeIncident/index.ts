@@ -11,6 +11,7 @@ router.use(
   wizard(steps, fields, {
     name: 'changeIncident',
     templatePath: 'pages/changeIncident',
+    checkSession: false,
     csrf: false,
   }),
 )

@@ -33,7 +33,7 @@
         value: formValues.fromDate,
         maxDate: todayAsShortDate,
         errorMessage: errors | findFieldInErrorSummary("fromDate"),
-        leadingZeros: 1
+        leadingZeros: "true"
       }) }}
 
       {{ mojDatePicker({
@@ -45,7 +45,7 @@
         value: formValues.toDate,
         maxDate: todayAsShortDate,
         errorMessage: errors | findFieldInErrorSummary("toDate"),
-        leadingZeros: 1
+        leadingZeros: "true"
       }) }}
 
       <div class="govuk-button-group">

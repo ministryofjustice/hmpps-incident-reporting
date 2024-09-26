@@ -13,6 +13,7 @@ router.use(
   wizard(steps, fields, {
     name: 'addPrisoner',
     templatePath: 'pages/addPrisoner',
+    checkSession: false,
     csrf: false,
   }),
 )

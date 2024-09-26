@@ -9,6 +9,7 @@ router.use(
   wizard(steps, fields, {
     name: 'createIncident',
     templatePath: 'pages/createIncident',
+    checkSession: false,
     csrf: false,
   }),
 )

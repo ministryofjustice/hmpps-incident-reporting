@@ -1,4 +1,11 @@
-import { NomisType, Type, types } from '../../reportConfiguration/constants'
+import {
+  type NomisPrisonerInvolvementRole,
+  type NomisType,
+  type PrisonerInvolvementRole,
+  type Type,
+  prisonerInvolvementRoles,
+  types,
+} from '../../reportConfiguration/constants'
 import {
   type IncidentTypeConfiguration as NomisIncidentTypeConfiguration,
   type QuestionConfiguration as NomisQuestionConfiguration,
@@ -51,6 +58,15 @@ export function fromNomis(nomisConfig: NomisIncidentTypeConfiguration): DpsIncid
       }
       return qs
     }, {}),
+    prisonerRoles: nomisConfig.prisonerRoles.map(nomisPrisonerRoleConfig => {
+      const nomisPrisonerRole = nomisPrisonerRoleConfig.prisonerRole
+      const dpsPrisonerRole = prisonerInvolvementRoleFromNomisCode(nomisPrisonerRole)
+      return {
+        prisonerRole: dpsPrisonerRole,
+        onlyOneAllowed: nomisPrisonerRoleConfig.singleRole === true,
+        active: nomisPrisonerRoleConfig.active === true,
+      }
+    }),
   }
 }
 
@@ -124,6 +140,16 @@ function typeFromNomisCode(nomisCode: NomisType): Type {
 
   if (!dpsType) {
     throw new Error(`NomisType with code ${nomisCode} not found`)
+  }
+
+  return dpsType.code
+}
+
+function prisonerInvolvementRoleFromNomisCode(nomisCode: NomisPrisonerInvolvementRole): PrisonerInvolvementRole {
+  const dpsType = prisonerInvolvementRoles.find(prisonerInvolvement => prisonerInvolvement.nomisCode === nomisCode)
+
+  if (!dpsType) {
+    throw new Error(`NomisPrisonerInvolvementRole with code ${nomisCode} not found`)
   }
 
   return dpsType.code

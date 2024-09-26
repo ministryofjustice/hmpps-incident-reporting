@@ -1,4 +1,4 @@
-// Generated with ./scripts/updateNomisIncidentTypeConfigurations.ts at 2024-09-20T16:52:10.234Z
+// Generated with ./scripts/updateNomisIncidentTypeConfigurations.ts at 2024-09-25T09:25:43.296Z
 
 import { type IncidentTypeConfiguration } from '../../data/incidentTypeConfiguration/types'
 
@@ -1497,6 +1497,48 @@ const OLD_ASSAULT3: IncidentTypeConfiguration = {
       ],
     },
   },
+  prisonerRoles: [
+    {
+      prisonerRole: 'ACTIVE_INVOLVEMENT',
+      onlyOneAllowed: false,
+      active: true,
+    },
+    {
+      prisonerRole: 'ASSAILANT',
+      onlyOneAllowed: false,
+      active: true,
+    },
+    {
+      prisonerRole: 'ASSISTED_STAFF',
+      onlyOneAllowed: false,
+      active: true,
+    },
+    {
+      prisonerRole: 'FIGHTER',
+      onlyOneAllowed: false,
+      active: true,
+    },
+    {
+      prisonerRole: 'IMPEDED_STAFF',
+      onlyOneAllowed: false,
+      active: true,
+    },
+    {
+      prisonerRole: 'PRESENT_AT_SCENE',
+      onlyOneAllowed: false,
+      active: true,
+    },
+    {
+      prisonerRole: 'SUSPECTED_ASSAILANT',
+      onlyOneAllowed: false,
+      active: true,
+    },
+    {
+      prisonerRole: 'VICTIM',
+      onlyOneAllowed: false,
+      active: true,
+    },
+  ],
 } as const
 
 export default OLD_ASSAULT3

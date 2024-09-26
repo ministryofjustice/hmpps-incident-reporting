@@ -1,5 +1,5 @@
 import config from '../config'
-import { NomisType } from '../reportConfiguration/constants'
+import { type NomisPrisonerInvolvementRole, type NomisType } from '../reportConfiguration/constants'
 import RestClient from './restClient'
 
 export type Prison = {
@@ -72,7 +72,7 @@ export interface AnswerConfiguration {
 /** Incident type prisoner role */
 interface PrisonerRoleConfiguration {
   /** Role type for this question set */
-  prisonerRole: string
+  prisonerRole: NomisPrisonerInvolvementRole
   /** If a single party can have this role in the question set */
   singleRole: boolean
   /** Indicates this role is active */

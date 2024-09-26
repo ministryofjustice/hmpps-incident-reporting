@@ -1,4 +1,4 @@
-// Generated with ./scripts/updateNomisIncidentTypeConfigurations.ts at 2024-09-20T16:52:36.544Z
+// Generated with ./scripts/updateNomisIncidentTypeConfigurations.ts at 2024-09-25T09:26:13.755Z
 
 import { type IncidentTypeConfiguration } from '../../data/incidentTypeConfiguration/types'
 
@@ -346,6 +346,13 @@ const FOOD_REFUSAL: IncidentTypeConfiguration = {
       ],
     },
   },
+  prisonerRoles: [
+    {
+      prisonerRole: 'PERPETRATOR',
+      onlyOneAllowed: false,
+      active: true,
+    },
+  ],
 } as const
 
 export default FOOD_REFUSAL

@@ -1,4 +1,4 @@
-// Generated with ./scripts/updateNomisIncidentTypeConfigurations.ts at 2024-09-20T16:52:41.255Z
+// Generated with ./scripts/updateNomisIncidentTypeConfigurations.ts at 2024-09-25T09:26:18.248Z
 
 import { type IncidentTypeConfiguration } from '../../data/incidentTypeConfiguration/types'
 
@@ -726,6 +726,33 @@ const MISCELLANEOUS: IncidentTypeConfiguration = {
       ],
     },
   },
+  prisonerRoles: [
+    {
+      prisonerRole: 'ACTIVE_INVOLVEMENT',
+      onlyOneAllowed: false,
+      active: true,
+    },
+    {
+      prisonerRole: 'ASSISTED_STAFF',
+      onlyOneAllowed: false,
+      active: true,
+    },
+    {
+      prisonerRole: 'IMPEDED_STAFF',
+      onlyOneAllowed: false,
+      active: true,
+    },
+    {
+      prisonerRole: 'PERPETRATOR',
+      onlyOneAllowed: false,
+      active: true,
+    },
+    {
+      prisonerRole: 'SUSPECTED_INVOLVED',
+      onlyOneAllowed: false,
+      active: true,
+    },
+  ],
 } as const
 
 export default MISCELLANEOUS

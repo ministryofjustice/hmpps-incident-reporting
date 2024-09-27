@@ -1,4 +1,5 @@
 import FormWizard from 'hmpo-form-wizard'
+import { getComponentString } from '../../utils/utils'
 
 export type FieldEntry = [string, FormWizard.Field]
 
@@ -27,7 +28,7 @@ export default function renderConditionalFields(
             return undefined
           }
 
-          return req.services.frontendComponentsService.getComponent(conditionalField.component, conditionalField)
+          return getComponentString(conditionalField.component, conditionalField)
         })
 
         if (!components.filter(i => i).length) {

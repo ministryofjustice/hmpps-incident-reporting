@@ -99,6 +99,22 @@ export class PrisonApi extends RestClient {
     super('HMPPS Prison API', config.apis.hmppsPrisonApi, systemToken)
   }
 
+  async getPrison(prisonId: string, activeOnly = true): Promise<Prison | null> {
+    try {
+      return await this.get<Prison>({
+        path: `/api/agencies/${encodeURIComponent(prisonId)}`,
+        query: { activeOnly: activeOnly.toString() },
+      })
+    } catch (error) {
+      const status = error?.status
+      if (status === 404) {
+        // return null if not found
+        return null
+      }
+      throw error
+    }
+  }
+
   async getPrisons(): Promise<Record<string, Prison>> {
     const prisons = await this.get<Prison[]>({
       path: '/api/agencies/prisons',

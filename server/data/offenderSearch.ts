@@ -3,7 +3,6 @@ import { TransferPrisonId, OutsidePrisonId, transferPrisonId, outsidePrisonId } 
 import RestClient from './restClient'
 
 interface BaseOffenderSearchResult {
-  bookingId: number
   prisonerNumber: string
   firstName: string
   lastName: string

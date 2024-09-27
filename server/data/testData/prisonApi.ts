@@ -1,4 +1,4 @@
-import type { Prison } from '../prisonApi'
+import type { Prison, Staff } from '../prisonApi'
 
 export const leeds: Prison = {
   agencyId: 'LEI',
@@ -12,4 +12,20 @@ export const moorland: Prison = {
   description: 'Moorland (HMP & YOI)',
   agencyType: 'INST',
   active: true,
+}
+
+export const staffBarry: Staff = {
+  username: 'lev79n',
+  firstName: 'BARRY',
+  lastName: 'HARRISON',
+  active: true,
+  activeCaseLoadId: 'LEI',
+}
+
+export const staffMary: Staff = {
+  username: 'abc12a',
+  firstName: 'MARY',
+  lastName: 'JOHNSON',
+  active: true,
+  activeCaseLoadId: 'MDI',
 }

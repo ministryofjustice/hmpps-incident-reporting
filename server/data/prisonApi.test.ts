@@ -2,7 +2,7 @@ import nock from 'nock'
 
 import config from '../config'
 import { PrisonApi, type Prison, type IncidentTypeConfiguration, type ReferenceCode } from './prisonApi'
-import { leeds, moorland } from './testData/prisonApi'
+import { leeds, moorland, staffMary } from './testData/prisonApi'
 
 jest.mock('./tokenStore/redisTokenStore')
 
@@ -119,6 +119,37 @@ describe('prisonApi', () => {
         .reply(500)
 
       await expect(apiClient.getPhoto(prisonerNumber)).rejects.toThrow('Internal Server Error')
+    })
+  })
+
+  describe('getStaffDetails', () => {
+    const { username } = staffMary
+
+    it('should return an object', async () => {
+      fakeApiClient
+        .get(`/api/users/${username}`)
+        .matchHeader('authorization', `Bearer ${accessToken}`)
+        .reply(200, staffMary)
+
+      const response = await apiClient.getStaffDetails(username)
+      expect(response).toEqual(staffMary)
+    })
+
+    it('should return null if not found', async () => {
+      fakeApiClient.get(`/api/users/${username}`).matchHeader('authorization', `Bearer ${accessToken}`).reply(404)
+
+      const response = await apiClient.getStaffDetails(username)
+      expect(response).toBeNull()
+    })
+
+    it('should throw when it receives another error', async () => {
+      fakeApiClient
+        .get(`/api/users/${username}`)
+        .matchHeader('authorization', `Bearer ${accessToken}`)
+        .thrice()
+        .reply(500)
+
+      await expect(apiClient.getStaffDetails(username)).rejects.toThrow('Internal Server Error')
     })
   })
 

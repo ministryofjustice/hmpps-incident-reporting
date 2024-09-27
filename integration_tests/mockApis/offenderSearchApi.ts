@@ -32,7 +32,7 @@ export default {
     stubFor({
       request: {
         method: 'POST',
-        urlPath: '/prisoner-search/prisoner-numbers',
+        urlPath: '/offenderSearchApi/prisoner-search/prisoner-numbers',
       },
       response: {
         status: 200,

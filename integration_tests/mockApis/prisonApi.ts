@@ -12,7 +12,7 @@ export default {
     stubFor({
       request: {
         method: 'GET',
-        urlPath: `/api/agencies/${prison.agencyId}`,
+        urlPath: `/prisonApi/api/agencies/${prison.agencyId}`,
       },
       response: {
         status: 200,
@@ -28,7 +28,7 @@ export default {
     stubFor({
       request: {
         method: 'GET',
-        urlPath: '/api/agencies/prisons',
+        urlPath: '/prisonApi/api/agencies/prisons',
       },
       response: {
         status: 200,

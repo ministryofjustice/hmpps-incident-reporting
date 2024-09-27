@@ -1,9 +1,14 @@
 import { outsidePrisonId, transferPrisonId } from '../constants'
-import { type OffenderSearchResult } from '../offenderSearch'
+import type {
+  OffenderSearchResult,
+  OffenderSearchResultIn,
+  OffenderSearchResultOut,
+  OffenderSearchResultTransfer,
+} from '../offenderSearch'
 import { leeds, moorland } from './prisonApi'
 
 /** A1111AA in Moorland */
-export const andrew: OffenderSearchResult = {
+export const andrew: OffenderSearchResultIn = {
   prisonerNumber: 'A1111AA',
   firstName: 'ANDREW',
   lastName: 'ARNOLD',
@@ -13,7 +18,7 @@ export const andrew: OffenderSearchResult = {
 }
 
 /** A2222BB in Moorland */
-export const barry: OffenderSearchResult = {
+export const barry: OffenderSearchResultIn = {
   prisonerNumber: 'A2222BB',
   firstName: 'BARRY',
   lastName: 'BENJAMIN',
@@ -23,7 +28,7 @@ export const barry: OffenderSearchResult = {
 }
 
 /** A3333CC in Leeds */
-export const chris: OffenderSearchResult = {
+export const chris: OffenderSearchResultIn = {
   prisonerNumber: 'A3333CC',
   firstName: 'CHRIS',
   lastName: 'COOPER',
@@ -33,7 +38,7 @@ export const chris: OffenderSearchResult = {
 }
 
 /** A4444DD in transfer */
-export const donald: OffenderSearchResult = {
+export const donald: OffenderSearchResultTransfer = {
   prisonerNumber: 'A4444DD',
   firstName: 'DONALD',
   lastName: 'DAVIDSON',
@@ -43,7 +48,7 @@ export const donald: OffenderSearchResult = {
 }
 
 /** A5555EE outside */
-export const ernie: OffenderSearchResult = {
+export const ernie: OffenderSearchResultOut = {
   prisonerNumber: 'A5555EE',
   firstName: 'ERNIE',
   lastName: 'EAST',

@@ -3,7 +3,7 @@ import logger from '../../logger'
 import HmppsAuthClient from '../data/hmppsAuthClient'
 import RedisTokenStore from '../data/tokenStore/redisTokenStore'
 import { createRedisClient } from '../data/redisClient'
-import { OffenderSearchClient } from '../data/offenderSearch'
+import { OffenderSearchApi } from '../data/offenderSearchApi'
 
 export default function populatePrisoner() {
   return async (req: Request, res: Response, next: NextFunction): Promise<void> => {
@@ -11,7 +11,7 @@ export default function populatePrisoner() {
       const { user } = res.locals
       const hmppsAuthClient = new HmppsAuthClient(new RedisTokenStore(createRedisClient()))
       const systemToken = await hmppsAuthClient.getSystemClientToken(user.username)
-      const offenderSearchClient = new OffenderSearchClient(systemToken)
+      const offenderSearchClient = new OffenderSearchApi(systemToken)
 
       res.locals.prisoner = await offenderSearchClient.getPrisoner(req.params.prisonerId)
     } catch (error) {

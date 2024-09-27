@@ -21,6 +21,43 @@ describe('prisonApi', () => {
     nock.cleanAll()
   })
 
+  describe('getPrison', () => {
+    const { agencyId: prisonId } = moorland
+
+    it('should return an object', async () => {
+      fakeApiClient
+        .get(`/api/agencies/${prisonId}`)
+        .query(true)
+        .matchHeader('authorization', `Bearer ${accessToken}`)
+        .reply(200, moorland)
+
+      const response = await apiClient.getPrison(prisonId)
+      expect(response).toEqual(moorland)
+    })
+
+    it('should return null if not found', async () => {
+      fakeApiClient
+        .get(`/api/agencies/${prisonId}`)
+        .query(true)
+        .matchHeader('authorization', `Bearer ${accessToken}`)
+        .reply(404)
+
+      const response = await apiClient.getPrison(prisonId)
+      expect(response).toBeNull()
+    })
+
+    it('should throw when it receives another error', async () => {
+      fakeApiClient
+        .get(`/api/agencies/${prisonId}`)
+        .query(true)
+        .matchHeader('authorization', `Bearer ${accessToken}`)
+        .thrice()
+        .reply(500)
+
+      await expect(apiClient.getPrison(prisonId)).rejects.toThrow('Internal Server Error')
+    })
+  })
+
   describe('getPrisons', () => {
     it('should create a map of prisons from api', async () => {
       fakeApiClient
@@ -35,7 +72,7 @@ describe('prisonApi', () => {
     })
   })
 
-  describe('getPhoto()', () => {
+  describe('getPhoto', () => {
     const prisonerNumber = 'A1234BC'
 
     it('should return an image', async () => {
@@ -55,7 +92,6 @@ describe('prisonApi', () => {
         .get(`/api/bookings/offenderNo/${prisonerNumber}/image/data`)
         .query({ fullSizeImage: 'false' })
         .matchHeader('authorization', `Bearer ${accessToken}`)
-        .thrice()
         .reply(404)
 
       const response = await apiClient.getPhoto(prisonerNumber)

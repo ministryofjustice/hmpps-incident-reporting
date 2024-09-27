@@ -3,7 +3,7 @@
  * https://design-system.service.gov.uk/components/error-summary/
  */
 import nunjucks from 'nunjucks'
-import { isBeingTransferred, isOutside, type OffenderSearchResult } from '../data/offenderSearch'
+import { isBeingTransferred, isOutside, type OffenderSearchResult } from '../data/offenderSearchApi'
 
 export interface ErrorSummaryItem {
   text: string

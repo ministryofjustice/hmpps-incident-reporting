@@ -52,11 +52,15 @@ export default function prisonerSearchRoutes(service: Services): Router {
     },
     asyncMiddleware(async (req, res) => {
       const { user } = res.locals
-      const { id: prisonId, name: prisonName } = user.activeCaseload
 
-      const { incidentReportingApi } = res.locals.apis
-      const involvedPrisoners = await incidentReportingApi.prisonersInvolved.listForReport(req.params.id)
-      const involvedPrisonerNumbers = Object.values(involvedPrisoners).map(prisoner => prisoner.prisonerNumber)
+      const { incidentReportingApi, prisonApi } = res.locals.apis
+      const [activePrison, involvedPrisoners] = await Promise.all([
+        prisonApi.getPrison(user.activeCaseLoadId),
+        incidentReportingApi.prisonersInvolved.listForReport(req.params.id),
+      ])
+      // TODO: ensure that user.activeCaseLoadId was defined and activePrison is not null
+      const { agencyId: prisonId, description: prisonName } = activePrison
+      const involvedPrisonerNumbers = involvedPrisoners.map(prisoner => prisoner.prisonerNumber)
 
       const systemToken = await hmppsAuthClient.getSystemClientToken(user.username)
       const offenderSearchClient = new OffenderSearchApi(systemToken)

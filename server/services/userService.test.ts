@@ -1,20 +1,16 @@
 import UserService from './userService'
 import ManageUsersApiClient, { type User } from '../data/manageUsersApiClient'
 import createUserToken from '../testutils/createUserToken'
-import { NomisUserRolesApi } from '../data/nomisUserRolesApi'
 
 jest.mock('../data/manageUsersApiClient')
-jest.mock('../data/nomisUserRolesApi')
 
 describe('User service', () => {
   let manageUsersApiClient: jest.Mocked<ManageUsersApiClient>
-  let nomisUserRolesApi: jest.Mocked<NomisUserRolesApi>
   let userService: UserService
 
   describe('getUser', () => {
     beforeEach(() => {
       manageUsersApiClient = new ManageUsersApiClient() as jest.Mocked<ManageUsersApiClient>
-      nomisUserRolesApi = NomisUserRolesApi.prototype as jest.Mocked<NomisUserRolesApi>
       userService = new UserService(manageUsersApiClient)
     })
 
@@ -22,18 +18,6 @@ describe('User service', () => {
       const token = createUserToken([])
       manageUsersApiClient.getUser.mockResolvedValue({ name: 'john smith' } as User)
 
-      nomisUserRolesApi.getUserCaseloads.mockResolvedValue({
-        activeCaseload: {
-          id: 'MDI',
-          name: 'Moorland (HMP & YOI)',
-        },
-        caseloads: [
-          {
-            id: 'MDI',
-            name: 'Moorland (HMP & YOI)',
-          },
-        ],
-      })
       const result = await userService.getUser(token)
 
       expect(result.displayName).toEqual('John Smith')

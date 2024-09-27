@@ -4,7 +4,7 @@ import type {
   OffenderSearchResultIn,
   OffenderSearchResultOut,
   OffenderSearchResultTransfer,
-} from '../offenderSearch'
+} from '../offenderSearchApi'
 import { leeds, moorland } from './prisonApi'
 
 /** A1111AA in Moorland */

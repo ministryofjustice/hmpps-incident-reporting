@@ -1,7 +1,7 @@
 import type { Response, SuperAgentRequest } from 'superagent'
 
 import { stubFor } from './wiremock'
-import type { OffenderSearchPrisoner } from '../../server/data/offenderSearchApi'
+import type { OffenderSearchResult } from '../../server/data/offenderSearchApi'
 import { andrew, barry, chris } from '../../server/data/testData/offenderSearch'
 
 export default {
@@ -28,7 +28,7 @@ export default {
   /**
    * Stub searching for pisoner numbers
    */
-  stubOffenderSearchByNumber: (prisoners: OffenderSearchPrisoner[]) =>
+  stubOffenderSearchByNumber: (prisoners: OffenderSearchResult[]) =>
     stubFor({
       request: {
         method: 'POST',

@@ -1,4 +1,4 @@
-import { sortOptions, orderOptions, type Sort, type Order } from '../data/offenderSearch'
+import { sortOptions, orderOptions, type Sort, type Order } from '../data/offenderSearchApi'
 import { BaseForm } from './index'
 
 export type PrisonerSearchData = {

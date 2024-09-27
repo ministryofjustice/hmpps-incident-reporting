@@ -14,7 +14,7 @@ import {
   govukSelectSetSelected,
 } from './utils'
 import { andrew, barry, chris, donald, ernie, fred } from '../data/testData/offenderSearch'
-import { isBeingTransferred, isOutside, isInPrison } from '../data/offenderSearch'
+import { isBeingTransferred, isOutside, isInPrison } from '../data/offenderSearchApi'
 
 describe('convert to title case', () => {
   it.each([

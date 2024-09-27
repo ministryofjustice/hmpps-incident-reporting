@@ -18,7 +18,7 @@ import {
   prisonerLocation,
 } from './utils'
 import { checkedItems, multipleCheckedItems } from './checkedItems'
-import { isBeingTransferred, isOutside, isInPrison } from '../data/offenderSearch'
+import { isBeingTransferred, isOutside, isInPrison } from '../data/offenderSearchApi'
 import format from './format'
 
 export default function nunjucksSetup(app: express.Express): void {

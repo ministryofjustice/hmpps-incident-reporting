@@ -28,26 +28,16 @@ export interface OffenderSearchResultOut extends BaseOffenderSearchResult {
 
 export type OffenderSearchResult = OffenderSearchResultIn | OffenderSearchResultTransfer | OffenderSearchResultOut
 
-export function isBeingTransferred(prisoner: OffenderSearchResult): prisoner is OffenderSearchResultTransfer
-export function isBeingTransferred(prisonerOrNonAssociation: { prisonId: string }): boolean
-export function isBeingTransferred(prisonerOrNonAssociation: { prisonId: string }): boolean {
-  return prisonerOrNonAssociation.prisonId === transferPrisonId
+export function isBeingTransferred(prisoner: OffenderSearchResult): prisoner is OffenderSearchResultTransfer {
+  return prisoner.prisonId === transferPrisonId
 }
 
-export function isOutside(prisoner: OffenderSearchResult): prisoner is OffenderSearchResultOut
-export function isOutside(prisonerOrNonAssociation: { prisonId: string }): boolean
-export function isOutside(prisonerOrNonAssociation: { prisonId: string }): boolean {
-  return prisonerOrNonAssociation.prisonId === outsidePrisonId
+export function isOutside(prisoner: OffenderSearchResult): prisoner is OffenderSearchResultOut {
+  return prisoner.prisonId === outsidePrisonId
 }
 
-export function isInPrison(prisoner: OffenderSearchResult): prisoner is OffenderSearchResultIn
-export function isInPrison(prisonerOrNonAssociation: { prisonId: string }): boolean
-export function isInPrison(prisonerOrNonAssociation: { prisonId: string }): boolean {
-  return Boolean(
-    !isBeingTransferred(prisonerOrNonAssociation) &&
-      !isOutside(prisonerOrNonAssociation) &&
-      prisonerOrNonAssociation.prisonId,
-  )
+export function isInPrison(prisoner: OffenderSearchResult): prisoner is OffenderSearchResultIn {
+  return Boolean(!isBeingTransferred(prisoner) && !isOutside(prisoner) && prisoner.prisonId)
 }
 
 export type OffenderSearchResults = {
@@ -77,6 +67,9 @@ export class OffenderSearchApi extends RestClient {
     })
   }
 
+  /**
+   * Find multiple people by prisoner number
+   */
   async getPrisoners(prisonerNumbers: string[]): Promise<Record<string, OffenderSearchResult>> {
     const uniquePrisonerNumbers = [...new Set(prisonerNumbers)]
     if (uniquePrisonerNumbers.length === 0) {

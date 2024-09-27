@@ -9,6 +9,14 @@ export type Prison = {
   active: boolean
 }
 
+export interface Staff {
+  firstName: string
+  lastName: string
+  username: string
+  active: boolean
+  activeCaseLoadId: string
+}
+
 /** Incident Type Configuration */
 export interface IncidentTypeConfiguration {
   /** Incident type of this configuration */
@@ -134,6 +142,21 @@ export class PrisonApi extends RestClient {
       const status = error?.status
       if (status === 403 || status === 404) {
         // return null if unauthorised or not found
+        return null
+      }
+      throw error
+    }
+  }
+
+  async getStaffDetails(username: string): Promise<Staff | null> {
+    try {
+      return await this.get<Staff>({
+        path: `/api/users/${username}`,
+      })
+    } catch (error) {
+      const status = error?.status
+      if (status === 404) {
+        // return null if not found
         return null
       }
       throw error

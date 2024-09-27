@@ -1,8 +1,8 @@
-import type { SuperAgentRequest } from 'superagent'
+import type { Response as SuperAgentResponse, SuperAgentRequest } from 'superagent'
 
 import { stubFor } from './wiremock'
 import type { Prison } from '../../server/data/prisonApi'
-import { leeds, moorland } from '../../server/data/testData/prisonApi'
+import { leeds, moorland, staffBarry, staffMary } from '../../server/data/testData/prisonApi'
 
 export default {
   /**
@@ -37,6 +37,25 @@ export default {
       },
     }),
 
+  /**
+   * Stub getting details for all mock staff
+   */
+  stubPrisonApiMockStaff: (): Promise<SuperAgentResponse[]> =>
+    Promise.all(
+      [staffBarry, staffMary].map(staff =>
+        stubFor({
+          request: {
+            method: 'GET',
+            urlPath: `/prisonApi/api/users/${staff.username}`,
+          },
+          response: {
+            status: 200,
+            headers: { 'Content-Type': 'application/json;charset=UTF-8' },
+            jsonBody: staff,
+          },
+        }),
+      ),
+    ),
   stubPrisonApiPing: (): SuperAgentRequest =>
     stubFor({
       request: {

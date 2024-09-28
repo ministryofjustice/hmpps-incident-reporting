@@ -1,4 +1,5 @@
-import { NextFunction, Request, Response } from 'express'
+import type { NextFunction, Request, Response } from 'express'
+
 import logger from '../../logger'
 
 export default function populateIncident() {
@@ -9,8 +10,9 @@ export default function populateIncident() {
     } catch (error) {
       logger.error(error, 'Failed to populate incident')
       next(error)
+      return
     }
 
-    return next()
+    next()
   }
 }

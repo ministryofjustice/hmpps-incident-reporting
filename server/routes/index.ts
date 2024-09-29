@@ -34,7 +34,7 @@ export default function routes(services: Services): Router {
     router.use('/change-incident/:id/', changeIncidentRouter)
     router.use('/generic-route', genericRouter)
     router.use('/report/:id/prisoner-search', prisonerSearchRoutes())
-    router.use('/report/:id/add-prisoner/:prisonerId', addPrisonerRouter)
+    router.use('/report/:id/add-prisoner/:prisonerNumber', addPrisonerRouter)
   }
 
   // Auxiliary routes

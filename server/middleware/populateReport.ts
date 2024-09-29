@@ -9,7 +9,7 @@ export function populateReport() {
       const { incidentReportingApi } = res.locals.apis
       res.locals.incident = await incidentReportingApi.getReportById(req.params.id)
     } catch (error) {
-      logger.error(error, 'Failed to populate incident')
+      logger.error(error, 'Failed to populate report')
       next(error)
       return
     }

@@ -2,7 +2,8 @@ import type { NextFunction, Request, Response } from 'express'
 
 import logger from '../../logger'
 
-export default function populateIncident() {
+// eslint-disable-next-line import/prefer-default-export
+export function populateReport() {
   return async (req: Request, res: Response, next: NextFunction): Promise<void> => {
     try {
       const { incidentReportingApi } = res.locals.apis

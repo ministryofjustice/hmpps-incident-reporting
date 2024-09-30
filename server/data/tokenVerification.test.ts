@@ -1,7 +1,8 @@
+import type { Request } from 'express'
 import nock from 'nock'
-import { Request } from 'express'
-import verifyToken from './tokenVerification'
+
 import config from '../config'
+import verifyToken from './tokenVerification'
 
 describe('token verification api tests', () => {
   let fakeApi: nock.Scope
@@ -17,7 +18,7 @@ describe('token verification api tests', () => {
 
   describe('POST requests', () => {
     describe('Token verification disabled', () => {
-      beforeAll(() => {
+      beforeEach(() => {
         config.apis.tokenVerification.enabled = false
       })
 
@@ -33,6 +34,7 @@ describe('token verification api tests', () => {
       beforeEach(() => {
         config.apis.tokenVerification.enabled = true
       })
+
       it('Calls verify and parses response', async () => {
         fakeApi.post('/token/verify', '').reply(200, { active: true })
         const data = await verifyToken({ user: {}, verified: false } as Request)

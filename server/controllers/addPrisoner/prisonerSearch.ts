@@ -2,7 +2,6 @@ import { Router } from 'express'
 
 import asyncMiddleware from '../../middleware/asyncMiddleware'
 import { OffenderSearchApi, type OffenderSearchResults } from '../../data/offenderSearchApi'
-import type { Services } from '../../services'
 import formGetRoute from '../../routes/forms/get'
 import { pagination, type LegacyPagination } from '../../utils/pagination'
 import { type HeaderCell, type SortableTableColumns, sortableTableHead } from '../../utils/sortableTable'
@@ -39,8 +38,7 @@ const tableColumns: SortableTableColumns<
   },
 ]
 
-export default function prisonerSearchRoutes(service: Services): Router {
-  const { hmppsAuthClient } = service
+export default function prisonerSearchRoutes(): Router {
   const router = Router({ mergeParams: true })
 
   const formId = 'search' as const
@@ -53,7 +51,7 @@ export default function prisonerSearchRoutes(service: Services): Router {
     asyncMiddleware(async (req, res) => {
       const { user } = res.locals
 
-      const { incidentReportingApi, prisonApi } = res.locals.apis
+      const { incidentReportingApi, offenderSearchApi, prisonApi } = res.locals.apis
       const [activePrison, involvedPrisoners] = await Promise.all([
         prisonApi.getPrison(user.activeCaseLoadId),
         incidentReportingApi.prisonersInvolved.listForReport(req.params.id),
@@ -61,9 +59,6 @@ export default function prisonerSearchRoutes(service: Services): Router {
       // TODO: ensure that user.activeCaseLoadId was defined and activePrison is not null
       const { agencyId: prisonId, description: prisonName } = activePrison
       const involvedPrisonerNumbers = involvedPrisoners.map(prisoner => prisoner.prisonerNumber)
-
-      const systemToken = await hmppsAuthClient.getSystemClientToken(user.username)
-      const offenderSearchClient = new OffenderSearchApi(systemToken)
 
       const form: PrisonerSearchForm | null = res.locals.submittedForm
 
@@ -96,9 +91,9 @@ export default function prisonerSearchRoutes(service: Services): Router {
               filters.firstName = firstName
             }
           }
-          response = await offenderSearchClient.searchGlobally(filters, page - 1)
+          response = await offenderSearchApi.searchGlobally(filters, page - 1)
         } else {
-          response = await offenderSearchClient.searchInPrison(prisonId, searchTerms, page - 1, sort, order)
+          response = await offenderSearchApi.searchInPrison(prisonId, searchTerms, page - 1, sort, order)
         }
 
         if (response.totalElements > 0) {

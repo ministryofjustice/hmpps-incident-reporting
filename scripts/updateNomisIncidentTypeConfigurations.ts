@@ -3,6 +3,7 @@
 import fs from 'node:fs'
 import path from 'node:path'
 
+import { printText, red } from './utils'
 import { fromNomis } from '../server/data/incidentTypeConfiguration/conversion'
 import { saveAsGraphviz, saveAsTypescript } from '../server/data/incidentTypeConfiguration/persistance'
 import { type IncidentTypeConfiguration as DpsIncidentTypeConfiguration } from '../server/data/incidentTypeConfiguration/types'
@@ -26,8 +27,8 @@ function main() {
     const dpsConfig = fromNomis(nomisConfig)
 
     const tsFile = saveAsTypescript({ scriptName, dpsConfig })
-    process.stderr.write(
-      `\n\nConfig for ${dpsConfig.incidentType} (NOMIS code '${nomisConfig.incidentType}') written to ${tsFile}\n`,
+    printText(
+      `\n\nConfig for ${dpsConfig.incidentType} (NOMIS code '${nomisConfig.incidentType}') written to ${tsFile}`,
     )
 
     checkConfig(dpsConfig)
@@ -39,31 +40,27 @@ function main() {
 function checkConfig(config: DpsIncidentTypeConfiguration) {
   const errors = validateConfig(config)
   if (errors.length > 0) {
-    process.stderr.write(`${red('WARNING')}: Config for ${config.incidentType} has the following errors:\n`)
+    printText(`${red('WARNING')}: Config for ${config.incidentType} has the following errors:`)
     if (config.active === true) {
-      process.stderr.write(' - config is active\n')
+      printText(' - config is active')
     }
     for (const error of errors) {
-      process.stderr.write(` - ${error.message}\n`)
+      printText(` - ${error.message}`)
     }
   }
-}
-
-function red(text: string): string {
-  return `\x1b[31m${text}\x1b[0m`
 }
 
 function parseArgs(): Arguments {
   const [, fullPath, nomisConfigFile] = process.argv
   const scriptName = `./scripts/${path.basename(fullPath)}`
   if (!nomisConfigFile) {
-    printHelp(scriptName)
+    printHelpAndExit(scriptName)
   }
 
   return { scriptName, nomisConfigFile }
 }
 
-function printHelp(scriptName: string): never {
+function printHelpAndExit(scriptName: string): never {
   const help = `
 Regenarates Incident Types configuration for NOMIS types.
 
@@ -74,8 +71,8 @@ Where <nomisConfigFile> is a JSON file with a list of NOMIS IncidentTypeConfigur
 
 NOTE: The script uses Graphviz cli to generate SVG files for the questionnaires flows:
       https://graphviz.org/download/
-  `.trim()
+  `
 
-  process.stderr.write(`${help}\n`)
+  printText(help.trim())
   process.exit(1)
 }

@@ -476,7 +476,6 @@ const fields = {
       {
         value: 'YES',
         text: 'Yes',
-        conditional: 'whereOutsideHospital',
       },
       {
         value: 'NO',
@@ -485,30 +484,6 @@ const fields = {
       {
         value: 'UNKNOWN',
         text: 'Unknown',
-      },
-    ],
-  },
-  whereOutsideHospital: {
-    component: 'govukRadios',
-    validate: ['required'],
-    id: 'whereOutsideHospital',
-    name: 'whereOutsideHospital',
-    items: [
-      {
-        value: 'A&E',
-        text: 'A&E',
-      },
-      {
-        value: 'INPATIENT_OVERNIGHT_ONLY',
-        text: 'Inpatient - overnight only',
-      },
-      {
-        value: 'INPATIENT_OVER_24_HOURS',
-        text: 'Inpatient- over 24 hours',
-      },
-      {
-        value: 'LIFE_SUPPORT',
-        text: 'Life support',
       },
     ],
   },

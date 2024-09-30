@@ -106,7 +106,7 @@ export default class FormInitialStep extends FormWizard.Controller {
     }
 
     const { allFields } = options
-    const fields = this.setupFields(req, allFields, options.fields, values, res.locals.errorlist)
+    const fields = this.setupFields(req, allFields, options.fields, values)
 
     const validationErrors: { text: string; href: string }[] = []
 
@@ -136,7 +136,6 @@ export default class FormInitialStep extends FormWizard.Controller {
     originalFields: FormWizard.Fields,
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     values: { [field: string]: any },
-    errorlist: FormWizard.Controller.Error[],
   ): FormWizard.Fields {
     const fields = originalFields
 

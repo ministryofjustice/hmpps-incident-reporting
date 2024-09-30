@@ -1,16 +1,16 @@
-import type { Response, SuperAgentRequest } from 'superagent'
+import type { Response as SuperAgentResponse, SuperAgentRequest } from 'superagent'
 
 import { stubFor } from './wiremock'
-import type { OffenderSearchPrisoner } from '../../server/data/offenderSearchApi'
-import { andrew, barry, chris } from '../../server/data/testData/offenderSearch'
+import { OffenderSearchApi, type OffenderSearchResult } from '../../server/data/offenderSearchApi'
+import { andrew, barry, chris, donald, ernie, fred } from '../../server/data/testData/offenderSearch'
 
 export default {
   /**
    * Stub getting details for all mock prisoners
    */
-  stubOffenderSearchMockPrisoners: (): Promise<Response[]> =>
+  stubOffenderSearchMockPrisoners: (): Promise<SuperAgentResponse[]> =>
     Promise.all(
-      [andrew, barry, chris].map(prisoner =>
+      [andrew, barry, chris, donald, ernie, fred].map(prisoner =>
         stubFor({
           request: {
             method: 'GET',
@@ -26,13 +26,13 @@ export default {
     ),
 
   /**
-   * Stub searching for pisoner numbers
+   * Stub searching for prisoner numbers
    */
-  stubOffenderSearchByNumber: (prisoners: OffenderSearchPrisoner[]) =>
+  stubOffenderSearchByNumber: (prisoners: OffenderSearchResult[]): SuperAgentRequest =>
     stubFor({
       request: {
         method: 'POST',
-        urlPath: '/prisoner-search/prisoner-numbers',
+        urlPath: '/offenderSearchApi/prisoner-search/prisoner-numbers',
       },
       response: {
         status: 200,
@@ -40,6 +40,71 @@ export default {
         jsonBody: prisoners,
       },
     }),
+
+  /**
+   * Stub searching for a prisoner in a prison
+   */
+  stubOffenderSearchInPrison: ({
+    prisonId,
+    term,
+    results,
+    page = 0,
+    totalElements = undefined,
+  }: {
+    prisonId: string
+    term: string
+    results: OffenderSearchResult[]
+    page: number
+    totalElements: number | undefined
+  }): SuperAgentRequest => {
+    const queryRegex = [`term=${encodeURIComponent(term)}`, `size=${OffenderSearchApi.PAGE_SIZE}`, `page=${page}`].join(
+      '&',
+    )
+    return stubFor({
+      request: {
+        method: 'GET',
+        urlPattern: `/offenderSearchApi/prison/${encodeURIComponent(prisonId)}/prisoners\\?.*${queryRegex}.*`,
+      },
+      response: {
+        status: 200,
+        headers: { 'Content-Type': 'application/json;charset=UTF-8' },
+        jsonBody: {
+          content: results,
+          totalElements: totalElements ?? results.length,
+        },
+      },
+    })
+  },
+
+  /**
+   * Stub searching for a prisoner globally
+   * NB: this stub ignores filters so all searches would match
+   */
+  stubOffenderSearchGlobally: ({
+    results,
+    page = 0,
+    totalElements = undefined,
+  }: {
+    results: OffenderSearchResult[]
+    page: number
+    totalElements: number | undefined
+  }): SuperAgentRequest => {
+    const queryRegex = [`size=${OffenderSearchApi.PAGE_SIZE}`, `page=${page}`].join('&')
+    return stubFor({
+      request: {
+        method: 'POST',
+        urlPattern: `/offenderSearchApi/global-search\\?.*${queryRegex}.*`,
+      },
+      response: {
+        status: 200,
+        headers: { 'Content-Type': 'application/json;charset=UTF-8' },
+        jsonBody: {
+          content: results,
+          totalElements: totalElements ?? results.length,
+        },
+      },
+    })
+  },
 
   stubOffenderSearchApiPing: (): SuperAgentRequest =>
     stubFor({

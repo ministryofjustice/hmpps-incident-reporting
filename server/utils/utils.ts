@@ -7,7 +7,6 @@ import nunjucks from 'nunjucks'
 import kebabCase from '../formatters/kebabCase'
 import { isBeingTransferred, isOutside, type OffenderSearchResult } from '../data/offenderSearchApi'
 
-
 export interface ErrorSummaryItem {
   text: string
   href: string

@@ -9,8 +9,6 @@ import { OffenderSearchApi } from '../data/offenderSearchApi'
 describe('prisoner-loading middleware', () => {
   let fakeApi: nock.Scope
 
-  const next: NextFunction = jest.fn()
-
   beforeEach(() => {
     fakeApi = nock(config.apis.offenderSearchApi.url)
   })
@@ -25,6 +23,7 @@ describe('prisoner-loading middleware', () => {
 
     const req = { params: { prisonerNumber: 'A1234BC' } } as unknown as Request
     const res = { locals: { apis: { offenderSearchApi: new OffenderSearchApi('token') } } } as Response
+    const next: NextFunction = jest.fn()
     await populatePrisoner()(req, res, next)
 
     expect(next).toHaveBeenCalledWith()
@@ -36,6 +35,7 @@ describe('prisoner-loading middleware', () => {
 
     const req = { params: { prisonerNumber: 'A1234BC' } } as unknown as Request
     const res = { locals: { apis: { offenderSearchApi: new OffenderSearchApi('token') } } } as Response
+    const next: NextFunction = jest.fn()
     await populatePrisoner()(req, res, next)
 
     expect(next).toHaveBeenCalledWith(expect.objectContaining({ message: 'Not Found', status: 404 }))

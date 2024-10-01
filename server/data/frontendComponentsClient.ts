@@ -1,4 +1,3 @@
-import logger from '../../logger'
 import config from '../config'
 import RestClient from './restClient'
 
@@ -10,7 +9,7 @@ export interface Component {
 
 export type AvailableComponent = 'header' | 'footer'
 
-type CaseLoad = {
+export interface CaseLoad {
   caseLoadId: string
   description: string
   type: string
@@ -18,23 +17,20 @@ type CaseLoad = {
   currentlyActive: boolean
 }
 
-type Service = {
-  description: string
-  heading: string
-  href: string
+export interface Service {
   id: string
+  heading: string
+  description: string
+  href: string
+  navEnabled: boolean
 }
 
-export interface FrontendComponentsMeta {
-  activeCaseLoad: CaseLoad
-  caseLoads: CaseLoad[]
-  services: Service[]
-}
-
-export interface FrontendComponentsResponse {
-  header?: Component
-  footer?: Component
-  meta: FrontendComponentsMeta
+export interface ComponentsResponse extends Record<AvailableComponent, Component> {
+  meta: {
+    activeCaseLoad: CaseLoad
+    caseLoads: CaseLoad[]
+    services: Service[]
+  }
 }
 
 export default class FrontendComponentsClient {
@@ -42,18 +38,13 @@ export default class FrontendComponentsClient {
     return new RestClient('HMPPS Components Client', config.apis.frontendComponents, token)
   }
 
-  getComponent(component: AvailableComponent, userToken: string): Promise<Component> {
-    logger.info(`Getting frontend component ${component}`)
-    return FrontendComponentsClient.restClient(userToken).get<Component>({
-      path: `/${component}`,
-      headers: { 'x-user-token': userToken },
-    })
-  }
-
-  getComponents<T extends AvailableComponent[]>(components: T, userToken: string): Promise<FrontendComponentsResponse> {
-    return FrontendComponentsClient.restClient(userToken).get<FrontendComponentsResponse>({
+  getComponents<T extends AvailableComponent[]>(
+    components: T,
+    userToken: string,
+  ): Promise<Pick<ComponentsResponse, 'meta' | T[number]>> {
+    return FrontendComponentsClient.restClient(userToken).get({
       path: '/components',
-      query: `component=${components.join('&component=')}`,
+      query: { component: components },
       headers: { 'x-user-token': userToken },
     })
   }

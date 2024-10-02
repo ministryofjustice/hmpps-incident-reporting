@@ -1,10 +1,14 @@
-import { Request } from 'express'
-import FormWizard from 'hmpo-form-wizard'
+import type { Request } from 'express'
+import type FormWizard from 'hmpo-form-wizard'
 
-const backUrl = (
+/**
+ * Form wizard helper to get URL of previous step
+ */
+// eslint-disable-next-line import/prefer-default-export
+export function backUrl(
   req: Request | FormWizard.Request,
-  { fallbackUrl, nextStepUrl = '' }: { fallbackUrl?: string; nextStepUrl?: string },
-) => {
+  { fallbackUrl, nextStepUrl = '' }: { fallbackUrl: string; nextStepUrl?: string },
+): string {
   let backLink
   const { referrerUrl } = req.session
 
@@ -12,7 +16,6 @@ const backUrl = (
   if (!referrerUrl?.endsWith(nextStepUrl)) {
     backLink = referrerUrl
   }
+
   return backLink || fallbackUrl
 }
-
-export default backUrl

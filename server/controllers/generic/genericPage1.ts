@@ -1,6 +1,7 @@
-import { Response } from 'express'
+import type { Response } from 'express'
 import FormWizard from 'hmpo-form-wizard'
-import backUrl from '../../utils/backUrl'
+
+import { backUrl } from '../../utils/backUrl'
 import FormInitialStep from '../base/formInitialStep'
 
 export default class GenericPage1 extends FormInitialStep {

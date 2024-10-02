@@ -203,5 +203,6 @@ export function getComponentString(macroName: string, params = {}) {
       {%- from "${filename}/macro.njk" import ${macroName} -%}
       {{- ${macroName}(${macroParams}) -}}
     `
+
   return nunjucks.renderString(macroString, undefined)
 }

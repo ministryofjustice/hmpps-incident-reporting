@@ -1,5 +1,11 @@
+import express from 'express'
 import FormWizard from 'hmpo-form-wizard'
+
+import nunjucksSetup from '../../utils/nunjucksSetup'
+import { getComponentString } from '../../utils/utils'
 import renderConditionalFields, { FieldEntry } from './renderConditionalFields'
+
+jest.mock('../../utils/utils')
 
 const req: FormWizard.Request = {
   services: {},
@@ -7,6 +13,19 @@ const req: FormWizard.Request = {
 
 describe('Field helpers', () => {
   describe('#renderConditionalFields()', () => {
+    beforeAll(() => {
+      nunjucksSetup(express())
+    })
+
+    beforeEach(() => {
+      const mockedGetComponentString = getComponentString as unknown as jest.Mock<typeof getComponentString>
+      mockedGetComponentString.mockImplementation(macroName => macroName)
+    })
+
+    afterEach(() => {
+      jest.resetAllMocks()
+    })
+
     describe("when field doesn't contain items", () => {
       it('should return the original field as object', () => {
         const field = ['court', { name: 'court' }] as FieldEntry

@@ -1,7 +1,7 @@
 import type Express from 'express'
 import type FormWizard from 'hmpo-form-wizard'
 
-import backUrl from '../../utils/backUrl'
+import { backUrl } from '../../utils/backUrl'
 import FormInitialStep from '../base/formInitialStep'
 
 export default class TestNewIncidentPage2 extends FormInitialStep {

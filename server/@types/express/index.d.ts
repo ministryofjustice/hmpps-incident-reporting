@@ -8,8 +8,10 @@ export default {}
 declare module 'express-session' {
   // Declare that the session will potentially contain these additional fields
   interface SessionData {
+    /** Used by auth middleware for sign-in */
     returnTo: string
     nowInMinutes: number
+    /** Used by form wizard to track steps */
     referrerUrl: string
   }
 }

@@ -1,13 +1,14 @@
-import backUrl from './backUrl'
+import type { Request } from 'express'
+
+import { backUrl } from './backUrl'
 
 describe('backUrl', () => {
-  /* eslint-disable-next-line */
-  let req: any
+  let req: Request
 
   beforeEach(() => {
     req = {
       session: {},
-    }
+    } as Request
   })
 
   it('returns the referrer if present', () => {

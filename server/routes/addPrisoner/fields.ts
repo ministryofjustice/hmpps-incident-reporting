@@ -13,8 +13,8 @@ const fields = {
     },
     items: [
       {
-        text: 'Please select one',
-        selected: true,
+        text: 'overwritten during runtime',
+        value: 'overwritten during runtime',
       },
     ],
   },
@@ -30,8 +30,8 @@ const fields = {
     },
     items: [
       {
-        text: 'Please select one',
-        selected: true,
+        text: 'overwritten during runtime',
+        value: 'overwritten during runtime',
       },
     ],
   },

@@ -157,22 +157,6 @@ const fields = {
     },
     autocomplete: 'off',
   },
-  prisonId: {
-    component: 'govukSelect',
-    validate: ['required'],
-    id: 'prisonId',
-    name: 'prisonId',
-    label: {
-      text: 'Prison where incident occurred',
-      classes: 'govuk-fieldset__legend--m',
-    },
-    items: [
-      {
-        text: 'Please select one',
-        selected: true,
-      },
-    ],
-  },
   incidentTitle: {
     component: 'govukInput',
     validate: ['required'],
@@ -384,6 +368,8 @@ const fields = {
         text: 'Stabbing',
       },
       {
+        value: 'or',
+        text: 'or',
         divider: 'or',
       },
       {
@@ -430,6 +416,8 @@ const fields = {
         text: 'Other',
       },
       {
+        value: 'or',
+        text: 'or',
         divider: 'or',
       },
       {

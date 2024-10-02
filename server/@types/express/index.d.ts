@@ -2,7 +2,6 @@ import type { UserDetails } from '../../services/userService'
 import type { IncidentReportingApi } from '../../data/incidentReportingApi'
 import type { OffenderSearchApi } from '../../data/offenderSearchApi'
 import type { PrisonApi } from '../../data/prisonApi'
-import { Services } from '../../services'
 
 export default {}
 

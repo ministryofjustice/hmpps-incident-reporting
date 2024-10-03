@@ -1,12 +1,23 @@
 import type { Request, Response, NextFunction } from 'express'
+import type FormWizard from 'hmpo-form-wizard'
 import type { HttpError } from 'http-errors'
 import type { HTTPError as SuperagentHttpError } from 'superagent'
 
 import logger from '../logger'
 
 export default function createErrorHandler(production: boolean) {
-  return (error: HttpError | SuperagentHttpError, req: Request, res: Response, next: NextFunction): void => {
-    const status = error.status || 500
+  return (
+    error: HttpError | SuperagentHttpError | FormWizard.Controller.Error,
+    req: Request,
+    res: Response,
+    next: NextFunction,
+  ): void => {
+    // Form wizard redirect; refer: https://github.com/HMPO/hmpo-form-wizard?tab=readme-ov-file#error-handling
+    if ('redirect' in error && error.redirect) {
+      return res.redirect(error.redirect)
+    }
+
+    const status = ('status' in error && error.status) || 500
 
     logger.error(`Error handling request for '${req.originalUrl}', user '${res.locals.user?.username}'`, error)
 

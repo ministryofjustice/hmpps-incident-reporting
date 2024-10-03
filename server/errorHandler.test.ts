@@ -1,4 +1,5 @@
 import { Router } from 'express'
+import FormWizard from 'hmpo-form-wizard'
 import { Forbidden, Unauthorized } from 'http-errors'
 import request from 'supertest'
 
@@ -72,6 +73,60 @@ describe('Error handling', () => {
         .expect(res => {
           expect(res.redirects[0]).toContain('/sign-out')
           expect(res.text).toEqual('signed out')
+        })
+    })
+  })
+
+  describe('of errors from form wizard', () => {
+    beforeEach(() => {
+      const router = Router()
+      router.use(
+        FormWizard(
+          // steps:
+          {
+            // entrypoint has no fields so redirects to name
+            '/': {
+              entryPoint: true,
+              resetJourney: true,
+              template: 'pages/index',
+              next: 'name',
+            },
+            // page 2 includes required name field
+            '/name': {
+              fields: ['name'],
+              template: 'pages/index',
+              next: 'done',
+            },
+            // page 3 requires page 2 to be valid (name field must be supplied)
+            '/done': {
+              noPost: true,
+              template: 'pages/index',
+            },
+          },
+          // fields:
+          { name: { validate: ['required'] } },
+          // config:
+          { name: 'redirect-test', checkSession: false, csrf: false },
+        ),
+      )
+      mockedRoutes.mockReturnValue(router)
+    })
+
+    it('should handle redirect to a previous invalid step', async () => {
+      const agent = request.agent(appWithAllRoutes({}))
+      await agent
+        .post('/')
+        .expect(200)
+        .redirects(1)
+        .expect(res => {
+          expect(res.redirects[0]).toContain('/name')
+        })
+      await agent
+        .get('/done')
+        .expect(200)
+        .redirects(1)
+        .expect(res => {
+          expect(res.redirects[0]).toContain('/name')
         })
     })
   })

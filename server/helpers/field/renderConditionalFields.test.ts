@@ -2,7 +2,7 @@ import express from 'express'
 import FormWizard from 'hmpo-form-wizard'
 
 import nunjucksSetup from '../../utils/nunjucksSetup'
-import { getComponentString } from '../../utils/utils'
+import * as utils from '../../utils/utils'
 import renderConditionalFields, { FieldEntry } from './renderConditionalFields'
 
 jest.mock('../../utils/utils')
@@ -18,8 +18,8 @@ describe('Field helpers', () => {
     })
 
     beforeEach(() => {
-      const mockedGetComponentString = getComponentString as unknown as jest.Mock<typeof getComponentString>
-      mockedGetComponentString.mockImplementation(macroName => macroName)
+      const mockedUtils = utils as unknown as jest.Mocked<typeof utils>
+      mockedUtils.getComponentString.mockImplementation(macroName => macroName)
     })
 
     afterEach(() => {

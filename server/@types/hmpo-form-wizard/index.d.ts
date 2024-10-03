@@ -172,6 +172,8 @@ declare module 'hmpo-form-wizard' {
 
         type: string
 
+        redirect?: string
+
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
         args: { [key: string]: any }
 
@@ -278,6 +280,8 @@ declare module 'hmpo-form-wizard' {
     interface Step {
       pageTitle?: string
       reset?: boolean
+      resetJourney?: boolean
+      skip?: boolean
       entryPoint?: boolean
       template?: string
       next?: FormWizard.Step.NextStep

@@ -13,8 +13,6 @@ describe('report-loading middleware', () => {
 
   let fakeApi: nock.Scope
 
-  const next: NextFunction = jest.fn()
-
   beforeEach(() => {
     fakeApi = nock(config.apis.hmppsIncidentReportingApi.url)
   })
@@ -29,6 +27,7 @@ describe('report-loading middleware', () => {
 
     const req = { params: { id: basicReport.id } } as unknown as Request
     const res = { locals: { apis: { incidentReportingApi: new IncidentReportingApi('token') } } } as Response
+    const next: NextFunction = jest.fn()
     await populateReport()(req, res, next)
 
     expect(next).toHaveBeenCalledWith()
@@ -40,6 +39,7 @@ describe('report-loading middleware', () => {
 
     const req = { params: { id: basicReport.id } } as unknown as Request
     const res = { locals: { apis: { incidentReportingApi: new IncidentReportingApi('token') } } } as Response
+    const next: NextFunction = jest.fn()
     await populateReport()(req, res, next)
 
     expect(next).toHaveBeenCalledWith(expect.objectContaining({ message: 'Not Found', status: 404 }))

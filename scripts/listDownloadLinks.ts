@@ -2,17 +2,19 @@
 import path from 'node:path'
 
 import { getHelmEnvironments, type HelmEnvironment, printText } from './utils'
+import { types } from '../server/reportConfiguration/constants'
 
 interface Arguments {
   baseUrl: string
+  verbose: boolean
 }
 
 main()
 
 function main() {
-  const { baseUrl } = parseArgs()
+  const { baseUrl, verbose } = parseArgs()
 
-  const dpsTypes = [
+  const dpsUrlSlugs = [
     'types',
     'statuses',
     'informationSources',
@@ -23,37 +25,60 @@ function main() {
     'errorCodes',
   ]
 
-  const nomisTypes = [
+  const nomisUrlSlugs = [
     'incident-types',
-    'incident-type/<type>/questions',
-    'incident-type/<type>/prisoner-roles',
+    'incident-type/<nomisType>/questions',
+    'incident-type/<nomisType>/prisoner-roles',
     'staff-involvement-roles',
     'prisoner-involvement-roles',
     'prisoner-involvement-outcome',
   ]
 
   printText('DPS configuration JSON downloads:')
-  dpsTypes.forEach(type => {
-    printText(`  - ${baseUrl}/download-report-config/dps/${type}.json`)
+  dpsUrlSlugs.forEach(urlSlug => {
+    printText(`  - ${baseUrl}/download-report-config/dps/${urlSlug}.json`)
   })
 
   printText('\nNOMIS configuration JSON downloads:')
-  nomisTypes.forEach(urlSlug => {
-    printText(`  - ${baseUrl}/download-report-config/nomis/${urlSlug}.json`)
+  nomisUrlSlugs.forEach(urlSlug => {
+    if (verbose && urlSlug.includes('<nomisType>')) {
+      types.forEach(({ nomisCode }) => {
+        if (nomisCode) {
+          printText(`  - ${baseUrl}/download-report-config/nomis/${urlSlug.replace('<nomisType>', nomisCode)}.json`)
+        }
+      })
+    } else {
+      printText(`  - ${baseUrl}/download-report-config/nomis/${urlSlug}.json`)
+    }
   })
-  printText('Where <type> is the NOMIS incident report type code.')
 
   printText('\nNOMIS configuration CSV downloads:')
-  nomisTypes.forEach(urlSlug => {
-    printText(`  - ${baseUrl}/download-report-config/nomis/${urlSlug}.csv`)
+  nomisUrlSlugs.forEach(urlSlug => {
+    if (verbose && urlSlug.includes('<nomisType>')) {
+      types.forEach(({ nomisCode }) => {
+        if (nomisCode) {
+          printText(`  - ${baseUrl}/download-report-config/nomis/${urlSlug.replace('<nomisType>', nomisCode)}.csv`)
+        }
+      })
+    } else {
+      printText(`  - ${baseUrl}/download-report-config/nomis/${urlSlug}.csv`)
+    }
   })
-  printText('Where <type> is the NOMIS incident report type code.')
+
+  if (verbose) {
+    printText('\nNB: Download links are only listed with known NOMIS types, it’s possible that newer types may exist.')
+  } else {
+    printText(
+      `\nWhere <nomisType> is the NOMIS incident report type code, such as ${types[0].nomisCode}. Use --verbose flag to list known types.`,
+    )
+  }
 }
 
 function parseArgs(): Arguments {
-  const [, fullPath, env] = process.argv
+  const [, fullPath, env, flags] = process.argv
   const scriptName = `./scripts/${path.basename(fullPath)}`
   const environments = getHelmEnvironments()
+  const verbose = flags === '--verbose'
 
   if (!env) {
     printHelpAndExit(scriptName, environments)
@@ -64,7 +89,7 @@ function parseArgs(): Arguments {
     printHelpAndExit(scriptName, environments)
   }
 
-  return { baseUrl: environment.baseUrl }
+  return { baseUrl: environment.baseUrl, verbose }
 }
 
 function printHelpAndExit(scriptName: string, environments: HelmEnvironment[]): never {

@@ -3,6 +3,7 @@ import { spawnSync } from 'node:child_process'
 import fs from 'node:fs'
 import path from 'node:path'
 
+import { printText } from './utils'
 import type { IncidentReportingApi, Constant, TypeConstant } from '../server/data/incidentReportingApi'
 
 interface Arguments {
@@ -104,24 +105,24 @@ function parseArgs(): Arguments {
   const scriptName = `./scripts/${path.basename(fullPath)}`
 
   if (!type || !filePath) {
-    printHelp(scriptName)
+    printHelpAndExit(scriptName)
   }
   const template = templates.find(t => t.method === type)
   if (!template) {
-    printHelp(scriptName)
+    printHelpAndExit(scriptName)
   }
 
   return { scriptName, filePath, template }
 }
 
-function printHelp(scriptName: string): never {
+function printHelpAndExit(scriptName: string): never {
   const help = `
 Imports constants from incident reporting api downloaded as JSON files.
 Usage:
   ${scriptName} <type> <file path>
 
 Where <type> is one of ${templates.map(template => template.method).join(', ')}
-`.trim()
-  process.stderr.write(`${help}\n`)
+`
+  printText(help.trim())
   process.exit(1)
 }

@@ -1,4 +1,4 @@
-// Copied from https://github.com/ministryofjustice/hmpps-strengths-based-needs-assessments-ui/blob/c1d2e0ac64ce2be0ea0a27919cd34f8882b2d5c0/server/%40types/hmpo-form-wizard/index.d.ts
+// Copied from https://github.com/ministryofjustice/hmpps-locations-inside-prison/blob/5fe32c3024f248cd038b752c2f8ef612a77ef322/server/%40types/hmpo-form-wizard/index.d.ts
 
 /* eslint-disable max-classes-per-file */
 import { NextFunction, Response } from 'express'

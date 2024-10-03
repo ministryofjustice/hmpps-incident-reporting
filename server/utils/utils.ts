@@ -3,7 +3,9 @@
  * https://design-system.service.gov.uk/components/error-summary/
  */
 import nunjucks from 'nunjucks'
-import { isBeingTransferred, isOutside, type OffenderSearchResult } from '../data/offenderSearch'
+
+import kebabCase from '../formatters/kebabCase'
+import { isBeingTransferred, isOutside, type OffenderSearchResult } from '../data/offenderSearchApi'
 
 export interface ErrorSummaryItem {
   text: string
@@ -175,4 +177,32 @@ export const prisonerLocation = (prisoner: OffenderSearchResult): string => {
     return prisoner.locationDescription || 'Outside'
   }
   return prisoner.cellLocation || 'Not known'
+}
+
+/**
+ * Return a filename name for a macro
+ * @param {string} macroName
+ * @returns {string} returns naming convention based macro name
+ */
+function macroNameToFilepath(macroName: string): string {
+  if (macroName.includes('govuk')) {
+    return `govuk/components/${kebabCase(macroName.replace(/^\b(govuk)/, ''))}`
+  }
+
+  if (macroName.includes('moj')) {
+    return `moj/components/${kebabCase(macroName.replace(/^\b(moj)/, ''))}`
+  }
+
+  return kebabCase(macroName.replace(/^\b(app)/, ''))
+}
+
+export function getComponentString(macroName: string, params = {}) {
+  const macroParams = JSON.stringify(params, null, 2)
+  const filename = macroNameToFilepath(macroName)
+  const macroString = `
+      {%- from "${filename}/macro.njk" import ${macroName} -%}
+      {{- ${macroName}(${macroParams}) -}}
+    `
+
+  return nunjucks.renderString(macroString, undefined)
 }

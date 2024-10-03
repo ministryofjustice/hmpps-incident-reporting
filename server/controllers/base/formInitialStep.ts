@@ -106,7 +106,7 @@ export default class FormInitialStep extends FormWizard.Controller {
     }
 
     const { allFields } = options
-    const fields = this.setupFields(req, allFields, options.fields, values, res.locals.errorlist)
+    const fields = this.setupFields(req, allFields, options.fields, values)
 
     const validationErrors: { text: string; href: string }[] = []
 
@@ -130,55 +130,12 @@ export default class FormInitialStep extends FormWizard.Controller {
     return new FormWizard.Controller.Error(fieldName, { args: {}, type, url: '/' })
   }
 
-  setupDateInputFields(fields: FormWizard.Fields, errorlist: FormWizard.Controller.Error[]): FormWizard.Fields {
-    Object.values(fields)
-      .filter(field => field.component === 'govukDateInput')
-      .forEach(field => {
-        const { value } = field
-        const error = errorlist.find(e => e.key === field.id)
-        let errorFields = error?.type?.match(/(Day|Month|Year)/g)?.slice()
-        if (!errorFields) {
-          errorFields = ['*']
-        }
-        const [year, month, day] = value ? (value as string).split('-') : []
-
-        // eslint-disable-next-line no-param-reassign
-        field.items = [
-          {
-            classes: `govuk-input--width-2 ${error && ['*', 'Day'].filter(s => errorFields.includes(s)).length ? 'govuk-input--error' : ''}`,
-            label: 'Day',
-            id: `${field.id}-day`,
-            name: `${field.id}-day`,
-            value: day || '',
-          },
-          {
-            classes: `govuk-input--width-2 ${error && ['*', 'Month'].filter(s => errorFields.includes(s)).length ? 'govuk-input--error' : ''}`,
-            label: 'Month',
-            id: `${field.id}-month`,
-            name: `${field.id}-month`,
-            value: month || '',
-          },
-          {
-            classes: `govuk-input--width-4 ${error && ['*', 'Year'].filter(s => errorFields.includes(s)).length ? 'govuk-input--error' : ''}`,
-            label: 'Year',
-            id: `${field.id}-year`,
-            name: `${field.id}-year`,
-            value: year || '',
-          },
-          // eslint-disable-next-line @typescript-eslint/no-explicit-any
-        ] as any
-      })
-
-    return fields
-  }
-
   setupFields(
     req: FormWizard.Request,
     allFields: { [field: string]: FormWizard.Field },
     originalFields: FormWizard.Fields,
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     values: { [field: string]: any },
-    errorlist: FormWizard.Controller.Error[],
   ): FormWizard.Fields {
     const fields = originalFields
 
@@ -187,7 +144,7 @@ export default class FormInitialStep extends FormWizard.Controller {
       fields[fieldName].value = value?.value || value
     })
 
-    return this.setupDateInputFields(fields, errorlist)
+    return fields
   }
 
   render(req: FormWizard.Request, res: Response, next: NextFunction) {

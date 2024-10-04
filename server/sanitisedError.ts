@@ -21,8 +21,8 @@ export type UnsanitisedError = ResponseError
  * Converts an UnsanitisedError (superagent.ResponseError) into a simpler Error object,
  * omitting request inforation (e.g. sensitive request headers)
  */
-export default function sanitise(error: UnsanitisedError): SanitisedError {
-  const e = new Error() as SanitisedError
+export default function sanitise<Data = unknown>(error: UnsanitisedError): SanitisedError<Data> {
+  const e = new Error() as SanitisedError<Data>
   e.message = error.message
   e.stack = error.stack
   if (error.response) {

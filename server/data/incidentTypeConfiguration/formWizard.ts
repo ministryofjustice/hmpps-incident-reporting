@@ -1,6 +1,7 @@
 import FormWizard from 'hmpo-form-wizard'
 import { IncidentTypeConfiguration } from './types'
 
+// TODO: Add tests once steps structure is more stable
 export function generateSteps(config: IncidentTypeConfiguration): FormWizard.Steps {
   const steps: FormWizard.Steps = {}
 
@@ -28,6 +29,7 @@ export function generateSteps(config: IncidentTypeConfiguration): FormWizard.Ste
 }
 
 // TODO: Deal with commentRequired/dateRequired
+// TODO: Add tests once fields structure is more stable
 export function generateFields(config: IncidentTypeConfiguration): FormWizard.Fields {
   const fields: FormWizard.Fields = {}
   Object.values(config.questions).forEach(question => {

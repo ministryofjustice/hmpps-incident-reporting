@@ -12,6 +12,7 @@ import genericRouter from './generic'
 import prisonerSearchRoutes from '../controllers/addPrisoner/prisonerSearch'
 import addPrisonerRouter from './addPrisoner'
 import addServicesToRequest from '../middleware/addServicesToRequest'
+import genFieldsRouter from './genFields'
 
 export default function routes(services: Services): Router {
   const get = (path: string | string[], handler: RequestHandler) => router.get(path, asyncMiddleware(handler))
@@ -37,6 +38,7 @@ export default function routes(services: Services): Router {
     router.use('/generic-route', genericRouter)
     router.use('/report/:id/prisoner-search', prisonerSearchRoutes())
     router.use('/report/:id/add-prisoner/:prisonerNumber', addPrisonerRouter)
+    router.use('/assaults', genFieldsRouter)
   }
 
   // Auxiliary routes

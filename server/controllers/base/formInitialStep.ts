@@ -1,7 +1,8 @@
-import { NextFunction, Response } from 'express'
+import type { NextFunction, Response } from 'express'
 import FormWizard from 'hmpo-form-wizard'
+
 import { flattenConditionalFields, reduceDependentFields, renderConditionalFields } from '../../helpers/field'
-import { FieldEntry } from '../../helpers/field/renderConditionalFields'
+import type { FieldEntry } from '../../helpers/field/renderConditionalFields'
 
 export default class FormInitialStep extends FormWizard.Controller {
   middlewareSetup() {

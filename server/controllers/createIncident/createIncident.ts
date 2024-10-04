@@ -1,8 +1,8 @@
-import { NextFunction, Response } from 'express'
-import FormWizard from 'hmpo-form-wizard'
-import backUrl from '../../utils/backUrl'
-import FormInitialStep from '../base/formInitialStep'
+import type { NextFunction, Response } from 'express'
+import type FormWizard from 'hmpo-form-wizard'
+
 import type { CreateReportRequest } from '../../data/incidentReportingApi'
+import FormInitialStep from '../base/formInitialStep'
 
 export default class CreateIncident extends FormInitialStep {
   middlewareSetup() {
@@ -24,15 +24,11 @@ export default class CreateIncident extends FormInitialStep {
 
   locals(req: FormWizard.Request, res: Response): object {
     const locals = super.locals(req, res)
-
-    const backLink = backUrl(req, {
-      fallbackUrl: '/incidents/',
-    })
+    const cancelLink = '/incidents/'
 
     return {
       ...locals,
-      backLink,
-      cancelLink: backLink,
+      cancelLink,
     }
   }
 
@@ -71,11 +67,13 @@ export default class CreateIncident extends FormInitialStep {
   successHandler(req: FormWizard.Request, res: Response, next: NextFunction) {
     req.journeyModel.reset()
     req.sessionModel.reset()
-    /**
+
+    /*
     req.flash('success', {
       title: 'Signed operational capacity updated',
       content: `You have updated the establishment's signed operational capacity.`,
-    }) */
+    })
+    */
 
     res.redirect('/incidents')
   }

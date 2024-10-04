@@ -1,6 +1,6 @@
-import { Response } from 'express'
-import FormWizard from 'hmpo-form-wizard'
-import backUrl from '../../utils/backUrl'
+import type { Response } from 'express'
+import type FormWizard from 'hmpo-form-wizard'
+
 import FormInitialStep from '../base/formInitialStep'
 
 export default class TestNewIncidentPage2 extends FormInitialStep {
@@ -11,17 +11,13 @@ export default class TestNewIncidentPage2 extends FormInitialStep {
   locals(req: FormWizard.Request, res: Response): object {
     const locals = super.locals(req, res)
 
-    const backLink = backUrl(req, {
-      fallbackUrl: '/incidents/page1',
-    })
-
     return {
       ...locals,
-      backLink,
       cancelLink: '/incidents',
     }
   }
-  /**
+
+  /*
   async saveValues(req: FormWizard.Request, res: Response, next: NextFunction) {
     try {
       const { user } = res.locals
@@ -49,7 +45,6 @@ export default class TestNewIncidentPage2 extends FormInitialStep {
     }
   }
 
-
   successHandler(req: FormWizard.Request, res: Response, next: NextFunction) {
     const { prisonId } = res.locals
 
@@ -62,5 +57,6 @@ export default class TestNewIncidentPage2 extends FormInitialStep {
     })
 
     res.redirect(`/view-and-update-locations/${prisonId}`)
-  } */
+  }
+  */
 }

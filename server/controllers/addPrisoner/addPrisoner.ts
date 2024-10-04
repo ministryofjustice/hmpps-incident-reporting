@@ -1,14 +1,14 @@
-import { NextFunction, Response } from 'express'
-import FormWizard from 'hmpo-form-wizard'
-import backUrl from '../../utils/backUrl'
-import FormInitialStep from '../base/formInitialStep'
-import { type PrisonerInvolvement } from '../../data/incidentReportingApi'
+import type { NextFunction, Response } from 'express'
+import type FormWizard from 'hmpo-form-wizard'
+
+import type { PrisonerInvolvement } from '../../data/incidentReportingApi'
 import {
   prisonerInvolvementOutcomes,
   type PrisonerInvolvementOutcome,
   prisonerInvolvementRoles,
   type PrisonerInvolvementRole,
 } from '../../reportConfiguration/constants'
+import FormInitialStep from '../base/formInitialStep'
 
 export default class AddPrisoner extends FormInitialStep {
   middlewareSetup() {
@@ -37,15 +37,11 @@ export default class AddPrisoner extends FormInitialStep {
   locals(req: FormWizard.Request, res: Response): object {
     const locals = super.locals(req, res)
     const incidentId = res.locals.incident.id
-
-    const backLink = backUrl(req, {
-      fallbackUrl: `/report/${incidentId}/prisoner-search`,
-    })
+    const cancelLink = `/report/${incidentId}/prisoner-search`
 
     return {
       ...locals,
-      backLink,
-      cancelLink: backLink,
+      cancelLink,
     }
   }
 
@@ -85,11 +81,13 @@ export default class AddPrisoner extends FormInitialStep {
 
     req.journeyModel.reset()
     req.sessionModel.reset()
-    /**
+
+    /*
     req.flash('success', {
       title: 'Signed operational capacity updated',
       content: `You have updated the establishment's signed operational capacity.`,
-    }) */
+    })
+    */
 
     res.redirect(`/report/${incidentId}`)
   }

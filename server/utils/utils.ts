@@ -69,7 +69,7 @@ export const initialiseName = (fullName?: string): string | null => {
   return `${array[0][0]}. ${array.reverse()[0]}`
 }
 
-/** Parse date in the form DD/MM/YYYY. Throws an error when invalid */
+/** Parse date in the form DD/MM/YYYY; the returned time part should be ignored. Throws an error when invalid */
 export const parseDateInput = (input: string): Date => {
   const match = input && /^(?<day>\d{1,2})\/(?<month>\d{1,2})\/(?<year>\d{4})$/.exec(input.trim())
   if (!match) throw new Error('Invalid date')
@@ -78,7 +78,7 @@ export const parseDateInput = (input: string): Date => {
   const m = parseInt(month, 10)
   const d = parseInt(day, 10)
   if (Number.isSafeInteger(y) && m >= 1 && m <= 12 && d >= 1 && d <= 31) {
-    const date = new Date(y, m - 1, d)
+    const date = new Date(y, m - 1, d, 12)
     if (date) return date
   }
   throw new Error('Invalid date')

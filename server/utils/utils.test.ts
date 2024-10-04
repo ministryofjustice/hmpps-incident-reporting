@@ -159,10 +159,12 @@ describe('parseDateInput', () => {
   it.each([
     ['25/02/2024', [25, 2, 2024]],
     ['01/01/2024 ', [1, 1, 2024]],
+    ['03/10/2024', [3, 10, 2024]], // BST
     ['1/1/2024', [1, 1, 2024]],
   ])('should work on valid date %s', (input, [day, month, year]) => {
     const date = parseDateInput(input)
     expect(date.getDate()).toEqual(day)
+    expect(date.getUTCDate()).toEqual(day)
     expect(date.getMonth()).toEqual(month - 1)
     expect(date.getFullYear()).toEqual(year)
   })

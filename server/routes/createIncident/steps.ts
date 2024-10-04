@@ -1,6 +1,8 @@
+import type FormWizard from 'hmpo-form-wizard'
+
 import CreateIncident from '../../controllers/createIncident/createIncident'
 
-const steps = {
+const steps: FormWizard.Steps = {
   '/': {
     entryPoint: true,
     reset: true,

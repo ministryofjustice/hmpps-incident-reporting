@@ -1,8 +1,10 @@
+import type FormWizard from 'hmpo-form-wizard'
+
 import GenericPage1 from '../../controllers/generic/genericPage1'
 import GenericPage2 from '../../controllers/generic/genericPage2'
 import GenericPage3 from '../../controllers/generic/genericPage3'
 
-const steps = {
+const steps: FormWizard.Steps = {
   '/': {
     entryPoint: true,
     reset: true,

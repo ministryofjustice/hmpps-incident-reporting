@@ -11,6 +11,7 @@ import changeIncidentRouter from './changeIncident'
 import genericRouter from './generic'
 import prisonerSearchRoutes from '../controllers/addPrisoner/prisonerSearch'
 import addPrisonerRouter from './addPrisoner'
+import questionsRouter from './questions/router'
 
 export default function routes(services: Services): Router {
   const get = (path: string | string[], handler: RequestHandler) => router.get(path, asyncMiddleware(handler))
@@ -28,6 +29,9 @@ export default function routes(services: Services): Router {
     get('/incidents', debugRoutes.incidentList)
     get('/incident/:id', debugRoutes.incidentDetails)
     get('/report/:id', debugRoutes.reportDetails)
+
+    // TODO: WIP, proof-of-concept forms auto-generated from config
+    router.use('/:reportType/questions', questionsRouter)
 
     // proof-of-concept form wizard
     router.use('/create-incident', createIncidentRouter)

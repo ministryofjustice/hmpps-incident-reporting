@@ -256,6 +256,12 @@ declare module 'hmpo-form-wizard' {
       formGroupClasses?: string
       characterCountMax?: number
       classes?: string
+      fieldset?: {
+        legend?: {
+          text: string
+          classes?: string
+        }
+      }
       items?: Item[]
       summary?: {
         displayFn?: (value: string) => string
@@ -289,6 +295,7 @@ declare module 'hmpo-form-wizard' {
       controller?: typeof FormWizard.Controller
       navigationOrder?: number
       backLink?: string
+      checkSession?: boolean
       section?: string
       sectionProgressRules?: Array<SectionProgressRule>
       noPost?: boolean

@@ -1,4 +1,5 @@
 import type { RequestHandler } from 'express'
+import FormWizard from 'hmpo-form-wizard'
 import { NotFound } from 'http-errors'
 
 import format from '../utils/format'
@@ -15,6 +16,33 @@ interface ListFormData {
 
 export default function makeDebugRoutes(services: Services): Record<string, RequestHandler> {
   const { userService } = services
+
+  const demo = FormWizard(
+    {
+      '/': {
+        entryPoint: true,
+        resetJourney: true,
+        fields: ['name'],
+        backLink: '/',
+        next: 'page2',
+      },
+      '/page2': {
+        fields: ['name'],
+        template: 'index',
+        next: 'done',
+      },
+      '/done': {
+        noPost: true,
+      },
+    },
+    {
+      name: {
+        validate: ['required'],
+        name: 'name',
+      },
+    },
+    { name: 'demo', templatePath: 'pages/wip/demo', checkSession: false, csrf: false },
+  )
 
   return {
     async incidentList(req, res) {
@@ -143,5 +171,7 @@ export default function makeDebugRoutes(services: Services): Record<string, Requ
 
       res.render('pages/debug/reportDetails', { report, prisonersLookup, usersLookup, prisonsLookup })
     },
+
+    demo,
   }
 }

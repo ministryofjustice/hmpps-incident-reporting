@@ -93,4 +93,15 @@ export default function nunjucksSetup(app: express.Express): void {
   njkEnv.addFilter('checkedItems', checkedItems)
   njkEnv.addFilter('multipleCheckedItems', multipleCheckedItems)
   njkEnv.addGlobal('callAsMacro', callAsMacro)
+
+  njkEnv.addFilter('debug', function debug(value: unknown, action: 'list-properties' | 'list-context'): unknown {
+    switch (action) {
+      case 'list-context':
+        return Object.getOwnPropertyNames(this.ctx).sort().join('\n')
+      case 'list-properties':
+        return Object.getOwnPropertyNames(value).sort().join('\n')
+      default:
+        throw new Error(`debug “${action}” not implemented`)
+    }
+  })
 }

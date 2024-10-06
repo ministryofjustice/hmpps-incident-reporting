@@ -1,0 +1,43 @@
+{% extends "./template.njk" %}
+
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/error-summary/macro.njk" import govukErrorSummary %}
+{% from "govuk/components/input/macro.njk" import govukInput %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      {% if errorlist.length %}
+        {{ govukErrorSummary({
+          titleText: "There is a problem",
+          errorList: errorlist
+        }) }}
+      {% endif %}
+
+      <form method="post" novalidate>
+        <input type="hidden" name="_csrf" value="{{ csrfToken }}" />
+
+        {% for key, fieldsOptions in options.fields %}
+          {{ govukInput(fieldsOptions) }}
+        {% endfor %}
+
+        <div class="govuk-button-group">
+          {{ govukButton({
+            text: "Save",
+            preventDoubleClick: true,
+            type: "submit"
+          }) }}
+
+          {% if cancelUrl %}
+            <a href="{{ cancelUrl }}">Cancel</a>
+          {% endif %}
+        </div>
+      </form>
+
+    </div>
+  </div>
+
+  <hr />
+  {% include "./debug-panel.njk" %}
+{% endblock %}

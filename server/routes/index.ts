@@ -29,6 +29,7 @@ export default function routes(services: Services): Router {
     get('/incidents', debugRoutes.incidentList)
     get('/incident/:id', debugRoutes.incidentDetails)
     get('/report/:id', debugRoutes.reportDetails)
+    router.use('/demo', debugRoutes.demo)
 
     // TODO: WIP, proof-of-concept forms auto-generated from config
     router.use('/:reportType/questions', questionsRouter)

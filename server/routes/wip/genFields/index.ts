@@ -1,15 +1,15 @@
 import express from 'express'
 import wizard from 'hmpo-form-wizard'
-import steps from './steps'
 import createIncidentFields from '../../../reportConfiguration/generate_fields'
 import ASSAULT from '../../../reportConfiguration/types/ASSAULT'
+import createIncidentSteps from '../../../reportConfiguration/generate_steps'
 
 const router = express.Router({ mergeParams: true })
 
 router.use(
-  wizard(steps, createIncidentFields(ASSAULT), {
+  wizard(createIncidentSteps(ASSAULT), createIncidentFields(ASSAULT), {
     name: 'genFields',
-    templatePath: 'pages/genFields',
+    templatePath: 'pages/wip/genFields',
     checkSession: false,
     csrf: false,
   }),

@@ -3,7 +3,7 @@ import FormWizard from 'hmpo-form-wizard'
 import backUrl from '../../../utils/backUrl'
 import FormInitialStep from '../../base/formInitialStep'
 
-export default class GenFields extends FormInitialStep {
+export default class GenFieldsController extends FormInitialStep {
   middlewareSetup() {
     super.middlewareSetup()
   }

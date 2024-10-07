@@ -1,8 +1,8 @@
 import express from 'express'
 import wizard from 'hmpo-form-wizard'
 import steps from './steps'
-import createIncidentFields from '../../reportConfiguration/generate_fields'
-import ASSAULT from '../../reportConfiguration/types/ASSAULT'
+import createIncidentFields from '../../../reportConfiguration/generate_fields'
+import ASSAULT from '../../../reportConfiguration/types/ASSAULT'
 
 const router = express.Router({ mergeParams: true })
 

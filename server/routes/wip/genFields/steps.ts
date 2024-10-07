@@ -1,4 +1,4 @@
-import GenFields from '../../controllers/genFields/genFields'
+import GenFields from '../../../controllers/wip/genFields/genFields'
 
 const steps = {
   '/': {

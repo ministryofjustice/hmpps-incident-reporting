@@ -1,6 +1,7 @@
 import FormWizard from 'hmpo-form-wizard'
+
 import reduceDependentFields from './reduceDependentFields'
-import { FieldEntry } from './renderConditionalFields'
+import { type FieldEntry } from './renderConditionalFields'
 
 describe('Field helpers', () => {
   describe('#reduceDependentFields', () => {
@@ -8,7 +9,7 @@ describe('Field helpers', () => {
       foo: {
         name: 'foo',
       },
-    } as { [key: string]: FormWizard.Field }
+    }
     const mockAllFields: { [key: string]: FormWizard.Field } = {
       conditionalField1: {
         name: 'conditionalField1',
@@ -16,11 +17,11 @@ describe('Field helpers', () => {
       conditionalField2: {
         name: 'conditionalField2',
       },
-    } as { [key: string]: FormWizard.Field }
+    }
 
     describe('when field does not have items', () => {
       it('should not add to accumulator', () => {
-        const field = ['court', { name: 'court' }] as FieldEntry
+        const field: FieldEntry = ['court', { name: 'court' }]
         const response = reduceDependentFields()(mockAccumulator, field)
 
         expect(response).toEqual(mockAccumulator)
@@ -30,7 +31,7 @@ describe('Field helpers', () => {
     describe('when field has items', () => {
       describe('with no conditional values', () => {
         it('should not add to accumulator', () => {
-          const field = [
+          const field: FieldEntry = [
             'court',
             {
               name: 'options-field',
@@ -41,7 +42,7 @@ describe('Field helpers', () => {
                 },
               ],
             },
-          ] as FieldEntry
+          ]
           const response = reduceDependentFields()(mockAccumulator, field)
 
           expect(response).toEqual(mockAccumulator)
@@ -49,7 +50,7 @@ describe('Field helpers', () => {
       })
 
       describe('when conditional is a string', () => {
-        const field = [
+        const field: FieldEntry = [
           'court',
           {
             name: 'options-field',
@@ -61,7 +62,7 @@ describe('Field helpers', () => {
               },
             ],
           },
-        ] as FieldEntry
+        ]
 
         describe('when conditional field does not exist', () => {
           it('should not add to accumulator', () => {
@@ -96,7 +97,7 @@ describe('Field helpers', () => {
       })
 
       describe('when conditional is an array', () => {
-        const field = [
+        const field: FieldEntry = [
           'court',
           {
             name: 'options-field',
@@ -108,7 +109,7 @@ describe('Field helpers', () => {
               },
             ],
           },
-        ] as FieldEntry
+        ]
 
         describe('when conditional fields do not exist', () => {
           it('should not add to accumulator', () => {

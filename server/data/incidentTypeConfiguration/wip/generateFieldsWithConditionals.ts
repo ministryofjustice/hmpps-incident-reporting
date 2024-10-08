@@ -1,5 +1,6 @@
-import FormWizard from 'hmpo-form-wizard'
-import { IncidentTypeConfiguration, QuestionConfiguration } from '../types'
+import type FormWizard from 'hmpo-form-wizard'
+
+import type { IncidentTypeConfiguration, QuestionConfiguration } from '../types'
 import { convertToTitleCase } from '../../../utils/utils'
 
 type FieldTypeOptions = 'comment' | 'date'
@@ -40,7 +41,7 @@ function mapQuestionToField(question: QuestionConfiguration): FormWizard.Fields 
   let commentRequired = false
   let dateRequired = false
 
-  const items: FormWizard.Item[] = question.answers
+  const items: FormWizard.FieldItem[] = question.answers
     .filter(answer => answer.active)
     .map(answer => {
       if (answer.commentRequired === true) {

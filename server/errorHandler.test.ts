@@ -80,7 +80,7 @@ describe('Error handling', () => {
   describe('of errors from form wizard', () => {
     beforeEach(() => {
       const router = Router()
-      const steps = {
+      const steps: FormWizard.Steps = {
         // entrypoint has no fields so redirects to name
         '/': {
           entryPoint: true,
@@ -100,8 +100,8 @@ describe('Error handling', () => {
           template: 'pages/index',
         },
       }
-      const fields = { name: { validate: ['required'] } }
-      const formConfig = { name: 'redirect-test', checkSession: false, csrf: false }
+      const fields: FormWizard.Fields = { name: { validate: ['required'] } }
+      const formConfig: FormWizard.Config = { name: 'redirect-test', checkSession: false, csrf: false }
       router.use(FormWizard(steps, fields, formConfig))
       mockedRoutes.mockReturnValue(router)
     })

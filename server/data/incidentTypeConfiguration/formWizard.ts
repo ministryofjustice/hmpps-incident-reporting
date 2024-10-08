@@ -1,5 +1,5 @@
 import FormWizard from 'hmpo-form-wizard'
-import { IncidentTypeConfiguration } from './types'
+import type { IncidentTypeConfiguration } from './types'
 import QuestionsController from '../../controllers/wip/questionsController'
 
 // TODO: Add tests once steps structure is more stable

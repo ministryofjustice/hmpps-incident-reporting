@@ -1,6 +1,8 @@
+import type FormWizard from 'hmpo-form-wizard'
+
 import AddPrisoner from '../../controllers/addPrisoner/addPrisoner'
 
-const steps = {
+const steps: FormWizard.Steps = {
   '/': {
     entryPoint: true,
     reset: true,

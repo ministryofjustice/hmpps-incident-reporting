@@ -1,5 +1,6 @@
 import FormWizard from 'hmpo-form-wizard'
-import { FieldEntry } from './renderConditionalFields'
+
+import type { FieldEntry } from './renderConditionalFields'
 
 export default function reduceDependentFields(allFields: { [key: string]: FormWizard.Field } = {}) {
   return function reducer(accumulator: { [key: string]: FormWizard.Field }, [key, field]: FieldEntry) {
@@ -19,7 +20,7 @@ export default function reduceDependentFields(allFields: { [key: string]: FormWi
         },
       }
 
-      conditionals.forEach((conditional: FormWizard.Field['items'][0]['conditional']) => {
+      conditionals.forEach(conditional => {
         const conditionalField = (
           conditional instanceof Object ? conditional : allFields[conditional]
         ) as FormWizard.Field

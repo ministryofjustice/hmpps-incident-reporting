@@ -3,13 +3,13 @@ import FormWizard from 'hmpo-form-wizard'
 
 import nunjucksSetup from '../../utils/nunjucksSetup'
 import * as utils from '../../utils/utils'
-import renderConditionalFields, { FieldEntry } from './renderConditionalFields'
+import renderConditionalFields, { type FieldEntry } from './renderConditionalFields'
 
 jest.mock('../../utils/utils')
 
-const req: FormWizard.Request = {
+const req = {
   services: {},
-} as unknown as typeof req
+} as unknown as FormWizard.Request
 
 describe('Field helpers', () => {
   describe('#renderConditionalFields()', () => {
@@ -28,7 +28,7 @@ describe('Field helpers', () => {
 
     describe("when field doesn't contain items", () => {
       it('should return the original field as object', () => {
-        const field = ['court', { name: 'court' }] as FieldEntry
+        const field: FieldEntry = ['court', { name: 'court' }]
         const response = renderConditionalFields(req, field, [field])
 
         expect(response).toEqual(['court', { name: 'court' }])
@@ -38,7 +38,7 @@ describe('Field helpers', () => {
     describe('when field contains items', () => {
       describe('when conditional is a string', () => {
         describe('when field exists', () => {
-          const field = [
+          const field: FieldEntry = [
             'field',
             {
               name: 'field',
@@ -55,8 +55,8 @@ describe('Field helpers', () => {
                 },
               ],
             },
-          ] as FieldEntry
-          const fields = [
+          ]
+          const fields: FieldEntry[] = [
             field,
             [
               'conditional_field_one',
@@ -72,7 +72,7 @@ describe('Field helpers', () => {
                 classes: 'input-classes',
               },
             ],
-          ] as FieldEntry[]
+          ]
           let response: ReturnType<typeof renderConditionalFields>
 
           beforeEach(() => {
@@ -100,7 +100,7 @@ describe('Field helpers', () => {
         })
 
         describe('when field doesn’t exist', () => {
-          const field = [
+          const field: FieldEntry = [
             'field',
             {
               name: 'field',
@@ -112,7 +112,7 @@ describe('Field helpers', () => {
                 },
               ],
             },
-          ] as FieldEntry
+          ]
           let response: ReturnType<typeof renderConditionalFields>
 
           beforeEach(() => {
@@ -132,7 +132,7 @@ describe('Field helpers', () => {
       })
 
       describe('when conditional is not a string ', () => {
-        const field = [
+        const field: FieldEntry = [
           'field',
           {
             id: 'field',
@@ -147,7 +147,7 @@ describe('Field helpers', () => {
               },
             ],
           },
-        ] as FieldEntry
+        ]
         let response: ReturnType<typeof renderConditionalFields>
 
         beforeEach(() => {
@@ -168,7 +168,7 @@ describe('Field helpers', () => {
       })
 
       describe('when conditional is an array', () => {
-        const field = [
+        const field: FieldEntry = [
           'field',
           {
             id: 'field',
@@ -185,8 +185,8 @@ describe('Field helpers', () => {
               },
             ],
           },
-        ] as FieldEntry
-        const fields = [
+        ]
+        const fields: FieldEntry[] = [
           field,
           [
             'conditional_field_one',
@@ -202,7 +202,7 @@ describe('Field helpers', () => {
               classes: 'input-classes',
             },
           ],
-        ] as FieldEntry[]
+        ]
         let response: ReturnType<typeof renderConditionalFields>
 
         beforeEach(() => {

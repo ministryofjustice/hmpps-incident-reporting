@@ -7,16 +7,8 @@ import nunjucks from 'nunjucks'
 
 import logger from '../../logger'
 import config from '../config'
-import {
-  convertToTitleCase,
-  govukSelectInsertDefault,
-  govukSelectSetSelected,
-  initialiseName,
-  nameOfPerson,
-  reversedNameOfPerson,
-  prisonerLocation,
-} from './utils'
-import { findFieldInGovukErrorSummary } from './govukFrontend'
+import { convertToTitleCase, initialiseName, nameOfPerson, reversedNameOfPerson, prisonerLocation } from './utils'
+import { findFieldInGovukErrorSummary, govukSelectInsertDefault, govukSelectSetSelected } from './govukFrontend'
 import { checkedItems, multipleCheckedItems } from './checkedItems'
 import { isBeingTransferred, isOutside, isInPrison } from '../data/offenderSearchApi'
 import format from './format'
@@ -73,11 +65,6 @@ export default function nunjucksSetup(app: express.Express): void {
   njkEnv.addFilter('nameOfPerson', nameOfPerson)
   njkEnv.addFilter('reversedNameOfPerson', reversedNameOfPerson)
 
-  // form helpers
-  njkEnv.addFilter('findFieldInGovukErrorSummary', findFieldInGovukErrorSummary)
-  njkEnv.addFilter('govukSelectInsertDefault', govukSelectInsertDefault)
-  njkEnv.addFilter('govukSelectSetSelected', govukSelectSetSelected)
-
   // date/datetime formatting
   njkEnv.addFilter('dateAndTime', format.dateAndTime)
   njkEnv.addFilter('date', format.date)
@@ -90,6 +77,9 @@ export default function nunjucksSetup(app: express.Express): void {
   njkEnv.addFilter('isInPrison', isInPrison)
 
   // utils for GDS & MoJ components
+  njkEnv.addFilter('findFieldInGovukErrorSummary', findFieldInGovukErrorSummary)
+  njkEnv.addFilter('govukSelectInsertDefault', govukSelectInsertDefault)
+  njkEnv.addFilter('govukSelectSetSelected', govukSelectSetSelected)
   njkEnv.addFilter('checkedItems', checkedItems)
   njkEnv.addFilter('multipleCheckedItems', multipleCheckedItems)
   njkEnv.addGlobal('callAsMacro', callAsMacro)

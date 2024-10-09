@@ -45,9 +45,11 @@ export function generateFields(config: IncidentTypeConfiguration): FormWizard.Fi
         },
       },
       component: question.multipleAnswers ? 'govukCheckboxes' : 'govukRadios',
-      items: question.answers.map(answer => {
-        return { text: answer.label, value: answer.code }
-      }),
+      items: question.answers
+        .filter(answer => answer.active)
+        .map(answer => {
+          return { text: answer.label, value: answer.code }
+        }),
     }
   })
 

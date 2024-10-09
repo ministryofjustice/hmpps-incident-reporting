@@ -160,12 +160,6 @@ export const govukSelectSetSelected = (items: GovukSelectItem[], value: string):
   }))
 }
 
-const template = '{% from "govuk/components/input/macro.njk" import govukInput %}{{ govukInput(params) }}'
-
-export default function freeTextInput(params: object) {
-  return nunjucks.renderString(template, { params })
-}
-
 /**
  * Display location of a prisoner in prison, during transfer and outside/released
  */

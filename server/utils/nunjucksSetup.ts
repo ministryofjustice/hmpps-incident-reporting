@@ -52,16 +52,6 @@ export default function nunjucksSetup(app: express.Express): void {
     },
   )
 
-  function callAsMacro(name: string): (...args: unknown[]) => unknown {
-    const macro = this.ctx[name]
-
-    if (typeof macro !== 'function') {
-      throw Error(`Macro ${name} not found`)
-    }
-
-    return macro
-  }
-
   njkEnv.addFilter('assetMap', (url: string) => assetManifest[url] || url)
 
   // name formatting
@@ -88,4 +78,14 @@ export default function nunjucksSetup(app: express.Express): void {
   njkEnv.addFilter('govukSelectInsertDefault', govukSelectInsertDefault)
   njkEnv.addFilter('govukSelectSetSelected', govukSelectSetSelected)
   njkEnv.addGlobal('callAsMacro', callAsMacro)
+}
+
+function callAsMacro(name: string): (...args: unknown[]) => unknown {
+  const macro = this.ctx[name]
+
+  if (typeof macro !== 'function') {
+    throw Error(`Macro ${name} not found`)
+  }
+
+  return macro
 }

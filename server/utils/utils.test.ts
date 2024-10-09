@@ -3,10 +3,11 @@ import {
   convertToTitleCase,
   datesAsStrings,
   initialiseName,
+  kebabCase,
   nameOfPerson,
   parseDateInput,
-  reversedNameOfPerson,
   prisonerLocation,
+  reversedNameOfPerson,
 } from './utils'
 import { andrew, barry, chris, donald, ernie, fred } from '../data/testData/offenderSearch'
 import { isBeingTransferred, isOutside, isInPrison } from '../data/offenderSearchApi'
@@ -234,4 +235,20 @@ describe('datesAsStrings()', () => {
       expected: { str: 'abc', array: [dateString], nested: { dates: [dateString] } },
     } satisfies Scenario<{ str: string; array: [Date]; nested: { dates: [Date] } }>,
   ])('should work on $scenario', ({ input, expected }) => expect(datesAsStrings(input)).toEqual(expected))
+})
+
+describe('kebab-case', () => {
+  it.each([
+    { input: undefined, expected: undefined },
+    { input: null, expected: undefined },
+    { input: 'ATestValue', expected: 'a-test-value' },
+    { input: 'aTestValue', expected: 'a-test-value' },
+    { input: 'aTestvalue', expected: 'a-testvalue' },
+    { input: 'atestvalue', expected: 'atestvalue' },
+    { input: 'a-test-value', expected: 'a-test-value' },
+    { input: 'govukCheckboxes', expected: 'govuk-checkboxes' },
+    { input: 'HTML', expected: 'h-t-m-l' },
+  ])('should convert $input to $expected', ({ input, expected }) => {
+    expect(kebabCase(input)).toEqual(expected)
+  })
 })

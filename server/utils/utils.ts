@@ -1,6 +1,5 @@
 import nunjucks from 'nunjucks'
 
-import kebabCase from '../formatters/kebabCase'
 import { isBeingTransferred, isOutside, type OffenderSearchResult } from '../data/offenderSearchApi'
 
 const properCase = (word: string): string =>
@@ -113,6 +112,14 @@ export const prisonerLocation = (prisoner: OffenderSearchResult): string => {
   return prisoner.cellLocation || 'Not known'
 }
 
+/** Convert camelCase or PascalCase into kebab-case */
+export function kebabCase(str: string): string {
+  return str
+    ?.replace(/([A-Z])/g, '-$1')
+    ?.replace(/^-/, '')
+    ?.toLowerCase()
+}
+
 /**
  * Return a filename name for a macro
  * @param {string} macroName
@@ -130,7 +137,7 @@ function macroNameToFilepath(macroName: string): string {
   return kebabCase(macroName.replace(/^\b(app)/, ''))
 }
 
-export function getComponentString(macroName: string, params = {}) {
+export function getComponentString(macroName: string, params = {}): string {
   const macroParams = JSON.stringify(params, null, 2)
   const filename = macroNameToFilepath(macroName)
   const macroString = `

@@ -17,13 +17,15 @@ export function generateSteps(config: IncidentTypeConfiguration): FormWizard.Ste
   Object.values(config.questions)
     .filter(question => question.active)
     .forEach(question => {
+      const activeAnswers = question.answers.filter(answer => answer.active)
+
+      // TODO: Maybe coalesce answers leading to same next question
+      const next = activeAnswers.map(answer => {
+        return { field: question.id, value: answer.code, next: answer.nextQuestionId }
+      })
+
       steps[`/${question.id}`] = {
-        // TODO: Maybe coalesce answers leading to same next question
-        next: question.answers
-          .filter(answer => answer.active)
-          .map(answer => {
-            return { field: question.id, value: answer.code, next: answer.nextQuestionId }
-          }),
+        next,
         fields: [question.id],
         controller: QuestionsController,
         template: 'questionPage',

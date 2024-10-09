@@ -7,12 +7,9 @@ const steps: FormWizard.Steps = {
     entryPoint: true,
     reset: true,
     resetJourney: true,
-    skip: true,
-    next: 'inputForm',
-  },
-  '/inputForm': {
     fields: ['incidentType', 'incidentDate', 'incidentTime', 'prisonId', 'incidentTitle', 'incidentDescription'],
     controller: CreateIncident,
+    template: 'inputForm',
   },
 }
 

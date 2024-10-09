@@ -9,6 +9,7 @@ export function generateSteps(config: IncidentTypeConfiguration): FormWizard.Ste
       entryPoint: true,
       reset: true,
       resetJourney: true,
+      // TODO: first step ought to not be skipped so let's try to put the first question here
       skip: true,
       next: config.startingQuestionId,
     },

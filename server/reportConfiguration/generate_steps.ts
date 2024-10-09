@@ -1,6 +1,6 @@
 import FormWizard from 'hmpo-form-wizard'
 import { IncidentTypeConfiguration, QuestionConfiguration } from '../data/incidentTypeConfiguration/types'
-import genFieldsController from '../controllers/wip/genFields/genFieldsController'
+import QuestionsController from '../controllers/wip/questionsController'
 
 function mapQuestionToStep(question: QuestionConfiguration): FormWizard.Steps {
   const questionId = question.id
@@ -31,7 +31,7 @@ function mapQuestionToStep(question: QuestionConfiguration): FormWizard.Steps {
   return {
     [`/${questionId}`]: {
       fields,
-      controller: genFieldsController,
+      controller: QuestionsController,
       next,
       template: 'questionPage',
     },

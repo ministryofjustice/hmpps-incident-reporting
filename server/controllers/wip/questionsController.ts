@@ -1,9 +1,9 @@
 import { Response } from 'express'
 import FormWizard from 'hmpo-form-wizard'
-import backUrl from '../../../utils/backUrl'
-import FormInitialStep from '../../base/formInitialStep'
+import backUrl from '../../utils/backUrl'
+import FormInitialStep from '../base/formInitialStep'
 
-export default class GenFieldsController extends FormInitialStep {
+export default class QuestionsController extends FormInitialStep {
   middlewareSetup() {
     super.middlewareSetup()
   }

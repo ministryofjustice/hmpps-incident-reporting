@@ -1,18 +1,15 @@
-import { Response } from 'express'
-import FormWizard from 'hmpo-form-wizard'
+import type Express from 'express'
+import type FormWizard from 'hmpo-form-wizard'
+
 import backUrl from '../../utils/backUrl'
 import FormInitialStep from '../base/formInitialStep'
 
 export default class TestNewIncidentPage2 extends FormInitialStep {
-  middlewareSetup() {
-    super.middlewareSetup()
-  }
-
-  locals(req: FormWizard.Request, res: Response): object {
+  locals(req: FormWizard.Request, res: Express.Response): object {
     const locals = super.locals(req, res)
 
     const backLink = backUrl(req, {
-      fallbackUrl: '/incidents/page1',
+      fallbackUrl: '/incidents',
     })
 
     return {
@@ -21,8 +18,9 @@ export default class TestNewIncidentPage2 extends FormInitialStep {
       cancelLink: '/incidents',
     }
   }
+
   /**
-  async saveValues(req: FormWizard.Request, res: Response, next: NextFunction) {
+  async saveValues(req: FormWizard.Request, res: Express.Response, next: Express.NextFunction) {
     try {
       const { user } = res.locals
       // const { locationsService } = req.services
@@ -49,8 +47,7 @@ export default class TestNewIncidentPage2 extends FormInitialStep {
     }
   }
 
-
-  successHandler(req: FormWizard.Request, res: Response, next: NextFunction) {
+  successHandler(req: FormWizard.Request, res: Express.Response, next: Express.NextFunction) {
     const { prisonId } = res.locals
 
     req.journeyModel.reset()
@@ -62,5 +59,6 @@ export default class TestNewIncidentPage2 extends FormInitialStep {
     })
 
     res.redirect(`/view-and-update-locations/${prisonId}`)
-  } */
+  }
+  */
 }

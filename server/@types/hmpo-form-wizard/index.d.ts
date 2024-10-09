@@ -251,7 +251,7 @@ declare module 'hmpo-form-wizard' {
     }
 
     interface Callback {
-      (err: Error | undefined, values: Values | undefined): void
+      (err?: Error | undefined, values?: Values | undefined): void
     }
 
     interface Locals {

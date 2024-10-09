@@ -1,5 +1,6 @@
-import { NextFunction, Response } from 'express'
-import FormWizard from 'hmpo-form-wizard'
+import type Express from 'express'
+import type FormWizard from 'hmpo-form-wizard'
+
 import backUrl from '../../utils/backUrl'
 import FormInitialStep from '../base/formInitialStep'
 import type { UpdateReportRequest } from '../../data/incidentReportingApi'
@@ -10,7 +11,7 @@ export default class ChangeIncident extends FormInitialStep {
     this.use(this.setOptions)
   }
 
-  getInitialValues(_req: FormWizard.Request, res: Response): Record<string, unknown> {
+  getInitialValues(_req: FormWizard.Request, res: Express.Response): FormWizard.Values {
     return {
       incidentDate: res.locals.incident.incidentDateAndTime.toLocaleString('en-gb', { dateStyle: 'short' }),
       incidentTime: res.locals.incident.incidentDateAndTime.toLocaleString('en', { timeStyle: 'short', hour12: false }),
@@ -20,7 +21,7 @@ export default class ChangeIncident extends FormInitialStep {
     }
   }
 
-  async setOptions(req: FormWizard.Request, res: Response, next: NextFunction) {
+  async setOptions(req: FormWizard.Request, res: Express.Response, next: Express.NextFunction) {
     const { prisonApi } = res.locals.apis
     const prisonsLookup = await prisonApi.getPrisons()
 
@@ -32,7 +33,7 @@ export default class ChangeIncident extends FormInitialStep {
     next()
   }
 
-  validate(req: FormWizard.Request, res: Response, next: NextFunction) {
+  validate(req: FormWizard.Request, res: Express.Response, next: Express.NextFunction) {
     const incidentId = res.locals.incident.id
     const { incident } = res.locals
     const formValues = req.form.values
@@ -55,7 +56,7 @@ export default class ChangeIncident extends FormInitialStep {
     return next()
   }
 
-  locals(req: FormWizard.Request, res: Response): object {
+  locals(req: FormWizard.Request, res: Express.Response): object {
     const locals = super.locals(req, res)
     const incidentId = res.locals.incident.id
 
@@ -70,7 +71,7 @@ export default class ChangeIncident extends FormInitialStep {
     }
   }
 
-  async saveValues(req: FormWizard.Request, res: Response, next: NextFunction) {
+  async saveValues(req: FormWizard.Request, res: Express.Response, next: Express.NextFunction) {
     try {
       const { incidentDate, incidentTime, incidentPrisonId, incidentTitle, incidentDescription } = req.form.values
 
@@ -100,7 +101,7 @@ export default class ChangeIncident extends FormInitialStep {
     }
   }
 
-  successHandler(req: FormWizard.Request, res: Response, next: NextFunction) {
+  successHandler(req: FormWizard.Request, res: Express.Response, next: Express.NextFunction) {
     const incidentId = res.locals.incident.id
 
     req.journeyModel.reset()
@@ -110,7 +111,8 @@ export default class ChangeIncident extends FormInitialStep {
     req.flash('success', {
       title: 'Signed operational capacity updated',
       content: `You have updated the establishment's signed operational capacity.`,
-    }) */
+    })
+    */
 
     res.redirect(`/report/${incidentId}`)
   }

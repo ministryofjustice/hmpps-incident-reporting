@@ -7,11 +7,6 @@ import nunjucks from 'nunjucks'
 import kebabCase from '../formatters/kebabCase'
 import { isBeingTransferred, isOutside, type OffenderSearchResult } from '../data/offenderSearchApi'
 
-export interface ErrorSummaryItem {
-  text: string
-  href: string
-}
-
 /**
  * An item passed into the `items` property of a GOV.UK select component
  * https://design-system.service.gov.uk/components/select/
@@ -82,18 +77,6 @@ export const parseDateInput = (input: string): Date => {
     if (date) return date
   }
   throw new Error('Invalid date')
-}
-
-/** Find field error in error summary list */
-export const findFieldInErrorSummary = (list: ErrorSummaryItem[], formFieldId: string): { text: string } | null => {
-  if (!list) return null
-  const item = list.find(error => error.href === `#${formFieldId}`)
-  if (item) {
-    return {
-      text: item.text,
-    }
-  }
-  return null
 }
 
 /** Make an array of given length with a builder function */

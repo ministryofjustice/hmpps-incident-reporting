@@ -9,7 +9,6 @@ import logger from '../../logger'
 import config from '../config'
 import {
   convertToTitleCase,
-  findFieldInErrorSummary,
   govukSelectInsertDefault,
   govukSelectSetSelected,
   initialiseName,
@@ -17,6 +16,7 @@ import {
   reversedNameOfPerson,
   prisonerLocation,
 } from './utils'
+import { findFieldInGovukErrorSummary } from './govukFrontend'
 import { checkedItems, multipleCheckedItems } from './checkedItems'
 import { isBeingTransferred, isOutside, isInPrison } from '../data/offenderSearchApi'
 import format from './format'
@@ -74,7 +74,7 @@ export default function nunjucksSetup(app: express.Express): void {
   njkEnv.addFilter('reversedNameOfPerson', reversedNameOfPerson)
 
   // form helpers
-  njkEnv.addFilter('findFieldInErrorSummary', findFieldInErrorSummary)
+  njkEnv.addFilter('findFieldInGovukErrorSummary', findFieldInGovukErrorSummary)
   njkEnv.addFilter('govukSelectInsertDefault', govukSelectInsertDefault)
   njkEnv.addFilter('govukSelectSetSelected', govukSelectSetSelected)
 

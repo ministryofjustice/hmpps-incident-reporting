@@ -1,7 +1,7 @@
 import { NextFunction, Response } from 'express'
 import FormWizard from 'hmpo-form-wizard'
 
-import type { ErrorSummaryItem } from '../../utils/utils'
+import type { GovukErrorSummaryItem } from '../../utils/govukFrontend'
 
 import { flattenConditionalFields, reduceDependentFields, renderConditionalFields } from '../../helpers/field'
 import { FieldEntry } from '../../helpers/field/renderConditionalFields'
@@ -41,7 +41,7 @@ export default class FormInitialStep extends FormWizard.Controller {
   }
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  getErrorDetail(error: { args: any; key: string; type: string }, res: Response): ErrorSummaryItem {
+  getErrorDetail(error: { args: any; key: string; type: string }, res: Response): GovukErrorSummaryItem {
     const { fields } = res.locals.options
     const field = fields[error.key]
     const fieldName: string = field.nameForErrors || field?.label?.text
@@ -110,7 +110,7 @@ export default class FormInitialStep extends FormWizard.Controller {
     const { allFields } = options
     const fields = this.setupFields(req, allFields, options.fields, values)
 
-    const validationErrors: ErrorSummaryItem[] = []
+    const validationErrors: GovukErrorSummaryItem[] = []
 
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     res.locals.errorlist.forEach((error: { args: any; key: string; type: string }) => {

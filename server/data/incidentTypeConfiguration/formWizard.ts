@@ -14,8 +14,9 @@ export function generateSteps(config: IncidentTypeConfiguration): FormWizard.Ste
     },
   }
 
-  Object.values(config.questions).forEach(question => {
-    if (question.active) {
+  Object.values(config.questions)
+    .filter(question => question.active)
+    .forEach(question => {
       steps[`/${question.id}`] = {
         // TODO: Maybe coalesce answers leading to same next question
         next: question.answers
@@ -27,8 +28,7 @@ export function generateSteps(config: IncidentTypeConfiguration): FormWizard.Ste
         controller: QuestionsController,
         template: 'questionPage',
       }
-    }
-  })
+    })
 
   // console.log(JSON.stringify(steps, null, 2))
 

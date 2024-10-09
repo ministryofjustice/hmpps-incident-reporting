@@ -1,9 +1,18 @@
 import FormWizard from 'hmpo-form-wizard'
 import { IncidentTypeConfiguration } from './types'
+import QuestionsController from '../../controllers/wip/questionsController'
 
 // TODO: Add tests once steps structure is more stable
 export function generateSteps(config: IncidentTypeConfiguration): FormWizard.Steps {
-  const steps: FormWizard.Steps = {}
+  const steps: FormWizard.Steps = {
+    '/': {
+      entryPoint: true,
+      reset: true,
+      resetJourney: true,
+      skip: true,
+      next: config.startingQuestionId,
+    },
+  }
 
   Object.values(config.questions).forEach(question => {
     if (question.active) {
@@ -15,13 +24,11 @@ export function generateSteps(config: IncidentTypeConfiguration): FormWizard.Ste
             return { field: question.id, value: answer.code, next: answer.nextQuestionId }
           }),
         fields: [question.id],
-        template: 'index',
+        controller: QuestionsController,
+        template: 'questionPage',
       }
     }
   })
-
-  steps[`/${config.startingQuestionId}`].entryPoint = true
-  steps['/'] = steps[`/${config.startingQuestionId}`]
 
   // console.log(JSON.stringify(steps, null, 2))
 
@@ -35,8 +42,10 @@ export function generateFields(config: IncidentTypeConfiguration): FormWizard.Fi
   Object.values(config.questions).forEach(question => {
     fields[question.id] = {
       id: question.id,
-      name: question.code,
+      name: question.id,
       text: question.label,
+      label: { text: question.label },
+      validate: ['required'],
       multiple: question.multipleAnswers,
       fieldset: {
         legend: {

@@ -8,8 +8,13 @@ import nunjucks from 'nunjucks'
 import logger from '../../logger'
 import config from '../config'
 import { convertToTitleCase, initialiseName, nameOfPerson, reversedNameOfPerson, prisonerLocation } from './utils'
-import { findFieldInGovukErrorSummary, govukSelectInsertDefault, govukSelectSetSelected } from './govukFrontend'
-import { checkedItems, multipleCheckedItems } from './checkedItems'
+import {
+  findFieldInGovukErrorSummary,
+  govukCheckedItems,
+  govukMultipleCheckedItems,
+  govukSelectInsertDefault,
+  govukSelectSetSelected,
+} from './govukFrontend'
 import { isBeingTransferred, isOutside, isInPrison } from '../data/offenderSearchApi'
 import format from './format'
 
@@ -78,9 +83,9 @@ export default function nunjucksSetup(app: express.Express): void {
 
   // utils for GDS & MoJ components
   njkEnv.addFilter('findFieldInGovukErrorSummary', findFieldInGovukErrorSummary)
+  njkEnv.addFilter('govukCheckedItems', govukCheckedItems)
+  njkEnv.addFilter('govukMultipleCheckedItems', govukMultipleCheckedItems)
   njkEnv.addFilter('govukSelectInsertDefault', govukSelectInsertDefault)
   njkEnv.addFilter('govukSelectSetSelected', govukSelectSetSelected)
-  njkEnv.addFilter('checkedItems', checkedItems)
-  njkEnv.addFilter('multipleCheckedItems', multipleCheckedItems)
   njkEnv.addGlobal('callAsMacro', callAsMacro)
 }

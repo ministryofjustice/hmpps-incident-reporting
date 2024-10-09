@@ -1,11 +1,92 @@
 import {
   type GovukErrorSummaryItem,
+  type GovukRadiosItem,
   type GovukSelectItem,
   findFieldInGovukErrorSummary,
   govukSelectInsertDefault,
   govukSelectSetSelected,
+  govukCheckedItems,
+  govukMultipleCheckedItems,
 } from './govukFrontend'
 
+describe('findFieldInGovukErrorSummary', () => {
+  it.each([undefined, null])('should return null if error list is %p', list => {
+    expect(findFieldInGovukErrorSummary(list, 'field')).toBeNull()
+  })
+
+  it('should return null if error list is empty', () => {
+    expect(findFieldInGovukErrorSummary([], 'field')).toBeNull()
+  })
+
+  const errorList: GovukErrorSummaryItem[] = [
+    { text: 'Enter a number', href: '#field1' },
+    { text: 'Enter a date', href: '#field3' },
+  ]
+
+  it('should return null if field is not found', () => {
+    expect(findFieldInGovukErrorSummary(errorList, 'field2')).toBeNull()
+  })
+
+  it('should return error message if field is found', () => {
+    expect(findFieldInGovukErrorSummary(errorList, 'field3')).toStrictEqual({ text: 'Enter a date' })
+  })
+})
+
+describe('govukCheckedItems and govukMultipleCheckedItems', () => {
+  const items: GovukRadiosItem[] = [
+    { text: 'A', value: 'a' },
+    { text: 'B', value: 'b' },
+    { text: 'C', value: 'c' },
+  ]
+
+  it('should mark a single item as checked', () => {
+    expect(govukCheckedItems(items, 'b')).toEqual([
+      { text: 'A', value: 'a', checked: false },
+      { text: 'B', value: 'b', checked: true },
+      { text: 'C', value: 'c', checked: false },
+    ])
+  })
+
+  it('should mark a multiple items as checked', () => {
+    expect(govukMultipleCheckedItems(items, ['b', 'c'])).toEqual([
+      { text: 'A', value: 'a', checked: false },
+      { text: 'B', value: 'b', checked: true },
+      { text: 'C', value: 'c', checked: true },
+    ])
+  })
+
+  it('should mark no items as checked when none match single value', () => {
+    expect(govukCheckedItems(items, undefined)).toEqual([
+      { text: 'A', value: 'a', checked: false },
+      { text: 'B', value: 'b', checked: false },
+      { text: 'C', value: 'c', checked: false },
+    ])
+
+    expect(govukCheckedItems(items, 'x')).toEqual([
+      { text: 'A', value: 'a', checked: false },
+      { text: 'B', value: 'b', checked: false },
+      { text: 'C', value: 'c', checked: false },
+    ])
+  })
+
+  it('should mark no items as checked when none match multiple values', () => {
+    expect(govukMultipleCheckedItems(items, undefined)).toEqual([
+      { text: 'A', value: 'a', checked: false },
+      { text: 'B', value: 'b', checked: false },
+      { text: 'C', value: 'c', checked: false },
+    ])
+    expect(govukMultipleCheckedItems(items, [])).toEqual([
+      { text: 'A', value: 'a', checked: false },
+      { text: 'B', value: 'b', checked: false },
+      { text: 'C', value: 'c', checked: false },
+    ])
+    expect(govukMultipleCheckedItems(items, ['x'])).toEqual([
+      { text: 'A', value: 'a', checked: false },
+      { text: 'B', value: 'b', checked: false },
+      { text: 'C', value: 'c', checked: false },
+    ])
+  })
+})
 describe('govukSelectInsertDefault', () => {
   it.each([undefined, null])('should ignore item list %p', list => {
     expect(govukSelectInsertDefault(list, 'Select an option…')).toStrictEqual(list)
@@ -66,28 +147,5 @@ describe('govukSelectSetSelected', () => {
     const newList = govukSelectSetSelected(list, 'Blue')
     expect(newList).toHaveLength(2)
     expect(newList.map(item => item.selected)).toStrictEqual([false, true])
-  })
-})
-
-describe('findFieldInGovukErrorSummary', () => {
-  it.each([undefined, null])('should return null if error list is %p', list => {
-    expect(findFieldInGovukErrorSummary(list, 'field')).toBeNull()
-  })
-
-  it('should return null if error list is empty', () => {
-    expect(findFieldInGovukErrorSummary([], 'field')).toBeNull()
-  })
-
-  const errorList: GovukErrorSummaryItem[] = [
-    { text: 'Enter a number', href: '#field1' },
-    { text: 'Enter a date', href: '#field3' },
-  ]
-
-  it('should return null if field is not found', () => {
-    expect(findFieldInGovukErrorSummary(errorList, 'field2')).toBeNull()
-  })
-
-  it('should return error message if field is found', () => {
-    expect(findFieldInGovukErrorSummary(errorList, 'field3')).toStrictEqual({ text: 'Enter a date' })
   })
 })

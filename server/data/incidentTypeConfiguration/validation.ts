@@ -5,7 +5,7 @@ import { type IncidentTypeConfiguration } from './types'
 
 export function validateConfig(config: IncidentTypeConfiguration): Error[] {
   const errors: Error[] = []
-  const configGraph = buildConfigGraph(config)
+  const configGraph = buildConfigGraph(config, errors)
 
   checkStartingQuestion(config, errors)
   checkUnknownQuestions(configGraph, errors)
@@ -50,12 +50,15 @@ function checkUnreachableQuestions<Q>(configGraph: Graph<Q>, dfsResult: DfsResul
   }
 }
 
-function buildConfigGraph(config: IncidentTypeConfiguration): Graph<string> {
+function buildConfigGraph(config: IncidentTypeConfiguration, errors: Error[]): Graph<string> {
   const graph = new Graph<string>()
 
   const activeQuestions = Object.values(config.questions).filter(q => q.active === true)
   for (const question of activeQuestions) {
     const activeAnswers = question.answers.filter(ans => ans.active === true)
+    if (activeAnswers.length === 0) {
+      errors.push(new Error(`active question ${question.id} has no active answers`))
+    }
     for (const answer of activeAnswers) {
       graph.addEdge(question.id, answer.nextQuestionId)
     }

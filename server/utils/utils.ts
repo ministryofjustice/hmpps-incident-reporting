@@ -145,5 +145,5 @@ export function getComponentString(macroName: string, params = {}): string {
       {{- ${macroName}(${macroParams}) -}}
     `
 
-  return nunjucks.renderString(macroString, undefined)
+  return nunjucks.renderString(macroString, {})
 }

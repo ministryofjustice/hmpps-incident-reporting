@@ -52,7 +52,9 @@ export default function nunjucksSetup(app: express.Express): void {
     },
   )
 
+  // misc utils
   njkEnv.addFilter('assetMap', (url: string) => assetManifest[url] || url)
+  njkEnv.addGlobal('callAsMacro', callAsMacro)
 
   // name formatting
   njkEnv.addFilter('convertToTitleCase', convertToTitleCase)
@@ -77,7 +79,6 @@ export default function nunjucksSetup(app: express.Express): void {
   njkEnv.addFilter('govukMultipleCheckedItems', govukMultipleCheckedItems)
   njkEnv.addFilter('govukSelectInsertDefault', govukSelectInsertDefault)
   njkEnv.addFilter('govukSelectSetSelected', govukSelectSetSelected)
-  njkEnv.addGlobal('callAsMacro', callAsMacro)
 }
 
 function callAsMacro(name: string): (...args: unknown[]) => unknown {

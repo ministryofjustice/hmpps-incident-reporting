@@ -40,7 +40,7 @@ export default class AddPrisoner extends FormInitialStep {
     const incidentId = res.locals.incident.id
 
     const backLink = backUrl(req, {
-      fallbackUrl: `/report/${incidentId}/prisoner-search`,
+      fallbackUrl: `/reports/${incidentId}/prisoner-search`,
     })
 
     return {
@@ -94,6 +94,6 @@ export default class AddPrisoner extends FormInitialStep {
     })
     */
 
-    res.redirect(`/report/${incidentId}`)
+    res.redirect(`/reports/${incidentId}`)
   }
 }

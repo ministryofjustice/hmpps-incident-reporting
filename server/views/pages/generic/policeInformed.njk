@@ -14,7 +14,7 @@
 {% set title = "Incident police informed" %}
 
 {% block heading %}
-  <h1 class="govuk-heading-l">Incident police informed</h1>
+  <h1 class="govuk-heading-l">{{ title }}</h1>
 {% endblock %}
 
 {% block beforeContent %}
@@ -46,7 +46,7 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
-      <h1 class="govuk-heading-l">Incident police informed</h1>
+      <h1 class="govuk-heading-l">{{ title }}</h1>
       {{ govukInsetText({
         text: "This page will address the police involvement."
       }) }}

@@ -116,10 +116,10 @@
 
 <div class="govuk-button-group">
   {{ govukButton({
-  text: "Add Prisoner",
-  preventDoubleClick: true,
-  href: "/report/" + report.id + "/prisoner-search",
-  isStartButton: true
+    text: "Add prisoner",
+    preventDoubleClick: true,
+    href: "/reports/" + report.id + "/prisoner-search",
+    isStartButton: true
   }) }}
 </div>
 
@@ -193,10 +193,10 @@
 
 <div class="govuk-button-group">
   {{ govukButton({
-  text: "Update report",
-  preventDoubleClick: true,
-  href: "/change-incident/" + report.id,
-  isStartButton: true
+    text: "Update report",
+    preventDoubleClick: true,
+    href: "/reports/" + report.id + "/change",
+    isStartButton: true
   }) }}
 </div>
 {% endblock %}

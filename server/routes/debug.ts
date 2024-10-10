@@ -18,7 +18,7 @@ export default function makeDebugRoutes(services: Services): Record<string, Requ
   const { userService } = services
 
   return {
-    async incidentList(req, res) {
+    async eventList(req, res) {
       const { incidentReportingApi, prisonApi } = res.locals.apis
 
       const { prisonId, fromDate: fromDateInput, toDate: toDateInput, page }: ListFormData = req.query
@@ -57,8 +57,8 @@ export default function makeDebugRoutes(services: Services): Record<string, Requ
         pageNumber = 1
       }
 
-      // Get incidents from API
-      const incidentsResponse = await incidentReportingApi.getEvents({
+      // Get events from API
+      const eventsResponse = await incidentReportingApi.getEvents({
         prisonId,
         eventDateFrom: fromDate,
         eventDateUntil: toDate,
@@ -80,16 +80,16 @@ export default function makeDebugRoutes(services: Services): Record<string, Requ
       const urlPrefix = `/incidents?${queryString}&`
       const paginationParams = pagination(
         pageNumber,
-        incidentsResponse.totalPages,
+        eventsResponse.totalPages,
         urlPrefix,
         'moj',
-        incidentsResponse.totalElements,
-        incidentsResponse.size,
+        eventsResponse.totalElements,
+        eventsResponse.size,
       )
       const noFiltersSupplied = Boolean(!prisonId && !fromDate && !toDate)
 
-      const incidents = incidentsResponse.content
-      const usernames = incidents.map(incident => incident.modifiedBy)
+      const events = eventsResponse.content
+      const usernames = events.map(event => event.modifiedBy)
       const usersLookup = await userService.getUsers(res.locals.systemToken, usernames)
       const prisonsLookup = await prisonApi.getPrisons()
       const prisons = Object.values(prisonsLookup).map(prison => ({
@@ -97,8 +97,8 @@ export default function makeDebugRoutes(services: Services): Record<string, Requ
         text: prison.description,
       }))
 
-      res.render('pages/debug/incidentList', {
-        incidents,
+      res.render('pages/debug/eventList', {
+        events,
         prisons,
         usersLookup,
         formValues,
@@ -109,7 +109,7 @@ export default function makeDebugRoutes(services: Services): Record<string, Requ
       })
     },
 
-    async incidentDetails(req, res) {
+    async eventDetails(req, res) {
       const { incidentReportingApi, prisonApi } = res.locals.apis
 
       const { id } = req.params
@@ -122,7 +122,7 @@ export default function makeDebugRoutes(services: Services): Record<string, Requ
       const usersLookup = await userService.getUsers(res.locals.systemToken, usernames)
       const prisonsLookup = await prisonApi.getPrisons()
 
-      res.render('pages/debug/incidentDetails', { event, usersLookup, prisonsLookup })
+      res.render('pages/debug/eventDetails', { event, usersLookup, prisonsLookup })
     },
 
     async reportDetails(req, res) {

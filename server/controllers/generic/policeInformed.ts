@@ -9,7 +9,7 @@ export default class TestNewIncidentPage3 extends FormInitialStep {
     const locals = super.locals(req, res)
 
     const backLink = backUrl(req, {
-      fallbackUrl: '/incidents/involvedParties',
+      fallbackUrl: '/incidents',
     })
 
     return {

@@ -11,7 +11,7 @@
 {% block content %}
   {% include "../../partials/formErrorSummary.njk" %}
 
-  <h1 class="govuk-heading-l">Search for a prisoner to add to incident</h1>
+  <h1 class="govuk-heading-l">Search for a prisoner to add to incident report</h1>
 
   <form method="get" novalidate>
     {% set fieldId = "scope" %}
@@ -92,7 +92,7 @@
         {% endif %}
 
         {% set link %}
-          <a href="/report/{{ incidentId }}/add-prisoner/{{ result.prisonerNumber }}">
+          <a href="/reports/{{ incidentId }}/add-prisoner/{{ result.prisonerNumber }}">
             Select prisoner
           </a>
         {% endset %}

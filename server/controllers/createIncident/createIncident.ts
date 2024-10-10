@@ -27,7 +27,7 @@ export default class CreateIncident extends FormInitialStep {
     const locals = super.locals(req, res)
 
     const backLink = backUrl(req, {
-      fallbackUrl: '/incidents/',
+      fallbackUrl: '/incidents',
     })
 
     return {

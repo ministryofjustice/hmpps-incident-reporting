@@ -1,11 +1,11 @@
 import flattenConditionalFields from './flattenConditionalFields'
-import { FieldEntry } from './renderConditionalFields'
+import type { FieldEntry } from './renderConditionalFields'
 
 describe('Field helpers', () => {
   describe('#flattenConditionalFields()', () => {
     describe('when field does not have items', () => {
       it('should return original field', () => {
-        const field = ['court', { name: 'court' }] as FieldEntry
+        const field: FieldEntry = ['court', { name: 'court' }]
         const response = flattenConditionalFields(field)
 
         expect(response).toEqual(['court', { name: 'court' }])
@@ -15,7 +15,7 @@ describe('Field helpers', () => {
     describe('when field has items', () => {
       describe('with no conditional items', () => {
         it('should return original field', () => {
-          const field = [
+          const field: FieldEntry = [
             'court',
             {
               name: 'options-field',
@@ -26,7 +26,7 @@ describe('Field helpers', () => {
                 },
               ],
             },
-          ] as FieldEntry
+          ]
           const response = flattenConditionalFields(field)
 
           expect(response).toEqual([
@@ -47,7 +47,7 @@ describe('Field helpers', () => {
       describe('with conditional items', () => {
         describe('when conditional is a string', () => {
           it('should return original field', () => {
-            const field = [
+            const field: FieldEntry = [
               'court',
               {
                 name: 'options-field',
@@ -59,7 +59,7 @@ describe('Field helpers', () => {
                   },
                 ],
               },
-            ] as FieldEntry
+            ]
             const response = flattenConditionalFields(field)
 
             expect(response).toEqual([
@@ -80,7 +80,7 @@ describe('Field helpers', () => {
 
         describe('when conditional is an object', () => {
           it('should flatten conditional', () => {
-            const field = [
+            const field: FieldEntry = [
               'court',
               {
                 name: 'options-field',
@@ -95,7 +95,7 @@ describe('Field helpers', () => {
                   },
                 ],
               },
-            ] as FieldEntry
+            ]
             const response = flattenConditionalFields(field)
 
             expect(response).toEqual([
@@ -116,7 +116,7 @@ describe('Field helpers', () => {
 
         describe('when conditionals is an array', () => {
           it('should flatten conditionals', () => {
-            const field = [
+            const field: FieldEntry = [
               'court',
               {
                 name: 'options-field',
@@ -134,7 +134,7 @@ describe('Field helpers', () => {
                   },
                 ],
               },
-            ] as FieldEntry
+            ]
             const response = flattenConditionalFields(field)
 
             expect(response).toEqual([

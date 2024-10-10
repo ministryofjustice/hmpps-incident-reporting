@@ -1,4 +1,4 @@
-import { FieldEntry } from './renderConditionalFields'
+import type { FieldEntry } from './renderConditionalFields'
 
 export default function flattenConditionalFields([key, field]: FieldEntry) {
   if (!field.items) {

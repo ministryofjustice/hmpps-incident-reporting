@@ -7,7 +7,7 @@ import logger from '../logger'
 
 export default function createErrorHandler(production: boolean) {
   return (
-    error: HttpError | SuperagentHttpError | FormWizard.Controller.Error,
+    error: HttpError | SuperagentHttpError | FormWizard.Error,
     req: Request,
     res: Response,
     next: NextFunction,

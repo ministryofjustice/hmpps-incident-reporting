@@ -1,5 +1,8 @@
 import { NextFunction, Response } from 'express'
 import FormWizard from 'hmpo-form-wizard'
+
+import type { ErrorSummaryItem } from '../../utils/utils'
+
 import { flattenConditionalFields, reduceDependentFields, renderConditionalFields } from '../../helpers/field'
 import { FieldEntry } from '../../helpers/field/renderConditionalFields'
 
@@ -33,12 +36,12 @@ export default class FormInitialStep extends FormWizard.Controller {
     })
   }
 
-  valueOrFieldName(arg: number | { field: string }, fields: Record<string, { label: { text: string } }>) {
+  valueOrFieldName(arg: number | { field: string }, fields: FormWizard.Fields) {
     return typeof arg === 'number' ? arg : `the ${fields[arg?.field]?.label?.text?.toLowerCase()}`
   }
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  getErrorDetail(error: { args: any; key: string; type: string }, res: Response): { text: string; href: string } {
+  getErrorDetail(error: { args: any; key: string; type: string }, res: Response): ErrorSummaryItem {
     const { fields } = res.locals.options
     const field = fields[error.key]
     const fieldName: string = field.nameForErrors || field?.label?.text
@@ -98,8 +101,7 @@ export default class FormInitialStep extends FormWizard.Controller {
     next()
   }
 
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  locals(req: FormWizard.Request, res: Response): Record<string, any> {
+  locals(req: FormWizard.Request, res: Response): Partial<FormWizard.Locals> {
     const { options, values } = res.locals
     if (!options?.fields) {
       return {}
@@ -108,7 +110,7 @@ export default class FormInitialStep extends FormWizard.Controller {
     const { allFields } = options
     const fields = this.setupFields(req, allFields, options.fields, values)
 
-    const validationErrors: { text: string; href: string }[] = []
+    const validationErrors: ErrorSummaryItem[] = []
 
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     res.locals.errorlist.forEach((error: { args: any; key: string; type: string }) => {
@@ -126,9 +128,11 @@ export default class FormInitialStep extends FormWizard.Controller {
     }
   }
 
-  formError(fieldName: string, type: string): FormWizard.Controller.Error {
-    return new FormWizard.Controller.Error(fieldName, { args: {}, type, url: '/' })
-  }
+  // TODO: remove, it appears unused and FormWizard.Controller.Error constructor ignores `args` and `url`
+  //   and it should probably be `new FormInitialStep.Error(…)`
+  // formError(fieldName: string, type: string): FormWizard.Error {
+  //   return new FormWizard.Controller.Error(fieldName, { args: {}, type, url: '/' })
+  // }
 
   setupFields(
     req: FormWizard.Request,

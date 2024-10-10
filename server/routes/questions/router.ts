@@ -10,7 +10,7 @@ import asyncMiddleware from '../../middleware/asyncMiddleware'
 const router = express.Router({ mergeParams: true })
 
 router.use(
-  asyncMiddleware(async (req, res) => {
+  asyncMiddleware(async (req, res, next) => {
     const { reportType } = req.params
 
     const found = types.find(type => type.code === reportType)
@@ -29,7 +29,7 @@ router.use(
       checkSession: false,
       // TODO: When omitted submitting form throw the error above
       csrf: false,
-    })(req, res)
+    })(req, res, next)
   }),
 )
 

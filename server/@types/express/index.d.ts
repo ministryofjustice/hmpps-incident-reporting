@@ -27,6 +27,7 @@ export declare global {
       logout(done: (err: unknown) => void): void
     }
 
+    // NB: FormWizard.Locals will not be available for all routes so should not be merged in
     interface Locals {
       user: Express.User
       systemToken: string

@@ -1,5 +1,6 @@
-import FormWizard from 'hmpo-form-wizard'
-import { IncidentTypeConfiguration, QuestionConfiguration } from '../types'
+import type FormWizard from 'hmpo-form-wizard'
+
+import type { IncidentTypeConfiguration, QuestionConfiguration } from '../types'
 import QuestionsController from '../../../controllers/wip/questionsController'
 
 function mapQuestionToStep(question: QuestionConfiguration): FormWizard.Steps {
@@ -8,7 +9,7 @@ function mapQuestionToStep(question: QuestionConfiguration): FormWizard.Steps {
   let commentRequired = false
   let dateRequired = false
 
-  const next: FormWizard.Step.NextStep = question.answers
+  const next: FormWizard.NextStep = question.answers
     .filter(answer => answer.active)
     .map(answer => {
       if (answer.commentRequired === true) {

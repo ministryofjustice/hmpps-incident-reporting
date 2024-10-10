@@ -18,25 +18,22 @@
 {% endblock %}
 
 {% block beforeContent %}
-  <div class="govuk-width-container">
-    <div class="govuk-grid-row govuk-!-margin-bottom-0">
-      <div class="govuk-grid-column-two-thirds">
-        {{ govukBackLink({
-          text: "Back",
-          href: backLink
-        }) }}
+  <div class="govuk-grid-row govuk-!-margin-bottom-0">
+    <div class="govuk-grid-column-two-thirds">
+      {{ govukBackLink({
+        text: "Back",
+        href: backLink
+      }) }}
 
-        {% if errorlist.length %}
-          {{ govukErrorSummary({
-            titleText: "There is a problem",
-            errorList: validationErrors,
-            classes: "govuk-!-margin-top-7 govuk-!-margin-bottom-0"
-          }) }}
-        {% endif %}
-      </div>
+      {% if errorlist.length %}
+        {{ govukErrorSummary({
+          titleText: "There is a problem",
+          errorList: validationErrors,
+          classes: "govuk-!-margin-top-7 govuk-!-margin-bottom-0"
+        }) }}
+      {% endif %}
     </div>
   </div>
-
 {% endblock %}
 
 {% block content %}
@@ -44,57 +41,55 @@
   {% set formAction = options.action | default('') %}
   {% set formEnctype = options.enctype | default('') %}
 
-  <div class="govuk-width-container">
-    <div class="govuk-grid-row govuk-!-margin-bottom-0">
-      <div class="govuk-grid-column-two-thirds">
-        <h1 class="govuk-heading-l">[Person name]'s injuries</h1>
+  <div class="govuk-grid-row govuk-!-margin-bottom-0">
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-l">[Person name]'s injuries</h1>
 
-        <form method="{{ formMethod }}" action="{{ formAction }}"
-            {% if formEnctype %}
-              enctype="{{ formEnctype }}"
-            {% endif %}
-        >
-
-          {% if formMethod == 'post' %}
-            <input type="hidden" name="_csrf" value="{{ csrfToken }}">
+      <form method="{{ formMethod }}" action="{{ formAction }}"
+          {% if formEnctype %}
+            enctype="{{ formEnctype }}"
           {% endif %}
+      >
 
-          {% block fields %}
-            {% for key, fieldsOptions in fields %}
-              {% if fieldsOptions.component and not fieldsOptions.skip %}
-                {{ callAsMacro(fieldsOptions.component)(fieldsOptions) }}
-              {% endif %}
-            {% endfor %}
-          {% endblock %}
+        {% if formMethod == 'post' %}
+          <input type="hidden" name="_csrf" value="{{ csrfToken }}">
+        {% endif %}
 
-          <div class="govuk-button-group">
-            {% block formActions %}
-              {% block submitAction %}
-                {{ govukButton({
-                  text: "Save and continue",
-                  classes: options.buttonClasses,
-                  preventDoubleClick: true,
-                  type: "submit"
-                }) }}
-              {% endblock %}
+        {% block fields %}
+          {% for key, fieldsOptions in fields %}
+            {% if fieldsOptions.component and not fieldsOptions.skip %}
+              {{ callAsMacro(fieldsOptions.component)(fieldsOptions) }}
+            {% endif %}
+          {% endfor %}
+        {% endblock %}
 
-              {% block cancelAction %}
-                {% if cancelUrl %}
-                  <a href="{{ cancelUrl }}" class="govuk-link">
-                    Cancel
-                  </a>
-                {% endif %}
-              {% endblock %}
+        <div class="govuk-button-group">
+          {% block formActions %}
+            {% block submitAction %}
+              {{ govukButton({
+                text: "Save and continue",
+                classes: options.buttonClasses,
+                preventDoubleClick: true,
+                type: "submit"
+              }) }}
             {% endblock %}
-          </div>
-        </form>
 
-        <p class="govuk-body">
-          <a href="{{ cancelLink }}" class="govuk-link govuk-link--no-visited-state">
-            Cancel
-          </a>
-        </p>
-      </div>
+            {% block cancelAction %}
+              {% if cancelUrl %}
+                <a href="{{ cancelUrl }}" class="govuk-link">
+                  Cancel
+                </a>
+              {% endif %}
+            {% endblock %}
+          {% endblock %}
+        </div>
+      </form>
+
+      <p class="govuk-body">
+        <a href="{{ cancelLink }}" class="govuk-link govuk-link--no-visited-state">
+          Cancel
+        </a>
+      </p>
     </div>
   </div>
 {% endblock %}

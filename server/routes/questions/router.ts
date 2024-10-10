@@ -24,6 +24,7 @@ router.use(
     const fields = generateFields(config)
 
     return wizard(steps, fields, {
+      name: `${reportType}-questions`,
       templatePath: 'pages/wip/questions',
       // Needs to be false, session already handled by application
       checkSession: false,

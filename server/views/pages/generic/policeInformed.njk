@@ -18,13 +18,15 @@
 {% endblock %}
 
 {% block beforeContent %}
+  {% if backLink %}
+    {{ govukBackLink({
+      text: "Back",
+      href: backLink
+    }) }}
+  {% endif %}
+
   <div class="govuk-grid-row govuk-!-margin-bottom-0">
     <div class="govuk-grid-column-two-thirds">
-      {{ govukBackLink({
-        text: "Back",
-        href: backLink
-      }) }}
-
       {% if errorlist.length %}
         {{ govukErrorSummary({
           titleText: "There is a problem",

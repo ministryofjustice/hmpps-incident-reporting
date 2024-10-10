@@ -1,6 +1,6 @@
 import FormWizard from 'hmpo-form-wizard'
-import { IncidentTypeConfiguration, QuestionConfiguration } from '../data/incidentTypeConfiguration/types'
-import QuestionsController from '../controllers/wip/questionsController'
+import { IncidentTypeConfiguration, QuestionConfiguration } from '../types'
+import QuestionsController from '../../../controllers/wip/questionsController'
 
 function mapQuestionToStep(question: QuestionConfiguration): FormWizard.Steps {
   const questionId = question.id
@@ -38,7 +38,7 @@ function mapQuestionToStep(question: QuestionConfiguration): FormWizard.Steps {
   }
 }
 
-export default function createIncidentSteps(incidentConfig: IncidentTypeConfiguration): FormWizard.Steps {
+export default function generateStepsWithConditionals(incidentConfig: IncidentTypeConfiguration): FormWizard.Steps {
   let steps: FormWizard.Steps = {
     '/': {
       entryPoint: true,

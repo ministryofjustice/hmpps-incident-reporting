@@ -1,6 +1,6 @@
 import FormWizard from 'hmpo-form-wizard'
-import { IncidentTypeConfiguration, QuestionConfiguration } from '../data/incidentTypeConfiguration/types'
-import { convertToTitleCase } from '../utils/utils'
+import { IncidentTypeConfiguration, QuestionConfiguration } from '../types'
+import { convertToTitleCase } from '../../../utils/utils'
 
 type FieldTypeOptions = 'comment' | 'date'
 
@@ -85,7 +85,7 @@ function mapQuestionToField(question: QuestionConfiguration): FormWizard.Fields 
   return { [questionId]: field }
 }
 
-export default function createIncidentFields(incidentConfig: IncidentTypeConfiguration): FormWizard.Fields {
+export default function createFieldsWithConditionals(incidentConfig: IncidentTypeConfiguration): FormWizard.Fields {
   let fields: FormWizard.Fields = {}
 
   for (const question of Object.values(incidentConfig.questions)) {

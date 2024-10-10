@@ -25,7 +25,7 @@
     }) }}
   {% endif %}
 
-  <div class="govuk-grid-row govuk-!-margin-bottom-0">
+  <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
       {% if errorlist.length %}
         {{ govukErrorSummary({
@@ -43,7 +43,7 @@
   {% set formAction = options.action | default('') %}
   {% set formEnctype = options.enctype | default('') %}
 
-  <div class="govuk-grid-row govuk-!-margin-bottom-0">
+  <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
       <h1 class="govuk-heading-l">Testing Generating Fields for Assaults</h1>
 

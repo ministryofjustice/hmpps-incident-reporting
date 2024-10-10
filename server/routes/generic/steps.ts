@@ -9,12 +9,9 @@ const steps: FormWizard.Steps = {
     entryPoint: true,
     reset: true,
     resetJourney: true,
-    skip: true,
-    next: 'page1',
-  },
-  '/page1': {
     fields: ['incidentType'],
     controller: GenericPage1,
+    template: 'page1',
     next: 'page2',
   },
   '/page2': {

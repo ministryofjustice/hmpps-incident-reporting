@@ -21,7 +21,7 @@
           text: "Prison"
         },
         items: prisons | govukSelectInsertDefault("All") | govukSelectSetSelected(formValues.prisonId),
-        errorMessage: errors | findFieldInErrorSummary("prisonId")
+        errorMessage: errors | findFieldInGovukErrorSummary("prisonId")
       }) }}
 
       {{ mojDatePicker({
@@ -32,7 +32,7 @@
         },
         value: formValues.fromDate,
         maxDate: todayAsShortDate,
-        errorMessage: errors | findFieldInErrorSummary("fromDate"),
+        errorMessage: errors | findFieldInGovukErrorSummary("fromDate"),
         leadingZeros: "true"
       }) }}
 
@@ -44,7 +44,7 @@
         },
         value: formValues.toDate,
         maxDate: todayAsShortDate,
-        errorMessage: errors | findFieldInErrorSummary("toDate"),
+        errorMessage: errors | findFieldInGovukErrorSummary("toDate"),
         leadingZeros: "true"
       }) }}
 

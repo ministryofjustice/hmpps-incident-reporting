@@ -7,17 +7,14 @@ import nunjucks from 'nunjucks'
 
 import logger from '../../logger'
 import config from '../config'
+import { convertToTitleCase, initialiseName, nameOfPerson, reversedNameOfPerson, prisonerLocation } from './utils'
 import {
-  convertToTitleCase,
-  findFieldInErrorSummary,
+  findFieldInGovukErrorSummary,
+  govukCheckedItems,
+  govukMultipleCheckedItems,
   govukSelectInsertDefault,
   govukSelectSetSelected,
-  initialiseName,
-  nameOfPerson,
-  reversedNameOfPerson,
-  prisonerLocation,
-} from './utils'
-import { checkedItems, multipleCheckedItems } from './checkedItems'
+} from './govukFrontend'
 import { isBeingTransferred, isOutside, isInPrison } from '../data/offenderSearchApi'
 import format from './format'
 
@@ -55,28 +52,15 @@ export default function nunjucksSetup(app: express.Express): void {
     },
   )
 
-  function callAsMacro(name: string): (...args: unknown[]) => unknown {
-    const macro = this.ctx[name]
-
-    if (typeof macro !== 'function') {
-      throw Error(`Macro ${name} not found`)
-    }
-
-    return macro
-  }
-
+  // misc utils
   njkEnv.addFilter('assetMap', (url: string) => assetManifest[url] || url)
+  njkEnv.addGlobal('callAsMacro', callAsMacro)
 
   // name formatting
   njkEnv.addFilter('convertToTitleCase', convertToTitleCase)
   njkEnv.addFilter('initialiseName', initialiseName)
   njkEnv.addFilter('nameOfPerson', nameOfPerson)
   njkEnv.addFilter('reversedNameOfPerson', reversedNameOfPerson)
-
-  // form helpers
-  njkEnv.addFilter('findFieldInErrorSummary', findFieldInErrorSummary)
-  njkEnv.addFilter('govukSelectInsertDefault', govukSelectInsertDefault)
-  njkEnv.addFilter('govukSelectSetSelected', govukSelectSetSelected)
 
   // date/datetime formatting
   njkEnv.addFilter('dateAndTime', format.dateAndTime)
@@ -90,7 +74,19 @@ export default function nunjucksSetup(app: express.Express): void {
   njkEnv.addFilter('isInPrison', isInPrison)
 
   // utils for GDS & MoJ components
-  njkEnv.addFilter('checkedItems', checkedItems)
-  njkEnv.addFilter('multipleCheckedItems', multipleCheckedItems)
-  njkEnv.addGlobal('callAsMacro', callAsMacro)
+  njkEnv.addFilter('findFieldInGovukErrorSummary', findFieldInGovukErrorSummary)
+  njkEnv.addFilter('govukCheckedItems', govukCheckedItems)
+  njkEnv.addFilter('govukMultipleCheckedItems', govukMultipleCheckedItems)
+  njkEnv.addFilter('govukSelectInsertDefault', govukSelectInsertDefault)
+  njkEnv.addFilter('govukSelectSetSelected', govukSelectSetSelected)
+}
+
+function callAsMacro(name: string): (...args: unknown[]) => unknown {
+  const macro = this.ctx[name]
+
+  if (typeof macro !== 'function') {
+    throw Error(`Macro ${name} not found`)
+  }
+
+  return macro
 }

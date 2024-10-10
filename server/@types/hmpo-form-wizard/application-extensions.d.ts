@@ -2,7 +2,7 @@
  * Application-specific overrides for HMPO Form Wizard types
  */
 declare module 'hmpo-form-wizard' {
-  import type { ErrorSummaryItem } from '../../utils/utils'
+  import type { GovukErrorSummaryItem } from '../../utils/govukFrontend'
 
   namespace FormWizard {
     interface Field {
@@ -12,7 +12,7 @@ declare module 'hmpo-form-wizard' {
       name?: string
       text?: string
       nameForErrors?: string
-      errorMessage?: ErrorSummaryItem
+      errorMessage?: GovukErrorSummaryItem
       errorMessages?: Record<string, string>
       value?: unknown // TODO: value should be removed: it is already provided elsewhere
       component?: string
@@ -65,7 +65,7 @@ declare module 'hmpo-form-wizard' {
       // TODO: custom properties need major cleanup
 
       fields: FormWizard.Fields // TODO: fields should be removed as they appear inside options already
-      validationErrors: ErrorSummaryItem[]
+      validationErrors: GovukErrorSummaryItem[]
     }
   }
 }

@@ -1,17 +1,13 @@
 import {
-  type ErrorSummaryItem,
   buildArray,
   convertToTitleCase,
   datesAsStrings,
-  findFieldInErrorSummary,
   initialiseName,
+  kebabCase,
   nameOfPerson,
   parseDateInput,
-  reversedNameOfPerson,
   prisonerLocation,
-  govukSelectInsertDefault,
-  GovukSelectItem,
-  govukSelectSetSelected,
+  reversedNameOfPerson,
 } from './utils'
 import { andrew, barry, chris, donald, ernie, fred } from '../data/testData/offenderSearch'
 import { isBeingTransferred, isOutside, isInPrison } from '../data/offenderSearchApi'
@@ -185,29 +181,6 @@ describe('parseDateInput', () => {
   })
 })
 
-describe('findFieldInErrorSummary', () => {
-  it.each([undefined, null])('should return null if error list is %p', list => {
-    expect(findFieldInErrorSummary(list, 'field')).toBeNull()
-  })
-
-  it('should return null if error list is empty', () => {
-    expect(findFieldInErrorSummary([], 'field')).toBeNull()
-  })
-
-  const errorList: ErrorSummaryItem[] = [
-    { text: 'Enter a number', href: '#field1' },
-    { text: 'Enter a date', href: '#field3' },
-  ]
-
-  it('should return null if field is not found', () => {
-    expect(findFieldInErrorSummary(errorList, 'field2')).toBeNull()
-  })
-
-  it('should return error message if field is found', () => {
-    expect(findFieldInErrorSummary(errorList, 'field3')).toStrictEqual({ text: 'Enter a date' })
-  })
-})
-
 describe('buildArray()', () => {
   type Scenario = {
     scenario: string
@@ -264,65 +237,18 @@ describe('datesAsStrings()', () => {
   ])('should work on $scenario', ({ input, expected }) => expect(datesAsStrings(input)).toEqual(expected))
 })
 
-describe('govukSelectInsertDefault', () => {
-  it.each([undefined, null])('should ignore item list %p', list => {
-    expect(govukSelectInsertDefault(list, 'Select an option…')).toStrictEqual(list)
-  })
-
-  it('should insert a blank item at the beginning', () => {
-    const list: GovukSelectItem[] = [{ text: 'Red' }, { text: 'Blue', value: 'blue' }]
-    const newList = govukSelectInsertDefault(list, 'Select an option…')
-    expect(newList).toHaveLength(3)
-    expect(newList[0]).toStrictEqual<GovukSelectItem>({ text: 'Select an option…', value: '', selected: true })
-  })
-
-  it('should insert a blank item into an empty list', () => {
-    const list: GovukSelectItem[] = []
-    const newList = govukSelectInsertDefault(list, 'Choose one')
-    expect(newList).toHaveLength(1)
-    expect(newList[0]).toStrictEqual<GovukSelectItem>({ text: 'Choose one', value: '', selected: true })
-  })
-})
-
-describe('govukSelectSetSelected', () => {
-  it.each([undefined, null])('should ignore item list %p', list => {
-    expect(govukSelectSetSelected(list, 'red')).toStrictEqual(list)
-  })
-
-  it('should only leave `selected` as true for item that is found by-value', () => {
-    const list: GovukSelectItem[] = [
-      { text: 'Red', value: 'red' },
-      { text: 'Blue', value: 'blue' },
-    ]
-    const newList = govukSelectSetSelected(list, 'blue')
-    expect(newList).toHaveLength(2)
-    expect(newList.map(item => item.selected)).toStrictEqual([false, true])
-  })
-
-  it('should set `selected` of all items to false if item is not found by-value', () => {
-    const list: GovukSelectItem[] = [
-      { text: 'Red', value: 'red' },
-      { text: 'Blue', value: 'blue' },
-    ]
-    const newList = govukSelectSetSelected(list, 'green')
-    expect(newList).toHaveLength(2)
-    expect(newList.map(item => item.selected)).toStrictEqual([false, false])
-  })
-
-  it('should NOT set `selected` on any items if value being selected is undefined', () => {
-    const list: GovukSelectItem[] = [
-      { text: 'Red', value: 'red' },
-      { text: 'Blue', value: 'blue' },
-    ]
-    const newList = govukSelectSetSelected(list, undefined)
-    expect(newList).toHaveLength(2)
-    expect(newList.map(item => item.selected)).toStrictEqual([undefined, undefined])
-  })
-
-  it('should fall back to matching on `text` property if item `value` is not set', () => {
-    const list: GovukSelectItem[] = [{ text: 'Red' }, { text: 'Blue' }]
-    const newList = govukSelectSetSelected(list, 'Blue')
-    expect(newList).toHaveLength(2)
-    expect(newList.map(item => item.selected)).toStrictEqual([false, true])
+describe('kebab-case', () => {
+  it.each([
+    { input: undefined, expected: undefined },
+    { input: null, expected: undefined },
+    { input: 'ATestValue', expected: 'a-test-value' },
+    { input: 'aTestValue', expected: 'a-test-value' },
+    { input: 'aTestvalue', expected: 'a-testvalue' },
+    { input: 'atestvalue', expected: 'atestvalue' },
+    { input: 'a-test-value', expected: 'a-test-value' },
+    { input: 'govukCheckboxes', expected: 'govuk-checkboxes' },
+    { input: 'HTML', expected: 'h-t-m-l' },
+  ])('should convert $input to $expected', ({ input, expected }) => {
+    expect(kebabCase(input)).toEqual(expected)
   })
 })

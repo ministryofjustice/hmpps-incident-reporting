@@ -1,4 +1,4 @@
-{% extends "../../partials/layout.njk" %}
+{% extends "../../../partials/layout.njk" %}
 
 {% from "govuk/components/details/macro.njk" import govukDetails %}
 {% from "govuk/components/button/macro.njk" import govukButton %}
@@ -12,12 +12,11 @@
 {% from "govuk/components/textarea/macro.njk" import govukTextarea %}
 
 
-
 {% set title = "TODO: Test nunjucks template" %}
 
-{# {% block heading %}
-  <h1 class="govuk-heading-l">TODO: Test nunjucks template</h1>
-{% endblock %} #}
+{% block pageTitle %}
+  TODO: Test nunjucks template
+{% endblock %}
 
 {% block beforeContent %}
   <div class="govuk-width-container">
@@ -60,7 +59,7 @@
           {% endif %}
 
           {% block fields %}
-            {% for key, fieldsOptions in options.fields %}
+            {% for key, fieldsOptions in fields %}
               {% if fieldsOptions.component and not fieldsOptions.skip %}
                 {{ callAsMacro(fieldsOptions.component)(fieldsOptions) }}
               {% endif %}
@@ -97,8 +96,6 @@
       </div>
     </div>
   </div>
-
-
 
   <h3>TODO: Debug</h3>
   <pre>

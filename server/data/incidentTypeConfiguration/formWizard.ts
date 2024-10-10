@@ -1,27 +1,36 @@
 import FormWizard from 'hmpo-form-wizard'
 import { IncidentTypeConfiguration } from './types'
+import QuestionsController from '../../controllers/wip/questionsController'
 
 // TODO: Add tests once steps structure is more stable
 export function generateSteps(config: IncidentTypeConfiguration): FormWizard.Steps {
-  const steps: FormWizard.Steps = {}
+  const steps: FormWizard.Steps = {
+    '/': {
+      entryPoint: true,
+      reset: true,
+      resetJourney: true,
+      skip: true,
+      next: config.startingQuestionId,
+    },
+  }
 
-  Object.values(config.questions).forEach(question => {
-    if (question.active) {
+  Object.values(config.questions)
+    .filter(question => question.active)
+    .forEach(question => {
+      const activeAnswers = question.answers.filter(answer => answer.active)
+
+      // TODO: Maybe coalesce answers leading to same next question
+      const next = activeAnswers.map(answer => {
+        return { field: question.id, value: answer.code, next: answer.nextQuestionId }
+      })
+
       steps[`/${question.id}`] = {
-        // TODO: Maybe coalesce answers leading to same next question
-        next: question.answers
-          .filter(answer => answer.active)
-          .map(answer => {
-            return { field: question.id, value: answer.code, next: answer.nextQuestionId }
-          }),
+        next,
         fields: [question.id],
-        template: 'index',
+        controller: QuestionsController,
+        template: 'questionPage',
       }
-    }
-  })
-
-  steps[`/${config.startingQuestionId}`].entryPoint = true
-  steps['/'] = steps[`/${config.startingQuestionId}`]
+    })
 
   // console.log(JSON.stringify(steps, null, 2))
 
@@ -35,8 +44,10 @@ export function generateFields(config: IncidentTypeConfiguration): FormWizard.Fi
   Object.values(config.questions).forEach(question => {
     fields[question.id] = {
       id: question.id,
-      name: question.code,
+      name: question.id,
       text: question.label,
+      label: { text: question.label },
+      validate: ['required'],
       multiple: question.multipleAnswers,
       fieldset: {
         legend: {
@@ -45,9 +56,11 @@ export function generateFields(config: IncidentTypeConfiguration): FormWizard.Fi
         },
       },
       component: question.multipleAnswers ? 'govukCheckboxes' : 'govukRadios',
-      items: question.answers.map(answer => {
-        return { text: answer.label, value: answer.code }
-      }),
+      items: question.answers
+        .filter(answer => answer.active)
+        .map(answer => {
+          return { text: answer.label, value: answer.code }
+        }),
     }
   })
 

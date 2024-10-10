@@ -25,9 +25,9 @@ router.use(
 
     return wizard(steps, fields, {
       templatePath: 'pages/wip/questions',
-      // TODO: When omitted getting `TypeError: Cannot read properties of undefined (reading 'apply')`
+      // Needs to be false, session already handled by application
       checkSession: false,
-      // TODO: When omitted submitting form throw the error above
+      // Needs to be false, CSRF already handled by application
       csrf: false,
     })(req, res, next)
   }),

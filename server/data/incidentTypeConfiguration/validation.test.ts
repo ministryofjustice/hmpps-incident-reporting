@@ -65,6 +65,31 @@ describe('DPS config validation', () => {
     })
   })
 
+  describe('when config has active questions without active answers', () => {
+    it('returns an error', () => {
+      const config: IncidentTypeConfiguration = {
+        incidentType: 'FINDS',
+        startingQuestionId: '1',
+        active: true,
+        questions: {
+          '1': buildQuestion({
+            id: '1',
+            label: 'Is this the start?',
+            nextQuestionId: null,
+          }),
+        },
+        prisonerRoles: [],
+      }
+      config.questions['1'].answers.forEach(answer => {
+        // eslint-disable-next-line no-param-reassign
+        answer.active = false
+      })
+
+      const errors = validateConfig(config).map(err => err.message)
+      expect(errors).toEqual(['active question 1 has no active answers'])
+    })
+  })
+
   describe('when config has unreachable questions', () => {
     it('returns an error', () => {
       // '1' (START)

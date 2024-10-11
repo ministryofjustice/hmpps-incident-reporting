@@ -8,6 +8,7 @@ export function validateConfig(config: IncidentTypeConfiguration): Error[] {
   const configGraph = buildConfigGraph(config)
 
   checkStartingQuestion(config, errors)
+  checkQuestionsWithoutAnswers(config, errors)
   checkUnknownQuestions(configGraph, errors)
 
   const dfsResult = configGraph.dfs(config.startingQuestionId)
@@ -17,7 +18,7 @@ export function validateConfig(config: IncidentTypeConfiguration): Error[] {
   return errors
 }
 
-function checkStartingQuestion(config: IncidentTypeConfiguration, errors: Error[]) {
+function checkStartingQuestion(config: IncidentTypeConfiguration, errors: Error[]): void {
   if (config.startingQuestionId === null) {
     errors.push(new Error('startingQuestionId is null'))
   } else if (config.startingQuestionId === undefined) {
@@ -34,7 +35,18 @@ function checkStartingQuestion(config: IncidentTypeConfiguration, errors: Error[
   }
 }
 
-function checkUnknownQuestions<Q>(configGraph: Graph<Q>, errors: Error[]) {
+function checkQuestionsWithoutAnswers(config: IncidentTypeConfiguration, errors: Error[]): void {
+  Object.values(config.questions)
+    .filter(question => question.active === true)
+    .forEach(question => {
+      const activeAnswersExist = question.answers.some(answer => answer.active)
+      if (!activeAnswersExist) {
+        errors.push(new Error(`active question ${question.id} has no active answers`))
+      }
+    })
+}
+
+function checkUnknownQuestions<Q>(configGraph: Graph<Q>, errors: Error[]): void {
   const unknownQuestions = configGraph.getInvalidNodes()
 
   if (unknownQuestions.size > 0) {
@@ -42,7 +54,7 @@ function checkUnknownQuestions<Q>(configGraph: Graph<Q>, errors: Error[]) {
   }
 }
 
-function checkUnreachableQuestions<Q>(configGraph: Graph<Q>, dfsResult: DfsResult<Q>, errors: Error[]) {
+function checkUnreachableQuestions<Q>(configGraph: Graph<Q>, dfsResult: DfsResult<Q>, errors: Error[]): void {
   const unreachableQuestions = configGraph.getUnreachableNodes(dfsResult)
 
   if (unreachableQuestions.size > 0) {
@@ -64,7 +76,7 @@ function buildConfigGraph(config: IncidentTypeConfiguration): Graph<string> {
   return graph
 }
 
-function checkCycles<T>(dfsResult: DfsResult<T>, errors: Error[]) {
+function checkCycles<T>(dfsResult: DfsResult<T>, errors: Error[]): void {
   for (const cycle of dfsResult.cycles) {
     errors.push(new Error(`question cycle detected: ${cycle}`))
   }

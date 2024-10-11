@@ -1,7 +1,6 @@
 import type Express from 'express'
 import type FormWizard from 'hmpo-form-wizard'
 
-import { backUrl } from '../../utils/backUrl'
 import FormInitialStep from '../base/formInitialStep'
 import { type PrisonerInvolvement } from '../../data/incidentReportingApi'
 import {
@@ -39,10 +38,7 @@ export default class AddPrisoner extends FormInitialStep {
     const locals = super.locals(req, res)
     const incidentId = res.locals.incident.id
 
-    const backLink = backUrl(req, {
-      fallbackUrl: `/reports/${incidentId}/prisoner-search`,
-    })
-
+    const backLink = `/reports/${incidentId}/prisoner-search`
     return {
       ...locals,
       backLink,

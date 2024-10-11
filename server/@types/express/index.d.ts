@@ -11,8 +11,6 @@ declare module 'express-session' {
     /** Used by auth middleware for sign-in */
     returnTo: string
     nowInMinutes: number
-    /** Used by form wizard to track steps */
-    referrerUrl: string
   }
 }
 

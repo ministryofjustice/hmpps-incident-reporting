@@ -1,5 +1,6 @@
-import { NextFunction, Response } from 'express'
-import FormWizard from 'hmpo-form-wizard'
+import type Express from 'express'
+import type FormWizard from 'hmpo-form-wizard'
+
 import backUrl from '../../utils/backUrl'
 import FormInitialStep from '../base/formInitialStep'
 import { type PrisonerInvolvement } from '../../data/incidentReportingApi'
@@ -16,7 +17,7 @@ export default class AddPrisoner extends FormInitialStep {
     this.use(this.setOptions)
   }
 
-  async setOptions(req: FormWizard.Request, res: Response, next: NextFunction) {
+  async setOptions(req: FormWizard.Request, res: Express.Response, next: Express.NextFunction) {
     req.form.options.fields.prisonerRole.items = Object.values(prisonerInvolvementRoles).map(
       ({ code, description }) => ({
         value: code,
@@ -34,7 +35,7 @@ export default class AddPrisoner extends FormInitialStep {
     next()
   }
 
-  locals(req: FormWizard.Request, res: Response): object {
+  locals(req: FormWizard.Request, res: Express.Response): object {
     const locals = super.locals(req, res)
     const incidentId = res.locals.incident.id
 
@@ -49,7 +50,7 @@ export default class AddPrisoner extends FormInitialStep {
     }
   }
 
-  async saveValues(req: FormWizard.Request, res: Response, next: NextFunction) {
+  async saveValues(req: FormWizard.Request, res: Express.Response, next: Express.NextFunction) {
     try {
       const { prisonerRole, prisonerOutcome, prisonerComment } = req.form.values
 
@@ -80,16 +81,18 @@ export default class AddPrisoner extends FormInitialStep {
     }
   }
 
-  successHandler(req: FormWizard.Request, res: Response, next: NextFunction) {
+  successHandler(req: FormWizard.Request, res: Express.Response, next: Express.NextFunction) {
     const incidentId = res.locals.incident.id
 
     req.journeyModel.reset()
     req.sessionModel.reset()
+
     /**
     req.flash('success', {
       title: 'Signed operational capacity updated',
       content: `You have updated the establishment's signed operational capacity.`,
-    }) */
+    })
+    */
 
     res.redirect(`/report/${incidentId}`)
   }

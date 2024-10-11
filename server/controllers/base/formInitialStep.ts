@@ -1,10 +1,10 @@
-import { NextFunction, Response } from 'express'
+import type Express from 'express'
 import FormWizard from 'hmpo-form-wizard'
 
 import type { GovukErrorSummaryItem } from '../../utils/govukFrontend'
 
 import { flattenConditionalFields, reduceDependentFields, renderConditionalFields } from '../../helpers/field'
-import { FieldEntry } from '../../helpers/field/renderConditionalFields'
+import type { FieldEntry } from '../../helpers/field/renderConditionalFields'
 
 export default class FormInitialStep extends FormWizard.Controller {
   middlewareSetup() {
@@ -12,19 +12,19 @@ export default class FormInitialStep extends FormWizard.Controller {
     this.use(this.setupConditionalFields)
   }
 
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  getInitialValues(_req: FormWizard.Request, _res: Response): { [key: string]: any } {
+  getInitialValues(_req: FormWizard.Request, _res: Express.Response): FormWizard.Values {
     // Override in subclass to return initial values for form
     return {}
   }
 
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  getValues(req: FormWizard.Request, res: Response, callback: (err: any, values?: any) => void) {
+  getValues(req: FormWizard.Request, res: Express.Response, callback: FormWizard.Callback): void {
     return super.getValues(req, res, (err, values) => {
-      if (err) return callback(err)
+      if (err) {
+        return callback(err)
+      }
 
       const initialValues = this.getInitialValues(req, res)
-      const formValues = { ...values }
+      const formValues: FormWizard.Values = { ...values }
 
       Object.keys(initialValues).forEach(fieldName => {
         if (formValues[fieldName] === undefined) {
@@ -40,8 +40,7 @@ export default class FormInitialStep extends FormWizard.Controller {
     return typeof arg === 'number' ? arg : `the ${fields[arg?.field]?.label?.text?.toLowerCase()}`
   }
 
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  getErrorDetail(error: { args: any; key: string; type: string }, res: Response): GovukErrorSummaryItem {
+  getErrorDetail(error: FormWizard.Error, res: Express.Response): GovukErrorSummaryItem {
     const { fields } = res.locals.options
     const field = fields[error.key]
     const fieldName: string = field.nameForErrors || field?.label?.text
@@ -60,7 +59,7 @@ export default class FormInitialStep extends FormWizard.Controller {
       dateMissingMonth: `${fieldName} must include a month`,
       dateMissingMonthAndYear: `${fieldName} must include a month and year`,
       dateMissingYear: `${fieldName} must include a year`,
-      lessThanOrEqualTo: `${fieldName} cannot be more than ${this.valueOrFieldName(error.args?.lessThanOrEqualTo, fields)}`,
+      lessThanOrEqualTo: `${fieldName} cannot be more than ${this.valueOrFieldName(error.args?.lessThanOrEqualTo as number, fields)}`,
       maxLength: `${fieldName} must be ${error.args?.maxLength} characters or less`,
       minLength: `${fieldName} must be at least ${error.args?.minLength} characters`,
       numericString: `${fieldName} must only include numbers`,
@@ -75,7 +74,7 @@ export default class FormInitialStep extends FormWizard.Controller {
     }
   }
 
-  renderConditionalFields(req: FormWizard.Request, res: Response) {
+  renderConditionalFields(req: FormWizard.Request, res: Express.Response): void {
     const { options } = req.form
 
     options.fields = Object.fromEntries(
@@ -86,7 +85,7 @@ export default class FormInitialStep extends FormWizard.Controller {
     res.locals.fields = options.fields
   }
 
-  setupConditionalFields(req: FormWizard.Request, res: Response, next: NextFunction) {
+  setupConditionalFields(req: FormWizard.Request, res: Express.Response, next: Express.NextFunction): void {
     const { options } = req.form
 
     const stepFieldsArray = Object.entries(options.fields)
@@ -101,8 +100,9 @@ export default class FormInitialStep extends FormWizard.Controller {
     next()
   }
 
-  locals(req: FormWizard.Request, res: Response): Partial<FormWizard.Locals> {
-    const { options, values } = res.locals
+  locals(req: FormWizard.Request, res: Express.Response): Partial<FormWizard.Locals> {
+    const locals = res.locals as Express.Locals & FormWizard.Locals
+    const { options, values } = locals
     if (!options?.fields) {
       return {}
     }
@@ -112,8 +112,7 @@ export default class FormInitialStep extends FormWizard.Controller {
 
     const validationErrors: GovukErrorSummaryItem[] = []
 
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    res.locals.errorlist.forEach((error: { args: any; key: string; type: string }) => {
+    locals.errorlist.forEach(error => {
       const errorDetail = this.getErrorDetail(error, res)
       validationErrors.push(errorDetail)
       const field = fields[error.key]
@@ -138,20 +137,21 @@ export default class FormInitialStep extends FormWizard.Controller {
     req: FormWizard.Request,
     allFields: { [field: string]: FormWizard.Field },
     originalFields: FormWizard.Fields,
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    values: { [field: string]: any },
+    values: FormWizard.Values,
   ): FormWizard.Fields {
     const fields = originalFields
 
     Object.keys(fields).forEach(fieldName => {
-      const value = values[fieldName]
-      fields[fieldName].value = value?.value || value
+      // TODO: how can a value have a value sub-property?
+      // const value = values[fieldName]
+      // fields[fieldName].value = value?.value || value
+      fields[fieldName].value = values[fieldName]
     })
 
     return fields
   }
 
-  render(req: FormWizard.Request, res: Response, next: NextFunction) {
+  render(req: FormWizard.Request, res: Express.Response, next: Express.NextFunction): void {
     this.renderConditionalFields(req, res)
 
     return super.render(req, res, next)

@@ -1,5 +1,6 @@
-import { NextFunction, Response } from 'express'
-import FormWizard from 'hmpo-form-wizard'
+import type Express from 'express'
+import type FormWizard from 'hmpo-form-wizard'
+
 import backUrl from '../../utils/backUrl'
 import FormInitialStep from '../base/formInitialStep'
 import type { CreateReportRequest } from '../../data/incidentReportingApi'
@@ -10,7 +11,7 @@ export default class CreateIncident extends FormInitialStep {
     this.use(this.setOptions)
   }
 
-  async setOptions(req: FormWizard.Request, res: Response, next: NextFunction) {
+  async setOptions(req: FormWizard.Request, res: Express.Response, next: Express.NextFunction) {
     const { prisonApi } = res.locals.apis
     const prisonsLookup = await prisonApi.getPrisons()
 
@@ -22,7 +23,7 @@ export default class CreateIncident extends FormInitialStep {
     next()
   }
 
-  locals(req: FormWizard.Request, res: Response): object {
+  locals(req: FormWizard.Request, res: Express.Response): object {
     const locals = super.locals(req, res)
 
     const backLink = backUrl(req, {
@@ -36,7 +37,7 @@ export default class CreateIncident extends FormInitialStep {
     }
   }
 
-  async saveValues(req: FormWizard.Request, res: Response, next: NextFunction) {
+  async saveValues(req: FormWizard.Request, res: Express.Response, next: Express.NextFunction) {
     try {
       const { incidentType, incidentDate, incidentTime, incidentTitle, incidentDescription } = req.form.values
       const incidentPrisonId = req.form.values.prisonId
@@ -68,14 +69,16 @@ export default class CreateIncident extends FormInitialStep {
     }
   }
 
-  successHandler(req: FormWizard.Request, res: Response, next: NextFunction) {
+  successHandler(req: FormWizard.Request, res: Express.Response, next: Express.NextFunction) {
     req.journeyModel.reset()
     req.sessionModel.reset()
+
     /**
     req.flash('success', {
       title: 'Signed operational capacity updated',
       content: `You have updated the establishment's signed operational capacity.`,
-    }) */
+    })
+    */
 
     res.redirect('/incidents')
   }

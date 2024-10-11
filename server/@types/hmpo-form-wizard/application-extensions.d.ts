@@ -44,6 +44,8 @@ declare module 'hmpo-form-wizard' {
 
       text?: string
       label?: string
+      dateRequired?: boolean
+      commentRequired?: boolean
       hint?: {
         text: string
         classes?: string

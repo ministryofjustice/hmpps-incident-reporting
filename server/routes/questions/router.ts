@@ -24,10 +24,11 @@ router.use(
     const fields = generateFields(config)
 
     return wizard(steps, fields, {
+      name: `${reportType}-questions`,
       templatePath: 'pages/wip/questions',
-      // TODO: When omitted getting `TypeError: Cannot read properties of undefined (reading 'apply')`
+      // Needs to be false, session already handled by application
       checkSession: false,
-      // TODO: When omitted submitting form throw the error above
+      // Needs to be false, CSRF already handled by application
       csrf: false,
     })(req, res, next)
   }),

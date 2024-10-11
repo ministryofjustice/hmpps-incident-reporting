@@ -2,8 +2,9 @@ import type { RequestHandler } from 'express'
 import { NotFound } from 'http-errors'
 
 import format from '../utils/format'
+import type { GovukErrorSummaryItem } from '../utils/govukFrontend'
 import { pagination } from '../utils/pagination'
-import { type ErrorSummaryItem, parseDateInput } from '../utils/utils'
+import { parseDateInput } from '../utils/utils'
 import type { Services } from '../services'
 
 interface ListFormData {
@@ -30,7 +31,7 @@ export default function makeDebugRoutes(services: Services): Record<string, Requ
 
       // Parse params
       const todayAsShortDate = format.shortDate(new Date())
-      const errors: ErrorSummaryItem[] = []
+      const errors: GovukErrorSummaryItem[] = []
       let fromDate: Date | null
       let toDate: Date | null
       try {

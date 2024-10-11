@@ -29,7 +29,7 @@
       items: [
         {value: "prison", text: "In " + prisonName},
         {value: "global", text: "In any establishment (global)"}
-      ] | checkedItems(field.value if field.value else "prison"),
+      ] | govukCheckedItems(field.value if field.value else "prison"),
       errorMessage: { text: field.error } if field.error else undefined
     }) }}
 

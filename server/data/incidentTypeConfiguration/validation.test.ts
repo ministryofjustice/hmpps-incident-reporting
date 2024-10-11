@@ -65,7 +65,7 @@ describe('DPS config validation', () => {
     })
   })
 
-  describe('when config has questions without active answers', () => {
+  describe('when config has active questions without active answers', () => {
     it('returns an error', () => {
       const config: IncidentTypeConfiguration = {
         incidentType: 'FINDS',

@@ -57,9 +57,15 @@
         {% endif %}
 
         {% block fields %}
-          {% for key, fieldsOptions in fields %}
-            {% if fieldsOptions.component and not fieldsOptions.skip %}
-              {{ callAsMacro(fieldsOptions.component)(fieldsOptions) }}
+          {% for _fieldId, field in options.fields %}
+            {% if field.component and not field.skip %}
+              {% if field.component === "govukCheckboxes" %}
+                {{ govukCheckboxes(field) }}
+              {% elif field.component === "govukRadios" %}
+                {{ govukRadios(field | safe) }}
+              {% else %}
+                <strong>WARNING: Unknown field's component {{ field.component }}
+              {% endif %}
             {% endif %}
           {% endfor %}
         {% endblock %}

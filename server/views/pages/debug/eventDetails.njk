@@ -7,7 +7,7 @@
 {% set mainClasses = "govuk-body" %}
 
 {% block content %}
-  <h1>Incident '{{ event.title }}'</h1>
+  <h1>Incident: {{ event.title }}</h1>
 
   {{ govukTable({
     caption: "Incident details",
@@ -61,7 +61,7 @@
     <h2>{{ report.type }} Report</h2>
 
     {% set reportLink %}
-      <a href="/report/{{ report.id }}">
+      <a href="/reports/{{ report.id }}">
         <span class="govuk-visually-hidden">
           View report details
         </span>

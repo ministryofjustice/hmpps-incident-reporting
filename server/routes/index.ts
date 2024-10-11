@@ -27,19 +27,20 @@ export default function routes(services: Services): Router {
   if (config.environment !== 'prod') {
     // view-only debug pages
     const debugRoutes = makeDebugRoutes(services)
-    get('/incidents', debugRoutes.incidentList)
-    get('/incident/:id', debugRoutes.incidentDetails)
-    get('/report/:id', debugRoutes.reportDetails)
+    get('/incidents', debugRoutes.eventList)
+    get('/incidents/:id', debugRoutes.eventDetails)
+    get('/reports/:id', debugRoutes.reportDetails)
 
     // TODO: WIP, proof-of-concept forms auto-generated from config
     router.use('/:reportType/questions', questionsRouter)
 
     // proof-of-concept form wizard
-    router.use('/create-incident', createIncidentRouter)
-    router.use('/change-incident/:id/', changeIncidentRouter)
+    router.use('/create-report', createIncidentRouter)
+    router.use('/reports/:id/change', changeIncidentRouter)
+    router.use('/reports/:id/prisoner-search', prisonerSearchRoutes())
+    router.use('/reports/:id/add-prisoner/:prisonerNumber', addPrisonerRouter)
+
     router.use('/generic-route', genericRouter)
-    router.use('/report/:id/prisoner-search', prisonerSearchRoutes())
-    router.use('/report/:id/add-prisoner/:prisonerNumber', addPrisonerRouter)
     router.use('/assaults', genFieldsRouter)
   }
 

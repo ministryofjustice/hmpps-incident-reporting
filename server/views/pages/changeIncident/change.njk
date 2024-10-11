@@ -16,7 +16,7 @@
 {% set title = "Change existing incident report" %}
 
 {% block heading %}
-  <h1 class="govuk-heading-l">Change existing incident report</h1>
+  <h1 class="govuk-heading-l">{{ title }}</h1>
 {% endblock %}
 
 {% block beforeContent %}
@@ -48,7 +48,7 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
-      <h1 class="govuk-heading-l">Change existing incident report</h1>
+      <h1 class="govuk-heading-l">{{ title }}</h1>
       {{ govukInsetText({
         text: "This form is used to change an existing incident report."
       }) }}

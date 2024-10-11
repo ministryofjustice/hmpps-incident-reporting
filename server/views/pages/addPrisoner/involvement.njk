@@ -11,11 +11,12 @@
 {% from "govuk/components/textarea/macro.njk" import govukTextarea %}
 {% from "govuk/components/radios/macro.njk" import govukRadios %}
 
-
-{% set title = "Add prisoner {{ prisoner.firstName }} {{ prisoner.lastName }} to incident" %}
+{% set title -%}
+  Add prisoner {{ prisoner.firstName }} {{ prisoner.lastName }} to incident report
+{%- endset%}
 
 {% block heading %}
-  <h1 class="govuk-heading-l">Add prisoner {{ prisonerName }} to incident</h1>
+  <h1 class="govuk-heading-l">{{ title }}</h1>
 {% endblock %}
 
 {% block beforeContent %}
@@ -47,7 +48,7 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
-      <h1 class="govuk-heading-l">Add prisoner {{ prisoner.firstName }} {{ prisoner.lastName }} to incident</h1>
+      <h1 class="govuk-heading-l">{{ title }}</h1>
       {{ govukInsetText({
         text: "This form is used to add a prisoner to an existing incident."
       }) }}

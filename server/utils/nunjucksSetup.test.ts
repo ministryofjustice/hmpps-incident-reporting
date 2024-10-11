@@ -1,5 +1,6 @@
 import express from 'express'
 import nunjucks from 'nunjucks'
+import request from 'supertest'
 
 import nunjucksSetup from './nunjucksSetup'
 
@@ -52,5 +53,61 @@ describe('nunjucks context', () => {
         }).toThrow(`Macro ${macroName} not found`)
       },
     )
+  })
+
+  describe('getFromContext', () => {
+    let templateContents: string
+
+    beforeEach(() => {
+      // mimics middleware manipulating locals
+      app.use((req, res, next) => {
+        res.locals.systemToken = 'system-token'
+        res.locals.user = { token: 'user-token', authSource: 'hmpps-auth' }
+
+        next()
+      })
+
+      // mimics request handlers providing a context
+      app.get('/', (req, res) => {
+        const context = {
+          ...res.locals,
+          firstName: 'John',
+        }
+        res.send(nunjucks.renderString(templateContents, context).trim())
+      })
+    })
+
+    it('should return a parameter from context', () => {
+      templateContents = `
+        {{ getFromContext('firstName') }}
+      `
+      return request(app)
+        .get('/')
+        .expect(res => {
+          expect(res.text).toEqual('John')
+        })
+    })
+
+    it('should return a parameter from locals', () => {
+      templateContents = `
+        {{ getFromContext('systemToken') }}
+      `
+      return request(app)
+        .get('/')
+        .expect(res => {
+          expect(res.text).toEqual('system-token')
+        })
+    })
+
+    it('should return a nested parameter from locals', () => {
+      templateContents = `
+        {{ getFromContext('user.token') }}
+      `
+      return request(app)
+        .get('/')
+        .expect(res => {
+          expect(res.text).toEqual('user-token')
+        })
+    })
   })
 })

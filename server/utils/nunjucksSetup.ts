@@ -55,6 +55,7 @@ export default function nunjucksSetup(app: express.Express): void {
   // misc utils
   njkEnv.addFilter('assetMap', (url: string) => assetManifest[url] || url)
   njkEnv.addGlobal('callAsMacro', callAsMacro)
+  njkEnv.addGlobal('getFromContext', getFromContext)
 
   // name formatting
   njkEnv.addFilter('convertToTitleCase', convertToTitleCase)
@@ -89,4 +90,14 @@ function callAsMacro(name: string): (...args: unknown[]) => unknown {
   }
 
   return macro
+}
+
+/**
+ * Install function to look up values from the context by .-separated key path.
+ * Inspired by `ctx` from
+ * https://github.com/HMPO/hmpo-components/blob/01473508284e1d06ebc72585f970f25f17fba49d/lib/locals.js#L59
+ * but has access to the whole context, not just res.locals
+ */
+function getFromContext(keyPath: string): unknown {
+  return keyPath.split('.').reduce((context, key) => context && context[key], this.ctx)
 }

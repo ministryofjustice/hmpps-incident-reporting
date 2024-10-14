@@ -42,7 +42,7 @@ function appSetup(services: Services, production: boolean, userSupplier: () => E
   nunjucksSetup(app)
   app.use((req, res, next) => {
     req.user = userSupplier()
-    res.locals = {
+    Object.assign(res.locals, {
       user: { ...req.user },
       systemToken,
       apis: {
@@ -50,7 +50,7 @@ function appSetup(services: Services, production: boolean, userSupplier: () => E
         offenderSearchApi: new OffenderSearchApi(systemToken),
         prisonApi: new PrisonApi(systemToken),
       },
-    }
+    })
     next()
   })
   app.use(express.json())

@@ -1,3 +1,3 @@
-import BaseController from '../baseController'
+import FormWizard from 'hmpo-form-wizard'
 
-export default class QuestionsController extends BaseController {}
+export default class QuestionsController extends FormWizard.Controller {}

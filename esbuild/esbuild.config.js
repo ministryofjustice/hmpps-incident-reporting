@@ -1,4 +1,4 @@
-const { spawn } = require('node:child_process')
+const childProcess = require('node:child_process')
 const path = require('node:path')
 
 const chokidar = require('chokidar')
@@ -62,11 +62,18 @@ const main = () => {
     })
   }
 
-  if (args.includes('--dev-server')) {
+  if (args.includes('--dev-server') || args.includes('--dev-local-server') || args.includes('--dev-test-server')) {
+    let envPath = '.env'
+    if (args.includes('--dev-local-server')) {
+      envPath = 'local.env'
+    } else if (args.includes('--dev-test-server')) {
+      envPath = 'feature.env'
+    }
+    /** @type childProcess.ChildProcess */
     let serverProcess = null
     chokidar.watch(['dist']).on('all', () => {
       if (serverProcess) serverProcess.kill()
-      serverProcess = spawn('node', ['-r', 'dotenv/config', 'dist/server.js'], { stdio: 'inherit' })
+      serverProcess = childProcess.spawn('node', [`--env-file=${envPath}`, 'dist/server.js'], { stdio: 'inherit' })
     })
   }
 

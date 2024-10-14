@@ -1,7 +1,8 @@
+import { randomUUID } from 'node:crypto'
+
 import RedisStore from 'connect-redis'
 import express, { type Router } from 'express'
 import session, { MemoryStore, type Store } from 'express-session'
-import { v4 as uuidv4 } from 'uuid'
 
 import config from '../config'
 import logger from '../../logger'
@@ -40,7 +41,7 @@ export default function setUpWebSession(): Router {
   router.use((req, res, next) => {
     const headerName = 'X-Request-Id'
     const oldValue = req.get(headerName)
-    const id = oldValue === undefined ? uuidv4() : oldValue
+    const id = oldValue === undefined ? randomUUID() : oldValue
 
     res.set(headerName, id)
     req.id = id

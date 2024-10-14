@@ -9,41 +9,10 @@
     {% set items = [] %}
       {% for item in field.items %}
           {# Build `conditional` field #}
-          {%- set conditionalHtml -%}
-            {# TODO: How to identify this specific answer's comment/date? #}
-            {#       This is particularly tricky when multiple answers are allowed! #}
-            {#       Answers don't have an "id" #}
-            {%- if item.dateRequired -%}
-              {# TODO: Get value #}
-              {# TODO: Validation? #}
-              {# TODO: Handle errors #}
-              {{ mojDatePicker({
-                  id: field.id + '-' + item.value + '-date',
-                  name: field.id + '-' + item.value + '-date',
-                  label: {
-                    text: "Date"
-                  },
-                  value: formValues.dateRequiredTODO,
-                  leadingZeros: "true"
-              }) }}
-            {%- endif -%}
-
-            {%- if item.commentRequired -%}
-              {# TODO: How would this work with validation? #}
-              {# TODO: See comments above on ID, etc...#}
-              {{ govukInput({
-                id: field.id + '-' + item.value + '-comment',
-                name: field.id + '-' + item.value + '-comment',
-                text: 'Comment',
-                label: { text: 'Comment' },
-                conditional: {
-                  html: conditionalHtml
-                }
-              }) }}
-            {%- endif -%}
-          {%- endset -%}
-
           {%- if item.dateRequired or item.commentRequired -%}
+            {%- set conditionalHtml -%}
+              {{ conditionalHtml(item) }}
+            {%- endset -%}
             {%- set conditional = { html: conditionalHtml} -%}
           {%- else -%}
             {%- set conditional = null -%}
@@ -74,4 +43,38 @@
   {% else %}
     <strong>WARNING: Unknown field's component {{ field.component }}
   {% endif %}
+{% endmacro %}
+
+{% macro conditionalHtml(item) %}
+  {# TODO: How to identify this specific answer's comment/date? #}
+  {#       This is particularly tricky when multiple answers are allowed! #}
+  {#       Answers don't have an "id" #}
+  {%- if item.dateRequired -%}
+    {# TODO: Get value #}
+    {# TODO: Validation? #}
+    {# TODO: Handle errors #}
+    {{ mojDatePicker({
+        id: field.id + '-' + item.value + '-date',
+        name: field.id + '-' + item.value + '-date',
+        label: {
+          text: "Date"
+        },
+        value: formValues.dateRequiredTODO,
+        leadingZeros: "true"
+    }) }}
+  {%- endif -%}
+
+  {%- if item.commentRequired -%}
+    {# TODO: How would this work with validation? #}
+    {# TODO: See comments above on ID, etc...#}
+    {{ govukInput({
+      id: field.id + '-' + item.value + '-comment',
+      name: field.id + '-' + item.value + '-comment',
+      text: 'Comment',
+      label: { text: 'Comment' },
+      conditional: {
+        html: conditionalHtml
+      }
+    }) }}
+  {%- endif -%}
 {% endmacro %}

@@ -52,7 +52,7 @@
 
         {% block fields %}
           {% for _fieldId, field in options.fields %}
-            {% if field.component and not field.skip %}
+            {% if field.component %}
               {{ renderField(field) }}
             {% endif %}
           {% endfor %}

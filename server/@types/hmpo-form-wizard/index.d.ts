@@ -159,6 +159,8 @@ declare module 'hmpo-form-wizard' {
                 arguments?: unknown[]
               }
             | {
+                /** Custom validator name */
+                type?: string
                 /** Validator function */
                 fn: Validator
               }
@@ -240,8 +242,8 @@ declare module 'hmpo-form-wizard' {
       route: string
       steps: Steps
       fields: Fields
-      allFields: Fields
-      defaultFormatters: DefaultFormatter[]
+      allFields?: Fields
+      defaultFormatters?: DefaultFormatter[]
     }
 
     interface Form {
@@ -340,9 +342,9 @@ declare module 'hmpo-form-wizard' {
      * Class with various mixins which instantiates a request handler for each form step
      */
     class Controller extends BaseController {
-      validators: Record<string, Validator>
+      validators: Record<DefaultValidator, Validator>
 
-      formatters: Record<string, Formatter>
+      formatters: Record<DefaultFormatter, Formatter>
 
       resolvePath(base: string, url: string, forceRelative: boolean): void
 
@@ -505,7 +507,7 @@ declare module 'hmpo-form-wizard' {
 }
 
 declare module 'hmpo-form-wizard/lib/formatting' {
-  import FormWizard from 'hmpo-form-wizard'
+  import type FormWizard from 'hmpo-form-wizard'
 
   export function format<T>(
     fields: FormWizard.Fields,
@@ -532,11 +534,11 @@ declare module 'hmpo-form-wizard/lib/formatting' {
     base64decode(value: FormWizard.Value): string
   } // satisfies Record<string, FormWizard.Formatter>
 
-  type DefaultFormatter = keyof typeof formatters
+  export type DefaultFormatter = keyof typeof formatters
 }
 
 declare module 'hmpo-form-wizard/lib/validation' {
-  import FormWizard from 'hmpo-form-wizard'
+  import type FormWizard from 'hmpo-form-wizard'
 
   export function isAllowedDependent(fields: FormWizard.Fields, key: string, values: FormWizard.Values): boolean
 
@@ -603,5 +605,5 @@ declare module 'hmpo-form-wizard/lib/validation' {
     ): boolean
   } // satisfies Record<string, FormWizard.Validator>
 
-  type DefaultValidator = keyof typeof validators
+  export type DefaultValidator = keyof typeof validators
 }

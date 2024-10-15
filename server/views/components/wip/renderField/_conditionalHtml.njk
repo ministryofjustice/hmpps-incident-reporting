@@ -1,0 +1,39 @@
+{#
+USAGE:
+  {% include './_conditionalHtml.njk' %}
+  needs:
+    field - value containing component, items, name, etc...
+    item - item information conditional is being constructed for
+    values - object with form submitted values
+#}
+
+{# TODO: How to identify this specific answer's comment/date? #}
+{#       This is particularly tricky when multiple answers are allowed! #}
+{#       Answers don't have an "id" #}
+{%- if item.dateRequired -%}
+  {# TODO: Get value...from values? formValues? #}
+  {# TODO: Validation? #}
+  {# TODO: Handle errors #}
+  {{ mojDatePicker({
+      id: field.id + '-' + item.value + '-date',
+      name: field.id + '-' + item.value + '-date',
+      label: {
+        text: "Date"
+      },
+      value: values[field.id + '-' + item.value + '-date'],
+      leadingZeros: "true"
+  }) }}
+{%- endif -%}
+
+{%- if item.commentRequired -%}
+  {# TODO: How would this work with validation? #}
+  {# TODO: See comments above on ID, etc...#}
+  {# TODO: Get value...from values? formValues? #}
+  {{ govukInput({
+    id: field.id + '-' + item.value + '-comment',
+    name: field.id + '-' + item.value + '-comment',
+    text: 'Comment',
+    label: { text: 'Comment' },
+    value: values[field.id + '-' + item.value + '-comment']
+  }) }}
+{%- endif -%}

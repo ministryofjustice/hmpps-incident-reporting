@@ -1,16 +1,8 @@
 {% extends "../../../partials/layout.njk" %}
 
-{% from "govuk/components/details/macro.njk" import govukDetails %}
 {% from "govuk/components/button/macro.njk" import govukButton %}
-{% from "govuk/components/input/macro.njk" import govukInput %}
-{% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
-{% from "govuk/components/inset-text/macro.njk" import govukInsetText %}
 {% from "govuk/components/error-summary/macro.njk" import govukErrorSummary %}
 {% from "govuk/components/back-link/macro.njk" import govukBackLink %}
-{% from "govuk/components/radios/macro.njk" import govukRadios %}
-{% from "govuk/components/select/macro.njk" import govukSelect %}
-{% from "govuk/components/textarea/macro.njk" import govukTextarea %}
-
 
 {% set title = "TODO: Test nunjucks template" %}
 
@@ -57,10 +49,8 @@
         {% endif %}
 
         {% block fields %}
-          {% for key, fieldsOptions in fields %}
-            {% if fieldsOptions.component and not fieldsOptions.skip %}
-              {{ callAsMacro(fieldsOptions.component)(fieldsOptions) }}
-            {% endif %}
+          {% for _fieldId, field in options.fields %}
+            {% include "../../../components/wip/renderField/renderField.njk" %}
           {% endfor %}
         {% endblock %}
 

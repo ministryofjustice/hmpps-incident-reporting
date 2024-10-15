@@ -1,0 +1,54 @@
+{% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
+{% from "govuk/components/input/macro.njk" import govukInput %}
+{% from "govuk/components/radios/macro.njk" import govukRadios %}
+{% from "moj/components/date-picker/macro.njk" import mojDatePicker %}
+
+{#
+USAGE:
+  {% include 'path/to/components/renderField/renderField.njk' %}
+  needs:
+    field - value containing component, items, name, etc...
+    values - object with form submitted values
+#}
+
+{% if field.component === "govukCheckboxes" or field.component === "govukRadios" %}
+  {# Build `items` field #}
+  {% set items = [] %}
+    {% for item in field.items %}
+        {# Build `conditional` field #}
+        {%- if item.dateRequired or item.commentRequired -%}
+          {%- set conditionalHtml -%}
+            {% include "./_conditionalHtml.njk" %}
+          {%- endset -%}
+          {%- set conditional = { html: conditionalHtml} -%}
+        {%- else -%}
+          {%- set conditional = null -%}
+        {%- endif -%}
+
+        {% set items = (items.push({
+          text: item.text,
+          value: item.value,
+          conditional: conditional
+        }), items) %}
+      {% endfor %}
+
+    {% if field.component === "govukCheckboxes" %}
+      {% set govukMacro = govukCheckboxes %}
+    {% else %}
+      {% set govukMacro = govukRadios %}
+    {% endif %}
+    {# TODO: Populate value from...values? formValues? #}
+    {{ govukMacro({
+        name: field.name,
+        value: values[field.name],
+        fieldset: {
+          legend: {
+            text: field.text,
+            classes: 'govuk-fieldset__legend--m'
+          }
+        },
+        items: items
+    }) }}
+{% elif field.component %}
+  <strong>WARNING: Unknown field's component {{ field.component }}</strong>
+{% endif %}

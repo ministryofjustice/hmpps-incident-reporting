@@ -164,7 +164,7 @@ export function govukCheckedItems<I extends GovukRadiosItem>(items: I[], singleV
 /**
  * Marks items as checked depending on values for use with GOV.UK radios and checkboxes components
  */
-export function govukMultipleCheckedItems<I extends GovukRadiosItem>(
+export function govukMultipleCheckedItems<I extends GovukCheckboxesItem>(
   items: I[],
   multipleValues: string[] | undefined,
 ): I[] {
@@ -173,6 +173,27 @@ export function govukMultipleCheckedItems<I extends GovukRadiosItem>(
       ...item,
       checked: Boolean(multipleValues?.includes(item.value)),
     }
+  })
+}
+
+/**
+ * Adds a conditional HTML property to matching item by value within GOV.UK radios and checkboxes components
+ */
+export function govukCheckedItemsConditional<I extends GovukRadiosItem>(
+  items: I[],
+  conditional?: { value: string; html: string } | undefined,
+): I[] {
+  if (!conditional?.html) {
+    return items
+  }
+  return items.map(item => {
+    if (item.value === conditional.value) {
+      return {
+        ...item,
+        conditional: { html: conditional.html },
+      }
+    }
+    return item
   })
 }
 

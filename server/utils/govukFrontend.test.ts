@@ -7,6 +7,7 @@ import {
   govukSelectSetSelected,
   govukCheckedItems,
   govukMultipleCheckedItems,
+  govukCheckedItemsConditional,
 } from './govukFrontend'
 
 describe('findFieldInGovukErrorSummary', () => {
@@ -87,6 +88,34 @@ describe('govukCheckedItems and govukMultipleCheckedItems', () => {
     ])
   })
 })
+
+describe('govukCheckedItemsConditional', () => {
+  const items: GovukRadiosItem[] = [
+    { text: 'A', value: 'a' },
+    { text: 'B', value: 'b' },
+    { text: 'C', value: 'c' },
+  ]
+
+  it.each([undefined, null, {}])('should ignore %p conditional', conditional => {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    expect(govukCheckedItemsConditional(items, conditional as any)).toStrictEqual(items)
+  })
+
+  it('should add conditional html property to item matching by value', () => {
+    expect(govukCheckedItemsConditional(items, { value: 'b', html: '<strong>info</strong>' })).toStrictEqual<
+      GovukRadiosItem[]
+    >([
+      { text: 'A', value: 'a' },
+      { text: 'B', value: 'b', conditional: { html: '<strong>info</strong>' } },
+      { text: 'C', value: 'c' },
+    ])
+  })
+
+  it('should not add conditional html property if no items match by value', () => {
+    expect(govukCheckedItemsConditional(items, { value: 'd', html: '<strong>info</strong>' })).toStrictEqual(items)
+  })
+})
+
 describe('govukSelectInsertDefault', () => {
   it.each([undefined, null])('should ignore item list %p', list => {
     expect(govukSelectInsertDefault(list, 'Select an option…')).toStrictEqual(list)

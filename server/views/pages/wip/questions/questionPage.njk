@@ -4,8 +4,6 @@
 {% from "govuk/components/error-summary/macro.njk" import govukErrorSummary %}
 {% from "govuk/components/back-link/macro.njk" import govukBackLink %}
 
-{% from "../../../components/wip/renderField/macro.njk" import renderField %}
-
 {% set title = "TODO: Test nunjucks template" %}
 
 {% block pageTitle %}
@@ -53,7 +51,7 @@
         {% block fields %}
           {% for _fieldId, field in options.fields %}
             {% if field.component %}
-              {{ renderField(field) }}
+              {% include "../../../components/wip/renderField/renderField.njk" %}
             {% endif %}
           {% endfor %}
         {% endblock %}

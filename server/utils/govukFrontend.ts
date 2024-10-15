@@ -176,6 +176,27 @@ export function govukMultipleCheckedItems<I extends GovukRadiosItem>(
   })
 }
 
+/**
+ * Adds a conditional HTML property to matching item by value within GOV.UK radios and checkboxes components
+ */
+export function addConditionalToGovukCheckedItems<I extends GovukRadiosItem>(
+  items: I[],
+  conditional?: { value: string; html: string } | undefined,
+): I[] {
+  if (!conditional?.html) {
+    return items
+  }
+  return items.map(item => {
+    if (item.value === conditional.value) {
+      return {
+        ...item,
+        conditional: { html: conditional.html },
+      }
+    }
+    return item
+  })
+}
+
 /** Insert an blank default value into a GOV.UK select component `items` list */
 export const govukSelectInsertDefault = (
   items: GovukSelectItem[],

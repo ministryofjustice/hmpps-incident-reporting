@@ -42,6 +42,8 @@ export default function routes(services: Services): Router {
 
     router.use('/generic-route', genericRouter)
     router.use('/assaults', genFieldsRouter)
+
+    router.use('/demo', debugRoutes.demo)
   }
 
   // Auxiliary routes

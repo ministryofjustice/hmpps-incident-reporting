@@ -9,6 +9,7 @@ import logger from '../../logger'
 import config from '../config'
 import { convertToTitleCase, initialiseName, nameOfPerson, reversedNameOfPerson, prisonerLocation } from './utils'
 import {
+  addConditionalToGovukCheckedItems,
   findFieldInGovukErrorSummary,
   govukCheckedItems,
   govukMultipleCheckedItems,
@@ -53,7 +54,10 @@ export default function nunjucksSetup(app: express.Express): void {
   )
 
   // misc utils
-  njkEnv.addFilter('assetMap', (url: string) => assetManifest[url] || url)
+  njkEnv.addFilter('assetMap', (url: string): string => assetManifest[url] || url)
+  njkEnv.addGlobal('throwError', (message?: string): never => {
+    throw new Error(message ?? 'Unexpected error')
+  })
   njkEnv.addGlobal('callAsMacro', callAsMacro)
 
   // name formatting
@@ -77,8 +81,20 @@ export default function nunjucksSetup(app: express.Express): void {
   njkEnv.addFilter('findFieldInGovukErrorSummary', findFieldInGovukErrorSummary)
   njkEnv.addFilter('govukCheckedItems', govukCheckedItems)
   njkEnv.addFilter('govukMultipleCheckedItems', govukMultipleCheckedItems)
+  njkEnv.addFilter('addConditionalToGovukCheckedItems', addConditionalToGovukCheckedItems)
   njkEnv.addFilter('govukSelectInsertDefault', govukSelectInsertDefault)
   njkEnv.addFilter('govukSelectSetSelected', govukSelectSetSelected)
+
+  njkEnv.addFilter('debug', function debug(value: unknown, action: 'list-properties' | 'list-context'): unknown {
+    switch (action) {
+      case 'list-context':
+        return Object.getOwnPropertyNames(this.ctx).sort().join('\n')
+      case 'list-properties':
+        return Object.getOwnPropertyNames(value).sort().join('\n')
+      default:
+        throw new Error(`debug “${action}” not implemented`)
+    }
+  })
 }
 
 function callAsMacro(name: string): (...args: unknown[]) => unknown {

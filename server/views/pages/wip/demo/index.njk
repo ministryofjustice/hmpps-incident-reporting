@@ -1,0 +1,92 @@
+{% extends "./template.njk" %}
+
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
+{% from "govuk/components/error-summary/macro.njk" import govukErrorSummary %}
+{% from "govuk/components/input/macro.njk" import govukInput %}
+{% from "govuk/components/radios/macro.njk" import govukRadios %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      {% if errorlist.length %}
+        {% set errorSummaryItems = [] %}
+        {% for error in errorlist %}
+          {% set fieldHref %}#{{ error.field or error.key }}{% endset %}
+          {% set _ = errorSummaryItems.push({
+            text: error.message,
+            href: fieldHref
+          }) %}
+        {% endfor %}
+        {{ govukErrorSummary({
+          titleText: "There is a problem",
+          errorList: errorSummaryItems
+        }) }}
+      {% endif %}
+
+      <form method="post" action="" novalidate>
+        <input type="hidden" name="_csrf" value="{{ csrfToken }}" />
+        <input type="hidden" name="x-csrf-token" value="{{ csrfToken }}" />
+
+        {% for fieldName, field in options.fields %}
+          {# <pre>{{ fieldName }}§{{ field | dump }}</pre> #}
+          {% if "items" in field %}
+            {% set conditional = {} %}
+            {% for subfieldName, subfield in options.fields %}
+              {% if subfield.dependent.field == fieldName %}
+                {% set conditionalHtml %}
+                  {{ govukInput({
+                    name: subfieldName,
+                    id: subfieldName,
+                    label: { text: subfield.name },
+                    value: values[subfieldName] or undefined,
+                    errorMessage: { text: errors[subfieldName].message } if errors[subfieldName] else undefined
+                  }) }}
+                {% endset %}
+                {% set conditional = {
+                  value: subfield.dependent.value,
+                  html: conditionalHtml
+                } %}
+              {% endif %}
+            {% endfor %}
+
+            {% if field.multiple %}
+              {{ govukCheckboxes({
+                id: fieldName,
+                name: fieldName,
+                fieldset: { legend: { text: field.name } },
+                items: field.items | govukMultipleCheckedItems(values[fieldName]) | addConditionalToGovukCheckedItems(conditional)
+              }) }}
+            {% else %}
+              {{ govukRadios({
+                id: fieldName,
+                name: fieldName,
+                fieldset: { legend: { text: field.name } },
+                items: field.items | govukCheckedItems(values[fieldName]) | addConditionalToGovukCheckedItems(conditional)
+              }) }}
+            {% endif %}
+          {% elif not field.dependent %}
+            {{ throwError('Field set up incorrectly: ' + fieldName) }}
+          {% endif %}
+        {% endfor %}
+
+        <div class="govuk-button-group">
+          {{ govukButton({
+            text: "Save",
+            preventDoubleClick: true,
+            type: "submit"
+          }) }}
+
+          {% if cancelUrl %}
+            <a href="{{ cancelUrl }}">Cancel</a>
+          {% endif %}
+        </div>
+      </form>
+
+    </div>
+  </div>
+
+  <hr />
+  {% include "./debug-panel.njk" %}
+{% endblock %}

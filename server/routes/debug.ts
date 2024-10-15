@@ -1,4 +1,5 @@
-import type { RequestHandler } from 'express'
+import type Express from 'express'
+import FormWizard from 'hmpo-form-wizard'
 import { NotFound } from 'http-errors'
 
 import format from '../utils/format'
@@ -14,8 +15,96 @@ interface ListFormData {
   page?: string
 }
 
-export default function makeDebugRoutes(services: Services): Record<string, RequestHandler> {
+class Demo extends FormWizard.Controller {
+  errorMessages: Record<string, string> = {
+    required: 'This field is required',
+    email: 'Enter an email address',
+  }
+
+  errorMessage(key: string, type: string): string {
+    const errorMessage = this.errorMessages[type]
+    if (!errorMessage) {
+      throw new Error(`Error message not set for type “${type}” on controller ${this.constructor.name}`)
+    }
+    return errorMessage
+  }
+
+  csrfGenerateSecret(req: FormWizard.Request, res: Express.Response, next: Express.NextFunction): void {
+    req.sessionModel.set('csrf-secret', res.locals.csrfToken)
+    next()
+  }
+
+  validateField(key: string, req: FormWizard.Request, res: Express.Response): FormWizard.Error | false | undefined {
+    const fieldError = super.validateField(key, req, res)
+    if (fieldError && !fieldError.message) {
+      fieldError.message = this.errorMessage(key, fieldError.type)
+    }
+    return fieldError
+  }
+
+  saveValues(req: FormWizard.Request, res: Express.Response, next: Express.NextFunction) {
+    super.saveValues(req, res, err => {
+      const formValues = { ...req.form.values }
+      Object.entries(req.form.options.fields).forEach(([subfieldName, subfield]) => {
+        // remove conditional field value if its dependent value was not chosen
+        if (
+          typeof subfield.dependent === 'object' &&
+          subfield.dependent.field in formValues &&
+          formValues[subfield.dependent.field] !== subfield.dependent.value
+        ) {
+          delete formValues[subfieldName]
+        }
+      })
+      console.warn('Need to save these values only:')
+      console.dir(formValues)
+      next(err)
+    })
+  }
+}
+
+export default function makeDebugRoutes(services: Services): Record<string, Express.RequestHandler> {
   const { userService } = services
+
+  const demo = FormWizard(
+    {
+      '/': {
+        entryPoint: true,
+        fields: ['subscribe', 'email'],
+        controller: Demo,
+        backLink: '/',
+        next: 'page2',
+      },
+      '/page2': {
+        fields: ['subscribe', 'email'],
+        controller: Demo,
+        template: 'index',
+        next: 'done',
+      },
+      '/done': {
+        noPost: true,
+      },
+    },
+    {
+      subscribe: {
+        name: 'subscribe',
+        validate: ['required'],
+        multiple: false,
+        items: [
+          { text: 'Yes', value: 'yes' },
+          { text: 'No', value: 'no' },
+        ],
+      },
+      email: {
+        name: 'email',
+        validate: ['required', 'email'],
+        dependent: {
+          field: 'subscribe',
+          value: 'yes',
+        },
+      },
+    },
+    { name: 'demo', templatePath: 'pages/wip/demo', checkSession: false, csrf: false },
+  )
 
   return {
     async eventList(req, res) {
@@ -144,5 +233,7 @@ export default function makeDebugRoutes(services: Services): Record<string, Requ
 
       res.render('pages/debug/reportDetails', { report, prisonersLookup, usersLookup, prisonsLookup })
     },
+
+    demo,
   }
 }

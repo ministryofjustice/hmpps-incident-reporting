@@ -1,0 +1,12 @@
+{% extends "../../../partials/layout.njk" %}
+
+{% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+
+{% block beforeContent %}
+  {% if backLink %}
+    {{ govukBackLink({
+      text: "Back",
+      href: backLink
+    }) }}
+  {% endif %}
+{% endblock %}

@@ -384,7 +384,7 @@ declare module 'hmpo-form-wizard' {
         fields: string[],
         ignoreLocalFields = false,
         undefinedIfEmpty = false,
-      )
+      ): string[] | undefined
 
       setStepComplete(req: Request, res: Express.Response, path: string): void
 
@@ -398,7 +398,7 @@ declare module 'hmpo-form-wizard' {
 
       csrfGenerateSecret(req: Request, res: Express.Response, next: Express.NextFunction): void
 
-      csrfGenerateSecret(req: Request, res: Express.Response, next: Express.NextFunction): void
+      csrfCheckToken(req: Request, res: Express.Response, next: Express.NextFunction): void
 
       csrfSetToken(req: Request, res: Express.Response, next: Express.NextFunction): void
 
@@ -408,7 +408,7 @@ declare module 'hmpo-form-wizard' {
 
       backlinksSetLocals(req: Request, res: Express.Response, next: Express.NextFunction): void
 
-      backlinksSetLocals(req: Request, res: Express.Response): string | undefined
+      getBackLink(req: Request, res: Express.Response): string | undefined
 
       decodeConditions(
         req: Request,
@@ -427,8 +427,6 @@ declare module 'hmpo-form-wizard' {
       checkEditing(req: Request, res: Express.Response, next: Express.NextFunction): void
 
       clearEditing(req: Request, res: Express.Response): void
-
-      getBackLink(req: Request, res: Express.Response): string | undefined
     }
 
     interface SessionModelOptions extends LocalModelOptions {

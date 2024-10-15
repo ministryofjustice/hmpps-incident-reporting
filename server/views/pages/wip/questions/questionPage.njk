@@ -50,9 +50,7 @@
 
         {% block fields %}
           {% for _fieldId, field in options.fields %}
-            {% if field.component %}
-              {% include "../../../components/wip/renderField/renderField.njk" %}
-            {% endif %}
+            {% include "../../../components/wip/renderField/renderField.njk" %}
           {% endfor %}
         {% endblock %}
 

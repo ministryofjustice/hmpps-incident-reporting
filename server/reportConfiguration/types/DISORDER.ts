@@ -1,4 +1,4 @@
-// Generated with ./scripts/updateNomisIncidentTypeConfigurations.ts at 2024-09-25T09:25:56.946Z
+// Generated with ./scripts/updateNomisIncidentTypeConfigurations.ts at 2024-10-15T17:17:23.684Z
 
 import { type IncidentTypeConfiguration } from '../../data/incidentTypeConfiguration/types'
 
@@ -15,6 +15,7 @@ const DISORDER: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '214684',
           code: 'BARRICADE/PREVENTION OF ACCESS',
           active: true,
           label: 'BARRICADE/PREVENTION OF ACCESS',
@@ -23,6 +24,7 @@ const DISORDER: IncidentTypeConfiguration = {
           nextQuestionId: '63180',
         },
         {
+          id: '214685',
           code: 'CONCERTED INDISCIPLINE',
           active: true,
           label: 'CONCERTED INDISCIPLINE',
@@ -31,6 +33,7 @@ const DISORDER: IncidentTypeConfiguration = {
           nextQuestionId: '63180',
         },
         {
+          id: '214686',
           code: 'HOSTAGE',
           active: true,
           label: 'HOSTAGE',
@@ -39,6 +42,7 @@ const DISORDER: IncidentTypeConfiguration = {
           nextQuestionId: '63180',
         },
         {
+          id: '214687',
           code: 'INCIDENT AT HEIGHT',
           active: true,
           label: 'INCIDENT AT HEIGHT',
@@ -56,6 +60,7 @@ const DISORDER: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '214688',
           code: 'NO FURTHER ACTION',
           active: true,
           label: 'NO FURTHER ACTION',
@@ -64,6 +69,7 @@ const DISORDER: IncidentTypeConfiguration = {
           nextQuestionId: '63181',
         },
         {
+          id: '214689',
           code: 'PLACED ON REPORT/ADJUDICATION REFERRAL',
           active: true,
           label: 'PLACED ON REPORT/ADJUDICATION REFERRAL',
@@ -72,6 +78,7 @@ const DISORDER: IncidentTypeConfiguration = {
           nextQuestionId: '63181',
         },
         {
+          id: '214690',
           code: 'IEP REGRESSION',
           active: true,
           label: 'IEP REGRESSION',
@@ -80,6 +87,7 @@ const DISORDER: IncidentTypeConfiguration = {
           nextQuestionId: '63181',
         },
         {
+          id: '214691',
           code: 'POLICE REFERRAL',
           active: true,
           label: 'POLICE REFERRAL',
@@ -97,6 +105,7 @@ const DISORDER: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '214692',
           code: 'NO',
           active: true,
           label: 'NO',
@@ -105,6 +114,7 @@ const DISORDER: IncidentTypeConfiguration = {
           nextQuestionId: '63183',
         },
         {
+          id: '214693',
           code: 'YES',
           active: true,
           label: 'YES',
@@ -122,6 +132,7 @@ const DISORDER: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '214694',
           code: 'ADMINISTRATION',
           active: true,
           label: 'ADMINISTRATION',
@@ -130,6 +141,7 @@ const DISORDER: IncidentTypeConfiguration = {
           nextQuestionId: '63183',
         },
         {
+          id: '214695',
           code: 'ASSOCIATION AREA',
           active: true,
           label: 'ASSOCIATION AREA',
@@ -138,6 +150,7 @@ const DISORDER: IncidentTypeConfiguration = {
           nextQuestionId: '63183',
         },
         {
+          id: '214696',
           code: 'CELL',
           active: true,
           label: 'CELL',
@@ -146,6 +159,7 @@ const DISORDER: IncidentTypeConfiguration = {
           nextQuestionId: '63183',
         },
         {
+          id: '214697',
           code: 'CHAPEL',
           active: true,
           label: 'CHAPEL',
@@ -154,6 +168,7 @@ const DISORDER: IncidentTypeConfiguration = {
           nextQuestionId: '63183',
         },
         {
+          id: '214698',
           code: 'CROWN COURT',
           active: true,
           label: 'CROWN COURT',
@@ -162,6 +177,7 @@ const DISORDER: IncidentTypeConfiguration = {
           nextQuestionId: '63183',
         },
         {
+          id: '214699',
           code: 'DINING ROOM',
           active: true,
           label: 'DINING ROOM',
@@ -170,6 +186,7 @@ const DISORDER: IncidentTypeConfiguration = {
           nextQuestionId: '63183',
         },
         {
+          id: '214700',
           code: 'DORMITORY',
           active: true,
           label: 'DORMITORY',
@@ -178,6 +195,7 @@ const DISORDER: IncidentTypeConfiguration = {
           nextQuestionId: '63183',
         },
         {
+          id: '214701',
           code: 'EDUCATION',
           active: true,
           label: 'EDUCATION',
@@ -186,6 +204,7 @@ const DISORDER: IncidentTypeConfiguration = {
           nextQuestionId: '63183',
         },
         {
+          id: '214702',
           code: 'EXERCISE YARD',
           active: true,
           label: 'EXERCISE YARD',
@@ -194,6 +213,7 @@ const DISORDER: IncidentTypeConfiguration = {
           nextQuestionId: '63183',
         },
         {
+          id: '214703',
           code: 'EXTERNAL ROOF',
           active: true,
           label: 'EXTERNAL ROOF',
@@ -202,6 +222,7 @@ const DISORDER: IncidentTypeConfiguration = {
           nextQuestionId: '63183',
         },
         {
+          id: '214704',
           code: 'FUNERAL',
           active: true,
           label: 'FUNERAL',
@@ -210,6 +231,7 @@ const DISORDER: IncidentTypeConfiguration = {
           nextQuestionId: '63183',
         },
         {
+          id: '214705',
           code: 'GATE',
           active: true,
           label: 'GATE',
@@ -218,6 +240,7 @@ const DISORDER: IncidentTypeConfiguration = {
           nextQuestionId: '63183',
         },
         {
+          id: '214706',
           code: 'GYM',
           active: true,
           label: 'GYM',
@@ -226,6 +249,7 @@ const DISORDER: IncidentTypeConfiguration = {
           nextQuestionId: '63183',
         },
         {
+          id: '214707',
           code: 'HEALTH CARE CENTRE',
           active: true,
           label: 'HEALTH CARE CENTRE',
@@ -234,6 +258,7 @@ const DISORDER: IncidentTypeConfiguration = {
           nextQuestionId: '63183',
         },
         {
+          id: '214708',
           code: 'HOSPITAL OUTSIDE (PATIENT)',
           active: true,
           label: 'HOSPITAL OUTSIDE (PATIENT)',
@@ -242,6 +267,7 @@ const DISORDER: IncidentTypeConfiguration = {
           nextQuestionId: '63183',
         },
         {
+          id: '214709',
           code: 'HOSPITAL OUTSIDE (VISITING)',
           active: true,
           label: 'HOSPITAL OUTSIDE (VISITING)',
@@ -250,6 +276,7 @@ const DISORDER: IncidentTypeConfiguration = {
           nextQuestionId: '63183',
         },
         {
+          id: '214710',
           code: 'INDUCTION/1ST NIGHT CENTRE',
           active: true,
           label: 'INDUCTION/1ST NIGHT CENTRE',
@@ -258,6 +285,7 @@ const DISORDER: IncidentTypeConfiguration = {
           nextQuestionId: '63183',
         },
         {
+          id: '214711',
           code: 'KITCHEN',
           active: true,
           label: 'KITCHEN',
@@ -266,6 +294,7 @@ const DISORDER: IncidentTypeConfiguration = {
           nextQuestionId: '63183',
         },
         {
+          id: '214712',
           code: 'MAGISTRATES COURT',
           active: true,
           label: 'MAGISTRATES COURT',
@@ -274,6 +303,7 @@ const DISORDER: IncidentTypeConfiguration = {
           nextQuestionId: '63183',
         },
         {
+          id: '214713',
           code: 'OFFICE',
           active: true,
           label: 'OFFICE',
@@ -282,6 +312,7 @@ const DISORDER: IncidentTypeConfiguration = {
           nextQuestionId: '63183',
         },
         {
+          id: '214714',
           code: 'OUTSIDE WORKING PARTY',
           active: true,
           label: 'OUTSIDE WORKING PARTY',
@@ -290,6 +321,7 @@ const DISORDER: IncidentTypeConfiguration = {
           nextQuestionId: '63183',
         },
         {
+          id: '214715',
           code: 'RECEPTION',
           active: true,
           label: 'RECEPTION',
@@ -298,6 +330,7 @@ const DISORDER: IncidentTypeConfiguration = {
           nextQuestionId: '63183',
         },
         {
+          id: '214716',
           code: 'RECESS',
           active: true,
           label: 'RECESS',
@@ -306,6 +339,7 @@ const DISORDER: IncidentTypeConfiguration = {
           nextQuestionId: '63183',
         },
         {
+          id: '214717',
           code: 'SEGREGATION UNIT',
           active: true,
           label: 'SEGREGATION UNIT',
@@ -314,6 +348,7 @@ const DISORDER: IncidentTypeConfiguration = {
           nextQuestionId: '63183',
         },
         {
+          id: '214718',
           code: 'SHOWERS/CHANGING ROOM',
           active: true,
           label: 'SHOWERS/CHANGING ROOM',
@@ -322,6 +357,7 @@ const DISORDER: IncidentTypeConfiguration = {
           nextQuestionId: '63183',
         },
         {
+          id: '214719',
           code: 'SPECIAL UNIT',
           active: true,
           label: 'SPECIAL UNIT',
@@ -330,6 +366,7 @@ const DISORDER: IncidentTypeConfiguration = {
           nextQuestionId: '63183',
         },
         {
+          id: '214720',
           code: 'SPORTS FIELD',
           active: true,
           label: 'SPORTS FIELD',
@@ -338,6 +375,7 @@ const DISORDER: IncidentTypeConfiguration = {
           nextQuestionId: '63183',
         },
         {
+          id: '214721',
           code: 'VEHICLE',
           active: true,
           label: 'VEHICLE',
@@ -346,6 +384,7 @@ const DISORDER: IncidentTypeConfiguration = {
           nextQuestionId: '63183',
         },
         {
+          id: '214722',
           code: 'VISITS',
           active: true,
           label: 'VISITS',
@@ -354,6 +393,7 @@ const DISORDER: IncidentTypeConfiguration = {
           nextQuestionId: '63183',
         },
         {
+          id: '214723',
           code: 'VULNERABLE PRISONERS UNIT',
           active: true,
           label: 'VULNERABLE PRISONERS UNIT',
@@ -362,6 +402,7 @@ const DISORDER: IncidentTypeConfiguration = {
           nextQuestionId: '63183',
         },
         {
+          id: '214724',
           code: 'WEDDINGS',
           active: true,
           label: 'WEDDINGS',
@@ -370,6 +411,7 @@ const DISORDER: IncidentTypeConfiguration = {
           nextQuestionId: '63183',
         },
         {
+          id: '214725',
           code: 'WING',
           active: true,
           label: 'WING',
@@ -378,6 +420,7 @@ const DISORDER: IncidentTypeConfiguration = {
           nextQuestionId: '63183',
         },
         {
+          id: '214726',
           code: 'WITHIN PERIMETER',
           active: true,
           label: 'WITHIN PERIMETER',
@@ -386,6 +429,7 @@ const DISORDER: IncidentTypeConfiguration = {
           nextQuestionId: '63183',
         },
         {
+          id: '214727',
           code: 'WORKS DEPARTMENT',
           active: true,
           label: 'WORKS DEPARTMENT',
@@ -394,6 +438,7 @@ const DISORDER: IncidentTypeConfiguration = {
           nextQuestionId: '63183',
         },
         {
+          id: '214728',
           code: 'WORKSHOP',
           active: true,
           label: 'WORKSHOP',
@@ -402,6 +447,7 @@ const DISORDER: IncidentTypeConfiguration = {
           nextQuestionId: '63183',
         },
         {
+          id: '214729',
           code: 'OTHER - ENTER DETAILS',
           active: true,
           label: 'OTHER - ENTER DETAILS',
@@ -419,6 +465,7 @@ const DISORDER: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '214730',
           code: 'NO',
           active: true,
           label: 'NO',
@@ -427,6 +474,7 @@ const DISORDER: IncidentTypeConfiguration = {
           nextQuestionId: '63184',
         },
         {
+          id: '214731',
           code: 'YES',
           active: true,
           label: 'YES',
@@ -444,6 +492,7 @@ const DISORDER: IncidentTypeConfiguration = {
       multipleAnswers: true,
       answers: [
         {
+          id: '214732',
           code: 'NO',
           active: true,
           label: 'NO',
@@ -452,6 +501,7 @@ const DISORDER: IncidentTypeConfiguration = {
           nextQuestionId: '63185',
         },
         {
+          id: '214733',
           code: 'DEMANDING EXTERNAL TRANSFER',
           active: true,
           label: 'DEMANDING EXTERNAL TRANSFER',
@@ -460,6 +510,7 @@ const DISORDER: IncidentTypeConfiguration = {
           nextQuestionId: '63185',
         },
         {
+          id: '214734',
           code: 'DEMANDING INTERNAL TRANSFER',
           active: true,
           label: 'DEMANDING INTERNAL TRANSFER',
@@ -468,6 +519,7 @@ const DISORDER: IncidentTypeConfiguration = {
           nextQuestionId: '63185',
         },
         {
+          id: '214735',
           code: 'FACILITIES',
           active: true,
           label: 'FACILITIES',
@@ -476,6 +528,7 @@ const DISORDER: IncidentTypeConfiguration = {
           nextQuestionId: '63185',
         },
         {
+          id: '214736',
           code: 'FOOD',
           active: true,
           label: 'FOOD',
@@ -484,6 +537,7 @@ const DISORDER: IncidentTypeConfiguration = {
           nextQuestionId: '63185',
         },
         {
+          id: '214737',
           code: 'PAY',
           active: true,
           label: 'PAY',
@@ -492,6 +546,7 @@ const DISORDER: IncidentTypeConfiguration = {
           nextQuestionId: '63185',
         },
         {
+          id: '214738',
           code: 'REFUSING EXTERNAL TRANSFER',
           active: true,
           label: 'REFUSING EXTERNAL TRANSFER',
@@ -500,6 +555,7 @@ const DISORDER: IncidentTypeConfiguration = {
           nextQuestionId: '63185',
         },
         {
+          id: '214739',
           code: 'REFUSING INTERNAL TRANSFER',
           active: true,
           label: 'REFUSING INTERNAL TRANSFER',
@@ -508,6 +564,7 @@ const DISORDER: IncidentTypeConfiguration = {
           nextQuestionId: '63185',
         },
         {
+          id: '214740',
           code: 'TIME OUT OF CELL',
           active: true,
           label: 'TIME OUT OF CELL',
@@ -516,6 +573,7 @@ const DISORDER: IncidentTypeConfiguration = {
           nextQuestionId: '63185',
         },
         {
+          id: '214741',
           code: 'VISITS',
           active: true,
           label: 'VISITS',
@@ -524,6 +582,7 @@ const DISORDER: IncidentTypeConfiguration = {
           nextQuestionId: '63185',
         },
         {
+          id: '214742',
           code: 'OTHER - ENTER DETAILS',
           active: true,
           label: 'OTHER - ENTER DETAILS',
@@ -541,6 +600,7 @@ const DISORDER: IncidentTypeConfiguration = {
       multipleAnswers: true,
       answers: [
         {
+          id: '214743',
           code: 'ACCESS DIFFICULTIES',
           active: true,
           label: 'ACCESS DIFFICULTIES',
@@ -549,6 +609,7 @@ const DISORDER: IncidentTypeConfiguration = {
           nextQuestionId: '63186',
         },
         {
+          id: '214744',
           code: 'DAMAGE RESULTING IN LOSS OF FACILITIES OR UTILITIES',
           active: true,
           label: 'DAMAGE RESULTING IN LOSS OF FACILITIES OR UTILITIES',
@@ -557,6 +618,7 @@ const DISORDER: IncidentTypeConfiguration = {
           nextQuestionId: '63186',
         },
         {
+          id: '214745',
           code: 'DAMAGE RESULTING IN THE LOSS OF ACCOMMODATION',
           active: true,
           label: 'DAMAGE RESULTING IN THE LOSS OF ACCOMMODATION',
@@ -565,6 +627,7 @@ const DISORDER: IncidentTypeConfiguration = {
           nextQuestionId: '63186',
         },
         {
+          id: '214746',
           code: 'MEDIA INTEREST',
           active: true,
           label: 'MEDIA INTEREST',
@@ -573,6 +636,7 @@ const DISORDER: IncidentTypeConfiguration = {
           nextQuestionId: '63186',
         },
         {
+          id: '214747',
           code: 'ORRU ASSISTANCE REQUESTED',
           active: true,
           label: 'ORRU ASSISTANCE REQUESTED',
@@ -581,6 +645,7 @@ const DISORDER: IncidentTypeConfiguration = {
           nextQuestionId: '63186',
         },
         {
+          id: '214748',
           code: 'PERPETRATOR UNDER INFLUENCE OF DRUGS OR ALCOHOL',
           active: true,
           label: 'PERPETRATOR UNDER INFLUENCE OF DRUGS OR ALCOHOL',
@@ -589,6 +654,7 @@ const DISORDER: IncidentTypeConfiguration = {
           nextQuestionId: '63186',
         },
         {
+          id: '214749',
           code: 'THREAT OR ACTUAL SELF HARM',
           active: true,
           label: 'THREAT OR ACTUAL SELF HARM',
@@ -597,6 +663,7 @@ const DISORDER: IncidentTypeConfiguration = {
           nextQuestionId: '63186',
         },
         {
+          id: '214750',
           code: 'VIOLENCE DIRECTED AGAINST STAFF',
           active: true,
           label: 'VIOLENCE DIRECTED AGAINST STAFF',
@@ -614,6 +681,7 @@ const DISORDER: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '214751',
           code: '< 1 minute',
           active: true,
           label: '< 1 minute',
@@ -622,6 +690,7 @@ const DISORDER: IncidentTypeConfiguration = {
           nextQuestionId: '63187',
         },
         {
+          id: '214752',
           code: '1 min to <5mins',
           active: true,
           label: '1 min to <5mins',
@@ -630,6 +699,7 @@ const DISORDER: IncidentTypeConfiguration = {
           nextQuestionId: '63187',
         },
         {
+          id: '214753',
           code: '10 mins to <15mins',
           active: true,
           label: '10 mins to <15mins',
@@ -638,6 +708,7 @@ const DISORDER: IncidentTypeConfiguration = {
           nextQuestionId: '63187',
         },
         {
+          id: '214754',
           code: '15 mins to <30mins',
           active: true,
           label: '15 mins to <30mins',
@@ -646,6 +717,7 @@ const DISORDER: IncidentTypeConfiguration = {
           nextQuestionId: '63187',
         },
         {
+          id: '214755',
           code: '30 mins to <1 hour',
           active: true,
           label: '30 mins to <1 hour',
@@ -654,6 +726,7 @@ const DISORDER: IncidentTypeConfiguration = {
           nextQuestionId: '63187',
         },
         {
+          id: '214756',
           code: '1 hour to <2 hours',
           active: true,
           label: '1 hour to <2 hours',
@@ -662,6 +735,7 @@ const DISORDER: IncidentTypeConfiguration = {
           nextQuestionId: '63187',
         },
         {
+          id: '214757',
           code: '2 hours to <3 hours',
           active: true,
           label: '2 hours to <3 hours',
@@ -670,6 +744,7 @@ const DISORDER: IncidentTypeConfiguration = {
           nextQuestionId: '63187',
         },
         {
+          id: '214758',
           code: '3 hours to <4 hours',
           active: true,
           label: '3 hours to <4 hours',
@@ -678,6 +753,7 @@ const DISORDER: IncidentTypeConfiguration = {
           nextQuestionId: '63187',
         },
         {
+          id: '214759',
           code: '4 hours to <5 hours',
           active: true,
           label: '4 hours to <5 hours',
@@ -686,6 +762,7 @@ const DISORDER: IncidentTypeConfiguration = {
           nextQuestionId: '63187',
         },
         {
+          id: '214760',
           code: '5 hours plus',
           active: true,
           label: '5 hours plus',
@@ -694,6 +771,7 @@ const DISORDER: IncidentTypeConfiguration = {
           nextQuestionId: '63187',
         },
         {
+          id: '214761',
           code: 'UNKNOWN - ENTER DETAILS',
           active: true,
           label: 'UNKNOWN - ENTER DETAILS',
@@ -711,6 +789,7 @@ const DISORDER: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '214762',
           code: 'COMPLIED WITH ORDER OR INSTRUCTION',
           active: true,
           label: 'COMPLIED WITH ORDER OR INSTRUCTION',
@@ -719,6 +798,7 @@ const DISORDER: IncidentTypeConfiguration = {
           nextQuestionId: '63188',
         },
         {
+          id: '214763',
           code: 'NEGOTIATION',
           active: true,
           label: 'NEGOTIATION',
@@ -727,6 +807,7 @@ const DISORDER: IncidentTypeConfiguration = {
           nextQuestionId: '63188',
         },
         {
+          id: '214764',
           code: 'INTERVENTION (LOCAL STAFF)',
           active: true,
           label: 'INTERVENTION (LOCAL STAFF)',
@@ -735,6 +816,7 @@ const DISORDER: IncidentTypeConfiguration = {
           nextQuestionId: '63188',
         },
         {
+          id: '214765',
           code: 'INTERVENTION (ORRU STAFF)',
           active: true,
           label: 'INTERVENTION (ORRU STAFF)',
@@ -743,6 +825,7 @@ const DISORDER: IncidentTypeConfiguration = {
           nextQuestionId: '63188',
         },
         {
+          id: '214766',
           code: 'INTERVENTION (OPERATION TORNADO)',
           active: true,
           label: 'INTERVENTION (OPERATION TORNADO)',
@@ -751,6 +834,7 @@ const DISORDER: IncidentTypeConfiguration = {
           nextQuestionId: '63188',
         },
         {
+          id: '214767',
           code: 'OTHER - ENTER DETAILS',
           active: true,
           label: 'OTHER - ENTER DETAILS',
@@ -768,6 +852,7 @@ const DISORDER: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '214768',
           code: 'NO',
           active: true,
           label: 'NO',
@@ -776,6 +861,7 @@ const DISORDER: IncidentTypeConfiguration = {
           nextQuestionId: '63189',
         },
         {
+          id: '214769',
           code: 'YES',
           active: true,
           label: 'YES',
@@ -793,6 +879,7 @@ const DISORDER: IncidentTypeConfiguration = {
       multipleAnswers: true,
       answers: [
         {
+          id: '214770',
           code: 'NO',
           active: true,
           label: 'NO',
@@ -801,6 +888,7 @@ const DISORDER: IncidentTypeConfiguration = {
           nextQuestionId: '63190',
         },
         {
+          id: '214771',
           code: 'C & R ADVISOR',
           active: true,
           label: 'C & R ADVISOR',
@@ -809,6 +897,7 @@ const DISORDER: IncidentTypeConfiguration = {
           nextQuestionId: '63190',
         },
         {
+          id: '214772',
           code: 'INCIDENT LIAISON OFFICER',
           active: true,
           label: 'INCIDENT LIAISON OFFICER',
@@ -817,6 +906,7 @@ const DISORDER: IncidentTypeConfiguration = {
           nextQuestionId: '63190',
         },
         {
+          id: '214773',
           code: 'HEALTH CARE STAFF',
           active: true,
           label: 'HEALTH CARE STAFF',
@@ -825,6 +915,7 @@ const DISORDER: IncidentTypeConfiguration = {
           nextQuestionId: '63190',
         },
         {
+          id: '214774',
           code: 'WORKS SERVICES STAFF',
           active: true,
           label: 'WORKS SERVICES STAFF',
@@ -833,6 +924,7 @@ const DISORDER: IncidentTypeConfiguration = {
           nextQuestionId: '63190',
         },
         {
+          id: '214775',
           code: 'OTHER - ENTER DETAILS',
           active: true,
           label: 'OTHER - ENTER DETAILS',
@@ -850,6 +942,7 @@ const DISORDER: IncidentTypeConfiguration = {
       multipleAnswers: true,
       answers: [
         {
+          id: '214776',
           code: 'NO',
           active: true,
           label: 'NO',
@@ -858,6 +951,7 @@ const DISORDER: IncidentTypeConfiguration = {
           nextQuestionId: '63191',
         },
         {
+          id: '214777',
           code: 'DOOR JACK',
           active: true,
           label: 'DOOR JACK',
@@ -866,6 +960,7 @@ const DISORDER: IncidentTypeConfiguration = {
           nextQuestionId: '63191',
         },
         {
+          id: '214778',
           code: 'EXTENDABLE BATONS',
           active: true,
           label: 'EXTENDABLE BATONS',
@@ -874,6 +969,7 @@ const DISORDER: IncidentTypeConfiguration = {
           nextQuestionId: '63191',
         },
         {
+          id: '214779',
           code: 'NEGOTIATION ADVISER (INCLUDING HOSTAGE)',
           active: true,
           label: 'NEGOTIATION ADVISER (INCLUDING HOSTAGE)',
@@ -882,6 +978,7 @@ const DISORDER: IncidentTypeConfiguration = {
           nextQuestionId: '63191',
         },
         {
+          id: '214780',
           code: 'OPERATIONAL RESILIENCE AND RESPONSE UNIT (ORRU)',
           active: true,
           label: 'OPERATIONAL RESILIENCE AND RESPONSE UNIT (ORRU)',
@@ -890,6 +987,7 @@ const DISORDER: IncidentTypeConfiguration = {
           nextQuestionId: '63191',
         },
         {
+          id: '214781',
           code: 'TORNADO',
           active: true,
           label: 'TORNADO',
@@ -898,6 +996,7 @@ const DISORDER: IncidentTypeConfiguration = {
           nextQuestionId: '63191',
         },
         {
+          id: '214782',
           code: 'WATER HOSES',
           active: true,
           label: 'WATER HOSES',
@@ -906,6 +1005,7 @@ const DISORDER: IncidentTypeConfiguration = {
           nextQuestionId: '63191',
         },
         {
+          id: '214783',
           code: 'OTHER - ENTER DETAILS',
           active: true,
           label: 'OTHER - ENTER DETAILS',
@@ -923,6 +1023,7 @@ const DISORDER: IncidentTypeConfiguration = {
       multipleAnswers: true,
       answers: [
         {
+          id: '214784',
           code: 'NO',
           active: true,
           label: 'NO',
@@ -931,6 +1032,7 @@ const DISORDER: IncidentTypeConfiguration = {
           nextQuestionId: '63192',
         },
         {
+          id: '214785',
           code: 'POLICE',
           active: true,
           label: 'POLICE',
@@ -939,6 +1041,7 @@ const DISORDER: IncidentTypeConfiguration = {
           nextQuestionId: '63192',
         },
         {
+          id: '214786',
           code: 'FIRE',
           active: true,
           label: 'FIRE',
@@ -947,6 +1050,7 @@ const DISORDER: IncidentTypeConfiguration = {
           nextQuestionId: '63192',
         },
         {
+          id: '214787',
           code: 'AMBULANCE',
           active: true,
           label: 'AMBULANCE',
@@ -955,6 +1059,7 @@ const DISORDER: IncidentTypeConfiguration = {
           nextQuestionId: '63192',
         },
         {
+          id: '214788',
           code: 'OTHER - ENTER DETAILS',
           active: true,
           label: 'OTHER - ENTER DETAILS',
@@ -972,6 +1077,7 @@ const DISORDER: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '214789',
           code: 'NO',
           active: true,
           label: 'NO',
@@ -980,6 +1086,7 @@ const DISORDER: IncidentTypeConfiguration = {
           nextQuestionId: '63193',
         },
         {
+          id: '214790',
           code: 'YES',
           active: true,
           label: 'YES',
@@ -997,6 +1104,7 @@ const DISORDER: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '214791',
           code: 'ACTIVE',
           active: true,
           label: 'ACTIVE',
@@ -1005,6 +1113,7 @@ const DISORDER: IncidentTypeConfiguration = {
           nextQuestionId: '63194',
         },
         {
+          id: '214792',
           code: 'PASSIVE',
           active: true,
           label: 'PASSIVE',
@@ -1022,6 +1131,7 @@ const DISORDER: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '214793',
           code: 'NUMBER - ENTER DETAILS',
           active: true,
           label: 'NUMBER - ENTER DETAILS',
@@ -1039,6 +1149,7 @@ const DISORDER: IncidentTypeConfiguration = {
       multipleAnswers: true,
       answers: [
         {
+          id: '214794',
           code: 'PRISONER - ENTER NUMBER OF',
           active: true,
           label: 'PRISONER - ENTER NUMBER OF',
@@ -1047,6 +1158,7 @@ const DISORDER: IncidentTypeConfiguration = {
           nextQuestionId: '63196',
         },
         {
+          id: '214795',
           code: 'VISITOR - ENTER NUMBER OF',
           active: true,
           label: 'VISITOR - ENTER NUMBER OF',
@@ -1055,6 +1167,7 @@ const DISORDER: IncidentTypeConfiguration = {
           nextQuestionId: '63196',
         },
         {
+          id: '214796',
           code: 'OTHER - ENTER NUMBER OF',
           active: true,
           label: 'OTHER - ENTER NUMBER OF',
@@ -1072,6 +1185,7 @@ const DISORDER: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '214797',
           code: 'NO',
           active: true,
           label: 'NO',
@@ -1080,6 +1194,7 @@ const DISORDER: IncidentTypeConfiguration = {
           nextQuestionId: '63198',
         },
         {
+          id: '214798',
           code: 'YES',
           active: true,
           label: 'YES',
@@ -1097,6 +1212,7 @@ const DISORDER: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '214799',
           code: 'NO',
           active: true,
           label: 'NO',
@@ -1105,6 +1221,7 @@ const DISORDER: IncidentTypeConfiguration = {
           nextQuestionId: '63198',
         },
         {
+          id: '214800',
           code: 'YES',
           active: true,
           label: 'YES',
@@ -1122,6 +1239,7 @@ const DISORDER: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '214801',
           code: 'NO',
           active: true,
           label: 'NO',
@@ -1130,6 +1248,7 @@ const DISORDER: IncidentTypeConfiguration = {
           nextQuestionId: '63199',
         },
         {
+          id: '214802',
           code: 'YES - PLEASE LOG FIND INCIDENT IF WEAPON RECOVERED',
           active: true,
           label: 'YES - PLEASE LOG FIND INCIDENT IF WEAPON RECOVERED',
@@ -1147,6 +1266,7 @@ const DISORDER: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '214803',
           code: 'NO',
           active: true,
           label: 'NO',
@@ -1155,6 +1275,7 @@ const DISORDER: IncidentTypeConfiguration = {
           nextQuestionId: '63200',
         },
         {
+          id: '214804',
           code: 'YES - PLEASE LOG DAMAGE INCIDENT',
           active: true,
           label: 'YES - PLEASE LOG DAMAGE INCIDENT',
@@ -1172,6 +1293,7 @@ const DISORDER: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '214805',
           code: 'NO',
           active: true,
           label: 'NO',
@@ -1180,6 +1302,7 @@ const DISORDER: IncidentTypeConfiguration = {
           nextQuestionId: '63209',
         },
         {
+          id: '214806',
           code: 'YES',
           active: true,
           label: 'YES',
@@ -1197,6 +1320,7 @@ const DISORDER: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '214807',
           code: 'NO',
           active: true,
           label: 'NO',
@@ -1205,6 +1329,7 @@ const DISORDER: IncidentTypeConfiguration = {
           nextQuestionId: '63204',
         },
         {
+          id: '214808',
           code: 'YES',
           active: true,
           label: 'YES',
@@ -1222,6 +1347,7 @@ const DISORDER: IncidentTypeConfiguration = {
       multipleAnswers: true,
       answers: [
         {
+          id: '214809',
           code: 'BITES',
           active: true,
           label: 'BITES',
@@ -1230,6 +1356,7 @@ const DISORDER: IncidentTypeConfiguration = {
           nextQuestionId: '63203',
         },
         {
+          id: '214810',
           code: 'BLACK EYE',
           active: true,
           label: 'BLACK EYE',
@@ -1238,6 +1365,7 @@ const DISORDER: IncidentTypeConfiguration = {
           nextQuestionId: '63203',
         },
         {
+          id: '214811',
           code: 'BROKEN NOSE',
           active: true,
           label: 'BROKEN NOSE',
@@ -1246,6 +1374,7 @@ const DISORDER: IncidentTypeConfiguration = {
           nextQuestionId: '63203',
         },
         {
+          id: '214812',
           code: 'BROKEN TEETH',
           active: true,
           label: 'BROKEN TEETH',
@@ -1254,6 +1383,7 @@ const DISORDER: IncidentTypeConfiguration = {
           nextQuestionId: '63203',
         },
         {
+          id: '214813',
           code: 'CRUSHING',
           active: true,
           label: 'CRUSHING',
@@ -1262,6 +1392,7 @@ const DISORDER: IncidentTypeConfiguration = {
           nextQuestionId: '63203',
         },
         {
+          id: '214814',
           code: 'CUTS REQUIRING SUTURES',
           active: true,
           label: 'CUTS REQUIRING SUTURES',
@@ -1270,6 +1401,7 @@ const DISORDER: IncidentTypeConfiguration = {
           nextQuestionId: '63203',
         },
         {
+          id: '214815',
           code: 'EXTENSIVE/MULTIPLE BRUISING',
           active: true,
           label: 'EXTENSIVE/MULTIPLE BRUISING',
@@ -1278,6 +1410,7 @@ const DISORDER: IncidentTypeConfiguration = {
           nextQuestionId: '63203',
         },
         {
+          id: '214816',
           code: 'FRACTURE',
           active: true,
           label: 'FRACTURE',
@@ -1286,6 +1419,7 @@ const DISORDER: IncidentTypeConfiguration = {
           nextQuestionId: '63203',
         },
         {
+          id: '214817',
           code: 'GUN SHOT WOUND',
           active: true,
           label: 'GUN SHOT WOUND',
@@ -1294,6 +1428,7 @@ const DISORDER: IncidentTypeConfiguration = {
           nextQuestionId: '63203',
         },
         {
+          id: '214818',
           code: 'SCALD OR BURN',
           active: true,
           label: 'SCALD OR BURN',
@@ -1302,6 +1437,7 @@ const DISORDER: IncidentTypeConfiguration = {
           nextQuestionId: '63203',
         },
         {
+          id: '214819',
           code: 'STABBING',
           active: true,
           label: 'STABBING',
@@ -1310,6 +1446,7 @@ const DISORDER: IncidentTypeConfiguration = {
           nextQuestionId: '63203',
         },
         {
+          id: '214820',
           code: 'TEMPORARY/PERMANENT BLINDNESS',
           active: true,
           label: 'TEMPORARY/PERMANENT BLINDNESS',
@@ -1327,6 +1464,7 @@ const DISORDER: IncidentTypeConfiguration = {
       multipleAnswers: true,
       answers: [
         {
+          id: '214821',
           code: 'CIVILIAN GRADES',
           active: true,
           label: 'CIVILIAN GRADES',
@@ -1335,6 +1473,7 @@ const DISORDER: IncidentTypeConfiguration = {
           nextQuestionId: '63204',
         },
         {
+          id: '214822',
           code: 'EXTERNAL CIVILIANS',
           active: true,
           label: 'EXTERNAL CIVILIANS',
@@ -1343,6 +1482,7 @@ const DISORDER: IncidentTypeConfiguration = {
           nextQuestionId: '63204',
         },
         {
+          id: '214823',
           code: 'POLICE',
           active: true,
           label: 'POLICE',
@@ -1351,6 +1491,7 @@ const DISORDER: IncidentTypeConfiguration = {
           nextQuestionId: '63204',
         },
         {
+          id: '214824',
           code: 'PRISONERS',
           active: true,
           label: 'PRISONERS',
@@ -1359,6 +1500,7 @@ const DISORDER: IncidentTypeConfiguration = {
           nextQuestionId: '63204',
         },
         {
+          id: '214825',
           code: 'OPERATIONAL STAFF - PRISON OFFICER',
           active: true,
           label: 'OPERATIONAL STAFF - PRISON OFFICER',
@@ -1367,6 +1509,7 @@ const DISORDER: IncidentTypeConfiguration = {
           nextQuestionId: '63204',
         },
         {
+          id: '214826',
           code: 'OPERATIONAL STAFF - OTHER',
           active: true,
           label: 'OPERATIONAL STAFF - OTHER',
@@ -1375,6 +1518,7 @@ const DISORDER: IncidentTypeConfiguration = {
           nextQuestionId: '63204',
         },
         {
+          id: '214827',
           code: 'NON-OPERATIONAL STAFF',
           active: true,
           label: 'NON-OPERATIONAL STAFF',
@@ -1383,6 +1527,7 @@ const DISORDER: IncidentTypeConfiguration = {
           nextQuestionId: '63204',
         },
         {
+          id: '214828',
           code: 'NON-DIRECTLY EMPLOYED STAFF',
           active: true,
           label: 'NON-DIRECTLY EMPLOYED STAFF',
@@ -1391,6 +1536,7 @@ const DISORDER: IncidentTypeConfiguration = {
           nextQuestionId: '63204',
         },
         {
+          id: '214829',
           code: 'OTHER - ENTER DETAILS',
           active: true,
           label: 'OTHER - ENTER DETAILS',
@@ -1408,6 +1554,7 @@ const DISORDER: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '214830',
           code: 'NO',
           active: true,
           label: 'NO',
@@ -1416,6 +1563,7 @@ const DISORDER: IncidentTypeConfiguration = {
           nextQuestionId: '63207',
         },
         {
+          id: '214831',
           code: 'YES',
           active: true,
           label: 'YES',
@@ -1433,6 +1581,7 @@ const DISORDER: IncidentTypeConfiguration = {
       multipleAnswers: true,
       answers: [
         {
+          id: '214832',
           code: 'GRAZES, SCRATCHES OR ABRASIONS',
           active: true,
           label: 'GRAZES, SCRATCHES OR ABRASIONS',
@@ -1441,6 +1590,7 @@ const DISORDER: IncidentTypeConfiguration = {
           nextQuestionId: '63206',
         },
         {
+          id: '214833',
           code: 'MINOR BRUISES',
           active: true,
           label: 'MINOR BRUISES',
@@ -1449,6 +1599,7 @@ const DISORDER: IncidentTypeConfiguration = {
           nextQuestionId: '63206',
         },
         {
+          id: '214834',
           code: 'SUPERFICIAL CUTS',
           active: true,
           label: 'SUPERFICIAL CUTS',
@@ -1457,6 +1608,7 @@ const DISORDER: IncidentTypeConfiguration = {
           nextQuestionId: '63206',
         },
         {
+          id: '214835',
           code: 'SWELLINGS',
           active: true,
           label: 'SWELLINGS',
@@ -1465,6 +1617,7 @@ const DISORDER: IncidentTypeConfiguration = {
           nextQuestionId: '63206',
         },
         {
+          id: '214836',
           code: 'OTHER - ENTER DETAILS',
           active: true,
           label: 'OTHER - ENTER DETAILS',
@@ -1482,6 +1635,7 @@ const DISORDER: IncidentTypeConfiguration = {
       multipleAnswers: true,
       answers: [
         {
+          id: '214837',
           code: 'CIVILIAN GRADES',
           active: true,
           label: 'CIVILIAN GRADES',
@@ -1490,6 +1644,7 @@ const DISORDER: IncidentTypeConfiguration = {
           nextQuestionId: '63207',
         },
         {
+          id: '214838',
           code: 'EXTERNAL CIVILIANS',
           active: true,
           label: 'EXTERNAL CIVILIANS',
@@ -1498,6 +1653,7 @@ const DISORDER: IncidentTypeConfiguration = {
           nextQuestionId: '63207',
         },
         {
+          id: '214839',
           code: 'POLICE',
           active: true,
           label: 'POLICE',
@@ -1506,6 +1662,7 @@ const DISORDER: IncidentTypeConfiguration = {
           nextQuestionId: '63207',
         },
         {
+          id: '214840',
           code: 'PRISONERS',
           active: true,
           label: 'PRISONERS',
@@ -1514,6 +1671,7 @@ const DISORDER: IncidentTypeConfiguration = {
           nextQuestionId: '63207',
         },
         {
+          id: '214841',
           code: 'OPERATIONAL STAFF - PRISON OFFICER',
           active: true,
           label: 'OPERATIONAL STAFF - PRISON OFFICER',
@@ -1522,6 +1680,7 @@ const DISORDER: IncidentTypeConfiguration = {
           nextQuestionId: '63207',
         },
         {
+          id: '214842',
           code: 'OPERATIONAL STAFF - OTHER',
           active: true,
           label: 'OPERATIONAL STAFF - OTHER',
@@ -1530,6 +1689,7 @@ const DISORDER: IncidentTypeConfiguration = {
           nextQuestionId: '63207',
         },
         {
+          id: '214843',
           code: 'NON-OPERATIONAL STAFF',
           active: true,
           label: 'NON-OPERATIONAL STAFF',
@@ -1538,6 +1698,7 @@ const DISORDER: IncidentTypeConfiguration = {
           nextQuestionId: '63207',
         },
         {
+          id: '214844',
           code: 'NON-DIRECTLY EMPLOYED STAFF',
           active: true,
           label: 'NON-DIRECTLY EMPLOYED STAFF',
@@ -1546,6 +1707,7 @@ const DISORDER: IncidentTypeConfiguration = {
           nextQuestionId: '63207',
         },
         {
+          id: '214845',
           code: 'OTHER - ENTER DETAILS',
           active: false,
           label: 'OTHER - ENTER DETAILS',
@@ -1554,6 +1716,7 @@ const DISORDER: IncidentTypeConfiguration = {
           nextQuestionId: '63207',
         },
         {
+          id: '214846',
           code: 'OTHER - ENTER DETAILS',
           active: true,
           label: 'OTHER - ENTER DETAILS',
@@ -1571,6 +1734,7 @@ const DISORDER: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '214847',
           code: 'NO',
           active: true,
           label: 'NO',
@@ -1579,6 +1743,7 @@ const DISORDER: IncidentTypeConfiguration = {
           nextQuestionId: '63209',
         },
         {
+          id: '214848',
           code: 'YES',
           active: true,
           label: 'YES',
@@ -1596,6 +1761,7 @@ const DISORDER: IncidentTypeConfiguration = {
       multipleAnswers: true,
       answers: [
         {
+          id: '214849',
           code: 'CIVILIAN GRADES',
           active: true,
           label: 'CIVILIAN GRADES',
@@ -1604,6 +1770,7 @@ const DISORDER: IncidentTypeConfiguration = {
           nextQuestionId: '63209',
         },
         {
+          id: '214850',
           code: 'EXTERNAL CIVILIANS',
           active: true,
           label: 'EXTERNAL CIVILIANS',
@@ -1612,6 +1779,7 @@ const DISORDER: IncidentTypeConfiguration = {
           nextQuestionId: '63209',
         },
         {
+          id: '214851',
           code: 'POLICE',
           active: true,
           label: 'POLICE',
@@ -1620,6 +1788,7 @@ const DISORDER: IncidentTypeConfiguration = {
           nextQuestionId: '63209',
         },
         {
+          id: '214852',
           code: 'PRISONERS',
           active: true,
           label: 'PRISONERS',
@@ -1628,6 +1797,7 @@ const DISORDER: IncidentTypeConfiguration = {
           nextQuestionId: '63209',
         },
         {
+          id: '214853',
           code: 'OPERATIONAL STAFF - PRISON OFFICER',
           active: true,
           label: 'OPERATIONAL STAFF - PRISON OFFICER',
@@ -1636,6 +1806,7 @@ const DISORDER: IncidentTypeConfiguration = {
           nextQuestionId: '63209',
         },
         {
+          id: '214854',
           code: 'OPERATIONAL STAFF - OTHER',
           active: true,
           label: 'OPERATIONAL STAFF - OTHER',
@@ -1644,6 +1815,7 @@ const DISORDER: IncidentTypeConfiguration = {
           nextQuestionId: '63209',
         },
         {
+          id: '214855',
           code: 'NON-OPERATIONAL STAFF',
           active: true,
           label: 'NON-OPERATIONAL STAFF',
@@ -1652,6 +1824,7 @@ const DISORDER: IncidentTypeConfiguration = {
           nextQuestionId: '63209',
         },
         {
+          id: '214856',
           code: 'NON-DIRECTLY EMPLOYED STAFF',
           active: true,
           label: 'NON-DIRECTLY EMPLOYED STAFF',
@@ -1660,6 +1833,7 @@ const DISORDER: IncidentTypeConfiguration = {
           nextQuestionId: '63209',
         },
         {
+          id: '214857',
           code: 'OTHER - ENTER DETAILS',
           active: true,
           label: 'OTHER - ENTER DETAILS',
@@ -1677,6 +1851,7 @@ const DISORDER: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '214858',
           code: 'NO',
           active: true,
           label: 'NO',
@@ -1685,6 +1860,7 @@ const DISORDER: IncidentTypeConfiguration = {
           nextQuestionId: '63210',
         },
         {
+          id: '214859',
           code: 'YES',
           active: true,
           label: 'YES',
@@ -1702,6 +1878,7 @@ const DISORDER: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '214860',
           code: 'NO',
           active: true,
           label: 'NO',
@@ -1710,6 +1887,7 @@ const DISORDER: IncidentTypeConfiguration = {
           nextQuestionId: '63213',
         },
         {
+          id: '214861',
           code: 'YES',
           active: true,
           label: 'YES',
@@ -1727,6 +1905,7 @@ const DISORDER: IncidentTypeConfiguration = {
       multipleAnswers: true,
       answers: [
         {
+          id: '214862',
           code: 'CONTRACTORS EQUIPMENT',
           active: true,
           label: 'CONTRACTORS EQUIPMENT',
@@ -1735,6 +1914,7 @@ const DISORDER: IncidentTypeConfiguration = {
           nextQuestionId: '63212',
         },
         {
+          id: '214863',
           code: 'EXTERNAL ACCESS: FENCING',
           active: true,
           label: 'EXTERNAL ACCESS: FENCING',
@@ -1743,6 +1923,7 @@ const DISORDER: IncidentTypeConfiguration = {
           nextQuestionId: '63212',
         },
         {
+          id: '214864',
           code: 'EXTERNAL ACCESS: ROOF',
           active: true,
           label: 'EXTERNAL ACCESS: ROOF',
@@ -1751,6 +1932,7 @@ const DISORDER: IncidentTypeConfiguration = {
           nextQuestionId: '63212',
         },
         {
+          id: '214865',
           code: 'EXTERNAL ACCESS: TREE',
           active: true,
           label: 'EXTERNAL ACCESS: TREE',
@@ -1759,6 +1941,7 @@ const DISORDER: IncidentTypeConfiguration = {
           nextQuestionId: '63212',
         },
         {
+          id: '214866',
           code: 'INTERNAL ACCESS: LANDINGS/RAILINGS',
           active: true,
           label: 'INTERNAL ACCESS: LANDINGS/RAILINGS',
@@ -1767,6 +1950,7 @@ const DISORDER: IncidentTypeConfiguration = {
           nextQuestionId: '63212',
         },
         {
+          id: '214867',
           code: 'INTERNAL ACCESS: NETTING',
           active: true,
           label: 'INTERNAL ACCESS: NETTING',
@@ -1775,6 +1959,7 @@ const DISORDER: IncidentTypeConfiguration = {
           nextQuestionId: '63212',
         },
         {
+          id: '214868',
           code: 'INTERNAL ACCESS: WINDOW/GATE BARS',
           active: true,
           label: 'INTERNAL ACCESS: WINDOW/GATE BARS',
@@ -1783,6 +1968,7 @@ const DISORDER: IncidentTypeConfiguration = {
           nextQuestionId: '63212',
         },
         {
+          id: '214869',
           code: 'OTHER: INTERNAL - ENTER DETAILS',
           active: true,
           label: 'OTHER: INTERNAL - ENTER DETAILS',
@@ -1791,6 +1977,7 @@ const DISORDER: IncidentTypeConfiguration = {
           nextQuestionId: '63212',
         },
         {
+          id: '214870',
           code: 'OTHER: EXTERNAL - ENTER DETAILS',
           active: true,
           label: 'OTHER: EXTERNAL - ENTER DETAILS',
@@ -1808,6 +1995,7 @@ const DISORDER: IncidentTypeConfiguration = {
       multipleAnswers: true,
       answers: [
         {
+          id: '214871',
           code: 'BETWEEN 3 FEET AND <1ST FLOOR',
           active: true,
           label: 'BETWEEN 3 FEET AND <1ST FLOOR',
@@ -1816,6 +2004,7 @@ const DISORDER: IncidentTypeConfiguration = {
           nextQuestionId: '63213',
         },
         {
+          id: '214872',
           code: '1ST FLOOR',
           active: true,
           label: '1ST FLOOR',
@@ -1824,6 +2013,7 @@ const DISORDER: IncidentTypeConfiguration = {
           nextQuestionId: '63213',
         },
         {
+          id: '214873',
           code: '2ND FLOOR',
           active: true,
           label: '2ND FLOOR',
@@ -1832,6 +2022,7 @@ const DISORDER: IncidentTypeConfiguration = {
           nextQuestionId: '63213',
         },
         {
+          id: '214874',
           code: '3RD FLOOR OR HIGHER',
           active: true,
           label: '3RD FLOOR OR HIGHER',
@@ -1849,6 +2040,7 @@ const DISORDER: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '214875',
           code: 'NO',
           active: true,
           label: 'NO',
@@ -1857,6 +2049,7 @@ const DISORDER: IncidentTypeConfiguration = {
           nextQuestionId: '63214',
         },
         {
+          id: '214876',
           code: 'YES',
           active: true,
           label: 'YES',
@@ -1874,6 +2067,7 @@ const DISORDER: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '214877',
           code: 'NO',
           active: true,
           label: 'NO',
@@ -1882,6 +2076,7 @@ const DISORDER: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
+          id: '214878',
           code: 'YES',
           active: true,
           label: 'YES',
@@ -1899,6 +2094,7 @@ const DISORDER: IncidentTypeConfiguration = {
       multipleAnswers: true,
       answers: [
         {
+          id: '214879',
           code: 'CIVILIAN STAFF - STATE NUMBER OF',
           active: true,
           label: 'CIVILIAN STAFF - STATE NUMBER OF',
@@ -1907,6 +2103,7 @@ const DISORDER: IncidentTypeConfiguration = {
           nextQuestionId: '63216',
         },
         {
+          id: '214880',
           code: 'OFFICER - STATE NUMBER OF',
           active: true,
           label: 'OFFICER - STATE NUMBER OF',
@@ -1915,6 +2112,7 @@ const DISORDER: IncidentTypeConfiguration = {
           nextQuestionId: '63216',
         },
         {
+          id: '214881',
           code: 'PRISONER - STATE NUMBER OF',
           active: true,
           label: 'PRISONER - STATE NUMBER OF',
@@ -1923,6 +2121,7 @@ const DISORDER: IncidentTypeConfiguration = {
           nextQuestionId: '63216',
         },
         {
+          id: '214882',
           code: 'STAFF - STATE NUMBER OF',
           active: true,
           label: 'STAFF - STATE NUMBER OF',
@@ -1931,6 +2130,7 @@ const DISORDER: IncidentTypeConfiguration = {
           nextQuestionId: '63216',
         },
         {
+          id: '214883',
           code: 'OTHER - STATE NUMBER OF',
           active: true,
           label: 'OTHER - STATE NUMBER OF',
@@ -1948,6 +2148,7 @@ const DISORDER: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '214884',
           code: 'NO',
           active: true,
           label: 'NO',
@@ -1956,6 +2157,7 @@ const DISORDER: IncidentTypeConfiguration = {
           nextQuestionId: '63217',
         },
         {
+          id: '214885',
           code: 'YES',
           active: true,
           label: 'YES',
@@ -1973,6 +2175,7 @@ const DISORDER: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '214886',
           code: 'NO',
           active: true,
           label: 'NO',
@@ -1981,6 +2184,7 @@ const DISORDER: IncidentTypeConfiguration = {
           nextQuestionId: '63218',
         },
         {
+          id: '214887',
           code: 'YES',
           active: true,
           label: 'YES',
@@ -1998,6 +2202,7 @@ const DISORDER: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '214888',
           code: 'NO',
           active: true,
           label: 'NO',
@@ -2006,6 +2211,7 @@ const DISORDER: IncidentTypeConfiguration = {
           nextQuestionId: '63219',
         },
         {
+          id: '214889',
           code: 'YES',
           active: true,
           label: 'YES',
@@ -2023,6 +2229,7 @@ const DISORDER: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '214890',
           code: 'NO',
           active: true,
           label: 'NO',
@@ -2031,6 +2238,7 @@ const DISORDER: IncidentTypeConfiguration = {
           nextQuestionId: '63220',
         },
         {
+          id: '214891',
           code: 'YES',
           active: true,
           label: 'YES',
@@ -2048,6 +2256,7 @@ const DISORDER: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '214892',
           code: 'NO',
           active: true,
           label: 'NO',
@@ -2056,6 +2265,7 @@ const DISORDER: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
+          id: '214893',
           code: 'YES',
           active: true,
           label: 'YES',

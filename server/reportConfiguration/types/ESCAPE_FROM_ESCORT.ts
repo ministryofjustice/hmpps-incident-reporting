@@ -1,4 +1,4 @@
-// Generated with ./scripts/updateNomisIncidentTypeConfigurations.ts at 2024-09-25T09:26:01.839Z
+// Generated with ./scripts/updateNomisIncidentTypeConfigurations.ts at 2024-10-15T17:17:27.909Z
 
 import { type IncidentTypeConfiguration } from '../../data/incidentTypeConfiguration/types'
 
@@ -15,6 +15,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '178932',
           code: 'YES',
           active: true,
           label: 'YES',
@@ -23,6 +24,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
           nextQuestionId: '45118',
         },
         {
+          id: '178933',
           code: 'NO',
           active: true,
           label: 'NO',
@@ -40,6 +42,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
       multipleAnswers: true,
       answers: [
         {
+          id: '178974',
           code: 'CATEGORY A',
           active: true,
           label: 'CATEGORY A',
@@ -48,6 +51,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
           nextQuestionId: '45156',
         },
         {
+          id: '178975',
           code: 'CATEGORY B',
           active: true,
           label: 'CATEGORY B',
@@ -56,6 +60,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
           nextQuestionId: '45156',
         },
         {
+          id: '178976',
           code: 'CATEGORY C',
           active: true,
           label: 'CATEGORY C',
@@ -64,6 +69,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
           nextQuestionId: '45156',
         },
         {
+          id: '178973',
           code: 'CATEGORISED YO',
           active: true,
           label: 'CATEGORISED YO',
@@ -72,6 +78,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
           nextQuestionId: '45156',
         },
         {
+          id: '178977',
           code: 'CATEGORY D',
           active: true,
           label: 'CATEGORY D',
@@ -80,6 +87,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
           nextQuestionId: '45156',
         },
         {
+          id: '178980',
           code: 'UNCATEGORISED YO',
           active: true,
           label: 'UNCATEGORISED YO',
@@ -88,6 +96,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
           nextQuestionId: '45156',
         },
         {
+          id: '178972',
           code: 'CATEGORISED FEMALE',
           active: true,
           label: 'CATEGORISED FEMALE',
@@ -96,6 +105,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
           nextQuestionId: '45156',
         },
         {
+          id: '178979',
           code: 'UNCATEGORISED FEMALE',
           active: true,
           label: 'UNCATEGORISED FEMALE',
@@ -104,6 +114,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
           nextQuestionId: '45156',
         },
         {
+          id: '178978',
           code: 'UNCATEGORISED ADULT MALE',
           active: true,
           label: 'UNCATEGORISED ADULT MALE',
@@ -121,6 +132,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
       multipleAnswers: true,
       answers: [
         {
+          id: '179039',
           code: 'GRAZES, SCRATCHES OR ABRASIONS',
           active: true,
           label: 'GRAZES, SCRATCHES OR ABRASIONS',
@@ -129,6 +141,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
           nextQuestionId: '44571',
         },
         {
+          id: '179040',
           code: 'MINOR BRUISES',
           active: true,
           label: 'MINOR BRUISES',
@@ -137,6 +150,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
           nextQuestionId: '44571',
         },
         {
+          id: '179043',
           code: 'SWELLINGS',
           active: true,
           label: 'SWELLINGS',
@@ -145,6 +159,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
           nextQuestionId: '44571',
         },
         {
+          id: '179042',
           code: 'SUPERFICIAL CUTS',
           active: true,
           label: 'SUPERFICIAL CUTS',
@@ -153,6 +168,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
           nextQuestionId: '44571',
         },
         {
+          id: '179041',
           code: 'OTHER',
           active: true,
           label: 'OTHER',
@@ -170,6 +186,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '179106',
           code: 'COACH',
           active: true,
           label: 'COACH',
@@ -178,6 +195,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
           nextQuestionId: '44448',
         },
         {
+          id: '179107',
           code: 'MINIBUS',
           active: true,
           label: 'MINIBUS',
@@ -186,6 +204,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
           nextQuestionId: '44448',
         },
         {
+          id: '179110',
           code: 'TAXI',
           active: true,
           label: 'TAXI',
@@ -194,6 +213,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
           nextQuestionId: '44448',
         },
         {
+          id: '179105',
           code: 'CELLULAR VEHICLE',
           active: true,
           label: 'CELLULAR VEHICLE',
@@ -202,6 +222,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
           nextQuestionId: '44448',
         },
         {
+          id: '179109',
           code: 'SECURE TRANSIT',
           active: true,
           label: 'SECURE TRANSIT',
@@ -210,6 +231,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
           nextQuestionId: '44448',
         },
         {
+          id: '179108',
           code: 'OTHER',
           active: true,
           label: 'OTHER',
@@ -227,6 +249,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '179195',
           code: 'YES',
           active: true,
           label: 'YES',
@@ -235,6 +258,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
           nextQuestionId: '44859',
         },
         {
+          id: '179196',
           code: 'NO',
           active: true,
           label: 'NO',
@@ -252,6 +276,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '179203',
           code: 'LIVE',
           active: true,
           label: 'LIVE',
@@ -260,6 +285,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
           nextQuestionId: '44994',
         },
         {
+          id: '179202',
           code: 'BLANK',
           active: true,
           label: 'BLANK',
@@ -268,6 +294,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
           nextQuestionId: '44994',
         },
         {
+          id: '179204',
           code: 'NOT KNOWN',
           active: true,
           label: 'NOT KNOWN',
@@ -285,6 +312,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '179314',
           code: 'REAL',
           active: true,
           label: 'REAL',
@@ -293,6 +321,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
           nextQuestionId: '44998',
         },
         {
+          id: '179315',
           code: 'REPLICA',
           active: true,
           label: 'REPLICA',
@@ -301,6 +330,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
           nextQuestionId: '44998',
         },
         {
+          id: '179313',
           code: 'NOT KNOWN',
           active: true,
           label: 'NOT KNOWN',
@@ -318,6 +348,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '179397',
           code: 'A CO-DEFENDANT',
           active: true,
           label: 'A CO-DEFENDANT',
@@ -326,6 +357,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
           nextQuestionId: '44211',
         },
         {
+          id: '179399',
           code: 'A RELATIVE',
           active: true,
           label: 'A RELATIVE',
@@ -334,6 +366,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
           nextQuestionId: '44211',
         },
         {
+          id: '179398',
           code: 'A KNOWN ASSOCIATE',
           active: true,
           label: 'A KNOWN ASSOCIATE',
@@ -342,6 +375,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
           nextQuestionId: '44211',
         },
         {
+          id: '179400',
           code: 'AN E LIST PRISONER',
           active: true,
           label: 'AN E LIST PRISONER',
@@ -350,6 +384,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
           nextQuestionId: '44211',
         },
         {
+          id: '179401',
           code: 'NONE OF THE ABOVE',
           active: true,
           label: 'NONE OF THE ABOVE',
@@ -367,6 +402,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '179447',
           code: 'YES',
           active: true,
           label: 'YES',
@@ -375,6 +411,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
           nextQuestionId: '44970',
         },
         {
+          id: '179448',
           code: 'NO',
           active: true,
           label: 'NO',
@@ -392,6 +429,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
       multipleAnswers: true,
       answers: [
         {
+          id: '179709',
           code: 'INVESTIGATION BY POLICE',
           active: true,
           label: 'INVESTIGATION BY POLICE',
@@ -400,6 +438,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
           nextQuestionId: '45066',
         },
         {
+          id: '179710',
           code: 'INVESTIGATION INTERNALLY',
           active: true,
           label: 'INVESTIGATION INTERNALLY',
@@ -408,6 +447,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
           nextQuestionId: '45066',
         },
         {
+          id: '179708',
           code: "GOVERNOR'S ADJUDICATION",
           active: true,
           label: "GOVERNOR'S ADJUDICATION",
@@ -416,6 +456,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
           nextQuestionId: '45066',
         },
         {
+          id: '179711',
           code: 'NO INVESTIGATION',
           active: true,
           label: 'NO INVESTIGATION',
@@ -433,6 +474,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '179878',
           code: 'YES',
           active: true,
           label: 'YES',
@@ -441,6 +483,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
           nextQuestionId: '45112',
         },
         {
+          id: '179877',
           code: 'NO',
           active: true,
           label: 'NO',
@@ -458,6 +501,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '179895',
           code: 'YES',
           active: true,
           label: 'YES',
@@ -466,6 +510,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
           nextQuestionId: '44966',
         },
         {
+          id: '179896',
           code: 'NO',
           active: true,
           label: 'NO',
@@ -483,6 +528,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '179911',
           code: 'ENTER AMOUNT IN POUND STERLING',
           active: true,
           label: 'ENTER AMOUNT IN POUND STERLING',
@@ -500,6 +546,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '179959',
           code: 'YES',
           active: true,
           label: 'YES',
@@ -508,6 +555,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
           nextQuestionId: '45136',
         },
         {
+          id: '179958',
           code: 'NO',
           active: true,
           label: 'NO',
@@ -525,6 +573,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
       multipleAnswers: true,
       answers: [
         {
+          id: '179980',
           code: 'MALE',
           active: true,
           label: 'MALE',
@@ -533,6 +582,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
           nextQuestionId: '44757',
         },
         {
+          id: '179979',
           code: 'FEMALE',
           active: true,
           label: 'FEMALE',
@@ -550,6 +600,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '180172',
           code: 'HOSPITAL OUTPATIENT',
           active: true,
           label: 'HOSPITAL OUTPATIENT',
@@ -558,6 +609,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
           nextQuestionId: '44409',
         },
         {
+          id: '180171',
           code: 'HOSPITAL INPATIENT',
           active: true,
           label: 'HOSPITAL INPATIENT',
@@ -566,6 +618,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
           nextQuestionId: '44409',
         },
         {
+          id: '180178',
           code: 'INTER PRISON TRANSFER',
           active: true,
           label: 'INTER PRISON TRANSFER',
@@ -574,6 +627,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
           nextQuestionId: '45112',
         },
         {
+          id: '180179',
           code: 'MAGISTRATES COURT',
           active: true,
           label: 'MAGISTRATES COURT',
@@ -582,6 +636,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
           nextQuestionId: '45112',
         },
         {
+          id: '180174',
           code: 'CROWN COURT',
           active: true,
           label: 'CROWN COURT',
@@ -590,6 +645,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
           nextQuestionId: '45112',
         },
         {
+          id: '180173',
           code: 'COUNTY COURT',
           active: true,
           label: 'COUNTY COURT',
@@ -598,6 +654,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
           nextQuestionId: '45112',
         },
         {
+          id: '180175',
           code: 'FUNERAL',
           active: true,
           label: 'FUNERAL',
@@ -606,6 +663,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
           nextQuestionId: '45112',
         },
         {
+          id: '180181',
           code: 'WEDDING',
           active: true,
           label: 'WEDDING',
@@ -614,6 +672,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
           nextQuestionId: '45112',
         },
         {
+          id: '180176',
           code: 'HOME VISIT',
           active: true,
           label: 'HOME VISIT',
@@ -622,6 +681,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
           nextQuestionId: '45112',
         },
         {
+          id: '180177',
           code: 'HOSP VISIT (DYING RELATIVE)',
           active: true,
           label: 'HOSP VISIT (DYING RELATIVE)',
@@ -630,6 +690,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
           nextQuestionId: '45112',
         },
         {
+          id: '180180',
           code: 'OTHER',
           active: true,
           label: 'OTHER',
@@ -647,6 +708,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '180246',
           code: 'SECRETED ON PRISONER',
           active: true,
           label: 'SECRETED ON PRISONER',
@@ -655,6 +717,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
           nextQuestionId: '45151',
         },
         {
+          id: '180244',
           code: 'FOUND IN VEHICLE/AREA',
           active: true,
           label: 'FOUND IN VEHICLE/AREA',
@@ -663,6 +726,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
           nextQuestionId: '45151',
         },
         {
+          id: '180243',
           code: 'BROUGHT BY OUTSIDE ACCOMPLICE',
           active: true,
           label: 'BROUGHT BY OUTSIDE ACCOMPLICE',
@@ -671,6 +735,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
           nextQuestionId: '45151',
         },
         {
+          id: '180245',
           code: 'NOT KNOWN',
           active: true,
           label: 'NOT KNOWN',
@@ -688,6 +753,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '180275',
           code: 'YES',
           active: true,
           label: 'YES',
@@ -696,6 +762,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
           nextQuestionId: '44164',
         },
         {
+          id: '180276',
           code: 'NO',
           active: true,
           label: 'NO',
@@ -713,6 +780,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '180280',
           code: 'YES',
           active: true,
           label: 'YES',
@@ -721,6 +789,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
           nextQuestionId: '44904',
         },
         {
+          id: '180281',
           code: 'NO',
           active: true,
           label: 'NO',
@@ -738,6 +807,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '180401',
           code: 'PRISON HEALTH CARE CENTRE',
           active: true,
           label: 'PRISON HEALTH CARE CENTRE',
@@ -746,6 +816,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
           nextQuestionId: '44134',
         },
         {
+          id: '180399',
           code: 'OUTSIDE HOSPITAL',
           active: true,
           label: 'OUTSIDE HOSPITAL',
@@ -754,6 +825,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
           nextQuestionId: '44134',
         },
         {
+          id: '180400',
           code: 'OWN GP',
           active: true,
           label: 'OWN GP',
@@ -771,6 +843,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '180402',
           code: 'YES',
           active: true,
           label: 'YES',
@@ -779,6 +852,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
           nextQuestionId: '45154',
         },
         {
+          id: '180403',
           code: 'NO',
           active: true,
           label: 'NO',
@@ -796,6 +870,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '180489',
           code: 'YES',
           active: true,
           label: 'YES',
@@ -804,6 +879,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
           nextQuestionId: '44706',
         },
         {
+          id: '180490',
           code: 'NO',
           active: true,
           label: 'NO',
@@ -821,6 +897,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '180522',
           code: 'YES',
           active: true,
           label: 'YES',
@@ -829,6 +906,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
           nextQuestionId: '44650',
         },
         {
+          id: '180523',
           code: 'NO',
           active: true,
           label: 'NO',
@@ -846,6 +924,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
       multipleAnswers: true,
       answers: [
         {
+          id: '180615',
           code: 'PRISONER WHO ESCAPED',
           active: true,
           label: 'PRISONER WHO ESCAPED',
@@ -854,6 +933,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
           nextQuestionId: '44507',
         },
         {
+          id: '180613',
           code: 'OTHER PRISONER',
           active: true,
           label: 'OTHER PRISONER',
@@ -862,6 +942,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
           nextQuestionId: '44507',
         },
         {
+          id: '180614',
           code: 'OUTSIDE ACCOMPLICE',
           active: true,
           label: 'OUTSIDE ACCOMPLICE',
@@ -879,6 +960,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '180736',
           code: 'YES',
           active: true,
           label: 'YES',
@@ -887,6 +969,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
           nextQuestionId: '44443',
         },
         {
+          id: '180735',
           code: 'NO',
           active: true,
           label: 'NO',
@@ -904,6 +987,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '180749',
           code: 'MINOR',
           active: true,
           label: 'MINOR',
@@ -912,6 +996,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
           nextQuestionId: '44426',
         },
         {
+          id: '180750',
           code: 'SERIOUS',
           active: true,
           label: 'SERIOUS',
@@ -920,6 +1005,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
           nextQuestionId: '44426',
         },
         {
+          id: '180748',
           code: 'EXTENSIVE',
           active: true,
           label: 'EXTENSIVE',
@@ -937,6 +1023,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '180832',
           code: 'YES',
           active: true,
           label: 'YES',
@@ -945,6 +1032,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
           nextQuestionId: '44443',
         },
         {
+          id: '180831',
           code: 'NO',
           active: true,
           label: 'NO',
@@ -962,6 +1050,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '180837',
           code: 'REAL',
           active: true,
           label: 'REAL',
@@ -970,6 +1059,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
           nextQuestionId: '44644',
         },
         {
+          id: '180835',
           code: 'IMPROVISED',
           active: true,
           label: 'IMPROVISED',
@@ -978,6 +1068,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
           nextQuestionId: '44644',
         },
         {
+          id: '180836',
           code: 'NOT KNOWN',
           active: true,
           label: 'NOT KNOWN',
@@ -995,6 +1086,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '180913',
           code: 'YES',
           active: true,
           label: 'YES',
@@ -1003,6 +1095,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
           nextQuestionId: '44581',
         },
         {
+          id: '180912',
           code: 'NO',
           active: true,
           label: 'NO',
@@ -1020,6 +1113,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '180970',
           code: 'PRISON HEALTH CARE CENTRE',
           active: true,
           label: 'PRISON HEALTH CARE CENTRE',
@@ -1028,6 +1122,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
           nextQuestionId: '44908',
         },
         {
+          id: '180969',
           code: 'OUTSIDE HOSPITAL',
           active: true,
           label: 'OUTSIDE HOSPITAL',
@@ -1045,6 +1140,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
       multipleAnswers: true,
       answers: [
         {
+          id: '180990',
           code: 'PRISONER WHO ESCAPED',
           active: true,
           label: 'PRISONER WHO ESCAPED',
@@ -1053,6 +1149,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
           nextQuestionId: '44838',
         },
         {
+          id: '180988',
           code: 'OTHER PRISONER',
           active: true,
           label: 'OTHER PRISONER',
@@ -1061,6 +1158,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
           nextQuestionId: '44838',
         },
         {
+          id: '180989',
           code: 'OUTSIDE ACCOMPLICE',
           active: true,
           label: 'OUTSIDE ACCOMPLICE',
@@ -1078,6 +1176,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
       multipleAnswers: true,
       answers: [
         {
+          id: '181039',
           code: 'GOVERNORS INSTRUCTION',
           active: true,
           label: 'GOVERNORS INSTRUCTION',
@@ -1086,6 +1185,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
           nextQuestionId: '44443',
         },
         {
+          id: '181046',
           code: 'PREVENTED BY DISABILITY',
           active: true,
           label: 'PREVENTED BY DISABILITY',
@@ -1094,6 +1194,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
           nextQuestionId: '44443',
         },
         {
+          id: '181047',
           code: 'PREVENTED BY INJURY',
           active: true,
           label: 'PREVENTED BY INJURY',
@@ -1102,6 +1203,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
           nextQuestionId: '44443',
         },
         {
+          id: '181043',
           code: 'MEDICAL TREATMENT/REQUEST',
           active: true,
           label: 'MEDICAL TREATMENT/REQUEST',
@@ -1110,6 +1212,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
           nextQuestionId: '44443',
         },
         {
+          id: '181041',
           code: 'IN COURT ROOM',
           active: true,
           label: 'IN COURT ROOM',
@@ -1118,6 +1221,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
           nextQuestionId: '44443',
         },
         {
+          id: '181042',
           code: 'LOCATED IN SECURE AREA',
           active: true,
           label: 'LOCATED IN SECURE AREA',
@@ -1126,6 +1230,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
           nextQuestionId: '44443',
         },
         {
+          id: '181040',
           code: 'IN CELL OF CELLULAR VEHICLE',
           active: true,
           label: 'IN CELL OF CELLULAR VEHICLE',
@@ -1134,6 +1239,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
           nextQuestionId: '44443',
         },
         {
+          id: '181048',
           code: 'TRANSFER TO MENTAL HOSPITAL',
           active: true,
           label: 'TRANSFER TO MENTAL HOSPITAL',
@@ -1142,6 +1248,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
           nextQuestionId: '44443',
         },
         {
+          id: '181037',
           code: 'DURING MARRIAGE CEREMONY',
           active: true,
           label: 'DURING MARRIAGE CEREMONY',
@@ -1150,6 +1257,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
           nextQuestionId: '44443',
         },
         {
+          id: '181044',
           code: 'NONE AVAILABLE',
           active: true,
           label: 'NONE AVAILABLE',
@@ -1158,6 +1266,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
           nextQuestionId: '44443',
         },
         {
+          id: '181038',
           code: 'FAILURE TO USE',
           active: true,
           label: 'FAILURE TO USE',
@@ -1166,6 +1275,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
           nextQuestionId: '44443',
         },
         {
+          id: '181045',
           code: 'OTHER',
           active: true,
           label: 'OTHER',
@@ -1183,6 +1293,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '181051',
           code: 'YES',
           active: true,
           label: 'YES',
@@ -1191,6 +1302,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
           nextQuestionId: '45068',
         },
         {
+          id: '181052',
           code: 'NO',
           active: true,
           label: 'NO',
@@ -1208,6 +1320,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
       multipleAnswers: true,
       answers: [
         {
+          id: '181114',
           code: 'PRISONER WHO ESCAPED',
           active: true,
           label: 'PRISONER WHO ESCAPED',
@@ -1216,6 +1329,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
           nextQuestionId: '45080',
         },
         {
+          id: '181112',
           code: 'OTHER PRISONER',
           active: true,
           label: 'OTHER PRISONER',
@@ -1224,6 +1338,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
           nextQuestionId: '45080',
         },
         {
+          id: '181113',
           code: 'OUTSIDE ACCOMPLICE',
           active: true,
           label: 'OUTSIDE ACCOMPLICE',
@@ -1241,6 +1356,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
       multipleAnswers: true,
       answers: [
         {
+          id: '181120',
           code: 'MALE',
           active: true,
           label: 'MALE',
@@ -1249,6 +1365,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
           nextQuestionId: '44143',
         },
         {
+          id: '181119',
           code: 'FEMALE',
           active: true,
           label: 'FEMALE',
@@ -1266,6 +1383,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '181322',
           code: 'YES',
           active: true,
           label: 'YES',
@@ -1274,6 +1392,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
           nextQuestionId: '45089',
         },
         {
+          id: '181321',
           code: 'NO',
           active: true,
           label: 'NO',
@@ -1291,6 +1410,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '181345',
           code: 'SECRETED ON THE PRISONER',
           active: true,
           label: 'SECRETED ON THE PRISONER',
@@ -1299,6 +1419,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
           nextQuestionId: '44729',
         },
         {
+          id: '181343',
           code: 'FOUND IN VEHICLE/AREA',
           active: true,
           label: 'FOUND IN VEHICLE/AREA',
@@ -1307,6 +1428,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
           nextQuestionId: '44729',
         },
         {
+          id: '181342',
           code: 'BROUGHT BY ACCOMPLICE',
           active: true,
           label: 'BROUGHT BY ACCOMPLICE',
@@ -1315,6 +1437,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
           nextQuestionId: '44729',
         },
         {
+          id: '181344',
           code: 'NOT KNOWN',
           active: true,
           label: 'NOT KNOWN',
@@ -1332,6 +1455,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '181372',
           code: 'YES',
           active: true,
           label: 'YES',
@@ -1340,6 +1464,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
           nextQuestionId: '44882',
         },
         {
+          id: '181373',
           code: 'NO',
           active: true,
           label: 'NO',
@@ -1357,6 +1482,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '181382',
           code: 'PRISON SERVICE',
           active: true,
           label: 'PRISON SERVICE',
@@ -1365,6 +1491,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
           nextQuestionId: '44490',
         },
         {
+          id: '181381',
           code: 'POLICE',
           active: true,
           label: 'POLICE',
@@ -1382,6 +1509,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '181430',
           code: 'PRISONER USED KEY',
           active: true,
           label: 'PRISONER USED KEY',
@@ -1390,6 +1518,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
           nextQuestionId: '44675',
         },
         {
+          id: '181431',
           code: 'SLIPPED RESTRAINT',
           active: true,
           label: 'SLIPPED RESTRAINT',
@@ -1398,6 +1527,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
           nextQuestionId: '44673',
         },
         {
+          id: '181435',
           code: 'PICKED LOCK',
           active: true,
           label: 'PICKED LOCK',
@@ -1406,6 +1536,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
           nextQuestionId: '44443',
         },
         {
+          id: '181436',
           code: 'STAFF UNLOCKED UNDER THREAT',
           active: true,
           label: 'STAFF UNLOCKED UNDER THREAT',
@@ -1414,6 +1545,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
           nextQuestionId: '44443',
         },
         {
+          id: '181432',
           code: 'IMPROPER APPLICATION',
           active: true,
           label: 'IMPROPER APPLICATION',
@@ -1422,6 +1554,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
           nextQuestionId: '44443',
         },
         {
+          id: '181434',
           code: 'OTHER',
           active: true,
           label: 'OTHER',
@@ -1430,6 +1563,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
           nextQuestionId: '44443',
         },
         {
+          id: '181433',
           code: 'NOT KNOWN',
           active: true,
           label: 'NOT KNOWN',
@@ -1447,6 +1581,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
       multipleAnswers: true,
       answers: [
         {
+          id: '181526',
           code: 'OTHER SHARP INSTRUMENT',
           active: true,
           label: 'OTHER SHARP INSTRUMENT',
@@ -1455,6 +1590,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
           nextQuestionId: '44605',
         },
         {
+          id: '181520',
           code: 'BLUNT INSTRUMENT',
           active: true,
           label: 'BLUNT INSTRUMENT',
@@ -1463,6 +1599,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
           nextQuestionId: '44605',
         },
         {
+          id: '181524',
           code: 'LIGATURE',
           active: true,
           label: 'LIGATURE',
@@ -1471,6 +1608,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
           nextQuestionId: '44605',
         },
         {
+          id: '181521',
           code: 'DANGEROUS LIQUID',
           active: true,
           label: 'DANGEROUS LIQUID',
@@ -1479,6 +1617,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
           nextQuestionId: '44605',
         },
         {
+          id: '181522',
           code: 'EXCRETA/URINE',
           active: true,
           label: 'EXCRETA/URINE',
@@ -1487,6 +1626,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
           nextQuestionId: '44605',
         },
         {
+          id: '181527',
           code: 'SPITTING',
           active: true,
           label: 'SPITTING',
@@ -1495,6 +1635,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
           nextQuestionId: '44605',
         },
         {
+          id: '181523',
           code: 'FOOD',
           active: true,
           label: 'FOOD',
@@ -1503,6 +1644,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
           nextQuestionId: '44605',
         },
         {
+          id: '181529',
           code: 'THROWN FURNITURE',
           active: true,
           label: 'THROWN FURNITURE',
@@ -1511,6 +1653,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
           nextQuestionId: '44605',
         },
         {
+          id: '181528',
           code: 'THROWN EQUIPMENT',
           active: true,
           label: 'THROWN EQUIPMENT',
@@ -1519,6 +1662,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
           nextQuestionId: '44605',
         },
         {
+          id: '181525',
           code: 'OTHER',
           active: true,
           label: 'OTHER',
@@ -1536,6 +1680,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
       multipleAnswers: true,
       answers: [
         {
+          id: '181588',
           code: 'C.N (CHLORACETOPHEONE)',
           active: true,
           label: 'C.N (CHLORACETOPHEONE)',
@@ -1544,6 +1689,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
           nextQuestionId: '44715',
         },
         {
+          id: '181589',
           code: 'C.S (ORTHO..NITRILE)',
           active: true,
           label: 'C.S (ORTHO..NITRILE)',
@@ -1552,6 +1698,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
           nextQuestionId: '44715',
         },
         {
+          id: '181591',
           code: 'O.C (MACE/PEPPER)',
           active: true,
           label: 'O.C (MACE/PEPPER)',
@@ -1560,6 +1707,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
           nextQuestionId: '44715',
         },
         {
+          id: '181592',
           code: 'OTHER',
           active: true,
           label: 'OTHER',
@@ -1568,6 +1716,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
           nextQuestionId: '44715',
         },
         {
+          id: '181590',
           code: 'NOT KNOWN',
           active: true,
           label: 'NOT KNOWN',
@@ -1585,6 +1734,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '181611',
           code: 'YES',
           active: true,
           label: 'YES',
@@ -1593,6 +1743,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
           nextQuestionId: '45025',
         },
         {
+          id: '181612',
           code: 'NO',
           active: true,
           label: 'NO',
@@ -1610,6 +1761,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '181724',
           code: 'OFFICER',
           active: true,
           label: 'OFFICER',
@@ -1618,6 +1770,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
           nextQuestionId: '44859',
         },
         {
+          id: '181723',
           code: 'OTHER PRISONER',
           active: true,
           label: 'OTHER PRISONER',
@@ -1635,6 +1788,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '181837',
           code: 'HANDCUFFS',
           active: true,
           label: 'HANDCUFFS',
@@ -1643,6 +1797,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
           nextQuestionId: '45149',
         },
         {
+          id: '181839',
           code: 'ESCORT CHAIN',
           active: true,
           label: 'ESCORT CHAIN',
@@ -1651,6 +1806,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
           nextQuestionId: '44211',
         },
         {
+          id: '181838',
           code: 'CLOSETING CHAIN',
           active: true,
           label: 'CLOSETING CHAIN',
@@ -1659,6 +1815,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
           nextQuestionId: '44211',
         },
         {
+          id: '181840',
           code: 'OTHER',
           active: true,
           label: 'OTHER',
@@ -1676,6 +1833,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
       multipleAnswers: true,
       answers: [
         {
+          id: '181856',
           code: 'MURDER/ATTEMPTED MURDER',
           active: true,
           label: 'MURDER/ATTEMPTED MURDER',
@@ -1684,6 +1842,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
           nextQuestionId: '45145',
         },
         {
+          id: '181855',
           code: 'MANSLAUGHTER',
           active: true,
           label: 'MANSLAUGHTER',
@@ -1692,6 +1851,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
           nextQuestionId: '45145',
         },
         {
+          id: '181852',
           code: 'ASSAULT',
           active: true,
           label: 'ASSAULT',
@@ -1700,6 +1860,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
           nextQuestionId: '45145',
         },
         {
+          id: '181860',
           code: 'RAPE/ATTEMPTED RAPE',
           active: true,
           label: 'RAPE/ATTEMPTED RAPE',
@@ -1708,6 +1869,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
           nextQuestionId: '45145',
         },
         {
+          id: '181858',
           code: 'OTHER SEXUAL OFFENCE',
           active: true,
           label: 'OTHER SEXUAL OFFENCE',
@@ -1716,6 +1878,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
           nextQuestionId: '45145',
         },
         {
+          id: '181862',
           code: 'THEFT',
           active: true,
           label: 'THEFT',
@@ -1724,6 +1887,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
           nextQuestionId: '45145',
         },
         {
+          id: '181861',
           code: 'ROBBERY',
           active: true,
           label: 'ROBBERY',
@@ -1732,6 +1896,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
           nextQuestionId: '45145',
         },
         {
+          id: '181854',
           code: 'FIREARM OFFENCE',
           active: true,
           label: 'FIREARM OFFENCE',
@@ -1740,6 +1905,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
           nextQuestionId: '45145',
         },
         {
+          id: '181853',
           code: 'DRUG OFFENCE',
           active: true,
           label: 'DRUG OFFENCE',
@@ -1748,6 +1914,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
           nextQuestionId: '45145',
         },
         {
+          id: '181863',
           code: 'VEHICLE CRIME',
           active: true,
           label: 'VEHICLE CRIME',
@@ -1756,6 +1923,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
           nextQuestionId: '45145',
         },
         {
+          id: '181859',
           code: 'PUBLIC ORDER OFFENCE',
           active: true,
           label: 'PUBLIC ORDER OFFENCE',
@@ -1764,6 +1932,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
           nextQuestionId: '45145',
         },
         {
+          id: '181857',
           code: 'OTHER',
           active: true,
           label: 'OTHER',
@@ -1781,6 +1950,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '181891',
           code: 'YES',
           active: true,
           label: 'YES',
@@ -1789,6 +1959,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
           nextQuestionId: '44360',
         },
         {
+          id: '181890',
           code: 'NO',
           active: true,
           label: 'NO',
@@ -1806,6 +1977,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
       multipleAnswers: true,
       answers: [
         {
+          id: '181944',
           code: 'PRISONER WHO ESCAPED',
           active: true,
           label: 'PRISONER WHO ESCAPED',
@@ -1814,6 +1986,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
           nextQuestionId: '45104',
         },
         {
+          id: '181942',
           code: 'OTHER PRISONER',
           active: true,
           label: 'OTHER PRISONER',
@@ -1822,6 +1995,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
           nextQuestionId: '45104',
         },
         {
+          id: '181943',
           code: 'OUTSIDE ACCOMPLICE',
           active: true,
           label: 'OUTSIDE ACCOMPLICE',
@@ -1839,6 +2013,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '181953',
           code: 'YES',
           active: true,
           label: 'YES',
@@ -1847,6 +2022,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
           nextQuestionId: '44215',
         },
         {
+          id: '181954',
           code: 'NO',
           active: true,
           label: 'NO',
@@ -1864,6 +2040,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '182034',
           code: 'YES',
           active: true,
           label: 'YES',
@@ -1872,6 +2049,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
           nextQuestionId: '44538',
         },
         {
+          id: '182035',
           code: 'NO',
           active: true,
           label: 'NO',
@@ -1889,6 +2067,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '182037',
           code: 'POLICE ARREST',
           active: true,
           label: 'POLICE ARREST',
@@ -1897,6 +2076,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
           nextQuestionId: '44298',
         },
         {
+          id: '182038',
           code: 'PRISON STAFF ARREST',
           active: true,
           label: 'PRISON STAFF ARREST',
@@ -1905,6 +2085,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
           nextQuestionId: '44298',
         },
         {
+          id: '182039',
           code: 'SURRENDER',
           active: true,
           label: 'SURRENDER',
@@ -1913,6 +2094,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
           nextQuestionId: '44298',
         },
         {
+          id: '182036',
           code: 'OTHER',
           active: true,
           label: 'OTHER',
@@ -1930,6 +2112,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
       multipleAnswers: true,
       answers: [
         {
+          id: '182057',
           code: 'FRACTURE',
           active: true,
           label: 'FRACTURE',
@@ -1938,6 +2121,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
           nextQuestionId: '44539',
         },
         {
+          id: '182059',
           code: 'SCALD OR BURN',
           active: true,
           label: 'SCALD OR BURN',
@@ -1946,6 +2130,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
           nextQuestionId: '44539',
         },
         {
+          id: '182060',
           code: 'STABBING',
           active: true,
           label: 'STABBING',
@@ -1954,6 +2139,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
           nextQuestionId: '44539',
         },
         {
+          id: '182054',
           code: 'CRUSHING',
           active: true,
           label: 'CRUSHING',
@@ -1962,6 +2148,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
           nextQuestionId: '44539',
         },
         {
+          id: '182056',
           code: 'EXTENSIVE/MULTIPLE BRUISING',
           active: true,
           label: 'EXTENSIVE/MULTIPLE BRUISING',
@@ -1970,6 +2157,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
           nextQuestionId: '44539',
         },
         {
+          id: '182051',
           code: 'BLACK EYE',
           active: true,
           label: 'BLACK EYE',
@@ -1978,6 +2166,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
           nextQuestionId: '44539',
         },
         {
+          id: '182052',
           code: 'BROKEN NOSE',
           active: true,
           label: 'BROKEN NOSE',
@@ -1986,6 +2175,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
           nextQuestionId: '44539',
         },
         {
+          id: '182053',
           code: 'BROKEN TEETH',
           active: true,
           label: 'BROKEN TEETH',
@@ -1994,6 +2184,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
           nextQuestionId: '44539',
         },
         {
+          id: '182055',
           code: 'CUTS REQUIRING SUTURES',
           active: true,
           label: 'CUTS REQUIRING SUTURES',
@@ -2002,6 +2193,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
           nextQuestionId: '44539',
         },
         {
+          id: '182050',
           code: 'BITES',
           active: true,
           label: 'BITES',
@@ -2010,6 +2202,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
           nextQuestionId: '44539',
         },
         {
+          id: '182058',
           code: 'GUN SHOT WOUND',
           active: true,
           label: 'GUN SHOT WOUND',
@@ -2018,6 +2211,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
           nextQuestionId: '44539',
         },
         {
+          id: '182061',
           code: 'TEMPORARY/PERMANENT BLINDNESS',
           active: true,
           label: 'TEMPORARY/PERMANENT BLINDNESS',
@@ -2035,6 +2229,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
       multipleAnswers: true,
       answers: [
         {
+          id: '182094',
           code: 'FRACTURE',
           active: true,
           label: 'FRACTURE',
@@ -2043,6 +2238,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
           nextQuestionId: '44519',
         },
         {
+          id: '182096',
           code: 'SCALD OR BURN',
           active: true,
           label: 'SCALD OR BURN',
@@ -2051,6 +2247,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
           nextQuestionId: '44519',
         },
         {
+          id: '182097',
           code: 'STABBING',
           active: true,
           label: 'STABBING',
@@ -2059,6 +2256,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
           nextQuestionId: '44519',
         },
         {
+          id: '182091',
           code: 'CRUSHING',
           active: true,
           label: 'CRUSHING',
@@ -2067,6 +2265,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
           nextQuestionId: '44519',
         },
         {
+          id: '182093',
           code: 'EXTENSIVE/MULTIPLE BRUISING',
           active: true,
           label: 'EXTENSIVE/MULTIPLE BRUISING',
@@ -2075,6 +2274,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
           nextQuestionId: '44519',
         },
         {
+          id: '182088',
           code: 'BLACK EYE',
           active: true,
           label: 'BLACK EYE',
@@ -2083,6 +2283,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
           nextQuestionId: '44519',
         },
         {
+          id: '182089',
           code: 'BROKEN NOSE',
           active: true,
           label: 'BROKEN NOSE',
@@ -2091,6 +2292,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
           nextQuestionId: '44519',
         },
         {
+          id: '182090',
           code: 'BROKEN TEETH',
           active: true,
           label: 'BROKEN TEETH',
@@ -2099,6 +2301,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
           nextQuestionId: '44519',
         },
         {
+          id: '182092',
           code: 'CUTS REQUIRING SUTURES',
           active: true,
           label: 'CUTS REQUIRING SUTURES',
@@ -2107,6 +2310,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
           nextQuestionId: '44519',
         },
         {
+          id: '182087',
           code: 'BITES',
           active: true,
           label: 'BITES',
@@ -2115,6 +2319,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
           nextQuestionId: '44519',
         },
         {
+          id: '182095',
           code: 'GUN SHOT WOUND',
           active: true,
           label: 'GUN SHOT WOUND',
@@ -2123,6 +2328,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
           nextQuestionId: '44519',
         },
         {
+          id: '182098',
           code: 'TEMPORARY/PERMANENT BLINDNESS',
           active: true,
           label: 'TEMPORARY/PERMANENT BLINDNESS',
@@ -2140,6 +2346,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '182248',
           code: 'YES',
           active: true,
           label: 'YES',
@@ -2148,6 +2355,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
           nextQuestionId: '44828',
         },
         {
+          id: '182247',
           code: 'NO',
           active: true,
           label: 'NO',
@@ -2165,6 +2373,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '182253',
           code: 'PURPOSE MADE',
           active: true,
           label: 'PURPOSE MADE',
@@ -2173,6 +2382,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
           nextQuestionId: '44754',
         },
         {
+          id: '182251',
           code: 'IMPROVISED',
           active: true,
           label: 'IMPROVISED',
@@ -2181,6 +2391,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
           nextQuestionId: '44754',
         },
         {
+          id: '182252',
           code: 'NOT KNOWN',
           active: true,
           label: 'NOT KNOWN',
@@ -2198,6 +2409,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '182257',
           code: 'MALE',
           active: true,
           label: 'MALE',
@@ -2206,6 +2418,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
           nextQuestionId: '45157',
         },
         {
+          id: '182256',
           code: 'FEMALE',
           active: true,
           label: 'FEMALE',
@@ -2223,6 +2436,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '182283',
           code: 'SECRETED ON THE PRISONER',
           active: true,
           label: 'SECRETED ON THE PRISONER',
@@ -2231,6 +2445,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
           nextQuestionId: '44845',
         },
         {
+          id: '182281',
           code: 'FOUND IN VEHICLE/AREA',
           active: true,
           label: 'FOUND IN VEHICLE/AREA',
@@ -2239,6 +2454,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
           nextQuestionId: '44845',
         },
         {
+          id: '182280',
           code: 'BROUGHT BY ACCOMPLICE',
           active: true,
           label: 'BROUGHT BY ACCOMPLICE',
@@ -2247,6 +2463,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
           nextQuestionId: '44845',
         },
         {
+          id: '182282',
           code: 'NOT KNOWN',
           active: true,
           label: 'NOT KNOWN',
@@ -2264,6 +2481,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '182302',
           code: 'YES',
           active: true,
           label: 'YES',
@@ -2272,6 +2490,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
           nextQuestionId: '45110',
         },
         {
+          id: '182301',
           code: 'NO',
           active: true,
           label: 'NO',
@@ -2289,6 +2508,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '182365',
           code: 'SECRETED ON THE PRISONER',
           active: true,
           label: 'SECRETED ON THE PRISONER',
@@ -2297,6 +2517,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
           nextQuestionId: '44521',
         },
         {
+          id: '182363',
           code: 'FOUND IN VEHICLE/AREA',
           active: true,
           label: 'FOUND IN VEHICLE/AREA',
@@ -2305,6 +2526,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
           nextQuestionId: '44521',
         },
         {
+          id: '182362',
           code: 'BROUGHT BY ACCOMPLICE',
           active: true,
           label: 'BROUGHT BY ACCOMPLICE',
@@ -2313,6 +2535,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
           nextQuestionId: '44521',
         },
         {
+          id: '182364',
           code: 'NOT KNOWN',
           active: true,
           label: 'NOT KNOWN',
@@ -2330,6 +2553,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '182377',
           code: 'PUBLIC SECTOR',
           active: true,
           label: 'PUBLIC SECTOR',
@@ -2338,6 +2562,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
           nextQuestionId: '44490',
         },
         {
+          id: '182376',
           code: 'PRIVATE SECTOR',
           active: true,
           label: 'PRIVATE SECTOR',
@@ -2355,6 +2580,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '182389',
           code: 'VEHICLE EN ROUTE TO VENUE',
           active: true,
           label: 'VEHICLE EN ROUTE TO VENUE',
@@ -2363,6 +2589,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
           nextQuestionId: '44188',
         },
         {
+          id: '182388',
           code: 'VEHICLE EN ROUTE FROM VENUE',
           active: true,
           label: 'VEHICLE EN ROUTE FROM VENUE',
@@ -2371,6 +2598,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
           nextQuestionId: '44188',
         },
         {
+          id: '182387',
           code: 'LEAVING VEHICLE (DEBUSSING)',
           active: true,
           label: 'LEAVING VEHICLE (DEBUSSING)',
@@ -2379,6 +2607,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
           nextQuestionId: '44188',
         },
         {
+          id: '182386',
           code: 'ENTERING VEHICLE (EMBUSSING)',
           active: true,
           label: 'ENTERING VEHICLE (EMBUSSING)',
@@ -2387,6 +2616,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
           nextQuestionId: '44188',
         },
         {
+          id: '182398',
           code: 'UNSCHEDULED STOP',
           active: true,
           label: 'UNSCHEDULED STOP',
@@ -2395,6 +2625,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
           nextQuestionId: '44448',
         },
         {
+          id: '182390',
           code: 'CELL AT COURT',
           active: true,
           label: 'CELL AT COURT',
@@ -2403,6 +2634,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
           nextQuestionId: '44448',
         },
         {
+          id: '182391',
           code: 'COURT CELLS AREA',
           active: true,
           label: 'COURT CELLS AREA',
@@ -2411,6 +2643,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
           nextQuestionId: '44448',
         },
         {
+          id: '182393',
           code: 'COURT VISITS AREA',
           active: true,
           label: 'COURT VISITS AREA',
@@ -2419,6 +2652,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
           nextQuestionId: '44448',
         },
         {
+          id: '182392',
           code: 'COURT DOCK',
           active: true,
           label: 'COURT DOCK',
@@ -2427,6 +2661,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
           nextQuestionId: '44448',
         },
         {
+          id: '182396',
           code: 'HOSPITAL WARD/ROOM',
           active: true,
           label: 'HOSPITAL WARD/ROOM',
@@ -2435,6 +2670,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
           nextQuestionId: '44448',
         },
         {
+          id: '182394',
           code: 'HOSPITAL TREATMENT ROOM',
           active: true,
           label: 'HOSPITAL TREATMENT ROOM',
@@ -2443,6 +2679,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
           nextQuestionId: '44448',
         },
         {
+          id: '182395',
           code: 'HOSPITAL WAITING AREA',
           active: true,
           label: 'HOSPITAL WAITING AREA',
@@ -2451,6 +2688,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
           nextQuestionId: '44448',
         },
         {
+          id: '182397',
           code: 'OTHER',
           active: true,
           label: 'OTHER',
@@ -2468,6 +2706,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '182421',
           code: 'YES',
           active: true,
           label: 'YES',
@@ -2476,6 +2715,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
           nextQuestionId: '45035',
         },
         {
+          id: '182422',
           code: 'NO',
           active: true,
           label: 'NO',
@@ -2493,6 +2733,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '182512',
           code: 'YES',
           active: true,
           label: 'YES',
@@ -2501,6 +2742,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
           nextQuestionId: '44246',
         },
         {
+          id: '182513',
           code: 'NO',
           active: true,
           label: 'NO',
@@ -2518,6 +2760,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '182546',
           code: 'YES',
           active: true,
           label: 'YES',
@@ -2526,6 +2769,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
           nextQuestionId: '44696',
         },
         {
+          id: '182545',
           code: 'NO',
           active: true,
           label: 'NO',
@@ -2543,6 +2787,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '182556',
           code: 'YES',
           active: true,
           label: 'YES',
@@ -2551,6 +2796,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
           nextQuestionId: '44930',
         },
         {
+          id: '182555',
           code: 'NO',
           active: true,
           label: 'NO',
@@ -2568,6 +2814,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '182559',
           code: 'YES',
           active: true,
           label: 'YES',
@@ -2576,6 +2823,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
           nextQuestionId: '45070',
         },
         {
+          id: '182560',
           code: 'NO',
           active: true,
           label: 'NO',
@@ -2593,6 +2841,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
       multipleAnswers: true,
       answers: [
         {
+          id: '182571',
           code: 'GRAZES, SCRATCHES OR ABRASIONS',
           active: true,
           label: 'GRAZES, SCRATCHES OR ABRASIONS',
@@ -2601,6 +2850,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
           nextQuestionId: '45024',
         },
         {
+          id: '182572',
           code: 'MINOR BRUISES',
           active: true,
           label: 'MINOR BRUISES',
@@ -2609,6 +2859,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
           nextQuestionId: '45024',
         },
         {
+          id: '182575',
           code: 'SWELLINGS',
           active: true,
           label: 'SWELLINGS',
@@ -2617,6 +2868,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
           nextQuestionId: '45024',
         },
         {
+          id: '182574',
           code: 'SUPERFICIAL CUTS',
           active: true,
           label: 'SUPERFICIAL CUTS',
@@ -2625,6 +2877,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
           nextQuestionId: '45024',
         },
         {
+          id: '182573',
           code: 'OTHER',
           active: true,
           label: 'OTHER',
@@ -2642,6 +2895,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '182589',
           code: 'YES',
           active: true,
           label: 'YES',
@@ -2650,6 +2904,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
           nextQuestionId: '44419',
         },
         {
+          id: '182588',
           code: 'NO',
           active: true,
           label: 'NO',
@@ -2667,6 +2922,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '182590',
           code: 'YES',
           active: true,
           label: 'YES',
@@ -2675,6 +2931,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
           nextQuestionId: '45030',
         },
         {
+          id: '182591',
           code: 'NO',
           active: true,
           label: 'NO',

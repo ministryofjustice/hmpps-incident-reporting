@@ -1,4 +1,4 @@
-// Generated with ./scripts/updateNomisIncidentTypeConfigurations.ts at 2024-09-25T09:25:42.446Z
+// Generated with ./scripts/updateNomisIncidentTypeConfigurations.ts at 2024-10-15T17:17:09.807Z
 
 import { type IncidentTypeConfiguration } from '../../data/incidentTypeConfiguration/types'
 
@@ -15,6 +15,7 @@ const OLD_ASSAULT1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '212684',
           code: 'No further action',
           active: false,
           label: 'No further action',
@@ -23,6 +24,7 @@ const OLD_ASSAULT1: IncidentTypeConfiguration = {
           nextQuestionId: '61180',
         },
         {
+          id: '212685',
           code: 'IEP regression',
           active: false,
           label: 'IEP regression',
@@ -31,6 +33,7 @@ const OLD_ASSAULT1: IncidentTypeConfiguration = {
           nextQuestionId: '61180',
         },
         {
+          id: '212686',
           code: 'Placed on report/adjudication referral',
           active: false,
           label: 'Placed on report/adjudication referral',
@@ -39,6 +42,7 @@ const OLD_ASSAULT1: IncidentTypeConfiguration = {
           nextQuestionId: '61180',
         },
         {
+          id: '212687',
           code: 'Police referral',
           active: false,
           label: 'Police referral',
@@ -56,6 +60,7 @@ const OLD_ASSAULT1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '213007',
           code: 'no',
           active: false,
           label: 'no',
@@ -73,6 +78,7 @@ const OLD_ASSAULT1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '213011',
           code: 'n',
           active: false,
           label: 'n',
@@ -90,6 +96,7 @@ const OLD_ASSAULT1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '213012',
           code: 'n',
           active: false,
           label: 'n',
@@ -107,6 +114,7 @@ const OLD_ASSAULT1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '213008',
           code: 'n',
           active: true,
           label: 'n',
@@ -124,6 +132,7 @@ const OLD_ASSAULT1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '213009',
           code: 'n',
           active: false,
           label: 'n',
@@ -141,6 +150,7 @@ const OLD_ASSAULT1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '213010',
           code: 'n',
           active: false,
           label: 'n',
@@ -158,6 +168,7 @@ const OLD_ASSAULT1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '213013',
           code: 'n',
           active: false,
           label: 'n',
@@ -175,6 +186,7 @@ const OLD_ASSAULT1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '213014',
           code: 'n',
           active: false,
           label: 'n',
@@ -192,6 +204,7 @@ const OLD_ASSAULT1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '213015',
           code: 'n',
           active: false,
           label: 'n',
@@ -209,6 +222,7 @@ const OLD_ASSAULT1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '213016',
           code: 'n',
           active: false,
           label: 'n',
@@ -226,6 +240,7 @@ const OLD_ASSAULT1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '213017',
           code: 'n',
           active: false,
           label: 'n',
@@ -243,6 +258,7 @@ const OLD_ASSAULT1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '213018',
           code: 'n',
           active: false,
           label: 'n',
@@ -260,6 +276,7 @@ const OLD_ASSAULT1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '213019',
           code: 'n',
           active: false,
           label: 'n',
@@ -277,6 +294,7 @@ const OLD_ASSAULT1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '213020',
           code: 'n',
           active: false,
           label: 'n',
@@ -294,6 +312,7 @@ const OLD_ASSAULT1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '213021',
           code: 'n',
           active: false,
           label: 'n',
@@ -311,6 +330,7 @@ const OLD_ASSAULT1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '213022',
           code: 'n',
           active: false,
           label: 'n',
@@ -328,6 +348,7 @@ const OLD_ASSAULT1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '213023',
           code: 'n',
           active: false,
           label: 'n',
@@ -345,6 +366,7 @@ const OLD_ASSAULT1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '213024',
           code: 'n',
           active: false,
           label: 'n',
@@ -362,6 +384,7 @@ const OLD_ASSAULT1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '213025',
           code: 'n',
           active: false,
           label: 'n',
@@ -379,6 +402,7 @@ const OLD_ASSAULT1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '213026',
           code: 'n',
           active: false,
           label: 'n',
@@ -396,6 +420,7 @@ const OLD_ASSAULT1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '213027',
           code: 'n',
           active: false,
           label: 'n',
@@ -413,6 +438,7 @@ const OLD_ASSAULT1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '213028',
           code: 'n',
           active: false,
           label: 'n',
@@ -430,6 +456,7 @@ const OLD_ASSAULT1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '213029',
           code: 'n',
           active: false,
           label: 'n',
@@ -447,6 +474,7 @@ const OLD_ASSAULT1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '213030',
           code: 'n',
           active: false,
           label: 'n',
@@ -464,6 +492,7 @@ const OLD_ASSAULT1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '213031',
           code: 'n',
           active: false,
           label: 'n',
@@ -481,6 +510,7 @@ const OLD_ASSAULT1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '213032',
           code: 'n',
           active: false,
           label: 'n',
@@ -498,6 +528,7 @@ const OLD_ASSAULT1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '213033',
           code: 'n',
           active: false,
           label: 'n',
@@ -515,6 +546,7 @@ const OLD_ASSAULT1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '213034',
           code: 'n',
           active: false,
           label: 'n',
@@ -532,6 +564,7 @@ const OLD_ASSAULT1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '213035',
           code: 'n',
           active: false,
           label: 'n',
@@ -549,6 +582,7 @@ const OLD_ASSAULT1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '213036',
           code: 'n',
           active: false,
           label: 'n',
@@ -566,6 +600,7 @@ const OLD_ASSAULT1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '213037',
           code: 'n',
           active: false,
           label: 'n',
@@ -583,6 +618,7 @@ const OLD_ASSAULT1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '213038',
           code: 'n',
           active: false,
           label: 'n',

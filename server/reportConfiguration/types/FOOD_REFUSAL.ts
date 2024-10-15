@@ -1,4 +1,4 @@
-// Generated with ./scripts/updateNomisIncidentTypeConfigurations.ts at 2024-09-25T09:26:13.755Z
+// Generated with ./scripts/updateNomisIncidentTypeConfigurations.ts at 2024-10-15T17:17:40.098Z
 
 import { type IncidentTypeConfiguration } from '../../data/incidentTypeConfiguration/types'
 
@@ -15,6 +15,7 @@ const FOOD_REFUSAL: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '179164',
           code: 'YES',
           active: true,
           label: 'YES',
@@ -23,6 +24,7 @@ const FOOD_REFUSAL: IncidentTypeConfiguration = {
           nextQuestionId: '44427',
         },
         {
+          id: '179163',
           code: 'NO',
           active: true,
           label: 'NO',
@@ -40,6 +42,7 @@ const FOOD_REFUSAL: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '179556',
           code: 'NORMAL LOCATION',
           active: true,
           label: 'NORMAL LOCATION',
@@ -48,6 +51,7 @@ const FOOD_REFUSAL: IncidentTypeConfiguration = {
           nextQuestionId: '44399',
         },
         {
+          id: '179559',
           code: 'SEGREGATION UNIT',
           active: true,
           label: 'SEGREGATION UNIT',
@@ -56,6 +60,7 @@ const FOOD_REFUSAL: IncidentTypeConfiguration = {
           nextQuestionId: '44399',
         },
         {
+          id: '179555',
           code: 'HEALTH CARE CENTRE',
           active: true,
           label: 'HEALTH CARE CENTRE',
@@ -64,6 +69,7 @@ const FOOD_REFUSAL: IncidentTypeConfiguration = {
           nextQuestionId: '44399',
         },
         {
+          id: '179558',
           code: 'OUTSIDE HOSPITAL',
           active: true,
           label: 'OUTSIDE HOSPITAL',
@@ -72,6 +78,7 @@ const FOOD_REFUSAL: IncidentTypeConfiguration = {
           nextQuestionId: '44399',
         },
         {
+          id: '179557',
           code: 'OTHER',
           active: true,
           label: 'OTHER',
@@ -89,6 +96,7 @@ const FOOD_REFUSAL: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '179841',
           code: 'YES',
           active: true,
           label: 'YES',
@@ -97,6 +105,7 @@ const FOOD_REFUSAL: IncidentTypeConfiguration = {
           nextQuestionId: '44688',
         },
         {
+          id: '179840',
           code: 'NO',
           active: true,
           label: 'NO',
@@ -114,6 +123,7 @@ const FOOD_REFUSAL: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '179913',
           code: 'YES',
           active: true,
           label: 'YES',
@@ -122,6 +132,7 @@ const FOOD_REFUSAL: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
+          id: '179912',
           code: 'NO',
           active: true,
           label: 'NO',
@@ -139,6 +150,7 @@ const FOOD_REFUSAL: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '180503',
           code: 'YES',
           active: true,
           label: 'YES',
@@ -147,6 +159,7 @@ const FOOD_REFUSAL: IncidentTypeConfiguration = {
           nextQuestionId: '44887',
         },
         {
+          id: '180502',
           code: 'NO',
           active: true,
           label: 'NO',
@@ -164,6 +177,7 @@ const FOOD_REFUSAL: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '180875',
           code: 'YES',
           active: true,
           label: 'YES',
@@ -172,6 +186,7 @@ const FOOD_REFUSAL: IncidentTypeConfiguration = {
           nextQuestionId: '44989',
         },
         {
+          id: '180874',
           code: 'NO',
           active: true,
           label: 'NO',
@@ -189,6 +204,7 @@ const FOOD_REFUSAL: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '181149',
           code: 'ALL FOOD AND LIQUIDS',
           active: true,
           label: 'ALL FOOD AND LIQUIDS',
@@ -197,6 +213,7 @@ const FOOD_REFUSAL: IncidentTypeConfiguration = {
           nextQuestionId: '44319',
         },
         {
+          id: '181151',
           code: 'FOOD ONLY',
           active: true,
           label: 'FOOD ONLY',
@@ -205,6 +222,7 @@ const FOOD_REFUSAL: IncidentTypeConfiguration = {
           nextQuestionId: '44319',
         },
         {
+          id: '181150',
           code: 'FLUIDS ONLY',
           active: true,
           label: 'FLUIDS ONLY',
@@ -213,6 +231,7 @@ const FOOD_REFUSAL: IncidentTypeConfiguration = {
           nextQuestionId: '44319',
         },
         {
+          id: '181152',
           code: 'OTHER',
           active: true,
           label: 'OTHER',
@@ -230,6 +249,7 @@ const FOOD_REFUSAL: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '181539',
           code: 'FACILITIES',
           active: true,
           label: 'FACILITIES',
@@ -238,6 +258,7 @@ const FOOD_REFUSAL: IncidentTypeConfiguration = {
           nextQuestionId: '44768',
         },
         {
+          id: '181540',
           code: 'FOOD',
           active: true,
           label: 'FOOD',
@@ -246,6 +267,7 @@ const FOOD_REFUSAL: IncidentTypeConfiguration = {
           nextQuestionId: '44768',
         },
         {
+          id: '181543',
           code: 'PAY',
           active: true,
           label: 'PAY',
@@ -254,6 +276,7 @@ const FOOD_REFUSAL: IncidentTypeConfiguration = {
           nextQuestionId: '44768',
         },
         {
+          id: '181546',
           code: 'VISITS',
           active: true,
           label: 'VISITS',
@@ -262,6 +285,7 @@ const FOOD_REFUSAL: IncidentTypeConfiguration = {
           nextQuestionId: '44768',
         },
         {
+          id: '181544',
           code: 'TIME OUT OF CELL',
           active: true,
           label: 'TIME OUT OF CELL',
@@ -270,6 +294,7 @@ const FOOD_REFUSAL: IncidentTypeConfiguration = {
           nextQuestionId: '44768',
         },
         {
+          id: '181541',
           code: 'LOCATION',
           active: true,
           label: 'LOCATION',
@@ -278,6 +303,7 @@ const FOOD_REFUSAL: IncidentTypeConfiguration = {
           nextQuestionId: '44768',
         },
         {
+          id: '181545',
           code: 'TRANSFER',
           active: true,
           label: 'TRANSFER',
@@ -286,6 +312,7 @@ const FOOD_REFUSAL: IncidentTypeConfiguration = {
           nextQuestionId: '44768',
         },
         {
+          id: '181538',
           code: 'CHARGES/CONVICTIONS',
           active: true,
           label: 'CHARGES/CONVICTIONS',
@@ -294,6 +321,7 @@ const FOOD_REFUSAL: IncidentTypeConfiguration = {
           nextQuestionId: '44768',
         },
         {
+          id: '181542',
           code: 'OTHER',
           active: true,
           label: 'OTHER',
@@ -311,6 +339,7 @@ const FOOD_REFUSAL: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '181926',
           code: 'ENTER HOURS',
           active: true,
           label: 'ENTER HOURS',
@@ -328,6 +357,7 @@ const FOOD_REFUSAL: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '181928',
           code: 'YES',
           active: true,
           label: 'YES',
@@ -336,6 +366,7 @@ const FOOD_REFUSAL: IncidentTypeConfiguration = {
           nextQuestionId: '44575',
         },
         {
+          id: '181927',
           code: 'NO',
           active: true,
           label: 'NO',

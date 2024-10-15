@@ -1,4 +1,4 @@
-// Generated with ./scripts/updateNomisIncidentTypeConfigurations.ts at 2024-09-25T09:25:54.406Z
+// Generated with ./scripts/updateNomisIncidentTypeConfigurations.ts at 2024-10-15T17:17:21.069Z
 
 import { type IncidentTypeConfiguration } from '../../data/incidentTypeConfiguration/types'
 
@@ -15,6 +15,7 @@ const DAMAGE: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '179054',
           code: 'YES',
           active: true,
           label: 'YES',
@@ -23,6 +24,7 @@ const DAMAGE: IncidentTypeConfiguration = {
           nextQuestionId: '45002',
         },
         {
+          id: '179055',
           code: 'NO',
           active: true,
           label: 'NO',
@@ -40,6 +42,7 @@ const DAMAGE: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '179113',
           code: 'YES',
           active: true,
           label: 'YES',
@@ -48,6 +51,7 @@ const DAMAGE: IncidentTypeConfiguration = {
           nextQuestionId: '44572',
         },
         {
+          id: '179114',
           code: 'NO',
           active: true,
           label: 'NO',
@@ -65,6 +69,7 @@ const DAMAGE: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '179166',
           code: 'YES',
           active: true,
           label: 'YES',
@@ -73,6 +78,7 @@ const DAMAGE: IncidentTypeConfiguration = {
           nextQuestionId: '45050',
         },
         {
+          id: '179165',
           code: 'NO',
           active: true,
           label: 'NO',
@@ -90,6 +96,7 @@ const DAMAGE: IncidentTypeConfiguration = {
       multipleAnswers: true,
       answers: [
         {
+          id: '179247',
           code: 'STAFF',
           active: true,
           label: 'STAFF',
@@ -98,6 +105,7 @@ const DAMAGE: IncidentTypeConfiguration = {
           nextQuestionId: '44167',
         },
         {
+          id: '179246',
           code: 'PRISONERS',
           active: true,
           label: 'PRISONERS',
@@ -106,6 +114,7 @@ const DAMAGE: IncidentTypeConfiguration = {
           nextQuestionId: '44167',
         },
         {
+          id: '179243',
           code: 'CIVILIAN GRADES',
           active: true,
           label: 'CIVILIAN GRADES',
@@ -114,6 +123,7 @@ const DAMAGE: IncidentTypeConfiguration = {
           nextQuestionId: '44167',
         },
         {
+          id: '179245',
           code: 'POLICE',
           active: true,
           label: 'POLICE',
@@ -122,6 +132,7 @@ const DAMAGE: IncidentTypeConfiguration = {
           nextQuestionId: '44167',
         },
         {
+          id: '179244',
           code: 'EXTERNAL CIVILIANS',
           active: true,
           label: 'EXTERNAL CIVILIANS',
@@ -139,6 +150,7 @@ const DAMAGE: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '179430',
           code: 'YES',
           active: true,
           label: 'YES',
@@ -147,6 +159,7 @@ const DAMAGE: IncidentTypeConfiguration = {
           nextQuestionId: '44785',
         },
         {
+          id: '179431',
           code: 'NO',
           active: true,
           label: 'NO',
@@ -164,6 +177,7 @@ const DAMAGE: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '179570',
           code: 'ADMINISTRATION',
           active: true,
           label: 'ADMINISTRATION',
@@ -172,6 +186,7 @@ const DAMAGE: IncidentTypeConfiguration = {
           nextQuestionId: '44343',
         },
         {
+          id: '179571',
           code: 'ASSOCIATION AREA',
           active: true,
           label: 'ASSOCIATION AREA',
@@ -180,6 +195,7 @@ const DAMAGE: IncidentTypeConfiguration = {
           nextQuestionId: '44343',
         },
         {
+          id: '179572',
           code: 'CELL',
           active: true,
           label: 'CELL',
@@ -188,6 +204,7 @@ const DAMAGE: IncidentTypeConfiguration = {
           nextQuestionId: '44343',
         },
         {
+          id: '179573',
           code: 'CHAPEL',
           active: true,
           label: 'CHAPEL',
@@ -196,6 +213,7 @@ const DAMAGE: IncidentTypeConfiguration = {
           nextQuestionId: '44343',
         },
         {
+          id: '179575',
           code: 'DINING ROOM',
           active: true,
           label: 'DINING ROOM',
@@ -204,6 +222,7 @@ const DAMAGE: IncidentTypeConfiguration = {
           nextQuestionId: '44343',
         },
         {
+          id: '179576',
           code: 'DORMITORY',
           active: true,
           label: 'DORMITORY',
@@ -212,6 +231,7 @@ const DAMAGE: IncidentTypeConfiguration = {
           nextQuestionId: '44343',
         },
         {
+          id: '179577',
           code: 'EDUCATION',
           active: true,
           label: 'EDUCATION',
@@ -220,6 +240,7 @@ const DAMAGE: IncidentTypeConfiguration = {
           nextQuestionId: '44343',
         },
         {
+          id: '179579',
           code: 'EXERCISE YARD',
           active: true,
           label: 'EXERCISE YARD',
@@ -228,6 +249,7 @@ const DAMAGE: IncidentTypeConfiguration = {
           nextQuestionId: '44343',
         },
         {
+          id: '179581',
           code: 'GATE',
           active: true,
           label: 'GATE',
@@ -236,6 +258,7 @@ const DAMAGE: IncidentTypeConfiguration = {
           nextQuestionId: '44343',
         },
         {
+          id: '179582',
           code: 'GYM',
           active: true,
           label: 'GYM',
@@ -244,6 +267,7 @@ const DAMAGE: IncidentTypeConfiguration = {
           nextQuestionId: '44343',
         },
         {
+          id: '179583',
           code: 'HEALTH CARE CENTRE',
           active: true,
           label: 'HEALTH CARE CENTRE',
@@ -252,6 +276,7 @@ const DAMAGE: IncidentTypeConfiguration = {
           nextQuestionId: '44343',
         },
         {
+          id: '179586',
           code: 'KITCHEN',
           active: true,
           label: 'KITCHEN',
@@ -260,6 +285,7 @@ const DAMAGE: IncidentTypeConfiguration = {
           nextQuestionId: '44343',
         },
         {
+          id: '179588',
           code: 'OFFICE',
           active: true,
           label: 'OFFICE',
@@ -268,6 +294,7 @@ const DAMAGE: IncidentTypeConfiguration = {
           nextQuestionId: '44343',
         },
         {
+          id: '179590',
           code: 'RECEPTION',
           active: true,
           label: 'RECEPTION',
@@ -276,6 +303,7 @@ const DAMAGE: IncidentTypeConfiguration = {
           nextQuestionId: '44343',
         },
         {
+          id: '179591',
           code: 'RECESS',
           active: true,
           label: 'RECESS',
@@ -284,6 +312,7 @@ const DAMAGE: IncidentTypeConfiguration = {
           nextQuestionId: '44343',
         },
         {
+          id: '179592',
           code: 'SEGREGATION UNIT',
           active: true,
           label: 'SEGREGATION UNIT',
@@ -292,6 +321,7 @@ const DAMAGE: IncidentTypeConfiguration = {
           nextQuestionId: '44343',
         },
         {
+          id: '179594',
           code: 'SPECIAL UNIT',
           active: true,
           label: 'SPECIAL UNIT',
@@ -300,6 +330,7 @@ const DAMAGE: IncidentTypeConfiguration = {
           nextQuestionId: '44343',
         },
         {
+          id: '179593',
           code: 'SHOWERS/CHANGING ROOM',
           active: true,
           label: 'SHOWERS/CHANGING ROOM',
@@ -308,6 +339,7 @@ const DAMAGE: IncidentTypeConfiguration = {
           nextQuestionId: '44343',
         },
         {
+          id: '179597',
           code: 'VISITS',
           active: true,
           label: 'VISITS',
@@ -316,6 +348,7 @@ const DAMAGE: IncidentTypeConfiguration = {
           nextQuestionId: '44343',
         },
         {
+          id: '179599',
           code: 'WING',
           active: true,
           label: 'WING',
@@ -324,6 +357,7 @@ const DAMAGE: IncidentTypeConfiguration = {
           nextQuestionId: '44343',
         },
         {
+          id: '179601',
           code: 'WORKS DEPARTMENT',
           active: true,
           label: 'WORKS DEPARTMENT',
@@ -332,6 +366,7 @@ const DAMAGE: IncidentTypeConfiguration = {
           nextQuestionId: '44343',
         },
         {
+          id: '179602',
           code: 'WORKSHOP',
           active: true,
           label: 'WORKSHOP',
@@ -340,6 +375,7 @@ const DAMAGE: IncidentTypeConfiguration = {
           nextQuestionId: '44343',
         },
         {
+          id: '179600',
           code: 'WITHIN PERIMETER',
           active: true,
           label: 'WITHIN PERIMETER',
@@ -348,6 +384,7 @@ const DAMAGE: IncidentTypeConfiguration = {
           nextQuestionId: '44343',
         },
         {
+          id: '179578',
           code: 'ELSEWHERE',
           active: true,
           label: 'ELSEWHERE',
@@ -356,6 +393,7 @@ const DAMAGE: IncidentTypeConfiguration = {
           nextQuestionId: '44343',
         },
         {
+          id: '179580',
           code: 'FUNERAL',
           active: true,
           label: 'FUNERAL',
@@ -364,6 +402,7 @@ const DAMAGE: IncidentTypeConfiguration = {
           nextQuestionId: '44343',
         },
         {
+          id: '179584',
           code: 'HOSPITAL OUTSIDE (PATIENT)',
           active: true,
           label: 'HOSPITAL OUTSIDE (PATIENT)',
@@ -372,6 +411,7 @@ const DAMAGE: IncidentTypeConfiguration = {
           nextQuestionId: '44343',
         },
         {
+          id: '179585',
           code: 'HOSPITAL OUTSIDE (VISITING)',
           active: true,
           label: 'HOSPITAL OUTSIDE (VISITING)',
@@ -380,6 +420,7 @@ const DAMAGE: IncidentTypeConfiguration = {
           nextQuestionId: '44343',
         },
         {
+          id: '179589',
           code: 'OUTSIDE WORKING PARTY',
           active: true,
           label: 'OUTSIDE WORKING PARTY',
@@ -388,6 +429,7 @@ const DAMAGE: IncidentTypeConfiguration = {
           nextQuestionId: '44343',
         },
         {
+          id: '179595',
           code: 'SPORTS FIELD',
           active: true,
           label: 'SPORTS FIELD',
@@ -396,6 +438,7 @@ const DAMAGE: IncidentTypeConfiguration = {
           nextQuestionId: '44343',
         },
         {
+          id: '179596',
           code: 'VEHICLE',
           active: true,
           label: 'VEHICLE',
@@ -404,6 +447,7 @@ const DAMAGE: IncidentTypeConfiguration = {
           nextQuestionId: '44343',
         },
         {
+          id: '179598',
           code: 'WEDDINGS',
           active: true,
           label: 'WEDDINGS',
@@ -412,6 +456,7 @@ const DAMAGE: IncidentTypeConfiguration = {
           nextQuestionId: '44343',
         },
         {
+          id: '179587',
           code: 'MAGISTRATES COURT',
           active: true,
           label: 'MAGISTRATES COURT',
@@ -420,6 +465,7 @@ const DAMAGE: IncidentTypeConfiguration = {
           nextQuestionId: '44343',
         },
         {
+          id: '179574',
           code: 'CROWN COURT',
           active: true,
           label: 'CROWN COURT',
@@ -437,6 +483,7 @@ const DAMAGE: IncidentTypeConfiguration = {
       multipleAnswers: true,
       answers: [
         {
+          id: '179657',
           code: 'FURNITURE',
           active: true,
           label: 'FURNITURE',
@@ -445,6 +492,7 @@ const DAMAGE: IncidentTypeConfiguration = {
           nextQuestionId: '44466',
         },
         {
+          id: '179656',
           code: 'FITTINGS',
           active: true,
           label: 'FITTINGS',
@@ -453,6 +501,7 @@ const DAMAGE: IncidentTypeConfiguration = {
           nextQuestionId: '44466',
         },
         {
+          id: '179658',
           code: 'MACHINERY',
           active: true,
           label: 'MACHINERY',
@@ -461,6 +510,7 @@ const DAMAGE: IncidentTypeConfiguration = {
           nextQuestionId: '44466',
         },
         {
+          id: '179655',
           code: 'EQUIPMENT',
           active: true,
           label: 'EQUIPMENT',
@@ -469,6 +519,7 @@ const DAMAGE: IncidentTypeConfiguration = {
           nextQuestionId: '44466',
         },
         {
+          id: '179659',
           code: 'OTHER',
           active: true,
           label: 'OTHER',
@@ -486,6 +537,7 @@ const DAMAGE: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '179784',
           code: 'YES',
           active: true,
           label: 'YES',
@@ -494,6 +546,7 @@ const DAMAGE: IncidentTypeConfiguration = {
           nextQuestionId: '44295',
         },
         {
+          id: '179785',
           code: 'NO',
           active: true,
           label: 'NO',
@@ -511,6 +564,7 @@ const DAMAGE: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '180083',
           code: 'MINOR',
           active: true,
           label: 'MINOR',
@@ -519,6 +573,7 @@ const DAMAGE: IncidentTypeConfiguration = {
           nextQuestionId: '44763',
         },
         {
+          id: '180084',
           code: 'SERIOUS',
           active: true,
           label: 'SERIOUS',
@@ -527,6 +582,7 @@ const DAMAGE: IncidentTypeConfiguration = {
           nextQuestionId: '44763',
         },
         {
+          id: '180082',
           code: 'EXTENSIVE',
           active: true,
           label: 'EXTENSIVE',
@@ -544,6 +600,7 @@ const DAMAGE: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '180259',
           code: 'YES',
           active: true,
           label: 'YES',
@@ -552,6 +609,7 @@ const DAMAGE: IncidentTypeConfiguration = {
           nextQuestionId: '45082',
         },
         {
+          id: '180258',
           code: 'NO',
           active: true,
           label: 'NO',
@@ -569,6 +627,7 @@ const DAMAGE: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '180492',
           code: 'YES',
           active: true,
           label: 'YES',
@@ -577,6 +636,7 @@ const DAMAGE: IncidentTypeConfiguration = {
           nextQuestionId: '44200',
         },
         {
+          id: '180491',
           code: 'NO',
           active: true,
           label: 'NO',
@@ -594,6 +654,7 @@ const DAMAGE: IncidentTypeConfiguration = {
       multipleAnswers: true,
       answers: [
         {
+          id: '180504',
           code: 'GRAZES, SCRATCHES OR ABRASIONS',
           active: true,
           label: 'GRAZES, SCRATCHES OR ABRASIONS',
@@ -602,6 +663,7 @@ const DAMAGE: IncidentTypeConfiguration = {
           nextQuestionId: '44230',
         },
         {
+          id: '180505',
           code: 'MINOR BRUISES',
           active: true,
           label: 'MINOR BRUISES',
@@ -610,6 +672,7 @@ const DAMAGE: IncidentTypeConfiguration = {
           nextQuestionId: '44230',
         },
         {
+          id: '180508',
           code: 'SWELLINGS',
           active: true,
           label: 'SWELLINGS',
@@ -618,6 +681,7 @@ const DAMAGE: IncidentTypeConfiguration = {
           nextQuestionId: '44230',
         },
         {
+          id: '180507',
           code: 'SUPERFICIAL CUTS',
           active: true,
           label: 'SUPERFICIAL CUTS',
@@ -626,6 +690,7 @@ const DAMAGE: IncidentTypeConfiguration = {
           nextQuestionId: '44230',
         },
         {
+          id: '180506',
           code: 'OTHER',
           active: true,
           label: 'OTHER',
@@ -643,6 +708,7 @@ const DAMAGE: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '180775',
           code: 'YES',
           active: true,
           label: 'YES',
@@ -651,6 +717,7 @@ const DAMAGE: IncidentTypeConfiguration = {
           nextQuestionId: '44735',
         },
         {
+          id: '180774',
           code: 'NO',
           active: true,
           label: 'NO',
@@ -668,6 +735,7 @@ const DAMAGE: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '181070',
           code: 'YES',
           active: true,
           label: 'YES',
@@ -676,6 +744,7 @@ const DAMAGE: IncidentTypeConfiguration = {
           nextQuestionId: '44324',
         },
         {
+          id: '181069',
           code: 'NO',
           active: true,
           label: 'NO',
@@ -693,6 +762,7 @@ const DAMAGE: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '181140',
           code: 'ENTER AMOUNT IN POUND STERLING',
           active: true,
           label: 'ENTER AMOUNT IN POUND STERLING',
@@ -710,6 +780,7 @@ const DAMAGE: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '181186',
           code: 'YES',
           active: true,
           label: 'YES',
@@ -718,6 +789,7 @@ const DAMAGE: IncidentTypeConfiguration = {
           nextQuestionId: '44190',
         },
         {
+          id: '181187',
           code: 'NO',
           active: true,
           label: 'NO',
@@ -735,6 +807,7 @@ const DAMAGE: IncidentTypeConfiguration = {
       multipleAnswers: true,
       answers: [
         {
+          id: '181195',
           code: 'FRACTURE',
           active: true,
           label: 'FRACTURE',
@@ -743,6 +816,7 @@ const DAMAGE: IncidentTypeConfiguration = {
           nextQuestionId: '44971',
         },
         {
+          id: '181197',
           code: 'SCALD OR BURN',
           active: true,
           label: 'SCALD OR BURN',
@@ -751,6 +825,7 @@ const DAMAGE: IncidentTypeConfiguration = {
           nextQuestionId: '44971',
         },
         {
+          id: '181198',
           code: 'STABBING',
           active: true,
           label: 'STABBING',
@@ -759,6 +834,7 @@ const DAMAGE: IncidentTypeConfiguration = {
           nextQuestionId: '44971',
         },
         {
+          id: '181192',
           code: 'CRUSHING',
           active: true,
           label: 'CRUSHING',
@@ -767,6 +843,7 @@ const DAMAGE: IncidentTypeConfiguration = {
           nextQuestionId: '44971',
         },
         {
+          id: '181194',
           code: 'EXTENSIVE/MULTIPLE BRUISING',
           active: true,
           label: 'EXTENSIVE/MULTIPLE BRUISING',
@@ -775,6 +852,7 @@ const DAMAGE: IncidentTypeConfiguration = {
           nextQuestionId: '44971',
         },
         {
+          id: '181189',
           code: 'BLACK EYE',
           active: true,
           label: 'BLACK EYE',
@@ -783,6 +861,7 @@ const DAMAGE: IncidentTypeConfiguration = {
           nextQuestionId: '44971',
         },
         {
+          id: '181190',
           code: 'BROKEN NOSE',
           active: true,
           label: 'BROKEN NOSE',
@@ -791,6 +870,7 @@ const DAMAGE: IncidentTypeConfiguration = {
           nextQuestionId: '44971',
         },
         {
+          id: '181191',
           code: 'BROKEN TEETH',
           active: true,
           label: 'BROKEN TEETH',
@@ -799,6 +879,7 @@ const DAMAGE: IncidentTypeConfiguration = {
           nextQuestionId: '44971',
         },
         {
+          id: '181193',
           code: 'CUTS REQUIRING SUTURES',
           active: true,
           label: 'CUTS REQUIRING SUTURES',
@@ -807,6 +888,7 @@ const DAMAGE: IncidentTypeConfiguration = {
           nextQuestionId: '44971',
         },
         {
+          id: '181188',
           code: 'BITES',
           active: true,
           label: 'BITES',
@@ -815,6 +897,7 @@ const DAMAGE: IncidentTypeConfiguration = {
           nextQuestionId: '44971',
         },
         {
+          id: '181196',
           code: 'GUN SHOT WOUND',
           active: true,
           label: 'GUN SHOT WOUND',
@@ -823,6 +906,7 @@ const DAMAGE: IncidentTypeConfiguration = {
           nextQuestionId: '44971',
         },
         {
+          id: '181199',
           code: 'TEMPORARY/PERMANENT BLINDNESS',
           active: true,
           label: 'TEMPORARY/PERMANENT BLINDNESS',
@@ -840,6 +924,7 @@ const DAMAGE: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '181864',
           code: 'YES',
           active: true,
           label: 'YES',
@@ -848,6 +933,7 @@ const DAMAGE: IncidentTypeConfiguration = {
           nextQuestionId: '44576',
         },
         {
+          id: '181865',
           code: 'NO',
           active: true,
           label: 'NO',
@@ -865,6 +951,7 @@ const DAMAGE: IncidentTypeConfiguration = {
       multipleAnswers: true,
       answers: [
         {
+          id: '181966',
           code: 'STAFF',
           active: true,
           label: 'STAFF',
@@ -873,6 +960,7 @@ const DAMAGE: IncidentTypeConfiguration = {
           nextQuestionId: '44655',
         },
         {
+          id: '181965',
           code: 'PRISONERS',
           active: true,
           label: 'PRISONERS',
@@ -881,6 +969,7 @@ const DAMAGE: IncidentTypeConfiguration = {
           nextQuestionId: '44655',
         },
         {
+          id: '181962',
           code: 'CIVILIAN GRADES',
           active: true,
           label: 'CIVILIAN GRADES',
@@ -889,6 +978,7 @@ const DAMAGE: IncidentTypeConfiguration = {
           nextQuestionId: '44655',
         },
         {
+          id: '181964',
           code: 'POLICE',
           active: true,
           label: 'POLICE',
@@ -897,6 +987,7 @@ const DAMAGE: IncidentTypeConfiguration = {
           nextQuestionId: '44655',
         },
         {
+          id: '181963',
           code: 'EXTERNAL CIVILIANS',
           active: true,
           label: 'EXTERNAL CIVILIANS',
@@ -914,6 +1005,7 @@ const DAMAGE: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '182174',
           code: 'YES',
           active: true,
           label: 'YES',
@@ -922,6 +1014,7 @@ const DAMAGE: IncidentTypeConfiguration = {
           nextQuestionId: '44512',
         },
         {
+          id: '182173',
           code: 'NO',
           active: true,
           label: 'NO',
@@ -939,6 +1032,7 @@ const DAMAGE: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '182287',
           code: 'YES',
           active: true,
           label: 'YES',
@@ -947,6 +1041,7 @@ const DAMAGE: IncidentTypeConfiguration = {
           nextQuestionId: '44379',
         },
         {
+          id: '182286',
           code: 'NO',
           active: true,
           label: 'NO',

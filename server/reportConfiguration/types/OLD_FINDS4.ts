@@ -1,4 +1,4 @@
-// Generated with ./scripts/updateNomisIncidentTypeConfigurations.ts at 2024-09-25T09:26:08.119Z
+// Generated with ./scripts/updateNomisIncidentTypeConfigurations.ts at 2024-10-15T17:17:34.426Z
 
 import { type IncidentTypeConfiguration } from '../../data/incidentTypeConfiguration/types'
 
@@ -15,6 +15,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
       multipleAnswers: true,
       answers: [
         {
+          id: '209109',
           code: 'NO FURTHER ACTION',
           active: true,
           label: 'NO FURTHER ACTION',
@@ -23,6 +24,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
           nextQuestionId: '57285',
         },
         {
+          id: '209110',
           code: 'IEP REGRESSION',
           active: true,
           label: 'IEP REGRESSION',
@@ -31,6 +33,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
           nextQuestionId: '57285',
         },
         {
+          id: '209111',
           code: 'PLACED ON REPORT/ADJUDICATION REFERRAL',
           active: true,
           label: 'PLACED ON REPORT/ADJUDICATION REFERRAL',
@@ -39,6 +42,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
           nextQuestionId: '57285',
         },
         {
+          id: '209112',
           code: 'POLICE REFERRAL',
           active: true,
           label: 'POLICE REFERRAL',
@@ -47,6 +51,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
           nextQuestionId: '57285',
         },
         {
+          id: '209113',
           code: 'CPS REFRRAL',
           active: false,
           label: 'CPS REFRRAL',
@@ -55,6 +60,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
           nextQuestionId: '57285',
         },
         {
+          id: '209114',
           code: 'PROSECUTION REFERRAL',
           active: true,
           label: 'PROSECUTION REFERRAL',
@@ -72,6 +78,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '209115',
           code: 'YES',
           active: true,
           label: 'YES',
@@ -80,6 +87,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
           nextQuestionId: '57286',
         },
         {
+          id: '209116',
           code: 'NO',
           active: true,
           label: 'NO',
@@ -97,6 +105,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '209117',
           code: 'YES',
           active: true,
           label: 'YES',
@@ -105,6 +114,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
           nextQuestionId: '57287',
         },
         {
+          id: '209118',
           code: 'NO',
           active: true,
           label: 'NO',
@@ -122,6 +132,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '209119',
           code: 'ADMINISTRATION',
           active: true,
           label: 'ADMINISTRATION',
@@ -130,6 +141,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
           nextQuestionId: '57288',
         },
         {
+          id: '209120',
           code: 'ASSOCIATION AREA',
           active: true,
           label: 'ASSOCIATION AREA',
@@ -138,6 +150,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
           nextQuestionId: '57288',
         },
         {
+          id: '209121',
           code: 'CELL',
           active: true,
           label: 'CELL',
@@ -146,6 +159,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
           nextQuestionId: '57288',
         },
         {
+          id: '209122',
           code: 'CHAPEL',
           active: true,
           label: 'CHAPEL',
@@ -154,6 +168,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
           nextQuestionId: '57288',
         },
         {
+          id: '209123',
           code: 'CROWN COURT',
           active: true,
           label: 'CROWN COURT',
@@ -162,6 +177,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
           nextQuestionId: '57288',
         },
         {
+          id: '209124',
           code: 'DINING ROOM',
           active: true,
           label: 'DINING ROOM',
@@ -170,6 +186,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
           nextQuestionId: '57288',
         },
         {
+          id: '209125',
           code: 'DORMITORY',
           active: true,
           label: 'DORMITORY',
@@ -178,6 +195,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
           nextQuestionId: '57288',
         },
         {
+          id: '209126',
           code: 'EDUCATION',
           active: true,
           label: 'EDUCATION',
@@ -186,6 +204,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
           nextQuestionId: '57288',
         },
         {
+          id: '209127',
           code: 'ELSEWHERE',
           active: true,
           label: 'ELSEWHERE',
@@ -194,6 +213,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
           nextQuestionId: '57288',
         },
         {
+          id: '209128',
           code: 'EXERCISE YARD',
           active: true,
           label: 'EXERCISE YARD',
@@ -202,6 +222,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
           nextQuestionId: '57288',
         },
         {
+          id: '209129',
           code: 'FUNERAL',
           active: true,
           label: 'FUNERAL',
@@ -210,6 +231,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
           nextQuestionId: '57288',
         },
         {
+          id: '209130',
           code: 'GATE',
           active: true,
           label: 'GATE',
@@ -218,6 +240,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
           nextQuestionId: '57288',
         },
         {
+          id: '209131',
           code: 'GYM',
           active: true,
           label: 'GYM',
@@ -226,6 +249,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
           nextQuestionId: '57288',
         },
         {
+          id: '209132',
           code: 'HEALTH CARE CENTRE',
           active: true,
           label: 'HEALTH CARE CENTRE',
@@ -234,6 +258,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
           nextQuestionId: '57288',
         },
         {
+          id: '209133',
           code: 'HOSPITAL OUTSIDE (PATIENT)',
           active: true,
           label: 'HOSPITAL OUTSIDE (PATIENT)',
@@ -242,6 +267,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
           nextQuestionId: '57288',
         },
         {
+          id: '209134',
           code: 'HOSPITAL OUTSIDE (VISITING)',
           active: true,
           label: 'HOSPITAL OUTSIDE (VISITING)',
@@ -250,6 +276,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
           nextQuestionId: '57288',
         },
         {
+          id: '209135',
           code: 'KITCHEN',
           active: true,
           label: 'KITCHEN',
@@ -258,6 +285,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
           nextQuestionId: '57288',
         },
         {
+          id: '209136',
           code: 'MAGISTRATES COURT',
           active: true,
           label: 'MAGISTRATES COURT',
@@ -266,6 +294,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
           nextQuestionId: '57288',
         },
         {
+          id: '209137',
           code: 'OFFICE',
           active: true,
           label: 'OFFICE',
@@ -274,6 +303,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
           nextQuestionId: '57288',
         },
         {
+          id: '209138',
           code: 'OUTSIDE WORKING PARTY',
           active: true,
           label: 'OUTSIDE WORKING PARTY',
@@ -282,6 +312,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
           nextQuestionId: '57288',
         },
         {
+          id: '209139',
           code: 'RECEPTION',
           active: true,
           label: 'RECEPTION',
@@ -290,6 +321,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
           nextQuestionId: '57288',
         },
         {
+          id: '209140',
           code: 'RECESS',
           active: true,
           label: 'RECESS',
@@ -298,6 +330,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
           nextQuestionId: '57288',
         },
         {
+          id: '209141',
           code: 'SEGREGATION UNIT',
           active: true,
           label: 'SEGREGATION UNIT',
@@ -306,6 +339,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
           nextQuestionId: '57288',
         },
         {
+          id: '209142',
           code: 'SHOWERS/CHANGING ROOM',
           active: true,
           label: 'SHOWERS/CHANGING ROOM',
@@ -314,6 +348,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
           nextQuestionId: '57288',
         },
         {
+          id: '209143',
           code: 'SPECIAL UNIT',
           active: true,
           label: 'SPECIAL UNIT',
@@ -322,6 +357,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
           nextQuestionId: '57288',
         },
         {
+          id: '209144',
           code: 'SPORTS FIELD',
           active: true,
           label: 'SPORTS FIELD',
@@ -330,6 +366,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
           nextQuestionId: '57288',
         },
         {
+          id: '209145',
           code: 'VEHICLE',
           active: true,
           label: 'VEHICLE',
@@ -338,6 +375,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
           nextQuestionId: '57288',
         },
         {
+          id: '209146',
           code: 'VISITS',
           active: true,
           label: 'VISITS',
@@ -346,6 +384,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
           nextQuestionId: '57288',
         },
         {
+          id: '209147',
           code: 'WEDDINGS',
           active: true,
           label: 'WEDDINGS',
@@ -354,6 +393,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
           nextQuestionId: '57288',
         },
         {
+          id: '209148',
           code: 'WING',
           active: true,
           label: 'WING',
@@ -362,6 +402,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
           nextQuestionId: '57288',
         },
         {
+          id: '209149',
           code: 'WITHIN PERIMETER',
           active: true,
           label: 'WITHIN PERIMETER',
@@ -370,6 +411,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
           nextQuestionId: '57288',
         },
         {
+          id: '209150',
           code: 'WORKS DEPARTMENT',
           active: true,
           label: 'WORKS DEPARTMENT',
@@ -378,6 +420,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
           nextQuestionId: '57288',
         },
         {
+          id: '209151',
           code: 'WORKSHOP',
           active: true,
           label: 'WORKSHOP',
@@ -386,6 +429,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
           nextQuestionId: '57288',
         },
         {
+          id: '209152',
           code: 'INDUCTION/1ST NIGHT CENTRE',
           active: true,
           label: 'INDUCTION/1ST NIGHT CENTRE',
@@ -394,6 +438,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
           nextQuestionId: '57288',
         },
         {
+          id: '209153',
           code: 'MAIL ROOM',
           active: true,
           label: 'MAIL ROOM',
@@ -402,6 +447,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
           nextQuestionId: '57288',
         },
         {
+          id: '209154',
           code: 'EXTERNAL ROOF',
           active: true,
           label: 'EXTERNAL ROOF',
@@ -410,6 +456,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
           nextQuestionId: '57288',
         },
         {
+          id: '209155',
           code: 'VULNERABLE PRISONERS UNIT (VPU)',
           active: true,
           label: 'VULNERABLE PRISONERS UNIT (VPU)',
@@ -427,6 +474,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '209156',
           code: 'YES',
           active: true,
           label: 'YES',
@@ -435,6 +483,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
           nextQuestionId: '57289',
         },
         {
+          id: '209157',
           code: 'NO',
           active: true,
           label: 'NO',
@@ -452,6 +501,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
       multipleAnswers: true,
       answers: [
         {
+          id: '209158',
           code: 'AMPHETAMINES',
           active: true,
           label: 'AMPHETAMINES',
@@ -460,6 +510,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
           nextQuestionId: '57290',
         },
         {
+          id: '209159',
           code: 'BARBITURATES',
           active: true,
           label: 'BARBITURATES',
@@ -468,6 +519,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
           nextQuestionId: '57290',
         },
         {
+          id: '209160',
           code: 'BENZODIAZEPINES',
           active: true,
           label: 'BENZODIAZEPINES',
@@ -476,6 +528,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
           nextQuestionId: '57290',
         },
         {
+          id: '209161',
           code: 'BUPRENORPHINE/SUBUTEX',
           active: true,
           label: 'BUPRENORPHINE/SUBUTEX',
@@ -484,6 +537,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
           nextQuestionId: '57290',
         },
         {
+          id: '209162',
           code: 'CANNABIS',
           active: true,
           label: 'CANNABIS',
@@ -492,6 +546,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
           nextQuestionId: '57290',
         },
         {
+          id: '209163',
           code: 'CANNABIS PLANT',
           active: true,
           label: 'CANNABIS PLANT',
@@ -500,6 +555,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
           nextQuestionId: '57290',
         },
         {
+          id: '209164',
           code: 'COCAINE',
           active: true,
           label: 'COCAINE',
@@ -508,6 +564,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
           nextQuestionId: '57290',
         },
         {
+          id: '209165',
           code: 'CRACK',
           active: true,
           label: 'CRACK',
@@ -516,6 +573,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
           nextQuestionId: '57290',
         },
         {
+          id: '209166',
           code: 'HEROIN',
           active: true,
           label: 'HEROIN',
@@ -524,6 +582,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
           nextQuestionId: '57290',
         },
         {
+          id: '209167',
           code: 'LSD',
           active: true,
           label: 'LSD',
@@ -532,6 +591,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
           nextQuestionId: '57290',
         },
         {
+          id: '209168',
           code: 'METHADONE',
           active: true,
           label: 'METHADONE',
@@ -540,6 +600,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
           nextQuestionId: '57290',
         },
         {
+          id: '209169',
           code: 'PREGABALIN',
           active: true,
           label: 'PREGABALIN',
@@ -548,6 +609,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
           nextQuestionId: '57290',
         },
         {
+          id: '209170',
           code: 'TRANQUILISERS',
           active: true,
           label: 'TRANQUILISERS',
@@ -556,6 +618,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
           nextQuestionId: '57290',
         },
         {
+          id: '209171',
           code: 'TRAMADOL',
           active: true,
           label: 'TRAMADOL',
@@ -564,6 +627,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
           nextQuestionId: '57290',
         },
         {
+          id: '209172',
           code: 'GABAPENTIN',
           active: true,
           label: 'GABAPENTIN',
@@ -572,6 +636,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
           nextQuestionId: '57290',
         },
         {
+          id: '209173',
           code: 'NPS: SPICE',
           active: true,
           label: 'NPS: SPICE',
@@ -580,6 +645,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
           nextQuestionId: '57290',
         },
         {
+          id: '209174',
           code: 'NPS: BLACK MAMBA',
           active: true,
           label: 'NPS: BLACK MAMBA',
@@ -588,6 +654,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
           nextQuestionId: '57290',
         },
         {
+          id: '209175',
           code: 'NPS: OTHER',
           active: true,
           label: 'NPS: OTHER',
@@ -596,6 +663,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
           nextQuestionId: '57290',
         },
         {
+          id: '209176',
           code: 'STEROIDS',
           active: true,
           label: 'STEROIDS',
@@ -604,6 +672,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
           nextQuestionId: '57290',
         },
         {
+          id: '209177',
           code: 'OTHER (PLEASE SPECIFY)',
           active: true,
           label: 'OTHER (PLEASE SPECIFY)',
@@ -612,6 +681,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
           nextQuestionId: '57290',
         },
         {
+          id: '209178',
           code: 'UNKNOWN',
           active: true,
           label: 'UNKNOWN',
@@ -629,6 +699,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '209179',
           code: '<1g',
           active: true,
           label: '<1g',
@@ -637,6 +708,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
           nextQuestionId: '57291',
         },
         {
+          id: '209180',
           code: '2g to 5g',
           active: true,
           label: '2g to 5g',
@@ -645,6 +717,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
           nextQuestionId: '57291',
         },
         {
+          id: '209181',
           code: '6g to 10g',
           active: true,
           label: '6g to 10g',
@@ -653,6 +726,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
           nextQuestionId: '57291',
         },
         {
+          id: '209182',
           code: '11g to 20g',
           active: true,
           label: '11g to 20g',
@@ -661,6 +735,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
           nextQuestionId: '57291',
         },
         {
+          id: '209183',
           code: '21g to 30g',
           active: true,
           label: '21g to 30g',
@@ -669,6 +744,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
           nextQuestionId: '57291',
         },
         {
+          id: '209184',
           code: '31g to 40g',
           active: true,
           label: '31g to 40g',
@@ -677,6 +753,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
           nextQuestionId: '57291',
         },
         {
+          id: '209185',
           code: '41g to 50g',
           active: true,
           label: '41g to 50g',
@@ -685,6 +762,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
           nextQuestionId: '57291',
         },
         {
+          id: '209186',
           code: '51g to 100g',
           active: true,
           label: '51g to 100g',
@@ -693,6 +771,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
           nextQuestionId: '57291',
         },
         {
+          id: '209187',
           code: '101g to 200g',
           active: true,
           label: '101g to 200g',
@@ -701,6 +780,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
           nextQuestionId: '57291',
         },
         {
+          id: '209188',
           code: '201g to 300g',
           active: true,
           label: '201g to 300g',
@@ -709,6 +789,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
           nextQuestionId: '57291',
         },
         {
+          id: '209189',
           code: '301g to 400g',
           active: true,
           label: '301g to 400g',
@@ -717,6 +798,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
           nextQuestionId: '57291',
         },
         {
+          id: '209190',
           code: '401g to 500g',
           active: true,
           label: '401g to 500g',
@@ -725,6 +807,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
           nextQuestionId: '57291',
         },
         {
+          id: '209191',
           code: '501g to 1,000g',
           active: true,
           label: '501g to 1,000g',
@@ -733,6 +816,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
           nextQuestionId: '57291',
         },
         {
+          id: '209192',
           code: 'More than 1kg',
           active: true,
           label: 'More than 1kg',
@@ -741,6 +825,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
           nextQuestionId: '57291',
         },
         {
+          id: '209193',
           code: 'UNKNOWN',
           active: true,
           label: 'UNKNOWN',
@@ -758,6 +843,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '209194',
           code: 'YES',
           active: true,
           label: 'YES',
@@ -766,6 +852,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
           nextQuestionId: '57292',
         },
         {
+          id: '209195',
           code: 'NO',
           active: true,
           label: 'NO',
@@ -783,6 +870,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '209196',
           code: 'FORENSIC LABORATORY',
           active: true,
           label: 'FORENSIC LABORATORY',
@@ -791,6 +879,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
           nextQuestionId: '57293',
         },
         {
+          id: '209197',
           code: 'LOCAL WITH BDH KIT OR SIMILAR',
           active: true,
           label: 'LOCAL WITH BDH KIT OR SIMILAR',
@@ -808,6 +897,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '209198',
           code: 'NAME',
           active: true,
           label: 'NAME',
@@ -825,6 +915,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '209199',
           code: 'YES',
           active: true,
           label: 'YES',
@@ -833,6 +924,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
           nextQuestionId: '57295',
         },
         {
+          id: '209200',
           code: 'NO',
           active: true,
           label: 'NO',
@@ -850,6 +942,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
       multipleAnswers: true,
       answers: [
         {
+          id: '209201',
           code: 'AUTHENTIC NEEDLE',
           active: true,
           label: 'AUTHENTIC NEEDLE',
@@ -858,6 +951,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
           nextQuestionId: '57296',
         },
         {
+          id: '209202',
           code: 'AUTHENTIC SYRINGE',
           active: true,
           label: 'AUTHENTIC SYRINGE',
@@ -866,6 +960,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
           nextQuestionId: '57296',
         },
         {
+          id: '209203',
           code: 'IMPROVISED NEEDLE',
           active: true,
           label: 'IMPROVISED NEEDLE',
@@ -874,6 +969,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
           nextQuestionId: '57296',
         },
         {
+          id: '209204',
           code: 'IMPROVISED SYRINGE',
           active: true,
           label: 'IMPROVISED SYRINGE',
@@ -882,6 +978,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
           nextQuestionId: '57296',
         },
         {
+          id: '209205',
           code: 'PIPE(S)',
           active: true,
           label: 'PIPE(S)',
@@ -890,6 +987,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
           nextQuestionId: '57296',
         },
         {
+          id: '209206',
           code: 'ROACH',
           active: true,
           label: 'ROACH',
@@ -898,6 +996,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
           nextQuestionId: '57296',
         },
         {
+          id: '209207',
           code: 'OTHER (PLEASE SPECIFY)',
           active: true,
           label: 'OTHER (PLEASE SPECIFY)',
@@ -915,6 +1014,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '209208',
           code: 'YES',
           active: true,
           label: 'YES',
@@ -923,6 +1023,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
           nextQuestionId: '57297',
         },
         {
+          id: '209209',
           code: 'NO',
           active: true,
           label: 'NO',
@@ -940,6 +1041,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '209210',
           code: 'YES',
           active: true,
           label: 'YES',
@@ -948,6 +1050,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
           nextQuestionId: '57298',
         },
         {
+          id: '209211',
           code: 'NO',
           active: true,
           label: 'NO',
@@ -965,6 +1068,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '209212',
           code: '1',
           active: true,
           label: '1',
@@ -973,6 +1077,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
           nextQuestionId: '57299',
         },
         {
+          id: '209213',
           code: '2',
           active: true,
           label: '2',
@@ -981,6 +1086,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
           nextQuestionId: '57299',
         },
         {
+          id: '209214',
           code: '3',
           active: true,
           label: '3',
@@ -989,6 +1095,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
           nextQuestionId: '57299',
         },
         {
+          id: '209215',
           code: '4',
           active: true,
           label: '4',
@@ -997,6 +1104,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
           nextQuestionId: '57299',
         },
         {
+          id: '209216',
           code: '5',
           active: true,
           label: '5',
@@ -1005,6 +1113,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
           nextQuestionId: '57299',
         },
         {
+          id: '209217',
           code: '6',
           active: true,
           label: '6',
@@ -1013,6 +1122,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
           nextQuestionId: '57299',
         },
         {
+          id: '209218',
           code: '7',
           active: true,
           label: '7',
@@ -1021,6 +1131,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
           nextQuestionId: '57299',
         },
         {
+          id: '209219',
           code: '8',
           active: true,
           label: '8',
@@ -1029,6 +1140,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
           nextQuestionId: '57299',
         },
         {
+          id: '209220',
           code: '9',
           active: true,
           label: '9',
@@ -1037,6 +1149,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
           nextQuestionId: '57299',
         },
         {
+          id: '209221',
           code: '10',
           active: true,
           label: '10',
@@ -1045,6 +1158,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
           nextQuestionId: '57299',
         },
         {
+          id: '209222',
           code: '11',
           active: true,
           label: '11',
@@ -1053,6 +1167,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
           nextQuestionId: '57299',
         },
         {
+          id: '209223',
           code: '12',
           active: true,
           label: '12',
@@ -1061,6 +1176,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
           nextQuestionId: '57299',
         },
         {
+          id: '209224',
           code: '13',
           active: true,
           label: '13',
@@ -1069,6 +1185,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
           nextQuestionId: '57299',
         },
         {
+          id: '209225',
           code: '14',
           active: true,
           label: '14',
@@ -1077,6 +1194,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
           nextQuestionId: '57299',
         },
         {
+          id: '209226',
           code: '15',
           active: true,
           label: '15',
@@ -1085,6 +1203,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
           nextQuestionId: '57299',
         },
         {
+          id: '209227',
           code: '16',
           active: true,
           label: '16',
@@ -1093,6 +1212,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
           nextQuestionId: '57299',
         },
         {
+          id: '209228',
           code: '17',
           active: true,
           label: '17',
@@ -1101,6 +1221,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
           nextQuestionId: '57299',
         },
         {
+          id: '209229',
           code: '18',
           active: true,
           label: '18',
@@ -1109,6 +1230,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
           nextQuestionId: '57299',
         },
         {
+          id: '209230',
           code: '19',
           active: true,
           label: '19',
@@ -1117,6 +1239,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
           nextQuestionId: '57299',
         },
         {
+          id: '209231',
           code: '20',
           active: true,
           label: '20',
@@ -1125,6 +1248,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
           nextQuestionId: '57299',
         },
         {
+          id: '209232',
           code: 'MORE THAN 20',
           active: true,
           label: 'MORE THAN 20',
@@ -1133,6 +1257,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
           nextQuestionId: '57299',
         },
         {
+          id: '209233',
           code: 'UNKNOWN',
           active: true,
           label: 'UNKNOWN',
@@ -1150,6 +1275,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '209234',
           code: 'YES',
           active: true,
           label: 'YES',
@@ -1158,6 +1284,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
           nextQuestionId: '57300',
         },
         {
+          id: '209235',
           code: 'NO',
           active: true,
           label: 'NO',
@@ -1175,6 +1302,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '209236',
           code: '1',
           active: true,
           label: '1',
@@ -1183,6 +1311,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
           nextQuestionId: '57301',
         },
         {
+          id: '209237',
           code: '2',
           active: true,
           label: '2',
@@ -1191,6 +1320,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
           nextQuestionId: '57301',
         },
         {
+          id: '209238',
           code: '3',
           active: true,
           label: '3',
@@ -1199,6 +1329,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
           nextQuestionId: '57301',
         },
         {
+          id: '209239',
           code: '4',
           active: true,
           label: '4',
@@ -1207,6 +1338,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
           nextQuestionId: '57301',
         },
         {
+          id: '209240',
           code: '5',
           active: true,
           label: '5',
@@ -1215,6 +1347,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
           nextQuestionId: '57301',
         },
         {
+          id: '209241',
           code: '6',
           active: true,
           label: '6',
@@ -1223,6 +1356,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
           nextQuestionId: '57301',
         },
         {
+          id: '209242',
           code: '7',
           active: true,
           label: '7',
@@ -1231,6 +1365,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
           nextQuestionId: '57301',
         },
         {
+          id: '209243',
           code: '8',
           active: true,
           label: '8',
@@ -1239,6 +1374,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
           nextQuestionId: '57301',
         },
         {
+          id: '209244',
           code: '9',
           active: true,
           label: '9',
@@ -1247,6 +1383,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
           nextQuestionId: '57301',
         },
         {
+          id: '209245',
           code: '10',
           active: true,
           label: '10',
@@ -1255,6 +1392,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
           nextQuestionId: '57301',
         },
         {
+          id: '209246',
           code: '11',
           active: true,
           label: '11',
@@ -1263,6 +1401,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
           nextQuestionId: '57301',
         },
         {
+          id: '209247',
           code: '12',
           active: true,
           label: '12',
@@ -1271,6 +1410,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
           nextQuestionId: '57301',
         },
         {
+          id: '209248',
           code: '13',
           active: true,
           label: '13',
@@ -1279,6 +1419,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
           nextQuestionId: '57301',
         },
         {
+          id: '209249',
           code: '14',
           active: true,
           label: '14',
@@ -1287,6 +1428,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
           nextQuestionId: '57301',
         },
         {
+          id: '209250',
           code: '15',
           active: true,
           label: '15',
@@ -1295,6 +1437,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
           nextQuestionId: '57301',
         },
         {
+          id: '209251',
           code: '16',
           active: true,
           label: '16',
@@ -1303,6 +1446,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
           nextQuestionId: '57301',
         },
         {
+          id: '209252',
           code: '17',
           active: true,
           label: '17',
@@ -1311,6 +1455,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
           nextQuestionId: '57301',
         },
         {
+          id: '209253',
           code: '18',
           active: true,
           label: '18',
@@ -1319,6 +1464,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
           nextQuestionId: '57301',
         },
         {
+          id: '209254',
           code: '19',
           active: true,
           label: '19',
@@ -1327,6 +1473,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
           nextQuestionId: '57301',
         },
         {
+          id: '209255',
           code: '20',
           active: true,
           label: '20',
@@ -1335,6 +1482,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
           nextQuestionId: '57301',
         },
         {
+          id: '209256',
           code: 'MORE THAN 20',
           active: true,
           label: 'MORE THAN 20',
@@ -1343,6 +1491,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
           nextQuestionId: '57301',
         },
         {
+          id: '209257',
           code: 'UNKNOWN',
           active: true,
           label: 'UNKNOWN',
@@ -1360,6 +1509,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '209258',
           code: 'YES',
           active: true,
           label: 'YES',
@@ -1368,6 +1518,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
           nextQuestionId: '57302',
         },
         {
+          id: '209259',
           code: 'NO',
           active: true,
           label: 'NO',
@@ -1385,6 +1536,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '209260',
           code: '1',
           active: true,
           label: '1',
@@ -1393,6 +1545,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
           nextQuestionId: '57303',
         },
         {
+          id: '209261',
           code: '2',
           active: true,
           label: '2',
@@ -1401,6 +1554,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
           nextQuestionId: '57303',
         },
         {
+          id: '209262',
           code: '3',
           active: true,
           label: '3',
@@ -1409,6 +1563,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
           nextQuestionId: '57303',
         },
         {
+          id: '209263',
           code: '4',
           active: true,
           label: '4',
@@ -1417,6 +1572,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
           nextQuestionId: '57303',
         },
         {
+          id: '209264',
           code: '5',
           active: true,
           label: '5',
@@ -1425,6 +1581,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
           nextQuestionId: '57303',
         },
         {
+          id: '209265',
           code: '6',
           active: true,
           label: '6',
@@ -1433,6 +1590,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
           nextQuestionId: '57303',
         },
         {
+          id: '209266',
           code: '7',
           active: true,
           label: '7',
@@ -1441,6 +1599,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
           nextQuestionId: '57303',
         },
         {
+          id: '209267',
           code: '8',
           active: true,
           label: '8',
@@ -1449,6 +1608,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
           nextQuestionId: '57303',
         },
         {
+          id: '209268',
           code: '9',
           active: true,
           label: '9',
@@ -1457,6 +1617,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
           nextQuestionId: '57303',
         },
         {
+          id: '209269',
           code: '10',
           active: true,
           label: '10',
@@ -1465,6 +1626,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
           nextQuestionId: '57303',
         },
         {
+          id: '209270',
           code: '11',
           active: true,
           label: '11',
@@ -1473,6 +1635,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
           nextQuestionId: '57303',
         },
         {
+          id: '209271',
           code: '12',
           active: true,
           label: '12',
@@ -1481,6 +1644,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
           nextQuestionId: '57303',
         },
         {
+          id: '209272',
           code: '13',
           active: true,
           label: '13',
@@ -1489,6 +1653,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
           nextQuestionId: '57303',
         },
         {
+          id: '209273',
           code: '14',
           active: true,
           label: '14',
@@ -1497,6 +1662,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
           nextQuestionId: '57303',
         },
         {
+          id: '209274',
           code: '15',
           active: true,
           label: '15',
@@ -1505,6 +1671,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
           nextQuestionId: '57303',
         },
         {
+          id: '209275',
           code: '16',
           active: true,
           label: '16',
@@ -1513,6 +1680,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
           nextQuestionId: '57303',
         },
         {
+          id: '209276',
           code: '17',
           active: true,
           label: '17',
@@ -1521,6 +1689,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
           nextQuestionId: '57303',
         },
         {
+          id: '209277',
           code: '18',
           active: true,
           label: '18',
@@ -1529,6 +1698,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
           nextQuestionId: '57303',
         },
         {
+          id: '209278',
           code: '19',
           active: true,
           label: '19',
@@ -1537,6 +1707,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
           nextQuestionId: '57303',
         },
         {
+          id: '209279',
           code: '20',
           active: true,
           label: '20',
@@ -1545,6 +1716,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
           nextQuestionId: '57303',
         },
         {
+          id: '209280',
           code: 'MORE THAN 20',
           active: true,
           label: 'MORE THAN 20',
@@ -1553,6 +1725,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
           nextQuestionId: '57303',
         },
         {
+          id: '209281',
           code: 'UNKNOWN',
           active: true,
           label: 'UNKNOWN',
@@ -1570,6 +1743,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '209282',
           code: 'YES',
           active: true,
           label: 'YES',
@@ -1578,6 +1752,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
           nextQuestionId: '57304',
         },
         {
+          id: '209283',
           code: 'NO',
           active: true,
           label: 'NO',
@@ -1595,6 +1770,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '209284',
           code: 'YES (PLEASE SPECIFY)',
           active: true,
           label: 'YES (PLEASE SPECIFY)',
@@ -1603,6 +1779,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
           nextQuestionId: '57305',
         },
         {
+          id: '209285',
           code: 'NO',
           active: true,
           label: 'NO',
@@ -1620,6 +1797,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
       multipleAnswers: true,
       answers: [
         {
+          id: '209286',
           code: 'YES (PLEASE ENTER DATE)',
           active: true,
           label: 'YES (PLEASE ENTER DATE)',
@@ -1628,6 +1806,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
           nextQuestionId: '57306',
         },
         {
+          id: '209287',
           code: 'EVIDENCE BAG (PLEASE ENTER BAG NUMBER)',
           active: true,
           label: 'EVIDENCE BAG (PLEASE ENTER BAG NUMBER)',
@@ -1636,6 +1815,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
           nextQuestionId: '57306',
         },
         {
+          id: '209288',
           code: 'NO (PLEASE STATE WHY)',
           active: true,
           label: 'NO (PLEASE STATE WHY)',
@@ -1653,6 +1833,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '209289',
           code: 'YES',
           active: true,
           label: 'YES',
@@ -1661,6 +1842,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
           nextQuestionId: '57307',
         },
         {
+          id: '209290',
           code: 'NO',
           active: true,
           label: 'NO',
@@ -1678,6 +1860,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '209291',
           code: 'YES',
           active: true,
           label: 'YES',
@@ -1686,6 +1869,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
           nextQuestionId: '57308',
         },
         {
+          id: '209292',
           code: 'NO',
           active: true,
           label: 'NO',
@@ -1703,6 +1887,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
       multipleAnswers: true,
       answers: [
         {
+          id: '209293',
           code: 'BLUNT INSTRUMENT (COSH, ITEM IN SOCK ETC.)',
           active: true,
           label: 'BLUNT INSTRUMENT (COSH, ITEM IN SOCK ETC.)',
@@ -1711,6 +1896,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
           nextQuestionId: '57309',
         },
         {
+          id: '209294',
           code: 'KNIFE/BLADED ARTICLE',
           active: true,
           label: 'KNIFE/BLADED ARTICLE',
@@ -1719,6 +1905,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
           nextQuestionId: '57309',
         },
         {
+          id: '209295',
           code: 'FIREARM (FAKE GUNS, AMMUNITION, CHEMIICAL INCAPACITANT ETC.)',
           active: true,
           label: 'FIREARM (FAKE GUNS, AMMUNITION, CHEMIICAL INCAPACITANT ETC.)',
@@ -1727,6 +1914,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
           nextQuestionId: '57309',
         },
         {
+          id: '209296',
           code: 'OTHER (PLEASE SPECIFY)',
           active: true,
           label: 'OTHER (PLEASE SPECIFY)',
@@ -1744,6 +1932,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '209297',
           code: 'YES',
           active: true,
           label: 'YES',
@@ -1752,6 +1941,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
           nextQuestionId: '57310',
         },
         {
+          id: '209298',
           code: 'NO',
           active: true,
           label: 'NO',
@@ -1769,6 +1959,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '209299',
           code: '< 1 litre',
           active: true,
           label: '< 1 litre',
@@ -1777,6 +1968,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
           nextQuestionId: '57311',
         },
         {
+          id: '209300',
           code: '1 to 2 litres',
           active: true,
           label: '1 to 2 litres',
@@ -1785,6 +1977,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
           nextQuestionId: '57311',
         },
         {
+          id: '209301',
           code: '2 to 3 litres',
           active: true,
           label: '2 to 3 litres',
@@ -1793,6 +1986,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
           nextQuestionId: '57311',
         },
         {
+          id: '209302',
           code: '3 to 4 litres',
           active: true,
           label: '3 to 4 litres',
@@ -1801,6 +1995,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
           nextQuestionId: '57311',
         },
         {
+          id: '209303',
           code: ' 4 to 5 litres',
           active: true,
           label: ' 4 to 5 litres',
@@ -1809,6 +2004,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
           nextQuestionId: '57311',
         },
         {
+          id: '209304',
           code: '6 to 10 litres',
           active: true,
           label: '6 to 10 litres',
@@ -1817,6 +2013,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
           nextQuestionId: '57311',
         },
         {
+          id: '209305',
           code: '11 to 20 litres',
           active: true,
           label: '11 to 20 litres',
@@ -1825,6 +2022,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
           nextQuestionId: '57311',
         },
         {
+          id: '209306',
           code: 'More than 20 litres',
           active: true,
           label: 'More than 20 litres',
@@ -1833,6 +2031,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
           nextQuestionId: '57311',
         },
         {
+          id: '209307',
           code: 'UNKNOWN',
           active: true,
           label: 'UNKNOWN',
@@ -1850,6 +2049,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '209308',
           code: 'YES',
           active: true,
           label: 'YES',
@@ -1858,6 +2058,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
           nextQuestionId: '57312',
         },
         {
+          id: '209309',
           code: 'NO',
           active: true,
           label: 'NO',
@@ -1875,6 +2076,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '209310',
           code: 'YES',
           active: true,
           label: 'YES',
@@ -1883,6 +2085,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
           nextQuestionId: '57313',
         },
         {
+          id: '209311',
           code: 'NO',
           active: true,
           label: 'NO',
@@ -1900,6 +2103,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
       multipleAnswers: true,
       answers: [
         {
+          id: '209312',
           code: 'LOOSE TOBACCO',
           active: true,
           label: 'LOOSE TOBACCO',
@@ -1908,6 +2112,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
           nextQuestionId: '57314',
         },
         {
+          id: '209313',
           code: 'CIGARETTES/CIGARS',
           active: true,
           label: 'CIGARETTES/CIGARS',
@@ -1916,6 +2121,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
           nextQuestionId: '57314',
         },
         {
+          id: '209314',
           code: 'OTHER (INC PACKAGING AND ROACHES)',
           active: true,
           label: 'OTHER (INC PACKAGING AND ROACHES)',
@@ -1933,6 +2139,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '209315',
           code: '<1g',
           active: true,
           label: '<1g',
@@ -1941,6 +2148,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
           nextQuestionId: '57315',
         },
         {
+          id: '209316',
           code: '2g to 5g',
           active: true,
           label: '2g to 5g',
@@ -1949,6 +2157,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
           nextQuestionId: '57315',
         },
         {
+          id: '209317',
           code: '6g to 10g',
           active: true,
           label: '6g to 10g',
@@ -1957,6 +2166,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
           nextQuestionId: '57315',
         },
         {
+          id: '209318',
           code: '10g+',
           active: true,
           label: '10g+',
@@ -1974,6 +2184,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '209319',
           code: 'YES',
           active: true,
           label: 'YES',
@@ -1982,6 +2193,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
           nextQuestionId: '57316',
         },
         {
+          id: '209320',
           code: 'NO',
           active: true,
           label: 'NO',
@@ -1999,6 +2211,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '209321',
           code: 'PLEASE SPECIFY',
           active: true,
           label: 'PLEASE SPECIFY',
@@ -2016,6 +2229,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
       multipleAnswers: true,
       answers: [
         {
+          id: '209322',
           code: 'BOSS CHAIR',
           active: true,
           label: 'BOSS CHAIR',
@@ -2024,6 +2238,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
           nextQuestionId: '57318',
         },
         {
+          id: '209323',
           code: 'CELL SEARCH',
           active: true,
           label: 'CELL SEARCH',
@@ -2032,6 +2247,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
           nextQuestionId: '57318',
         },
         {
+          id: '209324',
           code: 'CRIME SCENE',
           active: true,
           label: 'CRIME SCENE',
@@ -2040,6 +2256,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
           nextQuestionId: '57318',
         },
         {
+          id: '209325',
           code: 'DOG SEARCH',
           active: true,
           label: 'DOG SEARCH',
@@ -2048,6 +2265,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
           nextQuestionId: '57318',
         },
         {
+          id: '209326',
           code: 'DRONE RECOVERY',
           active: true,
           label: 'DRONE RECOVERY',
@@ -2056,6 +2274,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
           nextQuestionId: '57318',
         },
         {
+          id: '209327',
           code: 'HIGH SENSITIVITY WAND',
           active: true,
           label: 'HIGH SENSITIVITY WAND',
@@ -2064,6 +2283,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
           nextQuestionId: '57318',
         },
         {
+          id: '209328',
           code: 'INFORMATION RECEIVED',
           active: true,
           label: 'INFORMATION RECEIVED',
@@ -2072,6 +2292,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
           nextQuestionId: '57318',
         },
         {
+          id: '209329',
           code: 'INTELLIGENCE LED SEARCH',
           active: true,
           label: 'INTELLIGENCE LED SEARCH',
@@ -2080,6 +2301,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
           nextQuestionId: '57318',
         },
         {
+          id: '209330',
           code: 'ITEM OBSERVED',
           active: true,
           label: 'ITEM OBSERVED',
@@ -2088,6 +2310,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
           nextQuestionId: '57318',
         },
         {
+          id: '209331',
           code: 'MOBILE PHONE SIGNAL DETECTOR',
           active: true,
           label: 'MOBILE PHONE SIGNAL DETECTOR',
@@ -2096,6 +2319,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
           nextQuestionId: '57318',
         },
         {
+          id: '209332',
           code: 'MOBILE PHONE ROD',
           active: true,
           label: 'MOBILE PHONE ROD',
@@ -2104,6 +2328,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
           nextQuestionId: '57318',
         },
         {
+          id: '209333',
           code: 'OTHER SEARCH (INMATE)',
           active: true,
           label: 'OTHER SEARCH (INMATE)',
@@ -2112,6 +2337,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
           nextQuestionId: '57318',
         },
         {
+          id: '209334',
           code: 'OTHER SEARCH (PREMISES)',
           active: true,
           label: 'OTHER SEARCH (PREMISES)',
@@ -2120,6 +2346,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
           nextQuestionId: '57318',
         },
         {
+          id: '209335',
           code: 'OTHER SEARCH (VISITOR)',
           active: true,
           label: 'OTHER SEARCH (VISITOR)',
@@ -2128,6 +2355,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
           nextQuestionId: '57318',
         },
         {
+          id: '209336',
           code: 'PRE-OCCUPATION SEARCH',
           active: true,
           label: 'PRE-OCCUPATION SEARCH',
@@ -2136,6 +2364,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
           nextQuestionId: '57318',
         },
         {
+          id: '209337',
           code: 'UNUSUAL BEHAVIOUR',
           active: true,
           label: 'UNUSUAL BEHAVIOUR',
@@ -2144,6 +2373,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
           nextQuestionId: '57318',
         },
         {
+          id: '209338',
           code: 'OTHER (PLEASE SPECIFY)',
           active: true,
           label: 'OTHER (PLEASE SPECIFY)',
@@ -2161,6 +2391,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
       multipleAnswers: true,
       answers: [
         {
+          id: '209339',
           code: 'PRISONER',
           active: true,
           label: 'PRISONER',
@@ -2169,6 +2400,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
           nextQuestionId: '57319',
         },
         {
+          id: '209340',
           code: 'STAFF',
           active: true,
           label: 'STAFF',
@@ -2177,6 +2409,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
           nextQuestionId: '57319',
         },
         {
+          id: '209341',
           code: 'VISITOR (FRIEND)',
           active: true,
           label: 'VISITOR (FRIEND)',
@@ -2185,6 +2418,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
           nextQuestionId: '57319',
         },
         {
+          id: '209342',
           code: 'VISITOR (OFFICIAL)',
           active: true,
           label: 'VISITOR (OFFICIAL)',
@@ -2193,6 +2427,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
           nextQuestionId: '57319',
         },
         {
+          id: '209343',
           code: 'VISITOR (RELATIVE)',
           active: true,
           label: 'VISITOR (RELATIVE)',
@@ -2201,6 +2436,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
           nextQuestionId: '57319',
         },
         {
+          id: '209344',
           code: 'CONTRACTOR',
           active: true,
           label: 'CONTRACTOR',
@@ -2209,6 +2445,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
           nextQuestionId: '57319',
         },
         {
+          id: '209345',
           code: 'POST (RULE 39)',
           active: true,
           label: 'POST (RULE 39)',
@@ -2217,6 +2454,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
           nextQuestionId: '57319',
         },
         {
+          id: '209346',
           code: 'POST (OTHER)',
           active: true,
           label: 'POST (OTHER)',
@@ -2225,6 +2463,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
           nextQuestionId: '57319',
         },
         {
+          id: '209347',
           code: 'THROWN IN',
           active: true,
           label: 'THROWN IN',
@@ -2233,6 +2472,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
           nextQuestionId: '57319',
         },
         {
+          id: '209348',
           code: 'DRONE/UAV',
           active: true,
           label: 'DRONE/UAV',
@@ -2241,6 +2481,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
           nextQuestionId: '57319',
         },
         {
+          id: '209349',
           code: 'OTHER (PLEASE SPECIFY)',
           active: true,
           label: 'OTHER (PLEASE SPECIFY)',
@@ -2249,6 +2490,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
           nextQuestionId: '57319',
         },
         {
+          id: '209350',
           code: 'UNKNOWN',
           active: true,
           label: 'UNKNOWN',
@@ -2266,6 +2508,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '209351',
           code: 'PRISONER',
           active: true,
           label: 'PRISONER',
@@ -2274,6 +2517,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
           nextQuestionId: '57320',
         },
         {
+          id: '209352',
           code: 'STAFF',
           active: true,
           label: 'STAFF',
@@ -2282,6 +2526,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
           nextQuestionId: '57320',
         },
         {
+          id: '209353',
           code: 'VISITOR (FRIEND)',
           active: true,
           label: 'VISITOR (FRIEND)',
@@ -2290,6 +2535,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
           nextQuestionId: '57320',
         },
         {
+          id: '209354',
           code: 'VISITOR (OFFICIAL)',
           active: true,
           label: 'VISITOR (OFFICIAL)',
@@ -2298,6 +2544,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
           nextQuestionId: '57320',
         },
         {
+          id: '209355',
           code: 'VISITOR (RELATIVE)',
           active: true,
           label: 'VISITOR (RELATIVE)',
@@ -2306,6 +2553,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
           nextQuestionId: '57320',
         },
         {
+          id: '209356',
           code: 'CONTRACTOR',
           active: true,
           label: 'CONTRACTOR',
@@ -2314,6 +2562,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
           nextQuestionId: '57320',
         },
         {
+          id: '209357',
           code: 'OTHER (PLEASE SPECIFY)',
           active: true,
           label: 'OTHER (PLEASE SPECIFY)',
@@ -2322,6 +2571,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
           nextQuestionId: '57320',
         },
         {
+          id: '209358',
           code: 'NOT APPLICABLE',
           active: true,
           label: 'NOT APPLICABLE',
@@ -2339,6 +2589,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '209359',
           code: 'NOT CONCEALED',
           active: true,
           label: 'NOT CONCEALED',
@@ -2347,6 +2598,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
           nextQuestionId: '57321',
         },
         {
+          id: '209360',
           code: 'BED/BEDDING',
           active: true,
           label: 'BED/BEDDING',
@@ -2355,6 +2607,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
           nextQuestionId: '57321',
         },
         {
+          id: '209361',
           code: 'BOOK/PAPERS',
           active: true,
           label: 'BOOK/PAPERS',
@@ -2363,6 +2616,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
           nextQuestionId: '57321',
         },
         {
+          id: '209362',
           code: 'CELL/BUILDING FABRIC',
           active: true,
           label: 'CELL/BUILDING FABRIC',
@@ -2371,6 +2625,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
           nextQuestionId: '57321',
         },
         {
+          id: '209363',
           code: 'FOOD/CONTAINER',
           active: true,
           label: 'FOOD/CONTAINER',
@@ -2379,6 +2634,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
           nextQuestionId: '57321',
         },
         {
+          id: '209364',
           code: 'IN CLOTHING',
           active: true,
           label: 'IN CLOTHING',
@@ -2387,6 +2643,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
           nextQuestionId: '57321',
         },
         {
+          id: '209365',
           code: 'IN HAND',
           active: true,
           label: 'IN HAND',
@@ -2395,6 +2652,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
           nextQuestionId: '57321',
         },
         {
+          id: '209366',
           code: 'IN MOUTH',
           active: true,
           label: 'IN MOUTH',
@@ -2403,6 +2661,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
           nextQuestionId: '57321',
         },
         {
+          id: '209367',
           code: 'INTERNALLY/PLUGGED',
           active: true,
           label: 'INTERNALLY/PLUGGED',
@@ -2411,6 +2670,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
           nextQuestionId: '57321',
         },
         {
+          id: '209368',
           code: 'LETTER/PARCEL',
           active: true,
           label: 'LETTER/PARCEL',
@@ -2419,6 +2679,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
           nextQuestionId: '57321',
         },
         {
+          id: '209369',
           code: 'LIGHT FITTINGS',
           active: true,
           label: 'LIGHT FITTINGS',
@@ -2427,6 +2688,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
           nextQuestionId: '57321',
         },
         {
+          id: '209370',
           code: 'PIPEWORK',
           active: true,
           label: 'PIPEWORK',
@@ -2435,6 +2697,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
           nextQuestionId: '57321',
         },
         {
+          id: '209371',
           code: 'RULE 39/LEGAL PAPERS',
           active: true,
           label: 'RULE 39/LEGAL PAPERS',
@@ -2443,6 +2706,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
           nextQuestionId: '57321',
         },
         {
+          id: '209372',
           code: 'TV/RADIO/DVD/CONSOLES ETC.',
           active: true,
           label: 'TV/RADIO/DVD/CONSOLES ETC.',
@@ -2451,6 +2715,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
           nextQuestionId: '57321',
         },
         {
+          id: '209373',
           code: 'OTHER (PLEASE SPECIFY)',
           active: true,
           label: 'OTHER (PLEASE SPECIFY)',
@@ -2468,6 +2733,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '209374',
           code: 'YES',
           active: true,
           label: 'YES',
@@ -2476,6 +2742,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
           nextQuestionId: '57322',
         },
         {
+          id: '209375',
           code: 'NO',
           active: true,
           label: 'NO',
@@ -2493,6 +2760,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '209376',
           code: 'YES',
           active: true,
           label: 'YES',
@@ -2501,6 +2769,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
           nextQuestionId: '57323',
         },
         {
+          id: '209377',
           code: 'NO',
           active: true,
           label: 'NO',
@@ -2518,6 +2787,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '209378',
           code: 'AFTER ENTERING PRISON',
           active: true,
           label: 'AFTER ENTERING PRISON',
@@ -2526,6 +2796,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
           nextQuestionId: '57324',
         },
         {
+          id: '209379',
           code: 'BEFORE ENTERING PRISON',
           active: true,
           label: 'BEFORE ENTERING PRISON',
@@ -2543,6 +2814,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '209380',
           code: 'PLEASE SPECIFY',
           active: true,
           label: 'PLEASE SPECIFY',
@@ -2560,6 +2832,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '209381',
           code: 'YES',
           active: true,
           label: 'YES',
@@ -2568,6 +2841,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
           nextQuestionId: '57326',
         },
         {
+          id: '209382',
           code: 'NO',
           active: true,
           label: 'NO',
@@ -2576,6 +2850,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
           nextQuestionId: '57327',
         },
         {
+          id: '209383',
           code: 'UNKNOWN',
           active: true,
           label: 'UNKNOWN',
@@ -2593,6 +2868,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '209384',
           code: 'COMMUNITY VISIT',
           active: true,
           label: 'COMMUNITY VISIT',
@@ -2601,6 +2877,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
           nextQuestionId: '57327',
         },
         {
+          id: '209385',
           code: 'COMPASSIONATE',
           active: true,
           label: 'COMPASSIONATE',
@@ -2609,6 +2886,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
           nextQuestionId: '57327',
         },
         {
+          id: '209386',
           code: 'FACILITY',
           active: true,
           label: 'FACILITY',
@@ -2617,6 +2895,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
           nextQuestionId: '57327',
         },
         {
+          id: '209387',
           code: 'RESETTLEMENT',
           active: true,
           label: 'RESETTLEMENT',
@@ -2625,6 +2904,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
           nextQuestionId: '57327',
         },
         {
+          id: '209388',
           code: 'UNKNOWN',
           active: true,
           label: 'UNKNOWN',
@@ -2642,6 +2922,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '209389',
           code: '£0',
           active: true,
           label: '£0',
@@ -2650,6 +2931,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
+          id: '209390',
           code: '£1 to £100',
           active: true,
           label: '£1 to £100',
@@ -2658,6 +2940,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
+          id: '209391',
           code: '£101 to £200',
           active: true,
           label: '£101 to £200',
@@ -2666,6 +2949,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
+          id: '209392',
           code: '£201 to £300',
           active: true,
           label: '£201 to £300',
@@ -2674,6 +2958,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
+          id: '209393',
           code: '£301 to £400',
           active: true,
           label: '£301 to £400',
@@ -2682,6 +2967,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
+          id: '209394',
           code: '£401 to £500',
           active: true,
           label: '£401 to £500',
@@ -2690,6 +2976,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
+          id: '209395',
           code: '£501 to £1,000',
           active: true,
           label: '£501 to £1,000',
@@ -2698,6 +2985,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
+          id: '209396',
           code: '£1,001 to £5,000',
           active: true,
           label: '£1,001 to £5,000',
@@ -2706,6 +2994,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
+          id: '209397',
           code: '£5,001 to £10,000',
           active: true,
           label: '£5,001 to £10,000',
@@ -2714,6 +3003,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
+          id: '209398',
           code: '£10,001 to £20,000',
           active: true,
           label: '£10,001 to £20,000',
@@ -2722,6 +3012,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
+          id: '209399',
           code: '£20,001 to £30,000',
           active: true,
           label: '£20,001 to £30,000',
@@ -2730,6 +3021,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
+          id: '209400',
           code: '£30,001 to £40,000',
           active: true,
           label: '£30,001 to £40,000',
@@ -2738,6 +3030,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
+          id: '209401',
           code: '£40,001 to £50,000',
           active: true,
           label: '£40,001 to £50,000',
@@ -2746,6 +3039,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
+          id: '209402',
           code: 'More than £50,000',
           active: true,
           label: 'More than £50,000',
@@ -2754,6 +3048,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
+          id: '209403',
           code: 'UNKNOWN',
           active: true,
           label: 'UNKNOWN',

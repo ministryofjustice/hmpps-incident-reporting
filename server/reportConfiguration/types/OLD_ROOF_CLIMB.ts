@@ -1,4 +1,4 @@
-// Generated with ./scripts/updateNomisIncidentTypeConfigurations.ts at 2024-09-25T09:26:16.739Z
+// Generated with ./scripts/updateNomisIncidentTypeConfigurations.ts at 2024-10-15T17:17:43.450Z
 
 import { type IncidentTypeConfiguration } from '../../data/incidentTypeConfiguration/types'
 
@@ -15,6 +15,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '178986',
           code: 'FULL',
           active: false,
           label: 'FULL',
@@ -23,6 +24,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
           nextQuestionId: '44806',
         },
         {
+          id: '178987',
           code: 'PARTIAL',
           active: false,
           label: 'PARTIAL',
@@ -40,6 +42,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '178998',
           code: 'ENTER AMOUNT IN POUND STERLING',
           active: false,
           label: 'ENTER AMOUNT IN POUND STERLING',
@@ -57,6 +60,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '178999',
           code: 'YES',
           active: false,
           label: 'YES',
@@ -65,6 +69,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
           nextQuestionId: '44518',
         },
         {
+          id: '179000',
           code: 'NO',
           active: false,
           label: 'NO',
@@ -82,6 +87,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
       multipleAnswers: true,
       answers: [
         {
+          id: '179082',
           code: 'STAFF',
           active: false,
           label: 'STAFF',
@@ -90,6 +96,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
           nextQuestionId: '44842',
         },
         {
+          id: '179081',
           code: 'PRISONERS',
           active: false,
           label: 'PRISONERS',
@@ -98,6 +105,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
           nextQuestionId: '44842',
         },
         {
+          id: '179078',
           code: 'CIVILIAN GRADES',
           active: false,
           label: 'CIVILIAN GRADES',
@@ -106,6 +114,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
           nextQuestionId: '44842',
         },
         {
+          id: '179080',
           code: 'POLICE',
           active: false,
           label: 'POLICE',
@@ -114,6 +123,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
           nextQuestionId: '44842',
         },
         {
+          id: '179079',
           code: 'EXTERNAL CIVILIANS',
           active: false,
           label: 'EXTERNAL CIVILIANS',
@@ -131,6 +141,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '179084',
           code: 'ENTER COMMENT AND DATE',
           active: false,
           label: 'ENTER COMMENT AND DATE',
@@ -148,6 +159,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '179096',
           code: 'NUMBER OF HOURS',
           active: false,
           label: 'NUMBER OF HOURS',
@@ -165,6 +177,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '179157',
           code: 'YES',
           active: false,
           label: 'YES',
@@ -173,6 +186,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
           nextQuestionId: '44337',
         },
         {
+          id: '179158',
           code: 'NO',
           active: false,
           label: 'NO',
@@ -190,6 +204,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '179384',
           code: 'YES',
           active: false,
           label: 'YES',
@@ -198,6 +213,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
           nextQuestionId: '44487',
         },
         {
+          id: '179383',
           code: 'NO',
           active: false,
           label: 'NO',
@@ -215,6 +231,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '179416',
           code: 'YES',
           active: false,
           label: 'YES',
@@ -223,6 +240,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
           nextQuestionId: '44767',
         },
         {
+          id: '179417',
           code: 'NO',
           active: false,
           label: 'NO',
@@ -240,6 +258,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '179610',
           code: 'LOCAL',
           active: false,
           label: 'LOCAL',
@@ -248,6 +267,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
+          id: '179611',
           code: 'SERVICE SUPPLIER',
           active: false,
           label: 'SERVICE SUPPLIER',
@@ -265,6 +285,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '179625',
           code: 'YES',
           active: false,
           label: 'YES',
@@ -273,6 +294,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
           nextQuestionId: '45098',
         },
         {
+          id: '179626',
           code: 'NO',
           active: false,
           label: 'NO',
@@ -290,6 +312,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '179631',
           code: 'FACILITIES',
           active: false,
           label: 'FACILITIES',
@@ -298,6 +321,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
           nextQuestionId: '45128',
         },
         {
+          id: '179632',
           code: 'FOOD',
           active: false,
           label: 'FOOD',
@@ -306,6 +330,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
           nextQuestionId: '45128',
         },
         {
+          id: '179634',
           code: 'PAY',
           active: false,
           label: 'PAY',
@@ -314,6 +339,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
           nextQuestionId: '45128',
         },
         {
+          id: '179636',
           code: 'VISITS',
           active: false,
           label: 'VISITS',
@@ -322,6 +348,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
           nextQuestionId: '45128',
         },
         {
+          id: '179635',
           code: 'TIME OUT OF CELL',
           active: false,
           label: 'TIME OUT OF CELL',
@@ -330,6 +357,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
           nextQuestionId: '45128',
         },
         {
+          id: '179633',
           code: 'OTHER',
           active: false,
           label: 'OTHER',
@@ -347,6 +375,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '179707',
           code: 'YES',
           active: false,
           label: 'YES',
@@ -355,6 +384,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
           nextQuestionId: '44375',
         },
         {
+          id: '179706',
           code: 'NO',
           active: false,
           label: 'NO',
@@ -372,6 +402,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '179765',
           code: 'YES',
           active: false,
           label: 'YES',
@@ -380,6 +411,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
           nextQuestionId: '44536',
         },
         {
+          id: '179764',
           code: 'NO',
           active: false,
           label: 'NO',
@@ -397,6 +429,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '179767',
           code: 'YES',
           active: false,
           label: 'YES',
@@ -405,6 +438,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
           nextQuestionId: '44151',
         },
         {
+          id: '179766',
           code: 'NO',
           active: false,
           label: 'NO',
@@ -422,6 +456,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
       multipleAnswers: true,
       answers: [
         {
+          id: '179828',
           code: 'GRAZES, SCRATCHES OR ABRASIONS',
           active: false,
           label: 'GRAZES, SCRATCHES OR ABRASIONS',
@@ -430,6 +465,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
           nextQuestionId: '44462',
         },
         {
+          id: '179829',
           code: 'MINOR BRUISES',
           active: false,
           label: 'MINOR BRUISES',
@@ -438,6 +474,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
           nextQuestionId: '44462',
         },
         {
+          id: '179832',
           code: 'SWELLINGS',
           active: false,
           label: 'SWELLINGS',
@@ -446,6 +483,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
           nextQuestionId: '44462',
         },
         {
+          id: '179831',
           code: 'SUPERFICIAL CUTS',
           active: false,
           label: 'SUPERFICIAL CUTS',
@@ -454,6 +492,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
           nextQuestionId: '44462',
         },
         {
+          id: '179830',
           code: 'OTHER',
           active: false,
           label: 'OTHER',
@@ -471,6 +510,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '179891',
           code: 'YES',
           active: false,
           label: 'YES',
@@ -479,6 +519,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
           nextQuestionId: '44927',
         },
         {
+          id: '179892',
           code: 'NO',
           active: false,
           label: 'NO',
@@ -496,6 +537,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '179901',
           code: 'YES',
           active: false,
           label: 'YES',
@@ -504,6 +546,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
           nextQuestionId: '44853',
         },
         {
+          id: '179902',
           code: 'NO',
           active: false,
           label: 'NO',
@@ -521,6 +564,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
       multipleAnswers: true,
       answers: [
         {
+          id: '180033',
           code: 'STAFF',
           active: false,
           label: 'STAFF',
@@ -529,6 +573,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
           nextQuestionId: '44533',
         },
         {
+          id: '180032',
           code: 'PRISONERS',
           active: false,
           label: 'PRISONERS',
@@ -537,6 +582,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
           nextQuestionId: '44533',
         },
         {
+          id: '180029',
           code: 'CIVILIAN GRADES',
           active: false,
           label: 'CIVILIAN GRADES',
@@ -545,6 +591,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
           nextQuestionId: '44533',
         },
         {
+          id: '180031',
           code: 'POLICE',
           active: false,
           label: 'POLICE',
@@ -553,6 +600,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
           nextQuestionId: '44533',
         },
         {
+          id: '180030',
           code: 'EXTERNAL CIVILIANS',
           active: false,
           label: 'EXTERNAL CIVILIANS',
@@ -570,6 +618,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '180081',
           code: 'YES',
           active: false,
           label: 'YES',
@@ -578,6 +627,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
           nextQuestionId: '44359',
         },
         {
+          id: '180080',
           code: 'NO',
           active: false,
           label: 'NO',
@@ -595,6 +645,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '180089',
           code: 'YES',
           active: false,
           label: 'YES',
@@ -603,6 +654,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
           nextQuestionId: '44625',
         },
         {
+          id: '180088',
           code: 'NO',
           active: false,
           label: 'NO',
@@ -620,6 +672,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '180127',
           code: 'YES',
           active: false,
           label: 'YES',
@@ -628,6 +681,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
           nextQuestionId: '44183',
         },
         {
+          id: '180126',
           code: 'NO',
           active: false,
           label: 'NO',
@@ -645,6 +699,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '180163',
           code: 'EXTERNAL ACCESS',
           active: false,
           label: 'EXTERNAL ACCESS',
@@ -653,6 +708,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
           nextQuestionId: '44986',
         },
         {
+          id: '180164',
           code: 'INTERNAL ACCESS',
           active: false,
           label: 'INTERNAL ACCESS',
@@ -661,6 +717,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
           nextQuestionId: '44986',
         },
         {
+          id: '180166',
           code: 'WORKS EQUIPMENT',
           active: false,
           label: 'WORKS EQUIPMENT',
@@ -669,6 +726,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
           nextQuestionId: '44986',
         },
         {
+          id: '180162',
           code: 'CONTRACTORS EQUIPMENT',
           active: false,
           label: 'CONTRACTORS EQUIPMENT',
@@ -677,6 +735,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
           nextQuestionId: '44986',
         },
         {
+          id: '180165',
           code: 'OTHER',
           active: false,
           label: 'OTHER',
@@ -694,6 +753,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '180273',
           code: 'YES',
           active: false,
           label: 'YES',
@@ -702,6 +762,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
           nextQuestionId: '45155',
         },
         {
+          id: '180274',
           code: 'NO',
           active: false,
           label: 'NO',
@@ -719,6 +780,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '180387',
           code: 'YES',
           active: false,
           label: 'YES',
@@ -727,6 +789,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
           nextQuestionId: '44175',
         },
         {
+          id: '180388',
           code: 'NO',
           active: false,
           label: 'NO',
@@ -744,6 +807,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '180394',
           code: 'YES',
           active: false,
           label: 'YES',
@@ -752,6 +816,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
           nextQuestionId: '44797',
         },
         {
+          id: '180393',
           code: 'NO',
           active: false,
           label: 'NO',
@@ -769,6 +834,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '180439',
           code: 'YES',
           active: false,
           label: 'YES',
@@ -777,6 +843,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
           nextQuestionId: '44465',
         },
         {
+          id: '180438',
           code: 'NO',
           active: false,
           label: 'NO',
@@ -794,6 +861,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '180521',
           code: 'YES',
           active: false,
           label: 'YES',
@@ -802,6 +870,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
           nextQuestionId: '44469',
         },
         {
+          id: '180520',
           code: 'NO',
           active: false,
           label: 'NO',
@@ -819,6 +888,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '180594',
           code: 'YES',
           active: false,
           label: 'YES',
@@ -827,6 +897,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
           nextQuestionId: '44422',
         },
         {
+          id: '180593',
           code: 'NO',
           active: false,
           label: 'NO',
@@ -844,6 +915,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '180630',
           code: 'YES',
           active: false,
           label: 'YES',
@@ -852,6 +924,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
           nextQuestionId: '44475',
         },
         {
+          id: '180629',
           code: 'NO',
           active: false,
           label: 'NO',
@@ -869,6 +942,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '180667',
           code: 'YES',
           active: false,
           label: 'YES',
@@ -877,6 +951,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
           nextQuestionId: '44374',
         },
         {
+          id: '180666',
           code: 'NO',
           active: false,
           label: 'NO',
@@ -894,6 +969,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '180694',
           code: 'YES',
           active: false,
           label: 'YES',
@@ -902,6 +978,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
           nextQuestionId: '44756',
         },
         {
+          id: '180693',
           code: 'NO',
           active: false,
           label: 'NO',
@@ -919,6 +996,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '180726',
           code: 'YES',
           active: false,
           label: 'YES',
@@ -927,6 +1005,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
           nextQuestionId: '44334',
         },
         {
+          id: '180725',
           code: 'NO',
           active: false,
           label: 'NO',
@@ -944,6 +1023,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '180797',
           code: 'ENTER NUMBER',
           active: false,
           label: 'ENTER NUMBER',
@@ -961,6 +1041,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
       multipleAnswers: true,
       answers: [
         {
+          id: '180865',
           code: 'FIREARM',
           active: false,
           label: 'FIREARM',
@@ -969,6 +1050,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
           nextQuestionId: '44725',
         },
         {
+          id: '180862',
           code: 'CHEMICAL INCAPACITANT',
           active: false,
           label: 'CHEMICAL INCAPACITANT',
@@ -977,6 +1059,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
           nextQuestionId: '44725',
         },
         {
+          id: '180867',
           code: 'KNIFE/BLADE',
           active: false,
           label: 'KNIFE/BLADE',
@@ -985,6 +1068,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
           nextQuestionId: '44725',
         },
         {
+          id: '180870',
           code: 'OTHER SHARP INSTRUMENT',
           active: false,
           label: 'OTHER SHARP INSTRUMENT',
@@ -993,6 +1077,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
           nextQuestionId: '44725',
         },
         {
+          id: '180861',
           code: 'BLUNT INSTRUMENT',
           active: false,
           label: 'BLUNT INSTRUMENT',
@@ -1001,6 +1086,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
           nextQuestionId: '44725',
         },
         {
+          id: '180868',
           code: 'LIGATURE',
           active: false,
           label: 'LIGATURE',
@@ -1009,6 +1095,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
           nextQuestionId: '44725',
         },
         {
+          id: '180863',
           code: 'DANGEROUS LIQUID',
           active: false,
           label: 'DANGEROUS LIQUID',
@@ -1017,6 +1104,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
           nextQuestionId: '44725',
         },
         {
+          id: '180864',
           code: 'EXCRETA/URINE',
           active: false,
           label: 'EXCRETA/URINE',
@@ -1025,6 +1113,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
           nextQuestionId: '44725',
         },
         {
+          id: '180871',
           code: 'SPITTING',
           active: false,
           label: 'SPITTING',
@@ -1033,6 +1122,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
           nextQuestionId: '44725',
         },
         {
+          id: '180866',
           code: 'FOOD',
           active: false,
           label: 'FOOD',
@@ -1041,6 +1131,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
           nextQuestionId: '44725',
         },
         {
+          id: '180873',
           code: 'THROWN FURNITURE',
           active: false,
           label: 'THROWN FURNITURE',
@@ -1049,6 +1140,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
           nextQuestionId: '44725',
         },
         {
+          id: '180872',
           code: 'THROWN EQUIPMENT',
           active: false,
           label: 'THROWN EQUIPMENT',
@@ -1057,6 +1149,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
           nextQuestionId: '44725',
         },
         {
+          id: '180869',
           code: 'OTHER',
           active: false,
           label: 'OTHER',
@@ -1074,6 +1167,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '180981',
           code: 'YES',
           active: false,
           label: 'YES',
@@ -1082,6 +1176,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
           nextQuestionId: '44610',
         },
         {
+          id: '180980',
           code: 'NO',
           active: false,
           label: 'NO',
@@ -1099,6 +1194,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '180987',
           code: 'NUMBER',
           active: false,
           label: 'NUMBER',
@@ -1116,6 +1212,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '181034',
           code: 'YES',
           active: false,
           label: 'YES',
@@ -1124,6 +1221,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
           nextQuestionId: '44196',
         },
         {
+          id: '181033',
           code: 'NO',
           active: false,
           label: 'NO',
@@ -1141,6 +1239,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '181118',
           code: 'YES',
           active: false,
           label: 'YES',
@@ -1149,6 +1248,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
           nextQuestionId: '44710',
         },
         {
+          id: '181117',
           code: 'NO',
           active: false,
           label: 'NO',
@@ -1166,6 +1266,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '181148',
           code: 'YES',
           active: false,
           label: 'YES',
@@ -1174,6 +1275,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
           nextQuestionId: '45163',
         },
         {
+          id: '181147',
           code: 'NO',
           active: false,
           label: 'NO',
@@ -1191,6 +1293,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '181178',
           code: 'NEGOTIATION',
           active: false,
           label: 'NEGOTIATION',
@@ -1199,6 +1302,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
           nextQuestionId: '44660',
         },
         {
+          id: '181177',
           code: 'INTERVENTION',
           active: false,
           label: 'INTERVENTION',
@@ -1207,6 +1311,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
           nextQuestionId: '44660',
         },
         {
+          id: '181179',
           code: 'OTHER',
           active: false,
           label: 'OTHER',
@@ -1224,6 +1329,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '181252',
           code: 'YES',
           active: false,
           label: 'YES',
@@ -1232,6 +1338,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
           nextQuestionId: '44873',
         },
         {
+          id: '181251',
           code: 'NO',
           active: false,
           label: 'NO',
@@ -1249,6 +1356,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '181267',
           code: 'YES',
           active: false,
           label: 'YES',
@@ -1257,6 +1365,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
           nextQuestionId: '44553',
         },
         {
+          id: '181266',
           code: 'NO',
           active: false,
           label: 'NO',
@@ -1274,6 +1383,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '181272',
           code: 'GOVERNOR',
           active: false,
           label: 'GOVERNOR',
@@ -1282,6 +1392,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
           nextQuestionId: '44825',
         },
         {
+          id: '181270',
           code: 'DEPUTY GOVERNOR',
           active: false,
           label: 'DEPUTY GOVERNOR',
@@ -1290,6 +1401,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
           nextQuestionId: '44825',
         },
         {
+          id: '181271',
           code: 'DUTY GOVERNOR',
           active: false,
           label: 'DUTY GOVERNOR',
@@ -1298,6 +1410,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
           nextQuestionId: '44825',
         },
         {
+          id: '181273',
           code: 'OTHER',
           active: false,
           label: 'OTHER',
@@ -1315,6 +1428,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '181295',
           code: 'YES',
           active: false,
           label: 'YES',
@@ -1323,6 +1437,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
           nextQuestionId: '44951',
         },
         {
+          id: '181294',
           code: 'NO',
           active: false,
           label: 'NO',
@@ -1340,6 +1455,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '181313',
           code: 'YES',
           active: false,
           label: 'YES',
@@ -1348,6 +1464,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
           nextQuestionId: '44847',
         },
         {
+          id: '181314',
           code: 'NO',
           active: false,
           label: 'NO',
@@ -1365,6 +1482,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '181359',
           code: 'YES',
           active: false,
           label: 'YES',
@@ -1373,6 +1491,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
           nextQuestionId: '44273',
         },
         {
+          id: '181358',
           code: 'NO',
           active: false,
           label: 'NO',
@@ -1390,6 +1509,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '181375',
           code: 'DESCRIPTION',
           active: false,
           label: 'DESCRIPTION',
@@ -1407,6 +1527,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '181399',
           code: 'YES',
           active: false,
           label: 'YES',
@@ -1415,6 +1536,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
           nextQuestionId: '44804',
         },
         {
+          id: '181398',
           code: 'NO',
           active: false,
           label: 'NO',
@@ -1432,6 +1554,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '181492',
           code: 'YES',
           active: false,
           label: 'YES',
@@ -1440,6 +1563,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
           nextQuestionId: '44687',
         },
         {
+          id: '181493',
           code: 'NO',
           active: false,
           label: 'NO',
@@ -1457,6 +1581,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '181551',
           code: 'YES',
           active: false,
           label: 'YES',
@@ -1465,6 +1590,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
           nextQuestionId: '44630',
         },
         {
+          id: '181550',
           code: 'NO',
           active: false,
           label: 'NO',
@@ -1482,6 +1608,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '181559',
           code: 'YES',
           active: false,
           label: 'YES',
@@ -1490,6 +1617,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
           nextQuestionId: '44815',
         },
         {
+          id: '181558',
           code: 'NO',
           active: false,
           label: 'NO',
@@ -1507,6 +1635,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '181684',
           code: 'ADMINISTRATION',
           active: false,
           label: 'ADMINISTRATION',
@@ -1515,6 +1644,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
           nextQuestionId: '44596',
         },
         {
+          id: '181685',
           code: 'ASSOCIATION AREA',
           active: false,
           label: 'ASSOCIATION AREA',
@@ -1523,6 +1653,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
           nextQuestionId: '44596',
         },
         {
+          id: '181686',
           code: 'CELL',
           active: false,
           label: 'CELL',
@@ -1531,6 +1662,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
           nextQuestionId: '44596',
         },
         {
+          id: '181687',
           code: 'CHAPEL',
           active: false,
           label: 'CHAPEL',
@@ -1539,6 +1671,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
           nextQuestionId: '44596',
         },
         {
+          id: '181689',
           code: 'DINING ROOM',
           active: false,
           label: 'DINING ROOM',
@@ -1547,6 +1680,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
           nextQuestionId: '44596',
         },
         {
+          id: '181690',
           code: 'DORMITORY',
           active: false,
           label: 'DORMITORY',
@@ -1555,6 +1689,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
           nextQuestionId: '44596',
         },
         {
+          id: '181691',
           code: 'EDUCATION',
           active: false,
           label: 'EDUCATION',
@@ -1563,6 +1698,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
           nextQuestionId: '44596',
         },
         {
+          id: '181693',
           code: 'EXERCISE YARD',
           active: false,
           label: 'EXERCISE YARD',
@@ -1571,6 +1707,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
           nextQuestionId: '44596',
         },
         {
+          id: '181695',
           code: 'GATE',
           active: false,
           label: 'GATE',
@@ -1579,6 +1716,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
           nextQuestionId: '44596',
         },
         {
+          id: '181696',
           code: 'GYM',
           active: false,
           label: 'GYM',
@@ -1587,6 +1725,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
           nextQuestionId: '44596',
         },
         {
+          id: '181697',
           code: 'HEALTH CARE CENTRE',
           active: false,
           label: 'HEALTH CARE CENTRE',
@@ -1595,6 +1734,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
           nextQuestionId: '44596',
         },
         {
+          id: '181700',
           code: 'KITCHEN',
           active: false,
           label: 'KITCHEN',
@@ -1603,6 +1743,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
           nextQuestionId: '44596',
         },
         {
+          id: '181702',
           code: 'OFFICE',
           active: false,
           label: 'OFFICE',
@@ -1611,6 +1752,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
           nextQuestionId: '44596',
         },
         {
+          id: '181704',
           code: 'RECEPTION',
           active: false,
           label: 'RECEPTION',
@@ -1619,6 +1761,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
           nextQuestionId: '44596',
         },
         {
+          id: '181705',
           code: 'RECESS',
           active: false,
           label: 'RECESS',
@@ -1627,6 +1770,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
           nextQuestionId: '44596',
         },
         {
+          id: '181706',
           code: 'SEGREGATION UNIT',
           active: false,
           label: 'SEGREGATION UNIT',
@@ -1635,6 +1779,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
           nextQuestionId: '44596',
         },
         {
+          id: '181708',
           code: 'SPECIAL UNIT',
           active: false,
           label: 'SPECIAL UNIT',
@@ -1643,6 +1788,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
           nextQuestionId: '44596',
         },
         {
+          id: '181707',
           code: 'SHOWERS/CHANGING ROOM',
           active: false,
           label: 'SHOWERS/CHANGING ROOM',
@@ -1651,6 +1797,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
           nextQuestionId: '44596',
         },
         {
+          id: '181711',
           code: 'VISITS',
           active: false,
           label: 'VISITS',
@@ -1659,6 +1806,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
           nextQuestionId: '44596',
         },
         {
+          id: '181713',
           code: 'WING',
           active: false,
           label: 'WING',
@@ -1667,6 +1815,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
           nextQuestionId: '44596',
         },
         {
+          id: '181715',
           code: 'WORKS DEPARTMENT',
           active: false,
           label: 'WORKS DEPARTMENT',
@@ -1675,6 +1824,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
           nextQuestionId: '44596',
         },
         {
+          id: '181716',
           code: 'WORKSHOP',
           active: false,
           label: 'WORKSHOP',
@@ -1683,6 +1833,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
           nextQuestionId: '44596',
         },
         {
+          id: '181714',
           code: 'WITHIN PERIMETER',
           active: false,
           label: 'WITHIN PERIMETER',
@@ -1691,6 +1842,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
           nextQuestionId: '44596',
         },
         {
+          id: '181692',
           code: 'ELSEWHERE',
           active: false,
           label: 'ELSEWHERE',
@@ -1699,6 +1851,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
           nextQuestionId: '44596',
         },
         {
+          id: '181694',
           code: 'FUNERAL',
           active: false,
           label: 'FUNERAL',
@@ -1707,6 +1860,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
           nextQuestionId: '44596',
         },
         {
+          id: '181698',
           code: 'HOSPITAL OUTSIDE (PATIENT)',
           active: false,
           label: 'HOSPITAL OUTSIDE (PATIENT)',
@@ -1715,6 +1869,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
           nextQuestionId: '44596',
         },
         {
+          id: '181699',
           code: 'HOSPITAL OUTSIDE (VISITING)',
           active: false,
           label: 'HOSPITAL OUTSIDE (VISITING)',
@@ -1723,6 +1878,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
           nextQuestionId: '44596',
         },
         {
+          id: '181703',
           code: 'OUTSIDE WORKING PARTY',
           active: false,
           label: 'OUTSIDE WORKING PARTY',
@@ -1731,6 +1887,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
           nextQuestionId: '44596',
         },
         {
+          id: '181709',
           code: 'SPORTS FIELD',
           active: false,
           label: 'SPORTS FIELD',
@@ -1739,6 +1896,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
           nextQuestionId: '44596',
         },
         {
+          id: '181710',
           code: 'VEHICLE',
           active: false,
           label: 'VEHICLE',
@@ -1747,6 +1905,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
           nextQuestionId: '44596',
         },
         {
+          id: '181712',
           code: 'WEDDINGS',
           active: false,
           label: 'WEDDINGS',
@@ -1755,6 +1914,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
           nextQuestionId: '44596',
         },
         {
+          id: '181701',
           code: 'MAGISTRATES COURT',
           active: false,
           label: 'MAGISTRATES COURT',
@@ -1763,6 +1923,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
           nextQuestionId: '44596',
         },
         {
+          id: '181688',
           code: 'CROWN COURT',
           active: false,
           label: 'CROWN COURT',
@@ -1780,6 +1941,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '181799',
           code: 'YES',
           active: false,
           label: 'YES',
@@ -1788,6 +1950,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
           nextQuestionId: '44580',
         },
         {
+          id: '181798',
           code: 'NO',
           active: false,
           label: 'NO',
@@ -1805,6 +1968,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '181921',
           code: 'LOCAL',
           active: false,
           label: 'LOCAL',
@@ -1813,6 +1977,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
           nextQuestionId: '45163',
         },
         {
+          id: '181920',
           code: 'SERVICE SUPPLIER',
           active: false,
           label: 'SERVICE SUPPLIER',
@@ -1830,6 +1995,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '181923',
           code: 'YES',
           active: false,
           label: 'YES',
@@ -1838,6 +2004,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
           nextQuestionId: '44892',
         },
         {
+          id: '181922',
           code: 'NO',
           active: false,
           label: 'NO',
@@ -1855,6 +2022,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '182044',
           code: 'ENTER TIME',
           active: false,
           label: 'ENTER TIME',
@@ -1872,6 +2040,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '182338',
           code: 'MINOR',
           active: false,
           label: 'MINOR',
@@ -1880,6 +2049,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
           nextQuestionId: '44150',
         },
         {
+          id: '182339',
           code: 'SERIOUS',
           active: false,
           label: 'SERIOUS',
@@ -1888,6 +2058,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
           nextQuestionId: '44150',
         },
         {
+          id: '182337',
           code: 'EXTENSIVE',
           active: false,
           label: 'EXTENSIVE',
@@ -1905,6 +2076,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '182461',
           code: 'YES',
           active: false,
           label: 'YES',
@@ -1913,6 +2085,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
           nextQuestionId: '44985',
         },
         {
+          id: '182462',
           code: 'NO',
           active: false,
           label: 'NO',
@@ -1930,6 +2103,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '182463',
           code: 'ACTIVE',
           active: false,
           label: 'ACTIVE',
@@ -1938,6 +2112,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
           nextQuestionId: '44780',
         },
         {
+          id: '182464',
           code: 'PASSIVE',
           active: false,
           label: 'PASSIVE',
@@ -1955,6 +2130,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
       multipleAnswers: true,
       answers: [
         {
+          id: '182583',
           code: 'FRACTURE',
           active: false,
           label: 'FRACTURE',
@@ -1963,6 +2139,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
           nextQuestionId: '45175',
         },
         {
+          id: '182585',
           code: 'SCALD OR BURN',
           active: false,
           label: 'SCALD OR BURN',
@@ -1971,6 +2148,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
           nextQuestionId: '45175',
         },
         {
+          id: '182586',
           code: 'STABBING',
           active: false,
           label: 'STABBING',
@@ -1979,6 +2157,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
           nextQuestionId: '45175',
         },
         {
+          id: '182580',
           code: 'CRUSHING',
           active: false,
           label: 'CRUSHING',
@@ -1987,6 +2166,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
           nextQuestionId: '45175',
         },
         {
+          id: '182582',
           code: 'EXTENSIVE/MULTIPLE BRUISING',
           active: false,
           label: 'EXTENSIVE/MULTIPLE BRUISING',
@@ -1995,6 +2175,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
           nextQuestionId: '45175',
         },
         {
+          id: '182577',
           code: 'BLACK EYE',
           active: false,
           label: 'BLACK EYE',
@@ -2003,6 +2184,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
           nextQuestionId: '45175',
         },
         {
+          id: '182578',
           code: 'BROKEN NOSE',
           active: false,
           label: 'BROKEN NOSE',
@@ -2011,6 +2193,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
           nextQuestionId: '45175',
         },
         {
+          id: '182579',
           code: 'BROKEN TEETH',
           active: false,
           label: 'BROKEN TEETH',
@@ -2019,6 +2202,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
           nextQuestionId: '45175',
         },
         {
+          id: '182581',
           code: 'CUTS REQUIRING SUTURES',
           active: false,
           label: 'CUTS REQUIRING SUTURES',
@@ -2027,6 +2211,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
           nextQuestionId: '45175',
         },
         {
+          id: '182576',
           code: 'BITES',
           active: false,
           label: 'BITES',
@@ -2035,6 +2220,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
           nextQuestionId: '45175',
         },
         {
+          id: '182584',
           code: 'GUN SHOT WOUND',
           active: false,
           label: 'GUN SHOT WOUND',
@@ -2043,6 +2229,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
           nextQuestionId: '45175',
         },
         {
+          id: '182587',
           code: 'TEMPORARY/PERMANENT BLINDNESS',
           active: false,
           label: 'TEMPORARY/PERMANENT BLINDNESS',
@@ -2060,6 +2247,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
       multipleAnswers: true,
       answers: [
         {
+          id: '182605',
           code: 'TELEPHONY',
           active: false,
           label: 'TELEPHONY',
@@ -2068,6 +2256,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
           nextQuestionId: '45028',
         },
         {
+          id: '182604',
           code: 'IT',
           active: false,
           label: 'IT',
@@ -2085,6 +2274,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '182643',
           code: 'YES',
           active: false,
           label: 'YES',
@@ -2093,6 +2283,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
           nextQuestionId: '44394',
         },
         {
+          id: '182644',
           code: 'NO',
           active: false,
           label: 'NO',

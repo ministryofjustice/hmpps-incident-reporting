@@ -1,4 +1,4 @@
-// Generated with ./scripts/updateNomisIncidentTypeConfigurations.ts at 2024-09-25T09:26:12.211Z
+// Generated with ./scripts/updateNomisIncidentTypeConfigurations.ts at 2024-10-15T17:17:38.479Z
 
 import { type IncidentTypeConfiguration } from '../../data/incidentTypeConfiguration/types'
 
@@ -15,6 +15,7 @@ const FIRE: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '178927',
           code: 'YES',
           active: true,
           label: 'YES',
@@ -23,6 +24,7 @@ const FIRE: IncidentTypeConfiguration = {
           nextQuestionId: '45084',
         },
         {
+          id: '178926',
           code: 'NO',
           active: true,
           label: 'NO',
@@ -40,6 +42,7 @@ const FIRE: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '179010',
           code: 'NUMBER',
           active: true,
           label: 'NUMBER',
@@ -57,6 +60,7 @@ const FIRE: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '179021',
           code: '5 MINUTES AND LESS',
           active: true,
           label: '5 MINUTES AND LESS',
@@ -65,6 +69,7 @@ const FIRE: IncidentTypeConfiguration = {
           nextQuestionId: '45064',
         },
         {
+          id: '179020',
           code: '5 - 10 MINUTES',
           active: true,
           label: '5 - 10 MINUTES',
@@ -73,6 +78,7 @@ const FIRE: IncidentTypeConfiguration = {
           nextQuestionId: '45064',
         },
         {
+          id: '179019',
           code: '10 - 15 MINUTES',
           active: true,
           label: '10 - 15 MINUTES',
@@ -81,6 +87,7 @@ const FIRE: IncidentTypeConfiguration = {
           nextQuestionId: '45064',
         },
         {
+          id: '179022',
           code: 'OTHER',
           active: true,
           label: 'OTHER',
@@ -98,6 +105,7 @@ const FIRE: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '179083',
           code: 'ENTER COMMENT AND DATE',
           active: true,
           label: 'ENTER COMMENT AND DATE',
@@ -115,6 +123,7 @@ const FIRE: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '179092',
           code: 'YES',
           active: true,
           label: 'YES',
@@ -123,6 +132,7 @@ const FIRE: IncidentTypeConfiguration = {
           nextQuestionId: '44520',
         },
         {
+          id: '179093',
           code: 'NO',
           active: true,
           label: 'NO',
@@ -140,6 +150,7 @@ const FIRE: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '179121',
           code: 'ADMINISTRATION',
           active: true,
           label: 'ADMINISTRATION',
@@ -148,6 +159,7 @@ const FIRE: IncidentTypeConfiguration = {
           nextQuestionId: '44732',
         },
         {
+          id: '179122',
           code: 'ASSOCIATION AREA',
           active: true,
           label: 'ASSOCIATION AREA',
@@ -156,6 +168,7 @@ const FIRE: IncidentTypeConfiguration = {
           nextQuestionId: '44732',
         },
         {
+          id: '179123',
           code: 'CELL',
           active: true,
           label: 'CELL',
@@ -164,6 +177,7 @@ const FIRE: IncidentTypeConfiguration = {
           nextQuestionId: '44732',
         },
         {
+          id: '179124',
           code: 'CHAPEL',
           active: true,
           label: 'CHAPEL',
@@ -172,6 +186,7 @@ const FIRE: IncidentTypeConfiguration = {
           nextQuestionId: '44732',
         },
         {
+          id: '179126',
           code: 'DINING ROOM',
           active: true,
           label: 'DINING ROOM',
@@ -180,6 +195,7 @@ const FIRE: IncidentTypeConfiguration = {
           nextQuestionId: '44732',
         },
         {
+          id: '179127',
           code: 'DORMITORY',
           active: true,
           label: 'DORMITORY',
@@ -188,6 +204,7 @@ const FIRE: IncidentTypeConfiguration = {
           nextQuestionId: '44732',
         },
         {
+          id: '179128',
           code: 'EDUCATION',
           active: true,
           label: 'EDUCATION',
@@ -196,6 +213,7 @@ const FIRE: IncidentTypeConfiguration = {
           nextQuestionId: '44732',
         },
         {
+          id: '179130',
           code: 'EXERCISE YARD',
           active: true,
           label: 'EXERCISE YARD',
@@ -204,6 +222,7 @@ const FIRE: IncidentTypeConfiguration = {
           nextQuestionId: '44732',
         },
         {
+          id: '179132',
           code: 'GATE',
           active: true,
           label: 'GATE',
@@ -212,6 +231,7 @@ const FIRE: IncidentTypeConfiguration = {
           nextQuestionId: '44732',
         },
         {
+          id: '179133',
           code: 'GYM',
           active: true,
           label: 'GYM',
@@ -220,6 +240,7 @@ const FIRE: IncidentTypeConfiguration = {
           nextQuestionId: '44732',
         },
         {
+          id: '179134',
           code: 'HEALTH CARE CENTRE',
           active: true,
           label: 'HEALTH CARE CENTRE',
@@ -228,6 +249,7 @@ const FIRE: IncidentTypeConfiguration = {
           nextQuestionId: '44732',
         },
         {
+          id: '179137',
           code: 'KITCHEN',
           active: true,
           label: 'KITCHEN',
@@ -236,6 +258,7 @@ const FIRE: IncidentTypeConfiguration = {
           nextQuestionId: '44732',
         },
         {
+          id: '179139',
           code: 'OFFICE',
           active: true,
           label: 'OFFICE',
@@ -244,6 +267,7 @@ const FIRE: IncidentTypeConfiguration = {
           nextQuestionId: '44732',
         },
         {
+          id: '179141',
           code: 'RECEPTION',
           active: true,
           label: 'RECEPTION',
@@ -252,6 +276,7 @@ const FIRE: IncidentTypeConfiguration = {
           nextQuestionId: '44732',
         },
         {
+          id: '179142',
           code: 'RECESS',
           active: true,
           label: 'RECESS',
@@ -260,6 +285,7 @@ const FIRE: IncidentTypeConfiguration = {
           nextQuestionId: '44732',
         },
         {
+          id: '179143',
           code: 'SEGREGATION UNIT',
           active: true,
           label: 'SEGREGATION UNIT',
@@ -268,6 +294,7 @@ const FIRE: IncidentTypeConfiguration = {
           nextQuestionId: '44732',
         },
         {
+          id: '179145',
           code: 'SPECIAL UNIT',
           active: true,
           label: 'SPECIAL UNIT',
@@ -276,6 +303,7 @@ const FIRE: IncidentTypeConfiguration = {
           nextQuestionId: '44732',
         },
         {
+          id: '179144',
           code: 'SHOWERS/CHANGING ROOM',
           active: true,
           label: 'SHOWERS/CHANGING ROOM',
@@ -284,6 +312,7 @@ const FIRE: IncidentTypeConfiguration = {
           nextQuestionId: '44732',
         },
         {
+          id: '179148',
           code: 'VISITS',
           active: true,
           label: 'VISITS',
@@ -292,6 +321,7 @@ const FIRE: IncidentTypeConfiguration = {
           nextQuestionId: '44732',
         },
         {
+          id: '179150',
           code: 'WING',
           active: true,
           label: 'WING',
@@ -300,6 +330,7 @@ const FIRE: IncidentTypeConfiguration = {
           nextQuestionId: '44732',
         },
         {
+          id: '179152',
           code: 'WORKS DEPARTMENT',
           active: true,
           label: 'WORKS DEPARTMENT',
@@ -308,6 +339,7 @@ const FIRE: IncidentTypeConfiguration = {
           nextQuestionId: '44732',
         },
         {
+          id: '179153',
           code: 'WORKSHOP',
           active: true,
           label: 'WORKSHOP',
@@ -316,6 +348,7 @@ const FIRE: IncidentTypeConfiguration = {
           nextQuestionId: '44732',
         },
         {
+          id: '179151',
           code: 'WITHIN PERIMETER',
           active: true,
           label: 'WITHIN PERIMETER',
@@ -324,6 +357,7 @@ const FIRE: IncidentTypeConfiguration = {
           nextQuestionId: '44732',
         },
         {
+          id: '179129',
           code: 'ELSEWHERE',
           active: true,
           label: 'ELSEWHERE',
@@ -332,6 +366,7 @@ const FIRE: IncidentTypeConfiguration = {
           nextQuestionId: '44732',
         },
         {
+          id: '179131',
           code: 'FUNERAL',
           active: true,
           label: 'FUNERAL',
@@ -340,6 +375,7 @@ const FIRE: IncidentTypeConfiguration = {
           nextQuestionId: '44732',
         },
         {
+          id: '179135',
           code: 'HOSPITAL OUTSIDE (PATIENT)',
           active: true,
           label: 'HOSPITAL OUTSIDE (PATIENT)',
@@ -348,6 +384,7 @@ const FIRE: IncidentTypeConfiguration = {
           nextQuestionId: '44732',
         },
         {
+          id: '179136',
           code: 'HOSPITAL OUTSIDE (VISITING)',
           active: true,
           label: 'HOSPITAL OUTSIDE (VISITING)',
@@ -356,6 +393,7 @@ const FIRE: IncidentTypeConfiguration = {
           nextQuestionId: '44732',
         },
         {
+          id: '179140',
           code: 'OUTSIDE WORKING PARTY',
           active: true,
           label: 'OUTSIDE WORKING PARTY',
@@ -364,6 +402,7 @@ const FIRE: IncidentTypeConfiguration = {
           nextQuestionId: '44732',
         },
         {
+          id: '179146',
           code: 'SPORTS FIELD',
           active: true,
           label: 'SPORTS FIELD',
@@ -372,6 +411,7 @@ const FIRE: IncidentTypeConfiguration = {
           nextQuestionId: '44732',
         },
         {
+          id: '179147',
           code: 'VEHICLE',
           active: true,
           label: 'VEHICLE',
@@ -380,6 +420,7 @@ const FIRE: IncidentTypeConfiguration = {
           nextQuestionId: '44732',
         },
         {
+          id: '179149',
           code: 'WEDDINGS',
           active: true,
           label: 'WEDDINGS',
@@ -388,6 +429,7 @@ const FIRE: IncidentTypeConfiguration = {
           nextQuestionId: '44732',
         },
         {
+          id: '179138',
           code: 'MAGISTRATES COURT',
           active: true,
           label: 'MAGISTRATES COURT',
@@ -396,6 +438,7 @@ const FIRE: IncidentTypeConfiguration = {
           nextQuestionId: '44732',
         },
         {
+          id: '179125',
           code: 'CROWN COURT',
           active: true,
           label: 'CROWN COURT',
@@ -413,6 +456,7 @@ const FIRE: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '179169',
           code: 'YES',
           active: true,
           label: 'YES',
@@ -421,6 +465,7 @@ const FIRE: IncidentTypeConfiguration = {
           nextQuestionId: '44131',
         },
         {
+          id: '179170',
           code: 'NO',
           active: true,
           label: 'NO',
@@ -438,6 +483,7 @@ const FIRE: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '179263',
           code: 'YES',
           active: true,
           label: 'YES',
@@ -446,6 +492,7 @@ const FIRE: IncidentTypeConfiguration = {
           nextQuestionId: '44314',
         },
         {
+          id: '179262',
           code: 'NO',
           active: true,
           label: 'NO',
@@ -463,6 +510,7 @@ const FIRE: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '179355',
           code: 'YES',
           active: true,
           label: 'YES',
@@ -471,6 +519,7 @@ const FIRE: IncidentTypeConfiguration = {
           nextQuestionId: '45058',
         },
         {
+          id: '179354',
           code: 'NO',
           active: true,
           label: 'NO',
@@ -488,6 +537,7 @@ const FIRE: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '179364',
           code: 'STAFF',
           active: true,
           label: 'STAFF',
@@ -496,6 +546,7 @@ const FIRE: IncidentTypeConfiguration = {
           nextQuestionId: '44342',
         },
         {
+          id: '179363',
           code: 'PRISONER',
           active: true,
           label: 'PRISONER',
@@ -504,6 +555,7 @@ const FIRE: IncidentTypeConfiguration = {
           nextQuestionId: '44342',
         },
         {
+          id: '179362',
           code: 'OTHER',
           active: true,
           label: 'OTHER',
@@ -521,6 +573,7 @@ const FIRE: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '179381',
           code: 'YES',
           active: true,
           label: 'YES',
@@ -529,6 +582,7 @@ const FIRE: IncidentTypeConfiguration = {
           nextQuestionId: '44194',
         },
         {
+          id: '179382',
           code: 'NO',
           active: true,
           label: 'NO',
@@ -546,6 +600,7 @@ const FIRE: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '179412',
           code: 'YES',
           active: true,
           label: 'YES',
@@ -554,6 +609,7 @@ const FIRE: IncidentTypeConfiguration = {
           nextQuestionId: '45069',
         },
         {
+          id: '179411',
           code: 'NO',
           active: true,
           label: 'NO',
@@ -571,6 +627,7 @@ const FIRE: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '179539',
           code: 'YES',
           active: true,
           label: 'YES',
@@ -579,6 +636,7 @@ const FIRE: IncidentTypeConfiguration = {
           nextQuestionId: '44287',
         },
         {
+          id: '179538',
           code: 'NO',
           active: true,
           label: 'NO',
@@ -596,6 +654,7 @@ const FIRE: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '179653',
           code: 'YES',
           active: true,
           label: 'YES',
@@ -604,6 +663,7 @@ const FIRE: IncidentTypeConfiguration = {
           nextQuestionId: '44454',
         },
         {
+          id: '179654',
           code: 'NO',
           active: true,
           label: 'NO',
@@ -621,6 +681,7 @@ const FIRE: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '179697',
           code: 'ENTER AMOUNT IN POUND STERLING',
           active: true,
           label: 'ENTER AMOUNT IN POUND STERLING',
@@ -638,6 +699,7 @@ const FIRE: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '179879',
           code: 'DESCRIPTION',
           active: true,
           label: 'DESCRIPTION',
@@ -655,6 +717,7 @@ const FIRE: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '179905',
           code: 'LOCAL',
           active: true,
           label: 'LOCAL',
@@ -663,6 +726,7 @@ const FIRE: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
+          id: '179906',
           code: 'SERVICE SUPPLIER',
           active: true,
           label: 'SERVICE SUPPLIER',
@@ -680,6 +744,7 @@ const FIRE: IncidentTypeConfiguration = {
       multipleAnswers: true,
       answers: [
         {
+          id: '179997',
           code: 'STAFF',
           active: true,
           label: 'STAFF',
@@ -688,6 +753,7 @@ const FIRE: IncidentTypeConfiguration = {
           nextQuestionId: '45116',
         },
         {
+          id: '179996',
           code: 'PRISONERS',
           active: true,
           label: 'PRISONERS',
@@ -696,6 +762,7 @@ const FIRE: IncidentTypeConfiguration = {
           nextQuestionId: '45116',
         },
         {
+          id: '179994',
           code: 'FIRE BRIGADE',
           active: true,
           label: 'FIRE BRIGADE',
@@ -704,6 +771,7 @@ const FIRE: IncidentTypeConfiguration = {
           nextQuestionId: '45116',
         },
         {
+          id: '179995',
           code: 'OTHER',
           active: true,
           label: 'OTHER',
@@ -721,6 +789,7 @@ const FIRE: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '180134',
           code: 'YES',
           active: true,
           label: 'YES',
@@ -729,6 +798,7 @@ const FIRE: IncidentTypeConfiguration = {
           nextQuestionId: '44865',
         },
         {
+          id: '180135',
           code: 'NO',
           active: true,
           label: 'NO',
@@ -746,6 +816,7 @@ const FIRE: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '180160',
           code: 'YES',
           active: true,
           label: 'YES',
@@ -754,6 +825,7 @@ const FIRE: IncidentTypeConfiguration = {
           nextQuestionId: '44740',
         },
         {
+          id: '180161',
           code: 'NO',
           active: true,
           label: 'NO',
@@ -771,6 +843,7 @@ const FIRE: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '180188',
           code: 'YES',
           active: true,
           label: 'YES',
@@ -779,6 +852,7 @@ const FIRE: IncidentTypeConfiguration = {
           nextQuestionId: '44410',
         },
         {
+          id: '180189',
           code: 'NO',
           active: true,
           label: 'NO',
@@ -796,6 +870,7 @@ const FIRE: IncidentTypeConfiguration = {
       multipleAnswers: true,
       answers: [
         {
+          id: '180279',
           code: 'STAFF',
           active: true,
           label: 'STAFF',
@@ -804,6 +879,7 @@ const FIRE: IncidentTypeConfiguration = {
           nextQuestionId: '45055',
         },
         {
+          id: '180278',
           code: 'PRISONERS',
           active: true,
           label: 'PRISONERS',
@@ -812,6 +888,7 @@ const FIRE: IncidentTypeConfiguration = {
           nextQuestionId: '45055',
         },
         {
+          id: '180277',
           code: 'OTHERS',
           active: true,
           label: 'OTHERS',
@@ -829,6 +906,7 @@ const FIRE: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '180456',
           code: 'LOCAL',
           active: true,
           label: 'LOCAL',
@@ -837,6 +915,7 @@ const FIRE: IncidentTypeConfiguration = {
           nextQuestionId: '45084',
         },
         {
+          id: '180455',
           code: 'SERVICE SUPPLIER',
           active: true,
           label: 'SERVICE SUPPLIER',
@@ -854,6 +933,7 @@ const FIRE: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '180478',
           code: 'MALICIOUS IGNITION',
           active: true,
           label: 'MALICIOUS IGNITION',
@@ -862,6 +942,7 @@ const FIRE: IncidentTypeConfiguration = {
           nextQuestionId: '44895',
         },
         {
+          id: '180477',
           code: 'ELECTRICAL FAULT',
           active: true,
           label: 'ELECTRICAL FAULT',
@@ -870,6 +951,7 @@ const FIRE: IncidentTypeConfiguration = {
           nextQuestionId: '44895',
         },
         {
+          id: '180481',
           code: 'SMOKING MATERIAL',
           active: true,
           label: 'SMOKING MATERIAL',
@@ -878,6 +960,7 @@ const FIRE: IncidentTypeConfiguration = {
           nextQuestionId: '44895',
         },
         {
+          id: '180480',
           code: 'OVERHEATING',
           active: true,
           label: 'OVERHEATING',
@@ -886,6 +969,7 @@ const FIRE: IncidentTypeConfiguration = {
           nextQuestionId: '44895',
         },
         {
+          id: '180479',
           code: 'OTHER',
           active: true,
           label: 'OTHER',
@@ -903,6 +987,7 @@ const FIRE: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '180819',
           code: 'YES',
           active: true,
           label: 'YES',
@@ -911,6 +996,7 @@ const FIRE: IncidentTypeConfiguration = {
           nextQuestionId: '44949',
         },
         {
+          id: '180820',
           code: 'NO',
           active: true,
           label: 'NO',
@@ -928,6 +1014,7 @@ const FIRE: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '180910',
           code: 'YES',
           active: true,
           label: 'YES',
@@ -936,6 +1023,7 @@ const FIRE: IncidentTypeConfiguration = {
           nextQuestionId: '44813',
         },
         {
+          id: '180911',
           code: 'NO',
           active: true,
           label: 'NO',
@@ -953,6 +1041,7 @@ const FIRE: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '181060',
           code: 'YES',
           active: true,
           label: 'YES',
@@ -961,6 +1050,7 @@ const FIRE: IncidentTypeConfiguration = {
           nextQuestionId: '44158',
         },
         {
+          id: '181061',
           code: 'NO',
           active: true,
           label: 'NO',
@@ -978,6 +1068,7 @@ const FIRE: IncidentTypeConfiguration = {
       multipleAnswers: true,
       answers: [
         {
+          id: '181082',
           code: 'STAFF',
           active: true,
           label: 'STAFF',
@@ -986,6 +1077,7 @@ const FIRE: IncidentTypeConfiguration = {
           nextQuestionId: '44181',
         },
         {
+          id: '181081',
           code: 'PRISONERS',
           active: true,
           label: 'PRISONERS',
@@ -994,6 +1086,7 @@ const FIRE: IncidentTypeConfiguration = {
           nextQuestionId: '44181',
         },
         {
+          id: '181080',
           code: 'OTHER',
           active: true,
           label: 'OTHER',
@@ -1011,6 +1104,7 @@ const FIRE: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '181084',
           code: 'YES',
           active: true,
           label: 'YES',
@@ -1019,6 +1113,7 @@ const FIRE: IncidentTypeConfiguration = {
           nextQuestionId: '44829',
         },
         {
+          id: '181083',
           code: 'NO',
           active: true,
           label: 'NO',
@@ -1036,6 +1131,7 @@ const FIRE: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '181092',
           code: 'YES',
           active: true,
           label: 'YES',
@@ -1044,6 +1140,7 @@ const FIRE: IncidentTypeConfiguration = {
           nextQuestionId: '44556',
         },
         {
+          id: '181093',
           code: 'NO',
           active: true,
           label: 'NO',
@@ -1061,6 +1158,7 @@ const FIRE: IncidentTypeConfiguration = {
       multipleAnswers: true,
       answers: [
         {
+          id: '181100',
           code: 'STAFF',
           active: true,
           label: 'STAFF',
@@ -1069,6 +1167,7 @@ const FIRE: IncidentTypeConfiguration = {
           nextQuestionId: '44741',
         },
         {
+          id: '181099',
           code: 'PRISONERS',
           active: true,
           label: 'PRISONERS',
@@ -1077,6 +1176,7 @@ const FIRE: IncidentTypeConfiguration = {
           nextQuestionId: '44741',
         },
         {
+          id: '181098',
           code: 'OTHERS',
           active: true,
           label: 'OTHERS',
@@ -1094,6 +1194,7 @@ const FIRE: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '181138',
           code: 'YES',
           active: true,
           label: 'YES',
@@ -1102,6 +1203,7 @@ const FIRE: IncidentTypeConfiguration = {
           nextQuestionId: '44837',
         },
         {
+          id: '181139',
           code: 'NO',
           active: true,
           label: 'NO',
@@ -1119,6 +1221,7 @@ const FIRE: IncidentTypeConfiguration = {
       multipleAnswers: true,
       answers: [
         {
+          id: '181291',
           code: 'WOOD',
           active: true,
           label: 'WOOD',
@@ -1127,6 +1230,7 @@ const FIRE: IncidentTypeConfiguration = {
           nextQuestionId: '45017',
         },
         {
+          id: '181290',
           code: 'PAPER',
           active: true,
           label: 'PAPER',
@@ -1135,6 +1239,7 @@ const FIRE: IncidentTypeConfiguration = {
           nextQuestionId: '45017',
         },
         {
+          id: '181288',
           code: 'OIL',
           active: true,
           label: 'OIL',
@@ -1143,6 +1248,7 @@ const FIRE: IncidentTypeConfiguration = {
           nextQuestionId: '45017',
         },
         {
+          id: '181287',
           code: 'FLAMMABLE LIQUID',
           active: true,
           label: 'FLAMMABLE LIQUID',
@@ -1151,6 +1257,7 @@ const FIRE: IncidentTypeConfiguration = {
           nextQuestionId: '45017',
         },
         {
+          id: '181289',
           code: 'OTHER',
           active: true,
           label: 'OTHER',
@@ -1168,6 +1275,7 @@ const FIRE: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '181323',
           code: 'YES',
           active: true,
           label: 'YES',
@@ -1176,6 +1284,7 @@ const FIRE: IncidentTypeConfiguration = {
           nextQuestionId: '44898',
         },
         {
+          id: '181324',
           code: 'NO',
           active: true,
           label: 'NO',
@@ -1193,6 +1302,7 @@ const FIRE: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '181331',
           code: 'YES',
           active: true,
           label: 'YES',
@@ -1201,6 +1311,7 @@ const FIRE: IncidentTypeConfiguration = {
           nextQuestionId: '45046',
         },
         {
+          id: '181332',
           code: 'NO',
           active: true,
           label: 'NO',
@@ -1218,6 +1329,7 @@ const FIRE: IncidentTypeConfiguration = {
       multipleAnswers: true,
       answers: [
         {
+          id: '181341',
           code: 'STAFF',
           active: true,
           label: 'STAFF',
@@ -1226,6 +1338,7 @@ const FIRE: IncidentTypeConfiguration = {
           nextQuestionId: '45131',
         },
         {
+          id: '181340',
           code: 'PRISONERS',
           active: true,
           label: 'PRISONERS',
@@ -1234,6 +1347,7 @@ const FIRE: IncidentTypeConfiguration = {
           nextQuestionId: '45131',
         },
         {
+          id: '181339',
           code: 'OTHERS',
           active: true,
           label: 'OTHERS',
@@ -1251,6 +1365,7 @@ const FIRE: IncidentTypeConfiguration = {
       multipleAnswers: true,
       answers: [
         {
+          id: '181449',
           code: 'STAFF',
           active: true,
           label: 'STAFF',
@@ -1259,6 +1374,7 @@ const FIRE: IncidentTypeConfiguration = {
           nextQuestionId: '44762',
         },
         {
+          id: '181448',
           code: 'PRISONERS',
           active: true,
           label: 'PRISONERS',
@@ -1267,6 +1383,7 @@ const FIRE: IncidentTypeConfiguration = {
           nextQuestionId: '44762',
         },
         {
+          id: '181447',
           code: 'OTHER',
           active: true,
           label: 'OTHER',
@@ -1284,6 +1401,7 @@ const FIRE: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '181514',
           code: 'SPRINKLERS',
           active: true,
           label: 'SPRINKLERS',
@@ -1292,6 +1410,7 @@ const FIRE: IncidentTypeConfiguration = {
           nextQuestionId: '44996',
         },
         {
+          id: '181512',
           code: 'KITCHEN SUPPRESSION SYSTEM',
           active: true,
           label: 'KITCHEN SUPPRESSION SYSTEM',
@@ -1300,6 +1419,7 @@ const FIRE: IncidentTypeConfiguration = {
           nextQuestionId: '44996',
         },
         {
+          id: '181513',
           code: 'OTHER',
           active: true,
           label: 'OTHER',
@@ -1317,6 +1437,7 @@ const FIRE: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '181566',
           code: 'YES',
           active: true,
           label: 'YES',
@@ -1325,6 +1446,7 @@ const FIRE: IncidentTypeConfiguration = {
           nextQuestionId: '44264',
         },
         {
+          id: '181565',
           code: 'NO',
           active: true,
           label: 'NO',
@@ -1342,6 +1464,7 @@ const FIRE: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '181576',
           code: 'MINOR',
           active: true,
           label: 'MINOR',
@@ -1350,6 +1473,7 @@ const FIRE: IncidentTypeConfiguration = {
           nextQuestionId: '44354',
         },
         {
+          id: '181577',
           code: 'SERIOUS',
           active: true,
           label: 'SERIOUS',
@@ -1358,6 +1482,7 @@ const FIRE: IncidentTypeConfiguration = {
           nextQuestionId: '44354',
         },
         {
+          id: '181575',
           code: 'EXTENSIVE',
           active: true,
           label: 'EXTENSIVE',
@@ -1375,6 +1500,7 @@ const FIRE: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '181775',
           code: 'YES',
           active: true,
           label: 'YES',
@@ -1383,6 +1509,7 @@ const FIRE: IncidentTypeConfiguration = {
           nextQuestionId: '44878',
         },
         {
+          id: '181776',
           code: 'NO',
           active: true,
           label: 'NO',
@@ -1400,6 +1527,7 @@ const FIRE: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '181785',
           code: 'YES',
           active: true,
           label: 'YES',
@@ -1408,6 +1536,7 @@ const FIRE: IncidentTypeConfiguration = {
           nextQuestionId: '45146',
         },
         {
+          id: '181786',
           code: 'NO',
           active: true,
           label: 'NO',
@@ -1425,6 +1554,7 @@ const FIRE: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '181817',
           code: 'ENTER TIME',
           active: true,
           label: 'ENTER TIME',
@@ -1442,6 +1572,7 @@ const FIRE: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '181948',
           code: 'YES',
           active: true,
           label: 'YES',
@@ -1450,6 +1581,7 @@ const FIRE: IncidentTypeConfiguration = {
           nextQuestionId: '44695',
         },
         {
+          id: '181947',
           code: 'NO',
           active: true,
           label: 'NO',
@@ -1467,6 +1599,7 @@ const FIRE: IncidentTypeConfiguration = {
       multipleAnswers: true,
       answers: [
         {
+          id: '181957',
           code: 'STAFF',
           active: true,
           label: 'STAFF',
@@ -1475,6 +1608,7 @@ const FIRE: IncidentTypeConfiguration = {
           nextQuestionId: '44833',
         },
         {
+          id: '181956',
           code: 'PRISONERS',
           active: true,
           label: 'PRISONERS',
@@ -1483,6 +1617,7 @@ const FIRE: IncidentTypeConfiguration = {
           nextQuestionId: '44833',
         },
         {
+          id: '181955',
           code: 'OTHERS',
           active: true,
           label: 'OTHERS',
@@ -1500,6 +1635,7 @@ const FIRE: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '182008',
           code: 'YES',
           active: true,
           label: 'YES',
@@ -1508,6 +1644,7 @@ const FIRE: IncidentTypeConfiguration = {
           nextQuestionId: '45053',
         },
         {
+          id: '182009',
           code: 'NO',
           active: true,
           label: 'NO',
@@ -1525,6 +1662,7 @@ const FIRE: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '182042',
           code: 'FULL',
           active: true,
           label: 'FULL',
@@ -1533,6 +1671,7 @@ const FIRE: IncidentTypeConfiguration = {
           nextQuestionId: '45173',
         },
         {
+          id: '182043',
           code: 'PARTIAL',
           active: true,
           label: 'PARTIAL',
@@ -1550,6 +1689,7 @@ const FIRE: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '182164',
           code: 'YES',
           active: true,
           label: 'YES',
@@ -1558,6 +1698,7 @@ const FIRE: IncidentTypeConfiguration = {
           nextQuestionId: '45085',
         },
         {
+          id: '182165',
           code: 'NO',
           active: true,
           label: 'NO',
@@ -1575,6 +1716,7 @@ const FIRE: IncidentTypeConfiguration = {
       multipleAnswers: true,
       answers: [
         {
+          id: '182200',
           code: 'FURNISHINGS',
           active: true,
           label: 'FURNISHINGS',
@@ -1583,6 +1725,7 @@ const FIRE: IncidentTypeConfiguration = {
           nextQuestionId: '45133',
         },
         {
+          id: '182197',
           code: 'BEDDING',
           active: true,
           label: 'BEDDING',
@@ -1591,6 +1734,7 @@ const FIRE: IncidentTypeConfiguration = {
           nextQuestionId: '45133',
         },
         {
+          id: '182198',
           code: 'CLOTHING',
           active: true,
           label: 'CLOTHING',
@@ -1599,6 +1743,7 @@ const FIRE: IncidentTypeConfiguration = {
           nextQuestionId: '45133',
         },
         {
+          id: '182199',
           code: 'EQUIPMENT',
           active: true,
           label: 'EQUIPMENT',
@@ -1607,6 +1752,7 @@ const FIRE: IncidentTypeConfiguration = {
           nextQuestionId: '45133',
         },
         {
+          id: '182202',
           code: 'RUBBISH/REFUSE',
           active: true,
           label: 'RUBBISH/REFUSE',
@@ -1615,6 +1761,7 @@ const FIRE: IncidentTypeConfiguration = {
           nextQuestionId: '45133',
         },
         {
+          id: '182203',
           code: 'VEHICLE/PLANT',
           active: true,
           label: 'VEHICLE/PLANT',
@@ -1623,6 +1770,7 @@ const FIRE: IncidentTypeConfiguration = {
           nextQuestionId: '45133',
         },
         {
+          id: '182201',
           code: 'OTHER',
           active: true,
           label: 'OTHER',
@@ -1640,6 +1788,7 @@ const FIRE: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '182206',
           code: 'YES',
           active: true,
           label: 'YES',
@@ -1648,6 +1797,7 @@ const FIRE: IncidentTypeConfiguration = {
           nextQuestionId: '44747',
         },
         {
+          id: '182207',
           code: 'NO',
           active: true,
           label: 'NO',
@@ -1665,6 +1815,7 @@ const FIRE: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '182214',
           code: 'YES',
           active: true,
           label: 'YES',
@@ -1673,6 +1824,7 @@ const FIRE: IncidentTypeConfiguration = {
           nextQuestionId: '44999',
         },
         {
+          id: '182215',
           code: 'NO',
           active: true,
           label: 'NO',
@@ -1690,6 +1842,7 @@ const FIRE: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '182241',
           code: 'FIRE ALARM',
           active: true,
           label: 'FIRE ALARM',
@@ -1698,6 +1851,7 @@ const FIRE: IncidentTypeConfiguration = {
           nextQuestionId: '44268',
         },
         {
+          id: '182244',
           code: 'TELEPHONE',
           active: true,
           label: 'TELEPHONE',
@@ -1706,6 +1860,7 @@ const FIRE: IncidentTypeConfiguration = {
           nextQuestionId: '44268',
         },
         {
+          id: '182243',
           code: 'RADIO',
           active: true,
           label: 'RADIO',
@@ -1714,6 +1869,7 @@ const FIRE: IncidentTypeConfiguration = {
           nextQuestionId: '44268',
         },
         {
+          id: '182240',
           code: 'AUTOMATIC FIRE ALARM',
           active: true,
           label: 'AUTOMATIC FIRE ALARM',
@@ -1722,6 +1878,7 @@ const FIRE: IncidentTypeConfiguration = {
           nextQuestionId: '44268',
         },
         {
+          id: '182242',
           code: 'OTHER',
           active: true,
           label: 'OTHER',
@@ -1739,6 +1896,7 @@ const FIRE: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '182255',
           code: 'YES',
           active: true,
           label: 'YES',
@@ -1747,6 +1905,7 @@ const FIRE: IncidentTypeConfiguration = {
           nextQuestionId: '44272',
         },
         {
+          id: '182254',
           code: 'NO',
           active: true,
           label: 'NO',
@@ -1764,6 +1923,7 @@ const FIRE: IncidentTypeConfiguration = {
       multipleAnswers: true,
       answers: [
         {
+          id: '182291',
           code: 'TELEPHONY',
           active: true,
           label: 'TELEPHONY',
@@ -1772,6 +1932,7 @@ const FIRE: IncidentTypeConfiguration = {
           nextQuestionId: '44957',
         },
         {
+          id: '182290',
           code: 'IT',
           active: true,
           label: 'IT',
@@ -1789,6 +1950,7 @@ const FIRE: IncidentTypeConfiguration = {
       multipleAnswers: true,
       answers: [
         {
+          id: '182294',
           code: 'STAFF',
           active: true,
           label: 'STAFF',
@@ -1797,6 +1959,7 @@ const FIRE: IncidentTypeConfiguration = {
           nextQuestionId: '44478',
         },
         {
+          id: '182293',
           code: 'PRISONERS',
           active: true,
           label: 'PRISONERS',
@@ -1805,6 +1968,7 @@ const FIRE: IncidentTypeConfiguration = {
           nextQuestionId: '44478',
         },
         {
+          id: '182292',
           code: 'OTHERS',
           active: true,
           label: 'OTHERS',
@@ -1822,6 +1986,7 @@ const FIRE: IncidentTypeConfiguration = {
       multipleAnswers: true,
       answers: [
         {
+          id: '182318',
           code: 'STAFF',
           active: true,
           label: 'STAFF',
@@ -1830,6 +1995,7 @@ const FIRE: IncidentTypeConfiguration = {
           nextQuestionId: '44486',
         },
         {
+          id: '182317',
           code: 'PRISONERS',
           active: true,
           label: 'PRISONERS',
@@ -1838,6 +2004,7 @@ const FIRE: IncidentTypeConfiguration = {
           nextQuestionId: '44486',
         },
         {
+          id: '182316',
           code: 'OTHERS',
           active: true,
           label: 'OTHERS',
@@ -1855,6 +2022,7 @@ const FIRE: IncidentTypeConfiguration = {
       multipleAnswers: true,
       answers: [
         {
+          id: '182418',
           code: 'WATER EXTINGUISHER',
           active: true,
           label: 'WATER EXTINGUISHER',
@@ -1863,6 +2031,7 @@ const FIRE: IncidentTypeConfiguration = {
           nextQuestionId: '44945',
         },
         {
+          id: '182415',
           code: 'FOAM EXTINGUISHERS',
           active: true,
           label: 'FOAM EXTINGUISHERS',
@@ -1871,6 +2040,7 @@ const FIRE: IncidentTypeConfiguration = {
           nextQuestionId: '44945',
         },
         {
+          id: '182413',
           code: 'DRY POWDER EXTINGUISHER',
           active: true,
           label: 'DRY POWDER EXTINGUISHER',
@@ -1879,6 +2049,7 @@ const FIRE: IncidentTypeConfiguration = {
           nextQuestionId: '44945',
         },
         {
+          id: '182410',
           code: 'AFFF EXTINGUISHER',
           active: true,
           label: 'AFFF EXTINGUISHER',
@@ -1887,6 +2058,7 @@ const FIRE: IncidentTypeConfiguration = {
           nextQuestionId: '44945',
         },
         {
+          id: '182416',
           code: 'HOSE REEL',
           active: true,
           label: 'HOSE REEL',
@@ -1895,6 +2067,7 @@ const FIRE: IncidentTypeConfiguration = {
           nextQuestionId: '44945',
         },
         {
+          id: '182414',
           code: 'FIRE BLANKET',
           active: true,
           label: 'FIRE BLANKET',
@@ -1903,6 +2076,7 @@ const FIRE: IncidentTypeConfiguration = {
           nextQuestionId: '44945',
         },
         {
+          id: '182411',
           code: 'CELL SPRAY NOZZLE',
           active: true,
           label: 'CELL SPRAY NOZZLE',
@@ -1911,6 +2085,7 @@ const FIRE: IncidentTypeConfiguration = {
           nextQuestionId: '44945',
         },
         {
+          id: '182412',
           code: 'CO2 EXTINGUISHER',
           active: true,
           label: 'CO2 EXTINGUISHER',
@@ -1919,6 +2094,7 @@ const FIRE: IncidentTypeConfiguration = {
           nextQuestionId: '44945',
         },
         {
+          id: '182417',
           code: 'OTHER',
           active: true,
           label: 'OTHER',
@@ -1936,6 +2112,7 @@ const FIRE: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '182469',
           code: 'YES',
           active: true,
           label: 'YES',
@@ -1944,6 +2121,7 @@ const FIRE: IncidentTypeConfiguration = {
           nextQuestionId: '45091',
         },
         {
+          id: '182470',
           code: 'NO',
           active: true,
           label: 'NO',
@@ -1961,6 +2139,7 @@ const FIRE: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '182473',
           code: 'YES',
           active: true,
           label: 'YES',
@@ -1969,6 +2148,7 @@ const FIRE: IncidentTypeConfiguration = {
           nextQuestionId: '44567',
         },
         {
+          id: '182474',
           code: 'NO',
           active: true,
           label: 'NO',
@@ -1986,6 +2166,7 @@ const FIRE: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '182548',
           code: 'YES',
           active: true,
           label: 'YES',
@@ -1994,6 +2175,7 @@ const FIRE: IncidentTypeConfiguration = {
           nextQuestionId: '44232',
         },
         {
+          id: '182547',
           code: 'NO',
           active: true,
           label: 'NO',
@@ -2011,6 +2193,7 @@ const FIRE: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '182639',
           code: 'GOVERNOR',
           active: true,
           label: 'GOVERNOR',
@@ -2019,6 +2202,7 @@ const FIRE: IncidentTypeConfiguration = {
           nextQuestionId: '44493',
         },
         {
+          id: '182637',
           code: 'DEPUTY GOVERNOR',
           active: true,
           label: 'DEPUTY GOVERNOR',
@@ -2027,6 +2211,7 @@ const FIRE: IncidentTypeConfiguration = {
           nextQuestionId: '44493',
         },
         {
+          id: '182638',
           code: 'DUTY GOVERNOR',
           active: true,
           label: 'DUTY GOVERNOR',
@@ -2035,6 +2220,7 @@ const FIRE: IncidentTypeConfiguration = {
           nextQuestionId: '44493',
         },
         {
+          id: '182640',
           code: 'OTHER',
           active: true,
           label: 'OTHER',

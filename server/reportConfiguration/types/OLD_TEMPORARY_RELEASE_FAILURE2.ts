@@ -1,4 +1,4 @@
-// Generated with ./scripts/updateNomisIncidentTypeConfigurations.ts at 2024-09-25T09:26:10.700Z
+// Generated with ./scripts/updateNomisIncidentTypeConfigurations.ts at 2024-10-15T17:17:36.915Z
 
 import { type IncidentTypeConfiguration } from '../../data/incidentTypeConfiguration/types'
 
@@ -15,6 +15,7 @@ const OLD_TEMPORARY_RELEASE_FAILURE2: IncidentTypeConfiguration = {
       multipleAnswers: true,
       answers: [
         {
+          id: '206684',
           code: 'No further action',
           active: false,
           label: 'No further action',
@@ -23,6 +24,7 @@ const OLD_TEMPORARY_RELEASE_FAILURE2: IncidentTypeConfiguration = {
           nextQuestionId: '55180',
         },
         {
+          id: '206685',
           code: 'IEP Regression',
           active: false,
           label: 'IEP Regression',
@@ -31,6 +33,7 @@ const OLD_TEMPORARY_RELEASE_FAILURE2: IncidentTypeConfiguration = {
           nextQuestionId: '55180',
         },
         {
+          id: '206686',
           code: 'Placed on report/adjudication referal',
           active: false,
           label: 'Placed on report/adjudication referal',
@@ -39,6 +42,7 @@ const OLD_TEMPORARY_RELEASE_FAILURE2: IncidentTypeConfiguration = {
           nextQuestionId: '55180',
         },
         {
+          id: '206687',
           code: 'Police referral',
           active: false,
           label: 'Police referral',
@@ -47,6 +51,7 @@ const OLD_TEMPORARY_RELEASE_FAILURE2: IncidentTypeConfiguration = {
           nextQuestionId: '55180',
         },
         {
+          id: '206688',
           code: 'CPS referral',
           active: false,
           label: 'CPS referral',
@@ -55,6 +60,7 @@ const OLD_TEMPORARY_RELEASE_FAILURE2: IncidentTypeConfiguration = {
           nextQuestionId: '55180',
         },
         {
+          id: '206689',
           code: 'Prosecution referral',
           active: false,
           label: 'Prosecution referral',
@@ -72,6 +78,7 @@ const OLD_TEMPORARY_RELEASE_FAILURE2: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '206690',
           code: 'Yes',
           active: false,
           label: 'Yes',
@@ -80,6 +87,7 @@ const OLD_TEMPORARY_RELEASE_FAILURE2: IncidentTypeConfiguration = {
           nextQuestionId: '55181',
         },
         {
+          id: '206691',
           code: 'No',
           active: false,
           label: 'No',
@@ -97,6 +105,7 @@ const OLD_TEMPORARY_RELEASE_FAILURE2: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '206692',
           code: 'Standard ROTL',
           active: false,
           label: 'Standard ROTL',
@@ -105,6 +114,7 @@ const OLD_TEMPORARY_RELEASE_FAILURE2: IncidentTypeConfiguration = {
           nextQuestionId: '55182',
         },
         {
+          id: '206693',
           code: 'Restricted ROTL',
           active: false,
           label: 'Restricted ROTL',
@@ -122,6 +132,7 @@ const OLD_TEMPORARY_RELEASE_FAILURE2: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '206694',
           code: 'Resettlement Day',
           active: false,
           label: 'Resettlement Day',
@@ -130,6 +141,7 @@ const OLD_TEMPORARY_RELEASE_FAILURE2: IncidentTypeConfiguration = {
           nextQuestionId: '55183',
         },
         {
+          id: '206695',
           code: 'Resettlement Overnight',
           active: false,
           label: 'Resettlement Overnight',
@@ -138,6 +150,7 @@ const OLD_TEMPORARY_RELEASE_FAILURE2: IncidentTypeConfiguration = {
           nextQuestionId: '55183',
         },
         {
+          id: '206696',
           code: 'Childcare Resettlement',
           active: false,
           label: 'Childcare Resettlement',
@@ -146,6 +159,7 @@ const OLD_TEMPORARY_RELEASE_FAILURE2: IncidentTypeConfiguration = {
           nextQuestionId: '55183',
         },
         {
+          id: '206697',
           code: 'Special Purpose (medical)',
           active: false,
           label: 'Special Purpose (medical)',
@@ -154,6 +168,7 @@ const OLD_TEMPORARY_RELEASE_FAILURE2: IncidentTypeConfiguration = {
           nextQuestionId: '55183',
         },
         {
+          id: '206698',
           code: 'Special Purpose (other)',
           active: false,
           label: 'Special Purpose (other)',
@@ -171,6 +186,7 @@ const OLD_TEMPORARY_RELEASE_FAILURE2: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '206699',
           code: 'Court / Legal / Police',
           active: false,
           label: 'Court / Legal / Police',
@@ -179,6 +195,7 @@ const OLD_TEMPORARY_RELEASE_FAILURE2: IncidentTypeConfiguration = {
           nextQuestionId: '55184',
         },
         {
+          id: '206700',
           code: 'Maintaining Family Ties',
           active: false,
           label: 'Maintaining Family Ties',
@@ -187,6 +204,7 @@ const OLD_TEMPORARY_RELEASE_FAILURE2: IncidentTypeConfiguration = {
           nextQuestionId: '55184',
         },
         {
+          id: '206701',
           code: 'Other Compassionate Reason (emergency child care, attend funeral etc.)',
           active: false,
           label: 'Other Compassionate Reason (emergency child care, attend funeral etc.)',
@@ -195,6 +213,7 @@ const OLD_TEMPORARY_RELEASE_FAILURE2: IncidentTypeConfiguration = {
           nextQuestionId: '55184',
         },
         {
+          id: '206702',
           code: 'Other RDR Linked to Sentence Plan',
           active: false,
           label: 'Other RDR Linked to Sentence Plan',
@@ -203,6 +222,7 @@ const OLD_TEMPORARY_RELEASE_FAILURE2: IncidentTypeConfiguration = {
           nextQuestionId: '55184',
         },
         {
+          id: '206703',
           code: 'Training Or Education',
           active: false,
           label: 'Training Or Education',
@@ -211,6 +231,7 @@ const OLD_TEMPORARY_RELEASE_FAILURE2: IncidentTypeConfiguration = {
           nextQuestionId: '55184',
         },
         {
+          id: '206704',
           code: 'Medical',
           active: false,
           label: 'Medical',
@@ -219,6 +240,7 @@ const OLD_TEMPORARY_RELEASE_FAILURE2: IncidentTypeConfiguration = {
           nextQuestionId: '55184',
         },
         {
+          id: '206705',
           code: 'Paid and unpaid work placements',
           active: false,
           label: 'Paid and unpaid work placements',
@@ -227,6 +249,7 @@ const OLD_TEMPORARY_RELEASE_FAILURE2: IncidentTypeConfiguration = {
           nextQuestionId: '55184',
         },
         {
+          id: '206706',
           code: 'Marriage or civil partnership of the offender',
           active: false,
           label: 'Marriage or civil partnership of the offender',
@@ -235,6 +258,7 @@ const OLD_TEMPORARY_RELEASE_FAILURE2: IncidentTypeConfiguration = {
           nextQuestionId: '55184',
         },
         {
+          id: '206707',
           code: 'Inter-prison transfers',
           active: false,
           label: 'Inter-prison transfers',
@@ -252,6 +276,7 @@ const OLD_TEMPORARY_RELEASE_FAILURE2: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '206708',
           code: 'Yes',
           active: false,
           label: 'Yes',
@@ -260,6 +285,7 @@ const OLD_TEMPORARY_RELEASE_FAILURE2: IncidentTypeConfiguration = {
           nextQuestionId: '55185',
         },
         {
+          id: '206709',
           code: 'No',
           active: false,
           label: 'No',
@@ -277,6 +303,7 @@ const OLD_TEMPORARY_RELEASE_FAILURE2: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '206710',
           code: 'Apparent failure to return',
           active: false,
           label: 'Apparent failure to return',
@@ -285,6 +312,7 @@ const OLD_TEMPORARY_RELEASE_FAILURE2: IncidentTypeConfiguration = {
           nextQuestionId: '55186',
         },
         {
+          id: '206711',
           code: "Revocation of the prisoner's licence",
           active: false,
           label: "Revocation of the prisoner's licence",
@@ -302,6 +330,7 @@ const OLD_TEMPORARY_RELEASE_FAILURE2: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '206712',
           code: 'Yes (Enter Date)',
           active: false,
           label: 'Yes (Enter Date)',
@@ -310,6 +339,7 @@ const OLD_TEMPORARY_RELEASE_FAILURE2: IncidentTypeConfiguration = {
           nextQuestionId: '55187',
         },
         {
+          id: '206713',
           code: 'No',
           active: false,
           label: 'No',
@@ -327,6 +357,7 @@ const OLD_TEMPORARY_RELEASE_FAILURE2: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '206714',
           code: 'Surrendered before midnight on return date',
           active: false,
           label: 'Surrendered before midnight on return date',
@@ -335,6 +366,7 @@ const OLD_TEMPORARY_RELEASE_FAILURE2: IncidentTypeConfiguration = {
           nextQuestionId: '55188',
         },
         {
+          id: '206715',
           code: 'Surrender To HMPS (after midnight on return date)',
           active: false,
           label: 'Surrender To HMPS (after midnight on return date)',
@@ -343,6 +375,7 @@ const OLD_TEMPORARY_RELEASE_FAILURE2: IncidentTypeConfiguration = {
           nextQuestionId: '55188',
         },
         {
+          id: '206716',
           code: 'Surrender To Police  (after midnight on return date)',
           active: false,
           label: 'Surrender To Police  (after midnight on return date)',
@@ -351,6 +384,7 @@ const OLD_TEMPORARY_RELEASE_FAILURE2: IncidentTypeConfiguration = {
           nextQuestionId: '55188',
         },
         {
+          id: '206717',
           code: 'Arrest By HMPS',
           active: false,
           label: 'Arrest By HMPS',
@@ -359,6 +393,7 @@ const OLD_TEMPORARY_RELEASE_FAILURE2: IncidentTypeConfiguration = {
           nextQuestionId: '55188',
         },
         {
+          id: '206718',
           code: 'Arrest By Police',
           active: false,
           label: 'Arrest By Police',
@@ -367,6 +402,7 @@ const OLD_TEMPORARY_RELEASE_FAILURE2: IncidentTypeConfiguration = {
           nextQuestionId: '55188',
         },
         {
+          id: '206719',
           code: 'Admitted to hospital for treatment',
           active: false,
           label: 'Admitted to hospital for treatment',
@@ -375,6 +411,7 @@ const OLD_TEMPORARY_RELEASE_FAILURE2: IncidentTypeConfiguration = {
           nextQuestionId: '55188',
         },
         {
+          id: '206720',
           code: 'Deceased',
           active: false,
           label: 'Deceased',
@@ -383,6 +420,7 @@ const OLD_TEMPORARY_RELEASE_FAILURE2: IncidentTypeConfiguration = {
           nextQuestionId: '55188',
         },
         {
+          id: '206721',
           code: 'Other (Provide Details)',
           active: false,
           label: 'Other (Provide Details)',
@@ -400,6 +438,7 @@ const OLD_TEMPORARY_RELEASE_FAILURE2: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '206722',
           code: 'Yes',
           active: false,
           label: 'Yes',
@@ -408,6 +447,7 @@ const OLD_TEMPORARY_RELEASE_FAILURE2: IncidentTypeConfiguration = {
           nextQuestionId: '55189',
         },
         {
+          id: '206723',
           code: 'No',
           active: false,
           label: 'No',
@@ -425,6 +465,7 @@ const OLD_TEMPORARY_RELEASE_FAILURE2: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '206724',
           code: 'Yes',
           active: false,
           label: 'Yes',
@@ -433,6 +474,7 @@ const OLD_TEMPORARY_RELEASE_FAILURE2: IncidentTypeConfiguration = {
           nextQuestionId: '55190',
         },
         {
+          id: '206725',
           code: 'No',
           active: false,
           label: 'No',
@@ -450,6 +492,7 @@ const OLD_TEMPORARY_RELEASE_FAILURE2: IncidentTypeConfiguration = {
       multipleAnswers: true,
       answers: [
         {
+          id: '206726',
           code: 'Violence Against The Person',
           active: false,
           label: 'Violence Against The Person',
@@ -458,6 +501,7 @@ const OLD_TEMPORARY_RELEASE_FAILURE2: IncidentTypeConfiguration = {
           nextQuestionId: '55191',
         },
         {
+          id: '206727',
           code: 'Sexual Offences',
           active: false,
           label: 'Sexual Offences',
@@ -466,6 +510,7 @@ const OLD_TEMPORARY_RELEASE_FAILURE2: IncidentTypeConfiguration = {
           nextQuestionId: '55191',
         },
         {
+          id: '206728',
           code: 'Robbery',
           active: false,
           label: 'Robbery',
@@ -474,6 +519,7 @@ const OLD_TEMPORARY_RELEASE_FAILURE2: IncidentTypeConfiguration = {
           nextQuestionId: '55191',
         },
         {
+          id: '206729',
           code: 'Burglary',
           active: false,
           label: 'Burglary',
@@ -482,6 +528,7 @@ const OLD_TEMPORARY_RELEASE_FAILURE2: IncidentTypeConfiguration = {
           nextQuestionId: '55191',
         },
         {
+          id: '206730',
           code: 'Theft And Handling',
           active: false,
           label: 'Theft And Handling',
@@ -490,6 +537,7 @@ const OLD_TEMPORARY_RELEASE_FAILURE2: IncidentTypeConfiguration = {
           nextQuestionId: '55191',
         },
         {
+          id: '206731',
           code: 'Fraud And Forgery',
           active: false,
           label: 'Fraud And Forgery',
@@ -498,6 +546,7 @@ const OLD_TEMPORARY_RELEASE_FAILURE2: IncidentTypeConfiguration = {
           nextQuestionId: '55191',
         },
         {
+          id: '206732',
           code: 'Drug Offences',
           active: false,
           label: 'Drug Offences',
@@ -506,6 +555,7 @@ const OLD_TEMPORARY_RELEASE_FAILURE2: IncidentTypeConfiguration = {
           nextQuestionId: '55191',
         },
         {
+          id: '206733',
           code: 'Motoring Offences',
           active: false,
           label: 'Motoring Offences',
@@ -514,6 +564,7 @@ const OLD_TEMPORARY_RELEASE_FAILURE2: IncidentTypeConfiguration = {
           nextQuestionId: '55191',
         },
         {
+          id: '206734',
           code: 'Failure To Return From ROTL',
           active: false,
           label: 'Failure To Return From ROTL',
@@ -522,6 +573,7 @@ const OLD_TEMPORARY_RELEASE_FAILURE2: IncidentTypeConfiguration = {
           nextQuestionId: '55191',
         },
         {
+          id: '206735',
           code: 'Other Offence',
           active: false,
           label: 'Other Offence',
@@ -539,6 +591,7 @@ const OLD_TEMPORARY_RELEASE_FAILURE2: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '206736',
           code: 'Yes',
           active: false,
           label: 'Yes',
@@ -547,6 +600,7 @@ const OLD_TEMPORARY_RELEASE_FAILURE2: IncidentTypeConfiguration = {
           nextQuestionId: '55192',
         },
         {
+          id: '206737',
           code: 'No',
           active: false,
           label: 'No',
@@ -564,6 +618,7 @@ const OLD_TEMPORARY_RELEASE_FAILURE2: IncidentTypeConfiguration = {
       multipleAnswers: true,
       answers: [
         {
+          id: '206738',
           code: 'Violence Against The Person',
           active: false,
           label: 'Violence Against The Person',
@@ -572,6 +627,7 @@ const OLD_TEMPORARY_RELEASE_FAILURE2: IncidentTypeConfiguration = {
           nextQuestionId: '55193',
         },
         {
+          id: '206739',
           code: 'Sexual Offences',
           active: false,
           label: 'Sexual Offences',
@@ -580,6 +636,7 @@ const OLD_TEMPORARY_RELEASE_FAILURE2: IncidentTypeConfiguration = {
           nextQuestionId: '55193',
         },
         {
+          id: '206740',
           code: 'Robbery',
           active: false,
           label: 'Robbery',
@@ -588,6 +645,7 @@ const OLD_TEMPORARY_RELEASE_FAILURE2: IncidentTypeConfiguration = {
           nextQuestionId: '55193',
         },
         {
+          id: '206741',
           code: 'Burglary',
           active: false,
           label: 'Burglary',
@@ -596,6 +654,7 @@ const OLD_TEMPORARY_RELEASE_FAILURE2: IncidentTypeConfiguration = {
           nextQuestionId: '55193',
         },
         {
+          id: '206742',
           code: 'Theft And Handling',
           active: false,
           label: 'Theft And Handling',
@@ -604,6 +663,7 @@ const OLD_TEMPORARY_RELEASE_FAILURE2: IncidentTypeConfiguration = {
           nextQuestionId: '55193',
         },
         {
+          id: '206743',
           code: 'Fraud And Forgery',
           active: false,
           label: 'Fraud And Forgery',
@@ -612,6 +672,7 @@ const OLD_TEMPORARY_RELEASE_FAILURE2: IncidentTypeConfiguration = {
           nextQuestionId: '55193',
         },
         {
+          id: '206744',
           code: 'Drug Offences',
           active: false,
           label: 'Drug Offences',
@@ -620,6 +681,7 @@ const OLD_TEMPORARY_RELEASE_FAILURE2: IncidentTypeConfiguration = {
           nextQuestionId: '55193',
         },
         {
+          id: '206745',
           code: 'Motoring Offences',
           active: false,
           label: 'Motoring Offences',
@@ -628,6 +690,7 @@ const OLD_TEMPORARY_RELEASE_FAILURE2: IncidentTypeConfiguration = {
           nextQuestionId: '55193',
         },
         {
+          id: '206746',
           code: 'Failure To Return From ROTL',
           active: false,
           label: 'Failure To Return From ROTL',
@@ -636,6 +699,7 @@ const OLD_TEMPORARY_RELEASE_FAILURE2: IncidentTypeConfiguration = {
           nextQuestionId: '55193',
         },
         {
+          id: '206747',
           code: 'Other Offence',
           active: false,
           label: 'Other Offence',
@@ -653,6 +717,7 @@ const OLD_TEMPORARY_RELEASE_FAILURE2: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '206748',
           code: 'Yes',
           active: false,
           label: 'Yes',
@@ -661,6 +726,7 @@ const OLD_TEMPORARY_RELEASE_FAILURE2: IncidentTypeConfiguration = {
           nextQuestionId: '55194',
         },
         {
+          id: '206749',
           code: 'No',
           active: false,
           label: 'No',
@@ -678,6 +744,7 @@ const OLD_TEMPORARY_RELEASE_FAILURE2: IncidentTypeConfiguration = {
       multipleAnswers: true,
       answers: [
         {
+          id: '206750',
           code: 'Location',
           active: false,
           label: 'Location',
@@ -686,6 +753,7 @@ const OLD_TEMPORARY_RELEASE_FAILURE2: IncidentTypeConfiguration = {
           nextQuestionId: '55195',
         },
         {
+          id: '206751',
           code: 'Alcohol/drugs (under influence)',
           active: false,
           label: 'Alcohol/drugs (under influence)',
@@ -694,6 +762,7 @@ const OLD_TEMPORARY_RELEASE_FAILURE2: IncidentTypeConfiguration = {
           nextQuestionId: '55195',
         },
         {
+          id: '206752',
           code: 'Gambling',
           active: false,
           label: 'Gambling',
@@ -702,6 +771,7 @@ const OLD_TEMPORARY_RELEASE_FAILURE2: IncidentTypeConfiguration = {
           nextQuestionId: '55195',
         },
         {
+          id: '206753',
           code: 'Finds (fill in separate report)',
           active: false,
           label: 'Finds (fill in separate report)',
@@ -710,6 +780,7 @@ const OLD_TEMPORARY_RELEASE_FAILURE2: IncidentTypeConfiguration = {
           nextQuestionId: '55195',
         },
         {
+          id: '206754',
           code: 'Social Media',
           active: false,
           label: 'Social Media',
@@ -718,6 +789,7 @@ const OLD_TEMPORARY_RELEASE_FAILURE2: IncidentTypeConfiguration = {
           nextQuestionId: '55195',
         },
         {
+          id: '206755',
           code: 'Bad Behaviour',
           active: false,
           label: 'Bad Behaviour',
@@ -726,6 +798,7 @@ const OLD_TEMPORARY_RELEASE_FAILURE2: IncidentTypeConfiguration = {
           nextQuestionId: '55195',
         },
         {
+          id: '206756',
           code: 'Media Contact',
           active: false,
           label: 'Media Contact',
@@ -734,6 +807,7 @@ const OLD_TEMPORARY_RELEASE_FAILURE2: IncidentTypeConfiguration = {
           nextQuestionId: '55195',
         },
         {
+          id: '206757',
           code: 'Other (Provide Details)',
           active: false,
           label: 'Other (Provide Details)',
@@ -751,6 +825,7 @@ const OLD_TEMPORARY_RELEASE_FAILURE2: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '206758',
           code: 'Yes',
           active: false,
           label: 'Yes',
@@ -759,6 +834,7 @@ const OLD_TEMPORARY_RELEASE_FAILURE2: IncidentTypeConfiguration = {
           nextQuestionId: '55196',
         },
         {
+          id: '206759',
           code: 'No',
           active: false,
           label: 'No',
@@ -777,6 +853,7 @@ const OLD_TEMPORARY_RELEASE_FAILURE2: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '206760',
           code: 'Yes (Enter Date)',
           active: false,
           label: 'Yes (Enter Date)',
@@ -785,6 +862,7 @@ const OLD_TEMPORARY_RELEASE_FAILURE2: IncidentTypeConfiguration = {
           nextQuestionId: '55197',
         },
         {
+          id: '206761',
           code: 'No (Enter Reason)',
           active: false,
           label: 'No (Enter Reason)',
@@ -802,6 +880,7 @@ const OLD_TEMPORARY_RELEASE_FAILURE2: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '206762',
           code: 'Yes (Enter Date)',
           active: false,
           label: 'Yes (Enter Date)',
@@ -810,6 +889,7 @@ const OLD_TEMPORARY_RELEASE_FAILURE2: IncidentTypeConfiguration = {
           nextQuestionId: '55198',
         },
         {
+          id: '206763',
           code: 'No (Enter Reason)',
           active: false,
           label: 'No (Enter Reason)',
@@ -827,6 +907,7 @@ const OLD_TEMPORARY_RELEASE_FAILURE2: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '206764',
           code: 'Yes (Enter Date)',
           active: false,
           label: 'Yes (Enter Date)',
@@ -835,6 +916,7 @@ const OLD_TEMPORARY_RELEASE_FAILURE2: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
+          id: '206765',
           code: 'No (Enter Reasons)',
           active: false,
           label: 'No (Enter Reasons)',

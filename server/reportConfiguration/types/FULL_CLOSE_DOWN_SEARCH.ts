@@ -1,4 +1,4 @@
-// Generated with ./scripts/updateNomisIncidentTypeConfigurations.ts at 2024-09-25T09:26:14.422Z
+// Generated with ./scripts/updateNomisIncidentTypeConfigurations.ts at 2024-10-15T17:17:40.875Z
 
 import { type IncidentTypeConfiguration } from '../../data/incidentTypeConfiguration/types'
 
@@ -15,6 +15,7 @@ const FULL_CLOSE_DOWN_SEARCH: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '178989',
           code: 'YES',
           active: true,
           label: 'YES',
@@ -23,6 +24,7 @@ const FULL_CLOSE_DOWN_SEARCH: IncidentTypeConfiguration = {
           nextQuestionId: '44677',
         },
         {
+          id: '178988',
           code: 'NO',
           active: true,
           label: 'NO',
@@ -40,6 +42,7 @@ const FULL_CLOSE_DOWN_SEARCH: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '179804',
           code: 'YES',
           active: true,
           label: 'YES',
@@ -48,6 +51,7 @@ const FULL_CLOSE_DOWN_SEARCH: IncidentTypeConfiguration = {
           nextQuestionId: '44969',
         },
         {
+          id: '179805',
           code: 'NO',
           active: true,
           label: 'NO',
@@ -65,6 +69,7 @@ const FULL_CLOSE_DOWN_SEARCH: IncidentTypeConfiguration = {
       multipleAnswers: true,
       answers: [
         {
+          id: '179926',
           code: 'FIREARM',
           active: true,
           label: 'FIREARM',
@@ -73,6 +78,7 @@ const FULL_CLOSE_DOWN_SEARCH: IncidentTypeConfiguration = {
           nextQuestionId: '44385',
         },
         {
+          id: '179921',
           code: 'AMMUNITION',
           active: true,
           label: 'AMMUNITION',
@@ -81,6 +87,7 @@ const FULL_CLOSE_DOWN_SEARCH: IncidentTypeConfiguration = {
           nextQuestionId: '44385',
         },
         {
+          id: '179922',
           code: 'C.I SPRAY',
           active: true,
           label: 'C.I SPRAY',
@@ -89,6 +96,7 @@ const FULL_CLOSE_DOWN_SEARCH: IncidentTypeConfiguration = {
           nextQuestionId: '44385',
         },
         {
+          id: '179929',
           code: 'OTHER WEAPON',
           active: true,
           label: 'OTHER WEAPON',
@@ -97,6 +105,7 @@ const FULL_CLOSE_DOWN_SEARCH: IncidentTypeConfiguration = {
           nextQuestionId: '44385',
         },
         {
+          id: '179925',
           code: 'EXPLOSIVES',
           active: true,
           label: 'EXPLOSIVES',
@@ -105,6 +114,7 @@ const FULL_CLOSE_DOWN_SEARCH: IncidentTypeConfiguration = {
           nextQuestionId: '44385',
         },
         {
+          id: '179923',
           code: 'DRUGS',
           active: true,
           label: 'DRUGS',
@@ -113,6 +123,7 @@ const FULL_CLOSE_DOWN_SEARCH: IncidentTypeConfiguration = {
           nextQuestionId: '44385',
         },
         {
+          id: '179924',
           code: 'ESCAPE EQUIPMENT',
           active: true,
           label: 'ESCAPE EQUIPMENT',
@@ -121,6 +132,7 @@ const FULL_CLOSE_DOWN_SEARCH: IncidentTypeConfiguration = {
           nextQuestionId: '44385',
         },
         {
+          id: '179927',
           code: 'GATHER EVIDENCE',
           active: true,
           label: 'GATHER EVIDENCE',
@@ -129,6 +141,7 @@ const FULL_CLOSE_DOWN_SEARCH: IncidentTypeConfiguration = {
           nextQuestionId: '44385',
         },
         {
+          id: '179928',
           code: 'OTHER',
           active: true,
           label: 'OTHER',
@@ -146,6 +159,7 @@ const FULL_CLOSE_DOWN_SEARCH: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '180488',
           code: 'YES',
           active: true,
           label: 'YES',
@@ -154,6 +168,7 @@ const FULL_CLOSE_DOWN_SEARCH: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
+          id: '180487',
           code: 'NO',
           active: true,
           label: 'NO',
@@ -171,6 +186,7 @@ const FULL_CLOSE_DOWN_SEARCH: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '180841',
           code: 'YES',
           active: true,
           label: 'YES',
@@ -179,6 +195,7 @@ const FULL_CLOSE_DOWN_SEARCH: IncidentTypeConfiguration = {
           nextQuestionId: '45062',
         },
         {
+          id: '180840',
           code: 'NO',
           active: true,
           label: 'NO',
@@ -196,6 +213,7 @@ const FULL_CLOSE_DOWN_SEARCH: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '181020',
           code: 'YES',
           active: true,
           label: 'YES',
@@ -204,6 +222,7 @@ const FULL_CLOSE_DOWN_SEARCH: IncidentTypeConfiguration = {
           nextQuestionId: '45018',
         },
         {
+          id: '181019',
           code: 'NO',
           active: true,
           label: 'NO',
@@ -221,6 +240,7 @@ const FULL_CLOSE_DOWN_SEARCH: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '181265',
           code: 'YES',
           active: true,
           label: 'YES',
@@ -229,6 +249,7 @@ const FULL_CLOSE_DOWN_SEARCH: IncidentTypeConfiguration = {
           nextQuestionId: '44570',
         },
         {
+          id: '181264',
           code: 'NO',
           active: true,
           label: 'NO',
@@ -246,6 +267,7 @@ const FULL_CLOSE_DOWN_SEARCH: IncidentTypeConfiguration = {
       multipleAnswers: true,
       answers: [
         {
+          id: '181851',
           code: 'WEAPONS',
           active: true,
           label: 'WEAPONS',
@@ -254,6 +276,7 @@ const FULL_CLOSE_DOWN_SEARCH: IncidentTypeConfiguration = {
           nextQuestionId: '44803',
         },
         {
+          id: '181847',
           code: 'HOOCH/ALCOHOL',
           active: true,
           label: 'HOOCH/ALCOHOL',
@@ -262,6 +285,7 @@ const FULL_CLOSE_DOWN_SEARCH: IncidentTypeConfiguration = {
           nextQuestionId: '44803',
         },
         {
+          id: '181846',
           code: 'CASH',
           active: true,
           label: 'CASH',
@@ -270,6 +294,7 @@ const FULL_CLOSE_DOWN_SEARCH: IncidentTypeConfiguration = {
           nextQuestionId: '44803',
         },
         {
+          id: '181849',
           code: 'MOBILE PHONE',
           active: true,
           label: 'MOBILE PHONE',
@@ -278,6 +303,7 @@ const FULL_CLOSE_DOWN_SEARCH: IncidentTypeConfiguration = {
           nextQuestionId: '44803',
         },
         {
+          id: '181848',
           code: 'INCENDIARY DEVICE',
           active: true,
           label: 'INCENDIARY DEVICE',
@@ -286,6 +312,7 @@ const FULL_CLOSE_DOWN_SEARCH: IncidentTypeConfiguration = {
           nextQuestionId: '44803',
         },
         {
+          id: '181850',
           code: 'OTHER',
           active: true,
           label: 'OTHER',
@@ -303,6 +330,7 @@ const FULL_CLOSE_DOWN_SEARCH: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '182011',
           code: 'YES',
           active: true,
           label: 'YES',
@@ -311,6 +339,7 @@ const FULL_CLOSE_DOWN_SEARCH: IncidentTypeConfiguration = {
           nextQuestionId: '44146',
         },
         {
+          id: '182010',
           code: 'NO',
           active: true,
           label: 'NO',
@@ -328,6 +357,7 @@ const FULL_CLOSE_DOWN_SEARCH: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '182234',
           code: 'INFORMATION/INTELLIGENCE',
           active: true,
           label: 'INFORMATION/INTELLIGENCE',
@@ -336,6 +366,7 @@ const FULL_CLOSE_DOWN_SEARCH: IncidentTypeConfiguration = {
           nextQuestionId: '44432',
         },
         {
+          id: '182237',
           code: 'SPECIFIC FIND',
           active: true,
           label: 'SPECIFIC FIND',
@@ -344,6 +375,7 @@ const FULL_CLOSE_DOWN_SEARCH: IncidentTypeConfiguration = {
           nextQuestionId: '44432',
         },
         {
+          id: '182233',
           code: 'HEADQUARTERS INSTRUCTIONS',
           active: true,
           label: 'HEADQUARTERS INSTRUCTIONS',
@@ -352,6 +384,7 @@ const FULL_CLOSE_DOWN_SEARCH: IncidentTypeConfiguration = {
           nextQuestionId: '44432',
         },
         {
+          id: '182236',
           code: 'ROUTINE REQUIREMENT',
           active: true,
           label: 'ROUTINE REQUIREMENT',
@@ -360,6 +393,7 @@ const FULL_CLOSE_DOWN_SEARCH: IncidentTypeConfiguration = {
           nextQuestionId: '44432',
         },
         {
+          id: '182235',
           code: 'OTHER',
           active: true,
           label: 'OTHER',
@@ -377,6 +411,7 @@ const FULL_CLOSE_DOWN_SEARCH: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '182249',
           code: 'YES',
           active: true,
           label: 'YES',
@@ -385,6 +420,7 @@ const FULL_CLOSE_DOWN_SEARCH: IncidentTypeConfiguration = {
           nextQuestionId: '44723',
         },
         {
+          id: '182250',
           code: 'NO',
           active: true,
           label: 'NO',

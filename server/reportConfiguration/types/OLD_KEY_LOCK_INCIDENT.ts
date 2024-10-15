@@ -1,4 +1,4 @@
-// Generated with ./scripts/updateNomisIncidentTypeConfigurations.ts at 2024-09-25T09:26:17.489Z
+// Generated with ./scripts/updateNomisIncidentTypeConfigurations.ts at 2024-10-15T17:17:44.246Z
 
 import { type IncidentTypeConfiguration } from '../../data/incidentTypeConfiguration/types'
 
@@ -15,6 +15,7 @@ const OLD_KEY_LOCK_INCIDENT: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '179053',
           code: 'YES',
           active: false,
           label: 'YES',
@@ -23,6 +24,7 @@ const OLD_KEY_LOCK_INCIDENT: IncidentTypeConfiguration = {
           nextQuestionId: '44331',
         },
         {
+          id: '179052',
           code: 'NO',
           active: false,
           label: 'NO',
@@ -40,6 +42,7 @@ const OLD_KEY_LOCK_INCIDENT: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '179240',
           code: 'YES',
           active: false,
           label: 'YES',
@@ -48,6 +51,7 @@ const OLD_KEY_LOCK_INCIDENT: IncidentTypeConfiguration = {
           nextQuestionId: '44972',
         },
         {
+          id: '179239',
           code: 'NO',
           active: false,
           label: 'NO',
@@ -65,6 +69,7 @@ const OLD_KEY_LOCK_INCIDENT: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '179618',
           code: 'YES',
           active: false,
           label: 'YES',
@@ -73,6 +78,7 @@ const OLD_KEY_LOCK_INCIDENT: IncidentTypeConfiguration = {
           nextQuestionId: '44386',
         },
         {
+          id: '179617',
           code: 'NO',
           active: false,
           label: 'NO',
@@ -90,6 +96,7 @@ const OLD_KEY_LOCK_INCIDENT: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '179699',
           code: 'YES',
           active: false,
           label: 'YES',
@@ -98,6 +105,7 @@ const OLD_KEY_LOCK_INCIDENT: IncidentTypeConfiguration = {
           nextQuestionId: '44894',
         },
         {
+          id: '179698',
           code: 'NO',
           active: false,
           label: 'NO',
@@ -115,6 +123,7 @@ const OLD_KEY_LOCK_INCIDENT: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '179807',
           code: 'YES',
           active: false,
           label: 'YES',
@@ -123,6 +132,7 @@ const OLD_KEY_LOCK_INCIDENT: IncidentTypeConfiguration = {
           nextQuestionId: '44414',
         },
         {
+          id: '179806',
           code: 'NO',
           active: false,
           label: 'NO',
@@ -140,6 +150,7 @@ const OLD_KEY_LOCK_INCIDENT: IncidentTypeConfiguration = {
       multipleAnswers: true,
       answers: [
         {
+          id: '179860',
           code: 'HACKSAW BLADE',
           active: false,
           label: 'HACKSAW BLADE',
@@ -148,6 +159,7 @@ const OLD_KEY_LOCK_INCIDENT: IncidentTypeConfiguration = {
           nextQuestionId: '44925',
         },
         {
+          id: '179863',
           code: 'OTHER BLADE',
           active: false,
           label: 'OTHER BLADE',
@@ -156,6 +168,7 @@ const OLD_KEY_LOCK_INCIDENT: IncidentTypeConfiguration = {
           nextQuestionId: '44925',
         },
         {
+          id: '179865',
           code: 'WIRE CUTTERS',
           active: false,
           label: 'WIRE CUTTERS',
@@ -164,6 +177,7 @@ const OLD_KEY_LOCK_INCIDENT: IncidentTypeConfiguration = {
           nextQuestionId: '44925',
         },
         {
+          id: '179857',
           code: 'BOLT CROPPERS',
           active: false,
           label: 'BOLT CROPPERS',
@@ -172,6 +186,7 @@ const OLD_KEY_LOCK_INCIDENT: IncidentTypeConfiguration = {
           nextQuestionId: '44925',
         },
         {
+          id: '179859',
           code: 'DIGGING TOOL',
           active: false,
           label: 'DIGGING TOOL',
@@ -180,6 +195,7 @@ const OLD_KEY_LOCK_INCIDENT: IncidentTypeConfiguration = {
           nextQuestionId: '44925',
         },
         {
+          id: '179858',
           code: 'CROW BAR',
           active: false,
           label: 'CROW BAR',
@@ -188,6 +204,7 @@ const OLD_KEY_LOCK_INCIDENT: IncidentTypeConfiguration = {
           nextQuestionId: '44925',
         },
         {
+          id: '179861',
           code: 'IMPROVISED TOOL',
           active: false,
           label: 'IMPROVISED TOOL',
@@ -196,6 +213,7 @@ const OLD_KEY_LOCK_INCIDENT: IncidentTypeConfiguration = {
           nextQuestionId: '44925',
         },
         {
+          id: '179864',
           code: 'OTHER TOOL',
           active: false,
           label: 'OTHER TOOL',
@@ -204,6 +222,7 @@ const OLD_KEY_LOCK_INCIDENT: IncidentTypeConfiguration = {
           nextQuestionId: '44925',
         },
         {
+          id: '179862',
           code: 'NOT KNOWN',
           active: false,
           label: 'NOT KNOWN',
@@ -221,6 +240,7 @@ const OLD_KEY_LOCK_INCIDENT: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '179886',
           code: 'YES',
           active: false,
           label: 'YES',
@@ -229,6 +249,7 @@ const OLD_KEY_LOCK_INCIDENT: IncidentTypeConfiguration = {
           nextQuestionId: '44678',
         },
         {
+          id: '179885',
           code: 'NO',
           active: false,
           label: 'NO',
@@ -246,6 +267,7 @@ const OLD_KEY_LOCK_INCIDENT: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '179981',
           code: 'COMPLETE RELOCK',
           active: false,
           label: 'COMPLETE RELOCK',
@@ -254,6 +276,7 @@ const OLD_KEY_LOCK_INCIDENT: IncidentTypeConfiguration = {
           nextQuestionId: '44921',
         },
         {
+          id: '179983',
           code: 'PARTIAL RELOCK',
           active: false,
           label: 'PARTIAL RELOCK',
@@ -262,6 +285,7 @@ const OLD_KEY_LOCK_INCIDENT: IncidentTypeConfiguration = {
           nextQuestionId: '44921',
         },
         {
+          id: '179982',
           code: 'COMPLETE REPLACEMENT',
           active: false,
           label: 'COMPLETE REPLACEMENT',
@@ -270,6 +294,7 @@ const OLD_KEY_LOCK_INCIDENT: IncidentTypeConfiguration = {
           nextQuestionId: '44921',
         },
         {
+          id: '179984',
           code: 'PARTIAL REPLACEMENT',
           active: false,
           label: 'PARTIAL REPLACEMENT',
@@ -287,6 +312,7 @@ const OLD_KEY_LOCK_INCIDENT: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '180597',
           code: 'YES',
           active: false,
           label: 'YES',
@@ -295,6 +321,7 @@ const OLD_KEY_LOCK_INCIDENT: IncidentTypeConfiguration = {
           nextQuestionId: '45072',
         },
         {
+          id: '180598',
           code: 'NO',
           active: false,
           label: 'NO',
@@ -312,6 +339,7 @@ const OLD_KEY_LOCK_INCIDENT: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '180656',
           code: 'YES',
           active: false,
           label: 'YES',
@@ -320,6 +348,7 @@ const OLD_KEY_LOCK_INCIDENT: IncidentTypeConfiguration = {
           nextQuestionId: '44894',
         },
         {
+          id: '180655',
           code: 'NO',
           active: false,
           label: 'NO',
@@ -337,6 +366,7 @@ const OLD_KEY_LOCK_INCIDENT: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '180843',
           code: 'YES',
           active: false,
           label: 'YES',
@@ -345,6 +375,7 @@ const OLD_KEY_LOCK_INCIDENT: IncidentTypeConfiguration = {
           nextQuestionId: '44228',
         },
         {
+          id: '180842',
           code: 'NO',
           active: false,
           label: 'NO',
@@ -362,6 +393,7 @@ const OLD_KEY_LOCK_INCIDENT: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '181168',
           code: 'YES',
           active: false,
           label: 'YES',
@@ -370,6 +402,7 @@ const OLD_KEY_LOCK_INCIDENT: IncidentTypeConfiguration = {
           nextQuestionId: '44449',
         },
         {
+          id: '181169',
           code: 'NO',
           active: false,
           label: 'NO',
@@ -387,6 +420,7 @@ const OLD_KEY_LOCK_INCIDENT: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '181450',
           code: 'YES',
           active: false,
           label: 'YES',
@@ -395,6 +429,7 @@ const OLD_KEY_LOCK_INCIDENT: IncidentTypeConfiguration = {
           nextQuestionId: '44407',
         },
         {
+          id: '181451',
           code: 'NO',
           active: false,
           label: 'NO',
@@ -412,6 +447,7 @@ const OLD_KEY_LOCK_INCIDENT: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '181562',
           code: 'FULL CLOSE DOWN SEARCH',
           active: false,
           label: 'FULL CLOSE DOWN SEARCH',
@@ -420,6 +456,7 @@ const OLD_KEY_LOCK_INCIDENT: IncidentTypeConfiguration = {
           nextQuestionId: '44866',
         },
         {
+          id: '181564',
           code: 'PARTIAL SEARCH',
           active: false,
           label: 'PARTIAL SEARCH',
@@ -428,6 +465,7 @@ const OLD_KEY_LOCK_INCIDENT: IncidentTypeConfiguration = {
           nextQuestionId: '44866',
         },
         {
+          id: '181563',
           code: 'OTHER',
           active: false,
           label: 'OTHER',
@@ -445,6 +483,7 @@ const OLD_KEY_LOCK_INCIDENT: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '181652',
           code: 'ENTER AMOUNT IN POUND STERLING',
           active: false,
           label: 'ENTER AMOUNT IN POUND STERLING',
@@ -462,6 +501,7 @@ const OLD_KEY_LOCK_INCIDENT: IncidentTypeConfiguration = {
       multipleAnswers: true,
       answers: [
         {
+          id: '181680',
           code: 'WORKS DEPARTMENT',
           active: false,
           label: 'WORKS DEPARTMENT',
@@ -470,6 +510,7 @@ const OLD_KEY_LOCK_INCIDENT: IncidentTypeConfiguration = {
           nextQuestionId: '44775',
         },
         {
+          id: '181669',
           code: 'CONTRACTORS',
           active: false,
           label: 'CONTRACTORS',
@@ -478,6 +519,7 @@ const OLD_KEY_LOCK_INCIDENT: IncidentTypeConfiguration = {
           nextQuestionId: '44775',
         },
         {
+          id: '181670',
           code: 'EDUCATION',
           active: false,
           label: 'EDUCATION',
@@ -486,6 +528,7 @@ const OLD_KEY_LOCK_INCIDENT: IncidentTypeConfiguration = {
           nextQuestionId: '44775',
         },
         {
+          id: '181673',
           code: 'HEALTH CARE CENTRE',
           active: false,
           label: 'HEALTH CARE CENTRE',
@@ -494,6 +537,7 @@ const OLD_KEY_LOCK_INCIDENT: IncidentTypeConfiguration = {
           nextQuestionId: '44775',
         },
         {
+          id: '181671',
           code: 'FARMS AND GARDENS',
           active: false,
           label: 'FARMS AND GARDENS',
@@ -502,6 +546,7 @@ const OLD_KEY_LOCK_INCIDENT: IncidentTypeConfiguration = {
           nextQuestionId: '44775',
         },
         {
+          id: '181672',
           code: 'GYMNASIUM/SPORTS FIELD',
           active: false,
           label: 'GYMNASIUM/SPORTS FIELD',
@@ -510,6 +555,7 @@ const OLD_KEY_LOCK_INCIDENT: IncidentTypeConfiguration = {
           nextQuestionId: '44775',
         },
         {
+          id: '181681',
           code: 'WORKSHOPS',
           active: false,
           label: 'WORKSHOPS',
@@ -518,6 +564,7 @@ const OLD_KEY_LOCK_INCIDENT: IncidentTypeConfiguration = {
           nextQuestionId: '44775',
         },
         {
+          id: '181675',
           code: 'KITCHEN',
           active: false,
           label: 'KITCHEN',
@@ -526,6 +573,7 @@ const OLD_KEY_LOCK_INCIDENT: IncidentTypeConfiguration = {
           nextQuestionId: '44775',
         },
         {
+          id: '181674',
           code: 'HOBBIES',
           active: false,
           label: 'HOBBIES',
@@ -534,6 +582,7 @@ const OLD_KEY_LOCK_INCIDENT: IncidentTypeConfiguration = {
           nextQuestionId: '44775',
         },
         {
+          id: '181668',
           code: 'CELL FURNISHINGS',
           active: false,
           label: 'CELL FURNISHINGS',
@@ -542,6 +591,7 @@ const OLD_KEY_LOCK_INCIDENT: IncidentTypeConfiguration = {
           nextQuestionId: '44775',
         },
         {
+          id: '181679',
           code: 'WING/HOUSEBLOCK FURNISHINGS',
           active: false,
           label: 'WING/HOUSEBLOCK FURNISHINGS',
@@ -550,6 +600,7 @@ const OLD_KEY_LOCK_INCIDENT: IncidentTypeConfiguration = {
           nextQuestionId: '44775',
         },
         {
+          id: '181678',
           code: 'SMUGGLED',
           active: false,
           label: 'SMUGGLED',
@@ -558,6 +609,7 @@ const OLD_KEY_LOCK_INCIDENT: IncidentTypeConfiguration = {
           nextQuestionId: '44775',
         },
         {
+          id: '181676',
           code: 'NOT KNOWN',
           active: false,
           label: 'NOT KNOWN',
@@ -566,6 +618,7 @@ const OLD_KEY_LOCK_INCIDENT: IncidentTypeConfiguration = {
           nextQuestionId: '44775',
         },
         {
+          id: '181677',
           code: 'OTHER',
           active: false,
           label: 'OTHER',
@@ -583,6 +636,7 @@ const OLD_KEY_LOCK_INCIDENT: IncidentTypeConfiguration = {
       multipleAnswers: true,
       answers: [
         {
+          id: '181869',
           code: 'CLASS 1 PASS KEY',
           active: false,
           label: 'CLASS 1 PASS KEY',
@@ -591,6 +645,7 @@ const OLD_KEY_LOCK_INCIDENT: IncidentTypeConfiguration = {
           nextQuestionId: '45015',
         },
         {
+          id: '181871',
           code: 'CLASS 2 PASS KEY',
           active: false,
           label: 'CLASS 2 PASS KEY',
@@ -599,6 +654,7 @@ const OLD_KEY_LOCK_INCIDENT: IncidentTypeConfiguration = {
           nextQuestionId: '45015',
         },
         {
+          id: '181866',
           code: 'CELL KEY',
           active: false,
           label: 'CELL KEY',
@@ -607,6 +663,7 @@ const OLD_KEY_LOCK_INCIDENT: IncidentTypeConfiguration = {
           nextQuestionId: '45015',
         },
         {
+          id: '181872',
           code: 'CLASS 3 A1 SUITE KEY',
           active: false,
           label: 'CLASS 3 A1 SUITE KEY',
@@ -615,6 +672,7 @@ const OLD_KEY_LOCK_INCIDENT: IncidentTypeConfiguration = {
           nextQuestionId: '45015',
         },
         {
+          id: '181874',
           code: 'CLASS 3 ACCOUNTABLE KEY',
           active: false,
           label: 'CLASS 3 ACCOUNTABLE KEY',
@@ -623,6 +681,7 @@ const OLD_KEY_LOCK_INCIDENT: IncidentTypeConfiguration = {
           nextQuestionId: '45015',
         },
         {
+          id: '181880',
           code: 'HANDCUFF KEY',
           active: false,
           label: 'HANDCUFF KEY',
@@ -631,6 +690,7 @@ const OLD_KEY_LOCK_INCIDENT: IncidentTypeConfiguration = {
           nextQuestionId: '45015',
         },
         {
+          id: '181877',
           code: 'CLOSETING/ESCORT CHAIN KEY',
           active: false,
           label: 'CLOSETING/ESCORT CHAIN KEY',
@@ -639,6 +699,7 @@ const OLD_KEY_LOCK_INCIDENT: IncidentTypeConfiguration = {
           nextQuestionId: '45015',
         },
         {
+          id: '181868',
           code: 'CLASS 1 LOCK',
           active: false,
           label: 'CLASS 1 LOCK',
@@ -647,6 +708,7 @@ const OLD_KEY_LOCK_INCIDENT: IncidentTypeConfiguration = {
           nextQuestionId: '45015',
         },
         {
+          id: '181870',
           code: 'CLASS 2 LOCK',
           active: false,
           label: 'CLASS 2 LOCK',
@@ -655,6 +717,7 @@ const OLD_KEY_LOCK_INCIDENT: IncidentTypeConfiguration = {
           nextQuestionId: '45015',
         },
         {
+          id: '181867',
           code: 'CELL LOCK',
           active: false,
           label: 'CELL LOCK',
@@ -663,6 +726,7 @@ const OLD_KEY_LOCK_INCIDENT: IncidentTypeConfiguration = {
           nextQuestionId: '45015',
         },
         {
+          id: '181873',
           code: 'CLASS 3 A1 SUITE LOCK',
           active: false,
           label: 'CLASS 3 A1 SUITE LOCK',
@@ -671,6 +735,7 @@ const OLD_KEY_LOCK_INCIDENT: IncidentTypeConfiguration = {
           nextQuestionId: '45015',
         },
         {
+          id: '181875',
           code: 'CLASS 3 ACCOUNTABLE LOCK',
           active: false,
           label: 'CLASS 3 ACCOUNTABLE LOCK',
@@ -679,6 +744,7 @@ const OLD_KEY_LOCK_INCIDENT: IncidentTypeConfiguration = {
           nextQuestionId: '45015',
         },
         {
+          id: '181879',
           code: 'HANDCUFF',
           active: false,
           label: 'HANDCUFF',
@@ -687,6 +753,7 @@ const OLD_KEY_LOCK_INCIDENT: IncidentTypeConfiguration = {
           nextQuestionId: '45015',
         },
         {
+          id: '181876',
           code: 'CLOSETING/ESCORT CHAIN',
           active: false,
           label: 'CLOSETING/ESCORT CHAIN',
@@ -695,6 +762,7 @@ const OLD_KEY_LOCK_INCIDENT: IncidentTypeConfiguration = {
           nextQuestionId: '45015',
         },
         {
+          id: '181878',
           code: 'ELECTRONIC LOCK SYSTEM',
           active: false,
           label: 'ELECTRONIC LOCK SYSTEM',
@@ -703,6 +771,7 @@ const OLD_KEY_LOCK_INCIDENT: IncidentTypeConfiguration = {
           nextQuestionId: '45015',
         },
         {
+          id: '181881',
           code: 'OTHER',
           active: false,
           label: 'OTHER',
@@ -720,6 +789,7 @@ const OLD_KEY_LOCK_INCIDENT: IncidentTypeConfiguration = {
       multipleAnswers: true,
       answers: [
         {
+          id: '181999',
           code: 'LOSS OF KEY(S)',
           active: false,
           label: 'LOSS OF KEY(S)',
@@ -728,6 +798,7 @@ const OLD_KEY_LOCK_INCIDENT: IncidentTypeConfiguration = {
           nextQuestionId: '44619',
         },
         {
+          id: '181998',
           code: 'LOSS OF HANDCUFFS',
           active: false,
           label: 'LOSS OF HANDCUFFS',
@@ -736,6 +807,7 @@ const OLD_KEY_LOCK_INCIDENT: IncidentTypeConfiguration = {
           nextQuestionId: '44619',
         },
         {
+          id: '181997',
           code: 'LOSS OF CLOSETING/ESCORT CHAIN',
           active: false,
           label: 'LOSS OF CLOSETING/ESCORT CHAIN',
@@ -744,6 +816,7 @@ const OLD_KEY_LOCK_INCIDENT: IncidentTypeConfiguration = {
           nextQuestionId: '44619',
         },
         {
+          id: '181996',
           code: 'COMPLETE LOCK REMOVED',
           active: false,
           label: 'COMPLETE LOCK REMOVED',
@@ -752,6 +825,7 @@ const OLD_KEY_LOCK_INCIDENT: IncidentTypeConfiguration = {
           nextQuestionId: '44619',
         },
         {
+          id: '182000',
           code: 'PART LOCK REMOVED',
           active: false,
           label: 'PART LOCK REMOVED',
@@ -760,6 +834,7 @@ const OLD_KEY_LOCK_INCIDENT: IncidentTypeConfiguration = {
           nextQuestionId: '44619',
         },
         {
+          id: '182001',
           code: 'REPLICA KEY USED',
           active: false,
           label: 'REPLICA KEY USED',
@@ -768,6 +843,7 @@ const OLD_KEY_LOCK_INCIDENT: IncidentTypeConfiguration = {
           nextQuestionId: '44355',
         },
         {
+          id: '182003',
           code: 'LOCKS PICKED',
           active: false,
           label: 'LOCKS PICKED',
@@ -776,6 +852,7 @@ const OLD_KEY_LOCK_INCIDENT: IncidentTypeConfiguration = {
           nextQuestionId: '44866',
         },
         {
+          id: '182002',
           code: 'ELECTRONICS OVERCOME',
           active: false,
           label: 'ELECTRONICS OVERCOME',
@@ -784,6 +861,7 @@ const OLD_KEY_LOCK_INCIDENT: IncidentTypeConfiguration = {
           nextQuestionId: '44866',
         },
         {
+          id: '182004',
           code: 'OTHER',
           active: false,
           label: 'OTHER',
@@ -801,6 +879,7 @@ const OLD_KEY_LOCK_INCIDENT: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '182261',
           code: 'YES',
           active: false,
           label: 'YES',
@@ -809,6 +888,7 @@ const OLD_KEY_LOCK_INCIDENT: IncidentTypeConfiguration = {
           nextQuestionId: '44166',
         },
         {
+          id: '182260',
           code: 'NO',
           active: false,
           label: 'NO',

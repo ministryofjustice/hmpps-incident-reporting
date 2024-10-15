@@ -1,4 +1,4 @@
-// Generated with ./scripts/updateNomisIncidentTypeConfigurations.ts at 2024-09-25T09:26:00.679Z
+// Generated with ./scripts/updateNomisIncidentTypeConfigurations.ts at 2024-10-15T17:17:27.023Z
 
 import { type IncidentTypeConfiguration } from '../../data/incidentTypeConfiguration/types'
 
@@ -15,6 +15,7 @@ const OLD_DRUGS: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '179087',
           code: 'YES',
           active: false,
           label: 'YES',
@@ -23,6 +24,7 @@ const OLD_DRUGS: IncidentTypeConfiguration = {
           nextQuestionId: '44899',
         },
         {
+          id: '179088',
           code: 'NO',
           active: false,
           label: 'NO',
@@ -40,6 +42,7 @@ const OLD_DRUGS: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '179174',
           code: 'YES',
           active: false,
           label: 'YES',
@@ -48,6 +51,7 @@ const OLD_DRUGS: IncidentTypeConfiguration = {
           nextQuestionId: '44682',
         },
         {
+          id: '179173',
           code: 'NO',
           active: false,
           label: 'NO',
@@ -65,6 +69,7 @@ const OLD_DRUGS: IncidentTypeConfiguration = {
       multipleAnswers: true,
       answers: [
         {
+          id: '179181',
           code: 'HEROIN',
           active: false,
           label: 'HEROIN',
@@ -73,6 +78,7 @@ const OLD_DRUGS: IncidentTypeConfiguration = {
           nextQuestionId: '44821',
         },
         {
+          id: '179179',
           code: 'COCAINE',
           active: false,
           label: 'COCAINE',
@@ -81,6 +87,7 @@ const OLD_DRUGS: IncidentTypeConfiguration = {
           nextQuestionId: '44821',
         },
         {
+          id: '179182',
           code: 'LSD',
           active: false,
           label: 'LSD',
@@ -89,6 +96,7 @@ const OLD_DRUGS: IncidentTypeConfiguration = {
           nextQuestionId: '44821',
         },
         {
+          id: '179175',
           code: 'AMPHETAMINES',
           active: false,
           label: 'AMPHETAMINES',
@@ -97,6 +105,7 @@ const OLD_DRUGS: IncidentTypeConfiguration = {
           nextQuestionId: '44821',
         },
         {
+          id: '179176',
           code: 'BARBITURATES',
           active: false,
           label: 'BARBITURATES',
@@ -105,6 +114,7 @@ const OLD_DRUGS: IncidentTypeConfiguration = {
           nextQuestionId: '44821',
         },
         {
+          id: '179177',
           code: 'CANNABIS',
           active: false,
           label: 'CANNABIS',
@@ -113,6 +123,7 @@ const OLD_DRUGS: IncidentTypeConfiguration = {
           nextQuestionId: '44821',
         },
         {
+          id: '179178',
           code: 'CANNABIS PLANT',
           active: false,
           label: 'CANNABIS PLANT',
@@ -121,6 +132,7 @@ const OLD_DRUGS: IncidentTypeConfiguration = {
           nextQuestionId: '44821',
         },
         {
+          id: '179180',
           code: 'CRACK',
           active: false,
           label: 'CRACK',
@@ -129,6 +141,7 @@ const OLD_DRUGS: IncidentTypeConfiguration = {
           nextQuestionId: '44821',
         },
         {
+          id: '179184',
           code: 'TRANQUILISERS',
           active: false,
           label: 'TRANQUILISERS',
@@ -137,6 +150,7 @@ const OLD_DRUGS: IncidentTypeConfiguration = {
           nextQuestionId: '44821',
         },
         {
+          id: '179183',
           code: 'OTHER',
           active: false,
           label: 'OTHER',
@@ -154,6 +168,7 @@ const OLD_DRUGS: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '179211',
           code: 'YES',
           active: false,
           label: 'YES',
@@ -162,6 +177,7 @@ const OLD_DRUGS: IncidentTypeConfiguration = {
           nextQuestionId: '45057',
         },
         {
+          id: '179212',
           code: 'NO',
           active: false,
           label: 'NO',
@@ -179,6 +195,7 @@ const OLD_DRUGS: IncidentTypeConfiguration = {
       multipleAnswers: true,
       answers: [
         {
+          id: '179222',
           code: 'AUTHENTIC SYRINGE',
           active: false,
           label: 'AUTHENTIC SYRINGE',
@@ -187,6 +204,7 @@ const OLD_DRUGS: IncidentTypeConfiguration = {
           nextQuestionId: '44818',
         },
         {
+          id: '179224',
           code: 'IMPROVISED SYRINGE',
           active: false,
           label: 'IMPROVISED SYRINGE',
@@ -195,6 +213,7 @@ const OLD_DRUGS: IncidentTypeConfiguration = {
           nextQuestionId: '44818',
         },
         {
+          id: '179221',
           code: 'AUTHENTIC NEEDLE',
           active: false,
           label: 'AUTHENTIC NEEDLE',
@@ -203,6 +222,7 @@ const OLD_DRUGS: IncidentTypeConfiguration = {
           nextQuestionId: '44818',
         },
         {
+          id: '179223',
           code: 'IMPROVISED NEEDLE',
           active: false,
           label: 'IMPROVISED NEEDLE',
@@ -211,6 +231,7 @@ const OLD_DRUGS: IncidentTypeConfiguration = {
           nextQuestionId: '44818',
         },
         {
+          id: '179226',
           code: 'PIPE(S)',
           active: false,
           label: 'PIPE(S)',
@@ -219,6 +240,7 @@ const OLD_DRUGS: IncidentTypeConfiguration = {
           nextQuestionId: '44818',
         },
         {
+          id: '179227',
           code: 'ROACH',
           active: false,
           label: 'ROACH',
@@ -227,6 +249,7 @@ const OLD_DRUGS: IncidentTypeConfiguration = {
           nextQuestionId: '44818',
         },
         {
+          id: '179225',
           code: 'OTHER',
           active: false,
           label: 'OTHER',
@@ -244,6 +267,7 @@ const OLD_DRUGS: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '179300',
           code: 'YES',
           active: false,
           label: 'YES',
@@ -252,6 +276,7 @@ const OLD_DRUGS: IncidentTypeConfiguration = {
           nextQuestionId: '44502',
         },
         {
+          id: '179301',
           code: 'NO',
           active: false,
           label: 'NO',
@@ -269,6 +294,7 @@ const OLD_DRUGS: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '179549',
           code: 'YES',
           active: false,
           label: 'YES',
@@ -277,6 +303,7 @@ const OLD_DRUGS: IncidentTypeConfiguration = {
           nextQuestionId: '44700',
         },
         {
+          id: '179550',
           code: 'NO',
           active: false,
           label: 'NO',
@@ -294,6 +321,7 @@ const OLD_DRUGS: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '179835',
           code: 'YES',
           active: false,
           label: 'YES',
@@ -302,6 +330,7 @@ const OLD_DRUGS: IncidentTypeConfiguration = {
           nextQuestionId: '44649',
         },
         {
+          id: '179836',
           code: 'NO',
           active: false,
           label: 'NO',
@@ -319,6 +348,7 @@ const OLD_DRUGS: IncidentTypeConfiguration = {
       multipleAnswers: true,
       answers: [
         {
+          id: '179873',
           code: 'SPECIAL SEARCH',
           active: false,
           label: 'SPECIAL SEARCH',
@@ -327,6 +357,7 @@ const OLD_DRUGS: IncidentTypeConfiguration = {
           nextQuestionId: '45097',
         },
         {
+          id: '179874',
           code: 'STRIP SEARCH',
           active: false,
           label: 'STRIP SEARCH',
@@ -335,6 +366,7 @@ const OLD_DRUGS: IncidentTypeConfiguration = {
           nextQuestionId: '45097',
         },
         {
+          id: '179866',
           code: 'CELL SEARCH',
           active: false,
           label: 'CELL SEARCH',
@@ -343,6 +375,7 @@ const OLD_DRUGS: IncidentTypeConfiguration = {
           nextQuestionId: '45097',
         },
         {
+          id: '179867',
           code: 'DOG SEARCH',
           active: false,
           label: 'DOG SEARCH',
@@ -351,6 +384,7 @@ const OLD_DRUGS: IncidentTypeConfiguration = {
           nextQuestionId: '45097',
         },
         {
+          id: '179870',
           code: 'OTHER SEARCH (INMATE)',
           active: false,
           label: 'OTHER SEARCH (INMATE)',
@@ -359,6 +393,7 @@ const OLD_DRUGS: IncidentTypeConfiguration = {
           nextQuestionId: '45097',
         },
         {
+          id: '179872',
           code: 'OTHER SEARCH (VISITOR)',
           active: true,
           label: 'OTHER SEARCH (VISITOR)',
@@ -367,6 +402,7 @@ const OLD_DRUGS: IncidentTypeConfiguration = {
           nextQuestionId: '45097',
         },
         {
+          id: '179871',
           code: 'OTHER SEARCH (PREMISES)',
           active: false,
           label: 'OTHER SEARCH (PREMISES)',
@@ -375,6 +411,7 @@ const OLD_DRUGS: IncidentTypeConfiguration = {
           nextQuestionId: '45097',
         },
         {
+          id: '179868',
           code: 'INFORMATION RECEIVED',
           active: false,
           label: 'INFORMATION RECEIVED',
@@ -383,6 +420,7 @@ const OLD_DRUGS: IncidentTypeConfiguration = {
           nextQuestionId: '45097',
         },
         {
+          id: '179875',
           code: 'SUBSTANCE OBSERVED',
           active: false,
           label: 'SUBSTANCE OBSERVED',
@@ -391,6 +429,7 @@ const OLD_DRUGS: IncidentTypeConfiguration = {
           nextQuestionId: '45097',
         },
         {
+          id: '179876',
           code: 'UNUSUAL BEHAVIOUR',
           active: false,
           label: 'UNUSUAL BEHAVIOUR',
@@ -399,6 +438,7 @@ const OLD_DRUGS: IncidentTypeConfiguration = {
           nextQuestionId: '45097',
         },
         {
+          id: '179869',
           code: 'OTHER',
           active: false,
           label: 'OTHER',
@@ -416,6 +456,7 @@ const OLD_DRUGS: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '180009',
           code: 'COMPASSIONATE',
           active: false,
           label: 'COMPASSIONATE',
@@ -424,6 +465,7 @@ const OLD_DRUGS: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
+          id: '180010',
           code: 'FACILITY',
           active: false,
           label: 'FACILITY',
@@ -432,6 +474,7 @@ const OLD_DRUGS: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
+          id: '180011',
           code: 'RESETTLEMENT',
           active: false,
           label: 'RESETTLEMENT',
@@ -440,6 +483,7 @@ const OLD_DRUGS: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
+          id: '180008',
           code: 'COMMUNITY VISIT',
           active: false,
           label: 'COMMUNITY VISIT',
@@ -457,6 +501,7 @@ const OLD_DRUGS: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '180231',
           code: 'YES',
           active: false,
           label: 'YES',
@@ -465,6 +510,7 @@ const OLD_DRUGS: IncidentTypeConfiguration = {
           nextQuestionId: '44557',
         },
         {
+          id: '180230',
           code: 'NO',
           active: false,
           label: 'NO',
@@ -482,6 +528,7 @@ const OLD_DRUGS: IncidentTypeConfiguration = {
       multipleAnswers: true,
       answers: [
         {
+          id: '180249',
           code: 'OFFICER',
           active: false,
           label: 'OFFICER',
@@ -490,6 +537,7 @@ const OLD_DRUGS: IncidentTypeConfiguration = {
           nextQuestionId: '44316',
         },
         {
+          id: '180251',
           code: 'PRISONER',
           active: false,
           label: 'PRISONER',
@@ -498,6 +546,7 @@ const OLD_DRUGS: IncidentTypeConfiguration = {
           nextQuestionId: '44316',
         },
         {
+          id: '180247',
           code: 'CIVILIAN GRADES',
           active: false,
           label: 'CIVILIAN GRADES',
@@ -506,6 +555,7 @@ const OLD_DRUGS: IncidentTypeConfiguration = {
           nextQuestionId: '44316',
         },
         {
+          id: '180250',
           code: 'POLICE',
           active: false,
           label: 'POLICE',
@@ -514,6 +564,7 @@ const OLD_DRUGS: IncidentTypeConfiguration = {
           nextQuestionId: '44316',
         },
         {
+          id: '180248',
           code: 'EXTERNAL CIVILIANS',
           active: false,
           label: 'EXTERNAL CIVILIANS',
@@ -531,6 +582,7 @@ const OLD_DRUGS: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '180458',
           code: 'YES',
           active: false,
           label: 'YES',
@@ -539,6 +591,7 @@ const OLD_DRUGS: IncidentTypeConfiguration = {
           nextQuestionId: '44664',
         },
         {
+          id: '180457',
           code: 'NO',
           active: false,
           label: 'NO',
@@ -556,6 +609,7 @@ const OLD_DRUGS: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '180710',
           code: 'LOCAL WITH BDH KIT OR SIMILAR',
           active: false,
           label: 'LOCAL WITH BDH KIT OR SIMILAR',
@@ -564,6 +618,7 @@ const OLD_DRUGS: IncidentTypeConfiguration = {
           nextQuestionId: '44982',
         },
         {
+          id: '180709',
           code: 'FORENSIC LABORATORY',
           active: false,
           label: 'FORENSIC LABORATORY',
@@ -581,6 +636,7 @@ const OLD_DRUGS: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '180746',
           code: 'YES',
           active: false,
           label: 'YES',
@@ -589,6 +645,7 @@ const OLD_DRUGS: IncidentTypeConfiguration = {
           nextQuestionId: '44635',
         },
         {
+          id: '180747',
           code: 'NO',
           active: false,
           label: 'NO',
@@ -606,6 +663,7 @@ const OLD_DRUGS: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '180804',
           code: 'YES',
           active: false,
           label: 'YES',
@@ -614,6 +672,7 @@ const OLD_DRUGS: IncidentTypeConfiguration = {
           nextQuestionId: '44204',
         },
         {
+          id: '180803',
           code: 'NO',
           active: false,
           label: 'NO',
@@ -631,6 +690,7 @@ const OLD_DRUGS: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '180851',
           code: 'YES',
           active: false,
           label: 'YES',
@@ -639,6 +699,7 @@ const OLD_DRUGS: IncidentTypeConfiguration = {
           nextQuestionId: '44792',
         },
         {
+          id: '180850',
           code: 'NO',
           active: false,
           label: 'NO',
@@ -656,6 +717,7 @@ const OLD_DRUGS: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '180922',
           code: 'ADMINISTRATION',
           active: false,
           label: 'ADMINISTRATION',
@@ -664,6 +726,7 @@ const OLD_DRUGS: IncidentTypeConfiguration = {
           nextQuestionId: '44179',
         },
         {
+          id: '180923',
           code: 'ASSOCIATION AREA',
           active: false,
           label: 'ASSOCIATION AREA',
@@ -672,6 +735,7 @@ const OLD_DRUGS: IncidentTypeConfiguration = {
           nextQuestionId: '44179',
         },
         {
+          id: '180924',
           code: 'CELL',
           active: false,
           label: 'CELL',
@@ -680,6 +744,7 @@ const OLD_DRUGS: IncidentTypeConfiguration = {
           nextQuestionId: '44179',
         },
         {
+          id: '180925',
           code: 'CHAPEL',
           active: false,
           label: 'CHAPEL',
@@ -688,6 +753,7 @@ const OLD_DRUGS: IncidentTypeConfiguration = {
           nextQuestionId: '44179',
         },
         {
+          id: '180927',
           code: 'DINING ROOM',
           active: false,
           label: 'DINING ROOM',
@@ -696,6 +762,7 @@ const OLD_DRUGS: IncidentTypeConfiguration = {
           nextQuestionId: '44179',
         },
         {
+          id: '180928',
           code: 'DORMITORY',
           active: false,
           label: 'DORMITORY',
@@ -704,6 +771,7 @@ const OLD_DRUGS: IncidentTypeConfiguration = {
           nextQuestionId: '44179',
         },
         {
+          id: '180929',
           code: 'EDUCATION',
           active: false,
           label: 'EDUCATION',
@@ -712,6 +780,7 @@ const OLD_DRUGS: IncidentTypeConfiguration = {
           nextQuestionId: '44179',
         },
         {
+          id: '180931',
           code: 'EXERCISE YARD',
           active: false,
           label: 'EXERCISE YARD',
@@ -720,6 +789,7 @@ const OLD_DRUGS: IncidentTypeConfiguration = {
           nextQuestionId: '44179',
         },
         {
+          id: '180933',
           code: 'GATE',
           active: false,
           label: 'GATE',
@@ -728,6 +798,7 @@ const OLD_DRUGS: IncidentTypeConfiguration = {
           nextQuestionId: '44179',
         },
         {
+          id: '180934',
           code: 'GYM',
           active: false,
           label: 'GYM',
@@ -736,6 +807,7 @@ const OLD_DRUGS: IncidentTypeConfiguration = {
           nextQuestionId: '44179',
         },
         {
+          id: '180935',
           code: 'HEALTH CARE CENTRE',
           active: false,
           label: 'HEALTH CARE CENTRE',
@@ -744,6 +816,7 @@ const OLD_DRUGS: IncidentTypeConfiguration = {
           nextQuestionId: '44179',
         },
         {
+          id: '180938',
           code: 'KITCHEN',
           active: false,
           label: 'KITCHEN',
@@ -752,6 +825,7 @@ const OLD_DRUGS: IncidentTypeConfiguration = {
           nextQuestionId: '44179',
         },
         {
+          id: '180940',
           code: 'OFFICE',
           active: false,
           label: 'OFFICE',
@@ -760,6 +834,7 @@ const OLD_DRUGS: IncidentTypeConfiguration = {
           nextQuestionId: '44179',
         },
         {
+          id: '180942',
           code: 'RECEPTION',
           active: false,
           label: 'RECEPTION',
@@ -768,6 +843,7 @@ const OLD_DRUGS: IncidentTypeConfiguration = {
           nextQuestionId: '44179',
         },
         {
+          id: '180943',
           code: 'RECESS',
           active: false,
           label: 'RECESS',
@@ -776,6 +852,7 @@ const OLD_DRUGS: IncidentTypeConfiguration = {
           nextQuestionId: '44179',
         },
         {
+          id: '180944',
           code: 'SEGREGATION UNIT',
           active: false,
           label: 'SEGREGATION UNIT',
@@ -784,6 +861,7 @@ const OLD_DRUGS: IncidentTypeConfiguration = {
           nextQuestionId: '44179',
         },
         {
+          id: '180946',
           code: 'SPECIAL UNIT',
           active: false,
           label: 'SPECIAL UNIT',
@@ -792,6 +870,7 @@ const OLD_DRUGS: IncidentTypeConfiguration = {
           nextQuestionId: '44179',
         },
         {
+          id: '180945',
           code: 'SHOWERS/CHANGING ROOM',
           active: false,
           label: 'SHOWERS/CHANGING ROOM',
@@ -800,6 +879,7 @@ const OLD_DRUGS: IncidentTypeConfiguration = {
           nextQuestionId: '44179',
         },
         {
+          id: '180949',
           code: 'VISITS',
           active: false,
           label: 'VISITS',
@@ -808,6 +888,7 @@ const OLD_DRUGS: IncidentTypeConfiguration = {
           nextQuestionId: '44179',
         },
         {
+          id: '180951',
           code: 'WING',
           active: false,
           label: 'WING',
@@ -816,6 +897,7 @@ const OLD_DRUGS: IncidentTypeConfiguration = {
           nextQuestionId: '44179',
         },
         {
+          id: '180953',
           code: 'WORKS DEPARTMENT',
           active: false,
           label: 'WORKS DEPARTMENT',
@@ -824,6 +906,7 @@ const OLD_DRUGS: IncidentTypeConfiguration = {
           nextQuestionId: '44179',
         },
         {
+          id: '180954',
           code: 'WORKSHOP',
           active: false,
           label: 'WORKSHOP',
@@ -832,6 +915,7 @@ const OLD_DRUGS: IncidentTypeConfiguration = {
           nextQuestionId: '44179',
         },
         {
+          id: '180952',
           code: 'WITHIN PERIMETER',
           active: false,
           label: 'WITHIN PERIMETER',
@@ -840,6 +924,7 @@ const OLD_DRUGS: IncidentTypeConfiguration = {
           nextQuestionId: '44179',
         },
         {
+          id: '180930',
           code: 'ELSEWHERE',
           active: false,
           label: 'ELSEWHERE',
@@ -848,6 +933,7 @@ const OLD_DRUGS: IncidentTypeConfiguration = {
           nextQuestionId: '44179',
         },
         {
+          id: '180932',
           code: 'FUNERAL',
           active: false,
           label: 'FUNERAL',
@@ -856,6 +942,7 @@ const OLD_DRUGS: IncidentTypeConfiguration = {
           nextQuestionId: '44179',
         },
         {
+          id: '180936',
           code: 'HOSPITAL OUTSIDE (PATIENT)',
           active: false,
           label: 'HOSPITAL OUTSIDE (PATIENT)',
@@ -864,6 +951,7 @@ const OLD_DRUGS: IncidentTypeConfiguration = {
           nextQuestionId: '44179',
         },
         {
+          id: '180937',
           code: 'HOSPITAL OUTSIDE (VISITING)',
           active: false,
           label: 'HOSPITAL OUTSIDE (VISITING)',
@@ -872,6 +960,7 @@ const OLD_DRUGS: IncidentTypeConfiguration = {
           nextQuestionId: '44179',
         },
         {
+          id: '180941',
           code: 'OUTSIDE WORKING PARTY',
           active: false,
           label: 'OUTSIDE WORKING PARTY',
@@ -880,6 +969,7 @@ const OLD_DRUGS: IncidentTypeConfiguration = {
           nextQuestionId: '44179',
         },
         {
+          id: '180947',
           code: 'SPORTS FIELD',
           active: false,
           label: 'SPORTS FIELD',
@@ -888,6 +978,7 @@ const OLD_DRUGS: IncidentTypeConfiguration = {
           nextQuestionId: '44179',
         },
         {
+          id: '180948',
           code: 'VEHICLE',
           active: false,
           label: 'VEHICLE',
@@ -896,6 +987,7 @@ const OLD_DRUGS: IncidentTypeConfiguration = {
           nextQuestionId: '44179',
         },
         {
+          id: '180950',
           code: 'WEDDINGS',
           active: false,
           label: 'WEDDINGS',
@@ -904,6 +996,7 @@ const OLD_DRUGS: IncidentTypeConfiguration = {
           nextQuestionId: '44179',
         },
         {
+          id: '180939',
           code: 'MAGISTRATES COURT',
           active: false,
           label: 'MAGISTRATES COURT',
@@ -912,6 +1005,7 @@ const OLD_DRUGS: IncidentTypeConfiguration = {
           nextQuestionId: '44179',
         },
         {
+          id: '180926',
           code: 'CROWN COURT',
           active: false,
           label: 'CROWN COURT',
@@ -929,6 +1023,7 @@ const OLD_DRUGS: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '181144',
           code: 'YES',
           active: false,
           label: 'YES',
@@ -937,6 +1032,7 @@ const OLD_DRUGS: IncidentTypeConfiguration = {
           nextQuestionId: '44219',
         },
         {
+          id: '181143',
           code: 'NO',
           active: false,
           label: 'NO',
@@ -954,6 +1050,7 @@ const OLD_DRUGS: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '181237',
           code: 'YES',
           active: false,
           label: 'YES',
@@ -962,6 +1059,7 @@ const OLD_DRUGS: IncidentTypeConfiguration = {
           nextQuestionId: '44765',
         },
         {
+          id: '181236',
           code: 'NO',
           active: false,
           label: 'NO',
@@ -979,6 +1077,7 @@ const OLD_DRUGS: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '181246',
           code: 'PRISONER',
           active: false,
           label: 'PRISONER',
@@ -987,6 +1086,7 @@ const OLD_DRUGS: IncidentTypeConfiguration = {
           nextQuestionId: '45008',
         },
         {
+          id: '181245',
           code: 'VISITOR',
           active: false,
           label: 'VISITOR',
@@ -995,6 +1095,7 @@ const OLD_DRUGS: IncidentTypeConfiguration = {
           nextQuestionId: '45168',
         },
         {
+          id: '181248',
           code: 'THROWN IN',
           active: false,
           label: 'THROWN IN',
@@ -1003,6 +1104,7 @@ const OLD_DRUGS: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
+          id: '181247',
           code: 'OTHER',
           active: false,
           label: 'OTHER',
@@ -1020,6 +1122,7 @@ const OLD_DRUGS: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '181274',
           code: 'SPECIFY',
           active: false,
           label: 'SPECIFY',
@@ -1037,6 +1140,7 @@ const OLD_DRUGS: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '181299',
           code: 'NAME',
           active: false,
           label: 'NAME',
@@ -1054,6 +1158,7 @@ const OLD_DRUGS: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '181304',
           code: 'YES',
           active: false,
           label: 'YES',
@@ -1062,6 +1167,7 @@ const OLD_DRUGS: IncidentTypeConfiguration = {
           nextQuestionId: '44224',
         },
         {
+          id: '181305',
           code: 'NO',
           active: false,
           label: 'NO',
@@ -1079,6 +1185,7 @@ const OLD_DRUGS: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '181335',
           code: 'YES',
           active: false,
           label: 'YES',
@@ -1087,6 +1194,7 @@ const OLD_DRUGS: IncidentTypeConfiguration = {
           nextQuestionId: '44243',
         },
         {
+          id: '181336',
           code: 'NO',
           active: false,
           label: 'NO',
@@ -1104,6 +1212,7 @@ const OLD_DRUGS: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '181579',
           code: 'BEFORE ENTERING PRISON',
           active: false,
           label: 'BEFORE ENTERING PRISON',
@@ -1112,6 +1221,7 @@ const OLD_DRUGS: IncidentTypeConfiguration = {
           nextQuestionId: '44807',
         },
         {
+          id: '181578',
           code: 'AFTER ENTERING PRISON',
           active: false,
           label: 'AFTER ENTERING PRISON',
@@ -1129,6 +1239,7 @@ const OLD_DRUGS: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '181908',
           code: 'YES',
           active: false,
           label: 'YES',
@@ -1137,6 +1248,7 @@ const OLD_DRUGS: IncidentTypeConfiguration = {
           nextQuestionId: '44205',
         },
         {
+          id: '181909',
           code: 'NO',
           active: false,
           label: 'NO',
@@ -1154,6 +1266,7 @@ const OLD_DRUGS: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '181976',
           code: 'YES',
           active: false,
           label: 'YES',
@@ -1162,6 +1275,7 @@ const OLD_DRUGS: IncidentTypeConfiguration = {
           nextQuestionId: '44458',
         },
         {
+          id: '181977',
           code: 'NO',
           active: false,
           label: 'NO',
@@ -1179,6 +1293,7 @@ const OLD_DRUGS: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '182213',
           code: 'SPECIFY',
           active: false,
           label: 'SPECIFY',
@@ -1196,6 +1311,7 @@ const OLD_DRUGS: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '182335',
           code: 'YES',
           active: false,
           label: 'YES',
@@ -1204,6 +1320,7 @@ const OLD_DRUGS: IncidentTypeConfiguration = {
           nextQuestionId: '44795',
         },
         {
+          id: '182336',
           code: 'NO',
           active: false,
           label: 'NO',
@@ -1221,6 +1338,7 @@ const OLD_DRUGS: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '182620',
           code: 'RELATIVE',
           active: false,
           label: 'RELATIVE',
@@ -1229,6 +1347,7 @@ const OLD_DRUGS: IncidentTypeConfiguration = {
           nextQuestionId: '45008',
         },
         {
+          id: '182618',
           code: 'FRIEND',
           active: false,
           label: 'FRIEND',
@@ -1237,6 +1356,7 @@ const OLD_DRUGS: IncidentTypeConfiguration = {
           nextQuestionId: '45008',
         },
         {
+          id: '182619',
           code: 'OFFICIAL VISITOR',
           active: false,
           label: 'OFFICIAL VISITOR',

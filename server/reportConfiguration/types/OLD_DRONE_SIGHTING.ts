@@ -1,4 +1,4 @@
-// Generated with ./scripts/updateNomisIncidentTypeConfigurations.ts at 2024-09-25T09:25:57.816Z
+// Generated with ./scripts/updateNomisIncidentTypeConfigurations.ts at 2024-10-15T17:17:24.521Z
 
 import { type IncidentTypeConfiguration } from '../../data/incidentTypeConfiguration/types'
 
@@ -15,6 +15,7 @@ const OLD_DRONE_SIGHTING: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '208684',
           code: 'Yes',
           active: false,
           label: 'Yes',
@@ -23,6 +24,7 @@ const OLD_DRONE_SIGHTING: IncidentTypeConfiguration = {
           nextQuestionId: '57180',
         },
         {
+          id: '208685',
           code: 'No',
           active: false,
           label: 'No',
@@ -40,6 +42,7 @@ const OLD_DRONE_SIGHTING: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '208686',
           code: '12am to 6am',
           active: true,
           label: '12am to 6am',
@@ -48,6 +51,7 @@ const OLD_DRONE_SIGHTING: IncidentTypeConfiguration = {
           nextQuestionId: '57181',
         },
         {
+          id: '208687',
           code: '6am to 12pm',
           active: true,
           label: '6am to 12pm',
@@ -56,6 +60,7 @@ const OLD_DRONE_SIGHTING: IncidentTypeConfiguration = {
           nextQuestionId: '57181',
         },
         {
+          id: '208688',
           code: '12pm to 6pm',
           active: true,
           label: '12pm to 6pm',
@@ -64,6 +69,7 @@ const OLD_DRONE_SIGHTING: IncidentTypeConfiguration = {
           nextQuestionId: '57181',
         },
         {
+          id: '208689',
           code: '6pm to 12am',
           active: true,
           label: '6pm to 12am',
@@ -81,6 +87,7 @@ const OLD_DRONE_SIGHTING: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '208690',
           code: '1',
           active: false,
           label: '1',
@@ -89,6 +96,7 @@ const OLD_DRONE_SIGHTING: IncidentTypeConfiguration = {
           nextQuestionId: '57184',
         },
         {
+          id: '208691',
           code: '2',
           active: false,
           label: '2',
@@ -97,6 +105,7 @@ const OLD_DRONE_SIGHTING: IncidentTypeConfiguration = {
           nextQuestionId: '57184',
         },
         {
+          id: '208692',
           code: '3',
           active: false,
           label: '3',
@@ -105,6 +114,7 @@ const OLD_DRONE_SIGHTING: IncidentTypeConfiguration = {
           nextQuestionId: '57184',
         },
         {
+          id: '208693',
           code: '4',
           active: false,
           label: '4',
@@ -113,6 +123,7 @@ const OLD_DRONE_SIGHTING: IncidentTypeConfiguration = {
           nextQuestionId: '57184',
         },
         {
+          id: '208694',
           code: '5',
           active: false,
           label: '5',
@@ -121,6 +132,7 @@ const OLD_DRONE_SIGHTING: IncidentTypeConfiguration = {
           nextQuestionId: '57184',
         },
         {
+          id: '208695',
           code: '6+',
           active: false,
           label: '6+',
@@ -138,6 +150,7 @@ const OLD_DRONE_SIGHTING: IncidentTypeConfiguration = {
       multipleAnswers: true,
       answers: [
         {
+          id: '208696',
           code: 'Beyond the external perimeter border',
           active: false,
           label: 'Beyond the external perimeter border',
@@ -146,6 +159,7 @@ const OLD_DRONE_SIGHTING: IncidentTypeConfiguration = {
           nextQuestionId: '57185',
         },
         {
+          id: '208697',
           code: 'Exercise yard',
           active: false,
           label: 'Exercise yard',
@@ -154,6 +168,7 @@ const OLD_DRONE_SIGHTING: IncidentTypeConfiguration = {
           nextQuestionId: '57185',
         },
         {
+          id: '208698',
           code: 'External roof',
           active: false,
           label: 'External roof',
@@ -162,6 +177,7 @@ const OLD_DRONE_SIGHTING: IncidentTypeConfiguration = {
           nextQuestionId: '57185',
         },
         {
+          id: '208699',
           code: 'Gate',
           active: false,
           label: 'Gate',
@@ -170,6 +186,7 @@ const OLD_DRONE_SIGHTING: IncidentTypeConfiguration = {
           nextQuestionId: '57185',
         },
         {
+          id: '208700',
           code: 'Near cell window',
           active: false,
           label: 'Near cell window',
@@ -178,6 +195,7 @@ const OLD_DRONE_SIGHTING: IncidentTypeConfiguration = {
           nextQuestionId: '57185',
         },
         {
+          id: '208701',
           code: 'Sports Field',
           active: true,
           label: 'Sports Field',
@@ -186,6 +204,7 @@ const OLD_DRONE_SIGHTING: IncidentTypeConfiguration = {
           nextQuestionId: '57185',
         },
         {
+          id: '208702',
           code: 'Within Perimeter',
           active: true,
           label: 'Within Perimeter',
@@ -194,6 +213,7 @@ const OLD_DRONE_SIGHTING: IncidentTypeConfiguration = {
           nextQuestionId: '57185',
         },
         {
+          id: '208703',
           code: 'Other (Please Specify)',
           active: true,
           label: 'Other (Please Specify)',
@@ -211,6 +231,7 @@ const OLD_DRONE_SIGHTING: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '208704',
           code: 'Not applicable',
           active: true,
           label: 'Not applicable',
@@ -219,6 +240,7 @@ const OLD_DRONE_SIGHTING: IncidentTypeConfiguration = {
           nextQuestionId: '57186',
         },
         {
+          id: '208705',
           code: '0 to less than 10 metres',
           active: true,
           label: '0 to less than 10 metres',
@@ -227,6 +249,7 @@ const OLD_DRONE_SIGHTING: IncidentTypeConfiguration = {
           nextQuestionId: '57186',
         },
         {
+          id: '208706',
           code: '10 to less than 100 metres',
           active: true,
           label: '10 to less than 100 metres',
@@ -235,6 +258,7 @@ const OLD_DRONE_SIGHTING: IncidentTypeConfiguration = {
           nextQuestionId: '57186',
         },
         {
+          id: '208707',
           code: '100 to less than 200 metres',
           active: true,
           label: '100 to less than 200 metres',
@@ -243,6 +267,7 @@ const OLD_DRONE_SIGHTING: IncidentTypeConfiguration = {
           nextQuestionId: '57186',
         },
         {
+          id: '208708',
           code: '200 metres or more',
           active: true,
           label: '200 metres or more',
@@ -260,6 +285,7 @@ const OLD_DRONE_SIGHTING: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '208709',
           code: 'Static',
           active: false,
           label: 'Static',
@@ -268,6 +294,7 @@ const OLD_DRONE_SIGHTING: IncidentTypeConfiguration = {
           nextQuestionId: '57187',
         },
         {
+          id: '208710',
           code: 'Walking pace',
           active: false,
           label: 'Walking pace',
@@ -276,6 +303,7 @@ const OLD_DRONE_SIGHTING: IncidentTypeConfiguration = {
           nextQuestionId: '57187',
         },
         {
+          id: '208711',
           code: 'Running pace',
           active: false,
           label: 'Running pace',
@@ -284,6 +312,7 @@ const OLD_DRONE_SIGHTING: IncidentTypeConfiguration = {
           nextQuestionId: '57187',
         },
         {
+          id: '208712',
           code: 'Faster than running',
           active: false,
           label: 'Faster than running',
@@ -292,6 +321,7 @@ const OLD_DRONE_SIGHTING: IncidentTypeConfiguration = {
           nextQuestionId: '57187',
         },
         {
+          id: '208713',
           code: 'Unknown',
           active: false,
           label: 'Unknown',
@@ -309,6 +339,7 @@ const OLD_DRONE_SIGHTING: IncidentTypeConfiguration = {
       multipleAnswers: true,
       answers: [
         {
+          id: '208714',
           code: 'Hovering',
           active: false,
           label: 'Hovering',
@@ -317,6 +348,7 @@ const OLD_DRONE_SIGHTING: IncidentTypeConfiguration = {
           nextQuestionId: '57188',
         },
         {
+          id: '208715',
           code: 'Circling a point',
           active: false,
           label: 'Circling a point',
@@ -325,6 +357,7 @@ const OLD_DRONE_SIGHTING: IncidentTypeConfiguration = {
           nextQuestionId: '57188',
         },
         {
+          id: '208716',
           code: 'Straight flight',
           active: false,
           label: 'Straight flight',
@@ -333,6 +366,7 @@ const OLD_DRONE_SIGHTING: IncidentTypeConfiguration = {
           nextQuestionId: '57188',
         },
         {
+          id: '208717',
           code: 'Direct attack',
           active: false,
           label: 'Direct attack',
@@ -341,6 +375,7 @@ const OLD_DRONE_SIGHTING: IncidentTypeConfiguration = {
           nextQuestionId: '57188',
         },
         {
+          id: '208718',
           code: 'Other (Please Specify)',
           active: false,
           label: 'Other (Please Specify)',
@@ -358,6 +393,7 @@ const OLD_DRONE_SIGHTING: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '208719',
           code: 'Not believed to have been seen before',
           active: false,
           label: 'Not believed to have been seen before',
@@ -366,6 +402,7 @@ const OLD_DRONE_SIGHTING: IncidentTypeConfiguration = {
           nextQuestionId: '57189',
         },
         {
+          id: '208720',
           code: '1',
           active: false,
           label: '1',
@@ -374,6 +411,7 @@ const OLD_DRONE_SIGHTING: IncidentTypeConfiguration = {
           nextQuestionId: '57189',
         },
         {
+          id: '208721',
           code: '2',
           active: false,
           label: '2',
@@ -382,6 +420,7 @@ const OLD_DRONE_SIGHTING: IncidentTypeConfiguration = {
           nextQuestionId: '57189',
         },
         {
+          id: '208722',
           code: '3',
           active: false,
           label: '3',
@@ -390,6 +429,7 @@ const OLD_DRONE_SIGHTING: IncidentTypeConfiguration = {
           nextQuestionId: '57189',
         },
         {
+          id: '208723',
           code: '4',
           active: false,
           label: '4',
@@ -398,6 +438,7 @@ const OLD_DRONE_SIGHTING: IncidentTypeConfiguration = {
           nextQuestionId: '57189',
         },
         {
+          id: '208724',
           code: '5',
           active: false,
           label: '5',
@@ -406,6 +447,7 @@ const OLD_DRONE_SIGHTING: IncidentTypeConfiguration = {
           nextQuestionId: '57189',
         },
         {
+          id: '208725',
           code: '6 or more (please Specify)',
           active: false,
           label: '6 or more (please Specify)',
@@ -423,6 +465,7 @@ const OLD_DRONE_SIGHTING: IncidentTypeConfiguration = {
       multipleAnswers: true,
       answers: [
         {
+          id: '208726',
           code: 'Clear visibility',
           active: false,
           label: 'Clear visibility',
@@ -431,6 +474,7 @@ const OLD_DRONE_SIGHTING: IncidentTypeConfiguration = {
           nextQuestionId: '57192',
         },
         {
+          id: '208727',
           code: 'Poor visibility',
           active: false,
           label: 'Poor visibility',
@@ -439,6 +483,7 @@ const OLD_DRONE_SIGHTING: IncidentTypeConfiguration = {
           nextQuestionId: '57192',
         },
         {
+          id: '208728',
           code: 'Light',
           active: false,
           label: 'Light',
@@ -447,6 +492,7 @@ const OLD_DRONE_SIGHTING: IncidentTypeConfiguration = {
           nextQuestionId: '57192',
         },
         {
+          id: '208729',
           code: 'Dark',
           active: false,
           label: 'Dark',
@@ -455,6 +501,7 @@ const OLD_DRONE_SIGHTING: IncidentTypeConfiguration = {
           nextQuestionId: '57192',
         },
         {
+          id: '208730',
           code: 'Rain',
           active: false,
           label: 'Rain',
@@ -463,6 +510,7 @@ const OLD_DRONE_SIGHTING: IncidentTypeConfiguration = {
           nextQuestionId: '57192',
         },
         {
+          id: '208731',
           code: 'High wind',
           active: false,
           label: 'High wind',
@@ -471,6 +519,7 @@ const OLD_DRONE_SIGHTING: IncidentTypeConfiguration = {
           nextQuestionId: '57192',
         },
         {
+          id: '208732',
           code: 'Low wind',
           active: false,
           label: 'Low wind',
@@ -479,6 +528,7 @@ const OLD_DRONE_SIGHTING: IncidentTypeConfiguration = {
           nextQuestionId: '57192',
         },
         {
+          id: '208733',
           code: 'Calm',
           active: false,
           label: 'Calm',
@@ -496,6 +546,7 @@ const OLD_DRONE_SIGHTING: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '208734',
           code: 'Yes',
           active: false,
           label: 'Yes',
@@ -504,6 +555,7 @@ const OLD_DRONE_SIGHTING: IncidentTypeConfiguration = {
           nextQuestionId: '57194',
         },
         {
+          id: '208735',
           code: 'No',
           active: false,
           label: 'No',
@@ -521,6 +573,7 @@ const OLD_DRONE_SIGHTING: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '208736',
           code: 'Yes',
           active: false,
           label: 'Yes',
@@ -529,6 +582,7 @@ const OLD_DRONE_SIGHTING: IncidentTypeConfiguration = {
           nextQuestionId: '57194',
         },
         {
+          id: '208737',
           code: 'No',
           active: false,
           label: 'No',
@@ -546,6 +600,7 @@ const OLD_DRONE_SIGHTING: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '208738',
           code: '1',
           active: false,
           label: '1',
@@ -554,6 +609,7 @@ const OLD_DRONE_SIGHTING: IncidentTypeConfiguration = {
           nextQuestionId: '57197',
         },
         {
+          id: '208739',
           code: '2',
           active: false,
           label: '2',
@@ -562,6 +618,7 @@ const OLD_DRONE_SIGHTING: IncidentTypeConfiguration = {
           nextQuestionId: '57197',
         },
         {
+          id: '208740',
           code: '3',
           active: false,
           label: '3',
@@ -570,6 +627,7 @@ const OLD_DRONE_SIGHTING: IncidentTypeConfiguration = {
           nextQuestionId: '57197',
         },
         {
+          id: '208741',
           code: '4',
           active: false,
           label: '4',
@@ -578,6 +636,7 @@ const OLD_DRONE_SIGHTING: IncidentTypeConfiguration = {
           nextQuestionId: '57197',
         },
         {
+          id: '208742',
           code: '5',
           active: false,
           label: '5',
@@ -586,6 +645,7 @@ const OLD_DRONE_SIGHTING: IncidentTypeConfiguration = {
           nextQuestionId: '57197',
         },
         {
+          id: '208743',
           code: '6+',
           active: false,
           label: '6+',
@@ -603,6 +663,7 @@ const OLD_DRONE_SIGHTING: IncidentTypeConfiguration = {
       multipleAnswers: true,
       answers: [
         {
+          id: '208744',
           code: 'Exercise yard',
           active: false,
           label: 'Exercise yard',
@@ -611,6 +672,7 @@ const OLD_DRONE_SIGHTING: IncidentTypeConfiguration = {
           nextQuestionId: '57198',
         },
         {
+          id: '208745',
           code: 'External roof',
           active: false,
           label: 'External roof',
@@ -619,6 +681,7 @@ const OLD_DRONE_SIGHTING: IncidentTypeConfiguration = {
           nextQuestionId: '57198',
         },
         {
+          id: '208746',
           code: 'Gate',
           active: false,
           label: 'Gate',
@@ -627,6 +690,7 @@ const OLD_DRONE_SIGHTING: IncidentTypeConfiguration = {
           nextQuestionId: '57198',
         },
         {
+          id: '208747',
           code: 'Near cell window',
           active: false,
           label: 'Near cell window',
@@ -635,6 +699,7 @@ const OLD_DRONE_SIGHTING: IncidentTypeConfiguration = {
           nextQuestionId: '57198',
         },
         {
+          id: '208748',
           code: 'External perimeter border',
           active: false,
           label: 'External perimeter border',
@@ -643,6 +708,7 @@ const OLD_DRONE_SIGHTING: IncidentTypeConfiguration = {
           nextQuestionId: '57198',
         },
         {
+          id: '208749',
           code: 'Sports field',
           active: false,
           label: 'Sports field',
@@ -651,6 +717,7 @@ const OLD_DRONE_SIGHTING: IncidentTypeConfiguration = {
           nextQuestionId: '57198',
         },
         {
+          id: '208750',
           code: 'Within perimeter',
           active: false,
           label: 'Within perimeter',
@@ -659,6 +726,7 @@ const OLD_DRONE_SIGHTING: IncidentTypeConfiguration = {
           nextQuestionId: '57198',
         },
         {
+          id: '208751',
           code: 'Other (please specify)',
           active: false,
           label: 'Other (please specify)',
@@ -676,6 +744,7 @@ const OLD_DRONE_SIGHTING: IncidentTypeConfiguration = {
       multipleAnswers: true,
       answers: [
         {
+          id: '208752',
           code: 'Multicopter Square',
           active: false,
           label: 'Multicopter Square',
@@ -684,6 +753,7 @@ const OLD_DRONE_SIGHTING: IncidentTypeConfiguration = {
           nextQuestionId: '57199',
         },
         {
+          id: '208753',
           code: 'Multicopter Circular',
           active: false,
           label: 'Multicopter Circular',
@@ -692,6 +762,7 @@ const OLD_DRONE_SIGHTING: IncidentTypeConfiguration = {
           nextQuestionId: '57199',
         },
         {
+          id: '208754',
           code: 'Multicopter X-Shape',
           active: false,
           label: 'Multicopter X-Shape',
@@ -700,6 +771,7 @@ const OLD_DRONE_SIGHTING: IncidentTypeConfiguration = {
           nextQuestionId: '57199',
         },
         {
+          id: '208755',
           code: 'Multicopter Hourglass',
           active: false,
           label: 'Multicopter Hourglass',
@@ -708,6 +780,7 @@ const OLD_DRONE_SIGHTING: IncidentTypeConfiguration = {
           nextQuestionId: '57199',
         },
         {
+          id: '208756',
           code: 'Multicopter Other',
           active: false,
           label: 'Multicopter Other',
@@ -716,6 +789,7 @@ const OLD_DRONE_SIGHTING: IncidentTypeConfiguration = {
           nextQuestionId: '57199',
         },
         {
+          id: '208757',
           code: 'Fixed wing Standard aircraft',
           active: false,
           label: 'Fixed wing Standard aircraft',
@@ -724,6 +798,7 @@ const OLD_DRONE_SIGHTING: IncidentTypeConfiguration = {
           nextQuestionId: '57199',
         },
         {
+          id: '208758',
           code: 'Fixed wing Delta-wing',
           active: false,
           label: 'Fixed wing Delta-wing',
@@ -732,6 +807,7 @@ const OLD_DRONE_SIGHTING: IncidentTypeConfiguration = {
           nextQuestionId: '57199',
         },
         {
+          id: '208759',
           code: 'Fixed wing Other',
           active: false,
           label: 'Fixed wing Other',
@@ -740,6 +816,7 @@ const OLD_DRONE_SIGHTING: IncidentTypeConfiguration = {
           nextQuestionId: '57199',
         },
         {
+          id: '208760',
           code: 'Other (Please Specify)',
           active: false,
           label: 'Other (Please Specify)',
@@ -748,6 +825,7 @@ const OLD_DRONE_SIGHTING: IncidentTypeConfiguration = {
           nextQuestionId: '57199',
         },
         {
+          id: '208761',
           code: 'Unknown',
           active: false,
           label: 'Unknown',
@@ -765,6 +843,7 @@ const OLD_DRONE_SIGHTING: IncidentTypeConfiguration = {
       multipleAnswers: true,
       answers: [
         {
+          id: '208762',
           code: 'DJI Phantom',
           active: false,
           label: 'DJI Phantom',
@@ -773,6 +852,7 @@ const OLD_DRONE_SIGHTING: IncidentTypeConfiguration = {
           nextQuestionId: '57200',
         },
         {
+          id: '208763',
           code: 'Syma X8C Venture',
           active: false,
           label: 'Syma X8C Venture',
@@ -781,6 +861,7 @@ const OLD_DRONE_SIGHTING: IncidentTypeConfiguration = {
           nextQuestionId: '57200',
         },
         {
+          id: '208764',
           code: 'DIY Racing UAV',
           active: false,
           label: 'DIY Racing UAV',
@@ -789,6 +870,7 @@ const OLD_DRONE_SIGHTING: IncidentTypeConfiguration = {
           nextQuestionId: '57200',
         },
         {
+          id: '208765',
           code: 'T600 Inspire 1',
           active: false,
           label: 'T600 Inspire 1',
@@ -797,6 +879,7 @@ const OLD_DRONE_SIGHTING: IncidentTypeConfiguration = {
           nextQuestionId: '57200',
         },
         {
+          id: '208766',
           code: 'Century NEO660',
           active: false,
           label: 'Century NEO660',
@@ -805,6 +888,7 @@ const OLD_DRONE_SIGHTING: IncidentTypeConfiguration = {
           nextQuestionId: '57200',
         },
         {
+          id: '208767',
           code: 'X-8 Flyingwing',
           active: false,
           label: 'X-8 Flyingwing',
@@ -813,6 +897,7 @@ const OLD_DRONE_SIGHTING: IncidentTypeConfiguration = {
           nextQuestionId: '57200',
         },
         {
+          id: '208768',
           code: 'TALON X-UAV',
           active: false,
           label: 'TALON X-UAV',
@@ -821,6 +906,7 @@ const OLD_DRONE_SIGHTING: IncidentTypeConfiguration = {
           nextQuestionId: '57200',
         },
         {
+          id: '208769',
           code: 'Sky Hunter',
           active: false,
           label: 'Sky Hunter',
@@ -829,6 +915,7 @@ const OLD_DRONE_SIGHTING: IncidentTypeConfiguration = {
           nextQuestionId: '57200',
         },
         {
+          id: '208770',
           code: 'Piper model aircraft',
           active: false,
           label: 'Piper model aircraft',
@@ -837,6 +924,7 @@ const OLD_DRONE_SIGHTING: IncidentTypeConfiguration = {
           nextQuestionId: '57200',
         },
         {
+          id: '208771',
           code: 'Other (Please Specify)',
           active: false,
           label: 'Other (Please Specify)',
@@ -845,6 +933,7 @@ const OLD_DRONE_SIGHTING: IncidentTypeConfiguration = {
           nextQuestionId: '57200',
         },
         {
+          id: '208772',
           code: 'Unknown',
           active: false,
           label: 'Unknown',
@@ -862,6 +951,7 @@ const OLD_DRONE_SIGHTING: IncidentTypeConfiguration = {
       multipleAnswers: true,
       answers: [
         {
+          id: '208773',
           code: '1',
           active: false,
           label: '1',
@@ -870,6 +960,7 @@ const OLD_DRONE_SIGHTING: IncidentTypeConfiguration = {
           nextQuestionId: '57201',
         },
         {
+          id: '208774',
           code: '2',
           active: false,
           label: '2',
@@ -878,6 +969,7 @@ const OLD_DRONE_SIGHTING: IncidentTypeConfiguration = {
           nextQuestionId: '57201',
         },
         {
+          id: '208775',
           code: '3',
           active: false,
           label: '3',
@@ -886,6 +978,7 @@ const OLD_DRONE_SIGHTING: IncidentTypeConfiguration = {
           nextQuestionId: '57201',
         },
         {
+          id: '208776',
           code: '4',
           active: false,
           label: '4',
@@ -894,6 +987,7 @@ const OLD_DRONE_SIGHTING: IncidentTypeConfiguration = {
           nextQuestionId: '57201',
         },
         {
+          id: '208777',
           code: '5',
           active: false,
           label: '5',
@@ -902,6 +996,7 @@ const OLD_DRONE_SIGHTING: IncidentTypeConfiguration = {
           nextQuestionId: '57201',
         },
         {
+          id: '208778',
           code: '6',
           active: false,
           label: '6',
@@ -910,6 +1005,7 @@ const OLD_DRONE_SIGHTING: IncidentTypeConfiguration = {
           nextQuestionId: '57201',
         },
         {
+          id: '208779',
           code: '7',
           active: false,
           label: '7',
@@ -918,6 +1014,7 @@ const OLD_DRONE_SIGHTING: IncidentTypeConfiguration = {
           nextQuestionId: '57201',
         },
         {
+          id: '208780',
           code: '8+',
           active: false,
           label: '8+',
@@ -926,6 +1023,7 @@ const OLD_DRONE_SIGHTING: IncidentTypeConfiguration = {
           nextQuestionId: '57201',
         },
         {
+          id: '208781',
           code: 'Unknown',
           active: false,
           label: 'Unknown',
@@ -934,6 +1032,7 @@ const OLD_DRONE_SIGHTING: IncidentTypeConfiguration = {
           nextQuestionId: '57201',
         },
         {
+          id: '208787',
           code: '8+',
           active: false,
           label: '8+',
@@ -942,6 +1041,7 @@ const OLD_DRONE_SIGHTING: IncidentTypeConfiguration = {
           nextQuestionId: '57201',
         },
         {
+          id: '208788',
           code: 'Unknown',
           active: false,
           label: 'Unknown',
@@ -959,6 +1059,7 @@ const OLD_DRONE_SIGHTING: IncidentTypeConfiguration = {
       multipleAnswers: true,
       answers: [
         {
+          id: '208782',
           code: '0 to less than 1m',
           active: false,
           label: '0 to less than 1m',
@@ -967,6 +1068,7 @@ const OLD_DRONE_SIGHTING: IncidentTypeConfiguration = {
           nextQuestionId: '57202',
         },
         {
+          id: '208783',
           code: '1m to less than 2m',
           active: false,
           label: '1m to less than 2m',
@@ -975,6 +1077,7 @@ const OLD_DRONE_SIGHTING: IncidentTypeConfiguration = {
           nextQuestionId: '57202',
         },
         {
+          id: '208784',
           code: '2m to less than 3m',
           active: false,
           label: '2m to less than 3m',
@@ -983,6 +1086,7 @@ const OLD_DRONE_SIGHTING: IncidentTypeConfiguration = {
           nextQuestionId: '57202',
         },
         {
+          id: '208785',
           code: '3m or longer',
           active: false,
           label: '3m or longer',
@@ -991,6 +1095,7 @@ const OLD_DRONE_SIGHTING: IncidentTypeConfiguration = {
           nextQuestionId: '57202',
         },
         {
+          id: '208786',
           code: 'Unknown',
           active: false,
           label: 'Unknown',
@@ -1008,6 +1113,7 @@ const OLD_DRONE_SIGHTING: IncidentTypeConfiguration = {
       multipleAnswers: true,
       answers: [
         {
+          id: '208789',
           code: '0 to less than 1m',
           active: false,
           label: '0 to less than 1m',
@@ -1016,6 +1122,7 @@ const OLD_DRONE_SIGHTING: IncidentTypeConfiguration = {
           nextQuestionId: '57203',
         },
         {
+          id: '208790',
           code: '1m to less than 2m',
           active: false,
           label: '1m to less than 2m',
@@ -1024,6 +1131,7 @@ const OLD_DRONE_SIGHTING: IncidentTypeConfiguration = {
           nextQuestionId: '57203',
         },
         {
+          id: '208791',
           code: '2m to less than 3m',
           active: false,
           label: '2m to less than 3m',
@@ -1032,6 +1140,7 @@ const OLD_DRONE_SIGHTING: IncidentTypeConfiguration = {
           nextQuestionId: '57203',
         },
         {
+          id: '208792',
           code: '3m or longer',
           active: false,
           label: '3m or longer',
@@ -1040,6 +1149,7 @@ const OLD_DRONE_SIGHTING: IncidentTypeConfiguration = {
           nextQuestionId: '57203',
         },
         {
+          id: '208793',
           code: 'Unknown',
           active: false,
           label: 'Unknown',
@@ -1057,6 +1167,7 @@ const OLD_DRONE_SIGHTING: IncidentTypeConfiguration = {
       multipleAnswers: true,
       answers: [
         {
+          id: '208794',
           code: 'Painted black',
           active: false,
           label: 'Painted black',
@@ -1065,6 +1176,7 @@ const OLD_DRONE_SIGHTING: IncidentTypeConfiguration = {
           nextQuestionId: '57204',
         },
         {
+          id: '208795',
           code: 'Removed camera',
           active: false,
           label: 'Removed camera',
@@ -1073,6 +1185,7 @@ const OLD_DRONE_SIGHTING: IncidentTypeConfiguration = {
           nextQuestionId: '57204',
         },
         {
+          id: '208796',
           code: 'Added hook',
           active: false,
           label: 'Added hook',
@@ -1081,6 +1194,7 @@ const OLD_DRONE_SIGHTING: IncidentTypeConfiguration = {
           nextQuestionId: '57204',
         },
         {
+          id: '208797',
           code: 'Covered lights',
           active: false,
           label: 'Covered lights',
@@ -1089,6 +1203,7 @@ const OLD_DRONE_SIGHTING: IncidentTypeConfiguration = {
           nextQuestionId: '57204',
         },
         {
+          id: '208798',
           code: 'Other (please specify)',
           active: false,
           label: 'Other (please specify)',
@@ -1097,6 +1212,7 @@ const OLD_DRONE_SIGHTING: IncidentTypeConfiguration = {
           nextQuestionId: '57204',
         },
         {
+          id: '208799',
           code: 'None',
           active: false,
           label: 'None',
@@ -1114,6 +1230,7 @@ const OLD_DRONE_SIGHTING: IncidentTypeConfiguration = {
       multipleAnswers: true,
       answers: [
         {
+          id: '208800',
           code: 'Intercepted',
           active: false,
           label: 'Intercepted',
@@ -1122,6 +1239,7 @@ const OLD_DRONE_SIGHTING: IncidentTypeConfiguration = {
           nextQuestionId: '57205',
         },
         {
+          id: '208801',
           code: 'Crashed',
           active: false,
           label: 'Crashed',
@@ -1139,6 +1257,7 @@ const OLD_DRONE_SIGHTING: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '208802',
           code: 'Yes',
           active: false,
           label: 'Yes',
@@ -1147,6 +1266,7 @@ const OLD_DRONE_SIGHTING: IncidentTypeConfiguration = {
           nextQuestionId: '57206',
         },
         {
+          id: '208803',
           code: 'No',
           active: false,
           label: 'No',
@@ -1164,6 +1284,7 @@ const OLD_DRONE_SIGHTING: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '208804',
           code: 'Yes (please enter the Finds Report incident number)',
           active: false,
           label: 'Yes (please enter the Finds Report incident number)',
@@ -1172,6 +1293,7 @@ const OLD_DRONE_SIGHTING: IncidentTypeConfiguration = {
           nextQuestionId: '57207',
         },
         {
+          id: '208805',
           code: 'No',
           active: false,
           label: 'No',
@@ -1189,6 +1311,7 @@ const OLD_DRONE_SIGHTING: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '208806',
           code: '0 to less than 100g',
           active: false,
           label: '0 to less than 100g',
@@ -1197,6 +1320,7 @@ const OLD_DRONE_SIGHTING: IncidentTypeConfiguration = {
           nextQuestionId: '57208',
         },
         {
+          id: '208807',
           code: '100g to less than 200g',
           active: false,
           label: '100g to less than 200g',
@@ -1205,6 +1329,7 @@ const OLD_DRONE_SIGHTING: IncidentTypeConfiguration = {
           nextQuestionId: '57208',
         },
         {
+          id: '208808',
           code: '200g to less than 300g',
           active: false,
           label: '200g to less than 300g',
@@ -1213,6 +1338,7 @@ const OLD_DRONE_SIGHTING: IncidentTypeConfiguration = {
           nextQuestionId: '57208',
         },
         {
+          id: '208809',
           code: '300g to less than 400g',
           active: false,
           label: '300g to less than 400g',
@@ -1221,6 +1347,7 @@ const OLD_DRONE_SIGHTING: IncidentTypeConfiguration = {
           nextQuestionId: '57208',
         },
         {
+          id: '208810',
           code: '400g to less than 500g',
           active: false,
           label: '400g to less than 500g',
@@ -1229,6 +1356,7 @@ const OLD_DRONE_SIGHTING: IncidentTypeConfiguration = {
           nextQuestionId: '57208',
         },
         {
+          id: '208811',
           code: '500g to less than 1kg',
           active: false,
           label: '500g to less than 1kg',
@@ -1237,6 +1365,7 @@ const OLD_DRONE_SIGHTING: IncidentTypeConfiguration = {
           nextQuestionId: '57208',
         },
         {
+          id: '208812',
           code: '1kg to less than 2kg',
           active: false,
           label: '1kg to less than 2kg',
@@ -1245,6 +1374,7 @@ const OLD_DRONE_SIGHTING: IncidentTypeConfiguration = {
           nextQuestionId: '57208',
         },
         {
+          id: '208813',
           code: '2kg to less than 3kg',
           active: false,
           label: '2kg to less than 3kg',
@@ -1253,6 +1383,7 @@ const OLD_DRONE_SIGHTING: IncidentTypeConfiguration = {
           nextQuestionId: '57208',
         },
         {
+          id: '208814',
           code: '3kg to less than 4kg',
           active: false,
           label: '3kg to less than 4kg',
@@ -1261,6 +1392,7 @@ const OLD_DRONE_SIGHTING: IncidentTypeConfiguration = {
           nextQuestionId: '57208',
         },
         {
+          id: '208815',
           code: '4kg to less than 5kg',
           active: false,
           label: '4kg to less than 5kg',
@@ -1269,6 +1401,7 @@ const OLD_DRONE_SIGHTING: IncidentTypeConfiguration = {
           nextQuestionId: '57208',
         },
         {
+          id: '208816',
           code: '5kg to less than 6kg',
           active: false,
           label: '5kg to less than 6kg',
@@ -1277,6 +1410,7 @@ const OLD_DRONE_SIGHTING: IncidentTypeConfiguration = {
           nextQuestionId: '57208',
         },
         {
+          id: '208817',
           code: '6kg to less than 7kg',
           active: false,
           label: '6kg to less than 7kg',
@@ -1285,6 +1419,7 @@ const OLD_DRONE_SIGHTING: IncidentTypeConfiguration = {
           nextQuestionId: '57208',
         },
         {
+          id: '208818',
           code: '7kg to less than 8kg',
           active: false,
           label: '7kg to less than 8kg',
@@ -1293,6 +1428,7 @@ const OLD_DRONE_SIGHTING: IncidentTypeConfiguration = {
           nextQuestionId: '57208',
         },
         {
+          id: '208819',
           code: '8kg to less than 9kg',
           active: false,
           label: '8kg to less than 9kg',
@@ -1301,6 +1437,7 @@ const OLD_DRONE_SIGHTING: IncidentTypeConfiguration = {
           nextQuestionId: '57208',
         },
         {
+          id: '208820',
           code: '9kg to less than 10kg',
           active: false,
           label: '9kg to less than 10kg',
@@ -1309,6 +1446,7 @@ const OLD_DRONE_SIGHTING: IncidentTypeConfiguration = {
           nextQuestionId: '57208',
         },
         {
+          id: '208821',
           code: 'More than 10kg',
           active: false,
           label: 'More than 10kg',
@@ -1317,6 +1455,7 @@ const OLD_DRONE_SIGHTING: IncidentTypeConfiguration = {
           nextQuestionId: '57208',
         },
         {
+          id: '208822',
           code: 'Unknown',
           active: false,
           label: 'Unknown',
@@ -1334,6 +1473,7 @@ const OLD_DRONE_SIGHTING: IncidentTypeConfiguration = {
       multipleAnswers: true,
       answers: [
         {
+          id: '208823',
           code: 'Cameras',
           active: false,
           label: 'Cameras',
@@ -1342,6 +1482,7 @@ const OLD_DRONE_SIGHTING: IncidentTypeConfiguration = {
           nextQuestionId: '57209',
         },
         {
+          id: '208824',
           code: 'Mobile phone devices',
           active: false,
           label: 'Mobile phone devices',
@@ -1350,6 +1491,7 @@ const OLD_DRONE_SIGHTING: IncidentTypeConfiguration = {
           nextQuestionId: '57209',
         },
         {
+          id: '208825',
           code: 'Drugs',
           active: false,
           label: 'Drugs',
@@ -1358,6 +1500,7 @@ const OLD_DRONE_SIGHTING: IncidentTypeConfiguration = {
           nextQuestionId: '57209',
         },
         {
+          id: '208826',
           code: 'Weapons',
           active: false,
           label: 'Weapons',
@@ -1366,6 +1509,7 @@ const OLD_DRONE_SIGHTING: IncidentTypeConfiguration = {
           nextQuestionId: '57209',
         },
         {
+          id: '208827',
           code: 'Alcohol/hooch',
           active: false,
           label: 'Alcohol/hooch',
@@ -1374,6 +1518,7 @@ const OLD_DRONE_SIGHTING: IncidentTypeConfiguration = {
           nextQuestionId: '57209',
         },
         {
+          id: '208828',
           code: 'Tobacco',
           active: false,
           label: 'Tobacco',
@@ -1382,6 +1527,7 @@ const OLD_DRONE_SIGHTING: IncidentTypeConfiguration = {
           nextQuestionId: '57209',
         },
         {
+          id: '208829',
           code: 'Other (please specify)',
           active: false,
           label: 'Other (please specify)',
@@ -1399,6 +1545,7 @@ const OLD_DRONE_SIGHTING: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '208830',
           code: 'Please specify',
           active: false,
           label: 'Please specify',
@@ -1416,6 +1563,7 @@ const OLD_DRONE_SIGHTING: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '208831',
           code: 'Yes (specify where sent)',
           active: false,
           label: 'Yes (specify where sent)',
@@ -1424,6 +1572,7 @@ const OLD_DRONE_SIGHTING: IncidentTypeConfiguration = {
           nextQuestionId: '57211',
         },
         {
+          id: '208832',
           code: 'No',
           active: false,
           label: 'No',
@@ -1441,6 +1590,7 @@ const OLD_DRONE_SIGHTING: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '208833',
           code: 'Yes',
           active: false,
           label: 'Yes',
@@ -1449,6 +1599,7 @@ const OLD_DRONE_SIGHTING: IncidentTypeConfiguration = {
           nextQuestionId: '57212',
         },
         {
+          id: '208834',
           code: 'No',
           active: false,
           label: 'No',
@@ -1466,6 +1617,7 @@ const OLD_DRONE_SIGHTING: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '208835',
           code: 'Yes',
           active: false,
           label: 'Yes',
@@ -1474,6 +1626,7 @@ const OLD_DRONE_SIGHTING: IncidentTypeConfiguration = {
           nextQuestionId: '57213',
         },
         {
+          id: '208836',
           code: 'No',
           active: false,
           label: 'No',
@@ -1491,6 +1644,7 @@ const OLD_DRONE_SIGHTING: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '208837',
           code: '0 to less than 10 metres',
           active: false,
           label: '0 to less than 10 metres',
@@ -1499,6 +1653,7 @@ const OLD_DRONE_SIGHTING: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
+          id: '208838',
           code: '10 to less than 100 metres',
           active: false,
           label: '10 to less than 100 metres',
@@ -1507,6 +1662,7 @@ const OLD_DRONE_SIGHTING: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
+          id: '208839',
           code: '100 to less than 200 metres',
           active: false,
           label: '100 to less than 200 metres',
@@ -1515,6 +1671,7 @@ const OLD_DRONE_SIGHTING: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
+          id: '208840',
           code: '200 metres or more',
           active: false,
           label: '200 metres or more',
@@ -1523,6 +1680,7 @@ const OLD_DRONE_SIGHTING: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
+          id: '208851',
           code: 'Yes',
           active: false,
           label: 'Yes',
@@ -1531,6 +1689,7 @@ const OLD_DRONE_SIGHTING: IncidentTypeConfiguration = {
           nextQuestionId: '57214',
         },
         {
+          id: '208852',
           code: 'No',
           active: false,
           label: 'No',
@@ -1548,6 +1707,7 @@ const OLD_DRONE_SIGHTING: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '208841',
           code: '0 to less than 10 metres',
           active: false,
           label: '0 to less than 10 metres',
@@ -1556,6 +1716,7 @@ const OLD_DRONE_SIGHTING: IncidentTypeConfiguration = {
           nextQuestionId: '57215',
         },
         {
+          id: '208842',
           code: '10 to less than 100 metres',
           active: false,
           label: '10 to less than 100 metres',
@@ -1564,6 +1725,7 @@ const OLD_DRONE_SIGHTING: IncidentTypeConfiguration = {
           nextQuestionId: '57215',
         },
         {
+          id: '208843',
           code: '100 to less than 200 metres',
           active: false,
           label: '100 to less than 200 metres',
@@ -1572,6 +1734,7 @@ const OLD_DRONE_SIGHTING: IncidentTypeConfiguration = {
           nextQuestionId: '57215',
         },
         {
+          id: '208844',
           code: '200 metres or more',
           active: false,
           label: '200 metres or more',
@@ -1589,6 +1752,7 @@ const OLD_DRONE_SIGHTING: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '208845',
           code: 'Yes',
           active: false,
           label: 'Yes',
@@ -1597,6 +1761,7 @@ const OLD_DRONE_SIGHTING: IncidentTypeConfiguration = {
           nextQuestionId: '57216',
         },
         {
+          id: '208846',
           code: 'No',
           active: false,
           label: 'No',
@@ -1614,6 +1779,7 @@ const OLD_DRONE_SIGHTING: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '208847',
           code: 'Yes',
           active: false,
           label: 'Yes',
@@ -1622,6 +1788,7 @@ const OLD_DRONE_SIGHTING: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
+          id: '208848',
           code: 'No',
           active: false,
           label: 'No',
@@ -1639,6 +1806,7 @@ const OLD_DRONE_SIGHTING: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '208849',
           code: 'Yes',
           active: true,
           label: 'Yes',
@@ -1647,6 +1815,7 @@ const OLD_DRONE_SIGHTING: IncidentTypeConfiguration = {
           nextQuestionId: '57214',
         },
         {
+          id: '208850',
           code: 'No',
           active: true,
           label: 'No',

@@ -1,4 +1,4 @@
-// Generated with ./scripts/updateNomisIncidentTypeConfigurations.ts at 2024-09-25T09:25:41.645Z
+// Generated with ./scripts/updateNomisIncidentTypeConfigurations.ts at 2024-10-15T17:17:08.927Z
 
 import { type IncidentTypeConfiguration } from '../../data/incidentTypeConfiguration/types'
 
@@ -15,6 +15,7 @@ const OLD_ASSAULT: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '178912',
           code: 'YES (ENTER DATE)',
           active: true,
           label: 'YES (ENTER DATE)',
@@ -23,6 +24,7 @@ const OLD_ASSAULT: IncidentTypeConfiguration = {
           nextQuestionId: '44913',
         },
         {
+          id: '178913',
           code: 'NO',
           active: true,
           label: 'NO',
@@ -40,6 +42,7 @@ const OLD_ASSAULT: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '178968',
           code: 'YES',
           active: true,
           label: 'YES',
@@ -48,6 +51,7 @@ const OLD_ASSAULT: IncidentTypeConfiguration = {
           nextQuestionId: '44612',
         },
         {
+          id: '178969',
           code: 'NO',
           active: true,
           label: 'NO',
@@ -65,6 +69,7 @@ const OLD_ASSAULT: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '179009',
           code: 'YES',
           active: true,
           label: 'YES',
@@ -73,6 +78,7 @@ const OLD_ASSAULT: IncidentTypeConfiguration = {
           nextQuestionId: '44186',
         },
         {
+          id: '179008',
           code: 'NO',
           active: true,
           label: 'NO',
@@ -90,6 +96,7 @@ const OLD_ASSAULT: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '179102',
           code: 'YES',
           active: true,
           label: 'YES',
@@ -98,6 +105,7 @@ const OLD_ASSAULT: IncidentTypeConfiguration = {
           nextQuestionId: '44201',
         },
         {
+          id: '179101',
           code: 'NO',
           active: true,
           label: 'NO',
@@ -115,6 +123,7 @@ const OLD_ASSAULT: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '179167',
           code: 'YES',
           active: true,
           label: 'YES',
@@ -123,6 +132,7 @@ const OLD_ASSAULT: IncidentTypeConfiguration = {
           nextQuestionId: '45134',
         },
         {
+          id: '179168',
           code: 'NO',
           active: true,
           label: 'NO',
@@ -140,6 +150,7 @@ const OLD_ASSAULT: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '179331',
           code: 'YES',
           active: true,
           label: 'YES',
@@ -148,6 +159,7 @@ const OLD_ASSAULT: IncidentTypeConfiguration = {
           nextQuestionId: '44793',
         },
         {
+          id: '179332',
           code: 'NO',
           active: true,
           label: 'NO',
@@ -165,6 +177,7 @@ const OLD_ASSAULT: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '179660',
           code: 'YES',
           active: true,
           label: 'YES',
@@ -173,6 +186,7 @@ const OLD_ASSAULT: IncidentTypeConfiguration = {
           nextQuestionId: '44464',
         },
         {
+          id: '179661',
           code: 'NO',
           active: true,
           label: 'NO',
@@ -190,6 +204,7 @@ const OLD_ASSAULT: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '179730',
           code: 'PRISONER ON PRISONER',
           active: true,
           label: 'PRISONER ON PRISONER',
@@ -198,6 +213,7 @@ const OLD_ASSAULT: IncidentTypeConfiguration = {
           nextQuestionId: '45130',
         },
         {
+          id: '179732',
           code: 'PRISONER ON OFFICER',
           active: true,
           label: 'PRISONER ON OFFICER',
@@ -206,6 +222,7 @@ const OLD_ASSAULT: IncidentTypeConfiguration = {
           nextQuestionId: '44495',
         },
         {
+          id: '179733',
           code: 'PRISONER ON OTHER',
           active: true,
           label: 'PRISONER ON OTHER',
@@ -214,6 +231,7 @@ const OLD_ASSAULT: IncidentTypeConfiguration = {
           nextQuestionId: '44495',
         },
         {
+          id: '179731',
           code: 'OTHER',
           active: true,
           label: 'OTHER',
@@ -231,6 +249,7 @@ const OLD_ASSAULT: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '179821',
           code: 'YES',
           active: true,
           label: 'YES',
@@ -239,6 +258,7 @@ const OLD_ASSAULT: IncidentTypeConfiguration = {
           nextQuestionId: '44652',
         },
         {
+          id: '179820',
           code: 'NO',
           active: true,
           label: 'NO',
@@ -256,6 +276,7 @@ const OLD_ASSAULT: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '179854',
           code: 'YES',
           active: true,
           label: 'YES',
@@ -264,6 +285,7 @@ const OLD_ASSAULT: IncidentTypeConfiguration = {
           nextQuestionId: '45088',
         },
         {
+          id: '179853',
           code: 'NO',
           active: true,
           label: 'NO',
@@ -281,6 +303,7 @@ const OLD_ASSAULT: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '180014',
           code: 'YES',
           active: true,
           label: 'YES',
@@ -289,6 +312,7 @@ const OLD_ASSAULT: IncidentTypeConfiguration = {
           nextQuestionId: '44943',
         },
         {
+          id: '180015',
           code: 'NO',
           active: true,
           label: 'NO',
@@ -306,6 +330,7 @@ const OLD_ASSAULT: IncidentTypeConfiguration = {
       multipleAnswers: true,
       answers: [
         {
+          id: '180071',
           code: 'FIREARM',
           active: true,
           label: 'FIREARM',
@@ -314,6 +339,7 @@ const OLD_ASSAULT: IncidentTypeConfiguration = {
           nextQuestionId: '45074',
         },
         {
+          id: '180068',
           code: 'CHEMICAL INCAPACITANT',
           active: true,
           label: 'CHEMICAL INCAPACITANT',
@@ -322,6 +348,7 @@ const OLD_ASSAULT: IncidentTypeConfiguration = {
           nextQuestionId: '45074',
         },
         {
+          id: '180073',
           code: 'KNIFE/BLADE',
           active: true,
           label: 'KNIFE/BLADE',
@@ -330,6 +357,7 @@ const OLD_ASSAULT: IncidentTypeConfiguration = {
           nextQuestionId: '45074',
         },
         {
+          id: '180076',
           code: 'OTHER SHARP INSTRUMENT',
           active: true,
           label: 'OTHER SHARP INSTRUMENT',
@@ -338,6 +366,7 @@ const OLD_ASSAULT: IncidentTypeConfiguration = {
           nextQuestionId: '45074',
         },
         {
+          id: '180067',
           code: 'BLUNT INSTRUMENT',
           active: true,
           label: 'BLUNT INSTRUMENT',
@@ -346,6 +375,7 @@ const OLD_ASSAULT: IncidentTypeConfiguration = {
           nextQuestionId: '45074',
         },
         {
+          id: '180074',
           code: 'LIGATURE',
           active: true,
           label: 'LIGATURE',
@@ -354,6 +384,7 @@ const OLD_ASSAULT: IncidentTypeConfiguration = {
           nextQuestionId: '45074',
         },
         {
+          id: '180069',
           code: 'DANGEROUS LIQUID',
           active: true,
           label: 'DANGEROUS LIQUID',
@@ -362,6 +393,7 @@ const OLD_ASSAULT: IncidentTypeConfiguration = {
           nextQuestionId: '45074',
         },
         {
+          id: '180070',
           code: 'EXCRETA/URINE',
           active: true,
           label: 'EXCRETA/URINE',
@@ -370,6 +402,7 @@ const OLD_ASSAULT: IncidentTypeConfiguration = {
           nextQuestionId: '45074',
         },
         {
+          id: '180077',
           code: 'SPITTING',
           active: true,
           label: 'SPITTING',
@@ -378,6 +411,7 @@ const OLD_ASSAULT: IncidentTypeConfiguration = {
           nextQuestionId: '45074',
         },
         {
+          id: '180072',
           code: 'FOOD',
           active: true,
           label: 'FOOD',
@@ -386,6 +420,7 @@ const OLD_ASSAULT: IncidentTypeConfiguration = {
           nextQuestionId: '45074',
         },
         {
+          id: '180079',
           code: 'THROWN FURNITURE',
           active: true,
           label: 'THROWN FURNITURE',
@@ -394,6 +429,7 @@ const OLD_ASSAULT: IncidentTypeConfiguration = {
           nextQuestionId: '45074',
         },
         {
+          id: '180078',
           code: 'THROWN EQUIPMENT',
           active: true,
           label: 'THROWN EQUIPMENT',
@@ -402,6 +438,7 @@ const OLD_ASSAULT: IncidentTypeConfiguration = {
           nextQuestionId: '45074',
         },
         {
+          id: '180075',
           code: 'OTHER',
           active: true,
           label: 'OTHER',
@@ -419,6 +456,7 @@ const OLD_ASSAULT: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '180193',
           code: 'YES',
           active: true,
           label: 'YES',
@@ -427,6 +465,7 @@ const OLD_ASSAULT: IncidentTypeConfiguration = {
           nextQuestionId: '44344',
         },
         {
+          id: '180192',
           code: 'NO',
           active: true,
           label: 'NO',
@@ -444,6 +483,7 @@ const OLD_ASSAULT: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '180283',
           code: 'YES',
           active: true,
           label: 'YES',
@@ -452,6 +492,7 @@ const OLD_ASSAULT: IncidentTypeConfiguration = {
           nextQuestionId: '44254',
         },
         {
+          id: '180282',
           code: 'NO',
           active: true,
           label: 'NO',
@@ -469,6 +510,7 @@ const OLD_ASSAULT: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '180540',
           code: 'YES',
           active: true,
           label: 'YES',
@@ -477,6 +519,7 @@ const OLD_ASSAULT: IncidentTypeConfiguration = {
           nextQuestionId: '44522',
         },
         {
+          id: '180539',
           code: 'NO',
           active: true,
           label: 'NO',
@@ -494,6 +537,7 @@ const OLD_ASSAULT: IncidentTypeConfiguration = {
       multipleAnswers: true,
       answers: [
         {
+          id: '180632',
           code: 'GRAZES, SCRATCHES OR ABRASIONS',
           active: true,
           label: 'GRAZES, SCRATCHES OR ABRASIONS',
@@ -502,6 +546,7 @@ const OLD_ASSAULT: IncidentTypeConfiguration = {
           nextQuestionId: '44460',
         },
         {
+          id: '180633',
           code: 'MINOR BRUISES',
           active: true,
           label: 'MINOR BRUISES',
@@ -510,6 +555,7 @@ const OLD_ASSAULT: IncidentTypeConfiguration = {
           nextQuestionId: '44460',
         },
         {
+          id: '180636',
           code: 'SWELLINGS',
           active: true,
           label: 'SWELLINGS',
@@ -518,6 +564,7 @@ const OLD_ASSAULT: IncidentTypeConfiguration = {
           nextQuestionId: '44460',
         },
         {
+          id: '180635',
           code: 'SUPERFICIAL CUTS',
           active: true,
           label: 'SUPERFICIAL CUTS',
@@ -526,6 +573,7 @@ const OLD_ASSAULT: IncidentTypeConfiguration = {
           nextQuestionId: '44460',
         },
         {
+          id: '180634',
           code: 'OTHER',
           active: true,
           label: 'OTHER',
@@ -543,6 +591,7 @@ const OLD_ASSAULT: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '180754',
           code: 'YES',
           active: true,
           label: 'YES',
@@ -551,6 +600,7 @@ const OLD_ASSAULT: IncidentTypeConfiguration = {
           nextQuestionId: '44367',
         },
         {
+          id: '180753',
           code: 'NO',
           active: true,
           label: 'NO',
@@ -568,6 +618,7 @@ const OLD_ASSAULT: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '181164',
           code: 'YES',
           active: true,
           label: 'YES',
@@ -576,6 +627,7 @@ const OLD_ASSAULT: IncidentTypeConfiguration = {
           nextQuestionId: '45042',
         },
         {
+          id: '181165',
           code: 'NO',
           active: true,
           label: 'NO',
@@ -593,6 +645,7 @@ const OLD_ASSAULT: IncidentTypeConfiguration = {
       multipleAnswers: true,
       answers: [
         {
+          id: '181242',
           code: 'STAFF',
           active: true,
           label: 'STAFF',
@@ -601,6 +654,7 @@ const OLD_ASSAULT: IncidentTypeConfiguration = {
           nextQuestionId: '44773',
         },
         {
+          id: '181241',
           code: 'PRISONERS',
           active: true,
           label: 'PRISONERS',
@@ -609,6 +663,7 @@ const OLD_ASSAULT: IncidentTypeConfiguration = {
           nextQuestionId: '44773',
         },
         {
+          id: '181238',
           code: 'CIVILIAN GRADES',
           active: true,
           label: 'CIVILIAN GRADES',
@@ -617,6 +672,7 @@ const OLD_ASSAULT: IncidentTypeConfiguration = {
           nextQuestionId: '44773',
         },
         {
+          id: '181240',
           code: 'POLICE',
           active: true,
           label: 'POLICE',
@@ -625,6 +681,7 @@ const OLD_ASSAULT: IncidentTypeConfiguration = {
           nextQuestionId: '44773',
         },
         {
+          id: '181239',
           code: 'EXTERNAL CIVILIANS',
           active: true,
           label: 'EXTERNAL CIVILIANS',
@@ -642,6 +699,7 @@ const OLD_ASSAULT: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '181518',
           code: 'YES',
           active: true,
           label: 'YES',
@@ -650,6 +708,7 @@ const OLD_ASSAULT: IncidentTypeConfiguration = {
           nextQuestionId: '44153',
         },
         {
+          id: '181517',
           code: 'NO',
           active: true,
           label: 'NO',
@@ -667,6 +726,7 @@ const OLD_ASSAULT: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '181628',
           code: 'YES',
           active: true,
           label: 'YES',
@@ -675,6 +735,7 @@ const OLD_ASSAULT: IncidentTypeConfiguration = {
           nextQuestionId: '45092',
         },
         {
+          id: '181629',
           code: 'NO',
           active: true,
           label: 'NO',
@@ -692,6 +753,7 @@ const OLD_ASSAULT: IncidentTypeConfiguration = {
       multipleAnswers: true,
       answers: [
         {
+          id: '181771',
           code: 'STAFF',
           active: true,
           label: 'STAFF',
@@ -700,6 +762,7 @@ const OLD_ASSAULT: IncidentTypeConfiguration = {
           nextQuestionId: '44391',
         },
         {
+          id: '181770',
           code: 'PRISONERS',
           active: true,
           label: 'PRISONERS',
@@ -708,6 +771,7 @@ const OLD_ASSAULT: IncidentTypeConfiguration = {
           nextQuestionId: '44391',
         },
         {
+          id: '181767',
           code: 'CIVILIAN GRADES',
           active: true,
           label: 'CIVILIAN GRADES',
@@ -716,6 +780,7 @@ const OLD_ASSAULT: IncidentTypeConfiguration = {
           nextQuestionId: '44391',
         },
         {
+          id: '181769',
           code: 'POLICE',
           active: true,
           label: 'POLICE',
@@ -724,6 +789,7 @@ const OLD_ASSAULT: IncidentTypeConfiguration = {
           nextQuestionId: '44391',
         },
         {
+          id: '181768',
           code: 'EXTERNAL CIVILIANS',
           active: true,
           label: 'EXTERNAL CIVILIANS',
@@ -741,6 +807,7 @@ const OLD_ASSAULT: IncidentTypeConfiguration = {
       multipleAnswers: true,
       answers: [
         {
+          id: '182153',
           code: 'FRACTURE',
           active: true,
           label: 'FRACTURE',
@@ -749,6 +816,7 @@ const OLD_ASSAULT: IncidentTypeConfiguration = {
           nextQuestionId: '44141',
         },
         {
+          id: '182155',
           code: 'SCALD OR BURN',
           active: true,
           label: 'SCALD OR BURN',
@@ -757,6 +825,7 @@ const OLD_ASSAULT: IncidentTypeConfiguration = {
           nextQuestionId: '44141',
         },
         {
+          id: '182156',
           code: 'STABBING',
           active: true,
           label: 'STABBING',
@@ -765,6 +834,7 @@ const OLD_ASSAULT: IncidentTypeConfiguration = {
           nextQuestionId: '44141',
         },
         {
+          id: '182150',
           code: 'CRUSHING',
           active: true,
           label: 'CRUSHING',
@@ -773,6 +843,7 @@ const OLD_ASSAULT: IncidentTypeConfiguration = {
           nextQuestionId: '44141',
         },
         {
+          id: '182152',
           code: 'EXTENSIVE/MULTIPLE BRUISING',
           active: true,
           label: 'EXTENSIVE/MULTIPLE BRUISING',
@@ -781,6 +852,7 @@ const OLD_ASSAULT: IncidentTypeConfiguration = {
           nextQuestionId: '44141',
         },
         {
+          id: '182147',
           code: 'BLACK EYE',
           active: true,
           label: 'BLACK EYE',
@@ -789,6 +861,7 @@ const OLD_ASSAULT: IncidentTypeConfiguration = {
           nextQuestionId: '44141',
         },
         {
+          id: '182148',
           code: 'BROKEN NOSE',
           active: true,
           label: 'BROKEN NOSE',
@@ -797,6 +870,7 @@ const OLD_ASSAULT: IncidentTypeConfiguration = {
           nextQuestionId: '44141',
         },
         {
+          id: '182149',
           code: 'BROKEN TEETH',
           active: true,
           label: 'BROKEN TEETH',
@@ -805,6 +879,7 @@ const OLD_ASSAULT: IncidentTypeConfiguration = {
           nextQuestionId: '44141',
         },
         {
+          id: '182151',
           code: 'CUTS REQUIRING SUTURES',
           active: true,
           label: 'CUTS REQUIRING SUTURES',
@@ -813,6 +888,7 @@ const OLD_ASSAULT: IncidentTypeConfiguration = {
           nextQuestionId: '44141',
         },
         {
+          id: '182146',
           code: 'BITES',
           active: true,
           label: 'BITES',
@@ -821,6 +897,7 @@ const OLD_ASSAULT: IncidentTypeConfiguration = {
           nextQuestionId: '44141',
         },
         {
+          id: '182154',
           code: 'GUN SHOT WOUND',
           active: true,
           label: 'GUN SHOT WOUND',
@@ -829,6 +906,7 @@ const OLD_ASSAULT: IncidentTypeConfiguration = {
           nextQuestionId: '44141',
         },
         {
+          id: '182157',
           code: 'TEMPORARY/PERMANENT BLINDNESS',
           active: true,
           label: 'TEMPORARY/PERMANENT BLINDNESS',
@@ -846,6 +924,7 @@ const OLD_ASSAULT: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '182269',
           code: 'YES',
           active: true,
           label: 'YES',
@@ -854,6 +933,7 @@ const OLD_ASSAULT: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
+          id: '182268',
           code: 'NO',
           active: true,
           label: 'NO',
@@ -871,6 +951,7 @@ const OLD_ASSAULT: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '182300',
           code: 'YES',
           active: true,
           label: 'YES',
@@ -879,6 +960,7 @@ const OLD_ASSAULT: IncidentTypeConfiguration = {
           nextQuestionId: '44880',
         },
         {
+          id: '182299',
           code: 'NO',
           active: true,
           label: 'NO',
@@ -896,6 +978,7 @@ const OLD_ASSAULT: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '182320',
           code: 'YES',
           active: true,
           label: 'YES',
@@ -904,6 +987,7 @@ const OLD_ASSAULT: IncidentTypeConfiguration = {
           nextQuestionId: '44405',
         },
         {
+          id: '182319',
           code: 'NO',
           active: true,
           label: 'NO',
@@ -921,6 +1005,7 @@ const OLD_ASSAULT: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '182468',
           code: 'YES',
           active: true,
           label: 'YES',
@@ -929,6 +1014,7 @@ const OLD_ASSAULT: IncidentTypeConfiguration = {
           nextQuestionId: '44495',
         },
         {
+          id: '182467',
           code: 'NO',
           active: true,
           label: 'NO',
@@ -946,6 +1032,7 @@ const OLD_ASSAULT: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '182475',
           code: 'ADMINISTRATION',
           active: true,
           label: 'ADMINISTRATION',
@@ -954,6 +1041,7 @@ const OLD_ASSAULT: IncidentTypeConfiguration = {
           nextQuestionId: '44586',
         },
         {
+          id: '182476',
           code: 'ASSOCIATION AREA',
           active: true,
           label: 'ASSOCIATION AREA',
@@ -962,6 +1050,7 @@ const OLD_ASSAULT: IncidentTypeConfiguration = {
           nextQuestionId: '44586',
         },
         {
+          id: '182477',
           code: 'CELL',
           active: true,
           label: 'CELL',
@@ -970,6 +1059,7 @@ const OLD_ASSAULT: IncidentTypeConfiguration = {
           nextQuestionId: '44586',
         },
         {
+          id: '182478',
           code: 'CHAPEL',
           active: true,
           label: 'CHAPEL',
@@ -978,6 +1068,7 @@ const OLD_ASSAULT: IncidentTypeConfiguration = {
           nextQuestionId: '44586',
         },
         {
+          id: '182480',
           code: 'DINING ROOM',
           active: true,
           label: 'DINING ROOM',
@@ -986,6 +1077,7 @@ const OLD_ASSAULT: IncidentTypeConfiguration = {
           nextQuestionId: '44586',
         },
         {
+          id: '182481',
           code: 'DORMITORY',
           active: true,
           label: 'DORMITORY',
@@ -994,6 +1086,7 @@ const OLD_ASSAULT: IncidentTypeConfiguration = {
           nextQuestionId: '44586',
         },
         {
+          id: '182482',
           code: 'EDUCATION',
           active: true,
           label: 'EDUCATION',
@@ -1002,6 +1095,7 @@ const OLD_ASSAULT: IncidentTypeConfiguration = {
           nextQuestionId: '44586',
         },
         {
+          id: '182484',
           code: 'EXERCISE YARD',
           active: true,
           label: 'EXERCISE YARD',
@@ -1010,6 +1104,7 @@ const OLD_ASSAULT: IncidentTypeConfiguration = {
           nextQuestionId: '44586',
         },
         {
+          id: '182486',
           code: 'GATE',
           active: true,
           label: 'GATE',
@@ -1018,6 +1113,7 @@ const OLD_ASSAULT: IncidentTypeConfiguration = {
           nextQuestionId: '44586',
         },
         {
+          id: '182487',
           code: 'GYM',
           active: true,
           label: 'GYM',
@@ -1026,6 +1122,7 @@ const OLD_ASSAULT: IncidentTypeConfiguration = {
           nextQuestionId: '44586',
         },
         {
+          id: '182488',
           code: 'HEALTH CARE CENTRE',
           active: true,
           label: 'HEALTH CARE CENTRE',
@@ -1034,6 +1131,7 @@ const OLD_ASSAULT: IncidentTypeConfiguration = {
           nextQuestionId: '44586',
         },
         {
+          id: '182491',
           code: 'KITCHEN',
           active: true,
           label: 'KITCHEN',
@@ -1042,6 +1140,7 @@ const OLD_ASSAULT: IncidentTypeConfiguration = {
           nextQuestionId: '44586',
         },
         {
+          id: '182493',
           code: 'OFFICE',
           active: true,
           label: 'OFFICE',
@@ -1050,6 +1149,7 @@ const OLD_ASSAULT: IncidentTypeConfiguration = {
           nextQuestionId: '44586',
         },
         {
+          id: '182495',
           code: 'RECEPTION',
           active: true,
           label: 'RECEPTION',
@@ -1058,6 +1158,7 @@ const OLD_ASSAULT: IncidentTypeConfiguration = {
           nextQuestionId: '44586',
         },
         {
+          id: '182496',
           code: 'RECESS',
           active: true,
           label: 'RECESS',
@@ -1066,6 +1167,7 @@ const OLD_ASSAULT: IncidentTypeConfiguration = {
           nextQuestionId: '44586',
         },
         {
+          id: '182497',
           code: 'SEGREGATION UNIT',
           active: true,
           label: 'SEGREGATION UNIT',
@@ -1074,6 +1176,7 @@ const OLD_ASSAULT: IncidentTypeConfiguration = {
           nextQuestionId: '44586',
         },
         {
+          id: '182499',
           code: 'SPECIAL UNIT',
           active: true,
           label: 'SPECIAL UNIT',
@@ -1082,6 +1185,7 @@ const OLD_ASSAULT: IncidentTypeConfiguration = {
           nextQuestionId: '44586',
         },
         {
+          id: '182498',
           code: 'SHOWERS/CHANGING ROOM',
           active: true,
           label: 'SHOWERS/CHANGING ROOM',
@@ -1090,6 +1194,7 @@ const OLD_ASSAULT: IncidentTypeConfiguration = {
           nextQuestionId: '44586',
         },
         {
+          id: '182502',
           code: 'VISITS',
           active: true,
           label: 'VISITS',
@@ -1098,6 +1203,7 @@ const OLD_ASSAULT: IncidentTypeConfiguration = {
           nextQuestionId: '44586',
         },
         {
+          id: '182504',
           code: 'WING',
           active: true,
           label: 'WING',
@@ -1106,6 +1212,7 @@ const OLD_ASSAULT: IncidentTypeConfiguration = {
           nextQuestionId: '44586',
         },
         {
+          id: '182506',
           code: 'WORKS DEPARTMENT',
           active: true,
           label: 'WORKS DEPARTMENT',
@@ -1114,6 +1221,7 @@ const OLD_ASSAULT: IncidentTypeConfiguration = {
           nextQuestionId: '44586',
         },
         {
+          id: '182507',
           code: 'WORKSHOP',
           active: true,
           label: 'WORKSHOP',
@@ -1122,6 +1230,7 @@ const OLD_ASSAULT: IncidentTypeConfiguration = {
           nextQuestionId: '44586',
         },
         {
+          id: '182505',
           code: 'WITHIN PERIMETER',
           active: true,
           label: 'WITHIN PERIMETER',
@@ -1130,6 +1239,7 @@ const OLD_ASSAULT: IncidentTypeConfiguration = {
           nextQuestionId: '44586',
         },
         {
+          id: '182483',
           code: 'ELSEWHERE',
           active: true,
           label: 'ELSEWHERE',
@@ -1138,6 +1248,7 @@ const OLD_ASSAULT: IncidentTypeConfiguration = {
           nextQuestionId: '44586',
         },
         {
+          id: '182485',
           code: 'FUNERAL',
           active: true,
           label: 'FUNERAL',
@@ -1146,6 +1257,7 @@ const OLD_ASSAULT: IncidentTypeConfiguration = {
           nextQuestionId: '44586',
         },
         {
+          id: '182489',
           code: 'HOSPITAL OUTSIDE (PATIENT)',
           active: true,
           label: 'HOSPITAL OUTSIDE (PATIENT)',
@@ -1154,6 +1266,7 @@ const OLD_ASSAULT: IncidentTypeConfiguration = {
           nextQuestionId: '44586',
         },
         {
+          id: '182490',
           code: 'HOSPITAL OUTSIDE (VISITING)',
           active: true,
           label: 'HOSPITAL OUTSIDE (VISITING)',
@@ -1162,6 +1275,7 @@ const OLD_ASSAULT: IncidentTypeConfiguration = {
           nextQuestionId: '44586',
         },
         {
+          id: '182494',
           code: 'OUTSIDE WORKING PARTY',
           active: true,
           label: 'OUTSIDE WORKING PARTY',
@@ -1170,6 +1284,7 @@ const OLD_ASSAULT: IncidentTypeConfiguration = {
           nextQuestionId: '44586',
         },
         {
+          id: '182500',
           code: 'SPORTS FIELD',
           active: true,
           label: 'SPORTS FIELD',
@@ -1178,6 +1293,7 @@ const OLD_ASSAULT: IncidentTypeConfiguration = {
           nextQuestionId: '44586',
         },
         {
+          id: '182501',
           code: 'VEHICLE',
           active: true,
           label: 'VEHICLE',
@@ -1186,6 +1302,7 @@ const OLD_ASSAULT: IncidentTypeConfiguration = {
           nextQuestionId: '44586',
         },
         {
+          id: '182503',
           code: 'WEDDINGS',
           active: true,
           label: 'WEDDINGS',
@@ -1194,6 +1311,7 @@ const OLD_ASSAULT: IncidentTypeConfiguration = {
           nextQuestionId: '44586',
         },
         {
+          id: '182492',
           code: 'MAGISTRATES COURT',
           active: true,
           label: 'MAGISTRATES COURT',
@@ -1202,6 +1320,7 @@ const OLD_ASSAULT: IncidentTypeConfiguration = {
           nextQuestionId: '44586',
         },
         {
+          id: '182479',
           code: 'CROWN COURT',
           active: true,
           label: 'CROWN COURT',

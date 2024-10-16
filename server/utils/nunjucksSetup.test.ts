@@ -4,10 +4,8 @@ import nunjucks from 'nunjucks'
 import nunjucksSetup from './nunjucksSetup'
 
 describe('nunjucks context', () => {
-  let app: express.Express
-
-  beforeEach(() => {
-    app = express()
+  beforeAll(() => {
+    const app = express()
     nunjucksSetup(app)
   })
 
@@ -52,5 +50,18 @@ describe('nunjucks context', () => {
         }).toThrow(`Macro ${macroName} not found`)
       },
     )
+  })
+
+  describe('panic extension', () => {
+    it('should throw an error instead of rendering the template', () => {
+      expect(() => {
+        nunjucks.renderString(
+          `
+            {% panic "unreachable" %}
+          `,
+          {},
+        )
+      }).toThrow('unreachable')
+    })
   })
 })

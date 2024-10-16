@@ -57,6 +57,7 @@ export default function nunjucksSetup(app: express.Express): void {
   // misc utils
   njkEnv.addFilter('assetMap', (url: string) => assetManifest[url] || url)
   njkEnv.addGlobal('callAsMacro', callAsMacro)
+  njkEnv.addExtension('panic', new PanicExtension())
 
   // name formatting
   njkEnv.addFilter('convertToTitleCase', convertToTitleCase)
@@ -83,6 +84,25 @@ export default function nunjucksSetup(app: express.Express): void {
   njkEnv.addFilter('govukCheckedItemsDivider', govukCheckedItemsDivider)
   njkEnv.addFilter('govukSelectInsertDefault', govukSelectInsertDefault)
   njkEnv.addFilter('govukSelectSetSelected', govukSelectSetSelected)
+}
+
+class PanicExtension implements nunjucks.Extension {
+  tags = ['panic']
+
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  parse(parser: any, nodes: any): any {
+    const token = parser.nextToken()
+    const args = parser.parseSignature(null, true)
+    parser.advanceAfterBlockEnd(token.value)
+    return new nodes.CallExtension(this, 'panic', args)
+  }
+
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  panic(_context: any, message?: string): never {
+    const error = new Error(message ?? 'Template rendering aborted')
+    error.name = 'Panic'
+    throw error
+  }
 }
 
 function callAsMacro(name: string): (...args: unknown[]) => unknown {

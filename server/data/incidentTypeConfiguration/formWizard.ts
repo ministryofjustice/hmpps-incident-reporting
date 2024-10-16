@@ -55,12 +55,6 @@ export function generateFields(config: IncidentTypeConfiguration): FormWizard.Fi
       //       Commenting this out but it may be one of these things that depend on how
       //       we write the controller.
       // multiple: question.multipleAnswers,
-      fieldset: {
-        legend: {
-          text: question.label,
-          classes: 'govuk-fieldset__legend--m',
-        },
-      },
       component: question.multipleAnswers ? 'govukCheckboxes' : 'govukRadios',
       items: question.answers
         .filter(answer => answer.active)

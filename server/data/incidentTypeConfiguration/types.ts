@@ -27,7 +27,7 @@ export interface QuestionConfiguration {
 }
 
 export interface AnswerConfiguration {
-  /** Answer identifier */
+  /** Answer ID, useful to generate unique names for comment/date inputs */
   id: string
   /** Answer as seen by machines, e.g. it shouldn't change.
    *

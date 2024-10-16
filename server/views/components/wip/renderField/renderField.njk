@@ -50,5 +50,5 @@ USAGE:
         items: items
     }) }}
 {% elif field.component %}
-  <strong>WARNING: Unknown field's component {{ field.component }}</strong>
+  {% panic "Unknown field's component: " + field.component %}
 {% endif %}

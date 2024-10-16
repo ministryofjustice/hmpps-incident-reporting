@@ -1,19 +1,19 @@
 import type Express from 'express'
-import FormWizard from 'hmpo-form-wizard'
+import type FormWizard from 'hmpo-form-wizard'
 
 import { BaseController } from './index'
 
+class TestController extends BaseController {
+  protected errorMessage(error: FormWizard.Error): string {
+    if (error.key === 'name' && error.type === 'required') {
+      return 'Enter your name'
+    }
+    return super.errorMessage(error)
+  }
+}
+
 describe('Base form wizard controller', () => {
   describe('Error messages', () => {
-    class TestController extends BaseController {
-      protected errorMessage(error: FormWizard.Error): string {
-        if (error.key === 'name' && error.type === 'required') {
-          return 'Enter your name'
-        }
-        return super.errorMessage(error)
-      }
-    }
-
     it.each([
       { messageSource: 'generic', fieldName: 'email', expectedError: 'This field is required' },
       { messageSource: 'controller-overridden', fieldName: 'name', expectedError: 'Enter your name' },

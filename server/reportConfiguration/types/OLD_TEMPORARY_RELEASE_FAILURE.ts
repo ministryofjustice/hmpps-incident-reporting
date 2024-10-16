@@ -1,4 +1,4 @@
-// Generated with ./scripts/updateNomisIncidentTypeConfigurations.ts at 2024-09-25T09:26:09.101Z
+// Generated with ./scripts/updateNomisIncidentTypeConfigurations.ts at 2024-10-15T17:17:35.273Z
 
 import { type IncidentTypeConfiguration } from '../../data/incidentTypeConfiguration/types'
 
@@ -15,6 +15,7 @@ const OLD_TEMPORARY_RELEASE_FAILURE: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '179344',
           code: 'YES',
           active: true,
           label: 'YES',
@@ -23,6 +24,7 @@ const OLD_TEMPORARY_RELEASE_FAILURE: IncidentTypeConfiguration = {
           nextQuestionId: '44772',
         },
         {
+          id: '179345',
           code: 'NO',
           active: true,
           label: 'NO',
@@ -40,6 +42,7 @@ const OLD_TEMPORARY_RELEASE_FAILURE: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '179358',
           code: 'YES',
           active: true,
           label: 'YES',
@@ -48,6 +51,7 @@ const OLD_TEMPORARY_RELEASE_FAILURE: IncidentTypeConfiguration = {
           nextQuestionId: '44694',
         },
         {
+          id: '179359',
           code: 'NO',
           active: true,
           label: 'NO',
@@ -65,6 +69,7 @@ const OLD_TEMPORARY_RELEASE_FAILURE: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '179663',
           code: 'YES',
           active: true,
           label: 'YES',
@@ -73,6 +78,7 @@ const OLD_TEMPORARY_RELEASE_FAILURE: IncidentTypeConfiguration = {
           nextQuestionId: '44893',
         },
         {
+          id: '179662',
           code: 'NO',
           active: true,
           label: 'NO',
@@ -90,6 +96,7 @@ const OLD_TEMPORARY_RELEASE_FAILURE: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '179679',
           code: 'YES',
           active: true,
           label: 'YES',
@@ -98,6 +105,7 @@ const OLD_TEMPORARY_RELEASE_FAILURE: IncidentTypeConfiguration = {
           nextQuestionId: '44934',
         },
         {
+          id: '179680',
           code: 'NO',
           active: true,
           label: 'NO',
@@ -115,6 +123,7 @@ const OLD_TEMPORARY_RELEASE_FAILURE: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '179705',
           code: 'YES',
           active: true,
           label: 'YES',
@@ -123,6 +132,7 @@ const OLD_TEMPORARY_RELEASE_FAILURE: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
+          id: '179704',
           code: 'NO',
           active: true,
           label: 'NO',
@@ -140,6 +150,7 @@ const OLD_TEMPORARY_RELEASE_FAILURE: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '180013',
           code: 'YES',
           active: true,
           label: 'YES',
@@ -148,6 +159,7 @@ const OLD_TEMPORARY_RELEASE_FAILURE: IncidentTypeConfiguration = {
           nextQuestionId: '44736',
         },
         {
+          id: '180012',
           code: 'NO',
           active: true,
           label: 'NO',
@@ -165,6 +177,7 @@ const OLD_TEMPORARY_RELEASE_FAILURE: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '180607',
           code: 'YES',
           active: true,
           label: 'YES',
@@ -173,6 +186,7 @@ const OLD_TEMPORARY_RELEASE_FAILURE: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
+          id: '180606',
           code: 'NO',
           active: true,
           label: 'NO',
@@ -190,6 +204,7 @@ const OLD_TEMPORARY_RELEASE_FAILURE: IncidentTypeConfiguration = {
       multipleAnswers: true,
       answers: [
         {
+          id: '180902',
           code: 'MURDER/ATTEMPTED MURDER',
           active: true,
           label: 'MURDER/ATTEMPTED MURDER',
@@ -198,6 +213,7 @@ const OLD_TEMPORARY_RELEASE_FAILURE: IncidentTypeConfiguration = {
           nextQuestionId: '44602',
         },
         {
+          id: '180901',
           code: 'MANSLAUGHTER',
           active: true,
           label: 'MANSLAUGHTER',
@@ -206,6 +222,7 @@ const OLD_TEMPORARY_RELEASE_FAILURE: IncidentTypeConfiguration = {
           nextQuestionId: '44602',
         },
         {
+          id: '180898',
           code: 'ASSAULT',
           active: true,
           label: 'ASSAULT',
@@ -214,6 +231,7 @@ const OLD_TEMPORARY_RELEASE_FAILURE: IncidentTypeConfiguration = {
           nextQuestionId: '44602',
         },
         {
+          id: '180906',
           code: 'RAPE/ATTEMPTED RAPE',
           active: true,
           label: 'RAPE/ATTEMPTED RAPE',
@@ -222,6 +240,7 @@ const OLD_TEMPORARY_RELEASE_FAILURE: IncidentTypeConfiguration = {
           nextQuestionId: '44602',
         },
         {
+          id: '180904',
           code: 'OTHER SEXUAL OFFENCE',
           active: true,
           label: 'OTHER SEXUAL OFFENCE',
@@ -230,6 +249,7 @@ const OLD_TEMPORARY_RELEASE_FAILURE: IncidentTypeConfiguration = {
           nextQuestionId: '44602',
         },
         {
+          id: '180908',
           code: 'THEFT',
           active: true,
           label: 'THEFT',
@@ -238,6 +258,7 @@ const OLD_TEMPORARY_RELEASE_FAILURE: IncidentTypeConfiguration = {
           nextQuestionId: '44602',
         },
         {
+          id: '180907',
           code: 'ROBBERY',
           active: true,
           label: 'ROBBERY',
@@ -246,6 +267,7 @@ const OLD_TEMPORARY_RELEASE_FAILURE: IncidentTypeConfiguration = {
           nextQuestionId: '44602',
         },
         {
+          id: '180900',
           code: 'FIREARM OFFENCE',
           active: true,
           label: 'FIREARM OFFENCE',
@@ -254,6 +276,7 @@ const OLD_TEMPORARY_RELEASE_FAILURE: IncidentTypeConfiguration = {
           nextQuestionId: '44602',
         },
         {
+          id: '180899',
           code: 'DRUG OFFENCE',
           active: true,
           label: 'DRUG OFFENCE',
@@ -262,6 +285,7 @@ const OLD_TEMPORARY_RELEASE_FAILURE: IncidentTypeConfiguration = {
           nextQuestionId: '44602',
         },
         {
+          id: '180909',
           code: 'VEHICLE CRIME',
           active: true,
           label: 'VEHICLE CRIME',
@@ -270,6 +294,7 @@ const OLD_TEMPORARY_RELEASE_FAILURE: IncidentTypeConfiguration = {
           nextQuestionId: '44602',
         },
         {
+          id: '180905',
           code: 'PUBLIC ORDER OFFENCE',
           active: true,
           label: 'PUBLIC ORDER OFFENCE',
@@ -278,6 +303,7 @@ const OLD_TEMPORARY_RELEASE_FAILURE: IncidentTypeConfiguration = {
           nextQuestionId: '44602',
         },
         {
+          id: '180903',
           code: 'OTHER',
           active: true,
           label: 'OTHER',
@@ -295,6 +321,7 @@ const OLD_TEMPORARY_RELEASE_FAILURE: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '181072',
           code: 'YES',
           active: true,
           label: 'YES',
@@ -303,6 +330,7 @@ const OLD_TEMPORARY_RELEASE_FAILURE: IncidentTypeConfiguration = {
           nextQuestionId: '44942',
         },
         {
+          id: '181071',
           code: 'NO',
           active: true,
           label: 'NO',
@@ -320,6 +348,7 @@ const OLD_TEMPORARY_RELEASE_FAILURE: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '181162',
           code: 'YES',
           active: true,
           label: 'YES',
@@ -328,6 +357,7 @@ const OLD_TEMPORARY_RELEASE_FAILURE: IncidentTypeConfiguration = {
           nextQuestionId: '44266',
         },
         {
+          id: '181163',
           code: 'NO',
           active: true,
           label: 'NO',
@@ -345,6 +375,7 @@ const OLD_TEMPORARY_RELEASE_FAILURE: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '181315',
           code: 'YES',
           active: true,
           label: 'YES',
@@ -353,6 +384,7 @@ const OLD_TEMPORARY_RELEASE_FAILURE: IncidentTypeConfiguration = {
           nextQuestionId: '44997',
         },
         {
+          id: '181316',
           code: 'NO',
           active: true,
           label: 'NO',
@@ -370,6 +402,7 @@ const OLD_TEMPORARY_RELEASE_FAILURE: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '181534',
           code: 'YES',
           active: false,
           label: 'YES',
@@ -378,6 +411,7 @@ const OLD_TEMPORARY_RELEASE_FAILURE: IncidentTypeConfiguration = {
           nextQuestionId: '44345',
         },
         {
+          id: '181535',
           code: 'NO',
           active: false,
           label: 'NO',
@@ -395,6 +429,7 @@ const OLD_TEMPORARY_RELEASE_FAILURE: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '181561',
           code: 'YES',
           active: true,
           label: 'YES',
@@ -403,6 +438,7 @@ const OLD_TEMPORARY_RELEASE_FAILURE: IncidentTypeConfiguration = {
           nextQuestionId: '44926',
         },
         {
+          id: '181560',
           code: 'NO',
           active: true,
           label: 'NO',
@@ -420,6 +456,7 @@ const OLD_TEMPORARY_RELEASE_FAILURE: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '181683',
           code: 'YES',
           active: true,
           label: 'YES',
@@ -428,6 +465,7 @@ const OLD_TEMPORARY_RELEASE_FAILURE: IncidentTypeConfiguration = {
           nextQuestionId: '44459',
         },
         {
+          id: '181682',
           code: 'NO',
           active: true,
           label: 'NO',
@@ -445,6 +483,7 @@ const OLD_TEMPORARY_RELEASE_FAILURE: IncidentTypeConfiguration = {
       multipleAnswers: true,
       answers: [
         {
+          id: '181735',
           code: 'MURDER/ATTEMPTED MURDER',
           active: true,
           label: 'MURDER/ATTEMPTED MURDER',
@@ -453,6 +492,7 @@ const OLD_TEMPORARY_RELEASE_FAILURE: IncidentTypeConfiguration = {
           nextQuestionId: '44602',
         },
         {
+          id: '181734',
           code: 'MANSLAUGHTER',
           active: true,
           label: 'MANSLAUGHTER',
@@ -461,6 +501,7 @@ const OLD_TEMPORARY_RELEASE_FAILURE: IncidentTypeConfiguration = {
           nextQuestionId: '44602',
         },
         {
+          id: '181731',
           code: 'ASSAULT',
           active: true,
           label: 'ASSAULT',
@@ -469,6 +510,7 @@ const OLD_TEMPORARY_RELEASE_FAILURE: IncidentTypeConfiguration = {
           nextQuestionId: '44602',
         },
         {
+          id: '181739',
           code: 'RAPE/ATTEMPTED RAPE',
           active: true,
           label: 'RAPE/ATTEMPTED RAPE',
@@ -477,6 +519,7 @@ const OLD_TEMPORARY_RELEASE_FAILURE: IncidentTypeConfiguration = {
           nextQuestionId: '44602',
         },
         {
+          id: '181737',
           code: 'OTHER SEXUAL OFFENCE',
           active: true,
           label: 'OTHER SEXUAL OFFENCE',
@@ -485,6 +528,7 @@ const OLD_TEMPORARY_RELEASE_FAILURE: IncidentTypeConfiguration = {
           nextQuestionId: '44602',
         },
         {
+          id: '181741',
           code: 'THEFT',
           active: true,
           label: 'THEFT',
@@ -493,6 +537,7 @@ const OLD_TEMPORARY_RELEASE_FAILURE: IncidentTypeConfiguration = {
           nextQuestionId: '44602',
         },
         {
+          id: '181740',
           code: 'ROBBERY',
           active: true,
           label: 'ROBBERY',
@@ -501,6 +546,7 @@ const OLD_TEMPORARY_RELEASE_FAILURE: IncidentTypeConfiguration = {
           nextQuestionId: '44602',
         },
         {
+          id: '181733',
           code: 'FIREARM OFFENCE',
           active: true,
           label: 'FIREARM OFFENCE',
@@ -509,6 +555,7 @@ const OLD_TEMPORARY_RELEASE_FAILURE: IncidentTypeConfiguration = {
           nextQuestionId: '44602',
         },
         {
+          id: '181732',
           code: 'DRUG OFFENCE',
           active: true,
           label: 'DRUG OFFENCE',
@@ -517,6 +564,7 @@ const OLD_TEMPORARY_RELEASE_FAILURE: IncidentTypeConfiguration = {
           nextQuestionId: '44602',
         },
         {
+          id: '181742',
           code: 'VEHICLE CRIME',
           active: true,
           label: 'VEHICLE CRIME',
@@ -525,6 +573,7 @@ const OLD_TEMPORARY_RELEASE_FAILURE: IncidentTypeConfiguration = {
           nextQuestionId: '44602',
         },
         {
+          id: '181738',
           code: 'PUBLIC ORDER OFFENCE',
           active: true,
           label: 'PUBLIC ORDER OFFENCE',
@@ -533,6 +582,7 @@ const OLD_TEMPORARY_RELEASE_FAILURE: IncidentTypeConfiguration = {
           nextQuestionId: '44602',
         },
         {
+          id: '181736',
           code: 'OTHER',
           active: true,
           label: 'OTHER',
@@ -550,6 +600,7 @@ const OLD_TEMPORARY_RELEASE_FAILURE: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '181764',
           code: 'COMPASSIONATE',
           active: true,
           label: 'COMPASSIONATE',
@@ -558,6 +609,7 @@ const OLD_TEMPORARY_RELEASE_FAILURE: IncidentTypeConfiguration = {
           nextQuestionId: '45081',
         },
         {
+          id: '181765',
           code: 'FACILITY',
           active: true,
           label: 'FACILITY',
@@ -566,6 +618,7 @@ const OLD_TEMPORARY_RELEASE_FAILURE: IncidentTypeConfiguration = {
           nextQuestionId: '45081',
         },
         {
+          id: '181766',
           code: 'RESETTLEMENT',
           active: true,
           label: 'RESETTLEMENT',
@@ -574,6 +627,7 @@ const OLD_TEMPORARY_RELEASE_FAILURE: IncidentTypeConfiguration = {
           nextQuestionId: '45081',
         },
         {
+          id: '181763',
           code: 'COMMUNITY VISIT',
           active: true,
           label: 'COMMUNITY VISIT',
@@ -591,6 +645,7 @@ const OLD_TEMPORARY_RELEASE_FAILURE: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '181950',
           code: 'POLICE ARREST',
           active: true,
           label: 'POLICE ARREST',
@@ -599,6 +654,7 @@ const OLD_TEMPORARY_RELEASE_FAILURE: IncidentTypeConfiguration = {
           nextQuestionId: '44259',
         },
         {
+          id: '181951',
           code: 'PRISON STAFF ARREST',
           active: true,
           label: 'PRISON STAFF ARREST',
@@ -607,6 +663,7 @@ const OLD_TEMPORARY_RELEASE_FAILURE: IncidentTypeConfiguration = {
           nextQuestionId: '44259',
         },
         {
+          id: '181952',
           code: 'SURRENDER',
           active: true,
           label: 'SURRENDER',
@@ -615,6 +672,7 @@ const OLD_TEMPORARY_RELEASE_FAILURE: IncidentTypeConfiguration = {
           nextQuestionId: '44259',
         },
         {
+          id: '181949',
           code: 'OTHER',
           active: true,
           label: 'OTHER',
@@ -632,6 +690,7 @@ const OLD_TEMPORARY_RELEASE_FAILURE: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '182285',
           code: 'YES',
           active: true,
           label: 'YES',
@@ -640,6 +699,7 @@ const OLD_TEMPORARY_RELEASE_FAILURE: IncidentTypeConfiguration = {
           nextQuestionId: '44826',
         },
         {
+          id: '182284',
           code: 'NO',
           active: true,
           label: 'NO',
@@ -657,6 +717,7 @@ const OLD_TEMPORARY_RELEASE_FAILURE: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '182600',
           code: 'YES',
           active: true,
           label: 'YES',
@@ -665,6 +726,7 @@ const OLD_TEMPORARY_RELEASE_FAILURE: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
+          id: '182599',
           code: 'NO',
           active: true,
           label: 'NO',

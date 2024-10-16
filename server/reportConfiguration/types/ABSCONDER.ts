@@ -1,4 +1,4 @@
-// Generated with ./scripts/updateNomisIncidentTypeConfigurations.ts at 2024-09-25T09:25:40.554Z
+// Generated with ./scripts/updateNomisIncidentTypeConfigurations.ts at 2024-10-15T17:17:07.286Z
 
 import { type IncidentTypeConfiguration } from '../../data/incidentTypeConfiguration/types'
 
@@ -15,6 +15,7 @@ const ABSCONDER: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '179161',
           code: 'YES',
           active: true,
           label: 'YES',
@@ -23,6 +24,7 @@ const ABSCONDER: IncidentTypeConfiguration = {
           nextQuestionId: '44854',
         },
         {
+          id: '179162',
           code: 'NO',
           active: true,
           label: 'NO',
@@ -40,6 +42,7 @@ const ABSCONDER: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '179380',
           code: 'YES',
           active: true,
           label: 'YES',
@@ -48,6 +51,7 @@ const ABSCONDER: IncidentTypeConfiguration = {
           nextQuestionId: '44284',
         },
         {
+          id: '179379',
           code: 'NO',
           active: true,
           label: 'NO',
@@ -65,6 +69,7 @@ const ABSCONDER: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '179406',
           code: 'YES',
           active: true,
           label: 'YES',
@@ -73,6 +78,7 @@ const ABSCONDER: IncidentTypeConfiguration = {
           nextQuestionId: '44861',
         },
         {
+          id: '179405',
           code: 'NO',
           active: true,
           label: 'NO',
@@ -90,6 +96,7 @@ const ABSCONDER: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '179607',
           code: 'YES (ENTER DATE)',
           active: true,
           label: 'YES (ENTER DATE)',
@@ -98,6 +105,7 @@ const ABSCONDER: IncidentTypeConfiguration = {
           nextQuestionId: '44717',
         },
         {
+          id: '179606',
           code: 'NO',
           active: true,
           label: 'NO',
@@ -115,6 +123,7 @@ const ABSCONDER: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '179847',
           code: 'POLICE ARREST',
           active: true,
           label: 'POLICE ARREST',
@@ -123,6 +132,7 @@ const ABSCONDER: IncidentTypeConfiguration = {
           nextQuestionId: '44198',
         },
         {
+          id: '179848',
           code: 'PRISON STAFF ARREST',
           active: true,
           label: 'PRISON STAFF ARREST',
@@ -131,6 +141,7 @@ const ABSCONDER: IncidentTypeConfiguration = {
           nextQuestionId: '44198',
         },
         {
+          id: '179849',
           code: 'SURRENDER',
           active: true,
           label: 'SURRENDER',
@@ -139,6 +150,7 @@ const ABSCONDER: IncidentTypeConfiguration = {
           nextQuestionId: '44198',
         },
         {
+          id: '179846',
           code: 'OTHER',
           active: true,
           label: 'OTHER',
@@ -156,6 +168,7 @@ const ABSCONDER: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '179890',
           code: 'YES',
           active: true,
           label: 'YES',
@@ -164,6 +177,7 @@ const ABSCONDER: IncidentTypeConfiguration = {
           nextQuestionId: '44615',
         },
         {
+          id: '179889',
           code: 'NO',
           active: true,
           label: 'NO',
@@ -181,6 +195,7 @@ const ABSCONDER: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '180085',
           code: 'ENTER AMOUNT IN POUND STERLING',
           active: true,
           label: 'ENTER AMOUNT IN POUND STERLING',
@@ -198,6 +213,7 @@ const ABSCONDER: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '180389',
           code: 'YES',
           active: true,
           label: 'YES',
@@ -206,6 +222,7 @@ const ABSCONDER: IncidentTypeConfiguration = {
           nextQuestionId: '44941',
         },
         {
+          id: '180390',
           code: 'NO',
           active: true,
           label: 'NO',
@@ -223,6 +240,7 @@ const ABSCONDER: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '180628',
           code: 'YES',
           active: true,
           label: 'YES',
@@ -231,6 +249,7 @@ const ABSCONDER: IncidentTypeConfiguration = {
           nextQuestionId: '45077',
         },
         {
+          id: '180627',
           code: 'NO',
           active: true,
           label: 'NO',
@@ -248,6 +267,7 @@ const ABSCONDER: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '180641',
           code: 'YES',
           active: true,
           label: 'YES',
@@ -256,6 +276,7 @@ const ABSCONDER: IncidentTypeConfiguration = {
           nextQuestionId: '44868',
         },
         {
+          id: '180642',
           code: 'NO',
           active: true,
           label: 'NO',
@@ -273,6 +294,7 @@ const ABSCONDER: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '180993',
           code: 'FROM ESTABLISHMENT',
           active: true,
           label: 'FROM ESTABLISHMENT',
@@ -281,6 +303,7 @@ const ABSCONDER: IncidentTypeConfiguration = {
           nextQuestionId: '44271',
         },
         {
+          id: '180995',
           code: 'SUPERVISED OUTSIDE PARTY',
           active: true,
           label: 'SUPERVISED OUTSIDE PARTY',
@@ -289,6 +312,7 @@ const ABSCONDER: IncidentTypeConfiguration = {
           nextQuestionId: '44271',
         },
         {
+          id: '180996',
           code: 'UNSUPERVISED OUTSIDE PARTY',
           active: true,
           label: 'UNSUPERVISED OUTSIDE PARTY',
@@ -297,6 +321,7 @@ const ABSCONDER: IncidentTypeConfiguration = {
           nextQuestionId: '44271',
         },
         {
+          id: '180994',
           code: 'OTHER',
           active: true,
           label: 'OTHER',
@@ -314,6 +339,7 @@ const ABSCONDER: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '181146',
           code: 'YES',
           active: true,
           label: 'YES',
@@ -322,6 +348,7 @@ const ABSCONDER: IncidentTypeConfiguration = {
           nextQuestionId: '44609',
         },
         {
+          id: '181145',
           code: 'NO',
           active: true,
           label: 'NO',
@@ -339,6 +366,7 @@ const ABSCONDER: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '181258',
           code: 'MINOR',
           active: true,
           label: 'MINOR',
@@ -347,6 +375,7 @@ const ABSCONDER: IncidentTypeConfiguration = {
           nextQuestionId: '44467',
         },
         {
+          id: '181259',
           code: 'SERIOUS',
           active: true,
           label: 'SERIOUS',
@@ -355,6 +384,7 @@ const ABSCONDER: IncidentTypeConfiguration = {
           nextQuestionId: '44467',
         },
         {
+          id: '181257',
           code: 'EXTENSIVE',
           active: true,
           label: 'EXTENSIVE',
@@ -372,6 +402,7 @@ const ABSCONDER: IncidentTypeConfiguration = {
       multipleAnswers: true,
       answers: [
         {
+          id: '181404',
           code: 'MURDER/ATTEMPTED MURDER',
           active: true,
           label: 'MURDER/ATTEMPTED MURDER',
@@ -380,6 +411,7 @@ const ABSCONDER: IncidentTypeConfiguration = {
           nextQuestionId: '44416',
         },
         {
+          id: '181403',
           code: 'MANSLAUGHTER',
           active: true,
           label: 'MANSLAUGHTER',
@@ -388,6 +420,7 @@ const ABSCONDER: IncidentTypeConfiguration = {
           nextQuestionId: '44416',
         },
         {
+          id: '181400',
           code: 'ASSAULT',
           active: true,
           label: 'ASSAULT',
@@ -396,6 +429,7 @@ const ABSCONDER: IncidentTypeConfiguration = {
           nextQuestionId: '44416',
         },
         {
+          id: '181408',
           code: 'RAPE/ATTEMPTED RAPE',
           active: true,
           label: 'RAPE/ATTEMPTED RAPE',
@@ -404,6 +438,7 @@ const ABSCONDER: IncidentTypeConfiguration = {
           nextQuestionId: '44416',
         },
         {
+          id: '181406',
           code: 'OTHER SEXUAL OFFENCE',
           active: true,
           label: 'OTHER SEXUAL OFFENCE',
@@ -412,6 +447,7 @@ const ABSCONDER: IncidentTypeConfiguration = {
           nextQuestionId: '44416',
         },
         {
+          id: '181410',
           code: 'THEFT',
           active: true,
           label: 'THEFT',
@@ -420,6 +456,7 @@ const ABSCONDER: IncidentTypeConfiguration = {
           nextQuestionId: '44416',
         },
         {
+          id: '181409',
           code: 'ROBBERY',
           active: true,
           label: 'ROBBERY',
@@ -428,6 +465,7 @@ const ABSCONDER: IncidentTypeConfiguration = {
           nextQuestionId: '44416',
         },
         {
+          id: '181402',
           code: 'FIREARM OFFENCE',
           active: true,
           label: 'FIREARM OFFENCE',
@@ -436,6 +474,7 @@ const ABSCONDER: IncidentTypeConfiguration = {
           nextQuestionId: '44416',
         },
         {
+          id: '181401',
           code: 'DRUG OFFENCE',
           active: true,
           label: 'DRUG OFFENCE',
@@ -444,6 +483,7 @@ const ABSCONDER: IncidentTypeConfiguration = {
           nextQuestionId: '44416',
         },
         {
+          id: '181411',
           code: 'VEHICLE CRIME',
           active: true,
           label: 'VEHICLE CRIME',
@@ -452,6 +492,7 @@ const ABSCONDER: IncidentTypeConfiguration = {
           nextQuestionId: '44416',
         },
         {
+          id: '181407',
           code: 'PUBLIC ORDER OFFENCE',
           active: true,
           label: 'PUBLIC ORDER OFFENCE',
@@ -460,6 +501,7 @@ const ABSCONDER: IncidentTypeConfiguration = {
           nextQuestionId: '44416',
         },
         {
+          id: '181405',
           code: 'OTHER',
           active: true,
           label: 'OTHER',
@@ -477,6 +519,7 @@ const ABSCONDER: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '181439',
           code: 'YES (ENTER DATE)',
           active: true,
           label: 'YES (ENTER DATE)',
@@ -485,6 +528,7 @@ const ABSCONDER: IncidentTypeConfiguration = {
           nextQuestionId: '44402',
         },
         {
+          id: '181440',
           code: 'NO',
           active: true,
           label: 'NO',
@@ -502,6 +546,7 @@ const ABSCONDER: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '181455',
           code: 'MINOR',
           active: true,
           label: 'MINOR',
@@ -510,6 +555,7 @@ const ABSCONDER: IncidentTypeConfiguration = {
           nextQuestionId: '44976',
         },
         {
+          id: '181456',
           code: 'SERIOUS',
           active: true,
           label: 'SERIOUS',
@@ -518,6 +564,7 @@ const ABSCONDER: IncidentTypeConfiguration = {
           nextQuestionId: '44976',
         },
         {
+          id: '181454',
           code: 'EXTENSIVE',
           active: true,
           label: 'EXTENSIVE',
@@ -535,6 +582,7 @@ const ABSCONDER: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '181762',
           code: 'YES',
           active: true,
           label: 'YES',
@@ -543,6 +591,7 @@ const ABSCONDER: IncidentTypeConfiguration = {
           nextQuestionId: '44766',
         },
         {
+          id: '181761',
           code: 'NO',
           active: true,
           label: 'NO',
@@ -560,6 +609,7 @@ const ABSCONDER: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '181892',
           code: 'YES',
           active: true,
           label: 'YES',
@@ -568,6 +618,7 @@ const ABSCONDER: IncidentTypeConfiguration = {
           nextQuestionId: '44800',
         },
         {
+          id: '181893',
           code: 'NO',
           active: true,
           label: 'NO',
@@ -585,6 +636,7 @@ const ABSCONDER: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '182275',
           code: 'YES',
           active: true,
           label: 'YES',
@@ -593,6 +645,7 @@ const ABSCONDER: IncidentTypeConfiguration = {
           nextQuestionId: '44326',
         },
         {
+          id: '182274',
           code: 'NO',
           active: true,
           label: 'NO',

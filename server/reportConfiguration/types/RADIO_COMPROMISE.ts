@@ -1,4 +1,4 @@
-// Generated with ./scripts/updateNomisIncidentTypeConfigurations.ts at 2024-09-25T09:26:18.967Z
+// Generated with ./scripts/updateNomisIncidentTypeConfigurations.ts at 2024-10-15T17:17:45.827Z
 
 import { type IncidentTypeConfiguration } from '../../data/incidentTypeConfiguration/types'
 
@@ -15,6 +15,7 @@ const RADIO_COMPROMISE: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '178897',
           code: 'YES',
           active: true,
           label: 'YES',
@@ -23,6 +24,7 @@ const RADIO_COMPROMISE: IncidentTypeConfiguration = {
           nextQuestionId: '44811',
         },
         {
+          id: '178896',
           code: 'NO',
           active: true,
           label: 'NO',
@@ -40,6 +42,7 @@ const RADIO_COMPROMISE: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '178928',
           code: 'YES',
           active: true,
           label: 'YES',
@@ -48,6 +51,7 @@ const RADIO_COMPROMISE: IncidentTypeConfiguration = {
           nextQuestionId: '45123',
         },
         {
+          id: '178929',
           code: 'NO',
           active: true,
           label: 'NO',
@@ -65,6 +69,7 @@ const RADIO_COMPROMISE: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '179072',
           code: 'YES',
           active: true,
           label: 'YES',
@@ -73,6 +78,7 @@ const RADIO_COMPROMISE: IncidentTypeConfiguration = {
           nextQuestionId: '44916',
         },
         {
+          id: '179071',
           code: 'NO',
           active: true,
           label: 'NO',
@@ -90,6 +96,7 @@ const RADIO_COMPROMISE: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '179097',
           code: 'MALICIOUS',
           active: true,
           label: 'MALICIOUS',
@@ -98,6 +105,7 @@ const RADIO_COMPROMISE: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
+          id: '179098',
           code: 'UNINTENTIONAL',
           active: true,
           label: 'UNINTENTIONAL',
@@ -115,6 +123,7 @@ const RADIO_COMPROMISE: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '179328',
           code: 'YES',
           active: true,
           label: 'YES',
@@ -123,6 +132,7 @@ const RADIO_COMPROMISE: IncidentTypeConfiguration = {
           nextQuestionId: '44282',
         },
         {
+          id: '179327',
           code: 'NO',
           active: true,
           label: 'NO',
@@ -140,6 +150,7 @@ const RADIO_COMPROMISE: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '179403',
           code: 'YES',
           active: true,
           label: 'YES',
@@ -148,6 +159,7 @@ const RADIO_COMPROMISE: IncidentTypeConfiguration = {
           nextQuestionId: '44618',
         },
         {
+          id: '179402',
           code: 'NO',
           active: true,
           label: 'NO',
@@ -165,6 +177,7 @@ const RADIO_COMPROMISE: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '179991',
           code: 'INTERFERENCE',
           active: true,
           label: 'INTERFERENCE',
@@ -173,6 +186,7 @@ const RADIO_COMPROMISE: IncidentTypeConfiguration = {
           nextQuestionId: '44648',
         },
         {
+          id: '179992',
           code: 'NET JAM',
           active: true,
           label: 'NET JAM',
@@ -181,6 +195,7 @@ const RADIO_COMPROMISE: IncidentTypeConfiguration = {
           nextQuestionId: '44648',
         },
         {
+          id: '179993',
           code: 'MISSING RADIO',
           active: true,
           label: 'MISSING RADIO',
@@ -198,6 +213,7 @@ const RADIO_COMPROMISE: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '180653',
           code: 'FULL SEARCH',
           active: true,
           label: 'FULL SEARCH',
@@ -206,6 +222,7 @@ const RADIO_COMPROMISE: IncidentTypeConfiguration = {
           nextQuestionId: '44132',
         },
         {
+          id: '180654',
           code: 'PARTIAL SEARCH',
           active: true,
           label: 'PARTIAL SEARCH',
@@ -223,6 +240,7 @@ const RADIO_COMPROMISE: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '180744',
           code: 'INTERNAL',
           active: true,
           label: 'INTERNAL',
@@ -231,6 +249,7 @@ const RADIO_COMPROMISE: IncidentTypeConfiguration = {
           nextQuestionId: '44184',
         },
         {
+          id: '180743',
           code: 'EXTERNAL',
           active: true,
           label: 'EXTERNAL',
@@ -239,6 +258,7 @@ const RADIO_COMPROMISE: IncidentTypeConfiguration = {
           nextQuestionId: '44184',
         },
         {
+          id: '180745',
           code: 'NOT KNOWN',
           active: true,
           label: 'NOT KNOWN',
@@ -256,6 +276,7 @@ const RADIO_COMPROMISE: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '180985',
           code: 'YES',
           active: true,
           label: 'YES',
@@ -264,6 +285,7 @@ const RADIO_COMPROMISE: IncidentTypeConfiguration = {
           nextQuestionId: '44252',
         },
         {
+          id: '180984',
           code: 'NO',
           active: true,
           label: 'NO',
@@ -281,6 +303,7 @@ const RADIO_COMPROMISE: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '181256',
           code: 'YES',
           active: true,
           label: 'YES',
@@ -289,6 +312,7 @@ const RADIO_COMPROMISE: IncidentTypeConfiguration = {
           nextQuestionId: '44173',
         },
         {
+          id: '181255',
           code: 'NO',
           active: true,
           label: 'NO',
@@ -306,6 +330,7 @@ const RADIO_COMPROMISE: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '181261',
           code: 'YES',
           active: true,
           label: 'YES',
@@ -314,6 +339,7 @@ const RADIO_COMPROMISE: IncidentTypeConfiguration = {
           nextQuestionId: '44125',
         },
         {
+          id: '181260',
           code: 'NO',
           active: true,
           label: 'NO',
@@ -331,6 +357,7 @@ const RADIO_COMPROMISE: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '181262',
           code: 'YES',
           active: true,
           label: 'YES',
@@ -339,6 +366,7 @@ const RADIO_COMPROMISE: IncidentTypeConfiguration = {
           nextQuestionId: '44801',
         },
         {
+          id: '181263',
           code: 'NO',
           active: true,
           label: 'NO',
@@ -356,6 +384,7 @@ const RADIO_COMPROMISE: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '181284',
           code: 'YES',
           active: true,
           label: 'YES',
@@ -364,6 +393,7 @@ const RADIO_COMPROMISE: IncidentTypeConfiguration = {
           nextQuestionId: '44799',
         },
         {
+          id: '181283',
           code: 'NO',
           active: true,
           label: 'NO',
@@ -381,6 +411,7 @@ const RADIO_COMPROMISE: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '181355',
           code: 'LOST',
           active: true,
           label: 'LOST',
@@ -389,6 +420,7 @@ const RADIO_COMPROMISE: IncidentTypeConfiguration = {
           nextQuestionId: '44856',
         },
         {
+          id: '181356',
           code: 'MISLAID',
           active: true,
           label: 'MISLAID',
@@ -397,6 +429,7 @@ const RADIO_COMPROMISE: IncidentTypeConfiguration = {
           nextQuestionId: '44856',
         },
         {
+          id: '181357',
           code: 'STOLEN',
           active: true,
           label: 'STOLEN',
@@ -414,6 +447,7 @@ const RADIO_COMPROMISE: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '181415',
           code: 'YES',
           active: true,
           label: 'YES',
@@ -422,6 +456,7 @@ const RADIO_COMPROMISE: IncidentTypeConfiguration = {
           nextQuestionId: '44712',
         },
         {
+          id: '181414',
           code: 'NO',
           active: true,
           label: 'NO',
@@ -439,6 +474,7 @@ const RADIO_COMPROMISE: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '181638',
           code: 'YES',
           active: true,
           label: 'YES',
@@ -447,6 +483,7 @@ const RADIO_COMPROMISE: IncidentTypeConfiguration = {
           nextQuestionId: '44453',
         },
         {
+          id: '181637',
           code: 'NO',
           active: true,
           label: 'NO',
@@ -464,6 +501,7 @@ const RADIO_COMPROMISE: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '182450',
           code: 'PRISONER POSSESSION',
           active: true,
           label: 'PRISONER POSSESSION',
@@ -472,6 +510,7 @@ const RADIO_COMPROMISE: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
+          id: '182446',
           code: 'CONCEALED',
           active: true,
           label: 'CONCEALED',
@@ -480,6 +519,7 @@ const RADIO_COMPROMISE: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
+          id: '182447',
           code: 'DISCARDED',
           active: true,
           label: 'DISCARDED',
@@ -488,6 +528,7 @@ const RADIO_COMPROMISE: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
+          id: '182448',
           code: 'MISLAID/LOST',
           active: true,
           label: 'MISLAID/LOST',
@@ -496,6 +537,7 @@ const RADIO_COMPROMISE: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
+          id: '182449',
           code: 'OTHER',
           active: true,
           label: 'OTHER',

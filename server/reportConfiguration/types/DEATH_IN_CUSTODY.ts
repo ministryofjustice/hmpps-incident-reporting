@@ -1,4 +1,4 @@
-// Generated with ./scripts/updateNomisIncidentTypeConfigurations.ts at 2024-09-25T09:25:53.593Z
+// Generated with ./scripts/updateNomisIncidentTypeConfigurations.ts at 2024-10-15T17:17:20.264Z
 
 import { type IncidentTypeConfiguration } from '../../data/incidentTypeConfiguration/types'
 
@@ -15,6 +15,7 @@ const DEATH_IN_CUSTODY: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '179023',
           code: 'APPARENT SELF INFLICTED',
           active: true,
           label: 'APPARENT SELF INFLICTED',
@@ -23,6 +24,7 @@ const DEATH_IN_CUSTODY: IncidentTypeConfiguration = {
           nextQuestionId: '44383',
         },
         {
+          id: '179024',
           code: 'APPARENT NATURAL CAUSES',
           active: true,
           label: 'APPARENT NATURAL CAUSES',
@@ -31,6 +33,7 @@ const DEATH_IN_CUSTODY: IncidentTypeConfiguration = {
           nextQuestionId: '44384',
         },
         {
+          id: '179025',
           code: 'ACCIDENTAL',
           active: true,
           label: 'ACCIDENTAL',
@@ -39,6 +42,7 @@ const DEATH_IN_CUSTODY: IncidentTypeConfiguration = {
           nextQuestionId: '45144',
         },
         {
+          id: '179026',
           code: 'SUSPICIOUS CIRCUMSTANCES',
           active: true,
           label: 'SUSPICIOUS CIRCUMSTANCES',
@@ -56,6 +60,7 @@ const DEATH_IN_CUSTODY: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '179423',
           code: 'YES',
           active: true,
           label: 'YES',
@@ -64,6 +69,7 @@ const DEATH_IN_CUSTODY: IncidentTypeConfiguration = {
           nextQuestionId: '44159',
         },
         {
+          id: '179422',
           code: 'NO',
           active: true,
           label: 'NO',
@@ -81,6 +87,7 @@ const DEATH_IN_CUSTODY: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '179477',
           code: 'NATURAL CAUSES',
           active: true,
           label: 'NATURAL CAUSES',
@@ -89,6 +96,7 @@ const DEATH_IN_CUSTODY: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
+          id: '179480',
           code: 'SUICIDE',
           active: true,
           label: 'SUICIDE',
@@ -97,6 +105,7 @@ const DEATH_IN_CUSTODY: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
+          id: '179475',
           code: 'ACCIDENTAL',
           active: true,
           label: 'ACCIDENTAL',
@@ -105,6 +114,7 @@ const DEATH_IN_CUSTODY: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
+          id: '179476',
           code: 'MISADVENTURE',
           active: true,
           label: 'MISADVENTURE',
@@ -113,6 +123,7 @@ const DEATH_IN_CUSTODY: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
+          id: '179478',
           code: 'OPEN VERDICT',
           active: true,
           label: 'OPEN VERDICT',
@@ -121,6 +132,7 @@ const DEATH_IN_CUSTODY: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
+          id: '179479',
           code: 'OTHER',
           active: true,
           label: 'OTHER',
@@ -138,6 +150,7 @@ const DEATH_IN_CUSTODY: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '179724',
           code: 'SINGLE CELL: ORDINARY LOCATION',
           active: true,
           label: 'SINGLE CELL: ORDINARY LOCATION',
@@ -146,6 +159,7 @@ const DEATH_IN_CUSTODY: IncidentTypeConfiguration = {
           nextQuestionId: '44680',
         },
         {
+          id: '179725',
           code: 'SINGLE CELL: SEGREGATION UNIT',
           active: true,
           label: 'SINGLE CELL: SEGREGATION UNIT',
@@ -154,6 +168,7 @@ const DEATH_IN_CUSTODY: IncidentTypeConfiguration = {
           nextQuestionId: '44680',
         },
         {
+          id: '179723',
           code: 'SHARED CELL: ORDINARY LOCATION',
           active: true,
           label: 'SHARED CELL: ORDINARY LOCATION',
@@ -162,6 +177,7 @@ const DEATH_IN_CUSTODY: IncidentTypeConfiguration = {
           nextQuestionId: '44680',
         },
         {
+          id: '179727',
           code: 'SPECIAL CELL: SEGREGATION UNIT',
           active: true,
           label: 'SPECIAL CELL: SEGREGATION UNIT',
@@ -170,6 +186,7 @@ const DEATH_IN_CUSTODY: IncidentTypeConfiguration = {
           nextQuestionId: '44680',
         },
         {
+          id: '179726',
           code: 'SINGLE CELL:HEALTH CARE CENTRE',
           active: true,
           label: 'SINGLE CELL:HEALTH CARE CENTRE',
@@ -178,6 +195,7 @@ const DEATH_IN_CUSTODY: IncidentTypeConfiguration = {
           nextQuestionId: '44680',
         },
         {
+          id: '179729',
           code: 'WARD: HEALTH CARE CENTRE',
           active: true,
           label: 'WARD: HEALTH CARE CENTRE',
@@ -186,6 +204,7 @@ const DEATH_IN_CUSTODY: IncidentTypeConfiguration = {
           nextQuestionId: '44680',
         },
         {
+          id: '179728',
           code: 'UNFURNISHED ROOM: H.C.C.',
           active: true,
           label: 'UNFURNISHED ROOM: H.C.C.',
@@ -194,6 +213,7 @@ const DEATH_IN_CUSTODY: IncidentTypeConfiguration = {
           nextQuestionId: '44680',
         },
         {
+          id: '179722',
           code: 'PROTECTIVE ROOM: H.C.C.',
           active: true,
           label: 'PROTECTIVE ROOM: H.C.C.',
@@ -202,6 +222,7 @@ const DEATH_IN_CUSTODY: IncidentTypeConfiguration = {
           nextQuestionId: '44680',
         },
         {
+          id: '179721',
           code: 'OTHER',
           active: true,
           label: 'OTHER',
@@ -219,6 +240,7 @@ const DEATH_IN_CUSTODY: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '179796',
           code: 'HANGING',
           active: true,
           label: 'HANGING',
@@ -227,6 +249,7 @@ const DEATH_IN_CUSTODY: IncidentTypeConfiguration = {
           nextQuestionId: '44929',
         },
         {
+          id: '179797',
           code: 'CUTTING',
           active: true,
           label: 'CUTTING',
@@ -235,6 +258,7 @@ const DEATH_IN_CUSTODY: IncidentTypeConfiguration = {
           nextQuestionId: '45023',
         },
         {
+          id: '179799',
           code: 'SUFFOCATION',
           active: true,
           label: 'SUFFOCATION',
@@ -243,6 +267,7 @@ const DEATH_IN_CUSTODY: IncidentTypeConfiguration = {
           nextQuestionId: '45023',
         },
         {
+          id: '179798',
           code: 'OTHER',
           active: true,
           label: 'OTHER',
@@ -260,6 +285,7 @@ const DEATH_IN_CUSTODY: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '179802',
           code: 'MYOCARDIAL INFARCTION',
           active: true,
           label: 'MYOCARDIAL INFARCTION',
@@ -268,6 +294,7 @@ const DEATH_IN_CUSTODY: IncidentTypeConfiguration = {
           nextQuestionId: '44468',
         },
         {
+          id: '179800',
           code: 'LONG TERM ALCOHOL MISUSE',
           active: true,
           label: 'LONG TERM ALCOHOL MISUSE',
@@ -276,6 +303,7 @@ const DEATH_IN_CUSTODY: IncidentTypeConfiguration = {
           nextQuestionId: '44468',
         },
         {
+          id: '179801',
           code: 'LONG TERM DRUG MISUSE',
           active: true,
           label: 'LONG TERM DRUG MISUSE',
@@ -284,6 +312,7 @@ const DEATH_IN_CUSTODY: IncidentTypeConfiguration = {
           nextQuestionId: '44468',
         },
         {
+          id: '179803',
           code: 'OTHER',
           active: true,
           label: 'OTHER',
@@ -301,6 +330,7 @@ const DEATH_IN_CUSTODY: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '179894',
           code: 'YES',
           active: true,
           label: 'YES',
@@ -309,6 +339,7 @@ const DEATH_IN_CUSTODY: IncidentTypeConfiguration = {
           nextQuestionId: '44691',
         },
         {
+          id: '179893',
           code: 'NO',
           active: true,
           label: 'NO',
@@ -326,6 +357,7 @@ const DEATH_IN_CUSTODY: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '179898',
           code: 'YES',
           active: true,
           label: 'YES',
@@ -334,6 +366,7 @@ const DEATH_IN_CUSTODY: IncidentTypeConfiguration = {
           nextQuestionId: '44743',
         },
         {
+          id: '179897',
           code: 'NO',
           active: true,
           label: 'NO',
@@ -351,6 +384,7 @@ const DEATH_IN_CUSTODY: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '180087',
           code: 'YES',
           active: true,
           label: 'YES',
@@ -359,6 +393,7 @@ const DEATH_IN_CUSTODY: IncidentTypeConfiguration = {
           nextQuestionId: '45063',
         },
         {
+          id: '180086',
           code: 'NO',
           active: true,
           label: 'NO',
@@ -376,6 +411,7 @@ const DEATH_IN_CUSTODY: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '180395',
           code: 'IN THE PRISON',
           active: true,
           label: 'IN THE PRISON',
@@ -384,6 +420,7 @@ const DEATH_IN_CUSTODY: IncidentTypeConfiguration = {
           nextQuestionId: '44366',
         },
         {
+          id: '180396',
           code: 'CUSTODY OF STAFF OUT OF PRISON',
           active: true,
           label: 'CUSTODY OF STAFF OUT OF PRISON',
@@ -392,6 +429,7 @@ const DEATH_IN_CUSTODY: IncidentTypeConfiguration = {
           nextQuestionId: '45166',
         },
         {
+          id: '180397',
           code: 'ON TEMPORARY RELEASE',
           active: true,
           label: 'ON TEMPORARY RELEASE',
@@ -400,6 +438,7 @@ const DEATH_IN_CUSTODY: IncidentTypeConfiguration = {
           nextQuestionId: '44721',
         },
         {
+          id: '180398',
           code: 'UNLAWFULLY AT LARGE',
           active: true,
           label: 'UNLAWFULLY AT LARGE',
@@ -417,6 +456,7 @@ const DEATH_IN_CUSTODY: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '180727',
           code: 'YES',
           active: true,
           label: 'YES',
@@ -425,6 +465,7 @@ const DEATH_IN_CUSTODY: IncidentTypeConfiguration = {
           nextQuestionId: '44303',
         },
         {
+          id: '180728',
           code: 'NO',
           active: true,
           label: 'NO',
@@ -442,6 +483,7 @@ const DEATH_IN_CUSTODY: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '180739',
           code: 'YES',
           active: true,
           label: 'YES',
@@ -450,6 +492,7 @@ const DEATH_IN_CUSTODY: IncidentTypeConfiguration = {
           nextQuestionId: '45038',
         },
         {
+          id: '180740',
           code: 'NO',
           active: true,
           label: 'NO',
@@ -467,6 +510,7 @@ const DEATH_IN_CUSTODY: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '180847',
           code: 'YES',
           active: true,
           label: 'YES',
@@ -475,6 +519,7 @@ const DEATH_IN_CUSTODY: IncidentTypeConfiguration = {
           nextQuestionId: '44418',
         },
         {
+          id: '180846',
           code: 'NO',
           active: true,
           label: 'NO',
@@ -492,6 +537,7 @@ const DEATH_IN_CUSTODY: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '180883',
           code: 'PRISON STAFF',
           active: true,
           label: 'PRISON STAFF',
@@ -500,6 +546,7 @@ const DEATH_IN_CUSTODY: IncidentTypeConfiguration = {
           nextQuestionId: '45108',
         },
         {
+          id: '180880',
           code: 'CELL MATE',
           active: true,
           label: 'CELL MATE',
@@ -508,6 +555,7 @@ const DEATH_IN_CUSTODY: IncidentTypeConfiguration = {
           nextQuestionId: '45108',
         },
         {
+          id: '180882',
           code: 'OTHER PRISONER',
           active: true,
           label: 'OTHER PRISONER',
@@ -516,6 +564,7 @@ const DEATH_IN_CUSTODY: IncidentTypeConfiguration = {
           nextQuestionId: '45108',
         },
         {
+          id: '180881',
           code: 'OTHER',
           active: true,
           label: 'OTHER',
@@ -533,6 +582,7 @@ const DEATH_IN_CUSTODY: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '181004',
           code: 'PRISON MEDICAL OFFICER',
           active: true,
           label: 'PRISON MEDICAL OFFICER',
@@ -541,6 +591,7 @@ const DEATH_IN_CUSTODY: IncidentTypeConfiguration = {
           nextQuestionId: '44962',
         },
         {
+          id: '181002',
           code: 'HOSPITAL DOCTOR',
           active: true,
           label: 'HOSPITAL DOCTOR',
@@ -549,6 +600,7 @@ const DEATH_IN_CUSTODY: IncidentTypeConfiguration = {
           nextQuestionId: '44962',
         },
         {
+          id: '181003',
           code: 'OTHER',
           active: true,
           label: 'OTHER',
@@ -566,6 +618,7 @@ const DEATH_IN_CUSTODY: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '181005',
           code: 'YES',
           active: true,
           label: 'YES',
@@ -574,6 +627,7 @@ const DEATH_IN_CUSTODY: IncidentTypeConfiguration = {
           nextQuestionId: '44720',
         },
         {
+          id: '181006',
           code: 'NO',
           active: true,
           label: 'NO',
@@ -591,6 +645,7 @@ const DEATH_IN_CUSTODY: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '181091',
           code: 'YES',
           active: true,
           label: 'YES',
@@ -599,6 +654,7 @@ const DEATH_IN_CUSTODY: IncidentTypeConfiguration = {
           nextQuestionId: '44537',
         },
         {
+          id: '181090',
           code: 'NO',
           active: true,
           label: 'NO',
@@ -616,6 +672,7 @@ const DEATH_IN_CUSTODY: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '181159',
           code: 'WINDOW BARS',
           active: true,
           label: 'WINDOW BARS',
@@ -624,6 +681,7 @@ const DEATH_IN_CUSTODY: IncidentTypeConfiguration = {
           nextQuestionId: '45023',
         },
         {
+          id: '181156',
           code: 'CELL DOOR',
           active: true,
           label: 'CELL DOOR',
@@ -632,6 +690,7 @@ const DEATH_IN_CUSTODY: IncidentTypeConfiguration = {
           nextQuestionId: '45023',
         },
         {
+          id: '181157',
           code: 'LIGHT FITTINGS',
           active: true,
           label: 'LIGHT FITTINGS',
@@ -640,6 +699,7 @@ const DEATH_IN_CUSTODY: IncidentTypeConfiguration = {
           nextQuestionId: '45023',
         },
         {
+          id: '181155',
           code: 'BED',
           active: true,
           label: 'BED',
@@ -648,6 +708,7 @@ const DEATH_IN_CUSTODY: IncidentTypeConfiguration = {
           nextQuestionId: '45023',
         },
         {
+          id: '181158',
           code: 'OTHER',
           active: true,
           label: 'OTHER',
@@ -665,6 +726,7 @@ const DEATH_IN_CUSTODY: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '181442',
           code: 'YES',
           active: true,
           label: 'YES',
@@ -673,6 +735,7 @@ const DEATH_IN_CUSTODY: IncidentTypeConfiguration = {
           nextQuestionId: '44420',
         },
         {
+          id: '181441',
           code: 'NO',
           active: true,
           label: 'NO',
@@ -690,6 +753,7 @@ const DEATH_IN_CUSTODY: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '181506',
           code: 'YES',
           active: true,
           label: 'YES',
@@ -698,6 +762,7 @@ const DEATH_IN_CUSTODY: IncidentTypeConfiguration = {
           nextQuestionId: '44901',
         },
         {
+          id: '181505',
           code: 'NO',
           active: true,
           label: 'NO',
@@ -715,6 +780,7 @@ const DEATH_IN_CUSTODY: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '181583',
           code: 'YES',
           active: true,
           label: 'YES',
@@ -723,6 +789,7 @@ const DEATH_IN_CUSTODY: IncidentTypeConfiguration = {
           nextQuestionId: '44720',
         },
         {
+          id: '181582',
           code: 'NO',
           active: true,
           label: 'NO',
@@ -740,6 +807,7 @@ const DEATH_IN_CUSTODY: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '181719',
           code: 'BEDDING',
           active: true,
           label: 'BEDDING',
@@ -748,6 +816,7 @@ const DEATH_IN_CUSTODY: IncidentTypeConfiguration = {
           nextQuestionId: '44770',
         },
         {
+          id: '181722',
           code: 'SHOELACES',
           active: true,
           label: 'SHOELACES',
@@ -756,6 +825,7 @@ const DEATH_IN_CUSTODY: IncidentTypeConfiguration = {
           nextQuestionId: '44770',
         },
         {
+          id: '181720',
           code: 'CLOTHING',
           active: true,
           label: 'CLOTHING',
@@ -764,6 +834,7 @@ const DEATH_IN_CUSTODY: IncidentTypeConfiguration = {
           nextQuestionId: '44770',
         },
         {
+          id: '181721',
           code: 'OTHER',
           active: true,
           label: 'OTHER',
@@ -781,6 +852,7 @@ const DEATH_IN_CUSTODY: IncidentTypeConfiguration = {
       multipleAnswers: true,
       answers: [
         {
+          id: '181829',
           code: 'DATE',
           active: true,
           label: 'DATE',
@@ -789,6 +861,7 @@ const DEATH_IN_CUSTODY: IncidentTypeConfiguration = {
           nextQuestionId: '44292',
         },
         {
+          id: '181830',
           code: 'TIME',
           active: true,
           label: 'TIME',
@@ -806,6 +879,7 @@ const DEATH_IN_CUSTODY: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '182033',
           code: 'YES',
           active: true,
           label: 'YES',
@@ -814,6 +888,7 @@ const DEATH_IN_CUSTODY: IncidentTypeConfiguration = {
           nextQuestionId: '44468',
         },
         {
+          id: '182032',
           code: 'NO',
           active: true,
           label: 'NO',
@@ -831,6 +906,7 @@ const DEATH_IN_CUSTODY: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '182127',
           code: 'YES',
           active: true,
           label: 'YES',
@@ -839,6 +915,7 @@ const DEATH_IN_CUSTODY: IncidentTypeConfiguration = {
           nextQuestionId: '45120',
         },
         {
+          id: '182126',
           code: 'NO',
           active: true,
           label: 'NO',
@@ -856,6 +933,7 @@ const DEATH_IN_CUSTODY: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '182159',
           code: 'YES',
           active: true,
           label: 'YES',
@@ -864,6 +942,7 @@ const DEATH_IN_CUSTODY: IncidentTypeConfiguration = {
           nextQuestionId: '44159',
         },
         {
+          id: '182158',
           code: 'NO',
           active: true,
           label: 'NO',
@@ -881,6 +960,7 @@ const DEATH_IN_CUSTODY: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '182239',
           code: 'YES',
           active: true,
           label: 'YES',
@@ -889,6 +969,7 @@ const DEATH_IN_CUSTODY: IncidentTypeConfiguration = {
           nextQuestionId: '44640',
         },
         {
+          id: '182238',
           code: 'NO',
           active: true,
           label: 'NO',
@@ -906,6 +987,7 @@ const DEATH_IN_CUSTODY: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '182373',
           code: 'DATE',
           active: true,
           label: 'DATE',
@@ -914,6 +996,7 @@ const DEATH_IN_CUSTODY: IncidentTypeConfiguration = {
           nextQuestionId: '44876',
         },
         {
+          id: '182374',
           code: 'TIME',
           active: true,
           label: 'TIME',
@@ -931,6 +1014,7 @@ const DEATH_IN_CUSTODY: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '182429',
           code: 'YES',
           active: true,
           label: 'YES',
@@ -939,6 +1023,7 @@ const DEATH_IN_CUSTODY: IncidentTypeConfiguration = {
           nextQuestionId: '44862',
         },
         {
+          id: '182428',
           code: 'NO',
           active: true,
           label: 'NO',
@@ -956,6 +1041,7 @@ const DEATH_IN_CUSTODY: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '182541',
           code: 'DRUG OVERDOSE',
           active: true,
           label: 'DRUG OVERDOSE',
@@ -964,6 +1050,7 @@ const DEATH_IN_CUSTODY: IncidentTypeConfiguration = {
           nextQuestionId: '44468',
         },
         {
+          id: '182542',
           code: 'FALL',
           active: true,
           label: 'FALL',
@@ -972,6 +1059,7 @@ const DEATH_IN_CUSTODY: IncidentTypeConfiguration = {
           nextQuestionId: '44468',
         },
         {
+          id: '182544',
           code: 'TRANSPORT ACCIDENT',
           active: true,
           label: 'TRANSPORT ACCIDENT',
@@ -980,6 +1068,7 @@ const DEATH_IN_CUSTODY: IncidentTypeConfiguration = {
           nextQuestionId: '44468',
         },
         {
+          id: '182540',
           code: 'ACCIDENT INVOLVING MACHINERY',
           active: true,
           label: 'ACCIDENT INVOLVING MACHINERY',
@@ -988,6 +1077,7 @@ const DEATH_IN_CUSTODY: IncidentTypeConfiguration = {
           nextQuestionId: '44468',
         },
         {
+          id: '182543',
           code: 'OTHER',
           active: true,
           label: 'OTHER',
@@ -1005,6 +1095,7 @@ const DEATH_IN_CUSTODY: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '182615',
           code: 'OUTSIDE HOSPITAL',
           active: true,
           label: 'OUTSIDE HOSPITAL',
@@ -1013,6 +1104,7 @@ const DEATH_IN_CUSTODY: IncidentTypeConfiguration = {
           nextQuestionId: '44720',
         },
         {
+          id: '182614',
           code: 'OUTSIDE WORKING PARTY',
           active: true,
           label: 'OUTSIDE WORKING PARTY',
@@ -1021,6 +1113,7 @@ const DEATH_IN_CUSTODY: IncidentTypeConfiguration = {
           nextQuestionId: '44876',
         },
         {
+          id: '182613',
           code: 'OUTSIDE P.E. ACTIVITY',
           active: true,
           label: 'OUTSIDE P.E. ACTIVITY',
@@ -1029,6 +1122,7 @@ const DEATH_IN_CUSTODY: IncidentTypeConfiguration = {
           nextQuestionId: '44876',
         },
         {
+          id: '182610',
           code: 'AT COURT',
           active: true,
           label: 'AT COURT',
@@ -1037,6 +1131,7 @@ const DEATH_IN_CUSTODY: IncidentTypeConfiguration = {
           nextQuestionId: '44876',
         },
         {
+          id: '182612',
           code: 'OTHER ESCORT',
           active: true,
           label: 'OTHER ESCORT',
@@ -1045,6 +1140,7 @@ const DEATH_IN_CUSTODY: IncidentTypeConfiguration = {
           nextQuestionId: '44876',
         },
         {
+          id: '182611',
           code: 'OTHER',
           active: true,
           label: 'OTHER',

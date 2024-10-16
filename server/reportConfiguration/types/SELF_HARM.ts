@@ -1,4 +1,4 @@
-// Generated with ./scripts/updateNomisIncidentTypeConfigurations.ts at 2024-09-25T09:25:55.183Z
+// Generated with ./scripts/updateNomisIncidentTypeConfigurations.ts at 2024-10-15T17:17:21.940Z
 
 import { type IncidentTypeConfiguration } from '../../data/incidentTypeConfiguration/types'
 
@@ -15,6 +15,7 @@ const SELF_HARM: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '179012',
           code: 'NO TREATMENT',
           active: true,
           label: 'NO TREATMENT',
@@ -23,6 +24,7 @@ const SELF_HARM: IncidentTypeConfiguration = {
           nextQuestionId: '44733',
         },
         {
+          id: '179014',
           code: 'STERI STRIPS OR SUTURES',
           active: true,
           label: 'STERI STRIPS OR SUTURES',
@@ -31,6 +33,7 @@ const SELF_HARM: IncidentTypeConfiguration = {
           nextQuestionId: '44733',
         },
         {
+          id: '179011',
           code: 'CLEANED AND DRESSED',
           active: true,
           label: 'CLEANED AND DRESSED',
@@ -39,6 +42,7 @@ const SELF_HARM: IncidentTypeConfiguration = {
           nextQuestionId: '44733',
         },
         {
+          id: '179013',
           code: 'OTHER',
           active: true,
           label: 'OTHER',
@@ -56,6 +60,7 @@ const SELF_HARM: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '179187',
           code: 'YES',
           active: true,
           label: 'YES',
@@ -64,6 +69,7 @@ const SELF_HARM: IncidentTypeConfiguration = {
           nextQuestionId: '44583',
         },
         {
+          id: '179188',
           code: 'NO',
           active: true,
           label: 'NO',
@@ -81,6 +87,7 @@ const SELF_HARM: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '179201',
           code: 'YES',
           active: true,
           label: 'YES',
@@ -89,6 +96,7 @@ const SELF_HARM: IncidentTypeConfiguration = {
           nextQuestionId: '44944',
         },
         {
+          id: '179200',
           code: 'NO',
           active: true,
           label: 'NO',
@@ -106,6 +114,7 @@ const SELF_HARM: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '179302',
           code: 'YES',
           active: true,
           label: 'YES',
@@ -114,6 +123,7 @@ const SELF_HARM: IncidentTypeConfiguration = {
           nextQuestionId: '44653',
         },
         {
+          id: '179303',
           code: 'NO',
           active: true,
           label: 'NO',
@@ -131,6 +141,7 @@ const SELF_HARM: IncidentTypeConfiguration = {
       multipleAnswers: true,
       answers: [
         {
+          id: '179620',
           code: 'NON HEALTHCARE STAFF',
           active: true,
           label: 'NON HEALTHCARE STAFF',
@@ -139,6 +150,7 @@ const SELF_HARM: IncidentTypeConfiguration = {
           nextQuestionId: '44214',
         },
         {
+          id: '179621',
           code: 'NURSE/HCO',
           active: true,
           label: 'NURSE/HCO',
@@ -147,6 +159,7 @@ const SELF_HARM: IncidentTypeConfiguration = {
           nextQuestionId: '44214',
         },
         {
+          id: '179619',
           code: 'MEDICAL OFFICER',
           active: true,
           label: 'MEDICAL OFFICER',
@@ -155,6 +168,7 @@ const SELF_HARM: IncidentTypeConfiguration = {
           nextQuestionId: '44214',
         },
         {
+          id: '179622',
           code: 'PARAMEDICS/AMBULANCE',
           active: true,
           label: 'PARAMEDICS/AMBULANCE',
@@ -172,6 +186,7 @@ const SELF_HARM: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '179641',
           code: 'SINGLE',
           active: true,
           label: 'SINGLE',
@@ -180,6 +195,7 @@ const SELF_HARM: IncidentTypeConfiguration = {
           nextQuestionId: '44244',
         },
         {
+          id: '179638',
           code: 'DOUBLE',
           active: true,
           label: 'DOUBLE',
@@ -188,6 +204,7 @@ const SELF_HARM: IncidentTypeConfiguration = {
           nextQuestionId: '44244',
         },
         {
+          id: '179639',
           code: 'DOUBLE BUT ALONE',
           active: true,
           label: 'DOUBLE BUT ALONE',
@@ -196,6 +213,7 @@ const SELF_HARM: IncidentTypeConfiguration = {
           nextQuestionId: '44244',
         },
         {
+          id: '179640',
           code: 'MULTIPLE (3 OR  MORE)',
           active: true,
           label: 'MULTIPLE (3 OR  MORE)',
@@ -213,6 +231,7 @@ const SELF_HARM: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '179843',
           code: 'YES',
           active: true,
           label: 'YES',
@@ -221,6 +240,7 @@ const SELF_HARM: IncidentTypeConfiguration = {
           nextQuestionId: '44435',
         },
         {
+          id: '179842',
           code: 'NO',
           active: true,
           label: 'NO',
@@ -238,6 +258,7 @@ const SELF_HARM: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '179935',
           code: 'WITHIN ONE MONTH',
           active: true,
           label: 'WITHIN ONE MONTH',
@@ -246,6 +267,7 @@ const SELF_HARM: IncidentTypeConfiguration = {
           nextQuestionId: '44965',
         },
         {
+          id: '179933',
           code: 'MORE THAN ONE MONTH',
           active: true,
           label: 'MORE THAN ONE MONTH',
@@ -254,6 +276,7 @@ const SELF_HARM: IncidentTypeConfiguration = {
           nextQuestionId: '44965',
         },
         {
+          id: '179934',
           code: 'NOT APPLICABLE',
           active: true,
           label: 'NOT APPLICABLE',
@@ -271,6 +294,7 @@ const SELF_HARM: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '180256',
           code: 'YES',
           active: true,
           label: 'YES',
@@ -279,6 +303,7 @@ const SELF_HARM: IncidentTypeConfiguration = {
           nextQuestionId: '44332',
         },
         {
+          id: '180257',
           code: 'NO',
           active: true,
           label: 'NO',
@@ -296,6 +321,7 @@ const SELF_HARM: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '180436',
           code: 'YES',
           active: true,
           label: 'YES',
@@ -304,6 +330,7 @@ const SELF_HARM: IncidentTypeConfiguration = {
           nextQuestionId: '45105',
         },
         {
+          id: '180437',
           code: 'NO',
           active: true,
           label: 'NO',
@@ -321,6 +348,7 @@ const SELF_HARM: IncidentTypeConfiguration = {
       multipleAnswers: true,
       answers: [
         {
+          id: '180498',
           code: 'OWN MEDICATION',
           active: true,
           label: 'OWN MEDICATION',
@@ -329,6 +357,7 @@ const SELF_HARM: IncidentTypeConfiguration = {
           nextQuestionId: '45167',
         },
         {
+          id: '180497',
           code: 'OTHER PERSONS MEDICATION',
           active: true,
           label: 'OTHER PERSONS MEDICATION',
@@ -337,6 +366,7 @@ const SELF_HARM: IncidentTypeConfiguration = {
           nextQuestionId: '45167',
         },
         {
+          id: '180495',
           code: 'ILLEGAL DRUGS',
           active: true,
           label: 'ILLEGAL DRUGS',
@@ -345,6 +375,7 @@ const SELF_HARM: IncidentTypeConfiguration = {
           nextQuestionId: '45167',
         },
         {
+          id: '180494',
           code: 'CLEANING MATERIALS',
           active: true,
           label: 'CLEANING MATERIALS',
@@ -353,6 +384,7 @@ const SELF_HARM: IncidentTypeConfiguration = {
           nextQuestionId: '45167',
         },
         {
+          id: '180499',
           code: 'RAZOR BLADES',
           active: true,
           label: 'RAZOR BLADES',
@@ -361,6 +393,7 @@ const SELF_HARM: IncidentTypeConfiguration = {
           nextQuestionId: '45167',
         },
         {
+          id: '180493',
           code: 'BATTERIES',
           active: true,
           label: 'BATTERIES',
@@ -369,6 +402,7 @@ const SELF_HARM: IncidentTypeConfiguration = {
           nextQuestionId: '45167',
         },
         {
+          id: '180496',
           code: 'OTHER',
           active: true,
           label: 'OTHER',
@@ -386,6 +420,7 @@ const SELF_HARM: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '180526',
           code: 'BEDDING',
           active: true,
           label: 'BEDDING',
@@ -394,6 +429,7 @@ const SELF_HARM: IncidentTypeConfiguration = {
           nextQuestionId: '44753',
         },
         {
+          id: '180530',
           code: 'SHOELACES',
           active: true,
           label: 'SHOELACES',
@@ -402,6 +438,7 @@ const SELF_HARM: IncidentTypeConfiguration = {
           nextQuestionId: '44753',
         },
         {
+          id: '180531',
           code: 'TOWEL',
           active: true,
           label: 'TOWEL',
@@ -410,6 +447,7 @@ const SELF_HARM: IncidentTypeConfiguration = {
           nextQuestionId: '44753',
         },
         {
+          id: '180528',
           code: 'CLOTHING',
           active: true,
           label: 'CLOTHING',
@@ -418,6 +456,7 @@ const SELF_HARM: IncidentTypeConfiguration = {
           nextQuestionId: '44753',
         },
         {
+          id: '180527',
           code: 'BELT',
           active: true,
           label: 'BELT',
@@ -426,6 +465,7 @@ const SELF_HARM: IncidentTypeConfiguration = {
           nextQuestionId: '44753',
         },
         {
+          id: '180529',
           code: 'OTHER',
           active: true,
           label: 'OTHER',
@@ -443,6 +483,7 @@ const SELF_HARM: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '180532',
           code: 'A AND E',
           active: true,
           label: 'A AND E',
@@ -451,6 +492,7 @@ const SELF_HARM: IncidentTypeConfiguration = {
           nextQuestionId: '44400',
         },
         {
+          id: '180534',
           code: 'IN PATIENT (OVERNIGHT ONLY)',
           active: true,
           label: 'IN PATIENT (OVERNIGHT ONLY)',
@@ -459,6 +501,7 @@ const SELF_HARM: IncidentTypeConfiguration = {
           nextQuestionId: '44400',
         },
         {
+          id: '180533',
           code: 'IN PATIENT (OVER 24HR)',
           active: true,
           label: 'IN PATIENT (OVER 24HR)',
@@ -467,6 +510,7 @@ const SELF_HARM: IncidentTypeConfiguration = {
           nextQuestionId: '44400',
         },
         {
+          id: '180535',
           code: 'LIFE SUPPORT',
           active: true,
           label: 'LIFE SUPPORT',
@@ -484,6 +528,7 @@ const SELF_HARM: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '180734',
           code: 'SUPERFICIAL E.G. CIGARETTE',
           active: true,
           label: 'SUPERFICIAL E.G. CIGARETTE',
@@ -492,6 +537,7 @@ const SELF_HARM: IncidentTypeConfiguration = {
           nextQuestionId: '44552',
         },
         {
+          id: '180733',
           code: 'NON SUPERFICIAL CELL/SELF FIRE',
           active: true,
           label: 'NON SUPERFICIAL CELL/SELF FIRE',
@@ -509,6 +555,7 @@ const SELF_HARM: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '180760',
           code: 'WINDOW',
           active: true,
           label: 'WINDOW',
@@ -517,6 +564,7 @@ const SELF_HARM: IncidentTypeConfiguration = {
           nextQuestionId: '44718',
         },
         {
+          id: '180755',
           code: 'BED',
           active: true,
           label: 'BED',
@@ -525,6 +573,7 @@ const SELF_HARM: IncidentTypeConfiguration = {
           nextQuestionId: '44718',
         },
         {
+          id: '180756',
           code: 'DOOR',
           active: true,
           label: 'DOOR',
@@ -533,6 +582,7 @@ const SELF_HARM: IncidentTypeConfiguration = {
           nextQuestionId: '44718',
         },
         {
+          id: '180758',
           code: 'PIPES',
           active: true,
           label: 'PIPES',
@@ -541,6 +591,7 @@ const SELF_HARM: IncidentTypeConfiguration = {
           nextQuestionId: '44718',
         },
         {
+          id: '180759',
           code: 'TOILET AREA',
           active: true,
           label: 'TOILET AREA',
@@ -549,6 +600,7 @@ const SELF_HARM: IncidentTypeConfiguration = {
           nextQuestionId: '44718',
         },
         {
+          id: '180757',
           code: 'OTHER',
           active: true,
           label: 'OTHER',
@@ -566,6 +618,7 @@ const SELF_HARM: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '180997',
           code: 'FEET OFF FLOOR',
           active: true,
           label: 'FEET OFF FLOOR',
@@ -574,6 +627,7 @@ const SELF_HARM: IncidentTypeConfiguration = {
           nextQuestionId: '45020',
         },
         {
+          id: '180998',
           code: 'KNEELING OR OTHER',
           active: true,
           label: 'KNEELING OR OTHER',
@@ -582,6 +636,7 @@ const SELF_HARM: IncidentTypeConfiguration = {
           nextQuestionId: '45020',
         },
         {
+          id: '180999',
           code: 'NEITHER OF ABOVE',
           active: true,
           label: 'NEITHER OF ABOVE',
@@ -599,6 +654,7 @@ const SELF_HARM: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '181062',
           code: 'YES',
           active: true,
           label: 'YES',
@@ -607,6 +663,7 @@ const SELF_HARM: IncidentTypeConfiguration = {
           nextQuestionId: '44573',
         },
         {
+          id: '181063',
           code: 'NO',
           active: true,
           label: 'NO',
@@ -624,6 +681,7 @@ const SELF_HARM: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '181110',
           code: 'YES',
           active: true,
           label: 'YES',
@@ -632,6 +690,7 @@ const SELF_HARM: IncidentTypeConfiguration = {
           nextQuestionId: '44991',
         },
         {
+          id: '181111',
           code: 'NO',
           active: true,
           label: 'NO',
@@ -649,6 +708,7 @@ const SELF_HARM: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '181230',
           code: 'ORDINARY',
           active: true,
           label: 'ORDINARY',
@@ -657,6 +717,7 @@ const SELF_HARM: IncidentTypeConfiguration = {
           nextQuestionId: '44339',
         },
         {
+          id: '181229',
           code: 'GATED',
           active: true,
           label: 'GATED',
@@ -665,6 +726,7 @@ const SELF_HARM: IncidentTypeConfiguration = {
           nextQuestionId: '44339',
         },
         {
+          id: '181232',
           code: 'SAFE ANTI-LIGATURE',
           active: true,
           label: 'SAFE ANTI-LIGATURE',
@@ -673,6 +735,7 @@ const SELF_HARM: IncidentTypeConfiguration = {
           nextQuestionId: '44339',
         },
         {
+          id: '181233',
           code: 'TIME OUT ROOM',
           active: true,
           label: 'TIME OUT ROOM',
@@ -681,6 +744,7 @@ const SELF_HARM: IncidentTypeConfiguration = {
           nextQuestionId: '44339',
         },
         {
+          id: '181228',
           code: 'CARE SUITE',
           active: true,
           label: 'CARE SUITE',
@@ -689,6 +753,7 @@ const SELF_HARM: IncidentTypeConfiguration = {
           nextQuestionId: '44339',
         },
         {
+          id: '181234',
           code: 'UNFURNISHED/STRONG BOX',
           active: true,
           label: 'UNFURNISHED/STRONG BOX',
@@ -697,6 +762,7 @@ const SELF_HARM: IncidentTypeConfiguration = {
           nextQuestionId: '44339',
         },
         {
+          id: '181235',
           code: 'WARD/DORM',
           active: true,
           label: 'WARD/DORM',
@@ -705,6 +771,7 @@ const SELF_HARM: IncidentTypeConfiguration = {
           nextQuestionId: '44339',
         },
         {
+          id: '181231',
           code: 'OTHER',
           active: true,
           label: 'OTHER',
@@ -722,6 +789,7 @@ const SELF_HARM: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '181555',
           code: 'RAZOR',
           active: true,
           label: 'RAZOR',
@@ -730,6 +798,7 @@ const SELF_HARM: IncidentTypeConfiguration = {
           nextQuestionId: '44155',
         },
         {
+          id: '181552',
           code: 'BROKEN GLASS',
           active: true,
           label: 'BROKEN GLASS',
@@ -738,6 +807,7 @@ const SELF_HARM: IncidentTypeConfiguration = {
           nextQuestionId: '44155',
         },
         {
+          id: '181554',
           code: 'PLASTIC MATERIAL',
           active: true,
           label: 'PLASTIC MATERIAL',
@@ -746,6 +816,7 @@ const SELF_HARM: IncidentTypeConfiguration = {
           nextQuestionId: '44155',
         },
         {
+          id: '181553',
           code: 'OTHER',
           active: true,
           label: 'OTHER',
@@ -763,6 +834,7 @@ const SELF_HARM: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '181774',
           code: 'YES',
           active: true,
           label: 'YES',
@@ -771,6 +843,7 @@ const SELF_HARM: IncidentTypeConfiguration = {
           nextQuestionId: '44954',
         },
         {
+          id: '181773',
           code: 'NO',
           active: true,
           label: 'NO',
@@ -779,6 +852,7 @@ const SELF_HARM: IncidentTypeConfiguration = {
           nextQuestionId: '44954',
         },
         {
+          id: '181772',
           code: 'ALREADY IN HEALTHCARE',
           active: true,
           label: 'ALREADY IN HEALTHCARE',
@@ -796,6 +870,7 @@ const SELF_HARM: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '181810',
           code: 'YES',
           active: true,
           label: 'YES',
@@ -804,6 +879,7 @@ const SELF_HARM: IncidentTypeConfiguration = {
           nextQuestionId: '44584',
         },
         {
+          id: '181811',
           code: 'NO',
           active: true,
           label: 'NO',
@@ -821,6 +897,7 @@ const SELF_HARM: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '181836',
           code: 'YES',
           active: true,
           label: 'YES',
@@ -829,6 +906,7 @@ const SELF_HARM: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
+          id: '181835',
           code: 'NO',
           active: true,
           label: 'NO',
@@ -846,6 +924,7 @@ const SELF_HARM: IncidentTypeConfiguration = {
       multipleAnswers: true,
       answers: [
         {
+          id: '181933',
           code: 'WRIST',
           active: true,
           label: 'WRIST',
@@ -854,6 +933,7 @@ const SELF_HARM: IncidentTypeConfiguration = {
           nextQuestionId: '44890',
         },
         {
+          id: '181929',
           code: 'ARMS/LEGS',
           active: true,
           label: 'ARMS/LEGS',
@@ -862,6 +942,7 @@ const SELF_HARM: IncidentTypeConfiguration = {
           nextQuestionId: '44890',
         },
         {
+          id: '181932',
           code: 'TORSO',
           active: true,
           label: 'TORSO',
@@ -870,6 +951,7 @@ const SELF_HARM: IncidentTypeConfiguration = {
           nextQuestionId: '44890',
         },
         {
+          id: '181931',
           code: 'THROAT',
           active: true,
           label: 'THROAT',
@@ -878,6 +960,7 @@ const SELF_HARM: IncidentTypeConfiguration = {
           nextQuestionId: '44890',
         },
         {
+          id: '181930',
           code: 'OTHER',
           active: true,
           label: 'OTHER',
@@ -895,6 +978,7 @@ const SELF_HARM: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '182015',
           code: 'BEDDING',
           active: true,
           label: 'BEDDING',
@@ -903,6 +987,7 @@ const SELF_HARM: IncidentTypeConfiguration = {
           nextQuestionId: '44207',
         },
         {
+          id: '182019',
           code: 'SHOELACES',
           active: true,
           label: 'SHOELACES',
@@ -911,6 +996,7 @@ const SELF_HARM: IncidentTypeConfiguration = {
           nextQuestionId: '44207',
         },
         {
+          id: '182020',
           code: 'TOWEL',
           active: true,
           label: 'TOWEL',
@@ -919,6 +1005,7 @@ const SELF_HARM: IncidentTypeConfiguration = {
           nextQuestionId: '44207',
         },
         {
+          id: '182017',
           code: 'CLOTHING',
           active: true,
           label: 'CLOTHING',
@@ -927,6 +1014,7 @@ const SELF_HARM: IncidentTypeConfiguration = {
           nextQuestionId: '44207',
         },
         {
+          id: '182016',
           code: 'BELT',
           active: true,
           label: 'BELT',
@@ -935,6 +1023,7 @@ const SELF_HARM: IncidentTypeConfiguration = {
           nextQuestionId: '44207',
         },
         {
+          id: '182018',
           code: 'OTHER',
           active: true,
           label: 'OTHER',
@@ -952,6 +1041,7 @@ const SELF_HARM: IncidentTypeConfiguration = {
       multipleAnswers: true,
       answers: [
         {
+          id: '182179',
           code: 'ORDINARY',
           active: true,
           label: 'ORDINARY',
@@ -960,6 +1050,7 @@ const SELF_HARM: IncidentTypeConfiguration = {
           nextQuestionId: '44791',
         },
         {
+          id: '182183',
           code: 'VPU/OTHER PROTECTED',
           active: true,
           label: 'VPU/OTHER PROTECTED',
@@ -968,6 +1059,7 @@ const SELF_HARM: IncidentTypeConfiguration = {
           nextQuestionId: '44791',
         },
         {
+          id: '182177',
           code: 'HEALTH CARE CENTRE',
           active: true,
           label: 'HEALTH CARE CENTRE',
@@ -976,6 +1068,7 @@ const SELF_HARM: IncidentTypeConfiguration = {
           nextQuestionId: '44791',
         },
         {
+          id: '182178',
           code: "INDCT'N/RECP'N/1ST NIGHTCENTRE",
           active: true,
           label: "INDCT'N/RECP'N/1ST NIGHTCENTRE",
@@ -984,6 +1077,7 @@ const SELF_HARM: IncidentTypeConfiguration = {
           nextQuestionId: '44791',
         },
         {
+          id: '182182',
           code: 'SEGREGATION UNIT',
           active: true,
           label: 'SEGREGATION UNIT',
@@ -992,6 +1086,7 @@ const SELF_HARM: IncidentTypeConfiguration = {
           nextQuestionId: '44791',
         },
         {
+          id: '182176',
           code: 'DETOX UNIT',
           active: true,
           label: 'DETOX UNIT',
@@ -1000,6 +1095,7 @@ const SELF_HARM: IncidentTypeConfiguration = {
           nextQuestionId: '44791',
         },
         {
+          id: '182181',
           code: 'PRISON ESCORT VEHICLE',
           active: true,
           label: 'PRISON ESCORT VEHICLE',
@@ -1008,6 +1104,7 @@ const SELF_HARM: IncidentTypeConfiguration = {
           nextQuestionId: '44791',
         },
         {
+          id: '182175',
           code: 'COURT CELL',
           active: true,
           label: 'COURT CELL',
@@ -1016,6 +1113,7 @@ const SELF_HARM: IncidentTypeConfiguration = {
           nextQuestionId: '44791',
         },
         {
+          id: '182180',
           code: 'OTHER',
           active: true,
           label: 'OTHER',
@@ -1033,6 +1131,7 @@ const SELF_HARM: IncidentTypeConfiguration = {
       multipleAnswers: true,
       answers: [
         {
+          id: '182366',
           code: 'HEAD BANGING',
           active: true,
           label: 'HEAD BANGING',
@@ -1041,6 +1140,7 @@ const SELF_HARM: IncidentTypeConfiguration = {
           nextQuestionId: '44511',
         },
         {
+          id: '182368',
           code: 'SUFFOCATION',
           active: true,
           label: 'SUFFOCATION',
@@ -1049,6 +1149,7 @@ const SELF_HARM: IncidentTypeConfiguration = {
           nextQuestionId: '44511',
         },
         {
+          id: '182369',
           code: 'WOUND',
           active: true,
           label: 'WOUND',
@@ -1057,6 +1158,7 @@ const SELF_HARM: IncidentTypeConfiguration = {
           nextQuestionId: '44511',
         },
         {
+          id: '182367',
           code: 'NOOSE LIGATURE MAKING',
           active: true,
           label: 'NOOSE LIGATURE MAKING',
@@ -1065,6 +1167,7 @@ const SELF_HARM: IncidentTypeConfiguration = {
           nextQuestionId: '44511',
         },
         {
+          id: '3901',
           code: 'OTHER',
           active: true,
           label: 'OTHER',
@@ -1082,6 +1185,7 @@ const SELF_HARM: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '182616',
           code: 'YES',
           active: true,
           label: 'YES',
@@ -1090,6 +1194,7 @@ const SELF_HARM: IncidentTypeConfiguration = {
           nextQuestionId: '44643',
         },
         {
+          id: '182617',
           code: 'NO',
           active: true,
           label: 'NO',

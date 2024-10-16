@@ -47,6 +47,7 @@ export function fromNomis(nomisConfig: NomisIncidentTypeConfiguration): DpsIncid
         answers: nomisAnswers.map(ans => {
           const nextQuestionId = ans.nextQuestionnaireQueId?.toString() ?? null
           return {
+            id: ans.questionnaireAnsId.toString(),
             code: ans.answerDesc,
             active: ans.answerActiveFlag === true,
             label: ans.answerDesc,

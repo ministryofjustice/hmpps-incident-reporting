@@ -143,10 +143,12 @@ describe('DPS config validation', () => {
           label: '1st question?',
           answers: [
             buildAnswer({
+              id: 'yes',
               label: 'yes',
               nextQuestionId: '2',
             }),
             buildAnswer({
+              id: 'no',
               label: 'no',
               nextQuestionId: '3',
             }),
@@ -191,10 +193,12 @@ describe('DPS config validation', () => {
           label: '1st question?',
           answers: [
             buildAnswer({
+              id: 'yes',
               label: 'yes',
               nextQuestionId: '2',
             }),
             buildAnswer({
+              id: 'no',
               label: 'no',
               nextQuestionId: '3',
             }),
@@ -206,10 +210,12 @@ describe('DPS config validation', () => {
           label: '3rd question?',
           answers: [
             buildAnswer({
+              id: 'yes',
               label: 'yes',
               nextQuestionId: '4',
             }),
             buildAnswer({
+              id: 'no',
               label: 'no',
               nextQuestionId: '5',
             }),
@@ -277,11 +283,23 @@ function buildQuestion({
 }
 
 function yesNoAnswers(nextQuestionId: string | null): AnswerConfiguration[] {
-  return [buildAnswer({ label: 'yes', nextQuestionId }), buildAnswer({ label: 'no', nextQuestionId })]
+  return [
+    buildAnswer({ id: 'yes', label: 'yes', nextQuestionId }),
+    buildAnswer({ id: 'no', label: 'no', nextQuestionId }),
+  ]
 }
 
-function buildAnswer({ label, nextQuestionId }: { label: string; nextQuestionId: string | null }): AnswerConfiguration {
+function buildAnswer({
+  id,
+  label,
+  nextQuestionId,
+}: {
+  id: string
+  label: string
+  nextQuestionId: string | null
+}): AnswerConfiguration {
   return {
+    id,
     code: label.toUpperCase(),
     active: true,
     label,

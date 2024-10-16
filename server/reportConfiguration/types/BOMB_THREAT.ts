@@ -1,4 +1,4 @@
-// Generated with ./scripts/updateNomisIncidentTypeConfigurations.ts at 2024-09-25T09:25:49.273Z
+// Generated with ./scripts/updateNomisIncidentTypeConfigurations.ts at 2024-10-15T17:17:16.215Z
 
 import { type IncidentTypeConfiguration } from '../../data/incidentTypeConfiguration/types'
 
@@ -15,6 +15,7 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
       multipleAnswers: true,
       answers: [
         {
+          id: '178914',
           code: 'BLAST BOMB',
           active: true,
           label: 'BLAST BOMB',
@@ -23,6 +24,7 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
           nextQuestionId: '44669',
         },
         {
+          id: '178922',
           code: 'VEHICLE BOMB',
           active: true,
           label: 'VEHICLE BOMB',
@@ -31,6 +33,7 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
           nextQuestionId: '44669',
         },
         {
+          id: '178920',
           code: 'POSTAL BOMB',
           active: true,
           label: 'POSTAL BOMB',
@@ -39,6 +42,7 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
           nextQuestionId: '44669',
         },
         {
+          id: '178919',
           code: 'INCENDIARY DEVICE',
           active: true,
           label: 'INCENDIARY DEVICE',
@@ -47,6 +51,7 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
           nextQuestionId: '44669',
         },
         {
+          id: '178918',
           code: 'HOAX PACKAGE',
           active: true,
           label: 'HOAX PACKAGE',
@@ -55,6 +60,7 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
           nextQuestionId: '44669',
         },
         {
+          id: '178921',
           code: 'SUSPECT PACKAGE',
           active: true,
           label: 'SUSPECT PACKAGE',
@@ -63,6 +69,7 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
           nextQuestionId: '44669',
         },
         {
+          id: '178915',
           code: 'DETONATORS',
           active: true,
           label: 'DETONATORS',
@@ -71,6 +78,7 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
           nextQuestionId: '44669',
         },
         {
+          id: '178917',
           code: 'FUSES',
           active: true,
           label: 'FUSES',
@@ -79,6 +87,7 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
           nextQuestionId: '44669',
         },
         {
+          id: '178916',
           code: 'EXPLOSIVE',
           active: true,
           label: 'EXPLOSIVE',
@@ -96,6 +105,7 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
       multipleAnswers: true,
       answers: [
         {
+          id: '178941',
           code: 'FRACTURE',
           active: true,
           label: 'FRACTURE',
@@ -104,6 +114,7 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
           nextQuestionId: '44745',
         },
         {
+          id: '178943',
           code: 'SCALD OR BURN',
           active: true,
           label: 'SCALD OR BURN',
@@ -112,6 +123,7 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
           nextQuestionId: '44745',
         },
         {
+          id: '178944',
           code: 'STABBING',
           active: true,
           label: 'STABBING',
@@ -120,6 +132,7 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
           nextQuestionId: '44745',
         },
         {
+          id: '178938',
           code: 'CRUSHING',
           active: true,
           label: 'CRUSHING',
@@ -128,6 +141,7 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
           nextQuestionId: '44745',
         },
         {
+          id: '178940',
           code: 'EXTENSIVE/MULTIPLE BRUISING',
           active: true,
           label: 'EXTENSIVE/MULTIPLE BRUISING',
@@ -136,6 +150,7 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
           nextQuestionId: '44745',
         },
         {
+          id: '178935',
           code: 'BLACK EYE',
           active: true,
           label: 'BLACK EYE',
@@ -144,6 +159,7 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
           nextQuestionId: '44745',
         },
         {
+          id: '178936',
           code: 'BROKEN NOSE',
           active: true,
           label: 'BROKEN NOSE',
@@ -152,6 +168,7 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
           nextQuestionId: '44745',
         },
         {
+          id: '178937',
           code: 'BROKEN TEETH',
           active: true,
           label: 'BROKEN TEETH',
@@ -160,6 +177,7 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
           nextQuestionId: '44745',
         },
         {
+          id: '178939',
           code: 'CUTS REQUIRING SUTURES',
           active: true,
           label: 'CUTS REQUIRING SUTURES',
@@ -168,6 +186,7 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
           nextQuestionId: '44745',
         },
         {
+          id: '178934',
           code: 'BITES',
           active: true,
           label: 'BITES',
@@ -176,6 +195,7 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
           nextQuestionId: '44745',
         },
         {
+          id: '178942',
           code: 'GUN SHOT WOUND',
           active: true,
           label: 'GUN SHOT WOUND',
@@ -184,6 +204,7 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
           nextQuestionId: '44745',
         },
         {
+          id: '178945',
           code: 'TEMPORARY/PERMANENT BLINDNESS',
           active: true,
           label: 'TEMPORARY/PERMANENT BLINDNESS',
@@ -201,6 +222,7 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
       multipleAnswers: true,
       answers: [
         {
+          id: '178997',
           code: 'TELEPHONY',
           active: true,
           label: 'TELEPHONY',
@@ -209,6 +231,7 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
           nextQuestionId: '45109',
         },
         {
+          id: '178996',
           code: 'IT',
           active: true,
           label: 'IT',
@@ -226,6 +249,7 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '179103',
           code: 'CONTROLLED',
           active: true,
           label: 'CONTROLLED',
@@ -234,6 +258,7 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
           nextQuestionId: '44277',
         },
         {
+          id: '179104',
           code: 'UNCONTROLLED',
           active: true,
           label: 'UNCONTROLLED',
@@ -251,6 +276,7 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '179159',
           code: 'YES',
           active: true,
           label: 'YES',
@@ -259,6 +285,7 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
           nextQuestionId: '44587',
         },
         {
+          id: '179160',
           code: 'NO',
           active: true,
           label: 'NO',
@@ -276,6 +303,7 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '179276',
           code: 'ENTER AMOUNT IN POUND STERLING',
           active: true,
           label: 'ENTER AMOUNT IN POUND STERLING',
@@ -293,6 +321,7 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '179347',
           code: 'YES',
           active: true,
           label: 'YES',
@@ -301,6 +330,7 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
           nextQuestionId: '44579',
         },
         {
+          id: '179346',
           code: 'NO',
           active: true,
           label: 'NO',
@@ -318,6 +348,7 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '179348',
           code: 'ENTER DESCRIPTION',
           active: true,
           label: 'ENTER DESCRIPTION',
@@ -335,6 +366,7 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '179389',
           code: 'ENTER COMMENT AND DATE',
           active: true,
           label: 'ENTER COMMENT AND DATE',
@@ -352,6 +384,7 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '179390',
           code: 'YES',
           active: true,
           label: 'YES',
@@ -360,6 +393,7 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
           nextQuestionId: '44523',
         },
         {
+          id: '179391',
           code: 'NO',
           active: true,
           label: 'NO',
@@ -377,6 +411,7 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '179404',
           code: 'SPECIFY',
           active: true,
           label: 'SPECIFY',
@@ -394,6 +429,7 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '179515',
           code: 'YES',
           active: true,
           label: 'YES',
@@ -402,6 +438,7 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
           nextQuestionId: '44260',
         },
         {
+          id: '179514',
           code: 'NO',
           active: true,
           label: 'NO',
@@ -419,6 +456,7 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '179713',
           code: 'YES',
           active: true,
           label: 'YES',
@@ -427,6 +465,7 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
           nextQuestionId: '44380',
         },
         {
+          id: '179712',
           code: 'NO',
           active: true,
           label: 'NO',
@@ -444,6 +483,7 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '179714',
           code: 'YES',
           active: true,
           label: 'YES',
@@ -452,6 +492,7 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
           nextQuestionId: '44261',
         },
         {
+          id: '179715',
           code: 'NO',
           active: true,
           label: 'NO',
@@ -469,6 +510,7 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '179748',
           code: 'YES',
           active: true,
           label: 'YES',
@@ -477,6 +519,7 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
           nextQuestionId: '44978',
         },
         {
+          id: '179747',
           code: 'NO',
           active: true,
           label: 'NO',
@@ -494,6 +537,7 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '179787',
           code: 'YES',
           active: true,
           label: 'YES',
@@ -502,6 +546,7 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
           nextQuestionId: '44197',
         },
         {
+          id: '179786',
           code: 'NO',
           active: true,
           label: 'NO',
@@ -519,6 +564,7 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '179826',
           code: 'YES',
           active: true,
           label: 'YES',
@@ -527,6 +573,7 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
           nextQuestionId: '44716',
         },
         {
+          id: '179827',
           code: 'NO',
           active: true,
           label: 'NO',
@@ -544,6 +591,7 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '179852',
           code: 'YES',
           active: true,
           label: 'YES',
@@ -552,6 +600,7 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
           nextQuestionId: '44547',
         },
         {
+          id: '179851',
           code: 'NO',
           active: true,
           label: 'NO',
@@ -569,6 +618,7 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
       multipleAnswers: true,
       answers: [
         {
+          id: '180110',
           code: 'STAFF',
           active: true,
           label: 'STAFF',
@@ -577,6 +627,7 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
           nextQuestionId: '44393',
         },
         {
+          id: '180109',
           code: 'PRISONERS',
           active: true,
           label: 'PRISONERS',
@@ -585,6 +636,7 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
           nextQuestionId: '44393',
         },
         {
+          id: '180106',
           code: 'CIVILIAN GRADES',
           active: true,
           label: 'CIVILIAN GRADES',
@@ -593,6 +645,7 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
           nextQuestionId: '44393',
         },
         {
+          id: '180108',
           code: 'POLICE',
           active: true,
           label: 'POLICE',
@@ -601,6 +654,7 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
           nextQuestionId: '44393',
         },
         {
+          id: '180107',
           code: 'EXTERNAL CIVILIANS',
           active: true,
           label: 'EXTERNAL CIVILIANS',
@@ -618,6 +672,7 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '180255',
           code: 'YES',
           active: true,
           label: 'YES',
@@ -626,6 +681,7 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
           nextQuestionId: '45113',
         },
         {
+          id: '180254',
           code: 'NO',
           active: true,
           label: 'NO',
@@ -643,6 +699,7 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '180267',
           code: 'YES',
           active: true,
           label: 'YES',
@@ -651,6 +708,7 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
           nextQuestionId: '44149',
         },
         {
+          id: '180266',
           code: 'NO',
           active: true,
           label: 'NO',
@@ -668,6 +726,7 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '180285',
           code: 'MINOR',
           active: true,
           label: 'MINOR',
@@ -676,6 +735,7 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
           nextQuestionId: '44236',
         },
         {
+          id: '180286',
           code: 'SERIOUS',
           active: true,
           label: 'SERIOUS',
@@ -684,6 +744,7 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
           nextQuestionId: '44236',
         },
         {
+          id: '180284',
           code: 'EXTENSIVE',
           active: true,
           label: 'EXTENSIVE',
@@ -701,6 +762,7 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '180425',
           code: 'YES',
           active: true,
           label: 'YES',
@@ -709,6 +771,7 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
           nextQuestionId: '44974',
         },
         {
+          id: '180424',
           code: 'NO',
           active: true,
           label: 'NO',
@@ -726,6 +789,7 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '180463',
           code: 'SPECIFY',
           active: true,
           label: 'SPECIFY',
@@ -743,6 +807,7 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '180518',
           code: 'YES',
           active: true,
           label: 'YES',
@@ -751,6 +816,7 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
           nextQuestionId: '45100',
         },
         {
+          id: '180519',
           code: 'NO',
           active: true,
           label: 'NO',
@@ -768,6 +834,7 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '180541',
           code: 'YES',
           active: true,
           label: 'YES',
@@ -776,6 +843,7 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
           nextQuestionId: '45007',
         },
         {
+          id: '180542',
           code: 'NO',
           active: true,
           label: 'NO',
@@ -793,6 +861,7 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '180732',
           code: 'YES',
           active: true,
           label: 'YES',
@@ -801,6 +870,7 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
           nextQuestionId: '44510',
         },
         {
+          id: '180731',
           code: 'NO',
           active: true,
           label: 'NO',
@@ -818,6 +888,7 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '180821',
           code: 'SPECIFY',
           active: true,
           label: 'SPECIFY',
@@ -835,6 +906,7 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '180828',
           code: 'ENTER NUMBER',
           active: true,
           label: 'ENTER NUMBER',
@@ -852,6 +924,7 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '180991',
           code: 'YES',
           active: true,
           label: 'YES',
@@ -860,6 +933,7 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
           nextQuestionId: '44135',
         },
         {
+          id: '180992',
           code: 'NO',
           active: true,
           label: 'NO',
@@ -877,6 +951,7 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '181000',
           code: 'YES',
           active: true,
           label: 'YES',
@@ -885,6 +960,7 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
           nextQuestionId: '44187',
         },
         {
+          id: '181001',
           code: 'NO',
           active: true,
           label: 'NO',
@@ -902,6 +978,7 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
       multipleAnswers: true,
       answers: [
         {
+          id: '181089',
           code: 'STAFF',
           active: true,
           label: 'STAFF',
@@ -910,6 +987,7 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
           nextQuestionId: '44361',
         },
         {
+          id: '181088',
           code: 'PRISONERS',
           active: true,
           label: 'PRISONERS',
@@ -918,6 +996,7 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
           nextQuestionId: '44361',
         },
         {
+          id: '181085',
           code: 'CIVILIAN GRADES',
           active: true,
           label: 'CIVILIAN GRADES',
@@ -926,6 +1005,7 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
           nextQuestionId: '44361',
         },
         {
+          id: '181087',
           code: 'POLICE',
           active: true,
           label: 'POLICE',
@@ -934,6 +1014,7 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
           nextQuestionId: '44361',
         },
         {
+          id: '181086',
           code: 'EXTERNAL CIVILIANS',
           active: true,
           label: 'EXTERNAL CIVILIANS',
@@ -951,6 +1032,7 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '181094',
           code: 'YES',
           active: true,
           label: 'YES',
@@ -959,6 +1041,7 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
           nextQuestionId: '45126',
         },
         {
+          id: '181095',
           code: 'NO',
           active: true,
           label: 'NO',
@@ -976,6 +1059,7 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '181174',
           code: 'YES',
           active: true,
           label: 'YES',
@@ -984,6 +1068,7 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
           nextQuestionId: '44516',
         },
         {
+          id: '181175',
           code: 'NO',
           active: true,
           label: 'NO',
@@ -1001,6 +1086,7 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '181285',
           code: 'FULL',
           active: true,
           label: 'FULL',
@@ -1009,6 +1095,7 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
           nextQuestionId: '45140',
         },
         {
+          id: '181286',
           code: 'PARTIAL (ENTER DETAILS)',
           active: true,
           label: 'PARTIAL (ENTER DETAILS)',
@@ -1026,6 +1113,7 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
       multipleAnswers: true,
       answers: [
         {
+          id: '181571',
           code: 'STAFF',
           active: true,
           label: 'STAFF',
@@ -1034,6 +1122,7 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
           nextQuestionId: '44956',
         },
         {
+          id: '181570',
           code: 'PRISONERS',
           active: true,
           label: 'PRISONERS',
@@ -1042,6 +1131,7 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
           nextQuestionId: '44956',
         },
         {
+          id: '181567',
           code: 'CIVILIAN GRADES',
           active: true,
           label: 'CIVILIAN GRADES',
@@ -1050,6 +1140,7 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
           nextQuestionId: '44956',
         },
         {
+          id: '181569',
           code: 'POLICE',
           active: true,
           label: 'POLICE',
@@ -1058,6 +1149,7 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
           nextQuestionId: '44956',
         },
         {
+          id: '181568',
           code: 'EXTERNAL CIVILIANS',
           active: true,
           label: 'EXTERNAL CIVILIANS',
@@ -1075,6 +1167,7 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '181624',
           code: 'YES',
           active: true,
           label: 'YES',
@@ -1083,6 +1176,7 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
           nextQuestionId: '45178',
         },
         {
+          id: '181625',
           code: 'NO',
           active: true,
           label: 'NO',
@@ -1100,6 +1194,7 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '181781',
           code: 'EVACUATION',
           active: true,
           label: 'EVACUATION',
@@ -1108,6 +1203,7 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
           nextQuestionId: '45040',
         },
         {
+          id: '181784',
           code: 'PARTIAL SEARCH',
           active: true,
           label: 'PARTIAL SEARCH',
@@ -1116,6 +1212,7 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
           nextQuestionId: '44642',
         },
         {
+          id: '181783',
           code: 'FULL CLOSE DOWN',
           active: true,
           label: 'FULL CLOSE DOWN',
@@ -1124,6 +1221,7 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
           nextQuestionId: '44642',
         },
         {
+          id: '181782',
           code: 'DOG SEARCH',
           active: true,
           label: 'DOG SEARCH',
@@ -1141,6 +1239,7 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '181815',
           code: 'YES',
           active: true,
           label: 'YES',
@@ -1149,6 +1248,7 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
           nextQuestionId: '44742',
         },
         {
+          id: '181816',
           code: 'NO',
           active: true,
           label: 'NO',
@@ -1166,6 +1266,7 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '181884',
           code: 'THREAT',
           active: true,
           label: 'THREAT',
@@ -1174,6 +1275,7 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
           nextQuestionId: '44283',
         },
         {
+          id: '181885',
           code: 'WARNING',
           active: true,
           label: 'WARNING',
@@ -1182,6 +1284,7 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
           nextQuestionId: '44283',
         },
         {
+          id: '181887',
           code: 'EXPLOSION',
           active: true,
           label: 'EXPLOSION',
@@ -1190,6 +1293,7 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
           nextQuestionId: '44948',
         },
         {
+          id: '181889',
           code: 'SUSPICIOUS PACKAGE',
           active: true,
           label: 'SUSPICIOUS PACKAGE',
@@ -1198,6 +1302,7 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
           nextQuestionId: '44948',
         },
         {
+          id: '181888',
           code: 'INTELLIGENCE',
           active: true,
           label: 'INTELLIGENCE',
@@ -1206,6 +1311,7 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
           nextQuestionId: '44948',
         },
         {
+          id: '181886',
           code: 'DOG SEARCH',
           active: true,
           label: 'DOG SEARCH',
@@ -1223,6 +1329,7 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '181901',
           code: 'YES',
           active: true,
           label: 'YES',
@@ -1231,6 +1338,7 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
           nextQuestionId: '44404',
         },
         {
+          id: '181900',
           code: 'NO',
           active: true,
           label: 'NO',
@@ -1248,6 +1356,7 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '181975',
           code: 'YES',
           active: true,
           label: 'YES',
@@ -1256,6 +1365,7 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
           nextQuestionId: '44305',
         },
         {
+          id: '181974',
           code: 'NO',
           active: true,
           label: 'NO',
@@ -1273,6 +1383,7 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '181987',
           code: 'YES',
           active: true,
           label: 'YES',
@@ -1281,6 +1392,7 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
           nextQuestionId: '44472',
         },
         {
+          id: '181988',
           code: 'NO',
           active: true,
           label: 'NO',
@@ -1298,6 +1410,7 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '182142',
           code: 'TO ANOTHER AREA OF THE PRISON',
           active: true,
           label: 'TO ANOTHER AREA OF THE PRISON',
@@ -1306,6 +1419,7 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
           nextQuestionId: '44642',
         },
         {
+          id: '182141',
           code: 'OUTSIDE THE PRISON',
           active: true,
           label: 'OUTSIDE THE PRISON',
@@ -1314,6 +1428,7 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
           nextQuestionId: '44642',
         },
         {
+          id: '182143',
           code: 'TO ANOTHER PRISON',
           active: true,
           label: 'TO ANOTHER PRISON',
@@ -1331,6 +1446,7 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '182343',
           code: 'LOCAL',
           active: true,
           label: 'LOCAL',
@@ -1339,6 +1455,7 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
           nextQuestionId: '44149',
         },
         {
+          id: '182342',
           code: 'SERVICE SUPPLIER',
           active: true,
           label: 'SERVICE SUPPLIER',
@@ -1356,6 +1473,7 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '182375',
           code: 'ENTER TIME',
           active: true,
           label: 'ENTER TIME',
@@ -1373,6 +1491,7 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '182399',
           code: 'YES',
           active: true,
           label: 'YES',
@@ -1381,6 +1500,7 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
           nextQuestionId: '44128',
         },
         {
+          id: '182400',
           code: 'NO',
           active: true,
           label: 'NO',
@@ -1398,6 +1518,7 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
       multipleAnswers: true,
       answers: [
         {
+          id: '182456',
           code: 'GRAZES, SCRATCHES OR ABRASIONS',
           active: true,
           label: 'GRAZES, SCRATCHES OR ABRASIONS',
@@ -1406,6 +1527,7 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
           nextQuestionId: '44896',
         },
         {
+          id: '182457',
           code: 'MINOR BRUISES',
           active: true,
           label: 'MINOR BRUISES',
@@ -1414,6 +1536,7 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
           nextQuestionId: '44896',
         },
         {
+          id: '182460',
           code: 'SWELLINGS',
           active: true,
           label: 'SWELLINGS',
@@ -1422,6 +1545,7 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
           nextQuestionId: '44896',
         },
         {
+          id: '182459',
           code: 'SUPERFICIAL CUTS',
           active: true,
           label: 'SUPERFICIAL CUTS',
@@ -1430,6 +1554,7 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
           nextQuestionId: '44896',
         },
         {
+          id: '182458',
           code: 'OTHER',
           active: true,
           label: 'OTHER',
@@ -1447,6 +1572,7 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '182526',
           code: 'GOVERNOR',
           active: true,
           label: 'GOVERNOR',
@@ -1455,6 +1581,7 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
           nextQuestionId: '44362',
         },
         {
+          id: '182524',
           code: 'DEPUTY GOVERNOR',
           active: true,
           label: 'DEPUTY GOVERNOR',
@@ -1463,6 +1590,7 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
           nextQuestionId: '44362',
         },
         {
+          id: '182525',
           code: 'DUTY GOVERNOR',
           active: true,
           label: 'DUTY GOVERNOR',
@@ -1471,6 +1599,7 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
           nextQuestionId: '44362',
         },
         {
+          id: '182527',
           code: 'OTHER',
           active: true,
           label: 'OTHER',
@@ -1488,6 +1617,7 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '182645',
           code: 'LOCAL',
           active: true,
           label: 'LOCAL',
@@ -1496,6 +1626,7 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
+          id: '182646',
           code: 'SERVICE SUPPLIER',
           active: true,
           label: 'SERVICE SUPPLIER',
@@ -1513,6 +1644,7 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '182651',
           code: 'ADMINISTRATION',
           active: true,
           label: 'ADMINISTRATION',
@@ -1521,6 +1653,7 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
           nextQuestionId: '44371',
         },
         {
+          id: '182652',
           code: 'ASSOCIATION AREA',
           active: true,
           label: 'ASSOCIATION AREA',
@@ -1529,6 +1662,7 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
           nextQuestionId: '44371',
         },
         {
+          id: '182653',
           code: 'CELL',
           active: true,
           label: 'CELL',
@@ -1537,6 +1671,7 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
           nextQuestionId: '44371',
         },
         {
+          id: '182654',
           code: 'CHAPEL',
           active: true,
           label: 'CHAPEL',
@@ -1545,6 +1680,7 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
           nextQuestionId: '44371',
         },
         {
+          id: '182656',
           code: 'DINING ROOM',
           active: true,
           label: 'DINING ROOM',
@@ -1553,6 +1689,7 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
           nextQuestionId: '44371',
         },
         {
+          id: '182657',
           code: 'DORMITORY',
           active: true,
           label: 'DORMITORY',
@@ -1561,6 +1698,7 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
           nextQuestionId: '44371',
         },
         {
+          id: '182658',
           code: 'EDUCATION',
           active: true,
           label: 'EDUCATION',
@@ -1569,6 +1707,7 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
           nextQuestionId: '44371',
         },
         {
+          id: '182660',
           code: 'EXERCISE YARD',
           active: true,
           label: 'EXERCISE YARD',
@@ -1577,6 +1716,7 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
           nextQuestionId: '44371',
         },
         {
+          id: '182662',
           code: 'GATE',
           active: true,
           label: 'GATE',
@@ -1585,6 +1725,7 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
           nextQuestionId: '44371',
         },
         {
+          id: '182663',
           code: 'GYM',
           active: true,
           label: 'GYM',
@@ -1593,6 +1734,7 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
           nextQuestionId: '44371',
         },
         {
+          id: '182664',
           code: 'HEALTH CARE CENTRE',
           active: true,
           label: 'HEALTH CARE CENTRE',
@@ -1601,6 +1743,7 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
           nextQuestionId: '44371',
         },
         {
+          id: '182667',
           code: 'KITCHEN',
           active: true,
           label: 'KITCHEN',
@@ -1609,6 +1752,7 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
           nextQuestionId: '44371',
         },
         {
+          id: '182669',
           code: 'OFFICE',
           active: true,
           label: 'OFFICE',
@@ -1617,6 +1761,7 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
           nextQuestionId: '44371',
         },
         {
+          id: '182671',
           code: 'RECEPTION',
           active: true,
           label: 'RECEPTION',
@@ -1625,6 +1770,7 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
           nextQuestionId: '44371',
         },
         {
+          id: '182672',
           code: 'RECESS',
           active: true,
           label: 'RECESS',
@@ -1633,6 +1779,7 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
           nextQuestionId: '44371',
         },
         {
+          id: '182673',
           code: 'SEGREGATION UNIT',
           active: true,
           label: 'SEGREGATION UNIT',
@@ -1641,6 +1788,7 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
           nextQuestionId: '44371',
         },
         {
+          id: '182675',
           code: 'SPECIAL UNIT',
           active: true,
           label: 'SPECIAL UNIT',
@@ -1649,6 +1797,7 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
           nextQuestionId: '44371',
         },
         {
+          id: '182674',
           code: 'SHOWERS/CHANGING ROOM',
           active: true,
           label: 'SHOWERS/CHANGING ROOM',
@@ -1657,6 +1806,7 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
           nextQuestionId: '44371',
         },
         {
+          id: '182678',
           code: 'VISITS',
           active: true,
           label: 'VISITS',
@@ -1665,6 +1815,7 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
           nextQuestionId: '44371',
         },
         {
+          id: '182680',
           code: 'WING',
           active: true,
           label: 'WING',
@@ -1673,6 +1824,7 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
           nextQuestionId: '44371',
         },
         {
+          id: '182682',
           code: 'WORKS DEPARTMENT',
           active: true,
           label: 'WORKS DEPARTMENT',
@@ -1681,6 +1833,7 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
           nextQuestionId: '44371',
         },
         {
+          id: '182683',
           code: 'WORKSHOP',
           active: true,
           label: 'WORKSHOP',
@@ -1689,6 +1842,7 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
           nextQuestionId: '44371',
         },
         {
+          id: '182681',
           code: 'WITHIN PERIMETER',
           active: true,
           label: 'WITHIN PERIMETER',
@@ -1697,6 +1851,7 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
           nextQuestionId: '44371',
         },
         {
+          id: '182659',
           code: 'ELSEWHERE',
           active: true,
           label: 'ELSEWHERE',
@@ -1705,6 +1860,7 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
           nextQuestionId: '44371',
         },
         {
+          id: '182661',
           code: 'FUNERAL',
           active: true,
           label: 'FUNERAL',
@@ -1713,6 +1869,7 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
           nextQuestionId: '44371',
         },
         {
+          id: '182665',
           code: 'HOSPITAL OUTSIDE (PATIENT)',
           active: true,
           label: 'HOSPITAL OUTSIDE (PATIENT)',
@@ -1721,6 +1878,7 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
           nextQuestionId: '44371',
         },
         {
+          id: '182666',
           code: 'HOSPITAL OUTSIDE (VISITING)',
           active: true,
           label: 'HOSPITAL OUTSIDE (VISITING)',
@@ -1729,6 +1887,7 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
           nextQuestionId: '44371',
         },
         {
+          id: '182670',
           code: 'OUTSIDE WORKING PARTY',
           active: true,
           label: 'OUTSIDE WORKING PARTY',
@@ -1737,6 +1896,7 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
           nextQuestionId: '44371',
         },
         {
+          id: '182676',
           code: 'SPORTS FIELD',
           active: true,
           label: 'SPORTS FIELD',
@@ -1745,6 +1905,7 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
           nextQuestionId: '44371',
         },
         {
+          id: '182677',
           code: 'VEHICLE',
           active: true,
           label: 'VEHICLE',
@@ -1753,6 +1914,7 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
           nextQuestionId: '44371',
         },
         {
+          id: '182679',
           code: 'WEDDINGS',
           active: true,
           label: 'WEDDINGS',
@@ -1761,6 +1923,7 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
           nextQuestionId: '44371',
         },
         {
+          id: '182668',
           code: 'MAGISTRATES COURT',
           active: true,
           label: 'MAGISTRATES COURT',
@@ -1769,6 +1932,7 @@ const BOMB_THREAT: IncidentTypeConfiguration = {
           nextQuestionId: '44371',
         },
         {
+          id: '182655',
           code: 'CROWN COURT',
           active: true,
           label: 'CROWN COURT',

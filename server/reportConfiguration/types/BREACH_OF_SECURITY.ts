@@ -1,4 +1,4 @@
-// Generated with ./scripts/updateNomisIncidentTypeConfigurations.ts at 2024-09-25T09:25:50.209Z
+// Generated with ./scripts/updateNomisIncidentTypeConfigurations.ts at 2024-10-15T17:17:16.992Z
 
 import { type IncidentTypeConfiguration } from '../../data/incidentTypeConfiguration/types'
 
@@ -15,6 +15,7 @@ const BREACH_OF_SECURITY: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '178894',
           code: 'YES',
           active: true,
           label: 'YES',
@@ -23,6 +24,7 @@ const BREACH_OF_SECURITY: IncidentTypeConfiguration = {
           nextQuestionId: '44136',
         },
         {
+          id: '178895',
           code: 'NO',
           active: true,
           label: 'NO',
@@ -40,6 +42,7 @@ const BREACH_OF_SECURITY: IncidentTypeConfiguration = {
       multipleAnswers: true,
       answers: [
         {
+          id: '178948',
           code: 'FURNITURE',
           active: true,
           label: 'FURNITURE',
@@ -48,6 +51,7 @@ const BREACH_OF_SECURITY: IncidentTypeConfiguration = {
           nextQuestionId: '45016',
         },
         {
+          id: '178947',
           code: 'FITTINGS',
           active: true,
           label: 'FITTINGS',
@@ -56,6 +60,7 @@ const BREACH_OF_SECURITY: IncidentTypeConfiguration = {
           nextQuestionId: '45016',
         },
         {
+          id: '178949',
           code: 'MACHINERY',
           active: true,
           label: 'MACHINERY',
@@ -64,6 +69,7 @@ const BREACH_OF_SECURITY: IncidentTypeConfiguration = {
           nextQuestionId: '45016',
         },
         {
+          id: '178946',
           code: 'EQUIPMENT',
           active: true,
           label: 'EQUIPMENT',
@@ -72,6 +78,7 @@ const BREACH_OF_SECURITY: IncidentTypeConfiguration = {
           nextQuestionId: '45016',
         },
         {
+          id: '178950',
           code: 'OTHER',
           active: true,
           label: 'OTHER',
@@ -89,6 +96,7 @@ const BREACH_OF_SECURITY: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '179321',
           code: 'YES',
           active: true,
           label: 'YES',
@@ -97,6 +105,7 @@ const BREACH_OF_SECURITY: IncidentTypeConfiguration = {
           nextQuestionId: '45137',
         },
         {
+          id: '179322',
           code: 'NO',
           active: true,
           label: 'NO',
@@ -114,6 +123,7 @@ const BREACH_OF_SECURITY: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '179329',
           code: 'YES',
           active: true,
           label: 'YES',
@@ -122,6 +132,7 @@ const BREACH_OF_SECURITY: IncidentTypeConfiguration = {
           nextQuestionId: '44286',
         },
         {
+          id: '179330',
           code: 'NO',
           active: true,
           label: 'NO',
@@ -139,6 +150,7 @@ const BREACH_OF_SECURITY: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '179410',
           code: 'YES',
           active: true,
           label: 'YES',
@@ -147,6 +159,7 @@ const BREACH_OF_SECURITY: IncidentTypeConfiguration = {
           nextQuestionId: '44364',
         },
         {
+          id: '179409',
           code: 'NO',
           active: true,
           label: 'NO',
@@ -164,6 +177,7 @@ const BREACH_OF_SECURITY: IncidentTypeConfiguration = {
       multipleAnswers: true,
       answers: [
         {
+          id: '179472',
           code: 'WEAPONS',
           active: true,
           label: 'WEAPONS',
@@ -172,6 +186,7 @@ const BREACH_OF_SECURITY: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
+          id: '179465',
           code: 'ALCOHOL',
           active: true,
           label: 'ALCOHOL',
@@ -180,6 +195,7 @@ const BREACH_OF_SECURITY: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
+          id: '179467',
           code: 'CIGARETTES',
           active: true,
           label: 'CIGARETTES',
@@ -188,6 +204,7 @@ const BREACH_OF_SECURITY: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
+          id: '179470',
           code: 'TOBACCO',
           active: true,
           label: 'TOBACCO',
@@ -196,6 +213,7 @@ const BREACH_OF_SECURITY: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
+          id: '179466',
           code: 'CASH',
           active: true,
           label: 'CASH',
@@ -204,6 +222,7 @@ const BREACH_OF_SECURITY: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
+          id: '179468',
           code: 'ESCAPE EQUIPMENT',
           active: true,
           label: 'ESCAPE EQUIPMENT',
@@ -212,6 +231,7 @@ const BREACH_OF_SECURITY: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
+          id: '179471',
           code: 'TOOLS',
           active: true,
           label: 'TOOLS',
@@ -220,6 +240,7 @@ const BREACH_OF_SECURITY: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
+          id: '179469',
           code: 'OTHER',
           active: true,
           label: 'OTHER',
@@ -237,6 +258,7 @@ const BREACH_OF_SECURITY: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '179624',
           code: 'YES',
           active: true,
           label: 'YES',
@@ -245,6 +267,7 @@ const BREACH_OF_SECURITY: IncidentTypeConfiguration = {
           nextQuestionId: '44124',
         },
         {
+          id: '179623',
           code: 'NO',
           active: true,
           label: 'NO',
@@ -262,6 +285,7 @@ const BREACH_OF_SECURITY: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '179718',
           code: 'YES',
           active: true,
           label: 'YES',
@@ -270,6 +294,7 @@ const BREACH_OF_SECURITY: IncidentTypeConfiguration = {
           nextQuestionId: '44786',
         },
         {
+          id: '179717',
           code: 'NO',
           active: true,
           label: 'NO',
@@ -287,6 +312,7 @@ const BREACH_OF_SECURITY: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '179814',
           code: 'YES',
           active: true,
           label: 'YES',
@@ -295,6 +321,7 @@ const BREACH_OF_SECURITY: IncidentTypeConfiguration = {
           nextQuestionId: '44883',
         },
         {
+          id: '179813',
           code: 'NO',
           active: true,
           label: 'NO',
@@ -312,6 +339,7 @@ const BREACH_OF_SECURITY: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '180225',
           code: 'YES',
           active: true,
           label: 'YES',
@@ -320,6 +348,7 @@ const BREACH_OF_SECURITY: IncidentTypeConfiguration = {
           nextQuestionId: '44606',
         },
         {
+          id: '180226',
           code: 'NO',
           active: true,
           label: 'NO',
@@ -337,6 +366,7 @@ const BREACH_OF_SECURITY: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '180262',
           code: 'YES',
           active: true,
           label: 'YES',
@@ -345,6 +375,7 @@ const BREACH_OF_SECURITY: IncidentTypeConfiguration = {
           nextQuestionId: '44543',
         },
         {
+          id: '180263',
           code: 'NO',
           active: true,
           label: 'NO',
@@ -362,6 +393,7 @@ const BREACH_OF_SECURITY: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '180417',
           code: 'YES',
           active: true,
           label: 'YES',
@@ -370,6 +402,7 @@ const BREACH_OF_SECURITY: IncidentTypeConfiguration = {
           nextQuestionId: '44855',
         },
         {
+          id: '180418',
           code: 'NO',
           active: true,
           label: 'NO',
@@ -387,6 +420,7 @@ const BREACH_OF_SECURITY: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '180465',
           code: 'YES',
           active: true,
           label: 'YES',
@@ -395,6 +429,7 @@ const BREACH_OF_SECURITY: IncidentTypeConfiguration = {
           nextQuestionId: '44500',
         },
         {
+          id: '180464',
           code: 'NO',
           active: true,
           label: 'NO',
@@ -412,6 +447,7 @@ const BREACH_OF_SECURITY: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '180618',
           code: 'INFORMATION FROM PRISONERS',
           active: true,
           label: 'INFORMATION FROM PRISONERS',
@@ -420,6 +456,7 @@ const BREACH_OF_SECURITY: IncidentTypeConfiguration = {
           nextQuestionId: '44658',
         },
         {
+          id: '180617',
           code: 'INFORMATION FROM POLICE',
           active: true,
           label: 'INFORMATION FROM POLICE',
@@ -428,6 +465,7 @@ const BREACH_OF_SECURITY: IncidentTypeConfiguration = {
           nextQuestionId: '44658',
         },
         {
+          id: '180616',
           code: 'INFORMATION FROM HQ/AM',
           active: true,
           label: 'INFORMATION FROM HQ/AM',
@@ -436,6 +474,7 @@ const BREACH_OF_SECURITY: IncidentTypeConfiguration = {
           nextQuestionId: '44658',
         },
         {
+          id: '180619',
           code: 'OTHER',
           active: true,
           label: 'OTHER',
@@ -453,6 +492,7 @@ const BREACH_OF_SECURITY: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '180643',
           code: 'ENTER AMOUNT IN POUND STERLING',
           active: true,
           label: 'ENTER AMOUNT IN POUND STERLING',
@@ -470,6 +510,7 @@ const BREACH_OF_SECURITY: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '180794',
           code: 'PARTICULAR PRISONER',
           active: true,
           label: 'PARTICULAR PRISONER',
@@ -478,6 +519,7 @@ const BREACH_OF_SECURITY: IncidentTypeConfiguration = {
           nextQuestionId: '44686',
         },
         {
+          id: '180792',
           code: 'LOCAL ISSUE',
           active: true,
           label: 'LOCAL ISSUE',
@@ -486,6 +528,7 @@ const BREACH_OF_SECURITY: IncidentTypeConfiguration = {
           nextQuestionId: '44686',
         },
         {
+          id: '180791',
           code: 'GENERAL ISSUE',
           active: true,
           label: 'GENERAL ISSUE',
@@ -494,6 +537,7 @@ const BREACH_OF_SECURITY: IncidentTypeConfiguration = {
           nextQuestionId: '44686',
         },
         {
+          id: '180793',
           code: 'OTHER',
           active: true,
           label: 'OTHER',
@@ -511,6 +555,7 @@ const BREACH_OF_SECURITY: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '180859',
           code: 'YES',
           active: true,
           label: 'YES',
@@ -519,6 +564,7 @@ const BREACH_OF_SECURITY: IncidentTypeConfiguration = {
           nextQuestionId: '44728',
         },
         {
+          id: '180860',
           code: 'NO',
           active: true,
           label: 'NO',
@@ -536,6 +582,7 @@ const BREACH_OF_SECURITY: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '180978',
           code: 'ORGANISED',
           active: true,
           label: 'ORGANISED',
@@ -544,6 +591,7 @@ const BREACH_OF_SECURITY: IncidentTypeConfiguration = {
           nextQuestionId: '44561',
         },
         {
+          id: '180979',
           code: 'SPONTANEOUS',
           active: true,
           label: 'SPONTANEOUS',
@@ -561,6 +609,7 @@ const BREACH_OF_SECURITY: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '181050',
           code: 'YES',
           active: true,
           label: 'YES',
@@ -569,6 +618,7 @@ const BREACH_OF_SECURITY: IncidentTypeConfiguration = {
           nextQuestionId: '44333',
         },
         {
+          id: '181049',
           code: 'NO',
           active: true,
           label: 'NO',
@@ -586,6 +636,7 @@ const BREACH_OF_SECURITY: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '181201',
           code: 'YES',
           active: true,
           label: 'YES',
@@ -594,6 +645,7 @@ const BREACH_OF_SECURITY: IncidentTypeConfiguration = {
           nextQuestionId: '45095',
         },
         {
+          id: '181200',
           code: 'NO',
           active: true,
           label: 'NO',
@@ -611,6 +663,7 @@ const BREACH_OF_SECURITY: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '181412',
           code: 'YES',
           active: true,
           label: 'YES',
@@ -619,6 +672,7 @@ const BREACH_OF_SECURITY: IncidentTypeConfiguration = {
           nextQuestionId: '44389',
         },
         {
+          id: '181413',
           code: 'NO',
           active: true,
           label: 'NO',
@@ -636,6 +690,7 @@ const BREACH_OF_SECURITY: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '181445',
           code: 'YES',
           active: true,
           label: 'YES',
@@ -644,6 +699,7 @@ const BREACH_OF_SECURITY: IncidentTypeConfiguration = {
           nextQuestionId: '44918',
         },
         {
+          id: '181446',
           code: 'NO',
           active: true,
           label: 'NO',
@@ -661,6 +717,7 @@ const BREACH_OF_SECURITY: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '181530',
           code: 'YES',
           active: true,
           label: 'YES',
@@ -669,6 +726,7 @@ const BREACH_OF_SECURITY: IncidentTypeConfiguration = {
           nextQuestionId: '44709',
         },
         {
+          id: '181531',
           code: 'NO',
           active: true,
           label: 'NO',
@@ -686,6 +744,7 @@ const BREACH_OF_SECURITY: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '181605',
           code: 'YES',
           active: true,
           label: 'YES',
@@ -694,6 +753,7 @@ const BREACH_OF_SECURITY: IncidentTypeConfiguration = {
           nextQuestionId: '44301',
         },
         {
+          id: '181606',
           code: 'NO',
           active: true,
           label: 'NO',
@@ -711,6 +771,7 @@ const BREACH_OF_SECURITY: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '181645',
           code: 'THROWN OVER',
           active: true,
           label: 'THROWN OVER',
@@ -719,6 +780,7 @@ const BREACH_OF_SECURITY: IncidentTypeConfiguration = {
           nextQuestionId: '44514',
         },
         {
+          id: '181641',
           code: 'CLIMBED OVER',
           active: true,
           label: 'CLIMBED OVER',
@@ -727,6 +789,7 @@ const BREACH_OF_SECURITY: IncidentTypeConfiguration = {
           nextQuestionId: '44514',
         },
         {
+          id: '181642',
           code: 'CUT THROUGH',
           active: true,
           label: 'CUT THROUGH',
@@ -735,6 +798,7 @@ const BREACH_OF_SECURITY: IncidentTypeConfiguration = {
           nextQuestionId: '44514',
         },
         {
+          id: '181646',
           code: 'VEHICLE RAMMED',
           active: true,
           label: 'VEHICLE RAMMED',
@@ -743,6 +807,7 @@ const BREACH_OF_SECURITY: IncidentTypeConfiguration = {
           nextQuestionId: '44514',
         },
         {
+          id: '181643',
           code: 'EXPLOSIVES',
           active: true,
           label: 'EXPLOSIVES',
@@ -751,6 +816,7 @@ const BREACH_OF_SECURITY: IncidentTypeConfiguration = {
           nextQuestionId: '44514',
         },
         {
+          id: '181644',
           code: 'OTHER',
           active: true,
           label: 'OTHER',
@@ -768,6 +834,7 @@ const BREACH_OF_SECURITY: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '181777',
           code: 'INSIDE PRISON',
           active: true,
           label: 'INSIDE PRISON',
@@ -776,6 +843,7 @@ const BREACH_OF_SECURITY: IncidentTypeConfiguration = {
           nextQuestionId: '44864',
         },
         {
+          id: '181778',
           code: 'OUTSIDE PRISON',
           active: true,
           label: 'OUTSIDE PRISON',
@@ -793,6 +861,7 @@ const BREACH_OF_SECURITY: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '182006',
           code: 'MINOR',
           active: true,
           label: 'MINOR',
@@ -801,6 +870,7 @@ const BREACH_OF_SECURITY: IncidentTypeConfiguration = {
           nextQuestionId: '44616',
         },
         {
+          id: '182007',
           code: 'SERIOUS',
           active: true,
           label: 'SERIOUS',
@@ -809,6 +879,7 @@ const BREACH_OF_SECURITY: IncidentTypeConfiguration = {
           nextQuestionId: '44616',
         },
         {
+          id: '182005',
           code: 'EXTENSIVE',
           active: true,
           label: 'EXTENSIVE',
@@ -826,6 +897,7 @@ const BREACH_OF_SECURITY: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '182326',
           code: 'YES',
           active: true,
           label: 'YES',
@@ -834,6 +906,7 @@ const BREACH_OF_SECURITY: IncidentTypeConfiguration = {
           nextQuestionId: '44946',
         },
         {
+          id: '182325',
           code: 'NO',
           active: true,
           label: 'NO',
@@ -851,6 +924,7 @@ const BREACH_OF_SECURITY: IncidentTypeConfiguration = {
       multipleAnswers: true,
       answers: [
         {
+          id: '182518',
           code: 'STAFF',
           active: true,
           label: 'STAFF',
@@ -859,6 +933,7 @@ const BREACH_OF_SECURITY: IncidentTypeConfiguration = {
           nextQuestionId: '44906',
         },
         {
+          id: '182517',
           code: 'PRISONERS',
           active: true,
           label: 'PRISONERS',
@@ -867,6 +942,7 @@ const BREACH_OF_SECURITY: IncidentTypeConfiguration = {
           nextQuestionId: '44906',
         },
         {
+          id: '182514',
           code: 'CIVILIAN GRADES',
           active: true,
           label: 'CIVILIAN GRADES',
@@ -875,6 +951,7 @@ const BREACH_OF_SECURITY: IncidentTypeConfiguration = {
           nextQuestionId: '44906',
         },
         {
+          id: '182516',
           code: 'POLICE',
           active: true,
           label: 'POLICE',
@@ -883,6 +960,7 @@ const BREACH_OF_SECURITY: IncidentTypeConfiguration = {
           nextQuestionId: '44906',
         },
         {
+          id: '182515',
           code: 'EXTERNAL CIVILIANS',
           active: true,
           label: 'EXTERNAL CIVILIANS',

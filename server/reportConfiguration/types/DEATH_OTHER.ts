@@ -1,4 +1,4 @@
-// Generated with ./scripts/updateNomisIncidentTypeConfigurations.ts at 2024-09-25T09:25:52.812Z
+// Generated with ./scripts/updateNomisIncidentTypeConfigurations.ts at 2024-10-15T17:17:19.486Z
 
 import { type IncidentTypeConfiguration } from '../../data/incidentTypeConfiguration/types'
 
@@ -15,6 +15,7 @@ const DEATH_OTHER: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '178925',
           code: 'NAME',
           active: true,
           label: 'NAME',
@@ -32,6 +33,7 @@ const DEATH_OTHER: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '178971',
           code: 'YES',
           active: true,
           label: 'YES',
@@ -40,6 +42,7 @@ const DEATH_OTHER: IncidentTypeConfiguration = {
           nextQuestionId: '44751',
         },
         {
+          id: '178970',
           code: 'NO',
           active: true,
           label: 'NO',
@@ -57,6 +60,7 @@ const DEATH_OTHER: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '179279',
           code: 'NATURAL CAUSES',
           active: true,
           label: 'NATURAL CAUSES',
@@ -65,6 +69,7 @@ const DEATH_OTHER: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
+          id: '179282',
           code: 'SUICIDE',
           active: true,
           label: 'SUICIDE',
@@ -73,6 +78,7 @@ const DEATH_OTHER: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
+          id: '179277',
           code: 'ACCIDENTAL',
           active: true,
           label: 'ACCIDENTAL',
@@ -81,6 +87,7 @@ const DEATH_OTHER: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
+          id: '179278',
           code: 'MISADVENTURE',
           active: true,
           label: 'MISADVENTURE',
@@ -89,6 +96,7 @@ const DEATH_OTHER: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
+          id: '179280',
           code: 'OPEN VERDICT',
           active: true,
           label: 'OPEN VERDICT',
@@ -97,6 +105,7 @@ const DEATH_OTHER: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
+          id: '179281',
           code: 'OTHER',
           active: true,
           label: 'OTHER',
@@ -114,6 +123,7 @@ const DEATH_OTHER: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '179320',
           code: 'PRISON MEDICAL OFFICER',
           active: true,
           label: 'PRISON MEDICAL OFFICER',
@@ -122,6 +132,7 @@ const DEATH_OTHER: IncidentTypeConfiguration = {
           nextQuestionId: '44702',
         },
         {
+          id: '179318',
           code: 'HOSPITAL DOCTOR',
           active: true,
           label: 'HOSPITAL DOCTOR',
@@ -130,6 +141,7 @@ const DEATH_OTHER: IncidentTypeConfiguration = {
           nextQuestionId: '44702',
         },
         {
+          id: '179319',
           code: 'OTHER',
           active: true,
           label: 'OTHER',
@@ -147,6 +159,7 @@ const DEATH_OTHER: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '179677',
           code: 'YES',
           active: true,
           label: 'YES',
@@ -155,6 +168,7 @@ const DEATH_OTHER: IncidentTypeConfiguration = {
           nextQuestionId: '44237',
         },
         {
+          id: '179678',
           code: 'NO',
           active: true,
           label: 'NO',
@@ -172,6 +186,7 @@ const DEATH_OTHER: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '179795',
           code: 'YES',
           active: true,
           label: 'YES',
@@ -180,6 +195,7 @@ const DEATH_OTHER: IncidentTypeConfiguration = {
           nextQuestionId: '44130',
         },
         {
+          id: '179794',
           code: 'NO',
           active: true,
           label: 'NO',
@@ -197,6 +213,7 @@ const DEATH_OTHER: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '179824',
           code: 'OFFICER',
           active: true,
           label: 'OFFICER',
@@ -205,6 +222,7 @@ const DEATH_OTHER: IncidentTypeConfiguration = {
           nextQuestionId: '44645',
         },
         {
+          id: '179822',
           code: 'CIVILIAN STAFF',
           active: true,
           label: 'CIVILIAN STAFF',
@@ -213,6 +231,7 @@ const DEATH_OTHER: IncidentTypeConfiguration = {
           nextQuestionId: '44645',
         },
         {
+          id: '179823',
           code: 'EXTERNAL CIVILIAN',
           active: true,
           label: 'EXTERNAL CIVILIAN',
@@ -221,6 +240,7 @@ const DEATH_OTHER: IncidentTypeConfiguration = {
           nextQuestionId: '44645',
         },
         {
+          id: '179825',
           code: 'OTHER',
           active: true,
           label: 'OTHER',
@@ -238,6 +258,7 @@ const DEATH_OTHER: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '179834',
           code: 'YES',
           active: true,
           label: 'YES',
@@ -246,6 +267,7 @@ const DEATH_OTHER: IncidentTypeConfiguration = {
           nextQuestionId: '45031',
         },
         {
+          id: '179833',
           code: 'NO',
           active: true,
           label: 'NO',
@@ -263,6 +285,7 @@ const DEATH_OTHER: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '179838',
           code: 'YES',
           active: true,
           label: 'YES',
@@ -271,6 +294,7 @@ const DEATH_OTHER: IncidentTypeConfiguration = {
           nextQuestionId: '44350',
         },
         {
+          id: '179837',
           code: 'NO',
           active: true,
           label: 'NO',
@@ -288,6 +312,7 @@ const DEATH_OTHER: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '179909',
           code: 'APPARENT SELF INFLICTED',
           active: true,
           label: 'APPARENT SELF INFLICTED',
@@ -296,6 +321,7 @@ const DEATH_OTHER: IncidentTypeConfiguration = {
           nextQuestionId: '44382',
         },
         {
+          id: '179908',
           code: 'APPARENT NATURAL CAUSES',
           active: true,
           label: 'APPARENT NATURAL CAUSES',
@@ -304,6 +330,7 @@ const DEATH_OTHER: IncidentTypeConfiguration = {
           nextQuestionId: '44382',
         },
         {
+          id: '179907',
           code: 'ACCIDENTAL',
           active: true,
           label: 'ACCIDENTAL',
@@ -312,6 +339,7 @@ const DEATH_OTHER: IncidentTypeConfiguration = {
           nextQuestionId: '44382',
         },
         {
+          id: '179910',
           code: 'SUSPICIOUS CIRCUMSTANCES',
           active: true,
           label: 'SUSPICIOUS CIRCUMSTANCES',
@@ -329,6 +357,7 @@ const DEATH_OTHER: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '179932',
           code: 'YES',
           active: true,
           label: 'YES',
@@ -337,6 +366,7 @@ const DEATH_OTHER: IncidentTypeConfiguration = {
           nextQuestionId: '44839',
         },
         {
+          id: '179931',
           code: 'NO',
           active: true,
           label: 'NO',
@@ -354,6 +384,7 @@ const DEATH_OTHER: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '180738',
           code: 'YES',
           active: true,
           label: 'YES',
@@ -362,6 +393,7 @@ const DEATH_OTHER: IncidentTypeConfiguration = {
           nextQuestionId: '44397',
         },
         {
+          id: '180737',
           code: 'NO',
           active: true,
           label: 'NO',
@@ -379,6 +411,7 @@ const DEATH_OTHER: IncidentTypeConfiguration = {
       multipleAnswers: true,
       answers: [
         {
+          id: '180957',
           code: 'DATE',
           active: true,
           label: 'DATE',
@@ -387,6 +420,7 @@ const DEATH_OTHER: IncidentTypeConfiguration = {
           nextQuestionId: '44425',
         },
         {
+          id: '180958',
           code: 'TIME',
           active: true,
           label: 'TIME',
@@ -404,6 +438,7 @@ const DEATH_OTHER: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '181102',
           code: 'YES',
           active: true,
           label: 'YES',
@@ -412,6 +447,7 @@ const DEATH_OTHER: IncidentTypeConfiguration = {
           nextQuestionId: '44142',
         },
         {
+          id: '181101',
           code: 'NO',
           active: true,
           label: 'NO',
@@ -429,6 +465,7 @@ const DEATH_OTHER: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '181107',
           code: 'SPECIFY',
           active: true,
           label: 'SPECIFY',
@@ -446,6 +483,7 @@ const DEATH_OTHER: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '181347',
           code: 'YES',
           active: true,
           label: 'YES',
@@ -454,6 +492,7 @@ const DEATH_OTHER: IncidentTypeConfiguration = {
           nextQuestionId: '44748',
         },
         {
+          id: '181346',
           code: 'NO',
           active: true,
           label: 'NO',
@@ -471,6 +510,7 @@ const DEATH_OTHER: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '182063',
           code: 'YES',
           active: true,
           label: 'YES',
@@ -479,6 +519,7 @@ const DEATH_OTHER: IncidentTypeConfiguration = {
           nextQuestionId: '44248',
         },
         {
+          id: '182062',
           code: 'NO',
           active: true,
           label: 'NO',
@@ -496,6 +537,7 @@ const DEATH_OTHER: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
+          id: '182204',
           code: 'YES',
           active: true,
           label: 'YES',
@@ -504,6 +546,7 @@ const DEATH_OTHER: IncidentTypeConfiguration = {
           nextQuestionId: '44434',
         },
         {
+          id: '182205',
           code: 'NO',
           active: true,
           label: 'NO',

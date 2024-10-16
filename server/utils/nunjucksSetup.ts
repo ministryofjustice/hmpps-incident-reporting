@@ -13,6 +13,7 @@ import {
   govukCheckedItems,
   govukMultipleCheckedItems,
   govukCheckedItemsConditional,
+  govukCheckedItemsDivider,
   govukSelectInsertDefault,
   govukSelectSetSelected,
 } from './govukFrontend'
@@ -79,6 +80,7 @@ export default function nunjucksSetup(app: express.Express): void {
   njkEnv.addFilter('govukCheckedItems', govukCheckedItems)
   njkEnv.addFilter('govukMultipleCheckedItems', govukMultipleCheckedItems)
   njkEnv.addFilter('govukCheckedItemsConditional', govukCheckedItemsConditional)
+  njkEnv.addFilter('govukCheckedItemsDivider', govukCheckedItemsDivider)
   njkEnv.addFilter('govukSelectInsertDefault', govukSelectInsertDefault)
   njkEnv.addFilter('govukSelectSetSelected', govukSelectSetSelected)
 }

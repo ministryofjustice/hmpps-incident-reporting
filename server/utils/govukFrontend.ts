@@ -16,10 +16,9 @@ export type GovukRadios = {
 }
 
 /**
- * An item passed into the `items` property of a GOV.UK radios component
- * https://design-system.service.gov.uk/components/radios/#options-stacked-radios-example--items
+ * Base type for an item passed into the `items` property of a GOV.UK radios and checkboxes components
  */
-export type GovukRadiosItem = TextOrHtml & {
+type GovukCheckedItem = TextOrHtml & {
   value: string
   id?: string
   checked?: boolean
@@ -30,9 +29,14 @@ export type GovukRadiosItem = TextOrHtml & {
     attributes?: Record<string, unknown>
   }
   hint?: GovukHint
-  divider?: string
   conditional?: { html: string }
 }
+
+/**
+ * An item passed into the `items` property of a GOV.UK radios component
+ * https://design-system.service.gov.uk/components/radios/#options-stacked-radios-example--items
+ */
+export type GovukRadiosItem = GovukCheckedItem | { divider: string }
 
 /**
  * GOV.UK checkboxes component
@@ -53,10 +57,12 @@ export type GovukCheckboxes = {
  * An item passed into the `items` property of a GOV.UK check boxes component
  * https://design-system.service.gov.uk/components/checkboxes/#options-checkboxes-example--items
  */
-export type GovukCheckboxesItem = GovukRadiosItem & {
-  name?: string
-  behaviour?: 'exclusive'
-}
+export type GovukCheckboxesItem =
+  | (GovukCheckedItem & {
+      name?: string
+      behaviour?: 'exclusive'
+    })
+  | { divider: string }
 
 type GovukHint = TextOrHtml & {
   id?: string
@@ -154,6 +160,9 @@ export function findFieldInGovukErrorSummary(
  */
 export function govukCheckedItems<I extends GovukRadiosItem>(items: I[], singleValue: string | undefined): I[] {
   return items.map(item => {
+    if (!('value' in item)) {
+      return item
+    }
     return {
       ...item,
       checked: item.value === singleValue,
@@ -169,6 +178,9 @@ export function govukMultipleCheckedItems<I extends GovukCheckboxesItem>(
   multipleValues: string[] | undefined,
 ): I[] {
   return items.map(item => {
+    if (!('value' in item)) {
+      return item
+    }
     return {
       ...item,
       checked: Boolean(multipleValues?.includes(item.value)),
@@ -187,7 +199,7 @@ export function govukCheckedItemsConditional<I extends GovukRadiosItem>(
     return items
   }
   return items.map(item => {
-    if (item.value === conditional.value) {
+    if ('value' in item && item.value === conditional.value) {
       return {
         ...item,
         conditional: { html: conditional.html },
@@ -195,6 +207,20 @@ export function govukCheckedItemsConditional<I extends GovukRadiosItem>(
     }
     return item
   })
+}
+
+/**
+ * Adds a divider item into GOV.UK radios or checkbox components
+ */
+export function govukCheckedItemsDivider<I extends GovukRadiosItem>(
+  items: I[],
+  minItems: number = 5,
+  divider: string = 'or',
+): GovukRadiosItem[] {
+  if (items.length >= minItems) {
+    return [...items.slice(0, -1), { divider }, items.at(-1)]
+  }
+  return items
 }
 
 /** Insert an blank default value into a GOV.UK select component `items` list */

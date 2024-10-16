@@ -1,5 +1,7 @@
 {% from "govuk/components/error-summary/macro.njk" import govukErrorSummary %}
 
+{# NB: this does not work with form wizard, used with /server/forms #}
+
 {% if form and form.submitted and form.hasErrors %}
   {{ govukErrorSummary({
     titleText: "There is a problem",

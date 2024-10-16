@@ -1,0 +1,18 @@
+{% from "govuk/components/error-summary/macro.njk" import govukErrorSummary %}
+
+{# NB: use with form wizard BaseController pages #}
+
+{% if errorlist.length %}
+  {% set errorSummaryItems = [] %}
+  {% for error in errorlist %}
+    {% set fieldHref %}#{{ error.field or error.key }}{% endset %}
+    {% set _ = errorSummaryItems.push({
+      text: error.message,
+      href: fieldHref
+    }) %}
+  {% endfor %}
+  {{ govukErrorSummary({
+    titleText: "There is a problem",
+    errorList: errorSummaryItems
+  }) }}
+{% endif %}

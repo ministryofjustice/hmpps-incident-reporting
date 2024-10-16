@@ -7,7 +7,10 @@ import {
   govukSelectSetSelected,
   govukCheckedItems,
   govukMultipleCheckedItems,
+  govukCheckedItemsConditional,
+  govukCheckedItemsDivider,
 } from './govukFrontend'
+import { buildArray } from './utils'
 
 describe('findFieldInGovukErrorSummary', () => {
   it.each([undefined, null])('should return null if error list is %p', list => {
@@ -86,7 +89,70 @@ describe('govukCheckedItems and govukMultipleCheckedItems', () => {
       { text: 'C', value: 'c', checked: false },
     ])
   })
+
+  it('should leave dividers alone', () => {
+    const itemsWithDivider: GovukRadiosItem[] = [
+      { text: 'A', value: 'a' },
+      { divider: 'or' },
+      { text: 'B', value: 'b' },
+    ]
+    expect(govukCheckedItems(itemsWithDivider, 'a').at(1)).toStrictEqual({ divider: 'or' })
+    expect(govukMultipleCheckedItems(itemsWithDivider, ['a', 'b']).at(1)).toStrictEqual({ divider: 'or' })
+  })
 })
+
+describe('govukCheckedItemsConditional', () => {
+  const items: GovukRadiosItem[] = [
+    { text: 'A', value: 'a' },
+    { text: 'B', value: 'b' },
+    { text: 'C', value: 'c' },
+  ]
+
+  it.each([undefined, null, {}])('should ignore %p conditional', conditional => {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    expect(govukCheckedItemsConditional(items, conditional as any)).toStrictEqual(items)
+  })
+
+  it('should add conditional html property to item matching by value', () => {
+    expect(govukCheckedItemsConditional(items, { value: 'b', html: '<strong>info</strong>' })).toStrictEqual<
+      GovukRadiosItem[]
+    >([
+      { text: 'A', value: 'a' },
+      { text: 'B', value: 'b', conditional: { html: '<strong>info</strong>' } },
+      { text: 'C', value: 'c' },
+    ])
+  })
+
+  it('should not add conditional html property if no items match by value', () => {
+    expect(govukCheckedItemsConditional(items, { value: 'd', html: '<strong>info</strong>' })).toStrictEqual(items)
+  })
+})
+
+describe('govukCheckedItemsDivider', () => {
+  function makeItems(length: number): GovukRadiosItem[] {
+    return buildArray(length, i => ({ text: i.toString(), value: i.toString() }))
+  }
+
+  it('should leave short items lists alone', () => {
+    const items = makeItems(3)
+    expect(govukCheckedItemsDivider(items)).toStrictEqual(items)
+  })
+
+  it('should add a divider to long items lists', () => {
+    const items = makeItems(5)
+    const newItems = govukCheckedItemsDivider(items)
+    expect(newItems).toHaveLength(6)
+    expect(newItems.at(-2)).toStrictEqual({ divider: 'or' })
+  })
+
+  it('should be customisable', () => {
+    const items = makeItems(3)
+    const newItems = govukCheckedItemsDivider(items, 2, 'neu')
+    expect(newItems).toHaveLength(4)
+    expect(newItems.at(-2)).toStrictEqual({ divider: 'neu' })
+  })
+})
+
 describe('govukSelectInsertDefault', () => {
   it.each([undefined, null])('should ignore item list %p', list => {
     expect(govukSelectInsertDefault(list, 'Select an option…')).toStrictEqual(list)

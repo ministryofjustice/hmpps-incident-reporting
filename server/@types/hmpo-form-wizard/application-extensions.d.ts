@@ -6,31 +6,39 @@ declare module 'hmpo-form-wizard' {
 
   namespace FormWizard {
     interface Field {
-      // TODO: custom properties need major cleanup: we should group them into very few nested objects
-
       id?: string
       name?: string
-      text?: string
+      label?: string
+
+      component?: string
+
+      // TODO: custom properties need major cleanup: we should group them into very few nested objects
       nameForErrors?: string
       errorMessage?: GovukErrorSummaryItem
       errorMessages?: Record<string, string>
       value?: unknown // TODO: value should be removed: it is already provided elsewhere
       component?: string
       classes?: string
+      // TODO: This is a presentation concern
       labelClasses?: string
       prefix?: string
       leadingZeros?: string
       autocomplete?: 'off'
       rows?: string | number
       attributes?: Record<string, unknown>
-      label?: {
-        text: string
-        classes?: string
-      }
+      // TODO: Remove: Use field's `id`, `code` or `label`
+      text?: string
+      // TODO: Remove: Move this to template: Use `field.label`
+      // label?: {
+      //   text: string
+      //   classes?: string
+      // }
+      // TODO: Remove: Move this to template if needed
       hint?: {
         text: string
         classes?: string
       }
+      // TODO: Remove: Move this to template: Use `field.label`
       fieldset?: {
         legend?: {
           text: string

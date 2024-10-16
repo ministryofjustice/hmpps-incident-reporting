@@ -26,7 +26,7 @@ USAGE:
         {%- endif -%}
 
         {% set items = (items.push({
-          text: item.text,
+          text: item.label,
           value: item.value,
           conditional: conditional
         }), items) %}
@@ -43,7 +43,7 @@ USAGE:
         value: values[field.name],
         fieldset: {
           legend: {
-            text: field.text,
+            text: field.label,
             classes: 'govuk-fieldset__legend--m'
           }
         },

@@ -46,8 +46,7 @@ export function generateFields(config: IncidentTypeConfiguration): FormWizard.Fi
     fields[question.id] = {
       id: question.id,
       name: question.id,
-      text: question.label,
-      label: { text: question.label },
+      label: question.label,
       validate: ['required'],
       // TODO: having `multiple: true` causes the progression to next page to not work
       //       in pages with checkboxes. Interestingly if selecting multiple answers,

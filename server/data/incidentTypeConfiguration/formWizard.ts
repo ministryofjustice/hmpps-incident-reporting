@@ -60,8 +60,10 @@ export function generateFields(config: IncidentTypeConfiguration): FormWizard.Fi
         .filter(answer => answer.active)
         .map(answer => {
           return {
-            text: answer.label,
+            id: answer.id,
+            name: answer.id,
             value: answer.code,
+            label: answer.label,
             dateRequired: answer.dateRequired,
             commentRequired: answer.commentRequired,
           }

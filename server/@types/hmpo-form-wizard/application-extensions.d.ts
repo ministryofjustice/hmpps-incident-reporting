@@ -48,6 +48,8 @@ declare module 'hmpo-form-wizard' {
     }
 
     interface FieldItem {
+      id?: string
+
       // TODO: custom properties need major cleanup
 
       text?: string

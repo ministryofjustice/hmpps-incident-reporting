@@ -7,6 +7,14 @@ import FormWizard from 'hmpo-form-wizard'
  */
 // eslint-disable-next-line import/prefer-default-export
 export abstract class BaseController extends FormWizard.Controller {
+  constructor(options: FormWizard.Options) {
+    if (!('defaultFormatters' in options)) {
+      // eslint-disable-next-line no-param-reassign
+      options.defaultFormatters = ['trim']
+    }
+    super(options)
+  }
+
   /**
    * Generic human-readable error messages for default form wizard validators.
    */

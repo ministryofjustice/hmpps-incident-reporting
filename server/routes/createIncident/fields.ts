@@ -6,10 +6,7 @@ const fields: FormWizard.Fields = {
     validate: ['required'],
     id: 'incidentType',
     name: 'incidentType',
-    label: {
-      text: 'Incident type',
-      classes: 'govuk-fieldset__legend--m',
-    },
+    label: 'Incident type',
     items: [
       {
         value: 'ASSAULT',
@@ -26,10 +23,7 @@ const fields: FormWizard.Fields = {
     id: 'incidentDate',
     name: 'incidentDate',
     validate: ['required'],
-    label: {
-      text: 'On which date did the incident occur?',
-      classes: 'govuk-fieldset__legend--m',
-    },
+    label: 'On which date did the incident occur?',
     leadingZeros: 'true',
   },
   incidentTime: {
@@ -38,10 +32,7 @@ const fields: FormWizard.Fields = {
     id: 'incidentTime',
     name: 'incidentTime',
     classes: 'govuk-input--width-5',
-    label: {
-      text: 'At what time did the incident occur?',
-      classes: 'govuk-fieldset__legend--m',
-    },
+    label: 'At what time did the incident occur?',
     hint: {
       text: 'Please give time as the following example: 10:35',
     },
@@ -52,10 +43,7 @@ const fields: FormWizard.Fields = {
     validate: ['required'],
     id: 'prisonId',
     name: 'prisonId',
-    label: {
-      text: 'Prison where incident occurred',
-      classes: 'govuk-fieldset__legend--m',
-    },
+    label: 'Prison where incident occurred',
     items: [
       {
         text: 'Please select one',
@@ -69,10 +57,7 @@ const fields: FormWizard.Fields = {
     id: 'incidentTitle',
     name: 'incidentTitle',
     classes: 'govuk-!-width-three-quarters',
-    label: {
-      text: 'Title of incident',
-      classes: 'govuk-fieldset__legend--m',
-    },
+    label: 'Title of incident',
     hint: {
       text: 'Please give a title that covers the subject of this incident.',
     },
@@ -85,10 +70,7 @@ const fields: FormWizard.Fields = {
     errorMessages: { required: 'A description is required for the incident in question.' },
     id: 'incidentDescription',
     name: 'incidentDescription',
-    label: {
-      text: 'Please can you provide a description of the incident',
-      classes: 'govuk-fieldset__legend--m',
-    },
+    label: 'Please can you provide a description of the incident',
     rows: '8',
     fieldset: {
       legend: {
@@ -107,10 +89,7 @@ const fields: FormWizard.Fields = {
     id: 'prisonersInvolved',
     name: 'prisonersInvolved',
     classes: 'govuk-input--width-20',
-    label: {
-      text: 'Prisoners involved',
-      classes: 'govuk-fieldset__legend--m',
-    },
+    label: 'Prisoners involved',
     hint: {
       text: 'Please list all prisoners involved in this incident.',
     },
@@ -123,10 +102,7 @@ const fields: FormWizard.Fields = {
     id: 'staffInvolved',
     name: 'staffInvolved',
     classes: 'govuk-input--width-20',
-    label: {
-      text: 'Staff involved',
-      classes: 'govuk-fieldset__legend--m',
-    },
+    label: 'Staff involved',
     hint: {
       text: 'Please list all staff members involved in this incident.',
     },
@@ -137,10 +113,7 @@ const fields: FormWizard.Fields = {
     validate: ['required'],
     id: 'policeInformed',
     name: 'policeInformed',
-    label: {
-      text: 'Have the police been informed?',
-      classes: 'govuk-fieldset__legend--m',
-    },
+    label: 'Have the police been informed?',
     fieldset: {
       legend: {
         text: 'Have the police been informed?',
@@ -169,10 +142,7 @@ const fields: FormWizard.Fields = {
     id: 'policeInformedDate',
     name: 'policeInformedDate',
     classes: 'govuk-!-width-one-third',
-    label: {
-      text: 'When were the police informed?',
-      classes: 'govuk-fieldset__legend--m',
-    },
+    label: 'When were the police informed?',
     autocomplete: 'off',
     dependent: {
       field: 'policeInformed',

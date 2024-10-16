@@ -37,13 +37,13 @@ export default class FormInitialStep extends FormWizard.Controller {
   }
 
   valueOrFieldName(arg: number | { field: string }, fields: FormWizard.Fields) {
-    return typeof arg === 'number' ? arg : `the ${fields[arg?.field]?.label?.text?.toLowerCase()}`
+    return typeof arg === 'number' ? arg : `the ${fields[arg?.field]?.label?.toLowerCase()}`
   }
 
   getErrorDetail(error: FormWizard.Error, res: Express.Response): GovukErrorSummaryItem {
     const { fields } = res.locals.options
     const field = fields[error.key]
-    const fieldName: string = field.nameForErrors || field?.label?.text
+    const fieldName: string = field.nameForErrors || field?.label
     const errorMessageOverrides = field?.errorMessages || {}
 
     const errorMessages: Record<string, string> = {

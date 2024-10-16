@@ -48,10 +48,7 @@ const fields: FormWizard.Fields = {
         classes: 'govuk-fieldset__legend--m',
       },
     },
-    label: {
-      text: 'Any additional comment?',
-      classes: 'govuk-fieldset__legend--m',
-    },
+    label: 'Any additional comment?',
     autocomplete: 'off',
   },
 }

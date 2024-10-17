@@ -1,5 +1,5 @@
 import FormWizard from 'hmpo-form-wizard'
-import type { IncidentTypeConfiguration } from './types'
+import type { AnswerConfiguration, IncidentTypeConfiguration, QuestionConfiguration } from './types'
 import QuestionsController from '../../controllers/wip/questionsController'
 
 // TODO: Add tests once steps structure is more stable
@@ -25,15 +25,25 @@ export function generateSteps(config: IncidentTypeConfiguration): FormWizard.Ste
         return { field: question.id, value: answer.code, next: answer.nextQuestionId }
       })
 
+      const fields = [question.id]
+      for (const answer of question.answers) {
+        if (answer.dateRequired) {
+          const fieldName = conditionalFieldName(question, answer, 'date')
+          fields.push(fieldName)
+        }
+        if (answer.commentRequired) {
+          const fieldName = conditionalFieldName(question, answer, 'comment')
+          fields.push(fieldName)
+        }
+      }
+
       steps[`/${question.id}`] = {
         next,
-        fields: [question.id],
+        fields,
         controller: QuestionsController,
         template: 'questionPage',
       }
     })
-
-  // console.log(JSON.stringify(steps, null, 2))
 
   return steps
 }
@@ -68,9 +78,40 @@ export function generateFields(config: IncidentTypeConfiguration): FormWizard.Fi
           }
         }),
     }
+    // Add comment/date fields
+    for (const answer of question.answers) {
+      if (answer.dateRequired) {
+        const fieldName = conditionalFieldName(question, answer, 'date')
+        fields[fieldName] = {
+          name: fieldName,
+          label: 'Date',
+          component: 'mojDatePicker',
+          validate: ['required'],
+          dependent: {
+            field: question.id,
+            value: answer.code,
+          },
+        }
+      }
+      if (answer.commentRequired) {
+        const fieldName = conditionalFieldName(question, answer, 'comment')
+        fields[fieldName] = {
+          name: fieldName,
+          label: 'Comment',
+          component: 'govukInput',
+          validate: ['required'],
+          dependent: {
+            field: question.id,
+            value: answer.code,
+          },
+        }
+      }
+    }
   })
 
-  // console.log(JSON.stringify(fields, null, 2))
-
   return fields
+}
+
+function conditionalFieldName(question: QuestionConfiguration, answer: AnswerConfiguration, suffix: string): string {
+  return `${question.id}-${answer.id}-${suffix}`
 }

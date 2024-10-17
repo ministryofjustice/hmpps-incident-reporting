@@ -37,7 +37,6 @@ USAGE:
     {% else %}
       {% set govukMacro = govukRadios %}
     {% endif %}
-    {# TODO: Populate value from...values? formValues? #}
     {{ govukMacro({
         name: field.name,
         value: values[field.name],
@@ -49,6 +48,8 @@ USAGE:
         },
         items: items
     }) }}
+{% elif field.dependent !== null %}
+  {# Ignore nested/conditional fields #}
 {% elif field.component %}
   {% panic "Unknown field's component: " + field.component %}
 {% endif %}

@@ -81,14 +81,14 @@ describe('Field helpers', () => {
             expect((response[1] as FormWizard.Field).items).toEqual([
               {
                 value: '31b90233-7043-4633-8055-f24854545ead',
-                text: 'Item one',
+                label: 'Item one',
                 conditional: {
                   html: 'govukInput',
                 },
               },
               {
                 value: '31b90233-7043-4633-8055-f24854545eac',
-                text: 'Item two',
+                label: 'Item two',
                 conditional: {
                   html: 'govukTextarea',
                 },
@@ -121,7 +121,7 @@ describe('Field helpers', () => {
             expect((response[1] as FormWizard.Field).items).toEqual([
               {
                 value: '31b90233-7043-4633-8055-f24854545ead',
-                text: 'Item one',
+                label: 'Item one',
                 conditional: 'doesnotexist',
               },
             ])
@@ -155,7 +155,7 @@ describe('Field helpers', () => {
           expect((response[1] as FormWizard.Field).items).toEqual([
             {
               value: '31b90233-7043-4633-8055-f24854545ead',
-              text: 'Item one',
+              label: 'Item one',
               conditional: {
                 html: '<strong>HTML</strong> content',
               },
@@ -207,14 +207,14 @@ describe('Field helpers', () => {
           expect((response[1] as FormWizard.Field).items).toEqual([
             {
               value: '31b90233-7043-4633-8055-f24854545ead',
-              text: 'Item one',
+              label: 'Item one',
               conditional: {
                 html: 'govukInputgovukTextarea',
               },
             },
             {
               value: '31b90233-7043-4633-8055-f24854545eac',
-              text: 'Item two',
+              label: 'Item two',
             },
           ])
         })

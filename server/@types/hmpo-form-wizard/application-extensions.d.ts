@@ -18,7 +18,6 @@ declare module 'hmpo-form-wizard' {
       errorMessages?: Record<string, string>
       value?: unknown // TODO: value should be removed: it is already provided elsewhere
       prefix?: string
-      leadingZeros?: string
       autocomplete?: 'off'
       rows?: string | number
       attributes?: Record<string, unknown>

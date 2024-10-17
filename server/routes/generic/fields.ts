@@ -136,7 +136,6 @@ const fields: FormWizard.Fields = {
     name: 'incidentDate',
     validate: ['required'],
     label: 'On which date did the incident occur?',
-    leadingZeros: 'true',
   },
   incidentTime: {
     component: 'govukInput',

@@ -10,6 +10,8 @@ declare module 'hmpo-form-wizard' {
 
       id?: string
       name?: string
+      label?: string
+      hint?: string
       text?: string
       nameForErrors?: string
       errorMessage?: GovukErrorSummaryItem
@@ -64,8 +66,11 @@ declare module 'hmpo-form-wizard' {
         }
 
     interface Locals {
-      // TODO: custom properties need major cleanup
+      // variables used in shared formWizardLayout.njk template
+      pageTitle: string
+      saveButtonText: string
 
+      // TODO: custom properties below need cleanup
       fields: FormWizard.Fields // TODO: fields should be removed as they appear inside options already
       validationErrors: GovukErrorSummaryItem[]
     }

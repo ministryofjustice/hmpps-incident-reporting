@@ -1,0 +1,18 @@
+{% from "govuk/components/textarea/macro.njk" import govukTextarea %}
+
+{% macro renderTextAreaField(fieldName, field, options, values, errors) %}
+
+  {{ govukTextarea({
+    name: fieldName,
+    id: fieldName,
+    label: {
+      text: field.label,
+      classes: "govuk-label--m"
+    },
+    hint: { text: field.hint } if field.hint else undefined,
+    rows: 4,
+    value: values[fieldName],
+    errorMessage: { text: errors[fieldName].message } if errors[fieldName] else undefined
+  }) }}
+
+{% endmacro %}

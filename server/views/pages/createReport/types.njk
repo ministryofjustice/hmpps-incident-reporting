@@ -1,0 +1,7 @@
+{% extends "partials/formWizardLayout.njk" %}
+
+{% block formFields %}
+  {{ super() }}
+
+  §<pre>{{ values | dump }}</pre>§
+{% endblock %}

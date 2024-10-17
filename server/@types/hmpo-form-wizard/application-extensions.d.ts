@@ -30,10 +30,6 @@ declare module 'hmpo-form-wizard' {
 
       dateRequired?: boolean
       commentRequired?: boolean
-      hint?: {
-        text: string
-        classes?: string
-      }
       divider?: string
       behaviour?: 'exclusive'
       conditional?: ConditionalFieldItem | ConditionalFieldItem[]

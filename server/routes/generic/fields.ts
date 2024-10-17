@@ -15,9 +15,6 @@ const fields: FormWizard.Fields = {
       {
         value: 'ASSAULT',
         label: 'Assault',
-        hint: {
-          text: 'Includes fights and suspected assaults.',
-        },
       },
       {
         value: 'ATTEMPTED_ESCAPE_FROM_COURT',
@@ -38,9 +35,6 @@ const fields: FormWizard.Fields = {
       {
         value: 'CLOSE_DOWN_SEARCH',
         label: 'Close down search',
-        hint: {
-          text: 'Any finds must be reported using the Find type.',
-        },
       },
       {
         value: 'DEATH_OF_OTHER_PERSON',
@@ -57,16 +51,10 @@ const fields: FormWizard.Fields = {
       {
         value: 'DISORDER',
         label: 'Disorder',
-        hint: {
-          text: 'Includes barricade, concerted indiscipline, hostage, and incident at height.',
-        },
       },
       {
         value: 'DRONE_SIGHTING',
         label: 'Drone sighting',
-        hint: {
-          text: 'Drones must have been seen by staff.',
-        },
       },
       {
         value: 'ESCAPE_FROM_COURT',
@@ -79,9 +67,6 @@ const fields: FormWizard.Fields = {
       {
         value: 'FIND_OF_ILLICIT_ITEMS',
         label: 'Find of illicit items',
-        hint: {
-          text: 'Items must be recovered, not just seen.',
-        },
       },
       {
         value: 'FIRE',
@@ -98,9 +83,6 @@ const fields: FormWizard.Fields = {
       {
         value: 'MISCELLANEOUS',
         label: 'Miscellaneous',
-        hint: {
-          text: 'Includes dirty protest, failure of IT or telephony, large scale evacuation, late release or unlawful detention, loss of essential services, public demonstration, secondary exposure to airborne contaminants and any other incident not listed.',
-        },
       },
       {
         value: 'RADIO_COMPROMISE',
@@ -113,9 +95,6 @@ const fields: FormWizard.Fields = {
       {
         value: 'SELF_HARM',
         label: 'Self harm',
-        hint: {
-          text: 'Includes suspected and reported self-harm. Do not use to report a noose, unless it’s around the neck or applying pressure.',
-        },
       },
       {
         value: 'TEMPORARY_RELEASE_FAILURE',
@@ -124,9 +103,6 @@ const fields: FormWizard.Fields = {
       {
         value: 'TOOL_OR_IMPLEMENT_LOSS',
         label: 'Tool or implement loss',
-        hint: {
-          text: 'Do not use for radio and key or lock compromises. They are separate incident types.',
-        },
       },
     ],
   },

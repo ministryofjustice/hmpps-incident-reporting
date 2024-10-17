@@ -20,18 +20,6 @@ declare module 'hmpo-form-wizard' {
       autocomplete?: 'off'
       rows?: string | number
       attributes?: Record<string, unknown>
-      // TODO: Remove: Move this to template if needed
-      hint?: {
-        text: string
-        classes?: string
-      }
-      // TODO: Remove: Move this to template: Use `field.label`
-      fieldset?: {
-        legend?: {
-          text: string
-          classes?: string
-        }
-      }
     }
 
     interface FieldItem {

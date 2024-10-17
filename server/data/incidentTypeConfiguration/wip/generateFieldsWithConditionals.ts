@@ -57,12 +57,6 @@ function mapQuestionToField(question: QuestionConfiguration): FormWizard.Fields 
     validate: ['required'],
     id: questionId,
     name: questionId,
-    fieldset: {
-      legend: {
-        text: convertToTitleCase(question.label),
-        classes: 'govuk-fieldset__legend--m',
-      },
-    },
     items,
   }
 

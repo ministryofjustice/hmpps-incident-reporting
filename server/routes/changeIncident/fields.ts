@@ -14,9 +14,6 @@ const fields: FormWizard.Fields = {
     id: 'incidentTime',
     name: 'incidentTime',
     label: 'At what time did the incident occur?',
-    hint: {
-      text: 'Please give time as the following example: 10:35',
-    },
     autocomplete: 'off',
   },
   prisonId: {
@@ -38,9 +35,6 @@ const fields: FormWizard.Fields = {
     id: 'incidentTitle',
     name: 'incidentTitle',
     label: 'Title of incident',
-    hint: {
-      text: 'Please give a title that covers the subject of this incident.',
-    },
     autocomplete: 'off',
   },
   incidentDescription: {
@@ -52,15 +46,6 @@ const fields: FormWizard.Fields = {
     name: 'incidentDescription',
     label: 'Please can you provide a description of the incident',
     rows: '8',
-    fieldset: {
-      legend: {
-        text: 'Prison governor approval for change',
-        classes: 'govuk-fieldset__legend--m',
-      },
-    },
-    hint: {
-      text: 'Please provide as much detail as you can.',
-    },
   },
   prisonersInvolved: {
     component: 'govukInput',
@@ -69,9 +54,6 @@ const fields: FormWizard.Fields = {
     id: 'prisonersInvolved',
     name: 'prisonersInvolved',
     label: 'Prisoners involved',
-    hint: {
-      text: 'Please list all prisoners involved in this incident.',
-    },
     autocomplete: 'off',
   },
   staffInvolved: {
@@ -81,9 +63,6 @@ const fields: FormWizard.Fields = {
     id: 'staffInvolved',
     name: 'staffInvolved',
     label: 'Staff involved',
-    hint: {
-      text: 'Please list all staff members involved in this incident.',
-    },
     autocomplete: 'off',
   },
   policeInformed: {
@@ -92,15 +71,6 @@ const fields: FormWizard.Fields = {
     id: 'policeInformed',
     name: 'policeInformed',
     label: 'Have the police been informed?',
-    fieldset: {
-      legend: {
-        text: 'Have the police been informed?',
-        classes: 'govuk-fieldset__legend--m',
-      },
-    },
-    hint: {
-      text: 'Select one option.',
-    },
     items: [
       {
         label: 'Yes',

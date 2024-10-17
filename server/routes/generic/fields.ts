@@ -143,9 +143,6 @@ const fields: FormWizard.Fields = {
     id: 'incidentTime',
     name: 'incidentTime',
     label: 'At what time did the incident occur?',
-    hint: {
-      text: 'Please give time as the following example: 10:35',
-    },
     autocomplete: 'off',
   },
   incidentTitle: {
@@ -154,9 +151,6 @@ const fields: FormWizard.Fields = {
     id: 'incidentTitle',
     name: 'incidentTitle',
     label: 'Title of incident',
-    hint: {
-      text: 'Please give a title that covers the subject of this incident.',
-    },
     autocomplete: 'off',
   },
   incidentDescription: {
@@ -168,15 +162,6 @@ const fields: FormWizard.Fields = {
     name: 'incidentDescription',
     label: 'Please can you provide a description of the incident',
     rows: '8',
-    fieldset: {
-      legend: {
-        text: 'Prison governor approval for change',
-        classes: 'govuk-fieldset__legend--m',
-      },
-    },
-    hint: {
-      text: 'Please provide as much detail as you can.',
-    },
   },
   prisonersInvolved: {
     component: 'govukInput',
@@ -185,9 +170,6 @@ const fields: FormWizard.Fields = {
     id: 'prisonersInvolved',
     name: 'prisonersInvolved',
     label: 'Prisoners involved',
-    hint: {
-      text: 'Please list all prisoners involved in this incident.',
-    },
     autocomplete: 'off',
   },
   staffInvolved: {
@@ -197,9 +179,6 @@ const fields: FormWizard.Fields = {
     id: 'staffInvolved',
     name: 'staffInvolved',
     label: 'Staff involved',
-    hint: {
-      text: 'Please list all staff members involved in this incident.',
-    },
     autocomplete: 'off',
   },
   staffType: {
@@ -233,12 +212,6 @@ const fields: FormWizard.Fields = {
     id: 'policeInformed',
     name: 'policeInformed',
     label: 'Have the police been informed?',
-    fieldset: {
-      legend: {
-        text: 'Have the police been informed?',
-        classes: 'govuk-fieldset__legend--m',
-      },
-    },
     items: [
       {
         label: 'Yes',
@@ -266,12 +239,6 @@ const fields: FormWizard.Fields = {
   },
   seriousInjuries: {
     component: 'govukCheckboxes',
-    fieldset: {
-      legend: {
-        text: 'Select any serious injuries',
-        classes: 'govuk-fieldset__legend--m',
-      },
-    },
     validate: ['required'],
     id: 'seriousInjuries',
     name: 'seriousInjuries',
@@ -343,12 +310,6 @@ const fields: FormWizard.Fields = {
   },
   minorInjuries: {
     component: 'govukCheckboxes',
-    fieldset: {
-      legend: {
-        text: 'Select any minor injuries',
-        classes: 'govuk-fieldset__legend--m',
-      },
-    },
     validate: ['required'],
     id: 'minorInjuries',
     name: 'minorInjuries',
@@ -388,12 +349,6 @@ const fields: FormWizard.Fields = {
   },
   medicalTreatment: {
     component: 'govukRadios',
-    fieldset: {
-      legend: {
-        text: 'Did they need medical treatment for concussion or internal injuries?',
-        classes: 'govuk-fieldset__legend--m',
-      },
-    },
     validate: ['required'],
     id: 'medicalTreatment',
     name: 'medicalTreatment',
@@ -415,12 +370,6 @@ const fields: FormWizard.Fields = {
   },
   outsideHospital: {
     component: 'govukRadios',
-    fieldset: {
-      legend: {
-        text: 'Did they go to outside hospital as a result of their injuries?',
-        classes: 'govuk-fieldset__legend--m',
-      },
-    },
     validate: ['required'],
     id: 'outsideHospital',
     name: 'outsideHospital',

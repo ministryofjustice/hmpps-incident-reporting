@@ -79,7 +79,6 @@ describe('Field helpers', () => {
             expect(response).toEqual({
               ...mockAccumulator,
               conditionalField1: {
-                id: 'conditionalField1',
                 name: 'conditionalField1',
                 skip: true,
                 attributes: {
@@ -126,7 +125,6 @@ describe('Field helpers', () => {
             expect(response).toEqual({
               ...mockAccumulator,
               conditionalField1: {
-                id: 'conditionalField1',
                 name: 'conditionalField1',
                 skip: true,
                 attributes: {
@@ -139,7 +137,6 @@ describe('Field helpers', () => {
                 },
               },
               conditionalField2: {
-                id: 'conditionalField2',
                 name: 'conditionalField2',
                 skip: true,
                 attributes: {

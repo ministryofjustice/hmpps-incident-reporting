@@ -102,13 +102,13 @@ export default class FormInitialStep extends FormWizard.Controller {
 
   locals(req: FormWizard.Request, res: Express.Response): Partial<FormWizard.Locals> {
     const locals = res.locals as Express.Locals & FormWizard.Locals
-    const { options, values } = locals
+    const { options } = locals
     if (!options?.fields) {
       return {}
     }
 
     const { allFields } = options
-    const fields = this.setupFields(req, allFields, options.fields, values)
+    const fields = this.setupFields(req, allFields, options.fields)
 
     const validationErrors: GovukErrorSummaryItem[] = []
 
@@ -137,16 +137,8 @@ export default class FormInitialStep extends FormWizard.Controller {
     req: FormWizard.Request,
     allFields: { [field: string]: FormWizard.Field },
     originalFields: FormWizard.Fields,
-    values: FormWizard.Values,
   ): FormWizard.Fields {
     const fields = originalFields
-
-    Object.keys(fields).forEach(fieldName => {
-      // TODO: how can a value have a value sub-property?
-      // const value = values[fieldName]
-      // fields[fieldName].value = value?.value || value
-      fields[fieldName].value = values[fieldName]
-    })
 
     return fields
   }

@@ -143,7 +143,6 @@ const fields: FormWizard.Fields = {
     validate: ['required'],
     id: 'incidentTime',
     name: 'incidentTime',
-    classes: 'govuk-input--width-5',
     label: 'At what time did the incident occur?',
     hint: {
       text: 'Please give time as the following example: 10:35',
@@ -155,7 +154,6 @@ const fields: FormWizard.Fields = {
     validate: ['required'],
     id: 'incidentTitle',
     name: 'incidentTitle',
-    classes: 'govuk-!-width-three-quarters',
     label: 'Title of incident',
     hint: {
       text: 'Please give a title that covers the subject of this incident.',
@@ -187,7 +185,6 @@ const fields: FormWizard.Fields = {
     validate: ['alphanum'],
     id: 'prisonersInvolved',
     name: 'prisonersInvolved',
-    classes: 'govuk-input--width-20',
     label: 'Prisoners involved',
     hint: {
       text: 'Please list all prisoners involved in this incident.',
@@ -200,7 +197,6 @@ const fields: FormWizard.Fields = {
     validate: ['alphanum'],
     id: 'staffInvolved',
     name: 'staffInvolved',
-    classes: 'govuk-input--width-20',
     label: 'Staff involved',
     hint: {
       text: 'Please list all staff members involved in this incident.',
@@ -234,7 +230,6 @@ const fields: FormWizard.Fields = {
   },
   policeInformed: {
     component: 'govukRadios',
-    classes: 'govuk-radios--inline',
     validate: ['required'],
     id: 'policeInformed',
     name: 'policeInformed',
@@ -263,7 +258,6 @@ const fields: FormWizard.Fields = {
     component: 'govukInput',
     id: 'policeInformedDate',
     name: 'policeInformedDate',
-    classes: 'govuk-!-width-one-third',
     label: 'When were the police informed?',
     autocomplete: 'off',
     dependent: {

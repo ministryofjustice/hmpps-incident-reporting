@@ -62,14 +62,12 @@ describe('Field helpers', () => {
               'conditional_field_one',
               {
                 component: 'govukInput',
-                classes: 'input-classes',
               },
             ],
             [
               'conditional_field_two',
               {
                 component: 'govukTextarea',
-                classes: 'input-classes',
               },
             ],
           ]
@@ -192,14 +190,12 @@ describe('Field helpers', () => {
             'conditional_field_one',
             {
               component: 'govukInput',
-              classes: 'input-classes',
             },
           ],
           [
             'conditional_field_two',
             {
               component: 'govukTextarea',
-              classes: 'input-classes',
             },
           ],
         ]

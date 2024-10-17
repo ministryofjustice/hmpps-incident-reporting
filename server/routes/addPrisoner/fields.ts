@@ -41,7 +41,6 @@ const fields: FormWizard.Fields = {
     component: 'govukInput',
     id: 'prisonerComment',
     name: 'prisonerComment',
-    classes: 'govuk-!-width-three-quarters',
     fieldset: {
       legend: {
         text: 'Any additional comment?',

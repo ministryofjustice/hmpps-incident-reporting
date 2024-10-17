@@ -17,10 +17,6 @@ declare module 'hmpo-form-wizard' {
       errorMessage?: GovukErrorSummaryItem
       errorMessages?: Record<string, string>
       value?: unknown // TODO: value should be removed: it is already provided elsewhere
-      component?: string
-      classes?: string
-      // TODO: This is a presentation concern
-      labelClasses?: string
       prefix?: string
       leadingZeros?: string
       autocomplete?: 'off'

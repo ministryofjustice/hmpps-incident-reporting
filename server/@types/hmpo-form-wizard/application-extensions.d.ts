@@ -23,11 +23,6 @@ declare module 'hmpo-form-wizard' {
       attributes?: Record<string, unknown>
       // TODO: Remove: Use field's `id`, `code` or `label`
       text?: string
-      // TODO: Remove: Move this to template: Use `field.label`
-      // label?: {
-      //   text: string
-      //   classes?: string
-      // }
       // TODO: Remove: Move this to template if needed
       hint?: {
         text: string

@@ -21,8 +21,6 @@ declare module 'hmpo-form-wizard' {
       autocomplete?: 'off'
       rows?: string | number
       attributes?: Record<string, unknown>
-      // TODO: Remove: Use field's `id`, `code` or `label`
-      text?: string
       // TODO: Remove: Move this to template if needed
       hint?: {
         text: string
@@ -39,11 +37,10 @@ declare module 'hmpo-form-wizard' {
 
     interface FieldItem {
       id?: string
+      label?: string
 
       // TODO: custom properties need major cleanup
 
-      text?: string
-      label?: string
       dateRequired?: boolean
       commentRequired?: boolean
       hint?: {

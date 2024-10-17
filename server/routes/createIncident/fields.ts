@@ -10,11 +10,11 @@ const fields: FormWizard.Fields = {
     items: [
       {
         value: 'ASSAULT',
-        text: 'Assault',
+        label: 'Assault',
       },
       {
         value: 'ABSCONDER',
-        text: 'Absconder',
+        label: 'Absconder',
       },
     ],
   },
@@ -44,7 +44,7 @@ const fields: FormWizard.Fields = {
     label: 'Prison where incident occurred',
     items: [
       {
-        text: 'Please select one',
+        label: 'Please select one',
         value: 'select',
       },
     ],
@@ -120,7 +120,7 @@ const fields: FormWizard.Fields = {
     },
     items: [
       {
-        text: 'Yes',
+        label: 'Yes',
         value: 'yes',
         conditional: {
           html: 'set during setup',
@@ -128,7 +128,7 @@ const fields: FormWizard.Fields = {
       },
       {
         value: 'no',
-        text: 'No',
+        label: 'No',
       },
     ],
   },

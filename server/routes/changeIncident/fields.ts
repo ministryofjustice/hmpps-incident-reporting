@@ -27,7 +27,7 @@ const fields: FormWizard.Fields = {
     label: 'Prison where incident occurred',
     items: [
       {
-        text: 'overwritten during runtime',
+        label: 'overwritten during runtime',
         value: 'overwritten during runtime',
       },
     ],
@@ -103,7 +103,7 @@ const fields: FormWizard.Fields = {
     },
     items: [
       {
-        text: 'Yes',
+        label: 'Yes',
         value: 'yes',
         conditional: {
           html: 'set during setup',
@@ -111,7 +111,7 @@ const fields: FormWizard.Fields = {
       },
       {
         value: 'no',
-        text: 'No',
+        label: 'No',
       },
     ],
   },

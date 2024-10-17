@@ -45,12 +45,12 @@ describe('Field helpers', () => {
               items: [
                 {
                   value: '31b90233-7043-4633-8055-f24854545ead',
-                  text: 'Item one',
+                  label: 'Item one',
                   conditional: 'conditional_field_one',
                 },
                 {
                   value: '31b90233-7043-4633-8055-f24854545eac',
-                  text: 'Item two',
+                  label: 'Item two',
                   conditional: 'conditional_field_two',
                 },
               ],
@@ -105,7 +105,7 @@ describe('Field helpers', () => {
               items: [
                 {
                   value: '31b90233-7043-4633-8055-f24854545ead',
-                  text: 'Item one',
+                  label: 'Item one',
                   conditional: 'doesnotexist',
                 },
               ],
@@ -138,7 +138,7 @@ describe('Field helpers', () => {
             items: [
               {
                 value: '31b90233-7043-4633-8055-f24854545ead',
-                text: 'Item one',
+                label: 'Item one',
                 conditional: {
                   html: '<strong>HTML</strong> content',
                 },
@@ -174,12 +174,12 @@ describe('Field helpers', () => {
             items: [
               {
                 value: '31b90233-7043-4633-8055-f24854545ead',
-                text: 'Item one',
+                label: 'Item one',
                 conditional: ['conditional_field_one', 'conditional_field_two', 'unknown_field'],
               },
               {
                 value: '31b90233-7043-4633-8055-f24854545eac',
-                text: 'Item two',
+                label: 'Item two',
               },
             ],
           },

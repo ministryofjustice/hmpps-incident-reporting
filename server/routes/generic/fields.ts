@@ -10,120 +10,120 @@ const fields: FormWizard.Fields = {
     items: [
       {
         value: 'ABSCOND',
-        text: 'Abscond',
+        label: 'Abscond',
       },
       {
         value: 'ASSAULT',
-        text: 'Assault',
+        label: 'Assault',
         hint: {
           text: 'Includes fights and suspected assaults.',
         },
       },
       {
         value: 'ATTEMPTED_ESCAPE_FROM_COURT',
-        text: 'Attempted escape from escort',
+        label: 'Attempted escape from escort',
       },
       {
         value: 'ATTEMPTED_ESCAPE_FROM_ESTABLISHMENT',
-        text: 'Attempted escape from establishment',
+        label: 'Attempted escape from establishment',
       },
       {
         value: 'BOMB',
-        text: 'Bomb explosion or threat',
+        label: 'Bomb explosion or threat',
       },
       {
         value: 'BREACH',
-        text: 'Breach or attempted breach of security',
+        label: 'Breach or attempted breach of security',
       },
       {
         value: 'CLOSE_DOWN_SEARCH',
-        text: 'Close down search',
+        label: 'Close down search',
         hint: {
           text: 'Any finds must be reported using the Find type.',
         },
       },
       {
         value: 'DEATH_OF_OTHER_PERSON',
-        text: 'Death of other person',
+        label: 'Death of other person',
       },
       {
         value: 'DEATH_OF_PRISONER',
-        text: 'Death of prisoner',
+        label: 'Death of prisoner',
       },
       {
         value: 'DELIBERATE_DAMAGE',
-        text: 'Deliberate damage to prison property (being removed Sept TBC)',
+        label: 'Deliberate damage to prison property (being removed Sept TBC)',
       },
       {
         value: 'DISORDER',
-        text: 'Disorder',
+        label: 'Disorder',
         hint: {
           text: 'Includes barricade, concerted indiscipline, hostage, and incident at height.',
         },
       },
       {
         value: 'DRONE_SIGHTING',
-        text: 'Drone sighting',
+        label: 'Drone sighting',
         hint: {
           text: 'Drones must have been seen by staff.',
         },
       },
       {
         value: 'ESCAPE_FROM_COURT',
-        text: 'Escape from escort',
+        label: 'Escape from escort',
       },
       {
         value: 'ESCAPE_FROM_ESTABLISHMENT',
-        text: 'Escape from establishment',
+        label: 'Escape from establishment',
       },
       {
         value: 'FIND_OF_ILLICIT_ITEMS',
-        text: 'Find of illicit items',
+        label: 'Find of illicit items',
         hint: {
           text: 'Items must be recovered, not just seen.',
         },
       },
       {
         value: 'FIRE',
-        text: 'Fire',
+        label: 'Fire',
       },
       {
         value: 'FOOD_OR_LIQUID_REFUSAL',
-        text: 'Food or liquid refusual',
+        label: 'Food or liquid refusual',
       },
       {
         value: 'KEY_OR_LOCK_COMPROMISE',
-        text: 'Key or lock compromise',
+        label: 'Key or lock compromise',
       },
       {
         value: 'MISCELLANEOUS',
-        text: 'Miscellaneous',
+        label: 'Miscellaneous',
         hint: {
           text: 'Includes dirty protest, failure of IT or telephony, large scale evacuation, late release or unlawful detention, loss of essential services, public demonstration, secondary exposure to airborne contaminants and any other incident not listed.',
         },
       },
       {
         value: 'RADIO_COMPROMISE',
-        text: 'Radio compromise',
+        label: 'Radio compromise',
       },
       {
         value: 'RELEASE_IN_ERROR',
-        text: 'Release in error',
+        label: 'Release in error',
       },
       {
         value: 'SELF_HARM',
-        text: 'Self harm',
+        label: 'Self harm',
         hint: {
           text: 'Includes suspected and reported self-harm. Do not use to report a noose, unless it’s around the neck or applying pressure.',
         },
       },
       {
         value: 'TEMPORARY_RELEASE_FAILURE',
-        text: 'Temporary release failure',
+        label: 'Temporary release failure',
       },
       {
         value: 'TOOL_OR_IMPLEMENT_LOSS',
-        text: 'Tool or implement loss',
+        label: 'Tool or implement loss',
         hint: {
           text: 'Do not use for radio and key or lock compromises. They are separate incident types.',
         },
@@ -211,19 +211,19 @@ const fields: FormWizard.Fields = {
     items: [
       {
         value: 'NON-DIRECTLY',
-        text: 'Non-directly employed staff',
+        label: 'Non-directly employed staff',
       },
       {
         value: 'NON-OPERATIONAL',
-        text: 'Non-operational staff',
+        label: 'Non-operational staff',
       },
       {
         value: 'PRISON_OFFICER',
-        text: 'Prison officer',
+        label: 'Prison officer',
       },
       {
         value: 'OTHER_OPERATIONAL_STAFF',
-        text: 'Other operational staff',
+        label: 'Other operational staff',
       },
     ],
   },
@@ -241,7 +241,7 @@ const fields: FormWizard.Fields = {
     },
     items: [
       {
-        text: 'Yes',
+        label: 'Yes',
         value: 'yes',
         conditional: {
           html: 'set during setup',
@@ -249,7 +249,7 @@ const fields: FormWizard.Fields = {
       },
       {
         value: 'no',
-        text: 'No',
+        label: 'No',
       },
     ],
   },
@@ -279,64 +279,64 @@ const fields: FormWizard.Fields = {
     items: [
       {
         value: 'ABSCOND',
-        text: 'Bite - skin broken',
+        label: 'Bite - skin broken',
       },
       {
         value: 'ASSAULT',
-        text: 'Black eye',
+        label: 'Black eye',
       },
       {
         value: 'ATTEMPTED_ESCAPE_FROM_COURT',
-        text: 'Blindness - temporary or permanent',
+        label: 'Blindness - temporary or permanent',
       },
       {
         value: 'ATTEMPTED_ESCAPE_FROM_ESTABLISHMENT',
-        text: 'Broken nose',
+        label: 'Broken nose',
       },
       {
         value: 'BOMB',
-        text: 'Broken teeth',
+        label: 'Broken teeth',
       },
       {
         value: 'BREACH',
-        text: 'Bruising - extensive or multiple',
+        label: 'Bruising - extensive or multiple',
       },
       {
         value: 'CLOSE_DOWN_SEARCH',
-        text: 'Burn or scald',
+        label: 'Burn or scald',
       },
       {
         value: 'DEATH_OF_OTHER_PERSON',
-        text: 'Crushing',
+        label: 'Crushing',
       },
       {
         value: 'DEATH_OF_PRISONER',
-        text: 'Cut requiring sutures',
+        label: 'Cut requiring sutures',
       },
       {
         value: 'DELIBERATE_DAMAGE',
-        text: 'Deafness - temporary or permanent',
+        label: 'Deafness - temporary or permanent',
       },
       {
         value: 'DISORDER',
-        text: 'Fracture',
+        label: 'Fracture',
       },
       {
         value: 'DRONE_SIGHTING',
-        text: 'Gunshot wound',
+        label: 'Gunshot wound',
       },
       {
         value: 'ESCAPE_FROM_COURT',
-        text: 'Stabbing',
+        label: 'Stabbing',
       },
       {
         value: 'or',
-        text: 'or',
+        label: 'or',
         divider: 'or',
       },
       {
         value: 'ESCAPE_FROM_ESTABLISHMENT',
-        text: 'No serious injuries',
+        label: 'No serious injuries',
         behaviour: 'exclusive',
       },
     ],
@@ -356,32 +356,32 @@ const fields: FormWizard.Fields = {
     items: [
       {
         value: 'ABSCOND',
-        text: 'Bruising - minor',
+        label: 'Bruising - minor',
       },
       {
         value: 'ASSAULT',
-        text: 'Cut - superficial',
+        label: 'Cut - superficial',
       },
       {
         value: 'ATTEMPTED_ESCAPE_FROM_COURT',
-        text: 'Graze, scratch or abrasion',
+        label: 'Graze, scratch or abrasion',
       },
       {
         value: 'ATTEMPTED_ESCAPE_FROM_ESTABLISHMENT',
-        text: 'Swelling',
+        label: 'Swelling',
       },
       {
         value: 'BOMB',
-        text: 'Other',
+        label: 'Other',
       },
       {
         value: 'or',
-        text: 'or',
+        label: 'or',
         divider: 'or',
       },
       {
         value: 'ESCAPE_FROM_ESTABLISHMENT',
-        text: 'No minor injuries',
+        label: 'No minor injuries',
         behaviour: 'exclusive',
       },
     ],
@@ -401,15 +401,15 @@ const fields: FormWizard.Fields = {
     items: [
       {
         value: 'YES',
-        text: 'Yes',
+        label: 'Yes',
       },
       {
         value: 'NO',
-        text: 'No',
+        label: 'No',
       },
       {
         value: 'UNKNOWN',
-        text: 'Unknown',
+        label: 'Unknown',
       },
     ],
   },
@@ -428,15 +428,15 @@ const fields: FormWizard.Fields = {
     items: [
       {
         value: 'YES',
-        text: 'Yes',
+        label: 'Yes',
       },
       {
         value: 'NO',
-        text: 'No',
+        label: 'No',
       },
       {
         value: 'UNKNOWN',
-        text: 'Unknown',
+        label: 'Unknown',
       },
     ],
   },

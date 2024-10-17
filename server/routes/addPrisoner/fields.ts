@@ -15,7 +15,7 @@ const fields: FormWizard.Fields = {
     },
     items: [
       {
-        text: 'overwritten during runtime',
+        label: 'overwritten during runtime',
         value: 'overwritten during runtime',
       },
     ],
@@ -32,7 +32,7 @@ const fields: FormWizard.Fields = {
     },
     items: [
       {
-        text: 'overwritten during runtime',
+        label: 'overwritten during runtime',
         value: 'overwritten during runtime',
       },
     ],

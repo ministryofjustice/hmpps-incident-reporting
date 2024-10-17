@@ -4,7 +4,6 @@ const fields: FormWizard.Fields = {
   incidentType: {
     component: 'govukRadios',
     validate: ['required'],
-    id: 'incidentType',
     name: 'incidentType',
     label: 'Incident type',
     items: [
@@ -108,7 +107,6 @@ const fields: FormWizard.Fields = {
   },
   incidentDate: {
     component: 'mojDatePicker',
-    id: 'incidentDate',
     name: 'incidentDate',
     validate: ['required'],
     label: 'On which date did the incident occur?',
@@ -116,7 +114,6 @@ const fields: FormWizard.Fields = {
   incidentTime: {
     component: 'govukInput',
     validate: ['required'],
-    id: 'incidentTime',
     name: 'incidentTime',
     label: 'At what time did the incident occur?',
     autocomplete: 'off',
@@ -124,7 +121,6 @@ const fields: FormWizard.Fields = {
   incidentTitle: {
     component: 'govukInput',
     validate: ['required'],
-    id: 'incidentTitle',
     name: 'incidentTitle',
     label: 'Title of incident',
     autocomplete: 'off',
@@ -134,7 +130,6 @@ const fields: FormWizard.Fields = {
     multiple: false,
     validate: ['required'],
     errorMessages: { required: 'A description is required for the incident in question.' },
-    id: 'incidentDescription',
     name: 'incidentDescription',
     label: 'Please can you provide a description of the incident',
     rows: '8',
@@ -143,7 +138,6 @@ const fields: FormWizard.Fields = {
     component: 'govukInput',
     multiple: true,
     validate: ['alphanum'],
-    id: 'prisonersInvolved',
     name: 'prisonersInvolved',
     label: 'Prisoners involved',
     autocomplete: 'off',
@@ -152,7 +146,6 @@ const fields: FormWizard.Fields = {
     component: 'govukInput',
     multiple: true,
     validate: ['alphanum'],
-    id: 'staffInvolved',
     name: 'staffInvolved',
     label: 'Staff involved',
     autocomplete: 'off',
@@ -160,7 +153,6 @@ const fields: FormWizard.Fields = {
   staffType: {
     component: 'govukRadios',
     validate: ['required'],
-    id: 'staffType',
     name: 'staffType',
     label: 'What type of staff is [person name]',
     items: [
@@ -185,7 +177,6 @@ const fields: FormWizard.Fields = {
   policeInformed: {
     component: 'govukRadios',
     validate: ['required'],
-    id: 'policeInformed',
     name: 'policeInformed',
     label: 'Have the police been informed?',
     items: [
@@ -204,7 +195,6 @@ const fields: FormWizard.Fields = {
   },
   policeInformedDate: {
     component: 'govukInput',
-    id: 'policeInformedDate',
     name: 'policeInformedDate',
     label: 'When were the police informed?',
     autocomplete: 'off',
@@ -216,7 +206,6 @@ const fields: FormWizard.Fields = {
   seriousInjuries: {
     component: 'govukCheckboxes',
     validate: ['required'],
-    id: 'seriousInjuries',
     name: 'seriousInjuries',
     label: 'Select any serious injuries',
     items: [
@@ -287,7 +276,6 @@ const fields: FormWizard.Fields = {
   minorInjuries: {
     component: 'govukCheckboxes',
     validate: ['required'],
-    id: 'minorInjuries',
     name: 'minorInjuries',
     label: 'Select any minor injuries',
     items: [
@@ -326,7 +314,6 @@ const fields: FormWizard.Fields = {
   medicalTreatment: {
     component: 'govukRadios',
     validate: ['required'],
-    id: 'medicalTreatment',
     name: 'medicalTreatment',
     label: 'Did they need medical treatment for concussion or internal injuries?',
     items: [
@@ -347,7 +334,6 @@ const fields: FormWizard.Fields = {
   outsideHospital: {
     component: 'govukRadios',
     validate: ['required'],
-    id: 'outsideHospital',
     name: 'outsideHospital',
     label: 'Did they go to outside hospital as a result of their injuries?',
     items: [

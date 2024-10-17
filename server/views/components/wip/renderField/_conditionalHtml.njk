@@ -15,12 +15,12 @@ USAGE:
   {# TODO: Validation? #}
   {# TODO: Handle errors #}
   {{ mojDatePicker({
-      id: field.id + '-' + item.id + '-date',
-      name: field.id + '-' + item.id + '-date',
+      id: field.name + '-' + item.id + '-date',
+      name: field.name + '-' + item.id + '-date',
       label: {
         text: "Date"
       },
-      value: values[field.id + '-' + item.id + '-date'],
+      value: values[field.name + '-' + item.id + '-date'],
       leadingZeros: "true"
   }) }}
 {%- endif -%}
@@ -30,10 +30,10 @@ USAGE:
   {# TODO: See comments above on ID, etc...#}
   {# TODO: Get value...from values? formValues? #}
   {{ govukInput({
-    id: field.id + '-' + item.id + '-comment',
-    name: field.id + '-' + item.id + '-comment',
+    id: field.name + '-' + item.id + '-comment',
+    name: field.name + '-' + item.id + '-comment',
     text: 'Comment',
     label: { text: 'Comment' },
-    value: values[field.id + '-' + item.id + '-comment']
+    value: values[field.name + '-' + item.id + '-comment']
   }) }}
 {%- endif -%}

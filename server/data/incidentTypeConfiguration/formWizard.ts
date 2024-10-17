@@ -44,7 +44,6 @@ export function generateFields(config: IncidentTypeConfiguration): FormWizard.Fi
   const fields: FormWizard.Fields = {}
   Object.values(config.questions).forEach(question => {
     fields[question.id] = {
-      id: question.id,
       name: question.id,
       label: question.label,
       validate: ['required'],

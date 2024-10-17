@@ -5,7 +5,6 @@ const fields: FormWizard.Fields = {
     component: 'govukRadios',
     validate: ['required'],
     errorMessages: { required: "Select the person's role in this incident." },
-    id: 'prisonerRole',
     name: 'prisonerRole',
     items: [
       {
@@ -16,7 +15,6 @@ const fields: FormWizard.Fields = {
   },
   prisonerOutcome: {
     component: 'govukRadios',
-    id: 'prisonerOutcome',
     name: 'prisonerOutcome',
     items: [
       {
@@ -27,7 +25,6 @@ const fields: FormWizard.Fields = {
   },
   prisonerComment: {
     component: 'govukInput',
-    id: 'prisonerComment',
     name: 'prisonerComment',
     label: 'Any additional comment?',
     autocomplete: 'off',

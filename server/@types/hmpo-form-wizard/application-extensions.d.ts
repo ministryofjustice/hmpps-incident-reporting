@@ -6,7 +6,6 @@ declare module 'hmpo-form-wizard' {
 
   namespace FormWizard {
     interface Field {
-      id?: string
       name?: string
       label?: string
 

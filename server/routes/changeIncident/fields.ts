@@ -3,7 +3,6 @@ import type FormWizard from 'hmpo-form-wizard'
 const fields: FormWizard.Fields = {
   incidentDate: {
     component: 'mojDatePicker',
-    id: 'incidentDate',
     name: 'incidentDate',
     validate: ['required'],
     label: 'On which date did the incident occur?',
@@ -11,7 +10,6 @@ const fields: FormWizard.Fields = {
   incidentTime: {
     component: 'govukInput',
     validate: ['required'],
-    id: 'incidentTime',
     name: 'incidentTime',
     label: 'At what time did the incident occur?',
     autocomplete: 'off',
@@ -19,7 +17,6 @@ const fields: FormWizard.Fields = {
   prisonId: {
     component: 'govukSelect',
     validate: ['required'],
-    id: 'prisonId',
     name: 'prisonId',
     label: 'Prison where incident occurred',
     items: [
@@ -32,7 +29,6 @@ const fields: FormWizard.Fields = {
   incidentTitle: {
     component: 'govukInput',
     validate: ['required'],
-    id: 'incidentTitle',
     name: 'incidentTitle',
     label: 'Title of incident',
     autocomplete: 'off',
@@ -42,7 +38,6 @@ const fields: FormWizard.Fields = {
     multiple: false,
     validate: ['required'],
     errorMessages: { required: 'A description is required for the incident in question.' },
-    id: 'incidentDescription',
     name: 'incidentDescription',
     label: 'Please can you provide a description of the incident',
     rows: '8',
@@ -51,7 +46,6 @@ const fields: FormWizard.Fields = {
     component: 'govukInput',
     multiple: true,
     validate: ['alphanum'],
-    id: 'prisonersInvolved',
     name: 'prisonersInvolved',
     label: 'Prisoners involved',
     autocomplete: 'off',
@@ -60,7 +54,6 @@ const fields: FormWizard.Fields = {
     component: 'govukInput',
     multiple: true,
     validate: ['alphanum'],
-    id: 'staffInvolved',
     name: 'staffInvolved',
     label: 'Staff involved',
     autocomplete: 'off',
@@ -68,7 +61,6 @@ const fields: FormWizard.Fields = {
   policeInformed: {
     component: 'govukRadios',
     validate: ['required'],
-    id: 'policeInformed',
     name: 'policeInformed',
     label: 'Have the police been informed?',
     items: [
@@ -87,7 +79,6 @@ const fields: FormWizard.Fields = {
   },
   policeInformedDate: {
     component: 'govukInput',
-    id: 'policeInformedDate',
     name: 'policeInformedDate',
     label: 'When were the police informed?',
     autocomplete: 'off',

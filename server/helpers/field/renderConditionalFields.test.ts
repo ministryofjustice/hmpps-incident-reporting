@@ -133,7 +133,6 @@ describe('Field helpers', () => {
         const field: FieldEntry = [
           'field',
           {
-            id: 'field',
             name: 'field',
             items: [
               {
@@ -169,7 +168,6 @@ describe('Field helpers', () => {
         const field: FieldEntry = [
           'field',
           {
-            id: 'field',
             name: 'field',
             items: [
               {

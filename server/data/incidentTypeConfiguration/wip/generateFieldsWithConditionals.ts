@@ -11,7 +11,6 @@ function createConditionalField(questionId: string, fieldType: FieldTypeOptions)
       component: 'govukInput',
       label: 'Additional comment',
       validate: ['required'],
-      id: `${questionId}Comment`,
       name: `${questionId}Comment`,
     }
   }
@@ -20,7 +19,6 @@ function createConditionalField(questionId: string, fieldType: FieldTypeOptions)
       component: 'mojDatePicker',
       label: 'Date occurred',
       validate: ['required'],
-      id: `${questionId}Date`,
       name: `${questionId}Date`,
     }
   }
@@ -55,7 +53,6 @@ function mapQuestionToField(question: QuestionConfiguration): FormWizard.Fields 
     component,
     label: convertToTitleCase(question.label),
     validate: ['required'],
-    id: questionId,
     name: questionId,
     items,
   }

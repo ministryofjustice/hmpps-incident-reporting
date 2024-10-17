@@ -10,7 +10,7 @@ USAGE:
 {# TODO: How to identify this specific answer's comment/date? #}
 {#       This is particularly tricky when multiple answers are allowed! #}
 {#       Answers don't have an "id" #}
-{%- if item.dateRequired -%}
+{% if item.dateRequired %}
   {# TODO: Get value...from values? formValues? #}
   {# TODO: Validation? #}
   {# TODO: Handle errors #}
@@ -23,9 +23,9 @@ USAGE:
       value: values[field.name + '-' + item.id + '-date'],
       leadingZeros: "true"
   }) }}
-{%- endif -%}
+{% endif %}
 
-{%- if item.commentRequired -%}
+{% if item.commentRequired %}
   {# TODO: How would this work with validation? #}
   {# TODO: See comments above on ID, etc...#}
   {# TODO: Get value...from values? formValues? #}
@@ -36,4 +36,4 @@ USAGE:
     label: { text: 'Comment' },
     value: values[field.name + '-' + item.id + '-comment']
   }) }}
-{%- endif -%}
+{% endif %}

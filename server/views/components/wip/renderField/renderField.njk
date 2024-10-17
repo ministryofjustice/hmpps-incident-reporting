@@ -16,14 +16,14 @@ USAGE:
   {% set items = [] %}
     {% for item in field.items %}
         {# Build `conditional` field #}
-        {%- if item.dateRequired or item.commentRequired -%}
-          {%- set conditionalHtml -%}
+        {% if item.dateRequired or item.commentRequired %}
+          {% set conditionalHtml %}
             {% include "./_conditionalHtml.njk" %}
-          {%- endset -%}
-          {%- set conditional = { html: conditionalHtml} -%}
-        {%- else -%}
-          {%- set conditional = null -%}
-        {%- endif -%}
+          {% endset %}
+          {% set conditional = { html: conditionalHtml} %}
+        {% else %}
+          {% set conditional = null %}
+        {% endif %}
 
         {% set items = (items.push({
           text: item.label,

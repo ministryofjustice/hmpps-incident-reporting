@@ -34,7 +34,7 @@ export default function reduceDependentFields(allFields: { [key: string]: FormWi
             : conditionalField.name || conditional
         ) as string
         const id = (
-          field.prefix ? `${field.id}-${conditionalField.id || conditional}` : conditionalField.id || conditional
+          field.prefix ? `${field.name}-${conditionalField.name || conditional}` : conditionalField.name || conditional
         ) as string
 
         const dataName = name.replace(/\[\d+]/, '[%index%]')
@@ -50,7 +50,6 @@ export default function reduceDependentFields(allFields: { [key: string]: FormWi
           ...conditionalField,
           ...dependentOptions,
           name,
-          id,
           attributes,
         }
       })

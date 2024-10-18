@@ -3,42 +3,25 @@ import type FormWizard from 'hmpo-form-wizard'
 const fields: FormWizard.Fields = {
   incidentDate: {
     component: 'mojDatePicker',
-    id: 'incidentDate',
     name: 'incidentDate',
     validate: ['required'],
-    label: {
-      text: 'On which date did the incident occur?',
-      classes: 'govuk-fieldset__legend--m',
-    },
-    leadingZeros: 'true',
+    label: 'On which date did the incident occur?',
   },
   incidentTime: {
     component: 'govukInput',
     validate: ['required'],
-    id: 'incidentTime',
     name: 'incidentTime',
-    classes: 'govuk-input--width-5',
-    label: {
-      text: 'At what time did the incident occur?',
-      classes: 'govuk-fieldset__legend--m',
-    },
-    hint: {
-      text: 'Please give time as the following example: 10:35',
-    },
+    label: 'At what time did the incident occur?',
     autocomplete: 'off',
   },
   prisonId: {
     component: 'govukSelect',
     validate: ['required'],
-    id: 'prisonId',
     name: 'prisonId',
-    label: {
-      text: 'Prison where incident occurred',
-      classes: 'govuk-fieldset__legend--m',
-    },
+    label: 'Prison where incident occurred',
     items: [
       {
-        text: 'overwritten during runtime',
+        label: 'overwritten during runtime',
         value: 'overwritten during runtime',
       },
     ],
@@ -46,16 +29,8 @@ const fields: FormWizard.Fields = {
   incidentTitle: {
     component: 'govukInput',
     validate: ['required'],
-    id: 'incidentTitle',
     name: 'incidentTitle',
-    classes: 'govuk-!-width-three-quarters',
-    label: {
-      text: 'Title of incident',
-      classes: 'govuk-fieldset__legend--m',
-    },
-    hint: {
-      text: 'Please give a title that covers the subject of this incident.',
-    },
+    label: 'Title of incident',
     autocomplete: 'off',
   },
   incidentDescription: {
@@ -63,76 +38,34 @@ const fields: FormWizard.Fields = {
     multiple: false,
     validate: ['required'],
     errorMessages: { required: 'A description is required for the incident in question.' },
-    id: 'incidentDescription',
     name: 'incidentDescription',
-    label: {
-      text: 'Please can you provide a description of the incident',
-      classes: 'govuk-fieldset__legend--m',
-    },
+    label: 'Please can you provide a description of the incident',
     rows: '8',
-    fieldset: {
-      legend: {
-        text: 'Prison governor approval for change',
-        classes: 'govuk-fieldset__legend--m',
-      },
-    },
-    hint: {
-      text: 'Please provide as much detail as you can.',
-    },
   },
   prisonersInvolved: {
     component: 'govukInput',
     multiple: true,
     validate: ['alphanum'],
-    id: 'prisonersInvolved',
     name: 'prisonersInvolved',
-    classes: 'govuk-input--width-20',
-    label: {
-      text: 'Prisoners involved',
-      classes: 'govuk-fieldset__legend--m',
-    },
-    hint: {
-      text: 'Please list all prisoners involved in this incident.',
-    },
+    label: 'Prisoners involved',
     autocomplete: 'off',
   },
   staffInvolved: {
     component: 'govukInput',
     multiple: true,
     validate: ['alphanum'],
-    id: 'staffInvolved',
     name: 'staffInvolved',
-    classes: 'govuk-input--width-20',
-    label: {
-      text: 'Staff involved',
-      classes: 'govuk-fieldset__legend--m',
-    },
-    hint: {
-      text: 'Please list all staff members involved in this incident.',
-    },
+    label: 'Staff involved',
     autocomplete: 'off',
   },
   policeInformed: {
     component: 'govukRadios',
     validate: ['required'],
-    id: 'policeInformed',
     name: 'policeInformed',
-    label: {
-      text: 'Have the police been informed?',
-      classes: 'govuk-fieldset__legend--m',
-    },
-    fieldset: {
-      legend: {
-        text: 'Have the police been informed?',
-        classes: 'govuk-fieldset__legend--m',
-      },
-    },
-    hint: {
-      text: 'Select one option.',
-    },
+    label: 'Have the police been informed?',
     items: [
       {
-        text: 'Yes',
+        label: 'Yes',
         value: 'yes',
         conditional: {
           html: 'set during setup',
@@ -140,19 +73,14 @@ const fields: FormWizard.Fields = {
       },
       {
         value: 'no',
-        text: 'No',
+        label: 'No',
       },
     ],
   },
   policeInformedDate: {
     component: 'govukInput',
-    id: 'policeInformedDate',
     name: 'policeInformedDate',
-    classes: 'govuk-!-width-one-third',
-    label: {
-      text: 'When were the police informed?',
-      classes: 'govuk-fieldset__legend--m',
-    },
+    label: 'When were the police informed?',
     autocomplete: 'off',
     dependent: {
       field: 'policeInformed',

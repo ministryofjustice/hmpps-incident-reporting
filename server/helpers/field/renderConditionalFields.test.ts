@@ -45,12 +45,12 @@ describe('Field helpers', () => {
               items: [
                 {
                   value: '31b90233-7043-4633-8055-f24854545ead',
-                  text: 'Item one',
+                  label: 'Item one',
                   conditional: 'conditional_field_one',
                 },
                 {
                   value: '31b90233-7043-4633-8055-f24854545eac',
-                  text: 'Item two',
+                  label: 'Item two',
                   conditional: 'conditional_field_two',
                 },
               ],
@@ -62,14 +62,12 @@ describe('Field helpers', () => {
               'conditional_field_one',
               {
                 component: 'govukInput',
-                classes: 'input-classes',
               },
             ],
             [
               'conditional_field_two',
               {
                 component: 'govukTextarea',
-                classes: 'input-classes',
               },
             ],
           ]
@@ -83,14 +81,14 @@ describe('Field helpers', () => {
             expect((response[1] as FormWizard.Field).items).toEqual([
               {
                 value: '31b90233-7043-4633-8055-f24854545ead',
-                text: 'Item one',
+                label: 'Item one',
                 conditional: {
                   html: 'govukInput',
                 },
               },
               {
                 value: '31b90233-7043-4633-8055-f24854545eac',
-                text: 'Item two',
+                label: 'Item two',
                 conditional: {
                   html: 'govukTextarea',
                 },
@@ -107,7 +105,7 @@ describe('Field helpers', () => {
               items: [
                 {
                   value: '31b90233-7043-4633-8055-f24854545ead',
-                  text: 'Item one',
+                  label: 'Item one',
                   conditional: 'doesnotexist',
                 },
               ],
@@ -123,7 +121,7 @@ describe('Field helpers', () => {
             expect((response[1] as FormWizard.Field).items).toEqual([
               {
                 value: '31b90233-7043-4633-8055-f24854545ead',
-                text: 'Item one',
+                label: 'Item one',
                 conditional: 'doesnotexist',
               },
             ])
@@ -135,12 +133,11 @@ describe('Field helpers', () => {
         const field: FieldEntry = [
           'field',
           {
-            id: 'field',
             name: 'field',
             items: [
               {
                 value: '31b90233-7043-4633-8055-f24854545ead',
-                text: 'Item one',
+                label: 'Item one',
                 conditional: {
                   html: '<strong>HTML</strong> content',
                 },
@@ -158,7 +155,7 @@ describe('Field helpers', () => {
           expect((response[1] as FormWizard.Field).items).toEqual([
             {
               value: '31b90233-7043-4633-8055-f24854545ead',
-              text: 'Item one',
+              label: 'Item one',
               conditional: {
                 html: '<strong>HTML</strong> content',
               },
@@ -171,17 +168,16 @@ describe('Field helpers', () => {
         const field: FieldEntry = [
           'field',
           {
-            id: 'field',
             name: 'field',
             items: [
               {
                 value: '31b90233-7043-4633-8055-f24854545ead',
-                text: 'Item one',
+                label: 'Item one',
                 conditional: ['conditional_field_one', 'conditional_field_two', 'unknown_field'],
               },
               {
                 value: '31b90233-7043-4633-8055-f24854545eac',
-                text: 'Item two',
+                label: 'Item two',
               },
             ],
           },
@@ -192,14 +188,12 @@ describe('Field helpers', () => {
             'conditional_field_one',
             {
               component: 'govukInput',
-              classes: 'input-classes',
             },
           ],
           [
             'conditional_field_two',
             {
               component: 'govukTextarea',
-              classes: 'input-classes',
             },
           ],
         ]
@@ -213,14 +207,14 @@ describe('Field helpers', () => {
           expect((response[1] as FormWizard.Field).items).toEqual([
             {
               value: '31b90233-7043-4633-8055-f24854545ead',
-              text: 'Item one',
+              label: 'Item one',
               conditional: {
                 html: 'govukInputgovukTextarea',
               },
             },
             {
               value: '31b90233-7043-4633-8055-f24854545eac',
-              text: 'Item two',
+              label: 'Item two',
             },
           ])
         })

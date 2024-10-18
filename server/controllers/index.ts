@@ -51,6 +51,12 @@ export abstract class BaseController extends FormWizard.Controller {
     }
     return error
   }
+
+  csrfGenerateSecret(req: FormWizard.Request, res: Express.Response, next: Express.NextFunction): void {
+    // copy application middleware CSRF token into form wizard for sanity
+    req.sessionModel.set('csrf-secret', res.locals.csrfToken)
+    next()
+  }
 }
 
 Object.assign(FormWizard.Controller.validators, {

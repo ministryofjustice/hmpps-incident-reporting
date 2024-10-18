@@ -1,6 +1,8 @@
 import type Express from 'express'
 import FormWizard from 'hmpo-form-wizard'
 
+import { parseDateInput, parseTimeInput } from '../utils/utils'
+
 /**
  * The super-class form wizard controller with functionality that should be shared
  * amongst all forms in this application.
@@ -18,10 +20,13 @@ export abstract class BaseController extends FormWizard.Controller {
   /**
    * Generic human-readable error messages for default form wizard validators.
    */
-  protected readonly errorMessages: Record<keyof BaseController['validators'], string> = {
+  protected readonly errorMessages: Record<keyof (typeof BaseController)['validators'], string> = {
     required: 'This field is required',
     email: 'Enter an email address',
     date: 'Enter a date',
+    ukDate: 'Enter a date',
+    ukTime: 'Enter a time',
+    numeric: 'Enter a number',
   }
 
   /**
@@ -46,4 +51,32 @@ export abstract class BaseController extends FormWizard.Controller {
     }
     return error
   }
+
+  csrfGenerateSecret(req: FormWizard.Request, res: Express.Response, next: Express.NextFunction): void {
+    // copy application middleware CSRF token into form wizard for sanity
+    req.sessionModel.set('csrf-secret', res.locals.csrfToken)
+    next()
+  }
 }
+
+Object.assign(FormWizard.Controller.validators, {
+  ukDate(value: FormWizard.Value): boolean {
+    if (value === '') return true
+    try {
+      return Boolean(parseDateInput(value))
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    } catch (_error) {
+      return false
+    }
+  },
+
+  ukTime(value: FormWizard.Value): boolean {
+    if (value === '') return true
+    try {
+      return Boolean(parseTimeInput(value))
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    } catch (_error) {
+      return false
+    }
+  },
+})

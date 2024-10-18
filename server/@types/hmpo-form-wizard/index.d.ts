@@ -342,9 +342,9 @@ declare module 'hmpo-form-wizard' {
      * Class with various mixins which instantiates a request handler for each form step
      */
     class Controller extends BaseController {
-      validators: Record<DefaultValidator, Validator>
+      static validators: Record<DefaultValidator, Validator>
 
-      formatters: Record<DefaultFormatter, Formatter>
+      static formatters: Record<DefaultFormatter, Formatter>
 
       resolvePath(base: string, url: string, forceRelative: boolean): void
 

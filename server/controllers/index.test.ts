@@ -69,4 +69,106 @@ describe('Base form wizard controller', () => {
       }).toThrow('Error message not set for type')
     })
   })
+
+  describe('Validation', () => {
+    it.each(['tomorrow', '30/2/2025'])('should consider %p an invalid UK date', input => {
+      const options: FormWizard.Options = {
+        route: '/',
+        steps: { '/': { fields: ['date'] } },
+        fields: {
+          date: { name: 'date', validate: ['ukDate'] },
+        },
+      }
+      const controller = new TestController(options)
+
+      const req = {
+        method: 'POST',
+        sessionModel: jest.fn(),
+        form: {
+          options,
+          values: { date: input },
+          errors: {},
+        },
+      } as unknown as FormWizard.Request
+      const res = {} as Express.Response
+
+      const error = controller.validateField('date', req, res)
+      expect(error).toHaveProperty('message', 'Enter a date')
+    })
+
+    it('should allow a blank if UK date is not required', () => {
+      const options: FormWizard.Options = {
+        route: '/',
+        steps: { '/': { fields: ['date'] } },
+        fields: {
+          date: { name: 'date', validate: ['ukDate'] },
+        },
+      }
+      const controller = new TestController(options)
+
+      const req = {
+        method: 'POST',
+        sessionModel: jest.fn(),
+        form: {
+          options,
+          values: { date: '' },
+          errors: {},
+        },
+      } as unknown as FormWizard.Request
+      const res = {} as Express.Response
+
+      const error = controller.validateField('date', req, res)
+      expect(error).toBeUndefined()
+    })
+
+    it.each(['now', '10am', '2310'])('should consider %p an invalid UK time', input => {
+      const options: FormWizard.Options = {
+        route: '/',
+        steps: { '/': { fields: ['time'] } },
+        fields: {
+          time: { name: 'time', validate: ['ukTime'] },
+        },
+      }
+      const controller = new TestController(options)
+
+      const req = {
+        method: 'POST',
+        sessionModel: jest.fn(),
+        form: {
+          options,
+          values: { time: input },
+          errors: {},
+        },
+      } as unknown as FormWizard.Request
+      const res = {} as Express.Response
+
+      const error = controller.validateField('time', req, res)
+      expect(error).toHaveProperty('message', 'Enter a time')
+    })
+
+    it('should allow a blank if UK time is not required', () => {
+      const options: FormWizard.Options = {
+        route: '/',
+        steps: { '/': { fields: ['time'] } },
+        fields: {
+          time: { name: 'time', validate: ['ukTime'] },
+        },
+      }
+      const controller = new TestController(options)
+
+      const req = {
+        method: 'POST',
+        sessionModel: jest.fn(),
+        form: {
+          options,
+          values: { time: '' },
+          errors: {},
+        },
+      } as unknown as FormWizard.Request
+      const res = {} as Express.Response
+
+      const error = controller.validateField('time', req, res)
+      expect(error).toBeUndefined()
+    })
+  })
 })

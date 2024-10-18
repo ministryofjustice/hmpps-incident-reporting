@@ -46,7 +46,7 @@ USAGE:
             classes: 'govuk-fieldset__legend--m'
           }
         },
-        items: items
+        items: items | govukMultipleCheckedItems(values[field.name])
     }) }}
 {% elif field.dependent !== null %}
   {# Ignore nested/conditional fields #}

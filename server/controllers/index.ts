@@ -2,6 +2,7 @@ import type Express from 'express'
 import FormWizard from 'hmpo-form-wizard'
 
 import { parseDateInput, parseTimeInput } from '../utils/utils'
+import { SanitisedError } from '../sanitisedError'
 
 /**
  * The super-class form wizard controller with functionality that should be shared
@@ -52,10 +53,47 @@ export abstract class BaseController extends FormWizard.Controller {
     return error
   }
 
+  /**
+   * Convert an API error into a FormWizard.Error
+   */
+  convertIntoValidationError(error: SanitisedError): FormWizard.Error {
+    // TODO: also handle regular errors? need a new function:
+    //   isSanitisedError<E extends Error>(e: E) e is SanitisedError {…}
+    return new BaseController.Error(null, { message: 'Sorry, there was a problem with your request' })
+  }
+
   csrfGenerateSecret(req: FormWizard.Request, res: Express.Response, next: Express.NextFunction): void {
     // copy application middleware CSRF token into form wizard for sanity
     req.sessionModel.set('csrf-secret', res.locals.csrfToken)
     next()
+  }
+
+  /**
+   * Builds an object of values for all fields and steps from session or, optionally, from form values.
+   * This should only be called when the form is known to be valid.
+   */
+  protected getAllValues(req: FormWizard.Request, fromSession = true): FormWizard.Values {
+    // retrieve all fields’ values from session
+    const allValues = Object.fromEntries(
+      Object.keys(req.form.options.allFields).map(fieldName => [
+        fieldName,
+        fromSession ? req.sessionModel.get(fieldName) : req.form.values[fieldName],
+      ]),
+    )
+
+    // delete conditional values if dependent field not set
+    Object.entries(req.form.options.allFields).forEach(([fieldName, field]) => {
+      if (
+        typeof field.dependent === 'object' &&
+        'field' in field.dependent &&
+        field.dependent.field in allValues &&
+        allValues[field.dependent.field] !== field.dependent.value
+      ) {
+        delete allValues[fieldName]
+      }
+    })
+
+    return allValues
   }
 }
 

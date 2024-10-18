@@ -3,7 +3,7 @@ import wizard from 'hmpo-form-wizard'
 import { BadRequest } from 'http-errors'
 
 import { generateFields, generateSteps } from '../../data/incidentTypeConfiguration/formWizard'
-import { types } from '../../reportConfiguration/constants'
+import { getTypeDetails } from '../../reportConfiguration/constants'
 import { getIncidentTypeConfiguration } from '../../reportConfiguration/types'
 import asyncMiddleware from '../../middleware/asyncMiddleware'
 
@@ -13,7 +13,7 @@ router.use(
   asyncMiddleware(async (req, res, next) => {
     const { reportType } = req.params
 
-    const found = types.find(type => type.code === reportType)
+    const found = getTypeDetails(reportType)
     if (found === undefined) {
       throw new BadRequest('Invalid report type')
     }

@@ -1,0 +1,67 @@
+{% from "govuk/components/error-message/macro.njk" import govukErrorMessage %}
+{% from "govuk/components/fieldset/macro.njk" import govukFieldset %}
+{% from "govuk/components/hint/macro.njk" import govukHint %}
+{% from "govuk/components/input/macro.njk" import govukInput %}
+
+{% macro renderTimeFields(fieldName, field, options, values, errors) %}
+
+  <div class="govuk-form-group {% if errors[fieldName] %}govuk-form-group--error{% endif %}">
+    {% call govukFieldset({
+      legend: {
+        text: field.label,
+        classes: "govuk-fieldset__legend--m"
+      }
+    }) %}
+
+      {% if field.hint %}
+        {{ govukHint({
+          text: field.hint
+        }) }}
+      {% endif %}
+
+      {% if errors[fieldName] %}
+        {{ govukErrorMessage({
+          text: errors[fieldName].message
+        }) }}
+      {% endif %}
+
+      {% set timeInputFieldClasses = "govuk-date-input__input govuk-input--width-2" %}
+      {% if errors[fieldName] %}
+        {% set timeInputFieldClasses = timeInputFieldClasses + " govuk-input--error" %}
+      {% endif %}
+
+      <div id="{{ fieldName }}" class="govuk-date-input">
+        <div class="govuk-date-input__item">
+          {% set hoursFieldName = "_" + fieldName + "-hours" %}
+          {{ govukInput({
+            name: hoursFieldName,
+            id: hoursFieldName,
+            label: {
+              text: "Hours",
+              classes: "govuk-date-input__label"
+            },
+            classes: timeInputFieldClasses,
+            inputmode: "numeric",
+            value: values[hoursFieldName]
+          }) }}
+        </div>
+        <div class="govuk-date-input__item">
+          {% set minutesFieldName = "_" + fieldName + "-minutes" %}
+          {{ govukInput({
+            name: minutesFieldName,
+            id: minutesFieldName,
+            label: {
+              text: "Minutes",
+              classes: "govuk-date-input__label"
+            },
+            classes: timeInputFieldClasses,
+            inputmode: "numeric",
+            value: values[minutesFieldName]
+          }) }}
+        </div>
+      </div>
+
+    {% endcall %}
+  </div>
+
+{% endmacro %}

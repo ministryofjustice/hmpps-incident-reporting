@@ -8,7 +8,7 @@ declare module 'hmpo-form-wizard' {
     interface Field {
       name?: string
       label?: string
-
+      hint?: string
       component?: string
 
       // TODO: custom properties need major cleanup: we should group them into very few nested objects

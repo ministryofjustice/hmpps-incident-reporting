@@ -260,7 +260,7 @@ declare module 'hmpo-form-wizard' {
       errors: Record<string, Error>
       errorlist: Error[]
       values: Values
-      options: Options
+      options: Readonly<Options>
       action: string
       nextPage: Step
       isEditing: boolean

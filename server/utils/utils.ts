@@ -57,7 +57,10 @@ export const parseDateInput = (input: string): Date => {
   const d = parseInt(day, 10)
   if (Number.isSafeInteger(y) && m >= 1 && m <= 12 && d >= 1 && d <= 31) {
     const date = new Date(y, m - 1, d, 12)
-    if (date) return date
+    if (date && date.getDate() === d) {
+      // ensures date is valid and js did not choose to roll forward to the next month
+      return date
+    }
   }
   throw new Error('Invalid date')
 }

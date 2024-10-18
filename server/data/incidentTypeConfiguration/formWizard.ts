@@ -26,14 +26,14 @@ export function generateSteps(config: IncidentTypeConfiguration): FormWizard.Ste
       })
 
       const fields = [question.id]
-      for (const answer of question.answers) {
+      for (const answer of activeAnswers) {
         if (answer.dateRequired) {
-          const fieldName = conditionalFieldName(question, answer, 'date')
-          fields.push(fieldName)
+          const dateFieldName = conditionalFieldName(question, answer, 'date')
+          fields.push(dateFieldName)
         }
         if (answer.commentRequired) {
-          const fieldName = conditionalFieldName(question, answer, 'comment')
-          fields.push(fieldName)
+          const commentFieldName = conditionalFieldName(question, answer, 'comment')
+          fields.push(commentFieldName)
         }
       }
 

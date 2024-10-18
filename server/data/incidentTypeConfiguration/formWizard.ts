@@ -88,7 +88,7 @@ export function generateFields(config: IncidentTypeConfiguration): FormWizard.Fi
             name: fieldName,
             label: 'Date',
             component: 'mojDatePicker',
-            validate: ['required'],
+            validate: ['required', 'ukDate'],
             dependent: {
               field: question.id,
               value: answer.code,

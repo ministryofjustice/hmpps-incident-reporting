@@ -53,6 +53,8 @@ export function generateSteps(config: IncidentTypeConfiguration): FormWizard.Ste
 export function generateFields(config: IncidentTypeConfiguration): FormWizard.Fields {
   const fields: FormWizard.Fields = {}
   Object.values(config.questions).forEach(question => {
+    const activeAnswers = question.answers.filter(answer => answer.active)
+
     fields[question.id] = {
       name: question.id,
       label: question.label,
@@ -65,21 +67,19 @@ export function generateFields(config: IncidentTypeConfiguration): FormWizard.Fi
       //       we write the controller.
       // multiple: question.multipleAnswers,
       component: question.multipleAnswers ? 'govukCheckboxes' : 'govukRadios',
-      items: question.answers
-        .filter(answer => answer.active)
-        .map(answer => {
-          return {
-            id: answer.id,
-            name: answer.id,
-            value: answer.code,
-            label: answer.label,
-            dateRequired: answer.dateRequired,
-            commentRequired: answer.commentRequired,
-          }
-        }),
+      items: activeAnswers.map(answer => {
+        return {
+          id: answer.id,
+          name: answer.id,
+          value: answer.code,
+          label: answer.label,
+          dateRequired: answer.dateRequired,
+          commentRequired: answer.commentRequired,
+        }
+      }),
     }
     // Add comment/date fields
-    for (const answer of question.answers) {
+    for (const answer of activeAnswers) {
       if (answer.dateRequired) {
         const fieldName = conditionalFieldName(question, answer, 'date')
         fields[fieldName] = {

@@ -62,6 +62,22 @@ export const parseDateInput = (input: string): Date => {
   throw new Error('Invalid date')
 }
 
+/** Parse time in the form HH:MM. Throws an error when invalid */
+export const parseTimeInput = (input: string): { hours: number; minutes: number; time: string } => {
+  const match = input && /^(?<hours>\d{1,2}):(?<minutes>\d\d)$/.exec(input.trim())
+  if (!match) throw new Error('Invalid time')
+  const { hours, minutes } = match.groups
+  const h = parseInt(hours, 10)
+  const m = parseInt(minutes, 10)
+  if (h >= 0 && h < 24 && m >= 0 && m < 60)
+    return {
+      hours: h,
+      minutes: m,
+      time: `${hours.padStart(2, '0')}:${minutes.padStart(2, '0')}`,
+    }
+  throw new Error('Invalid time')
+}
+
 /** Make an array of given length with a builder function */
 export function buildArray<T>(length: number, builder: (index: number) => T): T[] {
   const array = Array(length)

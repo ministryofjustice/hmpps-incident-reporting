@@ -55,6 +55,22 @@ export default {
   },
 
   /**
+   * Format Date as time in Europe/London
+   *
+   * Example: `14:22`
+   */
+  time(date: Date): string {
+    if (typeof date === 'undefined' || date === null) {
+      return ''
+    }
+    return date.toLocaleTimeString('en-GB', {
+      hour: '2-digit',
+      minute: '2-digit',
+      timeZone: 'Europe/London',
+    })
+  },
+
+  /**
    * Formats dates in ISO style, used when calling APIs
    *
    * Example: `2024-07-30`

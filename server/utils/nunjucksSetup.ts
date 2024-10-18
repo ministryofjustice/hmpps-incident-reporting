@@ -69,6 +69,7 @@ export default function nunjucksSetup(app: express.Express): void {
   njkEnv.addFilter('dateAndTime', format.dateAndTime)
   njkEnv.addFilter('date', format.date)
   njkEnv.addFilter('shortDate', format.shortDate)
+  njkEnv.addFilter('time', format.time)
 
   // prisoner utils
   njkEnv.addFilter('prisonerLocation', prisonerLocation)

@@ -6,6 +6,7 @@ import {
   kebabCase,
   nameOfPerson,
   parseDateInput,
+  parseTimeInput,
   prisonerLocation,
   reversedNameOfPerson,
 } from './utils'
@@ -179,6 +180,25 @@ describe('parseDateInput', () => {
   ])('should throw an error on invalid date %p', input => {
     expect(() => parseDateInput(input)).toThrow('Invalid date')
   })
+})
+
+describe('parseTimeInput', () => {
+  it.each([
+    ['10:30', '10:30'],
+    ['1:30', '01:30'],
+    [' 13:00 ', '13:00'],
+    ['00:00', '00:00'],
+    ['23:59', '23:59'],
+  ])('should work on time: %s', (input, expectedTime) => {
+    expect(parseTimeInput(input).time).toStrictEqual(expectedTime)
+  })
+
+  it.each([undefined, null, '', 'now', '10.00', '1000', '10', '24:00', '19:5', '0:60'])(
+    'should throw an error on invalid time %p',
+    input => {
+      expect(() => parseTimeInput(input)).toThrow('Invalid time')
+    },
+  )
 })
 
 describe('buildArray()', () => {

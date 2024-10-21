@@ -1,3 +1,4 @@
+import { type FormWizard } from 'hmpo-form-wizard'
 import QuestionsController from '../../controllers/wip/questionsController'
 import { checkMultipleValues, generateFields, generateSteps } from './formWizard'
 import { type IncidentTypeConfiguration } from './types'
@@ -389,5 +390,18 @@ describe('generateFields()', () => {
         ],
       },
     })
+  })
+})
+
+describe('checkMultipleValues()', () => {
+  it.each([
+    { desc: 'no values submitted yet', submittedValues: undefined, expected: false },
+    { desc: 'submitted values do not match', submittedValues: ['cat', 'lizard'], expected: false },
+    { desc: 'submitted values match', submittedValues: ['fox', 'dog'], expected: true },
+  ])('returns $expected when $desc', ({ submittedValues, expected }) => {
+    const condition = { value: 'dog' }
+
+    const result = checkMultipleValues(submittedValues, null as FormWizard.Request, null as Express.Response, condition)
+    expect(result).toEqual(expected)
   })
 })

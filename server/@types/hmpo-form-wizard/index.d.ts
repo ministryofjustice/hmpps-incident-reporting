@@ -25,50 +25,52 @@ declare module 'hmpo-form-wizard' {
     /** Use in complex generic forms that might allow multiple values in any fields; have checkbox components */
     type MultiValues = Record<string, MultiValue>
 
+    /** Possible conditions for next steps */
+    type NextStepCondition =
+      | {
+          /** field, op and value. op defaults to '===' */
+          field: string
+          op?: '>' | '>=' | '<' | '<=' | '==' | '===' | '!=' | 'before' | 'after' | 'in' | 'all' | 'some'
+          value: Value
+          next: string
+        }
+      | {
+          /** an operator can be a function */
+          field: string
+          op: (fieldValue: Value, req: Request, res: Express.Response, con: unknown) => boolean
+          value: Value
+          next: string
+        }
+      | {
+          /** next can be an array of conditions */
+          field: string
+          value: Value
+          next: NextStep[]
+        }
+      | {
+          /** a condition can be a function specified by fn */
+          fn: (req: Request, res: Express.Response, con: unknown) => boolean
+          next: string
+        }
+      | {
+          /** a condition can be a controller method specified by name */
+          fn: string
+          next: string
+        }
+      | {
+          /** the next option can be a function to return a dynamic next step */
+          field: string
+          value: Value
+          next: (req: Request, res: Express.Response, con: unknown) => string
+        }
+      /** use a string as a default next step */
+      | string
+
     type NextStep =
       /** next can be a relative string path */
       | string
       /** next can be an array of conditions */
-      | (
-          | {
-              /** field, op and value. op defaults to '===' */
-              field: string
-              op?: '>' | '>=' | '<' | '<=' | '==' | '===' | '!=' | 'before' | 'after' | 'in' | 'all' | 'some'
-              value: Value
-              next: string
-            }
-          | {
-              /** an operator can be a function */
-              field: string
-              op: (fieldValue: Value, req: Request, res: Express.Response, con: unknown) => boolean
-              value: Value
-              next: string
-            }
-          | {
-              /** next can be an array of conditions */
-              field: string
-              value: Value
-              next: NextStep[]
-            }
-          | {
-              /** a condition can be a function specified by fn */
-              fn: (req: Request, res: Express.Response, con: unknown) => boolean
-              next: string
-            }
-          | {
-              /** a condition can be a controller method specified by name */
-              fn: string
-              next: string
-            }
-          | {
-              /** the next option can be a function to return a dynamic next step */
-              field: string
-              value: Value
-              next: (req: Request, res: Express.Response, con: unknown) => string
-            }
-          /** use a string as a default next step */
-          | string
-        )[]
+      | NextStepCondition[]
 
     interface Step<V extends object = Values, K extends keyof V = keyof V> {
       /** The next step for each step can be a relative path, an external URL, or an array of conditional next steps. Each condition next step can contain a next location, a field name, operator and value, or a custom condition function */

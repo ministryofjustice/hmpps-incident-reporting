@@ -1,4 +1,5 @@
 import type { UserDetails } from '../../services/userService'
+import type { CaseLoad } from '../../data/frontendComponentsClient'
 import type { IncidentReportingApi } from '../../data/incidentReportingApi'
 import type { OffenderSearchApi } from '../../data/offenderSearchApi'
 import type { PrisonApi } from '../../data/prisonApi'
@@ -19,6 +20,8 @@ export declare global {
     interface User extends Partial<UserDetails> {
       token: string
       authSource: string
+      activeCaseLoad?: CaseLoad
+      caseLoads?: CaseLoad[]
     }
 
     interface Request {

@@ -4,7 +4,7 @@ import nock from 'nock'
 import config from '../config'
 import type { Services } from '../services'
 import FrontendComponentsClient from '../data/frontendComponentsClient'
-import { mockFrontendComponentResponse } from '../data/testData/frontendComponents'
+import { mockCaseload, mockFrontendComponentResponse } from '../data/testData/frontendComponents'
 import frontendComponents from './frontendComponents'
 
 describe('Frontend components middleware', () => {
@@ -51,6 +51,8 @@ describe('Frontend components middleware', () => {
       cssIncludes: ['/header.css', '/footer.css', '/footer-2.css'],
       jsIncludes: ['/header.js', '/footer.js'],
     })
+    expect(res.locals.user.activeCaseLoad).toStrictEqual(mockCaseload)
+    expect(res.locals.user.caseLoads).toStrictEqual([mockCaseload])
   })
 
   it('should call next request handler even if frontend components failed to load', async () => {
@@ -67,5 +69,7 @@ describe('Frontend components middleware', () => {
 
     expect(next).toHaveBeenCalledWith()
     expect(res.locals.feComponents).toBeUndefined()
+    expect(res.locals.user.activeCaseLoad).toBeUndefined()
+    expect(res.locals.user.caseLoads).toBeUndefined()
   })
 })

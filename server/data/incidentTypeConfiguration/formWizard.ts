@@ -21,8 +21,17 @@ export function generateSteps(config: IncidentTypeConfiguration): FormWizard.Ste
       const activeAnswers = question.answers.filter(answer => answer.active)
 
       // TODO: Maybe coalesce answers leading to same next question
-      const next = activeAnswers.map(answer => {
-        return { field: question.id, value: answer.code, next: answer.nextQuestionId }
+      const next: FormWizard.NextStepCondition[] = activeAnswers.map(answer => {
+        return {
+          field: question.id,
+          // when checkboxes choices are submitted the value is an array
+          // e.g. `['choice-2', 'choice-5']`
+          // in these cases this conditional step matches if some of `submittedValues`
+          // equals value
+          op: question.multipleAnswers ? checkMultipleValues : '===',
+          value: answer.code,
+          next: answer.nextQuestionId,
+        }
       })
 
       const fields = [question.id]
@@ -116,4 +125,55 @@ export function generateFields(config: IncidentTypeConfiguration): FormWizard.Fi
 
 function conditionalFieldName(question: QuestionConfiguration, answer: AnswerConfiguration, suffix: string): string {
   return `${question.id}-${answer.id}-${suffix}`
+}
+
+/**
+ * Checks if the values submitted by the user match the condition's value
+ *
+ * This is used in the next step condition when multiple values are allowed,
+ * e.g. when field is rendered as a list checkboxes
+ *
+ * For example:
+ *
+ * ```
+ * steps = {
+ *   '/animals': {
+ *      id: '/animals',
+ *      fields: ['animal'],
+ *      next: [
+ *        { value: 'dog', op: checkMultipleValues, next: 'q2', field: 'animal' },
+ *        { value: 'cat', op: checkMultipleValues, next: 'q2', field: 'animal' },
+ *        { value: 'fox', op: checkMultipleValues, next: 'q2', field: 'animal' },
+ *      ]
+ *   }
+ *   '/q2': { ... }
+ * }
+ * ```
+ *
+ * as the field has `multiple: true` the value submitted by the user
+ * would be `string[]`, e.g. `['dog', 'fox']`.
+ *
+ * this function would check if the submitted value contains the value in the
+ * condition, and if that's the case then Form Wizard would move the user to
+ * the step specificed in the `next` property of the next step condition
+ * (`q2` in the example above)
+ *
+ * @param submittedValues values submitted by the user
+ * @param _req request not used
+ * @param _res response not used
+ * @param condition next step condition with value to match
+ * @returns true if the value submitted by the user include `condition.value`
+ */
+function checkMultipleValues(
+  submittedValues: FormWizard.MultiValue,
+  _req: FormWizard.Request,
+  _res: Express.Response,
+  condition: { value: string },
+): boolean {
+  // Don't check values if nothing has been submitted
+  if (!submittedValues) {
+    return false
+  }
+
+  return submittedValues.includes(condition.value)
 }

@@ -164,7 +164,7 @@ function conditionalFieldName(question: QuestionConfiguration, answer: AnswerCon
  * @param condition next step condition with value to match
  * @returns true if the value submitted by the user include `condition.value`
  */
-function checkMultipleValues(
+export function checkMultipleValues(
   submittedValues: FormWizard.MultiValue,
   _req: FormWizard.Request,
   _res: Express.Response,

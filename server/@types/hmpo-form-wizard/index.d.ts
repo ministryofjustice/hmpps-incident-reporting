@@ -6,13 +6,25 @@ declare module 'hmpo-form-wizard' {
   import type { DefaultValidator } from 'hmpo-form-wizard/lib/validation'
   import type { Local as LocalModel, LocalModelOptions } from 'hmpo-model'
 
-  export function FormWizard(
-    steps: FormWizard.Steps,
-    fields: FormWizard.Fields,
-    config: FormWizard.Config,
+  export function FormWizard<V extends object = FormWizard.Values>(
+    steps: FormWizard.Steps<V>,
+    fields: FormWizard.Fields<V>,
+    config: FormWizard.Config<V>,
   ): Express.Router
 
   export namespace FormWizard {
+    /** String submitted to a form field that does not allow multiple values */
+    type Value = string | undefined
+
+    /** String or strings submitted to a form field that allows multiple values */
+    type MultiValue = Value | string[]
+
+    /** Use in simple generic forms that do not allow multiple values in any fields; have no checkbox components */
+    type Values = Record<string, Value>
+
+    /** Use in complex generic forms that might allow multiple values in any fields; have checkbox components */
+    type MultiValues = Record<string, MultiValue>
+
     type NextStep =
       /** next can be a relative string path */
       | string
@@ -58,7 +70,7 @@ declare module 'hmpo-form-wizard' {
           | string
         )[]
 
-    interface Step {
+    interface Step<V extends object = Values, K extends keyof V = keyof V> {
       /** The next step for each step can be a relative path, an external URL, or an array of conditional next steps. Each condition next step can contain a next location, a field name, operator and value, or a custom condition function */
       next?: NextStep
       /** A namespace identifier for the wizard. This is used to store wizard data on the session. This defaults to a unique value for a wizard. */
@@ -96,7 +108,7 @@ declare module 'hmpo-form-wizard' {
       /** While editing, if the step marked with this is evaluated to be the next step, continue to editing it instead of returning to editBackStep. Defaults to false. */
       continueOnEdit?: boolean
       /** specifies which of the fields from the field definition list are applied to this step. Form inputs which are not named on this list will not be processed. Default: [] */
-      fields?: string[]
+      fields?: readonly K[]
       /** Specifies the template to render for GET requests to this step. Defaults to the route (without trailing slash) */
       template?: string
       /** Provides the location within app.get('views') that templates are stored. */
@@ -106,7 +118,7 @@ declare module 'hmpo-form-wizard' {
       /** Specifies valid referrers that can be used as a back link. If this or backLink are not specified then an algorithm is applied which checks the previously visited steps which have the current step set as next. */
       backLinks?: string[]
       /** The constructor for the controller to be used for this step's request handling. The default is exported as a Controller property of this module. If custom behaviour is required for a particular form step then custom extensions can be defined */
-      controller?: typeof Controller
+      controller?: typeof Controller<V, K>
       /** Additional fields that we be recorded as being part of this step's routing decision. Default: [] */
       decisionFields?: string[]
       /** Show this page instead of only recalculating the routing if this page is marked invalid. Default: false */
@@ -119,9 +131,7 @@ declare module 'hmpo-form-wizard' {
       params?: string
     }
 
-    interface Steps {
-      [path: string]: Step
-    }
+    type Steps<V extends object = Values> = Record<string, Step<V, string>>
 
     interface Field {
       /** Name of the cross-wizard field storage name. To facilitate sharing form values between wizards in the same journey a field can be specified to save into the journeyModel instead of the sessionModel using the journeyKey property */
@@ -187,19 +197,23 @@ declare module 'hmpo-form-wizard' {
       value: Value
     }
 
-    interface Fields {
-      [name: string]: Field
-    }
+    type Fields<V extends object = Values> = Record<keyof V, Field>
 
-    interface Config extends Step {
+    interface Config<V extends object = Values> extends Step<V> {
       name?: string
     }
 
-    interface Request extends Express.Request {
+    interface Request<V extends object = Values, K extends keyof V = keyof V> extends Express.Request {
       isEditing: boolean
-      journeyModel: JourneyModel
-      sessionModel: WizardModel
-      form: Form
+      journeyModel: JourneyModel<JourneyValues>
+      sessionModel: WizardModel<
+        V & {
+          'csrf-secret': string
+          errors?: Record<keyof V, Error>
+          errorValues?: V
+        }
+      >
+      form: Form<V, K>
     }
 
     /** Represents form errors; does not extend native Error class */
@@ -238,47 +252,50 @@ declare module 'hmpo-form-wizard' {
       args: { [type: string]: unknown }
     }
 
-    interface Options extends Step {
+    interface Options<V extends object = Values, K extends keyof V = keyof V> extends Step<V, K> {
       route: string
-      steps: Steps
-      fields: Fields
-      allFields?: Fields
+      steps: Steps<V>
+      fields: Fields<Pick<V, K>>
+      allFields?: Fields<V>
       defaultFormatters?: DefaultFormatter[]
     }
 
-    interface Form {
-      options: Options
-      values: Values
-      errors: Record<string, Error>
+    interface Form<V extends object = Values, K extends keyof V = keyof V> {
+      options: Options<V, K>
+      values: Pick<V, K>
+      errors: Record<K, Error>
     }
 
-    interface Callback {
-      (err?: Error | undefined, values?: Values | undefined): void
+    interface Callback<V extends object = Values> {
+      (err?: Error | undefined, values?: V | undefined): void
     }
 
-    interface Locals {
+    interface Locals<V extends object = Values, K extends keyof V = keyof V> {
       errors: Record<string, Error>
       errorlist: Error[]
-      values: Values
-      options: Options
+      values: V
+      options: Options<V, K>
       action: string
-      nextPage: Step
+      nextPage: Step<V>
       isEditing: boolean
       editSuffix: string
-      baseUrl: Request['baseUrl']
+      baseUrl: Express.Request['baseUrl']
       backLink: string | undefined
       ['csrf-token']: string
     }
 
     /**
-     * Base class which instantiates a request handler for each form step
+     * Base class which instantiates a request handler for each form step.
+     * Generic parameter V is optional and specifies the types of all fields’ values across all steps;
+     * the default allows only non-multiple values but does not specify which fields exist.
+     * Generic parameter K specifies the keys of V which are used in this step only, defaulting to all of V.
      */
-    abstract class BaseController {
-      constructor(options: Options)
+    abstract class BaseController<V extends object = Values, K extends keyof V = keyof V> {
+      constructor(options: Options<V, K>)
 
       static Error: typeof Error
 
-      options: Options
+      options: Options<V, K>
 
       router: Express.Router
 
@@ -301,134 +318,137 @@ declare module 'hmpo-form-wizard' {
 
       requestHandler(): Express.Router
 
-      rejectUnsupportedMethods(req: Request, res: Express.Response, next: Express.NextFunction): void
+      rejectUnsupportedMethods(req: Request<V, K>, res: Express.Response, next: Express.NextFunction): void
 
-      methodNotSupported(req: Request, res: Express.Response, next: Express.NextFunction): void
+      methodNotSupported(req: Request<V, K>, res: Express.Response, next: Express.NextFunction): void
 
-      configure(req: Request, res: Express.Response, next: Express.NextFunction): void
+      configure(req: Request<V, K>, res: Express.Response, next: Express.NextFunction): void
 
-      get(req: Request, res: Express.Response, next: Express.NextFunction): void
+      get(req: Request<V, K>, res: Express.Response, next: Express.NextFunction): void
 
-      post(req: Request, res: Express.Response, next: Express.NextFunction): void
+      post(req: Request<V, K>, res: Express.Response, next: Express.NextFunction): void
 
-      getErrors(req: Request, res: Express.Response): Record<string, Error>
+      getErrors(req: Request<V, K>, res: Express.Response): Record<K, Error>
 
-      getValues(req: Request, res: Express.Response, callback: Callback): void
+      getValues(req: Request<V, K>, res: Express.Response, callback: Callback<V>): void
 
-      locals(req: Request, res: Express.Response, callback?: Callback): Partial<Locals>
+      locals(req: Request<V, K>, res: Express.Response, callback?: Callback<V>): Partial<Locals<V, K>>
 
-      render(req: Request, res: Express.Response, next: Express.NextFunction): void
+      render(req: Request<V, K>, res: Express.Response, next: Express.NextFunction): void
 
-      setErrors(err: Record<string, Error>, req: Request, res: Express.Response): void
+      setErrors(err: Record<K, Error>, req: Request<V, K>, res: Express.Response): void
 
-      process(req: Request, res: Express.Response, next: Express.NextFunction): void
+      process(req: Request<V, K>, res: Express.Response, next: Express.NextFunction): void
 
-      validateFields(req: Request, res: Express.Response, callback: Callback): void
+      validateFields(req: Request<V, K>, res: Express.Response, callback: Callback<V>): void
 
-      validateField(key: string, req: Request, res: Express.Response): Error | false | undefined
+      validateField(key: K, req: Request<V, K>, res: Express.Response): Error | false | undefined
 
-      validate(req: Request, res: Express.Response, next: Express.NextFunction): void
+      validate(req: Request<Pick<V, K>>, res: Express.Response, next: Express.NextFunction): void
 
-      saveValues(req: Request, res: Express.Response, next: Express.NextFunction): void
+      saveValues(req: Request<V, K>, res: Express.Response, next: Express.NextFunction): void
 
-      successHandler(req: Request, res: Express.Response, next: Express.NextFunction): void
+      successHandler(req: Request<V, K>, res: Express.Response, next: Express.NextFunction): void
 
       isValidationError(err: unknown): err is Error
 
-      errorHandler(err: Error, req: Request, res: Express.Response, next: Express.NextFunction): void
+      errorHandler(err: Error, req: Request<V, K>, res: Express.Response, next: Express.NextFunction): void
     }
 
     /**
-     * Class with various mixins which instantiates a request handler for each form step
+     * Class with various mixins which instantiates a request handler for each form step.
+     * Generic parameter V is optional and specifies the types of all fields’ values across all steps;
+     * the default allows only non-multiple values but does not specify which fields exist.
+     * Generic parameter K specifies the keys of V which are used in this step only, defaulting to all of V.
      */
-    class Controller extends BaseController {
+    class Controller<V extends object = Values, K extends keyof V = keyof V> extends BaseController<V, K> {
       static validators: Record<DefaultValidator, Validator>
 
       static formatters: Record<DefaultFormatter, Formatter>
 
       resolvePath(base: string, url: string, forceRelative: boolean): void
 
-      setBaseUrlLocal(req: Request, res: Express.Response, next: Express.NextFunction): void
+      setBaseUrlLocal(req: Request<V, K>, res: Express.Response, next: Express.NextFunction): void
 
-      setTranslateEngine(req: Request, res: Express.Response, next: Express.NextFunction): void
+      setTranslateEngine(req: Request<V, K>, res: Express.Response, next: Express.NextFunction): void
 
-      createJourneyModel(req: Request, res: Express.Response, next: Express.NextFunction): void
+      createJourneyModel(req: Request<V, K>, res: Express.Response, next: Express.NextFunction): void
 
-      createSessionModel(req: Request, res: Express.Response, next: Express.NextFunction): void
+      createSessionModel(req: Request<V, K>, res: Express.Response, next: Express.NextFunction): void
 
-      resetSessionModel(req: Request, res: Express.Response, next: Express.NextFunction): void
+      resetSessionModel(req: Request<V, K>, res: Express.Response, next: Express.NextFunction): void
 
-      checkSession(req: Request, res: Express.Response, next: Express.NextFunction): void
+      checkSession(req: Request<V, K>, res: Express.Response, next: Express.NextFunction): void
 
-      checkJourneyProgress(req: Request, res: Express.Response, next: Express.NextFunction): void
+      checkJourneyProgress(req: Request<V, K>, res: Express.Response, next: Express.NextFunction): void
 
-      checkProceedToNextStep(req: Request, res: Express.Response, next: Express.NextFunction): void
+      checkProceedToNextStep(req: Request<V, K>, res: Express.Response, next: Express.NextFunction): void
 
       walkJourneyHistory(
-        req: Request,
+        req: Request<V, K>,
         res: Express.Response,
-        fn: (this: Controller, step: Step, next: Step | undefined) => boolean,
+        fn: (this: Controller, step: Step<V>, next: Step<V> | undefined) => boolean,
         stopAtInvalid: boolean = true,
-        start: Step | null = null,
-      ): Step | false
+        start: Step<V> | null = null,
+      ): Step<V> | false
 
-      completedJourneyStep(req: Request, res: Express.Response, path: string): Step | false
+      completedJourneyStep(req: Request<V, K>, res: Express.Response, path: string): Step<V> | false
 
-      allowedJourneyStep(req: Request, res: Express.Response, path: string): Step | false
+      allowedJourneyStep(req: Request<V, K>, res: Express.Response, path: string): Step<V> | false
 
-      allowedPrereqStep(req: Request, res: Express.Response, prereqs: string[]): Step | false
+      allowedPrereqStep(req: Request<V, K>, res: Express.Response, prereqs: string[]): Step<V> | false
 
-      lastAllowedStep(req: Request, res: Express.Response): Step | false
+      lastAllowedStep(req: Request<V, K>, res: Express.Response): Step<V> | false
 
       getJourneyFieldNames(
-        req: Request,
+        req: Request<V, K>,
         res: Express.Response,
-        fields: string[],
+        fields: (keyof V)[],
         ignoreLocalFields = false,
         undefinedIfEmpty = false,
       ): string[] | undefined
 
-      setStepComplete(req: Request, res: Express.Response, path: string): void
+      setStepComplete(req: Request<V, K>, res: Express.Response, path: string): void
 
-      addJourneyHistoryStep(req: Request, res: Express.Response, step: Step): void
+      addJourneyHistoryStep(req: Request<V, K>, res: Express.Response, step: Step<V>): void
 
-      invalidateJourneyHistoryStep(req: Request, res: Express.Response, path: string): void
+      invalidateJourneyHistoryStep(req: Request<V, K>, res: Express.Response, path: string): void
 
-      removeJourneyHistoryStep(req: Request, res: Express.Response, path: string): void
+      removeJourneyHistoryStep(req: Request<V, K>, res: Express.Response, path: string): void
 
-      resetJourneyHistory(req: Request, res: Express.Response): void
+      resetJourneyHistory(req: Request<V, K>, res: Express.Response): void
 
-      csrfGenerateSecret(req: Request, res: Express.Response, next: Express.NextFunction): void
+      csrfGenerateSecret(req: Request<V, K>, res: Express.Response, next: Express.NextFunction): void
 
-      csrfCheckToken(req: Request, res: Express.Response, next: Express.NextFunction): void
+      csrfCheckToken(req: Request<V, K>, res: Express.Response, next: Express.NextFunction): void
 
-      csrfSetToken(req: Request, res: Express.Response, next: Express.NextFunction): void
+      csrfSetToken(req: Request<V, K>, res: Express.Response, next: Express.NextFunction): void
 
-      checkJourneyInvalidations(req: Request, res: Express.Response, next: Express.NextFunction): void
+      checkJourneyInvalidations(req: Request<V, K>, res: Express.Response, next: Express.NextFunction): void
 
-      invalidateFields(req: Request, res: Express.Response, next: Express.NextFunction): void
+      invalidateFields(req: Request<V, K>, res: Express.Response, next: Express.NextFunction): void
 
-      backlinksSetLocals(req: Request, res: Express.Response, next: Express.NextFunction): void
+      backlinksSetLocals(req: Request<V, K>, res: Express.Response, next: Express.NextFunction): void
 
-      getBackLink(req: Request, res: Express.Response): string | undefined
+      getBackLink(req: Request<V, K>, res: Express.Response): string | undefined
 
       decodeConditions(
-        req: Request,
+        req: Request<V, K>,
         res: Express.Response,
         nextStep: NextStep,
-      ): { condition: NextStep | null; fields: string[]; url: string | null } | undefined
+      ): { condition: NextStep | null; fields: (keyof V)[]; url: string | null } | undefined
 
-      getNextStepObject(req: Request, res: Express.Response): ReturnType<Controller['decodeConditions']>
+      getNextStepObject(req: Request<V, K>, res: Express.Response): ReturnType<Controller['decodeConditions']>
 
-      getNextStep(req: Request, res: Express.Response): string | undefined
+      getNextStep(req: Request<V, K>, res: Express.Response): string | undefined
 
-      getErrorStep(err: Error, req: Request, res: Express.Response): string | undefined
+      getErrorStep(err: Error, req: Request<V, K>, res: Express.Response): string | undefined
 
-      editing(req: Request, res: Express.Response, next: Express.NextFunction): void
+      editing(req: Request<V, K>, res: Express.Response, next: Express.NextFunction): void
 
-      checkEditing(req: Request, res: Express.Response, next: Express.NextFunction): void
+      checkEditing(req: Request<V, K>, res: Express.Response, next: Express.NextFunction): void
 
-      clearEditing(req: Request, res: Express.Response): void
+      clearEditing(req: Request<V, K>, res: Express.Response): void
     }
 
     interface SessionModelOptions extends LocalModelOptions {
@@ -438,7 +458,7 @@ declare module 'hmpo-form-wizard' {
     }
 
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    class SessionModel<Values = any, Opts = SessionModelOptions> extends LocalModel<Values, Opts> {
+    class SessionModel<V = Record<string, any>, Opts = SessionModelOptions> extends LocalModel<V, Opts> {
       getSessionData(): object
 
       /** On-change listener */
@@ -460,30 +480,33 @@ declare module 'hmpo-form-wizard' {
     }
 
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    class WizardModel<Values = any, Opts = WizardModelOptions> extends SessionModel<Values, Opts> {
+    class WizardModel<V = Record<string, any>, Opts = WizardModelOptions> extends SessionModel<V, Opts> {
       getJourneyKeys(): string[]
 
       getDefaults(): Record<string, unknown>
     }
 
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    class JourneyModel<Values = any, Opts = SessionModelOptions> extends SessionModel<Values, Opts> {
+    class JourneyModel<V = Record<string, any>, Opts = SessionModelOptions> extends SessionModel<V, Opts> {
       currentModels: WizardModel[]
 
       registerModel(model: WizardModel): void
     }
 
-    /** A form value as submitted to the wizard */
-    // TODO: this can be string[]; can it be anything else??
-    type Value = string | undefined
-
-    /** A form as submitted to the wizard; typically req.body */
-    interface Values {
-      [field: string]: Value
+    interface JourneyValues {
+      'registered-models': string[]
+      lastVisited: string
+      history: {
+        wizard: string
+        path: string
+        next?: string
+        fields?: string[]
+        formFields?: string[]
+      }[]
     }
 
     interface FormattingContext {
-      sessionModel: SessionModel
+      sessionModel: WizardModel
       fields: Fields
       values: Values
     }
@@ -493,7 +516,7 @@ declare module 'hmpo-form-wizard' {
     }
 
     interface ValidationContext {
-      sessionModel: SessionModel
+      sessionModel: WizardModel
       fields: Fields
       values: Values
     }
@@ -512,7 +535,7 @@ declare module 'hmpo-form-wizard/lib/formatting' {
   export function format<T>(
     fields: FormWizard.Fields,
     key: string,
-    value: FormWizard.Value,
+    value: FormWizard.MultiValue,
     defaultFormatters: Record<string, FormWizard.Formatter>,
     context: FormWizard.FormattingContext,
   ): T
@@ -540,7 +563,7 @@ declare module 'hmpo-form-wizard/lib/formatting' {
 declare module 'hmpo-form-wizard/lib/validation' {
   import type FormWizard from 'hmpo-form-wizard'
 
-  export function isAllowedDependent(fields: FormWizard.Fields, key: string, values: FormWizard.Values): boolean
+  export function isAllowedDependent(fields: FormWizard.Fields, key: string, values: FormWizard.MultiValues): boolean
 
   interface ValidationError {
     key: string
@@ -552,7 +575,7 @@ declare module 'hmpo-form-wizard/lib/validation' {
   export function validate(
     fields: FormWizard.Fields,
     key: string,
-    value: FormWizard.Value,
+    value: FormWizard.MultiValue,
     context: FormWizard.ValidationContext,
   ): ValidationError | false
 

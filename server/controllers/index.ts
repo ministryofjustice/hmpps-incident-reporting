@@ -8,8 +8,11 @@ import { parseDateInput, parseTimeInput } from '../utils/utils'
  * amongst all forms in this application.
  */
 // eslint-disable-next-line import/prefer-default-export
-export abstract class BaseController extends FormWizard.Controller {
-  constructor(options: FormWizard.Options) {
+export abstract class BaseController<
+  V extends object = FormWizard.Values,
+  K extends keyof V = keyof V,
+> extends FormWizard.Controller<V, K> {
+  constructor(options: FormWizard.Options<V, K>) {
     if (!('defaultFormatters' in options)) {
       // eslint-disable-next-line no-param-reassign
       options.defaultFormatters = ['trim']
@@ -44,7 +47,7 @@ export abstract class BaseController extends FormWizard.Controller {
   /**
    * Adds a human-readable message to errors if they are missing.
    */
-  validateField(key: string, req: FormWizard.Request, res: Express.Response): FormWizard.Error | false | undefined {
+  validateField(key: K, req: FormWizard.Request<V, K>, res: Express.Response): FormWizard.Error | false | undefined {
     const error = super.validateField(key, req, res)
     if (error && !error.message) {
       error.message = this.errorMessage(error)
@@ -52,7 +55,7 @@ export abstract class BaseController extends FormWizard.Controller {
     return error
   }
 
-  csrfGenerateSecret(req: FormWizard.Request, res: Express.Response, next: Express.NextFunction): void {
+  csrfGenerateSecret(req: FormWizard.Request<V, K>, res: Express.Response, next: Express.NextFunction): void {
     // copy application middleware CSRF token into form wizard for sanity
     req.sessionModel.set('csrf-secret', res.locals.csrfToken)
     next()

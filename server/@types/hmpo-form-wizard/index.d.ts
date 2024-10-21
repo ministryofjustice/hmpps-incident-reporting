@@ -197,8 +197,10 @@ declare module 'hmpo-form-wizard' {
       value: Value
     }
 
+    /** Definition of fields in a form across all steps */
     type Fields<V extends object = Values> = Record<keyof V, Field>
 
+    /** Base configuration for all steps */
     interface Config<V extends object = Values> extends Step<V> {
       name?: string
     }
@@ -209,8 +211,8 @@ declare module 'hmpo-form-wizard' {
       sessionModel: WizardModel<
         V & {
           'csrf-secret': string
-          errors?: Record<keyof V, Error>
-          errorValues?: V
+          errors?: Errors<K>
+          errorValues?: Partial<Pick<V, K>>
         }
       >
       form: Form<V, K>
@@ -252,6 +254,10 @@ declare module 'hmpo-form-wizard' {
       args: { [type: string]: unknown }
     }
 
+    /** Possible errors in one step */
+    type Errors<K extends string = string> = Partial<Record<K, Error>>
+
+    /** Configuration for a controller of one step */
     interface Options<V extends object = Values, K extends keyof V = keyof V> extends Step<V, K> {
       route: string
       steps: Steps<V>
@@ -262,8 +268,8 @@ declare module 'hmpo-form-wizard' {
 
     interface Form<V extends object = Values, K extends keyof V = keyof V> {
       options: Options<V, K>
-      values: Pick<V, K>
-      errors: Record<K, Error>
+      values: Partial<Pick<V, K>>
+      errors: Errors<K>
     }
 
     interface Callback<V extends object = Values> {
@@ -271,7 +277,7 @@ declare module 'hmpo-form-wizard' {
     }
 
     interface Locals<V extends object = Values, K extends keyof V = keyof V> {
-      errors: Record<string, Error>
+      errors: Errors<K>
       errorlist: Error[]
       values: V
       options: Options<V, K>
@@ -328,7 +334,7 @@ declare module 'hmpo-form-wizard' {
 
       post(req: Request<V, K>, res: Express.Response, next: Express.NextFunction): void
 
-      getErrors(req: Request<V, K>, res: Express.Response): Record<K, Error>
+      getErrors(req: Request<V, K>, res: Express.Response): Errors<K>
 
       getValues(req: Request<V, K>, res: Express.Response, callback: Callback<V>): void
 
@@ -336,7 +342,7 @@ declare module 'hmpo-form-wizard' {
 
       render(req: Request<V, K>, res: Express.Response, next: Express.NextFunction): void
 
-      setErrors(err: Record<K, Error>, req: Request<V, K>, res: Express.Response): void
+      setErrors(err: Errors<K> | null, req: Request<V, K>, res: Express.Response): void
 
       process(req: Request<V, K>, res: Express.Response, next: Express.NextFunction): void
 
@@ -350,9 +356,14 @@ declare module 'hmpo-form-wizard' {
 
       successHandler(req: Request<V, K>, res: Express.Response, next: Express.NextFunction): void
 
-      isValidationError(err: unknown): err is Error
+      isValidationError(err: unknown): err is Record<string, Error>
 
-      errorHandler(err: Error, req: Request<V, K>, res: Express.Response, next: Express.NextFunction): void
+      errorHandler(
+        err: Errors<K> | undefined,
+        req: Request<V, K>,
+        res: Express.Response,
+        next: Express.NextFunction,
+      ): void
     }
 
     /**
@@ -408,7 +419,7 @@ declare module 'hmpo-form-wizard' {
         undefinedIfEmpty = false,
       ): string[] | undefined
 
-      setStepComplete(req: Request<V, K>, res: Express.Response, path: string): void
+      setStepComplete(req: Request<V, K>, res: Express.Response, path?: string): void
 
       addJourneyHistoryStep(req: Request<V, K>, res: Express.Response, step: Step<V>): void
 
@@ -442,7 +453,7 @@ declare module 'hmpo-form-wizard' {
 
       getNextStep(req: Request<V, K>, res: Express.Response): string | undefined
 
-      getErrorStep(err: Error, req: Request<V, K>, res: Express.Response): string | undefined
+      getErrorStep(err: Errors<K>, req: Request<V, K>, res: Express.Response): string | undefined
 
       editing(req: Request<V, K>, res: Express.Response, next: Express.NextFunction): void
 

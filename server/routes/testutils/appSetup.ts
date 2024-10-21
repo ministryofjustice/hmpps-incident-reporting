@@ -49,6 +49,8 @@ function appSetup(services: Services, production: boolean, userSupplier: () => E
   app.use((req, res, next) => {
     req.id = randomUUID()
 
+    res.locals.csrfToken = 'csrf-token'
+
     req.user = userSupplier()
     Object.assign(res.locals, {
       user: { ...req.user },

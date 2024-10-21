@@ -1,0 +1,57 @@
+{% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
+{% from "govuk/components/radios/macro.njk" import govukRadios %}
+
+{% macro renderCheckedItemsField(fieldName, field, options, values, errors) %}
+
+  {% set items = field.items %}
+
+  {% for subfieldName, subfield in options.fields %}
+    {% if subfield.dependent.field == fieldName %}
+
+      {% set conditionalHtml %}
+        {% from "components/wip/field.njk" import renderField %}
+        {{ renderField(subfieldName, subfield, options, values, errors) }}
+      {% endset %}
+      {% set items = items | govukCheckedItemsConditional({
+        value: subfield.dependent.value,
+        html: conditionalHtml
+      }) %}
+
+    {% endif %}
+  {% endfor %}
+
+  {% if field.multiple %}
+
+    {{ govukCheckboxes({
+      id: fieldName,
+      name: fieldName,
+      fieldset: {
+        legend: {
+          text: field.label,
+          classes: "govuk-fieldset__legend--m"
+        }
+      },
+      hint: { text: field.hint } if field.hint else undefined,
+      items: items | govukMultipleCheckedItems(values[fieldName]),
+      errorMessage: { text: errors[fieldName].message } if errors[fieldName] else undefined
+    }) }}
+
+  {% else %}
+
+    {{ govukRadios({
+      id: fieldName,
+      name: fieldName,
+      fieldset: {
+        legend: {
+          text: field.label,
+          classes: "govuk-fieldset__legend--m"
+        }
+      },
+      hint: { text: field.hint } if field.hint else undefined,
+      items: items | govukCheckedItems(values[fieldName]) | govukCheckedItemsDivider(),
+      errorMessage: { text: errors[fieldName].message } if errors[fieldName] else undefined
+    }) }}
+
+  {% endif %}
+
+{% endmacro %}

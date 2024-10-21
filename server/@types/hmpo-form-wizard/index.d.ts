@@ -63,8 +63,6 @@ declare module 'hmpo-form-wizard' {
           value: Value
           next: (req: Request, res: Express.Response, con: unknown) => string
         }
-      /** use a string as a default next step */
-      | string
 
     type NextStep =
       /** next can be a relative string path */

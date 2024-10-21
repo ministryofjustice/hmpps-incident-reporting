@@ -70,12 +70,6 @@ export function generateFields(config: IncidentTypeConfiguration): FormWizard.Fi
         name: question.id,
         label: question.label,
         validate: ['required'],
-        // TODO: having `multiple: true` causes the progression to next page to not work
-        //       in pages with checkboxes. Interestingly if selecting multiple answers,
-        //       they're posted in the form data - so maybe this is only affecting how the
-        //       data is posted rather than whether multiple values are posted or not.
-        //       Commenting this out but it may be one of these things that depend on how
-        //       we write the controller.
         multiple: question.multipleAnswers,
         component: question.multipleAnswers ? 'govukCheckboxes' : 'govukRadios',
         items: activeAnswers.map(answer => {

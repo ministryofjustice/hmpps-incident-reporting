@@ -10,6 +10,15 @@
 {% set mainClasses = "govuk-body" %}
 
 {% block content %}
+  <h1>Incident reports</h1>
+  <div class="govuk-button-group">
+    {{ govukButton({
+    text: "Report an incident",
+    preventDoubleClick: true,
+    href: "/create-report",
+    isStartButton: true
+    }) }}
+  </div>
   <div class="horizontal-form__wrapper govuk-!-padding-3 govuk-!-margin-bottom-5">
     <h2 class="govuk-heading-m">Filter by</h2>
 
@@ -65,50 +74,43 @@
     </form>
   </div>
 
-<div class="govuk-button-group">
-  {{ govukButton({
-    text: "Report an incident",
-    preventDoubleClick: true,
-    href: "/create-report",
-    isStartButton: true
-  }) }}
-</div>
-
-  {% if events.length > 0 %}
+  {% if reports.length > 0 %}
 
     {% set rows = [] %}
-    {% for event in events %}
-      {% set title %}{{ event.title }}{% endset %}
+    {% for report in reports %}
+      {% set ref %}{{ report.reportReference }}{% endset %}
       {% set rows = (rows.push(
         [
-          { html: "<a href='/incidents/" + event.id + "'>" + title + "</a>" },
-          { text: event.description },
-          { text: usersLookup[event.modifiedBy].name or event.modifiedBy },
-          { text: event.createdAt | dateAndTime },
-          { text: event.modifiedAt | dateAndTime }
+          { html: "<a href='/reports/" + report.id + "'>" + ref + "</a>" },
+          { text: report.type },
+          { text: report.incidentDateAndTime | dateAndTime },
+          { text: report.description },
+          { text: report.status },
+          { text: usersLookup[report.reportedBy].name or report.reportedBy }
         ]
       ), rows) %}
     {% endfor %}
 
     {{ govukTable({
-      caption: "Incident reports",
-      captionClasses: "govuk-table__caption--l",
       firstCellIsHeader: true,
       head: [
         {
-          text: "Title"
+          text: "Incident ref"
+        },
+        {
+          text: "Incident type"
+        },
+        {
+          text: "Incident date"
         },
         {
           text: "Description"
         },
         {
-          text: "Updated By"
+          text: "Status"
         },
         {
-          text: "Created At"
-        },
-        {
-          text: "Modified At"
+          text: "Reported by"
         }
       ],
       rows: rows

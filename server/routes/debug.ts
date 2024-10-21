@@ -57,11 +57,11 @@ export default function makeDebugRoutes(services: Services): Record<string, Requ
         pageNumber = 1
       }
 
-      // Get events from API
-      const eventsResponse = await incidentReportingApi.getEvents({
+      // Get reports from API
+      const reportsResponse = await incidentReportingApi.getReports({
         prisonId,
-        eventDateFrom: fromDate,
-        eventDateUntil: toDate,
+        incidentDateFrom: fromDate,
+        incidentDateUntil: toDate,
         page: pageNumber - 1,
         // sort: ['eventDateAndTime,ASC'],
       })
@@ -80,16 +80,16 @@ export default function makeDebugRoutes(services: Services): Record<string, Requ
       const urlPrefix = `/incidents?${queryString}&`
       const paginationParams = pagination(
         pageNumber,
-        eventsResponse.totalPages,
+        reportsResponse.totalPages,
         urlPrefix,
         'moj',
-        eventsResponse.totalElements,
-        eventsResponse.size,
+        reportsResponse.totalElements,
+        reportsResponse.size,
       )
       const noFiltersSupplied = Boolean(!prisonId && !fromDate && !toDate)
 
-      const events = eventsResponse.content
-      const usernames = events.map(event => event.modifiedBy)
+      const reports = reportsResponse.content
+      const usernames = reports.map(report => report.reportedBy)
       const usersLookup = await userService.getUsers(res.locals.systemToken, usernames)
       const prisonsLookup = await prisonApi.getPrisons()
       const prisons = Object.values(prisonsLookup).map(prison => ({
@@ -98,7 +98,7 @@ export default function makeDebugRoutes(services: Services): Record<string, Requ
       }))
 
       res.render('pages/debug/eventList', {
-        events,
+        reports,
         prisons,
         usersLookup,
         formValues,

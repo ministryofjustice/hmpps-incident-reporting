@@ -10,6 +10,7 @@ import nunjucksSetup from '../../utils/nunjucksSetup'
 import type { ApplicationInfo } from '../../applicationInfo'
 import errorHandler from '../../errorHandler'
 import type { Services } from '../../services'
+import { mockCaseload } from '../../data/testData/frontendComponents'
 import { IncidentReportingApi } from '../../data/incidentReportingApi'
 import { OffenderSearchApi } from '../../data/offenderSearchApi'
 import { PrisonApi } from '../../data/prisonApi'
@@ -23,6 +24,9 @@ export const user: Express.User = {
   active: true,
   activeCaseLoadId: 'MDI',
   authSource: 'NOMIS',
+  // from frontend components middleware
+  activeCaseLoad: mockCaseload,
+  caseLoads: [mockCaseload],
 }
 
 export const testAppInfo: ApplicationInfo = {

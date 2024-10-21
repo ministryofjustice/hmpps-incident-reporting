@@ -7,7 +7,7 @@ const emptyComponent: Component = {
   javascript: [],
 }
 
-const caseload: CaseLoad = {
+export const mockCaseload: CaseLoad = {
   caseLoadId: moorland.agencyId,
   description: moorland.description,
   type: moorland.agencyType,
@@ -15,7 +15,6 @@ const caseload: CaseLoad = {
   currentlyActive: true,
 }
 
-// eslint-disable-next-line import/prefer-default-export
 export function mockFrontendComponentResponse(
   components: Partial<Record<AvailableComponent, Component>> = {},
 ): ComponentsResponse {
@@ -24,8 +23,8 @@ export function mockFrontendComponentResponse(
     footer: emptyComponent,
     ...components,
     meta: {
-      activeCaseLoad: caseload,
-      caseLoads: [caseload],
+      activeCaseLoad: mockCaseload,
+      caseLoads: [mockCaseload],
       services: [],
     },
   }

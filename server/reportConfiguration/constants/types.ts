@@ -83,3 +83,8 @@ export type Type = (typeof types)[number]['code']
  * @deprecated
  */
 export type NomisType = (typeof types)[number]['nomisCode']
+
+/** Look up an incident type by code */
+export function getTypeDetails(code: string): (typeof types)[number] | null {
+  return types.find(type => type.code === code) ?? null
+}

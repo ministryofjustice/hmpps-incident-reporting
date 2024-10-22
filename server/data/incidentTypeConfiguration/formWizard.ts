@@ -3,7 +3,12 @@ import FormWizard from 'hmpo-form-wizard'
 import type { AnswerConfiguration, IncidentTypeConfiguration, QuestionConfiguration } from './types'
 import QuestionsController from '../../controllers/wip/questionsController'
 
-// TODO: Add tests once steps structure is more stable
+/**
+ * Generates Form Wizard's steps for the given config
+ *
+ * @param config questionnaire config
+ * @returns the Form Wizard's steps
+ */
 export function generateSteps(config: IncidentTypeConfiguration): FormWizard.Steps {
   const steps: FormWizard.Steps = {
     '/': {
@@ -58,8 +63,12 @@ export function generateSteps(config: IncidentTypeConfiguration): FormWizard.Ste
   return steps
 }
 
-// TODO: Deal with commentRequired/dateRequired
-// TODO: Add tests once fields structure is more stable
+/**
+ * Generates Form Wizard's fields for the given config
+ *
+ * @param config questionnaire config
+ * @returns the Form Wizard's fields
+ */
 export function generateFields(config: IncidentTypeConfiguration): FormWizard.Fields {
   const fields: FormWizard.Fields = {}
   Object.values(config.questions)

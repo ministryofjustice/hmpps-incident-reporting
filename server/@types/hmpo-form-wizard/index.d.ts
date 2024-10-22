@@ -25,20 +25,34 @@ declare module 'hmpo-form-wizard' {
     /** Use in complex generic forms that might allow multiple values in any fields; have checkbox components */
     type MultiValues = Record<string, MultiValue>
 
+    /** Operator function, returns true if submitted values matches condition */
+    type OperatorFunction = (
+      submittedValue: Value | MultiValue,
+      req: Request,
+      res: Express.Response,
+      condition: unknown,
+    ) => boolean
+
     /** Possible conditions for next steps */
     type NextStepCondition =
       | {
           /** field, op and value. op defaults to '===' */
           field: string
-          op?: '>' | '>=' | '<' | '<=' | '==' | '===' | '!=' | 'before' | 'after' | 'in' | 'all' | 'some'
-          value: Value
-          next: string
-        }
-      | {
-          /** an operator can be a function */
-          field: string
-          op: (fieldValue: Value, req: Request, res: Express.Response, con: unknown) => boolean
-          value: Value
+          op?:
+            | OperatorFunction
+            | '>'
+            | '>='
+            | '<'
+            | '<='
+            | '=='
+            | '==='
+            | '!='
+            | 'before'
+            | 'after'
+            | 'in'
+            | 'all'
+            | 'some'
+          value: Value | MultiValue
           next: string
         }
       | {

@@ -1,4 +1,4 @@
-import type { SanitisedError } from '../../sanitisedError'
+import { SanitisedError } from '../../sanitisedError'
 
 /**
  * Build an object mimicking a sanitised Error thrown by an api client in case of unsuccessful response.
@@ -8,7 +8,7 @@ import type { SanitisedError } from '../../sanitisedError'
  */
 // eslint-disable-next-line import/prefer-default-export
 export function mockThrownError<T>(responseBody: T, status: number = 400): SanitisedError<T> {
-  const error = new Error(`Error: ${status}`) as SanitisedError<T>
+  const error = new SanitisedError<T>(`Error: ${status}`)
   error.status = status
   error.headers = {}
   error.data = responseBody

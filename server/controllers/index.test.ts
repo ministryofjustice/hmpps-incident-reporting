@@ -1,5 +1,5 @@
 import type Express from 'express'
-import FormWizard from 'hmpo-form-wizard'
+import type FormWizard from 'hmpo-form-wizard'
 
 import { mockThrownError } from '../data/testData/thrownErrors'
 import { BaseController } from './index'

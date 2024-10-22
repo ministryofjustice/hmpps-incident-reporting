@@ -60,8 +60,7 @@ export abstract class BaseController<
    * Convert an API error into a FormWizard.Error so that a message can be presented to users in an error summary
    */
   convertIntoValidationError(_error: SanitisedError): FormWizard.Error {
-    // TODO: also handle regular errors? need a new function:
-    //   isSanitisedError<E extends Error>(e: E) e is SanitisedError {…}
+    // TODO: also handle other error types too?
     return new BaseController.Error(null, { message: 'Sorry, there was a problem with your request' })
   }
 

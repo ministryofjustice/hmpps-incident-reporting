@@ -8,10 +8,10 @@ import type { SanitisedError } from '../../sanitisedError'
  */
 // eslint-disable-next-line import/prefer-default-export
 export function mockThrownError<T>(responseBody: T, status: number = 400): SanitisedError<T> {
-  const error = new Error(`Error ${status}`) as SanitisedError<T>
+  const error = new Error(`Error: ${status}`) as SanitisedError<T>
   error.status = status
   error.headers = {}
   error.data = responseBody
-  error.text = responseBody.toString()
+  error.text = typeof responseBody === 'object' ? JSON.stringify(responseBody) : responseBody.toString()
   return error
 }

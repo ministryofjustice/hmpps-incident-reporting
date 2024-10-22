@@ -1,5 +1,5 @@
 import type Express from 'express'
-import type FormWizard from 'hmpo-form-wizard'
+import FormWizard from 'hmpo-form-wizard'
 
 import { mockThrownError } from '../data/testData/thrownErrors'
 import { BaseController } from './index'
@@ -14,6 +14,55 @@ class TestController extends BaseController {
 }
 
 describe('Base form wizard controller', () => {
+  describe('Retrieving all values', () => {
+    let controller: TestController
+
+    const allFields: FormWizard.Fields = {
+      name: { name: 'name', validate: ['required'] },
+      email: { name: 'email', validate: ['required', 'email'] },
+    }
+    const options: FormWizard.Options = {
+      route: '/',
+      steps: { '/': { fields: ['name', 'email'] } },
+      fields: allFields,
+    }
+
+    beforeEach(() => {
+      controller = new TestController(options)
+    })
+
+    it('should collect values from all steps when using the session', () => {
+      const req = {
+        sessionModel: { get: jest.fn(fieldName => `value for “${fieldName}” from session`) },
+        form: {
+          options: { allFields },
+          values: jest.fn(() => {
+            throw new Error('request values should not be accessed')
+          }),
+        },
+      } as unknown as FormWizard.Request
+
+      const allValues = controller.getAllValues(req)
+      expect(allValues).toHaveProperty('name', 'value for “name” from session')
+      expect(allValues).toHaveProperty('email', 'value for “email” from session')
+    })
+
+    it('should collect values from current step when using the request form', () => {
+      const req = {
+        sessionModel: {
+          get: jest.fn(() => {
+            throw new Error('session should not be accessed')
+          }),
+        },
+        form: { options: { allFields }, values: { name: 'name from request' } },
+      } as unknown as FormWizard.Request
+
+      const allValues = controller.getAllValues(req, false)
+      expect(allValues).toHaveProperty('name', 'name from request')
+      expect(allValues).toHaveProperty('email', undefined)
+    })
+  })
+
   describe('Error messages', () => {
     it.each([
       { messageSource: 'generic', fieldName: 'email', expectedError: 'This field is required' },

@@ -188,15 +188,12 @@ class Step2Controller extends BaseController<CreateReport, Step2> {
       logger.info(`Report ${report.reportReference} created`)
       res.locals.createdReport = report
 
-      // TODO: complete form, forget values
-      this.setStepComplete(req, res)
-      // req.journeyModel.reset()
-      // req.sessionModel.reset()
-      // this.resetJourneyHistory(req, res)
+      // clear session since report has been saved
+      req.journeyModel.reset()
 
       super.successHandler(req, res, next)
     } catch (e) {
-      logger.error({ err: e }, 'Report could not be created: %j', e)
+      logger.error(e, 'Report could not be created: %j', e)
       const err = this.convertIntoValidationError(e)
       // TODO: find a different way to report whole-form errors rather than attaching to specific field
       this.errorHandler({ incidentDate: err }, req, res, next)

@@ -221,7 +221,7 @@ describe('Creating a report', () => {
         })
     })
 
-    it('should send request to API if form is valid', () => {
+    it('should send request to API if form is valid', async () => {
       const reportWithDetails = convertReportWithDetailsDates(
         mockReport({
           reportReference: '6544',
@@ -231,7 +231,7 @@ describe('Creating a report', () => {
       )
       incidentReportingApi.createReport.mockResolvedValueOnce(reportWithDetails)
 
-      return agent
+      await agent
         .post('/create-report/details')
         .send(validPayload)
         .redirects(0)
@@ -248,6 +248,12 @@ describe('Creating a report', () => {
             type: 'DISORDER',
           })
         })
+      await agent.get('/create-report').expect(res => {
+        // no type is preselected
+        expect(res.text).not.toContain('checked')
+        // TODO: ideally, test would go to /create-report/details and be redirected,
+        //       but throws “Missing prereq for this step” instead
+      })
     })
 
     it('should show an error if API rejects request', () => {

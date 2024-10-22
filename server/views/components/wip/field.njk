@@ -6,19 +6,23 @@
 
 {% macro renderField(fieldName, field, options, values, errors) %}
 
-  {% if "items" in field %}
+  {% if field.component === "govukRadios" or field.component === "govukCheckboxes" %}
+
+    {% if "items" not in field %}
+      {% panic "Field " + fieldName + " is missing items" %}
+    {% endif %}
 
     {{ renderCheckedItemsField(fieldName, field, options, values, errors) }}
 
-  {% elif field.component === "date" %}
+  {% elif field.component === "mojDatePicker" %}
 
     {{ renderDateField(fieldName, field, options, values, errors) }}
 
-  {% elif field.component === "time" %}
+  {% elif field.component === "appTime" %}
 
     {{ renderTimeFields(fieldName, field, options, values, errors) }}
 
-  {% elif field.component === "textarea" %}
+  {% elif field.component === "govukTextarea" %}
 
     {{ renderTextAreaField(fieldName, field, options, values, errors) }}
 
@@ -26,7 +30,7 @@
 
     <input type="hidden" name="{{ fieldName }}" value="{{ values[fieldName] | default("") }}" />
 
-  {% else %}
+  {% elif field.component === "govukInput" %}
 
     {{ govukInput({
       name: fieldName,
@@ -39,6 +43,10 @@
       value: values[fieldName],
       errorMessage: { text: errors[fieldName].message } if errors[fieldName] else undefined
     }) }}
+
+  {% else %}
+
+    {% panic "Field " + fieldName + " uses unknown component" %}
 
   {% endif %}
 

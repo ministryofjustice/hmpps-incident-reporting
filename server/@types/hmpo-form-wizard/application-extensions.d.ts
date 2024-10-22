@@ -9,7 +9,15 @@ declare module 'hmpo-form-wizard' {
       name?: string
       label?: string
       hint?: string
-      component?: string
+      component?:
+        | 'hidden'
+        | 'govukCheckboxes'
+        | 'govukInput'
+        | 'govukRadios'
+        | 'govukSelect'
+        | 'govukTextarea'
+        | 'mojDatePicker'
+        | 'appTime'
 
       // TODO: custom properties need major cleanup: we should group them into very few nested objects
       nameForErrors?: string

@@ -15,6 +15,7 @@ const fields = {
   type: {
     label: 'Select incident type',
     validate: ['required'],
+    component: 'govukRadios',
     items: types
       .filter(type => type.active)
       .sort(({ code: code1 }, { code: code2 }) => {
@@ -38,13 +39,13 @@ const fields = {
   incidentDate: {
     label: 'Date of incident',
     hint: 'For example, 17/05/2024',
-    component: 'date',
+    component: 'mojDatePicker',
     validate: ['required', 'ukDate'],
   },
   incidentTime: {
     label: 'Time',
     hint: 'Use the 24 hour clock. For example, 09 08 or 17 32',
-    component: 'time',
+    component: 'appTime',
     validate: ['required', 'ukTime'],
   },
   [hoursFieldName]: {},
@@ -52,7 +53,7 @@ const fields = {
   description: {
     label: 'Description',
     hint: 'Include enough detail that the description can stand alone as a report',
-    component: 'textarea',
+    component: 'govukTextarea',
     validate: ['required'],
   },
 } satisfies FormWizard.Fields

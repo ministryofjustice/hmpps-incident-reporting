@@ -3,6 +3,10 @@
 
 {% macro renderCheckedItemsField(fieldName, field, options, values, errors) %}
 
+  {% if "items" not in field %}
+    {% panic "Field " + fieldName + " is missing items" %}
+  {% endif %}
+
   {% set items = [] %}
   {% for item in field.items %}
     {% set _ = items.push({

@@ -1,6 +1,7 @@
 {% from "govuk/components/input/macro.njk" import govukInput %}
 {% from "components/wip/checkedItemsField.njk" import renderCheckedItemsField %}
 {% from "components/wip/dateField.njk" import renderDateField %}
+{% from "components/wip/selectField.njk" import renderSelectField %}
 {% from "components/wip/textAreaField.njk" import renderTextAreaField %}
 {% from "components/wip/timeFields.njk" import renderTimeFields %}
 
@@ -8,11 +9,11 @@
 
   {% if field.component === "govukRadios" or field.component === "govukCheckboxes" %}
 
-    {% if "items" not in field %}
-      {% panic "Field " + fieldName + " is missing items" %}
-    {% endif %}
-
     {{ renderCheckedItemsField(fieldName, field, options, values, errors) }}
+
+  {% elif field.component === "govukSelect" %}
+
+    {{ renderSelectField(fieldName, field, options, values, errors) }}
 
   {% elif field.component === "mojDatePicker" %}
 

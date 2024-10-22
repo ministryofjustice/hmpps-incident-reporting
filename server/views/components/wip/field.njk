@@ -1,0 +1,45 @@
+{% from "govuk/components/input/macro.njk" import govukInput %}
+{% from "components/wip/checkedItemsField.njk" import renderCheckedItemsField %}
+{% from "components/wip/dateField.njk" import renderDateField %}
+{% from "components/wip/textAreaField.njk" import renderTextAreaField %}
+{% from "components/wip/timeFields.njk" import renderTimeFields %}
+
+{% macro renderField(fieldName, field, options, values, errors) %}
+
+  {% if "items" in field %}
+
+    {{ renderCheckedItemsField(fieldName, field, options, values, errors) }}
+
+  {% elif field.component === "date" %}
+
+    {{ renderDateField(fieldName, field, options, values, errors) }}
+
+  {% elif field.component === "time" %}
+
+    {{ renderTimeFields(fieldName, field, options, values, errors) }}
+
+  {% elif field.component === "textarea" %}
+
+    {{ renderTextAreaField(fieldName, field, options, values, errors) }}
+
+  {% elif field.component === "hidden" %}
+
+    <input type="hidden" name="{{ fieldName }}" value="{{ values[fieldName] | default("") }}" />
+
+  {% else %}
+
+    {{ govukInput({
+      name: fieldName,
+      id: fieldName,
+      label: {
+        text: field.label,
+        classes: "govuk-label--m"
+      },
+      hint: { text: field.hint } if field.hint else undefined,
+      value: values[fieldName],
+      errorMessage: { text: errors[fieldName].message } if errors[fieldName] else undefined
+    }) }}
+
+  {% endif %}
+
+{% endmacro %}

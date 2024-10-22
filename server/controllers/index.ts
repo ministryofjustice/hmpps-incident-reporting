@@ -2,6 +2,7 @@ import type Express from 'express'
 import FormWizard from 'hmpo-form-wizard'
 
 import { parseDateInput, parseTimeInput } from '../utils/utils'
+import { SanitisedError } from '../sanitisedError'
 
 /**
  * The super-class form wizard controller with functionality that should be shared
@@ -53,6 +54,15 @@ export abstract class BaseController<
       error.message = this.errorMessage(error)
     }
     return error
+  }
+
+  /**
+   * Convert an API error into a FormWizard.Error so that a message can be presented to users in an error summary
+   */
+  convertIntoValidationError(_error: SanitisedError): FormWizard.Error {
+    // TODO: also handle regular errors? need a new function:
+    //   isSanitisedError<E extends Error>(e: E) e is SanitisedError {…}
+    return new BaseController.Error(null, { message: 'Sorry, there was a problem with your request' })
   }
 
   csrfGenerateSecret(req: FormWizard.Request<V, K>, res: Express.Response, next: Express.NextFunction): void {

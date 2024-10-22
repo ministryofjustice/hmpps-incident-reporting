@@ -1,6 +1,7 @@
 import type Express from 'express'
 import type FormWizard from 'hmpo-form-wizard'
 
+import { mockThrownError } from '../data/testData/thrownErrors'
 import { BaseController } from './index'
 
 class TestController extends BaseController {
@@ -67,6 +68,17 @@ describe('Base form wizard controller', () => {
       expect(() => {
         controller.validateField('mobile', req, res)
       }).toThrow('Error message not set for type')
+    })
+
+    it('should be able to convert an API error into a form wizard validation error', () => {
+      const controller = new TestController({ route: '/', steps: {}, fields: {} })
+      const apiError = mockThrownError({})
+      const validationError = controller.convertIntoValidationError(apiError)
+      expect(controller.isValidationError({ fieldName: validationError })).toBeTruthy()
+      expect(validationError.key).toBeUndefined()
+      expect(validationError.field).toBeUndefined()
+      expect(validationError.type).toEqual('default')
+      expect(validationError.message).toEqual('Sorry, there was a problem with your request')
     })
   })
 

@@ -5,7 +5,7 @@ import FormWizard from 'hmpo-form-wizard'
 import logger from '../../../logger'
 import { parseDateInput, parseTimeInput } from '../../utils/utils'
 import type { ReportWithDetails } from '../../data/incidentReportingApi'
-import { getTypeDetails, types, type Type } from '../../reportConfiguration/constants'
+import { getTypeDetails, types, typeHints, type Type } from '../../reportConfiguration/constants'
 import { BaseController } from '../../controllers'
 
 const hoursFieldName = '_incidentTime-hours' as const
@@ -26,10 +26,14 @@ const fields = {
         }
         return code1 < code2 ? -1 : 1
       })
-      .map(type => ({
-        text: type.description,
-        value: type.code,
-      })),
+      .map(
+        type =>
+          ({
+            label: type.description,
+            value: type.code,
+            hint: typeHints[type.code],
+          }) satisfies FormWizard.FieldItem,
+      ),
   },
   incidentDate: {
     label: 'Date of incident',

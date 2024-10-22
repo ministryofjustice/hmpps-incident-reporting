@@ -3,7 +3,14 @@
 
 {% macro renderCheckedItemsField(fieldName, field, options, values, errors) %}
 
-  {% set items = field.items %}
+  {% set items = [] %}
+  {% for item in field.items %}
+    {% set _ = items.push({
+      value: item.value,
+      text: item.label,
+      hint: {text: item.hint} if item.hint else undefined
+    }) %}
+  {% endfor %}
 
   {% for subfieldName, subfield in options.fields %}
     {% if subfield.dependent.field == fieldName %}

@@ -57,6 +57,8 @@ describe('Creating a report', () => {
 
           // miscellaneous is last
           expect(res.text.indexOf('TOOL_LOSS')).toBeLessThan(res.text.indexOf('MISCELLANEOUS'))
+          // hints are included
+          expect(res.text).toContain('Includes barricade, concerted indiscipline, hostage, and incident at height.')
         })
     })
 

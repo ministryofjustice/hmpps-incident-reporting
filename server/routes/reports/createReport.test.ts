@@ -54,6 +54,9 @@ describe('Creating a report', () => {
           // inactive type
           expect(res.text).not.toContain('OLD_DRUGS')
           expect(res.text).not.toContain('Drugs')
+
+          // miscellaneous is last
+          expect(res.text.indexOf('TOOL_LOSS')).toBeLessThan(res.text.indexOf('MISCELLANEOUS'))
         })
     })
 

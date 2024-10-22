@@ -17,6 +17,15 @@ const fields = {
     validate: ['required'],
     items: types
       .filter(type => type.active)
+      .sort(({ code: code1 }, { code: code2 }) => {
+        if (code1 === 'MISCELLANEOUS') {
+          return 1
+        }
+        if (code2 === 'MISCELLANEOUS') {
+          return -1
+        }
+        return code1 < code2 ? -1 : 1
+      })
       .map(type => ({
         text: type.description,
         value: type.code,

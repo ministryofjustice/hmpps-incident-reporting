@@ -26,20 +26,6 @@ export function generateSteps(config: IncidentTypeConfiguration): FormWizard.Ste
     .forEach(question => {
       const activeAnswers = question.answers.filter(answer => answer.active)
 
-      // TODO: Maybe coalesce answers leading to same next question
-      const next: FormWizard.NextStepCondition[] = activeAnswers.map(answer => {
-        return {
-          field: question.id,
-          // when checkboxes choices are submitted the value is an array
-          // e.g. `['choice-2', 'choice-5']`
-          // in these cases this conditional step matches if some of `submittedValues`
-          // equals value
-          op: question.multipleAnswers ? checkMultipleValues : '===',
-          value: answer.code,
-          next: answer.nextQuestionId,
-        }
-      })
-
       const fields = [question.id]
       for (const answer of activeAnswers) {
         if (answer.dateRequired) {
@@ -53,7 +39,7 @@ export function generateSteps(config: IncidentTypeConfiguration): FormWizard.Ste
       }
 
       steps[`/${question.id}`] = {
-        next,
+        next: nextSteps(question, activeAnswers),
         fields,
         controller: QuestionsController,
         template: 'questionPage',
@@ -127,12 +113,53 @@ export function generateFields(config: IncidentTypeConfiguration): FormWizard.Fi
   return fields
 }
 
+/**
+ * Returns the list of next step conditions for the question/answers
+ *
+ * Answers leading to the same question are grouped together.
+ *
+ * @param question
+ * @param answers
+ * @returns next step conditions
+ */
+function nextSteps(question: QuestionConfiguration, answers: AnswerConfiguration[]): FormWizard.NextStepCondition[] {
+  // Group answers by next question id
+  const groupedByNextQuestion: Map<string | null, AnswerConfiguration[]> = new Map()
+  answers.forEach(answer => {
+    if (groupedByNextQuestion.get(answer.nextQuestionId) === undefined) {
+      groupedByNextQuestion.set(answer.nextQuestionId, [])
+    }
+
+    groupedByNextQuestion.get(answer.nextQuestionId).push(answer)
+  })
+
+  const next: FormWizard.NextStepCondition[] = []
+  for (const [nextQuestionId, groupAnswers] of groupedByNextQuestion.entries()) {
+    const answerCodes = groupAnswers.map(answer => answer.code)
+
+    next.push({
+      field: question.id,
+      // - for single values, check if submitted value is
+      //   contained **in** `condition.value`
+      // - for multiple values, submitted values is an array, e.g.
+      //   `['choice-2', 'choice-5']`). Check if any of these values
+      //   is in `condition.value`
+      //   NOTE: Form Wizard's `some` is NOT doing this on arrays
+      op: question.multipleAnswers ? checkMultipleValues : 'in',
+      value: answerCodes,
+      next: nextQuestionId,
+    })
+  }
+
+  return next
+}
+
 function conditionalFieldName(question: QuestionConfiguration, answer: AnswerConfiguration, suffix: string): string {
   return `${question.id}-${answer.id}-${suffix}`
 }
 
 /**
- * Checks if the values submitted by the user match the condition's value
+ * Checks if the values submitted by the user match the condition's values
  *
  * This is used in the next step condition when multiple values are allowed,
  * e.g. when field is rendered as a list checkboxes
@@ -145,39 +172,47 @@ function conditionalFieldName(question: QuestionConfiguration, answer: AnswerCon
  *      id: '/animals',
  *      fields: ['animal'],
  *      next: [
- *        { value: 'dog', op: checkMultipleValues, next: 'q2', field: 'animal' },
- *        { value: 'cat', op: checkMultipleValues, next: 'q2', field: 'animal' },
- *        { value: 'fox', op: checkMultipleValues, next: 'q2', field: 'animal' },
+ *        {
+ *          value: ['dog', 'cat'],
+ *          op: checkMultipleValues,
+ *          next: 'q-domestic',
+ *          field: 'animal'
+ *        },
+ *        {
+ *          value: ['fox'],
+ *          op: checkMultipleValues,
+ *          next: 'q-wild',
+ *          field: 'animal'
+ *        },
  *      ]
- *   }
- *   '/q2': { ... }
+ *   },
+ *   '/q-domestic': { ... },
+ *   '/q-wild': { ... },
  * }
  * ```
  *
- * as the field has `multiple: true` the value submitted by the user
+ * As the field has `multiple: true` the value submitted by the user
  * would be `string[]`, e.g. `['dog', 'fox']`.
  *
- * this function would check if the submitted value contains the value in the
- * condition, and if that's the case then Form Wizard would move the user to
- * the step specificed in the `next` property of the next step condition
- * (`q2` in the example above)
+ * This operator function matches if any of the values submitted by the user
+ * is contained in the condition's value.
  *
  * @param submittedValues values submitted by the user
  * @param _req request not used
  * @param _res response not used
- * @param condition next step condition with value to match
- * @returns true if the value submitted by the user include `condition.value`
+ * @param condition next step condition with values to match
+ * @returns true if any of the submitted values is contained in `condition.value`
  */
 export function checkMultipleValues(
-  submittedValues: FormWizard.MultiValue,
+  submittedValues: string[],
   _req: FormWizard.Request,
   _res: Express.Response,
-  condition: { value: string },
+  condition: { value: string[] },
 ): boolean {
   // Don't check values if nothing has been submitted
   if (!submittedValues) {
     return false
   }
 
-  return submittedValues.includes(condition.value)
+  return submittedValues.some(submittedValue => condition.value.includes(submittedValue))
 }

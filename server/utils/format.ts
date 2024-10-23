@@ -71,11 +71,18 @@ export default {
   },
 
   /**
-   * Formats dates in ISO style, used when calling APIs
+   * Formats dates in Europe/London ISO style, used when calling APIs
    *
    * Example: `2024-07-30`
    */
   isoDate(date: Date): string {
-    return date && date.toISOString().split('T')[0]
+    if (!(date instanceof Date)) {
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+      // @ts-ignore just in case value is not a Date
+      return date
+    }
+    const shortDate: string = this.shortDate(date)
+    const [day, month, year] = shortDate.split('/')
+    return `${year}-${month}-${day}`
   },
 }

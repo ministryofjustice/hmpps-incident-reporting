@@ -34,6 +34,8 @@ export function mockEvent({
 }: MockEventConfig & { includeReports?: number }): DatesAsStrings<Event | EventWithBasicReports> {
   const incidentDateAndTime = new Date(reportDateAndTime)
   incidentDateAndTime.setHours(incidentDateAndTime.getHours() - 1)
+  incidentDateAndTime.setSeconds(0)
+  incidentDateAndTime.setMilliseconds(0)
 
   const event: DatesAsStrings<Event> = {
     id: uuidFromDate({ msecs: reportDateAndTime }),
@@ -83,6 +85,8 @@ export function mockReport({
 }: MockReportConfig & { withDetails?: boolean }): DatesAsStrings<ReportBasic | ReportWithDetails> {
   const incidentDateAndTime = new Date(reportDateAndTime)
   incidentDateAndTime.setHours(incidentDateAndTime.getHours() - 1)
+  incidentDateAndTime.setSeconds(0)
+  incidentDateAndTime.setMilliseconds(0)
 
   const basicReport: DatesAsStrings<ReportBasic> = {
     id: uuidFromDate({ msecs: reportDateAndTime }),

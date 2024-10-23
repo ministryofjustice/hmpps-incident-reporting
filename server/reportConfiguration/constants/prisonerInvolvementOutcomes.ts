@@ -1,4 +1,4 @@
-// Generated with ./scripts/importDpsConstants.ts at 2024-09-12T13:42:33.160Z
+// Generated with ./scripts/importDpsConstants.ts at 2024-10-23T09:57:41.203Z
 
 /** Outcomes from a prisoner’s involvement in an incident */
 export const prisonerInvolvementOutcomes = [
@@ -22,4 +22,12 @@ export const prisonerInvolvementOutcomes = [
 ] as const
 
 /** Outcomes from a prisoner’s involvement in an incident */
-export type PrisonerInvolvementOutcome = (typeof prisonerInvolvementOutcomes)[number]['code']
+export type PrisonerInvolvementOutcomeDetails = (typeof prisonerInvolvementOutcomes)[number]
+
+/** Codes for outcomes from a prisoner’s involvement in an incident */
+export type PrisonerInvolvementOutcome = PrisonerInvolvementOutcomeDetails['code']
+
+/** Lookup for outcomes from a prisoner’s involvement in an incident */
+export function getPrisonerInvolvementOutcomeDetails(code: string): PrisonerInvolvementOutcomeDetails | null {
+  return prisonerInvolvementOutcomes.find(item => item.code === code) ?? null
+}

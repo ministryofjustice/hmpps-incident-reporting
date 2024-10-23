@@ -1,4 +1,4 @@
-// Generated with ./scripts/importDpsConstants.ts at 2024-09-12T13:42:31.910Z
+// Generated with ./scripts/importDpsConstants.ts at 2024-10-23T09:57:39.838Z
 
 /** Roles of staff involvement in an incident */
 export const staffInvolvementRoles = [
@@ -22,4 +22,12 @@ export const staffInvolvementRoles = [
 ] as const
 
 /** Roles of staff involvement in an incident */
-export type StaffInvolvementRole = (typeof staffInvolvementRoles)[number]['code']
+export type StaffInvolvementRoleDetails = (typeof staffInvolvementRoles)[number]
+
+/** Codes for roles of staff involvement in an incident */
+export type StaffInvolvementRole = StaffInvolvementRoleDetails['code']
+
+/** Lookup for roles of staff involvement in an incident */
+export function getStaffInvolvementRoleDetails(code: string): StaffInvolvementRoleDetails | null {
+  return staffInvolvementRoles.find(item => item.code === code) ?? null
+}

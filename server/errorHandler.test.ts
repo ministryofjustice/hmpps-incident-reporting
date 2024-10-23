@@ -85,23 +85,26 @@ describe('Error handling', () => {
         '/': {
           entryPoint: true,
           resetJourney: true,
-          template: 'pages/index',
           next: 'name',
         },
         // page 2 includes required name field
         '/name': {
           fields: ['name'],
-          template: 'pages/index',
           next: 'done',
         },
         // page 3 requires page 2 to be valid (name field must be supplied)
         '/done': {
           noPost: true,
-          template: 'pages/index',
         },
       }
       const fields: FormWizard.Fields = { name: { validate: ['required'] } }
-      const formConfig: FormWizard.Config = { name: 'redirect-test', checkSession: false, csrf: false }
+      const formConfig: FormWizard.Config = {
+        name: 'redirect-test',
+        // TODO: will need to swap to an empty template if index page becomes complex and stops working
+        template: 'pages/index',
+        checkSession: false,
+        csrf: false,
+      }
       router.use(FormWizard(steps, fields, formConfig))
       mockedRoutes.mockReturnValue(router)
     })

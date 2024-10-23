@@ -87,12 +87,23 @@ function main() {
     fs.writeSync(outputFile, `export const ${method} = ${JSON.stringify(constants)} as const\n\n`)
 
     fs.writeSync(outputFile, `/** ${documentation} */\n`)
-    fs.writeSync(outputFile, `export type ${identifier} = (typeof ${method})[number]['code']\n`)
+    fs.writeSync(outputFile, `export type ${identifier}Details = (typeof ${method})[number]\n\n`)
+
+    fs.writeSync(outputFile, `/** Codes for ${documentation.toLowerCase()} */\n`)
+    fs.writeSync(outputFile, `export type ${identifier} = ${identifier}Details['code']\n\n`)
 
     if (includeNomisType) {
-      fs.writeSync(outputFile, `\n/** ${documentation}\n * @deprecated\n */\n`)
-      fs.writeSync(outputFile, `export type Nomis${identifier} = (typeof ${method})[number]['nomisCode']\n`)
+      fs.writeSync(outputFile, `\n/** NOMIS codes for ${documentation}\n * @deprecated\n */\n`)
+      fs.writeSync(outputFile, `export type Nomis${identifier} = ${identifier}Details['nomisCode']\n\n`)
     }
+
+    fs.writeSync(outputFile, `/** Lookup for ${documentation.toLowerCase()} */\n`)
+    fs.writeSync(
+      outputFile,
+      `export function get${identifier}Details(code: string): ${identifier}Details | null {
+         return ${method}.find(item => item.code === code) ?? null
+       }\n`,
+    )
   }
 
   fs.closeSync(outputFile)

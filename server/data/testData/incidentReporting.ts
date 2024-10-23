@@ -14,6 +14,7 @@ import type {
   CorrectionRequest,
   Question,
 } from '../incidentReportingApi'
+import { staffBarry, staffMary } from './prisonApi'
 
 interface MockEventConfig {
   eventReference: string
@@ -143,13 +144,13 @@ export function mockStaffInvolvement(index: number): DatesAsStrings<StaffInvolve
   switch (index) {
     case 0:
       return {
-        staffUsername: 'staff-1',
+        staffUsername: staffMary.username,
         staffRole: 'ACTIVELY_INVOLVED',
-        comment: 'Comment about staff-1',
+        comment: 'Comment about Mary',
       }
     case 1:
       return {
-        staffUsername: 'staff-2',
+        staffUsername: staffBarry.username,
         staffRole: 'PRESENT_AT_SCENE',
         comment: null,
       }

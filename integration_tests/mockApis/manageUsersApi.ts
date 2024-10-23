@@ -1,7 +1,8 @@
-import type { SuperAgentRequest } from 'superagent'
+import type { Response as SuperAgentResponse, SuperAgentRequest } from 'superagent'
 
 import { stubFor } from './wiremock'
-import { mockUser } from '../../server/data/testData/manageUsers'
+import { mockUser, mockSharedUser } from '../../server/data/testData/manageUsers'
+import { staffBarry, staffMary } from '../../server/data/testData/prisonApi'
 
 export default {
   /** Current user */
@@ -20,24 +21,27 @@ export default {
       },
     }),
 
-  /** Another user, looked up by username */
-  stubManageUserNamed: ({
-    username = 'jsmith',
-    name = 'john smith',
-  }: { username?: string; name?: string } = {}): SuperAgentRequest =>
-    stubFor({
-      request: {
-        method: 'GET',
-        urlPath: `/manage-users-api/users/${encodeURIComponent(username)}`,
-      },
-      response: {
-        status: 200,
-        headers: {
-          'Content-Type': 'application/json;charset=UTF-8',
-        },
-        jsonBody: mockUser(username, name),
-      },
-    }),
+  /** Add all known users from test data */
+  stubManageKnownUsers: (
+    users: { username: string; name?: string }[] = [mockSharedUser, staffBarry, staffMary],
+  ): Promise<SuperAgentResponse[]> =>
+    Promise.all(
+      users.map(user =>
+        stubFor({
+          request: {
+            method: 'GET',
+            urlPath: `/manage-users-api/users/${encodeURIComponent(user.username)}`,
+          },
+          response: {
+            status: 200,
+            headers: {
+              'Content-Type': 'application/json;charset=UTF-8',
+            },
+            jsonBody: mockUser(user.username, user.name),
+          },
+        }),
+      ),
+    ),
 
   stubManageUsersPing: (): SuperAgentRequest =>
     stubFor({

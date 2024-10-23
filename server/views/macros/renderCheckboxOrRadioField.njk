@@ -1,7 +1,7 @@
 {% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
 {% from "govuk/components/radios/macro.njk" import govukRadios %}
 
-{% macro renderCheckedItemsField(fieldName, field, options, values, errors) %}
+{% macro renderCheckboxOrRadioField(fieldName, field, options, values, errors) %}
 
   {% if "items" not in field %}
     {% panic "Field " + fieldName + " is missing items" %}
@@ -20,7 +20,7 @@
     {% if subfield.dependent.field == fieldName %}
 
       {% set conditionalHtml %}
-        {% from "components/wip/field.njk" import renderField %}
+        {% from "macros/renderField.njk" import renderField %}
         {{ renderField(subfieldName, subfield, options, values, errors) }}
       {% endset %}
       {% set items = items | govukCheckedItemsConditional({

@@ -34,8 +34,10 @@
   {% if field.multiple %}
 
     {{ govukCheckboxes({
-      id: fieldName,
       name: fieldName,
+      attributes: {
+        id: fieldName
+      },
       fieldset: {
         legend: {
           text: field.label,
@@ -50,8 +52,10 @@
   {% else %}
 
     {{ govukRadios({
-      id: fieldName,
       name: fieldName,
+      attributes: {
+        id: fieldName
+      },
       fieldset: {
         legend: {
           text: field.label,

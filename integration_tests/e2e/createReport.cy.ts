@@ -5,23 +5,23 @@ import TypePage from '../pages/createReport/type'
 import DetailsPage from '../pages/createReport/details'
 
 context('Creating a new report', () => {
+  const now = new Date()
+  const reportWithDetails = mockReport({
+    type: 'DAMAGE',
+    reportReference: '6544',
+    reportDateAndTime: now,
+    withDetails: true,
+  })
+
   beforeEach(() => {
     cy.resetBasicStubs()
+
+    cy.signIn()
+    // TODO: start on home page and click through to:
+    cy.visit('/create-report')
   })
 
   it('should allow entering the basic information', () => {
-    const now = new Date()
-    const reportWithDetails = mockReport({
-      type: 'DAMAGE',
-      reportReference: '6544',
-      reportDateAndTime: now,
-      withDetails: true,
-    })
-
-    cy.signIn()
-    // TODO: start on home page and navigate to:
-    cy.visit('/create-report')
-
     const typePage = Page.verifyOnPage(TypePage)
     typePage.checkBackLink('/')
     typePage.selectType(reportWithDetails.type)
@@ -50,5 +50,19 @@ context('Creating a new report', () => {
     detailsPage.enterTime(time.groups.hours, time.groups.minutes)
     detailsPage.enterDescription(reportWithDetails.description)
     detailsPage.submit()
+  })
+
+  it('should show errors if information is missing', () => {
+    const typePage = Page.verifyOnPage(TypePage)
+    typePage.submit()
+    typePage.errorSummary.contains('There is a problem')
+    typePage.selectType(reportWithDetails.type)
+    typePage.submit()
+
+    const detailsPage = Page.verifyOnPage(DetailsPage)
+    detailsPage.enterDescription(reportWithDetails.description)
+    detailsPage.submit()
+    detailsPage.errorSummary.contains('There is a problem')
+    Page.verifyOnPage(DetailsPage)
   })
 })

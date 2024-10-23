@@ -38,6 +38,10 @@ export default abstract class Page {
     return cy.get<HTMLAnchorElement>('.govuk-back-link').should('have.attr', 'href', url)
   }
 
+  get errorSummary(): PageElement<HTMLDivElement> {
+    return cy.get('.govuk-error-summary')
+  }
+
   get footer(): PageElement {
     return cy.get('.govuk-footer')
   }

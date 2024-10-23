@@ -149,3 +149,25 @@ describe('isoDate(): Formats dates in Europe/London ISO style, used when calling
     expect(format.isoDate(input)).toStrictEqual(input)
   })
 })
+
+describe('isoDateTime(): Formats dates with time-of-day in Europe/London ISO style, used when calling APIs', () => {
+  it.each([
+    ['2024-07-30T12:34:56', '2024-07-30T12:34:56'],
+    ['2024-07-30T12:34:56Z', '2024-07-30T13:34:56'],
+    ['2024-07-30T12:34:56+01:00', '2024-07-30T12:34:56'],
+
+    // near DST switch
+    ['2021-10-30T23:59:59Z', '2021-10-31T00:59:59'],
+    ['2021-10-31T00:00:00Z', '2021-10-31T01:00:00'],
+    ['2021-10-31T00:00:01Z', '2021-10-31T01:00:01'],
+    ['2021-10-31T00:59:59Z', '2021-10-31T01:59:59'],
+    ['2021-10-31T01:00:00Z', '2021-10-31T01:00:00'],
+    ['2021-10-31T01:00:01Z', '2021-10-31T01:00:01'],
+  ])('new Date(%s) formats as %s in ISO date style', (date, expected) => {
+    expect(format.isoDateTime(new Date(date))).toEqual(expected)
+  })
+
+  it.each([null, undefined])('preserves %s', input => {
+    expect(format.isoDateTime(input)).toStrictEqual(input)
+  })
+})

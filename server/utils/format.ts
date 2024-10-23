@@ -1,6 +1,6 @@
 export default {
   /**
-   * Format Date as Europe/London including time of day
+   * Format Date as Europe/London including time of day.
    *
    * Example: `22 February 2022, 11:00`
    */
@@ -21,7 +21,7 @@ export default {
   },
 
   /**
-   * Format Date as Europe/London ignoring time-of-day
+   * Format Date as Europe/London ignoring time-of-day.
    *
    * Example: `22 February 2022`
    */
@@ -38,7 +38,7 @@ export default {
   },
 
   /**
-   * Format Date as Europe/London ignoring time-of-day
+   * Format Date as Europe/London ignoring time-of-day.
    *
    * Example: `22/02/2022`
    */
@@ -55,7 +55,7 @@ export default {
   },
 
   /**
-   * Format Date as time in Europe/London
+   * Format Date as time in Europe/London.
    *
    * Example: `14:22`
    */
@@ -71,7 +71,7 @@ export default {
   },
 
   /**
-   * Formats dates in Europe/London ISO style, used when calling APIs
+   * Formats dates in Europe/London ISO style, used when calling APIs.
    *
    * Example: `2024-07-30`
    */
@@ -84,5 +84,29 @@ export default {
     const shortDate: string = this.shortDate(date)
     const [day, month, year] = shortDate.split('/')
     return `${year}-${month}-${day}`
+  },
+
+  /**
+   * Formats dates with time-of-day in Europe/London ISO style, used when calling APIs.
+   * NB: time zone is _not_ appended
+   *
+   * Example: `2024-07-30T14:22`
+   */
+  isoDateTime(date: Date): string {
+    if (!(date instanceof Date)) {
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+      // @ts-ignore just in case value is not a Date
+      return date
+    }
+    const shortDate: string = this.shortDate(date)
+    const [day, month, year] = shortDate.split('/')
+    const time = date.toLocaleTimeString('en-GB', {
+      hour: '2-digit',
+      minute: '2-digit',
+      second: '2-digit',
+      timeZone: 'Europe/London',
+    })
+    const [hours, minutes, seconds] = time.split(':')
+    return `${year}-${month}-${day}T${hours}:${minutes}:${seconds}`
   },
 }

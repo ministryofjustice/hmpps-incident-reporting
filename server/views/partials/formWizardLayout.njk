@@ -21,7 +21,7 @@
 
       <h1 class="govuk-heading-l">{{ pageTitle }}</h1>
 
-      <form method="post" novalidate>
+      <form id="form-wizard" method="post" novalidate>
         <input type="hidden" name="_csrf" value="{{ csrfToken }}" />
         <input type="hidden" name="x-csrf-token" value="{{ csrfToken }}" />
 

@@ -1,0 +1,16 @@
+import { type Type, getTypeDetails } from '../../../server/reportConfiguration/constants'
+import FormWizardPage from '../formWizard'
+
+export default class TypePage extends FormWizardPage {
+  constructor() {
+    super('Select incident type')
+  }
+
+  selectType(type: Type) {
+    this.radioOrCheckboxButton('type', getTypeDetails(type).description).click()
+  }
+
+  submit(): void {
+    this.saveButton('Continue').click()
+  }
+}

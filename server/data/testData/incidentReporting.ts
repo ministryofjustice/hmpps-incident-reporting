@@ -28,7 +28,7 @@ export function mockEvent({
   eventReference,
   reportDateAndTime,
   prisonId = 'MDI',
-  reportingUsername = 'USER1',
+  reportingUsername = 'user1',
   includeReports = 0,
 }: MockEventConfig & { includeReports?: number }): DatesAsStrings<Event | EventWithBasicReports> {
   const incidentDateAndTime = new Date(reportDateAndTime)
@@ -77,7 +77,7 @@ export function mockReport({
   createdInNomis = false,
   status = 'DRAFT',
   type = 'FINDS',
-  reportingUsername = 'USER1',
+  reportingUsername = 'user1',
   withDetails = false,
 }: MockReportConfig & { withDetails?: boolean }): DatesAsStrings<ReportBasic | ReportWithDetails> {
   const incidentDateAndTime = new Date(reportDateAndTime)

@@ -16,11 +16,11 @@ import { OffenderSearchApi } from '../../data/offenderSearchApi'
 import { PrisonApi } from '../../data/prisonApi'
 
 export const user: Express.User = {
-  name: 'FIRST LAST',
+  name: 'JOHN SMITH',
   userId: 'id',
   token: 'token',
   username: 'user1',
-  displayName: 'First Last',
+  displayName: 'John Smith',
   active: true,
   activeCaseLoadId: 'MDI',
   authSource: 'NOMIS',

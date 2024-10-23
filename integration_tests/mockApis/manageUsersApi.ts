@@ -1,11 +1,11 @@
 import type { SuperAgentRequest } from 'superagent'
 
 import { stubFor } from './wiremock'
-import type { User } from '../../server/data/manageUsersApiClient'
+import { mockUser } from '../../server/data/testData/manageUsers'
 
 export default {
   /** Current user */
-  stubManageUserMe: (name: string = 'john smith'): SuperAgentRequest =>
+  stubManageUserMe: (name: string = 'John Smith'): SuperAgentRequest =>
     stubFor({
       request: {
         method: 'GET',
@@ -16,17 +16,15 @@ export default {
         headers: {
           'Content-Type': 'application/json;charset=UTF-8',
         },
-        jsonBody: {
-          staffId: 231232,
-          username: 'USER1',
-          active: true,
-          name,
-        } satisfies User,
+        jsonBody: mockUser('user1', name),
       },
     }),
 
   /** Another user, looked up by username */
-  stubManageUserNamed: (username: string = 'jsmith', name: string = 'john smith'): SuperAgentRequest =>
+  stubManageUserNamed: ({
+    username = 'jsmith',
+    name = 'john smith',
+  }: { username?: string; name?: string } = {}): SuperAgentRequest =>
     stubFor({
       request: {
         method: 'GET',
@@ -37,12 +35,7 @@ export default {
         headers: {
           'Content-Type': 'application/json;charset=UTF-8',
         },
-        jsonBody: {
-          staffId: 231232,
-          username: 'USER1',
-          active: true,
-          name,
-        } satisfies User,
+        jsonBody: mockUser(username, name),
       },
     }),
 

@@ -1,5 +1,6 @@
 import { v7 as uuidFromDate } from 'uuid'
 
+import format from '../../utils/format'
 import { buildArray } from '../../utils/utils'
 import type { ErrorCode, Status, Type } from '../../reportConfiguration/constants'
 import type {
@@ -36,12 +37,12 @@ export function mockEvent({
   const event: DatesAsStrings<Event> = {
     id: uuidFromDate({ msecs: reportDateAndTime }),
     eventReference,
-    eventDateAndTime: incidentDateAndTime.toISOString(),
+    eventDateAndTime: format.isoDateTime(incidentDateAndTime),
     prisonId,
     title: 'An event occurred',
     description: 'Details of the event',
-    createdAt: reportDateAndTime.toISOString(),
-    modifiedAt: reportDateAndTime.toISOString(),
+    createdAt: format.isoDateTime(reportDateAndTime),
+    modifiedAt: format.isoDateTime(reportDateAndTime),
     modifiedBy: reportingUsername,
   }
 
@@ -86,16 +87,16 @@ export function mockReport({
     id: uuidFromDate({ msecs: reportDateAndTime }),
     reportReference,
     type,
-    incidentDateAndTime: incidentDateAndTime.toISOString(),
+    incidentDateAndTime: format.isoDateTime(incidentDateAndTime),
     prisonId,
     title: `Incident Report ${reportReference}`,
     description: `A new incident created in the new service of type ${type}`,
     reportedBy: reportingUsername,
-    reportedAt: reportDateAndTime.toISOString(),
+    reportedAt: format.isoDateTime(reportDateAndTime),
     status,
     assignedTo: reportingUsername,
-    createdAt: reportDateAndTime.toISOString(),
-    modifiedAt: reportDateAndTime.toISOString(),
+    createdAt: format.isoDateTime(reportDateAndTime),
+    modifiedAt: format.isoDateTime(reportDateAndTime),
     modifiedBy: reportingUsername,
     createdInNomis,
   }
@@ -107,7 +108,7 @@ export function mockReport({
       historyOfStatuses: [
         {
           status,
-          changedAt: reportDateAndTime.toISOString(),
+          changedAt: format.isoDateTime(reportDateAndTime),
           changedBy: reportingUsername,
         },
       ],
@@ -117,7 +118,7 @@ export function mockReport({
       questions: buildArray(2, questionIndex => mockQuestion(questionIndex, reportDateAndTime, 2)),
       history: buildArray(2, () => ({
         type: 'MISCELLANEOUS',
-        changedAt: reportDateAndTime.toISOString(),
+        changedAt: format.isoDateTime(reportDateAndTime),
         changedBy: 'some-user-2',
         questions: buildArray(2, questionIndex => ({
           code: `QID-${(questionIndex + 1).toString().padStart(12, '0')}`,
@@ -125,10 +126,10 @@ export function mockReport({
           additionalInformation: '',
           responses: buildArray(2, responseIndex => ({
             response: `Historic response #${responseIndex + 1}`,
-            responseDate: reportDateAndTime.toISOString(),
+            responseDate: format.isoDateTime(reportDateAndTime),
             additionalInformation: `Historic comment #${responseIndex + 1}`,
             recordedBy: 'some-user-2',
-            recordedAt: reportDateAndTime.toISOString(),
+            recordedAt: format.isoDateTime(reportDateAndTime),
           })),
         })),
       })),
@@ -185,14 +186,14 @@ export function mockCorrectionRequest(index: number, correctionRequestedAt: Date
         reason: 'NOT_SPECIFIED',
         descriptionOfChange: 'Please amend question 2',
         correctionRequestedBy: 'USER2',
-        correctionRequestedAt: correctionRequestedAt.toISOString(),
+        correctionRequestedAt: format.isoDateTime(correctionRequestedAt),
       }
     case 1:
       return {
         reason: 'MISTAKE',
         descriptionOfChange: 'Name misspelled',
         correctionRequestedBy: 'USER2',
-        correctionRequestedAt: correctionRequestedAt.toISOString(),
+        correctionRequestedAt: format.isoDateTime(correctionRequestedAt),
       }
     default:
       throw new Error('not implemented')
@@ -210,9 +211,9 @@ export function mockQuestion(
     additionalInformation: `Explanation #${questionIndex + 1}`,
     responses: buildArray(numberOfResponses, responseIndex => ({
       response: `Response #${responseIndex + 1}`,
-      responseDate: responseDate.toISOString(),
+      responseDate: format.isoDateTime(responseDate),
       recordedBy: 'some-user',
-      recordedAt: responseDate.toISOString(),
+      recordedAt: format.isoDateTime(responseDate),
       additionalInformation: `comment #${responseIndex + 1}`,
     })),
   }

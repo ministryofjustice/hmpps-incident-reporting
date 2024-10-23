@@ -45,6 +45,7 @@
         }
       },
       hint: { text: field.hint } if field.hint else undefined,
+      idPrefix: fieldName + "-item",
       items: items | govukMultipleCheckedItems(values[fieldName]),
       errorMessage: { text: errors[fieldName].message } if errors[fieldName] else undefined
     }) }}
@@ -63,6 +64,7 @@
         }
       },
       hint: { text: field.hint } if field.hint else undefined,
+      idPrefix: fieldName + "-item",
       items: items | govukCheckedItems(values[fieldName]) | govukCheckedItemsDivider(),
       errorMessage: { text: errors[fieldName].message } if errors[fieldName] else undefined
     }) }}

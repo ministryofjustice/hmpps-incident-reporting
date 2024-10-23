@@ -1,4 +1,4 @@
-// Generated with ./scripts/importDpsConstants.ts at 2024-09-24T14:57:26.599Z
+// Generated with ./scripts/importDpsConstants.ts at 2024-10-23T09:57:40.531Z
 
 /** Roles of a prisoner’s involvement in an incident */
 export const prisonerInvolvementRoles = [
@@ -23,9 +23,17 @@ export const prisonerInvolvementRoles = [
 ] as const
 
 /** Roles of a prisoner’s involvement in an incident */
-export type PrisonerInvolvementRole = (typeof prisonerInvolvementRoles)[number]['code']
+export type PrisonerInvolvementRoleDetails = (typeof prisonerInvolvementRoles)[number]
 
-/** Roles of a prisoner’s involvement in an incident
+/** Codes for roles of a prisoner’s involvement in an incident */
+export type PrisonerInvolvementRole = PrisonerInvolvementRoleDetails['code']
+
+/** NOMIS codes for Roles of a prisoner’s involvement in an incident
  * @deprecated
  */
-export type NomisPrisonerInvolvementRole = (typeof prisonerInvolvementRoles)[number]['nomisCode']
+export type NomisPrisonerInvolvementRole = PrisonerInvolvementRoleDetails['nomisCode']
+
+/** Lookup for roles of a prisoner’s involvement in an incident */
+export function getPrisonerInvolvementRoleDetails(code: string): PrisonerInvolvementRoleDetails | null {
+  return prisonerInvolvementRoles.find(item => item.code === code) ?? null
+}

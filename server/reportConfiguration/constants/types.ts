@@ -1,4 +1,4 @@
-// Generated with ./scripts/importDpsConstants.ts at 2024-09-12T13:42:30.026Z
+// Generated with ./scripts/importDpsConstants.ts at 2024-10-23T09:57:37.757Z
 
 /** Types of reportable incidents */
 export const types = [
@@ -77,14 +77,17 @@ export const types = [
 ] as const
 
 /** Types of reportable incidents */
-export type Type = (typeof types)[number]['code']
+export type TypeDetails = (typeof types)[number]
 
-/** Types of reportable incidents
+/** Codes for types of reportable incidents */
+export type Type = TypeDetails['code']
+
+/** NOMIS codes for Types of reportable incidents
  * @deprecated
  */
-export type NomisType = (typeof types)[number]['nomisCode']
+export type NomisType = TypeDetails['nomisCode']
 
-/** Look up an incident type by code */
-export function getTypeDetails(code: string): (typeof types)[number] | null {
-  return types.find(type => type.code === code) ?? null
+/** Lookup for types of reportable incidents */
+export function getTypeDetails(code: string): TypeDetails | null {
+  return types.find(item => item.code === code) ?? null
 }

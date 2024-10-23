@@ -202,9 +202,11 @@ export function govukCheckedItemsConditional<I extends GovukRadiosItem>(
   }
   return items.map(item => {
     if ('value' in item && item.value === conditional.value) {
+      const existingConditionalHtml = item.conditional?.html ?? ''
+      const conditionalHtml = `${existingConditionalHtml}${conditional.html}`
       return {
         ...item,
-        conditional: { html: conditional.html },
+        conditional: { html: conditionalHtml },
       }
     }
     return item

@@ -23,6 +23,7 @@ context('Creating a new report', () => {
     cy.visit('/create-report')
 
     const typePage = Page.verifyOnPage(TypePage)
+    typePage.checkBackLink('/')
     typePage.selectType(reportWithDetails.type)
     typePage.submit()
 
@@ -43,6 +44,7 @@ context('Creating a new report', () => {
     cy.task('stubManageKnownUsers')
 
     const detailsPage = Page.verifyOnPage(DetailsPage)
+    typePage.checkBackLink('/create-report')
     detailsPage.enterDate(new Date(reportWithDetails.incidentDateAndTime))
     const time = /(?<hours>\d\d):(?<minutes>\d\d)/.exec(reportWithDetails.incidentDateAndTime)
     detailsPage.enterTime(time.groups.hours, time.groups.minutes)

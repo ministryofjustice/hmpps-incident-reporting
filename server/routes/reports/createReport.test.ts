@@ -3,9 +3,9 @@ import request, { type Agent, type Response } from 'supertest'
 
 import format from '../../utils/format'
 import { appWithAllRoutes } from '../testutils/appSetup'
-import { type ErrorResponse, IncidentReportingApi } from '../../data/incidentReportingApi'
+import { IncidentReportingApi } from '../../data/incidentReportingApi'
 import { convertReportWithDetailsDates } from '../../data/incidentReportingApiUtils'
-import { mockReport } from '../../data/testData/incidentReporting'
+import { mockErrorResponse, mockReport } from '../../data/testData/incidentReporting'
 import { mockThrownError } from '../../data/testData/thrownErrors'
 
 jest.mock('../../data/incidentReportingApi')
@@ -257,11 +257,7 @@ describe('Creating a report', () => {
     })
 
     it('should show an error if API rejects request', () => {
-      const error = mockThrownError({
-        status: 400,
-        userMessage: 'Description is too short',
-        developerMessage: 'Description is too short',
-      } satisfies ErrorResponse)
+      const error = mockThrownError(mockErrorResponse({ message: 'Description is too short' }))
       incidentReportingApi.createReport.mockRejectedValueOnce(error)
 
       return agent

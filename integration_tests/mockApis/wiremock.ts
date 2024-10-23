@@ -8,12 +8,11 @@ const wiremockAdminUrl = 'http://localhost:9091/__admin'
  */
 export interface Mapping {
   request?: Partial<
-    { method: 'GET' | 'POST' | 'PATCH' | 'PUT' | 'DELETE'; queryParameters: object } & (
-      | { url: string }
-      | { urlPath: string }
-      | { urlPathPattern: string }
-      | { urlPattern: string }
-    )
+    {
+      method: 'GET' | 'POST' | 'PATCH' | 'PUT' | 'DELETE'
+      queryParameters: object
+      bodyPatterns: { equalToJson: unknown }[]
+    } & ({ url: string } | { urlPath: string } | { urlPathPattern: string } | { urlPattern: string })
   >
   response?: Partial<
     {

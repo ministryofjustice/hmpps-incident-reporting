@@ -1,7 +1,7 @@
 {% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
 {% from "govuk/components/radios/macro.njk" import govukRadios %}
 
-{% macro renderCheckedItemsField(fieldName, field, options, values, errors) %}
+{% macro renderCheckboxOrRadioField(fieldName, field, options, values, errors) %}
 
   {% if "items" not in field %}
     {% panic "Field " + fieldName + " is missing items" %}
@@ -20,7 +20,7 @@
     {% if subfield.dependent.field == fieldName %}
 
       {% set conditionalHtml %}
-        {% from "components/wip/field.njk" import renderField %}
+        {% from "macros/renderField.njk" import renderField %}
         {{ renderField(subfieldName, subfield, options, values, errors) }}
       {% endset %}
       {% set items = items | govukCheckedItemsConditional({
@@ -34,8 +34,10 @@
   {% if field.multiple %}
 
     {{ govukCheckboxes({
-      id: fieldName,
       name: fieldName,
+      attributes: {
+        id: fieldName
+      },
       fieldset: {
         legend: {
           text: field.label,
@@ -43,6 +45,7 @@
         }
       },
       hint: { text: field.hint } if field.hint else undefined,
+      idPrefix: fieldName + "-item",
       items: items | govukMultipleCheckedItems(values[fieldName]),
       errorMessage: { text: errors[fieldName].message } if errors[fieldName] else undefined
     }) }}
@@ -50,8 +53,10 @@
   {% else %}
 
     {{ govukRadios({
-      id: fieldName,
       name: fieldName,
+      attributes: {
+        id: fieldName
+      },
       fieldset: {
         legend: {
           text: field.label,
@@ -59,6 +64,7 @@
         }
       },
       hint: { text: field.hint } if field.hint else undefined,
+      idPrefix: fieldName + "-item",
       items: items | govukCheckedItems(values[fieldName]) | govukCheckedItemsDivider(),
       errorMessage: { text: errors[fieldName].message } if errors[fieldName] else undefined
     }) }}

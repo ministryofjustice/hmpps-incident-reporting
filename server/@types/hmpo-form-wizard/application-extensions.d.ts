@@ -30,7 +30,6 @@ declare module 'hmpo-form-wizard' {
     }
 
     interface FieldItem {
-      id?: string
       label?: string
       hint?: string
 

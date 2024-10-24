@@ -1,15 +1,15 @@
 {% from "govuk/components/input/macro.njk" import govukInput %}
-{% from "components/wip/checkedItemsField.njk" import renderCheckedItemsField %}
-{% from "components/wip/dateField.njk" import renderDateField %}
-{% from "components/wip/selectField.njk" import renderSelectField %}
-{% from "components/wip/textAreaField.njk" import renderTextAreaField %}
-{% from "components/wip/timeFields.njk" import renderTimeFields %}
+{% from "macros/renderCheckboxOrRadioField.njk" import renderCheckboxOrRadioField %}
+{% from "macros/renderDateField.njk" import renderDateField %}
+{% from "macros/renderSelectField.njk" import renderSelectField %}
+{% from "macros/renderTextareaField.njk" import renderTextareaField %}
+{% from "macros/renderTimeFields.njk" import renderTimeFields %}
 
 {% macro renderField(fieldName, field, options, values, errors) %}
 
   {% if field.component === "govukRadios" or field.component === "govukCheckboxes" %}
 
-    {{ renderCheckedItemsField(fieldName, field, options, values, errors) }}
+    {{ renderCheckboxOrRadioField(fieldName, field, options, values, errors) }}
 
   {% elif field.component === "govukSelect" %}
 
@@ -25,7 +25,7 @@
 
   {% elif field.component === "govukTextarea" %}
 
-    {{ renderTextAreaField(fieldName, field, options, values, errors) }}
+    {{ renderTextareaField(fieldName, field, options, values, errors) }}
 
   {% elif field.component === "hidden" %}
 
@@ -36,6 +36,7 @@
     {{ govukInput({
       name: fieldName,
       id: fieldName,
+      classes: "govuk-!-width-three-quarters",
       label: {
         text: field.label,
         classes: "govuk-label--m"

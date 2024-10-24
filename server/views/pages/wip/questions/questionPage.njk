@@ -1,71 +1,9 @@
-{% extends "partials/layout.njk" %}
+{% set pageTitle = "TODO: generate page title, probably in controller" %}
 
-{% from "govuk/components/button/macro.njk" import govukButton %}
-{% from "govuk/components/back-link/macro.njk" import govukBackLink %}
-
-{% block pageTitle %}
-  TODO: Test nunjucks template
-{% endblock %}
-
-{% block beforeContent %}
-  {% if backLink %}
-    {{ govukBackLink({
-      text: "Back",
-      href: backLink
-    }) }}
-  {% endif %}
-{% endblock %}
+{% extends "partials/formWizardLayout.njk" %}
 
 {% block content %}
-  {% set formMethod = options.method | default('post') %}
-  {% set formAction = options.action | default('') %}
-  {% set formEnctype = options.enctype | default('') %}
-
-  <div class="govuk-grid-row">
-    <div class="govuk-grid-column-two-thirds">
-      {% include "partials/errorSummary.njk" %}
-
-      {# TODO: page heading goes here, unless this is a 1-question page whose label is promoted to heading #}
-
-      <form method="{{ formMethod }}" action="{{ formAction }}"
-          {% if formEnctype %}
-            enctype="{{ formEnctype }}"
-          {% endif %}
-      >
-
-        {% if formMethod == 'post' %}
-          <input type="hidden" name="_csrf" value="{{ csrfToken }}">
-        {% endif %}
-
-        {% block fields %}
-          {% for _fieldId, field in options.fields %}
-            {% include "../../../components/wip/renderField/renderField.njk" %}
-          {% endfor %}
-        {% endblock %}
-
-        <div class="govuk-button-group">
-          {% block formActions %}
-            {% block submitAction %}
-              {{ govukButton({
-                text: "Save and continue",
-                classes: options.buttonClasses,
-                preventDoubleClick: true,
-                type: "submit"
-              }) }}
-            {% endblock %}
-
-            {% block cancelAction %}
-              {% if cancelUrl %}
-                <a href="{{ cancelUrl }}" class="govuk-link--no-visited-state">
-                  Cancel
-                </a>
-              {% endif %}
-            {% endblock %}
-          {% endblock %}
-        </div>
-      </form>
-    </div>
-  </div>
+  {{ super() }}
 
   <h3>TODO: Debug</h3>
   <pre>
@@ -79,4 +17,5 @@
     errors {{ errors | dump(2) }}
     nextPage {{ nextPage | dump(2) }}
   </pre>
+
 {% endblock %}

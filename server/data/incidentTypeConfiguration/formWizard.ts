@@ -1,4 +1,5 @@
 import FormWizard from 'hmpo-form-wizard'
+
 import type { AnswerConfiguration, IncidentTypeConfiguration, QuestionConfiguration } from './types'
 import QuestionsController from '../../controllers/wip/questionsController'
 
@@ -74,16 +75,15 @@ export function generateFields(config: IncidentTypeConfiguration): FormWizard.Fi
         component: question.multipleAnswers ? 'govukCheckboxes' : 'govukRadios',
         items: activeAnswers.map(answer => {
           return {
-            id: answer.id,
-            name: answer.id,
             value: answer.code,
             label: answer.label,
             dateRequired: answer.dateRequired,
             commentRequired: answer.commentRequired,
-          }
+          } satisfies FormWizard.FieldItem
         }),
-      }
-      // Add comment/date fields
+      } satisfies FormWizard.Field
+
+      // Add conditional comment/date fields
       for (const answer of activeAnswers) {
         if (answer.dateRequired) {
           const fieldName = conditionalFieldName(question, answer, 'date')
@@ -96,8 +96,9 @@ export function generateFields(config: IncidentTypeConfiguration): FormWizard.Fi
               field: question.id,
               value: answer.code,
             },
-          }
+          } satisfies FormWizard.Field
         }
+
         if (answer.commentRequired) {
           const fieldName = conditionalFieldName(question, answer, 'comment')
           fields[fieldName] = {
@@ -109,7 +110,7 @@ export function generateFields(config: IncidentTypeConfiguration): FormWizard.Fi
               field: question.id,
               value: answer.code,
             },
-          }
+          } satisfies FormWizard.Field
         }
       }
     })

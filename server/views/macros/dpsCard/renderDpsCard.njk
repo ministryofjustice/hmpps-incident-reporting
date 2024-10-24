@@ -1,16 +1,16 @@
 {% macro renderDpsCard(params) %}
 
   <li class="govuk-grid-column-one-third dps-card-group__item">
-    <div class="dps-card {% if params.href %}dps-card--clickable{% endif %}">
+    <div class="dps-card {% if params.href %}dps-card--clickable{% endif %}" data-module="dps-card">
       <h2 class="govuk-heading-m dps-card__heading">
         {% if params.href %}
-          <a class="dps-card__link" href="{{ params.href }}">{{ params.heading | safe }}</a>
+          <a class="dps-card__link" href="{{ params.href }}">{{ params.heading }}</a>
         {% else %}
           {{ params.heading }}
         {% endif %}
       </h2>
       {% if params.description %}
-        <p class="govuk-body dps-card__description">{{ params.description | safe }}</p>
+        <p class="govuk-body dps-card__description">{{ params.description }}</p>
       {% endif %}
     </div>
   </li>

@@ -189,7 +189,7 @@ declare module 'hmpo-form-wizard' {
                 fn: Validator
               }
           )[]
-      /** Array of select box or radio button options */
+      /** Array of select, checkbox or radio button options */
       items?: FieldItem[]
       /** Name of field to make this field conditional upon. This field will not be validated or stored if this condition is not met. Can also also be an object to specify a specific value instead of the default of true: */
       dependent?:

@@ -202,11 +202,20 @@ class Step2Controller extends BaseController<CreateReport, Step2> {
   }
 
   getNextStep(req: FormWizard.Request<CreateReport, Step2>, res: Express.Response): string | undefined {
-    // if a report was successfully created, redirect to it
-    if ('createdReport' in res.locals && res.locals.createdReport) {
+    // if a report was successfully created…
+    if (res.locals.createdReport) {
       const report: ReportWithDetails = res.locals.createdReport
+
+      // …return to home page is user chose to exit
+      if (req.body.submit === 'exit') {
+        return '/'
+      }
+
+      // …or proceed with filling in the report if they chose to continue
+      // TODO: this should go to staff/prisoner involvements once that's designed
       return `/reports/${report.id}`
     }
+
     // otherwise let form wizard decide where to go next
     return super.getNextStep(req, res)
   }

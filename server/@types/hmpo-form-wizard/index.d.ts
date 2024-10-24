@@ -215,7 +215,6 @@ declare module 'hmpo-form-wizard' {
     type Fields<V extends object = Values> = Record<keyof V, Field>
 
     /** Type helper to extract a concrete narrowed Values extension from a fields object which has no type annotation */
-    // type ValuesFromFields<F extends Fields> = Record<keyof F, string>
     type ValuesFromFields<F extends Fields> = {
       [k in keyof F]: F[k] extends { multiple: true } ? string[] : string
     }

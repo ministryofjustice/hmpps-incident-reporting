@@ -32,9 +32,21 @@
         <div class="govuk-button-group">
           {{ govukButton({
             text: saveButtonText or "Save and continue",
+            name: "submit",
+            value: "continue",
             preventDoubleClick: true,
             type: "submit"
           }) }}
+
+          {% if allowSaveAndExit %}
+            {{ govukButton({
+              text: "Save and exit",
+              name: "submit",
+              value: "exit",
+              preventDoubleClick: true,
+              classes: "govuk-button--secondary"
+            }) }}
+          {% endif %}
 
           {% if cancelUrl %}
             <a href="{{ cancelUrl }}" class="govuk-link--no-visited-state">Cancel</a>

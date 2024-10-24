@@ -189,7 +189,7 @@ declare module 'hmpo-form-wizard' {
                 fn: Validator
               }
           )[]
-      /** Array of select box or radio button options */
+      /** Array of select, checkbox or radio button options */
       items?: FieldItem[]
       /** Name of field to make this field conditional upon. This field will not be validated or stored if this condition is not met. Can also also be an object to specify a specific value instead of the default of true: */
       dependent?:
@@ -213,6 +213,11 @@ declare module 'hmpo-form-wizard' {
 
     /** Definition of fields in a form across all steps */
     type Fields<V extends object = Values> = Record<keyof V, Field>
+
+    /** Type helper to extract a concrete narrowed Values extension from a fields object which has no type annotation */
+    type ValuesFromFields<F extends Fields> = {
+      [k in keyof F]: F[k] extends { multiple: true } ? string[] : string
+    }
 
     /** Base configuration for all steps */
     interface Config<V extends object = Values> extends Step<V> {

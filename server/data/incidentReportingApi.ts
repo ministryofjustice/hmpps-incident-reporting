@@ -379,7 +379,7 @@ export class IncidentReportingApi extends RestClient {
   async createReport(data: CreateReportRequest): Promise<ReportWithDetails> {
     const dataWithDatesAsStrings: DatesAsStrings<CreateReportRequest> = {
       ...data,
-      incidentDateAndTime: data.incidentDateAndTime.toISOString(),
+      incidentDateAndTime: format.isoDateTime(data.incidentDateAndTime),
     }
     const report = await this.post<DatesAsStrings<ReportWithDetails>>({
       path: '/incident-reports',
@@ -391,7 +391,7 @@ export class IncidentReportingApi extends RestClient {
   async updateReport(id: string, data: UpdateReportRequest): Promise<ReportBasic> {
     const dataWithDatesAsStrings: DatesAsStrings<UpdateReportRequest> = {
       ...data,
-      incidentDateAndTime: data.incidentDateAndTime?.toISOString(),
+      incidentDateAndTime: format.isoDateTime(data.incidentDateAndTime),
     }
     const report = await this.patch<DatesAsStrings<ReportBasic>>({
       path: `/incident-reports/${encodeURIComponent(id)}`,
@@ -459,7 +459,7 @@ export class IncidentReportingApi extends RestClient {
       ...questionWithResponses,
       responses: questionWithResponses.responses.map(response => ({
         ...response,
-        responseDate: response.responseDate?.toISOString(),
+        responseDate: format.isoDateTime(response.responseDate),
       })),
     }
     const questions = await this.post<DatesAsStrings<Question[]>>({

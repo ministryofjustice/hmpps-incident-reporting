@@ -7,15 +7,17 @@
 
   <h3>TODO: Debug</h3>
   <pre>
-    req.form {{ req.form | dump(2) }}
-    values {{ values | dump(2) }}
-    {# Cycle in options #}
-    {# options {{ options | dump(2) }} #}
-    options.step {{ options.step | dump(2) }}
-    options.fields {{ options.fields | dump(2) }}
     action {{ action | dump(2) }}
-    errors {{ errors | dump(2) }}
     nextPage {{ nextPage | dump(2) }}
+
+
+    errors {{ errors | dump(2) }}
+
+
+    values {{ values | dump(2) }}
+
+
+    options.fields {{ options.fields | dump(2) }}
   </pre>
 
 {% endblock %}

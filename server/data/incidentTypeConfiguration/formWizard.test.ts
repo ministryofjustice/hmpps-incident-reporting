@@ -167,19 +167,13 @@ describe('generateSteps()', () => {
         next: [
           {
             field: 'qanimals',
-            value: 'DOG',
+            value: ['DOG'],
             op: checkMultipleValues,
             next: 'qdog',
           },
           {
             field: 'qanimals',
-            value: 'CAT',
-            op: checkMultipleValues,
-            next: 'icecream',
-          },
-          {
-            field: 'qanimals',
-            value: 'FOX',
+            value: ['CAT', 'FOX'],
             op: checkMultipleValues,
             next: 'icecream',
           },
@@ -192,14 +186,8 @@ describe('generateSteps()', () => {
         next: [
           {
             field: 'qdog',
-            op: '===',
-            value: 'YES',
-            next: 'qicecream',
-          },
-          {
-            field: 'qdog',
-            op: '===',
-            value: 'NO',
+            op: 'in',
+            value: ['YES', 'NO'],
             next: 'qicecream',
           },
         ],
@@ -211,14 +199,8 @@ describe('generateSteps()', () => {
         next: [
           {
             field: 'qicecream',
-            op: '===',
-            value: 'YES (SPECIFY FAVOURITE FLAVOUR)',
-            next: 'qend',
-          },
-          {
-            field: 'qicecream',
-            op: '===',
-            value: 'no',
+            op: 'in',
+            value: ['YES (SPECIFY FAVOURITE FLAVOUR)', 'no'],
             next: 'qend',
           },
         ],
@@ -230,14 +212,8 @@ describe('generateSteps()', () => {
         next: [
           {
             field: 'qend',
-            op: '===',
-            value: 'yes',
-            next: null,
-          },
-          {
-            field: 'qend',
-            op: '===',
-            value: 'no',
+            op: 'in',
+            value: ['yes', 'no'],
             next: null,
           },
         ],
@@ -381,7 +357,7 @@ describe('checkMultipleValues()', () => {
     { desc: 'submitted values do not match', submittedValues: ['cat', 'lizard'], expected: false },
     { desc: 'submitted values match', submittedValues: ['fox', 'dog'], expected: true },
   ])('returns $expected when $desc', ({ submittedValues, expected }) => {
-    const condition = { value: 'dog' }
+    const condition = { value: ['dog', 'turtle'] }
 
     const result = checkMultipleValues(submittedValues, null as FormWizard.Request, null as Express.Response, condition)
     expect(result).toEqual(expected)

@@ -1,6 +1,7 @@
 {% extends "partials/layout.njk" %}
 
 {% from "govuk/components/breadcrumbs/macro.njk" import govukBreadcrumbs %}
+{% from "govuk/components/warning-text/macro.njk" import govukWarningText %}
 
 {% set pageTitle = applicationName + " - Home" %}
 {% set mainClasses = "govuk-body" %}
@@ -20,6 +21,17 @@
 
 {% block content %}
 
-  <h1 class="govuk-heading-l">Incident reporting</h1>
+  {% if environment === "prod" %}
+
+    {{ govukWarningText({
+      text: "This service is not ready for use.",
+      iconFallbackText: "Warning"
+    }) }}
+
+  {% else %}
+
+    <h1 class="govuk-heading-l">Incident reporting</h1>
+
+  {% endif %}
 
 {% endblock %}

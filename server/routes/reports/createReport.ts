@@ -58,7 +58,7 @@ const fields = {
   },
 } satisfies FormWizard.Fields
 
-interface CreateReport extends Record<keyof typeof fields, string> {
+type CreateReport = FormWizard.ValuesFromFields<typeof fields> & {
   type: Type
 }
 

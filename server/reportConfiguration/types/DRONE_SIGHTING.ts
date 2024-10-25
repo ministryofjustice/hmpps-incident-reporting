@@ -1,4 +1,4 @@
-// Generated with ./scripts/updateNomisIncidentTypeConfigurations.ts at 2024-10-15T17:17:26.226Z
+// Generated with ./scripts/updateNomisIncidentTypeConfigurations.ts at 2024-10-25T07:44:12.871Z
 
 import { type IncidentTypeConfiguration } from '../../data/incidentTypeConfiguration/types'
 
@@ -800,7 +800,43 @@ const DRONE_SIGHTING: IncidentTypeConfiguration = {
       ],
     },
   },
-  prisonerRoles: [],
+  prisonerRoles: [
+    {
+      prisonerRole: 'ASSISTED_STAFF',
+      onlyOneAllowed: false,
+      active: true,
+    },
+    {
+      prisonerRole: 'IMPEDED_STAFF',
+      onlyOneAllowed: false,
+      active: true,
+    },
+    {
+      prisonerRole: 'IN_POSSESSION',
+      onlyOneAllowed: false,
+      active: true,
+    },
+    {
+      prisonerRole: 'INTENDED_RECIPIENT',
+      onlyOneAllowed: false,
+      active: true,
+    },
+    {
+      prisonerRole: 'PERPETRATOR',
+      onlyOneAllowed: false,
+      active: true,
+    },
+    {
+      prisonerRole: 'PRESENT_AT_SCENE',
+      onlyOneAllowed: false,
+      active: true,
+    },
+    {
+      prisonerRole: 'SUSPECTED_INVOLVED',
+      onlyOneAllowed: false,
+      active: true,
+    },
+  ],
 } as const
 
 export default DRONE_SIGHTING

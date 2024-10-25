@@ -54,7 +54,7 @@ declare module 'hmpo-form-wizard' {
             | 'all'
             | 'some'
           value: Value | MultiValue
-          next: string
+          next: string | null
         }
       | {
           /** next can be an array of conditions */

@@ -5,31 +5,28 @@ import { Component } from 'govuk-frontend'
  * This forwards a click anywhere inside the card to this heading link.
  */
 // eslint-disable-next-line import/prefer-default-export
-export class DpsCard extends Component {
-  /** @param {HTMLDivElement} root */
-  constructor(root) {
+export class DpsCard extends Component<HTMLDivElement> {
+  static moduleName = 'dps-card'
+
+  private link: HTMLAnchorElement | undefined
+
+  constructor(root: HTMLDivElement) {
     super(root)
 
-    /** @type {HTMLCollectionOf<HTMLAnchorElement>} */
     const links = root.getElementsByClassName('dps-card__link')
-    /** @type {HTMLAnchorElement | undefined} */
     const link = links.item(0)
-    if (link) {
+    if (link instanceof HTMLAnchorElement) {
       this.link = link
       const boundOnClick = this.onClick.bind(this)
       root.addEventListener('click', boundOnClick)
     }
   }
 
-  /** @param {MouseEvent} event */
-  onClick(event) {
-    if (event.target.nodeName !== 'A') {
+  onClick(event: MouseEvent) {
+    if (event.target instanceof HTMLElement && event.target.nodeName !== 'A') {
       event.stopPropagation()
-      const divertedEvent = new event.constructor(event.type, event)
+      const divertedEvent = new (event.constructor as typeof MouseEvent)(event.type, event)
       this.link.dispatchEvent(divertedEvent)
     }
   }
 }
-
-DpsCard.moduleName = 'dps-card'
-DpsCard.elementType = HTMLDivElement

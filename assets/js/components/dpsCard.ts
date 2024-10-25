@@ -8,6 +8,8 @@ import { Component } from 'govuk-frontend'
 export class DpsCard extends Component<HTMLDivElement> {
   static moduleName = 'dps-card'
 
+  static elementType = HTMLDivElement
+
   private link: HTMLAnchorElement | undefined
 
   constructor(root: HTMLDivElement) {

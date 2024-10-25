@@ -4,7 +4,7 @@ declare module 'govuk-frontend' {
 
     static abstract moduleName: string
 
-    static elementType: HTMLElement
+    static elementType: typeof HTMLElement
 
     protected constructor(root: Root)
 

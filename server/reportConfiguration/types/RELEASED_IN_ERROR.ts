@@ -1,4 +1,4 @@
-// Generated with ./scripts/updateNomisIncidentTypeConfigurations.ts at 2024-10-15T17:17:46.580Z
+// Generated with ./scripts/updateNomisIncidentTypeConfigurations.ts at 2024-10-25T07:44:33.831Z
 
 import { type IncidentTypeConfiguration } from '../../data/incidentTypeConfiguration/types'
 
@@ -1182,7 +1182,7 @@ const RELEASED_IN_ERROR: IncidentTypeConfiguration = {
           label: 'Enter details:',
           commentRequired: true,
           dateRequired: false,
-          nextQuestionId: '45194',
+          nextQuestionId: '45235',
         },
       ],
     },

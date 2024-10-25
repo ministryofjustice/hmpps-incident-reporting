@@ -5,6 +5,7 @@ const { clean } = require('esbuild-plugin-clean')
 const { copy } = require('esbuild-plugin-copy')
 const manifestPlugin = require('esbuild-plugin-manifest')
 const { sassPlugin } = require('esbuild-sass-plugin')
+const { typecheckPlugin } = require('@jgoz/esbuild-plugin-typecheck')
 const { glob } = require('glob')
 
 /**
@@ -37,6 +38,7 @@ const buildAssets = buildConfig => {
     platform: 'browser',
     target: 'es2018',
     external: ['/assets/*'],
+    tsconfig: buildConfig.assets.tsconfig,
     bundle: true,
     plugins: [
       clean({
@@ -50,6 +52,7 @@ const buildAssets = buildConfig => {
         quietDeps: true,
         loadPaths: [path.join(process.cwd(), 'node_modules'), process.cwd()],
       }),
+      typecheckPlugin(),
     ],
   })
 }

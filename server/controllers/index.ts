@@ -2,6 +2,7 @@ import type Express from 'express'
 import FormWizard from 'hmpo-form-wizard'
 
 import { parseDateInput, parseTimeInput } from '../utils/utils'
+import { SanitisedError } from '../sanitisedError'
 
 /**
  * The super-class form wizard controller with functionality that should be shared
@@ -55,10 +56,62 @@ export abstract class BaseController<
     return error
   }
 
+  /**
+   * Convert an API error into a FormWizard.Error so that a message can be presented to users in an error summary
+   */
+  convertIntoValidationError(_error: SanitisedError): FormWizard.Error {
+    // TODO: also handle other error types too?
+    return new BaseController.Error(null, { message: 'Sorry, there was a problem with your request' })
+  }
+
   csrfGenerateSecret(req: FormWizard.Request<V, K>, res: Express.Response, next: Express.NextFunction): void {
     // copy application middleware CSRF token into form wizard for sanity
     req.sessionModel.set('csrf-secret', res.locals.csrfToken)
     next()
+  }
+
+  /**
+   * Builds an object of values for all fields and steps from session or, alternatively,
+   * from just this step’s request form values.
+   * Values for fields with unmet dependencies are discarded.
+   * Validation is not performed.
+   */
+  getAllValues(req: FormWizard.Request<V, K>, fromSession = true): V {
+    const { allFields } = req.form.options
+    const allValues: V = Object.create({})
+
+    // retrieve all fields’ values including those with dependencies
+    // eslint-disable-next-line no-restricted-syntax
+    for (const fieldName in allFields) {
+      if (Object.hasOwn(allFields, fieldName)) {
+        allValues[fieldName] = fromSession
+          ? req.sessionModel.get(fieldName)
+          : // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+            // @ts-ignore not all fieldName will be present in this step
+            req.form.values[fieldName]
+      }
+    }
+
+    // delete values if dependent field not set
+    // eslint-disable-next-line no-restricted-syntax
+    for (const fieldName in allFields) {
+      if (Object.hasOwn(allFields, fieldName)) {
+        const field = allFields[fieldName]
+        if (
+          (typeof field.dependent === 'string' &&
+            field.dependent in allValues &&
+            allValues[field.dependent as keyof V]) ||
+          (typeof field.dependent === 'object' &&
+            'field' in field.dependent &&
+            field.dependent.field in allValues &&
+            allValues[field.dependent.field as keyof V] !== field.dependent.value)
+        ) {
+          delete allValues[fieldName]
+        }
+      }
+    }
+
+    return allValues
   }
 }
 

@@ -1,0 +1,19 @@
+{% from "moj/components/date-picker/macro.njk" import mojDatePicker %}
+
+{% macro renderDateField(fieldName, field, options, values, errors) %}
+
+  {{ mojDatePicker({
+    name: fieldName,
+    id: fieldName,
+    label: {
+      text: field.label,
+      classes: "govuk-label--m"
+    },
+    hint: { text: field.hint } if field.hint else undefined,
+    leadingZeros: "true",
+    maxDate: now() | shortDate,
+    value: values[fieldName],
+    errorMessage: { text: errors[fieldName].message } if errors[fieldName] else undefined
+  }) }}
+
+{% endmacro %}

@@ -1,4 +1,4 @@
-// Generated with ./scripts/importDpsConstants.ts at 2024-09-12T13:42:33.866Z
+// Generated with ./scripts/importDpsConstants.ts at 2024-10-23T09:57:41.903Z
 
 /** Reasons for correction requests made about a report */
 export const correctionRequestReasons = [
@@ -10,4 +10,12 @@ export const correctionRequestReasons = [
 ] as const
 
 /** Reasons for correction requests made about a report */
-export type CorrectionRequestReason = (typeof correctionRequestReasons)[number]['code']
+export type CorrectionRequestReasonDetails = (typeof correctionRequestReasons)[number]
+
+/** Codes for reasons for correction requests made about a report */
+export type CorrectionRequestReason = CorrectionRequestReasonDetails['code']
+
+/** Lookup for reasons for correction requests made about a report */
+export function getCorrectionRequestReasonDetails(code: string): CorrectionRequestReasonDetails | null {
+  return correctionRequestReasons.find(item => item.code === code) ?? null
+}

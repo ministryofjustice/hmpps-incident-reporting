@@ -16,7 +16,7 @@ describe('User service', () => {
 
     it('Retrieves and formats user name', async () => {
       const token = createUserToken([])
-      manageUsersApiClient.getUser.mockResolvedValue({ name: 'john smith' } as User)
+      manageUsersApiClient.getUser.mockResolvedValue({ name: 'John Smith' } as User)
 
       const result = await userService.getUser(token)
 
@@ -25,7 +25,7 @@ describe('User service', () => {
 
     it('Retrieves and formats roles', async () => {
       const token = createUserToken(['ROLE_ONE', 'ROLE_TWO'])
-      manageUsersApiClient.getUser.mockResolvedValue({ name: 'john smith' } as User)
+      manageUsersApiClient.getUser.mockResolvedValue({ name: 'John Smith' } as User)
 
       const result = await userService.getUser(token)
 

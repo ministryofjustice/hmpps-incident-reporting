@@ -1,0 +1,29 @@
+{% from "govuk/components/select/macro.njk" import govukSelect %}
+
+{% macro renderSelectField(fieldName, field, options, values, errors) %}
+
+  {% if "items" not in field %}
+    {% panic "Field " + fieldName + " is missing items" %}
+  {% endif %}
+
+  {% set items = [] %}
+  {% for item in field.items %}
+    {% set _ = items.push({
+      value: item.value,
+      text: item.label
+    }) %}
+  {% endfor %}
+
+  {{ govukSelect({
+    id: fieldName,
+    name: fieldName,
+    label: {
+      text: field.label,
+      classes: "govuk-label--m"
+    },
+    hint: { text: field.hint } if field.hint else undefined,
+    items: items | govukSelectInsertDefault("") | govukSelectSetSelected(values[fieldName]),
+    errorMessage: { text: errors[fieldName].message } if errors[fieldName] else undefined
+  }) }}
+
+{% endmacro %}

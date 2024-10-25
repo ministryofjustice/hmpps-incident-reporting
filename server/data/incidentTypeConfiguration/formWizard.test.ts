@@ -167,19 +167,13 @@ describe('generateSteps()', () => {
         next: [
           {
             field: 'qanimals',
-            value: 'DOG',
+            value: ['DOG'],
             op: checkMultipleValues,
             next: 'qdog',
           },
           {
             field: 'qanimals',
-            value: 'CAT',
-            op: checkMultipleValues,
-            next: 'icecream',
-          },
-          {
-            field: 'qanimals',
-            value: 'FOX',
+            value: ['CAT', 'FOX'],
             op: checkMultipleValues,
             next: 'icecream',
           },
@@ -192,14 +186,8 @@ describe('generateSteps()', () => {
         next: [
           {
             field: 'qdog',
-            op: '===',
-            value: 'YES',
-            next: 'qicecream',
-          },
-          {
-            field: 'qdog',
-            op: '===',
-            value: 'NO',
+            op: 'in',
+            value: ['YES', 'NO'],
             next: 'qicecream',
           },
         ],
@@ -211,14 +199,8 @@ describe('generateSteps()', () => {
         next: [
           {
             field: 'qicecream',
-            op: '===',
-            value: 'YES (SPECIFY FAVOURITE FLAVOUR)',
-            next: 'qend',
-          },
-          {
-            field: 'qicecream',
-            op: '===',
-            value: 'no',
+            op: 'in',
+            value: ['YES (SPECIFY FAVOURITE FLAVOUR)', 'no'],
             next: 'qend',
           },
         ],
@@ -230,14 +212,8 @@ describe('generateSteps()', () => {
         next: [
           {
             field: 'qend',
-            op: '===',
-            value: 'yes',
-            next: null,
-          },
-          {
-            field: 'qend',
-            op: '===',
-            value: 'no',
+            op: 'in',
+            value: ['yes', 'no'],
             next: null,
           },
         ],
@@ -259,24 +235,18 @@ describe('generateFields()', () => {
         component: 'govukCheckboxes',
         items: [
           {
-            id: 'qanimals-a1',
-            name: 'qanimals-a1',
             value: 'DOG',
             label: 'Dog',
             dateRequired: false,
             commentRequired: false,
           },
           {
-            id: 'qanimals-a2',
-            name: 'qanimals-a2',
             value: 'CAT',
             label: 'Cat',
             dateRequired: false,
             commentRequired: false,
           },
           {
-            id: 'qanimals-a3',
-            name: 'qanimals-a3',
             value: 'FOX',
             label: 'Fox',
             dateRequired: false,
@@ -292,16 +262,12 @@ describe('generateFields()', () => {
         component: 'govukRadios',
         items: [
           {
-            id: 'qdog-a1',
-            name: 'qdog-a1',
             value: 'YES',
             label: 'Yes',
             dateRequired: true,
             commentRequired: true,
           },
           {
-            id: 'qdog-a2',
-            name: 'qdog-a2',
             value: 'NO',
             label: 'No',
             dateRequired: false,
@@ -337,16 +303,12 @@ describe('generateFields()', () => {
         component: 'govukRadios',
         items: [
           {
-            id: 'qicecream-a1',
-            name: 'qicecream-a1',
             value: 'YES (SPECIFY FAVOURITE FLAVOUR)',
             label: 'Yes (specify favourite flabour)',
             dateRequired: false,
             commentRequired: true,
           },
           {
-            id: 'q2-a2',
-            name: 'q2-a2',
             value: 'no',
             label: 'No',
             dateRequired: false,
@@ -372,16 +334,12 @@ describe('generateFields()', () => {
         component: 'govukRadios',
         items: [
           {
-            id: 'q2-a1',
-            name: 'q2-a1',
             value: 'yes',
             label: 'Yes',
             dateRequired: false,
             commentRequired: false,
           },
           {
-            id: 'q2-a2',
-            name: 'q2-a2',
             value: 'no',
             label: 'No',
             dateRequired: false,
@@ -399,7 +357,7 @@ describe('checkMultipleValues()', () => {
     { desc: 'submitted values do not match', submittedValues: ['cat', 'lizard'], expected: false },
     { desc: 'submitted values match', submittedValues: ['fox', 'dog'], expected: true },
   ])('returns $expected when $desc', ({ submittedValues, expected }) => {
-    const condition = { value: 'dog' }
+    const condition = { value: ['dog', 'turtle'] }
 
     const result = checkMultipleValues(submittedValues, null as FormWizard.Request, null as Express.Response, condition)
     expect(result).toEqual(expected)

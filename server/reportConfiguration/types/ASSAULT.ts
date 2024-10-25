@@ -1,4 +1,4 @@
-// Generated with ./scripts/updateNomisIncidentTypeConfigurations.ts at 2024-10-15T17:17:12.368Z
+// Generated with ./scripts/updateNomisIncidentTypeConfigurations.ts at 2024-10-25T07:43:58.509Z
 
 import { type IncidentTypeConfiguration } from '../../data/incidentTypeConfiguration/types'
 
@@ -1317,7 +1317,7 @@ const ASSAULT: IncidentTypeConfiguration = {
           label: 'A AND E',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '61304',
+          nextQuestionId: '61313',
         },
         {
           id: '213183',
@@ -1326,7 +1326,7 @@ const ASSAULT: IncidentTypeConfiguration = {
           label: 'INPATIENT (OVERNIGHT ONLY)',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '61304',
+          nextQuestionId: '61313',
         },
         {
           id: '213184',
@@ -1335,7 +1335,7 @@ const ASSAULT: IncidentTypeConfiguration = {
           label: 'INPATIENT (OVER 24HR)',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '61304',
+          nextQuestionId: '61313',
         },
         {
           id: '213185',
@@ -1344,7 +1344,7 @@ const ASSAULT: IncidentTypeConfiguration = {
           label: 'LIFE SUPPORT',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '61304',
+          nextQuestionId: '61313',
         },
       ],
     },

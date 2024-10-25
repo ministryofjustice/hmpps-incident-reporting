@@ -1,4 +1,4 @@
-// Generated with ./scripts/importDpsConstants.ts at 2024-09-12T13:42:30.663Z
+// Generated with ./scripts/importDpsConstants.ts at 2024-10-23T09:57:38.451Z
 
 /** Report statuses */
 export const statuses = [
@@ -14,4 +14,12 @@ export const statuses = [
 ] as const
 
 /** Report statuses */
-export type Status = (typeof statuses)[number]['code']
+export type StatusDetails = (typeof statuses)[number]
+
+/** Codes for report statuses */
+export type Status = StatusDetails['code']
+
+/** Lookup for report statuses */
+export function getStatusDetails(code: string): StatusDetails | null {
+  return statuses.find(item => item.code === code) ?? null
+}

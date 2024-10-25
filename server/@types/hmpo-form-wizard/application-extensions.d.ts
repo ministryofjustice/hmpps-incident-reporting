@@ -8,8 +8,16 @@ declare module 'hmpo-form-wizard' {
     interface Field {
       name?: string
       label?: string
-
-      component?: string
+      hint?: string
+      component?:
+        | 'hidden'
+        | 'govukCheckboxes'
+        | 'govukInput'
+        | 'govukRadios'
+        | 'govukSelect'
+        | 'govukTextarea'
+        | 'mojDatePicker'
+        | 'appTime'
 
       // TODO: custom properties need major cleanup: we should group them into very few nested objects
       nameForErrors?: string
@@ -22,8 +30,8 @@ declare module 'hmpo-form-wizard' {
     }
 
     interface FieldItem {
-      id?: string
       label?: string
+      hint?: string
 
       // TODO: custom properties need major cleanup
 

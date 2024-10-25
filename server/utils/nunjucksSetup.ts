@@ -57,6 +57,7 @@ export default function nunjucksSetup(app: express.Express): void {
   // misc utils
   njkEnv.addFilter('assetMap', (url: string) => assetManifest[url] || url)
   njkEnv.addGlobal('callAsMacro', callAsMacro)
+  njkEnv.addGlobal('now', () => new Date())
   njkEnv.addExtension('panic', new PanicExtension())
 
   // name formatting

@@ -25,20 +25,34 @@ declare module 'hmpo-form-wizard' {
     /** Use in complex generic forms that might allow multiple values in any fields; have checkbox components */
     type MultiValues = Record<string, MultiValue>
 
+    /** Operator function, returns true if submitted values matches condition */
+    type OperatorFunction = (
+      submittedValue: Value | MultiValue,
+      req: Request,
+      res: Express.Response,
+      condition: unknown,
+    ) => boolean
+
     /** Possible conditions for next steps */
     type NextStepCondition =
       | {
           /** field, op and value. op defaults to '===' */
           field: string
-          op?: '>' | '>=' | '<' | '<=' | '==' | '===' | '!=' | 'before' | 'after' | 'in' | 'all' | 'some'
-          value: Value
-          next: string
-        }
-      | {
-          /** an operator can be a function */
-          field: string
-          op: (fieldValue: Value, req: Request, res: Express.Response, con: unknown) => boolean
-          value: Value
+          op?:
+            | OperatorFunction
+            | '>'
+            | '>='
+            | '<'
+            | '<='
+            | '=='
+            | '==='
+            | '!='
+            | 'before'
+            | 'after'
+            | 'in'
+            | 'all'
+            | 'some'
+          value: Value | MultiValue
           next: string
         }
       | {
@@ -175,7 +189,7 @@ declare module 'hmpo-form-wizard' {
                 fn: Validator
               }
           )[]
-      /** Array of select box or radio button options */
+      /** Array of select, checkbox or radio button options */
       items?: FieldItem[]
       /** Name of field to make this field conditional upon. This field will not be validated or stored if this condition is not met. Can also also be an object to specify a specific value instead of the default of true: */
       dependent?:
@@ -199,6 +213,11 @@ declare module 'hmpo-form-wizard' {
 
     /** Definition of fields in a form across all steps */
     type Fields<V extends object = Values> = Record<keyof V, Field>
+
+    /** Type helper to extract a concrete narrowed Values extension from a fields object which has no type annotation */
+    type ValuesFromFields<F extends Fields> = {
+      [k in keyof F]: F[k] extends { multiple: true } ? string[] : string
+    }
 
     /** Base configuration for all steps */
     interface Config<V extends object = Values> extends Step<V> {

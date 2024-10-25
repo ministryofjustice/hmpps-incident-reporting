@@ -123,6 +123,19 @@ describe('govukCheckedItemsConditional', () => {
     ])
   })
 
+  it('should append content if item already has conditional html', () => {
+    const itemsWithConditionalHtml: GovukRadiosItem[] = [
+      { text: 'A', value: 'a', conditional: { html: 'Comment on A' } },
+      { text: 'B', value: 'b', conditional: { html: 'Comment on B' } },
+    ]
+    expect(
+      govukCheckedItemsConditional(itemsWithConditionalHtml, { value: 'b', html: '<strong>info</strong>' }),
+    ).toStrictEqual<GovukRadiosItem[]>([
+      { text: 'A', value: 'a', conditional: { html: 'Comment on A' } },
+      { text: 'B', value: 'b', conditional: { html: 'Comment on B<strong>info</strong>' } },
+    ])
+  })
+
   it('should not add conditional html property if no items match by value', () => {
     expect(govukCheckedItemsConditional(items, { value: 'd', html: '<strong>info</strong>' })).toStrictEqual(items)
   })

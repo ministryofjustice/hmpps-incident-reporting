@@ -133,7 +133,7 @@ digraph RELEASED_IN_ERROR {  rankdir=LR;
   45192 -> 45193 [label = "No"];
   45193 [label = "To which establishment was person returned?"];
   45193 -> END_NODE [label = "Enter details:", style="filled", color="#DDD"];
-  45193 -> 45194 [label = "Enter details:"];
+  45193 -> 45235 [label = "Enter details:"];
   45194 [label = "How long was person UAL?", style="filled", color="#DDD"];
   45194 -> END_NODE [label = "Enter value", style="filled", color="#DDD"];
   45195 [label = "How long was person UAL?", style="filled", color="#DDD"];

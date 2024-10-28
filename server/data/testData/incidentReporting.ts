@@ -38,7 +38,7 @@ export function mockEvent({
   incidentDateAndTime.setMilliseconds(0)
 
   const event: DatesAsStrings<Event> = {
-    id: uuidFromDate({ msecs: reportDateAndTime }),
+    id: uuidFromDate({ msecs: reportDateAndTime.getTime() }),
     eventReference,
     eventDateAndTime: format.isoDateTime(incidentDateAndTime),
     prisonId,
@@ -89,7 +89,7 @@ export function mockReport({
   incidentDateAndTime.setMilliseconds(0)
 
   const basicReport: DatesAsStrings<ReportBasic> = {
-    id: uuidFromDate({ msecs: reportDateAndTime }),
+    id: uuidFromDate({ msecs: reportDateAndTime.getTime() }),
     reportReference,
     type,
     incidentDateAndTime: format.isoDateTime(incidentDateAndTime),

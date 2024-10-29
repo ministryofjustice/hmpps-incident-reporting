@@ -3,6 +3,8 @@ import FormWizard from 'hmpo-form-wizard'
 import type { AnswerConfiguration, IncidentTypeConfiguration, QuestionConfiguration } from './types'
 import QuestionsController from '../../controllers/wip/questionsController'
 
+const MAX_ANSWERS_PER_PAGE = 20
+
 /**
  * Generates Form Wizard's steps for the given config
  *
@@ -46,7 +48,148 @@ export function generateSteps(config: IncidentTypeConfiguration): FormWizard.Ste
       }
     })
 
+  groupSteps(steps)
+
   return steps
+}
+
+/**
+ * Merge all contiguous, non-branching steps in steps
+ *
+ * - If a step always lead to the same next step these can be potentially be
+ *   grouped.
+ * - Each step/question can only be in a single group.
+ *
+ * So steps with multiple parents (the right side of the branching)
+ * can't be the last step in a group. However these can be the
+ * beginning a new group.
+ *
+ * Example
+ * - Q-animals
+ *   => Q-dog
+ *   => Q-icecream
+ * - Q-dog
+ *   => Q-icecream
+ * - Q-icecream
+ *  => Q-end
+ * - Q-end
+ *  => null
+ *
+ * Here Q-animals branches and can lead to Q-dog or Q-icecream.
+ * This means q-animals would be in its own group.
+ * Both Q-animals and Q-dog lead to Q-icecream, so Q-icecream can't
+ * be part of these groups (each question belongs to a single group)
+ * Finally, Q-icecream always lead to Q-end, and Q-icecream is the only
+ * parent Q-end has, this means Q-end can be grouped into q-icecream
+ *
+ * @param steps to group
+ */
+function groupSteps(steps: FormWizard.Steps) {
+  /**
+   * Internal function attempting to group the given stepId
+   *
+   * If stepId has only one childStep and stepId is the sole parent
+   * of childStep then childStep is merged into stepId.
+   */
+  function groupStepsStartingAt(
+    // eslint-disable-next-line @typescript-eslint/no-shadow
+    steps: FormWizard.Steps,
+    stepId: string,
+    answersCount: number,
+    stepsWithSingleParent: Set<string | null>,
+  ) {
+    if (stepId === null) {
+      return
+    }
+
+    const step = steps[`/${stepId}`]
+
+    // Checks to determine if current step is eligible for grouping
+    const nextStepsConditions = step.next as FormWizard.NextStepCondition[]
+    const isBranching = nextStepsConditions.length > 1
+    const nextStepHasMultipleParents = !stepsWithSingleParent.has(nextStepsConditions[0].next as string)
+    if (isBranching || nextStepHasMultipleParents) {
+      // Current step can't be grouped, attempt to group its children
+      for (const nextStepCondition of nextStepsConditions) {
+        const childStepId = nextStepCondition.next as string
+        const childStep = steps[`/${childStepId}`]
+        const childStepAnswersCount = countStepAnswers(childStep)
+        groupStepsStartingAt(steps, childStepId, childStepAnswersCount, stepsWithSingleParent)
+      }
+    } else {
+      // Single child step can be potentially be merged...
+      const childStepId = nextStepsConditions[0].next
+
+      if (childStepId === null) {
+        return
+      }
+
+      const childStep = steps[`/${childStepId}`]
+      const childStepAnswersCount = countStepAnswers(childStep)
+      const newAnswersCount = answersCount + childStepAnswersCount
+
+      // If combined answers count doesn't exceed threshold merge child step
+      if (newAnswersCount <= MAX_ANSWERS_PER_PAGE) {
+        // 1. replace current conditions with child conditions
+        step.next = childStep.next
+        // 2. add child's fields to this step
+        step.fields = [...step.fields, ...childStep.fields]
+        // 3. remove child step from steps
+        // eslint-disable-next-line no-param-reassign
+        delete steps[`/${childStepId}`]
+
+        groupStepsStartingAt(steps, stepId, newAnswersCount, stepsWithSingleParent)
+      } else {
+        // child step couldn't be merged becase of answers count, process it
+        groupStepsStartingAt(steps, childStepId as string, childStepAnswersCount, stepsWithSingleParent)
+      }
+    }
+  }
+
+  // For each step count how many parents they have
+  // This is important as only steps with a single parent can be grouped
+  // because otherwise a question would be in multiple groups
+  const stepsParentCount: Map<string | null, number> = new Map()
+  for (const step of Object.values(steps)) {
+    for (const nextStepCondition of Object.values(step.next)) {
+      const nextQuestionId = nextStepCondition.next
+      if (stepsParentCount.get(nextQuestionId) === undefined) {
+        stepsParentCount.set(nextQuestionId, 0)
+      }
+
+      const currentCount = stepsParentCount.get(nextQuestionId)
+      stepsParentCount.set(nextQuestionId, currentCount + 1)
+    }
+  }
+
+  // Build a set with all the steps with a single parent
+  const stepsWithSingleParent: Set<string | null> = new Set()
+  for (const [stepId, count] of stepsParentCount.entries()) {
+    if (count === 1) {
+      stepsWithSingleParent.add(stepId)
+    }
+  }
+
+  const startStepId = steps['/'].next as string
+  const startStep = steps[`/${startStepId}`]
+  const answersCount = countStepAnswers(startStep)
+  groupStepsStartingAt(steps, startStepId, answersCount, stepsWithSingleParent)
+}
+
+/**
+ * Count the number of answers for a given step
+ */
+function countStepAnswers(step: FormWizard.Step): number {
+  if (step === undefined) {
+    return 0
+  }
+
+  let count = 0
+  for (const nextStepCondition of Object.values(step.next as unknown as [{ value: string[] }])) {
+    count += nextStepCondition.value.length
+  }
+
+  return count
 }
 
 /**

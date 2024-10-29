@@ -32,7 +32,7 @@ const testConfig: IncidentTypeConfiguration = {
           active: true,
           dateRequired: false,
           commentRequired: false,
-          nextQuestionId: 'icecream',
+          nextQuestionId: 'qicecream',
         },
         {
           id: 'qanimals-a3',
@@ -41,7 +41,7 @@ const testConfig: IncidentTypeConfiguration = {
           active: true,
           dateRequired: false,
           commentRequired: false,
-          nextQuestionId: 'icecream',
+          nextQuestionId: 'qicecream',
         },
         // Inactive answer
         {
@@ -51,7 +51,7 @@ const testConfig: IncidentTypeConfiguration = {
           active: false,
           dateRequired: false,
           commentRequired: false,
-          nextQuestionId: 'icecream',
+          nextQuestionId: 'qicecream',
         },
       ],
     },
@@ -175,7 +175,7 @@ describe('generateSteps()', () => {
             field: 'qanimals',
             value: ['CAT', 'FOX'],
             op: checkMultipleValues,
-            next: 'icecream',
+            next: 'qicecream',
           },
         ],
       },
@@ -192,22 +192,13 @@ describe('generateSteps()', () => {
           },
         ],
       },
+      // '/qicecream' is the merge of existing '/qicecream' and '/qend'
+      // 1. original `/qicecream`'s next replaced with `/qend`'s next
+      // 2. `/qend`'s fields added to `/qicecream`'s fields
+      // 3. original `/qend` removed from steps
       '/qicecream': {
         controller: QuestionsController,
-        fields: ['qicecream', 'qicecream-qicecream-a1-comment'],
-        template: 'questionPage',
-        next: [
-          {
-            field: 'qicecream',
-            op: 'in',
-            value: ['YES (SPECIFY FAVOURITE FLAVOUR)', 'no'],
-            next: 'qend',
-          },
-        ],
-      },
-      '/qend': {
-        controller: QuestionsController,
-        fields: ['qend'],
+        fields: ['qicecream', 'qicecream-qicecream-a1-comment', 'qend'],
         template: 'questionPage',
         next: [
           {

@@ -1,6 +1,7 @@
 // eslint-disable-next-line max-classes-per-file
 import type Express from 'express'
 
+/** HMPO form wizard types based on version 14.1 */
 declare module 'hmpo-form-wizard' {
   import type { DefaultFormatter } from 'hmpo-form-wizard/lib/formatting'
   import type { DefaultValidator } from 'hmpo-form-wizard/lib/validation'
@@ -616,6 +617,7 @@ declare module 'hmpo-form-wizard/lib/validation' {
     email(value: FormWizard.Value): boolean
     minlength(value: FormWizard.Value, length: number): boolean
     maxlength(value: FormWizard.Value, length: number): boolean
+    maxwords(value: FormWizard.Value, length: number): boolean
     exactlength(value: FormWizard.Value, length: number): boolean
     alpha(value: FormWizard.Value): boolean
     alphaex(value: FormWizard.Value): boolean

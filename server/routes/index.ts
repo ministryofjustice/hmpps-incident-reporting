@@ -8,7 +8,6 @@ import makeDebugRoutes from './debug'
 import makeDownloadConfigRouter from './downloadReportConfig'
 import { createReportRouter } from './reports/createReport'
 import { updateDetailsRouter } from './reports/updateReportDetails'
-import changeIncidentRouter from './changeIncident'
 import genericRouter from './generic'
 import prisonerSearchRoutes from '../controllers/addPrisoner/prisonerSearch'
 import addPrisonerRouter from './addPrisoner'
@@ -37,7 +36,6 @@ export default function routes(services: Services): Router {
     router.use('/:reportType/questions', questionsRouter)
 
     // proof-of-concept form wizard
-    router.use('/reports/:id/change', changeIncidentRouter)
     router.use('/reports/:id/prisoner-search', prisonerSearchRoutes())
     router.use('/reports/:id/add-prisoner/:prisonerNumber', addPrisonerRouter)
 

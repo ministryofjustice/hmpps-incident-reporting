@@ -85,19 +85,40 @@ export function generateSteps(config: IncidentTypeConfiguration): FormWizard.Ste
  * @param steps to group
  */
 function groupSteps(steps: FormWizard.Steps) {
+  const answersCounts: Map<string, number> = new Map()
+  const stepsWithSingleParent: Set<string | null> = buildStepsWithSingleParent()
+
+  function getAnswersCountForStep(stepId: string) {
+    if (answersCounts.get(stepId) === undefined) {
+      answersCounts.set(stepId, countStepAnswers(stepId))
+    }
+    return answersCounts.get(stepId)
+  }
+
+  /**
+   * Count the number of answers for a given stepId
+   */
+  function countStepAnswers(stepId: string): number {
+    const step = steps[`/${stepId}`]
+    if (step === undefined) {
+      return 0
+    }
+
+    let count = 0
+    for (const nextStepCondition of Object.values(step.next as unknown as [{ value: string[] }])) {
+      count += nextStepCondition.value.length
+    }
+
+    return count
+  }
+
   /**
    * Internal function attempting to group the given stepId
    *
    * If stepId has only one childStep and stepId is the sole parent
    * of childStep then childStep is merged into stepId.
    */
-  function groupStepsStartingAt(
-    // eslint-disable-next-line @typescript-eslint/no-shadow
-    steps: FormWizard.Steps,
-    stepId: string,
-    answersCount: number,
-    stepsWithSingleParent: Set<string | null>,
-  ) {
+  function groupStepsStartingAt(stepId: string) {
     if (stepId === null) {
       return
     }
@@ -112,21 +133,20 @@ function groupSteps(steps: FormWizard.Steps) {
       // Current step can't be grouped, attempt to group its children
       for (const nextStepCondition of nextStepsConditions) {
         const childStepId = nextStepCondition.next as string
-        const childStep = steps[`/${childStepId}`]
-        const childStepAnswersCount = countStepAnswers(childStep)
-        groupStepsStartingAt(steps, childStepId, childStepAnswersCount, stepsWithSingleParent)
+        groupStepsStartingAt(childStepId)
       }
     } else {
-      // Single child step can be potentially be merged...
-      const childStepId = nextStepsConditions[0].next
+      // Single child, step can be potentially be merged...
+      const childStepId = nextStepsConditions[0].next as string
 
       if (childStepId === null) {
         return
       }
 
       const childStep = steps[`/${childStepId}`]
-      const childStepAnswersCount = countStepAnswers(childStep)
-      const newAnswersCount = answersCount + childStepAnswersCount
+      const stepAnswersCount = getAnswersCountForStep(stepId)
+      const childStepAnswersCount = getAnswersCountForStep(childStepId)
+      const newAnswersCount = stepAnswersCount + childStepAnswersCount
 
       // If combined answers count doesn't exceed threshold merge child step
       if (newAnswersCount <= MAX_ANSWERS_PER_PAGE) {
@@ -134,62 +154,51 @@ function groupSteps(steps: FormWizard.Steps) {
         step.next = childStep.next
         // 2. add child's fields to this step
         step.fields = [...step.fields, ...childStep.fields]
-        // 3. remove child step from steps
+        // 3. update answers count
+        answersCounts.set(stepId, newAnswersCount)
+        // 4. remove child step from steps
         // eslint-disable-next-line no-param-reassign
         delete steps[`/${childStepId}`]
 
-        groupStepsStartingAt(steps, stepId, newAnswersCount, stepsWithSingleParent)
+        // Attempt to group further
+        groupStepsStartingAt(stepId)
       } else {
-        // child step couldn't be merged becase of answers count, process it
-        groupStepsStartingAt(steps, childStepId as string, childStepAnswersCount, stepsWithSingleParent)
+        // child step couldn't be merged because of answers count, process it
+        groupStepsStartingAt(childStepId)
       }
     }
   }
 
-  // For each step count how many parents they have
-  // This is important as only steps with a single parent can be grouped
-  // because otherwise a question would be in multiple groups
-  const stepsParentCount: Map<string | null, number> = new Map()
-  for (const step of Object.values(steps)) {
-    for (const nextStepCondition of Object.values(step.next)) {
-      const nextQuestionId = nextStepCondition.next
-      if (stepsParentCount.get(nextQuestionId) === undefined) {
-        stepsParentCount.set(nextQuestionId, 0)
+  function buildStepsWithSingleParent(): Set<string | null> {
+    // For each step count how many parents they have
+    // This is important as only steps with a single parent can be grouped
+    // because otherwise a question would be in multiple groups
+    const stepsParentCount: Map<string | null, number> = new Map()
+    for (const step of Object.values(steps)) {
+      for (const nextStepCondition of Object.values(step.next)) {
+        const nextQuestionId = nextStepCondition.next
+        if (stepsParentCount.get(nextQuestionId) === undefined) {
+          stepsParentCount.set(nextQuestionId, 0)
+        }
+
+        const currentCount = stepsParentCount.get(nextQuestionId)
+        stepsParentCount.set(nextQuestionId, currentCount + 1)
       }
-
-      const currentCount = stepsParentCount.get(nextQuestionId)
-      stepsParentCount.set(nextQuestionId, currentCount + 1)
     }
-  }
 
-  // Build a set with all the steps with a single parent
-  const stepsWithSingleParent: Set<string | null> = new Set()
-  for (const [stepId, count] of stepsParentCount.entries()) {
-    if (count === 1) {
-      stepsWithSingleParent.add(stepId)
+    // Build a set with all the steps with a single parent
+    const result: Set<string | null> = new Set()
+    for (const [stepId, count] of stepsParentCount.entries()) {
+      if (count === 1) {
+        result.add(stepId)
+      }
     }
+
+    return result
   }
 
   const startStepId = steps['/'].next as string
-  const startStep = steps[`/${startStepId}`]
-  const answersCount = countStepAnswers(startStep)
-  groupStepsStartingAt(steps, startStepId, answersCount, stepsWithSingleParent)
-}
-
-/**
- * Count the number of answers for a given step
- */
-function countStepAnswers(step: FormWizard.Step): number {
-  if (step === undefined) {
-    return 0
-  }
-
-  let count = 0
-  for (const nextStepCondition of Object.values(step.next as unknown as [{ value: string[] }])) {
-    count += nextStepCondition.value.length
-  }
-
-  return count
+  groupStepsStartingAt(startStepId)
 }
 
 /**

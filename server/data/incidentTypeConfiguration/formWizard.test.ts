@@ -2,6 +2,7 @@ import { type FormWizard } from 'hmpo-form-wizard'
 import QuestionsController from '../../controllers/wip/questionsController'
 import { checkMultipleValues, generateFields, generateSteps } from './formWizard'
 import { type IncidentTypeConfiguration } from './types'
+import * as FINDS from '../testData/FINDS'
 
 const testConfig: IncidentTypeConfiguration = {
   incidentType: 'MISCELLANEOUS',
@@ -210,6 +211,13 @@ describe('generateSteps()', () => {
         ],
       },
     })
+  })
+
+  it('returns grouped steps for a non-trivial report type config', () => {
+    const steps = generateSteps(FINDS.config)
+    const expectedSteps = FINDS.steps
+
+    expect(steps).toEqual(expectedSteps)
   })
 })
 

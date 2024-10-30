@@ -63,8 +63,10 @@ class DetailsController extends BaseDetailsController<DetailsValues> {
 
     try {
       await res.locals.apis.incidentReportingApi.updateReport(report.id, {
+        // TODO: maybe title needs to change, depending on how it's generated
         description,
         incidentDateAndTime,
+        updateEvent: true,
       })
       logger.info(`Report ${report.reportReference} details updated`)
 

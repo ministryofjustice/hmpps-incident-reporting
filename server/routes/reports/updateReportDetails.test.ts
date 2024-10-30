@@ -195,6 +195,7 @@ describe('Updating report details', () => {
         expect(incidentReportingApi.updateReport).toHaveBeenCalledWith(reportBasic.id, {
           description: 'Disorder took place on A wing',
           incidentDateAndTime,
+          updateEvent: true,
         })
       })
   })

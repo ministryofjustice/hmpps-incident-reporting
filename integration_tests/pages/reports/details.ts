@@ -8,16 +8,16 @@ export default class DetailsPage extends FormWizardPage {
 
   enterDate(date: Date | string): void {
     const value = date instanceof Date ? format.shortDate(date) : date
-    this.dateInput('incidentDate').type(value)
+    this.dateInput('incidentDate').clear().type(value)
   }
 
   enterTime(hours: string, minutes: string): void {
-    this.timeInput('incidentTime', 'hours').type(hours)
-    this.timeInput('incidentTime', 'minutes').type(minutes)
+    this.timeInput('incidentTime', 'hours').clear().type(hours)
+    this.timeInput('incidentTime', 'minutes').clear().type(minutes)
   }
 
   enterDescription(description: string): void {
-    this.textareaInput('description').type(description)
+    this.textareaInput('description').clear().type(description)
   }
 
   submit(): void {

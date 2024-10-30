@@ -121,7 +121,7 @@ export default {
     report,
   }: {
     request: DatesAsStrings<UpdateReportRequest>
-    report: ReportWithDetails
+    report: ReportBasic
   }): SuperAgentRequest =>
     stubFor({
       request: {

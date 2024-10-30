@@ -22,12 +22,12 @@ afterEach(() => {
   jest.resetAllMocks()
 })
 
-function expectOnStep1(res: Response): void {
+function expectOnTypePage(res: Response): void {
   expect(res.request.url.endsWith('/create-report')).toBeTruthy()
   expect(res.text).toContain('Select incident type')
 }
 
-function expectOnStep2(res: Response): void {
+function expectOnDetailsPage(res: Response): void {
   expect(res.request.url.endsWith('/create-report/details')).toBeTruthy()
   expect(res.text).toContain('Incident details')
 }
@@ -45,7 +45,7 @@ describe('Creating a report', () => {
         .get('/create-report')
         .expect(200)
         .expect(res => {
-          expectOnStep1(res)
+          expectOnTypePage(res)
           expect(res.text).not.toContain('There is a problem')
 
           // active type
@@ -69,7 +69,7 @@ describe('Creating a report', () => {
         .redirects(1)
         .expect(200)
         .expect(res => {
-          expectOnStep1(res)
+          expectOnTypePage(res)
           expect(res.text).toContain('There is a problem')
           expect(res.text).toContain('Choose one of the options')
         })
@@ -82,7 +82,7 @@ describe('Creating a report', () => {
         .redirects(1)
         .expect(200)
         .expect(res => {
-          expectOnStep2(res)
+          expectOnDetailsPage(res)
         })
     })
   })
@@ -107,7 +107,7 @@ describe('Creating a report', () => {
     //     .get('/create-report/details')
     //     .expect(200)
     //     .expect(res => {
-    //       expectOnStep1(res)
+    //       expectOnTypePage(res)
     //       expect(res.text).not.toContain('There is a problem')
     //     })
     // })
@@ -117,7 +117,7 @@ describe('Creating a report', () => {
         .get('/create-report/details')
         .expect(200)
         .expect(res => {
-          expectOnStep2(res)
+          expectOnDetailsPage(res)
           expect(res.text).not.toContain('There is a problem')
         })
     })
@@ -138,7 +138,7 @@ describe('Creating a report', () => {
         .redirects(1)
         .expect(200)
         .expect(res => {
-          expectOnStep2(res)
+          expectOnDetailsPage(res)
           expect(res.text).toContain('There is a problem')
           expect(res.text).toContain(expectedError)
         })
@@ -157,7 +157,7 @@ describe('Creating a report', () => {
         .redirects(1)
         .expect(200)
         .expect(res => {
-          expectOnStep2(res)
+          expectOnDetailsPage(res)
           expect(res.text).toContain('There is a problem')
         })
     })
@@ -196,7 +196,7 @@ describe('Creating a report', () => {
         .redirects(1)
         .expect(200)
         .expect(res => {
-          expectOnStep2(res)
+          expectOnDetailsPage(res)
           expect(res.text).toContain('There is a problem')
         })
     })
@@ -212,7 +212,7 @@ describe('Creating a report', () => {
         .redirects(1)
         .expect(200)
         .expect(res => {
-          expectOnStep2(res)
+          expectOnDetailsPage(res)
           expect(res.text).toContain('There is a problem')
           expect(res.text).toContain('value="21/10/2024"')
           expect(res.text).toContain('value="24"')
@@ -288,7 +288,7 @@ describe('Creating a report', () => {
         .redirects(1)
         .expect(200)
         .expect(res => {
-          expectOnStep2(res)
+          expectOnDetailsPage(res)
           expect(res.text).toContain('There is a problem')
           expect(res.text).toContain('Sorry, there was a problem with your request')
           expect(res.text).not.toContain('Bad Request')

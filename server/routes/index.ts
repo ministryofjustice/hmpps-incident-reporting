@@ -6,8 +6,8 @@ import type { Services } from '../services'
 import { PrisonApi } from '../data/prisonApi'
 import makeDebugRoutes from './debug'
 import makeDownloadConfigRouter from './downloadReportConfig'
-import createReportRouter from './reports/createReport'
-import changeIncidentRouter from './changeIncident'
+import { createReportRouter } from './reports/createReport'
+import { updateDetailsRouter } from './reports/updateReportDetails'
 import genericRouter from './generic'
 import prisonerSearchRoutes from '../controllers/addPrisoner/prisonerSearch'
 import addPrisonerRouter from './addPrisoner'
@@ -31,11 +31,11 @@ export default function routes(services: Services): Router {
     get('/reports/:id', debugRoutes.reportDetails)
 
     router.use('/create-report', createReportRouter)
+    router.use('/reports/:id/update-details', updateDetailsRouter)
     // TODO: WIP, proof-of-concept forms auto-generated from config
     router.use('/:reportType/questions', questionsRouter)
 
     // proof-of-concept form wizard
-    router.use('/reports/:id/change', changeIncidentRouter)
     router.use('/reports/:id/prisoner-search', prisonerSearchRoutes())
     router.use('/reports/:id/add-prisoner/:prisonerNumber', addPrisonerRouter)
 

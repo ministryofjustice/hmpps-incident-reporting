@@ -81,7 +81,7 @@ const createReportSteps: FormWizard.Steps<CreateReportValues> = {
     fields: typeFieldNames,
     controller: TypeController,
     entryPoint: true,
-    template: 'types',
+    template: 'type',
     backLink: '/',
     next: 'details',
   },
@@ -97,7 +97,7 @@ const createReportConfig: FormWizard.Config<CreateReportValues> = {
   name: 'createReport',
   checkSession: false,
   csrf: false,
-  templatePath: 'pages/createReport',
+  templatePath: 'pages/reports',
 }
 
 // eslint-disable-next-line import/prefer-default-export

@@ -181,6 +181,15 @@ export default function makeDebugRoutes(services: Services): Record<string, Requ
         text: status.description,
       }))
 
+      let typesLookup = {}
+      for (const entry of Object.values(types).map(type => ({ [type.code]: type.description }))) {
+        typesLookup = { ...typesLookup, ...entry }
+      }
+      let statusLookup = {}
+      for (const entry of Object.values(statuses).map(status => ({ [status.code]: status.description }))) {
+        statusLookup = { ...statusLookup, ...entry }
+      }
+
       const tableHead: HeaderCell[] | undefined = sortableTableHead({
         columns: tableColumns.map(column => {
           return {
@@ -207,6 +216,8 @@ export default function makeDebugRoutes(services: Services): Record<string, Requ
         reportingOfficers,
         incidentTypes,
         statusItems,
+        typesLookup,
+        statusLookup,
         formValues,
         errors,
         todayAsShortDate,

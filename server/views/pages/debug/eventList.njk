@@ -111,10 +111,10 @@
       {% set rows = (rows.push(
         [
           { html: "<a href='/reports/" + report.id + "'>" + ref + "</a>" },
-          { text: report.type },
+          { text: typesLookup[report.type] or report.type},
           { text: report.incidentDateAndTime | dateAndTime },
           { text: report.description },
-          { text: report.status },
+          { text: statusLookup[report.status] or report.status },
           { text: usersLookup[report.reportedBy].name or report.reportedBy }
         ]
       ), rows) %}

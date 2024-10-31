@@ -88,6 +88,9 @@ function groupSteps(steps: FormWizard.Steps) {
   const answersCounts: Map<string, number> = new Map()
   const stepsWithSingleParent: Set<string | null> = buildStepsWithSingleParent()
 
+  /**
+   * Get the current number of answers for a given stepId
+   */
   function getAnswersCountForStep(stepId: string) {
     if (answersCounts.get(stepId) === undefined) {
       answersCounts.set(stepId, countStepAnswers(stepId))
@@ -169,10 +172,16 @@ function groupSteps(steps: FormWizard.Steps) {
     }
   }
 
+  /**
+   * Returns the set of steps which have a single parent
+   *
+   * This is important as only steps with a single parent can be grouped
+   * because otherwise a question would be in multiple groups.
+   *
+   * @returns the set with steps with a single parent
+   */
   function buildStepsWithSingleParent(): Set<string | null> {
-    // For each step count how many parents they have
-    // This is important as only steps with a single parent can be grouped
-    // because otherwise a question would be in multiple groups
+    // count number of parents of each step
     const stepsParentCount: Map<string | null, number> = new Map()
     for (const step of Object.values(steps)) {
       for (const nextStepCondition of Object.values(step.next)) {

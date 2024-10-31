@@ -6,7 +6,9 @@ import type { GovukErrorSummaryItem } from '../utils/govukFrontend'
 import { pagination } from '../utils/pagination'
 import { parseDateInput } from '../utils/utils'
 import type { Services } from '../services'
+import { type HeaderCell, type SortableTableColumns, sortableTableHead } from '../utils/sortableTable'
 import { type Type, types, type Status, statuses } from '../reportConfiguration/constants'
+import { type Order } from '../data/offenderSearchApi'
 
 interface ListFormData {
   prisonId?: string
@@ -15,6 +17,8 @@ interface ListFormData {
   incidentType?: Type
   reportingOfficer?: string
   incidentStatuses?: Status
+  sort?: string
+  order?: Order
   page?: string
 }
 
@@ -34,6 +38,15 @@ export default function makeDebugRoutes(services: Services): Record<string, Requ
         page,
         incidentStatuses,
       }: ListFormData = req.query
+      let { sort, order }: ListFormData = req.query
+
+      if (!sort) {
+        sort = 'incidentDateAndTime'
+      }
+      if (!order) {
+        order = 'DESC'
+      }
+
       const formValues: ListFormData = {
         prisonId,
         fromDate: fromDateInput,
@@ -41,8 +54,42 @@ export default function makeDebugRoutes(services: Services): Record<string, Requ
         incidentType: incidentType as Type,
         reportingOfficer,
         incidentStatuses: incidentStatuses as Status,
+        sort,
+        order: order as Order,
         page,
       }
+
+      const tableColumns: SortableTableColumns<
+        'reportReference' | 'type' | 'incidentDateAndTime' | 'description' | 'status' | 'reportedBy'
+      > = [
+        { column: 'reportReference', escapedHtml: 'Incident ref', classes: 'app-prisoner-search__cell--incident-ref' },
+        {
+          column: 'type',
+          escapedHtml: 'Incident type',
+          classes: 'app-prisoner-search__cell--incident-type',
+        },
+        {
+          column: 'incidentDateAndTime',
+          escapedHtml: 'Incident date',
+          classes: 'app-prisoner-search__cell--incident-time',
+        },
+        {
+          column: 'description',
+          escapedHtml: 'Description',
+          classes: 'app-prisoner-search__cell--description',
+          unsortable: true,
+        },
+        {
+          column: 'status',
+          escapedHtml: 'Status',
+          classes: 'app-prisoner-search__cell--status',
+        },
+        {
+          column: 'reportedBy',
+          escapedHtml: 'Reported By',
+          classes: 'app-prisoner-search__cell--reported-by',
+        },
+      ]
 
       // Parse params
       const todayAsShortDate = format.shortDate(new Date())
@@ -72,6 +119,7 @@ export default function makeDebugRoutes(services: Services): Record<string, Requ
         pageNumber = 1
       }
 
+      const orderString = order as string
       // Get reports from API
       const reportsResponse = await incidentReportingApi.getReports({
         prisonId,
@@ -80,7 +128,8 @@ export default function makeDebugRoutes(services: Services): Record<string, Requ
         type: incidentType,
         status: incidentStatuses,
         page: pageNumber - 1,
-        // sort: ['eventDateAndTime,ASC'],
+        size: 5,
+        sort: [`${sort},${orderString}`],
       })
 
       const queryString = new URLSearchParams()
@@ -97,18 +146,18 @@ export default function makeDebugRoutes(services: Services): Record<string, Requ
         queryString.append('incidentType', incidentType)
       }
       if (incidentStatuses) {
-        queryString.append('incidentStatus', incidentStatuses)
+        queryString.append('incidentStatuses', incidentStatuses)
+      }
+      const tableHeadUrlPrefix = `/incidents?${queryString}&`
+      if (sort) {
+        queryString.append('sort', sort)
+      }
+      if (order) {
+        queryString.append('order', order)
       }
 
       const urlPrefix = `/incidents?${queryString}&`
-      const paginationParams = pagination(
-        pageNumber,
-        reportsResponse.totalPages,
-        urlPrefix,
-        'moj',
-        reportsResponse.totalElements,
-        reportsResponse.size,
-      )
+
       const noFiltersSupplied = Boolean(!prisonId && !fromDate && !toDate && !incidentType && !incidentStatuses)
 
       const reports = reportsResponse.content
@@ -132,6 +181,25 @@ export default function makeDebugRoutes(services: Services): Record<string, Requ
         text: status.description,
       }))
 
+      const tableHead: HeaderCell[] | undefined = sortableTableHead({
+        columns: tableColumns.map(column => {
+          return {
+            ...column,
+          }
+        }),
+        sortColumn: sort,
+        order,
+        urlPrefix: tableHeadUrlPrefix,
+      })
+      const paginationParams = pagination(
+        pageNumber,
+        reportsResponse.totalPages,
+        urlPrefix,
+        'moj',
+        reportsResponse.totalElements,
+        reportsResponse.size,
+      )
+
       res.render('pages/debug/eventList', {
         reports,
         prisons,
@@ -143,6 +211,7 @@ export default function makeDebugRoutes(services: Services): Record<string, Requ
         errors,
         todayAsShortDate,
         noFiltersSupplied,
+        tableHead,
         paginationParams,
       })
     },

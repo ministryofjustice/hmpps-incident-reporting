@@ -23,7 +23,7 @@
   <div class="horizontal-form__wrapper govuk-!-padding-3 govuk-!-margin-bottom-5">
     <h2 class="govuk-heading-m">Filter by</h2>
 
-    <form class="horizontal-form {% if errors.length > 0 %}horizontal-form--with-errors{% endif %} govuk-!-margin-bottom-3" method="GET" novalidate>
+    <form class="horizontal-form {% if errors.length > 0 %}horizontal-form--with-errors{% endif %} govuk-!-margin-bottom-3" method="get" novalidate>
       {{ govukSelect({
         name: "prisonId",
         id: "prisonId",
@@ -120,30 +120,15 @@
       ), rows) %}
     {% endfor %}
 
-    {{ govukTable({
-      firstCellIsHeader: true,
-      head: [
-        {
-          text: "Incident ref"
-        },
-        {
-          text: "Incident type"
-        },
-        {
-          text: "Incident date"
-        },
-        {
-          text: "Description"
-        },
-        {
-          text: "Status"
-        },
-        {
-          text: "Reported by"
-        }
-      ],
-      rows: rows
-    }) }}
+    <div class="app-sortable-table-container govuk-!-margin-top-4">
+      {{ govukTable({
+        caption: "Incidents",
+        captionClasses: "govuk-visually-hidden",
+        classes: "app-sortable-table",
+        head: tableHead,
+        rows: rows
+      }) }}
+    </div>
 
     {{ mojPagination(paginationParams) }}
 

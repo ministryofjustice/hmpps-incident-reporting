@@ -88,6 +88,7 @@ export function pagination(
   resultsPerPage: number = undefined,
 ): Pagination | LegacyPagination {
   const params: Pagination = {}
+
   if (!pageCount || pageCount <= 1) {
     return component === 'moj' ? { items: [], results: legacyResults(page, resultCount, resultsPerPage) } : {}
   }

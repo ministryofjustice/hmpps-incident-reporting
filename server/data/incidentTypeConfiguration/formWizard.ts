@@ -92,7 +92,7 @@ function groupSteps(steps: FormWizard.Steps) {
    * Get the current number of answers for a given stepId
    */
   function getAnswersCountForStep(stepId: string) {
-    if (answersCounts.get(stepId) === undefined) {
+    if (!answersCounts.has(stepId)) {
       answersCounts.set(stepId, countStepAnswers(stepId))
     }
     return answersCounts.get(stepId)
@@ -287,7 +287,7 @@ function nextSteps(question: QuestionConfiguration, answers: AnswerConfiguration
   // Group answers by next question id
   const groupedByNextQuestion: Map<string | null, AnswerConfiguration[]> = new Map()
   answers.forEach(answer => {
-    if (groupedByNextQuestion.get(answer.nextQuestionId) === undefined) {
+    if (!groupedByNextQuestion.has(answer.nextQuestionId)) {
       groupedByNextQuestion.set(answer.nextQuestionId, [])
     }
 

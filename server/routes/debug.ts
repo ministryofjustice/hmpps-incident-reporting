@@ -128,7 +128,6 @@ export default function makeDebugRoutes(services: Services): Record<string, Requ
         type: incidentType,
         status: incidentStatuses,
         page: pageNumber - 1,
-        size: 5,
         sort: [`${sort},${orderString}`],
       })
 

@@ -186,7 +186,7 @@ function groupSteps(steps: FormWizard.Steps) {
     for (const step of Object.values(steps)) {
       for (const nextStepCondition of Object.values(step.next)) {
         const nextQuestionId = nextStepCondition.next
-        if (stepsParentCount.get(nextQuestionId) === undefined) {
+        if (!stepsParentCount.has(nextQuestionId)) {
           stepsParentCount.set(nextQuestionId, 0)
         }
 

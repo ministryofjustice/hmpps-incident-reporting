@@ -108,8 +108,8 @@ function groupSteps(steps: FormWizard.Steps) {
     }
 
     let count = 0
-    for (const nextStepCondition of Object.values(step.next as unknown as [{ value: string[] }])) {
-      count += nextStepCondition.value.length
+    for (const nextStepCondition of step.next) {
+      count += (nextStepCondition as { value: string[] }).value.length
     }
 
     return count

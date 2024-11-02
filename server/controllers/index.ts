@@ -1,4 +1,4 @@
-import type Express from 'express'
+import type express from 'express'
 import FormWizard from 'hmpo-form-wizard'
 
 import { parseDateInput, parseTimeInput } from '../utils/utils'
@@ -48,7 +48,7 @@ export abstract class BaseController<
   /**
    * Adds a human-readable message to errors if they are missing.
    */
-  validateField(key: K, req: FormWizard.Request<V, K>, res: Express.Response): FormWizard.Error | false | undefined {
+  validateField(key: K, req: FormWizard.Request<V, K>, res: express.Response): FormWizard.Error | false | undefined {
     const error = super.validateField(key, req, res)
     if (error && !error.message) {
       error.message = this.errorMessage(error)
@@ -64,7 +64,7 @@ export abstract class BaseController<
     return new BaseController.Error(null, { message: 'Sorry, there was a problem with your request' })
   }
 
-  csrfGenerateSecret(req: FormWizard.Request<V, K>, res: Express.Response, next: Express.NextFunction): void {
+  csrfGenerateSecret(req: FormWizard.Request<V, K>, res: express.Response, next: express.NextFunction): void {
     // copy application middleware CSRF token into form wizard for sanity
     req.sessionModel.set('csrf-secret', res.locals.csrfToken)
     next()

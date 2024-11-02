@@ -1,4 +1,4 @@
-import type Express from 'express'
+import type express from 'express'
 import type FormWizard from 'hmpo-form-wizard'
 
 import { parseDateInput, parseTimeInput } from '../../utils/utils'
@@ -14,7 +14,7 @@ import { type DetailsValues, type DetailsFieldNames, hoursFieldName, minutesFiel
 export abstract class BaseDetailsController<V extends DetailsValues> extends BaseController<V, DetailsFieldNames> {
   getValues(
     req: FormWizard.Request<V, DetailsFieldNames>,
-    res: Express.Response,
+    res: express.Response,
     callback: FormWizard.Callback<V>,
   ): void {
     super.getValues(req, res, (err, values) => {
@@ -37,7 +37,7 @@ export abstract class BaseDetailsController<V extends DetailsValues> extends Bas
     })
   }
 
-  process(req: FormWizard.Request<V, DetailsFieldNames>, res: Express.Response, next: Express.NextFunction): void {
+  process(req: FormWizard.Request<V, DetailsFieldNames>, res: express.Response, next: express.NextFunction): void {
     const hours = req.form.values[hoursFieldName]
     const minutes = req.form.values[minutesFieldName]
     const digits = /^\d{1,2}$/
@@ -50,8 +50,8 @@ export abstract class BaseDetailsController<V extends DetailsValues> extends Bas
 
   validate(
     req: FormWizard.Request<Pick<V, DetailsFieldNames>>,
-    res: Express.Response,
-    next: Express.NextFunction,
+    res: express.Response,
+    next: express.NextFunction,
   ): void {
     // if (and only if) incidentDate and incidentTime are valid, ensure that the combined date & time is in the past
     const { incidentDate, incidentTime } = req.form.values

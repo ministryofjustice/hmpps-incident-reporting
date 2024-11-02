@@ -1,4 +1,4 @@
-import type Express from 'express'
+import type express from 'express'
 import FormWizard from 'hmpo-form-wizard'
 import { NotFound } from 'http-errors'
 
@@ -19,8 +19,8 @@ class DetailsController extends BaseDetailsController<DetailsValues> {
 
   async lookupReport(
     req: FormWizard.Request<DetailsValues, DetailsFieldNames>,
-    res: Express.Response,
-    next: Express.NextFunction,
+    res: express.Response,
+    next: express.NextFunction,
   ): Promise<void> {
     try {
       const { incidentReportingApi } = res.locals.apis
@@ -46,14 +46,14 @@ class DetailsController extends BaseDetailsController<DetailsValues> {
     }
   }
 
-  getBackLink(_req: FormWizard.Request<DetailsValues, DetailsFieldNames>, res: Express.Response): string {
+  getBackLink(_req: FormWizard.Request<DetailsValues, DetailsFieldNames>, res: express.Response): string {
     return res.locals.cancelUrl
   }
 
   async successHandler(
     req: FormWizard.Request<DetailsValues, DetailsFieldNames>,
-    res: Express.Response,
-    next: Express.NextFunction,
+    res: express.Response,
+    next: express.NextFunction,
   ): Promise<void> {
     const report = res.locals.report as ReportBasic
     const allValues = this.getAllValues(req)
@@ -82,7 +82,7 @@ class DetailsController extends BaseDetailsController<DetailsValues> {
     }
   }
 
-  getNextStep(_req: FormWizard.Request<DetailsValues, DetailsFieldNames>, res: Express.Response): string {
+  getNextStep(_req: FormWizard.Request<DetailsValues, DetailsFieldNames>, res: express.Response): string {
     // TODO: does this page have 2 save buttons? where do they both lead?
     return res.locals.cancelUrl
   }

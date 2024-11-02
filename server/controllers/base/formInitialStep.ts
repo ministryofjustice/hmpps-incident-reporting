@@ -1,4 +1,4 @@
-import type Express from 'express'
+import type express from 'express'
 import FormWizard from 'hmpo-form-wizard'
 
 import type { GovukErrorSummaryItem } from '../../utils/govukFrontend'
@@ -12,12 +12,12 @@ export default class FormInitialStep extends FormWizard.Controller {
     this.use(this.setupConditionalFields)
   }
 
-  getInitialValues(_req: FormWizard.Request, _res: Express.Response): FormWizard.Values {
+  getInitialValues(_req: FormWizard.Request, _res: express.Response): FormWizard.Values {
     // Override in subclass to return initial values for form
     return {}
   }
 
-  getValues(req: FormWizard.Request, res: Express.Response, callback: FormWizard.Callback): void {
+  getValues(req: FormWizard.Request, res: express.Response, callback: FormWizard.Callback): void {
     return super.getValues(req, res, (err, values) => {
       if (err) {
         return callback(err)
@@ -40,7 +40,7 @@ export default class FormInitialStep extends FormWizard.Controller {
     return typeof arg === 'number' ? arg : `the ${fields[arg?.field]?.label?.toLowerCase()}`
   }
 
-  getErrorDetail(error: FormWizard.Error, res: Express.Response): GovukErrorSummaryItem {
+  getErrorDetail(error: FormWizard.Error, res: express.Response): GovukErrorSummaryItem {
     const { fields } = res.locals.options
     const field = fields[error.key]
     const fieldName: string = field.nameForErrors || field?.label
@@ -74,7 +74,7 @@ export default class FormInitialStep extends FormWizard.Controller {
     }
   }
 
-  renderConditionalFields(req: FormWizard.Request, res: Express.Response): void {
+  renderConditionalFields(req: FormWizard.Request, res: express.Response): void {
     const { options } = req.form
 
     options.fields = Object.fromEntries(
@@ -85,7 +85,7 @@ export default class FormInitialStep extends FormWizard.Controller {
     res.locals.fields = options.fields
   }
 
-  setupConditionalFields(req: FormWizard.Request, res: Express.Response, next: Express.NextFunction): void {
+  setupConditionalFields(req: FormWizard.Request, res: express.Response, next: express.NextFunction): void {
     const { options } = req.form
 
     const stepFieldsArray = Object.entries(options.fields)
@@ -100,8 +100,8 @@ export default class FormInitialStep extends FormWizard.Controller {
     next()
   }
 
-  locals(req: FormWizard.Request, res: Express.Response): Partial<FormWizard.Locals> {
-    const locals = res.locals as Express.Locals & FormWizard.Locals
+  locals(req: FormWizard.Request, res: express.Response): Partial<FormWizard.Locals> {
+    const locals = res.locals as express.Locals & FormWizard.Locals
     const { options } = locals
     if (!options?.fields) {
       return {}
@@ -143,7 +143,7 @@ export default class FormInitialStep extends FormWizard.Controller {
     return fields
   }
 
-  render(req: FormWizard.Request, res: Express.Response, next: Express.NextFunction): void {
+  render(req: FormWizard.Request, res: express.Response, next: express.NextFunction): void {
     this.renderConditionalFields(req, res)
 
     return super.render(req, res, next)

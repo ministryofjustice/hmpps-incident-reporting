@@ -1,10 +1,10 @@
-import type Express from 'express'
+import type express from 'express'
 import type FormWizard from 'hmpo-form-wizard'
 
 import FormInitialStep from '../base/formInitialStep'
 
 export default class GenericPage3 extends FormInitialStep {
-  locals(req: FormWizard.Request, res: Express.Response): object {
+  locals(req: FormWizard.Request, res: express.Response): object {
     const locals = super.locals(req, res)
 
     const backLink = '/incidents'
@@ -16,7 +16,7 @@ export default class GenericPage3 extends FormInitialStep {
   }
 
   /**
-  async saveValues(req: FormWizard.Request, res: Express.Response, next: Express.NextFunction) {
+  async saveValues(req: FormWizard.Request, res: express.Response, next: express.NextFunction) {
     try {
       const { user } = res.locals
       // const { locationsService } = req.services
@@ -43,7 +43,7 @@ export default class GenericPage3 extends FormInitialStep {
     }
   }
 
-  successHandler(req: FormWizard.Request, res: Express.Response, next: Express.NextFunction) {
+  successHandler(req: FormWizard.Request, res: express.Response, next: express.NextFunction) {
     const { prisonId } = res.locals
 
     req.journeyModel.reset()

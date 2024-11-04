@@ -6,13 +6,26 @@ import { roleReadOnly, roleReadWrite, roleApproveReject } from '../data/constant
  */
 // eslint-disable-next-line import/prefer-default-export
 export class Permissions {
+  private caseloadIds: Set<string>
+
   private roles: Set<string>
 
   constructor(user: Express.User | undefined) {
+    this.caseloadIds = new Set(user?.caseLoads?.map(caseLoad => caseLoad.caseLoadId) ?? [])
     this.roles = new Set(user?.roles ?? [])
   }
 
-  get canAccessHomePage(): boolean {
+  /** Has role granting access to service */
+  get canAccessService(): boolean {
     return [roleReadWrite, roleApproveReject, roleReadOnly].some(role => this.roles.has(role))
+  }
+
+  /** Caseload check. NB: not a role check! */
+  canAccessCaseload(caseloadId: string): boolean {
+    return (
+      this.caseloadIds.has(caseloadId) ||
+      // TODO: should data wardens have access to everything?
+      this.roles.has(roleApproveReject)
+    )
   }
 }

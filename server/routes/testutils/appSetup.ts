@@ -48,7 +48,7 @@ export const hqUser: Express.User = {
   caseLoads: [mockCaseload, makeMockCaseload(leeds, false)],
 }
 
-/** General user Moorland without access */
+/** General user in Moorland without access */
 export const unauthorisedUser: Express.User = {
   ...user,
   roles: ['PRISON'],

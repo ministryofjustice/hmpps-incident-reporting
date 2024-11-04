@@ -2,7 +2,7 @@ import type { Express } from 'express'
 import request from 'supertest'
 
 import { PrisonApi } from '../data/prisonApi'
-import { appWithAllRoutes } from './testutils/appSetup'
+import { appWithAllRoutes, unauthorisedUser } from './testutils/appSetup'
 
 jest.mock('../data/prisonApi')
 
@@ -24,6 +24,16 @@ describe('GET /', () => {
       .expect(res => {
         expect(res.text).toContain('Digital Prison Services')
         expect(res.text).toContain('Incident reporting')
+      })
+  })
+
+  it('should log user out if they do not have appropriate role', () => {
+    return request(appWithAllRoutes({ userSupplier: () => unauthorisedUser }))
+      .get('/')
+      .expect(302)
+      .expect(res => {
+        expect(res.redirect).toBeTruthy()
+        expect(res.header.location).toEqual('/sign-out')
       })
   })
 })

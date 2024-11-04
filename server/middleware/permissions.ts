@@ -1,4 +1,5 @@
 import type { Request, Response, NextFunction } from 'express'
+import { Forbidden } from 'http-errors'
 
 import { roleReadOnly, roleReadWrite, roleApproveReject } from '../data/constants'
 
@@ -33,5 +34,13 @@ export class Permissions {
 
 export function setupPermissions(_req: Request, res: Response, next: NextFunction): void {
   res.locals.permissions = new Permissions(res.locals.user)
+  next()
+}
+
+export function logoutIfCannotAccessService(_req: Request, res: Response, next: NextFunction): void {
+  if (!res.locals.permissions.canAccessService) {
+    next(new Forbidden())
+    return
+  }
   next()
 }

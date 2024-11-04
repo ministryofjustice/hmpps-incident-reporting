@@ -1,4 +1,6 @@
+import type express from 'express'
 import { type FormWizard } from 'hmpo-form-wizard'
+
 import QuestionsController from '../../controllers/wip/questionsController'
 import { checkMultipleValues, generateFields, generateSteps } from './formWizard'
 import { type IncidentTypeConfiguration } from './types'
@@ -358,7 +360,7 @@ describe('checkMultipleValues()', () => {
   ])('returns $expected when $desc', ({ submittedValues, expected }) => {
     const condition = { value: ['dog', 'turtle'] }
 
-    const result = checkMultipleValues(submittedValues, null as FormWizard.Request, null as Express.Response, condition)
+    const result = checkMultipleValues(submittedValues, null as FormWizard.Request, null as express.Response, condition)
     expect(result).toEqual(expected)
   })
 })

@@ -1,4 +1,5 @@
-import FormWizard from 'hmpo-form-wizard'
+import type express from 'express'
+import type FormWizard from 'hmpo-form-wizard'
 
 import type { AnswerConfiguration, IncidentTypeConfiguration, QuestionConfiguration } from './types'
 import QuestionsController from '../../controllers/wip/questionsController'
@@ -367,7 +368,7 @@ function conditionalFieldName(question: QuestionConfiguration, answer: AnswerCon
 export function checkMultipleValues(
   submittedValues: string[],
   _req: FormWizard.Request,
-  _res: Express.Response,
+  _res: express.Response,
   condition: { value: string[] },
 ): boolean {
   // Don't check values if nothing has been submitted

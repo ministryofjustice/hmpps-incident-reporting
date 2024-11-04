@@ -10,11 +10,14 @@ import nunjucksSetup from '../../utils/nunjucksSetup'
 import type { ApplicationInfo } from '../../applicationInfo'
 import errorHandler from '../../errorHandler'
 import type { Services } from '../../services'
-import { mockCaseload } from '../../data/testData/frontendComponents'
+import { makeMockCaseload, mockCaseload } from '../../data/testData/frontendComponents'
+import { leeds } from '../../data/testData/prisonApi'
+import { roleReadOnly, roleReadWrite, roleApproveReject } from '../../data/constants'
 import { IncidentReportingApi } from '../../data/incidentReportingApi'
 import { OffenderSearchApi } from '../../data/offenderSearchApi'
 import { PrisonApi } from '../../data/prisonApi'
 
+/** Typical reporting officer with access to Moorland only */
 export const user: Express.User = {
   name: 'JOHN SMITH',
   userId: 'id',
@@ -24,9 +27,24 @@ export const user: Express.User = {
   active: true,
   activeCaseLoadId: 'MDI',
   authSource: 'NOMIS',
+  roles: ['PRISON', roleReadWrite],
   // from frontend components middleware
   activeCaseLoad: mockCaseload,
   caseLoads: [mockCaseload],
+}
+
+/** Data warden with write access to Leeds and Moorland */
+export const approverUser: Express.User = {
+  ...user,
+  roles: ['PRISON', roleApproveReject],
+  caseLoads: [mockCaseload, makeMockCaseload(leeds, false)],
+}
+
+/** HQ user with read-only access to Leeds and Moorland */
+export const hqUser: Express.User = {
+  ...user,
+  roles: ['PRISON', roleReadOnly],
+  caseLoads: [mockCaseload, makeMockCaseload(leeds, false)],
 }
 
 export const testAppInfo: ApplicationInfo = {

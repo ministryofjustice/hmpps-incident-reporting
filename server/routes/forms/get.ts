@@ -1,4 +1,4 @@
-import type { Router, Request, RequestHandler, Response, NextFunction } from 'express'
+import type { Express, Router, Request, RequestHandler, Response, NextFunction } from 'express'
 import type { ParamsDictionary, PathParams, Query } from 'express-serve-static-core'
 import { BadRequest, MethodNotAllowed } from 'http-errors'
 

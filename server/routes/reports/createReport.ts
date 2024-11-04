@@ -1,5 +1,5 @@
 // eslint-disable-next-line max-classes-per-file
-import type Express from 'express'
+import type express from 'express'
 import FormWizard from 'hmpo-form-wizard'
 
 import logger from '../../../logger'
@@ -17,8 +17,8 @@ class TypeController extends BaseTypeController<CreateReportValues> {}
 class DetailsController extends BaseDetailsController<CreateReportValues> {
   async successHandler(
     req: FormWizard.Request<CreateReportValues, DetailsFieldNames>,
-    res: Express.Response,
-    next: Express.NextFunction,
+    res: express.Response,
+    next: express.NextFunction,
   ): Promise<void> {
     const allValues = this.getAllValues(req)
 
@@ -55,7 +55,7 @@ class DetailsController extends BaseDetailsController<CreateReportValues> {
 
   getNextStep(
     req: FormWizard.Request<CreateReportValues, DetailsFieldNames>,
-    res: Express.Response,
+    res: express.Response,
   ): string | undefined {
     // if a report was successfully created…
     if (res.locals.createdReport) {

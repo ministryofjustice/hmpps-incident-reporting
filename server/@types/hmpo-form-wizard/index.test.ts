@@ -2,7 +2,7 @@
 /* eslint-disable no-empty-function */
 
 // eslint-disable-next-line max-classes-per-file
-import type Express from 'express'
+import type express from 'express'
 import FormWizard from 'hmpo-form-wizard'
 
 // NB: fields defition must not have a type annotation! but it's helpful to ensure it satisfies the fields requirement
@@ -17,7 +17,7 @@ type Values = FormWizard.ValuesFromFields<typeof fields>
 it('Deriving controller values type', () => {
   // controller for a step which only deals with the `name` field (not `emails`)
   class TypedController1 extends FormWizard.Controller<Values, 'name'> {
-    saveValues(req: FormWizard.Request<Values, 'name'>, res: Express.Response, next: Express.NextFunction): void {
+    saveValues(req: FormWizard.Request<Values, 'name'>, res: express.Response, next: express.NextFunction): void {
       // `name` exists in this step as derived by FormWizard.ValuesFromFields
       // `name` must be a string value otherwise the next line would fail type checking
       mustBeString(req.form.values.name)
@@ -32,7 +32,7 @@ it('Deriving controller values type', () => {
 
   // controller for a step which only deals with the `emails` field (not `name`)
   class TypedController2 extends FormWizard.Controller<Values, 'emails'> {
-    saveValues(req: FormWizard.Request<Values, 'emails'>, res: Express.Response, next: Express.NextFunction): void {
+    saveValues(req: FormWizard.Request<Values, 'emails'>, res: express.Response, next: express.NextFunction): void {
       // `emails` exists in this step as derived by FormWizard.ValuesFromFields
       // `emails` must be a string array value otherwise the next line would fail type checking
       mustBeStringArray(req.form.values.emails)

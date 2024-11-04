@@ -1,4 +1,4 @@
-import type Express from 'express'
+import type express from 'express'
 import type FormWizard from 'hmpo-form-wizard'
 
 import { mockThrownError } from '../data/testData/thrownErrors'
@@ -87,7 +87,7 @@ describe('Base form wizard controller', () => {
           errors: {},
         },
       } as unknown as FormWizard.Request
-      const res = {} as Express.Response
+      const res = {} as express.Response
 
       const error = controller.validateField(fieldName, req, res)
       expect(error).toHaveProperty('message', expectedError)
@@ -112,7 +112,7 @@ describe('Base form wizard controller', () => {
           errors: {},
         },
       } as unknown as FormWizard.Request
-      const res = {} as Express.Response
+      const res = {} as express.Response
 
       expect(() => {
         controller.validateField('mobile', req, res)
@@ -151,7 +151,7 @@ describe('Base form wizard controller', () => {
           errors: {},
         },
       } as unknown as FormWizard.Request
-      const res = {} as Express.Response
+      const res = {} as express.Response
 
       const error = controller.validateField('date', req, res)
       expect(error).toHaveProperty('message', 'Enter a date')
@@ -176,7 +176,7 @@ describe('Base form wizard controller', () => {
           errors: {},
         },
       } as unknown as FormWizard.Request
-      const res = {} as Express.Response
+      const res = {} as express.Response
 
       const error = controller.validateField('date', req, res)
       expect(error).toBeUndefined()
@@ -201,7 +201,7 @@ describe('Base form wizard controller', () => {
           errors: {},
         },
       } as unknown as FormWizard.Request
-      const res = {} as Express.Response
+      const res = {} as express.Response
 
       const error = controller.validateField('time', req, res)
       expect(error).toHaveProperty('message', 'Enter a time')
@@ -226,7 +226,7 @@ describe('Base form wizard controller', () => {
           errors: {},
         },
       } as unknown as FormWizard.Request
-      const res = {} as Express.Response
+      const res = {} as express.Response
 
       const error = controller.validateField('time', req, res)
       expect(error).toBeUndefined()

@@ -1,5 +1,5 @@
 // eslint-disable-next-line max-classes-per-file
-import type Express from 'express'
+import type express from 'express'
 
 /** HMPO form wizard types based on version 14.1 */
 declare module 'hmpo-form-wizard' {
@@ -11,7 +11,7 @@ declare module 'hmpo-form-wizard' {
     steps: FormWizard.Steps<V>,
     fields: FormWizard.Fields<V>,
     config: FormWizard.Config<V>,
-  ): Express.Router
+  ): express.Router
 
   export namespace FormWizard {
     /** String submitted to a form field that does not allow multiple values */
@@ -30,7 +30,7 @@ declare module 'hmpo-form-wizard' {
     type OperatorFunction = (
       submittedValue: Value | MultiValue,
       req: Request,
-      res: Express.Response,
+      res: express.Response,
       condition: unknown,
     ) => boolean
 
@@ -64,7 +64,7 @@ declare module 'hmpo-form-wizard' {
         }
       | {
           /** a condition can be a function specified by fn */
-          fn: (req: Request, res: Express.Response, con: unknown) => boolean
+          fn: (req: Request, res: express.Response, con: unknown) => boolean
           next: string
         }
       | {
@@ -76,7 +76,7 @@ declare module 'hmpo-form-wizard' {
           /** the next option can be a function to return a dynamic next step */
           field: string
           value: Value
-          next: (req: Request, res: Express.Response, con: unknown) => string
+          next: (req: Request, res: express.Response, con: unknown) => string
         }
 
     type NextStep =
@@ -225,7 +225,7 @@ declare module 'hmpo-form-wizard' {
       name?: string
     }
 
-    interface Request<V extends object = Values, K extends keyof V = keyof V> extends Express.Request {
+    interface Request<V extends object = Values, K extends keyof V = keyof V> extends express.Request {
       isEditing: boolean
       journeyModel: JourneyModel<JourneyValues>
       sessionModel: WizardModel<
@@ -305,7 +305,7 @@ declare module 'hmpo-form-wizard' {
       nextPage: Step<V>
       isEditing: boolean
       editSuffix: string
-      baseUrl: Express.Request['baseUrl']
+      baseUrl: express.Request['baseUrl']
       backLink: string | undefined
       ['csrf-token']: string
     }
@@ -323,7 +323,7 @@ declare module 'hmpo-form-wizard' {
 
       options: Options<V, K>
 
-      router: Express.Router
+      router: express.Router
 
       middlewareSetup(): void
 
@@ -335,54 +335,54 @@ declare module 'hmpo-form-wizard' {
 
       middlewareMixins(): void
 
-      use(...requestHandlers: Express.RequestHandler[]): void
+      use(...requestHandlers: express.RequestHandler[]): void
 
       useWithMethod(
         method: 'all' | 'get' | 'post' | 'put' | 'delete' | 'patch' | 'options' | 'head',
-        ...requestHandlers: Express.RequestHandler[]
+        ...requestHandlers: express.RequestHandler[]
       ): void
 
-      requestHandler(): Express.Router
+      requestHandler(): express.Router
 
-      rejectUnsupportedMethods(req: Request<V, K>, res: Express.Response, next: Express.NextFunction): void
+      rejectUnsupportedMethods(req: Request<V, K>, res: express.Response, next: express.NextFunction): void
 
-      methodNotSupported(req: Request<V, K>, res: Express.Response, next: Express.NextFunction): void
+      methodNotSupported(req: Request<V, K>, res: express.Response, next: express.NextFunction): void
 
-      configure(req: Request<V, K>, res: Express.Response, next: Express.NextFunction): void
+      configure(req: Request<V, K>, res: express.Response, next: express.NextFunction): void
 
-      get(req: Request<V, K>, res: Express.Response, next: Express.NextFunction): void
+      get(req: Request<V, K>, res: express.Response, next: express.NextFunction): void
 
-      post(req: Request<V, K>, res: Express.Response, next: Express.NextFunction): void
+      post(req: Request<V, K>, res: express.Response, next: express.NextFunction): void
 
-      getErrors(req: Request<V, K>, res: Express.Response): Errors<K>
+      getErrors(req: Request<V, K>, res: express.Response): Errors<K>
 
-      getValues(req: Request<V, K>, res: Express.Response, callback: Callback<V>): void
+      getValues(req: Request<V, K>, res: express.Response, callback: Callback<V>): void
 
-      locals(req: Request<V, K>, res: Express.Response, callback?: Callback<V>): Partial<Locals<V, K>>
+      locals(req: Request<V, K>, res: express.Response, callback?: Callback<V>): Partial<Locals<V, K>>
 
-      render(req: Request<V, K>, res: Express.Response, next: Express.NextFunction): void
+      render(req: Request<V, K>, res: express.Response, next: express.NextFunction): void
 
-      setErrors(err: Errors<K> | null, req: Request<V, K>, res: Express.Response): void
+      setErrors(err: Errors<K> | null, req: Request<V, K>, res: express.Response): void
 
-      process(req: Request<V, K>, res: Express.Response, next: Express.NextFunction): void
+      process(req: Request<V, K>, res: express.Response, next: express.NextFunction): void
 
-      validateFields(req: Request<V, K>, res: Express.Response, callback: Callback<V>): void
+      validateFields(req: Request<V, K>, res: express.Response, callback: Callback<V>): void
 
-      validateField(key: K, req: Request<V, K>, res: Express.Response): Error | false | undefined
+      validateField(key: K, req: Request<V, K>, res: express.Response): Error | false | undefined
 
-      validate(req: Request<Pick<V, K>>, res: Express.Response, next: Express.NextFunction): void
+      validate(req: Request<Pick<V, K>>, res: express.Response, next: express.NextFunction): void
 
-      saveValues(req: Request<V, K>, res: Express.Response, next: Express.NextFunction): void
+      saveValues(req: Request<V, K>, res: express.Response, next: express.NextFunction): void
 
-      successHandler(req: Request<V, K>, res: Express.Response, next: Express.NextFunction): void
+      successHandler(req: Request<V, K>, res: express.Response, next: express.NextFunction): void
 
       isValidationError(err: unknown): err is Record<string, Error>
 
       errorHandler(
         err: Errors<K> | undefined,
         req: Request<V, K>,
-        res: Express.Response,
-        next: Express.NextFunction,
+        res: express.Response,
+        next: express.NextFunction,
       ): void
     }
 
@@ -399,87 +399,87 @@ declare module 'hmpo-form-wizard' {
 
       resolvePath(base: string, url: string, forceRelative: boolean): void
 
-      setBaseUrlLocal(req: Request<V, K>, res: Express.Response, next: Express.NextFunction): void
+      setBaseUrlLocal(req: Request<V, K>, res: express.Response, next: express.NextFunction): void
 
-      setTranslateEngine(req: Request<V, K>, res: Express.Response, next: Express.NextFunction): void
+      setTranslateEngine(req: Request<V, K>, res: express.Response, next: express.NextFunction): void
 
-      createJourneyModel(req: Request<V, K>, res: Express.Response, next: Express.NextFunction): void
+      createJourneyModel(req: Request<V, K>, res: express.Response, next: express.NextFunction): void
 
-      createSessionModel(req: Request<V, K>, res: Express.Response, next: Express.NextFunction): void
+      createSessionModel(req: Request<V, K>, res: express.Response, next: express.NextFunction): void
 
-      resetSessionModel(req: Request<V, K>, res: Express.Response, next: Express.NextFunction): void
+      resetSessionModel(req: Request<V, K>, res: express.Response, next: express.NextFunction): void
 
-      checkSession(req: Request<V, K>, res: Express.Response, next: Express.NextFunction): void
+      checkSession(req: Request<V, K>, res: express.Response, next: express.NextFunction): void
 
-      checkJourneyProgress(req: Request<V, K>, res: Express.Response, next: Express.NextFunction): void
+      checkJourneyProgress(req: Request<V, K>, res: express.Response, next: express.NextFunction): void
 
-      checkProceedToNextStep(req: Request<V, K>, res: Express.Response, next: Express.NextFunction): void
+      checkProceedToNextStep(req: Request<V, K>, res: express.Response, next: express.NextFunction): void
 
       walkJourneyHistory(
         req: Request<V, K>,
-        res: Express.Response,
+        res: express.Response,
         fn: (this: Controller, step: Step<V>, next: Step<V> | undefined) => boolean,
         stopAtInvalid: boolean = true,
         start: Step<V> | null = null,
       ): Step<V> | false
 
-      completedJourneyStep(req: Request<V, K>, res: Express.Response, path: string): Step<V> | false
+      completedJourneyStep(req: Request<V, K>, res: express.Response, path: string): Step<V> | false
 
-      allowedJourneyStep(req: Request<V, K>, res: Express.Response, path: string): Step<V> | false
+      allowedJourneyStep(req: Request<V, K>, res: express.Response, path: string): Step<V> | false
 
-      allowedPrereqStep(req: Request<V, K>, res: Express.Response, prereqs: string[]): Step<V> | false
+      allowedPrereqStep(req: Request<V, K>, res: express.Response, prereqs: string[]): Step<V> | false
 
-      lastAllowedStep(req: Request<V, K>, res: Express.Response): Step<V> | false
+      lastAllowedStep(req: Request<V, K>, res: express.Response): Step<V> | false
 
       getJourneyFieldNames(
         req: Request<V, K>,
-        res: Express.Response,
+        res: express.Response,
         fields: (keyof V)[],
         ignoreLocalFields = false,
         undefinedIfEmpty = false,
       ): string[] | undefined
 
-      setStepComplete(req: Request<V, K>, res: Express.Response, path?: string): void
+      setStepComplete(req: Request<V, K>, res: express.Response, path?: string): void
 
-      addJourneyHistoryStep(req: Request<V, K>, res: Express.Response, step: Step<V>): void
+      addJourneyHistoryStep(req: Request<V, K>, res: express.Response, step: Step<V>): void
 
-      invalidateJourneyHistoryStep(req: Request<V, K>, res: Express.Response, path: string): void
+      invalidateJourneyHistoryStep(req: Request<V, K>, res: express.Response, path: string): void
 
-      removeJourneyHistoryStep(req: Request<V, K>, res: Express.Response, path: string): void
+      removeJourneyHistoryStep(req: Request<V, K>, res: express.Response, path: string): void
 
-      resetJourneyHistory(req: Request<V, K>, res: Express.Response): void
+      resetJourneyHistory(req: Request<V, K>, res: express.Response): void
 
-      csrfGenerateSecret(req: Request<V, K>, res: Express.Response, next: Express.NextFunction): void
+      csrfGenerateSecret(req: Request<V, K>, res: express.Response, next: express.NextFunction): void
 
-      csrfCheckToken(req: Request<V, K>, res: Express.Response, next: Express.NextFunction): void
+      csrfCheckToken(req: Request<V, K>, res: express.Response, next: express.NextFunction): void
 
-      csrfSetToken(req: Request<V, K>, res: Express.Response, next: Express.NextFunction): void
+      csrfSetToken(req: Request<V, K>, res: express.Response, next: express.NextFunction): void
 
-      checkJourneyInvalidations(req: Request<V, K>, res: Express.Response, next: Express.NextFunction): void
+      checkJourneyInvalidations(req: Request<V, K>, res: express.Response, next: express.NextFunction): void
 
-      invalidateFields(req: Request<V, K>, res: Express.Response, next: Express.NextFunction): void
+      invalidateFields(req: Request<V, K>, res: express.Response, next: express.NextFunction): void
 
-      backlinksSetLocals(req: Request<V, K>, res: Express.Response, next: Express.NextFunction): void
+      backlinksSetLocals(req: Request<V, K>, res: express.Response, next: express.NextFunction): void
 
-      getBackLink(req: Request<V, K>, res: Express.Response): string | undefined
+      getBackLink(req: Request<V, K>, res: express.Response): string | undefined
 
       decodeConditions(
         req: Request<V, K>,
-        res: Express.Response,
+        res: express.Response,
         nextStep: NextStep,
       ): { condition: NextStep | null; fields: (keyof V)[]; url: string | null } | undefined
 
-      getNextStepObject(req: Request<V, K>, res: Express.Response): ReturnType<Controller['decodeConditions']>
+      getNextStepObject(req: Request<V, K>, res: express.Response): ReturnType<Controller['decodeConditions']>
 
-      getNextStep(req: Request<V, K>, res: Express.Response): string | undefined
+      getNextStep(req: Request<V, K>, res: express.Response): string | undefined
 
-      getErrorStep(err: Errors<K>, req: Request<V, K>, res: Express.Response): string | undefined
+      getErrorStep(err: Errors<K>, req: Request<V, K>, res: express.Response): string | undefined
 
-      editing(req: Request<V, K>, res: Express.Response, next: Express.NextFunction): void
+      editing(req: Request<V, K>, res: express.Response, next: express.NextFunction): void
 
-      checkEditing(req: Request<V, K>, res: Express.Response, next: Express.NextFunction): void
+      checkEditing(req: Request<V, K>, res: express.Response, next: express.NextFunction): void
 
-      clearEditing(req: Request<V, K>, res: Express.Response): void
+      clearEditing(req: Request<V, K>, res: express.Response): void
     }
 
     interface SessionModelOptions extends LocalModelOptions {

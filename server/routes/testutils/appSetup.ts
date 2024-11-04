@@ -16,6 +16,7 @@ import { roleReadOnly, roleReadWrite, roleApproveReject } from '../../data/const
 import { IncidentReportingApi } from '../../data/incidentReportingApi'
 import { OffenderSearchApi } from '../../data/offenderSearchApi'
 import { PrisonApi } from '../../data/prisonApi'
+import { setupPermissions } from '../../middleware/permissions'
 
 /** Typical reporting officer with access to Moorland only */
 export const user: Express.User = {
@@ -91,8 +92,9 @@ function appSetup(services: Services, production: boolean, userSupplier: () => E
   })
   app.use(express.json())
   app.use(express.urlencoded({ extended: true }))
+  app.use(setupPermissions)
   app.use(routes(services))
-  app.use((req, res, next) => next(new NotFound()))
+  app.use((_req, _res, next) => next(new NotFound()))
   app.use(errorHandler(production))
 
   return app

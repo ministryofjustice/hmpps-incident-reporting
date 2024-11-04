@@ -3,6 +3,7 @@ import type { CaseLoad } from '../../data/frontendComponentsClient'
 import type { IncidentReportingApi } from '../../data/incidentReportingApi'
 import type { OffenderSearchApi } from '../../data/offenderSearchApi'
 import type { PrisonApi } from '../../data/prisonApi'
+import type { Permissions } from '../../middleware/permissions'
 
 export default {}
 
@@ -34,6 +35,7 @@ export declare global {
     interface Locals {
       user: Express.User
       systemToken: string
+      permissions: Permissions
       apis: {
         incidentReportingApi: IncidentReportingApi
         prisonApi: PrisonApi

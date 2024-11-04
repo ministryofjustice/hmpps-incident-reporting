@@ -1,10 +1,11 @@
+import type { Request, Response, NextFunction } from 'express'
+
 import { roleReadOnly, roleReadWrite, roleApproveReject } from '../data/constants'
 
 /**
  * Per-request class to check whether the user is allowed to perform a given action/
  * Always available on res.locals.permissions even if user is not authenticated or is missing roles
  */
-// eslint-disable-next-line import/prefer-default-export
 export class Permissions {
   private caseloadIds: Set<string>
 
@@ -28,4 +29,9 @@ export class Permissions {
       this.roles.has(roleApproveReject)
     )
   }
+}
+
+export function setupPermissions(_req: Request, res: Response, next: NextFunction): void {
+  res.locals.permissions = new Permissions(res.locals.user)
+  next()
 }

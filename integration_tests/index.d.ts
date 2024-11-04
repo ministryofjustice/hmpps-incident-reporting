@@ -7,7 +7,8 @@ declare namespace Cypress {
     signIn(options?: { failOnStatusCode: boolean }): Chainable<AUTWindow>
 
     /**
-     * Set up stubs needed for all interactions
+     * Set up stubs needed for all interactions.
+     * By default, the user acts like a reporting officer with access to Moorland only.
      */
     resetBasicStubs(options?: { roles?: string[] }): Chainable<AUTWindow>
   }

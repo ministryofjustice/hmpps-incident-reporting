@@ -579,6 +579,21 @@ export interface TypeConstant extends Constant {
   nomisCode: string
 }
 
+export interface StaffRoleConstant extends Constant {
+  /** @deprecated */
+  nomisCodes: string[]
+}
+
+export interface PrisonerRoleConstant extends Constant {
+  /** @deprecated */
+  nomisCode: string
+}
+
+export interface PrisonerOutcomeConstant extends Constant {
+  /** @deprecated */
+  nomisCode: string
+}
+
 class Constants {
   constructor(private readonly apiClient: IncidentReportingApi) {}
 
@@ -600,15 +615,15 @@ class Constants {
     return this.listConstants('information-sources')
   }
 
-  staffInvolvementRoles(): Promise<Constant[]> {
+  staffInvolvementRoles(): Promise<StaffRoleConstant[]> {
     return this.listConstants('staff-roles')
   }
 
-  prisonerInvolvementRoles(): Promise<Constant[]> {
+  prisonerInvolvementRoles(): Promise<PrisonerRoleConstant[]> {
     return this.listConstants('prisoner-roles')
   }
 
-  prisonerInvolvementOutcomes(): Promise<Constant[]> {
+  prisonerInvolvementOutcomes(): Promise<PrisonerOutcomeConstant[]> {
     return this.listConstants('prisoner-outcomes')
   }
 

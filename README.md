@@ -57,14 +57,13 @@ npm run start:dev-local
 docker compose -f docker-compose.yml --profile include-frontend up
 ```
 
-#### Local hmpps-auth logins
+#### Local hmpps-auth / nomis-user-roles logins
 
-Each user has 3 caseloads, Leeds(LEI), Brixton(BXI) and Moorland(MDI)
-
-| username        | password       | roles (some don't exist yet!)                                        |
-|-----------------|----------------|----------------------------------------------------------------------|
-| IR_VIEWER       | password123456 | VIEW_INCIDENT_REPORT<br/>GLOBAL_SEARCH                               |
-| IR_CREATOR      | password123456 | CREATE_INCIDENT_REPORT<br/>APPROVE_INCIDENT_REPORT<br/>GLOBAL_SEARCH |
+| Username             | Password       | Roles                                    | Caseloads     |
+|----------------------|----------------|------------------------------------------|---------------|
+| IR_REPORTING_OFFICER | password123456 | INCIDENT_REPORTS__RW                     | MDI           |
+| IR_DATA_WARDEN       | password123456 | INCIDENT_REPORTS__APPROVE, GLOBAL_SEARCH | MDI, LEI, BXI |
+| IR_HQ_VIEWER         | password123456 | INCIDENT_REPORTS__RO, GLOBAL_SEARCH      |               |
 
 ### Import configuration from external sources
 

@@ -29,28 +29,26 @@
       iconFallbackText: "Warning"
     }) }}
 
-  {% else %}
-
-    <h1 class="govuk-heading-l">Incident reporting</h1>
-
-    {% call renderDpsCards() %}
-      {{ renderDpsCard({
-        heading: "Report an incident",
-        description: "TODO",
-        href: "/create-report"
-      }) }}
-      {{ renderDpsCard({
-        heading: "View incidents",
-        description: "TODO",
-        href: "/incidents"
-      }) }}
-      {{ renderDpsCard({
-        heading: "Search all incidents",
-        description: "TODO",
-        href: "/incidents"
-      }) }}
-    {% endcall %}
-
   {% endif %}
+
+  <h1 class="govuk-heading-l">Incident reporting</h1>
+
+  {% call renderDpsCards() %}
+    {{ renderDpsCard({
+      heading: "Report an incident",
+      description: "TODO",
+      href: "/create-report"
+    }) }}
+    {{ renderDpsCard({
+      heading: "View incidents",
+      description: "TODO",
+      href: "/incidents"
+    }) }}
+    {{ renderDpsCard({
+      heading: "Search all incidents",
+      description: "TODO",
+      href: "/incidents"
+    }) }}
+  {% endcall %}
 
 {% endblock %}

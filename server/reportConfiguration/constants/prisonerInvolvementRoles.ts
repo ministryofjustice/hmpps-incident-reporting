@@ -28,7 +28,8 @@ export type PrisonerInvolvementRoleDetails = (typeof prisonerInvolvementRoles)[n
 /** Codes for roles of a prisoner’s involvement in an incident */
 export type PrisonerInvolvementRole = PrisonerInvolvementRoleDetails['code']
 
-/** NOMIS codes for Roles of a prisoner’s involvement in an incident
+/**
+ * NOMIS codes for Roles of a prisoner’s involvement in an incident
  * @deprecated
  */
 export type NomisPrisonerInvolvementRole = PrisonerInvolvementRoleDetails['nomisCode']

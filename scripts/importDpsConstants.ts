@@ -4,7 +4,14 @@ import fs from 'node:fs'
 import path from 'node:path'
 
 import { printText } from './utils'
-import type { IncidentReportingApi, Constant, TypeConstant } from '../server/data/incidentReportingApi'
+import type {
+  IncidentReportingApi,
+  Constant,
+  TypeConstant,
+  StaffRoleConstant,
+  PrisonerRoleConstant,
+  PrisonerOutcomeConstant,
+} from '../server/data/incidentReportingApi'
 
 interface Arguments {
   scriptName: string
@@ -17,11 +24,10 @@ interface Template {
   method: ConstantsMethod
   identifier: string
   documentation: string
-  includeNomisType?: boolean
   asEnum?: boolean
 }
 const templates: Template[] = [
-  { method: 'types', identifier: 'Type', documentation: 'Types of reportable incidents', includeNomisType: true },
+  { method: 'types', identifier: 'Type', documentation: 'Types of reportable incidents' },
   { method: 'statuses', identifier: 'Status', documentation: 'Report statuses' },
   {
     method: 'informationSources',
@@ -37,7 +43,6 @@ const templates: Template[] = [
     method: 'prisonerInvolvementRoles',
     identifier: 'PrisonerInvolvementRole',
     documentation: 'Roles of a prisoner’s involvement in an incident',
-    includeNomisType: true,
   },
   {
     method: 'prisonerInvolvementOutcomes',
@@ -61,9 +66,12 @@ main()
 
 function main() {
   const { scriptName, filePath, template } = parseArgs()
-  const { method, identifier, documentation, asEnum, includeNomisType } = template
+  const { method, identifier, documentation, asEnum } = template
 
-  const constants: (Constant | TypeConstant)[] = JSON.parse(fs.readFileSync(filePath, { encoding: 'utf8' }))
+  const constants: (Constant | TypeConstant | StaffRoleConstant | PrisonerRoleConstant | PrisonerOutcomeConstant)[] =
+    JSON.parse(fs.readFileSync(filePath, { encoding: 'utf8' }))
+  const includeNomisCode = constants.every(constant => 'nomisCode' in constant)
+  const includeNomisCodes = constants.every(constant => 'nomisCodes' in constant)
 
   const outputPath = path.resolve(__dirname, `../server/reportConfiguration/constants/${method}.ts`)
   const outputFile = fs.openSync(outputPath, 'w')
@@ -84,7 +92,17 @@ function main() {
     // other constants are strings with extra info
 
     fs.writeSync(outputFile, `/** ${documentation} */\n`)
-    fs.writeSync(outputFile, `export const ${method} = ${JSON.stringify(constants)} as const\n\n`)
+    fs.writeSync(outputFile, `export const ${method} = [\n`)
+    constants.forEach(constant => {
+      if ('nomisCode' in constant && constant.nomisCode === null) {
+        fs.writeSync(
+          outputFile,
+          '// eslint-disable-next-line @typescript-eslint/ban-ts-comment\n// @ts-ignore because typescript treats nomisCode as `any`\n',
+        )
+      }
+      fs.writeSync(outputFile, `${JSON.stringify(constant)},\n`)
+    })
+    fs.writeSync(outputFile, '] as const\n\n')
 
     fs.writeSync(outputFile, `/** ${documentation} */\n`)
     fs.writeSync(outputFile, `export type ${identifier}Details = (typeof ${method})[number]\n\n`)
@@ -92,9 +110,13 @@ function main() {
     fs.writeSync(outputFile, `/** Codes for ${documentation.toLowerCase()} */\n`)
     fs.writeSync(outputFile, `export type ${identifier} = ${identifier}Details['code']\n\n`)
 
-    if (includeNomisType) {
-      fs.writeSync(outputFile, `\n/** NOMIS codes for ${documentation}\n * @deprecated\n */\n`)
+    if (includeNomisCode) {
+      fs.writeSync(outputFile, `\n/**\n * NOMIS codes for ${documentation}\n * @deprecated\n */\n`)
       fs.writeSync(outputFile, `export type Nomis${identifier} = ${identifier}Details['nomisCode']\n\n`)
+    }
+    if (includeNomisCodes) {
+      fs.writeSync(outputFile, `\n/**\n * NOMIS codes for ${documentation}\n * @deprecated\n */\n`)
+      fs.writeSync(outputFile, `export type Nomis${identifier} = ${identifier}Details['nomisCodes'][number]\n\n`)
     }
 
     fs.writeSync(outputFile, `/** Lookup for ${documentation.toLowerCase()} */\n`)

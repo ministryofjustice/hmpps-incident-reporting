@@ -82,7 +82,8 @@ export type TypeDetails = (typeof types)[number]
 /** Codes for types of reportable incidents */
 export type Type = TypeDetails['code']
 
-/** NOMIS codes for Types of reportable incidents
+/**
+ * NOMIS codes for Types of reportable incidents
  * @deprecated
  */
 export type NomisType = TypeDetails['nomisCode']

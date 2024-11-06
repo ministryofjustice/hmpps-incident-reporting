@@ -96,16 +96,78 @@ describe('shortDate(): Format shorts dates as Europe/London ignoring time-of-day
   })
 })
 
-describe('isoDate(): Formats dates in ISO style, used when calling APIs', () => {
+describe('time(): Formats dates as time in Europe/London', () => {
+  it.each([
+    // same UTC offset, not DST
+    ['2022-02-22T12:00:00Z', '12:00'],
+    // differing UTC offset, not DST
+    ['2022-02-22T12:00:00+01:00', '11:00'],
+
+    // same UTC offset, DST
+    ['2022-06-22T12:00:00Z', '13:00'],
+    // differing UTC offset, DST
+    ['2022-06-22T12:00:00+01:00', '12:00'],
+
+    // near DST switch
+    ['2021-10-30T23:59:59Z', '00:59'],
+    ['2021-10-31T00:00:00Z', '01:00'],
+    ['2021-10-31T00:00:01Z', '01:00'],
+    ['2021-10-31T00:59:59Z', '01:59'],
+    ['2021-10-31T01:00:00Z', '01:00'],
+    ['2021-10-31T01:00:01Z', '01:00'],
+
+    // 24-hr clock
+    ['2022-02-23T16:37:53Z', '16:37'],
+  ])('new Date(%s) is formatted as %s ignoring time-of-day', (date, expected) => {
+    expect(format.time(new Date(date))).toEqual(expected)
+  })
+
+  it("returns '' for null and undefined", () => {
+    expect(format.time(null)).toEqual('')
+    expect(format.time(undefined)).toEqual('')
+  })
+})
+
+describe('isoDate(): Formats dates in Europe/London ISO style, used when calling APIs', () => {
   it.each([
     ['2024-07-30T12:34:56', '2024-07-30'],
     ['2024-07-30T12:34:56Z', '2024-07-30'],
     ['2024-07-30T12:34:56+01:00', '2024-07-30'],
+
+    // near DST switch
+    ['2021-10-30T23:59:59Z', '2021-10-31'],
+    ['2021-10-31T00:00:00Z', '2021-10-31'],
+    ['2021-10-31T00:00:01Z', '2021-10-31'],
+    ['2021-10-31T00:59:59Z', '2021-10-31'],
+    ['2021-10-31T01:00:00Z', '2021-10-31'],
+    ['2021-10-31T01:00:01Z', '2021-10-31'],
   ])('new Date(%s) formats as %s in ISO date style', (date, expected) => {
     expect(format.isoDate(new Date(date))).toEqual(expected)
   })
 
   it.each([null, undefined])('preserves %s', input => {
-    expect(format.isoDate(input)).toEqual(input)
+    expect(format.isoDate(input)).toStrictEqual(input)
+  })
+})
+
+describe('isoDateTime(): Formats dates with time-of-day in Europe/London ISO style, used when calling APIs', () => {
+  it.each([
+    ['2024-07-30T12:34:56', '2024-07-30T12:34:56'],
+    ['2024-07-30T12:34:56Z', '2024-07-30T13:34:56'],
+    ['2024-07-30T12:34:56+01:00', '2024-07-30T12:34:56'],
+
+    // near DST switch
+    ['2021-10-30T23:59:59Z', '2021-10-31T00:59:59'],
+    ['2021-10-31T00:00:00Z', '2021-10-31T01:00:00'],
+    ['2021-10-31T00:00:01Z', '2021-10-31T01:00:01'],
+    ['2021-10-31T00:59:59Z', '2021-10-31T01:59:59'],
+    ['2021-10-31T01:00:00Z', '2021-10-31T01:00:00'],
+    ['2021-10-31T01:00:01Z', '2021-10-31T01:00:01'],
+  ])('new Date(%s) formats as %s in ISO date style', (date, expected) => {
+    expect(format.isoDateTime(new Date(date))).toEqual(expected)
+  })
+
+  it.each([null, undefined])('preserves %s', input => {
+    expect(format.isoDateTime(input)).toStrictEqual(input)
   })
 })

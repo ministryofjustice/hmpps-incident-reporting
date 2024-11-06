@@ -1,11 +1,12 @@
-import type { SuperAgentRequest } from 'superagent'
+import type { Response as SuperAgentResponse, SuperAgentRequest } from 'superagent'
 
 import { stubFor } from './wiremock'
-import type { User } from '../../server/data/manageUsersApiClient'
+import { mockUser, mockSharedUser } from '../../server/data/testData/manageUsers'
+import { staffBarry, staffMary } from '../../server/data/testData/prisonApi'
 
 export default {
   /** Current user */
-  stubManageUserMe: (name: string = 'john smith'): SuperAgentRequest =>
+  stubManageUserMe: (name: string = 'John Smith'): SuperAgentRequest =>
     stubFor({
       request: {
         method: 'GET',
@@ -16,35 +17,31 @@ export default {
         headers: {
           'Content-Type': 'application/json;charset=UTF-8',
         },
-        jsonBody: {
-          staffId: 231232,
-          username: 'USER1',
-          active: true,
-          name,
-        } satisfies User,
+        jsonBody: mockUser('user1', name),
       },
     }),
 
-  /** Another user, looked up by username */
-  stubManageUserNamed: (username: string = 'jsmith', name: string = 'john smith'): SuperAgentRequest =>
-    stubFor({
-      request: {
-        method: 'GET',
-        urlPath: `/manage-users-api/users/${encodeURIComponent(username)}`,
-      },
-      response: {
-        status: 200,
-        headers: {
-          'Content-Type': 'application/json;charset=UTF-8',
-        },
-        jsonBody: {
-          staffId: 231232,
-          username: 'USER1',
-          active: true,
-          name,
-        } satisfies User,
-      },
-    }),
+  /** Add all known users from test data */
+  stubManageKnownUsers: (
+    users: { username: string; name?: string }[] = [mockSharedUser, staffBarry, staffMary],
+  ): Promise<SuperAgentResponse[]> =>
+    Promise.all(
+      users.map(user =>
+        stubFor({
+          request: {
+            method: 'GET',
+            urlPath: `/manage-users-api/users/${encodeURIComponent(user.username)}`,
+          },
+          response: {
+            status: 200,
+            headers: {
+              'Content-Type': 'application/json;charset=UTF-8',
+            },
+            jsonBody: mockUser(user.username, user.name),
+          },
+        }),
+      ),
+    ),
 
   stubManageUsersPing: (): SuperAgentRequest =>
     stubFor({

@@ -6,6 +6,9 @@ import nunjucksSetup from './utils/nunjucksSetup'
 import errorHandler from './errorHandler'
 import authorisationMiddleware from './middleware/authorisationMiddleware'
 
+import { setupPermissions } from './middleware/permissions'
+import setApis from './middleware/setApis'
+import setSystemToken from './middleware/setSystemToken'
 import setUpAuthentication from './middleware/setUpAuthentication'
 import setUpCsrf from './middleware/setUpCsrf'
 import setUpCurrentUser from './middleware/setUpCurrentUser'
@@ -19,8 +22,6 @@ import frontendComponents from './middleware/frontendComponents'
 import config from './config'
 import routes from './routes'
 import type { Services } from './services'
-import setSystemToken from './middleware/setSystemToken'
-import setApis from './middleware/setApis'
 
 export default function createApp(services: Services): express.Application {
   const app = express()
@@ -42,11 +43,12 @@ export default function createApp(services: Services): express.Application {
   app.use(setUpCurrentUser(services))
   app.use(setSystemToken(services))
   app.use(setApis())
-
   app.use(frontendComponents(services))
+  app.use(setupPermissions)
+
   app.use(routes(services))
 
-  app.use((req, res, next) => next(new NotFound()))
+  app.use((_req, _res, next) => next(new NotFound()))
   app.use(errorHandler(config.production))
 
   return app

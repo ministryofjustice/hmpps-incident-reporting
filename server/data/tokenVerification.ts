@@ -1,6 +1,6 @@
 import superagent from 'superagent'
 import type { Request } from 'express'
-import getSanitisedError from '../sanitisedError'
+import { sanitiseError } from '../sanitisedError'
 import config from '../config'
 import logger from '../../logger'
 
@@ -12,7 +12,7 @@ async function getApiClientToken(token: string): Promise<boolean> {
       .timeout(config.apis.tokenVerification.timeout)
     return Boolean(response.body && response.body.active)
   } catch (error) {
-    logger.error(getSanitisedError(error), 'Error calling tokenVerificationApi')
+    logger.error(sanitiseError(error), 'Error calling tokenVerificationApi')
     return false
   }
 }

@@ -57,6 +57,7 @@ export default function nunjucksSetup(app: express.Express): void {
   // misc utils
   njkEnv.addFilter('assetMap', (url: string) => assetManifest[url] || url)
   njkEnv.addGlobal('callAsMacro', callAsMacro)
+  njkEnv.addGlobal('now', () => new Date())
   njkEnv.addExtension('panic', new PanicExtension())
 
   // name formatting
@@ -69,6 +70,7 @@ export default function nunjucksSetup(app: express.Express): void {
   njkEnv.addFilter('dateAndTime', format.dateAndTime)
   njkEnv.addFilter('date', format.date)
   njkEnv.addFilter('shortDate', format.shortDate)
+  njkEnv.addFilter('time', format.time)
 
   // prisoner utils
   njkEnv.addFilter('prisonerLocation', prisonerLocation)

@@ -1,5 +1,6 @@
 import { v7 as uuidFromDate } from 'uuid'
 
+import format from '../../utils/format'
 import { buildArray } from '../../utils/utils'
 import type { ErrorCode, Status, Type } from '../../reportConfiguration/constants'
 import type {
@@ -13,6 +14,7 @@ import type {
   CorrectionRequest,
   Question,
 } from '../incidentReportingApi'
+import { staffBarry, staffMary } from './prisonApi'
 
 interface MockEventConfig {
   eventReference: string
@@ -27,21 +29,23 @@ export function mockEvent({
   eventReference,
   reportDateAndTime,
   prisonId = 'MDI',
-  reportingUsername = 'USER1',
+  reportingUsername = 'user1',
   includeReports = 0,
 }: MockEventConfig & { includeReports?: number }): DatesAsStrings<Event | EventWithBasicReports> {
   const incidentDateAndTime = new Date(reportDateAndTime)
   incidentDateAndTime.setHours(incidentDateAndTime.getHours() - 1)
+  incidentDateAndTime.setSeconds(0)
+  incidentDateAndTime.setMilliseconds(0)
 
   const event: DatesAsStrings<Event> = {
-    id: uuidFromDate({ msecs: reportDateAndTime }),
+    id: uuidFromDate({ msecs: reportDateAndTime.getTime() }),
     eventReference,
-    eventDateAndTime: incidentDateAndTime.toISOString(),
+    eventDateAndTime: format.isoDateTime(incidentDateAndTime),
     prisonId,
     title: 'An event occurred',
     description: 'Details of the event',
-    createdAt: reportDateAndTime.toISOString(),
-    modifiedAt: reportDateAndTime.toISOString(),
+    createdAt: format.isoDateTime(reportDateAndTime),
+    modifiedAt: format.isoDateTime(reportDateAndTime),
     modifiedBy: reportingUsername,
   }
 
@@ -76,26 +80,28 @@ export function mockReport({
   createdInNomis = false,
   status = 'DRAFT',
   type = 'FINDS',
-  reportingUsername = 'USER1',
+  reportingUsername = 'user1',
   withDetails = false,
 }: MockReportConfig & { withDetails?: boolean }): DatesAsStrings<ReportBasic | ReportWithDetails> {
   const incidentDateAndTime = new Date(reportDateAndTime)
   incidentDateAndTime.setHours(incidentDateAndTime.getHours() - 1)
+  incidentDateAndTime.setSeconds(0)
+  incidentDateAndTime.setMilliseconds(0)
 
   const basicReport: DatesAsStrings<ReportBasic> = {
-    id: uuidFromDate({ msecs: reportDateAndTime }),
+    id: uuidFromDate({ msecs: reportDateAndTime.getTime() }),
     reportReference,
     type,
-    incidentDateAndTime: incidentDateAndTime.toISOString(),
+    incidentDateAndTime: format.isoDateTime(incidentDateAndTime),
     prisonId,
     title: `Incident Report ${reportReference}`,
     description: `A new incident created in the new service of type ${type}`,
     reportedBy: reportingUsername,
-    reportedAt: reportDateAndTime.toISOString(),
+    reportedAt: format.isoDateTime(reportDateAndTime),
     status,
     assignedTo: reportingUsername,
-    createdAt: reportDateAndTime.toISOString(),
-    modifiedAt: reportDateAndTime.toISOString(),
+    createdAt: format.isoDateTime(reportDateAndTime),
+    modifiedAt: format.isoDateTime(reportDateAndTime),
     modifiedBy: reportingUsername,
     createdInNomis,
   }
@@ -107,7 +113,7 @@ export function mockReport({
       historyOfStatuses: [
         {
           status,
-          changedAt: reportDateAndTime.toISOString(),
+          changedAt: format.isoDateTime(reportDateAndTime),
           changedBy: reportingUsername,
         },
       ],
@@ -117,7 +123,7 @@ export function mockReport({
       questions: buildArray(2, questionIndex => mockQuestion(questionIndex, reportDateAndTime, 2)),
       history: buildArray(2, () => ({
         type: 'MISCELLANEOUS',
-        changedAt: reportDateAndTime.toISOString(),
+        changedAt: format.isoDateTime(reportDateAndTime),
         changedBy: 'some-user-2',
         questions: buildArray(2, questionIndex => ({
           code: `QID-${(questionIndex + 1).toString().padStart(12, '0')}`,
@@ -125,10 +131,10 @@ export function mockReport({
           additionalInformation: '',
           responses: buildArray(2, responseIndex => ({
             response: `Historic response #${responseIndex + 1}`,
-            responseDate: reportDateAndTime.toISOString(),
+            responseDate: format.isoDateTime(reportDateAndTime),
             additionalInformation: `Historic comment #${responseIndex + 1}`,
             recordedBy: 'some-user-2',
-            recordedAt: reportDateAndTime.toISOString(),
+            recordedAt: format.isoDateTime(reportDateAndTime),
           })),
         })),
       })),
@@ -142,13 +148,13 @@ export function mockStaffInvolvement(index: number): DatesAsStrings<StaffInvolve
   switch (index) {
     case 0:
       return {
-        staffUsername: 'staff-1',
+        staffUsername: staffMary.username,
         staffRole: 'ACTIVELY_INVOLVED',
-        comment: 'Comment about staff-1',
+        comment: 'Comment about Mary',
       }
     case 1:
       return {
-        staffUsername: 'staff-2',
+        staffUsername: staffBarry.username,
         staffRole: 'PRESENT_AT_SCENE',
         comment: null,
       }
@@ -185,14 +191,14 @@ export function mockCorrectionRequest(index: number, correctionRequestedAt: Date
         reason: 'NOT_SPECIFIED',
         descriptionOfChange: 'Please amend question 2',
         correctionRequestedBy: 'USER2',
-        correctionRequestedAt: correctionRequestedAt.toISOString(),
+        correctionRequestedAt: format.isoDateTime(correctionRequestedAt),
       }
     case 1:
       return {
         reason: 'MISTAKE',
         descriptionOfChange: 'Name misspelled',
         correctionRequestedBy: 'USER2',
-        correctionRequestedAt: correctionRequestedAt.toISOString(),
+        correctionRequestedAt: format.isoDateTime(correctionRequestedAt),
       }
     default:
       throw new Error('not implemented')
@@ -210,9 +216,9 @@ export function mockQuestion(
     additionalInformation: `Explanation #${questionIndex + 1}`,
     responses: buildArray(numberOfResponses, responseIndex => ({
       response: `Response #${responseIndex + 1}`,
-      responseDate: responseDate.toISOString(),
+      responseDate: format.isoDateTime(responseDate),
       recordedBy: 'some-user',
-      recordedAt: responseDate.toISOString(),
+      recordedAt: format.isoDateTime(responseDate),
       additionalInformation: `comment #${responseIndex + 1}`,
     })),
   }

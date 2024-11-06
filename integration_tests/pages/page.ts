@@ -25,6 +25,23 @@ export default abstract class Page {
     return cy.get('[data-qa=manageDetails]')
   }
 
+  get breadcrumbs(): PageElement<HTMLDivElement> {
+    return cy.get('.govuk-breadcrumbs__list-item')
+  }
+
+  checkLastBreadcrumb(label: string, url?: string): void {
+    this.breadcrumbs.last().should('contain.text', label)
+    this.breadcrumbs.last().find('a').should('have.attr', 'href', url)
+  }
+
+  checkBackLink(url: string): PageElement<HTMLAnchorElement> {
+    return cy.get<HTMLAnchorElement>('.govuk-back-link').should('have.attr', 'href', url)
+  }
+
+  get errorSummary(): PageElement<HTMLDivElement> {
+    return cy.get('.govuk-error-summary')
+  }
+
   get footer(): PageElement {
     return cy.get('.govuk-footer')
   }

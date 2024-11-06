@@ -1,4 +1,5 @@
 import type { AvailableComponent, CaseLoad, Component, ComponentsResponse } from '../frontendComponentsClient'
+import type { Prison } from '../prisonApi'
 import { moorland } from './prisonApi'
 
 const emptyComponent: Component = {
@@ -7,15 +8,19 @@ const emptyComponent: Component = {
   javascript: [],
 }
 
-const caseload: CaseLoad = {
-  caseLoadId: moorland.agencyId,
-  description: moorland.description,
-  type: moorland.agencyType,
-  caseloadFunction: 'GENERAL',
-  currentlyActive: true,
+export function makeMockCaseload(prison: Prison, currentlyActive = true): CaseLoad {
+  return {
+    caseLoadId: prison.agencyId,
+    description: prison.description,
+    type: prison.agencyType,
+    caseloadFunction: 'GENERAL',
+    currentlyActive,
+  }
 }
 
-// eslint-disable-next-line import/prefer-default-export
+/** Moorland caseload */
+export const mockCaseload = makeMockCaseload(moorland)
+
 export function mockFrontendComponentResponse(
   components: Partial<Record<AvailableComponent, Component>> = {},
 ): ComponentsResponse {
@@ -24,8 +29,8 @@ export function mockFrontendComponentResponse(
     footer: emptyComponent,
     ...components,
     meta: {
-      activeCaseLoad: caseload,
-      caseLoads: [caseload],
+      activeCaseLoad: mockCaseload,
+      caseLoads: [mockCaseload],
       services: [],
     },
   }

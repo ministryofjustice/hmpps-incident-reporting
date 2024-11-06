@@ -1,0 +1,60 @@
+{% extends "partials/layout.njk" %}
+
+{% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "macros/renderFields.njk" import renderFields %}
+
+{% block beforeContent %}
+  {% if backLink %}
+    {{ govukBackLink({
+      text: "Back",
+      href: backLink
+    }) }}
+  {% endif %}
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      {% include "partials/errorSummary.njk" %}
+
+      <h1 class="govuk-heading-l">{{ pageTitle }}</h1>
+
+      <form id="form-wizard" method="post" novalidate>
+        <input type="hidden" name="_csrf" value="{{ csrfToken }}" />
+        <input type="hidden" name="x-csrf-token" value="{{ csrfToken }}" />
+
+        {% block formFields %}
+          {{ renderFields(options, values, errors) }}
+        {% endblock %}
+
+        <div class="govuk-button-group">
+          {{ govukButton({
+            text: saveButtonText or "Save and continue",
+            name: "submit",
+            value: "continue",
+            preventDoubleClick: true,
+            type: "submit"
+          }) }}
+
+          {% if allowSaveAndExit %}
+            {{ govukButton({
+              text: "Save and exit",
+              name: "submit",
+              value: "exit",
+              preventDoubleClick: true,
+              classes: "govuk-button--secondary",
+              type: "submit"
+            }) }}
+          {% endif %}
+
+          {% if cancelUrl %}
+            <a href="{{ cancelUrl }}" class="govuk-link--no-visited-state">Cancel</a>
+          {% endif %}
+        </div>
+      </form>
+
+    </div>
+  </div>
+{% endblock %}

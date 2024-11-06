@@ -136,7 +136,7 @@ describe('Incident reporting API client', () => {
         testCase: () =>
           apiClient.staffInvolved.addToReport(reportWithDetails.id, {
             staffRole: 'ACTIVELY_INVOLVED',
-            staffUsername: 'staff-1',
+            staffUsername: 'abc12a',
           }),
       },
       {
@@ -146,7 +146,7 @@ describe('Incident reporting API client', () => {
         testCase: () =>
           apiClient.staffInvolved.updateForReport(reportWithDetails.id, 1, {
             staffRole: 'ACTIVELY_INVOLVED',
-            staffUsername: 'staff-1',
+            staffUsername: 'abc12a',
           }),
       },
       {
@@ -593,18 +593,18 @@ describe('Incident reporting API client', () => {
         testCaseAbsentFields: () =>
           apiClient.staffInvolved.updateForReport(reportWithDetails.id, 2, {
             staffRole: 'ACTIVELY_INVOLVED',
-            staffUsername: 'staff-1',
+            staffUsername: 'abc12a',
           }),
         testCaseNullFields: () =>
           apiClient.staffInvolved.updateForReport(reportWithDetails.id, 2, {
             staffRole: 'ACTIVELY_INVOLVED',
-            staffUsername: 'staff-1',
+            staffUsername: 'abc12a',
             comment: null,
           }),
         testCaseNonNullFields: () =>
           apiClient.staffInvolved.updateForReport(reportWithDetails.id, 2, {
             staffRole: 'ACTIVELY_INVOLVED',
-            staffUsername: 'staff-1',
+            staffUsername: 'abc12a',
             comment: 'Staff member helped calm the situation',
           }),
       },

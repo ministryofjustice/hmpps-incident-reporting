@@ -10,19 +10,49 @@ import nunjucksSetup from '../../utils/nunjucksSetup'
 import type { ApplicationInfo } from '../../applicationInfo'
 import errorHandler from '../../errorHandler'
 import type { Services } from '../../services'
+import { makeMockCaseload, mockCaseload } from '../../data/testData/frontendComponents'
+import { leeds } from '../../data/testData/prisonApi'
+import { roleReadOnly, roleReadWrite, roleApproveReject } from '../../data/constants'
 import { IncidentReportingApi } from '../../data/incidentReportingApi'
 import { OffenderSearchApi } from '../../data/offenderSearchApi'
 import { PrisonApi } from '../../data/prisonApi'
+import { setupPermissions } from '../../middleware/permissions'
 
+/** Typical reporting officer with access to Moorland only */
 export const user: Express.User = {
-  name: 'FIRST LAST',
+  name: 'JOHN SMITH',
   userId: 'id',
   token: 'token',
   username: 'user1',
-  displayName: 'First Last',
+  displayName: 'John Smith',
   active: true,
   activeCaseLoadId: 'MDI',
   authSource: 'NOMIS',
+  roles: ['PRISON', roleReadWrite],
+  // from frontend components middleware
+  activeCaseLoad: mockCaseload,
+  caseLoads: [mockCaseload],
+}
+
+/** Data warden with write access to Leeds and Moorland */
+export const approverUser: Express.User = {
+  ...user,
+  roles: ['PRISON', roleApproveReject],
+  caseLoads: [mockCaseload, makeMockCaseload(leeds, false)],
+}
+
+/** HQ user with read-only access to Leeds and Moorland */
+export const hqUser: Express.User = {
+  ...user,
+  roles: ['PRISON', roleReadOnly],
+  caseLoads: [mockCaseload, makeMockCaseload(leeds, false)],
+}
+
+/** General user in Moorland without access */
+export const unauthorisedUser: Express.User = {
+  ...user,
+  roles: ['PRISON'],
+  caseLoads: [mockCaseload],
 }
 
 export const testAppInfo: ApplicationInfo = {
@@ -45,6 +75,8 @@ function appSetup(services: Services, production: boolean, userSupplier: () => E
   app.use((req, res, next) => {
     req.id = randomUUID()
 
+    res.locals.csrfToken = 'csrf-token'
+
     req.user = userSupplier()
     Object.assign(res.locals, {
       user: { ...req.user },
@@ -60,8 +92,9 @@ function appSetup(services: Services, production: boolean, userSupplier: () => E
   })
   app.use(express.json())
   app.use(express.urlencoded({ extended: true }))
+  app.use(setupPermissions)
   app.use(routes(services))
-  app.use((req, res, next) => next(new NotFound()))
+  app.use((_req, _res, next) => next(new NotFound()))
   app.use(errorHandler(production))
 
   return app

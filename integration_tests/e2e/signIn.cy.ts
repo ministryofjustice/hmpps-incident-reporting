@@ -2,11 +2,12 @@ import IndexPage from '../pages/index'
 import AuthSignInPage from '../pages/authSignIn'
 import Page from '../pages/page'
 import AuthManageDetailsPage from '../pages/authManageDetails'
+import { roleReadWrite } from '../../server/data/constants'
 
 context('Sign In', () => {
   beforeEach(() => {
     cy.task('resetStubs')
-    cy.task('stubSignIn')
+    cy.task('stubSignIn', ['PRISON', roleReadWrite])
     cy.task('stubNomisUserCaseloads')
     cy.task('stubFallbackHeaderAndFooter')
     cy.task('stubManageUserMe')

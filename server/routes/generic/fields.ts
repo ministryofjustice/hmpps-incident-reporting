@@ -4,174 +4,125 @@ const fields: FormWizard.Fields = {
   incidentType: {
     component: 'govukRadios',
     validate: ['required'],
-    id: 'incidentType',
     name: 'incidentType',
-    label: {
-      text: 'Incident type',
-      classes: 'govuk-fieldset__legend--m',
-    },
+    label: 'Incident type',
     items: [
       {
         value: 'ABSCOND',
-        text: 'Abscond',
+        label: 'Abscond',
       },
       {
         value: 'ASSAULT',
-        text: 'Assault',
-        hint: {
-          text: 'Includes fights and suspected assaults.',
-        },
+        label: 'Assault',
       },
       {
         value: 'ATTEMPTED_ESCAPE_FROM_COURT',
-        text: 'Attempted escape from escort',
+        label: 'Attempted escape from escort',
       },
       {
         value: 'ATTEMPTED_ESCAPE_FROM_ESTABLISHMENT',
-        text: 'Attempted escape from establishment',
+        label: 'Attempted escape from establishment',
       },
       {
         value: 'BOMB',
-        text: 'Bomb explosion or threat',
+        label: 'Bomb explosion or threat',
       },
       {
         value: 'BREACH',
-        text: 'Breach or attempted breach of security',
+        label: 'Breach or attempted breach of security',
       },
       {
         value: 'CLOSE_DOWN_SEARCH',
-        text: 'Close down search',
-        hint: {
-          text: 'Any finds must be reported using the Find type.',
-        },
+        label: 'Close down search',
       },
       {
         value: 'DEATH_OF_OTHER_PERSON',
-        text: 'Death of other person',
+        label: 'Death of other person',
       },
       {
         value: 'DEATH_OF_PRISONER',
-        text: 'Death of prisoner',
+        label: 'Death of prisoner',
       },
       {
         value: 'DELIBERATE_DAMAGE',
-        text: 'Deliberate damage to prison property (being removed Sept TBC)',
+        label: 'Deliberate damage to prison property (being removed Sept TBC)',
       },
       {
         value: 'DISORDER',
-        text: 'Disorder',
-        hint: {
-          text: 'Includes barricade, concerted indiscipline, hostage, and incident at height.',
-        },
+        label: 'Disorder',
       },
       {
         value: 'DRONE_SIGHTING',
-        text: 'Drone sighting',
-        hint: {
-          text: 'Drones must have been seen by staff.',
-        },
+        label: 'Drone sighting',
       },
       {
         value: 'ESCAPE_FROM_COURT',
-        text: 'Escape from escort',
+        label: 'Escape from escort',
       },
       {
         value: 'ESCAPE_FROM_ESTABLISHMENT',
-        text: 'Escape from establishment',
+        label: 'Escape from establishment',
       },
       {
         value: 'FIND_OF_ILLICIT_ITEMS',
-        text: 'Find of illicit items',
-        hint: {
-          text: 'Items must be recovered, not just seen.',
-        },
+        label: 'Find of illicit items',
       },
       {
         value: 'FIRE',
-        text: 'Fire',
+        label: 'Fire',
       },
       {
         value: 'FOOD_OR_LIQUID_REFUSAL',
-        text: 'Food or liquid refusual',
+        label: 'Food or liquid refusual',
       },
       {
         value: 'KEY_OR_LOCK_COMPROMISE',
-        text: 'Key or lock compromise',
+        label: 'Key or lock compromise',
       },
       {
         value: 'MISCELLANEOUS',
-        text: 'Miscellaneous',
-        hint: {
-          text: 'Includes dirty protest, failure of IT or telephony, large scale evacuation, late release or unlawful detention, loss of essential services, public demonstration, secondary exposure to airborne contaminants and any other incident not listed.',
-        },
+        label: 'Miscellaneous',
       },
       {
         value: 'RADIO_COMPROMISE',
-        text: 'Radio compromise',
+        label: 'Radio compromise',
       },
       {
         value: 'RELEASE_IN_ERROR',
-        text: 'Release in error',
+        label: 'Release in error',
       },
       {
         value: 'SELF_HARM',
-        text: 'Self harm',
-        hint: {
-          text: 'Includes suspected and reported self-harm. Do not use to report a noose, unless it’s around the neck or applying pressure.',
-        },
+        label: 'Self harm',
       },
       {
         value: 'TEMPORARY_RELEASE_FAILURE',
-        text: 'Temporary release failure',
+        label: 'Temporary release failure',
       },
       {
         value: 'TOOL_OR_IMPLEMENT_LOSS',
-        text: 'Tool or implement loss',
-        hint: {
-          text: 'Do not use for radio and key or lock compromises. They are separate incident types.',
-        },
+        label: 'Tool or implement loss',
       },
     ],
   },
   incidentDate: {
     component: 'mojDatePicker',
-    id: 'incidentDate',
     name: 'incidentDate',
     validate: ['required'],
-    label: {
-      text: 'On which date did the incident occur?',
-      classes: 'govuk-fieldset__legend--m',
-    },
-    leadingZeros: 'true',
+    label: 'On which date did the incident occur?',
   },
   incidentTime: {
     component: 'govukInput',
     validate: ['required'],
-    id: 'incidentTime',
     name: 'incidentTime',
-    classes: 'govuk-input--width-5',
-    label: {
-      text: 'At what time did the incident occur?',
-      classes: 'govuk-fieldset__legend--m',
-    },
-    hint: {
-      text: 'Please give time as the following example: 10:35',
-    },
+    label: 'At what time did the incident occur?',
     autocomplete: 'off',
   },
   incidentTitle: {
     component: 'govukInput',
     validate: ['required'],
-    id: 'incidentTitle',
     name: 'incidentTitle',
-    classes: 'govuk-!-width-three-quarters',
-    label: {
-      text: 'Title of incident',
-      classes: 'govuk-fieldset__legend--m',
-    },
-    hint: {
-      text: 'Please give a title that covers the subject of this incident.',
-    },
+    label: 'Title of incident',
     autocomplete: 'off',
   },
   incidentDescription: {
@@ -179,102 +130,58 @@ const fields: FormWizard.Fields = {
     multiple: false,
     validate: ['required'],
     errorMessages: { required: 'A description is required for the incident in question.' },
-    id: 'incidentDescription',
     name: 'incidentDescription',
-    label: {
-      text: 'Please can you provide a description of the incident',
-      classes: 'govuk-fieldset__legend--m',
-    },
+    label: 'Please can you provide a description of the incident',
     rows: '8',
-    fieldset: {
-      legend: {
-        text: 'Prison governor approval for change',
-        classes: 'govuk-fieldset__legend--m',
-      },
-    },
-    hint: {
-      text: 'Please provide as much detail as you can.',
-    },
   },
   prisonersInvolved: {
     component: 'govukInput',
     multiple: true,
     validate: ['alphanum'],
-    id: 'prisonersInvolved',
     name: 'prisonersInvolved',
-    classes: 'govuk-input--width-20',
-    label: {
-      text: 'Prisoners involved',
-      classes: 'govuk-fieldset__legend--m',
-    },
-    hint: {
-      text: 'Please list all prisoners involved in this incident.',
-    },
+    label: 'Prisoners involved',
     autocomplete: 'off',
   },
   staffInvolved: {
     component: 'govukInput',
     multiple: true,
     validate: ['alphanum'],
-    id: 'staffInvolved',
     name: 'staffInvolved',
-    classes: 'govuk-input--width-20',
-    label: {
-      text: 'Staff involved',
-      classes: 'govuk-fieldset__legend--m',
-    },
-    hint: {
-      text: 'Please list all staff members involved in this incident.',
-    },
+    label: 'Staff involved',
     autocomplete: 'off',
   },
   staffType: {
     component: 'govukRadios',
     validate: ['required'],
-    id: 'staffType',
     name: 'staffType',
-    label: {
-      text: 'What type of staff is [person name]',
-      classes: 'govuk-fieldset__legend--m',
-    },
+    label: 'What type of staff is [person name]',
     items: [
       {
         value: 'NON-DIRECTLY',
-        text: 'Non-directly employed staff',
+        label: 'Non-directly employed staff',
       },
       {
         value: 'NON-OPERATIONAL',
-        text: 'Non-operational staff',
+        label: 'Non-operational staff',
       },
       {
         value: 'PRISON_OFFICER',
-        text: 'Prison officer',
+        label: 'Prison officer',
       },
       {
         value: 'OTHER_OPERATIONAL_STAFF',
-        text: 'Other operational staff',
+        label: 'Other operational staff',
       },
     ],
   },
   policeInformed: {
     component: 'govukRadios',
-    classes: 'govuk-radios--inline',
     validate: ['required'],
-    id: 'policeInformed',
     name: 'policeInformed',
-    label: {
-      text: 'Have the police been informed?',
-      classes: 'govuk-fieldset__legend--m',
-    },
-    fieldset: {
-      legend: {
-        text: 'Have the police been informed?',
-        classes: 'govuk-fieldset__legend--m',
-      },
-    },
+    label: 'Have the police been informed?',
     items: [
       {
-        text: 'Yes',
+        label: 'Yes',
         value: 'yes',
         conditional: {
           html: 'set during setup',
@@ -282,19 +189,14 @@ const fields: FormWizard.Fields = {
       },
       {
         value: 'no',
-        text: 'No',
+        label: 'No',
       },
     ],
   },
   policeInformedDate: {
     component: 'govukInput',
-    id: 'policeInformedDate',
     name: 'policeInformedDate',
-    classes: 'govuk-!-width-one-third',
-    label: {
-      text: 'When were the police informed?',
-      classes: 'govuk-fieldset__legend--m',
-    },
+    label: 'When were the police informed?',
     autocomplete: 'off',
     dependent: {
       field: 'policeInformed',
@@ -303,189 +205,149 @@ const fields: FormWizard.Fields = {
   },
   seriousInjuries: {
     component: 'govukCheckboxes',
-    fieldset: {
-      legend: {
-        text: 'Select any serious injuries',
-        classes: 'govuk-fieldset__legend--m',
-      },
-    },
     validate: ['required'],
-    id: 'seriousInjuries',
     name: 'seriousInjuries',
-    label: {
-      text: 'Select any serious injuries',
-      classes: 'govuk-fieldset__legend--m',
-    },
+    label: 'Select any serious injuries',
     items: [
       {
         value: 'ABSCOND',
-        text: 'Bite - skin broken',
+        label: 'Bite - skin broken',
       },
       {
         value: 'ASSAULT',
-        text: 'Black eye',
+        label: 'Black eye',
       },
       {
         value: 'ATTEMPTED_ESCAPE_FROM_COURT',
-        text: 'Blindness - temporary or permanent',
+        label: 'Blindness - temporary or permanent',
       },
       {
         value: 'ATTEMPTED_ESCAPE_FROM_ESTABLISHMENT',
-        text: 'Broken nose',
+        label: 'Broken nose',
       },
       {
         value: 'BOMB',
-        text: 'Broken teeth',
+        label: 'Broken teeth',
       },
       {
         value: 'BREACH',
-        text: 'Bruising - extensive or multiple',
+        label: 'Bruising - extensive or multiple',
       },
       {
         value: 'CLOSE_DOWN_SEARCH',
-        text: 'Burn or scald',
+        label: 'Burn or scald',
       },
       {
         value: 'DEATH_OF_OTHER_PERSON',
-        text: 'Crushing',
+        label: 'Crushing',
       },
       {
         value: 'DEATH_OF_PRISONER',
-        text: 'Cut requiring sutures',
+        label: 'Cut requiring sutures',
       },
       {
         value: 'DELIBERATE_DAMAGE',
-        text: 'Deafness - temporary or permanent',
+        label: 'Deafness - temporary or permanent',
       },
       {
         value: 'DISORDER',
-        text: 'Fracture',
+        label: 'Fracture',
       },
       {
         value: 'DRONE_SIGHTING',
-        text: 'Gunshot wound',
+        label: 'Gunshot wound',
       },
       {
         value: 'ESCAPE_FROM_COURT',
-        text: 'Stabbing',
+        label: 'Stabbing',
       },
       {
         value: 'or',
-        text: 'or',
+        label: 'or',
         divider: 'or',
       },
       {
         value: 'ESCAPE_FROM_ESTABLISHMENT',
-        text: 'No serious injuries',
+        label: 'No serious injuries',
         behaviour: 'exclusive',
       },
     ],
   },
   minorInjuries: {
     component: 'govukCheckboxes',
-    fieldset: {
-      legend: {
-        text: 'Select any minor injuries',
-        classes: 'govuk-fieldset__legend--m',
-      },
-    },
     validate: ['required'],
-    id: 'minorInjuries',
     name: 'minorInjuries',
-    label: {
-      text: 'Select any minor injuries',
-      classes: 'govuk-fieldset__legend--m',
-    },
+    label: 'Select any minor injuries',
     items: [
       {
         value: 'ABSCOND',
-        text: 'Bruising - minor',
+        label: 'Bruising - minor',
       },
       {
         value: 'ASSAULT',
-        text: 'Cut - superficial',
+        label: 'Cut - superficial',
       },
       {
         value: 'ATTEMPTED_ESCAPE_FROM_COURT',
-        text: 'Graze, scratch or abrasion',
+        label: 'Graze, scratch or abrasion',
       },
       {
         value: 'ATTEMPTED_ESCAPE_FROM_ESTABLISHMENT',
-        text: 'Swelling',
+        label: 'Swelling',
       },
       {
         value: 'BOMB',
-        text: 'Other',
+        label: 'Other',
       },
       {
         value: 'or',
-        text: 'or',
+        label: 'or',
         divider: 'or',
       },
       {
         value: 'ESCAPE_FROM_ESTABLISHMENT',
-        text: 'No minor injuries',
+        label: 'No minor injuries',
         behaviour: 'exclusive',
       },
     ],
   },
   medicalTreatment: {
     component: 'govukRadios',
-    fieldset: {
-      legend: {
-        text: 'Did they need medical treatment for concussion or internal injuries?',
-        classes: 'govuk-fieldset__legend--m',
-      },
-    },
     validate: ['required'],
-    id: 'medicalTreatment',
     name: 'medicalTreatment',
-    label: {
-      text: 'Did they need medical treatment for concussion or internal injuries?',
-      classes: 'govuk-fieldset__legend--m',
-    },
+    label: 'Did they need medical treatment for concussion or internal injuries?',
     items: [
       {
         value: 'YES',
-        text: 'Yes',
+        label: 'Yes',
       },
       {
         value: 'NO',
-        text: 'No',
+        label: 'No',
       },
       {
         value: 'UNKNOWN',
-        text: 'Unknown',
+        label: 'Unknown',
       },
     ],
   },
   outsideHospital: {
     component: 'govukRadios',
-    fieldset: {
-      legend: {
-        text: 'Did they go to outside hospital as a result of their injuries?',
-        classes: 'govuk-fieldset__legend--m',
-      },
-    },
     validate: ['required'],
-    id: 'outsideHospital',
     name: 'outsideHospital',
-    label: {
-      text: 'Did they go to outside hospital as a result of their injuries?',
-      classes: 'govuk-fieldset__legend--m',
-    },
+    label: 'Did they go to outside hospital as a result of their injuries?',
     items: [
       {
         value: 'YES',
-        text: 'Yes',
+        label: 'Yes',
       },
       {
         value: 'NO',
-        text: 'No',
+        label: 'No',
       },
       {
         value: 'UNKNOWN',
-        text: 'Unknown',
+        label: 'Unknown',
       },
     ],
   },

@@ -108,7 +108,7 @@ const token = (roles: string[] = []) =>
       jsonBody: {
         access_token: createUserToken(roles),
         token_type: 'bearer',
-        user_name: 'USER1',
+        user_name: 'user1',
         expires_in: 599,
         scope: 'read,write',
         internalUser: true,

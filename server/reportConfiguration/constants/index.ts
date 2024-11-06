@@ -1,4 +1,5 @@
 export * from './types'
+export * from './typeHints'
 export * from './statuses'
 export * from './informationSources'
 export * from './staffInvolvementRoles'

@@ -120,6 +120,7 @@ export type GetReportsParams = {
   incidentDateUntil: Date // Inclusive
   reportedDateFrom: Date // Inclusive
   reportedDateUntil: Date // Inclusive
+  reportedByUsername: string
   involvingStaffUsername: string
   involvingPrisonerNumber: string
 } & PaginationSortingParams
@@ -281,6 +282,7 @@ export class IncidentReportingApi extends RestClient {
       incidentDateUntil,
       reportedDateFrom,
       reportedDateUntil,
+      reportedByUsername,
       involvingStaffUsername,
       involvingPrisonerNumber,
       page,
@@ -295,6 +297,7 @@ export class IncidentReportingApi extends RestClient {
       incidentDateUntil: null,
       reportedDateFrom: null,
       reportedDateUntil: null,
+      reportedByUsername: null,
       involvingStaffUsername: null,
       involvingPrisonerNumber: null,
       page: 0,
@@ -330,6 +333,9 @@ export class IncidentReportingApi extends RestClient {
     }
     if (reportedDateUntil) {
       query.reportedDateUntil = format.isoDate(reportedDateUntil)
+    }
+    if (reportedByUsername) {
+      query.reportedByUsername = reportedByUsername
     }
     if (involvingStaffUsername) {
       query.involvingStaffUsername = involvingStaffUsername
@@ -379,7 +385,7 @@ export class IncidentReportingApi extends RestClient {
   async createReport(data: CreateReportRequest): Promise<ReportWithDetails> {
     const dataWithDatesAsStrings: DatesAsStrings<CreateReportRequest> = {
       ...data,
-      incidentDateAndTime: data.incidentDateAndTime.toISOString(),
+      incidentDateAndTime: format.isoDateTime(data.incidentDateAndTime),
     }
     const report = await this.post<DatesAsStrings<ReportWithDetails>>({
       path: '/incident-reports',
@@ -391,7 +397,7 @@ export class IncidentReportingApi extends RestClient {
   async updateReport(id: string, data: UpdateReportRequest): Promise<ReportBasic> {
     const dataWithDatesAsStrings: DatesAsStrings<UpdateReportRequest> = {
       ...data,
-      incidentDateAndTime: data.incidentDateAndTime?.toISOString(),
+      incidentDateAndTime: format.isoDateTime(data.incidentDateAndTime),
     }
     const report = await this.patch<DatesAsStrings<ReportBasic>>({
       path: `/incident-reports/${encodeURIComponent(id)}`,
@@ -459,7 +465,7 @@ export class IncidentReportingApi extends RestClient {
       ...questionWithResponses,
       responses: questionWithResponses.responses.map(response => ({
         ...response,
-        responseDate: response.responseDate?.toISOString(),
+        responseDate: format.isoDateTime(response.responseDate),
       })),
     }
     const questions = await this.post<DatesAsStrings<Question[]>>({
@@ -579,6 +585,21 @@ export interface TypeConstant extends Constant {
   nomisCode: string
 }
 
+export interface StaffRoleConstant extends Constant {
+  /** @deprecated */
+  nomisCodes: string[]
+}
+
+export interface PrisonerRoleConstant extends Constant {
+  /** @deprecated */
+  nomisCode: string
+}
+
+export interface PrisonerOutcomeConstant extends Constant {
+  /** @deprecated */
+  nomisCode: string
+}
+
 class Constants {
   constructor(private readonly apiClient: IncidentReportingApi) {}
 
@@ -600,15 +621,15 @@ class Constants {
     return this.listConstants('information-sources')
   }
 
-  staffInvolvementRoles(): Promise<Constant[]> {
+  staffInvolvementRoles(): Promise<StaffRoleConstant[]> {
     return this.listConstants('staff-roles')
   }
 
-  prisonerInvolvementRoles(): Promise<Constant[]> {
+  prisonerInvolvementRoles(): Promise<PrisonerRoleConstant[]> {
     return this.listConstants('prisoner-roles')
   }
 
-  prisonerInvolvementOutcomes(): Promise<Constant[]> {
+  prisonerInvolvementOutcomes(): Promise<PrisonerOutcomeConstant[]> {
     return this.listConstants('prisoner-outcomes')
   }
 

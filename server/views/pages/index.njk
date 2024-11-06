@@ -1,11 +1,54 @@
-{% extends "../partials/layout.njk" %}
+{% extends "partials/layout.njk" %}
+
+{% from "govuk/components/breadcrumbs/macro.njk" import govukBreadcrumbs %}
+{% from "govuk/components/warning-text/macro.njk" import govukWarningText %}
+{% from "macros/dpsCard/renderDpsCard.njk" import renderDpsCard %}
+{% from "macros/dpsCard/renderDpsCards.njk" import renderDpsCards %}
 
 {% set pageTitle = applicationName + " - Home" %}
-{% set mainClasses = "govuk-body" %}
+
+{% block beforeContent %}
+  {{ super() }}
+
+  {{ govukBreadcrumbs({
+    items: [
+      {
+        text: "Digital Prison Services",
+        href: dpsUrl
+      }
+    ]
+  }) }}
+{% endblock %}
 
 {% block content %}
 
-  <h1>This site is under construction...</h1>
-  <p>Please check back later when there is content to view.</p>
+  {% if environment === "prod" %}
+
+    {{ govukWarningText({
+      text: "This service is not ready for use.",
+      iconFallbackText: "Warning"
+    }) }}
+
+  {% endif %}
+
+  <h1 class="govuk-heading-l">Incident reporting</h1>
+
+  {% call renderDpsCards() %}
+    {{ renderDpsCard({
+      heading: "Report an incident",
+      description: "TODO",
+      href: "/create-report"
+    }) }}
+    {{ renderDpsCard({
+      heading: "View incidents",
+      description: "TODO",
+      href: "/incidents"
+    }) }}
+    {{ renderDpsCard({
+      heading: "Search all incidents",
+      description: "TODO",
+      href: "/incidents"
+    }) }}
+  {% endcall %}
 
 {% endblock %}

@@ -4,18 +4,21 @@ import logger from '../../logger'
 import type { Services } from '../services'
 
 export default function frontendComponents({ frontendComponentsClient }: Services) {
-  return async (req: Request, res: Response, next: NextFunction): Promise<void> => {
+  return async (_req: Request, res: Response, next: NextFunction): Promise<void> => {
     try {
-      const { header, footer } = await frontendComponentsClient.getComponents(
+      const { header, footer, meta } = await frontendComponentsClient.getComponents(
         ['header', 'footer'],
         res.locals.user.token,
       )
-      // TODO: meta information from frontend components can be used to read active and available caseloads
       res.locals.feComponents = {
         header: header.html,
         footer: footer.html,
         cssIncludes: [...header.css, ...footer.css],
         jsIncludes: [...header.javascript, ...footer.javascript],
+      }
+      if (meta?.activeCaseLoad) {
+        res.locals.user.activeCaseLoad = meta.activeCaseLoad
+        res.locals.user.caseLoads = meta.caseLoads
       }
       next()
     } catch (error) {

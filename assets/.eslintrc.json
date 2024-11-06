@@ -4,10 +4,10 @@
     "browser": true,
     "node": false,
     "jest": false,
-    "jquery": true
+    "jquery": false
   },
   "globals": {
-    // Google Analytics 4
-    "gtag": true
+    // TODO: add Google Analytics 4
+    // "gtag": true
   }
 }

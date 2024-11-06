@@ -4,7 +4,6 @@
 {% from "govuk/components/button/macro.njk" import govukButton %}
 
 {% set pageTitle = applicationName + " - Report" %}
-{% set mainClasses = "govuk-body" %}
 
 {% block content %}
   <h1>Report '{{ report.title }}'</h1>
@@ -195,8 +194,7 @@
   {{ govukButton({
     text: "Update report",
     preventDoubleClick: true,
-    href: "/reports/" + report.id + "/change",
-    isStartButton: true
+    href: "/reports/" + report.id + "/update-details"
   }) }}
 </div>
 {% endblock %}

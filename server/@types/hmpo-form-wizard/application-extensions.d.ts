@@ -6,50 +6,37 @@ declare module 'hmpo-form-wizard' {
 
   namespace FormWizard {
     interface Field {
-      // TODO: custom properties need major cleanup: we should group them into very few nested objects
-
-      id?: string
       name?: string
-      text?: string
+      label?: string
+      hint?: string
+      component?:
+        | 'hidden'
+        | 'govukCheckboxes'
+        | 'govukInput'
+        | 'govukRadios'
+        | 'govukSelect'
+        | 'govukTextarea'
+        | 'mojDatePicker'
+        | 'appTime'
+
+      // TODO: custom properties need major cleanup: we should group them into very few nested objects
       nameForErrors?: string
       errorMessage?: GovukErrorSummaryItem
       errorMessages?: Record<string, string>
-      value?: unknown // TODO: value should be removed: it is already provided elsewhere
-      component?: string
-      classes?: string
-      labelClasses?: string
       prefix?: string
-      leadingZeros?: string
       autocomplete?: 'off'
       rows?: string | number
       attributes?: Record<string, unknown>
-      label?: {
-        text: string
-        classes?: string
-      }
-      hint?: {
-        text: string
-        classes?: string
-      }
-      fieldset?: {
-        legend?: {
-          text: string
-          classes?: string
-        }
-      }
     }
 
     interface FieldItem {
+      label?: string
+      hint?: string
+
       // TODO: custom properties need major cleanup
 
-      text?: string
-      label?: string
       dateRequired?: boolean
       commentRequired?: boolean
-      hint?: {
-        text: string
-        classes?: string
-      }
       divider?: string
       behaviour?: 'exclusive'
       conditional?: ConditionalFieldItem | ConditionalFieldItem[]

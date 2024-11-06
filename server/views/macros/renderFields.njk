@@ -1,0 +1,15 @@
+{% from "macros/renderField.njk" import renderField %}
+
+{% macro renderFields(options, values, errors) %}
+
+  {% for fieldName, field in options.fields %}
+    {# NB:
+      - dependent fields are currently only used in conditionals so are rendered separately
+      - fields starting with _ are internally generated (e.g. hours and minutes subfields for time)
+    #}
+    {% if not field.dependent and not fieldName.startsWith("_") %}
+      {{ renderField(fieldName, field, options, values, errors) }}
+    {% endif %}
+  {% endfor %}
+
+{% endmacro %}

@@ -1,5 +1,7 @@
 type TextOrHtml = { text: string } | { html: string }
 
+type Attributes = Record<string, unknown>
+
 /**
  * GOV.UK radios component
  * https://design-system.service.gov.uk/components/radios/
@@ -12,7 +14,7 @@ export type GovukRadios = {
   errorMessage?: GovukErrorMessage | null | false
   idPrefix?: string
   classes?: string
-  attributes?: Record<string, unknown>
+  attributes?: Attributes
 }
 
 /**
@@ -23,10 +25,10 @@ type GovukCheckedItem = TextOrHtml & {
   id?: string
   checked?: boolean
   disabled?: boolean
-  attributes?: Record<string, unknown>
+  attributes?: Attributes
   label?: {
     classes?: string
-    attributes?: Record<string, unknown>
+    attributes?: Attributes
   }
   hint?: GovukHint
   conditional?: { html: string }
@@ -50,7 +52,7 @@ export type GovukCheckboxes = {
   errorMessage?: GovukErrorMessage | null | false
   idPrefix?: string
   classes?: string
-  attributes?: Record<string, unknown>
+  attributes?: Attributes
 }
 
 /**
@@ -67,7 +69,7 @@ export type GovukCheckboxesItem =
 type GovukHint = TextOrHtml & {
   id?: string
   classes?: string
-  attributes?: Record<string, unknown>
+  attributes?: Attributes
 }
 
 /**
@@ -85,12 +87,12 @@ export type GovukSelect = {
     for?: string
     isPageHeading?: boolean
     classes?: string
-    attributes?: Record<string, unknown>
+    attributes?: Attributes
   }
   hint?: GovukHint
   errorMessage?: GovukErrorMessage | null | false
   classes?: string
-  attributes?: Record<string, unknown>
+  attributes?: Attributes
 }
 
 /**
@@ -112,7 +114,7 @@ export type GovukSelectItem = {
 export type GovukErrorMessage = TextOrHtml & {
   id?: string
   classes?: string
-  attributes?: Record<string, unknown>
+  attributes?: Attributes
   visuallyHiddenText?: string
 }
 
@@ -125,7 +127,7 @@ export type GovukErrorSummary = ({ titleText: string } | { titleHtml: string }) 
     errorList: GovukErrorSummaryItem
     disableAutoFocus?: boolean
     classes?: string
-    attributes?: Record<string, unknown>
+    attributes?: Attributes
   }
 
 /**
@@ -134,7 +136,7 @@ export type GovukErrorSummary = ({ titleText: string } | { titleHtml: string }) 
  */
 export type GovukErrorSummaryItem = TextOrHtml & {
   href: string
-  attributes?: Record<string, unknown>
+  attributes?: Attributes
 }
 
 /**
@@ -200,9 +202,11 @@ export function govukCheckedItemsConditional<I extends GovukRadiosItem>(
   }
   return items.map(item => {
     if ('value' in item && item.value === conditional.value) {
+      const existingConditionalHtml = item.conditional?.html ?? ''
+      const conditionalHtml = `${existingConditionalHtml}${conditional.html}`
       return {
         ...item,
-        conditional: { html: conditional.html },
+        conditional: { html: conditionalHtml },
       }
     }
     return item

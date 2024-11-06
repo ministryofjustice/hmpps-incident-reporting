@@ -1,0 +1,55 @@
+{% from "govuk/components/input/macro.njk" import govukInput %}
+{% from "macros/renderCheckboxOrRadioField.njk" import renderCheckboxOrRadioField %}
+{% from "macros/renderDateField.njk" import renderDateField %}
+{% from "macros/renderSelectField.njk" import renderSelectField %}
+{% from "macros/renderTextareaField.njk" import renderTextareaField %}
+{% from "macros/renderTimeFields.njk" import renderTimeFields %}
+
+{% macro renderField(fieldName, field, options, values, errors) %}
+
+  {% if field.component === "govukRadios" or field.component === "govukCheckboxes" %}
+
+    {{ renderCheckboxOrRadioField(fieldName, field, options, values, errors) }}
+
+  {% elif field.component === "govukSelect" %}
+
+    {{ renderSelectField(fieldName, field, options, values, errors) }}
+
+  {% elif field.component === "mojDatePicker" %}
+
+    {{ renderDateField(fieldName, field, options, values, errors) }}
+
+  {% elif field.component === "appTime" %}
+
+    {{ renderTimeFields(fieldName, field, options, values, errors) }}
+
+  {% elif field.component === "govukTextarea" %}
+
+    {{ renderTextareaField(fieldName, field, options, values, errors) }}
+
+  {% elif field.component === "hidden" %}
+
+    <input type="hidden" name="{{ fieldName }}" value="{{ values[fieldName] | default("") }}" />
+
+  {% elif field.component === "govukInput" %}
+
+    {{ govukInput({
+      name: fieldName,
+      id: fieldName,
+      classes: "govuk-!-width-three-quarters",
+      label: {
+        text: field.label,
+        classes: "govuk-label--m"
+      },
+      hint: { text: field.hint } if field.hint else undefined,
+      value: values[fieldName],
+      errorMessage: { text: errors[fieldName].message } if errors[fieldName] else undefined
+    }) }}
+
+  {% else %}
+
+    {% panic "Field " + fieldName + " uses unknown component" %}
+
+  {% endif %}
+
+{% endmacro %}

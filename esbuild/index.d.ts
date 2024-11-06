@@ -10,6 +10,7 @@ export interface BuildConfig {
   }
 
   assets: {
+    tsconfig: string
     outDir: string
     entryPoints: string[]
     copy: { from: string; to: string }[]

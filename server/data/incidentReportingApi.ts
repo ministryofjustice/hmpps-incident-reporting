@@ -120,6 +120,7 @@ export type GetReportsParams = {
   incidentDateUntil: Date // Inclusive
   reportedDateFrom: Date // Inclusive
   reportedDateUntil: Date // Inclusive
+  reportedByUsername: string
   involvingStaffUsername: string
   involvingPrisonerNumber: string
 } & PaginationSortingParams
@@ -281,6 +282,7 @@ export class IncidentReportingApi extends RestClient {
       incidentDateUntil,
       reportedDateFrom,
       reportedDateUntil,
+      reportedByUsername,
       involvingStaffUsername,
       involvingPrisonerNumber,
       page,
@@ -295,6 +297,7 @@ export class IncidentReportingApi extends RestClient {
       incidentDateUntil: null,
       reportedDateFrom: null,
       reportedDateUntil: null,
+      reportedByUsername: null,
       involvingStaffUsername: null,
       involvingPrisonerNumber: null,
       page: 0,
@@ -330,6 +333,9 @@ export class IncidentReportingApi extends RestClient {
     }
     if (reportedDateUntil) {
       query.reportedDateUntil = format.isoDate(reportedDateUntil)
+    }
+    if (reportedByUsername) {
+      query.reportedByUsername = reportedByUsername
     }
     if (involvingStaffUsername) {
       query.involvingStaffUsername = involvingStaffUsername

@@ -1,4 +1,4 @@
-// Generated with ./scripts/importDpsConstants.ts at 2024-10-23T09:57:40.531Z
+// Generated with ./scripts/importDpsConstants.ts at 2024-11-06T10:46:41.942Z
 
 /** Roles of a prisoner’s involvement in an incident */
 export const prisonerInvolvementRoles = [
@@ -28,7 +28,8 @@ export type PrisonerInvolvementRoleDetails = (typeof prisonerInvolvementRoles)[n
 /** Codes for roles of a prisoner’s involvement in an incident */
 export type PrisonerInvolvementRole = PrisonerInvolvementRoleDetails['code']
 
-/** NOMIS codes for Roles of a prisoner’s involvement in an incident
+/**
+ * NOMIS codes for Roles of a prisoner’s involvement in an incident
  * @deprecated
  */
 export type NomisPrisonerInvolvementRole = PrisonerInvolvementRoleDetails['nomisCode']

@@ -1,4 +1,4 @@
-// Generated with ./scripts/importDpsConstants.ts at 2024-10-23T09:57:37.757Z
+// Generated with ./scripts/importDpsConstants.ts at 2024-11-06T10:46:38.929Z
 
 /** Types of reportable incidents */
 export const types = [
@@ -82,7 +82,8 @@ export type TypeDetails = (typeof types)[number]
 /** Codes for types of reportable incidents */
 export type Type = TypeDetails['code']
 
-/** NOMIS codes for Types of reportable incidents
+/**
+ * NOMIS codes for Types of reportable incidents
  * @deprecated
  */
 export type NomisType = TypeDetails['nomisCode']

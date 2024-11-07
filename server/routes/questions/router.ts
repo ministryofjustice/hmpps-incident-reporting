@@ -11,14 +11,17 @@ const router = express.Router({ mergeParams: true })
 
 router.use(
   asyncMiddleware(async (req, res, next) => {
-    const { reportType } = req.params
+    const { incidentReportingApi } = res.locals.apis
+    const reportId = req.params.id
 
-    const found = getTypeDetails(reportType)
-    if (found === undefined) {
-      throw new BadRequest('Invalid report type')
+    const report = await incidentReportingApi.getReportById(reportId)
+
+    const reportTypeFound = getTypeDetails(report.type)
+    if (!reportTypeFound) {
+      throw new BadRequest(`Invalid report type '${report.type}' for report ${reportId}`)
     }
 
-    const config = await getIncidentTypeConfiguration(reportType)
+    const config = await getIncidentTypeConfiguration(report.type)
 
     const steps = generateSteps(config)
     const fields = generateFields(config)

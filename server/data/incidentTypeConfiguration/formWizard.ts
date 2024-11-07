@@ -12,8 +12,8 @@ const MAX_ANSWERS_PER_PAGE = 20
  * @param config questionnaire config
  * @returns the Form Wizard's steps
  */
-export function generateSteps(config: IncidentTypeConfiguration): FormWizard.Steps {
-  const steps: FormWizard.Steps = {
+export function generateSteps(config: IncidentTypeConfiguration): FormWizard.Steps<FormWizard.MultiValues> {
+  const steps: FormWizard.Steps<FormWizard.MultiValues> = {
     '/': {
       entryPoint: true,
       reset: true,
@@ -85,7 +85,7 @@ export function generateSteps(config: IncidentTypeConfiguration): FormWizard.Ste
  *
  * @param steps to group
  */
-function groupSteps(steps: FormWizard.Steps) {
+function groupSteps(steps: FormWizard.Steps<FormWizard.MultiValues>) {
   const answersCounts: Map<string, number> = new Map()
   const stepsWithSingleParent: Set<string | null> = buildStepsWithSingleParent()
 

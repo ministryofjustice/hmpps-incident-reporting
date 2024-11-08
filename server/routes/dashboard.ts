@@ -130,6 +130,7 @@ export default function dashboard(service: Services): Router {
       incidentDateUntil: toDate,
       type: incidentType,
       status: incidentStatuses,
+      reportedByUsername: reportingOfficer,
       page: pageNumber - 1,
       sort: [`${sort},${orderString}`],
     })
@@ -150,6 +151,9 @@ export default function dashboard(service: Services): Router {
     if (incidentStatuses) {
       queryString.append('incidentStatuses', incidentStatuses)
     }
+    if (reportingOfficer) {
+      queryString.append('reportingOfficer', reportingOfficer)
+    }
     const tableHeadUrlPrefix = `/incidents?${queryString}&`
     if (sort) {
       queryString.append('sort', sort)
@@ -160,7 +164,9 @@ export default function dashboard(service: Services): Router {
 
     const urlPrefix = `/incidents?${queryString}&`
 
-    const noFiltersSupplied = Boolean(!prisonId && !fromDate && !toDate && !incidentType && !incidentStatuses)
+    const noFiltersSupplied = Boolean(
+      !prisonId && !fromDate && !toDate && !incidentType && !incidentStatuses && !reportingOfficer,
+    )
 
     const reports = reportsResponse.content
     const usernames = reports.map(report => report.reportedBy)

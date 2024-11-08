@@ -78,10 +78,10 @@
       }) }}
 
       {{ govukCheckboxes({
-        classes: "govuk-checkboxes--small",
+        classes: "govuk-radios--inline",
         name: "incidentStatuses",
         id: "incidentStatuses",
-        items: statusItems | govukSelectSetSelected(formValues.incidentStatuses),
+        items: statusItems | govukMultipleCheckedItems(formValues.incidentStatuses),
         errorMessage: errors | findFieldInGovukErrorSummary("incidentStatuses")
       }) }}
 

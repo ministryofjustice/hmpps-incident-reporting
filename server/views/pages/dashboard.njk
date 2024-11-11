@@ -1,4 +1,4 @@
-{% extends "../../partials/layout.njk" %}
+{% extends "../partials/layout.njk" %}
 
 {% from "govuk/components/button/macro.njk" import govukButton %}
 {% from "govuk/components/select/macro.njk" import govukSelect %}
@@ -10,7 +10,7 @@
 {% set pageTitle = applicationName + " - Home" %}
 
 {% block content %}
-  <h1>Incident reports</h1>
+  <h1 class="govuk-heading-l">Incident reports</h1>
   <div class="govuk-button-group">
     {{ govukButton({
     text: "Report an incident",

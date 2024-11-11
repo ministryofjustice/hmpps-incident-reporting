@@ -31,7 +31,7 @@ export default function routes(services: Services): Router {
   const debugRoutes = makeDebugRoutes(services)
   get('/incidents/:id', debugRoutes.eventDetails)
   get('/reports/:id', debugRoutes.reportDetails)
-  router.use('/incidents', dashboard(services))
+  router.use('/reports', dashboard(services))
 
   // report pages
   router.use('/create-report', createReportRouter)

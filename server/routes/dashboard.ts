@@ -180,23 +180,17 @@ export default function dashboard(service: Services): Router {
       value: prison.agencyId,
       text: prison.description,
     }))
-    const incidentTypes = Object.values(types).map(incType => ({
+    const incidentTypes = types.map(incType => ({
       value: incType.code,
       text: incType.description,
     }))
-    const statusItems = Object.values(statuses).map(status => ({
+    const statusItems = statuses.map(status => ({
       value: status.code,
       text: status.description,
     }))
 
-    let typesLookup = {}
-    for (const entry of Object.values(types).map(type => ({ [type.code]: type.description }))) {
-      typesLookup = { ...typesLookup, ...entry }
-    }
-    let statusLookup = {}
-    for (const entry of Object.values(statuses).map(status => ({ [status.code]: status.description }))) {
-      statusLookup = { ...statusLookup, ...entry }
-    }
+    const typesLookup = Object.fromEntries(types.map(type => [type.code, type.description]))
+    const statusLookup = Object.fromEntries(statuses.map(status => [status.code, status.description]))
 
     const tableHead: HeaderCell[] | undefined = sortableTableHead({
       columns: tableColumns.map(column => {
@@ -217,7 +211,7 @@ export default function dashboard(service: Services): Router {
       reportsResponse.size,
     )
 
-    res.render('pages/debug/eventList', {
+    res.render('pages/dashboard', {
       reports,
       prisons,
       usersLookup,

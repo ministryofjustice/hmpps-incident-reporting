@@ -1,0 +1,138 @@
+{% extends "../partials/layout.njk" %}
+
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/select/macro.njk" import govukSelect %}
+{% from "govuk/components/table/macro.njk" import govukTable %}
+{% from "moj/components/pagination/macro.njk" import mojPagination %}
+{% from "moj/components/date-picker/macro.njk" import mojDatePicker %}
+{% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
+
+{% set pageTitle = applicationName + " - Home" %}
+
+{% block content %}
+  <h1 class="govuk-heading-l">Incident reports</h1>
+  <div class="govuk-button-group">
+    {{ govukButton({
+    text: "Report an incident",
+    preventDoubleClick: true,
+    href: "/create-report",
+    isStartButton: true
+    }) }}
+  </div>
+  <div class="horizontal-form__wrapper govuk-!-padding-3 govuk-!-margin-bottom-5">
+    <h2 class="govuk-heading-m">Filter by</h2>
+
+    <form class="horizontal-form {% if errors.length > 0 %}horizontal-form--with-errors{% endif %} govuk-!-margin-bottom-3" method="get" novalidate>
+      {{ govukSelect({
+        name: "prisonId",
+        id: "prisonId",
+        label: {
+          text: "Prison"
+        },
+        items: prisons | govukSelectInsertDefault("All") | govukSelectSetSelected(formValues.prisonId),
+        errorMessage: errors | findFieldInGovukErrorSummary("prisonId")
+      }) }}
+
+      {{ mojDatePicker({
+        id: "fromDate",
+        name: "fromDate",
+        label: {
+          text: "Date from"
+        },
+        value: formValues.fromDate,
+        maxDate: todayAsShortDate,
+        errorMessage: errors | findFieldInGovukErrorSummary("fromDate"),
+        leadingZeros: "true"
+      }) }}
+
+      {{ mojDatePicker({
+        id: "toDate",
+        name: "toDate",
+        label: {
+          text: "Date to"
+        },
+        value: formValues.toDate,
+        maxDate: todayAsShortDate,
+        errorMessage: errors | findFieldInGovukErrorSummary("toDate"),
+        leadingZeros: "true"
+      }) }}
+
+      {{ govukSelect({
+        name: "incidentType",
+        id: "incidentType",
+        label: {
+        text: "Incident type"
+        },
+        items: incidentTypes | govukSelectInsertDefault("Choose type") | govukSelectSetSelected(formValues.incidentType),
+        errorMessage: errors | findFieldInGovukErrorSummary("incidentType")
+      }) }}
+
+      {{ govukSelect({
+        name: "reportingOfficer",
+        id: "reportingOfficer",
+        label: {
+        text: "Reporting officer"
+        },
+        items: reportingOfficers | govukSelectInsertDefault("Choose officer") | govukSelectSetSelected(formValues.reportingOfficer),
+        errorMessage: errors | findFieldInGovukErrorSummary("reportingOfficer")
+      }) }}
+
+      {{ govukCheckboxes({
+        classes: "govuk-radios--inline",
+        name: "incidentStatuses",
+        id: "incidentStatuses",
+        items: statusItems | govukMultipleCheckedItems(formValues.incidentStatuses),
+        errorMessage: errors | findFieldInGovukErrorSummary("incidentStatuses")
+      }) }}
+
+      <div class="govuk-button-group">
+        {{ govukButton({
+          text: "Filter",
+          preventDoubleClick: true,
+          type: "submit",
+          attributes: {
+            "data-test": "filter-submit"
+          }
+        }) }}
+
+        {% if not noFiltersSupplied %}
+          <a href="?" class="govuk-link--no-visited-state" id="clearFilter">Clear</a>
+        {% endif %}
+      </div>
+    </form>
+  </div>
+
+  {% if reports.length > 0 %}
+
+    {% set rows = [] %}
+    {% for report in reports %}
+      {% set ref %}{{ report.reportReference }}{% endset %}
+      {% set rows = (rows.push(
+        [
+          { html: "<a href='/reports/" + report.id + "'>" + ref + "</a>" },
+          { text: typesLookup[report.type] or report.type},
+          { text: report.incidentDateAndTime | dateAndTime },
+          { text: report.description },
+          { text: statusLookup[report.status] or report.status },
+          { text: usersLookup[report.reportedBy].name or report.reportedBy }
+        ]
+      ), rows) %}
+    {% endfor %}
+
+    <div class="app-sortable-table-container govuk-!-margin-top-4">
+      {{ govukTable({
+        caption: "Incidents",
+        captionClasses: "govuk-visually-hidden",
+        classes: "app-sortable-table",
+        head: tableHead,
+        rows: rows
+      }) }}
+    </div>
+
+    {{ mojPagination(paginationParams) }}
+
+  {% else %}
+    No incidents found.
+  {% endif %}
+
+{% endblock %}

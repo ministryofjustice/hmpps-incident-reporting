@@ -51,7 +51,7 @@ describe('GET dashboard', () => {
     prisonApi.getPrisons.mockResolvedValue(prisons)
 
     return request(app)
-      .get('/incidents')
+      .get('/reports')
       .expect('Content-Type', /html/)
       .expect(res => {
         expect(res.text).toContain('Incident reports')
@@ -85,7 +85,7 @@ describe('GET dashboard', () => {
     prisonApi.getPrisons.mockResolvedValue(prisons)
 
     return request(app)
-      .get('/incidents')
+      .get('/reports')
       .expect('Content-Type', /html/)
       .expect(res => {
         expect(res.text).toContain('John Smith')

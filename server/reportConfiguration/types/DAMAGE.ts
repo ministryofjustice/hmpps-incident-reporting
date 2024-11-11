@@ -1,10 +1,10 @@
-// Generated with ./scripts/updateNomisIncidentTypeConfigurations.ts at 2024-10-15T17:17:21.069Z
+// Generated with ./scripts/updateNomisIncidentTypeConfigurations.ts at 2024-11-11T11:19:56.280Z
 
 import { type IncidentTypeConfiguration } from '../../data/incidentTypeConfiguration/types'
 
 const DAMAGE: IncidentTypeConfiguration = {
   incidentType: 'DAMAGE',
-  active: true,
+  active: false,
   startingQuestionId: '44784',
   questions: {
     '44167': {

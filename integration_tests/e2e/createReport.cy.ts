@@ -7,7 +7,7 @@ import DetailsPage from '../pages/reports/details'
 context('Creating a new report', () => {
   const now = new Date()
   const reportWithDetails = mockReport({
-    type: 'DAMAGE',
+    type: 'MISCELLANEOUS',
     reportReference: '6544',
     reportDateAndTime: now,
     withDetails: true,
@@ -40,7 +40,7 @@ context('Creating a new report', () => {
         type: reportWithDetails.type,
         incidentDateAndTime: reportWithDetails.incidentDateAndTime,
         prisonId: 'MDI',
-        title: 'Report: damage',
+        title: 'Report: miscellaneous',
         description: reportWithDetails.description,
         createNewEvent: true,
       },

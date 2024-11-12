@@ -1,4 +1,4 @@
-// Generated with ./scripts/importDpsConstants.ts at 2024-10-23T09:57:37.757Z
+// Generated with ./scripts/importDpsConstants.ts at 2024-11-12T15:33:32.784Z
 
 /** Types of reportable incidents */
 export const types = [
@@ -18,7 +18,6 @@ export const types = [
   },
   { code: 'BOMB_THREAT', description: 'Bomb threat', active: true, nomisCode: 'BOMB' },
   { code: 'BREACH_OF_SECURITY', description: 'Breach of security', active: true, nomisCode: 'BREACH' },
-  { code: 'DAMAGE', description: 'Damage', active: true, nomisCode: 'DAMAGE' },
   { code: 'DEATH_IN_CUSTODY', description: 'Death in custody', active: true, nomisCode: 'DEATH' },
   { code: 'DEATH_OTHER', description: 'Death (other)', active: true, nomisCode: 'DEATH_NI' },
   { code: 'DISORDER', description: 'Disorder', active: true, nomisCode: 'DISORDER1' },
@@ -37,6 +36,7 @@ export const types = [
   { code: 'SELF_HARM', description: 'Self harm', active: true, nomisCode: 'SELF_HARM' },
   { code: 'TEMPORARY_RELEASE_FAILURE', description: 'Temporary release failure', active: true, nomisCode: 'TRF3' },
   { code: 'TOOL_LOSS', description: 'Tool loss', active: true, nomisCode: 'TOOL_LOSS' },
+  { code: 'DAMAGE', description: 'Damage', active: false, nomisCode: 'DAMAGE' },
   { code: 'OLD_ASSAULT', description: 'Assault', active: false, nomisCode: 'ASSAULT' },
   { code: 'OLD_ASSAULT1', description: 'Assault (from April 2017)', active: false, nomisCode: 'ASSAULTS' },
   { code: 'OLD_ASSAULT2', description: 'Assault (from April 2017)', active: false, nomisCode: 'ASSAULTS1' },

@@ -65,7 +65,7 @@ export type Event = {
   id: string
   eventReference: string
   eventDateAndTime: Date
-  prisonId: string
+  location: string
   title: string
   description: string
   createdAt: Date
@@ -82,7 +82,7 @@ export type ReportBasic = {
   reportReference: string
   type: Type
   incidentDateAndTime: Date
-  prisonId: string
+  location: string
   title: string
   description: string
   reportedBy: string
@@ -106,13 +106,13 @@ export type ReportWithDetails = ReportBasic & {
 }
 
 export type GetEventsParams = {
-  prisonId: string
+  location: string
   eventDateFrom: Date // Inclusive
   eventDateUntil: Date // Inclusive
 } & PaginationSortingParams
 
 export type GetReportsParams = {
-  prisonId: string
+  location: string
   source: InformationSource
   status: Status
   type: Type
@@ -183,7 +183,7 @@ export type CorrectionRequest = {
 export type CreateReportRequest = {
   type: string
   incidentDateAndTime: Date
-  prisonId: string
+  location: string
   title: string
   description: string
   createNewEvent: boolean
@@ -192,7 +192,7 @@ export type CreateReportRequest = {
 
 export type UpdateReportRequest = {
   incidentDateAndTime?: Date
-  prisonId?: string
+  location?: string
   title?: string
   description?: string
   updateEvent?: boolean
@@ -224,8 +224,8 @@ export class IncidentReportingApi extends RestClient {
   }
 
   async getEvents(
-    { prisonId, eventDateFrom, eventDateUntil, page, size, sort }: Partial<GetEventsParams> = {
-      prisonId: null,
+    { location, eventDateFrom, eventDateUntil, page, size, sort }: Partial<GetEventsParams> = {
+      location: null,
       eventDateFrom: null,
       eventDateUntil: null,
       page: 0,
@@ -238,8 +238,8 @@ export class IncidentReportingApi extends RestClient {
       size,
       sort,
     }
-    if (prisonId) {
-      query.prisonId = prisonId
+    if (location) {
+      query.location = location
     }
     if (eventDateFrom) {
       query.eventDateFrom = format.isoDate(eventDateFrom)
@@ -274,7 +274,7 @@ export class IncidentReportingApi extends RestClient {
 
   async getReports(
     {
-      prisonId,
+      location,
       source,
       status,
       type,
@@ -289,7 +289,7 @@ export class IncidentReportingApi extends RestClient {
       size,
       sort,
     }: Partial<GetReportsParams> = {
-      prisonId: null,
+      location: null,
       source: null,
       status: null,
       type: null,
@@ -310,8 +310,8 @@ export class IncidentReportingApi extends RestClient {
       size,
       sort,
     }
-    if (prisonId) {
-      query.prisonId = prisonId
+    if (location) {
+      query.location = location
     }
     if (source) {
       query.source = source

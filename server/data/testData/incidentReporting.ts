@@ -19,7 +19,7 @@ import { staffBarry, staffMary } from './prisonApi'
 interface MockEventConfig {
   eventReference: string
   reportDateAndTime: Date
-  prisonId?: string
+  location?: string
   reportingUsername?: string
 }
 
@@ -28,7 +28,7 @@ export function mockEvent(conf: MockEventConfig & { includeReports: number }): D
 export function mockEvent({
   eventReference,
   reportDateAndTime,
-  prisonId = 'MDI',
+  location = 'MDI',
   reportingUsername = 'user1',
   includeReports = 0,
 }: MockEventConfig & { includeReports?: number }): DatesAsStrings<Event | EventWithBasicReports> {
@@ -41,7 +41,7 @@ export function mockEvent({
     id: uuidFromDate({ msecs: reportDateAndTime.getTime() }),
     eventReference,
     eventDateAndTime: format.isoDateTime(incidentDateAndTime),
-    prisonId,
+    location,
     title: 'An event occurred',
     description: 'Details of the event',
     createdAt: format.isoDateTime(reportDateAndTime),
@@ -64,7 +64,7 @@ export function mockEvent({
 interface MockReportConfig {
   reportReference: string
   reportDateAndTime: Date
-  prisonId?: string
+  location?: string
   createdInNomis?: boolean
   status?: Status
   type?: Type
@@ -76,7 +76,7 @@ export function mockReport(conf: MockReportConfig & { withDetails: true }): Date
 export function mockReport({
   reportReference,
   reportDateAndTime,
-  prisonId = 'MDI',
+  location = 'MDI',
   createdInNomis = false,
   status = 'DRAFT',
   type = 'FINDS',
@@ -93,7 +93,7 @@ export function mockReport({
     reportReference,
     type,
     incidentDateAndTime: format.isoDateTime(incidentDateAndTime),
-    prisonId,
+    location,
     title: `Incident Report ${reportReference}`,
     description: `A new incident created in the new service of type ${type}`,
     reportedBy: reportingUsername,

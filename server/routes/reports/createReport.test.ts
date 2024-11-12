@@ -243,7 +243,7 @@ describe('Creating a report', () => {
             createNewEvent: true,
             description: 'Disorder took place on A wing',
             incidentDateAndTime,
-            prisonId: 'MDI',
+            location: 'MDI',
             title: 'Report: disorder',
             type: 'DISORDER',
           })

@@ -39,7 +39,7 @@ context('Creating a new report', () => {
       request: {
         type: reportWithDetails.type,
         incidentDateAndTime: reportWithDetails.incidentDateAndTime,
-        prisonId: 'MDI',
+        location: 'MDI',
         title: 'Report: miscellaneous',
         description: reportWithDetails.description,
         createNewEvent: true,

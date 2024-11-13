@@ -35,7 +35,7 @@ class DetailsController extends BaseDetailsController<CreateReportValues> {
         incidentDateAndTime,
         title,
         description,
-        prisonId: res.locals.user.activeCaseLoad.caseLoadId,
+        location: res.locals.user.activeCaseLoad.caseLoadId,
         createNewEvent: true,
       })
       logger.info(`Report ${report.reportReference} created`)

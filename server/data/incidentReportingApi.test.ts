@@ -97,7 +97,7 @@ describe('Incident reporting API client', () => {
             title: 'Chewing gum',
             description: 'Chewing gum found in cell',
             incidentDateAndTime: now,
-            prisonId: 'MDI',
+            location: 'MDI',
           }),
       },
       {
@@ -408,7 +408,7 @@ describe('Incident reporting API client', () => {
             title: 'Chewing gum',
             description: 'Chewing gum found in cell',
             incidentDateAndTime: now,
-            prisonId: 'MDI',
+            location: 'MDI',
           }),
       },
       {
@@ -460,7 +460,7 @@ describe('Incident reporting API client', () => {
             title: 'Chewing gum',
             description: 'Chewing gum found in cell',
             incidentDateAndTime: now,
-            prisonId: 'MDI',
+            location: 'MDI',
           }),
         mockResponse: { status: 201, data: reportWithDetails },
         responseDateExtractor: (request: DatesAsStrings<CreateReportRequest>) => [request.incidentDateAndTime],

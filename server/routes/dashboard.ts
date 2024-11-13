@@ -13,7 +13,7 @@ import type { Services } from '../services'
 import asyncMiddleware from '../middleware/asyncMiddleware'
 
 interface ListFormData {
-  prisonId?: string
+  location?: string
   fromDate?: string
   toDate?: string
   incidentType?: Type
@@ -33,7 +33,7 @@ export default function dashboard(service: Services): Router {
     const { incidentReportingApi, prisonApi } = res.locals.apis
 
     const {
-      prisonId,
+      location,
       fromDate: fromDateInput,
       toDate: toDateInput,
       incidentType,
@@ -51,7 +51,7 @@ export default function dashboard(service: Services): Router {
     }
 
     const formValues: ListFormData = {
-      prisonId,
+      location,
       fromDate: fromDateInput,
       toDate: toDateInput,
       incidentType: incidentType as Type,
@@ -125,7 +125,7 @@ export default function dashboard(service: Services): Router {
     const orderString = order as string
     // Get reports from API
     const reportsResponse = await incidentReportingApi.getReports({
-      prisonId,
+      location,
       incidentDateFrom: fromDate,
       incidentDateUntil: toDate,
       type: incidentType,
@@ -136,8 +136,8 @@ export default function dashboard(service: Services): Router {
     })
 
     const queryString = new URLSearchParams()
-    if (prisonId) {
-      queryString.append('prisonId', prisonId)
+    if (location) {
+      queryString.append('location', location)
     }
     if (fromDateInput) {
       queryString.append('fromDate', fromDateInput)
@@ -165,7 +165,7 @@ export default function dashboard(service: Services): Router {
     const urlPrefix = `/incidents?${queryString}&`
 
     const noFiltersSupplied = Boolean(
-      !prisonId && !fromDate && !toDate && !incidentType && !incidentStatuses && !reportingOfficer,
+      !location && !fromDate && !toDate && !incidentType && !incidentStatuses && !reportingOfficer,
     )
 
     const reports = reportsResponse.content

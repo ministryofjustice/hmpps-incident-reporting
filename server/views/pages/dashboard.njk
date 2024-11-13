@@ -24,13 +24,13 @@
 
     <form class="horizontal-form {% if errors.length > 0 %}horizontal-form--with-errors{% endif %} govuk-!-margin-bottom-3" method="get" novalidate>
       {{ govukSelect({
-        name: "prisonId",
-        id: "prisonId",
+        name: "location",
+        id: "location",
         label: {
           text: "Prison"
         },
-        items: prisons | govukSelectInsertDefault("All") | govukSelectSetSelected(formValues.prisonId),
-        errorMessage: errors | findFieldInGovukErrorSummary("prisonId")
+        items: prisons | govukSelectInsertDefault("All") | govukSelectSetSelected(formValues.location),
+        errorMessage: errors | findFieldInGovukErrorSummary("location")
       }) }}
 
       {{ mojDatePicker({

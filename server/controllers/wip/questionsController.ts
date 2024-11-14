@@ -13,8 +13,7 @@ import logger from '../../../logger'
 
 export default class QuestionsController extends BaseController<FormWizard.MultiValues> {
   getBackLink(_req: FormWizard.Request, _res: express.Response): string {
-    // TODO: Change to `/reports/` page once we have it
-    return '/incidents/'
+    return '/reports/'
   }
 
   middlewareLocals(): void {

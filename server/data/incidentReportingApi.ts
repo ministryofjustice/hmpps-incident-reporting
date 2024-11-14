@@ -93,6 +93,7 @@ export type ReportBasic = {
   modifiedAt: Date
   modifiedBy: string
   createdInNomis: boolean
+  lastModifiedInNomis: boolean
 }
 
 export type ReportWithDetails = ReportBasic & {

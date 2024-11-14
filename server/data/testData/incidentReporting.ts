@@ -104,6 +104,7 @@ export function mockReport({
     modifiedAt: format.isoDateTime(reportDateAndTime),
     modifiedBy: reportingUsername,
     createdInNomis,
+    lastModifiedInNomis: createdInNomis,
   }
 
   if (withDetails) {

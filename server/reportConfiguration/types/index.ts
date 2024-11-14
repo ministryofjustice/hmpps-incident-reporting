@@ -1,10 +1,24 @@
+import path from 'node:path'
 import type { IncidentTypeConfiguration } from '../../data/incidentTypeConfiguration/types'
 import { types } from '../constants'
+import logger from '../../../logger'
 
 export function getAllIncidentTypeConfigurations(): Promise<IncidentTypeConfiguration[]> {
   return Promise.all(types.map(type => import(`./${type.code}`).then(module => module.default)))
 }
 
 export function getIncidentTypeConfiguration(type: string): Promise<IncidentTypeConfiguration> {
-  return import(`./${type}.js`).then(module => module.default.default)
+  // Import works differently when running TS directly (e.g tests)
+  const ext = __filename.endsWith('.js') ? 'js' : 'ts'
+  const configPath = path.resolve(__dirname, `./${type}.${ext}`)
+
+  return import(configPath)
+    .then(module => {
+      if (ext === 'js') {
+        return module.default.default
+      }
+
+      return module.default
+    })
+    .catch(error => logger.error(`Failed to import '${type}' configuration:`, error))
 }

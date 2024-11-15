@@ -46,6 +46,7 @@ export default class QuestionsController extends BaseController<FormWizard.Multi
       const reportConfig = res.locals.reportConfig as IncidentTypeConfiguration
 
       for (const question of report.questions) {
+        // TODO: Remove QID-stripping logic once removed from API
         const fieldName = this.questionIdFromCode(question.code)
         const questionConfig: QuestionConfiguration = reportConfig.questions[fieldName]
         if (questionConfig === undefined) {
@@ -102,7 +103,10 @@ export default class QuestionsController extends BaseController<FormWizard.Multi
     return questionConfig.answers.find(answerConfig => answerConfig.code.trim() === answerCode.trim())
   }
 
-  /** Strips `QID-0...` prefix and returns the question ID */
+  /** Strips `QID-0...` prefix and returns the question ID
+   *
+   * TODO: Remove QID-stripping logic once removed from API
+   */
   private questionIdFromCode(code: string): string {
     const re = /^QID-0*/
 

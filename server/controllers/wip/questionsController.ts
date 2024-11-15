@@ -50,7 +50,11 @@ export default class QuestionsController extends BaseController<FormWizard.Multi
         const fieldName = this.questionIdFromCode(question.code)
         const questionConfig: QuestionConfiguration = reportConfig.questions[fieldName]
         if (questionConfig === undefined) {
-          logger.warn(new Error(`Question with code '${fieldName}' not found in ${report.type}'s configuration.`))
+          logger.warn(
+            new Error(
+              `Report '${report.id}': Question with code '${fieldName}' not found in ${report.type}'s configuration.`,
+            ),
+          )
           // eslint-disable-next-line no-continue
           continue
         }
@@ -69,7 +73,7 @@ export default class QuestionsController extends BaseController<FormWizard.Multi
           if (answerConfig === undefined) {
             logger.warn(
               new Error(
-                `answer with code '${answerCode}' not found in ${report.type}'s question '${questionConfig.id}' configuration.`,
+                `Report '${report.id}': Answer with code '${answerCode}' not found in ${report.type}'s question '${questionConfig.id}' configuration.`,
               ),
             )
             // eslint-disable-next-line no-continue

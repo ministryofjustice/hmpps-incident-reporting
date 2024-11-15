@@ -50,7 +50,7 @@ export default class QuestionsController extends BaseController<FormWizard.Multi
         const fieldName = this.questionIdFromCode(question.code)
         const questionConfig: QuestionConfiguration = reportConfig.questions[fieldName]
         if (questionConfig === undefined) {
-          logger.warn(
+          logger.error(
             new Error(
               `Report '${report.id}': Question with code '${fieldName}' not found in ${report.type}'s configuration.`,
             ),
@@ -71,7 +71,7 @@ export default class QuestionsController extends BaseController<FormWizard.Multi
           const answerCode = response.response
           const answerConfig = this.findAnswerConfigByCode(answerCode, questionConfig)
           if (answerConfig === undefined) {
-            logger.warn(
+            logger.error(
               new Error(
                 `Report '${report.id}': Answer with code '${answerCode}' not found in ${report.type}'s question '${questionConfig.id}' configuration.`,
               ),

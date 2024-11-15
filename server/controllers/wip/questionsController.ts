@@ -37,7 +37,8 @@ export default class QuestionsController extends BaseController<FormWizard.Multi
   ) {
     return super.getValues(req, res, async (err, values) => {
       if (err) {
-        return callback(err)
+        callback(err)
+        return
       }
 
       const formValues = { ...values }
@@ -98,7 +99,7 @@ export default class QuestionsController extends BaseController<FormWizard.Multi
         }
       }
 
-      return callback(null, formValues)
+      callback(null, formValues)
     })
   }
 

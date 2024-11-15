@@ -154,7 +154,7 @@ export default function dashboard(service: Services): Router {
     if (reportingOfficer) {
       queryString.append('reportingOfficer', reportingOfficer)
     }
-    const tableHeadUrlPrefix = `/incidents?${queryString}&`
+    const tableHeadUrlPrefix = `/reports?${queryString}&`
     if (sort) {
       queryString.append('sort', sort)
     }
@@ -162,7 +162,7 @@ export default function dashboard(service: Services): Router {
       queryString.append('order', order)
     }
 
-    const urlPrefix = `/incidents?${queryString}&`
+    const urlPrefix = `/reports?${queryString}&`
 
     const noFiltersSupplied = Boolean(
       !location && !fromDate && !toDate && !incidentType && !incidentStatuses && !reportingOfficer,

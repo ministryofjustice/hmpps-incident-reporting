@@ -4508,7 +4508,7 @@ export const config: IncidentTypeConfiguration = {
   ],
 } as const
 
-export const steps: FormWizard.Steps = {
+export const steps: FormWizard.Steps<FormWizard.MultiValues> = {
   '/': { entryPoint: true, reset: true, resetJourney: true, skip: true, next: '67179' },
   '/67179': {
     controller: QuestionsController,

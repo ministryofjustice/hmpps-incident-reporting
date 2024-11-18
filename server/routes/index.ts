@@ -38,7 +38,7 @@ export default function routes(services: Services): Router {
   router.use('/reports/:id/update-details', updateDetailsRouter)
 
   // TODO: WIP, proof-of-concept forms auto-generated from config
-  router.use('/:reportType/questions', questionsRouter)
+  router.use('/reports/:id/questions', questionsRouter)
 
   // proof-of-concept form wizard
   router.use('/reports/:id/prisoner-search', prisonerSearchRoutes())

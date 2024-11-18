@@ -1,3 +1,4 @@
+import path from 'node:path'
 import type { IncidentTypeConfiguration } from '../../data/incidentTypeConfiguration/types'
 import { types } from '../constants'
 
@@ -6,5 +7,15 @@ export function getAllIncidentTypeConfigurations(): Promise<IncidentTypeConfigur
 }
 
 export function getIncidentTypeConfiguration(type: string): Promise<IncidentTypeConfiguration> {
-  return import(`./${type}.js`).then(module => module.default.default)
+  // Import works differently when running TS directly (e.g tests)
+  const ext = __filename.endsWith('.js') ? 'js' : 'ts'
+  const configPath = path.resolve(__dirname, `./${type}.${ext}`)
+
+  return import(configPath).then(module => {
+    if (ext === 'js') {
+      return module.default.default
+    }
+
+    return module.default
+  })
 }

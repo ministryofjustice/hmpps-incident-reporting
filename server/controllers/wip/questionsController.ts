@@ -3,7 +3,6 @@ import type express from 'express'
 import { BaseController } from '../index'
 import { ReportWithDetails } from '../../data/incidentReportingApi'
 import format from '../../utils/format'
-import { getIncidentTypeConfiguration } from '../../reportConfiguration/types'
 import {
   AnswerConfiguration,
   IncidentTypeConfiguration,
@@ -17,17 +16,7 @@ export default class QuestionsController extends BaseController<FormWizard.Multi
   }
 
   middlewareLocals(): void {
-    this.use(this.lookupReport)
     super.middlewareLocals()
-  }
-
-  async lookupReport(req: FormWizard.Request, res: express.Response, next: express.NextFunction): Promise<void> {
-    const { incidentReportingApi } = res.locals.apis
-    const reportId = req.params.id
-
-    res.locals.report = await incidentReportingApi.getReportWithDetailsById(reportId)
-    res.locals.reportConfig = await getIncidentTypeConfiguration(res.locals.report.type)
-    next()
   }
 
   getValues(

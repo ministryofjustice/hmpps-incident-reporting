@@ -2,7 +2,7 @@ import type { Express } from 'express'
 import request, { type Agent } from 'supertest'
 
 import { appWithAllRoutes } from './testutils/appSetup'
-import { IncidentReportingApi, ReportBasic, ReportWithDetails } from '../data/incidentReportingApi'
+import { IncidentReportingApi, ReportWithDetails } from '../data/incidentReportingApi'
 import { convertReportWithDetailsDates } from '../data/incidentReportingApiUtils'
 import { mockReport } from '../data/testData/incidentReporting'
 
@@ -37,7 +37,6 @@ describe('Displaying responses', () => {
 
   beforeEach(() => {
     agent = request.agent(app)
-    incidentReportingApi.getReportById.mockResolvedValue(reportWithDetails as ReportBasic)
     incidentReportingApi.getReportWithDetailsById.mockResolvedValue(reportWithDetails)
   })
 

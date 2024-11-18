@@ -1,30 +1,19 @@
 import express from 'express'
 import wizard from 'hmpo-form-wizard'
-import { BadRequest } from 'http-errors'
 
 import { generateFields, generateSteps } from '../../data/incidentTypeConfiguration/formWizard'
-import { getTypeDetails } from '../../reportConfiguration/constants'
-import { getIncidentTypeConfiguration } from '../../reportConfiguration/types'
 import asyncMiddleware from '../../middleware/asyncMiddleware'
+import { populateReport } from '../../middleware/populateReport'
 
 const router = express.Router({ mergeParams: true })
 
 router.use(
+  populateReport(),
   asyncMiddleware(async (req, res, next) => {
-    const { incidentReportingApi } = res.locals.apis
     const reportId = req.params.id
 
-    const report = await incidentReportingApi.getReportById(reportId)
-
-    const reportTypeFound = getTypeDetails(report.type)
-    if (!reportTypeFound) {
-      throw new BadRequest(`Invalid report type '${report.type}' for report ${reportId}`)
-    }
-
-    const config = await getIncidentTypeConfiguration(report.type)
-
-    const steps = generateSteps(config)
-    const fields = generateFields(config)
+    const steps = generateSteps(res.locals.reportConfig)
+    const fields = generateFields(res.locals.reportConfig)
 
     const wizardRouter = wizard(steps, fields, {
       name: `${reportId}-questions`,

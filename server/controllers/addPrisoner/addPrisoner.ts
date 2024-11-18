@@ -36,9 +36,9 @@ export default class AddPrisoner extends FormInitialStep {
 
   locals(req: FormWizard.Request, res: express.Response): object {
     const locals = super.locals(req, res)
-    const incidentId = res.locals.incident.id
+    const reportId = res.locals.report.id
 
-    const backLink = `/reports/${incidentId}/prisoner-search`
+    const backLink = `/reports/${reportId}/prisoner-search`
     return {
       ...locals,
       backLink,
@@ -69,7 +69,7 @@ export default class AddPrisoner extends FormInitialStep {
         comment,
       }
 
-      await incidentReportingApi.prisonersInvolved.addToReport(res.locals.incident.id, newPrisonerData)
+      await incidentReportingApi.prisonersInvolved.addToReport(res.locals.report.id, newPrisonerData)
 
       next()
     } catch (error) {
@@ -78,7 +78,7 @@ export default class AddPrisoner extends FormInitialStep {
   }
 
   successHandler(req: FormWizard.Request, res: express.Response, next: express.NextFunction) {
-    const incidentId = res.locals.incident.id
+    const reportId = res.locals.report.id
 
     req.journeyModel.reset()
     req.sessionModel.reset()
@@ -90,6 +90,6 @@ export default class AddPrisoner extends FormInitialStep {
     })
     */
 
-    res.redirect(`/reports/${incidentId}`)
+    res.redirect(`/reports/${reportId}`)
   }
 }

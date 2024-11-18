@@ -22,6 +22,7 @@ afterEach(() => {
 
 describe('Displaying responses', () => {
   const incidentDateAndTime = new Date('2024-10-21T16:32:00+01:00')
+  // Report type/answers updated in each test
   const reportWithDetails: ReportWithDetails = convertReportWithDetailsDates(
     mockReport({
       type: 'FINDS',

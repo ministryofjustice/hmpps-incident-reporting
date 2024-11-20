@@ -18,8 +18,8 @@ context('Healthcheck', () => {
       cy.request('/ping').its('body.status').should('equal', 'UP')
     })
 
-    it('Info is visible', () => {
-      cy.request('/info').its('body').should('exist')
+    it('Info is visible and active agencies', () => {
+      cy.request('/info').its('body.activeAgencies').should('deep.equal', ['MDI', 'LEI'])
     })
   })
 

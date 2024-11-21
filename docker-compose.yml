@@ -94,7 +94,7 @@ services:
       - INCIDENT_REPORTING_API_CLIENT_SECRET=clientsecret
 
   localstack:
-    image: localstack/localstack:3
+    image: localstack/localstack:4
     container_name: irs-localstack
     networks:
       - hmpps

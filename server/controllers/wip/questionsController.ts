@@ -1,7 +1,11 @@
 import { FormWizard } from 'hmpo-form-wizard'
 import type express from 'express'
 import { BaseController } from '../index'
-import { ReportWithDetails } from '../../data/incidentReportingApi'
+import {
+  type AddQuestionResponseRequest,
+  type AddQuestionWithResponsesRequest,
+  type ReportWithDetails,
+} from '../../data/incidentReportingApi'
 import format from '../../utils/format'
 import {
   AnswerConfiguration,
@@ -9,6 +13,7 @@ import {
   QuestionConfiguration,
 } from '../../data/incidentTypeConfiguration/types'
 import logger from '../../../logger'
+import { parseDateInput } from '../../utils/utils'
 
 export default class QuestionsController extends BaseController<FormWizard.MultiValues> {
   getBackLink(_req: FormWizard.Request, _res: express.Response): string {
@@ -90,6 +95,69 @@ export default class QuestionsController extends BaseController<FormWizard.Multi
 
       callback(null, formValues)
     })
+  }
+
+  async saveValues(
+    req: FormWizard.Request<FormWizard.MultiValues, string>,
+    res: express.Response,
+    next: express.NextFunction,
+  ): Promise<void> {
+    const { incidentReportingApi } = res.locals.apis
+
+    const submittedValues = req.form.values
+
+    const report = res.locals.report as ReportWithDetails
+    const reportConfig = res.locals.reportConfig as IncidentTypeConfiguration
+
+    const questionsResponses = []
+    for (const [fieldName, values] of Object.entries(submittedValues)) {
+      const questionConfig = reportConfig.questions[fieldName]
+      if (questionConfig === undefined) {
+        // eslint-disable-next-line no-continue
+        continue
+      }
+      const questionResponses: AddQuestionWithResponsesRequest = {
+        code: fieldName,
+        question: questionConfig.code,
+        responses: [],
+      }
+
+      const responseCodes = (questionConfig.multipleAnswers ? values : [values]) as string[]
+      responseCodes
+        .filter(responseCode => responseCode !== '')
+        .forEach(responseCode => {
+          const answerConfig = this.findAnswerConfigByCode(responseCode, questionConfig)
+          const response: AddQuestionResponseRequest = {
+            response: responseCode,
+            responseDate: null,
+            additionalInformation: null,
+          }
+
+          if (answerConfig.commentRequired) {
+            const commentFieldName = `${questionConfig.id}-${answerConfig.id}-comment`
+            if (submittedValues[commentFieldName] !== '') {
+              response.additionalInformation = submittedValues[commentFieldName] as string
+            }
+          }
+
+          if (answerConfig.dateRequired) {
+            const dateFieldName = `${questionConfig.id}-${answerConfig.id}-date`
+            if (submittedValues[dateFieldName] !== '') {
+              response.responseDate = parseDateInput(submittedValues[dateFieldName] as string)
+            }
+          }
+          questionResponses.responses.push(response)
+        })
+      questionsResponses.push(questionResponses)
+    }
+
+    // TODO: API could allow multiple answer per HTTP request
+    for (const questionResponses of questionsResponses) {
+      // eslint-disable-next-line no-await-in-loop
+      await incidentReportingApi.addQuestionWithResponses(report.id, questionResponses)
+    }
+
+    super.saveValues(req, res, next)
   }
 
   /** Finds the Answer config for a given the answer code */

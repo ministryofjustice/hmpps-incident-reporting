@@ -209,7 +209,7 @@ export type AddOrUpdateQuestionWithResponsesRequest = {
   additionalInformation?: string
 }
 
-type AddOrUpdateQuestionResponseRequest = {
+export type AddOrUpdateQuestionResponseRequest = {
   response: string
   responseDate?: Date
   additionalInformation?: string

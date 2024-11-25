@@ -163,7 +163,7 @@
     {%- set staffRows = [] -%}
     {%- for staffInvolved in report.staffInvolved -%}
       {%- set staffName = usersLookup[staffInvolved.staffUsername].name or staffInvolved.staffUsername -%}
-      {%- set staffRole = staffInvolved.staffRole -%}
+      {%- set staffRole = staffInvolvementLookup[staffInvolved.staffRole] or staffInvolved.staffRole -%}
 
       {%- set staffRows = (staffRows.push({
         key: {
@@ -327,7 +327,7 @@
   {{ govukSummaryList({
     card: {
       title: {
-        text: "Correction Requests"
+        text: "Correction requests"
       },
       actions: {
         items: [

@@ -7,12 +7,13 @@ import type { Services } from '../services'
 import {
   prisonerInvolvementOutcomes,
   prisonerInvolvementRoles,
+  staffInvolvementRoles,
   statuses,
   types,
 } from '../reportConfiguration/constants'
 import asyncMiddleware from '../middleware/asyncMiddleware'
 
-export default function vewReport(service: Services): Router {
+export default function viewReport(service: Services): Router {
   const router = Router({ mergeParams: true })
   const { userService } = service
   const get = (path: PathParams, handler: RequestHandler) => router.get(path, asyncMiddleware(handler))
@@ -42,6 +43,7 @@ export default function vewReport(service: Services): Router {
     const prisonerOutcomeLookup = Object.fromEntries(
       prisonerInvolvementOutcomes.map(outcome => [outcome.code, outcome.description]),
     )
+    const staffInvolvementLookup = Object.fromEntries(staffInvolvementRoles.map(role => [role.code, role.description]))
 
     res.render('pages/debug/reportDetails', {
       report,
@@ -50,6 +52,7 @@ export default function vewReport(service: Services): Router {
       prisonsLookup,
       prisonerInvolvementLookup,
       prisonerOutcomeLookup,
+      staffInvolvementLookup,
       typesLookup,
       statusLookup,
     })

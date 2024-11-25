@@ -2,7 +2,12 @@ import type { RequestHandler } from 'express'
 import { NotFound } from 'http-errors'
 
 import type { Services } from '../services'
-import { statuses, types } from '../reportConfiguration/constants'
+import {
+  prisonerInvolvementOutcomes,
+  prisonerInvolvementRoles,
+  statuses,
+  types,
+} from '../reportConfiguration/constants'
 
 export default function makeDebugRoutes(services: Services): Record<string, RequestHandler> {
   const { userService } = services
@@ -43,12 +48,20 @@ export default function makeDebugRoutes(services: Services): Record<string, Requ
 
       const typesLookup = Object.fromEntries(types.map(type => [type.code, type.description]))
       const statusLookup = Object.fromEntries(statuses.map(status => [status.code, status.description]))
+      const prisonerInvolvementLookup = Object.fromEntries(
+        prisonerInvolvementRoles.map(role => [role.code, role.description]),
+      )
+      const prisonerOutcomeLookup = Object.fromEntries(
+        prisonerInvolvementOutcomes.map(outcome => [outcome.code, outcome.description]),
+      )
 
       res.render('pages/debug/reportDetails', {
         report,
         prisonersLookup,
         usersLookup,
         prisonsLookup,
+        prisonerInvolvementLookup,
+        prisonerOutcomeLookup,
         typesLookup,
         statusLookup,
       })

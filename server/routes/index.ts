@@ -13,6 +13,7 @@ import prisonerSearchRoutes from '../controllers/addPrisoner/prisonerSearch'
 import addPrisonerRouter from './addPrisoner'
 import questionsRouter from './questions/router'
 import dashboard from './dashboard'
+import viewReport from './viewReport'
 
 export default function routes(services: Services): Router {
   const get = (path: string | string[], handler: RequestHandler) => router.get(path, asyncMiddleware(handler))
@@ -30,8 +31,8 @@ export default function routes(services: Services): Router {
   // view-only debug pages
   const debugRoutes = makeDebugRoutes(services)
   get('/incidents/:id', debugRoutes.eventDetails)
-  get('/reports/:id', debugRoutes.reportDetails)
   router.use('/reports', dashboard(services))
+  router.use('/reports/:id', viewReport(services))
 
   // report pages
   router.use('/create-report', createReportRouter)

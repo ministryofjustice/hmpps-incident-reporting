@@ -202,14 +202,14 @@ export type UpdateReportRequest = {
 export type ChangeStatusRequest = { newStatus: Status }
 export type ChangeTypeRequest = { newType: Type }
 
-export type AddQuestionWithResponsesRequest = {
+export type AddOrUpdateQuestionWithResponsesRequest = {
   code: string
   question: string
-  responses: AddQuestionResponseRequest[]
+  responses: AddOrUpdateQuestionResponseRequest[]
   additionalInformation?: string
 }
 
-type AddQuestionResponseRequest = {
+type AddOrUpdateQuestionResponseRequest = {
   response: string
   responseDate?: Date
   additionalInformation?: string
@@ -458,20 +458,20 @@ export class IncidentReportingApi extends RestClient {
     return questions.map(convertQuestionDates)
   }
 
-  async addQuestionWithResponses(
+  async addOrUpdateQuestionsWithResponses(
     reportId: string,
-    questionWithResponses: AddQuestionWithResponsesRequest,
+    requests: AddOrUpdateQuestionWithResponsesRequest[],
   ): Promise<Question[]> {
-    const data: DatesAsStrings<AddQuestionWithResponsesRequest> = {
-      ...questionWithResponses,
-      responses: questionWithResponses.responses.map(response => ({
+    const data: DatesAsStrings<AddOrUpdateQuestionWithResponsesRequest>[] = requests.map(request => ({
+      ...request,
+      responses: request.responses.map(response => ({
         ...response,
         responseDate: format.isoDateTime(response.responseDate),
       })),
-    }
-    const questions = await this.post<DatesAsStrings<Question[]>>({
+    }))
+    const questions = await this.put<DatesAsStrings<Question[]>>({
       path: `/incident-reports/${encodeURIComponent(reportId)}/questions`,
-      data,
+      data: data as unknown as Record<string, unknown>,
     })
     return questions.map(convertQuestionDates)
   }

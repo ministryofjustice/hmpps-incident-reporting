@@ -2,8 +2,8 @@ import { FormWizard } from 'hmpo-form-wizard'
 import type express from 'express'
 import { BaseController } from '../index'
 import {
-  type AddQuestionResponseRequest,
-  type AddQuestionWithResponsesRequest,
+  type AddOrUpdateQuestionResponseRequest,
+  type AddOrUpdateQuestionWithResponsesRequest,
   type ReportWithDetails,
 } from '../../data/incidentReportingApi'
 import format from '../../utils/format'
@@ -116,7 +116,7 @@ export default class QuestionsController extends BaseController<FormWizard.Multi
         // eslint-disable-next-line no-continue
         continue
       }
-      const questionResponses: AddQuestionWithResponsesRequest = {
+      const questionResponses: AddOrUpdateQuestionWithResponsesRequest = {
         code: fieldName,
         question: questionConfig.code,
         responses: [],
@@ -127,7 +127,7 @@ export default class QuestionsController extends BaseController<FormWizard.Multi
         .filter(responseCode => responseCode !== '')
         .forEach(responseCode => {
           const answerConfig = this.findAnswerConfigByCode(responseCode, questionConfig)
-          const response: AddQuestionResponseRequest = {
+          const response: AddOrUpdateQuestionResponseRequest = {
             response: responseCode,
             responseDate: null,
             additionalInformation: null,
@@ -151,11 +151,7 @@ export default class QuestionsController extends BaseController<FormWizard.Multi
       questionsResponses.push(questionResponses)
     }
 
-    // TODO: API could allow multiple answer per HTTP request
-    for (const questionResponses of questionsResponses) {
-      // eslint-disable-next-line no-await-in-loop
-      await incidentReportingApi.addQuestionWithResponses(report.id, questionResponses)
-    }
+    await incidentReportingApi.addOrUpdateQuestionsWithResponses(report.id, questionsResponses)
 
     super.saveValues(req, res, next)
   }

@@ -7,7 +7,7 @@ import {
   ErrorResponse,
   CreateReportRequest,
   UpdateReportRequest,
-  AddQuestionWithResponsesRequest,
+  AddOrUpdateQuestionWithResponsesRequest,
   IncidentReportingApi,
   isErrorResponse,
 } from './incidentReportingApi'
@@ -223,15 +223,17 @@ describe('Incident reporting API client', () => {
         testCase: () => apiClient.getQuestions(basicReport.id),
       },
       {
-        method: 'addQuestionWithResponses',
+        method: 'addOrUpdateQuestionsWithResponses',
         url: `/incident-reports/${basicReport.id}/questions`,
-        urlMethod: 'post',
+        urlMethod: 'put',
         testCase: () =>
-          apiClient.addQuestionWithResponses(basicReport.id, {
-            code: 'QID-001',
-            question: 'Was the police informed?',
-            responses: [{ response: 'Yes', responseDate: now }],
-          }),
+          apiClient.addOrUpdateQuestionsWithResponses(basicReport.id, [
+            {
+              code: 'QID-001',
+              question: 'Was the police informed?',
+              responses: [{ response: 'Yes', responseDate: now }],
+            },
+          ]),
       },
       {
         method: 'deleteLastQuestionAndItsResponses',
@@ -474,25 +476,27 @@ describe('Incident reporting API client', () => {
         responseDateExtractor: (request: DatesAsStrings<UpdateReportRequest>) => [request.incidentDateAndTime],
       },
       {
-        method: 'addQuestionWithResponses',
+        method: 'addOrUpdateQuestionsWithResponses',
         url: `/incident-reports/${basicReport.id}/questions`,
-        urlMethod: 'post',
+        urlMethod: 'put',
         testCase: () =>
-          apiClient.addQuestionWithResponses(basicReport.id, {
-            code: 'QID-001',
-            question: 'Was the police informed?',
-            responses: [{ response: 'Yes', responseDate: now }],
-          }),
+          apiClient.addOrUpdateQuestionsWithResponses(basicReport.id, [
+            {
+              code: 'QID-001',
+              question: 'Was the police informed?',
+              responses: [{ response: 'Yes', responseDate: now }],
+            },
+          ]),
         mockResponse: { status: 201, data: [] },
-        responseDateExtractor: (request: DatesAsStrings<AddQuestionWithResponsesRequest>) =>
-          request.responses.map(response => response.responseDate),
+        responseDateExtractor: (requests: DatesAsStrings<AddOrUpdateQuestionWithResponsesRequest[]>) =>
+          requests.flatMap(request => request.responses.map(response => response.responseDate)),
       },
     ])(
       'should work on input request data for $method',
       async ({ testCase, url, urlMethod, mockResponse, responseDateExtractor }) => {
         fakeApiClient.intercept(url, urlMethod).reply((_uri, requestBody) => {
           const request = requestBody as DatesAsStrings<
-            CreateReportRequest | UpdateReportRequest | AddQuestionWithResponsesRequest
+            CreateReportRequest | UpdateReportRequest | AddOrUpdateQuestionWithResponsesRequest[]
           >
           // eslint-disable-next-line @typescript-eslint/ban-ts-comment
           // @ts-ignore because responseDateExtractor is appropriate for each request but TS cannot tell that
@@ -555,15 +559,17 @@ describe('Incident reporting API client', () => {
         testCase: () => apiClient.getQuestions(basicReport.id),
       },
       {
-        method: 'addQuestionWithResponses',
+        method: 'addOrUpdateQuestionsWithResponses',
         url: `/incident-reports/${basicReport.id}/questions`,
-        urlMethod: 'post',
+        urlMethod: 'put',
         testCase: () =>
-          apiClient.addQuestionWithResponses(basicReport.id, {
-            code: 'QID-001',
-            question: 'Was the police informed?',
-            responses: [{ response: 'Yes', responseDate: now }],
-          }),
+          apiClient.addOrUpdateQuestionsWithResponses(basicReport.id, [
+            {
+              code: 'QID-001',
+              question: 'Was the police informed?',
+              responses: [{ response: 'Yes', responseDate: now }],
+            },
+          ]),
       },
       {
         method: 'deleteLastQuestionAndItsResponses',

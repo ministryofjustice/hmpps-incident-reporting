@@ -4,6 +4,7 @@
 {% from "govuk/components/button/macro.njk" import govukButton %}
 {% from "govuk/components/back-link/macro.njk" import govukBackLink %}
 {% from "govuk/components/summary-list/macro.njk" import govukSummaryList %}
+{%- from "govuk/components/tag/macro.njk" import govukTag -%}
 
 {% set pageTitle = applicationName + " - Report" %}
 
@@ -14,8 +15,16 @@
   }) }}
 {% endblock %}
 
+{%- set location =  prisonsLookup[report.location].description or report.location -%}
+{%- set reportingOfficer =  usersLookup[report.reportedBy].name or report.reportedBy -%}
+
 {% block content %}
-  <h1>Report {{ report.reportReference }}</h1>
+  <h1 class="govuk-heading-m">Report {{ report.reportReference }}
+    {{ govukTag({
+    text: report.status
+    }) }}
+  </h1>
+  <h2 class="govuk-heading-s">Incident reported in {{ location }} by {{ reportingOfficer }}</h2>
 
 <!-- Incident details table -->
 {{ govukSummaryList({

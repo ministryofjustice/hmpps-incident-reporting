@@ -1,20 +1,20 @@
 import type { Express } from 'express'
 import request, { type Agent } from 'supertest'
 
-import { appWithAllRoutes } from './testutils/appSetup'
+import { appWithAllRoutes } from '../testutils/appSetup'
 import {
   type AddOrUpdateQuestionWithResponsesRequest,
   IncidentReportingApi,
   type ReportWithDetails,
-} from '../data/incidentReportingApi'
-import { convertReportWithDetailsDates } from '../data/incidentReportingApiUtils'
-import { mockReport } from '../data/testData/incidentReporting'
-import DEATH_OTHER from '../reportConfiguration/types/DEATH_OTHER'
-import { parseDateInput } from '../utils/utils'
-import FINDS from '../reportConfiguration/types/FINDS'
-import ASSAULT from '../reportConfiguration/types/ASSAULT'
+} from '../../data/incidentReportingApi'
+import { convertReportWithDetailsDates } from '../../data/incidentReportingApiUtils'
+import { mockReport } from '../../data/testData/incidentReporting'
+import DEATH_OTHER from '../../reportConfiguration/types/DEATH_OTHER'
+import { parseDateInput } from '../../utils/utils'
+import FINDS from '../../reportConfiguration/types/FINDS'
+import ASSAULT from '../../reportConfiguration/types/ASSAULT'
 
-jest.mock('../data/incidentReportingApi')
+jest.mock('../../data/incidentReportingApi')
 
 let app: Express
 let incidentReportingApi: jest.Mocked<IncidentReportingApi>

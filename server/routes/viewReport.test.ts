@@ -30,7 +30,16 @@ beforeEach(() => {
   prisonApi = PrisonApi.prototype as jest.Mocked<PrisonApi>
   offenderSearchApi = OffenderSearchApi.prototype as jest.Mocked<OffenderSearchApi>
 
-  const users: Record<string, User> = { user1: { username: 'user1', name: 'John Smith' } }
+  const users: Record<string, User> = {
+    user1: {
+      username: 'user1',
+      name: 'John Smith',
+    },
+    lev79n: {
+      username: 'lev79n',
+      name: 'Barry Harrison',
+    },
+  }
   userService.getUsers.mockResolvedValueOnce(users)
 
   const prisons = {
@@ -53,7 +62,6 @@ describe('GET view report page with details', () => {
     const mockedReport = convertReportWithDetailsDates(
       mockReport({ reportReference: '6543', reportDateAndTime: now, withDetails: true }),
     )
-
     incidentReportingApi.getReportWithDetailsById.mockResolvedValueOnce(mockedReport)
   })
   it('should render report page with all sections', () => {
@@ -108,7 +116,7 @@ describe('GET view report page with details', () => {
       .get('/reports/6543')
       .expect('Content-Type', /html/)
       .expect(res => {
-        expect(res.text).toContain('lev79n')
+        expect(res.text).toContain('Barry Harrison')
         expect(res.text).toContain('Present at scene')
         expect(res.text).toContain('abc12a')
         expect(res.text).toContain('Actively involved')

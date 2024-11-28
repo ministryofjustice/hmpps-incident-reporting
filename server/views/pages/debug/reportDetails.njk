@@ -48,7 +48,7 @@
         text: "Date and time of incident"
       },
       value: {
-        html: report.incidentDateAndTime | dateAndTime
+        text: report.incidentDateAndTime | dateAndTime
       }
     },
     {
@@ -56,7 +56,7 @@
         text: "Description"
       },
       value: {
-        html: report.description
+        text: report.description
       }
     }
   ]
@@ -84,7 +84,7 @@
         text: "Incident type"
       },
       value: {
-        html: typesLookup[report.type] or report.type
+        text: typesLookup[report.type] or report.type
       }
     }
   ]
@@ -108,12 +108,15 @@
         {% endif %}
 
         {%- set prisonerURL = dpsUrl + '/prisoner/' + prisonerInvolved.prisonerNumber -%}
+        {% set prisonerURLKey %}
+          <a href="{{ prisonerURL }}" class="govuk-link">{{ prisonerName }}</a>
+        {% endset %}
         {%- set prisonerRows = (prisonerRows.push({
           key: {
-            html: '<a href=' + prisonerURL + ' class="govuk-link">' + prisonerName + '</a>'
+            html: prisonerURLKey
           },
           value: {
-            html: prisonerRole + ' - ' + outcome
+            text: prisonerRole + ' - ' + outcome
           },
           actions: {
             items: [
@@ -136,7 +139,7 @@
   {%- else -%}
     {%- set prisonerRows = [{
       key: { text: 'No prisoners found' },
-      value: { html: 'N/A' },
+      value: { text: 'N/A' },
       actions: {
         items: [
           {
@@ -179,7 +182,7 @@
           text: staffName
         },
         value: {
-          html: staffRole
+          text: staffRole
         },
         actions: {
           items: [
@@ -202,7 +205,7 @@
   {%- else -%}
     {%- set staffRows = [{
       key: { text: 'No staff found' },
-      value: { html: 'N/A' },
+      value: { text: 'N/A' },
       actions: {
         items: [
           {
@@ -283,7 +286,7 @@
   {%- else -%}
     {%- set questionsRows = [{
       key: { text: 'No responses found' },
-      value: { html: 'N/A' }
+      value: { text: 'N/A' }
     }) -%}
   {%- endif -%}
 
@@ -311,7 +314,7 @@
           text: reason
         },
         value: {
-          html: description
+          text: description
         }
       }), correctionRows) -%}
 
@@ -320,7 +323,7 @@
   {%- else -%}
     {%- set correctionRows = [{
       key: { text: 'No corrections found' },
-      value: { html: 'N/A' },
+      value: { text: 'N/A' },
       actions: {
         items: [
           {

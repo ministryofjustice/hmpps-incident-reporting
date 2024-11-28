@@ -22,25 +22,5 @@ export default function makeDebugRoutes(services: Services): Record<string, Requ
 
       res.render('pages/debug/eventDetails', { event, usersLookup, prisonsLookup })
     },
-
-    async reportDetails(req, res) {
-      const { incidentReportingApi, prisonApi, offenderSearchApi } = res.locals.apis
-
-      const { id } = req.params
-      if (!id) {
-        throw new NotFound()
-      }
-
-      const report = await incidentReportingApi.getReportWithDetailsById(id)
-      const usersLookup = await userService.getUsers(res.locals.systemToken, [
-        ...report.staffInvolved.map(staff => staff.staffUsername),
-        report.reportedBy,
-      ])
-      const prisonerNumbers = report.prisonersInvolved.map(pi => pi.prisonerNumber)
-      const prisonersLookup = await offenderSearchApi.getPrisoners(prisonerNumbers)
-      const prisonsLookup = await prisonApi.getPrisons()
-
-      res.render('pages/debug/reportDetails', { report, prisonersLookup, usersLookup, prisonsLookup })
-    },
   }
 }

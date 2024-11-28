@@ -2,138 +2,249 @@
 
 {% from "govuk/components/table/macro.njk" import govukTable %}
 {% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+{% from "govuk/components/summary-list/macro.njk" import govukSummaryList %}
+{%- from "govuk/components/tag/macro.njk" import govukTag -%}
 
 {% set pageTitle = applicationName + " - Report" %}
 
-{% block content %}
-  <h1>Report '{{ report.title }}'</h1>
+{% block beforeContent %}
+  {{ govukBackLink({
+  text: "Back",
+  href: "/reports"
+  }) }}
+{% endblock %}
 
-  {{ govukTable({
-  caption: "Report details",
-  captionClasses: "govuk-table__caption--m",
-  firstCellIsHeader: true,
+{%- set location =  prisonsLookup[report.location].description or report.location -%}
+{%- set reportingOfficer =  usersLookup[report.reportedBy].name or report.reportedBy -%}
+
+{% block content %}
+  <h1 class="govuk-heading-m">Report {{ report.reportReference }}
+    {{ govukTag({
+    text: report.status
+    }) }}
+  </h1>
+  <h2 class="govuk-heading-s">Incident reported in {{ location }} by {{ reportingOfficer }}</h2>
+
+<!-- Incident details table -->
+{{ govukSummaryList({
+  card: {
+    title: {
+      text: "Incident details"
+    },
+    actions: {
+      items: [
+        {
+          href: "/reports/" + report.id + "/update-details",
+          text: "Change",
+          visuallyHiddenText: "incident details"
+        }
+      ]
+    }
+  },
   rows: [
-    [
-      {
-        text: "Type"
+    {
+      key: {
+        text: "Date and time of incident"
       },
-      {
-        text: report.type
-      }
-    ],
-    [
-      {
-        text: "Title"
-      },
-      {
-        text: report.title
-      }
-    ],
-    [
-      {
-        text: "Reference"
-      },
-      {
-        text: report.reportReference
-      }
-    ],
-    [
-      {
-        text: "Status"
-      },
-      {
-        text: report.status
-      }
-    ],
-    [
-      {
-        text: "Location"
-      },
-      {
-        text: prisonsLookup[report.location].description or report.location
-      }
-    ],
-    [
-      {
-        text: "Incident time"
-      },
-      {
+      value: {
         text: report.incidentDateAndTime | dateAndTime
       }
-    ],
-    [
-      {
-        text: "When reported"
-      },
-      {
-        text: report.reportedAt | dateAndTime
-      }
-    ],
-    [
-      {
-        text: "Reported by"
-      },
-      {
-        text: usersLookup[report.reportedBy].name or report.reportedBy
-      }
-    ],
-    [
-      {
+    },
+    {
+      key: {
         text: "Description"
       },
-      {
+      value: {
         text: report.description
       }
-    ]
+    }
   ]
-  }) }}
+}) }}
 
-  <h2>Prisoners involved</h2>
+<!-- Incident type table -->
+{{ govukSummaryList({
+  card: {
+    title: {
+      text: "Incident type"
+    },
+    actions: {
+      items: [
+        {
+        href: "#",
+        text: "Change",
+        visuallyHiddenText: "incident type"
+        }
+      ]
+    }
+  },
+  rows: [
+    {
+      key: {
+        text: "Incident type"
+      },
+      value: {
+        text: typesLookup[report.type] or report.type
+      }
+    }
+  ]
+}) }}
+
+<!-- Prisoners involved table -->
   {%- if report.prisonersInvolved.length > 0 -%}
-    <ul>
+    {%- set prisonerRows = [] -%}
       {%- for prisonerInvolved in report.prisonersInvolved -%}
-        <li>
-          <a href="{{ dpsUrl }}/prisoner/{{ prisonerInvolved.prisonerNumber }}">
-            {% if prisonersLookup[prisonerInvolved.prisonerNumber] %}
-              {{ prisonersLookup[prisonerInvolved.prisonerNumber] | nameOfPerson }}
-            {% else %}
-              {{ prisonerInvolved.prisonerNumber }}
-            {% endif %}
-          </a>
-          ({{ prisonerInvolved.prisonerRole }}) -
-          {% if prisonerInvolved.outcome %}
-            Outcome: {{ prisonerInvolved.outcome }}
-          {% else %}
-            No outcome
-          {% endif %}
-        </li>
+        {% if prisonersLookup[prisonerInvolved.prisonerNumber] %}
+          {%- set prisonerName = prisonersLookup[prisonerInvolved.prisonerNumber] | nameOfPerson -%}
+        {% else %}
+          {%- set prisonerName = prisonerInvolved.prisonerNumber -%}
+        {% endif %}
+
+        {%- set prisonerRole = prisonerInvolvementLookup[prisonerInvolved.prisonerRole] or prisonerInvolved.prisonerRole -%}
+        {% if prisonerInvolved.outcome %}
+          {%- set outcome = prisonerOutcomeLookup[prisonerInvolved.outcome] or prisonerInvolved.outcome -%}
+        {% else %}
+          {%- set outcome = 'No outcome' -%}
+        {% endif %}
+
+        {%- set prisonerURL = dpsUrl + '/prisoner/' + prisonerInvolved.prisonerNumber -%}
+        {% set prisonerURLKey %}
+          <a href="{{ prisonerURL }}" class="govuk-link">{{ prisonerName }}</a>
+        {% endset %}
+        {%- set prisonerRows = (prisonerRows.push({
+          key: {
+            html: prisonerURLKey
+          },
+          value: {
+            text: prisonerRole + ' - ' + outcome
+          },
+          actions: {
+            items: [
+              {
+                href: "#",
+                text: "Change",
+                visuallyHiddenText: "change prisoner"
+              },
+              {
+                href: "#",
+                text: "Remove",
+                visuallyHiddenText: "remove prisoner"
+              }
+            ]
+          }
+        }), prisonerRows) -%}
+
       {%- endfor -%}
-    </ul>
+
   {%- else -%}
-    No prisoners involved.
+    {%- set prisonerRows = [{
+      key: { text: 'No prisoners found' },
+      value: { text: 'N/A' },
+      actions: {
+        items: [
+          {
+          href: "/reports/" + report.id + "/prisoner-search",
+          text: "Add a prisoner",
+          visuallyHiddenText: "add prisoner"
+          }
+        ]
+      }
+    }) -%}
   {%- endif -%}
 
-<div class="govuk-button-group">
-  {{ govukButton({
-    text: "Add prisoner",
-    preventDoubleClick: true,
-    href: "/reports/" + report.id + "/prisoner-search",
-    isStartButton: true
+  {{ govukSummaryList({
+    card: {
+      title: {
+        text: "Prisoners involved"
+      },
+      actions: {
+        items: [
+          {
+            href: "/reports/" + report.id + "/prisoner-search",
+            text: "Add a prisoner",
+            visuallyHiddenText: "add prisoner"
+          }
+        ]
+      }
+    },
+    rows: prisonerRows
   }) }}
-</div>
 
-  <h2>Staff involved</h2>
+<!-- Staff involved table -->
   {%- if report.staffInvolved.length > 0 -%}
-    <ul>
-      {%- for staffInvolved in report.staffInvolved -%}
-        <li>{{ usersLookup[staffInvolved.staffUsername].name or staffInvolved.staffUsername }} ({{ staffInvolved.staffRole }})</li>
-      {%- endfor -%}
-    </ul>
+    {%- set staffRows = [] -%}
+    {%- for staffInvolved in report.staffInvolved -%}
+      {%- set staffName = usersLookup[staffInvolved.staffUsername].name or staffInvolved.staffUsername -%}
+      {%- set staffRole = staffInvolvementLookup[staffInvolved.staffRole] or staffInvolved.staffRole -%}
+
+      {%- set staffRows = (staffRows.push({
+        key: {
+          text: staffName
+        },
+        value: {
+          text: staffRole
+        },
+        actions: {
+          items: [
+            {
+              href: "#",
+              text: "Change",
+              visuallyHiddenText: "change staff"
+            },
+            {
+              href: "#",
+              text: "Remove",
+              visuallyHiddenText: "remove staff"
+            }
+          ]
+        }
+      }), staffRows) -%}
+
+    {%- endfor -%}
+
   {%- else -%}
-    No staff involved.
+    {%- set staffRows = [{
+      key: { text: 'No staff found' },
+      value: { text: 'N/A' },
+      actions: {
+        items: [
+          {
+            href: "#",
+            text: "Add a staff member",
+            visuallyHiddenText: "add staff"
+          }
+        ]
+      }
+    }) -%}
   {%- endif -%}
 
-  <h2>Responses</h2>
+  {{ govukSummaryList({
+    card: {
+      title: {
+      text: "Staff involved"
+    },
+    actions: {
+      items: [
+        {
+          href: "#",
+          text: "Add a staff member",
+          visuallyHiddenText: "add staff"
+        }
+      ]
+    }
+    },
+    rows: staffRows
+  }) }}
+
+<!-- Question responses table -->
+  {%- set questionsActionItems = [
+    {
+      href: "#",
+      text: "Add responses",
+      visuallyHiddenText: "add question responses"
+    }
+  ] -%}
+
   {%- if report.questions.length > 0 -%}
     {%- set questionsRows = [] -%}
     {%- for question in report.questions -%}
@@ -159,42 +270,88 @@
       {%- endif -%}
 
       {# Rows of questions (with their responses) #}
-      {%- set questionsRows = (questionsRows.push([
-        { text: question.question },
-        { html: responses }
-      ]), questionsRows) -%}
+      {%- set questionsRows = (questionsRows.push({
+        key: { text: question.question },
+        value: { html: responses }
+      }), questionsRows) -%}
     {%- endfor -%}
 
-    {{ govukTable({
-      caption: "",
-      captionClasses: "govuk-table__caption--m",
-      firstCellIsHeader: true,
-      rows: questionsRows
-    }) }}
+    {%- set questionsActionItems = (questionsActionItems.push({
+      href: "#",
+      text: "Change",
+      visuallyHiddenText: "change question responses"
+    }), questionsActionItems) -%}
+
+
   {%- else -%}
-    No responses.
+    {%- set questionsRows = [{
+      key: { text: 'No responses found' },
+      value: { text: 'N/A' }
+    }) -%}
   {%- endif -%}
 
-  <h2>Correction requests</h2>
-  {%- if report.correctionRequests.length > 0 -%}
-    <ul>
-      {%- for correctionRequest in report.correctionRequests -%}
-        <li>
-          Reason: {{ correctionRequest.reason }}
-          <br />
-          {{ correctionRequest.descriptionOfChange }}
-        </li>
-      {%- endfor -%}
-    </ul>
-  {%- else -%}
-    No correction requests.
-  {%- endif -%}
-
-<div class="govuk-button-group">
-  {{ govukButton({
-    text: "Update report",
-    preventDoubleClick: true,
-    href: "/reports/" + report.id + "/update-details"
+  {{ govukSummaryList({
+    card: {
+      title: {
+        text: "Question responses"
+      },
+      actions: {
+        items: questionsActionItems
+      }
+    },
+    rows: questionsRows
   }) }}
-</div>
+
+<!-- Correction requests table -->
+  {%- if report.correctionRequests.length > 0 -%}
+  {%- set correctionRows = [] -%}
+    {%- for correctionRequest in report.correctionRequests -%}
+      {%- set reason = correctionRequest.reason  -%}
+      {%- set description = correctionRequest.descriptionOfChange -%}
+
+      {%- set correctionRows = (correctionRows.push({
+        key: {
+          text: reason
+        },
+        value: {
+          text: description
+        }
+      }), correctionRows) -%}
+
+    {%- endfor -%}
+
+  {%- else -%}
+    {%- set correctionRows = [{
+      key: { text: 'No corrections found' },
+      value: { text: 'N/A' },
+      actions: {
+        items: [
+          {
+            href: "#",
+            text: "Add a correction",
+            visuallyHiddenText: "add correction"
+          }
+        ]
+      }
+    }) -%}
+  {%- endif -%}
+
+  {{ govukSummaryList({
+    card: {
+      title: {
+        text: "Correction requests"
+      },
+      actions: {
+        items: [
+          {
+            href: "#",
+            text: "Add a correction",
+            visuallyHiddenText: "add correction"
+          }
+        ]
+      }
+    },
+    rows: correctionRows
+  }) }}
+
 {% endblock %}

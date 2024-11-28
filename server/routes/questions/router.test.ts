@@ -383,7 +383,7 @@ describe(`Submitting questions' responses`, () => {
       })
   })
 
-  it('form is prefilled with report answers, multiple questions answered', async () => {
+  it('submitting responses to multiple questions', async () => {
     reportWithDetails.type = 'ASSAULT'
     const firstQuestionStep = ASSAULT.startingQuestionId
     const followingStep = '61285'

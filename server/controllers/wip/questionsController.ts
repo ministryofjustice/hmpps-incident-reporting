@@ -46,9 +46,7 @@ export default class QuestionsController extends BaseController<FormWizard.Multi
         const questionConfig: QuestionConfiguration = reportConfig.questions[fieldName]
         if (questionConfig === undefined) {
           logger.error(
-            new Error(
-              `Report '${report.id}': Question with code '${fieldName}' not found in ${report.type}'s configuration.`,
-            ),
+            `Report '${report.id}': Question with code '${fieldName}' not found in ${report.type}'s configuration.`,
           )
           // eslint-disable-next-line no-continue
           continue
@@ -67,9 +65,7 @@ export default class QuestionsController extends BaseController<FormWizard.Multi
           const answerConfig = this.findAnswerConfigByCode(answerCode, questionConfig)
           if (answerConfig === undefined) {
             logger.error(
-              new Error(
-                `Report '${report.id}': Answer with code '${answerCode}' not found in ${report.type}'s question '${questionConfig.id}' configuration.`,
-              ),
+              `Report '${report.id}': Answer with code '${answerCode}' not found in ${report.type}'s question '${questionConfig.id}' configuration.`,
             )
             // eslint-disable-next-line no-continue
             continue
@@ -114,9 +110,7 @@ export default class QuestionsController extends BaseController<FormWizard.Multi
       const questionConfig = reportConfig.questions[fieldName]
       if (questionConfig === undefined) {
         logger.error(
-          new Error(
-            `Report '${report.id}': Submitted Field '${fieldName}' not found in ${report.type}'s configuration.`,
-          ),
+          `Report '${report.id}': Submitted Field '${fieldName}' not found in ${report.type}'s configuration.`,
         )
 
         // eslint-disable-next-line no-continue
@@ -138,9 +132,7 @@ export default class QuestionsController extends BaseController<FormWizard.Multi
         const answerConfig = this.findAnswerConfigByCode(responseCode, questionConfig)
         if (answerConfig === undefined) {
           logger.error(
-            new Error(
-              `Report '${report.id}': Submitted Answer with code '${responseCode}' not found in ${report.type}'s question '${questionConfig.id}' configuration.`,
-            ),
+            `Report '${report.id}': Submitted Answer with code '${responseCode}' not found in ${report.type}'s question '${questionConfig.id}' configuration.`,
           )
           // eslint-disable-next-line no-continue
           continue

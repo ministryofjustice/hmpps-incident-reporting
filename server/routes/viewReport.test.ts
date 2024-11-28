@@ -3,17 +3,7 @@ import request from 'supertest'
 
 import { PrisonApi } from '../data/prisonApi'
 import { appWithAllRoutes } from './testutils/appSetup'
-import {
-  CorrectionRequest,
-  Event,
-  HistoricReport,
-  HistoricStatus,
-  IncidentReportingApi,
-  PrisonerInvolvement,
-  Question,
-  type ReportWithDetails,
-  StaffInvolvement,
-} from '../data/incidentReportingApi'
+import { IncidentReportingApi } from '../data/incidentReportingApi'
 import { OffenderSearchApi, type OffenderSearchResult } from '../data/offenderSearchApi'
 import { mockReport } from '../data/testData/incidentReporting'
 import { convertReportWithDetailsDates } from '../data/incidentReportingApiUtils'

@@ -27,12 +27,18 @@ export default function viewReport(service: Services): Router {
     }
 
     const report = await incidentReportingApi.getReportWithDetailsById(id)
-    const usersLookup = await userService.getUsers(res.locals.systemToken, [
-      ...report.staffInvolved.map(staff => staff.staffUsername),
-      report.reportedBy,
-    ])
-    const prisonerNumbers = report.prisonersInvolved.map(pi => pi.prisonerNumber)
-    const prisonersLookup = await offenderSearchApi.getPrisoners(prisonerNumbers)
+
+    let usernames = [report.reportedBy]
+    if (report.staffInvolved) {
+      usernames = [...report.staffInvolved.map(staff => staff.staffUsername), report.reportedBy]
+    }
+    const usersLookup = await userService.getUsers(res.locals.systemToken, usernames)
+
+    let prisonersLookup = null
+    if (report.prisonersInvolved) {
+      const prisonerNumbers = report.prisonersInvolved.map(pi => pi.prisonerNumber)
+      prisonersLookup = await offenderSearchApi.getPrisoners(prisonerNumbers)
+    }
     const prisonsLookup = await prisonApi.getPrisons()
 
     const typesLookup = Object.fromEntries(types.map(type => [type.code, type.description]))

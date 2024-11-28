@@ -113,6 +113,12 @@ export default class QuestionsController extends BaseController<FormWizard.Multi
     for (const [fieldName, values] of Object.entries(submittedValues)) {
       const questionConfig = reportConfig.questions[fieldName]
       if (questionConfig === undefined) {
+        logger.error(
+          new Error(
+            `Report '${report.id}': Submitted Field '${fieldName}' not found in ${report.type}'s configuration.`,
+          ),
+        )
+
         // eslint-disable-next-line no-continue
         continue
       }
@@ -124,31 +130,44 @@ export default class QuestionsController extends BaseController<FormWizard.Multi
       }
 
       const responseCodes = (questionConfig.multipleAnswers ? values : [values]) as string[]
-      responseCodes
-        .filter(responseCode => responseCode !== '')
-        .forEach(responseCode => {
-          const answerConfig = this.findAnswerConfigByCode(responseCode, questionConfig)
-          const response: AddOrUpdateQuestionResponseRequest = {
-            response: responseCode,
-            responseDate: null,
-            additionalInformation: null,
-          }
+      for (const responseCode of responseCodes) {
+        if (responseCode === '') {
+          // eslint-disable-next-line no-continue
+          continue
+        }
+        const answerConfig = this.findAnswerConfigByCode(responseCode, questionConfig)
+        if (answerConfig === undefined) {
+          logger.error(
+            new Error(
+              `Report '${report.id}': Submitted Answer with code '${responseCode}' not found in ${report.type}'s question '${questionConfig.id}' configuration.`,
+            ),
+          )
+          // eslint-disable-next-line no-continue
+          continue
+        }
 
-          if (answerConfig.commentRequired) {
-            const commentFieldName = `${questionConfig.id}-${answerConfig.id}-comment`
-            if (submittedValues[commentFieldName] !== '') {
-              response.additionalInformation = submittedValues[commentFieldName] as string
-            }
-          }
+        const response: AddOrUpdateQuestionResponseRequest = {
+          response: responseCode,
+          responseDate: null,
+          additionalInformation: null,
+        }
 
-          if (answerConfig.dateRequired) {
-            const dateFieldName = `${questionConfig.id}-${answerConfig.id}-date`
-            if (submittedValues[dateFieldName] !== '') {
-              response.responseDate = parseDateInput(submittedValues[dateFieldName] as string)
-            }
+        if (answerConfig.commentRequired) {
+          const commentFieldName = `${questionConfig.id}-${answerConfig.id}-comment`
+          if (submittedValues[commentFieldName] !== '') {
+            response.additionalInformation = submittedValues[commentFieldName] as string
           }
-          questionResponses.responses.push(response)
-        })
+        }
+
+        if (answerConfig.dateRequired) {
+          const dateFieldName = `${questionConfig.id}-${answerConfig.id}-date`
+          if (submittedValues[dateFieldName] !== '') {
+            response.responseDate = parseDateInput(submittedValues[dateFieldName] as string)
+          }
+        }
+        questionResponses.responses.push(response)
+      }
+
       questionsResponses.push(questionResponses)
     }
 

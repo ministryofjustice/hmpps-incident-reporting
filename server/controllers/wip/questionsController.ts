@@ -150,16 +150,12 @@ export default class QuestionsController extends BaseController<FormWizard.Multi
 
             if (answerConfig.commentRequired) {
               const commentFieldName = `${questionConfig.id}-${answerConfig.id}-comment`
-              if (submittedValues[commentFieldName] !== '') {
-                response.additionalInformation = submittedValues[commentFieldName] as string
-              }
+              response.additionalInformation = submittedValues[commentFieldName] as string
             }
 
             if (answerConfig.dateRequired) {
               const dateFieldName = `${questionConfig.id}-${answerConfig.id}-date`
-              if (submittedValues[dateFieldName] !== '') {
-                response.responseDate = parseDateInput(submittedValues[dateFieldName] as string)
-              }
+              response.responseDate = parseDateInput(submittedValues[dateFieldName] as string)
             }
             questionResponses.responses.push(response)
           }

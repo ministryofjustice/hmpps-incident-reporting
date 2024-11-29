@@ -1,4 +1,5 @@
 import {
+  addQuestionMarkToQuestion,
   buildArray,
   convertToTitleCase,
   datesAsStrings,
@@ -271,5 +272,30 @@ describe('kebab-case', () => {
     { input: 'HTML', expected: 'h-t-m-l' },
   ])('should convert $input to $expected', ({ input, expected }) => {
     expect(kebabCase(input)).toEqual(expected)
+  })
+})
+
+describe('adds question mark to questions', () => {
+  it.each([
+    ['empty string', '', ''],
+    ['Lower case', 'describe drug', 'describe drug'],
+    ['Lower case question without "?"', 'why the attack', 'why the attack?'],
+    ['Lower case question with "?"', 'how many phones?', 'how many phones?'],
+    ['Upper case', 'DESCRIBE DRUG', 'DESCRIBE DRUG'],
+    ['Upper case question without "?"', 'WHEN DID THIS HAPPEN', 'WHEN DID THIS HAPPEN?'],
+    ['Upper case question with "?"', 'WHO WAS INFORMED?', 'WHO WAS INFORMED?'],
+    ['Mixed case', 'DEScribe DRug', 'DEScribe DRug'],
+    ['Mixed case question without "?"', 'WAS it AT night', 'WAS it AT night?'],
+    ['Mixed case question with "?"', 'WAS it AT night', 'WAS it AT night?'],
+    ['Leading spaces', '  DESCRIBE SOMETHING', 'DESCRIBE SOMETHING'],
+    ['Leading spaces question without "?"', '  WAS IT A SATURDAY', 'WAS IT A SATURDAY?'],
+    ['Leading spaces question with "?"', '  WAS IT A SATURDAY?', 'WAS IT A SATURDAY?'],
+    ['Trailing spaces', 'The sky is blue  ', 'The sky is blue'],
+    ['Trailing spaces question without "?"', 'IS THE SKY BLUE  ', 'IS THE SKY BLUE?'],
+    ['Trailing spaces after question with "?"', 'IS THE SKY BLUE?  ', 'IS THE SKY BLUE?'],
+    ['Trailing spaces in question before "?"', 'IS THE SKY BLUE   ?', 'IS THE SKY BLUE   ?'],
+    ['First word looks like question pronoun', ' AREA/REGION  ', 'AREA/REGION'],
+  ])(`%s addQuestionMarkToQuestion('%s') -> '%s'`, (_: string, a: string, expected: string) => {
+    expect(addQuestionMarkToQuestion(a)).toEqual(expected)
   })
 })

@@ -166,3 +166,55 @@ export function getComponentString(macroName: string, params = {}): string {
 
   return nunjucks.renderString(macroString, {})
 }
+
+/**
+ * Adds missing question mark to a question.
+ *
+ * If a sentence is a question (based on the start of it) and it's missing
+ * the question marks it adds it. The input string is trimmed.
+ *
+ * Examples:
+ * - `'   DO BIRDS FLY  '` => `'DO BIRDS FLY?'`
+ * - `'When did this happen?'` => `'When did this happen?'` (unchanged, already ended with question mark)
+ * - `'Describe the incident'` => `'Describe the incident'` (unchanged, not a question)
+ * correctly (i.e. each part in a double-barreled is converted to proper case).
+ *
+ * @param label sentence to adjust
+ * @returns trimmed sented with a question mark if it's a question.
+ */
+export function addQuestionMarkToQuestion(label: string): string {
+  let result = label.trim()
+
+  const questionsPrefixes = [
+    'are',
+    'can',
+    'did',
+    'do',
+    'does',
+    'from what',
+    'from which',
+    'has',
+    'have',
+    'how',
+    'is',
+    'to which',
+    'was',
+    'were',
+    'what',
+    'when',
+    'where',
+    'which',
+    'who',
+    'whose',
+    'why',
+    'with what',
+  ]
+  const labelStart = result.toLowerCase()
+  if (questionsPrefixes.some(prefix => labelStart.startsWith(`${prefix} `))) {
+    if (!result.endsWith('?')) {
+      result += '?'
+    }
+  }
+
+  return result
+}

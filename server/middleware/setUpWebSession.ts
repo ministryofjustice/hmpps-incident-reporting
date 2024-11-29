@@ -1,6 +1,6 @@
 import { randomUUID } from 'node:crypto'
 
-import RedisStore from 'connect-redis'
+import { RedisStore } from 'connect-redis'
 import express, { type Router } from 'express'
 import session, { MemoryStore, type Store } from 'express-session'
 

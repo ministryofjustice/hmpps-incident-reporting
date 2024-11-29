@@ -98,74 +98,79 @@ export default class QuestionsController extends BaseController<FormWizard.Multi
     res: express.Response,
     next: express.NextFunction,
   ): Promise<void> {
-    const { incidentReportingApi } = res.locals.apis
+    super.saveValues(req, res, async error => {
+      if (error) {
+        next(error)
+      } else {
+        const { incidentReportingApi } = res.locals.apis
 
-    const submittedValues = req.form.values
+        const submittedValues = req.form.values
 
-    const report = res.locals.report as ReportWithDetails
-    const reportConfig = res.locals.reportConfig as IncidentTypeConfiguration
+        const report = res.locals.report as ReportWithDetails
+        const reportConfig = res.locals.reportConfig as IncidentTypeConfiguration
 
-    const questionsResponses = []
-    for (const [fieldName, values] of Object.entries(submittedValues)) {
-      const questionConfig = reportConfig.questions[fieldName]
-      if (questionConfig === undefined) {
-        logger.error(
-          `Report '${report.id}': Submitted Field '${fieldName}' not found in ${report.type}'s configuration.`,
-        )
+        const questionsResponses = []
+        for (const [fieldName, values] of Object.entries(submittedValues)) {
+          const questionConfig = reportConfig.questions[fieldName]
+          if (questionConfig === undefined) {
+            logger.error(
+              `Report '${report.id}': Submitted Field '${fieldName}' not found in ${report.type}'s configuration.`,
+            )
 
-        // eslint-disable-next-line no-continue
-        continue
-      }
-      const questionResponses: AddOrUpdateQuestionWithResponsesRequest = {
-        code: fieldName,
-        question: questionConfig.code,
-        additionalInformation: null,
-        responses: [],
-      }
-
-      const responseCodes = (questionConfig.multipleAnswers ? values : [values]) as string[]
-      for (const responseCode of responseCodes) {
-        if (responseCode === '') {
-          // eslint-disable-next-line no-continue
-          continue
-        }
-        const answerConfig = this.findAnswerConfigByCode(responseCode, questionConfig)
-        if (answerConfig === undefined) {
-          logger.error(
-            `Report '${report.id}': Submitted Answer with code '${responseCode}' not found in ${report.type}'s question '${questionConfig.id}' configuration.`,
-          )
-          // eslint-disable-next-line no-continue
-          continue
-        }
-
-        const response: AddOrUpdateQuestionResponseRequest = {
-          response: responseCode,
-          responseDate: null,
-          additionalInformation: null,
-        }
-
-        if (answerConfig.commentRequired) {
-          const commentFieldName = `${questionConfig.id}-${answerConfig.id}-comment`
-          if (submittedValues[commentFieldName] !== '') {
-            response.additionalInformation = submittedValues[commentFieldName] as string
+            // eslint-disable-next-line no-continue
+            continue
           }
-        }
-
-        if (answerConfig.dateRequired) {
-          const dateFieldName = `${questionConfig.id}-${answerConfig.id}-date`
-          if (submittedValues[dateFieldName] !== '') {
-            response.responseDate = parseDateInput(submittedValues[dateFieldName] as string)
+          const questionResponses: AddOrUpdateQuestionWithResponsesRequest = {
+            code: fieldName,
+            question: questionConfig.code,
+            additionalInformation: null,
+            responses: [],
           }
+
+          const responseCodes = (questionConfig.multipleAnswers ? values : [values]) as string[]
+          for (const responseCode of responseCodes) {
+            if (responseCode === '') {
+              // eslint-disable-next-line no-continue
+              continue
+            }
+            const answerConfig = this.findAnswerConfigByCode(responseCode, questionConfig)
+            if (answerConfig === undefined) {
+              logger.error(
+                `Report '${report.id}': Submitted Answer with code '${responseCode}' not found in ${report.type}'s question '${questionConfig.id}' configuration.`,
+              )
+              // eslint-disable-next-line no-continue
+              continue
+            }
+
+            const response: AddOrUpdateQuestionResponseRequest = {
+              response: responseCode,
+              responseDate: null,
+              additionalInformation: null,
+            }
+
+            if (answerConfig.commentRequired) {
+              const commentFieldName = `${questionConfig.id}-${answerConfig.id}-comment`
+              if (submittedValues[commentFieldName] !== '') {
+                response.additionalInformation = submittedValues[commentFieldName] as string
+              }
+            }
+
+            if (answerConfig.dateRequired) {
+              const dateFieldName = `${questionConfig.id}-${answerConfig.id}-date`
+              if (submittedValues[dateFieldName] !== '') {
+                response.responseDate = parseDateInput(submittedValues[dateFieldName] as string)
+              }
+            }
+            questionResponses.responses.push(response)
+          }
+
+          questionsResponses.push(questionResponses)
         }
-        questionResponses.responses.push(response)
+
+        await incidentReportingApi.addOrUpdateQuestionsWithResponses(report.id, questionsResponses)
+        next()
       }
-
-      questionsResponses.push(questionResponses)
-    }
-
-    await incidentReportingApi.addOrUpdateQuestionsWithResponses(report.id, questionsResponses)
-
-    super.saveValues(req, res, next)
+    })
   }
 
   /** Finds the Answer config for a given the answer code */

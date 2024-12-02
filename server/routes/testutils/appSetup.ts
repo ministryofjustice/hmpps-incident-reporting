@@ -16,6 +16,7 @@ import setApis from '../../middleware/setApis'
 
 export const testAppInfo: ApplicationInfo = {
   applicationName: 'hmpps-incident-reporting',
+  productId: 'test-product-id',
   buildNumber: '1',
   gitRef: '9fb9f708131d3ff0251e0653ac25dc6d28a69247',
   gitShortHash: '9fb9f70',

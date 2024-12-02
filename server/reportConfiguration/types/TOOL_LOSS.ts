@@ -1,4 +1,4 @@
-// Generated with ./scripts/updateNomisIncidentTypeConfigurations.ts at 2024-10-15T17:17:18.664Z
+// Generated with ./scripts/updateNomisIncidentTypeConfigurations.ts at 2024-12-02T17:35:13.572Z
 
 import { type IncidentTypeConfiguration } from '../../data/incidentTypeConfiguration/types'
 
@@ -11,7 +11,7 @@ const TOOL_LOSS: IncidentTypeConfiguration = {
       id: '44195',
       active: true,
       code: 'WHAT ACTION WAS TAKEN TO FIND THESE ITEMS',
-      label: 'WHAT ACTION WAS TAKEN TO FIND THESE ITEMS',
+      label: 'What action was taken to find these items?',
       multipleAnswers: false,
       answers: [
         {
@@ -47,7 +47,7 @@ const TOOL_LOSS: IncidentTypeConfiguration = {
       id: '44372',
       active: true,
       code: 'IS THE MISSING ITEM THOUGHT TO BE',
-      label: 'IS THE MISSING ITEM THOUGHT TO BE',
+      label: 'Is the missing item thought to be?',
       multipleAnswers: false,
       answers: [
         {
@@ -83,7 +83,7 @@ const TOOL_LOSS: IncidentTypeConfiguration = {
       id: '44412',
       active: true,
       code: 'HAS THE PRISON SERVICE PRESS OFFICE BEEN INFORMED',
-      label: 'HAS THE PRISON SERVICE PRESS OFFICE BEEN INFORMED',
+      label: 'Has the prison service press office been informed?',
       multipleAnswers: false,
       answers: [
         {
@@ -110,7 +110,7 @@ const TOOL_LOSS: IncidentTypeConfiguration = {
       id: '44445',
       active: true,
       code: "IS THE MISSING ITEM THOUGHT TO BE IN A PRISONER'S POSSESSION",
-      label: "IS THE MISSING ITEM THOUGHT TO BE IN A PRISONER'S POSSESSION",
+      label: "Is the missing item thought to be in a prisoner's possession?",
       multipleAnswers: false,
       answers: [
         {
@@ -137,7 +137,7 @@ const TOOL_LOSS: IncidentTypeConfiguration = {
       id: '44477',
       active: true,
       code: 'HOW ARE TOOLS/IMPLEMENTS STORED',
-      label: 'HOW ARE TOOLS/IMPLEMENTS STORED',
+      label: 'How are tools/implements stored?',
       multipleAnswers: false,
       answers: [
         {
@@ -182,7 +182,7 @@ const TOOL_LOSS: IncidentTypeConfiguration = {
       id: '44489',
       active: true,
       code: 'IS THE INCIDENT THE SUBJECT OF AN INTERNAL INVESTIGATION',
-      label: 'IS THE INCIDENT THE SUBJECT OF AN INTERNAL INVESTIGATION',
+      label: 'Is the incident the subject of an internal investigation?',
       multipleAnswers: false,
       answers: [
         {
@@ -209,7 +209,7 @@ const TOOL_LOSS: IncidentTypeConfiguration = {
       id: '44509',
       active: true,
       code: 'IS THE F78A CHECKING SYSTEM IN OPERATION',
-      label: 'IS THE F78A CHECKING SYSTEM IN OPERATION',
+      label: 'Is the F78A checking system in operation?',
       multipleAnswers: false,
       answers: [
         {
@@ -236,7 +236,7 @@ const TOOL_LOSS: IncidentTypeConfiguration = {
       id: '44565',
       active: true,
       code: 'HAS THE ITEM BEEN FOUND',
-      label: 'HAS THE ITEM BEEN FOUND',
+      label: 'Has the item been found?',
       multipleAnswers: false,
       answers: [
         {
@@ -263,7 +263,7 @@ const TOOL_LOSS: IncidentTypeConfiguration = {
       id: '44593',
       active: true,
       code: 'WHAT TOOL OR IMPLEMENT IS MISSING',
-      label: 'WHAT TOOL OR IMPLEMENT IS MISSING',
+      label: 'What tool or implement is missing?',
       multipleAnswers: true,
       answers: [
         {
@@ -380,7 +380,7 @@ const TOOL_LOSS: IncidentTypeConfiguration = {
       id: '44603',
       active: true,
       code: 'IS ANY MEMBER OF STAFF FACING DISCIPLINARY CHARGES',
-      label: 'IS ANY MEMBER OF STAFF FACING DISCIPLINARY CHARGES',
+      label: 'Is any member of staff facing disciplinary charges?',
       multipleAnswers: false,
       answers: [
         {
@@ -407,7 +407,7 @@ const TOOL_LOSS: IncidentTypeConfiguration = {
       id: '44672',
       active: true,
       code: 'IS THERE ANY MEDIA INTEREST IN THIS INCIDENT',
-      label: 'IS THERE ANY MEDIA INTEREST IN THIS INCIDENT',
+      label: 'Is there any media interest in this incident?',
       multipleAnswers: false,
       answers: [
         {
@@ -434,7 +434,7 @@ const TOOL_LOSS: IncidentTypeConfiguration = {
       id: '44808',
       active: true,
       code: 'IS THE INCIDENT THE SUBJECT OF A POLICE INVESTIGATION',
-      label: 'IS THE INCIDENT THE SUBJECT OF A POLICE INVESTIGATION',
+      label: 'Is the incident the subject of a police investigation?',
       multipleAnswers: false,
       answers: [
         {
@@ -461,7 +461,7 @@ const TOOL_LOSS: IncidentTypeConfiguration = {
       id: '44950',
       active: true,
       code: 'WHERE WAS THE TOOLS LOST FROM',
-      label: 'WHERE WAS THE TOOLS LOST FROM',
+      label: 'Where was the tools lost from?',
       multipleAnswers: true,
       answers: [
         {
@@ -569,7 +569,7 @@ const TOOL_LOSS: IncidentTypeConfiguration = {
       id: '44993',
       active: true,
       code: "IS THE INCIDENT SUBJECT TO A GOVERNOR'S ADJUDICATION",
-      label: "IS THE INCIDENT SUBJECT TO A GOVERNOR'S ADJUDICATION",
+      label: "Is the incident subject to a governor's adjudication?",
       multipleAnswers: false,
       answers: [
         {
@@ -596,7 +596,7 @@ const TOOL_LOSS: IncidentTypeConfiguration = {
       id: '45142',
       active: true,
       code: 'WERE THE POLICE INFORMED OF THE INCIDENT',
-      label: 'WERE THE POLICE INFORMED OF THE INCIDENT',
+      label: 'Were the police informed of the incident?',
       multipleAnswers: false,
       answers: [
         {
@@ -623,7 +623,7 @@ const TOOL_LOSS: IncidentTypeConfiguration = {
       id: '45169',
       active: true,
       code: 'WHERE WAS THE ITEM FOUND',
-      label: 'WHERE WAS THE ITEM FOUND',
+      label: 'Where was the item found?',
       multipleAnswers: false,
       answers: [
         {

@@ -1,4 +1,4 @@
-// Generated with ./scripts/updateNomisIncidentTypeConfigurations.ts at 2024-10-15T17:17:42.544Z
+// Generated with ./scripts/updateNomisIncidentTypeConfigurations.ts at 2024-12-02T17:35:38.665Z
 
 import { type IncidentTypeConfiguration } from '../../data/incidentTypeConfiguration/types'
 
@@ -11,7 +11,7 @@ const KEY_LOCK_INCIDENT: IncidentTypeConfiguration = {
       id: '45196',
       active: true,
       code: 'Describe the nature of the Incident',
-      label: 'Describe the nature of the Incident',
+      label: 'Describe the nature of the incident',
       multipleAnswers: true,
       answers: [
         {
@@ -731,7 +731,7 @@ const KEY_LOCK_INCIDENT: IncidentTypeConfiguration = {
       id: '45198',
       active: true,
       code: 'Incident Level: 1-5. 1 High Risk, 5 No Risk',
-      label: 'Incident Level: 1-5. 1 High Risk, 5 No Risk',
+      label: 'Incident level: 1-5. 1 high risk, 5 no risk',
       multipleAnswers: false,
       answers: [
         {
@@ -1154,7 +1154,7 @@ const KEY_LOCK_INCIDENT: IncidentTypeConfiguration = {
       id: '45205',
       active: true,
       code: 'Were tools used in the Incident?',
-      label: 'Were tools used in the Incident?',
+      label: 'Were tools used in the incident?',
       multipleAnswers: false,
       answers: [
         {
@@ -1550,7 +1550,7 @@ const KEY_LOCK_INCIDENT: IncidentTypeConfiguration = {
       id: '45208',
       active: true,
       code: 'Has the Key Lock Incident been reported to NOU?',
-      label: 'Has the Key Lock Incident been reported to NOU?',
+      label: 'Has the key lock incident been reported to NOU?',
       multipleAnswers: true,
       answers: [
         {

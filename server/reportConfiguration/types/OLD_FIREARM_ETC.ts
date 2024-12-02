@@ -1,4 +1,4 @@
-// Generated with ./scripts/updateNomisIncidentTypeConfigurations.ts at 2024-10-15T17:17:39.288Z
+// Generated with ./scripts/updateNomisIncidentTypeConfigurations.ts at 2024-12-02T17:35:35.427Z
 
 import { type IncidentTypeConfiguration } from '../../data/incidentTypeConfiguration/types'
 
@@ -11,7 +11,7 @@ const OLD_FIREARM_ETC: IncidentTypeConfiguration = {
       id: '44123',
       active: false,
       code: 'HOW WAS THE ITEM FOUND',
-      label: 'HOW WAS THE ITEM FOUND',
+      label: 'How was the item found?',
       multipleAnswers: false,
       answers: [
         {
@@ -47,7 +47,7 @@ const OLD_FIREARM_ETC: IncidentTypeConfiguration = {
       id: '44160',
       active: false,
       code: 'WHAT WAS THE COUNTRY OF MANUFACTURE OF THE SPRAY',
-      label: 'WHAT WAS THE COUNTRY OF MANUFACTURE OF THE SPRAY',
+      label: 'What was the country of manufacture of the spray?',
       multipleAnswers: false,
       answers: [
         {
@@ -65,7 +65,7 @@ const OLD_FIREARM_ETC: IncidentTypeConfiguration = {
       id: '44172',
       active: false,
       code: 'WAS A CHEMICAL INCAPACITANT SPRAY FOUND',
-      label: 'WAS A CHEMICAL INCAPACITANT SPRAY FOUND',
+      label: 'Was a chemical incapacitant spray found?',
       multipleAnswers: false,
       answers: [
         {
@@ -92,7 +92,7 @@ const OLD_FIREARM_ETC: IncidentTypeConfiguration = {
       id: '44189',
       active: false,
       code: 'WAS THE FIREARM AN AUTOMATIC',
-      label: 'WAS THE FIREARM AN AUTOMATIC',
+      label: 'Was the firearm an automatic?',
       multipleAnswers: false,
       answers: [
         {
@@ -119,7 +119,7 @@ const OLD_FIREARM_ETC: IncidentTypeConfiguration = {
       id: '44193',
       active: false,
       code: 'WAS THE TELEPHONE/IT SYSTEM SHUT DOWN DURING THE INCIDENT?',
-      label: 'WAS THE TELEPHONE/IT SYSTEM SHUT DOWN DURING THE INCIDENT?',
+      label: 'Was the telephone/it system shut down during the incident?',
       multipleAnswers: false,
       answers: [
         {
@@ -146,7 +146,7 @@ const OLD_FIREARM_ETC: IncidentTypeConfiguration = {
       id: '44208',
       active: false,
       code: 'IS THERE ANY SUSPICION OF TRAFFICKING',
-      label: 'IS THERE ANY SUSPICION OF TRAFFICKING',
+      label: 'Is there any suspicion of trafficking?',
       multipleAnswers: false,
       answers: [
         {
@@ -173,7 +173,7 @@ const OLD_FIREARM_ETC: IncidentTypeConfiguration = {
       id: '44209',
       active: false,
       code: 'WAS THE SYSTEM RE-ACTIVATED LOCALLY OR BY THE SERVICE SUPPLIER',
-      label: 'WAS THE SYSTEM RE-ACTIVATED LOCALLY OR BY THE SERVICE SUPPLIER',
+      label: 'Was the system re-activated locally or by the service supplier?',
       multipleAnswers: false,
       answers: [
         {
@@ -200,7 +200,7 @@ const OLD_FIREARM_ETC: IncidentTypeConfiguration = {
       id: '44323',
       active: false,
       code: 'DESCRIBE WHAT WAS COMPROMISED AND BY WHOM',
-      label: 'DESCRIBE WHAT WAS COMPROMISED AND BY WHOM',
+      label: 'Describe what was compromised and by whom',
       multipleAnswers: false,
       answers: [
         {
@@ -218,7 +218,7 @@ const OLD_FIREARM_ETC: IncidentTypeConfiguration = {
       id: '44330',
       active: false,
       code: 'HAS THE SERVICE SUPPLIER BEEN NOTIFIED OF A REPLACEMENT KEYWORD?',
-      label: 'HAS THE SERVICE SUPPLIER BEEN NOTIFIED OF A REPLACEMENT KEYWORD?',
+      label: 'Has the service supplier been notified of a replacement keyword?',
       multipleAnswers: false,
       answers: [
         {
@@ -245,7 +245,7 @@ const OLD_FIREARM_ETC: IncidentTypeConfiguration = {
       id: '44390',
       active: false,
       code: 'WHAT TYPE OF AMMUNITION WAS FOUND',
-      label: 'WHAT TYPE OF AMMUNITION WAS FOUND',
+      label: 'What type of ammunition was found?',
       multipleAnswers: true,
       answers: [
         {
@@ -299,7 +299,7 @@ const OLD_FIREARM_ETC: IncidentTypeConfiguration = {
       id: '44398',
       active: false,
       code: 'WHAT TIME WAS THE SYSTEM SHUT DOWN?',
-      label: 'WHAT TIME WAS THE SYSTEM SHUT DOWN?',
+      label: 'What time was the system shut down?',
       multipleAnswers: false,
       answers: [
         {
@@ -317,7 +317,7 @@ const OLD_FIREARM_ETC: IncidentTypeConfiguration = {
       id: '44430',
       active: false,
       code: 'HOW MANY ROUNDS ETC WERE FOUND',
-      label: 'HOW MANY ROUNDS ETC WERE FOUND',
+      label: 'How many rounds etc were found?',
       multipleAnswers: false,
       answers: [
         {
@@ -335,7 +335,7 @@ const OLD_FIREARM_ETC: IncidentTypeConfiguration = {
       id: '44446',
       active: false,
       code: 'HAS ANY PERSON BEEN ARRESTED BY THE POLICE',
-      label: 'HAS ANY PERSON BEEN ARRESTED BY THE POLICE',
+      label: 'Has any person been arrested by the police?',
       multipleAnswers: false,
       answers: [
         {
@@ -362,7 +362,7 @@ const OLD_FIREARM_ETC: IncidentTypeConfiguration = {
       id: '44451',
       active: false,
       code: 'WAS THE TELEPHONE/IT SYSTEM SHUT DOWN LOCALLY OR BY THE SERVICE SUPPLIER',
-      label: 'WAS THE TELEPHONE/IT SYSTEM SHUT DOWN LOCALLY OR BY THE SERVICE SUPPLIER',
+      label: 'Was the telephone/it system shut down locally or by the service supplier?',
       multipleAnswers: false,
       answers: [
         {
@@ -389,7 +389,7 @@ const OLD_FIREARM_ETC: IncidentTypeConfiguration = {
       id: '44455',
       active: false,
       code: 'WHAT WAS THE SOURCE OF THE INFORMATION/INTELLIGENCE',
-      label: 'WHAT WAS THE SOURCE OF THE INFORMATION/INTELLIGENCE',
+      label: 'What was the source of the information/intelligence?',
       multipleAnswers: false,
       answers: [
         {
@@ -443,7 +443,7 @@ const OLD_FIREARM_ETC: IncidentTypeConfiguration = {
       id: '44470',
       active: false,
       code: 'WAS THE ITEM CONCEALED/DISCARDED',
-      label: 'WAS THE ITEM CONCEALED/DISCARDED',
+      label: 'Was the item concealed/discarded?',
       multipleAnswers: false,
       answers: [
         {
@@ -470,7 +470,7 @@ const OLD_FIREARM_ETC: IncidentTypeConfiguration = {
       id: '44473',
       active: false,
       code: 'IS THERE ANY MEDIA INTEREST IN THIS INCIDENT',
-      label: 'IS THERE ANY MEDIA INTEREST IN THIS INCIDENT',
+      label: 'Is there any media interest in this incident?',
       multipleAnswers: false,
       answers: [
         {
@@ -497,7 +497,7 @@ const OLD_FIREARM_ETC: IncidentTypeConfiguration = {
       id: '44504',
       active: false,
       code: 'WHAT WAS THE CALIBRE OF THE FIREARM',
-      label: 'WHAT WAS THE CALIBRE OF THE FIREARM',
+      label: 'What was the calibre of the firearm?',
       multipleAnswers: false,
       answers: [
         {
@@ -515,7 +515,7 @@ const OLD_FIREARM_ETC: IncidentTypeConfiguration = {
       id: '44513',
       active: false,
       code: 'IS THE INCIDENT THE SUBJECT OF A POLICE INVESTIGATION',
-      label: 'IS THE INCIDENT THE SUBJECT OF A POLICE INVESTIGATION',
+      label: 'Is the incident the subject of a police investigation?',
       multipleAnswers: false,
       answers: [
         {
@@ -542,7 +542,7 @@ const OLD_FIREARM_ETC: IncidentTypeConfiguration = {
       id: '44524',
       active: false,
       code: 'DESCRIBE THE PERSON ARRESTED',
-      label: 'DESCRIBE THE PERSON ARRESTED',
+      label: 'Describe the person arrested',
       multipleAnswers: true,
       answers: [
         {
@@ -596,7 +596,7 @@ const OLD_FIREARM_ETC: IncidentTypeConfiguration = {
       id: '44526',
       active: false,
       code: 'WHERE WAS THE ITEM FOUND',
-      label: 'WHERE WAS THE ITEM FOUND',
+      label: 'Where was the item found?',
       multipleAnswers: false,
       answers: [
         {
@@ -902,7 +902,7 @@ const OLD_FIREARM_ETC: IncidentTypeConfiguration = {
       id: '44548',
       active: false,
       code: 'DESCRIBE THE TYPE OF SPRAY',
-      label: 'DESCRIBE THE TYPE OF SPRAY',
+      label: 'Describe the type of spray',
       multipleAnswers: true,
       answers: [
         {
@@ -956,7 +956,7 @@ const OLD_FIREARM_ETC: IncidentTypeConfiguration = {
       id: '44622',
       active: false,
       code: 'WHAT WAS THE BRAND NAME OF THE SPRAY',
-      label: 'WHAT WAS THE BRAND NAME OF THE SPRAY',
+      label: 'What was the brand name of the spray?',
       multipleAnswers: false,
       answers: [
         {
@@ -974,7 +974,7 @@ const OLD_FIREARM_ETC: IncidentTypeConfiguration = {
       id: '44624',
       active: false,
       code: 'CAN ITEMS BE ATTRIBUTED TO A PARTICULAR PRISONER',
-      label: 'CAN ITEMS BE ATTRIBUTED TO A PARTICULAR PRISONER',
+      label: 'Can items be attributed to a particular prisoner?',
       multipleAnswers: false,
       answers: [
         {
@@ -1001,7 +1001,7 @@ const OLD_FIREARM_ETC: IncidentTypeConfiguration = {
       id: '44637',
       active: false,
       code: 'WAS THE SEARCH AS A RESULT OF INFORMATION/INTELLIGENCE',
-      label: 'WAS THE SEARCH AS A RESULT OF INFORMATION/INTELLIGENCE',
+      label: 'Was the search as a result of information/intelligence?',
       multipleAnswers: false,
       answers: [
         {
@@ -1028,7 +1028,7 @@ const OLD_FIREARM_ETC: IncidentTypeConfiguration = {
       id: '44676',
       active: false,
       code: 'HAS THE PRISON SERVICE PRESS OFFICE BEEN INFORMED',
-      label: 'HAS THE PRISON SERVICE PRESS OFFICE BEEN INFORMED',
+      label: 'Has the prison service press office been informed?',
       multipleAnswers: false,
       answers: [
         {
@@ -1055,7 +1055,7 @@ const OLD_FIREARM_ETC: IncidentTypeConfiguration = {
       id: '44692',
       active: false,
       code: 'HAS THE PRISONER BEEN ENTERED ON THE INMATE INVOLVEMENT',
-      label: 'HAS THE PRISONER BEEN ENTERED ON THE INMATE INVOLVEMENT',
+      label: 'Has the prisoner been entered on the inmate involvement?',
       multipleAnswers: false,
       answers: [
         {
@@ -1082,7 +1082,7 @@ const OLD_FIREARM_ETC: IncidentTypeConfiguration = {
       id: '44698',
       active: false,
       code: 'WHAT WAS THE CALIBRE OF THE AMMUNITION',
-      label: 'WHAT WAS THE CALIBRE OF THE AMMUNITION',
+      label: 'What was the calibre of the ammunition?',
       multipleAnswers: false,
       answers: [
         {
@@ -1100,7 +1100,7 @@ const OLD_FIREARM_ETC: IncidentTypeConfiguration = {
       id: '44703',
       active: false,
       code: 'WAS AMMUNITION FOUND',
-      label: 'WAS AMMUNITION FOUND',
+      label: 'Was ammunition found?',
       multipleAnswers: false,
       answers: [
         {
@@ -1127,7 +1127,7 @@ const OLD_FIREARM_ETC: IncidentTypeConfiguration = {
       id: '44755',
       active: false,
       code: 'INDICATE THE NATURE OF THE SHUT DOWN',
-      label: 'INDICATE THE NATURE OF THE SHUT DOWN',
+      label: 'Indicate the nature of the shut down',
       multipleAnswers: true,
       answers: [
         {
@@ -1154,7 +1154,7 @@ const OLD_FIREARM_ETC: IncidentTypeConfiguration = {
       id: '44776',
       active: false,
       code: 'WERE THE POLICE INFORMED OF THE INCIDENT',
-      label: 'WERE THE POLICE INFORMED OF THE INCIDENT',
+      label: 'Were the police informed of the incident?',
       multipleAnswers: false,
       answers: [
         {
@@ -1181,7 +1181,7 @@ const OLD_FIREARM_ETC: IncidentTypeConfiguration = {
       id: '44779',
       active: false,
       code: 'WHEN WAS THE SYSTEM RE-ACTIVATED?',
-      label: 'WHEN WAS THE SYSTEM RE-ACTIVATED?',
+      label: 'When was the system re-activated?',
       multipleAnswers: false,
       answers: [
         {
@@ -1199,7 +1199,7 @@ const OLD_FIREARM_ETC: IncidentTypeConfiguration = {
       id: '44820',
       active: false,
       code: 'WAS THE SYSTEM COMPROMISED?',
-      label: 'WAS THE SYSTEM COMPROMISED?',
+      label: 'Was the system compromised?',
       multipleAnswers: false,
       answers: [
         {
@@ -1226,7 +1226,7 @@ const OLD_FIREARM_ETC: IncidentTypeConfiguration = {
       id: '44827',
       active: false,
       code: 'WHAT PARTS OF A FIREARM WERE FOUND',
-      label: 'WHAT PARTS OF A FIREARM WERE FOUND',
+      label: 'What parts of a firearm were found?',
       multipleAnswers: true,
       answers: [
         {
@@ -1271,7 +1271,7 @@ const OLD_FIREARM_ETC: IncidentTypeConfiguration = {
       id: '44832',
       active: false,
       code: 'WAS THE KEYWORD REQUESTED?',
-      label: 'WAS THE KEYWORD REQUESTED?',
+      label: 'Was the keyword requested?',
       multipleAnswers: false,
       answers: [
         {
@@ -1298,7 +1298,7 @@ const OLD_FIREARM_ETC: IncidentTypeConfiguration = {
       id: '44846',
       active: false,
       code: 'WHAT WAS THE NAME OF THE MANUFACTURER',
-      label: 'WHAT WAS THE NAME OF THE MANUFACTURER',
+      label: 'What was the name of the manufacturer?',
       multipleAnswers: false,
       answers: [
         {
@@ -1316,7 +1316,7 @@ const OLD_FIREARM_ETC: IncidentTypeConfiguration = {
       id: '44870',
       active: false,
       code: 'DESCRIBE THE AMMUNITION',
-      label: 'DESCRIBE THE AMMUNITION',
+      label: 'Describe the ammunition',
       multipleAnswers: true,
       answers: [
         {
@@ -1370,7 +1370,7 @@ const OLD_FIREARM_ETC: IncidentTypeConfiguration = {
       id: '44874',
       active: false,
       code: 'HAS ANY PROSECUTION TAKEN PLACE OR IS ANY PENDING',
-      label: 'HAS ANY PROSECUTION TAKEN PLACE OR IS ANY PENDING',
+      label: 'Has any prosecution taken place or is any pending?',
       multipleAnswers: false,
       answers: [
         {
@@ -1397,7 +1397,7 @@ const OLD_FIREARM_ETC: IncidentTypeConfiguration = {
       id: '44907',
       active: false,
       code: 'WHO AUTHORISED THE SHUT DOWN?',
-      label: 'WHO AUTHORISED THE SHUT DOWN?',
+      label: 'Who authorised the shut down?',
       multipleAnswers: false,
       answers: [
         {
@@ -1442,7 +1442,7 @@ const OLD_FIREARM_ETC: IncidentTypeConfiguration = {
       id: '44922',
       active: false,
       code: 'WHICH DETECTION AIDS WERE USED',
-      label: 'WHICH DETECTION AIDS WERE USED',
+      label: 'Which detection aids were used?',
       multipleAnswers: true,
       answers: [
         {
@@ -1487,7 +1487,7 @@ const OLD_FIREARM_ETC: IncidentTypeConfiguration = {
       id: '44928',
       active: false,
       code: 'WERE DETECTION AIDS USED',
-      label: 'WERE DETECTION AIDS USED',
+      label: 'Were detection aids used?',
       multipleAnswers: false,
       answers: [
         {
@@ -1514,7 +1514,7 @@ const OLD_FIREARM_ETC: IncidentTypeConfiguration = {
       id: '44964',
       active: false,
       code: 'WAS THIS A FULL OR PARTIAL SHUT DOWN?',
-      label: 'WAS THIS A FULL OR PARTIAL SHUT DOWN?',
+      label: 'Was this a full or partial shut down?',
       multipleAnswers: false,
       answers: [
         {
@@ -1541,7 +1541,7 @@ const OLD_FIREARM_ETC: IncidentTypeConfiguration = {
       id: '44980',
       active: false,
       code: 'WERE SPECIALIST DOGS USED',
-      label: 'WERE SPECIALIST DOGS USED',
+      label: 'Were specialist dogs used?',
       multipleAnswers: false,
       answers: [
         {
@@ -1568,7 +1568,7 @@ const OLD_FIREARM_ETC: IncidentTypeConfiguration = {
       id: '44988',
       active: false,
       code: 'QUOTE THE VANTIVE CASE NUMBER',
-      label: 'QUOTE THE VANTIVE CASE NUMBER',
+      label: 'Quote the vantive case number',
       multipleAnswers: false,
       answers: [
         {
@@ -1586,7 +1586,7 @@ const OLD_FIREARM_ETC: IncidentTypeConfiguration = {
       id: '45000',
       active: false,
       code: 'IS THE INCIDENT THE SUBJECT OF AN INTERNAL INVESTIGATION',
-      label: 'IS THE INCIDENT THE SUBJECT OF AN INTERNAL INVESTIGATION',
+      label: 'Is the incident the subject of an internal investigation?',
       multipleAnswers: false,
       answers: [
         {
@@ -1613,7 +1613,7 @@ const OLD_FIREARM_ETC: IncidentTypeConfiguration = {
       id: '45001',
       active: false,
       code: 'WAS THE FIREARM COMPLETE',
-      label: 'WAS THE FIREARM COMPLETE',
+      label: 'Was the firearm complete?',
       multipleAnswers: false,
       answers: [
         {
@@ -1640,7 +1640,7 @@ const OLD_FIREARM_ETC: IncidentTypeConfiguration = {
       id: '45005',
       active: false,
       code: 'IS ANY MEMBER OF STAFF FACING DISCIPLINARY CHARGES',
-      label: 'IS ANY MEMBER OF STAFF FACING DISCIPLINARY CHARGES',
+      label: 'Is any member of staff facing disciplinary charges?',
       multipleAnswers: false,
       answers: [
         {
@@ -1667,7 +1667,7 @@ const OLD_FIREARM_ETC: IncidentTypeConfiguration = {
       id: '45026',
       active: false,
       code: 'WAS A FIREARM FOUND',
-      label: 'WAS A FIREARM FOUND',
+      label: 'Was a firearm found?',
       multipleAnswers: false,
       answers: [
         {
@@ -1694,7 +1694,7 @@ const OLD_FIREARM_ETC: IncidentTypeConfiguration = {
       id: '45029',
       active: false,
       code: 'WHAT TYPE OF FIREARM WAS FOUND',
-      label: 'WHAT TYPE OF FIREARM WAS FOUND',
+      label: 'What type of firearm was found?',
       multipleAnswers: false,
       answers: [
         {
@@ -1748,7 +1748,7 @@ const OLD_FIREARM_ETC: IncidentTypeConfiguration = {
       id: '45049',
       active: false,
       code: 'WHO NOW HAS CUSTODY OF THE ITEMS',
-      label: 'WHO NOW HAS CUSTODY OF THE ITEMS',
+      label: 'Who now has custody of the items?',
       multipleAnswers: false,
       answers: [
         {
@@ -1784,7 +1784,7 @@ const OLD_FIREARM_ETC: IncidentTypeConfiguration = {
       id: '45056',
       active: false,
       code: 'DESCRIBE THE PERSON',
-      label: 'DESCRIBE THE PERSON',
+      label: 'Describe the person',
       multipleAnswers: false,
       answers: [
         {
@@ -1838,7 +1838,7 @@ const OLD_FIREARM_ETC: IncidentTypeConfiguration = {
       id: '45102',
       active: false,
       code: 'WHERE WAS THE ITEM CONCEALED',
-      label: 'WHERE WAS THE ITEM CONCEALED',
+      label: 'Where was the item concealed?',
       multipleAnswers: false,
       answers: [
         {
@@ -1937,7 +1937,7 @@ const OLD_FIREARM_ETC: IncidentTypeConfiguration = {
       id: '45119',
       active: false,
       code: 'DESCRIBE THE FIREARM',
-      label: 'DESCRIBE THE FIREARM',
+      label: 'Describe the firearm',
       multipleAnswers: false,
       answers: [
         {

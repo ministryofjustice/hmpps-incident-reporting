@@ -1,4 +1,4 @@
-// Generated with ./scripts/updateNomisIncidentTypeConfigurations.ts at 2024-10-15T17:17:45.827Z
+// Generated with ./scripts/updateNomisIncidentTypeConfigurations.ts at 2024-12-02T17:35:42.090Z
 
 import { type IncidentTypeConfiguration } from '../../data/incidentTypeConfiguration/types'
 
@@ -11,7 +11,7 @@ const RADIO_COMPROMISE: IncidentTypeConfiguration = {
       id: '44125',
       active: true,
       code: 'IS THE INCIDENT THE SUBJECT OF AN INTERNAL INVESTIGATION',
-      label: 'IS THE INCIDENT THE SUBJECT OF AN INTERNAL INVESTIGATION',
+      label: 'Is the incident the subject of an internal investigation?',
       multipleAnswers: false,
       answers: [
         {
@@ -38,7 +38,7 @@ const RADIO_COMPROMISE: IncidentTypeConfiguration = {
       id: '44132',
       active: true,
       code: 'HAS THE RADIO BEEN RECOVERED',
-      label: 'HAS THE RADIO BEEN RECOVERED',
+      label: 'Has the radio been recovered?',
       multipleAnswers: false,
       answers: [
         {
@@ -65,7 +65,7 @@ const RADIO_COMPROMISE: IncidentTypeConfiguration = {
       id: '44173',
       active: true,
       code: 'IS THERE ANY MEDIA INTEREST IN THIS INCIDENT',
-      label: 'IS THERE ANY MEDIA INTEREST IN THIS INCIDENT',
+      label: 'Is there any media interest in this incident?',
       multipleAnswers: false,
       answers: [
         {
@@ -92,7 +92,7 @@ const RADIO_COMPROMISE: IncidentTypeConfiguration = {
       id: '44184',
       active: true,
       code: 'IS THE INTERFERENCE/JAM THOUGHT TO BE',
-      label: 'IS THE INTERFERENCE/JAM THOUGHT TO BE',
+      label: 'Is the interference/jam thought to be?',
       multipleAnswers: false,
       answers: [
         {
@@ -119,7 +119,7 @@ const RADIO_COMPROMISE: IncidentTypeConfiguration = {
       id: '44252',
       active: true,
       code: 'HAS THE RADIO BEEN ISOLATED FROM THE NET',
-      label: 'HAS THE RADIO BEEN ISOLATED FROM THE NET',
+      label: 'Has the radio been isolated from the net?',
       multipleAnswers: false,
       answers: [
         {
@@ -146,7 +146,7 @@ const RADIO_COMPROMISE: IncidentTypeConfiguration = {
       id: '44282',
       active: true,
       code: 'HAS THE LOCAL FREQUENCY BEEN CHANGED',
-      label: 'HAS THE LOCAL FREQUENCY BEEN CHANGED',
+      label: 'Has the local frequency been changed?',
       multipleAnswers: false,
       answers: [
         {
@@ -173,7 +173,7 @@ const RADIO_COMPROMISE: IncidentTypeConfiguration = {
       id: '44453',
       active: true,
       code: 'WHAT IS THE TYPE OF COMPROMISE',
-      label: 'WHAT IS THE TYPE OF COMPROMISE',
+      label: 'What is the type of compromise?',
       multipleAnswers: false,
       answers: [
         {
@@ -209,7 +209,7 @@ const RADIO_COMPROMISE: IncidentTypeConfiguration = {
       id: '44618',
       active: true,
       code: 'WHAT ACTION WAS TAKEN TO RECOVER THE RADIO',
-      label: 'WHAT ACTION WAS TAKEN TO RECOVER THE RADIO',
+      label: 'What action was taken to recover the radio?',
       multipleAnswers: false,
       answers: [
         {
@@ -236,7 +236,7 @@ const RADIO_COMPROMISE: IncidentTypeConfiguration = {
       id: '44648',
       active: true,
       code: 'DESCRIBE THE SOURCE OF THE INTERFERENCE/JAM',
-      label: 'DESCRIBE THE SOURCE OF THE INTERFERENCE/JAM',
+      label: 'Describe the source of the interference/jam',
       multipleAnswers: false,
       answers: [
         {
@@ -272,7 +272,7 @@ const RADIO_COMPROMISE: IncidentTypeConfiguration = {
       id: '44712',
       active: true,
       code: 'IS THE RADIO STILL OPERATIONAL',
-      label: 'IS THE RADIO STILL OPERATIONAL',
+      label: 'Is the radio still operational?',
       multipleAnswers: false,
       answers: [
         {
@@ -299,7 +299,7 @@ const RADIO_COMPROMISE: IncidentTypeConfiguration = {
       id: '44799',
       active: true,
       code: 'IS ANY MEMBER OF STAFF FACING DISCIPLINARY CHARGES',
-      label: 'IS ANY MEMBER OF STAFF FACING DISCIPLINARY CHARGES',
+      label: 'Is any member of staff facing disciplinary charges?',
       multipleAnswers: false,
       answers: [
         {
@@ -326,7 +326,7 @@ const RADIO_COMPROMISE: IncidentTypeConfiguration = {
       id: '44801',
       active: true,
       code: 'IS THE INCIDENT THE SUBJECT OF A POLICE INVESTIGATION',
-      label: 'IS THE INCIDENT THE SUBJECT OF A POLICE INVESTIGATION',
+      label: 'Is the incident the subject of a police investigation?',
       multipleAnswers: false,
       answers: [
         {
@@ -353,7 +353,7 @@ const RADIO_COMPROMISE: IncidentTypeConfiguration = {
       id: '44802',
       active: true,
       code: 'WERE THE POLICE INFORMED OF THE INCIDENT',
-      label: 'WERE THE POLICE INFORMED OF THE INCIDENT',
+      label: 'Were the police informed of the incident?',
       multipleAnswers: false,
       answers: [
         {
@@ -380,7 +380,7 @@ const RADIO_COMPROMISE: IncidentTypeConfiguration = {
       id: '44811',
       active: true,
       code: "IS THE INCIDENT SUBJECT TO A GOVERNOR'S ADJUDICATION",
-      label: "IS THE INCIDENT SUBJECT TO A GOVERNOR'S ADJUDICATION",
+      label: "Is the incident subject to a governor's adjudication?",
       multipleAnswers: false,
       answers: [
         {
@@ -407,7 +407,7 @@ const RADIO_COMPROMISE: IncidentTypeConfiguration = {
       id: '44841',
       active: true,
       code: 'IS THE MISSING RADIO THOUGHT TO BE',
-      label: 'IS THE MISSING RADIO THOUGHT TO BE',
+      label: 'Is the missing radio thought to be?',
       multipleAnswers: false,
       answers: [
         {
@@ -443,7 +443,7 @@ const RADIO_COMPROMISE: IncidentTypeConfiguration = {
       id: '44856',
       active: true,
       code: 'IS THE RADIO THOUGHT TO BE IN POSSESSION OF PRISONERS',
-      label: 'IS THE RADIO THOUGHT TO BE IN POSSESSION OF PRISONERS',
+      label: 'Is the radio thought to be in possession of prisoners?',
       multipleAnswers: false,
       answers: [
         {
@@ -470,7 +470,7 @@ const RADIO_COMPROMISE: IncidentTypeConfiguration = {
       id: '44916',
       active: true,
       code: 'HAS THE PRISON SERVICE PRESS OFFICE BEEN INFORMED',
-      label: 'HAS THE PRISON SERVICE PRESS OFFICE BEEN INFORMED',
+      label: 'Has the prison service press office been informed?',
       multipleAnswers: false,
       answers: [
         {
@@ -497,7 +497,7 @@ const RADIO_COMPROMISE: IncidentTypeConfiguration = {
       id: '45123',
       active: true,
       code: 'WHERE WAS THE RADIO FOUND',
-      label: 'WHERE WAS THE RADIO FOUND',
+      label: 'Where was the radio found?',
       multipleAnswers: false,
       answers: [
         {

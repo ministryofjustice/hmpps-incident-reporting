@@ -1,4 +1,4 @@
-// Generated with ./scripts/updateNomisIncidentTypeConfigurations.ts at 2024-10-15T17:17:36.088Z
+// Generated with ./scripts/updateNomisIncidentTypeConfigurations.ts at 2024-12-02T17:35:31.771Z
 
 import { type IncidentTypeConfiguration } from '../../data/incidentTypeConfiguration/types'
 
@@ -11,7 +11,7 @@ const OLD_TEMPORARY_RELEASE_FAILURE1: IncidentTypeConfiguration = {
       id: '49308',
       active: false,
       code: 'What Type Of Temporary Licence Was Breached',
-      label: 'What Type Of Temporary Licence Was Breached',
+      label: 'What type of temporary licence was breached?',
       multipleAnswers: false,
       answers: [
         {
@@ -56,7 +56,7 @@ const OLD_TEMPORARY_RELEASE_FAILURE1: IncidentTypeConfiguration = {
       id: '49309',
       active: false,
       code: 'What Was The Specific Purpose Of Temporary Release',
-      label: 'What Was The Specific Purpose Of Temporary Release',
+      label: 'What was the specific purpose of temporary release?',
       multipleAnswers: false,
       answers: [
         {
@@ -146,7 +146,7 @@ const OLD_TEMPORARY_RELEASE_FAILURE1: IncidentTypeConfiguration = {
       id: '49310',
       active: false,
       code: 'Were The Police Informed Of The Incident',
-      label: 'Were The Police Informed Of The Incident',
+      label: 'Were the police informed of the incident?',
       multipleAnswers: false,
       answers: [
         {
@@ -173,7 +173,7 @@ const OLD_TEMPORARY_RELEASE_FAILURE1: IncidentTypeConfiguration = {
       id: '49311',
       active: false,
       code: 'Is The Incident The Subject Of A Police Investigation',
-      label: 'Is The Incident The Subject Of A Police Investigation',
+      label: 'Is the incident the subject of a police investigation?',
       multipleAnswers: false,
       answers: [
         {
@@ -200,7 +200,7 @@ const OLD_TEMPORARY_RELEASE_FAILURE1: IncidentTypeConfiguration = {
       id: '49312',
       active: false,
       code: 'Is The Incident The Subject Of An Internal Investigation',
-      label: 'Is The Incident The Subject Of An Internal Investigation',
+      label: 'Is the incident the subject of an internal investigation?',
       multipleAnswers: false,
       answers: [
         {
@@ -245,7 +245,7 @@ const OLD_TEMPORARY_RELEASE_FAILURE1: IncidentTypeConfiguration = {
       id: '49313',
       active: false,
       code: "Is the Incident Subject To A Governor's Adjudication",
-      label: "Is the Incident Subject To A Governor's Adjudication",
+      label: "Is the incident subject to a governor's adjudication?",
       multipleAnswers: false,
       answers: [
         {
@@ -272,7 +272,7 @@ const OLD_TEMPORARY_RELEASE_FAILURE1: IncidentTypeConfiguration = {
       id: '49314',
       active: false,
       code: 'Is There Likely To Be Any Media Interest In This Incident',
-      label: 'Is There Likely To Be Any Media Interest In This Incident',
+      label: 'Is there likely to be any media interest in this incident?',
       multipleAnswers: false,
       answers: [
         {
@@ -299,7 +299,7 @@ const OLD_TEMPORARY_RELEASE_FAILURE1: IncidentTypeConfiguration = {
       id: '49315',
       active: false,
       code: 'Has The Prison Service Press Office Been Informed',
-      label: 'Has The Prison Service Press Office Been Informed',
+      label: 'Has the prison service press office been informed?',
       multipleAnswers: false,
       answers: [
         {
@@ -326,7 +326,7 @@ const OLD_TEMPORARY_RELEASE_FAILURE1: IncidentTypeConfiguration = {
       id: '49316',
       active: false,
       code: 'Is The Prisoner Subject To Restricted ROTL',
-      label: 'Is The Prisoner Subject To Restricted ROTL',
+      label: 'Is the prisoner subject to restricted ROTL?',
       multipleAnswers: false,
       answers: [
         {
@@ -353,7 +353,7 @@ const OLD_TEMPORARY_RELEASE_FAILURE1: IncidentTypeConfiguration = {
       id: '49317',
       active: false,
       code: 'Has The Deputy Director Of Custody Been Informed',
-      label: 'Has The Deputy Director Of Custody Been Informed',
+      label: 'Has the deputy director of custody been informed?',
       multipleAnswers: false,
       answers: [
         {
@@ -380,7 +380,7 @@ const OLD_TEMPORARY_RELEASE_FAILURE1: IncidentTypeConfiguration = {
       id: '49318',
       active: false,
       code: 'Have PPCS Been Informed',
-      label: 'Have PPCS Been Informed',
+      label: 'Have PPCS been informed?',
       multipleAnswers: false,
       answers: [
         {
@@ -407,7 +407,7 @@ const OLD_TEMPORARY_RELEASE_FAILURE1: IncidentTypeConfiguration = {
       id: '49319',
       active: false,
       code: 'Was The Failure Of Temporary Licence Or Any Part Of The Breach Failing To Return Or Returning Late',
-      label: 'Was The Failure Of Temporary Licence Or Any Part Of The Breach Failing To Return Or Returning Late',
+      label: 'Was the failure of temporary licence or any part of the breach failing to return or returning late?',
       multipleAnswers: false,
       answers: [
         {
@@ -435,7 +435,7 @@ const OLD_TEMPORARY_RELEASE_FAILURE1: IncidentTypeConfiguration = {
       active: false,
       code: 'Was The Failure To Return Reported To The Police As The Offence Of Failure To Return From Temporary Licence',
       label:
-        'Was The Failure To Return Reported To The Police As The Offence Of Failure To Return From Temporary Licence',
+        'Was the failure to return reported to the police as the offence of failure to return from temporary licence?',
       multipleAnswers: false,
       answers: [
         {
@@ -462,7 +462,7 @@ const OLD_TEMPORARY_RELEASE_FAILURE1: IncidentTypeConfiguration = {
       id: '49321',
       active: false,
       code: 'Did The Prisoner Surrender To HMPS Custody On The Same Day The Licence Expired',
-      label: 'Did The Prisoner Surrender To HMPS Custody On The Same Day The Licence Expired',
+      label: 'Did the prisoner surrender to HMPS custody on the same day the licence expired?',
       multipleAnswers: false,
       answers: [
         {
@@ -489,7 +489,7 @@ const OLD_TEMPORARY_RELEASE_FAILURE1: IncidentTypeConfiguration = {
       id: '49322',
       active: false,
       code: 'Has The Prisoner Been Recaptured',
-      label: 'Has The Prisoner Been Recaptured',
+      label: 'Has the prisoner been recaptured?',
       multipleAnswers: false,
       answers: [
         {
@@ -516,7 +516,7 @@ const OLD_TEMPORARY_RELEASE_FAILURE1: IncidentTypeConfiguration = {
       id: '49323',
       active: false,
       code: 'How Was The Prisoner Recaptured',
-      label: 'How Was The Prisoner Recaptured',
+      label: 'How was the prisoner recaptured?',
       multipleAnswers: false,
       answers: [
         {
@@ -571,7 +571,7 @@ const OLD_TEMPORARY_RELEASE_FAILURE1: IncidentTypeConfiguration = {
       active: false,
       code: 'Was Any Part Of The Failure Failing To Comply With Any Other Licence Conditions (These Can Be Standard or Bespoke)',
       label:
-        'Was Any Part Of The Failure Failing To Comply With Any Other Licence Conditions (These Can Be Standard or Bespoke)',
+        'Was any part of the failure failing to comply with any other licence conditions (these can be standard or bespoke)?',
       multipleAnswers: false,
       answers: [
         {
@@ -598,7 +598,7 @@ const OLD_TEMPORARY_RELEASE_FAILURE1: IncidentTypeConfiguration = {
       id: '49325',
       active: false,
       code: 'Please Specify Which Conditions (Select As Many As Appropriate)',
-      label: 'Please Specify Which Conditions (Select As Many As Appropriate)',
+      label: 'Please specify which conditions (select as many as appropriate)',
       multipleAnswers: true,
       answers: [
         {
@@ -679,7 +679,7 @@ const OLD_TEMPORARY_RELEASE_FAILURE1: IncidentTypeConfiguration = {
       id: '49326',
       active: false,
       code: 'Has The Prisoner Been Arrested (Including For The Offence Of Failure To Return)',
-      label: 'Has The Prisoner Been Arrested (Including For The Offence Of Failure To Return)',
+      label: 'Has the prisoner been arrested (including for the offence of failure to return)?',
       multipleAnswers: false,
       answers: [
         {
@@ -706,7 +706,7 @@ const OLD_TEMPORARY_RELEASE_FAILURE1: IncidentTypeConfiguration = {
       id: '49327',
       active: false,
       code: 'Has The Prisoner Been Charged With Any Offence (Including The Offence Of Failure To Return)',
-      label: 'Has The Prisoner Been Charged With Any Offence (Including The Offence Of Failure To Return)',
+      label: 'Has the prisoner been charged with any offence (including the offence of failure to return)?',
       multipleAnswers: false,
       answers: [
         {
@@ -742,7 +742,7 @@ const OLD_TEMPORARY_RELEASE_FAILURE1: IncidentTypeConfiguration = {
       id: '49328',
       active: false,
       code: 'With What Type Of Offence or Offences Has The Prisoner Been Charged (Select As Many As Appropriate)',
-      label: 'With What Type Of Offence or Offences Has The Prisoner Been Charged (Select As Many As Appropriate)',
+      label: 'With what type of offence or offences has the prisoner been charged (select as many as appropriate)?',
       multipleAnswers: true,
       answers: [
         {
@@ -841,7 +841,7 @@ const OLD_TEMPORARY_RELEASE_FAILURE1: IncidentTypeConfiguration = {
       id: '49331',
       active: false,
       code: 'Has The Prisoner Been Found Guilty Of Offences Committed On ROTL',
-      label: 'Has The Prisoner Been Found Guilty Of Offences Committed On ROTL',
+      label: 'Has the prisoner been found guilty of offences committed on ROTL?',
       multipleAnswers: false,
       answers: [
         {
@@ -868,7 +868,7 @@ const OLD_TEMPORARY_RELEASE_FAILURE1: IncidentTypeConfiguration = {
       id: '49334',
       active: false,
       code: 'What Offence Or Offences Has The Prisoner Been Found Guilty Of (Select As Many As Appropriate)',
-      label: 'What Offence Or Offences Has The Prisoner Been Found Guilty Of (Select As Many As Appropriate)',
+      label: 'What offence or offences has the prisoner been found guilty of (select as many as appropriate)?',
       multipleAnswers: true,
       answers: [
         {
@@ -968,7 +968,7 @@ const OLD_TEMPORARY_RELEASE_FAILURE1: IncidentTypeConfiguration = {
       active: false,
       code: 'Confirm SFO Team, Offender Manager In The Community, Victim Liaison Officer And Employer (where appropriate) Informed',
       label:
-        'Confirm SFO Team, Offender Manager In The Community, Victim Liaison Officer And Employer (where appropriate) Informed',
+        'Confirm SFO team, offender manager in the community, victim liaison officer and employer (where appropriate) informed',
       multipleAnswers: false,
       answers: [
         {

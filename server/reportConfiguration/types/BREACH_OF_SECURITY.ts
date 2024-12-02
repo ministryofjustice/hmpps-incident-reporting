@@ -1,4 +1,4 @@
-// Generated with ./scripts/updateNomisIncidentTypeConfigurations.ts at 2024-10-15T17:17:16.992Z
+// Generated with ./scripts/updateNomisIncidentTypeConfigurations.ts at 2024-12-02T17:35:11.656Z
 
 import { type IncidentTypeConfiguration } from '../../data/incidentTypeConfiguration/types'
 
@@ -11,7 +11,7 @@ const BREACH_OF_SECURITY: IncidentTypeConfiguration = {
       id: '44124',
       active: true,
       code: 'WAS DAMAGE CAUSED TO PRISON PROPERTY',
-      label: 'WAS DAMAGE CAUSED TO PRISON PROPERTY',
+      label: 'Was damage caused to prison property?',
       multipleAnswers: false,
       answers: [
         {
@@ -38,7 +38,7 @@ const BREACH_OF_SECURITY: IncidentTypeConfiguration = {
       id: '44136',
       active: true,
       code: 'WHAT WAS DAMAGED',
-      label: 'WHAT WAS DAMAGED',
+      label: 'What was damaged?',
       multipleAnswers: true,
       answers: [
         {
@@ -92,7 +92,7 @@ const BREACH_OF_SECURITY: IncidentTypeConfiguration = {
       id: '44249',
       active: true,
       code: 'WERE ANY INJURIES RECEIVED DURING THIS INCIDENT',
-      label: 'WERE ANY INJURIES RECEIVED DURING THIS INCIDENT',
+      label: 'Were any injuries received during this incident?',
       multipleAnswers: false,
       answers: [
         {
@@ -119,7 +119,7 @@ const BREACH_OF_SECURITY: IncidentTypeConfiguration = {
       id: '44253',
       active: true,
       code: 'WERE THE POLICE INFORMED OF THE INCIDENT',
-      label: 'WERE THE POLICE INFORMED OF THE INCIDENT',
+      label: 'Were the police informed of the incident?',
       multipleAnswers: false,
       answers: [
         {
@@ -146,7 +146,7 @@ const BREACH_OF_SECURITY: IncidentTypeConfiguration = {
       id: '44286',
       active: true,
       code: 'IS THE INCIDENT THE SUBJECT OF A POLICE INVESTIGATION',
-      label: 'IS THE INCIDENT THE SUBJECT OF A POLICE INVESTIGATION',
+      label: 'Is the incident the subject of a police investigation?',
       multipleAnswers: false,
       answers: [
         {
@@ -173,7 +173,7 @@ const BREACH_OF_SECURITY: IncidentTypeConfiguration = {
       id: '44301',
       active: true,
       code: 'DESCRIBE THE ILLICIT ITEM FOUND',
-      label: 'DESCRIBE THE ILLICIT ITEM FOUND',
+      label: 'Describe the illicit item found',
       multipleAnswers: true,
       answers: [
         {
@@ -254,7 +254,7 @@ const BREACH_OF_SECURITY: IncidentTypeConfiguration = {
       id: '44333',
       active: true,
       code: 'HAS ANY PROSECUTION TAKEN PLACE OR IS ANY PENDING',
-      label: 'HAS ANY PROSECUTION TAKEN PLACE OR IS ANY PENDING',
+      label: 'Has any prosecution taken place or is any pending?',
       multipleAnswers: false,
       answers: [
         {
@@ -281,7 +281,7 @@ const BREACH_OF_SECURITY: IncidentTypeConfiguration = {
       id: '44364',
       active: true,
       code: 'IS THE INCIDENT THE SUBJECT OF AN INTERNAL INVESTIGATION',
-      label: 'IS THE INCIDENT THE SUBJECT OF AN INTERNAL INVESTIGATION',
+      label: 'Is the incident the subject of an internal investigation?',
       multipleAnswers: false,
       answers: [
         {
@@ -308,7 +308,7 @@ const BREACH_OF_SECURITY: IncidentTypeConfiguration = {
       id: '44389',
       active: true,
       code: 'HAS ANY PROSECUTION TAKEN PLACE OR IS ANY PENDING',
-      label: 'HAS ANY PROSECUTION TAKEN PLACE OR IS ANY PENDING',
+      label: 'Has any prosecution taken place or is any pending?',
       multipleAnswers: false,
       answers: [
         {
@@ -335,7 +335,7 @@ const BREACH_OF_SECURITY: IncidentTypeConfiguration = {
       id: '44500',
       active: true,
       code: 'WAS THE DEMONSTRATION KNOWN ABOUT IN ADVANCE',
-      label: 'WAS THE DEMONSTRATION KNOWN ABOUT IN ADVANCE',
+      label: 'Was the demonstration known about in advance?',
       multipleAnswers: false,
       answers: [
         {
@@ -362,7 +362,7 @@ const BREACH_OF_SECURITY: IncidentTypeConfiguration = {
       id: '44514',
       active: true,
       code: 'DID UNAUTHORISED PERSONS ENTER THE PRISON',
-      label: 'DID UNAUTHORISED PERSONS ENTER THE PRISON',
+      label: 'Did unauthorised persons enter the prison?',
       multipleAnswers: false,
       answers: [
         {
@@ -389,7 +389,7 @@ const BREACH_OF_SECURITY: IncidentTypeConfiguration = {
       id: '44543',
       active: true,
       code: 'WERE THESE PERSONS APPREHENDED',
-      label: 'WERE THESE PERSONS APPREHENDED',
+      label: 'Were these persons apprehended?',
       multipleAnswers: false,
       answers: [
         {
@@ -416,7 +416,7 @@ const BREACH_OF_SECURITY: IncidentTypeConfiguration = {
       id: '44561',
       active: true,
       code: 'WAS A KNOWN ORGANISATION INVOLVED',
-      label: 'WAS A KNOWN ORGANISATION INVOLVED',
+      label: 'Was a known organisation involved?',
       multipleAnswers: false,
       answers: [
         {
@@ -443,7 +443,7 @@ const BREACH_OF_SECURITY: IncidentTypeConfiguration = {
       id: '44606',
       active: true,
       code: 'HOW WAS IT KNOWN ABOUT',
-      label: 'HOW WAS IT KNOWN ABOUT',
+      label: 'How was it known about?',
       multipleAnswers: false,
       answers: [
         {
@@ -488,7 +488,7 @@ const BREACH_OF_SECURITY: IncidentTypeConfiguration = {
       id: '44616',
       active: true,
       code: 'ESTIMATED COST OF DAMAGE',
-      label: 'ESTIMATED COST OF DAMAGE',
+      label: 'Estimated cost of damage',
       multipleAnswers: false,
       answers: [
         {
@@ -506,7 +506,7 @@ const BREACH_OF_SECURITY: IncidentTypeConfiguration = {
       id: '44658',
       active: true,
       code: 'WHAT WAS THE REASON FOR THE DEMONSTRATION',
-      label: 'WHAT WAS THE REASON FOR THE DEMONSTRATION',
+      label: 'What was the reason for the demonstration?',
       multipleAnswers: false,
       answers: [
         {
@@ -551,7 +551,7 @@ const BREACH_OF_SECURITY: IncidentTypeConfiguration = {
       id: '44686',
       active: true,
       code: 'DID THE POLICE ATTEND',
-      label: 'DID THE POLICE ATTEND',
+      label: 'Did the police attend?',
       multipleAnswers: false,
       answers: [
         {
@@ -578,7 +578,7 @@ const BREACH_OF_SECURITY: IncidentTypeConfiguration = {
       id: '44709',
       active: true,
       code: 'WAS THE DEMONSTRATION ORGANISED OR SPONTANEOUS',
-      label: 'WAS THE DEMONSTRATION ORGANISED OR SPONTANEOUS',
+      label: 'Was the demonstration organised or spontaneous?',
       multipleAnswers: false,
       answers: [
         {
@@ -605,7 +605,7 @@ const BREACH_OF_SECURITY: IncidentTypeConfiguration = {
       id: '44728',
       active: true,
       code: 'WERE ANY ARRESTS MADE',
-      label: 'WERE ANY ARRESTS MADE',
+      label: 'Were any arrests made?',
       multipleAnswers: false,
       answers: [
         {
@@ -632,7 +632,7 @@ const BREACH_OF_SECURITY: IncidentTypeConfiguration = {
       id: '44786',
       active: true,
       code: 'IS THERE ANY MEDIA INTEREST IN THIS INCIDENT',
-      label: 'IS THERE ANY MEDIA INTEREST IN THIS INCIDENT',
+      label: 'Is there any media interest in this incident?',
       multipleAnswers: false,
       answers: [
         {
@@ -659,7 +659,7 @@ const BREACH_OF_SECURITY: IncidentTypeConfiguration = {
       id: '44855',
       active: true,
       code: 'WERE THESE PERSONS ARRESTED BY THE POLICE',
-      label: 'WERE THESE PERSONS ARRESTED BY THE POLICE',
+      label: 'Were these persons arrested by the police?',
       multipleAnswers: false,
       answers: [
         {
@@ -686,7 +686,7 @@ const BREACH_OF_SECURITY: IncidentTypeConfiguration = {
       id: '44864',
       active: true,
       code: 'WAS THE SECURE PERIMETER BREACHED',
-      label: 'WAS THE SECURE PERIMETER BREACHED',
+      label: 'Was the secure perimeter breached?',
       multipleAnswers: false,
       answers: [
         {
@@ -713,7 +713,7 @@ const BREACH_OF_SECURITY: IncidentTypeConfiguration = {
       id: '44883',
       active: true,
       code: 'WAS THE INCIDENT A DEMONSTRATION',
-      label: 'WAS THE INCIDENT A DEMONSTRATION',
+      label: 'Was the incident a demonstration?',
       multipleAnswers: false,
       answers: [
         {
@@ -740,7 +740,7 @@ const BREACH_OF_SECURITY: IncidentTypeConfiguration = {
       id: '44906',
       active: true,
       code: 'WERE ANY ILLICIT ITEMS FOUND',
-      label: 'WERE ANY ILLICIT ITEMS FOUND',
+      label: 'Were any illicit items found?',
       multipleAnswers: false,
       answers: [
         {
@@ -767,7 +767,7 @@ const BREACH_OF_SECURITY: IncidentTypeConfiguration = {
       id: '44918',
       active: true,
       code: 'DESCRIBE HOW THE SECURE PERIMETER WAS BREACHED',
-      label: 'DESCRIBE HOW THE SECURE PERIMETER WAS BREACHED',
+      label: 'Describe how the secure perimeter was breached',
       multipleAnswers: false,
       answers: [
         {
@@ -830,7 +830,7 @@ const BREACH_OF_SECURITY: IncidentTypeConfiguration = {
       id: '44946',
       active: true,
       code: 'WHAT WAS THE INCIDENT LOCATION',
-      label: 'WHAT WAS THE INCIDENT LOCATION',
+      label: 'What was the incident location?',
       multipleAnswers: false,
       answers: [
         {
@@ -857,7 +857,7 @@ const BREACH_OF_SECURITY: IncidentTypeConfiguration = {
       id: '45016',
       active: true,
       code: 'DESCRIBE THE DAMAGE',
-      label: 'DESCRIBE THE DAMAGE',
+      label: 'Describe the damage',
       multipleAnswers: false,
       answers: [
         {
@@ -893,7 +893,7 @@ const BREACH_OF_SECURITY: IncidentTypeConfiguration = {
       id: '45095',
       active: true,
       code: 'HAS THE PRISON SERVICE PRESS OFFICE BEEN INFORMED',
-      label: 'HAS THE PRISON SERVICE PRESS OFFICE BEEN INFORMED',
+      label: 'Has the prison service press office been informed?',
       multipleAnswers: false,
       answers: [
         {
@@ -920,7 +920,7 @@ const BREACH_OF_SECURITY: IncidentTypeConfiguration = {
       id: '45137',
       active: true,
       code: 'ENTER DESCRIPTION OF PERSON(S) INJURED',
-      label: 'ENTER DESCRIPTION OF PERSON(S) INJURED',
+      label: 'Enter description of person(s) injured',
       multipleAnswers: true,
       answers: [
         {

@@ -1,4 +1,4 @@
-// Generated with ./scripts/updateNomisIncidentTypeConfigurations.ts at 2024-10-15T17:17:14.160Z
+// Generated with ./scripts/updateNomisIncidentTypeConfigurations.ts at 2024-12-02T17:35:08.241Z
 
 import { type IncidentTypeConfiguration } from '../../data/incidentTypeConfiguration/types'
 
@@ -11,7 +11,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
       id: '44147',
       active: true,
       code: 'WAS FORCE USED',
-      label: 'WAS FORCE USED',
+      label: 'Was force used?',
       multipleAnswers: false,
       answers: [
         {
@@ -38,7 +38,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
       id: '44152',
       active: true,
       code: 'HOW DID THE PRISONER GAIN ACCESS TO THE TOP OF THE FENCE',
-      label: 'HOW DID THE PRISONER GAIN ACCESS TO THE TOP OF THE FENCE',
+      label: 'How did the prisoner gain access to the top of the fence?',
       multipleAnswers: true,
       answers: [
         {
@@ -110,7 +110,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
       id: '44163',
       active: true,
       code: 'WHERE WAS THE CELL SITUATED',
-      label: 'WHERE WAS THE CELL SITUATED',
+      label: 'Where was the cell situated?',
       multipleAnswers: false,
       answers: [
         {
@@ -182,7 +182,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
       id: '44171',
       active: true,
       code: 'HOW DID THE PRISONER GAIN ACCESS TO THE EXTERNAL PERIMETER',
-      label: 'HOW DID THE PRISONER GAIN ACCESS TO THE EXTERNAL PERIMETER',
+      label: 'How did the prisoner gain access to the external perimeter?',
       multipleAnswers: false,
       answers: [
         {
@@ -263,7 +263,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
       id: '44225',
       active: true,
       code: 'WAS THE FENCE',
-      label: 'WAS THE FENCE',
+      label: 'Was the fence?',
       multipleAnswers: false,
       answers: [
         {
@@ -290,7 +290,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
       id: '44229',
       active: true,
       code: 'WAS THE EXIT THROUGH AN UNLOCKED DOOR OR GATE',
-      label: 'WAS THE EXIT THROUGH AN UNLOCKED DOOR OR GATE',
+      label: 'Was the exit through an unlocked door or gate?',
       multipleAnswers: false,
       answers: [
         {
@@ -317,7 +317,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
       id: '44233',
       active: true,
       code: 'ENTER DESCRIPTION OF PERSON(S) INJURED',
-      label: 'ENTER DESCRIPTION OF PERSON(S) INJURED',
+      label: 'Enter description of person(s) injured',
       multipleAnswers: true,
       answers: [
         {
@@ -371,7 +371,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
       id: '44242',
       active: true,
       code: 'DID THE PRISONER LEAVE THE CELL',
-      label: 'DID THE PRISONER LEAVE THE CELL',
+      label: 'Did the prisoner leave the cell?',
       multipleAnswers: false,
       answers: [
         {
@@ -398,7 +398,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
       id: '44247',
       active: true,
       code: 'WAS AN ATTEMPT MADE TO CUT OR BREACH THE FENCE',
-      label: 'WAS AN ATTEMPT MADE TO CUT OR BREACH THE FENCE',
+      label: 'Was an attempt made to cut or breach the fence?',
       multipleAnswers: false,
       answers: [
         {
@@ -425,7 +425,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
       id: '44255',
       active: true,
       code: 'WAS THIS A FULL OR PARTIAL SHUT DOWN?',
-      label: 'WAS THIS A FULL OR PARTIAL SHUT DOWN?',
+      label: 'Was this a full or partial shut down?',
       multipleAnswers: false,
       answers: [
         {
@@ -452,7 +452,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
       id: '44274',
       active: true,
       code: 'DOES THE SPORTSFIELD HAVE ACCESS TO EXTERNAL PERIMETER',
-      label: 'DOES THE SPORTSFIELD HAVE ACCESS TO EXTERNAL PERIMETER',
+      label: 'Does the sportsfield have access to external perimeter?',
       multipleAnswers: false,
       answers: [
         {
@@ -479,7 +479,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
       id: '44278',
       active: true,
       code: 'WAS THE FENCE CUT OR BREACHED FROM',
-      label: 'WAS THE FENCE CUT OR BREACHED FROM',
+      label: 'Was the fence cut or breached from?',
       multipleAnswers: true,
       answers: [
         {
@@ -506,7 +506,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
       id: '44285',
       active: true,
       code: 'WAS THE TELEPHONE/IT SYSTEM SHUT DOWN LOCALLY OR BY THE SERVICE SUPPLIER',
-      label: 'WAS THE TELEPHONE/IT SYSTEM SHUT DOWN LOCALLY OR BY THE SERVICE SUPPLIER',
+      label: 'Was the telephone/it system shut down locally or by the service supplier?',
       multipleAnswers: false,
       answers: [
         {
@@ -533,7 +533,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
       id: '44297',
       active: true,
       code: 'WHAT WAS THE SOURCE OF THE ITEMS',
-      label: 'WHAT WAS THE SOURCE OF THE ITEMS',
+      label: 'What was the source of the items?',
       multipleAnswers: true,
       answers: [
         {
@@ -659,7 +659,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
       id: '44300',
       active: true,
       code: 'WHAT WAS THE SOURCE OF THE TOOLS',
-      label: 'WHAT WAS THE SOURCE OF THE TOOLS',
+      label: 'What was the source of the tools?',
       multipleAnswers: true,
       answers: [
         {
@@ -794,7 +794,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
       id: '44313',
       active: true,
       code: 'WAS THE WALL BREACHED FROM',
-      label: 'WAS THE WALL BREACHED FROM',
+      label: 'Was the wall breached from?',
       multipleAnswers: true,
       answers: [
         {
@@ -821,7 +821,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
       id: '44315',
       active: true,
       code: 'WHAT TOOLS WERE USED',
-      label: 'WHAT TOOLS WERE USED',
+      label: 'What tools were used?',
       multipleAnswers: true,
       answers: [
         {
@@ -911,7 +911,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
       id: '44320',
       active: true,
       code: 'WERE ANY WEAPONS USED',
-      label: 'WERE ANY WEAPONS USED',
+      label: 'Were any weapons used?',
       multipleAnswers: false,
       answers: [
         {
@@ -938,7 +938,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
       id: '44327',
       active: true,
       code: 'WERE TOOLS USED',
-      label: 'WERE TOOLS USED',
+      label: 'Were tools used?',
       multipleAnswers: false,
       answers: [
         {
@@ -965,7 +965,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
       id: '44340',
       active: true,
       code: 'WAS THE KEYWORD REQUESTED?',
-      label: 'WAS THE KEYWORD REQUESTED?',
+      label: 'Was the keyword requested?',
       multipleAnswers: false,
       answers: [
         {
@@ -992,7 +992,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
       id: '44341',
       active: true,
       code: 'WHICH AREA DID THIS GIVE ACCESS TO',
-      label: 'WHICH AREA DID THIS GIVE ACCESS TO',
+      label: 'Which area did this give access to?',
       multipleAnswers: false,
       answers: [
         {
@@ -1091,7 +1091,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
       id: '44346',
       active: true,
       code: 'WHO AUTHORISED THE SHUT DOWN?',
-      label: 'WHO AUTHORISED THE SHUT DOWN?',
+      label: 'Who authorised the shut down?',
       multipleAnswers: false,
       answers: [
         {
@@ -1136,7 +1136,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
       id: '44349',
       active: true,
       code: 'HOW WAS THE ESCAPE ATTEMPT FOILED',
-      label: 'HOW WAS THE ESCAPE ATTEMPT FOILED',
+      label: 'How was the escape attempt foiled?',
       multipleAnswers: false,
       answers: [
         {
@@ -1181,7 +1181,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
       id: '44352',
       active: true,
       code: 'ARE THERE SECURITY AIDS AT SITE OF THE ATTEMPTED ESCAPE',
-      label: 'ARE THERE SECURITY AIDS AT SITE OF THE ATTEMPTED ESCAPE',
+      label: 'Are there security aids at site of the attempted escape?',
       multipleAnswers: false,
       answers: [
         {
@@ -1208,7 +1208,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
       id: '44353',
       active: true,
       code: 'WHAT WAS THE SOURCE OF THE TOOLS',
-      label: 'WHAT WAS THE SOURCE OF THE TOOLS',
+      label: 'What was the source of the tools?',
       multipleAnswers: true,
       answers: [
         {
@@ -1343,7 +1343,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
       id: '44368',
       active: true,
       code: 'WAS THE ATTEMPT MADE',
-      label: 'WAS THE ATTEMPT MADE',
+      label: 'Was the attempt made?',
       multipleAnswers: false,
       answers: [
         {
@@ -1379,7 +1379,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
       id: '44433',
       active: true,
       code: 'WHEN WAS THE SYSTEM RE-ACTIVATED?',
-      label: 'WHEN WAS THE SYSTEM RE-ACTIVATED?',
+      label: 'When was the system re-activated?',
       multipleAnswers: false,
       answers: [
         {
@@ -1397,7 +1397,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
       id: '44440',
       active: true,
       code: 'WHAT TOOLS WERE USED',
-      label: 'WHAT TOOLS WERE USED',
+      label: 'What tools were used?',
       multipleAnswers: true,
       answers: [
         {
@@ -1487,7 +1487,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
       id: '44441',
       active: true,
       code: 'DID THE PRISONER ATTEMPT TO GAIN ACCESS TO THE EXTERNAL PERIMETER',
-      label: 'DID THE PRISONER ATTEMPT TO GAIN ACCESS TO THE EXTERNAL PERIMETER',
+      label: 'Did the prisoner attempt to gain access to the external perimeter?',
       multipleAnswers: false,
       answers: [
         {
@@ -1514,7 +1514,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
       id: '44444',
       active: true,
       code: 'WHAT WAS THE SOURCE OF THE ITEMS',
-      label: 'WHAT WAS THE SOURCE OF THE ITEMS',
+      label: 'What was the source of the items?',
       multipleAnswers: true,
       answers: [
         {
@@ -1640,7 +1640,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
       id: '44447',
       active: true,
       code: 'WAS DAMAGE CAUSED TO PRISON PROPERTY',
-      label: 'WAS DAMAGE CAUSED TO PRISON PROPERTY',
+      label: 'Was damage caused to prison property?',
       multipleAnswers: false,
       answers: [
         {
@@ -1667,7 +1667,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
       id: '44450',
       active: true,
       code: 'WAS THE SWITCH WITH',
-      label: 'WAS THE SWITCH WITH',
+      label: 'Was the switch with?',
       multipleAnswers: false,
       answers: [
         {
@@ -1694,7 +1694,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
       id: '44471',
       active: true,
       code: 'WHAT WAS THE SOURCE OF THE TOOLS',
-      label: 'WHAT WAS THE SOURCE OF THE TOOLS',
+      label: 'What was the source of the tools?',
       multipleAnswers: true,
       answers: [
         {
@@ -1829,7 +1829,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
       id: '44480',
       active: true,
       code: 'WHAT WAS THE SOURCE OF THE ITEMS',
-      label: 'WHAT WAS THE SOURCE OF THE ITEMS',
+      label: 'What was the source of the items?',
       multipleAnswers: true,
       answers: [
         {
@@ -1964,7 +1964,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
       id: '44484',
       active: true,
       code: 'WAS THE VEHICLE AUTHORISED',
-      label: 'WAS THE VEHICLE AUTHORISED',
+      label: 'Was the vehicle authorised?',
       multipleAnswers: false,
       answers: [
         {
@@ -1991,7 +1991,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
       id: '44494',
       active: true,
       code: 'WHERE WERE THE INJURED TREATED',
-      label: 'WHERE WERE THE INJURED TREATED',
+      label: 'Where were the injured treated?',
       multipleAnswers: false,
       answers: [
         {
@@ -2018,7 +2018,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
       id: '44498',
       active: true,
       code: 'WHAT WAS THE SOURCE OF THE TOOLS',
-      label: 'WHAT WAS THE SOURCE OF THE TOOLS',
+      label: 'What was the source of the tools?',
       multipleAnswers: true,
       answers: [
         {
@@ -2153,7 +2153,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
       id: '44506',
       active: true,
       code: 'HOW WAS THE CELL OCCUPIED',
-      label: 'HOW WAS THE CELL OCCUPIED',
+      label: 'How was the cell occupied?',
       multipleAnswers: false,
       answers: [
         {
@@ -2180,7 +2180,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
       id: '44517',
       active: true,
       code: 'GIVE DETAILS OF SECURITY MEASURE OVERCOME',
-      label: 'GIVE DETAILS OF SECURITY MEASURE OVERCOME',
+      label: 'Give details of security measure overcome',
       multipleAnswers: true,
       answers: [
         {
@@ -2243,7 +2243,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
       id: '44525',
       active: true,
       code: 'WHAT TOOLS WERE USED',
-      label: 'WHAT TOOLS WERE USED',
+      label: 'What tools were used?',
       multipleAnswers: true,
       answers: [
         {
@@ -2333,7 +2333,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
       id: '44528',
       active: true,
       code: 'WERE TOOLS USED',
-      label: 'WERE TOOLS USED',
+      label: 'Were tools used?',
       multipleAnswers: false,
       answers: [
         {
@@ -2360,7 +2360,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
       id: '44544',
       active: true,
       code: 'ESTIMATED COST OF DAMAGE',
-      label: 'ESTIMATED COST OF DAMAGE',
+      label: 'Estimated cost of damage',
       multipleAnswers: false,
       answers: [
         {
@@ -2378,7 +2378,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
       id: '44545',
       active: true,
       code: 'DID PRISONER GAIN ACCESS TO THE EXTERNAL PERIMETER',
-      label: 'DID PRISONER GAIN ACCESS TO THE EXTERNAL PERIMETER',
+      label: 'Did prisoner gain access to the external perimeter?',
       multipleAnswers: false,
       answers: [
         {
@@ -2405,7 +2405,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
       id: '44550',
       active: true,
       code: 'DESCRIBE WHAT WAS COMPROMISED AND BY WHOM',
-      label: 'DESCRIBE WHAT WAS COMPROMISED AND BY WHOM',
+      label: 'Describe what was compromised and by whom',
       multipleAnswers: false,
       answers: [
         {
@@ -2423,7 +2423,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
       id: '44554',
       active: true,
       code: 'DESCRIBE WEAPONS USED',
-      label: 'DESCRIBE WEAPONS USED',
+      label: 'Describe weapons used',
       multipleAnswers: true,
       answers: [
         {
@@ -2549,7 +2549,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
       id: '44574',
       active: true,
       code: 'WERE TOOLS USED',
-      label: 'WERE TOOLS USED',
+      label: 'Were tools used?',
       multipleAnswers: false,
       answers: [
         {
@@ -2576,7 +2576,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
       id: '44582',
       active: true,
       code: 'WERE TOOLS USED',
-      label: 'WERE TOOLS USED',
+      label: 'Were tools used?',
       multipleAnswers: false,
       answers: [
         {
@@ -2603,7 +2603,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
       id: '44589',
       active: true,
       code: 'WERE TOOLS USED',
-      label: 'WERE TOOLS USED',
+      label: 'Were tools used?',
       multipleAnswers: false,
       answers: [
         {
@@ -2630,7 +2630,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
       id: '44592',
       active: true,
       code: 'WERE TOOLS USED',
-      label: 'WERE TOOLS USED',
+      label: 'Were tools used?',
       multipleAnswers: false,
       answers: [
         {
@@ -2657,7 +2657,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
       id: '44594',
       active: true,
       code: 'WHERE WAS THE PRISONER PRIOR TO THE START OF THE ATTEMPTED ESCAPE',
-      label: 'WHERE WAS THE PRISONER PRIOR TO THE START OF THE ATTEMPTED ESCAPE',
+      label: 'Where was the prisoner prior to the start of the attempted escape?',
       multipleAnswers: false,
       answers: [
         {
@@ -2837,7 +2837,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
       id: '44595',
       active: true,
       code: 'WAS AN AIRCRAFT INVOLVED',
-      label: 'WAS AN AIRCRAFT INVOLVED',
+      label: 'Was an aircraft involved?',
       multipleAnswers: false,
       answers: [
         {
@@ -2864,7 +2864,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
       id: '44597',
       active: true,
       code: 'WAS THERE A SWITCH OF IDENTITY',
-      label: 'WAS THERE A SWITCH OF IDENTITY',
+      label: 'Was there a switch of identity?',
       multipleAnswers: false,
       answers: [
         {
@@ -2891,7 +2891,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
       id: '44617',
       active: true,
       code: 'WHAT TOOLS WERE USED',
-      label: 'WHAT TOOLS WERE USED',
+      label: 'What tools were used?',
       multipleAnswers: true,
       answers: [
         {
@@ -2981,7 +2981,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
       id: '44631',
       active: true,
       code: 'HOW DID THE PRISONER LEAVE THE ESTABLISHMENT',
-      label: 'HOW DID THE PRISONER LEAVE THE ESTABLISHMENT',
+      label: 'How did the prisoner leave the establishment?',
       multipleAnswers: false,
       answers: [
         {
@@ -3017,7 +3017,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
       id: '44636',
       active: true,
       code: 'IS THERE ANY MEDIA INTEREST IN THIS INCIDENT',
-      label: 'IS THERE ANY MEDIA INTEREST IN THIS INCIDENT',
+      label: 'Is there any media interest in this incident?',
       multipleAnswers: false,
       answers: [
         {
@@ -3044,7 +3044,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
       id: '44670',
       active: true,
       code: 'HOW WAS THE ATTEMPT MADE',
-      label: 'HOW WAS THE ATTEMPT MADE',
+      label: 'How was the attempt made?',
       multipleAnswers: true,
       answers: [
         {
@@ -3107,7 +3107,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
       id: '44674',
       active: true,
       code: 'WAS THE SYSTEM RE-ACTIVATED LOCALLY OR BY THE SERVICE SUPPLIER',
-      label: 'WAS THE SYSTEM RE-ACTIVATED LOCALLY OR BY THE SERVICE SUPPLIER',
+      label: 'Was the system re-activated locally or by the service supplier?',
       multipleAnswers: false,
       answers: [
         {
@@ -3134,7 +3134,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
       id: '44681',
       active: true,
       code: 'DID THE PRISONER ATTEMPT TO BREACH THE EXTERNAL PERIMETER',
-      label: 'DID THE PRISONER ATTEMPT TO BREACH THE EXTERNAL PERIMETER',
+      label: 'Did the prisoner attempt to breach the external perimeter?',
       multipleAnswers: false,
       answers: [
         {
@@ -3161,7 +3161,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
       id: '44685',
       active: true,
       code: 'WERE TOOLS USED',
-      label: 'WERE TOOLS USED',
+      label: 'Were tools used?',
       multipleAnswers: false,
       answers: [
         {
@@ -3188,7 +3188,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
       id: '44707',
       active: true,
       code: 'WAS THE FENCE',
-      label: 'WAS THE FENCE',
+      label: 'Was the fence?',
       multipleAnswers: false,
       answers: [
         {
@@ -3215,7 +3215,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
       id: '44713',
       active: true,
       code: 'WHAT TIME WAS THE SYSTEM SHUT DOWN?',
-      label: 'WHAT TIME WAS THE SYSTEM SHUT DOWN?',
+      label: 'What time was the system shut down?',
       multipleAnswers: false,
       answers: [
         {
@@ -3233,7 +3233,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
       id: '44731',
       active: true,
       code: 'WERE ANY INJURIES RECEIVED DURING THIS INCIDENT',
-      label: 'WERE ANY INJURIES RECEIVED DURING THIS INCIDENT',
+      label: 'Were any injuries received during this incident?',
       multipleAnswers: false,
       answers: [
         {
@@ -3260,7 +3260,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
       id: '44737',
       active: true,
       code: 'WAS THE ATTEMPT MADE',
-      label: 'WAS THE ATTEMPT MADE',
+      label: 'Was the attempt made?',
       multipleAnswers: true,
       answers: [
         {
@@ -3287,7 +3287,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
       id: '44746',
       active: true,
       code: 'ARE THE GROUNDS PATROLLED BY DOGS',
-      label: 'ARE THE GROUNDS PATROLLED BY DOGS',
+      label: 'Are the grounds patrolled by dogs?',
       multipleAnswers: false,
       answers: [
         {
@@ -3314,7 +3314,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
       id: '44749',
       active: true,
       code: 'HAS THE PRISON SERVICE PRESS OFFICE BEEN INFORMED',
-      label: 'HAS THE PRISON SERVICE PRESS OFFICE BEEN INFORMED',
+      label: 'Has the prison service press office been informed?',
       multipleAnswers: false,
       answers: [
         {
@@ -3341,7 +3341,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
       id: '44752',
       active: true,
       code: 'WAS A VEHICLE INVOLVED IN THE ATTEMPTED ESCAPE',
-      label: 'WAS A VEHICLE INVOLVED IN THE ATTEMPTED ESCAPE',
+      label: 'Was a vehicle involved in the attempted escape?',
       multipleAnswers: false,
       answers: [
         {
@@ -3368,7 +3368,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
       id: '44759',
       active: true,
       code: 'WAS THE WALL ACTUALLY BREACHED',
-      label: 'WAS THE WALL ACTUALLY BREACHED',
+      label: 'Was the wall actually breached?',
       multipleAnswers: false,
       answers: [
         {
@@ -3395,7 +3395,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
       id: '44769',
       active: true,
       code: 'WERE THE POLICE INFORMED OF THE INCIDENT',
-      label: 'WERE THE POLICE INFORMED OF THE INCIDENT',
+      label: 'Were the police informed of the incident?',
       multipleAnswers: false,
       answers: [
         {
@@ -3422,7 +3422,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
       id: '44789',
       active: true,
       code: 'WHAT WAS THE SOURCE OF THE TOOLS',
-      label: 'WHAT WAS THE SOURCE OF THE TOOLS',
+      label: 'What was the source of the tools?',
       multipleAnswers: true,
       answers: [
         {
@@ -3557,7 +3557,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
       id: '44822',
       active: true,
       code: 'WAS THE FENCE ACTUALLY CUT OR BREACHED',
-      label: 'WAS THE FENCE ACTUALLY CUT OR BREACHED',
+      label: 'Was the fence actually cut or breached?',
       multipleAnswers: false,
       answers: [
         {
@@ -3584,7 +3584,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
       id: '44840',
       active: true,
       code: 'HOW DID THE PRISONER ATTEMPT ACCESS TO THE TOP OF THE FENCE OR WALL',
-      label: 'HOW DID THE PRISONER ATTEMPT ACCESS TO THE TOP OF THE FENCE OR WALL',
+      label: 'How did the prisoner attempt access to the top of the fence or wall?',
       multipleAnswers: true,
       answers: [
         {
@@ -3656,7 +3656,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
       id: '44843',
       active: true,
       code: 'DESCRIBE THE DAMAGE',
-      label: 'DESCRIBE THE DAMAGE',
+      label: 'Describe the damage',
       multipleAnswers: false,
       answers: [
         {
@@ -3692,7 +3692,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
       id: '44849',
       active: true,
       code: 'WAS AN ATTEMPT MADE TO BREACH THE WALL',
-      label: 'WAS AN ATTEMPT MADE TO BREACH THE WALL',
+      label: 'Was an attempt made to breach the wall?',
       multipleAnswers: false,
       answers: [
         {
@@ -3719,7 +3719,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
       id: '44863',
       active: true,
       code: 'WAS THE TELEPHONE/IT SYSTEM SHUT DOWN DURING THE INCIDENT?',
-      label: 'WAS THE TELEPHONE/IT SYSTEM SHUT DOWN DURING THE INCIDENT?',
+      label: 'Was the telephone/it system shut down during the incident?',
       multipleAnswers: false,
       answers: [
         {
@@ -3746,7 +3746,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
       id: '44869',
       active: true,
       code: 'WHAT WAS THE SOURCE OF THE TOOLS',
-      label: 'WHAT WAS THE SOURCE OF THE TOOLS',
+      label: 'What was the source of the tools?',
       multipleAnswers: true,
       answers: [
         {
@@ -3881,7 +3881,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
       id: '44871',
       active: true,
       code: 'WHAT WAS THE SOURCE OF THE TOOLS',
-      label: 'WHAT WAS THE SOURCE OF THE TOOLS',
+      label: 'What was the source of the tools?',
       multipleAnswers: true,
       answers: [
         {
@@ -4016,7 +4016,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
       id: '44875',
       active: true,
       code: 'WHAT TOOLS WERE USED',
-      label: 'WHAT TOOLS WERE USED',
+      label: 'What tools were used?',
       multipleAnswers: true,
       answers: [
         {
@@ -4106,7 +4106,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
       id: '44909',
       active: true,
       code: 'WHAT TOOLS WERE USED',
-      label: 'WHAT TOOLS WERE USED',
+      label: 'What tools were used?',
       multipleAnswers: true,
       answers: [
         {
@@ -4196,7 +4196,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
       id: '44912',
       active: true,
       code: 'WAS OPERATION LEWIS USED',
-      label: 'WAS OPERATION LEWIS USED',
+      label: 'Was operation Lewis used?',
       multipleAnswers: false,
       answers: [
         {
@@ -4223,7 +4223,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
       id: '44919',
       active: true,
       code: 'THE INCIDENT IS SUBJECT TO',
-      label: 'THE INCIDENT IS SUBJECT TO',
+      label: 'The incident is subject to',
       multipleAnswers: true,
       answers: [
         {
@@ -4268,7 +4268,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
       id: '44920',
       active: true,
       code: 'QUOTE THE VANTIVE CASE NUMBER',
-      label: 'QUOTE THE VANTIVE CASE NUMBER',
+      label: 'Quote the vantive case number',
       multipleAnswers: false,
       answers: [
         {
@@ -4286,7 +4286,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
       id: '44923',
       active: true,
       code: 'WHAT TOOLS WERE USED',
-      label: 'WHAT TOOLS WERE USED',
+      label: 'What tools were used?',
       multipleAnswers: true,
       answers: [
         {
@@ -4376,7 +4376,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
       id: '44933',
       active: true,
       code: 'HOW WAS THE CLADDING BREACHED',
-      label: 'HOW WAS THE CLADDING BREACHED',
+      label: 'How was the cladding breached?',
       multipleAnswers: false,
       answers: [
         {
@@ -4403,7 +4403,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
       id: '44935',
       active: true,
       code: 'DID THE EXIT GIVE ACCESS TO THE EXTERNAL PERIMETER',
-      label: 'DID THE EXIT GIVE ACCESS TO THE EXTERNAL PERIMETER',
+      label: 'Did the exit give access to the external perimeter?',
       multipleAnswers: false,
       answers: [
         {
@@ -4430,7 +4430,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
       id: '44940',
       active: true,
       code: 'HOW DID THE PRISONER ATTEMPT TO BREACH THE EXTERNAL PERIMETER',
-      label: 'HOW DID THE PRISONER ATTEMPT TO BREACH THE EXTERNAL PERIMETER',
+      label: 'How did the prisoner attempt to breach the external perimeter?',
       multipleAnswers: true,
       answers: [
         {
@@ -4511,7 +4511,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
       id: '44952',
       active: true,
       code: 'WAS FORCE USED',
-      label: 'WAS FORCE USED',
+      label: 'Was force used?',
       multipleAnswers: false,
       answers: [
         {
@@ -4538,7 +4538,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
       id: '44953',
       active: true,
       code: 'WHAT TYPE OF FORCE WAS USED',
-      label: 'WHAT TYPE OF FORCE WAS USED',
+      label: 'What type of force was used?',
       multipleAnswers: false,
       answers: [
         {
@@ -4619,7 +4619,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
       id: '44958',
       active: true,
       code: 'WAS THE SYSTEM COMPROMISED?',
-      label: 'WAS THE SYSTEM COMPROMISED?',
+      label: 'Was the system compromised?',
       multipleAnswers: false,
       answers: [
         {
@@ -4646,7 +4646,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
       id: '44977',
       active: true,
       code: 'STATE THE NATURE OF ASSISTANCE',
-      label: 'STATE THE NATURE OF ASSISTANCE',
+      label: 'State the nature of assistance',
       multipleAnswers: true,
       answers: [
         {
@@ -4709,7 +4709,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
       id: '44983',
       active: true,
       code: 'WAS OUTSIDE ASSISTANCE INVOLVED IN THE ATTEMPTED ESCAPE',
-      label: 'WAS OUTSIDE ASSISTANCE INVOLVED IN THE ATTEMPTED ESCAPE',
+      label: 'Was outside assistance involved in the attempted escape?',
       multipleAnswers: false,
       answers: [
         {
@@ -4736,7 +4736,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
       id: '44984',
       active: true,
       code: 'WHAT TYPE OF FORCE WAS USED',
-      label: 'WHAT TYPE OF FORCE WAS USED',
+      label: 'What type of force was used?',
       multipleAnswers: false,
       answers: [
         {
@@ -4817,7 +4817,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
       id: '44992',
       active: true,
       code: 'HOW WAS THE WALL BREACHED',
-      label: 'HOW WAS THE WALL BREACHED',
+      label: 'How was the wall breached?',
       multipleAnswers: true,
       answers: [
         {
@@ -4880,7 +4880,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
       id: '45003',
       active: true,
       code: 'WAS FORCE USED IN AN ATTEMPT TO LEAVE THE CELL',
-      label: 'WAS FORCE USED IN AN ATTEMPT TO LEAVE THE CELL',
+      label: 'Was force used in an attempt to leave the cell?',
       multipleAnswers: false,
       answers: [
         {
@@ -4907,7 +4907,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
       id: '45006',
       active: true,
       code: 'WAS FORCE USED TO LEAVE THE CELL',
-      label: 'WAS FORCE USED TO LEAVE THE CELL',
+      label: 'Was force used to leave the cell?',
       multipleAnswers: false,
       answers: [
         {
@@ -4934,7 +4934,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
       id: '45014',
       active: true,
       code: 'WAS MEDICAL TREATMENT NEEDED',
-      label: 'WAS MEDICAL TREATMENT NEEDED',
+      label: 'Was medical treatment needed?',
       multipleAnswers: false,
       answers: [
         {
@@ -4961,7 +4961,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
       id: '45019',
       active: true,
       code: 'WAS THE FENCE BREACHED',
-      label: 'WAS THE FENCE BREACHED',
+      label: 'Was the fence breached?',
       multipleAnswers: false,
       answers: [
         {
@@ -4997,7 +4997,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
       id: '45021',
       active: true,
       code: 'WHAT TOOLS WERE USED',
-      label: 'WHAT TOOLS WERE USED',
+      label: 'What tools were used?',
       multipleAnswers: true,
       answers: [
         {
@@ -5087,7 +5087,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
       id: '45033',
       active: true,
       code: 'IS ANY MEMBER OF STAFF FACING DISCIPLINARY CHARGES',
-      label: 'IS ANY MEMBER OF STAFF FACING DISCIPLINARY CHARGES',
+      label: 'Is any member of staff facing disciplinary charges?',
       multipleAnswers: false,
       answers: [
         {
@@ -5114,7 +5114,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
       id: '45047',
       active: true,
       code: 'WERE TOOLS USED',
-      label: 'WERE TOOLS USED',
+      label: 'Were tools used?',
       multipleAnswers: false,
       answers: [
         {
@@ -5141,7 +5141,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
       id: '45073',
       active: true,
       code: 'HOW WAS THE ESCAPE ATTEMPT DISCOVERED',
-      label: 'HOW WAS THE ESCAPE ATTEMPT DISCOVERED',
+      label: 'How was the escape attempt discovered?',
       multipleAnswers: true,
       answers: [
         {
@@ -5204,7 +5204,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
       id: '45090',
       active: true,
       code: 'WHAT ARE THE AIDS',
-      label: 'WHAT ARE THE AIDS',
+      label: 'What are the aids?',
       multipleAnswers: true,
       answers: [
         {
@@ -5330,7 +5330,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
       id: '45096',
       active: true,
       code: 'WHAT TYPE OF FORCE WAS USED',
-      label: 'WHAT TYPE OF FORCE WAS USED',
+      label: 'What type of force was used?',
       multipleAnswers: false,
       answers: [
         {
@@ -5411,7 +5411,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
       id: '45107',
       active: true,
       code: 'HAS THE SERVICE SUPPLIER BEEN NOTIFIED OF A REPLACEMENT KEYWORD?',
-      label: 'HAS THE SERVICE SUPPLIER BEEN NOTIFIED OF A REPLACEMENT KEYWORD?',
+      label: 'Has the service supplier been notified of a replacement keyword?',
       multipleAnswers: false,
       answers: [
         {
@@ -5438,7 +5438,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
       id: '45111',
       active: true,
       code: 'HOW DID THE PRISONER ATTEMPT TO GAIN ACCESS TO THE EXTERNAL PERIMETER',
-      label: 'HOW DID THE PRISONER ATTEMPT TO GAIN ACCESS TO THE EXTERNAL PERIMETER',
+      label: 'How did the prisoner attempt to gain access to the external perimeter?',
       multipleAnswers: true,
       answers: [
         {
@@ -5519,7 +5519,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
       id: '45114',
       active: true,
       code: 'HOW DID THE PRISONER ATTEMPT TO GAIN ACCESS TO THE TOP OF THE FENCE',
-      label: 'HOW DID THE PRISONER ATTEMPT TO GAIN ACCESS TO THE TOP OF THE FENCE',
+      label: 'How did the prisoner attempt to gain access to the top of the fence?',
       multipleAnswers: true,
       answers: [
         {
@@ -5591,7 +5591,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
       id: '45121',
       active: true,
       code: 'WHAT WAS THE SOURCE OF THE TOOLS',
-      label: 'WHAT WAS THE SOURCE OF THE TOOLS',
+      label: 'What was the source of the tools?',
       multipleAnswers: true,
       answers: [
         {
@@ -5726,7 +5726,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
       id: '45124',
       active: true,
       code: 'WAS THE EXIT THROUGH AN UNLOCKED DOOR OR GATE',
-      label: 'WAS THE EXIT THROUGH AN UNLOCKED DOOR OR GATE',
+      label: 'Was the exit through an unlocked door or gate?',
       multipleAnswers: false,
       answers: [
         {
@@ -5753,7 +5753,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
       id: '45150',
       active: true,
       code: 'INDICATE THE NATURE OF THE SHUT DOWN',
-      label: 'INDICATE THE NATURE OF THE SHUT DOWN',
+      label: 'Indicate the nature of the shut down',
       multipleAnswers: true,
       answers: [
         {
@@ -5780,7 +5780,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
       id: '45152',
       active: true,
       code: 'WHOSE WAS THE VEHICLE',
-      label: 'WHOSE WAS THE VEHICLE',
+      label: 'Whose was the vehicle?',
       multipleAnswers: false,
       answers: [
         {
@@ -5861,7 +5861,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
       id: '45170',
       active: true,
       code: 'WAS THE ATTEMPT MADE',
-      label: 'WAS THE ATTEMPT MADE',
+      label: 'Was the attempt made?',
       multipleAnswers: true,
       answers: [
         {
@@ -5888,7 +5888,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
       id: '45172',
       active: true,
       code: 'WHAT TYPE OF FORCE WAS USED',
-      label: 'WHAT TYPE OF FORCE WAS USED',
+      label: 'What type of force was used?',
       multipleAnswers: false,
       answers: [
         {

@@ -1,4 +1,4 @@
-// Generated with ./scripts/updateNomisIncidentTypeConfigurations.ts at 2024-10-15T17:17:45.018Z
+// Generated with ./scripts/updateNomisIncidentTypeConfigurations.ts at 2024-12-02T17:35:41.268Z
 
 import { type IncidentTypeConfiguration } from '../../data/incidentTypeConfiguration/types'
 
@@ -11,7 +11,7 @@ const MISCELLANEOUS: IncidentTypeConfiguration = {
       id: '44129',
       active: true,
       code: 'DID INJURIES RESULT IN DETENTION IN OUTSIDE HOSPITAL AS AN IN-PATIENT',
-      label: 'DID INJURIES RESULT IN DETENTION IN OUTSIDE HOSPITAL AS AN IN-PATIENT',
+      label: 'Did injuries result in detention in outside hospital as an in-patient?',
       multipleAnswers: false,
       answers: [
         {
@@ -38,7 +38,7 @@ const MISCELLANEOUS: IncidentTypeConfiguration = {
       id: '44133',
       active: true,
       code: 'IS THE INCIDENT THE SUBJECT OF AN INTERNAL INVESTIGATION',
-      label: 'IS THE INCIDENT THE SUBJECT OF AN INTERNAL INVESTIGATION',
+      label: 'Is the incident the subject of an internal investigation?',
       multipleAnswers: false,
       answers: [
         {
@@ -65,7 +65,7 @@ const MISCELLANEOUS: IncidentTypeConfiguration = {
       id: '44144',
       active: true,
       code: 'WHICH MINOR INJURIES WERE SUSTAINED',
-      label: 'WHICH MINOR INJURIES WERE SUSTAINED',
+      label: 'Which minor injuries were sustained?',
       multipleAnswers: true,
       answers: [
         {
@@ -119,7 +119,7 @@ const MISCELLANEOUS: IncidentTypeConfiguration = {
       id: '44223',
       active: true,
       code: 'HAS ANY PROSECUTION TAKEN PLACE OR IS ANY PENDING',
-      label: 'HAS ANY PROSECUTION TAKEN PLACE OR IS ANY PENDING',
+      label: 'Has any prosecution taken place or is any pending?',
       multipleAnswers: false,
       answers: [
         {
@@ -146,7 +146,7 @@ const MISCELLANEOUS: IncidentTypeConfiguration = {
       id: '44290',
       active: true,
       code: 'WERE THE POLICE INFORMED OF THE INCIDENT',
-      label: 'WERE THE POLICE INFORMED OF THE INCIDENT',
+      label: 'Were the police informed of the incident?',
       multipleAnswers: false,
       answers: [
         {
@@ -173,7 +173,7 @@ const MISCELLANEOUS: IncidentTypeConfiguration = {
       id: '44456',
       active: true,
       code: 'WAS A SERIOUS INJURY SUSTAINED',
-      label: 'WAS A SERIOUS INJURY SUSTAINED',
+      label: 'Was a serious injury sustained?',
       multipleAnswers: false,
       answers: [
         {
@@ -200,7 +200,7 @@ const MISCELLANEOUS: IncidentTypeConfiguration = {
       id: '44503',
       active: true,
       code: 'WHO WAS DETAINED IN OUTSIDE HOSPITAL',
-      label: 'WHO WAS DETAINED IN OUTSIDE HOSPITAL',
+      label: 'Who was detained in outside hospital?',
       multipleAnswers: true,
       answers: [
         {
@@ -254,7 +254,7 @@ const MISCELLANEOUS: IncidentTypeConfiguration = {
       id: '44541',
       active: true,
       code: 'ARE ANY STAFF ON SICK LEAVE AS A RESULT OF THIS INCIDENT',
-      label: 'ARE ANY STAFF ON SICK LEAVE AS A RESULT OF THIS INCIDENT',
+      label: 'Are any staff on sick leave as a result of this incident?',
       multipleAnswers: false,
       answers: [
         {
@@ -281,7 +281,7 @@ const MISCELLANEOUS: IncidentTypeConfiguration = {
       id: '44588',
       active: true,
       code: 'ARE THERE ANY STAFF NOW OFF DUTY AS A RESULT OF THIS INCIDENT',
-      label: 'ARE THERE ANY STAFF NOW OFF DUTY AS A RESULT OF THIS INCIDENT',
+      label: 'Are there any staff now off duty as a result of this incident?',
       multipleAnswers: false,
       answers: [
         {
@@ -308,7 +308,7 @@ const MISCELLANEOUS: IncidentTypeConfiguration = {
       id: '44591',
       active: true,
       code: 'IS THERE ANY MEDIA INTEREST IN THIS INCIDENT',
-      label: 'IS THERE ANY MEDIA INTEREST IN THIS INCIDENT',
+      label: 'Is there any media interest in this incident?',
       multipleAnswers: false,
       answers: [
         {
@@ -335,7 +335,7 @@ const MISCELLANEOUS: IncidentTypeConfiguration = {
       id: '44601',
       active: true,
       code: 'WAS DAMAGE CAUSED TO PRISON PROPERTY',
-      label: 'WAS DAMAGE CAUSED TO PRISON PROPERTY',
+      label: 'Was damage caused to prison property?',
       multipleAnswers: false,
       answers: [
         {
@@ -362,7 +362,7 @@ const MISCELLANEOUS: IncidentTypeConfiguration = {
       id: '44607',
       active: true,
       code: 'IS THE INCIDENT THE SUBJECT OF A POLICE INVESTIGATION',
-      label: 'IS THE INCIDENT THE SUBJECT OF A POLICE INVESTIGATION',
+      label: 'Is the incident the subject of a police investigation?',
       multipleAnswers: false,
       answers: [
         {
@@ -389,7 +389,7 @@ const MISCELLANEOUS: IncidentTypeConfiguration = {
       id: '44667',
       active: true,
       code: 'WHICH SERIOUS INJURIES WERE SUSTAINED',
-      label: 'WHICH SERIOUS INJURIES WERE SUSTAINED',
+      label: 'Which serious injuries were sustained?',
       multipleAnswers: true,
       answers: [
         {
@@ -497,7 +497,7 @@ const MISCELLANEOUS: IncidentTypeConfiguration = {
       id: '44730',
       active: true,
       code: 'ENTER DESCRIPTION OF PERSON(S) INJURED',
-      label: 'ENTER DESCRIPTION OF PERSON(S) INJURED',
+      label: 'Enter description of person(s) injured',
       multipleAnswers: true,
       answers: [
         {
@@ -551,7 +551,7 @@ const MISCELLANEOUS: IncidentTypeConfiguration = {
       id: '44857',
       active: true,
       code: 'WERE ANY INJURIES RECEIVED DURING THIS INCIDENT',
-      label: 'WERE ANY INJURIES RECEIVED DURING THIS INCIDENT',
+      label: 'Were any injuries received during this incident?',
       multipleAnswers: false,
       answers: [
         {
@@ -578,7 +578,7 @@ const MISCELLANEOUS: IncidentTypeConfiguration = {
       id: '44995',
       active: true,
       code: 'HAS THE PRISON SERVICE PRESS OFFICE BEEN INFORMED',
-      label: 'HAS THE PRISON SERVICE PRESS OFFICE BEEN INFORMED',
+      label: 'Has the prison service press office been informed?',
       multipleAnswers: false,
       answers: [
         {
@@ -605,7 +605,7 @@ const MISCELLANEOUS: IncidentTypeConfiguration = {
       id: '45106',
       active: true,
       code: 'ESTIMATED COST OF DAMAGE',
-      label: 'ESTIMATED COST OF DAMAGE',
+      label: 'Estimated cost of damage',
       multipleAnswers: false,
       answers: [
         {
@@ -623,7 +623,7 @@ const MISCELLANEOUS: IncidentTypeConfiguration = {
       id: '45122',
       active: true,
       code: "IS THE INCIDENT SUBJECT TO A GOVERNOR'S ADJUDICATION",
-      label: "IS THE INCIDENT SUBJECT TO A GOVERNOR'S ADJUDICATION",
+      label: "Is the incident subject to a governor's adjudication?",
       multipleAnswers: false,
       answers: [
         {
@@ -650,7 +650,7 @@ const MISCELLANEOUS: IncidentTypeConfiguration = {
       id: '45125',
       active: true,
       code: 'DESCRIBE THE DAMAGE',
-      label: 'DESCRIBE THE DAMAGE',
+      label: 'Describe the damage',
       multipleAnswers: false,
       answers: [
         {
@@ -686,7 +686,7 @@ const MISCELLANEOUS: IncidentTypeConfiguration = {
       id: '45139',
       active: true,
       code: 'IS ANY MEMBER OF STAFF FACING DISCIPLINARY CHARGES',
-      label: 'IS ANY MEMBER OF STAFF FACING DISCIPLINARY CHARGES',
+      label: 'Is any member of staff facing disciplinary charges?',
       multipleAnswers: false,
       answers: [
         {
@@ -713,7 +713,7 @@ const MISCELLANEOUS: IncidentTypeConfiguration = {
       id: '45159',
       active: true,
       code: 'WHAT WAS DAMAGED',
-      label: 'WHAT WAS DAMAGED',
+      label: 'What was damaged?',
       multipleAnswers: true,
       answers: [
         {
@@ -767,7 +767,7 @@ const MISCELLANEOUS: IncidentTypeConfiguration = {
       id: '45161',
       active: true,
       code: 'WAS A MINOR INJURY SUSTAINED',
-      label: 'WAS A MINOR INJURY SUSTAINED',
+      label: 'Was a minor injury sustained?',
       multipleAnswers: false,
       answers: [
         {

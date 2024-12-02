@@ -1,4 +1,4 @@
-// Generated with ./scripts/updateNomisIncidentTypeConfigurations.ts at 2024-10-15T17:17:38.479Z
+// Generated with ./scripts/updateNomisIncidentTypeConfigurations.ts at 2024-12-02T17:35:34.388Z
 
 import { type IncidentTypeConfiguration } from '../../data/incidentTypeConfiguration/types'
 
@@ -11,7 +11,7 @@ const FIRE: IncidentTypeConfiguration = {
       id: '44131',
       active: true,
       code: 'HAS THE SERVICE SUPPLIER BEEN NOTIFIED OF A REPLACEMENT KEYWORD?',
-      label: 'HAS THE SERVICE SUPPLIER BEEN NOTIFIED OF A REPLACEMENT KEYWORD?',
+      label: 'Has the service supplier been notified of a replacement keyword?',
       multipleAnswers: false,
       answers: [
         {
@@ -38,7 +38,7 @@ const FIRE: IncidentTypeConfiguration = {
       id: '44154',
       active: true,
       code: 'QUOTE THE VANTIVE CASE NUMBER',
-      label: 'QUOTE THE VANTIVE CASE NUMBER',
+      label: 'Quote the vantive case number',
       multipleAnswers: false,
       answers: [
         {
@@ -56,7 +56,7 @@ const FIRE: IncidentTypeConfiguration = {
       id: '44158',
       active: true,
       code: 'HOW LONG DID IT TAKE THE FIRE BRIGADE TO ARRIVE',
-      label: 'HOW LONG DID IT TAKE THE FIRE BRIGADE TO ARRIVE',
+      label: 'How long did it take the fire brigade to arrive?',
       multipleAnswers: false,
       answers: [
         {
@@ -101,7 +101,7 @@ const FIRE: IncidentTypeConfiguration = {
       id: '44176',
       active: true,
       code: 'WHEN WAS THE SYSTEM RE-ACTIVATED?',
-      label: 'WHEN WAS THE SYSTEM RE-ACTIVATED?',
+      label: 'When was the system re-activated?',
       multipleAnswers: false,
       answers: [
         {
@@ -119,7 +119,7 @@ const FIRE: IncidentTypeConfiguration = {
       id: '44181',
       active: true,
       code: 'DID ANYONE DIE',
-      label: 'DID ANYONE DIE',
+      label: 'Did anyone die?',
       multipleAnswers: false,
       answers: [
         {
@@ -146,7 +146,7 @@ const FIRE: IncidentTypeConfiguration = {
       id: '44194',
       active: true,
       code: 'WHAT WAS THE LOCATION OF THE INCIDENT',
-      label: 'WHAT WAS THE LOCATION OF THE INCIDENT',
+      label: 'What was the location of the incident?',
       multipleAnswers: false,
       answers: [
         {
@@ -452,7 +452,7 @@ const FIRE: IncidentTypeConfiguration = {
       id: '44202',
       active: true,
       code: 'WAS THE KEYWORD REQUESTED?',
-      label: 'WAS THE KEYWORD REQUESTED?',
+      label: 'Was the keyword requested?',
       multipleAnswers: false,
       answers: [
         {
@@ -479,7 +479,7 @@ const FIRE: IncidentTypeConfiguration = {
       id: '44232',
       active: true,
       code: 'IS THE INCIDENT THE SUBJECT OF AN INTERNAL INVESTIGATION',
-      label: 'IS THE INCIDENT THE SUBJECT OF AN INTERNAL INVESTIGATION',
+      label: 'Is the incident the subject of an internal investigation?',
       multipleAnswers: false,
       answers: [
         {
@@ -506,7 +506,7 @@ const FIRE: IncidentTypeConfiguration = {
       id: '44264',
       active: true,
       code: 'WAS SHORT DURATION BREATHING APPARATUS USED',
-      label: 'WAS SHORT DURATION BREATHING APPARATUS USED',
+      label: 'Was short duration breathing apparatus used?',
       multipleAnswers: false,
       answers: [
         {
@@ -533,7 +533,7 @@ const FIRE: IncidentTypeConfiguration = {
       id: '44268',
       active: true,
       code: 'WHO RAISED THE ALARM',
-      label: 'WHO RAISED THE ALARM',
+      label: 'Who raised the alarm?',
       multipleAnswers: false,
       answers: [
         {
@@ -569,7 +569,7 @@ const FIRE: IncidentTypeConfiguration = {
       id: '44272',
       active: true,
       code: 'DO YOU KNOW WHERE THE FIRE STARTED',
-      label: 'DO YOU KNOW WHERE THE FIRE STARTED',
+      label: 'Do you know where the fire started?',
       multipleAnswers: false,
       answers: [
         {
@@ -596,7 +596,7 @@ const FIRE: IncidentTypeConfiguration = {
       id: '44287',
       active: true,
       code: 'IS THERE ANY MEDIA INTEREST IN THIS INCIDENT',
-      label: 'IS THERE ANY MEDIA INTEREST IN THIS INCIDENT',
+      label: 'Is there any media interest in this incident?',
       multipleAnswers: false,
       answers: [
         {
@@ -623,7 +623,7 @@ const FIRE: IncidentTypeConfiguration = {
       id: '44314',
       active: true,
       code: "IS THE INCIDENT SUBJECT TO A GOVERNOR'S ADJUDICATION",
-      label: "IS THE INCIDENT SUBJECT TO A GOVERNOR'S ADJUDICATION",
+      label: "Is the incident subject to a governor's adjudication?",
       multipleAnswers: false,
       answers: [
         {
@@ -650,7 +650,7 @@ const FIRE: IncidentTypeConfiguration = {
       id: '44342',
       active: true,
       code: 'WERE FIRE EXTINGUISHERS USED',
-      label: 'WERE FIRE EXTINGUISHERS USED',
+      label: 'Were fire extinguishers used?',
       multipleAnswers: false,
       answers: [
         {
@@ -677,7 +677,7 @@ const FIRE: IncidentTypeConfiguration = {
       id: '44354',
       active: true,
       code: 'ESTIMATED COST OF DAMAGE',
-      label: 'ESTIMATED COST OF DAMAGE',
+      label: 'Estimated cost of damage',
       multipleAnswers: false,
       answers: [
         {
@@ -695,7 +695,7 @@ const FIRE: IncidentTypeConfiguration = {
       id: '44410',
       active: true,
       code: 'DESCRIBE WHAT WAS COMPROMISED AND BY WHOM',
-      label: 'DESCRIBE WHAT WAS COMPROMISED AND BY WHOM',
+      label: 'Describe what was compromised and by whom',
       multipleAnswers: false,
       answers: [
         {
@@ -713,7 +713,7 @@ const FIRE: IncidentTypeConfiguration = {
       id: '44424',
       active: true,
       code: 'WAS THE SYSTEM RE-ACTIVATED LOCALLY OR BY THE SERVICE SUPPLIER',
-      label: 'WAS THE SYSTEM RE-ACTIVATED LOCALLY OR BY THE SERVICE SUPPLIER',
+      label: 'Was the system re-activated locally or by the service supplier?',
       multipleAnswers: false,
       answers: [
         {
@@ -740,7 +740,7 @@ const FIRE: IncidentTypeConfiguration = {
       id: '44454',
       active: true,
       code: 'WHO USED THE FIRE EXTINGUISHERS',
-      label: 'WHO USED THE FIRE EXTINGUISHERS',
+      label: 'Who used the fire extinguishers?',
       multipleAnswers: true,
       answers: [
         {
@@ -785,7 +785,7 @@ const FIRE: IncidentTypeConfiguration = {
       id: '44478',
       active: true,
       code: 'DID ANYONE SUFFER BURN INJURIES',
-      label: 'DID ANYONE SUFFER BURN INJURIES',
+      label: 'Did anyone suffer burn injuries?',
       multipleAnswers: false,
       answers: [
         {
@@ -812,7 +812,7 @@ const FIRE: IncidentTypeConfiguration = {
       id: '44486',
       active: true,
       code: 'WAS ANYONE HOSPITALISED',
-      label: 'WAS ANYONE HOSPITALISED',
+      label: 'Was anyone hospitalised?',
       multipleAnswers: false,
       answers: [
         {
@@ -839,7 +839,7 @@ const FIRE: IncidentTypeConfiguration = {
       id: '44493',
       active: true,
       code: 'WAS THE SYSTEM COMPROMISED?',
-      label: 'WAS THE SYSTEM COMPROMISED?',
+      label: 'Was the system compromised?',
       multipleAnswers: false,
       answers: [
         {
@@ -866,7 +866,7 @@ const FIRE: IncidentTypeConfiguration = {
       id: '44520',
       active: true,
       code: 'WHO DIED',
-      label: 'WHO DIED',
+      label: 'Who died?',
       multipleAnswers: true,
       answers: [
         {
@@ -902,7 +902,7 @@ const FIRE: IncidentTypeConfiguration = {
       id: '44556',
       active: true,
       code: 'WAS THE TELEPHONE/IT SYSTEM SHUT DOWN LOCALLY OR BY THE SERVICE SUPPLIER',
-      label: 'WAS THE TELEPHONE/IT SYSTEM SHUT DOWN LOCALLY OR BY THE SERVICE SUPPLIER',
+      label: 'Was the telephone/it system shut down locally or by the service supplier?',
       multipleAnswers: false,
       answers: [
         {
@@ -929,7 +929,7 @@ const FIRE: IncidentTypeConfiguration = {
       id: '44567',
       active: true,
       code: 'WHAT WAS THE POSSIBLE CAUSE OF THE FIRE',
-      label: 'WHAT WAS THE POSSIBLE CAUSE OF THE FIRE',
+      label: 'What was the possible cause of the fire?',
       multipleAnswers: false,
       answers: [
         {
@@ -983,7 +983,7 @@ const FIRE: IncidentTypeConfiguration = {
       id: '44668',
       active: true,
       code: 'WERE THE POLICE INFORMED OF THE INCIDENT',
-      label: 'WERE THE POLICE INFORMED OF THE INCIDENT',
+      label: 'Were the police informed of the incident?',
       multipleAnswers: false,
       answers: [
         {
@@ -1010,7 +1010,7 @@ const FIRE: IncidentTypeConfiguration = {
       id: '44695',
       active: true,
       code: 'IS THE ITEM FIRST IGNITED KNOWN',
-      label: 'IS THE ITEM FIRST IGNITED KNOWN',
+      label: 'Is the item first ignited known?',
       multipleAnswers: false,
       answers: [
         {
@@ -1037,7 +1037,7 @@ const FIRE: IncidentTypeConfiguration = {
       id: '44732',
       active: true,
       code: 'WAS THE FIRE BRIGADE CALLED',
-      label: 'WAS THE FIRE BRIGADE CALLED',
+      label: 'Was the fire brigade called?',
       multipleAnswers: false,
       answers: [
         {
@@ -1064,7 +1064,7 @@ const FIRE: IncidentTypeConfiguration = {
       id: '44740',
       active: true,
       code: 'SPECIFY THOSE HOSPITALISED',
-      label: 'SPECIFY THOSE HOSPITALISED',
+      label: 'Specify those hospitalised',
       multipleAnswers: true,
       answers: [
         {
@@ -1100,7 +1100,7 @@ const FIRE: IncidentTypeConfiguration = {
       id: '44741',
       active: true,
       code: 'WAS ANY ACTION TAKEN TO PREVENT RECURRENCE',
-      label: 'WAS ANY ACTION TAKEN TO PREVENT RECURRENCE',
+      label: 'Was any action taken to prevent recurrence?',
       multipleAnswers: false,
       answers: [
         {
@@ -1127,7 +1127,7 @@ const FIRE: IncidentTypeConfiguration = {
       id: '44744',
       active: true,
       code: 'WAS THE TELEPHONE/IT SYSTEM SHUT DOWN DURING THE INCIDENT?',
-      label: 'WAS THE TELEPHONE/IT SYSTEM SHUT DOWN DURING THE INCIDENT?',
+      label: 'Was the telephone/it system shut down during the incident?',
       multipleAnswers: false,
       answers: [
         {
@@ -1154,7 +1154,7 @@ const FIRE: IncidentTypeConfiguration = {
       id: '44747',
       active: true,
       code: 'SPECIFY THOSE WITH OTHER INJURIES',
-      label: 'SPECIFY THOSE WITH OTHER INJURIES',
+      label: 'Specify those with other injuries',
       multipleAnswers: true,
       answers: [
         {
@@ -1190,7 +1190,7 @@ const FIRE: IncidentTypeConfiguration = {
       id: '44762',
       active: true,
       code: 'DID ANYONE SUFFER LACERATION INJURIES',
-      label: 'DID ANYONE SUFFER LACERATION INJURIES',
+      label: 'Did anyone suffer laceration injuries?',
       multipleAnswers: false,
       answers: [
         {
@@ -1217,7 +1217,7 @@ const FIRE: IncidentTypeConfiguration = {
       id: '44813',
       active: true,
       code: 'WHICH ITEM(S) WERE FIRST IGNITED',
-      label: 'WHICH ITEM(S) WERE FIRST IGNITED',
+      label: 'Which item(s) were first ignited?',
       multipleAnswers: true,
       answers: [
         {
@@ -1271,7 +1271,7 @@ const FIRE: IncidentTypeConfiguration = {
       id: '44829',
       active: true,
       code: 'WAS DAMAGE CAUSED TO PRISON PROPERTY',
-      label: 'WAS DAMAGE CAUSED TO PRISON PROPERTY',
+      label: 'Was damage caused to prison property?',
       multipleAnswers: false,
       answers: [
         {
@@ -1298,7 +1298,7 @@ const FIRE: IncidentTypeConfiguration = {
       id: '44833',
       active: true,
       code: 'WERE ANY INJURIES RECEIVED DURING THIS INCIDENT',
-      label: 'WERE ANY INJURIES RECEIVED DURING THIS INCIDENT',
+      label: 'Were any injuries received during this incident?',
       multipleAnswers: false,
       answers: [
         {
@@ -1325,7 +1325,7 @@ const FIRE: IncidentTypeConfiguration = {
       id: '44837',
       active: true,
       code: 'WHO SUFFERED LACERATION INJURIES',
-      label: 'WHO SUFFERED LACERATION INJURIES',
+      label: 'Who suffered laceration injuries?',
       multipleAnswers: true,
       answers: [
         {
@@ -1361,7 +1361,7 @@ const FIRE: IncidentTypeConfiguration = {
       id: '44865',
       active: true,
       code: 'WHO SUFFERED BURN INJURIES',
-      label: 'WHO SUFFERED BURN INJURIES',
+      label: 'Who suffered burn injuries?',
       multipleAnswers: true,
       answers: [
         {
@@ -1397,7 +1397,7 @@ const FIRE: IncidentTypeConfiguration = {
       id: '44878',
       active: true,
       code: 'WHICH FIXED INSTALLATIONS WERE OPERATED',
-      label: 'WHICH FIXED INSTALLATIONS WERE OPERATED',
+      label: 'Which fixed installations were operated?',
       multipleAnswers: false,
       answers: [
         {
@@ -1433,7 +1433,7 @@ const FIRE: IncidentTypeConfiguration = {
       id: '44895',
       active: true,
       code: 'WAS A CELL SNATCH REQUIRED',
-      label: 'WAS A CELL SNATCH REQUIRED',
+      label: 'Was a cell snatch required?',
       multipleAnswers: false,
       answers: [
         {
@@ -1460,7 +1460,7 @@ const FIRE: IncidentTypeConfiguration = {
       id: '44898',
       active: true,
       code: 'DESCRIBE THE DAMAGE',
-      label: 'DESCRIBE THE DAMAGE',
+      label: 'Describe the damage',
       multipleAnswers: false,
       answers: [
         {
@@ -1496,7 +1496,7 @@ const FIRE: IncidentTypeConfiguration = {
       id: '44945',
       active: true,
       code: 'WERE FIXED INSTALLATIONS OPERATED',
-      label: 'WERE FIXED INSTALLATIONS OPERATED',
+      label: 'Were fixed installations operated?',
       multipleAnswers: false,
       answers: [
         {
@@ -1523,7 +1523,7 @@ const FIRE: IncidentTypeConfiguration = {
       id: '44949',
       active: true,
       code: 'IS THE INCIDENT THE SUBJECT OF A POLICE INVESTIGATION',
-      label: 'IS THE INCIDENT THE SUBJECT OF A POLICE INVESTIGATION',
+      label: 'Is the incident the subject of a police investigation?',
       multipleAnswers: false,
       answers: [
         {
@@ -1550,7 +1550,7 @@ const FIRE: IncidentTypeConfiguration = {
       id: '44957',
       active: true,
       code: 'WHAT TIME WAS THE SYSTEM SHUT DOWN?',
-      label: 'WHAT TIME WAS THE SYSTEM SHUT DOWN?',
+      label: 'What time was the system shut down?',
       multipleAnswers: false,
       answers: [
         {
@@ -1568,7 +1568,7 @@ const FIRE: IncidentTypeConfiguration = {
       id: '44996',
       active: true,
       code: 'WAS THE SMOKE EXTRACTION SYSTEM OPERATED',
-      label: 'WAS THE SMOKE EXTRACTION SYSTEM OPERATED',
+      label: 'Was the smoke extraction system operated?',
       multipleAnswers: false,
       answers: [
         {
@@ -1595,7 +1595,7 @@ const FIRE: IncidentTypeConfiguration = {
       id: '44999',
       active: true,
       code: 'WHO WAS EVACUATED',
-      label: 'WHO WAS EVACUATED',
+      label: 'Who was evacuated?',
       multipleAnswers: true,
       answers: [
         {
@@ -1631,7 +1631,7 @@ const FIRE: IncidentTypeConfiguration = {
       id: '45017',
       active: true,
       code: 'WERE OTHER ARTICLES INVOLVED',
-      label: 'WERE OTHER ARTICLES INVOLVED',
+      label: 'Were other articles involved?',
       multipleAnswers: false,
       answers: [
         {
@@ -1658,7 +1658,7 @@ const FIRE: IncidentTypeConfiguration = {
       id: '45027',
       active: true,
       code: 'WAS THIS A FULL OR PARTIAL SHUT DOWN?',
-      label: 'WAS THIS A FULL OR PARTIAL SHUT DOWN?',
+      label: 'Was this a full or partial shut down?',
       multipleAnswers: false,
       answers: [
         {
@@ -1685,7 +1685,7 @@ const FIRE: IncidentTypeConfiguration = {
       id: '45046',
       active: true,
       code: 'DID ANYONE SUFFER SMOKE INHALATION INJURIES',
-      label: 'DID ANYONE SUFFER SMOKE INHALATION INJURIES',
+      label: 'Did anyone suffer smoke inhalation injuries?',
       multipleAnswers: false,
       answers: [
         {
@@ -1712,7 +1712,7 @@ const FIRE: IncidentTypeConfiguration = {
       id: '45053',
       active: true,
       code: 'WHICH ARTICLES WERE INVOLVED',
-      label: 'WHICH ARTICLES WERE INVOLVED',
+      label: 'Which articles were involved?',
       multipleAnswers: true,
       answers: [
         {
@@ -1784,7 +1784,7 @@ const FIRE: IncidentTypeConfiguration = {
       id: '45055',
       active: true,
       code: 'ANY OTHER INJURIES',
-      label: 'ANY OTHER INJURIES',
+      label: 'Any other injuries',
       multipleAnswers: false,
       answers: [
         {
@@ -1811,7 +1811,7 @@ const FIRE: IncidentTypeConfiguration = {
       id: '45058',
       active: true,
       code: 'WAS EVACUATION NECESSARY',
-      label: 'WAS EVACUATION NECESSARY',
+      label: 'Was evacuation necessary?',
       multipleAnswers: false,
       answers: [
         {
@@ -1838,7 +1838,7 @@ const FIRE: IncidentTypeConfiguration = {
       id: '45064',
       active: true,
       code: 'HOW WAS THE ALARM RAISED',
-      label: 'HOW WAS THE ALARM RAISED',
+      label: 'How was the alarm raised?',
       multipleAnswers: false,
       answers: [
         {
@@ -1892,7 +1892,7 @@ const FIRE: IncidentTypeConfiguration = {
       id: '45069',
       active: true,
       code: 'HAS THE PRISON SERVICE PRESS OFFICE BEEN INFORMED',
-      label: 'HAS THE PRISON SERVICE PRESS OFFICE BEEN INFORMED',
+      label: 'Has the prison service press office been informed?',
       multipleAnswers: false,
       answers: [
         {
@@ -1919,7 +1919,7 @@ const FIRE: IncidentTypeConfiguration = {
       id: '45084',
       active: true,
       code: 'INDICATE THE NATURE OF THE SHUT DOWN',
-      label: 'INDICATE THE NATURE OF THE SHUT DOWN',
+      label: 'Indicate the nature of the shut down',
       multipleAnswers: true,
       answers: [
         {
@@ -1946,7 +1946,7 @@ const FIRE: IncidentTypeConfiguration = {
       id: '45085',
       active: true,
       code: 'WHO SUFFERED SMOKE INHALATION INJURIES',
-      label: 'WHO SUFFERED SMOKE INHALATION INJURIES',
+      label: 'Who suffered smoke inhalation injuries?',
       multipleAnswers: true,
       answers: [
         {
@@ -1982,7 +1982,7 @@ const FIRE: IncidentTypeConfiguration = {
       id: '45091',
       active: true,
       code: 'WHO SUFFERED BROKEN BONE INJURIES',
-      label: 'WHO SUFFERED BROKEN BONE INJURIES',
+      label: 'Who suffered broken bone injuries?',
       multipleAnswers: true,
       answers: [
         {
@@ -2018,7 +2018,7 @@ const FIRE: IncidentTypeConfiguration = {
       id: '45116',
       active: true,
       code: 'WHAT EQUIPMENT WAS USED TO EXTINGUISH THE FIRE',
-      label: 'WHAT EQUIPMENT WAS USED TO EXTINGUISH THE FIRE',
+      label: 'What equipment was used to extinguish the fire?',
       multipleAnswers: true,
       answers: [
         {
@@ -2108,7 +2108,7 @@ const FIRE: IncidentTypeConfiguration = {
       id: '45131',
       active: true,
       code: 'DID ANYONE SUFFER BROKEN BONE INJURIES',
-      label: 'DID ANYONE SUFFER BROKEN BONE INJURIES',
+      label: 'Did anyone suffer broken bone injuries?',
       multipleAnswers: false,
       answers: [
         {
@@ -2135,7 +2135,7 @@ const FIRE: IncidentTypeConfiguration = {
       id: '45133',
       active: true,
       code: 'IS THE POSSIBLE CAUSE OF THE FIRE KNOWN',
-      label: 'IS THE POSSIBLE CAUSE OF THE FIRE KNOWN',
+      label: 'Is the possible cause of the fire known?',
       multipleAnswers: false,
       answers: [
         {
@@ -2162,7 +2162,7 @@ const FIRE: IncidentTypeConfiguration = {
       id: '45146',
       active: true,
       code: 'HAS ANY PROSECUTION TAKEN PLACE OR IS ANY PENDING',
-      label: 'HAS ANY PROSECUTION TAKEN PLACE OR IS ANY PENDING',
+      label: 'Has any prosecution taken place or is any pending?',
       multipleAnswers: false,
       answers: [
         {
@@ -2189,7 +2189,7 @@ const FIRE: IncidentTypeConfiguration = {
       id: '45173',
       active: true,
       code: 'WHO AUTHORISED THE SHUT DOWN?',
-      label: 'WHO AUTHORISED THE SHUT DOWN?',
+      label: 'Who authorised the shut down?',
       multipleAnswers: false,
       answers: [
         {

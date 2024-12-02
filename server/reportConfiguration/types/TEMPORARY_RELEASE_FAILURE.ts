@@ -1,4 +1,4 @@
-// Generated with ./scripts/updateNomisIncidentTypeConfigurations.ts at 2024-10-15T17:17:37.686Z
+// Generated with ./scripts/updateNomisIncidentTypeConfigurations.ts at 2024-12-02T17:35:33.559Z
 
 import { type IncidentTypeConfiguration } from '../../data/incidentTypeConfiguration/types'
 
@@ -101,7 +101,7 @@ const TEMPORARY_RELEASE_FAILURE: IncidentTypeConfiguration = {
       id: '59181',
       active: true,
       code: 'Was ROTL Standard or Restricted?',
-      label: 'Was ROTL Standard or Restricted?',
+      label: 'Was ROTL standard or restricted?',
       multipleAnswers: false,
       answers: [
         {
@@ -128,7 +128,7 @@ const TEMPORARY_RELEASE_FAILURE: IncidentTypeConfiguration = {
       id: '59182',
       active: true,
       code: 'What Type Of Temporary Licence Was Breached?',
-      label: 'What Type Of Temporary Licence Was Breached?',
+      label: 'What type of temporary licence was breached?',
       multipleAnswers: false,
       answers: [
         {
@@ -182,7 +182,7 @@ const TEMPORARY_RELEASE_FAILURE: IncidentTypeConfiguration = {
       id: '59183',
       active: true,
       code: 'What Was The Specific Purpose Of Temporary Release?',
-      label: 'What Was The Specific Purpose Of Temporary Release?',
+      label: 'What was the specific purpose of temporary release?',
       multipleAnswers: false,
       answers: [
         {
@@ -498,7 +498,7 @@ const TEMPORARY_RELEASE_FAILURE: IncidentTypeConfiguration = {
       active: true,
       code: 'Was prisoner arrested for an offence allegedly committed whilst temp released? (do not include FAILURE TO RETURN)',
       label:
-        'Was prisoner arrested for an offence allegedly committed whilst temp released? (do not include FAILURE TO RETURN)',
+        'Was prisoner arrested for an offence allegedly committed whilst temp released? (do not include failure to return)?',
       multipleAnswers: false,
       answers: [
         {
@@ -525,7 +525,7 @@ const TEMPORARY_RELEASE_FAILURE: IncidentTypeConfiguration = {
       id: '59190',
       active: true,
       code: 'For What Type Of Offence Or Offences Has The Prisoner Been Arrested?',
-      label: 'For What Type Of Offence Or Offences Has The Prisoner Been Arrested?',
+      label: 'For what type of offence or offences has the prisoner been arrested?',
       multipleAnswers: true,
       answers: [
         {
@@ -624,7 +624,7 @@ const TEMPORARY_RELEASE_FAILURE: IncidentTypeConfiguration = {
       id: '59191',
       active: true,
       code: 'Has The Prisoner Been Charged With Any Offence (INCLUDE the offence of failure to return)?',
-      label: 'Has The Prisoner Been Charged With Any Offence (INCLUDE the offence of failure to return)?',
+      label: 'Has the prisoner been charged with any offence (include the offence of failure to return)?',
       multipleAnswers: false,
       answers: [
         {
@@ -651,7 +651,7 @@ const TEMPORARY_RELEASE_FAILURE: IncidentTypeConfiguration = {
       id: '59192',
       active: true,
       code: 'With What Type Of Offence or Offences Has The Prisoner Been Charged?',
-      label: 'With What Type Of Offence or Offences Has The Prisoner Been Charged?',
+      label: 'With what type of offence or offences has the prisoner been charged?',
       multipleAnswers: true,
       answers: [
         {
@@ -741,7 +741,7 @@ const TEMPORARY_RELEASE_FAILURE: IncidentTypeConfiguration = {
       id: '59193',
       active: true,
       code: 'Has The Prisoner Been Found Guilty Of Offences Committed On ROTL?',
-      label: 'Has The Prisoner Been Found Guilty Of Offences Committed On ROTL?',
+      label: 'Has the prisoner been found guilty of offences committed on ROTL?',
       multipleAnswers: false,
       answers: [
         {
@@ -768,7 +768,7 @@ const TEMPORARY_RELEASE_FAILURE: IncidentTypeConfiguration = {
       id: '59194',
       active: true,
       code: 'What Offence Or Offences Has The Prisoner Been Found Guilty Of?',
-      label: 'What Offence Or Offences Has The Prisoner Been Found Guilty Of?',
+      label: 'What offence or offences has the prisoner been found guilty of?',
       multipleAnswers: true,
       answers: [
         {
@@ -867,7 +867,7 @@ const TEMPORARY_RELEASE_FAILURE: IncidentTypeConfiguration = {
       id: '59195',
       active: true,
       code: 'Was Any Part Of The Failure Failing To Comply With Any Other Licence Conditions (Standard or Bespoke)?',
-      label: 'Was Any Part Of The Failure Failing To Comply With Any Other Licence Conditions (Standard or Bespoke)?',
+      label: 'Was any part of the failure failing to comply with any other licence conditions (standard or bespoke)?',
       multipleAnswers: false,
       answers: [
         {
@@ -894,7 +894,7 @@ const TEMPORARY_RELEASE_FAILURE: IncidentTypeConfiguration = {
       id: '59196',
       active: true,
       code: 'Please Specify Which Conditions apply',
-      label: 'Please Specify Which Conditions apply',
+      label: 'Please specify which conditions apply',
       multipleAnswers: true,
       answers: [
         {
@@ -1002,7 +1002,7 @@ const TEMPORARY_RELEASE_FAILURE: IncidentTypeConfiguration = {
       id: '59198',
       active: true,
       code: 'Has the NOMS SFO Team been informed (SFO CASES only)',
-      label: 'Has the NOMS SFO Team been informed (SFO CASES only)',
+      label: 'Has the NOMS SFO team been informed (sfo cases only)?',
       multipleAnswers: false,
       answers: [
         {
@@ -1029,7 +1029,7 @@ const TEMPORARY_RELEASE_FAILURE: IncidentTypeConfiguration = {
       id: '59199',
       active: true,
       code: 'Has the Offender Manager been informed?',
-      label: 'Has the Offender Manager been informed?',
+      label: 'Has the offender manager been informed?',
       multipleAnswers: false,
       answers: [
         {
@@ -1056,7 +1056,7 @@ const TEMPORARY_RELEASE_FAILURE: IncidentTypeConfiguration = {
       id: '59200',
       active: true,
       code: 'Has the Victim Liaison Officer been informed (where appropriate)?',
-      label: 'Has the Victim Liaison Officer been informed (where appropriate)?',
+      label: 'Has the victim liaison officer been informed (where appropriate)?',
       multipleAnswers: false,
       answers: [
         {
@@ -1083,7 +1083,7 @@ const TEMPORARY_RELEASE_FAILURE: IncidentTypeConfiguration = {
       id: '59201',
       active: true,
       code: 'Has the ROTL Placement Provider been informed (where appropriate)?',
-      label: 'Has the ROTL Placement Provider been informed (where appropriate)?',
+      label: 'Has the ROTL placement provider been informed (where appropriate)?',
       multipleAnswers: false,
       answers: [
         {
@@ -1110,7 +1110,7 @@ const TEMPORARY_RELEASE_FAILURE: IncidentTypeConfiguration = {
       id: '59202',
       active: true,
       code: 'Has The Deputy Director Of Custody Been Informed?',
-      label: 'Has The Deputy Director Of Custody Been Informed?',
+      label: 'Has the deputy director of custody been informed?',
       multipleAnswers: false,
       answers: [
         {
@@ -1137,7 +1137,7 @@ const TEMPORARY_RELEASE_FAILURE: IncidentTypeConfiguration = {
       id: '59203',
       active: true,
       code: 'Have PPCS Been Informed?',
-      label: 'Have PPCS Been Informed?',
+      label: 'Have PPCS been informed?',
       multipleAnswers: false,
       answers: [
         {

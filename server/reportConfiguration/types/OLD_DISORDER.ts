@@ -1,4 +1,4 @@
-// Generated with ./scripts/updateNomisIncidentTypeConfigurations.ts at 2024-10-15T17:17:22.789Z
+// Generated with ./scripts/updateNomisIncidentTypeConfigurations.ts at 2024-12-02T17:35:18.184Z
 
 import { type IncidentTypeConfiguration } from '../../data/incidentTypeConfiguration/types'
 
@@ -11,7 +11,7 @@ const OLD_DISORDER: IncidentTypeConfiguration = {
       id: '49179',
       active: false,
       code: 'What Type Of Disorder Incident Was This?',
-      label: 'What Type Of Disorder Incident Was This?',
+      label: 'What type of disorder incident was this?',
       multipleAnswers: false,
       answers: [
         {
@@ -56,7 +56,7 @@ const OLD_DISORDER: IncidentTypeConfiguration = {
       id: '49180',
       active: false,
       code: 'What Was The Main Management Outcome Of This Incident?',
-      label: 'What Was The Main Management Outcome Of This Incident?',
+      label: 'What was the main management outcome of this incident?',
       multipleAnswers: false,
       answers: [
         {
@@ -110,7 +110,7 @@ const OLD_DISORDER: IncidentTypeConfiguration = {
       id: '49181',
       active: false,
       code: 'Is The Location Of The Incident Known?',
-      label: 'Is The Location Of The Incident Known?',
+      label: 'Is the location of the incident known?',
       multipleAnswers: false,
       answers: [
         {
@@ -137,7 +137,7 @@ const OLD_DISORDER: IncidentTypeConfiguration = {
       id: '49182',
       active: false,
       code: 'What Was The Location Of The Incident?',
-      label: 'What Was The Location Of The Incident?',
+      label: 'What was the location of the incident?',
       multipleAnswers: false,
       answers: [
         {
@@ -470,7 +470,7 @@ const OLD_DISORDER: IncidentTypeConfiguration = {
       id: '49183',
       active: false,
       code: 'Were Any Injuries Received During This Incident?',
-      label: 'Were Any Injuries Received During This Incident?',
+      label: 'Were any injuries received during this incident?',
       multipleAnswers: false,
       answers: [
         {
@@ -497,7 +497,7 @@ const OLD_DISORDER: IncidentTypeConfiguration = {
       id: '49184',
       active: false,
       code: 'Was A Serious Injury Sustained?',
-      label: 'Was A Serious Injury Sustained?',
+      label: 'Was a serious injury sustained?',
       multipleAnswers: false,
       answers: [
         {
@@ -524,7 +524,7 @@ const OLD_DISORDER: IncidentTypeConfiguration = {
       id: '49185',
       active: false,
       code: 'Which Serious Injuries Were Sustained?',
-      label: 'Which Serious Injuries Were Sustained?',
+      label: 'Which serious injuries were sustained?',
       multipleAnswers: true,
       answers: [
         {
@@ -641,7 +641,7 @@ const OLD_DISORDER: IncidentTypeConfiguration = {
       id: '49186',
       active: false,
       code: 'Was A Minor Injury Sustained?',
-      label: 'Was A Minor Injury Sustained?',
+      label: 'Was a minor injury sustained?',
       multipleAnswers: false,
       answers: [
         {
@@ -668,7 +668,7 @@ const OLD_DISORDER: IncidentTypeConfiguration = {
       id: '49187',
       active: false,
       code: 'Which Minor Injuries Were Sustained?',
-      label: 'Which Minor Injuries Were Sustained?',
+      label: 'Which minor injuries were sustained?',
       multipleAnswers: true,
       answers: [
         {
@@ -722,7 +722,7 @@ const OLD_DISORDER: IncidentTypeConfiguration = {
       id: '49188',
       active: false,
       code: 'Enter Descriptions of Person(s) Injured',
-      label: 'Enter Descriptions of Person(s) Injured',
+      label: 'Enter descriptions of person(s) injured',
       multipleAnswers: true,
       answers: [
         {
@@ -776,7 +776,7 @@ const OLD_DISORDER: IncidentTypeConfiguration = {
       id: '49189',
       active: false,
       code: 'Did Injuries Result in Detention in Outside Hospital As An In-Patient?',
-      label: 'Did Injuries Result in Detention in Outside Hospital As An In-Patient?',
+      label: 'Did injuries result in detention in outside hospital as an in-patient?',
       multipleAnswers: false,
       answers: [
         {
@@ -803,7 +803,7 @@ const OLD_DISORDER: IncidentTypeConfiguration = {
       id: '49190',
       active: false,
       code: 'Who Was Detained In Outside Hospital?',
-      label: 'Who Was Detained In Outside Hospital?',
+      label: 'Who was detained in outside hospital?',
       multipleAnswers: true,
       answers: [
         {
@@ -857,7 +857,7 @@ const OLD_DISORDER: IncidentTypeConfiguration = {
       id: '49191',
       active: false,
       code: 'Are There Any Staff Now Off Duty As A Result Of This Incident?',
-      label: 'Are There Any Staff Now Off Duty As A Result Of This Incident?',
+      label: 'Are there any staff now off duty as a result of this incident?',
       multipleAnswers: false,
       answers: [
         {
@@ -884,7 +884,7 @@ const OLD_DISORDER: IncidentTypeConfiguration = {
       id: '49192',
       active: false,
       code: 'Was There An Apparent Reason For The Incident?',
-      label: 'Was There An Apparent Reason For The Incident?',
+      label: 'Was there an apparent reason for the incident?',
       multipleAnswers: false,
       answers: [
         {
@@ -911,7 +911,7 @@ const OLD_DISORDER: IncidentTypeConfiguration = {
       id: '49193',
       active: false,
       code: 'Describe The Apparent Reason For The Incident?',
-      label: 'Describe The Apparent Reason For The Incident?',
+      label: 'Describe the apparent reason for the incident?',
       multipleAnswers: true,
       answers: [
         {
@@ -1010,7 +1010,7 @@ const OLD_DISORDER: IncidentTypeConfiguration = {
       id: '49194',
       active: false,
       code: 'Describe How The Incident Was Resolved',
-      label: 'Describe How The Incident Was Resolved',
+      label: 'Describe how the incident was resolved',
       multipleAnswers: true,
       answers: [
         {
@@ -1064,7 +1064,7 @@ const OLD_DISORDER: IncidentTypeConfiguration = {
       id: '49195',
       active: false,
       code: 'Was A Door Jack Used?',
-      label: 'Was A Door Jack Used?',
+      label: 'Was a door jack used?',
       multipleAnswers: false,
       answers: [
         {
@@ -1091,7 +1091,7 @@ const OLD_DISORDER: IncidentTypeConfiguration = {
       id: '49196',
       active: false,
       code: 'Were Water Hoses Used?',
-      label: 'Were Water Hoses Used?',
+      label: 'Were water hoses used?',
       multipleAnswers: false,
       answers: [
         {
@@ -1118,7 +1118,7 @@ const OLD_DISORDER: IncidentTypeConfiguration = {
       id: '49197',
       active: false,
       code: 'Was Control And Restraint Employed?',
-      label: 'Was Control And Restraint Employed?',
+      label: 'Was control and restraint employed?',
       multipleAnswers: false,
       answers: [
         {
@@ -1145,7 +1145,7 @@ const OLD_DISORDER: IncidentTypeConfiguration = {
       id: '49198',
       active: false,
       code: 'Were Weapons Used By The Perpetrator?',
-      label: 'Were Weapons Used By The Perpetrator?',
+      label: 'Were weapons used by the perpetrator?',
       multipleAnswers: false,
       answers: [
         {
@@ -1172,7 +1172,7 @@ const OLD_DISORDER: IncidentTypeConfiguration = {
       id: '49199',
       active: false,
       code: 'Describe Weapons Used By The Perpetrator?',
-      label: 'Describe Weapons Used By The Perpetrator?',
+      label: 'Describe weapons used by the perpetrator?',
       multipleAnswers: true,
       answers: [
         {
@@ -1298,7 +1298,7 @@ const OLD_DISORDER: IncidentTypeConfiguration = {
       id: '49200',
       active: false,
       code: 'Was Damage Caused To Prison Property',
-      label: 'Was Damage Caused To Prison Property',
+      label: 'Was damage caused to prison property?',
       multipleAnswers: false,
       answers: [
         {
@@ -1325,7 +1325,7 @@ const OLD_DISORDER: IncidentTypeConfiguration = {
       id: '49201',
       active: false,
       code: 'Describe the Damage',
-      label: 'Describe the Damage',
+      label: 'Describe the damage',
       multipleAnswers: false,
       answers: [
         {
@@ -1361,7 +1361,7 @@ const OLD_DISORDER: IncidentTypeConfiguration = {
       id: '49202',
       active: false,
       code: 'What Was The Estimated Cost Of The Damage?',
-      label: 'What Was The Estimated Cost Of The Damage?',
+      label: 'What was the estimated cost of the damage?',
       multipleAnswers: false,
       answers: [
         {
@@ -1478,7 +1478,7 @@ const OLD_DISORDER: IncidentTypeConfiguration = {
       id: '49203',
       active: false,
       code: 'What Was The Duration Of The Incident?',
-      label: 'What Was The Duration Of The Incident?',
+      label: 'What was the duration of the incident?',
       multipleAnswers: false,
       answers: [
         {
@@ -1595,7 +1595,7 @@ const OLD_DISORDER: IncidentTypeConfiguration = {
       id: '49204',
       active: false,
       code: 'Was The Telephone/IT System Shut Down During The Incident?',
-      label: 'Was The Telephone/IT System Shut Down During The Incident?',
+      label: 'Was the telephone/it system shut down during the incident?',
       multipleAnswers: false,
       answers: [
         {
@@ -1622,7 +1622,7 @@ const OLD_DISORDER: IncidentTypeConfiguration = {
       id: '49205',
       active: false,
       code: 'Was The Telephone System Shur Down Locally Or By The Service Supplier?',
-      label: 'Was The Telephone System Shur Down Locally Or By The Service Supplier?',
+      label: 'Was the telephone system shur down locally or by the service supplier?',
       multipleAnswers: false,
       answers: [
         {
@@ -1649,7 +1649,7 @@ const OLD_DISORDER: IncidentTypeConfiguration = {
       id: '49206',
       active: false,
       code: 'Quote The Helpdesk Case Number',
-      label: 'Quote The Helpdesk Case Number',
+      label: 'Quote the helpdesk case number',
       multipleAnswers: false,
       answers: [
         {
@@ -1667,7 +1667,7 @@ const OLD_DISORDER: IncidentTypeConfiguration = {
       id: '49207',
       active: false,
       code: 'Was The Keyword Requested?',
-      label: 'Was The Keyword Requested?',
+      label: 'Was the keyword requested?',
       multipleAnswers: false,
       answers: [
         {
@@ -1694,7 +1694,7 @@ const OLD_DISORDER: IncidentTypeConfiguration = {
       id: '49208',
       active: false,
       code: 'Has The Service Supplier Been Notified Of A Replacement Keyword?',
-      label: 'Has The Service Supplier Been Notified Of A Replacement Keyword?',
+      label: 'Has the service supplier been notified of a replacement keyword?',
       multipleAnswers: false,
       answers: [
         {
@@ -1721,7 +1721,7 @@ const OLD_DISORDER: IncidentTypeConfiguration = {
       id: '49209',
       active: false,
       code: 'Indicate The Nature Of The Shut Down',
-      label: 'Indicate The Nature Of The Shut Down',
+      label: 'Indicate the nature of the shut down',
       multipleAnswers: true,
       answers: [
         {
@@ -1748,7 +1748,7 @@ const OLD_DISORDER: IncidentTypeConfiguration = {
       id: '49210',
       active: false,
       code: 'What Time Was The System Shut Down?',
-      label: 'What Time Was The System Shut Down?',
+      label: 'What time was the system shut down?',
       multipleAnswers: false,
       answers: [
         {
@@ -1766,7 +1766,7 @@ const OLD_DISORDER: IncidentTypeConfiguration = {
       id: '49211',
       active: false,
       code: 'Was This A Full or Partial Shut Down?',
-      label: 'Was This A Full or Partial Shut Down?',
+      label: 'Was this a full or partial shut down?',
       multipleAnswers: false,
       answers: [
         {
@@ -1793,7 +1793,7 @@ const OLD_DISORDER: IncidentTypeConfiguration = {
       id: '49212',
       active: false,
       code: 'Who Authorised The Shut Down?',
-      label: 'Who Authorised The Shut Down?',
+      label: 'Who authorised the shut down?',
       multipleAnswers: false,
       answers: [
         {
@@ -1838,7 +1838,7 @@ const OLD_DISORDER: IncidentTypeConfiguration = {
       id: '49213',
       active: false,
       code: 'Was The System Compromised?',
-      label: 'Was The System Compromised?',
+      label: 'Was the system compromised?',
       multipleAnswers: false,
       answers: [
         {
@@ -1865,7 +1865,7 @@ const OLD_DISORDER: IncidentTypeConfiguration = {
       id: '49214',
       active: false,
       code: 'Describe What Was Compromised And By Whom',
-      label: 'Describe What Was Compromised And By Whom',
+      label: 'Describe what was compromised and by whom',
       multipleAnswers: false,
       answers: [
         {
@@ -1883,7 +1883,7 @@ const OLD_DISORDER: IncidentTypeConfiguration = {
       id: '49215',
       active: false,
       code: 'When Was The System Re-Activated?',
-      label: 'When Was The System Re-Activated?',
+      label: 'When was the system re-activated?',
       multipleAnswers: false,
       answers: [
         {
@@ -1901,7 +1901,7 @@ const OLD_DISORDER: IncidentTypeConfiguration = {
       id: '49216',
       active: false,
       code: 'Was The System Re-Activated Locally Or By The IT And Telephony Service Supplier?',
-      label: 'Was The System Re-Activated Locally Or By The IT And Telephony Service Supplier?',
+      label: 'Was the system re-activated locally or by the it and telephony service supplier?',
       multipleAnswers: false,
       answers: [
         {
@@ -1928,7 +1928,7 @@ const OLD_DISORDER: IncidentTypeConfiguration = {
       id: '49217',
       active: false,
       code: 'Is Any Member Of Staff Facing Disciplinary Charges?',
-      label: 'Is Any Member Of Staff Facing Disciplinary Charges?',
+      label: 'Is any member of staff facing disciplinary charges?',
       multipleAnswers: false,
       answers: [
         {
@@ -1955,7 +1955,7 @@ const OLD_DISORDER: IncidentTypeConfiguration = {
       id: '49218',
       active: false,
       code: 'Was A Barricade Used?',
-      label: 'Was A Barricade Used?',
+      label: 'Was a barricade used?',
       multipleAnswers: false,
       answers: [
         {
@@ -1982,7 +1982,7 @@ const OLD_DISORDER: IncidentTypeConfiguration = {
       id: '49219',
       active: false,
       code: 'Was A C And R Advisor Present?',
-      label: 'Was A C And R Advisor Present?',
+      label: 'Was a c and r advisor present?',
       multipleAnswers: false,
       answers: [
         {
@@ -2009,7 +2009,7 @@ const OLD_DISORDER: IncidentTypeConfiguration = {
       id: '49220',
       active: false,
       code: 'Was The Emergency Response Vehicle Present?',
-      label: 'Was The Emergency Response Vehicle Present?',
+      label: 'Was the emergency response vehicle present?',
       multipleAnswers: false,
       answers: [
         {
@@ -2036,7 +2036,7 @@ const OLD_DISORDER: IncidentTypeConfiguration = {
       id: '49221',
       active: false,
       code: 'Were Trained Negotiators Deployed?',
-      label: 'Were Trained Negotiators Deployed?',
+      label: 'Were trained negotiators deployed?',
       multipleAnswers: false,
       answers: [
         {
@@ -2063,7 +2063,7 @@ const OLD_DISORDER: IncidentTypeConfiguration = {
       id: '49222',
       active: false,
       code: 'Was An Incident Liaison Officer Present?',
-      label: 'Was An Incident Liaison Officer Present?',
+      label: 'Was an incident liaison officer present?',
       multipleAnswers: false,
       answers: [
         {
@@ -2090,7 +2090,7 @@ const OLD_DISORDER: IncidentTypeConfiguration = {
       id: '49223',
       active: false,
       code: 'Were Healthcare Centre Staff Present?',
-      label: 'Were Healthcare Centre Staff Present?',
+      label: 'Were healthcare centre staff present?',
       multipleAnswers: false,
       answers: [
         {
@@ -2126,7 +2126,7 @@ const OLD_DISORDER: IncidentTypeConfiguration = {
       id: '49224',
       active: false,
       code: 'Were Works Services Staff Present?',
-      label: 'Were Works Services Staff Present?',
+      label: 'Were works services staff present?',
       multipleAnswers: false,
       answers: [
         {
@@ -2153,7 +2153,7 @@ const OLD_DISORDER: IncidentTypeConfiguration = {
       id: '49225',
       active: false,
       code: 'Were Independent Monitoring Board Members Present?',
-      label: 'Were Independent Monitoring Board Members Present?',
+      label: 'Were independent monitoring board members present?',
       multipleAnswers: false,
       answers: [
         {
@@ -2180,7 +2180,7 @@ const OLD_DISORDER: IncidentTypeConfiguration = {
       id: '49226',
       active: false,
       code: 'Was The Ambulance Service Present?',
-      label: 'Was The Ambulance Service Present?',
+      label: 'Was the ambulance service present?',
       multipleAnswers: false,
       answers: [
         {
@@ -2207,7 +2207,7 @@ const OLD_DISORDER: IncidentTypeConfiguration = {
       id: '49227',
       active: false,
       code: 'Was The Fire Service Present?',
-      label: 'Was The Fire Service Present?',
+      label: 'Was the fire service present?',
       multipleAnswers: false,
       answers: [
         {
@@ -2234,7 +2234,7 @@ const OLD_DISORDER: IncidentTypeConfiguration = {
       id: '49228',
       active: false,
       code: 'Were The Police Present?',
-      label: 'Were The Police Present?',
+      label: 'Were the police present?',
       multipleAnswers: false,
       answers: [
         {
@@ -2261,7 +2261,7 @@ const OLD_DISORDER: IncidentTypeConfiguration = {
       id: '49229',
       active: false,
       code: 'Was Any Evacuation Necessary?',
-      label: 'Was Any Evacuation Necessary?',
+      label: 'Was any evacuation necessary?',
       multipleAnswers: false,
       answers: [
         {
@@ -2288,7 +2288,7 @@ const OLD_DISORDER: IncidentTypeConfiguration = {
       id: '49230',
       active: false,
       code: 'Describe The Incident As Either Active Or Passive?',
-      label: 'Describe The Incident As Either Active Or Passive?',
+      label: 'Describe the incident as either active or passive?',
       multipleAnswers: false,
       answers: [
         {
@@ -2315,7 +2315,7 @@ const OLD_DISORDER: IncidentTypeConfiguration = {
       id: '49231',
       active: false,
       code: 'How Many Prisoners Were Involved?',
-      label: 'How Many Prisoners Were Involved?',
+      label: 'How many prisoners were involved?',
       multipleAnswers: false,
       answers: [
         {
@@ -2342,7 +2342,7 @@ const OLD_DISORDER: IncidentTypeConfiguration = {
       id: '49232',
       active: false,
       code: 'Have The Ring Leaders Been Identified?',
-      label: 'Have The Ring Leaders Been Identified?',
+      label: 'Have the ring leaders been identified?',
       multipleAnswers: false,
       answers: [
         {
@@ -2369,7 +2369,7 @@ const OLD_DISORDER: IncidentTypeConfiguration = {
       id: '49233',
       active: false,
       code: 'Have the Ring Leaders Been Entered On Inmate Involvement?',
-      label: 'Have the Ring Leaders Been Entered On Inmate Involvement?',
+      label: 'Have the ring leaders been entered on inmate involvement?',
       multipleAnswers: false,
       answers: [
         {
@@ -2396,7 +2396,7 @@ const OLD_DISORDER: IncidentTypeConfiguration = {
       id: '49234',
       active: false,
       code: 'Was Operation Tornado Used?',
-      label: 'Was Operation Tornado Used?',
+      label: 'Was operation Tornado used?',
       multipleAnswers: false,
       answers: [
         {
@@ -2423,7 +2423,7 @@ const OLD_DISORDER: IncidentTypeConfiguration = {
       id: '49235',
       active: false,
       code: 'Were Extendable Batons Used?',
-      label: 'Were Extendable Batons Used?',
+      label: 'Were extendable batons used?',
       multipleAnswers: false,
       answers: [
         {
@@ -2450,7 +2450,7 @@ const OLD_DISORDER: IncidentTypeConfiguration = {
       id: '49236',
       active: false,
       code: 'Was The Incident In Public View?',
-      label: 'Was The Incident In Public View?',
+      label: 'Was the incident in public view?',
       multipleAnswers: false,
       answers: [
         {
@@ -2477,7 +2477,7 @@ const OLD_DISORDER: IncidentTypeConfiguration = {
       id: '49237',
       active: false,
       code: 'Enter Number Of Perpetrators',
-      label: 'Enter Number Of Perpetrators',
+      label: 'Enter number of perpetrators',
       multipleAnswers: false,
       answers: [
         {
@@ -2495,7 +2495,7 @@ const OLD_DISORDER: IncidentTypeConfiguration = {
       id: '49238',
       active: false,
       code: 'Enter Number of Hostages',
-      label: 'Enter Number of Hostages',
+      label: 'Enter number of hostages',
       multipleAnswers: false,
       answers: [
         {
@@ -2513,7 +2513,7 @@ const OLD_DISORDER: IncidentTypeConfiguration = {
       id: '49239',
       active: false,
       code: 'Describe Status of Hostages',
-      label: 'Describe Status of Hostages',
+      label: 'Describe status of hostages',
       multipleAnswers: true,
       answers: [
         {
@@ -2567,7 +2567,7 @@ const OLD_DISORDER: IncidentTypeConfiguration = {
       id: '49240',
       active: false,
       code: 'Describe Status of Perpetrators',
-      label: 'Describe Status of Perpetrators',
+      label: 'Describe status of perpetrators',
       multipleAnswers: true,
       answers: [
         {
@@ -2603,7 +2603,7 @@ const OLD_DISORDER: IncidentTypeConfiguration = {
       id: '49241',
       active: false,
       code: 'Was A Hostage Part Of The Barricade?',
-      label: 'Was A Hostage Part Of The Barricade?',
+      label: 'Was a hostage part of the barricade?',
       multipleAnswers: false,
       answers: [
         {
@@ -2630,7 +2630,7 @@ const OLD_DISORDER: IncidentTypeConfiguration = {
       id: '49242',
       active: false,
       code: 'Was Physical Violence Used Towards Hostage?',
-      label: 'Was Physical Violence Used Towards Hostage?',
+      label: 'Was physical violence used towards hostage?',
       multipleAnswers: false,
       answers: [
         {
@@ -2657,7 +2657,7 @@ const OLD_DISORDER: IncidentTypeConfiguration = {
       id: '49243',
       active: false,
       code: 'Was The Hostage Physically Restrained By The Perpetrator',
-      label: 'Was The Hostage Physically Restrained By The Perpetrator',
+      label: 'Was the hostage physically restrained by the perpetrator?',
       multipleAnswers: false,
       answers: [
         {
@@ -2684,7 +2684,7 @@ const OLD_DISORDER: IncidentTypeConfiguration = {
       id: '49244',
       active: false,
       code: 'Was There Evidence Of The Stockholm Syndrome?',
-      label: 'Was There Evidence Of The Stockholm Syndrome?',
+      label: 'Was there evidence of the Stockholm syndrome?',
       multipleAnswers: false,
       answers: [
         {
@@ -2711,7 +2711,7 @@ const OLD_DISORDER: IncidentTypeConfiguration = {
       id: '49245',
       active: false,
       code: 'Was There Evidence Of Collusion?',
-      label: 'Was There Evidence Of Collusion?',
+      label: 'Was there evidence of collusion?',
       multipleAnswers: false,
       answers: [
         {
@@ -2738,7 +2738,7 @@ const OLD_DISORDER: IncidentTypeConfiguration = {
       id: '49246',
       active: false,
       code: 'Was A Hostage Negotiator Adviser Present?',
-      label: 'Was A Hostage Negotiator Adviser Present?',
+      label: 'Was a hostage negotiator adviser present?',
       multipleAnswers: false,
       answers: [
         {
@@ -2765,7 +2765,7 @@ const OLD_DISORDER: IncidentTypeConfiguration = {
       id: '49247',
       active: false,
       code: 'Was A Medical Officer Present',
-      label: 'Was A Medical Officer Present',
+      label: 'Was a medical officer present?',
       multipleAnswers: false,
       answers: [
         {
@@ -2792,7 +2792,7 @@ const OLD_DISORDER: IncidentTypeConfiguration = {
       id: '49248',
       active: false,
       code: 'Was A Technical Support Unit Present',
-      label: 'Was A Technical Support Unit Present',
+      label: 'Was a technical support unit present?',
       multipleAnswers: false,
       answers: [
         {
@@ -2846,7 +2846,7 @@ const OLD_DISORDER: IncidentTypeConfiguration = {
       id: '49249',
       active: false,
       code: 'Did A Tactical Firearms Adviser Attend?',
-      label: 'Did A Tactical Firearms Adviser Attend?',
+      label: 'Did a tactical firearms adviser attend?',
       multipleAnswers: false,
       answers: [
         {
@@ -2873,7 +2873,7 @@ const OLD_DISORDER: IncidentTypeConfiguration = {
       id: '49250',
       active: false,
       code: 'Were Firearms Officers Deployed?',
-      label: 'Were Firearms Officers Deployed?',
+      label: 'Were firearms officers deployed?',
       multipleAnswers: false,
       answers: [
         {
@@ -2900,7 +2900,7 @@ const OLD_DISORDER: IncidentTypeConfiguration = {
       id: '49254',
       active: false,
       code: 'Describe Method Of Gaining Access To Area At Height',
-      label: 'Describe Method Of Gaining Access To Area At Height',
+      label: 'Describe method of gaining access to area at height',
       multipleAnswers: true,
       answers: [
         {
@@ -2999,7 +2999,7 @@ const OLD_DISORDER: IncidentTypeConfiguration = {
       id: '49255',
       active: false,
       code: 'What Aggravating Factors Were Present?',
-      label: 'What Aggravating Factors Were Present?',
+      label: 'What aggravating factors were present?',
       multipleAnswers: true,
       answers: [
         {
@@ -3089,7 +3089,7 @@ const OLD_DISORDER: IncidentTypeConfiguration = {
       id: '49256',
       active: false,
       code: 'What Height Did The Incident Take Place?',
-      label: 'What Height Did The Incident Take Place?',
+      label: 'What height did the incident take place?',
       multipleAnswers: false,
       answers: [
         {
@@ -3143,7 +3143,7 @@ const OLD_DISORDER: IncidentTypeConfiguration = {
       id: '53179',
       active: false,
       code: 'Did A Tactical Firearms Adviser Attend?',
-      label: 'Did A Tactical Firearms Adviser Attend?',
+      label: 'Did a tactical firearms adviser attend?',
       multipleAnswers: false,
       answers: [
         {
@@ -3170,7 +3170,7 @@ const OLD_DISORDER: IncidentTypeConfiguration = {
       id: '53180',
       active: false,
       code: 'Were Firearms Officers Deployed?',
-      label: 'Were Firearms Officers Deployed?',
+      label: 'Were firearms officers deployed?',
       multipleAnswers: false,
       answers: [
         {
@@ -3197,7 +3197,7 @@ const OLD_DISORDER: IncidentTypeConfiguration = {
       id: '53181',
       active: false,
       code: 'Describe Method Of Gaining Access To Area At Height',
-      label: 'Describe Method Of Gaining Access To Area At Height',
+      label: 'Describe method of gaining access to area at height',
       multipleAnswers: false,
       answers: [
         {
@@ -3215,7 +3215,7 @@ const OLD_DISORDER: IncidentTypeConfiguration = {
       id: '53182',
       active: false,
       code: 'Describe Method Of Gaining Access To Area At Height',
-      label: 'Describe Method Of Gaining Access To Area At Height',
+      label: 'Describe method of gaining access to area at height',
       multipleAnswers: true,
       answers: [
         {
@@ -3314,7 +3314,7 @@ const OLD_DISORDER: IncidentTypeConfiguration = {
       id: '53183',
       active: false,
       code: 'What Aggravating Factors Were Present?',
-      label: 'What Aggravating Factors Were Present?',
+      label: 'What aggravating factors were present?',
       multipleAnswers: true,
       answers: [
         {
@@ -3404,7 +3404,7 @@ const OLD_DISORDER: IncidentTypeConfiguration = {
       id: '53184',
       active: false,
       code: 'What Height Did The Incident Take Place?',
-      label: 'What Height Did The Incident Take Place?',
+      label: 'What height did the incident take place?',
       multipleAnswers: false,
       answers: [
         {

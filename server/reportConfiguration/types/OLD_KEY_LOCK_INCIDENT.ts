@@ -1,4 +1,4 @@
-// Generated with ./scripts/updateNomisIncidentTypeConfigurations.ts at 2024-10-15T17:17:44.246Z
+// Generated with ./scripts/updateNomisIncidentTypeConfigurations.ts at 2024-12-02T17:35:40.449Z
 
 import { type IncidentTypeConfiguration } from '../../data/incidentTypeConfiguration/types'
 
@@ -11,7 +11,7 @@ const OLD_KEY_LOCK_INCIDENT: IncidentTypeConfiguration = {
       id: '44166',
       active: false,
       code: 'HAS ANY PROSECUTION TAKEN PLACE OR IS ANY PENDING',
-      label: 'HAS ANY PROSECUTION TAKEN PLACE OR IS ANY PENDING',
+      label: 'Has any prosecution taken place or is any pending?',
       multipleAnswers: false,
       answers: [
         {
@@ -38,7 +38,7 @@ const OLD_KEY_LOCK_INCIDENT: IncidentTypeConfiguration = {
       id: '44228',
       active: false,
       code: 'HAS THE PRISON SERVICE PRESS OFFICE BEEN INFORMED',
-      label: 'HAS THE PRISON SERVICE PRESS OFFICE BEEN INFORMED',
+      label: 'Has the prison service press office been informed?',
       multipleAnswers: false,
       answers: [
         {
@@ -65,7 +65,7 @@ const OLD_KEY_LOCK_INCIDENT: IncidentTypeConfiguration = {
       id: '44331',
       active: false,
       code: 'IS THE INCIDENT THE SUBJECT OF AN INTERNAL INVESTIGATION',
-      label: 'IS THE INCIDENT THE SUBJECT OF AN INTERNAL INVESTIGATION',
+      label: 'Is the incident the subject of an internal investigation?',
       multipleAnswers: false,
       answers: [
         {
@@ -92,7 +92,7 @@ const OLD_KEY_LOCK_INCIDENT: IncidentTypeConfiguration = {
       id: '44355',
       active: false,
       code: 'HAS A REPLICA BEEN FOUND',
-      label: 'HAS A REPLICA BEEN FOUND',
+      label: 'Has a replica been found?',
       multipleAnswers: false,
       answers: [
         {
@@ -119,7 +119,7 @@ const OLD_KEY_LOCK_INCIDENT: IncidentTypeConfiguration = {
       id: '44386',
       active: false,
       code: "IS THE INCIDENT SUBJECT TO A GOVERNOR'S ADJUDICATION",
-      label: "IS THE INCIDENT SUBJECT TO A GOVERNOR'S ADJUDICATION",
+      label: "Is the incident subject to a governor's adjudication?",
       multipleAnswers: false,
       answers: [
         {
@@ -146,7 +146,7 @@ const OLD_KEY_LOCK_INCIDENT: IncidentTypeConfiguration = {
       id: '44407',
       active: false,
       code: 'WHAT TOOLS WERE USED',
-      label: 'WHAT TOOLS WERE USED',
+      label: 'What tools were used?',
       multipleAnswers: true,
       answers: [
         {
@@ -236,7 +236,7 @@ const OLD_KEY_LOCK_INCIDENT: IncidentTypeConfiguration = {
       id: '44414',
       active: false,
       code: 'IS ANY MEMBER OF STAFF FACING DISCIPLINARY CHARGES',
-      label: 'IS ANY MEMBER OF STAFF FACING DISCIPLINARY CHARGES',
+      label: 'Is any member of staff facing disciplinary charges?',
       multipleAnswers: false,
       answers: [
         {
@@ -263,7 +263,7 @@ const OLD_KEY_LOCK_INCIDENT: IncidentTypeConfiguration = {
       id: '44449',
       active: false,
       code: 'DESCRIBE THE REMEDIAL ACTION TAKEN',
-      label: 'DESCRIBE THE REMEDIAL ACTION TAKEN',
+      label: 'Describe the remedial action taken',
       multipleAnswers: false,
       answers: [
         {
@@ -308,7 +308,7 @@ const OLD_KEY_LOCK_INCIDENT: IncidentTypeConfiguration = {
       id: '44598',
       active: false,
       code: 'WERE THE POLICE INFORMED OF THE INCIDENT',
-      label: 'WERE THE POLICE INFORMED OF THE INCIDENT',
+      label: 'Were the police informed of the incident?',
       multipleAnswers: false,
       answers: [
         {
@@ -335,7 +335,7 @@ const OLD_KEY_LOCK_INCIDENT: IncidentTypeConfiguration = {
       id: '44619',
       active: false,
       code: 'HAVE THE LOST ITEM(S) BEEN FOUND',
-      label: 'HAVE THE LOST ITEM(S) BEEN FOUND',
+      label: 'Have the lost item(s) been found?',
       multipleAnswers: false,
       answers: [
         {
@@ -362,7 +362,7 @@ const OLD_KEY_LOCK_INCIDENT: IncidentTypeConfiguration = {
       id: '44678',
       active: false,
       code: 'IS THERE ANY MEDIA INTEREST IN THIS INCIDENT',
-      label: 'IS THERE ANY MEDIA INTEREST IN THIS INCIDENT',
+      label: 'Is there any media interest in this incident?',
       multipleAnswers: false,
       answers: [
         {
@@ -389,7 +389,7 @@ const OLD_KEY_LOCK_INCIDENT: IncidentTypeConfiguration = {
       id: '44775',
       active: false,
       code: 'HAS ANY REMEDIAL ACTION BEEN TAKEN',
-      label: 'HAS ANY REMEDIAL ACTION BEEN TAKEN',
+      label: 'Has any remedial action been taken?',
       multipleAnswers: false,
       answers: [
         {
@@ -416,7 +416,7 @@ const OLD_KEY_LOCK_INCIDENT: IncidentTypeConfiguration = {
       id: '44866',
       active: false,
       code: 'WERE TOOLS USED',
-      label: 'WERE TOOLS USED',
+      label: 'Were tools used?',
       multipleAnswers: false,
       answers: [
         {
@@ -443,7 +443,7 @@ const OLD_KEY_LOCK_INCIDENT: IncidentTypeConfiguration = {
       id: '44894',
       active: false,
       code: 'WHAT ACTION WAS TAKEN TO FIND THESE ITEMS',
-      label: 'WHAT ACTION WAS TAKEN TO FIND THESE ITEMS',
+      label: 'What action was taken to find these items?',
       multipleAnswers: false,
       answers: [
         {
@@ -479,7 +479,7 @@ const OLD_KEY_LOCK_INCIDENT: IncidentTypeConfiguration = {
       id: '44921',
       active: false,
       code: 'ESTIMATED COST OF THIS ACTION',
-      label: 'ESTIMATED COST OF THIS ACTION',
+      label: 'Estimated cost of this action',
       multipleAnswers: false,
       answers: [
         {
@@ -497,7 +497,7 @@ const OLD_KEY_LOCK_INCIDENT: IncidentTypeConfiguration = {
       id: '44925',
       active: false,
       code: 'WHAT WAS THE SOURCE OF THE TOOLS',
-      label: 'WHAT WAS THE SOURCE OF THE TOOLS',
+      label: 'What was the source of the tools?',
       multipleAnswers: true,
       answers: [
         {
@@ -632,7 +632,7 @@ const OLD_KEY_LOCK_INCIDENT: IncidentTypeConfiguration = {
       id: '44972',
       active: false,
       code: 'DESCRIBE THE TYPE OF KEY OR LOCK COMPROMISE',
-      label: 'DESCRIBE THE TYPE OF KEY OR LOCK COMPROMISE',
+      label: 'Describe the type of key or lock compromise',
       multipleAnswers: true,
       answers: [
         {
@@ -785,7 +785,7 @@ const OLD_KEY_LOCK_INCIDENT: IncidentTypeConfiguration = {
       id: '45015',
       active: false,
       code: 'DESCRIBE THE NATURE OF THE COMPROMISE',
-      label: 'DESCRIBE THE NATURE OF THE COMPROMISE',
+      label: 'Describe the nature of the compromise',
       multipleAnswers: true,
       answers: [
         {
@@ -875,7 +875,7 @@ const OLD_KEY_LOCK_INCIDENT: IncidentTypeConfiguration = {
       id: '45072',
       active: false,
       code: 'IS THE INCIDENT THE SUBJECT OF A POLICE INVESTIGATION',
-      label: 'IS THE INCIDENT THE SUBJECT OF A POLICE INVESTIGATION',
+      label: 'Is the incident the subject of a police investigation?',
       multipleAnswers: false,
       answers: [
         {

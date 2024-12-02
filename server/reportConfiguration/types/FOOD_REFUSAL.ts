@@ -1,4 +1,4 @@
-// Generated with ./scripts/updateNomisIncidentTypeConfigurations.ts at 2024-10-15T17:17:40.098Z
+// Generated with ./scripts/updateNomisIncidentTypeConfigurations.ts at 2024-12-02T17:35:36.281Z
 
 import { type IncidentTypeConfiguration } from '../../data/incidentTypeConfiguration/types'
 
@@ -11,7 +11,7 @@ const FOOD_REFUSAL: IncidentTypeConfiguration = {
       id: '44199',
       active: true,
       code: 'IS THE FOOD REFUSAL EFFECTING ANY OTHER MEDICAL CONDITION',
-      label: 'IS THE FOOD REFUSAL EFFECTING ANY OTHER MEDICAL CONDITION',
+      label: 'Is the food refusal effecting any other medical condition?',
       multipleAnswers: false,
       answers: [
         {
@@ -38,7 +38,7 @@ const FOOD_REFUSAL: IncidentTypeConfiguration = {
       id: '44319',
       active: true,
       code: 'WHERE IS THE PRISONER CURRENTLY LOCATED',
-      label: 'WHERE IS THE PRISONER CURRENTLY LOCATED',
+      label: 'Where is the prisoner currently located?',
       multipleAnswers: false,
       answers: [
         {
@@ -92,7 +92,7 @@ const FOOD_REFUSAL: IncidentTypeConfiguration = {
       id: '44399',
       active: true,
       code: 'IS THE PRISONER THOUGHT TO BE OBTAINING FOOD FROM OTHER SOURCES',
-      label: 'IS THE PRISONER THOUGHT TO BE OBTAINING FOOD FROM OTHER SOURCES',
+      label: 'Is the prisoner thought to be obtaining food from other sources?',
       multipleAnswers: false,
       answers: [
         {
@@ -119,7 +119,7 @@ const FOOD_REFUSAL: IncidentTypeConfiguration = {
       id: '44427',
       active: true,
       code: 'IS THE FOOD REFUSAL CURRENTLY CONSIDERED LIFE THREATENING',
-      label: 'IS THE FOOD REFUSAL CURRENTLY CONSIDERED LIFE THREATENING',
+      label: 'Is the food refusal currently considered life threatening?',
       multipleAnswers: false,
       answers: [
         {
@@ -146,7 +146,7 @@ const FOOD_REFUSAL: IncidentTypeConfiguration = {
       id: '44575',
       active: true,
       code: 'HAS THE PRISON SERVICE PRESS OFFICE BEEN INFORMED',
-      label: 'HAS THE PRISON SERVICE PRESS OFFICE BEEN INFORMED',
+      label: 'Has the prison service press office been informed?',
       multipleAnswers: false,
       answers: [
         {
@@ -173,7 +173,7 @@ const FOOD_REFUSAL: IncidentTypeConfiguration = {
       id: '44688',
       active: true,
       code: 'IS THE FOOD REFUSAL CONTINUING',
-      label: 'IS THE FOOD REFUSAL CONTINUING',
+      label: 'Is the food refusal continuing?',
       multipleAnswers: false,
       answers: [
         {
@@ -200,7 +200,7 @@ const FOOD_REFUSAL: IncidentTypeConfiguration = {
       id: '44768',
       active: true,
       code: 'DESCRIBE THE TYPE OF FOOD REFUSAL',
-      label: 'DESCRIBE THE TYPE OF FOOD REFUSAL',
+      label: 'Describe the type of food refusal',
       multipleAnswers: false,
       answers: [
         {
@@ -245,7 +245,7 @@ const FOOD_REFUSAL: IncidentTypeConfiguration = {
       id: '44887',
       active: true,
       code: 'WHAT IS THE REASON FOR THIS FOOD REFUSAL',
-      label: 'WHAT IS THE REASON FOR THIS FOOD REFUSAL',
+      label: 'What is the reason for this food refusal?',
       multipleAnswers: false,
       answers: [
         {
@@ -335,7 +335,7 @@ const FOOD_REFUSAL: IncidentTypeConfiguration = {
       id: '44989',
       active: true,
       code: 'DURATION OF FOOD REFUSAL',
-      label: 'DURATION OF FOOD REFUSAL',
+      label: 'Duration of food refusal',
       multipleAnswers: false,
       answers: [
         {
@@ -353,7 +353,7 @@ const FOOD_REFUSAL: IncidentTypeConfiguration = {
       id: '44990',
       active: true,
       code: 'IS THERE ANY MEDIA INTEREST IN THIS INCIDENT',
-      label: 'IS THERE ANY MEDIA INTEREST IN THIS INCIDENT',
+      label: 'Is there any media interest in this incident?',
       multipleAnswers: false,
       answers: [
         {

@@ -1,4 +1,4 @@
-// Generated with ./scripts/updateNomisIncidentTypeConfigurations.ts at 2024-10-15T17:17:41.703Z
+// Generated with ./scripts/updateNomisIncidentTypeConfigurations.ts at 2024-12-02T17:35:37.825Z
 
 import { type IncidentTypeConfiguration } from '../../data/incidentTypeConfiguration/types'
 
@@ -11,7 +11,7 @@ const OLD_HOSTAGE: IncidentTypeConfiguration = {
       id: '44137',
       active: false,
       code: 'WAS A HOSTAGE NEGOTIATION ADVISER PRESENT',
-      label: 'WAS A HOSTAGE NEGOTIATION ADVISER PRESENT',
+      label: 'Was a hostage negotiation adviser present?',
       multipleAnswers: false,
       answers: [
         {
@@ -38,7 +38,7 @@ const OLD_HOSTAGE: IncidentTypeConfiguration = {
       id: '44210',
       active: false,
       code: 'WERE IMB MEMBERS PRESENT',
-      label: 'WERE IMB MEMBERS PRESENT',
+      label: 'Were IMB members present?',
       multipleAnswers: false,
       answers: [
         {
@@ -65,7 +65,7 @@ const OLD_HOSTAGE: IncidentTypeConfiguration = {
       id: '44213',
       active: false,
       code: 'ESTIMATED COST OF DAMAGE',
-      label: 'ESTIMATED COST OF DAMAGE',
+      label: 'Estimated cost of damage',
       multipleAnswers: false,
       answers: [
         {
@@ -83,7 +83,7 @@ const OLD_HOSTAGE: IncidentTypeConfiguration = {
       id: '44218',
       active: false,
       code: 'DID INJURIES RESULT IN DETENTION IN OUTSIDE HOSPITAL AS AN IN-PATIENT',
-      label: 'DID INJURIES RESULT IN DETENTION IN OUTSIDE HOSPITAL AS AN IN-PATIENT',
+      label: 'Did injuries result in detention in outside hospital as an in-patient?',
       multipleAnswers: false,
       answers: [
         {
@@ -110,7 +110,7 @@ const OLD_HOSTAGE: IncidentTypeConfiguration = {
       id: '44234',
       active: false,
       code: 'HAS ANY PROSECUTION TAKEN PLACE OR IS ANY PENDING',
-      label: 'HAS ANY PROSECUTION TAKEN PLACE OR IS ANY PENDING',
+      label: 'Has any prosecution taken place or is any pending?',
       multipleAnswers: false,
       answers: [
         {
@@ -137,7 +137,7 @@ const OLD_HOSTAGE: IncidentTypeConfiguration = {
       id: '44235',
       active: false,
       code: 'WHO WAS DETAINED IN OUTSIDE HOSPITAL',
-      label: 'WHO WAS DETAINED IN OUTSIDE HOSPITAL',
+      label: 'Who was detained in outside hospital?',
       multipleAnswers: true,
       answers: [
         {
@@ -191,7 +191,7 @@ const OLD_HOSTAGE: IncidentTypeConfiguration = {
       id: '44239',
       active: false,
       code: 'WHO AUTHORISED THE SHUT DOWN?',
-      label: 'WHO AUTHORISED THE SHUT DOWN?',
+      label: 'Who authorised the shut down?',
       multipleAnswers: false,
       answers: [
         {
@@ -236,7 +236,7 @@ const OLD_HOSTAGE: IncidentTypeConfiguration = {
       id: '44257',
       active: false,
       code: 'WERE WATER HOSES USED',
-      label: 'WERE WATER HOSES USED',
+      label: 'Were water hoses used?',
       multipleAnswers: false,
       answers: [
         {
@@ -263,7 +263,7 @@ const OLD_HOSTAGE: IncidentTypeConfiguration = {
       id: '44265',
       active: false,
       code: 'WERE THE POLICE PRESENT',
-      label: 'WERE THE POLICE PRESENT',
+      label: 'Were the police present?',
       multipleAnswers: false,
       answers: [
         {
@@ -290,7 +290,7 @@ const OLD_HOSTAGE: IncidentTypeConfiguration = {
       id: '44275',
       active: false,
       code: 'INDICATE THE NATURE OF THE SHUT DOWN',
-      label: 'INDICATE THE NATURE OF THE SHUT DOWN',
+      label: 'Indicate the nature of the shut down',
       multipleAnswers: true,
       answers: [
         {
@@ -317,7 +317,7 @@ const OLD_HOSTAGE: IncidentTypeConfiguration = {
       id: '44293',
       active: false,
       code: 'WAS THE TELEPHONE/IT SYSTEM SHUT DOWN DURING THE INCIDENT?',
-      label: 'WAS THE TELEPHONE/IT SYSTEM SHUT DOWN DURING THE INCIDENT?',
+      label: 'Was the telephone/it system shut down during the incident?',
       multipleAnswers: false,
       answers: [
         {
@@ -344,7 +344,7 @@ const OLD_HOSTAGE: IncidentTypeConfiguration = {
       id: '44311',
       active: false,
       code: 'WAS DAMAGE CAUSED TO PRISON PROPERTY',
-      label: 'WAS DAMAGE CAUSED TO PRISON PROPERTY',
+      label: 'Was damage caused to prison property?',
       multipleAnswers: false,
       answers: [
         {
@@ -371,7 +371,7 @@ const OLD_HOSTAGE: IncidentTypeConfiguration = {
       id: '44318',
       active: false,
       code: 'IS THE LOCATION OF THE INCIDENT KNOWN',
-      label: 'IS THE LOCATION OF THE INCIDENT KNOWN',
+      label: 'Is the location of the incident known?',
       multipleAnswers: false,
       answers: [
         {
@@ -398,7 +398,7 @@ const OLD_HOSTAGE: IncidentTypeConfiguration = {
       id: '44322',
       active: false,
       code: 'WAS THERE EVIDENCE OF COLLUSION',
-      label: 'WAS THERE EVIDENCE OF COLLUSION',
+      label: 'Was there evidence of collusion?',
       multipleAnswers: false,
       answers: [
         {
@@ -425,7 +425,7 @@ const OLD_HOSTAGE: IncidentTypeConfiguration = {
       id: '44335',
       active: false,
       code: 'WERE ANY INJURIES RECEIVED DURING THIS INCIDENT',
-      label: 'WERE ANY INJURIES RECEIVED DURING THIS INCIDENT',
+      label: 'Were any injuries received during this incident?',
       multipleAnswers: false,
       answers: [
         {
@@ -452,7 +452,7 @@ const OLD_HOSTAGE: IncidentTypeConfiguration = {
       id: '44347',
       active: false,
       code: 'ARE THERE ANY STAFF NOW OFF DUTY AS A RESULT',
-      label: 'ARE THERE ANY STAFF NOW OFF DUTY AS A RESULT',
+      label: 'Are there any staff now off duty as a result?',
       multipleAnswers: false,
       answers: [
         {
@@ -479,7 +479,7 @@ const OLD_HOSTAGE: IncidentTypeConfiguration = {
       id: '44356',
       active: false,
       code: 'HAS THE SERVICE SUPPLIER BEEN NOTIFIED OF A REPLACEMENT KEYWORD?',
-      label: 'HAS THE SERVICE SUPPLIER BEEN NOTIFIED OF A REPLACEMENT KEYWORD?',
+      label: 'Has the service supplier been notified of a replacement keyword?',
       multipleAnswers: false,
       answers: [
         {
@@ -506,7 +506,7 @@ const OLD_HOSTAGE: IncidentTypeConfiguration = {
       id: '44365',
       active: false,
       code: 'WAS A CANDR ADVISOR PRESENT',
-      label: 'WAS A CANDR ADVISOR PRESENT',
+      label: 'Was a CANDR advisor present?',
       multipleAnswers: false,
       answers: [
         {
@@ -533,7 +533,7 @@ const OLD_HOSTAGE: IncidentTypeConfiguration = {
       id: '44403',
       active: false,
       code: 'QUOTE THE VANTIVE CASE NUMBER',
-      label: 'QUOTE THE VANTIVE CASE NUMBER',
+      label: 'Quote the vantive case number',
       multipleAnswers: false,
       answers: [
         {
@@ -551,7 +551,7 @@ const OLD_HOSTAGE: IncidentTypeConfiguration = {
       id: '44411',
       active: false,
       code: 'DID A TACTICAL FIREARMS ADVISER ATTEND',
-      label: 'DID A TACTICAL FIREARMS ADVISER ATTEND',
+      label: 'Did a tactical firearms adviser attend?',
       multipleAnswers: false,
       answers: [
         {
@@ -578,7 +578,7 @@ const OLD_HOSTAGE: IncidentTypeConfiguration = {
       id: '44431',
       active: false,
       code: 'WAS PHYSICAL VIOLENCE USED TOWARDS HOSTAGE',
-      label: 'WAS PHYSICAL VIOLENCE USED TOWARDS HOSTAGE',
+      label: 'Was physical violence used towards hostage?',
       multipleAnswers: false,
       answers: [
         {
@@ -605,7 +605,7 @@ const OLD_HOSTAGE: IncidentTypeConfiguration = {
       id: '44452',
       active: false,
       code: 'WERE WEAPONS USED BY THE PERPETRATOR',
-      label: 'WERE WEAPONS USED BY THE PERPETRATOR',
+      label: 'Were weapons used by the perpetrator?',
       multipleAnswers: false,
       answers: [
         {
@@ -632,7 +632,7 @@ const OLD_HOSTAGE: IncidentTypeConfiguration = {
       id: '44463',
       active: false,
       code: 'WHAT WAS THE LOCATION OF THE INCIDENT',
-      label: 'WHAT WAS THE LOCATION OF THE INCIDENT',
+      label: 'What was the location of the incident?',
       multipleAnswers: false,
       answers: [
         {
@@ -938,7 +938,7 @@ const OLD_HOSTAGE: IncidentTypeConfiguration = {
       id: '44474',
       active: false,
       code: 'DESCRIBE WEAPONS USED',
-      label: 'DESCRIBE WEAPONS USED',
+      label: 'Describe weapons used',
       multipleAnswers: true,
       answers: [
         {
@@ -1064,7 +1064,7 @@ const OLD_HOSTAGE: IncidentTypeConfiguration = {
       id: '44488',
       active: false,
       code: 'WAS THE SYSTEM RE-ACTIVATED LOCALLY OR BY THE SERVICE SUPPLIER',
-      label: 'WAS THE SYSTEM RE-ACTIVATED LOCALLY OR BY THE SERVICE SUPPLIER',
+      label: 'Was the system re-activated locally or by the service supplier?',
       multipleAnswers: false,
       answers: [
         {
@@ -1091,7 +1091,7 @@ const OLD_HOSTAGE: IncidentTypeConfiguration = {
       id: '44497',
       active: false,
       code: 'WAS A BARRICADE USED',
-      label: 'WAS A BARRICADE USED',
+      label: 'Was a barricade used?',
       multipleAnswers: false,
       answers: [
         {
@@ -1118,7 +1118,7 @@ const OLD_HOSTAGE: IncidentTypeConfiguration = {
       id: '44555',
       active: false,
       code: 'WAS THE AMBULANCE SERVICE PRESENT',
-      label: 'WAS THE AMBULANCE SERVICE PRESENT',
+      label: 'Was the ambulance service present?',
       multipleAnswers: false,
       answers: [
         {
@@ -1145,7 +1145,7 @@ const OLD_HOSTAGE: IncidentTypeConfiguration = {
       id: '44564',
       active: false,
       code: 'ENTER NUMBER OF PERPETRATORS',
-      label: 'ENTER NUMBER OF PERPETRATORS',
+      label: 'Enter number of perpetrators',
       multipleAnswers: false,
       answers: [
         {
@@ -1163,7 +1163,7 @@ const OLD_HOSTAGE: IncidentTypeConfiguration = {
       id: '44569',
       active: false,
       code: 'HAS THE PRISON SERVICE PRESS OFFICE BEEN INFORMED',
-      label: 'HAS THE PRISON SERVICE PRESS OFFICE BEEN INFORMED',
+      label: 'Has the prison service press office been informed?',
       multipleAnswers: false,
       answers: [
         {
@@ -1190,7 +1190,7 @@ const OLD_HOSTAGE: IncidentTypeConfiguration = {
       id: '44585',
       active: false,
       code: 'DESCRIBE HOW THE INCIDENT WAS RESOLVED',
-      label: 'DESCRIBE HOW THE INCIDENT WAS RESOLVED',
+      label: 'Describe how the incident was resolved',
       multipleAnswers: false,
       answers: [
         {
@@ -1226,7 +1226,7 @@ const OLD_HOSTAGE: IncidentTypeConfiguration = {
       id: '44600',
       active: false,
       code: 'DESCRIBE THE DAMAGE',
-      label: 'DESCRIBE THE DAMAGE',
+      label: 'Describe the damage',
       multipleAnswers: false,
       answers: [
         {
@@ -1262,7 +1262,7 @@ const OLD_HOSTAGE: IncidentTypeConfiguration = {
       id: '44608',
       active: false,
       code: 'WHICH MINOR INJURIES WERE SUSTAINED',
-      label: 'WHICH MINOR INJURIES WERE SUSTAINED',
+      label: 'Which minor injuries were sustained?',
       multipleAnswers: true,
       answers: [
         {
@@ -1316,7 +1316,7 @@ const OLD_HOSTAGE: IncidentTypeConfiguration = {
       id: '44611',
       active: false,
       code: 'DESCRIBE WHAT WAS COMPROMISED AND BY WHOM',
-      label: 'DESCRIBE WHAT WAS COMPROMISED AND BY WHOM',
+      label: 'Describe what was compromised and by whom',
       multipleAnswers: false,
       answers: [
         {
@@ -1334,7 +1334,7 @@ const OLD_HOSTAGE: IncidentTypeConfiguration = {
       id: '44613',
       active: false,
       code: 'WAS A MINOR INJURY SUSTAINED',
-      label: 'WAS A MINOR INJURY SUSTAINED',
+      label: 'Was a minor injury sustained?',
       multipleAnswers: false,
       answers: [
         {
@@ -1361,7 +1361,7 @@ const OLD_HOSTAGE: IncidentTypeConfiguration = {
       id: '44614',
       active: false,
       code: 'WAS A HOSTAGE PART OF THE BARRICADE',
-      label: 'WAS A HOSTAGE PART OF THE BARRICADE',
+      label: 'Was a hostage part of the barricade?',
       multipleAnswers: false,
       answers: [
         {
@@ -1388,7 +1388,7 @@ const OLD_HOSTAGE: IncidentTypeConfiguration = {
       id: '44690',
       active: false,
       code: 'WERE THE POLICE INFORMED OF THE INCIDENT',
-      label: 'WERE THE POLICE INFORMED OF THE INCIDENT',
+      label: 'Were the police informed of the incident?',
       multipleAnswers: false,
       answers: [
         {
@@ -1415,7 +1415,7 @@ const OLD_HOSTAGE: IncidentTypeConfiguration = {
       id: '44693',
       active: false,
       code: 'WHICH SERIOUS INJURIES WERE SUSTAINED',
-      label: 'WHICH SERIOUS INJURIES WERE SUSTAINED',
+      label: 'Which serious injuries were sustained?',
       multipleAnswers: true,
       answers: [
         {
@@ -1532,7 +1532,7 @@ const OLD_HOSTAGE: IncidentTypeConfiguration = {
       id: '44711',
       active: false,
       code: 'WERE HEALTH CARE CENTRE STAFF PRESENT',
-      label: 'WERE HEALTH CARE CENTRE STAFF PRESENT',
+      label: 'Were health care centre staff present?',
       multipleAnswers: false,
       answers: [
         {
@@ -1559,7 +1559,7 @@ const OLD_HOSTAGE: IncidentTypeConfiguration = {
       id: '44777',
       active: false,
       code: 'WAS THE HOSTAGE PHYSICALLY RESTRAINED BY THE PERPETRATOR',
-      label: 'WAS THE HOSTAGE PHYSICALLY RESTRAINED BY THE PERPETRATOR',
+      label: 'Was the hostage physically restrained by the perpetrator?',
       multipleAnswers: false,
       answers: [
         {
@@ -1586,7 +1586,7 @@ const OLD_HOSTAGE: IncidentTypeConfiguration = {
       id: '44788',
       active: false,
       code: 'WHAT TIME WAS THE SYSTEM SHUT DOWN?',
-      label: 'WHAT TIME WAS THE SYSTEM SHUT DOWN?',
+      label: 'What time was the system shut down?',
       multipleAnswers: false,
       answers: [
         {
@@ -1604,7 +1604,7 @@ const OLD_HOSTAGE: IncidentTypeConfiguration = {
       id: '44805',
       active: false,
       code: 'WAS THE TELEPHONE/IT SYSTEM SHUT DOWN LOCALLY OR BY THE SERVICE SUPPLIER',
-      label: 'WAS THE TELEPHONE/IT SYSTEM SHUT DOWN LOCALLY OR BY THE SERVICE SUPPLIER',
+      label: 'Was the telephone/it system shut down locally or by the service supplier?',
       multipleAnswers: false,
       answers: [
         {
@@ -1631,7 +1631,7 @@ const OLD_HOSTAGE: IncidentTypeConfiguration = {
       id: '44814',
       active: false,
       code: 'WAS A DOOR JACK USED',
-      label: 'WAS A DOOR JACK USED',
+      label: 'Was a door jack used?',
       multipleAnswers: false,
       answers: [
         {
@@ -1658,7 +1658,7 @@ const OLD_HOSTAGE: IncidentTypeConfiguration = {
       id: '44817',
       active: false,
       code: 'WHEN WAS THE SYSTEM RE-ACTIVATED?',
-      label: 'WHEN WAS THE SYSTEM RE-ACTIVATED?',
+      label: 'When was the system re-activated?',
       multipleAnswers: false,
       answers: [
         {
@@ -1676,7 +1676,7 @@ const OLD_HOSTAGE: IncidentTypeConfiguration = {
       id: '44823',
       active: false,
       code: 'DESCRIBE STATUS OF PERPETRATORS',
-      label: 'DESCRIBE STATUS OF PERPETRATORS',
+      label: 'Describe status of perpetrators',
       multipleAnswers: true,
       answers: [
         {
@@ -1712,7 +1712,7 @@ const OLD_HOSTAGE: IncidentTypeConfiguration = {
       id: '44831',
       active: false,
       code: 'WAS THE KEYWORD REQUESTED?',
-      label: 'WAS THE KEYWORD REQUESTED?',
+      label: 'Was the keyword requested?',
       multipleAnswers: false,
       answers: [
         {
@@ -1739,7 +1739,7 @@ const OLD_HOSTAGE: IncidentTypeConfiguration = {
       id: '44891',
       active: false,
       code: 'WAS THERE EVIDENCE OF THE STOCKHOLM SYNDROME',
-      label: 'WAS THERE EVIDENCE OF THE STOCKHOLM SYNDROME',
+      label: 'Was there evidence of the Stockholm syndrome?',
       multipleAnswers: false,
       answers: [
         {
@@ -1766,7 +1766,7 @@ const OLD_HOSTAGE: IncidentTypeConfiguration = {
       id: '44937',
       active: false,
       code: 'ARE ANY STAFF ON SICK LEAVE AS A RESULT OF INCIDENT',
-      label: 'ARE ANY STAFF ON SICK LEAVE AS A RESULT OF INCIDENT',
+      label: 'Are any staff on sick leave as a result of incident?',
       multipleAnswers: false,
       answers: [
         {
@@ -1793,7 +1793,7 @@ const OLD_HOSTAGE: IncidentTypeConfiguration = {
       id: '44939',
       active: false,
       code: 'WERE FIREARMS OFFICERS DEPLOYED',
-      label: 'WERE FIREARMS OFFICERS DEPLOYED',
+      label: 'Were firearms officers deployed?',
       multipleAnswers: false,
       answers: [
         {
@@ -1820,7 +1820,7 @@ const OLD_HOSTAGE: IncidentTypeConfiguration = {
       id: '44959',
       active: false,
       code: 'WAS THE EMERGENCY RESPONSE VEHICLE PRESENT',
-      label: 'WAS THE EMERGENCY RESPONSE VEHICLE PRESENT',
+      label: 'Was the emergency response vehicle present?',
       multipleAnswers: false,
       answers: [
         {
@@ -1847,7 +1847,7 @@ const OLD_HOSTAGE: IncidentTypeConfiguration = {
       id: '44963',
       active: false,
       code: 'WAS A TECHNICAL SUPPORT UNIT PRESENT',
-      label: 'WAS A TECHNICAL SUPPORT UNIT PRESENT',
+      label: 'Was a technical support unit present?',
       multipleAnswers: false,
       answers: [
         {
@@ -1874,7 +1874,7 @@ const OLD_HOSTAGE: IncidentTypeConfiguration = {
       id: '45004',
       active: false,
       code: 'ENTER NUMBER OF HOSTAGES',
-      label: 'ENTER NUMBER OF HOSTAGES',
+      label: 'Enter number of hostages',
       multipleAnswers: false,
       answers: [
         {
@@ -1892,7 +1892,7 @@ const OLD_HOSTAGE: IncidentTypeConfiguration = {
       id: '45012',
       active: false,
       code: 'WAS THIS A FULL OR PARTIAL SHUT DOWN?',
-      label: 'WAS THIS A FULL OR PARTIAL SHUT DOWN?',
+      label: 'Was this a full or partial shut down?',
       multipleAnswers: false,
       answers: [
         {
@@ -1919,7 +1919,7 @@ const OLD_HOSTAGE: IncidentTypeConfiguration = {
       id: '45059',
       active: false,
       code: 'ENTER DESCRIPTION OF PERSON(S) INJURED',
-      label: 'ENTER DESCRIPTION OF PERSON(S) INJURED',
+      label: 'Enter description of person(s) injured',
       multipleAnswers: true,
       answers: [
         {
@@ -1973,7 +1973,7 @@ const OLD_HOSTAGE: IncidentTypeConfiguration = {
       id: '45076',
       active: false,
       code: 'WAS THE SYSTEM COMPROMISED?',
-      label: 'WAS THE SYSTEM COMPROMISED?',
+      label: 'Was the system compromised?',
       multipleAnswers: false,
       answers: [
         {
@@ -2000,7 +2000,7 @@ const OLD_HOSTAGE: IncidentTypeConfiguration = {
       id: '45078',
       active: false,
       code: 'WAS THE FIRE SERVICE PRESENT',
-      label: 'WAS THE FIRE SERVICE PRESENT',
+      label: 'Was the fire service present?',
       multipleAnswers: false,
       answers: [
         {
@@ -2027,7 +2027,7 @@ const OLD_HOSTAGE: IncidentTypeConfiguration = {
       id: '45079',
       active: false,
       code: 'WAS AN INCIDENT LIAISON OFFICER PRESENT',
-      label: 'WAS AN INCIDENT LIAISON OFFICER PRESENT',
+      label: 'Was an incident liaison officer present?',
       multipleAnswers: false,
       answers: [
         {
@@ -2054,7 +2054,7 @@ const OLD_HOSTAGE: IncidentTypeConfiguration = {
       id: '45087',
       active: false,
       code: 'WAS A MEDICAL OFFICER PRESENT',
-      label: 'WAS A MEDICAL OFFICER PRESENT',
+      label: 'Was a medical officer present?',
       multipleAnswers: false,
       answers: [
         {
@@ -2081,7 +2081,7 @@ const OLD_HOSTAGE: IncidentTypeConfiguration = {
       id: '45093',
       active: false,
       code: 'IS THERE ANY MEDIA INTEREST IN THIS INCIDENT',
-      label: 'IS THERE ANY MEDIA INTEREST IN THIS INCIDENT',
+      label: 'Is there any media interest in this incident?',
       multipleAnswers: false,
       answers: [
         {
@@ -2108,7 +2108,7 @@ const OLD_HOSTAGE: IncidentTypeConfiguration = {
       id: '45101',
       active: false,
       code: 'WAS A SERIOUS INJURY SUSTAINED',
-      label: 'WAS A SERIOUS INJURY SUSTAINED',
+      label: 'Was a serious injury sustained?',
       multipleAnswers: false,
       answers: [
         {
@@ -2135,7 +2135,7 @@ const OLD_HOSTAGE: IncidentTypeConfiguration = {
       id: '45135',
       active: false,
       code: 'THE INCIDENT IS SUBJECT TO',
-      label: 'THE INCIDENT IS SUBJECT TO',
+      label: 'The incident is subject to',
       multipleAnswers: true,
       answers: [
         {
@@ -2180,7 +2180,7 @@ const OLD_HOSTAGE: IncidentTypeConfiguration = {
       id: '45143',
       active: false,
       code: 'DESCRIBE STATUS OF HOSTAGES',
-      label: 'DESCRIBE STATUS OF HOSTAGES',
+      label: 'Describe status of hostages',
       multipleAnswers: true,
       answers: [
         {
@@ -2234,7 +2234,7 @@ const OLD_HOSTAGE: IncidentTypeConfiguration = {
       id: '45148',
       active: false,
       code: 'WERE WORKS SERVICES STAFF PRESENT',
-      label: 'WERE WORKS SERVICES STAFF PRESENT',
+      label: 'Were works services staff present?',
       multipleAnswers: false,
       answers: [
         {
@@ -2261,7 +2261,7 @@ const OLD_HOSTAGE: IncidentTypeConfiguration = {
       id: '45162',
       active: false,
       code: 'DURATION OF INCIDENT IN HOURS',
-      label: 'DURATION OF INCIDENT IN HOURS',
+      label: 'Duration of incident in hours',
       multipleAnswers: false,
       answers: [
         {

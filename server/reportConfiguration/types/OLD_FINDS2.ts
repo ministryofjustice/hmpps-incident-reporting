@@ -1,4 +1,4 @@
-// Generated with ./scripts/updateNomisIncidentTypeConfigurations.ts at 2024-10-15T17:17:32.658Z
+// Generated with ./scripts/updateNomisIncidentTypeConfigurations.ts at 2024-12-02T17:35:28.237Z
 
 import { type IncidentTypeConfiguration } from '../../data/incidentTypeConfiguration/types'
 
@@ -1307,7 +1307,7 @@ const OLD_FINDS2: IncidentTypeConfiguration = {
       id: '51200',
       active: false,
       code: 'Enter number of SIM Cards found',
-      label: 'Enter number of SIM Cards found',
+      label: 'Enter number of SIM cards found',
       multipleAnswers: false,
       answers: [
         {
@@ -1820,7 +1820,7 @@ const OLD_FINDS2: IncidentTypeConfiguration = {
       id: '51205',
       active: false,
       code: 'Has Phone/SIM/Memory card been sent to NDTSG',
-      label: 'Has Phone/SIM/Memory card been sent to NDTSG',
+      label: 'Has phone/sim/memory card been sent to NDTSG?',
       multipleAnswers: true,
       answers: [
         {
@@ -1856,7 +1856,7 @@ const OLD_FINDS2: IncidentTypeConfiguration = {
       id: '51206',
       active: false,
       code: 'Has Phone/SIM/Equipment been retained by police?',
-      label: 'Has Phone/SIM/Equipment been retained by police?',
+      label: 'Has phone/sim/equipment been retained by police?',
       multipleAnswers: false,
       answers: [
         {
@@ -2117,7 +2117,7 @@ const OLD_FINDS2: IncidentTypeConfiguration = {
       id: '51212',
       active: false,
       code: 'Were any other reportable items found',
-      label: 'Were any other reportable items found',
+      label: 'Were any other reportable items found?',
       multipleAnswers: false,
       answers: [
         {
@@ -2657,7 +2657,7 @@ const OLD_FINDS2: IncidentTypeConfiguration = {
       id: '51218',
       active: false,
       code: 'Is the item heavily contaminated (eg Blood, Faeces)?',
-      label: 'Is the item heavily contaminated (eg Blood, Faeces)?',
+      label: 'Is the item heavily contaminated (eg blood, faeces)?',
       multipleAnswers: false,
       answers: [
         {
@@ -2684,7 +2684,7 @@ const OLD_FINDS2: IncidentTypeConfiguration = {
       id: '51219',
       active: false,
       code: 'Was a visitor suspected of involvement and arrested by the police',
-      label: 'Was a visitor suspected of involvement and arrested by the police',
+      label: 'Was a visitor suspected of involvement and arrested by the police?',
       multipleAnswers: false,
       answers: [
         {

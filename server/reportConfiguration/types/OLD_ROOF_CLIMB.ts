@@ -1,4 +1,4 @@
-// Generated with ./scripts/updateNomisIncidentTypeConfigurations.ts at 2024-10-15T17:17:43.450Z
+// Generated with ./scripts/updateNomisIncidentTypeConfigurations.ts at 2024-12-02T17:35:39.587Z
 
 import { type IncidentTypeConfiguration } from '../../data/incidentTypeConfiguration/types'
 
@@ -11,7 +11,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
       id: '44145',
       active: false,
       code: 'WAS THIS A FULL OR PARTIAL SHUT DOWN?',
-      label: 'WAS THIS A FULL OR PARTIAL SHUT DOWN?',
+      label: 'Was this a full or partial shut down?',
       multipleAnswers: false,
       answers: [
         {
@@ -38,7 +38,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
       id: '44150',
       active: false,
       code: 'ESTIMATED COST OF DAMAGE',
-      label: 'ESTIMATED COST OF DAMAGE',
+      label: 'Estimated cost of damage',
       multipleAnswers: false,
       answers: [
         {
@@ -56,7 +56,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
       id: '44151',
       active: false,
       code: 'WERE ANY INJURIES RECEIVED DURING THIS INCIDENT',
-      label: 'WERE ANY INJURIES RECEIVED DURING THIS INCIDENT',
+      label: 'Were any injuries received during this incident?',
       multipleAnswers: false,
       answers: [
         {
@@ -83,7 +83,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
       id: '44175',
       active: false,
       code: 'WHO WAS DETAINED IN OUTSIDE HOSPITAL',
-      label: 'WHO WAS DETAINED IN OUTSIDE HOSPITAL',
+      label: 'Who was detained in outside hospital?',
       multipleAnswers: true,
       answers: [
         {
@@ -137,7 +137,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
       id: '44177',
       active: false,
       code: 'WHEN WAS THE SYSTEM RE-ACTIVATED?',
-      label: 'WHEN WAS THE SYSTEM RE-ACTIVATED?',
+      label: 'When was the system re-activated?',
       multipleAnswers: false,
       answers: [
         {
@@ -155,7 +155,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
       id: '44183',
       active: false,
       code: 'DURATION OF INCIDENT IN HOURS',
-      label: 'DURATION OF INCIDENT IN HOURS',
+      label: 'Duration of incident in hours',
       multipleAnswers: false,
       answers: [
         {
@@ -173,7 +173,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
       id: '44196',
       active: false,
       code: 'WAS THERE AN APPARENT REASON FOR THE INCIDENT',
-      label: 'WAS THERE AN APPARENT REASON FOR THE INCIDENT',
+      label: 'Was there an apparent reason for the incident?',
       multipleAnswers: false,
       answers: [
         {
@@ -200,7 +200,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
       id: '44273',
       active: false,
       code: 'ARE ANY STAFF ON SICK LEAVE AS A RESULT OF THIS INCIDENT',
-      label: 'ARE ANY STAFF ON SICK LEAVE AS A RESULT OF THIS INCIDENT',
+      label: 'Are any staff on sick leave as a result of this incident?',
       multipleAnswers: false,
       answers: [
         {
@@ -227,7 +227,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
       id: '44289',
       active: false,
       code: 'WAS THE KEYWORD REQUESTED?',
-      label: 'WAS THE KEYWORD REQUESTED?',
+      label: 'Was the keyword requested?',
       multipleAnswers: false,
       answers: [
         {
@@ -254,7 +254,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
       id: '44328',
       active: false,
       code: 'WAS THE SYSTEM RE-ACTIVATED LOCALLY OR BY THE SERVICE SUPPLIER',
-      label: 'WAS THE SYSTEM RE-ACTIVATED LOCALLY OR BY THE SERVICE SUPPLIER',
+      label: 'Was the system re-activated locally or by the service supplier?',
       multipleAnswers: false,
       answers: [
         {
@@ -281,7 +281,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
       id: '44334',
       active: false,
       code: 'WAS DAMAGE CAUSED TO PRISON PROPERTY',
-      label: 'WAS DAMAGE CAUSED TO PRISON PROPERTY',
+      label: 'Was damage caused to prison property?',
       multipleAnswers: false,
       answers: [
         {
@@ -308,7 +308,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
       id: '44337',
       active: false,
       code: 'DESCRIBE THE APPARENT REASON FOR THE INCIDENT',
-      label: 'DESCRIBE THE APPARENT REASON FOR THE INCIDENT',
+      label: 'Describe the apparent reason for the incident',
       multipleAnswers: false,
       answers: [
         {
@@ -371,7 +371,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
       id: '44359',
       active: false,
       code: 'IS THERE ANY MEDIA INTEREST IN THIS INCIDENT',
-      label: 'IS THERE ANY MEDIA INTEREST IN THIS INCIDENT',
+      label: 'Is there any media interest in this incident?',
       multipleAnswers: false,
       answers: [
         {
@@ -398,7 +398,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
       id: '44374',
       active: false,
       code: 'WAS THE AMBULANCE SERVICE PRESENT',
-      label: 'WAS THE AMBULANCE SERVICE PRESENT',
+      label: 'Was the ambulance service present?',
       multipleAnswers: false,
       answers: [
         {
@@ -425,7 +425,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
       id: '44375',
       active: false,
       code: 'HAS THE PRISON SERVICE PRESS OFFICE BEEN INFORMED',
-      label: 'HAS THE PRISON SERVICE PRESS OFFICE BEEN INFORMED',
+      label: 'Has the prison service press office been informed?',
       multipleAnswers: false,
       answers: [
         {
@@ -452,7 +452,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
       id: '44394',
       active: false,
       code: 'WHICH MINOR INJURIES WERE SUSTAINED',
-      label: 'WHICH MINOR INJURIES WERE SUSTAINED',
+      label: 'Which minor injuries were sustained?',
       multipleAnswers: true,
       answers: [
         {
@@ -506,7 +506,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
       id: '44417',
       active: false,
       code: 'IS THE LOCATION OF THE INCIDENT KNOWN',
-      label: 'IS THE LOCATION OF THE INCIDENT KNOWN',
+      label: 'Is the location of the incident known?',
       multipleAnswers: false,
       answers: [
         {
@@ -533,7 +533,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
       id: '44422',
       active: false,
       code: 'IS THE INCIDENT THE SUBJECT OF A POLICE INVESTIGATION',
-      label: 'IS THE INCIDENT THE SUBJECT OF A POLICE INVESTIGATION',
+      label: 'Is the incident the subject of a police investigation?',
       multipleAnswers: false,
       answers: [
         {
@@ -560,7 +560,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
       id: '44462',
       active: false,
       code: 'ENTER DESCRIPTION OF PERSON(S) INJURED',
-      label: 'ENTER DESCRIPTION OF PERSON(S) INJURED',
+      label: 'Enter description of person(s) injured',
       multipleAnswers: true,
       answers: [
         {
@@ -614,7 +614,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
       id: '44465',
       active: false,
       code: 'IS ANY MEMBER OF STAFF FACING DISCIPLINARY CHARGES',
-      label: 'IS ANY MEMBER OF STAFF FACING DISCIPLINARY CHARGES',
+      label: 'Is any member of staff facing disciplinary charges?',
       multipleAnswers: false,
       answers: [
         {
@@ -641,7 +641,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
       id: '44469',
       active: false,
       code: 'WERE WORKS SERVICES STAFF PRESENT',
-      label: 'WERE WORKS SERVICES STAFF PRESENT',
+      label: 'Were works services staff present?',
       multipleAnswers: false,
       answers: [
         {
@@ -668,7 +668,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
       id: '44475',
       active: false,
       code: 'WERE EXTENDABLE BATONS USED',
-      label: 'WERE EXTENDABLE BATONS USED',
+      label: 'Were extendable batons used?',
       multipleAnswers: false,
       answers: [
         {
@@ -695,7 +695,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
       id: '44487',
       active: false,
       code: 'DESCRIBE METHOD OF GAINING ACCESS TO AREA AT HEIGHT',
-      label: 'DESCRIBE METHOD OF GAINING ACCESS TO AREA AT HEIGHT',
+      label: 'Describe method of gaining access to area at height',
       multipleAnswers: false,
       answers: [
         {
@@ -749,7 +749,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
       id: '44518',
       active: false,
       code: 'WAS A SERIOUS INJURY SUSTAINED',
-      label: 'WAS A SERIOUS INJURY SUSTAINED',
+      label: 'Was a serious injury sustained?',
       multipleAnswers: false,
       answers: [
         {
@@ -776,7 +776,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
       id: '44533',
       active: false,
       code: 'DID INJURIES RESULT IN DETENTION IN OUTSIDE HOSPITAL AS AN IN-PATIENT',
-      label: 'DID INJURIES RESULT IN DETENTION IN OUTSIDE HOSPITAL AS AN IN-PATIENT',
+      label: 'Did injuries result in detention in outside hospital as an in-patient?',
       multipleAnswers: false,
       answers: [
         {
@@ -803,7 +803,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
       id: '44536',
       active: false,
       code: 'WAS THE FIRE SERVICE PRESENT',
-      label: 'WAS THE FIRE SERVICE PRESENT',
+      label: 'Was the fire service present?',
       multipleAnswers: false,
       answers: [
         {
@@ -830,7 +830,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
       id: '44553',
       active: false,
       code: "IS THE INCIDENT SUBJECT TO A GOVERNOR'S ADJUDICATION",
-      label: "IS THE INCIDENT SUBJECT TO A GOVERNOR'S ADJUDICATION",
+      label: "Is the incident subject to a governor's adjudication?",
       multipleAnswers: false,
       answers: [
         {
@@ -857,7 +857,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
       id: '44580',
       active: false,
       code: 'WERE HEALTH CARE CENTRE STAFF PRESENT',
-      label: 'WERE HEALTH CARE CENTRE STAFF PRESENT',
+      label: 'Were health care centre staff present?',
       multipleAnswers: false,
       answers: [
         {
@@ -884,7 +884,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
       id: '44596',
       active: false,
       code: 'WERE THE POLICE INFORMED OF THE INCIDENT',
-      label: 'WERE THE POLICE INFORMED OF THE INCIDENT',
+      label: 'Were the police informed of the incident?',
       multipleAnswers: false,
       answers: [
         {
@@ -911,7 +911,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
       id: '44610',
       active: false,
       code: 'WERE WATER HOSES USED',
-      label: 'WERE WATER HOSES USED',
+      label: 'Were water hoses used?',
       multipleAnswers: false,
       answers: [
         {
@@ -938,7 +938,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
       id: '44625',
       active: false,
       code: 'WERE IMB MEMBERS PRESENT',
-      label: 'WERE IMB MEMBERS PRESENT',
+      label: 'Were IMB members present?',
       multipleAnswers: false,
       answers: [
         {
@@ -965,7 +965,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
       id: '44630',
       active: false,
       code: 'HAVE THE RING LEADERS BEEN ENTERED ON INMATE INVOLVEMENT',
-      label: 'HAVE THE RING LEADERS BEEN ENTERED ON INMATE INVOLVEMENT',
+      label: 'Have the ring leaders been entered on inmate involvement?',
       multipleAnswers: false,
       answers: [
         {
@@ -992,7 +992,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
       id: '44639',
       active: false,
       code: 'WAS THE INCIDENT IN PUBLIC VIEW',
-      label: 'WAS THE INCIDENT IN PUBLIC VIEW',
+      label: 'Was the incident in public view?',
       multipleAnswers: false,
       answers: [
         {
@@ -1019,7 +1019,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
       id: '44660',
       active: false,
       code: 'HOW MANY PRISONERS WERE INVOLVED',
-      label: 'HOW MANY PRISONERS WERE INVOLVED',
+      label: 'How many prisoners were involved?',
       multipleAnswers: false,
       answers: [
         {
@@ -1037,7 +1037,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
       id: '44687',
       active: false,
       code: 'DESCRIBE WEAPONS USED',
-      label: 'DESCRIBE WEAPONS USED',
+      label: 'Describe weapons used',
       multipleAnswers: true,
       answers: [
         {
@@ -1163,7 +1163,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
       id: '44710',
       active: false,
       code: 'WAS CONTROL AND RESTRAINTS EMPLOYED',
-      label: 'WAS CONTROL AND RESTRAINTS EMPLOYED',
+      label: 'Was control and restraints employed?',
       multipleAnswers: false,
       answers: [
         {
@@ -1190,7 +1190,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
       id: '44714',
       active: false,
       code: 'QUOTE THE VANTIVE CASE NUMBER',
-      label: 'QUOTE THE VANTIVE CASE NUMBER',
+      label: 'Quote the vantive case number',
       multipleAnswers: false,
       answers: [
         {
@@ -1208,7 +1208,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
       id: '44725',
       active: false,
       code: 'WAS ANY EVACUATION NECESSARY',
-      label: 'WAS ANY EVACUATION NECESSARY',
+      label: 'Was any evacuation necessary?',
       multipleAnswers: false,
       answers: [
         {
@@ -1235,7 +1235,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
       id: '44756',
       active: false,
       code: 'WAS OPERATION TORNADO USED',
-      label: 'WAS OPERATION TORNADO USED',
+      label: 'Was operation Tornado used?',
       multipleAnswers: false,
       answers: [
         {
@@ -1262,7 +1262,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
       id: '44767',
       active: false,
       code: 'HAS THE SERVICE SUPPLIER BEEN NOTIFIED OF A REPLACEMENT KEYWORD?',
-      label: 'HAS THE SERVICE SUPPLIER BEEN NOTIFIED OF A REPLACEMENT KEYWORD?',
+      label: 'Has the service supplier been notified of a replacement keyword?',
       multipleAnswers: false,
       answers: [
         {
@@ -1289,7 +1289,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
       id: '44780',
       active: false,
       code: 'DESCRIBE HOW THE INCIDENT WAS RESOLVED',
-      label: 'DESCRIBE HOW THE INCIDENT WAS RESOLVED',
+      label: 'Describe how the incident was resolved',
       multipleAnswers: false,
       answers: [
         {
@@ -1325,7 +1325,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
       id: '44797',
       active: false,
       code: 'WERE THE POLICE PRESENT',
-      label: 'WERE THE POLICE PRESENT',
+      label: 'Were the police present?',
       multipleAnswers: false,
       answers: [
         {
@@ -1352,7 +1352,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
       id: '44804',
       active: false,
       code: 'IS THE INCIDENT THE SUBJECT OF AN INTERNAL INVESTIGATION',
-      label: 'IS THE INCIDENT THE SUBJECT OF AN INTERNAL INVESTIGATION',
+      label: 'Is the incident the subject of an internal investigation?',
       multipleAnswers: false,
       answers: [
         {
@@ -1379,7 +1379,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
       id: '44806',
       active: false,
       code: 'WHO AUTHORISED THE SHUT DOWN?',
-      label: 'WHO AUTHORISED THE SHUT DOWN?',
+      label: 'Who authorised the shut down?',
       multipleAnswers: false,
       answers: [
         {
@@ -1424,7 +1424,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
       id: '44815',
       active: false,
       code: 'WERE TRAINED NEGOTIATORS DEPLOYED',
-      label: 'WERE TRAINED NEGOTIATORS DEPLOYED',
+      label: 'Were trained negotiators deployed?',
       multipleAnswers: false,
       answers: [
         {
@@ -1451,7 +1451,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
       id: '44825',
       active: false,
       code: 'WAS THE SYSTEM COMPROMISED?',
-      label: 'WAS THE SYSTEM COMPROMISED?',
+      label: 'Was the system compromised?',
       multipleAnswers: false,
       answers: [
         {
@@ -1478,7 +1478,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
       id: '44842',
       active: false,
       code: 'ARE THERE ANY STAFF NOW OFF DUTY AS A RESULT OF THIS INCIDENT',
-      label: 'ARE THERE ANY STAFF NOW OFF DUTY AS A RESULT OF THIS INCIDENT',
+      label: 'Are there any staff now off duty as a result of this incident?',
       multipleAnswers: false,
       answers: [
         {
@@ -1505,7 +1505,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
       id: '44847',
       active: false,
       code: 'DESCRIBE WHAT WAS COMPROMISED AND BY WHOM',
-      label: 'DESCRIBE WHAT WAS COMPROMISED AND BY WHOM',
+      label: 'Describe what was compromised and by whom',
       multipleAnswers: false,
       answers: [
         {
@@ -1523,7 +1523,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
       id: '44853',
       active: false,
       code: 'HAS ANY PROSECUTION TAKEN PLACE OR IS ANY PENDING',
-      label: 'HAS ANY PROSECUTION TAKEN PLACE OR IS ANY PENDING',
+      label: 'Has any prosecution taken place or is any pending?',
       multipleAnswers: false,
       answers: [
         {
@@ -1550,7 +1550,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
       id: '44873',
       active: false,
       code: 'WERE WEAPONS USED BY THE PERPETRATOR',
-      label: 'WERE WEAPONS USED BY THE PERPETRATOR',
+      label: 'Were weapons used by the perpetrator?',
       multipleAnswers: false,
       answers: [
         {
@@ -1577,7 +1577,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
       id: '44889',
       active: false,
       code: 'HAVE THE RING LEADERS BEEN IDENTIFIED',
-      label: 'HAVE THE RING LEADERS BEEN IDENTIFIED',
+      label: 'Have the ring leaders been identified?',
       multipleAnswers: false,
       answers: [
         {
@@ -1604,7 +1604,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
       id: '44892',
       active: false,
       code: 'WAS THE EMERGENCY RESPONSE VEHICLE PRESENT',
-      label: 'WAS THE EMERGENCY RESPONSE VEHICLE PRESENT',
+      label: 'Was the emergency response vehicle present?',
       multipleAnswers: false,
       answers: [
         {
@@ -1631,7 +1631,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
       id: '44927',
       active: false,
       code: 'WHAT WAS THE LOCATION OF THE INCIDENT',
-      label: 'WHAT WAS THE LOCATION OF THE INCIDENT',
+      label: 'What was the location of the incident?',
       multipleAnswers: false,
       answers: [
         {
@@ -1937,7 +1937,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
       id: '44951',
       active: false,
       code: 'WAS AN INCIDENT LIAISON OFFICER PRESENT',
-      label: 'WAS AN INCIDENT LIAISON OFFICER PRESENT',
+      label: 'Was an incident liaison officer present?',
       multipleAnswers: false,
       answers: [
         {
@@ -1964,7 +1964,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
       id: '44985',
       active: false,
       code: 'WAS THE TELEPHONE/IT SYSTEM SHUT DOWN LOCALLY OR BY THE SERVICE SUPPLIER',
-      label: 'WAS THE TELEPHONE/IT SYSTEM SHUT DOWN LOCALLY OR BY THE SERVICE SUPPLIER',
+      label: 'Was the telephone/it system shut down locally or by the service supplier?',
       multipleAnswers: false,
       answers: [
         {
@@ -1991,7 +1991,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
       id: '44986',
       active: false,
       code: 'WAS A CANDR ADVISOR PRESENT',
-      label: 'WAS A CANDR ADVISOR PRESENT',
+      label: 'Was a CANDR advisor present?',
       multipleAnswers: false,
       answers: [
         {
@@ -2018,7 +2018,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
       id: '45028',
       active: false,
       code: 'WHAT TIME WAS THE SYSTEM SHUT DOWN?',
-      label: 'WHAT TIME WAS THE SYSTEM SHUT DOWN?',
+      label: 'What time was the system shut down?',
       multipleAnswers: false,
       answers: [
         {
@@ -2036,7 +2036,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
       id: '45098',
       active: false,
       code: 'DESCRIBE THE DAMAGE',
-      label: 'DESCRIBE THE DAMAGE',
+      label: 'Describe the damage',
       multipleAnswers: false,
       answers: [
         {
@@ -2072,7 +2072,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
       id: '45127',
       active: false,
       code: 'WAS THE TELEPHONE/IT SYSTEM SHUT DOWN DURING THE INCIDENT?',
-      label: 'WAS THE TELEPHONE/IT SYSTEM SHUT DOWN DURING THE INCIDENT?',
+      label: 'Was the telephone/it system shut down during the incident?',
       multipleAnswers: false,
       answers: [
         {
@@ -2099,7 +2099,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
       id: '45128',
       active: false,
       code: 'DESCRIBE THE INCIDENT AS EITHER ACTIVE OR PASSIVE',
-      label: 'DESCRIBE THE INCIDENT AS EITHER ACTIVE OR PASSIVE',
+      label: 'Describe the incident as either active or passive',
       multipleAnswers: false,
       answers: [
         {
@@ -2126,7 +2126,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
       id: '45155',
       active: false,
       code: 'WHICH SERIOUS INJURIES WERE SUSTAINED',
-      label: 'WHICH SERIOUS INJURIES WERE SUSTAINED',
+      label: 'Which serious injuries were sustained?',
       multipleAnswers: true,
       answers: [
         {
@@ -2243,7 +2243,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
       id: '45163',
       active: false,
       code: 'INDICATE THE NATURE OF THE SHUT DOWN',
-      label: 'INDICATE THE NATURE OF THE SHUT DOWN',
+      label: 'Indicate the nature of the shut down',
       multipleAnswers: true,
       answers: [
         {
@@ -2270,7 +2270,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
       id: '45175',
       active: false,
       code: 'WAS A MINOR INJURY SUSTAINED',
-      label: 'WAS A MINOR INJURY SUSTAINED',
+      label: 'Was a minor injury sustained?',
       multipleAnswers: false,
       answers: [
         {

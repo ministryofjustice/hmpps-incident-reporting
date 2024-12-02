@@ -1,4 +1,4 @@
-// Generated with ./scripts/updateNomisIncidentTypeConfigurations.ts at 2024-10-15T17:17:34.426Z
+// Generated with ./scripts/updateNomisIncidentTypeConfigurations.ts at 2024-12-02T17:35:29.948Z
 
 import { type IncidentTypeConfiguration } from '../../data/incidentTypeConfiguration/types'
 
@@ -11,7 +11,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
       id: '57284',
       active: false,
       code: 'WHAT WAS THE MAIN MANAGEMENT OUTCOME OF THIS INCIDENT?',
-      label: 'WHAT WAS THE MAIN MANAGEMENT OUTCOME OF THIS INCIDENT?',
+      label: 'What was the main management outcome of this incident?',
       multipleAnswers: true,
       answers: [
         {
@@ -74,7 +74,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
       id: '57285',
       active: true,
       code: 'IS ANY MEMBER OF STAFF FACING DISCIPLINARY CHARGES?',
-      label: 'IS ANY MEMBER OF STAFF FACING DISCIPLINARY CHARGES?',
+      label: 'Is any member of staff facing disciplinary charges?',
       multipleAnswers: false,
       answers: [
         {
@@ -101,7 +101,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
       id: '57286',
       active: true,
       code: 'IS THE LOCATION OF THE INCIDENT KNOWN?',
-      label: 'IS THE LOCATION OF THE INCIDENT KNOWN?',
+      label: 'Is the location of the incident known?',
       multipleAnswers: false,
       answers: [
         {
@@ -128,7 +128,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
       id: '57287',
       active: true,
       code: 'WHAT WAS THE LOCATION OF THE INCIDENT?',
-      label: 'WHAT WAS THE LOCATION OF THE INCIDENT?',
+      label: 'What was the location of the incident?',
       multipleAnswers: false,
       answers: [
         {
@@ -470,7 +470,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
       id: '57288',
       active: true,
       code: 'WAS A DRUG FOUND?',
-      label: 'WAS A DRUG FOUND?',
+      label: 'Was a drug found?',
       multipleAnswers: false,
       answers: [
         {
@@ -497,7 +497,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
       id: '57289',
       active: true,
       code: 'DESCRIBE THE DRUG FOUND',
-      label: 'DESCRIBE THE DRUG FOUND',
+      label: 'Describe the drug found',
       multipleAnswers: true,
       answers: [
         {
@@ -695,7 +695,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
       id: '57290',
       active: true,
       code: 'WHAT WAS THE ESTIMATED WEIGHT OF ALL DRUGS/SUBSTANCES FOUND?',
-      label: 'WHAT WAS THE ESTIMATED WEIGHT OF ALL DRUGS/SUBSTANCES FOUND?',
+      label: 'What was the estimated weight of all drugs/substances found?',
       multipleAnswers: false,
       answers: [
         {
@@ -839,7 +839,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
       id: '57291',
       active: true,
       code: 'WAS THE SUBSTANCE FOUND ANALYSED?',
-      label: 'WAS THE SUBSTANCE FOUND ANALYSED?',
+      label: 'Was the substance found analysed?',
       multipleAnswers: false,
       answers: [
         {
@@ -866,7 +866,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
       id: '57292',
       active: true,
       code: 'HOW WAS THE SUBSTANCE ANALYSED?',
-      label: 'HOW WAS THE SUBSTANCE ANALYSED?',
+      label: 'How was the substance analysed?',
       multipleAnswers: false,
       answers: [
         {
@@ -893,7 +893,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
       id: '57293',
       active: true,
       code: 'TO WHICH POLICE STATION WERE SEIZED DRUGS SENT FOR DESTRUCTION?',
-      label: 'TO WHICH POLICE STATION WERE SEIZED DRUGS SENT FOR DESTRUCTION?',
+      label: 'To which police station were seized drugs sent for destruction?',
       multipleAnswers: false,
       answers: [
         {
@@ -911,7 +911,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
       id: '57294',
       active: true,
       code: 'WAS DRUG EQUIPMENT FOUND?',
-      label: 'WAS DRUG EQUIPMENT FOUND?',
+      label: 'Was drug equipment found?',
       multipleAnswers: false,
       answers: [
         {
@@ -938,7 +938,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
       id: '57295',
       active: true,
       code: 'DESCRIBE DRUG EQUIPMENT FOUND',
-      label: 'DESCRIBE DRUG EQUIPMENT FOUND',
+      label: 'Describe drug equipment found',
       multipleAnswers: true,
       answers: [
         {
@@ -1010,7 +1010,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
       id: '57296',
       active: true,
       code: 'WAS A MOBILE PHONE RELATED ITEM FOUND?',
-      label: 'WAS A MOBILE PHONE RELATED ITEM FOUND?',
+      label: 'Was a mobile phone related item found?',
       multipleAnswers: false,
       answers: [
         {
@@ -1037,7 +1037,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
       id: '57297',
       active: true,
       code: 'WAS A MOBILE PHONE FOUND?',
-      label: 'WAS A MOBILE PHONE FOUND?',
+      label: 'Was a mobile phone found?',
       multipleAnswers: false,
       answers: [
         {
@@ -1064,7 +1064,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
       id: '57298',
       active: true,
       code: 'ENTER NUMBER OF MOBILES FOUND',
-      label: 'ENTER NUMBER OF MOBILES FOUND',
+      label: 'Enter number of mobiles found',
       multipleAnswers: false,
       answers: [
         {
@@ -1271,7 +1271,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
       id: '57299',
       active: true,
       code: 'WAS A SIM CARD FOUND?',
-      label: 'WAS A SIM CARD FOUND?',
+      label: 'Was a SIM card found?',
       multipleAnswers: false,
       answers: [
         {
@@ -1298,7 +1298,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
       id: '57300',
       active: true,
       code: 'ENTER NUMBER OF SIM CARDS FOUND',
-      label: 'ENTER NUMBER OF SIM CARDS FOUND',
+      label: 'Enter number of SIM cards found',
       multipleAnswers: false,
       answers: [
         {
@@ -1505,7 +1505,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
       id: '57301',
       active: true,
       code: ' WAS A MEMORY CARD FOUND?',
-      label: ' WAS A MEMORY CARD FOUND?',
+      label: 'Was a memory card found?',
       multipleAnswers: false,
       answers: [
         {
@@ -1532,7 +1532,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
       id: '57302',
       active: true,
       code: 'ENTER NUMBER OF MEMORY CARDS FOUND',
-      label: 'ENTER NUMBER OF MEMORY CARDS FOUND',
+      label: 'Enter number of memory cards found',
       multipleAnswers: false,
       answers: [
         {
@@ -1739,7 +1739,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
       id: '57303',
       active: true,
       code: 'WAS A CHARGER FOUND?',
-      label: 'WAS A CHARGER FOUND?',
+      label: 'Was a charger found?',
       multipleAnswers: false,
       answers: [
         {
@@ -1766,7 +1766,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
       id: '57304',
       active: true,
       code: 'WAS ANY OTHER MOBILE PHONE/COMMUNICATION RELATED ITEM FOUND?',
-      label: 'WAS ANY OTHER MOBILE PHONE/COMMUNICATION RELATED ITEM FOUND?',
+      label: 'Was any other mobile phone/communication related item found?',
       multipleAnswers: false,
       answers: [
         {
@@ -1793,7 +1793,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
       id: '57305',
       active: true,
       code: 'HAS PHONE/SIM/MEMORY CARD BEEN SENT TO NDTSG?',
-      label: 'HAS PHONE/SIM/MEMORY CARD BEEN SENT TO NDTSG?',
+      label: 'Has phone/sim/memory card been sent to NDTSG?',
       multipleAnswers: true,
       answers: [
         {
@@ -1829,7 +1829,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
       id: '57306',
       active: true,
       code: 'HAS PHONE/SIM/EQUIPMENT BEEN RETAINED BY POLICE?',
-      label: 'HAS PHONE/SIM/EQUIPMENT BEEN RETAINED BY POLICE?',
+      label: 'Has phone/sim/equipment been retained by police?',
       multipleAnswers: false,
       answers: [
         {
@@ -1856,7 +1856,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
       id: '57307',
       active: true,
       code: 'WAS A WEAPON FOUND?',
-      label: 'WAS A WEAPON FOUND?',
+      label: 'Was a weapon found?',
       multipleAnswers: false,
       answers: [
         {
@@ -1883,7 +1883,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
       id: '57308',
       active: true,
       code: 'DESCRIBE THE WEAPON',
-      label: 'DESCRIBE THE WEAPON',
+      label: 'Describe the weapon',
       multipleAnswers: true,
       answers: [
         {
@@ -1928,7 +1928,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
       id: '57309',
       active: true,
       code: 'WAS ANY ALCOHOL/HOOCH FOUND?',
-      label: 'WAS ANY ALCOHOL/HOOCH FOUND?',
+      label: 'Was any alcohol/hooch found?',
       multipleAnswers: false,
       answers: [
         {
@@ -1955,7 +1955,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
       id: '57310',
       active: true,
       code: 'WHAT QUANTITY OF ALCOHOL/HOOCH WAS FOUND?',
-      label: 'WHAT QUANTITY OF ALCOHOL/HOOCH WAS FOUND?',
+      label: 'What quantity of alcohol/hooch was found?',
       multipleAnswers: false,
       answers: [
         {
@@ -2045,7 +2045,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
       id: '57311',
       active: true,
       code: 'WAS ANY DISTILLING EQUIPMENT FOUND?',
-      label: 'WAS ANY DISTILLING EQUIPMENT FOUND?',
+      label: 'Was any distilling equipment found?',
       multipleAnswers: false,
       answers: [
         {
@@ -2072,7 +2072,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
       id: '57312',
       active: true,
       code: 'WAS ANY TOBACCO FOUND?',
-      label: 'WAS ANY TOBACCO FOUND?',
+      label: 'Was any tobacco found?',
       multipleAnswers: false,
       answers: [
         {
@@ -2099,7 +2099,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
       id: '57313',
       active: true,
       code: 'DESCRIBE THE TOBACCO FOUND',
-      label: 'DESCRIBE THE TOBACCO FOUND',
+      label: 'Describe the tobacco found',
       multipleAnswers: true,
       answers: [
         {
@@ -2135,7 +2135,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
       id: '57314',
       active: true,
       code: 'APPROX WEIGHT OF TOBACCO?',
-      label: 'APPROX WEIGHT OF TOBACCO?',
+      label: 'Approx weight of tobacco?',
       multipleAnswers: false,
       answers: [
         {
@@ -2180,7 +2180,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
       id: '57315',
       active: true,
       code: 'WERE ANY OTHER REPORTABLE ITEMS FOUND?',
-      label: 'WERE ANY OTHER REPORTABLE ITEMS FOUND?',
+      label: 'Were any other reportable items found?',
       multipleAnswers: false,
       answers: [
         {
@@ -2207,7 +2207,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
       id: '57316',
       active: true,
       code: 'DESCRIBE THE ITEM',
-      label: 'DESCRIBE THE ITEM',
+      label: 'Describe the item',
       multipleAnswers: false,
       answers: [
         {
@@ -2225,7 +2225,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
       id: '57317',
       active: true,
       code: 'DESCRIBE HOW THE ITEM WAS FOUND?',
-      label: 'DESCRIBE HOW THE ITEM WAS FOUND?',
+      label: 'Describe how the item was found?',
       multipleAnswers: true,
       answers: [
         {
@@ -2387,7 +2387,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
       id: '57318',
       active: true,
       code: 'DESCRIBE THE METHOD OF ENTRY INTO THE ESTABLISHMENT',
-      label: 'DESCRIBE THE METHOD OF ENTRY INTO THE ESTABLISHMENT',
+      label: 'Describe the method of entry into the establishment',
       multipleAnswers: true,
       answers: [
         {
@@ -2504,7 +2504,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
       id: '57319',
       active: true,
       code: 'IF FOUND IN POSSESSION, WHOSE WAS IT FOUND IN?',
-      label: 'IF FOUND IN POSSESSION, WHOSE WAS IT FOUND IN?',
+      label: 'If found in possession, whose was it found in?',
       multipleAnswers: false,
       answers: [
         {
@@ -2585,7 +2585,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
       id: '57320',
       active: true,
       code: 'WHAT WAS THE METHOD OF CONCEALMENT?',
-      label: 'WHAT WAS THE METHOD OF CONCEALMENT?',
+      label: 'What was the method of concealment?',
       multipleAnswers: false,
       answers: [
         {
@@ -2729,7 +2729,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
       id: '57321',
       active: true,
       code: 'IS THE ITEM HEAVILY CONTAMINATED? (E.G. BLOOD, FAECES)',
-      label: 'IS THE ITEM HEAVILY CONTAMINATED? (E.G. BLOOD, FAECES)',
+      label: 'Is the item heavily contaminated? (e.g. blood, faeces)?',
       multipleAnswers: false,
       answers: [
         {
@@ -2756,7 +2756,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
       id: '57322',
       active: true,
       code: 'WAS A VISITOR SUSPECTED OF INVOLVEMENT AND ARRESTED BY THE POLICE?',
-      label: 'WAS A VISITOR SUSPECTED OF INVOLVEMENT AND ARRESTED BY THE POLICE?',
+      label: 'Was a visitor suspected of involvement and arrested by the police?',
       multipleAnswers: false,
       answers: [
         {
@@ -2783,7 +2783,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
       id: '57323',
       active: true,
       code: 'DESCRIBE CIRCUMSTANCES OF VISITORS ARREST',
-      label: 'DESCRIBE CIRCUMSTANCES OF VISITORS ARREST',
+      label: 'Describe circumstances of visitors arrest',
       multipleAnswers: false,
       answers: [
         {
@@ -2810,7 +2810,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
       id: '57324',
       active: true,
       code: 'TO WHICH POLICE STATION WAS THE VISITOR TAKEN TO?',
-      label: 'TO WHICH POLICE STATION WAS THE VISITOR TAKEN TO?',
+      label: 'To which police station was the visitor taken to?',
       multipleAnswers: false,
       answers: [
         {
@@ -2828,7 +2828,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
       id: '57325',
       active: true,
       code: 'WERE THE ITEMS OBTAINED ON TEMPORARY RELEASE?',
-      label: 'WERE THE ITEMS OBTAINED ON TEMPORARY RELEASE?',
+      label: 'Were the items obtained on temporary release?',
       multipleAnswers: false,
       answers: [
         {
@@ -2864,7 +2864,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
       id: '57326',
       active: true,
       code: 'DESCRIBE THE TYPE OF TEMPORARY RELEASE',
-      label: 'DESCRIBE THE TYPE OF TEMPORARY RELEASE',
+      label: 'Describe the type of temporary release',
       multipleAnswers: false,
       answers: [
         {
@@ -2918,7 +2918,7 @@ const OLD_FINDS4: IncidentTypeConfiguration = {
       id: '57327',
       active: true,
       code: 'WHAT WAS THE TOTAL ESTIMATED VALUE OF THE FIND? (DRUGS, MOBILE PHONES ETC.)',
-      label: 'WHAT WAS THE TOTAL ESTIMATED VALUE OF THE FIND? (DRUGS, MOBILE PHONES ETC.)',
+      label: 'What was the total estimated value of the find? (drugs, mobile phones etc.)?',
       multipleAnswers: false,
       answers: [
         {

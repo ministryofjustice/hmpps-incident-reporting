@@ -1,4 +1,4 @@
-// Generated with ./scripts/updateNomisIncidentTypeConfigurations.ts at 2024-10-15T17:17:08.927Z
+// Generated with ./scripts/updateNomisIncidentTypeConfigurations.ts at 2024-12-02T17:35:02.657Z
 
 import { type IncidentTypeConfiguration } from '../../data/incidentTypeConfiguration/types'
 
@@ -11,7 +11,7 @@ const OLD_ASSAULT: IncidentTypeConfiguration = {
       id: '44127',
       active: true,
       code: 'WERE THE POLICE INFORMED OF THE INCIDENT',
-      label: 'WERE THE POLICE INFORMED OF THE INCIDENT',
+      label: 'Were the police informed of the incident?',
       multipleAnswers: false,
       answers: [
         {
@@ -38,7 +38,7 @@ const OLD_ASSAULT: IncidentTypeConfiguration = {
       id: '44141',
       active: true,
       code: 'WAS A MINOR INJURY SUSTAINED',
-      label: 'WAS A MINOR INJURY SUSTAINED',
+      label: 'Was a minor injury sustained?',
       multipleAnswers: false,
       answers: [
         {
@@ -65,7 +65,7 @@ const OLD_ASSAULT: IncidentTypeConfiguration = {
       id: '44153',
       active: true,
       code: 'IS THERE ANY MEDIA INTEREST IN THIS INCIDENT',
-      label: 'IS THERE ANY MEDIA INTEREST IN THIS INCIDENT',
+      label: 'Is there any media interest in this incident?',
       multipleAnswers: false,
       answers: [
         {
@@ -92,7 +92,7 @@ const OLD_ASSAULT: IncidentTypeConfiguration = {
       id: '44186',
       active: true,
       code: 'HAS THE PRISON SERVICE PRESS OFFICE BEEN INFORMED',
-      label: 'HAS THE PRISON SERVICE PRESS OFFICE BEEN INFORMED',
+      label: 'Has the prison service press office been informed?',
       multipleAnswers: false,
       answers: [
         {
@@ -119,7 +119,7 @@ const OLD_ASSAULT: IncidentTypeConfiguration = {
       id: '44201',
       active: true,
       code: 'IS THE LOCATION OF THE INCIDENT KNOWN',
-      label: 'IS THE LOCATION OF THE INCIDENT KNOWN',
+      label: 'Is the location of the incident known?',
       multipleAnswers: false,
       answers: [
         {
@@ -146,7 +146,7 @@ const OLD_ASSAULT: IncidentTypeConfiguration = {
       id: '44254',
       active: true,
       code: 'WERE ANY INJURIES RECEIVED DURING THIS INCIDENT',
-      label: 'WERE ANY INJURIES RECEIVED DURING THIS INCIDENT',
+      label: 'Were any injuries received during this incident?',
       multipleAnswers: false,
       answers: [
         {
@@ -173,7 +173,7 @@ const OLD_ASSAULT: IncidentTypeConfiguration = {
       id: '44344',
       active: true,
       code: 'WERE ANY WEAPONS USED',
-      label: 'WERE ANY WEAPONS USED',
+      label: 'Were any weapons used?',
       multipleAnswers: false,
       answers: [
         {
@@ -200,7 +200,7 @@ const OLD_ASSAULT: IncidentTypeConfiguration = {
       id: '44367',
       active: true,
       code: 'WHAT TYPE OF ASSAULT WAS IT',
-      label: 'WHAT TYPE OF ASSAULT WAS IT',
+      label: 'What type of assault was it?',
       multipleAnswers: false,
       answers: [
         {
@@ -245,7 +245,7 @@ const OLD_ASSAULT: IncidentTypeConfiguration = {
       id: '44391',
       active: true,
       code: 'ARE THERE ANY STAFF NOW OFF DUTY AS A RESULT OF THIS INCIDENT',
-      label: 'ARE THERE ANY STAFF NOW OFF DUTY AS A RESULT OF THIS INCIDENT',
+      label: 'Are there any staff now off duty as a result of this incident?',
       multipleAnswers: false,
       answers: [
         {
@@ -272,7 +272,7 @@ const OLD_ASSAULT: IncidentTypeConfiguration = {
       id: '44405',
       active: true,
       code: 'IS THE INCIDENT THE SUBJECT OF AN INTERNAL INVESTIGATION',
-      label: 'IS THE INCIDENT THE SUBJECT OF AN INTERNAL INVESTIGATION',
+      label: 'Is the incident the subject of an internal investigation?',
       multipleAnswers: false,
       answers: [
         {
@@ -299,7 +299,7 @@ const OLD_ASSAULT: IncidentTypeConfiguration = {
       id: '44460',
       active: true,
       code: 'DID INJURIES RESULT IN DETENTION IN OUTSIDE HOSPITAL AS AN IN-PATIENT',
-      label: 'DID INJURIES RESULT IN DETENTION IN OUTSIDE HOSPITAL AS AN IN-PATIENT',
+      label: 'Did injuries result in detention in outside hospital as an in-patient?',
       multipleAnswers: false,
       answers: [
         {
@@ -326,7 +326,7 @@ const OLD_ASSAULT: IncidentTypeConfiguration = {
       id: '44464',
       active: true,
       code: 'DESCRIBE WEAPONS USED',
-      label: 'DESCRIBE WEAPONS USED',
+      label: 'Describe weapons used',
       multipleAnswers: true,
       answers: [
         {
@@ -452,7 +452,7 @@ const OLD_ASSAULT: IncidentTypeConfiguration = {
       id: '44495',
       active: true,
       code: 'DID THE ASSAULT OCCUR IN PUBLIC VIEW',
-      label: 'DID THE ASSAULT OCCUR IN PUBLIC VIEW',
+      label: 'Did the assault occur in public view?',
       multipleAnswers: false,
       answers: [
         {
@@ -479,7 +479,7 @@ const OLD_ASSAULT: IncidentTypeConfiguration = {
       id: '44522',
       active: true,
       code: 'WAS MEDICAL TREATMENT FOR CONCUSSION OR INTERNAL INJURIES REQUIRED',
-      label: 'WAS MEDICAL TREATMENT FOR CONCUSSION OR INTERNAL INJURIES REQUIRED',
+      label: 'Was medical treatment for concussion or internal injuries required?',
       multipleAnswers: false,
       answers: [
         {
@@ -506,7 +506,7 @@ const OLD_ASSAULT: IncidentTypeConfiguration = {
       id: '44586',
       active: true,
       code: 'WAS THIS A SEXUAL ASSAULT',
-      label: 'WAS THIS A SEXUAL ASSAULT',
+      label: 'Was this a sexual assault?',
       multipleAnswers: false,
       answers: [
         {
@@ -533,7 +533,7 @@ const OLD_ASSAULT: IncidentTypeConfiguration = {
       id: '44612',
       active: true,
       code: 'WHICH MINOR INJURIES WERE SUSTAINED',
-      label: 'WHICH MINOR INJURIES WERE SUSTAINED',
+      label: 'Which minor injuries were sustained?',
       multipleAnswers: true,
       answers: [
         {
@@ -587,7 +587,7 @@ const OLD_ASSAULT: IncidentTypeConfiguration = {
       id: '44652',
       active: true,
       code: 'ARE ANY STAFF ON SICK LEAVE AS A RESULT OF THIS INCIDENT',
-      label: 'ARE ANY STAFF ON SICK LEAVE AS A RESULT OF THIS INCIDENT',
+      label: 'Are any staff on sick leave as a result of this incident?',
       multipleAnswers: false,
       answers: [
         {
@@ -614,7 +614,7 @@ const OLD_ASSAULT: IncidentTypeConfiguration = {
       id: '44773',
       active: true,
       code: 'WAS A SERIOUS INJURY SUSTAINED',
-      label: 'WAS A SERIOUS INJURY SUSTAINED',
+      label: 'Was a serious injury sustained?',
       multipleAnswers: false,
       answers: [
         {
@@ -641,7 +641,7 @@ const OLD_ASSAULT: IncidentTypeConfiguration = {
       id: '44793',
       active: true,
       code: 'ENTER DESCRIPTION OF PERSON(S) INJURED',
-      label: 'ENTER DESCRIPTION OF PERSON(S) INJURED',
+      label: 'Enter description of person(s) injured',
       multipleAnswers: true,
       answers: [
         {
@@ -695,7 +695,7 @@ const OLD_ASSAULT: IncidentTypeConfiguration = {
       id: '44880',
       active: true,
       code: 'IS ANY MEMBER OF STAFF FACING DISCIPLINARY CHARGES',
-      label: 'IS ANY MEMBER OF STAFF FACING DISCIPLINARY CHARGES',
+      label: 'Is any member of staff facing disciplinary charges?',
       multipleAnswers: false,
       answers: [
         {
@@ -722,7 +722,7 @@ const OLD_ASSAULT: IncidentTypeConfiguration = {
       id: '44913',
       active: true,
       code: 'IS THE INCIDENT THE SUBJECT OF A POLICE INVESTIGATION',
-      label: 'IS THE INCIDENT THE SUBJECT OF A POLICE INVESTIGATION',
+      label: 'Is the incident the subject of a police investigation?',
       multipleAnswers: false,
       answers: [
         {
@@ -749,7 +749,7 @@ const OLD_ASSAULT: IncidentTypeConfiguration = {
       id: '44943',
       active: true,
       code: 'WHO WAS DETAINED IN OUTSIDE HOSPITAL',
-      label: 'WHO WAS DETAINED IN OUTSIDE HOSPITAL',
+      label: 'Who was detained in outside hospital?',
       multipleAnswers: true,
       answers: [
         {
@@ -803,7 +803,7 @@ const OLD_ASSAULT: IncidentTypeConfiguration = {
       id: '45042',
       active: true,
       code: 'WHICH SERIOUS INJURIES WERE SUSTAINED',
-      label: 'WHICH SERIOUS INJURIES WERE SUSTAINED',
+      label: 'Which serious injuries were sustained?',
       multipleAnswers: true,
       answers: [
         {
@@ -920,7 +920,7 @@ const OLD_ASSAULT: IncidentTypeConfiguration = {
       id: '45074',
       active: true,
       code: 'WAS THERE AN APPARENT REASON FOR THE ASSAULT',
-      label: 'WAS THERE AN APPARENT REASON FOR THE ASSAULT',
+      label: 'Was there an apparent reason for the assault?',
       multipleAnswers: false,
       answers: [
         {
@@ -947,7 +947,7 @@ const OLD_ASSAULT: IncidentTypeConfiguration = {
       id: '45088',
       active: true,
       code: "IS THE INCIDENT SUBJECT TO A GOVERNOR'S ADJUDICATION",
-      label: "IS THE INCIDENT SUBJECT TO A GOVERNOR'S ADJUDICATION",
+      label: "Is the incident subject to a governor's adjudication?",
       multipleAnswers: false,
       answers: [
         {
@@ -974,7 +974,7 @@ const OLD_ASSAULT: IncidentTypeConfiguration = {
       id: '45092',
       active: true,
       code: 'HAS ANY PROSECUTION TAKEN PLACE OR IS ANY PENDING',
-      label: 'HAS ANY PROSECUTION TAKEN PLACE OR IS ANY PENDING',
+      label: 'Has any prosecution taken place or is any pending?',
       multipleAnswers: false,
       answers: [
         {
@@ -1001,7 +1001,7 @@ const OLD_ASSAULT: IncidentTypeConfiguration = {
       id: '45130',
       active: true,
       code: 'DID THE ASSAULT OCCUR DURING A FIGHT',
-      label: 'DID THE ASSAULT OCCUR DURING A FIGHT',
+      label: 'Did the assault occur during a fight?',
       multipleAnswers: false,
       answers: [
         {
@@ -1028,7 +1028,7 @@ const OLD_ASSAULT: IncidentTypeConfiguration = {
       id: '45134',
       active: true,
       code: 'WHAT WAS THE LOCATION OF THE INCIDENT',
-      label: 'WHAT WAS THE LOCATION OF THE INCIDENT',
+      label: 'What was the location of the incident?',
       multipleAnswers: false,
       answers: [
         {

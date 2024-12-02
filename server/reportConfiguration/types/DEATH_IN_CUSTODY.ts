@@ -1,4 +1,4 @@
-// Generated with ./scripts/updateNomisIncidentTypeConfigurations.ts at 2024-10-15T17:17:20.264Z
+// Generated with ./scripts/updateNomisIncidentTypeConfigurations.ts at 2024-12-02T17:35:15.220Z
 
 import { type IncidentTypeConfiguration } from '../../data/incidentTypeConfiguration/types'
 
@@ -11,7 +11,7 @@ const DEATH_IN_CUSTODY: IncidentTypeConfiguration = {
       id: '44159',
       active: true,
       code: 'WHAT WERE THE CIRCUMSTANCES OF THE DEATH',
-      label: 'WHAT WERE THE CIRCUMSTANCES OF THE DEATH',
+      label: 'What were the circumstances of the death?',
       multipleAnswers: false,
       answers: [
         {
@@ -56,7 +56,7 @@ const DEATH_IN_CUSTODY: IncidentTypeConfiguration = {
       id: '44292',
       active: true,
       code: 'IS THE DEATH SUBJECT TO A HEALTH AND SAFETY INVESTIGATION',
-      label: 'IS THE DEATH SUBJECT TO A HEALTH AND SAFETY INVESTIGATION',
+      label: 'Is the death subject to a health and safety investigation?',
       multipleAnswers: false,
       answers: [
         {
@@ -83,7 +83,7 @@ const DEATH_IN_CUSTODY: IncidentTypeConfiguration = {
       id: '44303',
       active: true,
       code: 'WHAT VERDICT DID THE INQUEST REACH',
-      label: 'WHAT VERDICT DID THE INQUEST REACH',
+      label: 'What verdict did the inquest reach?',
       multipleAnswers: false,
       answers: [
         {
@@ -146,7 +146,7 @@ const DEATH_IN_CUSTODY: IncidentTypeConfiguration = {
       id: '44366',
       active: true,
       code: 'WHERE WAS THE PRISONER LOCATED AT THE TIME OF DEATH',
-      label: 'WHERE WAS THE PRISONER LOCATED AT THE TIME OF DEATH',
+      label: 'Where was the prisoner located at the time of death?',
       multipleAnswers: false,
       answers: [
         {
@@ -236,7 +236,7 @@ const DEATH_IN_CUSTODY: IncidentTypeConfiguration = {
       id: '44383',
       active: true,
       code: 'WHAT METHOD WAS USED',
-      label: 'WHAT METHOD WAS USED',
+      label: 'What method was used?',
       multipleAnswers: false,
       answers: [
         {
@@ -281,7 +281,7 @@ const DEATH_IN_CUSTODY: IncidentTypeConfiguration = {
       id: '44384',
       active: true,
       code: 'WHAT WAS THE LIKELY CAUSE OF DEATH',
-      label: 'WHAT WAS THE LIKELY CAUSE OF DEATH',
+      label: 'What was the likely cause of death?',
       multipleAnswers: false,
       answers: [
         {
@@ -326,7 +326,7 @@ const DEATH_IN_CUSTODY: IncidentTypeConfiguration = {
       id: '44418',
       active: true,
       code: 'WAS THE PRISONER RECEIVING MEDICATION AT THE TIME OF DEATH',
-      label: 'WAS THE PRISONER RECEIVING MEDICATION AT THE TIME OF DEATH',
+      label: 'Was the prisoner receiving medication at the time of death?',
       multipleAnswers: false,
       answers: [
         {
@@ -353,7 +353,7 @@ const DEATH_IN_CUSTODY: IncidentTypeConfiguration = {
       id: '44420',
       active: true,
       code: 'IS THERE ANY MEDIA INTEREST IN THIS INCIDENT',
-      label: 'IS THERE ANY MEDIA INTEREST IN THIS INCIDENT',
+      label: 'Is there any media interest in this incident?',
       multipleAnswers: false,
       answers: [
         {
@@ -380,7 +380,7 @@ const DEATH_IN_CUSTODY: IncidentTypeConfiguration = {
       id: '44468',
       active: true,
       code: 'HAS THE NEXT OF KIN BEEN INFORMED',
-      label: 'HAS THE NEXT OF KIN BEEN INFORMED',
+      label: 'Has the next of kin been informed?',
       multipleAnswers: false,
       answers: [
         {
@@ -407,7 +407,7 @@ const DEATH_IN_CUSTODY: IncidentTypeConfiguration = {
       id: '44537',
       active: true,
       code: 'WHERE WAS THE PRISONER AT THE TIME OF DEATH',
-      label: 'WHERE WAS THE PRISONER AT THE TIME OF DEATH',
+      label: 'Where was the prisoner at the time of death?',
       multipleAnswers: false,
       answers: [
         {
@@ -452,7 +452,7 @@ const DEATH_IN_CUSTODY: IncidentTypeConfiguration = {
       id: '44640',
       active: true,
       code: "HAS A CORONER'S INQUEST BEEN HELD",
-      label: "HAS A CORONER'S INQUEST BEEN HELD",
+      label: "Has a coroner's inquest been held?",
       multipleAnswers: false,
       answers: [
         {
@@ -479,7 +479,7 @@ const DEATH_IN_CUSTODY: IncidentTypeConfiguration = {
       id: '44646',
       active: true,
       code: 'WERE THE POLICE INFORMED OF THE INCIDENT',
-      label: 'WERE THE POLICE INFORMED OF THE INCIDENT',
+      label: 'Were the police informed of the incident?',
       multipleAnswers: false,
       answers: [
         {
@@ -506,7 +506,7 @@ const DEATH_IN_CUSTODY: IncidentTypeConfiguration = {
       id: '44680',
       active: true,
       code: 'WAS THE PRISONER ALONE AT THE TIME OF DEATH',
-      label: 'WAS THE PRISONER ALONE AT THE TIME OF DEATH',
+      label: 'Was the prisoner alone at the time of death?',
       multipleAnswers: false,
       answers: [
         {
@@ -533,7 +533,7 @@ const DEATH_IN_CUSTODY: IncidentTypeConfiguration = {
       id: '44691',
       active: true,
       code: 'WHO FOUND THE PRISONER',
-      label: 'WHO FOUND THE PRISONER',
+      label: 'Who found the prisoner?',
       multipleAnswers: false,
       answers: [
         {
@@ -578,7 +578,7 @@ const DEATH_IN_CUSTODY: IncidentTypeConfiguration = {
       id: '44720',
       active: true,
       code: 'WHO PRONOUNCED DEATH',
-      label: 'WHO PRONOUNCED DEATH',
+      label: 'Who pronounced death?',
       multipleAnswers: false,
       answers: [
         {
@@ -614,7 +614,7 @@ const DEATH_IN_CUSTODY: IncidentTypeConfiguration = {
       id: '44721',
       active: true,
       code: 'WAS THE PRISONER ON T/R IN OUTSIDE HOSPITAL',
-      label: 'WAS THE PRISONER ON T/R IN OUTSIDE HOSPITAL',
+      label: 'Was the prisoner on T/R in outside hospital?',
       multipleAnswers: false,
       answers: [
         {
@@ -641,7 +641,7 @@ const DEATH_IN_CUSTODY: IncidentTypeConfiguration = {
       id: '44743',
       active: true,
       code: 'HAS THE PRISON SERVICE PRESS OFFICE BEEN INFORMED',
-      label: 'HAS THE PRISON SERVICE PRESS OFFICE BEEN INFORMED',
+      label: 'Has the prison service press office been informed?',
       multipleAnswers: false,
       answers: [
         {
@@ -668,7 +668,7 @@ const DEATH_IN_CUSTODY: IncidentTypeConfiguration = {
       id: '44770',
       active: true,
       code: 'WHAT WAS THE LIGATURE ATTACHED TO',
-      label: 'WHAT WAS THE LIGATURE ATTACHED TO',
+      label: 'What was the ligature attached to?',
       multipleAnswers: false,
       answers: [
         {
@@ -722,7 +722,7 @@ const DEATH_IN_CUSTODY: IncidentTypeConfiguration = {
       id: '44862',
       active: true,
       code: 'IS ANY MEMBER OF STAFF FACING DISCIPLINARY CHARGES',
-      label: 'IS ANY MEMBER OF STAFF FACING DISCIPLINARY CHARGES',
+      label: 'Is any member of staff facing disciplinary charges?',
       multipleAnswers: false,
       answers: [
         {
@@ -749,7 +749,7 @@ const DEATH_IN_CUSTODY: IncidentTypeConfiguration = {
       id: '44876',
       active: true,
       code: 'WAS RESUSCITATION ATTEMPTED',
-      label: 'WAS RESUSCITATION ATTEMPTED',
+      label: 'Was resuscitation attempted?',
       multipleAnswers: false,
       answers: [
         {
@@ -776,7 +776,7 @@ const DEATH_IN_CUSTODY: IncidentTypeConfiguration = {
       id: '44901',
       active: true,
       code: 'WAS THE PRISONER TAKEN TO AN OUTSIDE HOSPITAL',
-      label: 'WAS THE PRISONER TAKEN TO AN OUTSIDE HOSPITAL',
+      label: 'Was the prisoner taken to an outside hospital?',
       multipleAnswers: false,
       answers: [
         {
@@ -803,7 +803,7 @@ const DEATH_IN_CUSTODY: IncidentTypeConfiguration = {
       id: '44929',
       active: true,
       code: 'WHAT WAS THE LIGATURE MADE FROM',
-      label: 'WHAT WAS THE LIGATURE MADE FROM',
+      label: 'What was the ligature made from?',
       multipleAnswers: false,
       answers: [
         {
@@ -848,7 +848,7 @@ const DEATH_IN_CUSTODY: IncidentTypeConfiguration = {
       id: '44962',
       active: true,
       code: 'WHAT TIME WAS DEATH PRONOUNCED',
-      label: 'WHAT TIME WAS DEATH PRONOUNCED',
+      label: 'What time was death pronounced?',
       multipleAnswers: true,
       answers: [
         {
@@ -875,7 +875,7 @@ const DEATH_IN_CUSTODY: IncidentTypeConfiguration = {
       id: '45023',
       active: true,
       code: 'WAS A F2052SH/ACCT OPEN AT THE TIME OF DEATH',
-      label: 'WAS A F2052SH/ACCT OPEN AT THE TIME OF DEATH',
+      label: 'Was a F2052SH/ACCT open at the time of death?',
       multipleAnswers: false,
       answers: [
         {
@@ -902,7 +902,7 @@ const DEATH_IN_CUSTODY: IncidentTypeConfiguration = {
       id: '45038',
       active: true,
       code: 'IS THE INCIDENT THE SUBJECT OF A POLICE INVESTIGATION',
-      label: 'IS THE INCIDENT THE SUBJECT OF A POLICE INVESTIGATION',
+      label: 'Is the incident the subject of a police investigation?',
       multipleAnswers: false,
       answers: [
         {
@@ -929,7 +929,7 @@ const DEATH_IN_CUSTODY: IncidentTypeConfiguration = {
       id: '45043',
       active: true,
       code: 'IS THE PLACE OF DEATH KNOWN',
-      label: 'IS THE PLACE OF DEATH KNOWN',
+      label: 'Is the place of death known?',
       multipleAnswers: false,
       answers: [
         {
@@ -956,7 +956,7 @@ const DEATH_IN_CUSTODY: IncidentTypeConfiguration = {
       id: '45063',
       active: true,
       code: 'HAS CORONER BEEN INFORMED',
-      label: 'HAS CORONER BEEN INFORMED',
+      label: 'Has coroner been informed?',
       multipleAnswers: false,
       answers: [
         {
@@ -983,7 +983,7 @@ const DEATH_IN_CUSTODY: IncidentTypeConfiguration = {
       id: '45108',
       active: true,
       code: 'AT WHAT TIME WAS THE PRISONER FOUND',
-      label: 'AT WHAT TIME WAS THE PRISONER FOUND',
+      label: 'At what time was the prisoner found',
       multipleAnswers: false,
       answers: [
         {
@@ -1010,7 +1010,7 @@ const DEATH_IN_CUSTODY: IncidentTypeConfiguration = {
       id: '45120',
       active: true,
       code: 'IS THE INCIDENT THE SUBJECT OF AN INTERNAL INVESTIGATION',
-      label: 'IS THE INCIDENT THE SUBJECT OF AN INTERNAL INVESTIGATION',
+      label: 'Is the incident the subject of an internal investigation?',
       multipleAnswers: false,
       answers: [
         {
@@ -1037,7 +1037,7 @@ const DEATH_IN_CUSTODY: IncidentTypeConfiguration = {
       id: '45144',
       active: true,
       code: 'WAS THE ACCIDENTAL DEATH CAUSED BY',
-      label: 'WAS THE ACCIDENTAL DEATH CAUSED BY',
+      label: 'Was the accidental death caused by?',
       multipleAnswers: false,
       answers: [
         {
@@ -1091,7 +1091,7 @@ const DEATH_IN_CUSTODY: IncidentTypeConfiguration = {
       id: '45166',
       active: true,
       code: 'WHERE DID THE DEATH TAKE PLACE',
-      label: 'WHERE DID THE DEATH TAKE PLACE',
+      label: 'Where did the death take place?',
       multipleAnswers: false,
       answers: [
         {

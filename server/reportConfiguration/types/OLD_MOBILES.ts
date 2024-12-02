@@ -1,4 +1,4 @@
-// Generated with ./scripts/updateNomisIncidentTypeConfigurations.ts at 2024-10-15T17:17:47.422Z
+// Generated with ./scripts/updateNomisIncidentTypeConfigurations.ts at 2024-12-02T17:35:43.842Z
 
 import { type IncidentTypeConfiguration } from '../../data/incidentTypeConfiguration/types'
 
@@ -11,7 +11,7 @@ const OLD_MOBILES: IncidentTypeConfiguration = {
       id: '45209',
       active: false,
       code: 'Item found. Must enter value (how many found) in comments field',
-      label: 'Item found. Must enter value (how many found) in comments field',
+      label: 'Item found. must enter value (how many found) in comments field',
       multipleAnswers: true,
       answers: [
         {
@@ -560,7 +560,7 @@ const OLD_MOBILES: IncidentTypeConfiguration = {
       id: '45215',
       active: false,
       code: 'If the item was found in possession - Whose possession was it found in?',
-      label: 'If the item was found in possession - Whose possession was it found in?',
+      label: 'If the item was found in possession - whose possession was it found in?',
       multipleAnswers: false,
       answers: [
         {
@@ -1181,7 +1181,7 @@ const OLD_MOBILES: IncidentTypeConfiguration = {
       id: '45218',
       active: false,
       code: 'Has Phone/SIM/Equipment been sent to NDTSG?',
-      label: 'Has Phone/SIM/Equipment been sent to NDTSG?',
+      label: 'Has phone/sim/equipment been sent to NDTSG?',
       multipleAnswers: true,
       answers: [
         {
@@ -1244,7 +1244,7 @@ const OLD_MOBILES: IncidentTypeConfiguration = {
       id: '45219',
       active: false,
       code: 'Name and grade of member of staff who has authorised for the mobile/SIM to be interrogated',
-      label: 'Name and grade of member of staff who has authorised for the mobile/SIM to be interrogated',
+      label: 'Name and grade of member of staff who has authorised for the mobile/sim to be interrogated',
       multipleAnswers: true,
       answers: [
         {
@@ -1289,7 +1289,7 @@ const OLD_MOBILES: IncidentTypeConfiguration = {
       id: '45220',
       active: false,
       code: 'Has Phone/SIM/Equipment been retained by Police?',
-      label: 'Has Phone/SIM/Equipment been retained by Police?',
+      label: 'Has phone/sim/equipment been retained by police?',
       multipleAnswers: true,
       answers: [
         {
@@ -1352,7 +1352,7 @@ const OLD_MOBILES: IncidentTypeConfiguration = {
       id: '45221',
       active: false,
       code: 'Has incident been referred to Police for consideration under OMA or Crime & Security Act?',
-      label: 'Has incident been referred to Police for consideration under OMA or Crime & Security Act?',
+      label: 'Has incident been referred to police for consideration under OMA or crime & security act?',
       multipleAnswers: true,
       answers: [
         {
@@ -1415,7 +1415,7 @@ const OLD_MOBILES: IncidentTypeConfiguration = {
       id: '45222',
       active: false,
       code: 'NDTSG Priority',
-      label: 'NDTSG Priority',
+      label: 'NDTSG priority',
       multipleAnswers: false,
       answers: [
         {
@@ -1605,7 +1605,7 @@ const OLD_MOBILES: IncidentTypeConfiguration = {
       id: '45226',
       active: false,
       code: 'Has written consent been given to interrogate item (Only necessary for staff, visitors and contractors)',
-      label: 'Has written consent been given to interrogate item (Only necessary for staff, visitors and contractors)',
+      label: 'Has written consent been given to interrogate item (only necessary for staff, visitors and contractors)?',
       multipleAnswers: false,
       answers: [
         {
@@ -1695,7 +1695,7 @@ const OLD_MOBILES: IncidentTypeConfiguration = {
       id: '45228',
       active: false,
       code: 'Is the Incident subject to an internal investigation?',
-      label: 'Is the Incident subject to an internal investigation?',
+      label: 'Is the incident subject to an internal investigation?',
       multipleAnswers: false,
       answers: [
         {
@@ -1830,7 +1830,7 @@ const OLD_MOBILES: IncidentTypeConfiguration = {
       id: '45231',
       active: false,
       code: 'Have items been returned: Please specify who to in comments field',
-      label: 'Have items been returned: Please specify who to in comments field',
+      label: 'Have items been returned: please specify who to in comments field?',
       multipleAnswers: false,
       answers: [
         {
@@ -1875,7 +1875,7 @@ const OLD_MOBILES: IncidentTypeConfiguration = {
       id: '45232',
       active: false,
       code: 'Establishment Category',
-      label: 'Establishment Category',
+      label: 'Establishment category',
       multipleAnswers: false,
       answers: [
         {
@@ -2046,7 +2046,7 @@ const OLD_MOBILES: IncidentTypeConfiguration = {
       id: '45233',
       active: false,
       code: 'Establishment Name',
-      label: 'Establishment Name',
+      label: 'Establishment name',
       multipleAnswers: false,
       answers: [
         {
@@ -2073,7 +2073,7 @@ const OLD_MOBILES: IncidentTypeConfiguration = {
       id: '45234',
       active: false,
       code: 'Area/Region',
-      label: 'Area/Region',
+      label: 'Area/region',
       multipleAnswers: false,
       answers: [
         {
@@ -2199,7 +2199,7 @@ const OLD_MOBILES: IncidentTypeConfiguration = {
       id: '47179',
       active: false,
       code: 'Item found. Must enter how many found in comments field',
-      label: 'Item found. Must enter how many found in comments field',
+      label: 'Item found. must enter how many found in comments field',
       multipleAnswers: true,
       answers: [
         {

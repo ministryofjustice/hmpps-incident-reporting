@@ -1,4 +1,4 @@
-// Generated with ./scripts/updateNomisIncidentTypeConfigurations.ts at 2024-10-25T07:44:33.831Z
+// Generated with ./scripts/updateNomisIncidentTypeConfigurations.ts at 2024-12-02T17:35:42.933Z
 
 import { type IncidentTypeConfiguration } from '../../data/incidentTypeConfiguration/types'
 
@@ -200,7 +200,7 @@ const RELEASED_IN_ERROR: IncidentTypeConfiguration = {
       id: '45181',
       active: true,
       code: 'What was the nature of the Incident?',
-      label: 'What was the nature of the Incident?',
+      label: 'What was the nature of the incident?',
       multipleAnswers: true,
       answers: [
         {
@@ -407,7 +407,7 @@ const RELEASED_IN_ERROR: IncidentTypeConfiguration = {
       id: '45182',
       active: true,
       code: 'What action is being taken to return the person to custody by the Establishment?',
-      label: 'What action is being taken to return the person to custody by the Establishment?',
+      label: 'What action is being taken to return the person to custody by the establishment?',
       multipleAnswers: true,
       answers: [
         {
@@ -857,7 +857,7 @@ const RELEASED_IN_ERROR: IncidentTypeConfiguration = {
       id: '45187',
       active: false,
       code: 'Has the person been reported UAL to the Police?',
-      label: 'Has the person been reported UAL to the Police?',
+      label: 'Has the person been reported UAL to the police?',
       multipleAnswers: false,
       answers: [
         {
@@ -956,7 +956,7 @@ const RELEASED_IN_ERROR: IncidentTypeConfiguration = {
       id: '45189',
       active: true,
       code: 'Has the person been reported UAL to the Police?',
-      label: 'Has the person been reported UAL to the Police?',
+      label: 'Has the person been reported UAL to the police?',
       multipleAnswers: true,
       answers: [
         {

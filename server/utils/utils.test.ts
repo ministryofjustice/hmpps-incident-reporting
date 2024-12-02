@@ -1,6 +1,7 @@
 import {
   addQuestionMarkToQuestion,
   buildArray,
+  convertToSentenceCase,
   convertToTitleCase,
   datesAsStrings,
   initialiseName,
@@ -297,5 +298,33 @@ describe('adds question mark to questions', () => {
     ['First word looks like question pronoun', ' AREA/REGION  ', 'AREA/REGION'],
   ])(`%s addQuestionMarkToQuestion('%s') -> '%s'`, (_: string, a: string, expected: string) => {
     expect(addQuestionMarkToQuestion(a)).toEqual(expected)
+  })
+})
+
+describe('sentence case', () => {
+  it.each([
+    ['empty string', '', ''],
+    ['Lower case', 'describe drug', 'Describe drug'],
+    ['Upper case', 'DESCRIBE DRUG', 'Describe drug'],
+    ['Mixed case', 'DEScribe DRug', 'Describe drug'],
+    ['Leading spaces', '  WAS IT A SATURDAY?', 'Was it a saturday?'],
+    ['Trailing spaces', 'The sky is blue  ', 'The sky is blue'],
+    ['Acronym before question mark', 'REPORTED TO NOU? ', 'Reported to NOU?'],
+    ['Leading and trailing spaces', ' when did this happen?  ', 'When did this happen?'],
+    ['Leading and trailing spaces', ' when did this happen?  ', 'When did this happen?'],
+    ['preserved word in a different case', 'did they pin it?', 'Did they pin it?'],
+    [
+      'question with a name',
+      'WAS THERE EVIDENCE OF THE STOCKHOLM SYNDROME',
+      'Was there evidence of the Stockholm syndrome',
+    ],
+    ['Acronym with dot (.) in it', 'WAS O.C (MACE/PEPPER) USED', 'Was O.C (mace/pepper) used'],
+    [
+      'Acronyms separated by a slash (/)',
+      'WAS A F2052SH/ACCT OPEN AT THE TIME OF DEATH',
+      'Was a F2052SH/ACCT open at the time of death',
+    ],
+  ])(`%s addQuestionMarkToQuestion('%s') -> '%s'`, (_: string, a: string, expected: string) => {
+    expect(convertToSentenceCase(a)).toEqual(expected)
   })
 })

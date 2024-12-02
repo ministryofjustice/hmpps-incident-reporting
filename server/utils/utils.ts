@@ -218,3 +218,93 @@ export function addQuestionMarkToQuestion(label: string): string {
 
   return result
 }
+
+/**
+ * Converts a string to sentence case
+ *
+ * First letter upper case, the rest in lower case. Preserve original
+ * case of acronyms and other special words.
+ *
+ * @param str input string
+ * @returns string in sentence case
+ */
+export function convertToSentenceCase(str: string): string {
+  const preserveList = [
+    'ACCT',
+    'C.I',
+    'C.N',
+    'C.S',
+    'CANDR',
+    'CCTV',
+    'CO2',
+    'DIMU',
+    'DJI',
+    'DMIU',
+    'DVD',
+    'EGS',
+    'F2052SH',
+    'F2052SH/ACCT',
+    'F78A',
+    'FES',
+    'GP',
+    'H.C.C.',
+    'HHMD',
+    'HMPS',
+    'HSE',
+    'IEP',
+    'IMB',
+    'KPI',
+    'Lewis',
+    'LSD',
+    'N/A',
+    'NDTSG',
+    'NOMS',
+    'NOU',
+    'NPS',
+    'NTRG',
+    'O.C',
+    'OMA',
+    'PPCS',
+    'ROTL',
+    'SFO',
+    'SIM',
+    'Stockholm',
+    'T/R',
+    'Tornado',
+    'TV',
+    'UAL',
+    'UAV',
+    'USB',
+    'VPU',
+    'YO',
+    // 'IT', // IT is problematic: IT (Information Technology) or "it" pronoun?
+  ]
+
+  // If sentence ends with a question mark remove it and re-add it at the end
+  let input = str.trim()
+  let endsWithQuestionMark = false
+  if (input.endsWith('?')) {
+    endsWithQuestionMark = true
+    input = input.substring(0, input.length - 1)
+  }
+
+  let words = input.split(/\s+/)
+  words = words.map((word, index) => {
+    const preservedWordFound = preserveList.find(preservedWord => preservedWord.toUpperCase() === word.toUpperCase())
+    if (preservedWordFound) {
+      return preservedWordFound
+    }
+
+    if (index === 0) {
+      return properCase(word)
+    }
+
+    return word.toLowerCase()
+  })
+
+  let result = words.join(' ')
+  if (endsWithQuestionMark) {
+    result += '?'
+  }
+  return result
+}

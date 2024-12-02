@@ -15,7 +15,7 @@ describe('PrisonerSearchForm', () => {
   ])('should present errors when $scenario', ({ payload }) => {
     const form = new PrisonerSearchForm()
     form.submit(payload)
-    expect(form.hasErrors).toBeTruthy()
+    expect(form.hasErrors).toBe(true)
   })
 
   it('should accept valid payloads', () => {
@@ -27,7 +27,7 @@ describe('PrisonerSearchForm', () => {
         const page = index + 1
         form.submit({ q: query, page: page.toString(), scope })
 
-        expect(form.hasErrors).toBeFalsy()
+        expect(form.hasErrors).toBe(false)
         expect(form.fields.q.value).toEqual(query)
         expect(form.fields.page.value).toEqual(page)
         expect(form.fields.scope.value).toEqual(scope ?? 'prison')
@@ -50,7 +50,7 @@ describe('PrisonerSearchForm', () => {
         }
         const form = new PrisonerSearchForm()
         form.submit(payload)
-        expect(form.hasErrors).toBeFalsy()
+        expect(form.hasErrors).toBe(false)
         expect(form.fields.sort.value).toEqual(sort)
         expect(form.fields.order.value).toEqual(order)
       })
@@ -60,7 +60,7 @@ describe('PrisonerSearchForm', () => {
   it('should trim whitespace from query', () => {
     const form = new PrisonerSearchForm()
     form.submit({ q: 'A1234AA ', page: '1' })
-    expect(form.hasErrors).toBeFalsy()
+    expect(form.hasErrors).toBe(false)
     expect(form.fields.q.value).toEqual('A1234AA')
   })
 })

@@ -23,12 +23,12 @@ afterEach(() => {
 })
 
 function expectOnTypePage(res: Response): void {
-  expect(res.request.url.endsWith('/create-report')).toBeTruthy()
+  expect(res.request.url.endsWith('/create-report')).toBe(true)
   expect(res.text).toContain('Select incident type')
 }
 
 function expectOnDetailsPage(res: Response): void {
-  expect(res.request.url.endsWith('/create-report/details')).toBeTruthy()
+  expect(res.request.url.endsWith('/create-report/details')).toBe(true)
   expect(res.text).toContain('Incident details')
 }
 
@@ -237,7 +237,7 @@ describe('Creating a report', () => {
         .redirects(0)
         .expect(302)
         .expect(res => {
-          expect(res.redirect).toBeTruthy()
+          expect(res.redirect).toBe(true)
           expect(res.header.location).toEqual(`/reports/${reportWithDetails.id}`)
           expect(incidentReportingApi.createReport).toHaveBeenCalledWith({
             createNewEvent: true,
@@ -272,7 +272,7 @@ describe('Creating a report', () => {
         .redirects(0)
         .expect(302)
         .expect(res => {
-          expect(res.redirect).toBeTruthy()
+          expect(res.redirect).toBe(true)
           expect(res.header.location).toEqual('/')
           expect(incidentReportingApi.createReport).toHaveBeenCalled()
         })

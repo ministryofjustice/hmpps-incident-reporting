@@ -67,7 +67,7 @@ describe('formPostRoute', () => {
       .get('/')
       .expect(res => {
         expect(res.text).toEqual('DONE')
-        expect(formConstructed).toBeTruthy()
+        expect(formConstructed).toBe(true)
       })
   })
 

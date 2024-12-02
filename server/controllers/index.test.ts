@@ -123,7 +123,7 @@ describe('Base form wizard controller', () => {
       const controller = new TestController({ route: '/', steps: {}, fields: {} })
       const apiError = mockThrownError({})
       const validationError = controller.convertIntoValidationError(apiError)
-      expect(controller.isValidationError({ fieldName: validationError })).toBeTruthy()
+      expect(controller.isValidationError({ fieldName: validationError })).toBe(true)
       expect(validationError.key).toBeUndefined()
       expect(validationError.field).toBeUndefined()
       expect(validationError.type).toEqual('default')

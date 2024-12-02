@@ -6,6 +6,7 @@ import {
   prisonerInvolvementRoles,
   types,
 } from '../../reportConfiguration/constants'
+import { addQuestionMarkToQuestion, convertToSentenceCase } from '../../utils/utils'
 import {
   type IncidentTypeConfiguration as NomisIncidentTypeConfiguration,
   type QuestionConfiguration as NomisQuestionConfiguration,
@@ -42,7 +43,7 @@ export function fromNomis(nomisConfig: NomisIncidentTypeConfiguration): DpsIncid
         id: questionId,
         active: q.questionActiveFlag === true,
         code: q.questionDesc,
-        label: q.questionDesc,
+        label: addQuestionMarkToQuestion(convertToSentenceCase(q.questionDesc)),
         multipleAnswers: q.multipleAnswerFlag === true,
         answers: nomisAnswers.map(ans => {
           const nextQuestionId = ans.nextQuestionnaireQueId?.toString() ?? null

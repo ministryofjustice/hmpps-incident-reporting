@@ -47,12 +47,12 @@ describe('Updating report details', () => {
   })
 
   function expectOnDetailsPage(res: Response): void {
-    expect(res.request.url.endsWith(updateDetailsUrl)).toBeTruthy()
+    expect(res.request.url.endsWith(updateDetailsUrl)).toBe(true)
     expect(res.text).toContain('Incident details')
   }
 
   function expectRedirectToReportPage(res: Response): void {
-    expect(res.redirect).toBeTruthy()
+    expect(res.redirect).toBe(true)
     expect(res.header.location).toEqual(`/reports/${reportBasic.id}`)
   }
 

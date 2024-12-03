@@ -40,7 +40,7 @@ describe('Form handling', () => {
     const form = new SimpleForm()
 
     it('knows it has not been submitted', () => {
-      expect(form.submitted).toBeFalsy()
+      expect(form.submitted).toBe(false)
     })
 
     it('will allow reading field information', () => {
@@ -60,7 +60,7 @@ describe('Form handling', () => {
     form.load({ query: ' ' })
 
     it('it doesn’t have errors', () => {
-      expect(form.hasErrors).toBeFalsy()
+      expect(form.hasErrors).toBe(false)
     })
 
     it('contains the loaded, unsanitised fields', () => {
@@ -73,7 +73,7 @@ describe('Form handling', () => {
     form.submit({ query: 'search text ' })
 
     it('knows it has been submitted', () => {
-      expect(form.submitted).toBeTruthy()
+      expect(form.submitted).toBe(true)
     })
 
     it('cannot be resubmitted', () => {
@@ -81,7 +81,7 @@ describe('Form handling', () => {
     })
 
     it('has no errors', () => {
-      expect(form.hasErrors).toBeFalsy()
+      expect(form.hasErrors).toBe(false)
     })
 
     it('has empty error details', () => {
@@ -113,7 +113,7 @@ describe('Form handling', () => {
       form.submit(payload)
 
       it('knows it has been submitted', () => {
-        expect(form.submitted).toBeTruthy()
+        expect(form.submitted).toBe(true)
       })
 
       it('cannot be resubmitted', () => {
@@ -121,7 +121,7 @@ describe('Form handling', () => {
       })
 
       it('has errors', () => {
-        expect(form.hasErrors).toBeTruthy()
+        expect(form.hasErrors).toBe(true)
       })
 
       it('has non-empty error details', () => {
@@ -178,7 +178,7 @@ describe('Form handling', () => {
     it('allows conversion from string inputs', () => {
       const form = new NonStringForm()
       form.submit({ n: '123', b: 'true' })
-      expect(form.hasErrors).toBeFalsy()
+      expect(form.hasErrors).toBe(false)
       expect(form.fields.n.value).toEqual(123)
       expect(form.fields.b.value).toEqual(true)
     })

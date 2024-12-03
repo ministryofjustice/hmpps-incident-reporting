@@ -17,9 +17,9 @@ describe('Permissions', () => {
     ])('should $action access to the service for $userType', ({ action, user }) => {
       const permissions = new Permissions(user)
       if (action === 'grant') {
-        expect(permissions.canAccessService).toBeTruthy()
+        expect(permissions.canAccessService).toBe(true)
       } else if (action === 'deny') {
-        expect(permissions.canAccessService).toBeFalsy()
+        expect(permissions.canAccessService).toBe(false)
       } else {
         throw new Error('test setup error')
       }
@@ -36,9 +36,9 @@ describe('Permissions', () => {
     ])('should $action $userType access to Leeds', ({ action, user }) => {
       const permissions = new Permissions(user)
       if (action === 'grant') {
-        expect(permissions.canAccessCaseload('LEI')).toBeTruthy()
+        expect(permissions.canAccessCaseload('LEI')).toBe(true)
       } else if (action === 'deny') {
-        expect(permissions.canAccessCaseload('LEI')).toBeFalsy()
+        expect(permissions.canAccessCaseload('LEI')).toBe(false)
       } else {
         throw new Error('test setup error')
       }

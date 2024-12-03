@@ -32,7 +32,7 @@ describe('GET /', () => {
       .get('/')
       .expect(302)
       .expect(res => {
-        expect(res.redirect).toBeTruthy()
+        expect(res.redirect).toBe(true)
         expect(res.header.location).toEqual('/sign-out')
       })
   })

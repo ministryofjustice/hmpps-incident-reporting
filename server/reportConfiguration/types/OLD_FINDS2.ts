@@ -1,4 +1,4 @@
-// Generated with ./scripts/updateNomisIncidentTypeConfigurations.ts at 2024-12-03T16:21:31.743Z
+// Generated with ./scripts/updateNomisIncidentTypeConfigurations.ts at 2024-12-04T17:17:18.372Z
 
 import { type IncidentTypeConfiguration } from '../../data/incidentTypeConfiguration/types'
 
@@ -54,7 +54,7 @@ const OLD_FINDS2: IncidentTypeConfiguration = {
           id: '196688',
           code: 'CPS referral',
           active: false,
-          label: 'Cps referral',
+          label: 'CPS referral',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '51185',
@@ -882,7 +882,7 @@ const OLD_FINDS2: IncidentTypeConfiguration = {
           id: '196772',
           code: 'Local with BDH kit or similar',
           active: false,
-          label: 'Local with bdh kit or similar',
+          label: 'Local with BDH kit or similar',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '51193',

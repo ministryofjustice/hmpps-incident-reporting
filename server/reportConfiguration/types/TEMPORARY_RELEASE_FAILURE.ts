@@ -1,4 +1,4 @@
-// Generated with ./scripts/updateNomisIncidentTypeConfigurations.ts at 2024-12-03T16:21:37.325Z
+// Generated with ./scripts/updateNomisIncidentTypeConfigurations.ts at 2024-12-04T17:17:23.392Z
 
 import { type IncidentTypeConfiguration } from '../../data/incidentTypeConfiguration/types'
 
@@ -54,7 +54,7 @@ const TEMPORARY_RELEASE_FAILURE: IncidentTypeConfiguration = {
           id: '210688',
           code: 'CPS referral',
           active: true,
-          label: 'Cps referral',
+          label: 'CPS referral',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '59180',

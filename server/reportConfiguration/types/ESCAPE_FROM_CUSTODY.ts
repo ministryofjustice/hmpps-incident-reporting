@@ -1,4 +1,4 @@
-// Generated with ./scripts/updateNomisIncidentTypeConfigurations.ts at 2024-12-03T16:21:27.538Z
+// Generated with ./scripts/updateNomisIncidentTypeConfigurations.ts at 2024-12-04T17:17:14.609Z
 
 import { type IncidentTypeConfiguration } from '../../data/incidentTypeConfiguration/types'
 
@@ -4338,7 +4338,7 @@ const ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
           id: '182128',
           code: "'S' WIRE",
           active: true,
-          label: "'s' wire",
+          label: "'S' wire",
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '45048',

@@ -1,4 +1,4 @@
-// Generated with ./scripts/updateNomisIncidentTypeConfigurations.ts at 2024-12-03T16:21:38.291Z
+// Generated with ./scripts/updateNomisIncidentTypeConfigurations.ts at 2024-12-04T17:17:24.226Z
 
 import { type IncidentTypeConfiguration } from '../../data/incidentTypeConfiguration/types'
 
@@ -2052,7 +2052,7 @@ const FIRE: IncidentTypeConfiguration = {
           id: '182410',
           code: 'AFFF EXTINGUISHER',
           active: true,
-          label: 'Afff extinguisher',
+          label: 'AFFF extinguisher',
           commentRequired: true,
           dateRequired: false,
           nextQuestionId: '44945',

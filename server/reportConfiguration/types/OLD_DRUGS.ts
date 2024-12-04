@@ -1,4 +1,4 @@
-// Generated with ./scripts/updateNomisIncidentTypeConfigurations.ts at 2024-12-03T16:21:25.682Z
+// Generated with ./scripts/updateNomisIncidentTypeConfigurations.ts at 2024-12-04T17:17:12.910Z
 
 import { type IncidentTypeConfiguration } from '../../data/incidentTypeConfiguration/types'
 
@@ -612,7 +612,7 @@ const OLD_DRUGS: IncidentTypeConfiguration = {
           id: '180710',
           code: 'LOCAL WITH BDH KIT OR SIMILAR',
           active: false,
-          label: 'Local with bdh kit or similar',
+          label: 'Local with BDH kit or similar',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44982',

@@ -1,4 +1,4 @@
-// Generated with ./scripts/updateNomisIncidentTypeConfigurations.ts at 2024-12-03T16:21:32.687Z
+// Generated with ./scripts/updateNomisIncidentTypeConfigurations.ts at 2024-12-04T17:17:19.271Z
 
 import { type IncidentTypeConfiguration } from '../../data/incidentTypeConfiguration/types'
 
@@ -657,7 +657,7 @@ const OLD_FINDS: IncidentTypeConfiguration = {
           id: '195016',
           code: 'Local With BDH Kit Or Similar',
           active: false,
-          label: 'Local with bdh kit or similar',
+          label: 'Local with BDH kit or similar',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '49269',

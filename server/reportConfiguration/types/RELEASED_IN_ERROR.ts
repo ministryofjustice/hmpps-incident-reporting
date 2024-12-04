@@ -1,4 +1,4 @@
-// Generated with ./scripts/updateNomisIncidentTypeConfigurations.ts at 2024-12-03T16:21:47.504Z
+// Generated with ./scripts/updateNomisIncidentTypeConfigurations.ts at 2024-12-04T17:17:32.991Z
 
 import { type IncidentTypeConfiguration } from '../../data/incidentTypeConfiguration/types'
 
@@ -225,7 +225,7 @@ const RELEASED_IN_ERROR: IncidentTypeConfiguration = {
           id: '182695',
           code: 'ADA not included in calculations',
           active: false,
-          label: 'Ada not included in calculations',
+          label: 'ADA not included in calculations',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: null,
@@ -324,7 +324,7 @@ const RELEASED_IN_ERROR: IncidentTypeConfiguration = {
           id: '183031',
           code: 'ADA not included on calculations',
           active: true,
-          label: 'Ada not included on calculations',
+          label: 'ADA not included on calculations',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '45182',
@@ -549,7 +549,7 @@ const RELEASED_IN_ERROR: IncidentTypeConfiguration = {
           id: '182711',
           code: 'Contact from PEMS',
           active: false,
-          label: 'Contact from pems',
+          label: 'Contact from PEMS',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: null,
@@ -567,7 +567,7 @@ const RELEASED_IN_ERROR: IncidentTypeConfiguration = {
           id: '182713',
           code: 'Contact from UKBA',
           active: false,
-          label: 'Contact from ukba',
+          label: 'Contact from UKBA',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: null,
@@ -621,7 +621,7 @@ const RELEASED_IN_ERROR: IncidentTypeConfiguration = {
           id: '183047',
           code: 'Contact from PEMS',
           active: false,
-          label: 'Contact from pems',
+          label: 'Contact from PEMS',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '45184',
@@ -639,7 +639,7 @@ const RELEASED_IN_ERROR: IncidentTypeConfiguration = {
           id: '183049',
           code: 'Contact from UKBA',
           active: true,
-          label: 'Contact from ukba',
+          label: 'Contact from UKBA',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '45184',
@@ -693,7 +693,7 @@ const RELEASED_IN_ERROR: IncidentTypeConfiguration = {
           id: '184686',
           code: 'Contact from PEMS',
           active: true,
-          label: 'Contact from pems',
+          label: 'Contact from PEMS',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '45184',

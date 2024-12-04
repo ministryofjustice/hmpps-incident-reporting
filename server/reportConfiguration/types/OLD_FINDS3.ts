@@ -1,4 +1,4 @@
-// Generated with ./scripts/updateNomisIncidentTypeConfigurations.ts at 2024-12-03T16:21:29.555Z
+// Generated with ./scripts/updateNomisIncidentTypeConfigurations.ts at 2024-12-04T17:17:16.478Z
 
 import { type IncidentTypeConfiguration } from '../../data/incidentTypeConfiguration/types'
 
@@ -1548,7 +1548,7 @@ const OLD_FINDS3: IncidentTypeConfiguration = {
           id: '216841',
           code: 'YES - LOCAL WITH BDH KIT OR SIMILAR',
           active: true,
-          label: 'Yes - local with bdh kit or similar',
+          label: 'Yes - local with BDH kit or similar',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '65193',
@@ -2466,7 +2466,7 @@ const OLD_FINDS3: IncidentTypeConfiguration = {
           id: '216935',
           code: 'TABLET, E.G. IPAD',
           active: true,
-          label: 'Tablet, e.g. ipad',
+          label: 'Tablet, e.g. iPad',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '65226',
@@ -2484,7 +2484,7 @@ const OLD_FINDS3: IncidentTypeConfiguration = {
           id: '216937',
           code: 'WIRELESS HEADSET, E.G. APPLE AIRPODS',
           active: true,
-          label: 'Wireless headset, e.g. apple airpods',
+          label: 'Wireless headset, e.g. Apple AirPods',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '65226',
@@ -3186,7 +3186,7 @@ const OLD_FINDS3: IncidentTypeConfiguration = {
           id: '217005',
           code: 'YES - LOCAL WITH BDH KIT OR SIMILAR',
           active: true,
-          label: 'Yes - local with bdh kit or similar',
+          label: 'Yes - local with BDH kit or similar',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '65211',
@@ -4158,7 +4158,7 @@ const OLD_FINDS3: IncidentTypeConfiguration = {
           id: '217103',
           code: 'TABLET, E.G. IPAD',
           active: true,
-          label: 'Tablet, e.g. ipad',
+          label: 'Tablet, e.g. iPad',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '65221',
@@ -4176,7 +4176,7 @@ const OLD_FINDS3: IncidentTypeConfiguration = {
           id: '217105',
           code: 'WIRELESS HEADSET, E.G. APPLE AIRPODS',
           active: true,
-          label: 'Wireless headset, e.g. apple airpods',
+          label: 'Wireless headset, e.g. Apple AirPods',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '65221',

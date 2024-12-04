@@ -1,4 +1,4 @@
-// Generated with ./scripts/updateNomisIncidentTypeConfigurations.ts at 2024-12-03T16:21:44.742Z
+// Generated with ./scripts/updateNomisIncidentTypeConfigurations.ts at 2024-12-04T17:17:30.369Z
 
 import { type IncidentTypeConfiguration } from '../../data/incidentTypeConfiguration/types'
 
@@ -666,7 +666,7 @@ const OLD_KEY_LOCK_INCIDENT: IncidentTypeConfiguration = {
           id: '181872',
           code: 'CLASS 3 A1 SUITE KEY',
           active: false,
-          label: 'Class 3 a1 suite key',
+          label: 'Class 3 A1 suite key',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '45015',
@@ -729,7 +729,7 @@ const OLD_KEY_LOCK_INCIDENT: IncidentTypeConfiguration = {
           id: '181873',
           code: 'CLASS 3 A1 SUITE LOCK',
           active: false,
-          label: 'Class 3 a1 suite lock',
+          label: 'Class 3 A1 suite lock',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '45015',

@@ -1,4 +1,4 @@
-// Generated with ./scripts/updateNomisIncidentTypeConfigurations.ts at 2024-12-03T16:21:42.641Z
+// Generated with ./scripts/updateNomisIncidentTypeConfigurations.ts at 2024-12-04T17:17:28.427Z
 
 import { type IncidentTypeConfiguration } from '../../data/incidentTypeConfiguration/types'
 
@@ -396,7 +396,7 @@ const KEY_LOCK_INCIDENT: IncidentTypeConfiguration = {
           id: '182770',
           code: 'Class 3 A1 Suite key',
           active: false,
-          label: 'Class 3 a1 suite key',
+          label: 'Class 3 A1 suite key',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: null,
@@ -459,7 +459,7 @@ const KEY_LOCK_INCIDENT: IncidentTypeConfiguration = {
           id: '182777',
           code: 'Class 3 A1 Suite Lock',
           active: false,
-          label: 'Class 3 a1 suite lock',
+          label: 'Class 3 A1 suite lock',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: null,
@@ -576,7 +576,7 @@ const KEY_LOCK_INCIDENT: IncidentTypeConfiguration = {
           id: '182967',
           code: 'Class 3 A1 Suite key',
           active: true,
-          label: 'Class 3 a1 suite key',
+          label: 'Class 3 A1 suite key',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '45198',
@@ -639,7 +639,7 @@ const KEY_LOCK_INCIDENT: IncidentTypeConfiguration = {
           id: '182974',
           code: 'Class 3 A1 Suite Lock',
           active: true,
-          label: 'Class 3 a1 suite lock',
+          label: 'Class 3 A1 suite lock',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '45198',

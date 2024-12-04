@@ -324,7 +324,7 @@ describe('sentence case', () => {
       'WAS A F2052SH/ACCT OPEN AT THE TIME OF DEATH',
       'Was a F2052SH/ACCT open at the time of death',
     ],
-  ])(`%s addQuestionMarkToQuestion('%s') -> '%s'`, (_: string, a: string, expected: string) => {
+  ])(`%s convertToSentenceCase('%s') -> '%s'`, (_: string, a: string, expected: string) => {
     expect(convertToSentenceCase(a)).toEqual(expected)
   })
 })

@@ -52,3 +52,8 @@ interface PrisonerRoleConfiguration {
   /** Indicates this role is active */
   active: boolean
 }
+
+/** Finds the Answer config for a given answer code */
+export function findAnswerConfigByCode(answerCode: string, questionConfig: QuestionConfiguration): AnswerConfiguration {
+  return questionConfig.answers.find(answerConfig => answerConfig.code.trim() === answerCode.trim())
+}

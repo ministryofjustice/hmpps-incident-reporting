@@ -1,7 +1,6 @@
 import express from 'express'
 import wizard from 'hmpo-form-wizard'
 
-import { generateFields, generateSteps } from '../../data/incidentTypeConfiguration/formWizard'
 import asyncMiddleware from '../../middleware/asyncMiddleware'
 import { populateReport } from '../../middleware/populateReport'
 
@@ -12,10 +11,7 @@ router.use(
   asyncMiddleware(async (req, res, next) => {
     const reportId = req.params.id
 
-    const steps = generateSteps(res.locals.reportConfig)
-    const fields = generateFields(res.locals.reportConfig)
-
-    const wizardRouter = wizard(steps, fields, {
+    const wizardRouter = wizard(res.locals.reportSteps, res.locals.reportFields, {
       name: `${reportId}-questions`,
       templatePath: 'pages/wip/questions',
       // Needs to be false, session already handled by application

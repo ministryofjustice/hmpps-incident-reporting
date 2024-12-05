@@ -1,5 +1,4 @@
 import type { RequestHandler } from 'express'
-import { NotFound } from 'http-errors'
 
 import { Router } from 'express'
 import type { PathParams } from 'express-serve-static-core'
@@ -12,21 +11,18 @@ import {
   types,
 } from '../reportConfiguration/constants'
 import asyncMiddleware from '../middleware/asyncMiddleware'
+import { populateReport } from '../middleware/populateReport'
+import { type ReportWithDetails } from '../data/incidentReportingApi'
 
 export default function viewReport(service: Services): Router {
   const router = Router({ mergeParams: true })
   const { userService } = service
-  const get = (path: PathParams, handler: RequestHandler) => router.get(path, asyncMiddleware(handler))
+  const get = (path: PathParams, handler: RequestHandler) => router.get(path, [populateReport(), asyncMiddleware(handler)])
 
   get('/', async (req, res) => {
-    const { incidentReportingApi, prisonApi, offenderSearchApi } = res.locals.apis
+    const { prisonApi, offenderSearchApi } = res.locals.apis
 
-    const { id } = req.params
-    if (!id) {
-      throw new NotFound()
-    }
-
-    const report = await incidentReportingApi.getReportWithDetailsById(id)
+    const report = res.locals.report as ReportWithDetails
 
     let usernames = [report.reportedBy]
     if (report.staffInvolved) {

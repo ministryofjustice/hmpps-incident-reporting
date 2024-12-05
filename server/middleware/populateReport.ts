@@ -2,6 +2,7 @@ import type { NextFunction, Request, Response } from 'express'
 
 import logger from '../../logger'
 import { getIncidentTypeConfiguration } from '../reportConfiguration/types'
+import { generateFields, generateSteps } from '../data/incidentTypeConfiguration/formWizard'
 
 // eslint-disable-next-line import/prefer-default-export
 export function populateReport() {
@@ -24,6 +25,9 @@ export function populateReport() {
       next(error)
       return
     }
+
+    res.locals.reportSteps = generateSteps(res.locals.reportConfig)
+    res.locals.reportFields = generateFields(res.locals.reportConfig)
 
     next()
   }

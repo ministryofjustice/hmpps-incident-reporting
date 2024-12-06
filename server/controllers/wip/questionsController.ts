@@ -8,7 +8,7 @@ import {
 } from '../../data/incidentReportingApi'
 import format from '../../utils/format'
 import {
-  AnswerConfiguration,
+  findAnswerConfigByCode,
   IncidentTypeConfiguration,
   QuestionConfiguration,
 } from '../../data/incidentTypeConfiguration/types'
@@ -62,7 +62,7 @@ export default class QuestionsController extends BaseController<FormWizard.Multi
         // NOTE: Each response may have its own associated comment and/or date
         for (const response of question.responses) {
           const answerCode = response.response
-          const answerConfig = this.findAnswerConfigByCode(answerCode, questionConfig)
+          const answerConfig = findAnswerConfigByCode(answerCode, questionConfig)
           if (answerConfig === undefined) {
             logger.error(
               `Report '${report.id}': Answer with code '${answerCode}' not found in ${report.type}'s question '${questionConfig.id}' configuration.`,
@@ -147,7 +147,7 @@ export default class QuestionsController extends BaseController<FormWizard.Multi
               // eslint-disable-next-line no-continue
               continue
             }
-            const answerConfig = this.findAnswerConfigByCode(responseCode, questionConfig)
+            const answerConfig = findAnswerConfigByCode(responseCode, questionConfig)
             if (answerConfig === undefined) {
               logger.error(
                 `Report '${report.id}': Submitted Answer with code '${responseCode}' not found in ${report.type}'s question '${questionConfig.id}' configuration.`,
@@ -181,11 +181,6 @@ export default class QuestionsController extends BaseController<FormWizard.Multi
         next()
       }
     })
-  }
-
-  /** Finds the Answer config for a given the answer code */
-  private findAnswerConfigByCode(answerCode: string, questionConfig: QuestionConfiguration): AnswerConfiguration {
-    return questionConfig.answers.find(answerConfig => answerConfig.code.trim() === answerCode.trim())
   }
 
   /** Strips `QID-0...` prefix and returns the question ID

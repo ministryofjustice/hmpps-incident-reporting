@@ -1,4 +1,4 @@
-// Generated with ./scripts/updateNomisIncidentTypeConfigurations.ts at 2024-12-03T16:21:18.472Z
+// Generated with ./scripts/updateNomisIncidentTypeConfigurations.ts at 2024-12-06T16:08:18.802Z
 
 import { type IncidentTypeConfiguration } from '../../data/incidentTypeConfiguration/types'
 
@@ -207,7 +207,7 @@ const DEATH_IN_CUSTODY: IncidentTypeConfiguration = {
           id: '179728',
           code: 'UNFURNISHED ROOM: H.C.C.',
           active: true,
-          label: 'Unfurnished room: H.C.C.',
+          label: 'Unfurnished room: h.c.c.',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44680',
@@ -216,7 +216,7 @@ const DEATH_IN_CUSTODY: IncidentTypeConfiguration = {
           id: '179722',
           code: 'PROTECTIVE ROOM: H.C.C.',
           active: true,
-          label: 'Protective room: H.C.C.',
+          label: 'Protective room: h.c.c.',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44680',
@@ -614,7 +614,7 @@ const DEATH_IN_CUSTODY: IncidentTypeConfiguration = {
       id: '44721',
       active: true,
       code: 'WAS THE PRISONER ON T/R IN OUTSIDE HOSPITAL',
-      label: 'Was the prisoner on T/R in outside hospital?',
+      label: 'Was the prisoner on t/r in outside hospital?',
       multipleAnswers: false,
       answers: [
         {
@@ -1116,7 +1116,7 @@ const DEATH_IN_CUSTODY: IncidentTypeConfiguration = {
           id: '182613',
           code: 'OUTSIDE P.E. ACTIVITY',
           active: true,
-          label: 'Outside P.E. activity',
+          label: 'Outside p.e. activity',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44876',

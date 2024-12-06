@@ -1,4 +1,4 @@
-// Generated with ./scripts/updateNomisIncidentTypeConfigurations.ts at 2024-12-03T16:21:23.009Z
+// Generated with ./scripts/updateNomisIncidentTypeConfigurations.ts at 2024-12-06T16:08:24.017Z
 
 import { type IncidentTypeConfiguration } from '../../data/incidentTypeConfiguration/types'
 
@@ -900,7 +900,7 @@ const OLD_DRONE_SIGHTING: IncidentTypeConfiguration = {
           id: '208768',
           code: 'TALON X-UAV',
           active: false,
-          label: 'Talon x-uav',
+          label: 'Talon x-UAV',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '57200',

@@ -254,7 +254,6 @@ export function convertToSentenceCase(str: string): string {
     'DYI',
     'EGS',
     'F2052SH',
-    'F2052SH/ACCT',
     'F78A',
     'FES',
     'GP',
@@ -297,34 +296,38 @@ export function convertToSentenceCase(str: string): string {
     'VPU',
     'YO',
     // 'IT', // IT is problematic: IT (Information Technology) or "it" pronoun?
-    `'S'`,
   ]
 
-  // If sentence ends with a question mark remove it and re-add it at the end
-  let input = str.trim()
-  let endsWithQuestionMark = false
-  if (input.endsWith('?')) {
-    endsWithQuestionMark = true
-    input = input.substring(0, input.length - 1)
+  const input = str.trim()
+  if (input.length === 0) {
+    return ''
   }
 
-  let words = input.split(/\s+/)
-  words = words.map((word, index) => {
-    const preservedWordFound = preserveList.find(preservedWord => preservedWord.toUpperCase() === word.toUpperCase())
-    if (preservedWordFound) {
-      return preservedWordFound
+  // match words or non-words
+  const regex = /(\w+|[^\w\s]+|\s)/g
+  const parts = input.match(regex)
+  const mapped = parts.map((part, index) => {
+    if (/\w+/.test(part)) {
+      const word = part
+
+      const preservedWordFound = preserveList.find(preservedWord => preservedWord.toUpperCase() === word.toUpperCase())
+      if (preservedWordFound) {
+        return preservedWordFound
+      }
+
+      if (index === 0) {
+        return properCase(word)
+      }
+
+      return word.toLowerCase()
     }
 
-    if (index === 0) {
-      return properCase(word)
-    }
-
-    return word.toLowerCase()
+    return part
   })
+  let result = mapped.join('')
 
-  let result = words.join(' ')
-  if (endsWithQuestionMark) {
-    result += '?'
-  }
+  // remove duplicated spaces
+  result = result.replace(/\s+/g, ' ')
+
   return result
 }

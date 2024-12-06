@@ -1,4 +1,4 @@
-// Generated with ./scripts/updateNomisIncidentTypeConfigurations.ts at 2024-12-03T16:21:24.812Z
+// Generated with ./scripts/updateNomisIncidentTypeConfigurations.ts at 2024-12-06T16:08:26.135Z
 
 import { type IncidentTypeConfiguration } from '../../data/incidentTypeConfiguration/types'
 
@@ -288,7 +288,7 @@ const DRONE_SIGHTING: IncidentTypeConfiguration = {
           id: '220697',
           code: 'Da-Jiang Innovations (DJI) - PHANTHOM',
           active: true,
-          label: 'Da-jiang innovations (dji) - phanthom',
+          label: 'Da-jiang innovations (DJI) - phanthom',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '69192',
@@ -297,7 +297,7 @@ const DRONE_SIGHTING: IncidentTypeConfiguration = {
           id: '220698',
           code: 'Da-Jiang Innovations (DJI) - INSPIRE',
           active: true,
-          label: 'Da-jiang innovations (dji) - inspire',
+          label: 'Da-jiang innovations (DJI) - inspire',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '69192',
@@ -306,7 +306,7 @@ const DRONE_SIGHTING: IncidentTypeConfiguration = {
           id: '220699',
           code: 'Da-Jiang Innovations (DJI) - MAVIC',
           active: true,
-          label: 'Da-jiang innovations (dji) - mavic',
+          label: 'Da-jiang innovations (DJI) - mavic',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '69192',
@@ -315,7 +315,7 @@ const DRONE_SIGHTING: IncidentTypeConfiguration = {
           id: '220700',
           code: 'Da-Jiang Innovations (DJI) - MINI',
           active: true,
-          label: 'Da-jiang innovations (dji) - mini',
+          label: 'Da-jiang innovations (DJI) - mini',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '69192',

@@ -1,4 +1,4 @@
-// Generated with ./scripts/updateNomisIncidentTypeConfigurations.ts at 2024-12-04T17:17:18.372Z
+// Generated with ./scripts/updateNomisIncidentTypeConfigurations.ts at 2024-12-06T16:08:33.052Z
 
 import { type IncidentTypeConfiguration } from '../../data/incidentTypeConfiguration/types'
 
@@ -459,7 +459,7 @@ const OLD_FINDS2: IncidentTypeConfiguration = {
           id: '196730',
           code: 'Vulnerable Prisoners Unit (VPU)',
           active: false,
-          label: 'Vulnerable prisoners unit (vpu)',
+          label: 'Vulnerable prisoners unit (VPU)',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '51188',
@@ -639,7 +639,7 @@ const OLD_FINDS2: IncidentTypeConfiguration = {
           id: '196748',
           code: 'NPS: Spice',
           active: false,
-          label: 'Nps: spice',
+          label: 'NPS: spice',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '51190',
@@ -648,7 +648,7 @@ const OLD_FINDS2: IncidentTypeConfiguration = {
           id: '196749',
           code: 'NPS: Black Mamba',
           active: false,
-          label: 'Nps: black mamba',
+          label: 'NPS: black mamba',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '51190',
@@ -657,7 +657,7 @@ const OLD_FINDS2: IncidentTypeConfiguration = {
           id: '196750',
           code: 'NPS: Other',
           active: false,
-          label: 'Nps: other',
+          label: 'NPS: other',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '51190',
@@ -1820,7 +1820,7 @@ const OLD_FINDS2: IncidentTypeConfiguration = {
       id: '51205',
       active: false,
       code: 'Has Phone/SIM/Memory card been sent to NDTSG',
-      label: 'Has phone/sim/memory card been sent to NDTSG?',
+      label: 'Has phone/SIM/memory card been sent to NDTSG?',
       multipleAnswers: true,
       answers: [
         {
@@ -1856,7 +1856,7 @@ const OLD_FINDS2: IncidentTypeConfiguration = {
       id: '51206',
       active: false,
       code: 'Has Phone/SIM/Equipment been retained by police?',
-      label: 'Has phone/sim/equipment been retained by police?',
+      label: 'Has phone/SIM/equipment been retained by police?',
       multipleAnswers: false,
       answers: [
         {

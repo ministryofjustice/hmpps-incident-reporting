@@ -1,4 +1,4 @@
-// Generated with ./scripts/updateNomisIncidentTypeConfigurations.ts at 2024-12-03T16:21:40.860Z
+// Generated with ./scripts/updateNomisIncidentTypeConfigurations.ts at 2024-12-06T16:08:41.553Z
 
 import { type IncidentTypeConfiguration } from '../../data/incidentTypeConfiguration/types'
 
@@ -90,7 +90,7 @@ const FULL_CLOSE_DOWN_SEARCH: IncidentTypeConfiguration = {
           id: '179922',
           code: 'C.I SPRAY',
           active: true,
-          label: 'C.I spray',
+          label: 'C.i spray',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44385',

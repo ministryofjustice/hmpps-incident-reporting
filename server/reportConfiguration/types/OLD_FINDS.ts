@@ -1,4 +1,4 @@
-// Generated with ./scripts/updateNomisIncidentTypeConfigurations.ts at 2024-12-04T17:17:19.271Z
+// Generated with ./scripts/updateNomisIncidentTypeConfigurations.ts at 2024-12-06T16:08:33.935Z
 
 import { type IncidentTypeConfiguration } from '../../data/incidentTypeConfiguration/types'
 
@@ -522,7 +522,7 @@ const OLD_FINDS: IncidentTypeConfiguration = {
           id: '195010',
           code: 'Vulnerable Prisoners Unit (VPU)',
           active: false,
-          label: 'Vulnerable prisoners unit (vpu)',
+          label: 'Vulnerable prisoners unit (VPU)',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '49265',
@@ -819,7 +819,7 @@ const OLD_FINDS: IncidentTypeConfiguration = {
           id: '195032',
           code: 'NPS: Spice',
           active: false,
-          label: 'Nps: spice',
+          label: 'NPS: spice',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '49271',
@@ -828,7 +828,7 @@ const OLD_FINDS: IncidentTypeConfiguration = {
           id: '195033',
           code: 'NPS: Black Mamba',
           active: false,
-          label: 'Nps: black mamba',
+          label: 'NPS: black mamba',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '49271',
@@ -837,7 +837,7 @@ const OLD_FINDS: IncidentTypeConfiguration = {
           id: '195034',
           code: 'NPS: Other',
           active: false,
-          label: 'Nps: other',
+          label: 'NPS: other',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '49271',
@@ -1064,7 +1064,7 @@ const OLD_FINDS: IncidentTypeConfiguration = {
       id: '49279',
       active: false,
       code: 'Has Phone/SIM/Equipment Been Sent to NDTSG',
-      label: 'Has phone/sim/equipment been sent to NDTSG?',
+      label: 'Has phone/SIM/equipment been sent to NDTSG?',
       multipleAnswers: true,
       answers: [
         {
@@ -1100,7 +1100,7 @@ const OLD_FINDS: IncidentTypeConfiguration = {
       id: '49280',
       active: false,
       code: 'Name And Grade Of Member Of Staff Who Has Authorised For The Mobile/SIM To Be Interrogated',
-      label: 'Name and grade of member of staff who has authorised for the mobile/sim to be interrogated',
+      label: 'Name and grade of member of staff who has authorised for the mobile/SIM to be interrogated',
       multipleAnswers: true,
       answers: [
         {
@@ -1127,7 +1127,7 @@ const OLD_FINDS: IncidentTypeConfiguration = {
       id: '49281',
       active: false,
       code: 'Has Phone/SIM/Equipment been retained by Police?',
-      label: 'Has phone/sim/equipment been retained by police?',
+      label: 'Has phone/SIM/equipment been retained by police?',
       multipleAnswers: true,
       answers: [
         {
@@ -1233,7 +1233,7 @@ const OLD_FINDS: IncidentTypeConfiguration = {
           id: '195067',
           code: 'N/A Not Applicable',
           active: false,
-          label: 'N/A not applicable',
+          label: 'N/a not applicable',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '49284',
@@ -1269,7 +1269,7 @@ const OLD_FINDS: IncidentTypeConfiguration = {
           id: '195070',
           code: 'N/A Not Applicable',
           active: false,
-          label: 'N/A not applicable',
+          label: 'N/a not applicable',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '49285',
@@ -1800,7 +1800,7 @@ const OLD_FINDS: IncidentTypeConfiguration = {
           id: '195115',
           code: 'Drone/UAV',
           active: false,
-          label: 'Drone/uav',
+          label: 'Drone/UAV',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '49301',

@@ -1,4 +1,4 @@
-// Generated with ./scripts/updateNomisIncidentTypeConfigurations.ts at 2024-12-03T16:21:26.579Z
+// Generated with ./scripts/updateNomisIncidentTypeConfigurations.ts at 2024-12-06T16:08:28.112Z
 
 import { type IncidentTypeConfiguration } from '../../data/incidentTypeConfiguration/types'
 
@@ -1683,7 +1683,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
           id: '181588',
           code: 'C.N (CHLORACETOPHEONE)',
           active: true,
-          label: 'C.N (chloracetopheone)',
+          label: 'C.n (chloracetopheone)',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44715',
@@ -1692,7 +1692,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
           id: '181589',
           code: 'C.S (ORTHO..NITRILE)',
           active: true,
-          label: 'C.S (ortho..nitrile)',
+          label: 'C.s (ortho..nitrile)',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44715',
@@ -1701,7 +1701,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
           id: '181591',
           code: 'O.C (MACE/PEPPER)',
           active: true,
-          label: 'O.C (mace/pepper)',
+          label: 'O.c (mace/pepper)',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44715',

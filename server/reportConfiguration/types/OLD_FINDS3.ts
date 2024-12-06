@@ -1,4 +1,4 @@
-// Generated with ./scripts/updateNomisIncidentTypeConfigurations.ts at 2024-12-04T17:17:16.478Z
+// Generated with ./scripts/updateNomisIncidentTypeConfigurations.ts at 2024-12-06T16:08:31.126Z
 
 import { type IncidentTypeConfiguration } from '../../data/incidentTypeConfiguration/types'
 
@@ -90,7 +90,7 @@ const OLD_FINDS3: IncidentTypeConfiguration = {
           id: '216692',
           code: 'GATE SEARCH - ENHANCED GATE SECURITY (EGS)',
           active: true,
-          label: 'Gate search - enhanced gate security (egs)',
+          label: 'Gate search - enhanced gate security (EGS)',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '65180',
@@ -99,7 +99,7 @@ const OLD_FINDS3: IncidentTypeConfiguration = {
           id: '216693',
           code: 'GATE SEARCH - FRONT END SEARCH (FES), HIGH SECURITY ONLY (HSE)',
           active: true,
-          label: 'Gate search - front end search (fes), high security only (hse)',
+          label: 'Gate search - front end search (FES), high security only (HSE)',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '65180',
@@ -117,7 +117,7 @@ const OLD_FINDS3: IncidentTypeConfiguration = {
           id: '216695',
           code: 'HAND HELD METAL DETECTION (HHMD) WAND',
           active: true,
-          label: 'Hand held metal detection (hhmd) wand',
+          label: 'Hand held metal detection (HHMD) wand',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '65180',
@@ -522,7 +522,7 @@ const OLD_FINDS3: IncidentTypeConfiguration = {
           id: '216738',
           code: 'VULNERABLE PRISONERS UNIT (VPU) (PLEASE STATE LOCATION DETAILS IN COMMENT)',
           active: true,
-          label: 'Vulnerable prisoners unit (vpu) (please state location details in comment)',
+          label: 'Vulnerable prisoners unit (VPU) (please state location details in comment)',
           commentRequired: true,
           dateRequired: false,
           nextQuestionId: '65182',
@@ -585,7 +585,7 @@ const OLD_FINDS3: IncidentTypeConfiguration = {
           id: '216744',
           code: 'DRONE/UAV',
           active: true,
-          label: 'Drone/uav',
+          label: 'Drone/UAV',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '65184',
@@ -963,7 +963,7 @@ const OLD_FINDS3: IncidentTypeConfiguration = {
           id: '216782',
           code: 'TV/RADIO/DVD/CONSOLES ETC',
           active: true,
-          label: 'Tv/radio/dvd/consoles etc',
+          label: 'TV/radio/DVD/consoles etc',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '65187',
@@ -2288,7 +2288,7 @@ const OLD_FINDS3: IncidentTypeConfiguration = {
       id: '65197',
       active: true,
       code: 'HAS PHONE/SIM/MEMORY CARD BEEN SENT TO DMIU (DIGITAL MEDIA INVESTIGATION UNIT)',
-      label: 'Has phone/sim/memory card been sent to DMIU (digital media investigation unit)?',
+      label: 'Has phone/SIM/memory card been sent to DMIU (digital media investigation unit)?',
       multipleAnswers: false,
       answers: [
         {
@@ -2439,7 +2439,7 @@ const OLD_FINDS3: IncidentTypeConfiguration = {
           id: '216932',
           code: 'MOBILE HOT SPOT (MIFI DIVICE)',
           active: true,
-          label: 'Mobile hot spot (mifi divice)',
+          label: 'Mobile hot spot (MiFi divice)',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '65226',
@@ -2547,7 +2547,7 @@ const OLD_FINDS3: IncidentTypeConfiguration = {
           id: '216942',
           code: 'N/A',
           active: true,
-          label: 'N/A',
+          label: 'N/a',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '65226',
@@ -4034,7 +4034,7 @@ const OLD_FINDS3: IncidentTypeConfiguration = {
       id: '65219',
       active: true,
       code: 'HAS PHONE/SIM/MEMORY CARD BEEN SENT TO DMIU (DIGITAL MEDIA INVESTIGATION UNIT)',
-      label: 'Has phone/sim/memory card been sent to DMIU (digital media investigation unit)?',
+      label: 'Has phone/SIM/memory card been sent to DMIU (digital media investigation unit)?',
       multipleAnswers: true,
       answers: [
         {
@@ -4131,7 +4131,7 @@ const OLD_FINDS3: IncidentTypeConfiguration = {
           id: '217100',
           code: 'MOBILE HOT SPOT (MIFI DIVICE)',
           active: true,
-          label: 'Mobile hot spot (mifi divice)',
+          label: 'Mobile hot spot (MiFi divice)',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '65221',

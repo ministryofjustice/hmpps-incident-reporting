@@ -1,4 +1,4 @@
-// Generated with ./scripts/updateNomisIncidentTypeConfigurations.ts at 2024-12-04T17:17:23.392Z
+// Generated with ./scripts/updateNomisIncidentTypeConfigurations.ts at 2024-12-06T16:08:38.231Z
 
 import { type IncidentTypeConfiguration } from '../../data/incidentTypeConfiguration/types'
 
@@ -1002,7 +1002,7 @@ const TEMPORARY_RELEASE_FAILURE: IncidentTypeConfiguration = {
       id: '59198',
       active: true,
       code: 'Has the NOMS SFO Team been informed (SFO CASES only)',
-      label: 'Has the NOMS SFO team been informed (sfo cases only)?',
+      label: 'Has the NOMS SFO team been informed (SFO cases only)?',
       multipleAnswers: false,
       answers: [
         {

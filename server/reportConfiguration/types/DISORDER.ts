@@ -1,4 +1,4 @@
-// Generated with ./scripts/updateNomisIncidentTypeConfigurations.ts at 2024-12-03T16:21:22.112Z
+// Generated with ./scripts/updateNomisIncidentTypeConfigurations.ts at 2024-12-06T16:08:23.052Z
 
 import { type IncidentTypeConfiguration } from '../../data/incidentTypeConfiguration/types'
 
@@ -828,7 +828,7 @@ const DISORDER: IncidentTypeConfiguration = {
           id: '214766',
           code: 'INTERVENTION (OPERATION TORNADO)',
           active: true,
-          label: 'Intervention (operation tornado)',
+          label: 'Intervention (operation Tornado)',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '63188',

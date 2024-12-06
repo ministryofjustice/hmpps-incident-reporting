@@ -1,4 +1,4 @@
-// Generated with ./scripts/updateNomisIncidentTypeConfigurations.ts at 2024-12-03T16:21:48.481Z
+// Generated with ./scripts/updateNomisIncidentTypeConfigurations.ts at 2024-12-06T16:08:48.271Z
 
 import { type IncidentTypeConfiguration } from '../../data/incidentTypeConfiguration/types'
 
@@ -27,7 +27,7 @@ const OLD_MOBILES: IncidentTypeConfiguration = {
           id: '182827',
           code: 'SIM:',
           active: false,
-          label: 'Sim:',
+          label: 'SIM:',
           commentRequired: true,
           dateRequired: false,
           nextQuestionId: null,
@@ -63,7 +63,7 @@ const OLD_MOBILES: IncidentTypeConfiguration = {
           id: '182942',
           code: 'SIM:',
           active: false,
-          label: 'Sim:',
+          label: 'SIM:',
           commentRequired: true,
           dateRequired: false,
           nextQuestionId: '45210',
@@ -1181,7 +1181,7 @@ const OLD_MOBILES: IncidentTypeConfiguration = {
       id: '45218',
       active: false,
       code: 'Has Phone/SIM/Equipment been sent to NDTSG?',
-      label: 'Has phone/sim/equipment been sent to NDTSG?',
+      label: 'Has phone/SIM/equipment been sent to NDTSG?',
       multipleAnswers: true,
       answers: [
         {
@@ -1244,7 +1244,7 @@ const OLD_MOBILES: IncidentTypeConfiguration = {
       id: '45219',
       active: false,
       code: 'Name and grade of member of staff who has authorised for the mobile/SIM to be interrogated',
-      label: 'Name and grade of member of staff who has authorised for the mobile/sim to be interrogated',
+      label: 'Name and grade of member of staff who has authorised for the mobile/SIM to be interrogated',
       multipleAnswers: true,
       answers: [
         {
@@ -1289,7 +1289,7 @@ const OLD_MOBILES: IncidentTypeConfiguration = {
       id: '45220',
       active: false,
       code: 'Has Phone/SIM/Equipment been retained by Police?',
-      label: 'Has phone/sim/equipment been retained by police?',
+      label: 'Has phone/SIM/equipment been retained by police?',
       multipleAnswers: true,
       answers: [
         {
@@ -1476,7 +1476,7 @@ const OLD_MOBILES: IncidentTypeConfiguration = {
           id: '186684',
           code: 'N/A Not Applicable',
           active: false,
-          label: 'N/A not applicable',
+          label: 'N/a not applicable',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '45223',
@@ -2215,7 +2215,7 @@ const OLD_MOBILES: IncidentTypeConfiguration = {
           id: '192685',
           code: 'SIM:',
           active: false,
-          label: 'Sim:',
+          label: 'SIM:',
           commentRequired: true,
           dateRequired: false,
           nextQuestionId: '45210',

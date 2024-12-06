@@ -1,4 +1,4 @@
-// Generated with ./scripts/updateNomisIncidentTypeConfigurations.ts at 2024-12-03T16:21:08.997Z
+// Generated with ./scripts/updateNomisIncidentTypeConfigurations.ts at 2024-12-06T16:08:09.120Z
 
 import { type IncidentTypeConfiguration } from '../../data/incidentTypeConfiguration/types'
 
@@ -450,7 +450,7 @@ const OLD_ASSAULT2: IncidentTypeConfiguration = {
           id: '212768',
           code: 'Vulnerable prisoners unit (VPU)',
           active: false,
-          label: 'Vulnerable prisoners unit (vpu)',
+          label: 'Vulnerable prisoners unit (VPU)',
           commentRequired: true,
           dateRequired: false,
           nextQuestionId: '61219',

@@ -1,4 +1,4 @@
-// Generated with ./scripts/updateNomisIncidentTypeConfigurations.ts at 2024-12-04T17:17:28.427Z
+// Generated with ./scripts/updateNomisIncidentTypeConfigurations.ts at 2024-12-06T16:08:43.192Z
 
 import { type IncidentTypeConfiguration } from '../../data/incidentTypeConfiguration/types'
 
@@ -963,7 +963,7 @@ const KEY_LOCK_INCIDENT: IncidentTypeConfiguration = {
           id: '190687',
           code: 'N/A',
           active: true,
-          label: 'N/A',
+          label: 'N/a',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '45202',
@@ -1017,7 +1017,7 @@ const KEY_LOCK_INCIDENT: IncidentTypeConfiguration = {
           id: '190686',
           code: 'N/A',
           active: true,
-          label: 'N/A',
+          label: 'N/a',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '45203',
@@ -1080,7 +1080,7 @@ const KEY_LOCK_INCIDENT: IncidentTypeConfiguration = {
           id: '190688',
           code: 'N/A',
           active: true,
-          label: 'N/A',
+          label: 'N/a',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '45205',

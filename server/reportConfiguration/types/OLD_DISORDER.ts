@@ -1,4 +1,4 @@
-// Generated with ./scripts/updateNomisIncidentTypeConfigurations.ts at 2024-12-03T16:21:21.105Z
+// Generated with ./scripts/updateNomisIncidentTypeConfigurations.ts at 2024-12-06T16:08:22.131Z
 
 import { type IncidentTypeConfiguration } from '../../data/incidentTypeConfiguration/types'
 
@@ -1035,7 +1035,7 @@ const OLD_DISORDER: IncidentTypeConfiguration = {
           id: '194782',
           code: 'Intervention (NTRG Staff)',
           active: false,
-          label: 'Intervention (ntrg staff)',
+          label: 'Intervention (NTRG staff)',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '49195',

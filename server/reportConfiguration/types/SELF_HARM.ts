@@ -1,4 +1,4 @@
-// Generated with ./scripts/updateNomisIncidentTypeConfigurations.ts at 2024-12-03T16:21:20.313Z
+// Generated with ./scripts/updateNomisIncidentTypeConfigurations.ts at 2024-12-06T16:08:21.073Z
 
 import { type IncidentTypeConfiguration } from '../../data/incidentTypeConfiguration/types'
 
@@ -153,7 +153,7 @@ const SELF_HARM: IncidentTypeConfiguration = {
           id: '179621',
           code: 'NURSE/HCO',
           active: true,
-          label: 'Nurse/hco',
+          label: 'Nurse/HCO',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44214',
@@ -1053,7 +1053,7 @@ const SELF_HARM: IncidentTypeConfiguration = {
           id: '182183',
           code: 'VPU/OTHER PROTECTED',
           active: true,
-          label: 'Vpu/other protected',
+          label: 'VPU/other protected',
           commentRequired: true,
           dateRequired: false,
           nextQuestionId: '44791',

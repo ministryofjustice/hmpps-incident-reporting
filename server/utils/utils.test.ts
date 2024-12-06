@@ -318,12 +318,16 @@ describe('sentence case', () => {
       'WAS THERE EVIDENCE OF THE STOCKHOLM SYNDROME',
       'Was there evidence of the Stockholm syndrome',
     ],
-    ['Acronym with dot (.) in it', 'WAS O.C (MACE/PEPPER) USED', 'Was O.C (mace/pepper) used'],
+    ['Acronym followed by other word', 'IEP REGRESSION', 'IEP regression'],
+    ['Acronym with dot (.) in it', 'WAS O.C (MACE/PEPPER) USED', 'Was o.c (mace/pepper) used'],
     [
       'Acronyms separated by a slash (/)',
       'WAS A F2052SH/ACCT OPEN AT THE TIME OF DEATH',
       'Was a F2052SH/ACCT open at the time of death',
     ],
+    ['Word with slack (/)', `N/A`, `N/a`],
+    ['Acronims within parenthesis preserved', `VULNERABLE PRISONERS UNIT (VPU)`, `Vulnerable prisoners unit (VPU)`],
+    ['Duplicated spaces', 'DIGITAL FIND (EXCLUDING  MOBILE PHONES)', 'Digital find (excluding mobile phones)'],
   ])(`%s convertToSentenceCase('%s') -> '%s'`, (_: string, a: string, expected: string) => {
     expect(convertToSentenceCase(a)).toEqual(expected)
   })

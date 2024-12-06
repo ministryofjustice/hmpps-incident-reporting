@@ -1,4 +1,4 @@
-// Generated with ./scripts/updateNomisIncidentTypeConfigurations.ts at 2024-12-03T16:21:39.174Z
+// Generated with ./scripts/updateNomisIncidentTypeConfigurations.ts at 2024-12-06T16:08:39.873Z
 
 import { type IncidentTypeConfiguration } from '../../data/incidentTypeConfiguration/types'
 
@@ -909,7 +909,7 @@ const OLD_FIREARM_ETC: IncidentTypeConfiguration = {
           id: '180426',
           code: 'C.N (CHLORACETOPHEONE)',
           active: false,
-          label: 'C.N (chloracetopheone)',
+          label: 'C.n (chloracetopheone)',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44622',
@@ -918,7 +918,7 @@ const OLD_FIREARM_ETC: IncidentTypeConfiguration = {
           id: '180427',
           code: 'C.S (ORTHO..NITRILE)',
           active: false,
-          label: 'C.S (ortho..nitrile)',
+          label: 'C.s (ortho..nitrile)',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44622',
@@ -927,7 +927,7 @@ const OLD_FIREARM_ETC: IncidentTypeConfiguration = {
           id: '180429',
           code: 'O.C (MACE/PEPPER)',
           active: false,
-          label: 'O.C (mace/pepper)',
+          label: 'O.c (mace/pepper)',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44622',

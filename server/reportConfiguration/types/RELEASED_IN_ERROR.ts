@@ -1,4 +1,4 @@
-// Generated with ./scripts/updateNomisIncidentTypeConfigurations.ts at 2024-12-04T17:17:32.991Z
+// Generated with ./scripts/updateNomisIncidentTypeConfigurations.ts at 2024-12-06T16:08:47.400Z
 
 import { type IncidentTypeConfiguration } from '../../data/incidentTypeConfiguration/types'
 
@@ -45,7 +45,7 @@ const RELEASED_IN_ERROR: IncidentTypeConfiguration = {
           id: '182687',
           code: 'Court production/PEMS',
           active: false,
-          label: 'Court production/pems',
+          label: 'Court production/PEMS',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: null,
@@ -99,7 +99,7 @@ const RELEASED_IN_ERROR: IncidentTypeConfiguration = {
           id: '183023',
           code: 'Court production/PEMS',
           active: false,
-          label: 'Court production/pems',
+          label: 'Court production/PEMS',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '45180',
@@ -126,7 +126,7 @@ const RELEASED_IN_ERROR: IncidentTypeConfiguration = {
           id: '184685',
           code: 'Court production/PEMS',
           active: true,
-          label: 'Court production/pems',
+          label: 'Court production/PEMS',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '45180',

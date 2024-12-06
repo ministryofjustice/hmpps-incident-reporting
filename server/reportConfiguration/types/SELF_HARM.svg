@@ -44,7 +44,7 @@
 <title>45051&#45;&gt;44791</title>
 <path fill="none" stroke="black" d="M368.56,-429.52C382.7,-436.53 397.36,-442.55 412.06,-446.75 479.05,-465.9 503.31,-470.48 568.81,-446.75 582.15,-441.92 595.03,-434.84 607.07,-426.66"/>
 <polygon fill="black" stroke="black" points="608.76,-429.75 614.87,-421.09 604.7,-424.06 608.76,-429.75"/>
-<text text-anchor="middle" x="490.44" y="-466.07" font-family="Times,serif" font-size="14.00">Vpu/other protected</text>
+<text text-anchor="middle" x="490.44" y="-466.07" font-family="Times,serif" font-size="14.00">VPU/other protected</text>
 </g>
 <!-- 45051&#45;&gt;44791 -->
 <g id="edge93" class="edge">
@@ -407,7 +407,7 @@
 <title>44332&#45;&gt;44214</title>
 <path fill="none" stroke="black" d="M7915.96,-280.64C7922.34,-281.38 7928.65,-282.09 7934.82,-282.75 7977.92,-287.39 8025.17,-291.66 8067.26,-295.19"/>
 <polygon fill="black" stroke="black" points="8066.93,-298.68 8077.19,-296.02 8067.51,-291.7 8066.93,-298.68"/>
-<text text-anchor="middle" x="7997.82" y="-297.29" font-family="Times,serif" font-size="14.00">Nurse/hco</text>
+<text text-anchor="middle" x="7997.82" y="-297.29" font-family="Times,serif" font-size="14.00">Nurse/HCO</text>
 </g>
 <!-- 44332&#45;&gt;44214 -->
 <g id="edge14" class="edge">

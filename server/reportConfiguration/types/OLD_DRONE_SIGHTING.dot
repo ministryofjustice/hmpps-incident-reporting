@@ -102,7 +102,7 @@ digraph OLD_DRONE_SIGHTING {  rankdir=LR;
   57199 -> 57200 [label = "T600 inspire 1", style="filled", color="#DDD"];
   57199 -> 57200 [label = "Century neo660", style="filled", color="#DDD"];
   57199 -> 57200 [label = "X-8 flyingwing", style="filled", color="#DDD"];
-  57199 -> 57200 [label = "Talon x-uav", style="filled", color="#DDD"];
+  57199 -> 57200 [label = "Talon x-UAV", style="filled", color="#DDD"];
   57199 -> 57200 [label = "Sky hunter", style="filled", color="#DDD"];
   57199 -> 57200 [label = "Piper model aircraft", style="filled", color="#DDD"];
   57199 -> 57200 [label = "Other (please specify)", style="filled", color="#DDD"];

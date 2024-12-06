@@ -52,7 +52,7 @@ digraph OLD_ASSAULT2 {  rankdir=LR;
   61218 -> 61219 [label = "Sports field", style="filled", color="#DDD"];
   61218 -> 61219 [label = "Vehicle", style="filled", color="#DDD"];
   61218 -> 61219 [label = "Visits", style="filled", color="#DDD"];
-  61218 -> 61219 [label = "Vulnerable prisoners unit (vpu)", style="filled", color="#DDD"];
+  61218 -> 61219 [label = "Vulnerable prisoners unit (VPU)", style="filled", color="#DDD"];
   61218 -> 61219 [label = "Weddings", style="filled", color="#DDD"];
   61218 -> 61219 [label = "Wing", style="filled", color="#DDD"];
   61218 -> 61219 [label = "Within perimeter", style="filled", color="#DDD"];

@@ -117,7 +117,7 @@ digraph OLD_DISORDER {  rankdir=LR;
   49194 [label = "Describe how the incident was resolved", style="filled", color="#DDD"];
   49194 -> 49195 [label = "Negotiation", style="filled", color="#DDD"];
   49194 -> 49195 [label = "Intervention (local staff)", style="filled", color="#DDD"];
-  49194 -> 49195 [label = "Intervention (ntrg staff)", style="filled", color="#DDD"];
+  49194 -> 49195 [label = "Intervention (NTRG staff)", style="filled", color="#DDD"];
   49194 -> 49195 [label = "Complied with order or instruction", style="filled", color="#DDD"];
   49194 -> 49195 [label = "Other", style="filled", color="#DDD"];
   49195 [label = "Was a door jack used?", style="filled", color="#DDD"];

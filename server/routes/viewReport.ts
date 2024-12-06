@@ -13,16 +13,19 @@ import {
 import asyncMiddleware from '../middleware/asyncMiddleware'
 import { populateReport } from '../middleware/populateReport'
 import { type ReportWithDetails } from '../data/incidentReportingApi'
+import { findAnswerConfigByCode, type IncidentTypeConfiguration } from '../data/incidentTypeConfiguration/types'
 
 export default function viewReport(service: Services): Router {
   const router = Router({ mergeParams: true })
   const { userService } = service
-  const get = (path: PathParams, handler: RequestHandler) => router.get(path, [populateReport(), asyncMiddleware(handler)])
+  const get = (path: PathParams, handler: RequestHandler) =>
+    router.get(path, [populateReport(), asyncMiddleware(handler)])
 
   get('/', async (req, res) => {
     const { prisonApi, offenderSearchApi } = res.locals.apis
 
-    const report = res.locals.report as ReportWithDetails
+    const reportConfig = res.locals.reportConfig as IncidentTypeConfiguration
+    const report = useReportConfigLabels(res.locals.report as ReportWithDetails, reportConfig)
 
     let usernames = [report.reportedBy]
     if (report.staffInvolved) {
@@ -61,4 +64,25 @@ export default function viewReport(service: Services): Router {
   })
 
   return router
+}
+
+/**
+ * Replaces the questions/responses with the labels in the report config
+ */
+function useReportConfigLabels(report: ReportWithDetails, reportConfig: IncidentTypeConfiguration): ReportWithDetails {
+  for (const question of report.questions) {
+    const questionConfig = reportConfig.questions[question.code]
+    if (!questionConfig) {
+      // eslint-disable-next-line no-continue
+      continue
+    }
+
+    question.question = questionConfig?.label ?? question.code
+    for (const response of question.responses) {
+      const answerConfig = findAnswerConfigByCode(response.response, questionConfig)
+      response.response = answerConfig?.label ?? response.response
+    }
+  }
+
+  return report
 }

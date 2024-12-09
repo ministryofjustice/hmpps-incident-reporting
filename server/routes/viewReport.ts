@@ -77,7 +77,7 @@ function useReportConfigLabels(report: ReportWithDetails, reportConfig: Incident
       continue
     }
 
-    question.question = questionConfig?.label ?? question.code
+    question.question = questionConfig?.label ?? question.question
     for (const response of question.responses) {
       const answerConfig = findAnswerConfigByCode(response.response, questionConfig)
       response.response = answerConfig?.label ?? response.response

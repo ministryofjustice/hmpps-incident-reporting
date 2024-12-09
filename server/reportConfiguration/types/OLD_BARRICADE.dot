@@ -59,7 +59,7 @@ digraph OLD_BARRICADE {  rankdir=LR;
   44461 -> 44378 [label = "Thrown furniture", style="filled", color="#DDD"];
   44461 -> 44378 [label = "Thrown equipment", style="filled", color="#DDD"];
   44461 -> 44378 [label = "Other", style="filled", color="#DDD"];
-  44482 [label = "Quote the vantive case number", style="filled", color="#DDD"];
+  44482 [label = "Quote the Vantive case number", style="filled", color="#DDD"];
   44482 -> 44401 [label = "Enter number", style="filled", color="#DDD"];
   44492 [label = "Who authorised the shut down?", style="filled", color="#DDD"];
   44492 -> 44206 [label = "Governor", style="filled", color="#DDD"];

@@ -1,4 +1,4 @@
-// Generated with ./scripts/updateNomisIncidentTypeConfigurations.ts at 2024-12-06T16:08:32.128Z
+// Generated with ./scripts/updateNomisIncidentTypeConfigurations.ts at 2024-12-09T14:24:19.661Z
 
 import { type IncidentTypeConfiguration } from '../../data/incidentTypeConfiguration/types'
 
@@ -108,7 +108,7 @@ const FINDS: IncidentTypeConfiguration = {
           id: '218694',
           code: 'HANDHELD METAL DETECTOR (HMD) WAND',
           active: true,
-          label: 'Handheld metal detector (hmd) wand',
+          label: 'Handheld metal detector (HMD) wand',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '67180',

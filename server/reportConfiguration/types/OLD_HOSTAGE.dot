@@ -61,7 +61,7 @@ digraph OLD_HOSTAGE {  rankdir=LR;
   44365 [label = "Was a CANDR advisor present?", style="filled", color="#DDD"];
   44365 -> 44959 [label = "Yes", style="filled", color="#DDD"];
   44365 -> 44959 [label = "No", style="filled", color="#DDD"];
-  44403 [label = "Quote the vantive case number", style="filled", color="#DDD"];
+  44403 [label = "Quote the Vantive case number", style="filled", color="#DDD"];
   44403 -> 44831 [label = "Number", style="filled", color="#DDD"];
   44411 [label = "Did a tactical firearms adviser attend?", style="filled", color="#DDD"];
   44411 -> 44939 [label = "Yes", style="filled", color="#DDD"];

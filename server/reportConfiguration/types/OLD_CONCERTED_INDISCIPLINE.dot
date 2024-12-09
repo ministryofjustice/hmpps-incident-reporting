@@ -38,7 +38,7 @@ digraph OLD_CONCERTED_INDISCIPLINE {  rankdir=LR;
   44267 [label = "Were any injuries received during this incident?", style="filled", color="#DDD"];
   44267 -> 45129 [label = "Yes", style="filled", color="#DDD"];
   44267 -> 44884 [label = "No", style="filled", color="#DDD"];
-  44279 [label = "Quote the vantive case number", style="filled", color="#DDD"];
+  44279 [label = "Quote the Vantive case number", style="filled", color="#DDD"];
   44279 -> 44250 [label = "Number", style="filled", color="#DDD"];
   44296 [label = "Were trained negotiators deployed?", style="filled", color="#DDD"];
   44296 -> 44317 [label = "Yes", style="filled", color="#DDD"];

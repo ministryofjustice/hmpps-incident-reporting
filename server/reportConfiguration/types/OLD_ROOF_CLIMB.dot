@@ -134,7 +134,7 @@ digraph OLD_ROOF_CLIMB {  rankdir=LR;
   44710 [label = "Was control and restraints employed?", style="filled", color="#DDD"];
   44710 -> 44610 [label = "Yes", style="filled", color="#DDD"];
   44710 -> 44610 [label = "No", style="filled", color="#DDD"];
-  44714 [label = "Quote the vantive case number", style="filled", color="#DDD"];
+  44714 [label = "Quote the Vantive case number", style="filled", color="#DDD"];
   44714 -> 44289 [label = "Number", style="filled", color="#DDD"];
   44725 [label = "Was any evacuation necessary?", style="filled", color="#DDD"];
   44725 -> 44196 [label = "Yes", style="filled", color="#DDD"];

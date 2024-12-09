@@ -1,4 +1,4 @@
-// Generated with ./scripts/updateNomisIncidentTypeConfigurations.ts at 2024-12-03T16:21:41.710Z
+// Generated with ./scripts/updateNomisIncidentTypeConfigurations.ts at 2024-12-09T14:24:29.437Z
 
 import { type IncidentTypeConfiguration } from '../../data/incidentTypeConfiguration/types'
 
@@ -533,7 +533,7 @@ const OLD_HOSTAGE: IncidentTypeConfiguration = {
       id: '44403',
       active: false,
       code: 'QUOTE THE VANTIVE CASE NUMBER',
-      label: 'Quote the vantive case number',
+      label: 'Quote the Vantive case number',
       multipleAnswers: false,
       answers: [
         {

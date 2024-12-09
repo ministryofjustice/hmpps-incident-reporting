@@ -1,4 +1,4 @@
-// Generated with ./scripts/updateNomisIncidentTypeConfigurations.ts at 2024-12-06T16:08:23.052Z
+// Generated with ./scripts/updateNomisIncidentTypeConfigurations.ts at 2024-12-09T14:24:12.265Z
 
 import { type IncidentTypeConfiguration } from '../../data/incidentTypeConfiguration/types'
 
@@ -639,7 +639,7 @@ const DISORDER: IncidentTypeConfiguration = {
           id: '214747',
           code: 'ORRU ASSISTANCE REQUESTED',
           active: true,
-          label: 'Orru assistance requested',
+          label: 'ORRU assistance requested',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '63186',
@@ -819,7 +819,7 @@ const DISORDER: IncidentTypeConfiguration = {
           id: '214765',
           code: 'INTERVENTION (ORRU STAFF)',
           active: true,
-          label: 'Intervention (orru staff)',
+          label: 'Intervention (ORRU staff)',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '63188',
@@ -981,7 +981,7 @@ const DISORDER: IncidentTypeConfiguration = {
           id: '214780',
           code: 'OPERATIONAL RESILIENCE AND RESPONSE UNIT (ORRU)',
           active: true,
-          label: 'Operational resilience and response unit (orru)',
+          label: 'Operational resilience and response unit (ORRU)',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '63191',

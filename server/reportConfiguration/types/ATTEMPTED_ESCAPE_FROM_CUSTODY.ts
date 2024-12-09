@@ -1,4 +1,4 @@
-// Generated with ./scripts/updateNomisIncidentTypeConfigurations.ts at 2024-12-06T16:08:11.950Z
+// Generated with ./scripts/updateNomisIncidentTypeConfigurations.ts at 2024-12-09T14:24:02.455Z
 
 import { type IncidentTypeConfiguration } from '../../data/incidentTypeConfiguration/types'
 
@@ -171,7 +171,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
           id: '179034',
           code: 'RULE 43 UNIT (GOAD)',
           active: true,
-          label: 'Rule 43 unit (goad)',
+          label: 'Rule 43 unit (GOAD)',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44506',
@@ -4268,7 +4268,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
       id: '44920',
       active: true,
       code: 'QUOTE THE VANTIVE CASE NUMBER',
-      label: 'Quote the vantive case number',
+      label: 'Quote the Vantive case number',
       multipleAnswers: false,
       answers: [
         {

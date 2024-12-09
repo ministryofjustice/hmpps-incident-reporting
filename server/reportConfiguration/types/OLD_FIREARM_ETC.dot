@@ -176,7 +176,7 @@ digraph OLD_FIREARM_ETC {  rankdir=LR;
   44980 [label = "Were specialist dogs used?", style="filled", color="#DDD"];
   44980 -> 44928 [label = "Yes", style="filled", color="#DDD"];
   44980 -> 44928 [label = "No", style="filled", color="#DDD"];
-  44988 [label = "Quote the vantive case number", style="filled", color="#DDD"];
+  44988 [label = "Quote the Vantive case number", style="filled", color="#DDD"];
   44988 -> 44832 [label = "Number", style="filled", color="#DDD"];
   45000 [label = "Is the incident the subject of an internal investigation?", style="filled", color="#DDD"];
   45000 -> 45005 [label = "Yes", style="filled", color="#DDD"];

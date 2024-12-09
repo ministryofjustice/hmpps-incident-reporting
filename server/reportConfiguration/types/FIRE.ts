@@ -1,4 +1,4 @@
-// Generated with ./scripts/updateNomisIncidentTypeConfigurations.ts at 2024-12-04T17:17:24.226Z
+// Generated with ./scripts/updateNomisIncidentTypeConfigurations.ts at 2024-12-09T14:24:26.243Z
 
 import { type IncidentTypeConfiguration } from '../../data/incidentTypeConfiguration/types'
 
@@ -38,7 +38,7 @@ const FIRE: IncidentTypeConfiguration = {
       id: '44154',
       active: true,
       code: 'QUOTE THE VANTIVE CASE NUMBER',
-      label: 'Quote the vantive case number',
+      label: 'Quote the Vantive case number',
       multipleAnswers: false,
       answers: [
         {

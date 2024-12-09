@@ -1,4 +1,4 @@
-// Generated with ./scripts/updateNomisIncidentTypeConfigurations.ts at 2024-12-03T16:21:43.598Z
+// Generated with ./scripts/updateNomisIncidentTypeConfigurations.ts at 2024-12-09T14:24:31.130Z
 
 import { type IncidentTypeConfiguration } from '../../data/incidentTypeConfiguration/types'
 
@@ -1190,7 +1190,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
       id: '44714',
       active: false,
       code: 'QUOTE THE VANTIVE CASE NUMBER',
-      label: 'Quote the vantive case number',
+      label: 'Quote the Vantive case number',
       multipleAnswers: false,
       answers: [
         {

@@ -1,4 +1,4 @@
-// Generated with ./scripts/updateNomisIncidentTypeConfigurations.ts at 2024-12-06T16:08:29.154Z
+// Generated with ./scripts/updateNomisIncidentTypeConfigurations.ts at 2024-12-09T14:24:17.096Z
 
 import { type IncidentTypeConfiguration } from '../../data/incidentTypeConfiguration/types'
 
@@ -1953,7 +1953,7 @@ const ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
           id: '180406',
           code: 'RULE 45 UNIT (GOAD)',
           active: true,
-          label: 'Rule 45 unit (goad)',
+          label: 'Rule 45 unit (GOAD)',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44558',

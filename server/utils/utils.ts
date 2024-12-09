@@ -341,7 +341,7 @@ export function convertToSentenceCase(str: string): string {
 }
 
 function postProcessSentenceCase(input: string): string {
-  const exceptions = [
+  const exceptions: { match: RegExp; replace: string | ((match: string, ...args: string[]) => string) }[] = [
     {
       match: /\bA AND E\b/i,
       replace: 'A&E',
@@ -354,10 +354,14 @@ function postProcessSentenceCase(input: string): string {
       match: /\bN\/A\b/i,
       replace: 'N/A',
     },
+    {
+      match: /\bCategory ([ABCDE])\b/i,
+      replace: (_: string, category: string) => `Category ${category.toUpperCase()}`,
+    },
   ]
   let output = input
   for (const { match, replace } of exceptions) {
-    output = output.replace(match, replace)
+    output = output.replace(match, replace as string)
   }
   return output
 }

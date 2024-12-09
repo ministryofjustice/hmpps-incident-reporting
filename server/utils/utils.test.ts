@@ -329,6 +329,7 @@ describe('sentence case', () => {
     ['A&E spelled out', 'Did they go to a and e?', 'Did they go to A&E?'],
     ['IT on it’s own', 'It', 'IT'],
     ['Acronyms within parenthesis preserved', 'VULNERABLE PRISONERS UNIT (VPU)', 'Vulnerable prisoners unit (VPU)'],
+    ['Prisoner categories', 'category c', 'Category C'],
     ['Duplicated spaces', 'DIGITAL FIND (EXCLUDING  MOBILE PHONES)', 'Digital find (excluding mobile phones)'],
   ])(`%s convertToSentenceCase('%s') -> '%s'`, (_: string, a: string, expected: string) => {
     expect(convertToSentenceCase(a)).toEqual(expected)

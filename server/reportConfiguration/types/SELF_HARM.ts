@@ -1,4 +1,4 @@
-// Generated with ./scripts/updateNomisIncidentTypeConfigurations.ts at 2024-12-06T16:08:21.073Z
+// Generated with ./scripts/updateNomisIncidentTypeConfigurations.ts at 2024-12-09T15:13:32.008Z
 
 import { type IncidentTypeConfiguration } from '../../data/incidentTypeConfiguration/types'
 
@@ -486,7 +486,7 @@ const SELF_HARM: IncidentTypeConfiguration = {
           id: '180532',
           code: 'A AND E',
           active: true,
-          label: 'A and e',
+          label: 'A&E',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44400',

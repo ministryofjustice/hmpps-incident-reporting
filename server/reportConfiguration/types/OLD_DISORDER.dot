@@ -194,7 +194,7 @@ digraph OLD_DISORDER {  rankdir=LR;
   49208 -> 49209 [label = "No", style="filled", color="#DDD"];
   49208 -> 49209 [label = "Yes", style="filled", color="#DDD"];
   49209 [label = "Indicate the nature of the shut down", style="filled", color="#DDD"];
-  49209 -> 49210 [label = "It", style="filled", color="#DDD"];
+  49209 -> 49210 [label = "IT", style="filled", color="#DDD"];
   49209 -> 49210 [label = "Telephony", style="filled", color="#DDD"];
   49210 [label = "What time was the system shut down?", style="filled", color="#DDD"];
   49210 -> 49211 [label = "Enter time", style="filled", color="#DDD"];

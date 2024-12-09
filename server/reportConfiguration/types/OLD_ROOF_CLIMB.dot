@@ -253,7 +253,7 @@ digraph OLD_ROOF_CLIMB {  rankdir=LR;
   45155 -> 45175 [label = "Temporary/permanent blindness", style="filled", color="#DDD"];
   45163 [label = "Indicate the nature of the shut down", style="filled", color="#DDD"];
   45163 -> 45028 [label = "Telephony", style="filled", color="#DDD"];
-  45163 -> 45028 [label = "It", style="filled", color="#DDD"];
+  45163 -> 45028 [label = "IT", style="filled", color="#DDD"];
   45175 [label = "Was a minor injury sustained?", style="filled", color="#DDD"];
   45175 -> 44394 [label = "Yes", style="filled", color="#DDD"];
   45175 -> 44462 [label = "No", style="filled", color="#DDD"];

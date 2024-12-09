@@ -1,4 +1,4 @@
-// Generated with ./scripts/updateNomisIncidentTypeConfigurations.ts at 2024-12-09T14:24:02.455Z
+// Generated with ./scripts/updateNomisIncidentTypeConfigurations.ts at 2024-12-09T15:13:27.795Z
 
 import { type IncidentTypeConfiguration } from '../../data/incidentTypeConfiguration/types'
 
@@ -5769,7 +5769,7 @@ const ATTEMPTED_ESCAPE_FROM_CUSTODY: IncidentTypeConfiguration = {
           id: '182557',
           code: 'IT',
           active: true,
-          label: 'It',
+          label: 'IT',
           commentRequired: true,
           dateRequired: false,
           nextQuestionId: '44713',

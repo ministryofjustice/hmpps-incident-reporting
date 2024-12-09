@@ -1,4 +1,4 @@
-// Generated with ./scripts/updateNomisIncidentTypeConfigurations.ts at 2024-12-09T14:24:26.243Z
+// Generated with ./scripts/updateNomisIncidentTypeConfigurations.ts at 2024-12-09T15:13:41.843Z
 
 import { type IncidentTypeConfiguration } from '../../data/incidentTypeConfiguration/types'
 
@@ -1935,7 +1935,7 @@ const FIRE: IncidentTypeConfiguration = {
           id: '182290',
           code: 'IT',
           active: true,
-          label: 'It',
+          label: 'IT',
           commentRequired: true,
           dateRequired: false,
           nextQuestionId: '44957',

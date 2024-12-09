@@ -1,4 +1,4 @@
-// Generated with ./scripts/updateNomisIncidentTypeConfigurations.ts at 2024-12-09T14:24:31.130Z
+// Generated with ./scripts/updateNomisIncidentTypeConfigurations.ts at 2024-12-09T15:13:44.551Z
 
 import { type IncidentTypeConfiguration } from '../../data/incidentTypeConfiguration/types'
 
@@ -2259,7 +2259,7 @@ const OLD_ROOF_CLIMB: IncidentTypeConfiguration = {
           id: '182604',
           code: 'IT',
           active: false,
-          label: 'It',
+          label: 'IT',
           commentRequired: true,
           dateRequired: false,
           nextQuestionId: '45028',

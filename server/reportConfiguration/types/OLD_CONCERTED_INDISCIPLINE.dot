@@ -25,7 +25,7 @@ digraph OLD_CONCERTED_INDISCIPLINE {  rankdir=LR;
   44182 -> 44774 [label = "No", style="filled", color="#DDD"];
   44216 [label = "Indicate the nature of the shut down", style="filled", color="#DDD"];
   44216 -> 44562 [label = "Telephony", style="filled", color="#DDD"];
-  44216 -> 44562 [label = "It", style="filled", color="#DDD"];
+  44216 -> 44562 [label = "IT", style="filled", color="#DDD"];
   44238 [label = "Were extendable batons used?", style="filled", color="#DDD"];
   44238 -> 44338 [label = "Yes", style="filled", color="#DDD"];
   44238 -> 44338 [label = "No", style="filled", color="#DDD"];

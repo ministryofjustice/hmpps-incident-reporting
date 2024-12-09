@@ -1,4 +1,4 @@
-// Generated with ./scripts/updateNomisIncidentTypeConfigurations.ts at 2024-12-06T16:08:10.992Z
+// Generated with ./scripts/updateNomisIncidentTypeConfigurations.ts at 2024-12-09T15:50:50.219Z
 
 import { type IncidentTypeConfiguration } from '../../data/incidentTypeConfiguration/types'
 
@@ -2529,7 +2529,7 @@ const ATTEMPTED_ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
           id: '182226',
           code: 'CATEGORY A',
           active: true,
-          label: 'Category a',
+          label: 'Category A',
           commentRequired: true,
           dateRequired: false,
           nextQuestionId: '44429',
@@ -2538,7 +2538,7 @@ const ATTEMPTED_ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
           id: '182227',
           code: 'CATEGORY B',
           active: true,
-          label: 'Category b',
+          label: 'Category B',
           commentRequired: true,
           dateRequired: false,
           nextQuestionId: '44429',
@@ -2547,7 +2547,7 @@ const ATTEMPTED_ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
           id: '182228',
           code: 'CATEGORY C',
           active: true,
-          label: 'Category c',
+          label: 'Category C',
           commentRequired: true,
           dateRequired: false,
           nextQuestionId: '44429',
@@ -2556,7 +2556,7 @@ const ATTEMPTED_ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
           id: '182229',
           code: 'CATEGORY D',
           active: true,
-          label: 'Category d',
+          label: 'Category D',
           commentRequired: true,
           dateRequired: false,
           nextQuestionId: '44429',

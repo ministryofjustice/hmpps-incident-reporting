@@ -1,4 +1,4 @@
-// Generated with ./scripts/updateNomisIncidentTypeConfigurations.ts at 2024-12-09T14:24:06.300Z
+// Generated with ./scripts/updateNomisIncidentTypeConfigurations.ts at 2024-12-09T15:13:29.803Z
 
 import { type IncidentTypeConfiguration } from '../../data/incidentTypeConfiguration/types'
 
@@ -207,7 +207,7 @@ const OLD_CONCERTED_INDISCIPLINE: IncidentTypeConfiguration = {
           id: '179205',
           code: 'IT',
           active: false,
-          label: 'It',
+          label: 'IT',
           commentRequired: true,
           dateRequired: false,
           nextQuestionId: '44562',

@@ -1,4 +1,4 @@
-// Generated with ./scripts/updateNomisIncidentTypeConfigurations.ts at 2024-12-06T16:08:33.935Z
+// Generated with ./scripts/updateNomisIncidentTypeConfigurations.ts at 2024-12-09T15:13:38.974Z
 
 import { type IncidentTypeConfiguration } from '../../data/incidentTypeConfiguration/types'
 
@@ -1233,7 +1233,7 @@ const OLD_FINDS: IncidentTypeConfiguration = {
           id: '195067',
           code: 'N/A Not Applicable',
           active: false,
-          label: 'N/a not applicable',
+          label: 'N/A not applicable',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '49284',
@@ -1269,7 +1269,7 @@ const OLD_FINDS: IncidentTypeConfiguration = {
           id: '195070',
           code: 'N/A Not Applicable',
           active: false,
-          label: 'N/a not applicable',
+          label: 'N/A not applicable',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '49285',

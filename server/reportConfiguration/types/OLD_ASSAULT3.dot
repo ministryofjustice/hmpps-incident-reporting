@@ -148,7 +148,7 @@ digraph OLD_ASSAULT3 {  rankdir=LR;
   61269 -> 61272 [label = "No", style="filled", color="#DDD"];
   61269 -> 61270 [label = "Yes", style="filled", color="#DDD"];
   61270 [label = "Type of hospital admission", style="filled", color="#DDD"];
-  61270 -> 61271 [label = "A and e", style="filled", color="#DDD"];
+  61270 -> 61271 [label = "A&E", style="filled", color="#DDD"];
   61270 -> 61271 [label = "Inpatient (overnight only)", style="filled", color="#DDD"];
   61270 -> 61271 [label = "Inpatient (over 24hr)", style="filled", color="#DDD"];
   61270 -> 61271 [label = "Life support", style="filled", color="#DDD"];

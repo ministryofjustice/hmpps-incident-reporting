@@ -1,4 +1,4 @@
-// Generated with ./scripts/updateNomisIncidentTypeConfigurations.ts at 2024-12-09T14:24:03.375Z
+// Generated with ./scripts/updateNomisIncidentTypeConfigurations.ts at 2024-12-09T15:13:28.415Z
 
 import { type IncidentTypeConfiguration } from '../../data/incidentTypeConfiguration/types'
 
@@ -657,7 +657,7 @@ const OLD_BARRICADE: IncidentTypeConfiguration = {
           id: '180350',
           code: 'IT',
           active: false,
-          label: 'It',
+          label: 'IT',
           commentRequired: true,
           dateRequired: false,
           nextQuestionId: '44666',

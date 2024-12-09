@@ -129,7 +129,7 @@ digraph OLD_FIREARM_ETC {  rankdir=LR;
   44703 -> 44172 [label = "No", style="filled", color="#DDD"];
   44755 [label = "Indicate the nature of the shut down", style="filled", color="#DDD"];
   44755 -> 44398 [label = "Telephony", style="filled", color="#DDD"];
-  44755 -> 44398 [label = "It", style="filled", color="#DDD"];
+  44755 -> 44398 [label = "IT", style="filled", color="#DDD"];
   44776 [label = "Were the police informed of the incident?", style="filled", color="#DDD"];
   44776 -> 44513 [label = "Yes", style="filled", color="#DDD"];
   44776 -> 45000 [label = "No", style="filled", color="#DDD"];

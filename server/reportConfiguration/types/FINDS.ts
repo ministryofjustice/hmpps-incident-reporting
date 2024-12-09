@@ -1,4 +1,4 @@
-// Generated with ./scripts/updateNomisIncidentTypeConfigurations.ts at 2024-12-09T14:24:19.661Z
+// Generated with ./scripts/updateNomisIncidentTypeConfigurations.ts at 2024-12-09T15:13:37.402Z
 
 import { type IncidentTypeConfiguration } from '../../data/incidentTypeConfiguration/types'
 
@@ -2538,7 +2538,7 @@ const FINDS: IncidentTypeConfiguration = {
           id: '218941',
           code: 'N/A',
           active: true,
-          label: 'N/a',
+          label: 'N/A',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '67226',

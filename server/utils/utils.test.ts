@@ -325,8 +325,10 @@ describe('sentence case', () => {
       'WAS A F2052SH/ACCT OPEN AT THE TIME OF DEATH',
       'Was a F2052SH/ACCT open at the time of death',
     ],
-    ['Word with slack (/)', `N/A`, `N/a`],
-    ['Acronims within parenthesis preserved', `VULNERABLE PRISONERS UNIT (VPU)`, `Vulnerable prisoners unit (VPU)`],
+    ['Word with slash (/)', 'N/A', 'N/A'],
+    ['A&E spelled out', 'Did they go to a and e?', 'Did they go to A&E?'],
+    ['IT on it’s own', 'It', 'IT'],
+    ['Acronyms within parenthesis preserved', 'VULNERABLE PRISONERS UNIT (VPU)', 'Vulnerable prisoners unit (VPU)'],
     ['Duplicated spaces', 'DIGITAL FIND (EXCLUDING  MOBILE PHONES)', 'Digital find (excluding mobile phones)'],
   ])(`%s convertToSentenceCase('%s') -> '%s'`, (_: string, a: string, expected: string) => {
     expect(convertToSentenceCase(a)).toEqual(expected)

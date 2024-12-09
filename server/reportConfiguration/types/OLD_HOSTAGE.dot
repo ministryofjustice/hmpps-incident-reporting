@@ -36,7 +36,7 @@ digraph OLD_HOSTAGE {  rankdir=LR;
   44265 -> 44963 [label = "No", style="filled", color="#DDD"];
   44275 [label = "Indicate the nature of the shut down", style="filled", color="#DDD"];
   44275 -> 44788 [label = "Telephony", style="filled", color="#DDD"];
-  44275 -> 44788 [label = "It", style="filled", color="#DDD"];
+  44275 -> 44788 [label = "IT", style="filled", color="#DDD"];
   44293 [label = "Was the telephone/it system shut down during the incident?", style="filled", color="#DDD"];
   44293 -> 44805 [label = "Yes", style="filled", color="#DDD"];
   44293 -> END_NODE [label = "No", style="filled", color="#DDD"];

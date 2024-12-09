@@ -334,5 +334,30 @@ export function convertToSentenceCase(str: string): string {
   // remove duplicated spaces
   result = result.replace(/\s+/g, ' ')
 
+  // post-process multi-word case exceptions
+  result = postProcessSentenceCase(result)
+
   return result
+}
+
+function postProcessSentenceCase(input: string): string {
+  const exceptions = [
+    {
+      match: /\bA AND E\b/i,
+      replace: 'A&E',
+    },
+    {
+      match: /^IT$/i,
+      replace: 'IT',
+    },
+    {
+      match: /\bN\/A\b/i,
+      replace: 'N/A',
+    },
+  ]
+  let output = input
+  for (const { match, replace } of exceptions) {
+    output = output.replace(match, replace)
+  }
+  return output
 }

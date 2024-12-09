@@ -1,4 +1,4 @@
-// Generated with ./scripts/updateNomisIncidentTypeConfigurations.ts at 2024-12-06T16:08:08.241Z
+// Generated with ./scripts/updateNomisIncidentTypeConfigurations.ts at 2024-12-09T15:13:25.916Z
 
 import { type IncidentTypeConfiguration } from '../../data/incidentTypeConfiguration/types'
 
@@ -1314,7 +1314,7 @@ const OLD_ASSAULT3: IncidentTypeConfiguration = {
           id: '212976',
           code: 'A and E',
           active: false,
-          label: 'A and e',
+          label: 'A&E',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '61271',

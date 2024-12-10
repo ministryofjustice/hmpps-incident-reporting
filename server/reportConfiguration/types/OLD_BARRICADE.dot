@@ -75,7 +75,7 @@ digraph OLD_BARRICADE {  rankdir=LR;
   44515 -> 44378 [label = "No", style="filled", color="#DDD"];
   44530 [label = "Indicate the nature of the shut down", style="filled", color="#DDD"];
   44530 -> 44666 [label = "Telephony", style="filled", color="#DDD"];
-  44530 -> 44666 [label = "It", style="filled", color="#DDD"];
+  44530 -> 44666 [label = "IT", style="filled", color="#DDD"];
   44532 [label = "What was the location of the incident?", style="filled", color="#DDD"];
   44532 -> 44938 [label = "Administration", style="filled", color="#DDD"];
   44532 -> 44938 [label = "Association area", style="filled", color="#DDD"];

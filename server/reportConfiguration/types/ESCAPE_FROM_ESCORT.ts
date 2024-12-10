@@ -1,4 +1,4 @@
-// Generated with ./scripts/updateNomisIncidentTypeConfigurations.ts at 2024-12-06T16:08:28.112Z
+// Generated with ./scripts/updateNomisIncidentTypeConfigurations.ts at 2024-12-09T15:50:58.206Z
 
 import { type IncidentTypeConfiguration } from '../../data/incidentTypeConfiguration/types'
 
@@ -45,7 +45,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
           id: '178974',
           code: 'CATEGORY A',
           active: true,
-          label: 'Category a',
+          label: 'Category A',
           commentRequired: true,
           dateRequired: false,
           nextQuestionId: '45156',
@@ -54,7 +54,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
           id: '178975',
           code: 'CATEGORY B',
           active: true,
-          label: 'Category b',
+          label: 'Category B',
           commentRequired: true,
           dateRequired: false,
           nextQuestionId: '45156',
@@ -63,7 +63,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
           id: '178976',
           code: 'CATEGORY C',
           active: true,
-          label: 'Category c',
+          label: 'Category C',
           commentRequired: true,
           dateRequired: false,
           nextQuestionId: '45156',
@@ -81,7 +81,7 @@ const ESCAPE_FROM_ESCORT: IncidentTypeConfiguration = {
           id: '178977',
           code: 'CATEGORY D',
           active: true,
-          label: 'Category d',
+          label: 'Category D',
           commentRequired: true,
           dateRequired: false,
           nextQuestionId: '45156',

@@ -166,7 +166,7 @@ digraph OLD_MOBILES {  rankdir=LR;
   45222 -> 45223 [label = "1", style="filled", color="#DDD"];
   45222 -> 45223 [label = "2", style="filled", color="#DDD"];
   45222 -> 45223 [label = "Urgent", style="filled", color="#DDD"];
-  45222 -> 45223 [label = "N/a not applicable", style="filled", color="#DDD"];
+  45222 -> 45223 [label = "N/A not applicable", style="filled", color="#DDD"];
   45223 [label = "If a mobile / SIM was found on a person, please state where (this will assist with identifying contaminated mobiles)", style="filled", color="#DDD"];
   45223 -> END_NODE [label = "Please state where on person mobile phone was found:", style="filled", color="#DDD"];
   45223 -> 45224 [label = "Please state where on person mobile phone was found:", style="filled", color="#DDD"];

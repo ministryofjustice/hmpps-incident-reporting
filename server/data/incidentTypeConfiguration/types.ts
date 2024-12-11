@@ -57,3 +57,13 @@ interface PrisonerRoleConfiguration {
 export function findAnswerConfigByCode(answerCode: string, questionConfig: QuestionConfiguration): AnswerConfiguration {
   return questionConfig.answers.find(answerConfig => answerConfig.code.trim() === answerCode.trim())
 }
+
+/** Strips `QID-0...` prefix and returns the question ID
+ *
+ * TODO: Remove QID-stripping logic once removed from API
+ */
+export function stripQidPrefix(code: string): string {
+  const re = /^QID-0*/
+
+  return code.replace(re, '')
+}

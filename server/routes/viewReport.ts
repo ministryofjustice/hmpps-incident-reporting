@@ -13,7 +13,11 @@ import {
 import asyncMiddleware from '../middleware/asyncMiddleware'
 import { populateReport } from '../middleware/populateReport'
 import { type ReportWithDetails } from '../data/incidentReportingApi'
-import { findAnswerConfigByCode, type IncidentTypeConfiguration } from '../data/incidentTypeConfiguration/types'
+import {
+  findAnswerConfigByCode,
+  stripQidPrefix,
+  type IncidentTypeConfiguration,
+} from '../data/incidentTypeConfiguration/types'
 
 export default function viewReport(service: Services): Router {
   const router = Router({ mergeParams: true })
@@ -71,7 +75,8 @@ export default function viewReport(service: Services): Router {
  */
 function useReportConfigLabels(report: ReportWithDetails, reportConfig: IncidentTypeConfiguration): ReportWithDetails {
   for (const question of report.questions) {
-    const questionConfig = reportConfig.questions[question.code]
+    const questionCode = stripQidPrefix(question.code)
+    const questionConfig = reportConfig.questions[questionCode]
     if (!questionConfig) {
       // eslint-disable-next-line no-continue
       continue

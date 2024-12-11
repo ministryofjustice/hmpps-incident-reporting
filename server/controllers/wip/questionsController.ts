@@ -11,6 +11,7 @@ import {
   findAnswerConfigByCode,
   IncidentTypeConfiguration,
   QuestionConfiguration,
+  stripQidPrefix,
 } from '../../data/incidentTypeConfiguration/types'
 import logger from '../../../logger'
 import { parseDateInput } from '../../utils/utils'
@@ -42,7 +43,7 @@ export default class QuestionsController extends BaseController<FormWizard.Multi
 
       for (const question of report.questions) {
         // TODO: Remove QID-stripping logic once removed from API
-        const fieldName = this.questionIdFromCode(question.code)
+        const fieldName = stripQidPrefix(question.code)
         const questionConfig: QuestionConfiguration = reportConfig.questions[fieldName]
         if (questionConfig === undefined) {
           logger.error(
@@ -181,15 +182,5 @@ export default class QuestionsController extends BaseController<FormWizard.Multi
         next()
       }
     })
-  }
-
-  /** Strips `QID-0...` prefix and returns the question ID
-   *
-   * TODO: Remove QID-stripping logic once removed from API
-   */
-  private questionIdFromCode(code: string): string {
-    const re = /^QID-0*/
-
-    return code.replace(re, '')
   }
 }

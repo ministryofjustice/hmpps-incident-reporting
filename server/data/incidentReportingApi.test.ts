@@ -135,8 +135,10 @@ describe('Incident reporting API client', () => {
         urlMethod: 'post',
         testCase: () =>
           apiClient.staffInvolved.addToReport(reportWithDetails.id, {
-            staffRole: 'ACTIVELY_INVOLVED',
             staffUsername: 'abc12a',
+            firstName: 'MARY',
+            lastName: 'JOHNSON',
+            staffRole: 'ACTIVELY_INVOLVED',
           }),
       },
       {
@@ -145,8 +147,8 @@ describe('Incident reporting API client', () => {
         urlMethod: 'patch',
         testCase: () =>
           apiClient.staffInvolved.updateForReport(reportWithDetails.id, 1, {
-            staffRole: 'ACTIVELY_INVOLVED',
             staffUsername: 'abc12a',
+            staffRole: 'ACTIVELY_INVOLVED',
           }),
       },
       {
@@ -167,6 +169,8 @@ describe('Incident reporting API client', () => {
         testCase: () =>
           apiClient.prisonersInvolved.addToReport(reportWithDetails.id, {
             prisonerNumber: 'A1111AA',
+            firstName: 'ANDREW',
+            lastName: 'ARNOLD',
             prisonerRole: 'ACTIVE_INVOLVEMENT',
           }),
       },

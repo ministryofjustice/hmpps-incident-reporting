@@ -14,6 +14,7 @@ import type {
   CorrectionRequest,
   Question,
 } from '../incidentReportingApi'
+import { andrew, barry } from './offenderSearch'
 import { staffBarry, staffMary } from './prisonApi'
 
 interface MockEventConfig {
@@ -150,12 +151,16 @@ export function mockStaffInvolvement(index: number): DatesAsStrings<StaffInvolve
     case 0:
       return {
         staffUsername: staffMary.username,
+        firstName: staffMary.firstName,
+        lastName: staffMary.lastName,
         staffRole: 'ACTIVELY_INVOLVED',
         comment: 'Comment about Mary',
       }
     case 1:
       return {
         staffUsername: staffBarry.username,
+        firstName: staffBarry.firstName,
+        lastName: staffBarry.lastName,
         staffRole: 'PRESENT_AT_SCENE',
         comment: null,
       }
@@ -168,14 +173,18 @@ export function mockPrisonerInvolvement(index: number): DatesAsStrings<PrisonerI
   switch (index) {
     case 0:
       return {
-        prisonerNumber: 'A1111AA',
+        prisonerNumber: andrew.prisonerNumber,
+        firstName: andrew.firstName,
+        lastName: andrew.lastName,
         prisonerRole: 'ACTIVE_INVOLVEMENT',
         outcome: 'LOCAL_INVESTIGATION',
-        comment: 'Comment about A1111AA',
+        comment: `Comment about ${andrew.prisonerNumber}`,
       }
     case 1:
       return {
-        prisonerNumber: 'A2222BB',
+        prisonerNumber: barry.prisonerNumber,
+        firstName: barry.firstName,
+        lastName: barry.lastName,
         prisonerRole: 'SUSPECTED_INVOLVED',
         outcome: null,
         comment: null,

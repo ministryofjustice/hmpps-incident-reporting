@@ -1,5 +1,4 @@
 import type { RequestHandler } from 'express'
-import { NotFound } from 'http-errors'
 
 import { Router } from 'express'
 import type { PathParams } from 'express-serve-static-core'
@@ -12,21 +11,25 @@ import {
   types,
 } from '../reportConfiguration/constants'
 import asyncMiddleware from '../middleware/asyncMiddleware'
+import { populateReport } from '../middleware/populateReport'
+import { type ReportWithDetails } from '../data/incidentReportingApi'
+import {
+  findAnswerConfigByCode,
+  stripQidPrefix,
+  type IncidentTypeConfiguration,
+} from '../data/incidentTypeConfiguration/types'
 
 export default function viewReport(service: Services): Router {
   const router = Router({ mergeParams: true })
   const { userService } = service
-  const get = (path: PathParams, handler: RequestHandler) => router.get(path, asyncMiddleware(handler))
+  const get = (path: PathParams, handler: RequestHandler) =>
+    router.get(path, [populateReport(), asyncMiddleware(handler)])
 
   get('/', async (req, res) => {
-    const { incidentReportingApi, prisonApi, offenderSearchApi } = res.locals.apis
+    const { prisonApi, offenderSearchApi } = res.locals.apis
 
-    const { id } = req.params
-    if (!id) {
-      throw new NotFound()
-    }
-
-    const report = await incidentReportingApi.getReportWithDetailsById(id)
+    const reportConfig = res.locals.reportConfig as IncidentTypeConfiguration
+    const report = useReportConfigLabels(res.locals.report as ReportWithDetails, reportConfig)
 
     let usernames = [report.reportedBy]
     if (report.staffInvolved) {
@@ -65,4 +68,26 @@ export default function viewReport(service: Services): Router {
   })
 
   return router
+}
+
+/**
+ * Replaces the questions/responses with the labels in the report config
+ */
+function useReportConfigLabels(report: ReportWithDetails, reportConfig: IncidentTypeConfiguration): ReportWithDetails {
+  for (const question of report.questions) {
+    const questionCode = stripQidPrefix(question.code)
+    const questionConfig = reportConfig.questions[questionCode]
+    if (!questionConfig) {
+      // eslint-disable-next-line no-continue
+      continue
+    }
+
+    question.question = questionConfig?.label ?? question.question
+    for (const response of question.responses) {
+      const answerConfig = findAnswerConfigByCode(response.response, questionConfig)
+      response.response = answerConfig?.label ?? response.response
+    }
+  }
+
+  return report
 }

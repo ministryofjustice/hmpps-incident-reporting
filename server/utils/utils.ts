@@ -166,3 +166,202 @@ export function getComponentString(macroName: string, params = {}): string {
 
   return nunjucks.renderString(macroString, {})
 }
+
+/**
+ * Adds missing question mark to a question.
+ *
+ * If a sentence is a question (based on the start of it) and it's missing
+ * the question marks it adds it. The input string is trimmed.
+ *
+ * Examples:
+ * - `'   DO BIRDS FLY  '` => `'DO BIRDS FLY?'`
+ * - `'When did this happen?'` => `'When did this happen?'` (unchanged, already ended with question mark)
+ * - `'Describe the incident'` => `'Describe the incident'` (unchanged, not a question)
+ * correctly (i.e. each part in a double-barreled is converted to proper case).
+ *
+ * @param label sentence to adjust
+ * @returns trimmed sented with a question mark if it's a question.
+ */
+export function addQuestionMarkToQuestion(label: string): string {
+  let result = label.trim()
+
+  const questionsPrefixes = [
+    'are',
+    'can',
+    'did',
+    'do',
+    'does',
+    'from what',
+    'from which',
+    'has',
+    'have',
+    'how',
+    'is',
+    'to which',
+    'was',
+    'were',
+    'what',
+    'when',
+    'where',
+    'which',
+    'who',
+    'whose',
+    'why',
+    'with what',
+  ]
+  const labelStart = result.toLowerCase()
+  if (questionsPrefixes.some(prefix => labelStart.startsWith(`${prefix} `))) {
+    if (!result.endsWith('?')) {
+      result += '?'
+    }
+  }
+
+  return result
+}
+
+/**
+ * Converts a string to sentence case
+ *
+ * First letter upper case, the rest in lower case. Preserve original
+ * case of acronyms and other special words.
+ *
+ * @param str input string
+ * @returns string in sentence case
+ */
+export function convertToSentenceCase(str: string): string {
+  // Special words (e.g. acronyms) - Preserve case if possible
+  const preserveList = [
+    'A1',
+    'ACCT',
+    'ADA',
+    'AFFF',
+    'AirPods',
+    'Amazon',
+    'Apple',
+    'BDH',
+    'C.I',
+    'C.N',
+    'C.S',
+    'CANDR',
+    'CCTV',
+    'CO2',
+    'CPS',
+    'CRC',
+    'DIMU',
+    'DJI',
+    'DMIU',
+    'DVD',
+    'DYI',
+    'EGS',
+    'F2052SH',
+    'F78A',
+    'FES',
+    'GOAD',
+    'GP',
+    'H.C.C.',
+    'HCO',
+    'HHMD',
+    'HMD',
+    'HMPPS',
+    'HMPS',
+    'HSE',
+    'IEP',
+    'IMB',
+    'iPad',
+    'KPI',
+    'Lewis',
+    'LSD',
+    'MiFi',
+    'N/A',
+    'NDTSG',
+    'NOMS',
+    'NOU',
+    'NPS',
+    'NTRG',
+    'O.C',
+    'OMA',
+    'ORRU',
+    'P.E.',
+    'PEMS',
+    'PPCS',
+    'ROTL',
+    'SFO',
+    'SIM',
+    'SSU',
+    'Stockholm',
+    'T/R',
+    'Tornado',
+    'TV',
+    'UAL',
+    'UAV',
+    'UKBA',
+    'USB',
+    'UV',
+    'Vantive',
+    'VPU',
+    'YO',
+    // 'IT', // IT is problematic: IT (Information Technology) or "it" pronoun?
+  ]
+
+  const input = str.trim()
+  if (input.length === 0) {
+    return ''
+  }
+
+  // match words or non-words
+  const regex = /(\w+|[^\w\s]+|\s)/g
+  const parts = input.match(regex)
+  const mapped = parts.map((part, index) => {
+    if (/\w+/.test(part)) {
+      const word = part
+
+      const preservedWordFound = preserveList.find(preservedWord => preservedWord.toUpperCase() === word.toUpperCase())
+      if (preservedWordFound) {
+        return preservedWordFound
+      }
+
+      if (index === 0) {
+        return properCase(word)
+      }
+
+      return word.toLowerCase()
+    }
+
+    return part
+  })
+  let result = mapped.join('')
+
+  // remove duplicated spaces
+  result = result.replace(/\s+/g, ' ')
+
+  // post-process multi-word case exceptions
+  result = postProcessSentenceCase(result)
+
+  return result
+}
+
+function postProcessSentenceCase(input: string): string {
+  const exceptions: { match: RegExp; replace: string | ((match: string, ...args: string[]) => string) }[] = [
+    {
+      match: /\bA AND E\b/i,
+      replace: 'A&E',
+    },
+    {
+      match: /^IT$/i,
+      replace: 'IT',
+    },
+    {
+      match: /\bN\/A\b/i,
+      replace: 'N/A',
+    },
+    {
+      match: /\bCategory ([ABCDE])\b/i,
+      replace: (_: string, category: string) => `Category ${category.toUpperCase()}`,
+    },
+  ]
+  let output = input
+  for (const { match, replace } of exceptions) {
+    output = output.replace(match, replace as string)
+  }
+  return output
+}

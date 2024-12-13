@@ -1,25 +1,26 @@
-{% set pageTitle = "TODO: generate page title, probably in controller" %}
-
 {% extends "partials/formWizardLayout.njk" %}
 
 {% block content %}
   {{ super() }}
 
-  <h3>TODO: Debug</h3>
-  <pre>
-    action {{ action | dump(2) }}
-    nextPage {{ nextPage | dump(2) }}
+  {# Change to true to show debug info #}
+  {% if false %}
+    <h3>DEBUG</h3>
+    <pre>
+      action {{ action | dump(2) }}
+      nextPage {{ nextPage | dump(2) }}
 
 
-    errors {{ errors | dump(2) }}
+      errors {{ errors | dump(2) }}
 
 
-    values {{ values | dump(2) }}
+      values {{ values | dump(2) }}
 
 
-    options.fields {{ options.fields | dump(2) }}
+      options.fields {{ options.fields | dump(2) }}
 
-    report {{ report | dump(2) }}
-  </pre>
+      report {{ report | dump(2) }}
+    </pre>
+  {% endif %}
 
 {% endblock %}

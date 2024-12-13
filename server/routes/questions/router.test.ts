@@ -73,6 +73,7 @@ describe('Displaying responses', () => {
       .redirects(1)
       .expect(200)
       .expect(res => {
+        expect(fieldNames(res.text)).toEqual(['45054'])
         expect(res.text).not.toContain('There is a problem')
         // 'YES' response to '45054' requires a date, this is displayed
         expect(res.text).toContain('name="45054-182204-date" type="text" value="21/10/2024"')
@@ -126,6 +127,7 @@ describe('Displaying responses', () => {
       .redirects(1)
       .expect(200)
       .expect(res => {
+        expect(fieldNames(res.text)).toEqual(['67179'])
         expect(res.text).not.toContain('There is a problem')
         expect(res.text).toContain('value="BOSS CHAIR" checked')
         expect(res.text).toContain('value="DOG SEARCH" checked')
@@ -214,6 +216,7 @@ describe('Displaying responses', () => {
       .expect(200)
       .expect(res => {
         expect(res.text).not.toContain('There is a problem')
+        expect(fieldNames(res.text)).toEqual(['61279', '61280', '61281', '61282', '61283'])
         expect(res.text).toContain('name="61279" type="radio" value="POLICE REFERRAL" checked')
         expect(res.text).toContain('name="61280" type="radio" value="NO" checked')
         expect(res.text).toContain('name="61281" type="radio" value="NO" checked')
@@ -264,6 +267,7 @@ describe(`Submitting questions' responses`, () => {
       .expect(res => {
         expect(incidentReportingApi.addOrUpdateQuestionsWithResponses).toHaveBeenCalledTimes(0)
         expect(res.text).toContain('There is a problem')
+        expect(fieldNames(res.text)).toEqual(['45054'])
         expect(res.text).toContain('<a href="#45054">This field is required</a>')
         expect(res.redirects[0]).toMatch(postUrl)
         expect(res.redirects[0]).not.toMatch(`/${followingStep}`)
@@ -291,6 +295,7 @@ describe(`Submitting questions' responses`, () => {
       .expect(res => {
         expect(incidentReportingApi.addOrUpdateQuestionsWithResponses).toHaveBeenCalledTimes(0)
         expect(res.text).toContain('There is a problem')
+        expect(fieldNames(res.text)).toEqual(['45054'])
         expect(res.text).toContain('<a href="#45054-182204-date">Enter a date</a>')
         expect(res.redirects[0]).toMatch(postUrl)
         expect(res.redirects[0]).not.toMatch(`/${followingStep}`)
@@ -478,3 +483,10 @@ describe(`Submitting questions' responses`, () => {
       })
   })
 })
+
+function fieldNames(response: string): string[] {
+  const regexp = /<input .* id="([0-9]+)-item"/g
+
+  const matches = [...response.matchAll(regexp)]
+  return matches.map(match => match[1])
+}

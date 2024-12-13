@@ -163,12 +163,16 @@ export type HistoricStatus = {
 
 export type StaffInvolvement = {
   staffUsername: string
+  firstName: string
+  lastName: string
   staffRole: StaffInvolvementRole
   comment: string | null
 }
 
 export type PrisonerInvolvement = {
   prisonerNumber: string
+  firstName: string
+  lastName: string
   prisonerRole: PrisonerInvolvementRole
   outcome: PrisonerInvolvementOutcome | null
   comment: string | null
@@ -486,18 +490,24 @@ export class IncidentReportingApi extends RestClient {
 
 type AddStaffInvolvementRequest = {
   staffUsername: string
+  firstName: string
+  lastName: string
   staffRole: StaffInvolvementRole
   comment?: string
 }
 
 type UpdateStaffInvolvementRequest = {
   staffUsername?: string
+  firstName?: string
+  lastName?: string
   staffRole?: string
   comment?: string | null
 }
 
 type AddPrisonerInvolvementRequest = {
   prisonerNumber: string
+  firstName: string
+  lastName: string
   prisonerRole: PrisonerInvolvementRole
   outcome?: PrisonerInvolvementOutcome
   comment?: string
@@ -505,6 +515,8 @@ type AddPrisonerInvolvementRequest = {
 
 type UpdatePrisonerInvolvementRequest = {
   prisonerNumber?: string
+  firstName?: string
+  lastName?: string
   prisonerRole?: PrisonerInvolvementRole
   outcome?: PrisonerInvolvementOutcome | null
   comment?: string | null

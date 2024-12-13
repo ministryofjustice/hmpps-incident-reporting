@@ -64,6 +64,8 @@ export default class AddPrisoner extends FormInitialStep {
 
       const newPrisonerData: PrisonerInvolvement = {
         prisonerNumber: res.locals.prisoner.prisonerNumber as string,
+        firstName: 'Not',
+        lastName: 'Known',
         prisonerRole: prisonerRole as PrisonerInvolvementRole,
         outcome,
         comment,

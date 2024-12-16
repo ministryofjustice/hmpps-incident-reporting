@@ -2,6 +2,7 @@ import { FormWizard } from 'hmpo-form-wizard'
 import type express from 'express'
 import { BaseController } from '../index'
 import {
+  type Question,
   type AddOrUpdateQuestionResponseRequest,
   type AddOrUpdateQuestionWithResponsesRequest,
   type ReportWithDetails,
@@ -178,9 +179,51 @@ export default class QuestionsController extends BaseController<FormWizard.Multi
           questionsResponses.push(questionResponses)
         }
 
-        await incidentReportingApi.addOrUpdateQuestionsWithResponses(report.id, questionsResponses)
+        const questionsPreUpdate = report.questions.map(question => question.code)
+        console.log('previousQuestions = ', JSON.stringify(questionsPreUpdate))
+
+        const currentQuestions = await incidentReportingApi.addOrUpdateQuestionsWithResponses(
+          report.id,
+          questionsResponses,
+        )
+
+        console.log('questions = ', JSON.stringify(currentQuestions))
+        const visitedQuestions = this.traverse(reportConfig, reportConfig.startingQuestionId, currentQuestions)
+        console.log('visitedQuestions = ', JSON.stringify(visitedQuestions))
+        // const allQuestions = Object.keys(reportConfig.questions)
+        // console.log('allQuestions = ', JSON.stringify(allQuestions))
+        const questionsToDelete = questionsPreUpdate.filter(questionId => !visitedQuestions.includes(questionId))
+        console.log('questionsToDelete = ', JSON.stringify(questionsToDelete))
+        // TODO: Make API request to delete
+        if (questionsToDelete.length > 0) {
+          // await incidentReportingApi.deleteQuestions(report.id, questionsToDelete)
+        }
+
         next()
       }
     })
+  }
+
+  private traverse(config: IncidentTypeConfiguration, start: string, answeredQuestions: Question[]): string[] {
+    console.log(`traverse(..., ${start}, ...)`)
+
+    const answeredQuestion = answeredQuestions.find(question => question.code === start)
+    if (!answeredQuestion) {
+      return []
+    }
+
+    const questionConfig = config.questions[answeredQuestion.code]
+    const response = answeredQuestion.responses[0]
+    const answerConfig = findAnswerConfigByCode(response.response, questionConfig)
+    if (!questionConfig || !answerConfig) {
+      return []
+    }
+
+    const { nextQuestionId } = answerConfig
+    if (!nextQuestionId) {
+      return [start]
+    }
+
+    return [start, ...this.traverse(config, nextQuestionId, answeredQuestions)]
   }
 }

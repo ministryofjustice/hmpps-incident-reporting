@@ -82,8 +82,8 @@
     ]
   },
   "dependencies": {
-    "@aws-sdk/client-sqs": "^3.699.0",
-    "@ministryofjustice/frontend": "^3.2.0",
+    "@aws-sdk/client-sqs": "^3.709.0",
+    "@ministryofjustice/frontend": "^3.2.1",
     "agentkeepalive": "^4.5.0",
     "applicationinsights": "^2.9.6",
     "body-parser": "^1.20.3",
@@ -123,7 +123,7 @@
     "@types/http-errors": "^2.0.4",
     "@types/jest": "^29.5.14",
     "@types/jsonwebtoken": "^9.0.7",
-    "@types/node": "^22.10.1",
+    "@types/node": "^22.10.2",
     "@types/nunjucks": "^3.2.6",
     "@types/passport": "^1.0.17",
     "@types/passport-oauth2": "^1.4.17",

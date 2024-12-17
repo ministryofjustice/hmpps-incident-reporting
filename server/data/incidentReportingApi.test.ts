@@ -233,17 +233,17 @@ describe('Incident reporting API client', () => {
         testCase: () =>
           apiClient.addOrUpdateQuestionsWithResponses(basicReport.id, [
             {
-              code: 'QID-001',
+              code: '1',
               question: 'Was the police informed?',
               responses: [{ response: 'Yes', responseDate: now }],
             },
           ]),
       },
       {
-        method: 'deleteLastQuestionAndItsResponses',
+        method: 'deleteQuestionsAndTheirResponses',
         url: `/incident-reports/${basicReport.id}/questions`,
         urlMethod: 'delete',
-        testCase: () => apiClient.deleteLastQuestionAndItsResponses(basicReport.id),
+        testCase: () => apiClient.deleteQuestionsAndTheirResponses(basicReport.id, ['1']),
       },
       {
         method: 'constants.types',
@@ -486,7 +486,7 @@ describe('Incident reporting API client', () => {
         testCase: () =>
           apiClient.addOrUpdateQuestionsWithResponses(basicReport.id, [
             {
-              code: 'QID-001',
+              code: '1',
               question: 'Was the police informed?',
               responses: [{ response: 'Yes', responseDate: now }],
             },
@@ -569,17 +569,17 @@ describe('Incident reporting API client', () => {
         testCase: () =>
           apiClient.addOrUpdateQuestionsWithResponses(basicReport.id, [
             {
-              code: 'QID-001',
+              code: '1',
               question: 'Was the police informed?',
               responses: [{ response: 'Yes', responseDate: now }],
             },
           ]),
       },
       {
-        method: 'deleteLastQuestionAndItsResponses',
+        method: 'deleteQuestionsAndTheirResponses',
         url: `/incident-reports/${basicReport.id}/questions`,
         urlMethod: 'delete',
-        testCase: () => apiClient.deleteLastQuestionAndItsResponses(basicReport.id),
+        testCase: () => apiClient.deleteQuestionsAndTheirResponses(basicReport.id, ['1', '2']),
       },
     ])('should work for $method returning a list of question', async ({ url, urlMethod, testCase }) => {
       fakeApiClient

@@ -128,7 +128,7 @@ export function mockReport({
         changedAt: format.isoDateTime(reportDateAndTime),
         changedBy: 'some-user-2',
         questions: buildArray(2, questionIndex => ({
-          code: `QID-${(questionIndex + 1).toString().padStart(12, '0')}`,
+          code: (questionIndex + 1).toString(),
           question: `Historic question #${questionIndex + 1}`,
           additionalInformation: '',
           responses: buildArray(2, responseIndex => ({
@@ -221,7 +221,7 @@ export function mockQuestion(
   numberOfResponses = 0,
 ): DatesAsStrings<Question> {
   return {
-    code: `QID-${(questionIndex + 1).toString().padStart(12, '0')}`,
+    code: (questionIndex + 1).toString(),
     question: `Question #${questionIndex + 1}`,
     additionalInformation: `Explanation #${questionIndex + 1}`,
     responses: buildArray(numberOfResponses, responseIndex => ({

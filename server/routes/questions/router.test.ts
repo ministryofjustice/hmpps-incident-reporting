@@ -53,7 +53,7 @@ describe('Displaying responses', () => {
     reportWithDetails.type = 'DEATH_OTHER'
     reportWithDetails.questions = [
       {
-        code: 'QID-000000045054',
+        code: '45054',
         question: 'WERE THE POLICE INFORMED OF THE INCIDENT',
         additionalInformation: null,
         responses: [
@@ -86,7 +86,7 @@ describe('Displaying responses', () => {
 
     reportWithDetails.questions = [
       {
-        code: 'QID-000000067179',
+        code: '67179',
         question: 'DESCRIBE HOW THE ITEM WAS FOUND (SELECT ALL THAT APPLY)',
         additionalInformation: null,
         responses: [
@@ -107,7 +107,7 @@ describe('Displaying responses', () => {
         ],
       },
       {
-        code: 'QID-000000067180',
+        code: '67180',
         question: 'IS THE LOCATION OF THE INCIDENT KNOWN?',
         additionalInformation: null,
         responses: [
@@ -139,7 +139,7 @@ describe('Displaying responses', () => {
 
     reportWithDetails.questions = [
       {
-        code: 'QID-000000061279',
+        code: '61279',
         question: 'WHAT WAS THE MAIN MANAGEMENT OUTCOME OF THE INCIDENT',
         additionalInformation: null,
         responses: [
@@ -153,7 +153,7 @@ describe('Displaying responses', () => {
         ],
       },
       {
-        code: 'QID-000000061280',
+        code: '61280',
         question: 'IS ANY MEMBER OF STAFF FACING DISCIPLINARY CHARGES',
         additionalInformation: null,
         responses: [
@@ -167,7 +167,7 @@ describe('Displaying responses', () => {
         ],
       },
       {
-        code: 'QID-000000061281',
+        code: '61281',
         question: 'IS THERE ANY MEDIA INTEREST IN THIS INCIDENT',
         additionalInformation: null,
         responses: [
@@ -181,7 +181,7 @@ describe('Displaying responses', () => {
         ],
       },
       {
-        code: 'QID-000000061282',
+        code: '61282',
         question: 'HAS THE PRISON SERVICE PRESS OFFICE BEEN INFORMED',
         additionalInformation: null,
         responses: [
@@ -195,7 +195,7 @@ describe('Displaying responses', () => {
         ],
       },
       {
-        code: 'QID-000000061283',
+        code: '61283',
         question: 'IS THE LOCATION OF THE INCDENT KNOWN',
         additionalInformation: null,
         responses: [

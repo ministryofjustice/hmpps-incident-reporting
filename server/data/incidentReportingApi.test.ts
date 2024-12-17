@@ -240,10 +240,10 @@ describe('Incident reporting API client', () => {
           ]),
       },
       {
-        method: 'deleteLastQuestionAndItsResponses',
+        method: 'deleteQuestionsAndTheirResponses',
         url: `/incident-reports/${basicReport.id}/questions`,
         urlMethod: 'delete',
-        testCase: () => apiClient.deleteLastQuestionAndItsResponses(basicReport.id),
+        testCase: () => apiClient.deleteQuestionsAndTheirResponses(basicReport.id, ['QID-001']),
       },
       {
         method: 'constants.types',
@@ -576,10 +576,10 @@ describe('Incident reporting API client', () => {
           ]),
       },
       {
-        method: 'deleteLastQuestionAndItsResponses',
+        method: 'deleteQuestionsAndTheirResponses',
         url: `/incident-reports/${basicReport.id}/questions`,
         urlMethod: 'delete',
-        testCase: () => apiClient.deleteLastQuestionAndItsResponses(basicReport.id),
+        testCase: () => apiClient.deleteQuestionsAndTheirResponses(basicReport.id, ['QID-001', 'QID-002']),
       },
     ])('should work for $method returning a list of question', async ({ url, urlMethod, testCase }) => {
       fakeApiClient

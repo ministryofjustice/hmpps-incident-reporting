@@ -188,9 +188,8 @@ export default class QuestionsController extends BaseController<FormWizard.Multi
 
         // Delete any potential now-irrelevant questions
         const questionsToDelete = QuestionsToDelete.forGivenAnswers(reportConfig, currentQuestions)
-        // TODO: Make API request to delete
         if (questionsToDelete.length > 0) {
-          // await incidentReportingApi.deleteQuestions(report.id, questionsToDelete)
+          await incidentReportingApi.deleteQuestionsAndTheirResponses(report.id, questionsToDelete)
         }
 
         next()

@@ -267,6 +267,7 @@ describe(`Submitting questions' responses`, () => {
       .expect(200)
       .expect(res => {
         expect(incidentReportingApi.addOrUpdateQuestionsWithResponses).toHaveBeenCalledTimes(0)
+        expect(incidentReportingApi.deleteQuestionsAndTheirResponses).toHaveBeenCalledTimes(0)
         expect(res.text).toContain('There is a problem')
         expect(fieldNames(res.text)).toEqual(['45054'])
         expect(res.text).toContain('<a href="#45054">This field is required</a>')
@@ -294,6 +295,7 @@ describe(`Submitting questions' responses`, () => {
       .redirects(1)
       .expect(200)
       .expect(res => {
+        expect(incidentReportingApi.addOrUpdateQuestionsWithResponses).toHaveBeenCalledTimes(0)
         expect(incidentReportingApi.addOrUpdateQuestionsWithResponses).toHaveBeenCalledTimes(0)
         expect(res.text).toContain('There is a problem')
         expect(fieldNames(res.text)).toEqual(['45054'])
@@ -358,6 +360,7 @@ describe(`Submitting questions' responses`, () => {
           reportWithDetails.id,
           expectedRequest,
         )
+        expect(incidentReportingApi.deleteQuestionsAndTheirResponses).toHaveBeenCalledTimes(0)
         expect(res.text).not.toContain('There is a problem')
         expect(res.redirects[0]).toMatch(`/${followingStep}`)
       })
@@ -427,6 +430,7 @@ describe(`Submitting questions' responses`, () => {
           reportWithDetails.id,
           expectedRequest,
         )
+        expect(incidentReportingApi.deleteQuestionsAndTheirResponses).toHaveBeenCalledTimes(0)
         expect(res.text).not.toContain('There is a problem')
         expect(res.redirects[0]).toMatch(`/${followingStep}`)
       })
@@ -629,6 +633,9 @@ describe(`Submitting questions' responses`, () => {
           reportWithDetails.id,
           expectedRequest,
         )
+        expect(incidentReportingApi.deleteQuestionsAndTheirResponses).toHaveBeenCalledWith(reportWithDetails.id, [
+          '61284',
+        ])
         expect(res.text).not.toContain('There is a problem')
         expect(res.redirects[0]).toMatch(`/${followingStep}`)
       })

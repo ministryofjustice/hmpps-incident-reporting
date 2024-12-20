@@ -50,11 +50,6 @@ const templates: Template[] = [
     documentation: 'Outcomes from a prisoner’s involvement in an incident',
   },
   {
-    method: 'correctionRequestReasons',
-    identifier: 'CorrectionRequestReason',
-    documentation: 'Reasons for correction requests made about a report',
-  },
-  {
     method: 'errorCodes',
     identifier: 'ErrorCode',
     documentation: 'Unique codes to discriminate errors returned from the incident reporting api',

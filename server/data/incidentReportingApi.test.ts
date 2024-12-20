@@ -201,7 +201,6 @@ describe('Incident reporting API client', () => {
         urlMethod: 'post',
         testCase: () =>
           apiClient.correctionRequests.addToReport(reportWithDetails.id, {
-            reason: 'MISTAKE',
             descriptionOfChange: 'Name misspelled',
           }),
       },
@@ -211,7 +210,6 @@ describe('Incident reporting API client', () => {
         urlMethod: 'patch',
         testCase: () =>
           apiClient.correctionRequests.updateForReport(reportWithDetails.id, 1, {
-            reason: 'MISTAKE',
             descriptionOfChange: 'Name misspelled',
           }),
       },
@@ -274,11 +272,6 @@ describe('Incident reporting API client', () => {
         method: 'constants.prisonerInvolvementOutcomes',
         url: '/constants/prisoner-outcomes',
         testCase: () => apiClient.constants.prisonerInvolvementOutcomes(),
-      },
-      {
-        method: 'constants.correctionRequestReasons',
-        url: '/constants/correction-reasons',
-        testCase: () => apiClient.constants.correctionRequestReasons(),
       },
       {
         method: 'constants.errorCodes',
@@ -526,7 +519,6 @@ describe('Incident reporting API client', () => {
         urlMethod: 'post',
         testCase: () =>
           apiClient.correctionRequests.addToReport(reportWithDetails.id, {
-            reason: 'MISTAKE',
             descriptionOfChange: 'Name misspelled',
           }),
       },
@@ -536,7 +528,6 @@ describe('Incident reporting API client', () => {
         urlMethod: 'patch',
         testCase: () =>
           apiClient.correctionRequests.updateForReport(reportWithDetails.id, 1, {
-            reason: 'MISTAKE',
             descriptionOfChange: 'Name misspelled',
           }),
       },

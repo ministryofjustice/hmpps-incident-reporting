@@ -17,14 +17,15 @@
 
 {%- set location =  prisonsLookup[report.location].description or report.location -%}
 {%- set reportingOfficer =  usersLookup[report.reportedBy].name or report.reportedBy -%}
+{%- set reportedDate =  report.reportedAt | date -%}
 
 {% block content %}
   <h1 class="govuk-heading-m">Report {{ report.reportReference }}
     {{ govukTag({
-    text: report.status
+    text: statusLookup[report.status] or report.status
     }) }}
   </h1>
-  <h2 class="govuk-heading-s">Incident reported in {{ location }} by {{ reportingOfficer }}</h2>
+  <h2 class="govuk-heading-s">Incident reported in {{ location }} by {{ reportingOfficer }} on {{ reportedDate }}</h2>
 
 <!-- Incident details table -->
 {{ govukSummaryList({
@@ -106,18 +107,29 @@
         {% else %}
           {%- set outcome = 'No outcome' -%}
         {% endif %}
+        {% if prisonerInvolved.comment %}
+          {%- set comment = prisonerInvolved.comment -%}
+        {% else %}
+          {%- set comment = 'No comment' -%}
+        {% endif %}
+        {% set prisonerValues %}
+          Role: {{ prisonerRole }}
+          <br />
+          Outcome: {{ outcome }}
+          <br />
+          Comment: {{ comment }}
+        {% endset %}
 
         {%- set prisonerURL = dpsUrl + '/prisoner/' + prisonerInvolved.prisonerNumber -%}
         {% set prisonerURLKey %}
           <a href="{{ prisonerURL }}" class="govuk-link">{{ prisonerName }}</a>
         {% endset %}
+
         {%- set prisonerRows = (prisonerRows.push({
           key: {
             html: prisonerURLKey
           },
-          value: {
-            text: prisonerRole + ' - ' + outcome
-          },
+          value: { html: prisonerValues },
           actions: {
             items: [
               {
@@ -177,12 +189,23 @@
       {%- set staffName = usersLookup[staffInvolved.staffUsername].name or staffInvolved.staffUsername -%}
       {%- set staffRole = staffInvolvementLookup[staffInvolved.staffRole] or staffInvolved.staffRole -%}
 
+      {% if staffInvolved.comment %}
+        {%- set comment = staffInvolved.comment -%}
+      {% else %}
+        {%- set comment = 'No comment' -%}
+      {% endif %}
+      {% set staffValues %}
+        Role: {{ staffRole }}
+        <br />
+        Comment: {{ comment }}
+      {% endset %}
+
       {%- set staffRows = (staffRows.push({
         key: {
           text: staffName
         },
         value: {
-          text: staffRole
+          html: staffValues
         },
         actions: {
           items: [
@@ -237,13 +260,7 @@
   }) }}
 
 <!-- Question responses table -->
-  {%- set questionsActionItems = [
-    {
-      href: "#",
-      text: "Add responses",
-      visuallyHiddenText: "add question responses"
-    }
-  ] -%}
+  {%- set questionsActionItems = [ ] -%}
 
   {%- if report.questions.length > 0 -%}
     {%- set questionsRows = [] -%}
@@ -254,7 +271,7 @@
             {{ response.response }}
             {% if response.responseDate %}
               <br />
-              Date: {{ response.responseDate }}
+              Date: {{ response.responseDate | date }}
             {% endif %}
             {% if response.additionalInformation %}
               <br />
@@ -277,7 +294,7 @@
     {%- endfor -%}
 
     {%- set questionsActionItems = (questionsActionItems.push({
-      href: "#",
+      href: "/reports/" + report.id + "/questions",
       text: "Change",
       visuallyHiddenText: "change question responses"
     }), questionsActionItems) -%}
@@ -306,15 +323,22 @@
   {%- if report.correctionRequests.length > 0 -%}
   {%- set correctionRows = [] -%}
     {%- for correctionRequest in report.correctionRequests -%}
-      {%- set reason = correctionRequest.reason  -%}
+      {%- set requestedBy = usersLookup[correctionRequest.correctionRequestedBy].name or correctionRequest.correctionRequestedBy -%}
       {%- set description = correctionRequest.descriptionOfChange -%}
+      {%- set requestedAt = correctionRequest.correctionRequestedAt | dateAndTime -%}
+
+      {% set correctionValues %}
+        Description: {{ description }}
+        <br />
+        Submitted at: {{ requestedAt }}
+      {% endset %}
 
       {%- set correctionRows = (correctionRows.push({
         key: {
-          text: reason
+          text: requestedBy
         },
         value: {
-          text: description
+          html: correctionValues
         }
       }), correctionRows) -%}
 

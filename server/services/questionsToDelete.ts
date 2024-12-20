@@ -1,5 +1,15 @@
-import { type Question } from '../data/incidentReportingApi'
 import { findAnswerConfigByCode, IncidentTypeConfiguration } from '../data/incidentTypeConfiguration/types'
+
+/**
+ * This interface is a subset of the API's `Question`
+ *
+ * The logic to determine questions to delete only needs
+ * the question `code` and the responses' `response`
+ */
+interface AnsweredQuestion {
+  code: string
+  responses: { response: string }[]
+}
 
 export default class QuestionsToDelete {
   /**
@@ -14,7 +24,7 @@ export default class QuestionsToDelete {
    *
    * @returns list of question IDs to delete
    */
-  public static forGivenAnswers(config: IncidentTypeConfiguration, answeredQuestions: Question[]): string[] {
+  public static forGivenAnswers(config: IncidentTypeConfiguration, answeredQuestions: AnsweredQuestion[]): string[] {
     const currentQuestionsIds = answeredQuestions.map(question => question.code)
 
     const visitedQuestions = this.traverseQuestionnaire(config, config.startingQuestionId, answeredQuestions)
@@ -38,7 +48,7 @@ export default class QuestionsToDelete {
   private static traverseQuestionnaire(
     config: IncidentTypeConfiguration,
     start: string,
-    answeredQuestions: Question[],
+    answeredQuestions: AnsweredQuestion[],
   ): string[] {
     const nextQuestionId = this.findNextQuestionId(config, start, answeredQuestions)
     if (!nextQuestionId) {
@@ -70,7 +80,7 @@ export default class QuestionsToDelete {
   private static findNextQuestionId(
     config: IncidentTypeConfiguration,
     start: string,
-    answeredQuestions: Question[],
+    answeredQuestions: AnsweredQuestion[],
   ): string | null {
     const answeredQuestion = answeredQuestions.find(question => question.code === start)
     let questionConfig = null

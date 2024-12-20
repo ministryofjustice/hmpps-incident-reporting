@@ -2,7 +2,6 @@ import { FormWizard } from 'hmpo-form-wizard'
 import type express from 'express'
 import { BaseController } from '../index'
 import {
-  type Question,
   type AddOrUpdateQuestionResponseRequest,
   type AddOrUpdateQuestionWithResponsesRequest,
   type ReportWithDetails,

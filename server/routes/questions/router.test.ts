@@ -402,14 +402,14 @@ describe(`Submitting questions' responses`, () => {
         responses: [
           {
             response: 'BOSS CHAIR',
-            responseDate: new Date(),
+            responseDate: null,
             recordedAt: new Date(),
             recordedBy: 'USER_1',
             additionalInformation: null,
           },
           {
             response: 'DOG SEARCH',
-            responseDate: new Date(),
+            responseDate: null,
             recordedAt: new Date(),
             recordedBy: 'USER_1',
             additionalInformation: null,
@@ -523,7 +523,7 @@ describe(`Submitting questions' responses`, () => {
         responses: [
           {
             response: 'POLICE REFERRAL',
-            responseDate: new Date(),
+            responseDate: null,
             additionalInformation: null,
             recordedBy: 'USER_1',
             recordedAt: new Date(),
@@ -537,7 +537,7 @@ describe(`Submitting questions' responses`, () => {
         responses: [
           {
             response: 'YES',
-            responseDate: new Date(),
+            responseDate: null,
             additionalInformation: null,
             recordedBy: 'USER_1',
             recordedAt: new Date(),
@@ -551,7 +551,7 @@ describe(`Submitting questions' responses`, () => {
         responses: [
           {
             response: 'NO',
-            responseDate: new Date(),
+            responseDate: null,
             additionalInformation: null,
             recordedBy: 'USER_1',
             recordedAt: new Date(),
@@ -565,7 +565,7 @@ describe(`Submitting questions' responses`, () => {
         responses: [
           {
             response: 'YES',
-            responseDate: new Date(),
+            responseDate: null,
             additionalInformation: null,
             recordedBy: 'USER_1',
             recordedAt: new Date(),
@@ -580,7 +580,7 @@ describe(`Submitting questions' responses`, () => {
         responses: [
           {
             response: 'NO',
-            responseDate: new Date(),
+            responseDate: null,
             additionalInformation: null,
             recordedBy: 'USER_1',
             recordedAt: new Date(),
@@ -597,7 +597,7 @@ describe(`Submitting questions' responses`, () => {
         responses: [
           {
             response: 'GYM',
-            responseDate: new Date(),
+            responseDate: null,
             additionalInformation: null,
             recordedBy: 'USER_1',
             recordedAt: new Date(),
@@ -612,7 +612,7 @@ describe(`Submitting questions' responses`, () => {
         responses: [
           {
             response: 'NO',
-            responseDate: new Date(),
+            responseDate: null,
             additionalInformation: null,
             recordedBy: 'USER_1',
             recordedAt: new Date(),

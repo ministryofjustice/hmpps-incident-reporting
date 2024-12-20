@@ -106,9 +106,13 @@ describe('GET view report page with details', () => {
       .expect('Content-Type', /html/)
       .expect(res => {
         expect(res.text).toContain('Andrew Arnold')
-        expect(res.text).toContain('Active involvement - Investigation (local)')
+        expect(res.text).toContain('Role: Active involvement')
+        expect(res.text).toContain('Outcome: Investigation (local)')
+        expect(res.text).toContain('Comment: Comment about A1111AA')
         expect(res.text).toContain('A2222BB')
-        expect(res.text).toContain('Suspected involved - No outcome')
+        expect(res.text).toContain('Role: Suspected involved')
+        expect(res.text).toContain('Outcome: No outcome')
+        expect(res.text).toContain('Comment: No comment')
       })
   })
   it('should render staff involved with roles', () => {
@@ -137,8 +141,9 @@ describe('GET view report page with details', () => {
       .get('/reports/6543')
       .expect('Content-Type', /html/)
       .expect(res => {
-        expect(res.text).toContain('NOT_SPECIFIED')
-        expect(res.text).toContain('Please amend question 2')
+        expect(res.text).toContain('USER2')
+        expect(res.text).toContain('Description: Please amend question 2')
+        expect(res.text).toContain('Submitted at: 5 December 2023, 12:34')
       })
   })
 })
@@ -219,7 +224,6 @@ describe('GET view report page without details', () => {
       .expect(res => {
         expect(res.text).toContain('Question responses')
         expect(res.text).toContain('No responses found')
-        expect(res.text).toContain('Add responses')
       })
   })
   it('should render correction requests', () => {

@@ -33,7 +33,13 @@ export default function viewReport(service: Services): Router {
 
     let usernames = [report.reportedBy]
     if (report.staffInvolved) {
-      usernames = [...report.staffInvolved.map(staff => staff.staffUsername), report.reportedBy]
+      usernames = [...report.staffInvolved.map(staff => staff.staffUsername), ...usernames]
+    }
+    if (report.correctionRequests) {
+      usernames = [
+        ...report.correctionRequests.map(correctionRequest => correctionRequest.correctionRequestedBy),
+        ...usernames,
+      ]
     }
     const usersLookup = await userService.getUsers(res.locals.systemToken, usernames)
 

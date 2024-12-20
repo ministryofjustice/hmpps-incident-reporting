@@ -21,7 +21,6 @@ function main() {
     'staffInvolvementRoles',
     'prisonerInvolvementRoles',
     'prisonerInvolvementOutcomes',
-    'correctionRequestReasons',
     'errorCodes',
   ]
 

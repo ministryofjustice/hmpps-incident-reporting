@@ -198,14 +198,12 @@ export function mockCorrectionRequest(index: number, correctionRequestedAt: Date
   switch (index) {
     case 0:
       return {
-        reason: 'NOT_SPECIFIED',
         descriptionOfChange: 'Please amend question 2',
         correctionRequestedBy: 'USER2',
         correctionRequestedAt: format.isoDateTime(correctionRequestedAt),
       }
     case 1:
       return {
-        reason: 'MISTAKE',
         descriptionOfChange: 'Name misspelled',
         correctionRequestedBy: 'USER2',
         correctionRequestedAt: format.isoDateTime(correctionRequestedAt),

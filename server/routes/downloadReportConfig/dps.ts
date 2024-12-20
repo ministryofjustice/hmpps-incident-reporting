@@ -12,7 +12,6 @@ export default function makeDpsConfigRouter(): Router {
     { method: 'staffInvolvementRoles' as const },
     { method: 'prisonerInvolvementRoles' as const },
     { method: 'prisonerInvolvementOutcomes' as const },
-    { method: 'correctionRequestReasons' as const },
     { method: 'errorCodes' as const },
   ].forEach(({ method }) => {
     router.get(`/${method}.json`, async (_req: Request, res: Response) => {

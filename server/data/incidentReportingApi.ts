@@ -8,7 +8,6 @@ import type {
   StaffInvolvementRole,
   PrisonerInvolvementRole,
   PrisonerInvolvementOutcome,
-  CorrectionRequestReason,
   ErrorCode,
 } from '../reportConfiguration/constants'
 import {
@@ -179,7 +178,6 @@ export type PrisonerInvolvement = {
 }
 
 export type CorrectionRequest = {
-  reason: CorrectionRequestReason
   descriptionOfChange: string
   correctionRequestedBy: string
   correctionRequestedAt: Date
@@ -524,12 +522,10 @@ type UpdatePrisonerInvolvementRequest = {
 }
 
 type AddCorrectionRequestRequest = {
-  reason: CorrectionRequestReason
   descriptionOfChange: string
 }
 
 type UpdateCorrectionRequestRequest = {
-  reason?: CorrectionRequestReason
   descriptionOfChange?: string
 }
 
@@ -645,10 +641,6 @@ class Constants {
 
   prisonerInvolvementOutcomes(): Promise<PrisonerOutcomeConstant[]> {
     return this.listConstants('prisoner-outcomes')
-  }
-
-  correctionRequestReasons(): Promise<Constant[]> {
-    return this.listConstants('correction-reasons')
   }
 
   errorCodes(): Promise<Constant[]> {

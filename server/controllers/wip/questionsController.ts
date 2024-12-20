@@ -15,6 +15,7 @@ import {
 } from '../../data/incidentTypeConfiguration/types'
 import logger from '../../../logger'
 import { parseDateInput } from '../../utils/utils'
+import QuestionsToDelete from '../../services/questionsToDelete'
 
 export default class QuestionsController extends BaseController<FormWizard.MultiValues> {
   getBackLink(_req: FormWizard.Request, _res: express.Response): string {
@@ -178,7 +179,18 @@ export default class QuestionsController extends BaseController<FormWizard.Multi
           questionsResponses.push(questionResponses)
         }
 
-        await incidentReportingApi.addOrUpdateQuestionsWithResponses(report.id, questionsResponses)
+        // Update questions' answers
+        const currentQuestions = await incidentReportingApi.addOrUpdateQuestionsWithResponses(
+          report.id,
+          questionsResponses,
+        )
+
+        // Delete any potential now-irrelevant questions
+        const questionsToDelete = QuestionsToDelete.forGivenAnswers(reportConfig, currentQuestions)
+        if (questionsToDelete.length > 0) {
+          await incidentReportingApi.deleteQuestionsAndTheirResponses(report.id, questionsToDelete)
+        }
+
         next()
       }
     })

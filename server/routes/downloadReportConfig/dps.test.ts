@@ -33,7 +33,6 @@ describe('DPS config downloads', () => {
     { method: 'staffInvolvementRoles' as const },
     { method: 'prisonerInvolvementRoles' as const },
     { method: 'prisonerInvolvementOutcomes' as const },
-    { method: 'correctionRequestReasons' as const },
     { method: 'errorCodes' as const },
   ])('should work for $method.json', ({ method }) => {
     // cheat by making a constant that is the union of all possible types

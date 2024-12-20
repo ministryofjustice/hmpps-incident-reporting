@@ -5,6 +5,7 @@ import { appWithAllRoutes } from '../testutils/appSetup'
 import {
   type AddOrUpdateQuestionWithResponsesRequest,
   IncidentReportingApi,
+  type Question,
   type ReportWithDetails,
 } from '../../data/incidentReportingApi'
 import { convertReportWithDetailsDates } from '../../data/incidentReportingApiUtils'
@@ -266,6 +267,7 @@ describe(`Submitting questions' responses`, () => {
       .expect(200)
       .expect(res => {
         expect(incidentReportingApi.addOrUpdateQuestionsWithResponses).toHaveBeenCalledTimes(0)
+        expect(incidentReportingApi.deleteQuestionsAndTheirResponses).toHaveBeenCalledTimes(0)
         expect(res.text).toContain('There is a problem')
         expect(fieldNames(res.text)).toEqual(['45054'])
         expect(res.text).toContain('<a href="#45054">This field is required</a>')
@@ -293,6 +295,7 @@ describe(`Submitting questions' responses`, () => {
       .redirects(1)
       .expect(200)
       .expect(res => {
+        expect(incidentReportingApi.addOrUpdateQuestionsWithResponses).toHaveBeenCalledTimes(0)
         expect(incidentReportingApi.addOrUpdateQuestionsWithResponses).toHaveBeenCalledTimes(0)
         expect(res.text).toContain('There is a problem')
         expect(fieldNames(res.text)).toEqual(['45054'])
@@ -328,6 +331,24 @@ describe(`Submitting questions' responses`, () => {
       },
     ]
 
+    const questionsResponse: Question[] = [
+      {
+        code: '45054',
+        question: 'WERE THE POLICE INFORMED OF THE INCIDENT',
+        additionalInformation: null,
+        responses: [
+          {
+            response: 'YES',
+            responseDate: new Date(),
+            recordedAt: new Date(),
+            recordedBy: 'USER_1',
+            additionalInformation: null,
+          },
+        ],
+      },
+    ]
+    incidentReportingApi.addOrUpdateQuestionsWithResponses.mockResolvedValue(questionsResponse)
+
     await agent.get(reportQuestionsUrl).redirects(1).expect(200)
     return agent
       .post(`${reportQuestionsUrl}/${firstQuestionStep}/`)
@@ -339,6 +360,7 @@ describe(`Submitting questions' responses`, () => {
           reportWithDetails.id,
           expectedRequest,
         )
+        expect(incidentReportingApi.deleteQuestionsAndTheirResponses).toHaveBeenCalledTimes(0)
         expect(res.text).not.toContain('There is a problem')
         expect(res.redirects[0]).toMatch(`/${followingStep}`)
       })
@@ -372,6 +394,31 @@ describe(`Submitting questions' responses`, () => {
       },
     ]
 
+    const questionsResponse: Question[] = [
+      {
+        code: '67179',
+        question: 'DESCRIBE HOW THE ITEM WAS FOUND (SELECT ALL THAT APPLY)',
+        additionalInformation: null,
+        responses: [
+          {
+            response: 'BOSS CHAIR',
+            responseDate: null,
+            recordedAt: new Date(),
+            recordedBy: 'USER_1',
+            additionalInformation: null,
+          },
+          {
+            response: 'DOG SEARCH',
+            responseDate: null,
+            recordedAt: new Date(),
+            recordedBy: 'USER_1',
+            additionalInformation: null,
+          },
+        ],
+      },
+    ]
+    incidentReportingApi.addOrUpdateQuestionsWithResponses.mockResolvedValue(questionsResponse)
+
     await agent.get(reportQuestionsUrl).redirects(1).expect(200)
     return agent
       .post(`${reportQuestionsUrl}/${firstQuestionStep}/`)
@@ -383,6 +430,7 @@ describe(`Submitting questions' responses`, () => {
           reportWithDetails.id,
           expectedRequest,
         )
+        expect(incidentReportingApi.deleteQuestionsAndTheirResponses).toHaveBeenCalledTimes(0)
         expect(res.text).not.toContain('There is a problem')
         expect(res.redirects[0]).toMatch(`/${followingStep}`)
       })
@@ -467,6 +515,113 @@ describe(`Submitting questions' responses`, () => {
       },
     ]
 
+    const questionsResponse: Question[] = [
+      {
+        code: '61279',
+        question: 'WHAT WAS THE MAIN MANAGEMENT OUTCOME OF THE INCIDENT',
+        additionalInformation: null,
+        responses: [
+          {
+            response: 'POLICE REFERRAL',
+            responseDate: null,
+            additionalInformation: null,
+            recordedBy: 'USER_1',
+            recordedAt: new Date(),
+          },
+        ],
+      },
+      {
+        code: '61280',
+        question: 'IS ANY MEMBER OF STAFF FACING DISCIPLINARY CHARGES',
+        additionalInformation: null,
+        responses: [
+          {
+            response: 'YES',
+            responseDate: null,
+            additionalInformation: null,
+            recordedBy: 'USER_1',
+            recordedAt: new Date(),
+          },
+        ],
+      },
+      {
+        code: '61281',
+        question: 'IS THERE ANY MEDIA INTEREST IN THIS INCIDENT',
+        additionalInformation: null,
+        responses: [
+          {
+            response: 'NO',
+            responseDate: null,
+            additionalInformation: null,
+            recordedBy: 'USER_1',
+            recordedAt: new Date(),
+          },
+        ],
+      },
+      {
+        code: '61282',
+        question: 'HAS THE PRISON SERVICE PRESS OFFICE BEEN INFORMED',
+        additionalInformation: null,
+        responses: [
+          {
+            response: 'YES',
+            responseDate: null,
+            additionalInformation: null,
+            recordedBy: 'USER_1',
+            recordedAt: new Date(),
+          },
+        ],
+      },
+      {
+        // NOTE: Answer changed from 'YES' to 'NO'
+        code: '61283',
+        question: 'IS THE LOCATION OF THE INCDENT KNOWN',
+        additionalInformation: null,
+        responses: [
+          {
+            response: 'NO',
+            responseDate: null,
+            additionalInformation: null,
+            recordedBy: 'USER_1',
+            recordedAt: new Date(),
+          },
+        ],
+      },
+      {
+        // NOTE: This question will need to be deleted.
+        // Answer to previous question changed so branch where this
+        // sits is no longer entered now
+        code: '61284',
+        question: 'WHAT WAS THE LOCATION OF THE INCIDENT',
+        additionalInformation: null,
+        responses: [
+          {
+            response: 'GYM',
+            responseDate: null,
+            additionalInformation: null,
+            recordedBy: 'USER_1',
+            recordedAt: new Date(),
+          },
+        ],
+      },
+      {
+        // NOTE: This question asked regardless of branching, will be retained
+        code: '61285',
+        question: 'WAS THIS A SEXUAL ASSAULT',
+        additionalInformation: null,
+        responses: [
+          {
+            response: 'NO',
+            responseDate: null,
+            additionalInformation: null,
+            recordedBy: 'USER_1',
+            recordedAt: new Date(),
+          },
+        ],
+      },
+    ]
+    incidentReportingApi.addOrUpdateQuestionsWithResponses.mockResolvedValue(questionsResponse)
+
     await agent.get(reportQuestionsUrl).redirects(1).expect(200)
     return agent
       .post(`${reportQuestionsUrl}/${firstQuestionStep}/`)
@@ -478,6 +633,9 @@ describe(`Submitting questions' responses`, () => {
           reportWithDetails.id,
           expectedRequest,
         )
+        expect(incidentReportingApi.deleteQuestionsAndTheirResponses).toHaveBeenCalledWith(reportWithDetails.id, [
+          '61284',
+        ])
         expect(res.text).not.toContain('There is a problem')
         expect(res.redirects[0]).toMatch(`/${followingStep}`)
       })

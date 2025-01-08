@@ -13,11 +13,11 @@ import type { Services } from '../services'
 import asyncMiddleware from '../middleware/asyncMiddleware'
 
 interface ListFormData {
+  searchID?: string
   location?: string
   fromDate?: string
   toDate?: string
   incidentType?: Type
-  reportingOfficer?: string
   incidentStatuses?: Status
   sort?: string
   order?: Order
@@ -32,12 +32,13 @@ export default function dashboard(service: Services): Router {
   get('/', async (req, res) => {
     const { incidentReportingApi, prisonApi } = res.locals.apis
 
+    console.log(req.query)
     const {
+      searchID,
       location,
       fromDate: fromDateInput,
       toDate: toDateInput,
       incidentType,
-      reportingOfficer,
       page,
       incidentStatuses,
     }: ListFormData = req.query
@@ -51,11 +52,11 @@ export default function dashboard(service: Services): Router {
     }
 
     const formValues: ListFormData = {
+      searchID,
       location,
       fromDate: fromDateInput,
       toDate: toDateInput,
       incidentType: incidentType as Type,
-      reportingOfficer,
       incidentStatuses: incidentStatuses as Status,
       sort,
       order: order as Order,
@@ -130,12 +131,15 @@ export default function dashboard(service: Services): Router {
       incidentDateUntil: toDate,
       type: incidentType,
       status: incidentStatuses,
-      reportedByUsername: reportingOfficer,
+      involvingPrisonerNumber: searchID,
       page: pageNumber - 1,
       sort: [`${sort},${orderString}`],
     })
 
     const queryString = new URLSearchParams()
+    if (searchID) {
+      queryString.append('searchID', searchID)
+    }
     if (location) {
       queryString.append('location', location)
     }
@@ -151,9 +155,6 @@ export default function dashboard(service: Services): Router {
     if (incidentStatuses) {
       queryString.append('incidentStatuses', incidentStatuses)
     }
-    if (reportingOfficer) {
-      queryString.append('reportingOfficer', reportingOfficer)
-    }
     const tableHeadUrlPrefix = `/reports?${queryString}&`
     if (sort) {
       queryString.append('sort', sort)
@@ -165,7 +166,7 @@ export default function dashboard(service: Services): Router {
     const urlPrefix = `/reports?${queryString}&`
 
     const noFiltersSupplied = Boolean(
-      !location && !fromDate && !toDate && !incidentType && !incidentStatuses && !reportingOfficer,
+      !searchID && !location && !fromDate && !toDate && !incidentType && !incidentStatuses,
     )
 
     const reports = reportsResponse.content

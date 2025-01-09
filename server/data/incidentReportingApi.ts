@@ -81,7 +81,7 @@ export type ReportBasic = {
   reportReference: string
   type: Type
   incidentDateAndTime: Date
-  location: string
+  location: string | string[]
   title: string
   description: string
   reportedBy: string
@@ -112,7 +112,7 @@ export type GetEventsParams = {
 } & PaginationSortingParams
 
 export type GetReportsParams = {
-  location: string
+  location: string | string[]
   source: InformationSource
   status: Status
   type: Type

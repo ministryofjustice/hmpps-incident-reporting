@@ -58,15 +58,17 @@
         leadingZeros: "true"
       }) }}
 
-      {{ govukSelect({
-        name: "location",
-        id: "location",
-        label: {
-          text: "Establishment"
-        },
-        items: prisons | govukSelectInsertDefault("All") | govukSelectSetSelected(formValues.location),
-        errorMessage: errors | findFieldInGovukErrorSummary("location")
-      }) }}
+      {% if showEstablishmentsFilter %}
+        {{ govukSelect({
+          name: "location",
+          id: "location",
+          label: {
+            text: "Establishment"
+          },
+          items: establishments | govukSelectInsertDefault("All") | govukSelectSetSelected(formValues.location),
+          errorMessage: errors | findFieldInGovukErrorSummary("location")
+        }) }}
+      {% endif %}
 
       {{ govukSelect({
         name: "incidentType",

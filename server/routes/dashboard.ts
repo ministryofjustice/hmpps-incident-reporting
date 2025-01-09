@@ -32,7 +32,14 @@ export default function dashboard(service: Services): Router {
   get('/', async (req, res) => {
     const { incidentReportingApi, prisonApi } = res.locals.apis
 
-    console.log(req.query)
+    const userCaseloads = res.locals.user.caseLoads
+    const userCaseloadIds = userCaseloads.map(caseload => caseload.caseLoadId)
+
+    let showEstablishmentsFilter = false
+    if (userCaseloadIds.length > 1) {
+      showEstablishmentsFilter = true
+    }
+
     const {
       searchID,
       location,
@@ -124,9 +131,17 @@ export default function dashboard(service: Services): Router {
     }
 
     const orderString = order as string
+
+    // Set locations to user's caseload
+    let searchLocations: string[] | string = userCaseloadIds
+    // Overwrite locations with chosen filter if it exists
+    if (location) {
+      searchLocations = location
+    }
+
     // Get reports from API
     const reportsResponse = await incidentReportingApi.getReports({
-      location,
+      location: searchLocations,
       incidentDateFrom: fromDate,
       incidentDateUntil: toDate,
       type: incidentType,
@@ -172,14 +187,9 @@ export default function dashboard(service: Services): Router {
     const reports = reportsResponse.content
     const usernames = reports.map(report => report.reportedBy)
     const usersLookup = await userService.getUsers(res.locals.systemToken, usernames)
-    const prisonsLookup = await prisonApi.getPrisons()
     const reportingOfficers = Object.values(usersLookup).map(user => ({
       value: user.username,
       text: user.name,
-    }))
-    const prisons = Object.values(prisonsLookup).map(prison => ({
-      value: prison.agencyId,
-      text: prison.description,
     }))
     const incidentTypes = types.map(incType => ({
       value: incType.code,
@@ -188,6 +198,10 @@ export default function dashboard(service: Services): Router {
     const statusItems = statuses.map(status => ({
       value: status.code,
       text: status.description,
+    }))
+    const establishments = userCaseloads.map(caseload => ({
+      value: caseload.caseLoadId,
+      text: caseload.description,
     }))
 
     const typesLookup = Object.fromEntries(types.map(type => [type.code, type.description]))
@@ -214,7 +228,7 @@ export default function dashboard(service: Services): Router {
 
     res.render('pages/dashboard', {
       reports,
-      prisons,
+      establishments,
       usersLookup,
       reportingOfficers,
       incidentTypes,
@@ -227,6 +241,7 @@ export default function dashboard(service: Services): Router {
       noFiltersSupplied,
       tableHead,
       paginationParams,
+      showEstablishmentsFilter,
     })
   })
 

@@ -30,7 +30,7 @@ export default function dashboard(service: Services): Router {
   const get = (path: PathParams, handler: RequestHandler) => router.get(path, asyncMiddleware(handler))
 
   get('/', async (req, res) => {
-    const { incidentReportingApi, prisonApi } = res.locals.apis
+    const { incidentReportingApi } = res.locals.apis
 
     const userCaseloads = res.locals.user.caseLoads
     const userCaseloadIds = userCaseloads.map(caseload => caseload.caseLoadId)
@@ -138,19 +138,33 @@ export default function dashboard(service: Services): Router {
     if (location) {
       searchLocations = location
     }
+    let prisonerId: string = null
+    let referenceNumber: string = null
+    if (searchID) {
+      // Test if search is for a prisoner ID and use if so
+      if (searchID.match(/[a-zA-Z][0-9]{4}[a-zA-Z]{2}/)) {
+        prisonerId = searchID
+      }
+      // Test if search is for an incident reference number and use if so
+      if (searchID.match(/^[0-9]+$/)) {
+        referenceNumber = searchID
+      }
+    }
 
     // Get reports from API
     const reportsResponse = await incidentReportingApi.getReports({
+      reference: referenceNumber,
       location: searchLocations,
       incidentDateFrom: fromDate,
       incidentDateUntil: toDate,
       type: incidentType,
       status: incidentStatuses,
-      involvingPrisonerNumber: searchID,
+      involvingPrisonerNumber: prisonerId,
       page: pageNumber - 1,
       sort: [`${sort},${orderString}`],
     })
 
+    // console.log(reportsResponse)
     const queryString = new URLSearchParams()
     if (searchID) {
       queryString.append('searchID', searchID)

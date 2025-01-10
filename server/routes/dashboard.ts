@@ -123,6 +123,23 @@ export default function dashboard(service: Services): Router {
       toDate = null
       errors.push({ href: '#toDate', text: `Enter a valid to date, for example ${todayAsShortDate}` })
     }
+    let prisonerId: string = null
+    let referenceNumber: string = null
+    if (searchID) {
+      // Test if search is for a prisoner ID and use if so
+      if (searchID.match(/[a-zA-Z][0-9]{4}[a-zA-Z]{2}/)) {
+        prisonerId = searchID
+      }
+      // Test if search is for an incident reference number and use if so
+      else if (searchID.match(/^[0-9]+$/)) {
+        referenceNumber = searchID
+      } else {
+        errors.push({
+          href: '#searchID',
+          text: `Enter a valid incident reference number or offender ID. For example, 12345678 or A0011BB`,
+        })
+      }
+    }
 
     // Parse page number
     let pageNumber = (page && typeof page === 'string' && parseInt(page, 10)) || 1
@@ -137,18 +154,6 @@ export default function dashboard(service: Services): Router {
     // Overwrite locations with chosen filter if it exists
     if (location) {
       searchLocations = location
-    }
-    let prisonerId: string = null
-    let referenceNumber: string = null
-    if (searchID) {
-      // Test if search is for a prisoner ID and use if so
-      if (searchID.match(/[a-zA-Z][0-9]{4}[a-zA-Z]{2}/)) {
-        prisonerId = searchID
-      }
-      // Test if search is for an incident reference number and use if so
-      if (searchID.match(/^[0-9]+$/)) {
-        referenceNumber = searchID
-      }
     }
 
     // Get reports from API

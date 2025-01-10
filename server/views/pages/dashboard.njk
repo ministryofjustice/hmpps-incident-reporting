@@ -30,8 +30,9 @@
           text: "Search an incident number or offender ID",
           classes: "govuk-label--s"
         },
-        classes: "govuk-!-width-full",
-        value: formValues.searchID
+        classes: "govuk-!-width-half",
+        value: formValues.searchID,
+        errorMessage: errors | findFieldInGovukErrorSummary("searchID")
       }) }}
 
       {{ mojDatePicker({

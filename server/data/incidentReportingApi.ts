@@ -106,12 +106,14 @@ export type ReportWithDetails = ReportBasic & {
 }
 
 export type GetEventsParams = {
+  reference: string
   location: string
   eventDateFrom: Date // Inclusive
   eventDateUntil: Date // Inclusive
 } & PaginationSortingParams
 
 export type GetReportsParams = {
+  reference: string
   location: string | string[]
   source: InformationSource
   status: Status
@@ -227,7 +229,8 @@ export class IncidentReportingApi extends RestClient {
   }
 
   async getEvents(
-    { location, eventDateFrom, eventDateUntil, page, size, sort }: Partial<GetEventsParams> = {
+    { reference, location, eventDateFrom, eventDateUntil, page, size, sort }: Partial<GetEventsParams> = {
+      reference: null,
       location: null,
       eventDateFrom: null,
       eventDateUntil: null,
@@ -240,6 +243,9 @@ export class IncidentReportingApi extends RestClient {
       page,
       size,
       sort,
+    }
+    if (reference) {
+      query.reference = reference
     }
     if (location) {
       query.location = location
@@ -277,6 +283,7 @@ export class IncidentReportingApi extends RestClient {
 
   async getReports(
     {
+      reference,
       location,
       source,
       status,
@@ -292,6 +299,7 @@ export class IncidentReportingApi extends RestClient {
       size,
       sort,
     }: Partial<GetReportsParams> = {
+      reference: null,
       location: null,
       source: null,
       status: null,
@@ -312,6 +320,9 @@ export class IncidentReportingApi extends RestClient {
       page,
       size,
       sort,
+    }
+    if (reference) {
+      query.reference = reference
     }
     if (location) {
       query.location = location

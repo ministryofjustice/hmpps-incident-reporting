@@ -1,7 +1,8 @@
 import type { Request, Response, NextFunction } from 'express'
 
 import { unauthorisedUser, user as reportingUser, approverUser, hqUser } from '../routes/testutils/appSetup'
-import { Permissions, setupPermissions } from './permissions'
+import { Permissions, isPrisonActiveInService, setupPermissions } from './permissions'
+import config from '../config'
 
 const grant = 'grant' as const
 const deny = 'deny' as const
@@ -18,10 +19,8 @@ describe('Permissions', () => {
       const permissions = new Permissions(user)
       if (action === 'grant') {
         expect(permissions.canAccessService).toBe(true)
-      } else if (action === 'deny') {
-        expect(permissions.canAccessService).toBe(false)
       } else {
-        throw new Error('test setup error')
+        expect(permissions.canAccessService).toBe(false)
       }
     })
 
@@ -37,10 +36,8 @@ describe('Permissions', () => {
       const permissions = new Permissions(user)
       if (action === 'grant') {
         expect(permissions.canAccessCaseload('LEI')).toBe(true)
-      } else if (action === 'deny') {
-        expect(permissions.canAccessCaseload('LEI')).toBe(false)
       } else {
-        throw new Error('test setup error')
+        expect(permissions.canAccessCaseload('LEI')).toBe(false)
       }
     })
   })
@@ -59,6 +56,45 @@ describe('Permissions', () => {
       setupPermissions(req, res, next)
       expect(next).toHaveBeenCalled()
       expect(res.locals.permissions).toBeInstanceOf(Permissions)
+    })
+  })
+
+  describe('Active prison helper function', () => {
+    let previousActivePrisons: string[]
+
+    beforeAll(() => {
+      previousActivePrisons = config.activePrisons
+    })
+
+    afterAll(() => {
+      config.activePrisons = previousActivePrisons
+    })
+
+    it('should always return true if all prisons are permitted', () => {
+      config.activePrisons = ['***']
+      const prisons = [undefined, null, '', 'MDI', 'LEI']
+      for (const prison of prisons) {
+        expect(isPrisonActiveInService(prison)).toBe(true)
+      }
+    })
+
+    it('should always return false if no prisons are permitted', () => {
+      config.activePrisons = []
+      const prisons = [undefined, null, '', 'MDI', 'LEI']
+      for (const prison of prisons) {
+        expect(isPrisonActiveInService(prison)).toBe(false)
+      }
+    })
+
+    it('should check prison against configured list', () => {
+      config.activePrisons = ['BXI', 'LEI']
+      expect(isPrisonActiveInService(undefined)).toBe(false)
+      expect(isPrisonActiveInService(null)).toBe(false)
+      expect(isPrisonActiveInService('')).toBe(false)
+      expect(isPrisonActiveInService('BXI')).toBe(true)
+      expect(isPrisonActiveInService('LEI')).toBe(true)
+      expect(isPrisonActiveInService('MDI')).toBe(false)
+      expect(isPrisonActiveInService('OWI')).toBe(false)
     })
   })
 })

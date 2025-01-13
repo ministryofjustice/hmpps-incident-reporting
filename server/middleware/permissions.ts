@@ -1,6 +1,7 @@
 import type { Request, Response, NextFunction } from 'express'
 import { Forbidden } from 'http-errors'
 
+import config from '../config'
 import { roleReadOnly, roleReadWrite, roleApproveReject } from '../data/constants'
 
 /**
@@ -30,6 +31,23 @@ export class Permissions {
       this.roles.has(roleApproveReject)
     )
   }
+}
+
+/**
+ * Whether given prison should have full access to incident report on DPS, ie. the service has been rolled out there.
+ * Otherwise, they are expected to continue using NOMIS.
+ */
+export function isPrisonActiveInService(prisonId: string): boolean {
+  // empty list permits none
+  if (config.activePrisons.length === 0) {
+    return false
+  }
+  // list with only "***" permits all
+  if (config.activePrisons.length === 1 && config.activePrisons[0] === '***') {
+    return true
+  }
+  // otherwise actually check
+  return config.activePrisons.includes(prisonId)
 }
 
 export function setupPermissions(_req: Request, res: Response, next: NextFunction): void {

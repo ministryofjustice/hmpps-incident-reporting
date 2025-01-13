@@ -19,6 +19,7 @@ import {
 } from './govukFrontend'
 import { isBeingTransferred, isOutside, isInPrison } from '../data/offenderSearchApi'
 import format from './format'
+import { isPrisonActiveInService } from '../middleware/permissions'
 
 export default function nunjucksSetup(app: express.Express): void {
   app.set('view engine', 'njk')
@@ -59,6 +60,7 @@ export default function nunjucksSetup(app: express.Express): void {
   njkEnv.addGlobal('callAsMacro', callAsMacro)
   njkEnv.addGlobal('now', () => new Date())
   njkEnv.addExtension('panic', new PanicExtension())
+  njkEnv.addGlobal('isPrisonActiveInService', isPrisonActiveInService)
 
   // name formatting
   njkEnv.addFilter('convertToTitleCase', convertToTitleCase)

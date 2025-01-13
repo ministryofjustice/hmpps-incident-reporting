@@ -1,3 +1,9 @@
+/**
+ * GOV.UK Frontend types based on v5.8.0
+ * NB: this is incomplete! For example, no concrete components are included
+ */
+
+// eslint-disable-next-line max-classes-per-file
 declare module 'govuk-frontend' {
   abstract class Component<Root extends HTMLElement = HTMLElement> {
     static checkSupport(): void
@@ -6,11 +12,22 @@ declare module 'govuk-frontend' {
 
     static elementType: typeof HTMLElement
 
-    protected constructor(root: Root)
+    protected constructor($root: Root)
 
     get $root(): Root
 
     checkInitialised(): void
+  }
+
+  abstract class ConfigurableComponent<
+    Root extends HTMLElement = HTMLElement,
+    Config = object,
+  > extends Component<Root> {
+    protected constructor($root: Root, config: Config)
+
+    [Symbol.for('configOverride')](param: object): object
+
+    get config(): Config
   }
 
   function isSupported(scope?: HTMLElement): boolean

@@ -3,6 +3,7 @@ import request from 'supertest'
 
 import { PrisonApi } from '../data/prisonApi'
 import { appWithAllRoutes } from './testutils/appSetup'
+import { now } from '../testutils/fakeClock'
 import { IncidentReportingApi } from '../data/incidentReportingApi'
 import { OffenderSearchApi, type OffenderSearchResult } from '../data/offenderSearchApi'
 import { mockReport } from '../data/testData/incidentReporting'
@@ -58,12 +59,12 @@ afterEach(() => {
 
 describe('GET view report page with details', () => {
   beforeEach(() => {
-    const now = new Date(2023, 11, 5, 12, 34, 56)
     const mockedReport = convertReportWithDetailsDates(
       mockReport({ reportReference: '6543', reportDateAndTime: now, withDetails: true }),
     )
     incidentReportingApi.getReportWithDetailsById.mockResolvedValueOnce(mockedReport)
   })
+
   it('should render report page with all sections', () => {
     return request(app)
       .get('/reports/6543')
@@ -80,6 +81,7 @@ describe('GET view report page with details', () => {
         expect(incidentReportingApi.getReportWithDetailsById).toHaveBeenCalledTimes(1)
       })
   })
+
   it('should render incident details', () => {
     return request(app)
       .get('/reports/6543')
@@ -91,6 +93,7 @@ describe('GET view report page with details', () => {
         expect(res.text).toContain('A new incident created in the new service of type FINDS')
       })
   })
+
   it('should render incident type with correct formatting', () => {
     return request(app)
       .get('/reports/6543')
@@ -100,6 +103,7 @@ describe('GET view report page with details', () => {
         expect(res.text).toContain('Finds')
       })
   })
+
   it('should render prisoners involved with roles and outcomes. Names correct if available', () => {
     return request(app)
       .get('/reports/6543')
@@ -115,6 +119,7 @@ describe('GET view report page with details', () => {
         expect(res.text).toContain('Comment: No comment')
       })
   })
+
   it('should render staff involved with roles', () => {
     return request(app)
       .get('/reports/6543')
@@ -126,6 +131,7 @@ describe('GET view report page with details', () => {
         expect(res.text).toContain('Actively involved')
       })
   })
+
   it('should render question responses', () => {
     return request(app)
       .get('/reports/6543')
@@ -136,6 +142,7 @@ describe('GET view report page with details', () => {
         expect(res.text).toContain('Question #2')
       })
   })
+
   it('should render correction requests', () => {
     return request(app)
       .get('/reports/6543')
@@ -150,7 +157,6 @@ describe('GET view report page with details', () => {
 
 describe('GET view report page without details', () => {
   beforeEach(() => {
-    const now = new Date(2023, 11, 5, 12, 34, 56)
     const mockedReport = convertReportWithDetailsDates(
       mockReport({ reportReference: '6543', reportDateAndTime: now, withDetails: true }),
     )
@@ -161,6 +167,7 @@ describe('GET view report page without details', () => {
 
     incidentReportingApi.getReportWithDetailsById.mockResolvedValueOnce(mockedReport)
   })
+
   it('should render report page with all sections', () => {
     return request(app)
       .get('/reports/6543')
@@ -177,6 +184,7 @@ describe('GET view report page without details', () => {
         expect(incidentReportingApi.getReportWithDetailsById).toHaveBeenCalledTimes(1)
       })
   })
+
   it('should render incident details', () => {
     return request(app)
       .get('/reports/6543')
@@ -188,6 +196,7 @@ describe('GET view report page without details', () => {
         expect(res.text).toContain('A new incident created in the new service of type FINDS')
       })
   })
+
   it('should render incident type with correct formatting', () => {
     return request(app)
       .get('/reports/6543')
@@ -197,6 +206,7 @@ describe('GET view report page without details', () => {
         expect(res.text).toContain('Finds')
       })
   })
+
   it('should render no prisoners found', () => {
     return request(app)
       .get('/reports/6543')
@@ -207,6 +217,7 @@ describe('GET view report page without details', () => {
         expect(res.text).toContain('Add a prisoner')
       })
   })
+
   it('should render no staff found', () => {
     return request(app)
       .get('/reports/6543')
@@ -217,6 +228,7 @@ describe('GET view report page without details', () => {
         expect(res.text).toContain('Add a staff member')
       })
   })
+
   it('should render no question responses found', () => {
     return request(app)
       .get('/reports/6543')
@@ -226,6 +238,7 @@ describe('GET view report page without details', () => {
         expect(res.text).toContain('No responses found')
       })
   })
+
   it('should render correction requests', () => {
     return request(app)
       .get('/reports/6543')

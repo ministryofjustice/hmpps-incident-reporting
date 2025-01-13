@@ -3,6 +3,7 @@ import request from 'supertest'
 
 import { PrisonApi } from '../data/prisonApi'
 import { appWithAllRoutes } from './testutils/appSetup'
+import { now } from '../testutils/fakeClock'
 import { IncidentReportingApi } from '../data/incidentReportingApi'
 import { mockReport } from '../data/testData/incidentReporting'
 import { unsortedPageOf } from '../data/testData/paginatedResponses'
@@ -33,7 +34,6 @@ afterEach(() => {
 
 describe('GET dashboard', () => {
   it('should render dashboard with button and table', () => {
-    const now = new Date(2023, 11, 5, 12, 34, 56)
     const mockedReports = [
       convertBasicReportDates(mockReport({ reportReference: '6543', reportDateAndTime: now })),
       convertBasicReportDates(mockReport({ reportReference: '6544', reportDateAndTime: now })),
@@ -63,7 +63,6 @@ describe('GET dashboard', () => {
       })
   })
   it('should show actual name when username found, username if not', () => {
-    const now = new Date(2023, 11, 5, 12, 34, 56)
     const mockedReports = [
       convertBasicReportDates(
         mockReport({ reportReference: '6543', reportDateAndTime: now, reportingUsername: 'JOHN_SMITH' }),

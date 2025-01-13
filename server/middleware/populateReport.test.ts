@@ -3,13 +3,12 @@ import nock from 'nock'
 
 import config from '../config'
 import { mockReport } from '../data/testData/incidentReporting'
+import { now } from '../testutils/fakeClock'
 import { populateReport } from './populateReport'
 import { IncidentReportingApi } from '../data/incidentReportingApi'
 import { type Type } from '../reportConfiguration/constants'
 
 describe('report-loading middleware', () => {
-  // 2023-12-05T12:34:56.000Z
-  const now = new Date(2023, 11, 5, 12, 34, 56)
   const report = mockReport({ reportReference: '6543', reportDateAndTime: now, withDetails: true })
 
   let fakeApi: nock.Scope

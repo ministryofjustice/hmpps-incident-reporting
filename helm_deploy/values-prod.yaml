@@ -4,6 +4,7 @@ generic-service:
 
   env:
     ENVIRONMENT: prod
+    SERVICE_ACTIVE_PRISONS: ""
 
     INGRESS_URL: "https://incident-reporting.hmpps.service.justice.gov.uk"
     DPS_URL: "https://digital.prison.service.justice.gov.uk"
@@ -17,7 +18,6 @@ generic-service:
     NOMIS_USER_ROLES_API_URL: "https://nomis-user-roles-api.prison.service.justice.gov.uk"
     OFFENDER_SEARCH_API_URL: "https://prisoner-search.prison.service.justice.gov.uk"
     TOKEN_VERIFICATION_API_URL: "https://token-verification-api.prison.service.justice.gov.uk"
-    SERVICE_ACTIVE_PRISONS: ""
 
 generic-prometheus-alerts:
   alertSeverity: hmpps-incident-reporting-prod

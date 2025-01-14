@@ -150,7 +150,7 @@ export default {
   sqs: {
     audit: auditConfig(),
   },
-  activePrisons: get('SERVICE_ACTIVE_PRISONS', '').split(','),
+  activePrisons: get('SERVICE_ACTIVE_PRISONS', '***').split(','),
   ingressUrl: get('INGRESS_URL', 'http://localhost:3000', requiredInProduction),
   dpsUrl: get('DPS_URL', 'http://dps.local', requiredInProduction),
   supportUrl: get('SUPPORT_URL', 'http://support.dps.local', requiredInProduction),

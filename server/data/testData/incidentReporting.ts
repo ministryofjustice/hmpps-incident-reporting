@@ -74,6 +74,9 @@ interface MockReportConfig {
 
 export function mockReport(conf: MockReportConfig & { withDetails?: false }): DatesAsStrings<ReportBasic>
 export function mockReport(conf: MockReportConfig & { withDetails: true }): DatesAsStrings<ReportWithDetails>
+export function mockReport(
+  conf: MockReportConfig & { withDetails: boolean },
+): DatesAsStrings<ReportBasic | ReportWithDetails>
 export function mockReport({
   reportReference,
   reportDateAndTime,

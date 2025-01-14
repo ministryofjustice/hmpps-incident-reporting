@@ -7,7 +7,7 @@ import { leeds, moorland } from './prisonApi'
 // manage-users and frontend micro-components apis and the user token
 
 /** Makes a mock users as seen in application once all middleware has completed */
-function mockUser(caseloads: CaseLoad[], roles: string[] = []): Express.User {
+export function mockUser(caseloads: CaseLoad[], roles: string[] = []): Express.User {
   const activeCaseload = { ...caseloads[0], currentlyActive: true }
   return {
     name: 'JOHN SMITH',
@@ -33,5 +33,5 @@ export const approverUser = mockUser([makeMockCaseload(moorland), makeMockCaselo
 /** HQ user with read-only access to Leeds and Moorland */
 export const hqUser = mockUser([makeMockCaseload(moorland), makeMockCaseload(leeds)], [roleReadOnly])
 
-/** General user in Moorland without access */
+/** General DPS user in Moorland without access */
 export const unauthorisedUser = mockUser([makeMockCaseload(moorland)])

@@ -11,14 +11,16 @@
 
 {% block content %}
   <h1 class="govuk-heading-l">Incident reports</h1>
-  <div class="govuk-button-group">
+
+  {% if permissions.canCreateReport %}
     {{ govukButton({
-    text: "Report an incident",
-    preventDoubleClick: true,
-    href: "/create-report",
-    isStartButton: true
+      text: "Report an incident",
+      preventDoubleClick: true,
+      href: "/create-report",
+      isStartButton: true
     }) }}
-  </div>
+  {% endif %}
+
   <div class="horizontal-form__wrapper govuk-!-padding-3 govuk-!-margin-bottom-5">
     <h2 class="govuk-heading-m">Filter by</h2>
 

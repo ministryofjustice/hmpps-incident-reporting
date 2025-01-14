@@ -127,7 +127,7 @@ export default function dashboard(service: Services): Router {
     let referenceNumber: string = null
     if (searchID) {
       // Test if search is for a prisoner ID and use if so
-      if (searchID.match(/[a-zA-Z][0-9]{4}[a-zA-Z]{2}/)) {
+      if (searchID.match(/^[a-zA-Z][0-9]{4}[a-zA-Z]{2}$/)) {
         prisonerId = searchID
       }
       // Test if search is for an incident reference number and use if so

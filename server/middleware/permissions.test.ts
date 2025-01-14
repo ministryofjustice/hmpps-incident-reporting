@@ -1,7 +1,7 @@
 import type { Request, Response, NextFunction } from 'express'
 
 import { now } from '../testutils/fakeClock'
-import { unauthorisedUser, user as reportingUser, approverUser, hqUser } from '../routes/testutils/appSetup'
+import { unauthorisedUser, reportingUser, approverUser, hqUser } from '../data/testData/users'
 import { Permissions, isPrisonActiveInService, setupPermissions } from './permissions'
 import config from '../config'
 import { convertReportDates } from '../data/incidentReportingApiUtils'

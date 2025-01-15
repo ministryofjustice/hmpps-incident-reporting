@@ -153,8 +153,9 @@ describe('Permissions', () => {
 
     describe('Conditional logout', () => {
       it('should send a forbidden 403 error to next request handler if condition evaluates to true', () => {
-        const middleware = logoutIf(permissions => {
+        const middleware = logoutIf((permissions, res) => {
           expect(permissions).toBeInstanceOf(Permissions)
+          expect(res.locals).toHaveProperty('user')
           return true
         })
         const req = {} as Request

@@ -1,7 +1,7 @@
-import type { RequestHandler } from 'express'
-
+import type { RequestHandler, Response } from 'express'
 import { Router } from 'express'
 import type { PathParams } from 'express-serve-static-core'
+
 import type { Services } from '../services'
 import {
   prisonerInvolvementOutcomes,
@@ -11,6 +11,7 @@ import {
   types,
 } from '../reportConfiguration/constants'
 import asyncMiddleware from '../middleware/asyncMiddleware'
+import { logoutIf, Permissions } from '../middleware/permissions'
 import { populateReport } from '../middleware/populateReport'
 import { populateReportConfiguration } from '../middleware/populateReportConfiguration'
 import { type ReportWithDetails } from '../data/incidentReportingApi'
@@ -21,12 +22,18 @@ import {
 } from '../data/incidentTypeConfiguration/types'
 
 export default function viewReport(service: Services): Router {
-  const router = Router({ mergeParams: true })
   const { userService } = service
-  const get = (path: PathParams, handler: RequestHandler) =>
-    router.get(path, [populateReport(), populateReportConfiguration(false), asyncMiddleware(handler)])
 
-  get('/', async (req, res) => {
+  const router = Router({ mergeParams: true })
+  const get = (path: PathParams, handler: RequestHandler) =>
+    router.get(path, [
+      populateReport(),
+      logoutIf(cannotViewReport),
+      populateReportConfiguration(false),
+      asyncMiddleware(handler),
+    ])
+
+  get('/', async (_req, res) => {
     const { prisonApi, offenderSearchApi } = res.locals.apis
 
     const reportConfig = res.locals.reportConfig as IncidentTypeConfiguration
@@ -97,4 +104,9 @@ function useReportConfigLabels(report: ReportWithDetails, reportConfig: Incident
   }
 
   return report
+}
+
+function cannotViewReport(permissions: Permissions, res: Response) {
+  const { report } = res.locals
+  return !permissions.canViewReport(report)
 }

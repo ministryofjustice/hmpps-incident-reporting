@@ -82,11 +82,11 @@ export function setupPermissions(_req: Request, res: Response, next: NextFunctio
  *
  * TODO: a better alternative could be to show them instructions about getting access
  */
-export function logoutIf(condition: (permissions: Permissions) => boolean): RequestHandler {
+export function logoutIf(condition: (permissions: Permissions, res: Response) => boolean): RequestHandler {
   return (_req: Request, res: Response, next: NextFunction): void => {
     const { permissions } = res.locals
 
-    if (condition(permissions)) {
+    if (condition(permissions, res)) {
       next(new Forbidden())
       return
     }

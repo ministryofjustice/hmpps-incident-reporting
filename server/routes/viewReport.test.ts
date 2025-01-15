@@ -12,6 +12,7 @@ import UserService from '../services/userService'
 import type { User } from '../data/manageUsersApiClient'
 import { leeds, moorland } from '../data/testData/prisonApi'
 import { andrew } from '../data/testData/offenderSearch'
+import { reportingUser, approverUser, hqUser, unauthorisedUser } from '../data/testData/users'
 
 jest.mock('../data/prisonApi')
 jest.mock('../data/incidentReportingApi')
@@ -248,5 +249,38 @@ describe('GET view report page without details', () => {
         expect(res.text).toContain('No corrections found')
         expect(res.text).toContain('Add a correction')
       })
+  })
+})
+
+describe('Report viewing permissions', () => {
+  // NB: these test cases are simplified because the permissions class methods are thoroughly tested elsewhere
+
+  let reportId: string
+
+  beforeEach(() => {
+    const report = convertReportWithDetailsDates(
+      mockReport({ reportReference: '6543', reportDateAndTime: now, withDetails: true }),
+    )
+    reportId = report.id
+    incidentReportingApi.getReportWithDetailsById.mockResolvedValueOnce(report)
+  })
+
+  const granted = 'granted' as const
+  const denied = 'denied' as const
+  it.each([
+    { userType: 'reporting officer', user: reportingUser, action: granted },
+    { userType: 'data warden', user: approverUser, action: granted },
+    { userType: 'HQ view-only user', user: hqUser, action: granted },
+    { userType: 'unauthorised user', user: unauthorisedUser, action: denied },
+  ])('should be $action to $userType', ({ user, action }) => {
+    const testRequest = request(appWithAllRoutes({ services: { userService }, userSupplier: () => user }))
+      .get(`/reports/${reportId}`)
+      .redirects(1)
+    if (action === 'granted') {
+      return testRequest.expect(200)
+    }
+    return testRequest.expect(res => {
+      expect(res.redirects[0]).toContain('/sign-out')
+    })
   })
 })

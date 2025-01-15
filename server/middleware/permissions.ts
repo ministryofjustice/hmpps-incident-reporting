@@ -1,4 +1,4 @@
-import type { Request, Response, NextFunction } from 'express'
+import type { Request, RequestHandler, Response, NextFunction } from 'express'
 import { Forbidden } from 'http-errors'
 
 import config from '../config'
@@ -76,10 +76,21 @@ export function setupPermissions(_req: Request, res: Response, next: NextFunctio
   next()
 }
 
-export function logoutIfCannotAccessService(_req: Request, res: Response, next: NextFunction): void {
-  if (!res.locals.permissions.canAccessService) {
-    next(new Forbidden())
-    return
+/**
+ * If condition evaluates to _true_, sends Forbidden (403) error to next request handler which logs user out.
+ * Must come after setupPermissions() middleware.
+ *
+ * TODO: a better alternative could be to show them instructions about getting access
+ */
+export function logoutIf(condition: (permissions: Permissions) => boolean): RequestHandler {
+  return (_req: Request, res: Response, next: NextFunction): void => {
+    const { permissions } = res.locals
+
+    if (condition(permissions)) {
+      next(new Forbidden())
+      return
+    }
+
+    next()
   }
-  next()
 }

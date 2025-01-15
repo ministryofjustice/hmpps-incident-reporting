@@ -2,7 +2,7 @@ import type { Request, Response, NextFunction } from 'express'
 
 import { now } from '../testutils/fakeClock'
 import { mockUser, unauthorisedUser, reportingUser, approverUser, hqUser } from '../data/testData/users'
-import { Permissions, isPrisonActiveInService, setupPermissions } from './permissions'
+import { Permissions, isPrisonActiveInService, setupPermissions, logoutIf } from './permissions'
 import config from '../config'
 import { roleReadOnly, roleReadWrite, roleApproveReject } from '../data/constants'
 import { convertReportDates } from '../data/incidentReportingApiUtils'
@@ -146,10 +146,38 @@ describe('Permissions', () => {
         const res = { locals: { user } } as Response
         const next: NextFunction = jest.fn()
         setupPermissions(req, res, next)
-        expect(next).toHaveBeenCalled()
+        expect(next).toHaveBeenCalledWith()
         expect(res.locals.permissions).toBeInstanceOf(Permissions)
       },
     )
+
+    describe('Conditional logout', () => {
+      it('should send a forbidden 403 error to next request handler if condition evaluates to true', () => {
+        const middleware = logoutIf(permissions => {
+          expect(permissions).toBeInstanceOf(Permissions)
+          return true
+        })
+        const req = {} as Request
+        const res = { locals: { user: undefined } } as Response
+        const next: NextFunction = jest.fn()
+        setupPermissions(req, res, next)
+        middleware(req, res, next)
+        expect(next).toHaveBeenCalledWith(expect.objectContaining({ message: 'Forbidden', status: 403 }))
+      })
+
+      it('should forward to next request handler if condition evaluates to false', () => {
+        const middleware = logoutIf(permissions => {
+          expect(permissions).toBeInstanceOf(Permissions)
+          return false
+        })
+        const req = {} as Request
+        const res = { locals: { user: undefined } } as Response
+        const next: NextFunction = jest.fn()
+        setupPermissions(req, res, next)
+        middleware(req, res, next)
+        expect(next).toHaveBeenCalledWith()
+      })
+    })
   })
 
   describe('Active prison helper function', () => {

@@ -1,7 +1,7 @@
 import { type RequestHandler, Router } from 'express'
 
 import asyncMiddleware from '../middleware/asyncMiddleware'
-import { logoutIfCannotAccessService } from '../middleware/permissions'
+import { logoutIf } from '../middleware/permissions'
 import type { Services } from '../services'
 import { PrisonApi } from '../data/prisonApi'
 import makeDebugRoutes from './debug'
@@ -20,9 +20,8 @@ export default function routes(services: Services): Router {
 
   const router = Router()
 
-  // require user to have necessary role for all routes
-  // TODO: an alternative could be to show them instructions about getting access
-  router.use(logoutIfCannotAccessService)
+  // require user to have necessary role for *all* routes
+  router.use(logoutIf(permissions => !permissions.canAccessService))
 
   get('/', (_req, res) => {
     res.render('pages/index')

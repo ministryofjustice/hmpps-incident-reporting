@@ -31,14 +31,12 @@ export default function routes(services: Services): Router {
   // view-only debug pages
   const debugRoutes = makeDebugRoutes(services)
   get('/incidents/:id', debugRoutes.eventDetails)
-  router.use('/reports', dashboard(services))
-  router.use('/reports/:id', viewReport(services))
 
   // report pages
+  router.use('/reports', dashboard(services))
   router.use('/create-report', createReportRouter)
+  router.use('/reports/:id', viewReport(services))
   router.use('/reports/:id/update-details', updateDetailsRouter)
-
-  // TODO: WIP, proof-of-concept forms auto-generated from config
   router.use('/reports/:id/questions', questionsRouter)
 
   // proof-of-concept form wizard

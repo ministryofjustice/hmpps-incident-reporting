@@ -10,10 +10,10 @@ import {
 } from '../../data/incidentReportingApi'
 import { convertReportWithDetailsDates } from '../../data/incidentReportingApiUtils'
 import { mockReport } from '../../data/testData/incidentReporting'
-import DEATH_OTHER from '../../reportConfiguration/types/DEATH_OTHER'
-import { parseDateInput } from '../../utils/utils'
-import FINDS from '../../reportConfiguration/types/FINDS'
 import ASSAULT from '../../reportConfiguration/types/ASSAULT'
+import DEATH_OTHER from '../../reportConfiguration/types/DEATH_OTHER'
+import FINDS from '../../reportConfiguration/types/FINDS'
+import { parseDateInput } from '../../utils/utils'
 
 jest.mock('../../data/incidentReportingApi')
 

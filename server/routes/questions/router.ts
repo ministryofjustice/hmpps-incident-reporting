@@ -4,9 +4,10 @@ import wizard from 'hmpo-form-wizard'
 import { populateReport } from '../../middleware/populateReport'
 import { populateReportConfiguration } from '../../middleware/populateReportConfiguration'
 
-const router = express.Router({ mergeParams: true })
+// eslint-disable-next-line import/prefer-default-export
+export const questionsRouter = express.Router({ mergeParams: true })
 
-router.use(populateReport(), populateReportConfiguration(), (req, res, next) => {
+questionsRouter.use(populateReport(), populateReportConfiguration(), (req, res, next) => {
   const reportId = req.params.id
 
   const wizardRouter = wizard(res.locals.reportSteps, res.locals.reportFields, {
@@ -24,5 +25,3 @@ router.use(populateReport(), populateReportConfiguration(), (req, res, next) => 
   wizardRouter.mergeParams = true
   wizardRouter(req, res, next)
 })
-
-export default router

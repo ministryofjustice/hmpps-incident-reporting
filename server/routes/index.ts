@@ -11,9 +11,9 @@ import { updateDetailsRouter } from './reports/updateReportDetails'
 import genericRouter from './generic'
 import prisonerSearchRoutes from '../controllers/addPrisoner/prisonerSearch'
 import addPrisonerRouter from './addPrisoner'
-import questionsRouter from './questions/router'
+import { questionsRouter } from './questions/router'
 import dashboard from './dashboard'
-import viewReport from './viewReport'
+import { viewReportRouter } from './viewReport'
 
 export default function routes(services: Services): Router {
   const get = (path: string | string[], handler: RequestHandler) => router.get(path, asyncMiddleware(handler))
@@ -34,7 +34,7 @@ export default function routes(services: Services): Router {
   // report pages
   router.use('/reports', dashboard(services))
   router.use('/create-report', createReportRouter)
-  router.use('/reports/:id', viewReport(services))
+  router.use('/reports/:id', viewReportRouter(services))
   router.use('/reports/:id/update-details', updateDetailsRouter)
   router.use('/reports/:id/questions', questionsRouter)
 

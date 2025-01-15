@@ -21,17 +21,19 @@ import {
   type IncidentTypeConfiguration,
 } from '../data/incidentTypeConfiguration/types'
 
-export default function viewReport(service: Services): Router {
+// eslint-disable-next-line import/prefer-default-export
+export function viewReportRouter(service: Services): Router {
   const { userService } = service
 
   const router = Router({ mergeParams: true })
   const get = (path: PathParams, handler: RequestHandler) =>
-    router.get(path, [
+    router.get(
+      path,
       populateReport(),
       logoutIf(cannotViewReport),
       populateReportConfiguration(false),
       asyncMiddleware(handler),
-    ])
+    )
 
   get('/', async (_req, res) => {
     const { prisonApi, offenderSearchApi } = res.locals.apis

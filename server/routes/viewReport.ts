@@ -12,6 +12,7 @@ import {
 } from '../reportConfiguration/constants'
 import asyncMiddleware from '../middleware/asyncMiddleware'
 import { populateReport } from '../middleware/populateReport'
+import { populateReportConfiguration } from '../middleware/populateReportConfiguration'
 import { type ReportWithDetails } from '../data/incidentReportingApi'
 import {
   findAnswerConfigByCode,
@@ -23,7 +24,7 @@ export default function viewReport(service: Services): Router {
   const router = Router({ mergeParams: true })
   const { userService } = service
   const get = (path: PathParams, handler: RequestHandler) =>
-    router.get(path, [populateReport(), asyncMiddleware(handler)])
+    router.get(path, [populateReport(), populateReportConfiguration(false), asyncMiddleware(handler)])
 
   get('/', async (req, res) => {
     const { prisonApi, offenderSearchApi } = res.locals.apis

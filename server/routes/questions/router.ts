@@ -2,10 +2,11 @@ import express from 'express'
 import wizard from 'hmpo-form-wizard'
 
 import { populateReport } from '../../middleware/populateReport'
+import { populateReportConfiguration } from '../../middleware/populateReportConfiguration'
 
 const router = express.Router({ mergeParams: true })
 
-router.use(populateReport(), (req, res, next) => {
+router.use(populateReport(), populateReportConfiguration(), (req, res, next) => {
   const reportId = req.params.id
 
   const wizardRouter = wizard(res.locals.reportSteps, res.locals.reportFields, {

@@ -1,4 +1,4 @@
-import type { RequestHandler, Response } from 'express'
+import type { RequestHandler } from 'express'
 import { Router } from 'express'
 import type { PathParams } from 'express-serve-static-core'
 
@@ -11,7 +11,7 @@ import {
   types,
 } from '../reportConfiguration/constants'
 import asyncMiddleware from '../middleware/asyncMiddleware'
-import { logoutIf, Permissions } from '../middleware/permissions'
+import { logoutIf } from '../middleware/permissions'
 import { populateReport } from '../middleware/populateReport'
 import { populateReportConfiguration } from '../middleware/populateReportConfiguration'
 import { type ReportWithDetails } from '../data/incidentReportingApi'
@@ -20,6 +20,7 @@ import {
   stripQidPrefix,
   type IncidentTypeConfiguration,
 } from '../data/incidentTypeConfiguration/types'
+import { cannotViewReport } from './reports/permissions'
 
 // eslint-disable-next-line import/prefer-default-export
 export function viewReportRouter(service: Services): Router {
@@ -106,9 +107,4 @@ function useReportConfigLabels(report: ReportWithDetails, reportConfig: Incident
   }
 
   return report
-}
-
-function cannotViewReport(permissions: Permissions, res: Response) {
-  const { report } = res.locals
-  return !permissions.canViewReport(report)
 }

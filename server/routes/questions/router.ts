@@ -1,13 +1,14 @@
 import express from 'express'
 import wizard from 'hmpo-form-wizard'
 
+import { logoutIf } from '../../middleware/permissions'
 import { populateReport } from '../../middleware/populateReport'
 import { populateReportConfiguration } from '../../middleware/populateReportConfiguration'
+import { cannotEditReport } from '../reports/permissions'
 
 // eslint-disable-next-line import/prefer-default-export
 export const questionsRouter = express.Router({ mergeParams: true })
-
-questionsRouter.use(populateReport(), populateReportConfiguration(), (req, res, next) => {
+questionsRouter.use(populateReport(), logoutIf(cannotEditReport), populateReportConfiguration(), (req, res, next) => {
   const reportId = req.params.id
 
   const wizardRouter = wizard(res.locals.reportSteps, res.locals.reportFields, {

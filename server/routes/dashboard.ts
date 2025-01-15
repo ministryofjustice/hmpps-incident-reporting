@@ -41,7 +41,6 @@ export default function dashboard(service: Services): Router {
     }
 
     const {
-      searchID,
       location,
       fromDate: fromDateInput,
       toDate: toDateInput,
@@ -49,7 +48,11 @@ export default function dashboard(service: Services): Router {
       page,
       incidentStatuses,
     }: ListFormData = req.query
-    let { sort, order }: ListFormData = req.query
+    let { searchID, sort, order }: ListFormData = req.query
+
+    if (searchID) {
+      searchID = searchID.trim()
+    }
 
     if (!sort) {
       sort = 'incidentDateAndTime'
@@ -123,8 +126,8 @@ export default function dashboard(service: Services): Router {
       toDate = null
       errors.push({ href: '#toDate', text: `Enter a valid to date, for example ${todayAsShortDate}` })
     }
-    let prisonerId: string = null
-    let referenceNumber: string = null
+    let prisonerId: string
+    let referenceNumber: string
     if (searchID) {
       // Test if search is for a prisoner ID and use if so
       if (searchID.match(/^[a-zA-Z][0-9]{4}[a-zA-Z]{2}$/)) {
@@ -169,7 +172,6 @@ export default function dashboard(service: Services): Router {
       sort: [`${sort},${orderString}`],
     })
 
-    // console.log(reportsResponse)
     const queryString = new URLSearchParams()
     if (searchID) {
       queryString.append('searchID', searchID)

@@ -43,9 +43,9 @@ describe('GET dashboard', () => {
       location: ['MDI'],
       incidentDateFrom: undefined,
       incidentDateUntil: undefined,
-      involvingPrisonerNumber: null,
+      involvingPrisonerNumber: undefined,
       page: 0,
-      reference: null,
+      reference: undefined,
       sort: ['incidentDateAndTime,DESC'],
       status: undefined,
       type: undefined,
@@ -59,6 +59,51 @@ describe('GET dashboard', () => {
         expect(res.text).toContain('6543')
         expect(res.text).toContain('6544')
         expect(res.text).toContain('5 December 2023, 11:34')
+        expect(incidentReportingApi.getReports).toHaveBeenCalledWith(expectedParams)
+      })
+  })
+  it('should submit query values correctly into the api call', () => {
+    const now = new Date(2023, 11, 5, 12, 34, 56)
+    const mockedReports = [
+      convertBasicReportDates(mockReport({ reportReference: '6543', reportDateAndTime: now })),
+      convertBasicReportDates(mockReport({ reportReference: '6544', reportDateAndTime: now })),
+    ]
+    const pageOfReports = unsortedPageOf(mockedReports)
+    incidentReportingApi.getReports.mockResolvedValueOnce(pageOfReports)
+
+    const users: Record<string, User> = { JOHN_SMITH: { username: 'JOHN_SMITH', name: 'John Smith' } }
+    userService.getUsers.mockResolvedValueOnce(users)
+
+    const expectedParams: Partial<GetReportsParams> = {
+      location: 'MDI',
+      incidentDateFrom: new Date(2025, 0, 1, 12, 0, 0),
+      incidentDateUntil: new Date(2025, 0, 14, 12, 0, 0),
+      involvingPrisonerNumber: 'A0011BC',
+      page: 0,
+      reference: undefined,
+      sort: ['incidentDateAndTime,DESC'],
+      status: 'DRAFT',
+      type: 'ATTEMPTED_ESCAPE_FROM_CUSTODY',
+    }
+
+    const queryParams = {
+      searchID: 'A0011BC',
+      fromDate: '01/01/2025',
+      toDate: '14/01/2025',
+      location: 'MDI',
+      incidentType: 'ATTEMPTED_ESCAPE_FROM_CUSTODY',
+      incidentStatuses: 'DRAFT',
+    }
+
+    return request(app)
+      .get(`/reports`)
+      .query(queryParams)
+      .expect('Content-Type', /html/)
+      .expect(res => {
+        expect(res.text).not.toContain(
+          'Enter a valid incident reference number or offender ID. For example, 12345678 or A0011BB',
+        )
+        expect(res.text).toContain('Clear')
         expect(incidentReportingApi.getReports).toHaveBeenCalledWith(expectedParams)
       })
   })
@@ -103,9 +148,9 @@ describe('GET dashboard', () => {
       location: ['MDI'],
       incidentDateFrom: undefined,
       incidentDateUntil: undefined,
-      involvingPrisonerNumber: null,
+      involvingPrisonerNumber: undefined,
       page: 0,
-      reference: null,
+      reference: undefined,
       sort: ['incidentDateAndTime,DESC'],
       status: undefined,
       type: undefined,
@@ -153,9 +198,9 @@ describe('search validations', () => {
       location: ['MDI'],
       incidentDateFrom: undefined,
       incidentDateUntil: undefined,
-      involvingPrisonerNumber: null,
+      involvingPrisonerNumber: undefined,
       page: 0,
-      reference: null,
+      reference: undefined,
       sort: ['incidentDateAndTime,DESC'],
       status: undefined,
       type: undefined,
@@ -189,7 +234,7 @@ describe('search validations', () => {
       location: ['MDI'],
       incidentDateFrom: undefined,
       incidentDateUntil: undefined,
-      involvingPrisonerNumber: null,
+      involvingPrisonerNumber: undefined,
       page: 0,
       reference: '12345678',
       sort: ['incidentDateAndTime,DESC'],
@@ -200,6 +245,42 @@ describe('search validations', () => {
     return request(app)
       .get(`/reports`)
       .query({ searchID: '12345678' })
+      .expect('Content-Type', /html/)
+      .expect(res => {
+        expect(res.text).not.toContain(
+          'Enter a valid incident reference number or offender ID. For example, 12345678 or A0011BB',
+        )
+        expect(res.text).toContain('Clear')
+        expect(incidentReportingApi.getReports).toHaveBeenCalledWith(expectedParams)
+      })
+  })
+  it('should not present errors and search, removing whitespaces around digits', () => {
+    const now = new Date(2023, 11, 5, 12, 34, 56)
+    const mockedReports = [
+      convertBasicReportDates(mockReport({ reportReference: '6543', reportDateAndTime: now })),
+      convertBasicReportDates(mockReport({ reportReference: '6544', reportDateAndTime: now })),
+    ]
+    const pageOfReports = unsortedPageOf(mockedReports)
+    incidentReportingApi.getReports.mockResolvedValueOnce(pageOfReports)
+
+    const users: Record<string, User> = { JOHN_SMITH: { username: 'JOHN_SMITH', name: 'John Smith' } }
+    userService.getUsers.mockResolvedValueOnce(users)
+
+    const expectedParams: Partial<GetReportsParams> = {
+      location: ['MDI'],
+      incidentDateFrom: undefined,
+      incidentDateUntil: undefined,
+      involvingPrisonerNumber: undefined,
+      page: 0,
+      reference: '12345678',
+      sort: ['incidentDateAndTime,DESC'],
+      status: undefined,
+      type: undefined,
+    }
+
+    return request(app)
+      .get(`/reports`)
+      .query({ searchID: ' 12345678 ' })
       .expect('Content-Type', /html/)
       .expect(res => {
         expect(res.text).not.toContain(
@@ -227,7 +308,7 @@ describe('search validations', () => {
       incidentDateUntil: undefined,
       involvingPrisonerNumber: 'A0011BC',
       page: 0,
-      reference: null,
+      reference: undefined,
       sort: ['incidentDateAndTime,DESC'],
       status: undefined,
       type: undefined,
@@ -236,6 +317,42 @@ describe('search validations', () => {
     return request(app)
       .get(`/reports`)
       .query({ searchID: 'A0011BC' })
+      .expect('Content-Type', /html/)
+      .expect(res => {
+        expect(res.text).not.toContain(
+          'Enter a valid incident reference number or offender ID. For example, 12345678 or A0011BB',
+        )
+        expect(res.text).toContain('Clear')
+        expect(incidentReportingApi.getReports).toHaveBeenCalledWith(expectedParams)
+      })
+  })
+  it('should not present errors and search, removing whitespaces around pattern', () => {
+    const now = new Date(2023, 11, 5, 12, 34, 56)
+    const mockedReports = [
+      convertBasicReportDates(mockReport({ reportReference: '6543', reportDateAndTime: now })),
+      convertBasicReportDates(mockReport({ reportReference: '6544', reportDateAndTime: now })),
+    ]
+    const pageOfReports = unsortedPageOf(mockedReports)
+    incidentReportingApi.getReports.mockResolvedValueOnce(pageOfReports)
+
+    const users: Record<string, User> = { JOHN_SMITH: { username: 'JOHN_SMITH', name: 'John Smith' } }
+    userService.getUsers.mockResolvedValueOnce(users)
+
+    const expectedParams: Partial<GetReportsParams> = {
+      location: ['MDI'],
+      incidentDateFrom: undefined,
+      incidentDateUntil: undefined,
+      involvingPrisonerNumber: 'A0011BC',
+      page: 0,
+      reference: undefined,
+      sort: ['incidentDateAndTime,DESC'],
+      status: undefined,
+      type: undefined,
+    }
+
+    return request(app)
+      .get(`/reports`)
+      .query({ searchID: ' A0011BC ' })
       .expect('Content-Type', /html/)
       .expect(res => {
         expect(res.text).not.toContain(

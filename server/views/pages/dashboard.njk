@@ -2,6 +2,7 @@
 
 {% from "govuk/components/button/macro.njk" import govukButton %}
 {% from "govuk/components/select/macro.njk" import govukSelect %}
+{% from "govuk/components/input/macro.njk" import govukInput %}
 {% from "govuk/components/table/macro.njk" import govukTable %}
 {% from "moj/components/pagination/macro.njk" import mojPagination %}
 {% from "moj/components/date-picker/macro.njk" import mojDatePicker %}
@@ -10,7 +11,6 @@
 {% set pageTitle = applicationName + " - Home" %}
 
 {% block content %}
-  <h1 class="govuk-heading-l">Incident reports</h1>
   <div class="govuk-button-group">
     {{ govukButton({
     text: "Report an incident",
@@ -20,24 +20,26 @@
     }) }}
   </div>
   <div class="horizontal-form__wrapper govuk-!-padding-3 govuk-!-margin-bottom-5">
-    <h2 class="govuk-heading-m">Filter by</h2>
+    <h1 class="govuk-heading-l">Incident reports</h1>
 
     <form class="horizontal-form {% if errors.length > 0 %}horizontal-form--with-errors{% endif %} govuk-!-margin-bottom-3" method="get" novalidate>
-      {{ govukSelect({
-        name: "location",
-        id: "location",
+      {{ govukInput({
+        id: "searchID",
+        name: "searchID",
         label: {
-          text: "Prison"
+          text: "Search an incident number or offender ID",
+          classes: "govuk-label--s"
         },
-        items: prisons | govukSelectInsertDefault("All") | govukSelectSetSelected(formValues.location),
-        errorMessage: errors | findFieldInGovukErrorSummary("location")
+        classes: "govuk-!-width-half",
+        value: formValues.searchID,
+        errorMessage: errors | findFieldInGovukErrorSummary("searchID")
       }) }}
 
       {{ mojDatePicker({
         id: "fromDate",
         name: "fromDate",
         label: {
-          text: "Date from"
+          text: "Incident date from"
         },
         value: formValues.fromDate,
         maxDate: todayAsShortDate,
@@ -49,13 +51,25 @@
         id: "toDate",
         name: "toDate",
         label: {
-          text: "Date to"
+          text: "Incident date to"
         },
         value: formValues.toDate,
         maxDate: todayAsShortDate,
         errorMessage: errors | findFieldInGovukErrorSummary("toDate"),
         leadingZeros: "true"
       }) }}
+
+      {% if showEstablishmentsFilter %}
+        {{ govukSelect({
+          name: "location",
+          id: "location",
+          label: {
+            text: "Establishment"
+          },
+          items: establishments | govukSelectInsertDefault("All") | govukSelectSetSelected(formValues.location),
+          errorMessage: errors | findFieldInGovukErrorSummary("location")
+        }) }}
+      {% endif %}
 
       {{ govukSelect({
         name: "incidentType",
@@ -65,16 +79,6 @@
         },
         items: incidentTypes | govukSelectInsertDefault("Choose type") | govukSelectSetSelected(formValues.incidentType),
         errorMessage: errors | findFieldInGovukErrorSummary("incidentType")
-      }) }}
-
-      {{ govukSelect({
-        name: "reportingOfficer",
-        id: "reportingOfficer",
-        label: {
-        text: "Reporting officer"
-        },
-        items: reportingOfficers | govukSelectInsertDefault("Choose officer") | govukSelectSetSelected(formValues.reportingOfficer),
-        errorMessage: errors | findFieldInGovukErrorSummary("reportingOfficer")
       }) }}
 
       {{ govukCheckboxes({

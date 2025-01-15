@@ -22,8 +22,8 @@ export function populateReportConfiguration(generateQuestionSteps = true) {
       res.locals.reportConfig = await getIncidentTypeConfiguration(report.type)
 
       if (generateQuestionSteps) {
-        res.locals.reportSteps = generateSteps(res.locals.reportConfig)
-        res.locals.reportFields = generateFields(res.locals.reportConfig)
+        res.locals.questionSteps = generateSteps(res.locals.reportConfig)
+        res.locals.questionFields = generateFields(res.locals.reportConfig)
       }
 
       next()

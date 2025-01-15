@@ -4,7 +4,7 @@
   {% from "macros/renderField.njk" import renderField %}
 
   {# NB: Fields are rendered in the original order #}
-  {% for fieldName in reportSteps[options.route].fields %}
+  {% for fieldName in questionSteps[options.route].fields %}
     {% set field = options.fields[fieldName] %}
 
     {# NB:

@@ -110,12 +110,12 @@ export default class QuestionsController extends BaseController<FormWizard.Multi
 
         const report = res.locals.report as ReportWithDetails
         const reportConfig = res.locals.reportConfig as IncidentTypeConfiguration
-        const reportFields = res.locals.reportFields as FormWizard.Fields
+        const questionFields = res.locals.questionFields as FormWizard.Fields
 
         const questionsResponses = []
         for (const [fieldName, values] of Object.entries(submittedValues)) {
           // Skip conditional fields
-          if (reportFields[fieldName]?.dependent) {
+          if (questionFields[fieldName]?.dependent) {
             // Conditional fields don't have their own question config,
             // submitted values are included later if the question
             // requires a date or comment.

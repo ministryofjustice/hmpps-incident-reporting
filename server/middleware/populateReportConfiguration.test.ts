@@ -25,8 +25,8 @@ describe('report-configuration-loading middleware', () => {
     await populateReportConfiguration()(req, res, next)
 
     expect(res.locals.reportConfig.incidentType).toEqual(report.type)
-    expect(res.locals.reportFields).toBeInstanceOf(Object)
-    expect(res.locals.reportSteps).toBeInstanceOf(Object)
+    expect(res.locals.questionFields).toBeInstanceOf(Object)
+    expect(res.locals.questionSteps).toBeInstanceOf(Object)
     expect(next).toHaveBeenCalledWith()
   })
 
@@ -41,8 +41,8 @@ describe('report-configuration-loading middleware', () => {
     await populateReportConfiguration(false)(req, res, next)
 
     expect(res.locals.reportConfig.incidentType).toEqual(report.type)
-    expect(res.locals.reportFields).toBeUndefined()
-    expect(res.locals.reportSteps).toBeUndefined()
+    expect(res.locals.questionFields).toBeUndefined()
+    expect(res.locals.questionSteps).toBeUndefined()
     expect(next).toHaveBeenCalledWith()
   })
 
@@ -59,8 +59,8 @@ describe('report-configuration-loading middleware', () => {
     await populateReportConfiguration()(req, res, next)
 
     expect(res.locals.reportConfig).toBeUndefined()
-    expect(res.locals.reportFields).toBeUndefined()
-    expect(res.locals.reportSteps).toBeUndefined()
+    expect(res.locals.questionFields).toBeUndefined()
+    expect(res.locals.questionSteps).toBeUndefined()
     expect(next).toHaveBeenCalledWith(expect.objectContaining({ code: 'MODULE_NOT_FOUND' }))
   })
 
@@ -72,8 +72,8 @@ describe('report-configuration-loading middleware', () => {
     await populateReportConfiguration()(req, res, next)
 
     expect(res.locals.reportConfig).toBeUndefined()
-    expect(res.locals.reportFields).toBeUndefined()
-    expect(res.locals.reportSteps).toBeUndefined()
+    expect(res.locals.questionFields).toBeUndefined()
+    expect(res.locals.questionSteps).toBeUndefined()
     expect(next).toHaveBeenCalledWith(
       expect.objectContaining({ message: 'populateReportConfiguration() requires req.locals.report', status: 501 }),
     )

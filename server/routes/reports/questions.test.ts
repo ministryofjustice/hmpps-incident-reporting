@@ -9,7 +9,8 @@ import {
   type ReportWithDetails,
 } from '../../data/incidentReportingApi'
 import { convertReportWithDetailsDates } from '../../data/incidentReportingApiUtils'
-import { mockReport } from '../../data/testData/incidentReporting'
+import { mockErrorResponse, mockReport } from '../../data/testData/incidentReporting'
+import { mockThrownError } from '../../data/testData/thrownErrors'
 import ASSAULT from '../../reportConfiguration/types/ASSAULT'
 import DEATH_OTHER from '../../reportConfiguration/types/DEATH_OTHER'
 import FINDS from '../../reportConfiguration/types/FINDS'
@@ -50,6 +51,20 @@ describe('Displaying responses', () => {
   beforeEach(() => {
     agent = request.agent(app)
     incidentReportingApi.getReportWithDetailsById.mockResolvedValue(reportWithDetails)
+  })
+
+  it('should 404 if report is not found', () => {
+    const error = mockThrownError(mockErrorResponse({ status: 404, message: 'Report not found' }), 404)
+    incidentReportingApi.getReportWithDetailsById.mockReset()
+    incidentReportingApi.getReportWithDetailsById.mockRejectedValueOnce(error)
+
+    return agent
+      .get(reportQuestionsUrl)
+      .redirects(1)
+      .expect(404)
+      .expect(res => {
+        expect(res.text).toContain('Page not found')
+      })
   })
 
   it('form is prefilled with report answers, including date', () => {

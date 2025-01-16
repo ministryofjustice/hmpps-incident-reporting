@@ -8,7 +8,8 @@ import { now } from '../../testutils/fakeClock'
 import UserService from '../../services/userService'
 import { IncidentReportingApi } from '../../data/incidentReportingApi'
 import { OffenderSearchApi, type OffenderSearchResult } from '../../data/offenderSearchApi'
-import { mockReport } from '../../data/testData/incidentReporting'
+import { mockErrorResponse, mockReport } from '../../data/testData/incidentReporting'
+import { mockThrownError } from '../../data/testData/thrownErrors'
 import { convertReportWithDetailsDates } from '../../data/incidentReportingApiUtils'
 import type { User } from '../../data/manageUsersApiClient'
 import { leeds, moorland } from '../../data/testData/prisonApi'
@@ -65,6 +66,19 @@ describe('GET view report page with details', () => {
       mockReport({ reportReference: '6543', reportDateAndTime: now, withDetails: true }),
     )
     incidentReportingApi.getReportWithDetailsById.mockResolvedValueOnce(mockedReport)
+  })
+
+  it('should 404 if report is not found', () => {
+    const error = mockThrownError(mockErrorResponse({ status: 404, message: 'Report not found' }), 404)
+    incidentReportingApi.getReportWithDetailsById.mockReset()
+    incidentReportingApi.getReportWithDetailsById.mockRejectedValueOnce(error)
+
+    return request(app)
+      .get('/reports/6543')
+      .expect(404)
+      .expect(res => {
+        expect(res.text).toContain('Page not found')
+      })
   })
 
   it('should render report page with all sections', () => {

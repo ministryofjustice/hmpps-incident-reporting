@@ -6,7 +6,7 @@ import logger from '../../../logger'
 import type { ReportWithDetails } from '../../data/incidentReportingApi'
 import { getTypeDetails } from '../../reportConfiguration/constants'
 import { logoutIf } from '../../middleware/permissions'
-import { cannotCreateReport } from './permissions'
+import { cannotCreateReportInActiveCaseload } from './permissions'
 import { BaseTypeController } from './typeController'
 import { type TypeValues, typeFields, typeFieldNames } from './typeFields'
 import { BaseDetailsController } from './detailsController'
@@ -108,4 +108,4 @@ const createReportWizardRouter = FormWizard(createReportSteps, createReportField
 createReportWizardRouter.mergeParams = true
 // eslint-disable-next-line import/prefer-default-export
 export const createReportRouter = express.Router({ mergeParams: true })
-createReportRouter.use(logoutIf(cannotCreateReport), createReportWizardRouter)
+createReportRouter.use(logoutIf(cannotCreateReportInActiveCaseload), createReportWizardRouter)

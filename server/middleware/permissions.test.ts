@@ -8,16 +8,27 @@ import { roleReadOnly, roleReadWrite, roleApproveReject } from '../data/constant
 import { convertReportDates } from '../data/incidentReportingApiUtils'
 import { mockReport } from '../data/testData/incidentReporting'
 import { makeMockCaseload } from '../data/testData/frontendComponents'
-import { leeds, moorland } from '../data/testData/prisonApi'
+import { brixton, leeds, moorland } from '../data/testData/prisonApi'
+
+const granted = 'granted' as const
+const denied = 'denied' as const
 
 interface UserType {
+  /** Most tests use this description since they are affected by roles and caseloads */
   description: string
+  /** Some tests use this description since they are not affected by caseloads */
+  descriptionIgnoringCaseload?: string
   user: Express.User
 }
 
-const notLoggedIn: UserType = { description: 'missing user', user: undefined }
+const notLoggedIn: UserType = {
+  description: 'missing user',
+  descriptionIgnoringCaseload: 'missing user',
+  user: undefined,
+}
 const unauthorisedNotInLeeds: UserType = {
   description: 'user without roles or Leeds caseload',
+  descriptionIgnoringCaseload: 'user without roles',
   user: unauthorisedUser,
 }
 const unauthorisedInLeeds: UserType = {
@@ -26,6 +37,7 @@ const unauthorisedInLeeds: UserType = {
 }
 const reportingNotInLeeds: UserType = {
   description: 'reporting officer without Leeds caseload',
+  descriptionIgnoringCaseload: 'reporting officer',
   user: reportingUser,
 }
 const reportingInLeeds: UserType = {
@@ -34,11 +46,13 @@ const reportingInLeeds: UserType = {
 }
 const approverNotInLeeds: UserType = {
   description: 'data warden without Leeds caseload',
+  descriptionIgnoringCaseload: 'data warden',
   user: mockUser([makeMockCaseload(moorland)], [roleApproveReject]),
 }
 const approverInLeeds: UserType = { description: 'data warden with Leeds caseload', user: approverUser }
 const viewOnlyNotInLeeds: UserType = {
   description: 'HQ view-only user without Leeds caseload',
+  descriptionIgnoringCaseload: 'HQ view-only user',
   user: mockUser([makeMockCaseload(moorland)], [roleReadOnly]),
 }
 const viewOnlyInLeeds: UserType = { description: 'HQ view-only user with Leeds caseload', user: hqUser }
@@ -55,9 +69,6 @@ describe('Permissions', () => {
   })
 
   describe('Class performs checks', () => {
-    const grant = 'grant' as const
-    const deny = 'deny' as const
-
     beforeEach(() => {
       config.activePrisons = ['MDI', 'LEI']
     })
@@ -67,100 +78,163 @@ describe('Permissions', () => {
       convertReportDates(mockReport({ reportReference: '6543', reportDateAndTime: now, location: 'LEI', withDetails })),
     )
 
-    it.each([
-      { userType: notLoggedIn, action: deny },
-      { userType: unauthorisedNotInLeeds, action: deny },
-      { userType: reportingNotInLeeds, action: grant },
-      { userType: approverNotInLeeds, action: grant },
-      { userType: viewOnlyNotInLeeds, action: grant },
-    ])('should $action access to the service for $userType.description', ({ userType: { user }, action }) => {
-      const permissions = new Permissions(user)
-      expect(permissions.canAccessService).toBe(action === 'grant')
-    })
-
-    it.each([
-      { userType: notLoggedIn, action: deny },
-      { userType: unauthorisedNotInLeeds, action: deny },
-      { userType: unauthorisedInLeeds, action: deny },
-      { userType: reportingNotInLeeds, action: deny },
-      { userType: reportingInLeeds, action: grant },
-      { userType: approverNotInLeeds, action: deny },
-      { userType: approverInLeeds, action: grant },
-      { userType: viewOnlyNotInLeeds, action: deny },
-      { userType: viewOnlyInLeeds, action: grant },
-    ])('should $action $userType.description viewing a report in Leeds', ({ userType: { user }, action }) => {
-      const permissions = new Permissions(user)
-      expect(mockReports.every(report => permissions.canViewReport(report))).toBe(action === 'grant')
-    })
-
-    it.each([
-      { userType: notLoggedIn, action: deny },
-      { userType: unauthorisedNotInLeeds, action: deny },
-      { userType: reportingNotInLeeds, action: grant },
-      { userType: approverNotInLeeds, action: grant },
-      { userType: viewOnlyNotInLeeds, action: deny },
-    ])('should $action $userType.description creating a new report', ({ userType: { user }, action }) => {
-      const permissions = new Permissions(user)
-      expect(permissions.canCreateReport).toBe(action === 'grant')
-    })
-
-    it.each([
-      { userType: notLoggedIn, action: deny },
-      { userType: unauthorisedNotInLeeds, action: deny },
-      { userType: unauthorisedInLeeds, action: deny },
-      { userType: reportingNotInLeeds, action: deny },
-      { userType: reportingInLeeds, action: grant },
-      { userType: approverNotInLeeds, action: deny },
-      { userType: approverInLeeds, action: grant },
-      { userType: viewOnlyNotInLeeds, action: deny },
-      { userType: viewOnlyInLeeds, action: deny },
-    ])('should $action $userType.description editing a report in Leeds', ({ userType: { user }, action }) => {
-      const permissions = new Permissions(user)
-      expect(mockReports.every(report => permissions.canEditReport(report))).toBe(action === 'grant')
-    })
-
-    it.each([
-      { userType: notLoggedIn, action: deny },
-      { userType: unauthorisedNotInLeeds, action: deny },
-      { userType: unauthorisedInLeeds, action: deny },
-      { userType: reportingNotInLeeds, action: deny },
-      { userType: reportingInLeeds, action: grant },
-      { userType: approverNotInLeeds, action: deny },
-      { userType: approverInLeeds, action: grant },
-      { userType: viewOnlyNotInLeeds, action: deny },
-      { userType: viewOnlyInLeeds, action: deny },
-    ])(
-      'should $action $userType.description editing a report in Leeds only in NOMIS when Leeds is inactive in DPS',
-      ({ userType: { user }, action }) => {
-        config.activePrisons = ['MDI']
-
+    describe('Access to the service', () => {
+      it.each([
+        { userType: notLoggedIn, action: denied },
+        { userType: unauthorisedNotInLeeds, action: denied },
+        { userType: reportingNotInLeeds, action: granted },
+        { userType: approverNotInLeeds, action: granted },
+        { userType: viewOnlyNotInLeeds, action: granted },
+      ])('should be $action to $userType.descriptionIgnoringCaseload', ({ userType: { user }, action }) => {
         const permissions = new Permissions(user)
-        expect(mockReports.every(report => permissions.canEditReportInNomisOnly(report))).toBe(action === 'grant')
-      },
-    )
+        expect(permissions.canAccessService).toBe(action === granted)
+      })
+    })
 
-    it.each([
-      { userType: notLoggedIn, action: deny },
-      { userType: unauthorisedNotInLeeds, action: deny },
-      { userType: unauthorisedInLeeds, action: deny },
-      { userType: reportingNotInLeeds, action: deny },
-      { userType: reportingInLeeds, action: deny },
-      { userType: approverNotInLeeds, action: deny },
-      { userType: approverInLeeds, action: grant },
-      { userType: viewOnlyNotInLeeds, action: deny },
-      { userType: viewOnlyInLeeds, action: deny },
-    ])(
-      'should $action $userType.description approving or rejecting a report in Leeds',
-      ({ userType: { user }, action }) => {
+    describe('Viewing a report in Leeds', () => {
+      it.each([
+        { userType: notLoggedIn, action: denied },
+        { userType: unauthorisedNotInLeeds, action: denied },
+        { userType: unauthorisedInLeeds, action: denied },
+        { userType: reportingNotInLeeds, action: denied },
+        { userType: reportingInLeeds, action: granted },
+        { userType: approverNotInLeeds, action: denied },
+        { userType: approverInLeeds, action: granted },
+        { userType: viewOnlyNotInLeeds, action: denied },
+        { userType: viewOnlyInLeeds, action: granted },
+      ])('should be $action to $userType.description', ({ userType: { user }, action }) => {
         const permissions = new Permissions(user)
-        expect(mockReports.every(report => permissions.canApproveOrRejectReport(report))).toBe(action === 'grant')
-      },
-    )
+        expect(mockReports.every(report => permissions.canViewReport(report))).toBe(action === granted)
+      })
+    })
+
+    describe('Creating a new report (ignoring caseloads)', () => {
+      it.each([
+        { userType: notLoggedIn, action: denied },
+        { userType: unauthorisedNotInLeeds, action: denied },
+        { userType: reportingNotInLeeds, action: granted },
+        { userType: approverNotInLeeds, action: granted },
+        { userType: viewOnlyNotInLeeds, action: denied },
+      ])('should by $action to $userType.descriptionIgnoringCaseload', ({ userType: { user }, action }) => {
+        const permissions = new Permissions(user)
+        expect(permissions.canCreateReport).toBe(action === granted)
+      })
+    })
+
+    describe('Creating a new report in Leeds', () => {
+      it.each([
+        { userType: notLoggedIn, action: denied },
+        { userType: unauthorisedNotInLeeds, action: denied },
+        { userType: unauthorisedInLeeds, action: denied },
+        { userType: reportingNotInLeeds, action: denied },
+        { userType: reportingInLeeds, action: granted },
+        { userType: approverNotInLeeds, action: denied },
+        { userType: approverInLeeds, action: granted },
+        { userType: viewOnlyNotInLeeds, action: denied },
+        { userType: viewOnlyInLeeds, action: denied },
+      ])('should be $action to $userType.description', ({ userType: { user }, action }) => {
+        const permissions = new Permissions(user)
+        expect(permissions.canCreateReportInPrison('LEI')).toBe(action === granted)
+      })
+    })
+
+    describe('Creating a new report in active caseload', () => {
+      it.each([
+        { userType: notLoggedIn, action: denied },
+        { userType: unauthorisedNotInLeeds, action: denied },
+        {
+          userType: {
+            descriptionIgnoringCaseload: 'reporting officer whose active caseload is active in the service',
+            user: mockUser([makeMockCaseload(leeds), makeMockCaseload(brixton)], [roleReadWrite]),
+          },
+          action: granted,
+        },
+        {
+          userType: {
+            descriptionIgnoringCaseload: 'reporting officer whose active caseload is inactive in the service',
+            user: mockUser([makeMockCaseload(brixton), makeMockCaseload(leeds)], [roleReadWrite]),
+          },
+          action: denied,
+        },
+        {
+          userType: {
+            descriptionIgnoringCaseload: 'data warden whose active caseload is active in the service',
+            user: mockUser([makeMockCaseload(leeds), makeMockCaseload(brixton)], [roleApproveReject]),
+          },
+          action: granted,
+        },
+        {
+          userType: {
+            descriptionIgnoringCaseload: 'data warden whose active caseload is inactive in the service',
+            user: mockUser([makeMockCaseload(brixton), makeMockCaseload(leeds)], [roleApproveReject]),
+          },
+          action: denied,
+        },
+        { userType: viewOnlyNotInLeeds, action: denied },
+      ])('should be $action to $userType.descriptionIgnoringCaseload', ({ userType: { user }, action }) => {
+        const permissions = new Permissions(user)
+        expect(permissions.canCreateReportInActiveCaseload).toBe(action === granted)
+      })
+    })
+
+    describe('Editing a report in Leeds', () => {
+      it.each([
+        { userType: notLoggedIn, action: denied },
+        { userType: unauthorisedNotInLeeds, action: denied },
+        { userType: unauthorisedInLeeds, action: denied },
+        { userType: reportingNotInLeeds, action: denied },
+        { userType: reportingInLeeds, action: granted },
+        { userType: approverNotInLeeds, action: denied },
+        { userType: approverInLeeds, action: granted },
+        { userType: viewOnlyNotInLeeds, action: denied },
+        { userType: viewOnlyInLeeds, action: denied },
+      ])('should be $action to $userType.description', ({ userType: { user }, action }) => {
+        const permissions = new Permissions(user)
+        expect(mockReports.every(report => permissions.canEditReport(report))).toBe(action === granted)
+      })
+
+      it.each([
+        { userType: notLoggedIn, action: denied },
+        { userType: unauthorisedNotInLeeds, action: denied },
+        { userType: unauthorisedInLeeds, action: denied },
+        { userType: reportingNotInLeeds, action: denied },
+        { userType: reportingInLeeds, action: granted },
+        { userType: approverNotInLeeds, action: denied },
+        { userType: approverInLeeds, action: granted },
+        { userType: viewOnlyNotInLeeds, action: denied },
+        { userType: viewOnlyInLeeds, action: denied },
+      ])(
+        'should be $action to $userType.description only in NOMIS when Leeds is inactive in DPS',
+        ({ userType: { user }, action }) => {
+          config.activePrisons = ['MDI']
+
+          const permissions = new Permissions(user)
+          expect(mockReports.every(report => permissions.canEditReportInNomisOnly(report))).toBe(action === granted)
+        },
+      )
+    })
+
+    describe('Approving or rejecting a report in Leeds', () => {
+      it.each([
+        { userType: notLoggedIn, action: denied },
+        { userType: unauthorisedNotInLeeds, action: denied },
+        { userType: unauthorisedInLeeds, action: denied },
+        { userType: reportingNotInLeeds, action: denied },
+        { userType: reportingInLeeds, action: denied },
+        { userType: approverNotInLeeds, action: denied },
+        { userType: approverInLeeds, action: granted },
+        { userType: viewOnlyNotInLeeds, action: denied },
+        { userType: viewOnlyInLeeds, action: denied },
+      ])('should be $action to $userType.description', ({ userType: { user }, action }) => {
+        const permissions = new Permissions(user)
+        expect(mockReports.every(report => permissions.canApproveOrRejectReport(report))).toBe(action === granted)
+      })
+    })
   })
 
   describe('Middleware', () => {
     it.each([notLoggedIn, unauthorisedNotInLeeds, reportingNotInLeeds, approverNotInLeeds, viewOnlyNotInLeeds])(
-      'should attach permissions class to locals for $description',
+      'should attach permissions class to locals for $descriptionIgnoringCaseload',
       ({ user }) => {
         const req = {} as Request
         const res = { locals: { user } } as Response

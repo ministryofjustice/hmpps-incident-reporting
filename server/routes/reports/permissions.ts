@@ -1,6 +1,6 @@
 import type { Response } from 'express'
 
-import { isPrisonActiveInService, Permissions } from '../../middleware/permissions'
+import { Permissions } from '../../middleware/permissions'
 
 /**
  * Used in `logoutIf()` middleware to check that current user can view report in locals.
@@ -14,10 +14,8 @@ export function cannotViewReport(permissions: Permissions, res: Response) {
 /**
  * Used in `logoutIf()` middleware to check that current user can create a report in their active caseload.
  */
-export function cannotCreateReport(permissions: Permissions, res: Response): boolean {
-  const { user } = res.locals
-  const prisonId = user.activeCaseLoad.caseLoadId
-  return !permissions.canCreateReport || !isPrisonActiveInService(prisonId)
+export function cannotCreateReportInActiveCaseload(permissions: Permissions): boolean {
+  return !permissions.canCreateReportInActiveCaseload
 }
 
 /**

@@ -34,7 +34,7 @@
   <h1 class="govuk-heading-l">Incident reporting</h1>
 
   {% call renderDpsCards() %}
-    {% if permissions.canCreateReport %}
+    {% if permissions.canCreateReportInActiveCaseload %}
       {{ renderDpsCard({
         heading: "Report an incident",
         description: "TODO",

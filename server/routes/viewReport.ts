@@ -71,8 +71,11 @@ export function viewReportRouter(service: Services): Router {
     )
     const staffInvolvementLookup = Object.fromEntries(staffInvolvementRoles.map(role => [role.code, role.description]))
 
+    const notEditableInDps = res.locals.permissions.canEditReportInNomisOnly(report)
+
     res.render('pages/debug/reportDetails', {
       report,
+      notEditableInDps,
       prisonersLookup,
       usersLookup,
       prisonsLookup,

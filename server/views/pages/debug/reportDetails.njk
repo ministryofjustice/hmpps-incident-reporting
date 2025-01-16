@@ -1,10 +1,11 @@
 {% extends "../../partials/layout.njk" %}
 
-{% from "govuk/components/table/macro.njk" import govukTable %}
-{% from "govuk/components/button/macro.njk" import govukButton %}
 {% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
 {% from "govuk/components/summary-list/macro.njk" import govukSummaryList %}
-{%- from "govuk/components/tag/macro.njk" import govukTag -%}
+{% from "govuk/components/table/macro.njk" import govukTable %}
+{% from "govuk/components/tag/macro.njk" import govukTag %}
+{% from "govuk/components/warning-text/macro.njk" import govukWarningText %}
 
 {% set pageTitle = applicationName + " - Report" %}
 
@@ -26,6 +27,13 @@
     }) }}
   </h1>
   <h2 class="govuk-heading-s">Incident reported in {{ location }} by {{ reportingOfficer }} on {{ reportedDate }}</h2>
+
+  {% if notEditableInDps %}
+    {{ govukWarningText({
+      text: "This report can only be amended in NOMIS",
+      iconFallbackText: "Warning"
+    }) }}
+  {% endif %}
 
 <!-- Incident details table -->
 {{ govukSummaryList({

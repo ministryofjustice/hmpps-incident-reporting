@@ -124,6 +124,26 @@ describe('Permissions', () => {
       { userType: unauthorisedNotInLeeds, action: deny },
       { userType: unauthorisedInLeeds, action: deny },
       { userType: reportingNotInLeeds, action: deny },
+      { userType: reportingInLeeds, action: grant },
+      { userType: approverNotInLeeds, action: deny },
+      { userType: approverInLeeds, action: grant },
+      { userType: viewOnlyNotInLeeds, action: deny },
+      { userType: viewOnlyInLeeds, action: deny },
+    ])(
+      'should $action $userType.description editing a report in Leeds only in NOMIS when Leeds is inactive in DPS',
+      ({ userType: { user }, action }) => {
+        config.activePrisons = ['MDI']
+
+        const permissions = new Permissions(user)
+        expect(mockReports.every(report => permissions.canEditReportInNomisOnly(report))).toBe(action === 'grant')
+      },
+    )
+
+    it.each([
+      { userType: notLoggedIn, action: deny },
+      { userType: unauthorisedNotInLeeds, action: deny },
+      { userType: unauthorisedInLeeds, action: deny },
+      { userType: reportingNotInLeeds, action: deny },
       { userType: reportingInLeeds, action: deny },
       { userType: approverNotInLeeds, action: deny },
       { userType: approverInLeeds, action: grant },

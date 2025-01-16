@@ -1,6 +1,7 @@
 import type { Express } from 'express'
 import request from 'supertest'
 
+import config from '../config'
 import { PrisonApi } from '../data/prisonApi'
 import { appWithAllRoutes } from './testutils/appSetup'
 import { now } from '../testutils/fakeClock'
@@ -255,9 +256,17 @@ describe('GET view report page without details', () => {
 describe('Report viewing permissions', () => {
   // NB: these test cases are simplified because the permissions class methods are thoroughly tested elsewhere
 
+  let previousActivePrisons: string[]
+
+  beforeAll(() => {
+    previousActivePrisons = config.activePrisons
+  })
+
   let reportId: string
 
   beforeEach(() => {
+    config.activePrisons = previousActivePrisons
+
     const report = convertReportWithDetailsDates(
       mockReport({ reportReference: '6543', reportDateAndTime: now, withDetails: true }),
     )
@@ -282,5 +291,21 @@ describe('Report viewing permissions', () => {
     return testRequest.expect(res => {
       expect(res.redirects[0]).toContain('/sign-out')
     })
+  })
+
+  it.each([
+    { userType: 'reporting officer', user: reportingUser, warn: true },
+    { userType: 'data warden', user: approverUser, warn: true },
+    { userType: 'HQ view-only user', user: hqUser, warn: false },
+    { userType: 'unauthorised user', user: unauthorisedUser, warn: false },
+  ])('should warn $userType that report is only editable in NOMIS: $warn', ({ user, warn }) => {
+    config.activePrisons = ['LEI']
+
+    return request(appWithAllRoutes({ services: { userService }, userSupplier: () => user }))
+      .get(`/reports/${reportId}`)
+      .expect(res => {
+        const warningShows = res.text.includes('This report can only be amended in NOMIS')
+        expect(warningShows).toBe(warn)
+      })
   })
 })

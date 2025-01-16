@@ -43,6 +43,12 @@ export class Permissions {
     // TODO: decide what happens to PECS reports
   }
 
+  /** Could have edited this report in DPS if prison was active */
+  canEditReportInNomisOnly(report: ReportBasic): boolean {
+    return this.canCreateReport && !isPrisonActiveInService(report.location) && this.caseloadIds.has(report.location)
+    // TODO: decide what happens to PECS reports
+  }
+
   /** Can approve or reject this report */
   canApproveOrRejectReport(report: ReportBasic): boolean {
     return (

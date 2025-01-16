@@ -2,6 +2,7 @@ import type { Express } from 'express'
 import request from 'supertest'
 
 import { appWithAllRoutes } from './testutils/appSetup'
+import { now } from '../testutils/fakeClock'
 import { type GetReportsParams, IncidentReportingApi } from '../data/incidentReportingApi'
 import { mockReport } from '../data/testData/incidentReporting'
 import { unsortedPageOf } from '../data/testData/paginatedResponses'
@@ -28,7 +29,6 @@ afterEach(() => {
 
 describe('GET dashboard', () => {
   it('should render dashboard with button and table, results filtered on caseload', () => {
-    const now = new Date(2023, 11, 5, 12, 34, 56)
     const mockedReports = [
       convertBasicReportDates(mockReport({ reportReference: '6543', reportDateAndTime: now })),
       convertBasicReportDates(mockReport({ reportReference: '6544', reportDateAndTime: now })),
@@ -62,8 +62,8 @@ describe('GET dashboard', () => {
         expect(incidentReportingApi.getReports).toHaveBeenCalledWith(expectedParams)
       })
   })
+
   it('should submit query values correctly into the api call', () => {
-    const now = new Date(2023, 11, 5, 12, 34, 56)
     const mockedReports = [
       convertBasicReportDates(mockReport({ reportReference: '6543', reportDateAndTime: now })),
       convertBasicReportDates(mockReport({ reportReference: '6544', reportDateAndTime: now })),
@@ -107,8 +107,8 @@ describe('GET dashboard', () => {
         expect(incidentReportingApi.getReports).toHaveBeenCalledWith(expectedParams)
       })
   })
+
   it('should show actual name when username found, username if not', () => {
-    const now = new Date(2023, 11, 5, 12, 34, 56)
     const mockedReports = [
       convertBasicReportDates(
         mockReport({ reportReference: '6543', reportDateAndTime: now, reportingUsername: 'JOHN_SMITH' }),
@@ -132,8 +132,8 @@ describe('GET dashboard', () => {
         expect(res.text).toContain('JOHN_WICK')
       })
   })
+
   it('should render all filters except establishment if user caseload is only 1 establishment', () => {
-    const now = new Date(2023, 11, 5, 12, 34, 56)
     const mockedReports = [
       convertBasicReportDates(mockReport({ reportReference: '6543', reportDateAndTime: now })),
       convertBasicReportDates(mockReport({ reportReference: '6544', reportDateAndTime: now })),
@@ -183,7 +183,6 @@ describe('search validations', () => {
     { scenario: 'search contains wrong pattern', searchValue: 'AB11ABC' },
     { scenario: 'search contains multiple values', searchValue: '12345678 A0011BC' },
   ])('should present errors when $scenario', ({ searchValue }) => {
-    const now = new Date(2023, 11, 5, 12, 34, 56)
     const mockedReports = [
       convertBasicReportDates(mockReport({ reportReference: '6543', reportDateAndTime: now })),
       convertBasicReportDates(mockReport({ reportReference: '6544', reportDateAndTime: now })),
@@ -218,8 +217,8 @@ describe('search validations', () => {
         expect(incidentReportingApi.getReports).toHaveBeenCalledWith(expectedParams)
       })
   })
+
   it('should not present errors and search for reference number when only digits', () => {
-    const now = new Date(2023, 11, 5, 12, 34, 56)
     const mockedReports = [
       convertBasicReportDates(mockReport({ reportReference: '6543', reportDateAndTime: now })),
       convertBasicReportDates(mockReport({ reportReference: '6544', reportDateAndTime: now })),
@@ -254,8 +253,8 @@ describe('search validations', () => {
         expect(incidentReportingApi.getReports).toHaveBeenCalledWith(expectedParams)
       })
   })
+
   it('should not present errors and search, removing whitespaces around digits', () => {
-    const now = new Date(2023, 11, 5, 12, 34, 56)
     const mockedReports = [
       convertBasicReportDates(mockReport({ reportReference: '6543', reportDateAndTime: now })),
       convertBasicReportDates(mockReport({ reportReference: '6544', reportDateAndTime: now })),
@@ -290,8 +289,8 @@ describe('search validations', () => {
         expect(incidentReportingApi.getReports).toHaveBeenCalledWith(expectedParams)
       })
   })
+
   it('should not present errors and search for prisoner ID when matching pattern', () => {
-    const now = new Date(2023, 11, 5, 12, 34, 56)
     const mockedReports = [
       convertBasicReportDates(mockReport({ reportReference: '6543', reportDateAndTime: now })),
       convertBasicReportDates(mockReport({ reportReference: '6544', reportDateAndTime: now })),
@@ -326,8 +325,8 @@ describe('search validations', () => {
         expect(incidentReportingApi.getReports).toHaveBeenCalledWith(expectedParams)
       })
   })
+
   it('should not present errors and search, removing whitespaces around pattern', () => {
-    const now = new Date(2023, 11, 5, 12, 34, 56)
     const mockedReports = [
       convertBasicReportDates(mockReport({ reportReference: '6543', reportDateAndTime: now })),
       convertBasicReportDates(mockReport({ reportReference: '6544', reportDateAndTime: now })),

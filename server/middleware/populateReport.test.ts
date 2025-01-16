@@ -2,16 +2,12 @@ import type { NextFunction, Request, Response } from 'express'
 import nock from 'nock'
 
 import config from '../config'
-import { mockReport } from '../data/testData/incidentReporting'
-import { populateReport } from './populateReport'
 import { IncidentReportingApi } from '../data/incidentReportingApi'
-import { type Type } from '../reportConfiguration/constants'
+import { mockReport } from '../data/testData/incidentReporting'
+import { now } from '../testutils/fakeClock'
+import { populateReport } from './populateReport'
 
 describe('report-loading middleware', () => {
-  // 2023-12-05T12:34:56.000Z
-  const now = new Date(2023, 11, 5, 12, 34, 56)
-  const report = mockReport({ reportReference: '6543', reportDateAndTime: now, withDetails: true })
-
   let fakeApi: nock.Scope
 
   beforeEach(() => {
@@ -23,43 +19,55 @@ describe('report-loading middleware', () => {
     nock.cleanAll()
   })
 
-  it('calls next request handler if report can be loaded', async () => {
-    fakeApi.get(`/incident-reports/${report.id}/with-details`).reply(200, report)
+  it.each([
+    { reportType: 'report with details', withDetails: true },
+    { reportType: 'basic report', withDetails: false },
+  ])('should load $reportType and call next request handler', async ({ withDetails }) => {
+    const report = mockReport({ reportReference: '6543', reportDateAndTime: now, withDetails })
+    if (withDetails) {
+      fakeApi.get(`/incident-reports/${report.id}/with-details`).reply(200, report)
+    } else {
+      fakeApi.get(`/incident-reports/${report.id}`).reply(200, report)
+    }
 
     const req = { params: { id: report.id } } as unknown as Request
     const res = { locals: { apis: { incidentReportingApi: new IncidentReportingApi('token') } } } as Response
     const next: NextFunction = jest.fn()
-    await populateReport()(req, res, next)
 
+    await populateReport(withDetails)(req, res, next)
+
+    expect(res.locals.report.reportReference).toEqual(report.reportReference)
     expect(next).toHaveBeenCalledWith()
-    expect(res.locals.report.reportReference).toEqual(report.reportReference)
-    expect(res.locals.reportConfig.incidentType).toEqual(report.type)
   })
 
-  it('forwards error if report cannot be loaded', async () => {
-    fakeApi.get(`/incident-reports/${report.id}/with-details`).reply(404)
+  it('should forward error if report cannot be loaded', async () => {
+    const reportId = mockReport({ reportReference: '6543', reportDateAndTime: now }).id
+    fakeApi.get(`/incident-reports/${reportId}`).reply(404)
+    fakeApi.get(`/incident-reports/${reportId}/with-details`).reply(404)
 
-    const req = { params: { id: report.id } } as unknown as Request
+    const req = { params: { id: reportId } } as unknown as Request
     const res = { locals: { apis: { incidentReportingApi: new IncidentReportingApi('token') } } } as Response
     const next: NextFunction = jest.fn()
-    await populateReport()(req, res, next)
 
-    expect(next).toHaveBeenCalledWith(expect.objectContaining({ message: 'Not Found', status: 404 }))
+    await populateReport()(req, res, next)
+    await populateReport(false)(req, res, next)
+
     expect(res.locals.report).toBeUndefined()
-    expect(res.locals.reportConfig).toBeUndefined()
+    expect(next).toHaveBeenCalledWith(expect.objectContaining({ message: 'Not Found', status: 404 }))
   })
 
-  it('forwards error if report config cannot be loaded', async () => {
-    report.type = 'UNKNOWN' as Type
-    fakeApi.get(`/incident-reports/${report.id}/with-details`).reply(200, report)
-
-    const req = { params: { id: report.id } } as unknown as Request
-    const res = { locals: { apis: { incidentReportingApi: new IncidentReportingApi('token') } } } as Response
+  it('should fail if report ID parameter is not supplied', async () => {
+    const getReportWithDetailsById = jest.fn()
+    const req = { params: {} } as unknown as Request
+    const res = { locals: { apis: { incidentReportingApi: { getReportWithDetailsById } } } } as unknown as Response
     const next: NextFunction = jest.fn()
+
     await populateReport()(req, res, next)
 
-    expect(next).toHaveBeenCalledWith(expect.objectContaining({ code: 'MODULE_NOT_FOUND' }))
-    expect(res.locals.report.reportReference).toEqual(report.reportReference)
-    expect(res.locals.reportConfig).toBeUndefined()
+    expect(getReportWithDetailsById).not.toHaveBeenCalled()
+    expect(res.locals.report).toBeUndefined()
+    expect(next).toHaveBeenCalledWith(
+      expect.objectContaining({ message: 'populateReport() requires req.params.id', status: 501 }),
+    )
   })
 })

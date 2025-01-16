@@ -1,24 +1,25 @@
 {% extends "../partials/layout.njk" %}
 
 {% from "govuk/components/button/macro.njk" import govukButton %}
-{% from "govuk/components/select/macro.njk" import govukSelect %}
-{% from "govuk/components/input/macro.njk" import govukInput %}
-{% from "govuk/components/table/macro.njk" import govukTable %}
-{% from "moj/components/pagination/macro.njk" import mojPagination %}
-{% from "moj/components/date-picker/macro.njk" import mojDatePicker %}
 {% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
+{% from "govuk/components/input/macro.njk" import govukInput %}
+{% from "govuk/components/select/macro.njk" import govukSelect %}
+{% from "govuk/components/table/macro.njk" import govukTable %}
+{% from "moj/components/date-picker/macro.njk" import mojDatePicker %}
+{% from "moj/components/pagination/macro.njk" import mojPagination %}
 
 {% set pageTitle = applicationName + " - Home" %}
 
 {% block content %}
-  <div class="govuk-button-group">
+  {% if permissions.canCreateReport %}
     {{ govukButton({
-    text: "Report an incident",
-    preventDoubleClick: true,
-    href: "/create-report",
-    isStartButton: true
+      text: "Report an incident",
+      preventDoubleClick: true,
+      href: "/create-report",
+      isStartButton: true
     }) }}
-  </div>
+  {% endif %}
+
   <div class="horizontal-form__wrapper govuk-!-padding-3 govuk-!-margin-bottom-5">
     <h1 class="govuk-heading-l">Incident reports</h1>
 
@@ -75,7 +76,7 @@
         name: "incidentType",
         id: "incidentType",
         label: {
-        text: "Incident type"
+          text: "Incident type"
         },
         items: incidentTypes | govukSelectInsertDefault("Choose type") | govukSelectSetSelected(formValues.incidentType),
         errorMessage: errors | findFieldInGovukErrorSummary("incidentType")

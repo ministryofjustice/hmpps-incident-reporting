@@ -1,3 +1,4 @@
+import { now } from '../testutils/fakeClock'
 import type { CorrectionRequest, Event, HistoricStatus, Question, ReportBasic, Response } from './incidentReportingApi'
 import { mockEvent, mockReport } from './testData/incidentReporting'
 import {
@@ -9,7 +10,7 @@ import {
 
 describe('Parsing dates in incident-reporting API responses', () => {
   // now, when incident was reported: 2023-12-05T12:34:56.000Z
-  const reportDateAndTime = new Date(2023, 11, 5, 12, 34, 56)
+  const reportDateAndTime = now
   // actual incident happened 1 hour before: 2023-12-05T11:34:00.000Z (NB: seconds are truncated to mimic designs)
   const incidentDateAndTime = new Date(2023, 11, 5, 11, 34, 0)
 

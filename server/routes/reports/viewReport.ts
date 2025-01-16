@@ -1,31 +1,42 @@
 import type { RequestHandler } from 'express'
-
 import { Router } from 'express'
 import type { PathParams } from 'express-serve-static-core'
-import type { Services } from '../services'
+
+import type { Services } from '../../services'
 import {
   prisonerInvolvementOutcomes,
   prisonerInvolvementRoles,
   staffInvolvementRoles,
   statuses,
   types,
-} from '../reportConfiguration/constants'
-import asyncMiddleware from '../middleware/asyncMiddleware'
-import { populateReport } from '../middleware/populateReport'
-import { type ReportWithDetails } from '../data/incidentReportingApi'
+} from '../../reportConfiguration/constants'
+import asyncMiddleware from '../../middleware/asyncMiddleware'
+import { logoutIf } from '../../middleware/permissions'
+import { populateReport } from '../../middleware/populateReport'
+import { populateReportConfiguration } from '../../middleware/populateReportConfiguration'
+import { type ReportWithDetails } from '../../data/incidentReportingApi'
 import {
   findAnswerConfigByCode,
   stripQidPrefix,
   type IncidentTypeConfiguration,
-} from '../data/incidentTypeConfiguration/types'
+} from '../../data/incidentTypeConfiguration/types'
+import { cannotViewReport } from './permissions'
 
-export default function viewReport(service: Services): Router {
-  const router = Router({ mergeParams: true })
+// eslint-disable-next-line import/prefer-default-export
+export function viewReportRouter(service: Services): Router {
   const { userService } = service
-  const get = (path: PathParams, handler: RequestHandler) =>
-    router.get(path, [populateReport(), asyncMiddleware(handler)])
 
-  get('/', async (req, res) => {
+  const router = Router({ mergeParams: true })
+  const get = (path: PathParams, handler: RequestHandler) =>
+    router.get(
+      path,
+      populateReport(),
+      logoutIf(cannotViewReport),
+      populateReportConfiguration(false),
+      asyncMiddleware(handler),
+    )
+
+  get('/', async (_req, res) => {
     const { prisonApi, offenderSearchApi } = res.locals.apis
 
     const reportConfig = res.locals.reportConfig as IncidentTypeConfiguration
@@ -60,8 +71,11 @@ export default function viewReport(service: Services): Router {
     )
     const staffInvolvementLookup = Object.fromEntries(staffInvolvementRoles.map(role => [role.code, role.description]))
 
+    const notEditableInDps = res.locals.permissions.canEditReportInNomisOnly(report)
+
     res.render('pages/debug/reportDetails', {
       report,
+      notEditableInDps,
       prisonersLookup,
       usersLookup,
       prisonsLookup,

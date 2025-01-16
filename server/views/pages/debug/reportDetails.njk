@@ -1,31 +1,39 @@
 {% extends "../../partials/layout.njk" %}
 
-{% from "govuk/components/table/macro.njk" import govukTable %}
-{% from "govuk/components/button/macro.njk" import govukButton %}
 {% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
 {% from "govuk/components/summary-list/macro.njk" import govukSummaryList %}
-{%- from "govuk/components/tag/macro.njk" import govukTag -%}
+{% from "govuk/components/table/macro.njk" import govukTable %}
+{% from "govuk/components/tag/macro.njk" import govukTag %}
+{% from "govuk/components/warning-text/macro.njk" import govukWarningText %}
 
 {% set pageTitle = applicationName + " - Report" %}
 
 {% block beforeContent %}
   {{ govukBackLink({
-  text: "Back",
-  href: "/reports"
+    text: "Back",
+    href: "/reports"
   }) }}
 {% endblock %}
 
-{%- set location =  prisonsLookup[report.location].description or report.location -%}
-{%- set reportingOfficer =  usersLookup[report.reportedBy].name or report.reportedBy -%}
-{%- set reportedDate =  report.reportedAt | date -%}
+{%- set location = prisonsLookup[report.location].description or report.location -%}
+{%- set reportingOfficer = usersLookup[report.reportedBy].name or report.reportedBy -%}
+{%- set reportedDate = report.reportedAt | date -%}
 
 {% block content %}
   <h1 class="govuk-heading-m">Report {{ report.reportReference }}
     {{ govukTag({
-    text: statusLookup[report.status] or report.status
+      text: statusLookup[report.status] or report.status
     }) }}
   </h1>
   <h2 class="govuk-heading-s">Incident reported in {{ location }} by {{ reportingOfficer }} on {{ reportedDate }}</h2>
+
+  {% if notEditableInDps %}
+    {{ govukWarningText({
+      text: "This report can only be amended in NOMIS",
+      iconFallbackText: "Warning"
+    }) }}
+  {% endif %}
 
 <!-- Incident details table -->
 {{ govukSummaryList({
@@ -41,7 +49,7 @@
           visuallyHiddenText: "incident details"
         }
       ]
-    }
+    } if permissions.canEditReport(report) else {}
   },
   rows: [
     {
@@ -72,12 +80,12 @@
     actions: {
       items: [
         {
-        href: "#",
-        text: "Change",
-        visuallyHiddenText: "incident type"
+          href: "#",
+          text: "Change",
+          visuallyHiddenText: "incident type"
         }
       ]
-    }
+    } if permissions.canEditReport(report) else {}
   },
   rows: [
     {
@@ -105,12 +113,12 @@
         {% if prisonerInvolved.outcome %}
           {%- set outcome = prisonerOutcomeLookup[prisonerInvolved.outcome] or prisonerInvolved.outcome -%}
         {% else %}
-          {%- set outcome = 'No outcome' -%}
+          {%- set outcome = "No outcome" -%}
         {% endif %}
         {% if prisonerInvolved.comment %}
           {%- set comment = prisonerInvolved.comment -%}
         {% else %}
-          {%- set comment = 'No comment' -%}
+          {%- set comment = "No comment" -%}
         {% endif %}
         {% set prisonerValues %}
           Role: {{ prisonerRole }}
@@ -120,7 +128,7 @@
           Comment: {{ comment }}
         {% endset %}
 
-        {%- set prisonerURL = dpsUrl + '/prisoner/' + prisonerInvolved.prisonerNumber -%}
+        {%- set prisonerURL = dpsUrl + "/prisoner/" + prisonerInvolved.prisonerNumber -%}
         {% set prisonerURLKey %}
           <a href="{{ prisonerURL }}" class="govuk-link">{{ prisonerName }}</a>
         {% endset %}
@@ -135,32 +143,31 @@
               {
                 href: "#",
                 text: "Change",
-                visuallyHiddenText: "change prisoner"
+                visuallyHiddenText: "prisoner"
               },
               {
                 href: "#",
                 text: "Remove",
-                visuallyHiddenText: "remove prisoner"
+                visuallyHiddenText: "prisoner"
               }
             ]
-          }
+          } if permissions.canEditReport(report) else {}
         }), prisonerRows) -%}
 
       {%- endfor -%}
 
   {%- else -%}
     {%- set prisonerRows = [{
-      key: { text: 'No prisoners found' },
-      value: { text: 'N/A' },
+      key: { text: "No prisoners found" },
+      value: { text: "N/A" },
       actions: {
         items: [
           {
-          href: "/reports/" + report.id + "/prisoner-search",
-          text: "Add a prisoner",
-          visuallyHiddenText: "add prisoner"
+            href: "/reports/" + report.id + "/prisoner-search",
+            text: "Add a prisoner"
           }
         ]
-      }
+      } if permissions.canEditReport(report) else {}
     }) -%}
   {%- endif -%}
 
@@ -173,11 +180,10 @@
         items: [
           {
             href: "/reports/" + report.id + "/prisoner-search",
-            text: "Add a prisoner",
-            visuallyHiddenText: "add prisoner"
+            text: "Add a prisoner"
           }
         ]
-      }
+      } if permissions.canEditReport(report) else {}
     },
     rows: prisonerRows
   }) }}
@@ -192,7 +198,7 @@
       {% if staffInvolved.comment %}
         {%- set comment = staffInvolved.comment -%}
       {% else %}
-        {%- set comment = 'No comment' -%}
+        {%- set comment = "No comment" -%}
       {% endif %}
       {% set staffValues %}
         Role: {{ staffRole }}
@@ -212,55 +218,53 @@
             {
               href: "#",
               text: "Change",
-              visuallyHiddenText: "change staff"
+              visuallyHiddenText: "staff"
             },
             {
               href: "#",
               text: "Remove",
-              visuallyHiddenText: "remove staff"
+              visuallyHiddenText: "staff"
             }
           ]
-        }
+        } if permissions.canEditReport(report) else {}
       }), staffRows) -%}
 
     {%- endfor -%}
 
   {%- else -%}
     {%- set staffRows = [{
-      key: { text: 'No staff found' },
-      value: { text: 'N/A' },
+      key: { text: "No staff found" },
+      value: { text: "N/A" },
       actions: {
         items: [
           {
             href: "#",
-            text: "Add a staff member",
-            visuallyHiddenText: "add staff"
+            text: "Add a staff member"
           }
         ]
-      }
+      } if permissions.canEditReport(report) else {}
     }) -%}
   {%- endif -%}
 
   {{ govukSummaryList({
     card: {
       title: {
-      text: "Staff involved"
-    },
-    actions: {
-      items: [
-        {
-          href: "#",
-          text: "Add a staff member",
-          visuallyHiddenText: "add staff"
-        }
-      ]
-    }
-    },
-    rows: staffRows
-  }) }}
+        text: "Staff involved"
+      },
+      actions: {
+        items: [
+          {
+            href: "#",
+            text: "Add a staff member"
+          }
+        ]
+      } if permissions.canEditReport(report) else {}
+      },
+      rows: staffRows
+    }) }}
 
 <!-- Question responses table -->
-  {%- set questionsActionItems = [ ] -%}
+  {%- set questionsActionItems = [] -%}
 
   {%- if report.questions.length > 0 -%}
     {%- set questionsRows = [] -%}
@@ -283,7 +287,7 @@
           {% endfor %}
         {% endset %}
       {%- else -%}
-        {%- set responses = 'Not answered' -%}
+        {%- set responses = "Not answered" -%}
       {%- endif -%}
 
       {# Rows of questions (with their responses) #}
@@ -296,14 +300,14 @@
     {%- set questionsActionItems = (questionsActionItems.push({
       href: "/reports/" + report.id + "/questions",
       text: "Change",
-      visuallyHiddenText: "change question responses"
+      visuallyHiddenText: "question responses"
     }), questionsActionItems) -%}
 
 
   {%- else -%}
     {%- set questionsRows = [{
-      key: { text: 'No responses found' },
-      value: { text: 'N/A' }
+      key: { text: "No responses found" },
+      value: { text: "N/A" }
     }) -%}
   {%- endif -%}
 
@@ -314,7 +318,7 @@
       },
       actions: {
         items: questionsActionItems
-      }
+      } if permissions.canEditReport(report) else {}
     },
     rows: questionsRows
   }) }}
@@ -346,17 +350,16 @@
 
   {%- else -%}
     {%- set correctionRows = [{
-      key: { text: 'No corrections found' },
-      value: { text: 'N/A' },
+      key: { text: "No corrections found" },
+      value: { text: "N/A" },
       actions: {
         items: [
           {
             href: "#",
-            text: "Add a correction",
-            visuallyHiddenText: "add correction"
+            text: "Add a correction"
           }
         ]
-      }
+      } if permissions.canEditReport(report) else {}
     }) -%}
   {%- endif -%}
 
@@ -369,11 +372,10 @@
         items: [
           {
             href: "#",
-            text: "Add a correction",
-            visuallyHiddenText: "add correction"
+            text: "Add a correction"
           }
         ]
-      }
+      } if permissions.canEditReport(report) else {}
     },
     rows: correctionRows
   }) }}

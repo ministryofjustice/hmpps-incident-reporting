@@ -61,11 +61,14 @@ afterEach(() => {
 })
 
 describe('GET view report page with details', () => {
+  let viewReportUrl: string
+
   beforeEach(() => {
     const mockedReport = convertReportWithDetailsDates(
       mockReport({ reportReference: '6543', reportDateAndTime: now, withDetails: true }),
     )
     incidentReportingApi.getReportWithDetailsById.mockResolvedValueOnce(mockedReport)
+    viewReportUrl = `/reports/${mockedReport.id}`
   })
 
   it('should 404 if report is not found', () => {
@@ -74,7 +77,7 @@ describe('GET view report page with details', () => {
     incidentReportingApi.getReportWithDetailsById.mockRejectedValueOnce(error)
 
     return request(app)
-      .get('/reports/6543')
+      .get(viewReportUrl)
       .expect(404)
       .expect(res => {
         expect(res.text).toContain('Page not found')
@@ -83,7 +86,7 @@ describe('GET view report page with details', () => {
 
   it('should render report page with all sections', () => {
     return request(app)
-      .get('/reports/6543')
+      .get(viewReportUrl)
       .expect('Content-Type', /html/)
       .expect(res => {
         expect(res.text).toContain('Report 6543')
@@ -100,7 +103,7 @@ describe('GET view report page with details', () => {
 
   it('should render incident details', () => {
     return request(app)
-      .get('/reports/6543')
+      .get(viewReportUrl)
       .expect('Content-Type', /html/)
       .expect(res => {
         expect(res.text).toContain('Date and time of incident')
@@ -112,7 +115,7 @@ describe('GET view report page with details', () => {
 
   it('should render incident type with correct formatting', () => {
     return request(app)
-      .get('/reports/6543')
+      .get(viewReportUrl)
       .expect('Content-Type', /html/)
       .expect(res => {
         expect(res.text).toContain('Incident type')
@@ -122,7 +125,7 @@ describe('GET view report page with details', () => {
 
   it('should render prisoners involved with roles and outcomes. Names correct if available', () => {
     return request(app)
-      .get('/reports/6543')
+      .get(viewReportUrl)
       .expect('Content-Type', /html/)
       .expect(res => {
         expect(res.text).toContain('Andrew Arnold')
@@ -138,7 +141,7 @@ describe('GET view report page with details', () => {
 
   it('should render staff involved with roles', () => {
     return request(app)
-      .get('/reports/6543')
+      .get(viewReportUrl)
       .expect('Content-Type', /html/)
       .expect(res => {
         expect(res.text).toContain('Barry Harrison')
@@ -150,7 +153,7 @@ describe('GET view report page with details', () => {
 
   it('should render question responses', () => {
     return request(app)
-      .get('/reports/6543')
+      .get(viewReportUrl)
       .expect('Content-Type', /html/)
       .expect(res => {
         expect(res.text).toContain('Question #1')
@@ -161,7 +164,7 @@ describe('GET view report page with details', () => {
 
   it('should render correction requests', () => {
     return request(app)
-      .get('/reports/6543')
+      .get(viewReportUrl)
       .expect('Content-Type', /html/)
       .expect(res => {
         expect(res.text).toContain('USER2')
@@ -172,6 +175,8 @@ describe('GET view report page with details', () => {
 })
 
 describe('GET view report page without details', () => {
+  let viewReportUrl: string
+
   beforeEach(() => {
     const mockedReport = convertReportWithDetailsDates(
       mockReport({ reportReference: '6543', reportDateAndTime: now, withDetails: true }),
@@ -182,11 +187,12 @@ describe('GET view report page without details', () => {
     mockedReport.correctionRequests = []
 
     incidentReportingApi.getReportWithDetailsById.mockResolvedValueOnce(mockedReport)
+    viewReportUrl = `/reports/${mockedReport.id}`
   })
 
   it('should render report page with all sections', () => {
     return request(app)
-      .get('/reports/6543')
+      .get(viewReportUrl)
       .expect('Content-Type', /html/)
       .expect(res => {
         expect(res.text).toContain('Report 6543')
@@ -203,7 +209,7 @@ describe('GET view report page without details', () => {
 
   it('should render incident details', () => {
     return request(app)
-      .get('/reports/6543')
+      .get(viewReportUrl)
       .expect('Content-Type', /html/)
       .expect(res => {
         expect(res.text).toContain('Date and time of incident')
@@ -215,7 +221,7 @@ describe('GET view report page without details', () => {
 
   it('should render incident type with correct formatting', () => {
     return request(app)
-      .get('/reports/6543')
+      .get(viewReportUrl)
       .expect('Content-Type', /html/)
       .expect(res => {
         expect(res.text).toContain('Incident type')
@@ -225,7 +231,7 @@ describe('GET view report page without details', () => {
 
   it('should render no prisoners found', () => {
     return request(app)
-      .get('/reports/6543')
+      .get(viewReportUrl)
       .expect('Content-Type', /html/)
       .expect(res => {
         expect(res.text).toContain('Prisoners involved')
@@ -236,7 +242,7 @@ describe('GET view report page without details', () => {
 
   it('should render no staff found', () => {
     return request(app)
-      .get('/reports/6543')
+      .get(viewReportUrl)
       .expect('Content-Type', /html/)
       .expect(res => {
         expect(res.text).toContain('Staff involved')
@@ -247,7 +253,7 @@ describe('GET view report page without details', () => {
 
   it('should render no question responses found', () => {
     return request(app)
-      .get('/reports/6543')
+      .get(viewReportUrl)
       .expect('Content-Type', /html/)
       .expect(res => {
         expect(res.text).toContain('Question responses')
@@ -257,7 +263,7 @@ describe('GET view report page without details', () => {
 
   it('should render correction requests', () => {
     return request(app)
-      .get('/reports/6543')
+      .get(viewReportUrl)
       .expect('Content-Type', /html/)
       .expect(res => {
         expect(res.text).toContain('Correction requests')

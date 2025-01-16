@@ -4,7 +4,7 @@ import wizard from 'hmpo-form-wizard'
 import { logoutIf } from '../../middleware/permissions'
 import { populateReport } from '../../middleware/populateReport'
 import { populateReportConfiguration } from '../../middleware/populateReportConfiguration'
-import { cannotEditReport } from '../reports/permissions'
+import { cannotEditReport } from './permissions'
 
 // eslint-disable-next-line import/prefer-default-export
 export const questionsRouter = express.Router({ mergeParams: true })

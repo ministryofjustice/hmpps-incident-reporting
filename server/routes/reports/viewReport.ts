@@ -2,25 +2,25 @@ import type { RequestHandler } from 'express'
 import { Router } from 'express'
 import type { PathParams } from 'express-serve-static-core'
 
-import type { Services } from '../services'
+import type { Services } from '../../services'
 import {
   prisonerInvolvementOutcomes,
   prisonerInvolvementRoles,
   staffInvolvementRoles,
   statuses,
   types,
-} from '../reportConfiguration/constants'
-import asyncMiddleware from '../middleware/asyncMiddleware'
-import { logoutIf } from '../middleware/permissions'
-import { populateReport } from '../middleware/populateReport'
-import { populateReportConfiguration } from '../middleware/populateReportConfiguration'
-import { type ReportWithDetails } from '../data/incidentReportingApi'
+} from '../../reportConfiguration/constants'
+import asyncMiddleware from '../../middleware/asyncMiddleware'
+import { logoutIf } from '../../middleware/permissions'
+import { populateReport } from '../../middleware/populateReport'
+import { populateReportConfiguration } from '../../middleware/populateReportConfiguration'
+import { type ReportWithDetails } from '../../data/incidentReportingApi'
 import {
   findAnswerConfigByCode,
   stripQidPrefix,
   type IncidentTypeConfiguration,
-} from '../data/incidentTypeConfiguration/types'
-import { cannotViewReport } from './reports/permissions'
+} from '../../data/incidentTypeConfiguration/types'
+import { cannotViewReport } from './permissions'
 
 // eslint-disable-next-line import/prefer-default-export
 export function viewReportRouter(service: Services): Router {

@@ -7,13 +7,13 @@ import { PrisonApi } from '../data/prisonApi'
 import makeDebugRoutes from './debug'
 import makeDownloadConfigRouter from './downloadReportConfig'
 import { createReportRouter } from './reports/createReport'
+import { questionsRouter } from './reports/questions'
 import { updateDetailsRouter } from './reports/updateReportDetails'
+import { viewReportRouter } from './reports/viewReport'
 import genericRouter from './generic'
 import prisonerSearchRoutes from '../controllers/addPrisoner/prisonerSearch'
 import addPrisonerRouter from './addPrisoner'
-import { questionsRouter } from './questions/router'
 import dashboard from './dashboard'
-import { viewReportRouter } from './viewReport'
 
 export default function routes(services: Services): Router {
   const get = (path: string | string[], handler: RequestHandler) => router.get(path, asyncMiddleware(handler))

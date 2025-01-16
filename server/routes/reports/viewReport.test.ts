@@ -1,24 +1,24 @@
 import type { Express } from 'express'
 import request from 'supertest'
 
-import config from '../config'
-import { PrisonApi } from '../data/prisonApi'
-import { appWithAllRoutes } from './testutils/appSetup'
-import { now } from '../testutils/fakeClock'
-import { IncidentReportingApi } from '../data/incidentReportingApi'
-import { OffenderSearchApi, type OffenderSearchResult } from '../data/offenderSearchApi'
-import { mockReport } from '../data/testData/incidentReporting'
-import { convertReportWithDetailsDates } from '../data/incidentReportingApiUtils'
-import UserService from '../services/userService'
-import type { User } from '../data/manageUsersApiClient'
-import { leeds, moorland } from '../data/testData/prisonApi'
-import { andrew } from '../data/testData/offenderSearch'
-import { reportingUser, approverUser, hqUser, unauthorisedUser } from '../data/testData/users'
+import config from '../../config'
+import { PrisonApi } from '../../data/prisonApi'
+import { appWithAllRoutes } from '../testutils/appSetup'
+import { now } from '../../testutils/fakeClock'
+import UserService from '../../services/userService'
+import { IncidentReportingApi } from '../../data/incidentReportingApi'
+import { OffenderSearchApi, type OffenderSearchResult } from '../../data/offenderSearchApi'
+import { mockReport } from '../../data/testData/incidentReporting'
+import { convertReportWithDetailsDates } from '../../data/incidentReportingApiUtils'
+import type { User } from '../../data/manageUsersApiClient'
+import { leeds, moorland } from '../../data/testData/prisonApi'
+import { andrew } from '../../data/testData/offenderSearch'
+import { reportingUser, approverUser, hqUser, unauthorisedUser } from '../../data/testData/users'
 
-jest.mock('../data/prisonApi')
-jest.mock('../data/incidentReportingApi')
-jest.mock('../services/userService')
-jest.mock('../data/offenderSearchApi')
+jest.mock('../../data/prisonApi')
+jest.mock('../../data/incidentReportingApi')
+jest.mock('../../data/offenderSearchApi')
+jest.mock('../../services/userService')
 
 let app: Express
 let incidentReportingApi: jest.Mocked<IncidentReportingApi>

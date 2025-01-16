@@ -13,11 +13,11 @@ import type { Services } from '../services'
 import asyncMiddleware from '../middleware/asyncMiddleware'
 
 interface ListFormData {
+  searchID?: string
   location?: string
   fromDate?: string
   toDate?: string
   incidentType?: Type
-  reportingOfficer?: string
   incidentStatuses?: Status
   sort?: string
   order?: Order
@@ -30,18 +30,29 @@ export default function dashboard(service: Services): Router {
   const get = (path: PathParams, handler: RequestHandler) => router.get(path, asyncMiddleware(handler))
 
   get('/', async (req, res) => {
-    const { incidentReportingApi, prisonApi } = res.locals.apis
+    const { incidentReportingApi } = res.locals.apis
+
+    const userCaseloads = res.locals.user.caseLoads
+    const userCaseloadIds = userCaseloads.map(caseload => caseload.caseLoadId)
+
+    let showEstablishmentsFilter = false
+    if (userCaseloadIds.length > 1) {
+      showEstablishmentsFilter = true
+    }
 
     const {
       location,
       fromDate: fromDateInput,
       toDate: toDateInput,
       incidentType,
-      reportingOfficer,
       page,
       incidentStatuses,
     }: ListFormData = req.query
-    let { sort, order }: ListFormData = req.query
+    let { searchID, sort, order }: ListFormData = req.query
+
+    if (searchID) {
+      searchID = searchID.trim()
+    }
 
     if (!sort) {
       sort = 'incidentDateAndTime'
@@ -51,11 +62,11 @@ export default function dashboard(service: Services): Router {
     }
 
     const formValues: ListFormData = {
+      searchID,
       location,
       fromDate: fromDateInput,
       toDate: toDateInput,
       incidentType: incidentType as Type,
-      reportingOfficer,
       incidentStatuses: incidentStatuses as Status,
       sort,
       order: order as Order,
@@ -115,6 +126,23 @@ export default function dashboard(service: Services): Router {
       toDate = null
       errors.push({ href: '#toDate', text: `Enter a valid to date, for example ${todayAsShortDate}` })
     }
+    let prisonerId: string
+    let referenceNumber: string
+    if (searchID) {
+      // Test if search is for a prisoner ID and use if so
+      if (searchID.match(/^[a-zA-Z][0-9]{4}[a-zA-Z]{2}$/)) {
+        prisonerId = searchID
+      }
+      // Test if search is for an incident reference number and use if so
+      else if (searchID.match(/^[0-9]+$/)) {
+        referenceNumber = searchID
+      } else {
+        errors.push({
+          href: '#searchID',
+          text: `Enter a valid incident reference number or offender ID. For example, 12345678 or A0011BB`,
+        })
+      }
+    }
 
     // Parse page number
     let pageNumber = (page && typeof page === 'string' && parseInt(page, 10)) || 1
@@ -123,19 +151,31 @@ export default function dashboard(service: Services): Router {
     }
 
     const orderString = order as string
+
+    // Set locations to user's caseload
+    let searchLocations: string[] | string = userCaseloadIds
+    // Overwrite locations with chosen filter if it exists
+    if (location) {
+      searchLocations = location
+    }
+
     // Get reports from API
     const reportsResponse = await incidentReportingApi.getReports({
-      location,
+      reference: referenceNumber,
+      location: searchLocations,
       incidentDateFrom: fromDate,
       incidentDateUntil: toDate,
       type: incidentType,
       status: incidentStatuses,
-      reportedByUsername: reportingOfficer,
+      involvingPrisonerNumber: prisonerId,
       page: pageNumber - 1,
       sort: [`${sort},${orderString}`],
     })
 
     const queryString = new URLSearchParams()
+    if (searchID) {
+      queryString.append('searchID', searchID)
+    }
     if (location) {
       queryString.append('location', location)
     }
@@ -151,9 +191,6 @@ export default function dashboard(service: Services): Router {
     if (incidentStatuses) {
       queryString.append('incidentStatuses', incidentStatuses)
     }
-    if (reportingOfficer) {
-      queryString.append('reportingOfficer', reportingOfficer)
-    }
     const tableHeadUrlPrefix = `/reports?${queryString}&`
     if (sort) {
       queryString.append('sort', sort)
@@ -165,20 +202,15 @@ export default function dashboard(service: Services): Router {
     const urlPrefix = `/reports?${queryString}&`
 
     const noFiltersSupplied = Boolean(
-      !location && !fromDate && !toDate && !incidentType && !incidentStatuses && !reportingOfficer,
+      !searchID && !location && !fromDate && !toDate && !incidentType && !incidentStatuses,
     )
 
     const reports = reportsResponse.content
     const usernames = reports.map(report => report.reportedBy)
     const usersLookup = await userService.getUsers(res.locals.systemToken, usernames)
-    const prisonsLookup = await prisonApi.getPrisons()
     const reportingOfficers = Object.values(usersLookup).map(user => ({
       value: user.username,
       text: user.name,
-    }))
-    const prisons = Object.values(prisonsLookup).map(prison => ({
-      value: prison.agencyId,
-      text: prison.description,
     }))
     const incidentTypes = types.map(incType => ({
       value: incType.code,
@@ -187,6 +219,10 @@ export default function dashboard(service: Services): Router {
     const statusItems = statuses.map(status => ({
       value: status.code,
       text: status.description,
+    }))
+    const establishments = userCaseloads.map(caseload => ({
+      value: caseload.caseLoadId,
+      text: caseload.description,
     }))
 
     const typesLookup = Object.fromEntries(types.map(type => [type.code, type.description]))
@@ -213,7 +249,7 @@ export default function dashboard(service: Services): Router {
 
     res.render('pages/dashboard', {
       reports,
-      prisons,
+      establishments,
       usersLookup,
       reportingOfficers,
       incidentTypes,
@@ -226,6 +262,7 @@ export default function dashboard(service: Services): Router {
       noFiltersSupplied,
       tableHead,
       paginationParams,
+      showEstablishmentsFilter,
     })
   })
 

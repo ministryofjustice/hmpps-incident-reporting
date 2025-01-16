@@ -1,5 +1,6 @@
 {% extends "../partials/layout.njk" %}
 
+{% from "govuk/components/breadcrumbs/macro.njk" import govukBreadcrumbs %}
 {% from "govuk/components/button/macro.njk" import govukButton %}
 {% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
 {% from "govuk/components/input/macro.njk" import govukInput %}
@@ -10,6 +11,19 @@
 {% from "moj/components/pagination/macro.njk" import mojPagination %}
 
 {% set pageTitle = applicationName + " - Home" %}
+
+{% block beforeContent %}
+  {{ super() }}
+
+  {{ govukBreadcrumbs({
+    items: [
+      {
+        text: "Digital Prison Services",
+        href: dpsUrl
+      }
+    ]
+  }) }}
+{% endblock %}
 
 {% block content %}
   {% if permissions.canCreateReport %}

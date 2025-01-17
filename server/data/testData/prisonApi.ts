@@ -1,5 +1,12 @@
 import type { Prison, Staff } from '../prisonApi'
 
+export const brixton: Prison = {
+  agencyId: 'BXI',
+  description: 'Brixton (HMP)',
+  agencyType: 'INST',
+  active: true,
+}
+
 export const leeds: Prison = {
   agencyId: 'LEI',
   description: 'Leeds (HMP)',

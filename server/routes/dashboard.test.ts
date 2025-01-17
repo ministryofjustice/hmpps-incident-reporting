@@ -6,12 +6,21 @@ import { now } from '../testutils/fakeClock'
 import { type GetReportsParams, IncidentReportingApi } from '../data/incidentReportingApi'
 import { mockReport } from '../data/testData/incidentReporting'
 import { unsortedPageOf } from '../data/testData/paginatedResponses'
+import { mockSharedUser } from '../data/testData/manageUsers'
+import { approverUser, hqUser, reportingUser, unauthorisedUser } from '../data/testData/users'
 import { convertBasicReportDates } from '../data/incidentReportingApiUtils'
 import UserService from '../services/userService'
 import type { User } from '../data/manageUsersApiClient'
+import config from '../config'
 
 jest.mock('../data/incidentReportingApi')
 jest.mock('../services/userService')
+
+let previousActivePrisons: string[]
+
+beforeAll(() => {
+  previousActivePrisons = config.activePrisons
+})
 
 let app: Express
 let incidentReportingApi: jest.Mocked<IncidentReportingApi>
@@ -24,7 +33,55 @@ beforeEach(() => {
 })
 
 afterEach(() => {
+  config.activePrisons = previousActivePrisons
   jest.resetAllMocks()
+})
+
+describe('Dashboard permissions', () => {
+  // NB: these test cases are simplified because the permissions class methods are thoroughly tested elsewhere
+
+  const pageOfReports = unsortedPageOf(
+    [
+      mockReport({ reportReference: '6543', reportDateAndTime: now }),
+      mockReport({ reportReference: '6544', reportDateAndTime: now }),
+    ].map(convertBasicReportDates),
+  )
+
+  beforeEach(() => {
+    incidentReportingApi.getReports.mockResolvedValueOnce(pageOfReports)
+    userService.getUsers.mockResolvedValueOnce({ [mockSharedUser.username]: mockSharedUser })
+  })
+
+  const show = 'show' as const
+  const hide = 'hide' as const
+
+  it.each([
+    { userType: 'reporting officer', user: reportingUser, action: show },
+    { userType: 'data warden', user: approverUser, action: show },
+    { userType: 'HQ view-only user', user: hqUser, action: hide },
+    { userType: 'unauthorised user', user: unauthorisedUser, action: hide },
+  ])('should $action report button for $userType', ({ user, action }) => {
+    return request(appWithAllRoutes({ services: { userService }, userSupplier: () => user }))
+      .get('/reports')
+      .expect(res => {
+        if (action === show) {
+          expect(res.text).toContain('Report an incident')
+        } else {
+          expect(res.text).not.toContain('Report an incident')
+        }
+      })
+  })
+
+  it('should hide report button for reporting officer when their active caseload in not active in the service', () => {
+    config.activePrisons = ['LEI']
+
+    return request(appWithAllRoutes({ services: { userService }, userSupplier: () => reportingUser }))
+      .get('/reports')
+      .expect(res => {
+        expect(res.text).not.toContain('Report an incident')
+        expect(res.text).toContain('You must use NOMIS to create reports in this establishment')
+      })
+  })
 })
 
 describe('GET dashboard', () => {

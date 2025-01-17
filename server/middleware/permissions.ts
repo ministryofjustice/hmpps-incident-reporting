@@ -12,6 +12,9 @@ import type { ReportBasic } from '../data/incidentReportingApi'
  * See roles constants for explanation of their permissions.
  */
 export class Permissions {
+  /** Current user’s active caseload */
+  private readonly activeCaseloadId: string
+
   /** Current user’s caseloads */
   private readonly caseloadIds: Set<string>
 
@@ -19,6 +22,7 @@ export class Permissions {
   private readonly roles: Set<string>
 
   constructor(user: Express.User | undefined) {
+    this.activeCaseloadId = user?.activeCaseLoad?.caseLoadId ?? 'NONE'
     this.caseloadIds = new Set(user?.caseLoads?.map(caseLoad => caseLoad.caseLoadId) ?? [])
     this.roles = new Set(user?.roles ?? [])
     this.canAccessService = [roleReadWrite, roleApproveReject, roleReadOnly].some(role => this.roles.has(role))
@@ -34,8 +38,19 @@ export class Permissions {
     // TODO: decide what happens to PECS reports
   }
 
-  /** Can create new report */
+  /** Can create new report (ignoring caseload!) */
   readonly canCreateReport: boolean
+
+  /** Can create new report in given prison */
+  canCreateReportInPrison(prisonId: string): boolean {
+    return this.canCreateReport && isPrisonActiveInService(prisonId) && this.caseloadIds.has(prisonId)
+    // TODO: decide what happens to PECS reports
+  }
+
+  /** Can create new report in active caseload prison */
+  get canCreateReportInActiveCaseload(): boolean {
+    return this.canCreateReportInPrison(this.activeCaseloadId)
+  }
 
   /** Can edit this report */
   canEditReport(report: ReportBasic): boolean {

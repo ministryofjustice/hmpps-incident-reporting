@@ -1,23 +1,45 @@
 {% extends "../partials/layout.njk" %}
 
+{% from "govuk/components/breadcrumbs/macro.njk" import govukBreadcrumbs %}
 {% from "govuk/components/button/macro.njk" import govukButton %}
 {% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
 {% from "govuk/components/input/macro.njk" import govukInput %}
 {% from "govuk/components/select/macro.njk" import govukSelect %}
 {% from "govuk/components/table/macro.njk" import govukTable %}
+{% from "govuk/components/warning-text/macro.njk" import govukWarningText %}
 {% from "moj/components/date-picker/macro.njk" import mojDatePicker %}
 {% from "moj/components/pagination/macro.njk" import mojPagination %}
 
 {% set pageTitle = applicationName + " - Home" %}
 
+{% block beforeContent %}
+  {{ super() }}
+
+  {{ govukBreadcrumbs({
+    items: [
+      {
+        text: "Digital Prison Services",
+        href: dpsUrl
+      }
+    ]
+  }) }}
+{% endblock %}
+
 {% block content %}
   {% if permissions.canCreateReport %}
-    {{ govukButton({
-      text: "Report an incident",
-      preventDoubleClick: true,
-      href: "/create-report",
-      isStartButton: true
-    }) }}
+    {% if permissions.canCreateReportInActiveCaseload %}
+      {{ govukButton({
+        text: "Report an incident",
+        preventDoubleClick: true,
+        href: "/create-report",
+        isStartButton: true
+      }) }}
+    {% else %}
+      {{ govukWarningText({
+        text: "You must use NOMIS to create reports in this establishment",
+        iconFallbackText: "Warning"
+      }) }}
+    {% endif %}
   {% endif %}
 
   <div class="horizontal-form__wrapper govuk-!-padding-3 govuk-!-margin-bottom-5">

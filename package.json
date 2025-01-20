@@ -111,7 +111,7 @@
   },
   "devDependencies": {
     "@jgoz/esbuild-plugin-typecheck": "^4.0.2",
-    "@ministryofjustice/eslint-config-hmpps": "^0.0.1-beta.1",
+    "@ministryofjustice/eslint-config-hmpps": "^0.0.1-beta.2",
     "@tsconfig/node22": "^22.0.0",
     "@types/bunyan": "^1.8.11",
     "@types/bunyan-format": "^0.2.9",
@@ -123,7 +123,7 @@
     "@types/http-errors": "^2.0.4",
     "@types/jest": "^29.5.14",
     "@types/jsonwebtoken": "^9.0.7",
-    "@types/node": "^22.10.6",
+    "@types/node": "^22.10.7",
     "@types/nunjucks": "^3.2.6",
     "@types/passport": "^1.0.17",
     "@types/passport-oauth2": "^1.4.17",

@@ -125,6 +125,8 @@ export function mockReport({
       staffInvolved: [mockStaffInvolvement(0), mockStaffInvolvement(1)],
       prisonersInvolved: [mockPrisonerInvolvement(0), mockPrisonerInvolvement(1)],
       correctionRequests: [mockCorrectionRequest(0, reportDateAndTime)],
+      staffInvolvementDone: true,
+      prisonerInvolvementDone: true,
       questions: buildArray(2, questionIndex => mockQuestion(questionIndex, reportDateAndTime, 2)),
       history: buildArray(2, () => ({
         type: 'MISCELLANEOUS',

@@ -1,14 +1,14 @@
 import type { Response as SuperAgentResponse, SuperAgentRequest } from 'superagent'
 
 import { stubFor } from './wiremock'
-import type { Prison } from '../../server/data/prisonApi'
-import { leeds, moorland, staffBarry, staffMary } from '../../server/data/testData/prisonApi'
+import type { Agency } from '../../server/data/prisonApi'
+import { leeds, moorland, pecsNorth, pecsSouth, staffBarry, staffMary } from '../../server/data/testData/prisonApi'
 
 export default {
   /**
    * Stub getting details for a prison
    */
-  stubPrisonApiMockPrison: (prison: Prison): SuperAgentRequest =>
+  stubPrisonApiMockPrison: (prison: Agency): SuperAgentRequest =>
     stubFor({
       request: {
         method: 'GET',
@@ -34,6 +34,22 @@ export default {
         status: 200,
         headers: { 'Content-Type': 'application/json;charset=UTF-8' },
         jsonBody: [leeds, moorland],
+      },
+    }),
+
+  /**
+   * Stub getting details for all mock prisons
+   */
+  stubPrisonApiMockPecsRegions: (): SuperAgentRequest =>
+    stubFor({
+      request: {
+        method: 'GET',
+        urlPath: '/prisonApi/api/agencies/type/PECS',
+      },
+      response: {
+        status: 200,
+        headers: { 'Content-Type': 'application/json;charset=UTF-8' },
+        jsonBody: [pecsNorth, pecsSouth],
       },
     }),
 

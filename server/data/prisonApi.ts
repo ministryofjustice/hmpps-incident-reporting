@@ -2,10 +2,36 @@ import config from '../config'
 import { type NomisPrisonerInvolvementRole, type NomisType } from '../reportConfiguration/constants'
 import RestClient from './restClient'
 
-export type Prison = {
+export enum AgencyType {
+  /** Prison */
+  INST = 'INST',
+  /** PECS region */
+  PECS = 'PECS',
+  // CRC = 'CRC',
+  // POLSTN = 'POLSTN',
+  // COMM = 'COMM',
+  // APPR = 'APPR',
+  // CRT = 'CRT',
+  // POLICE = 'POLICE',
+  // IMDC = 'IMDC',
+  // TRN = 'TRN',
+  // OUT = 'OUT',
+  // YOT = 'YOT',
+  // SCH = 'SCH',
+  // STC = 'STC',
+  // HOST = 'HOST',
+  // AIRPORT = 'AIRPORT',
+  // HSHOSP = 'HSHOSP',
+  // HOSPITAL = 'HOSPITAL',
+  // PAR = 'PAR',
+  // PNP = 'PNP',
+  // PSY = 'PSY',
+}
+
+export type Agency = {
   agencyId: string
   description: string
-  agencyType: string
+  agencyType: AgencyType
   active: boolean
 }
 
@@ -107,9 +133,9 @@ export class PrisonApi extends RestClient {
     super('HMPPS Prison API', config.apis.hmppsPrisonApi, systemToken)
   }
 
-  async getPrison(prisonId: string, activeOnly = true): Promise<Prison | null> {
+  async getPrison(prisonId: string, activeOnly = true): Promise<Agency | null> {
     try {
-      return await this.get<Prison>({
+      return await this.get<Agency>({
         path: `/api/agencies/${encodeURIComponent(prisonId)}`,
         query: { activeOnly: activeOnly.toString() },
       })
@@ -123,9 +149,23 @@ export class PrisonApi extends RestClient {
     }
   }
 
-  async getPrisons(): Promise<Record<string, Prison>> {
-    const prisons = await this.get<Prison[]>({
+  async getPrisons(): Promise<Record<string, Agency>> {
+    const prisons = await this.get<Agency[]>({
       path: '/api/agencies/prisons',
+    })
+
+    // Returns the prisons in an object for easy access
+    return prisons.reduce((prev, prisonInfo) => ({ ...prev, [prisonInfo.agencyId]: prisonInfo }), {})
+  }
+
+  async getPecsRegions(activeOnly = true): Promise<Record<string, Agency>> {
+    return this.getAgencies(AgencyType.PECS, activeOnly)
+  }
+
+  private async getAgencies(agencyType: AgencyType, activeOnly = true): Promise<Record<string, Agency>> {
+    const prisons = await this.get<Agency[]>({
+      path: `/api/agencies/type/${encodeURIComponent(agencyType)}`,
+      query: { activeOnly },
     })
 
     // Returns the prisons in an object for easy access

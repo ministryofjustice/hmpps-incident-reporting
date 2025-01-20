@@ -1,5 +1,5 @@
 import type { AvailableComponent, CaseLoad, Component, ComponentsResponse } from '../frontendComponentsClient'
-import type { Prison } from '../prisonApi'
+import type { Agency } from '../prisonApi'
 import { moorland } from './prisonApi'
 
 const emptyComponent: Component = {
@@ -8,7 +8,7 @@ const emptyComponent: Component = {
   javascript: [],
 }
 
-export function makeMockCaseload(prison: Prison, currentlyActive = true): CaseLoad {
+export function makeMockCaseload(prison: Agency, currentlyActive = true): CaseLoad {
   return {
     caseLoadId: prison.agencyId,
     description: prison.description,

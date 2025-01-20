@@ -1,8 +1,8 @@
 import nock from 'nock'
 
 import config from '../config'
-import { PrisonApi, type Prison, type IncidentTypeConfiguration, type ReferenceCode } from './prisonApi'
-import { leeds, moorland, staffMary } from './testData/prisonApi'
+import { PrisonApi, type Agency, type IncidentTypeConfiguration, type ReferenceCode } from './prisonApi'
+import { leeds, moorland, pecsNorth, pecsSouth, staffMary } from './testData/prisonApi'
 
 jest.mock('./tokenStore/redisTokenStore')
 
@@ -63,11 +63,26 @@ describe('prisonApi', () => {
       fakeApiClient
         .get('/api/agencies/prisons')
         .matchHeader('authorization', `Bearer ${accessToken}`)
-        .reply(200, [moorland, leeds] satisfies Prison[])
+        .reply(200, [moorland, leeds] satisfies Agency[])
 
-      await expect(apiClient.getPrisons()).resolves.toEqual<Record<string, Prison>>({
+      await expect(apiClient.getPrisons()).resolves.toEqual<Record<string, Agency>>({
         LEI: leeds,
         MDI: moorland,
+      })
+    })
+  })
+
+  describe('getPecsRegions', () => {
+    it('should create a map of PECS regions from api', async () => {
+      fakeApiClient
+        .get('/api/agencies/type/PECS')
+        .query({ activeOnly: 'true' })
+        .matchHeader('authorization', `Bearer ${accessToken}`)
+        .reply(200, [pecsNorth, pecsSouth] satisfies Agency[])
+
+      await expect(apiClient.getPecsRegions()).resolves.toEqual<Record<string, Agency>>({
+        NORTH: pecsNorth,
+        SOUTH: pecsSouth,
       })
     })
   })

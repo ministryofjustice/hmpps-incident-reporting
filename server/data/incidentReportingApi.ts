@@ -103,6 +103,8 @@ export type ReportWithDetails = ReportBasic & {
   staffInvolved: StaffInvolvement[]
   prisonersInvolved: PrisonerInvolvement[]
   correctionRequests: CorrectionRequest[]
+  staffInvolvementDone: boolean
+  prisonerInvolvementDone: boolean
 }
 
 export type GetEventsParams = {
@@ -200,6 +202,8 @@ export type UpdateReportRequest = {
   location?: string
   title?: string
   description?: string
+  staffInvolvementDone?: boolean
+  prisonerInvolvementDone?: boolean
   updateEvent?: boolean
 }
 

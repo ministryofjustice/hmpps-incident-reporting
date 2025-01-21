@@ -11,10 +11,8 @@ import type { ApplicationInfo } from '../../applicationInfo'
 import errorHandler from '../../errorHandler'
 import type { Services } from '../../services'
 import { reportingUser } from '../../data/testData/users'
-import { IncidentReportingApi } from '../../data/incidentReportingApi'
-import { OffenderSearchApi } from '../../data/offenderSearchApi'
-import { PrisonApi } from '../../data/prisonApi'
 import { setupPermissions } from '../../middleware/permissions'
+import setApis from '../../middleware/setApis'
 
 export const testAppInfo: ApplicationInfo = {
   applicationName: 'hmpps-incident-reporting',
@@ -42,17 +40,13 @@ function appSetup(services: Services, production: boolean, userSupplier: () => E
     Object.assign(res.locals, {
       user: { ...req.user },
       systemToken,
-      apis: {
-        incidentReportingApi: new IncidentReportingApi(systemToken),
-        offenderSearchApi: new OffenderSearchApi(systemToken),
-        prisonApi: new PrisonApi(systemToken),
-      },
     })
 
     next()
   })
   app.use(express.json())
   app.use(express.urlencoded({ extended: true }))
+  app.use(setApis())
   app.use(setupPermissions)
   app.use(routes(services))
   app.use((_req, _res, next) => next(new NotFound()))

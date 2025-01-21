@@ -163,13 +163,13 @@ export class PrisonApi extends RestClient {
   }
 
   private async getAgencies(agencyType: AgencyType, activeOnly = true): Promise<Record<string, Agency>> {
-    const prisons = await this.get<Agency[]>({
+    const agencies = await this.get<Agency[]>({
       path: `/api/agencies/type/${encodeURIComponent(agencyType)}`,
       query: { activeOnly },
     })
 
-    // Returns the prisons in an object for easy access
-    return prisons.reduce((prev, prisonInfo) => ({ ...prev, [prisonInfo.agencyId]: prisonInfo }), {})
+    // Returns the agencies in an object for easy access
+    return agencies.reduce((prev, agency) => ({ ...prev, [agency.agencyId]: agency }), {})
   }
 
   async getPhoto(prisonerNumber: string): Promise<Buffer | null> {

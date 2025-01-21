@@ -150,7 +150,10 @@ export default {
   sqs: {
     audit: auditConfig(),
   },
+  /** List of prison ids where service is active (['***'] indicates all, [] indicates none) */
   activePrisons: get('SERVICE_ACTIVE_PRISONS', '***').split(','),
+  /** Whether service is active in all PECS regions or none */
+  activeForPecsRegions: get('SERVICE_ACTIVE_PECS', '1') === '1',
   ingressUrl: get('INGRESS_URL', 'http://localhost:3000', requiredInProduction),
   dpsUrl: get('DPS_URL', 'http://dps.local', requiredInProduction),
   supportUrl: get('SUPPORT_URL', 'http://support.dps.local', requiredInProduction),

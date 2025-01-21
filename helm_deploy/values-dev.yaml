@@ -12,7 +12,7 @@ generic-service:
   env:
     ENVIRONMENT: dev
     SERVICE_ACTIVE_PRISONS: "***"
-    SERVICE_ACTIVE_PECS: "1"
+    SERVICE_ACTIVE_PECS: "true"
 
     INGRESS_URL: "https://incident-reporting-dev.hmpps.service.justice.gov.uk"
     DPS_URL: "https://digital-dev.prison.service.justice.gov.uk"

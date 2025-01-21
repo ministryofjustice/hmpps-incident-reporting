@@ -10,7 +10,7 @@ generic-service:
   env:
     ENVIRONMENT: preprod
     SERVICE_ACTIVE_PRISONS: "BXI,LEI,MDI"
-    SERVICE_ACTIVE_PECS: "1"
+    SERVICE_ACTIVE_PECS: "true"
 
     INGRESS_URL: "https://incident-reporting-preprod.hmpps.service.justice.gov.uk"
     DPS_URL: "https://digital-preprod.prison.service.justice.gov.uk"

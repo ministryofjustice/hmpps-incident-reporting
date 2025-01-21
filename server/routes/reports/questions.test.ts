@@ -356,7 +356,7 @@ describe('Submitting questions’ responses', () => {
         responses: [
           {
             response: 'YES',
-            responseDate: new Date(),
+            responseDate: parseDateInput(responseDate),
             recordedAt: new Date(),
             recordedBy: 'USER_1',
             additionalInformation: null,

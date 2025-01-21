@@ -10,4 +10,5 @@ Cypress.Commands.add('resetBasicStubs', ({ roles = ['PRISON', roleReadWrite] }: 
   cy.task('stubSignIn', roles)
   cy.task('stubManageUserMe')
   cy.task('stubFallbackHeaderAndFooter')
+  cy.task('stubPrisonApiMockPecsRegions')
 })

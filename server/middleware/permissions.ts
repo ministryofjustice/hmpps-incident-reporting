@@ -4,6 +4,7 @@ import { Forbidden } from 'http-errors'
 import config from '../config'
 import { roleReadOnly, roleReadWrite, roleApproveReject } from '../data/constants'
 import type { ReportBasic } from '../data/incidentReportingApi'
+import { isPecsRegionCode } from '../data/pecsRegions'
 
 /**
  * Per-request class to check whether the user is allowed to perform a given action.
@@ -34,50 +35,76 @@ export class Permissions {
 
   /** Can view this report at all */
   canViewReport(report: ReportBasic): boolean {
-    return this.canAccessService && this.caseloadIds.has(report.location)
-    // TODO: decide what happens to PECS reports
+    return (
+      // has minimal roles
+      this.canAccessService &&
+      // if PECS region, user has specific role?
+      ((isPecsRegionCode(report.location) && this.roles.has(roleApproveReject)) ||
+        // otherwise user has caseload?
+        this.caseloadIds.has(report.location))
+    )
   }
 
   /** Can create new report (ignoring caseload!) */
   readonly canCreateReport: boolean
 
-  /** Can create new report in given prison */
-  canCreateReportInPrison(prisonId: string): boolean {
-    return this.canCreateReport && isPrisonActiveInService(prisonId) && this.caseloadIds.has(prisonId)
-    // TODO: decide what happens to PECS reports
+  /** Can create new report in given prison or PECS region */
+  canCreateReportInLocation(code: string): boolean {
+    return (
+      // has minimal roles
+      this.canCreateReport &&
+      // if PECS region, are PECS reports enabled and user has specific role?
+      ((isPecsRegionCode(code) && config.activeForPecsRegions && this.roles.has(roleApproveReject)) ||
+        // otherwise is prison enabled and user has caseload?
+        (isPrisonActiveInService(code) && this.caseloadIds.has(code)))
+    )
   }
 
   /** Can create new report in active caseload prison */
   get canCreateReportInActiveCaseload(): boolean {
-    return this.canCreateReportInPrison(this.activeCaseloadId)
+    return this.canCreateReportInLocation(this.activeCaseloadId)
   }
 
   /** Can edit this report */
   canEditReport(report: ReportBasic): boolean {
-    return this.canCreateReport && isPrisonActiveInService(report.location) && this.caseloadIds.has(report.location)
-    // TODO: decide what happens to PECS reports
+    return (
+      // has minimal roles
+      this.canCreateReport &&
+      // if PECS region, are PECS reports enabled and user has specific role?
+      ((isPecsRegionCode(report.location) && config.activeForPecsRegions && this.roles.has(roleApproveReject)) ||
+        // otherwise is prison enabled and user has caseload?
+        (isPrisonActiveInService(report.location) && this.caseloadIds.has(report.location)))
+    )
   }
 
-  /** Could have edited this report in DPS if prison was active */
+  /** Could have edited this report in DPS if prison was active or PECS regions are enabled */
   canEditReportInNomisOnly(report: ReportBasic): boolean {
-    return this.canCreateReport && !isPrisonActiveInService(report.location) && this.caseloadIds.has(report.location)
-    // TODO: decide what happens to PECS reports
+    return (
+      // has minimal roles
+      this.canCreateReport &&
+      // if PECS region and has role, but PECS reports are inactive in service
+      ((isPecsRegionCode(report.location) && this.roles.has(roleApproveReject) && !config.activeForPecsRegions) ||
+        // has caseload but prison is inactive in service
+        (this.caseloadIds.has(report.location) && !isPrisonActiveInService(report.location)))
+    )
   }
 
   /** Can approve or reject this report */
   canApproveOrRejectReport(report: ReportBasic): boolean {
     return (
+      // has specific role
       this.roles.has(roleApproveReject) &&
-      isPrisonActiveInService(report.location) &&
-      this.caseloadIds.has(report.location)
+      // if PECS region, are PECS reports enabled?
+      ((isPecsRegionCode(report.location) && config.activeForPecsRegions) ||
+        // otherwise is prison enabled and user has caseload?
+        (isPrisonActiveInService(report.location) && this.caseloadIds.has(report.location)))
     )
-    // TODO: decide what happens to PECS reports
   }
 }
 
 /**
  * Whether given prison should have full access to incident report on DPS, ie. the service has been rolled out there.
- * Otherwise, they are expected to continue using NOMIS.
+ * Otherwise, users are expected to continue using NOMIS.
  */
 export function isPrisonActiveInService(prisonId: string): boolean {
   // empty list permits none

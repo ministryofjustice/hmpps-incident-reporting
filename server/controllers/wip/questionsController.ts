@@ -177,16 +177,21 @@ export default class QuestionsController extends BaseController<FormWizard.Multi
           questionsResponses.push(questionResponses)
         }
 
-        // Update questions' answers
-        const currentQuestions = await incidentReportingApi.addOrUpdateQuestionsWithResponses(
-          report.id,
-          questionsResponses,
-        )
+        try {
+          // Update questions' answers
+          const currentQuestions = await incidentReportingApi.addOrUpdateQuestionsWithResponses(
+            report.id,
+            questionsResponses,
+          )
 
-        // Delete any potential now-irrelevant questions
-        const questionsToDelete = QuestionsToDelete.forGivenAnswers(reportConfig, currentQuestions)
-        if (questionsToDelete.length > 0) {
-          await incidentReportingApi.deleteQuestionsAndTheirResponses(report.id, questionsToDelete)
+          // Delete any potential now-irrelevant questions
+          const questionsToDelete = QuestionsToDelete.forGivenAnswers(reportConfig, currentQuestions)
+          if (questionsToDelete.length > 0) {
+            await incidentReportingApi.deleteQuestionsAndTheirResponses(report.id, questionsToDelete)
+          }
+        } catch (err) {
+          next(err)
+          return
         }
 
         next()

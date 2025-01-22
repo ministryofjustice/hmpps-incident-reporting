@@ -1,7 +1,9 @@
 import type { Express } from 'express'
 import request, { type Agent } from 'supertest'
 
+import { parseDateInput } from '../../utils/utils'
 import { appWithAllRoutes } from '../testutils/appSetup'
+import { now } from '../../testutils/fakeClock'
 import {
   type AddOrUpdateQuestionWithResponsesRequest,
   IncidentReportingApi,
@@ -11,12 +13,10 @@ import {
 import { convertReportWithDetailsDates } from '../../data/incidentReportingApiUtils'
 import { mockErrorResponse, mockReport } from '../../data/testData/incidentReporting'
 import { mockThrownError } from '../../data/testData/thrownErrors'
+import { approverUser, hqUser, reportingUser, unauthorisedUser } from '../../data/testData/users'
 import ASSAULT from '../../reportConfiguration/types/ASSAULT'
 import DEATH_OTHER from '../../reportConfiguration/types/DEATH_OTHER'
 import FINDS from '../../reportConfiguration/types/FINDS'
-import { parseDateInput } from '../../utils/utils'
-import { now } from '../../testutils/fakeClock'
-import { approverUser, hqUser, reportingUser, unauthorisedUser } from '../../data/testData/users'
 
 jest.mock('../../data/incidentReportingApi')
 
@@ -33,13 +33,12 @@ afterEach(() => {
 })
 
 describe('Displaying responses', () => {
-  const incidentDateAndTime = new Date('2024-10-21T16:32:00+01:00')
   // Report type/answers updated in each test
   const reportWithDetails: ReportWithDetails = convertReportWithDetailsDates(
     mockReport({
       type: 'FINDS',
       reportReference: '6544',
-      reportDateAndTime: incidentDateAndTime,
+      reportDateAndTime: now,
       withDetails: true,
     }),
   )
@@ -77,7 +76,7 @@ describe('Displaying responses', () => {
         responses: [
           {
             response: 'YES',
-            responseDate: incidentDateAndTime,
+            responseDate: now,
             additionalInformation: null,
             recordedBy: 'USER1',
             recordedAt: new Date(),
@@ -94,7 +93,7 @@ describe('Displaying responses', () => {
         expect(fieldNames(res.text)).toEqual(['45054'])
         expect(res.text).not.toContain('There is a problem')
         // 'YES' response to '45054' requires a date, this is displayed
-        expect(res.text).toContain('name="45054-182204-date" type="text" value="21/10/2024"')
+        expect(res.text).toContain('name="45054-182204-date" type="text" value="05/12/2023"')
         expect(res.text).toContain('name="45054" type="radio" value="YES" checked')
       })
   })
@@ -113,14 +112,14 @@ describe('Displaying responses', () => {
             responseDate: null,
             additionalInformation: null,
             recordedBy: 'USER1',
-            recordedAt: incidentDateAndTime,
+            recordedAt: now,
           },
           {
             response: 'DOG SEARCH',
             responseDate: null,
             additionalInformation: null,
             recordedBy: 'USER1',
-            recordedAt: incidentDateAndTime,
+            recordedAt: now,
           },
         ],
       },
@@ -134,7 +133,7 @@ describe('Displaying responses', () => {
             responseDate: null,
             additionalInformation: null,
             recordedBy: 'USER1',
-            recordedAt: incidentDateAndTime,
+            recordedAt: now,
           },
         ],
       },
@@ -166,7 +165,7 @@ describe('Displaying responses', () => {
             responseDate: null,
             additionalInformation: null,
             recordedBy: 'USER1',
-            recordedAt: incidentDateAndTime,
+            recordedAt: now,
           },
         ],
       },
@@ -180,7 +179,7 @@ describe('Displaying responses', () => {
             responseDate: null,
             additionalInformation: null,
             recordedBy: 'USER1',
-            recordedAt: incidentDateAndTime,
+            recordedAt: now,
           },
         ],
       },
@@ -194,7 +193,7 @@ describe('Displaying responses', () => {
             responseDate: null,
             additionalInformation: null,
             recordedBy: 'USER1',
-            recordedAt: incidentDateAndTime,
+            recordedAt: now,
           },
         ],
       },
@@ -208,7 +207,7 @@ describe('Displaying responses', () => {
             responseDate: null,
             additionalInformation: null,
             recordedBy: 'USER1',
-            recordedAt: incidentDateAndTime,
+            recordedAt: now,
           },
         ],
       },
@@ -222,7 +221,7 @@ describe('Displaying responses', () => {
             responseDate: null,
             additionalInformation: null,
             recordedBy: 'USER1',
-            recordedAt: incidentDateAndTime,
+            recordedAt: now,
           },
         ],
       },
@@ -245,13 +244,12 @@ describe('Displaying responses', () => {
 })
 
 describe('Submitting questions’ responses', () => {
-  const incidentDateAndTime = new Date('2024-10-21T16:32:00+01:00')
   // Report type/answers updated in each test
   const reportWithDetails: ReportWithDetails = convertReportWithDetailsDates(
     mockReport({
       type: 'FINDS',
       reportReference: '6544',
-      reportDateAndTime: incidentDateAndTime,
+      reportDateAndTime: now,
       withDetails: true,
     }),
   )
@@ -326,7 +324,7 @@ describe('Submitting questions’ responses', () => {
     reportWithDetails.type = 'DEATH_OTHER'
     const firstQuestionStep = DEATH_OTHER.startingQuestionId
     const followingStep = '44434'
-    const responseDate = '30/07/2024'
+    const responseDate = '06/12/2023'
     const submittedAnswers = {
       // 'WERE THE POLICE INFORMED OF THE INCIDENT',
       '45054': 'YES',
@@ -655,6 +653,27 @@ describe('Submitting questions’ responses', () => {
         ])
         expect(res.text).not.toContain('There is a problem')
         expect(res.redirects[0]).toMatch(`/${followingStep}`)
+      })
+  })
+
+  it('should show a message for API errors', async () => {
+    reportWithDetails.type = 'FINDS'
+    const firstQuestionStep = FINDS.startingQuestionId
+    const submittedAnswers = {
+      // 'DESCRIBE HOW THE ITEM WAS FOUND (SELECT ALL THAT APPLY)'
+      '67179': ['BOSS CHAIR', 'DOG SEARCH'],
+    }
+
+    const error = mockThrownError(mockErrorResponse({ status: 500, message: 'External problem' }), 500)
+    incidentReportingApi.addOrUpdateQuestionsWithResponses.mockRejectedValue(error)
+
+    await agent.get(reportQuestionsUrl).redirects(1).expect(200)
+    return agent
+      .post(`${reportQuestionsUrl}/${firstQuestionStep}/`)
+      .send(submittedAnswers)
+      .redirects(1)
+      .expect(res => {
+        expect(res.text).toContain('Sorry, there is a problem with the service')
       })
   })
 })

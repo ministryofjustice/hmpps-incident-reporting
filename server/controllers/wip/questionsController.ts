@@ -1,29 +1,27 @@
-import { FormWizard } from 'hmpo-form-wizard'
 import type express from 'express'
+import { FormWizard } from 'hmpo-form-wizard'
+
+import logger from '../../../logger'
+import format from '../../utils/format'
+import { parseDateInput } from '../../utils/utils'
 import { BaseController } from '../index'
 import {
   type AddOrUpdateQuestionResponseRequest,
   type AddOrUpdateQuestionWithResponsesRequest,
   type ReportWithDetails,
 } from '../../data/incidentReportingApi'
-import format from '../../utils/format'
 import {
+  type IncidentTypeConfiguration,
+  type QuestionConfiguration,
   findAnswerConfigByCode,
-  IncidentTypeConfiguration,
-  QuestionConfiguration,
   stripQidPrefix,
 } from '../../data/incidentTypeConfiguration/types'
-import logger from '../../../logger'
-import { parseDateInput } from '../../utils/utils'
 import QuestionsToDelete from '../../services/questionsToDelete'
 
 export default class QuestionsController extends BaseController<FormWizard.MultiValues> {
-  getBackLink(_req: FormWizard.Request, _res: express.Response): string {
-    return '/reports/'
-  }
-
-  middlewareLocals(): void {
-    super.middlewareLocals()
+  getBackLink(req: FormWizard.Request, _res: express.Response): string {
+    const reportId = req.params.id
+    return `/reports/${reportId}`
   }
 
   getValues(

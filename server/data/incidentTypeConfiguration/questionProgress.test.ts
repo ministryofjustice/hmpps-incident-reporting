@@ -11,15 +11,27 @@ describe('Question progress', () => {
    * ```
    * '1' (Page 1, start)
    *   • '1-1'  →  '2'
-   *   • '1-2'  →  '3'
+   *   • '1-2'  →  '4'
    *
-   * '2' (Page 2, end)
-   *   • '2-1'  →  null
-   *   • '2-2'  →  null
+   * '2' (Page 2)
+   *   • '2-1'  →  '3'
+   *   • '2-2'  →  '3'
    *
-   * '3' (Page 2, end)
-   *   • '3-1'  →  null
-   *   • '3-2'  →  null
+   * '3' (Page 2)
+   *   • '3-1'  →  '4'
+   *   • '3-2'  →  '4'
+   *
+   * '4' (Page 2 or 3 depending on route, end)
+   *   • '4-1'  →  null
+   *   • '4-2'  →  null
+   *
+   *  1─────┐
+   *  │     ▼
+   *  │     2
+   *  │     │
+   *  │     ▼
+   *  ▼     3
+   *  4◄────┘
    * ```
    */
   const config: IncidentTypeConfiguration = {
@@ -51,7 +63,7 @@ describe('Question progress', () => {
             label: '1-2',
             dateRequired: false,
             commentRequired: false,
-            nextQuestionId: '3',
+            nextQuestionId: '4',
           },
         ],
       },
@@ -69,7 +81,7 @@ describe('Question progress', () => {
             label: '2-1',
             dateRequired: false,
             commentRequired: false,
-            nextQuestionId: null,
+            nextQuestionId: '3',
           },
           {
             id: '2-2',
@@ -78,7 +90,7 @@ describe('Question progress', () => {
             label: '2-2',
             dateRequired: false,
             commentRequired: false,
-            nextQuestionId: null,
+            nextQuestionId: '3',
           },
         ],
       },
@@ -96,13 +108,40 @@ describe('Question progress', () => {
             label: '3-1',
             dateRequired: false,
             commentRequired: false,
-            nextQuestionId: null,
+            nextQuestionId: '4',
           },
           {
             id: '3-2',
             code: '3-2',
             active: true,
             label: '3-2',
+            dateRequired: false,
+            commentRequired: false,
+            nextQuestionId: '4',
+          },
+        ],
+      },
+      '4': {
+        id: '4',
+        active: true,
+        code: '4',
+        label: '4',
+        multipleAnswers: false,
+        answers: [
+          {
+            id: '4-1',
+            code: '4-1',
+            active: true,
+            label: '4-1',
+            dateRequired: false,
+            commentRequired: false,
+            nextQuestionId: null,
+          },
+          {
+            id: '4-2',
+            code: '4-2',
+            active: true,
+            label: '4-2',
             dateRequired: false,
             commentRequired: false,
             nextQuestionId: null,
@@ -122,7 +161,7 @@ describe('Question progress', () => {
     const questionProgress = new QuestionProgress(config, steps, report)
 
     it('should track progress through report questions', () => {
-      const progress = Array.from(questionProgress.walkQuestions())
+      const progress = Array.from(questionProgress)
       expect(progress).toEqual([
         // on first question, which is incomplete
         expect.objectContaining({
@@ -134,7 +173,7 @@ describe('Question progress', () => {
     })
 
     it('should return first incomplete question', () => {
-      expect(questionProgress.firstIncompleteQuestion().id).toEqual('1')
+      expect(questionProgress.firstIncompleteStep()).toHaveProperty('questionConfig.id', '1')
     })
 
     it('should state that the report is incomplete', () => {
@@ -142,7 +181,7 @@ describe('Question progress', () => {
     })
   })
 
-  describe('once some responses have been entered', () => {
+  describe('once a response has been entered', () => {
     const report = convertReportWithDetailsDates(
       mockReport({ reportReference: '6543', reportDateAndTime: now, withDetails: true }),
     )
@@ -166,7 +205,7 @@ describe('Question progress', () => {
     const questionProgress = new QuestionProgress(config, steps, report)
 
     it('should track progress through report questions', () => {
-      const progress = Array.from(questionProgress.walkQuestions())
+      const progress = Array.from(questionProgress)
       expect(progress).toEqual([
         expect.objectContaining({
           questionConfig: expect.objectContaining({ id: '1' }),
@@ -183,7 +222,56 @@ describe('Question progress', () => {
     })
 
     it('should return first incomplete question', () => {
-      expect(questionProgress.firstIncompleteQuestion().id).toEqual('2')
+      expect(questionProgress.firstIncompleteStep()).toHaveProperty('questionConfig.id', '2')
+    })
+
+    it('should state that the report is incomplete', () => {
+      expect(questionProgress.isComplete).toBe(false)
+    })
+  })
+
+  describe('once a differently branching response has been entered', () => {
+    const report = convertReportWithDetailsDates(
+      mockReport({ reportReference: '6543', reportDateAndTime: now, withDetails: true }),
+    )
+    // '1-2' response for question '1'
+    report.questions = [
+      {
+        code: '1',
+        question: '1',
+        responses: [
+          {
+            response: '1-2',
+            responseDate: null,
+            additionalInformation: null,
+            recordedAt: new Date(),
+            recordedBy: 'some-user',
+          },
+        ],
+        additionalInformation: null,
+      },
+    ]
+    const questionProgress = new QuestionProgress(config, steps, report)
+
+    it('should track progress through report questions', () => {
+      const progress = Array.from(questionProgress)
+      expect(progress).toEqual([
+        expect.objectContaining({
+          questionConfig: expect.objectContaining({ id: '1' }),
+          urlSuffix: '/1',
+          isComplete: true,
+        }),
+        // on fourth question, which is incomplete
+        expect.objectContaining({
+          questionConfig: expect.objectContaining({ id: '4' }),
+          urlSuffix: '/4',
+          isComplete: false,
+        }),
+      ])
+    })
+
+    it('should return first incomplete question', () => {
+      expect(questionProgress.firstIncompleteStep()).toHaveProperty('questionConfig.id', '4')
     })
 
     it('should state that the report is incomplete', () => {
@@ -197,6 +285,8 @@ describe('Question progress', () => {
     )
     // '1-1' response for question '1'
     // '2-2' response for question '2'
+    // '3-2' response for question '3'
+    // '4-1' response for question '4'
     report.questions = [
       {
         code: '1',
@@ -226,28 +316,66 @@ describe('Question progress', () => {
         ],
         additionalInformation: null,
       },
+      {
+        code: '3',
+        question: '3',
+        responses: [
+          {
+            response: '3-2',
+            responseDate: null,
+            additionalInformation: null,
+            recordedAt: new Date(),
+            recordedBy: 'some-user',
+          },
+        ],
+        additionalInformation: null,
+      },
+      {
+        code: '4',
+        question: '4',
+        responses: [
+          {
+            response: '4-1',
+            responseDate: null,
+            additionalInformation: null,
+            recordedAt: new Date(),
+            recordedBy: 'some-user',
+          },
+        ],
+        additionalInformation: null,
+      },
     ]
     const questionProgress = new QuestionProgress(config, steps, report)
 
     it('should track progress through report questions', () => {
-      const progress = Array.from(questionProgress.walkQuestions())
+      const progress = Array.from(questionProgress)
       expect(progress).toEqual([
         expect.objectContaining({
           questionConfig: expect.objectContaining({ id: '1' }),
           urlSuffix: '/1',
           isComplete: true,
         }),
-        // on second question, which is complete
         expect.objectContaining({
           questionConfig: expect.objectContaining({ id: '2' }),
           urlSuffix: '/2',
+          isComplete: true,
+        }),
+        expect.objectContaining({
+          questionConfig: expect.objectContaining({ id: '3' }),
+          urlSuffix: '/2',
+          isComplete: true,
+        }),
+        // on third question, which is complete
+        expect.objectContaining({
+          questionConfig: expect.objectContaining({ id: '4' }),
+          urlSuffix: '/4',
           isComplete: true,
         }),
       ])
     })
 
     it('should return no first incomplete question', () => {
-      expect(questionProgress.firstIncompleteQuestion()).toBeNull()
+      expect(questionProgress.firstIncompleteStep()).toBeNull()
     })
 
     it('should state that the report is complete', () => {

@@ -28,7 +28,7 @@ export class QuestionProgress {
    *
    * TODO: report validation is incomplete! does not check comment/date fields nor whether all responses are valid
    */
-  *walkQuestions(): Generator<QuestionProgressStep> {
+  *[Symbol.iterator](): Generator<QuestionProgressStep> {
     // map of question id to _first_ response code (assume multiple choice questions have options all leading to the same place)
     const reportResponses = new Map<string, string>()
     this.report.questions.forEach(question => {
@@ -64,12 +64,12 @@ export class QuestionProgress {
   }
 
   /**
-   * Find the first question that hasn’t been completed
+   * Find the first question step that hasn’t been completed
    */
-  firstIncompleteQuestion(): QuestionConfiguration | null {
-    for (const step of this.walkQuestions()) {
+  firstIncompleteStep(): QuestionProgressStep | null {
+    for (const step of this) {
       if (!step.isComplete) {
-        return step.questionConfig
+        return step
       }
     }
     return null
@@ -79,6 +79,6 @@ export class QuestionProgress {
    * Do completed questions reach a terminus?
    */
   get isComplete(): boolean {
-    return this.firstIncompleteQuestion() === null
+    return this.firstIncompleteStep() === null
   }
 }

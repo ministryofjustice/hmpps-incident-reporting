@@ -1,12 +1,14 @@
 import type { Express } from 'express'
 import request, { type Agent, type Response } from 'supertest'
 
+import config from '../../config'
 import format from '../../utils/format'
 import { appWithAllRoutes } from '../testutils/appSetup'
 import { IncidentReportingApi } from '../../data/incidentReportingApi'
 import { convertReportWithDetailsDates } from '../../data/incidentReportingApiUtils'
 import { mockErrorResponse, mockReport } from '../../data/testData/incidentReporting'
 import { mockThrownError } from '../../data/testData/thrownErrors'
+import { approverUser, hqUser, reportingUser, unauthorisedUser } from '../../data/testData/users'
 
 jest.mock('../../data/incidentReportingApi')
 
@@ -293,6 +295,53 @@ describe('Creating a report', () => {
           expect(res.text).toContain('Sorry, there was a problem with your request')
           expect(res.text).not.toContain('Bad Request')
           expect(res.text).not.toContain('Description is too short')
+        })
+    })
+  })
+
+  describe('Permissions', () => {
+    // NB: these test cases are simplified because the permissions class methods are thoroughly tested elsewhere
+
+    let previousActivePrisons: string[]
+
+    beforeAll(() => {
+      previousActivePrisons = config.activePrisons
+    })
+
+    beforeEach(() => {
+      config.activePrisons = previousActivePrisons
+    })
+
+    const granted = 'granted' as const
+    const denied = 'denied' as const
+    it.each([
+      { userType: 'reporting officer', user: reportingUser, action: granted },
+      { userType: 'data warden', user: approverUser, action: granted },
+      { userType: 'HQ view-only user', user: hqUser, action: denied },
+      { userType: 'unauthorised user', user: unauthorisedUser, action: denied },
+    ])('should be $action to $userType', ({ user, action }) => {
+      const testRequest = request(appWithAllRoutes({ userSupplier: () => user }))
+        .get('/create-report')
+        .redirects(1)
+      if (action === 'granted') {
+        return testRequest.expect(200)
+      }
+      return testRequest.expect(res => {
+        expect(res.redirects[0]).toContain('/sign-out')
+      })
+    })
+
+    it.each([
+      { userType: 'reporting officer', user: reportingUser },
+      { userType: 'data warden', user: approverUser },
+    ])('should be denied to $userType if active caseload is not an active prison', ({ user }) => {
+      config.activePrisons = ['LEI']
+
+      return request(appWithAllRoutes({ userSupplier: () => user }))
+        .get('/create-report')
+        .redirects(1)
+        .expect(res => {
+          expect(res.redirects[0]).toContain('/sign-out')
         })
     })
   })

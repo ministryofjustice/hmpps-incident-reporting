@@ -1,5 +1,6 @@
 import config from '../config'
 import RestClient from './restClient'
+import type { AgencyType } from './prisonApi'
 
 export interface Component {
   html: string
@@ -12,7 +13,7 @@ export type AvailableComponent = 'header' | 'footer'
 export interface CaseLoad {
   caseLoadId: string
   description: string
-  type: string
+  type: AgencyType
   caseloadFunction: string
   currentlyActive: boolean
 }
@@ -22,7 +23,6 @@ export interface Service {
   heading: string
   description: string
   href: string
-  navEnabled: boolean
 }
 
 export interface ComponentsResponse extends Record<AvailableComponent, Component> {

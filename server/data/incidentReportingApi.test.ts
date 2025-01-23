@@ -3,6 +3,7 @@ import nock from 'nock'
 import config from '../config'
 import type { SanitisedError } from '../sanitisedError'
 import { ErrorCode } from '../reportConfiguration/constants'
+import { now } from '../testutils/fakeClock'
 import {
   ErrorResponse,
   CreateReportRequest,
@@ -23,9 +24,6 @@ import { unsortedPageOf } from './testData/paginatedResponses'
 jest.mock('./tokenStore/redisTokenStore')
 
 describe('Incident reporting API client', () => {
-  // 2023-12-05T12:34:56.000Z
-  const now = new Date(2023, 11, 5, 12, 34, 56)
-
   const eventWith1Report = mockEvent({ eventReference: '54322', reportDateAndTime: now, includeReports: 1 })
   const basicReport = mockReport({ reportReference: '6543', reportDateAndTime: now })
   const reportWithDetails = mockReport({ reportReference: '6544', reportDateAndTime: now, withDetails: true })

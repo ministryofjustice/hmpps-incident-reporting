@@ -1,16 +1,38 @@
-import type { Prison, Staff } from '../prisonApi'
+import type { Agency, Staff } from '../prisonApi'
+import { AgencyType } from '../prisonApi'
 
-export const leeds: Prison = {
-  agencyId: 'LEI',
-  description: 'Leeds (HMP)',
-  agencyType: 'INST',
+export const brixton: Agency = {
+  agencyId: 'BXI',
+  description: 'Brixton (HMP)',
+  agencyType: AgencyType.INST,
   active: true,
 }
 
-export const moorland: Prison = {
+export const leeds: Agency = {
+  agencyId: 'LEI',
+  description: 'Leeds (HMP)',
+  agencyType: AgencyType.INST,
+  active: true,
+}
+
+export const moorland: Agency = {
   agencyId: 'MDI',
   description: 'Moorland (HMP & YOI)',
-  agencyType: 'INST',
+  agencyType: AgencyType.INST,
+  active: true,
+}
+
+export const pecsNorth: Agency = {
+  agencyId: 'NORTH',
+  description: 'PECS North',
+  agencyType: AgencyType.PECS,
+  active: true,
+}
+
+export const pecsSouth: Agency = {
+  agencyId: 'SOUTH',
+  description: 'PECS South',
+  agencyType: AgencyType.PECS,
   active: true,
 }
 

@@ -34,11 +34,13 @@
   <h1 class="govuk-heading-l">Incident reporting</h1>
 
   {% call renderDpsCards() %}
-    {{ renderDpsCard({
-      heading: "Report an incident",
-      description: "TODO",
-      href: "/create-report"
-    }) }}
+    {% if permissions.canCreateReportInActiveCaseload %}
+      {{ renderDpsCard({
+        heading: "Report an incident",
+        description: "TODO",
+        href: "/create-report"
+      }) }}
+    {% endif %}
     {{ renderDpsCard({
       heading: "View incidents",
       description: "TODO",

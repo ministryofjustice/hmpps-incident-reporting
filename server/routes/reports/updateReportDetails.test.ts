@@ -7,6 +7,7 @@ import { IncidentReportingApi } from '../../data/incidentReportingApi'
 import { convertBasicReportDates } from '../../data/incidentReportingApiUtils'
 import { mockErrorResponse, mockReport } from '../../data/testData/incidentReporting'
 import { mockThrownError } from '../../data/testData/thrownErrors'
+import { approverUser, hqUser, reportingUser, unauthorisedUser } from '../../data/testData/users'
 
 jest.mock('../../data/incidentReportingApi')
 
@@ -216,5 +217,29 @@ describe('Updating report details', () => {
         expect(res.text).not.toContain('Bad Request')
         expect(res.text).not.toContain('Description is too short')
       })
+  })
+
+  describe('Permissions', () => {
+    // NB: these test cases are simplified because the permissions class methods are thoroughly tested elsewhere
+
+    const granted = 'granted' as const
+    const denied = 'denied' as const
+    it.each([
+      { userType: 'reporting officer', user: reportingUser, action: granted },
+      { userType: 'data warden', user: approverUser, action: granted },
+      { userType: 'HQ view-only user', user: hqUser, action: denied },
+      { userType: 'unauthorised user', user: unauthorisedUser, action: denied },
+    ])('should be $action to $userType', ({ user, action }) => {
+      const testRequest = request
+        .agent(appWithAllRoutes({ userSupplier: () => user }))
+        .get(updateDetailsUrl)
+        .redirects(1)
+      if (action === 'granted') {
+        return testRequest.expect(200)
+      }
+      return testRequest.expect(res => {
+        expect(res.redirects[0]).toContain('/sign-out')
+      })
+    })
   })
 })

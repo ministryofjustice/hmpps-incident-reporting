@@ -9,11 +9,14 @@ import {
   type ReportWithDetails,
 } from '../../data/incidentReportingApi'
 import { convertReportWithDetailsDates } from '../../data/incidentReportingApiUtils'
-import { mockReport } from '../../data/testData/incidentReporting'
-import DEATH_OTHER from '../../reportConfiguration/types/DEATH_OTHER'
-import { parseDateInput } from '../../utils/utils'
-import FINDS from '../../reportConfiguration/types/FINDS'
+import { mockErrorResponse, mockReport } from '../../data/testData/incidentReporting'
+import { mockThrownError } from '../../data/testData/thrownErrors'
 import ASSAULT from '../../reportConfiguration/types/ASSAULT'
+import DEATH_OTHER from '../../reportConfiguration/types/DEATH_OTHER'
+import FINDS from '../../reportConfiguration/types/FINDS'
+import { parseDateInput } from '../../utils/utils'
+import { now } from '../../testutils/fakeClock'
+import { approverUser, hqUser, reportingUser, unauthorisedUser } from '../../data/testData/users'
 
 jest.mock('../../data/incidentReportingApi')
 
@@ -48,6 +51,20 @@ describe('Displaying responses', () => {
   beforeEach(() => {
     agent = request.agent(app)
     incidentReportingApi.getReportWithDetailsById.mockResolvedValue(reportWithDetails)
+  })
+
+  it('should 404 if report is not found', () => {
+    const error = mockThrownError(mockErrorResponse({ status: 404, message: 'Report not found' }), 404)
+    incidentReportingApi.getReportWithDetailsById.mockReset()
+    incidentReportingApi.getReportWithDetailsById.mockRejectedValueOnce(error)
+
+    return agent
+      .get(reportQuestionsUrl)
+      .redirects(1)
+      .expect(404)
+      .expect(res => {
+        expect(res.text).toContain('Page not found')
+      })
   })
 
   it('form is prefilled with report answers, including date', () => {
@@ -227,7 +244,7 @@ describe('Displaying responses', () => {
   })
 })
 
-describe(`Submitting questions' responses`, () => {
+describe('Submitting questions’ responses', () => {
   const incidentDateAndTime = new Date('2024-10-21T16:32:00+01:00')
   // Report type/answers updated in each test
   const reportWithDetails: ReportWithDetails = convertReportWithDetailsDates(
@@ -339,7 +356,7 @@ describe(`Submitting questions' responses`, () => {
         responses: [
           {
             response: 'YES',
-            responseDate: new Date(),
+            responseDate: parseDateInput(responseDate),
             recordedAt: new Date(),
             recordedBy: 'USER_1',
             additionalInformation: null,
@@ -639,6 +656,43 @@ describe(`Submitting questions' responses`, () => {
         expect(res.text).not.toContain('There is a problem')
         expect(res.redirects[0]).toMatch(`/${followingStep}`)
       })
+  })
+})
+
+describe('Question editing permissions', () => {
+  // NB: these test cases are simplified because the permissions class methods are thoroughly tested elsewhere
+
+  const reportWithDetails = convertReportWithDetailsDates(
+    mockReport({
+      reportReference: '6544',
+      reportDateAndTime: now,
+      withDetails: true,
+    }),
+  )
+  const reportQuestionsUrl = `/reports/${reportWithDetails.id}/questions`
+
+  beforeEach(() => {
+    incidentReportingApi.getReportWithDetailsById.mockResolvedValue(reportWithDetails)
+  })
+
+  const granted = 'granted' as const
+  const denied = 'denied' as const
+  it.each([
+    { userType: 'reporting officer', user: reportingUser, action: granted },
+    { userType: 'data warden', user: approverUser, action: granted },
+    { userType: 'HQ view-only user', user: hqUser, action: denied },
+    { userType: 'unauthorised user', user: unauthorisedUser, action: denied },
+  ])('should be $action to $userType', ({ user, action }) => {
+    const testRequest = request
+      .agent(appWithAllRoutes({ userSupplier: () => user }))
+      .get(reportQuestionsUrl)
+      .redirects(1)
+    if (action === 'granted') {
+      return testRequest.expect(200)
+    }
+    return testRequest.expect(res => {
+      expect(res.redirects[0]).toContain('/sign-out')
+    })
   })
 })
 

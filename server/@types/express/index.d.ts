@@ -1,6 +1,8 @@
+import type FormWizard from 'hmpo-form-wizard'
+
 import type { UserDetails } from '../../services/userService'
 import type { CaseLoad } from '../../data/frontendComponentsClient'
-import type { IncidentReportingApi } from '../../data/incidentReportingApi'
+import type { IncidentReportingApi, ReportBasic, ReportWithDetails } from '../../data/incidentReportingApi'
 import type { OffenderSearchApi } from '../../data/offenderSearchApi'
 import type { PrisonApi } from '../../data/prisonApi'
 import type { Permissions } from '../../middleware/permissions'
@@ -35,12 +37,20 @@ export declare global {
     interface Locals {
       user: Express.User
       systemToken: string
+      /** All routes have permissions checker */
       permissions: Permissions
+      /** All routes have api instances */
       apis: {
         incidentReportingApi: IncidentReportingApi
         prisonApi: PrisonApi
         offenderSearchApi: OffenderSearchApi
       }
+      /** Many routes load a report into locals */
+      report?: ReportBasic | ReportWithDetails
+      /** Some routes load question form wizard steps into locals */
+      questionSteps?: FormWizard.Steps<FormWizard.MultiValues>
+      /** Some routes load question form wizard fields into locals */
+      questionFields?: FormWizard.Fields
     }
   }
 }

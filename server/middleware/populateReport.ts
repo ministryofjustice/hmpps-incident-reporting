@@ -1,34 +1,32 @@
 import type { NextFunction, Request, Response } from 'express'
+import { NotImplemented } from 'http-errors'
 
 import logger from '../../logger'
-import { getIncidentTypeConfiguration } from '../reportConfiguration/types'
-import { generateFields, generateSteps } from '../data/incidentTypeConfiguration/formWizard'
 
+/**
+ * Loads a report by id from `req.params.id`
+ */
 // eslint-disable-next-line import/prefer-default-export
-export function populateReport() {
+export function populateReport(withDetails = true) {
   return async (req: Request, res: Response, next: NextFunction): Promise<void> => {
     const { incidentReportingApi } = res.locals.apis
     const reportId = req.params.id
 
-    try {
-      res.locals.report = await incidentReportingApi.getReportWithDetailsById(reportId)
-    } catch (error) {
-      logger.error(error, `Failed to populate report ${reportId}`)
-      next(error)
+    if (!reportId) {
+      next(new NotImplemented('populateReport() requires req.params.id'))
       return
     }
 
     try {
-      res.locals.reportConfig = await getIncidentTypeConfiguration(res.locals.report.type)
+      if (withDetails) {
+        res.locals.report = await incidentReportingApi.getReportWithDetailsById(reportId)
+      } else {
+        res.locals.report = await incidentReportingApi.getReportById(reportId)
+      }
+      next()
     } catch (error) {
-      logger.error(error, `Failed to populate config for report ${reportId} (${res.locals.report.type})`)
+      logger.error(error, `Failed to load report ${reportId}`)
       next(error)
-      return
     }
-
-    res.locals.reportSteps = generateSteps(res.locals.reportConfig)
-    res.locals.reportFields = generateFields(res.locals.reportConfig)
-
-    next()
   }
 }

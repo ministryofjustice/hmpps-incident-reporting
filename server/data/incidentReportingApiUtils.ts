@@ -32,6 +32,15 @@ export function convertReportWithDetailsDates(report: DatesAsStrings<ReportWithD
   }
 }
 
+export function convertReportDates(
+  report: DatesAsStrings<ReportBasic | ReportWithDetails>,
+): ReportBasic | ReportWithDetails {
+  if ('event' in report) {
+    return convertReportWithDetailsDates(report)
+  }
+  return convertBasicReportDates(report)
+}
+
 export function convertEventDates(event: DatesAsStrings<Event>): Event {
   return {
     ...event,

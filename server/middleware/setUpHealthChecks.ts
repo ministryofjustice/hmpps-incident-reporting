@@ -1,7 +1,8 @@
 import express, { type Router } from 'express'
 
-import healthcheck from '../services/healthCheck'
 import type { ApplicationInfo } from '../applicationInfo'
+import config from '../config'
+import healthcheck from '../services/healthCheck'
 
 export default function setUpHealthChecks(applicationInfo: ApplicationInfo): Router {
   const router = express.Router()
@@ -32,7 +33,7 @@ export default function setUpHealthChecks(applicationInfo: ApplicationInfo): Rou
         name: applicationInfo.applicationName,
       },
       productId: applicationInfo.productId,
-      activeAgencies: (process.env.SERVICE_ACTIVE_PRISONS ?? '').split(','),
+      activeAgencies: config.activePrisons,
     })
   })
 

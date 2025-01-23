@@ -2,7 +2,8 @@ import type { Express } from 'express'
 import request from 'supertest'
 
 import { PrisonApi } from '../data/prisonApi'
-import { appWithAllRoutes, unauthorisedUser } from './testutils/appSetup'
+import { unauthorisedUser } from '../data/testData/users'
+import { appWithAllRoutes } from './testutils/appSetup'
 
 jest.mock('../data/prisonApi')
 

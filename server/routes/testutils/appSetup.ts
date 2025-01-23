@@ -10,50 +10,9 @@ import nunjucksSetup from '../../utils/nunjucksSetup'
 import type { ApplicationInfo } from '../../applicationInfo'
 import errorHandler from '../../errorHandler'
 import type { Services } from '../../services'
-import { makeMockCaseload, mockCaseload } from '../../data/testData/frontendComponents'
-import { leeds } from '../../data/testData/prisonApi'
-import { roleReadOnly, roleReadWrite, roleApproveReject } from '../../data/constants'
-import { IncidentReportingApi } from '../../data/incidentReportingApi'
-import { OffenderSearchApi } from '../../data/offenderSearchApi'
-import { PrisonApi } from '../../data/prisonApi'
+import { reportingUser } from '../../data/testData/users'
 import { setupPermissions } from '../../middleware/permissions'
-
-/** Typical reporting officer with access to Moorland only */
-export const user: Express.User = {
-  name: 'JOHN SMITH',
-  userId: 'id',
-  token: 'token',
-  username: 'user1',
-  displayName: 'John Smith',
-  active: true,
-  activeCaseLoadId: 'MDI',
-  authSource: 'NOMIS',
-  roles: ['PRISON', roleReadWrite],
-  // from frontend components middleware
-  activeCaseLoad: mockCaseload,
-  caseLoads: [mockCaseload],
-}
-
-/** Data warden with write access to Leeds and Moorland */
-export const approverUser: Express.User = {
-  ...user,
-  roles: ['PRISON', roleApproveReject],
-  caseLoads: [mockCaseload, makeMockCaseload(leeds, false)],
-}
-
-/** HQ user with read-only access to Leeds and Moorland */
-export const hqUser: Express.User = {
-  ...user,
-  roles: ['PRISON', roleReadOnly],
-  caseLoads: [mockCaseload, makeMockCaseload(leeds, false)],
-}
-
-/** General user in Moorland without access */
-export const unauthorisedUser: Express.User = {
-  ...user,
-  roles: ['PRISON'],
-  caseLoads: [mockCaseload],
-}
+import setApis from '../../middleware/setApis'
 
 export const testAppInfo: ApplicationInfo = {
   applicationName: 'hmpps-incident-reporting',
@@ -81,17 +40,13 @@ function appSetup(services: Services, production: boolean, userSupplier: () => E
     Object.assign(res.locals, {
       user: { ...req.user },
       systemToken,
-      apis: {
-        incidentReportingApi: new IncidentReportingApi(systemToken),
-        offenderSearchApi: new OffenderSearchApi(systemToken),
-        prisonApi: new PrisonApi(systemToken),
-      },
     })
 
     next()
   })
   app.use(express.json())
   app.use(express.urlencoded({ extended: true }))
+  app.use(setApis())
   app.use(setupPermissions)
   app.use(routes(services))
   app.use((_req, _res, next) => next(new NotFound()))
@@ -103,7 +58,7 @@ function appSetup(services: Services, production: boolean, userSupplier: () => E
 export function appWithAllRoutes({
   production = false,
   services = { applicationInfo: testAppInfo },
-  userSupplier = () => user,
+  userSupplier = () => reportingUser,
 }: {
   production?: boolean
   services?: Partial<Services>

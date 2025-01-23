@@ -1,6 +1,8 @@
 import express from 'express'
 import nunjucks from 'nunjucks'
 
+import config from '../config'
+import { fakeClock, resetClock } from '../testutils/fakeClock'
 import nunjucksSetup from './nunjucksSetup'
 
 describe('nunjucks context', () => {
@@ -62,6 +64,60 @@ describe('nunjucks context', () => {
           {},
         )
       }).toThrow('unreachable')
+    })
+  })
+
+  describe('now() global', () => {
+    beforeAll(fakeClock)
+
+    afterAll(resetClock)
+
+    it('should return current date/time', () => {
+      const output = nunjucks
+        .renderString(
+          `
+            {{ now() }}
+          `,
+          {},
+        )
+        .trim()
+      expect(output).toContain('2023')
+    })
+  })
+
+  describe('isPrisonActiveInService() global', () => {
+    let previousActivePrisons: string[]
+
+    beforeAll(() => {
+      previousActivePrisons = config.activePrisons
+    })
+
+    afterAll(() => {
+      config.activePrisons = previousActivePrisons
+    })
+
+    it('should call helper function', () => {
+      config.activePrisons = ['MDI', 'LEI']
+
+      let output = nunjucks
+        .renderString(
+          `
+            {{ isPrisonActiveInService('MDI') }}
+          `,
+          {},
+        )
+        .trim()
+      expect(output).toEqual('true')
+
+      output = nunjucks
+        .renderString(
+          `
+            {{ isPrisonActiveInService('BXI') }}
+          `,
+          {},
+        )
+        .trim()
+      expect(output).toEqual('false')
     })
   })
 })

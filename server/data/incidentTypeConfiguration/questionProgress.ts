@@ -9,8 +9,10 @@ export interface QuestionProgressStep {
   questionConfig: QuestionConfiguration
   /** This question step’s URL path suffix */
   urlSuffix: string
+  /** Question number ignoring grouping */
+  questionNumber: number
   /** Page number when questions are grouped */
-  page: number
+  pageNumber: number
   /** This question step’s chosen answer, if completed */
   answerConfig?: AnswerConfiguration
   /** Whether this question step has been completed */
@@ -52,18 +54,20 @@ export class QuestionProgress {
       })
 
     let nextQuestionId = this.config.startingQuestionId
-    let page = 0
+    let questionNumber = 0
+    let pageNumber = 0
     let lastUrlSuffix = ''
     while (true) {
+      questionNumber += 1
       const questionConfig = this.config.questions[nextQuestionId]
       const urlSuffix = reportSteps.get(nextQuestionId)
       if (urlSuffix !== lastUrlSuffix) {
-        page += 1
+        pageNumber += 1
         lastUrlSuffix = urlSuffix
       }
       const firstResponseCode = reportResponses.get(questionConfig.id)
       const answerConfig = questionConfig.answers.find(someAnswerConfig => someAnswerConfig.code === firstResponseCode)
-      yield { questionConfig, urlSuffix, page, answerConfig, isComplete: Boolean(answerConfig) }
+      yield { questionConfig, urlSuffix, questionNumber, pageNumber, answerConfig, isComplete: Boolean(answerConfig) }
       nextQuestionId = answerConfig?.nextQuestionId
       if (!nextQuestionId) {
         break

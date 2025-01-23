@@ -167,6 +167,7 @@ describe('Question progress', () => {
         expect.objectContaining({
           questionConfig: expect.objectContaining({ id: '1' }),
           urlSuffix: '/1',
+          page: 1,
           isComplete: false,
         }),
       ])
@@ -210,12 +211,14 @@ describe('Question progress', () => {
         expect.objectContaining({
           questionConfig: expect.objectContaining({ id: '1' }),
           urlSuffix: '/1',
+          page: 1,
           isComplete: true,
         }),
         // on second question, which is incomplete
         expect.objectContaining({
           questionConfig: expect.objectContaining({ id: '2' }),
           urlSuffix: '/2',
+          page: 2,
           isComplete: false,
         }),
       ])
@@ -259,12 +262,14 @@ describe('Question progress', () => {
         expect.objectContaining({
           questionConfig: expect.objectContaining({ id: '1' }),
           urlSuffix: '/1',
+          page: 1,
           isComplete: true,
         }),
         // on fourth question, which is incomplete
         expect.objectContaining({
           questionConfig: expect.objectContaining({ id: '4' }),
           urlSuffix: '/4',
+          page: 2,
           isComplete: false,
         }),
       ])
@@ -353,22 +358,26 @@ describe('Question progress', () => {
         expect.objectContaining({
           questionConfig: expect.objectContaining({ id: '1' }),
           urlSuffix: '/1',
+          page: 1,
           isComplete: true,
         }),
         expect.objectContaining({
           questionConfig: expect.objectContaining({ id: '2' }),
           urlSuffix: '/2',
+          page: 2,
           isComplete: true,
         }),
         expect.objectContaining({
           questionConfig: expect.objectContaining({ id: '3' }),
           urlSuffix: '/2',
+          page: 2,
           isComplete: true,
         }),
         // on third question, which is complete
         expect.objectContaining({
           questionConfig: expect.objectContaining({ id: '4' }),
           urlSuffix: '/4',
+          page: 3,
           isComplete: true,
         }),
       ])

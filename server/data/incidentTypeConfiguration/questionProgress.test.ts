@@ -2,6 +2,7 @@ import { now } from '../../testutils/fakeClock'
 import { convertReportWithDetailsDates } from '../incidentReportingApiUtils'
 import { mockReport } from '../testData/incidentReporting'
 import type { IncidentTypeConfiguration } from './types'
+import { generateSteps } from './formWizard'
 import { QuestionProgress } from './questionProgress'
 
 describe('Question progress', () => {
@@ -110,6 +111,7 @@ describe('Question progress', () => {
       },
     },
   }
+  const steps = generateSteps(config)
 
   describe('before any responses have been entered', () => {
     const report = convertReportWithDetailsDates(
@@ -117,15 +119,17 @@ describe('Question progress', () => {
     )
     // no responses
     report.questions = []
-    const questionProgress = new QuestionProgress(config, report)
+    const questionProgress = new QuestionProgress(config, steps, report)
 
     it('should track progress through report questions', () => {
-      const progress = Array.from(questionProgress.walkQuestions()).map(({ questionConfig: { id }, isComplete }) => {
-        return { id, isComplete }
-      })
+      const progress = Array.from(questionProgress.walkQuestions())
       expect(progress).toEqual([
         // on first question, which is incomplete
-        { id: '1', isComplete: false },
+        expect.objectContaining({
+          questionConfig: expect.objectContaining({ id: '1' }),
+          urlSuffix: '/1',
+          isComplete: false,
+        }),
       ])
     })
 
@@ -159,16 +163,22 @@ describe('Question progress', () => {
         additionalInformation: null,
       },
     ]
-    const questionProgress = new QuestionProgress(config, report)
+    const questionProgress = new QuestionProgress(config, steps, report)
 
     it('should track progress through report questions', () => {
-      const progress = Array.from(questionProgress.walkQuestions()).map(({ questionConfig: { id }, isComplete }) => {
-        return { id, isComplete }
-      })
+      const progress = Array.from(questionProgress.walkQuestions())
       expect(progress).toEqual([
-        { id: '1', isComplete: true },
+        expect.objectContaining({
+          questionConfig: expect.objectContaining({ id: '1' }),
+          urlSuffix: '/1',
+          isComplete: true,
+        }),
         // on second question, which is incomplete
-        { id: '2', isComplete: false },
+        expect.objectContaining({
+          questionConfig: expect.objectContaining({ id: '2' }),
+          urlSuffix: '/2',
+          isComplete: false,
+        }),
       ])
     })
 
@@ -217,16 +227,22 @@ describe('Question progress', () => {
         additionalInformation: null,
       },
     ]
-    const questionProgress = new QuestionProgress(config, report)
+    const questionProgress = new QuestionProgress(config, steps, report)
 
     it('should track progress through report questions', () => {
-      const progress = Array.from(questionProgress.walkQuestions()).map(({ questionConfig: { id }, isComplete }) => {
-        return { id, isComplete }
-      })
+      const progress = Array.from(questionProgress.walkQuestions())
       expect(progress).toEqual([
-        { id: '1', isComplete: true },
+        expect.objectContaining({
+          questionConfig: expect.objectContaining({ id: '1' }),
+          urlSuffix: '/1',
+          isComplete: true,
+        }),
         // on second question, which is complete
-        { id: '2', isComplete: true },
+        expect.objectContaining({
+          questionConfig: expect.objectContaining({ id: '2' }),
+          urlSuffix: '/2',
+          isComplete: true,
+        }),
       ])
     })
 

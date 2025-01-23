@@ -19,7 +19,7 @@ import {
 import QuestionsToDelete from '../../services/questionsToDelete'
 
 export default class QuestionsController extends BaseController<FormWizard.MultiValues> {
-  getBackLink(req: FormWizard.Request, _res: express.Response): string {
+  getBackLink(req: FormWizard.Request<FormWizard.MultiValues>, _res: express.Response): string {
     const reportId = req.params.id
     return `/reports/${reportId}`
   }

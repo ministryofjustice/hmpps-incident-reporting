@@ -10,6 +10,10 @@ import type {
   Response,
 } from './incidentReportingApi'
 
+export function reportHasDetails(report: ReportBasic | ReportWithDetails): report is ReportWithDetails {
+  return 'event' in report
+}
+
 export function convertBasicReportDates(report: DatesAsStrings<ReportBasic>): ReportBasic {
   return {
     ...report,

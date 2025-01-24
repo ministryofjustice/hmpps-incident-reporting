@@ -3,6 +3,7 @@ import type FormWizard from 'hmpo-form-wizard'
 import type { UserDetails } from '../../services/userService'
 import type { CaseLoad } from '../../data/frontendComponentsClient'
 import type { IncidentReportingApi, ReportBasic, ReportWithDetails } from '../../data/incidentReportingApi'
+import type { QuestionProgress } from '../../data/incidentTypeConfiguration/questionProgress'
 import type { OffenderSearchApi } from '../../data/offenderSearchApi'
 import type { PrisonApi } from '../../data/prisonApi'
 import type { Permissions } from '../../middleware/permissions'
@@ -51,6 +52,8 @@ export declare global {
       questionSteps?: FormWizard.Steps<FormWizard.MultiValues>
       /** Some routes load question form wizard fields into locals */
       questionFields?: FormWizard.Fields
+      /** Some routes load question progress when a report with details is available */
+      questionProgress?: QuestionProgress
     }
   }
 }

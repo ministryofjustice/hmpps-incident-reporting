@@ -109,7 +109,7 @@ export function toGraphviz(config: DpsIncidentTypeConfiguration): string {
 
   let result = `digraph ${config.incidentType} {`
   // Left to right
-  result += '  rankdir=LR;\n'
+  result += '\n  rankdir=LR;\n'
   // Nodes are cicles
   result += '  node [shape = circle];\n'
   // Start arrow to first question
@@ -122,13 +122,13 @@ export function toGraphviz(config: DpsIncidentTypeConfiguration): string {
   for (const question of questions) {
     const questionStyle = question.active === true ? '' : inactiveStyle
 
-    result += `  ${question.id} [label = "${question.label}"${questionStyle}];\n`
+    result += `  ${question.id} [label = < <FONT COLOR="royalblue">${question.id} </FONT> ${question.label} >${questionStyle}];\n`
     for (const answer of question.answers) {
       const answerStyle = answer.active === true ? '' : inactiveStyle
 
       const nextNode = answer.nextQuestionId ?? 'END_NODE'
 
-      result += `  ${question.id} -> ${nextNode} [label = "${answer.label}"${answerStyle}];\n`
+      result += `  ${question.id} -> ${nextNode} [label = < <FONT COLOR="royalblue">${answer.id} </FONT> ${answer.label} >${answerStyle}];\n`
     }
   }
 

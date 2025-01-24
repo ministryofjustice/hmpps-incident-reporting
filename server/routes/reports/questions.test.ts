@@ -34,21 +34,24 @@ afterEach(() => {
 
 describe('Displaying responses', () => {
   // Report type/answers updated in each test
-  const reportWithDetails: ReportWithDetails = convertReportWithDetailsDates(
-    mockReport({
-      type: 'FINDS',
-      reportReference: '6544',
-      reportDateAndTime: now,
-      withDetails: true,
-    }),
-  )
-
-  const reportQuestionsUrl = `/reports/${reportWithDetails.id}/questions`
+  let reportWithDetails: ReportWithDetails
+  let reportQuestionsUrl: string
 
   let agent: Agent
 
   beforeEach(() => {
     agent = request.agent(app)
+
+    reportWithDetails = convertReportWithDetailsDates(
+      mockReport({
+        type: 'FINDS',
+        reportReference: '6544',
+        reportDateAndTime: now,
+        withDetails: true,
+      }),
+    )
+    reportWithDetails.questions = []
+    reportQuestionsUrl = `/reports/${reportWithDetails.id}/questions`
     incidentReportingApi.getReportWithDetailsById.mockResolvedValue(reportWithDetails)
   })
 
@@ -240,6 +243,59 @@ describe('Displaying responses', () => {
         expect(res.text).toContain('name="61282" type="radio" value="NO" checked')
         expect(res.text).toContain('name="61283" type="radio" value="YES" checked')
       })
+  })
+
+  describe('Page numbering', () => {
+    it('should show 1 on first page', async () => {
+      await agent.get(reportQuestionsUrl).redirects(1).expect(200)
+      return agent
+        .get(`${reportQuestionsUrl}/67179`)
+        .redirects(1)
+        .expect(res => {
+          expect(res.text).toContain('Incident questions 1')
+        })
+    })
+
+    it('should show 2 on second page', async () => {
+      const questionsResponse: Question[] = [
+        {
+          code: '67179',
+          question: 'DESCRIBE HOW THE ITEM WAS FOUND (SELECT ALL THAT APPLY)',
+          additionalInformation: null,
+          responses: [
+            {
+              response: 'CELL SEARCH',
+              responseDate: null,
+              additionalInformation: null,
+              recordedBy: 'USER_1',
+              recordedAt: new Date(),
+            },
+          ],
+        },
+      ]
+      reportWithDetails.questions = questionsResponse
+      incidentReportingApi.addOrUpdateQuestionsWithResponses.mockResolvedValue(questionsResponse)
+
+      await agent
+        .get(reportQuestionsUrl)
+        .redirects(1)
+        .expect(res => {
+          expect(res.redirects.at(-1)).toMatch(/\/67179$/)
+        })
+      await agent
+        .post(`${reportQuestionsUrl}/67179`)
+        .send({
+          '67179': ['CELL SEARCH'],
+        })
+        .redirects(1)
+        .expect(res => {
+          expect(res.redirects.at(-1)).toMatch(/\/67180$/)
+        })
+
+      return agent.get(`${reportQuestionsUrl}/67180`).expect(res => {
+        expect(res.text).toContain('Incident questions 2')
+      })
+    })
   })
 })
 

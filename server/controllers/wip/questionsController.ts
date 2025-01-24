@@ -19,6 +19,29 @@ import {
 import QuestionsToDelete from '../../services/questionsToDelete'
 
 export default class QuestionsController extends BaseController<FormWizard.MultiValues> {
+  middlewareLocals(): void {
+    super.middlewareLocals()
+    this.use(this.checkQuestionProgress)
+  }
+
+  checkQuestionProgress(
+    req: FormWizard.Request<FormWizard.MultiValues>,
+    res: express.Response,
+    next: express.NextFunction,
+  ): void {
+    const stepPath: string = req.route.path
+    for (const progressStep of res.locals.questionProgress) {
+      if (progressStep.urlSuffix === stepPath) {
+        res.locals.questionPageNumber = progressStep.pageNumber
+        break
+      }
+    }
+    if (!res.locals.questionPageNumber) {
+      logger.error(`Could not find question page number for ${stepPath} in report type ${res.locals.report.type}`)
+    }
+    next()
+  }
+
   getBackLink(req: FormWizard.Request<FormWizard.MultiValues>, _res: express.Response): string {
     const reportId = req.params.id
     return `/reports/${reportId}`

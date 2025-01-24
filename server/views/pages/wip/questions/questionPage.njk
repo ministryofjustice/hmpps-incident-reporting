@@ -1,5 +1,7 @@
 {% extends "partials/formWizardLayout.njk" %}
 
+{% set pageTitle %}Incident questions {{ questionPageNumber }}{% endset %}
+
 {% block formFields %}
   {% from "macros/renderField.njk" import renderField %}
 

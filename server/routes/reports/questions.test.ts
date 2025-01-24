@@ -122,43 +122,14 @@ describe('Displaying responses', () => {
 
   it('form is prefilled with report answers, multiple choices are selected', () => {
     reportWithDetails.type = 'FINDS'
-
     reportWithDetails.questions = [
-      {
-        code: '67179',
-        question: 'DESCRIBE HOW THE ITEM WAS FOUND (SELECT ALL THAT APPLY)',
-        additionalInformation: null,
-        responses: [
-          {
-            response: 'BOSS CHAIR',
-            responseDate: null,
-            additionalInformation: null,
-            recordedBy: 'USER1',
-            recordedAt: now,
-          },
-          {
-            response: 'DOG SEARCH',
-            responseDate: null,
-            additionalInformation: null,
-            recordedBy: 'USER1',
-            recordedAt: now,
-          },
-        ],
-      },
-      {
-        code: '67180',
-        question: 'IS THE LOCATION OF THE INCIDENT KNOWN?',
-        additionalInformation: null,
-        responses: [
-          {
-            response: 'NO',
-            responseDate: null,
-            additionalInformation: null,
-            recordedBy: 'USER1',
-            recordedAt: now,
-          },
-        ],
-      },
+      makeSimpleQuestion(
+        '67179',
+        'DESCRIBE HOW THE ITEM WAS FOUND (SELECT ALL THAT APPLY)',
+        'BOSS CHAIR',
+        'DOG SEARCH',
+      ),
+      makeSimpleQuestion('67180', 'IS THE LOCATION OF THE INCIDENT KNOWN?', 'NO'),
     ]
 
     return agent
@@ -175,78 +146,12 @@ describe('Displaying responses', () => {
 
   it('form is prefilled with report answers, multiple questions answered', () => {
     reportWithDetails.type = 'ASSAULT'
-
     reportWithDetails.questions = [
-      {
-        code: '61279',
-        question: 'WHAT WAS THE MAIN MANAGEMENT OUTCOME OF THE INCIDENT',
-        additionalInformation: null,
-        responses: [
-          {
-            response: 'POLICE REFERRAL',
-            responseDate: null,
-            additionalInformation: null,
-            recordedBy: 'USER1',
-            recordedAt: now,
-          },
-        ],
-      },
-      {
-        code: '61280',
-        question: 'IS ANY MEMBER OF STAFF FACING DISCIPLINARY CHARGES',
-        additionalInformation: null,
-        responses: [
-          {
-            response: 'NO',
-            responseDate: null,
-            additionalInformation: null,
-            recordedBy: 'USER1',
-            recordedAt: now,
-          },
-        ],
-      },
-      {
-        code: '61281',
-        question: 'IS THERE ANY MEDIA INTEREST IN THIS INCIDENT',
-        additionalInformation: null,
-        responses: [
-          {
-            response: 'NO',
-            responseDate: null,
-            additionalInformation: null,
-            recordedBy: 'USER1',
-            recordedAt: now,
-          },
-        ],
-      },
-      {
-        code: '61282',
-        question: 'HAS THE PRISON SERVICE PRESS OFFICE BEEN INFORMED',
-        additionalInformation: null,
-        responses: [
-          {
-            response: 'NO',
-            responseDate: null,
-            additionalInformation: null,
-            recordedBy: 'USER1',
-            recordedAt: now,
-          },
-        ],
-      },
-      {
-        code: '61283',
-        question: 'IS THE LOCATION OF THE INCDENT KNOWN',
-        additionalInformation: null,
-        responses: [
-          {
-            response: 'YES',
-            responseDate: null,
-            additionalInformation: null,
-            recordedBy: 'USER1',
-            recordedAt: now,
-          },
-        ],
-      },
+      makeSimpleQuestion('61279', 'WHAT WAS THE MAIN MANAGEMENT OUTCOME OF THE INCIDENT', 'POLICE REFERRAL'),
+      makeSimpleQuestion('61280', 'IS ANY MEMBER OF STAFF FACING DISCIPLINARY CHARGES', 'NO'),
+      makeSimpleQuestion('61281', 'IS THERE ANY MEDIA INTEREST IN THIS INCIDENT', 'NO'),
+      makeSimpleQuestion('61282', 'HAS THE PRISON SERVICE PRESS OFFICE BEEN INFORMED', 'NO'),
+      makeSimpleQuestion('61283', 'IS THE LOCATION OF THE INCDENT KNOWN', 'YES'),
     ]
 
     return agent
@@ -538,27 +443,12 @@ describe('Submitting questions’ responses', () => {
     ]
 
     const questionsResponse: Question[] = [
-      {
-        code: '67179',
-        question: 'DESCRIBE HOW THE ITEM WAS FOUND (SELECT ALL THAT APPLY)',
-        additionalInformation: null,
-        responses: [
-          {
-            response: 'BOSS CHAIR',
-            responseDate: null,
-            recordedAt: new Date(),
-            recordedBy: 'USER_1',
-            additionalInformation: null,
-          },
-          {
-            response: 'DOG SEARCH',
-            responseDate: null,
-            recordedAt: new Date(),
-            recordedBy: 'USER_1',
-            additionalInformation: null,
-          },
-        ],
-      },
+      makeSimpleQuestion(
+        '67179',
+        'DESCRIBE HOW THE ITEM WAS FOUND (SELECT ALL THAT APPLY)',
+        'BOSS CHAIR',
+        'DOG SEARCH',
+      ),
     ]
     incidentReportingApi.addOrUpdateQuestionsWithResponses.mockResolvedValue(questionsResponse)
 
@@ -659,109 +549,18 @@ describe('Submitting questions’ responses', () => {
     ]
 
     const questionsResponse: Question[] = [
-      {
-        code: '61279',
-        question: 'WHAT WAS THE MAIN MANAGEMENT OUTCOME OF THE INCIDENT',
-        additionalInformation: null,
-        responses: [
-          {
-            response: 'POLICE REFERRAL',
-            responseDate: null,
-            additionalInformation: null,
-            recordedBy: 'USER_1',
-            recordedAt: new Date(),
-          },
-        ],
-      },
-      {
-        code: '61280',
-        question: 'IS ANY MEMBER OF STAFF FACING DISCIPLINARY CHARGES',
-        additionalInformation: null,
-        responses: [
-          {
-            response: 'YES',
-            responseDate: null,
-            additionalInformation: null,
-            recordedBy: 'USER_1',
-            recordedAt: new Date(),
-          },
-        ],
-      },
-      {
-        code: '61281',
-        question: 'IS THERE ANY MEDIA INTEREST IN THIS INCIDENT',
-        additionalInformation: null,
-        responses: [
-          {
-            response: 'NO',
-            responseDate: null,
-            additionalInformation: null,
-            recordedBy: 'USER_1',
-            recordedAt: new Date(),
-          },
-        ],
-      },
-      {
-        code: '61282',
-        question: 'HAS THE PRISON SERVICE PRESS OFFICE BEEN INFORMED',
-        additionalInformation: null,
-        responses: [
-          {
-            response: 'YES',
-            responseDate: null,
-            additionalInformation: null,
-            recordedBy: 'USER_1',
-            recordedAt: new Date(),
-          },
-        ],
-      },
-      {
-        // NOTE: Answer changed from 'YES' to 'NO'
-        code: '61283',
-        question: 'IS THE LOCATION OF THE INCDENT KNOWN',
-        additionalInformation: null,
-        responses: [
-          {
-            response: 'NO',
-            responseDate: null,
-            additionalInformation: null,
-            recordedBy: 'USER_1',
-            recordedAt: new Date(),
-          },
-        ],
-      },
-      {
-        // NOTE: This question will need to be deleted.
-        // Answer to previous question changed so branch where this
-        // sits is no longer entered now
-        code: '61284',
-        question: 'WHAT WAS THE LOCATION OF THE INCIDENT',
-        additionalInformation: null,
-        responses: [
-          {
-            response: 'GYM',
-            responseDate: null,
-            additionalInformation: null,
-            recordedBy: 'USER_1',
-            recordedAt: new Date(),
-          },
-        ],
-      },
-      {
-        // NOTE: This question asked regardless of branching, will be retained
-        code: '61285',
-        question: 'WAS THIS A SEXUAL ASSAULT',
-        additionalInformation: null,
-        responses: [
-          {
-            response: 'NO',
-            responseDate: null,
-            additionalInformation: null,
-            recordedBy: 'USER_1',
-            recordedAt: new Date(),
-          },
-        ],
-      },
+      makeSimpleQuestion('61279', 'WHAT WAS THE MAIN MANAGEMENT OUTCOME OF THE INCIDENT', 'POLICE REFERRAL'),
+      makeSimpleQuestion('61280', 'IS ANY MEMBER OF STAFF FACING DISCIPLINARY CHARGES', 'YES'),
+      makeSimpleQuestion('61281', 'IS THERE ANY MEDIA INTEREST IN THIS INCIDENT', 'NO'),
+      makeSimpleQuestion('61282', 'HAS THE PRISON SERVICE PRESS OFFICE BEEN INFORMED', 'YES'),
+      // NOTE: Answer changed from 'YES' to 'NO'
+      makeSimpleQuestion('61283', 'IS THE LOCATION OF THE INCDENT KNOWN', 'NO'),
+      // NOTE: This question will need to be deleted.
+      // Answer to previous question changed so branch where this
+      // sits is no longer entered now
+      makeSimpleQuestion('61284', 'WHAT WAS THE LOCATION OF THE INCIDENT', 'GYM'),
+      // NOTE: This question asked regardless of branching, will be retained
+      makeSimpleQuestion('61285', 'WAS THIS A SEXUAL ASSAULT', 'NO'),
     ]
     incidentReportingApi.addOrUpdateQuestionsWithResponses.mockResolvedValue(questionsResponse)
 

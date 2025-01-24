@@ -291,17 +291,20 @@
       {%- endif -%}
 
       {# Rows of questions (with their responses) #}
+      {% set question %}
+        {{ loop.index }}. {{ question.question }}
+      {% endset %}
       {%- set questionsRows = (questionsRows.push({
-        key: { text: question.question },
+        key: { html: question },
         value: { html: responses }
       }), questionsRows) -%}
     {%- endfor -%}
 
-    {%- set questionsActionItems = (questionsActionItems.push({
+    {% set questionsActionItems = [{
       href: "/reports/" + report.id + "/questions",
       text: "Change",
       visuallyHiddenText: "question responses"
-    }), questionsActionItems) -%}
+    }] %}
 
 
   {%- else -%}

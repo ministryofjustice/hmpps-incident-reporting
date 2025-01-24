@@ -156,9 +156,9 @@ describe('GET view report page with details', () => {
       .get(viewReportUrl)
       .expect('Content-Type', /html/)
       .expect(res => {
-        expect(res.text).toContain('Question #1')
+        expect(res.text).toContain('1. Question #1')
         expect(res.text).toContain('Response #1')
-        expect(res.text).toContain('Question #2')
+        expect(res.text).toContain('2. Question #2')
       })
   })
 

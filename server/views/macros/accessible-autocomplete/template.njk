@@ -14,7 +14,7 @@
       <span class="govuk-visually-hidden">Error: </span>{{ params.errorMessage.text }}
     </span>
   {% endif %}
-  <select id="{{ params.id }}" name="{{ params.id }}"class="govuk-input govuk-input--width-30">
+  <select id="{{ params.id }}" name="{{ params.id }}" class="govuk-input govuk-input--width-30">
       <option value="">Please select from the list</option>
       {% for item in params.items %}
           <option value="{{item.value}}" {% if item.value === params.value %}selected{% endif %}>{{item.text}}</option>

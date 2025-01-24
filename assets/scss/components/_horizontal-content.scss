@@ -71,7 +71,7 @@
 .horizontal-form__wrapper {
   background-color: govuk-colour("light-grey");
   .autocomplete__input {
-    background-color: white;
+    background-color: $govuk-body-background-colour;
     width: 29em
   }
 }

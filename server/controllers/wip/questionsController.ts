@@ -32,6 +32,7 @@ export default class QuestionsController extends BaseController<FormWizard.Multi
     const stepPath: string = req.route.path
     for (const progressStep of res.locals.questionProgress) {
       if (progressStep.urlSuffix === stepPath) {
+        res.locals.firstQuestionNumber = progressStep.questionNumber
         res.locals.questionPageNumber = progressStep.pageNumber
         break
       }

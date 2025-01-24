@@ -9,6 +9,7 @@ import {
   IncidentReportingApi,
   type Question,
   type ReportWithDetails,
+  type Response,
 } from '../../data/incidentReportingApi'
 import { convertReportWithDetailsDates } from '../../data/incidentReportingApiUtils'
 import { mockErrorResponse, mockReport } from '../../data/testData/incidentReporting'
@@ -31,6 +32,24 @@ beforeEach(() => {
 afterEach(() => {
   jest.resetAllMocks()
 })
+
+function makeSimpleQuestion(code: string, question: string, ...responseCodes: string[]): Question {
+  return {
+    code,
+    question,
+    additionalInformation: null,
+    responses: responseCodes.map(responseCode => {
+      const response: Response = {
+        response: responseCode,
+        responseDate: null,
+        additionalInformation: null,
+        recordedBy: 'USER1',
+        recordedAt: now,
+      }
+      return response
+    }),
+  }
+}
 
 describe('Displaying responses', () => {
   // Report type/answers updated in each test
@@ -245,18 +264,71 @@ describe('Displaying responses', () => {
       })
   })
 
-  describe('Page numbering', () => {
-    it('should show 1 on first page', async () => {
-      await agent.get(reportQuestionsUrl).redirects(1).expect(200)
+  describe('Page & question numbering', () => {
+    it('should show question numbers on first page', () => {
+      reportWithDetails.type = 'ATTEMPTED_ESCAPE_FROM_CUSTODY'
       return agent
-        .get(`${reportQuestionsUrl}/67179`)
+        .get(reportQuestionsUrl)
+        .redirects(1)
+        .expect(res => {
+          expect(res.text).toContain('1. Were the police informed of the incident?')
+          expect(res.text).toContain('2. The incident is subject to')
+          expect(res.text).toContain('3. Is any member of staff facing disciplinary charges?')
+          expect(res.text).toContain('4. Is there any media interest in this incident?')
+          expect(res.text).toContain('5. Has the prison service press office been informed?')
+        })
+    })
+
+    it('should show question numbers on second page', async () => {
+      const questionsResponse: Question[] = [
+        makeSimpleQuestion('44769', 'WERE THE POLICE INFORMED OF THE INCIDENT', 'NO'),
+        makeSimpleQuestion('44919', 'THE INCIDENT IS SUBJECT TO', 'INVESTIGATION INTERNALLY'),
+        makeSimpleQuestion('45033', 'IS ANY MEMBER OF STAFF FACING DISCIPLINARY CHARGES', 'NO'),
+        makeSimpleQuestion('44636', 'IS THERE ANY MEDIA INTEREST IN THIS INCIDENT', 'NO'),
+        makeSimpleQuestion('44749', 'HAS THE PRISON SERVICE PRESS OFFICE BEEN INFORMED', 'NO'),
+      ]
+      reportWithDetails.type = 'ATTEMPTED_ESCAPE_FROM_CUSTODY'
+      reportWithDetails.questions = questionsResponse
+      incidentReportingApi.addOrUpdateQuestionsWithResponses.mockResolvedValue(questionsResponse)
+
+      await agent
+        .get(reportQuestionsUrl)
+        .redirects(1)
+        .expect(res => {
+          expect(res.redirects.at(-1)).toMatch(/\/44769$/)
+        })
+      await agent
+        .post(`${reportQuestionsUrl}/44769`)
+        .send({
+          '44769': ['NO'],
+          '44919': ['INVESTIGATION INTERNALLY'],
+          '45033': ['NO'],
+          '44636': ['NO'],
+          '44749': ['NO'],
+        })
+        .redirects(1)
+        .expect(res => {
+          expect(res.redirects.at(-1)).toMatch(/\/44594$/)
+        })
+
+      return agent
+        .get(`${reportQuestionsUrl}/44594`)
+        .redirects(1)
+        .expect(res => {
+          expect(res.text).toContain('6. Where was the prisoner prior to the start of the attempted escape?')
+        })
+    })
+
+    it('should show page 1 on first page', () => {
+      return agent
+        .get(reportQuestionsUrl)
         .redirects(1)
         .expect(res => {
           expect(res.text).toContain('Incident questions 1')
         })
     })
 
-    it('should show 2 on second page', async () => {
+    it('should show page 2 on second page', async () => {
       const questionsResponse: Question[] = [
         {
           code: '67179',

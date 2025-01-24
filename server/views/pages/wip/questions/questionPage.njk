@@ -5,16 +5,19 @@
 {% block formFields %}
   {% from "macros/renderField.njk" import renderField %}
 
+  {% set index = 0 %}
   {# NB: Fields are rendered in the original order #}
   {% for fieldName in questionSteps[options.route].fields %}
     {% set field = options.fields[fieldName] %}
 
     {# NB:
       - dependent fields are currently only used in conditionals so are rendered separately
-      - fields starting with _ are internally generated (e.g. hours and minutes subfields for time)
     #}
-    {% if not field.dependent and not fieldName.startsWith("_") %}
+    {% if not field.dependent %}
+      {% set label = (firstQuestionNumber + index) + ". " + field.label %}
+      {% set field = mergeObjects(field, {label: label}) %}
       {{ renderField(fieldName, field, options, values, errors) }}
+      {% set index = index + 1 %}
     {% endif %}
   {% endfor %}
 {% endblock %}

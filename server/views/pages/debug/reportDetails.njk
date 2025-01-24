@@ -264,8 +264,6 @@
     }) }}
 
 <!-- Question responses table -->
-  {%- set questionsActionItems = [] -%}
-
   {%- if report.questions.length > 0 -%}
     {%- set questionsRows = [] -%}
     {%- for question in report.questions -%}
@@ -300,13 +298,6 @@
       }), questionsRows) -%}
     {%- endfor -%}
 
-    {% set questionsActionItems = [{
-      href: "/reports/" + report.id + "/questions",
-      text: "Change",
-      visuallyHiddenText: "question responses"
-    }] %}
-
-
   {%- else -%}
     {%- set questionsRows = [{
       key: { text: "No responses found" },
@@ -320,7 +311,11 @@
         text: "Question responses"
       },
       actions: {
-        items: questionsActionItems
+        items: [{
+          href: "/reports/" + report.id + "/questions",
+          text: "Change",
+          visuallyHiddenText: "question responses"
+        }]
       } if permissions.canEditReport(report) else {}
     },
     rows: questionsRows

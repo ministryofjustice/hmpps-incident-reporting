@@ -9,10 +9,10 @@ import {
   IncidentReportingApi,
   type Question,
   type ReportWithDetails,
-  type Response,
 } from '../../data/incidentReportingApi'
 import { convertReportWithDetailsDates } from '../../data/incidentReportingApiUtils'
 import { mockErrorResponse, mockReport } from '../../data/testData/incidentReporting'
+import { makeSimpleQuestion } from '../../data/testData/incidentReportingJest'
 import { mockThrownError } from '../../data/testData/thrownErrors'
 import { approverUser, hqUser, reportingUser, unauthorisedUser } from '../../data/testData/users'
 import ASSAULT from '../../reportConfiguration/types/ASSAULT'
@@ -33,24 +33,6 @@ beforeEach(() => {
 afterEach(() => {
   jest.resetAllMocks()
 })
-
-function makeSimpleQuestion(code: string, question: string, ...responseCodes: string[]): Question {
-  return {
-    code,
-    question,
-    additionalInformation: null,
-    responses: responseCodes.map(responseCode => {
-      const response: Response = {
-        response: responseCode,
-        responseDate: null,
-        additionalInformation: null,
-        recordedBy: 'USER1',
-        recordedAt: now,
-      }
-      return response
-    }),
-  }
-}
 
 describe('Displaying responses', () => {
   // Report type/answers updated in each test

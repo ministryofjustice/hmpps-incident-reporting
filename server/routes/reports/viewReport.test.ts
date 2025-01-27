@@ -9,6 +9,7 @@ import UserService from '../../services/userService'
 import { IncidentReportingApi } from '../../data/incidentReportingApi'
 import { OffenderSearchApi, type OffenderSearchResult } from '../../data/offenderSearchApi'
 import { mockErrorResponse, mockReport } from '../../data/testData/incidentReporting'
+import { makeSimpleQuestion } from '../../data/testData/incidentReportingJest'
 import { mockThrownError } from '../../data/testData/thrownErrors'
 import { convertReportWithDetailsDates } from '../../data/incidentReportingApiUtils'
 import type { User } from '../../data/manageUsersApiClient'
@@ -67,6 +68,15 @@ describe('GET view report page with details', () => {
     const mockedReport = convertReportWithDetailsDates(
       mockReport({ reportReference: '6543', reportDateAndTime: now, withDetails: true }),
     )
+    mockedReport.questions = [
+      makeSimpleQuestion(
+        '67179',
+        'DESCRIBE HOW THE ITEM WAS FOUND (SELECT ALL THAT APPLY)',
+        'CELL SEARCH',
+        'INFORMATION RECEIVED',
+      ),
+      makeSimpleQuestion('67180', 'IS THE LOCATION OF THE INCIDENT KNOWN?', 'YES'),
+    ]
     incidentReportingApi.getReportWithDetailsById.mockResolvedValueOnce(mockedReport)
     viewReportUrl = `/reports/${mockedReport.id}`
   })
@@ -156,9 +166,19 @@ describe('GET view report page with details', () => {
       .get(viewReportUrl)
       .expect('Content-Type', /html/)
       .expect(res => {
-        expect(res.text).toContain('1. Question #1')
-        expect(res.text).toContain('Response #1')
-        expect(res.text).toContain('2. Question #2')
+        expect(res.text).toContain('1. Describe how the item was found')
+        expect(res.text).toContain('Cell search')
+        expect(res.text).toContain('Information received')
+        expect(res.text).not.toContain('Unusual behaviour')
+        expect(res.text).toContain(`${viewReportUrl}/questions/67179`)
+
+        expect(res.text).toContain('2. Is the location of the incident known?')
+        expect(res.text).toContain(`${viewReportUrl}/questions/67180`)
+
+        expect(res.text).not.toContain('What was the location of the incident?')
+        expect(res.text).not.toContain(`${viewReportUrl}/questions/67181`)
+        expect(res.text).not.toContain('Describe the method of entry into the establishment')
+        expect(res.text).not.toContain(`${viewReportUrl}/questions/67182`)
       })
   })
 
@@ -257,7 +277,7 @@ describe('GET view report page without details', () => {
       .expect('Content-Type', /html/)
       .expect(res => {
         expect(res.text).toContain('Question responses')
-        expect(res.text).toContain('No responses found')
+        expect(res.text).toContain('No responses')
       })
   })
 

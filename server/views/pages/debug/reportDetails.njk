@@ -261,49 +261,53 @@
       } if permissions.canEditReport(report) else {}
       },
       rows: staffRows
-    }) }}
+  }) }}
 
 <!-- Question responses table -->
-  {%- if report.questions.length > 0 -%}
-    {%- set questionsRows = [] -%}
-    {%- for question in report.questions -%}
-      {%- if question.responses.length > 0 -%}
-        {% set responses %}
-          {% for response in question.responses %}
-            {{ response.response }}
-            {% if response.responseDate %}
-              <br />
-              Date: {{ response.responseDate | date }}
-            {% endif %}
-            {% if response.additionalInformation %}
-              <br />
-              Comment: {{ response.additionalInformation }}
-            {% endif %}
-            {% if not loop.last %}
-              <br />
-            {% endif %}
-          {% endfor %}
-        {% endset %}
-      {%- else -%}
-        {%- set responses = "Not answered" -%}
-      {%- endif -%}
+  {% set questionRows = [] %}
+  {% for questionProgressStep in questionProgressSteps %}
+    {% set questionHtml %}
+      {{ questionProgressStep.questionNumber }}. {{ questionProgressStep.questionConfig.label }}
+    {% endset %}
 
-      {# Rows of questions (with their responses) #}
-      {% set question %}
-        {{ loop.index }}. {{ question.question }}
-      {% endset %}
-      {%- set questionsRows = (questionsRows.push({
-        key: { html: question },
-        value: { html: responses }
-      }), questionsRows) -%}
-    {%- endfor -%}
+    {% set responsesHtml %}
+      {% for responseItem in questionProgressStep.responses %}
+        {{ responseItem.answerConfig.label }}
+        {% if responseItem.response.responseDate %}
+          <br />
+          Date: {{ responseItem.response.responseDate | date }}
+        {% endif %}
+        {% if responseItem.response.additionalInformation %}
+          <br />
+          Comment: {{ responseItem.response.additionalInformation }}
+        {% endif %}
+        {% if not loop.last %}
+          <br />
+        {% endif %}
+      {% endfor %}
+    {% endset %}
 
-  {%- else -%}
-    {%- set questionsRows = [{
-      key: { text: "No responses found" },
-      value: { text: "N/A" }
-    }) -%}
-  {%- endif -%}
+    {% set _ = questionRows.push({
+      key: {html: questionHtml},
+      value: {html: responsesHtml},
+      actions: {items: [{
+        href: "/reports/" + report.id + "/questions" + (questionProgressStep.urlSuffix or ""),
+        text: "Change response"
+      }]}
+    }) %}
+
+  {% else %}
+
+    {% set _ = questionRows.push({
+      key: { text: "No responses" },
+      value: { text: "" },
+      actions: {items: [{
+        href: "/reports/" + report.id + "/questions",
+        text: "Answer questions"
+      }]}
+    }) %}
+
+  {% endfor %}
 
   {{ govukSummaryList({
     card: {
@@ -318,7 +322,7 @@
         }]
       } if permissions.canEditReport(report) else {}
     },
-    rows: questionsRows
+    rows: questionRows
   }) }}
 
 <!-- Correction requests table -->

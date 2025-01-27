@@ -10,20 +10,20 @@ describe('Question progress', () => {
    * Simple 3-question config; branching on the first one
    * ```
    * '1' (Page 1, start)
-   *   • '1-1'  →  '2'
-   *   • '1-2'  →  '4'
+   *   • '11'  →  '2'
+   *   • '12'  →  '4'
    *
    * '2' (Page 2)
-   *   • '2-1'  →  '3'
-   *   • '2-2'  →  '3'
+   *   • '21'  →  '3'
+   *   • '22'  →  '3'
    *
    * '3' (Page 2)
-   *   • '3-1'  →  '4'
-   *   • '3-2'  →  '4'
+   *   • '31'  →  '4'
+   *   • '32'  →  '4'
    *
    * '4' (Page 2 or 3 depending on route, end)
-   *   • '4-1'  →  null
-   *   • '4-2'  →  null
+   *   • '41'  →  null
+   *   • '42'  →  null
    *
    *  1─────┐
    *  │     ▼
@@ -43,24 +43,24 @@ describe('Question progress', () => {
       '1': {
         id: '1',
         active: true,
-        code: '1',
-        label: '1',
+        code: 'Q1',
+        label: 'Question 1',
         multipleAnswers: false,
         answers: [
           {
-            id: '1-1',
-            code: '1-1',
+            id: '11',
+            code: 'A1-1',
             active: true,
-            label: '1-1',
+            label: 'Answer 1-1',
             dateRequired: false,
             commentRequired: false,
             nextQuestionId: '2',
           },
           {
-            id: '1-2',
-            code: '1-2',
+            id: '12',
+            code: 'A1-2',
             active: true,
-            label: '1-2',
+            label: 'Answer 1-2',
             dateRequired: false,
             commentRequired: false,
             nextQuestionId: '4',
@@ -70,24 +70,24 @@ describe('Question progress', () => {
       '2': {
         id: '2',
         active: true,
-        code: '2',
-        label: '2',
+        code: 'Q2',
+        label: 'Question 2',
         multipleAnswers: false,
         answers: [
           {
-            id: '2-1',
-            code: '2-1',
+            id: '21',
+            code: 'A2-1',
             active: true,
-            label: '2-1',
+            label: 'Answer 2-1',
             dateRequired: false,
             commentRequired: false,
             nextQuestionId: '3',
           },
           {
-            id: '2-2',
-            code: '2-2',
+            id: '22',
+            code: 'A2-2',
             active: true,
-            label: '2-2',
+            label: 'Answer 2-2',
             dateRequired: false,
             commentRequired: false,
             nextQuestionId: '3',
@@ -97,24 +97,24 @@ describe('Question progress', () => {
       '3': {
         id: '3',
         active: true,
-        code: '3',
-        label: '3',
+        code: 'Q3',
+        label: 'Question 3',
         multipleAnswers: false,
         answers: [
           {
-            id: '3-1',
-            code: '3-1',
+            id: '31',
+            code: 'A3-1',
             active: true,
-            label: '3-1',
+            label: 'Answer 3-1',
             dateRequired: false,
             commentRequired: false,
             nextQuestionId: '4',
           },
           {
-            id: '3-2',
-            code: '3-2',
+            id: '32',
+            code: 'A3-2',
             active: true,
-            label: '3-2',
+            label: 'Answer 3-2',
             dateRequired: false,
             commentRequired: false,
             nextQuestionId: '4',
@@ -124,24 +124,24 @@ describe('Question progress', () => {
       '4': {
         id: '4',
         active: true,
-        code: '4',
-        label: '4',
+        code: 'Q4',
+        label: 'Question 4',
         multipleAnswers: false,
         answers: [
           {
-            id: '4-1',
-            code: '4-1',
+            id: '41',
+            code: 'A4-1',
             active: true,
-            label: '4-1',
+            label: 'Answer 4-1',
             dateRequired: false,
             commentRequired: false,
             nextQuestionId: null,
           },
           {
-            id: '4-2',
-            code: '4-2',
+            id: '42',
+            code: 'A4-2',
             active: true,
-            label: '4-2',
+            label: 'Answer 4-2',
             dateRequired: false,
             commentRequired: false,
             nextQuestionId: null,
@@ -166,6 +166,7 @@ describe('Question progress', () => {
         // on first question, which is incomplete
         expect.objectContaining({
           questionConfig: expect.objectContaining({ id: '1' }),
+          answerConfigs: undefined,
           urlSuffix: '/1',
           questionNumber: 1,
           pageNumber: 1,
@@ -187,14 +188,14 @@ describe('Question progress', () => {
     const report = convertReportWithDetailsDates(
       mockReport({ reportReference: '6543', reportDateAndTime: now, withDetails: true }),
     )
-    // '1-1' response for question '1'
+    // '11' response for question '1'
     report.questions = [
       {
         code: '1',
-        question: '1',
+        question: 'Q1',
         responses: [
           {
-            response: '1-1',
+            response: 'A1-1',
             responseDate: null,
             additionalInformation: null,
             recordedAt: new Date(),
@@ -211,6 +212,7 @@ describe('Question progress', () => {
       expect(progress).toEqual([
         expect.objectContaining({
           questionConfig: expect.objectContaining({ id: '1' }),
+          answerConfigs: [expect.objectContaining({ label: 'Answer 1-1' })],
           urlSuffix: '/1',
           questionNumber: 1,
           pageNumber: 1,
@@ -219,6 +221,7 @@ describe('Question progress', () => {
         // on second question, which is incomplete
         expect.objectContaining({
           questionConfig: expect.objectContaining({ id: '2' }),
+          answerConfigs: undefined,
           urlSuffix: '/2',
           questionNumber: 2,
           pageNumber: 2,
@@ -240,14 +243,14 @@ describe('Question progress', () => {
     const report = convertReportWithDetailsDates(
       mockReport({ reportReference: '6543', reportDateAndTime: now, withDetails: true }),
     )
-    // '1-2' response for question '1'
+    // '12' response for question '1'
     report.questions = [
       {
         code: '1',
-        question: '1',
+        question: 'Q1',
         responses: [
           {
-            response: '1-2',
+            response: 'A1-2',
             responseDate: null,
             additionalInformation: null,
             recordedAt: new Date(),
@@ -264,6 +267,7 @@ describe('Question progress', () => {
       expect(progress).toEqual([
         expect.objectContaining({
           questionConfig: expect.objectContaining({ id: '1' }),
+          answerConfigs: [expect.objectContaining({ label: 'Answer 1-2' })],
           urlSuffix: '/1',
           questionNumber: 1,
           pageNumber: 1,
@@ -272,6 +276,7 @@ describe('Question progress', () => {
         // on fourth question, which is incomplete
         expect.objectContaining({
           questionConfig: expect.objectContaining({ id: '4' }),
+          answerConfigs: undefined,
           urlSuffix: '/4',
           questionNumber: 2,
           pageNumber: 2,
@@ -293,17 +298,17 @@ describe('Question progress', () => {
     const report = convertReportWithDetailsDates(
       mockReport({ reportReference: '6543', reportDateAndTime: now, withDetails: true }),
     )
-    // '1-1' response for question '1'
-    // '2-2' response for question '2'
-    // '3-2' response for question '3'
-    // '4-1' response for question '4'
+    // '11' response for question '1'
+    // '22' response for question '2'
+    // '32' response for question '3'
+    // '41' response for question '4'
     report.questions = [
       {
         code: '1',
-        question: '1',
+        question: 'Q1',
         responses: [
           {
-            response: '1-1',
+            response: 'A1-1',
             responseDate: null,
             additionalInformation: null,
             recordedAt: new Date(),
@@ -314,10 +319,10 @@ describe('Question progress', () => {
       },
       {
         code: '2',
-        question: '2',
+        question: 'Q2',
         responses: [
           {
-            response: '2-2',
+            response: 'A2-2',
             responseDate: null,
             additionalInformation: null,
             recordedAt: new Date(),
@@ -328,10 +333,10 @@ describe('Question progress', () => {
       },
       {
         code: '3',
-        question: '3',
+        question: 'Q3',
         responses: [
           {
-            response: '3-2',
+            response: 'A3-2',
             responseDate: null,
             additionalInformation: null,
             recordedAt: new Date(),
@@ -342,10 +347,10 @@ describe('Question progress', () => {
       },
       {
         code: '4',
-        question: '4',
+        question: 'Q4',
         responses: [
           {
-            response: '4-1',
+            response: 'A4-1',
             responseDate: null,
             additionalInformation: null,
             recordedAt: new Date(),
@@ -362,6 +367,7 @@ describe('Question progress', () => {
       expect(progress).toEqual([
         expect.objectContaining({
           questionConfig: expect.objectContaining({ id: '1' }),
+          answerConfigs: [expect.objectContaining({ label: 'Answer 1-1' })],
           urlSuffix: '/1',
           questionNumber: 1,
           pageNumber: 1,
@@ -369,6 +375,7 @@ describe('Question progress', () => {
         }),
         expect.objectContaining({
           questionConfig: expect.objectContaining({ id: '2' }),
+          answerConfigs: [expect.objectContaining({ label: 'Answer 2-2' })],
           urlSuffix: '/2',
           questionNumber: 2,
           pageNumber: 2,
@@ -376,6 +383,7 @@ describe('Question progress', () => {
         }),
         expect.objectContaining({
           questionConfig: expect.objectContaining({ id: '3' }),
+          answerConfigs: [expect.objectContaining({ label: 'Answer 3-2' })],
           urlSuffix: '/2',
           questionNumber: 3,
           pageNumber: 2,
@@ -384,6 +392,7 @@ describe('Question progress', () => {
         // on third question, which is complete
         expect.objectContaining({
           questionConfig: expect.objectContaining({ id: '4' }),
+          answerConfigs: [expect.objectContaining({ label: 'Answer 4-1' })],
           urlSuffix: '/4',
           questionNumber: 4,
           pageNumber: 3,

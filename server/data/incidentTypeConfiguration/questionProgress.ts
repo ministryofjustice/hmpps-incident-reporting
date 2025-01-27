@@ -13,8 +13,8 @@ export interface QuestionProgressStep {
   questionNumber: number
   /** Page number when questions are grouped */
   pageNumber: number
-  /** This question step’s **first** chosen answer; undefined if not completed */
-  answerConfig: AnswerConfiguration | undefined
+  /** All of this question step’s chosen responses or undefined if not completed */
+  answerConfigs: AnswerConfiguration[] | undefined
   /** Whether this question step has been completed */
   isComplete: boolean
 }
@@ -27,17 +27,23 @@ export class QuestionProgress {
   ) {}
 
   /**
-   * Walks through a report, yielding question configurations and their **first** response configuration,
+   * Walks through a report, yielding question configurations and all chosen response configurations,
    * until the first incomplete question is reached.
    * Incident type configuration is used to determine proper question order.
    *
-   * NB: completion flag does **not** fully validate responses, e.g. comment/date fields are not checked.
+   * NB: completion flag does **not** fully validate responses, e.g.
+   *   - comment/date fields are not checked
+   *   - unrecognised responses are ignored
+   *   - ignores order of questions in report
    */
   *[Symbol.iterator](): Generator<QuestionProgressStep, void, void> {
-    // map of question id to _first_ response code (assume multiple choice questions have options all leading to the same place)
-    const reportResponses = new Map<string, string>()
+    // map of question id to response codes
+    const reportResponses = new Map<string, string[]>()
     this.report.questions.forEach(question => {
-      reportResponses.set(question.code, question.responses.map(response => response.response)[0])
+      reportResponses.set(
+        question.code,
+        question.responses.map(response => response.response),
+      )
     })
 
     // map of question id to step url path suffix
@@ -66,10 +72,13 @@ export class QuestionProgress {
         pageNumber += 1
         lastUrlSuffix = urlSuffix
       }
-      const firstResponseCode = reportResponses.get(questionConfig.id)
-      const answerConfig = questionConfig.answers.find(someAnswerConfig => someAnswerConfig.code === firstResponseCode)
-      yield { questionConfig, urlSuffix, questionNumber, pageNumber, answerConfig, isComplete: Boolean(answerConfig) }
-      nextQuestionId = answerConfig?.nextQuestionId
+      const responseCodes: string[] | undefined = reportResponses.get(questionConfig.id)
+      const answerConfigs = responseCodes?.map(responseCode =>
+        questionConfig.answers.find(someAnswerConfig => someAnswerConfig.code === responseCode),
+      )
+      yield { questionConfig, urlSuffix, questionNumber, pageNumber, answerConfigs, isComplete: Boolean(answerConfigs) }
+      // TODO: assuming multiple choice questions have options all leading to the same place. was this validated?
+      nextQuestionId = answerConfigs?.[0]?.nextQuestionId
       if (!nextQuestionId) {
         break
       }

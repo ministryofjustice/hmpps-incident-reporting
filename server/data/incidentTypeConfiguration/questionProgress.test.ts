@@ -166,7 +166,7 @@ describe('Question progress', () => {
         // on first question, which is incomplete
         expect.objectContaining({
           questionConfig: expect.objectContaining({ id: '1' }),
-          answerConfigs: undefined,
+          responses: undefined,
           urlSuffix: '/1',
           questionNumber: 1,
           pageNumber: 1,
@@ -212,7 +212,12 @@ describe('Question progress', () => {
       expect(progress).toEqual([
         expect.objectContaining({
           questionConfig: expect.objectContaining({ id: '1' }),
-          answerConfigs: [expect.objectContaining({ label: 'Answer 1-1' })],
+          responses: [
+            {
+              response: expect.objectContaining({ response: 'A1-1' }),
+              answerConfig: expect.objectContaining({ label: 'Answer 1-1' }),
+            },
+          ],
           urlSuffix: '/1',
           questionNumber: 1,
           pageNumber: 1,
@@ -221,7 +226,7 @@ describe('Question progress', () => {
         // on second question, which is incomplete
         expect.objectContaining({
           questionConfig: expect.objectContaining({ id: '2' }),
-          answerConfigs: undefined,
+          responses: undefined,
           urlSuffix: '/2',
           questionNumber: 2,
           pageNumber: 2,
@@ -267,7 +272,12 @@ describe('Question progress', () => {
       expect(progress).toEqual([
         expect.objectContaining({
           questionConfig: expect.objectContaining({ id: '1' }),
-          answerConfigs: [expect.objectContaining({ label: 'Answer 1-2' })],
+          responses: [
+            {
+              response: expect.objectContaining({ response: 'A1-2' }),
+              answerConfig: expect.objectContaining({ label: 'Answer 1-2' }),
+            },
+          ],
           urlSuffix: '/1',
           questionNumber: 1,
           pageNumber: 1,
@@ -276,7 +286,7 @@ describe('Question progress', () => {
         // on fourth question, which is incomplete
         expect.objectContaining({
           questionConfig: expect.objectContaining({ id: '4' }),
-          answerConfigs: undefined,
+          responses: undefined,
           urlSuffix: '/4',
           questionNumber: 2,
           pageNumber: 2,
@@ -367,7 +377,12 @@ describe('Question progress', () => {
       expect(progress).toEqual([
         expect.objectContaining({
           questionConfig: expect.objectContaining({ id: '1' }),
-          answerConfigs: [expect.objectContaining({ label: 'Answer 1-1' })],
+          responses: [
+            {
+              response: expect.objectContaining({ response: 'A1-1' }),
+              answerConfig: expect.objectContaining({ label: 'Answer 1-1' }),
+            },
+          ],
           urlSuffix: '/1',
           questionNumber: 1,
           pageNumber: 1,
@@ -375,7 +390,12 @@ describe('Question progress', () => {
         }),
         expect.objectContaining({
           questionConfig: expect.objectContaining({ id: '2' }),
-          answerConfigs: [expect.objectContaining({ label: 'Answer 2-2' })],
+          responses: [
+            {
+              response: expect.objectContaining({ response: 'A2-2' }),
+              answerConfig: expect.objectContaining({ label: 'Answer 2-2' }),
+            },
+          ],
           urlSuffix: '/2',
           questionNumber: 2,
           pageNumber: 2,
@@ -383,7 +403,12 @@ describe('Question progress', () => {
         }),
         expect.objectContaining({
           questionConfig: expect.objectContaining({ id: '3' }),
-          answerConfigs: [expect.objectContaining({ label: 'Answer 3-2' })],
+          responses: [
+            {
+              response: expect.objectContaining({ response: 'A3-2' }),
+              answerConfig: expect.objectContaining({ label: 'Answer 3-2' }),
+            },
+          ],
           urlSuffix: '/2',
           questionNumber: 3,
           pageNumber: 2,
@@ -392,7 +417,12 @@ describe('Question progress', () => {
         // on third question, which is complete
         expect.objectContaining({
           questionConfig: expect.objectContaining({ id: '4' }),
-          answerConfigs: [expect.objectContaining({ label: 'Answer 4-1' })],
+          responses: [
+            {
+              response: expect.objectContaining({ response: 'A4-1' }),
+              answerConfig: expect.objectContaining({ label: 'Answer 4-1' }),
+            },
+          ],
           urlSuffix: '/4',
           questionNumber: 4,
           pageNumber: 3,

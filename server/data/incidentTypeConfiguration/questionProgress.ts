@@ -1,22 +1,29 @@
 import type FormWizard from 'hmpo-form-wizard'
 
-import type { ReportWithDetails } from '../incidentReportingApi'
+import type { ReportWithDetails, Response } from '../incidentReportingApi'
 import type { AnswerConfiguration, IncidentTypeConfiguration, QuestionConfiguration } from './types'
 
 /** A step in the process of responding to all necessary questions in a report */
 export interface QuestionProgressStep {
   /** This step’s question */
   questionConfig: QuestionConfiguration
+  /** All of this question step’s chosen responses or undefined if not completed */
+  responses: ResponseItem[] | undefined
   /** This question step’s URL path suffix */
   urlSuffix: string
   /** Question number ignoring grouping */
   questionNumber: number
   /** Page number when questions are grouped */
   pageNumber: number
-  /** All of this question step’s chosen responses or undefined if not completed */
-  answerConfigs: AnswerConfiguration[] | undefined
-  /** Whether this question step has been completed */
+  /** Whether this question step has been completed (ie. responses exist) */
   isComplete: boolean
+}
+
+interface ResponseItem {
+  /** A response as returned by IRS api */
+  response: Response
+  /** Corresponding response config as found in this application */
+  answerConfig: AnswerConfiguration
 }
 
 export class QuestionProgress {
@@ -37,13 +44,10 @@ export class QuestionProgress {
    *   - ignores order of questions in report
    */
   *[Symbol.iterator](): Generator<QuestionProgressStep, void, void> {
-    // map of question id to response codes
-    const reportResponses = new Map<string, string[]>()
-    this.report.questions.forEach(question => {
-      reportResponses.set(
-        question.code,
-        question.responses.map(response => response.response),
-      )
+    // map of question id to responses so that order isn't required to be identical
+    const reportResponses = new Map<string, Response[]>()
+    this.report.questions.forEach(({ code, responses }) => {
+      reportResponses.set(code, responses)
     })
 
     // map of question id to step url path suffix
@@ -72,13 +76,23 @@ export class QuestionProgress {
         pageNumber += 1
         lastUrlSuffix = urlSuffix
       }
-      const responseCodes: string[] | undefined = reportResponses.get(questionConfig.id)
-      const answerConfigs = responseCodes?.map(responseCode =>
-        questionConfig.answers.find(someAnswerConfig => someAnswerConfig.code === responseCode),
-      )
-      yield { questionConfig, urlSuffix, questionNumber, pageNumber, answerConfigs, isComplete: Boolean(answerConfigs) }
+      const responses: Response[] | undefined = reportResponses.get(questionConfig.id)
+      const responseItems = responses?.map(response => {
+        const answerConfig = questionConfig.answers.find(
+          someAnswerConfig => someAnswerConfig.code === response.response,
+        )
+        return { response, answerConfig }
+      })
+      yield {
+        questionConfig,
+        urlSuffix,
+        questionNumber,
+        pageNumber,
+        responses: responseItems,
+        isComplete: Boolean(responseItems),
+      }
       // TODO: assuming multiple choice questions have options all leading to the same place. was this validated?
-      nextQuestionId = answerConfigs?.[0]?.nextQuestionId
+      nextQuestionId = responseItems?.[0]?.answerConfig.nextQuestionId
       if (!nextQuestionId) {
         break
       }

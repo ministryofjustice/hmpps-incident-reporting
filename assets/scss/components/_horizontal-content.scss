@@ -74,4 +74,14 @@
     background-color: $govuk-body-background-colour;
     width: 29em
   }
+  @media (min-width:40.0625em) {
+    .govuk-checkboxes--small {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: flex-start
+    }
+    .govuk-checkboxes__label {
+      max-width: None;
+    }
+  }
 }

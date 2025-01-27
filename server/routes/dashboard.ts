@@ -1,16 +1,25 @@
 import { RequestHandler, Router } from 'express'
 import type { PathParams } from 'express-serve-static-core'
-import type { Status, Type } from '../reportConfiguration/constants'
+import {
+  Status,
+  Type,
+  WorkList,
+  workListMapping,
+  workListStatusMapping,
+  statuses,
+  types,
+} from '../reportConfiguration/constants'
 import type { Order } from '../data/offenderSearchApi'
 import type { HeaderCell, SortableTableColumns } from '../utils/sortableTable'
 import format from '../utils/format'
 import type { GovukErrorSummaryItem } from '../utils/govukFrontend'
 import { parseDateInput } from '../utils/utils'
-import { statuses, types } from '../reportConfiguration/constants'
 import { sortableTableHead } from '../utils/sortableTable'
 import { pagination } from '../utils/pagination'
 import type { Services } from '../services'
 import asyncMiddleware from '../middleware/asyncMiddleware'
+
+type IncidentStatuses = Status | WorkList
 
 interface ListFormData {
   searchID?: string
@@ -18,7 +27,7 @@ interface ListFormData {
   fromDate?: string
   toDate?: string
   incidentType?: Type
-  incidentStatuses?: Status
+  incidentStatuses?: IncidentStatuses
   sort?: string
   order?: Order
   page?: string
@@ -31,6 +40,8 @@ export default function dashboard(service: Services): Router {
 
   get('/', async (req, res) => {
     const { incidentReportingApi } = res.locals.apis
+
+    const userRole: string = 'DW'
 
     const userCaseloads = res.locals.user.caseLoads
     const userCaseloadIds = userCaseloads.map(caseload => caseload.caseLoadId)
@@ -45,8 +56,8 @@ export default function dashboard(service: Services): Router {
       fromDate: fromDateInput,
       toDate: toDateInput,
       incidentType,
-      page,
       incidentStatuses,
+      page,
     }: ListFormData = req.query
     let { searchID, sort, order }: ListFormData = req.query
 
@@ -67,7 +78,7 @@ export default function dashboard(service: Services): Router {
       fromDate: fromDateInput,
       toDate: toDateInput,
       incidentType: incidentType as Type,
-      incidentStatuses: incidentStatuses as Status,
+      incidentStatuses: incidentStatuses as IncidentStatuses,
       sort,
       order: order as Order,
       page,
@@ -159,6 +170,20 @@ export default function dashboard(service: Services): Router {
       searchLocations = location
     }
 
+    let searchStatuses: Status | Status[]
+    // Replace status mappings if RO viewing page
+    if (userRole === 'RO') {
+      if (typeof incidentStatuses === 'object') {
+        searchStatuses = (incidentStatuses as WorkList[])
+          .map(incidentStatus => workListStatusMapping[incidentStatus])
+          .flat(1)
+      } else {
+        searchStatuses = workListStatusMapping[incidentStatuses]
+      }
+    } else {
+      searchStatuses = incidentStatuses as Status
+    }
+
     // Get reports from API
     const reportsResponse = await incidentReportingApi.getReports({
       reference: referenceNumber,
@@ -166,7 +191,7 @@ export default function dashboard(service: Services): Router {
       incidentDateFrom: fromDate,
       incidentDateUntil: toDate,
       type: incidentType,
-      status: incidentStatuses,
+      status: searchStatuses,
       involvingPrisonerNumber: prisonerId,
       page: pageNumber - 1,
       sort: [`${sort},${orderString}`],
@@ -216,10 +241,21 @@ export default function dashboard(service: Services): Router {
       value: incType.code,
       text: incType.description,
     }))
-    const statusItems = statuses.map(status => ({
-      value: status.code,
-      text: status.description,
-    }))
+    let statusItems: { value: string; text: string }[]
+    let checkboxLabel: string
+    if (userRole === 'DW') {
+      statusItems = statuses.map(status => ({
+        value: status.code,
+        text: status.description,
+      }))
+      checkboxLabel = 'Status'
+    } else if (userRole === 'RO') {
+      statusItems = workListMapping.map(workListValue => ({
+        value: workListValue.code,
+        text: workListValue.description,
+      }))
+      checkboxLabel = 'Work list'
+    }
     const establishments = userCaseloads.map(caseload => ({
       value: caseload.caseLoadId,
       text: caseload.description,
@@ -255,6 +291,7 @@ export default function dashboard(service: Services): Router {
       incidentTypes,
       statusItems,
       typesLookup,
+      checkboxLabel,
       statusLookup,
       formValues,
       errors,

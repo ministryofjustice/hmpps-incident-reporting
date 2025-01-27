@@ -16,6 +16,7 @@ import { mockErrorResponse, mockReport } from '../../data/testData/incidentRepor
 import { mockThrownError } from '../../data/testData/thrownErrors'
 import { approverUser, hqUser, reportingUser, unauthorisedUser } from '../../data/testData/users'
 import ASSAULT from '../../reportConfiguration/types/ASSAULT'
+import ATTEMPTED_ESCAPE_FROM_CUSTODY from '../../reportConfiguration/types/ATTEMPTED_ESCAPE_FROM_CUSTODY'
 import DEATH_OTHER from '../../reportConfiguration/types/DEATH_OTHER'
 import FINDS from '../../reportConfiguration/types/FINDS'
 
@@ -580,6 +581,42 @@ describe('Submitting questions’ responses', () => {
         ])
         expect(res.text).not.toContain('There is a problem')
         expect(res.redirects[0]).toMatch(`/${followingStep}`)
+      })
+  })
+
+  it('should use incident type’s field order', async () => {
+    // NB: this type’s questions are not in numeric order on page 1
+    reportWithDetails.type = 'ATTEMPTED_ESCAPE_FROM_CUSTODY'
+    const firstQuestionStep = ATTEMPTED_ESCAPE_FROM_CUSTODY.startingQuestionId
+    const submittedAnswers = {
+      // WERE THE POLICE INFORMED OF THE INCIDENT
+      '44769': 'NO',
+      // THE INCIDENT IS SUBJECT TO
+      '44919': ['INVESTIGATION INTERNALLY'],
+      // IS ANY MEMBER OF STAFF FACING DISCIPLINARY CHARGES
+      '45033': 'NO',
+      // IS THERE ANY MEDIA INTEREST IN THIS INCIDENT
+      '44636': 'NO',
+      // HAS THE PRISON SERVICE PRESS OFFICE BEEN INFORMED
+      '44749': 'NO',
+    }
+    incidentReportingApi.addOrUpdateQuestionsWithResponses.mockResolvedValue([
+      // doesn't matter in this test
+    ])
+    await agent.get(reportQuestionsUrl).redirects(1).expect(200)
+    return agent
+      .post(`${reportQuestionsUrl}/${firstQuestionStep}/`)
+      .send(submittedAnswers)
+      .redirects(1)
+      .expect(res => {
+        expect(res.redirects[0]).toMatch('/44594')
+        expect(incidentReportingApi.addOrUpdateQuestionsWithResponses).toHaveBeenCalledWith(expect.any(String), [
+          expect.objectContaining({ code: '44769' }),
+          expect.objectContaining({ code: '44919' }),
+          expect.objectContaining({ code: '45033' }),
+          expect.objectContaining({ code: '44636' }),
+          expect.objectContaining({ code: '44749' }),
+        ])
       })
   })
 

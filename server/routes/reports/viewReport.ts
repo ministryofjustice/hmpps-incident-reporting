@@ -39,22 +39,19 @@ export function viewReportRouter(service: Services): Router {
   get('/', async (_req, res) => {
     const { prisonApi, offenderSearchApi } = res.locals.apis
 
-    const reportConfig = res.locals.reportConfig as IncidentTypeConfiguration
+    const { reportConfig } = res.locals
     const report = useReportConfigLabels(res.locals.report as ReportWithDetails, reportConfig)
 
-    let usernames = [report.reportedBy]
+    const usernames = [report.reportedBy]
     if (report.staffInvolved) {
-      usernames = [...report.staffInvolved.map(staff => staff.staffUsername), ...usernames]
+      usernames.push(...report.staffInvolved.map(staff => staff.staffUsername))
     }
     if (report.correctionRequests) {
-      usernames = [
-        ...report.correctionRequests.map(correctionRequest => correctionRequest.correctionRequestedBy),
-        ...usernames,
-      ]
+      usernames.push(...report.correctionRequests.map(correctionRequest => correctionRequest.correctionRequestedBy))
     }
     const usersLookup = await userService.getUsers(res.locals.systemToken, usernames)
 
-    let prisonersLookup = null
+    let prisonersLookup = {}
     if (report.prisonersInvolved) {
       const prisonerNumbers = report.prisonersInvolved.map(pi => pi.prisonerNumber)
       prisonersLookup = await offenderSearchApi.getPrisoners(prisonerNumbers)
@@ -102,6 +99,7 @@ function useReportConfigLabels(report: ReportWithDetails, reportConfig: Incident
       continue
     }
 
+    // TODO: question & response is changed in-place so progress cannot be calculated on report object anymore
     question.question = questionConfig?.label ?? question.question
     for (const response of question.responses) {
       const answerConfig = findAnswerConfigByCode(response.response, questionConfig)

@@ -13,8 +13,8 @@ export interface QuestionProgressStep {
   questionNumber: number
   /** Page number when questions are grouped */
   pageNumber: number
-  /** This question step’s chosen answer, if completed */
-  answerConfig?: AnswerConfiguration
+  /** This question step’s **first** chosen answer; undefined if not completed */
+  answerConfig: AnswerConfiguration | undefined
   /** Whether this question step has been completed */
   isComplete: boolean
 }
@@ -27,12 +27,13 @@ export class QuestionProgress {
   ) {}
 
   /**
-   * Walks through a report, yielding question configurations and their _first_ response configuration if any.
-   * The report’s responses could be invalid so the configuration is used to decide proper question order.
+   * Walks through a report, yielding question configurations and their **first** response configuration,
+   * until the first incomplete question is reached.
+   * Incident type configuration is used to determine proper question order.
    *
-   * TODO: report validation is incomplete! does not check comment/date fields nor whether all responses are valid
+   * NB: completion flag does **not** fully validate responses, e.g. comment/date fields are not checked.
    */
-  *[Symbol.iterator](): Generator<QuestionProgressStep> {
+  *[Symbol.iterator](): Generator<QuestionProgressStep, void, void> {
     // map of question id to _first_ response code (assume multiple choice questions have options all leading to the same place)
     const reportResponses = new Map<string, string>()
     this.report.questions.forEach(question => {

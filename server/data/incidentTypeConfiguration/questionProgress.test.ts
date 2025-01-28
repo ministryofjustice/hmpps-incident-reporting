@@ -448,6 +448,35 @@ describe('Question progress', () => {
   })
 
   describe('should validate comment and/or date responses along the way', () => {
+    it('when a response is not one of the possible choices', () => {
+      const report = convertReportWithDetailsDates(
+        mockReport({ type: 'MISCELLANEOUS', reportReference: '6543', reportDateAndTime: now, withDetails: true }),
+      )
+      // non-existent response for question '1'
+      report.questions = [
+        {
+          code: '1',
+          question: 'Q1',
+          responses: [
+            {
+              response: 'A1-10',
+              responseDate: null,
+              additionalInformation: null,
+              recordedAt: new Date(),
+              recordedBy: 'some-user',
+            },
+          ],
+          additionalInformation: null,
+        },
+      ]
+      const questionProgress = new QuestionProgress(config, steps, report)
+
+      expect(questionProgress.isComplete).toBe(false)
+      const progressSteps = Array.from(questionProgress)
+      expect(progressSteps).toHaveLength(1)
+      expect(progressSteps[0].isComplete).toBe(false)
+    })
+
     describe('for single-choice questions', () => {
       const simplestConfig: IncidentTypeConfiguration = {
         startingQuestionId: '1',
@@ -507,31 +536,39 @@ describe('Question progress', () => {
         mockReport({ type: 'MISCELLANEOUS', reportReference: '6543', reportDateAndTime: now, withDetails: true }),
       )
 
-      function expectProgressStepValidity(response: Response, expectValid: boolean) {
+      function expectProgressStepValidity(responses: Response[], expectValid: boolean) {
         report.questions = [
           {
             code: '1',
             question: 'Q1',
-            responses: [response],
+            responses,
             additionalInformation: null,
           },
         ]
         const questionProgress = new QuestionProgress(simplestConfig, simplestSteps, report)
         const progressStep = Array.from(questionProgress)[0]
         expect(progressStep.isComplete).toBe(expectValid)
-        expect(progressStep.responses).toHaveLength(1)
-        expect(progressStep.responses[0].isComplete).toBe(expectValid)
+        expect(progressStep.responses).toHaveLength(responses.length)
+        if (responses.length === 1) {
+          // most tests check individual response validity
+          expect(progressStep.responses[0].isComplete).toBe(expectValid)
+        } else {
+          // multi-response test is only invalid because this is a single-choice question
+          expect(progressStep.responses.every(response => response.isComplete)).toBe(true)
+        }
       }
 
       it('when neither is required and not provided', () => {
         expectProgressStepValidity(
-          {
-            response: 'A1',
-            responseDate: null,
-            additionalInformation: null,
-            recordedAt: new Date(),
-            recordedBy: 'some-user',
-          },
+          [
+            {
+              response: 'A1',
+              responseDate: null,
+              additionalInformation: null,
+              recordedAt: new Date(),
+              recordedBy: 'some-user',
+            },
+          ],
           true,
         )
       })
@@ -541,13 +578,15 @@ describe('Question progress', () => {
         { scenario: 'not provided', provided: false, expectValid: false },
       ])('when date is required and $scenario', ({ provided, expectValid }) => {
         expectProgressStepValidity(
-          {
-            response: 'A2',
-            responseDate: provided ? new Date() : null,
-            additionalInformation: null,
-            recordedAt: new Date(),
-            recordedBy: 'some-user',
-          },
+          [
+            {
+              response: 'A2',
+              responseDate: provided ? new Date() : null,
+              additionalInformation: null,
+              recordedAt: new Date(),
+              recordedBy: 'some-user',
+            },
+          ],
           expectValid,
         )
       })
@@ -557,13 +596,15 @@ describe('Question progress', () => {
         { scenario: 'not provided', provided: false, expectValid: false },
       ])('when comment is required and $scenario', ({ provided, expectValid }) => {
         expectProgressStepValidity(
-          {
-            response: 'A3',
-            responseDate: null,
-            additionalInformation: provided ? 'COMMENT' : null,
-            recordedAt: new Date(),
-            recordedBy: 'some-user',
-          },
+          [
+            {
+              response: 'A3',
+              responseDate: null,
+              additionalInformation: provided ? 'COMMENT' : null,
+              recordedAt: new Date(),
+              recordedBy: 'some-user',
+            },
+          ],
           expectValid,
         )
       })
@@ -575,27 +616,53 @@ describe('Question progress', () => {
         { scenario: 'not provided', commentProvided: false, dateProvided: false, expectValid: false },
       ])('when comment and date are required and $scenario', ({ commentProvided, dateProvided, expectValid }) => {
         expectProgressStepValidity(
-          {
-            response: 'A4',
-            responseDate: commentProvided ? new Date() : null,
-            additionalInformation: dateProvided ? 'COMMENT' : null,
-            recordedAt: new Date(),
-            recordedBy: 'some-user',
-          },
+          [
+            {
+              response: 'A4',
+              responseDate: commentProvided ? new Date() : null,
+              additionalInformation: dateProvided ? 'COMMENT' : null,
+              recordedAt: new Date(),
+              recordedBy: 'some-user',
+            },
+          ],
           expectValid,
         )
       })
 
       it('when comment and date are not required, but still provided', () => {
         expectProgressStepValidity(
-          {
-            response: 'A1',
-            responseDate: new Date(),
-            additionalInformation: 'COMMENT',
-            recordedAt: new Date(),
-            recordedBy: 'some-user',
-          },
+          [
+            {
+              response: 'A1',
+              responseDate: new Date(),
+              additionalInformation: 'COMMENT',
+              recordedAt: new Date(),
+              recordedBy: 'some-user',
+            },
+          ],
           true,
+        )
+      })
+
+      it('when more than one response is provided', () => {
+        expectProgressStepValidity(
+          [
+            {
+              response: 'A1',
+              responseDate: null,
+              additionalInformation: null,
+              recordedAt: new Date(),
+              recordedBy: 'some-user',
+            },
+            {
+              response: 'A4',
+              responseDate: new Date(),
+              additionalInformation: 'COMMENT',
+              recordedAt: new Date(),
+              recordedBy: 'some-user',
+            },
+          ],
+          false,
         )
       })
     })
@@ -724,35 +791,6 @@ describe('Question progress', () => {
           false,
         )
       })
-    })
-
-    it('when a response is not one of the possible choices', () => {
-      const report = convertReportWithDetailsDates(
-        mockReport({ type: 'MISCELLANEOUS', reportReference: '6543', reportDateAndTime: now, withDetails: true }),
-      )
-      // non-existent response for question '1'
-      report.questions = [
-        {
-          code: '1',
-          question: 'Q1',
-          responses: [
-            {
-              response: 'A1-10',
-              responseDate: null,
-              additionalInformation: null,
-              recordedAt: new Date(),
-              recordedBy: 'some-user',
-            },
-          ],
-          additionalInformation: null,
-        },
-      ]
-      const questionProgress = new QuestionProgress(config, steps, report)
-
-      expect(questionProgress.isComplete).toBe(false)
-      const progressSteps = Array.from(questionProgress)
-      expect(progressSteps).toHaveLength(1)
-      expect(progressSteps[0].isComplete).toBe(false)
     })
   })
 })

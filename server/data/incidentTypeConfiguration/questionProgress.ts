@@ -21,7 +21,11 @@ export class QuestionProgressStep {
 
   /** Whether this question step has been completed (ie. responses exist and each one has a comment or date if required) */
   get isComplete(): boolean {
-    return Boolean(this.responses?.length >= 1 && this.responses.every(item => item.isComplete))
+    return Boolean(
+      this.responses &&
+        ((this.questionConfig.multipleAnswers && this.responses.length >= 1) || this.responses.length === 1) &&
+        this.responses.every(item => item.isComplete),
+    )
   }
 }
 
@@ -56,10 +60,8 @@ export class QuestionProgress {
    * until the first incomplete question is reached.
    * Incident type configuration is used to determine proper question order.
    *
-   * NB: completion flag does **not** fully validate responses, e.g.
-   *   - ignores order of questions in report
-   *   - whether multiple responses provided to a non-multiple-choice question
-   * …but these scenarios are not possible for users to create.
+   * NB: completion flag does not totally validate responses, e.g. order of questions in report is ignored,
+   * but this scenario is not possible for users to create.
    */
   *[Symbol.iterator](): Generator<QuestionProgressStep, void, void> {
     // map of question id to responses so that order isn't required to be identical

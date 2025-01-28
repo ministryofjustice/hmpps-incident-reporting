@@ -1,4 +1,5 @@
 import { now } from '../../testutils/fakeClock'
+import type { Response } from '../incidentReportingApi'
 import { convertReportWithDetailsDates } from '../incidentReportingApiUtils'
 import { mockReport } from '../testData/incidentReporting'
 import type { IncidentTypeConfiguration } from './types'
@@ -154,7 +155,7 @@ describe('Question progress', () => {
 
   describe('before any responses have been entered', () => {
     const report = convertReportWithDetailsDates(
-      mockReport({ reportReference: '6543', reportDateAndTime: now, withDetails: true }),
+      mockReport({ type: 'MISCELLANEOUS', reportReference: '6543', reportDateAndTime: now, withDetails: true }),
     )
     // no responses
     report.questions = []
@@ -186,7 +187,7 @@ describe('Question progress', () => {
 
   describe('once a response has been entered', () => {
     const report = convertReportWithDetailsDates(
-      mockReport({ reportReference: '6543', reportDateAndTime: now, withDetails: true }),
+      mockReport({ type: 'MISCELLANEOUS', reportReference: '6543', reportDateAndTime: now, withDetails: true }),
     )
     // '11' response for question '1'
     report.questions = [
@@ -213,10 +214,11 @@ describe('Question progress', () => {
         expect.objectContaining({
           questionConfig: expect.objectContaining({ id: '1' }),
           responses: [
-            {
+            expect.objectContaining({
               response: expect.objectContaining({ response: 'A1-1' }),
               answerConfig: expect.objectContaining({ label: 'Answer 1-1' }),
-            },
+              isComplete: true,
+            }),
           ],
           urlSuffix: '/1',
           questionNumber: 1,
@@ -246,7 +248,7 @@ describe('Question progress', () => {
 
   describe('once a differently branching response has been entered', () => {
     const report = convertReportWithDetailsDates(
-      mockReport({ reportReference: '6543', reportDateAndTime: now, withDetails: true }),
+      mockReport({ type: 'MISCELLANEOUS', reportReference: '6543', reportDateAndTime: now, withDetails: true }),
     )
     // '12' response for question '1'
     report.questions = [
@@ -273,10 +275,11 @@ describe('Question progress', () => {
         expect.objectContaining({
           questionConfig: expect.objectContaining({ id: '1' }),
           responses: [
-            {
+            expect.objectContaining({
               response: expect.objectContaining({ response: 'A1-2' }),
               answerConfig: expect.objectContaining({ label: 'Answer 1-2' }),
-            },
+              isComplete: true,
+            }),
           ],
           urlSuffix: '/1',
           questionNumber: 1,
@@ -306,7 +309,7 @@ describe('Question progress', () => {
 
   describe('once all responses have been entered', () => {
     const report = convertReportWithDetailsDates(
-      mockReport({ reportReference: '6543', reportDateAndTime: now, withDetails: true }),
+      mockReport({ type: 'MISCELLANEOUS', reportReference: '6543', reportDateAndTime: now, withDetails: true }),
     )
     // '11' response for question '1'
     // '22' response for question '2'
@@ -378,10 +381,11 @@ describe('Question progress', () => {
         expect.objectContaining({
           questionConfig: expect.objectContaining({ id: '1' }),
           responses: [
-            {
+            expect.objectContaining({
               response: expect.objectContaining({ response: 'A1-1' }),
               answerConfig: expect.objectContaining({ label: 'Answer 1-1' }),
-            },
+              isComplete: true,
+            }),
           ],
           urlSuffix: '/1',
           questionNumber: 1,
@@ -391,10 +395,11 @@ describe('Question progress', () => {
         expect.objectContaining({
           questionConfig: expect.objectContaining({ id: '2' }),
           responses: [
-            {
+            expect.objectContaining({
               response: expect.objectContaining({ response: 'A2-2' }),
               answerConfig: expect.objectContaining({ label: 'Answer 2-2' }),
-            },
+              isComplete: true,
+            }),
           ],
           urlSuffix: '/2',
           questionNumber: 2,
@@ -404,10 +409,11 @@ describe('Question progress', () => {
         expect.objectContaining({
           questionConfig: expect.objectContaining({ id: '3' }),
           responses: [
-            {
+            expect.objectContaining({
               response: expect.objectContaining({ response: 'A3-2' }),
               answerConfig: expect.objectContaining({ label: 'Answer 3-2' }),
-            },
+              isComplete: true,
+            }),
           ],
           urlSuffix: '/2',
           questionNumber: 3,
@@ -418,10 +424,11 @@ describe('Question progress', () => {
         expect.objectContaining({
           questionConfig: expect.objectContaining({ id: '4' }),
           responses: [
-            {
+            expect.objectContaining({
               response: expect.objectContaining({ response: 'A4-1' }),
               answerConfig: expect.objectContaining({ label: 'Answer 4-1' }),
-            },
+              isComplete: true,
+            }),
           ],
           urlSuffix: '/4',
           questionNumber: 4,
@@ -437,6 +444,158 @@ describe('Question progress', () => {
 
     it('should state that the report is complete', () => {
       expect(questionProgress.isComplete).toBe(true)
+    })
+  })
+
+  describe('should validate comment and/or date responses along the way', () => {
+    const simplestConfig: IncidentTypeConfiguration = {
+      startingQuestionId: '1',
+      active: true,
+      incidentType: 'MISCELLANEOUS',
+      prisonerRoles: [],
+      questions: {
+        '1': {
+          id: '1',
+          active: true,
+          code: 'Q1',
+          label: 'Question 1',
+          multipleAnswers: false,
+          answers: [
+            {
+              id: '1',
+              code: 'A1',
+              active: true,
+              label: 'Answer 1',
+              dateRequired: false,
+              commentRequired: false,
+              nextQuestionId: null,
+            },
+            {
+              id: '2',
+              code: 'A2',
+              active: true,
+              label: 'Answer 2',
+              dateRequired: true,
+              commentRequired: false,
+              nextQuestionId: null,
+            },
+            {
+              id: '3',
+              code: 'A3',
+              active: true,
+              label: 'Answer 3',
+              dateRequired: false,
+              commentRequired: true,
+              nextQuestionId: null,
+            },
+            {
+              id: '4',
+              code: 'A4',
+              active: true,
+              label: 'Answer 4',
+              dateRequired: true,
+              commentRequired: true,
+              nextQuestionId: null,
+            },
+          ],
+        },
+      },
+    }
+    const simplestSteps = generateSteps(simplestConfig)
+    const report = convertReportWithDetailsDates(
+      mockReport({ type: 'MISCELLANEOUS', reportReference: '6543', reportDateAndTime: now, withDetails: true }),
+    )
+
+    function expectProgressStepValidity(response: Response, expectValid: boolean) {
+      report.questions = [
+        {
+          code: '1',
+          question: 'Q1',
+          responses: [response],
+          additionalInformation: null,
+        },
+      ]
+      const questionProgress = new QuestionProgress(simplestConfig, simplestSteps, report)
+      const progressStep = Array.from(questionProgress)[0]
+      expect(progressStep.isComplete).toBe(true)
+      expect(progressStep.responses).toHaveLength(1)
+      expect(progressStep.responses[0].isComplete).toBe(expectValid)
+    }
+
+    it('when neither is required and not provided', () => {
+      expectProgressStepValidity(
+        {
+          response: 'A1',
+          responseDate: null,
+          additionalInformation: null,
+          recordedAt: new Date(),
+          recordedBy: 'some-user',
+        },
+        true,
+      )
+    })
+
+    it.each([
+      { scenario: 'provided', provided: true, expectValid: true },
+      { scenario: 'not provided', provided: false, expectValid: false },
+    ])('when date is required and $scenario', ({ provided, expectValid }) => {
+      expectProgressStepValidity(
+        {
+          response: 'A2',
+          responseDate: provided ? new Date() : null,
+          additionalInformation: null,
+          recordedAt: new Date(),
+          recordedBy: 'some-user',
+        },
+        expectValid,
+      )
+    })
+
+    it.each([
+      { scenario: 'provided', provided: true, expectValid: true },
+      { scenario: 'not provided', provided: false, expectValid: false },
+    ])('when comment is required and $scenario', ({ provided, expectValid }) => {
+      expectProgressStepValidity(
+        {
+          response: 'A3',
+          responseDate: null,
+          additionalInformation: provided ? 'COMMENT' : null,
+          recordedAt: new Date(),
+          recordedBy: 'some-user',
+        },
+        expectValid,
+      )
+    })
+
+    it.each([
+      { scenario: 'provided', commentProvided: true, dateProvided: true, expectValid: true },
+      { scenario: 'only comment is provided', commentProvided: true, dateProvided: false, expectValid: false },
+      { scenario: 'only date is provided', commentProvided: false, dateProvided: true, expectValid: false },
+      { scenario: 'not provided', commentProvided: false, dateProvided: false, expectValid: false },
+    ])('when comment and date are required and $scenario', ({ commentProvided, dateProvided, expectValid }) => {
+      expectProgressStepValidity(
+        {
+          response: 'A4',
+          responseDate: commentProvided ? new Date() : null,
+          additionalInformation: dateProvided ? 'COMMENT' : null,
+          recordedAt: new Date(),
+          recordedBy: 'some-user',
+        },
+        expectValid,
+      )
+    })
+
+    it('when comment and date are not required, but still provided', () => {
+      expectProgressStepValidity(
+        {
+          response: 'A1',
+          responseDate: new Date(),
+          additionalInformation: 'COMMENT',
+          recordedAt: new Date(),
+          recordedBy: 'some-user',
+        },
+        true,
+      )
     })
   })
 })

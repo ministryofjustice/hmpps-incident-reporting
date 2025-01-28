@@ -1,3 +1,4 @@
+// eslint-disable-next-line max-classes-per-file
 import type FormWizard from 'hmpo-form-wizard'
 
 import type { ReportWithDetails, Response } from '../incidentReportingApi'
@@ -19,11 +20,21 @@ export interface QuestionProgressStep {
   isComplete: boolean
 }
 
-interface ResponseItem {
-  /** A response as returned by IRS api */
-  response: Response
-  /** Corresponding response config as found in this application */
-  answerConfig: AnswerConfiguration
+class ResponseItem {
+  constructor(
+    /** A response as returned by IRS api */
+    readonly response: Response,
+    /** Corresponding response config as found in this application */
+    readonly answerConfig: AnswerConfiguration,
+  ) {}
+
+  /** Response comment and/or date is present if required */
+  get isComplete(): boolean {
+    return (
+      (!this.answerConfig.commentRequired || this.response.additionalInformation?.length > 0) &&
+      (!this.answerConfig.dateRequired || Boolean(this.response.responseDate))
+    )
+  }
 }
 
 export class QuestionProgress {
@@ -39,11 +50,11 @@ export class QuestionProgress {
    * Incident type configuration is used to determine proper question order.
    *
    * NB: completion flag does **not** fully validate responses, e.g.
-   *   - comment/date fields are not checked
+   *   - comment/date fields are not checked (but there is a completed flag on each response inside)
    *   - unrecognised responses are ignored
    *   - ignores order of questions in report
    */
-  *[Symbol.iterator](): Generator<QuestionProgressStep, void, void> {
+  *[Symbol.iterator](): Generator<Readonly<QuestionProgressStep>, void, void> {
     // map of question id to responses so that order isn't required to be identical
     const reportResponses = new Map<string, Response[]>()
     this.report.questions.forEach(({ code, responses }) => {
@@ -81,7 +92,7 @@ export class QuestionProgress {
         const answerConfig = questionConfig.answers.find(
           someAnswerConfig => someAnswerConfig.code === response.response,
         )
-        return { response, answerConfig }
+        return new ResponseItem(response, answerConfig)
       })
       yield {
         questionConfig,
@@ -91,7 +102,7 @@ export class QuestionProgress {
         responses: responseItems,
         isComplete: Boolean(responseItems),
       }
-      // TODO: assuming multiple choice questions have options all leading to the same place. was this validated?
+      // TODO: assuming multiple choice questions have options all leading to the same place. was this validated? see IR-769
       nextQuestionId = responseItems?.[0]?.answerConfig.nextQuestionId
       if (!nextQuestionId) {
         break
@@ -102,7 +113,7 @@ export class QuestionProgress {
   /**
    * Find the first question step that hasn’t been completed
    */
-  firstIncompleteStep(): QuestionProgressStep | null {
+  firstIncompleteStep(): Readonly<QuestionProgressStep> | null {
     for (const step of this) {
       if (!step.isComplete) {
         return step

@@ -5,32 +5,39 @@ import type { ReportWithDetails, Response } from '../incidentReportingApi'
 import type { AnswerConfiguration, IncidentTypeConfiguration, QuestionConfiguration } from './types'
 
 /** A step in the process of responding to all necessary questions in a report */
-export interface QuestionProgressStep {
-  /** This step’s question */
-  questionConfig: QuestionConfiguration
-  /** All of this question step’s chosen responses or undefined if not completed */
-  responses: ResponseItem[] | undefined
-  /** This question step’s URL path suffix */
-  urlSuffix: string
-  /** Question number ignoring grouping */
-  questionNumber: number
-  /** Page number when questions are grouped */
-  pageNumber: number
+export class QuestionProgressStep {
+  constructor(
+    /** This step’s question */
+    readonly questionConfig: QuestionConfiguration,
+    /** All of this question step’s chosen responses or undefined if not completed */
+    readonly responses: ResponseItem[] | undefined,
+    /** This question step’s URL path suffix */
+    readonly urlSuffix: string,
+    /** Question number ignoring grouping */
+    readonly questionNumber: number,
+    /** Page number when questions are grouped */
+    readonly pageNumber: number,
+  ) {}
+
   /** Whether this question step has been completed (ie. responses exist and each one has a comment or date if required) */
-  isComplete: boolean
+  get isComplete(): boolean {
+    return Boolean(this.responses?.length >= 1 && this.responses.every(item => item.isComplete))
+  }
 }
 
+/** A response to a question along the report’s progress */
 class ResponseItem {
   constructor(
     /** A response as returned by IRS api */
     readonly response: Response,
     /** Corresponding response config as found in this application */
-    readonly answerConfig: AnswerConfiguration,
+    readonly answerConfig: AnswerConfiguration | undefined,
   ) {}
 
-  /** Response comment and/or date is present if required */
+  /** Response choice is valid for question and comment and/or date is present if required */
   get isComplete(): boolean {
     return (
+      this.answerConfig &&
       (!this.answerConfig.commentRequired || this.response.additionalInformation?.length > 0) &&
       (!this.answerConfig.dateRequired || Boolean(this.response.responseDate))
     )
@@ -50,12 +57,11 @@ export class QuestionProgress {
    * Incident type configuration is used to determine proper question order.
    *
    * NB: completion flag does **not** fully validate responses, e.g.
-   *   - unrecognised responses are ignored
    *   - ignores order of questions in report
    *   - whether multiple responses provided to a non-multiple-choice question
    * …but these scenarios are not possible for users to create.
    */
-  *[Symbol.iterator](): Generator<Readonly<QuestionProgressStep>, void, void> {
+  *[Symbol.iterator](): Generator<QuestionProgressStep, void, void> {
     // map of question id to responses so that order isn't required to be identical
     const reportResponses = new Map<string, Response[]>()
     this.report.questions.forEach(({ code, responses }) => {
@@ -95,26 +101,24 @@ export class QuestionProgress {
         )
         return new ResponseItem(response, answerConfig)
       })
-      yield {
-        questionConfig,
-        urlSuffix,
-        questionNumber,
-        pageNumber,
-        responses: responseItems,
-        isComplete: Boolean(responseItems?.length >= 1 && responseItems.every(item => item.isComplete)),
-      }
+      yield new QuestionProgressStep(questionConfig, responseItems, urlSuffix, questionNumber, pageNumber)
       // TODO: assuming multiple choice questions have options all leading to the same place. was this validated? see IR-769
-      nextQuestionId = responseItems?.[0]?.answerConfig.nextQuestionId
+      nextQuestionId = responseItems?.[0]?.answerConfig?.nextQuestionId
       if (!nextQuestionId) {
         break
       }
     }
   }
 
+  /** Get all completed question progress steps */
+  completedSteps(): ReadonlyArray<QuestionProgressStep> {
+    return Array.from(this).filter(step => step.isComplete)
+  }
+
   /**
    * Find the first question step that hasn’t been completed
    */
-  firstIncompleteStep(): Readonly<QuestionProgressStep> | null {
+  firstIncompleteStep(): QuestionProgressStep | null {
     for (const step of this) {
       if (!step.isComplete) {
         return step

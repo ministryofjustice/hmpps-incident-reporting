@@ -725,5 +725,34 @@ describe('Question progress', () => {
         )
       })
     })
+
+    it('when a response is not one of the possible choices', () => {
+      const report = convertReportWithDetailsDates(
+        mockReport({ type: 'MISCELLANEOUS', reportReference: '6543', reportDateAndTime: now, withDetails: true }),
+      )
+      // non-existent response for question '1'
+      report.questions = [
+        {
+          code: '1',
+          question: 'Q1',
+          responses: [
+            {
+              response: 'A1-10',
+              responseDate: null,
+              additionalInformation: null,
+              recordedAt: new Date(),
+              recordedBy: 'some-user',
+            },
+          ],
+          additionalInformation: null,
+        },
+      ]
+      const questionProgress = new QuestionProgress(config, steps, report)
+
+      expect(questionProgress.isComplete).toBe(false)
+      const progressSteps = Array.from(questionProgress)
+      expect(progressSteps).toHaveLength(1)
+      expect(progressSteps[0].isComplete).toBe(false)
+    })
   })
 })

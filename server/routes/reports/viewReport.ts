@@ -63,7 +63,7 @@ export function viewReportRouter(service: Services): Router {
     )
     const staffInvolvementLookup = Object.fromEntries(staffInvolvementRoles.map(role => [role.code, role.description]))
 
-    const questionProgressSteps = Array.from(questionProgress).filter(step => step.isComplete)
+    const questionProgressSteps = questionProgress.completedSteps()
 
     const notEditableInDps = res.locals.permissions.canEditReportInNomisOnly(report)
 

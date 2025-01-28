@@ -448,154 +448,282 @@ describe('Question progress', () => {
   })
 
   describe('should validate comment and/or date responses along the way', () => {
-    const simplestConfig: IncidentTypeConfiguration = {
-      startingQuestionId: '1',
-      active: true,
-      incidentType: 'MISCELLANEOUS',
-      prisonerRoles: [],
-      questions: {
-        '1': {
-          id: '1',
-          active: true,
-          code: 'Q1',
-          label: 'Question 1',
-          multipleAnswers: false,
-          answers: [
+    describe('for single-choice questions', () => {
+      const simplestConfig: IncidentTypeConfiguration = {
+        startingQuestionId: '1',
+        active: true,
+        incidentType: 'MISCELLANEOUS',
+        prisonerRoles: [],
+        questions: {
+          '1': {
+            id: '1',
+            active: true,
+            code: 'Q1',
+            label: 'Question 1',
+            multipleAnswers: false,
+            answers: [
+              {
+                id: '1',
+                code: 'A1',
+                active: true,
+                label: 'Answer 1',
+                dateRequired: false,
+                commentRequired: false,
+                nextQuestionId: null,
+              },
+              {
+                id: '2',
+                code: 'A2',
+                active: true,
+                label: 'Answer 2 (enter date)',
+                dateRequired: true,
+                commentRequired: false,
+                nextQuestionId: null,
+              },
+              {
+                id: '3',
+                code: 'A3',
+                active: true,
+                label: 'Answer 3 (enter details)',
+                dateRequired: false,
+                commentRequired: true,
+                nextQuestionId: null,
+              },
+              {
+                id: '4',
+                code: 'A4',
+                active: true,
+                label: 'Answer 4 (enter both)',
+                dateRequired: true,
+                commentRequired: true,
+                nextQuestionId: null,
+              },
+            ],
+          },
+        },
+      }
+      const simplestSteps = generateSteps(simplestConfig)
+      const report = convertReportWithDetailsDates(
+        mockReport({ type: 'MISCELLANEOUS', reportReference: '6543', reportDateAndTime: now, withDetails: true }),
+      )
+
+      function expectProgressStepValidity(response: Response, expectValid: boolean) {
+        report.questions = [
+          {
+            code: '1',
+            question: 'Q1',
+            responses: [response],
+            additionalInformation: null,
+          },
+        ]
+        const questionProgress = new QuestionProgress(simplestConfig, simplestSteps, report)
+        const progressStep = Array.from(questionProgress)[0]
+        expect(progressStep.isComplete).toBe(expectValid)
+        expect(progressStep.responses).toHaveLength(1)
+        expect(progressStep.responses[0].isComplete).toBe(expectValid)
+      }
+
+      it('when neither is required and not provided', () => {
+        expectProgressStepValidity(
+          {
+            response: 'A1',
+            responseDate: null,
+            additionalInformation: null,
+            recordedAt: new Date(),
+            recordedBy: 'some-user',
+          },
+          true,
+        )
+      })
+
+      it.each([
+        { scenario: 'provided', provided: true, expectValid: true },
+        { scenario: 'not provided', provided: false, expectValid: false },
+      ])('when date is required and $scenario', ({ provided, expectValid }) => {
+        expectProgressStepValidity(
+          {
+            response: 'A2',
+            responseDate: provided ? new Date() : null,
+            additionalInformation: null,
+            recordedAt: new Date(),
+            recordedBy: 'some-user',
+          },
+          expectValid,
+        )
+      })
+
+      it.each([
+        { scenario: 'provided', provided: true, expectValid: true },
+        { scenario: 'not provided', provided: false, expectValid: false },
+      ])('when comment is required and $scenario', ({ provided, expectValid }) => {
+        expectProgressStepValidity(
+          {
+            response: 'A3',
+            responseDate: null,
+            additionalInformation: provided ? 'COMMENT' : null,
+            recordedAt: new Date(),
+            recordedBy: 'some-user',
+          },
+          expectValid,
+        )
+      })
+
+      it.each([
+        { scenario: 'provided', commentProvided: true, dateProvided: true, expectValid: true },
+        { scenario: 'only comment is provided', commentProvided: true, dateProvided: false, expectValid: false },
+        { scenario: 'only date is provided', commentProvided: false, dateProvided: true, expectValid: false },
+        { scenario: 'not provided', commentProvided: false, dateProvided: false, expectValid: false },
+      ])('when comment and date are required and $scenario', ({ commentProvided, dateProvided, expectValid }) => {
+        expectProgressStepValidity(
+          {
+            response: 'A4',
+            responseDate: commentProvided ? new Date() : null,
+            additionalInformation: dateProvided ? 'COMMENT' : null,
+            recordedAt: new Date(),
+            recordedBy: 'some-user',
+          },
+          expectValid,
+        )
+      })
+
+      it('when comment and date are not required, but still provided', () => {
+        expectProgressStepValidity(
+          {
+            response: 'A1',
+            responseDate: new Date(),
+            additionalInformation: 'COMMENT',
+            recordedAt: new Date(),
+            recordedBy: 'some-user',
+          },
+          true,
+        )
+      })
+    })
+
+    describe('for multiple-choice questions', () => {
+      const multiChoiceConfig: IncidentTypeConfiguration = {
+        startingQuestionId: '1',
+        active: true,
+        incidentType: 'MISCELLANEOUS',
+        prisonerRoles: [],
+        questions: {
+          '1': {
+            id: '1',
+            active: true,
+            code: 'Q1',
+            label: 'Question 1',
+            multipleAnswers: true,
+            answers: [
+              {
+                id: '1',
+                code: 'A1',
+                active: true,
+                label: 'Answer 1',
+                dateRequired: false,
+                commentRequired: false,
+                nextQuestionId: null,
+              },
+              {
+                id: '2',
+                code: 'A2',
+                active: true,
+                label: 'Answer 2 (enter date)',
+                dateRequired: true,
+                commentRequired: false,
+                nextQuestionId: null,
+              },
+              {
+                id: '3',
+                code: 'A3',
+                active: true,
+                label: 'Answer 3 (enter details)',
+                dateRequired: false,
+                commentRequired: true,
+                nextQuestionId: null,
+              },
+              {
+                id: '4',
+                code: 'A4',
+                active: true,
+                label: 'Answer 4 (enter both)',
+                dateRequired: true,
+                commentRequired: true,
+                nextQuestionId: null,
+              },
+            ],
+          },
+        },
+      }
+      const multiChoiceSteps = generateSteps(multiChoiceConfig)
+      const report = convertReportWithDetailsDates(
+        mockReport({ type: 'MISCELLANEOUS', reportReference: '6543', reportDateAndTime: now, withDetails: true }),
+      )
+
+      function expectProgressStepValidity(responses: Response[], expectValid: boolean) {
+        report.questions = [
+          {
+            code: '1',
+            question: 'Q1',
+            responses,
+            additionalInformation: null,
+          },
+        ]
+        const questionProgress = new QuestionProgress(multiChoiceConfig, multiChoiceSteps, report)
+        const progressStep = Array.from(questionProgress)[0]
+        expect(progressStep.isComplete).toBe(expectValid)
+      }
+
+      it('when no responses are provided', () => {
+        expectProgressStepValidity([], false)
+      })
+
+      it('when some valid responses are provided', () => {
+        expectProgressStepValidity(
+          [
+            // complete
             {
-              id: '1',
-              code: 'A1',
-              active: true,
-              label: 'Answer 1',
-              dateRequired: false,
-              commentRequired: false,
-              nextQuestionId: null,
+              response: 'A1',
+              responseDate: null,
+              additionalInformation: null,
+              recordedAt: new Date(),
+              recordedBy: 'some-user',
             },
+            // complete
             {
-              id: '2',
-              code: 'A2',
-              active: true,
-              label: 'Answer 2',
-              dateRequired: true,
-              commentRequired: false,
-              nextQuestionId: null,
-            },
-            {
-              id: '3',
-              code: 'A3',
-              active: true,
-              label: 'Answer 3',
-              dateRequired: false,
-              commentRequired: true,
-              nextQuestionId: null,
-            },
-            {
-              id: '4',
-              code: 'A4',
-              active: true,
-              label: 'Answer 4',
-              dateRequired: true,
-              commentRequired: true,
-              nextQuestionId: null,
+              response: 'A3',
+              responseDate: null,
+              additionalInformation: 'COMMENT',
+              recordedAt: new Date(),
+              recordedBy: 'some-user',
             },
           ],
-        },
-      },
-    }
-    const simplestSteps = generateSteps(simplestConfig)
-    const report = convertReportWithDetailsDates(
-      mockReport({ type: 'MISCELLANEOUS', reportReference: '6543', reportDateAndTime: now, withDetails: true }),
-    )
+          true,
+        )
+      })
 
-    function expectProgressStepValidity(response: Response, expectValid: boolean) {
-      report.questions = [
-        {
-          code: '1',
-          question: 'Q1',
-          responses: [response],
-          additionalInformation: null,
-        },
-      ]
-      const questionProgress = new QuestionProgress(simplestConfig, simplestSteps, report)
-      const progressStep = Array.from(questionProgress)[0]
-      expect(progressStep.isComplete).toBe(true)
-      expect(progressStep.responses).toHaveLength(1)
-      expect(progressStep.responses[0].isComplete).toBe(expectValid)
-    }
-
-    it('when neither is required and not provided', () => {
-      expectProgressStepValidity(
-        {
-          response: 'A1',
-          responseDate: null,
-          additionalInformation: null,
-          recordedAt: new Date(),
-          recordedBy: 'some-user',
-        },
-        true,
-      )
-    })
-
-    it.each([
-      { scenario: 'provided', provided: true, expectValid: true },
-      { scenario: 'not provided', provided: false, expectValid: false },
-    ])('when date is required and $scenario', ({ provided, expectValid }) => {
-      expectProgressStepValidity(
-        {
-          response: 'A2',
-          responseDate: provided ? new Date() : null,
-          additionalInformation: null,
-          recordedAt: new Date(),
-          recordedBy: 'some-user',
-        },
-        expectValid,
-      )
-    })
-
-    it.each([
-      { scenario: 'provided', provided: true, expectValid: true },
-      { scenario: 'not provided', provided: false, expectValid: false },
-    ])('when comment is required and $scenario', ({ provided, expectValid }) => {
-      expectProgressStepValidity(
-        {
-          response: 'A3',
-          responseDate: null,
-          additionalInformation: provided ? 'COMMENT' : null,
-          recordedAt: new Date(),
-          recordedBy: 'some-user',
-        },
-        expectValid,
-      )
-    })
-
-    it.each([
-      { scenario: 'provided', commentProvided: true, dateProvided: true, expectValid: true },
-      { scenario: 'only comment is provided', commentProvided: true, dateProvided: false, expectValid: false },
-      { scenario: 'only date is provided', commentProvided: false, dateProvided: true, expectValid: false },
-      { scenario: 'not provided', commentProvided: false, dateProvided: false, expectValid: false },
-    ])('when comment and date are required and $scenario', ({ commentProvided, dateProvided, expectValid }) => {
-      expectProgressStepValidity(
-        {
-          response: 'A4',
-          responseDate: commentProvided ? new Date() : null,
-          additionalInformation: dateProvided ? 'COMMENT' : null,
-          recordedAt: new Date(),
-          recordedBy: 'some-user',
-        },
-        expectValid,
-      )
-    })
-
-    it('when comment and date are not required, but still provided', () => {
-      expectProgressStepValidity(
-        {
-          response: 'A1',
-          responseDate: new Date(),
-          additionalInformation: 'COMMENT',
-          recordedAt: new Date(),
-          recordedBy: 'some-user',
-        },
-        true,
-      )
+      it('when some invalid responses are provided', () => {
+        expectProgressStepValidity(
+          [
+            // complete
+            {
+              response: 'A1',
+              responseDate: null,
+              additionalInformation: null,
+              recordedAt: new Date(),
+              recordedBy: 'some-user',
+            },
+            // incomplete
+            {
+              response: 'A3',
+              responseDate: null,
+              additionalInformation: null,
+              recordedAt: new Date(),
+              recordedBy: 'some-user',
+            },
+          ],
+          false,
+        )
+      })
     })
   })
 })

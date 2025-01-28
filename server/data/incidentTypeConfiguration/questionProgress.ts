@@ -16,7 +16,7 @@ export interface QuestionProgressStep {
   questionNumber: number
   /** Page number when questions are grouped */
   pageNumber: number
-  /** Whether this question step has been completed (ie. responses exist) */
+  /** Whether this question step has been completed (ie. responses exist and each one has a comment or date if required) */
   isComplete: boolean
 }
 
@@ -50,9 +50,10 @@ export class QuestionProgress {
    * Incident type configuration is used to determine proper question order.
    *
    * NB: completion flag does **not** fully validate responses, e.g.
-   *   - comment/date fields are not checked (but there is a completed flag on each response inside)
    *   - unrecognised responses are ignored
    *   - ignores order of questions in report
+   *   - whether multiple responses provided to a non-multiple-choice question
+   * …but these scenarios are not possible for users to create.
    */
   *[Symbol.iterator](): Generator<Readonly<QuestionProgressStep>, void, void> {
     // map of question id to responses so that order isn't required to be identical
@@ -100,7 +101,7 @@ export class QuestionProgress {
         questionNumber,
         pageNumber,
         responses: responseItems,
-        isComplete: Boolean(responseItems),
+        isComplete: Boolean(responseItems?.length >= 1 && responseItems.every(item => item.isComplete)),
       }
       // TODO: assuming multiple choice questions have options all leading to the same place. was this validated? see IR-769
       nextQuestionId = responseItems?.[0]?.answerConfig.nextQuestionId

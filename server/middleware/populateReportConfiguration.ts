@@ -3,10 +3,13 @@ import { NotImplemented } from 'http-errors'
 
 import logger from '../../logger'
 import { getIncidentTypeConfiguration } from '../reportConfiguration/types'
+import { reportHasDetails } from '../data/incidentReportingApiUtils'
 import { generateFields, generateSteps } from '../data/incidentTypeConfiguration/formWizard'
+import { QuestionProgress } from '../data/incidentTypeConfiguration/questionProgress'
 
 /**
- * Loads report configuration for a report in `res.locals.report`
+ * Loads report configuration for a report in `res.locals.report`.
+ * Must come after populateReport() middleware.
  */
 // eslint-disable-next-line import/prefer-default-export
 export function populateReportConfiguration(generateQuestionSteps = true) {
@@ -24,6 +27,9 @@ export function populateReportConfiguration(generateQuestionSteps = true) {
       if (generateQuestionSteps) {
         res.locals.questionSteps = generateSteps(res.locals.reportConfig)
         res.locals.questionFields = generateFields(res.locals.reportConfig)
+        if (reportHasDetails(report)) {
+          res.locals.questionProgress = new QuestionProgress(res.locals.reportConfig, res.locals.questionSteps, report)
+        }
       }
 
       next()

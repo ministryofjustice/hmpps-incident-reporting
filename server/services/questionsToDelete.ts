@@ -1,4 +1,9 @@
-import { findAnswerConfigByCode, IncidentTypeConfiguration } from '../data/incidentTypeConfiguration/types'
+import {
+  type AnswerConfiguration,
+  type IncidentTypeConfiguration,
+  type QuestionConfiguration,
+  findAnswerConfigByCode,
+} from '../data/incidentTypeConfiguration/types'
 
 /**
  * This interface is a subset of the API's `Question`
@@ -19,7 +24,7 @@ export default class QuestionsToDelete {
    * returning the question IDs which were not visited, given the current
    * answers.
    *
-   * @param report config
+   * @param config incident type config
    * @param answeredQuestions list of questions answered (and their responses)
    *
    * @returns list of question IDs to delete
@@ -39,7 +44,7 @@ export default class QuestionsToDelete {
    * The traversal starts at `start` and is based off the already answered
    * questions.
    *
-   * @param report config
+   * @param config incident type config
    * @param start question ID where to start
    * @param answeredQuestions list of questions answered (and their responses)
    *
@@ -71,7 +76,7 @@ export default class QuestionsToDelete {
    * answered question 'QX': In this case this question 'QX' would still be
    * valid and it could be retained.
    *
-   * @param report config
+   * @param config incident type config
    * @param start question ID where to start
    * @param answeredQuestions list of questions answered (and their responses)
    *
@@ -83,8 +88,8 @@ export default class QuestionsToDelete {
     answeredQuestions: AnsweredQuestion[],
   ): string | null {
     const answeredQuestion = answeredQuestions.find(question => question.code === start)
-    let questionConfig = null
-    let answerConfig = null
+    let questionConfig: QuestionConfiguration | null = null
+    let answerConfig: AnswerConfiguration | null = null
 
     if (answeredQuestion) {
       questionConfig = config.questions[answeredQuestion.code]

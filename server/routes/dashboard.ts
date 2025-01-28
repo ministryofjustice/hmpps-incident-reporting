@@ -20,7 +20,7 @@ import type { Services } from '../services'
 import asyncMiddleware from '../middleware/asyncMiddleware'
 import { roleApproveReject, roleReadWrite } from '../data/constants'
 
-type IncidentStatuses = Status | WorkList
+export type IncidentStatuses = Status | WorkList
 
 interface ListFormData {
   searchID?: string

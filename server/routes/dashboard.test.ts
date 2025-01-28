@@ -12,6 +12,7 @@ import { convertBasicReportDates } from '../data/incidentReportingApiUtils'
 import UserService from '../services/userService'
 import type { User } from '../data/manageUsersApiClient'
 import config from '../config'
+import { Status } from '../reportConfiguration/constants'
 
 jest.mock('../data/incidentReportingApi')
 jest.mock('../services/userService')
@@ -120,7 +121,7 @@ describe('GET dashboard', () => {
       })
   })
 
-  it('should submit query values correctly into the api call', () => {
+  it('should submit query values correctly into the api call for RO', () => {
     const mockedReports = [
       convertBasicReportDates(mockReport({ reportReference: '6543', reportDateAndTime: now })),
       convertBasicReportDates(mockReport({ reportReference: '6544', reportDateAndTime: now })),
@@ -139,7 +140,7 @@ describe('GET dashboard', () => {
       page: 0,
       reference: undefined,
       sort: ['incidentDateAndTime,DESC'],
-      status: 'DRAFT',
+      status: ['DRAFT', 'INFORMATION_REQUIRED'],
       type: 'ATTEMPTED_ESCAPE_FROM_CUSTODY',
     }
 
@@ -149,10 +150,54 @@ describe('GET dashboard', () => {
       toDate: '14/01/2025',
       location: 'MDI',
       incidentType: 'ATTEMPTED_ESCAPE_FROM_CUSTODY',
+      incidentStatuses: 'toDo',
+    }
+
+    return request(appWithAllRoutes({ services: { userService }, userSupplier: () => reportingUser }))
+      .get(`/reports`)
+      .query(queryParams)
+      .expect('Content-Type', /html/)
+      .expect(res => {
+        expect(res.text).not.toContain(
+          'Enter a valid incident reference number or offender ID. For example, 12345678 or A0011BB',
+        )
+        expect(res.text).toContain('Clear')
+        expect(incidentReportingApi.getReports).toHaveBeenCalledWith(expectedParams)
+      })
+  })
+  it('should submit query values correctly into the api call for DW', () => {
+    const mockedReports = [
+      convertBasicReportDates(mockReport({ reportReference: '6543', reportDateAndTime: now })),
+      convertBasicReportDates(mockReport({ reportReference: '6544', reportDateAndTime: now })),
+    ]
+    const pageOfReports = unsortedPageOf(mockedReports)
+    incidentReportingApi.getReports.mockResolvedValueOnce(pageOfReports)
+
+    const users: Record<string, User> = { JOHN_SMITH: { username: 'JOHN_SMITH', name: 'John Smith' } }
+    userService.getUsers.mockResolvedValueOnce(users)
+
+    const expectedParams: Partial<GetReportsParams> = {
+      location: 'LEI',
+      incidentDateFrom: new Date(2025, 0, 1, 12, 0, 0),
+      incidentDateUntil: new Date(2025, 0, 14, 12, 0, 0),
+      involvingPrisonerNumber: 'A0011BC',
+      page: 0,
+      reference: undefined,
+      sort: ['incidentDateAndTime,DESC'],
+      status: 'DRAFT',
+      type: 'ATTEMPTED_ESCAPE_FROM_CUSTODY',
+    }
+
+    const queryParams = {
+      searchID: 'A0011BC',
+      fromDate: '01/01/2025',
+      toDate: '14/01/2025',
+      location: 'LEI',
+      incidentType: 'ATTEMPTED_ESCAPE_FROM_CUSTODY',
       incidentStatuses: 'DRAFT',
     }
 
-    return request(app)
+    return request(appWithAllRoutes({ services: { userService }, userSupplier: () => approverUser }))
       .get(`/reports`)
       .query(queryParams)
       .expect('Content-Type', /html/)
@@ -190,7 +235,7 @@ describe('GET dashboard', () => {
       })
   })
 
-  it('should render all filters except establishment if user caseload is only 1 establishment', () => {
+  it('should render expected filters for a RO user where caseload is only 1 establishment', () => {
     const mockedReports = [
       convertBasicReportDates(mockReport({ reportReference: '6543', reportDateAndTime: now })),
       convertBasicReportDates(mockReport({ reportReference: '6544', reportDateAndTime: now })),
@@ -212,7 +257,7 @@ describe('GET dashboard', () => {
       status: undefined,
       type: undefined,
     }
-    return request(app)
+    return request(appWithAllRoutes({ services: { userService }, userSupplier: () => reportingUser }))
       .get('/reports')
       .expect('Content-Type', /html/)
       .expect(res => {
@@ -226,9 +271,58 @@ describe('GET dashboard', () => {
         expect(res.text).not.toContain('location')
         expect(res.text).toContain('incidentType')
         expect(res.text).toContain('Incident type')
+        expect(res.text).toContain('Work list')
+        expect(res.text).toContain('To do')
+        expect(res.text).toContain('toDo')
+        expect(res.text).not.toContain('DRAFT')
         expect(res.text).toContain('Filter')
         expect(res.text).not.toContain('Clear')
-        expect(res.text).toContain('incidentStatuses')
+        expect(incidentReportingApi.getReports).toHaveBeenCalledWith(expectedParams)
+      })
+  })
+  it('should render expected filters for a DW user where caseload is multiple establishments', () => {
+    const mockedReports = [
+      convertBasicReportDates(mockReport({ reportReference: '6543', reportDateAndTime: now })),
+      convertBasicReportDates(mockReport({ reportReference: '6544', reportDateAndTime: now })),
+    ]
+    const pageOfReports = unsortedPageOf(mockedReports)
+    incidentReportingApi.getReports.mockResolvedValueOnce(pageOfReports)
+
+    const users: Record<string, User> = { JOHN_SMITH: { username: 'JOHN_SMITH', name: 'John Smith' } }
+    userService.getUsers.mockResolvedValueOnce(users)
+
+    const expectedParams: Partial<GetReportsParams> = {
+      location: ['MDI', 'LEI'],
+      incidentDateFrom: undefined,
+      incidentDateUntil: undefined,
+      involvingPrisonerNumber: undefined,
+      page: 0,
+      reference: undefined,
+      sort: ['incidentDateAndTime,DESC'],
+      status: undefined,
+      type: undefined,
+    }
+    return request(appWithAllRoutes({ services: { userService }, userSupplier: () => approverUser }))
+      .get('/reports')
+      .expect('Content-Type', /html/)
+      .expect(res => {
+        expect(res.text).toContain('searchID')
+        expect(res.text).toContain('Search an incident number or offender ID')
+        expect(res.text).toContain('fromDate')
+        expect(res.text).toContain('Incident date from')
+        expect(res.text).toContain('toDate')
+        expect(res.text).toContain('Incident date to')
+        expect(res.text).toContain('Establishment')
+        expect(res.text).toContain('location')
+        expect(res.text).toContain('incidentType')
+        expect(res.text).toContain('Incident type')
+        expect(res.text).not.toContain('Work list')
+        expect(res.text).not.toContain('To do')
+        expect(res.text).not.toContain('toDo')
+        expect(res.text).toContain('Draft')
+        expect(res.text).toContain('DRAFT')
+        expect(res.text).toContain('Filter')
+        expect(res.text).not.toContain('Clear')
         expect(incidentReportingApi.getReports).toHaveBeenCalledWith(expectedParams)
       })
   })
@@ -262,7 +356,7 @@ describe('search validations', () => {
       type: undefined,
     }
 
-    return request(app)
+    return request(appWithAllRoutes({ services: { userService }, userSupplier: () => reportingUser }))
       .get(`/reports`)
       .query({ searchID: searchValue })
       .expect('Content-Type', /html/)
@@ -415,6 +509,92 @@ describe('search validations', () => {
           'Enter a valid incident reference number or offender ID. For example, 12345678 or A0011BB',
         )
         expect(res.text).toContain('Clear')
+        expect(incidentReportingApi.getReports).toHaveBeenCalledWith(expectedParams)
+      })
+  })
+})
+
+describe('work list filter validations in RO view', () => {
+  it.each([
+    { scenario: 'single "to do" selected', statusQuery: 'toDo', expectedArgs: ['DRAFT', 'INFORMATION_REQUIRED'] },
+    {
+      scenario: 'single "submitted" selected',
+      statusQuery: 'submitted',
+      expectedArgs: ['AWAITING_ANALYSIS', 'INFORMATION_AMENDED', 'IN_ANALYSIS'],
+    },
+    {
+      scenario: 'multiple selected - "to do" and "done"',
+      statusQuery: ['toDo', 'done'],
+      expectedArgs: ['DRAFT', 'INFORMATION_REQUIRED', 'CLOSED', 'DUPLICATE'],
+    },
+  ])('should submit correct status args when $scenario', ({ statusQuery, expectedArgs }) => {
+    const mockedReports = [
+      convertBasicReportDates(mockReport({ reportReference: '6543', reportDateAndTime: now })),
+      convertBasicReportDates(mockReport({ reportReference: '6544', reportDateAndTime: now })),
+    ]
+    const pageOfReports = unsortedPageOf(mockedReports)
+    incidentReportingApi.getReports.mockResolvedValueOnce(pageOfReports)
+
+    const users: Record<string, User> = { JOHN_SMITH: { username: 'JOHN_SMITH', name: 'John Smith' } }
+    userService.getUsers.mockResolvedValueOnce(users)
+
+    const expectedParams: Partial<GetReportsParams> = {
+      location: ['MDI'],
+      incidentDateFrom: undefined,
+      incidentDateUntil: undefined,
+      involvingPrisonerNumber: undefined,
+      page: 0,
+      reference: undefined,
+      sort: ['incidentDateAndTime,DESC'],
+      status: expectedArgs as Status[],
+      type: undefined,
+    }
+    return request(appWithAllRoutes({ services: { userService }, userSupplier: () => reportingUser }))
+      .get('/reports')
+      .query({ incidentStatuses: statusQuery })
+      .expect('Content-Type', /html/)
+      .expect(res => {
+        expect(incidentReportingApi.getReports).toHaveBeenCalledWith(expectedParams)
+      })
+  })
+})
+
+describe('work list filter validations in DW view', () => {
+  it.each([
+    { scenario: 'single "Draft" selected', statusQuery: 'DRAFT', expectedArgs: 'DRAFT' },
+    { scenario: 'single "In analysis" selected', statusQuery: 'IN_ANALYSIS', expectedArgs: 'IN_ANALYSIS' },
+    {
+      scenario: 'multiple selected - "DRAFT", "IN_ANALYSIS" and "INFORMATION_AMENDED"',
+      statusQuery: ['DRAFT', 'IN_ANALYSIS', 'INFORMATION_AMENDED'],
+      expectedArgs: ['DRAFT', 'IN_ANALYSIS', 'INFORMATION_AMENDED'],
+    },
+  ])('should submit correct status args when $scenario', ({ statusQuery, expectedArgs }) => {
+    const mockedReports = [
+      convertBasicReportDates(mockReport({ reportReference: '6543', reportDateAndTime: now })),
+      convertBasicReportDates(mockReport({ reportReference: '6544', reportDateAndTime: now })),
+    ]
+    const pageOfReports = unsortedPageOf(mockedReports)
+    incidentReportingApi.getReports.mockResolvedValueOnce(pageOfReports)
+
+    const users: Record<string, User> = { JOHN_SMITH: { username: 'JOHN_SMITH', name: 'John Smith' } }
+    userService.getUsers.mockResolvedValueOnce(users)
+
+    const expectedParams: Partial<GetReportsParams> = {
+      location: ['MDI', 'LEI'],
+      incidentDateFrom: undefined,
+      incidentDateUntil: undefined,
+      involvingPrisonerNumber: undefined,
+      page: 0,
+      reference: undefined,
+      sort: ['incidentDateAndTime,DESC'],
+      status: expectedArgs as Status,
+      type: undefined,
+    }
+    return request(appWithAllRoutes({ services: { userService }, userSupplier: () => approverUser }))
+      .get('/reports')
+      .query({ incidentStatuses: statusQuery })
+      .expect('Content-Type', /html/)
+      .expect(res => {
         expect(incidentReportingApi.getReports).toHaveBeenCalledWith(expectedParams)
       })
   })

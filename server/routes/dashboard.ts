@@ -18,6 +18,7 @@ import { sortableTableHead } from '../utils/sortableTable'
 import { pagination } from '../utils/pagination'
 import type { Services } from '../services'
 import asyncMiddleware from '../middleware/asyncMiddleware'
+import { roleApproveReject, roleReadWrite } from '../data/constants'
 
 type IncidentStatuses = Status | WorkList
 
@@ -41,7 +42,7 @@ export default function dashboard(service: Services): Router {
   get('/', async (req, res) => {
     const { incidentReportingApi } = res.locals.apis
 
-    const userRole: string = 'DW'
+    const userRoles: string[] = res.locals.user.roles
 
     const userCaseloads = res.locals.user.caseLoads
     const userCaseloadIds = userCaseloads.map(caseload => caseload.caseLoadId)
@@ -172,7 +173,7 @@ export default function dashboard(service: Services): Router {
 
     let searchStatuses: Status | Status[]
     // Replace status mappings if RO viewing page
-    if (userRole === 'RO') {
+    if (userRoles.includes(roleReadWrite) && !userRoles.includes(roleApproveReject)) {
       if (typeof incidentStatuses === 'object') {
         searchStatuses = (incidentStatuses as WorkList[])
           .map(incidentStatus => workListStatusMapping[incidentStatus])
@@ -243,18 +244,18 @@ export default function dashboard(service: Services): Router {
     }))
     let statusItems: { value: string; text: string }[]
     let checkboxLabel: string
-    if (userRole === 'DW') {
-      statusItems = statuses.map(status => ({
-        value: status.code,
-        text: status.description,
-      }))
-      checkboxLabel = 'Status'
-    } else if (userRole === 'RO') {
+    if (userRoles.includes(roleReadWrite) && !userRoles.includes(roleApproveReject)) {
       statusItems = workListMapping.map(workListValue => ({
         value: workListValue.code,
         text: workListValue.description,
       }))
       checkboxLabel = 'Work list'
+    } else {
+      statusItems = statuses.map(status => ({
+        value: status.code,
+        text: status.description,
+      }))
+      checkboxLabel = 'Status'
     }
     const establishments = userCaseloads.map(caseload => ({
       value: caseload.caseLoadId,

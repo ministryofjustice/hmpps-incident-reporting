@@ -174,7 +174,7 @@ export default function dashboard(service: Services): Router {
     let searchStatuses: Status | Status[]
     // Replace status mappings if RO viewing page
     if (userRoles.includes(roleReadWrite) && !userRoles.includes(roleApproveReject)) {
-      if (typeof incidentStatuses === 'object') {
+      if (Array.isArray(incidentStatuses)) {
         searchStatuses = (incidentStatuses as WorkList[])
           .map(incidentStatus => workListStatusMapping[incidentStatus])
           .flat(1)
@@ -243,19 +243,19 @@ export default function dashboard(service: Services): Router {
       text: incType.description,
     }))
     let statusItems: { value: string; text: string }[]
-    let checkboxLabel: string
+    let statusCheckboxLabel: string
     if (userRoles.includes(roleReadWrite) && !userRoles.includes(roleApproveReject)) {
       statusItems = workListMapping.map(workListValue => ({
         value: workListValue.code,
         text: workListValue.description,
       }))
-      checkboxLabel = 'Work list'
+      statusCheckboxLabel = 'Work list'
     } else {
       statusItems = statuses.map(status => ({
         value: status.code,
         text: status.description,
       }))
-      checkboxLabel = 'Status'
+      statusCheckboxLabel = 'Status'
     }
     const establishments = userCaseloads.map(caseload => ({
       value: caseload.caseLoadId,
@@ -292,7 +292,7 @@ export default function dashboard(service: Services): Router {
       incidentTypes,
       statusItems,
       typesLookup,
-      checkboxLabel,
+      statusCheckboxLabel,
       statusLookup,
       formValues,
       errors,

@@ -118,7 +118,7 @@ export type GetReportsParams = {
   reference: string
   location: string | string[]
   source: InformationSource
-  status: Status
+  status: Status | Status[]
   type: Type
   incidentDateFrom: Date // Inclusive
   incidentDateUntil: Date // Inclusive

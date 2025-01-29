@@ -1,6 +1,7 @@
 export * from './types'
 export * from './typeHints'
 export * from './statuses'
+export * from './statusMappings'
 export * from './informationSources'
 export * from './staffInvolvementRoles'
 export * from './prisonerInvolvementRoles'

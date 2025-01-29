@@ -42,10 +42,12 @@ export default function dashboard(service: Services): Router {
   get('/', async (req, res) => {
     const { incidentReportingApi } = res.locals.apis
 
-    const userRoles: string[] = res.locals.user.roles
+    // const userRoles: string[] = res.locals.user.roles
+    const userRoles = ['INCIDENT_REPORTS__APPROVE']
 
     const userCaseloads = res.locals.user.caseLoads
-    const userCaseloadIds = userCaseloads.map(caseload => caseload.caseLoadId)
+    // const userCaseloadIds = userCaseloads.map(caseload => caseload.caseLoadId)
+    const userCaseloadIds = ['MDI']
 
     let showEstablishmentsFilter = false
     if (userCaseloadIds.length > 1) {

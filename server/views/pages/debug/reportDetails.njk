@@ -49,7 +49,7 @@
           visuallyHiddenText: "incident details"
         }
       ]
-    } if permissions.canEditReport(report) else {}
+    } if canEditReport else {}
   },
   rows: [
     {
@@ -85,7 +85,7 @@
           visuallyHiddenText: "incident type"
         }
       ]
-    } if permissions.canEditReport(report) else {}
+    } if canEditReport else {}
   },
   rows: [
     {
@@ -151,7 +151,7 @@
                 visuallyHiddenText: "prisoner"
               }
             ]
-          } if permissions.canEditReport(report) else {}
+          } if canEditReport else {}
         }), prisonerRows) -%}
 
       {%- endfor -%}
@@ -167,7 +167,7 @@
             text: "Add a prisoner"
           }
         ]
-      } if permissions.canEditReport(report) else {}
+      } if canEditReport else {}
     }) -%}
   {%- endif -%}
 
@@ -183,7 +183,7 @@
             text: "Add a prisoner"
           }
         ]
-      } if permissions.canEditReport(report) else {}
+      } if canEditReport else {}
     },
     rows: prisonerRows
   }) }}
@@ -226,7 +226,7 @@
               visuallyHiddenText: "staff"
             }
           ]
-        } if permissions.canEditReport(report) else {}
+        } if canEditReport else {}
       }), staffRows) -%}
 
     {%- endfor -%}
@@ -242,7 +242,7 @@
             text: "Add a staff member"
           }
         ]
-      } if permissions.canEditReport(report) else {}
+      } if canEditReport else {}
     }) -%}
   {%- endif -%}
 
@@ -258,7 +258,7 @@
             text: "Add a staff member"
           }
         ]
-      } if permissions.canEditReport(report) else {}
+      } if canEditReport else {}
       },
       rows: staffRows
   }) }}
@@ -293,7 +293,7 @@
       actions: {items: [{
         href: "/reports/" + report.id + "/questions" + (questionProgressStep.urlSuffix or ""),
         text: "Change response"
-      }]}
+      }]} if canEditReport else {}
     }) %}
 
   {% else %}
@@ -304,7 +304,7 @@
       actions: {items: [{
         href: "/reports/" + report.id + "/questions",
         text: "Answer questions"
-      }]}
+      }]} if canEditReport else {}
     }) %}
 
   {% endfor %}
@@ -320,7 +320,7 @@
           text: "Change",
           visuallyHiddenText: "question responses"
         }]
-      } if permissions.canEditReport(report) else {}
+      } if canEditReport else {}
     },
     rows: questionRows
   }) }}
@@ -361,7 +361,7 @@
             text: "Add a correction"
           }
         ]
-      } if permissions.canEditReport(report) else {}
+      } if canEditReport else {}
     }) -%}
   {%- endif -%}
 
@@ -377,7 +377,7 @@
             text: "Add a correction"
           }
         ]
-      } if permissions.canEditReport(report) else {}
+      } if canEditReport else {}
     },
     rows: correctionRows
   }) }}

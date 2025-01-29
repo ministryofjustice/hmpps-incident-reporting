@@ -1,12 +1,13 @@
 import type { NextFunction, Request, Response } from 'express'
 
-import { convertReportDates } from '../data/incidentReportingApiUtils'
+import { convertReportDates, reportHasDetails } from '../data/incidentReportingApiUtils'
+import { QuestionProgress } from '../data/incidentTypeConfiguration/questionProgress'
 import { mockReport } from '../data/testData/incidentReporting'
 import type { Type } from '../reportConfiguration/constants'
 import { now } from '../testutils/fakeClock'
 import { populateReportConfiguration } from './populateReportConfiguration'
 
-describe('report-configuration-loading middleware', () => {
+describe('Middleware to load report configuration and progress', () => {
   const basicReport = convertReportDates(
     mockReport({ reportReference: '6543', reportDateAndTime: now, withDetails: false }),
   )
@@ -27,6 +28,11 @@ describe('report-configuration-loading middleware', () => {
     expect(res.locals.reportConfig.incidentType).toEqual(report.type)
     expect(res.locals.questionFields).toBeInstanceOf(Object)
     expect(res.locals.questionSteps).toBeInstanceOf(Object)
+    if (reportHasDetails(report)) {
+      expect(res.locals.questionProgress).toBeInstanceOf(QuestionProgress)
+    } else {
+      expect(res.locals.questionProgress).toBeUndefined()
+    }
     expect(next).toHaveBeenCalledWith()
   })
 
@@ -43,6 +49,7 @@ describe('report-configuration-loading middleware', () => {
     expect(res.locals.reportConfig.incidentType).toEqual(report.type)
     expect(res.locals.questionFields).toBeUndefined()
     expect(res.locals.questionSteps).toBeUndefined()
+    expect(res.locals.questionProgress).toBeUndefined()
     expect(next).toHaveBeenCalledWith()
   })
 
@@ -61,6 +68,7 @@ describe('report-configuration-loading middleware', () => {
     expect(res.locals.reportConfig).toBeUndefined()
     expect(res.locals.questionFields).toBeUndefined()
     expect(res.locals.questionSteps).toBeUndefined()
+    expect(res.locals.questionProgress).toBeUndefined()
     expect(next).toHaveBeenCalledWith(expect.objectContaining({ code: 'MODULE_NOT_FOUND' }))
   })
 
@@ -74,6 +82,7 @@ describe('report-configuration-loading middleware', () => {
     expect(res.locals.reportConfig).toBeUndefined()
     expect(res.locals.questionFields).toBeUndefined()
     expect(res.locals.questionSteps).toBeUndefined()
+    expect(res.locals.questionProgress).toBeUndefined()
     expect(next).toHaveBeenCalledWith(
       expect.objectContaining({ message: 'populateReportConfiguration() requires req.locals.report', status: 501 }),
     )

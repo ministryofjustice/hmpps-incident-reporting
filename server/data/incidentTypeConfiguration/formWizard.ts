@@ -1,8 +1,8 @@
 import type express from 'express'
 import type FormWizard from 'hmpo-form-wizard'
 
-import type { AnswerConfiguration, IncidentTypeConfiguration, QuestionConfiguration } from './types'
 import QuestionsController from '../../controllers/wip/questionsController'
+import type { AnswerConfiguration, IncidentTypeConfiguration, QuestionConfiguration } from './types'
 
 const MAX_ANSWERS_PER_PAGE = 20
 
@@ -316,7 +316,11 @@ function nextSteps(question: QuestionConfiguration, answers: AnswerConfiguration
   return next
 }
 
-function conditionalFieldName(question: QuestionConfiguration, answer: AnswerConfiguration, suffix: string): string {
+function conditionalFieldName(
+  question: QuestionConfiguration,
+  answer: AnswerConfiguration,
+  suffix: 'comment' | 'date',
+): string {
   return `${question.id}-${answer.id}-${suffix}`
 }
 

@@ -120,4 +120,32 @@ describe('nunjucks context', () => {
       expect(output).toEqual('false')
     })
   })
+
+  describe('mergeObjects filter', () => {
+    it('should merge multiple objects', () => {
+      const output = nunjucks
+        .renderString(
+          `
+            {% set merged = mergeObjects({a: 1}, {b: 20}, {c: 3}, {b: 2}) %}
+            len={{ merged | length }}, a={{ merged.a }}, b={{ merged.b }}, c={{ merged.c }}
+          `,
+          {},
+        )
+        .trim()
+      expect(output).toEqual('len=3, a=1, b=2, c=3')
+    })
+
+    it('should work with no inputs', () => {
+      const output = nunjucks
+        .renderString(
+          `
+            {% set merged = mergeObjects() %}
+            len={{ merged | length }}
+          `,
+          {},
+        )
+        .trim()
+      expect(output).toEqual('len=0')
+    })
+  })
 })

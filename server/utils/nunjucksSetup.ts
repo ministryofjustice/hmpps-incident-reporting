@@ -58,9 +58,16 @@ export default function nunjucksSetup(app: express.Express): void {
   // misc utils
   njkEnv.addFilter('assetMap', (url: string) => assetManifest[url] || url)
   njkEnv.addGlobal('callAsMacro', callAsMacro)
+  njkEnv.addGlobal('isPrisonActiveInService', isPrisonActiveInService)
+  njkEnv.addGlobal('mergeObjects', (...objects: object[]) => {
+    const merged = {}
+    for (const o of objects) {
+      Object.assign(merged, o)
+    }
+    return merged
+  })
   njkEnv.addGlobal('now', () => new Date())
   njkEnv.addExtension('panic', new PanicExtension())
-  njkEnv.addGlobal('isPrisonActiveInService', isPrisonActiveInService)
 
   // name formatting
   njkEnv.addFilter('convertToTitleCase', convertToTitleCase)

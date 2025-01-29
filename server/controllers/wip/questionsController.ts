@@ -1,29 +1,50 @@
-import { FormWizard } from 'hmpo-form-wizard'
 import type express from 'express'
+import { FormWizard } from 'hmpo-form-wizard'
+
+import logger from '../../../logger'
+import format from '../../utils/format'
+import { parseDateInput } from '../../utils/utils'
 import { BaseController } from '../index'
 import {
   type AddOrUpdateQuestionResponseRequest,
   type AddOrUpdateQuestionWithResponsesRequest,
   type ReportWithDetails,
 } from '../../data/incidentReportingApi'
-import format from '../../utils/format'
 import {
+  type QuestionConfiguration,
   findAnswerConfigByCode,
-  IncidentTypeConfiguration,
-  QuestionConfiguration,
   stripQidPrefix,
 } from '../../data/incidentTypeConfiguration/types'
-import logger from '../../../logger'
-import { parseDateInput } from '../../utils/utils'
 import QuestionsToDelete from '../../services/questionsToDelete'
 
 export default class QuestionsController extends BaseController<FormWizard.MultiValues> {
-  getBackLink(_req: FormWizard.Request, _res: express.Response): string {
-    return '/reports/'
-  }
-
   middlewareLocals(): void {
     super.middlewareLocals()
+    this.use(this.checkQuestionProgress)
+  }
+
+  checkQuestionProgress(
+    req: FormWizard.Request<FormWizard.MultiValues>,
+    res: express.Response,
+    next: express.NextFunction,
+  ): void {
+    const stepPath = req.form.options.route
+    for (const progressStep of res.locals.questionProgress) {
+      if (progressStep.urlSuffix === stepPath) {
+        res.locals.firstQuestionNumber = progressStep.questionNumber
+        res.locals.questionPageNumber = progressStep.pageNumber
+        break
+      }
+    }
+    if (!res.locals.questionPageNumber) {
+      logger.error(`Could not find question page number for ${stepPath} in report type ${res.locals.report.type}`)
+    }
+    next()
+  }
+
+  getBackLink(req: FormWizard.Request<FormWizard.MultiValues>, _res: express.Response): string {
+    const reportId = req.params.id
+    return `/reports/${reportId}`
   }
 
   getValues(
@@ -40,7 +61,7 @@ export default class QuestionsController extends BaseController<FormWizard.Multi
       const formValues = { ...values }
 
       const report = res.locals.report as ReportWithDetails
-      const reportConfig = res.locals.reportConfig as IncidentTypeConfiguration
+      const { reportConfig } = res.locals
 
       for (const question of report.questions) {
         // TODO: Remove QID-stripping logic once removed from API
@@ -109,11 +130,17 @@ export default class QuestionsController extends BaseController<FormWizard.Multi
         const submittedValues = req.form.values
 
         const report = res.locals.report as ReportWithDetails
-        const reportConfig = res.locals.reportConfig as IncidentTypeConfiguration
-        const questionFields = res.locals.questionFields as FormWizard.Fields
+        const { reportConfig, questionSteps, questionFields } = res.locals
 
-        const questionsResponses = []
-        for (const [fieldName, values] of Object.entries(submittedValues)) {
+        // get step's fields in proper order (submittedValues is not properly ordered)
+        const fieldNames = questionSteps[req.form.options.route].fields
+          // ignore date & comment fields
+          .filter(fieldName => /^\d+$/.test(fieldName))
+
+        const updates: AddOrUpdateQuestionWithResponsesRequest[] = []
+        for (const [fieldName, values] of fieldNames.map(
+          someFieldName => [someFieldName, submittedValues[someFieldName]] as [string, FormWizard.MultiValue],
+        )) {
           // Skip conditional fields
           if (questionFields[fieldName]?.dependent) {
             // Conditional fields don't have their own question config,
@@ -176,19 +203,21 @@ export default class QuestionsController extends BaseController<FormWizard.Multi
             questionResponses.responses.push(response)
           }
 
-          questionsResponses.push(questionResponses)
+          updates.push(questionResponses)
         }
 
-        // Update questions' answers
-        const currentQuestions = await incidentReportingApi.addOrUpdateQuestionsWithResponses(
-          report.id,
-          questionsResponses,
-        )
+        try {
+          // Update questions' answers
+          const currentQuestions = await incidentReportingApi.addOrUpdateQuestionsWithResponses(report.id, updates)
 
-        // Delete any potential now-irrelevant questions
-        const questionsToDelete = QuestionsToDelete.forGivenAnswers(reportConfig, currentQuestions)
-        if (questionsToDelete.length > 0) {
-          await incidentReportingApi.deleteQuestionsAndTheirResponses(report.id, questionsToDelete)
+          // Delete any potential now-irrelevant questions
+          const questionsToDelete = QuestionsToDelete.forGivenAnswers(reportConfig, currentQuestions)
+          if (questionsToDelete.length > 0) {
+            await incidentReportingApi.deleteQuestionsAndTheirResponses(report.id, questionsToDelete)
+          }
+        } catch (err) {
+          next(err)
+          return
         }
 
         next()

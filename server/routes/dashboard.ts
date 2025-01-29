@@ -28,7 +28,7 @@ interface ListFormData {
   fromDate?: string
   toDate?: string
   incidentType?: Type
-  incidentStatuses?: IncidentStatuses
+  incidentStatuses?: IncidentStatuses | IncidentStatuses[]
   sort?: string
   order?: Order
   page?: string
@@ -215,7 +215,11 @@ export default function dashboard(service: Services): Router {
       queryString.append('incidentType', incidentType)
     }
     if (incidentStatuses) {
-      queryString.append('incidentStatuses', incidentStatuses)
+      if (Array.isArray(incidentStatuses)) {
+        incidentStatuses.forEach(status => queryString.append('incidentStatuses', status))
+      } else {
+        queryString.append('incidentStatuses', incidentStatuses)
+      }
     }
     const tableHeadUrlPrefix = `/reports?${queryString}&`
     if (sort) {

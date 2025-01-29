@@ -310,6 +310,15 @@ describe('Report viewing permissions', () => {
     const report = convertReportWithDetailsDates(
       mockReport({ reportReference: '6543', reportDateAndTime: now, withDetails: true }),
     )
+    report.questions = [
+      makeSimpleQuestion(
+        '67179',
+        'DESCRIBE HOW THE ITEM WAS FOUND (SELECT ALL THAT APPLY)',
+        'CELL SEARCH',
+        'INFORMATION RECEIVED',
+      ),
+      makeSimpleQuestion('67180', 'IS THE LOCATION OF THE INCIDENT KNOWN?', 'YES'),
+    ]
     reportId = report.id
     incidentReportingApi.getReportWithDetailsById.mockResolvedValueOnce(report)
   })
@@ -317,16 +326,22 @@ describe('Report viewing permissions', () => {
   const granted = 'granted' as const
   const denied = 'denied' as const
   it.each([
-    { userType: 'reporting officer', user: reportingUser, action: granted },
-    { userType: 'data warden', user: approverUser, action: granted },
-    { userType: 'HQ view-only user', user: hqUser, action: granted },
-    { userType: 'unauthorised user', user: unauthorisedUser, action: denied },
-  ])('should be $action to $userType', ({ user, action }) => {
+    { userType: 'reporting officer', user: reportingUser, action: granted, canEdit: true },
+    { userType: 'data warden', user: approverUser, action: granted, canEdit: true },
+    { userType: 'HQ view-only user', user: hqUser, action: granted, canEdit: false },
+    { userType: 'unauthorised user', user: unauthorisedUser, action: denied, canEdit: false },
+  ])('should be $action to $userType', ({ user, action, canEdit }) => {
     const testRequest = request(appWithAllRoutes({ services: { userService }, userSupplier: () => user }))
       .get(`/reports/${reportId}`)
       .redirects(1)
     if (action === 'granted') {
-      return testRequest.expect(200)
+      return testRequest.expect(200).expect(res => {
+        if (canEdit) {
+          expect(res.text).toContain('Change response')
+        } else {
+          expect(res.text).not.toContain('Change response')
+        }
+      })
     }
     return testRequest.expect(res => {
       expect(res.redirects[0]).toContain('/sign-out')

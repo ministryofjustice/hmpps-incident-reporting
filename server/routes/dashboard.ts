@@ -46,8 +46,8 @@ export default function dashboard(service: Services): Router {
     const userRoles = ['INCIDENT_REPORTS__APPROVE']
 
     const userCaseloads = res.locals.user.caseLoads
-    // const userCaseloadIds = userCaseloads.map(caseload => caseload.caseLoadId)
-    const userCaseloadIds = ['MDI']
+    const userCaseloadIds = userCaseloads.map(caseload => caseload.caseLoadId)
+    // const userCaseloadIds = ['MDI']
 
     let showEstablishmentsFilter = false
     if (userCaseloadIds.length > 1) {

@@ -8,17 +8,18 @@ import {
   workListStatusMapping,
   statuses,
   types,
-} from '../reportConfiguration/constants'
-import type { Order } from '../data/offenderSearchApi'
-import type { HeaderCell, SortableTableColumns } from '../utils/sortableTable'
-import format from '../utils/format'
-import type { GovukErrorSummaryItem } from '../utils/govukFrontend'
-import { parseDateInput } from '../utils/utils'
-import { sortableTableHead } from '../utils/sortableTable'
-import { pagination } from '../utils/pagination'
-import type { Services } from '../services'
-import asyncMiddleware from '../middleware/asyncMiddleware'
-import { roleApproveReject, roleReadWrite } from '../data/constants'
+} from '../../reportConfiguration/constants'
+import type { Order } from '../../data/offenderSearchApi'
+import type { HeaderCell, SortableTableColumns } from '../../utils/sortableTable'
+import format from '../../utils/format'
+import type { GovukErrorSummaryItem } from '../../utils/govukFrontend'
+import { parseDateInput } from '../../utils/utils'
+import { sortableTableHead } from '../../utils/sortableTable'
+import { pagination } from '../../utils/pagination'
+import type { Services } from '../../services'
+import asyncMiddleware from '../../middleware/asyncMiddleware'
+import { roleApproveReject, roleReadWrite } from '../../data/constants'
+import { ColumnEntry, multiCaseloadColumns, singleCaseloadColumns } from './tableColumns'
 
 export type IncidentStatuses = Status | WorkList
 
@@ -42,12 +43,10 @@ export default function dashboard(service: Services): Router {
   get('/', async (req, res) => {
     const { incidentReportingApi } = res.locals.apis
 
-    // const userRoles: string[] = res.locals.user.roles
-    const userRoles = ['INCIDENT_REPORTS__APPROVE']
+    const userRoles: string[] = res.locals.user.roles
 
     const userCaseloads = res.locals.user.caseLoads
     const userCaseloadIds = userCaseloads.map(caseload => caseload.caseLoadId)
-    // const userCaseloadIds = ['MDI']
 
     let showEstablishmentsFilter = false
     if (userCaseloadIds.length > 1) {
@@ -87,37 +86,12 @@ export default function dashboard(service: Services): Router {
       page,
     }
 
-    const tableColumns: SortableTableColumns<
-      'reportReference' | 'type' | 'incidentDateAndTime' | 'description' | 'status' | 'reportedBy'
-    > = [
-      { column: 'reportReference', escapedHtml: 'Incident ref', classes: 'app-prisoner-search__cell--incident-ref' },
-      {
-        column: 'type',
-        escapedHtml: 'Incident type',
-        classes: 'app-prisoner-search__cell--incident-type',
-      },
-      {
-        column: 'incidentDateAndTime',
-        escapedHtml: 'Incident date',
-        classes: 'app-prisoner-search__cell--incident-time',
-      },
-      {
-        column: 'description',
-        escapedHtml: 'Description',
-        classes: 'app-prisoner-search__cell--description',
-        unsortable: true,
-      },
-      {
-        column: 'status',
-        escapedHtml: 'Status',
-        classes: 'app-prisoner-search__cell--status',
-      },
-      {
-        column: 'reportedBy',
-        escapedHtml: 'Reported By',
-        classes: 'app-prisoner-search__cell--reported-by',
-      },
-    ]
+    let tableColumns: ColumnEntry[]
+    if (showEstablishmentsFilter) {
+      tableColumns = multiCaseloadColumns
+    } else {
+      tableColumns = singleCaseloadColumns
+    }
 
     // Parse params
     const todayAsShortDate = format.shortDate(new Date())
@@ -270,6 +244,9 @@ export default function dashboard(service: Services): Router {
 
     const typesLookup = Object.fromEntries(types.map(type => [type.code, type.description]))
     const statusLookup = Object.fromEntries(statuses.map(status => [status.code, status.description]))
+    const establishmentLookup = Object.fromEntries(
+      establishments.map(establishment => [establishment.value, establishment.text]),
+    )
 
     const tableHead: HeaderCell[] | undefined = sortableTableHead({
       columns: tableColumns.map(column => {
@@ -293,6 +270,7 @@ export default function dashboard(service: Services): Router {
     res.render('pages/dashboard', {
       reports,
       establishments,
+      establishmentLookup,
       usersLookup,
       reportingOfficers,
       incidentTypes,

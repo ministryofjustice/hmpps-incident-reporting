@@ -60,4 +60,39 @@
       }
     }
   }
+
+  .govuk-table__row {
+    max-lines: 2;
+  }
+  .govuk-table__cell--incident-ref {
+    width: 15%;
+  }
+
+  .govuk-table__cell--incident-type {
+    width: 15%;
+  }
+
+  .govuk-table__cell--incident-date {
+    width: 15%;
+  }
+
+  .govuk-table__cell--description {
+    width: 35%;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+  }
+
+  .govuk-table__cell--reported-by {
+    width: 10%;
+  }
+
+  .govuk-table__cell--status{
+    width: 10%;
+  }
+
+  .govuk-table__cell--establishment{
+    width: 10%;
+  }
+
 }

@@ -1,4 +1,4 @@
-{% extends "partials/layout.njk" %}
+{% extends "../partials/layout.njk" %}
 
 {% from "govuk/components/breadcrumbs/macro.njk" import govukBreadcrumbs %}
 {% from "govuk/components/button/macro.njk" import govukButton %}
@@ -27,10 +27,12 @@
 {% endblock %}
 
 {% block content %}
+  <h1 class="govuk-heading-l">Incident reports</h1>
+
   {% if permissions.canCreateReport %}
     {% if permissions.canCreateReportInActiveCaseload %}
       {{ govukButton({
-        text: "Report an incident",
+        text: "Create an incident report",
         preventDoubleClick: true,
         href: "/create-report",
         isStartButton: true
@@ -44,88 +46,92 @@
   {% endif %}
 
   <div class="horizontal-form__wrapper govuk-!-padding-3 govuk-!-margin-bottom-5">
-    <h1 class="govuk-heading-l">Incident reports</h1>
+    <form class="horizontal-form {% if errors.length > 0 %}horizontal-form--with-errors{% endif %}" method="get" novalidate>
+      <div class="govuk-grid-row">
+        <div class="govuk-grid-column-one-half-from-desktop">
+          {{ govukInput({
+            id: "searchID",
+            name: "searchID",
+            label: {text: "Search an incident number or offender ID"},
+            classes: "govuk-\!-width-half",
+            value: formValues.searchID,
+            errorMessage: errors | findFieldInGovukErrorSummary("searchID")
+          }) }}
+        </div>
 
-    <form class="horizontal-form {% if errors.length > 0 %}horizontal-form--with-errors{% endif %} govuk-!-margin-bottom-3" method="get" novalidate>
-      {{ govukInput({
-        id: "searchID",
-        name: "searchID",
-        label: {
-          text: "Search an incident number or offender ID",
-          classes: "govuk-label--s"
-        },
-        classes: "govuk-!-width-half",
-        value: formValues.searchID,
-        errorMessage: errors | findFieldInGovukErrorSummary("searchID")
-      }) }}
+        <div class="govuk-grid-column-one-quarter-from-desktop">
+          {{ mojDatePicker({
+            id: "fromDate",
+            name: "fromDate",
+            label: {text: "Incident date from"},
+            value: formValues.fromDate,
+            maxDate: todayAsShortDate,
+            errorMessage: errors | findFieldInGovukErrorSummary("fromDate"),
+            leadingZeros: "true"
+          }) }}
+        </div>
 
-      {{ mojDatePicker({
-        id: "fromDate",
-        name: "fromDate",
-        label: {
-          text: "Incident date from",
-          classes: "govuk-label--s"
-        },
-        value: formValues.fromDate,
-        maxDate: todayAsShortDate,
-        errorMessage: errors | findFieldInGovukErrorSummary("fromDate"),
-        leadingZeros: "true"
-      }) }}
+        <div class="govuk-grid-column-one-quarter-from-desktop">
+          {{ mojDatePicker({
+            id: "toDate",
+            name: "toDate",
+            label: {text: "Incident date to"},
+            value: formValues.toDate,
+            maxDate: todayAsShortDate,
+            errorMessage: errors | findFieldInGovukErrorSummary("toDate"),
+            leadingZeros: "true"
+          }) }}
+        </div>
+      </div>
 
-      {{ mojDatePicker({
-        id: "toDate",
-        name: "toDate",
-        label: {
-          text: "Incident date to",
-          classes: "govuk-label--s"
-        },
-        value: formValues.toDate,
-        maxDate: todayAsShortDate,
-        errorMessage: errors | findFieldInGovukErrorSummary("toDate"),
-        leadingZeros: "true"
-      }) }}
+      <div class="govuk-grid-row">
 
-      {% if showEstablishmentsFilter %}
-        {{ accessibleAutocomplete({
-          id: "location",
-          name: "location",
-          label: {text: "Establishment"},
-          items: establishments | govukSelectInsertDefault("All establishments") | govukSelectSetSelected(formValues.location),
-          value: formValues.location or "",
-          errorMessage: errors | findFieldInGovukErrorSummary("location"),
-          class: "govuk-!-width-half",
-          nonce: cspNonce
+        {% if showEstablishmentsFilter %}
+          <div class="govuk-grid-column-one-half-from-desktop">
+            {{ accessibleAutocomplete({
+              id: "location",
+              name: "location",
+              label: {text: "Establishment"},
+              items: establishments | govukSelectInsertDefault("All establishments") | govukSelectSetSelected(formValues.location),
+              value: formValues.location or "",
+              errorMessage: errors | findFieldInGovukErrorSummary("location"),
+              class: "govuk-!-width-half",
+              nonce: cspNonce
+            }) }}
+          </div>
+        {% endif %}
+
+        <div class="govuk-grid-column-one-half-from-desktop">
+          {{ accessibleAutocomplete({
+            id: "incidentType",
+            name: "incidentType",
+            label: {text: "Incident type"},
+            items: incidentTypes | govukSelectInsertDefault("All incident types") | govukSelectSetSelected(formValues.incidentType),
+            value: formValues.incidentType or "",
+            errorMessage: errors | findFieldInGovukErrorSummary("incidentType"),
+            class: "govuk-!-width-half",
+            nonce: cspNonce
+          }) }}
+        </div>
+
+      </div>
+
+      <div class="govuk-grid-row">
+        {{ govukCheckboxes({
+          classes: "govuk-checkboxes--small",
+          name: "incidentStatuses",
+          id: "incidentStatuses",
+          fieldset: {
+            legend: {text: statusCheckboxLabel}
+          },
+          items: statusItems | govukMultipleCheckedItems(formValues.incidentStatuses),
+          errorMessage: errors | findFieldInGovukErrorSummary("incidentStatuses")
         }) }}
-      {% endif %}
-
-      {{ accessibleAutocomplete({
-        id: "incidentType",
-        name: "incidentType",
-        label: {text: "Incident type"},
-        items: incidentTypes | govukSelectInsertDefault("All incident types") | govukSelectSetSelected(formValues.incidentType),
-        value: formValues.incidentType or "",
-        errorMessage: errors | findFieldInGovukErrorSummary("incidentType"),
-        class: "govuk-!-width-half",
-        nonce: cspNonce
-      }) }}
-
-      {{ govukCheckboxes({
-        classes: "govuk-checkboxes--small",
-        name: "incidentStatuses",
-        id: "incidentStatuses",
-        fieldset: {
-          legend: {
-            text: statusCheckboxLabel,
-            classes: "govuk-fieldset__legend--s"
-          }
-        },
-        items: statusItems | govukMultipleCheckedItems(formValues.incidentStatuses),
-        errorMessage: errors | findFieldInGovukErrorSummary("incidentStatuses")
-      }) }}
+      </div>
 
       <div class="govuk-button-group">
         {{ govukButton({
-          text: "Filter",
+          text: "Apply filters",
           preventDoubleClick: true,
           type: "submit",
           attributes: {
@@ -134,7 +140,7 @@
         }) }}
 
         {% if not noFiltersSupplied %}
-          <a href="?" class="govuk-link--no-visited-state" id="clearFilter">Clear</a>
+          <a href="?" class="govuk-link--no-visited-state" id="clearFilter">Clear filters</a>
         {% endif %}
       </div>
     </form>
@@ -145,16 +151,29 @@
     {% set rows = [] %}
     {% for report in reports %}
       {% set ref %}{{ report.reportReference }}{% endset %}
-      {% set rows = (rows.push(
-        [
-          { html: "<a href='/reports/" + report.id + "'>" + ref + "</a>" },
-          { text: typesLookup[report.type] or report.type},
-          { text: report.incidentDateAndTime | dateAndTime },
-          { text: report.description },
-          { text: statusLookup[report.status] or report.status },
-          { text: usersLookup[report.reportedBy].name or report.reportedBy }
-        ]
-      ), rows) %}
+      {% if showEstablishmentsFilter %}
+        {% set rows = (rows.push(
+          [
+            { html: "<a href='/reports/" + report.id + "'>" + ref + "</a>" },
+            { text: typesLookup[report.type] or report.type},
+            { text: report.incidentDateAndTime | dateAndTime },
+            { text: report.description },
+            { text: establishmentLookup[report.location] or report.location },
+            { text: statusLookup[report.status] or report.status }
+          ]
+        ), rows) %}
+      {% else %}
+        {% set rows = (rows.push(
+          [
+            { html: "<a href='/reports/" + report.id + "'>" + ref + "</a>" },
+            { text: typesLookup[report.type] or report.type},
+            { text: report.incidentDateAndTime | dateAndTime },
+            { text: report.description },
+            { text: usersLookup[report.reportedBy].name or report.reportedBy },
+            { text: statusLookup[report.status] or report.status }
+          ]
+        ), rows) %}
+      {% endif %}
     {% endfor %}
 
     <div class="app-sortable-table-container govuk-!-margin-top-4">

@@ -1,21 +1,21 @@
 import type { Express } from 'express'
 import request from 'supertest'
 
-import { appWithAllRoutes } from './testutils/appSetup'
-import { now } from '../testutils/fakeClock'
-import { type GetReportsParams, IncidentReportingApi } from '../data/incidentReportingApi'
-import { mockReport } from '../data/testData/incidentReporting'
-import { unsortedPageOf } from '../data/testData/paginatedResponses'
-import { mockSharedUser } from '../data/testData/manageUsers'
-import { approverUser, hqUser, reportingUser, unauthorisedUser } from '../data/testData/users'
-import { convertBasicReportDates } from '../data/incidentReportingApiUtils'
-import UserService from '../services/userService'
-import type { User } from '../data/manageUsersApiClient'
-import config from '../config'
-import { Status } from '../reportConfiguration/constants'
+import { appWithAllRoutes } from '../testutils/appSetup'
+import { now } from '../../testutils/fakeClock'
+import { type GetReportsParams, IncidentReportingApi } from '../../data/incidentReportingApi'
+import { mockReport } from '../../data/testData/incidentReporting'
+import { unsortedPageOf } from '../../data/testData/paginatedResponses'
+import { mockSharedUser } from '../../data/testData/manageUsers'
+import { approverUser, hqUser, reportingUser, unauthorisedUser } from '../../data/testData/users'
+import { convertBasicReportDates } from '../../data/incidentReportingApiUtils'
+import UserService from '../../services/userService'
+import type { User } from '../../data/manageUsersApiClient'
+import config from '../../config'
+import { Status } from '../../reportConfiguration/constants'
 
-jest.mock('../data/incidentReportingApi')
-jest.mock('../services/userService')
+jest.mock('../../data/incidentReportingApi')
+jest.mock('../../services/userService')
 
 let previousActivePrisons: string[]
 

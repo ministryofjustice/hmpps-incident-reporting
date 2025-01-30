@@ -13,7 +13,7 @@ import { viewReportRouter } from './reports/viewReport'
 import genericRouter from './generic'
 import prisonerSearchRoutes from '../controllers/addPrisoner/prisonerSearch'
 import addPrisonerRouter from './addPrisoner'
-import dashboard from './dashboard'
+import dashboard from './dashboard/dashboard'
 
 export default function routes(services: Services): Router {
   const get = (path: string | string[], handler: RequestHandler) => router.get(path, asyncMiddleware(handler))

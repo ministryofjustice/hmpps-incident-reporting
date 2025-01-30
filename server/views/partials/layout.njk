@@ -2,7 +2,6 @@
 
 {% block head %}
   <link href="{{ '/assets/css/app.css' | assetMap }}" rel="stylesheet" />
-  <script src="/assets/accessible-autocomplete.min.js"></script>
 
   {% if feComponents.jsIncludes %}
     {% for js in feComponents.jsIncludes %}
@@ -23,7 +22,7 @@
   {% if feComponents.header %}
     {{ feComponents.header | safe }}
   {% else %}
-    {% include "./header.njk" %}
+    {% include "partials/header.njk" %}
   {% endif %}
 {% endblock %}
 
@@ -31,7 +30,7 @@
   {% if feComponents.footer %}
     {{ feComponents.footer | safe }}
   {% else %}
-    {% include "./footer.njk" %}
+    {% include "partials/footer.njk" %}
   {% endif %}
 {% endblock %}
 

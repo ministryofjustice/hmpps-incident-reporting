@@ -1,4 +1,4 @@
-{% extends "../partials/layout.njk" %}
+{% extends "partials/layout.njk" %}
 
 {% from "govuk/components/breadcrumbs/macro.njk" import govukBreadcrumbs %}
 {% from "govuk/components/button/macro.njk" import govukButton %}
@@ -86,26 +86,23 @@
       }) }}
 
       {% if showEstablishmentsFilter %}
-
         {{ accessibleAutocomplete({
-          id: 'location',
-          name: 'location',
-          label: 'Establishment',
-          items: establishments,
+          id: "location",
+          name: "location",
+          label: {text: "Establishment"},
+          items: establishments | govukSelectInsertDefault("All establishments") | govukSelectSetSelected(formValues.location),
           value: formValues.location or "",
           errorMessage: errors | findFieldInGovukErrorSummary("location"),
           class: "govuk-!-width-half",
           nonce: cspNonce
-          })
-        }}
+        }) }}
       {% endif %}
 
       {{ accessibleAutocomplete({
-        name: "incidentType",
         id: "incidentType",
-
-        label: "Incident type",
-        items: incidentTypes,
+        name: "incidentType",
+        label: {text: "Incident type"},
+        items: incidentTypes | govukSelectInsertDefault("All incident types") | govukSelectSetSelected(formValues.incidentType),
         value: formValues.incidentType or "",
         errorMessage: errors | findFieldInGovukErrorSummary("incidentType"),
         class: "govuk-!-width-half",
@@ -173,7 +170,9 @@
     {{ mojPagination(paginationParams) }}
 
   {% else %}
-    No incidents found.
+
+    <p>No incident report found.</p>
+
   {% endif %}
 
 {% endblock %}

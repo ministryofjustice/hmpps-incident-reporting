@@ -1,14 +1,13 @@
+{% from "govuk/components/select/macro.njk" import govukSelect %}
+
 {#  -------------------------------------------------------------
     Auto complete control
     Params values
-        id - inputField id and name
-        label - label text
-        hint - hint text
-        items - options items { text, value }
-        value - current field value
-        class - additional classes to be applied to form-group
-        errorMessage - standard validation error object { text }
+        - same as govukSelect
+        - nonce - required for script CSP
     ------------------------------------------------------------- #}
 {% macro accessibleAutocomplete(params) %}
-  {%- include "./template.njk" -%}
+  {% set attributes = mergeObjects(params.attributes or {}, {"data-module": "autocomplete-enhanced-select"}) %}
+  {% set params = mergeObjects(params, {attributes: attributes}) %}
+  {{ govukSelect(params) }}
 {% endmacro %}

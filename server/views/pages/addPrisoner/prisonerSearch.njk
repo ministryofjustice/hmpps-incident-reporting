@@ -1,4 +1,4 @@
-{% extends "../../partials/layout.njk" %}
+{% extends "partials/layout.njk" %}
 
 {% from "govuk/components/button/macro.njk" import govukButton %}
 {% from "govuk/components/input/macro.njk" import govukInput %}
@@ -9,7 +9,7 @@
 {% set pageTitle = "Search for a prisoner" %}
 
 {% block content %}
-  {% include "../../partials/formErrorSummary.njk" %}
+  {% include "partials/formErrorSummary.njk" %}
 
   <h1 class="govuk-heading-l">Search for a prisoner to add to incident report</h1>
 

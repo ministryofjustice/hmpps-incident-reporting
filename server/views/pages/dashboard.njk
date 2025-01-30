@@ -1,4 +1,4 @@
-{% extends "../partials/layout.njk" %}
+{% extends "partials/layout.njk" %}
 
 {% from "govuk/components/breadcrumbs/macro.njk" import govukBreadcrumbs %}
 {% from "govuk/components/button/macro.njk" import govukButton %}
@@ -170,7 +170,9 @@
     {{ mojPagination(paginationParams) }}
 
   {% else %}
-    No incidents found.
+
+    <p>No incident report found.</p>
+
   {% endif %}
 
 {% endblock %}

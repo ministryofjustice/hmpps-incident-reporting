@@ -86,24 +86,19 @@
       }) }}
 
       {% if showEstablishmentsFilter %}
-
         {{ accessibleAutocomplete({
           id: 'location',
-          name: 'location',
           label: 'Establishment',
           items: establishments,
           value: formValues.location or "",
           errorMessage: errors | findFieldInGovukErrorSummary("location"),
           class: "govuk-!-width-half",
           nonce: cspNonce
-          })
-        }}
+        }) }}
       {% endif %}
 
       {{ accessibleAutocomplete({
-        name: "incidentType",
         id: "incidentType",
-
         label: "Incident type",
         items: incidentTypes,
         value: formValues.incidentType or "",

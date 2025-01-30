@@ -87,9 +87,10 @@
 
       {% if showEstablishmentsFilter %}
         {{ accessibleAutocomplete({
-          id: 'location',
-          label: 'Establishment',
-          items: establishments,
+          id: "location",
+          name: "location",
+          label: {text: "Establishment"},
+          items: establishments | govukSelectInsertDefault("All establishments") | govukSelectSetSelected(formValues.location),
           value: formValues.location or "",
           errorMessage: errors | findFieldInGovukErrorSummary("location"),
           class: "govuk-!-width-half",
@@ -99,8 +100,9 @@
 
       {{ accessibleAutocomplete({
         id: "incidentType",
-        label: "Incident type",
-        items: incidentTypes,
+        name: "incidentType",
+        label: {text: "Incident type"},
+        items: incidentTypes | govukSelectInsertDefault("All incident types") | govukSelectSetSelected(formValues.incidentType),
         value: formValues.incidentType or "",
         errorMessage: errors | findFieldInGovukErrorSummary("incidentType"),
         class: "govuk-!-width-half",

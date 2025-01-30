@@ -7,14 +7,7 @@
         - nonce - required for script CSP
     ------------------------------------------------------------- #}
 {% macro accessibleAutocomplete(params) %}
+  {% set attributes = mergeObjects(params.attributes or {}, {"data-module": "autocomplete-enhanced-select"}) %}
+  {% set params = mergeObjects(params, {attributes: attributes}) %}
   {{ govukSelect(params) }}
-
-  <script nonce="{{ params.nonce }}">
-    window.accessibleAutocomplete.enhanceSelectElement({
-      selectElement: document.querySelector('#{{ params.id }}'),
-      showAllValues: false,
-      autoselect: false,
-      defaultValue: '',
-    })
-  </script>
 {% endmacro %}

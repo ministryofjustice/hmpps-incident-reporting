@@ -66,9 +66,9 @@ describe('Dashboard permissions', () => {
       .get('/reports')
       .expect(res => {
         if (action === show) {
-          expect(res.text).toContain('Report an incident')
+          expect(res.text).toContain('Create an incident report')
         } else {
-          expect(res.text).not.toContain('Report an incident')
+          expect(res.text).not.toContain('Create an incident report')
         }
       })
   })
@@ -113,7 +113,7 @@ describe('GET dashboard', () => {
       .expect('Content-Type', /html/)
       .expect(res => {
         expect(res.text).toContain('Incident reports')
-        expect(res.text).toContain('Report an incident')
+        expect(res.text).toContain('Create an incident report')
         expect(res.text).toContain('6543')
         expect(res.text).toContain('6544')
         expect(res.text).toContain('5 December 2023, 11:34')
@@ -161,7 +161,7 @@ describe('GET dashboard', () => {
         expect(res.text).not.toContain(
           'Enter a valid incident reference number or offender ID. For example, 12345678 or A0011BB',
         )
-        expect(res.text).toContain('Clear')
+        expect(res.text).toContain('Clear filters')
         expect(incidentReportingApi.getReports).toHaveBeenCalledWith(expectedParams)
       })
   })
@@ -205,7 +205,7 @@ describe('GET dashboard', () => {
         expect(res.text).not.toContain(
           'Enter a valid incident reference number or offender ID. For example, 12345678 or A0011BB',
         )
-        expect(res.text).toContain('Clear')
+        expect(res.text).toContain('Clear filters')
         expect(incidentReportingApi.getReports).toHaveBeenCalledWith(expectedParams)
       })
   })
@@ -275,8 +275,80 @@ describe('GET dashboard', () => {
         expect(res.text).toContain('To do')
         expect(res.text).toContain('toDo')
         expect(res.text).not.toContain('DRAFT')
-        expect(res.text).toContain('Filter')
-        expect(res.text).not.toContain('Clear')
+        expect(res.text).toContain('Apply filters')
+        expect(res.text).not.toContain('Clear filters')
+        expect(incidentReportingApi.getReports).toHaveBeenCalledWith(expectedParams)
+      })
+  })
+  it('should render expected columns for a user with a single establishment caseload', () => {
+    const mockedReports = [
+      convertBasicReportDates(mockReport({ reportReference: '6543', reportDateAndTime: now })),
+      convertBasicReportDates(mockReport({ reportReference: '6544', reportDateAndTime: now })),
+    ]
+    const pageOfReports = unsortedPageOf(mockedReports)
+    incidentReportingApi.getReports.mockResolvedValueOnce(pageOfReports)
+
+    const users: Record<string, User> = { JOHN_SMITH: { username: 'JOHN_SMITH', name: 'John Smith' } }
+    userService.getUsers.mockResolvedValueOnce(users)
+
+    const expectedParams: Partial<GetReportsParams> = {
+      location: ['MDI'],
+      incidentDateFrom: undefined,
+      incidentDateUntil: undefined,
+      involvingPrisonerNumber: undefined,
+      page: 0,
+      reference: undefined,
+      sort: ['incidentDateAndTime,DESC'],
+      status: undefined,
+      type: undefined,
+    }
+    return request(appWithAllRoutes({ services: { userService }, userSupplier: () => reportingUser }))
+      .get('/reports')
+      .expect('Content-Type', /html/)
+      .expect(res => {
+        expect(res.text).toContain('>Reference number <')
+        expect(res.text).toContain('>Type <')
+        expect(res.text).toContain('>Incident date <')
+        expect(res.text).toContain('>Description<')
+        expect(res.text).toContain('>Reported by <')
+        expect(res.text).not.toContain('>Establishment <')
+        expect(res.text).toContain('>Status <')
+        expect(incidentReportingApi.getReports).toHaveBeenCalledWith(expectedParams)
+      })
+  })
+  it('should render expected columns for a user with a multiple establishment caseload', () => {
+    const mockedReports = [
+      convertBasicReportDates(mockReport({ reportReference: '6543', reportDateAndTime: now })),
+      convertBasicReportDates(mockReport({ reportReference: '6544', reportDateAndTime: now })),
+    ]
+    const pageOfReports = unsortedPageOf(mockedReports)
+    incidentReportingApi.getReports.mockResolvedValueOnce(pageOfReports)
+
+    const users: Record<string, User> = { JOHN_SMITH: { username: 'JOHN_SMITH', name: 'John Smith' } }
+    userService.getUsers.mockResolvedValueOnce(users)
+
+    const expectedParams: Partial<GetReportsParams> = {
+      location: ['MDI', 'LEI'],
+      incidentDateFrom: undefined,
+      incidentDateUntil: undefined,
+      involvingPrisonerNumber: undefined,
+      page: 0,
+      reference: undefined,
+      sort: ['incidentDateAndTime,DESC'],
+      status: undefined,
+      type: undefined,
+    }
+    return request(appWithAllRoutes({ services: { userService }, userSupplier: () => approverUser }))
+      .get('/reports')
+      .expect('Content-Type', /html/)
+      .expect(res => {
+        expect(res.text).toContain('>Reference number <')
+        expect(res.text).toContain('>Type <')
+        expect(res.text).toContain('>Incident date <')
+        expect(res.text).toContain('>Description<')
+        expect(res.text).not.toContain('>Reported by <')
+        expect(res.text).toContain('>Establishment <')
+        expect(res.text).toContain('>Status <')
         expect(incidentReportingApi.getReports).toHaveBeenCalledWith(expectedParams)
       })
   })
@@ -321,8 +393,8 @@ describe('GET dashboard', () => {
         expect(res.text).not.toContain('toDo')
         expect(res.text).toContain('Draft')
         expect(res.text).toContain('DRAFT')
-        expect(res.text).toContain('Filter')
-        expect(res.text).not.toContain('Clear')
+        expect(res.text).toContain('Apply filters')
+        expect(res.text).not.toContain('Clear filters')
         expect(incidentReportingApi.getReports).toHaveBeenCalledWith(expectedParams)
       })
   })
@@ -364,7 +436,7 @@ describe('search validations', () => {
         expect(res.text).toContain(
           'Enter a valid incident reference number or offender ID. For example, 12345678 or A0011BB',
         )
-        expect(res.text).toContain('Clear')
+        expect(res.text).toContain('Clear filters')
         expect(incidentReportingApi.getReports).toHaveBeenCalledWith(expectedParams)
       })
   })
@@ -400,7 +472,7 @@ describe('search validations', () => {
         expect(res.text).not.toContain(
           'Enter a valid incident reference number or offender ID. For example, 12345678 or A0011BB',
         )
-        expect(res.text).toContain('Clear')
+        expect(res.text).toContain('Clear filters')
         expect(incidentReportingApi.getReports).toHaveBeenCalledWith(expectedParams)
       })
   })
@@ -436,7 +508,7 @@ describe('search validations', () => {
         expect(res.text).not.toContain(
           'Enter a valid incident reference number or offender ID. For example, 12345678 or A0011BB',
         )
-        expect(res.text).toContain('Clear')
+        expect(res.text).toContain('Clear filters')
         expect(incidentReportingApi.getReports).toHaveBeenCalledWith(expectedParams)
       })
   })
@@ -472,7 +544,7 @@ describe('search validations', () => {
         expect(res.text).not.toContain(
           'Enter a valid incident reference number or offender ID. For example, 12345678 or A0011BB',
         )
-        expect(res.text).toContain('Clear')
+        expect(res.text).toContain('Clear filters')
         expect(incidentReportingApi.getReports).toHaveBeenCalledWith(expectedParams)
       })
   })
@@ -508,7 +580,7 @@ describe('search validations', () => {
         expect(res.text).not.toContain(
           'Enter a valid incident reference number or offender ID. For example, 12345678 or A0011BB',
         )
-        expect(res.text).toContain('Clear')
+        expect(res.text).toContain('Clear filters')
         expect(incidentReportingApi.getReports).toHaveBeenCalledWith(expectedParams)
       })
   })

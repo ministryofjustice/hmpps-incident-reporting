@@ -42,7 +42,7 @@ const descriptionColumn: ColumnEntry = {
 
 const reportedByColumn: ColumnEntry = {
   column: 'reportedBy',
-  escapedHtml: 'Reported By',
+  escapedHtml: 'Reported by',
   classes: 'govuk-table__cell--reported-by',
 }
 

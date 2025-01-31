@@ -1,4 +1,4 @@
-// Generated with ./scripts/importDpsConstants.ts at 2024-11-12T15:33:32.784Z
+// Generated with ./scripts/importDpsConstants.ts at 2025-01-31T12:08:36.352Z
 
 /** Types of reportable incidents */
 export const types = [
@@ -22,7 +22,6 @@ export const types = [
   { code: 'DEATH_OTHER', description: 'Death (other)', active: true, nomisCode: 'DEATH_NI' },
   { code: 'DISORDER', description: 'Disorder', active: true, nomisCode: 'DISORDER1' },
   { code: 'DRONE_SIGHTING', description: 'Drone sighting', active: true, nomisCode: 'DRONE2' },
-  { code: 'OLD_DRONE_SIGHTING1', description: 'Drone sighting', active: true, nomisCode: 'DRONE1' },
   { code: 'ESCAPE_FROM_CUSTODY', description: 'Escape from custody', active: true, nomisCode: 'ESCAPE_EST' },
   { code: 'ESCAPE_FROM_ESCORT', description: 'Escape from escort', active: true, nomisCode: 'ESCAPE_ESC' },
   { code: 'FINDS', description: 'Finds', active: true, nomisCode: 'FIND0422' },
@@ -45,6 +44,7 @@ export const types = [
   { code: 'OLD_CONCERTED_INDISCIPLINE', description: 'Concerted indiscipline', active: false, nomisCode: 'CON_INDISC' },
   { code: 'OLD_DISORDER', description: 'Disorder', active: false, nomisCode: 'DISORDER' },
   { code: 'OLD_DRONE_SIGHTING', description: 'Drone sighting', active: false, nomisCode: 'DRONE' },
+  { code: 'OLD_DRONE_SIGHTING1', description: 'Drone sighting (from 2017)', active: false, nomisCode: 'DRONE1' },
   { code: 'OLD_DRUGS', description: 'Drugs', active: false, nomisCode: 'DRUGS' },
   { code: 'OLD_FINDS', description: 'Finds', active: false, nomisCode: 'FINDS' },
   { code: 'OLD_FINDS1', description: 'Finds (from August 2015)', active: false, nomisCode: 'FIND' },

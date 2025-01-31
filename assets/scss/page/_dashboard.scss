@@ -1,0 +1,21 @@
+.app-dashboard__description-cell {
+  overflow: hidden;
+  max-width: 30rem;
+  max-height: 3rem;
+  text-overflow: ellipsis;
+  word-break: break-all;
+
+  // non-standard properties below degrade gracefully enough: ellipsis disappears
+  display: -moz-box;
+  display: -ms-box;
+  display: -webkit-box;
+  display: box;
+  -moz-line-clamp: 2;
+  -ms-line-clamp: 2;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  -moz-box-orient: vertical;
+  -ms-box-orient: vertical;
+  -webkit-box-orient: vertical;
+  box-orient: vertical;
+}

@@ -42,6 +42,7 @@ declare module 'accessible-autocomplete' {
 
   interface EnhanceSelectOptions extends Omit<Partial<Options>, 'element'> {
     selectElement: HTMLElement
+    preserveNullOptions?: boolean
   }
 
   function enhanceSelectElement(options: EnhanceSelectOptions): void

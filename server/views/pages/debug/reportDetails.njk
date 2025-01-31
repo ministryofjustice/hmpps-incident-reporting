@@ -65,7 +65,7 @@
         text: "Description"
       },
       value: {
-        text: report.description
+        html: report.description | escape | nl2br
       }
     }
   ]

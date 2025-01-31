@@ -12,8 +12,9 @@ export class AccessibleAutocompleteEnhancedSelect extends Component<HTMLSelectEl
 
     accessibleAutocomplete.enhanceSelectElement({
       selectElement: root,
-      showAllValues: false,
-      autoselect: false,
+      showAllValues: true,
+      autoselect: true,
+      preserveNullOptions: true,
       defaultValue: '',
     })
   }

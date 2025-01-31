@@ -99,5 +99,8 @@
     .govuk-checkboxes__label {
       max-width: None;
     }
+    .govuk-checkboxes__label::before {
+      background-color: $govuk-body-background-colour;
+    }
   }
 }

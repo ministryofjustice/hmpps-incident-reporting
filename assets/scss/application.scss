@@ -17,6 +17,7 @@ $govuk-page-width: $moj-page-width;
 @import './components/prisoner-photo';
 @import './components/sortable-table';
 
+@import './page/dashboard';
 @import './page/prisoner-search';
 
 @import './local';

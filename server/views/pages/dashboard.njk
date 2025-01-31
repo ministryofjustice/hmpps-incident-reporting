@@ -151,13 +151,18 @@
     {% set rows = [] %}
     {% for report in reports %}
       {% set ref %}{{ report.reportReference }}{% endset %}
+      {% set description %}
+        <div class="app-dashboard__description-cell">
+            {{ report.description | escape | nl2br }}
+        </div>
+      {% endset %}
       {% if showEstablishmentsFilter %}
         {% set rows = (rows.push(
           [
             { html: "<a href='/reports/" + report.id + "'>" + ref + "</a>" },
             { text: typesLookup[report.type] or report.type},
             { text: report.incidentDateAndTime | dateAndTime },
-            { text: report.description },
+            { html: description },
             { text: establishmentLookup[report.location] or report.location },
             { text: statusLookup[report.status] or report.status }
           ]
@@ -168,7 +173,7 @@
             { html: "<a href='/reports/" + report.id + "'>" + ref + "</a>" },
             { text: typesLookup[report.type] or report.type},
             { text: report.incidentDateAndTime | dateAndTime },
-            { text: report.description },
+            { html: description },
             { text: usersLookup[report.reportedBy].name or report.reportedBy },
             { text: statusLookup[report.status] or report.status }
           ]

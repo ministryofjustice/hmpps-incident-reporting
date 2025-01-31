@@ -32,8 +32,6 @@
 
 .horizontal-form {
   @include govuk-media-query($from: desktop) {
-    display: flex;
-    flex-flow: row wrap;
 
     > * {
       margin: govuk-spacing(3) govuk-spacing(3) 0 0;
@@ -72,6 +70,8 @@
 }
 
 .horizontal-form__wrapper {
+  background-color: govuk-colour("light-grey");
+
   .govuk-grid-row{
     width: 100%;
     padding: 0 0 0 0;
@@ -85,7 +85,6 @@
     box-sizing: border-box;
     padding: 0 15px 0 0;
   }
-  background-color: govuk-colour("light-grey");
   .autocomplete__input {
     background-color: $govuk-body-background-colour;
     width: 100%

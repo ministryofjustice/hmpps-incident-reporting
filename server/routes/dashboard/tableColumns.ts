@@ -1,5 +1,3 @@
-import type { SortableTableColumns } from '../../utils/sortableTable'
-
 type ColumnNames =
   | 'reportReference'
   | 'type'

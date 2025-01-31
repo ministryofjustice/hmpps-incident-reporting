@@ -10,7 +10,7 @@ import {
   types,
 } from '../../reportConfiguration/constants'
 import type { Order } from '../../data/offenderSearchApi'
-import type { HeaderCell, SortableTableColumns } from '../../utils/sortableTable'
+import type { HeaderCell } from '../../utils/sortableTable'
 import format from '../../utils/format'
 import type { GovukErrorSummaryItem } from '../../utils/govukFrontend'
 import { parseDateInput } from '../../utils/utils'

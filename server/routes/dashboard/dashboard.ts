@@ -53,15 +53,8 @@ export default function dashboard(service: Services): Router {
       showEstablishmentsFilter = true
     }
 
-    const {
-      location,
-      fromDate: fromDateInput,
-      toDate: toDateInput,
-      incidentType,
-      incidentStatuses,
-      page,
-    }: ListFormData = req.query
-    let { searchID, sort, order }: ListFormData = req.query
+    const { location, fromDate: fromDateInput, toDate: toDateInput, incidentType, page }: ListFormData = req.query
+    let { searchID, incidentStatuses, sort, order }: ListFormData = req.query
 
     if (searchID) {
       searchID = searchID.trim()
@@ -72,6 +65,15 @@ export default function dashboard(service: Services): Router {
     }
     if (!order) {
       order = 'DESC'
+    }
+
+    if (
+      userRoles.includes(roleReadWrite) &&
+      !userRoles.includes(roleApproveReject) &&
+      !incidentStatuses &&
+      req.url !== '/?'
+    ) {
+      incidentStatuses = 'toDo'
     }
 
     const formValues: ListFormData = {
@@ -86,6 +88,7 @@ export default function dashboard(service: Services): Router {
       page,
     }
 
+    // Select relevant table columns
     let tableColumns: ColumnEntry[]
     if (showEstablishmentsFilter) {
       tableColumns = multiCaseloadColumns

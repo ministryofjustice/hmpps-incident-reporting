@@ -70,7 +70,6 @@ export default function dashboard(service: Services): Router {
     if (
       userRoles.includes(roleReadWrite) &&
       !userRoles.includes(roleApproveReject) &&
-      !incidentStatuses &&
       !('incidentStatuses' in req.query)
     ) {
       incidentStatuses = 'toDo'

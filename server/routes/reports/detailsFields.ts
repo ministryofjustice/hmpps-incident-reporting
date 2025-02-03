@@ -11,7 +11,7 @@ export const detailsFields = {
     validate: ['required', 'ukDate'],
   },
   incidentTime: {
-    label: 'Time',
+    label: 'Time of incident',
     hint: 'Use the 24 hour clock. For example, 09 08 or 17 32',
     component: 'appTime',
     validate: ['required', 'ukTime'],
@@ -19,7 +19,7 @@ export const detailsFields = {
   [hoursFieldName]: {},
   [minutesFieldName]: {},
   description: {
-    label: 'Description',
+    label: 'Incident description',
     hint: 'Include enough detail that the description can stand alone as a report',
     component: 'govukTextarea',
     validate: ['required'],

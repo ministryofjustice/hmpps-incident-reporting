@@ -21,6 +21,6 @@ export default class DetailsPage extends FormWizardPage {
   }
 
   submit(): void {
-    this.saveButton().click()
+    this.saveButton('Continue').click()
   }
 }

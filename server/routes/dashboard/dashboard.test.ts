@@ -86,7 +86,42 @@ describe('Dashboard permissions', () => {
 })
 
 describe('GET dashboard', () => {
-  it('should render dashboard with button and table, results filtered on caseload', () => {
+  it('should render dashboard with button and table, results filtered on caseload and "to do" status for RO', () => {
+    const mockedReports = [
+      convertBasicReportDates(mockReport({ reportReference: '6543', reportDateAndTime: now })),
+      convertBasicReportDates(mockReport({ reportReference: '6544', reportDateAndTime: now })),
+    ]
+    const pageOfReports = unsortedPageOf(mockedReports)
+    incidentReportingApi.getReports.mockResolvedValueOnce(pageOfReports)
+
+    const users: Record<string, User> = { JOHN_SMITH: { username: 'JOHN_SMITH', name: 'John Smith' } }
+    userService.getUsers.mockResolvedValueOnce(users)
+
+    const expectedParams: Partial<GetReportsParams> = {
+      location: ['MDI'],
+      incidentDateFrom: undefined,
+      incidentDateUntil: undefined,
+      involvingPrisonerNumber: undefined,
+      page: 0,
+      reference: undefined,
+      sort: ['incidentDateAndTime,DESC'],
+      status: ['DRAFT', 'INFORMATION_REQUIRED'],
+      type: undefined,
+    }
+    return request(app)
+      .get('/reports')
+      .expect('Content-Type', /html/)
+      .expect(res => {
+        expect(res.text).toContain('Incident reports')
+        expect(res.text).toContain('Create an incident report')
+        expect(res.text).toContain('6543')
+        expect(res.text).toContain('6544')
+        expect(res.text).toContain('5 December 2023, 11:34')
+        expect(incidentReportingApi.getReports).toHaveBeenCalledWith(expectedParams)
+      })
+  })
+
+  it('should correctly clear all filters and default statuses when "Clear filters" clicked by RO', () => {
     const mockedReports = [
       convertBasicReportDates(mockReport({ reportReference: '6543', reportDateAndTime: now })),
       convertBasicReportDates(mockReport({ reportReference: '6544', reportDateAndTime: now })),
@@ -110,6 +145,7 @@ describe('GET dashboard', () => {
     }
     return request(app)
       .get('/reports')
+      .query({ incidentStatuses: '' })
       .expect('Content-Type', /html/)
       .expect(res => {
         expect(res.text).toContain('Incident reports')
@@ -254,11 +290,57 @@ describe('GET dashboard', () => {
       page: 0,
       reference: undefined,
       sort: ['incidentDateAndTime,DESC'],
+      status: ['DRAFT', 'INFORMATION_REQUIRED'],
+      type: undefined,
+    }
+    return request(appWithAllRoutes({ services: { userService }, userSupplier: () => reportingUser }))
+      .get('/reports')
+      .expect('Content-Type', /html/)
+      .expect(res => {
+        expect(res.text).toContain('searchID')
+        expect(res.text).toContain('Search an incident number or offender ID')
+        expect(res.text).toContain('fromDate')
+        expect(res.text).toContain('Incident date from')
+        expect(res.text).toContain('toDate')
+        expect(res.text).toContain('Incident date to')
+        expect(res.text).not.toContain('Establishment')
+        expect(res.text).not.toContain('location')
+        expect(res.text).toContain('incidentType')
+        expect(res.text).toContain('Incident type')
+        expect(res.text).toContain('Work list')
+        expect(res.text).toContain('To do')
+        expect(res.text).toContain('toDo')
+        expect(res.text).not.toContain('DRAFT')
+        expect(res.text).toContain('Apply filters')
+        expect(res.text).toContain('Clear filters')
+        expect(incidentReportingApi.getReports).toHaveBeenCalledWith(expectedParams)
+      })
+  })
+  it('should not see clear filters button and render expected filters when cleared for a RO user where caseload is only 1 establishment', () => {
+    const mockedReports = [
+      convertBasicReportDates(mockReport({ reportReference: '6543', reportDateAndTime: now })),
+      convertBasicReportDates(mockReport({ reportReference: '6544', reportDateAndTime: now })),
+    ]
+    const pageOfReports = unsortedPageOf(mockedReports)
+    incidentReportingApi.getReports.mockResolvedValueOnce(pageOfReports)
+
+    const users: Record<string, User> = { JOHN_SMITH: { username: 'JOHN_SMITH', name: 'John Smith' } }
+    userService.getUsers.mockResolvedValueOnce(users)
+
+    const expectedParams: Partial<GetReportsParams> = {
+      location: ['MDI'],
+      incidentDateFrom: undefined,
+      incidentDateUntil: undefined,
+      involvingPrisonerNumber: undefined,
+      page: 0,
+      reference: undefined,
+      sort: ['incidentDateAndTime,DESC'],
       status: undefined,
       type: undefined,
     }
     return request(appWithAllRoutes({ services: { userService }, userSupplier: () => reportingUser }))
       .get('/reports')
+      .query({ incidentStatuses: '' })
       .expect('Content-Type', /html/)
       .expect(res => {
         expect(res.text).toContain('searchID')
@@ -299,20 +381,20 @@ describe('GET dashboard', () => {
       page: 0,
       reference: undefined,
       sort: ['incidentDateAndTime,DESC'],
-      status: undefined,
+      status: ['DRAFT', 'INFORMATION_REQUIRED'],
       type: undefined,
     }
     return request(appWithAllRoutes({ services: { userService }, userSupplier: () => reportingUser }))
       .get('/reports')
       .expect('Content-Type', /html/)
       .expect(res => {
-        expect(res.text).toContain('>Reference number <')
-        expect(res.text).toContain('>Type <')
-        expect(res.text).toContain('>Incident date <')
-        expect(res.text).toContain('>Description<')
-        expect(res.text).toContain('>Reported by <')
-        expect(res.text).not.toContain('>Establishment <')
-        expect(res.text).toContain('>Status <')
+        expect(res.text).toContain('6543')
+        expect(res.text).toContain('Finds')
+        expect(res.text).toContain('5 December 2023, 11:34')
+        expect(res.text).toContain('A new incident created in the new service of type FINDS')
+        expect(res.text).toContain('user1')
+        expect(res.text).not.toContain('Moorland (HMP &amp; YOI)')
+        expect(res.text).toContain('Draft')
         expect(incidentReportingApi.getReports).toHaveBeenCalledWith(expectedParams)
       })
   })
@@ -342,13 +424,13 @@ describe('GET dashboard', () => {
       .get('/reports')
       .expect('Content-Type', /html/)
       .expect(res => {
-        expect(res.text).toContain('>Reference number <')
-        expect(res.text).toContain('>Type <')
-        expect(res.text).toContain('>Incident date <')
-        expect(res.text).toContain('>Description<')
-        expect(res.text).not.toContain('>Reported by <')
-        expect(res.text).toContain('>Establishment <')
-        expect(res.text).toContain('>Status <')
+        expect(res.text).toContain('6543')
+        expect(res.text).toContain('Finds')
+        expect(res.text).toContain('5 December 2023, 11:34')
+        expect(res.text).toContain('A new incident created in the new service of type FINDS')
+        expect(res.text).not.toContain('user1')
+        expect(res.text).toContain('Moorland (HMP &amp; YOI)')
+        expect(res.text).toContain('Draft')
         expect(incidentReportingApi.getReports).toHaveBeenCalledWith(expectedParams)
       })
   })
@@ -424,7 +506,7 @@ describe('search validations', () => {
       page: 0,
       reference: undefined,
       sort: ['incidentDateAndTime,DESC'],
-      status: undefined,
+      status: ['DRAFT', 'INFORMATION_REQUIRED'],
       type: undefined,
     }
 
@@ -460,7 +542,7 @@ describe('search validations', () => {
       page: 0,
       reference: '12345678',
       sort: ['incidentDateAndTime,DESC'],
-      status: undefined,
+      status: ['DRAFT', 'INFORMATION_REQUIRED'],
       type: undefined,
     }
 
@@ -496,7 +578,7 @@ describe('search validations', () => {
       page: 0,
       reference: '12345678',
       sort: ['incidentDateAndTime,DESC'],
-      status: undefined,
+      status: ['DRAFT', 'INFORMATION_REQUIRED'],
       type: undefined,
     }
 
@@ -532,7 +614,7 @@ describe('search validations', () => {
       page: 0,
       reference: undefined,
       sort: ['incidentDateAndTime,DESC'],
-      status: undefined,
+      status: ['DRAFT', 'INFORMATION_REQUIRED'],
       type: undefined,
     }
 
@@ -568,7 +650,7 @@ describe('search validations', () => {
       page: 0,
       reference: undefined,
       sort: ['incidentDateAndTime,DESC'],
-      status: undefined,
+      status: ['DRAFT', 'INFORMATION_REQUIRED'],
       type: undefined,
     }
 
@@ -670,4 +752,55 @@ describe('work list filter validations in DW view', () => {
         expect(incidentReportingApi.getReports).toHaveBeenCalledWith(expectedParams)
       })
   })
+})
+
+describe('Establishment filter validations', () => {
+  it.each([
+    {
+      usertype: 'RO',
+      queryLocation: 'ASH',
+      expectedLocations: ['MDI'],
+      user: reportingUser,
+      expectedStatus: ['DRAFT', 'INFORMATION_REQUIRED'] as Status[],
+    },
+    {
+      usertype: 'DW',
+      queryLocation: 'ASH',
+      expectedLocations: ['MDI', 'LEI'],
+      user: approverUser,
+      expectedStatus: undefined,
+    },
+  ])(
+    'Establishment locations should default to caseload locations if query is set to location outside of caseload for $usertype',
+    ({ queryLocation, expectedLocations, user, expectedStatus }) => {
+      const mockedReports = [
+        convertBasicReportDates(mockReport({ reportReference: '6543', reportDateAndTime: now })),
+        convertBasicReportDates(mockReport({ reportReference: '6544', reportDateAndTime: now })),
+      ]
+      const pageOfReports = unsortedPageOf(mockedReports)
+      incidentReportingApi.getReports.mockResolvedValueOnce(pageOfReports)
+
+      const users: Record<string, User> = { JOHN_SMITH: { username: 'JOHN_SMITH', name: 'John Smith' } }
+      userService.getUsers.mockResolvedValueOnce(users)
+
+      const expectedParams: Partial<GetReportsParams> = {
+        location: expectedLocations,
+        incidentDateFrom: undefined,
+        incidentDateUntil: undefined,
+        involvingPrisonerNumber: undefined,
+        page: 0,
+        reference: undefined,
+        sort: ['incidentDateAndTime,DESC'],
+        status: expectedStatus,
+        type: undefined,
+      }
+      return request(appWithAllRoutes({ services: { userService }, userSupplier: () => user }))
+        .get('/reports')
+        .query({ location: queryLocation })
+        .expect('Content-Type', /html/)
+        .expect(res => {
+          expect(incidentReportingApi.getReports).toHaveBeenCalledWith(expectedParams)
+        })
+    },
+  )
 })

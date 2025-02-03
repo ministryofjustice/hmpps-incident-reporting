@@ -71,7 +71,7 @@ export default function dashboard(service: Services): Router {
       userRoles.includes(roleReadWrite) &&
       !userRoles.includes(roleApproveReject) &&
       !incidentStatuses &&
-      req.url !== '/?'
+      !('incidentStatuses' in req.query)
     ) {
       incidentStatuses = 'toDo'
     }
@@ -143,10 +143,10 @@ export default function dashboard(service: Services): Router {
 
     const orderString = order as string
 
-    // Set locations to user's caseload
+    // Set locations to user's caseload by default
     let searchLocations: string[] | string = userCaseloadIds
-    // Overwrite locations with chosen filter if it exists
-    if (location) {
+    // Overwrite locations with chosen filter if it exists and location is in user's caseload
+    if (location && userCaseloadIds.includes(location)) {
       searchLocations = location
     }
 

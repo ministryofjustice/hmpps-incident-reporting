@@ -32,8 +32,6 @@
 
 .horizontal-form {
   @include govuk-media-query($from: desktop) {
-    display: flex;
-    flex-flow: row wrap;
 
     > * {
       margin: govuk-spacing(3) govuk-spacing(3) 0 0;
@@ -56,6 +54,9 @@
     .govuk-select {
       width: 100%;
     }
+    .govuk-input {
+      width: 50%;
+    }
   }
 
   &.horizontal-form--with-errors {
@@ -70,9 +71,27 @@
 
 .horizontal-form__wrapper {
   background-color: govuk-colour("light-grey");
+
+  .govuk-grid-row{
+    width: 100%;
+    padding: 0 0 0 0;
+    margin: 0 0 0 0;
+  }
+  .govuk-grid-column-full-from-desktop {
+    box-sizing: border-box;
+    padding: 0 15px 0 0;
+  }
+  .govuk-grid-column-one-half-from-desktop {
+    box-sizing: border-box;
+    padding: 0 15px 0 0;
+  }
+  .govuk-grid-column-one-quarter-from-desktop {
+    box-sizing: border-box;
+    padding: 0 15px 0 0;
+  }
   .autocomplete__input {
     background-color: $govuk-body-background-colour;
-    width: 29em
+    width: 100%
   }
   @media (min-width:40.0625em) {
     .govuk-checkboxes--small {
@@ -82,6 +101,9 @@
     }
     .govuk-checkboxes__label {
       max-width: None;
+    }
+    .govuk-checkboxes__label::before {
+      background-color: $govuk-body-background-colour;
     }
   }
 }

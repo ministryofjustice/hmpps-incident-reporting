@@ -10,7 +10,6 @@ import { mockSharedUser } from '../../data/testData/manageUsers'
 import { approverUser, hqUser, reportingUser, unauthorisedUser } from '../../data/testData/users'
 import { convertBasicReportDates } from '../../data/incidentReportingApiUtils'
 import UserService from '../../services/userService'
-import type { User } from '../../data/manageUsersApiClient'
 import config from '../../config'
 import { Status } from '../../reportConfiguration/constants'
 
@@ -41,16 +40,9 @@ afterEach(() => {
 describe('Dashboard permissions', () => {
   // NB: these test cases are simplified because the permissions class methods are thoroughly tested elsewhere
 
-  const pageOfReports = unsortedPageOf(
-    [
-      mockReport({ reportReference: '6543', reportDateAndTime: now }),
-      mockReport({ reportReference: '6544', reportDateAndTime: now }),
-    ].map(convertBasicReportDates),
-  )
-
   beforeEach(() => {
-    incidentReportingApi.getReports.mockResolvedValueOnce(pageOfReports)
-    userService.getUsers.mockResolvedValueOnce({ [mockSharedUser.username]: mockSharedUser })
+    // actual table doesn't matter for these tests
+    incidentReportingApi.getReports.mockResolvedValueOnce(unsortedPageOf([]))
   })
 
   const show = 'show' as const
@@ -86,7 +78,7 @@ describe('Dashboard permissions', () => {
 })
 
 describe('GET dashboard', () => {
-  it('should render dashboard with button and table, results filtered on caseload and "to do" status for RO', () => {
+  beforeEach(() => {
     const mockedReports = [
       convertBasicReportDates(mockReport({ reportReference: '6543', reportDateAndTime: now })),
       convertBasicReportDates(mockReport({ reportReference: '6544', reportDateAndTime: now })),
@@ -94,9 +86,10 @@ describe('GET dashboard', () => {
     const pageOfReports = unsortedPageOf(mockedReports)
     incidentReportingApi.getReports.mockResolvedValueOnce(pageOfReports)
 
-    const users: Record<string, User> = { JOHN_SMITH: { username: 'JOHN_SMITH', name: 'John Smith' } }
-    userService.getUsers.mockResolvedValueOnce(users)
+    userService.getUsers.mockResolvedValueOnce({ [mockSharedUser.username]: mockSharedUser })
+  })
 
+  it('should render dashboard with button and table, results filtered on caseload and "to do" status for RO', () => {
     const expectedParams: Partial<GetReportsParams> = {
       location: ['MDI'],
       incidentDateFrom: undefined,
@@ -122,16 +115,6 @@ describe('GET dashboard', () => {
   })
 
   it('should correctly clear all filters and default statuses when "Clear filters" clicked by RO', () => {
-    const mockedReports = [
-      convertBasicReportDates(mockReport({ reportReference: '6543', reportDateAndTime: now })),
-      convertBasicReportDates(mockReport({ reportReference: '6544', reportDateAndTime: now })),
-    ]
-    const pageOfReports = unsortedPageOf(mockedReports)
-    incidentReportingApi.getReports.mockResolvedValueOnce(pageOfReports)
-
-    const users: Record<string, User> = { JOHN_SMITH: { username: 'JOHN_SMITH', name: 'John Smith' } }
-    userService.getUsers.mockResolvedValueOnce(users)
-
     const expectedParams: Partial<GetReportsParams> = {
       location: ['MDI'],
       incidentDateFrom: undefined,
@@ -158,16 +141,6 @@ describe('GET dashboard', () => {
   })
 
   it('should submit query values correctly into the api call for RO', () => {
-    const mockedReports = [
-      convertBasicReportDates(mockReport({ reportReference: '6543', reportDateAndTime: now })),
-      convertBasicReportDates(mockReport({ reportReference: '6544', reportDateAndTime: now })),
-    ]
-    const pageOfReports = unsortedPageOf(mockedReports)
-    incidentReportingApi.getReports.mockResolvedValueOnce(pageOfReports)
-
-    const users: Record<string, User> = { JOHN_SMITH: { username: 'JOHN_SMITH', name: 'John Smith' } }
-    userService.getUsers.mockResolvedValueOnce(users)
-
     const expectedParams: Partial<GetReportsParams> = {
       location: 'MDI',
       incidentDateFrom: new Date(2025, 0, 1, 12, 0, 0),
@@ -201,17 +174,8 @@ describe('GET dashboard', () => {
         expect(incidentReportingApi.getReports).toHaveBeenCalledWith(expectedParams)
       })
   })
+
   it('should submit query values correctly into the api call for DW', () => {
-    const mockedReports = [
-      convertBasicReportDates(mockReport({ reportReference: '6543', reportDateAndTime: now })),
-      convertBasicReportDates(mockReport({ reportReference: '6544', reportDateAndTime: now })),
-    ]
-    const pageOfReports = unsortedPageOf(mockedReports)
-    incidentReportingApi.getReports.mockResolvedValueOnce(pageOfReports)
-
-    const users: Record<string, User> = { JOHN_SMITH: { username: 'JOHN_SMITH', name: 'John Smith' } }
-    userService.getUsers.mockResolvedValueOnce(users)
-
     const expectedParams: Partial<GetReportsParams> = {
       location: 'LEI',
       incidentDateFrom: new Date(2025, 0, 1, 12, 0, 0),
@@ -256,10 +220,13 @@ describe('GET dashboard', () => {
       ),
     ]
     const pageOfReports = unsortedPageOf(mockedReports)
+    incidentReportingApi.getReports.mockReset()
     incidentReportingApi.getReports.mockResolvedValueOnce(pageOfReports)
-
-    const users: Record<string, User> = { JOHN_SMITH: { username: 'JOHN_SMITH', name: 'John Smith' } }
-    userService.getUsers.mockResolvedValueOnce(users)
+    userService.getUsers.mockReset()
+    userService.getUsers.mockResolvedValueOnce({
+      [mockSharedUser.username]: mockSharedUser,
+      JOHN_SMITH: { username: 'JOHN_SMITH', name: 'John Smith' },
+    })
 
     return request(app)
       .get('/reports')
@@ -272,16 +239,6 @@ describe('GET dashboard', () => {
   })
 
   it('should render expected filters for a RO user where caseload is only 1 establishment', () => {
-    const mockedReports = [
-      convertBasicReportDates(mockReport({ reportReference: '6543', reportDateAndTime: now })),
-      convertBasicReportDates(mockReport({ reportReference: '6544', reportDateAndTime: now })),
-    ]
-    const pageOfReports = unsortedPageOf(mockedReports)
-    incidentReportingApi.getReports.mockResolvedValueOnce(pageOfReports)
-
-    const users: Record<string, User> = { JOHN_SMITH: { username: 'JOHN_SMITH', name: 'John Smith' } }
-    userService.getUsers.mockResolvedValueOnce(users)
-
     const expectedParams: Partial<GetReportsParams> = {
       location: ['MDI'],
       incidentDateFrom: undefined,
@@ -316,17 +273,8 @@ describe('GET dashboard', () => {
         expect(incidentReportingApi.getReports).toHaveBeenCalledWith(expectedParams)
       })
   })
+
   it('should not see clear filters button and render expected filters when cleared for a RO user where caseload is only 1 establishment', () => {
-    const mockedReports = [
-      convertBasicReportDates(mockReport({ reportReference: '6543', reportDateAndTime: now })),
-      convertBasicReportDates(mockReport({ reportReference: '6544', reportDateAndTime: now })),
-    ]
-    const pageOfReports = unsortedPageOf(mockedReports)
-    incidentReportingApi.getReports.mockResolvedValueOnce(pageOfReports)
-
-    const users: Record<string, User> = { JOHN_SMITH: { username: 'JOHN_SMITH', name: 'John Smith' } }
-    userService.getUsers.mockResolvedValueOnce(users)
-
     const expectedParams: Partial<GetReportsParams> = {
       location: ['MDI'],
       incidentDateFrom: undefined,
@@ -362,17 +310,8 @@ describe('GET dashboard', () => {
         expect(incidentReportingApi.getReports).toHaveBeenCalledWith(expectedParams)
       })
   })
+
   it('should render expected columns for a user with a single establishment caseload', () => {
-    const mockedReports = [
-      convertBasicReportDates(mockReport({ reportReference: '6543', reportDateAndTime: now })),
-      convertBasicReportDates(mockReport({ reportReference: '6544', reportDateAndTime: now })),
-    ]
-    const pageOfReports = unsortedPageOf(mockedReports)
-    incidentReportingApi.getReports.mockResolvedValueOnce(pageOfReports)
-
-    const users: Record<string, User> = { JOHN_SMITH: { username: 'JOHN_SMITH', name: 'John Smith' } }
-    userService.getUsers.mockResolvedValueOnce(users)
-
     const expectedParams: Partial<GetReportsParams> = {
       location: ['MDI'],
       incidentDateFrom: undefined,
@@ -392,23 +331,14 @@ describe('GET dashboard', () => {
         expect(res.text).toContain('Finds')
         expect(res.text).toContain('5 December 2023, 11:34')
         expect(res.text).toContain('A new incident created in the new service of type FINDS')
-        expect(res.text).toContain('user1')
+        expect(res.text).toContain('John Smith')
         expect(res.text).not.toContain('Moorland (HMP &amp; YOI)')
         expect(res.text).toContain('Draft')
         expect(incidentReportingApi.getReports).toHaveBeenCalledWith(expectedParams)
       })
   })
+
   it('should render expected columns for a user with a multiple establishment caseload', () => {
-    const mockedReports = [
-      convertBasicReportDates(mockReport({ reportReference: '6543', reportDateAndTime: now })),
-      convertBasicReportDates(mockReport({ reportReference: '6544', reportDateAndTime: now })),
-    ]
-    const pageOfReports = unsortedPageOf(mockedReports)
-    incidentReportingApi.getReports.mockResolvedValueOnce(pageOfReports)
-
-    const users: Record<string, User> = { JOHN_SMITH: { username: 'JOHN_SMITH', name: 'John Smith' } }
-    userService.getUsers.mockResolvedValueOnce(users)
-
     const expectedParams: Partial<GetReportsParams> = {
       location: ['MDI', 'LEI'],
       incidentDateFrom: undefined,
@@ -428,23 +358,14 @@ describe('GET dashboard', () => {
         expect(res.text).toContain('Finds')
         expect(res.text).toContain('5 December 2023, 11:34')
         expect(res.text).toContain('A new incident created in the new service of type FINDS')
-        expect(res.text).not.toContain('user1')
+        expect(res.text).not.toContain('John Smith')
         expect(res.text).toContain('Moorland (HMP &amp; YOI)')
         expect(res.text).toContain('Draft')
         expect(incidentReportingApi.getReports).toHaveBeenCalledWith(expectedParams)
       })
   })
+
   it('should render expected filters for a DW user where caseload is multiple establishments', () => {
-    const mockedReports = [
-      convertBasicReportDates(mockReport({ reportReference: '6543', reportDateAndTime: now })),
-      convertBasicReportDates(mockReport({ reportReference: '6544', reportDateAndTime: now })),
-    ]
-    const pageOfReports = unsortedPageOf(mockedReports)
-    incidentReportingApi.getReports.mockResolvedValueOnce(pageOfReports)
-
-    const users: Record<string, User> = { JOHN_SMITH: { username: 'JOHN_SMITH', name: 'John Smith' } }
-    userService.getUsers.mockResolvedValueOnce(users)
-
     const expectedParams: Partial<GetReportsParams> = {
       location: ['MDI', 'LEI'],
       incidentDateFrom: undefined,
@@ -483,21 +404,16 @@ describe('GET dashboard', () => {
 })
 
 describe('search validations', () => {
+  beforeEach(() => {
+    // actual table doesn't matter for these tests
+    incidentReportingApi.getReports.mockResolvedValueOnce(unsortedPageOf([]))
+  })
+
   it.each([
     { scenario: 'search contains only letters', searchValue: 'abcd' },
     { scenario: 'search contains wrong pattern', searchValue: 'AB11ABC' },
     { scenario: 'search contains multiple values', searchValue: '12345678 A0011BC' },
   ])('should present errors when $scenario', ({ searchValue }) => {
-    const mockedReports = [
-      convertBasicReportDates(mockReport({ reportReference: '6543', reportDateAndTime: now })),
-      convertBasicReportDates(mockReport({ reportReference: '6544', reportDateAndTime: now })),
-    ]
-    const pageOfReports = unsortedPageOf(mockedReports)
-    incidentReportingApi.getReports.mockResolvedValueOnce(pageOfReports)
-
-    const users: Record<string, User> = { JOHN_SMITH: { username: 'JOHN_SMITH', name: 'John Smith' } }
-    userService.getUsers.mockResolvedValueOnce(users)
-
     const expectedParams: Partial<GetReportsParams> = {
       location: ['MDI'],
       incidentDateFrom: undefined,
@@ -524,16 +440,6 @@ describe('search validations', () => {
   })
 
   it('should not present errors and search for reference number when only digits', () => {
-    const mockedReports = [
-      convertBasicReportDates(mockReport({ reportReference: '6543', reportDateAndTime: now })),
-      convertBasicReportDates(mockReport({ reportReference: '6544', reportDateAndTime: now })),
-    ]
-    const pageOfReports = unsortedPageOf(mockedReports)
-    incidentReportingApi.getReports.mockResolvedValueOnce(pageOfReports)
-
-    const users: Record<string, User> = { JOHN_SMITH: { username: 'JOHN_SMITH', name: 'John Smith' } }
-    userService.getUsers.mockResolvedValueOnce(users)
-
     const expectedParams: Partial<GetReportsParams> = {
       location: ['MDI'],
       incidentDateFrom: undefined,
@@ -560,16 +466,6 @@ describe('search validations', () => {
   })
 
   it('should not present errors and search, removing whitespaces around digits', () => {
-    const mockedReports = [
-      convertBasicReportDates(mockReport({ reportReference: '6543', reportDateAndTime: now })),
-      convertBasicReportDates(mockReport({ reportReference: '6544', reportDateAndTime: now })),
-    ]
-    const pageOfReports = unsortedPageOf(mockedReports)
-    incidentReportingApi.getReports.mockResolvedValueOnce(pageOfReports)
-
-    const users: Record<string, User> = { JOHN_SMITH: { username: 'JOHN_SMITH', name: 'John Smith' } }
-    userService.getUsers.mockResolvedValueOnce(users)
-
     const expectedParams: Partial<GetReportsParams> = {
       location: ['MDI'],
       incidentDateFrom: undefined,
@@ -596,16 +492,6 @@ describe('search validations', () => {
   })
 
   it('should not present errors and search for prisoner ID when matching pattern', () => {
-    const mockedReports = [
-      convertBasicReportDates(mockReport({ reportReference: '6543', reportDateAndTime: now })),
-      convertBasicReportDates(mockReport({ reportReference: '6544', reportDateAndTime: now })),
-    ]
-    const pageOfReports = unsortedPageOf(mockedReports)
-    incidentReportingApi.getReports.mockResolvedValueOnce(pageOfReports)
-
-    const users: Record<string, User> = { JOHN_SMITH: { username: 'JOHN_SMITH', name: 'John Smith' } }
-    userService.getUsers.mockResolvedValueOnce(users)
-
     const expectedParams: Partial<GetReportsParams> = {
       location: ['MDI'],
       incidentDateFrom: undefined,
@@ -632,16 +518,6 @@ describe('search validations', () => {
   })
 
   it('should not present errors and search, removing whitespaces around pattern', () => {
-    const mockedReports = [
-      convertBasicReportDates(mockReport({ reportReference: '6543', reportDateAndTime: now })),
-      convertBasicReportDates(mockReport({ reportReference: '6544', reportDateAndTime: now })),
-    ]
-    const pageOfReports = unsortedPageOf(mockedReports)
-    incidentReportingApi.getReports.mockResolvedValueOnce(pageOfReports)
-
-    const users: Record<string, User> = { JOHN_SMITH: { username: 'JOHN_SMITH', name: 'John Smith' } }
-    userService.getUsers.mockResolvedValueOnce(users)
-
     const expectedParams: Partial<GetReportsParams> = {
       location: ['MDI'],
       incidentDateFrom: undefined,
@@ -705,6 +581,11 @@ describe('date validation', () => {
 })
 
 describe('work list filter validations in RO view', () => {
+  beforeEach(() => {
+    // actual table doesn't matter for these tests
+    incidentReportingApi.getReports.mockResolvedValueOnce(unsortedPageOf([]))
+  })
+
   it.each([
     { scenario: 'single "to do" selected', statusQuery: 'toDo', expectedArgs: ['DRAFT', 'INFORMATION_REQUIRED'] },
     {
@@ -718,16 +599,6 @@ describe('work list filter validations in RO view', () => {
       expectedArgs: ['DRAFT', 'INFORMATION_REQUIRED', 'CLOSED', 'DUPLICATE'],
     },
   ])('should submit correct status args when $scenario', ({ statusQuery, expectedArgs }) => {
-    const mockedReports = [
-      convertBasicReportDates(mockReport({ reportReference: '6543', reportDateAndTime: now })),
-      convertBasicReportDates(mockReport({ reportReference: '6544', reportDateAndTime: now })),
-    ]
-    const pageOfReports = unsortedPageOf(mockedReports)
-    incidentReportingApi.getReports.mockResolvedValueOnce(pageOfReports)
-
-    const users: Record<string, User> = { JOHN_SMITH: { username: 'JOHN_SMITH', name: 'John Smith' } }
-    userService.getUsers.mockResolvedValueOnce(users)
-
     const expectedParams: Partial<GetReportsParams> = {
       location: ['MDI'],
       incidentDateFrom: undefined,
@@ -750,6 +621,11 @@ describe('work list filter validations in RO view', () => {
 })
 
 describe('work list filter validations in DW view', () => {
+  beforeEach(() => {
+    // actual table doesn't matter for these tests
+    incidentReportingApi.getReports.mockResolvedValueOnce(unsortedPageOf([]))
+  })
+
   it.each([
     { scenario: 'single "Draft" selected', statusQuery: 'DRAFT', expectedArgs: 'DRAFT' },
     { scenario: 'single "In analysis" selected', statusQuery: 'IN_ANALYSIS', expectedArgs: 'IN_ANALYSIS' },
@@ -759,16 +635,6 @@ describe('work list filter validations in DW view', () => {
       expectedArgs: ['DRAFT', 'IN_ANALYSIS', 'INFORMATION_AMENDED'],
     },
   ])('should submit correct status args when $scenario', ({ statusQuery, expectedArgs }) => {
-    const mockedReports = [
-      convertBasicReportDates(mockReport({ reportReference: '6543', reportDateAndTime: now })),
-      convertBasicReportDates(mockReport({ reportReference: '6544', reportDateAndTime: now })),
-    ]
-    const pageOfReports = unsortedPageOf(mockedReports)
-    incidentReportingApi.getReports.mockResolvedValueOnce(pageOfReports)
-
-    const users: Record<string, User> = { JOHN_SMITH: { username: 'JOHN_SMITH', name: 'John Smith' } }
-    userService.getUsers.mockResolvedValueOnce(users)
-
     const expectedParams: Partial<GetReportsParams> = {
       location: ['MDI', 'LEI'],
       incidentDateFrom: undefined,
@@ -791,6 +657,11 @@ describe('work list filter validations in DW view', () => {
 })
 
 describe('Establishment filter validations', () => {
+  beforeEach(() => {
+    // actual table doesn't matter for these tests
+    incidentReportingApi.getReports.mockResolvedValueOnce(unsortedPageOf([]))
+  })
+
   it.each([
     {
       usertype: 'RO',
@@ -809,16 +680,6 @@ describe('Establishment filter validations', () => {
   ])(
     'Establishment locations should default to caseload locations if query is set to location outside of caseload for $usertype',
     ({ queryLocation, expectedLocations, user, expectedStatus }) => {
-      const mockedReports = [
-        convertBasicReportDates(mockReport({ reportReference: '6543', reportDateAndTime: now })),
-        convertBasicReportDates(mockReport({ reportReference: '6544', reportDateAndTime: now })),
-      ]
-      const pageOfReports = unsortedPageOf(mockedReports)
-      incidentReportingApi.getReports.mockResolvedValueOnce(pageOfReports)
-
-      const users: Record<string, User> = { JOHN_SMITH: { username: 'JOHN_SMITH', name: 'John Smith' } }
-      userService.getUsers.mockResolvedValueOnce(users)
-
       const expectedParams: Partial<GetReportsParams> = {
         location: expectedLocations,
         incidentDateFrom: undefined,

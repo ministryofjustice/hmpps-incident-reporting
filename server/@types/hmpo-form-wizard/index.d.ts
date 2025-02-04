@@ -5,7 +5,8 @@ import type express from 'express'
 declare module 'hmpo-form-wizard' {
   import type { DefaultFormatter } from 'hmpo-form-wizard/lib/formatting'
   import type { DefaultValidator } from 'hmpo-form-wizard/lib/validation'
-  import type { Local as LocalModel, LocalModelOptions } from 'hmpo-model'
+  import type { LocalModelOptions } from 'hmpo-model/lib/local-model'
+  import type { Local as LocalModel } from 'hmpo-model'
 
   export function FormWizard<V extends object = FormWizard.Values>(
     steps: FormWizard.Steps<V>,

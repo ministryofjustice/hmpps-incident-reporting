@@ -95,8 +95,7 @@
               items: establishments | govukSelectInsertDefault("All establishments") | govukSelectSetSelected(formValues.location),
               value: formValues.location or "",
               errorMessage: errors | findFieldInGovukErrorSummary("location"),
-              class: "govuk-!-width-half",
-              nonce: cspNonce
+              class: "govuk-!-width-half"
             }) }}
           </div>
         {% endif %}
@@ -109,8 +108,7 @@
             items: incidentTypes | govukSelectInsertDefault("All incident types") | govukSelectSetSelected(formValues.incidentType),
             value: formValues.incidentType or "",
             errorMessage: errors | findFieldInGovukErrorSummary("incidentType"),
-            class: "govuk-!-width-half",
-            nonce: cspNonce
+            class: "govuk-!-width-half"
           }) }}
         </div>
 

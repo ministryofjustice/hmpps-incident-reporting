@@ -10,7 +10,6 @@ import { createReportRouter } from './reports/createReport'
 import { questionsRouter } from './reports/questions'
 import { updateDetailsRouter } from './reports/updateReportDetails'
 import { viewReportRouter } from './reports/viewReport'
-import genericRouter from './generic'
 import prisonerSearchRoutes from '../controllers/addPrisoner/prisonerSearch'
 import addPrisonerRouter from './addPrisoner'
 import dashboard from './dashboard/dashboard'
@@ -38,11 +37,9 @@ export default function routes(services: Services): Router {
   router.use('/reports/:id/update-details', updateDetailsRouter)
   router.use('/reports/:id/questions', questionsRouter)
 
-  // proof-of-concept form wizard
+  // add people
   router.use('/reports/:id/prisoner-search', prisonerSearchRoutes())
   router.use('/reports/:id/add-prisoner/:prisonerNumber', addPrisonerRouter)
-
-  router.use('/generic-route', genericRouter)
 
   // Auxiliary routes
   get('/prisoner/:prisonerNumber/photo.jpeg', async (req, res) => {

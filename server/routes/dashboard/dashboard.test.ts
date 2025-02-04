@@ -668,6 +668,29 @@ describe('search validations', () => {
   })
 })
 
+describe('date validation', () => {
+  beforeEach(() => {
+    // actual table doesn't matter for these tests
+    incidentReportingApi.getReports.mockResolvedValueOnce(unsortedPageOf([]))
+  })
+
+  it.each([
+    { field: 'fromDate', name: 'from date' },
+    { field: 'toDate', name: 'to date' },
+  ])('should present an error on invalid $name', ({ field, name }) => {
+    return request(app)
+      .get('/reports')
+      .query({ [field]: 'today' })
+      .expect(res => {
+        expect(res.text).toContain(`Enter a valid ${name}`)
+        expect(res.text).toContain('Clear filters')
+        const [args] = incidentReportingApi.getReports.mock.lastCall
+        expect(args.incidentDateFrom ?? null).toBeNull()
+        expect(args.incidentDateUntil ?? null).toBeNull()
+      })
+  })
+})
+
 describe('work list filter validations in RO view', () => {
   it.each([
     { scenario: 'single "to do" selected', statusQuery: 'toDo', expectedArgs: ['DRAFT', 'INFORMATION_REQUIRED'] },

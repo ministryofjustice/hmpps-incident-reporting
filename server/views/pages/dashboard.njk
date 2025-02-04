@@ -45,8 +45,9 @@
     {% endif %}
   {% endif %}
 
-  <div class="horizontal-form__wrapper govuk-!-padding-3 govuk-!-margin-bottom-5">
-    <form class="horizontal-form {% if errors.length > 0 %}horizontal-form--with-errors{% endif %}" method="get" novalidate>
+  <div class="app-dashboard__search-box govuk-!-padding-3 govuk-!-margin-bottom-5">
+    <form method="get" novalidate>
+
       <div class="govuk-grid-row">
         <div class="govuk-grid-column-one-half-from-desktop">
           {{ govukInput({
@@ -112,9 +113,9 @@
       </div>
 
       <div class="govuk-grid-row">
-        <div class="govuk-grid-column-full-from-desktop">
+        <div class="govuk-grid-column-full">
           {{ govukCheckboxes({
-            classes: "govuk-checkboxes--small",
+            classes: "govuk-checkboxes--small govuk-checkboxes--inline",
             name: "incidentStatuses",
             id: "incidentStatuses",
             fieldset: {
@@ -126,19 +127,23 @@
         </div>
       </div>
 
-      <div class="govuk-button-group">
-        {{ govukButton({
-          text: "Apply filters",
-          preventDoubleClick: true,
-          type: "submit",
-          attributes: {
-            "data-test": "filter-submit"
-          }
-        }) }}
+      <div class="govuk-grid-row">
+        <div class="govuk-grid-column-full">
+          <div class="govuk-button-group">
+            {{ govukButton({
+              text: "Apply filters",
+              preventDoubleClick: true,
+              type: "submit",
+              attributes: {
+                "data-test": "filter-submit"
+              }
+            }) }}
 
-        {% if not noFiltersSupplied %}
-          <a href="?incidentStatuses=" class="govuk-link govuk-link--no-visited-state" id="clearFilter">Clear filters</a>
-        {% endif %}
+            {% if not noFiltersSupplied %}
+              <a href="?incidentStatuses=" class="govuk-link govuk-link--no-visited-state" id="clearFilter">Clear filters</a>
+            {% endif %}
+          </div>
+        </div>
       </div>
     </form>
   </div>

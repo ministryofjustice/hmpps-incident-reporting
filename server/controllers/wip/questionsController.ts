@@ -11,7 +11,7 @@ import {
   type ReportWithDetails,
 } from '../../data/incidentReportingApi'
 import type { QuestionConfiguration } from '../../data/incidentTypeConfiguration/types'
-import { findAnswerConfigByCode, stripQidPrefix } from '../../data/incidentTypeConfiguration/utils'
+import { questionFieldName, findAnswerConfigByCode } from '../../data/incidentTypeConfiguration/utils'
 import QuestionsToDelete from '../../services/questionsToDelete'
 
 export default class QuestionsController extends BaseController<FormWizard.MultiValues> {
@@ -61,8 +61,7 @@ export default class QuestionsController extends BaseController<FormWizard.Multi
       const { reportConfig } = res.locals
 
       for (const question of report.questions) {
-        // TODO: Remove QID-stripping logic once removed from API
-        const fieldName = stripQidPrefix(question.code)
+        const fieldName = questionFieldName(question)
         const questionConfig: QuestionConfiguration = reportConfig.questions[fieldName]
         if (questionConfig === undefined) {
           logger.error(

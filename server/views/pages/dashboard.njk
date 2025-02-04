@@ -53,7 +53,6 @@
             id: "searchID",
             name: "searchID",
             label: {text: "Search an incident number or offender ID"},
-            classes: "govuk-\!-width-half",
             value: formValues.searchID,
             errorMessage: errors | findFieldInGovukErrorSummary("searchID")
           }) }}
@@ -94,8 +93,7 @@
               label: {text: "Establishment"},
               items: establishments | govukSelectInsertDefault("All establishments") | govukSelectSetSelected(formValues.location),
               value: formValues.location or "",
-              errorMessage: errors | findFieldInGovukErrorSummary("location"),
-              class: "govuk-!-width-half"
+              errorMessage: errors | findFieldInGovukErrorSummary("location")
             }) }}
           </div>
         {% endif %}
@@ -107,8 +105,7 @@
             label: {text: "Incident type"},
             items: incidentTypes | govukSelectInsertDefault("All incident types") | govukSelectSetSelected(formValues.incidentType),
             value: formValues.incidentType or "",
-            errorMessage: errors | findFieldInGovukErrorSummary("incidentType"),
-            class: "govuk-!-width-half"
+            errorMessage: errors | findFieldInGovukErrorSummary("incidentType")
           }) }}
         </div>
 

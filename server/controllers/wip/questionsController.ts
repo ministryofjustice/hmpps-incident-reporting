@@ -10,11 +10,8 @@ import {
   type AddOrUpdateQuestionWithResponsesRequest,
   type ReportWithDetails,
 } from '../../data/incidentReportingApi'
-import {
-  type QuestionConfiguration,
-  findAnswerConfigByCode,
-  stripQidPrefix,
-} from '../../data/incidentTypeConfiguration/types'
+import type { QuestionConfiguration } from '../../data/incidentTypeConfiguration/types'
+import { findAnswerConfigByCode, stripQidPrefix } from '../../data/incidentTypeConfiguration/utils'
 import QuestionsToDelete from '../../services/questionsToDelete'
 
 export default class QuestionsController extends BaseController<FormWizard.MultiValues> {

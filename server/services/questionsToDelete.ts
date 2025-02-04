@@ -1,9 +1,9 @@
-import {
-  type AnswerConfiguration,
-  type IncidentTypeConfiguration,
-  type QuestionConfiguration,
-  findAnswerConfigByCode,
+import type {
+  AnswerConfiguration,
+  IncidentTypeConfiguration,
+  QuestionConfiguration,
 } from '../data/incidentTypeConfiguration/types'
+import { findAnswerConfigByCode } from '../data/incidentTypeConfiguration/utils'
 
 /**
  * This interface is a subset of the API's `Question`

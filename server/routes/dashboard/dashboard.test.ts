@@ -689,6 +689,19 @@ describe('date validation', () => {
         expect(args.incidentDateUntil ?? null).toBeNull()
       })
   })
+
+  it('should present an error if date range is invalid', () => {
+    return request(app)
+      .get('/reports')
+      .query({ fromDate: '02/01/2025', toDate: '01/01/2025' })
+      .expect(res => {
+        expect(res.text).toContain('Enter a date after from date')
+        expect(res.text).toContain('Clear filters')
+        const [args] = incidentReportingApi.getReports.mock.lastCall
+        expect(args.incidentDateFrom).toBeNull()
+        expect(args.incidentDateUntil).toBeNull()
+      })
+  })
 })
 
 describe('work list filter validations in RO view', () => {

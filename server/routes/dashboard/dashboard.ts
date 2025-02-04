@@ -118,6 +118,11 @@ export default function dashboard(service: Services): Router {
       toDate = null
       errors.push({ href: '#toDate', text: `Enter a valid to date, for example ${todayAsShortDate}` })
     }
+    if (fromDate && toDate && toDate < fromDate) {
+      fromDate = null
+      toDate = null
+      errors.push({ href: '#toDate', text: 'Enter a date after from date' })
+    }
     let prisonerId: string
     let referenceNumber: string
     if (searchID) {

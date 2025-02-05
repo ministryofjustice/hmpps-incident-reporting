@@ -22,6 +22,7 @@ export type WorkListDetails = (typeof workListMapping)[number]
 
 /** Codes for work list */
 export type WorkList = WorkListDetails['code']
+// TODO: WorkList is actually just `string` so offers no type code-based checking
 
 export type WorkListStatusMapping = { [key: WorkList]: Status[] }
 

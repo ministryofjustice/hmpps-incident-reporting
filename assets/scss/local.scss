@@ -2,6 +2,24 @@
   min-height: 600px;
 }
 
+// adapted from GOV.UK inline radio component
+// https://github.com/alphagov/govuk-frontend/blob/9be9a18d23453c7b0378cb55a2cf82e8cbd673f6/packages/govuk-frontend/src/govuk/components/radios/_index.scss#L147-L157
+.govuk-checkboxes--inline {
+  @include govuk-media-query($from: tablet) {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+
+    .govuk-checkboxes__item {
+      margin-right: govuk-spacing(4);
+    }
+
+    .govuk-checkboxes__label {
+      max-width: none;
+    }
+  }
+}
+
 // hide Open Government Licence logo: the content is "official sensitive"
 .govuk-footer .govuk-footer__licence-logo {
   display: none;

@@ -110,6 +110,7 @@ describe('GET dashboard', () => {
         expect(res.text).toContain('6543')
         expect(res.text).toContain('6544')
         expect(res.text).toContain('5 December 2023, 11:34')
+        expect(res.text).not.toContain('There is a problem')
         expect(incidentReportingApi.getReports).toHaveBeenCalledWith(expectedParams)
       })
   })
@@ -136,6 +137,7 @@ describe('GET dashboard', () => {
         expect(res.text).toContain('6543')
         expect(res.text).toContain('6544')
         expect(res.text).toContain('5 December 2023, 11:34')
+        expect(res.text).not.toContain('There is a problem')
         expect(incidentReportingApi.getReports).toHaveBeenCalledWith(expectedParams)
       })
   })
@@ -170,6 +172,7 @@ describe('GET dashboard', () => {
         expect(res.text).not.toContain(
           'Enter a valid incident reference number or offender ID. For example, 12345678 or A0011BB',
         )
+        expect(res.text).not.toContain('There is a problem')
         expect(res.text).toContain('Clear filters')
         expect(incidentReportingApi.getReports).toHaveBeenCalledWith(expectedParams)
       })
@@ -205,6 +208,7 @@ describe('GET dashboard', () => {
         expect(res.text).not.toContain(
           'Enter a valid incident reference number or offender ID. For example, 12345678 or A0011BB',
         )
+        expect(res.text).not.toContain('There is a problem')
         expect(res.text).toContain('Clear filters')
         expect(incidentReportingApi.getReports).toHaveBeenCalledWith(expectedParams)
       })
@@ -434,6 +438,7 @@ describe('search validations', () => {
         expect(res.text).toContain(
           'Enter a valid incident reference number or offender ID. For example, 12345678 or A0011BB',
         )
+        expect(res.text).toContain('There is a problem')
         expect(res.text).toContain('Clear filters')
         expect(incidentReportingApi.getReports).toHaveBeenCalledWith(expectedParams)
       })
@@ -460,6 +465,7 @@ describe('search validations', () => {
         expect(res.text).not.toContain(
           'Enter a valid incident reference number or offender ID. For example, 12345678 or A0011BB',
         )
+        expect(res.text).not.toContain('There is a problem')
         expect(res.text).toContain('Clear filters')
         expect(incidentReportingApi.getReports).toHaveBeenCalledWith(expectedParams)
       })
@@ -486,6 +492,7 @@ describe('search validations', () => {
         expect(res.text).not.toContain(
           'Enter a valid incident reference number or offender ID. For example, 12345678 or A0011BB',
         )
+        expect(res.text).not.toContain('There is a problem')
         expect(res.text).toContain('Clear filters')
         expect(incidentReportingApi.getReports).toHaveBeenCalledWith(expectedParams)
       })
@@ -512,6 +519,7 @@ describe('search validations', () => {
         expect(res.text).not.toContain(
           'Enter a valid incident reference number or offender ID. For example, 12345678 or A0011BB',
         )
+        expect(res.text).not.toContain('There is a problem')
         expect(res.text).toContain('Clear filters')
         expect(incidentReportingApi.getReports).toHaveBeenCalledWith(expectedParams)
       })
@@ -538,6 +546,7 @@ describe('search validations', () => {
         expect(res.text).not.toContain(
           'Enter a valid incident reference number or offender ID. For example, 12345678 or A0011BB',
         )
+        expect(res.text).not.toContain('There is a problem')
         expect(res.text).toContain('Clear filters')
         expect(incidentReportingApi.getReports).toHaveBeenCalledWith(expectedParams)
       })
@@ -558,6 +567,7 @@ describe('date validation', () => {
       .get('/reports')
       .query({ [field]: 'today' })
       .expect(res => {
+        expect(res.text).toContain('There is a problem')
         expect(res.text).toContain(`Enter a valid ${name}`)
         expect(res.text).toContain('Clear filters')
         const [args] = incidentReportingApi.getReports.mock.lastCall
@@ -571,6 +581,7 @@ describe('date validation', () => {
       .get('/reports')
       .query({ fromDate: '02/01/2025', toDate: '01/01/2025' })
       .expect(res => {
+        expect(res.text).toContain('There is a problem')
         expect(res.text).toContain('Enter a date after from date')
         expect(res.text).toContain('Clear filters')
         const [args] = incidentReportingApi.getReports.mock.lastCall
@@ -614,7 +625,7 @@ describe('work list filter validations in RO view', () => {
       .get('/reports')
       .query({ incidentStatuses: statusQuery })
       .expect('Content-Type', /html/)
-      .expect(res => {
+      .expect(() => {
         expect(incidentReportingApi.getReports).toHaveBeenCalledWith(expectedParams)
       })
   })
@@ -650,7 +661,7 @@ describe('work list filter validations in DW view', () => {
       .get('/reports')
       .query({ incidentStatuses: statusQuery })
       .expect('Content-Type', /html/)
-      .expect(res => {
+      .expect(() => {
         expect(incidentReportingApi.getReports).toHaveBeenCalledWith(expectedParams)
       })
   })
@@ -695,7 +706,7 @@ describe('Establishment filter validations', () => {
         .get('/reports')
         .query({ location: queryLocation })
         .expect('Content-Type', /html/)
-        .expect(res => {
+        .expect(() => {
           expect(incidentReportingApi.getReports).toHaveBeenCalledWith(expectedParams)
         })
     },

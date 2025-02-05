@@ -4,15 +4,19 @@ import { FormWizard } from 'hmpo-form-wizard'
 import logger from '../../../logger'
 import format from '../../utils/format'
 import { parseDateInput } from '../../utils/utils'
-import { BaseController } from '../index'
-import {
-  type AddOrUpdateQuestionResponseRequest,
-  type AddOrUpdateQuestionWithResponsesRequest,
-  type ReportWithDetails,
+import type {
+  AddOrUpdateQuestionResponseRequest,
+  AddOrUpdateQuestionWithResponsesRequest,
+  ReportWithDetails,
 } from '../../data/incidentReportingApi'
 import type { QuestionConfiguration } from '../../data/incidentTypeConfiguration/types'
-import { questionFieldName, findAnswerConfigByCode } from '../../data/incidentTypeConfiguration/utils'
+import {
+  conditionalFieldName,
+  findAnswerConfigByCode,
+  questionFieldName,
+} from '../../data/incidentTypeConfiguration/utils'
 import QuestionsToDelete from '../../services/questionsToDelete'
+import { BaseController } from '../index'
 
 export default class QuestionsController extends BaseController<FormWizard.MultiValues> {
   middlewareLocals(): void {
@@ -92,7 +96,7 @@ export default class QuestionsController extends BaseController<FormWizard.Multi
 
           // comment field
           if (answerConfig.commentRequired) {
-            const commentFieldName = `${questionConfig.id}-${answerConfig.id}-comment`
+            const commentFieldName = conditionalFieldName(questionConfig, answerConfig, 'comment')
             if (formValues[commentFieldName] === undefined) {
               formValues[commentFieldName] = response.additionalInformation
             }
@@ -100,7 +104,7 @@ export default class QuestionsController extends BaseController<FormWizard.Multi
 
           // date field
           if (answerConfig.dateRequired) {
-            const dateFieldName = `${questionConfig.id}-${answerConfig.id}-date`
+            const dateFieldName = conditionalFieldName(questionConfig, answerConfig, 'date')
             if (formValues[dateFieldName] === undefined) {
               formValues[dateFieldName] = format.shortDate(response.responseDate)
             }
@@ -188,12 +192,12 @@ export default class QuestionsController extends BaseController<FormWizard.Multi
             }
 
             if (answerConfig.commentRequired) {
-              const commentFieldName = `${questionConfig.id}-${answerConfig.id}-comment`
+              const commentFieldName = conditionalFieldName(questionConfig, answerConfig, 'comment')
               response.additionalInformation = submittedValues[commentFieldName] as string
             }
 
             if (answerConfig.dateRequired) {
-              const dateFieldName = `${questionConfig.id}-${answerConfig.id}-date`
+              const dateFieldName = conditionalFieldName(questionConfig, answerConfig, 'date')
               response.responseDate = parseDateInput(submittedValues[dateFieldName] as string)
             }
             questionResponses.responses.push(response)

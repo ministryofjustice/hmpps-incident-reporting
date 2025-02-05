@@ -29,7 +29,8 @@ export function generateSteps(config: IncidentTypeConfiguration): FormWizard.Ste
     .forEach(question => {
       const activeAnswers = question.answers.filter(answer => answer.active)
 
-      const fields = [question.id]
+      const fieldName = questionFieldName(question)
+      const fields = [fieldName]
       for (const answer of activeAnswers) {
         if (answer.dateRequired) {
           const dateFieldName = conditionalFieldName(question, answer, 'date')
@@ -41,7 +42,7 @@ export function generateSteps(config: IncidentTypeConfiguration): FormWizard.Ste
         }
       }
 
-      steps[`/${question.id}`] = {
+      steps[`/${fieldName}`] = {
         next: nextSteps(question, activeAnswers),
         fields,
         controller: QuestionsController,
@@ -301,7 +302,7 @@ function nextSteps(question: QuestionConfiguration, answers: AnswerConfiguration
     const answerCodes = groupAnswers.map(answer => answer.code)
 
     next.push({
-      field: question.id,
+      field: questionFieldName(question),
       // - for single values, check if submitted value is
       //   contained **in** `condition.value`
       // - for multiple values, submitted values is an array, e.g.

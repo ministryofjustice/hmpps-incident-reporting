@@ -4,7 +4,7 @@ import OLD_ASSAULT from '../reportConfiguration/types/OLD_ASSAULT'
 
 describe('QuestionToDelete service', () => {
   describe('linear path, nothing to delete', () => {
-    it('returns an empty array', () => {
+    it('returns an empty array when path is incomplete but valid', () => {
       // https://raw.githubusercontent.com/ministryofjustice/hmpps-incident-reporting/main/server/reportConfiguration/types/ASSAULT.svg
       const config = ASSAULT
       const answeredQuestions = [
@@ -18,6 +18,50 @@ describe('QuestionToDelete service', () => {
         { code: '61282', responses: [{ response: 'YES' }] },
         // 'IS THE LOCATION OF THE INCDENT KNOWN'
         { code: '61283', responses: [{ response: 'YES' }] },
+      ]
+
+      const questionsToDelete = QuestionsToDelete.forGivenAnswers(config, answeredQuestions)
+      expect(questionsToDelete).toEqual([])
+    })
+
+    it('returns an empty array when valid path reaches the end', () => {
+      // https://raw.githubusercontent.com/ministryofjustice/hmpps-incident-reporting/main/server/reportConfiguration/types/ASSAULT.svg
+      const config = ASSAULT
+      const answeredQuestions = [
+        // WHAT WAS THE MAIN MANAGEMENT OUTCOME OF THE INCIDENT
+        { code: '61279', responses: [{ response: 'IEP REGRESSION' }] },
+        // IS ANY MEMBER OF STAFF FACING DISCIPLINARY CHARGES
+        { code: '61280', responses: [{ response: 'NO' }] },
+        // IS THERE ANY MEDIA INTEREST IN THIS INCIDENT
+        { code: '61281', responses: [{ response: 'YES' }] },
+        // HAS THE PRISON SERVICE PRESS OFFICE BEEN INFORMED
+        { code: '61282', responses: [{ response: 'YES' }] },
+        // IS THE LOCATION OF THE INCDENT KNOWN
+        { code: '61283', responses: [{ response: 'NO' }] },
+        // WAS THIS A SEXUAL ASSAULT
+        { code: '61285', responses: [{ response: 'NO' }] },
+        // DID THE ASSAULT OCCUR DURING A FIGHT
+        { code: '61286', responses: [{ response: 'NO' }] },
+        // WHAT TYPE OF ASSAULT WAS IT
+        { code: '61287', responses: [{ response: 'OTHER' }] },
+        // WERE ANY STAFF ASSAULTED
+        { code: '61288', responses: [{ response: 'NO' }] },
+        // WAS SPITTING USED IN THIS INCIDENT
+        { code: '61290', responses: [{ response: 'NO' }] },
+        // WERE ANY WEAPONS USED
+        { code: '61294', responses: [{ response: 'NO' }] },
+        // WERE ANY INJURIES RECEIVED DURING THIS INCIDENT
+        { code: '61296', responses: [{ response: 'NO' }] },
+        // ARE THERE ANY STAFF NOW OFF DUTY AS A RESULT OF THIS INCIDENT
+        { code: '61306', responses: [{ response: 'NO' }] },
+        // ARE ANY STAFF ON SICK LEAVE AS A RESULT OF THIS INCIDENT
+        { code: '61307', responses: [{ response: 'NO' }] },
+        // DID THE ASSAULT OCCUR IN PUBLIC VIEW
+        { code: '61308', responses: [{ response: 'NO' }] },
+        // IS THERE ANY AUDIO OR VISUAL FOOTAGE OF THE ASSAULT
+        { code: '61309', responses: [{ response: 'NO' }] },
+        // WAS THERE AN APPARENT REASON FOR THE ASSAULT
+        { code: '61311', responses: [{ response: 'NO' }] },
       ]
 
       const questionsToDelete = QuestionsToDelete.forGivenAnswers(config, answeredQuestions)
@@ -139,6 +183,52 @@ describe('QuestionToDelete service', () => {
 
       const questionsToDelete = QuestionsToDelete.forGivenAnswers(config, answeredQuestions)
       expect(questionsToDelete).toEqual(['45134'])
+    })
+  })
+
+  describe('linear path with erroneous values', () => {
+    it('returns problematic question and subsequent ones', () => {
+      // https://raw.githubusercontent.com/ministryofjustice/hmpps-incident-reporting/main/server/reportConfiguration/types/ASSAULT.svg
+      const config = ASSAULT
+      const answeredQuestions = [
+        // WHAT WAS THE MAIN MANAGEMENT OUTCOME OF THE INCIDENT
+        { code: '61279', responses: [{ response: 'IEP REGRESSION' }] },
+        // IS ANY MEMBER OF STAFF FACING DISCIPLINARY CHARGES
+        { code: '61280', responses: [{ response: 'NO' }] },
+        // IS THERE ANY MEDIA INTEREST IN THIS INCIDENT
+        { code: '61281', responses: [{ response: 'YES' }] },
+        // HAS THE PRISON SERVICE PRESS OFFICE BEEN INFORMED
+        { code: '61282', responses: [{ response: 'YES' }] },
+        // IS THE LOCATION OF THE INCDENT KNOWN
+        { code: '61283', responses: [{ response: 'NO' }] },
+        // WAS THIS A SEXUAL ASSAULT
+        { code: '61285', responses: [{ response: 'NO' }] },
+        // DID THE ASSAULT OCCUR DURING A FIGHT
+        { code: '61286', responses: [{ response: 'NO' }] },
+        // WHAT TYPE OF ASSAULT WAS IT
+        { code: '61287', responses: [{ response: 'OTHER' }] },
+        // WERE ANY STAFF ASSAULTED
+        { code: '61288', responses: [{ response: 'NO' }] },
+        // WAS SPITTING USED IN THIS INCIDENT
+        { code: '61290', responses: [{ response: 'NO' }] },
+        // WERE ANY WEAPONS USED
+        { code: '61294', responses: [{ response: 'NO' }] },
+        // WERE ANY INJURIES RECEIVED DURING THIS INCIDENT
+        { code: '61296', responses: [{ response: 'NO' }] },
+        // ARE THERE ANY STAFF NOW OFF DUTY AS A RESULT OF THIS INCIDENT
+        { code: '61306', responses: [{ response: 'NO' }] },
+        // ARE ANY STAFF ON SICK LEAVE AS A RESULT OF THIS INCIDENT
+        { code: '61307', responses: [{ response: 'NO' }] },
+        // DID THE ASSAULT OCCUR IN PUBLIC VIEW
+        { code: '61308', responses: [{ response: 'NO' }] },
+        // IS THERE ANY AUDIO OR VISUAL FOOTAGE OF THE ASSAULT
+        { code: '61309', responses: [{ response: 'ERROR' }] }, // not a valid response
+        // WAS THERE AN APPARENT REASON FOR THE ASSAULT
+        { code: '61311', responses: [{ response: 'NO' }] }, // would be valid but comes after an invalid one
+      ]
+
+      const questionsToDelete = QuestionsToDelete.forGivenAnswers(config, answeredQuestions)
+      expect(questionsToDelete).toEqual(['61309', '61311'])
     })
   })
 })

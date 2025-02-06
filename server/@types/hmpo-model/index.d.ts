@@ -2,9 +2,12 @@
 declare module 'hmpo-model/lib/local-model' {
   import type { EventEmitter } from 'node:events'
 
-  export interface LocalModelOptions {
+  interface SetOptions {
     silent?: boolean
   }
+
+  // eslint-disable-next-line @typescript-eslint/no-empty-object-type
+  export interface LocalModelOptions {}
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   export default class LocalModel<Values = any, Options = LocalModelOptions> extends EventEmitter {
@@ -16,13 +19,13 @@ declare module 'hmpo-model/lib/local-model' {
 
     get<Key extends keyof Values>(key: Key): Values[Key]
 
-    set<Key extends keyof Values>(key: Key, value: Values[Key], options?: Options): this
+    set<Key extends keyof Values>(key: Key, value: Values[Key], options?: SetOptions): this
 
-    set(values: Partial<Values>, options?: Options): this
+    set(values: Partial<Values>, options?: SetOptions): this
 
-    unset(fields: string | string[], options?: Options): this
+    unset(fields: string | string[], options?: SetOptions): this
 
-    reset(options?: Options): void
+    reset(options?: SetOptions): void
 
     increment<Key extends keyof Values = string>(key: Key, amount?: number): this
 

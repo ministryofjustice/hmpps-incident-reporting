@@ -1,9 +1,11 @@
-import {
-  type AnswerConfiguration,
-  type IncidentTypeConfiguration,
-  type QuestionConfiguration,
-  findAnswerConfigByCode,
+import type {
+  AnswerConfiguration,
+  IncidentTypeConfiguration,
+  QuestionConfiguration,
 } from '../data/incidentTypeConfiguration/types'
+import { findAnswerConfigByCode } from '../data/incidentTypeConfiguration/utils'
+
+const endReached = Symbol('endReached')
 
 /**
  * This interface is a subset of the API's `Question`
@@ -57,10 +59,16 @@ export default class QuestionsToDelete {
   ): string[] {
     const nextQuestionId = this.findNextQuestionId(config, start, answeredQuestions)
     if (!nextQuestionId) {
+      // question not found or answer is invalid
       return []
     }
+    if (nextQuestionId === endReached) {
+      // answer was found and reached the end
+      return [start]
+    }
 
-    return [start, ...this.traverseQuestionnaire(config, nextQuestionId, answeredQuestions)]
+    // answer was found and another step follows
+    return [start, ...this.traverseQuestionnaire(config, nextQuestionId as string, answeredQuestions)]
   }
 
   /**
@@ -86,7 +94,7 @@ export default class QuestionsToDelete {
     config: IncidentTypeConfiguration,
     start: string,
     answeredQuestions: AnsweredQuestion[],
-  ): string | null {
+  ): string | symbol | null {
     const answeredQuestion = answeredQuestions.find(question => question.code === start)
     let questionConfig: QuestionConfiguration | null = null
     let answerConfig: AnswerConfiguration | null = null
@@ -115,6 +123,6 @@ export default class QuestionsToDelete {
       return null
     }
 
-    return answerConfig.nextQuestionId
+    return answerConfig.nextQuestionId ?? endReached
   }
 }

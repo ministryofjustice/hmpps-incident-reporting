@@ -3,6 +3,7 @@
 {% from "govuk/components/breadcrumbs/macro.njk" import govukBreadcrumbs %}
 {% from "govuk/components/button/macro.njk" import govukButton %}
 {% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
+{% from "govuk/components/error-summary/macro.njk" import govukErrorSummary %}
 {% from "govuk/components/input/macro.njk" import govukInput %}
 {% from "govuk/components/select/macro.njk" import govukSelect %}
 {% from "govuk/components/table/macro.njk" import govukTable %}
@@ -27,6 +28,18 @@
 {% endblock %}
 
 {% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      {% if errors | length %}
+        {{ govukErrorSummary({
+          titleText: "There is a problem",
+          errorList: errors
+        }) }}
+      {% endif %}
+    </div>
+  </div>
+
   <h1 class="govuk-heading-l">Incident reports</h1>
 
   {% if permissions.canCreateReport %}
@@ -45,15 +58,15 @@
     {% endif %}
   {% endif %}
 
-  <div class="horizontal-form__wrapper govuk-!-padding-3 govuk-!-margin-bottom-5">
-    <form class="horizontal-form {% if errors.length > 0 %}horizontal-form--with-errors{% endif %}" method="get" novalidate>
+  <div class="app-dashboard__search-box govuk-!-padding-3 govuk-!-margin-bottom-5">
+    <form method="get" novalidate>
+
       <div class="govuk-grid-row">
         <div class="govuk-grid-column-one-half-from-desktop">
           {{ govukInput({
             id: "searchID",
             name: "searchID",
             label: {text: "Search an incident number or offender ID"},
-            classes: "govuk-\!-width-half",
             value: formValues.searchID,
             errorMessage: errors | findFieldInGovukErrorSummary("searchID")
           }) }}
@@ -94,8 +107,7 @@
               label: {text: "Establishment"},
               items: establishments | govukSelectInsertDefault("All establishments") | govukSelectSetSelected(formValues.location),
               value: formValues.location or "",
-              errorMessage: errors | findFieldInGovukErrorSummary("location"),
-              class: "govuk-!-width-half"
+              errorMessage: errors | findFieldInGovukErrorSummary("location")
             }) }}
           </div>
         {% endif %}
@@ -107,17 +119,16 @@
             label: {text: "Incident type"},
             items: incidentTypes | govukSelectInsertDefault("All incident types") | govukSelectSetSelected(formValues.incidentType),
             value: formValues.incidentType or "",
-            errorMessage: errors | findFieldInGovukErrorSummary("incidentType"),
-            class: "govuk-!-width-half"
+            errorMessage: errors | findFieldInGovukErrorSummary("incidentType")
           }) }}
         </div>
 
       </div>
 
       <div class="govuk-grid-row">
-        <div class="govuk-grid-column-full-from-desktop">
+        <div class="govuk-grid-column-full">
           {{ govukCheckboxes({
-            classes: "govuk-checkboxes--small",
+            classes: "govuk-checkboxes--small govuk-checkboxes--inline",
             name: "incidentStatuses",
             id: "incidentStatuses",
             fieldset: {
@@ -129,19 +140,23 @@
         </div>
       </div>
 
-      <div class="govuk-button-group">
-        {{ govukButton({
-          text: "Apply filters",
-          preventDoubleClick: true,
-          type: "submit",
-          attributes: {
-            "data-test": "filter-submit"
-          }
-        }) }}
+      <div class="govuk-grid-row">
+        <div class="govuk-grid-column-full">
+          <div class="govuk-button-group">
+            {{ govukButton({
+              text: "Apply filters",
+              preventDoubleClick: true,
+              type: "submit",
+              attributes: {
+                "data-test": "filter-submit"
+              }
+            }) }}
 
-        {% if not noFiltersSupplied %}
-          <a href="?incidentStatuses=" class="govuk-link govuk-link--no-visited-state" id="clearFilter">Clear filters</a>
-        {% endif %}
+            {% if not noFiltersSupplied %}
+              <a href="?incidentStatuses=" class="govuk-link govuk-link--no-visited-state" id="clearFilter">Clear filters</a>
+            {% endif %}
+          </div>
+        </div>
       </div>
     </form>
   </div>

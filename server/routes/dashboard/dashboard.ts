@@ -1,5 +1,6 @@
 import { RequestHandler, Router } from 'express'
 import type { PathParams } from 'express-serve-static-core'
+
 import {
   Status,
   Type,
@@ -12,7 +13,7 @@ import {
 import type { Order } from '../../data/offenderSearchApi'
 import type { HeaderCell } from '../../utils/sortableTable'
 import format from '../../utils/format'
-import type { GovukErrorSummaryItem } from '../../utils/govukFrontend'
+import type { GovukCheckboxesItem, GovukErrorSummaryItem, GovukSelectItem } from '../../utils/govukFrontend'
 import { parseDateInput } from '../../utils/utils'
 import { sortableTableHead } from '../../utils/sortableTable'
 import { pagination } from '../../utils/pagination'
@@ -49,6 +50,7 @@ export default function dashboard(service: Services): Router {
     const userCaseloadIds = userCaseloads.map(caseload => caseload.caseLoadId)
 
     let showEstablishmentsFilter = false
+    // TODO: PECS
     if (userCaseloadIds.length > 1) {
       showEstablishmentsFilter = true
     }
@@ -116,6 +118,11 @@ export default function dashboard(service: Services): Router {
       toDate = null
       errors.push({ href: '#toDate', text: `Enter a valid to date, for example ${todayAsShortDate}` })
     }
+    if (fromDate && toDate && toDate < fromDate) {
+      fromDate = null
+      toDate = null
+      errors.push({ href: '#toDate', text: 'Enter a date after from date' })
+    }
     let prisonerId: string
     let referenceNumber: string
     if (searchID) {
@@ -139,8 +146,6 @@ export default function dashboard(service: Services): Router {
     if (pageNumber < 1) {
       pageNumber = 1
     }
-
-    const orderString = order as string
 
     // Set locations to user's caseload by default
     let searchLocations: string[] | string = userCaseloadIds
@@ -173,7 +178,7 @@ export default function dashboard(service: Services): Router {
       status: searchStatuses,
       involvingPrisonerNumber: prisonerId,
       page: pageNumber - 1,
-      sort: [`${sort},${orderString}`],
+      sort: [`${sort},${order}`],
     })
 
     const queryString = new URLSearchParams()
@@ -216,15 +221,11 @@ export default function dashboard(service: Services): Router {
     const reports = reportsResponse.content
     const usernames = reports.map(report => report.reportedBy)
     const usersLookup = await userService.getUsers(res.locals.systemToken, usernames)
-    const reportingOfficers = Object.values(usersLookup).map(user => ({
-      value: user.username,
-      text: user.name,
-    }))
-    const incidentTypes = types.map(incType => ({
+    const incidentTypes: GovukSelectItem[] = types.map(incType => ({
       value: incType.code,
       text: incType.description,
     }))
-    let statusItems: { value: string; text: string }[]
+    let statusItems: GovukCheckboxesItem[]
     let statusCheckboxLabel: string
     if (userRoles.includes(roleReadWrite) && !userRoles.includes(roleApproveReject)) {
       statusItems = workListMapping.map(workListValue => ({
@@ -239,7 +240,8 @@ export default function dashboard(service: Services): Router {
       }))
       statusCheckboxLabel = 'Status'
     }
-    const establishments = userCaseloads.map(caseload => ({
+    // TODO: PECS
+    const establishments: GovukSelectItem[] = userCaseloads.map(caseload => ({
       value: caseload.caseLoadId,
       text: caseload.description,
     }))
@@ -251,11 +253,7 @@ export default function dashboard(service: Services): Router {
     )
 
     const tableHead: HeaderCell[] | undefined = sortableTableHead({
-      columns: tableColumns.map(column => {
-        return {
-          ...column,
-        }
-      }),
+      columns: tableColumns,
       sortColumn: sort,
       order,
       urlPrefix: tableHeadUrlPrefix,
@@ -274,7 +272,6 @@ export default function dashboard(service: Services): Router {
       establishments,
       establishmentLookup,
       usersLookup,
-      reportingOfficers,
       incidentTypes,
       statusItems,
       typesLookup,

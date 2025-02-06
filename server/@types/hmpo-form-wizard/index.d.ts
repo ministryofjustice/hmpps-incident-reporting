@@ -1,7 +1,7 @@
 // eslint-disable-next-line max-classes-per-file
 import type express from 'express'
 
-/** HMPO form wizard types based on version 14.1 */
+/** HMPO form wizard types based on version 15.0 */
 declare module 'hmpo-form-wizard' {
   import type { DefaultFormatter } from 'hmpo-form-wizard/lib/formatting'
   import type { DefaultValidator } from 'hmpo-form-wizard/lib/validation'
@@ -239,6 +239,10 @@ declare module 'hmpo-form-wizard' {
       form: Form<V, K>
     }
 
+    interface RequestHandler<V extends object = Values, K extends keyof V = keyof V> {
+      (req: Request<V, K>, res: express.Response, next: express.NextFunction): void
+    }
+
     /** Represents form errors; does not extend native Error class */
     class Error {
       constructor(
@@ -336,11 +340,11 @@ declare module 'hmpo-form-wizard' {
 
       middlewareMixins(): void
 
-      use(...requestHandlers: express.RequestHandler[]): void
+      use(...requestHandlers: RequestHandler<V, K>[]): void
 
       useWithMethod(
         method: 'all' | 'get' | 'post' | 'put' | 'delete' | 'patch' | 'options' | 'head',
-        ...requestHandlers: express.RequestHandler[]
+        ...requestHandlers: RequestHandler<V, K>[]
       ): void
 
       requestHandler(): express.Router

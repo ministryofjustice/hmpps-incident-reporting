@@ -3,6 +3,7 @@ import type FormWizard from 'hmpo-form-wizard'
 
 import QuestionsController from '../../controllers/wip/questionsController'
 import type { AnswerConfiguration, IncidentTypeConfiguration, QuestionConfiguration } from './types'
+import { conditionalFieldName, questionFieldName } from './utils'
 
 const MAX_ANSWERS_PER_PAGE = 20
 
@@ -18,7 +19,6 @@ export function generateSteps(config: IncidentTypeConfiguration): FormWizard.Ste
       entryPoint: true,
       reset: true,
       resetJourney: true,
-      // TODO: first step ought to not be skipped so let's try to put the first question here
       skip: true,
       next: config.startingQuestionId,
     },
@@ -29,7 +29,8 @@ export function generateSteps(config: IncidentTypeConfiguration): FormWizard.Ste
     .forEach(question => {
       const activeAnswers = question.answers.filter(answer => answer.active)
 
-      const fields = [question.id]
+      const fieldName = questionFieldName(question)
+      const fields = [fieldName]
       for (const answer of activeAnswers) {
         if (answer.dateRequired) {
           const dateFieldName = conditionalFieldName(question, answer, 'date')
@@ -41,7 +42,7 @@ export function generateSteps(config: IncidentTypeConfiguration): FormWizard.Ste
         }
       }
 
-      steps[`/${question.id}`] = {
+      steps[`/${fieldName}`] = {
         next: nextSteps(question, activeAnswers),
         fields,
         controller: QuestionsController,
@@ -224,8 +225,9 @@ export function generateFields(config: IncidentTypeConfiguration): FormWizard.Fi
     .forEach(question => {
       const activeAnswers = question.answers.filter(answer => answer.active)
 
-      fields[question.id] = {
-        name: question.id,
+      const fieldName = questionFieldName(question)
+      fields[fieldName] = {
+        name: fieldName,
         label: question.label,
         validate: ['required'],
         multiple: question.multipleAnswers,
@@ -243,28 +245,28 @@ export function generateFields(config: IncidentTypeConfiguration): FormWizard.Fi
       // Add conditional comment/date fields
       for (const answer of activeAnswers) {
         if (answer.dateRequired) {
-          const fieldName = conditionalFieldName(question, answer, 'date')
-          fields[fieldName] = {
-            name: fieldName,
+          const dateFieldName = conditionalFieldName(question, answer, 'date')
+          fields[dateFieldName] = {
+            name: dateFieldName,
             label: 'Date',
             component: 'mojDatePicker',
             validate: ['required', 'ukDate'],
             dependent: {
-              field: question.id,
+              field: fieldName,
               value: answer.code,
             },
           } satisfies FormWizard.Field
         }
 
         if (answer.commentRequired) {
-          const fieldName = conditionalFieldName(question, answer, 'comment')
-          fields[fieldName] = {
-            name: fieldName,
+          const commentFieldName = conditionalFieldName(question, answer, 'comment')
+          fields[commentFieldName] = {
+            name: commentFieldName,
             label: 'Comment',
             component: 'govukInput',
             validate: ['required'],
             dependent: {
-              field: question.id,
+              field: fieldName,
               value: answer.code,
             },
           } satisfies FormWizard.Field
@@ -300,7 +302,7 @@ function nextSteps(question: QuestionConfiguration, answers: AnswerConfiguration
     const answerCodes = groupAnswers.map(answer => answer.code)
 
     next.push({
-      field: question.id,
+      field: questionFieldName(question),
       // - for single values, check if submitted value is
       //   contained **in** `condition.value`
       // - for multiple values, submitted values is an array, e.g.
@@ -314,14 +316,6 @@ function nextSteps(question: QuestionConfiguration, answers: AnswerConfiguration
   }
 
   return next
-}
-
-function conditionalFieldName(
-  question: QuestionConfiguration,
-  answer: AnswerConfiguration,
-  suffix: 'comment' | 'date',
-): string {
-  return `${question.id}-${answer.id}-${suffix}`
 }
 
 /**

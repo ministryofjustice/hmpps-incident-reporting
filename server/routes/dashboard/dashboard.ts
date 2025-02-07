@@ -9,12 +9,13 @@ import {
   workListStatusMapping,
   statuses,
   types,
+  workListCodes,
 } from '../../reportConfiguration/constants'
 import type { Order } from '../../data/offenderSearchApi'
 import type { HeaderCell } from '../../utils/sortableTable'
 import format from '../../utils/format'
 import type { GovukCheckboxesItem, GovukErrorSummaryItem, GovukSelectItem } from '../../utils/govukFrontend'
-import { parseDateInput } from '../../utils/utils'
+import { checkForOutliers, parseDateInput } from '../../utils/utils'
 import { sortableTableHead } from '../../utils/sortableTable'
 import { pagination } from '../../utils/pagination'
 import type { Services } from '../../services'
@@ -69,26 +70,6 @@ export default function dashboard(service: Services): Router {
       order = 'DESC'
     }
 
-    if (
-      userRoles.includes(roleReadWrite) &&
-      !userRoles.includes(roleApproveReject) &&
-      !('incidentStatuses' in req.query)
-    ) {
-      incidentStatuses = 'toDo'
-    }
-
-    const formValues: ListFormData = {
-      searchID,
-      location,
-      fromDate: fromDateInput,
-      toDate: toDateInput,
-      incidentType: incidentType as Type,
-      incidentStatuses: incidentStatuses as IncidentStatuses,
-      sort,
-      order: order as Order,
-      page,
-    }
-
     // Select relevant table columns
     let tableColumns: ColumnEntry[]
     if (showEstablishmentsFilter) {
@@ -123,6 +104,45 @@ export default function dashboard(service: Services): Router {
       toDate = null
       errors.push({ href: '#toDate', text: 'Enter a date after from date' })
     }
+
+    let noFiltersSupplied = Boolean(
+      !searchID && !location && !fromDate && !toDate && !incidentType && !incidentStatuses,
+    )
+
+    // Check for invalid work list filter options submitted via the url query
+    if (
+      userRoles.includes(roleReadWrite) &&
+      !userRoles.includes(roleApproveReject) &&
+      incidentStatuses &&
+      checkForOutliers(incidentStatuses, workListCodes)
+    ) {
+      incidentStatuses = undefined
+      errors.push({ href: '#incidentStatuses', text: 'Work list filter submitted contains invalid values' })
+    }
+    // Check for invalid status filter options submitted via the url query
+    if (
+      !userRoles.includes(roleReadWrite) &&
+      userRoles.includes(roleApproveReject) &&
+      incidentStatuses &&
+      checkForOutliers(
+        incidentStatuses,
+        statuses.map(status => status.code),
+      )
+    ) {
+      incidentStatuses = undefined
+      errors.push({ href: '#incidentStatuses', text: 'Status filter submitted contains invalid values' })
+    }
+    // Default work list to 'To do' for an RO when no other filters are applied and when the user arrives on page
+    if (
+      userRoles.includes(roleReadWrite) &&
+      !userRoles.includes(roleApproveReject) &&
+      !('incidentStatuses' in req.query) &&
+      noFiltersSupplied
+    ) {
+      incidentStatuses = 'toDo'
+      noFiltersSupplied = false
+    }
+
     let prisonerId: string
     let referenceNumber: string
     if (searchID) {
@@ -153,6 +173,13 @@ export default function dashboard(service: Services): Router {
     if (location && userCaseloadIds.includes(location)) {
       searchLocations = location
     }
+    // Show error message when user tries to select an establishment outside their caseload via the url query
+    if (location && !userCaseloadIds.includes(location)) {
+      errors.push({
+        href: '#location',
+        text: "Establishments can only be selected if they exist in the user's caseload",
+      })
+    }
 
     let searchStatuses: Status | Status[]
     // Replace status mappings if RO viewing page
@@ -180,6 +207,18 @@ export default function dashboard(service: Services): Router {
       page: pageNumber - 1,
       sort: [`${sort},${order}`],
     })
+
+    const formValues: ListFormData = {
+      searchID,
+      location,
+      fromDate: fromDateInput,
+      toDate: toDateInput,
+      incidentType: incidentType as Type,
+      incidentStatuses: incidentStatuses as IncidentStatuses,
+      sort,
+      order: order as Order,
+      page,
+    }
 
     const queryString = new URLSearchParams()
     if (searchID) {
@@ -213,10 +252,6 @@ export default function dashboard(service: Services): Router {
     }
 
     const urlPrefix = `/reports?${queryString}&`
-
-    const noFiltersSupplied = Boolean(
-      !searchID && !location && !fromDate && !toDate && !incidentType && !incidentStatuses,
-    )
 
     const reports = reportsResponse.content
     const usernames = reports.map(report => report.reportedBy)

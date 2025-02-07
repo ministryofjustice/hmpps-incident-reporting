@@ -426,7 +426,7 @@ describe('search validations', () => {
       page: 0,
       reference: undefined,
       sort: ['incidentDateAndTime,DESC'],
-      status: ['DRAFT', 'INFORMATION_REQUIRED'],
+      status: undefined,
       type: undefined,
     }
 
@@ -453,7 +453,7 @@ describe('search validations', () => {
       page: 0,
       reference: '12345678',
       sort: ['incidentDateAndTime,DESC'],
-      status: ['DRAFT', 'INFORMATION_REQUIRED'],
+      status: undefined,
       type: undefined,
     }
 
@@ -480,7 +480,7 @@ describe('search validations', () => {
       page: 0,
       reference: '12345678',
       sort: ['incidentDateAndTime,DESC'],
-      status: ['DRAFT', 'INFORMATION_REQUIRED'],
+      status: undefined,
       type: undefined,
     }
 
@@ -507,7 +507,7 @@ describe('search validations', () => {
       page: 0,
       reference: undefined,
       sort: ['incidentDateAndTime,DESC'],
-      status: ['DRAFT', 'INFORMATION_REQUIRED'],
+      status: undefined,
       type: undefined,
     }
 
@@ -534,7 +534,7 @@ describe('search validations', () => {
       page: 0,
       reference: undefined,
       sort: ['incidentDateAndTime,DESC'],
-      status: ['DRAFT', 'INFORMATION_REQUIRED'],
+      status: undefined,
       type: undefined,
     }
 
@@ -679,7 +679,7 @@ describe('Establishment filter validations', () => {
       queryLocation: 'ASH',
       expectedLocations: ['MDI'],
       user: reportingUser,
-      expectedStatus: ['DRAFT', 'INFORMATION_REQUIRED'] as Status[],
+      expectedStatus: undefined,
     },
     {
       usertype: 'DW',
@@ -689,7 +689,7 @@ describe('Establishment filter validations', () => {
       expectedStatus: undefined,
     },
   ])(
-    'Establishment locations should default to caseload locations if query is set to location outside of caseload for $usertype',
+    'Establishment locations should default to caseload locations and show error if query is set to location outside of caseload for $usertype',
     ({ queryLocation, expectedLocations, user, expectedStatus }) => {
       const expectedParams: Partial<GetReportsParams> = {
         location: expectedLocations,
@@ -706,7 +706,131 @@ describe('Establishment filter validations', () => {
         .get('/reports')
         .query({ location: queryLocation })
         .expect('Content-Type', /html/)
-        .expect(() => {
+        .expect(res => {
+          expect(res.text).toContain('Establishments can only be selected if they exist in the user&#39;s caseload')
+          expect(incidentReportingApi.getReports).toHaveBeenCalledWith(expectedParams)
+        })
+    },
+  )
+})
+
+describe('Status/work list filter validations', () => {
+  beforeEach(() => {
+    // actual table doesn't matter for these tests
+    incidentReportingApi.getReports.mockResolvedValueOnce(unsortedPageOf([]))
+  })
+
+  it.each([
+    {
+      scenario: 'single invalid entry',
+      usertype: 'RO',
+      expectedLocations: ['MDI'],
+      user: reportingUser,
+      queryStatus: 'DRAFT',
+      expectedStatus: undefined,
+      expectedError: 'Work list filter submitted contains invalid values',
+    },
+    {
+      scenario: 'multiple invalid entries',
+      usertype: 'RO',
+      expectedLocations: ['MDI'],
+      user: reportingUser,
+      queryStatus: ['DRAFT', 'AWAITING_ANALYSIS'],
+      expectedStatus: undefined,
+      expectedError: 'Work list filter submitted contains invalid values',
+    },
+    {
+      scenario: 'invalid entries alongside valid entries',
+      usertype: 'RO',
+      expectedLocations: ['MDI'],
+      user: reportingUser,
+      queryStatus: ['submitted', 'done', 'DRAFT', 'AWAITING_ANALYSIS'],
+      expectedStatus: undefined,
+      expectedError: 'Work list filter submitted contains invalid values',
+    },
+    {
+      scenario: 'entry entirely invalid for any user',
+      usertype: 'RO',
+      expectedLocations: ['MDI'],
+      user: reportingUser,
+      queryStatus: 'random_status',
+      expectedStatus: undefined,
+      expectedError: 'Work list filter submitted contains invalid values',
+    },
+    {
+      scenario: 'entries entirely invalid for any user',
+      usertype: 'RO',
+      expectedLocations: ['MDI'],
+      user: reportingUser,
+      queryStatus: ['random_status', 'another_option'],
+      expectedStatus: undefined,
+      expectedError: 'Work list filter submitted contains invalid values',
+    },
+    {
+      scenario: 'single invalid entry',
+      usertype: 'DW',
+      expectedLocations: ['MDI', 'LEI'],
+      user: approverUser,
+      queryStatus: 'toDo',
+      expectedStatus: undefined,
+      expectedError: 'Status filter submitted contains invalid values',
+    },
+    {
+      scenario: 'multiple invalid entries',
+      usertype: 'DW',
+      expectedLocations: ['MDI', 'LEI'],
+      user: approverUser,
+      queryStatus: ['toDo', 'done'],
+      expectedStatus: undefined,
+      expectedError: 'Status filter submitted contains invalid values',
+    },
+    {
+      scenario: 'invalid entries alongside valid entries',
+      usertype: 'DW',
+      expectedLocations: ['MDI', 'LEI'],
+      user: approverUser,
+      queryStatus: ['submitted', 'done', 'DRAFT', 'AWAITING_ANALYSIS'],
+      expectedStatus: undefined,
+      expectedError: 'Status filter submitted contains invalid values',
+    },
+    {
+      scenario: 'entry entirely invalid for any user',
+      usertype: 'DW',
+      expectedLocations: ['MDI', 'LEI'],
+      user: approverUser,
+      queryStatus: 'random_status',
+      expectedStatus: undefined,
+      expectedError: 'Status filter submitted contains invalid values',
+    },
+    {
+      scenario: 'entries entirely invalid for any user',
+      usertype: 'DW',
+      expectedLocations: ['MDI', 'LEI'],
+      user: approverUser,
+      queryStatus: ['random_status', 'another_option'],
+      expectedStatus: undefined,
+      expectedError: 'Status filter submitted contains invalid values',
+    },
+  ])(
+    'Status/work list should default to undefined and show error if query is set to option invalid for $usertype with $scenario',
+    ({ queryStatus, expectedLocations, user, expectedStatus, expectedError }) => {
+      const expectedParams: Partial<GetReportsParams> = {
+        location: expectedLocations,
+        incidentDateFrom: undefined,
+        incidentDateUntil: undefined,
+        involvingPrisonerNumber: undefined,
+        page: 0,
+        reference: undefined,
+        sort: ['incidentDateAndTime,DESC'],
+        status: expectedStatus,
+        type: undefined,
+      }
+      return request(appWithAllRoutes({ services: { userService }, userSupplier: () => user }))
+        .get('/reports')
+        .query({ incidentStatuses: queryStatus })
+        .expect('Content-Type', /html/)
+        .expect(res => {
+          expect(res.text).toContain(expectedError)
           expect(incidentReportingApi.getReports).toHaveBeenCalledWith(expectedParams)
         })
     },

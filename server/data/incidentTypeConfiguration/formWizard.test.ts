@@ -181,6 +181,7 @@ describe('generateSteps()', () => {
             next: 'qicecream',
           },
         ],
+        entryPoint: true,
       },
       '/qdog': {
         controller: QuestionsController,
@@ -194,6 +195,7 @@ describe('generateSteps()', () => {
             next: 'qicecream',
           },
         ],
+        entryPoint: true,
       },
       // '/qicecream' is the merge of existing '/qicecream' and '/qend'
       // 1. original `/qicecream`'s next replaced with `/qend`'s next
@@ -211,6 +213,7 @@ describe('generateSteps()', () => {
             next: null,
           },
         ],
+        entryPoint: true,
       },
     })
   })

@@ -4549,6 +4549,7 @@ export const steps: FormWizard.Steps<FormWizard.MultiValues> = {
     ],
     fields: ['67179', '67179-218684-date', '67179-218684-comment'],
     template: 'questionPage',
+    entryPoint: true,
   },
   '/67180': {
     controller: QuestionsController,
@@ -4558,6 +4559,7 @@ export const steps: FormWizard.Steps<FormWizard.MultiValues> = {
     ],
     fields: ['67180'],
     template: 'questionPage',
+    entryPoint: true,
   },
   '/67181': {
     controller: QuestionsController,
@@ -4614,6 +4616,7 @@ export const steps: FormWizard.Steps<FormWizard.MultiValues> = {
       '67181-218740-comment',
     ],
     template: 'questionPage',
+    entryPoint: true,
   },
   '/67182': {
     controller: QuestionsController,
@@ -4641,12 +4644,14 @@ export const steps: FormWizard.Steps<FormWizard.MultiValues> = {
     ],
     fields: ['67182', '67182-218752-comment', '67182-218753-comment'],
     template: 'questionPage',
+    entryPoint: true,
   },
   '/67183': {
     controller: QuestionsController,
     next: [{ field: '67183', op: 'in', value: ['NO', 'YES'], next: '67184' }],
     fields: ['67183'],
     template: 'questionPage',
+    entryPoint: true,
   },
   '/67184': {
     controller: QuestionsController,
@@ -4669,6 +4674,7 @@ export const steps: FormWizard.Steps<FormWizard.MultiValues> = {
     ],
     fields: ['67184'],
     template: 'questionPage',
+    entryPoint: true,
   },
   '/67185': {
     controller: QuestionsController,
@@ -4682,6 +4688,7 @@ export const steps: FormWizard.Steps<FormWizard.MultiValues> = {
     ],
     fields: ['67185'],
     template: 'questionPage',
+    entryPoint: true,
   },
   '/67186': {
     controller: QuestionsController,
@@ -4712,6 +4719,7 @@ export const steps: FormWizard.Steps<FormWizard.MultiValues> = {
     ],
     fields: ['67186', '67186-218782-comment'],
     template: 'questionPage',
+    entryPoint: true,
   },
   '/67187': {
     controller: QuestionsController,
@@ -4727,6 +4735,7 @@ export const steps: FormWizard.Steps<FormWizard.MultiValues> = {
     ],
     fields: ['67187'],
     template: 'questionPage',
+    entryPoint: true,
   },
   '/67188': {
     controller: QuestionsController,
@@ -4745,6 +4754,7 @@ export const steps: FormWizard.Steps<FormWizard.MultiValues> = {
       '67189-218801-comment',
     ],
     template: 'questionPage',
+    entryPoint: true,
   },
   '/67190': {
     controller: QuestionsController,
@@ -4780,6 +4790,7 @@ export const steps: FormWizard.Steps<FormWizard.MultiValues> = {
     ],
     fields: ['67190', '67190-218822-comment'],
     template: 'questionPage',
+    entryPoint: true,
   },
   '/67191': {
     controller: QuestionsController,
@@ -4793,6 +4804,7 @@ export const steps: FormWizard.Steps<FormWizard.MultiValues> = {
     ],
     fields: ['67191', '67192'],
     template: 'questionPage',
+    entryPoint: true,
   },
   '/67193': {
     controller: QuestionsController,
@@ -4815,6 +4827,7 @@ export const steps: FormWizard.Steps<FormWizard.MultiValues> = {
     ],
     fields: ['67193', '67193-218848-comment'],
     template: 'questionPage',
+    entryPoint: true,
   },
   '/67194': {
     controller: QuestionsController,
@@ -4852,6 +4865,7 @@ export const steps: FormWizard.Steps<FormWizard.MultiValues> = {
     ],
     fields: ['67194', '67194-218870-comment'],
     template: 'questionPage',
+    entryPoint: true,
   },
   '/67195': {
     controller: QuestionsController,
@@ -4889,6 +4903,7 @@ export const steps: FormWizard.Steps<FormWizard.MultiValues> = {
     ],
     fields: ['67195', '67195-218893-comment'],
     template: 'questionPage',
+    entryPoint: true,
   },
   '/67196': {
     controller: QuestionsController,
@@ -4926,6 +4941,7 @@ export const steps: FormWizard.Steps<FormWizard.MultiValues> = {
     ],
     fields: ['67196', '67196-218916-comment'],
     template: 'questionPage',
+    entryPoint: true,
   },
   '/67197': {
     controller: QuestionsController,
@@ -4940,6 +4956,7 @@ export const steps: FormWizard.Steps<FormWizard.MultiValues> = {
       '67199-218924-comment',
     ],
     template: 'questionPage',
+    entryPoint: true,
   },
   '/67200': {
     controller: QuestionsController,
@@ -4967,6 +4984,7 @@ export const steps: FormWizard.Steps<FormWizard.MultiValues> = {
     ],
     fields: ['67200', '67200-218937-comment'],
     template: 'questionPage',
+    entryPoint: true,
   },
   '/67201': {
     controller: QuestionsController,
@@ -4995,6 +5013,7 @@ export const steps: FormWizard.Steps<FormWizard.MultiValues> = {
       '67202-218946-comment',
     ],
     template: 'questionPage',
+    entryPoint: true,
   },
   '/67203': {
     controller: QuestionsController,
@@ -5013,6 +5032,7 @@ export const steps: FormWizard.Steps<FormWizard.MultiValues> = {
     ],
     fields: ['67203', '67203-218950-comment'],
     template: 'questionPage',
+    entryPoint: true,
   },
   '/67204': {
     controller: QuestionsController,
@@ -5026,6 +5046,7 @@ export const steps: FormWizard.Steps<FormWizard.MultiValues> = {
     ],
     fields: ['67204', '67204-218952-comment'],
     template: 'questionPage',
+    entryPoint: true,
   },
   '/67205': {
     controller: QuestionsController,
@@ -5048,6 +5069,7 @@ export const steps: FormWizard.Steps<FormWizard.MultiValues> = {
       '67207',
     ],
     template: 'questionPage',
+    entryPoint: true,
   },
   '/67208': {
     controller: QuestionsController,
@@ -5082,6 +5104,7 @@ export const steps: FormWizard.Steps<FormWizard.MultiValues> = {
     ],
     fields: ['67208', '67208-218985-comment'],
     template: 'questionPage',
+    entryPoint: true,
   },
   '/67209': {
     controller: QuestionsController,
@@ -5112,6 +5135,7 @@ export const steps: FormWizard.Steps<FormWizard.MultiValues> = {
       '67210',
     ],
     template: 'questionPage',
+    entryPoint: true,
   },
   '/67211': {
     controller: QuestionsController,
@@ -5121,6 +5145,7 @@ export const steps: FormWizard.Steps<FormWizard.MultiValues> = {
     ],
     fields: ['67211'],
     template: 'questionPage',
+    entryPoint: true,
   },
   '/67212': {
     controller: QuestionsController,
@@ -5135,6 +5160,7 @@ export const steps: FormWizard.Steps<FormWizard.MultiValues> = {
     ],
     fields: ['67212', '67212-219012-comment'],
     template: 'questionPage',
+    entryPoint: true,
   },
   '/67213': {
     controller: QuestionsController,
@@ -5144,6 +5170,7 @@ export const steps: FormWizard.Steps<FormWizard.MultiValues> = {
     ],
     fields: ['67213'],
     template: 'questionPage',
+    entryPoint: true,
   },
   '/67214': {
     controller: QuestionsController,
@@ -5181,6 +5208,7 @@ export const steps: FormWizard.Steps<FormWizard.MultiValues> = {
     ],
     fields: ['67214', '67214-219036-comment'],
     template: 'questionPage',
+    entryPoint: true,
   },
   '/67215': {
     controller: QuestionsController,
@@ -5218,6 +5246,7 @@ export const steps: FormWizard.Steps<FormWizard.MultiValues> = {
     ],
     fields: ['67215', '67215-219059-comment'],
     template: 'questionPage',
+    entryPoint: true,
   },
   '/67216': {
     controller: QuestionsController,
@@ -5255,6 +5284,7 @@ export const steps: FormWizard.Steps<FormWizard.MultiValues> = {
     ],
     fields: ['67216', '67216-219082-comment'],
     template: 'questionPage',
+    entryPoint: true,
   },
   '/67217': {
     controller: QuestionsController,
@@ -5276,6 +5306,7 @@ export const steps: FormWizard.Steps<FormWizard.MultiValues> = {
       '67219-219090-comment',
     ],
     template: 'questionPage',
+    entryPoint: true,
   },
   '/67220': {
     controller: QuestionsController,
@@ -5285,6 +5316,7 @@ export const steps: FormWizard.Steps<FormWizard.MultiValues> = {
     ],
     fields: ['67220', '67220-219104-comment', '67221'],
     template: 'questionPage',
+    entryPoint: true,
   },
   '/67222': {
     controller: QuestionsController,
@@ -5312,6 +5344,7 @@ export const steps: FormWizard.Steps<FormWizard.MultiValues> = {
       '67223-219114-comment',
     ],
     template: 'questionPage',
+    entryPoint: true,
   },
   '/67224': {
     controller: QuestionsController,
@@ -5325,6 +5358,7 @@ export const steps: FormWizard.Steps<FormWizard.MultiValues> = {
     ],
     fields: ['67224', '67225', '67225-219122-comment'],
     template: 'questionPage',
+    entryPoint: true,
   },
   '/67226': {
     controller: QuestionsController,
@@ -5334,6 +5368,7 @@ export const steps: FormWizard.Steps<FormWizard.MultiValues> = {
     ],
     fields: ['67226'],
     template: 'questionPage',
+    entryPoint: true,
   },
   '/67227': {
     controller: QuestionsController,
@@ -5347,5 +5382,6 @@ export const steps: FormWizard.Steps<FormWizard.MultiValues> = {
     ],
     fields: ['67227'],
     template: 'questionPage',
+    entryPoint: true,
   },
 }

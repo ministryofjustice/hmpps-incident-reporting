@@ -257,6 +257,73 @@ describe('Displaying responses', () => {
       })
     })
   })
+
+  describe('Moving between question pages', () => {
+    it.each([
+      { scenario: 'no responses so far', someResponses: false },
+      { scenario: 'some responses have been entered', someResponses: true },
+    ])('should redirect to first page of questions from form wizard entrypoint when $scenario', ({ someResponses }) => {
+      reportWithDetails.type = 'FINDS'
+      reportWithDetails.questions = someResponses
+        ? [makeSimpleQuestion('67179', 'DESCRIBE HOW THE ITEM WAS FOUND (SELECT ALL THAT APPLY)', 'CELL SEARCH')]
+        : []
+      return agent
+        .get(reportQuestionsUrl)
+        .redirects(1)
+        .expect(200)
+        .expect(res => {
+          expect(res.redirects.at(-1)).toMatch(/\/questions\/67179$/)
+        })
+    })
+
+    it.each(['67179', '67180'])(
+      'should allow skipping directly to any page that has been started',
+      answeredQuestionId => {
+        reportWithDetails.type = 'FINDS'
+        reportWithDetails.questions = [
+          makeSimpleQuestion('67179', 'DESCRIBE HOW THE ITEM WAS FOUND (SELECT ALL THAT APPLY)', 'CELL SEARCH'),
+          makeSimpleQuestion('67180', 'IS THE LOCATION OF THE INCIDENT KNOWN?', 'NO'),
+        ]
+        return agent
+          .get(`${reportQuestionsUrl}/${answeredQuestionId}`)
+          .redirects(10)
+          .expect(200)
+          .expect(res => {
+            expect(res.redirects).toEqual([])
+          })
+      },
+    )
+
+    it('should allow skipping directly to the next page after existing responses', () => {
+      reportWithDetails.type = 'FINDS'
+      reportWithDetails.questions = [
+        makeSimpleQuestion('67179', 'DESCRIBE HOW THE ITEM WAS FOUND (SELECT ALL THAT APPLY)', 'CELL SEARCH'),
+        makeSimpleQuestion('67180', 'IS THE LOCATION OF THE INCIDENT KNOWN?', 'NO'),
+      ]
+      return agent
+        .get(`${reportQuestionsUrl}/67182`)
+        .redirects(10)
+        .expect(200)
+        .expect(res => {
+          expect(res.redirects).toEqual([])
+        })
+    })
+
+    it('should redirect to first page of questions if one tries to skip ahead', () => {
+      reportWithDetails.type = 'FINDS'
+      reportWithDetails.questions = [
+        makeSimpleQuestion('67179', 'DESCRIBE HOW THE ITEM WAS FOUND (SELECT ALL THAT APPLY)', 'CELL SEARCH'),
+        makeSimpleQuestion('67180', 'IS THE LOCATION OF THE INCIDENT KNOWN?', 'NO'),
+      ]
+      return agent
+        .get(`${reportQuestionsUrl}/67184`)
+        .redirects(10)
+        .expect(200)
+        .expect(res => {
+          expect(res.redirects.at(-1)).toMatch(/\/questions\/67179$/)
+        })
+    })
+  })
 })
 
 describe('Submitting questions’ responses', () => {
@@ -381,6 +448,7 @@ describe('Submitting questions’ responses', () => {
     incidentReportingApi.addOrUpdateQuestionsWithResponses.mockResolvedValue(questionsResponse)
 
     await agent.get(reportQuestionsUrl).redirects(1).expect(200)
+    reportWithDetails.questions = questionsResponse
     return agent
       .post(`${reportQuestionsUrl}/${firstQuestionStep}/`)
       .send(submittedAnswers)
@@ -436,6 +504,7 @@ describe('Submitting questions’ responses', () => {
     incidentReportingApi.addOrUpdateQuestionsWithResponses.mockResolvedValue(questionsResponse)
 
     await agent.get(reportQuestionsUrl).redirects(1).expect(200)
+    reportWithDetails.questions = questionsResponse
     return agent
       .post(`${reportQuestionsUrl}/${firstQuestionStep}/`)
       .send(submittedAnswers)
@@ -548,6 +617,7 @@ describe('Submitting questions’ responses', () => {
     incidentReportingApi.addOrUpdateQuestionsWithResponses.mockResolvedValue(questionsResponse)
 
     await agent.get(reportQuestionsUrl).redirects(1).expect(200)
+    reportWithDetails.questions = questionsResponse
     return agent
       .post(`${reportQuestionsUrl}/${firstQuestionStep}/`)
       .send(submittedAnswers)
@@ -582,9 +652,16 @@ describe('Submitting questions’ responses', () => {
       // HAS THE PRISON SERVICE PRESS OFFICE BEEN INFORMED
       '44749': 'NO',
     }
-    incidentReportingApi.addOrUpdateQuestionsWithResponses.mockResolvedValue([
-      // doesn't matter in this test
-    ])
+    const questionsResponse: Question[] = [
+      makeSimpleQuestion('44769', 'WERE THE POLICE INFORMED OF THE INCIDENT', 'NO'),
+      makeSimpleQuestion('44919', 'THE INCIDENT IS SUBJECT TO', 'INVESTIGATION INTERNALLY'),
+      makeSimpleQuestion('45033', 'IS ANY MEMBER OF STAFF FACING DISCIPLINARY CHARGES', 'NO'),
+      makeSimpleQuestion('44636', 'IS THERE ANY MEDIA INTEREST IN THIS INCIDENT', 'NO'),
+      makeSimpleQuestion('44749', 'HAS THE PRISON SERVICE PRESS OFFICE BEEN INFORMED', 'NO'),
+    ]
+    reportWithDetails.questions = questionsResponse
+    incidentReportingApi.addOrUpdateQuestionsWithResponses.mockResolvedValue(questionsResponse)
+
     await agent.get(reportQuestionsUrl).redirects(1).expect(200)
     return agent
       .post(`${reportQuestionsUrl}/${firstQuestionStep}/`)
@@ -634,6 +711,7 @@ describe('Question editing permissions', () => {
       withDetails: true,
     }),
   )
+  reportWithDetails.questions = []
   const reportQuestionsUrl = `/reports/${reportWithDetails.id}/questions`
 
   beforeEach(() => {

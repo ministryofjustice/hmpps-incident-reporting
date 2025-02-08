@@ -177,7 +177,7 @@ describe('Displaying responses', () => {
       ]
       reportWithDetails.type = 'ATTEMPTED_ESCAPE_FROM_CUSTODY'
       reportWithDetails.questions = questionsResponse
-      incidentReportingApi.addOrUpdateQuestionsWithResponses.mockResolvedValue(questionsResponse)
+      incidentReportingApi.addOrUpdateQuestionsWithResponses.mockResolvedValueOnce(questionsResponse)
 
       await agent
         .get(reportQuestionsUrl)
@@ -234,7 +234,7 @@ describe('Displaying responses', () => {
         },
       ]
       reportWithDetails.questions = questionsResponse
-      incidentReportingApi.addOrUpdateQuestionsWithResponses.mockResolvedValue(questionsResponse)
+      incidentReportingApi.addOrUpdateQuestionsWithResponses.mockResolvedValueOnce(questionsResponse)
 
       await agent
         .get(reportQuestionsUrl)
@@ -344,10 +344,10 @@ describe('Submitting questions’ responses', () => {
 
   beforeEach(() => {
     agent = request.agent(app)
-    incidentReportingApi.getReportWithDetailsById.mockResolvedValue(reportWithDetails)
+    incidentReportingApi.getReportWithDetailsById.mockResolvedValueOnce(reportWithDetails)
   })
 
-  it('submitting when answers not provided shows errors', async () => {
+  it('submitting when answers not provided shows errors', () => {
     reportWithDetails.type = 'DEATH_OTHER'
     const firstQuestionStep = DEATH_OTHER.startingQuestionId
     const followingStep = '44434'
@@ -355,9 +355,9 @@ describe('Submitting questions’ responses', () => {
       // 'WERE THE POLICE INFORMED OF THE INCIDENT',
       '45054': '',
     }
+    incidentReportingApi.getReportWithDetailsById.mockResolvedValueOnce(reportWithDetails)
 
-    await agent.get(reportQuestionsUrl).redirects(1).expect(200)
-    const postUrl = `${reportQuestionsUrl}/${firstQuestionStep}/`
+    const postUrl = `${reportQuestionsUrl}/${firstQuestionStep}`
     return agent
       .post(postUrl)
       .send(submittedAnswers)
@@ -374,7 +374,7 @@ describe('Submitting questions’ responses', () => {
       })
   })
 
-  it('submitting when answers invalid shows errors', async () => {
+  it('submitting when answers invalid shows errors', () => {
     reportWithDetails.type = 'DEATH_OTHER'
     const firstQuestionStep = DEATH_OTHER.startingQuestionId
     const followingStep = '44434'
@@ -384,9 +384,9 @@ describe('Submitting questions’ responses', () => {
       // invalid date
       '45054-182204-date': 'Thu 27th Nov, yesterday',
     }
+    incidentReportingApi.getReportWithDetailsById.mockResolvedValueOnce(reportWithDetails)
 
-    await agent.get(reportQuestionsUrl).redirects(1).expect(200)
-    const postUrl = `${reportQuestionsUrl}/${firstQuestionStep}/`
+    const postUrl = `${reportQuestionsUrl}/${firstQuestionStep}`
     return agent
       .post(postUrl)
       .send(submittedAnswers)
@@ -403,7 +403,7 @@ describe('Submitting questions’ responses', () => {
       })
   })
 
-  it('submitting answers requiring dates', async () => {
+  it('submitting answers requiring dates', () => {
     reportWithDetails.type = 'DEATH_OTHER'
     const firstQuestionStep = DEATH_OTHER.startingQuestionId
     const followingStep = '44434'
@@ -445,12 +445,12 @@ describe('Submitting questions’ responses', () => {
         ],
       },
     ]
-    incidentReportingApi.addOrUpdateQuestionsWithResponses.mockResolvedValue(questionsResponse)
-
-    await agent.get(reportQuestionsUrl).redirects(1).expect(200)
+    incidentReportingApi.getReportWithDetailsById.mockResolvedValueOnce(reportWithDetails)
+    incidentReportingApi.addOrUpdateQuestionsWithResponses.mockResolvedValueOnce(questionsResponse)
     reportWithDetails.questions = questionsResponse
+
     return agent
-      .post(`${reportQuestionsUrl}/${firstQuestionStep}/`)
+      .post(`${reportQuestionsUrl}/${firstQuestionStep}`)
       .send(submittedAnswers)
       .redirects(1)
       .expect(200)
@@ -465,7 +465,7 @@ describe('Submitting questions’ responses', () => {
       })
   })
 
-  it('submitting multiple answers to a question', async () => {
+  it('submitting multiple answers to a question', () => {
     reportWithDetails.type = 'FINDS'
     const firstQuestionStep = FINDS.startingQuestionId
     const followingStep = '67180'
@@ -501,12 +501,12 @@ describe('Submitting questions’ responses', () => {
         'DOG SEARCH',
       ),
     ]
-    incidentReportingApi.addOrUpdateQuestionsWithResponses.mockResolvedValue(questionsResponse)
-
-    await agent.get(reportQuestionsUrl).redirects(1).expect(200)
+    incidentReportingApi.getReportWithDetailsById.mockResolvedValueOnce(reportWithDetails)
+    incidentReportingApi.addOrUpdateQuestionsWithResponses.mockResolvedValueOnce(questionsResponse)
     reportWithDetails.questions = questionsResponse
+
     return agent
-      .post(`${reportQuestionsUrl}/${firstQuestionStep}/`)
+      .post(`${reportQuestionsUrl}/${firstQuestionStep}`)
       .send(submittedAnswers)
       .redirects(1)
       .expect(200)
@@ -521,7 +521,7 @@ describe('Submitting questions’ responses', () => {
       })
   })
 
-  it('submitting responses to multiple questions', async () => {
+  it('submitting responses to multiple questions', () => {
     reportWithDetails.type = 'ASSAULT'
     const firstQuestionStep = ASSAULT.startingQuestionId
     const followingStep = '61285'
@@ -614,12 +614,12 @@ describe('Submitting questions’ responses', () => {
       // NOTE: This question asked regardless of branching, will be retained
       makeSimpleQuestion('61285', 'WAS THIS A SEXUAL ASSAULT', 'NO'),
     ]
-    incidentReportingApi.addOrUpdateQuestionsWithResponses.mockResolvedValue(questionsResponse)
-
-    await agent.get(reportQuestionsUrl).redirects(1).expect(200)
+    incidentReportingApi.getReportWithDetailsById.mockResolvedValueOnce(reportWithDetails)
+    incidentReportingApi.addOrUpdateQuestionsWithResponses.mockResolvedValueOnce(questionsResponse)
     reportWithDetails.questions = questionsResponse
+
     return agent
-      .post(`${reportQuestionsUrl}/${firstQuestionStep}/`)
+      .post(`${reportQuestionsUrl}/${firstQuestionStep}`)
       .send(submittedAnswers)
       .redirects(1)
       .expect(200)
@@ -636,7 +636,57 @@ describe('Submitting questions’ responses', () => {
       })
   })
 
-  it('should use incident type’s field order', async () => {
+  it('should redirect to report view once all questions are answered', async () => {
+    reportWithDetails.type = 'ATTEMPTED_ESCAPE_FROM_CUSTODY'
+    const questionsResponse: Question[] = [
+      makeSimpleQuestion('44769', 'WERE THE POLICE INFORMED OF THE INCIDENT', 'NO'),
+      makeSimpleQuestion('44919', 'THE INCIDENT IS SUBJECT TO', 'INVESTIGATION INTERNALLY'),
+      makeSimpleQuestion('45033', 'IS ANY MEMBER OF STAFF FACING DISCIPLINARY CHARGES', 'NO'),
+      makeSimpleQuestion('44636', 'IS THERE ANY MEDIA INTEREST IN THIS INCIDENT', 'NO'),
+      makeSimpleQuestion('44749', 'HAS THE PRISON SERVICE PRESS OFFICE BEEN INFORMED', 'NO'),
+      makeSimpleQuestion(
+        '44594',
+        'WHERE WAS THE PRISONER PRIOR TO THE START OF THE ATTEMPTED ESCAPE',
+        'ADMINISTRATION',
+      ),
+      makeSimpleQuestion('44545', 'DID PRISONER GAIN ACCESS TO THE EXTERNAL PERIMETER', 'NO'),
+      makeSimpleQuestion('44441', 'DID THE PRISONER ATTEMPT TO GAIN ACCESS TO THE EXTERNAL PERIMETER', 'NO'),
+      makeSimpleQuestion('44746', 'ARE THE GROUNDS PATROLLED BY DOGS', 'NO'),
+      makeSimpleQuestion('44595', 'WAS AN AIRCRAFT INVOLVED', 'NO'),
+      makeSimpleQuestion('44983', 'WAS OUTSIDE ASSISTANCE INVOLVED IN THE ATTEMPTED ESCAPE', 'NO'),
+      makeSimpleQuestion('44320', 'WERE ANY WEAPONS USED', 'NO'),
+      makeSimpleQuestion('44731', 'WERE ANY INJURIES RECEIVED DURING THIS INCIDENT', 'NO'),
+      makeSimpleQuestion('45073', 'HOW WAS THE ESCAPE ATTEMPT DISCOVERED', 'STAFF VIGILANCE'),
+      makeSimpleQuestion('44349', 'HOW WAS THE ESCAPE ATTEMPT FOILED', 'STAFF INTERVENTION'),
+      makeSimpleQuestion('44447', 'WAS DAMAGE CAUSED TO PRISON PROPERTY', 'NO'),
+      makeSimpleQuestion('44863', 'WAS THE TELEPHONE/IT SYSTEM SHUT DOWN DURING THE INCIDENT?', 'NO'),
+    ]
+    // simulate last 1-question page being unanswered
+    reportWithDetails.questions = questionsResponse.slice(0, -1)
+    incidentReportingApi.getReportWithDetailsById.mockResolvedValueOnce({
+      ...reportWithDetails,
+      questions: questionsResponse,
+    })
+    incidentReportingApi.addOrUpdateQuestionsWithResponses.mockResolvedValueOnce(questionsResponse)
+
+    return agent
+      .post(`${reportQuestionsUrl}/44863`)
+      .send({ '44863': 'NO' })
+      .expect(302)
+      .expect(res => {
+        expect(res.redirect).toBe(true)
+        expect(res.header.location).toEqual(`/reports/${reportWithDetails.id}`)
+        expect(incidentReportingApi.addOrUpdateQuestionsWithResponses).toHaveBeenCalledWith(reportWithDetails.id, [
+          expect.objectContaining({
+            code: '44863',
+            question: 'WAS THE TELEPHONE/IT SYSTEM SHUT DOWN DURING THE INCIDENT?',
+            responses: [expect.objectContaining({ response: 'NO' })],
+          }),
+        ])
+      })
+  })
+
+  it('should use incident type’s field order', () => {
     // NB: this type’s questions are not in numeric order on page 1
     reportWithDetails.type = 'ATTEMPTED_ESCAPE_FROM_CUSTODY'
     const firstQuestionStep = ATTEMPTED_ESCAPE_FROM_CUSTODY.startingQuestionId
@@ -660,11 +710,10 @@ describe('Submitting questions’ responses', () => {
       makeSimpleQuestion('44749', 'HAS THE PRISON SERVICE PRESS OFFICE BEEN INFORMED', 'NO'),
     ]
     reportWithDetails.questions = questionsResponse
-    incidentReportingApi.addOrUpdateQuestionsWithResponses.mockResolvedValue(questionsResponse)
+    incidentReportingApi.addOrUpdateQuestionsWithResponses.mockResolvedValueOnce(questionsResponse)
 
-    await agent.get(reportQuestionsUrl).redirects(1).expect(200)
     return agent
-      .post(`${reportQuestionsUrl}/${firstQuestionStep}/`)
+      .post(`${reportQuestionsUrl}/${firstQuestionStep}`)
       .send(submittedAnswers)
       .redirects(1)
       .expect(res => {
@@ -679,7 +728,7 @@ describe('Submitting questions’ responses', () => {
       })
   })
 
-  it('should show a message for API errors', async () => {
+  it('should show a message for API errors', () => {
     reportWithDetails.type = 'FINDS'
     const firstQuestionStep = FINDS.startingQuestionId
     const submittedAnswers = {
@@ -690,9 +739,8 @@ describe('Submitting questions’ responses', () => {
     const error = mockThrownError(mockErrorResponse({ status: 500, message: 'External problem' }), 500)
     incidentReportingApi.addOrUpdateQuestionsWithResponses.mockRejectedValue(error)
 
-    await agent.get(reportQuestionsUrl).redirects(1).expect(200)
     return agent
-      .post(`${reportQuestionsUrl}/${firstQuestionStep}/`)
+      .post(`${reportQuestionsUrl}/${firstQuestionStep}`)
       .send(submittedAnswers)
       .redirects(1)
       .expect(res => {

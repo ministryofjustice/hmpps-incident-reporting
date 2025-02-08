@@ -637,6 +637,7 @@ describe('Submitting questions’ responses', () => {
   })
 
   it('should redirect to report view once all questions are answered', async () => {
+    // simulate last 1-question page being unanswered
     reportWithDetails.type = 'ATTEMPTED_ESCAPE_FROM_CUSTODY'
     const questionsResponse: Question[] = [
       makeSimpleQuestion('44769', 'WERE THE POLICE INFORMED OF THE INCIDENT', 'NO'),
@@ -661,12 +662,7 @@ describe('Submitting questions’ responses', () => {
       makeSimpleQuestion('44447', 'WAS DAMAGE CAUSED TO PRISON PROPERTY', 'NO'),
       makeSimpleQuestion('44863', 'WAS THE TELEPHONE/IT SYSTEM SHUT DOWN DURING THE INCIDENT?', 'NO'),
     ]
-    // simulate last 1-question page being unanswered
     reportWithDetails.questions = questionsResponse.slice(0, -1)
-    incidentReportingApi.getReportWithDetailsById.mockResolvedValueOnce({
-      ...reportWithDetails,
-      questions: questionsResponse,
-    })
     incidentReportingApi.addOrUpdateQuestionsWithResponses.mockResolvedValueOnce(questionsResponse)
 
     return agent
@@ -683,6 +679,44 @@ describe('Submitting questions’ responses', () => {
             responses: [expect.objectContaining({ response: 'NO' })],
           }),
         ])
+      })
+  })
+
+  it('should remain on last page if incorrectly answered', async () => {
+    // simulate last 1-question page being unanswered
+    reportWithDetails.type = 'ATTEMPTED_ESCAPE_FROM_CUSTODY'
+    reportWithDetails.questions = [
+      makeSimpleQuestion('44769', 'WERE THE POLICE INFORMED OF THE INCIDENT', 'NO'),
+      makeSimpleQuestion('44919', 'THE INCIDENT IS SUBJECT TO', 'INVESTIGATION INTERNALLY'),
+      makeSimpleQuestion('45033', 'IS ANY MEMBER OF STAFF FACING DISCIPLINARY CHARGES', 'NO'),
+      makeSimpleQuestion('44636', 'IS THERE ANY MEDIA INTEREST IN THIS INCIDENT', 'NO'),
+      makeSimpleQuestion('44749', 'HAS THE PRISON SERVICE PRESS OFFICE BEEN INFORMED', 'NO'),
+      makeSimpleQuestion(
+        '44594',
+        'WHERE WAS THE PRISONER PRIOR TO THE START OF THE ATTEMPTED ESCAPE',
+        'ADMINISTRATION',
+      ),
+      makeSimpleQuestion('44545', 'DID PRISONER GAIN ACCESS TO THE EXTERNAL PERIMETER', 'NO'),
+      makeSimpleQuestion('44441', 'DID THE PRISONER ATTEMPT TO GAIN ACCESS TO THE EXTERNAL PERIMETER', 'NO'),
+      makeSimpleQuestion('44746', 'ARE THE GROUNDS PATROLLED BY DOGS', 'NO'),
+      makeSimpleQuestion('44595', 'WAS AN AIRCRAFT INVOLVED', 'NO'),
+      makeSimpleQuestion('44983', 'WAS OUTSIDE ASSISTANCE INVOLVED IN THE ATTEMPTED ESCAPE', 'NO'),
+      makeSimpleQuestion('44320', 'WERE ANY WEAPONS USED', 'NO'),
+      makeSimpleQuestion('44731', 'WERE ANY INJURIES RECEIVED DURING THIS INCIDENT', 'NO'),
+      makeSimpleQuestion('45073', 'HOW WAS THE ESCAPE ATTEMPT DISCOVERED', 'STAFF VIGILANCE'),
+      makeSimpleQuestion('44349', 'HOW WAS THE ESCAPE ATTEMPT FOILED', 'STAFF INTERVENTION'),
+      makeSimpleQuestion('44447', 'WAS DAMAGE CAUSED TO PRISON PROPERTY', 'NO'),
+    ]
+    incidentReportingApi.getReportWithDetailsById.mockResolvedValueOnce(reportWithDetails)
+
+    return agent
+      .post(`${reportQuestionsUrl}/44863`)
+      .send({})
+      .redirects(1)
+      .expect(200)
+      .expect(res => {
+        expect(incidentReportingApi.addOrUpdateQuestionsWithResponses).not.toHaveBeenCalled()
+        expect(res.redirects[0]).toMatch('/44863')
       })
   })
 

@@ -1,6 +1,7 @@
 import {
   addQuestionMarkToQuestion,
   buildArray,
+  checkForOutliers,
   convertToSentenceCase,
   convertToTitleCase,
   datesAsStrings,
@@ -334,4 +335,19 @@ describe('sentence case', () => {
   ])(`%s convertToSentenceCase('%s') -> '%s'`, (_: string, a: string, expected: string) => {
     expect(convertToSentenceCase(a)).toEqual(expected)
   })
+})
+
+describe('check for outliers', () => {
+  it.each([
+    ['String included', 'a', ['a', 'b', 'c'], false],
+    ['String excluded', 'd', ['a', 'b', 'c'], true],
+    ['Array all included', ['a', 'c'], ['a', 'b', 'c'], false],
+    ['Array all excluded', ['e', 'f', 'g'], ['a', 'b', 'c'], true],
+    ['Array some excluded', ['a', 'b', 'g'], ['a', 'b', 'c'], true],
+  ])(
+    `For %s checkForOutliers shows %s outside of %s as '%s'`,
+    (_: string, a: string | string[], b: string[], expected: boolean) => {
+      expect(checkForOutliers(a, b)).toEqual(expected)
+    },
+  )
 })

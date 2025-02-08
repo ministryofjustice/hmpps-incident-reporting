@@ -365,3 +365,10 @@ function postProcessSentenceCase(input: string): string {
   }
   return output
 }
+
+export function checkForOutliers(inputValues: string | string[], compareValues: string[]): boolean {
+  if (Array.isArray(inputValues)) {
+    return inputValues.some(value => !compareValues.includes(value))
+  }
+  return !compareValues.includes(inputValues)
+}

@@ -31,6 +31,8 @@ export const workListStatusMapping: WorkListStatusMapping = workListMapping.redu
   {},
 )
 
+export const workListCodes = workListMapping.map(mapping => mapping.code)
+
 // TODO: map these final statuses appropriately if necessary
 // { code: 'POST_INCIDENT_UPDATE', description: 'Post-incident update', nomisCode: 'PIU' },
 // { code: 'INCIDENT_UPDATED', description: 'Incident updated', nomisCode: 'IUP' },

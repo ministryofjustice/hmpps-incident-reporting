@@ -310,7 +310,7 @@
         key: {html: questionHtml},
         value: {html: responsesHtml},
         actions: {items: [{
-          href: "/reports/" + report.id + "/questions" + (questionProgressStep.urlSuffix or ""),
+          href: "/reports/" + report.id + "/questions" + (questionProgressStep.urlSuffix or "") + "#question-" + questionProgressStep.fieldName,
           text: "Change response"
         }]} if canEditReport else {}
       }) %}

@@ -14,6 +14,7 @@
       - dependent fields are currently only used in conditionals so are rendered separately
     #}
     {% if not field.dependent %}
+      <a id="question-{{ fieldName }}"></a>
       {% set label = (firstQuestionNumber + index) + ". " + field.label %}
       {% set field = mergeObjects(field, {label: label}) %}
       {{ renderField(fieldName, field, options, values, errors) }}

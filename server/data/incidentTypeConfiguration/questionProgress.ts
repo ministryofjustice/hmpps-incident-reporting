@@ -3,6 +3,7 @@ import type FormWizard from 'hmpo-form-wizard'
 
 import type { ReportWithDetails, Response } from '../incidentReportingApi'
 import type { AnswerConfiguration, IncidentTypeConfiguration, QuestionConfiguration } from './types'
+import { questionFieldName } from './utils'
 
 /** A step in the process of responding to all necessary questions in a report */
 export class QuestionProgressStep {
@@ -26,6 +27,10 @@ export class QuestionProgressStep {
         ((this.questionConfig.multipleAnswers && this.responses.length >= 1) || this.responses.length === 1) &&
         this.responses.every(item => item.isComplete),
     )
+  }
+
+  get fieldName(): string {
+    return questionFieldName(this.questionConfig)
   }
 }
 

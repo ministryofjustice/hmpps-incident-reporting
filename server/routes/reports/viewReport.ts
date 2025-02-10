@@ -69,7 +69,7 @@ export function viewReportRouter(service: Services): Router {
     const canEditReport = permissions.canEditReport(report)
     const notEditableInDps = permissions.canEditReportInNomisOnly(report)
 
-    res.render('pages/debug/reportDetails', {
+    res.render('pages/reports/view', {
       report,
       questionProgressSteps,
       questionsCompleted,

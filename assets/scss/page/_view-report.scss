@@ -1,0 +1,15 @@
+.app-view-report {
+  @media print {
+    // top-level navigation is just clutter
+    .govuk-breadcrumbs, .govuk-back-link {
+      display: none;
+    }
+
+    .govuk-summary-card__actions, .govuk-summary-list__actions {
+      // change links are not useful when printed
+      a {
+        display: none;
+      }
+    }
+  }
+}

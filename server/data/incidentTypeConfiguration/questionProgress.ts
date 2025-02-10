@@ -112,11 +112,6 @@ export class QuestionProgress {
     }
   }
 
-  /** Get all completed question progress steps */
-  completedSteps(): ReadonlyArray<QuestionProgressStep> {
-    return Array.from(this).filter(step => step.isComplete)
-  }
-
   /**
    * Find the first question step that hasn’t been completed
    */

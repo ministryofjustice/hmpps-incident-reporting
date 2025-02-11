@@ -46,7 +46,7 @@ export function generateSteps(config: IncidentTypeConfiguration): FormWizard.Ste
         next: nextSteps(question, activeAnswers),
         fields,
         controller: QuestionsController,
-        template: 'questionPage',
+        entryPoint: true,
       }
     })
 

@@ -13,7 +13,7 @@ questionsRouter.use(populateReport(), logoutIf(cannotEditReport), populateReport
 
   const wizardRouter = wizard(res.locals.questionSteps, res.locals.questionFields, {
     name: `${reportId}-questions`,
-    templatePath: 'pages/wip/questions',
+    template: 'pages/reports/questions',
     // Needs to be false, session already handled by application
     checkSession: false,
     // Needs to be false, CSRF already handled by application

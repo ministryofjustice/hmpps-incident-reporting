@@ -29,6 +29,8 @@ export default class QuestionsController extends BaseController<FormWizard.Multi
     res: express.Response,
     next: express.NextFunction,
   ): void {
+    const reportId = req.params.id
+
     const stepPath = req.form.options.route
     for (const progressStep of res.locals.questionProgress) {
       if (progressStep.urlSuffix === stepPath) {
@@ -38,9 +40,12 @@ export default class QuestionsController extends BaseController<FormWizard.Multi
       }
     }
     if (!res.locals.questionPageNumber) {
-      logger.error(`Could not find question page number for ${stepPath} in report type ${res.locals.report.type}`)
+      logger.warn(`Cannot go to step ${stepPath} in report ${reportId} ${res.locals.report.type}`)
+      // TODO: replace with last page instead of start?
+      res.redirect(`/reports/${reportId}/questions`)
+    } else {
+      next()
     }
-    next()
   }
 
   getBackLink(req: FormWizard.Request<FormWizard.MultiValues>, _res: express.Response): string {
@@ -48,8 +53,21 @@ export default class QuestionsController extends BaseController<FormWizard.Multi
     return `/reports/${reportId}`
   }
 
+  getNextStepObject(
+    req: FormWizard.Request<FormWizard.MultiValues>,
+    res: express.Response,
+  ): ReturnType<BaseController['decodeConditions']> {
+    const nextStepObject = super.getNextStepObject(req, res)
+    if (!nextStepObject.url) {
+      // reached the end so the next step is report summary
+      const reportId = req.params.id
+      nextStepObject.url = `/reports/${reportId}`
+    }
+    return nextStepObject
+  }
+
   getValues(
-    req: FormWizard.Request<FormWizard.MultiValues, string>,
+    req: FormWizard.Request<FormWizard.MultiValues>,
     res: express.Response,
     callback: FormWizard.Callback<FormWizard.MultiValues>,
   ) {

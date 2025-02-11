@@ -1,6 +1,6 @@
 {% extends "partials/layout.njk" %}
 
-{% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+{% from "govuk/components/breadcrumbs/macro.njk" import govukBreadcrumbs %}
 {% from "govuk/components/button/macro.njk" import govukButton %}
 {% from "govuk/components/summary-list/macro.njk" import govukSummaryList %}
 {% from "govuk/components/table/macro.njk" import govukTable %}
@@ -8,11 +8,22 @@
 {% from "govuk/components/warning-text/macro.njk" import govukWarningText %}
 
 {% set pageTitle = applicationName + " - Report" %}
+{% set bodyClasses = "app-view-report" %}
 
 {% block beforeContent %}
-  {{ govukBackLink({
-    text: "Back",
-    href: "/reports"
+  {{ super() }}
+
+  {{ govukBreadcrumbs({
+    items: [
+      {
+        text: "Digital Prison Services",
+        href: dpsUrl
+      },
+      {
+        text: "Incident reporting",
+        href: "/reports"
+      }
+    ]
   }) }}
 {% endblock %}
 
@@ -21,12 +32,17 @@
 {%- set reportedDate = report.reportedAt | date -%}
 
 {% block content %}
-  <h1 class="govuk-heading-m">Report {{ report.reportReference }}
-    {{ govukTag({
-      text: statusLookup[report.status] or report.status
-    }) }}
+  <h1 class="govuk-heading-l">
+    Incident reference {{ report.reportReference }}
   </h1>
-  <h2 class="govuk-heading-s">Incident reported in {{ location }} by {{ reportingOfficer }} on {{ reportedDate }}</h2>
+  <p>Reported by {{ reportingOfficer }} in {{ location }} on {{ reportedDate }}</p>
+  <p>
+    <span class="govuk-visually-hidden">Status:</span>
+    {{ govukTag({
+      text: statusLookup[report.status] or report.status,
+      classes: "govuk-tag--grey"
+    }) }}
+  </p>
 
   {% if notEditableInDps %}
     {{ govukWarningText({
@@ -40,25 +56,33 @@
   card: {
     title: {
       text: "Incident details"
-    },
-    actions: {
-      items: [
-        {
-          href: "/reports/" + report.id + "/update-details",
-          text: "Change",
-          visuallyHiddenText: "incident details"
-        }
-      ]
-    } if canEditReport else {}
+    }
   },
   rows: [
+    {
+      key: {
+        text: "Type"
+      },
+      value: {
+        text: typesLookup[report.type] or report.type
+      }
+    },
     {
       key: {
         text: "Date and time of incident"
       },
       value: {
         text: report.incidentDateAndTime | dateAndTime
-      }
+      },
+      actions: {
+        items: [
+          {
+            href: "/reports/" + report.id + "/update-details",
+            text: "Change",
+            visuallyHiddenText: "incident details"
+          }
+        ]
+      } if canEditReport else {}
     },
     {
       key: {
@@ -66,35 +90,16 @@
       },
       value: {
         html: report.description | escape | nl2br
-      }
-    }
-  ]
-}) }}
-
-<!-- Incident type table -->
-{{ govukSummaryList({
-  card: {
-    title: {
-      text: "Incident type"
-    },
-    actions: {
-      items: [
-        {
-          href: "#",
-          text: "Change",
-          visuallyHiddenText: "incident type"
-        }
-      ]
-    } if canEditReport else {}
-  },
-  rows: [
-    {
-      key: {
-        text: "Incident type"
       },
-      value: {
-        text: typesLookup[report.type] or report.type
-      }
+      actions: {
+        items: [
+          {
+            href: "/reports/" + report.id + "/update-details",
+            text: "Change",
+            visuallyHiddenText: "incident details"
+          }
+        ]
+      } if canEditReport else {}
     }
   ]
 }) }}
@@ -265,39 +270,7 @@
 
 <!-- Question responses table -->
   {% set questionRows = [] %}
-  {% for questionProgressStep in questionProgressSteps %}
-    {% set questionHtml %}
-      {{ questionProgressStep.questionNumber }}. {{ questionProgressStep.questionConfig.label }}
-    {% endset %}
-
-    {% set responsesHtml %}
-      {% for responseItem in questionProgressStep.responses %}
-        {{ responseItem.answerConfig.label }}
-        {% if responseItem.response.responseDate %}
-          <br />
-          Date: {{ responseItem.response.responseDate | date }}
-        {% endif %}
-        {% if responseItem.response.additionalInformation %}
-          <br />
-          Comment: {{ responseItem.response.additionalInformation }}
-        {% endif %}
-        {% if not loop.last %}
-          <br />
-        {% endif %}
-      {% endfor %}
-    {% endset %}
-
-    {% set _ = questionRows.push({
-      key: {html: questionHtml},
-      value: {html: responsesHtml},
-      actions: {items: [{
-        href: "/reports/" + report.id + "/questions" + (questionProgressStep.urlSuffix or ""),
-        text: "Change response"
-      }]} if canEditReport else {}
-    }) %}
-
-  {% else %}
-
+  {% if questionProgressSteps | length == 1 and not questionProgressSteps[0].isComplete %}
     {% set _ = questionRows.push({
       key: { text: "No responses" },
       value: { text: "" },
@@ -306,8 +279,44 @@
         text: "Answer questions"
       }]} if canEditReport else {}
     }) %}
+  {% else %}
+    {% for questionProgressStep in questionProgressSteps %}
+      {% set questionHtml %}
+        {{ questionProgressStep.questionNumber }}. {{ questionProgressStep.questionConfig.label }}
+      {% endset %}
 
-  {% endfor %}
+      {% set responsesHtml %}
+        {% if questionProgressStep.isComplete %}
+          {% for responseItem in questionProgressStep.responses %}
+            {{ responseItem.answerConfig.label }}
+            {% if responseItem.response.responseDate %}
+              <br />
+              Date: {{ responseItem.response.responseDate | date }}
+            {% endif %}
+            {% if responseItem.response.additionalInformation %}
+              <br />
+              Comment: {{ responseItem.response.additionalInformation }}
+            {% endif %}
+            {% if not loop.last %}
+              <br />
+              {% endif %}
+          {% endfor %}
+        {% else %}
+          INCOMPLETE
+        {% endif %}
+      {% endset %}
+
+      {% set _ = questionRows.push({
+        key: {html: questionHtml},
+        value: {html: responsesHtml},
+        actions: {items: [{
+          href: "/reports/" + report.id + "/questions" + (questionProgressStep.urlSuffix or "") + "#question-" + questionProgressStep.fieldName,
+          text: "Change response"
+        }]} if canEditReport else {}
+      }) %}
+
+    {% endfor %}
+  {% endif %}
 
   {{ govukSummaryList({
     card: {
@@ -317,10 +326,10 @@
       actions: {
         items: [{
           href: "/reports/" + report.id + "/questions",
-          text: "Change",
+          text: "Continue",
           visuallyHiddenText: "question responses"
         }]
-      } if canEditReport else {}
+      } if canEditReport and not questionsCompleted else {}
     },
     rows: questionRows
   }) }}

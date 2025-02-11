@@ -166,7 +166,6 @@ describe('generateSteps()', () => {
       '/qanimals': {
         controller: QuestionsController,
         fields: ['qanimals'],
-        template: 'questionPage',
         next: [
           {
             field: 'qanimals',
@@ -181,11 +180,11 @@ describe('generateSteps()', () => {
             next: 'qicecream',
           },
         ],
+        entryPoint: true,
       },
       '/qdog': {
         controller: QuestionsController,
         fields: ['qdog', 'qdog-qdog-a1-date', 'qdog-qdog-a1-comment'],
-        template: 'questionPage',
         next: [
           {
             field: 'qdog',
@@ -194,6 +193,7 @@ describe('generateSteps()', () => {
             next: 'qicecream',
           },
         ],
+        entryPoint: true,
       },
       // '/qicecream' is the merge of existing '/qicecream' and '/qend'
       // 1. original `/qicecream`'s next replaced with `/qend`'s next
@@ -202,7 +202,6 @@ describe('generateSteps()', () => {
       '/qicecream': {
         controller: QuestionsController,
         fields: ['qicecream', 'qicecream-qicecream-a1-comment', 'qend'],
-        template: 'questionPage',
         next: [
           {
             field: 'qend',
@@ -211,6 +210,7 @@ describe('generateSteps()', () => {
             next: null,
           },
         ],
+        entryPoint: true,
       },
     })
   })

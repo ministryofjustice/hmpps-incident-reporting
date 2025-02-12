@@ -5,7 +5,7 @@ type ColumnNames =
   | 'description'
   | 'reportedBy'
   | 'status'
-  | 'establishment'
+  | 'location'
 
 export type ColumnEntry = {
   column: ColumnNames
@@ -51,7 +51,7 @@ const statusColumn: ColumnEntry = {
 }
 
 const establishmentColumn: ColumnEntry = {
-  column: 'establishment',
+  column: 'location',
   escapedHtml: 'Establishment',
   classes: 'govuk-table__cell--establishment',
 }

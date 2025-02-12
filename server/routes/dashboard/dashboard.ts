@@ -137,6 +137,7 @@ export default function dashboard(service: Services): Router {
       userRoles.includes(roleReadWrite) &&
       !userRoles.includes(roleApproveReject) &&
       !('incidentStatuses' in req.query) &&
+      !('sort' in req.query || 'page' in req.query) &&
       noFiltersSupplied
     ) {
       incidentStatuses = 'toDo'

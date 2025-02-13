@@ -90,6 +90,111 @@ describe('DPS config validation', () => {
     })
   })
 
+  describe('when config has some multiple choices questions leading to different next questions', () => {
+    it('returns an error', () => {
+      // '1' (START)
+      //   - yes  =>  '2'
+      //   - no   =>  '3'
+      // '2' (Multiple choices)
+      //   - yes  =>  '3'
+      //   - no   =>  '4' // leads to a different next question
+      // '3'
+      //   - yes    =>  '4'
+      //   - no     =>  '4'
+      //   - maybe  =>  null // INACTIVE/IGNORED
+      // '4' (END)
+      //   - yes  =>  null
+      //   - no   =>  null
+      // 'old' (Multiple choices) // INACTIVE/IGNORED
+      //   - yes  =>  '2'
+      //   - no   =>  '3'
+      const config: IncidentTypeConfiguration = buildValidConfig()
+      config.startingQuestionId = '1'
+      config.questions = {
+        '1': buildQuestion({
+          id: '1',
+          label: '1st question?',
+          multipleAnswers: false,
+          answers: [
+            buildAnswer({
+              id: 'yes',
+              label: 'yes',
+              nextQuestionId: '2',
+            }),
+            buildAnswer({
+              id: 'no',
+              label: 'no',
+              nextQuestionId: '3',
+            }),
+          ],
+        }),
+        '2': buildQuestion({
+          id: '2',
+          label: '2nd question?',
+          multipleAnswers: true,
+          answers: [
+            buildAnswer({
+              id: 'yes',
+              label: 'yes',
+              nextQuestionId: '3',
+            }),
+            buildAnswer({
+              id: 'no',
+              label: 'no',
+              nextQuestionId: '4', // leads to a different next question
+            }),
+          ],
+        }),
+        '3': buildQuestion({
+          id: '3',
+          label: '3rd question?',
+          multipleAnswers: true,
+          answers: [
+            buildAnswer({
+              id: 'yes',
+              label: 'yes',
+              nextQuestionId: '4',
+            }),
+            buildAnswer({
+              id: 'no',
+              label: 'no',
+              nextQuestionId: '4',
+            }),
+            buildAnswer({
+              id: 'maybe',
+              label: 'maybe',
+              active: false,
+              nextQuestionId: null, // leads to a different next question BUT it's inactive
+            }),
+          ],
+        }),
+        '4': buildQuestion({ id: '4', label: '4th question?', nextQuestionId: null }),
+        // Inactive question
+        old: buildQuestion({
+          id: 'old',
+          label: 'Old inactive question',
+          multipleAnswers: true,
+          active: false,
+          answers: [
+            buildAnswer({
+              id: 'yes',
+              label: 'yes',
+              nextQuestionId: '2',
+            }),
+            buildAnswer({
+              id: 'no',
+              label: 'no',
+              nextQuestionId: '3', // leads to a different next question
+            }),
+          ],
+        }),
+      }
+
+      const errors = validateConfig(config).map(err => err.message)
+      expect(errors).toContain('the following multiple choices questions can lead to different next questions: 2')
+    })
+  })
+
   describe('when config has unreachable questions', () => {
     it('returns an error', () => {
       // '1' (START)
@@ -264,20 +369,24 @@ function buildValidConfig(): IncidentTypeConfiguration {
 function buildQuestion({
   id,
   label,
+  active = true,
+  multipleAnswers = false,
   answers,
   nextQuestionId,
 }: {
   id: string
   label: string
+  active?: boolean
+  multipleAnswers?: boolean
   answers?: AnswerConfiguration[] | null
   nextQuestionId?: string | null
 }): QuestionConfiguration {
   return {
     id,
-    active: true,
+    active,
     code: label.toUpperCase(),
     label,
-    multipleAnswers: false,
+    multipleAnswers,
     answers: answers ?? yesNoAnswers(nextQuestionId),
   }
 }
@@ -292,17 +401,19 @@ function yesNoAnswers(nextQuestionId: string | null): AnswerConfiguration[] {
 function buildAnswer({
   id,
   label,
+  active = true,
   nextQuestionId,
 }: {
   id: string
   label: string
+  active?: boolean
   nextQuestionId: string | null
 }): AnswerConfiguration {
   return {
     id,
     code: label.toUpperCase(),
-    active: true,
     label,
+    active,
     dateRequired: false,
     commentRequired: false,
     nextQuestionId,

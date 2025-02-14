@@ -9,6 +9,7 @@ export function validateConfig(config: IncidentTypeConfiguration): Error[] {
 
   checkStartingQuestion(config, errors)
   checkQuestionsWithoutAnswers(config, errors)
+  checkMultipleChoicesNextQuestions(config, errors)
   checkUnknownQuestions(configGraph, errors)
 
   const dfsResult = configGraph.dfs(config.startingQuestionId)
@@ -44,6 +45,25 @@ function checkQuestionsWithoutAnswers(config: IncidentTypeConfiguration, errors:
         errors.push(new Error(`active question ${question.id} has no active answers`))
       }
     })
+}
+
+function checkMultipleChoicesNextQuestions(config: IncidentTypeConfiguration, errors: Error[]): void {
+  const activeQs = Object.values(config.questions).filter(q => q.active)
+  const multipleChoicesQs = activeQs.filter(q => q.multipleAnswers)
+  const invalidQs = multipleChoicesQs.filter(q => {
+    const activeAs = q.answers.filter(a => a.active)
+    const nextQuestionIds = new Set(activeAs.map(a => a.nextQuestionId))
+    return nextQuestionIds.size > 1
+  })
+
+  if (invalidQs.length > 0) {
+    const invalidQuestionsIds = invalidQs.map(q => q.id)
+    errors.push(
+      new Error(
+        `the following multiple choices questions can lead to different next questions: ${invalidQuestionsIds.join(', ')}`,
+      ),
+    )
+  }
 }
 
 function checkUnknownQuestions<Q>(configGraph: Graph<Q>, errors: Error[]): void {

@@ -4,6 +4,7 @@ import path from 'node:path'
 
 import express from 'express'
 import nunjucks from 'nunjucks'
+import setUpNunjucksFilters from '@ministryofjustice/hmpps-digital-prison-reporting-frontend/dpr/setUpNunjucksFilters'
 
 import logger from '../../logger'
 import config from '../config'
@@ -45,15 +46,23 @@ export default function nunjucksSetup(app: express.Express): void {
 
   const njkEnv = nunjucks.configure(
     [
-      path.join(__dirname, '../../server/views'),
-      'node_modules/govuk-frontend/dist',
+      path.resolve(__dirname, '../../server/views'),
+      // GOV.UK Frontend
+      'node_modules/govuk-frontend/dist/',
+      // MoJ Frontend
       'node_modules/@ministryofjustice/frontend/',
+      // Digital Prison Reporting
+      'node_modules/@ministryofjustice/hmpps-digital-prison-reporting-frontend/',
+      'node_modules/@ministryofjustice/hmpps-digital-prison-reporting-frontend/dpr/components/',
     ],
     {
       autoescape: true,
       express: app,
     },
   )
+
+  // Digital Prison Reporting configuration
+  setUpNunjucksFilters(njkEnv)
 
   // misc utils
   njkEnv.addFilter('assetMap', (url: string) => assetManifest[url] || url)

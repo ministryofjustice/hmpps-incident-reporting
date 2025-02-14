@@ -32,11 +32,12 @@ export default function setUpWebSecurity(): Router {
           ],
           styleSrc: [
             "'self'",
+            'fonts.googleapis.com',
             frontendComponentsHost,
             (_req: Request, res: Response) => `'nonce-${res.locals.cspNonce}'`,
           ],
           imgSrc: ["'self'", 'data:', frontendComponentsHost],
-          fontSrc: ["'self'", frontendComponentsHost],
+          fontSrc: ["'self'", 'fonts.gstatic.com', frontendComponentsHost],
           formAction: ["'self'", authHost, dpsHost],
           connectSrc: ["'self'"],
         },

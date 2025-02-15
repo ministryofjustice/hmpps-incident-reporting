@@ -13,6 +13,7 @@ import { viewReportRouter } from './reports/viewReport'
 import prisonerSearchRoutes from '../controllers/addPrisoner/prisonerSearch'
 import addPrisonerRouter from './addPrisoner'
 import dashboard from './dashboard/dashboard'
+import { dprRouter } from './dpr'
 
 export default function routes(services: Services): Router {
   const get = (path: string | string[], handler: RequestHandler) => router.get(path, asyncMiddleware(handler))
@@ -62,6 +63,9 @@ export default function routes(services: Services): Router {
 
   // NOMIS data dumps used for updating constants in this repository
   router.use('/download-report-config', makeDownloadConfigRouter())
+
+  // Digital Prison Reporting
+  router.use('/incident-reporting', dprRouter())
 
   return router
 }

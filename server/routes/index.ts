@@ -1,7 +1,5 @@
 import { type RequestHandler, Router } from 'express'
 
-import defaultTokenProvider from '@ministryofjustice/hmpps-digital-prison-reporting-frontend/dpr/components/report-list/defaultTokenProvider'
-import ReportListUtils from '@ministryofjustice/hmpps-digital-prison-reporting-frontend/dpr/components/report-list/utils'
 import asyncMiddleware from '../middleware/asyncMiddleware'
 import { logoutIf } from '../middleware/permissions'
 import type { Services } from '../services'
@@ -15,7 +13,7 @@ import { viewReportRouter } from './reports/viewReport'
 import prisonerSearchRoutes from '../controllers/addPrisoner/prisonerSearch'
 import addPrisonerRouter from './addPrisoner'
 import dashboard from './dashboard/dashboard'
-import config from '../config'
+import { dprRouter } from './dpr'
 
 export default function routes(services: Services): Router {
   const get = (path: string | string[], handler: RequestHandler) => router.get(path, asyncMiddleware(handler))
@@ -67,43 +65,7 @@ export default function routes(services: Services): Router {
   router.use('/download-report-config', makeDownloadConfigRouter())
 
   // Digital Prison Reporting
-  get(
-    '/incident-reporting/summary',
-    ReportListUtils.createReportListRequestHandler({
-      title: 'Incident reports',
-      definitionName: 'incident-report',
-      variantName: 'summary',
-      apiUrl: config.apis.hmppsIncidentReportingApi.url,
-      apiTimeout: config.apis.hmppsIncidentReportingApi.timeout.deadline,
-      layoutTemplate: 'partials/reportsLayout.njk',
-      tokenProvider: defaultTokenProvider,
-    }),
-  )
+  router.use('/incident-reporting', dprRouter())
 
-  get(
-    '/incident-reporting/count',
-    ReportListUtils.createReportListRequestHandler({
-      title: 'Incident Count',
-      definitionName: 'incident-count',
-      variantName: 'by-location-per-week',
-      apiUrl: config.apis.hmppsIncidentReportingApi.url,
-      apiTimeout: config.apis.hmppsIncidentReportingApi.timeout.deadline,
-      layoutTemplate: 'partials/reportsLayout.njk',
-      tokenProvider: defaultTokenProvider,
-    }),
-  )
-
-  get(
-    '/incident-reporting/prisoners',
-    ReportListUtils.createReportListRequestHandler({
-      title: 'Prisoners with incidents',
-      definitionName: 'incident-with-people',
-      variantName: 'by-prisoner',
-      apiUrl: config.apis.hmppsIncidentReportingApi.url,
-      apiTimeout: config.apis.hmppsIncidentReportingApi.timeout.deadline,
-      layoutTemplate: 'partials/reportsLayout.njk',
-      tokenProvider: defaultTokenProvider,
-    }),
-  )
   return router
 }

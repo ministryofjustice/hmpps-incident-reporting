@@ -1,6 +1,8 @@
 {% extends "./layout.njk" %}
 
-<link href="/assets/dpr/css/all.css" rel="stylesheet" />
+{% block pageStylesheets %}
+  <link href="/assets/dpr/css/all.css" rel="stylesheet" />
+{% endblock %}
 
 {% block bodyEnd %}
   {{ super() }}

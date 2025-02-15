@@ -16,7 +16,7 @@ export function dprRouter(): Router {
       variantName: 'summary',
       apiUrl: config.apis.hmppsIncidentReportingApi.url,
       apiTimeout: config.apis.hmppsIncidentReportingApi.timeout.deadline,
-      layoutTemplate: 'partials/dprLayout',
+      layoutTemplate: 'partials/dprLayout.njk',
       tokenProvider: defaultTokenProvider,
     }),
   )
@@ -29,7 +29,7 @@ export function dprRouter(): Router {
       variantName: 'by-location-per-week',
       apiUrl: config.apis.hmppsIncidentReportingApi.url,
       apiTimeout: config.apis.hmppsIncidentReportingApi.timeout.deadline,
-      layoutTemplate: 'partials/dprLayout',
+      layoutTemplate: 'partials/dprLayout.njk',
       tokenProvider: defaultTokenProvider,
     }),
   )
@@ -42,7 +42,7 @@ export function dprRouter(): Router {
       variantName: 'by-prisoner',
       apiUrl: config.apis.hmppsIncidentReportingApi.url,
       apiTimeout: config.apis.hmppsIncidentReportingApi.timeout.deadline,
-      layoutTemplate: 'partials/dprLayout',
+      layoutTemplate: 'partials/dprLayout.njk',
       tokenProvider: defaultTokenProvider,
     }),
   )

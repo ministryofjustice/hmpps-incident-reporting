@@ -32,9 +32,9 @@ export default function setUpStaticResources(): Router {
     '/node_modules/@ministryofjustice/hmpps-digital-prison-reporting-frontend/dpr/assets',
     '/node_modules/accessible-autocomplete/dist',
   ).forEach(dir => staticRoute('/assets', dir))
-  staticRoute('/assets/js/jquery.min.js', '/node_modules/jquery/dist/jquery.min.js')
 
   // Digital Prison Reporting & related third-party plugins
+  staticRoute('/assets/govuk', '/node_modules/govuk-frontend/dist/govuk/assets') // DPR forces GOVUK assets to load from /assets/govuk
   staticRoute('/moj/assets', '/node_modules/@ministryofjustice/frontend/moj/assets') // DPR forces MoJ assets to load from /moj/assets
   staticRoute('/assets/dpr', '/node_modules/@ministryofjustice/hmpps-digital-prison-reporting-frontend/dpr/assets')
   staticRoute('/assets/ext/chart.js', '/node_modules/chart.js/dist/chart.umd.js')

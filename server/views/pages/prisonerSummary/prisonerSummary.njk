@@ -1,0 +1,110 @@
+{% extends "partials/layout.njk" %}
+
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/table/macro.njk" import govukTable %}
+{% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+{% from "govuk/components/radios/macro.njk" import govukRadios %}
+{% from "macros/renderFields.njk" import renderFields %}
+
+{% set pageTitle = applicationName + " - Report" %}
+{% set bodyClasses = "app-view-report" %}
+
+{% block beforeContent %}
+{{ super() }}
+
+{{ govukBackLink({
+    text: "Back",
+    href: backLink
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+<h1 class="govuk-heading-l">Prisoners involved</h1>
+
+{% if showTable %}
+
+  {% set rows = [] %}
+  {% for prisoner in report.prisonersInvolved %}
+    {% if report.createdInNomis %}
+      {% set rows = (rows.push(
+        [
+          { text: prisoner.prisonerNumber + ': ' + (prisoner | nameOfPerson) },
+          { text: prisonerInvolvementLookup[prisoner.prisonerRole] or prisoner.prisonerRole },
+          { text: prisonerOutcomeLookup[prisoner.outcome] or prisoner.outcome },
+          { text: prisoner.comment },
+          { html: "<a href='/reports/" + report.id + "'>Remove</a>" + ' | ' + "<a href='/reports/'>Edit</a>" }
+        ]
+        ), rows) %}
+    {% else %}
+      {% set rows = (rows.push(
+        [
+          { text: prisoner.prisonerNumber + ': ' + (prisoner | nameOfPerson) },
+          { text: prisonerInvolvementLookup[prisoner.prisonerRole] or prisoner.prisonerRole },
+          { text: prisoner.comment },
+          { html: "<a href='/reports/" + report.id + "'>Remove</a>" + ' | ' + "<a href='/reports/'>Edit</a>" }
+        ]
+        ), rows) %}
+    {% endif %}
+  {% endfor %}
+
+  {{ govukTable({
+    head: tableHeading,
+    rows: rows
+  }) }}
+
+{% endif %}
+
+<form id="form-wizard" method="post" novalidate>
+  <input type="hidden" name="_csrf" value="{{ csrfToken }}" />
+  <input type="hidden" name="x-csrf-token" value="{{ csrfToken }}" />
+
+  {% if showTable %}
+    {% set radioLegend = 'Do you want to add another prisoner?' %}
+  {% else %}
+    {% set radioLegend = 'Do you want to add a prisoner?' %}
+  {% endif %}
+
+  {{ govukRadios({
+    classes: "govuk-radios--inline",
+    name: "addPrisoner",
+    id: "addPrisoner",
+    fieldset: {
+      legend: {
+        text: radioLegend,
+        classes: "govuk-fieldset__legend--m"
+      }
+    },
+    items: [
+      {
+        value: "yes",
+        text: "Yes"
+      },
+      {
+        value: "no",
+        text: "No"
+      }
+    ]
+  }) }}
+
+  <div class="govuk-button-group">
+    {{ govukButton({
+    text: "Continue",
+    name: "submit",
+    value: "continue",
+    preventDoubleClick: true,
+    type: "submit"
+    }) }}
+
+    {{ govukButton({
+    text: "Save and exit",
+    name: "submit",
+    value: "exit",
+    preventDoubleClick: true,
+    classes: "govuk-button--secondary",
+    type: "submit"
+    }) }}
+  </div>
+</form>
+
+{% endblock %}

@@ -12,12 +12,6 @@ import type { User } from '../../data/manageUsersApiClient'
 jest.mock('../../data/incidentReportingApi')
 jest.mock('../../services/userService')
 
-let previousActivePrisons: string[]
-
-beforeAll(() => {
-  previousActivePrisons = config.activePrisons
-})
-
 let app: Express
 let incidentReportingApi: jest.Mocked<IncidentReportingApi>
 let userService: jest.Mocked<UserService>

@@ -11,7 +11,7 @@ export function dprRouter(): Router {
   router.get(
     '/summary',
     ReportListUtils.createReportListRequestHandler({
-      title: 'Incident reports',
+      title: 'Incident report summary',
       definitionName: 'incident-report',
       variantName: 'summary',
       apiUrl: config.apis.hmppsIncidentReportingApi.url,
@@ -22,11 +22,37 @@ export function dprRouter(): Router {
   )
 
   router.get(
-    '/count',
+    '/count/by-week',
     ReportListUtils.createReportListRequestHandler({
-      title: 'Incident Count',
+      title: 'Incident count by week',
       definitionName: 'incident-count',
       variantName: 'by-location-per-week',
+      apiUrl: config.apis.hmppsIncidentReportingApi.url,
+      apiTimeout: config.apis.hmppsIncidentReportingApi.timeout.deadline,
+      layoutTemplate: 'partials/dprLayout.njk',
+      tokenProvider: defaultTokenProvider,
+    }),
+  )
+
+  router.get(
+    '/count/by-month',
+    ReportListUtils.createReportListRequestHandler({
+      title: 'Incident count by month',
+      definitionName: 'incident-count',
+      variantName: 'by-location-per-month',
+      apiUrl: config.apis.hmppsIncidentReportingApi.url,
+      apiTimeout: config.apis.hmppsIncidentReportingApi.timeout.deadline,
+      layoutTemplate: 'partials/dprLayout.njk',
+      tokenProvider: defaultTokenProvider,
+    }),
+  )
+
+  router.get(
+    '/count/by-day',
+    ReportListUtils.createReportListRequestHandler({
+      title: 'Incident count per day',
+      definitionName: 'incident-count',
+      variantName: 'by-day',
       apiUrl: config.apis.hmppsIncidentReportingApi.url,
       apiTimeout: config.apis.hmppsIncidentReportingApi.timeout.deadline,
       layoutTemplate: 'partials/dprLayout.njk',
@@ -40,6 +66,19 @@ export function dprRouter(): Router {
       title: 'Prisoners with incidents',
       definitionName: 'incident-with-people',
       variantName: 'by-prisoner',
+      apiUrl: config.apis.hmppsIncidentReportingApi.url,
+      apiTimeout: config.apis.hmppsIncidentReportingApi.timeout.deadline,
+      layoutTemplate: 'partials/dprLayout.njk',
+      tokenProvider: defaultTokenProvider,
+    }),
+  )
+
+  router.get(
+    '/staff',
+    ReportListUtils.createReportListRequestHandler({
+      title: 'Staff involved with incidents',
+      definitionName: 'incident-with-people',
+      variantName: 'by-staff',
       apiUrl: config.apis.hmppsIncidentReportingApi.url,
       apiTimeout: config.apis.hmppsIncidentReportingApi.timeout.deadline,
       layoutTemplate: 'partials/dprLayout.njk',

@@ -1,11 +1,11 @@
 import type express from 'express'
 import type FormWizard from 'hmpo-form-wizard'
 
-import FormInitialStep from '../base/formInitialStep'
+import { BaseController } from '../index'
 import type { ReportWithDetails } from '../../data/incidentReportingApi'
 import { prisonerInvolvementOutcomes, prisonerInvolvementRoles } from '../../reportConfiguration/constants'
 
-export default class prisonerSummary extends FormInitialStep {
+export default class PrisonerSummary extends BaseController {
   middlewareSetup() {
     super.middlewareSetup()
   }

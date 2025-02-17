@@ -1,5 +1,5 @@
 import type FormWizard from 'hmpo-form-wizard'
-import prisonerSummary from '../../controllers/prisonerSummary/prisonerSummary'
+import PrisonerSummary from '../../controllers/prisonerSummary/prisonerSummary'
 
 const steps: FormWizard.Steps = {
   '/': {
@@ -7,7 +7,7 @@ const steps: FormWizard.Steps = {
     reset: true,
     resetJourney: true,
     fields: ['addPrisoner'],
-    controller: prisonerSummary,
+    controller: PrisonerSummary,
     template: 'prisonerSummary',
   },
 }

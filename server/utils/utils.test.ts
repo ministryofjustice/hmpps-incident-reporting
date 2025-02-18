@@ -6,6 +6,7 @@ import {
   convertToTitleCase,
   datesAsStrings,
   initialiseName,
+  possessive,
   kebabCase,
   nameOfPerson,
   parseDateInput,
@@ -152,6 +153,22 @@ describe('initialise name', () => {
     ['Double barrelled', 'Robert-John Smith-Jones-Wilson', 'R. Smith-Jones-Wilson'],
   ])('%s initialiseName(%s, %s)', (_: string, a: string, expected: string) => {
     expect(initialiseName(a)).toEqual(expected)
+  })
+})
+
+describe('possessive', () => {
+  it.each([
+    [undefined, ''],
+    [null, ''],
+    ['', ''],
+    [' ', ''],
+    ['John', 'John’s'],
+    ['James', 'James’'],
+    ['JAMES', 'JAMES’'],
+    ['JOHN', 'JOHN’s'],
+    [' Fred ', 'Fred’s'],
+  ])('of %s is %s', (input, expected) => {
+    expect(possessive(input)).toEqual(expected)
   })
 })
 

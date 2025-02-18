@@ -70,8 +70,8 @@ export default class QuestionsController extends BaseController<FormWizard.Multi
     req: FormWizard.Request<FormWizard.MultiValues>,
     res: express.Response,
     callback: FormWizard.Callback<FormWizard.MultiValues>,
-  ) {
-    return super.getValues(req, res, async (err, values) => {
+  ): void {
+    super.getValues(req, res, async (err, values) => {
       if (err) {
         callback(err)
         return

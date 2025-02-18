@@ -47,6 +47,14 @@ export const initialiseName = (fullName?: string): string | null => {
   return `${array[0][0]}. ${array.reverse()[0]}`
 }
 
+export const possessive = (word: string): string => {
+  const wordStr = word?.trim() ?? ''
+  if (!wordStr) {
+    return ''
+  }
+  return wordStr.toLowerCase().endsWith('s') ? `${wordStr}’` : `${wordStr}’s`
+}
+
 /** Parse date in the form DD/MM/YYYY; the returned time part should be ignored. Throws an error when invalid */
 export const parseDateInput = (input: string): Date => {
   const match = input && /^(?<day>\d{1,2})\/(?<month>\d{1,2})\/(?<year>\d{4})$/.exec(input.trim())

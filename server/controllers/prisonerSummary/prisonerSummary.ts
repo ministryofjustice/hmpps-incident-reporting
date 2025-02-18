@@ -17,7 +17,6 @@ export default class PrisonerSummary extends BaseController {
 
   locals(req: FormWizard.Request, res: express.Response) {
     const locals = super.locals(req, res)
-    const reportId = res.locals.report.id
     const report = res.locals.report as ReportWithDetails
     const { errors } = res.locals
 

@@ -3,6 +3,10 @@ import type { Response as SuperAgentResponse, SuperAgentRequest } from 'superage
 import { stubFor } from './wiremock'
 import { mockUser, mockSharedUser } from '../../server/data/testData/manageUsers'
 import { staffBarry, staffMary } from '../../server/data/testData/prisonApi'
+import ManageUsersApiClient, {
+  type UsersSearchResponse,
+  type UsersSearchResult,
+} from '../../server/data/manageUsersApiClient'
 
 export default {
   /** Current user */
@@ -42,6 +46,37 @@ export default {
         }),
       ),
     ),
+
+  /** Search users */
+  stubSearchUsers: (query: string, results: UsersSearchResult[], page = 0): SuperAgentRequest => {
+    const queryRegex = [
+      `nameFilter=${encodeURIComponent(query)}`,
+      'status=ACTIVE',
+      `size=${ManageUsersApiClient.PAGE_SIZE}`,
+      `page=${page}`,
+    ].join('&')
+    const response: UsersSearchResponse = {
+      content: results,
+      number: page,
+      totalPages: 1,
+      totalElements: results.length,
+      last: true,
+    }
+
+    return stubFor({
+      request: {
+        method: 'GET',
+        urlPattern: `/manage-users-api/prisonusers/search/\\?.*${queryRegex}.*`,
+      },
+      response: {
+        status: 200,
+        headers: {
+          'Content-Type': 'application/json;charset=UTF-8',
+        },
+        jsonBody: response,
+      },
+    })
+  },
 
   stubManageUsersPing: (): SuperAgentRequest =>
     stubFor({

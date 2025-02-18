@@ -1,19 +1,29 @@
 import type express from 'express'
-import type FormWizard from 'hmpo-form-wizard'
+import { FormWizard } from 'hmpo-form-wizard'
 
 import { BaseController } from '../index'
 import type { ReportWithDetails } from '../../data/incidentReportingApi'
 import { prisonerInvolvementOutcomes, prisonerInvolvementRoles } from '../../reportConfiguration/constants'
 
 export default class PrisonerSummary extends BaseController {
-  middlewareSetup() {
-    super.middlewareSetup()
+  middlewareLocals() {
+    super.middlewareLocals()
+  }
+
+  getBackLink(_req: FormWizard.Request, res: express.Response): string {
+    const reportId = res.locals.report.id
+    return `/reports/${reportId}`
   }
 
   locals(req: FormWizard.Request, res: express.Response) {
     const locals = super.locals(req, res)
     const reportId = res.locals.report.id
     const report = res.locals.report as ReportWithDetails
+    const { errors } = res.locals
+
+    if (errors.addPrisoner) {
+      errors.addPrisoner.message = 'Select if you would like to add another prisoner to continue.'
+    }
 
     const prisonerInvolvementLookup = Object.fromEntries(
       prisonerInvolvementRoles.map(role => [role.code, role.description]),
@@ -39,14 +49,13 @@ export default class PrisonerSummary extends BaseController {
       tableHeading = [{ text: 'Prisoner' }, { text: 'Role' }, { text: 'Details' }, { text: 'Action' }]
     }
 
-    const backLink = `/reports/${reportId}`
     return {
       ...locals,
-      backLink,
       showTable,
       prisonerInvolvementLookup,
       prisonerOutcomeLookup,
       tableHeading,
+      errors,
     }
   }
 

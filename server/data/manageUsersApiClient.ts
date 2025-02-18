@@ -13,6 +13,13 @@ export interface User {
   activeCaseLoadId?: string // deprecated, use user roles api
 }
 
+export interface PrisonUser {
+  username: string
+  firstName: string
+  lastName: string
+  primaryEmail?: string
+}
+
 export type UsersSearchResponse = {
   content: UsersSearchResult[]
 
@@ -59,6 +66,15 @@ export default class ManageUsersApiClient {
   }
 
   /**
+   * Get a NOMIS/DPS user by username
+   */
+  getPrisonUser(token: string, username: string): Promise<PrisonUser> {
+    return ManageUsersApiClient.restClient(token).get({
+      path: `/prisonusers/${encodeURIComponent(username)}`,
+    })
+  }
+
+  /**
    * Search for NOMIS users matching on partial first name, surname, username or email
    *
    * Requires role ROLE_MAINTAIN_ACCESS_ROLES_ADMIN
@@ -68,7 +84,7 @@ export default class ManageUsersApiClient {
     const status: Status = 'ACTIVE'
 
     return ManageUsersApiClient.restClient(token).get({
-      path: `/prisonusers/search`,
+      path: '/prisonusers/search',
       query: {
         nameFilter: query?.trim(),
         status,

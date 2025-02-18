@@ -2,10 +2,15 @@ import type { NextFunction, Request, Response } from 'express'
 import nock from 'nock'
 
 import config from '../config'
-import { mockSharedUser } from '../data/testData/manageUsers'
+import type { PrisonUser } from '../data/manageUsersApiClient'
 import { populateStaffMember } from './populateStaffMember'
 
 describe('staff-member-loading middleware', () => {
+  const mockPrisonUser: PrisonUser = {
+    username: 'user1',
+    firstName: 'John',
+    lastName: 'Smith',
+  }
   let fakeApi: nock.Scope
 
   beforeEach(() => {
@@ -18,8 +23,8 @@ describe('staff-member-loading middleware', () => {
   })
 
   it('should call next request handler if staff member can be loaded', async () => {
-    const { username } = mockSharedUser
-    fakeApi.get(`/users/${username}`).reply(200, mockSharedUser)
+    const { username } = mockPrisonUser
+    fakeApi.get(`/prisonusers/${username}`).reply(200, mockPrisonUser)
 
     const req = { params: { username } } as unknown as Request
     const res = { locals: { systemToken: 'tk1' } } as Response
@@ -27,13 +32,13 @@ describe('staff-member-loading middleware', () => {
 
     await populateStaffMember()(req, res, next)
 
-    expect(res.locals.staffMember).toEqual(mockSharedUser)
+    expect(res.locals.staffMember).toEqual(mockPrisonUser)
     expect(next).toHaveBeenCalledWith()
   })
 
   it('should forward error if staff member cannot be loaded', async () => {
-    const { username } = mockSharedUser
-    fakeApi.get(`/users/${username}`).reply(404)
+    const { username } = mockPrisonUser
+    fakeApi.get(`/prisonusers/${username}`).reply(404)
 
     const req = { params: { username } } as unknown as Request
     const res = { locals: { systemToken: 'tk1' } } as Response

@@ -17,7 +17,7 @@ export function populateStaffMember() {
     }
 
     try {
-      res.locals.staffMember = await new ManageUsersApiClient().getNamedUser(res.locals.systemToken, username)
+      res.locals.staffMember = await new ManageUsersApiClient().getPrisonUser(res.locals.systemToken, username)
       next()
     } catch (error) {
       logger.error(error, `Failed to load staff member ${username}`)

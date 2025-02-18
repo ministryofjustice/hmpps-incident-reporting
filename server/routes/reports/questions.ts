@@ -9,7 +9,7 @@ import { cannotEditReport } from './permissions'
 // eslint-disable-next-line import/prefer-default-export
 export const questionsRouter = express.Router({ mergeParams: true })
 questionsRouter.use(populateReport(), logoutIf(cannotEditReport), populateReportConfiguration(), (req, res, next) => {
-  const reportId = req.params.id
+  const { reportId } = req.params
 
   const wizardRouter = wizard(res.locals.questionSteps, res.locals.questionFields, {
     name: `${reportId}-questions`,

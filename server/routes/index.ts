@@ -29,18 +29,18 @@ export default function routes(services: Services): Router {
 
   // view-only debug pages
   const debugRoutes = makeDebugRoutes(services)
-  get('/incidents/:id', debugRoutes.eventDetails)
+  get('/incidents/:eventId', debugRoutes.eventDetails)
 
   // report pages
   router.use('/reports', dashboard(services))
   router.use('/create-report', createReportRouter)
-  router.use('/reports/:id', viewReportRouter(services))
-  router.use('/reports/:id/update-details', updateDetailsRouter)
-  router.use('/reports/:id/questions', questionsRouter)
+  router.use('/reports/:reportId', viewReportRouter(services))
+  router.use('/reports/:reportId/update-details', updateDetailsRouter)
+  router.use('/reports/:reportId/questions', questionsRouter)
 
   // add people
-  router.use('/reports/:id/prisoner-search', prisonerSearchRoutes())
-  router.use('/reports/:id/add-prisoner/:prisonerNumber', addPrisonerRouter)
+  router.use('/reports/:reportId/prisoner-search', prisonerSearchRoutes())
+  router.use('/reports/:reportId/add-prisoner/:prisonerNumber', addPrisonerRouter)
 
   // Auxiliary routes
   get('/prisoner/:prisonerNumber/photo.jpeg', async (req, res) => {

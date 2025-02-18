@@ -49,12 +49,13 @@ export default function prisonerSearchRoutes(): Router {
       [formId]: () => new PrisonerSearchForm(),
     },
     asyncMiddleware(async (req, res) => {
+      const { reportId } = req.params
       const { user } = res.locals
 
       const { incidentReportingApi, offenderSearchApi, prisonApi } = res.locals.apis
       const [activePrison, involvedPrisoners] = await Promise.all([
         prisonApi.getPrison(user.activeCaseLoadId),
-        incidentReportingApi.prisonersInvolved.listForReport(req.params.id),
+        incidentReportingApi.prisonersInvolved.listForReport(reportId),
       ])
       // TODO: ensure that user.activeCaseLoadId was defined and activePrison is not null
       const { agencyId: prisonId, description: prisonName } = activePrison
@@ -158,8 +159,6 @@ export default function prisonerSearchRoutes(): Router {
         })
       }
 
-      const incidentId = req.params.id
-
       res.render('pages/addPrisoner/prisonerSearch.njk', {
         prisonName,
         formId,
@@ -167,7 +166,7 @@ export default function prisonerSearchRoutes(): Router {
         searchResults,
         tableHead,
         paginationParams,
-        incidentId,
+        reportId,
       })
     }),
   )

@@ -9,8 +9,6 @@ import logger from '../../logger'
 // eslint-disable-next-line import/prefer-default-export
 export function populateReport(withDetails = true) {
   return async (req: Request, res: Response, next: NextFunction): Promise<void> => {
-    const { incidentReportingApi } = res.locals.apis
-
     const { reportId } = req.params
     if (!reportId) {
       next(new NotImplemented('populateReport() requires req.params.reportId'))
@@ -18,6 +16,7 @@ export function populateReport(withDetails = true) {
     }
 
     try {
+      const { incidentReportingApi } = res.locals.apis
       if (withDetails) {
         res.locals.report = await incidentReportingApi.getReportWithDetailsById(reportId)
       } else {

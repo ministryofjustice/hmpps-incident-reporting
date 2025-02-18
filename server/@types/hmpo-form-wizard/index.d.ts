@@ -301,7 +301,7 @@ declare module 'hmpo-form-wizard' {
       (err?: Error | undefined, values?: V | undefined): void
     }
 
-    interface Locals<V extends object = Values, K extends keyof V = keyof V> {
+    interface Locals<V extends object = Values, K extends keyof V = keyof V> extends Record<string, unknown> {
       errors: Errors<K>
       errorlist: Error[]
       values: V

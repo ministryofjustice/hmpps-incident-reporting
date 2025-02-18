@@ -30,7 +30,7 @@ describe('report-loading middleware', () => {
       fakeApi.get(`/incident-reports/${report.id}`).reply(200, report)
     }
 
-    const req = { params: { id: report.id } } as unknown as Request
+    const req = { params: { reportId: report.id } } as unknown as Request
     const res = { locals: { apis: { incidentReportingApi: new IncidentReportingApi('token') } } } as Response
     const next: NextFunction = jest.fn()
 
@@ -45,7 +45,7 @@ describe('report-loading middleware', () => {
     fakeApi.get(`/incident-reports/${reportId}`).reply(404)
     fakeApi.get(`/incident-reports/${reportId}/with-details`).reply(404)
 
-    const req = { params: { id: reportId } } as unknown as Request
+    const req = { params: { reportId } } as unknown as Request
     const res = { locals: { apis: { incidentReportingApi: new IncidentReportingApi('token') } } } as Response
     const next: NextFunction = jest.fn()
 
@@ -67,7 +67,7 @@ describe('report-loading middleware', () => {
     expect(getReportWithDetailsById).not.toHaveBeenCalled()
     expect(res.locals.report).toBeUndefined()
     expect(next).toHaveBeenCalledWith(
-      expect.objectContaining({ message: 'populateReport() requires req.params.id', status: 501 }),
+      expect.objectContaining({ message: 'populateReport() requires req.params.reportId', status: 501 }),
     )
   })
 })

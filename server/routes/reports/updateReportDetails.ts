@@ -25,7 +25,7 @@ class DetailsController extends BaseDetailsController<DetailsValues> {
     next: express.NextFunction,
   ): void {
     const report = res.locals.report as ReportBasic
-    const reportId = req.params.id
+    const { reportId } = req.params
 
     // load existing report details into session model to prefill inputs
     req.sessionModel.set('incidentDate', format.shortDate(report.incidentDateAndTime))

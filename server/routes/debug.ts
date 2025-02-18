@@ -10,12 +10,12 @@ export default function makeDebugRoutes(services: Services): Record<string, Requ
     async eventDetails(req, res) {
       const { incidentReportingApi, prisonApi } = res.locals.apis
 
-      const { id } = req.params
-      if (!id) {
+      const { eventId } = req.params
+      if (!eventId) {
         throw new NotFound()
       }
 
-      const event = await incidentReportingApi.getEventById(id)
+      const event = await incidentReportingApi.getEventById(eventId)
       const usernames = event.reports.map(report => report.reportedBy)
       const usersLookup = await userService.getUsers(res.locals.systemToken, usernames)
       const prisonsLookup = await prisonApi.getPrisons()

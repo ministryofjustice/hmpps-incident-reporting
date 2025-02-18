@@ -29,7 +29,7 @@ export default class QuestionsController extends BaseController<FormWizard.Multi
     res: express.Response,
     next: express.NextFunction,
   ): void {
-    const reportId = req.params.id
+    const { reportId } = req.params
 
     const stepPath = req.form.options.route
     for (const progressStep of res.locals.questionProgress) {
@@ -49,7 +49,7 @@ export default class QuestionsController extends BaseController<FormWizard.Multi
   }
 
   getBackLink(req: FormWizard.Request<FormWizard.MultiValues>, _res: express.Response): string {
-    const reportId = req.params.id
+    const { reportId } = req.params
     return `/reports/${reportId}`
   }
 
@@ -60,7 +60,7 @@ export default class QuestionsController extends BaseController<FormWizard.Multi
     const nextStepObject = super.getNextStepObject(req, res)
     if (!nextStepObject.url) {
       // reached the end so the next step is report summary
-      const reportId = req.params.id
+      const { reportId } = req.params
       nextStepObject.url = `/reports/${reportId}`
     }
     return nextStepObject

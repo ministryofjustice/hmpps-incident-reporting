@@ -1,5 +1,3 @@
-import querystring from 'querystring'
-
 import logger from '../../logger'
 import config from '../config'
 import RestClient from './restClient'
@@ -71,12 +69,12 @@ export default class ManageUsersApiClient {
 
     return ManageUsersApiClient.restClient(token).get({
       path: `/prisonusers/search`,
-      query: querystring.stringify({
+      query: {
         nameFilter: query?.trim(),
         status,
         size: ManageUsersApiClient.PAGE_SIZE,
         page,
-      }),
+      },
     })
   }
 }

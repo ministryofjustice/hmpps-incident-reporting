@@ -37,75 +37,49 @@ afterEach(() => {
   jest.resetAllMocks()
 })
 
-describe('GET prisoner summary for report', () => {
+describe('GET staff summary for report', () => {
   let viewReportUrl: string
 
-  it('should render prisoner summary table with no outcome column and add prisoner form for DPS report with existing prisoners involved', () => {
+  it('should render staff summary table and add staff form for DPS report with existing prisoners involved', () => {
     const mockedReport = convertReportWithDetailsDates(
       mockReport({ reportReference: '6543', reportDateAndTime: now, withDetails: true }),
     )
     incidentReportingApi.getReportWithDetailsById.mockResolvedValueOnce(mockedReport)
-    viewReportUrl = `/reports/${mockedReport.id}/prisoners`
+    viewReportUrl = `/reports/${mockedReport.id}/staff`
     return request(app)
       .get(viewReportUrl)
       .expect('Content-Type', /html/)
       .expect(res => {
-        expect(res.text).toContain('Prisoners involved')
-        expect(res.text).toContain('A1111AA: Andrew Arnold')
-        expect(res.text).toContain('Active involvement')
-        expect(res.text).not.toContain('Investigation (local)')
-        expect(res.text).toContain('Comment about A1111AA')
+        expect(res.text).toContain('Staff involved')
+        expect(res.text).toContain('Mary Johnson')
+        expect(res.text).toContain('Actively involved')
+        expect(res.text).toContain('Comment about Mary')
         expect(res.text).toContain('Remove')
         expect(res.text).toContain('Edit')
-        expect(res.text).toContain('Do you want to add another prisoner?')
+        expect(res.text).toContain('Do you want to add another member of staff?')
         expect(res.text).toContain('Continue')
         expect(res.text).toContain('Save and exit')
         expect(incidentReportingApi.getReportWithDetailsById).toHaveBeenCalledTimes(1)
       })
   })
 
-  it('should render prisoner summary table with outcome column and add prisoner form for NOMIS report with existing prisoners involved', () => {
-    const mockedReport = convertReportWithDetailsDates(
-      mockReport({ reportReference: '6543', reportDateAndTime: now, createdInNomis: true, withDetails: true }),
-    )
-    incidentReportingApi.getReportWithDetailsById.mockResolvedValueOnce(mockedReport)
-    viewReportUrl = `/reports/${mockedReport.id}/prisoners`
-    return request(app)
-      .get(viewReportUrl)
-      .expect('Content-Type', /html/)
-      .expect(res => {
-        expect(res.text).toContain('Prisoners involved')
-        expect(res.text).toContain('A1111AA: Andrew Arnold')
-        expect(res.text).toContain('Active involvement')
-        expect(res.text).toContain('Investigation (local)')
-        expect(res.text).toContain('Comment about A1111AA')
-        expect(res.text).toContain('Remove')
-        expect(res.text).toContain('Edit')
-        expect(res.text).toContain('Do you want to add another prisoner?')
-        expect(res.text).toContain('Continue')
-        expect(res.text).toContain('Save and exit')
-        expect(incidentReportingApi.getReportWithDetailsById).toHaveBeenCalledTimes(1)
-      })
-  })
-
-  it('should not render prisoner summary table and only add prisoner form if no existing prisoners involved', () => {
+  it('should not render staff summary table and only add staff form if no existing staff involved', () => {
     const mockedReport = convertBasicReportDates(
       mockReport({ reportReference: '6543', reportDateAndTime: now }),
     ) as ReportWithDetails
     incidentReportingApi.getReportWithDetailsById.mockResolvedValueOnce(mockedReport)
-    viewReportUrl = `/reports/${mockedReport.id}/prisoners`
+    viewReportUrl = `/reports/${mockedReport.id}/staff`
     return request(app)
       .get(viewReportUrl)
       .expect('Content-Type', /html/)
       .expect(res => {
-        expect(res.text).toContain('No prisoners have been added to this incident report.')
+        expect(res.text).toContain('No staff members have been added to this incident report.')
         expect(res.text).not.toContain('Role')
-        expect(res.text).not.toContain('Outcome')
         expect(res.text).not.toContain('>Details')
         expect(res.text).not.toContain('Action')
         expect(res.text).not.toContain('Remove')
         expect(res.text).not.toContain('Edit')
-        expect(res.text).toContain('Do you want to add a prisoner?')
+        expect(res.text).toContain('Do you want to add a member of staff?')
         expect(res.text).toContain('Continue')
         expect(res.text).toContain('Save and exit')
         expect(incidentReportingApi.getReportWithDetailsById).toHaveBeenCalledTimes(1)

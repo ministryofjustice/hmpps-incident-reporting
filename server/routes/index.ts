@@ -14,6 +14,7 @@ import prisonerSearchRoutes from '../controllers/addPrisoner/prisonerSearch'
 import addPrisonerRouter from './addPrisoner'
 import dashboard from './dashboard/dashboard'
 import prisonerSummaryRouter from './prisonerSummary'
+import staffSummaryRouter from './staffSummary'
 import { dprRouter } from './dpr'
 
 export default function routes(services: Services): Router {
@@ -39,6 +40,7 @@ export default function routes(services: Services): Router {
   router.use('/reports/:reportId/update-details', updateDetailsRouter)
   router.use('/reports/:reportId/questions', questionsRouter)
   router.use('/reports/:reportId/prisoners', prisonerSummaryRouter)
+  router.use('/reports/:reportId/staff', staffSummaryRouter)
 
   // add people
   router.use('/reports/:reportId/prisoner-search', prisonerSearchRoutes())

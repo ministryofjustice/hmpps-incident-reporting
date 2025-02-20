@@ -1,19 +1,19 @@
 {% extends "partials/layout.njk" %}
 
-{% from "govuk/components/button/macro.njk" import govukButton %}
-{% from "govuk/components/table/macro.njk" import govukTable %}
 {% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
 {% from "govuk/components/radios/macro.njk" import govukRadios %}
+{% from "govuk/components/table/macro.njk" import govukTable %}
 
-{% set pageTitle = applicationName + " prisoners involved in report" %}
+{% set pageTitle = applicationName + " – Prisoners involved in report" %}
 {% set bodyClasses = "app-prisoner-summary" %}
 
 {% block beforeContent %}
-{{ super() }}
+  {{ super() }}
 
-{{ govukBackLink({
-    text: "Back",
-    href: backLink
+  {{ govukBackLink({
+      text: "Back",
+      href: backLink
   }) }}
 {% endblock %}
 
@@ -27,14 +27,18 @@
 
     {% set rows = [] %}
     {% for prisoner in report.prisonersInvolved %}
+      {% set actionCell %}
+        <a href="/reports/{{ report.id }}/prisoners/remove/{{ loop.index }}">Remove</a> |
+        <a href="/reports/{{ report.id }}/prisoners/{{ loop.index }}">Edit</a>
+      {% endset %}
       {% if report.createdInNomis %}
         {% set rows = (rows.push(
           [
             { text: prisoner.prisonerNumber + ': ' + (prisoner | nameOfPerson) },
             { text: prisonerInvolvementLookup[prisoner.prisonerRole] or prisoner.prisonerRole },
             { text: prisonerOutcomeLookup[prisoner.outcome] or prisoner.outcome },
-            { text: prisoner.comment },
-            { html: "<a href='/reports/" + report.id + "'>Remove</a>" + ' | ' + "<a href='/reports/'>Edit</a>" }
+            { html: prisoner.comment | escape | nl2br },
+            { html: actionCell }
           ]
           ), rows) %}
       {% else %}
@@ -42,8 +46,8 @@
           [
             { text: prisoner.prisonerNumber + ': ' + (prisoner | nameOfPerson) },
             { text: prisonerInvolvementLookup[prisoner.prisonerRole] or prisoner.prisonerRole },
-            { text: prisoner.comment },
-            { html: "<a href='/reports/" + report.id + "'>Remove</a>" + ' | ' + "<a href='/reports/'>Edit</a>" }
+            { html: prisoner.comment | escape | nl2br },
+            { html: actionCell }
           ]
           ), rows) %}
       {% endif %}

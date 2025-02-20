@@ -7,14 +7,14 @@ import { PrisonApi } from '../data/prisonApi'
 import makeDebugRoutes from './debug'
 import makeDownloadConfigRouter from './downloadReportConfig'
 import { createReportRouter } from './reports/createReport'
+import { prisonerInvolvementRouter } from './reports/prisoners'
+import { staffInvolvementRouter } from './reports/staff'
 import { questionsRouter } from './reports/questions'
 import { updateDetailsRouter } from './reports/updateReportDetails'
 import { viewReportRouter } from './reports/viewReport'
 import prisonerSearchRoutes from '../controllers/addPrisoner/prisonerSearch'
 import addPrisonerRouter from './addPrisoner'
 import dashboard from './dashboard/dashboard'
-import prisonerSummaryRouter from './prisonerSummary'
-import staffSummaryRouter from './staffSummary'
 import { dprRouter } from './dpr'
 
 export default function routes(services: Services): Router {
@@ -38,9 +38,9 @@ export default function routes(services: Services): Router {
   router.use('/create-report', createReportRouter)
   router.use('/reports/:reportId', viewReportRouter(services))
   router.use('/reports/:reportId/update-details', updateDetailsRouter)
+  router.use('/reports/:reportId/prisoners', prisonerInvolvementRouter)
+  router.use('/reports/:reportId/staff', staffInvolvementRouter)
   router.use('/reports/:reportId/questions', questionsRouter)
-  router.use('/reports/:reportId/prisoners', prisonerSummaryRouter)
-  router.use('/reports/:reportId/staff', staffSummaryRouter)
 
   // add people
   router.use('/reports/:reportId/prisoner-search', prisonerSearchRoutes())

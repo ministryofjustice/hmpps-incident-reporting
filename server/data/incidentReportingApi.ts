@@ -518,7 +518,7 @@ type UpdateStaffInvolvementRequest = {
   comment?: string | null
 }
 
-type AddPrisonerInvolvementRequest = {
+export type AddPrisonerInvolvementRequest = {
   prisonerNumber: string
   firstName: string
   lastName: string
@@ -527,7 +527,7 @@ type AddPrisonerInvolvementRequest = {
   comment?: string
 }
 
-type UpdatePrisonerInvolvementRequest = {
+export type UpdatePrisonerInvolvementRequest = {
   prisonerNumber?: string
   firstName?: string
   lastName?: string
@@ -544,7 +544,7 @@ type UpdateCorrectionRequestRequest = {
   descriptionOfChange?: string
 }
 
-class RelatedObjects<
+export class RelatedObjects<
   ResponseType,
   AddRequestType extends Record<string, unknown>,
   UpdateRequestType extends Record<string, unknown>,

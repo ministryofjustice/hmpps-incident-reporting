@@ -502,7 +502,7 @@ export class IncidentReportingApi extends RestClient {
   }
 }
 
-type AddStaffInvolvementRequest = {
+export type AddStaffInvolvementRequest = {
   staffUsername: string
   firstName: string
   lastName: string
@@ -510,7 +510,7 @@ type AddStaffInvolvementRequest = {
   comment?: string
 }
 
-type UpdateStaffInvolvementRequest = {
+export type UpdateStaffInvolvementRequest = {
   staffUsername?: string
   firstName?: string
   lastName?: string

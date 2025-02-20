@@ -4,6 +4,7 @@ import { logoutIf } from '../../../middleware/permissions'
 import { populateReport } from '../../../middleware/populateReport'
 import { populateStaffMember } from '../../../middleware/populateStaffMember'
 import { cannotEditReport } from '../permissions'
+import { addRouter } from './involvement/add'
 import { summaryRouter } from './summary'
 
 // eslint-disable-next-line import/prefer-default-export
@@ -13,9 +14,8 @@ export const staffInvolvementRouter = express.Router({ mergeParams: true })
 staffInvolvementRouter.use(populateReport(true), logoutIf(cannotEditReport))
 
 // add a new staff involvement
-staffInvolvementRouter.use('/add/username/:username', populateStaffMember(), (_req, res) => {
-  res.send('ADD')
-})
+// TODO: staffInvolvementRouter.use('/add/manual', addRouter)
+staffInvolvementRouter.use('/add/username/:username', populateStaffMember(), addRouter)
 
 // remove existing staff involvement (index starts at 1)
 staffInvolvementRouter.use('/remove/:index', (_req, res) => {

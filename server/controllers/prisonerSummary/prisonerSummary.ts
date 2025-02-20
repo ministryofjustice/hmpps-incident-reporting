@@ -1,5 +1,5 @@
 import type express from 'express'
-import FormWizard from 'hmpo-form-wizard'
+import type FormWizard from 'hmpo-form-wizard'
 
 import { BaseController } from '../index'
 import type { ReportWithDetails } from '../../data/incidentReportingApi'

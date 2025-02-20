@@ -1,0 +1,78 @@
+{% extends "partials/layout.njk" %}
+
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/table/macro.njk" import govukTable %}
+{% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+{% from "govuk/components/radios/macro.njk" import govukRadios %}
+
+{% set pageTitle = applicationName + " remove prisoner from report" %}
+{% set bodyClasses = "app-remove-prisoner" %}
+
+{% block beforeContent %}
+{{ super() }}
+
+{{ govukBackLink({
+    text: "Back",
+    href: backLink
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <form id="addAnotherPrisoner" method="post" novalidate>
+    <input type="hidden" name="_csrf" value="{{ csrfToken }}" />
+    <input type="hidden" name="x-csrf-token" value="{{ csrfToken }}" />
+
+    {% if errors['addPrisoner'] %}
+      {% set errorMessage = { text: errors['addPrisoner'].message } %}
+    {% else %}
+      {% set errorMessage = undefined %}
+    {% endif %}
+
+    {% set prisonerName = prisonerToRemove.prisonerNumber + ': ' + (prisonerToRemove | nameOfPerson) %}
+
+    {{ govukRadios({
+      classes: "govuk-radios--inline",
+      name: "removePrisoner",
+      id: "removePrisoner",
+      fieldset: {
+        legend: {
+          text: "Are you sure you want to remove " + prisonerName + "?",
+          isPageHeading: true,
+          classes: "govuk-fieldset__legend--l"
+        }
+      },
+      items: [
+        {
+          value: "yes",
+          text: "Yes"
+        },
+        {
+          value: "no",
+          text: "No"
+        }
+      ],
+      errorMessage: errorMessage
+    }) }}
+
+    <div class="govuk-button-group">
+      {{ govukButton({
+        text: "Continue",
+        name: "submit",
+        value: "continue",
+        preventDoubleClick: true,
+        type: "submit"
+      }) }}
+
+      {{ govukButton({
+        text: "Save and exit",
+        name: "submit",
+        value: "exit",
+        preventDoubleClick: true,
+        classes: "govuk-button--secondary",
+        href: "/reports/" + report.id
+      }) }}
+    </div>
+  </form>
+
+{% endblock %}

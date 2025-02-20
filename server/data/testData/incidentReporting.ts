@@ -178,6 +178,7 @@ export function mockPrisonerInvolvement(index: number): DatesAsStrings<PrisonerI
   switch (index) {
     case 0:
       return {
+        sequence: 0,
         prisonerNumber: andrew.prisonerNumber,
         firstName: andrew.firstName,
         lastName: andrew.lastName,
@@ -187,6 +188,7 @@ export function mockPrisonerInvolvement(index: number): DatesAsStrings<PrisonerI
       }
     case 1:
       return {
+        sequence: 1,
         prisonerNumber: barry.prisonerNumber,
         firstName: barry.firstName,
         lastName: barry.lastName,

@@ -23,7 +23,7 @@ class AddStaffInvolvementController extends StaffInvolvementController {
         firstName: staffMember.firstName,
         lastName: staffMember.lastName,
         staffRole: this.coerceStaffRole(allValues.staffRole),
-        comment: allValues.comment,
+        comment: allValues.comment ?? '',
       })
       logger.info('Staff involvement added to report %s', report.id)
       // clear session since involvement has been saved

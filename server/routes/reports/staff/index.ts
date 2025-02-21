@@ -5,6 +5,7 @@ import { populateReport } from '../../../middleware/populateReport'
 import { populateStaffMember } from '../../../middleware/populateStaffMember'
 import { cannotEditReport } from '../permissions'
 import { addRouter } from './involvement/add'
+import { editRouter } from './involvement/edit'
 import { summaryRouter } from './summary'
 
 // eslint-disable-next-line import/prefer-default-export
@@ -23,9 +24,7 @@ staffInvolvementRouter.use('/remove/:index', (_req, res) => {
 })
 
 // edit existing staff involvement (index starts at 1)
-staffInvolvementRouter.use('/:index', (_req, res) => {
-  res.send('EDIT')
-})
+staffInvolvementRouter.use('/:index', editRouter)
 
 // list existing staff involvements
 staffInvolvementRouter.use('/', summaryRouter)

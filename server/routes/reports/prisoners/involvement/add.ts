@@ -23,7 +23,7 @@ class AddPrisonerInvolvementController extends PrisonerInvolvementController {
         firstName: prisoner.firstName,
         lastName: prisoner.lastName,
         prisonerRole: this.coercePrisonerRole(allValues.prisonerRole),
-        outcome: this.coerceOutcome(allValues.outcome),
+        outcome: report.createdInNomis ? this.coerceOutcome(allValues.outcome) : null,
         comment: allValues.comment ?? '',
       })
       logger.info('Prisoner involvement added to report %s', report.id)

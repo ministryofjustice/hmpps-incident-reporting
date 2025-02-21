@@ -10,15 +10,19 @@ import type { Values } from './fields'
 // eslint-disable-next-line import/prefer-default-export
 export abstract class PrisonerInvolvementController extends BaseController<Values> {
   middlewareLocals(): void {
-    this.use(this.customiseFieldLabels)
+    this.use(this.customiseFields)
     super.middlewareLocals()
   }
 
-  customiseFieldLabels(req: FormWizard.Request<Values>, res: express.Response, next: express.NextFunction): void {
+  customiseFields(req: FormWizard.Request<Values>, res: express.Response, next: express.NextFunction): void {
+    const { fields } = req.form.options
+    const report = res.locals.report as ReportWithDetails
+
     const { firstName } = this.getPrisonerName(res)
     const possessiveFirstName = possessive(convertToTitleCase(firstName))
 
-    const { fields: customisedFields } = req.form.options
+    const customisedFields = { ...fields }
+
     customisedFields.prisonerRole = {
       ...customisedFields.prisonerRole,
       label: `What was ${possessiveFirstName} role?`,
@@ -27,6 +31,12 @@ export abstract class PrisonerInvolvementController extends BaseController<Value
       ...customisedFields.comment,
       label: `Details of ${possessiveFirstName} involvement (optional)`,
     }
+
+    if (!report.createdInNomis) {
+      delete customisedFields.outcome
+    }
+
+    req.form.options.fields = customisedFields
 
     next()
   }

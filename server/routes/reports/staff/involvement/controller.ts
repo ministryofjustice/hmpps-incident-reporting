@@ -10,15 +10,18 @@ import type { Values } from './fields'
 // eslint-disable-next-line import/prefer-default-export
 export abstract class StaffInvolvementController extends BaseController<Values> {
   middlewareLocals(): void {
-    this.use(this.customiseFieldLabels)
+    this.use(this.customiseFields)
     super.middlewareLocals()
   }
 
-  customiseFieldLabels(req: FormWizard.Request<Values>, res: express.Response, next: express.NextFunction): void {
+  customiseFields(req: FormWizard.Request<Values>, res: express.Response, next: express.NextFunction): void {
+    const { fields } = req.form.options
+
     const staffMemberName = this.getStaffMemberName(res)
     const possessiveFirstName = possessive(convertToTitleCase(staffMemberName.firstName))
 
-    const { fields: customisedFields } = req.form.options
+    const customisedFields = { ...fields }
+
     customisedFields.staffRole = {
       ...customisedFields.staffRole,
       label: `How was ${nameOfPerson(staffMemberName)} involved in the incident?`,
@@ -27,6 +30,8 @@ export abstract class StaffInvolvementController extends BaseController<Values> 
       ...customisedFields.comment,
       label: `Details of ${possessiveFirstName} involvement (optional)`,
     }
+
+    req.form.options.fields = customisedFields
 
     next()
   }

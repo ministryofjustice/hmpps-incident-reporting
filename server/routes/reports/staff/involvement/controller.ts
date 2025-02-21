@@ -40,7 +40,7 @@ export abstract class StaffInvolvementController extends BaseController<Values> 
 
   protected errorMessage(error: FormWizard.Error): string {
     if (error.key === 'staffRole') {
-      return 'Chose the staff member’s role'
+      return 'Choose the staff member’s role'
     }
     return super.errorMessage(error)
   }

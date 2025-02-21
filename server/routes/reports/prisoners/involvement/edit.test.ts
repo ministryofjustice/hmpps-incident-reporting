@@ -191,7 +191,7 @@ describe('Editing an existing prisoner in a report', () => {
         outcome: 'LOCAL_INVESTIGATION',
         comment: 'See case notes',
       },
-      expectedError: 'Chose the prisoner’s role',
+      expectedError: 'Choose the prisoner’s role',
     },
     {
       scenario: 'role is invalid',
@@ -200,7 +200,7 @@ describe('Editing an existing prisoner in a report', () => {
         outcome: 'LOCAL_INVESTIGATION',
         comment: 'See case notes',
       },
-      expectedError: 'Chose the prisoner’s role',
+      expectedError: 'Choose the prisoner’s role',
     },
     {
       scenario: 'outcome is invalid',
@@ -209,7 +209,7 @@ describe('Editing an existing prisoner in a report', () => {
         outcome: 'INVALID',
         comment: 'See case notes',
       },
-      expectedError: 'Chose the outcome of the prisoner’s involvement',
+      expectedError: 'Choose the outcome of the prisoner’s involvement',
     },
   ])('should show an error when $scenario', ({ invalidPayload, expectedError }) => {
     incidentReportingApi.getReportWithDetailsById.mockResolvedValueOnce(report)

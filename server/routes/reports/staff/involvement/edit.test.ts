@@ -156,7 +156,7 @@ describe('Editing an existing staff member in a report', () => {
         staffRole: '',
         comment: 'See duty log',
       },
-      expectedError: 'Chose the staff member’s role',
+      expectedError: 'Choose the staff member’s role',
     },
     {
       scenario: 'role is invalid',
@@ -164,7 +164,7 @@ describe('Editing an existing staff member in a report', () => {
         staffRole: 'INVALID',
         comment: 'See duty log',
       },
-      expectedError: 'Chose the staff member’s role',
+      expectedError: 'Choose the staff member’s role',
     },
   ])('should show an error when $scenario', ({ invalidPayload, expectedError }) => {
     incidentReportingApi.getReportWithDetailsById.mockResolvedValueOnce(report)

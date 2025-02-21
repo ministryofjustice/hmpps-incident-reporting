@@ -40,10 +40,10 @@ export abstract class PrisonerInvolvementController extends BaseController<Value
 
   protected errorMessage(error: FormWizard.Error): string {
     if (error.key === 'prisonerRole') {
-      return 'Chose the prisoner’s role'
+      return 'Choose the prisoner’s role'
     }
     if (error.key === 'outcome') {
-      return 'Chose the outcome of the prisoner’s involvement'
+      return 'Choose the outcome of the prisoner’s involvement'
     }
     return super.errorMessage(error)
   }

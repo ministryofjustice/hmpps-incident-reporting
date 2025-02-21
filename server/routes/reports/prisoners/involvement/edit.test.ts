@@ -16,6 +16,7 @@ import { mockThrownError } from '../../../../data/testData/thrownErrors'
 import { approverUser, hqUser, reportingUser, unauthorisedUser } from '../../../../data/testData/users'
 import { appWithAllRoutes } from '../../../testutils/appSetup'
 import { now } from '../../../../testutils/fakeClock'
+import type { Values } from './fields'
 
 jest.mock('../../../../data/incidentReportingApi')
 
@@ -91,141 +92,216 @@ describe('Editing an existing prisoner in a report', () => {
       })
   })
 
-  it('should display a form to update prisoner involvement details', () => {
-    return request(app)
-      .get(editPageUrl(1))
-      .expect(200)
-      .expect(res => {
-        expect(res.text).toContain('Andrew Arnold’s involvement in the incident')
-        expect(res.text).toContain('What was Andrew’s role?')
-        expect(res.text).toContain('What was the outcome?')
-        expect(res.text).toContain('Details of Andrew’s involvement')
+  describe.each([
+    { scenario: 'created on DPS', createdInNomis: false },
+    { scenario: 'created in NOMIS', createdInNomis: true },
+  ])('$scenario', ({ createdInNomis }) => {
+    beforeEach(() => {
+      report.createdInNomis = createdInNomis
+    })
 
-        expect(res.text).toContain('value="IMPEDED_STAFF" checked')
-        expect(res.text).toContain('value="LOCAL_INVESTIGATION" checked')
-        expect(res.text).toContain('Some comments')
-
-        expect(incidentReportingRelatedObjects.updateForReport).not.toHaveBeenCalled()
-      })
-  })
-
-  it.each([
-    {
-      scenario: 'request with all fields',
-      validPayload: {
-        prisonerRole: 'SUSPECTED_INVOLVED',
-        outcome: 'LOCAL_INVESTIGATION',
-        comment: 'See case notes',
-      },
-      expectedCall: {
-        prisonerRole: 'SUSPECTED_INVOLVED',
-        outcome: 'LOCAL_INVESTIGATION',
-        comment: 'See case notes',
-      },
-    },
-    {
-      scenario: 'request without outcome',
-      validPayload: {
-        prisonerRole: 'SUSPECTED_INVOLVED',
-        outcome: '',
-        comment: 'See case notes',
-      },
-      expectedCall: {
-        prisonerRole: 'SUSPECTED_INVOLVED',
-        outcome: null,
-        comment: 'See case notes',
-      },
-    },
-    {
-      scenario: 'request without comment',
-      validPayload: {
-        prisonerRole: 'SUSPECTED_INVOLVED',
-        outcome: 'LOCAL_INVESTIGATION',
-        comment: '',
-      },
-      expectedCall: {
-        prisonerRole: 'SUSPECTED_INVOLVED',
-        outcome: 'LOCAL_INVESTIGATION',
-        comment: '',
-      },
-    },
-    {
-      scenario: 'request without outcome or comment',
-      validPayload: {
-        prisonerRole: 'SUSPECTED_INVOLVED',
-      },
-      expectedCall: {
-        prisonerRole: 'SUSPECTED_INVOLVED',
-        outcome: null,
-        comment: '',
-      },
-    },
-  ])(
-    'should send update $scenario to API if form is valid and go to summary page',
-    ({ validPayload, expectedCall }) => {
-      incidentReportingApi.getReportWithDetailsById.mockResolvedValueOnce(report)
-      incidentReportingRelatedObjects.updateForReport.mockResolvedValueOnce([]) // NB: response is ignored
-      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-      // @ts-ignore need to mock a getter method
-      incidentReportingApi.prisonersInvolved = incidentReportingRelatedObjects
-
+    it('should display a form to update prisoner involvement details', () => {
       return request(app)
+        .get(editPageUrl(1))
+        .expect(200)
+        .expect(res => {
+          expect(res.text).toContain('Andrew Arnold’s involvement in the incident')
+          expect(res.text).toContain('What was Andrew’s role?')
+          if (createdInNomis) {
+            expect(res.text).toContain('What was the outcome?')
+          } else {
+            expect(res.text).not.toContain('What was the outcome?')
+          }
+          expect(res.text).toContain('Details of Andrew’s involvement')
+
+          expect(res.text).toContain('value="IMPEDED_STAFF" checked')
+          if (createdInNomis) {
+            expect(res.text).toContain('value="LOCAL_INVESTIGATION" checked')
+          } else {
+            expect(res.text).not.toContain('LOCAL_INVESTIGATION')
+          }
+          expect(res.text).toContain('Some comments')
+
+          expect(incidentReportingRelatedObjects.updateForReport).not.toHaveBeenCalled()
+        })
+    })
+
+    interface ValidScenario {
+      scenario: string
+      validPayload: Partial<Values>
+      expectedCall: object
+    }
+    const validScenarios: ValidScenario[] = createdInNomis
+      ? [
+          {
+            scenario: 'request with all fields',
+            validPayload: {
+              prisonerRole: 'SUSPECTED_INVOLVED',
+              outcome: 'LOCAL_INVESTIGATION',
+              comment: 'See case notes',
+            },
+            expectedCall: {
+              prisonerRole: 'SUSPECTED_INVOLVED',
+              outcome: 'LOCAL_INVESTIGATION',
+              comment: 'See case notes',
+            },
+          },
+          {
+            scenario: 'request without outcome',
+            validPayload: {
+              prisonerRole: 'SUSPECTED_INVOLVED',
+              outcome: '',
+              comment: 'See case notes',
+            },
+            expectedCall: {
+              prisonerRole: 'SUSPECTED_INVOLVED',
+              outcome: null,
+              comment: 'See case notes',
+            },
+          },
+          {
+            scenario: 'request without comment',
+            validPayload: {
+              prisonerRole: 'SUSPECTED_INVOLVED',
+              outcome: 'LOCAL_INVESTIGATION',
+              comment: '',
+            },
+            expectedCall: {
+              prisonerRole: 'SUSPECTED_INVOLVED',
+              outcome: 'LOCAL_INVESTIGATION',
+              comment: '',
+            },
+          },
+          {
+            scenario: 'request without outcome or comment',
+            validPayload: {
+              prisonerRole: 'SUSPECTED_INVOLVED',
+            },
+            expectedCall: {
+              prisonerRole: 'SUSPECTED_INVOLVED',
+              outcome: null,
+              comment: '',
+            },
+          },
+        ]
+      : [
+          {
+            scenario: 'request with all fields',
+            validPayload: {
+              prisonerRole: 'SUSPECTED_INVOLVED',
+              comment: 'See case notes',
+            },
+            expectedCall: {
+              prisonerRole: 'SUSPECTED_INVOLVED',
+              outcome: null,
+              comment: 'See case notes',
+            },
+          },
+          {
+            scenario: 'request without comment',
+            validPayload: {
+              prisonerRole: 'SUSPECTED_INVOLVED',
+              comment: '',
+            },
+            expectedCall: {
+              prisonerRole: 'SUSPECTED_INVOLVED',
+              outcome: null,
+              comment: '',
+            },
+          },
+        ]
+    it.each(validScenarios)(
+      'should send update $scenario to API if form is valid and go to summary page',
+      ({ validPayload, expectedCall }) => {
+        incidentReportingApi.getReportWithDetailsById.mockResolvedValueOnce(report)
+        incidentReportingRelatedObjects.updateForReport.mockResolvedValueOnce([]) // NB: response is ignored
+        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+        // @ts-ignore need to mock a getter method
+        incidentReportingApi.prisonersInvolved = incidentReportingRelatedObjects
+
+        return request(app)
+          .post(editPageUrl(1))
+          .send(validPayload)
+          .redirects(1)
+          .expect(200)
+          .expect(res => {
+            expect(res.text).not.toContain('There is a problem')
+            expect(res.redirects[0]).toMatch(`/reports/${report.id}/prisoners`)
+
+            expect(incidentReportingRelatedObjects.updateForReport).toHaveBeenCalledWith(report.id, 1, expectedCall)
+          })
+      },
+    )
+
+    interface InvalidScenario {
+      scenario: string
+      invalidPayload: object
+      expectedError: string
+    }
+    const invalidScenarios: InvalidScenario[] = createdInNomis
+      ? [
+          {
+            scenario: 'required role is absent',
+            invalidPayload: {
+              prisonerRole: '',
+              outcome: 'LOCAL_INVESTIGATION',
+              comment: 'See case notes',
+            },
+            expectedError: 'Choose the prisoner’s role',
+          },
+          {
+            scenario: 'role is invalid',
+            invalidPayload: {
+              prisonerRole: 'INVALID',
+              outcome: 'LOCAL_INVESTIGATION',
+              comment: 'See case notes',
+            },
+            expectedError: 'Choose the prisoner’s role',
+          },
+          {
+            scenario: 'outcome is invalid',
+            invalidPayload: {
+              prisonerRole: 'SUSPECTED_INVOLVED',
+              outcome: 'INVALID',
+              comment: 'See case notes',
+            },
+            expectedError: 'Choose the outcome of the prisoner’s involvement',
+          },
+        ]
+      : [
+          {
+            scenario: 'required role is absent',
+            invalidPayload: {
+              prisonerRole: '',
+              comment: 'See case notes',
+            },
+            expectedError: 'Choose the prisoner’s role',
+          },
+          {
+            scenario: 'role is invalid',
+            invalidPayload: {
+              prisonerRole: 'INVALID',
+              comment: 'See case notes',
+            },
+            expectedError: 'Choose the prisoner’s role',
+          },
+        ]
+    it.each(invalidScenarios)('should show an error when $scenario', ({ invalidPayload, expectedError }) => {
+      incidentReportingApi.getReportWithDetailsById.mockResolvedValueOnce(report)
+
+      return request
+        .agent(app)
         .post(editPageUrl(1))
-        .send(validPayload)
+        .send(invalidPayload)
         .redirects(1)
         .expect(200)
         .expect(res => {
-          expect(res.text).not.toContain('There is a problem')
-          expect(res.redirects[0]).toMatch(`/reports/${report.id}/prisoners`)
+          expect(res.text).toContain('There is a problem')
+          expect(res.text).toContain(expectedError)
 
-          expect(incidentReportingRelatedObjects.updateForReport).toHaveBeenCalledWith(report.id, 1, expectedCall)
+          expect(incidentReportingRelatedObjects.updateForReport).not.toHaveBeenCalled()
         })
-    },
-  )
-
-  it.each([
-    {
-      scenario: 'required role is absent',
-      invalidPayload: {
-        prisonerRole: '',
-        outcome: 'LOCAL_INVESTIGATION',
-        comment: 'See case notes',
-      },
-      expectedError: 'Choose the prisoner’s role',
-    },
-    {
-      scenario: 'role is invalid',
-      invalidPayload: {
-        prisonerRole: 'INVALID',
-        outcome: 'LOCAL_INVESTIGATION',
-        comment: 'See case notes',
-      },
-      expectedError: 'Choose the prisoner’s role',
-    },
-    {
-      scenario: 'outcome is invalid',
-      invalidPayload: {
-        prisonerRole: 'SUSPECTED_INVOLVED',
-        outcome: 'INVALID',
-        comment: 'See case notes',
-      },
-      expectedError: 'Choose the outcome of the prisoner’s involvement',
-    },
-  ])('should show an error when $scenario', ({ invalidPayload, expectedError }) => {
-    incidentReportingApi.getReportWithDetailsById.mockResolvedValueOnce(report)
-
-    return request
-      .agent(app)
-      .post(editPageUrl(1))
-      .send(invalidPayload)
-      .redirects(1)
-      .expect(200)
-      .expect(res => {
-        expect(res.text).toContain('There is a problem')
-        expect(res.text).toContain(expectedError)
-
-        expect(incidentReportingRelatedObjects.updateForReport).not.toHaveBeenCalled()
-      })
+    })
   })
 
   describe('Permissions', () => {

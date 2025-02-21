@@ -130,7 +130,7 @@
           <br />
           Outcome: {{ outcome }}
           <br />
-          Comment: {{ comment }}
+          Details: {{ comment | escape | nl2br }}
         {% endset %}
 
         {%- set prisonerURL = dpsUrl + "/prisoner/" + prisonerInvolved.prisonerNumber -%}
@@ -142,37 +142,15 @@
           key: {
             html: prisonerURLKey
           },
-          value: { html: prisonerValues },
-          actions: {
-            items: [
-              {
-                href: "#",
-                text: "Change",
-                visuallyHiddenText: "prisoner"
-              },
-              {
-                href: "#",
-                text: "Remove",
-                visuallyHiddenText: "prisoner"
-              }
-            ]
-          } if canEditReport else {}
+          value: { html: prisonerValues }
         }), prisonerRows) -%}
 
       {%- endfor -%}
 
   {%- else -%}
     {%- set prisonerRows = [{
-      key: { text: "No prisoners found" },
-      value: { text: "N/A" },
-      actions: {
-        items: [
-          {
-            href: "/reports/" + report.id + "/prisoner-search",
-            text: "Add a prisoner"
-          }
-        ]
-      } if canEditReport else {}
+      key: { text: "No prisoners added" },
+      value: { text: "" }
     }) -%}
   {%- endif -%}
 
@@ -185,7 +163,7 @@
         items: [
           {
             href: "/reports/" + report.id + "/prisoners",
-            text: "Change"
+            text: "Change" if report.prisonersInvolved.length else "Add a prisoner"
           }
         ]
       } if canEditReport else {}
@@ -208,7 +186,7 @@
       {% set staffValues %}
         Role: {{ staffRole }}
         <br />
-        Comment: {{ comment }}
+        Details: {{ comment | escape | nl2br }}
       {% endset %}
 
       {%- set staffRows = (staffRows.push({
@@ -217,37 +195,15 @@
         },
         value: {
           html: staffValues
-        },
-        actions: {
-          items: [
-            {
-              href: "#",
-              text: "Change",
-              visuallyHiddenText: "staff"
-            },
-            {
-              href: "#",
-              text: "Remove",
-              visuallyHiddenText: "staff"
-            }
-          ]
-        } if canEditReport else {}
+        }
       }), staffRows) -%}
 
     {%- endfor -%}
 
   {%- else -%}
     {%- set staffRows = [{
-      key: { text: "No staff found" },
-      value: { text: "N/A" },
-      actions: {
-        items: [
-          {
-            href: "#",
-            text: "Add a staff member"
-          }
-        ]
-      } if canEditReport else {}
+      key: { text: "No staff added" },
+      value: { text: "" }
     }) -%}
   {%- endif -%}
 
@@ -260,7 +216,7 @@
         items: [
           {
             href: "/reports/" + report.id + "/staff",
-            text: "Change"
+            text: "Change" if report.staffInvolved.length else "Add a member of staff"
           }
         ]
       } if canEditReport else {}
@@ -301,8 +257,6 @@
               <br />
               {% endif %}
           {% endfor %}
-        {% else %}
-          INCOMPLETE
         {% endif %}
       {% endset %}
 
@@ -321,7 +275,7 @@
   {{ govukSummaryList({
     card: {
       title: {
-        text: "Question responses"
+        text: "About incident " + report.reportReference
       },
       actions: {
         items: [{

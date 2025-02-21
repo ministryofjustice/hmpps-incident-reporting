@@ -1,19 +1,19 @@
 {% extends "partials/layout.njk" %}
 
-{% from "govuk/components/button/macro.njk" import govukButton %}
-{% from "govuk/components/table/macro.njk" import govukTable %}
 {% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
 {% from "govuk/components/radios/macro.njk" import govukRadios %}
+{% from "govuk/components/table/macro.njk" import govukTable %}
 
-{% set pageTitle = applicationName + " staff involved in report" %}
+{% set pageTitle = applicationName + " – Staff involved in report" %}
 {% set bodyClasses = "app-staff-summary" %}
 
 {% block beforeContent %}
-{{ super() }}
+  {{ super() }}
 
-{{ govukBackLink({
-    text: "Back",
-    href: backLink
+  {{ govukBackLink({
+      text: "Back",
+      href: backLink
   }) }}
 {% endblock %}
 
@@ -27,12 +27,16 @@
 
     {% set rows = [] %}
     {% for staff in report.staffInvolved %}
+      {% set actionCell %}
+        <a href="/reports/{{ report.id }}/staff/remove/{{ loop.index }}">Remove</a> |
+        <a href="/reports/{{ report.id }}/staff/{{ loop.index }}">Edit</a>
+      {% endset %}
       {% set rows = (rows.push(
         [
           { text: (staff | nameOfPerson) },
           { text: staffInvolvementLookup[staff.staffRole] or staff.staffRole },
-          { text: staff.comment },
-          { html: "<a href='/reports/" + report.id + "'>Remove</a>" + ' | ' + "<a href='/reports/'>Edit</a>" }
+          { text: staff.comment | escape | nl2br },
+          { html: actionCell }
         ]
         ), rows) %}
     {% endfor %}

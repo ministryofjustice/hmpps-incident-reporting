@@ -135,13 +135,15 @@ describe('GET view report page with details', () => {
         expect(res.text).toContain('Andrew Arnold')
         expect(res.text).toContain('Role: Active involvement')
         expect(res.text).toContain('Outcome: Investigation (local)')
-        expect(res.text).toContain('Comment: Comment about A1111AA')
+        expect(res.text).toContain('Details: Comment about A1111AA')
         expect(res.text).toContain('A2222BB')
         expect(res.text).toContain('Role: Suspected involved')
         expect(res.text).toContain('Outcome: No outcome')
-        expect(res.text).toContain('Comment: No comment')
+        expect(res.text).toContain('Details: No comment')
       })
   })
+
+  // TODO: add multi-line comment test
 
   it('should render staff involved with roles', () => {
     return request(app)
@@ -243,7 +245,7 @@ describe('GET view report page without details', () => {
       .expect('Content-Type', /html/)
       .expect(res => {
         expect(res.text).toContain('Prisoners involved')
-        expect(res.text).toContain('No prisoners found')
+        expect(res.text).toContain('No prisoners added')
         expect(res.text).toContain('Add a prisoner')
       })
   })
@@ -254,8 +256,8 @@ describe('GET view report page without details', () => {
       .expect('Content-Type', /html/)
       .expect(res => {
         expect(res.text).toContain('Staff involved')
-        expect(res.text).toContain('No staff found')
-        expect(res.text).toContain('Add a staff member')
+        expect(res.text).toContain('No staff added')
+        expect(res.text).toContain('Add a member of staff')
       })
   })
 

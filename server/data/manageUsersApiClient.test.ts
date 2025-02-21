@@ -35,6 +35,20 @@ describe('manageUsersApiClient', () => {
     })
   })
 
+  describe('getPrisonUser()', () => {
+    it('returns data from api', async () => {
+      const response = { data: 'data' }
+
+      fakeManageUsersApiClient
+        .get('/prisonusers/abc1')
+        .matchHeader('authorization', `Bearer ${token.access_token}`)
+        .reply(200, response)
+
+      const output = await manageUsersApiClient.getPrisonUser(token.access_token, 'abc1')
+      expect(output).toEqual(response)
+    })
+  })
+
   describe('searchUsers()', () => {
     const mockResponse: UsersSearchResponse = {
       content: [

@@ -1,11 +1,11 @@
 import type FormWizard from 'hmpo-form-wizard'
 
-const fields: FormWizard.Fields = {
-  addPrisoner: {
-    label: 'Do you want to add a prisoner?',
+export const fields = {
+  addStaff: {
+    label: 'Do you want to add a member of staff?',
     component: 'govukRadios',
     validate: ['required'],
-    name: 'addPrisoner',
+    name: 'addStaff',
     items: [
       {
         value: 'yes',
@@ -17,6 +17,6 @@ const fields: FormWizard.Fields = {
       },
     ],
   },
-}
+} satisfies FormWizard.Fields
 
-export default fields
+export type Values = FormWizard.ValuesFromFields<typeof fields>

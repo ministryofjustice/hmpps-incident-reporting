@@ -8,7 +8,14 @@ import setUpNunjucksFilters from '@ministryofjustice/hmpps-digital-prison-report
 
 import logger from '../../logger'
 import config from '../config'
-import { convertToTitleCase, initialiseName, nameOfPerson, reversedNameOfPerson, prisonerLocation } from './utils'
+import {
+  convertToTitleCase,
+  initialiseName,
+  nameOfPerson,
+  reversedNameOfPerson,
+  possessive,
+  prisonerLocation,
+} from './utils'
 import {
   findFieldInGovukErrorSummary,
   govukCheckedItems,
@@ -83,6 +90,7 @@ export default function nunjucksSetup(app: express.Express): void {
   njkEnv.addFilter('initialiseName', initialiseName)
   njkEnv.addFilter('nameOfPerson', nameOfPerson)
   njkEnv.addFilter('reversedNameOfPerson', reversedNameOfPerson)
+  njkEnv.addFilter('possessive', possessive)
 
   // date/datetime formatting
   njkEnv.addFilter('dateAndTime', format.dateAndTime)

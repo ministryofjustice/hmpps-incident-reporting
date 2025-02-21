@@ -5,7 +5,7 @@
 
 {% macro renderTimeFields(fieldName, field, options, values, errors) %}
 
-  <div class="govuk-form-group {% if errors[fieldName] %}govuk-form-group--error{% endif %}">
+  <div id="{{ fieldName }}__form-group" class="govuk-form-group {% if errors[fieldName] %}govuk-form-group--error{% endif %}">
     {% call govukFieldset({
       legend: {
         text: field.label,

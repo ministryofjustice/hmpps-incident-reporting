@@ -115,11 +115,6 @@
         {% endif %}
 
         {%- set prisonerRole = prisonerInvolvementLookup[prisonerInvolved.prisonerRole] or prisonerInvolved.prisonerRole -%}
-        {% if prisonerInvolved.outcome %}
-          {%- set outcome = prisonerOutcomeLookup[prisonerInvolved.outcome] or prisonerInvolved.outcome -%}
-        {% else %}
-          {%- set outcome = "No outcome" -%}
-        {% endif %}
         {% if prisonerInvolved.comment %}
           {%- set comment = prisonerInvolved.comment -%}
         {% else %}
@@ -127,8 +122,16 @@
         {% endif %}
         {% set prisonerValues %}
           Role: {{ prisonerRole }}
-          <br />
-          Outcome: {{ outcome }}
+
+          {% if report.createdInNomis %}
+            <br />
+            Outcome: {% if prisonerInvolved.outcome -%}
+              {{ prisonerOutcomeLookup[prisonerInvolved.outcome] or prisonerInvolved.outcome }}
+            {%- else -%}
+              No outcome
+            {%- endif %}
+          {% endif %}
+
           <br />
           Details: {{ comment | escape | nl2br }}
         {% endset %}

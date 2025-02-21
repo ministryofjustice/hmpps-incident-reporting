@@ -6,7 +6,7 @@ import { PrisonApi } from '../../data/prisonApi'
 import { appWithAllRoutes } from '../testutils/appSetup'
 import { now } from '../../testutils/fakeClock'
 import UserService from '../../services/userService'
-import { IncidentReportingApi } from '../../data/incidentReportingApi'
+import { IncidentReportingApi, type ReportWithDetails } from '../../data/incidentReportingApi'
 import { OffenderSearchApi, type OffenderSearchResult } from '../../data/offenderSearchApi'
 import { mockErrorResponse, mockReport } from '../../data/testData/incidentReporting'
 import { makeSimpleQuestion } from '../../data/testData/incidentReportingJest'
@@ -62,10 +62,11 @@ afterEach(() => {
 })
 
 describe('GET view report page with details', () => {
+  let mockedReport: ReportWithDetails
   let viewReportUrl: string
 
   beforeEach(() => {
-    const mockedReport = convertReportWithDetailsDates(
+    mockedReport = convertReportWithDetailsDates(
       mockReport({ reportReference: '6543', reportDateAndTime: now, withDetails: true }),
     )
     mockedReport.questions = [
@@ -127,18 +128,29 @@ describe('GET view report page with details', () => {
       })
   })
 
-  it('should render prisoners involved with roles and outcomes. Names correct if available', () => {
+  it.each([
+    { scenario: 'roles for reports made on DPS', createdInNomis: false },
+    { scenario: 'roles and outcomes for reports made in NOMIS', createdInNomis: true },
+  ])('should render prisoners involved with $scenario; names correct if available', ({ createdInNomis }) => {
+    mockedReport.createdInNomis = createdInNomis
+
     return request(app)
       .get(viewReportUrl)
       .expect('Content-Type', /html/)
       .expect(res => {
         expect(res.text).toContain('Andrew Arnold')
         expect(res.text).toContain('Role: Active involvement')
-        expect(res.text).toContain('Outcome: Investigation (local)')
+        if (createdInNomis) {
+          expect(res.text).toContain('Outcome: Investigation (local)')
+        } else {
+          expect(res.text).not.toContain('Outcome:')
+        }
         expect(res.text).toContain('Details: Comment about A1111AA')
         expect(res.text).toContain('A2222BB')
         expect(res.text).toContain('Role: Suspected involved')
-        expect(res.text).toContain('Outcome: No outcome')
+        if (createdInNomis) {
+          expect(res.text).toContain('Outcome: No outcome')
+        }
         expect(res.text).toContain('Details: No comment')
       })
   })

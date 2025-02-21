@@ -327,9 +327,9 @@ describe('Report viewing permissions', () => {
     if (action === 'granted') {
       return testRequest.expect(200).expect(res => {
         if (canEdit) {
-          expect(res.text).toContain('Change response')
+          expect(res.text).toContain('question responses')
         } else {
-          expect(res.text).not.toContain('Change response')
+          expect(res.text).not.toContain('question responses')
         }
       })
     }

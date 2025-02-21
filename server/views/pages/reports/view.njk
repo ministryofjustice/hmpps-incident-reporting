@@ -265,7 +265,8 @@
         value: {html: responsesHtml},
         actions: {items: [{
           href: "/reports/" + report.id + "/questions" + (questionProgressStep.urlSuffix or "") + "#question-" + questionProgressStep.fieldName,
-          text: "Change response"
+          text: "Change" if questionProgressStep.isComplete else "Continue",
+          visuallyHiddenText: "question responses"
         }]} if canEditReport else {}
       }) %}
 
@@ -287,6 +288,7 @@
     },
     rows: questionRows
   }) }}
+  {# TODO: link needs to point to incomplete question or nowhere #}
 
 <!-- Correction requests table -->
   {%- if report.correctionRequests.length > 0 -%}

@@ -108,12 +108,6 @@
   {%- if report.prisonersInvolved.length > 0 -%}
     {%- set prisonerRows = [] -%}
       {%- for prisonerInvolved in report.prisonersInvolved -%}
-        {% if prisonersLookup[prisonerInvolved.prisonerNumber] %}
-          {%- set prisonerName = prisonersLookup[prisonerInvolved.prisonerNumber] | nameOfPerson -%}
-        {% else %}
-          {%- set prisonerName = prisonerInvolved.prisonerNumber -%}
-        {% endif %}
-
         {%- set prisonerRole = prisonerInvolvementLookup[prisonerInvolved.prisonerRole] or prisonerInvolved.prisonerRole -%}
         {% if prisonerInvolved.comment %}
           {%- set comment = prisonerInvolved.comment -%}
@@ -138,7 +132,7 @@
 
         {%- set prisonerURL = dpsUrl + "/prisoner/" + prisonerInvolved.prisonerNumber -%}
         {% set prisonerURLKey %}
-          <a href="{{ prisonerURL }}" class="govuk-link">{{ prisonerName }}</a>
+          <a href="{{ prisonerURL }}" class="govuk-link">{{ prisonerInvolved | nameOfPerson }}</a>
         {% endset %}
 
         {%- set prisonerRows = (prisonerRows.push({
@@ -178,7 +172,6 @@
   {%- if report.staffInvolved.length > 0 -%}
     {%- set staffRows = [] -%}
     {%- for staffInvolved in report.staffInvolved -%}
-      {%- set staffName = usersLookup[staffInvolved.staffUsername].name or staffInvolved.staffUsername -%}
       {%- set staffRole = staffInvolvementLookup[staffInvolved.staffRole] or staffInvolved.staffRole -%}
 
       {% if staffInvolved.comment %}
@@ -194,7 +187,7 @@
 
       {%- set staffRows = (staffRows.push({
         key: {
-          text: staffName
+          text: staffInvolved | nameOfPerson
         },
         value: {
           html: staffValues

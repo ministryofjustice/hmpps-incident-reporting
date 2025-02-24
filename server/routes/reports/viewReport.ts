@@ -32,26 +32,20 @@ export function viewReportRouter(service: Services): Router {
     )
 
   get('/', async (_req, res) => {
-    const { prisonApi, offenderSearchApi } = res.locals.apis
+    const { prisonApi } = res.locals.apis
 
     const report = res.locals.report as ReportWithDetails
     const { permissions, questionProgress } = res.locals
 
     const usernames = [report.reportedBy]
-    if (report.staffInvolved) {
-      usernames.push(...report.staffInvolved.map(staff => staff.staffUsername))
-    }
     if (report.correctionRequests) {
       usernames.push(...report.correctionRequests.map(correctionRequest => correctionRequest.correctionRequestedBy))
     }
-    const usersLookup = await userService.getUsers(res.locals.systemToken, usernames)
 
-    let prisonersLookup = {}
-    if (report.prisonersInvolved) {
-      const prisonerNumbers = report.prisonersInvolved.map(pi => pi.prisonerNumber)
-      prisonersLookup = await offenderSearchApi.getPrisoners(prisonerNumbers)
-    }
-    const prisonsLookup = await prisonApi.getPrisons()
+    const [usersLookup, prisonsLookup] = await Promise.all([
+      userService.getUsers(res.locals.systemToken, usernames),
+      prisonApi.getPrisons(),
+    ])
 
     const typesLookup = Object.fromEntries(types.map(type => [type.code, type.description]))
     const statusLookup = Object.fromEntries(statuses.map(status => [status.code, status.description]))
@@ -75,7 +69,6 @@ export function viewReportRouter(service: Services): Router {
       questionsCompleted,
       canEditReport,
       notEditableInDps,
-      prisonersLookup,
       usersLookup,
       prisonsLookup,
       prisonerInvolvementLookup,

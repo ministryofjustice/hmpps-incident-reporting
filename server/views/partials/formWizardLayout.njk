@@ -19,7 +19,11 @@
 
       {% include "partials/errorSummary.njk" %}
 
-      <h1 class="govuk-heading-l">{{ pageTitle }}</h1>
+      <h1 class="govuk-heading-l">
+        {% block heading %}
+          {{ pageTitle }}
+        {% endblock %}
+      </h1>
 
       <form id="form-wizard" method="post" novalidate>
         <input type="hidden" name="_csrf" value="{{ csrfToken }}" />

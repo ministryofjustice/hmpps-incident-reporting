@@ -10,7 +10,7 @@ jest.mock('../data/prisonApi')
 let app: Express
 
 beforeEach(() => {
-  app = appWithAllRoutes({})
+  app = appWithAllRoutes()
 })
 
 afterEach(() => {

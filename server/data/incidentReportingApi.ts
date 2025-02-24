@@ -165,7 +165,7 @@ export type HistoricStatus = {
 }
 
 export type StaffInvolvement = {
-  staffUsername: string
+  staffUsername: string | null
   firstName: string
   lastName: string
   staffRole: StaffInvolvementRole
@@ -503,7 +503,7 @@ export class IncidentReportingApi extends RestClient {
 }
 
 export type AddStaffInvolvementRequest = {
-  staffUsername: string
+  staffUsername?: string
   firstName: string
   lastName: string
   staffRole: StaffInvolvementRole
@@ -511,7 +511,7 @@ export type AddStaffInvolvementRequest = {
 }
 
 export type UpdateStaffInvolvementRequest = {
-  staffUsername?: string
+  staffUsername?: string | null
   firstName?: string
   lastName?: string
   staffRole?: string

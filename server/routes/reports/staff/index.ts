@@ -5,6 +5,7 @@ import { populateReport } from '../../../middleware/populateReport'
 import { populateStaffMember } from '../../../middleware/populateStaffMember'
 import { cannotEditReport } from '../permissions'
 import { addRouter } from './involvement/add'
+import { manualAddRouter } from './involvement/manual/add'
 import { editRouter } from './involvement/edit'
 import { summaryRouter } from './summary'
 
@@ -15,7 +16,7 @@ export const staffInvolvementRouter = express.Router({ mergeParams: true })
 staffInvolvementRouter.use(populateReport(true), logoutIf(cannotEditReport))
 
 // add a new staff involvement
-// TODO: staffInvolvementRouter.use('/add/manual', addRouter)
+staffInvolvementRouter.use('/add/manual', manualAddRouter)
 staffInvolvementRouter.use('/add/username/:username', populateStaffMember(), addRouter)
 
 // remove existing staff involvement (index starts at 1)

@@ -8,16 +8,16 @@ import type { ReportWithDetails } from '../../../../data/incidentReportingApi'
 import type { Values } from './fields'
 
 // eslint-disable-next-line import/prefer-default-export
-export abstract class StaffInvolvementController extends BaseController<Values> {
+export abstract class StaffInvolvementController<V extends Values = Values> extends BaseController<V> {
   middlewareLocals(): void {
     this.use(this.customiseFields)
     super.middlewareLocals()
   }
 
-  customiseFields(req: FormWizard.Request<Values>, res: express.Response, next: express.NextFunction): void {
+  customiseFields(req: FormWizard.Request<V>, res: express.Response, next: express.NextFunction): void {
     const { fields } = req.form.options
 
-    const staffMemberName = this.getStaffMemberName(res)
+    const staffMemberName = this.getStaffMemberName(req, res)
     const possessiveFirstName = possessive(convertToTitleCase(staffMemberName.firstName))
 
     const customisedFields = { ...fields }
@@ -36,10 +36,10 @@ export abstract class StaffInvolvementController extends BaseController<Values> 
     next()
   }
 
-  locals(req: FormWizard.Request<Values>, res: express.Response): Partial<FormWizard.Locals<Values>> {
+  locals(req: FormWizard.Request<V>, res: express.Response): Partial<FormWizard.Locals<V>> {
     return {
       ...super.locals(req, res),
-      pageTitle: `${possessive(nameOfPerson(this.getStaffMemberName(res)))} involvement in the incident`,
+      pageTitle: `${possessive(nameOfPerson(this.getStaffMemberName(req, res)))} involvement in the incident`,
     }
   }
 
@@ -50,17 +50,20 @@ export abstract class StaffInvolvementController extends BaseController<Values> 
     return super.errorMessage(error)
   }
 
-  getBackLink(_req: FormWizard.Request<Values>, res: express.Response): string {
+  getBackLink(_req: FormWizard.Request<V>, res: express.Response): string {
     const report = res.locals.report as ReportWithDetails
     return `/reports/${report.id}/staff`
   }
 
-  getNextStep(_req: FormWizard.Request<Values>, res: express.Response): string {
+  getNextStep(_req: FormWizard.Request<V>, res: express.Response): string {
     const report = res.locals.report as ReportWithDetails
     return `/reports/${report.id}/staff`
   }
 
-  protected abstract getStaffMemberName(res: express.Response): { firstName: string; lastName: string }
+  protected abstract getStaffMemberName(
+    req: FormWizard.Request<V>,
+    res: express.Response,
+  ): { firstName: string; lastName: string }
 
   /** Turns a *prevalidated* role string into a typed role */
   protected coerceStaffRole(role: string): StaffInvolvementRole {

@@ -2,26 +2,26 @@ import type express from 'express'
 import FormWizard from 'hmpo-form-wizard'
 
 import logger from '../../../../../logger'
-import type { ReportWithDetails } from '../../../../data/incidentReportingApi'
+import type { AddStaffInvolvementRequest, ReportWithDetails } from '../../../../data/incidentReportingApi'
 import type { PrisonUser } from '../../../../data/manageUsersApiClient'
 import { StaffInvolvementController } from './controller'
 import { fields, type Values } from './fields'
 import { steps } from './steps'
 
-class AddStaffInvolvementController extends StaffInvolvementController {
-  protected getStaffMemberName(res: express.Response): { firstName: string; lastName: string } {
+export class AddStaffInvolvementController<V extends Values = Values> extends StaffInvolvementController<V> {
+  protected getStaffMemberName(
+    _req: FormWizard.Request<V>,
+    res: express.Response,
+  ): { firstName: string; lastName: string } {
     return res.locals.staffMember as PrisonUser
   }
 
-  async saveValues(req: FormWizard.Request<Values>, res: express.Response, next: express.NextFunction): Promise<void> {
+  async saveValues(req: FormWizard.Request<V>, res: express.Response, next: express.NextFunction): Promise<void> {
     const report = res.locals.report as ReportWithDetails
-    const staffMember = res.locals.staffMember as PrisonUser
     const allValues = this.getAllValues(req, false)
     try {
       await res.locals.apis.incidentReportingApi.staffInvolved.addToReport(report.id, {
-        staffUsername: staffMember.username,
-        firstName: staffMember.firstName,
-        lastName: staffMember.lastName,
+        ...this.staffMemberPayload(req, res),
         staffRole: this.coerceStaffRole(allValues.staffRole),
         comment: allValues.comment ?? '',
       })
@@ -35,9 +35,20 @@ class AddStaffInvolvementController extends StaffInvolvementController {
       next(err)
     }
   }
+
+  protected staffMemberPayload(
+    _req: FormWizard.Request<V>,
+    res: express.Response,
+  ): Pick<AddStaffInvolvementRequest, 'staffUsername' | 'firstName' | 'lastName'> {
+    const staffMember = res.locals.staffMember as PrisonUser
+    return {
+      staffUsername: staffMember.username,
+      firstName: staffMember.firstName,
+      lastName: staffMember.lastName,
+    }
+  }
 }
 
-// eslint-disable-next-line import/prefer-default-export
 export const addRouter = FormWizard(steps, fields, {
   name: 'addStaffInvolvement',
   checkSession: false,

@@ -32,7 +32,10 @@ class EditStaffInvolvementController extends StaffInvolvementController {
     next()
   }
 
-  protected getStaffMemberName(res: express.Response): { firstName: string; lastName: string } {
+  protected getStaffMemberName(
+    _req: FormWizard.Request<Values>,
+    res: express.Response,
+  ): { firstName: string; lastName: string } {
     return res.locals.staffInvolvement as StaffInvolvement
   }
 

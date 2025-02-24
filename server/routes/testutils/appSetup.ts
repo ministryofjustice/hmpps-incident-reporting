@@ -63,6 +63,6 @@ export function appWithAllRoutes({
   production?: boolean
   services?: Partial<Services>
   userSupplier?: () => Express.User
-}): Express {
+} = {}): Express {
   return appSetup(services as Services, production, userSupplier)
 }

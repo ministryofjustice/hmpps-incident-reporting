@@ -26,7 +26,7 @@ let app: Express
 let incidentReportingApi: jest.Mocked<IncidentReportingApi>
 
 beforeEach(() => {
-  app = appWithAllRoutes({})
+  app = appWithAllRoutes()
   incidentReportingApi = IncidentReportingApi.prototype as jest.Mocked<IncidentReportingApi>
 })
 

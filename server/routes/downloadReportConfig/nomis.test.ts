@@ -12,7 +12,7 @@ let app: Express
 let prisonApi: jest.Mocked<PrisonApi>
 
 beforeEach(() => {
-  app = appWithAllRoutes({})
+  app = appWithAllRoutes()
   prisonApi = PrisonApi.prototype as jest.Mocked<PrisonApi>
 })
 

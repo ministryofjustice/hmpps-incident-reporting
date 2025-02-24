@@ -10,8 +10,9 @@ import {
   type UpdateStaffInvolvementRequest,
 } from '../../../../data/incidentReportingApi'
 import { convertReportWithDetailsDates } from '../../../../data/incidentReportingApiUtils'
-import ManageUsersApiClient, { type PrisonUser } from '../../../../data/manageUsersApiClient'
+import ManageUsersApiClient from '../../../../data/manageUsersApiClient'
 import { mockErrorResponse, mockReport } from '../../../../data/testData/incidentReporting'
+import { mockPrisonUser } from '../../../../data/testData/manageUsers'
 import { mockThrownError } from '../../../../data/testData/thrownErrors'
 import { approverUser, hqUser, reportingUser, unauthorisedUser } from '../../../../data/testData/users'
 import { appWithAllRoutes } from '../../../testutils/appSetup'
@@ -19,12 +20,6 @@ import { now } from '../../../../testutils/fakeClock'
 
 jest.mock('../../../../data/incidentReportingApi')
 jest.mock('../../../../data/manageUsersApiClient')
-
-const mockPrisonUser: PrisonUser = {
-  username: 'user1',
-  firstName: 'JOHN',
-  lastName: 'SMITH',
-}
 
 let app: Express
 let incidentReportingApi: jest.Mocked<IncidentReportingApi>

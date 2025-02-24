@@ -2,15 +2,10 @@ import type { NextFunction, Request, Response } from 'express'
 import nock from 'nock'
 
 import config from '../config'
-import type { PrisonUser } from '../data/manageUsersApiClient'
+import { mockPrisonUser } from '../data/testData/manageUsers'
 import { populateStaffMember } from './populateStaffMember'
 
 describe('staff-member-loading middleware', () => {
-  const mockPrisonUser: PrisonUser = {
-    username: 'user1',
-    firstName: 'John',
-    lastName: 'Smith',
-  }
   let fakeApi: nock.Scope
 
   beforeEach(() => {

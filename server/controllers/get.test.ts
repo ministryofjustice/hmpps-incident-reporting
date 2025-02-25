@@ -1,3 +1,4 @@
+// eslint-disable-next-line max-classes-per-file
 import cookieParser from 'cookie-parser'
 import cookieSession from 'cookie-session'
 import express from 'express'
@@ -38,13 +39,20 @@ class TestController extends GetBaseController {
   }
 }
 
-const config: FormWizard.Config = {
-  controller: TestController,
-  template: 'partials/formWizardLayout',
+class RerenderTestController extends TestController {
+  protected shouldContinueRenderFlowOnSuccess = true
 }
 
-describe('GET / query string base form wizard controller', () => {
+describe.each([
+  { scenario: 'continues onto next step', controller: TestController },
+  { scenario: 're-renders page', controller: RerenderTestController },
+])('GET-based form wizard controller which $scenario on success', ({ controller }) => {
   let app: express.Express
+
+  const config: FormWizard.Config = {
+    controller,
+    template: 'partials/formWizardLayout',
+  }
 
   beforeEach(() => {
     app = express()
@@ -107,7 +115,13 @@ describe('GET / query string base form wizard controller', () => {
       .get('/')
       .query({ name: 'John', email: '' })
       .expect(res => {
-        expect(res.headers.location).toEqual('/done')
+        if (controller === TestController) {
+          expect(res.headers.location).toEqual('/done')
+          expect(res.text).not.toContain('Email')
+        } else {
+          expect(res.headers.location).toBeUndefined()
+          expect(res.text).toContain('Email')
+        }
 
         expect(successHandlerSpy).toHaveBeenCalledWith({ name: 'John', email: '' })
       })

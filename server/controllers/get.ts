@@ -22,7 +22,17 @@ export abstract class GetBaseController<
     })
   }
 
-  get(req: FormWizard.Request<V, K>, res: express.Response, next: express.NextFunction): void {
+  /**
+   * Whether the standard GET render flow should proceed after a successful form submission and a call to the success handler.
+   *
+   * Normally, the success handler is called, without re-rendering, leading to a redirect happens to the next step.
+   *
+   * Override this with true for forms that should re-render themselves on success as well as on failure.
+   * The next step would always be ignored. This is useful for pages where the form and results are displayed together.
+   */
+  protected shouldContinueRenderFlowOnSuccess = false
+
+  async get(req: FormWizard.Request<V, K>, res: express.Response, next: express.NextFunction): Promise<void> {
     // repurpose GET method to handle form submission first conditionally
     const fieldNames = Object.keys(req.form.options.fields) as K[]
 
@@ -45,13 +55,48 @@ export abstract class GetBaseController<
           formSubmitted = true
         }
       })
+
       if (formSubmitted) {
-        this.successHandler(req, res, next)
-        return
+        // form submission was successful
+
+        if (this.shouldContinueRenderFlowOnSuccess) {
+          // calling success handler but returning to this method to continue standard GET flow
+          try {
+            await new Promise<void>((resolve, reject) => {
+              this.successHandler(req, res, (...args) => {
+                if (args.length) {
+                  // eslint-disable-next-line prefer-promise-reject-errors
+                  reject(...args)
+                } else {
+                  resolve()
+                }
+              })
+            })
+          } catch (error) {
+            next(error)
+            return
+          }
+        } else {
+          // calling success handler and proceeding onto next step
+          this.successHandler(req, res, next)
+          return
+        }
       }
     }
 
     super.get(req, res, next)
+  }
+
+  /**
+   * Called when a form is successfully submitted.
+   * NB: when overriding, ensure call to super method
+   */
+  successHandler(req: FormWizard.Request<V, K>, res: express.Response, next: express.NextFunction): void {
+    if (this.shouldContinueRenderFlowOnSuccess) {
+      next()
+    } else {
+      super.successHandler(req, res, next)
+    }
   }
 
   post(_req: FormWizard.Request<V, K>, _res: express.Response, next: express.NextFunction): void {

@@ -1,5 +1,5 @@
 import type FormWizard from 'hmpo-form-wizard'
-import RemovePrisoner from '../../controllers/removePrisoner/removePrisoner'
+import RemovePrisoner from '../../../../controllers/removePrisoner/removePrisoner'
 
 const steps: FormWizard.Steps = {
   '/': {

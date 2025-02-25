@@ -19,12 +19,14 @@
 
 {% block content %}
 
-  <form id="addAnotherPrisoner" method="post" novalidate>
+  {% include "partials/errorSummary.njk" %}
+
+  <form id="removePrisoner" method="post" novalidate>
     <input type="hidden" name="_csrf" value="{{ csrfToken }}" />
     <input type="hidden" name="x-csrf-token" value="{{ csrfToken }}" />
 
-    {% if errors['addPrisoner'] %}
-      {% set errorMessage = { text: errors['addPrisoner'].message } %}
+    {% if errors['removePrisoner'] %}
+      {% set errorMessage = { text: errors['removePrisoner'].message } %}
     {% else %}
       {% set errorMessage = undefined %}
     {% endif %}

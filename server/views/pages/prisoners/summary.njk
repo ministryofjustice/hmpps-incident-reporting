@@ -4,7 +4,7 @@
 {% from "govuk/components/table/macro.njk" import govukTable %}
 {% from "govuk/components/back-link/macro.njk" import govukBackLink %}
 {% from "govuk/components/radios/macro.njk" import govukRadios %}
-{% from "govuk/components/notification-banner/macro.njk" import govukNotificationBanner %}
+
 
 {% set pageTitle = applicationName + " – Prisoners involved in report" %}
 {% set bodyClasses = "app-prisoner-summary" %}
@@ -16,29 +16,11 @@
       text: "Back",
       href: backLink
   }) }}
+
+  {% include "partials/notificationBanner.njk" %}
 {% endblock %}
 
 {% block content %}
-
-  {% if banner.success %}
-    {% set html %}
-      <h3 class="govuk-notification-banner__heading">
-        {{ banner.success.title }}
-      </h3>
-    {% endset %}
-
-    <div class="govuk-width-container">
-      <div class="govuk-grid-row govuk-!-margin-bottom-0">
-        <div class="govuk-grid-column-two-thirds">
-          {{ govukNotificationBanner({
-          html: html,
-          type: "success",
-          classes: "govuk-!-margin-top-7 govuk-!-margin-bottom-0"
-          }) }}
-        </div>
-      </div>
-    </div>
-  {% endif %}
 
   {% include "partials/errorSummary.njk" %}
 

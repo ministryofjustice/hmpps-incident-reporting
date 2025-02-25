@@ -1,0 +1,30 @@
+{% from "govuk/components/notification-banner/macro.njk" import govukNotificationBanner %}
+
+{% if banner.success %}
+  {% set html %}
+    {% if banner.success[0].title %}
+      <h3 class="govuk-notification-banner__heading">
+        {{ banner.success[0].title }}
+      </h3>
+    {% endif %}
+    {% if banner.success[0].content %}
+      <p class="govuk-body">
+        {{ banner.success.content }}
+      </p>
+    {% endif %}
+  {% endset %}
+
+  <div class="govuk-width-container">
+    <div class="govuk-grid-row govuk-!-margin-bottom-0">
+      <div class="govuk-grid-column-two-thirds">
+        {{ govukNotificationBanner({
+        html: html,
+        type: "success",
+        classes: "govuk-!-margin-top-7 govuk-!-margin-bottom-0"
+        }) }}
+      </div>
+    </div>
+  </div>
+{% endif %}
+
+

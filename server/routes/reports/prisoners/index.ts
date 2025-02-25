@@ -5,6 +5,7 @@ import { populatePrisoner } from '../../../middleware/populatePrisoner'
 import { populateReport } from '../../../middleware/populateReport'
 import { cannotEditReport } from '../permissions'
 import { summaryRouter } from './summary'
+import { removePrisonerRouter } from './remove'
 
 // eslint-disable-next-line import/prefer-default-export
 export const prisonerInvolvementRouter = express.Router({ mergeParams: true })
@@ -18,9 +19,7 @@ prisonerInvolvementRouter.use('/add/:prisonerNumber', populatePrisoner(), (_req,
 })
 
 // remove existing staff involvement (index starts at 1)
-prisonerInvolvementRouter.use('/remove/:index', (_req, res) => {
-  res.send('REMOVE')
-})
+prisonerInvolvementRouter.use('/remove/:index', removePrisonerRouter)
 
 // edit existing prisoner involvement (index starts at 1)
 prisonerInvolvementRouter.use('/:index', (_req, res) => {

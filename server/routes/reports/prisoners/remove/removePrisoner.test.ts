@@ -1,15 +1,15 @@
 import request from 'supertest'
 import type { Express } from 'express'
-import { convertBasicReportDates, convertReportWithDetailsDates } from '../../data/incidentReportingApiUtils'
-import { mockReport } from '../../data/testData/incidentReporting'
-import { now } from '../../testutils/fakeClock'
-import { IncidentReportingApi, ReportWithDetails } from '../../data/incidentReportingApi'
-import UserService from '../../services/userService'
-import { appWithAllRoutes } from '../testutils/appSetup'
-import type { User } from '../../data/manageUsersApiClient'
+import { convertReportWithDetailsDates } from '../../../../data/incidentReportingApiUtils'
+import { mockReport } from '../../../../data/testData/incidentReporting'
+import { now } from '../../../../testutils/fakeClock'
+import { IncidentReportingApi } from '../../../../data/incidentReportingApi'
+import UserService from '../../../../services/userService'
+import { appWithAllRoutes } from '../../../testutils/appSetup'
+import type { User } from '../../../../data/manageUsersApiClient'
 
-jest.mock('../../data/incidentReportingApi')
-jest.mock('../../services/userService')
+jest.mock('../../../../data/incidentReportingApi')
+jest.mock('../../../../services/userService')
 
 let app: Express
 let incidentReportingApi: jest.Mocked<IncidentReportingApi>
@@ -45,7 +45,7 @@ describe('GET remove prisoner confirmation page', () => {
       mockReport({ reportReference: '6543', reportDateAndTime: now, withDetails: true }),
     )
     incidentReportingApi.getReportWithDetailsById.mockResolvedValueOnce(mockedReport)
-    viewReportUrl = `/reports/${mockedReport.id}/remove-prisoner/0`
+    viewReportUrl = `/reports/${mockedReport.id}/prisoners/remove/1`
     return request(app)
       .get(viewReportUrl)
       .expect('Content-Type', /html/)

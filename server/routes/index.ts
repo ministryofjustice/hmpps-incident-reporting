@@ -9,7 +9,6 @@ import makeDownloadConfigRouter from './downloadReportConfig'
 import { createReportRouter } from './reports/createReport'
 import { prisonerInvolvementRouter } from './reports/prisoners'
 import { staffInvolvementRouter } from './reports/staff'
-import removePrisonerRouter from './removePrisoner'
 import { questionsRouter } from './reports/questions'
 import { updateDetailsRouter } from './reports/updateReportDetails'
 import { viewReportRouter } from './reports/viewReport'
@@ -46,9 +45,6 @@ export default function routes(services: Services): Router {
   // add people
   router.use('/reports/:reportId/prisoner-search', prisonerSearchRoutes())
   router.use('/reports/:reportId/add-prisoner/:prisonerNumber', addPrisonerRouter)
-
-  // remove people
-  router.use('/reports/:reportId/remove-prisoner/:prisonerReportIndex', removePrisonerRouter)
 
   // Auxiliary routes
   get('/prisoner/:prisonerNumber/photo.jpeg', async (req, res) => {

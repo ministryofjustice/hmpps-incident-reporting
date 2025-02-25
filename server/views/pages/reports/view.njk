@@ -29,7 +29,7 @@
 
 {%- set location = prisonsLookup[report.location].description or report.location -%}
 {%- set reportingOfficer = usersLookup[report.reportedBy].name or report.reportedBy -%}
-{%- set reportedDate = report.reportedAt | date -%}
+{%- set reportedDate = report.reportedAt | longDate -%}
 
 {% block content %}
   <h1 class="govuk-heading-l">
@@ -243,7 +243,7 @@
             {{ responseItem.answerConfig.label }}
             {% if responseItem.response.responseDate %}
               <br />
-              Date: {{ responseItem.response.responseDate | date }}
+              Date: {{ responseItem.response.responseDate | longDate }}
             {% endif %}
             {% if responseItem.response.additionalInformation %}
               <br />

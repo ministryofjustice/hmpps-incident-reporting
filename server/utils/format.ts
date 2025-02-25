@@ -25,7 +25,7 @@ export default {
    *
    * Example: `22 February 2022`
    */
-  date(date: Date): string {
+  longDate(date: Date): string {
     if (typeof date === 'undefined' || date === null) {
       return ''
     }

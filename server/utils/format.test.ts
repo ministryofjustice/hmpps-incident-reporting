@@ -55,12 +55,12 @@ describe('date(): Format dates as Europe/London ignoring time-of-day', () => {
     // 24-hr clock
     ['2022-02-23T16:37:53Z', '23 February 2022'],
   ])('new Date(%s) is formatted as %s ignoring time-of-day', (date, expected) => {
-    expect(format.date(new Date(date))).toEqual(expected)
+    expect(format.longDate(new Date(date))).toEqual(expected)
   })
 
   it("returns '' for null and undefined", () => {
-    expect(format.date(null)).toEqual('')
-    expect(format.date(undefined)).toEqual('')
+    expect(format.longDate(null)).toEqual('')
+    expect(format.longDate(undefined)).toEqual('')
   })
 })
 

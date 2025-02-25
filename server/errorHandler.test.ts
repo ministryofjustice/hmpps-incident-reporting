@@ -26,7 +26,7 @@ describe('Error handling', () => {
     })
 
     it('should render content with stack in dev mode', () => {
-      return request(appWithAllRoutes({}))
+      return request(appWithAllRoutes())
         .get('/unknown')
         .expect(404)
         .expect('Content-Type', /html/)
@@ -66,7 +66,7 @@ describe('Error handling', () => {
       })
       mockedRoutes.mockReturnValue(router)
 
-      return request(appWithAllRoutes({}))
+      return request(appWithAllRoutes())
         .get('/protected')
         .redirects(1)
         .expect(200)
@@ -110,7 +110,7 @@ describe('Error handling', () => {
     })
 
     it('should handle redirect to a previous invalid step', async () => {
-      const agent = request.agent(appWithAllRoutes({}))
+      const agent = request.agent(appWithAllRoutes())
       await agent
         .post('/')
         .expect(200)

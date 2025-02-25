@@ -94,7 +94,7 @@ export default function nunjucksSetup(app: express.Express): void {
 
   // date/datetime formatting
   njkEnv.addFilter('dateAndTime', format.dateAndTime)
-  njkEnv.addFilter('date', format.date)
+  njkEnv.addFilter('longDate', format.longDate)
   njkEnv.addFilter('shortDate', format.shortDate)
   njkEnv.addFilter('time', format.time)
 

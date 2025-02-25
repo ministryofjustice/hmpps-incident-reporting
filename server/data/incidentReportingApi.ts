@@ -165,7 +165,7 @@ export type HistoricStatus = {
 }
 
 export type StaffInvolvement = {
-  staffUsername: string
+  staffUsername: string | null
   firstName: string
   lastName: string
   staffRole: StaffInvolvementRole
@@ -503,23 +503,23 @@ export class IncidentReportingApi extends RestClient {
   }
 }
 
-type AddStaffInvolvementRequest = {
-  staffUsername: string
+export type AddStaffInvolvementRequest = {
+  staffUsername?: string
   firstName: string
   lastName: string
   staffRole: StaffInvolvementRole
   comment?: string
 }
 
-type UpdateStaffInvolvementRequest = {
-  staffUsername?: string
+export type UpdateStaffInvolvementRequest = {
+  staffUsername?: string | null
   firstName?: string
   lastName?: string
   staffRole?: string
   comment?: string | null
 }
 
-type AddPrisonerInvolvementRequest = {
+export type AddPrisonerInvolvementRequest = {
   prisonerNumber: string
   firstName: string
   lastName: string
@@ -528,7 +528,7 @@ type AddPrisonerInvolvementRequest = {
   comment?: string
 }
 
-type UpdatePrisonerInvolvementRequest = {
+export type UpdatePrisonerInvolvementRequest = {
   prisonerNumber?: string
   firstName?: string
   lastName?: string
@@ -545,7 +545,7 @@ type UpdateCorrectionRequestRequest = {
   descriptionOfChange?: string
 }
 
-class RelatedObjects<
+export class RelatedObjects<
   ResponseType,
   AddRequestType extends Record<string, unknown>,
   UpdateRequestType extends Record<string, unknown>,

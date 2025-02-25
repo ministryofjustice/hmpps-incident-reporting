@@ -29,7 +29,7 @@
 
 {%- set location = prisonsLookup[report.location].description or report.location -%}
 {%- set reportingOfficer = usersLookup[report.reportedBy].name or report.reportedBy -%}
-{%- set reportedDate = report.reportedAt | date -%}
+{%- set reportedDate = report.reportedAt | longDate -%}
 
 {% block content %}
   <h1 class="govuk-heading-l">
@@ -108,18 +108,7 @@
   {%- if report.prisonersInvolved.length > 0 -%}
     {%- set prisonerRows = [] -%}
       {%- for prisonerInvolved in report.prisonersInvolved -%}
-        {% if prisonersLookup[prisonerInvolved.prisonerNumber] %}
-          {%- set prisonerName = prisonersLookup[prisonerInvolved.prisonerNumber] | nameOfPerson -%}
-        {% else %}
-          {%- set prisonerName = prisonerInvolved.prisonerNumber -%}
-        {% endif %}
-
         {%- set prisonerRole = prisonerInvolvementLookup[prisonerInvolved.prisonerRole] or prisonerInvolved.prisonerRole -%}
-        {% if prisonerInvolved.outcome %}
-          {%- set outcome = prisonerOutcomeLookup[prisonerInvolved.outcome] or prisonerInvolved.outcome -%}
-        {% else %}
-          {%- set outcome = "No outcome" -%}
-        {% endif %}
         {% if prisonerInvolved.comment %}
           {%- set comment = prisonerInvolved.comment -%}
         {% else %}
@@ -127,15 +116,23 @@
         {% endif %}
         {% set prisonerValues %}
           Role: {{ prisonerRole }}
-          <br />
-          Outcome: {{ outcome }}
+
+          {% if report.createdInNomis %}
+            <br />
+            Outcome: {% if prisonerInvolved.outcome -%}
+              {{ prisonerOutcomeLookup[prisonerInvolved.outcome] or prisonerInvolved.outcome }}
+            {%- else -%}
+              No outcome
+            {%- endif %}
+          {% endif %}
+
           <br />
           Details: {{ comment | escape | nl2br }}
         {% endset %}
 
         {%- set prisonerURL = dpsUrl + "/prisoner/" + prisonerInvolved.prisonerNumber -%}
         {% set prisonerURLKey %}
-          <a href="{{ prisonerURL }}" class="govuk-link">{{ prisonerName }}</a>
+          <a href="{{ prisonerURL }}" class="govuk-link">{{ prisonerInvolved | nameOfPerson }}</a>
         {% endset %}
 
         {%- set prisonerRows = (prisonerRows.push({
@@ -175,7 +172,6 @@
   {%- if report.staffInvolved.length > 0 -%}
     {%- set staffRows = [] -%}
     {%- for staffInvolved in report.staffInvolved -%}
-      {%- set staffName = usersLookup[staffInvolved.staffUsername].name or staffInvolved.staffUsername -%}
       {%- set staffRole = staffInvolvementLookup[staffInvolved.staffRole] or staffInvolved.staffRole -%}
 
       {% if staffInvolved.comment %}
@@ -191,7 +187,7 @@
 
       {%- set staffRows = (staffRows.push({
         key: {
-          text: staffName
+          text: staffInvolved | nameOfPerson
         },
         value: {
           html: staffValues
@@ -247,7 +243,7 @@
             {{ responseItem.answerConfig.label }}
             {% if responseItem.response.responseDate %}
               <br />
-              Date: {{ responseItem.response.responseDate | date }}
+              Date: {{ responseItem.response.responseDate | longDate }}
             {% endif %}
             {% if responseItem.response.additionalInformation %}
               <br />
@@ -265,7 +261,8 @@
         value: {html: responsesHtml},
         actions: {items: [{
           href: "/reports/" + report.id + "/questions" + (questionProgressStep.urlSuffix or "") + "#question-" + questionProgressStep.fieldName,
-          text: "Change response"
+          text: "Change" if questionProgressStep.isComplete else "Continue",
+          visuallyHiddenText: "question responses"
         }]} if canEditReport else {}
       }) %}
 
@@ -287,6 +284,7 @@
     },
     rows: questionRows
   }) }}
+  {# TODO: link needs to point to incomplete question or nowhere #}
 
 <!-- Correction requests table -->
   {%- if report.correctionRequests.length > 0 -%}

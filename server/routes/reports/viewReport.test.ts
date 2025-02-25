@@ -6,55 +6,39 @@ import { PrisonApi } from '../../data/prisonApi'
 import { appWithAllRoutes } from '../testutils/appSetup'
 import { now } from '../../testutils/fakeClock'
 import UserService from '../../services/userService'
-import { IncidentReportingApi } from '../../data/incidentReportingApi'
-import { OffenderSearchApi, type OffenderSearchResult } from '../../data/offenderSearchApi'
+import { IncidentReportingApi, type ReportWithDetails } from '../../data/incidentReportingApi'
+import { convertReportWithDetailsDates } from '../../data/incidentReportingApiUtils'
 import { mockErrorResponse, mockReport } from '../../data/testData/incidentReporting'
 import { makeSimpleQuestion } from '../../data/testData/incidentReportingJest'
-import { mockThrownError } from '../../data/testData/thrownErrors'
-import { convertReportWithDetailsDates } from '../../data/incidentReportingApiUtils'
-import type { User } from '../../data/manageUsersApiClient'
+import { mockSharedUser } from '../../data/testData/manageUsers'
 import { leeds, moorland } from '../../data/testData/prisonApi'
-import { andrew } from '../../data/testData/offenderSearch'
+import { mockThrownError } from '../../data/testData/thrownErrors'
 import { reportingUser, approverUser, hqUser, unauthorisedUser } from '../../data/testData/users'
 
 jest.mock('../../data/prisonApi')
 jest.mock('../../data/incidentReportingApi')
-jest.mock('../../data/offenderSearchApi')
 jest.mock('../../services/userService')
 
 let app: Express
 let incidentReportingApi: jest.Mocked<IncidentReportingApi>
 let userService: jest.Mocked<UserService>
 let prisonApi: jest.Mocked<PrisonApi>
-let offenderSearchApi: jest.Mocked<OffenderSearchApi>
 
 beforeEach(() => {
   userService = UserService.prototype as jest.Mocked<UserService>
   app = appWithAllRoutes({ services: { userService } })
   incidentReportingApi = IncidentReportingApi.prototype as jest.Mocked<IncidentReportingApi>
   prisonApi = PrisonApi.prototype as jest.Mocked<PrisonApi>
-  offenderSearchApi = OffenderSearchApi.prototype as jest.Mocked<OffenderSearchApi>
 
-  const users: Record<string, User> = {
-    user1: {
-      username: 'user1',
-      name: 'John Smith',
-    },
-    lev79n: {
-      username: 'lev79n',
-      name: 'Barry Harrison',
-    },
-  }
-  userService.getUsers.mockResolvedValueOnce(users)
+  userService.getUsers.mockResolvedValueOnce({
+    [mockSharedUser.username]: mockSharedUser,
+  })
 
   const prisons = {
     LEI: leeds,
     MDI: moorland,
   }
   prisonApi.getPrisons.mockResolvedValue(prisons)
-
-  const prisoners: Record<string, OffenderSearchResult> = { A1111AA: andrew }
-  offenderSearchApi.getPrisoners.mockResolvedValue(prisoners)
 })
 
 afterEach(() => {
@@ -62,10 +46,11 @@ afterEach(() => {
 })
 
 describe('GET view report page with details', () => {
+  let mockedReport: ReportWithDetails
   let viewReportUrl: string
 
   beforeEach(() => {
-    const mockedReport = convertReportWithDetailsDates(
+    mockedReport = convertReportWithDetailsDates(
       mockReport({ reportReference: '6543', reportDateAndTime: now, withDetails: true }),
     )
     mockedReport.questions = [
@@ -103,6 +88,11 @@ describe('GET view report page with details', () => {
         expect(res.text).toContain('Reported by John Smith in Moorland (HMP &amp; YOI)')
         expect(res.text).toContain('Finds')
         expect(incidentReportingApi.getReportWithDetailsById).toHaveBeenCalledTimes(1)
+
+        expect(userService.getUsers.mock.calls).toHaveLength(1)
+        const users = userService.getUsers.mock.calls[0][1]
+        users.sort()
+        expect(users).toEqual(['USER2', 'user1'])
       })
   })
 
@@ -127,18 +117,29 @@ describe('GET view report page with details', () => {
       })
   })
 
-  it('should render prisoners involved with roles and outcomes. Names correct if available', () => {
+  it.each([
+    { scenario: 'roles for reports made on DPS', createdInNomis: false },
+    { scenario: 'roles and outcomes for reports made in NOMIS', createdInNomis: true },
+  ])('should render prisoners involved with $scenario; names correct if available', ({ createdInNomis }) => {
+    mockedReport.createdInNomis = createdInNomis
+
     return request(app)
       .get(viewReportUrl)
       .expect('Content-Type', /html/)
       .expect(res => {
         expect(res.text).toContain('Andrew Arnold')
         expect(res.text).toContain('Role: Active involvement')
-        expect(res.text).toContain('Outcome: Investigation (local)')
+        if (createdInNomis) {
+          expect(res.text).toContain('Outcome: Investigation (local)')
+        } else {
+          expect(res.text).not.toContain('Outcome:')
+        }
         expect(res.text).toContain('Details: Comment about A1111AA')
         expect(res.text).toContain('A2222BB')
         expect(res.text).toContain('Role: Suspected involved')
-        expect(res.text).toContain('Outcome: No outcome')
+        if (createdInNomis) {
+          expect(res.text).toContain('Outcome: No outcome')
+        }
         expect(res.text).toContain('Details: No comment')
       })
   })
@@ -152,7 +153,7 @@ describe('GET view report page with details', () => {
       .expect(res => {
         expect(res.text).toContain('Barry Harrison')
         expect(res.text).toContain('Present at scene')
-        expect(res.text).toContain('abc12a')
+        expect(res.text).toContain('Mary Johnson')
         expect(res.text).toContain('Actively involved')
       })
   })
@@ -327,9 +328,9 @@ describe('Report viewing permissions', () => {
     if (action === 'granted') {
       return testRequest.expect(200).expect(res => {
         if (canEdit) {
-          expect(res.text).toContain('Change response')
+          expect(res.text).toContain('question responses')
         } else {
-          expect(res.text).not.toContain('Change response')
+          expect(res.text).not.toContain('question responses')
         }
       })
     }

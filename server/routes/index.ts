@@ -13,7 +13,6 @@ import { questionsRouter } from './reports/questions'
 import { updateDetailsRouter } from './reports/updateReportDetails'
 import { viewReportRouter } from './reports/viewReport'
 import prisonerSearchRoutes from '../controllers/addPrisoner/prisonerSearch'
-import addPrisonerRouter from './addPrisoner'
 import dashboard from './dashboard/dashboard'
 import { dprRouter } from './dpr'
 
@@ -44,7 +43,6 @@ export default function routes(services: Services): Router {
 
   // add people
   router.use('/reports/:reportId/prisoner-search', prisonerSearchRoutes())
-  router.use('/reports/:reportId/add-prisoner/:prisonerNumber', addPrisonerRouter)
 
   // Auxiliary routes
   get('/prisoner/:prisonerNumber/photo.jpeg', async (req, res) => {

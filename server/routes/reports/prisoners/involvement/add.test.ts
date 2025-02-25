@@ -117,6 +117,10 @@ describe('Adding a new prisoner to a report', () => {
           }
           expect(res.text).toContain('Details of Andrew’s involvement')
 
+          // available roles depend on type
+          expect(res.text).toContain('Impeded staff')
+          expect(res.text).not.toContain('Active involvement')
+
           expect(incidentReportingRelatedObjects.addToReport).not.toHaveBeenCalled()
         })
     })

@@ -114,6 +114,11 @@ describe('Editing an existing prisoner in a report', () => {
           }
           expect(res.text).toContain('Details of Andrew’s involvement')
 
+          // available roles depend on type
+          expect(res.text).toContain('Impeded staff')
+          expect(res.text).not.toContain('Active involvement')
+
+          // prefilled with existing involvement
           expect(res.text).toContain('value="IMPEDED_STAFF" checked')
           if (createdInNomis) {
             expect(res.text).toContain('value="LOCAL_INVESTIGATION" checked')

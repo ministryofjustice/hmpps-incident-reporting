@@ -78,7 +78,13 @@ describe('DPS config validation', () => {
             nextQuestionId: null,
           }),
         },
-        prisonerRoles: [],
+        prisonerRoles: [
+          {
+            prisonerRole: 'PRESENT_AT_SCENE',
+            onlyOneAllowed: false,
+            active: true,
+          },
+        ],
       }
       config.questions['1'].answers.forEach(answer => {
         // eslint-disable-next-line no-param-reassign
@@ -343,6 +349,30 @@ describe('DPS config validation', () => {
       expect(errors).toEqual([])
     })
   })
+
+  describe('when config is missing prisoner roles', () => {
+    it('returns an error when none are present', () => {
+      const config: IncidentTypeConfiguration = buildValidConfig()
+      config.prisonerRoles = []
+
+      const errors = validateConfig(config).map(err => err.message)
+      expect(errors).toEqual(['no active prisoner roles exist'])
+    })
+
+    it('returns an error when all are inactive', () => {
+      const config: IncidentTypeConfiguration = buildValidConfig()
+      config.prisonerRoles = [
+        {
+          prisonerRole: 'PRESENT_AT_SCENE',
+          onlyOneAllowed: false,
+          active: false,
+        },
+      ]
+
+      const errors = validateConfig(config).map(err => err.message)
+      expect(errors).toEqual(['no active prisoner roles exist'])
+    })
+  })
 })
 
 function buildValidConfig(): IncidentTypeConfiguration {
@@ -362,7 +392,13 @@ function buildValidConfig(): IncidentTypeConfiguration {
         nextQuestionId: null,
       }),
     },
-    prisonerRoles: [],
+    prisonerRoles: [
+      {
+        prisonerRole: 'PRESENT_AT_SCENE',
+        onlyOneAllowed: false,
+        active: true,
+      },
+    ],
   }
 }
 

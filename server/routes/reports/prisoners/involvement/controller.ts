@@ -5,11 +5,13 @@ import type { PrisonerInvolvementOutcome, PrisonerInvolvementRole } from '../../
 import { BaseController } from '../../../../controllers'
 import { convertToTitleCase, nameOfPerson, possessive } from '../../../../utils/utils'
 import type { ReportWithDetails } from '../../../../data/incidentReportingApi'
+import { populateReportConfiguration } from '../../../../middleware/populateReportConfiguration'
 import type { Values } from './fields'
 
 // eslint-disable-next-line import/prefer-default-export
 export abstract class PrisonerInvolvementController extends BaseController<Values> {
   middlewareLocals(): void {
+    this.router.use(populateReportConfiguration(false))
     this.use(this.customiseFields)
     super.middlewareLocals()
   }
@@ -17,15 +19,21 @@ export abstract class PrisonerInvolvementController extends BaseController<Value
   customiseFields(req: FormWizard.Request<Values>, res: express.Response, next: express.NextFunction): void {
     const { fields } = req.form.options
     const report = res.locals.report as ReportWithDetails
+    const { reportConfig } = res.locals
 
     const { firstName } = this.getPrisonerName(res)
     const possessiveFirstName = possessive(convertToTitleCase(firstName))
+
+    const allowedRoleCodes: Set<string> = new Set(
+      reportConfig.prisonerRoles.filter(role => role.active).map(role => role.prisonerRole),
+    )
 
     const customisedFields = { ...fields }
 
     customisedFields.prisonerRole = {
       ...customisedFields.prisonerRole,
       label: `What was ${possessiveFirstName} role?`,
+      items: customisedFields.prisonerRole.items.filter(role => allowedRoleCodes.has(role.value)),
     }
     customisedFields.comment = {
       ...customisedFields.comment,

@@ -301,6 +301,10 @@ declare module 'hmpo-form-wizard' {
       (err?: Error | undefined, values?: V | undefined): void
     }
 
+    interface ValidateCallback<K extends string> {
+      (errors: Record<K, Error>): void
+    }
+
     interface Locals<V extends object = Values, K extends keyof V = keyof V> extends Record<string, unknown> {
       errors: Errors<K>
       errorlist: Error[]
@@ -371,7 +375,7 @@ declare module 'hmpo-form-wizard' {
 
       process(req: Request<V, K>, res: express.Response, next: express.NextFunction): void
 
-      validateFields(req: Request<V, K>, res: express.Response, callback: Callback<V>): void
+      validateFields(req: Request<V, K>, res: express.Response, callback: ValidateCallback<K>): void
 
       validateField(key: K, req: Request<V, K>, res: express.Response): Error | false | undefined
 
@@ -381,7 +385,7 @@ declare module 'hmpo-form-wizard' {
 
       successHandler(req: Request<V, K>, res: express.Response, next: express.NextFunction): void
 
-      isValidationError(err: unknown): err is Record<string, Error>
+      isValidationError(err: unknown): err is Record<K, Error>
 
       errorHandler(
         err: Errors<K> | undefined,

@@ -41,7 +41,7 @@ export abstract class GetBaseController<
         if (fieldNames.some(fieldName => fieldName in errors)) {
           this.setErrors(errors, req, res)
         } else {
-          this.saveValues(req, res, next)
+          this.saveValues(req, res, () => {})
           formSubmitted = true
         }
       })

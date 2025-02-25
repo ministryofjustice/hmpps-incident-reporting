@@ -24,7 +24,7 @@ export default class RemovePrisoner extends BaseController {
       errors.removePrisoner.message = 'Select if you would like to remove this prisoner to continue.'
     }
 
-    const prisonerToRemove = report.prisonersInvolved[Number(index) - 1]
+    const prisonerToRemove = report.prisonersInvolved[parseInt(index, 10) - 1]
 
     return {
       ...locals,
@@ -40,7 +40,7 @@ export default class RemovePrisoner extends BaseController {
       if (removePrisoner === 'yes') {
         const { reportId, index } = req.params
         const { incidentReportingApi } = res.locals.apis
-        await incidentReportingApi.prisonersInvolved.deleteFromReport(reportId, Number(index))
+        await incidentReportingApi.prisonersInvolved.deleteFromReport(reportId, parseInt(index, 10))
       }
 
       next()
@@ -53,7 +53,7 @@ export default class RemovePrisoner extends BaseController {
     const { reportId, index } = req.params
     const { removePrisoner } = req.form.values
     const report = res.locals.report as ReportWithDetails
-    const { prisonerNumber, firstName, lastName } = report.prisonersInvolved[Number(index) - 1]
+    const { prisonerNumber, firstName, lastName } = report.prisonersInvolved[parseInt(index, 10) - 1]
 
     req.journeyModel.reset()
     req.sessionModel.reset()

@@ -173,7 +173,6 @@ export type StaffInvolvement = {
 }
 
 export type PrisonerInvolvement = {
-  sequence?: number
   prisonerNumber: string
   firstName: string
   lastName: string

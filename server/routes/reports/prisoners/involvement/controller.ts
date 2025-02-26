@@ -16,30 +16,26 @@ export abstract class PrisonerInvolvementController extends BaseController<Value
     super.middlewareLocals()
   }
 
-  customiseFields(req: FormWizard.Request<Values>, res: express.Response, next: express.NextFunction): void {
+  private customiseFields(req: FormWizard.Request<Values>, res: express.Response, next: express.NextFunction): void {
     const { fields } = req.form.options
     const report = res.locals.report as ReportWithDetails
-    const { reportConfig } = res.locals
 
     const { firstName } = this.getPrisonerName(res)
     const possessiveFirstName = possessive(convertToTitleCase(firstName))
 
-    const allowedRoleCodes: Set<string> = new Set(
-      reportConfig.prisonerRoles.filter(role => role.active).map(role => role.prisonerRole),
-    )
-
     const customisedFields = { ...fields }
 
+    // customise labels
     customisedFields.prisonerRole = {
       ...customisedFields.prisonerRole,
       label: `What was ${possessiveFirstName} role?`,
-      items: customisedFields.prisonerRole.items.filter(role => allowedRoleCodes.has(role.value)),
     }
     customisedFields.comment = {
       ...customisedFields.comment,
       label: `Details of ${possessiveFirstName} involvement (optional)`,
     }
 
+    // outcome only exists for reports originally made in NOIMIS
     if (!report.createdInNomis) {
       delete customisedFields.outcome
     }

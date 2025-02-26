@@ -14,7 +14,11 @@ class EditStaffInvolvementController extends StaffInvolvementController {
     super.middlewareLocals()
   }
 
-  private chooseStaffInvolvement(req: FormWizard.Request<Values>, res: express.Response, next: express.NextFunction): void {
+  private chooseStaffInvolvement(
+    req: FormWizard.Request<Values>,
+    res: express.Response,
+    next: express.NextFunction,
+  ): void {
     const index = parseInt(req.params.index, 10)
     if (Number.isNaN(index) || index <= 0 || !/^\d+$/.test(req.params.index)) {
       next(new NotFound('Invalid staff involvement index'))

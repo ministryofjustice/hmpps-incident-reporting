@@ -44,9 +44,9 @@ export default class StaffSummary extends BaseController<Values> {
     req.sessionModel.reset()
 
     if (addStaff === 'yes') {
-      res.redirect(`/reports/${reportId}`)
+      res.redirect(`/reports/${reportId}/staff/search`)
     } else {
-      res.redirect(`/reports`)
+      res.redirect(`/reports/${reportId}`)
     }
   }
 }

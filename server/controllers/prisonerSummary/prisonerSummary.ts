@@ -66,7 +66,7 @@ export default class PrisonerSummary extends BaseController<Values> {
     req.sessionModel.reset()
 
     if (addPrisoner === 'yes') {
-      res.redirect(`/reports/${reportId}/prisoner-search`)
+      res.redirect(`/reports/${reportId}/prisoners/search`)
     } else {
       res.redirect(`/reports/${reportId}`)
     }

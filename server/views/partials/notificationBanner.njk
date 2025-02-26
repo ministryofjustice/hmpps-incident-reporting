@@ -1,30 +1,34 @@
 {% from "govuk/components/notification-banner/macro.njk" import govukNotificationBanner %}
 
-{% if banner.success %}
-  {% set html %}
-    {% if banner.success[0].title %}
-      <h3 class="govuk-notification-banner__heading">
-        {{ banner.success[0].title }}
-      </h3>
-    {% endif %}
-    {% if banner.success[0].content %}
-      <p class="govuk-body">
-        {{ banner.success.content }}
-      </p>
-    {% endif %}
-  {% endset %}
-
+{% if banners %}
   <div class="govuk-width-container">
     <div class="govuk-grid-row govuk-!-margin-bottom-0">
       <div class="govuk-grid-column-two-thirds">
-        {{ govukNotificationBanner({
-        html: html,
-        type: "success",
-        classes: "govuk-!-margin-top-7 govuk-!-margin-bottom-0"
-        }) }}
+
+        {% for bannerType, banners in banners %}
+          {% for banner in banners %}
+            {% set html %}
+              {% if banner.title %}
+                <p class="govuk-notification-banner__heading">
+                  {{ banner.title }}
+                </p>
+              {% endif %}
+              {% if banner.content %}
+                <p class="govuk-body">
+                  {{ banner.content }}
+                </p>
+              {% endif %}
+            {% endset %}
+
+            {{ govukNotificationBanner({
+              html: html,
+              type: "success" if bannerType == "success" else null,
+              classes: "govuk-!-margin-top-7 govuk-!-margin-bottom-0"
+            }) }}
+          {% endfor %}
+        {% endfor %}
+
       </div>
     </div>
   </div>
 {% endif %}
-
-<!--// TODO: Added additional options for other banner usages e.g. "Important"-->

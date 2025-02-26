@@ -32,20 +32,20 @@ afterEach(() => {
   jest.resetAllMocks()
 })
 
-describe('GET remove prisoner confirmation page', () => {
-  let deletePrisonerUrl: string
+describe('GET remove staff confirmation page', () => {
+  let deleteStaffUrl: string
 
   it('should render title question and options to confirm or deny removal', () => {
     const mockedReport = convertReportWithDetailsDates(
       mockReport({ reportReference: '6543', reportDateAndTime: now, withDetails: true }),
     )
     incidentReportingApi.getReportWithDetailsById.mockResolvedValueOnce(mockedReport)
-    deletePrisonerUrl = `/reports/${mockedReport.id}/prisoners/remove/1`
+    deleteStaffUrl = `/reports/${mockedReport.id}/staff/remove/1`
     return request(app)
-      .get(deletePrisonerUrl)
+      .get(deleteStaffUrl)
       .expect('Content-Type', /html/)
       .expect(res => {
-        expect(res.text).toContain('Are you sure you want to remove A1111AA: Andrew Arnold?')
+        expect(res.text).toContain('Are you sure you want to remove Mary Johnson?')
         expect(res.text).toContain('Yes')
         expect(res.text).toContain('No')
         expect(res.text).toContain('Continue')
@@ -56,8 +56,8 @@ describe('GET remove prisoner confirmation page', () => {
   })
 })
 
-describe('prisoner remove form submission', () => {
-  let deletePrisonerUrl: string
+describe('staff remove form submission', () => {
+  let deleteStaffUrl: string
 
   it('should submit the correct delete request when "yes" selected', () => {
     const mockedReport = convertReportWithDetailsDates(
@@ -66,14 +66,14 @@ describe('prisoner remove form submission', () => {
     incidentReportingApi.getReportWithDetailsById.mockResolvedValueOnce(mockedReport)
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-ignore need to mock a getter method
-    incidentReportingApi.prisonersInvolved = incidentReportingRelatedObjects
+    incidentReportingApi.staffInvolved = incidentReportingRelatedObjects
 
-    deletePrisonerUrl = `/reports/${mockedReport.id}/prisoners/remove/1`
+    deleteStaffUrl = `/reports/${mockedReport.id}/staff/remove/1`
     return request(app)
-      .post(deletePrisonerUrl)
-      .send({ removePrisoner: 'yes' })
+      .post(deleteStaffUrl)
+      .send({ removeStaff: 'yes' })
       .expect(res => {
-        expect(res.headers.location).toMatch(`/reports/${mockedReport.id}/prisoners`)
+        expect(res.headers.location).toMatch(`/reports/${mockedReport.id}/staff`)
         expect(incidentReportingRelatedObjects.deleteFromReport).toHaveBeenCalledWith(mockedReport.id, 1)
       })
   })
@@ -84,12 +84,12 @@ describe('prisoner remove form submission', () => {
     )
     incidentReportingApi.getReportWithDetailsById.mockResolvedValueOnce(mockedReport)
 
-    deletePrisonerUrl = `/reports/${mockedReport.id}/prisoners/remove/1`
+    deleteStaffUrl = `/reports/${mockedReport.id}/staff/remove/1`
     return request(app)
-      .post(deletePrisonerUrl)
-      .send({ removePrisoner: 'no' })
+      .post(deleteStaffUrl)
+      .send({ removeStaff: 'no' })
       .expect(res => {
-        expect(res.headers.location).toMatch(`/reports/${mockedReport.id}/prisoners`)
+        expect(res.headers.location).toMatch(`/reports/${mockedReport.id}/staff`)
         expect(incidentReportingRelatedObjects.deleteFromReport).not.toHaveBeenCalledWith()
       })
   })

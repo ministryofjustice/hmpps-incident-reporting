@@ -24,7 +24,7 @@ export default class QuestionsController extends BaseController<FormWizard.Multi
     this.use(this.checkQuestionProgress)
   }
 
-  checkQuestionProgress(
+  private checkQuestionProgress(
     req: FormWizard.Request<FormWizard.MultiValues>,
     res: express.Response,
     next: express.NextFunction,

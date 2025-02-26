@@ -9,6 +9,41 @@ import { fields, type Values } from './fields'
 import { steps } from './steps'
 
 class AddPrisonerInvolvementController extends PrisonerInvolvementController {
+  middlewareLocals(): void {
+    super.middlewareLocals()
+    this.use(this.customisePrisonerRoles)
+  }
+
+  private customisePrisonerRoles(
+    req: FormWizard.Request<Values>,
+    res: express.Response,
+    next: express.NextFunction,
+  ): void {
+    const { fields: customisedFields } = req.form.options
+    const report = res.locals.report as ReportWithDetails
+    const { reportConfig } = res.locals
+
+    // set of codes allowed by incident type
+    const allowedRoleCodes: Set<string> = new Set(
+      reportConfig.prisonerRoles.filter(role => role.active).map(role => role.prisonerRole),
+    )
+    // …less those that are allowed only once and are already used
+    report.prisonersInvolved
+      .map(involvement => involvement.prisonerRole)
+      .forEach(role => {
+        const roleConfig = reportConfig.prisonerRoles.find(someRole => someRole.prisonerRole === role)
+        if (roleConfig?.onlyOneAllowed) {
+          allowedRoleCodes.delete(role)
+        }
+      })
+
+    customisedFields.prisonerRole.items = customisedFields.prisonerRole.items.filter(role =>
+      allowedRoleCodes.has(role.value),
+    )
+
+    next()
+  }
+
   protected getPrisonerName(res: express.Response): { firstName: string; lastName: string } {
     return res.locals.prisoner as OffenderSearchResult
   }

@@ -33,6 +33,14 @@ export declare global {
       verified?: boolean
       id: string
       logout(done: (err: unknown) => void): void
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      flash(): { [key: string]: any[] }
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      flash(message: string): any[]
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      flash(type: string, message: any[] | any): number
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      flash(type: string, format: string, ...args: any[]): number
     }
 
     // NB: FormWizard.Locals will not be available for all routes so should not be merged in

@@ -58,6 +58,15 @@ export abstract class PrisonerInvolvementController extends BaseController<Value
       allowedRoleCodes.has(role.value),
     )
 
+    if (customisedFields.prisonerRole.items.length === 0) {
+      req.flash('error', {
+        title: 'No more prisoner roles can be added',
+        content: 'You may need to remove an existing person.',
+      })
+      res.redirect(this.getBackLink(req, res))
+      return
+    }
+
     next()
   }
 

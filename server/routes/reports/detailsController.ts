@@ -59,7 +59,7 @@ export abstract class BaseDetailsController<V extends DetailsValues> extends Bas
       const incidentDateAndTime = this.buildIncidentDateAndTime(incidentDate, incidentTime)
       const now = new Date()
       if (incidentDateAndTime > now) {
-        const error = new BaseDetailsController.Error('incidentDate', {
+        const error = new this.Error('incidentDate', {
           key: 'incidentDate',
           message: 'Enter a date and time in the past',
         })

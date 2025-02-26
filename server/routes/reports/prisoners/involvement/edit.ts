@@ -12,9 +12,14 @@ class EditPrisonerInvolvementController extends PrisonerInvolvementController {
   middlewareLocals(): void {
     this.use(this.choosePrisonerInvolvement)
     super.middlewareLocals()
+    this.use(this.customisePrisonerRoles)
   }
 
-  choosePrisonerInvolvement(req: FormWizard.Request<Values>, res: express.Response, next: express.NextFunction): void {
+  private choosePrisonerInvolvement(
+    req: FormWizard.Request<Values>,
+    res: express.Response,
+    next: express.NextFunction,
+  ): void {
     const index = parseInt(req.params.index, 10)
     if (Number.isNaN(index) || index <= 0 || !/^\d+$/.test(req.params.index)) {
       next(new NotFound('Invalid prisoner involvement index'))
@@ -29,6 +34,38 @@ class EditPrisonerInvolvementController extends PrisonerInvolvementController {
     }
 
     res.locals.prisonerInvolvement = prisonerInvolvement
+    next()
+  }
+
+  private customisePrisonerRoles(
+    req: FormWizard.Request<Values>,
+    res: express.Response,
+    next: express.NextFunction,
+  ): void {
+    const index = parseInt(req.params.index, 10)
+    const { fields: customisedFields } = req.form.options
+    const report = res.locals.report as ReportWithDetails
+    const { reportConfig } = res.locals
+
+    // set of codes allowed by incident type
+    const allowedRoleCodes: Set<string> = new Set(
+      reportConfig.prisonerRoles.filter(role => role.active).map(role => role.prisonerRole),
+    )
+    // …less those that are allowed only once and are already used in a _different_ involvement
+    report.prisonersInvolved
+      .filter((_involvement, i) => i !== index - 1)
+      .map(involvement => involvement.prisonerRole)
+      .forEach(role => {
+        const roleConfig = reportConfig.prisonerRoles.find(someRole => someRole.prisonerRole === role)
+        if (roleConfig?.onlyOneAllowed) {
+          allowedRoleCodes.delete(role)
+        }
+      })
+
+    customisedFields.prisonerRole.items = customisedFields.prisonerRole.items.filter(role =>
+      allowedRoleCodes.has(role.value),
+    )
+
     next()
   }
 

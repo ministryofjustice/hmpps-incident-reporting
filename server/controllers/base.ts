@@ -68,7 +68,7 @@ export abstract class BaseController<
    */
   convertIntoValidationError(_error: SanitisedError): FormWizard.Error {
     // TODO: also handle other error types too?
-    return new BaseController.Error(null, { message: 'Sorry, there was a problem with your request' })
+    return new this.Error(null, { message: 'Sorry, there was a problem with your request' })
   }
 
   csrfGenerateSecret(req: FormWizard.Request<V, K>, res: express.Response, next: express.NextFunction): void {

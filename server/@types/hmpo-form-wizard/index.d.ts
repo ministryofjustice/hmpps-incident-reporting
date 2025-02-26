@@ -258,6 +258,7 @@ declare module 'hmpo-form-wizard' {
           arguments?: unknown
         } = {},
         req?: Request,
+        res?: express.Response, // form wizard passes it in, but does not reference it
       )
 
       key: string
@@ -329,6 +330,8 @@ declare module 'hmpo-form-wizard' {
       constructor(options: Options<V, K>)
 
       static Error: typeof Error
+
+      Error: typeof Error
 
       options: Options<V, K>
 

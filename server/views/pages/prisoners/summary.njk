@@ -37,7 +37,7 @@
       {% if report.createdInNomis %}
         {% set rows = (rows.push(
           [
-            { text: prisoner.prisonerNumber + ': ' + (prisoner | nameOfPerson) },
+            { text: prisoner.prisonerNumber + ': ' + (prisoner | nameOfPerson), classes: "govuk-table__cell--numeric govuk-!-text-align-left" },
             { text: prisonerInvolvementLookup[prisoner.prisonerRole] or prisoner.prisonerRole },
             { text: prisonerOutcomeLookup[prisoner.outcome] or prisoner.outcome },
             { html: prisoner.comment | escape | nl2br },
@@ -47,7 +47,7 @@
       {% else %}
         {% set rows = (rows.push(
           [
-            { text: prisoner.prisonerNumber + ': ' + (prisoner | nameOfPerson) },
+            { text: prisoner.prisonerNumber + ': ' + (prisoner | nameOfPerson), classes: "govuk-table__cell--numeric govuk-!-text-align-left" },
             { text: prisonerInvolvementLookup[prisoner.prisonerRole] or prisoner.prisonerRole },
             { html: prisoner.comment | escape | nl2br },
             { html: actionCell }

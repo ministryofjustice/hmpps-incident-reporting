@@ -75,7 +75,7 @@ describe('Adding a new staff member to a report', () => {
       .expect(res => {
         expect(res.text).toContain('Page not found')
 
-        expect(manageUsersApiClient.getPrisonUser).not.toHaveBeenCalledWith(mockPrisonUser.username)
+        expect(manageUsersApiClient.getPrisonUser).not.toHaveBeenCalled()
       })
   })
 

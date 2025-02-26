@@ -16,6 +16,8 @@ export function validateConfig(config: IncidentTypeConfiguration): Error[] {
   checkUnreachableQuestions(configGraph, dfsResult, errors)
   checkCycles(dfsResult, errors)
 
+  checkSomePrisonerRolesExist(config, errors)
+
   return errors
 }
 
@@ -99,5 +101,11 @@ function buildConfigGraph(config: IncidentTypeConfiguration): Graph<string> {
 function checkCycles<T>(dfsResult: DfsResult<T>, errors: Error[]): void {
   for (const cycle of dfsResult.cycles) {
     errors.push(new Error(`question cycle detected: ${cycle}`))
+  }
+}
+
+function checkSomePrisonerRolesExist(config: IncidentTypeConfiguration, errors: Error[]): void {
+  if (!config.prisonerRoles.some(role => role.active)) {
+    errors.push(new Error('no active prisoner roles exist'))
   }
 }

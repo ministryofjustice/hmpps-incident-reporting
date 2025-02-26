@@ -11,7 +11,7 @@ import {
 } from '../../../../data/incidentReportingApi'
 import { convertReportWithDetailsDates } from '../../../../data/incidentReportingApiUtils'
 import { mockErrorResponse, mockReport } from '../../../../data/testData/incidentReporting'
-import { andrew } from '../../../../data/testData/offenderSearch'
+import { andrew, barry } from '../../../../data/testData/offenderSearch'
 import { mockThrownError } from '../../../../data/testData/thrownErrors'
 import { approverUser, hqUser, reportingUser, unauthorisedUser } from '../../../../data/testData/users'
 import { appWithAllRoutes } from '../../../testutils/appSetup'
@@ -114,6 +114,11 @@ describe('Editing an existing prisoner in a report', () => {
           }
           expect(res.text).toContain('Details of Andrew’s involvement')
 
+          // available roles depend on type
+          expect(res.text).toContain('Impeded staff')
+          expect(res.text).not.toContain('Active involvement')
+
+          // prefilled with existing involvement
           expect(res.text).toContain('value="IMPEDED_STAFF" checked')
           if (createdInNomis) {
             expect(res.text).toContain('value="LOCAL_INVESTIGATION" checked')
@@ -124,6 +129,50 @@ describe('Editing an existing prisoner in a report', () => {
 
           expect(incidentReportingRelatedObjects.updateForReport).not.toHaveBeenCalled()
         })
+    })
+
+    describe('roles that are only allowed once', () => {
+      beforeEach(() => {
+        report.type = 'ESCAPE_FROM_CUSTODY'
+      })
+
+      it('should be hidden if already used in a different involvement', () => {
+        report.prisonersInvolved.push({
+          prisonerNumber: barry.prisonerNumber,
+          firstName: barry.firstName,
+          lastName: barry.lastName,
+          prisonerRole: 'ESCAPE',
+          outcome: 'POLICE_INVESTIGATION',
+          comment: 'Matter being handled by police',
+        })
+
+        return request(app)
+          .get(editPageUrl(1))
+          .expect(200)
+          .expect(res => {
+            expect(res.text).not.toContain('Escapee')
+          })
+      })
+
+      it('should not be hidden if used only in this involvement', () => {
+        report.prisonersInvolved[0].prisonerRole = 'ESCAPE'
+
+        return request(app)
+          .get(editPageUrl(1))
+          .expect(200)
+          .expect(res => {
+            expect(res.text).toContain('Escapee')
+          })
+      })
+
+      it('should not be hidden if not used yet', () => {
+        return request(app)
+          .get(editPageUrl(1))
+          .expect(200)
+          .expect(res => {
+            expect(res.text).toContain('Escapee')
+          })
+      })
     })
 
     interface ValidScenario {

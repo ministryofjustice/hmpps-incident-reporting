@@ -19,7 +19,7 @@ class DetailsController extends BaseDetailsController<DetailsValues> {
     super.middlewareLocals()
   }
 
-  loadReportIntoSession(
+  private loadReportIntoSession(
     req: FormWizard.Request<DetailsValues, DetailsFieldNames>,
     res: express.Response,
     next: express.NextFunction,

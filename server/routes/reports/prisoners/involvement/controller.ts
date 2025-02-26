@@ -5,16 +5,18 @@ import type { PrisonerInvolvementOutcome, PrisonerInvolvementRole } from '../../
 import { BaseController } from '../../../../controllers'
 import { convertToTitleCase, nameOfPerson, possessive } from '../../../../utils/utils'
 import type { ReportWithDetails } from '../../../../data/incidentReportingApi'
+import { populateReportConfiguration } from '../../../../middleware/populateReportConfiguration'
 import type { Values } from './fields'
 
 // eslint-disable-next-line import/prefer-default-export
 export abstract class PrisonerInvolvementController extends BaseController<Values> {
   middlewareLocals(): void {
+    this.router.use(populateReportConfiguration(false))
     this.use(this.customiseFields)
     super.middlewareLocals()
   }
 
-  customiseFields(req: FormWizard.Request<Values>, res: express.Response, next: express.NextFunction): void {
+  private customiseFields(req: FormWizard.Request<Values>, res: express.Response, next: express.NextFunction): void {
     const { fields } = req.form.options
     const report = res.locals.report as ReportWithDetails
 
@@ -23,6 +25,7 @@ export abstract class PrisonerInvolvementController extends BaseController<Value
 
     const customisedFields = { ...fields }
 
+    // customise labels
     customisedFields.prisonerRole = {
       ...customisedFields.prisonerRole,
       label: `What was ${possessiveFirstName} role?`,
@@ -32,6 +35,7 @@ export abstract class PrisonerInvolvementController extends BaseController<Value
       label: `Details of ${possessiveFirstName} involvement (optional)`,
     }
 
+    // outcome only exists for reports originally made in NOIMIS
     if (!report.createdInNomis) {
       delete customisedFields.outcome
     }

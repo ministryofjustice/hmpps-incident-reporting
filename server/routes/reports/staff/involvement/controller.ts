@@ -14,7 +14,7 @@ export abstract class StaffInvolvementController<V extends Values = Values> exte
     super.middlewareLocals()
   }
 
-  customiseFields(req: FormWizard.Request<V>, res: express.Response, next: express.NextFunction): void {
+  private customiseFields(req: FormWizard.Request<V>, res: express.Response, next: express.NextFunction): void {
     const { fields } = req.form.options
 
     const staffMemberName = this.getStaffMemberName(req, res)

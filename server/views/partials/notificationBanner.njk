@@ -21,9 +21,10 @@
             {% endset %}
 
             {{ govukNotificationBanner({
+              titleText: "Error" if bannerType == "error" else undefined,
               html: html,
               type: "success" if bannerType == "success" else null,
-              classes: "govuk-!-margin-top-7 govuk-!-margin-bottom-0"
+              classes: "govuk-!-margin-top-7 govuk-!-margin-bottom-0 " + ("govuk-notification-banner--error" if bannerType == "error" else "")
             }) }}
           {% endfor %}
         {% endfor %}

@@ -20,7 +20,7 @@ declare module 'express-session' {
   }
 }
 
-type BannerTypes = 'information' | 'success'
+type BannerTypes = 'information' | 'success' | 'error'
 
 interface Banner {
   title?: string

@@ -12,7 +12,6 @@ class EditPrisonerInvolvementController extends PrisonerInvolvementController {
   middlewareLocals(): void {
     this.use(this.choosePrisonerInvolvement)
     super.middlewareLocals()
-    this.use(this.customisePrisonerRoles)
   }
 
   private choosePrisonerInvolvement(
@@ -37,13 +36,8 @@ class EditPrisonerInvolvementController extends PrisonerInvolvementController {
     next()
   }
 
-  private customisePrisonerRoles(
-    req: FormWizard.Request<Values>,
-    res: express.Response,
-    next: express.NextFunction,
-  ): void {
+  protected getAllowedPrisonerRoles(req: FormWizard.Request<Values>, res: express.Response): Set<string> {
     const index = parseInt(req.params.index, 10)
-    const { fields: customisedFields } = req.form.options
     const report = res.locals.report as ReportWithDetails
     const { reportConfig } = res.locals
 
@@ -62,11 +56,7 @@ class EditPrisonerInvolvementController extends PrisonerInvolvementController {
         }
       })
 
-    customisedFields.prisonerRole.items = customisedFields.prisonerRole.items.filter(role =>
-      allowedRoleCodes.has(role.value),
-    )
-
-    next()
+    return allowedRoleCodes
   }
 
   protected getPrisonerName(res: express.Response): { firstName: string; lastName: string } {

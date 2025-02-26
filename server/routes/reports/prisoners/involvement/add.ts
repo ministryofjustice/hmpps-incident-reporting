@@ -9,17 +9,7 @@ import { fields, type Values } from './fields'
 import { steps } from './steps'
 
 class AddPrisonerInvolvementController extends PrisonerInvolvementController {
-  middlewareLocals(): void {
-    super.middlewareLocals()
-    this.use(this.customisePrisonerRoles)
-  }
-
-  private customisePrisonerRoles(
-    req: FormWizard.Request<Values>,
-    res: express.Response,
-    next: express.NextFunction,
-  ): void {
-    const { fields: customisedFields } = req.form.options
+  protected getAllowedPrisonerRoles(_req: FormWizard.Request<Values>, res: express.Response): Set<string> {
     const report = res.locals.report as ReportWithDetails
     const { reportConfig } = res.locals
 
@@ -37,11 +27,7 @@ class AddPrisonerInvolvementController extends PrisonerInvolvementController {
         }
       })
 
-    customisedFields.prisonerRole.items = customisedFields.prisonerRole.items.filter(role =>
-      allowedRoleCodes.has(role.value),
-    )
-
-    next()
+    return allowedRoleCodes
   }
 
   protected getPrisonerName(res: express.Response): { firstName: string; lastName: string } {

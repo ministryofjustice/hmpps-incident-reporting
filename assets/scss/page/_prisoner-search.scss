@@ -1,41 +1,15 @@
-@include govuk-media-query($from: 1000px) {
-  .app-prisoner-search-form {
+.app-prisoner-search-form__name-row {
+  @include govuk-media-query($from: desktop) {
     display: flex;
-    flex-direction: row;
-    align-items: start;
+    align-items: flex-end;
+    gap: $govuk-gutter-half;
 
-    .govuk-form-group {
+    > .govuk-form-group {
       flex: 2;
     }
 
-    .govuk-button-group {
-      flex: 3;
-      align-self: end;
-      padding-left: govuk-spacing(3);
+    > .govuk-button-group {
+      flex: 1;
     }
   }
-}
-
-.app-prisoner-search__cell--photo {
-  width: 10%;
-}
-
-.app-prisoner-search__cell--name {
-  width: 18%;
-}
-
-.app-prisoner-search__cell--prisoner-number {
-  width: 15%;
-}
-
-.app-prisoner-search__cell--location {
-  width: 17%;
-}
-
-.app-prisoner-search__cell--prison-name {
-  width: 25%;
-}
-
-.app-prisoner-search__cell--actions {
-  width: 15%;
 }

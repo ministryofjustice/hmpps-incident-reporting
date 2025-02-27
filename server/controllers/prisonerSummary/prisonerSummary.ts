@@ -48,7 +48,7 @@ export default class PrisonerSummary extends BaseController<Values> {
       errors.addPrisoner.message = 'Select if you would like to add another prisoner to continue.'
     }
     // Gather notification banner entries if they exist
-    const banner = req.flash()
+    const banners = req.flash()
 
     const prisonerInvolvementLookup = Object.fromEntries(
       prisonerInvolvementRoles.map(role => [role.code, role.description]),
@@ -77,7 +77,7 @@ export default class PrisonerSummary extends BaseController<Values> {
     return {
       ...locals,
       pageTitle,
-      banner,
+      banners,
       prisonerInvolvementLookup,
       prisonerOutcomeLookup,
       tableHeading,

@@ -8,6 +8,7 @@ import { addRouter } from './involvement/add'
 import { manualAddRouter } from './involvement/manual/add'
 import { editRouter } from './involvement/edit'
 import { summaryRouter } from './summary'
+import { removeStaffRouter } from './remove'
 
 // eslint-disable-next-line import/prefer-default-export
 export const staffInvolvementRouter = express.Router({ mergeParams: true })
@@ -20,9 +21,7 @@ staffInvolvementRouter.use('/add/manual', manualAddRouter)
 staffInvolvementRouter.use('/add/username/:username', populateStaffMember(), addRouter)
 
 // remove existing staff involvement (index starts at 1)
-staffInvolvementRouter.use('/remove/:index', (_req, res) => {
-  res.send('REMOVE')
-})
+staffInvolvementRouter.use('/remove/:index', removeStaffRouter)
 
 // edit existing staff involvement (index starts at 1)
 staffInvolvementRouter.use('/:index', editRouter)

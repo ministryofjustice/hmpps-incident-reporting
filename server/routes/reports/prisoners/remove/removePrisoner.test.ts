@@ -4,11 +4,11 @@ import { convertReportWithDetailsDates } from '../../../../data/incidentReportin
 import { mockReport } from '../../../../data/testData/incidentReporting'
 import { now } from '../../../../testutils/fakeClock'
 import {
-  AddStaffInvolvementRequest,
+  AddPrisonerInvolvementRequest,
   IncidentReportingApi,
-  StaffInvolvement,
+  PrisonerInvolvement,
   RelatedObjects,
-  UpdateStaffInvolvementRequest,
+  UpdatePrisonerInvolvementRequest,
 } from '../../../../data/incidentReportingApi'
 import { appWithAllRoutes } from '../../../testutils/appSetup'
 
@@ -17,14 +17,14 @@ jest.mock('../../../../data/incidentReportingApi')
 let app: Express
 let incidentReportingApi: jest.Mocked<IncidentReportingApi>
 let incidentReportingRelatedObjects: jest.Mocked<
-  RelatedObjects<StaffInvolvement, AddStaffInvolvementRequest, UpdateStaffInvolvementRequest>
+  RelatedObjects<PrisonerInvolvement, AddPrisonerInvolvementRequest, UpdatePrisonerInvolvementRequest>
 >
 
 beforeEach(() => {
   app = appWithAllRoutes()
   incidentReportingApi = IncidentReportingApi.prototype as jest.Mocked<IncidentReportingApi>
   incidentReportingRelatedObjects = RelatedObjects.prototype as jest.Mocked<
-    RelatedObjects<StaffInvolvement, AddStaffInvolvementRequest, UpdateStaffInvolvementRequest>
+    RelatedObjects<PrisonerInvolvement, AddPrisonerInvolvementRequest, UpdatePrisonerInvolvementRequest>
   >
 })
 

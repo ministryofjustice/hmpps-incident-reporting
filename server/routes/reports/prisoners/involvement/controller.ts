@@ -14,6 +14,7 @@ export abstract class PrisonerInvolvementController extends BaseController<Value
     this.router.use(populateReportConfiguration(false))
     this.use(this.customiseFields)
     super.middlewareLocals()
+    this.use(this.customisePrisonerRoles)
   }
 
   private customiseFields(req: FormWizard.Request<Values>, res: express.Response, next: express.NextFunction): void {
@@ -44,6 +45,32 @@ export abstract class PrisonerInvolvementController extends BaseController<Value
 
     next()
   }
+
+  private customisePrisonerRoles(
+    req: FormWizard.Request<Values>,
+    res: express.Response,
+    next: express.NextFunction,
+  ): void {
+    const { fields: customisedFields } = req.form.options
+
+    const allowedRoleCodes = this.getAllowedPrisonerRoles(req, res)
+    customisedFields.prisonerRole.items = customisedFields.prisonerRole.items.filter(role =>
+      allowedRoleCodes.has(role.value),
+    )
+
+    if (customisedFields.prisonerRole.items.length === 0) {
+      req.flash('error', {
+        title: 'No more prisoner roles can be added',
+        content: 'You may need to remove an existing person.',
+      })
+      res.redirect(this.getBackLink(req, res))
+      return
+    }
+
+    next()
+  }
+
+  protected abstract getAllowedPrisonerRoles(req: FormWizard.Request<Values>, res: express.Response): Set<string>
 
   locals(req: FormWizard.Request<Values>, res: express.Response): Partial<FormWizard.Locals<Values>> {
     return {

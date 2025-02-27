@@ -21,7 +21,7 @@ export default class StaffSummary extends BaseController<Values> {
       errors.addStaff.message = 'Select if you would like to add another staff member to continue.'
     }
     // Gather notification banner entries if they exist
-    const banner = req.flash()
+    const banners = req.flash()
 
     const staffInvolvementLookup = Object.fromEntries(staffInvolvementRoles.map(role => [role.code, role.description]))
 
@@ -32,7 +32,7 @@ export default class StaffSummary extends BaseController<Values> {
 
     return {
       ...locals,
-      banner,
+      banners,
       showTable,
       staffInvolvementLookup,
       errors,

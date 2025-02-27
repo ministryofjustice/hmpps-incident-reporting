@@ -1,8 +1,9 @@
 import type express from 'express'
 import { FormWizard } from 'hmpo-form-wizard'
 
+import { nameOfPerson } from '../../utils/utils'
+import type { ReportWithDetails } from '../../data/incidentReportingApi'
 import { BaseController } from '../index'
-import { ReportWithDetails } from '../../data/incidentReportingApi'
 
 export default class RemovePrisoner extends BaseController {
   middlewareLocals() {
@@ -53,14 +54,14 @@ export default class RemovePrisoner extends BaseController {
     const { reportId, index } = req.params
     const { removePrisoner } = req.form.values
     const report = res.locals.report as ReportWithDetails
-    const { prisonerNumber, firstName, lastName } = report.prisonersInvolved[parseInt(index, 10) - 1]
+    const prisonerInvolvement = report.prisonersInvolved[parseInt(index, 10) - 1]
 
     req.journeyModel.reset()
     req.sessionModel.reset()
 
     if (removePrisoner === 'yes') {
       req.flash('success', {
-        title: `You have removed ${prisonerNumber}: ${firstName} ${lastName}`,
+        title: `You have removed ${prisonerInvolvement.prisonerNumber}: ${nameOfPerson(prisonerInvolvement)}`,
       })
     }
 

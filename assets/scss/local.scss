@@ -24,3 +24,13 @@
 .govuk-footer .govuk-footer__licence-logo {
   display: none;
 }
+
+// there is no error-type GOV.UK notification banner
+.govuk-notification-banner--error {
+  border-color: $govuk-error-colour;
+  background-color: $govuk-error-colour;
+
+  .govuk-notification-banner__link {
+    @include govuk-link-style-error;
+  }
+}

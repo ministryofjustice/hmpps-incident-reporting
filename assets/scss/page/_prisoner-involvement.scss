@@ -1,3 +1,9 @@
+.app-prisoner-request {
+  #addPrisoner__form-group legend {
+    display: none;
+  }
+}
+
 .app-prisoner-search-form__name-row {
   @include govuk-media-query($from: desktop) {
     display: flex;

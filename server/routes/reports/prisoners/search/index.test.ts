@@ -71,6 +71,8 @@ describe('Searching for a prisoner to add to a report', () => {
       .get(searchPageUrl())
       .expect(200)
       .expect(res => {
+        expect(res.text).toContain('app-prisoner-search')
+
         expect(res.text).toContain('Search for a prisoner involved in the incident')
         expect(res.text).toContain('In Moorland')
 
@@ -101,6 +103,8 @@ describe('Searching for a prisoner to add to a report', () => {
       .query(invalidPayload)
       .expect(200)
       .expect(res => {
+        expect(res.text).toContain('app-prisoner-search')
+
         expect(res.text).toContain('There is a problem')
         expect(res.text).toContain(expectedError)
 
@@ -142,6 +146,8 @@ describe('Searching for a prisoner to add to a report', () => {
       .query(validPayload)
       .expect(200)
       .expect(res => {
+        expect(res.text).toContain('app-prisoner-search')
+
         expect(res.text).not.toContain('There is a problem')
         expect(res.text).toContain(`0 results found for “${validPayload.q}”.`)
 
@@ -239,7 +245,7 @@ describe('Searching for a prisoner to add to a report', () => {
         0,
       ],
     },
-  ])('should search global $scenario', ({ validPayload, expectedCall }) => {
+  ])('should search globally $scenario', ({ validPayload, expectedCall }) => {
     // mock no results as this test is concerned with api call, table contents tested separately
     offenderSearchApi.searchGlobally.mockResolvedValueOnce({
       content: [],
@@ -251,6 +257,8 @@ describe('Searching for a prisoner to add to a report', () => {
       .query(validPayload)
       .expect(200)
       .expect(res => {
+        expect(res.text).toContain('app-prisoner-search')
+
         expect(res.text).not.toContain('There is a problem')
         expect(res.text).toContain(`0 results found for “${validPayload.q}”.`)
 
@@ -262,7 +270,7 @@ describe('Searching for a prisoner to add to a report', () => {
   describe.each([
     { scenario: 'locally', global: false },
     { scenario: 'globally', global: true },
-  ])('when searching $scenario', ({ global }) => {
+  ])('Results table when searching $scenario', ({ global }) => {
     let validPayload: Values
     let results: OffenderSearchResults
 
@@ -291,6 +299,8 @@ describe('Searching for a prisoner to add to a report', () => {
         .query(validPayload)
         .expect(200)
         .expect(res => {
+          expect(res.text).toContain('app-prisoner-search')
+
           expect(res.text).not.toContain('There is a problem')
 
           // results table
@@ -320,6 +330,8 @@ describe('Searching for a prisoner to add to a report', () => {
         .query(validPayload)
         .expect(200)
         .expect(res => {
+          expect(res.text).toContain('app-prisoner-search')
+
           expect(res.text).not.toContain('There is a problem')
 
           // pagination links
@@ -339,6 +351,8 @@ describe('Searching for a prisoner to add to a report', () => {
         .query(validPayload)
         .expect(200)
         .expect(res => {
+          expect(res.text).toContain('app-prisoner-search')
+
           expect(res.text).not.toContain('There is a problem')
 
           // pagination links

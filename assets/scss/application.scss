@@ -18,8 +18,7 @@ $govuk-page-width: $moj-page-width;
 @import './components/involvement-table';
 
 @import './page/dashboard';
-@import './page/prisoner-involvement';
-@import './page/staff-involvement';
+@import './page/involvement';
 @import './page/view-report';
 
 @import './local';

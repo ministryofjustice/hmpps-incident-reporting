@@ -71,7 +71,13 @@ describe('manageUsersApiClient', () => {
 
     it('returns the search results', async () => {
       fakeManageUsersApiClient
-        .get('/prisonusers/search?nameFilter=bob%20smith&status=ACTIVE&size=20&page=0')
+        .get('/prisonusers/search')
+        .query({
+          nameFilter: 'bob smith',
+          status: 'ACTIVE',
+          size: 20,
+          page: 0,
+        })
         .matchHeader('authorization', `Bearer ${token.access_token}`)
         .reply(200, mockResponse)
 
@@ -81,7 +87,13 @@ describe('manageUsersApiClient', () => {
 
     it('trims the query', async () => {
       fakeManageUsersApiClient
-        .get('/prisonusers/search?nameFilter=bob%20smith&status=ACTIVE&size=20&page=0')
+        .get('/prisonusers/search')
+        .query({
+          nameFilter: 'bob smith',
+          status: 'ACTIVE',
+          size: 20,
+          page: 0,
+        })
         .matchHeader('authorization', `Bearer ${token.access_token}`)
         .reply(200, mockResponse)
 

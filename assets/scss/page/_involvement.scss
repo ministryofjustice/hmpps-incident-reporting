@@ -4,18 +4,30 @@
   }
 }
 
-.app-prisoner-search-form__name-row {
+.app-staff-request {
+  #addStaff__form-group legend {
+    display: none;
+  }
+}
+
+.app-involvement-search-form__name-row {
   @include govuk-media-query($from: desktop) {
     display: flex;
     align-items: flex-end;
     gap: $govuk-gutter-half;
 
     > .govuk-form-group {
-      flex: 2;
+      flex: 3;
     }
 
     > .govuk-button-group {
       flex: 1;
     }
+  }
+}
+
+.app-staff-involvement {
+  #staffRole__form-group legend {
+    display: none;
   }
 }

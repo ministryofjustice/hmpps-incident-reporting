@@ -6,6 +6,7 @@ interface BaseOffenderSearchResult {
   prisonerNumber: string
   firstName: string
   lastName: string
+  dateOfBirth: string
 }
 
 export interface OffenderSearchResultIn extends BaseOffenderSearchResult {

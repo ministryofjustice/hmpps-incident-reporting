@@ -5,7 +5,6 @@
 {% from "govuk/components/radios/macro.njk" import govukRadios %}
 {% from "govuk/components/table/macro.njk" import govukTable %}
 
-{% set pageTitle = applicationName + " – Staff involved in report" %}
 {% set bodyClasses = "app-staff-summary" %}
 
 {% block beforeContent %}
@@ -23,9 +22,9 @@
 
   {% include "partials/errorSummary.njk" %}
 
-  <h1 class="govuk-heading-l">Staff involved</h1>
+  <h1 class="govuk-heading-l">{{ pageTitle }}</h1>
 
-  {% if showTable %}
+  {% if report.staffInvolved | length %}
 
     {% set rows = [] %}
     {% for staff in report.staffInvolved %}
@@ -46,55 +45,56 @@
     {{ govukTable({
       classes: "app-involvement-table",
       head: [
-        { text: 'Staff' },
-        { text: 'Role' },
-        { text: 'Details' },
-        { text: 'Action' }
+        { text: "Staff" },
+        { text: "Role" },
+        { text: "Details" },
+        { text: "Action" }
       ],
       rows: rows
     }) }}
 
   {% else %}
-    <p>No staff members have been added to this incident report.</p>
+
+    <p class="govuk-!-margin-bottom-8">No staff members have been added to this incident report.</p>
+
   {% endif %}
 
   <form id="addAnotherStaff" method="post" novalidate>
     <input type="hidden" name="_csrf" value="{{ csrfToken }}" />
     <input type="hidden" name="x-csrf-token" value="{{ csrfToken }}" />
 
-    {% if showTable %}
-      {% set radioLegend = 'Do you want to add another member of staff?' %}
+    {% if report.staffInvolved | length %}
+      {% set radioLegend = "Do you want to add another member of staff?" %}
     {% else %}
-      {% set radioLegend = 'Do you want to add a member of staff?' %}
+      {% set radioLegend = "Do you want to add a member of staff?" %}
     {% endif %}
 
-    {% if errors['addStaff'] %}
-      {% set errorMessage = { text: errors['addStaff'].message } %}
-    {% else %}
-      {% set errorMessage = undefined %}
-    {% endif %}
-
+    {% set fieldName = "addStaff" %}
+    {% set field = options.fields[fieldName] %}
+    {% set items = [] %}
+    {% for item in field.items %}
+      {% set _ = items.push({
+        value: item.value,
+        text: item.label,
+        hint: {text: item.hint} if item.hint else undefined
+      }) %}
+    {% endfor %}
     {{ govukRadios({
+      name: fieldName,
+      attributes: { id: fieldName },
       classes: "govuk-radios--inline",
-      name: "addStaff",
-      id: "addStaff",
+      formGroup: {
+        attributes: { id: fieldName + "__form-group" }
+      },
       fieldset: {
         legend: {
           text: radioLegend,
           classes: "govuk-fieldset__legend--m"
         }
       },
-      items: [
-        {
-          value: "yes",
-          text: "Yes"
-        },
-        {
-          value: "no",
-          text: "No"
-        }
-      ],
-      errorMessage: errorMessage
+      items: items,
+      hint: { text: field.hint } if field.hint else undefined,
+      errorMessage: { text: errors[fieldName].message } if errors[fieldName] else undefined
     }) }}
 
     <div class="govuk-button-group">

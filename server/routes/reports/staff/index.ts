@@ -7,6 +7,7 @@ import { cannotEditReport } from '../permissions'
 import { addRouter } from './involvement/add'
 import { manualAddRouter } from './involvement/manual/add'
 import { editRouter } from './involvement/edit'
+import { searchRouter } from './search'
 import { summaryRouter } from './summary'
 import { removeStaffRouter } from './remove'
 
@@ -17,6 +18,7 @@ export const staffInvolvementRouter = express.Router({ mergeParams: true })
 staffInvolvementRouter.use(populateReport(true), logoutIf(cannotEditReport))
 
 // add a new staff involvement
+staffInvolvementRouter.use('/search', searchRouter)
 staffInvolvementRouter.use('/add/manual', manualAddRouter)
 staffInvolvementRouter.use('/add/username/:username', populateStaffMember(), addRouter)
 

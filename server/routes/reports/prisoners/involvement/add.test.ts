@@ -76,7 +76,7 @@ describe('Adding a new prisoner to a report', () => {
       .expect(res => {
         expect(res.text).toContain('Page not found')
 
-        expect(offenderSearchApi.getPrisoner).not.toHaveBeenCalledWith(andrew.prisonerNumber)
+        expect(offenderSearchApi.getPrisoner).not.toHaveBeenCalled()
       })
   })
 

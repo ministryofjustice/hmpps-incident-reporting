@@ -15,6 +15,7 @@ export const andrew: OffenderSearchResultIn = {
   prisonId: moorland.agencyId,
   prisonName: moorland.description,
   cellLocation: '1-1-001',
+  dateOfBirth: '1987-10-05',
 }
 
 /** A2222BB in Moorland */
@@ -25,6 +26,7 @@ export const barry: OffenderSearchResultIn = {
   prisonId: moorland.agencyId,
   prisonName: moorland.description,
   cellLocation: '1-1-002',
+  dateOfBirth: '1987-12-06',
 }
 
 /** A3333CC in Leeds */
@@ -35,6 +37,7 @@ export const chris: OffenderSearchResultIn = {
   prisonId: leeds.agencyId,
   prisonName: leeds.description,
   cellLocation: '2-A-021',
+  dateOfBirth: '1975-01-01',
 }
 
 /** A4444DD in transfer */
@@ -45,6 +48,7 @@ export const donald: OffenderSearchResultTransfer = {
   prisonId: transferPrisonId,
   prisonName: 'Transfer',
   locationDescription: 'Transfer',
+  dateOfBirth: '1975-01-01',
 }
 
 /** A5555EE outside */
@@ -55,6 +59,7 @@ export const ernie: OffenderSearchResultOut = {
   prisonId: outsidePrisonId,
   prisonName: 'Outside',
   locationDescription: 'Outside - released from Moorland (HMP)',
+  dateOfBirth: '1975-01-01',
 }
 
 /** A6666FF in unknown location */
@@ -65,4 +70,5 @@ export const fred: OffenderSearchResult = {
   prisonId: undefined,
   prisonName: undefined,
   cellLocation: undefined,
+  dateOfBirth: '1975-01-01',
 }

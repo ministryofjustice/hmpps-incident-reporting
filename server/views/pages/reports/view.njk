@@ -271,16 +271,7 @@
 
   {{ govukSummaryList({
     card: {
-      title: {
-        text: "About incident " + report.reportReference
-      },
-      actions: {
-        items: [{
-          href: "/reports/" + report.id + "/questions",
-          text: "Continue",
-          visuallyHiddenText: "question responses"
-        }]
-      } if canEditReport and not questionsCompleted else {}
+      title: {text: "About incident " + report.reportReference}
     },
     rows: questionRows
   }) }}

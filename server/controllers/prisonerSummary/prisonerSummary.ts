@@ -7,12 +7,39 @@ import { prisonerInvolvementOutcomes, prisonerInvolvementRoles } from '../../rep
 import type { Values } from '../../routes/reports/prisoners/summary/fields'
 
 export default class PrisonerSummary extends BaseController<Values> {
+  middlewareLocals(): void {
+    this.use(this.customiseFields)
+    super.middlewareLocals()
+  }
+
+  private customiseFields(req: FormWizard.Request<Values>, res: express.Response, next: express.NextFunction): void {
+    const report = res.locals.report as ReportWithDetails
+
+    const prisonerInvolvementDone = report.prisonersInvolved.length > 0 || report.prisonerInvolvementDone
+
+    const { fields } = req.form.options
+
+    const customisedFields = { ...fields }
+    if (prisonerInvolvementDone) {
+      customisedFields.addPrisoner = {
+        ...customisedFields.addPrisoner,
+        label: 'Do you want to add a prisoner?',
+        items: customisedFields.addPrisoner.items.filter(item => item.value !== 'skip'),
+      }
+    }
+    req.form.options.fields = customisedFields
+
+    res.locals.prisonerInvolvementDone = prisonerInvolvementDone
+
+    next()
+  }
+
   getBackLink(_req: FormWizard.Request<Values>, res: express.Response): string {
     const reportId = res.locals.report.id
     return `/reports/${reportId}`
   }
 
-  locals(req: FormWizard.Request<Values>, res: express.Response) {
+  locals(req: FormWizard.Request<Values>, res: express.Response): Partial<FormWizard.Locals<Values>> {
     const locals = super.locals(req, res)
     const report = res.locals.report as ReportWithDetails
     const { errors } = res.locals
@@ -20,6 +47,7 @@ export default class PrisonerSummary extends BaseController<Values> {
     if (errors.addPrisoner) {
       errors.addPrisoner.message = 'Select if you would like to add another prisoner to continue.'
     }
+
     // Gather notification banner entries if they exist
     const banners = req.flash()
 
@@ -29,10 +57,6 @@ export default class PrisonerSummary extends BaseController<Values> {
     const prisonerOutcomeLookup = Object.fromEntries(
       prisonerInvolvementOutcomes.map(outcome => [outcome.code, outcome.description]),
     )
-    let showTable = false
-    if (report.prisonersInvolved && report.prisonersInvolved.length > 0) {
-      showTable = true
-    }
 
     let tableHeading = [{}]
     if (report.createdInNomis) {
@@ -47,10 +71,14 @@ export default class PrisonerSummary extends BaseController<Values> {
       tableHeading = [{ text: 'Prisoner' }, { text: 'Role' }, { text: 'Details' }, { text: 'Action' }]
     }
 
+    const pageTitle = res.locals.prisonerInvolvementDone
+      ? 'Prisoners involved'
+      : 'Were any prisoners involved in the incident?'
+
     return {
       ...locals,
+      pageTitle,
       banners,
-      showTable,
       prisonerInvolvementLookup,
       prisonerOutcomeLookup,
       tableHeading,
@@ -58,7 +86,21 @@ export default class PrisonerSummary extends BaseController<Values> {
     }
   }
 
-  successHandler(req: FormWizard.Request<Values>, res: express.Response, _next: express.NextFunction) {
+  render(req: FormWizard.Request<Values>, res: express.Response, next: express.NextFunction): void {
+    if (res.locals.prisonerInvolvementDone) {
+      req.form.options.template = 'pages/prisoners/summary'
+    } else {
+      req.form.options.template = 'pages/prisoners/request'
+    }
+
+    super.render(req, res, next)
+  }
+
+  async successHandler(
+    req: FormWizard.Request<Values>,
+    res: express.Response,
+    _next: express.NextFunction,
+  ): Promise<void> {
     const reportId = res.locals.report.id
     const { addPrisoner } = req.form.values
 
@@ -66,8 +108,13 @@ export default class PrisonerSummary extends BaseController<Values> {
     req.sessionModel.reset()
 
     if (addPrisoner === 'yes') {
-      res.redirect(`/reports/${reportId}/prisoner-search`)
+      res.redirect(`/reports/${reportId}/prisoners/search`)
     } else {
+      if (addPrisoner === 'no') {
+        await res.locals.apis.incidentReportingApi.updateReport(reportId, {
+          prisonerInvolvementDone: true,
+        })
+      }
       res.redirect(`/reports/${reportId}`)
     }
   }

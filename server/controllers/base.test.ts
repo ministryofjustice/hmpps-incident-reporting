@@ -2,7 +2,7 @@ import type express from 'express'
 import type FormWizard from 'hmpo-form-wizard'
 
 import { mockThrownError } from '../data/testData/thrownErrors'
-import { BaseController } from './index'
+import { BaseController } from './base'
 
 class TestController extends BaseController {
   protected errorMessage(error: FormWizard.Error): string {

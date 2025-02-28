@@ -73,7 +73,7 @@ class EditPrisonerInvolvementController extends PrisonerInvolvementController {
       const formValues = {
         prisonerRole: prisonerInvolvement.prisonerRole,
         outcome: prisonerInvolvement.outcome ?? '',
-        comment: prisonerInvolvement.comment,
+        comment: prisonerInvolvement.comment ?? '',
         ...values,
       }
 

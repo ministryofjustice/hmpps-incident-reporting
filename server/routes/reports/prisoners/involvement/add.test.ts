@@ -160,6 +160,31 @@ describe('Adding a new prisoner to a report', () => {
       })
     })
 
+    it('should show an error on the summary page if no roles are available', () => {
+      report.type = 'ABSCONDER'
+      report.prisonersInvolved = [
+        {
+          prisonerNumber: barry.prisonerNumber,
+          firstName: barry.firstName,
+          lastName: barry.lastName,
+          prisonerRole: 'ABSCONDER',
+          outcome: 'POLICE_INVESTIGATION',
+          comment: 'Matter being handled by police',
+        },
+      ]
+      incidentReportingApi.getReportWithDetailsById.mockResolvedValueOnce(report)
+
+      return request
+        .agent(app)
+        .get(addPageUrl(andrew.prisonerNumber))
+        .redirects(1)
+        .expect(200)
+        .expect(res => {
+          expect(res.text).toContain('app-prisoner-summary')
+          expect(res.text).toContain('No more prisoner roles can be added')
+        })
+    })
+
     interface ValidScenario {
       scenario: string
       validPayload: Partial<Values>

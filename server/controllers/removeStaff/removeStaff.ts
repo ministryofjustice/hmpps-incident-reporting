@@ -5,14 +5,14 @@ import { nameOfPerson } from '../../utils/utils'
 import type { ReportWithDetails } from '../../data/incidentReportingApi'
 import { BaseController } from '../index'
 
-export default class RemovePrisoner extends BaseController {
+export default class RemoveStaff extends BaseController {
   middlewareLocals() {
     super.middlewareLocals()
   }
 
   getBackLink(_req: FormWizard.Request, res: express.Response): string {
     const reportId = res.locals.report.id
-    return `/reports/${reportId}/prisoners`
+    return `/reports/${reportId}/staff`
   }
 
   locals(req: FormWizard.Request, res: express.Response) {
@@ -21,27 +21,27 @@ export default class RemovePrisoner extends BaseController {
     const report = res.locals.report as ReportWithDetails
     const { index } = req.params
 
-    if (errors.removePrisoner) {
-      errors.removePrisoner.message = 'Select if you would like to remove this prisoner to continue.'
+    if (errors.removeStaff) {
+      errors.removeStaff.message = 'Select if you would like to remove this staff member to continue.'
     }
 
-    const prisonerToRemove = report.prisonersInvolved[parseInt(index, 10) - 1]
+    const staffToRemove = report.staffInvolved[parseInt(index, 10) - 1]
 
     return {
       ...locals,
-      prisonerToRemove,
+      staffToRemove,
       errors,
     }
   }
 
   async saveValues(req: FormWizard.Request, res: express.Response, next: express.NextFunction) {
     try {
-      const { removePrisoner } = req.form.values
+      const { removeStaff } = req.form.values
 
-      if (removePrisoner === 'yes') {
+      if (removeStaff === 'yes') {
         const { reportId, index } = req.params
         const { incidentReportingApi } = res.locals.apis
-        await incidentReportingApi.prisonersInvolved.deleteFromReport(reportId, parseInt(index, 10))
+        await incidentReportingApi.staffInvolved.deleteFromReport(reportId, parseInt(index, 10))
       }
 
       next()
@@ -52,19 +52,19 @@ export default class RemovePrisoner extends BaseController {
 
   successHandler(req: FormWizard.Request, res: express.Response, next: express.NextFunction) {
     const { reportId, index } = req.params
-    const { removePrisoner } = req.form.values
+    const { removeStaff } = req.form.values
     const report = res.locals.report as ReportWithDetails
-    const prisonerInvolvement = report.prisonersInvolved[parseInt(index, 10) - 1]
+    const staffInvolvement = report.staffInvolved[parseInt(index, 10) - 1]
 
     req.journeyModel.reset()
     req.sessionModel.reset()
 
-    if (removePrisoner === 'yes') {
+    if (removeStaff === 'yes') {
       req.flash('success', {
-        title: `You have removed ${prisonerInvolvement.prisonerNumber}: ${nameOfPerson(prisonerInvolvement)}`,
+        title: `You have removed ${nameOfPerson(staffInvolvement)}`,
       })
     }
 
-    res.redirect(`/reports/${reportId}/prisoners`)
+    res.redirect(`/reports/${reportId}/staff`)
   }
 }

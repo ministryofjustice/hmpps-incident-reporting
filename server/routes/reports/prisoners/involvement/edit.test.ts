@@ -81,6 +81,15 @@ describe('Editing an existing prisoner in a report', () => {
       })
   })
 
+  it('should 404 if prisoner involvement is invalid', () => {
+    return request(app)
+      .get(editPageUrl(0))
+      .expect(404)
+      .expect(res => {
+        expect(res.text).toContain('Page not found')
+      })
+  })
+
   it('should 404 if prisoner involvement is not found', () => {
     report.prisonersInvolved = []
 
@@ -173,6 +182,29 @@ describe('Editing an existing prisoner in a report', () => {
             expect(res.text).toContain('Escapee')
           })
       })
+    })
+
+    it('should show an error on the summary page if no roles are available', () => {
+      report.type = 'ABSCONDER'
+      report.prisonersInvolved.unshift({
+        prisonerNumber: barry.prisonerNumber,
+        firstName: barry.firstName,
+        lastName: barry.lastName,
+        prisonerRole: 'ABSCONDER',
+        outcome: 'POLICE_INVESTIGATION',
+        comment: 'Matter being handled by police',
+      })
+      incidentReportingApi.getReportWithDetailsById.mockResolvedValueOnce(report)
+
+      return request
+        .agent(app)
+        .get(editPageUrl(2))
+        .redirects(1)
+        .expect(200)
+        .expect(res => {
+          expect(res.text).toContain('app-prisoner-summary')
+          expect(res.text).toContain('No more prisoner roles can be added')
+        })
     })
 
     interface ValidScenario {

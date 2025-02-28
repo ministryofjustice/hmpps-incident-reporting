@@ -47,6 +47,7 @@ export default class PrisonerSummary extends BaseController<Values> {
     if (errors.addPrisoner) {
       errors.addPrisoner.message = 'Select if you would like to add another prisoner to continue.'
     }
+
     // Gather notification banner entries if they exist
     const banners = req.flash()
 

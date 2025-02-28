@@ -74,6 +74,10 @@ describe('Searching for a member of staff to add to a report', () => {
         expect(res.text).toContain('app-staff-search')
 
         expect(res.text).toContain('Search for a member of staff involved in the incident')
+        expect(res.text).toContain('You can add more later')
+        expect(res.text).not.toContain('Select the member of staff you want to add')
+        expect(res.text).not.toContain('Contact the person directly')
+        expect(res.text).not.toContain('There is a problem')
 
         expect(manageUsersApiClient.searchUsers).not.toHaveBeenCalled()
       })
@@ -138,7 +142,12 @@ describe('Searching for a member of staff to add to a report', () => {
       .expect(res => {
         expect(res.text).toContain('app-staff-search')
 
+        expect(res.text).toContain('Search for a member of staff involved in the incident')
+        expect(res.text).toContain('You can add more later')
+        expect(res.text).not.toContain('Select the member of staff you want to add')
+        expect(res.text).not.toContain('Contact the person directly')
         expect(res.text).not.toContain('There is a problem')
+
         expect(res.text).toContain(`0 results found for “${validPayload.q}”.`)
 
         expect(manageUsersApiClient.searchUsers).toHaveBeenCalledWith(...expectedCall)
@@ -186,6 +195,13 @@ describe('Searching for a member of staff to add to a report', () => {
             lastName: 'ROSE',
             email: 'p.rose@localhost',
           },
+          // missing username (shouldn't be possible)
+          {
+            username: '',
+            firstName: 'BOT',
+            lastName: 'USER',
+            email: 'bot@localhost',
+          },
         ],
         number: 1,
         totalElements: 1,
@@ -203,6 +219,10 @@ describe('Searching for a member of staff to add to a report', () => {
         .expect(res => {
           expect(res.text).toContain('app-staff-search')
 
+          expect(res.text).not.toContain('Search for a member of staff involved in the incident')
+          expect(res.text).not.toContain('You can add more later')
+          expect(res.text).toContain('Select the member of staff you want to add')
+          expect(res.text).toContain('Contact the person directly')
           expect(res.text).not.toContain('There is a problem')
 
           // results table
@@ -214,6 +234,8 @@ describe('Searching for a member of staff to add to a report', () => {
           expect(res.text).toContain('Leeds')
           expect(res.text).toContain('Select Mary Johnson')
           expect(res.text).toContain('Select Penelope Rose')
+
+          expect(res.text).not.toContain('bot@localhost')
 
           // no pagination links
           expect(res.text).not.toContain('moj-pagination__item')

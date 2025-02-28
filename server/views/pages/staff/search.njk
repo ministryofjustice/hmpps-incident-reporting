@@ -6,7 +6,6 @@
 {% from "govuk/components/table/macro.njk" import govukTable %}
 {% from "moj/components/pagination/macro.njk" import mojPagination %}
 
-{% set pageTitle = applicationName + " – Search for a member of staff involved in the incident" %}
 {% set bodyClasses = "app-staff-search" %}
 
 {% extends "partials/layout.njk" %}
@@ -27,11 +26,15 @@
 
       {% include "partials/errorSummary.njk" %}
 
-      <h1 class="govuk-heading-l">
-        Search for a member of staff involved in the incident
-      </h1>
+      <h1 class="govuk-heading-l">{{ pageTitle }}</h1>
 
-      {{ govukHint({text: "You can add more later"}) }}
+      {% if searchResults.content.length > 0 %}
+        <p>
+          Contact the person directly if you need to confirm which email address belongs to them.
+        </p>
+      {% else %}
+        {{ govukHint({text: "You can add more later"}) }}
+      {% endif %}
 
       <form class="app-staff-search-form" method="get" novalidate>
         {# a new search should always start on first page #}
@@ -81,7 +84,7 @@
           {text: result.activeCaseload.name if result.activeCaseload.name else ""},
           {text: result.username or ""},
           {text: result.email or ""},
-          {html: link, class: "govuk-!-text-align-right"}
+          {html: link, classes: "govuk-!-text-align-right"}
         ]) %}
       {% endfor %}
 
@@ -94,7 +97,7 @@
           {text: "Location"},
           {text: "User ID"},
           {text: "Email address"},
-          {text: "Action", class: "govuk-!-text-align-right"}
+          {text: "Action", classes: "govuk-!-text-align-right"}
         ],
         rows: tableRows
       }) }}
@@ -110,7 +113,7 @@
     {% endif %}
 
       <p>
-        Or you can manually add the member of staff to the report.
+        Or you can <a href="add/manual">manually add the member of staff to the report</a>
       </p>
 
   {% endif %}

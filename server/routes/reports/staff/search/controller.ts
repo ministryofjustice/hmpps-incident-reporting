@@ -1,7 +1,7 @@
 import { URLSearchParams } from 'node:url'
 
-import express from 'express'
-import FormWizard from 'hmpo-form-wizard'
+import type express from 'express'
+import type FormWizard from 'hmpo-form-wizard'
 
 import { GetBaseController } from '../../../../controllers'
 import type { ReportWithDetails } from '../../../../data/incidentReportingApi'
@@ -12,6 +12,18 @@ import type { Values } from './fields'
 // eslint-disable-next-line import/prefer-default-export
 export class StaffSearchController extends GetBaseController<Values> {
   protected shouldContinueRenderFlowOnSuccess = true
+
+  locals(req: FormWizard.Request<Values>, res: express.Response): Partial<FormWizard.Locals<Values>> {
+    const pageTitle =
+      res.locals.searchResults?.totalElements > 0
+        ? 'Select the member of staff you want to add'
+        : 'Search for a member of staff involved in the incident'
+
+    return {
+      ...super.locals(req, res),
+      pageTitle,
+    }
+  }
 
   protected errorMessage(error: FormWizard.Error): string {
     if (error.key === 'q') {
@@ -39,6 +51,8 @@ export class StaffSearchController extends GetBaseController<Values> {
     const page = parseInt(pageStr, 10) || 1
 
     const searchResults = await new ManageUsersApiClient().searchUsers(res.locals.systemToken, q, page - 1)
+    // just in case, because we refer to users by username in the next step
+    searchResults.content = searchResults.content.filter(item => item.username)
 
     res.locals.searchResults = searchResults
 

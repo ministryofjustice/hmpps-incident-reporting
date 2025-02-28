@@ -1,7 +1,7 @@
 import { URLSearchParams } from 'node:url'
 
-import express from 'express'
-import FormWizard from 'hmpo-form-wizard'
+import type express from 'express'
+import type FormWizard from 'hmpo-form-wizard'
 
 import { GetBaseController } from '../../../../controllers'
 import type { ReportWithDetails } from '../../../../data/incidentReportingApi'

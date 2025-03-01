@@ -4,6 +4,8 @@ import path from 'node:path'
 
 import express from 'express'
 import nunjucks from 'nunjucks'
+// eslint-disable-next-line import/extensions
+import mojFrontendFilters from '@ministryofjustice/frontend/moj/filters/all.js'
 import setUpNunjucksFilters from '@ministryofjustice/hmpps-digital-prison-reporting-frontend/dpr/setUpNunjucksFilters'
 
 import logger from '../../logger'
@@ -104,7 +106,7 @@ export default function nunjucksSetup(app: express.Express): void {
   njkEnv.addFilter('isOutside', isOutside)
   njkEnv.addFilter('isInPrison', isInPrison)
 
-  // utils for GDS & MoJ components
+  // application-provided utils for GDS & MoJ components
   njkEnv.addFilter('findFieldInGovukErrorSummary', findFieldInGovukErrorSummary)
   njkEnv.addFilter('govukCheckedItems', govukCheckedItems)
   njkEnv.addFilter('govukMultipleCheckedItems', govukMultipleCheckedItems)
@@ -112,6 +114,9 @@ export default function nunjucksSetup(app: express.Express): void {
   njkEnv.addFilter('govukCheckedItemsDivider', govukCheckedItemsDivider)
   njkEnv.addFilter('govukSelectInsertDefault', govukSelectInsertDefault)
   njkEnv.addFilter('govukSelectSetSelected', govukSelectSetSelected)
+
+  // MoJ frontend components
+  njkEnv.addFilter('mojDate', mojFrontendFilters().mojDate)
 }
 
 class PanicExtension implements nunjucks.Extension {

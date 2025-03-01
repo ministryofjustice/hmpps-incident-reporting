@@ -4,9 +4,10 @@ import type { ReportWithDetails } from '../../../data/incidentReportingApi'
 import asyncMiddleware from '../../../middleware/asyncMiddleware'
 import { logoutIf } from '../../../middleware/permissions'
 import { populateReport } from '../../../middleware/populateReport'
-import { statuses } from '../../../reportConfiguration/constants'
+import { statuses, types } from '../../../reportConfiguration/constants'
 import type { Services } from '../../../services'
 import { cannotViewReport } from '../permissions'
+import { populateReportConfiguration } from '../../../middleware/populateReportConfiguration'
 
 // eslint-disable-next-line import/prefer-default-export
 export function historyRouter(service: Services): Router {
@@ -28,6 +29,24 @@ export function historyRouter(service: Services): Router {
         report,
         usersLookup,
         statusLookup,
+      })
+    }),
+  )
+
+  router.get(
+    '/type',
+    populateReportConfiguration(false),
+    asyncMiddleware(async (_req, res) => {
+      const report = res.locals.report as ReportWithDetails
+
+      const usernames = report.history.map(history => history.changedBy)
+      const usersLookup = await userService.getUsers(res.locals.systemToken, usernames)
+      const typesLookup = Object.fromEntries(types.map(type => [type.code, type.description]))
+
+      res.render('pages/reports/history/type', {
+        report,
+        usersLookup,
+        typesLookup,
       })
     }),
   )

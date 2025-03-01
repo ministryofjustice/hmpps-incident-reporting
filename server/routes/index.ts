@@ -6,6 +6,7 @@ import type { Services } from '../services'
 import { PrisonApi } from '../data/prisonApi'
 import makeDebugRoutes from './debug'
 import makeDownloadConfigRouter from './downloadReportConfig'
+import { historyRouter } from './reports/history'
 import { createReportRouter } from './reports/createReport'
 import { prisonerInvolvementRouter } from './reports/prisoners'
 import { staffInvolvementRouter } from './reports/staff'
@@ -36,6 +37,7 @@ export default function routes(services: Services): Router {
   router.use('/reports', dashboard(services))
   router.use('/create-report', createReportRouter)
   router.use('/reports/:reportId', viewReportRouter(services))
+  router.use('/reports/:reportId/history', historyRouter(services))
   router.use('/reports/:reportId/update-details', updateDetailsRouter)
   router.use('/reports/:reportId/prisoners', prisonerInvolvementRouter)
   router.use('/reports/:reportId/staff', staffInvolvementRouter)

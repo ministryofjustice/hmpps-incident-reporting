@@ -83,6 +83,7 @@ describe('GET view report page with details', () => {
     return request(app)
       .get(viewReportUrl)
       .expect('Content-Type', /html/)
+      .expect(200)
       .expect(res => {
         expect(res.text).toContain('Incident reference 6543')
         expect(res.text).toContain('Reported by John Smith in Moorland (HMP &amp; YOI)')
@@ -100,6 +101,7 @@ describe('GET view report page with details', () => {
     return request(app)
       .get(viewReportUrl)
       .expect('Content-Type', /html/)
+      .expect(200)
       .expect(res => {
         expect(res.text).toContain('Date and time of incident')
         expect(res.text).toContain('5 December 2023, 11:34')

@@ -51,6 +51,58 @@ describe('Searching for a member of staff to add to a report', () => {
     return `/reports/${report.id}/staff/search`
   }
 
+  function expectPageNotSubmitted(res: request.Response): void {
+    expect(res.text).toContain('app-staff-search')
+
+    expect(res.text).toContain('Search for a member of staff involved in the incident')
+    expect(res.text).toContain('You can add more later')
+
+    expect(res.text).not.toContain('Select the member of staff you want to add')
+    expect(res.text).not.toContain(
+      'Contact the person directly if you need to confirm which email address belongs to them',
+    )
+    expect(res.text).not.toContain('manually add the member of staff')
+
+    expect(res.text).not.toContain('cannot be found')
+    expect(res.text).not.toContain(
+      'Contact the person directly to confirm what name is on their Digital Prison Services account',
+    )
+  }
+
+  function expectPageSubmittedWithResults(res: request.Response): void {
+    expect(res.text).toContain('app-staff-search')
+
+    expect(res.text).not.toContain('Search for a member of staff involved in the incident')
+    expect(res.text).not.toContain('You can add more later')
+
+    expect(res.text).toContain('Select the member of staff you want to add')
+    expect(res.text).toContain('Contact the person directly if you need to confirm which email address belongs to them')
+    expect(res.text).toContain('manually add the member of staff')
+
+    expect(res.text).not.toContain('cannot be found')
+    expect(res.text).not.toContain(
+      'Contact the person directly to confirm what name is on their Digital Prison Services account',
+    )
+  }
+
+  function expectPageSubmittedWithoutResults(res: request.Response): void {
+    expect(res.text).toContain('app-staff-search')
+
+    expect(res.text).not.toContain('Search for a member of staff involved in the incident')
+    expect(res.text).not.toContain('You can add more later')
+
+    expect(res.text).not.toContain('Select the member of staff you want to add')
+    expect(res.text).not.toContain(
+      'Contact the person directly if you need to confirm which email address belongs to them',
+    )
+
+    expect(res.text).toContain('cannot be found')
+    expect(res.text).toContain(
+      'Contact the person directly to confirm what name is on their Digital Prison Services account',
+    )
+    expect(res.text).toContain('manually add the member of staff')
+  }
+
   it('should 404 if report is not found', () => {
     const error = mockThrownError(mockErrorResponse({ status: 404, message: 'Report not found' }), 404)
     incidentReportingApi.getReportWithDetailsById.mockReset()
@@ -71,12 +123,8 @@ describe('Searching for a member of staff to add to a report', () => {
       .get(searchPageUrl())
       .expect(200)
       .expect(res => {
-        expect(res.text).toContain('app-staff-search')
+        expectPageNotSubmitted(res)
 
-        expect(res.text).toContain('Search for a member of staff involved in the incident')
-        expect(res.text).toContain('You can add more later')
-        expect(res.text).not.toContain('Select the member of staff you want to add')
-        expect(res.text).not.toContain('Contact the person directly')
         expect(res.text).not.toContain('There is a problem')
 
         expect(manageUsersApiClient.searchUsers).not.toHaveBeenCalled()
@@ -100,7 +148,7 @@ describe('Searching for a member of staff to add to a report', () => {
       .query(invalidPayload)
       .expect(200)
       .expect(res => {
-        expect(res.text).toContain('app-staff-search')
+        expectPageNotSubmitted(res)
 
         expect(res.text).toContain('There is a problem')
         expect(res.text).toContain(expectedError)
@@ -140,15 +188,10 @@ describe('Searching for a member of staff to add to a report', () => {
       .query(validPayload)
       .expect(200)
       .expect(res => {
-        expect(res.text).toContain('app-staff-search')
+        expectPageSubmittedWithoutResults(res)
 
-        expect(res.text).toContain('Search for a member of staff involved in the incident')
-        expect(res.text).toContain('You can add more later')
-        expect(res.text).not.toContain('Select the member of staff you want to add')
-        expect(res.text).not.toContain('Contact the person directly')
         expect(res.text).not.toContain('There is a problem')
-
-        expect(res.text).toContain(`0 results found for “${validPayload.q}”.`)
+        expect(res.text).toContain(`“${validPayload.q}”`)
 
         expect(manageUsersApiClient.searchUsers).toHaveBeenCalledWith(...expectedCall)
       })
@@ -217,12 +260,8 @@ describe('Searching for a member of staff to add to a report', () => {
         .query(validPayload)
         .expect(200)
         .expect(res => {
-          expect(res.text).toContain('app-staff-search')
+          expectPageSubmittedWithResults(res)
 
-          expect(res.text).not.toContain('Search for a member of staff involved in the incident')
-          expect(res.text).not.toContain('You can add more later')
-          expect(res.text).toContain('Select the member of staff you want to add')
-          expect(res.text).toContain('Contact the person directly')
           expect(res.text).not.toContain('There is a problem')
 
           // results table

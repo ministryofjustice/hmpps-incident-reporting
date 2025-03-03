@@ -158,7 +158,7 @@ describe('Prisoner involvement summary for report', () => {
   it('should redirect to search page is user choses to add involvements', () => {
     return request(app)
       .post(summaryUrl())
-      .send({ addPrisoner: 'yes' })
+      .send({ confirmAdd: 'yes' })
       .expect(302)
       .expect(res => {
         expect(res.headers.location).toEqual(`/reports/${mockedReport.id}/prisoners/search`)
@@ -169,7 +169,7 @@ describe('Prisoner involvement summary for report', () => {
   it('should redirect to report page is user choses to not add involvements', () => {
     return request(app)
       .post(summaryUrl())
-      .send({ addPrisoner: 'no' })
+      .send({ confirmAdd: 'no' })
       .expect(302)
       .expect(res => {
         expect(res.headers.location).toEqual(`/reports/${mockedReport.id}`)
@@ -233,7 +233,7 @@ describe('Prisoner involvement summary for report', () => {
     it('should redirect to search page is user choses to add involvements', () => {
       return request(app)
         .post(summaryUrl())
-        .send({ addPrisoner: 'yes' })
+        .send({ confirmAdd: 'yes' })
         .expect(302)
         .expect(res => {
           expect(res.headers.location).toEqual(`/reports/${mockedReport.id}/prisoners/search`)
@@ -244,7 +244,7 @@ describe('Prisoner involvement summary for report', () => {
     it('should redirect to report page is user choses to not add involvements', () => {
       return request(app)
         .post(summaryUrl())
-        .send({ addPrisoner: 'no' })
+        .send({ confirmAdd: 'no' })
         .expect(302)
         .expect(res => {
           expect(res.headers.location).toEqual(`/reports/${mockedReport.id}`)
@@ -257,7 +257,7 @@ describe('Prisoner involvement summary for report', () => {
     it('should redirect to report page is user choses to skip adding involvements', () => {
       return request(app)
         .post(summaryUrl())
-        .send({ addPrisoner: 'skip' })
+        .send({ confirmAdd: 'skip' })
         .expect(302)
         .expect(res => {
           expect(res.headers.location).toEqual(`/reports/${mockedReport.id}`)

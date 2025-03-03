@@ -122,7 +122,7 @@ describe('Remove staff involvement', () => {
     return request
       .agent(app)
       .post(removeStaffUrl(1))
-      .send({ confirm: 'yes' })
+      .send({ confirmRemove: 'yes' })
       .redirects(1)
       .expect(200)
       .expect(res => {
@@ -143,7 +143,7 @@ describe('Remove staff involvement', () => {
       .post(removeStaffUrl(1))
       .redirects(1)
       .expect(200)
-      .send({ confirm: 'no' })
+      .send({ confirmRemove: 'no' })
       .expect(res => {
         expect(res.text).toContain('app-staff-summary')
 

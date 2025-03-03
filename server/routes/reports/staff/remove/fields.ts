@@ -1,7 +1,7 @@
 import type FormWizard from 'hmpo-form-wizard'
 
 export const fields = {
-  confirm: {
+  confirmRemove: {
     label: 'Are you sure you want to remove this staff member?',
     component: 'govukRadios',
     validate: ['required'],

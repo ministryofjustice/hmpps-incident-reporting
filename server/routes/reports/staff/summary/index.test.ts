@@ -119,7 +119,7 @@ describe('Staff involvement summary for report', () => {
   it('should redirect to search page is user choses to add involvements', () => {
     return request(app)
       .post(summaryUrl())
-      .send({ addStaff: 'yes' })
+      .send({ confirmAdd: 'yes' })
       .expect(302)
       .expect(res => {
         expect(res.headers.location).toEqual(`/reports/${mockedReport.id}/staff/search`)
@@ -130,7 +130,7 @@ describe('Staff involvement summary for report', () => {
   it('should redirect to report page is user choses to not add involvements', () => {
     return request(app)
       .post(summaryUrl())
-      .send({ addStaff: 'no' })
+      .send({ confirmAdd: 'no' })
       .expect(302)
       .expect(res => {
         expect(res.headers.location).toEqual(`/reports/${mockedReport.id}`)
@@ -194,7 +194,7 @@ describe('Staff involvement summary for report', () => {
     it('should redirect to search page is user choses to add involvements', () => {
       return request(app)
         .post(summaryUrl())
-        .send({ addStaff: 'yes' })
+        .send({ confirmAdd: 'yes' })
         .expect(302)
         .expect(res => {
           expect(res.headers.location).toEqual(`/reports/${mockedReport.id}/staff/search`)
@@ -205,7 +205,7 @@ describe('Staff involvement summary for report', () => {
     it('should redirect to report page is user choses to not add involvements', () => {
       return request(app)
         .post(summaryUrl())
-        .send({ addStaff: 'no' })
+        .send({ confirmAdd: 'no' })
         .expect(302)
         .expect(res => {
           expect(res.headers.location).toEqual(`/reports/${mockedReport.id}`)
@@ -218,7 +218,7 @@ describe('Staff involvement summary for report', () => {
     it('should redirect to report page is user choses to skip adding involvements', () => {
       return request(app)
         .post(summaryUrl())
-        .send({ addStaff: 'skip' })
+        .send({ confirmAdd: 'skip' })
         .expect(302)
         .expect(res => {
           expect(res.headers.location).toEqual(`/reports/${mockedReport.id}`)

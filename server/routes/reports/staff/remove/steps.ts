@@ -6,6 +6,6 @@ import type { Values } from './fields'
 export const steps: FormWizard.Steps<Values> = {
   '/': {
     entryPoint: true,
-    fields: ['confirm'],
+    fields: ['confirmRemove'],
   },
 }

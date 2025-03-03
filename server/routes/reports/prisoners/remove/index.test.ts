@@ -124,7 +124,7 @@ describe('Remove prisoner involvement', () => {
     return request
       .agent(app)
       .post(removePrisonerUrl(1))
-      .send({ confirm: 'yes' })
+      .send({ confirmRemove: 'yes' })
       .redirects(1)
       .expect(200)
       .expect(res => {
@@ -143,7 +143,7 @@ describe('Remove prisoner involvement', () => {
     return request
       .agent(app)
       .post(removePrisonerUrl(1))
-      .send({ confirm: 'no' })
+      .send({ confirmRemove: 'no' })
       .redirects(1)
       .expect(200)
       .expect(res => {

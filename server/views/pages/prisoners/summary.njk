@@ -26,6 +26,23 @@
 
   {% if report.prisonersInvolved | length %}
 
+    {% if report.createdInNomis %}
+      {% set head = [
+        { text: "Prisoner" },
+        { text: "Role" },
+        { text: "Outcome" },
+        { text: "Details" },
+        { text: "Action" }
+      ] %}
+    {% else %}
+      {% set head = [
+        { text: "Prisoner" },
+        { text: "Role" },
+        { text: "Details" },
+        { text: "Action" }
+      ] %}
+    {% endif %}
+
     {% set rows = [] %}
     {% for prisoner in report.prisonersInvolved %}
       {% set actionCell %}
@@ -56,7 +73,7 @@
 
     {{ govukTable({
       classes: "app-involvement-table",
-      head: tableHeading,
+      head: head,
       rows: rows
     }) }}
 
@@ -76,7 +93,7 @@
       {% set radioLegend = "Do you want to add a prisoner?" %}
     {% endif %}
 
-    {% set fieldName = "addPrisoner" %}
+    {% set fieldName = "confirmAdd" %}
     {% set field = options.fields[fieldName] %}
     {% set items = [] %}
     {% for item in field.items %}

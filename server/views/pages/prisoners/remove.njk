@@ -29,8 +29,8 @@
 
     {{ govukRadios({
       classes: "govuk-radios--inline",
-      name: "confirm",
-      id: "confirm",
+      name: "confirmRemove",
+      id: "confirmRemove",
       fieldset: {
         legend: {
           text: "Are you sure you want to remove " + prisonerName + "?",
@@ -48,7 +48,7 @@
           text: "No"
         }
       ],
-      errorMessage: { text: errors.confirm.message } if errors.confirm else undefined
+      errorMessage: { text: errors.confirmRemove.message } if errors.confirmRemove else undefined
     }) }}
 
     <div class="govuk-button-group">

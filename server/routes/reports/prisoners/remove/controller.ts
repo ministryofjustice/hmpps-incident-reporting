@@ -9,14 +9,14 @@ import type { Values } from './fields'
 
 // eslint-disable-next-line import/prefer-default-export
 export class RemovePrisoner extends RemoveInvolvement {
-  protected involvementKey = 'prisonersInvolved' as const
+  protected involvementField = 'prisonersInvolved' as const
 
   protected getSummaryUrl(reportId: string): string {
     return `/reports/${reportId}/prisoners`
   }
 
   protected errorMessage(error: FormWizard.Error): string {
-    if (error.key === 'confirm') {
+    if (error.key === 'confirmRemove') {
       return 'Select if you would like to remove this prisoner to continue'
     }
     return super.errorMessage(error)

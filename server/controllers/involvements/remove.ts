@@ -12,7 +12,7 @@ type Values = PrisonersValues | StaffValues
 
 // eslint-disable-next-line import/prefer-default-export
 export abstract class RemoveInvolvement extends BaseController<Values> {
-  protected abstract involvementKey: 'prisonersInvolved' | 'staffInvolved'
+  protected abstract involvementField: 'prisonersInvolved' | 'staffInvolved'
 
   middlewareLocals(): void {
     this.use(this.chooseInvolvement)
@@ -27,7 +27,7 @@ export abstract class RemoveInvolvement extends BaseController<Values> {
     }
 
     const report = res.locals.report as ReportWithDetails
-    const involvement = report[this.involvementKey][index - 1]
+    const involvement = report[this.involvementField][index - 1]
     if (!involvement) {
       next(new NotFound('Involvement index out of bounds'))
       return
@@ -51,9 +51,9 @@ export abstract class RemoveInvolvement extends BaseController<Values> {
 
   async saveValues(req: FormWizard.Request<Values>, res: express.Response, next: express.NextFunction): Promise<void> {
     try {
-      const { confirm } = req.form.values
+      const { confirmRemove } = req.form.values
 
-      if (confirm === 'yes') {
+      if (confirmRemove === 'yes') {
         await this.deleteInvolvement(req, res)
 
         // clear session since involvement has been saved
@@ -64,7 +64,7 @@ export abstract class RemoveInvolvement extends BaseController<Values> {
     } catch (error) {
       logger.error(error, 'Involvement could not be deleted: %j', error)
       const err = this.convertIntoValidationError(error)
-      this.errorHandler({ confirm: err }, req, res, next)
+      this.errorHandler({ confirmRemove: err }, req, res, next)
     }
   }
 

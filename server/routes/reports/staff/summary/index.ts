@@ -1,6 +1,6 @@
 import FormWizard from 'hmpo-form-wizard'
 
-import StaffSummary from '../../../../controllers/staffSummary/staffSummary'
+import StaffSummary from './controller'
 import { fields } from './fields'
 import { steps } from './steps'
 

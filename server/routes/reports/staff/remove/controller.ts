@@ -9,14 +9,14 @@ import type { Values } from './fields'
 
 // eslint-disable-next-line import/prefer-default-export
 export class RemoveStaff extends RemoveInvolvement {
-  protected involvementKey = 'staffInvolved' as const
+  protected involvementField = 'staffInvolved' as const
 
   protected getSummaryUrl(reportId: string): string {
     return `/reports/${reportId}/staff`
   }
 
   protected errorMessage(error: FormWizard.Error): string {
-    if (error.key === 'confirm') {
+    if (error.key === 'confirmRemove') {
       return 'Select if you would like to remove this staff member to continue'
     }
     return super.errorMessage(error)

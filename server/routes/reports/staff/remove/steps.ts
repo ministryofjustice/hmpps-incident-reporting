@@ -1,13 +1,12 @@
 import type FormWizard from 'hmpo-form-wizard'
-import RemoveStaff from '../../../../controllers/removeStaff/removeStaff'
 
-const steps: FormWizard.Steps = {
+import type { Values } from './fields'
+
+// eslint-disable-next-line import/prefer-default-export
+export const steps: FormWizard.Steps<Values> = {
   '/': {
     entryPoint: true,
     fields: ['removeStaff'],
-    controller: RemoveStaff,
     template: 'confirm',
   },
 }
-
-export default steps

@@ -1,6 +1,6 @@
 import type FormWizard from 'hmpo-form-wizard'
 
-const fields: FormWizard.Fields = {
+export const fields = {
   removePrisoner: {
     label: 'Are you sure you want to remove this prisoner?',
     component: 'govukRadios',
@@ -17,6 +17,6 @@ const fields: FormWizard.Fields = {
       },
     ],
   },
-}
+} satisfies FormWizard.Fields
 
-export default fields
+export type Values = FormWizard.ValuesFromFields<typeof fields>

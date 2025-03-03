@@ -66,6 +66,7 @@ describe('Report status history', () => {
         expect(res.text).toContain('Draft')
         expect(res.text).toContain('by John Smith')
         expect(res.text).toContain('5 December 2023 at 12:34pm')
+        expect(res.text).not.toContain('The history of status changes in NOMIS is not recorded')
 
         expect(incidentReportingApi.getReportWithDetailsById).toHaveBeenCalledTimes(1)
 
@@ -101,6 +102,17 @@ describe('Report status history', () => {
         const users = userService.getUsers.mock.calls[0][1]
         users.sort()
         expect(users).toEqual(['user1', 'user2'])
+      })
+  })
+
+  it('should show a message for NOMIS-created reports', () => {
+    mockedReport.createdInNomis = true
+
+    return request(app)
+      .get(statusHistoryUrl)
+      .expect(200)
+      .expect(res => {
+        expect(res.text).toContain('The history of status changes in NOMIS is not recorded')
       })
   })
 

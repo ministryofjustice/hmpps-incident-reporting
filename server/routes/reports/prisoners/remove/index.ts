@@ -1,13 +1,13 @@
 import FormWizard from 'hmpo-form-wizard'
 
-import RemovePrisoner from '../../../../controllers/removePrisoner/removePrisoner'
+import { RemovePrisoner } from './controller'
 import { fields } from './fields'
 import { steps } from './steps'
 
 // eslint-disable-next-line import/prefer-default-export
 export const removeRouter = FormWizard(steps, fields, {
   name: 'removePrisoner',
-  templatePath: 'pages/removePrisoner',
+  template: 'pages/prisoners/remove',
   checkSession: false,
   csrf: false,
   controller: RemovePrisoner,

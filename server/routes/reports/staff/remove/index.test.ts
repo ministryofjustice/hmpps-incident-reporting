@@ -5,8 +5,8 @@ import {
   IncidentReportingApi,
   RelatedObjects,
   type ReportWithDetails,
-  type StaffInvolvement,
   type AddStaffInvolvementRequest,
+  type StaffInvolvement,
   type UpdateStaffInvolvementRequest,
 } from '../../../../data/incidentReportingApi'
 import { convertReportWithDetailsDates } from '../../../../data/incidentReportingApiUtils'
@@ -26,7 +26,6 @@ let incidentReportingRelatedObjects: jest.Mocked<
 
 beforeEach(() => {
   app = appWithAllRoutes()
-
   incidentReportingApi = IncidentReportingApi.prototype as jest.Mocked<IncidentReportingApi>
   incidentReportingRelatedObjects = RelatedObjects.prototype as jest.Mocked<
     RelatedObjects<StaffInvolvement, AddStaffInvolvementRequest, UpdateStaffInvolvementRequest>
@@ -37,32 +36,30 @@ afterEach(() => {
   jest.resetAllMocks()
 })
 
-describe('Editing an existing staff member in a report', () => {
-  let report: ReportWithDetails
+describe('Remove staff involvement', () => {
+  let mockedReport: ReportWithDetails
 
   beforeEach(() => {
-    report = convertReportWithDetailsDates(
-      mockReport({
-        type: 'FINDS',
-        reportReference: '6544',
-        reportDateAndTime: now,
-        withDetails: true,
-      }),
+    mockedReport = convertReportWithDetailsDates(
+      mockReport({ reportReference: '6543', reportDateAndTime: now, withDetails: true }),
     )
-    report.staffInvolved = [
+    mockedReport.staffInvolved = [
       {
-        staffUsername: 'user1',
-        firstName: 'JOHN',
-        lastName: 'SMITH',
+        staffUsername: 'abc12a',
+        firstName: 'MARY',
+        lastName: 'JOHNSON',
         staffRole: 'NEGOTIATOR',
         comment: 'See duty log',
       },
     ]
-    incidentReportingApi.getReportWithDetailsById.mockResolvedValueOnce(report)
+    incidentReportingApi.getReportWithDetailsById.mockResolvedValueOnce(mockedReport)
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore need to mock a getter method
+    incidentReportingApi.staffInvolved = incidentReportingRelatedObjects
   })
 
-  function editPageUrl(index: number): string {
-    return `/reports/${report.id}/staff/${index}`
+  function removeStaffUrl(index: number): string {
+    return `/reports/${mockedReport.id}/staff/remove/${index}`
   }
 
   it('should 404 if report is not found', () => {
@@ -71,7 +68,7 @@ describe('Editing an existing staff member in a report', () => {
     incidentReportingApi.getReportWithDetailsById.mockRejectedValueOnce(error)
 
     return request(app)
-      .get(editPageUrl(1))
+      .get(removeStaffUrl(1))
       .expect(404)
       .expect(res => {
         expect(res.text).toContain('Page not found')
@@ -80,7 +77,7 @@ describe('Editing an existing staff member in a report', () => {
 
   it('should 404 if staff involvement is invalid', () => {
     return request(app)
-      .get(editPageUrl(0))
+      .get(removeStaffUrl(0))
       .expect(404)
       .expect(res => {
         expect(res.text).toContain('Page not found')
@@ -88,107 +85,91 @@ describe('Editing an existing staff member in a report', () => {
   })
 
   it('should 404 if staff involvement is not found', () => {
-    report.staffInvolved = []
+    mockedReport.staffInvolved = []
 
     return request(app)
-      .get(editPageUrl(1))
+      .get(removeStaffUrl(1))
       .expect(404)
       .expect(res => {
         expect(res.text).toContain('Page not found')
       })
   })
 
-  it('should display a form to update staff involvement details', () => {
+  it('should render title question and options to confirm or deny removal', () => {
     return request(app)
-      .get(editPageUrl(1))
+      .get(removeStaffUrl(1))
+      .expect('Content-Type', /html/)
       .expect(200)
       .expect(res => {
-        expect(res.text).toContain('How was John Smith involved in the incident?')
-        expect(res.text).toContain('Details of John’s involvement')
+        expect(res.text).toContain('app-remove-staff')
 
-        expect(res.text).toContain('value="NEGOTIATOR" checked')
-        expect(res.text).toContain('See duty log')
+        expect(res.text).toContain('Are you sure you want to remove Mary Johnson?')
+        expect(res.text).toContain('Yes')
+        expect(res.text).toContain('No')
+        expect(res.text).toContain('Continue')
+        expect(res.text).toContain('Save and exit')
 
-        expect(incidentReportingRelatedObjects.updateForReport).not.toHaveBeenCalled()
+        expect(res.text).not.toContain('There is a problem')
+
+        expect(incidentReportingApi.getReportWithDetailsById).toHaveBeenCalledTimes(1)
+        expect(incidentReportingRelatedObjects.deleteFromReport).not.toHaveBeenCalled()
       })
   })
 
-  it.each([
-    {
-      scenario: 'request with all fields',
-      validPayload: {
-        staffRole: 'NEGOTIATOR',
-        comment: 'See duty log',
-      },
-      expectedCall: {
-        staffRole: 'NEGOTIATOR',
-        comment: 'See duty log',
-      },
-    },
-    {
-      scenario: 'request without comment',
-      validPayload: {
-        staffRole: 'NEGOTIATOR',
-      },
-      expectedCall: {
-        staffRole: 'NEGOTIATOR',
-        comment: '',
-      },
-    },
-  ])(
-    'should send update $scenario to API if form is valid and go to summary page',
-    ({ validPayload, expectedCall }) => {
-      incidentReportingApi.getReportWithDetailsById.mockResolvedValueOnce(report)
-      incidentReportingRelatedObjects.updateForReport.mockResolvedValueOnce([]) // NB: response is ignored
-      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-      // @ts-ignore need to mock a getter method
-      incidentReportingApi.staffInvolved = incidentReportingRelatedObjects
-
-      return request(app)
-        .post(editPageUrl(1))
-        .send(validPayload)
-        .redirects(1)
-        .expect(200)
-        .expect(res => {
-          expect(res.text).not.toContain('There is a problem')
-          expect(res.redirects[0]).toMatch(`/reports/${report.id}/staff`)
-
-          expect(incidentReportingRelatedObjects.updateForReport).toHaveBeenCalledWith(report.id, 1, expectedCall)
-        })
-    },
-  )
-
-  it.each([
-    {
-      scenario: 'required role is absent',
-      invalidPayload: {
-        staffRole: '',
-        comment: 'See duty log',
-      },
-      expectedError: 'Choose the staff member’s role',
-    },
-    {
-      scenario: 'role is invalid',
-      invalidPayload: {
-        staffRole: 'INVALID',
-        comment: 'See duty log',
-      },
-      expectedError: 'Choose the staff member’s role',
-    },
-  ])('should show an error when $scenario', ({ invalidPayload, expectedError }) => {
-    incidentReportingApi.getReportWithDetailsById.mockResolvedValueOnce(report)
+  it('should submit the correct delete request when "yes" selected', () => {
+    incidentReportingApi.getReportWithDetailsById.mockResolvedValueOnce(mockedReport)
 
     return request
       .agent(app)
-      .post(editPageUrl(1))
-      .send(invalidPayload)
+      .post(removeStaffUrl(1))
+      .send({ confirm: 'yes' })
       .redirects(1)
       .expect(200)
       .expect(res => {
-        expect(res.text).toContain('There is a problem')
-        expect(res.text).toContain(expectedError)
+        expect(res.text).toContain('app-staff-summary')
 
-        expect(incidentReportingRelatedObjects.updateForReport).not.toHaveBeenCalled()
+        expect(res.text).not.toContain('There is a problem')
+        expect(res.text).toContain('You have removed Mary Johnson')
+
+        expect(incidentReportingRelatedObjects.deleteFromReport).toHaveBeenCalledWith(mockedReport.id, 1)
+      })
+  })
+
+  it('should not submit the delete request when "no" selected', () => {
+    incidentReportingApi.getReportWithDetailsById.mockResolvedValueOnce(mockedReport)
+
+    return request
+      .agent(app)
+      .post(removeStaffUrl(1))
+      .redirects(1)
+      .expect(200)
+      .send({ confirm: 'no' })
+      .expect(res => {
+        expect(res.text).toContain('app-staff-summary')
+
+        expect(res.text).not.toContain('There is a problem')
+        expect(res.text).not.toContain('You have removed')
+
+        expect(incidentReportingRelatedObjects.deleteFromReport).not.toHaveBeenCalled()
+      })
+  })
+
+  it('should show an error if user does not choose an option', () => {
+    incidentReportingApi.getReportWithDetailsById.mockResolvedValueOnce(mockedReport)
+
+    return request
+      .agent(app)
+      .post(removeStaffUrl(1))
+      .send({})
+      .redirects(1)
+      .expect(200)
+      .expect(res => {
+        expect(res.text).toContain('app-remove-staff')
+
+        expect(res.text).toContain('There is a problem')
+        expect(res.text).toContain('Select if you would like to remove this staff member to continue')
+
+        expect(incidentReportingRelatedObjects.deleteFromReport).not.toHaveBeenCalled()
       })
   })
 
@@ -204,7 +185,7 @@ describe('Editing an existing staff member in a report', () => {
       { userType: 'unauthorised user', user: unauthorisedUser, action: denied },
     ])('should be $action to $userType', ({ user, action }) => {
       const testRequest = request(appWithAllRoutes({ userSupplier: () => user }))
-        .get(editPageUrl(1))
+        .get(removeStaffUrl(1))
         .redirects(1)
       if (action === 'granted') {
         return testRequest.expect(200)

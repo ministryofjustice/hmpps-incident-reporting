@@ -1,17 +1,17 @@
 {% extends "partials/layout.njk" %}
 
-{% from "govuk/components/button/macro.njk" import govukButton %}
-{% from "govuk/components/table/macro.njk" import govukTable %}
 {% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
 {% from "govuk/components/radios/macro.njk" import govukRadios %}
+{% from "govuk/components/table/macro.njk" import govukTable %}
 
-{% set pageTitle = applicationName + " remove staff from report" %}
+{% set pageTitle = applicationName + " – Remove staff from report" %}
 {% set bodyClasses = "app-remove-involvement app-remove-staff" %}
 
 {% block beforeContent %}
-{{ super() }}
+  {{ super() }}
 
-{{ govukBackLink({
+  {{ govukBackLink({
     text: "Back",
     href: backLink
   }) }}
@@ -25,18 +25,12 @@
     <input type="hidden" name="_csrf" value="{{ csrfToken }}" />
     <input type="hidden" name="x-csrf-token" value="{{ csrfToken }}" />
 
-    {% if errors['removeStaff'] %}
-      {% set errorMessage = { text: errors['removeStaff'].message } %}
-    {% else %}
-      {% set errorMessage = undefined %}
-    {% endif %}
-
-    {% set staffName = (staffToRemove | nameOfPerson) %}
+    {% set staffName = involvement | nameOfPerson %}
 
     {{ govukRadios({
       classes: "govuk-radios--inline",
-      name: "removeStaff",
-      id: "removeStaff",
+      name: "confirm",
+      id: "confirm",
       fieldset: {
         legend: {
           text: "Are you sure you want to remove " + staffName + "?",
@@ -54,7 +48,7 @@
           text: "No"
         }
       ],
-      errorMessage: errorMessage
+      errorMessage: { text: errors.confirm.message } if errors.confirm else undefined
     }) }}
 
     <div class="govuk-button-group">

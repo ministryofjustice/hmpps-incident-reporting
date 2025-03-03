@@ -6,7 +6,6 @@ import type { Values } from './fields'
 export const steps: FormWizard.Steps<Values> = {
   '/': {
     entryPoint: true,
-    fields: ['removePrisoner'],
-    template: 'confirm',
+    fields: ['confirm'],
   },
 }

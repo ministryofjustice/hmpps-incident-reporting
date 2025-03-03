@@ -1,11 +1,10 @@
 import type FormWizard from 'hmpo-form-wizard'
 
 export const fields = {
-  removePrisoner: {
+  confirm: {
     label: 'Are you sure you want to remove this prisoner?',
     component: 'govukRadios',
     validate: ['required'],
-    name: 'removePrisoner',
     items: [
       {
         value: 'yes',

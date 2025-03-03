@@ -1,0 +1,5 @@
+.app-details {
+  #incidentDate__label, #description__label {
+    @extend .govuk-label--m;
+  }
+}

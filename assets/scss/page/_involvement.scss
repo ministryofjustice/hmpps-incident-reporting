@@ -1,12 +1,16 @@
-.app-prisoner-request {
+.app-involvement-request {
   #addPrisoner__form-group legend {
+    display: none;
+  }
+
+  #addStaff__form-group legend {
     display: none;
   }
 }
 
-.app-staff-request {
-  #addStaff__form-group legend {
-    display: none;
+.app-involvement {
+  #comment__label {
+    @extend .govuk-label--m;
   }
 }
 

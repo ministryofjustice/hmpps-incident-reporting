@@ -14,12 +14,11 @@
       text: "Back",
       href: backLink
   }) }}
-
-  {% include "partials/notificationBanner.njk" %}
 {% endblock %}
 
 {% block content %}
 
+  {% include "partials/notificationBanner.njk" %}
   {% include "partials/errorSummary.njk" %}
 
   <h1 class="govuk-heading-l">{{ pageTitle }}</h1>

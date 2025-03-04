@@ -227,13 +227,16 @@ export default class QuestionsController extends BaseController<FormWizard.Multi
         try {
           // Update questions' answers
           const currentQuestions = await incidentReportingApi.addOrUpdateQuestionsWithResponses(report.id, updates)
+          logger.info('Updated questions in report %s', report.id)
 
           // Delete any potential now-irrelevant questions
           const questionsToDelete = QuestionsToDelete.forGivenAnswers(reportConfig, currentQuestions)
           if (questionsToDelete.length > 0) {
             await incidentReportingApi.deleteQuestionsAndTheirResponses(report.id, questionsToDelete)
+            logger.info('Removed obsolete questions from report %s', report.id)
           }
         } catch (err) {
+          logger.error(error, 'Questions could not be updated in report %s: %j', report.id, error)
           next(err)
           return
         }

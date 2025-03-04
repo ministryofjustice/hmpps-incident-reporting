@@ -82,7 +82,7 @@
         {% endset %}
 
         {% set link %}
-          <a href="/reports/{{ report.id }}/staff/add/username/{{ result.username | urlencode }}">
+          <a href="{{ reportSubUrlPrefix }}/staff/add/username/{{ result.username | urlencode }}">
             Select {{ name | safe }}
           </a>
         {% endset %}

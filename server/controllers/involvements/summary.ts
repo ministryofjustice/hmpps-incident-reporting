@@ -11,6 +11,7 @@ type Values = PrisonersValues | StaffValues
 
 // eslint-disable-next-line import/prefer-default-export
 export abstract class InvolvementSummary extends BaseController<Values> {
+  /** Used as URL and template slug */
   protected abstract type: 'prisoners' | 'staff'
 
   protected abstract involvementField: 'prisonersInvolved' | 'staffInvolved'
@@ -71,8 +72,7 @@ export abstract class InvolvementSummary extends BaseController<Values> {
   protected abstract localsForLookups(): Record<string, unknown>
 
   getBackLink(_req: FormWizard.Request<Values>, res: express.Response): string {
-    const reportId = res.locals.report.id
-    return `/reports/${reportId}`
+    return res.locals.reportUrl
   }
 
   protected errorMessage(error: FormWizard.Error): string {
@@ -104,7 +104,7 @@ export abstract class InvolvementSummary extends BaseController<Values> {
     req.sessionModel.reset()
 
     if (confirmAdd === 'yes') {
-      res.redirect(`/reports/${reportId}/${this.type}/search`)
+      res.redirect(`${res.locals.reportSubUrlPrefix}/${this.type}/search`)
     } else {
       if (confirmAdd === 'no') {
         try {
@@ -118,7 +118,7 @@ export abstract class InvolvementSummary extends BaseController<Values> {
           this.errorHandler({ confirmAdd: err }, req, res, next)
         }
       }
-      res.redirect(`/reports/${reportId}`)
+      res.redirect(res.locals.reportUrl)
     }
   }
 }

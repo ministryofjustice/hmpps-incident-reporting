@@ -9,14 +9,12 @@ import type { Values } from './fields'
 
 // eslint-disable-next-line import/prefer-default-export
 export class RemovePrisoner extends RemoveInvolvement<PrisonerInvolvement> {
+  protected type = 'prisoners' as const
+
   protected involvementField = 'prisonersInvolved' as const
 
   protected getInvolvementName(involvement: PrisonerInvolvement): string {
     return `${involvement.prisonerNumber}: ${nameOfPerson(involvement)}`
-  }
-
-  protected getSummaryUrl(reportId: string): string {
-    return `/reports/${reportId}/prisoners`
   }
 
   protected errorMessage(error: FormWizard.Error): string {

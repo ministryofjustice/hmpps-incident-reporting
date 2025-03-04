@@ -90,13 +90,11 @@ export abstract class PrisonerInvolvementController extends BaseController<Value
   }
 
   getBackLink(_req: FormWizard.Request<Values>, res: express.Response): string {
-    const report = res.locals.report as ReportWithDetails
-    return `/reports/${report.id}/prisoners`
+    return `${res.locals.reportSubUrlPrefix}/prisoners`
   }
 
   getNextStep(_req: FormWizard.Request<Values>, res: express.Response): string {
-    const report = res.locals.report as ReportWithDetails
-    return `/reports/${report.id}/prisoners`
+    return `${res.locals.reportSubUrlPrefix}/prisoners`
   }
 
   protected abstract getPrisonerName(res: express.Response): { firstName: string; lastName: string }

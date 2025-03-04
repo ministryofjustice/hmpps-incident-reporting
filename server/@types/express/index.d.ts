@@ -60,6 +60,10 @@ export declare global {
       }
       /** Many routes load a report into locals */
       report?: ReportBasic | ReportWithDetails
+      /** URL of current report (if loaded) */
+      reportUrl?: string
+      /** Build sub-urls referring to current report (if loaded) using this prefix */
+      reportSubUrlPrefix?: string
       /** Some routes load incident type config */
       reportConfig?: IncidentTypeConfiguration
       /** Some routes load question form wizard steps into locals */

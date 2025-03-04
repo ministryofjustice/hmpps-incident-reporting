@@ -108,7 +108,7 @@
         {% endif %}
 
         {% set link %}
-          <a href="/reports/{{ report.id }}/prisoners/add/{{ result.prisonerNumber }}">
+          <a href="{{ reportSubUrlPrefix }}/prisoners/add/{{ result.prisonerNumber }}">
             Select {{ name | safe }}
           </a>
         {% endset %}

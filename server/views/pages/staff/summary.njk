@@ -28,8 +28,8 @@
     {% set rows = [] %}
     {% for staff in report.staffInvolved %}
       {% set actionCell %}
-        <a href="/reports/{{ report.id }}/staff/remove/{{ loop.index }}">Remove</a> |
-        <a href="/reports/{{ report.id }}/staff/{{ loop.index }}">Edit</a>
+        <a href="{{ reportSubUrlPrefix }}/staff/remove/{{ loop.index }}">Remove</a> |
+        <a href="{{ reportSubUrlPrefix }}/staff/{{ loop.index }}">Edit</a>
       {% endset %}
       {% set rows = (rows.push(
         [
@@ -111,7 +111,7 @@
         value: "exit",
         preventDoubleClick: true,
         classes: "govuk-button--secondary",
-        href: "/reports/" + report.id
+        href: reportUrl
       }) }}
     </div>
   </form>

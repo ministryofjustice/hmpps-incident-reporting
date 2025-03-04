@@ -37,6 +37,8 @@ describe('report-loading middleware', () => {
     await populateReport(withDetails)(req, res, next)
 
     expect(res.locals.report.reportReference).toEqual(report.reportReference)
+    expect(res.locals.reportUrl).toEqual(`/reports/${report.id}`)
+    expect(res.locals.reportSubUrlPrefix).toEqual(`/reports/${report.id}`)
     expect(next).toHaveBeenCalledWith()
   })
 
@@ -53,6 +55,8 @@ describe('report-loading middleware', () => {
     await populateReport(false)(req, res, next)
 
     expect(res.locals.report).toBeUndefined()
+    expect(res.locals.reportUrl).toBeUndefined()
+    expect(res.locals.reportSubUrlPrefix).toBeUndefined()
     expect(next).toHaveBeenCalledWith(expect.objectContaining({ message: 'Not Found', status: 404 }))
   })
 
@@ -66,6 +70,8 @@ describe('report-loading middleware', () => {
 
     expect(getReportWithDetailsById).not.toHaveBeenCalled()
     expect(res.locals.report).toBeUndefined()
+    expect(res.locals.reportUrl).toBeUndefined()
+    expect(res.locals.reportSubUrlPrefix).toBeUndefined()
     expect(next).toHaveBeenCalledWith(
       expect.objectContaining({ message: 'populateReport() requires req.params.reportId', status: 501 }),
     )

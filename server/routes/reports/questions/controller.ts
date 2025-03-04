@@ -42,15 +42,15 @@ export default class QuestionsController extends BaseController<FormWizard.Multi
     if (!res.locals.questionPageNumber) {
       logger.warn(`Cannot go to step ${stepPath} in report ${reportId} ${res.locals.report.type}`)
       // TODO: replace with last page instead of start?
-      res.redirect(`/reports/${reportId}/questions`)
+      res.redirect(`${res.locals.reportSubUrlPrefix}/questions`)
     } else {
       next()
     }
   }
 
-  getBackLink(req: FormWizard.Request<FormWizard.MultiValues>, _res: express.Response): string {
-    const { reportId } = req.params
-    return `/reports/${reportId}`
+  getBackLink(_req: FormWizard.Request<FormWizard.MultiValues>, res: express.Response): string {
+    // TODO: this should branch a lot
+    return res.locals.reportUrl
   }
 
   getNextStepObject(
@@ -60,8 +60,7 @@ export default class QuestionsController extends BaseController<FormWizard.Multi
     const nextStepObject = super.getNextStepObject(req, res)
     if (!nextStepObject.url) {
       // reached the end so the next step is report summary
-      const { reportId } = req.params
-      nextStepObject.url = `/reports/${reportId}`
+      nextStepObject.url = res.locals.reportUrl
     }
     return nextStepObject
   }

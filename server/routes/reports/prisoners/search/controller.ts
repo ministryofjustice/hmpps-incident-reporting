@@ -4,7 +4,6 @@ import type express from 'express'
 import type FormWizard from 'hmpo-form-wizard'
 
 import { GetBaseController } from '../../../../controllers'
-import type { ReportWithDetails } from '../../../../data/incidentReportingApi'
 import { OffenderSearchApi, type OffenderSearchResults } from '../../../../data/offenderSearchApi'
 import { pagination } from '../../../../utils/pagination'
 import type { Values } from './fields'
@@ -55,8 +54,7 @@ export class PrisonerSearchController extends GetBaseController<Values> {
   }
 
   getBackLink(_req: FormWizard.Request<Values>, res: express.Response): string {
-    const report = res.locals.report as ReportWithDetails
-    return `/reports/${report.id}/prisoners`
+    return `${res.locals.reportSubUrlPrefix}/prisoners`
   }
 
   async successHandler(
@@ -64,7 +62,6 @@ export class PrisonerSearchController extends GetBaseController<Values> {
     res: express.Response,
     next: express.NextFunction,
   ): Promise<void> {
-    const report = res.locals.report as ReportWithDetails
     const { q, global, page: pageStr } = this.getAllValues(req)
     const page = parseInt(pageStr, 10) || 1
 
@@ -90,7 +87,7 @@ export class PrisonerSearchController extends GetBaseController<Values> {
       }
       if (page > pageCount) {
         searchParams.append('page', `${pageCount}`)
-        res.redirect(`/reports/${report.id}/prisoners/search?${searchParams.toString()}`)
+        res.redirect(`${res.locals.reportSubUrlPrefix}/prisoners/search?${searchParams.toString()}`)
         return
       }
 

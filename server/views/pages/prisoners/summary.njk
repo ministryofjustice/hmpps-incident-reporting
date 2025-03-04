@@ -45,8 +45,8 @@
     {% set rows = [] %}
     {% for prisoner in report.prisonersInvolved %}
       {% set actionCell %}
-        <a href="/reports/{{ report.id }}/prisoners/remove/{{ loop.index }}">Remove</a> |
-        <a href="/reports/{{ report.id }}/prisoners/{{ loop.index }}">Edit</a>
+        <a href="{{ reportSubUrlPrefix }}/prisoners/remove/{{ loop.index }}">Remove</a> |
+        <a href="{{ reportSubUrlPrefix }}/prisoners/{{ loop.index }}">Edit</a>
       {% endset %}
       {% if report.createdInNomis %}
         {% set rows = (rows.push(
@@ -135,7 +135,7 @@
         value: "exit",
         preventDoubleClick: true,
         classes: "govuk-button--secondary",
-        href: "/reports/" + report.id
+        href: reportUrl
       }) }}
     </div>
   </form>

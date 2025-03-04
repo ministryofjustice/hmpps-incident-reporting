@@ -3,14 +3,13 @@ import type express from 'express'
 import type FormWizard from 'hmpo-form-wizard'
 
 import { BaseController } from '../../../../../controllers'
-import type { AddStaffInvolvementRequest, ReportWithDetails } from '../../../../../data/incidentReportingApi'
+import type { AddStaffInvolvementRequest } from '../../../../../data/incidentReportingApi'
 import { AddStaffInvolvementController } from '../add'
 import type { Values } from './fields'
 
 export class ManualStaffNameController extends BaseController<Values> {
   getBackLink(_req: FormWizard.Request<Values>, res: express.Response): string {
-    const report = res.locals.report as ReportWithDetails
-    return `/reports/${report.id}/staff`
+    return `${res.locals.reportSubUrlPrefix}/staff`
   }
 }
 

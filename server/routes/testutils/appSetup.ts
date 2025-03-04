@@ -48,7 +48,9 @@ function appSetup(services: Services, production: boolean, userSupplier: () => E
   app.use(express.urlencoded({ extended: true }))
   app.use(setApis())
   app.use(setupPermissions)
+
   app.use(routes(services))
+
   app.use((_req, _res, next) => next(new NotFound()))
   app.use(errorHandler(production))
 

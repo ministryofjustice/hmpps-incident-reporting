@@ -17,11 +17,15 @@ export function populateReport(withDetails = true) {
 
     try {
       const { incidentReportingApi } = res.locals.apis
+
       if (withDetails) {
         res.locals.report = await incidentReportingApi.getReportWithDetailsById(reportId)
       } else {
         res.locals.report = await incidentReportingApi.getReportById(reportId)
       }
+      res.locals.reportUrl = `/reports/${reportId}`
+      res.locals.reportSubUrlPrefix = res.locals.reportUrl
+
       next()
     } catch (error) {
       logger.error(error, `Failed to load report ${reportId}`)

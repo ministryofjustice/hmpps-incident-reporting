@@ -77,7 +77,7 @@
       actions: {
         items: [
           {
-            href: "/reports/" + report.id + "/update-details",
+            href: reportSubUrlPrefix + "/update-details",
             text: "Change",
             visuallyHiddenText: "incident details"
           }
@@ -94,7 +94,7 @@
       actions: {
         items: [
           {
-            href: "/reports/" + report.id + "/update-details",
+            href: reportSubUrlPrefix + "/update-details",
             text: "Change",
             visuallyHiddenText: "incident details"
           }
@@ -159,7 +159,7 @@
       actions: {
         items: [
           {
-            href: "/reports/" + report.id + "/prisoners",
+            href: reportSubUrlPrefix + "/prisoners",
             text: "Change" if report.prisonersInvolved.length else "Add a prisoner"
           }
         ]
@@ -211,7 +211,7 @@
       actions: {
         items: [
           {
-            href: "/reports/" + report.id + "/staff",
+            href: reportSubUrlPrefix + "/staff",
             text: "Change" if report.staffInvolved.length else "Add a member of staff"
           }
         ]
@@ -227,7 +227,7 @@
       key: { text: "No responses" },
       value: { text: "" },
       actions: {items: [{
-        href: "/reports/" + report.id + "/questions",
+        href: reportSubUrlPrefix + "/questions",
         text: "Answer questions"
       }]} if canEditReport else {}
     }) %}
@@ -260,7 +260,7 @@
         key: {html: questionHtml},
         value: {html: responsesHtml},
         actions: {items: [{
-          href: "/reports/" + report.id + "/questions" + (questionProgressStep.urlSuffix or "") + "#question-" + questionProgressStep.fieldName,
+          href: reportSubUrlPrefix + "/questions" + (questionProgressStep.urlSuffix or "") + "#question-" + questionProgressStep.fieldName,
           text: "Change" if questionProgressStep.isComplete else "Continue",
           visuallyHiddenText: "question responses"
         }]} if canEditReport else {}
@@ -275,7 +275,6 @@
     },
     rows: questionRows
   }) }}
-  {# TODO: link needs to point to incomplete question or nowhere #}
 
 <!-- Correction requests table -->
   {%- if report.correctionRequests.length > 0 -%}

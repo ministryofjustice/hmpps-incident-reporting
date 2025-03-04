@@ -1,6 +1,6 @@
 import type FormWizard from 'hmpo-form-wizard'
 
-import { BaseController } from '../../controllers'
+import { BaseController } from '../../../controllers'
 import type { TypeFieldNames, TypeValues } from './typeFields'
 
 /**

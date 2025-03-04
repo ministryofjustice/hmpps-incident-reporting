@@ -1,8 +1,8 @@
 import type express from 'express'
 import type FormWizard from 'hmpo-form-wizard'
 
-import { parseDateInput, parseTimeInput } from '../../utils/utils'
-import { BaseController } from '../../controllers'
+import { parseDateInput, parseTimeInput } from '../../../utils/utils'
+import { BaseController } from '../../../controllers'
 import { type DetailsValues, type DetailsFieldNames, hoursFieldName, minutesFieldName } from './detailsFields'
 
 /**

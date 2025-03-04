@@ -1,6 +1,6 @@
 import type FormWizard from 'hmpo-form-wizard'
 
-import { types, typeHints, type Type } from '../../reportConfiguration/constants'
+import { types, typeHints, type Type } from '../../../reportConfiguration/constants'
 
 export const typeFields = {
   type: {

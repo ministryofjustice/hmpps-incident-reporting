@@ -1,15 +1,15 @@
 import type { Express } from 'express'
 import request, { type Agent, type Response } from 'supertest'
 
-import format from '../../utils/format'
-import { appWithAllRoutes } from '../testutils/appSetup'
-import { IncidentReportingApi } from '../../data/incidentReportingApi'
-import { convertBasicReportDates } from '../../data/incidentReportingApiUtils'
-import { mockErrorResponse, mockReport } from '../../data/testData/incidentReporting'
-import { mockThrownError } from '../../data/testData/thrownErrors'
-import { approverUser, hqUser, reportingUser, unauthorisedUser } from '../../data/testData/users'
+import format from '../../../utils/format'
+import { appWithAllRoutes } from '../../testutils/appSetup'
+import { IncidentReportingApi } from '../../../data/incidentReportingApi'
+import { convertBasicReportDates } from '../../../data/incidentReportingApiUtils'
+import { mockErrorResponse, mockReport } from '../../../data/testData/incidentReporting'
+import { mockThrownError } from '../../../data/testData/thrownErrors'
+import { approverUser, hqUser, reportingUser, unauthorisedUser } from '../../../data/testData/users'
 
-jest.mock('../../data/incidentReportingApi')
+jest.mock('../../../data/incidentReportingApi')
 
 let app: Express
 let incidentReportingApi: jest.Mocked<IncidentReportingApi>

@@ -2,14 +2,14 @@
 import express from 'express'
 import FormWizard from 'hmpo-form-wizard'
 
-import logger from '../../../logger'
-import type { ReportWithDetails } from '../../data/incidentReportingApi'
-import { getTypeDetails } from '../../reportConfiguration/constants'
-import { logoutIf } from '../../middleware/permissions'
-import { cannotCreateReportInActiveCaseload } from './permissions'
+import logger from '../../../../logger'
+import type { ReportWithDetails } from '../../../data/incidentReportingApi'
+import { getTypeDetails } from '../../../reportConfiguration/constants'
+import { logoutIf } from '../../../middleware/permissions'
+import { cannotCreateReportInActiveCaseload } from '../permissions'
+import { BaseDetailsController } from './detailsController'
 import { BaseTypeController } from './typeController'
 import { type TypeValues, typeFields, typeFieldNames } from './typeFields'
-import { BaseDetailsController } from './detailsController'
 import { type DetailsValues, type DetailsFieldNames, detailsFields, detailsFieldNames } from './detailsFields'
 
 type CreateReportValues = TypeValues & DetailsValues

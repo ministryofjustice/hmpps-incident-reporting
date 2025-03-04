@@ -1,0 +1,75 @@
+{% extends "partials/layout.njk" %}
+
+{% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/radios/macro.njk" import govukRadios %}
+{% from "govuk/components/table/macro.njk" import govukTable %}
+
+{% block beforeContent %}
+  {{ super() }}
+
+  {{ govukBackLink({
+    text: "Back",
+    href: backLink
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      {% include "partials/errorSummary.njk" %}
+
+      <form id="removeInvolvement" method="post" novalidate>
+        <input type="hidden" name="_csrf" value="{{ csrfToken }}" />
+        <input type="hidden" name="x-csrf-token" value="{{ csrfToken }}" />
+
+        {{ govukRadios({
+          classes: "govuk-radios--inline",
+          name: "confirmRemove",
+          id: "confirmRemove",
+          fieldset: {
+            legend: {
+              text: "Are you sure you want to remove " + involvementName + "?",
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--l"
+            }
+          },
+          items: [
+            {
+              value: "yes",
+              text: "Yes"
+            },
+            {
+              value: "no",
+              text: "No"
+            }
+          ],
+          errorMessage: { text: errors.confirmRemove.message } if errors.confirmRemove else undefined
+        }) }}
+
+        <div class="govuk-button-group">
+          {{ govukButton({
+            text: "Continue",
+            name: "submit",
+            value: "continue",
+            preventDoubleClick: true,
+            type: "submit"
+          }) }}
+
+          {{ govukButton({
+            text: "Save and exit",
+            name: "submit",
+            value: "exit",
+            preventDoubleClick: true,
+            classes: "govuk-button--secondary",
+            href: "/reports/" + report.id
+          }) }}
+        </div>
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

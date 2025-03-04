@@ -8,8 +8,12 @@ import { nameOfPerson } from '../../../../utils/utils'
 import type { Values } from './fields'
 
 // eslint-disable-next-line import/prefer-default-export
-export class RemoveStaff extends RemoveInvolvement {
+export class RemoveStaff extends RemoveInvolvement<StaffInvolvement> {
   protected involvementField = 'staffInvolved' as const
+
+  protected getInvolvementName(involvement: StaffInvolvement): string {
+    return nameOfPerson(involvement)
+  }
 
   protected getSummaryUrl(reportId: string): string {
     return `/reports/${reportId}/staff`
@@ -31,7 +35,7 @@ export class RemoveStaff extends RemoveInvolvement {
     logger.info('Staff involvement %d removed from report %s', index, reportId)
 
     req.flash('success', {
-      title: `You have removed ${nameOfPerson(staffInvolvement)}`,
+      title: `You have removed ${this.getInvolvementName(staffInvolvement)}`,
     })
   }
 }

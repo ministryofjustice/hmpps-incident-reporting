@@ -3,7 +3,7 @@ import type FormWizard from 'hmpo-form-wizard'
 import { NotFound } from 'http-errors'
 
 import logger from '../../../logger'
-import type { ReportWithDetails } from '../../data/incidentReportingApi'
+import type { PrisonerInvolvement, ReportWithDetails, StaffInvolvement } from '../../data/incidentReportingApi'
 import { Values as PrisonersValues } from '../../routes/reports/prisoners/remove/fields'
 import { Values as StaffValues } from '../../routes/reports/staff/remove/fields'
 import { BaseController } from '../base'
@@ -11,7 +11,9 @@ import { BaseController } from '../base'
 type Values = PrisonersValues | StaffValues
 
 // eslint-disable-next-line import/prefer-default-export
-export abstract class RemoveInvolvement extends BaseController<Values> {
+export abstract class RemoveInvolvement<
+  I extends PrisonerInvolvement | StaffInvolvement,
+> extends BaseController<Values> {
   protected abstract involvementField: 'prisonersInvolved' | 'staffInvolved'
 
   middlewareLocals(): void {
@@ -27,17 +29,21 @@ export abstract class RemoveInvolvement extends BaseController<Values> {
     }
 
     const report = res.locals.report as ReportWithDetails
-    const involvement = report[this.involvementField][index - 1]
+    const involvement = report[this.involvementField][index - 1] as I
     if (!involvement) {
       next(new NotFound('Involvement index out of bounds'))
       return
     }
 
     res.locals.involvement = involvement
+    res.locals.involvementName = this.getInvolvementName(involvement)
+
     next()
   }
 
   protected abstract getSummaryUrl(reportId: string): string
+
+  protected abstract getInvolvementName(involvement: I): string
 
   getBackLink(_req: FormWizard.Request<Values>, res: express.Response): string {
     const reportId = res.locals.report.id

@@ -1,22 +1,22 @@
 import type express from 'express'
-import { FormWizard } from 'hmpo-form-wizard'
+import type FormWizard from 'hmpo-form-wizard'
 
-import logger from '../../../logger'
-import format from '../../utils/format'
-import { parseDateInput } from '../../utils/utils'
+import logger from '../../../../logger'
+import format from '../../../utils/format'
+import { parseDateInput } from '../../../utils/utils'
 import type {
   AddOrUpdateQuestionResponseRequest,
   AddOrUpdateQuestionWithResponsesRequest,
   ReportWithDetails,
-} from '../../data/incidentReportingApi'
-import type { QuestionConfiguration } from '../../data/incidentTypeConfiguration/types'
+} from '../../../data/incidentReportingApi'
+import type { QuestionConfiguration } from '../../../data/incidentTypeConfiguration/types'
 import {
   conditionalFieldName,
   findAnswerConfigByCode,
   questionFieldName,
-} from '../../data/incidentTypeConfiguration/utils'
-import QuestionsToDelete from '../../services/questionsToDelete'
-import { BaseController } from '../index'
+} from '../../../data/incidentTypeConfiguration/utils'
+import QuestionsToDelete from '../../../services/questionsToDelete'
+import { BaseController } from '../../../controllers'
 
 export default class QuestionsController extends BaseController<FormWizard.MultiValues> {
   middlewareLocals(): void {

@@ -26,3 +26,8 @@ export const roleReadWrite = 'INCIDENT_REPORTS__RW' as const
  * TODO: should they have automatic access to all prison caseloads? for now: no
  */
 export const roleApproveReject = 'INCIDENT_REPORTS__APPROVE' as const
+
+/**
+ * Used by DPS/NOMIS central admin/support.
+ */
+export const roleCentralAdmin = 'CADM_I' as const

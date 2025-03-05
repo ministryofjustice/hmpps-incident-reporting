@@ -1168,6 +1168,12 @@ const TEMPORARY_RELEASE_FAILURE: IncidentTypeConfiguration = {
       active: false,
     },
     {
+      // NB: new; not allowed in NOMIS
+      prisonerRole: 'LICENSE_FAILURE',
+      onlyOneAllowed: false,
+      active: false,
+    },
+    {
       prisonerRole: 'TEMPORARY_RELEASE_FAILURE',
       onlyOneAllowed: false,
       active: true,

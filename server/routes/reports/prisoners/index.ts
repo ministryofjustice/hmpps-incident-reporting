@@ -1,9 +1,6 @@
 import express from 'express'
 
-import { logoutIf } from '../../../middleware/permissions'
 import { populatePrisoner } from '../../../middleware/populatePrisoner'
-import { populateReport } from '../../../middleware/populateReport'
-import { cannotEditReport } from '../permissions'
 import { addRouter } from './involvement/add'
 import { editRouter } from './involvement/edit'
 import { searchRouter } from './search'
@@ -12,9 +9,7 @@ import { removeRouter } from './remove'
 
 // eslint-disable-next-line import/prefer-default-export
 export const prisonerInvolvementRouter = express.Router({ mergeParams: true })
-
-// require report-editing permissions
-prisonerInvolvementRouter.use(populateReport(true), logoutIf(cannotEditReport))
+// NB: prisonerInvolvementRouter is unprotected with permissions checks
 
 // add a new prisoner involvement
 prisonerInvolvementRouter.use('/search', searchRouter)

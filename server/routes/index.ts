@@ -9,10 +9,8 @@ import makeDownloadConfigRouter from './downloadReportConfig'
 import { createReportRouter } from './reports/details/createReport'
 import { updateDetailsRouter } from './reports/details/updateReportDetails'
 import { historyRouter } from './reports/history'
-import { prisonerInvolvementRouter } from './reports/prisoners'
-import { staffInvolvementRouter } from './reports/staff'
-import { questionsRouter } from './reports/questions'
 import { viewReportRouter } from './reports/viewReport'
+import { editReportRouter } from './reports/editReportRouter'
 import dashboard from './dashboard/dashboard'
 import { dprRouter } from './dpr'
 
@@ -32,15 +30,13 @@ export default function routes(services: Services): Router {
   const debugRoutes = makeDebugRoutes(services)
   get('/incidents/:eventId', debugRoutes.eventDetails)
 
-  // report pages
+  // creating and editing a report
   router.use('/reports', dashboard(services))
   router.use('/create-report', createReportRouter)
   router.use('/reports/:reportId', viewReportRouter(services))
   router.use('/reports/:reportId/history', historyRouter(services))
   router.use('/reports/:reportId/update-details', updateDetailsRouter)
-  router.use('/reports/:reportId/prisoners', prisonerInvolvementRouter)
-  router.use('/reports/:reportId/staff', staffInvolvementRouter)
-  router.use('/reports/:reportId/questions', questionsRouter)
+  router.use('/reports/:reportId', editReportRouter)
 
   // Auxiliary routes
   get('/prisoner/:prisonerNumber/photo.jpeg', async (req, res) => {

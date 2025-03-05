@@ -1,0 +1,59 @@
+{% extends "partials/layout.njk" %}
+
+{% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+{% from "govuk/components/warning-text/macro.njk" import govukWarningText %}
+{% from "moj/components/timeline/macro.njk" import mojTimeline %}
+
+{% set pageTitle = applicationName + " - Report status history" %}
+{% set bodyClasses = "app-status-history" %}
+
+{% block beforeContent %}
+  {{ super() }}
+
+  {{ govukBackLink({
+    text: "Back",
+    href: "/reports/" + report.id
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">
+        Incident reference {{ report.reportReference }} – status history
+      </h1>
+
+      {% if report.createdInNomis %}
+        {{ govukWarningText({
+          text: "The history of status changes in NOMIS is not recorded.",
+          iconFallbackText: "Warning"
+        }) }}
+      {% endif %}
+
+      {% set items = [] %}
+      {% for item in report.historyOfStatuses %}
+        {% set _ = items.push({
+          label: {
+            text: statusLookup[item.status] or item.status
+          },
+          datetime: {
+            timestamp: item.changedAt,
+            type: "datetime"
+          },
+          byline: {
+            text: usersLookup[item.changedBy].name or item.changedBy
+          },
+          text: ""
+        }) %}
+      {% endfor %}
+
+      {{ mojTimeline({
+        items: items
+      }) }}
+
+    </div>
+  </div>
+
+{% endblock %}

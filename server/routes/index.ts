@@ -8,6 +8,7 @@ import makeDebugRoutes from './debug'
 import makeDownloadConfigRouter from './downloadReportConfig'
 import { createReportRouter } from './reports/details/createReport'
 import { updateDetailsRouter } from './reports/details/updateReportDetails'
+import { historyRouter } from './reports/history'
 import { prisonerInvolvementRouter } from './reports/prisoners'
 import { staffInvolvementRouter } from './reports/staff'
 import { questionsRouter } from './reports/questions'
@@ -35,6 +36,7 @@ export default function routes(services: Services): Router {
   router.use('/reports', dashboard(services))
   router.use('/create-report', createReportRouter)
   router.use('/reports/:reportId', viewReportRouter(services))
+  router.use('/reports/:reportId/history', historyRouter(services))
   router.use('/reports/:reportId/update-details', updateDetailsRouter)
   router.use('/reports/:reportId/prisoners', prisonerInvolvementRouter)
   router.use('/reports/:reportId/staff', staffInvolvementRouter)

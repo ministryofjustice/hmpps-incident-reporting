@@ -1,0 +1,105 @@
+{% extends "partials/layout.njk" %}
+
+{% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+{% from "govuk/components/summary-list/macro.njk" import govukSummaryList %}
+{% from "moj/components/timeline/macro.njk" import mojTimeline %}
+
+{% set pageTitle = applicationName + " - Report incident type history" %}
+{% set bodyClasses = "app-type-history" %}
+
+{% block beforeContent %}
+  {{ super() }}
+
+  {{ govukBackLink({
+    text: "Back",
+    href: "/reports/" + report.id
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">
+        Incident reference {{ report.reportReference }} – incident type history
+      </h1>
+      <p>
+        When a report’s incident type is changed, a snapshot is taken of the answered questions.
+      </p>
+
+      {% if report.history | length %}
+
+        {% set items = [] %}
+        {% for item in report.history %}
+          {% set html %}
+            {% set rows = [] %}
+            {% for question in item.questions %}
+              {% set responsesHtml %}
+                {% for response in question.responses %}
+                  {% if not loop.first %}
+                    <hr class="govuk-section-break govuk-section-break--visible" />
+                  {% endif %}
+
+                  {{ response.response }}
+
+                  {% if response.responseDate %}
+                    <br />
+                    Date: {{ response.responseDate | longDate }}
+                  {% endif %}
+
+                  {% if response.additionalInformation %}
+                    <br />
+                    Comment: {{ response.additionalInformation }}
+                  {% endif %}
+
+                  {% if not loop.last %}
+                    <br />
+                  {% endif %}
+                {% endfor %}
+              {% endset %}
+              {% set _ = rows.push({
+                key: {
+                  text: loop.index + ". " + question.question
+                },
+                value: {
+                  html: responsesHtml
+                }
+              }) %}
+            {% endfor %}
+
+            {{ govukSummaryList({
+              rows: rows
+            }) }}
+          {% endset %}
+
+          {% set _ = items.push({
+            label: {
+              text: typesLookup[item.type] or item.type
+            },
+            datetime: {
+              timestamp: item.changedAt,
+              type: "datetime"
+            },
+            byline: {
+              text: usersLookup[item.changedBy].name or item.changedBy
+            },
+            html: html
+          }) %}
+        {% endfor %}
+
+        {{ mojTimeline({
+          items: items
+        }) }}
+
+      {% else %}
+
+        <p>
+          This report’s type has not been changed.
+        </p>
+
+      {% endif %}
+
+    </div>
+  </div>
+{% endblock %}

@@ -569,6 +569,12 @@ const DEATH_OTHER: IncidentTypeConfiguration = {
       active: true,
     },
     {
+      // NB: new; not allowed in NOMIS
+      prisonerRole: 'DECEASED',
+      onlyOneAllowed: false,
+      active: true,
+    },
+    {
       prisonerRole: 'PERPETRATOR',
       onlyOneAllowed: false,
       active: true,

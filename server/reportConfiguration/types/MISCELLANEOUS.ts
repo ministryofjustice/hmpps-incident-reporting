@@ -817,6 +817,12 @@ const MISCELLANEOUS: IncidentTypeConfiguration = {
       onlyOneAllowed: false,
       active: true,
     },
+    {
+      // NB: new; not allowed in NOMIS
+      prisonerRole: 'VICTIM',
+      onlyOneAllowed: false,
+      active: true,
+    },
   ],
 } as const
 

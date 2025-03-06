@@ -1,5 +1,9 @@
+import type express from 'express'
+import type FormWizard from 'hmpo-form-wizard'
+
 import { InvolvementSummary } from '../../../../controllers/involvements/summary'
 import { staffInvolvementRoles } from '../../../../reportConfiguration/constants'
+import type { Values } from './fields'
 
 export default class StaffSummary extends InvolvementSummary {
   protected type = 'staff' as const
@@ -21,5 +25,20 @@ export default class StaffSummary extends InvolvementSummary {
     return {
       staffInvolvementLookup,
     }
+  }
+
+  getBackLink(req: FormWizard.Request<Values>, res: express.Response): string {
+    if (res.locals.creationJourney) {
+      return `${res.locals.reportSubUrlPrefix}/prisoners`
+    }
+    return super.getBackLink(req, res)
+  }
+
+  getNextStep(req: FormWizard.Request<Values>, res: express.Response): string {
+    if (res.locals.creationJourney) {
+      // proceed to questions section when following create journey
+      return `${res.locals.reportSubUrlPrefix}/questions`
+    }
+    return super.getNextStep(req, res)
   }
 }

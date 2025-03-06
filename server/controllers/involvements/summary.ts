@@ -75,6 +75,10 @@ export abstract class InvolvementSummary extends BaseController<Values> {
     return res.locals.reportUrl
   }
 
+  getNextStep(_req: FormWizard.Request<Values>, res: express.Response): string {
+    return res.locals.reportUrl
+  }
+
   protected errorMessage(error: FormWizard.Error): string {
     if (error.key === 'confirmAdd') {
       return this.confirmError
@@ -118,7 +122,7 @@ export abstract class InvolvementSummary extends BaseController<Values> {
           this.errorHandler({ confirmAdd: err }, req, res, next)
         }
       }
-      res.redirect(res.locals.reportUrl)
+      super.successHandler(req, res, next)
     }
   }
 }

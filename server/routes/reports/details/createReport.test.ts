@@ -240,7 +240,7 @@ describe('Creating a report', () => {
         .expect(302)
         .expect(res => {
           expect(res.redirect).toBe(true)
-          expect(res.header.location).toEqual(`/reports/${reportWithDetails.id}`)
+          expect(res.header.location).toEqual(`/create-report/${reportWithDetails.id}/prisoners`)
           expect(incidentReportingApi.createReport).toHaveBeenCalledWith({
             createNewEvent: true,
             description: 'Disorder took place on A wing',
@@ -296,6 +296,22 @@ describe('Creating a report', () => {
           expect(res.text).not.toContain('Bad Request')
           expect(res.text).not.toContain('Description is too short')
         })
+    })
+
+    it('should redirect from URL base of nested routers to report view page', () => {
+      const reportWithDetails = convertReportWithDetailsDates(
+        mockReport({
+          reportReference: '6544',
+          reportDateAndTime: incidentDateAndTime,
+          withDetails: true,
+        }),
+      )
+      incidentReportingApi.getReportWithDetailsById.mockResolvedValueOnce(reportWithDetails)
+
+      return agent.get(`/create-report/${reportWithDetails.id}`).expect(res => {
+        expect(res.redirect).toBe(true)
+        expect(res.header.location).toEqual(`/reports/${reportWithDetails.id}`)
+      })
     })
   })
 

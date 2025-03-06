@@ -1,5 +1,9 @@
+import type express from 'express'
+import type FormWizard from 'hmpo-form-wizard'
+
 import { InvolvementSummary } from '../../../../controllers/involvements/summary'
 import { prisonerInvolvementOutcomes, prisonerInvolvementRoles } from '../../../../reportConfiguration/constants'
+import type { Values } from './fields'
 
 export default class PrisonerSummary extends InvolvementSummary {
   protected type = 'prisoners' as const
@@ -27,5 +31,13 @@ export default class PrisonerSummary extends InvolvementSummary {
       prisonerInvolvementLookup,
       prisonerOutcomeLookup,
     }
+  }
+
+  getNextStep(req: FormWizard.Request<Values>, res: express.Response): string {
+    if (res.locals.creationJourney) {
+      // proceed to adding staff when following create journey
+      return `${res.locals.reportSubUrlPrefix}/staff`
+    }
+    return super.getNextStep(req, res)
   }
 }

@@ -43,7 +43,7 @@ describe('report-loading middleware', () => {
   })
 
   it('should forward error if report cannot be loaded', async () => {
-    const reportId = mockReport({ reportReference: '6543', reportDateAndTime: now }).id
+    const reportId = '01852368-477f-72e9-a239-265ad6e9ec56'
     fakeApi.get(`/incident-reports/${reportId}`).reply(404)
     fakeApi.get(`/incident-reports/${reportId}/with-details`).reply(404)
 
@@ -58,6 +58,24 @@ describe('report-loading middleware', () => {
     expect(res.locals.reportUrl).toBeUndefined()
     expect(res.locals.reportSubUrlPrefix).toBeUndefined()
     expect(next).toHaveBeenCalledWith(expect.objectContaining({ message: 'Not Found', status: 404 }))
+  })
+
+  it('should forward rewrite the status a 400 bad request error into a 404 not found', async () => {
+    const reportId = '10000012' // would not parse as uuid
+    fakeApi.get(`/incident-reports/${reportId}`).reply(400)
+    fakeApi.get(`/incident-reports/${reportId}/with-details`).reply(400)
+
+    const req = { params: { reportId } } as unknown as Request
+    const res = { locals: { apis: { incidentReportingApi: new IncidentReportingApi('token') } } } as Response
+    const next: NextFunction = jest.fn()
+
+    await populateReport()(req, res, next)
+    await populateReport(false)(req, res, next)
+
+    expect(res.locals.report).toBeUndefined()
+    expect(res.locals.reportUrl).toBeUndefined()
+    expect(res.locals.reportSubUrlPrefix).toBeUndefined()
+    expect(next).toHaveBeenCalledWith(expect.objectContaining({ message: 'Bad Request', status: 404 }))
   })
 
   it('should fail if report ID parameter is not supplied', async () => {

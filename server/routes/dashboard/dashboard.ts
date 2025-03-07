@@ -1,3 +1,5 @@
+import { URLSearchParams } from 'node:url'
+
 import { RequestHandler, Router } from 'express'
 import type { PathParams } from 'express-serve-static-core'
 

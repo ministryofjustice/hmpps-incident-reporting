@@ -17,6 +17,7 @@ import {
   reversedNameOfPerson,
   possessive,
   prisonerLocation,
+  yearsSince,
 } from './utils'
 import {
   findFieldInGovukErrorSummary,
@@ -94,11 +95,12 @@ export default function nunjucksSetup(app: express.Express): void {
   njkEnv.addFilter('reversedNameOfPerson', reversedNameOfPerson)
   njkEnv.addFilter('possessive', possessive)
 
-  // date/datetime formatting
+  // date/datetime handling
   njkEnv.addFilter('dateAndTime', format.dateAndTime)
   njkEnv.addFilter('longDate', format.longDate)
   njkEnv.addFilter('shortDate', format.shortDate)
   njkEnv.addFilter('time', format.time)
+  njkEnv.addFilter('yearsSince', yearsSince)
 
   // prisoner utils
   njkEnv.addFilter('prisonerLocation', prisonerLocation)

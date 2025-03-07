@@ -78,6 +78,15 @@ describe('Editing an existing staff member in a report', () => {
       })
   })
 
+  it('should 404 if staff involvement is invalid', () => {
+    return request(app)
+      .get(editPageUrl(0))
+      .expect(404)
+      .expect(res => {
+        expect(res.text).toContain('Page not found')
+      })
+  })
+
   it('should 404 if staff involvement is not found', () => {
     report.staffInvolved = []
 

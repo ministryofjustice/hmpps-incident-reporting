@@ -1,7 +1,7 @@
 import type express from 'express'
 import { type FormWizard } from 'hmpo-form-wizard'
 
-import QuestionsController from '../../controllers/wip/questionsController'
+import QuestionsController from '../../routes/reports/questions/controller'
 import { checkMultipleValues, generateFields, generateSteps } from './formWizard'
 import { type IncidentTypeConfiguration } from './types'
 import * as FINDS from '../testData/FINDS'

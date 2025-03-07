@@ -108,7 +108,7 @@ export abstract class PrisonerInvolvementController extends BaseController<Value
 
   /** Turns a *prevalidated* outcome string into a typed outcome */
   protected coerceOutcome(outcome: string): PrisonerInvolvementOutcome | null {
-    if (!outcome) {
+    if (!outcome?.trim()) {
       return null
     }
     return outcome as PrisonerInvolvementOutcome

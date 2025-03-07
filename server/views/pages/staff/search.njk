@@ -1,0 +1,129 @@
+{% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/input/macro.njk" import govukInput %}
+{% from "govuk/components/hint/macro.njk" import govukHint %}
+{% from "govuk/components/radios/macro.njk" import govukRadios %}
+{% from "govuk/components/table/macro.njk" import govukTable %}
+{% from "moj/components/pagination/macro.njk" import mojPagination %}
+
+{% set bodyClasses = "app-involvement-search app-staff-search" %}
+
+{% extends "partials/layout.njk" %}
+
+{% block beforeContent %}
+  {% if backLink %}
+    {{ govukBackLink({
+      text: "Back",
+      href: backLink
+    }) }}
+  {% endif %}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      {% include "partials/errorSummary.njk" %}
+
+      <h1 class="govuk-heading-l">{{ pageTitle }}</h1>
+
+      {% if searchResults.content.length === 0 %}
+        <p>
+          Contact the person directly to confirm what name is on their Digital Prison Services account.
+        </p>
+      {% elif searchResults.content.length > 0 %}
+        <p>
+          Contact the person directly if you need to confirm which email address belongs to them.
+        </p>
+      {% else %}
+        {{ govukHint({
+          text: "You can add more later"
+        }) }}
+      {% endif %}
+
+      {% if searchResults.content.length !== 0 %}
+        <form class="app-staff-search-form" method="get" novalidate>
+          {# a new search should always start on first page #}
+          <input type="hidden" name="page" value="1" />
+
+          <div class="app-involvement-search-form__name-row">
+            {% set fieldName = "q" %}
+            {% set field = options.fields[fieldName] %}
+            {{ govukInput({
+              name: fieldName,
+              id: fieldName,
+              label: { text: field.label },
+              hint: { text: field.hint } if field.hint else undefined,
+              value: values[fieldName],
+              errorMessage: { text: errors[fieldName].message } if errors[fieldName] else undefined
+            }) }}
+            <div class="govuk-button-group">
+              {{ govukButton({
+                text: "Search",
+                preventDoubleClick: true,
+                type: "submit"
+              }) }}
+            </div>
+          </div>
+        </form>
+      {% endif %}
+
+    </div>
+  </div>
+
+  {% if searchResults %}
+    {% if searchResults.content.length > 0 %}
+
+      {% set tableRows = [] %}
+      {% for result in searchResults.content %}
+        {% set name %}
+          {{- result | nameOfPerson -}}
+        {% endset %}
+
+        {% set link %}
+          <a href="/reports/{{ report.id }}/staff/add/username/{{ result.username | urlencode }}">
+            Select {{ name | safe }}
+          </a>
+        {% endset %}
+
+        {% set _ = tableRows.push([
+          {html: name},
+          {text: result.activeCaseload.name if result.activeCaseload.name else ""},
+          {text: result.username or ""},
+          {text: result.email or ""},
+          {html: link, classes: "govuk-!-text-align-right"}
+        ]) %}
+      {% endfor %}
+
+      {{ govukTable({
+        classes: "govuk-!-margin-top-4",
+        caption: "Staff search results",
+        captionClasses: "govuk-visually-hidden",
+        head: [
+          {text: "Name"},
+          {text: "Location"},
+          {text: "User ID"},
+          {text: "Email address"},
+          {text: "Action", classes: "govuk-!-text-align-right"}
+        ],
+        rows: tableRows
+      }) }}
+
+      {{ mojPagination(paginationParams) }}
+    {% endif %}
+
+    <p class="govuk-!-margin-top-4 govuk-!-margin-bottom-8">
+      Or you can <a href="add/manual">manually add the member of staff to the report</a>.
+    </p>
+
+    {% if searchResults.content.length === 0 %}
+      {{ govukButton({
+        text: "Try again",
+        href: "?"
+      }) }}
+    {% endif %}
+
+  {% endif %}
+
+{% endblock %}

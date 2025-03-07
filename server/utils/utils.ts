@@ -89,6 +89,21 @@ export const parseTimeInput = (input: string): { hours: number; minutes: number;
   throw new Error('Invalid time')
 }
 
+/** Years since a given string date (parseable using `new Date()`) or null */
+export function yearsSince(dateString: string): number | null {
+  if (!dateString) {
+    return null
+  }
+  const date = new Date(dateString)
+  if (!date || !date.getDate()) {
+    return null
+  }
+  const now = new Date()
+  const years = now.getFullYear() - date.getFullYear()
+  date.setFullYear(now.getFullYear())
+  return date > now ? years - 1 : years
+}
+
 /** Make an array of given length with a builder function */
 export function buildArray<T>(length: number, builder: (index: number) => T): T[] {
   const array = Array(length)

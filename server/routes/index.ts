@@ -6,14 +6,13 @@ import type { Services } from '../services'
 import { PrisonApi } from '../data/prisonApi'
 import makeDebugRoutes from './debug'
 import makeDownloadConfigRouter from './downloadReportConfig'
+import { createReportRouter } from './reports/details/createReport'
+import { updateDetailsRouter } from './reports/details/updateReportDetails'
 import { historyRouter } from './reports/history'
-import { createReportRouter } from './reports/createReport'
 import { prisonerInvolvementRouter } from './reports/prisoners'
 import { staffInvolvementRouter } from './reports/staff'
 import { questionsRouter } from './reports/questions'
-import { updateDetailsRouter } from './reports/updateReportDetails'
 import { viewReportRouter } from './reports/viewReport'
-import prisonerSearchRoutes from '../controllers/addPrisoner/prisonerSearch'
 import dashboard from './dashboard/dashboard'
 import { dprRouter } from './dpr'
 
@@ -42,9 +41,6 @@ export default function routes(services: Services): Router {
   router.use('/reports/:reportId/prisoners', prisonerInvolvementRouter)
   router.use('/reports/:reportId/staff', staffInvolvementRouter)
   router.use('/reports/:reportId/questions', questionsRouter)
-
-  // add people
-  router.use('/reports/:reportId/prisoner-search', prisonerSearchRoutes())
 
   // Auxiliary routes
   get('/prisoner/:prisonerNumber/photo.jpeg', async (req, res) => {

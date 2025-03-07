@@ -1,6 +1,7 @@
-import { type FormWizard } from 'hmpo-form-wizard'
+import type FormWizard from 'hmpo-form-wizard'
+
+import QuestionsController from '../../routes/reports/questions/controller'
 import { type IncidentTypeConfiguration } from '../incidentTypeConfiguration/types'
-import QuestionsController from '../../controllers/wip/questionsController'
 import { checkMultipleValues } from '../incidentTypeConfiguration/formWizard'
 
 // Generated with ./scripts/updateNomisIncidentTypeConfigurations.ts at 2024-10-15T17:17:31.729Z

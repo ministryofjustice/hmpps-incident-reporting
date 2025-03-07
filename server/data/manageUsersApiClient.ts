@@ -20,23 +20,23 @@ export interface PrisonUser {
   primaryEmail?: string
 }
 
-export type UsersSearchResponse = {
+export interface UsersSearchResponse {
   content: UsersSearchResult[]
 
-  // current page number (zero-based)
+  /** current page number (zero-based) */
   number: number
   totalPages: number
   totalElements: number
-  // is last page?
+  /** is last page? */
   last: boolean
 }
 
-export type UsersSearchResult = {
+export interface UsersSearchResult {
   username: string
   firstName: string
   lastName: string
-  email: string
-  activeCaseload: null | {
+  email?: string
+  activeCaseload?: null | {
     id: string
     name: string
   }

@@ -1,13 +1,11 @@
 {% extends "partials/layout.njk" %}
 
-{% from "govuk/components/button/macro.njk" import govukButton %}
-{% from "govuk/components/table/macro.njk" import govukTable %}
 {% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
 {% from "govuk/components/radios/macro.njk" import govukRadios %}
+{% from "govuk/components/table/macro.njk" import govukTable %}
 
-
-{% set pageTitle = applicationName + " – Prisoners involved in report" %}
-{% set bodyClasses = "app-prisoner-summary" %}
+{% set bodyClasses = "app-involvement-summary app-prisoner-summary" %}
 
 {% block beforeContent %}
   {{ super() }}
@@ -16,17 +14,33 @@
       text: "Back",
       href: backLink
   }) }}
-
-  {% include "partials/notificationBanner.njk" %}
 {% endblock %}
 
 {% block content %}
 
+  {% include "partials/notificationBanner.njk" %}
   {% include "partials/errorSummary.njk" %}
 
-  <h1 class="govuk-heading-l">Prisoners involved</h1>
+  <h1 class="govuk-heading-l">{{ pageTitle }}</h1>
 
-  {% if showTable %}
+  {% if report.prisonersInvolved | length %}
+
+    {% if report.createdInNomis %}
+      {% set head = [
+        { text: "Prisoner" },
+        { text: "Role" },
+        { text: "Outcome" },
+        { text: "Details" },
+        { text: "Action" }
+      ] %}
+    {% else %}
+      {% set head = [
+        { text: "Prisoner" },
+        { text: "Role" },
+        { text: "Details" },
+        { text: "Action" }
+      ] %}
+    {% endif %}
 
     {% set rows = [] %}
     {% for prisoner in report.prisonersInvolved %}
@@ -37,7 +51,7 @@
       {% if report.createdInNomis %}
         {% set rows = (rows.push(
           [
-            { text: prisoner.prisonerNumber + ': ' + (prisoner | nameOfPerson) },
+            { text: prisoner.prisonerNumber + ": " + (prisoner | nameOfPerson), classes: "govuk-table__cell--numeric govuk-!-text-align-left" },
             { text: prisonerInvolvementLookup[prisoner.prisonerRole] or prisoner.prisonerRole },
             { text: prisonerOutcomeLookup[prisoner.outcome] or prisoner.outcome },
             { html: prisoner.comment | escape | nl2br },
@@ -47,7 +61,7 @@
       {% else %}
         {% set rows = (rows.push(
           [
-            { text: prisoner.prisonerNumber + ': ' + (prisoner | nameOfPerson) },
+            { text: prisoner.prisonerNumber + ": " + (prisoner | nameOfPerson), classes: "govuk-table__cell--numeric govuk-!-text-align-left" },
             { text: prisonerInvolvementLookup[prisoner.prisonerRole] or prisoner.prisonerRole },
             { html: prisoner.comment | escape | nl2br },
             { html: actionCell }
@@ -58,51 +72,52 @@
 
     {{ govukTable({
       classes: "app-involvement-table",
-      head: tableHeading,
+      head: head,
       rows: rows
     }) }}
 
   {% else %}
-    <p>No prisoners have been added to this incident report.</p>
+
+    <p class="govuk-!-margin-bottom-8">No prisoners have been added to this incident report.</p>
+
   {% endif %}
 
   <form id="addAnotherPrisoner" method="post" novalidate>
     <input type="hidden" name="_csrf" value="{{ csrfToken }}" />
     <input type="hidden" name="x-csrf-token" value="{{ csrfToken }}" />
 
-    {% if showTable %}
-      {% set radioLegend = 'Do you want to add another prisoner?' %}
+    {% if report.prisonersInvolved | length %}
+      {% set radioLegend = "Do you want to add another prisoner?" %}
     {% else %}
-      {% set radioLegend = 'Do you want to add a prisoner?' %}
+      {% set radioLegend = "Do you want to add a prisoner?" %}
     {% endif %}
 
-    {% if errors['addPrisoner'] %}
-      {% set errorMessage = { text: errors['addPrisoner'].message } %}
-    {% else %}
-      {% set errorMessage = undefined %}
-    {% endif %}
-
+    {% set fieldName = "confirmAdd" %}
+    {% set field = options.fields[fieldName] %}
+    {% set items = [] %}
+    {% for item in field.items %}
+      {% set _ = items.push({
+        value: item.value,
+        text: item.label,
+        hint: {text: item.hint} if item.hint else undefined
+      }) %}
+    {% endfor %}
     {{ govukRadios({
+      name: fieldName,
+      attributes: { id: fieldName },
       classes: "govuk-radios--inline",
-      name: "addPrisoner",
-      id: "addPrisoner",
+      formGroup: {
+        attributes: { id: fieldName + "__form-group" }
+      },
       fieldset: {
         legend: {
           text: radioLegend,
           classes: "govuk-fieldset__legend--m"
         }
       },
-      items: [
-        {
-          value: "yes",
-          text: "Yes"
-        },
-        {
-          value: "no",
-          text: "No"
-        }
-      ],
-      errorMessage: errorMessage
+      items: items,
+      hint: { text: field.hint } if field.hint else undefined,
+      errorMessage: { text: errors[fieldName].message } if errors[fieldName] else undefined
     }) }}
 
     <div class="govuk-button-group">

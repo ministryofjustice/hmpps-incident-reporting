@@ -1,5 +1,5 @@
 $govuk-global-styles: true;
-$govuk-suppressed-warnings: 'ie8', 'govuk-typography-scale-14';
+$govuk-suppressed-warnings: 'ie8', 'govuk-typography-scale-14', 'legacy-organisation-colours';
 $path: '/assets/images/';
 
 $moj-page-width: 1170px;
@@ -18,8 +18,8 @@ $govuk-page-width: $moj-page-width;
 @import './components/involvement-table';
 
 @import './page/dashboard';
-@import './page/prisoner-search';
-@import './page/staff-involvement';
+@import './page/details';
+@import './page/involvement';
 @import './page/view-report';
 
 @import './local';

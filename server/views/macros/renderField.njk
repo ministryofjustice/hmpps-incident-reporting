@@ -39,7 +39,9 @@
       classes: "govuk-!-width-three-quarters",
       label: {
         text: field.label,
-        classes: "govuk-label--m"
+        attributes: {
+          id: fieldName + "__label"
+        }
       },
       hint: { text: field.hint } if field.hint else undefined,
       value: values[fieldName],

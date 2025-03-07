@@ -1,7 +1,7 @@
 import type express from 'express'
 import type FormWizard from 'hmpo-form-wizard'
 
-import QuestionsController from '../../controllers/wip/questionsController'
+import QuestionsController from '../../routes/reports/questions/controller'
 import type { AnswerConfiguration, IncidentTypeConfiguration, QuestionConfiguration } from './types'
 import { conditionalFieldName, questionFieldName } from './utils'
 

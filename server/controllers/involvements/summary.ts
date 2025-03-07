@@ -11,6 +11,7 @@ type Values = PrisonersValues | StaffValues
 
 // eslint-disable-next-line import/prefer-default-export
 export abstract class InvolvementSummary extends BaseController<Values> {
+  /** Used as URL and template slug */
   protected abstract type: 'prisoners' | 'staff'
 
   protected abstract involvementField: 'prisonersInvolved' | 'staffInvolved'
@@ -71,8 +72,11 @@ export abstract class InvolvementSummary extends BaseController<Values> {
   protected abstract localsForLookups(): Record<string, unknown>
 
   getBackLink(_req: FormWizard.Request<Values>, res: express.Response): string {
-    const reportId = res.locals.report.id
-    return `/reports/${reportId}`
+    return res.locals.reportUrl
+  }
+
+  getNextStep(_req: FormWizard.Request<Values>, res: express.Response): string {
+    return res.locals.reportUrl
   }
 
   protected errorMessage(error: FormWizard.Error): string {
@@ -97,18 +101,18 @@ export abstract class InvolvementSummary extends BaseController<Values> {
     res: express.Response,
     next: express.NextFunction,
   ): Promise<void> {
-    const reportId = res.locals.report.id
+    const report = res.locals.report as ReportWithDetails
     const { confirmAdd } = req.form.values
 
     req.journeyModel.reset()
     req.sessionModel.reset()
 
     if (confirmAdd === 'yes') {
-      res.redirect(`/reports/${reportId}/${this.type}/search`)
+      res.redirect(`${res.locals.reportSubUrlPrefix}/${this.type}/search`)
     } else {
-      if (confirmAdd === 'no') {
+      if (confirmAdd === 'no' && report[this.involvementField].length === 0) {
         try {
-          await res.locals.apis.incidentReportingApi.updateReport(reportId, {
+          await res.locals.apis.incidentReportingApi.updateReport(report.id, {
             [this.involvementDoneField]: true,
           })
           logger.info(`Report updated to flag %s involved as done`, this.type)
@@ -118,7 +122,7 @@ export abstract class InvolvementSummary extends BaseController<Values> {
           this.errorHandler({ confirmAdd: err }, req, res, next)
         }
       }
-      res.redirect(`/reports/${reportId}`)
+      super.successHandler(req, res, next)
     }
   }
 }

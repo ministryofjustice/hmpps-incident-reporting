@@ -17,14 +17,22 @@ export function populateReport(withDetails = true) {
 
     try {
       const { incidentReportingApi } = res.locals.apis
+
       if (withDetails) {
         res.locals.report = await incidentReportingApi.getReportWithDetailsById(reportId)
       } else {
         res.locals.report = await incidentReportingApi.getReportById(reportId)
       }
+      res.locals.reportUrl = `/reports/${reportId}`
+      res.locals.reportSubUrlPrefix = res.locals.reportUrl
+
       next()
     } catch (error) {
       logger.error(error, `Failed to load report ${reportId}`)
+      if (error.status === 400) {
+        // if a mistyped UUID is looked up, the api response is 400, but for the purpose of this app the report simply can't be found
+        error.status = 404
+      }
       next(error)
     }
   }

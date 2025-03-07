@@ -14,6 +14,9 @@ type Values = PrisonersValues | StaffValues
 export abstract class RemoveInvolvement<
   I extends PrisonerInvolvement | StaffInvolvement,
 > extends BaseController<Values> {
+  /** Used as URL slug */
+  protected abstract type: 'prisoners' | 'staff'
+
   protected abstract involvementField: 'prisonersInvolved' | 'staffInvolved'
 
   middlewareLocals(): void {
@@ -41,18 +44,14 @@ export abstract class RemoveInvolvement<
     next()
   }
 
-  protected abstract getSummaryUrl(reportId: string): string
-
   protected abstract getInvolvementName(involvement: I): string
 
   getBackLink(_req: FormWizard.Request<Values>, res: express.Response): string {
-    const reportId = res.locals.report.id
-    return this.getSummaryUrl(reportId)
+    return `${res.locals.reportSubUrlPrefix}/${this.type}`
   }
 
   getNextStep(_req: FormWizard.Request<Values>, res: express.Response): string {
-    const reportId = res.locals.report.id
-    return this.getSummaryUrl(reportId)
+    return `${res.locals.reportSubUrlPrefix}/${this.type}`
   }
 
   async saveValues(req: FormWizard.Request<Values>, res: express.Response, next: express.NextFunction): Promise<void> {

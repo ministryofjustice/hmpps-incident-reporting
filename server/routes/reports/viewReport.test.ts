@@ -86,7 +86,9 @@ describe('GET view report page with details', () => {
       .expect(200)
       .expect(res => {
         expect(res.text).toContain('Incident reference 6543')
-        expect(res.text).toContain('Reported by John Smith in Moorland (HMP &amp; YOI)')
+        expect(res.text).toContain('John Smith')
+        expect(res.text).toContain('Moorland (HMP &amp; YOI)')
+        expect(res.text).toContain('Draft')
         expect(res.text).toContain('Finds')
         expect(incidentReportingApi.getReportWithDetailsById).toHaveBeenCalledTimes(1)
 
@@ -215,7 +217,9 @@ describe('GET view report page without details', () => {
       .expect('Content-Type', /html/)
       .expect(res => {
         expect(res.text).toContain('Incident reference 6543')
-        expect(res.text).toContain('Reported by John Smith in Moorland (HMP &amp; YOI)')
+        expect(res.text).toContain('John Smith')
+        expect(res.text).toContain('Moorland (HMP &amp; YOI)')
+        expect(res.text).toContain('Draft')
         expect(res.text).toContain('Finds')
         expect(incidentReportingApi.getReportWithDetailsById).toHaveBeenCalledTimes(1)
       })

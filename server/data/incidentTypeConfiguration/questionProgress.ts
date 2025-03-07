@@ -14,9 +14,9 @@ export class QuestionProgressStep {
     readonly responses: ResponseItem[] | undefined,
     /** This question step’s URL path suffix */
     readonly urlSuffix: string,
-    /** Question number ignoring grouping */
+    /** Question number ignoring grouping (starts at 1) */
     readonly questionNumber: number,
-    /** Page number when questions are grouped */
+    /** Page number when questions are grouped (starts at 1) */
     readonly pageNumber: number,
   ) {}
 

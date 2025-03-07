@@ -32,25 +32,36 @@ export default class QuestionsController extends BaseController<FormWizard.Multi
     const { reportId } = req.params
 
     const stepPath = req.form.options.route
+    let previousStep: string | null = null
     for (const progressStep of res.locals.questionProgress) {
       if (progressStep.urlSuffix === stepPath) {
         res.locals.firstQuestionNumber = progressStep.questionNumber
         res.locals.questionPageNumber = progressStep.pageNumber
         break
+      } else {
+        previousStep = progressStep.urlSuffix
       }
     }
+
     if (!res.locals.questionPageNumber) {
       logger.warn(`Cannot go to step ${stepPath} in report ${reportId} ${res.locals.report.type}`)
       // TODO: replace with last page instead of start?
-      res.redirect(`/reports/${reportId}/questions`)
-    } else {
-      next()
+      res.redirect(`${res.locals.reportSubUrlPrefix}/questions`)
+      return
     }
-  }
 
-  getBackLink(req: FormWizard.Request<FormWizard.MultiValues>, _res: express.Response): string {
-    const { reportId } = req.params
-    return `/reports/${reportId}`
+    if (previousStep) {
+      // if a previous questions page exists, link back to it
+      res.locals.backLink = this.resolvePath(req.baseUrl, previousStep, true)
+    } else if (res.locals.creationJourney) {
+      // or, if this is the create journey, link to staff involvements
+      res.locals.backLink = `${res.locals.reportSubUrlPrefix}/staff`
+    } else {
+      // otherwise back to the report otherwise
+      res.locals.backLink = res.locals.reportUrl
+    }
+
+    next()
   }
 
   getNextStepObject(
@@ -60,8 +71,7 @@ export default class QuestionsController extends BaseController<FormWizard.Multi
     const nextStepObject = super.getNextStepObject(req, res)
     if (!nextStepObject.url) {
       // reached the end so the next step is report summary
-      const { reportId } = req.params
-      nextStepObject.url = `/reports/${reportId}`
+      nextStepObject.url = res.locals.reportUrl
     }
     return nextStepObject
   }

@@ -25,7 +25,6 @@ class DetailsController extends BaseDetailsController<DetailsValues> {
     next: express.NextFunction,
   ): void {
     const report = res.locals.report as ReportBasic
-    const { reportId } = req.params
 
     // load existing report details into session model to prefill inputs
     req.sessionModel.set('incidentDate', format.shortDate(report.incidentDateAndTime))
@@ -34,12 +33,11 @@ class DetailsController extends BaseDetailsController<DetailsValues> {
     req.sessionModel.set('_incidentTime-minutes', minutes)
     req.sessionModel.set('description', report.description)
 
-    res.locals.backLinkUrl = `/reports/${reportId}`
     next()
   }
 
   getBackLink(_req: FormWizard.Request<DetailsValues, DetailsFieldNames>, res: express.Response): string {
-    return res.locals.backLinkUrl
+    return res.locals.reportUrl
   }
 
   async successHandler(
@@ -76,7 +74,7 @@ class DetailsController extends BaseDetailsController<DetailsValues> {
 
   getNextStep(_req: FormWizard.Request<DetailsValues, DetailsFieldNames>, res: express.Response): string {
     // TODO: does this page have 2 save buttons? where do they both lead?
-    return res.locals.backLinkUrl
+    return res.locals.reportUrl
   }
 }
 

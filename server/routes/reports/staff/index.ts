@@ -1,9 +1,6 @@
 import express from 'express'
 
-import { logoutIf } from '../../../middleware/permissions'
-import { populateReport } from '../../../middleware/populateReport'
 import { populateStaffMember } from '../../../middleware/populateStaffMember'
-import { cannotEditReport } from '../permissions'
 import { addRouter } from './involvement/add'
 import { manualAddRouter } from './involvement/manual/add'
 import { editRouter } from './involvement/edit'
@@ -13,9 +10,7 @@ import { removeRouter } from './remove'
 
 // eslint-disable-next-line import/prefer-default-export
 export const staffInvolvementRouter = express.Router({ mergeParams: true })
-
-// require report-editing permissions
-staffInvolvementRouter.use(populateReport(true), logoutIf(cannotEditReport))
+// NB: staffInvolvementRouter is unprotected with permissions checks
 
 // add a new staff involvement
 staffInvolvementRouter.use('/search', searchRouter)

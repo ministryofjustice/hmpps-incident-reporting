@@ -5,8 +5,6 @@ import FormWizard from 'hmpo-form-wizard'
 import logger from '../../../../logger'
 import type { ReportWithDetails } from '../../../data/incidentReportingApi'
 import { getTypeDetails } from '../../../reportConfiguration/constants'
-import { logoutIf } from '../../../middleware/permissions'
-import { cannotCreateReportInActiveCaseload } from '../permissions'
 import { BaseDetailsController } from './detailsController'
 import { BaseTypeController } from './typeController'
 import { type TypeValues, typeFields, typeFieldNames } from './typeFields'
@@ -68,9 +66,8 @@ class DetailsController extends BaseDetailsController<CreateReportValues> {
         return '/'
       }
 
-      // …or proceed with filling in the report if they chose to continue
-      // TODO: this should go to staff/prisoner involvements once that's designed
-      return `/reports/${report.id}`
+      // …or proceed with adding prisoners if they chose to continue
+      return `/create-report/${report.id}/prisoners`
     }
 
     // otherwise let form wizard decide where to go next
@@ -102,10 +99,8 @@ const createReportConfig: FormWizard.Config<CreateReportValues> = {
   templatePath: 'pages/reports',
 }
 
-const createReportWizardRouter = FormWizard(createReportSteps, createReportFields, createReportConfig)
+// eslint-disable-next-line import/prefer-default-export
+export const createReportWizardRouter = FormWizard(createReportSteps, createReportFields, createReportConfig)
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore because express types do not mention this property and form wizard does not allow you to pass in config for it's root router
 createReportWizardRouter.mergeParams = true
-// eslint-disable-next-line import/prefer-default-export
-export const createReportRouter = express.Router({ mergeParams: true })
-createReportRouter.use(logoutIf(cannotCreateReportInActiveCaseload), createReportWizardRouter)

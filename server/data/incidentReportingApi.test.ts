@@ -52,6 +52,7 @@ describe('Incident reporting API client', () => {
     })
 
     it.each([
+      { method: 'getDefinitions', url: '/definitions', testCase: () => apiClient.getManagementReportDefinitions() },
       { method: 'getEvents', url: '/incident-events', testCase: () => apiClient.getEvents() },
       {
         method: 'getEventById',

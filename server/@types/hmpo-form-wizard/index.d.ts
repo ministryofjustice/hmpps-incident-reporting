@@ -409,7 +409,7 @@ declare module 'hmpo-form-wizard' {
 
       static formatters: Record<DefaultFormatter, Formatter>
 
-      resolvePath(base: string, url: string, forceRelative: boolean): void
+      resolvePath(base: string, url: string, forceRelative: boolean = false): string
 
       setBaseUrlLocal(req: Request<V, K>, res: express.Response, next: express.NextFunction): void
 

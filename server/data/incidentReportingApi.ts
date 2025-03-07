@@ -2,13 +2,13 @@
 import config from '../config'
 import format from '../utils/format'
 import type {
-  Type,
-  Status,
-  InformationSource,
-  StaffInvolvementRole,
-  PrisonerInvolvementRole,
-  PrisonerInvolvementOutcome,
   ErrorCode,
+  InformationSource,
+  PrisonerInvolvementOutcome,
+  PrisonerInvolvementRole,
+  StaffInvolvementRole,
+  Status,
+  Type,
 } from '../reportConfiguration/constants'
 import {
   convertBasicReportDates,
@@ -223,6 +223,20 @@ export type AddOrUpdateQuestionResponseRequest = {
   additionalInformation?: string
 }
 
+export type ManagementReportDefinition = {
+  id: string
+  name: string
+  description: string
+  variants: ReportVariant[]
+  authorised: boolean
+}
+
+export type ReportVariant = {
+  id: string
+  name: string
+  description: string
+}
+
 export class IncidentReportingApi extends RestClient {
   constructor(systemToken: string) {
     super('HMPPS Incident Reporting API', config.apis.hmppsIncidentReportingApi, systemToken)
@@ -384,6 +398,12 @@ export class IncidentReportingApi extends RestClient {
       path: `/incident-reports/reference/${encodeURIComponent(reference)}`,
     })
     return convertBasicReportDates(report)
+  }
+
+  async getManagementReportDefinitions(): Promise<ManagementReportDefinition[]> {
+    return this.get<ManagementReportDefinition[]>({
+      path: `/definitions`,
+    })
   }
 
   async getReportWithDetailsById(id: string): Promise<ReportWithDetails> {

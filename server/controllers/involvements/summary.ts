@@ -101,7 +101,7 @@ export abstract class InvolvementSummary extends BaseController<Values> {
     res: express.Response,
     next: express.NextFunction,
   ): Promise<void> {
-    const reportId = res.locals.report.id
+    const report = res.locals.report as ReportWithDetails
     const { confirmAdd } = req.form.values
 
     req.journeyModel.reset()
@@ -110,9 +110,9 @@ export abstract class InvolvementSummary extends BaseController<Values> {
     if (confirmAdd === 'yes') {
       res.redirect(`${res.locals.reportSubUrlPrefix}/${this.type}/search`)
     } else {
-      if (confirmAdd === 'no') {
+      if (confirmAdd === 'no' && report[this.involvementField].length === 0) {
         try {
-          await res.locals.apis.incidentReportingApi.updateReport(reportId, {
+          await res.locals.apis.incidentReportingApi.updateReport(report.id, {
             [this.involvementDoneField]: true,
           })
           logger.info(`Report updated to flag %s involved as done`, this.type)

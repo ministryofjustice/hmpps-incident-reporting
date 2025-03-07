@@ -215,9 +215,7 @@ describe('Prisoner involvement summary for report', () => {
         } else {
           expect(res.headers.location).toEqual(`/reports/${mockedReport.id}`)
         }
-        expect(incidentReportingApi.updateReport).toHaveBeenCalledWith(mockedReport.id, {
-          prisonerInvolvementDone: true,
-        })
+        expect(incidentReportingApi.updateReport).not.toHaveBeenCalled()
       })
   })
 

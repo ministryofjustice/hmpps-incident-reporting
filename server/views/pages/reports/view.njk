@@ -4,7 +4,6 @@
 {% from "govuk/components/button/macro.njk" import govukButton %}
 {% from "govuk/components/summary-list/macro.njk" import govukSummaryList %}
 {% from "govuk/components/table/macro.njk" import govukTable %}
-{% from "govuk/components/tag/macro.njk" import govukTag %}
 {% from "govuk/components/warning-text/macro.njk" import govukWarningText %}
 
 {% set pageTitle = applicationName + " - Report" %}
@@ -35,13 +34,17 @@
   <h1 class="govuk-heading-l">
     Incident reference {{ report.reportReference }}
   </h1>
-  <p>Reported by {{ reportingOfficer }} in {{ location }} on {{ reportedDate }}</p>
   <p>
-    <span class="govuk-visually-hidden">Status:</span>
-    {{ govukTag({
-      text: statusLookup[report.status] or report.status,
-      classes: "govuk-tag--grey"
-    }) }}
+    <strong>Reported by:</strong>
+    {{ reportingOfficer }} on {{ reportedDate }}
+  </p>
+  <p>
+    <strong>Location:</strong>
+    {{ location }}
+  </p>
+  <p>
+    <strong>Status:</strong>
+    {{ statusLookup[report.status] or report.status }}
   </p>
 
   {% if notEditableInDps %}

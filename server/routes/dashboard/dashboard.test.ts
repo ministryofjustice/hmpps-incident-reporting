@@ -1,16 +1,17 @@
 import type { Express } from 'express'
 import request from 'supertest'
 
+import config from '../../config'
 import { appWithAllRoutes } from '../testutils/appSetup'
 import { now } from '../../testutils/fakeClock'
 import { type GetReportsParams, IncidentReportingApi } from '../../data/incidentReportingApi'
-import { mockReport } from '../../data/testData/incidentReporting'
+import { convertBasicReportDates } from '../../data/incidentReportingApiUtils'
+import { mockErrorResponse, mockReport } from '../../data/testData/incidentReporting'
 import { unsortedPageOf } from '../../data/testData/paginatedResponses'
 import { mockSharedUser } from '../../data/testData/manageUsers'
 import { approverUser, hqUser, reportingUser, unauthorisedUser } from '../../data/testData/users'
-import { convertBasicReportDates } from '../../data/incidentReportingApiUtils'
+import { mockThrownError } from '../../data/testData/thrownErrors'
 import UserService from '../../services/userService'
-import config from '../../config'
 import { Status } from '../../reportConfiguration/constants'
 
 jest.mock('../../data/incidentReportingApi')
@@ -104,6 +105,7 @@ describe('GET dashboard', () => {
     return request(app)
       .get('/reports')
       .expect('Content-Type', /html/)
+      .expect(200)
       .expect(res => {
         expect(res.text).toContain('Incident reports')
         expect(res.text).toContain('Create an incident report')
@@ -131,6 +133,7 @@ describe('GET dashboard', () => {
       .get('/reports')
       .query({ incidentStatuses: '' })
       .expect('Content-Type', /html/)
+      .expect(200)
       .expect(res => {
         expect(res.text).toContain('Incident reports')
         expect(res.text).toContain('Create an incident report')
@@ -165,9 +168,10 @@ describe('GET dashboard', () => {
     }
 
     return request(appWithAllRoutes({ services: { userService }, userSupplier: () => reportingUser }))
-      .get(`/reports`)
+      .get('/reports')
       .query(queryParams)
       .expect('Content-Type', /html/)
+      .expect(200)
       .expect(res => {
         expect(res.text).not.toContain(
           'Enter a valid incident reference number or offender ID. For example, 12345678 or A0011BB',
@@ -201,9 +205,10 @@ describe('GET dashboard', () => {
     }
 
     return request(appWithAllRoutes({ services: { userService }, userSupplier: () => approverUser }))
-      .get(`/reports`)
+      .get('/reports')
       .query(queryParams)
       .expect('Content-Type', /html/)
+      .expect(200)
       .expect(res => {
         expect(res.text).not.toContain(
           'Enter a valid incident reference number or offender ID. For example, 12345678 or A0011BB',
@@ -235,6 +240,7 @@ describe('GET dashboard', () => {
     return request(app)
       .get('/reports')
       .expect('Content-Type', /html/)
+      .expect(200)
       .expect(res => {
         expect(res.text).toContain('John Smith')
         expect(res.text).not.toContain('>JOHN_SMITH<')
@@ -257,6 +263,7 @@ describe('GET dashboard', () => {
     return request(appWithAllRoutes({ services: { userService }, userSupplier: () => reportingUser }))
       .get('/reports')
       .expect('Content-Type', /html/)
+      .expect(200)
       .expect(res => {
         expect(res.text).toContain('searchID')
         expect(res.text).toContain('Search an incident number or offender ID')
@@ -294,6 +301,7 @@ describe('GET dashboard', () => {
       .get('/reports')
       .query({ incidentStatuses: '' })
       .expect('Content-Type', /html/)
+      .expect(200)
       .expect(res => {
         expect(res.text).toContain('searchID')
         expect(res.text).toContain('Search an incident number or offender ID')
@@ -330,6 +338,7 @@ describe('GET dashboard', () => {
     return request(appWithAllRoutes({ services: { userService }, userSupplier: () => reportingUser }))
       .get('/reports')
       .expect('Content-Type', /html/)
+      .expect(200)
       .expect(res => {
         expect(res.text).toContain('6543')
         expect(res.text).toContain('Finds')
@@ -357,6 +366,7 @@ describe('GET dashboard', () => {
     return request(appWithAllRoutes({ services: { userService }, userSupplier: () => approverUser }))
       .get('/reports')
       .expect('Content-Type', /html/)
+      .expect(200)
       .expect(res => {
         expect(res.text).toContain('6543')
         expect(res.text).toContain('Finds')
@@ -384,6 +394,7 @@ describe('GET dashboard', () => {
     return request(appWithAllRoutes({ services: { userService }, userSupplier: () => approverUser }))
       .get('/reports')
       .expect('Content-Type', /html/)
+      .expect(200)
       .expect(res => {
         expect(res.text).toContain('searchID')
         expect(res.text).toContain('Search an incident number or offender ID')
@@ -431,9 +442,10 @@ describe('search validations', () => {
     }
 
     return request(appWithAllRoutes({ services: { userService }, userSupplier: () => reportingUser }))
-      .get(`/reports`)
+      .get('/reports')
       .query({ searchID: searchValue })
       .expect('Content-Type', /html/)
+      .expect(200)
       .expect(res => {
         expect(res.text).toContain(
           'Enter a valid incident reference number or offender ID. For example, 12345678 or A0011BB',
@@ -441,6 +453,25 @@ describe('search validations', () => {
         expect(res.text).toContain('There is a problem')
         expect(res.text).toContain('Clear filters')
         expect(incidentReportingApi.getReports).toHaveBeenCalledWith(expectedParams)
+      })
+  })
+
+  it('should show an error if API rejects request', () => {
+    incidentReportingApi.getReports.mockReset()
+    const error = mockThrownError(mockErrorResponse({ message: 'Missing comment' }))
+    incidentReportingApi.getReports.mockRejectedValue(error)
+
+    return request
+      .agent(app)
+      .get('/reports')
+      .query({ searchID: 'A0011BC' })
+      .expect('Content-Type', /html/)
+      .expect(200)
+      .expect(res => {
+        expect(res.text).toContain('There is a problem')
+        expect(res.text).toContain('Sorry, there was a problem with your request')
+        expect(res.text).not.toContain('Bad Request')
+        expect(res.text).not.toContain('Missing comment')
       })
   })
 
@@ -458,9 +489,10 @@ describe('search validations', () => {
     }
 
     return request(app)
-      .get(`/reports`)
+      .get('/reports')
       .query({ searchID: '12345678' })
       .expect('Content-Type', /html/)
+      .expect(200)
       .expect(res => {
         expect(res.text).not.toContain(
           'Enter a valid incident reference number or offender ID. For example, 12345678 or A0011BB',
@@ -485,9 +517,10 @@ describe('search validations', () => {
     }
 
     return request(app)
-      .get(`/reports`)
+      .get('/reports')
       .query({ searchID: ' 12345678 ' })
       .expect('Content-Type', /html/)
+      .expect(200)
       .expect(res => {
         expect(res.text).not.toContain(
           'Enter a valid incident reference number or offender ID. For example, 12345678 or A0011BB',
@@ -512,9 +545,10 @@ describe('search validations', () => {
     }
 
     return request(app)
-      .get(`/reports`)
+      .get('/reports')
       .query({ searchID: 'A0011BC' })
       .expect('Content-Type', /html/)
+      .expect(200)
       .expect(res => {
         expect(res.text).not.toContain(
           'Enter a valid incident reference number or offender ID. For example, 12345678 or A0011BB',
@@ -539,9 +573,10 @@ describe('search validations', () => {
     }
 
     return request(app)
-      .get(`/reports`)
+      .get('/reports')
       .query({ searchID: ' A0011BC ' })
       .expect('Content-Type', /html/)
+      .expect(200)
       .expect(res => {
         expect(res.text).not.toContain(
           'Enter a valid incident reference number or offender ID. For example, 12345678 or A0011BB',
@@ -566,6 +601,7 @@ describe('date validation', () => {
     return request(app)
       .get('/reports')
       .query({ [field]: 'today' })
+      .expect(200)
       .expect(res => {
         expect(res.text).toContain('There is a problem')
         expect(res.text).toContain(`Enter a valid ${name}`)
@@ -580,6 +616,7 @@ describe('date validation', () => {
     return request(app)
       .get('/reports')
       .query({ fromDate: '02/01/2025', toDate: '01/01/2025' })
+      .expect(200)
       .expect(res => {
         expect(res.text).toContain('There is a problem')
         expect(res.text).toContain('Enter a date after from date')
@@ -706,6 +743,7 @@ describe('Establishment filter validations', () => {
         .get('/reports')
         .query({ location: queryLocation })
         .expect('Content-Type', /html/)
+        .expect(200)
         .expect(res => {
           expect(res.text).toContain('Establishments can only be selected if they exist in the user&#39;s caseload')
           expect(incidentReportingApi.getReports).toHaveBeenCalledWith(expectedParams)
@@ -829,6 +867,7 @@ describe('Status/work list filter validations', () => {
         .get('/reports')
         .query({ incidentStatuses: queryStatus })
         .expect('Content-Type', /html/)
+        .expect(200)
         .expect(res => {
           expect(res.text).toContain(expectedError)
           expect(incidentReportingApi.getReports).toHaveBeenCalledWith(expectedParams)

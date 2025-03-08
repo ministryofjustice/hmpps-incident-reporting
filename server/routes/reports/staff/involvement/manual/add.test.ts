@@ -185,7 +185,7 @@ describe('Adding a new staff member to a report who does not have a DPS/NOMIS ac
 
     it.each([
       {
-        scenario: 'required role is absent',
+        scenario: 'role is absent',
         invalidPayload: {
           staffRole: '',
           comment: 'See duty log',
@@ -213,6 +213,30 @@ describe('Adding a new staff member to a report who does not have a DPS/NOMIS ac
           expect(res.text).toContain(expectedError)
 
           expect(incidentReportingRelatedObjects.addToReport).not.toHaveBeenCalled()
+        })
+    })
+
+    it('should show an error if API rejects request', () => {
+      incidentReportingApi.getReportWithDetailsById.mockResolvedValueOnce(report)
+      const error = mockThrownError(mockErrorResponse({ message: 'Comment is too short' }))
+      incidentReportingRelatedObjects.addToReport.mockRejectedValueOnce(error)
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+      // @ts-ignore need to mock a getter method
+      incidentReportingApi.staffInvolved = incidentReportingRelatedObjects
+
+      return agent
+        .post(detailsPageUrl())
+        .send({
+          staffRole: 'NEGOTIATOR',
+          comment: 'See duty log',
+        })
+        .redirects(1)
+        .expect(200)
+        .expect(res => {
+          expect(res.text).toContain('There is a problem')
+          expect(res.text).toContain('Sorry, there was a problem with your request')
+          expect(res.text).not.toContain('Bad Request')
+          expect(res.text).not.toContain('Comment is too short')
         })
     })
   })

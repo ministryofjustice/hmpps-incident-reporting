@@ -309,6 +309,28 @@ describe('Prisoner involvement summary for report', () => {
     })
 
     it.each([
+      { scenario: 'during create journey', createJourney: true },
+      { scenario: 'normally', createJourney: false },
+    ])('should show an error if API rejects request $scenario', ({ createJourney }) => {
+      const error = mockThrownError(mockErrorResponse({ message: 'Confirmation took too long' }))
+      incidentReportingApi.updateReport.mockRejectedValueOnce(error)
+      incidentReportingApi.getReportWithDetailsById.mockResolvedValueOnce(mockedReport) // due to redirect
+
+      return request
+        .agent(app)
+        .post(summaryUrl(createJourney))
+        .send({ confirmAdd: 'no' })
+        .redirects(1)
+        .expect(200)
+        .expect(res => {
+          expect(res.text).toContain('There is a problem')
+          expect(res.text).toContain('Sorry, there was a problem with your request')
+          expect(res.text).not.toContain('Bad Request')
+          expect(res.text).not.toContain('Confirmation took too long')
+        })
+    })
+
+    it.each([
       { scenario: 'redirect to adding staff (during create journey)', createJourney: true },
       { scenario: 'redirect to report page (normally)', createJourney: false },
     ])('should $scenario if user chooses to skip adding involvements', ({ createJourney }) => {

@@ -3,6 +3,7 @@ import { URLSearchParams } from 'node:url'
 import { RequestHandler, Router } from 'express'
 import type { PathParams } from 'express-serve-static-core'
 
+import logger from '../../../logger'
 import {
   Status,
   Type,
@@ -13,16 +14,17 @@ import {
   types,
   workListCodes,
 } from '../../reportConfiguration/constants'
+import { roleApproveReject, roleReadWrite } from '../../data/constants'
+import type { PaginatedBasicReports } from '../../data/incidentReportingApi'
 import type { Order } from '../../data/offenderSearchApi'
 import type { HeaderCell } from '../../utils/sortableTable'
 import format from '../../utils/format'
 import type { GovukCheckboxesItem, GovukErrorSummaryItem, GovukSelectItem } from '../../utils/govukFrontend'
 import { checkForOutliers, parseDateInput } from '../../utils/utils'
 import { sortableTableHead } from '../../utils/sortableTable'
-import { pagination } from '../../utils/pagination'
+import { type LegacyPagination, pagination } from '../../utils/pagination'
 import type { Services } from '../../services'
 import asyncMiddleware from '../../middleware/asyncMiddleware'
-import { roleApproveReject, roleReadWrite } from '../../data/constants'
 import { ColumnEntry, multiCaseloadColumns, singleCaseloadColumns } from './tableColumns'
 
 export type IncidentStatuses = Status | WorkList
@@ -199,17 +201,24 @@ export default function dashboard(service: Services): Router {
     }
 
     // Get reports from API
-    const reportsResponse = await incidentReportingApi.getReports({
-      reference: referenceNumber,
-      location: searchLocations,
-      incidentDateFrom: fromDate,
-      incidentDateUntil: toDate,
-      type: incidentType,
-      status: searchStatuses,
-      involvingPrisonerNumber: prisonerId,
-      page: pageNumber - 1,
-      sort: [`${sort},${order}`],
-    })
+    let reportsResponse: PaginatedBasicReports
+    try {
+      reportsResponse = await incidentReportingApi.getReports({
+        reference: referenceNumber,
+        location: searchLocations,
+        incidentDateFrom: fromDate,
+        incidentDateUntil: toDate,
+        type: incidentType,
+        status: searchStatuses,
+        involvingPrisonerNumber: prisonerId,
+        page: pageNumber - 1,
+        sort: [`${sort},${order}`],
+      })
+    } catch (e) {
+      logger.error(e, 'Search failed: %j', e)
+      // TODO: find a different way to report whole-form errors rather than attaching to specific field
+      errors.push({ href: '#searchID', text: 'Sorry, there was a problem with your request' })
+    }
 
     const formValues: ListFormData = {
       searchID,
@@ -256,7 +265,7 @@ export default function dashboard(service: Services): Router {
 
     const urlPrefix = `/reports?${queryString}&`
 
-    const reports = reportsResponse.content
+    const reports = reportsResponse?.content ?? []
     const usernames = reports.map(report => report.reportedBy)
     const usersLookup = await userService.getUsers(res.locals.systemToken, usernames)
     const incidentTypes: GovukSelectItem[] = types.map(incType => ({
@@ -290,20 +299,24 @@ export default function dashboard(service: Services): Router {
       establishments.map(establishment => [establishment.value, establishment.text]),
     )
 
-    const tableHead: HeaderCell[] | undefined = sortableTableHead({
-      columns: tableColumns,
-      sortColumn: sort,
-      order,
-      urlPrefix: tableHeadUrlPrefix,
-    })
-    const paginationParams = pagination(
-      pageNumber,
-      reportsResponse.totalPages,
-      urlPrefix,
-      'moj',
-      reportsResponse.totalElements,
-      reportsResponse.size,
-    )
+    let tableHead: HeaderCell[] | undefined
+    let paginationParams: LegacyPagination
+    if (reportsResponse) {
+      tableHead = sortableTableHead({
+        columns: tableColumns,
+        sortColumn: sort,
+        order,
+        urlPrefix: tableHeadUrlPrefix,
+      })
+      paginationParams = pagination(
+        pageNumber,
+        reportsResponse.totalPages,
+        urlPrefix,
+        'moj',
+        reportsResponse.totalElements,
+        reportsResponse.size,
+      )
+    }
 
     res.render('pages/dashboard', {
       reports,

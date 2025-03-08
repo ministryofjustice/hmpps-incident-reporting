@@ -3,8 +3,9 @@ import { URLSearchParams } from 'node:url'
 import type express from 'express'
 import type FormWizard from 'hmpo-form-wizard'
 
+import logger from '../../../../../logger'
 import { GetBaseController } from '../../../../controllers'
-import ManageUsersApiClient from '../../../../data/manageUsersApiClient'
+import ManageUsersApiClient, { type UsersSearchResponse } from '../../../../data/manageUsersApiClient'
 import { pagination } from '../../../../utils/pagination'
 import type { Values } from './fields'
 
@@ -50,9 +51,19 @@ export class StaffSearchController extends GetBaseController<Values> {
     const { q, page: pageStr } = this.getAllValues(req)
     const page = parseInt(pageStr, 10) || 1
 
-    const searchResults = await new ManageUsersApiClient().searchUsers(res.locals.systemToken, q, page - 1)
-    // just in case, because we refer to users by username in the next step
-    searchResults.content = searchResults.content.filter(item => item.username)
+    let searchResults: UsersSearchResponse
+    try {
+      searchResults = await new ManageUsersApiClient().searchUsers(res.locals.systemToken, q, page - 1)
+      // just in case, because we refer to users by username in the next step
+      searchResults.content = searchResults.content.filter(item => item.username)
+    } catch (e) {
+      logger.error(e, 'Staff search failed: %j', e)
+      const err = this.convertIntoValidationError(e)
+      // TODO: find a different way to report whole-form errors rather than attaching to specific field
+      this.setErrors({ q: err }, req, res)
+      next()
+      return
+    }
 
     res.locals.searchResults = searchResults
 

@@ -54,7 +54,8 @@ class AddPrisonerInvolvementController extends PrisonerInvolvementController {
     } catch (e) {
       logger.error(e, 'Prisoner involvement could not be added to report %s: %j', report.id, e)
       const err = this.convertIntoValidationError(e)
-      next(err)
+      // TODO: find a different way to report whole-form errors rather than attaching to specific field
+      this.errorHandler({ prisonerRole: err }, req, res, next)
     }
   }
 }

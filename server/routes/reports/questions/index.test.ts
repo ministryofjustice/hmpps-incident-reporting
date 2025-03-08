@@ -816,6 +816,7 @@ describe('Submitting questions’ responses', () => {
         .redirects(1)
         .expect(res => {
           expect(res.text).toContain('Sorry, there is a problem with the service')
+          // NB: because each page is an entrypoint, cannot use form wizard to display error summary
         })
     })
   })

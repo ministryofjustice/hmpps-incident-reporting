@@ -245,8 +245,12 @@ export default class QuestionsController extends BaseController<FormWizard.Multi
             await incidentReportingApi.deleteQuestionsAndTheirResponses(report.id, questionsToDelete)
             logger.info('Removed obsolete questions from report %s', report.id)
           }
-        } catch (err) {
-          logger.error(error, 'Questions could not be updated in report %s: %j', report.id, error)
+        } catch (e) {
+          logger.error(e, 'Questions could not be updated in report %s: %j', report.id, e)
+          const err = this.convertIntoValidationError(e)
+          // TODO: find a different way to report whole-form errors rather than attaching to specific field
+          // eslint-disable-next-line prefer-destructuring
+          err.key = fieldNames[0]
           next(err)
           return
         }

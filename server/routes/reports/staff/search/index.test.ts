@@ -341,6 +341,22 @@ describe('Searching for a member of staff to add to a report', () => {
     })
   })
 
+  it('should show an error if API rejects request', () => {
+    const error = mockThrownError(mockErrorResponse({ message: 'Query is too long' }))
+    manageUsersApiClient.searchUsers.mockRejectedValueOnce(error)
+
+    return request(app)
+      .get(searchPageUrl())
+      .query({ q: 'John', page: '1' })
+      .expect(200)
+      .expect(res => {
+        expect(res.text).toContain('There is a problem')
+        expect(res.text).toContain('Sorry, there was a problem with your request')
+        expect(res.text).not.toContain('Bad Request')
+        expect(res.text).not.toContain('Query is too long')
+      })
+  })
+
   describe('Permissions', () => {
     // NB: these test cases are simplified because the permissions class methods are thoroughly tested elsewhere
 

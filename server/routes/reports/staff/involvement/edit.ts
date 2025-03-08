@@ -77,7 +77,7 @@ class EditStaffInvolvementController extends StaffInvolvementController {
     } catch (e) {
       logger.error(e, 'Staff involvement %d could not be updated in report %s: %j', index, report.id, e)
       const err = this.convertIntoValidationError(e)
-      next(err)
+      this.errorHandler({ staffRole: err }, req, res, next)
     }
   }
 }

@@ -175,6 +175,25 @@ describe('Remove prisoner involvement', () => {
       })
   })
 
+  it('should show an error if API rejects request', () => {
+    incidentReportingApi.getReportWithDetailsById.mockResolvedValueOnce(mockedReport)
+    const error = mockThrownError(mockErrorResponse({ message: 'Missing comment' }))
+    incidentReportingRelatedObjects.deleteFromReport.mockRejectedValueOnce(error)
+
+    return request
+      .agent(app)
+      .post(removePrisonerUrl(1))
+      .send({ confirmRemove: 'yes' })
+      .redirects(1)
+      .expect(200)
+      .expect(res => {
+        expect(res.text).toContain('There is a problem')
+        expect(res.text).toContain('Sorry, there was a problem with your request')
+        expect(res.text).not.toContain('Bad Request')
+        expect(res.text).not.toContain('Missing comment')
+      })
+  })
+
   describe('Permissions', () => {
     // NB: these test cases are simplified because the permissions class methods are thoroughly tested elsewhere
 

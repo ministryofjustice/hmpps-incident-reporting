@@ -120,6 +120,7 @@ export abstract class InvolvementSummary extends BaseController<Values> {
           logger.error(error, `Report could not be updated to flag %s involved as done: %j`, this.type, error)
           const err = this.convertIntoValidationError(error)
           this.errorHandler({ confirmAdd: err }, req, res, next)
+          return
         }
       }
       super.successHandler(req, res, next)

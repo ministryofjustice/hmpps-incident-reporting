@@ -68,7 +68,16 @@
       },
       value: {
         text: typesLookup[report.type] or report.type
-      }
+      },
+      actions: {
+        items: [
+          {
+            href: reportUrl + "/change-type",
+            text: "Change",
+            visuallyHiddenText: "incident type"
+          }
+        ]
+      } if canEditReport else {}
     },
     {
       key: {

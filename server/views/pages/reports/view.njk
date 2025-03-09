@@ -37,12 +37,10 @@
   <p>
     <strong>Reported by:</strong>
     {{ reportingOfficer }} on {{ reportedDate }}
-  </p>
-  <p>
+    <br />
     <strong>Location:</strong>
     {{ location }}
-  </p>
-  <p>
+    <br />
     <strong>Status:</strong>
     {{ statusLookup[report.status] or report.status }}
   </p>
@@ -80,7 +78,7 @@
       actions: {
         items: [
           {
-            href: reportSubUrlPrefix + "/update-details",
+            href: reportUrl + "/update-details",
             text: "Change",
             visuallyHiddenText: "incident details"
           }
@@ -97,7 +95,7 @@
       actions: {
         items: [
           {
-            href: reportSubUrlPrefix + "/update-details",
+            href: reportUrl + "/update-details",
             text: "Change",
             visuallyHiddenText: "incident details"
           }

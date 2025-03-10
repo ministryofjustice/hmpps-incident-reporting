@@ -3,6 +3,7 @@ import { URLSearchParams } from 'node:url'
 import type express from 'express'
 import type FormWizard from 'hmpo-form-wizard'
 
+import logger from '../../../../../logger'
 import { GetBaseController } from '../../../../controllers'
 import { OffenderSearchApi, type OffenderSearchResults } from '../../../../data/offenderSearchApi'
 import { pagination } from '../../../../utils/pagination'
@@ -67,13 +68,22 @@ export class PrisonerSearchController extends GetBaseController<Values> {
 
     const { offenderSearchApi } = res.locals.apis
     let searchResults: OffenderSearchResults
-    if (global === 'yes') {
-      searchResults = await offenderSearchApi.searchGlobally(this.globalSearchFilters(q), page - 1)
-    } else {
-      const activeCaseload = res.locals.user.activeCaseLoad
-      searchResults = await offenderSearchApi.searchInPrison(activeCaseload.caseLoadId, q, page - 1)
+    try {
+      if (global === 'yes') {
+        searchResults = await offenderSearchApi.searchGlobally(this.globalSearchFilters(q), page - 1)
+      } else {
+        const activeCaseload = res.locals.user.activeCaseLoad
+        searchResults = await offenderSearchApi.searchInPrison(activeCaseload.caseLoadId, q, page - 1)
+      }
+      res.locals.searchResults = searchResults
+    } catch (e) {
+      logger.error(e, 'Prisoner search failed: %j', e)
+      const err = this.convertIntoValidationError(e)
+      // TODO: find a different way to report whole-form errors rather than attaching to specific field
+      this.setErrors({ q: err }, req, res)
+      next()
+      return
     }
-    res.locals.searchResults = searchResults
 
     const totalResultCount = searchResults.totalElements
     if (totalResultCount > 0) {

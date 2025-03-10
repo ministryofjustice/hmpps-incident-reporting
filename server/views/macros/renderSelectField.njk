@@ -18,8 +18,7 @@
     id: fieldName,
     name: fieldName,
     label: {
-      text: field.label,
-      classes: "govuk-label--m"
+      text: field.label
     },
     hint: { text: field.hint } if field.hint else undefined,
     items: items | govukSelectInsertDefault("") | govukSelectSetSelected(values[fieldName]),

@@ -4,7 +4,6 @@ import type FormWizard from 'hmpo-form-wizard'
 import type { StaffInvolvementRole } from '../../../../reportConfiguration/constants'
 import { BaseController } from '../../../../controllers'
 import { convertToTitleCase, nameOfPerson, possessive } from '../../../../utils/utils'
-import type { ReportWithDetails } from '../../../../data/incidentReportingApi'
 import type { Values } from './fields'
 
 // eslint-disable-next-line import/prefer-default-export
@@ -51,13 +50,11 @@ export abstract class StaffInvolvementController<V extends Values = Values> exte
   }
 
   getBackLink(_req: FormWizard.Request<V>, res: express.Response): string {
-    const report = res.locals.report as ReportWithDetails
-    return `/reports/${report.id}/staff`
+    return `${res.locals.reportSubUrlPrefix}/staff`
   }
 
   getNextStep(_req: FormWizard.Request<V>, res: express.Response): string {
-    const report = res.locals.report as ReportWithDetails
-    return `/reports/${report.id}/staff`
+    return `${res.locals.reportSubUrlPrefix}/staff`
   }
 
   protected abstract getStaffMemberName(

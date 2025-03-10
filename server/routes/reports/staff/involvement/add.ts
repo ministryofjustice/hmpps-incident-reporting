@@ -32,7 +32,10 @@ export class AddStaffInvolvementController<V extends Values = Values> extends St
     } catch (e) {
       logger.error(e, 'Staff involvement could not be added to report %s: %j', report.id, e)
       const err = this.convertIntoValidationError(e)
-      next(err)
+      // TODO: find a different way to report whole-form errors rather than attaching to specific field
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+      // @ts-ignore for some reason typescript cannot figure out that `staffRole` is always a property in `V`
+      this.errorHandler({ staffRole: err }, req, res, next)
     }
   }
 

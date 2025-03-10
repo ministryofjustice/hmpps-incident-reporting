@@ -73,7 +73,7 @@ class EditPrisonerInvolvementController extends PrisonerInvolvementController {
       const formValues = {
         prisonerRole: prisonerInvolvement.prisonerRole,
         outcome: prisonerInvolvement.outcome ?? '',
-        comment: prisonerInvolvement.comment,
+        comment: prisonerInvolvement.comment ?? '',
         ...values,
       }
 
@@ -98,7 +98,8 @@ class EditPrisonerInvolvementController extends PrisonerInvolvementController {
     } catch (e) {
       logger.error(e, 'Prisoner involvement %d could not be updated in report %s: %j', index, report.id, e)
       const err = this.convertIntoValidationError(e)
-      next(err)
+      // TODO: find a different way to report whole-form errors rather than attaching to specific field
+      this.errorHandler({ prisonerRole: err }, req, res, next)
     }
   }
 }

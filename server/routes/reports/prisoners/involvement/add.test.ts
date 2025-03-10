@@ -76,7 +76,7 @@ describe('Adding a new prisoner to a report', () => {
       .expect(res => {
         expect(res.text).toContain('Page not found')
 
-        expect(offenderSearchApi.getPrisoner).not.toHaveBeenCalledWith(andrew.prisonerNumber)
+        expect(offenderSearchApi.getPrisoner).not.toHaveBeenCalled()
       })
   })
 
@@ -319,7 +319,7 @@ describe('Adding a new prisoner to a report', () => {
     const invalidScenarios: InvalidScenario[] = createdInNomis
       ? [
           {
-            scenario: 'required role is absent',
+            scenario: 'role is absent',
             invalidPayload: {
               prisonerRole: '',
               outcome: 'LOCAL_INVESTIGATION',
@@ -348,7 +348,7 @@ describe('Adding a new prisoner to a report', () => {
         ]
       : [
           {
-            scenario: 'required role is absent',
+            scenario: 'role is absent',
             invalidPayload: {
               prisonerRole: '',
               comment: 'See case notes',
@@ -379,6 +379,40 @@ describe('Adding a new prisoner to a report', () => {
           expect(res.text).toContain(expectedError)
 
           expect(incidentReportingRelatedObjects.addToReport).not.toHaveBeenCalled()
+        })
+    })
+
+    it('should show an error if API rejects request', () => {
+      incidentReportingApi.getReportWithDetailsById.mockResolvedValueOnce(report)
+      const error = mockThrownError(mockErrorResponse({ message: 'Comment is too short' }))
+      incidentReportingRelatedObjects.addToReport.mockRejectedValueOnce(error)
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+      // @ts-ignore need to mock a getter method
+      incidentReportingApi.prisonersInvolved = incidentReportingRelatedObjects
+      offenderSearchApi.getPrisoner.mockResolvedValueOnce(andrew)
+
+      return request
+        .agent(app)
+        .post(addPageUrl(andrew.prisonerNumber))
+        .send(
+          createdInNomis
+            ? {
+                prisonerRole: 'SUSPECTED_INVOLVED',
+                outcome: 'LOCAL_INVESTIGATION',
+                comment: 'See case notes',
+              }
+            : {
+                prisonerRole: 'SUSPECTED_INVOLVED',
+                comment: 'See case notes',
+              },
+        )
+        .redirects(1)
+        .expect(200)
+        .expect(res => {
+          expect(res.text).toContain('There is a problem')
+          expect(res.text).toContain('Sorry, there was a problem with your request')
+          expect(res.text).not.toContain('Bad Request')
+          expect(res.text).not.toContain('Comment is too short')
         })
     })
   })

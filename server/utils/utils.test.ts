@@ -13,9 +13,11 @@ import {
   parseTimeInput,
   prisonerLocation,
   reversedNameOfPerson,
+  yearsSince,
 } from './utils'
 import { andrew, barry, chris, donald, ernie, fred } from '../data/testData/offenderSearch'
 import { isBeingTransferred, isOutside, isInPrison } from '../data/offenderSearchApi'
+import { fakeClock } from '../testutils/fakeClock'
 
 describe('convert to title case', () => {
   it.each([
@@ -220,6 +222,28 @@ describe('parseTimeInput', () => {
       expect(() => parseTimeInput(input)).toThrow('Invalid time')
     },
   )
+})
+
+describe('yearsSince', () => {
+  beforeEach(() => {
+    // set "now" to 2023-12-05T12:34:56.000Z
+    fakeClock()
+  })
+
+  it.each([undefined, null, '', 'today'])('should return null for %p', input => {
+    expect(yearsSince(input)).toBeNull()
+  })
+
+  it.each([
+    ['2023-12-05', 0],
+    ['2023-01-05', 0],
+    ['2020-01-05', 3],
+    ['2020-12-05', 3],
+    ['2020-12-06', 2],
+    ['1987-01-01', 36],
+  ])('should say years since %p is %d', (input, expectedYears) => {
+    expect(yearsSince(input)).toEqual(expectedYears)
+  })
 })
 
 describe('buildArray()', () => {

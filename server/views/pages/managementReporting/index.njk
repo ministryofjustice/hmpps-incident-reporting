@@ -1,0 +1,44 @@
+{% extends "partials/layout.njk" %}
+
+{% from "govuk/components/breadcrumbs/macro.njk" import govukBreadcrumbs %}
+{% from "govuk/components/warning-text/macro.njk" import govukWarningText %}
+
+{% set pageTitle = applicationName + " - Home" %}
+
+{% block beforeContent %}
+  {{ super() }}
+
+  {{ govukBreadcrumbs({
+    items: [
+      {
+        text: "Digital Prison Services",
+        href: dpsUrl
+      },
+      {
+        text: "Management reporting",
+        href: "/management-reporting"
+      }
+    ]
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+
+  <h1 class="govuk-heading-l">Management reporting</h1>
+
+  <p>Below is the of available management reports</p>
+
+  {% for definition in definitions %}
+    <h2 class="govuk-heading-m">{{ definition.name }}</h2>
+    <p class="govuk-body">{{ definition.description }}</p>
+
+    {% for variant in definition.variants %}
+      <h3 class="govuk-heading-s"><a href="/management-reporting/{{ definition.id }}/{{ variant.id }}" class="govuk-link" target="_blank"> {{ variant.name }} </a></h3>
+      <p class="govuk-body">{{ variant.description }}</p>
+
+    {% endfor %}
+
+  {% endfor %}
+
+{% endblock %}

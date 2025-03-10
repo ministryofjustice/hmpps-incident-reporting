@@ -1,0 +1,152 @@
+{% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/input/macro.njk" import govukInput %}
+{% from "govuk/components/radios/macro.njk" import govukRadios %}
+{% from "govuk/components/table/macro.njk" import govukTable %}
+{% from "moj/components/pagination/macro.njk" import mojPagination %}
+
+{% set pageTitle = applicationName + " – Search for a prisoner involved in the incident" %}
+{% set bodyClasses = "app-involvement-search app-prisoner-search" %}
+
+{% extends "partials/layout.njk" %}
+
+{% block beforeContent %}
+  {% if backLink %}
+    {{ govukBackLink({
+      text: "Back",
+      href: backLink
+    }) }}
+  {% endif %}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      {% include "partials/errorSummary.njk" %}
+
+      <h1 class="govuk-heading-l">
+        Search for a prisoner involved in the incident
+      </h1>
+
+      <form class="app-prisoner-search-form" method="get" novalidate>
+        {# a new search should always start on first page #}
+        <input type="hidden" name="page" value="1" />
+
+        {% set fieldName = "global" %}
+        {% set field = options.fields[fieldName] %}
+        {% set items = [] %}
+        {% for item in field.items %}
+          {% set _ = items.push({
+            value: item.value,
+            text: item.label,
+            hint: {text: item.hint} if item.hint else undefined
+          }) %}
+        {% endfor %}
+        {{ govukRadios({
+          name: fieldName,
+          attributes: { id: fieldName },
+          classes: "govuk-radios--inline govuk-radios--small",
+          formGroup: {
+            attributes: { id: fieldName + "__form-group" }
+          },
+          fieldset: {
+            legend: {
+              text: field.label,
+              classes: "govuk-visually-hidden"
+            }
+          },
+          hint: { text: field.hint } if field.hint else undefined,
+          idPrefix: fieldName + "-item",
+          items: items | govukCheckedItems(values[fieldName]) | govukCheckedItemsDivider(),
+          errorMessage: { text: errors[fieldName].message } if errors[fieldName] else undefined
+        }) }}
+
+        <div class="app-involvement-search-form__name-row">
+          {% set fieldName = "q" %}
+          {% set field = options.fields[fieldName] %}
+          {{ govukInput({
+            name: fieldName,
+            id: fieldName,
+            label: { text: field.label },
+            hint: { text: field.hint } if field.hint else undefined,
+            value: values[fieldName],
+            errorMessage: { text: errors[fieldName].message } if errors[fieldName] else undefined
+          }) }}
+          <div class="govuk-button-group">
+            {{ govukButton({
+              text: "Search",
+              preventDoubleClick: true,
+              type: "submit"
+            }) }}
+          </div>
+        </div>
+      </form>
+
+    </div>
+  </div>
+
+  {% if searchResults %}
+    {% if searchResults.content.length > 0 %}
+
+      {% set tableRows = [] %}
+      {% for result in searchResults.content %}
+        {% set name %}
+          {{- result | nameOfPerson -}}
+        {% endset %}
+
+        {% set photo %}
+          <img src="/prisoner/{{ result.prisonerNumber }}/photo.jpeg" alt="Photo of {{ name | safe }}" class="app-prisoner-photo" />
+        {% endset %}
+
+        {% if result | isBeingTransferred %}
+          {% set establishment = "N/A" %}
+        {% elif result | isOutside %}
+          {% set establishment = result | prisonerLocation %}
+        {% else %}
+          {% set establishment = result.prisonName or "Not known" %}
+        {% endif %}
+
+        {% set link %}
+          <a href="{{ reportSubUrlPrefix }}/prisoners/add/{{ result.prisonerNumber }}">
+            Select {{ name | safe }}
+          </a>
+        {% endset %}
+
+        {% set _ = tableRows.push([
+          {html: photo},
+          {html: name},
+          {text: result.prisonerNumber},
+          {text: result.dateOfBirth | yearsSince | default("")},
+          {text: establishment},
+          {html: link}
+        ]) %}
+      {% endfor %}
+
+      {{ govukTable({
+        classes: "govuk-!-margin-top-4",
+        caption: "Prisoner search results",
+        captionClasses: "govuk-visually-hidden",
+        head: [
+          {text: "Photo"},
+          {text: "Name"},
+          {text: "Prison number"},
+          {text: "Age"},
+          {text: "Establishment"},
+          {text: "Action"}
+        ],
+        rows: tableRows
+      }) }}
+
+      {{ mojPagination(paginationParams) }}
+
+    {% else %}
+
+      <p>
+        0 results found for “{{ values.q }}”.
+      </p>
+
+    {% endif %}
+  {% endif %}
+
+{% endblock %}

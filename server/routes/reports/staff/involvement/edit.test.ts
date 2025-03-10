@@ -78,6 +78,15 @@ describe('Editing an existing staff member in a report', () => {
       })
   })
 
+  it('should 404 if staff involvement is invalid', () => {
+    return request(app)
+      .get(editPageUrl(0))
+      .expect(404)
+      .expect(res => {
+        expect(res.text).toContain('Page not found')
+      })
+  })
+
   it('should 404 if staff involvement is not found', () => {
     report.staffInvolved = []
 
@@ -151,7 +160,7 @@ describe('Editing an existing staff member in a report', () => {
 
   it.each([
     {
-      scenario: 'required role is absent',
+      scenario: 'role is absent',
       invalidPayload: {
         staffRole: '',
         comment: 'See duty log',
@@ -180,6 +189,31 @@ describe('Editing an existing staff member in a report', () => {
         expect(res.text).toContain(expectedError)
 
         expect(incidentReportingRelatedObjects.updateForReport).not.toHaveBeenCalled()
+      })
+  })
+
+  it('should show an error if API rejects request', () => {
+    incidentReportingApi.getReportWithDetailsById.mockResolvedValueOnce(report)
+    const error = mockThrownError(mockErrorResponse({ message: 'Comment is too short' }))
+    incidentReportingRelatedObjects.updateForReport.mockRejectedValueOnce(error)
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore need to mock a getter method
+    incidentReportingApi.staffInvolved = incidentReportingRelatedObjects
+
+    return request
+      .agent(app)
+      .post(editPageUrl(1))
+      .send({
+        staffRole: 'NEGOTIATOR',
+        comment: 'See duty log',
+      })
+      .redirects(1)
+      .expect(200)
+      .expect(res => {
+        expect(res.text).toContain('There is a problem')
+        expect(res.text).toContain('Sorry, there was a problem with your request')
+        expect(res.text).not.toContain('Bad Request')
+        expect(res.text).not.toContain('Comment is too short')
       })
   })
 

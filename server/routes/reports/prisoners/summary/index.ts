@@ -1,6 +1,6 @@
 import FormWizard from 'hmpo-form-wizard'
 
-import PrisonerSummary from '../../../../controllers/prisonerSummary/prisonerSummary'
+import PrisonerSummary from './controller'
 import { fields } from './fields'
 import { steps } from './steps'
 

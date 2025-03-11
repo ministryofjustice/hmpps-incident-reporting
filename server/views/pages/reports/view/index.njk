@@ -1,0 +1,56 @@
+{% extends "partials/layout.njk" %}
+
+{% from "govuk/components/breadcrumbs/macro.njk" import govukBreadcrumbs %}
+{% from "govuk/components/warning-text/macro.njk" import govukWarningText %}
+
+{% set pageTitle = applicationName + " - Report" %}
+{% set bodyClasses = "app-view-report" %}
+
+{% block beforeContent %}
+  {{ super() }}
+
+  {{ govukBreadcrumbs({
+    items: [
+      {
+        text: "Digital Prison Services",
+        href: dpsUrl
+      },
+      {
+        text: "Incident reporting",
+        href: "/"
+      }
+    ]
+  }) }}
+{% endblock %}
+
+{% block content %}
+  <h1 class="govuk-heading-l">
+    Incident reference {{ report.reportReference }}
+  </h1>
+  <p>
+    <strong>Reported by:</strong>
+    {{ usersLookup[report.reportedBy].name or report.reportedBy }} on {{ report.reportedAt | longDate }}
+    <br />
+    <strong>Location:</strong>
+    {{ prisonsLookup[report.location].description or report.location }}
+    <br />
+    <strong>Status:</strong>
+    {{ statusLookup[report.status] or report.status }}
+  </p>
+
+  {% if notEditableInDps %}
+    {{ govukWarningText({
+      text: "This report can only be amended in NOMIS",
+      iconFallbackText: "Warning"
+    }) }}
+  {% endif %}
+
+  {% include "./_details.njk" %}
+  {% include "./_prisoners.njk" %}
+  {% include "./_staff.njk" %}
+  {% include "./_questions.njk" %}
+
+  {# TODO: not designed #}
+  {% include "./_correction-requests.njk" %}
+
+{% endblock %}

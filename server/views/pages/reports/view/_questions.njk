@@ -1,0 +1,59 @@
+{% from "govuk/components/summary-list/macro.njk" import govukSummaryList %}
+
+{% set rows = [] %}
+{% if questionProgressSteps | length == 1 and not questionProgressSteps[0].isComplete %}
+
+  {% set _ = rows.push({
+    key: { text: "No responses" },
+    value: { text: "" },
+    actions: {items: [{
+      href: reportSubUrlPrefix + "/questions",
+      text: "Answer questions"
+    }]} if canEditReport else {}
+  }) %}
+
+{% else %}
+  {% for questionProgressStep in questionProgressSteps %}
+
+    {% set questionHtml %}
+      {{ questionProgressStep.questionNumber }}. {{ questionProgressStep.questionConfig.label }}
+    {% endset %}
+
+    {% set responsesHtml %}
+      {% if questionProgressStep.isComplete %}
+        {% for responseItem in questionProgressStep.responses %}
+          {{ responseItem.answerConfig.label }}
+          {% if responseItem.response.responseDate %}
+            <br />
+            Date: {{ responseItem.response.responseDate | longDate }}
+          {% endif %}
+          {% if responseItem.response.additionalInformation %}
+            <br />
+            Comment: {{ responseItem.response.additionalInformation }}
+          {% endif %}
+          {% if not loop.last %}
+            <br />
+          {% endif %}
+        {% endfor %}
+      {% endif %}
+    {% endset %}
+
+    {% set _ = rows.push({
+      key: { html: questionHtml },
+      value: { html: responsesHtml },
+      actions: {items: [{
+        href: reportSubUrlPrefix + "/questions" + (questionProgressStep.urlSuffix or "") + "#question-" + questionProgressStep.fieldName,
+        text: "Change" if questionProgressStep.isComplete else "Continue",
+        visuallyHiddenText: "question responses"
+      }]} if canEditReport else {}
+    }) %}
+
+  {% endfor %}
+{% endif %}
+
+{{ govukSummaryList({
+  card: {
+    title: { text: "About incident " + report.reportReference }
+  },
+  rows: rows
+}) }}

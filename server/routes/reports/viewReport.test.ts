@@ -273,7 +273,7 @@ describe('GET view report page without details', () => {
       .get(viewReportUrl)
       .expect('Content-Type', /html/)
       .expect(res => {
-        expect(res.text).toContain('Question responses')
+        expect(res.text).toContain('About incident 6543')
         expect(res.text).toContain('No responses')
       })
   })
@@ -284,7 +284,7 @@ describe('GET view report page without details', () => {
       .expect('Content-Type', /html/)
       .expect(res => {
         expect(res.text).toContain('Correction requests')
-        expect(res.text).toContain('No corrections found')
+        expect(res.text).toContain('No correction requests')
         expect(res.text).toContain('Add a correction')
       })
   })

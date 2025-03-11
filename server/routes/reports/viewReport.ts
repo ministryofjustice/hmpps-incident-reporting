@@ -58,15 +58,13 @@ export function viewReportRouter(service: Services): Router {
     const staffInvolvementLookup = Object.fromEntries(staffInvolvementRoles.map(role => [role.code, role.description]))
 
     const questionProgressSteps = Array.from(questionProgress)
-    const questionsCompleted = questionProgressSteps.at(-1).isComplete ?? false
 
     const canEditReport = permissions.canEditReport(report)
     const notEditableInDps = permissions.canEditReportInNomisOnly(report)
 
-    res.render('pages/reports/view', {
+    res.render('pages/reports/view/index', {
       report,
       questionProgressSteps,
-      questionsCompleted,
       canEditReport,
       notEditableInDps,
       usersLookup,

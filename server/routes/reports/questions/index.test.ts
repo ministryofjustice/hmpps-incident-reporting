@@ -34,7 +34,7 @@ afterEach(() => {
   jest.resetAllMocks()
 })
 
-describe('Displaying responses', () => {
+describe('Displaying questions and responses', () => {
   let agent: Agent
 
   // Report type/answers updated in each test

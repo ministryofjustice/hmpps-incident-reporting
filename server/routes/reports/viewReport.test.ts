@@ -45,7 +45,7 @@ afterEach(() => {
   jest.resetAllMocks()
 })
 
-describe('GET view report page with details', () => {
+describe('View report page', () => {
   let mockedReport: ReportWithDetails
   let viewReportUrl: string
 
@@ -79,286 +79,275 @@ describe('GET view report page with details', () => {
       })
   })
 
-  it('should render report page with all sections', () => {
-    return request(app)
-      .get(viewReportUrl)
-      .expect('Content-Type', /html/)
-      .expect(200)
-      .expect(res => {
-        expect(res.text).toContain('Incident reference 6543')
-        expect(res.text).toContain('John Smith')
-        expect(res.text).toContain('Moorland (HMP &amp; YOI)')
-        expect(res.text).toContain('Draft')
-        expect(res.text).toContain('Finds')
-        expect(incidentReportingApi.getReportWithDetailsById).toHaveBeenCalledTimes(1)
+  describe('When all sections filled', () => {
+    it('should render basic information that cannot be changed', () => {
+      return request(app)
+        .get(viewReportUrl)
+        .expect('Content-Type', /html/)
+        .expect(200)
+        .expect(res => {
+          expect(res.text).toContain('Incident reference 6543')
+          expect(res.text).toContain('John Smith')
+          expect(res.text).toContain('Moorland (HMP &amp; YOI)')
+          expect(res.text).toContain('Draft')
 
-        expect(userService.getUsers.mock.calls).toHaveLength(1)
-        const users = userService.getUsers.mock.calls[0][1]
-        users.sort()
-        expect(users).toEqual(['USER2', 'user1'])
-      })
-  })
+          expect(incidentReportingApi.getReportWithDetailsById).toHaveBeenCalledWith(mockedReport.id)
 
-  it('should render incident summary', () => {
-    return request(app)
-      .get(viewReportUrl)
-      .expect('Content-Type', /html/)
-      .expect(200)
-      .expect(res => {
-        expect(res.text).toContain('Date and time of incident')
-        expect(res.text).toContain('5 December 2023, 11:34')
-        expect(res.text).toContain('Description')
-        expect(res.text).toContain('A new incident created in the new service of type FINDS')
-      })
-  })
+          expect(userService.getUsers.mock.calls).toHaveLength(1)
+          const users = userService.getUsers.mock.calls[0][1]
+          users.sort()
+          expect(users).toEqual(['USER2', 'user1'])
+        })
+    })
 
-  it('should render incident type with correct formatting', () => {
-    return request(app)
-      .get(viewReportUrl)
-      .expect('Content-Type', /html/)
-      .expect(res => {
-        expect(res.text).toContain('Finds')
-      })
-  })
+    it('should render incident summary', () => {
+      return request(app)
+        .get(viewReportUrl)
+        .expect('Content-Type', /html/)
+        .expect(200)
+        .expect(res => {
+          expect(res.text).toContain('Finds')
+          expect(res.text).toContain('Date and time of incident')
+          expect(res.text).toContain('5 December 2023, 11:34')
+          expect(res.text).toContain('Description')
+          expect(res.text).toContain('A new incident created in the new service of type FINDS')
+        })
+    })
 
-  it.each([
-    { scenario: 'roles for reports made on DPS', createdInNomis: false },
-    { scenario: 'roles and outcomes for reports made in NOMIS', createdInNomis: true },
-  ])('should render prisoners involved with $scenario; names correct if available', ({ createdInNomis }) => {
-    mockedReport.createdInNomis = createdInNomis
+    it.each([
+      { scenario: 'roles for reports made on DPS', createdInNomis: false },
+      { scenario: 'roles and outcomes for reports made in NOMIS', createdInNomis: true },
+    ])('should render prisoners involved with $scenario; names correct if available', ({ createdInNomis }) => {
+      mockedReport.createdInNomis = createdInNomis
 
-    return request(app)
-      .get(viewReportUrl)
-      .expect('Content-Type', /html/)
-      .expect(res => {
-        expect(res.text).toContain('Andrew Arnold')
-        expect(res.text).toContain('Role: Active involvement')
-        if (createdInNomis) {
-          expect(res.text).toContain('Outcome: Investigation (local)')
-        } else {
-          expect(res.text).not.toContain('Outcome:')
-        }
-        expect(res.text).toContain('Details: Comment about A1111AA')
-        expect(res.text).toContain('A2222BB')
-        expect(res.text).toContain('Role: Suspected involved')
-        if (createdInNomis) {
-          expect(res.text).toContain('Outcome: No outcome')
-        }
-        expect(res.text).toContain('Details: No comment')
-      })
-  })
+      return request(app)
+        .get(viewReportUrl)
+        .expect('Content-Type', /html/)
+        .expect(res => {
+          expect(res.text).toContain('Andrew Arnold')
+          expect(res.text).toContain('Role: Active involvement')
+          if (createdInNomis) {
+            expect(res.text).toContain('Outcome: Investigation (local)')
+          } else {
+            expect(res.text).not.toContain('Outcome:')
+          }
+          expect(res.text).toContain('Details: Comment about A1111AA')
+          expect(res.text).toContain('A2222BB')
+          expect(res.text).toContain('Role: Suspected involved')
+          if (createdInNomis) {
+            expect(res.text).toContain('Outcome: No outcome')
+          }
+          expect(res.text).toContain('Details: No comment')
+        })
+    })
 
-  // TODO: add multi-line comment test
+    // TODO: add multi-line comment test
 
-  it('should render staff involved with roles', () => {
-    return request(app)
-      .get(viewReportUrl)
-      .expect('Content-Type', /html/)
-      .expect(res => {
-        expect(res.text).toContain('Barry Harrison')
-        expect(res.text).toContain('Present at scene')
-        expect(res.text).toContain('Mary Johnson')
-        expect(res.text).toContain('Actively involved')
-      })
-  })
+    it('should render staff involved with roles', () => {
+      return request(app)
+        .get(viewReportUrl)
+        .expect('Content-Type', /html/)
+        .expect(res => {
+          expect(res.text).toContain('Barry Harrison')
+          expect(res.text).toContain('Present at scene')
+          expect(res.text).toContain('Mary Johnson')
+          expect(res.text).toContain('Actively involved')
+        })
+    })
 
-  it('should render question responses', () => {
-    return request(app)
-      .get(viewReportUrl)
-      .expect('Content-Type', /html/)
-      .expect(res => {
-        expect(res.text).toContain('1. Describe how the item was found')
-        expect(res.text).toContain('Cell search')
-        expect(res.text).toContain('Information received')
-        expect(res.text).not.toContain('Unusual behaviour')
-        expect(res.text).toContain(`${viewReportUrl}/questions/67179`)
+    it('should render question responses', () => {
+      return request(app)
+        .get(viewReportUrl)
+        .expect('Content-Type', /html/)
+        .expect(res => {
+          expect(res.text).toContain('About the incident')
+          // TODO: will need to become type-specific once content is ready
 
-        expect(res.text).toContain('2. Is the location of the incident known?')
-        expect(res.text).toContain(`${viewReportUrl}/questions/67180`)
+          expect(res.text).toContain('1. Describe how the item was found')
+          expect(res.text).toContain('Cell search')
+          expect(res.text).toContain('Information received')
+          expect(res.text).not.toContain('Unusual behaviour')
+          expect(res.text).toContain(`${viewReportUrl}/questions/67179`)
 
-        expect(res.text).toContain('What was the location of the incident?')
-        expect(res.text).toContain(`${viewReportUrl}/questions/67181`)
-        expect(res.text).not.toContain('Describe the method of entry into the establishment')
-        expect(res.text).not.toContain(`${viewReportUrl}/questions/67182`)
-      })
-  })
+          expect(res.text).toContain('2. Is the location of the incident known?')
+          expect(res.text).toContain(`${viewReportUrl}/questions/67180`)
 
-  it('should render correction requests', () => {
-    return request(app)
-      .get(viewReportUrl)
-      .expect('Content-Type', /html/)
-      .expect(res => {
-        expect(res.text).toContain('USER2')
-        expect(res.text).toContain('Description: Please amend question 2')
-        expect(res.text).toContain('Submitted at: 5 December 2023, 12:34')
-      })
-  })
-})
+          expect(res.text).toContain('What was the location of the incident?')
+          expect(res.text).toContain(`${viewReportUrl}/questions/67181`)
+          expect(res.text).not.toContain('Describe the method of entry into the establishment')
+          expect(res.text).not.toContain(`${viewReportUrl}/questions/67182`)
+        })
+    })
 
-describe('GET view report page without details', () => {
-  let viewReportUrl: string
-
-  beforeEach(() => {
-    const mockedReport = convertReportWithDetailsDates(
-      mockReport({ reportReference: '6543', reportDateAndTime: now, withDetails: true }),
-    )
-    mockedReport.questions = []
-    mockedReport.staffInvolved = []
-    mockedReport.prisonersInvolved = []
-    mockedReport.correctionRequests = []
-
-    incidentReportingApi.getReportWithDetailsById.mockResolvedValueOnce(mockedReport)
-    viewReportUrl = `/reports/${mockedReport.id}`
-  })
-
-  it('should render report page with all sections', () => {
-    return request(app)
-      .get(viewReportUrl)
-      .expect('Content-Type', /html/)
-      .expect(res => {
-        expect(res.text).toContain('Incident reference 6543')
-        expect(res.text).toContain('John Smith')
-        expect(res.text).toContain('Moorland (HMP &amp; YOI)')
-        expect(res.text).toContain('Draft')
-        expect(res.text).toContain('Finds')
-        expect(incidentReportingApi.getReportWithDetailsById).toHaveBeenCalledTimes(1)
-      })
-  })
-
-  it('should render incident summary', () => {
-    return request(app)
-      .get(viewReportUrl)
-      .expect('Content-Type', /html/)
-      .expect(res => {
-        expect(res.text).toContain('Date and time of incident')
-        expect(res.text).toContain('5 December 2023, 11:34')
-        expect(res.text).toContain('Description')
-        expect(res.text).toContain('A new incident created in the new service of type FINDS')
-      })
-  })
-
-  it('should render incident type with correct formatting', () => {
-    return request(app)
-      .get(viewReportUrl)
-      .expect('Content-Type', /html/)
-      .expect(res => {
-        expect(res.text).toContain('Finds')
-      })
-  })
-
-  it('should render no prisoners found', () => {
-    return request(app)
-      .get(viewReportUrl)
-      .expect('Content-Type', /html/)
-      .expect(res => {
-        expect(res.text).toContain('Prisoners involved')
-        expect(res.text).toContain('No prisoners added')
-        expect(res.text).toContain('Add a prisoner')
-      })
-  })
-
-  it('should render no staff found', () => {
-    return request(app)
-      .get(viewReportUrl)
-      .expect('Content-Type', /html/)
-      .expect(res => {
-        expect(res.text).toContain('Staff involved')
-        expect(res.text).toContain('No staff added')
-        expect(res.text).toContain('Add a member of staff')
-      })
-  })
-
-  it('should render no question responses found', () => {
-    return request(app)
-      .get(viewReportUrl)
-      .expect('Content-Type', /html/)
-      .expect(res => {
-        expect(res.text).toContain('About the incident')
-        // TODO: will need to become type-specific once content is ready
-        expect(res.text).toContain('No responses')
-      })
-  })
-
-  it('should render correction requests', () => {
-    return request(app)
-      .get(viewReportUrl)
-      .expect('Content-Type', /html/)
-      .expect(res => {
-        expect(res.text).toContain('Correction requests')
-        expect(res.text).toContain('No correction requests')
-        expect(res.text).toContain('Add a correction')
-      })
-  })
-})
-
-describe('Report viewing permissions', () => {
-  // NB: these test cases are simplified because the permissions class methods are thoroughly tested elsewhere
-
-  let previousActivePrisons: string[]
-
-  beforeAll(() => {
-    previousActivePrisons = config.activePrisons
-  })
-
-  let reportId: string
-
-  beforeEach(() => {
-    config.activePrisons = previousActivePrisons
-
-    const report = convertReportWithDetailsDates(
-      mockReport({ reportReference: '6543', reportDateAndTime: now, withDetails: true }),
-    )
-    report.questions = [
-      makeSimpleQuestion(
-        '67179',
-        'DESCRIBE HOW THE ITEM WAS FOUND (SELECT ALL THAT APPLY)',
-        'CELL SEARCH',
-        'INFORMATION RECEIVED',
-      ),
-      makeSimpleQuestion('67180', 'IS THE LOCATION OF THE INCIDENT KNOWN?', 'YES'),
-    ]
-    reportId = report.id
-    incidentReportingApi.getReportWithDetailsById.mockResolvedValueOnce(report)
-  })
-
-  const granted = 'granted' as const
-  const denied = 'denied' as const
-  it.each([
-    { userType: 'reporting officer', user: reportingUser, action: granted, canEdit: true },
-    { userType: 'data warden', user: approverUser, action: granted, canEdit: true },
-    { userType: 'HQ view-only user', user: hqUser, action: granted, canEdit: false },
-    { userType: 'unauthorised user', user: unauthorisedUser, action: denied, canEdit: false },
-  ])('should be $action to $userType', ({ user, action, canEdit }) => {
-    const testRequest = request(appWithAllRoutes({ services: { userService }, userSupplier: () => user }))
-      .get(`/reports/${reportId}`)
-      .redirects(1)
-    if (action === 'granted') {
-      return testRequest.expect(200).expect(res => {
-        if (canEdit) {
-          expect(res.text).toContain('question responses')
-        } else {
-          expect(res.text).not.toContain('question responses')
-        }
-      })
-    }
-    return testRequest.expect(res => {
-      expect(res.redirects[0]).toContain('/sign-out')
+    it('should render correction requests', () => {
+      return request(app)
+        .get(viewReportUrl)
+        .expect('Content-Type', /html/)
+        .expect(res => {
+          expect(res.text).toContain('USER2')
+          expect(res.text).toContain('Description: Please amend question 2')
+          expect(res.text).toContain('Submitted at: 5 December 2023, 12:34')
+        })
     })
   })
 
-  it.each([
-    { userType: 'reporting officer', user: reportingUser, warn: true },
-    { userType: 'data warden', user: approverUser, warn: true },
-    { userType: 'HQ view-only user', user: hqUser, warn: false },
-    { userType: 'unauthorised user', user: unauthorisedUser, warn: false },
-  ])('should warn $userType that report is only editable in NOMIS: $warn', ({ user, warn }) => {
-    config.activePrisons = ['LEI']
+  describe('When all sections are empty', () => {
+    beforeEach(() => {
+      mockedReport.questions = []
+      mockedReport.staffInvolved = []
+      mockedReport.prisonersInvolved = []
+      mockedReport.correctionRequests = []
+    })
 
-    return request(appWithAllRoutes({ services: { userService }, userSupplier: () => user }))
-      .get(`/reports/${reportId}`)
-      .expect(res => {
-        const warningShows = res.text.includes('This report can only be amended in NOMIS')
-        expect(warningShows).toBe(warn)
+    it('should render basic information that cannot be changed', () => {
+      return request(app)
+        .get(viewReportUrl)
+        .expect('Content-Type', /html/)
+        .expect(200)
+        .expect(res => {
+          expect(res.text).toContain('Incident reference 6543')
+          expect(res.text).toContain('John Smith')
+          expect(res.text).toContain('Moorland (HMP &amp; YOI)')
+          expect(res.text).toContain('Draft')
+
+          expect(incidentReportingApi.getReportWithDetailsById).toHaveBeenCalledWith(mockedReport.id)
+
+          expect(userService.getUsers.mock.calls).toHaveLength(1)
+          const users = userService.getUsers.mock.calls[0][1]
+          users.sort()
+          expect(users).toEqual(['user1'])
+        })
+    })
+
+    it('should render incident summary', () => {
+      return request(app)
+        .get(viewReportUrl)
+        .expect('Content-Type', /html/)
+        .expect(200)
+        .expect(res => {
+          expect(res.text).toContain('Finds')
+          expect(res.text).toContain('Date and time of incident')
+          expect(res.text).toContain('5 December 2023, 11:34')
+          expect(res.text).toContain('Description')
+          expect(res.text).toContain('A new incident created in the new service of type FINDS')
+        })
+    })
+
+    it('should render no prisoners found', () => {
+      return request(app)
+        .get(viewReportUrl)
+        .expect('Content-Type', /html/)
+        .expect(res => {
+          expect(res.text).toContain('Prisoners involved')
+          expect(res.text).toContain('No prisoners added')
+          expect(res.text).toContain('Add a prisoner')
+        })
+    })
+
+    it('should render no staff found', () => {
+      return request(app)
+        .get(viewReportUrl)
+        .expect('Content-Type', /html/)
+        .expect(res => {
+          expect(res.text).toContain('Staff involved')
+          expect(res.text).toContain('No staff added')
+          expect(res.text).toContain('Add a member of staff')
+        })
+    })
+
+    it('should render no question responses found', () => {
+      return request(app)
+        .get(viewReportUrl)
+        .expect('Content-Type', /html/)
+        .expect(res => {
+          expect(res.text).toContain('About the incident')
+          // TODO: will need to become type-specific once content is ready
+
+          expect(res.text).toContain('No responses')
+        })
+    })
+
+    it('should render correction requests', () => {
+      return request(app)
+        .get(viewReportUrl)
+        .expect('Content-Type', /html/)
+        .expect(res => {
+          expect(res.text).toContain('Correction requests')
+          expect(res.text).toContain('No correction requests')
+          expect(res.text).toContain('Add a correction')
+        })
+    })
+  })
+
+  describe('Permissions', () => {
+    // NB: these test cases are simplified because the permissions class methods are thoroughly tested elsewhere
+
+    let previousActivePrisons: string[]
+
+    beforeAll(() => {
+      previousActivePrisons = config.activePrisons
+    })
+
+    let reportId: string
+
+    beforeEach(() => {
+      config.activePrisons = previousActivePrisons
+
+      const report = convertReportWithDetailsDates(
+        mockReport({ reportReference: '6543', reportDateAndTime: now, withDetails: true }),
+      )
+      report.questions = [
+        makeSimpleQuestion(
+          '67179',
+          'DESCRIBE HOW THE ITEM WAS FOUND (SELECT ALL THAT APPLY)',
+          'CELL SEARCH',
+          'INFORMATION RECEIVED',
+        ),
+        makeSimpleQuestion('67180', 'IS THE LOCATION OF THE INCIDENT KNOWN?', 'YES'),
+      ]
+      reportId = report.id
+      incidentReportingApi.getReportWithDetailsById.mockResolvedValueOnce(report)
+    })
+
+    const granted = 'granted' as const
+    const denied = 'denied' as const
+    it.each([
+      { userType: 'reporting officer', user: reportingUser, action: granted, canEdit: true },
+      { userType: 'data warden', user: approverUser, action: granted, canEdit: true },
+      { userType: 'HQ view-only user', user: hqUser, action: granted, canEdit: false },
+      { userType: 'unauthorised user', user: unauthorisedUser, action: denied, canEdit: false },
+    ])('should be $action to $userType', ({ user, action, canEdit }) => {
+      const testRequest = request(appWithAllRoutes({ services: { userService }, userSupplier: () => user }))
+        .get(`/reports/${reportId}`)
+        .redirects(1)
+      if (action === 'granted') {
+        return testRequest.expect(200).expect(res => {
+          if (canEdit) {
+            expect(res.text).toContain('question responses')
+          } else {
+            expect(res.text).not.toContain('question responses')
+          }
+        })
+      }
+      return testRequest.expect(res => {
+        expect(res.redirects[0]).toContain('/sign-out')
       })
+    })
+
+    it.each([
+      { userType: 'reporting officer', user: reportingUser, warn: true },
+      { userType: 'data warden', user: approverUser, warn: true },
+      { userType: 'HQ view-only user', user: hqUser, warn: false },
+      { userType: 'unauthorised user', user: unauthorisedUser, warn: false },
+    ])('should warn $userType that report is only editable in NOMIS: $warn', ({ user, warn }) => {
+      config.activePrisons = ['LEI']
+
+      return request(appWithAllRoutes({ services: { userService }, userSupplier: () => user }))
+        .get(`/reports/${reportId}`)
+        .expect(res => {
+          const warningShows = res.text.includes('This report can only be amended in NOMIS')
+          expect(warningShows).toBe(warn)
+        })
+    })
   })
 })

@@ -119,6 +119,7 @@ describe('View report page', () => {
       { scenario: 'roles and outcomes for reports made in NOMIS', createdInNomis: true },
     ])('should render prisoners involved with $scenario; names correct if available', ({ createdInNomis }) => {
       mockedReport.createdInNomis = createdInNomis
+      mockedReport.lastModifiedInNomis = createdInNomis
 
       return request(app)
         .get(viewReportUrl)
@@ -172,7 +173,7 @@ describe('View report page', () => {
           expect(res.text).toContain('2. Is the location of the incident known?')
           expect(res.text).toContain(`${viewReportUrl}/questions/67180`)
 
-          expect(res.text).toContain('What was the location of the incident?')
+          expect(res.text).toContain('3. What was the location of the incident?')
           expect(res.text).toContain(`${viewReportUrl}/questions/67181`)
           expect(res.text).not.toContain('Describe the method of entry into the establishment')
           expect(res.text).not.toContain(`${viewReportUrl}/questions/67182`)
@@ -263,7 +264,11 @@ describe('View report page', () => {
           expect(res.text).toContain('About the incident')
           // TODO: will need to become type-specific once content is ready
 
-          expect(res.text).toContain('No responses')
+          expect(res.text).toContain('1. Describe how the item was found')
+          expect(res.text).toContain(`${viewReportUrl}/questions/67179`)
+
+          expect(res.text).not.toContain('Is the location of the incident known')
+          expect(res.text).not.toContain(`${viewReportUrl}/questions/67180`)
         })
     })
 

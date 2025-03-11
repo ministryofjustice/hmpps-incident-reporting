@@ -60,13 +60,13 @@ export function viewReportRouter(service: Services): Router {
     const questionProgressSteps = Array.from(questionProgress)
 
     const canEditReport = permissions.canEditReport(report)
-    const notEditableInDps = permissions.canEditReportInNomisOnly(report)
+    const canEditReportInNomisOnly = permissions.canEditReportInNomisOnly(report)
 
     res.render('pages/reports/view/index', {
       report,
       questionProgressSteps,
       canEditReport,
-      notEditableInDps,
+      canEditReportInNomisOnly,
       usersLookup,
       prisonsLookup,
       prisonerInvolvementLookup,

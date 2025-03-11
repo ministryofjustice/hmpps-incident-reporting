@@ -99,7 +99,7 @@ describe('GET view report page with details', () => {
       })
   })
 
-  it('should render incident details', () => {
+  it('should render incident summary', () => {
     return request(app)
       .get(viewReportUrl)
       .expect('Content-Type', /html/)
@@ -225,7 +225,7 @@ describe('GET view report page without details', () => {
       })
   })
 
-  it('should render incident details', () => {
+  it('should render incident summary', () => {
     return request(app)
       .get(viewReportUrl)
       .expect('Content-Type', /html/)
@@ -273,7 +273,8 @@ describe('GET view report page without details', () => {
       .get(viewReportUrl)
       .expect('Content-Type', /html/)
       .expect(res => {
-        expect(res.text).toContain('About incident 6543')
+        expect(res.text).toContain('About the incident')
+        // TODO: will need to become type-specific once content is ready
         expect(res.text).toContain('No responses')
       })
   })

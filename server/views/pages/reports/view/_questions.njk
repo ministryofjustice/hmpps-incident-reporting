@@ -22,18 +22,24 @@
     {% set responsesHtml %}
       {% if questionProgressStep.isComplete %}
         {% for responseItem in questionProgressStep.responses %}
-          {{ responseItem.answerConfig.label }}
-          {% if responseItem.response.responseDate %}
-            <br />
-            Date: {{ responseItem.response.responseDate | longDate }}
+          {% set inset = responseItem.response.responseDate or responseItem.response.additionalInformation or (questionProgressStep.responses | length) > 1 %}
+
+          {% if inset %}
+            <div class="app-response--inset">
+              {{ responseItem.answerConfig.label }}
+              {% if responseItem.response.responseDate %}
+                <br />
+                {{ responseItem.response.responseDate | longDate }}
+              {% endif %}
+              {% if responseItem.response.additionalInformation %}
+                <br />
+                {{ responseItem.response.additionalInformation }}
+              {% endif %}
+            </div>
+          {% else %}
+            {{ responseItem.answerConfig.label }}
           {% endif %}
-          {% if responseItem.response.additionalInformation %}
-            <br />
-            Comment: {{ responseItem.response.additionalInformation }}
-          {% endif %}
-          {% if not loop.last %}
-            <br />
-          {% endif %}
+
         {% endfor %}
       {% endif %}
     {% endset %}
@@ -51,9 +57,10 @@
   {% endfor %}
 {% endif %}
 
+{# TODO: title will need to become type-specific once content is ready #}
 {{ govukSummaryList({
   card: {
-    title: { text: "About incident " + report.reportReference }
+    title: { text: "About the incident" }
   },
   rows: rows
 }) }}

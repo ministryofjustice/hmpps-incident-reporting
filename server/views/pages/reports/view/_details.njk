@@ -2,7 +2,7 @@
 
 {{ govukSummaryList({
   card: {
-    title: { text: "Incident details" }
+    title: { text: "Incident summary" }
   },
   rows: [
     {
@@ -21,7 +21,7 @@
           {
             href: reportUrl + "/update-details",
             text: "Change",
-            visuallyHiddenText: "incident details"
+            visuallyHiddenText: "incident summary"
           }
         ]
       } if canEditReport else {}
@@ -36,7 +36,7 @@
           {
             href: reportUrl + "/update-details",
             text: "Change",
-            visuallyHiddenText: "incident details"
+            visuallyHiddenText: "incident summary"
           }
         ]
       } if canEditReport else {}

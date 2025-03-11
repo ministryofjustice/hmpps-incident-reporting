@@ -20,7 +20,9 @@ export const detailsFields = {
   [minutesFieldName]: {},
   description: {
     label: 'Incident description',
-    hint: 'Include enough detail that the description can stand alone as a report',
+    hint:
+      'Include enough detail that the description can stand alone as a report. ' +
+      'Do not include sensitive information.',
     component: 'govukTextarea',
     validate: ['required'],
   },

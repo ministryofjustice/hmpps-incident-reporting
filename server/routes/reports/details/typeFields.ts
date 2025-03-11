@@ -4,7 +4,7 @@ import { types, typeHints, type Type } from '../../../reportConfiguration/consta
 
 export const typeFields = {
   type: {
-    label: 'Select incident type',
+    label: 'Select the incident type',
     validate: ['required'],
     component: 'govukRadios',
     items: types

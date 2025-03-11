@@ -1,4 +1,12 @@
 {% from "govuk/components/summary-list/macro.njk" import govukSummaryList %}
+{% from "govuk/components/warning-text/macro.njk" import govukWarningText %}
+
+{% if canEditReport and not reportConfig.active %}
+  {{ govukWarningText({
+    text: "Questions cannot be changed for inactive incident types.",
+    iconFallbackText: "Warning"
+  }) }}
+{% endif %}
 
 {% set rows = [] %}
 {% for questionProgressStep in questionProgressSteps %}
@@ -8,7 +16,7 @@
   {% endset %}
 
   {% set responsesHtml %}
-    {% if questionProgressStep.isComplete %}
+    {% if questionProgressStep.isComplete or not reportConfig.active %}
       {% for responseItem in questionProgressStep.responses %}
         {% set inset = responseItem.response.responseDate or responseItem.response.additionalInformation or (questionProgressStep.responses | length) > 1 %}
 
@@ -39,7 +47,7 @@
       href: reportSubUrlPrefix + "/questions" + (questionProgressStep.urlSuffix or "") + "#question-" + questionProgressStep.fieldName,
       text: "Change" if questionProgressStep.isComplete else "Continue",
       visuallyHiddenText: "question responses"
-    }]} if canEditReport else {}
+    }]} if canEditReport and reportConfig.active else {}
   }) %}
 
 {% endfor %}

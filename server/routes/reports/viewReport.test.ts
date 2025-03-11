@@ -79,7 +79,7 @@ describe('View report page', () => {
       })
   })
 
-  describe('When all sections filled', () => {
+  describe('When all sections of an active type are filled', () => {
     it('should render basic information that cannot be changed', () => {
       return request(app)
         .get(viewReportUrl)
@@ -161,6 +161,8 @@ describe('View report page', () => {
         .get(viewReportUrl)
         .expect('Content-Type', /html/)
         .expect(res => {
+          expect(res.text).not.toContain('Questions cannot be changed for inactive incident types')
+
           expect(res.text).toContain('About the incident')
           // TODO: will need to become type-specific once content is ready
 
@@ -177,6 +179,140 @@ describe('View report page', () => {
           expect(res.text).toContain(`${viewReportUrl}/questions/67181`)
           expect(res.text).not.toContain('Describe the method of entry into the establishment')
           expect(res.text).not.toContain(`${viewReportUrl}/questions/67182`)
+        })
+    })
+
+    it('should render correction requests', () => {
+      return request(app)
+        .get(viewReportUrl)
+        .expect('Content-Type', /html/)
+        .expect(res => {
+          expect(res.text).toContain('USER2')
+          expect(res.text).toContain('Description: Please amend question 2')
+          expect(res.text).toContain('Submitted at: 5 December 2023, 12:34')
+        })
+    })
+  })
+
+  describe('When all sections of an inactive type are filled', () => {
+    beforeEach(() => {
+      mockedReport.type = 'OLD_DRONE_SIGHTING'
+      mockedReport.status = 'CLOSED'
+      mockedReport.description = 'An old drone sighting'
+      mockedReport.questions = [
+        makeSimpleQuestion('57179', 'Was a drone sighted in mid-flight', 'Yes'),
+        makeSimpleQuestion('57180', 'What time was the drone(s) sighted.', '12am to 6am'),
+        makeSimpleQuestion('57181', 'Number of drones observed', '1'),
+        makeSimpleQuestion(
+          '57184',
+          'Where was the drone(s) sighted',
+          'Beyond the external perimeter border',
+          'Exercise yard',
+        ),
+      ]
+    })
+
+    it('should render basic information that cannot be changed', () => {
+      return request(app)
+        .get(viewReportUrl)
+        .expect('Content-Type', /html/)
+        .expect(200)
+        .expect(res => {
+          expect(res.text).toContain('Incident reference 6543')
+          expect(res.text).toContain('John Smith')
+          expect(res.text).toContain('Moorland (HMP &amp; YOI)')
+          expect(res.text).toContain('Closed')
+
+          expect(incidentReportingApi.getReportWithDetailsById).toHaveBeenCalledWith(mockedReport.id)
+
+          expect(userService.getUsers.mock.calls).toHaveLength(1)
+          const users = userService.getUsers.mock.calls[0][1]
+          users.sort()
+          expect(users).toEqual(['USER2', 'user1'])
+        })
+    })
+
+    it('should render incident summary', () => {
+      return request(app)
+        .get(viewReportUrl)
+        .expect('Content-Type', /html/)
+        .expect(200)
+        .expect(res => {
+          expect(res.text).toContain('Drone sighting')
+          expect(res.text).toContain('Date and time of incident')
+          expect(res.text).toContain('5 December 2023, 11:34')
+          expect(res.text).toContain('Description')
+          expect(res.text).toContain('An old drone sighting')
+        })
+    })
+
+    it.each([
+      { scenario: 'roles for reports made on DPS', createdInNomis: false },
+      { scenario: 'roles and outcomes for reports made in NOMIS', createdInNomis: true },
+    ])('should render prisoners involved with $scenario; names correct if available', ({ createdInNomis }) => {
+      mockedReport.createdInNomis = createdInNomis
+      mockedReport.lastModifiedInNomis = createdInNomis
+
+      return request(app)
+        .get(viewReportUrl)
+        .expect('Content-Type', /html/)
+        .expect(res => {
+          expect(res.text).toContain('Andrew Arnold')
+          expect(res.text).toContain('Role: Active involvement')
+          if (createdInNomis) {
+            expect(res.text).toContain('Outcome: Investigation (local)')
+          } else {
+            expect(res.text).not.toContain('Outcome:')
+          }
+          expect(res.text).toContain('Details: Comment about A1111AA')
+          expect(res.text).toContain('A2222BB')
+          expect(res.text).toContain('Role: Suspected involved')
+          if (createdInNomis) {
+            expect(res.text).toContain('Outcome: No outcome')
+          }
+          expect(res.text).toContain('Details: No comment')
+        })
+    })
+
+    it('should render staff involved with roles', () => {
+      return request(app)
+        .get(viewReportUrl)
+        .expect('Content-Type', /html/)
+        .expect(res => {
+          expect(res.text).toContain('Barry Harrison')
+          expect(res.text).toContain('Present at scene')
+          expect(res.text).toContain('Mary Johnson')
+          expect(res.text).toContain('Actively involved')
+        })
+    })
+
+    it('should render question responses', () => {
+      return request(app)
+        .get(viewReportUrl)
+        .expect('Content-Type', /html/)
+        .expect(res => {
+          expect(res.text).toContain('Questions cannot be changed for inactive incident types')
+
+          expect(res.text).toContain('About the incident')
+          // TODO: will need to become type-specific once content is ready
+
+          expect(res.text).not.toContain(`${viewReportUrl}/questions`)
+
+          expect(res.text).toContain('1. Was a drone sighted in mid-flight?')
+          expect(res.text).toContain('Yes')
+          expect(res.text).toContain('2. What time was the drone(s) sighted.')
+          expect(res.text).toContain('12am to 6am')
+          expect(res.text).toContain('3. Number of drones observed')
+          expect(res.text).toContain('1') // not gonna match right spot
+          expect(res.text).toContain('4. Where was the drone(s) sighted?')
+          expect(res.text).toContain('Beyond the external perimeter border')
+          expect(res.text).toContain('Exercise yard')
+
+          // this question wasn’t answered and is now uneditable, but it’s probably useful to show that it was not completed
+          expect(res.text).toContain(
+            'For drone(s) sighted beyond perimeter border, how close did the nearest drone get to the wall',
+          )
+          expect(res.text).not.toContain('What was the estimated speed of the drone(s)')
         })
     })
 

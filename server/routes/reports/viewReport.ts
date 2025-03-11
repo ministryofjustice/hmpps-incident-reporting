@@ -35,7 +35,7 @@ export function viewReportRouter(service: Services): Router {
     const { prisonApi } = res.locals.apis
 
     const report = res.locals.report as ReportWithDetails
-    const { permissions, questionProgress } = res.locals
+    const { permissions, reportConfig, questionProgress } = res.locals
 
     const usernames = [report.reportedBy]
     if (report.correctionRequests) {
@@ -64,6 +64,7 @@ export function viewReportRouter(service: Services): Router {
 
     res.render('pages/reports/view/index', {
       report,
+      reportConfig,
       questionProgressSteps,
       canEditReport,
       canEditReportInNomisOnly,

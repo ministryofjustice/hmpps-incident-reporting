@@ -25,8 +25,14 @@ export function populateReportConfiguration(generateQuestionSteps = true) {
       res.locals.reportConfig = await getIncidentTypeConfiguration(report.type)
 
       if (generateQuestionSteps) {
-        res.locals.questionSteps = generateSteps(res.locals.reportConfig)
-        res.locals.questionFields = generateFields(res.locals.reportConfig)
+        if (res.locals.reportConfig.active) {
+          res.locals.questionSteps = generateSteps(res.locals.reportConfig)
+          res.locals.questionFields = generateFields(res.locals.reportConfig)
+        } else {
+          // steps cannot properly be generated because questions or response options will often have been made inactive
+          res.locals.questionSteps = generateSteps(res.locals.reportConfig, true)
+          res.locals.questionFields = {} // ignore fields as they will not be used
+        }
         if (reportHasDetails(report)) {
           res.locals.questionProgress = new QuestionProgress(res.locals.reportConfig, res.locals.questionSteps, report)
         }

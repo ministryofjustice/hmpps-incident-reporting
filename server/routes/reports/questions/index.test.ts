@@ -80,6 +80,17 @@ describe('Displaying responses', () => {
         })
     })
 
+    it('should 404 if report’s incident type is inactive', () => {
+      reportWithDetails.type = 'DAMAGE'
+      return agent
+        .get(reportQuestionsUrl(createJourney))
+        .redirects(1)
+        .expect(404)
+        .expect(res => {
+          expect(res.text).toContain('Page not found')
+        })
+    })
+
     it('form is prefilled with report answers, including date', () => {
       reportWithDetails.type = 'DEATH_OTHER'
       reportWithDetails.questions = [

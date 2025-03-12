@@ -3,7 +3,7 @@
 {% from "govuk/components/breadcrumbs/macro.njk" import govukBreadcrumbs %}
 {% from "govuk/components/warning-text/macro.njk" import govukWarningText %}
 
-{% set pageTitle = applicationName + " - Home" %}
+{% set pageTitle = "Management reporting" %}
 
 {% block beforeContent %}
   {{ super() }}
@@ -15,8 +15,8 @@
         href: dpsUrl
       },
       {
-        text: "Management reporting",
-        href: "/management-reporting"
+        text: "Incident reporting",
+        href: "/"
       }
     ]
   }) }}
@@ -30,15 +30,17 @@
   <p>Below is the of available management reports</p>
 
   {% for definition in definitions %}
+    {% if definition.authorised %}
     <h2 class="govuk-heading-m">{{ definition.name }}</h2>
     <p class="govuk-body">{{ definition.description }}</p>
 
     {% for variant in definition.variants %}
-      <h3 class="govuk-heading-s"><a href="/management-reporting/{{ definition.id }}/{{ variant.id }}" class="govuk-link" target="_blank"> {{ variant.name }} </a></h3>
+      <h3 class="govuk-heading-s"><a id="{{ definition.id }}-{{ variant.id }}" href="/management-reporting/{{ definition.id }}/{{ variant.id }}" class="govuk-link"> {{ variant.name }} </a></h3>
       <p class="govuk-body">{{ variant.description }}</p>
 
     {% endfor %}
-
+   {%  endif %}
   {% endfor %}
+
 
 {% endblock %}

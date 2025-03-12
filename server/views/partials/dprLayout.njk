@@ -1,4 +1,28 @@
 {% extends "partials/layout.njk" %}
+{% from "govuk/components/breadcrumbs/macro.njk" import govukBreadcrumbs %}
+
+{% set pageTitle = "View management report" %}
+
+{% block beforeContent %}
+  {{ super() }}
+
+  {{ govukBreadcrumbs({
+    items: [
+      {
+        text: "Digital Prison Services",
+        href: dpsUrl
+      },
+      {
+        text: "Incident reporting",
+        href: "/"
+      },
+      {
+        text: "Management reporting",
+        href: "/management-reporting"
+      }
+    ]
+  }) }}
+{% endblock %}
 
 {% block pageStylesheets %}
   <link href="/assets/dpr/css/all.css" rel="stylesheet" />

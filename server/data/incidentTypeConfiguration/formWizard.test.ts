@@ -1,9 +1,9 @@
 import type express from 'express'
-import { type FormWizard } from 'hmpo-form-wizard'
+import type FormWizard from 'hmpo-form-wizard'
 
 import QuestionsController from '../../routes/reports/questions/controller'
 import { checkMultipleValues, generateFields, generateSteps } from './formWizard'
-import { type IncidentTypeConfiguration } from './types'
+import type { IncidentTypeConfiguration } from './types'
 import * as FINDS from '../testData/FINDS'
 
 const testConfig: IncidentTypeConfiguration = {
@@ -151,11 +151,14 @@ const testConfig: IncidentTypeConfiguration = {
   },
 }
 
-describe('generateSteps()', () => {
+describe.each([
+  { scenario: 'skipping inactive questions', includeInactive: false },
+  { scenario: '*including* inactive questions', includeInactive: true },
+])('generateSteps() $scenario', ({ includeInactive }) => {
   it('returns list of steps for the given config', () => {
-    const steps = generateSteps(testConfig)
+    const steps = generateSteps(testConfig, includeInactive)
 
-    expect(steps).toEqual({
+    const expectedSteps: FormWizard.Steps<FormWizard.MultiValues> = {
       '/': {
         entryPoint: true,
         reset: true,
@@ -175,7 +178,7 @@ describe('generateSteps()', () => {
           },
           {
             field: 'qanimals',
-            value: ['CAT', 'FOX'],
+            value: includeInactive ? ['CAT', 'FOX', 'HONEY BADGER'] : ['CAT', 'FOX'],
             op: checkMultipleValues,
             next: 'qicecream',
           },
@@ -212,11 +215,20 @@ describe('generateSteps()', () => {
         ],
         entryPoint: true,
       },
-    })
+    }
+    if (includeInactive) {
+      expectedSteps['/q3-inactive'] = {
+        controller: QuestionsController,
+        fields: ['q3-inactive'],
+        next: [],
+        entryPoint: true,
+      }
+    }
+    expect(steps).toEqual(expectedSteps)
   })
 
   it('returns grouped steps for a non-trivial report type config', () => {
-    const steps = generateSteps(FINDS.config)
+    const steps = generateSteps(FINDS.config, includeInactive)
     const expectedSteps = FINDS.steps
 
     expect(steps).toEqual(expectedSteps)

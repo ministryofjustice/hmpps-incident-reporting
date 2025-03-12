@@ -4,8 +4,7 @@ import path from 'node:path'
 
 import express from 'express'
 import nunjucks from 'nunjucks'
-// eslint-disable-next-line import/extensions
-import mojFrontendFilters from '@ministryofjustice/frontend/moj/filters/all.js'
+import mojFrontendFilters from '@ministryofjustice/frontend/moj/filters/all'
 import setUpNunjucksFilters from '@ministryofjustice/hmpps-digital-prison-reporting-frontend/dpr/setUpNunjucksFilters'
 
 import logger from '../../logger'

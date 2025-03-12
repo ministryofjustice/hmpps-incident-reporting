@@ -34,7 +34,7 @@ afterEach(() => {
   jest.resetAllMocks()
 })
 
-describe('Displaying responses', () => {
+describe('Displaying questions and responses', () => {
   let agent: Agent
 
   // Report type/answers updated in each test
@@ -71,6 +71,17 @@ describe('Displaying responses', () => {
       incidentReportingApi.getReportWithDetailsById.mockReset()
       incidentReportingApi.getReportWithDetailsById.mockRejectedValueOnce(error)
 
+      return agent
+        .get(reportQuestionsUrl(createJourney))
+        .redirects(1)
+        .expect(404)
+        .expect(res => {
+          expect(res.text).toContain('Page not found')
+        })
+    })
+
+    it('should 404 if report’s incident type is inactive', () => {
+      reportWithDetails.type = 'DAMAGE'
       return agent
         .get(reportQuestionsUrl(createJourney))
         .redirects(1)

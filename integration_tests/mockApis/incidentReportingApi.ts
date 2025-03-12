@@ -176,6 +176,33 @@ export default {
       },
     }),
 
+  stubIncidentReportingDefinitions: (): SuperAgentRequest =>
+    stubFor({
+      request: {
+        method: 'GET',
+        urlPath: '/incidentReportingApi/definitions',
+      },
+      response: {
+        status: 200,
+        headers: { 'Content-Type': 'application/json;charset=UTF-8' },
+        jsonBody: [
+          {
+            id: 'incident-report',
+            name: 'Incident report summary',
+            description: 'List of all incidents filtered by dates, types, status and locations (INC0009)',
+            variants: [
+              {
+                id: 'summary',
+                name: 'Incident Report Summary',
+                description: 'List of all incidents filtered by dates, types, status and locations',
+              },
+            ],
+            authorised: true,
+          },
+        ],
+      },
+    }),
+
   stubIncidentReportingApiPing: (): SuperAgentRequest =>
     stubFor({
       request: {

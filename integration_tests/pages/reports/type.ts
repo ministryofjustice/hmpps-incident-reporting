@@ -3,7 +3,7 @@ import FormWizardPage from '../formWizard'
 
 export default class TypePage extends FormWizardPage {
   constructor() {
-    super('Select incident type')
+    super('Select the incident type')
   }
 
   selectType(type: Type) {

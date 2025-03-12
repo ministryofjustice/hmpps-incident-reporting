@@ -50,6 +50,10 @@ export default class QuestionsController extends BaseController<FormWizard.Multi
       return
     }
 
+    res.locals.questionCountOnPage = Object.values(req.form.options.fields).filter(
+      (field: FormWizard.Field) => !field.dependent,
+    ).length
+
     if (previousStep) {
       // if a previous questions page exists, link back to it
       res.locals.backLink = this.resolvePath(req.baseUrl, previousStep, true)

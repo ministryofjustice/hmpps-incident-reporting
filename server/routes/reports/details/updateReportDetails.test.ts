@@ -49,7 +49,8 @@ describe('Updating report details', () => {
 
   function expectOnDetailsPage(res: Response): void {
     expect(res.request.url.endsWith(updateDetailsUrl)).toBe(true)
-    expect(res.text).toContain('Incident details')
+    expect(res.text).toContain('app-details')
+    expect(res.text).toContain('Incident summary')
   }
 
   function expectRedirectToReportPage(res: Response): void {

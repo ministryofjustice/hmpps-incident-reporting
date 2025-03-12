@@ -17,7 +17,7 @@ export class StaffSearchController extends GetBaseController<Values> {
     let pageTitle = 'Search for a member of staff involved in the incident'
     if (res.locals.searchResults?.totalElements === 0) {
       const { q } = this.getAllValues(req)
-      pageTitle = `“${q}” cannot be found`
+      pageTitle = `‘${q}’ cannot be found`
     } else if (res.locals.searchResults?.totalElements > 0) {
       pageTitle = 'Select the member of staff you want to add'
     }

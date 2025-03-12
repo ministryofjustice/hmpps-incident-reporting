@@ -37,25 +37,24 @@
             {% for question in item.questions %}
               {% set responsesHtml %}
                 {% for response in question.responses %}
-                  {% if not loop.first %}
-                    <hr class="govuk-section-break govuk-section-break--visible" />
+                  {% set inset = response.responseDate or response.additionalInformation or (question.responses | length) > 1 %}
+
+                  {% if inset %}
+                    <div class="app-response--inset">
+                      {{ response.response }}
+                      {% if response.responseDate %}
+                        <br />
+                        {{ response.responseDate | longDate }}
+                      {% endif %}
+                      {% if response.additionalInformation %}
+                        <br />
+                        {{ response.additionalInformation }}
+                      {% endif %}
+                    </div>
+                  {% else %}
+                    {{ response.response }}
                   {% endif %}
 
-                  {{ response.response }}
-
-                  {% if response.responseDate %}
-                    <br />
-                    Date: {{ response.responseDate | longDate }}
-                  {% endif %}
-
-                  {% if response.additionalInformation %}
-                    <br />
-                    Comment: {{ response.additionalInformation }}
-                  {% endif %}
-
-                  {% if not loop.last %}
-                    <br />
-                  {% endif %}
                 {% endfor %}
               {% endset %}
               {% set _ = rows.push({

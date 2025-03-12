@@ -1,0 +1,61 @@
+{% from "govuk/components/summary-list/macro.njk" import govukSummaryList %}
+
+{% if report.prisonersInvolved.length > 0 %}
+  {% set rows = [] %}
+  {% for prisonerInvolved in report.prisonersInvolved %}
+
+    {% if prisonerInvolved.comment %}
+      {% set comment = prisonerInvolved.comment %}
+    {% else %}
+      {% set comment = "No comment" %}
+    {% endif %}
+
+    {% set prisonerValues %}
+      Role: {{ prisonerInvolvementLookup[prisonerInvolved.prisonerRole] or prisonerInvolved.prisonerRole }}
+
+      {% if report.createdInNomis %}
+        <br />
+        Outcome: {% if prisonerInvolved.outcome -%}
+          {{ prisonerOutcomeLookup[prisonerInvolved.outcome] or prisonerInvolved.outcome }}
+        {%- else -%}
+          No outcome
+        {%- endif %}
+      {% endif %}
+
+      <br />
+      Details: {{ comment | escape | nl2br }}
+    {% endset %}
+
+    {% set prisonerUrl %}
+      <a href="{{ dpsUrl + "/prisoner/" + prisonerInvolved.prisonerNumber }}">
+        {{ prisonerInvolved | nameOfPerson }}
+      </a>
+    {% endset %}
+
+    {% set _ = rows.push({
+      key: { html: prisonerUrl },
+      value: { html: prisonerValues }
+    }) %}
+
+  {% endfor %}
+{% else %}
+  {% set rows = [{
+    key: { text: "No prisoners added" },
+    value: { text: "" }
+  }) %}
+{% endif %}
+
+{{ govukSummaryList({
+  card: {
+    title: { text: "Prisoners involved" },
+    actions: {
+      items: [
+        {
+          href: reportSubUrlPrefix + "/prisoners",
+          text: "Change" if report.prisonersInvolved.length else "Add a prisoner"
+        }
+      ]
+    } if canEditReport else {}
+  },
+  rows: rows
+}) }}

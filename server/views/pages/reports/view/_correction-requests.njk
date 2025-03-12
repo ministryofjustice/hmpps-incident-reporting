@@ -1,0 +1,47 @@
+{% from "govuk/components/summary-list/macro.njk" import govukSummaryList %}
+
+{# TODO: not designed #}
+
+{% if report.correctionRequests.length > 0 %}
+
+  {% set rows = [] %}
+  {% for correctionRequest in report.correctionRequests %}
+    {% set correctionValues %}
+      Description: {{ correctionRequest.descriptionOfChange }}
+      <br />
+      Submitted at: {{ correctionRequest.correctionRequestedAt | dateAndTime }}
+    {% endset %}
+
+    {% set _ = rows.push({
+      key: {
+        text: usersLookup[correctionRequest.correctionRequestedBy].name or correctionRequest.correctionRequestedBy
+      },
+      value: {
+        html: correctionValues
+      }
+    }) %}
+  {% endfor %}
+
+{% else %}
+
+  {% set rows = [{
+    key: { text: "No correction requests" },
+    value: { text: "" }
+  }) %}
+
+{% endif %}
+
+{{ govukSummaryList({
+  card: {
+    title: { text: "Correction requests" },
+    actions: {
+      items: [
+        {
+          href: "#",
+          text: "Add a correction request"
+        }
+      ]
+    } if canEditReport else {}
+  },
+  rows: rows
+}) }}

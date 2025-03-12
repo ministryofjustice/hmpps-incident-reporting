@@ -34,8 +34,8 @@ export function dprRouter(): Router {
         definitionsRoutesInitialised = true
       })
     }
-    const userDefinitions = await incidentReportingApi.getManagementReportDefinitions()
-    res.render('pages/managementReporting/index.njk', { userDefinitions })
+    const definitions = await incidentReportingApi.getManagementReportDefinitions()
+    res.render('pages/managementReporting/index.njk', { definitions })
   })
 
   return router

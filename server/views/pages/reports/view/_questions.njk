@@ -1,0 +1,66 @@
+{% from "govuk/components/summary-list/macro.njk" import govukSummaryList %}
+
+{% set rows = [] %}
+{% if questionProgressSteps | length == 1 and not questionProgressSteps[0].isComplete %}
+
+  {% set _ = rows.push({
+    key: { text: "No responses" },
+    value: { text: "" },
+    actions: {items: [{
+      href: reportSubUrlPrefix + "/questions",
+      text: "Answer questions"
+    }]} if canEditReport else {}
+  }) %}
+
+{% else %}
+  {% for questionProgressStep in questionProgressSteps %}
+
+    {% set questionHtml %}
+      {{ questionProgressStep.questionNumber }}. {{ questionProgressStep.questionConfig.label }}
+    {% endset %}
+
+    {% set responsesHtml %}
+      {% if questionProgressStep.isComplete %}
+        {% for responseItem in questionProgressStep.responses %}
+          {% set inset = responseItem.response.responseDate or responseItem.response.additionalInformation or (questionProgressStep.responses | length) > 1 %}
+
+          {% if inset %}
+            <div class="app-response--inset">
+              {{ responseItem.answerConfig.label }}
+              {% if responseItem.response.responseDate %}
+                <br />
+                {{ responseItem.response.responseDate | longDate }}
+              {% endif %}
+              {% if responseItem.response.additionalInformation %}
+                <br />
+                {{ responseItem.response.additionalInformation }}
+              {% endif %}
+            </div>
+          {% else %}
+            {{ responseItem.answerConfig.label }}
+          {% endif %}
+
+        {% endfor %}
+      {% endif %}
+    {% endset %}
+
+    {% set _ = rows.push({
+      key: { html: questionHtml },
+      value: { html: responsesHtml },
+      actions: {items: [{
+        href: reportSubUrlPrefix + "/questions" + (questionProgressStep.urlSuffix or "") + "#question-" + questionProgressStep.fieldName,
+        text: "Change" if questionProgressStep.isComplete else "Continue",
+        visuallyHiddenText: "question responses"
+      }]} if canEditReport else {}
+    }) %}
+
+  {% endfor %}
+{% endif %}
+
+{# TODO: title will need to become type-specific once content is ready #}
+{{ govukSummaryList({
+  card: {
+    title: { text: "About the incident" }
+  },
+  rows: rows
+}) }}

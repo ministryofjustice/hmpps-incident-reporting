@@ -134,8 +134,8 @@ describe('Report incident type history', () => {
         expect(res.text).toContain('Assault (from April 2017)')
         expect(res.text).toContain('by John Smith')
         expect(res.text).toContain('Where did it happen?')
-        expect(res.text).toContain('Date: 4 December 2023')
-        expect(res.text).toContain('Comment: A-003')
+        expect(res.text).toContain('4 December 2023')
+        expect(res.text).toContain('A-003')
 
         expect(res.text).toContain('Damage')
         expect(res.text).toContain('by Mary Johnson')

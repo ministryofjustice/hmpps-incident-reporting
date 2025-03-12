@@ -161,7 +161,7 @@ describe('Displaying responses', () => {
         })
     })
 
-    describe('Page & question numbering', () => {
+    describe('Page titles and question numbering', () => {
       it('should show question numbers on first page', () => {
         reportWithDetails.type = 'ATTEMPTED_ESCAPE_FROM_CUSTODY'
         return agent
@@ -231,16 +231,16 @@ describe('Displaying responses', () => {
           })
       })
 
-      it('should show page 1 on first page', () => {
+      it('should show correct title for first page with one question', () => {
         return agent
           .get(reportQuestionsUrl(createJourney))
           .redirects(1)
           .expect(res => {
-            expect(res.text).toContain('Incident questions 1')
+            expect(res.text).toContain('About the incident – question 1')
           })
       })
 
-      it('should show page 2 on second page', async () => {
+      it('should show correct title for a later page with one question', async () => {
         const questionsResponse: Question[] = [
           {
             code: '67179',
@@ -276,9 +276,23 @@ describe('Displaying responses', () => {
             expect(res.redirects.at(-1)).toMatch(/\/67180$/)
           })
 
-        return agent.get(`${reportQuestionsUrl(createJourney)}/67180`).expect(res => {
-          expect(res.text).toContain('Incident questions 2')
-        })
+        return agent
+          .get(`${reportQuestionsUrl(createJourney)}/67180`)
+          .expect(200)
+          .expect(res => {
+            expect(res.text).toContain('About the incident – question 2')
+          })
+      })
+
+      it('should show correct title for a page with several questions', () => {
+        reportWithDetails.type = 'ATTEMPTED_ESCAPE_FROM_CUSTODY'
+        incidentReportingApi.addOrUpdateQuestionsWithResponses.mockResolvedValueOnce([])
+        return agent
+          .get(reportQuestionsUrl(createJourney))
+          .redirects(1)
+          .expect(res => {
+            expect(res.text).toContain('About the incident – questions 1 to 5')
+          })
       })
     })
 

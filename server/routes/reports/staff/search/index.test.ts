@@ -64,9 +64,7 @@ describe('Searching for a member of staff to add to a report', () => {
     expect(res.text).not.toContain('manually add the member of staff')
 
     expect(res.text).not.toContain('cannot be found')
-    expect(res.text).not.toContain(
-      'Contact the person directly to confirm what name is on their Digital Prison Services account',
-    )
+    expect(res.text).not.toContain('Ask the person what name is on their Digital Prison Services account')
   }
 
   function expectPageSubmittedWithResults(res: request.Response): void {
@@ -80,9 +78,7 @@ describe('Searching for a member of staff to add to a report', () => {
     expect(res.text).toContain('manually add the member of staff')
 
     expect(res.text).not.toContain('cannot be found')
-    expect(res.text).not.toContain(
-      'Contact the person directly to confirm what name is on their Digital Prison Services account',
-    )
+    expect(res.text).not.toContain('Ask the person what name is on their Digital Prison Services account')
   }
 
   function expectPageSubmittedWithoutResults(res: request.Response): void {
@@ -97,9 +93,7 @@ describe('Searching for a member of staff to add to a report', () => {
     )
 
     expect(res.text).toContain('cannot be found')
-    expect(res.text).toContain(
-      'Contact the person directly to confirm what name is on their Digital Prison Services account',
-    )
+    expect(res.text).toContain('Ask the person what name is on their Digital Prison Services account')
     expect(res.text).toContain('manually add the member of staff')
   }
 
@@ -191,7 +185,7 @@ describe('Searching for a member of staff to add to a report', () => {
         expectPageSubmittedWithoutResults(res)
 
         expect(res.text).not.toContain('There is a problem')
-        expect(res.text).toContain(`“${validPayload.q}”`)
+        expect(res.text).toContain(`‘${validPayload.q}’ cannot be found`)
 
         expect(manageUsersApiClient.searchUsers).toHaveBeenCalledWith(...expectedCall)
       })

@@ -1,0 +1,40 @@
+{% from "govuk/components/summary-list/macro.njk" import govukSummaryList %}
+
+{% if report.staffInvolved.length > 0 %}
+  {% set rows = [] %}
+  {% for staffInvolved in report.staffInvolved %}
+
+    {% set comment = staffInvolved.comment if staffInvolved.comment else "No comment" %}
+    {% set staffValues %}
+      Role: {{ staffInvolvementLookup[staffInvolved.staffRole] or staffInvolved.staffRole }}
+      <br />
+      Details: {{ comment | escape | nl2br }}
+    {% endset %}
+
+    {% set _ = rows.push({
+      key: { text: staffInvolved | nameOfPerson },
+      value: { html: staffValues }
+    }) %}
+
+  {% endfor %}
+{% else %}
+  {% set rows = [{
+    key: { text: "No staff added" },
+    value: { text: "" }
+  }) %}
+{% endif %}
+
+{{ govukSummaryList({
+  card: {
+    title: { text: "Staff involved" },
+    actions: {
+      items: [
+        {
+          href: reportSubUrlPrefix + "/staff",
+          text: "Change" if report.staffInvolved.length else "Add a member of staff"
+        }
+      ]
+    } if canEditReport else {}
+  },
+  rows: rows
+}) }}

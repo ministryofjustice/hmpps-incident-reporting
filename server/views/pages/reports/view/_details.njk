@@ -1,0 +1,45 @@
+{% from "govuk/components/summary-list/macro.njk" import govukSummaryList %}
+
+{{ govukSummaryList({
+  card: {
+    title: { text: "Incident summary" }
+  },
+  rows: [
+    {
+      key: { text: "Type" },
+      value: {
+        text: typesLookup[report.type] or report.type
+      }
+    },
+    {
+      key: { text: "Date and time of incident" },
+      value: {
+        text: report.incidentDateAndTime | dateAndTime
+      },
+      actions: {
+        items: [
+          {
+            href: reportUrl + "/update-details",
+            text: "Change",
+            visuallyHiddenText: "incident summary"
+          }
+        ]
+      } if canEditReport else {}
+    },
+    {
+      key: { text: "Description" },
+      value: {
+        html: report.description | escape | nl2br
+      },
+      actions: {
+        items: [
+          {
+            href: reportUrl + "/update-details",
+            text: "Change",
+            visuallyHiddenText: "incident summary"
+          }
+        ]
+      } if canEditReport else {}
+    }
+  ]
+}) }}

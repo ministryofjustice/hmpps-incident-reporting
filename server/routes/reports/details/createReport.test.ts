@@ -26,12 +26,14 @@ afterEach(() => {
 
 function expectOnTypePage(res: Response): void {
   expect(res.request.url.endsWith('/create-report')).toBe(true)
-  expect(res.text).toContain('Select incident type')
+  expect(res.text).toContain('app-type')
+  expect(res.text).toContain('Select the incident type')
 }
 
 function expectOnDetailsPage(res: Response): void {
   expect(res.request.url.endsWith('/create-report/details')).toBe(true)
-  expect(res.text).toContain('Incident details')
+  expect(res.text).toContain('app-details')
+  expect(res.text).toContain('Incident summary')
 }
 
 describe('Creating a report', () => {

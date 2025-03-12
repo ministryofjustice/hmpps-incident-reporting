@@ -3,7 +3,7 @@ import FormWizardPage from '../formWizard'
 
 export default class DetailsPage extends FormWizardPage {
   constructor() {
-    super('Incident details')
+    super('Incident summary')
   }
 
   enterDate(date: Date | string): void {

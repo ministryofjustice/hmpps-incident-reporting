@@ -38,7 +38,7 @@
     {{ statusLookup[report.status] or report.status }}
   </p>
 
-  {% if notEditableInDps %}
+  {% if canEditReportInNomisOnly %}
     {{ govukWarningText({
       text: "This report can only be amended in NOMIS",
       iconFallbackText: "Warning"

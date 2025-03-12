@@ -11,9 +11,13 @@ const MAX_ANSWERS_PER_PAGE = 20
  * Generates Form Wizard's steps for the given config
  *
  * @param config questionnaire config
+ * @param includeInactive whether to include ALL questions & responses – result must not be used in a real form wizard
  * @returns the Form Wizard's steps
  */
-export function generateSteps(config: IncidentTypeConfiguration): FormWizard.Steps<FormWizard.MultiValues> {
+export function generateSteps(
+  config: IncidentTypeConfiguration,
+  includeInactive = false,
+): FormWizard.Steps<FormWizard.MultiValues> {
   const steps: FormWizard.Steps<FormWizard.MultiValues> = {
     '/': {
       entryPoint: true,
@@ -25,9 +29,9 @@ export function generateSteps(config: IncidentTypeConfiguration): FormWizard.Ste
   }
 
   Object.values(config.questions)
-    .filter(question => question.active)
+    .filter(question => includeInactive || question.active)
     .forEach(question => {
-      const activeAnswers = question.answers.filter(answer => answer.active)
+      const activeAnswers = question.answers.filter(answer => includeInactive || answer.active)
 
       const fieldName = questionFieldName(question)
       const fields = [fieldName]

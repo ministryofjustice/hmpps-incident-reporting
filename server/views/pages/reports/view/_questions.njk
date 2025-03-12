@@ -1,61 +1,56 @@
 {% from "govuk/components/summary-list/macro.njk" import govukSummaryList %}
+{% from "govuk/components/warning-text/macro.njk" import govukWarningText %}
+
+{% if canEditReport and not reportConfig.active %}
+  {{ govukWarningText({
+    text: "Questions cannot be changed for inactive incident types.",
+    iconFallbackText: "Warning"
+  }) }}
+{% endif %}
 
 {% set rows = [] %}
-{% if questionProgressSteps | length == 1 and not questionProgressSteps[0].isComplete %}
+{% for questionProgressStep in questionProgressSteps %}
+
+  {% set questionHtml %}
+    {{ questionProgressStep.questionNumber }}. {{ questionProgressStep.questionConfig.label }}
+  {% endset %}
+
+  {% set responsesHtml %}
+    {% if questionProgressStep.isComplete or not reportConfig.active %}
+      {% for responseItem in questionProgressStep.responses %}
+        {% set inset = responseItem.response.responseDate or responseItem.response.additionalInformation or (questionProgressStep.responses | length) > 1 %}
+
+        {% if inset %}
+          <div class="app-response--inset">
+            {{ responseItem.answerConfig.label }}
+            {% if responseItem.response.responseDate %}
+              <br />
+              {{ responseItem.response.responseDate | longDate }}
+            {% endif %}
+            {% if responseItem.response.additionalInformation %}
+              <br />
+              {{ responseItem.response.additionalInformation }}
+            {% endif %}
+          </div>
+        {% else %}
+          {{ responseItem.answerConfig.label }}
+        {% endif %}
+
+      {% endfor %}
+    {% endif %}
+  {% endset %}
 
   {% set _ = rows.push({
-    key: { text: "No responses" },
-    value: { text: "" },
+    key: { html: questionHtml },
+    value: { html: responsesHtml },
     actions: {items: [{
-      href: reportSubUrlPrefix + "/questions",
-      text: "Answer questions"
-    }]} if canEditReport else {}
+      href: reportSubUrlPrefix + "/questions" + (questionProgressStep.urlSuffix or "") + "#question-" + questionProgressStep.fieldName,
+      text: "Change" if questionProgressStep.isComplete else "Continue",
+      visuallyHiddenText: "question responses"
+    }]} if canEditReport and reportConfig.active else {}
   }) %}
 
-{% else %}
-  {% for questionProgressStep in questionProgressSteps %}
-
-    {% set questionHtml %}
-      {{ questionProgressStep.questionNumber }}. {{ questionProgressStep.questionConfig.label }}
-    {% endset %}
-
-    {% set responsesHtml %}
-      {% if questionProgressStep.isComplete %}
-        {% for responseItem in questionProgressStep.responses %}
-          {% set inset = responseItem.response.responseDate or responseItem.response.additionalInformation or (questionProgressStep.responses | length) > 1 %}
-
-          {% if inset %}
-            <div class="app-response--inset">
-              {{ responseItem.answerConfig.label }}
-              {% if responseItem.response.responseDate %}
-                <br />
-                {{ responseItem.response.responseDate | longDate }}
-              {% endif %}
-              {% if responseItem.response.additionalInformation %}
-                <br />
-                {{ responseItem.response.additionalInformation }}
-              {% endif %}
-            </div>
-          {% else %}
-            {{ responseItem.answerConfig.label }}
-          {% endif %}
-
-        {% endfor %}
-      {% endif %}
-    {% endset %}
-
-    {% set _ = rows.push({
-      key: { html: questionHtml },
-      value: { html: responsesHtml },
-      actions: {items: [{
-        href: reportSubUrlPrefix + "/questions" + (questionProgressStep.urlSuffix or "") + "#question-" + questionProgressStep.fieldName,
-        text: "Change" if questionProgressStep.isComplete else "Continue",
-        visuallyHiddenText: "question responses"
-      }]} if canEditReport else {}
-    }) %}
-
-  {% endfor %}
-{% endif %}
+{% endfor %}
 
 {# TODO: title will need to become type-specific once content is ready #}
 {{ govukSummaryList({

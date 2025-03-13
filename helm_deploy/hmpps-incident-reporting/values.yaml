@@ -33,6 +33,7 @@ generic-service:
     AUDIT_ENABLED: "false"
     AUDIT_SQS_REGION: "eu-west-2"
     AUDIT_SERVICE_NAME: "UNASSIGNED"
+    LOAD_DPR_ON_STARTUP: "true"
 
   envFrom:
     - secretRef:

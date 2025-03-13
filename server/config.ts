@@ -154,6 +154,7 @@ export default {
   activePrisons: get('SERVICE_ACTIVE_PRISONS', '***').split(','),
   /** Whether service is active in all PECS regions or none */
   activeForPecsRegions: get('SERVICE_ACTIVE_PECS', 'true') === 'true',
+  loadReportDefinitionsOnStartup: get('LOAD_DPR_ON_STARTUP', 'false') === 'true',
   ingressUrl: get('INGRESS_URL', 'http://localhost:3000', requiredInProduction),
   dpsUrl: get('DPS_URL', 'http://dps.local', requiredInProduction),
   supportUrl: get('SUPPORT_URL', 'http://support.dps.local', requiredInProduction),

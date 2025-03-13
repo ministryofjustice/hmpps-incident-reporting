@@ -61,7 +61,7 @@ export default function routes(services: Services): Router {
   router.use('/download-report-config', makeDownloadConfigRouter())
 
   // Digital Prison Reporting
-  router.use('/management-reporting', dprRouter())
+  router.use('/management-reporting', dprRouter(services))
 
   return router
 }

@@ -77,6 +77,7 @@ describe('Staff involvement summary for report', () => {
         expect(res.text).toContain('Remove')
         expect(res.text).toContain('Edit')
         expect(res.text).toContain('Do you want to add another member of staff?')
+        expect(res.text).not.toContain('Do you want to add a member of staff to the report?')
         expect(res.text).toContain('Continue')
         expect(res.text).toContain('Save and exit')
         // TODO: test links
@@ -105,6 +106,7 @@ describe('Staff involvement summary for report', () => {
         expect(res.text).not.toContain('Remove')
         expect(res.text).not.toContain('Edit')
         expect(res.text).toContain('Do you want to add a member of staff?')
+        expect(res.text).not.toContain('Do you want to add a member of staff to the report?')
         expect(res.text).toContain('Continue')
         expect(res.text).toContain('Save and exit')
 
@@ -191,9 +193,9 @@ describe('Staff involvement summary for report', () => {
           expect(res.text).not.toContain('Action')
           expect(res.text).not.toContain('Remove')
           expect(res.text).not.toContain('Edit')
-          expect(res.text).not.toContain('Do you want to add a member of staff?')
 
-          expect(res.text).toContain('Were any staff involved in the incident?')
+          expect(res.text).toContain('Do you want to add a member of staff to the report?')
+          expect(res.text).toContain('Do you want to add a member of staff?')
           expect(res.text).toContain('Skip for now')
           expect(res.text).toContain('Continue')
           expect(res.text).not.toContain('Save and exit')

@@ -12,11 +12,11 @@ export default class StaffSummary extends InvolvementSummary {
 
   protected involvementDoneField = 'staffInvolvementDone' as const
 
-  protected pageTitleBeforeInvolvementDone = 'Were any staff involved in the incident?'
+  protected pageTitleBeforeInvolvementDone = 'Do you want to add a member of staff to the report?'
 
   protected pageTitleOnceInvolvementDone = 'Staff involved'
 
-  protected labelOnceInvolvementDone = 'Do you want to add a member of staff?'
+  protected labelOnceInvolvementsExist = 'Do you want to add another member of staff?'
 
   protected confirmError = 'Select if you would like to add another staff member to continue'
 

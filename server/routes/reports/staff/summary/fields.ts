@@ -2,7 +2,7 @@ import type FormWizard from 'hmpo-form-wizard'
 
 export const fields = {
   confirmAdd: {
-    label: 'Were any staff involved in the incident?',
+    label: 'Do you want to add a member of staff?',
     component: 'govukRadios',
     validate: ['required'],
     name: 'addStaff',

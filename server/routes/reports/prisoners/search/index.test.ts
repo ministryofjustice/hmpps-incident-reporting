@@ -73,7 +73,7 @@ describe('Searching for a prisoner to add to a report', () => {
       .expect(res => {
         expect(res.text).toContain('app-prisoner-search')
 
-        expect(res.text).toContain('Search for a prisoner involved in the incident')
+        expect(res.text).toContain('Search for a prisoner')
         expect(res.text).toContain('In Moorland')
 
         expect(offenderSearchApi.searchInPrison).not.toHaveBeenCalled()

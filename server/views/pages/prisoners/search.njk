@@ -5,7 +5,7 @@
 {% from "govuk/components/table/macro.njk" import govukTable %}
 {% from "moj/components/pagination/macro.njk" import mojPagination %}
 
-{% set pageTitle = applicationName + " – Search for a prisoner involved in the incident" %}
+{% set pageTitle = applicationName + " – Search for a prisoner" %}
 {% set bodyClasses = "app-involvement-search app-prisoner-search" %}
 
 {% extends "partials/layout.njk" %}
@@ -26,7 +26,7 @@
       {% include "partials/errorSummary.njk" %}
 
       <h1 class="govuk-heading-l">
-        Search for a prisoner involved in the incident
+        Search for a prisoner
       </h1>
 
       <form class="app-prisoner-search-form" method="get" novalidate>

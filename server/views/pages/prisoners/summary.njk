@@ -11,8 +11,8 @@
   {{ super() }}
 
   {{ govukBackLink({
-      text: "Back",
-      href: backLink
+    text: "Back",
+    href: backLink
   }) }}
 {% endblock %}
 
@@ -23,7 +23,7 @@
 
   <h1 class="govuk-heading-l">{{ pageTitle }}</h1>
 
-  {% if report.prisonersInvolved | length %}
+  {% if involvementsExist %}
 
     {% if report.createdInNomis %}
       {% set head = [
@@ -86,12 +86,6 @@
     <input type="hidden" name="_csrf" value="{{ csrfToken }}" />
     <input type="hidden" name="x-csrf-token" value="{{ csrfToken }}" />
 
-    {% if report.prisonersInvolved | length %}
-      {% set radioLegend = "Do you want to add another prisoner?" %}
-    {% else %}
-      {% set radioLegend = "Do you want to add a prisoner?" %}
-    {% endif %}
-
     {% set fieldName = "confirmAdd" %}
     {% set field = options.fields[fieldName] %}
     {% set items = [] %}
@@ -111,7 +105,7 @@
       },
       fieldset: {
         legend: {
-          text: radioLegend,
+          text: field.label,
           classes: "govuk-fieldset__legend--m"
         }
       },

@@ -12,11 +12,11 @@ export default class PrisonerSummary extends InvolvementSummary {
 
   protected involvementDoneField = 'prisonerInvolvementDone' as const
 
-  protected pageTitleBeforeInvolvementDone = 'Were any prisoners involved in the incident?'
+  protected pageTitleBeforeInvolvementDone = 'Do you want to add a prisoner to the report?'
 
   protected pageTitleOnceInvolvementDone = 'Prisoners involved'
 
-  protected labelOnceInvolvementDone = 'Do you want to add a prisoner?'
+  protected labelOnceInvolvementsExist = 'Do you want to add another prisoner?'
 
   protected confirmError = 'Select if you would like to add another prisoner to continue'
 

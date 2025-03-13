@@ -11,8 +11,8 @@
   {{ super() }}
 
   {{ govukBackLink({
-      text: "Back",
-      href: backLink
+    text: "Back",
+    href: backLink
   }) }}
 {% endblock %}
 
@@ -23,7 +23,7 @@
 
   <h1 class="govuk-heading-l">{{ pageTitle }}</h1>
 
-  {% if report.staffInvolved | length %}
+  {% if involvementsExist %}
 
     {% set rows = [] %}
     {% for staff in report.staffInvolved %}
@@ -62,12 +62,6 @@
     <input type="hidden" name="_csrf" value="{{ csrfToken }}" />
     <input type="hidden" name="x-csrf-token" value="{{ csrfToken }}" />
 
-    {% if report.staffInvolved | length %}
-      {% set radioLegend = "Do you want to add another member of staff?" %}
-    {% else %}
-      {% set radioLegend = "Do you want to add a member of staff?" %}
-    {% endif %}
-
     {% set fieldName = "confirmAdd" %}
     {% set field = options.fields[fieldName] %}
     {% set items = [] %}
@@ -87,7 +81,7 @@
       },
       fieldset: {
         legend: {
-          text: radioLegend,
+          text: field.label,
           classes: "govuk-fieldset__legend--m"
         }
       },

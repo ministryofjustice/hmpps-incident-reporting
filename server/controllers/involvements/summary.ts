@@ -18,11 +18,11 @@ export abstract class InvolvementSummary extends BaseController<Values> {
 
   protected abstract involvementDoneField: 'prisonerInvolvementDone' | 'staffInvolvementDone'
 
-  protected abstract labelOnceInvolvementDone: string
-
   protected abstract pageTitleBeforeInvolvementDone: string
 
   protected abstract pageTitleOnceInvolvementDone: string
+
+  protected abstract labelOnceInvolvementsExist: string
 
   protected abstract confirmError: string
 
@@ -34,21 +34,25 @@ export abstract class InvolvementSummary extends BaseController<Values> {
   private customiseFields(req: FormWizard.Request<Values>, res: express.Response, next: express.NextFunction): void {
     const report = res.locals.report as ReportWithDetails
 
-    const involvementDone = report[this.involvementField].length > 0 || report[this.involvementDoneField]
+    const involvementsExist = report[this.involvementField].length > 0
+    const involvementDone = involvementsExist || report[this.involvementDoneField]
 
     const { fields } = req.form.options
 
     const customisedFields = { ...fields }
+    customisedFields.confirmAdd = {
+      ...customisedFields.confirmAdd,
+    }
     if (involvementDone) {
-      customisedFields.confirmAdd = {
-        ...customisedFields.confirmAdd,
-        label: this.labelOnceInvolvementDone,
-        items: customisedFields.confirmAdd.items.filter(item => item.value !== 'skip'),
-      }
+      customisedFields.confirmAdd.items = customisedFields.confirmAdd.items.filter(item => item.value !== 'skip')
+    }
+    if (involvementsExist) {
+      customisedFields.confirmAdd.label = this.labelOnceInvolvementsExist
     }
     req.form.options.fields = customisedFields
 
     res.locals.involvementDone = involvementDone
+    res.locals.involvementsExist = involvementsExist
 
     next()
   }

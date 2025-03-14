@@ -65,6 +65,7 @@ export default {
     }
     return date.toLocaleTimeString('en-GB', {
       hour: '2-digit',
+      hour12: false,
       minute: '2-digit',
       timeZone: 'Europe/London',
     })
@@ -102,6 +103,7 @@ export default {
     const [day, month, year] = shortDate.split('/')
     const time = date.toLocaleTimeString('en-GB', {
       hour: '2-digit',
+      hour12: false,
       minute: '2-digit',
       second: '2-digit',
       timeZone: 'Europe/London',

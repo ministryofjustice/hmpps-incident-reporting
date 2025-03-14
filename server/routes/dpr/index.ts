@@ -20,7 +20,7 @@ async function populateRoutes(
     for (const definition of allDefinitions) {
       for (const variant of definition.variants) {
         router.get(
-          `/${definition.id}-${variant.id}`,
+          `/management-reporting/${definition.id}-${variant.id}`,
           ReportListUtils.createReportListRequestHandler({
             title: variant.name,
             definitionName: definition.id,
@@ -41,14 +41,12 @@ async function populateRoutes(
 }
 
 // eslint-disable-next-line import/prefer-default-export
-export function dprRouter(services: Services): Router {
-  const router = Router({ mergeParams: true })
-
+export function dprRouter(router: Router, services: Services): Router {
   if (config.loadReportDefinitionsOnStartup === true && definitionsRoutesInitialised === false) {
     getIncidentReportingApi(services).then(incidentReportingApi => populateRoutes(incidentReportingApi, router))
   }
 
-  router.get('/', async (req, res) => {
+  router.get('/management-reporting', async (req, res) => {
     const { incidentReportingApi } = res.locals.apis
     const definitions = await populateRoutes(incidentReportingApi, router)
     res.render('pages/managementReporting/index.njk', { definitions })

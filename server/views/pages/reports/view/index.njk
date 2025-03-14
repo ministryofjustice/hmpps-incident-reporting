@@ -3,7 +3,7 @@
 {% from "govuk/components/breadcrumbs/macro.njk" import govukBreadcrumbs %}
 {% from "govuk/components/warning-text/macro.njk" import govukWarningText %}
 
-{% set pageTitle = applicationName + " - Report" %}
+{% set pageTitle = applicationName + " - Incident report " + report.reportReference %}
 {% set bodyClasses = "app-view-report" %}
 
 {% block beforeContent %}
@@ -25,7 +25,12 @@
 
 {% block content %}
   <h1 class="govuk-heading-l">
-    Incident reference {{ report.reportReference }}
+    {% if report.status == "DRAFT" and canEditReport %}
+      {# TODO: this probably needs to show for certain other statuses too #}
+      Check your answers – incident reference {{ report.reportReference }}
+    {% else %}
+      Incident reference {{ report.reportReference }}
+    {% endif %}
   </h1>
   <p>
     {# TODO: label will need to change for PECS regions #}

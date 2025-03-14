@@ -44,8 +44,9 @@
 
   {% if permissions.canCreateReport %}
     {% if permissions.canCreateReportInActiveCaseload %}
+      {# TODO: should be different for data wardens (those who can create PECS reports) #}
       {{ govukButton({
-        text: "Create an incident report",
+        text: "Create a report for " + activeCaseLoad.description,
         preventDoubleClick: true,
         href: "/create-report",
         isStartButton: true

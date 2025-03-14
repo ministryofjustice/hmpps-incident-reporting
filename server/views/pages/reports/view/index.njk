@@ -28,11 +28,12 @@
     Incident reference {{ report.reportReference }}
   </h1>
   <p>
+    {# TODO: label will need to change for PECS regions #}
+    <strong>Establishment:</strong>
+    {{ prisonsLookup[report.location].description or report.location }}
+    <br />
     <strong>Reported by:</strong>
     {{ usersLookup[report.reportedBy].name or report.reportedBy }} on {{ report.reportedAt | longDate }}
-    <br />
-    <strong>Location:</strong>
-    {{ prisonsLookup[report.location].description or report.location }}
     <br />
     <strong>Status:</strong>
     {{ statusLookup[report.status] or report.status }}

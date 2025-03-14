@@ -59,9 +59,9 @@ describe('Dashboard permissions', () => {
       .get('/reports')
       .expect(res => {
         if (action === show) {
-          expect(res.text).toContain('Create an incident report')
+          expect(res.text).toContain('Create a report for Moorland')
         } else {
-          expect(res.text).not.toContain('Create an incident report')
+          expect(res.text).not.toContain('Create a report')
         }
       })
   })
@@ -108,7 +108,7 @@ describe('GET dashboard', () => {
       .expect(200)
       .expect(res => {
         expect(res.text).toContain('Incident reports')
-        expect(res.text).toContain('Create an incident report')
+        expect(res.text).toContain('Create a report for Moorland')
         expect(res.text).toContain('6543')
         expect(res.text).toContain('6544')
         expect(res.text).toContain('5 December 2023, 11:34')
@@ -136,7 +136,7 @@ describe('GET dashboard', () => {
       .expect(200)
       .expect(res => {
         expect(res.text).toContain('Incident reports')
-        expect(res.text).toContain('Create an incident report')
+        expect(res.text).toContain('Create a report for Moorland')
         expect(res.text).toContain('6543')
         expect(res.text).toContain('6544')
         expect(res.text).toContain('5 December 2023, 11:34')
@@ -345,7 +345,7 @@ describe('GET dashboard', () => {
         expect(res.text).toContain('5 December 2023, 11:34')
         expect(res.text).toContain('A new incident created in the new service of type FINDS')
         expect(res.text).toContain('John Smith')
-        expect(res.text).not.toContain('Moorland (HMP &amp; YOI)')
+        expect(res.text).not.toContain('Establishment') // cannot check for Moorland because it appears in create button
         expect(res.text).toContain('Draft')
         expect(incidentReportingApi.getReports).toHaveBeenCalledWith(expectedParams)
       })
@@ -373,7 +373,7 @@ describe('GET dashboard', () => {
         expect(res.text).toContain('5 December 2023, 11:34')
         expect(res.text).toContain('A new incident created in the new service of type FINDS')
         expect(res.text).not.toContain('John Smith')
-        expect(res.text).toContain('Moorland (HMP &amp; YOI)')
+        expect(res.text).toContain('Establishment') // cannot check for Moorland because it appears in create button
         expect(res.text).toContain('Draft')
         expect(incidentReportingApi.getReports).toHaveBeenCalledWith(expectedParams)
       })

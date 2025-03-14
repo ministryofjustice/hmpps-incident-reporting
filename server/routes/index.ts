@@ -11,7 +11,7 @@ import { updateDetailsRouter } from './reports/details/updateReportDetails'
 import { historyRouter } from './reports/history'
 import { viewReportRouter } from './reports/viewReport'
 import { editReportRouter } from './reports/editReportRouter'
-import dashboard from './dashboard/dashboard'
+import dashboard from './dashboard'
 import { dprRouter } from './dpr'
 
 export default function routes(services: Services): Router {

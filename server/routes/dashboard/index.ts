@@ -5,9 +5,9 @@ import type { PathParams } from 'express-serve-static-core'
 
 import logger from '../../../logger'
 import {
-  Status,
-  Type,
-  WorkList,
+  type Status,
+  type Type,
+  type WorkList,
   workListMapping,
   workListStatusMapping,
   statuses,
@@ -25,7 +25,7 @@ import { sortableTableHead } from '../../utils/sortableTable'
 import { type LegacyPagination, pagination } from '../../utils/pagination'
 import type { Services } from '../../services'
 import asyncMiddleware from '../../middleware/asyncMiddleware'
-import { ColumnEntry, multiCaseloadColumns, singleCaseloadColumns } from './tableColumns'
+import { type ColumnEntry, multiCaseloadColumns, singleCaseloadColumns } from './tableColumns'
 
 export type IncidentStatuses = Status | WorkList
 
@@ -51,7 +51,7 @@ export default function dashboard(service: Services): Router {
 
     const userRoles: string[] = res.locals.user.roles
 
-    const userCaseloads = res.locals.user.caseLoads
+    const { activeCaseLoad, caseLoads: userCaseloads } = res.locals.user
     const userCaseloadIds = userCaseloads.map(caseload => caseload.caseLoadId)
 
     let showEstablishmentsFilter = false
@@ -319,6 +319,7 @@ export default function dashboard(service: Services): Router {
     }
 
     res.render('pages/dashboard', {
+      activeCaseLoad,
       reports,
       establishments,
       establishmentLookup,

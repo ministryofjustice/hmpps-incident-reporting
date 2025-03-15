@@ -26,9 +26,11 @@ export function populateReportConfiguration(generateQuestionSteps = true) {
 
       if (generateQuestionSteps) {
         if (res.locals.reportConfig.active) {
+          console.log('§ active')
           res.locals.questionSteps = generateSteps(res.locals.reportConfig)
           res.locals.questionFields = generateFields(res.locals.reportConfig)
         } else {
+          console.log('§ INACTIVE!!')
           // steps cannot properly be generated because questions or response options will often have been made inactive
           res.locals.questionSteps = generateSteps(res.locals.reportConfig, true)
           res.locals.questionFields = {} // ignore fields as they will not be used

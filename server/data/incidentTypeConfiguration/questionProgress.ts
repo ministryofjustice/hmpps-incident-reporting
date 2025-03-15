@@ -1,9 +1,10 @@
 // eslint-disable-next-line max-classes-per-file
 import type FormWizard from 'hmpo-form-wizard'
 
+import logger from '../../../logger'
 import type { ReportWithDetails, Response } from '../incidentReportingApi'
 import type { AnswerConfiguration, IncidentTypeConfiguration, QuestionConfiguration } from './types'
-import { questionFieldName } from './utils'
+import { findAnswerConfigForResponse, questionFieldName } from './utils'
 
 /** A step in the process of responding to all necessary questions in a report */
 export class QuestionProgressStep {
@@ -96,6 +97,13 @@ export class QuestionProgress {
     while (true) {
       questionNumber += 1
       const questionConfig = this.config.questions[nextQuestionId]
+      if (!questionConfig.active) {
+        logger.warn(
+          'Question progress in report %s passing through inactive question: %s',
+          this.report.id,
+          nextQuestionId,
+        )
+      }
       const urlSuffix = reportSteps.get(nextQuestionId)
       if (urlSuffix !== lastUrlSuffix) {
         pageNumber += 1
@@ -103,9 +111,20 @@ export class QuestionProgress {
       }
       const responses: Response[] | undefined = reportResponses.get(questionConfig.id)
       const responseItems = responses?.map(response => {
-        const answerConfig = questionConfig.answers.find(
-          someAnswerConfig => someAnswerConfig.code === response.response,
-        )
+        let answerConfig = findAnswerConfigForResponse(response, questionConfig, true)
+        if (!answerConfig) {
+          answerConfig = findAnswerConfigForResponse(response, questionConfig, false)
+          if (answerConfig) {
+            logger.warn(
+              'Question progress in report %s passing through inactive response: %s',
+              this.report.id,
+              response.response,
+            )
+          }
+        }
+        if (!answerConfig) {
+          logger.error('Question progress in report %s found no response: %s', this.report.id, response.response)
+        }
         return new ResponseItem(response, answerConfig)
       })
       yield new QuestionProgressStep(questionConfig, responseItems, urlSuffix, questionNumber, pageNumber)

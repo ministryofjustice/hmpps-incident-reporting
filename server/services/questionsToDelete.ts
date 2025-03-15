@@ -96,7 +96,7 @@ export default class QuestionsToDelete {
     answeredQuestions: AnsweredQuestion[],
   ): string | symbol | null {
     const answeredQuestion = answeredQuestions.find(question => question.code === start)
-    let questionConfig: QuestionConfiguration | null = null
+    let questionConfig: QuestionConfiguration | null
     let answerConfig: AnswerConfiguration | null = null
 
     if (answeredQuestion) {
@@ -106,15 +106,16 @@ export default class QuestionsToDelete {
         answerConfig = findAnswerConfigByCode(response.response, questionConfig)
       }
     } else {
-      // Current question not answered, but peraphs there is no branching...
+      // Current question not answered, but perhaps there is no branching...
       // and we can still determine the next question
       questionConfig = config.questions[start]
       if (questionConfig) {
-        const nextQuestionIds = new Set(questionConfig.answers.map(ansConf => ansConf.nextQuestionId))
+        const activeAnswers = questionConfig.answers.filter(ansConf => ansConf.active)
+        const nextQuestionIds = new Set(activeAnswers.map(ansConf => ansConf.nextQuestionId))
         const noBranching = nextQuestionIds.size === 1
         if (noBranching) {
           // eslint-disable-next-line prefer-destructuring
-          answerConfig = questionConfig.answers[0]
+          answerConfig = activeAnswers[0]
         }
       }
     }

@@ -159,9 +159,9 @@ describe('Question progress', () => {
     )
     // no responses
     report.questions = []
-    const questionProgress = new QuestionProgress(config, steps, report)
 
     it('should track progress through report questions', () => {
+      const questionProgress = new QuestionProgress(config, steps, report)
       const progress = Array.from(questionProgress)
       expect(progress).toEqual([
         // on first question, which is incomplete
@@ -177,10 +177,12 @@ describe('Question progress', () => {
     })
 
     it('should return first incomplete question', () => {
+      const questionProgress = new QuestionProgress(config, steps, report)
       expect(questionProgress.firstIncompleteStep()).toHaveProperty('questionConfig.id', '1')
     })
 
     it('should state that the report is incomplete', () => {
+      const questionProgress = new QuestionProgress(config, steps, report)
       expect(questionProgress.isComplete).toBe(false)
     })
   })
@@ -206,9 +208,9 @@ describe('Question progress', () => {
         additionalInformation: null,
       },
     ]
-    const questionProgress = new QuestionProgress(config, steps, report)
 
     it('should track progress through report questions', () => {
+      const questionProgress = new QuestionProgress(config, steps, report)
       const progress = Array.from(questionProgress)
       expect(progress).toEqual([
         expect.objectContaining({
@@ -238,10 +240,12 @@ describe('Question progress', () => {
     })
 
     it('should return first incomplete question', () => {
+      const questionProgress = new QuestionProgress(config, steps, report)
       expect(questionProgress.firstIncompleteStep()).toHaveProperty('questionConfig.id', '2')
     })
 
     it('should state that the report is incomplete', () => {
+      const questionProgress = new QuestionProgress(config, steps, report)
       expect(questionProgress.isComplete).toBe(false)
     })
   })
@@ -267,9 +271,9 @@ describe('Question progress', () => {
         additionalInformation: null,
       },
     ]
-    const questionProgress = new QuestionProgress(config, steps, report)
 
     it('should track progress through report questions', () => {
+      const questionProgress = new QuestionProgress(config, steps, report)
       const progress = Array.from(questionProgress)
       expect(progress).toEqual([
         expect.objectContaining({
@@ -299,10 +303,12 @@ describe('Question progress', () => {
     })
 
     it('should return first incomplete question', () => {
+      const questionProgress = new QuestionProgress(config, steps, report)
       expect(questionProgress.firstIncompleteStep()).toHaveProperty('questionConfig.id', '4')
     })
 
     it('should state that the report is incomplete', () => {
+      const questionProgress = new QuestionProgress(config, steps, report)
       expect(questionProgress.isComplete).toBe(false)
     })
   })
@@ -373,9 +379,9 @@ describe('Question progress', () => {
         additionalInformation: null,
       },
     ]
-    const questionProgress = new QuestionProgress(config, steps, report)
 
     it('should track progress through report questions', () => {
+      const questionProgress = new QuestionProgress(config, steps, report)
       const progress = Array.from(questionProgress)
       expect(progress).toEqual([
         expect.objectContaining({
@@ -439,10 +445,12 @@ describe('Question progress', () => {
     })
 
     it('should return no first incomplete question', () => {
+      const questionProgress = new QuestionProgress(config, steps, report)
       expect(questionProgress.firstIncompleteStep()).toBeNull()
     })
 
     it('should state that the report is complete', () => {
+      const questionProgress = new QuestionProgress(config, steps, report)
       expect(questionProgress.isComplete).toBe(true)
     })
   })
@@ -790,6 +798,80 @@ describe('Question progress', () => {
           ],
           false,
         )
+      })
+    })
+
+    describe('for questions with inactive responses', () => {
+      const configWithInactiveResponses: IncidentTypeConfiguration = {
+        startingQuestionId: '1',
+        active: true,
+        incidentType: 'MISCELLANEOUS',
+        prisonerRoles: [],
+        questions: {
+          '1': {
+            id: '1',
+            active: true,
+            code: 'Q1',
+            label: 'Question 1',
+            multipleAnswers: false,
+            answers: [
+              {
+                id: '1',
+                code: 'A1',
+                active: false,
+                label: 'Answer 1 (old, inactive)',
+                dateRequired: false,
+                commentRequired: false,
+                nextQuestionId: null,
+              },
+              {
+                id: '2',
+                code: 'A1',
+                active: true,
+                label: 'Answer 1 (new, active)',
+                dateRequired: false,
+                commentRequired: false,
+                nextQuestionId: '2',
+              },
+            ],
+          },
+          '2': {
+            id: '2',
+            active: true,
+            code: 'Q2',
+            label: 'Question 2',
+            multipleAnswers: false,
+            answers: [...config.questions['4'].answers],
+          },
+        },
+      }
+      const stepsWithInactiveResponses = generateSteps(configWithInactiveResponses)
+      const report = convertReportWithDetailsDates(
+        mockReport({ type: 'MISCELLANEOUS', reportReference: '6543', reportDateAndTime: now, withDetails: true }),
+      )
+      report.questions = [
+        {
+          code: '1',
+          question: 'Q1',
+          responses: [
+            {
+              response: 'A1',
+              responseDate: null,
+              additionalInformation: null,
+              recordedAt: new Date(),
+              recordedBy: 'some-user',
+            },
+          ],
+          additionalInformation: null,
+        },
+      ]
+
+      it('should prefer active responses over inactive ones', () => {
+        const questionProgress = new QuestionProgress(configWithInactiveResponses, stepsWithInactiveResponses, report)
+        const progress = Array.from(questionProgress)
+        expect(progress).toHaveLength(2)
+        expect(progress[0].isComplete).toBe(true)
+        expect(progress[1].isComplete).toBe(false)
       })
     })
   })

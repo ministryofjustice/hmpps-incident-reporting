@@ -1,5 +1,5 @@
 import type { AnswerConfiguration, QuestionConfiguration } from './types'
-import type { Question } from '../incidentReportingApi'
+import type { Question, Response } from '../incidentReportingApi'
 
 export function questionFieldName(question: QuestionConfiguration | Question): string {
   if ('answers' in question) {
@@ -25,4 +25,13 @@ export function findAnswerConfigByCode(
   return questionConfig.answers.find(
     answerConfig => (answerConfig.active || !mustBeActive) && answerConfig.code === answerCode.trim(),
   )
+}
+
+/** Finds the Answer config for a given Response inside a report */
+export function findAnswerConfigForResponse(
+  response: Response,
+  questionConfig: QuestionConfiguration,
+  mustBeActive = true,
+): AnswerConfiguration {
+  return findAnswerConfigByCode(response.response, questionConfig, mustBeActive)
 }

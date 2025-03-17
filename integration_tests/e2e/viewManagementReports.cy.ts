@@ -27,6 +27,6 @@ context('View management reports', () => {
     const managementReportingPage = Page.verifyOnPage(ManagementReportingPage)
     managementReportingPage.reportLink.click()
     const managementReportingSampleReportPage = Page.verifyOnPage(ManagementReportingSampleReportPage)
-    managementReportingSampleReportPage.title.should('contain.text', 'summary')
+    managementReportingSampleReportPage.title.should('contain.text', 'Incident Report Summary')
   })
 })

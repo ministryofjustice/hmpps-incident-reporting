@@ -7,8 +7,6 @@ generic-service:
   ingress:
     host: incident-reporting-dev.hmpps.service.justice.gov.uk
 
-  allowlist: null
-
   env:
     ENVIRONMENT: dev
     SERVICE_ACTIVE_PRISONS: "***"

@@ -108,8 +108,8 @@ export abstract class InvolvementSummary extends BaseController<Values> {
     const report = res.locals.report as ReportWithDetails
     const { confirmAdd } = req.form.values
 
+    // clear session since choice made
     req.journeyModel.reset()
-    req.sessionModel.reset()
 
     if (confirmAdd === 'yes') {
       res.redirect(`${res.locals.reportSubUrlPrefix}/${this.type}/search`)

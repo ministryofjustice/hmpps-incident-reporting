@@ -17,6 +17,12 @@ export function conditionalFieldName(
 }
 
 /** Finds the Answer config for a given answer code */
-export function findAnswerConfigByCode(answerCode: string, questionConfig: QuestionConfiguration): AnswerConfiguration {
-  return questionConfig.answers.find(answerConfig => answerConfig.code.trim() === answerCode.trim())
+export function findAnswerConfigByCode(
+  answerCode: string,
+  questionConfig: QuestionConfiguration,
+  mustBeActive = true,
+): AnswerConfiguration {
+  return questionConfig.answers.find(
+    answerConfig => (answerConfig.active || !mustBeActive) && answerConfig.code === answerCode.trim(),
+  )
 }

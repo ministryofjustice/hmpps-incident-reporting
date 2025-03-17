@@ -1,6 +1,8 @@
 import QuestionsToDelete from './questionsToDelete'
 import ASSAULT from '../reportConfiguration/types/ASSAULT'
+import KEY_LOCK_INCIDENT from '../reportConfiguration/types/KEY_LOCK_INCIDENT'
 import OLD_ASSAULT from '../reportConfiguration/types/OLD_ASSAULT'
+import OLD_DRONE_SIGHTING from '../reportConfiguration/types/OLD_DRONE_SIGHTING'
 
 describe('QuestionToDelete service', () => {
   describe('linear path, nothing to delete', () => {
@@ -229,6 +231,52 @@ describe('QuestionToDelete service', () => {
 
       const questionsToDelete = QuestionsToDelete.forGivenAnswers(config, answeredQuestions)
       expect(questionsToDelete).toEqual(['61309', '61311'])
+    })
+  })
+
+  describe('retains only active configs', () => {
+    let oldSetting: boolean
+
+    beforeAll(() => {
+      oldSetting = OLD_DRONE_SIGHTING.questions['57179'].active
+      OLD_DRONE_SIGHTING.questions['57179'].active = true
+    })
+
+    afterAll(() => {
+      OLD_DRONE_SIGHTING.questions['57179'].active = oldSetting
+    })
+
+    it('returning only questions whose response configs are genuinely inactive', () => {
+      // https://raw.githubusercontent.com/ministryofjustice/hmpps-incident-reporting/main/server/reportConfiguration/types/KEY_LOCK_INCIDENT.svg
+      // key lock incident has numerous inactive AND active responses with the same code for a given question
+      const config = KEY_LOCK_INCIDENT
+      const answeredQuestions = [
+        // Describe the nature of the Incident
+        { code: '45196', responses: [{ response: 'Keys lost' }] },
+        // Describe the type of key or lock
+        { code: '45197', responses: [{ response: 'Magnetic Lock' }] },
+        // Incident Level: 1-5. 1 High Risk, 5 No Risk
+        { code: '45198', responses: [{ response: 'Enter Value:' }] },
+        // Has any remedial action been taken?
+        { code: '45199', responses: [{ response: 'No' }] },
+      ]
+
+      const questionsToDelete = QuestionsToDelete.forGivenAnswers(config, answeredQuestions)
+      // if inactive response configs are not filtered out, all question codes would have been deleted
+      expect(questionsToDelete).toEqual([])
+    })
+
+    it('returning only questions whose configs are genuinely inactive', () => {
+      // https://raw.githubusercontent.com/ministryofjustice/hmpps-incident-reporting/main/server/reportConfiguration/types/OLD_DRONE_SIGHTING.svg
+      // all question configs are inactive, but pretending that chosen response is active
+      const config = OLD_DRONE_SIGHTING
+      const answeredQuestions = [
+        // Was a drone sighted in mid-flight
+        { code: '57179', responses: [{ response: 'Yes' }] },
+      ]
+
+      const questionsToDelete = QuestionsToDelete.forGivenAnswers(config, answeredQuestions)
+      expect(questionsToDelete).toEqual(['57179'])
     })
   })
 })

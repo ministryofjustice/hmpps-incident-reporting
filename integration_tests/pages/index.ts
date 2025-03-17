@@ -12,4 +12,8 @@ export default class IndexPage extends Page {
   get headerEnvironmentTag(): PageElement {
     return cy.get('[data-qa=header-environment-tag]')
   }
+
+  get cards(): PageElement<HTMLDivElement> {
+    return cy.get('.dps-card')
+  }
 }

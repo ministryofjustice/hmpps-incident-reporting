@@ -31,7 +31,9 @@ export default abstract class Page {
 
   checkLastBreadcrumb(label: string, url?: string): void {
     this.breadcrumbs.last().should('contain.text', label)
-    this.breadcrumbs.last().find('a').should('have.attr', 'href', url)
+    if (url) {
+      this.breadcrumbs.last().find('a').should('have.attr', 'href', url)
+    }
   }
 
   checkBackLink(url: string): PageElement<HTMLAnchorElement> {

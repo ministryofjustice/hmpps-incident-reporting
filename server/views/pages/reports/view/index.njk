@@ -3,7 +3,7 @@
 {% from "govuk/components/breadcrumbs/macro.njk" import govukBreadcrumbs %}
 {% from "govuk/components/warning-text/macro.njk" import govukWarningText %}
 
-{% set pageTitle = applicationName + " - Incident report " + report.reportReference %}
+{% set pageTitle = "Incident reference " + report.reportReference %}
 {% set bodyClasses = "app-view-report" %}
 
 {% block beforeContent %}

@@ -2,6 +2,7 @@ import { mockReport } from '../../server/data/testData/incidentReporting'
 import { andrew, barry } from '../../server/data/testData/offenderSearch'
 import Page from '../pages/page'
 import DetailsPage from '../pages/reports/details'
+import ReportPage from '../pages/reports/report'
 
 context('Update an existing report’s details', () => {
   const now = new Date()
@@ -9,7 +10,14 @@ context('Update an existing report’s details', () => {
     type: 'DISORDER',
     reportReference: '6544',
     reportDateAndTime: now,
+    withDetails: true,
   })
+  reportWithDetails.prisonersInvolved = []
+  reportWithDetails.prisonerInvolvementDone = false
+  reportWithDetails.staffInvolved = []
+  reportWithDetails.staffInvolvementDone = false
+  reportWithDetails.questions = []
+  reportWithDetails.correctionRequests = []
 
   beforeEach(() => {
     cy.resetBasicStubs()
@@ -32,6 +40,7 @@ context('Update an existing report’s details', () => {
       request: {
         incidentDateAndTime: reportWithDetails.incidentDateAndTime,
         description: reportWithDetails.description,
+        updateEvent: true,
       },
       report: reportWithDetails,
     })
@@ -42,6 +51,8 @@ context('Update an existing report’s details', () => {
     cy.task('stubManageKnownUsers')
 
     detailsPage.submit()
+
+    Page.verifyOnPage(ReportPage, reportWithDetails.reportReference, true)
   })
 
   it('should show errors if information is missing', () => {

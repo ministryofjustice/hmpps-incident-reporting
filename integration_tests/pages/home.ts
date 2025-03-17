@@ -1,6 +1,6 @@
 import Page, { PageElement } from './page'
 
-export default class IndexPage extends Page {
+export default class HomePage extends Page {
   constructor() {
     super('Incident reporting', 'Incident Reporting - Home')
   }
@@ -15,5 +15,9 @@ export default class IndexPage extends Page {
 
   get cards(): PageElement<HTMLDivElement> {
     return cy.get('.dps-card')
+  }
+
+  clickCreateReportCard(): Cypress.Chainable {
+    return cy.contains('Report an incident').click()
   }
 }

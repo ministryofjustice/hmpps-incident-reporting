@@ -1,4 +1,4 @@
-import IndexPage from '../pages'
+import HomePage from '../pages/home'
 import Page from '../pages/page'
 
 context('Home page', () => {
@@ -8,7 +8,7 @@ context('Home page', () => {
   })
 
   it('should show tiles & breadcrumbs', () => {
-    const homePage = Page.verifyOnPage(IndexPage)
+    const homePage = Page.verifyOnPage(HomePage)
     homePage.checkLastBreadcrumb('Digital Prison Services')
     homePage.cards.spread((...cards: HTMLDivElement[]) => {
       const titles = cards.map(card => card.getElementsByClassName('dps-card__heading')[0].textContent.trim())

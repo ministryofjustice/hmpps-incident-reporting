@@ -1,5 +1,6 @@
 import { mockReport } from '../../server/data/testData/incidentReporting'
 import { andrew, barry } from '../../server/data/testData/offenderSearch'
+import HomePage from '../pages/home'
 import Page from '../pages/page'
 import TypePage from '../pages/reports/type'
 import DetailsPage from '../pages/reports/details'
@@ -17,8 +18,8 @@ context('Creating a new report', () => {
     cy.resetBasicStubs()
 
     cy.signIn()
-    // TODO: start on home page and click through to:
-    cy.visit('/create-report')
+    const indexPage = Page.verifyOnPage(HomePage)
+    indexPage.clickCreateReportCard()
   })
 
   it('should allow entering the basic information', () => {

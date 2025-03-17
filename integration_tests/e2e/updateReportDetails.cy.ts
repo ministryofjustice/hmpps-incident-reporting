@@ -15,7 +15,6 @@ context('Update an existing report’s details', () => {
     cy.resetBasicStubs()
 
     cy.signIn()
-    // TODO: start on home page and click through to:
     cy.task('stubIncidentReportingApiGetReportById', { report: reportWithDetails })
     cy.visit(`/reports/${reportWithDetails.id}/update-details`)
   })

@@ -49,12 +49,6 @@ export default {
 
   /** Search users */
   stubSearchUsers: (query: string, results: UsersSearchResult[], page = 0): SuperAgentRequest => {
-    const queryRegex = [
-      `nameFilter=${encodeURIComponent(query)}`,
-      'status=ACTIVE',
-      `size=${ManageUsersApiClient.PAGE_SIZE}`,
-      `page=${page}`,
-    ].join('&')
     const response: UsersSearchResponse = {
       content: results,
       number: page,
@@ -66,7 +60,13 @@ export default {
     return stubFor({
       request: {
         method: 'GET',
-        urlPattern: `/manage-users-api/prisonusers/search/\\?.*${queryRegex}.*`,
+        urlPath: '/manage-users-api/prisonusers/search',
+        queryParameters: {
+          nameFilter: query,
+          status: 'ACTIVE',
+          size: ManageUsersApiClient.PAGE_SIZE,
+          page,
+        },
       },
       response: {
         status: 200,

@@ -48,8 +48,8 @@ export default class ReportPage extends FormWizardPage {
               .find('.govuk-summary-list__row')
               .map((_, rowDiv: HTMLDivElement) => {
                 const $rowDiv = Cypress.$(rowDiv)
-                const key = $rowDiv.find('.govuk-summary-list__key').text()
-                const value = $rowDiv.find('.govuk-summary-list__value').text()
+                const key = $rowDiv.find('.govuk-summary-list__key').text().trim()
+                const value = $rowDiv.find('.govuk-summary-list__value').text().trim()
                 const actionLinks = (
                   $rowDiv.find('.govuk-summary-list__actions a') as unknown as JQuery<HTMLAnchorElement>
                 ).toArray()

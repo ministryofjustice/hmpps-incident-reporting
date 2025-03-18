@@ -36,6 +36,10 @@ context('Staff involvements page', () => {
       staffInvolvementsPage = Page.verifyOnPage(StaffInvolvementsPage, false)
     })
 
+    it('should have back link point to report', () => {
+      staffInvolvementsPage.checkBackLink(`/reports/${reportWithDetails.id}`)
+    })
+
     it('should show 3 options for what can be done next', () => {
       staffInvolvementsPage.radioButtonChoices.then(choices => {
         expect(choices).to.deep.equal([
@@ -91,6 +95,10 @@ context('Staff involvements page', () => {
       cy.task('stubIncidentReportingApiGetReportWithDetailsById', { report: reportWithDetails })
       cy.visit(`/reports/${reportWithDetails.id}/staff`)
       staffInvolvementsPage = Page.verifyOnPage(StaffInvolvementsPage)
+    })
+
+    it('should have back link point to report', () => {
+      staffInvolvementsPage.checkBackLink(`/reports/${reportWithDetails.id}`)
     })
 
     it('should show 2 options for what can be done next', () => {
@@ -152,6 +160,10 @@ context('Staff involvements page', () => {
       cy.task('stubIncidentReportingApiGetReportWithDetailsById', { report: reportWithDetails })
       cy.visit(`/reports/${reportWithDetails.id}/staff`)
       staffInvolvementsPage = Page.verifyOnPage(StaffInvolvementsPage)
+    })
+
+    it('should have back link point to report', () => {
+      staffInvolvementsPage.checkBackLink(`/reports/${reportWithDetails.id}`)
     })
 
     it('should show 2 options for what can be done next', () => {

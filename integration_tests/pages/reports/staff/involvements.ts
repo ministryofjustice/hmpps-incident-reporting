@@ -24,9 +24,9 @@ export default class StaffInvolvementsPage extends FormWizardPage {
       rows
         .map((_, row) => {
           const $cells = Cypress.$(row).find('.govuk-table__cell') as unknown as JQuery<HTMLTableCellElement>
-          const staff = $cells.eq(0).text()
-          const role = $cells.eq(1).text()
-          const details = $cells.eq(2).text()
+          const staff = $cells.eq(0).text().trim()
+          const role = $cells.eq(1).text().trim()
+          const details = $cells.eq(2).text().trim()
           const actionLinks = ($cells.last().find('a') as unknown as JQuery<HTMLAnchorElement>).toArray()
           return { staff, role, details, actionLinks }
         })

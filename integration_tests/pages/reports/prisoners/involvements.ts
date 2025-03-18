@@ -24,10 +24,10 @@ export default class PrisonerInvolvementsPage extends FormWizardPage {
       rows
         .map((_, row) => {
           const $cells = Cypress.$(row).find('.govuk-table__cell') as unknown as JQuery<HTMLTableCellElement>
-          const prisoner = $cells.eq(0).text()
-          const role = $cells.eq(1).text()
-          const outcome = $cells.length === 5 ? $cells.eq(2).text() : null
-          const details = $cells.length === 5 ? $cells.eq(3).text() : $cells.eq(2).text()
+          const prisoner = $cells.eq(0).text().trim()
+          const role = $cells.eq(1).text().trim()
+          const outcome = $cells.length === 5 ? $cells.eq(2).text().trim() : null
+          const details = $cells.length === 5 ? $cells.eq(3).text().trim() : $cells.eq(2).text().trim()
           const actionLinks = ($cells.last().find('a') as unknown as JQuery<HTMLAnchorElement>).toArray()
           return { prisoner, role, outcome, details, actionLinks }
         })

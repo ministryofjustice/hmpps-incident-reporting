@@ -35,7 +35,7 @@ export default function nunjucksSetup(app: express.Express): void {
   app.set('view engine', 'njk')
 
   app.locals.asset_path = '/assets/'
-  app.locals.applicationName = 'Incident Reporting'
+  app.locals.applicationName = 'Incident reporting'
   app.locals.production = config.production
   app.locals.environment = config.environment
 

@@ -2,7 +2,7 @@ import Page, { PageElement } from './page'
 
 export default class HomePage extends Page {
   constructor() {
-    super('Incident reporting', 'Incident Reporting - Home')
+    super('Incident reporting')
   }
 
   get headerUserName(): PageElement<HTMLSpanElement> {

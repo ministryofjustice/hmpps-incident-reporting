@@ -35,13 +35,13 @@
   <p>
     {# TODO: label will need to change for PECS regions #}
     <strong>Establishment:</strong>
-    {{ prisonsLookup[report.location].description or report.location }}
+    <span data-qa="report-location">{{ prisonsLookup[report.location].description or report.location }}</span>
     <br />
     <strong>Reported by:</strong>
-    {{ usersLookup[report.reportedBy].name or report.reportedBy }} on {{ report.reportedAt | longDate }}
+    <span data-qa="report-reported-by">{{ usersLookup[report.reportedBy].name or report.reportedBy }} on {{ report.reportedAt | longDate }}</span>
     <br />
     <strong>Status:</strong>
-    {{ statusLookup[report.status] or report.status }}
+    <span data-qa="report-status">{{ statusLookup[report.status] or report.status }}</span>
   </p>
 
   {% if canEditReportInNomisOnly %}

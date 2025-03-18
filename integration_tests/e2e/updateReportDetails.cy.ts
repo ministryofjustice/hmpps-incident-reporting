@@ -1,5 +1,4 @@
 import { mockReport } from '../../server/data/testData/incidentReporting'
-import { andrew, barry } from '../../server/data/testData/offenderSearch'
 import Page from '../pages/page'
 import DetailsPage from '../pages/reports/details'
 import ReportPage from '../pages/reports/report'
@@ -46,7 +45,6 @@ context('Update an existing report’s details', () => {
     })
     // stub lookups from next page, the report view
     cy.task('stubIncidentReportingApiGetReportWithDetailsById', { report: reportWithDetails })
-    cy.task('stubOffenderSearchByNumber', [andrew, barry])
     cy.task('stubPrisonApiMockPrisons')
     cy.task('stubManageKnownUsers')
 

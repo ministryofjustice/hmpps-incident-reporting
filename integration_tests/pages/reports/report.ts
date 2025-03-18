@@ -40,7 +40,7 @@ export default class ReportPage extends FormWizardPage {
         return getCard().find('.govuk-summary-card__actions').should('not.exist').end()
       },
 
-      getCardContents(): Cypress.Chainable<{ key: string; value: string; actionLink: JQuery<HTMLAnchorElement> }[]> {
+      getCardContents(): Cypress.Chainable<{ key: string; value: string; actionLinks: HTMLAnchorElement[] }[]> {
         return getCard()
           .find('.govuk-summary-list')
           .then($contentDiv => {
@@ -50,10 +50,10 @@ export default class ReportPage extends FormWizardPage {
                 const $rowDiv = Cypress.$(rowDiv)
                 const key = $rowDiv.find('.govuk-summary-list__key').text()
                 const value = $rowDiv.find('.govuk-summary-list__value').text()
-                const actionLink = $rowDiv.find(
-                  '.govuk-summary-list__actions a',
-                ) as unknown as JQuery<HTMLAnchorElement>
-                return { key, value, actionLink }
+                const actionLinks = (
+                  $rowDiv.find('.govuk-summary-list__actions a') as unknown as JQuery<HTMLAnchorElement>
+                ).toArray()
+                return { key, value, actionLinks }
               })
               .toArray()
           })

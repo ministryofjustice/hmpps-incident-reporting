@@ -134,6 +134,7 @@
             fieldset: {
               legend: {text: statusCheckboxLabel}
             },
+            idPrefix: "incidentStatuses-item",
             items: statusItems | govukMultipleCheckedItems(formValues.incidentStatuses),
             errorMessage: errors | findFieldInGovukErrorSummary("incidentStatuses")
           }) }}

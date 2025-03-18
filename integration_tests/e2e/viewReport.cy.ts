@@ -49,18 +49,21 @@ context('View report', () => {
         const [typeRow, dateRow, descriptionRow] = rows
 
         expect(typeRow.value).to.contain('Disorder')
-        expect(typeRow.actionLink).to.have.lengthOf(0)
+        expect(typeRow.actionLinks).to.have.lengthOf(0)
         // TODO: on a different branch
-        // expect(typeRow.actionLink).to.contain('Change')
-        // expect(typeRow.actionLink).attr('href').contains(`/reports/${reportWithDetails.id}/change-type`)
+        // expect(typeRow.actionLinks).to.have.lengthOf(1)
+        // expect(typeRow.actionLinks[0]).to.contain('Change')
+        // expect(typeRow.actionLinks[0]).attr('href').contains(`/reports/${reportWithDetails.id}/change-type`)
 
         expect(dateRow.value).to.contain(now.getFullYear())
-        expect(dateRow.actionLink).to.contain('Change')
-        expect(dateRow.actionLink).attr('href').contains(`/reports/${reportWithDetails.id}/update-details`)
+        expect(dateRow.actionLinks).to.have.lengthOf(1)
+        expect(dateRow.actionLinks[0]).to.contain('Change')
+        expect(dateRow.actionLinks[0]).attr('href').contains(`/reports/${reportWithDetails.id}/update-details`)
 
         expect(descriptionRow.value).to.contain('A new incident created in the new service of type DISORDER')
-        expect(descriptionRow.actionLink).to.contain('Change')
-        expect(descriptionRow.actionLink).attr('href').contains(`/reports/${reportWithDetails.id}/update-details`)
+        expect(descriptionRow.actionLinks).to.have.lengthOf(1)
+        expect(descriptionRow.actionLinks[0]).to.contain('Change')
+        expect(descriptionRow.actionLinks[0]).attr('href').contains(`/reports/${reportWithDetails.id}/update-details`)
       })
     })
 
@@ -74,7 +77,7 @@ context('View report', () => {
         const [row] = rows
         expect(row.key).to.contain('No prisoners added')
         expect(row.value.trim()).to.equal('')
-        expect(row.actionLink).to.have.lengthOf(0)
+        expect(row.actionLinks).to.have.lengthOf(0)
       })
     })
 
@@ -88,7 +91,7 @@ context('View report', () => {
         const [row] = rows
         expect(row.key).to.contain('No staff added')
         expect(row.value.trim()).to.equal('')
-        expect(row.actionLink).to.have.lengthOf(0)
+        expect(row.actionLinks).to.have.lengthOf(0)
       })
     })
 
@@ -99,8 +102,9 @@ context('View report', () => {
         const [row] = rows
         expect(row.key).to.contain('1. What type of disorder incident was this?')
         expect(row.value.trim()).to.equal('')
-        expect(row.actionLink).to.contain('Continue')
-        expect(row.actionLink).attr('href').contains(`/reports/${reportWithDetails.id}/questions/63179`)
+        expect(row.actionLinks).to.have.lengthOf(1)
+        expect(row.actionLinks[0]).to.contain('Continue')
+        expect(row.actionLinks[0]).attr('href').contains(`/reports/${reportWithDetails.id}/questions/63179`)
       })
     })
   })
@@ -160,18 +164,20 @@ context('View report', () => {
         const [typeRow, dateRow, descriptionRow] = rows
 
         expect(typeRow.value).to.contain('Disorder')
-        expect(typeRow.actionLink).to.have.lengthOf(0)
+        expect(typeRow.actionLinks).to.have.lengthOf(0)
         // TODO: on a different branch
         // expect(typeRow.actionLink).to.contain('Change')
         // expect(typeRow.actionLink).attr('href').contains(`/reports/${reportWithDetails.id}/change-type`)
 
         expect(dateRow.value).to.contain(now.getFullYear())
-        expect(dateRow.actionLink).to.contain('Change')
-        expect(dateRow.actionLink).attr('href').contains(`/reports/${reportWithDetails.id}/update-details`)
+        expect(dateRow.actionLinks).to.have.lengthOf(1)
+        expect(dateRow.actionLinks[0]).to.contain('Change')
+        expect(dateRow.actionLinks[0]).attr('href').contains(`/reports/${reportWithDetails.id}/update-details`)
 
         expect(descriptionRow.value).to.contain('A new incident created in the new service of type DISORDER')
-        expect(descriptionRow.actionLink).to.contain('Change')
-        expect(descriptionRow.actionLink).attr('href').contains(`/reports/${reportWithDetails.id}/update-details`)
+        expect(descriptionRow.actionLinks).to.have.lengthOf(1)
+        expect(descriptionRow.actionLinks[0]).to.contain('Change')
+        expect(descriptionRow.actionLinks[0]).attr('href').contains(`/reports/${reportWithDetails.id}/update-details`)
       })
     })
 
@@ -184,12 +190,12 @@ context('View report', () => {
         expect(row1.key).to.contain('Andrew Arnold')
         expect(row1.value).to.contain('Role: Active involvement')
         expect(row1.value).to.contain('Details: Comment about A1111AA')
-        expect(row1.actionLink).to.have.lengthOf(0)
+        expect(row1.actionLinks).to.have.lengthOf(0)
 
         expect(row2.key).to.contain('Barry Benjamin')
         expect(row2.value).to.contain('Role: Suspected involved')
         expect(row2.value).to.contain('Details: No comment')
-        expect(row2.actionLink).to.have.lengthOf(0)
+        expect(row2.actionLinks).to.have.lengthOf(0)
       })
     })
 
@@ -202,12 +208,12 @@ context('View report', () => {
         expect(row1.key).to.contain('Mary Johnson')
         expect(row1.value).to.contain('Role: Actively involved')
         expect(row1.value).to.contain('Details: Comment about Mary')
-        expect(row1.actionLink).to.have.lengthOf(0)
+        expect(row1.actionLinks).to.have.lengthOf(0)
 
         expect(row2.key).to.contain('Barry Harrison')
         expect(row2.value).to.contain('Role: Present at scene')
         expect(row2.value).to.contain('Details: No comment')
-        expect(row2.actionLink).to.have.lengthOf(0)
+        expect(row2.actionLinks).to.have.lengthOf(0)
       })
     })
 
@@ -219,13 +225,15 @@ context('View report', () => {
 
         expect(row1.key).to.contain('1. What type of disorder incident was this?')
         expect(row1.value).to.contain('Incident at height')
-        expect(row1.actionLink).to.contain('Change')
-        expect(row1.actionLink).attr('href').contains(`/reports/${reportWithDetails.id}/questions/63179`)
+        expect(row1.actionLinks).to.have.lengthOf(1)
+        expect(row1.actionLinks[0]).to.contain('Change')
+        expect(row1.actionLinks[0]).attr('href').contains(`/reports/${reportWithDetails.id}/questions/63179`)
 
         expect(row2.key).to.contain('2. What was the main management outcome of this incident?')
         expect(row2.value.trim()).to.equal('')
-        expect(row2.actionLink).to.contain('Continue')
-        expect(row2.actionLink).attr('href').contains(`/reports/${reportWithDetails.id}/questions/63179`) // NB: still page 1
+        expect(row2.actionLinks).to.have.lengthOf(1)
+        expect(row2.actionLinks[0]).to.contain('Continue')
+        expect(row2.actionLinks[0]).attr('href').contains(`/reports/${reportWithDetails.id}/questions/63179`) // NB: still page 1
       })
     })
   })

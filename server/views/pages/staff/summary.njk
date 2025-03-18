@@ -58,7 +58,7 @@
 
   {% endif %}
 
-  <form id="addAnotherStaff" method="post" novalidate>
+  <form id="form-wizard" method="post" novalidate>
     <input type="hidden" name="_csrf" value="{{ csrfToken }}" />
     <input type="hidden" name="x-csrf-token" value="{{ csrfToken }}" />
 
@@ -85,6 +85,7 @@
           classes: "govuk-fieldset__legend--m"
         }
       },
+      idPrefix: fieldName + "-item",
       items: items,
       hint: { text: field.hint } if field.hint else undefined,
       errorMessage: { text: errors[fieldName].message } if errors[fieldName] else undefined

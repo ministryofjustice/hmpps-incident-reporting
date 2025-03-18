@@ -4,6 +4,7 @@ import HomePage from '../pages/home'
 import Page from '../pages/page'
 import TypePage from '../pages/reports/type'
 import DetailsPage from '../pages/reports/details'
+import PrisonerInvolvementsPage from '../pages/reports/prisoners/involvements'
 
 context('Creating a new report', () => {
   const now = new Date()
@@ -13,6 +14,12 @@ context('Creating a new report', () => {
     reportDateAndTime: now,
     withDetails: true,
   })
+  reportWithDetails.prisonersInvolved = []
+  reportWithDetails.prisonerInvolvementDone = false
+  reportWithDetails.staffInvolved = []
+  reportWithDetails.staffInvolvementDone = false
+  reportWithDetails.questions = []
+  reportWithDetails.correctionRequests = []
 
   beforeEach(() => {
     cy.resetBasicStubs()
@@ -54,6 +61,7 @@ context('Creating a new report', () => {
     cy.task('stubManageKnownUsers')
 
     detailsPage.submit()
+    Page.verifyOnPage(PrisonerInvolvementsPage, false)
   })
 
   it('should show errors if information is missing', () => {

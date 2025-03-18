@@ -9,8 +9,4 @@ export default class TypePage extends FormWizardPage {
   selectType(type: Type) {
     this.radioOrCheckboxButton('type', getTypeDetails(type).description).click()
   }
-
-  submit(): void {
-    this.saveButton('Continue').click()
-  }
 }

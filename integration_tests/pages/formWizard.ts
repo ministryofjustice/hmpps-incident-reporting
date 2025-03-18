@@ -55,9 +55,36 @@ export default abstract class FormWizardPage extends Page {
   }
 
   /**
+   * Find the label for a radio or checkbox button
+   */
+  protected radioOrCheckboxOptions(name: string) {
+    return this.findFormInput<HTMLInputElement>(name).then(inputs => {
+      return inputs
+        .map((_, input) => {
+          const $input = Cypress.$(input) as unknown as JQuery<HTMLInputElement>
+          return {
+            label: Cypress.$(`[for=${$input.attr('id')}]`)
+              .text()
+              .trim(),
+            value: $input.val(),
+            checked: $input.is(':checked'),
+          }
+        })
+        .toArray()
+    })
+  }
+
+  /**
    * Find a save button by label
    */
   protected saveButton(label = 'Save and continue'): PageElement<HTMLButtonElement> {
     return this.form.find<HTMLButtonElement>('.govuk-button').contains(label)
+  }
+
+  /**
+   * Submit the form
+   */
+  submit(buttonText = 'Continue'): void {
+    this.saveButton(buttonText).click()
   }
 }

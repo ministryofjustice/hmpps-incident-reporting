@@ -19,8 +19,4 @@ export default class DetailsPage extends FormWizardPage {
   enterDescription(description: string): void {
     this.textareaInput('description').clear().type(description)
   }
-
-  submit(): void {
-    this.saveButton('Continue').click()
-  }
 }

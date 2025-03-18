@@ -11,7 +11,7 @@ import type {
   ChangeStatusRequest,
   ChangeTypeRequest,
 } from '../../server/data/incidentReportingApi'
-import { defaultPageSize } from '../../server/data/incidentReportingApi'
+import { RelatedObjectUrlSlug, defaultPageSize } from '../../server/data/incidentReportingApi'
 
 export default {
   stubIncidentReportingApiGetReports: ({
@@ -175,6 +175,97 @@ export default {
         status: 200,
         headers: { 'Content-Type': 'application/json;charset=UTF-8' },
         jsonBody: report,
+      },
+    }),
+
+  stubIncidentReportingApiListRelatedObjects: ({
+    urlSlug,
+    reportId,
+    response,
+  }: {
+    urlSlug: RelatedObjectUrlSlug
+    reportId: string
+    response: unknown
+  }) =>
+    stubFor({
+      request: {
+        method: 'GET',
+        urlPath: `/incidentReportingApi/incident-reports/${reportId}/${urlSlug}`,
+      },
+      response: {
+        status: 200,
+        headers: { 'Content-Type': 'application/json;charset=UTF-8' },
+        jsonBody: response,
+      },
+    }),
+  stubIncidentReportingApiCreateRelatedObject: ({
+    urlSlug,
+    reportId,
+    request,
+    response,
+  }: {
+    urlSlug: RelatedObjectUrlSlug
+    reportId: string
+    request: unknown
+    response: unknown
+  }) =>
+    stubFor({
+      request: {
+        method: 'POST',
+        urlPath: `/incidentReportingApi/incident-reports/${reportId}/${urlSlug}`,
+        bodyPatterns: [{ equalToJson: request }],
+      },
+      response: {
+        status: 201,
+        headers: { 'Content-Type': 'application/json;charset=UTF-8' },
+        jsonBody: response,
+      },
+    }),
+  stubIncidentReportingApiUpdateRelatedObject: ({
+    urlSlug,
+    reportId,
+    index,
+    request,
+    response,
+  }: {
+    urlSlug: RelatedObjectUrlSlug
+    reportId: string
+    index: number
+    request: unknown
+    response: unknown
+  }) =>
+    stubFor({
+      request: {
+        method: 'PATCH',
+        urlPath: `/incidentReportingApi/incident-reports/${reportId}/${urlSlug}/${index}`,
+        bodyPatterns: [{ equalToJson: request }],
+      },
+      response: {
+        status: 200,
+        headers: { 'Content-Type': 'application/json;charset=UTF-8' },
+        jsonBody: response,
+      },
+    }),
+  stubIncidentReportingApiDeleteRelatedObject: ({
+    urlSlug,
+    reportId,
+    index,
+    response,
+  }: {
+    urlSlug: RelatedObjectUrlSlug
+    reportId: string
+    index: number
+    response: unknown
+  }) =>
+    stubFor({
+      request: {
+        method: 'DELETE',
+        urlPath: `/incidentReportingApi/incident-reports/${reportId}/${urlSlug}/${index}`,
+      },
+      response: {
+        status: 200,
+        headers: { 'Content-Type': 'application/json;charset=UTF-8' },
+        jsonBody: response,
       },
     }),
 

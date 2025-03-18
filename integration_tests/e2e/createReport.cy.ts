@@ -1,5 +1,4 @@
 import { mockReport } from '../../server/data/testData/incidentReporting'
-import { andrew, barry } from '../../server/data/testData/offenderSearch'
 import HomePage from '../pages/home'
 import Page from '../pages/page'
 import TypePage from '../pages/reports/type'
@@ -54,11 +53,8 @@ context('Creating a new report', () => {
       },
       report: reportWithDetails,
     })
-    // stub lookups from next page, the report view
+    // stub lookups from next page, adding a prisoner
     cy.task('stubIncidentReportingApiGetReportWithDetailsById', { report: reportWithDetails })
-    cy.task('stubOffenderSearchByNumber', [andrew, barry])
-    cy.task('stubPrisonApiMockPrisons')
-    cy.task('stubManageKnownUsers')
 
     detailsPage.submit()
     Page.verifyOnPage(PrisonerInvolvementsPage, false)

@@ -23,7 +23,7 @@ context('Add prisoner involvement page', () => {
       comment: '',
     },
   ]
-  reportWithDetails.prisonerInvolvementDone = false
+  reportWithDetails.prisonerInvolvementDone = true
   reportWithDetails.staffInvolved = []
   reportWithDetails.staffInvolvementDone = false
   reportWithDetails.questions = []
@@ -46,7 +46,7 @@ context('Add prisoner involvement page', () => {
   })
 
   it('should list roles that are allowed for this incident type', () => {
-    addPrisonerInvolvementsPage.radioButtonChoices.then(choices => {
+    addPrisonerInvolvementsPage.roleChoices.then(choices => {
       expect(choices).to.deep.equal([
         {
           label: 'Active involvement',
@@ -94,9 +94,9 @@ context('Add prisoner involvement page', () => {
         outcome: null,
         comment: 'Was there',
       },
-      response: reportWithDetails.prisonersInvolved,
+      response: reportWithDetails.prisonersInvolved, // technically, missing new person
     })
-    addPrisonerInvolvementsPage.selectType('ACTIVE_INVOLVEMENT')
+    addPrisonerInvolvementsPage.selectRole('ACTIVE_INVOLVEMENT')
     addPrisonerInvolvementsPage.enterComment('Was there')
     addPrisonerInvolvementsPage.submit()
 
@@ -115,9 +115,9 @@ context('Add prisoner involvement page', () => {
         outcome: null,
         comment: '',
       },
-      response: reportWithDetails.prisonersInvolved,
+      response: reportWithDetails.prisonersInvolved, // technically, missing new person
     })
-    addPrisonerInvolvementsPage.selectType('SUSPECTED_INVOLVED')
+    addPrisonerInvolvementsPage.selectRole('SUSPECTED_INVOLVED')
     addPrisonerInvolvementsPage.submit()
 
     Page.verifyOnPage(PrisonerInvolvementsPage)

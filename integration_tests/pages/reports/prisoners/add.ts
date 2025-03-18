@@ -9,11 +9,11 @@ export default class AddPrisonerInvolvementsPage extends FormWizardPage {
     super(`${whose} involvement in the incident`)
   }
 
-  get radioButtonChoices() {
+  get roleChoices() {
     return this.radioOrCheckboxOptions('prisonerRole')
   }
 
-  selectType(prisonerRole: PrisonerInvolvementRole) {
+  selectRole(prisonerRole: PrisonerInvolvementRole) {
     this.radioOrCheckboxButton('prisonerRole', getPrisonerInvolvementRoleDetails(prisonerRole).description).click()
   }
 

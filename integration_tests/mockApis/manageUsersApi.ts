@@ -47,6 +47,21 @@ export default {
       ),
     ),
 
+  stubManageKnownPrisonUser: (user: UsersSearchResult): SuperAgentRequest =>
+    stubFor({
+      request: {
+        method: 'GET',
+        urlPath: `/manage-users-api/prisonusers/${encodeURIComponent(user.username)}`,
+      },
+      response: {
+        status: 200,
+        headers: {
+          'Content-Type': 'application/json;charset=UTF-8',
+        },
+        jsonBody: user,
+      },
+    }),
+
   /** Search users */
   stubSearchUsers: ({
     query,

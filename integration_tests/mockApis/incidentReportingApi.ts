@@ -25,7 +25,9 @@ export default {
       request: {
         method: 'GET',
         urlPath: '/incidentReportingApi/incident-reports',
-        queryParameters: request,
+        queryParameters: Object.fromEntries(
+          Object.entries(request).map(([key, value]) => [key, { equalTo: value.toString() }]),
+        ),
       },
       response: {
         status: 200,

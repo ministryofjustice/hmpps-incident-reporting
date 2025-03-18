@@ -62,10 +62,10 @@ export default {
         method: 'GET',
         urlPath: '/manage-users-api/prisonusers/search',
         queryParameters: {
-          nameFilter: query,
-          status: 'ACTIVE',
-          size: ManageUsersApiClient.PAGE_SIZE,
-          page,
+          nameFilter: { equalTo: query },
+          status: { equalTo: 'ACTIVE' },
+          size: { equalTo: ManageUsersApiClient.PAGE_SIZE.toString() },
+          page: { equalTo: page.toString() },
         },
       },
       response: {

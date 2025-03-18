@@ -74,32 +74,27 @@ context('Prisoner search page', () => {
       })
 
       it('should show results table', () => {
-        prisonerSearchPage.tableContents.then(tableContents => {
-          expect(tableContents).to.have.lengthOf(2)
+        prisonerSearchPage.tableContents.then(rows => {
+          expect(rows).to.have.lengthOf(2)
+          const [row1, row2] = rows
 
-          expect(tableContents[0]).to.contain({
+          expect(row1).to.contain({
             name: 'Andrew Arnold',
             prisonerNumber: 'A1111AA',
             establishment: 'Moorland (HMP & YOI)',
           })
-          expect(tableContents[0].photo).to.have.attr('src', '/prisoner/A1111AA/photo.jpeg')
-          expect(tableContents[0].actionLink).to.contain('Select Andrew Arnold')
-          expect(tableContents[0].actionLink).to.have.attr(
-            'href',
-            `/reports/${reportWithDetails.id}/prisoners/add/A1111AA`,
-          )
+          expect(row1.photo).to.have.attr('src', '/prisoner/A1111AA/photo.jpeg')
+          expect(row1.actionLink).to.contain('Select Andrew Arnold')
+          expect(row1.actionLink).to.have.attr('href', `/reports/${reportWithDetails.id}/prisoners/add/A1111AA`)
 
-          expect(tableContents[1]).to.contain({
+          expect(row2).to.contain({
             name: 'Barry Benjamin',
             prisonerNumber: 'A2222BB',
             establishment: 'Moorland (HMP & YOI)',
           })
-          expect(tableContents[1].photo).to.have.attr('src', '/prisoner/A2222BB/photo.jpeg')
-          expect(tableContents[1].actionLink).to.contain('Select Barry Benjamin')
-          expect(tableContents[1].actionLink).to.have.attr(
-            'href',
-            `/reports/${reportWithDetails.id}/prisoners/add/A2222BB`,
-          )
+          expect(row2.photo).to.have.attr('src', '/prisoner/A2222BB/photo.jpeg')
+          expect(row2.actionLink).to.contain('Select Barry Benjamin')
+          expect(row2.actionLink).to.have.attr('href', `/reports/${reportWithDetails.id}/prisoners/add/A2222BB`)
         })
       })
     })
@@ -136,20 +131,18 @@ context('Prisoner search page', () => {
       })
 
       it('should show results table', () => {
-        prisonerSearchPage.tableContents.then(tableContents => {
-          expect(tableContents).to.have.lengthOf(1)
+        prisonerSearchPage.tableContents.then(rows => {
+          expect(rows).to.have.lengthOf(1)
+          const [row1] = rows
 
-          expect(tableContents[0]).to.contain({
+          expect(row1).to.contain({
             name: 'Andrew Arnold',
             prisonerNumber: 'A1111AA',
             establishment: 'Moorland (HMP & YOI)',
           })
-          expect(tableContents[0].photo).to.have.attr('src', '/prisoner/A1111AA/photo.jpeg')
-          expect(tableContents[0].actionLink).to.contain('Select Andrew Arnold')
-          expect(tableContents[0].actionLink).to.have.attr(
-            'href',
-            `/reports/${reportWithDetails.id}/prisoners/add/A1111AA`,
-          )
+          expect(row1.photo).to.have.attr('src', '/prisoner/A1111AA/photo.jpeg')
+          expect(row1.actionLink).to.contain('Select Andrew Arnold')
+          expect(row1.actionLink).to.have.attr('href', `/reports/${reportWithDetails.id}/prisoners/add/A1111AA`)
         })
       })
     })

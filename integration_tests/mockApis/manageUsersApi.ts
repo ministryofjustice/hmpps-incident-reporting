@@ -1,7 +1,7 @@
 import type { Response as SuperAgentResponse, SuperAgentRequest } from 'superagent'
 
 import { stubFor } from './wiremock'
-import { mockUser, mockSharedUser } from '../../server/data/testData/manageUsers'
+import { mockUser, mockSharedUser, mockPrisonUserSearchResult } from '../../server/data/testData/manageUsers'
 import { staffBarry, staffMary } from '../../server/data/testData/prisonApi'
 import ManageUsersApiClient, {
   type UsersSearchResponse,
@@ -48,7 +48,15 @@ export default {
     ),
 
   /** Search users */
-  stubSearchUsers: (query: string, results: UsersSearchResult[], page = 0): SuperAgentRequest => {
+  stubSearchUsers: ({
+    query,
+    results = [mockPrisonUserSearchResult],
+    page = 0,
+  }: {
+    query: string
+    results?: UsersSearchResult[]
+    page?: number
+  }): SuperAgentRequest => {
     const response: UsersSearchResponse = {
       content: results,
       number: page,

@@ -195,38 +195,33 @@ context('Prisoner involvements page', () => {
     })
 
     it('should show a table', () => {
-      prisonerInvolvementsPage.tableContents.then(tableContents => {
-        expect(tableContents).to.have.lengthOf(2)
+      prisonerInvolvementsPage.tableContents.then(rows => {
+        expect(rows).to.have.lengthOf(2)
+        const [row1, row2] = rows
 
-        expect(tableContents[0]).to.contain({
+        expect(row1).to.contain({
           prisoner: 'A1111AA: Andrew Arnold',
           role: 'Impeded staff',
           outcome: null,
           details: 'Some comments',
         })
-        expect(tableContents[0].actionLinks).to.have.lengthOf(2)
-        expect(tableContents[0].actionLinks[0]).to.contain('Remove')
-        expect(tableContents[0].actionLinks[0]).to.have.attr(
-          'href',
-          `/reports/${reportWithDetails.id}/prisoners/remove/1`,
-        )
-        expect(tableContents[0].actionLinks[1]).to.contain('Edit')
-        expect(tableContents[0].actionLinks[1]).to.have.attr('href', `/reports/${reportWithDetails.id}/prisoners/1`)
+        expect(row1.actionLinks).to.have.lengthOf(2)
+        expect(row1.actionLinks[0]).to.contain('Remove')
+        expect(row1.actionLinks[0]).to.have.attr('href', `/reports/${reportWithDetails.id}/prisoners/remove/1`)
+        expect(row1.actionLinks[1]).to.contain('Edit')
+        expect(row1.actionLinks[1]).to.have.attr('href', `/reports/${reportWithDetails.id}/prisoners/1`)
 
-        expect(tableContents[1]).to.contain({
+        expect(row2).to.contain({
           prisoner: 'A2222BB: Barry Benjamin',
           role: 'Escapee',
           outcome: null,
           details: 'Matter being handled by police',
         })
-        expect(tableContents[1].actionLinks).to.have.lengthOf(2)
-        expect(tableContents[1].actionLinks[0]).to.contain('Remove')
-        expect(tableContents[1].actionLinks[0]).to.have.attr(
-          'href',
-          `/reports/${reportWithDetails.id}/prisoners/remove/2`,
-        )
-        expect(tableContents[1].actionLinks[1]).to.contain('Edit')
-        expect(tableContents[1].actionLinks[1]).to.have.attr('href', `/reports/${reportWithDetails.id}/prisoners/2`)
+        expect(row2.actionLinks).to.have.lengthOf(2)
+        expect(row2.actionLinks[0]).to.contain('Remove')
+        expect(row2.actionLinks[0]).to.have.attr('href', `/reports/${reportWithDetails.id}/prisoners/remove/2`)
+        expect(row2.actionLinks[1]).to.contain('Edit')
+        expect(row2.actionLinks[1]).to.have.attr('href', `/reports/${reportWithDetails.id}/prisoners/2`)
       })
     })
   })

@@ -5,6 +5,7 @@ import { moorland, staffBarry, staffMary } from '../../server/data/testData/pris
 import Page from '../pages/page'
 import StaffInvolvementsPage from '../pages/reports/staff/involvements'
 import AddStaffInvolvementsPage from '../pages/reports/staff/add'
+import ManualStaffEntryPage from '../pages/reports/staff/manual'
 
 context('Add staff involvement page', () => {
   const now = new Date()
@@ -36,22 +37,13 @@ context('Add staff involvement page', () => {
 
     cy.signIn()
     cy.task('stubIncidentReportingApiGetReportWithDetailsById', { report: reportWithDetails })
-    cy.task('stubManageKnownPrisonUser', {
-      username: staffMary.username,
-      firstName: staffMary.firstName,
-      lastName: staffMary.lastName,
-      email: 'mary@dps.local',
-      activeCaseload: { id: 'MDI', name: moorland.description },
-    } satisfies UsersSearchResult)
-    cy.visit(`/reports/${reportWithDetails.id}/staff/add/username/${staffMary.username}`)
-    addStaffInvolvementsPage = Page.verifyOnPage(AddStaffInvolvementsPage, 'Mary Johnson', 'Mary Johnson’s')
   })
 
-  it('should have back link point to involvements page', () => {
+  const checkBackLink = () => {
     addStaffInvolvementsPage.checkBackLink(`/reports/${reportWithDetails.id}/staff`)
-  })
+  }
 
-  it('should list roles that are allowed for this incident type', () => {
+  const checkRoleChoices = () => {
     // TODO: for now, all types allow all roles
     addStaffInvolvementsPage.roleChoices.then(choices => {
       expect(choices).to.deep.equal([
@@ -142,51 +134,119 @@ context('Add staff involvement page', () => {
         },
       ])
     })
-  })
+  }
 
-  it('should save selected role and comment', () => {
-    cy.task('stubIncidentReportingApiCreateRelatedObject', {
-      urlSlug: RelatedObjectUrlSlug.staffInvolved,
-      reportId: reportWithDetails.id,
-      request: {
-        staffUsername: 'abc12a',
-        firstName: 'MARY',
-        lastName: 'JOHNSON',
-        staffRole: 'PRESENT_AT_SCENE',
-        comment: 'Was there',
-      },
-      response: reportWithDetails.staffInvolved, // technically, missing new person
+  context('when they are a DPS/NOMIS user', () => {
+    beforeEach(() => {
+      cy.task('stubManageKnownPrisonUser', {
+        username: staffMary.username,
+        firstName: staffMary.firstName,
+        lastName: staffMary.lastName,
+        email: 'mary@dps.local',
+        activeCaseload: { id: 'MDI', name: moorland.description },
+      } satisfies UsersSearchResult)
+      cy.visit(`/reports/${reportWithDetails.id}/staff/add/username/${staffMary.username}`)
+      addStaffInvolvementsPage = Page.verifyOnPage(AddStaffInvolvementsPage, 'Mary Johnson', 'Mary Johnson’s')
     })
-    addStaffInvolvementsPage.selectRole('PRESENT_AT_SCENE')
-    addStaffInvolvementsPage.enterComment('Was there')
-    addStaffInvolvementsPage.submit()
 
-    Page.verifyOnPage(StaffInvolvementsPage)
-  })
+    it('should have back link point to involvements page', checkBackLink)
 
-  it('should save selected role and empty comment', () => {
-    cy.task('stubIncidentReportingApiCreateRelatedObject', {
-      urlSlug: RelatedObjectUrlSlug.staffInvolved,
-      reportId: reportWithDetails.id,
-      request: {
-        staffUsername: 'abc12a',
-        firstName: 'MARY',
-        lastName: 'JOHNSON',
-        staffRole: 'NEGOTIATOR',
-        comment: '',
-      },
-      response: reportWithDetails.staffInvolved, // technically, missing new person
+    it('should list roles that are allowed for this incident type', checkRoleChoices)
+
+    it('should save selected role and comment', () => {
+      cy.task('stubIncidentReportingApiCreateRelatedObject', {
+        urlSlug: RelatedObjectUrlSlug.staffInvolved,
+        reportId: reportWithDetails.id,
+        request: {
+          staffUsername: 'abc12a',
+          firstName: 'MARY',
+          lastName: 'JOHNSON',
+          staffRole: 'PRESENT_AT_SCENE',
+          comment: 'Was there',
+        },
+        response: reportWithDetails.staffInvolved, // technically, missing new person
+      })
+      addStaffInvolvementsPage.selectRole('PRESENT_AT_SCENE')
+      addStaffInvolvementsPage.enterComment('Was there')
+      addStaffInvolvementsPage.submit()
+
+      Page.verifyOnPage(StaffInvolvementsPage)
     })
-    addStaffInvolvementsPage.selectRole('NEGOTIATOR')
-    addStaffInvolvementsPage.submit()
 
-    Page.verifyOnPage(StaffInvolvementsPage)
+    it('should save selected role and empty comment', () => {
+      cy.task('stubIncidentReportingApiCreateRelatedObject', {
+        urlSlug: RelatedObjectUrlSlug.staffInvolved,
+        reportId: reportWithDetails.id,
+        request: {
+          staffUsername: 'abc12a',
+          firstName: 'MARY',
+          lastName: 'JOHNSON',
+          staffRole: 'NEGOTIATOR',
+          comment: '',
+        },
+        response: reportWithDetails.staffInvolved, // technically, missing new person
+      })
+      addStaffInvolvementsPage.selectRole('NEGOTIATOR')
+      addStaffInvolvementsPage.submit()
+
+      Page.verifyOnPage(StaffInvolvementsPage)
+    })
+
+    it('should show errors if information is missing', () => {
+      addStaffInvolvementsPage.enterComment('Some comments')
+      addStaffInvolvementsPage.submit()
+      addStaffInvolvementsPage.errorSummary.contains('There is a problem')
+      Page.verifyOnPage(AddStaffInvolvementsPage, 'Mary Johnson', 'Mary Johnson’s')
+    })
   })
 
-  it('should show errors if information is missing', () => {
-    addStaffInvolvementsPage.enterComment('Some comments')
-    addStaffInvolvementsPage.submit()
-    addStaffInvolvementsPage.errorSummary.contains('There is a problem')
-    Page.verifyOnPage(AddStaffInvolvementsPage, 'Mary Johnson', 'Mary Johnson’s')
+  context('when they are not a DPS/NOMIS user', () => {
+    let manualStaffEntryPage: ManualStaffEntryPage
+
+    beforeEach(() => {
+      cy.visit(`/reports/${reportWithDetails.id}/staff/add/manual`)
+      manualStaffEntryPage = Page.verifyOnPage(ManualStaffEntryPage)
+    })
+
+    it('should have back link point to involvements page', () => {
+      manualStaffEntryPage.checkBackLink(`/reports/${reportWithDetails.id}/staff`)
+    })
+
+    it('should show errors if information is missing', () => {
+      manualStaffEntryPage.enterLastName('Johnson')
+      manualStaffEntryPage.submit()
+      manualStaffEntryPage.errorSummary.contains('There is a problem')
+      Page.verifyOnPage(ManualStaffEntryPage)
+    })
+
+    it('should allow manually entering first and last name', () => {
+      manualStaffEntryPage.enterFirstName('Mary')
+      manualStaffEntryPage.enterLastName('Johnson')
+      manualStaffEntryPage.submit()
+
+      addStaffInvolvementsPage = Page.verifyOnPage(AddStaffInvolvementsPage, 'Mary Johnson', 'Mary Johnson’s')
+      cy.url().should('contain', `/reports/${reportWithDetails.id}/staff/add/manual/details`)
+
+      checkBackLink()
+      checkRoleChoices()
+
+      cy.task('stubIncidentReportingApiCreateRelatedObject', {
+        urlSlug: RelatedObjectUrlSlug.staffInvolved,
+        reportId: reportWithDetails.id,
+        request: {
+          staffUsername: null,
+          firstName: 'Mary',
+          lastName: 'Johnson',
+          staffRole: 'PRESENT_AT_SCENE',
+          comment: 'Was there',
+        },
+        response: reportWithDetails.staffInvolved, // technically, missing new person
+      })
+      addStaffInvolvementsPage.selectRole('PRESENT_AT_SCENE')
+      addStaffInvolvementsPage.enterComment('Was there')
+      addStaffInvolvementsPage.submit()
+
+      Page.verifyOnPage(StaffInvolvementsPage)
+    })
   })
 })

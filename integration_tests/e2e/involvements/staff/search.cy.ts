@@ -1,8 +1,8 @@
-import { mockReport } from '../../server/data/testData/incidentReporting'
-import { staffMary, staffBarry, moorland } from '../../server/data/testData/prisonApi'
-import Page from '../pages/page'
-import StaffSearchPage from '../pages/reports/staff/search'
-import { UsersSearchResult } from '../../server/data/manageUsersApiClient'
+import type { UsersSearchResult } from '../../../../server/data/manageUsersApiClient'
+import { mockReport } from '../../../../server/data/testData/incidentReporting'
+import { staffMary, staffBarry, moorland } from '../../../../server/data/testData/prisonApi'
+import Page from '../../../pages/page'
+import { StaffSearchPage } from '../../../pages/reports/involvements/staff'
 
 context('Staff search page', () => {
   const now = new Date()

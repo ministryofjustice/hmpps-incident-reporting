@@ -1,9 +1,8 @@
-import { RelatedObjectUrlSlug } from '../../server/data/incidentReportingApi'
-import { mockReport } from '../../server/data/testData/incidentReporting'
-import { andrew, barry } from '../../server/data/testData/offenderSearch'
-import Page from '../pages/page'
-import PrisonerInvolvementsPage from '../pages/reports/prisoners/involvements'
-import AddPrisonerInvolvementsPage from '../pages/reports/prisoners/add'
+import { RelatedObjectUrlSlug } from '../../../../server/data/incidentReportingApi'
+import { mockReport } from '../../../../server/data/testData/incidentReporting'
+import { andrew, barry } from '../../../../server/data/testData/offenderSearch'
+import Page from '../../../pages/page'
+import { AddPrisonerInvolvementsPage, PrisonerInvolvementsPage } from '../../../pages/reports/involvements/prisoners'
 
 context('Add prisoner involvement page', () => {
   const now = new Date()

@@ -1,11 +1,10 @@
-import { mockReport } from '../../server/data/testData/incidentReporting'
-import { staffMary, staffBarry } from '../../server/data/testData/prisonApi'
-import Page from '../pages/page'
-import StaffInvolvementsPage from '../pages/reports/staff/involvements'
-import StaffSearchPage from '../pages/reports/staff/search'
-import ReportPage from '../pages/reports/report'
+import { mockReport } from '../../../../server/data/testData/incidentReporting'
+import { andrew, barry } from '../../../../server/data/testData/offenderSearch'
+import Page from '../../../pages/page'
+import { PrisonerInvolvementsPage, PrisonerSearchPage } from '../../../pages/reports/involvements/prisoners'
+import ReportPage from '../../../pages/reports/report'
 
-context('Staff involvements page', () => {
+context('Prisoner involvements page', () => {
   const now = new Date()
   const reportWithDetails = mockReport({
     type: 'MISCELLANEOUS',
@@ -13,12 +12,12 @@ context('Staff involvements page', () => {
     reportDateAndTime: now,
     withDetails: true,
   })
-  reportWithDetails.prisonersInvolved = []
-  reportWithDetails.prisonerInvolvementDone = false
+  reportWithDetails.staffInvolved = []
+  reportWithDetails.staffInvolvementDone = false
   reportWithDetails.questions = []
   reportWithDetails.correctionRequests = []
 
-  let staffInvolvementsPage: StaffInvolvementsPage
+  let prisonerInvolvementsPage: PrisonerInvolvementsPage
 
   beforeEach(() => {
     cy.resetBasicStubs()
@@ -28,20 +27,20 @@ context('Staff involvements page', () => {
 
   context('before anyone has been added', () => {
     beforeEach(() => {
-      reportWithDetails.staffInvolved = []
-      reportWithDetails.staffInvolvementDone = false
+      reportWithDetails.prisonersInvolved = []
+      reportWithDetails.prisonerInvolvementDone = false
 
       cy.task('stubIncidentReportingApiGetReportWithDetailsById', { report: reportWithDetails })
-      cy.visit(`/reports/${reportWithDetails.id}/staff`)
-      staffInvolvementsPage = Page.verifyOnPage(StaffInvolvementsPage, false)
+      cy.visit(`/reports/${reportWithDetails.id}/prisoners`)
+      prisonerInvolvementsPage = Page.verifyOnPage(PrisonerInvolvementsPage, false)
     })
 
     it('should have back link point to report', () => {
-      staffInvolvementsPage.checkBackLink(`/reports/${reportWithDetails.id}`)
+      prisonerInvolvementsPage.checkBackLink(`/reports/${reportWithDetails.id}`)
     })
 
     it('should show 3 options for what can be done next', () => {
-      staffInvolvementsPage.radioButtonChoices.then(choices => {
+      prisonerInvolvementsPage.radioButtonChoices.then(choices => {
         expect(choices).to.deep.equal([
           { label: 'Yes', value: 'yes', checked: false },
           { label: 'No', value: 'no', checked: false },
@@ -52,15 +51,15 @@ context('Staff involvements page', () => {
 
     it('should return to report if no is chosen', () => {
       cy.task('stubIncidentReportingApiUpdateReport', {
-        request: { staffInvolvementDone: true },
+        request: { prisonerInvolvementDone: true },
         report: reportWithDetails,
       })
 
       cy.task('stubIncidentReportingApiGetReportById', { report: reportWithDetails })
       cy.task('stubPrisonApiMockPrisons')
 
-      staffInvolvementsPage.selectRadioButton('No')
-      staffInvolvementsPage.submit()
+      prisonerInvolvementsPage.selectRadioButton('No')
+      prisonerInvolvementsPage.submit()
 
       Page.verifyOnPage(ReportPage, reportWithDetails.reportReference, true)
     })
@@ -69,40 +68,40 @@ context('Staff involvements page', () => {
       cy.task('stubIncidentReportingApiGetReportById', { report: reportWithDetails })
       cy.task('stubPrisonApiMockPrisons')
 
-      staffInvolvementsPage.selectRadioButton('Skip for now')
-      staffInvolvementsPage.submit()
+      prisonerInvolvementsPage.selectRadioButton('Skip for now')
+      prisonerInvolvementsPage.submit()
 
       Page.verifyOnPage(ReportPage, reportWithDetails.reportReference, true)
     })
 
     it('should go to search page if yes is chosen', () => {
-      staffInvolvementsPage.selectRadioButton('Yes')
-      staffInvolvementsPage.submit()
+      prisonerInvolvementsPage.selectRadioButton('Yes')
+      prisonerInvolvementsPage.submit()
 
-      Page.verifyOnPage(StaffSearchPage)
+      Page.verifyOnPage(PrisonerSearchPage)
     })
 
     it('should not show a table', () => {
-      staffInvolvementsPage.showsNoTable()
+      prisonerInvolvementsPage.showsNoTable()
     })
   })
 
   context('if user chose to add nobody', () => {
     beforeEach(() => {
-      reportWithDetails.staffInvolved = []
-      reportWithDetails.staffInvolvementDone = true
+      reportWithDetails.prisonersInvolved = []
+      reportWithDetails.prisonerInvolvementDone = true
 
       cy.task('stubIncidentReportingApiGetReportWithDetailsById', { report: reportWithDetails })
-      cy.visit(`/reports/${reportWithDetails.id}/staff`)
-      staffInvolvementsPage = Page.verifyOnPage(StaffInvolvementsPage)
+      cy.visit(`/reports/${reportWithDetails.id}/prisoners`)
+      prisonerInvolvementsPage = Page.verifyOnPage(PrisonerInvolvementsPage)
     })
 
     it('should have back link point to report', () => {
-      staffInvolvementsPage.checkBackLink(`/reports/${reportWithDetails.id}`)
+      prisonerInvolvementsPage.checkBackLink(`/reports/${reportWithDetails.id}`)
     })
 
     it('should show 2 options for what can be done next', () => {
-      staffInvolvementsPage.radioButtonChoices.then(choices => {
+      prisonerInvolvementsPage.radioButtonChoices.then(choices => {
         expect(choices).to.deep.equal([
           { label: 'Yes', value: 'yes', checked: false },
           { label: 'No', value: 'no', checked: false },
@@ -112,62 +111,64 @@ context('Staff involvements page', () => {
 
     it('should return to report if no is chosen', () => {
       cy.task('stubIncidentReportingApiUpdateReport', {
-        request: { staffInvolvementDone: true },
+        request: { prisonerInvolvementDone: true },
         report: reportWithDetails,
       })
 
       cy.task('stubIncidentReportingApiGetReportById', { report: reportWithDetails })
       cy.task('stubPrisonApiMockPrisons')
 
-      staffInvolvementsPage.selectRadioButton('No')
-      staffInvolvementsPage.submit()
+      prisonerInvolvementsPage.selectRadioButton('No')
+      prisonerInvolvementsPage.submit()
 
       Page.verifyOnPage(ReportPage, reportWithDetails.reportReference, true)
     })
 
     it('should go to search page if yes is chosen', () => {
-      staffInvolvementsPage.selectRadioButton('Yes')
-      staffInvolvementsPage.submit()
+      prisonerInvolvementsPage.selectRadioButton('Yes')
+      prisonerInvolvementsPage.submit()
 
-      Page.verifyOnPage(StaffSearchPage)
+      Page.verifyOnPage(PrisonerSearchPage)
     })
 
     it('should not show a table', () => {
-      staffInvolvementsPage.showsNoTable()
+      prisonerInvolvementsPage.showsNoTable()
     })
   })
 
   context('if people were added', () => {
     beforeEach(() => {
-      reportWithDetails.staffInvolved = [
+      reportWithDetails.prisonersInvolved = [
         {
-          staffUsername: staffMary.username,
-          firstName: staffMary.firstName,
-          lastName: staffMary.lastName,
-          staffRole: 'NEGOTIATOR',
-          comment: 'See duty log',
+          prisonerNumber: andrew.prisonerNumber,
+          firstName: andrew.firstName,
+          lastName: andrew.lastName,
+          prisonerRole: 'IMPEDED_STAFF',
+          outcome: 'LOCAL_INVESTIGATION',
+          comment: 'Some comments',
         },
         {
-          staffUsername: staffBarry.username,
-          firstName: staffBarry.firstName,
-          lastName: staffBarry.lastName,
-          staffRole: 'WITNESS',
-          comment: 'See duty log addendum',
+          prisonerNumber: barry.prisonerNumber,
+          firstName: barry.firstName,
+          lastName: barry.lastName,
+          prisonerRole: 'ESCAPE',
+          outcome: 'POLICE_INVESTIGATION',
+          comment: 'Matter being handled by police',
         },
       ]
-      reportWithDetails.staffInvolvementDone = true
+      reportWithDetails.prisonerInvolvementDone = true
 
       cy.task('stubIncidentReportingApiGetReportWithDetailsById', { report: reportWithDetails })
-      cy.visit(`/reports/${reportWithDetails.id}/staff`)
-      staffInvolvementsPage = Page.verifyOnPage(StaffInvolvementsPage)
+      cy.visit(`/reports/${reportWithDetails.id}/prisoners`)
+      prisonerInvolvementsPage = Page.verifyOnPage(PrisonerInvolvementsPage)
     })
 
     it('should have back link point to report', () => {
-      staffInvolvementsPage.checkBackLink(`/reports/${reportWithDetails.id}`)
+      prisonerInvolvementsPage.checkBackLink(`/reports/${reportWithDetails.id}`)
     })
 
     it('should show 2 options for what can be done next', () => {
-      staffInvolvementsPage.radioButtonChoices.then(choices => {
+      prisonerInvolvementsPage.radioButtonChoices.then(choices => {
         expect(choices).to.deep.equal([
           { label: 'Yes', value: 'yes', checked: false },
           { label: 'No', value: 'no', checked: false },
@@ -179,45 +180,47 @@ context('Staff involvements page', () => {
       cy.task('stubIncidentReportingApiGetReportById', { report: reportWithDetails })
       cy.task('stubPrisonApiMockPrisons')
 
-      staffInvolvementsPage.selectRadioButton('No')
-      staffInvolvementsPage.submit()
+      prisonerInvolvementsPage.selectRadioButton('No')
+      prisonerInvolvementsPage.submit()
 
       Page.verifyOnPage(ReportPage, reportWithDetails.reportReference, true)
     })
 
     it('should go to search page if yes is chosen', () => {
-      staffInvolvementsPage.selectRadioButton('Yes')
-      staffInvolvementsPage.submit()
+      prisonerInvolvementsPage.selectRadioButton('Yes')
+      prisonerInvolvementsPage.submit()
 
-      Page.verifyOnPage(StaffSearchPage)
+      Page.verifyOnPage(PrisonerSearchPage)
     })
 
     it('should show a table', () => {
-      staffInvolvementsPage.tableContents.then(rows => {
+      prisonerInvolvementsPage.tableContents.then(rows => {
         expect(rows).to.have.lengthOf(2)
         const [row1, row2] = rows
 
         expect(row1).to.contain({
-          staff: 'Mary Johnson',
-          role: 'Negotiator',
-          details: 'See duty log',
+          prisoner: 'A1111AA: Andrew Arnold',
+          role: 'Impeded staff',
+          outcome: null,
+          details: 'Some comments',
         })
         expect(row1.actionLinks).to.have.lengthOf(2)
         expect(row1.actionLinks[0]).to.contain('Remove')
-        expect(row1.actionLinks[0]).to.have.attr('href', `/reports/${reportWithDetails.id}/staff/remove/1`)
+        expect(row1.actionLinks[0]).to.have.attr('href', `/reports/${reportWithDetails.id}/prisoners/remove/1`)
         expect(row1.actionLinks[1]).to.contain('Edit')
-        expect(row1.actionLinks[1]).to.have.attr('href', `/reports/${reportWithDetails.id}/staff/1`)
+        expect(row1.actionLinks[1]).to.have.attr('href', `/reports/${reportWithDetails.id}/prisoners/1`)
 
         expect(row2).to.contain({
-          staff: 'Barry Harrison',
-          role: 'Witness',
-          details: 'See duty log addendum',
+          prisoner: 'A2222BB: Barry Benjamin',
+          role: 'Escapee',
+          outcome: null,
+          details: 'Matter being handled by police',
         })
         expect(row2.actionLinks).to.have.lengthOf(2)
         expect(row2.actionLinks[0]).to.contain('Remove')
-        expect(row2.actionLinks[0]).to.have.attr('href', `/reports/${reportWithDetails.id}/staff/remove/2`)
+        expect(row2.actionLinks[0]).to.have.attr('href', `/reports/${reportWithDetails.id}/prisoners/remove/2`)
         expect(row2.actionLinks[1]).to.contain('Edit')
-        expect(row2.actionLinks[1]).to.have.attr('href', `/reports/${reportWithDetails.id}/staff/2`)
+        expect(row2.actionLinks[1]).to.have.attr('href', `/reports/${reportWithDetails.id}/prisoners/2`)
       })
     })
   })

@@ -1,11 +1,13 @@
-import { RelatedObjectUrlSlug } from '../../server/data/incidentReportingApi'
-import type { UsersSearchResult } from '../../server/data/manageUsersApiClient'
-import { mockReport } from '../../server/data/testData/incidentReporting'
-import { moorland, staffBarry, staffMary } from '../../server/data/testData/prisonApi'
-import Page from '../pages/page'
-import StaffInvolvementsPage from '../pages/reports/staff/involvements'
-import AddStaffInvolvementsPage from '../pages/reports/staff/add'
-import ManualStaffEntryPage from '../pages/reports/staff/manual'
+import { RelatedObjectUrlSlug } from '../../../../server/data/incidentReportingApi'
+import type { UsersSearchResult } from '../../../../server/data/manageUsersApiClient'
+import { mockReport } from '../../../../server/data/testData/incidentReporting'
+import { moorland, staffBarry, staffMary } from '../../../../server/data/testData/prisonApi'
+import Page from '../../../pages/page'
+import {
+  AddStaffInvolvementsPage,
+  ManualStaffEntryPage,
+  StaffInvolvementsPage,
+} from '../../../pages/reports/involvements/staff'
 
 context('Add staff involvement page', () => {
   const now = new Date()

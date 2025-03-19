@@ -1,7 +1,7 @@
-import { mockReport } from '../../server/data/testData/incidentReporting'
-import { andrew, barry } from '../../server/data/testData/offenderSearch'
-import Page from '../pages/page'
-import PrisonerSearchPage from '../pages/reports/prisoners/search'
+import { mockReport } from '../../../../server/data/testData/incidentReporting'
+import { andrew, barry } from '../../../../server/data/testData/offenderSearch'
+import Page from '../../../pages/page'
+import { PrisonerSearchPage } from '../../../pages/reports/involvements/prisoners'
 
 context('Prisoner search page', () => {
   const now = new Date()

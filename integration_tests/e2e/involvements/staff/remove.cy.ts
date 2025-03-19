@@ -1,9 +1,8 @@
-import { RelatedObjectUrlSlug } from '../../server/data/incidentReportingApi'
-import { mockReport } from '../../server/data/testData/incidentReporting'
-import { staffBarry } from '../../server/data/testData/prisonApi'
-import Page from '../pages/page'
-import StaffInvolvementsPage from '../pages/reports/staff/involvements'
-import RemoveStaffInvolvementsPage from '../pages/reports/staff/remove'
+import { RelatedObjectUrlSlug } from '../../../../server/data/incidentReportingApi'
+import { mockReport } from '../../../../server/data/testData/incidentReporting'
+import { staffBarry } from '../../../../server/data/testData/prisonApi'
+import Page from '../../../pages/page'
+import { RemoveStaffInvolvementsPage, StaffInvolvementsPage } from '../../../pages/reports/involvements/staff'
 
 context('Remove staff involvement page', () => {
   const now = new Date()

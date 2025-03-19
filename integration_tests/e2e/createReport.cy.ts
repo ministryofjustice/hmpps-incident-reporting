@@ -3,7 +3,7 @@ import HomePage from '../pages/home'
 import Page from '../pages/page'
 import TypePage from '../pages/reports/type'
 import DetailsPage from '../pages/reports/details'
-import PrisonerInvolvementsPage from '../pages/reports/prisoners/involvements'
+import { PrisonerInvolvementsPage } from '../pages/reports/involvements/prisoners'
 
 context('Creating a new report', () => {
   const now = new Date()

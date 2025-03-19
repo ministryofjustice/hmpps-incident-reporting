@@ -1,12 +1,9 @@
-import FormWizardPage from '../../formWizard'
+import { SearchPage } from '../abstract'
 
-export default class PrisonerSearchPage extends FormWizardPage {
+// eslint-disable-next-line import/prefer-default-export
+export class PrisonerSearchPage extends SearchPage {
   constructor() {
     super('Search for a prisoner')
-  }
-
-  showsNoTable(): Cypress.Chainable<void> {
-    return cy.get<HTMLTableRowElement>('.app-involvement-search-results').should('not.exist').end()
   }
 
   get tableContents(): Cypress.Chainable<
@@ -19,7 +16,7 @@ export default class PrisonerSearchPage extends FormWizardPage {
       actionLink: HTMLAnchorElement
     }[]
   > {
-    return cy.get<HTMLTableRowElement>('table.app-involvement-search-results tbody tr.govuk-table__row').then(rows =>
+    return this.tableRows.then(rows =>
       rows
         .map((_, row) => {
           const $cells = Cypress.$(row).find('.govuk-table__cell') as unknown as JQuery<HTMLTableCellElement>

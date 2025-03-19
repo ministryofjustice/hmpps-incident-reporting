@@ -1,6 +1,7 @@
-import FormWizardPage from '../../formWizard'
+import FormWizardPage from '../../../formWizard'
 
-export default class ManualStaffEntryPage extends FormWizardPage {
+// eslint-disable-next-line import/prefer-default-export
+export class ManualStaffEntryPage extends FormWizardPage {
   constructor() {
     super('Manually add a member of staff')
   }

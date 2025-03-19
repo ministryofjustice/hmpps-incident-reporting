@@ -1,9 +1,8 @@
-import { RelatedObjectUrlSlug } from '../../server/data/incidentReportingApi'
-import { mockReport } from '../../server/data/testData/incidentReporting'
-import { barry } from '../../server/data/testData/offenderSearch'
-import Page from '../pages/page'
-import PrisonerInvolvementsPage from '../pages/reports/prisoners/involvements'
-import RemovePrisonerInvolvementsPage from '../pages/reports/prisoners/remove'
+import { RelatedObjectUrlSlug } from '../../../../server/data/incidentReportingApi'
+import { mockReport } from '../../../../server/data/testData/incidentReporting'
+import { barry } from '../../../../server/data/testData/offenderSearch'
+import Page from '../../../pages/page'
+import { PrisonerInvolvementsPage, RemovePrisonerInvolvementsPage } from '../../../pages/reports/involvements/prisoners'
 
 context('Remove prisoner involvement page', () => {
   const now = new Date()

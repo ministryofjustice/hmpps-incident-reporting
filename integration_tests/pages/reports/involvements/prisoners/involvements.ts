@@ -1,27 +1,15 @@
-import FormWizardPage from '../../formWizard'
-import type { PageElement } from '../../page'
+import { InvolvementsPage } from '../abstract'
 
-export default class PrisonerInvolvementsPage extends FormWizardPage {
+// eslint-disable-next-line import/prefer-default-export
+export class PrisonerInvolvementsPage extends InvolvementsPage {
   constructor(involvementsDone = true) {
     super(involvementsDone ? 'Prisoners involved' : 'Do you want to add a prisoner to the report?')
-  }
-
-  get radioButtonChoices() {
-    return this.radioOrCheckboxOptions('confirmAdd')
-  }
-
-  selectRadioButton(text: string) {
-    this.radioOrCheckboxButton('confirmAdd', text).click()
-  }
-
-  showsNoTable(): Cypress.Chainable<void> {
-    return cy.get<HTMLTableRowElement>('.app-involvement-table').should('not.exist').end()
   }
 
   get tableContents(): Cypress.Chainable<
     { prisoner: string; role: string; outcome: string | null; details: string; actionLinks: HTMLAnchorElement[] }[]
   > {
-    return cy.get<HTMLTableRowElement>('table.app-involvement-table tbody tr.govuk-table__row').then(rows =>
+    return this.tableRows.then(rows =>
       rows
         .map((_, row) => {
           const $cells = Cypress.$(row).find('.govuk-table__cell') as unknown as JQuery<HTMLTableCellElement>
@@ -34,13 +22,5 @@ export default class PrisonerInvolvementsPage extends FormWizardPage {
         })
         .toArray(),
     )
-  }
-
-  removeLink(index: number): PageElement<HTMLAnchorElement> {
-    return cy
-      .get<HTMLTableRowElement>('table.app-involvement-table tbody tr.govuk-table__row')
-      .eq(index)
-      .find('a')
-      .contains('Remove')
   }
 }

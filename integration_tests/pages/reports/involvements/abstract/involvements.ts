@@ -26,4 +26,12 @@ export abstract class InvolvementsPage extends FormWizardPage {
       .find('a')
       .contains('Remove')
   }
+
+  editLink(index: number): PageElement<HTMLAnchorElement> {
+    return cy
+      .get<HTMLTableRowElement>('table.app-involvement-table tbody tr.govuk-table__row')
+      .eq(index)
+      .find('a')
+      .contains('Edit')
+  }
 }

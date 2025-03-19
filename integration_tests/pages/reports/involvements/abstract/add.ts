@@ -13,7 +13,11 @@ export abstract class AddInvolvementsPage extends FormWizardPage {
     return this.radioOrCheckboxButton(this.roleFieldName, roleLabel).click()
   }
 
-  enterComment(comment: string): void {
-    this.textareaInput('comment').clear().type(comment)
+  get commentBox(): PageElement<HTMLTextAreaElement> {
+    return this.textareaInput('comment')
+  }
+
+  enterComment(comment: string): PageElement<HTMLTextAreaElement> {
+    return this.commentBox.clear().type(comment)
   }
 }

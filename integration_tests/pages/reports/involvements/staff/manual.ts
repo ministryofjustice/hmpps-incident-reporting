@@ -1,4 +1,5 @@
 import FormWizardPage from '../../../formWizard'
+import type { PageElement } from '../../../page'
 
 // eslint-disable-next-line import/prefer-default-export
 export class ManualStaffEntryPage extends FormWizardPage {
@@ -6,12 +7,12 @@ export class ManualStaffEntryPage extends FormWizardPage {
     super('Manually add a member of staff')
   }
 
-  enterFirstName(firstName: string): void {
-    this.textInput('firstName').clear().type(firstName)
+  enterFirstName(firstName: string): PageElement<HTMLInputElement> {
+    return this.textInput('firstName').clear().type(firstName)
   }
 
-  enterLastName(lastName: string): void {
-    this.textInput('lastName').clear().type(lastName)
+  enterLastName(lastName: string): PageElement<HTMLInputElement> {
+    return this.textInput('lastName').clear().type(lastName)
   }
 
   submit(buttonText = 'Add member of staff'): void {

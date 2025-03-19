@@ -19,7 +19,7 @@ context('Edit prisoner involvement page', () => {
       lastName: barry.lastName,
       prisonerRole: 'ASSISTED_STAFF',
       outcome: null,
-      comment: '',
+      comment: 'See IR781897613',
     },
   ]
   reportWithDetails.prisonerInvolvementDone = true
@@ -28,25 +28,24 @@ context('Edit prisoner involvement page', () => {
   reportWithDetails.questions = []
   reportWithDetails.correctionRequests = []
 
-  let editPrisonerInvolvementsPage: EditPrisonerInvolvementPage
+  let editPrisonerInvolvementPage: EditPrisonerInvolvementPage
 
   beforeEach(() => {
     cy.resetBasicStubs()
 
     cy.signIn()
     cy.task('stubIncidentReportingApiGetReportWithDetailsById', { report: reportWithDetails })
-    cy.task('stubOffenderSearchMockPrisoners')
     cy.visit(`/reports/${reportWithDetails.id}/prisoners`)
     Page.verifyOnPage(PrisonerInvolvementsPage).editLink(0).click()
-    editPrisonerInvolvementsPage = Page.verifyOnPage(EditPrisonerInvolvementPage, 'Barry Benjamin’s')
+    editPrisonerInvolvementPage = Page.verifyOnPage(EditPrisonerInvolvementPage, 'Barry Benjamin’s')
   })
 
   it('should have back link point to involvements page', () => {
-    editPrisonerInvolvementsPage.checkBackLink(`/reports/${reportWithDetails.id}/prisoners`)
+    editPrisonerInvolvementPage.checkBackLink(`/reports/${reportWithDetails.id}/prisoners`)
   })
 
   it('should list roles that are allowed for this incident type', () => {
-    editPrisonerInvolvementsPage.roleChoices.then(choices => {
+    editPrisonerInvolvementPage.roleChoices.then(choices => {
       expect(choices).to.deep.equal([
         {
           label: 'Active involvement',
@@ -82,6 +81,10 @@ context('Edit prisoner involvement page', () => {
     })
   })
 
+  it('should prefill existing comments', () => {
+    editPrisonerInvolvementPage.commentBox.should('contain.text', 'See IR781897613')
+  })
+
   it('should save selected role and comment', () => {
     cy.task('stubIncidentReportingApiUpdateRelatedObject', {
       urlSlug: RelatedObjectUrlSlug.prisonersInvolved,
@@ -92,11 +95,11 @@ context('Edit prisoner involvement page', () => {
         outcome: null,
         comment: 'Was there',
       },
-      response: reportWithDetails.prisonersInvolved, // technically, missing new person
+      response: reportWithDetails.prisonersInvolved, // technically, missing update
     })
-    editPrisonerInvolvementsPage.selectRole('ACTIVE_INVOLVEMENT')
-    editPrisonerInvolvementsPage.enterComment('Was there')
-    editPrisonerInvolvementsPage.submit()
+    editPrisonerInvolvementPage.selectRole('ACTIVE_INVOLVEMENT')
+    editPrisonerInvolvementPage.enterComment('Was there')
+    editPrisonerInvolvementPage.submit()
 
     Page.verifyOnPage(PrisonerInvolvementsPage)
   })
@@ -111,18 +114,19 @@ context('Edit prisoner involvement page', () => {
         outcome: null,
         comment: '',
       },
-      response: reportWithDetails.prisonersInvolved, // technically, missing new person
+      response: reportWithDetails.prisonersInvolved, // technically, missing update
     })
-    editPrisonerInvolvementsPage.selectRole('SUSPECTED_INVOLVED')
-    editPrisonerInvolvementsPage.submit()
+    editPrisonerInvolvementPage.selectRole('SUSPECTED_INVOLVED')
+    editPrisonerInvolvementPage.commentBox.clear()
+    editPrisonerInvolvementPage.submit()
 
     Page.verifyOnPage(PrisonerInvolvementsPage)
   })
 
   it('should show errors if information is missing', () => {
-    editPrisonerInvolvementsPage.enterComment('Some comments')
-    editPrisonerInvolvementsPage.submit()
-    editPrisonerInvolvementsPage.errorSummary.contains('There is a problem')
+    editPrisonerInvolvementPage.enterComment('Some comments')
+    editPrisonerInvolvementPage.submit()
+    editPrisonerInvolvementPage.errorSummary.contains('There is a problem')
     Page.verifyOnPage(EditPrisonerInvolvementPage, 'Barry Benjamin’s')
   })
 })

@@ -1,4 +1,5 @@
 import FormWizardPage from '../../formWizard'
+import type { PageElement } from '../../page'
 
 export default class StaffInvolvementsPage extends FormWizardPage {
   constructor(involvementsDone = true) {
@@ -32,5 +33,13 @@ export default class StaffInvolvementsPage extends FormWizardPage {
         })
         .toArray(),
     )
+  }
+
+  removeLink(index: number): PageElement<HTMLAnchorElement> {
+    return cy
+      .get<HTMLTableRowElement>('table.app-involvement-table tbody tr.govuk-table__row')
+      .eq(index)
+      .find('a')
+      .contains('Remove')
   }
 }

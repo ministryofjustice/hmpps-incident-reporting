@@ -44,6 +44,10 @@ export default abstract class Page {
     return cy.get('.govuk-notification-banner')
   }
 
+  noNotificationBannersShow(): Cypress.Chainable<void> {
+    return this.notificationBanner.should('not.exist').end()
+  }
+
   get notificationBannerHeader(): PageElement<HTMLDivElement> {
     return this.notificationBanner.find('.govuk-notification-banner__header')
   }

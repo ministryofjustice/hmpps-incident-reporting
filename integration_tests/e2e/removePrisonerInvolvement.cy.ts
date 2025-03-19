@@ -54,7 +54,9 @@ context('Remove prisoner involvement page', () => {
   it('should return to involvements page if cancelled', () => {
     removePrisonerInvolvementsPage.selectRadioButton('No')
     removePrisonerInvolvementsPage.submit()
-    Page.verifyOnPage(PrisonerInvolvementsPage)
+
+    const prisonerInvolvementsPage = Page.verifyOnPage(PrisonerInvolvementsPage)
+    prisonerInvolvementsPage.noNotificationBannersShow()
   })
 
   it('should delete involvement if confirmed', () => {

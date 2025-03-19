@@ -40,6 +40,26 @@ export default abstract class Page {
     return cy.get<HTMLAnchorElement>('.govuk-back-link').should('have.attr', 'href', url)
   }
 
+  get notificationBanner(): PageElement<HTMLDivElement> {
+    return cy.get('.govuk-notification-banner')
+  }
+
+  get notificationBannerHeader(): PageElement<HTMLDivElement> {
+    return this.notificationBanner.find('.govuk-notification-banner__header')
+  }
+
+  successBannerShows(): Cypress.Chainable<void> {
+    return this.notificationBannerHeader.should('contain.text', 'Success').end()
+  }
+
+  get notificationBannerContent(): PageElement<HTMLDivElement> {
+    return this.notificationBanner.find('.govuk-notification-banner__content')
+  }
+
+  checkNotificationBannerContent(content: string): PageElement<HTMLDivElement> {
+    return this.notificationBannerContent.should('contain.text', content)
+  }
+
   get errorSummary(): PageElement<HTMLDivElement> {
     return cy.get('.govuk-error-summary')
   }

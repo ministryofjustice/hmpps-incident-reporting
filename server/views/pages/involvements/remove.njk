@@ -28,7 +28,7 @@
         {{ govukRadios({
           classes: "govuk-radios--inline",
           name: "confirmRemove",
-          id: "confirmRemove",
+          attributes: { id: "confirmRemove" },
           fieldset: {
             legend: {
               text: "Are you sure you want to remove " + involvementName + "?",
@@ -36,7 +36,7 @@
               classes: "govuk-fieldset__legend--l"
             }
           },
-          idPrefix: fieldName + "-item",
+          idPrefix: "confirmRemove-item",
           items: [
             {
               value: "yes",

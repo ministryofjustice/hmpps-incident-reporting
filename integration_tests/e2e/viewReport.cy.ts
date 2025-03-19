@@ -44,7 +44,7 @@ context('View report', () => {
 
     it('should show report summary', () => {
       reportPage.summary.shouldNotHaveActionLinks()
-      reportPage.summary.getCardContents().then(rows => {
+      reportPage.summary.cardContents.then(rows => {
         expect(rows).to.have.lengthOf(3)
         const [typeRow, dateRow, descriptionRow] = rows
 
@@ -72,7 +72,7 @@ context('View report', () => {
         'Add a prisoner',
         `/reports/${reportWithDetails.id}/prisoners`,
       )
-      reportPage.prisonerInvolvements.getCardContents().then(rows => {
+      reportPage.prisonerInvolvements.cardContents.then(rows => {
         expect(rows).to.have.lengthOf(1)
         const [row] = rows
         expect(row.key).to.contain('No prisoners added')
@@ -86,7 +86,7 @@ context('View report', () => {
         'Add a member of staff',
         `/reports/${reportWithDetails.id}/staff`,
       )
-      reportPage.staffInvolvements.getCardContents().then(rows => {
+      reportPage.staffInvolvements.cardContents.then(rows => {
         expect(rows).to.have.lengthOf(1)
         const [row] = rows
         expect(row.key).to.contain('No staff added')
@@ -97,7 +97,7 @@ context('View report', () => {
 
     it('should show first unanswered question only', () => {
       reportPage.questions.shouldNotHaveActionLinks()
-      reportPage.questions.getCardContents().then(rows => {
+      reportPage.questions.cardContents.then(rows => {
         expect(rows).to.have.lengthOf(1)
         const [row] = rows
         expect(row.key).to.contain('1. What type of disorder incident was this?')
@@ -159,7 +159,7 @@ context('View report', () => {
 
     it('should show report summary', () => {
       reportPage.summary.shouldNotHaveActionLinks()
-      reportPage.summary.getCardContents().then(rows => {
+      reportPage.summary.cardContents.then(rows => {
         expect(rows).to.have.lengthOf(3)
         const [typeRow, dateRow, descriptionRow] = rows
 
@@ -183,7 +183,7 @@ context('View report', () => {
 
     it('should show prisoner inolvements', () => {
       reportPage.prisonerInvolvements.shouldHaveActionLink('Change', `/reports/${reportWithDetails.id}/prisoners`)
-      reportPage.prisonerInvolvements.getCardContents().then(rows => {
+      reportPage.prisonerInvolvements.cardContents.then(rows => {
         expect(rows).to.have.lengthOf(2)
         const [row1, row2] = rows
 
@@ -201,7 +201,7 @@ context('View report', () => {
 
     it('should show staff involvements', () => {
       reportPage.staffInvolvements.shouldHaveActionLink('Change', `/reports/${reportWithDetails.id}/staff`)
-      reportPage.staffInvolvements.getCardContents().then(rows => {
+      reportPage.staffInvolvements.cardContents.then(rows => {
         expect(rows).to.have.lengthOf(2)
         const [row1, row2] = rows
 
@@ -219,7 +219,7 @@ context('View report', () => {
 
     it('should show answered questions', () => {
       reportPage.questions.shouldNotHaveActionLinks()
-      reportPage.questions.getCardContents().then(rows => {
+      reportPage.questions.cardContents.then(rows => {
         expect(rows).to.have.lengthOf(2)
         const [row1, row2] = rows
 

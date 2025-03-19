@@ -8,6 +8,21 @@ export default abstract class FormWizardPage extends Page {
     return cy.get('form#form-wizard')
   }
 
+  /**
+   * Current form values of field name to all-value arrays
+   */
+  get formValues(): Cypress.Chainable<Record<string, string[]>> {
+    return this.form.then(form => {
+      const formElement = form.get()[0]
+      const formData = new FormData(formElement)
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+      // @ts-ignore FormData does have a keys function and it is well-supported according to MDN,
+      // but it in fact returns an Iterable which in turn does have a map function
+      const fieldNames = formData.keys() as Array<string>
+      return Object.fromEntries(fieldNames.map(fieldName => [fieldName, formData.getAll(fieldName) as string[]]))
+    })
+  }
+
   private findFormInput<T extends HTMLElement>(name: string): PageElement<T> {
     return this.form.find<T>(`[name="${name}"]`)
   }

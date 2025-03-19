@@ -29,10 +29,8 @@ export default class ReportPage extends FormWizardPage {
         return getCard()
           .find('.govuk-summary-card__actions')
           .find('a')
-          .then($link => {
-            expect($link).to.contain(text)
-            expect($link).to.have.attr('href', url)
-          })
+          .should('contain.text', text)
+          .and('have.attr', 'href', url)
           .end()
       },
 
@@ -40,7 +38,7 @@ export default class ReportPage extends FormWizardPage {
         return getCard().find('.govuk-summary-card__actions').should('not.exist').end()
       },
 
-      getCardContents(): Cypress.Chainable<{ key: string; value: string; actionLinks: HTMLAnchorElement[] }[]> {
+      get cardContents(): Cypress.Chainable<{ key: string; value: string; actionLinks: HTMLAnchorElement[] }[]> {
         return getCard()
           .find('.govuk-summary-list')
           .then($contentDiv => {
@@ -76,5 +74,17 @@ export default class ReportPage extends FormWizardPage {
   get questions() {
     // TODO: title will need to become type-specific once content is ready
     return this.checkSummaryCard('About the incident')
+  }
+
+  clickThroughToQuestionPage(index: number, expectedLabel: string): Cypress.Chainable<void> {
+    return this.questions.cardContents
+      .then(rows => {
+        expect(rows.length).is.greaterThan(index)
+        const row = rows[index]
+        const link = row.actionLinks[0]
+        expect(link.textContent).to.contain(expectedLabel)
+        link.click()
+      })
+      .end()
   }
 }

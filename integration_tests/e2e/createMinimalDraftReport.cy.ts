@@ -5,7 +5,7 @@ import TypePage from '../pages/reports/type'
 import DetailsPage from '../pages/reports/details'
 import { PrisonerInvolvementsPage } from '../pages/reports/involvements/prisoners'
 
-context('Creating a new report', () => {
+context('Creating a new minimal draft report', () => {
   const now = new Date()
   const reportWithDetails = mockReport({
     type: 'MISCELLANEOUS',
@@ -47,7 +47,7 @@ context('Creating a new report', () => {
         type: reportWithDetails.type,
         incidentDateAndTime: reportWithDetails.incidentDateAndTime,
         location: 'MDI',
-        title: 'Report: miscellaneous',
+        title: reportWithDetails.title,
         description: reportWithDetails.description,
         createNewEvent: true,
       },

@@ -20,18 +20,10 @@ export abstract class InvolvementsPage extends FormWizardPage {
   }
 
   removeLink(index: number): PageElement<HTMLAnchorElement> {
-    return cy
-      .get<HTMLTableRowElement>('table.app-involvement-table tbody tr.govuk-table__row')
-      .eq(index)
-      .find('a')
-      .contains('Remove')
+    return this.tableRows.eq(index).find('a').contains('Remove')
   }
 
   editLink(index: number): PageElement<HTMLAnchorElement> {
-    return cy
-      .get<HTMLTableRowElement>('table.app-involvement-table tbody tr.govuk-table__row')
-      .eq(index)
-      .find('a')
-      .contains('Edit')
+    return this.tableRows.eq(index).find('a').contains('Edit')
   }
 }

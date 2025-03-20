@@ -3,6 +3,7 @@ import { v7 as uuidFromDate } from 'uuid'
 import format from '../../utils/format'
 import { buildArray } from '../../utils/utils'
 import type { ErrorCode, Status, Type } from '../../reportConfiguration/constants'
+import { getTypeDetails } from '../../reportConfiguration/constants'
 import type {
   ErrorResponse,
   Event,
@@ -98,7 +99,7 @@ export function mockReport({
     type,
     incidentDateAndTime: format.isoDateTime(incidentDateAndTime),
     location,
-    title: `Incident Report ${reportReference}`,
+    title: `Report: ${getTypeDetails(type).description.toLowerCase()}`,
     description: `A new incident created in the new service of type ${type}`,
     reportedBy: reportingUsername,
     reportedAt: format.isoDateTime(reportDateAndTime),

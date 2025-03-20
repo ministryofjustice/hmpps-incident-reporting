@@ -7,7 +7,12 @@ export class StaffInvolvementsPage extends InvolvementsPage {
   }
 
   get tableContents(): Cypress.Chainable<
-    { staff: string; role: string; details: string; actionLinks: HTMLAnchorElement[] }[]
+    {
+      staff: string
+      role: string
+      details: string
+      actionLinks: HTMLAnchorElement[]
+    }[]
   > {
     return this.tableRows.then(rows =>
       rows

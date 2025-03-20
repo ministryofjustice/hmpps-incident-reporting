@@ -16,18 +16,21 @@ import { RelatedObjectUrlSlug, defaultPageSize } from '../../server/data/inciden
 
 export default {
   stubIncidentReportingApiGetReports: ({
-    request,
-    reports,
+    request = {},
+    reports = [],
   }: {
-    request: Partial<DatesAsStrings<GetReportsParams>>
-    reports: ReportBasic[]
-  }): SuperAgentRequest =>
+    request?: Partial<DatesAsStrings<GetReportsParams>>
+    reports?: ReportBasic[]
+  } = {}): SuperAgentRequest =>
     stubFor({
       request: {
         method: 'GET',
         urlPath: '/incidentReportingApi/incident-reports',
         queryParameters: Object.fromEntries(
-          Object.entries(request).map(([key, value]) => [key, { equalTo: value.toString() }]),
+          Object.entries(request).map(([key, value]) => [
+            key,
+            Array.isArray(value) ? { or: value.map(v => ({ equalTo: v })) } : { equalTo: value },
+          ]),
         ),
       },
       response: {

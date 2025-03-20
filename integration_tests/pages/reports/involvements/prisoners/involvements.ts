@@ -7,7 +7,13 @@ export class PrisonerInvolvementsPage extends InvolvementsPage {
   }
 
   get tableContents(): Cypress.Chainable<
-    { prisoner: string; role: string; outcome: string | null; details: string; actionLinks: HTMLAnchorElement[] }[]
+    {
+      prisoner: string
+      role: string
+      outcome: string | null
+      details: string
+      actionLinks: HTMLAnchorElement[]
+    }[]
   > {
     return this.tableRows.then(rows =>
       rows

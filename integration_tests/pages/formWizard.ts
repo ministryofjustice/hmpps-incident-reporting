@@ -16,8 +16,8 @@ export default abstract class FormWizardPage extends Page {
       const formElement = form.get()[0]
       const formData = new FormData(formElement)
       // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-      // @ts-ignore FormData does have a keys function and it is well-supported according to MDN,
-      // but it in fact returns an Iterable which in turn does have a map function
+      // @ts-ignore FormData does have a keys function that returns an Iterable with a map function,
+      // which, according to MDN, is well-supported and does work in Cypress’s Electron browser
       const fieldNames = formData.keys() as Array<string>
       return Object.fromEntries(fieldNames.map(fieldName => [fieldName, formData.getAll(fieldName) as string[]]))
     })

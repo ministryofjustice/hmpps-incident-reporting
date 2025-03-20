@@ -30,3 +30,6 @@ export const getMatchingRequests = (body: string | object) =>
 
 export const resetStubs = (): Promise<Array<Response>> =>
   Promise.all([superagent.delete(`${wiremockAdminUrl}/mappings`), superagent.delete(`${wiremockAdminUrl}/requests`)])
+
+export const deleteStub = (stubId: string): SuperAgentRequest =>
+  superagent.delete(`${wiremockAdminUrl}/mappings/${stubId}`)

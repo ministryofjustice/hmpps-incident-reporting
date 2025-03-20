@@ -1,14 +1,15 @@
 import format from '../../../server/utils/format'
 import FormWizardPage from '../formWizard'
+import type { PageElement } from '../page'
 
 export default class DetailsPage extends FormWizardPage {
   constructor() {
     super('Incident summary')
   }
 
-  enterDate(date: Date | string): void {
+  enterDate(date: Date | string): PageElement<HTMLInputElement> {
     const value = date instanceof Date ? format.shortDate(date) : date
-    this.dateInput('incidentDate').clear().type(value)
+    return this.dateInput('incidentDate').clear().type(value)
   }
 
   enterTime(hours: string, minutes: string): void {
@@ -16,7 +17,7 @@ export default class DetailsPage extends FormWizardPage {
     this.timeInput('incidentTime', 'minutes').clear().type(minutes)
   }
 
-  enterDescription(description: string): void {
-    this.textareaInput('description').clear().type(description)
+  enterDescription(description: string): PageElement<HTMLTextAreaElement> {
+    return this.textareaInput('description').clear().type(description)
   }
 }

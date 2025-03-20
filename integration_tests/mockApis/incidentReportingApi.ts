@@ -10,6 +10,7 @@ import type {
   UpdateReportRequest,
   ChangeStatusRequest,
   ChangeTypeRequest,
+  Question,
 } from '../../server/data/incidentReportingApi'
 import { RelatedObjectUrlSlug, defaultPageSize } from '../../server/data/incidentReportingApi'
 
@@ -261,6 +262,28 @@ export default {
       request: {
         method: 'DELETE',
         urlPath: `/incidentReportingApi/incident-reports/${reportId}/${urlSlug}/${index}`,
+      },
+      response: {
+        status: 200,
+        headers: { 'Content-Type': 'application/json;charset=UTF-8' },
+        jsonBody: response,
+      },
+    }),
+
+  stubIncidentReportingApiPutQuestions: ({
+    reportId,
+    request,
+    response,
+  }: {
+    reportId: string
+    request: unknown
+    response: Question[]
+  }): SuperAgentRequest =>
+    stubFor({
+      request: {
+        method: 'PUT',
+        urlPath: `/incidentReportingApi/incident-reports/${reportId}/questions`,
+        bodyPatterns: [{ equalToJson: request }],
       },
       response: {
         status: 200,

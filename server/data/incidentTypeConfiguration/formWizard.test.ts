@@ -5,6 +5,7 @@ import QuestionsController from '../../routes/reports/questions/controller'
 import { checkMultipleValues, generateFields, generateSteps } from './formWizard'
 import type { IncidentTypeConfiguration } from './types'
 import * as FINDS from '../testData/FINDS'
+import * as ESCAPE_FROM_CUSTODY from '../testData/ESCAPE_FROM_CUSTODY'
 
 const testConfig: IncidentTypeConfiguration = {
   incidentType: 'MISCELLANEOUS',
@@ -227,9 +228,16 @@ describe.each([
     expect(steps).toEqual(expectedSteps)
   })
 
-  it('returns grouped steps for a non-trivial report type config', () => {
+  it('returns grouped steps for a non-trivial report type config (FINDS)', () => {
     const steps = generateSteps(FINDS.config, includeInactive)
     const expectedSteps = FINDS.steps
+
+    expect(steps).toEqual(expectedSteps)
+  })
+
+  it('returns grouped steps for a non-trivial report type config (ESCAPE_FROM_CUSTODY)', () => {
+    const steps = generateSteps(ESCAPE_FROM_CUSTODY.config, includeInactive)
+    const expectedSteps = ESCAPE_FROM_CUSTODY.steps
 
     expect(steps).toEqual(expectedSteps)
   })

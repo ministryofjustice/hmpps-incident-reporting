@@ -7,6 +7,7 @@ import { PrisonApi } from '../data/prisonApi'
 import makeDebugRoutes from './debug'
 import makeDownloadConfigRouter from './downloadReportConfig'
 import { createReportRouter } from './reports/createReportRouter'
+import { changeTypeRouter } from './reports/details/changeType'
 import { updateDetailsRouter } from './reports/details/updateReportDetails'
 import { historyRouter } from './reports/history'
 import { viewReportRouter } from './reports/viewReport'
@@ -35,6 +36,7 @@ export default function routes(services: Services): Router {
   router.use('/create-report', createReportRouter)
   router.use('/reports/:reportId', viewReportRouter(services))
   router.use('/reports/:reportId/history', historyRouter(services))
+  router.use('/reports/:reportId/change-type', changeTypeRouter)
   router.use('/reports/:reportId/update-details', updateDetailsRouter)
   router.use('/reports/:reportId', editReportRouter)
 

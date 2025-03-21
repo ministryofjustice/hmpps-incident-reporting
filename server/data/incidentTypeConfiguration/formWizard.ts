@@ -93,6 +93,7 @@ export function generateSteps(
 function groupSteps(steps: FormWizard.Steps<FormWizard.MultiValues>) {
   const answersCounts: Map<string, number> = new Map()
   const stepsWithSingleParent: Set<string | null> = buildStepsWithSingleParent()
+  const stepsAlreadyGrouped: Set<string> = new Set()
 
   /**
    * Get the current number of answers for a given stepId
@@ -132,6 +133,11 @@ function groupSteps(steps: FormWizard.Steps<FormWizard.MultiValues>) {
       return
     }
 
+    // Return if step can't be grouped further
+    if (stepsAlreadyGrouped.has(stepId)) {
+      return
+    }
+
     const step = steps[`/${stepId}`]
 
     // Checks to determine if current step is eligible for grouping
@@ -139,7 +145,9 @@ function groupSteps(steps: FormWizard.Steps<FormWizard.MultiValues>) {
     const isBranching = nextStepsConditions.length > 1
     const nextStepHasMultipleParents = !stepsWithSingleParent.has(nextStepsConditions[0].next as string)
     if (isBranching || nextStepHasMultipleParents) {
-      // Current step can't be grouped, attempt to group its children
+      // Current step can't be grouped further...
+      stepsAlreadyGrouped.add(stepId)
+      // ... attempt to group its children
       for (const nextStepCondition of nextStepsConditions) {
         const childStepId = nextStepCondition.next as string
         groupStepsStartingAt(childStepId)

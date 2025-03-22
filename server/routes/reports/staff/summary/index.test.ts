@@ -315,7 +315,7 @@ describe('Staff involvement summary for report', () => {
     ])('$scenario', ({ createJourney }) => {
       it.each([
         { userType: 'reporting officer', user: reportingUser, action: granted },
-        { userType: 'data warden', user: approverUser, action: granted },
+        { userType: 'data warden', user: approverUser, action: denied },
         { userType: 'HQ view-only user', user: hqUser, action: denied },
         { userType: 'unauthorised user', user: unauthorisedUser, action: denied },
       ])('should be $action to $userType', ({ user, action }) => {

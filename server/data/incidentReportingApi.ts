@@ -469,7 +469,7 @@ export class IncidentReportingApi extends RestClient {
   }
 
   get staffInvolved(): RelatedObjects<StaffInvolvement, AddStaffInvolvementRequest, UpdateStaffInvolvementRequest> {
-    return new RelatedObjects(this, 'staff-involved')
+    return new RelatedObjects(this, RelatedObjectUrlSlug.staffInvolved)
   }
 
   get prisonersInvolved(): RelatedObjects<
@@ -477,7 +477,7 @@ export class IncidentReportingApi extends RestClient {
     AddPrisonerInvolvementRequest,
     UpdatePrisonerInvolvementRequest
   > {
-    return new RelatedObjects(this, 'prisoners-involved')
+    return new RelatedObjects(this, RelatedObjectUrlSlug.prisonersInvolved)
   }
 
   get correctionRequests(): RelatedObjects<
@@ -485,7 +485,7 @@ export class IncidentReportingApi extends RestClient {
     AddCorrectionRequestRequest,
     UpdateCorrectionRequestRequest
   > {
-    return new RelatedObjects(this, 'correction-requests', convertCorrectionRequestDates)
+    return new RelatedObjects(this, RelatedObjectUrlSlug.correctionRequests, convertCorrectionRequestDates)
   }
 
   async getQuestions(reportId: string): Promise<Question[]> {
@@ -503,7 +503,7 @@ export class IncidentReportingApi extends RestClient {
       ...request,
       responses: request.responses.map(response => ({
         ...response,
-        responseDate: format.isoDateTime(response.responseDate),
+        responseDate: format.isoDate(response.responseDate),
       })),
     }))
     const questions = await this.put<DatesAsStrings<Question[]>>({
@@ -564,6 +564,12 @@ type UpdateCorrectionRequestRequest = {
   descriptionOfChange?: string
 }
 
+export enum RelatedObjectUrlSlug {
+  prisonersInvolved = 'prisoners-involved',
+  staffInvolved = 'staff-involved',
+  correctionRequests = 'correction-requests',
+}
+
 export class RelatedObjects<
   ResponseType,
   AddRequestType extends Record<string, unknown>,
@@ -571,7 +577,7 @@ export class RelatedObjects<
 > {
   constructor(
     private readonly apiClient: IncidentReportingApi,
-    private readonly urlSlug: string,
+    private readonly urlSlug: RelatedObjectUrlSlug,
     responseDateConverter?: (response: DatesAsStrings<ResponseType>) => ResponseType,
   ) {
     this.responseDateConverter =

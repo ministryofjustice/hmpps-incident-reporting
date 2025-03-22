@@ -1,6 +1,6 @@
 import { defineConfig } from 'cypress'
 
-import { resetStubs } from './integration_tests/mockApis/wiremock'
+import { deleteStub, resetStubs } from './integration_tests/mockApis/wiremock'
 import auth from './integration_tests/mockApis/auth'
 import prisonApi from './integration_tests/mockApis/prisonApi'
 import incidentReportingApi from './integration_tests/mockApis/incidentReportingApi'
@@ -26,6 +26,7 @@ export default defineConfig({
   e2e: {
     setupNodeEvents(on) {
       on('task', {
+        deleteStub,
         resetStubs,
         ...incidentReportingApi,
         ...auth,

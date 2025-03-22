@@ -21,14 +21,14 @@
 
       {% include "partials/errorSummary.njk" %}
 
-      <form id="removeInvolvement" method="post" novalidate>
+      <form id="form-wizard" method="post" novalidate>
         <input type="hidden" name="_csrf" value="{{ csrfToken }}" />
         <input type="hidden" name="x-csrf-token" value="{{ csrfToken }}" />
 
         {{ govukRadios({
           classes: "govuk-radios--inline",
           name: "confirmRemove",
-          id: "confirmRemove",
+          attributes: { id: "confirmRemove" },
           fieldset: {
             legend: {
               text: "Are you sure you want to remove " + involvementName + "?",
@@ -36,6 +36,7 @@
               classes: "govuk-fieldset__legend--l"
             }
           },
+          idPrefix: "confirmRemove-item",
           items: [
             {
               value: "yes",

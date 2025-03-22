@@ -56,14 +56,16 @@ export default {
     results: OffenderSearchResult[]
     page: number
     totalElements: number | undefined
-  }): SuperAgentRequest => {
-    const queryRegex = [`term=${encodeURIComponent(term)}`, `size=${OffenderSearchApi.PAGE_SIZE}`, `page=${page}`].join(
-      '&',
-    )
-    return stubFor({
+  }): SuperAgentRequest =>
+    stubFor({
       request: {
         method: 'GET',
-        urlPattern: `/offenderSearchApi/prison/${encodeURIComponent(prisonId)}/prisoners\\?.*${queryRegex}.*`,
+        urlPath: `/offenderSearchApi/prison/${encodeURIComponent(prisonId)}/prisoners`,
+        queryParameters: {
+          term: { equalTo: term },
+          page: { equalTo: page.toString() },
+          size: { equalTo: OffenderSearchApi.PAGE_SIZE.toString() },
+        },
       },
       response: {
         status: 200,
@@ -73,27 +75,44 @@ export default {
           totalElements: totalElements ?? results.length,
         },
       },
-    })
-  },
+    }),
 
   /**
    * Stub searching for a prisoner globally
-   * NB: this stub ignores filters so all searches would match
+   * NB: stub supports only searcing by prisoner number
    */
   stubOffenderSearchGlobally: ({
+    prisonerIdentifier,
+    location = 'ALL',
+    includeAliases = true,
     results,
     page = 0,
     totalElements = undefined,
   }: {
+    prisonerIdentifier: string
+    location: 'ALL' | 'IN' | 'OUT'
+    includeAliases: boolean
     results: OffenderSearchResult[]
     page: number
     totalElements: number | undefined
-  }): SuperAgentRequest => {
-    const queryRegex = [`size=${OffenderSearchApi.PAGE_SIZE}`, `page=${page}`].join('&')
-    return stubFor({
+  }): SuperAgentRequest =>
+    stubFor({
       request: {
         method: 'POST',
-        urlPattern: `/offenderSearchApi/global-search\\?.*${queryRegex}.*`,
+        urlPath: '/offenderSearchApi/global-search',
+        queryParameters: {
+          page: { equalTo: page.toString() },
+          size: { equalTo: OffenderSearchApi.PAGE_SIZE.toString() },
+        },
+        bodyPatterns: [
+          {
+            equalToJson: {
+              prisonerIdentifier,
+              location,
+              includeAliases,
+            },
+          },
+        ],
       },
       response: {
         status: 200,
@@ -103,8 +122,7 @@ export default {
           totalElements: totalElements ?? results.length,
         },
       },
-    })
-  },
+    }),
 
   stubOffenderSearchApiPing: (): SuperAgentRequest =>
     stubFor({

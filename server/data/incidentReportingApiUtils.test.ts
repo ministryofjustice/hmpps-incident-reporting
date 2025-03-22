@@ -26,6 +26,8 @@ describe('Incident-reporting API utilities', () => {
   describe('Parsing dates in responses', () => {
     // now, when incident was reported: 2023-12-05T12:34:56.000Z
     const reportDateAndTime = now
+    // now, when incident was reported: 2023-12-05T00:00:00.000Z
+    const reportDate = new Date(2023, 11, 5)
     // actual incident happened 1 hour before: 2023-12-05T11:34:00.000Z (NB: seconds are truncated to mimic designs)
     const incidentDateAndTime = new Date(2023, 11, 5, 11, 34, 0)
 
@@ -58,7 +60,7 @@ describe('Incident-reporting API utilities', () => {
     function expectCorrectDatesInResponse(response: Response) {
       expect(response).toHaveProperty('responseDate')
       if (response.responseDate) {
-        expect(response.responseDate).toEqual(reportDateAndTime)
+        expect(response.responseDate).toEqual(reportDate)
       } else {
         expect(response.responseDate).toBeNull()
       }
@@ -84,7 +86,7 @@ describe('Incident-reporting API utilities', () => {
       expectCorrectDatesInBasicReport(basicReport)
     })
 
-    it('should work for a report with full detauls', () => {
+    it('should work for a report with full details', () => {
       const reportWithDetails = convertReportWithDetailsDates(
         mockReport({ reportReference: '4321', reportDateAndTime, withDetails: true }),
       )

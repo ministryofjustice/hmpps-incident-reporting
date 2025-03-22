@@ -1,10 +1,10 @@
-import IndexPage from '../pages/index'
+import HomePage from '../pages/home'
 import AuthSignInPage from '../pages/authSignIn'
 import Page from '../pages/page'
 import AuthManageDetailsPage from '../pages/authManageDetails'
 import { roleReadWrite } from '../../server/data/constants'
 
-context('Sign In', () => {
+context('Sign in', () => {
   beforeEach(() => {
     cy.task('resetStubs')
     cy.task('stubSignIn', ['PRISON', roleReadWrite])
@@ -25,44 +25,44 @@ context('Sign In', () => {
 
   it('User name visible in fallback header', () => {
     cy.signIn()
-    const indexPage = Page.verifyOnPage(IndexPage)
-    indexPage.headerUserName.should('contain.text', 'J. Smith')
+    const homePage = Page.verifyOnPage(HomePage)
+    homePage.headerUserName.should('contain.text', 'J. Smith')
   })
 
   it('Environment tag visible in fallback header', () => {
     cy.signIn()
-    const indexPage = Page.verifyOnPage(IndexPage)
-    indexPage.headerEnvironmentTag.should('contain.text', 'Local')
+    const homePage = Page.verifyOnPage(HomePage)
+    homePage.headerEnvironmentTag.should('contain.text', 'Local')
   })
 
   it('User can sign out', () => {
     cy.signIn()
-    const indexPage = Page.verifyOnPage(IndexPage)
-    indexPage.signOut.click()
+    const homePage = Page.verifyOnPage(HomePage)
+    homePage.signOut.click()
     Page.verifyOnPage(AuthSignInPage)
   })
 
   it('User can manage their details', () => {
     cy.signIn()
     cy.task('stubAuthManageDetails')
-    const indexPage = Page.verifyOnPage(IndexPage)
+    const homePage = Page.verifyOnPage(HomePage)
 
-    indexPage.manageDetails.get('a').invoke('removeAttr', 'target')
-    indexPage.manageDetails.click()
+    homePage.manageDetails.get('a').invoke('removeAttr', 'target')
+    homePage.manageDetails.click()
     Page.verifyOnPage(AuthManageDetailsPage)
   })
 
   it('Official sensitive shows in fallback footer', () => {
     cy.signIn()
-    const indexPage = Page.verifyOnPage(IndexPage)
-    indexPage.footer.should('include.text', 'Official sensitive')
+    const homePage = Page.verifyOnPage(HomePage)
+    homePage.footer.should('include.text', 'Official sensitive')
   })
 
   it('Frontend components load', () => {
     cy.signIn()
     cy.task('stubFrontendComponentsHeaderAndFooter')
     cy.visit('/')
-    Page.verifyOnPage(IndexPage)
+    Page.verifyOnPage(HomePage)
     cy.get('header').should('have.css', 'background-color', 'rgb(255, 0, 0)')
     cy.get('footer').should('have.css', 'background-color', 'rgb(255, 255, 0)')
     cy.window().its('FrontendComponentsHeaderDidLoad').should('be.true')
@@ -71,7 +71,7 @@ context('Sign In', () => {
 
   it('Token verification failure takes user to sign in page', () => {
     cy.signIn()
-    Page.verifyOnPage(IndexPage)
+    Page.verifyOnPage(HomePage)
     cy.task('stubVerifyToken', false)
 
     cy.visit('/')
@@ -80,7 +80,7 @@ context('Sign In', () => {
 
   it('Token verification failure clears user session', () => {
     cy.signIn()
-    const indexPage = Page.verifyOnPage(IndexPage)
+    const homePage = Page.verifyOnPage(HomePage)
     cy.task('stubVerifyToken', false)
 
     cy.visit('/')
@@ -90,6 +90,6 @@ context('Sign In', () => {
     cy.task('stubManageUserMe', 'bobby brown')
     cy.signIn()
 
-    indexPage.headerUserName.contains('B. Brown')
+    homePage.headerUserName.contains('B. Brown')
   })
 })

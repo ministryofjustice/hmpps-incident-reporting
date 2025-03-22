@@ -2,7 +2,7 @@ import type { Request, RequestHandler, Response, NextFunction } from 'express'
 import { Forbidden } from 'http-errors'
 
 import config from '../config'
-import { roleReadOnly, roleReadWrite, roleApproveReject } from '../data/constants'
+import { roleReadOnly, roleReadWrite, roleApproveReject, rolePecs } from '../data/constants'
 import type { ReportBasic } from '../data/incidentReportingApi'
 import { isPecsRegionCode } from '../data/pecsRegions'
 
@@ -38,8 +38,8 @@ export class Permissions {
     return (
       // has minimal roles
       this.canAccessService &&
-      // if PECS region, user has specific role?
-      ((isPecsRegionCode(report.location) && this.roles.has(roleApproveReject)) ||
+      // if PECS region, user has specific PECS role?
+      ((isPecsRegionCode(report.location) && this.roles.has(rolePecs)) ||
         // otherwise user has caseload?
         this.caseloadIds.has(report.location))
     )
@@ -53,10 +53,13 @@ export class Permissions {
     return (
       // has minimal roles
       this.canCreateReport &&
-      // if PECS region, are PECS reports enabled and user has specific role?
-      ((isPecsRegionCode(code) && config.activeForPecsRegions && this.roles.has(roleApproveReject)) ||
-        // otherwise is prison enabled and user has caseload?
-        (isPrisonActiveInService(code) && this.caseloadIds.has(code)))
+      // if PECS region, are PECS reports enabled and user can edit PECS reports (has approver & PECS roles)?
+      ((isPecsRegionCode(code) &&
+        config.activeForPecsRegions &&
+        this.roles.has(roleApproveReject) &&
+        this.roles.has(rolePecs)) ||
+        // otherwise is prison enabled and user has caseload but isn't a data warden?
+        (isPrisonActiveInService(code) && this.caseloadIds.has(code) && !this.roles.has(roleApproveReject)))
     )
   }
 
@@ -70,10 +73,15 @@ export class Permissions {
     return (
       // has minimal roles
       this.canCreateReport &&
-      // if PECS region, are PECS reports enabled and user has specific role?
-      ((isPecsRegionCode(report.location) && config.activeForPecsRegions && this.roles.has(roleApproveReject)) ||
-        // otherwise is prison enabled and user has caseload?
-        (isPrisonActiveInService(report.location) && this.caseloadIds.has(report.location)))
+      // if PECS region, are PECS reports enabled and user can edit PECS reports (has approver & PECS roles)?
+      ((isPecsRegionCode(report.location) &&
+        config.activeForPecsRegions &&
+        this.roles.has(roleApproveReject) &&
+        this.roles.has(rolePecs)) ||
+        // otherwise is prison enabled and user has caseload but isn't a data warden?
+        (isPrisonActiveInService(report.location) &&
+          this.caseloadIds.has(report.location) &&
+          !this.roles.has(roleApproveReject)))
     )
   }
 
@@ -82,8 +90,11 @@ export class Permissions {
     return (
       // has minimal roles
       this.canCreateReport &&
-      // if PECS region and has role, but PECS reports are inactive in service
-      ((isPecsRegionCode(report.location) && this.roles.has(roleApproveReject) && !config.activeForPecsRegions) ||
+      // if PECS region and user can edit PECS reports (has approver & PECS roles), but PECS reports are inactive in service
+      ((isPecsRegionCode(report.location) &&
+        this.roles.has(roleApproveReject) &&
+        this.roles.has(rolePecs) &&
+        !config.activeForPecsRegions) ||
         // has caseload but prison is inactive in service
         (this.caseloadIds.has(report.location) && !isPrisonActiveInService(report.location)))
     )
@@ -92,10 +103,10 @@ export class Permissions {
   /** Can approve or reject this report */
   canApproveOrRejectReport(report: ReportBasic): boolean {
     return (
-      // has specific role
+      // has specific approve role
       this.roles.has(roleApproveReject) &&
-      // if PECS region, are PECS reports enabled?
-      ((isPecsRegionCode(report.location) && config.activeForPecsRegions) ||
+      // if PECS region, are PECS reports enabled and user has PECS role?
+      ((isPecsRegionCode(report.location) && config.activeForPecsRegions && this.roles.has(rolePecs)) ||
         // otherwise is prison enabled and user has caseload?
         (isPrisonActiveInService(report.location) && this.caseloadIds.has(report.location)))
     )

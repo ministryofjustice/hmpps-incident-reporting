@@ -18,7 +18,7 @@
             visuallyHiddenText: "incident type"
           }
         ]
-      } if canEditReport else {}
+      } if canEditReport and report.status === "DRAFT" else {}
     },
     {
       key: { text: "Date and time of incident" },

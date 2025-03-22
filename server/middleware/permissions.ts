@@ -58,8 +58,8 @@ export class Permissions {
         config.activeForPecsRegions &&
         this.roles.has(roleApproveReject) &&
         this.roles.has(rolePecs)) ||
-        // otherwise is prison enabled and user has caseload?
-        (isPrisonActiveInService(code) && this.caseloadIds.has(code)))
+        // otherwise is prison enabled and user has caseload but isn't a data warden?
+        (isPrisonActiveInService(code) && this.caseloadIds.has(code) && !this.roles.has(roleApproveReject)))
     )
   }
 
@@ -78,8 +78,10 @@ export class Permissions {
         config.activeForPecsRegions &&
         this.roles.has(roleApproveReject) &&
         this.roles.has(rolePecs)) ||
-        // otherwise is prison enabled and user has caseload?
-        (isPrisonActiveInService(report.location) && this.caseloadIds.has(report.location)))
+        // otherwise is prison enabled and user has caseload but isn't a data warden?
+        (isPrisonActiveInService(report.location) &&
+          this.caseloadIds.has(report.location) &&
+          !this.roles.has(roleApproveReject)))
     )
   }
 

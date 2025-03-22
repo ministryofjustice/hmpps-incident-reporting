@@ -503,7 +503,7 @@ export class IncidentReportingApi extends RestClient {
       ...request,
       responses: request.responses.map(response => ({
         ...response,
-        responseDate: format.isoDateTime(response.responseDate),
+        responseDate: format.isoDate(response.responseDate),
       })),
     }))
     const questions = await this.put<DatesAsStrings<Question[]>>({

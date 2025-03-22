@@ -242,7 +242,7 @@ context('Responding to questions', () => {
             responses: [
               {
                 response: 'YES',
-                responseDate: '2025-03-19T12:00:00', // TODO: should this be date-only?
+                responseDate: '2025-03-19',
                 additionalInformation: null,
               },
             ],
@@ -424,7 +424,7 @@ context('Responding to questions', () => {
             responses: [
               {
                 response: 'YES',
-                responseDate: '2025-03-19T12:00:00', // TODO: should this be date-only?
+                responseDate: '2025-03-19',
                 additionalInformation: null,
               },
             ],

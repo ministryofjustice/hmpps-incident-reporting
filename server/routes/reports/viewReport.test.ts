@@ -45,6 +45,8 @@ afterEach(() => {
   jest.resetAllMocks()
 })
 
+// TODO: links need checking. especially when they appear and when they hide
+
 describe('View report page', () => {
   let mockedReport: ReportWithDetails
   let viewReportUrl: string

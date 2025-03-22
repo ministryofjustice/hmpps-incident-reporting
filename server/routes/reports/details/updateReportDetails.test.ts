@@ -184,7 +184,7 @@ describe('Updating report details', () => {
       })
   })
 
-  it('should send request to API if form is valid and proceed to next step', async () => {
+  it('should send request to API if form is valid and proceed to next step', () => {
     incidentReportingApi.updateReport.mockResolvedValueOnce(reportBasic)
 
     return agent

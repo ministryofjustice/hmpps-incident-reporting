@@ -5,7 +5,7 @@
 {% from "govuk/components/table/macro.njk" import govukTable %}
 {% from "moj/components/pagination/macro.njk" import mojPagination %}
 
-{% set pageTitle = applicationName + " – Search for a prisoner" %}
+{% set pageTitle = "Search for a prisoner" %}
 {% set bodyClasses = "app-involvement-search app-prisoner-search" %}
 
 {% extends "partials/layout.njk" %}
@@ -29,7 +29,7 @@
         Search for a prisoner
       </h1>
 
-      <form class="app-prisoner-search-form" method="get" novalidate>
+      <form id="form-wizard" class="app-prisoner-search-form" method="get" novalidate>
         {# a new search should always start on first page #}
         <input type="hidden" name="page" value="1" />
 
@@ -124,7 +124,7 @@
       {% endfor %}
 
       {{ govukTable({
-        classes: "govuk-!-margin-top-4",
+        classes: "app-involvement-search-results govuk-!-margin-top-4",
         caption: "Prisoner search results",
         captionClasses: "govuk-visually-hidden",
         head: [

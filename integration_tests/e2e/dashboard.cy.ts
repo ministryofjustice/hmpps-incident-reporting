@@ -4,7 +4,7 @@ import { DashboardPage } from '../pages/dashboard'
 import HomePage from '../pages/home'
 import Page from '../pages/page'
 import ReportPage from '../pages/reports/report'
-import TypePage from '../pages/reports/type'
+import { TypePage } from '../pages/reports/type'
 import { mockReport } from '../../server/data/testData/incidentReporting'
 
 context('Searching for a report', () => {

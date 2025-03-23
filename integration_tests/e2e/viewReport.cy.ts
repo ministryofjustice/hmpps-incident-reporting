@@ -163,9 +163,6 @@ context('View report', () => {
 
         expect(typeRow.value).to.contain('Disorder')
         expect(typeRow.actionLinks).to.have.lengthOf(0)
-        // TODO: on a different branch
-        // expect(typeRow.actionLink).to.contain('Change')
-        // expect(typeRow.actionLink).attr('href').contains(`/reports/${reportWithDetails.id}/change-type`)
 
         expect(dateRow.value).to.contain(now.getFullYear())
         expect(dateRow.actionLinks).to.have.lengthOf(1)

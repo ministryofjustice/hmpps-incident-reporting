@@ -57,6 +57,17 @@ describe('Changing incident type', () => {
       })
   })
 
+  it('should redirect if report is not a draft', () => {
+    mockedReport.status = 'AWAITING_ANALYSIS'
+    return agent
+      .get(confirmationUrl)
+      .expect(302)
+      .expect(res => {
+        expect(res.redirect).toBe(true)
+        expect(res.header.location).toEqual(`/reports/${mockedReport.id}`)
+      })
+  })
+
   it('should show a confirmation page first', () => {
     return agent
       .get(confirmationUrl)

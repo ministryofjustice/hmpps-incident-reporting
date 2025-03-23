@@ -7,6 +7,7 @@ import { BaseController } from '../../../controllers'
 import type { ReportBasic } from '../../../data/incidentReportingApi'
 import { logoutIf } from '../../../middleware/permissions'
 import { populateReport } from '../../../middleware/populateReport'
+import { redirectIfStatusNot } from '../../../middleware/redirectOnReportStatus'
 import { cannotEditReport } from '../permissions'
 import { BaseTypeController } from './typeController'
 import { type TypeValues, typeFields, typeFieldNames } from './typeFields'
@@ -107,4 +108,9 @@ const changeTypeWizardRouter = FormWizard(changeTypeSteps, changeTypeFields, cha
 changeTypeWizardRouter.mergeParams = true
 // eslint-disable-next-line import/prefer-default-export
 export const changeTypeRouter = express.Router({ mergeParams: true })
-changeTypeRouter.use(populateReport(false), logoutIf(cannotEditReport), changeTypeWizardRouter)
+changeTypeRouter.use(
+  populateReport(false),
+  logoutIf(cannotEditReport),
+  redirectIfStatusNot('DRAFT'),
+  changeTypeWizardRouter,
+)

@@ -67,7 +67,7 @@ context('View report', () => {
       })
     })
 
-    it('should show no prisoner inolvements', () => {
+    it('should show no prisoner involvements', () => {
       reportPage.prisonerInvolvements.shouldHaveActionLink(
         'Add a prisoner',
         `/reports/${reportWithDetails.id}/prisoners`,
@@ -181,7 +181,7 @@ context('View report', () => {
       })
     })
 
-    it('should show prisoner inolvements', () => {
+    it('should show prisoner involvements', () => {
       reportPage.prisonerInvolvements.shouldHaveActionLink('Change', `/reports/${reportWithDetails.id}/prisoners`)
       reportPage.prisonerInvolvements.cardContents.then(rows => {
         expect(rows).to.have.lengthOf(2)

@@ -79,7 +79,7 @@ export default {
 
   /**
    * Stub searching for a prisoner globally
-   * NB: stub supports only searcing by prisoner number
+   * NB: stub supports only searching by prisoner number
    */
   stubOffenderSearchGlobally: ({
     prisonerIdentifier,

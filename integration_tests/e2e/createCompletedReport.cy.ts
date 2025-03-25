@@ -8,7 +8,7 @@ import { andrew } from '../../server/data/testData/offenderSearch'
 import { moorland, staffMary } from '../../server/data/testData/prisonApi'
 import HomePage from '../pages/home'
 import Page from '../pages/page'
-import TypePage from '../pages/reports/type'
+import { TypePage } from '../pages/reports/type'
 import DetailsPage from '../pages/reports/details'
 import {
   AddPrisonerInvolvementsPage,

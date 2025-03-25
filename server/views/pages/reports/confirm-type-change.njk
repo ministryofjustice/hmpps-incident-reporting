@@ -1,0 +1,12 @@
+{% extends "partials/formWizardLayout.njk" %}
+
+{% set pageTitle = "Some of your answers will be deleted" %}
+{% set bodyClasses = "app-confirm-change-type" %}
+
+{% block formFields %}
+  <p>
+    Changing the type of incident will remove some of your answers.
+    {# TODO: it's not the summary that needs re-entering #}
+    You’ll need to re-enter the incident summary and any prisoners that were involved.
+  </p>
+{% endblock %}

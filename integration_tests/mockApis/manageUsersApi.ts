@@ -1,7 +1,7 @@
 import type { Response as SuperAgentResponse, SuperAgentRequest } from 'superagent'
 
 import { stubFor } from './wiremock'
-import { mockUser, mockSharedUser } from '../../server/data/testData/manageUsers'
+import { mockUser, mockSharedUser, mockPrisonUserSearchResult } from '../../server/data/testData/manageUsers'
 import { staffBarry, staffMary } from '../../server/data/testData/prisonApi'
 import ManageUsersApiClient, {
   type UsersSearchResponse,
@@ -47,8 +47,31 @@ export default {
       ),
     ),
 
+  stubManageKnownPrisonUser: (user: UsersSearchResult): SuperAgentRequest =>
+    stubFor({
+      request: {
+        method: 'GET',
+        urlPath: `/manage-users-api/prisonusers/${encodeURIComponent(user.username)}`,
+      },
+      response: {
+        status: 200,
+        headers: {
+          'Content-Type': 'application/json;charset=UTF-8',
+        },
+        jsonBody: user,
+      },
+    }),
+
   /** Search users */
-  stubSearchUsers: (query: string, results: UsersSearchResult[], page = 0): SuperAgentRequest => {
+  stubSearchUsers: ({
+    query,
+    results = [mockPrisonUserSearchResult],
+    page = 0,
+  }: {
+    query: string
+    results?: UsersSearchResult[]
+    page?: number
+  }): SuperAgentRequest => {
     const response: UsersSearchResponse = {
       content: results,
       number: page,
@@ -62,10 +85,10 @@ export default {
         method: 'GET',
         urlPath: '/manage-users-api/prisonusers/search',
         queryParameters: {
-          nameFilter: query,
-          status: 'ACTIVE',
-          size: ManageUsersApiClient.PAGE_SIZE,
-          page,
+          nameFilter: { equalTo: query },
+          status: { equalTo: 'ACTIVE' },
+          size: { equalTo: ManageUsersApiClient.PAGE_SIZE.toString() },
+          page: { equalTo: page.toString() },
         },
       },
       response: {

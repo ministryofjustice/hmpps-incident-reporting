@@ -8,6 +8,21 @@ export default abstract class FormWizardPage extends Page {
     return cy.get('form#form-wizard')
   }
 
+  /**
+   * Current form values of field name to all-value arrays
+   */
+  get formValues(): Cypress.Chainable<Record<string, string[]>> {
+    return this.form.then(form => {
+      const formElement = form.get()[0]
+      const formData = new FormData(formElement)
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+      // @ts-ignore FormData does have a keys function that returns an Iterable with a map function,
+      // which, according to MDN, is well-supported and does work in Cypress’s Electron browser
+      const fieldNames = formData.keys() as Array<string>
+      return Object.fromEntries(fieldNames.map(fieldName => [fieldName, formData.getAll(fieldName) as string[]]))
+    })
+  }
+
   private findFormInput<T extends HTMLElement>(name: string): PageElement<T> {
     return this.form.find<T>(`[name="${name}"]`)
   }
@@ -55,9 +70,36 @@ export default abstract class FormWizardPage extends Page {
   }
 
   /**
+   * Find the label for a radio or checkbox button
+   */
+  protected radioOrCheckboxOptions(name: string) {
+    return this.findFormInput<HTMLInputElement>(name).then(inputs => {
+      return inputs
+        .map((_, input) => {
+          const $input = Cypress.$(input) as unknown as JQuery<HTMLInputElement>
+          return {
+            label: Cypress.$(`[for=${$input.attr('id')}]`)
+              .text()
+              .trim(),
+            value: $input.val(),
+            checked: $input.is(':checked'),
+          }
+        })
+        .toArray()
+    })
+  }
+
+  /**
    * Find a save button by label
    */
   protected saveButton(label = 'Save and continue'): PageElement<HTMLButtonElement> {
     return this.form.find<HTMLButtonElement>('.govuk-button').contains(label)
+  }
+
+  /**
+   * Submit the form
+   */
+  submit(buttonText = 'Continue'): void {
+    this.saveButton(buttonText).click()
   }
 }

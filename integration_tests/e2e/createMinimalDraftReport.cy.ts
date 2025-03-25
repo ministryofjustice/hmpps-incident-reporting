@@ -1,10 +1,11 @@
 import { mockReport } from '../../server/data/testData/incidentReporting'
-import { andrew, barry } from '../../server/data/testData/offenderSearch'
+import HomePage from '../pages/home'
 import Page from '../pages/page'
 import TypePage from '../pages/reports/type'
 import DetailsPage from '../pages/reports/details'
+import { PrisonerInvolvementsPage } from '../pages/reports/involvements/prisoners'
 
-context('Creating a new report', () => {
+context('Creating a new minimal draft report', () => {
   const now = new Date()
   const reportWithDetails = mockReport({
     type: 'MISCELLANEOUS',
@@ -12,13 +13,19 @@ context('Creating a new report', () => {
     reportDateAndTime: now,
     withDetails: true,
   })
+  reportWithDetails.prisonersInvolved = []
+  reportWithDetails.prisonerInvolvementDone = false
+  reportWithDetails.staffInvolved = []
+  reportWithDetails.staffInvolvementDone = false
+  reportWithDetails.questions = []
+  reportWithDetails.correctionRequests = []
 
   beforeEach(() => {
     cy.resetBasicStubs()
 
     cy.signIn()
-    // TODO: start on home page and click through to:
-    cy.visit('/create-report')
+    const indexPage = Page.verifyOnPage(HomePage)
+    indexPage.clickCreateReportCard()
   })
 
   it('should allow entering the basic information', () => {
@@ -40,19 +47,17 @@ context('Creating a new report', () => {
         type: reportWithDetails.type,
         incidentDateAndTime: reportWithDetails.incidentDateAndTime,
         location: 'MDI',
-        title: 'Report: miscellaneous',
+        title: reportWithDetails.title,
         description: reportWithDetails.description,
         createNewEvent: true,
       },
       report: reportWithDetails,
     })
-    // stub lookups from next page, the report view
+    // stub lookups from next page, adding a prisoner
     cy.task('stubIncidentReportingApiGetReportWithDetailsById', { report: reportWithDetails })
-    cy.task('stubOffenderSearchByNumber', [andrew, barry])
-    cy.task('stubPrisonApiMockPrisons')
-    cy.task('stubManageKnownUsers')
 
     detailsPage.submit()
+    Page.verifyOnPage(PrisonerInvolvementsPage, false)
   })
 
   it('should show errors if information is missing', () => {

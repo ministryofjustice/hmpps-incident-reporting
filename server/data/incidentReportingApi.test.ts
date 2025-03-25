@@ -462,6 +462,7 @@ describe('Incident reporting API client', () => {
           }),
         mockResponse: { status: 201, data: reportWithDetails },
         responseDateExtractor: (request: DatesAsStrings<CreateReportRequest>) => [request.incidentDateAndTime],
+        expectedDateString: '2023-12-05T12:34:56',
       },
       {
         method: 'updateReport',
@@ -470,6 +471,7 @@ describe('Incident reporting API client', () => {
         testCase: () => apiClient.updateReport(basicReport.id, { incidentDateAndTime: now }),
         mockResponse: { status: 200, data: basicReport },
         responseDateExtractor: (request: DatesAsStrings<UpdateReportRequest>) => [request.incidentDateAndTime],
+        expectedDateString: '2023-12-05T12:34:56',
       },
       {
         method: 'addOrUpdateQuestionsWithResponses',
@@ -486,10 +488,11 @@ describe('Incident reporting API client', () => {
         mockResponse: { status: 201, data: [] },
         responseDateExtractor: (requests: DatesAsStrings<AddOrUpdateQuestionWithResponsesRequest[]>) =>
           requests.flatMap(request => request.responses.map(response => response.responseDate)),
+        expectedDateString: '2023-12-05',
       },
     ])(
       'should work on input request data for $method',
-      async ({ testCase, url, urlMethod, mockResponse, responseDateExtractor }) => {
+      async ({ testCase, url, urlMethod, mockResponse, responseDateExtractor, expectedDateString }) => {
         fakeApiClient.intercept(url, urlMethod).reply((_uri, requestBody) => {
           const request = requestBody as DatesAsStrings<
             CreateReportRequest | UpdateReportRequest | AddOrUpdateQuestionWithResponsesRequest[]
@@ -497,7 +500,7 @@ describe('Incident reporting API client', () => {
           // eslint-disable-next-line @typescript-eslint/ban-ts-comment
           // @ts-ignore because responseDateExtractor is appropriate for each request but TS cannot tell that
           const fieldsWithDates = responseDateExtractor(request)
-          if (fieldsWithDates.every(field => field?.includes('2023-12-05T12:34:56'))) {
+          if (fieldsWithDates.every(field => field?.includes(expectedDateString))) {
             return [mockResponse.status, mockResponse.data]
           }
           return [400, { status: 400, userMessage: 'Invalid input date', developerMessage: '' } satisfies ErrorResponse]

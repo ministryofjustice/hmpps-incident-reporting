@@ -11,6 +11,17 @@ export default function setUpStaticResources(): Router {
 
   router.use(compression())
 
+  /** Add a static asset route */
+  function staticRoute(assetUrl: string, assetPath: string): void {
+    router.use(
+      assetUrl,
+      express.static(path.join(process.cwd(), assetPath), {
+        maxAge: config.staticResourceCacheDuration,
+        redirect: false,
+      }),
+    )
+  }
+
   // Application assets
   Array.of(
     '/dist/assets',
@@ -22,9 +33,7 @@ export default function setUpStaticResources(): Router {
     '/node_modules/@ministryofjustice/hmpps-digital-prison-reporting-frontend',
     '/node_modules/accessible-autocomplete/dist',
     '/node_modules/chart.js/dist/chart.umd.js',
-  ).forEach(dir => {
-    router.use('/assets', express.static(path.join(process.cwd(), dir)))
-  })
+  ).forEach(dir => staticRoute('/assets', dir))
   // Don't cache dynamic resources
   router.use(noCache())
 

@@ -455,7 +455,7 @@ describe('View report page', () => {
     const denied = 'denied' as const
     it.each([
       { userType: 'reporting officer', user: reportingUser, action: granted, canEdit: true },
-      { userType: 'data warden', user: approverUser, action: granted, canEdit: true },
+      { userType: 'data warden', user: approverUser, action: granted, canEdit: false },
       { userType: 'HQ view-only user', user: hqUser, action: granted, canEdit: false },
       { userType: 'unauthorised user', user: unauthorisedUser, action: denied, canEdit: false },
     ])('should be $action to $userType', ({ user, action, canEdit }) => {

@@ -1,4 +1,4 @@
-import { roleReadOnly, roleReadWrite, roleApproveReject } from '../constants'
+import { roleReadOnly, roleReadWrite, roleApproveReject, rolePecs } from '../constants'
 import type { CaseLoad } from '../frontendComponentsClient'
 import { makeMockCaseload } from './frontendComponents'
 import { leeds, moorland } from './prisonApi'
@@ -27,8 +27,11 @@ export function mockUser(caseloads: CaseLoad[], roles: string[] = []): Express.U
 /** Typical reporting officer with access to Moorland only */
 export const reportingUser = mockUser([makeMockCaseload(moorland)], [roleReadWrite])
 
-/** Data warden with write access to Leeds and Moorland */
-export const approverUser = mockUser([makeMockCaseload(moorland), makeMockCaseload(leeds)], [roleApproveReject])
+/** Data warden with write access to Leeds, Moorland and PECS regions */
+export const approverUser = mockUser(
+  [makeMockCaseload(moorland), makeMockCaseload(leeds)],
+  [roleApproveReject, rolePecs],
+)
 
 /** HQ user with read-only access to Leeds and Moorland */
 export const hqUser = mockUser([makeMockCaseload(moorland), makeMockCaseload(leeds)], [roleReadOnly])

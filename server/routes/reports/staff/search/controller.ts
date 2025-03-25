@@ -43,6 +43,15 @@ export class StaffSearchController extends GetBaseController<Values> {
     return `${res.locals.reportSubUrlPrefix}/staff`
   }
 
+  render(req: FormWizard.Request<Values, keyof Values>, res: express.Response, next: express.NextFunction) {
+    super.render(req, res, next)
+
+    if (res.locals.searchResults) {
+      // clear session after rendering page since search was successfully performed and session would leak otherwise
+      req.journeyModel.reset()
+    }
+  }
+
   async successHandler(
     req: FormWizard.Request<Values>,
     res: express.Response,

@@ -17,7 +17,7 @@ export function populateReportConfiguration(generateQuestionSteps = true) {
     const { report } = res.locals
     if (!report) {
       // expect to always be used after populateReport() middleware
-      next(new NotImplemented('populateReportConfiguration() requires req.locals.report'))
+      next(new NotImplemented('populateReportConfiguration() requires res.locals.report'))
       return
     }
 

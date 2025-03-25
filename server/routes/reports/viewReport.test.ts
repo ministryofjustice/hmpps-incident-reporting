@@ -45,6 +45,8 @@ afterEach(() => {
   jest.resetAllMocks()
 })
 
+// TODO: links need checking. especially when they appear and when they hide
+
 describe('View report page', () => {
   let mockedReport: ReportWithDetails
   let viewReportUrl: string
@@ -111,6 +113,9 @@ describe('View report page', () => {
           expect(res.text).toContain('5 December 2023, 11:34')
           expect(res.text).toContain('Description')
           expect(res.text).toContain('A new incident created in the new service of type FINDS')
+
+          expect(res.text).toContain(`${viewReportUrl}/change-type`)
+          expect(res.text).toContain(`${viewReportUrl}/update-details`)
         })
     })
 
@@ -139,6 +144,8 @@ describe('View report page', () => {
             expect(res.text).toContain('Outcome: No outcome')
           }
           expect(res.text).toContain('Details: No comment')
+
+          expect(res.text).toContain(`${viewReportUrl}/prisoners`)
         })
     })
 
@@ -153,6 +160,8 @@ describe('View report page', () => {
           expect(res.text).toContain('Present at scene')
           expect(res.text).toContain('Mary Johnson')
           expect(res.text).toContain('Actively involved')
+
+          expect(res.text).toContain(`${viewReportUrl}/staff`)
         })
     })
 
@@ -165,6 +174,8 @@ describe('View report page', () => {
 
           expect(res.text).toContain('About the incident')
           // TODO: will need to become type-specific once content is ready
+
+          expect(res.text).not.toContain(`${viewReportUrl}/questions"`)
 
           expect(res.text).toContain('1. Describe how the item was found')
           expect(res.text).toContain('Cell search')
@@ -244,6 +255,9 @@ describe('View report page', () => {
           expect(res.text).toContain('5 December 2023, 11:34')
           expect(res.text).toContain('Description')
           expect(res.text).toContain('An old drone sighting')
+
+          expect(res.text).not.toContain(`${viewReportUrl}/change-type`)
+          expect(res.text).toContain(`${viewReportUrl}/update-details`)
         })
     })
 
@@ -272,6 +286,8 @@ describe('View report page', () => {
             expect(res.text).toContain('Outcome: No outcome')
           }
           expect(res.text).toContain('Details: No comment')
+
+          expect(res.text).toContain(`${viewReportUrl}/prisoners`)
         })
     })
 
@@ -284,6 +300,8 @@ describe('View report page', () => {
           expect(res.text).toContain('Present at scene')
           expect(res.text).toContain('Mary Johnson')
           expect(res.text).toContain('Actively involved')
+
+          expect(res.text).toContain(`${viewReportUrl}/staff`)
         })
     })
 
@@ -368,6 +386,9 @@ describe('View report page', () => {
           expect(res.text).toContain('5 December 2023, 11:34')
           expect(res.text).toContain('Description')
           expect(res.text).toContain('A new incident created in the new service of type FINDS')
+
+          expect(res.text).toContain(`${viewReportUrl}/change-type`)
+          expect(res.text).toContain(`${viewReportUrl}/update-details`)
         })
     })
 
@@ -379,6 +400,8 @@ describe('View report page', () => {
           expect(res.text).toContain('Prisoners involved')
           expect(res.text).toContain('No prisoners added')
           expect(res.text).toContain('Add a prisoner')
+
+          expect(res.text).toContain(`${viewReportUrl}/prisoners`)
         })
     })
 
@@ -390,6 +413,8 @@ describe('View report page', () => {
           expect(res.text).toContain('Staff involved')
           expect(res.text).toContain('No staff added')
           expect(res.text).toContain('Add a member of staff')
+
+          expect(res.text).toContain(`${viewReportUrl}/staff`)
         })
     })
 
@@ -400,6 +425,8 @@ describe('View report page', () => {
         .expect(res => {
           expect(res.text).toContain('About the incident')
           // TODO: will need to become type-specific once content is ready
+
+          expect(res.text).not.toContain(`${viewReportUrl}/questions"`)
 
           expect(res.text).toContain('1. Describe how the item was found')
           expect(res.text).toContain(`${viewReportUrl}/questions/67179`)
@@ -430,15 +457,13 @@ describe('View report page', () => {
       previousActivePrisons = config.activePrisons
     })
 
-    let reportId: string
-
     beforeEach(() => {
       config.activePrisons = previousActivePrisons
 
-      const report = convertReportWithDetailsDates(
+      mockedReport = convertReportWithDetailsDates(
         mockReport({ reportReference: '6543', reportDateAndTime: now, withDetails: true }),
       )
-      report.questions = [
+      mockedReport.questions = [
         makeSimpleQuestion(
           '67179',
           'DESCRIBE HOW THE ITEM WAS FOUND (SELECT ALL THAT APPLY)',
@@ -447,30 +472,45 @@ describe('View report page', () => {
         ),
         makeSimpleQuestion('67180', 'IS THE LOCATION OF THE INCIDENT KNOWN?', 'YES'),
       ]
-      reportId = report.id
-      incidentReportingApi.getReportWithDetailsById.mockResolvedValueOnce(report)
+      incidentReportingApi.getReportWithDetailsById.mockReset()
+      incidentReportingApi.getReportWithDetailsById.mockResolvedValueOnce(mockedReport)
+      viewReportUrl = `/reports/${mockedReport.id}`
     })
 
     const granted = 'granted' as const
     const denied = 'denied' as const
     it.each([
       { userType: 'reporting officer', user: reportingUser, action: granted, canEdit: true },
-      { userType: 'data warden', user: approverUser, action: granted, canEdit: true },
+      { userType: 'data warden', user: approverUser, action: granted, canEdit: false },
       { userType: 'HQ view-only user', user: hqUser, action: granted, canEdit: false },
       { userType: 'unauthorised user', user: unauthorisedUser, action: denied, canEdit: false },
     ])('should be $action to $userType', ({ user, action, canEdit }) => {
       const testRequest = request(appWithAllRoutes({ services: { userService }, userSupplier: () => user }))
-        .get(`/reports/${reportId}`)
+        .get(viewReportUrl)
         .redirects(1)
       if (action === 'granted') {
         return testRequest.expect(200).expect(res => {
+          let textContentMatcher: (text: string) => void
           if (canEdit) {
-            expect(res.text).toContain('Check your answers')
-            expect(res.text).toContain('question responses')
+            textContentMatcher = expect(res.text).toContain
           } else {
-            expect(res.text).not.toContain('Check your answers')
-            expect(res.text).not.toContain('question responses')
+            textContentMatcher = expect(res.text).not.toContain
           }
+          ;[
+            // heading prefix
+            'Check your answers',
+            // question page links
+            'question responses',
+            // change links
+            'Change',
+            `${viewReportUrl}/change-type`,
+            `${viewReportUrl}/update-details`,
+            `${viewReportUrl}/prisoners`,
+            `${viewReportUrl}/staff`,
+            `${viewReportUrl}/questions`,
+          ].forEach(text => {
+            textContentMatcher(text)
+          })
         })
       }
       return testRequest.expect(res => {
@@ -487,7 +527,7 @@ describe('View report page', () => {
       config.activePrisons = ['LEI']
 
       return request(appWithAllRoutes({ services: { userService }, userSupplier: () => user }))
-        .get(`/reports/${reportId}`)
+        .get(viewReportUrl)
         .expect(res => {
           const warningShows = res.text.includes('This report can only be amended in NOMIS')
           expect(warningShows).toBe(warn)

@@ -201,7 +201,7 @@ describe('Remove prisoner involvement', () => {
     const denied = 'denied' as const
     it.each([
       { userType: 'reporting officer', user: reportingUser, action: granted },
-      { userType: 'data warden', user: approverUser, action: granted },
+      { userType: 'data warden', user: approverUser, action: denied },
       { userType: 'HQ view-only user', user: hqUser, action: denied },
       { userType: 'unauthorised user', user: unauthorisedUser, action: denied },
     ])('should be $action to $userType', ({ user, action }) => {

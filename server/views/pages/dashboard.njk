@@ -12,7 +12,7 @@
 {% from "moj/components/pagination/macro.njk" import mojPagination %}
 {% from "macros/accessible-autocomplete/macro.njk" import accessibleAutocomplete %}
 
-{% set pageTitle = applicationName + " - Home" %}
+{% set pageTitle = "Incident reports" %}
 
 {% block beforeContent %}
   {{ super() }}
@@ -22,6 +22,10 @@
       {
         text: "Digital Prison Services",
         href: dpsUrl
+      },
+      {
+        text: "Incident reporting",
+        href: "/"
       }
     ]
   }) }}
@@ -59,7 +63,7 @@
   {% endif %}
 
   <div class="app-dashboard__search-box govuk-!-padding-3 govuk-!-margin-bottom-5">
-    <form method="get" novalidate>
+    <form id="app-dashboard__search-form" method="get" novalidate>
 
       <div class="govuk-grid-row">
         <div class="govuk-grid-column-one-half-from-desktop">
@@ -130,10 +134,13 @@
           {{ govukCheckboxes({
             classes: "govuk-checkboxes--small govuk-checkboxes--inline",
             name: "incidentStatuses",
-            id: "incidentStatuses",
+            attributes: {
+              id: "incidentStatuses"
+            },
             fieldset: {
               legend: {text: statusCheckboxLabel}
             },
+            idPrefix: "incidentStatuses-item",
             items: statusItems | govukMultipleCheckedItems(formValues.incidentStatuses),
             errorMessage: errors | findFieldInGovukErrorSummary("incidentStatuses")
           }) }}
@@ -209,7 +216,7 @@
       {{ govukTable({
         caption: "Incidents",
         captionClasses: "govuk-visually-hidden",
-        classes: "app-sortable-table",
+        classes: "app-report-table app-sortable-table",
         head: tableHead,
         rows: rows
       }) }}

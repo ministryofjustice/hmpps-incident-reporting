@@ -51,7 +51,7 @@ describe('Dashboard permissions', () => {
 
   it.each([
     { userType: 'reporting officer', user: reportingUser, action: show },
-    { userType: 'data warden', user: approverUser, action: show },
+    { userType: 'data warden', user: approverUser, action: hide },
     { userType: 'HQ view-only user', user: hqUser, action: hide },
     { userType: 'unauthorised user', user: unauthorisedUser, action: hide },
   ])('should $action report button for $userType', ({ user, action }) => {

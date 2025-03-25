@@ -43,7 +43,7 @@
       {% endif %}
 
       {% if searchResults.content.length !== 0 %}
-        <form class="app-staff-search-form" method="get" novalidate>
+        <form id="form-wizard" class="app-staff-search-form" method="get" novalidate>
           {# a new search should always start on first page #}
           <input type="hidden" name="page" value="1" />
 
@@ -97,7 +97,7 @@
       {% endfor %}
 
       {{ govukTable({
-        classes: "govuk-!-margin-top-4",
+        classes: "app-involvement-search-results govuk-!-margin-top-4",
         caption: "Staff search results",
         captionClasses: "govuk-visually-hidden",
         head: [

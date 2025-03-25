@@ -10,22 +10,28 @@ import type {
   UpdateReportRequest,
   ChangeStatusRequest,
   ChangeTypeRequest,
+  Question,
 } from '../../server/data/incidentReportingApi'
-import { defaultPageSize } from '../../server/data/incidentReportingApi'
+import { RelatedObjectUrlSlug, defaultPageSize } from '../../server/data/incidentReportingApi'
 
 export default {
   stubIncidentReportingApiGetReports: ({
-    request,
-    reports,
+    request = {},
+    reports = [],
   }: {
-    request: Partial<DatesAsStrings<GetReportsParams>>
-    reports: ReportBasic[]
-  }): SuperAgentRequest =>
+    request?: Partial<DatesAsStrings<GetReportsParams>>
+    reports?: ReportBasic[]
+  } = {}): SuperAgentRequest =>
     stubFor({
       request: {
         method: 'GET',
         urlPath: '/incidentReportingApi/incident-reports',
-        queryParameters: request,
+        queryParameters: Object.fromEntries(
+          Object.entries(request).map(([key, value]) => [
+            key,
+            Array.isArray(value) ? { or: value.map(v => ({ equalTo: v })) } : { equalTo: value },
+          ]),
+        ),
       },
       response: {
         status: 200,
@@ -173,6 +179,119 @@ export default {
         status: 200,
         headers: { 'Content-Type': 'application/json;charset=UTF-8' },
         jsonBody: report,
+      },
+    }),
+
+  stubIncidentReportingApiListRelatedObjects: ({
+    urlSlug,
+    reportId,
+    response,
+  }: {
+    urlSlug: RelatedObjectUrlSlug
+    reportId: string
+    response: unknown
+  }) =>
+    stubFor({
+      request: {
+        method: 'GET',
+        urlPath: `/incidentReportingApi/incident-reports/${reportId}/${urlSlug}`,
+      },
+      response: {
+        status: 200,
+        headers: { 'Content-Type': 'application/json;charset=UTF-8' },
+        jsonBody: response,
+      },
+    }),
+  stubIncidentReportingApiCreateRelatedObject: ({
+    urlSlug,
+    reportId,
+    request,
+    response,
+  }: {
+    urlSlug: RelatedObjectUrlSlug
+    reportId: string
+    request: unknown
+    response: unknown
+  }) =>
+    stubFor({
+      request: {
+        method: 'POST',
+        urlPath: `/incidentReportingApi/incident-reports/${reportId}/${urlSlug}`,
+        bodyPatterns: [{ equalToJson: request }],
+      },
+      response: {
+        status: 201,
+        headers: { 'Content-Type': 'application/json;charset=UTF-8' },
+        jsonBody: response,
+      },
+    }),
+  stubIncidentReportingApiUpdateRelatedObject: ({
+    urlSlug,
+    reportId,
+    index,
+    request,
+    response,
+  }: {
+    urlSlug: RelatedObjectUrlSlug
+    reportId: string
+    index: number
+    request: unknown
+    response: unknown
+  }) =>
+    stubFor({
+      request: {
+        method: 'PATCH',
+        urlPath: `/incidentReportingApi/incident-reports/${reportId}/${urlSlug}/${index}`,
+        bodyPatterns: [{ equalToJson: request }],
+      },
+      response: {
+        status: 200,
+        headers: { 'Content-Type': 'application/json;charset=UTF-8' },
+        jsonBody: response,
+      },
+    }),
+  stubIncidentReportingApiDeleteRelatedObject: ({
+    urlSlug,
+    reportId,
+    index,
+    response,
+  }: {
+    urlSlug: RelatedObjectUrlSlug
+    reportId: string
+    index: number
+    response: unknown
+  }) =>
+    stubFor({
+      request: {
+        method: 'DELETE',
+        urlPath: `/incidentReportingApi/incident-reports/${reportId}/${urlSlug}/${index}`,
+      },
+      response: {
+        status: 200,
+        headers: { 'Content-Type': 'application/json;charset=UTF-8' },
+        jsonBody: response,
+      },
+    }),
+
+  stubIncidentReportingApiPutQuestions: ({
+    reportId,
+    request,
+    response,
+  }: {
+    reportId: string
+    request: unknown
+    response: Question[]
+  }): SuperAgentRequest =>
+    stubFor({
+      request: {
+        method: 'PUT',
+        urlPath: `/incidentReportingApi/incident-reports/${reportId}/questions`,
+        bodyPatterns: [{ equalToJson: request }],
+      },
+      response: {
+        status: 200,
+        headers: { 'Content-Type': 'application/json;charset=UTF-8' },
+        jsonBody: response,
       },
     }),
 

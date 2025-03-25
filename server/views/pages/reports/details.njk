@@ -1,5 +1,37 @@
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "macros/dialogue.njk" import dialogue %}
+
 {% set pageTitle = "Incident summary" %}
 {% set bodyClasses = "app-details" %}
 {% set allowSaveAndExit = true %}
 
 {% extends "partials/formWizardLayout.njk" %}
+
+{% block bodyEnd %}
+  {{ super() }}
+
+  {% if creationJourney %}
+    {% call dialogue({moduleName: "incident-date-check"}) %}
+      <p>Did you mean to enter a date that’s over 12 months ago? </p>
+      <div class="govuk-button-group">
+        {{ govukButton({
+          text: "Yes",
+          name: "userAction",
+          value: "yes",
+          preventDoubleClick: true,
+          type: "button",
+          attributes: {tabindex: "2"}
+        }) }}
+        {{ govukButton({
+          text: "No",
+          name: "userAction",
+          value: "no",
+          preventDoubleClick: true,
+          type: "button",
+          classes: "govuk-button--secondary",
+          attributes: {tabindex: "3"}
+        }) }}
+      </div>
+    {% endcall %}
+  {% endif %}
+{% endblock %}

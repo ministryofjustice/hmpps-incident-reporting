@@ -92,7 +92,7 @@ export default abstract class FormWizardPage extends Page {
   /**
    * Find a save button by label
    */
-  protected saveButton(label = 'Save and continue'): PageElement<HTMLButtonElement> {
+  protected saveButton(label = 'Continue'): PageElement<HTMLButtonElement> {
     return this.form.find<HTMLButtonElement>('.govuk-button').contains(label)
   }
 

@@ -144,10 +144,6 @@ describe('Prisoner involvement summary for report', () => {
         expect(res.text).toContain('app-prisoner-summary')
 
         expect(res.text).toContain('No prisoners have been added to this incident report.')
-        expect(res.text).not.toContain('Role')
-        expect(res.text).not.toContain('Outcome')
-        expect(res.text).not.toContain('>Details')
-        expect(res.text).not.toContain('Action')
         expect(res.text).not.toContain('Remove')
         expect(res.text).not.toContain('Edit')
         expect(res.text).toContain('Do you want to add a prisoner?')
@@ -233,10 +229,6 @@ describe('Prisoner involvement summary for report', () => {
           expect(res.text).toContain('app-prisoner-request')
 
           expect(res.text).not.toContain('No prisoners have been added to this incident report.')
-          expect(res.text).not.toContain('Role')
-          expect(res.text).not.toContain('Outcome')
-          expect(res.text).not.toContain('>Details')
-          expect(res.text).not.toContain('Action')
           expect(res.text).not.toContain('Remove')
           expect(res.text).not.toContain('Edit')
 

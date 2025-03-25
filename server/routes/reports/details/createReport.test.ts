@@ -272,7 +272,7 @@ describe('Creating a report', () => {
 
       return agent
         .post('/create-report/details')
-        .send({ ...validPayload, submit: 'exit' })
+        .send({ ...validPayload, userAction: 'exit' })
         .redirects(0)
         .expect(302)
         .expect(res => {

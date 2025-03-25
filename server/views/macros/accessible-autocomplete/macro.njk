@@ -4,7 +4,6 @@
     Auto complete control
     Params values
         - same as govukSelect
-        - nonce - required for script CSP
     ------------------------------------------------------------- #}
 {% macro accessibleAutocomplete(params) %}
   {% set attributes = mergeObjects(params.attributes or {}, {"data-module": "autocomplete-enhanced-select"}) %}

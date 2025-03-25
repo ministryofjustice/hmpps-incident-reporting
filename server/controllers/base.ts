@@ -2,7 +2,7 @@ import type express from 'express'
 import FormWizard from 'hmpo-form-wizard'
 
 import { SanitisedError } from '../sanitisedError'
-import { parseDateInput, parseTimeInput } from '../utils/utils'
+import { parseDateInput, parseTimeInput } from '../utils/parseDateTime'
 
 /**
  * The super-class form wizard controller with functionality that should be shared

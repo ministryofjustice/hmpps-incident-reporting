@@ -1,5 +1,3 @@
-import nunjucks from 'nunjucks'
-
 import { isBeingTransferred, isOutside, type OffenderSearchResult } from '../data/offenderSearchApi'
 
 const properCase = (word: string): string =>
@@ -53,40 +51,6 @@ export const possessive = (word: string): string => {
     return ''
   }
   return wordStr.toLowerCase().endsWith('s') ? `${wordStr}’` : `${wordStr}’s`
-}
-
-/** Parse date in the form DD/MM/YYYY; the returned time part should be ignored. Throws an error when invalid */
-export const parseDateInput = (input: string): Date => {
-  const match = input && /^(?<day>\d{1,2})\/(?<month>\d{1,2})\/(?<year>\d{4})$/.exec(input.trim())
-  if (!match) throw new Error('Invalid date')
-  const { year, month, day } = match.groups
-  const y = parseInt(year, 10)
-  const m = parseInt(month, 10)
-  const d = parseInt(day, 10)
-  if (Number.isSafeInteger(y) && m >= 1 && m <= 12 && d >= 1 && d <= 31) {
-    const date = new Date(y, m - 1, d, 12)
-    if (date && date.getDate() === d) {
-      // ensures date is valid and js did not choose to roll forward to the next month
-      return date
-    }
-  }
-  throw new Error('Invalid date')
-}
-
-/** Parse time in the form HH:MM. Throws an error when invalid */
-export const parseTimeInput = (input: string): { hours: number; minutes: number; time: string } => {
-  const match = input && /^(?<hours>\d{1,2}):(?<minutes>\d\d)$/.exec(input.trim())
-  if (!match) throw new Error('Invalid time')
-  const { hours, minutes } = match.groups
-  const h = parseInt(hours, 10)
-  const m = parseInt(minutes, 10)
-  if (h >= 0 && h < 24 && m >= 0 && m < 60)
-    return {
-      hours: h,
-      minutes: m,
-      time: `${hours.padStart(2, '0')}:${minutes.padStart(2, '0')}`,
-    }
-  throw new Error('Invalid time')
 }
 
 /** Years since a given string date (parseable using `new Date()`) or null */
@@ -160,34 +124,6 @@ export function kebabCase(str: string): string {
     ?.replace(/([A-Z])/g, '-$1')
     ?.replace(/^-/, '')
     ?.toLowerCase()
-}
-
-/**
- * Return a filename name for a macro
- * @param {string} macroName
- * @returns {string} returns naming convention based macro name
- */
-function macroNameToFilepath(macroName: string): string {
-  if (macroName.includes('govuk')) {
-    return `govuk/components/${kebabCase(macroName.replace(/^\b(govuk)/, ''))}`
-  }
-
-  if (macroName.includes('moj')) {
-    return `moj/components/${kebabCase(macroName.replace(/^\b(moj)/, ''))}`
-  }
-
-  return kebabCase(macroName.replace(/^\b(app)/, ''))
-}
-
-export function getComponentString(macroName: string, params = {}): string {
-  const macroParams = JSON.stringify(params, null, 2)
-  const filename = macroNameToFilepath(macroName)
-  const macroString = `
-      {%- from "${filename}/macro.njk" import ${macroName} -%}
-      {{- ${macroName}(${macroParams}) -}}
-    `
-
-  return nunjucks.renderString(macroString, {})
 }
 
 /**

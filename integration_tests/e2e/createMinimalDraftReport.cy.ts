@@ -2,7 +2,7 @@ import format from '../../server/utils/format'
 import { mockReport } from '../../server/data/testData/incidentReporting'
 import HomePage from '../pages/home'
 import Page from '../pages/page'
-import TypePage from '../pages/reports/type'
+import { TypePage } from '../pages/reports/type'
 import DetailsPage from '../pages/reports/details'
 import { PrisonerInvolvementsPage } from '../pages/reports/involvements/prisoners'
 

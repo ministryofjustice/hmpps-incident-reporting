@@ -126,6 +126,16 @@ describe('Creating a report', () => {
         })
     })
 
+    it('should include date-checking component', () => {
+      return agent
+        .get('/create-report/details')
+        .expect(200)
+        .expect(res => {
+          expect(res.text).toContain('<dialog')
+          expect(res.text).toContain('app-dialogue')
+        })
+    })
+
     it.each([
       { missingField: 'incidentDate', expectedError: 'Enter a date' },
       { missingField: '_incidentTime-hours', expectedError: 'Enter a time' },
@@ -272,7 +282,7 @@ describe('Creating a report', () => {
 
       return agent
         .post('/create-report/details')
-        .send({ ...validPayload, submit: 'exit' })
+        .send({ ...validPayload, userAction: 'exit' })
         .redirects(0)
         .expect(302)
         .expect(res => {

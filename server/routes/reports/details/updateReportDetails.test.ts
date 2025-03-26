@@ -85,6 +85,16 @@ describe('Updating report details', () => {
       })
   })
 
+  it('should not include date-checking component', () => {
+    return agent
+      .get(updateDetailsUrl)
+      .expect(200)
+      .expect(res => {
+        expect(res.text).not.toContain('<dialog')
+        expect(res.text).not.toContain('app-dialogue')
+      })
+  })
+
   it.each([
     { missingField: 'incidentDate', expectedError: 'Enter a date' },
     { missingField: '_incidentTime-hours', expectedError: 'Enter a time' },

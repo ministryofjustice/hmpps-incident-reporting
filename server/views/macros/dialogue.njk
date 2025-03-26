@@ -1,0 +1,20 @@
+{#
+Dialogue box component which can be opened as a modal.
+Buttons with name "userAction" in the body can be used to close it with their value being returned. Use tabindex from 2.
+
+Parameters:
+  - moduleName – used to attach a concrete implementation of the Dialogue component
+#}
+
+{% macro dialogue(params) %}
+
+  <dialog class="app-dialogue" role="alertdialog" tabindex="1" {% if params.moduleName %}data-module="{{ params.moduleName }}"{% endif %}>
+    <div class="app-dialogue__header">
+      <button type="button" tabindex="0" name="userAction" class="app-dialogue__close-button" aria-label="Close">&times;</button>
+    </div>
+    <div class="app-dialogue__body">
+      {{ caller() }}
+    </div>
+  </dialog>
+
+{% endmacro %}

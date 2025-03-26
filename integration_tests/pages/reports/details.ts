@@ -20,4 +20,20 @@ export default class DetailsPage extends FormWizardPage {
   enterDescription(description: string): PageElement<HTMLTextAreaElement> {
     return this.textareaInput('description').clear().type(description)
   }
+
+  get dialogue(): PageElement<HTMLDialogElement> {
+    return cy.get('dialog.app-dialogue')
+  }
+
+  get dialogueCloseButton(): PageElement<HTMLButtonElement> {
+    return this.dialogue.find('button').contains('×')
+  }
+
+  get dialogueYesButton(): PageElement<HTMLButtonElement> {
+    return this.dialogue.find('button').contains('Yes')
+  }
+
+  get dialogueNoButton(): PageElement<HTMLButtonElement> {
+    return this.dialogue.find('button').contains('No')
+  }
 }

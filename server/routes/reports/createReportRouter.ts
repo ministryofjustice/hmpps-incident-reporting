@@ -12,7 +12,15 @@ import { createReportWizardRouter } from './details/createReport'
 export const createReportRouter = express.Router({ mergeParams: true })
 
 // form wizard to save minimal report details
-createReportRouter.use(logoutIf(cannotCreateReportInActiveCaseload), createReportWizardRouter)
+// and mark all routes as being part of report creation journey
+createReportRouter.use(
+  logoutIf(cannotCreateReportInActiveCaseload),
+  (_req, res, next) => {
+    res.locals.creationJourney = true
+    next()
+  },
+  createReportWizardRouter,
+)
 
 // router that handles collecting further details after report is saved
 const nestedRouter = express.Router({ mergeParams: true })
@@ -21,11 +29,10 @@ createReportRouter.use('/:reportId', nestedRouter)
 // require report-editing permissions
 nestedRouter.use(populateReport(true), logoutIf(cannotEditReport))
 
-// mark nested routes as all being part of report creation journey
+// set url prefix for nested routes
 nestedRouter.use((req, res, next) => {
   const { reportId } = req.params
 
-  res.locals.creationJourney = true
   res.locals.reportSubUrlPrefix = `/create-report/${reportId}`
 
   next()

@@ -1,0 +1,51 @@
+.app-dialogue {
+  background: $govuk-body-background-colour;
+  border: $govuk-border-width-form-element solid $govuk-text-colour;
+  padding: 0;
+
+  &:focus {
+    outline: $govuk-focus-width solid $govuk-focus-colour;
+  }
+
+  &::backdrop {
+    background: rgba(0, 0, 0, 0.5);
+  }
+
+  @media print {
+    display: none;
+  }
+}
+
+.app-dialogue__header {
+  padding: 0;
+  background: $govuk-text-colour;
+}
+
+.app-dialogue__close-button {
+  box-sizing: border-box;
+  -webkit-appearance: none;
+  appearance: none;
+  border: $govuk-border-width-form-element solid $govuk-text-colour;
+  margin: 0;
+  padding: 0 7px;
+  background: $govuk-text-colour;
+  color: $govuk-body-background-colour;
+  cursor: pointer;
+  @include govuk-font($size: 24);
+
+  &:focus {
+    background: $govuk-focus-colour;
+    color: $govuk-text-colour;
+    outline: $govuk-focus-width solid transparent;
+  }
+}
+
+.app-dialogue__body {
+  padding: govuk-spacing(4) govuk-spacing(4) 0;
+  background: $govuk-body-background-colour;
+
+  p {
+    color: $govuk-text-colour;
+    @include govuk-font($size: 24, $weight: bold);
+  }
+}

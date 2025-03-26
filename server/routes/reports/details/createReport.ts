@@ -62,7 +62,7 @@ class DetailsController extends BaseDetailsController<CreateReportValues> {
       const report: ReportWithDetails = res.locals.createdReport
 
       // …return to home page is user chose to exit
-      if (req.body.submit === 'exit') {
+      if (req.body.userAction === 'exit') {
         return '/'
       }
 

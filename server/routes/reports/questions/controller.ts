@@ -3,7 +3,7 @@ import type FormWizard from 'hmpo-form-wizard'
 
 import logger from '../../../../logger'
 import format from '../../../utils/format'
-import { parseDateInput } from '../../../utils/utils'
+import { parseDateInput } from '../../../utils/parseDateTime'
 import type {
   AddOrUpdateQuestionResponseRequest,
   AddOrUpdateQuestionWithResponsesRequest,

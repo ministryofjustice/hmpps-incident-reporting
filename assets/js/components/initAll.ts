@@ -2,6 +2,7 @@ import { Component, createAll } from 'govuk-frontend'
 
 import { AccessibleAutocompleteEnhancedSelect } from './accessibleAutocomplete'
 import { DpsCard } from './dpsCard'
+import { IncidentDateCheck } from './incidentDateCheck'
 
 // eslint-disable-next-line import/prefer-default-export
 export function initApplicationComponents() {
@@ -17,6 +18,7 @@ export function initApplicationComponents() {
     // add DPS and application components here:
     AccessibleAutocompleteEnhancedSelect,
     DpsCard,
+    IncidentDateCheck,
   ]
   components.forEach(component => createAll(component))
 }

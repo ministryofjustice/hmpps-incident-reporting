@@ -1,7 +1,7 @@
 import type { Express } from 'express'
 import request, { type Agent } from 'supertest'
 
-import { parseDateInput } from '../../../utils/utils'
+import { parseDateInput } from '../../../utils/parseDateTime'
 import { appWithAllRoutes } from '../../testutils/appSetup'
 import { now } from '../../../testutils/fakeClock'
 import {

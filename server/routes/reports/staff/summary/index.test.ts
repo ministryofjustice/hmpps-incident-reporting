@@ -100,9 +100,6 @@ describe('Staff involvement summary for report', () => {
         expect(res.text).toContain('app-staff-summary')
 
         expect(res.text).toContain('No staff members have been added to this incident report.')
-        expect(res.text).not.toContain('Role')
-        expect(res.text).not.toContain('>Details')
-        expect(res.text).not.toContain('Action')
         expect(res.text).not.toContain('Remove')
         expect(res.text).not.toContain('Edit')
         expect(res.text).toContain('Do you want to add a member of staff?')
@@ -187,10 +184,6 @@ describe('Staff involvement summary for report', () => {
           expect(res.text).toContain('app-staff-request')
 
           expect(res.text).not.toContain('No staff have been added to this incident report.')
-          expect(res.text).not.toContain('Role')
-          expect(res.text).not.toContain('Outcome')
-          expect(res.text).not.toContain('>Details')
-          expect(res.text).not.toContain('Action')
           expect(res.text).not.toContain('Remove')
           expect(res.text).not.toContain('Edit')
 

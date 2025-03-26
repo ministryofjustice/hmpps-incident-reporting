@@ -1,3 +1,4 @@
+import format from '../../server/utils/format'
 import { mockReport } from '../../server/data/testData/incidentReporting'
 import HomePage from '../pages/home'
 import Page from '../pages/page'
@@ -58,6 +59,69 @@ context('Creating a new minimal draft report', () => {
 
     detailsPage.submit()
     Page.verifyOnPage(PrisonerInvolvementsPage, false)
+  })
+
+  const longAgo = new Date()
+  longAgo.setFullYear(longAgo.getFullYear() - 1)
+  longAgo.setDate(longAgo.getDate() - 1)
+  longAgo.setSeconds(0)
+  longAgo.setMilliseconds(0)
+
+  it('should allow confirming entry of a date that’s over a year in the past', () => {
+    const typePage = Page.verifyOnPage(TypePage)
+    typePage.checkBackLink('/')
+    typePage.selectType(reportWithDetails.type)
+    typePage.submit()
+
+    const detailsPage = Page.verifyOnPage(DetailsPage)
+    detailsPage.checkBackLink('/create-report')
+    detailsPage.enterDate(longAgo)
+    detailsPage.enterTime(longAgo.getHours().toString(), longAgo.getMinutes().toString())
+    detailsPage.enterDescription(reportWithDetails.description)
+
+    detailsPage.dialogue.should('not.be.visible')
+    detailsPage.submit()
+    Page.verifyOnPage(DetailsPage)
+    detailsPage.dialogue.should('be.visible')
+
+    // stub report creation
+    cy.task('stubIncidentReportingApiCreateReport', {
+      request: {
+        type: reportWithDetails.type,
+        incidentDateAndTime: format.isoDateTime(longAgo),
+        location: 'MDI',
+        title: reportWithDetails.title,
+        description: reportWithDetails.description,
+        createNewEvent: true,
+      },
+      report: reportWithDetails,
+    })
+    // stub lookups from next page, adding a prisoner
+    cy.task('stubIncidentReportingApiGetReportWithDetailsById', { report: reportWithDetails })
+
+    detailsPage.dialogueYesButton.click()
+    Page.verifyOnPage(PrisonerInvolvementsPage, false)
+  })
+
+  it('should allow re-entry of a date that’s over a year in the past after warning', () => {
+    const typePage = Page.verifyOnPage(TypePage)
+    typePage.checkBackLink('/')
+    typePage.selectType(reportWithDetails.type)
+    typePage.submit()
+
+    const detailsPage = Page.verifyOnPage(DetailsPage)
+    detailsPage.checkBackLink('/create-report')
+    detailsPage.enterDate(longAgo)
+    detailsPage.enterTime(longAgo.getHours().toString(), longAgo.getMinutes().toString())
+    detailsPage.enterDescription(reportWithDetails.description)
+
+    detailsPage.dialogue.should('not.be.visible')
+    detailsPage.submit()
+    Page.verifyOnPage(DetailsPage)
+    detailsPage.dialogue.should('be.visible')
+    detailsPage.dialogueNoButton.click()
+    detailsPage.dialogue.should('not.be.visible')
+    Page.verifyOnPage(DetailsPage)
   })
 
   it('should show errors if information is missing', () => {

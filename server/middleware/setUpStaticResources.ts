@@ -22,7 +22,7 @@ export default function setUpStaticResources(): Router {
     )
   }
 
-  // Application assets
+  // Application & third-party assets
   Array.of(
     '/dist/assets',
     '/node_modules/govuk-frontend/dist/govuk/assets',
@@ -30,18 +30,13 @@ export default function setUpStaticResources(): Router {
     '/node_modules/@ministryofjustice/frontend/moj/assets',
     '/node_modules/@ministryofjustice/frontend',
     '/node_modules/@ministryofjustice/hmpps-digital-prison-reporting-frontend/dpr/assets',
+    '/node_modules/@ministryofjustice/hmpps-digital-prison-reporting-frontend',
     '/node_modules/accessible-autocomplete/dist',
   ).forEach(dir => staticRoute('/assets', dir))
-
-  // Digital Prison Reporting & related third-party plugins
-  staticRoute('/assets/govuk', '/node_modules/govuk-frontend/dist/govuk/assets') // DPR forces GOVUK assets to load from /assets/govuk
-  staticRoute('/moj/assets', '/node_modules/@ministryofjustice/frontend/moj/assets') // DPR forces MoJ assets to load from /moj/assets
+  // DPR’s pre-built CSS requires MoJ & DPR assets to have particular URL prefixes
+  staticRoute('/moj/assets', '/node_modules/@ministryofjustice/frontend/moj/assets')
   staticRoute('/assets/dpr', '/node_modules/@ministryofjustice/hmpps-digital-prison-reporting-frontend/dpr/assets')
-  staticRoute('/assets/ext/chart.js', '/node_modules/chart.js/dist/chart.umd.js')
-  staticRoute(
-    '/assets/ext/chartjs-datalabels.js',
-    '/node_modules/chartjs-plugin-datalabels/dist/chartjs-plugin-datalabels.min.js',
-  )
+  // Third-party plugins that DPR does not automatically bundle
   staticRoute('/assets/ext/day.js', '/node_modules/dayjs/dayjs.min.js')
   staticRoute('/assets/ext/dayjs/plugin/customParseFormat.js', '/node_modules/dayjs/plugin/customParseFormat.js')
 

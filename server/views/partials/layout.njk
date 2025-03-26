@@ -37,5 +37,7 @@
 {% endblock %}
 
 {% block bodyEnd %}
-  <script type="module" src="{{ "/assets/js/application.js" | assetMap }}"></script>
+  {% block pageJavascript %}
+    <script type="module" src="{{ "/assets/js/application.js" | assetMap }}"></script>
+  {% endblock %}
 {% endblock %}

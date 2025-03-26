@@ -258,7 +258,7 @@ describe('Creating a report', () => {
             description: 'Disorder took place on A wing',
             incidentDateAndTime,
             location: 'MDI',
-            title: 'Report: disorder',
+            title: 'Disorder (Moorland (HMP & YOI))',
             type: 'DISORDER',
           })
         })

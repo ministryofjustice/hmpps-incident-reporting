@@ -86,7 +86,7 @@ context('Creating a completed draft report', () => {
         type: reportWithDetails.type,
         incidentDateAndTime: reportWithDetails.incidentDateAndTime,
         location: 'MDI',
-        title: reportWithDetails.title,
+        title: 'Attempted escape from custody (Moorland (HMP & YOI))',
         description: reportWithDetails.description,
         createNewEvent: true,
       },

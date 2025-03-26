@@ -36,7 +36,7 @@ const buildAssets = buildConfig => {
     minify: buildConfig.isProduction,
     sourcemap: !buildConfig.isProduction,
     platform: 'browser',
-    target: 'es2018',
+    target: 'es2020', // or even es2022?
     external: ['/assets/*'],
     tsconfig: buildConfig.assets.tsconfig,
     bundle: true,

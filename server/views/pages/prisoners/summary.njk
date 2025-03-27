@@ -1,138 +1,64 @@
-{% extends "partials/layout.njk" %}
+{% extends "pages/involvements/summary.njk" %}
 
-{% from "govuk/components/back-link/macro.njk" import govukBackLink %}
-{% from "govuk/components/button/macro.njk" import govukButton %}
-{% from "govuk/components/radios/macro.njk" import govukRadios %}
 {% from "govuk/components/table/macro.njk" import govukTable %}
 
 {% set bodyClasses = "app-involvement-summary app-prisoner-summary" %}
 
-{% block beforeContent %}
-  {{ super() }}
+{% block resultsTable %}
 
-  {{ govukBackLink({
-    text: "Back",
-    href: backLink
-  }) }}
-{% endblock %}
-
-{% block content %}
-
-  {% include "partials/notificationBanner.njk" %}
-  {% include "partials/errorSummary.njk" %}
-
-  <h1 class="govuk-heading-l">{{ pageTitle }}</h1>
-
-  {% if involvementsExist %}
-
-    {% if report.createdInNomis %}
-      {% set head = [
-        { text: "Prisoner" },
-        { text: "Role" },
-        { text: "Outcome" },
-        { text: "Details" },
-        { text: "Action" }
-      ] %}
-    {% else %}
-      {% set head = [
-        { text: "Prisoner" },
-        { text: "Role" },
-        { text: "Details" },
-        { text: "Action" }
-      ] %}
-    {% endif %}
-
-    {% set rows = [] %}
-    {% for prisoner in report.prisonersInvolved %}
-      {% set actionCell %}
-        <a href="{{ reportSubUrlPrefix }}/prisoners/remove/{{ loop.index }}">Remove</a> |
-        <a href="{{ reportSubUrlPrefix }}/prisoners/{{ loop.index }}">Edit</a>
-      {% endset %}
-      {% if report.createdInNomis %}
-        {% set rows = (rows.push(
-          [
-            { text: prisoner.prisonerNumber + ": " + (prisoner | nameOfPerson), classes: "govuk-table__cell--numeric govuk-!-text-align-left" },
-            { text: prisonerInvolvementLookup[prisoner.prisonerRole] or prisoner.prisonerRole },
-            { text: prisonerOutcomeLookup[prisoner.outcome] or prisoner.outcome },
-            { html: prisoner.comment | escape | nl2br },
-            { html: actionCell }
-          ]
-          ), rows) %}
-      {% else %}
-        {% set rows = (rows.push(
-          [
-            { text: prisoner.prisonerNumber + ": " + (prisoner | nameOfPerson), classes: "govuk-table__cell--numeric govuk-!-text-align-left" },
-            { text: prisonerInvolvementLookup[prisoner.prisonerRole] or prisoner.prisonerRole },
-            { html: prisoner.comment | escape | nl2br },
-            { html: actionCell }
-          ]
-          ), rows) %}
-      {% endif %}
-    {% endfor %}
-
-    {{ govukTable({
-      classes: "app-involvement-table",
-      head: head,
-      rows: rows
-    }) }}
-
+  {% if report.createdInNomis %}
+    {% set head = [
+      { text: "Prisoner" },
+      { text: "Role" },
+      { text: "Outcome" },
+      { text: "Details" },
+      { text: "Action" }
+    ] %}
   {% else %}
-
-    <p class="govuk-!-margin-bottom-8">No prisoners have been added to this incident report.</p>
-
+    {% set head = [
+      { text: "Prisoner" },
+      { text: "Role" },
+      { text: "Details" },
+      { text: "Action" }
+    ] %}
   {% endif %}
 
-  <form id="form-wizard" method="post" novalidate>
-    <input type="hidden" name="_csrf" value="{{ csrfToken }}" />
-    <input type="hidden" name="x-csrf-token" value="{{ csrfToken }}" />
+  {% set rows = [] %}
+  {% for prisoner in report.prisonersInvolved %}
+    {% set actionCell %}
+      <a href="{{ reportSubUrlPrefix }}/prisoners/remove/{{ loop.index }}">Remove</a> |
+      <a href="{{ reportSubUrlPrefix }}/prisoners/{{ loop.index }}">Edit</a>
+    {% endset %}
+    {% if report.createdInNomis %}
+      {% set rows = (rows.push(
+        [
+          { text: prisoner.prisonerNumber + ": " + (prisoner | nameOfPerson), classes: "govuk-table__cell--numeric govuk-!-text-align-left" },
+          { text: prisonerInvolvementLookup[prisoner.prisonerRole] or prisoner.prisonerRole },
+          { text: prisonerOutcomeLookup[prisoner.outcome] or prisoner.outcome },
+          { html: prisoner.comment | escape | nl2br },
+          { html: actionCell }
+        ]
+        ), rows) %}
+    {% else %}
+      {% set rows = (rows.push(
+        [
+          { text: prisoner.prisonerNumber + ": " + (prisoner | nameOfPerson), classes: "govuk-table__cell--numeric govuk-!-text-align-left" },
+          { text: prisonerInvolvementLookup[prisoner.prisonerRole] or prisoner.prisonerRole },
+          { html: prisoner.comment | escape | nl2br },
+          { html: actionCell }
+        ]
+        ), rows) %}
+    {% endif %}
+  {% endfor %}
 
-    {% set fieldName = "confirmAdd" %}
-    {% set field = options.fields[fieldName] %}
-    {% set items = [] %}
-    {% for item in field.items %}
-      {% set _ = items.push({
-        value: item.value,
-        text: item.label,
-        hint: {text: item.hint} if item.hint else undefined
-      }) %}
-    {% endfor %}
-    {{ govukRadios({
-      name: fieldName,
-      attributes: { id: fieldName },
-      classes: "govuk-radios--inline",
-      formGroup: {
-        attributes: { id: fieldName + "__form-group" }
-      },
-      fieldset: {
-        legend: {
-          text: field.label,
-          classes: "govuk-fieldset__legend--m"
-        }
-      },
-      idPrefix: fieldName + "-item",
-      items: items,
-      hint: { text: field.hint } if field.hint else undefined,
-      errorMessage: { text: errors[fieldName].message } if errors[fieldName] else undefined
-    }) }}
+  {{ govukTable({
+    classes: "app-involvement-table",
+    head: head,
+    rows: rows
+  }) }}
 
-    <div class="govuk-button-group">
-      {{ govukButton({
-        text: "Continue",
-        name: "userAction",
-        value: "continue",
-        preventDoubleClick: true,
-        type: "submit"
-      }) }}
+{% endblock %}
 
-      {{ govukButton({
-        text: "Save and exit",
-        name: "userAction",
-        value: "exit",
-        preventDoubleClick: true,
-        classes: "govuk-button--secondary",
-        href: reportUrl
-      }) }}
-    </div>
-  </form>
-
+{% block noResults %}
+  <p class="govuk-!-margin-bottom-8">No prisoners have been added to this incident report.</p>
 {% endblock %}

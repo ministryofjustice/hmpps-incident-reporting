@@ -198,15 +198,20 @@ describe('Prisoner involvement summary for report', () => {
   })
 
   it.each([
-    { scenario: 'redirect to adding staff (during create journey)', createJourney: true },
+    { scenario: 'redirect to adding staff (when continuing create journey)', createJourney: true },
+    {
+      scenario: 'redirect to report page (when exiting create journey)',
+      createJourney: true,
+      userAction: 'exit' as const,
+    },
     { scenario: 'redirect to report page (normally)', createJourney: false },
-  ])('should $scenario if user chooses not to add involvements', ({ createJourney }) => {
+  ])('should $scenario if user chooses not to add involvements', ({ createJourney, userAction }) => {
     return request(app)
       .post(summaryUrl(createJourney))
-      .send({ confirmAdd: 'no' })
+      .send({ confirmAdd: 'no', userAction })
       .expect(302)
       .expect(res => {
-        if (createJourney) {
+        if (createJourney && userAction !== 'exit') {
           expect(res.headers.location).toEqual(`/create-report/${mockedReport.id}/staff`)
         } else {
           expect(res.headers.location).toEqual(`/reports/${mockedReport.id}`)
@@ -281,15 +286,20 @@ describe('Prisoner involvement summary for report', () => {
     })
 
     it.each([
-      { scenario: 'redirect to adding staff (during create journey)', createJourney: true },
+      { scenario: 'redirect to adding staff (when continuing create journey)', createJourney: true },
+      {
+        scenario: 'redirect to report page (when exiting create journey)',
+        createJourney: true,
+        userAction: 'exit' as const,
+      },
       { scenario: 'redirect to report page (normally)', createJourney: false },
-    ])('should $scenario if user chooses not to add involvements', ({ createJourney }) => {
+    ])('should $scenario if user chooses not to add involvements', ({ createJourney, userAction }) => {
       return request(app)
         .post(summaryUrl(createJourney))
-        .send({ confirmAdd: 'no' })
+        .send({ confirmAdd: 'no', userAction })
         .expect(302)
         .expect(res => {
-          if (createJourney) {
+          if (createJourney && userAction !== 'exit') {
             expect(res.headers.location).toEqual(`/create-report/${mockedReport.id}/staff`)
           } else {
             expect(res.headers.location).toEqual(`/reports/${mockedReport.id}`)
@@ -323,15 +333,20 @@ describe('Prisoner involvement summary for report', () => {
     })
 
     it.each([
-      { scenario: 'redirect to adding staff (during create journey)', createJourney: true },
+      { scenario: 'redirect to adding staff (when continuing create journey)', createJourney: true },
+      {
+        scenario: 'redirect to report page (when exiting create journey)',
+        createJourney: true,
+        userAction: 'exit' as const,
+      },
       { scenario: 'redirect to report page (normally)', createJourney: false },
-    ])('should $scenario if user chooses to skip adding involvements', ({ createJourney }) => {
+    ])('should $scenario if user chooses to skip adding involvements', ({ createJourney, userAction }) => {
       return request(app)
         .post(summaryUrl(createJourney))
-        .send({ confirmAdd: 'skip' })
+        .send({ confirmAdd: 'skip', userAction })
         .expect(302)
         .expect(res => {
-          if (createJourney) {
+          if (createJourney && userAction !== 'exit') {
             expect(res.headers.location).toEqual(`/create-report/${mockedReport.id}/staff`)
           } else {
             expect(res.headers.location).toEqual(`/reports/${mockedReport.id}`)

@@ -32,10 +32,7 @@ const buildConfig = {
   assets: {
     tsconfig: path.join(cwd, 'assets/js/tsconfig.json'),
     outDir: path.join(cwd, 'dist/assets'),
-    entryPoints: glob.sync([
-      path.join(cwd, 'assets/js/application.ts'),
-      path.join(cwd, 'assets/scss/application.scss'),
-    ]),
+    entryPoints: glob.sync([path.join(cwd, 'assets/js/*.ts'), path.join(cwd, 'assets/scss/*.scss')]),
     copy: [
       {
         from: path.join(cwd, 'assets/images/**/*'),

@@ -32,11 +32,11 @@ const buildAssets = buildConfig => {
   return esbuild.build({
     entryPoints: buildConfig.assets.entryPoints,
     outdir: buildConfig.assets.outDir,
-    entryNames: '[ext]/app.[hash]',
+    entryNames: '[ext]/[name].[hash]',
     minify: buildConfig.isProduction,
     sourcemap: !buildConfig.isProduction,
     platform: 'browser',
-    target: 'es2018',
+    target: 'es2020', // or even es2022?
     external: ['/assets/*'],
     tsconfig: buildConfig.assets.tsconfig,
     bundle: true,

@@ -319,8 +319,12 @@ export default function dashboard(service: Services): Router {
       )
     }
 
+    // Gather notification banner entries if they exist
+    const banners = req.flash()
+
     res.render('pages/dashboard', {
       activeCaseLoad,
+      banners,
       reports,
       establishments,
       establishmentLookup,

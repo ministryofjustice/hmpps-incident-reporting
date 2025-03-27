@@ -24,6 +24,9 @@
 {% endblock %}
 
 {% block content %}
+
+  {% include "partials/notificationBanner.njk" %}
+
   <h1 class="govuk-heading-l">
     {% if report.status == "DRAFT" and canEditReport %}
       {# TODO: this probably needs to show for certain other statuses too #}

@@ -99,7 +99,7 @@ export function mockReport({
     type,
     incidentDateAndTime: format.isoDateTime(incidentDateAndTime),
     location,
-    title: `Report: ${getTypeDetails(type).description.toLowerCase()}`,
+    title: `${getTypeDetails(type).description} (${location})`,
     description: `A new incident created in the new service of type ${type}`,
     reportedBy: reportingUsername,
     reportedAt: format.isoDateTime(reportDateAndTime),

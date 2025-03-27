@@ -4,7 +4,7 @@ import FormWizard from 'hmpo-form-wizard'
 
 import logger from '../../../../logger'
 import type { ReportWithDetails } from '../../../data/incidentReportingApi'
-import { getTypeDetails } from '../../../reportConfiguration/constants'
+import { newReportTitle } from '../../../services/reportTitle'
 import { BaseDetailsController } from './detailsController'
 import { BaseTypeController } from './typeController'
 import { type TypeValues, typeFields, typeFieldNames } from './typeFields'
@@ -24,16 +24,14 @@ class DetailsController extends BaseDetailsController<CreateReportValues> {
 
     const { type, description, incidentDate, incidentTime } = allValues
     const incidentDateAndTime = this.buildIncidentDateAndTime(incidentDate, incidentTime)
-    const typeDetails = getTypeDetails(type)
-    // TODO: what should auto-generated title be?
-    //       also, move title generator out to reuse in future when changing report type
-    const title = `Report: ${typeDetails.description.toLowerCase()}`
+
+    // TODO: it's not possible to create a PECS report
 
     try {
       const report = await res.locals.apis.incidentReportingApi.createReport({
         type,
         incidentDateAndTime,
-        title,
+        title: newReportTitle(type, res.locals.user.activeCaseLoad.description),
         description,
         location: res.locals.user.activeCaseLoad.caseLoadId,
         createNewEvent: true,

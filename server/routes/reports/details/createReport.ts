@@ -3,7 +3,6 @@ import express from 'express'
 import FormWizard from 'hmpo-form-wizard'
 
 import logger from '../../../../logger'
-import type { ReportWithDetails } from '../../../data/incidentReportingApi'
 import { newReportTitle } from '../../../services/reportTitle'
 import { BaseDetailsController } from './detailsController'
 import { BaseTypeController } from './typeController'
@@ -38,6 +37,8 @@ class DetailsController extends BaseDetailsController<CreateReportValues> {
       })
       logger.info(`Report ${report.reportReference} created`)
       res.locals.createdReport = report
+      res.locals.reportUrl = `/reports/${report.id}`
+      res.locals.reportSubUrlPrefix = `/create-report/${report.id}`
 
       // clear session since report has been saved
       req.journeyModel.reset()
@@ -57,15 +58,13 @@ class DetailsController extends BaseDetailsController<CreateReportValues> {
   ): string | undefined {
     // if a report was successfully created…
     if (res.locals.createdReport) {
-      const report: ReportWithDetails = res.locals.createdReport
-
-      // …return to home page is user chose to exit
+      // …go to report view if user chose to exit
       if (req.body.userAction === 'exit') {
-        return '/'
+        return res.locals.reportUrl
       }
 
       // …or proceed with adding prisoners if they chose to continue
-      return `/create-report/${report.id}/prisoners`
+      return `${res.locals.reportSubUrlPrefix}/prisoners`
     }
 
     // otherwise let form wizard decide where to go next

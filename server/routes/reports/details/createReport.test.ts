@@ -270,7 +270,7 @@ describe('Creating a report', () => {
       })
     })
 
-    it('should send request to API if form is valid and return to home page is user chose to exit', () => {
+    it('should send request to API if form is valid and return to report view if user chose to exit', () => {
       const reportWithDetails = convertReportWithDetailsDates(
         mockReport({
           reportReference: '6544',
@@ -287,7 +287,7 @@ describe('Creating a report', () => {
         .expect(302)
         .expect(res => {
           expect(res.redirect).toBe(true)
-          expect(res.header.location).toEqual('/')
+          expect(res.header.location).toEqual(`/reports/${reportWithDetails.id}`)
           expect(incidentReportingApi.createReport).toHaveBeenCalled()
         })
     })

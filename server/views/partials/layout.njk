@@ -2,7 +2,7 @@
 
 {% block head %}
   {% block pageStylesheets %}
-    <link href="{{ '/assets/css/app.css' | assetMap }}" rel="stylesheet" />
+    <link href="{{ "/assets/css/application.css" | assetMap }}" rel="stylesheet" />
   {% endblock %}
 
   {% if feComponents.jsIncludes %}
@@ -37,5 +37,7 @@
 {% endblock %}
 
 {% block bodyEnd %}
-  <script type="module" src="{{ '/assets/js/app.js' | assetMap }}"></script>
+  {% block pageJavascript %}
+    <script type="module" src="{{ "/assets/js/application.js" | assetMap }}"></script>
+  {% endblock %}
 {% endblock %}

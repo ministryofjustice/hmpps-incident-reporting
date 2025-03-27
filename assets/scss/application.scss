@@ -25,4 +25,4 @@ $govuk-page-width: $moj-page-width;
 @import './page/type';
 @import './page/view-report';
 
-@import './local';
+@import './overrides/local';

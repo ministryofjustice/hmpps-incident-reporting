@@ -15,7 +15,5 @@ export class ManualStaffEntryPage extends FormWizardPage {
     return this.textInput('lastName').clear().type(lastName)
   }
 
-  submit(buttonText = 'Add member of staff'): void {
-    super.submit(buttonText)
-  }
+  protected saveAndContinueText = 'Add member of staff'
 }

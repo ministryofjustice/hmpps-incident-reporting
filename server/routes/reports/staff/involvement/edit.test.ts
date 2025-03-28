@@ -15,6 +15,7 @@ import { mockThrownError } from '../../../../data/testData/thrownErrors'
 import { approverUser, hqUser, reportingUser, unauthorisedUser } from '../../../../data/testData/users'
 import { appWithAllRoutes } from '../../../testutils/appSetup'
 import { now } from '../../../../testutils/fakeClock'
+import type { Values } from './fields'
 
 jest.mock('../../../../data/incidentReportingApi')
 
@@ -113,7 +114,12 @@ describe('Editing an existing staff member in a report', () => {
       })
   })
 
-  it.each([
+  interface ValidScenario {
+    scenario: string
+    validPayload: Partial<Values>
+    expectedCall: object
+  }
+  const validScenarios: ValidScenario[] = [
     {
       scenario: 'request with all fields',
       validPayload: {
@@ -135,7 +141,8 @@ describe('Editing an existing staff member in a report', () => {
         comment: '',
       },
     },
-  ])(
+  ]
+  it.each(validScenarios)(
     'should send update $scenario to API if form is valid and go to summary page',
     ({ validPayload, expectedCall }) => {
       incidentReportingApi.getReportWithDetailsById.mockResolvedValueOnce(report)
@@ -157,6 +164,30 @@ describe('Editing an existing staff member in a report', () => {
         })
     },
   )
+
+  it('should allow exiting to report view when saving', () => {
+    incidentReportingApi.getReportWithDetailsById.mockResolvedValueOnce(report)
+    incidentReportingRelatedObjects.updateForReport.mockResolvedValueOnce([]) // NB: response is ignored
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore need to mock a getter method
+    incidentReportingApi.staffInvolved = incidentReportingRelatedObjects
+
+    return request(app)
+      .post(editPageUrl(1))
+      .send({
+        ...validScenarios[0].validPayload,
+        userAction: 'exit',
+      })
+      .expect(302)
+      .expect(res => {
+        expect(res.redirect).toBe(true)
+        expect(res.header.location).toEqual(`/reports/${report.id}`)
+
+        expect(incidentReportingRelatedObjects.updateForReport).toHaveBeenCalledWith(report.id, 1, {
+          ...validScenarios[0].expectedCall,
+        })
+      })
+  })
 
   it.each([
     {

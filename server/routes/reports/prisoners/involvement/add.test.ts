@@ -311,6 +311,31 @@ describe('Adding a new prisoner to a report', () => {
       },
     )
 
+    it('should allow exiting to report view when saving', () => {
+      incidentReportingApi.getReportWithDetailsById.mockResolvedValueOnce(report)
+      incidentReportingRelatedObjects.addToReport.mockResolvedValueOnce([]) // NB: response is ignored
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+      // @ts-ignore need to mock a getter method
+      incidentReportingApi.prisonersInvolved = incidentReportingRelatedObjects
+      offenderSearchApi.getPrisoner.mockResolvedValueOnce(andrew)
+
+      return request(app)
+        .post(addPageUrl(andrew.prisonerNumber))
+        .send({
+          ...validScenarios[0].validPayload,
+          userAction: 'exit',
+        })
+        .expect(302)
+        .expect(res => {
+          expect(res.redirect).toBe(true)
+          expect(res.header.location).toEqual(`/reports/${report.id}`)
+
+          expect(incidentReportingRelatedObjects.addToReport).toHaveBeenCalledWith(report.id, {
+            ...validScenarios[0].expectedCall,
+          })
+        })
+    })
+
     interface InvalidScenario {
       scenario: string
       invalidPayload: object

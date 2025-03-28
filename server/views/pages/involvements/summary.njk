@@ -1,0 +1,86 @@
+{% extends "partials/layout.njk" %}
+
+{% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/radios/macro.njk" import govukRadios %}
+
+{% block beforeContent %}
+  {{ super() }}
+
+  {{ govukBackLink({
+    text: "Back",
+    href: backLink
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  {% include "partials/notificationBanner.njk" %}
+  {% include "partials/errorSummary.njk" %}
+
+  <h1 class="govuk-heading-l">{{ pageTitle }}</h1>
+
+  {% if involvementsExist %}
+
+    {% block resultsTable %}{% endblock %}
+
+  {% else %}
+
+    {% block noResults %}{% endblock %}
+
+  {% endif %}
+
+  <form id="form-wizard" method="post" novalidate>
+    <input type="hidden" name="_csrf" value="{{ csrfToken }}" />
+    <input type="hidden" name="x-csrf-token" value="{{ csrfToken }}" />
+
+    {% set fieldName = "confirmAdd" %}
+    {% set field = options.fields[fieldName] %}
+    {% set items = [] %}
+    {% for item in field.items %}
+      {% set _ = items.push({
+        value: item.value,
+        text: item.label,
+        hint: {text: item.hint} if item.hint else undefined
+      }) %}
+    {% endfor %}
+    {{ govukRadios({
+      name: fieldName,
+      attributes: { id: fieldName },
+      classes: "govuk-radios--inline",
+      formGroup: {
+        attributes: { id: fieldName + "__form-group" }
+      },
+      fieldset: {
+        legend: {
+          text: field.label,
+          classes: "govuk-fieldset__legend--m"
+        }
+      },
+      idPrefix: fieldName + "-item",
+      items: items,
+      hint: { text: field.hint } if field.hint else undefined,
+      errorMessage: { text: errors[fieldName].message } if errors[fieldName] else undefined
+    }) }}
+
+    <div class="govuk-button-group">
+      {{ govukButton({
+        text: "Continue",
+        name: "userAction",
+        value: "continue",
+        preventDoubleClick: true,
+        type: "submit"
+      }) }}
+
+      {{ govukButton({
+        text: "Save and exit",
+        name: "userAction",
+        value: "exit",
+        preventDoubleClick: true,
+        classes: "govuk-button--secondary",
+        type: "submit"
+      }) }}
+    </div>
+  </form>
+
+{% endblock %}

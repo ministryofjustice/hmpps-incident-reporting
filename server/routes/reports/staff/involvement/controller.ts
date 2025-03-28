@@ -53,7 +53,12 @@ export abstract class StaffInvolvementController<V extends Values = Values> exte
     return `${res.locals.reportSubUrlPrefix}/staff`
   }
 
-  getNextStep(_req: FormWizard.Request<V>, res: express.Response): string {
+  getNextStep(req: FormWizard.Request<V>, res: express.Response): string {
+    // go to report view if user chose to exit
+    if (req.body.userAction === 'exit') {
+      return res.locals.reportUrl
+    }
+    // …or return to involvements summary
     return `${res.locals.reportSubUrlPrefix}/staff`
   }
 

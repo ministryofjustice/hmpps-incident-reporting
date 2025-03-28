@@ -137,6 +137,22 @@ describe('Remove prisoner involvement', () => {
       })
   })
 
+  it('should allow exiting to report view when deleting', () => {
+    incidentReportingApi.getReportWithDetailsById.mockResolvedValueOnce(mockedReport)
+
+    return request
+      .agent(app)
+      .post(removePrisonerUrl(1))
+      .send({ confirmRemove: 'yes', userAction: 'exit' })
+      .expect(302)
+      .expect(res => {
+        expect(res.redirect).toBe(true)
+        expect(res.header.location).toEqual(`/reports/${mockedReport.id}`)
+
+        expect(incidentReportingRelatedObjects.deleteFromReport).toHaveBeenCalledWith(mockedReport.id, 1)
+      })
+  })
+
   it('should not submit the delete request when "no" selected', () => {
     incidentReportingApi.getReportWithDetailsById.mockResolvedValueOnce(mockedReport)
 
@@ -151,6 +167,22 @@ describe('Remove prisoner involvement', () => {
 
         expect(res.text).not.toContain('There is a problem')
         expect(res.text).not.toContain('You have removed')
+
+        expect(incidentReportingRelatedObjects.deleteFromReport).not.toHaveBeenCalled()
+      })
+  })
+
+  it('should allow exiting to report view when not deleting', () => {
+    incidentReportingApi.getReportWithDetailsById.mockResolvedValueOnce(mockedReport)
+
+    return request
+      .agent(app)
+      .post(removePrisonerUrl(1))
+      .send({ confirmRemove: 'no', userAction: 'exit' })
+      .expect(302)
+      .expect(res => {
+        expect(res.redirect).toBe(true)
+        expect(res.header.location).toEqual(`/reports/${mockedReport.id}`)
 
         expect(incidentReportingRelatedObjects.deleteFromReport).not.toHaveBeenCalled()
       })

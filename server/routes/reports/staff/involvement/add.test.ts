@@ -17,6 +17,7 @@ import { mockThrownError } from '../../../../data/testData/thrownErrors'
 import { approverUser, hqUser, reportingUser, unauthorisedUser } from '../../../../data/testData/users'
 import { appWithAllRoutes } from '../../../testutils/appSetup'
 import { now } from '../../../../testutils/fakeClock'
+import type { Values } from './fields'
 
 jest.mock('../../../../data/incidentReportingApi')
 jest.mock('../../../../data/manageUsersApiClient')
@@ -106,7 +107,12 @@ describe('Adding a new staff member to a report', () => {
       })
   })
 
-  it.each([
+  interface ValidScenario {
+    scenario: string
+    validPayload: Partial<Values>
+    expectedCall: object
+  }
+  const validScenarios: ValidScenario[] = [
     {
       scenario: 'request with all fields',
       validPayload: {
@@ -134,7 +140,32 @@ describe('Adding a new staff member to a report', () => {
         comment: '',
       },
     },
-  ])('should send add $scenario to API if form is valid and go to summary page', ({ validPayload, expectedCall }) => {
+  ]
+  it.each(validScenarios)(
+    'should send add $scenario to API if form is valid and go to summary page',
+    ({ validPayload, expectedCall }) => {
+      incidentReportingApi.getReportWithDetailsById.mockResolvedValueOnce(report)
+      incidentReportingRelatedObjects.addToReport.mockResolvedValueOnce([]) // NB: response is ignored
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+      // @ts-ignore need to mock a getter method
+      incidentReportingApi.staffInvolved = incidentReportingRelatedObjects
+      manageUsersApiClient.getPrisonUser.mockResolvedValueOnce(mockPrisonUser)
+
+      return request(app)
+        .post(addPageUrl(mockPrisonUser.username))
+        .send(validPayload)
+        .redirects(1)
+        .expect(200)
+        .expect(res => {
+          expect(res.text).not.toContain('There is a problem')
+          expect(res.redirects[0]).toMatch(`/reports/${report.id}/staff`)
+
+          expect(incidentReportingRelatedObjects.addToReport).toHaveBeenCalledWith(report.id, expectedCall)
+        })
+    },
+  )
+
+  it('should allow exiting to report view when saving', () => {
     incidentReportingApi.getReportWithDetailsById.mockResolvedValueOnce(report)
     incidentReportingRelatedObjects.addToReport.mockResolvedValueOnce([]) // NB: response is ignored
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
@@ -144,14 +175,18 @@ describe('Adding a new staff member to a report', () => {
 
     return request(app)
       .post(addPageUrl(mockPrisonUser.username))
-      .send(validPayload)
-      .redirects(1)
-      .expect(200)
+      .send({
+        ...validScenarios[0].validPayload,
+        userAction: 'exit',
+      })
+      .expect(302)
       .expect(res => {
-        expect(res.text).not.toContain('There is a problem')
-        expect(res.redirects[0]).toMatch(`/reports/${report.id}/staff`)
+        expect(res.redirect).toBe(true)
+        expect(res.header.location).toEqual(`/reports/${report.id}`)
 
-        expect(incidentReportingRelatedObjects.addToReport).toHaveBeenCalledWith(report.id, expectedCall)
+        expect(incidentReportingRelatedObjects.addToReport).toHaveBeenCalledWith(report.id, {
+          ...validScenarios[0].expectedCall,
+        })
       })
   })
 

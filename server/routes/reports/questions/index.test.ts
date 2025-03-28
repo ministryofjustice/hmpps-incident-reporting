@@ -698,6 +698,35 @@ describe('Submitting questions’ responses', () => {
         })
     })
 
+    it('should allow exiting to report view when saving', () => {
+      const questionsResponse: Question[] = [
+        makeSimpleQuestion('44769', 'WERE THE POLICE INFORMED OF THE INCIDENT', 'NO'),
+        makeSimpleQuestion('44919', 'THE INCIDENT IS SUBJECT TO', 'INVESTIGATION INTERNALLY'),
+        makeSimpleQuestion('45033', 'IS ANY MEMBER OF STAFF FACING DISCIPLINARY CHARGES', 'NO'),
+        makeSimpleQuestion('44636', 'IS THERE ANY MEDIA INTEREST IN THIS INCIDENT', 'NO'),
+        makeSimpleQuestion('44749', 'HAS THE PRISON SERVICE PRESS OFFICE BEEN INFORMED', 'NO'),
+      ]
+      reportWithDetails.type = 'ATTEMPTED_ESCAPE_FROM_CUSTODY'
+      reportWithDetails.questions = questionsResponse
+      incidentReportingApi.addOrUpdateQuestionsWithResponses.mockResolvedValueOnce(questionsResponse)
+
+      return agent
+        .post(`${reportQuestionsUrl(createJourney)}/44769`)
+        .send({
+          '44769': ['NO'],
+          '44919': ['INVESTIGATION INTERNALLY'],
+          '45033': ['NO'],
+          '44636': ['NO'],
+          '44749': ['NO'],
+          userAction: 'exit',
+        })
+        .expect(302)
+        .expect(res => {
+          expect(res.redirect).toBe(true)
+          expect(res.header.location).toEqual(`/reports/${reportWithDetails.id}`)
+        })
+    })
+
     it('should redirect to report view once all questions are answered', async () => {
       // simulate last 1-question page being unanswered
       reportWithDetails.type = 'ATTEMPTED_ESCAPE_FROM_CUSTODY'

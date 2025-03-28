@@ -80,6 +80,15 @@ export default class QuestionsController extends BaseController<FormWizard.Multi
     return nextStepObject
   }
 
+  getNextStep(req: FormWizard.Request<FormWizard.MultiValues>, res: express.Response): string {
+    // go to report view if user chose to exit
+    if (req.body.userAction === 'exit') {
+      return res.locals.reportUrl
+    }
+    // …or continue with question pages
+    return super.getNextStep(req, res)
+  }
+
   getValues(
     req: FormWizard.Request<FormWizard.MultiValues>,
     res: express.Response,

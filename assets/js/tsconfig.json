@@ -3,9 +3,9 @@
   "extends": "../../tsconfig.json",
   "compilerOptions": {
     "module": "commonjs",
-    "target": "es2018",
+    "target": "es2020",
     "noEmit": true,
-    "lib": ["dom", "dom.iterable", "es2018"],
+    "lib": ["dom", "dom.iterable", "es2020"],
     "esModuleInterop": true,
     "skipLibCheck": true,
     "sourceMap": false,
@@ -15,5 +15,5 @@
     ]
   },
   "exclude": [],
-  "include": ["application.ts"],
+  "include": ["*.ts"],
 }

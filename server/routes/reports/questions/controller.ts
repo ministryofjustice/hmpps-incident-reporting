@@ -13,6 +13,7 @@ import type { QuestionConfiguration } from '../../../data/incidentTypeConfigurat
 import {
   conditionalFieldName,
   findAnswerConfigByCode,
+  parseFieldName,
   questionFieldName,
 } from '../../../data/incidentTypeConfiguration/utils'
 import { aboutTheType } from '../../../reportConfiguration/constants'
@@ -91,6 +92,41 @@ export default class QuestionsController extends BaseController<FormWizard.Multi
     }
     // …or continue with question pages
     return super.getNextStep(req, res)
+  }
+
+  protected errorMessage(
+    error: FormWizard.Error,
+    req: FormWizard.Request<FormWizard.MultiValues>,
+    res: express.Response,
+  ): string {
+    const fieldName = error.key ?? error.field
+
+    const field = req.form.options.fields[fieldName]
+    if (field?.items?.length > 0 && error.type === 'required') {
+      if (field.multiple) {
+        // checkboxes
+        return `Select one or more options for ‘${field.label}’`
+      }
+      // radio buttons
+      return `Select an answer for ‘${field.label}’`
+    }
+
+    if (field.component === 'govukInput' || field.component === 'mojDatePicker') {
+      const parsedField = parseFieldName(fieldName)
+      if ('question' in parsedField) {
+        const sourceField = req.form.options.fields[`${parsedField.question}`]
+        if (sourceField) {
+          if (field.component === 'mojDatePicker') {
+            // date
+            return `Enter a date for ‘${sourceField.label}’`
+          }
+          // comment
+          return `Enter a comment for ‘${sourceField.label}’`
+        }
+      }
+    }
+
+    return super.errorMessage(error, req, res)
   }
 
   getValues(

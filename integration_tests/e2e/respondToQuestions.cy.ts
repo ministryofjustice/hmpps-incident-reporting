@@ -269,6 +269,7 @@ context('Responding to questions', () => {
 
       Page.verifyOnPage(QuestionPage, [1, 5], 'attempted escape from establishment')
       questionPage.errorSummary.contains('There is a problem')
+      questionPage.errorSummary.contains('Select an answer for ‘Has the prison service press office been informed?’')
     })
 
     it('should show an error if a multi-response question is missed', () => {
@@ -284,6 +285,7 @@ context('Responding to questions', () => {
 
       Page.verifyOnPage(QuestionPage, [1, 5], 'attempted escape from establishment')
       questionPage.errorSummary.contains('There is a problem')
+      questionPage.errorSummary.contains('Select one or more options for ‘The incident is subject to’')
     })
 
     it('should show an error if a required date is missing', () => {
@@ -299,6 +301,7 @@ context('Responding to questions', () => {
 
       Page.verifyOnPage(QuestionPage, [1, 5], 'attempted escape from establishment')
       questionPage.errorSummary.contains('There is a problem')
+      questionPage.errorSummary.contains('Enter a date for ‘Has the prison service press office been informed?’')
     })
   })
 
@@ -447,6 +450,9 @@ context('Responding to questions', () => {
 
       Page.verifyOnPage(QuestionPage, [6, 6], 'attempted escape from establishment')
       questionPage.errorSummary.contains('There is a problem')
+      questionPage.errorSummary.contains(
+        'Enter a comment for ‘Where was the prisoner prior to the start of the attempted escape?’',
+      )
     })
   })
 })

@@ -31,7 +31,7 @@ export abstract class BaseController<
   /**
    * Generic human-readable error messages for default form wizard validators.
    */
-  protected readonly errorMessages: Record<keyof (typeof BaseController)['validators'], string> = {
+  private readonly errorMessages: Record<keyof (typeof BaseController)['validators'], string> = {
     required: 'This field is required',
     email: 'Enter an email address',
     date: 'Enter a date',
@@ -44,7 +44,7 @@ export abstract class BaseController<
    * Turns a form wizard error into a human-readable message.
    * Sub-classes can override this behaviour on a per-field basis by accessing error.field or error.key.
    */
-  protected errorMessage(error: FormWizard.Error): string {
+  protected errorMessage(error: FormWizard.Error, _req: FormWizard.Request<V, K>, _res: express.Response): string {
     const errorMessage = this.errorMessages[error.type]
     if (!errorMessage) {
       throw new Error(`Error message not set for type “${error.type}” on controller ${this.constructor.name}`)
@@ -58,7 +58,7 @@ export abstract class BaseController<
   validateField(key: K, req: FormWizard.Request<V, K>, res: express.Response): FormWizard.Error | false | undefined {
     const error = super.validateField(key, req, res)
     if (error && !error.message) {
-      error.message = this.errorMessage(error)
+      error.message = this.errorMessage(error, req, res)
     }
     return error
   }

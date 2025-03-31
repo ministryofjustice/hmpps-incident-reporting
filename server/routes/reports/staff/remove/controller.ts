@@ -17,11 +17,11 @@ export class RemoveStaff extends RemoveInvolvement<StaffInvolvement> {
     return nameOfPerson(involvement)
   }
 
-  protected errorMessage(error: FormWizard.Error): string {
+  protected errorMessage(error: FormWizard.Error, req: FormWizard.Request<Values>, res: express.Response): string {
     if (error.key === 'confirmRemove') {
       return 'Select yes if you want to remove the member of staff'
     }
-    return super.errorMessage(error)
+    return super.errorMessage(error, req, res)
   }
 
   protected async deleteInvolvement(req: FormWizard.Request<Values>, res: express.Response): Promise<void> {

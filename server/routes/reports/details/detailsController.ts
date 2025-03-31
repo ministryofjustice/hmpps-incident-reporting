@@ -96,7 +96,11 @@ export abstract class BaseDetailsController<V extends DetailsValues> extends Bas
     return incidentDateAndTime
   }
 
-  protected errorMessage(error: FormWizard.Error): string {
+  protected errorMessage(
+    error: FormWizard.Error,
+    req: FormWizard.Request<V, DetailsFieldNames>,
+    res: express.Response,
+  ): string {
     if (error.key === 'incidentDate' && error.type === 'required') {
       return 'Enter the date of the incident'
     }
@@ -109,6 +113,6 @@ export abstract class BaseDetailsController<V extends DetailsValues> extends Bas
     if (error.key === 'description') {
       return 'Enter a description of the incident'
     }
-    return super.errorMessage(error)
+    return super.errorMessage(error, req, res)
   }
 }

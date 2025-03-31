@@ -17,11 +17,11 @@ export class RemovePrisoner extends RemoveInvolvement<PrisonerInvolvement> {
     return `${involvement.prisonerNumber}: ${nameOfPerson(involvement)}`
   }
 
-  protected errorMessage(error: FormWizard.Error): string {
+  protected errorMessage(error: FormWizard.Error, req: FormWizard.Request<Values>, res: express.Response): string {
     if (error.key === 'confirmRemove') {
       return 'Select yes if you want to remove the prisoner'
     }
-    return super.errorMessage(error)
+    return super.errorMessage(error, req, res)
   }
 
   protected async deleteInvolvement(req: FormWizard.Request<Values>, res: express.Response): Promise<void> {

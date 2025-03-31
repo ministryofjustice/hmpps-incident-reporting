@@ -42,11 +42,11 @@ export abstract class StaffInvolvementController<V extends Values = Values> exte
     }
   }
 
-  protected errorMessage(error: FormWizard.Error): string {
+  protected errorMessage(error: FormWizard.Error, req: FormWizard.Request<V>, res: express.Response): string {
     if (error.key === 'staffRole') {
       return 'Select how the member of staff was involved in the incident'
     }
-    return super.errorMessage(error)
+    return super.errorMessage(error, req, res)
   }
 
   getBackLink(_req: FormWizard.Request<V>, res: express.Response): string {

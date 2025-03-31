@@ -79,14 +79,14 @@ export abstract class PrisonerInvolvementController extends BaseController<Value
     }
   }
 
-  protected errorMessage(error: FormWizard.Error): string {
+  protected errorMessage(error: FormWizard.Error, req: FormWizard.Request<Values>, res: express.Response): string {
     if (error.key === 'prisonerRole') {
       return "Select the prisoner's role in the incident"
     }
     if (error.key === 'outcome') {
       return 'Select an outcome for the incident'
     }
-    return super.errorMessage(error)
+    return super.errorMessage(error, req, res)
   }
 
   getBackLink(_req: FormWizard.Request<Values>, res: express.Response): string {

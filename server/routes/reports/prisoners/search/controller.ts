@@ -40,7 +40,7 @@ export class PrisonerSearchController extends GetBaseController<Values> {
 
   protected shouldContinueRenderFlowOnSuccess = true
 
-  protected errorMessage(error: FormWizard.Error): string {
+  protected errorMessage(error: FormWizard.Error, req: FormWizard.Request<Values>, res: express.Response): string {
     if (error.key === 'q') {
       return "Enter the prisoner's name or prison number"
     }
@@ -51,7 +51,7 @@ export class PrisonerSearchController extends GetBaseController<Values> {
       // NB: this will not show in practice
       return 'Page is not valid'
     }
-    return super.errorMessage(error)
+    return super.errorMessage(error, req, res)
   }
 
   getBackLink(_req: FormWizard.Request<Values>, res: express.Response): string {

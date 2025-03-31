@@ -10,6 +10,21 @@ const buildApp = require('./app.config')
 const cwd = process.cwd()
 
 /**
+ * Simple debounce helper
+ * @param {Function} fn - The function to debounce
+ * @param {number} delay - The delay in ms
+ * @returns {Function}
+ */
+function debounce(fn, delay = 200) {
+  /** @type {number} */
+  let timeout
+  return (...args) => {
+    clearTimeout(timeout)
+    timeout = setTimeout(() => fn(...args), delay)
+  }
+}
+
+/**
  * Configuration for build steps
  * @type {BuildConfig}
  */
@@ -44,9 +59,7 @@ const buildConfig = {
 }
 
 const main = () => {
-  /**
-   * @type {chokidar.WatchOptions}
-   */
+  /** @type {chokidar.WatchOptions} */
   const chokidarOptions = {
     persistent: true,
     ignoreInitial: true,
@@ -60,33 +73,39 @@ const main = () => {
     })
   }
 
-  if (args.includes('--dev-server') || args.includes('--dev-local-server') || args.includes('--dev-test-server')) {
-    let envPath = '.env'
-    if (args.includes('--dev-local-server')) {
-      envPath = 'local.env'
-    } else if (args.includes('--dev-test-server')) {
-      envPath = 'feature.env'
-    }
-    /** @type childProcess.ChildProcess */
+  /** @type {string | null} */
+  let serverEnv = null
+  if (args.includes('--dev-server')) serverEnv = '.env'
+  else if (args.includes('--dev-local-server')) serverEnv = 'local.env'
+  else if (args.includes('--dev-test-server')) serverEnv = 'feature.env'
+
+  if (serverEnv) {
+    /** @type {childProcess.ChildProcess | null} */
     let serverProcess = null
-    chokidar.watch(['dist']).on('all', () => {
-      if (serverProcess) serverProcess.kill()
-      serverProcess = childProcess.spawn('node', [`--env-file=${envPath}`, 'dist/server.js'], { stdio: 'inherit' })
-    })
+    chokidar.watch(['dist']).on(
+      'all',
+      debounce(() => {
+        if (serverProcess) serverProcess.kill()
+        process.stderr.write('\u{1b}[36m→ Restarting server…\u{1b}[0m\n')
+        serverProcess = childProcess.spawn('node', [`--env-file=${serverEnv}`, 'dist/server.js'], { stdio: 'inherit' })
+      }),
+    )
   }
 
   if (args.includes('--watch')) {
     process.stderr.write('\u{1b}[36m→ Watching for changes…\u{1b}[0m\n')
 
     // Assets
-    chokidar
-      .watch(['assets/**/*'], chokidarOptions)
-      .on('all', () => buildAssets(buildConfig).catch(e => process.stderr.write(`${e}\n`)))
+    chokidar.watch(['assets/**/*'], chokidarOptions).on(
+      'all',
+      debounce(() => buildAssets(buildConfig).catch(e => process.stderr.write(`${e}\n`))),
+    )
 
     // App
-    chokidar
-      .watch(['server/**/*'], { ...chokidarOptions, ignored: ['**/*.test.ts'] })
-      .on('all', () => buildApp(buildConfig).catch(e => process.stderr.write(`${e}\n`)))
+    chokidar.watch(['server/**/*'], { ...chokidarOptions, ignored: ['**/*.test.ts'] }).on(
+      'all',
+      debounce(() => buildApp(buildConfig).catch(e => process.stderr.write(`${e}\n`))),
+    )
   }
 }
 

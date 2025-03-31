@@ -16,6 +16,29 @@ export function conditionalFieldName(
   return `${questionFieldName(question)}-${answer.id}-${suffix}`
 }
 
+export function parseFieldName(
+  fieldName: string,
+): null | { question: number } | { question: number; response: number; conditionalField: 'comment' | 'date' } {
+  const parts = fieldName.split('-')
+
+  if (parts.length === 1) {
+    const question = parseInt(parts[0], 10)
+    if (question > 0) {
+      return { question }
+    }
+  }
+
+  if (parts.length === 3) {
+    const question = parseInt(parts[0], 10)
+    const response = parseInt(parts[1], 10)
+    if (question > 0 && response > 0 && (parts[2] === 'comment' || parts[2] === 'date')) {
+      return { question, response, conditionalField: parts[2] }
+    }
+  }
+
+  return null
+}
+
 /** Finds the Answer config for a given answer code */
 export function findAnswerConfigByCode(
   answerCode: string,

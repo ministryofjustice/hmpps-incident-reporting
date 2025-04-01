@@ -1,4 +1,4 @@
-// Generated with ./scripts/updateNomisIncidentTypeConfigurations.ts at 2025-04-01T18:22:46.226Z
+// Generated with ./scripts/updateNomisIncidentTypeConfigurations.ts at 2025-04-01T22:59:31.856Z
 
 import type { IncidentTypeConfiguration } from '../../data/incidentTypeConfiguration/types'
 

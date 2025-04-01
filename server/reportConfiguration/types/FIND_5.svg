@@ -768,6 +768,9 @@
 <title>57290&#45;&gt;57291</title>
 <path fill="none" stroke="black" d="M3927.66,-1598.67C4002.6,-1656.47 4090.78,-1693.63 4173.24,-1651.75 4216.37,-1629.85 4252.14,-1593.23 4280.65,-1554.16"/>
 <polygon fill="black" stroke="black" points="4283.16,-1556.67 4286.11,-1546.5 4277.46,-1552.61 4283.16,-1556.67"/>
+<text text-anchor="start" x="4065.62" y="-1673.86" font-family="Times,serif" font-size="14.00"> </text>
+<text text-anchor="start" x="4069.37" y="-1673.86" font-family="Times,serif" font-size="14.00" fill="royalblue">209179 </text>
+<text text-anchor="start" x="4113.62" y="-1673.86" font-family="Times,serif" font-size="14.00"> &lt;1g </text>
 </g>
 <!-- 57290&#45;&gt;57291 -->
 <g id="edge73" class="edge">
@@ -1963,6 +1966,9 @@
 <title>57310&#45;&gt;57311</title>
 <path fill="none" stroke="black" d="M14462.17,-1833.24C14477.18,-1839.03 14492.4,-1844.01 14507.51,-1847.75 14576.75,-1864.91 14600.68,-1871.29 14668.01,-1847.75 14687.74,-1840.85 14706.98,-1831.08 14725.22,-1819.74"/>
 <polygon fill="black" stroke="black" points="14726.87,-1822.83 14733.39,-1814.49 14723.09,-1816.95 14726.87,-1822.83"/>
+<text text-anchor="start" x="14537.89" y="-1867.31" font-family="Times,serif" font-size="14.00"> </text>
+<text text-anchor="start" x="14541.64" y="-1867.31" font-family="Times,serif" font-size="14.00" fill="royalblue">209299 </text>
+<text text-anchor="start" x="14585.89" y="-1867.31" font-family="Times,serif" font-size="14.00"> &lt; 1 litre </text>
 </g>
 <!-- 57310&#45;&gt;57311 -->
 <g id="edge193" class="edge">
@@ -2170,6 +2176,9 @@
 <title>57314&#45;&gt;57315</title>
 <path fill="none" stroke="black" d="M16400.36,-1863.55C16406.61,-1864.01 16412.81,-1864.42 16418.89,-1864.75 16466.48,-1867.39 16478.9,-1871.18 16526.14,-1864.75 16530.81,-1864.12 16535.52,-1863.4 16540.26,-1862.62"/>
 <polygon fill="black" stroke="black" points="16540.63,-1866.11 16549.88,-1860.95 16539.43,-1859.22 16540.63,-1866.11"/>
+<text text-anchor="start" x="16433.89" y="-1872.49" font-family="Times,serif" font-size="14.00"> </text>
+<text text-anchor="start" x="16437.64" y="-1872.49" font-family="Times,serif" font-size="14.00" fill="royalblue">209315 </text>
+<text text-anchor="start" x="16481.89" y="-1872.49" font-family="Times,serif" font-size="14.00"> &lt;1g </text>
 </g>
 <!-- 57314&#45;&gt;57315 -->
 <g id="edge209" class="edge">

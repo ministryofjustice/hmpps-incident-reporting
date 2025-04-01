@@ -18,6 +18,7 @@ interface Arguments {
 main()
 
 function main() {
+  const rootPath = process.cwd()
   const { scriptName, nomisConfigFile } = parseArgs()
 
   const jsonConfig = fs.readFileSync(nomisConfigFile, { encoding: 'utf8' })
@@ -28,7 +29,7 @@ function main() {
 
     const tsFile = saveAsTypescript({ scriptName, dpsConfig })
     printText(
-      `\n\nConfig for ${dpsConfig.incidentType} (NOMIS code '${nomisConfig.incidentType}') written to ${tsFile}`,
+      `\n\nConfig for ${dpsConfig.incidentType} (NOMIS code '${nomisConfig.incidentType}') written to ${path.relative(rootPath, tsFile)}`,
     )
 
     checkConfig(dpsConfig)

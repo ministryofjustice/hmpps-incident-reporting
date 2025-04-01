@@ -1,3 +1,5 @@
+import nunjucks from 'nunjucks'
+
 import {
   type NomisPrisonerInvolvementRole,
   type NomisType,
@@ -104,41 +106,30 @@ export function toTypescript({
  * @returns string containing the DOT format output
  */
 export function toGraphviz(config: DpsIncidentTypeConfiguration): string {
-  const inactiveStyle = ', style="filled", color="#DDD"'
   const questions = Object.values(config.questions)
+  return nunjucks
+    .renderString(
+      // language=graphviz
+      `
+digraph {{ config.incidentType }} {
+  rankdir=LR;
+  node [shape = circle];
 
-  let result = `digraph ${config.incidentType} {`
-  // Left to right
-  result += '\n  rankdir=LR;\n'
-  // Nodes are cicles
-  result += '  node [shape = circle];\n'
-  // Start arrow to first question
-  result += '  START_NODE [label="", shape=none];\n'
-  result += `  START_NODE -> ${config.startingQuestionId} [label = "start"];\n`
-  // End node
-  result += '  END_NODE [label="END", shape="doublecircle"];\n'
+  START_NODE [label="", shape=none];
+  START_NODE -> {{ config.startingQuestionId }} [label = "start"];
+  END_NODE [label="END", shape="doublecircle"];
 
-  // Adds the questions as nodes, answers as edges
-  for (const question of questions) {
-    const questionStyle = question.active === true ? '' : inactiveStyle
-
-    result += `  ${question.id} [label = < <FONT COLOR="royalblue">${question.id} </FONT> ${replaceAngleBrackets(question.label)} >${questionStyle}];\n`
-    for (const answer of question.answers) {
-      const answerStyle = answer.active === true ? '' : inactiveStyle
-
-      const nextNode = answer.nextQuestionId ?? 'END_NODE'
-
-      result += `  ${question.id} -> ${nextNode} [label = < <FONT COLOR="royalblue">${answer.id} </FONT> ${replaceAngleBrackets(answer.label)} >${answerStyle}];\n`
-    }
-  }
-
-  result += '}\n'
-
-  return result
+  {%- for question in questions %}
+  {{ question.id }} [label=< <FONT COLOR="royalblue">{{ question.id }} </FONT> {{ question.label }} >{% if not question.active %}, style="filled", color="#DDD"{% endif %}];
+  {%- for answer in question.answers %}
+  {{ question.id }} -> {{ answer.nextQuestionId or 'END_NODE' }} [label=< <FONT COLOR="royalblue">{{ answer.id }} </FONT> {{ answer.label }} >{% if not answer.active %}, color="#DDD"{% endif%}];
+  {%- endfor %}
+  {%- endfor %}
 }
-
-function replaceAngleBrackets(text: string): string {
-  return text.replace('<', '&lt').replace('>', '&gt;')
+    `,
+      { config, questions },
+    )
+    .trim()
 }
 
 function typeFromNomisCode(nomisCode: NomisType): Type {

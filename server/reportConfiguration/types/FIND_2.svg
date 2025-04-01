@@ -768,6 +768,9 @@
 <title>51236&#45;&gt;51237</title>
 <path fill="none" stroke="#dddddd" d="M3927.18,-1581.96C4002.42,-1640.38 4090.95,-1677.9 4173.24,-1634.75 4219.72,-1610.38 4257.18,-1569.11 4286.26,-1525.72"/>
 <polygon fill="#dddddd" stroke="#dddddd" points="4289.15,-1527.69 4291.69,-1517.4 4283.29,-1523.86 4289.15,-1527.69"/>
+<text text-anchor="start" x="4065.62" y="-1657.59" font-family="Times,serif" font-size="14.00"> </text>
+<text text-anchor="start" x="4069.37" y="-1657.59" font-family="Times,serif" font-size="14.00" fill="royalblue">198754 </text>
+<text text-anchor="start" x="4113.62" y="-1657.59" font-family="Times,serif" font-size="14.00"> &lt;1g </text>
 </g>
 <!-- 51236&#45;&gt;51237 -->
 <g id="edge73" class="edge">
@@ -1990,6 +1993,9 @@
 <title>51256&#45;&gt;51257</title>
 <path fill="none" stroke="#dddddd" d="M14348.92,-1800.24C14363.93,-1806.03 14379.15,-1811.01 14394.26,-1814.75 14513.97,-1844.42 14555.34,-1855.45 14671.76,-1814.75 14691.49,-1807.85 14710.73,-1798.08 14728.97,-1786.74"/>
 <polygon fill="#dddddd" stroke="#dddddd" points="14730.62,-1789.83 14737.14,-1781.49 14726.84,-1783.95 14730.62,-1789.83"/>
+<text text-anchor="start" x="14483.14" y="-1845.5" font-family="Times,serif" font-size="14.00"> </text>
+<text text-anchor="start" x="14486.89" y="-1845.5" font-family="Times,serif" font-size="14.00" fill="royalblue">198876 </text>
+<text text-anchor="start" x="14531.14" y="-1845.5" font-family="Times,serif" font-size="14.00"> &lt; 1 litre </text>
 </g>
 <!-- 51256&#45;&gt;51257 -->
 <g id="edge196" class="edge">

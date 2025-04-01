@@ -38,7 +38,7 @@ describe('Report incident type history', () => {
 
   beforeEach(() => {
     mockedReport = convertReportWithDetailsDates(
-      mockReport({ reportReference: '6543', type: 'MISCELLANEOUS', reportDateAndTime: now, withDetails: true }),
+      mockReport({ reportReference: '6543', type: 'MISCELLANEOUS_1', reportDateAndTime: now, withDetails: true }),
     )
     incidentReportingApi.getReportWithDetailsById.mockResolvedValueOnce(mockedReport)
     typeHistoryUrl = `/reports/${mockedReport.id}/history/type`
@@ -80,7 +80,7 @@ describe('Report incident type history', () => {
   it('should show the history of a report that has changed type', () => {
     mockedReport.history = [
       {
-        type: 'OLD_ASSAULT3',
+        type: 'ASSAULT_4',
         changedAt: now,
         changedBy: 'user1',
         questions: [
@@ -101,7 +101,7 @@ describe('Report incident type history', () => {
         ],
       },
       {
-        type: 'DAMAGE',
+        type: 'DAMAGE_1',
         changedAt: now,
         changedBy: 'user2',
         questions: [
@@ -131,19 +131,19 @@ describe('Report incident type history', () => {
         expect(res.text).not.toContain('This report’s type has not been changed')
         expect(res.text).toContain('moj-timeline')
 
-        expect(res.text).toContain('Assault (from April 2017)')
+        expect(res.text).toContain('Assault')
         expect(res.text).toContain('by John Smith')
         expect(res.text).toContain('Where did it happen?')
         expect(res.text).toContain('4 December 2023')
         expect(res.text).toContain('A-003')
 
-        expect(res.text).toContain('Damage')
+        expect(res.text).toContain('Deliberate damage to prison property')
         expect(res.text).toContain('by Mary Johnson')
         expect(res.text).toContain('Was anyone hurt?')
         expect(res.text).toContain('YES')
 
         // current type not listed
-        expect(res.text).not.toContain('MISCELLANEOUS')
+        expect(res.text).not.toContain('MISCELLANEOUS_1')
         expect(res.text).not.toContain('Miscellaneous')
 
         expect(incidentReportingApi.getReportWithDetailsById).toHaveBeenCalledTimes(1)

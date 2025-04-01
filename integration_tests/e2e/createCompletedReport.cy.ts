@@ -56,7 +56,7 @@ context('Creating a completed draft report', () => {
     // select type
     const typePage = Page.verifyOnPage(TypePage)
     typePage.checkBackLink('/')
-    typePage.selectType('ATTEMPTED_ESCAPE_FROM_CUSTODY')
+    typePage.selectType('ATTEMPTED_ESCAPE_FROM_PRISON_1')
     typePage.submit()
 
     // enter details
@@ -67,13 +67,13 @@ context('Creating a completed draft report', () => {
 
     // on submission, this report would be created
     reportWithDetails = mockReport({
-      type: 'ATTEMPTED_ESCAPE_FROM_CUSTODY',
+      type: 'ATTEMPTED_ESCAPE_FROM_PRISON_1',
       reportReference: '6544',
       reportDateAndTime: now,
       withDetails: true,
     })
     reportWithDetails.incidentDateAndTime = format.isoDateTime(incidentDate)
-    reportWithDetails.title = 'Report: attempted escape from custody'
+    reportWithDetails.title = 'Report: attempted escape from establishment'
     reportWithDetails.description = 'Arnold (A1111AA) attempted to escape'
     reportWithDetails.prisonersInvolved = []
     reportWithDetails.prisonerInvolvementDone = false
@@ -86,7 +86,7 @@ context('Creating a completed draft report', () => {
         type: reportWithDetails.type,
         incidentDateAndTime: reportWithDetails.incidentDateAndTime,
         location: 'MDI',
-        title: 'Attempted escape from custody (Moorland (HMP & YOI))',
+        title: 'Attempted escape from establishment (Moorland (HMP & YOI))',
         description: reportWithDetails.description,
         createNewEvent: true,
       },

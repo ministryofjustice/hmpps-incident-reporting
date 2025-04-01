@@ -4,11 +4,11 @@ import type FormWizard from 'hmpo-form-wizard'
 import QuestionsController from '../../routes/reports/questions/controller'
 import { checkMultipleValues, generateFields, generateSteps } from './formWizard'
 import type { IncidentTypeConfiguration } from './types'
-import * as FINDS from '../testData/FINDS'
-import * as ESCAPE_FROM_CUSTODY from '../testData/ESCAPE_FROM_CUSTODY'
+import * as FIND_6 from '../testData/FIND_6'
+import * as ESCAPE_FROM_PRISON_1 from '../testData/ESCAPE_FROM_PRISON_1'
 
 const testConfig: IncidentTypeConfiguration = {
-  incidentType: 'MISCELLANEOUS',
+  incidentType: 'MISCELLANEOUS_1',
   active: true,
   prisonerRoles: [],
   startingQuestionId: 'qanimals',
@@ -228,16 +228,16 @@ describe.each([
     expect(steps).toEqual(expectedSteps)
   })
 
-  it('returns grouped steps for a non-trivial report type config (FINDS)', () => {
-    const steps = generateSteps(FINDS.config, includeInactive)
-    const expectedSteps = FINDS.steps
+  it('returns grouped steps for a non-trivial report type config (FIND_6)', () => {
+    const steps = generateSteps(FIND_6.config, includeInactive)
+    const expectedSteps = FIND_6.steps
 
     expect(steps).toEqual(expectedSteps)
   })
 
-  it('returns grouped steps for a non-trivial report type config (ESCAPE_FROM_CUSTODY)', () => {
-    const steps = generateSteps(ESCAPE_FROM_CUSTODY.config, includeInactive)
-    const expectedSteps = ESCAPE_FROM_CUSTODY.steps
+  it('returns grouped steps for a non-trivial report type config (ESCAPE_FROM_PRISON_1)', () => {
+    const steps = generateSteps(ESCAPE_FROM_PRISON_1.config, includeInactive)
+    const expectedSteps = ESCAPE_FROM_PRISON_1.steps
 
     expect(steps).toEqual(expectedSteps)
   })

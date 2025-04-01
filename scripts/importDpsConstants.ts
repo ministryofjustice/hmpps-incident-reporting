@@ -28,6 +28,7 @@ interface Template {
 }
 const templates: Template[] = [
   { method: 'types', identifier: 'Type', documentation: 'Types of reportable incidents' },
+  { method: 'typeFamilies', identifier: 'TypeFamily', documentation: 'Incident type families' },
   { method: 'statuses', identifier: 'Status', documentation: 'Report statuses' },
   {
     method: 'informationSources',

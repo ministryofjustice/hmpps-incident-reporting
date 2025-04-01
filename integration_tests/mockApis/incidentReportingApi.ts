@@ -373,11 +373,11 @@ export default {
                     mandatory: false,
                     staticOptions: [
                       {
-                        name: 'ASSAULT',
+                        name: 'ASSAULT_5',
                         display: 'Assault',
                       },
                       {
-                        name: 'SELF_HARM',
+                        name: 'SELF_HARM_1',
                         display: 'Self harm',
                       },
                     ],
@@ -626,7 +626,7 @@ export default {
           {
             id: '01958507-025f-7907-933e-eae7256e6739',
             report_reference: '10000042',
-            type: 'SELF_HARM',
+            type: 'SELF_HARM_1',
             type_description: 'Self harm',
             status: 'AWAITING_ANALYSIS',
             status_description: 'Awaiting Analysis',
@@ -641,7 +641,7 @@ export default {
           {
             id: '01954804-6e0a-766c-8233-d8f6d826fcfd',
             report_reference: '10000033',
-            type: 'ASSAULT',
+            type: 'ASSAULT_5',
             type_description: 'Assault',
             status: 'DRAFT',
             status_description: 'Draft',

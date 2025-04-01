@@ -8,7 +8,7 @@ import { QuestionPage } from '../pages/reports/question'
 context('Responding to questions', () => {
   const now = new Date()
   const reportWithDetails = mockReport({
-    type: 'ATTEMPTED_ESCAPE_FROM_CUSTODY',
+    type: 'ATTEMPTED_ESCAPE_FROM_PRISON_1',
     reportReference: '6544',
     reportDateAndTime: now,
     withDetails: true,

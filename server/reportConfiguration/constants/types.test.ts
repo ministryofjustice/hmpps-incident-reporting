@@ -2,8 +2,9 @@ import { getTypeDetails } from './types'
 
 describe('getTypeDetails()', () => {
   it('should find active codes', () => {
-    expect(getTypeDetails('ASSAULT')).toStrictEqual({
-      code: 'ASSAULT',
+    expect(getTypeDetails('ASSAULT_5')).toStrictEqual({
+      familyCode: 'ASSAULT',
+      code: 'ASSAULT_5',
       description: 'Assault',
       active: true,
       nomisCode: 'ASSAULTS3',
@@ -11,8 +12,9 @@ describe('getTypeDetails()', () => {
   })
 
   it('should find inactive codes', () => {
-    expect(getTypeDetails('OLD_ASSAULT')).toStrictEqual({
-      code: 'OLD_ASSAULT',
+    expect(getTypeDetails('ASSAULT_1')).toStrictEqual({
+      familyCode: 'ASSAULT',
+      code: 'ASSAULT_1',
       description: 'Assault',
       active: false,
       nomisCode: 'ASSAULT',
@@ -20,6 +22,6 @@ describe('getTypeDetails()', () => {
   })
 
   it('should return null for non-existant codes', () => {
-    expect(getTypeDetails('OLDER_ASSAULT')).toBeNull()
+    expect(getTypeDetails('ASSAULT')).toBeNull()
   })
 })

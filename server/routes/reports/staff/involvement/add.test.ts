@@ -51,7 +51,7 @@ describe('Adding a new staff member to a report', () => {
   beforeEach(() => {
     report = convertReportWithDetailsDates(
       mockReport({
-        type: 'FINDS',
+        type: 'FIND_6',
         reportReference: '6544',
         reportDateAndTime: now,
         withDetails: true,

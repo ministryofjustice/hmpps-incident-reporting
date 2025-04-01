@@ -87,10 +87,10 @@ export function toTypescript({
   let result = `// Generated with ${scriptName} at ${new Date().toISOString()}\n\n`
 
   // Import type
-  result += "import { type IncidentTypeConfiguration } from '../../data/incidentTypeConfiguration/types'\n\n"
+  result += "import type { IncidentTypeConfiguration } from '../../data/incidentTypeConfiguration/types'\n\n"
 
   // Declare incident type configuration constant
-  result += `const ${dpsConfig.incidentType}: IncidentTypeConfiguration = ${JSON.stringify(dpsConfig, null, 2)} as const\n\n`
+  result += `export const ${dpsConfig.incidentType}: IncidentTypeConfiguration = ${JSON.stringify(dpsConfig, null, 2)} as const\n\n`
 
   // Export as default
   result += `export default ${dpsConfig.incidentType}\n`
@@ -122,19 +122,23 @@ export function toGraphviz(config: DpsIncidentTypeConfiguration): string {
   for (const question of questions) {
     const questionStyle = question.active === true ? '' : inactiveStyle
 
-    result += `  ${question.id} [label = < <FONT COLOR="royalblue">${question.id} </FONT> ${question.label} >${questionStyle}];\n`
+    result += `  ${question.id} [label = < <FONT COLOR="royalblue">${question.id} </FONT> ${replaceAngleBrackets(question.label)} >${questionStyle}];\n`
     for (const answer of question.answers) {
       const answerStyle = answer.active === true ? '' : inactiveStyle
 
       const nextNode = answer.nextQuestionId ?? 'END_NODE'
 
-      result += `  ${question.id} -> ${nextNode} [label = < <FONT COLOR="royalblue">${answer.id} </FONT> ${answer.label} >${answerStyle}];\n`
+      result += `  ${question.id} -> ${nextNode} [label = < <FONT COLOR="royalblue">${answer.id} </FONT> ${replaceAngleBrackets(answer.label)} >${answerStyle}];\n`
     }
   }
 
   result += '}\n'
 
   return result
+}
+
+function replaceAngleBrackets(text: string): string {
+  return text.replace('<', '&lt').replace('>', '&gt;')
 }
 
 function typeFromNomisCode(nomisCode: NomisType): Type {

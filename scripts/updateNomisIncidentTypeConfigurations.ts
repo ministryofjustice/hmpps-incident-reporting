@@ -8,7 +8,7 @@ import { fromNomis } from '../server/data/incidentTypeConfiguration/conversion'
 import { saveAsGraphviz, saveAsTypescript } from '../server/data/incidentTypeConfiguration/persistance'
 import { type IncidentTypeConfiguration as DpsIncidentTypeConfiguration } from '../server/data/incidentTypeConfiguration/types'
 import { validateConfig } from '../server/data/incidentTypeConfiguration/validation'
-import { type IncidentTypeConfiguration as NomisIncidentTypeConfiguration } from '../server/data/prisonApi'
+import type { IncidentTypeConfiguration as NomisIncidentTypeConfiguration } from '../server/data/prisonApi'
 
 interface Arguments {
   scriptName: string

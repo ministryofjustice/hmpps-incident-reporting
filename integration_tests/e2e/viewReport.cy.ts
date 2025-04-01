@@ -8,7 +8,7 @@ context('View report', () => {
 
   context('With only minimal details', () => {
     const reportWithDetails = mockReport({
-      type: 'DISORDER',
+      type: 'DISORDER_2',
       reportReference: '6544',
       reportDateAndTime: now,
       withDetails: true,
@@ -109,7 +109,7 @@ context('View report', () => {
 
   context('With all sections filled in', () => {
     const reportWithDetails = mockReport({
-      type: 'DISORDER',
+      type: 'DISORDER_2',
       status: 'AWAITING_ANALYSIS',
       reportReference: '6543',
       reportDateAndTime: now,

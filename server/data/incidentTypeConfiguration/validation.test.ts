@@ -1,4 +1,4 @@
-import ESCAPE_FROM_CUSTODY from '../../reportConfiguration/types/ESCAPE_FROM_CUSTODY'
+import { ESCAPE_FROM_PRISON_1 } from '../../reportConfiguration/types/ESCAPE_FROM_PRISON_1'
 import { type QuestionConfiguration, type AnswerConfiguration, type IncidentTypeConfiguration } from './types'
 import { validateConfig } from './validation'
 
@@ -68,7 +68,7 @@ describe('DPS config validation', () => {
   describe('when config has active questions without active answers', () => {
     it('returns an error', () => {
       const config: IncidentTypeConfiguration = {
-        incidentType: 'FINDS',
+        incidentType: 'FIND_6',
         startingQuestionId: '1',
         active: true,
         questions: {
@@ -343,7 +343,7 @@ describe('DPS config validation', () => {
 
   describe('when config is big/complex', () => {
     it('completes in a reasonable time and without throwing exceptions', () => {
-      const config: IncidentTypeConfiguration = ESCAPE_FROM_CUSTODY
+      const config: IncidentTypeConfiguration = ESCAPE_FROM_PRISON_1
 
       const errors = validateConfig(config).map(err => err.message)
       expect(errors).toEqual([])
@@ -377,7 +377,7 @@ describe('DPS config validation', () => {
 
 function buildValidConfig(): IncidentTypeConfiguration {
   return {
-    incidentType: 'FINDS',
+    incidentType: 'FIND_6',
     startingQuestionId: '1',
     active: true,
     questions: {

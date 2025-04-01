@@ -9,7 +9,7 @@ import { PrisonerInvolvementsPage } from '../pages/reports/involvements/prisoner
 context('Creating a new minimal draft report', () => {
   const now = new Date()
   const reportWithDetails = mockReport({
-    type: 'MISCELLANEOUS',
+    type: 'MISCELLANEOUS_1',
     reportReference: '6544',
     reportDateAndTime: now,
     withDetails: true,

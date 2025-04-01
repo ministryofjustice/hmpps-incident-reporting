@@ -108,11 +108,11 @@ describe('View report page', () => {
         .expect('Content-Type', /html/)
         .expect(200)
         .expect(res => {
-          expect(res.text).toContain('Finds')
+          expect(res.text).toContain('Find of illicit items')
           expect(res.text).toContain('Date and time of incident')
           expect(res.text).toContain('5 December 2023, 11:34')
           expect(res.text).toContain('Description')
-          expect(res.text).toContain('A new incident created in the new service of type FINDS')
+          expect(res.text).toContain('A new incident created in the new service of type FIND_6')
 
           expect(res.text).toContain(`${viewReportUrl}/change-type`)
           expect(res.text).toContain(`${viewReportUrl}/update-details`)
@@ -207,7 +207,7 @@ describe('View report page', () => {
 
   describe('When all sections of an inactive type are filled', () => {
     beforeEach(() => {
-      mockedReport.type = 'OLD_DRONE_SIGHTING'
+      mockedReport.type = 'DRONE_SIGHTING_1'
       mockedReport.status = 'CLOSED'
       mockedReport.description = 'An old drone sighting'
       mockedReport.questions = [
@@ -381,11 +381,11 @@ describe('View report page', () => {
         .expect('Content-Type', /html/)
         .expect(200)
         .expect(res => {
-          expect(res.text).toContain('Finds')
+          expect(res.text).toContain('Find of illicit items')
           expect(res.text).toContain('Date and time of incident')
           expect(res.text).toContain('5 December 2023, 11:34')
           expect(res.text).toContain('Description')
-          expect(res.text).toContain('A new incident created in the new service of type FINDS')
+          expect(res.text).toContain('A new incident created in the new service of type FIND_6')
 
           expect(res.text).toContain(`${viewReportUrl}/change-type`)
           expect(res.text).toContain(`${viewReportUrl}/update-details`)

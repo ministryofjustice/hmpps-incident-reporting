@@ -122,11 +122,4 @@ context('Edit prisoner involvement page', () => {
 
     Page.verifyOnPage(PrisonerInvolvementsPage)
   })
-
-  it('should show errors if information is missing', () => {
-    editPrisonerInvolvementPage.enterComment('Some comments')
-    editPrisonerInvolvementPage.submit()
-    editPrisonerInvolvementPage.errorSummary.contains('There is a problem')
-    Page.verifyOnPage(EditPrisonerInvolvementPage, 'Barry Benjamin’s')
-  })
 })

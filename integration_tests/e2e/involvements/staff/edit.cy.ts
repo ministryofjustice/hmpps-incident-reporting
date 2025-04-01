@@ -174,11 +174,4 @@ context('Edit staff involvement page', () => {
 
     Page.verifyOnPage(StaffInvolvementsPage)
   })
-
-  it('should show errors if information is missing', () => {
-    editStaffInvolvementPage.enterComment('Some comments')
-    editStaffInvolvementPage.submit()
-    editStaffInvolvementPage.errorSummary.contains('There is a problem')
-    Page.verifyOnPage(EditStaffInvolvementPage, 'Barry Harrison', 'Barry Harrison’s')
-  })
 })

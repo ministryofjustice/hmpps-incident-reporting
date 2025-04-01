@@ -44,7 +44,7 @@ export abstract class StaffInvolvementController<V extends Values = Values> exte
 
   protected errorMessage(error: FormWizard.Error): string {
     if (error.key === 'staffRole') {
-      return 'Choose the staff member’s role'
+      return 'Select how the member of staff was involved in the incident'
     }
     return super.errorMessage(error)
   }

@@ -18,7 +18,7 @@ export default class StaffSummary extends InvolvementSummary {
 
   protected labelOnceInvolvementsExist = 'Do you want to add another member of staff?'
 
-  protected confirmError = 'Select if you would like to add another staff member to continue'
+  protected confirmError = 'Select yes if you want to add a member of staff'
 
   protected localsForLookups(): Record<string, unknown> {
     const staffInvolvementLookup = Object.fromEntries(staffInvolvementRoles.map(role => [role.code, role.description]))

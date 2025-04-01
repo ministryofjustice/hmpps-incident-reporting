@@ -19,7 +19,7 @@ export class RemoveStaff extends RemoveInvolvement<StaffInvolvement> {
 
   protected errorMessage(error: FormWizard.Error): string {
     if (error.key === 'confirmRemove') {
-      return 'Select if you would like to remove this staff member to continue'
+      return 'Select yes if you want to remove the member of staff'
     }
     return super.errorMessage(error)
   }

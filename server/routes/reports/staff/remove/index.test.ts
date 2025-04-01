@@ -167,7 +167,7 @@ describe('Remove staff involvement', () => {
         expect(res.text).toContain('app-remove-staff')
 
         expect(res.text).toContain('There is a problem')
-        expect(res.text).toContain('Select if you would like to remove this staff member to continue')
+        expect(res.text).toContain('Select yes if you want to remove the member of staff')
 
         expect(incidentReportingRelatedObjects.deleteFromReport).not.toHaveBeenCalled()
       })

@@ -96,10 +96,10 @@ describe('Updating report details', () => {
   })
 
   it.each([
-    { missingField: 'incidentDate', expectedError: 'Enter a date' },
-    { missingField: '_incidentTime-hours', expectedError: 'Enter a time' },
-    { missingField: '_incidentTime-minutes', expectedError: 'Enter a time' },
-    { missingField: 'description', expectedError: 'Enter a description' },
+    { missingField: 'incidentDate', expectedError: 'Enter the date of the incident' },
+    { missingField: '_incidentTime-hours', expectedError: 'Enter the time of the incident using the 24 hour clock' },
+    { missingField: '_incidentTime-minutes', expectedError: 'Enter the time of the incident using the 24 hour clock' },
+    { missingField: 'description', expectedError: 'Enter a description of the incident' },
   ])('should show an error if $missingField is left empty', ({ missingField, expectedError }) => {
     const invalidPayload = {
       ...validPayload,

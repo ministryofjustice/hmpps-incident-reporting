@@ -18,7 +18,7 @@ export default class PrisonerSummary extends InvolvementSummary {
 
   protected labelOnceInvolvementsExist = 'Do you want to add another prisoner?'
 
-  protected confirmError = 'Select if you would like to add another prisoner to continue'
+  protected confirmError = 'Select yes if you want to add a prisoner'
 
   protected localsForLookups(): Record<string, unknown> {
     const prisonerInvolvementLookup = Object.fromEntries(

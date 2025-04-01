@@ -42,7 +42,7 @@ export class PrisonerSearchController extends GetBaseController<Values> {
 
   protected errorMessage(error: FormWizard.Error): string {
     if (error.key === 'q') {
-      return 'Enter a name or prison number'
+      return "Enter the prisoner's name or prison number"
     }
     if (error.key === 'global') {
       return 'Choose where to search'

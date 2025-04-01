@@ -169,7 +169,7 @@ describe('Remove prisoner involvement', () => {
         expect(res.text).toContain('app-remove-prisoner')
 
         expect(res.text).toContain('There is a problem')
-        expect(res.text).toContain('Select if you would like to remove this prisoner to continue')
+        expect(res.text).toContain('Select yes if you want to remove the prisoner')
 
         expect(incidentReportingRelatedObjects.deleteFromReport).not.toHaveBeenCalled()
       })

@@ -6,7 +6,7 @@ digraph FIND_4 {
   END_NODE [label="END", shape="doublecircle"];
   65179 [label = < <FONT COLOR="royalblue">65179 </FONT> Describe how the item was found (select all that apply) >];
   65179 -> 65180 [label = < <FONT COLOR="royalblue">216684 </FONT> Amnesty >];
-  65179 -> 65180 [label = < <FONT COLOR="royalblue">216685 </FONT> Archway metal detector (amd) >];
+  65179 -> 65180 [label = < <FONT COLOR="royalblue">216685 </FONT> Archway metal detector (AMD) >];
   65179 -> 65180 [label = < <FONT COLOR="royalblue">216686 </FONT> Boss chair >];
   65179 -> 65180 [label = < <FONT COLOR="royalblue">216687 </FONT> Cell search >];
   65179 -> 65180 [label = < <FONT COLOR="royalblue">216688 </FONT> Crime scene >];

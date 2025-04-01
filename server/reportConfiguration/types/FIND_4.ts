@@ -27,7 +27,7 @@ export const FIND_4: IncidentTypeConfiguration = {
           id: '216685',
           code: 'ARCHWAY METAL DETECTOR (AMD)',
           active: true,
-          label: 'Archway metal detector (amd)',
+          label: 'Archway metal detector (AMD)',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '65180',

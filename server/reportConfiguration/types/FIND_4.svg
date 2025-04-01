@@ -52,7 +52,7 @@
 <polygon fill="black" stroke="black" points="1202.5,-2625.93 1201.82,-2615.36 1195.75,-2624.05 1202.5,-2625.93"/>
 <text text-anchor="start" x="720.26" y="-2910.9" font-family="Times,serif" font-size="14.00"> </text>
 <text text-anchor="start" x="724.01" y="-2910.9" font-family="Times,serif" font-size="14.00" fill="royalblue">216685 </text>
-<text text-anchor="start" x="768.26" y="-2910.9" font-family="Times,serif" font-size="14.00"> Archway metal detector (amd) </text>
+<text text-anchor="start" x="768.26" y="-2910.9" font-family="Times,serif" font-size="14.00"> Archway metal detector (AMD) </text>
 </g>
 <!-- 65179&#45;&gt;65180 -->
 <g id="edge4" class="edge">

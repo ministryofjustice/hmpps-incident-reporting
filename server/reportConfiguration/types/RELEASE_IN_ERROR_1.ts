@@ -1020,7 +1020,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
       active: true,
       code: 'Has the person been returned to custody?',
       label: 'Has the person been returned to custody?',
-      multipleAnswers: true,
+      multipleAnswers: false,
       answers: [
         {
           id: '182735',

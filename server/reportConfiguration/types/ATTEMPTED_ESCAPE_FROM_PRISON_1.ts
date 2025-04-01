@@ -4431,7 +4431,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
       active: true,
       code: 'HOW DID THE PRISONER ATTEMPT TO BREACH THE EXTERNAL PERIMETER',
       label: 'How did the prisoner attempt to breach the external perimeter?',
-      multipleAnswers: true,
+      multipleAnswers: false,
       answers: [
         {
           id: '181759',
@@ -5439,7 +5439,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
       active: true,
       code: 'HOW DID THE PRISONER ATTEMPT TO GAIN ACCESS TO THE EXTERNAL PERIMETER',
       label: 'How did the prisoner attempt to gain access to the external perimeter?',
-      multipleAnswers: true,
+      multipleAnswers: false,
       answers: [
         {
           id: '182385',

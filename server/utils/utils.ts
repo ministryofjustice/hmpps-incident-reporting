@@ -196,6 +196,7 @@ export function convertToSentenceCase(str: string): string {
     'AFFF',
     'AirPods',
     'Amazon',
+    'AMD',
     'Apple',
     'BDH',
     'C.I',

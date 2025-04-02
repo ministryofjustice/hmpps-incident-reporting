@@ -1,4 +1,4 @@
-// Generated with ./scripts/importDpsConstants.ts at 2024-11-06T10:46:39.702Z
+// Generated with ./scripts/importDpsConstants.ts at 2025-04-01T17:16:18.535Z
 
 /** Report statuses */
 export const statuses = [
@@ -8,7 +8,7 @@ export const statuses = [
   { code: 'AWAITING_ANALYSIS', description: 'Awaiting analysis', nomisCode: 'AWAN' },
   { code: 'IN_ANALYSIS', description: 'In analysis', nomisCode: 'INAN' },
   { code: 'INFORMATION_REQUIRED', description: 'Information required', nomisCode: 'INREQ' },
-  { code: 'INFORMATION_AMENDED', description: 'Information amened', nomisCode: 'INAME' },
+  { code: 'INFORMATION_AMENDED', description: 'Information amended', nomisCode: 'INAME' },
   { code: 'CLOSED', description: 'Closed', nomisCode: 'CLOSE' },
   { code: 'POST_INCIDENT_UPDATE', description: 'Post-incident update', nomisCode: 'PIU' },
   { code: 'INCIDENT_UPDATED', description: 'Incident updated', nomisCode: 'IUP' },

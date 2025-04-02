@@ -1,14 +1,14 @@
 import QuestionsToDelete from './questionsToDelete'
-import ASSAULT from '../reportConfiguration/types/ASSAULT'
-import KEY_LOCK_INCIDENT from '../reportConfiguration/types/KEY_LOCK_INCIDENT'
-import OLD_ASSAULT from '../reportConfiguration/types/OLD_ASSAULT'
-import OLD_DRONE_SIGHTING from '../reportConfiguration/types/OLD_DRONE_SIGHTING'
+import { ASSAULT_5 } from '../reportConfiguration/types/ASSAULT_5'
+import { KEY_OR_LOCK_2 } from '../reportConfiguration/types/KEY_OR_LOCK_2'
+import { ASSAULT_1 } from '../reportConfiguration/types/ASSAULT_1'
+import { DRONE_SIGHTING_1 } from '../reportConfiguration/types/DRONE_SIGHTING_1'
 
 describe('QuestionToDelete service', () => {
   describe('linear path, nothing to delete', () => {
     it('returns an empty array when path is incomplete but valid', () => {
-      // https://raw.githubusercontent.com/ministryofjustice/hmpps-incident-reporting/main/server/reportConfiguration/types/ASSAULT.svg
-      const config = ASSAULT
+      // https://raw.githubusercontent.com/ministryofjustice/hmpps-incident-reporting/main/server/reportConfiguration/types/ASSAULT_5.svg
+      const config = ASSAULT_5
       const answeredQuestions = [
         // 'WHAT WAS THE MAIN MANAGEMENT OUTCOME OF THE INCIDENT'
         { code: '61279', responses: [{ response: 'IEP REGRESSION' }] },
@@ -27,8 +27,8 @@ describe('QuestionToDelete service', () => {
     })
 
     it('returns an empty array when valid path reaches the end', () => {
-      // https://raw.githubusercontent.com/ministryofjustice/hmpps-incident-reporting/main/server/reportConfiguration/types/ASSAULT.svg
-      const config = ASSAULT
+      // https://raw.githubusercontent.com/ministryofjustice/hmpps-incident-reporting/main/server/reportConfiguration/types/ASSAULT_5.svg
+      const config = ASSAULT_5
       const answeredQuestions = [
         // WHAT WAS THE MAIN MANAGEMENT OUTCOME OF THE INCIDENT
         { code: '61279', responses: [{ response: 'IEP REGRESSION' }] },
@@ -73,8 +73,8 @@ describe('QuestionToDelete service', () => {
 
   describe('avoid branching, future question retained', () => {
     it('returns only question in branch', () => {
-      // https://raw.githubusercontent.com/ministryofjustice/hmpps-incident-reporting/main/server/reportConfiguration/types/ASSAULT.svg
-      const config = ASSAULT
+      // https://raw.githubusercontent.com/ministryofjustice/hmpps-incident-reporting/main/server/reportConfiguration/types/ASSAULT_5.svg
+      const config = ASSAULT_5
       const answeredQuestions = [
         // 'WHAT WAS THE MAIN MANAGEMENT OUTCOME OF THE INCIDENT'
         { code: '61279', responses: [{ response: 'IEP REGRESSION' }] },
@@ -105,8 +105,8 @@ describe('QuestionToDelete service', () => {
 
   describe('nested branching, some future questions deleted', () => {
     it('returns question after branch', () => {
-      // https://raw.githubusercontent.com/ministryofjustice/hmpps-incident-reporting/main/server/reportConfiguration/types/OLD_ASSAULT.svg
-      const config = OLD_ASSAULT
+      // https://raw.githubusercontent.com/ministryofjustice/hmpps-incident-reporting/main/server/reportConfiguration/types/ASSAULT_1.svg
+      const config = ASSAULT_1
       const answeredQuestions = [
         // 'WERE THE POLICE INFORMED OF THE INCIDENT'
         { code: '44127', responses: [{ response: 'YES (ENTER DATE)' }] }, // Changed to 'YES (ENTER DATE)'
@@ -130,8 +130,8 @@ describe('QuestionToDelete service', () => {
 
   describe('nested branching, branch questions deleted, future questions retained', () => {
     it('returns only question in branch', () => {
-      // https://raw.githubusercontent.com/ministryofjustice/hmpps-incident-reporting/main/server/reportConfiguration/types/OLD_ASSAULT.svg
-      const config = OLD_ASSAULT
+      // https://raw.githubusercontent.com/ministryofjustice/hmpps-incident-reporting/main/server/reportConfiguration/types/ASSAULT_1.svg
+      const config = ASSAULT_1
       const answeredQuestions = [
         // 'WERE THE POLICE INFORMED OF THE INCIDENT'
         { code: '44127', responses: [{ response: 'NO' }] }, // Changed to 'NO'
@@ -154,8 +154,8 @@ describe('QuestionToDelete service', () => {
 
   describe('subsequent branching, only branch questions deleted', () => {
     it('returns only question in 2nd main branch', () => {
-      // https://raw.githubusercontent.com/ministryofjustice/hmpps-incident-reporting/main/server/reportConfiguration/types/OLD_ASSAULT.svg
-      const config = OLD_ASSAULT
+      // https://raw.githubusercontent.com/ministryofjustice/hmpps-incident-reporting/main/server/reportConfiguration/types/ASSAULT_1.svg
+      const config = ASSAULT_1
       const answeredQuestions = [
         // 'WERE THE POLICE INFORMED OF THE INCIDENT'
         { code: '44127', responses: [{ response: 'YES (ENTER DATE)' }] },
@@ -190,8 +190,8 @@ describe('QuestionToDelete service', () => {
 
   describe('linear path with erroneous values', () => {
     it('returns problematic question and subsequent ones', () => {
-      // https://raw.githubusercontent.com/ministryofjustice/hmpps-incident-reporting/main/server/reportConfiguration/types/ASSAULT.svg
-      const config = ASSAULT
+      // https://raw.githubusercontent.com/ministryofjustice/hmpps-incident-reporting/main/server/reportConfiguration/types/ASSAULT_5.svg
+      const config = ASSAULT_5
       const answeredQuestions = [
         // WHAT WAS THE MAIN MANAGEMENT OUTCOME OF THE INCIDENT
         { code: '61279', responses: [{ response: 'IEP REGRESSION' }] },
@@ -238,18 +238,18 @@ describe('QuestionToDelete service', () => {
     let oldSetting: boolean
 
     beforeAll(() => {
-      oldSetting = OLD_DRONE_SIGHTING.questions['57179'].active
-      OLD_DRONE_SIGHTING.questions['57179'].active = true
+      oldSetting = DRONE_SIGHTING_1.questions['57179'].active
+      DRONE_SIGHTING_1.questions['57179'].active = true
     })
 
     afterAll(() => {
-      OLD_DRONE_SIGHTING.questions['57179'].active = oldSetting
+      DRONE_SIGHTING_1.questions['57179'].active = oldSetting
     })
 
     it('returning only questions whose response configs are genuinely inactive', () => {
-      // https://raw.githubusercontent.com/ministryofjustice/hmpps-incident-reporting/main/server/reportConfiguration/types/KEY_LOCK_INCIDENT.svg
+      // https://raw.githubusercontent.com/ministryofjustice/hmpps-incident-reporting/main/server/reportConfiguration/types/KEY_OR_LOCK_2.svg
       // key lock incident has numerous inactive AND active responses with the same code for a given question
-      const config = KEY_LOCK_INCIDENT
+      const config = KEY_OR_LOCK_2
       const answeredQuestions = [
         // Describe the nature of the Incident
         { code: '45196', responses: [{ response: 'Keys lost' }] },
@@ -267,9 +267,9 @@ describe('QuestionToDelete service', () => {
     })
 
     it('returning only questions whose configs are genuinely inactive', () => {
-      // https://raw.githubusercontent.com/ministryofjustice/hmpps-incident-reporting/main/server/reportConfiguration/types/OLD_DRONE_SIGHTING.svg
+      // https://raw.githubusercontent.com/ministryofjustice/hmpps-incident-reporting/main/server/reportConfiguration/types/DRONE_SIGHTING_1.svg
       // all question configs are inactive, but pretending that chosen response is active
-      const config = OLD_DRONE_SIGHTING
+      const config = DRONE_SIGHTING_1
       const answeredQuestions = [
         // Was a drone sighted in mid-flight
         { code: '57179', responses: [{ response: 'Yes' }] },

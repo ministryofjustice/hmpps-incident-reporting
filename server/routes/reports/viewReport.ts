@@ -4,6 +4,7 @@ import type { PathParams } from 'express-serve-static-core'
 
 import type { Services } from '../../services'
 import {
+  aboutTheType,
   prisonerInvolvementOutcomes,
   prisonerInvolvementRoles,
   staffInvolvementRoles,
@@ -64,6 +65,9 @@ export function viewReportRouter(service: Services): Router {
 
     // Gather notification banner entries if they exist
     const banners = req.flash()
+
+    // “About the [incident]”
+    res.locals.aboutTheType = aboutTheType(res.locals.report.type)
 
     res.render('pages/reports/view/index', {
       banners,

@@ -1,4 +1,5 @@
 import path from 'node:path'
+
 import type { IncidentTypeConfiguration } from '../../data/incidentTypeConfiguration/types'
 import { types } from '../constants'
 

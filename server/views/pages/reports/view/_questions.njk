@@ -52,10 +52,9 @@
 
 {% endfor %}
 
-{# TODO: title will need to become type-specific once content is ready #}
 {{ govukSummaryList({
   card: {
-    title: { text: "About the incident" }
+    title: { text: aboutTheType }
   },
   rows: rows
 }) }}

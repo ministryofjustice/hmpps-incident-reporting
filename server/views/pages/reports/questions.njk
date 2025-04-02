@@ -1,7 +1,6 @@
 {% extends "partials/formWizardLayout.njk" %}
 
-{# TODO: title will need to become type-specific once content is ready #}
-{% set pageTitle %}About the incident – {% if questionCountOnPage == 1 -%}
+{% set pageTitle %}{{ aboutTheType }} – {% if questionCountOnPage == 1 -%}
   question {{ firstQuestionNumber }}
 {%- else -%}
   questions {{ firstQuestionNumber }} to {{ firstQuestionNumber + questionCountOnPage - 1 }}

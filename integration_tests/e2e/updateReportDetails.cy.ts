@@ -6,7 +6,7 @@ import ReportPage from '../pages/reports/report'
 context('Update an existing report’s details', () => {
   const now = new Date()
   const reportWithDetails = mockReport({
-    type: 'DISORDER',
+    type: 'DISORDER_2',
     reportReference: '6544',
     reportDateAndTime: now,
     withDetails: true,

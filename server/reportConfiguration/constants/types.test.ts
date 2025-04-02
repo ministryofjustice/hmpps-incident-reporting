@@ -1,5 +1,6 @@
 import { getTypeDetails, types } from './types'
 import { typeFamilies } from './typeFamilies'
+import { aboutTheType } from './typeHints'
 
 describe('Type family', () => {
   it('should share the same code prefix for each type within a family', () => {
@@ -39,5 +40,27 @@ describe('getTypeDetails()', () => {
 
   it('should return null for non-existant codes', () => {
     expect(getTypeDetails('ASSAULT')).toBeNull()
+  })
+})
+
+describe('aboutTheType()', () => {
+  it.each([
+    { type: 'ASSAULT_5' as const, expectedTitle: 'About the assault' },
+    { type: 'CLOSE_DOWN_SEARCH_1' as const, expectedTitle: 'About the close down search' },
+    { type: 'DAMAGE_1' as const, expectedTitle: 'About the deliberate damage to prison property' },
+    { type: 'MISCELLANEOUS_1' as const, expectedTitle: 'About the incident' },
+  ])('should generate a title for type: $type', ({ type, expectedTitle }) => {
+    const title = aboutTheType(type)
+    expect(title).toEqual(expectedTitle)
+  })
+
+  it.each([
+    { typeFamily: 'ASSAULT' as const, expectedTitle: 'About the assault' },
+    { typeFamily: 'CLOSE_DOWN_SEARCH' as const, expectedTitle: 'About the close down search' },
+    { typeFamily: 'DAMAGE' as const, expectedTitle: 'About the deliberate damage to prison property' },
+    { typeFamily: 'MISCELLANEOUS' as const, expectedTitle: 'About the incident' },
+  ])('should generate a title for type family: $typeFamily', ({ typeFamily, expectedTitle }) => {
+    const title = aboutTheType(typeFamily)
+    expect(title).toEqual(expectedTitle)
   })
 })

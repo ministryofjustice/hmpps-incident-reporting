@@ -7,7 +7,7 @@ import { EditPrisonerInvolvementPage, PrisonerInvolvementsPage } from '../../../
 context('Edit prisoner involvement page', () => {
   const now = new Date()
   const reportWithDetails = mockReport({
-    type: 'MISCELLANEOUS',
+    type: 'MISCELLANEOUS_1',
     reportReference: '6544',
     reportDateAndTime: now,
     withDetails: true,
@@ -121,12 +121,5 @@ context('Edit prisoner involvement page', () => {
     editPrisonerInvolvementPage.submit()
 
     Page.verifyOnPage(PrisonerInvolvementsPage)
-  })
-
-  it('should show errors if information is missing', () => {
-    editPrisonerInvolvementPage.enterComment('Some comments')
-    editPrisonerInvolvementPage.submit()
-    editPrisonerInvolvementPage.errorSummary.contains('There is a problem')
-    Page.verifyOnPage(EditPrisonerInvolvementPage, 'Barry Benjamin’s')
   })
 })

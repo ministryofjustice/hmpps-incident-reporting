@@ -15,6 +15,7 @@ import {
   findAnswerConfigByCode,
   questionFieldName,
 } from '../../../data/incidentTypeConfiguration/utils'
+import { aboutTheType } from '../../../reportConfiguration/constants'
 import QuestionsToDelete from '../../../services/questionsToDelete'
 import { BaseController } from '../../../controllers'
 
@@ -64,6 +65,9 @@ export default class QuestionsController extends BaseController<FormWizard.Multi
       // otherwise back to the report otherwise
       res.locals.backLink = res.locals.reportUrl
     }
+
+    // “About the [incident]”
+    res.locals.aboutTheType = aboutTheType(res.locals.report.type)
 
     next()
   }

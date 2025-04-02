@@ -43,7 +43,7 @@ describe('Incident reporting API client', () => {
 
   describe('error handling', () => {
     const badRequest = mockErrorResponse({
-      message: 'Inactive incident type OLD_FINDS4',
+      message: 'Inactive incident type FIND_5',
       errorCode: ErrorCode.ValidationFailure,
     })
 
@@ -92,7 +92,7 @@ describe('Incident reporting API client', () => {
         testCase: () =>
           apiClient.createReport({
             createNewEvent: true,
-            type: 'FINDS',
+            type: 'FIND_6',
             title: 'Chewing gum',
             description: 'Chewing gum found in cell',
             incidentDateAndTime: now,
@@ -115,7 +115,7 @@ describe('Incident reporting API client', () => {
         method: 'changeReportType',
         url: `/incident-reports/${reportWithDetails.id}/type`,
         urlMethod: 'patch',
-        testCase: () => apiClient.changeReportType(reportWithDetails.id, { newType: 'MISCELLANEOUS' }),
+        testCase: () => apiClient.changeReportType(reportWithDetails.id, { newType: 'MISCELLANEOUS_1' }),
       },
       {
         method: 'deleteReport',
@@ -248,6 +248,11 @@ describe('Incident reporting API client', () => {
         testCase: () => apiClient.constants.types(),
       },
       {
+        method: 'constants.typeFamilies',
+        url: '/constants/type-families',
+        testCase: () => apiClient.constants.typeFamilies(),
+      },
+      {
         method: 'constants.statuses',
         url: '/constants/statuses',
         testCase: () => apiClient.constants.statuses(),
@@ -291,8 +296,8 @@ describe('Incident reporting API client', () => {
         data: {
           status: 400,
           errorCode: 100,
-          userMessage: 'Inactive incident type OLD_FINDS4',
-          developerMessage: 'Inactive incident type OLD_FINDS4',
+          userMessage: 'Inactive incident type FIND_5',
+          developerMessage: 'Inactive incident type FIND_5',
         },
       }
 
@@ -402,7 +407,7 @@ describe('Incident reporting API client', () => {
         testCase: () =>
           apiClient.createReport({
             createNewEvent: true,
-            type: 'FINDS',
+            type: 'FIND_6',
             title: 'Chewing gum',
             description: 'Chewing gum found in cell',
             incidentDateAndTime: now,
@@ -419,7 +424,7 @@ describe('Incident reporting API client', () => {
         method: 'changeReportType',
         url: `/incident-reports/${reportWithDetails.id}/type`,
         urlMethod: 'patch',
-        testCase: () => apiClient.changeReportType(reportWithDetails.id, { newType: 'MISCELLANEOUS' }),
+        testCase: () => apiClient.changeReportType(reportWithDetails.id, { newType: 'MISCELLANEOUS_1' }),
       },
       {
         method: 'deleteReport',
@@ -454,7 +459,7 @@ describe('Incident reporting API client', () => {
         testCase: () =>
           apiClient.createReport({
             createNewEvent: true,
-            type: 'FINDS',
+            type: 'FIND_6',
             title: 'Chewing gum',
             description: 'Chewing gum found in cell',
             incidentDateAndTime: now,

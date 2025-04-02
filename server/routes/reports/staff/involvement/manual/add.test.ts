@@ -50,7 +50,7 @@ describe('Adding a new staff member to a report who does not have a DPS/NOMIS ac
   beforeEach(() => {
     report = convertReportWithDetailsDates(
       mockReport({
-        type: 'FINDS',
+        type: 'FIND_6',
         reportReference: '6544',
         reportDateAndTime: now,
         withDetails: true,

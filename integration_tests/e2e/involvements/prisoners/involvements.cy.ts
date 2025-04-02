@@ -7,7 +7,7 @@ import ReportPage from '../../../pages/reports/report'
 context('Prisoner involvements page', () => {
   const now = new Date()
   const reportWithDetails = mockReport({
-    type: 'MISCELLANEOUS',
+    type: 'MISCELLANEOUS_1',
     reportReference: '6544',
     reportDateAndTime: now,
     withDetails: true,

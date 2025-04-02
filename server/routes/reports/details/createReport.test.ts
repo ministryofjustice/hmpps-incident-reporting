@@ -53,14 +53,14 @@ describe('Creating a report', () => {
           expect(res.text).not.toContain('There is a problem')
 
           // active type
-          expect(res.text).toContain('BOMB_THREAT')
-          expect(res.text).toContain('Bomb threat')
+          expect(res.text).toContain('BOMB_1')
+          expect(res.text).toContain('Bomb explosion or threat')
           // inactive type
-          expect(res.text).not.toContain('OLD_DRUGS')
+          expect(res.text).not.toContain('DRUGS_1')
           expect(res.text).not.toContain('Drugs')
 
           // miscellaneous is last
-          expect(res.text.indexOf('TOOL_LOSS')).toBeLessThan(res.text.indexOf('MISCELLANEOUS'))
+          expect(res.text.indexOf('TOOL_LOSS_1')).toBeLessThan(res.text.indexOf('MISCELLANEOUS_1'))
           // hints are included
           expect(res.text).toContain('Includes barricade, concerted indiscipline, hostage, and incident at height.')
         })
@@ -82,7 +82,7 @@ describe('Creating a report', () => {
     it('should proceed to step 2 if an incident type was chosen', () => {
       return agent
         .post('/create-report')
-        .send({ type: 'DISORDER' })
+        .send({ type: 'DISORDER_2' })
         .redirects(1)
         .expect(200)
         .expect(res => {
@@ -93,7 +93,7 @@ describe('Creating a report', () => {
 
   describe('Step 2: entering date and description', () => {
     beforeEach(() => {
-      return agent.post('/create-report').send({ type: 'DISORDER' })
+      return agent.post('/create-report').send({ type: 'DISORDER_2' })
     })
 
     const incidentDateAndTime = new Date('2024-10-21T16:32:00+01:00')
@@ -259,7 +259,7 @@ describe('Creating a report', () => {
             incidentDateAndTime,
             location: 'MDI',
             title: 'Disorder (Moorland (HMP & YOI))',
-            type: 'DISORDER',
+            type: 'DISORDER_2',
           })
         })
       await agent.get('/create-report').expect(res => {

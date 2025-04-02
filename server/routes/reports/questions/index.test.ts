@@ -15,10 +15,10 @@ import { mockErrorResponse, mockReport } from '../../../data/testData/incidentRe
 import { makeSimpleQuestion } from '../../../data/testData/incidentReportingJest'
 import { mockThrownError } from '../../../data/testData/thrownErrors'
 import { approverUser, hqUser, reportingUser, unauthorisedUser } from '../../../data/testData/users'
-import ASSAULT from '../../../reportConfiguration/types/ASSAULT'
-import ATTEMPTED_ESCAPE_FROM_CUSTODY from '../../../reportConfiguration/types/ATTEMPTED_ESCAPE_FROM_CUSTODY'
-import DEATH_OTHER from '../../../reportConfiguration/types/DEATH_OTHER'
-import FINDS from '../../../reportConfiguration/types/FINDS'
+import { ASSAULT_5 } from '../../../reportConfiguration/types/ASSAULT_5'
+import { ATTEMPTED_ESCAPE_FROM_PRISON_1 } from '../../../reportConfiguration/types/ATTEMPTED_ESCAPE_FROM_PRISON_1'
+import { DEATH_OTHER_1 } from '../../../reportConfiguration/types/DEATH_OTHER_1'
+import { FIND_6 } from '../../../reportConfiguration/types/FIND_6'
 
 jest.mock('../../../data/incidentReportingApi')
 
@@ -45,7 +45,7 @@ describe('Displaying questions and responses', () => {
 
     reportWithDetails = convertReportWithDetailsDates(
       mockReport({
-        type: 'FINDS',
+        type: 'FIND_6',
         reportReference: '6544',
         reportDateAndTime: now,
         withDetails: true,
@@ -81,7 +81,7 @@ describe('Displaying questions and responses', () => {
     })
 
     it('should 404 if report’s incident type is inactive', () => {
-      reportWithDetails.type = 'DAMAGE'
+      reportWithDetails.type = 'DAMAGE_1'
       return agent
         .get(reportQuestionsUrl(createJourney))
         .redirects(1)
@@ -92,7 +92,7 @@ describe('Displaying questions and responses', () => {
     })
 
     it('form is prefilled with report answers, including date', () => {
-      reportWithDetails.type = 'DEATH_OTHER'
+      reportWithDetails.type = 'DEATH_OTHER_1'
       reportWithDetails.questions = [
         {
           code: '45054',
@@ -124,7 +124,7 @@ describe('Displaying questions and responses', () => {
     })
 
     it('form is prefilled with report answers, multiple choices are selected', () => {
-      reportWithDetails.type = 'FINDS'
+      reportWithDetails.type = 'FIND_6'
       reportWithDetails.questions = [
         makeSimpleQuestion(
           '67179',
@@ -148,7 +148,7 @@ describe('Displaying questions and responses', () => {
     })
 
     it('form is prefilled with report answers, multiple questions answered', () => {
-      reportWithDetails.type = 'ASSAULT'
+      reportWithDetails.type = 'ASSAULT_5'
       reportWithDetails.questions = [
         makeSimpleQuestion('61279', 'WHAT WAS THE MAIN MANAGEMENT OUTCOME OF THE INCIDENT', 'POLICE REFERRAL'),
         makeSimpleQuestion('61280', 'IS ANY MEMBER OF STAFF FACING DISCIPLINARY CHARGES', 'NO'),
@@ -174,7 +174,7 @@ describe('Displaying questions and responses', () => {
 
     describe('Page titles and question numbering', () => {
       it('should show question numbers on first page', () => {
-        reportWithDetails.type = 'ATTEMPTED_ESCAPE_FROM_CUSTODY'
+        reportWithDetails.type = 'ATTEMPTED_ESCAPE_FROM_PRISON_1'
         return agent
           .get(reportQuestionsUrl(createJourney))
           .redirects(1)
@@ -203,7 +203,7 @@ describe('Displaying questions and responses', () => {
           makeSimpleQuestion('44636', 'IS THERE ANY MEDIA INTEREST IN THIS INCIDENT', 'NO'),
           makeSimpleQuestion('44749', 'HAS THE PRISON SERVICE PRESS OFFICE BEEN INFORMED', 'NO'),
         ]
-        reportWithDetails.type = 'ATTEMPTED_ESCAPE_FROM_CUSTODY'
+        reportWithDetails.type = 'ATTEMPTED_ESCAPE_FROM_PRISON_1'
         reportWithDetails.questions = questionsResponse
         incidentReportingApi.addOrUpdateQuestionsWithResponses.mockResolvedValueOnce(questionsResponse)
 
@@ -247,7 +247,7 @@ describe('Displaying questions and responses', () => {
           .get(reportQuestionsUrl(createJourney))
           .redirects(1)
           .expect(res => {
-            expect(res.text).toContain('About the incident – question 1')
+            expect(res.text).toContain('About the find of illicit items – question 1')
           })
       })
 
@@ -291,18 +291,18 @@ describe('Displaying questions and responses', () => {
           .get(`${reportQuestionsUrl(createJourney)}/67180`)
           .expect(200)
           .expect(res => {
-            expect(res.text).toContain('About the incident – question 2')
+            expect(res.text).toContain('About the find of illicit items – question 2')
           })
       })
 
       it('should show correct title for a page with several questions', () => {
-        reportWithDetails.type = 'ATTEMPTED_ESCAPE_FROM_CUSTODY'
+        reportWithDetails.type = 'ATTEMPTED_ESCAPE_FROM_PRISON_1'
         incidentReportingApi.addOrUpdateQuestionsWithResponses.mockResolvedValueOnce([])
         return agent
           .get(reportQuestionsUrl(createJourney))
           .redirects(1)
           .expect(res => {
-            expect(res.text).toContain('About the incident – questions 1 to 5')
+            expect(res.text).toContain('About the attempted escape from establishment – questions 1 to 5')
           })
       })
     })
@@ -314,7 +314,7 @@ describe('Displaying questions and responses', () => {
       ])(
         'should redirect to first page of questions from form wizard entrypoint when $scenario',
         ({ someResponses }) => {
-          reportWithDetails.type = 'FINDS'
+          reportWithDetails.type = 'FIND_6'
           reportWithDetails.questions = someResponses
             ? [makeSimpleQuestion('67179', 'DESCRIBE HOW THE ITEM WAS FOUND (SELECT ALL THAT APPLY)', 'CELL SEARCH')]
             : []
@@ -331,7 +331,7 @@ describe('Displaying questions and responses', () => {
       it.each(['67179', '67180'])(
         'should allow skipping directly to any page that has been started (sample question %d)',
         answeredQuestionId => {
-          reportWithDetails.type = 'FINDS'
+          reportWithDetails.type = 'FIND_6'
           reportWithDetails.questions = [
             makeSimpleQuestion('67179', 'DESCRIBE HOW THE ITEM WAS FOUND (SELECT ALL THAT APPLY)', 'CELL SEARCH'),
             makeSimpleQuestion('67180', 'IS THE LOCATION OF THE INCIDENT KNOWN?', 'NO'),
@@ -347,7 +347,7 @@ describe('Displaying questions and responses', () => {
       )
 
       it('should allow skipping directly to the next page after existing responses', () => {
-        reportWithDetails.type = 'FINDS'
+        reportWithDetails.type = 'FIND_6'
         reportWithDetails.questions = [
           makeSimpleQuestion('67179', 'DESCRIBE HOW THE ITEM WAS FOUND (SELECT ALL THAT APPLY)', 'CELL SEARCH'),
           makeSimpleQuestion('67180', 'IS THE LOCATION OF THE INCIDENT KNOWN?', 'NO'),
@@ -362,7 +362,7 @@ describe('Displaying questions and responses', () => {
       })
 
       it('should redirect to first page of questions if one tries to skip ahead', () => {
-        reportWithDetails.type = 'FINDS'
+        reportWithDetails.type = 'FIND_6'
         reportWithDetails.questions = [
           makeSimpleQuestion('67179', 'DESCRIBE HOW THE ITEM WAS FOUND (SELECT ALL THAT APPLY)', 'CELL SEARCH'),
           makeSimpleQuestion('67180', 'IS THE LOCATION OF THE INCIDENT KNOWN?', 'NO'),
@@ -385,7 +385,7 @@ describe('Submitting questions’ responses', () => {
   // Report type/answers updated in each test
   const reportWithDetails: ReportWithDetails = convertReportWithDetailsDates(
     mockReport({
-      type: 'FINDS',
+      type: 'FIND_6',
       reportReference: '6544',
       reportDateAndTime: now,
       withDetails: true,
@@ -410,8 +410,8 @@ describe('Submitting questions’ responses', () => {
     { scenario: 'normally', createJourney: false },
   ])('$scenario', ({ createJourney }) => {
     it('submitting when answers not provided shows errors', () => {
-      reportWithDetails.type = 'DEATH_OTHER'
-      const firstQuestionStep = DEATH_OTHER.startingQuestionId
+      reportWithDetails.type = 'DEATH_OTHER_1'
+      const firstQuestionStep = DEATH_OTHER_1.startingQuestionId
       const followingStep = '44434'
       const submittedAnswers = {
         // 'WERE THE POLICE INFORMED OF THE INCIDENT',
@@ -437,8 +437,8 @@ describe('Submitting questions’ responses', () => {
     })
 
     it('submitting when answers invalid shows errors', () => {
-      reportWithDetails.type = 'DEATH_OTHER'
-      const firstQuestionStep = DEATH_OTHER.startingQuestionId
+      reportWithDetails.type = 'DEATH_OTHER_1'
+      const firstQuestionStep = DEATH_OTHER_1.startingQuestionId
       const followingStep = '44434'
       const submittedAnswers = {
         // 'WERE THE POLICE INFORMED OF THE INCIDENT',
@@ -466,8 +466,8 @@ describe('Submitting questions’ responses', () => {
     })
 
     it('submitting answers requiring dates', () => {
-      reportWithDetails.type = 'DEATH_OTHER'
-      const firstQuestionStep = DEATH_OTHER.startingQuestionId
+      reportWithDetails.type = 'DEATH_OTHER_1'
+      const firstQuestionStep = DEATH_OTHER_1.startingQuestionId
       const followingStep = '44434'
       const responseDate = '06/12/2023'
       const submittedAnswers = {
@@ -528,8 +528,8 @@ describe('Submitting questions’ responses', () => {
     })
 
     it('submitting multiple answers to a question', () => {
-      reportWithDetails.type = 'FINDS'
-      const firstQuestionStep = FINDS.startingQuestionId
+      reportWithDetails.type = 'FIND_6'
+      const firstQuestionStep = FIND_6.startingQuestionId
       const followingStep = '67180'
       const submittedAnswers = {
         // 'DESCRIBE HOW THE ITEM WAS FOUND (SELECT ALL THAT APPLY)'
@@ -584,8 +584,8 @@ describe('Submitting questions’ responses', () => {
     })
 
     it('submitting responses to multiple questions', () => {
-      reportWithDetails.type = 'ASSAULT'
-      const firstQuestionStep = ASSAULT.startingQuestionId
+      reportWithDetails.type = 'ASSAULT_5'
+      const firstQuestionStep = ASSAULT_5.startingQuestionId
       const followingStep = '61285'
       const submittedAnswers = {
         // 'WHAT WAS THE MAIN MANAGEMENT OUTCOME OF THE INCIDENT'
@@ -706,7 +706,7 @@ describe('Submitting questions’ responses', () => {
         makeSimpleQuestion('44636', 'IS THERE ANY MEDIA INTEREST IN THIS INCIDENT', 'NO'),
         makeSimpleQuestion('44749', 'HAS THE PRISON SERVICE PRESS OFFICE BEEN INFORMED', 'NO'),
       ]
-      reportWithDetails.type = 'ATTEMPTED_ESCAPE_FROM_CUSTODY'
+      reportWithDetails.type = 'ATTEMPTED_ESCAPE_FROM_PRISON_1'
       reportWithDetails.questions = questionsResponse
       incidentReportingApi.addOrUpdateQuestionsWithResponses.mockResolvedValueOnce(questionsResponse)
 
@@ -729,7 +729,7 @@ describe('Submitting questions’ responses', () => {
 
     it('should redirect to report view once all questions are answered', async () => {
       // simulate last 1-question page being unanswered
-      reportWithDetails.type = 'ATTEMPTED_ESCAPE_FROM_CUSTODY'
+      reportWithDetails.type = 'ATTEMPTED_ESCAPE_FROM_PRISON_1'
       const questionsResponse: Question[] = [
         makeSimpleQuestion('44769', 'WERE THE POLICE INFORMED OF THE INCIDENT', 'NO'),
         makeSimpleQuestion('44919', 'THE INCIDENT IS SUBJECT TO', 'INVESTIGATION INTERNALLY'),
@@ -775,7 +775,7 @@ describe('Submitting questions’ responses', () => {
 
     it('should remain on last page if incorrectly answered', async () => {
       // simulate last 1-question page being unanswered
-      reportWithDetails.type = 'ATTEMPTED_ESCAPE_FROM_CUSTODY'
+      reportWithDetails.type = 'ATTEMPTED_ESCAPE_FROM_PRISON_1'
       reportWithDetails.questions = [
         makeSimpleQuestion('44769', 'WERE THE POLICE INFORMED OF THE INCIDENT', 'NO'),
         makeSimpleQuestion('44919', 'THE INCIDENT IS SUBJECT TO', 'INVESTIGATION INTERNALLY'),
@@ -813,8 +813,8 @@ describe('Submitting questions’ responses', () => {
 
     it('should use incident type’s field order', () => {
       // NB: this type’s questions are not in numeric order on page 1
-      reportWithDetails.type = 'ATTEMPTED_ESCAPE_FROM_CUSTODY'
-      const firstQuestionStep = ATTEMPTED_ESCAPE_FROM_CUSTODY.startingQuestionId
+      reportWithDetails.type = 'ATTEMPTED_ESCAPE_FROM_PRISON_1'
+      const firstQuestionStep = ATTEMPTED_ESCAPE_FROM_PRISON_1.startingQuestionId
       const submittedAnswers = {
         // WERE THE POLICE INFORMED OF THE INCIDENT
         '44769': 'NO',
@@ -854,8 +854,8 @@ describe('Submitting questions’ responses', () => {
     })
 
     it('should show a message for API errors', () => {
-      reportWithDetails.type = 'FINDS'
-      const firstQuestionStep = FINDS.startingQuestionId
+      reportWithDetails.type = 'FIND_6'
+      const firstQuestionStep = FIND_6.startingQuestionId
       const submittedAnswers = {
         // 'DESCRIBE HOW THE ITEM WAS FOUND (SELECT ALL THAT APPLY)'
         '67179': ['BOSS CHAIR', 'DOG SEARCH'],

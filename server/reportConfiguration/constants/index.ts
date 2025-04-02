@@ -1,4 +1,5 @@
 export * from './types'
+export * from './typeFamilies'
 export * from './typeHints'
 export * from './statuses'
 export * from './statusMappings'

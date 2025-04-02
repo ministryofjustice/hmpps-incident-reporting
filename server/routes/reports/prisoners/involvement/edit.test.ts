@@ -45,7 +45,7 @@ describe('Editing an existing prisoner in a report', () => {
   beforeEach(() => {
     report = convertReportWithDetailsDates(
       mockReport({
-        type: 'FINDS',
+        type: 'FIND_6',
         reportReference: '6544',
         reportDateAndTime: now,
         withDetails: true,
@@ -142,7 +142,7 @@ describe('Editing an existing prisoner in a report', () => {
 
     describe('roles that are only allowed once', () => {
       beforeEach(() => {
-        report.type = 'ESCAPE_FROM_CUSTODY'
+        report.type = 'ESCAPE_FROM_PRISON_1'
       })
 
       it('should be hidden if already used in a different involvement', () => {
@@ -185,7 +185,7 @@ describe('Editing an existing prisoner in a report', () => {
     })
 
     it('should show an error on the summary page if no roles are available', () => {
-      report.type = 'ABSCONDER'
+      report.type = 'ABSCOND_1'
       report.prisonersInvolved.unshift({
         prisonerNumber: barry.prisonerNumber,
         firstName: barry.firstName,

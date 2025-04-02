@@ -7,6 +7,7 @@ export default function makeDpsConfigRouter(): Router {
 
   ;[
     { method: 'types' as const },
+    { method: 'typeFamilies' as const },
     { method: 'statuses' as const },
     { method: 'informationSources' as const },
     { method: 'staffInvolvementRoles' as const },

@@ -19,7 +19,7 @@ export function saveAsTypescript({
   fs.writeFileSync(tsPath, tsData)
 
   // Make TypeScript file pretty
-  spawnSync('npx', ['prettier', '--write', tsPath], { encoding: 'utf8' })
+  spawnSync('npx', ['prettier', '--write', tsPath], { encoding: 'utf8', stdio: 'pipe' })
 
   return tsPath
 }
@@ -33,7 +33,7 @@ export function saveAsGraphviz(config: IncidentTypeConfiguration): string {
   fs.writeFileSync(graphvizPath, graphvizData)
 
   // Converts to SVG using graphviz's dot command
-  spawnSync('dot', ['-T', 'svg', '-o', svgPath, graphvizPath])
+  spawnSync('dot', ['-T', 'svg', '-o', svgPath, graphvizPath], { stdio: 'pipe' })
 
   return svgPath
 }

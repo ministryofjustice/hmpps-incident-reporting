@@ -155,7 +155,7 @@ describe('GET dashboard', () => {
       reference: undefined,
       sort: ['incidentDateAndTime,DESC'],
       status: ['DRAFT', 'INFORMATION_REQUIRED'],
-      type: 'ATTEMPTED_ESCAPE_FROM_CUSTODY',
+      type: 'ATTEMPTED_ESCAPE_FROM_PRISON_1',
     }
 
     const queryParams = {
@@ -163,7 +163,7 @@ describe('GET dashboard', () => {
       fromDate: '01/01/2025',
       toDate: '14/01/2025',
       location: 'MDI',
-      incidentType: 'ATTEMPTED_ESCAPE_FROM_CUSTODY',
+      incidentType: 'ATTEMPTED_ESCAPE_FROM_PRISON_1',
       incidentStatuses: 'toDo',
     }
 
@@ -192,7 +192,7 @@ describe('GET dashboard', () => {
       reference: undefined,
       sort: ['incidentDateAndTime,DESC'],
       status: 'DRAFT',
-      type: 'ATTEMPTED_ESCAPE_FROM_CUSTODY',
+      type: 'ATTEMPTED_ESCAPE_FROM_PRISON_1',
     }
 
     const queryParams = {
@@ -200,7 +200,7 @@ describe('GET dashboard', () => {
       fromDate: '01/01/2025',
       toDate: '14/01/2025',
       location: 'LEI',
-      incidentType: 'ATTEMPTED_ESCAPE_FROM_CUSTODY',
+      incidentType: 'ATTEMPTED_ESCAPE_FROM_PRISON_1',
       incidentStatuses: 'DRAFT',
     }
 
@@ -341,9 +341,9 @@ describe('GET dashboard', () => {
       .expect(200)
       .expect(res => {
         expect(res.text).toContain('6543')
-        expect(res.text).toContain('Finds')
+        expect(res.text).toContain('Find of illicit items')
         expect(res.text).toContain('5 December 2023, 11:34')
-        expect(res.text).toContain('A new incident created in the new service of type FINDS')
+        expect(res.text).toContain('A new incident created in the new service of type FIND_6')
         expect(res.text).toContain('John Smith')
         expect(res.text).not.toContain('Establishment') // cannot check for Moorland because it appears in create button
         expect(res.text).toContain('Draft')
@@ -369,9 +369,9 @@ describe('GET dashboard', () => {
       .expect(200)
       .expect(res => {
         expect(res.text).toContain('6543')
-        expect(res.text).toContain('Finds')
+        expect(res.text).toContain('Find of illicit items')
         expect(res.text).toContain('5 December 2023, 11:34')
-        expect(res.text).toContain('A new incident created in the new service of type FINDS')
+        expect(res.text).toContain('A new incident created in the new service of type FIND_6')
         expect(res.text).not.toContain('John Smith')
         expect(res.text).toContain('Establishment') // cannot check for Moorland because it appears in create button
         expect(res.text).toContain('Draft')

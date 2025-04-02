@@ -107,7 +107,7 @@ export function toTypescript({
  */
 export function toGraphviz(config: DpsIncidentTypeConfiguration): string {
   const questions = Object.values(config.questions)
-  return nunjucks
+  const graphvizString = nunjucks
     .renderString(
       // language=graphviz
       `
@@ -120,16 +120,25 @@ digraph {{ config.incidentType }} {
   END_NODE [label="END", shape="doublecircle"];
 
   {%- for question in questions %}
-  {{ question.id }} [label=< <FONT COLOR="royalblue">{{ question.id }} </FONT> {{ question.label }} >{% if not question.active %}, style="filled", color="#DDD"{% endif %}];
-  {%- for answer in question.answers %}
-  {{ question.id }} -> {{ answer.nextQuestionId or 'END_NODE' }} [label=< <FONT COLOR="royalblue">{{ answer.id }} </FONT> {{ answer.label }} >{% if not answer.active %}, color="#DDD"{% endif%}];
-  {%- endfor %}
+    {{ question.id }} [label=< <FONT COLOR="royalblue">{{ question.id }} </FONT> {{ question.label }} >
+      {%- if not question.active -%}
+        , style="filled", color="#DDD"
+      {%- endif -%}
+      ];
+    {%- for answer in question.answers %}
+      {{ question.id }} -> {{ answer.nextQuestionId or 'END_NODE' }} [label=< <FONT COLOR="royalblue">{{ answer.id }} </FONT> {{ answer.label }} >
+        {%- if not answer.active -%}
+          , color="#DDD"
+        {%- endif -%}
+        ];
+    {%- endfor %}
   {%- endfor %}
 }
-    `,
+      `,
       { config, questions },
     )
     .trim()
+  return `${graphvizString}\n`
 }
 
 function typeFromNomisCode(nomisCode: NomisType): Type {

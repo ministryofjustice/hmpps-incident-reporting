@@ -116,7 +116,7 @@ context('Responding to questions', () => {
   })
 
   function checkFirstPage(): QuestionPage {
-    const questionPage = Page.verifyOnPage(QuestionPage, [1, 5])
+    const questionPage = Page.verifyOnPage(QuestionPage, [1, 5], 'attempted escape from establishment')
     questionPage.questionTitles.should('deep.equal', [
       '1. Were the police informed of the incident?',
       '2. The incident is subject to',
@@ -128,7 +128,7 @@ context('Responding to questions', () => {
   }
 
   function checkSecondPage(): QuestionPage {
-    const questionPage = Page.verifyOnPage(QuestionPage, [6, 6])
+    const questionPage = Page.verifyOnPage(QuestionPage, [6, 6], 'attempted escape from establishment')
     questionPage.questionTitles.should('deep.equal', [
       '6. Where was the prisoner prior to the start of the attempted escape?',
     ])
@@ -150,7 +150,7 @@ context('Responding to questions', () => {
     it('should allow clicking through to the first page of questions', () => {
       cy.visit(`/reports/${reportWithDetails.id}`)
       const reportPage = Page.verifyOnPage(ReportPage, '6544', true)
-      reportPage.clickThroughToQuestionPage(0, 'Continue')
+      reportPage.clickThroughToQuestionPage(0, 'Continue', 'attempted escape from establishment')
       checkFirstPage()
     })
 
@@ -166,7 +166,7 @@ context('Responding to questions', () => {
 
     it('should allow submitting whole page of responses', () => {
       cy.visit(`/reports/${reportWithDetails.id}/questions/44769`)
-      const questionPage = Page.verifyOnPage(QuestionPage, [1, 5])
+      const questionPage = Page.verifyOnPage(QuestionPage, [1, 5], 'attempted escape from establishment')
 
       questionPage.selectResponses('44769', 'No')
       questionPage.selectResponses('44919', 'Investigation by police', 'Investigation internally')
@@ -258,7 +258,7 @@ context('Responding to questions', () => {
 
     it('should show an error if a single-response question is missed', () => {
       cy.visit(`/reports/${reportWithDetails.id}/questions/44769`)
-      const questionPage = Page.verifyOnPage(QuestionPage, [1, 5])
+      const questionPage = Page.verifyOnPage(QuestionPage, [1, 5], 'attempted escape from establishment')
 
       questionPage.selectResponses('44769', 'No')
       questionPage.selectResponses('44919', 'Investigation by police', 'Investigation internally')
@@ -267,13 +267,13 @@ context('Responding to questions', () => {
       // 44749 is missing
       questionPage.submit()
 
-      Page.verifyOnPage(QuestionPage, [1, 5])
+      Page.verifyOnPage(QuestionPage, [1, 5], 'attempted escape from establishment')
       questionPage.errorSummary.contains('There is a problem')
     })
 
     it('should show an error if a multi-response question is missed', () => {
       cy.visit(`/reports/${reportWithDetails.id}/questions/44769`)
-      const questionPage = Page.verifyOnPage(QuestionPage, [1, 5])
+      const questionPage = Page.verifyOnPage(QuestionPage, [1, 5], 'attempted escape from establishment')
 
       questionPage.selectResponses('44769', 'No')
       questionPage.selectResponses('45033', 'No')
@@ -282,13 +282,13 @@ context('Responding to questions', () => {
       // 44919 is missing
       questionPage.submit()
 
-      Page.verifyOnPage(QuestionPage, [1, 5])
+      Page.verifyOnPage(QuestionPage, [1, 5], 'attempted escape from establishment')
       questionPage.errorSummary.contains('There is a problem')
     })
 
     it('should show an error if a required date is missing', () => {
       cy.visit(`/reports/${reportWithDetails.id}/questions/44769`)
-      const questionPage = Page.verifyOnPage(QuestionPage, [1, 5])
+      const questionPage = Page.verifyOnPage(QuestionPage, [1, 5], 'attempted escape from establishment')
 
       questionPage.selectResponses('44769', 'No')
       questionPage.selectResponses('44919', 'Investigation by police', 'Investigation internally')
@@ -297,7 +297,7 @@ context('Responding to questions', () => {
       questionPage.selectResponses('44749', 'Yes') // response requiring date
       questionPage.submit()
 
-      Page.verifyOnPage(QuestionPage, [1, 5])
+      Page.verifyOnPage(QuestionPage, [1, 5], 'attempted escape from establishment')
       questionPage.errorSummary.contains('There is a problem')
     })
   })
@@ -311,7 +311,7 @@ context('Responding to questions', () => {
     it('should allow clicking through to the first page of questions', () => {
       cy.visit(`/reports/${reportWithDetails.id}`)
       const reportPage = Page.verifyOnPage(ReportPage, '6544', true)
-      reportPage.clickThroughToQuestionPage(0, 'Change')
+      reportPage.clickThroughToQuestionPage(0, 'Change', 'attempted escape from establishment')
       const questionPage = checkFirstPage()
 
       // page should be prefilled with existing responses
@@ -328,7 +328,7 @@ context('Responding to questions', () => {
     it('should allow clicking through to the first page of questions via a different question', () => {
       cy.visit(`/reports/${reportWithDetails.id}`)
       const reportPage = Page.verifyOnPage(ReportPage, '6544', true)
-      reportPage.clickThroughToQuestionPage(1, 'Change')
+      reportPage.clickThroughToQuestionPage(1, 'Change', 'attempted escape from establishment')
       checkFirstPage()
     })
 
@@ -340,7 +340,7 @@ context('Responding to questions', () => {
     it('should allow clicking through to the second page of questions', () => {
       cy.visit(`/reports/${reportWithDetails.id}`)
       const reportPage = Page.verifyOnPage(ReportPage, '6544', true)
-      reportPage.clickThroughToQuestionPage(5, 'Continue')
+      reportPage.clickThroughToQuestionPage(5, 'Continue', 'attempted escape from establishment')
       checkSecondPage()
     })
 
@@ -351,7 +351,7 @@ context('Responding to questions', () => {
 
     it('should allow submitting whole first page of responses', () => {
       cy.visit(`/reports/${reportWithDetails.id}/questions/44769`)
-      const questionPage = Page.verifyOnPage(QuestionPage, [1, 5])
+      const questionPage = Page.verifyOnPage(QuestionPage, [1, 5], 'attempted escape from establishment')
 
       questionPage.selectResponses('44769', 'No')
       questionPage.selectResponses('44919', 'Investigation by police', 'No investigation')
@@ -440,12 +440,12 @@ context('Responding to questions', () => {
 
     it('should show an error if a required comment is missing', () => {
       cy.visit(`/reports/${reportWithDetails.id}/questions/44594`)
-      const questionPage = Page.verifyOnPage(QuestionPage, [6, 6])
+      const questionPage = Page.verifyOnPage(QuestionPage, [6, 6], 'attempted escape from establishment')
 
       questionPage.selectResponses('44594', 'Other secure area') // response requiring comment
       questionPage.submit()
 
-      Page.verifyOnPage(QuestionPage, [6, 6])
+      Page.verifyOnPage(QuestionPage, [6, 6], 'attempted escape from establishment')
       questionPage.errorSummary.contains('There is a problem')
     })
   })

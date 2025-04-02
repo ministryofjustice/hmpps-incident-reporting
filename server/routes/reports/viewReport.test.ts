@@ -172,8 +172,7 @@ describe('View report page', () => {
         .expect(res => {
           expect(res.text).not.toContain('Questions cannot be changed for inactive incident types')
 
-          expect(res.text).toContain('About the incident')
-          // TODO: will need to become type-specific once content is ready
+          expect(res.text).toContain('About the find of illicit items')
 
           expect(res.text).not.toContain(`${viewReportUrl}/questions"`)
 
@@ -312,8 +311,7 @@ describe('View report page', () => {
         .expect(res => {
           expect(res.text).toContain('Questions cannot be changed for inactive incident types')
 
-          expect(res.text).toContain('About the incident')
-          // TODO: will need to become type-specific once content is ready
+          expect(res.text).toContain('About the drone sighting')
 
           expect(res.text).not.toContain(`${viewReportUrl}/questions`)
 
@@ -423,8 +421,7 @@ describe('View report page', () => {
         .get(viewReportUrl)
         .expect('Content-Type', /html/)
         .expect(res => {
-          expect(res.text).toContain('About the incident')
-          // TODO: will need to become type-specific once content is ready
+          expect(res.text).toContain('About the find of illicit items')
 
           expect(res.text).not.toContain(`${viewReportUrl}/questions"`)
 

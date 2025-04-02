@@ -4,13 +4,12 @@ import type { PageElement } from '../page'
 
 // eslint-disable-next-line import/prefer-default-export
 export class QuestionPage extends FormWizardPage {
-  constructor(questionRange: [number, number]) {
-    // TODO: title will need to become type-specific once content is ready
+  constructor(questionRange: [number, number], incidentName: string = 'incident') {
     let pageTitle: string
     if (questionRange[0] === questionRange[1]) {
-      pageTitle = `About the incident – question ${questionRange[0]}`
+      pageTitle = `About the ${incidentName} – question ${questionRange[0]}`
     } else {
-      pageTitle = `About the incident – questions ${questionRange[0]} to ${questionRange[1]}`
+      pageTitle = `About the ${incidentName} – questions ${questionRange[0]} to ${questionRange[1]}`
     }
     super(pageTitle)
   }

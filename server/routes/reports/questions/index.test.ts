@@ -247,7 +247,7 @@ describe('Displaying questions and responses', () => {
           .get(reportQuestionsUrl(createJourney))
           .redirects(1)
           .expect(res => {
-            expect(res.text).toContain('About the incident – question 1')
+            expect(res.text).toContain('About the find of illicit items – question 1')
           })
       })
 
@@ -291,7 +291,7 @@ describe('Displaying questions and responses', () => {
           .get(`${reportQuestionsUrl(createJourney)}/67180`)
           .expect(200)
           .expect(res => {
-            expect(res.text).toContain('About the incident – question 2')
+            expect(res.text).toContain('About the find of illicit items – question 2')
           })
       })
 
@@ -302,7 +302,7 @@ describe('Displaying questions and responses', () => {
           .get(reportQuestionsUrl(createJourney))
           .redirects(1)
           .expect(res => {
-            expect(res.text).toContain('About the incident – questions 1 to 5')
+            expect(res.text).toContain('About the attempted escape from establishment – questions 1 to 5')
           })
       })
     })

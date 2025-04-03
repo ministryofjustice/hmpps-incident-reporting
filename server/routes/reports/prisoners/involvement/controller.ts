@@ -84,7 +84,7 @@ export abstract class PrisonerInvolvementController extends BaseController<Value
       return "Select the prisoner's role in the incident"
     }
     if (error.key === 'outcome') {
-      return 'Select an outcome of the incident'
+      return 'Select an outcome for the incident'
     }
     return super.errorMessage(error)
   }

@@ -44,7 +44,6 @@ export abstract class BaseDetailsController<V extends DetailsValues> extends Bas
     if (digits.test(hours) && digits.test(minutes)) {
       req.form.values.incidentTime = `${hours.padStart(2, '0')}:${minutes.padStart(2, '0')}`
     }
-    console.log(req.form.values.incidentTime)
 
     super.process(req, res, next)
   }
@@ -56,7 +55,6 @@ export abstract class BaseDetailsController<V extends DetailsValues> extends Bas
   ): void {
     // if (and only if) incidentDate and incidentTime are valid, ensure that the combined date & time is in the past
     const { incidentDate, incidentTime } = req.form.values
-    console.log(incidentTime)
     try {
       const incidentDateAndTime = this.buildIncidentDateAndTime(incidentDate, incidentTime)
       const now = new Date()
@@ -64,7 +62,7 @@ export abstract class BaseDetailsController<V extends DetailsValues> extends Bas
         if (incidentDateAndTime.getDate() > now.getDate()) {
           const error = new this.Error('incidentDate', {
             key: 'incidentDate',
-            message: 'Enter a date in the past',
+            message: 'Date of the incident must be today or in the past',
           })
           next({ incidentDate: error })
           return
@@ -72,7 +70,7 @@ export abstract class BaseDetailsController<V extends DetailsValues> extends Bas
         if (incidentDateAndTime.getTime() > now.getTime()) {
           const error = new this.Error('incidentTime', {
             key: 'incidentTime',
-            message: 'Enter a time in the past',
+            message: 'Time of the incident must be in the past ',
           })
           next({ incidentTime: error })
           return
@@ -99,14 +97,13 @@ export abstract class BaseDetailsController<V extends DetailsValues> extends Bas
   }
 
   protected errorMessage(error: FormWizard.Error): string {
-    console.log(error)
     if (error.key === 'incidentDate' && error.type === 'required') {
       return 'Enter the date of the incident'
     }
     if (error.key === 'incidentDate' && error.type === 'ukDate') {
       return 'Enter the date of the incident using the format DD MM YYYY'
     }
-    if (error.key === 'incidentTime') {
+    if (error.key === 'incidentTime' && error.type === 'required') {
       return 'Enter the time of the incident using the 24 hour clock'
     }
     if (error.key === 'description') {

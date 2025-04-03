@@ -343,7 +343,7 @@ describe('Adding a new prisoner to a report', () => {
               outcome: 'INVALID',
               comment: 'See case notes',
             },
-            expectedError: 'Select an outcome of the incident',
+            expectedError: 'Select an outcome for the incident',
           },
         ]
       : [

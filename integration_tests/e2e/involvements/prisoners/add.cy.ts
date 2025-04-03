@@ -126,6 +126,7 @@ context('Add prisoner involvement page', () => {
     addPrisonerInvolvementsPage.enterComment('Some comments')
     addPrisonerInvolvementsPage.submit()
     addPrisonerInvolvementsPage.errorSummary.contains('There is a problem')
+    addPrisonerInvolvementsPage.errorSummary.contains("Select the prisoner's role in the incident")
     Page.verifyOnPage(AddPrisonerInvolvementsPage, 'Andrew Arnold’s')
   })
 })

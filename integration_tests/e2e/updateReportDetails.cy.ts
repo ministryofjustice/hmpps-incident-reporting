@@ -58,6 +58,7 @@ context('Update an existing report’s details', () => {
     detailsPage.enterDescription(' ')
     detailsPage.submit()
     detailsPage.errorSummary.contains('There is a problem')
+    detailsPage.errorSummary.contains('Enter a description of the incident')
     Page.verifyOnPage(DetailsPage)
   })
 })

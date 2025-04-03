@@ -127,7 +127,7 @@ describe('Changing incident type', () => {
           expect(res.request.url.endsWith('/change-type/select')).toBe(true)
           expect(res.text).toContain('app-type')
           expect(res.text).toContain('There is a problem')
-          expect(res.text).toContain('Choose one of the options')
+          expect(res.text).toContain('Select the incident type')
         })
     })
 

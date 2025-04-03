@@ -59,12 +59,22 @@ export abstract class BaseDetailsController<V extends DetailsValues> extends Bas
       const incidentDateAndTime = this.buildIncidentDateAndTime(incidentDate, incidentTime)
       const now = new Date()
       if (incidentDateAndTime > now) {
-        const error = new this.Error('incidentDate', {
-          key: 'incidentDate',
-          message: 'Enter a date and time in the past',
-        })
-        next({ incidentDate: error })
-        return
+        if (incidentDateAndTime.getDate() > now.getDate()) {
+          const error = new this.Error('incidentDate', {
+            key: 'incidentDate',
+            message: 'Date of the incident must be today or in the past',
+          })
+          next({ incidentDate: error })
+          return
+        }
+        if (incidentDateAndTime.getTime() > now.getTime()) {
+          const error = new this.Error('incidentTime', {
+            key: 'incidentTime',
+            message: 'Time of the incident must be in the past ',
+          })
+          next({ incidentTime: error })
+          return
+        }
       }
       // eslint-disable-next-line @typescript-eslint/no-unused-vars
     } catch (e) {
@@ -87,14 +97,17 @@ export abstract class BaseDetailsController<V extends DetailsValues> extends Bas
   }
 
   protected errorMessage(error: FormWizard.Error): string {
-    if (error.key === 'incidentDate') {
-      return 'Enter a date'
+    if (error.key === 'incidentDate' && error.type === 'required') {
+      return 'Enter the date of the incident'
     }
-    if (error.key === 'incidentTime') {
-      return 'Enter a time'
+    if (error.key === 'incidentDate' && error.type === 'ukDate') {
+      return 'Enter the date of the incident using the format DD MM YYYY'
+    }
+    if (error.key === 'incidentTime' && error.type === 'required') {
+      return 'Enter the time of the incident using the 24 hour clock'
     }
     if (error.key === 'description') {
-      return 'Enter a description'
+      return 'Enter a description of the incident'
     }
     return super.errorMessage(error)
   }

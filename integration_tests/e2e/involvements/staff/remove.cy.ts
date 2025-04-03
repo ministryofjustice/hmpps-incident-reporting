@@ -46,6 +46,7 @@ context('Remove staff involvement page', () => {
   it('should show an error if not confirmed', () => {
     removeStaffInvolvementsPage.submit()
     removeStaffInvolvementsPage.errorSummary.contains('There is a problem')
+    removeStaffInvolvementsPage.errorSummary.contains('Select yes if you want to remove the member of staff')
     Page.verifyOnPage(RemoveStaffInvolvementsPage, 'Barry Harrison')
   })
 

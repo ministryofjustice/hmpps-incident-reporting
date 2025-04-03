@@ -173,7 +173,7 @@ describe('Prisoner involvement summary for report', () => {
         expect(res.text).toContain('app-prisoner-summary')
 
         expect(res.text).toContain('There is a problem')
-        expect(res.text).toContain('Select if you would like to add another prisoner to continue')
+        expect(res.text).toContain('Select yes if you want to add a prisoner')
 
         expect(incidentReportingApi.updateReport).not.toHaveBeenCalled()
       })
@@ -261,7 +261,7 @@ describe('Prisoner involvement summary for report', () => {
           expect(res.text).toContain('app-prisoner-request')
 
           expect(res.text).toContain('There is a problem')
-          expect(res.text).toContain('Select if you would like to add another prisoner to continue')
+          expect(res.text).toContain('Select yes if you want to add a prisoner')
 
           expect(incidentReportingApi.updateReport).not.toHaveBeenCalled()
         })

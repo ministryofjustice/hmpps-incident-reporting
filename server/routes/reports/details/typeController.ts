@@ -12,7 +12,7 @@ import type { TypeFieldNames, TypeValues } from './typeFields'
 export abstract class BaseTypeController<V extends TypeValues> extends BaseController<V, TypeFieldNames> {
   protected errorMessage(error: FormWizard.Error): string {
     if (error.key === 'type') {
-      return 'Choose one of the options'
+      return 'Select the incident type'
     }
     return super.errorMessage(error)
   }

@@ -350,7 +350,7 @@ describe('Adding a new prisoner to a report', () => {
               outcome: 'LOCAL_INVESTIGATION',
               comment: 'See case notes',
             },
-            expectedError: 'Choose the prisoner’s role',
+            expectedError: 'Select the prisoner&#39;s role in the incident',
           },
           {
             scenario: 'role is invalid',
@@ -359,7 +359,7 @@ describe('Adding a new prisoner to a report', () => {
               outcome: 'LOCAL_INVESTIGATION',
               comment: 'See case notes',
             },
-            expectedError: 'Choose the prisoner’s role',
+            expectedError: 'Select the prisoner&#39;s role in the incident',
           },
           {
             scenario: 'outcome is invalid',
@@ -368,7 +368,7 @@ describe('Adding a new prisoner to a report', () => {
               outcome: 'INVALID',
               comment: 'See case notes',
             },
-            expectedError: 'Choose the outcome of the prisoner’s involvement',
+            expectedError: 'Select an outcome for the incident',
           },
         ]
       : [
@@ -378,7 +378,7 @@ describe('Adding a new prisoner to a report', () => {
               prisonerRole: '',
               comment: 'See case notes',
             },
-            expectedError: 'Choose the prisoner’s role',
+            expectedError: 'Select the prisoner&#39;s role in the incident',
           },
           {
             scenario: 'role is invalid',
@@ -386,7 +386,7 @@ describe('Adding a new prisoner to a report', () => {
               prisonerRole: 'INVALID',
               comment: 'See case notes',
             },
-            expectedError: 'Choose the prisoner’s role',
+            expectedError: 'Select the prisoner&#39;s role in the incident',
           },
         ]
     it.each(invalidScenarios)('should show an error when $scenario', ({ invalidPayload, expectedError }) => {

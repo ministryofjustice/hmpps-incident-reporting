@@ -96,10 +96,10 @@ describe('Updating report details', () => {
   })
 
   it.each([
-    { missingField: 'incidentDate', expectedError: 'Enter a date' },
-    { missingField: '_incidentTime-hours', expectedError: 'Enter a time' },
-    { missingField: '_incidentTime-minutes', expectedError: 'Enter a time' },
-    { missingField: 'description', expectedError: 'Enter a description' },
+    { missingField: 'incidentDate', expectedError: 'Enter the date of the incident' },
+    { missingField: '_incidentTime-hours', expectedError: 'Enter the time of the incident using the 24 hour clock' },
+    { missingField: '_incidentTime-minutes', expectedError: 'Enter the time of the incident using the 24 hour clock' },
+    { missingField: 'description', expectedError: 'Enter a description of the incident' },
   ])('should show an error if $missingField is left empty', ({ missingField, expectedError }) => {
     const invalidPayload = {
       ...validPayload,
@@ -118,12 +118,22 @@ describe('Updating report details', () => {
   })
 
   it.each([
-    { scenario: 'date cannot be parsed', invalidPayload: { ...validPayload, incidentDate: 'yesterday' } },
+    {
+      scenario: 'date cannot be parsed',
+      invalidPayload: { ...validPayload, incidentDate: 'yesterday' },
+      errorMessage: 'Enter the date of the incident using the format DD MM YYYY',
+    },
+    {
+      scenario: 'date in incorrect format',
+      invalidPayload: { ...validPayload, incidentDate: '02/27/2024' },
+      errorMessage: 'Enter the date of the incident using the format DD MM YYYY',
+    },
     {
       scenario: 'time is invalid',
       invalidPayload: { ...validPayload, '_incidentTime-hours': '10', '_incidentTime-minutes': 'am' },
+      errorMessage: 'Enter the time of the incident using the 24 hour clock',
     },
-  ])('should show an error if $scenario', ({ invalidPayload }) => {
+  ])('should show an error if $scenario', ({ invalidPayload, errorMessage }) => {
     return agent
       .post(updateDetailsUrl)
       .send(invalidPayload)
@@ -132,6 +142,7 @@ describe('Updating report details', () => {
       .expect(res => {
         expectOnDetailsPage(res)
         expect(res.text).toContain('There is a problem')
+        expect(res.text).toContain(errorMessage)
       })
   })
 
@@ -143,6 +154,7 @@ describe('Updating report details', () => {
         date.setMinutes(date.getMinutes() + 2)
         return date
       },
+      errorMessage: 'Time of the incident must be in the past',
     },
     {
       scenario: 'tomorrow',
@@ -151,8 +163,9 @@ describe('Updating report details', () => {
         date.setDate(date.getDate() + 1)
         return date
       },
+      errorMessage: 'Date of the incident must be today or in the past',
     },
-  ])('should show an error if date and time is in the future, $scenario', ({ dateCalculator }) => {
+  ])('should show an error if date and/or time is in the future, $scenario', ({ dateCalculator, errorMessage }) => {
     const dateAndTime = dateCalculator()
     const incidentDate = format.shortDate(dateAndTime)
     const incidentTime = format.time(dateAndTime)
@@ -171,6 +184,7 @@ describe('Updating report details', () => {
       .expect(res => {
         expectOnDetailsPage(res)
         expect(res.text).toContain('There is a problem')
+        expect(res.text).toContain(errorMessage)
       })
   })
 

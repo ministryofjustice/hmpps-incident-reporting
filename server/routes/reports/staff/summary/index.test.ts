@@ -128,7 +128,7 @@ describe('Staff involvement summary for report', () => {
         expect(res.text).toContain('app-staff-summary')
 
         expect(res.text).toContain('There is a problem')
-        expect(res.text).toContain('Select if you would like to add another staff member to continue')
+        expect(res.text).toContain('Select yes if you want to add a member of staff')
 
         expect(incidentReportingApi.updateReport).not.toHaveBeenCalled()
       })
@@ -216,7 +216,7 @@ describe('Staff involvement summary for report', () => {
           expect(res.text).toContain('app-staff-request')
 
           expect(res.text).toContain('There is a problem')
-          expect(res.text).toContain('Select if you would like to add another staff member to continue')
+          expect(res.text).toContain('Select yes if you want to add a member of staff')
 
           expect(incidentReportingApi.updateReport).not.toHaveBeenCalled()
         })

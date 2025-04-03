@@ -135,6 +135,8 @@ context('Creating a new minimal draft report', () => {
     detailsPage.enterDescription(reportWithDetails.description)
     detailsPage.submit()
     detailsPage.errorSummary.contains('There is a problem')
+    detailsPage.errorSummary.contains('Enter the date of the incident')
+    detailsPage.errorSummary.contains('Enter the time of the incident using the 24 hour clock ')
     Page.verifyOnPage(DetailsPage)
   })
 })

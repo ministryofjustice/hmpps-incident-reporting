@@ -19,7 +19,7 @@ export class RemovePrisoner extends RemoveInvolvement<PrisonerInvolvement> {
 
   protected errorMessage(error: FormWizard.Error): string {
     if (error.key === 'confirmRemove') {
-      return 'Select if you would like to remove this prisoner to continue'
+      return 'Select yes if you want to remove the prisoner'
     }
     return super.errorMessage(error)
   }

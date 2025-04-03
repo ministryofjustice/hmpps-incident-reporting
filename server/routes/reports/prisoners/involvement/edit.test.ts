@@ -45,7 +45,7 @@ describe('Editing an existing prisoner in a report', () => {
   beforeEach(() => {
     report = convertReportWithDetailsDates(
       mockReport({
-        type: 'FINDS',
+        type: 'FIND_6',
         reportReference: '6544',
         reportDateAndTime: now,
         withDetails: true,
@@ -142,7 +142,7 @@ describe('Editing an existing prisoner in a report', () => {
 
     describe('roles that are only allowed once', () => {
       beforeEach(() => {
-        report.type = 'ESCAPE_FROM_CUSTODY'
+        report.type = 'ESCAPE_FROM_PRISON_1'
       })
 
       it('should be hidden if already used in a different involvement', () => {
@@ -185,7 +185,7 @@ describe('Editing an existing prisoner in a report', () => {
     })
 
     it('should show an error on the summary page if no roles are available', () => {
-      report.type = 'ABSCONDER'
+      report.type = 'ABSCOND_1'
       report.prisonersInvolved.unshift({
         prisonerNumber: barry.prisonerNumber,
         firstName: barry.firstName,
@@ -313,6 +313,30 @@ describe('Editing an existing prisoner in a report', () => {
           })
       },
     )
+
+    it('should allow exiting to report view when saving', () => {
+      incidentReportingApi.getReportWithDetailsById.mockResolvedValueOnce(report)
+      incidentReportingRelatedObjects.updateForReport.mockResolvedValueOnce([]) // NB: response is ignored
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+      // @ts-ignore need to mock a getter method
+      incidentReportingApi.prisonersInvolved = incidentReportingRelatedObjects
+
+      return request(app)
+        .post(editPageUrl(1))
+        .send({
+          ...validScenarios[0].validPayload,
+          userAction: 'exit',
+        })
+        .expect(302)
+        .expect(res => {
+          expect(res.redirect).toBe(true)
+          expect(res.header.location).toEqual(`/reports/${report.id}`)
+
+          expect(incidentReportingRelatedObjects.updateForReport).toHaveBeenCalledWith(report.id, 1, {
+            ...validScenarios[0].expectedCall,
+          })
+        })
+    })
 
     interface InvalidScenario {
       scenario: string

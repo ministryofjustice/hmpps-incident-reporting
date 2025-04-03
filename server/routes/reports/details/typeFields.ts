@@ -10,10 +10,10 @@ export const typeFields = {
     items: types
       .filter(type => type.active)
       .sort(({ code: code1 }, { code: code2 }) => {
-        if (code1 === 'MISCELLANEOUS') {
+        if (code1.startsWith('MISCELLANEOUS_')) {
           return 1
         }
-        if (code2 === 'MISCELLANEOUS') {
+        if (code2.startsWith('MISCELLANEOUS_')) {
           return -1
         }
         return code1 < code2 ? -1 : 1

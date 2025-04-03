@@ -7,9 +7,7 @@ export abstract class SearchPage extends FormWizardPage {
     return this.textInput('q').clear().type(query)
   }
 
-  submit(buttonText = 'Search'): void {
-    super.submit(buttonText)
-  }
+  protected saveAndContinueText = 'Search'
 
   showsNoTable(): Cypress.Chainable<void> {
     return cy.get<HTMLTableRowElement>('.app-involvement-search-results').should('not.exist').end()

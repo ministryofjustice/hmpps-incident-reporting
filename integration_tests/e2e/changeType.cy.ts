@@ -5,7 +5,7 @@ import { ChangeTypeConfirmationPage, TypePage } from '../pages/reports/type'
 context('Change incident type', () => {
   const now = new Date()
   const reportWithDetails = mockReport({
-    type: 'DISORDER',
+    type: 'DISORDER_2',
     reportReference: '6544',
     reportDateAndTime: now,
     withDetails: true, // needed when redirecting back to view page
@@ -33,113 +33,113 @@ context('Change incident type', () => {
     typePage.typeChoices.then(choices => {
       expect(choices).to.deep.equal([
         {
-          label: 'Absconder',
-          value: 'ABSCONDER',
+          label: 'Abscond',
+          value: 'ABSCOND_1',
           checked: false,
         },
         {
           label: 'Assault',
-          value: 'ASSAULT',
-          checked: false,
-        },
-        {
-          label: 'Attempted escape from custody',
-          value: 'ATTEMPTED_ESCAPE_FROM_CUSTODY',
+          value: 'ASSAULT_5',
           checked: false,
         },
         {
           label: 'Attempted escape from escort',
-          value: 'ATTEMPTED_ESCAPE_FROM_ESCORT',
+          value: 'ATTEMPTED_ESCAPE_FROM_ESCORT_1',
           checked: false,
         },
         {
-          label: 'Bomb threat',
-          value: 'BOMB_THREAT',
+          label: 'Attempted escape from establishment',
+          value: 'ATTEMPTED_ESCAPE_FROM_PRISON_1',
           checked: false,
         },
         {
-          label: 'Breach of security',
-          value: 'BREACH_OF_SECURITY',
+          label: 'Bomb explosion or threat',
+          value: 'BOMB_1',
           checked: false,
         },
         {
-          label: 'Death in custody',
-          value: 'DEATH_IN_CUSTODY',
+          label: 'Breach or attempted breach of security',
+          value: 'BREACH_OF_SECURITY_1',
           checked: false,
         },
         {
-          label: 'Death (other)',
-          value: 'DEATH_OTHER',
+          label: 'Close down search',
+          value: 'CLOSE_DOWN_SEARCH_1',
+          checked: false,
+        },
+        {
+          label: 'Death of other person',
+          value: 'DEATH_OTHER_1',
+          checked: false,
+        },
+        {
+          label: 'Death of prisoner',
+          value: 'DEATH_PRISONER_1',
           checked: false,
         },
         {
           label: 'Drone sighting',
-          value: 'DRONE_SIGHTING',
-          checked: false,
-        },
-        {
-          label: 'Escape from custody',
-          value: 'ESCAPE_FROM_CUSTODY',
+          value: 'DRONE_SIGHTING_3',
           checked: false,
         },
         {
           label: 'Escape from escort',
-          value: 'ESCAPE_FROM_ESCORT',
+          value: 'ESCAPE_FROM_ESCORT_1',
           checked: false,
         },
         {
-          label: 'Finds',
-          value: 'FINDS',
+          label: 'Escape from establishment',
+          value: 'ESCAPE_FROM_PRISON_1',
+          checked: false,
+        },
+        {
+          label: 'Find of illicit items',
+          value: 'FIND_6',
           checked: false,
         },
         {
           label: 'Fire',
-          value: 'FIRE',
+          value: 'FIRE_1',
           checked: false,
         },
         {
-          label: 'Food refusal',
-          value: 'FOOD_REFUSAL',
+          label: 'Food or liquid refusual',
+          value: 'FOOD_REFUSAL_1',
           checked: false,
         },
         {
-          label: 'Full close down search',
-          value: 'FULL_CLOSE_DOWN_SEARCH',
-          checked: false,
-        },
-        {
-          label: 'Key lock incident',
-          value: 'KEY_LOCK_INCIDENT',
+          label: 'Key or lock compromise',
+          value: 'KEY_OR_LOCK_2',
           checked: false,
         },
         {
           label: 'Radio compromise',
-          value: 'RADIO_COMPROMISE',
+          value: 'RADIO_COMPROMISE_1',
           checked: false,
         },
         {
-          label: 'Released in error',
-          value: 'RELEASED_IN_ERROR',
+          label: 'Release in error',
+          value: 'RELEASE_IN_ERROR_1',
           checked: false,
         },
         {
           label: 'Self harm',
-          value: 'SELF_HARM',
+          value: 'SELF_HARM_1',
           checked: false,
         },
         {
           label: 'Temporary release failure',
-          value: 'TEMPORARY_RELEASE_FAILURE',
+          value: 'TEMPORARY_RELEASE_FAILURE_4',
           checked: false,
         },
         {
-          label: 'Tool loss',
-          value: 'TOOL_LOSS',
+          label: 'Tool or implement loss',
+          value: 'TOOL_LOSS_1',
           checked: false,
         },
         {
           label: 'Miscellaneous',
-          value: 'MISCELLANEOUS',
+          value: 'MISCELLANEOUS_1',
           checked: false,
         },
       ])
@@ -160,10 +160,10 @@ context('Change incident type', () => {
     changeTypeConfirmationPage.submit()
 
     const typePage = Page.verifyOnPage(TypePage)
-    typePage.selectType('MISCELLANEOUS')
+    typePage.selectType('MISCELLANEOUS_1')
 
     cy.task('stubIncidentReportingApiChangeReportType', {
-      request: { newType: 'MISCELLANEOUS' },
+      request: { newType: 'MISCELLANEOUS_1' },
       report: reportWithDetails,
     })
     cy.task('stubIncidentReportingApiGetReportWithDetailsById', { report: reportWithDetails })

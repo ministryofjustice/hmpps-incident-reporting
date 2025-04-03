@@ -155,7 +155,7 @@ describe('GET dashboard', () => {
       reference: undefined,
       sort: ['incidentDateAndTime,DESC'],
       status: ['DRAFT', 'INFORMATION_REQUIRED'],
-      type: 'ATTEMPTED_ESCAPE_FROM_CUSTODY',
+      type: ['ATTEMPTED_ESCAPE_FROM_PRISON_1'],
     }
 
     const queryParams = {
@@ -163,7 +163,7 @@ describe('GET dashboard', () => {
       fromDate: '01/01/2025',
       toDate: '14/01/2025',
       location: 'MDI',
-      incidentType: 'ATTEMPTED_ESCAPE_FROM_CUSTODY',
+      typeFamily: 'ATTEMPTED_ESCAPE_FROM_PRISON',
       incidentStatuses: 'toDo',
     }
 
@@ -192,7 +192,7 @@ describe('GET dashboard', () => {
       reference: undefined,
       sort: ['incidentDateAndTime,DESC'],
       status: 'DRAFT',
-      type: 'ATTEMPTED_ESCAPE_FROM_CUSTODY',
+      type: ['ATTEMPTED_ESCAPE_FROM_PRISON_1'],
     }
 
     const queryParams = {
@@ -200,7 +200,7 @@ describe('GET dashboard', () => {
       fromDate: '01/01/2025',
       toDate: '14/01/2025',
       location: 'LEI',
-      incidentType: 'ATTEMPTED_ESCAPE_FROM_CUSTODY',
+      typeFamily: 'ATTEMPTED_ESCAPE_FROM_PRISON',
       incidentStatuses: 'DRAFT',
     }
 
@@ -216,6 +216,27 @@ describe('GET dashboard', () => {
         expect(res.text).not.toContain('There is a problem')
         expect(res.text).toContain('Clear filters')
         expect(incidentReportingApi.getReports).toHaveBeenCalledWith(expectedParams)
+      })
+  })
+
+  it('should submit query values correctly when selected type family has several types in it', () => {
+    const queryParams = {
+      typeFamily: 'FIND',
+    }
+
+    return request(appWithAllRoutes({ services: { userService }, userSupplier: () => approverUser }))
+      .get('/reports')
+      .query(queryParams)
+      .expect('Content-Type', /html/)
+      .expect(200)
+      .expect(res => {
+        expect(res.text).not.toContain('There is a problem')
+        expect(res.text).toContain('Clear filters')
+        expect(incidentReportingApi.getReports).toHaveBeenCalledWith(
+          expect.objectContaining({
+            type: ['FIND_1', 'FIND_2', 'FIND_3', 'FIND_4', 'FIND_5', 'FIND_6'],
+          }),
+        )
       })
   })
 
@@ -273,7 +294,7 @@ describe('GET dashboard', () => {
         expect(res.text).toContain('Incident date to')
         expect(res.text).not.toContain('Establishment')
         expect(res.text).not.toContain('location')
-        expect(res.text).toContain('incidentType')
+        expect(res.text).toContain('typeFamily')
         expect(res.text).toContain('Incident type')
         expect(res.text).toContain('Work list')
         expect(res.text).toContain('To do')
@@ -311,7 +332,7 @@ describe('GET dashboard', () => {
         expect(res.text).toContain('Incident date to')
         expect(res.text).not.toContain('Establishment')
         expect(res.text).not.toContain('location')
-        expect(res.text).toContain('incidentType')
+        expect(res.text).toContain('typeFamily')
         expect(res.text).toContain('Incident type')
         expect(res.text).toContain('Work list')
         expect(res.text).toContain('To do')
@@ -341,9 +362,9 @@ describe('GET dashboard', () => {
       .expect(200)
       .expect(res => {
         expect(res.text).toContain('6543')
-        expect(res.text).toContain('Finds')
+        expect(res.text).toContain('Find of illicit items')
         expect(res.text).toContain('5 December 2023, 11:34')
-        expect(res.text).toContain('A new incident created in the new service of type FINDS')
+        expect(res.text).toContain('A new incident created in the new service of type FIND_6')
         expect(res.text).toContain('John Smith')
         expect(res.text).not.toContain('Establishment') // cannot check for Moorland because it appears in create button
         expect(res.text).toContain('Draft')
@@ -369,9 +390,9 @@ describe('GET dashboard', () => {
       .expect(200)
       .expect(res => {
         expect(res.text).toContain('6543')
-        expect(res.text).toContain('Finds')
+        expect(res.text).toContain('Find of illicit items')
         expect(res.text).toContain('5 December 2023, 11:34')
-        expect(res.text).toContain('A new incident created in the new service of type FINDS')
+        expect(res.text).toContain('A new incident created in the new service of type FIND_6')
         expect(res.text).not.toContain('John Smith')
         expect(res.text).toContain('Establishment') // cannot check for Moorland because it appears in create button
         expect(res.text).toContain('Draft')
@@ -404,7 +425,7 @@ describe('GET dashboard', () => {
         expect(res.text).toContain('Incident date to')
         expect(res.text).toContain('Establishment')
         expect(res.text).toContain('location')
-        expect(res.text).toContain('incidentType')
+        expect(res.text).toContain('typeFamily')
         expect(res.text).toContain('Incident type')
         expect(res.text).not.toContain('Work list')
         expect(res.text).not.toContain('To do')
@@ -750,6 +771,25 @@ describe('Establishment filter validations', () => {
         })
     },
   )
+})
+
+describe('Type family filter validations', () => {
+  it.each([
+    { scenario: 'unknown family code was supplied', query: { typeFamily: 'MISSING' } },
+    { scenario: 'mistakenly filtering by type, not family', query: { typeFamily: 'DAMAGE_1' } },
+    { scenario: 'more than one family was supplied', query: { typeFamily: ['DAMAGE', 'FIND'] } },
+  ])('should show an error when $scenario', ({ query }) => {
+    return request(app)
+      .get('/reports')
+      .query(query)
+      .expect(200)
+      .expect(res => {
+        expect(res.text).toContain('There is a problem')
+        expect(res.text).toContain('Select a valid incident type')
+        const [args] = incidentReportingApi.getReports.mock.lastCall
+        expect(args.type).toBeUndefined()
+      })
+  })
 })
 
 describe('Status/work list filter validations', () => {

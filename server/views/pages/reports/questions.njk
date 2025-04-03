@@ -1,12 +1,12 @@
 {% extends "partials/formWizardLayout.njk" %}
 
-{# TODO: title will need to become type-specific once content is ready #}
-{% set pageTitle %}About the incident – {% if questionCountOnPage == 1 -%}
+{% set pageTitle %}{{ aboutTheType }} – {% if questionCountOnPage == 1 -%}
   question {{ firstQuestionNumber }}
 {%- else -%}
   questions {{ firstQuestionNumber }} to {{ firstQuestionNumber + questionCountOnPage - 1 }}
 {%- endif %}{% endset %}
 {% set bodyClasses = "app-questions" %}
+{% set allowSaveAndExit = true %}
 
 {% block formFields %}
   {% from "macros/renderField.njk" import renderField %}
@@ -29,29 +29,4 @@
       {% set index = index + 1 %}
     {% endif %}
   {% endfor %}
-{% endblock %}
-
-{% block content %}
-  {{ super() }}
-
-  {# Change to true to show debug info #}
-  {% if false %}
-    <h3>DEBUG</h3>
-    <pre>
-      action {{ action | dump(2) }}
-      nextPage {{ nextPage | dump(2) }}
-
-
-      errors {{ errors | dump(2) }}
-
-
-      values {{ values | dump(2) }}
-
-
-      options.fields {{ options.fields | dump(2) }}
-
-      report {{ report | dump(2) }}
-    </pre>
-  {% endif %}
-
 {% endblock %}

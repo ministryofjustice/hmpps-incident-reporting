@@ -7,7 +7,7 @@ import { StaffSearchPage } from '../../../pages/reports/involvements/staff'
 context('Staff search page', () => {
   const now = new Date()
   const reportWithDetails = mockReport({
-    type: 'MISCELLANEOUS',
+    type: 'MISCELLANEOUS_1',
     reportReference: '6544',
     reportDateAndTime: now,
     withDetails: true,

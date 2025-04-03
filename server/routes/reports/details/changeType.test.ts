@@ -32,7 +32,7 @@ describe('Changing incident type', () => {
   beforeEach(() => {
     mockedReport = convertBasicReportDates(
       mockReport({
-        type: 'DISORDER',
+        type: 'DISORDER_2',
         reportReference: '6544',
         reportDateAndTime: now,
       }),
@@ -113,8 +113,8 @@ describe('Changing incident type', () => {
 
     it.each([
       { scenario: 'no option is selected', invalidPayload: {} },
-      { scenario: 'an inactive type is submitted', invalidPayload: { type: 'OLD_DISORDER' } },
-      { scenario: 'current type is submitted', invalidPayload: { type: 'DISORDER' } },
+      { scenario: 'an inactive type is submitted', invalidPayload: { type: 'DISORDER_1' } },
+      { scenario: 'current type is submitted', invalidPayload: { type: 'DISORDER_2' } },
     ])('should show an error if $scenario', ({ invalidPayload }) => {
       incidentReportingApi.getReportById.mockResolvedValueOnce(mockedReport) // due to redirect
 
@@ -137,13 +137,13 @@ describe('Changing incident type', () => {
 
       return agent
         .post(selectUrl)
-        .send({ type: 'MISCELLANEOUS' })
+        .send({ type: 'MISCELLANEOUS_1' })
         .expect(302)
         .expect(res => {
           expect(res.redirect).toBe(true)
           expect(res.header.location).toEqual(`/reports/${mockedReport.id}`)
           expect(incidentReportingApi.changeReportType).toHaveBeenCalledWith(mockedReport.id, {
-            newType: 'MISCELLANEOUS',
+            newType: 'MISCELLANEOUS_1',
           })
         })
     })
@@ -156,7 +156,7 @@ describe('Changing incident type', () => {
 
       return agent
         .post(selectUrl)
-        .send({ type: 'MISCELLANEOUS' })
+        .send({ type: 'MISCELLANEOUS_1' })
         .redirects(1)
         .expect(200)
         .expect(res => {

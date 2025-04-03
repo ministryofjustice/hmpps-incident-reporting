@@ -27,7 +27,7 @@ describe('Updating report details', () => {
   const incidentDateAndTime = new Date('2024-10-21T16:32:00+01:00')
   const reportBasic = convertBasicReportDates(
     mockReport({
-      type: 'DISORDER',
+      type: 'DISORDER_2',
       reportReference: '6544',
       reportDateAndTime: incidentDateAndTime,
     }),

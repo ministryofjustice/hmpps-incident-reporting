@@ -6,7 +6,7 @@ import { PrisonerSearchPage } from '../../../pages/reports/involvements/prisoner
 context('Prisoner search page', () => {
   const now = new Date()
   const reportWithDetails = mockReport({
-    type: 'MISCELLANEOUS',
+    type: 'MISCELLANEOUS_1',
     reportReference: '6544',
     reportDateAndTime: now,
     withDetails: true,

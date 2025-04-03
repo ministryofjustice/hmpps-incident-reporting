@@ -93,7 +93,12 @@ export abstract class PrisonerInvolvementController extends BaseController<Value
     return `${res.locals.reportSubUrlPrefix}/prisoners`
   }
 
-  getNextStep(_req: FormWizard.Request<Values>, res: express.Response): string {
+  getNextStep(req: FormWizard.Request<Values>, res: express.Response): string {
+    // go to report view if user chose to exit
+    if (req.body.userAction === 'exit') {
+      return res.locals.reportUrl
+    }
+    // …or return to involvements summary
     return `${res.locals.reportSubUrlPrefix}/prisoners`
   }
 

@@ -1,114 +1,40 @@
-{% extends "partials/layout.njk" %}
+{% extends "pages/involvements/summary.njk" %}
 
-{% from "govuk/components/back-link/macro.njk" import govukBackLink %}
-{% from "govuk/components/button/macro.njk" import govukButton %}
-{% from "govuk/components/radios/macro.njk" import govukRadios %}
 {% from "govuk/components/table/macro.njk" import govukTable %}
 
 {% set bodyClasses = "app-involvement-summary app-staff-summary" %}
 
-{% block beforeContent %}
-  {{ super() }}
+{% block resultsTable %}
 
-  {{ govukBackLink({
-    text: "Back",
-    href: backLink
+  {% set rows = [] %}
+  {% for staff in report.staffInvolved %}
+    {% set actionCell %}
+      <a href="{{ reportSubUrlPrefix }}/staff/remove/{{ loop.index }}">Remove</a> |
+      <a href="{{ reportSubUrlPrefix }}/staff/{{ loop.index }}">Edit</a>
+    {% endset %}
+    {% set rows = (rows.push(
+      [
+        { text: (staff | nameOfPerson) },
+        { text: staffInvolvementLookup[staff.staffRole] or staff.staffRole },
+        { text: staff.comment | escape | nl2br },
+        { html: actionCell }
+      ]
+      ), rows) %}
+  {% endfor %}
+
+  {{ govukTable({
+    classes: "app-involvement-table",
+    head: [
+      { text: "Staff" },
+      { text: "Role" },
+      { text: "Details" },
+      { text: "Action" }
+    ],
+    rows: rows
   }) }}
+
 {% endblock %}
 
-{% block content %}
-
-  {% include "partials/notificationBanner.njk" %}
-  {% include "partials/errorSummary.njk" %}
-
-  <h1 class="govuk-heading-l">{{ pageTitle }}</h1>
-
-  {% if involvementsExist %}
-
-    {% set rows = [] %}
-    {% for staff in report.staffInvolved %}
-      {% set actionCell %}
-        <a href="{{ reportSubUrlPrefix }}/staff/remove/{{ loop.index }}">Remove</a> |
-        <a href="{{ reportSubUrlPrefix }}/staff/{{ loop.index }}">Edit</a>
-      {% endset %}
-      {% set rows = (rows.push(
-        [
-          { text: (staff | nameOfPerson) },
-          { text: staffInvolvementLookup[staff.staffRole] or staff.staffRole },
-          { text: staff.comment | escape | nl2br },
-          { html: actionCell }
-        ]
-        ), rows) %}
-    {% endfor %}
-
-    {{ govukTable({
-      classes: "app-involvement-table",
-      head: [
-        { text: "Staff" },
-        { text: "Role" },
-        { text: "Details" },
-        { text: "Action" }
-      ],
-      rows: rows
-    }) }}
-
-  {% else %}
-
-    <p class="govuk-!-margin-bottom-8">No staff members have been added to this incident report.</p>
-
-  {% endif %}
-
-  <form id="form-wizard" method="post" novalidate>
-    <input type="hidden" name="_csrf" value="{{ csrfToken }}" />
-    <input type="hidden" name="x-csrf-token" value="{{ csrfToken }}" />
-
-    {% set fieldName = "confirmAdd" %}
-    {% set field = options.fields[fieldName] %}
-    {% set items = [] %}
-    {% for item in field.items %}
-      {% set _ = items.push({
-        value: item.value,
-        text: item.label,
-        hint: {text: item.hint} if item.hint else undefined
-      }) %}
-    {% endfor %}
-    {{ govukRadios({
-      name: fieldName,
-      attributes: { id: fieldName },
-      classes: "govuk-radios--inline",
-      formGroup: {
-        attributes: { id: fieldName + "__form-group" }
-      },
-      fieldset: {
-        legend: {
-          text: field.label,
-          classes: "govuk-fieldset__legend--m"
-        }
-      },
-      idPrefix: fieldName + "-item",
-      items: items,
-      hint: { text: field.hint } if field.hint else undefined,
-      errorMessage: { text: errors[fieldName].message } if errors[fieldName] else undefined
-    }) }}
-
-    <div class="govuk-button-group">
-      {{ govukButton({
-        text: "Continue",
-        name: "userAction",
-        value: "continue",
-        preventDoubleClick: true,
-        type: "submit"
-      }) }}
-
-      {{ govukButton({
-        text: "Save and exit",
-        name: "userAction",
-        value: "exit",
-        preventDoubleClick: true,
-        classes: "govuk-button--secondary",
-        href: reportUrl
-      }) }}
-    </div>
-  </form>
-
+{% block noResults %}
+  <p class="govuk-!-margin-bottom-8">No staff members have been added to this incident report.</p>
 {% endblock %}

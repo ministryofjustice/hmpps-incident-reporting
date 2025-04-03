@@ -15,6 +15,7 @@ import {
   findAnswerConfigByCode,
   questionFieldName,
 } from '../../../data/incidentTypeConfiguration/utils'
+import { aboutTheType } from '../../../reportConfiguration/constants'
 import QuestionsToDelete from '../../../services/questionsToDelete'
 import { BaseController } from '../../../controllers'
 
@@ -65,6 +66,9 @@ export default class QuestionsController extends BaseController<FormWizard.Multi
       res.locals.backLink = res.locals.reportUrl
     }
 
+    // “About the [incident]”
+    res.locals.aboutTheType = aboutTheType(res.locals.report.type)
+
     next()
   }
 
@@ -78,6 +82,15 @@ export default class QuestionsController extends BaseController<FormWizard.Multi
       nextStepObject.url = res.locals.reportUrl
     }
     return nextStepObject
+  }
+
+  getNextStep(req: FormWizard.Request<FormWizard.MultiValues>, res: express.Response): string {
+    // go to report view if user chose to exit
+    if (req.body.userAction === 'exit') {
+      return res.locals.reportUrl
+    }
+    // …or continue with question pages
+    return super.getNextStep(req, res)
   }
 
   getValues(

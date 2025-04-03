@@ -71,14 +71,17 @@ export default class ReportPage extends FormWizardPage {
     return this.checkSummaryCard('Staff involved')
   }
 
-  get questions() {
-    // TODO: title will need to become type-specific once content is ready
-    return this.checkSummaryCard('About the incident')
+  getQuestions(incidentName: string = 'incident') {
+    return this.checkSummaryCard(`About the ${incidentName}`)
   }
 
-  clickThroughToQuestionPage(index: number, expectedLabel: string): Cypress.Chainable<void> {
-    return this.questions.cardContents
-      .then(rows => {
+  clickThroughToQuestionPage(
+    index: number,
+    expectedLabel: string,
+    incidentName: string = 'incident',
+  ): Cypress.Chainable<void> {
+    return this.getQuestions(incidentName)
+      .cardContents.then(rows => {
         expect(rows.length).is.greaterThan(index)
         const row = rows[index]
         const link = row.actionLinks[0]

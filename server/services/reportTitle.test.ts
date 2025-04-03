@@ -5,20 +5,20 @@ import { newReportTitle, regenerateTitleForReport } from './reportTitle'
 
 describe('Report title generation', () => {
   it('should make a title for a new report from an incident type and location description', () => {
-    let title = newReportTitle('FINDS', 'Moorland (HMP & YOI)')
-    expect(title).toEqual('Finds (Moorland (HMP & YOI))')
+    let title = newReportTitle('FIND_6', 'Moorland (HMP & YOI)')
+    expect(title).toEqual('Find of illicit items (Moorland (HMP & YOI))')
 
-    title = newReportTitle('MISCELLANEOUS', 'Leeds (HMP)')
+    title = newReportTitle('MISCELLANEOUS_1', 'Leeds (HMP)')
     expect(title).toEqual('Miscellaneous (Leeds (HMP))')
 
-    title = newReportTitle('ATTEMPTED_ESCAPE_FROM_CUSTODY', 'PECS South')
-    expect(title).toEqual('Attempted escape from custody (PECS South)')
+    title = newReportTitle('ATTEMPTED_ESCAPE_FROM_PRISON_1', 'PECS South')
+    expect(title).toEqual('Attempted escape from establishment (PECS South)')
   })
 
   it('should make a title from an existing report without prisoner involvements', () => {
     const report = convertReportWithDetailsDates(
       mockReport({
-        type: 'FINDS',
+        type: 'FIND_6',
         reportReference: '6544',
         reportDateAndTime: new Date(),
         withDetails: true,
@@ -26,13 +26,13 @@ describe('Report title generation', () => {
     )
     report.prisonersInvolved = []
     const title = regenerateTitleForReport(report, 'Moorland (HMP & YOI)')
-    expect(title).toEqual('Finds (Moorland (HMP & YOI))')
+    expect(title).toEqual('Find of illicit items (Moorland (HMP & YOI))')
   })
 
   it('should make a title from an existing report with prisoner involvements', () => {
     const report = convertReportWithDetailsDates(
       mockReport({
-        type: 'MISCELLANEOUS',
+        type: 'MISCELLANEOUS_1',
         location: 'LEI',
         reportReference: '6544',
         reportDateAndTime: new Date(),

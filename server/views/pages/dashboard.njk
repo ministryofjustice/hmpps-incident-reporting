@@ -33,6 +33,8 @@
 
 {% block content %}
 
+  {% include "partials/notificationBanner.njk" %}
+
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
       {% if errors | length %}
@@ -118,12 +120,12 @@
 
         <div class="govuk-grid-column-one-half-from-desktop">
           {{ accessibleAutocomplete({
-            id: "incidentType",
-            name: "incidentType",
+            id: "typeFamily",
+            name: "typeFamily",
             label: {text: "Incident type"},
-            items: incidentTypes | govukSelectInsertDefault("All incident types") | govukSelectSetSelected(formValues.incidentType),
-            value: formValues.incidentType or "",
-            errorMessage: errors | findFieldInGovukErrorSummary("incidentType")
+            items: typeFamilyItems | govukSelectInsertDefault("All incident types") | govukSelectSetSelected(formValues.typeFamily),
+            value: formValues.typeFamily or "",
+            errorMessage: errors | findFieldInGovukErrorSummary("typeFamily")
           }) }}
         </div>
 

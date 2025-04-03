@@ -8,7 +8,7 @@ context('View report', () => {
 
   context('With only minimal details', () => {
     const reportWithDetails = mockReport({
-      type: 'DISORDER',
+      type: 'DISORDER_2',
       reportReference: '6544',
       reportDateAndTime: now,
       withDetails: true,
@@ -94,8 +94,8 @@ context('View report', () => {
     })
 
     it('should show first unanswered question only', () => {
-      reportPage.questions.shouldNotHaveActionLinks()
-      reportPage.questions.cardContents.then(rows => {
+      reportPage.getQuestions('disorder').shouldNotHaveActionLinks()
+      reportPage.getQuestions('disorder').cardContents.then(rows => {
         expect(rows).to.have.lengthOf(1)
         const [row] = rows
         expect(row.key).to.contain('1. What type of disorder incident was this?')
@@ -109,7 +109,7 @@ context('View report', () => {
 
   context('With all sections filled in', () => {
     const reportWithDetails = mockReport({
-      type: 'DISORDER',
+      type: 'DISORDER_2',
       status: 'AWAITING_ANALYSIS',
       reportReference: '6543',
       reportDateAndTime: now,
@@ -213,8 +213,8 @@ context('View report', () => {
     })
 
     it('should show answered questions', () => {
-      reportPage.questions.shouldNotHaveActionLinks()
-      reportPage.questions.cardContents.then(rows => {
+      reportPage.getQuestions('disorder').shouldNotHaveActionLinks()
+      reportPage.getQuestions('disorder').cardContents.then(rows => {
         expect(rows).to.have.lengthOf(2)
         const [row1, row2] = rows
 

@@ -12,7 +12,7 @@ import {
 context('Add staff involvement page', () => {
   const now = new Date()
   const reportWithDetails = mockReport({
-    type: 'MISCELLANEOUS',
+    type: 'MISCELLANEOUS_1',
     reportReference: '6544',
     reportDateAndTime: now,
     withDetails: true,

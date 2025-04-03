@@ -106,7 +106,7 @@ context('Searching for a report', () => {
         userInteraction: dashboardPage => {
           dashboardPage.type.type('Miscellaneous')
         },
-        expectedRequest: { type: 'MISCELLANEOUS' },
+        expectedRequest: { type: 'MISCELLANEOUS_1' },
         testPage: dashboardPage => {
           dashboardPage.type.should('have.value', 'Miscellaneous')
         },
@@ -154,7 +154,7 @@ context('Searching for a report', () => {
   it('should allow clearing filters', () => {
     cy.task('stubIncidentReportingApiGetReports')
     cy.visit(
-      '/reports?searchID=6544&fromDate=19%2F03%2F2025&toDate=20%2F03%2F2025&location=MDI&incidentType=MISCELLANEOUS&incidentStatuses=submitted',
+      '/reports?searchID=6544&fromDate=19%2F03%2F2025&toDate=20%2F03%2F2025&location=MDI&typeFamily=MISCELLANEOUS&incidentStatuses=submitted',
     )
     let dashboardPage = Page.verifyOnPage(DashboardPage)
     dashboardPage.query.should('have.value', '6544')
@@ -176,12 +176,12 @@ context('Searching for a report', () => {
   context('when there are results returned', () => {
     const reports = [
       mockReport({
-        type: 'ATTEMPTED_ESCAPE_FROM_CUSTODY',
+        type: 'ATTEMPTED_ESCAPE_FROM_PRISON_1',
         reportReference: '6544',
         reportDateAndTime: new Date(),
       }),
       mockReport({
-        type: 'MISCELLANEOUS',
+        type: 'MISCELLANEOUS_1',
         status: 'AWAITING_ANALYSIS',
         reportReference: '6543',
         reportDateAndTime: new Date(),
@@ -207,10 +207,10 @@ context('Searching for a report', () => {
         expect(row1.selectLink).to.contain('6544')
         expect(row1.selectLink).to.have.attr('href', `/reports/${reports[0].id}`)
         expect(row1).to.contain({
-          type: 'Attempted escape from custody',
+          type: 'Attempted escape from establishment',
           status: 'Draft',
           locationOrReporter: 'John Smith',
-          description: 'A new incident created in the new service of type ATTEMPTED_ESCAPE_FROM_CUSTODY',
+          description: 'A new incident created in the new service of type ATTEMPTED_ESCAPE_FROM_PRISON_1',
         })
 
         expect(row2.selectLink).to.contain('6543')
@@ -219,7 +219,7 @@ context('Searching for a report', () => {
           type: 'Miscellaneous',
           status: 'Awaiting analysis',
           locationOrReporter: 'John Smith',
-          description: 'A new incident created in the new service of type MISCELLANEOUS',
+          description: 'A new incident created in the new service of type MISCELLANEOUS_1',
         })
       })
     })
@@ -229,7 +229,7 @@ context('Searching for a report', () => {
         report: {
           // make a with-details report to fill in the blanks of a basic report
           ...mockReport({
-            type: 'ATTEMPTED_ESCAPE_FROM_CUSTODY',
+            type: 'ATTEMPTED_ESCAPE_FROM_PRISON_1',
             reportReference: '6544',
             reportDateAndTime: new Date(),
             withDetails: true,

@@ -119,7 +119,7 @@ export type GetReportsParams = {
   location: string | string[]
   source: InformationSource
   status: Status | Status[]
-  type: Type
+  type: Type | Type[]
   incidentDateFrom: Date // Inclusive
   incidentDateUntil: Date // Inclusive
   reportedDateFrom: Date // Inclusive
@@ -631,6 +631,7 @@ export interface Constant {
 }
 
 export interface TypeConstant extends Constant {
+  familyCode: string
   active: boolean
   /** @deprecated */
   nomisCode: string
@@ -662,6 +663,10 @@ class Constants {
 
   types(): Promise<TypeConstant[]> {
     return this.listConstants('types')
+  }
+
+  typeFamilies(): Promise<Constant[]> {
+    return this.listConstants('type-families')
   }
 
   statuses(): Promise<Constant[]> {

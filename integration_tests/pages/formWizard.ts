@@ -89,17 +89,36 @@ export default abstract class FormWizardPage extends Page {
     })
   }
 
+  protected saveAndContinueText = 'Continue'
+
   /**
-   * Find a save button by label
+   * Save & continue button
    */
-  protected saveButton(label = 'Continue'): PageElement<HTMLButtonElement> {
-    return this.form.find<HTMLButtonElement>('.govuk-button').contains(label)
+  get saveButton(): PageElement<HTMLButtonElement> {
+    return this.form.find<HTMLButtonElement>('.govuk-button').contains(this.saveAndContinueText)
+  }
+
+  protected saveAndExitText = 'Save and exit'
+
+  /**
+   * Save & exit button
+   * NB: sometimes it’s a link!
+   */
+  get saveAndExitButton(): PageElement<HTMLButtonElement | HTMLAnchorElement> {
+    return this.form.find<HTMLButtonElement | HTMLAnchorElement>('.govuk-button').contains(this.saveAndExitText)
   }
 
   /**
-   * Submit the form
+   * Submit the form and continue
    */
-  submit(buttonText = 'Continue'): void {
-    this.saveButton(buttonText).click()
+  submit(): void {
+    this.saveButton.click()
+  }
+
+  /**
+   * Submit the form and exit
+   */
+  submitAndExit(): void {
+    this.saveAndExitButton.click()
   }
 }

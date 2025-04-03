@@ -28,6 +28,7 @@ afterEach(() => {
 describe('DPS config downloads', () => {
   it.each([
     { method: 'types' as const },
+    { method: 'typeFamilies' as const },
     { method: 'statuses' as const },
     { method: 'informationSources' as const },
     { method: 'staffInvolvementRoles' as const },
@@ -37,7 +38,8 @@ describe('DPS config downloads', () => {
   ])('should work for $method.json', ({ method }) => {
     // cheat by making a constant that is the union of all possible types
     const constant: Constant & TypeConstant & StaffRoleConstant & PrisonerRoleConstant & PrisonerOutcomeConstant = {
-      code: 'CODE',
+      familyCode: 'CODE',
+      code: 'CODE_1',
       description: 'Description',
       active: true,
       nomisCode: 'C1',

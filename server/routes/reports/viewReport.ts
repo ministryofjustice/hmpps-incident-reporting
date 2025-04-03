@@ -4,6 +4,7 @@ import type { PathParams } from 'express-serve-static-core'
 
 import type { Services } from '../../services'
 import {
+  aboutTheType,
   prisonerInvolvementOutcomes,
   prisonerInvolvementRoles,
   staffInvolvementRoles,
@@ -31,7 +32,7 @@ export function viewReportRouter(service: Services): Router {
       asyncMiddleware(handler),
     )
 
-  get('/', async (_req, res) => {
+  get('/', async (req, res) => {
     const { prisonApi } = res.locals.apis
 
     const report = res.locals.report as ReportWithDetails
@@ -62,7 +63,14 @@ export function viewReportRouter(service: Services): Router {
     const canEditReport = permissions.canEditReport(report)
     const canEditReportInNomisOnly = permissions.canEditReportInNomisOnly(report)
 
+    // Gather notification banner entries if they exist
+    const banners = req.flash()
+
+    // “About the [incident]”
+    res.locals.aboutTheType = aboutTheType(res.locals.report.type)
+
     res.render('pages/reports/view/index', {
+      banners,
       report,
       reportConfig,
       questionProgressSteps,

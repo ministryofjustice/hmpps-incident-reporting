@@ -7,7 +7,7 @@ import { RemoveStaffInvolvementsPage, StaffInvolvementsPage } from '../../../pag
 context('Remove staff involvement page', () => {
   const now = new Date()
   const reportWithDetails = mockReport({
-    type: 'MISCELLANEOUS',
+    type: 'MISCELLANEOUS_1',
     reportReference: '6544',
     reportDateAndTime: now,
     withDetails: true,

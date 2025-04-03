@@ -84,7 +84,7 @@ export function mockReport({
   location = 'MDI',
   createdInNomis = false,
   status = 'DRAFT',
-  type = 'FINDS',
+  type = 'FIND_6',
   reportingUsername = 'user1',
   withDetails = false,
 }: MockReportConfig & { withDetails?: boolean }): DatesAsStrings<ReportBasic | ReportWithDetails> {
@@ -130,7 +130,7 @@ export function mockReport({
       prisonerInvolvementDone: true,
       questions: buildArray(2, questionIndex => mockQuestion(questionIndex, reportDateAndTime, 2)),
       history: buildArray(2, () => ({
-        type: 'MISCELLANEOUS',
+        type: 'MISCELLANEOUS_1',
         changedAt: format.isoDateTime(reportDateAndTime),
         changedBy: 'some-user-2',
         questions: buildArray(2, questionIndex => ({

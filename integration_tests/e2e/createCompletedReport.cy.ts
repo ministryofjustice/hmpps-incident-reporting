@@ -56,7 +56,7 @@ context('Creating a completed draft report', () => {
     // select type
     const typePage = Page.verifyOnPage(TypePage)
     typePage.checkBackLink('/')
-    typePage.selectType('ATTEMPTED_ESCAPE_FROM_CUSTODY')
+    typePage.selectType('ATTEMPTED_ESCAPE_FROM_PRISON_1')
     typePage.submit()
 
     // enter details
@@ -67,13 +67,13 @@ context('Creating a completed draft report', () => {
 
     // on submission, this report would be created
     reportWithDetails = mockReport({
-      type: 'ATTEMPTED_ESCAPE_FROM_CUSTODY',
+      type: 'ATTEMPTED_ESCAPE_FROM_PRISON_1',
       reportReference: '6544',
       reportDateAndTime: now,
       withDetails: true,
     })
     reportWithDetails.incidentDateAndTime = format.isoDateTime(incidentDate)
-    reportWithDetails.title = 'Report: attempted escape from custody'
+    reportWithDetails.title = 'Report: attempted escape from establishment'
     reportWithDetails.description = 'Arnold (A1111AA) attempted to escape'
     reportWithDetails.prisonersInvolved = []
     reportWithDetails.prisonerInvolvementDone = false
@@ -86,7 +86,7 @@ context('Creating a completed draft report', () => {
         type: reportWithDetails.type,
         incidentDateAndTime: reportWithDetails.incidentDateAndTime,
         location: 'MDI',
-        title: 'Attempted escape from custody (Moorland (HMP & YOI))',
+        title: 'Attempted escape from establishment (Moorland (HMP & YOI))',
         description: reportWithDetails.description,
         createNewEvent: true,
       },
@@ -214,7 +214,7 @@ context('Creating a completed draft report', () => {
     staffInvolvementsPage.submit()
 
     // respond to questions
-    let questionPage = Page.verifyOnPage(QuestionPage, [1, 5])
+    let questionPage = Page.verifyOnPage(QuestionPage, [1, 5], 'attempted escape from establishment')
 
     // page 1
     questionPage.selectResponses('44769', 'No')
@@ -236,7 +236,7 @@ context('Creating a completed draft report', () => {
     questionPage.submit()
 
     // page 2
-    questionPage = Page.verifyOnPage(QuestionPage, [6, 6])
+    questionPage = Page.verifyOnPage(QuestionPage, [6, 6], 'attempted escape from establishment')
     questionPage.selectResponses('44594', 'Reception')
     // report is about to be updated…
     reportWithDetails = {
@@ -252,7 +252,7 @@ context('Creating a completed draft report', () => {
     questionPage.submit()
 
     // page 3
-    questionPage = Page.verifyOnPage(QuestionPage, [7, 7])
+    questionPage = Page.verifyOnPage(QuestionPage, [7, 7], 'attempted escape from establishment')
     questionPage.selectResponses('44545', 'No')
     // report is about to be updated…
     reportWithDetails = {
@@ -268,7 +268,7 @@ context('Creating a completed draft report', () => {
     questionPage.submit()
 
     // page 4
-    questionPage = Page.verifyOnPage(QuestionPage, [8, 8])
+    questionPage = Page.verifyOnPage(QuestionPage, [8, 8], 'attempted escape from establishment')
     questionPage.selectResponses('44441', 'No')
     // report is about to be updated…
     reportWithDetails = {
@@ -284,7 +284,7 @@ context('Creating a completed draft report', () => {
     questionPage.submit()
 
     // page 5
-    questionPage = Page.verifyOnPage(QuestionPage, [9, 10])
+    questionPage = Page.verifyOnPage(QuestionPage, [9, 10], 'attempted escape from establishment')
     questionPage.selectResponses('44746', 'No')
     questionPage.selectResponses('44595', 'No')
     // report is about to be updated…
@@ -301,7 +301,7 @@ context('Creating a completed draft report', () => {
     questionPage.submit()
 
     // page 6
-    questionPage = Page.verifyOnPage(QuestionPage, [11, 11])
+    questionPage = Page.verifyOnPage(QuestionPage, [11, 11], 'attempted escape from establishment')
     questionPage.selectResponses('44983', 'No')
     // report is about to be updated…
     reportWithDetails = {
@@ -317,7 +317,7 @@ context('Creating a completed draft report', () => {
     questionPage.submit()
 
     // page 7
-    questionPage = Page.verifyOnPage(QuestionPage, [12, 12])
+    questionPage = Page.verifyOnPage(QuestionPage, [12, 12], 'attempted escape from establishment')
     questionPage.selectResponses('44320', 'No')
     // report is about to be updated…
     reportWithDetails = {
@@ -333,7 +333,7 @@ context('Creating a completed draft report', () => {
     questionPage.submit()
 
     // page 8
-    questionPage = Page.verifyOnPage(QuestionPage, [13, 13])
+    questionPage = Page.verifyOnPage(QuestionPage, [13, 13], 'attempted escape from establishment')
     questionPage.selectResponses('44731', 'No')
     // report is about to be updated…
     reportWithDetails = {
@@ -349,7 +349,7 @@ context('Creating a completed draft report', () => {
     questionPage.submit()
 
     // page 9
-    questionPage = Page.verifyOnPage(QuestionPage, [14, 16])
+    questionPage = Page.verifyOnPage(QuestionPage, [14, 16], 'attempted escape from establishment')
     questionPage.selectResponses('45073', 'Staff vigilance')
     questionPage.selectResponses('44349', 'Staff intervention')
     questionPage.selectResponses('44447', 'No')
@@ -367,7 +367,7 @@ context('Creating a completed draft report', () => {
     questionPage.submit()
 
     // page 10
-    questionPage = Page.verifyOnPage(QuestionPage, [17, 17])
+    questionPage = Page.verifyOnPage(QuestionPage, [17, 17], 'attempted escape from establishment')
     questionPage.selectResponses('44863', 'No')
     // report is about to be updated…
     reportWithDetails = {

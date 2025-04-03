@@ -6,17 +6,18 @@ import type { PathParams } from 'express-serve-static-core'
 import logger from '../../../logger'
 import {
   type Status,
-  type Type,
+  type TypeFamily,
   type WorkList,
   workListMapping,
   workListStatusMapping,
   statuses,
   types,
+  typeFamilies,
   workListCodes,
 } from '../../reportConfiguration/constants'
 import { roleApproveReject, roleReadWrite } from '../../data/constants'
 import type { PaginatedBasicReports } from '../../data/incidentReportingApi'
-import type { Order } from '../../data/offenderSearchApi'
+import { type Order, orderOptions } from '../../data/offenderSearchApi'
 import type { HeaderCell } from '../../utils/sortableTable'
 import format from '../../utils/format'
 import type { GovukCheckboxesItem, GovukErrorSummaryItem, GovukSelectItem } from '../../utils/govukFrontend'
@@ -35,7 +36,7 @@ interface ListFormData {
   location?: string
   fromDate?: string
   toDate?: string
-  incidentType?: Type
+  typeFamily?: TypeFamily
   incidentStatuses?: IncidentStatuses | IncidentStatuses[]
   sort?: string
   order?: Order
@@ -61,8 +62,8 @@ export default function dashboard(service: Services): Router {
       showEstablishmentsFilter = true
     }
 
-    const { location, fromDate: fromDateInput, toDate: toDateInput, incidentType, page }: ListFormData = req.query
-    let { searchID, incidentStatuses, sort, order }: ListFormData = req.query
+    const { location, fromDate: fromDateInput, toDate: toDateInput, page }: ListFormData = req.query
+    let { searchID, typeFamily, incidentStatuses, sort, order }: ListFormData = req.query
 
     if (searchID) {
       searchID = searchID.trim()
@@ -71,7 +72,7 @@ export default function dashboard(service: Services): Router {
     if (!sort) {
       sort = 'incidentDateAndTime'
     }
-    if (!order) {
+    if (!orderOptions.includes(order)) {
       order = 'DESC'
     }
 
@@ -109,10 +110,12 @@ export default function dashboard(service: Services): Router {
       toDate = null
       errors.push({ href: '#toDate', text: 'Enter a date after from date' })
     }
+    if (typeFamily && !(typeFamily in familyToType)) {
+      typeFamily = undefined
+      errors.push({ href: '#typeFamily', text: 'Select a valid incident type' })
+    }
 
-    let noFiltersSupplied = Boolean(
-      !searchID && !location && !fromDate && !toDate && !incidentType && !incidentStatuses,
-    )
+    let noFiltersSupplied = Boolean(!searchID && !location && !fromDate && !toDate && !typeFamily && !incidentStatuses)
 
     // Check for invalid work list filter options submitted via the url query
     if (
@@ -209,7 +212,7 @@ export default function dashboard(service: Services): Router {
         location: searchLocations,
         incidentDateFrom: fromDate,
         incidentDateUntil: toDate,
-        type: incidentType,
+        type: typeFamily && familyToType[typeFamily],
         status: searchStatuses,
         involvingPrisonerNumber: prisonerId,
         page: pageNumber - 1,
@@ -226,10 +229,10 @@ export default function dashboard(service: Services): Router {
       location,
       fromDate: fromDateInput,
       toDate: toDateInput,
-      incidentType: incidentType as Type,
+      typeFamily,
       incidentStatuses: incidentStatuses as IncidentStatuses,
       sort,
-      order: order as Order,
+      order,
       page,
     }
 
@@ -246,8 +249,8 @@ export default function dashboard(service: Services): Router {
     if (toDateInput) {
       queryString.append('toDate', toDateInput)
     }
-    if (incidentType) {
-      queryString.append('incidentType', incidentType)
+    if (typeFamily) {
+      queryString.append('typeFamily', typeFamily)
     }
     if (incidentStatuses) {
       if (Array.isArray(incidentStatuses)) {
@@ -269,9 +272,9 @@ export default function dashboard(service: Services): Router {
     const reports = reportsResponse?.content ?? []
     const usernames = reports.map(report => report.reportedBy)
     const usersLookup = await userService.getUsers(res.locals.systemToken, usernames)
-    const incidentTypes: GovukSelectItem[] = types.map(incType => ({
-      value: incType.code,
-      text: incType.description,
+    const typeFamilyItems: GovukSelectItem[] = typeFamilies.map(family => ({
+      value: family.code,
+      text: family.description,
     }))
     let statusItems: GovukCheckboxesItem[]
     let statusCheckboxLabel: string
@@ -329,7 +332,7 @@ export default function dashboard(service: Services): Router {
       establishments,
       establishmentLookup,
       usersLookup,
-      incidentTypes,
+      typeFamilyItems,
       statusItems,
       typesLookup,
       statusCheckboxLabel,
@@ -346,3 +349,13 @@ export default function dashboard(service: Services): Router {
 
   return router
 }
+
+/** Given a family code, list type codes belonging to the family */
+const familyToType = Object.fromEntries(
+  Object.values(typeFamilies).map(({ code: familyCode }) => [
+    familyCode,
+    Object.values(types)
+      .filter(({ familyCode: someFamilyCode }) => someFamilyCode === familyCode)
+      .map(({ code }) => code),
+  ]),
+)

@@ -31,7 +31,7 @@ export class DashboardPage extends Page {
   }
 
   get type(): PageElement<HTMLInputElement> {
-    return this.searchForm.find('#incidentType')
+    return this.searchForm.find('#typeFamily')
   }
 
   statusCheckbox(label: string): PageElement<HTMLLabelElement> {

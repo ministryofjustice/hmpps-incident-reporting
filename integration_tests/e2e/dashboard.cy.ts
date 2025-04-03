@@ -154,7 +154,7 @@ context('Searching for a report', () => {
   it('should allow clearing filters', () => {
     cy.task('stubIncidentReportingApiGetReports')
     cy.visit(
-      '/reports?searchID=6544&fromDate=19%2F03%2F2025&toDate=20%2F03%2F2025&location=MDI&incidentType=MISCELLANEOUS_1&incidentStatuses=submitted',
+      '/reports?searchID=6544&fromDate=19%2F03%2F2025&toDate=20%2F03%2F2025&location=MDI&typeFamily=MISCELLANEOUS&incidentStatuses=submitted',
     )
     let dashboardPage = Page.verifyOnPage(DashboardPage)
     dashboardPage.query.should('have.value', '6544')

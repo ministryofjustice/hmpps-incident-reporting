@@ -3,23 +3,23 @@ import { ESCAPE_FROM_PRISON_1 } from '../../reportConfiguration/types/ESCAPE_FRO
 import { type QuestionConfiguration, type AnswerConfiguration, type IncidentTypeConfiguration } from './types'
 import { validateConfig } from './validation'
 
-describe('DPS config validation', () => {
-  describe('active configs', () => {
-    it('are valid', async () => {
-      const allConfigs = getAllIncidentTypeConfigurations()
-      const activeConfigs = allConfigs.filter(config => config.active)
-
-      for (const config of activeConfigs) {
-        const errors = validateConfig(config).map(err => err.message)
-        if (errors.length > 0) {
-          throw new Error(
-            `Config for '${config.incidentType}' incident type has validation errors: ${errors.join('; ')}`,
-          )
-        }
-      }
-    })
+describe('Active incident type configurations', () => {
+  const activeConfigs = getAllIncidentTypeConfigurations().filter(config => config.active)
+  const scenarios = activeConfigs.map(config => {
+    return { incidentType: config.incidentType, config }
   })
 
+  it.each(scenarios)('Config for $incidentType is valid', ({ incidentType, config }) => {
+    const errors = validateConfig(config).map(err => err.message)
+    if (errors.length > 0) {
+      throw new Error(
+        `Config for '${incidentType}' incident type is invalid: ${errors.join('; ')}`,
+      )
+    }
+  })
+})
+
+describe('DPS config validation', () => {
   describe('when config has no known issues', () => {
     it('returns no errors', () => {
       // '1' (START)

@@ -186,7 +186,7 @@ export default function dashboard(service: Services): Router {
     if (location && !userCaseloadIds.includes(location)) {
       errors.push({
         href: '#location',
-        text: "Establishments can only be selected if they exist in the user's caseload",
+        text: 'Establishments can only be selected if they exist in the user’s caseload',
       })
     }
 

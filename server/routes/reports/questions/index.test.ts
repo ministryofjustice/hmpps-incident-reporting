@@ -409,7 +409,7 @@ describe('Submitting questions’ responses', () => {
     { scenario: 'during create journey', createJourney: true },
     { scenario: 'normally', createJourney: false },
   ])('$scenario', ({ createJourney }) => {
-    it('submitting when answers not provided shows errors', () => {
+    it('submitting when single-choice question not answered shows errors', () => {
       reportWithDetails.type = 'DEATH_OTHER_1'
       const firstQuestionStep = DEATH_OTHER_1.startingQuestionId
       const followingStep = '44434'
@@ -426,17 +426,89 @@ describe('Submitting questions’ responses', () => {
         .redirects(1)
         .expect(200)
         .expect(res => {
-          expect(incidentReportingApi.addOrUpdateQuestionsWithResponses).toHaveBeenCalledTimes(0)
-          expect(incidentReportingApi.deleteQuestionsAndTheirResponses).toHaveBeenCalledTimes(0)
+          expect(incidentReportingApi.addOrUpdateQuestionsWithResponses).not.toHaveBeenCalled()
+          expect(incidentReportingApi.deleteQuestionsAndTheirResponses).not.toHaveBeenCalled()
           expect(res.text).toContain('There is a problem')
           expect(fieldNames(res.text)).toEqual(['45054'])
-          expect(res.text).toContain('<a href="#45054">This field is required</a>')
+          expect(res.text).toContain(
+            '<a href="#45054">Select an answer for ‘Were the police informed of the incident?’</a>',
+          )
           expect(res.redirects[0]).toMatch(postUrl)
           expect(res.redirects[0]).not.toMatch(`/${followingStep}`)
         })
     })
 
-    it('submitting when answers invalid shows errors', () => {
+    it('submitting when multiple-choice question not answered shows errors', () => {
+      reportWithDetails.type = 'ATTEMPTED_ESCAPE_FROM_PRISON_1'
+      incidentReportingApi.getReportWithDetailsById.mockResolvedValueOnce(reportWithDetails)
+      const submittedAnswers = {
+        // WERE THE POLICE INFORMED OF THE INCIDENT
+        '44769': 'NO',
+        // THE INCIDENT IS SUBJECT TO
+        // missing selection
+        '44919': '',
+        // IS ANY MEMBER OF STAFF FACING DISCIPLINARY CHARGES
+        '45033': 'NO',
+        // IS THERE ANY MEDIA INTEREST IN THIS INCIDENT
+        '44636': 'NO',
+        // HAS THE PRISON SERVICE PRESS OFFICE BEEN INFORMED
+        '44749': 'NO',
+      }
+
+      const postUrl = `${reportQuestionsUrl(createJourney)}/44769`
+      return agent
+        .post(postUrl)
+        .send(submittedAnswers)
+        .redirects(1)
+        .expect(200)
+        .expect(res => {
+          expect(incidentReportingApi.addOrUpdateQuestionsWithResponses).not.toHaveBeenCalled()
+          expect(incidentReportingApi.deleteQuestionsAndTheirResponses).not.toHaveBeenCalled()
+          expect(res.text).toContain('There is a problem')
+          expect(fieldNames(res.text)).toEqual(['44769', '44919', '45033', '44636', '44749'])
+          expect(res.text).toContain('<a href="#44919">Select one or more options for ‘The incident is subject to’</a>')
+          expect(res.redirects[0]).toMatch(postUrl)
+          expect(res.redirects[0]).not.toMatch('/44594')
+        })
+    })
+
+    it('submitting with missing comment shows errors', () => {
+      const questionsResponse: Question[] = [
+        makeSimpleQuestion('44769', 'WERE THE POLICE INFORMED OF THE INCIDENT', 'NO'),
+        makeSimpleQuestion('44919', 'THE INCIDENT IS SUBJECT TO', 'INVESTIGATION INTERNALLY'),
+        makeSimpleQuestion('45033', 'IS ANY MEMBER OF STAFF FACING DISCIPLINARY CHARGES', 'NO'),
+        makeSimpleQuestion('44636', 'IS THERE ANY MEDIA INTEREST IN THIS INCIDENT', 'NO'),
+        makeSimpleQuestion('44749', 'HAS THE PRISON SERVICE PRESS OFFICE BEEN INFORMED', 'NO'),
+      ]
+      reportWithDetails.type = 'ATTEMPTED_ESCAPE_FROM_PRISON_1'
+      reportWithDetails.questions = questionsResponse
+      const submittedAnswers = {
+        // 'WHERE WAS THE PRISONER PRIOR TO THE START OF THE ATTEMPTED ESCAPE',
+        '44594': 'CELL (ENTER LOCATION)',
+        // missing comment
+        '44594-180573-comment': '',
+      }
+      incidentReportingApi.getReportWithDetailsById.mockResolvedValueOnce(reportWithDetails)
+
+      const postUrl = `${reportQuestionsUrl(createJourney)}/44594`
+      return agent
+        .post(postUrl)
+        .send(submittedAnswers)
+        .redirects(1)
+        .expect(200)
+        .expect(res => {
+          expect(incidentReportingApi.addOrUpdateQuestionsWithResponses).not.toHaveBeenCalled()
+          expect(incidentReportingApi.deleteQuestionsAndTheirResponses).not.toHaveBeenCalled()
+          expect(res.text).toContain('There is a problem')
+          expect(fieldNames(res.text)).toEqual(['44594'])
+          expect(res.text).toContain(
+            '<a href="#44594-180573-comment">Enter a comment for ‘Where was the prisoner prior to the start of the attempted escape?’</a>',
+          )
+          expect(res.redirects[0]).toMatch(postUrl)
+        })
+    })
+
+    it('submitting with invalid date shows errors', () => {
       reportWithDetails.type = 'DEATH_OTHER_1'
       const firstQuestionStep = DEATH_OTHER_1.startingQuestionId
       const followingStep = '44434'
@@ -455,11 +527,13 @@ describe('Submitting questions’ responses', () => {
         .redirects(1)
         .expect(200)
         .expect(res => {
-          expect(incidentReportingApi.addOrUpdateQuestionsWithResponses).toHaveBeenCalledTimes(0)
-          expect(incidentReportingApi.addOrUpdateQuestionsWithResponses).toHaveBeenCalledTimes(0)
+          expect(incidentReportingApi.addOrUpdateQuestionsWithResponses).not.toHaveBeenCalled()
+          expect(incidentReportingApi.deleteQuestionsAndTheirResponses).not.toHaveBeenCalled()
           expect(res.text).toContain('There is a problem')
           expect(fieldNames(res.text)).toEqual(['45054'])
-          expect(res.text).toContain('<a href="#45054-182204-date">Enter a date</a>')
+          expect(res.text).toContain(
+            '<a href="#45054-182204-date">Enter a date for ‘Were the police informed of the incident?’</a>',
+          )
           expect(res.redirects[0]).toMatch(postUrl)
           expect(res.redirects[0]).not.toMatch(`/${followingStep}`)
         })
@@ -521,7 +595,7 @@ describe('Submitting questions’ responses', () => {
             reportWithDetails.id,
             expectedRequest,
           )
-          expect(incidentReportingApi.deleteQuestionsAndTheirResponses).toHaveBeenCalledTimes(0)
+          expect(incidentReportingApi.deleteQuestionsAndTheirResponses).not.toHaveBeenCalled()
           expect(res.text).not.toContain('There is a problem')
           expect(res.redirects[0]).toMatch(`/${followingStep}`)
         })
@@ -577,7 +651,7 @@ describe('Submitting questions’ responses', () => {
             reportWithDetails.id,
             expectedRequest,
           )
-          expect(incidentReportingApi.deleteQuestionsAndTheirResponses).toHaveBeenCalledTimes(0)
+          expect(incidentReportingApi.deleteQuestionsAndTheirResponses).not.toHaveBeenCalled()
           expect(res.text).not.toContain('There is a problem')
           expect(res.redirects[0]).toMatch(`/${followingStep}`)
         })

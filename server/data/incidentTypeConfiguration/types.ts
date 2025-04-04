@@ -1,5 +1,6 @@
 import { type PrisonerInvolvementRole, type Type } from '../../reportConfiguration/constants'
 
+/** Describes a question set for a given incident type (not family!) */
 export interface IncidentTypeConfiguration {
   incidentType: Type
   active: boolean
@@ -9,7 +10,9 @@ export interface IncidentTypeConfiguration {
   prisonerRoles: PrisonerRoleConfiguration[]
 }
 
+/** Describes a question that may appear in a report */
 export interface QuestionConfiguration {
+  /** Question ID (cannot contain hyphens), used to generate field names/ids */
   id: string
   active: boolean
   /** Question as seen by machines, e.g. it shouldn't change.
@@ -26,8 +29,9 @@ export interface QuestionConfiguration {
   answers: AnswerConfiguration[]
 }
 
+/** Describes possible answers for a given question */
 export interface AnswerConfiguration {
-  /** Answer ID, useful to generate unique names for comment/date inputs */
+  /** Answer ID (cannot contain hyphens), useful to generate unique names for comment/date inputs */
   id: string
   /** Answer as seen by machines, e.g. it shouldn't change.
    *

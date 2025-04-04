@@ -85,7 +85,7 @@ describe('Searching for a prisoner to add to a report', () => {
     {
       scenario: 'name or prisoner number is not provided',
       invalidPayload: { q: '', global: 'yes', page: '1' },
-      expectedError: 'Enter the prisoner&#39;s name or prison number',
+      expectedError: 'Enter the prisoner’s name or prison number',
     },
     {
       scenario: 'global option is invalid',

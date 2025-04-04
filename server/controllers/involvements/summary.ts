@@ -83,11 +83,11 @@ export abstract class InvolvementSummary extends BaseController<Values> {
     return res.locals.reportUrl
   }
 
-  protected errorMessage(error: FormWizard.Error): string {
+  protected errorMessage(error: FormWizard.Error, req: FormWizard.Request<Values>, res: express.Response): string {
     if (error.key === 'confirmAdd') {
       return this.confirmError
     }
-    return super.errorMessage(error)
+    return super.errorMessage(error, req, res)
   }
 
   render(req: FormWizard.Request<Values>, res: express.Response, next: express.NextFunction): void {

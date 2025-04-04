@@ -1,3 +1,4 @@
+import type express from 'express'
 import type FormWizard from 'hmpo-form-wizard'
 
 import { BaseController } from '../../../controllers'
@@ -10,10 +11,14 @@ import type { TypeFieldNames, TypeValues } from './typeFields'
  */
 // eslint-disable-next-line import/prefer-default-export
 export abstract class BaseTypeController<V extends TypeValues> extends BaseController<V, TypeFieldNames> {
-  protected errorMessage(error: FormWizard.Error): string {
+  protected errorMessage(
+    error: FormWizard.Error,
+    req: FormWizard.Request<V, TypeFieldNames>,
+    res: express.Response,
+  ): string {
     if (error.key === 'type') {
       return 'Select the incident type'
     }
-    return super.errorMessage(error)
+    return super.errorMessage(error, req, res)
   }
 }

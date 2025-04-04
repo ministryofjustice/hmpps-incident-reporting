@@ -129,7 +129,7 @@ describe('Searching for a member of staff to add to a report', () => {
     {
       scenario: 'name is not provided',
       invalidPayload: { q: '', page: '1' },
-      expectedError: 'Enter a member of staff&#39;s name',
+      expectedError: 'Enter a member of staff’s name',
     },
     {
       scenario: 'page is invalid',

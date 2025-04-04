@@ -5,11 +5,11 @@ import { mockThrownError } from '../data/testData/thrownErrors'
 import { BaseController } from './base'
 
 class TestController extends BaseController {
-  protected errorMessage(error: FormWizard.Error): string {
+  protected errorMessage(error: FormWizard.Error, req: FormWizard.Request, res: express.Response): string {
     if (error.key === 'name' && error.type === 'required') {
-      return 'Enter your name'
+      return `Enter your “${req.form.options.fields.name.label}”`
     }
-    return super.errorMessage(error)
+    return super.errorMessage(error, req, res)
   }
 }
 
@@ -65,15 +65,15 @@ describe('Base form wizard controller', () => {
 
   describe('Error messages', () => {
     it.each([
-      { messageSource: 'generic', fieldName: 'email', expectedError: 'This field is required' },
-      { messageSource: 'controller-overridden', fieldName: 'name', expectedError: 'Enter your name' },
-    ])('should add $messageSource human-readable message to error', ({ fieldName, expectedError }) => {
+      { scenario: 'generic', fieldName: 'email', expectedError: 'This field is required' },
+      { scenario: 'controller-overridden', fieldName: 'name', expectedError: 'Enter your “Name”' },
+    ])('should add $scenario human-readable message to error', ({ fieldName, expectedError }) => {
       const options: FormWizard.Options = {
         route: '/',
         steps: { '/': { fields: ['name', 'email'] } },
         fields: {
-          name: { name: 'name', validate: ['required'] },
-          email: { name: 'email', validate: ['required', 'email'] },
+          name: { name: 'name', label: 'Name', validate: ['required'] },
+          email: { name: 'email', label: 'Email', validate: ['required', 'email'] },
         },
       }
       const controller = new TestController(options)

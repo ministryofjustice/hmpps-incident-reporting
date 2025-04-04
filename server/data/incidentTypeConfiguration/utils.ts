@@ -22,17 +22,19 @@ export function parseFieldName(
   const parts = fieldName.split('-')
 
   if (parts.length === 1) {
-    const question = parseInt(parts[0], 10)
+    const [questionStr] = parts
+    const question = parseInt(questionStr, 10)
     if (question > 0) {
       return { question }
     }
   }
 
   if (parts.length === 3) {
-    const question = parseInt(parts[0], 10)
-    const response = parseInt(parts[1], 10)
-    if (question > 0 && response > 0 && (parts[2] === 'comment' || parts[2] === 'date')) {
-      return { question, response, conditionalField: parts[2] }
+    const [questionStr, responseStr, conditionalField] = parts
+    const question = parseInt(questionStr, 10)
+    const response = parseInt(responseStr, 10)
+    if (question > 0 && response > 0 && (conditionalField === 'comment' || conditionalField === 'date')) {
+      return { question, response, conditionalField }
     }
   }
 

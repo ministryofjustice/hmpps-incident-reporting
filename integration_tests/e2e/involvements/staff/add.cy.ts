@@ -198,6 +198,7 @@ context('Add staff involvement page', () => {
       addStaffInvolvementsPage.enterComment('Some comments')
       addStaffInvolvementsPage.submit()
       addStaffInvolvementsPage.errorSummary.contains('There is a problem')
+      addStaffInvolvementsPage.errorSummary.contains('Select how the member of staff was involved in the incident')
       Page.verifyOnPage(AddStaffInvolvementsPage, 'Mary Johnson', 'Mary Johnson’s')
     })
   })

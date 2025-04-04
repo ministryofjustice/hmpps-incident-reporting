@@ -1,8 +1,25 @@
+import { getAllIncidentTypeConfigurations } from '../../reportConfiguration/types'
 import { ESCAPE_FROM_PRISON_1 } from '../../reportConfiguration/types/ESCAPE_FROM_PRISON_1'
 import { type QuestionConfiguration, type AnswerConfiguration, type IncidentTypeConfiguration } from './types'
 import { validateConfig } from './validation'
 
 describe('DPS config validation', () => {
+  describe('active configs', () => {
+    it('are valid', async () => {
+      const allConfigs = await getAllIncidentTypeConfigurations()
+      const activeConfigs = allConfigs.filter(config => config.active)
+
+      for (const config of activeConfigs) {
+        const errors = validateConfig(config).map(err => err.message)
+        if (errors.length > 0) {
+          throw new Error(
+            `Config for '${config.incidentType}' incident type has validation errors: ${errors.join('; ')}`,
+          )
+        }
+      }
+    })
+  })
+
   describe('when config has no known issues', () => {
     it('returns no errors', () => {
       // '1' (START)

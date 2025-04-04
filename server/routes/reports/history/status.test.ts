@@ -62,7 +62,7 @@ describe('Report status history', () => {
       .get(statusHistoryUrl)
       .expect(200)
       .expect(res => {
-        expect(res.text).toContain('Incident reference 6543 – status history')
+        expect(res.text).toContain('Incident report 6543 – status history')
         expect(res.text).toContain('Draft')
         expect(res.text).toContain('by John Smith')
         expect(res.text).toContain('5 December 2023 at 12:34pm')
@@ -88,7 +88,7 @@ describe('Report status history', () => {
       .get(statusHistoryUrl)
       .expect(200)
       .expect(res => {
-        expect(res.text).toContain('Incident reference 6543 – status history')
+        expect(res.text).toContain('Incident report 6543 – status history')
         expect(res.text).toContain('Draft')
         expect(res.text).toContain('by John Smith')
         expect(res.text).toContain('5 December 2023 at 12:34pm')

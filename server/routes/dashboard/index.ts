@@ -165,7 +165,7 @@ export default function dashboard(service: Services): Router {
       } else {
         errors.push({
           href: '#searchID',
-          text: `Enter a valid incident reference number or offender ID. For example, 12345678 or A0011BB`,
+          text: `Enter a valid incident number or offender ID. For example, 12345678 or A0011BB`,
         })
       }
     }

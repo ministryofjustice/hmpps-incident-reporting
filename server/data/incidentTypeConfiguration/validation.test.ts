@@ -12,9 +12,7 @@ describe('Active incident type configurations', () => {
   it.each(scenarios)('Config for $incidentType is valid', ({ incidentType, config }) => {
     const errors = validateConfig(config).map(err => err.message)
     if (errors.length > 0) {
-      throw new Error(
-        `Config for '${incidentType}' incident type is invalid: ${errors.join('; ')}`,
-      )
+      throw new Error(`Config for '${incidentType}' incident type is invalid: ${errors.join('; ')}`)
     }
   })
 })

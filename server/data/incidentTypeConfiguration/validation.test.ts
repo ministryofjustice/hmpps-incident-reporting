@@ -6,7 +6,7 @@ import { validateConfig } from './validation'
 describe('DPS config validation', () => {
   describe('active configs', () => {
     it('are valid', async () => {
-      const allConfigs = await getAllIncidentTypeConfigurations()
+      const allConfigs = getAllIncidentTypeConfigurations()
       const activeConfigs = allConfigs.filter(config => config.active)
 
       for (const config of activeConfigs) {

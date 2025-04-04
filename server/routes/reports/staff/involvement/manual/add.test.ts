@@ -84,12 +84,12 @@ describe('Adding a new staff member to a report who does not have a DPS/NOMIS ac
       {
         scenario: 'first name is missing',
         invalidPayload: { lastName: 'Smith' },
-        expectedError: 'This field is required',
+        expectedError: 'Enter their first name',
       },
       {
         scenario: 'surname is missing',
         invalidPayload: { firstName: 'John' },
-        expectedError: 'This field is required',
+        expectedError: 'Enter their last name',
       },
     ])('should show an error when $scenario', ({ invalidPayload, expectedError }) => {
       incidentReportingApi.getReportWithDetailsById.mockResolvedValueOnce(report)

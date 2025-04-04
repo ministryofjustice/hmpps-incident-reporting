@@ -218,6 +218,7 @@ context('Add staff involvement page', () => {
       manualStaffEntryPage.enterLastName('Johnson')
       manualStaffEntryPage.submit()
       manualStaffEntryPage.errorSummary.contains('There is a problem')
+      manualStaffEntryPage.errorSummary.contains('Enter their first name')
       Page.verifyOnPage(ManualStaffEntryPage)
     })
 

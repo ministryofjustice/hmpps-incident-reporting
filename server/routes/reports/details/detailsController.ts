@@ -70,7 +70,7 @@ export abstract class BaseDetailsController<V extends DetailsValues> extends Bas
         if (incidentDateAndTime.getTime() > now.getTime()) {
           const error = new this.Error('incidentTime', {
             key: 'incidentTime',
-            message: 'Time of the incident must be in the past ',
+            message: 'Time of the incident must be in the past',
           })
           next({ incidentTime: error })
           return

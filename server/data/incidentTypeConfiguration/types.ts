@@ -8,6 +8,10 @@ export interface IncidentTypeConfiguration {
   questions: Record<string, QuestionConfiguration>
   /** Allowed prisoner involvement roles for this report type */
   prisonerRoles: PrisonerRoleConfiguration[]
+  /** At least one prisoner must be added for report to be valid (irrespective of their role) */
+  requiresPrisoners?: boolean
+  /** At least one staff member must be added for report to be valid (irrespective of their role) */
+  requiresStaff?: boolean
 }
 
 /** Describes a question that may appear in a report */

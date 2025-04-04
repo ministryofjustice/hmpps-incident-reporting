@@ -30,7 +30,7 @@ export class StaffSearchController extends GetBaseController<Values> {
 
   protected errorMessage(error: FormWizard.Error, req: FormWizard.Request<Values>, res: express.Response): string {
     if (error.key === 'q') {
-      return "Enter a member of staff's name"
+      return 'Enter a member of staff’s name'
     }
     if (error.key === 'page') {
       // NB: this will not show in practice

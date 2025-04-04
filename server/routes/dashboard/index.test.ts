@@ -766,7 +766,7 @@ describe('Establishment filter validations', () => {
         .expect('Content-Type', /html/)
         .expect(200)
         .expect(res => {
-          expect(res.text).toContain('Establishments can only be selected if they exist in the user&#39;s caseload')
+          expect(res.text).toContain('Establishments can only be selected if they exist in the user’s caseload')
           expect(incidentReportingApi.getReports).toHaveBeenCalledWith(expectedParams)
         })
     },

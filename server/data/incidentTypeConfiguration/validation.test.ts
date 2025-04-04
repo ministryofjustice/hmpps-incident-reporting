@@ -43,6 +43,18 @@ describe('DPS config validation', () => {
     })
   })
 
+  describe('when some of the questions/answers IDs contains an hyphen', () => {
+    it('returns an error', () => {
+      const config: IncidentTypeConfiguration = buildValidConfig()
+      config.questions['2'].id += '-BROKEN'
+      config.questions['1'].answers[0].id += '-BROKEN'
+
+      const errors = validateConfig(config).map(err => err.message)
+      expect(errors).toContain(`active question '2-BROKEN' has hiphen in its ID`)
+      expect(errors).toContain(`active answer 'yes-BROKEN' has hiphen in its ID`)
+    })
+  })
+
   describe('when config starting question is unknown', () => {
     it('returns an error', () => {
       const config: IncidentTypeConfiguration = buildValidConfig()

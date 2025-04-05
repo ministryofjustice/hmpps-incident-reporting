@@ -3,8 +3,9 @@ import path from 'node:path'
 import type { IncidentTypeConfiguration } from '../../data/incidentTypeConfiguration/types'
 import { types } from '../constants'
 
-export function getAllIncidentTypeConfigurations(): Promise<IncidentTypeConfiguration[]> {
-  return Promise.all(types.map(type => import(`./${type.code}`).then(module => module.default)))
+export function getAllIncidentTypeConfigurations(): IncidentTypeConfiguration[] {
+  // eslint-disable-next-line import/no-dynamic-require, global-require, @typescript-eslint/no-require-imports
+  return types.map(type => require(`./${type.code}`).default)
 }
 
 export function getIncidentTypeConfiguration(type: string): Promise<IncidentTypeConfiguration> {

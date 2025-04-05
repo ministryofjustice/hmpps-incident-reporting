@@ -8,6 +8,7 @@ export function validateConfig(config: IncidentTypeConfiguration): Error[] {
   const configGraph = buildConfigGraph(config)
 
   checkStartingQuestion(config, errors)
+  checkIdsDontIncludeHyphens(config, errors)
   checkQuestionsWithoutAnswers(config, errors)
   checkMultipleChoicesNextQuestions(config, errors)
   checkUnknownQuestions(configGraph, errors)
@@ -36,6 +37,24 @@ function checkStartingQuestion(config: IncidentTypeConfiguration, errors: Error[
   } else if (startingQuestion?.active !== true) {
     errors.push(new Error('starting question is inactive'))
   }
+}
+
+function checkIdsDontIncludeHyphens(config: IncidentTypeConfiguration, errors: Error[]): void {
+  Object.values(config.questions)
+    .filter(question => question.active)
+    .forEach(question => {
+      if (question.id.includes('-')) {
+        errors.push(new Error(`active question '${question.id}' has hiphen in its ID`))
+      }
+
+      question.answers
+        .filter(answer => answer.active)
+        .forEach(answer => {
+          if (answer.id.includes('-')) {
+            errors.push(new Error(`active answer '${answer.id}' has hiphen in its ID`))
+          }
+        })
+    })
 }
 
 function checkQuestionsWithoutAnswers(config: IncidentTypeConfiguration, errors: Error[]): void {

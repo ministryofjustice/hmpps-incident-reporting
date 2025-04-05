@@ -1,6 +1,21 @@
+import { getAllIncidentTypeConfigurations } from '../../reportConfiguration/types'
 import { ESCAPE_FROM_PRISON_1 } from '../../reportConfiguration/types/ESCAPE_FROM_PRISON_1'
 import { type QuestionConfiguration, type AnswerConfiguration, type IncidentTypeConfiguration } from './types'
 import { validateConfig } from './validation'
+
+describe('Active incident type configurations', () => {
+  const activeConfigs = getAllIncidentTypeConfigurations().filter(config => config.active)
+  const scenarios = activeConfigs.map(config => {
+    return { incidentType: config.incidentType, config }
+  })
+
+  it.each(scenarios)('Config for $incidentType is valid', ({ incidentType, config }) => {
+    const errors = validateConfig(config).map(err => err.message)
+    if (errors.length > 0) {
+      throw new Error(`Config for '${incidentType}' incident type is invalid: ${errors.join('; ')}`)
+    }
+  })
+})
 
 describe('DPS config validation', () => {
   describe('when config has no known issues', () => {
@@ -25,6 +40,18 @@ describe('DPS config validation', () => {
 
       const errors = validateConfig(config).map(err => err.message)
       expect(errors).toContain('startingQuestionId is null')
+    })
+  })
+
+  describe('when some of the questions/answers IDs contains an hyphen', () => {
+    it('returns an error', () => {
+      const config: IncidentTypeConfiguration = buildValidConfig()
+      config.questions['2'].id += '-BROKEN'
+      config.questions['1'].answers[0].id += '-BROKEN'
+
+      const errors = validateConfig(config).map(err => err.message)
+      expect(errors).toContain(`active question '2-BROKEN' has hiphen in its ID`)
+      expect(errors).toContain(`active answer 'yes-BROKEN' has hiphen in its ID`)
     })
   })
 

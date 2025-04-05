@@ -64,7 +64,7 @@ describe('Report incident type history', () => {
       .get(typeHistoryUrl)
       .expect(200)
       .expect(res => {
-        expect(res.text).toContain('Incident reference 6543 – incident type history')
+        expect(res.text).toContain('Incident report 6543 – incident type history')
         expect(res.text).toContain('This report’s type has not been changed')
         expect(res.text).not.toContain('moj-timeline')
 
@@ -127,7 +127,7 @@ describe('Report incident type history', () => {
       .get(typeHistoryUrl)
       .expect(200)
       .expect(res => {
-        expect(res.text).toContain('Incident reference 6543 – incident type history')
+        expect(res.text).toContain('Incident report 6543 – incident type history')
         expect(res.text).not.toContain('This report’s type has not been changed')
         expect(res.text).toContain('moj-timeline')
 

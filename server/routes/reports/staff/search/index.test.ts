@@ -54,10 +54,10 @@ describe('Searching for a member of staff to add to a report', () => {
   function expectPageNotSubmitted(res: request.Response): void {
     expect(res.text).toContain('app-staff-search')
 
-    expect(res.text).toContain('Search for a member of staff involved in the incident')
+    expect(res.text).toContain('Search for a member of staff')
     expect(res.text).toContain('You can add more later')
 
-    expect(res.text).not.toContain('Select the member of staff you want to add')
+    expect(res.text).not.toContain('Select the member of staff')
     expect(res.text).not.toContain(
       'Contact the person directly if you need to confirm which email address belongs to them',
     )
@@ -70,10 +70,10 @@ describe('Searching for a member of staff to add to a report', () => {
   function expectPageSubmittedWithResults(res: request.Response): void {
     expect(res.text).toContain('app-staff-search')
 
-    expect(res.text).not.toContain('Search for a member of staff involved in the incident')
+    expect(res.text).not.toContain('Search for a member of staff')
     expect(res.text).not.toContain('You can add more later')
 
-    expect(res.text).toContain('Select the member of staff you want to add')
+    expect(res.text).toContain('Select the member of staff')
     expect(res.text).toContain('Contact the person directly if you need to confirm which email address belongs to them')
     expect(res.text).toContain('manually add the member of staff')
 
@@ -84,10 +84,10 @@ describe('Searching for a member of staff to add to a report', () => {
   function expectPageSubmittedWithoutResults(res: request.Response): void {
     expect(res.text).toContain('app-staff-search')
 
-    expect(res.text).not.toContain('Search for a member of staff involved in the incident')
+    expect(res.text).not.toContain('Search for a member of staff')
     expect(res.text).not.toContain('You can add more later')
 
-    expect(res.text).not.toContain('Select the member of staff you want to add')
+    expect(res.text).not.toContain('Select the member of staff')
     expect(res.text).not.toContain(
       'Contact the person directly if you need to confirm which email address belongs to them',
     )

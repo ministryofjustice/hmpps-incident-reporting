@@ -14,12 +14,12 @@ export class StaffSearchController extends GetBaseController<Values> {
   protected shouldContinueRenderFlowOnSuccess = true
 
   locals(req: FormWizard.Request<Values>, res: express.Response): Partial<FormWizard.Locals<Values>> {
-    let pageTitle = 'Search for a member of staff involved in the incident'
+    let pageTitle = 'Search for a member of staff'
     if (res.locals.searchResults?.totalElements === 0) {
       const { q } = this.getAllValues(req)
       pageTitle = `‘${q}’ cannot be found`
     } else if (res.locals.searchResults?.totalElements > 0) {
-      pageTitle = 'Select the member of staff you want to add'
+      pageTitle = 'Select the member of staff'
     }
 
     return {

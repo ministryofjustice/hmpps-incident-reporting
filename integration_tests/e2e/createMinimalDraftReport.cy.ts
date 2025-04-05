@@ -128,6 +128,7 @@ context('Creating a new minimal draft report', () => {
     const typePage = Page.verifyOnPage(TypePage)
     typePage.submit()
     typePage.errorSummary.contains('There is a problem')
+    typePage.errorSummary.contains('Select the incident type')
     typePage.selectType(reportWithDetails.type)
     typePage.submit()
 

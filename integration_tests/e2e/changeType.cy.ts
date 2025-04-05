@@ -146,13 +146,14 @@ context('Change incident type', () => {
     })
   })
 
-  it('should show an error if not type is chosen', () => {
+  it('should show an error if type is not chosen', () => {
     const changeTypeConfirmationPage = Page.verifyOnPage(ChangeTypeConfirmationPage)
     changeTypeConfirmationPage.submit()
 
     const typePage = Page.verifyOnPage(TypePage)
     typePage.submit()
     typePage.errorSummary.contains('There is a problem')
+    typePage.errorSummary.contains('Select the incident type')
   })
 
   it('should allow changing type', () => {

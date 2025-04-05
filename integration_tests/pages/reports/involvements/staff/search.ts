@@ -5,9 +5,9 @@ export class StaffSearchPage extends SearchPage {
   constructor(results?: { found: true } | { notFound: string }) {
     let pageTitle: string
     if (!results) {
-      pageTitle = 'Search for a member of staff involved in the incident'
+      pageTitle = 'Search for a member of staff'
     } else if ('found' in results) {
-      pageTitle = 'Select the member of staff you want to add'
+      pageTitle = 'Select the member of staff'
     } else if ('notFound' in results) {
       pageTitle = `‘${results.notFound}’ cannot be found`
     }

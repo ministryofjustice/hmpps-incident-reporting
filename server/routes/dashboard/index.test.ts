@@ -173,9 +173,7 @@ describe('GET dashboard', () => {
       .expect('Content-Type', /html/)
       .expect(200)
       .expect(res => {
-        expect(res.text).not.toContain(
-          'Enter a valid incident reference number or offender ID. For example, 12345678 or A0011BB',
-        )
+        expect(res.text).not.toContain('Enter a valid incident number or offender ID. For example, 12345678 or A0011BB')
         expect(res.text).not.toContain('There is a problem')
         expect(res.text).toContain('Clear filters')
         expect(incidentReportingApi.getReports).toHaveBeenCalledWith(expectedParams)
@@ -210,9 +208,7 @@ describe('GET dashboard', () => {
       .expect('Content-Type', /html/)
       .expect(200)
       .expect(res => {
-        expect(res.text).not.toContain(
-          'Enter a valid incident reference number or offender ID. For example, 12345678 or A0011BB',
-        )
+        expect(res.text).not.toContain('Enter a valid incident number or offender ID. For example, 12345678 or A0011BB')
         expect(res.text).not.toContain('There is a problem')
         expect(res.text).toContain('Clear filters')
         expect(incidentReportingApi.getReports).toHaveBeenCalledWith(expectedParams)
@@ -468,9 +464,7 @@ describe('search validations', () => {
       .expect('Content-Type', /html/)
       .expect(200)
       .expect(res => {
-        expect(res.text).toContain(
-          'Enter a valid incident reference number or offender ID. For example, 12345678 or A0011BB',
-        )
+        expect(res.text).toContain('Enter a valid incident number or offender ID. For example, 12345678 or A0011BB')
         expect(res.text).toContain('There is a problem')
         expect(res.text).toContain('Clear filters')
         expect(incidentReportingApi.getReports).toHaveBeenCalledWith(expectedParams)
@@ -515,9 +509,7 @@ describe('search validations', () => {
       .expect('Content-Type', /html/)
       .expect(200)
       .expect(res => {
-        expect(res.text).not.toContain(
-          'Enter a valid incident reference number or offender ID. For example, 12345678 or A0011BB',
-        )
+        expect(res.text).not.toContain('Enter a valid incident number or offender ID. For example, 12345678 or A0011BB')
         expect(res.text).not.toContain('There is a problem')
         expect(res.text).toContain('Clear filters')
         expect(incidentReportingApi.getReports).toHaveBeenCalledWith(expectedParams)
@@ -543,9 +535,7 @@ describe('search validations', () => {
       .expect('Content-Type', /html/)
       .expect(200)
       .expect(res => {
-        expect(res.text).not.toContain(
-          'Enter a valid incident reference number or offender ID. For example, 12345678 or A0011BB',
-        )
+        expect(res.text).not.toContain('Enter a valid incident number or offender ID. For example, 12345678 or A0011BB')
         expect(res.text).not.toContain('There is a problem')
         expect(res.text).toContain('Clear filters')
         expect(incidentReportingApi.getReports).toHaveBeenCalledWith(expectedParams)
@@ -571,9 +561,7 @@ describe('search validations', () => {
       .expect('Content-Type', /html/)
       .expect(200)
       .expect(res => {
-        expect(res.text).not.toContain(
-          'Enter a valid incident reference number or offender ID. For example, 12345678 or A0011BB',
-        )
+        expect(res.text).not.toContain('Enter a valid incident number or offender ID. For example, 12345678 or A0011BB')
         expect(res.text).not.toContain('There is a problem')
         expect(res.text).toContain('Clear filters')
         expect(incidentReportingApi.getReports).toHaveBeenCalledWith(expectedParams)
@@ -599,9 +587,7 @@ describe('search validations', () => {
       .expect('Content-Type', /html/)
       .expect(200)
       .expect(res => {
-        expect(res.text).not.toContain(
-          'Enter a valid incident reference number or offender ID. For example, 12345678 or A0011BB',
-        )
+        expect(res.text).not.toContain('Enter a valid incident number or offender ID. For example, 12345678 or A0011BB')
         expect(res.text).not.toContain('There is a problem')
         expect(res.text).toContain('Clear filters')
         expect(incidentReportingApi.getReports).toHaveBeenCalledWith(expectedParams)

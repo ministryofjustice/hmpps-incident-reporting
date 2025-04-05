@@ -4,8 +4,8 @@ import type { PageElement } from '../page'
 export default class ReportPage extends FormWizardPage {
   constructor(reference: string, unsubmitted = false) {
     super(
-      unsubmitted ? `Check your answers – incident reference ${reference}` : `Incident reference ${reference}`,
-      `Incident reference ${reference}`,
+      unsubmitted ? `Check your answers – incident report ${reference}` : `Incident report ${reference}`,
+      `Incident report ${reference}`,
     )
   }
 

@@ -88,7 +88,7 @@ describe('View report page', () => {
         .expect('Content-Type', /html/)
         .expect(200)
         .expect(res => {
-          expect(res.text).toContain('Check your answers – incident reference 6543')
+          expect(res.text).toContain('Check your answers – incident report 6543')
           expect(res.text).toContain('John Smith')
           expect(res.text).toContain('Moorland (HMP &amp; YOI)')
           expect(res.text).toContain('Draft')
@@ -228,8 +228,8 @@ describe('View report page', () => {
         .expect('Content-Type', /html/)
         .expect(200)
         .expect(res => {
-          expect(res.text).not.toContain('Check your answers – incident reference 6543')
-          expect(res.text).toContain('Incident reference 6543')
+          expect(res.text).not.toContain('Check your answers – incident report 6543')
+          expect(res.text).toContain('Incident report 6543')
           expect(res.text).toContain('John Smith')
           expect(res.text).toContain('Moorland (HMP &amp; YOI)')
           expect(res.text).toContain('Closed')
@@ -359,7 +359,7 @@ describe('View report page', () => {
         .expect('Content-Type', /html/)
         .expect(200)
         .expect(res => {
-          expect(res.text).toContain('Check your answers – incident reference 6543')
+          expect(res.text).toContain('Check your answers – incident report 6543')
           expect(res.text).toContain('John Smith')
           expect(res.text).toContain('Moorland (HMP &amp; YOI)')
           expect(res.text).toContain('Draft')

@@ -2988,6 +2988,6 @@ export const FIND_3: IncidentTypeConfiguration = {
     },
   },
   prisonerRoles: [],
-} as const
+}
 
 export default FIND_3

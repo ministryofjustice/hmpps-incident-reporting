@@ -92,7 +92,7 @@ export function toTypescript({
   result += "import type { IncidentTypeConfiguration } from '../../data/incidentTypeConfiguration/types'\n\n"
 
   // Declare incident type configuration constant
-  result += `export const ${dpsConfig.incidentType}: IncidentTypeConfiguration = ${JSON.stringify(dpsConfig, null, 2)} as const\n\n`
+  result += `export const ${dpsConfig.incidentType}: IncidentTypeConfiguration = ${JSON.stringify(dpsConfig, null, 2)}\n\n`
 
   // Export as default
   result += `export default ${dpsConfig.incidentType}\n`

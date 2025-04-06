@@ -2321,6 +2321,6 @@ export const INCIDENT_AT_HEIGHT_1: IncidentTypeConfiguration = {
       active: true,
     },
   ],
-} as const
+}
 
 export default INCIDENT_AT_HEIGHT_1

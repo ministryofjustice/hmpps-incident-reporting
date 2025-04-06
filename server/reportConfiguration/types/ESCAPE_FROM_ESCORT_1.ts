@@ -2969,6 +2969,6 @@ export const ESCAPE_FROM_ESCORT_1: IncidentTypeConfiguration = {
       active: true,
     },
   ],
-} as const
+}
 
 export default ESCAPE_FROM_ESCORT_1

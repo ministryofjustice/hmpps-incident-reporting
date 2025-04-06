@@ -2299,6 +2299,6 @@ export const CONCERTED_INDISCIPLINE_1: IncidentTypeConfiguration = {
       active: true,
     },
   ],
-} as const
+}
 
 export default CONCERTED_INDISCIPLINE_1

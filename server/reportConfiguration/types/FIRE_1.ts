@@ -2263,6 +2263,6 @@ export const FIRE_1: IncidentTypeConfiguration = {
       active: true,
     },
   ],
-} as const
+}
 
 export default FIRE_1

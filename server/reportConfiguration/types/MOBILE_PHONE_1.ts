@@ -2268,6 +2268,6 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
       active: true,
     },
   ],
-} as const
+}
 
 export default MOBILE_PHONE_1

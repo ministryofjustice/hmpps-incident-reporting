@@ -701,6 +701,6 @@ export const TOOL_LOSS_1: IncidentTypeConfiguration = {
       active: true,
     },
   ],
-} as const
+}
 
 export default TOOL_LOSS_1

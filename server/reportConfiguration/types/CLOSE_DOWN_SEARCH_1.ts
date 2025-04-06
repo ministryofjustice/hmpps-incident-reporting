@@ -458,6 +458,6 @@ export const CLOSE_DOWN_SEARCH_1: IncidentTypeConfiguration = {
       active: true,
     },
   ],
-} as const
+}
 
 export default CLOSE_DOWN_SEARCH_1

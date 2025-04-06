@@ -1237,6 +1237,6 @@ export const SELF_HARM_1: IncidentTypeConfiguration = {
       active: true,
     },
   ],
-} as const
+}
 
 export default SELF_HARM_1

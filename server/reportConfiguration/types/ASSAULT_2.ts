@@ -630,6 +630,6 @@ export const ASSAULT_2: IncidentTypeConfiguration = {
     },
   },
   prisonerRoles: [],
-} as const
+}
 
 export default ASSAULT_2

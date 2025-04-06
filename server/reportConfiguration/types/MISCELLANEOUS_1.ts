@@ -824,6 +824,6 @@ export const MISCELLANEOUS_1: IncidentTypeConfiguration = {
       active: true,
     },
   ],
-} as const
+}
 
 export default MISCELLANEOUS_1

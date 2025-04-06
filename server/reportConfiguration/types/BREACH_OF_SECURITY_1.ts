@@ -1003,6 +1003,6 @@ export const BREACH_OF_SECURITY_1: IncidentTypeConfiguration = {
       active: true,
     },
   ],
-} as const
+}
 
 export default BREACH_OF_SECURITY_1

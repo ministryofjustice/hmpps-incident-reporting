@@ -926,6 +926,6 @@ export const KEY_OR_LOCK_1: IncidentTypeConfiguration = {
       active: false,
     },
   ],
-} as const
+}
 
 export default KEY_OR_LOCK_1

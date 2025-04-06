@@ -3512,6 +3512,6 @@ export const DISORDER_1: IncidentTypeConfiguration = {
       active: true,
     },
   ],
-} as const
+}
 
 export default DISORDER_1

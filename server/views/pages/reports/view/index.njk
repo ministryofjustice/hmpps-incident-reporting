@@ -47,6 +47,8 @@
     <span data-qa="report-status">{{ statusLookup[report.status] or report.status }}</span>
   </p>
 
+  {% include "./_correction-requests.njk" %}
+
   {% if canEditReportInNomisOnly %}
     {{ govukWarningText({
       text: "This report can only be amended in NOMIS",
@@ -58,8 +60,5 @@
   {% include "./_prisoners.njk" %}
   {% include "./_staff.njk" %}
   {% include "./_questions.njk" %}
-
-  {# TODO: not designed #}
-  {% include "./_correction-requests.njk" %}
 
 {% endblock %}

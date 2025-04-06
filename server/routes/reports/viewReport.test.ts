@@ -197,9 +197,11 @@ describe('View report page', () => {
         .get(viewReportUrl)
         .expect('Content-Type', /html/)
         .expect(res => {
+          expect(res.text).toContain('Comments')
+          expect(res.text).toContain('moj-timeline')
           expect(res.text).toContain('USER2')
-          expect(res.text).toContain('Description: Please amend question 2')
-          expect(res.text).toContain('Submitted at: 5 December 2023, 12:34')
+          expect(res.text).toContain('Please amend question 2')
+          expect(res.text).toContain('5 December 2023 at 12:34pm')
         })
     })
   })
@@ -338,9 +340,11 @@ describe('View report page', () => {
         .get(viewReportUrl)
         .expect('Content-Type', /html/)
         .expect(res => {
+          expect(res.text).toContain('Comments')
+          expect(res.text).toContain('moj-timeline')
           expect(res.text).toContain('USER2')
-          expect(res.text).toContain('Description: Please amend question 2')
-          expect(res.text).toContain('Submitted at: 5 December 2023, 12:34')
+          expect(res.text).toContain('Please amend question 2')
+          expect(res.text).toContain('5 December 2023 at 12:34pm')
         })
     })
   })
@@ -433,14 +437,13 @@ describe('View report page', () => {
         })
     })
 
-    it('should render correction requests', () => {
+    it('should not render correction requests', () => {
       return request(app)
         .get(viewReportUrl)
         .expect('Content-Type', /html/)
         .expect(res => {
-          expect(res.text).toContain('Correction requests')
-          expect(res.text).toContain('No correction requests')
-          expect(res.text).toContain('Add a correction')
+          expect(res.text).not.toContain('Comments')
+          expect(res.text).not.toContain('moj-timeline')
         })
     })
   })

@@ -1,47 +1,34 @@
-{% from "govuk/components/summary-list/macro.njk" import govukSummaryList %}
+{% from "moj/components/timeline/macro.njk" import mojTimeline %}
 
-{# TODO: not designed #}
+{# TODO: does not match design since component requires date to be on separate line and by-line cannot be replaced with it #}
 
 {% if report.correctionRequests.length > 0 %}
 
-  {% set rows = [] %}
+  {% set items = [] %}
   {% for correctionRequest in report.correctionRequests %}
-    {% set correctionValues %}
-      Description: {{ correctionRequest.descriptionOfChange }}
-      <br />
-      Submitted at: {{ correctionRequest.correctionRequestedAt | dateAndTime }}
+    {% set comment %}
+      {# TODO: preliminary build: does not support all possible forms of comments #}
+      {{ correctionRequest.descriptionOfChange | escape | nl2br }}
     {% endset %}
 
-    {% set _ = rows.push({
-      key: {
+    {% set _ = items.push({
+      label: {
         text: usersLookup[correctionRequest.correctionRequestedBy].name or correctionRequest.correctionRequestedBy
       },
-      value: {
-        html: correctionValues
-      }
+      datetime: {
+        timestamp: correctionRequest.correctionRequestedAt,
+        type: "datetime"
+      },
+      html: comment
     }) %}
   {% endfor %}
 
-{% else %}
-
-  {% set rows = [{
-    key: { text: "No correction requests" },
-    value: { text: "" }
-  }) %}
+  <div class="app-correction-requests">
+    <h2 class="app-correction-requests__title">Comments</h2>
+    {{ mojTimeline({
+      headingLevel: 3,
+      items: items
+    }) }}
+  </div>
 
 {% endif %}
-
-{{ govukSummaryList({
-  card: {
-    title: { text: "Correction requests" },
-    actions: {
-      items: [
-        {
-          href: "#",
-          text: "Add a correction request"
-        }
-      ]
-    } if canEditReport else {}
-  },
-  rows: rows
-}) }}

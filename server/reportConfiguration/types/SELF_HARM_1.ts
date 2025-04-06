@@ -1237,6 +1237,7 @@ export const SELF_HARM_1: IncidentTypeConfiguration = {
       active: true,
     },
   ],
+  requiresPrisoners: true,
 }
 
 export default SELF_HARM_1

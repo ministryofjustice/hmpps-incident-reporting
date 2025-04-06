@@ -663,6 +663,7 @@ export const ABSCOND_1: IncidentTypeConfiguration = {
       active: true,
     },
   ],
+  requiresPrisoners: true,
 }
 
 export default ABSCOND_1

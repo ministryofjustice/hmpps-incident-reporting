@@ -384,6 +384,7 @@ export const FOOD_REFUSAL_1: IncidentTypeConfiguration = {
       active: true,
     },
   ],
+  requiresPrisoners: true,
 }
 
 export default FOOD_REFUSAL_1

@@ -1340,6 +1340,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
       active: true,
     },
   ],
+  requiresPrisoners: true,
 }
 
 export default RELEASE_IN_ERROR_1

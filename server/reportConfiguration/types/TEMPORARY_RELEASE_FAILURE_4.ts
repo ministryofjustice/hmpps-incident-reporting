@@ -1179,6 +1179,7 @@ export const TEMPORARY_RELEASE_FAILURE_4: IncidentTypeConfiguration = {
       active: true,
     },
   ],
+  requiresPrisoners: true,
 }
 
 export default TEMPORARY_RELEASE_FAILURE_4

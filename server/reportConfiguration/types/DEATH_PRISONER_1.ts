@@ -1183,6 +1183,7 @@ export const DEATH_PRISONER_1: IncidentTypeConfiguration = {
       active: true,
     },
   ],
+  requiresPrisoners: true,
 }
 
 export default DEATH_PRISONER_1

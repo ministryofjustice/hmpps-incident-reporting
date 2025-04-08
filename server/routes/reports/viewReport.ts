@@ -1,6 +1,5 @@
-import type { RequestHandler } from 'express'
 import { Router } from 'express'
-import type { PathParams } from 'express-serve-static-core'
+import { MethodNotAllowed } from 'http-errors'
 
 import type { Services } from '../../services'
 import {
@@ -16,6 +15,7 @@ import { logoutIf } from '../../middleware/permissions'
 import { populateReport } from '../../middleware/populateReport'
 import { populateReportConfiguration } from '../../middleware/populateReportConfiguration'
 import { type ReportWithDetails } from '../../data/incidentReportingApi'
+import type { GovukErrorSummaryItem } from '../../utils/govukFrontend'
 import { cannotViewReport } from './permissions'
 
 const typesLookup = Object.fromEntries(types.map(type => [type.code, type.description]))
@@ -33,58 +33,68 @@ export function viewReportRouter(service: Services): Router {
   const { userService } = service
 
   const router = Router({ mergeParams: true })
-  const get = (path: PathParams, handler: RequestHandler) =>
-    router.get(
-      path,
-      populateReport(),
-      logoutIf(cannotViewReport),
-      populateReportConfiguration(true),
-      asyncMiddleware(handler),
-    )
 
-  get('/', async (req, res) => {
-    const { prisonApi } = res.locals.apis
+  router.all(
+    '/',
+    (req, _res, next) => {
+      if (req.method === 'GET' || req.method === 'POST') {
+        next()
+      } else {
+        next(new MethodNotAllowed())
+      }
+    },
+    populateReport(true),
+    logoutIf(cannotViewReport),
+    populateReportConfiguration(true),
+    asyncMiddleware(async (req, res) => {
+      const { prisonApi } = res.locals.apis
 
-    const report = res.locals.report as ReportWithDetails
-    const { permissions, reportConfig, questionProgress } = res.locals
+      const report = res.locals.report as ReportWithDetails
+      const { permissions, reportConfig, questionProgress } = res.locals
 
-    const usernames = [report.reportedBy]
-    if (report.correctionRequests) {
-      usernames.push(...report.correctionRequests.map(correctionRequest => correctionRequest.correctionRequestedBy))
-    }
+      const usernames = [report.reportedBy]
+      if (report.correctionRequests) {
+        usernames.push(...report.correctionRequests.map(correctionRequest => correctionRequest.correctionRequestedBy))
+      }
+      const [usersLookup, prisonsLookup] = await Promise.all([
+        userService.getUsers(res.locals.systemToken, usernames),
+        prisonApi.getPrisons(),
+      ])
 
-    const [usersLookup, prisonsLookup] = await Promise.all([
-      userService.getUsers(res.locals.systemToken, usernames),
-      prisonApi.getPrisons(),
-    ])
+      const questionProgressSteps = Array.from(questionProgress)
 
-    const questionProgressSteps = Array.from(questionProgress)
+      const canEditReport = permissions.canEditReport(report)
+      const canEditReportInNomisOnly = permissions.canEditReportInNomisOnly(report)
 
-    const canEditReport = permissions.canEditReport(report)
-    const canEditReportInNomisOnly = permissions.canEditReportInNomisOnly(report)
+      const errors: GovukErrorSummaryItem[] = []
+      if (req.method === 'POST') {
+        errors.push({ text: 'TODO: not implemented', href: '?' })
+      }
 
-    // Gather notification banner entries if they exist
-    const banners = req.flash()
+      // Gather notification banner entries if they exist
+      const banners = req.flash()
 
-    // “About the [incident]”
-    res.locals.aboutTheType = aboutTheType(res.locals.report.type)
+      // “About the [incident]”
+      res.locals.aboutTheType = aboutTheType(res.locals.report.type)
 
-    res.render('pages/reports/view/index', {
-      banners,
-      report,
-      reportConfig,
-      questionProgressSteps,
-      canEditReport,
-      canEditReportInNomisOnly,
-      usersLookup,
-      prisonsLookup,
-      prisonerInvolvementLookup,
-      prisonerOutcomeLookup,
-      staffInvolvementLookup,
-      typesLookup,
-      statusLookup,
-    })
-  })
+      res.render('pages/reports/view/index', {
+        errors,
+        banners,
+        report,
+        reportConfig,
+        questionProgressSteps,
+        canEditReport,
+        canEditReportInNomisOnly,
+        usersLookup,
+        prisonsLookup,
+        prisonerInvolvementLookup,
+        prisonerOutcomeLookup,
+        staffInvolvementLookup,
+        typesLookup,
+        statusLookup,
+      })
+    }),
+  )
 
   return router
 }

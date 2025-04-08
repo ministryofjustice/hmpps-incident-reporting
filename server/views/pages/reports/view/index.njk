@@ -1,6 +1,7 @@
 {% extends "partials/layout.njk" %}
 
 {% from "govuk/components/breadcrumbs/macro.njk" import govukBreadcrumbs %}
+{% from "govuk/components/error-summary/macro.njk" import govukErrorSummary %}
 {% from "govuk/components/warning-text/macro.njk" import govukWarningText %}
 
 {% set pageTitle = "Incident report " + report.reportReference %}
@@ -24,6 +25,13 @@
 {% endblock %}
 
 {% block content %}
+
+  {% if errors.length > 0 %}
+    {{ govukErrorSummary({
+      titleText: "There is a problem",
+      errorList: errors
+    }) }}
+  {% endif %}
 
   {% include "partials/notificationBanner.njk" %}
 

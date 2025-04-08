@@ -1399,6 +1399,6 @@ export const DRUGS_1: IncidentTypeConfiguration = {
       active: true,
     },
   ],
-} as const
+}
 
 export default DRUGS_1

@@ -1975,6 +1975,6 @@ export const BOMB_1: IncidentTypeConfiguration = {
       active: true,
     },
   ],
-} as const
+}
 
 export default BOMB_1

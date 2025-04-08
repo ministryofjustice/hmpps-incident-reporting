@@ -2807,6 +2807,6 @@ export const ATTEMPTED_ESCAPE_FROM_ESCORT_1: IncidentTypeConfiguration = {
       active: true,
     },
   ],
-} as const
+}
 
 export default ATTEMPTED_ESCAPE_FROM_ESCORT_1

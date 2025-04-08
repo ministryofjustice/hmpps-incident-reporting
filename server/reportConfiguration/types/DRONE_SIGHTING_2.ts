@@ -1755,6 +1755,6 @@ export const DRONE_SIGHTING_2: IncidentTypeConfiguration = {
       active: true,
     },
   ],
-} as const
+}
 
 export default DRONE_SIGHTING_2

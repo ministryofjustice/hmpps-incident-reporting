@@ -1790,6 +1790,6 @@ export const BARRICADE_1: IncidentTypeConfiguration = {
       active: true,
     },
   ],
-} as const
+}
 
 export default BARRICADE_1

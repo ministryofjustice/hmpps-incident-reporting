@@ -1688,6 +1688,6 @@ export const ASSAULT_4: IncidentTypeConfiguration = {
       active: true,
     },
   ],
-} as const
+}
 
 export default ASSAULT_4

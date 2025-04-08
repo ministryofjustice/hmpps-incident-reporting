@@ -744,6 +744,6 @@ export const TEMPORARY_RELEASE_FAILURE_1: IncidentTypeConfiguration = {
       active: true,
     },
   ],
-} as const
+}
 
 export default TEMPORARY_RELEASE_FAILURE_1

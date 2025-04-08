@@ -1044,6 +1044,6 @@ export const ASSAULT_3: IncidentTypeConfiguration = {
     },
   },
   prisonerRoles: [],
-} as const
+}
 
 export default ASSAULT_3

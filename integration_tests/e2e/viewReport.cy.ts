@@ -42,6 +42,10 @@ context('View report', () => {
       reportPage.status.should('contain.text', 'Draft')
     })
 
+    it('should show no comments', () => {
+      reportPage.commentsTimeline.should('not.exist')
+    })
+
     it('should show report summary', () => {
       reportPage.summary.shouldNotHaveActionLinks()
       reportPage.summary.cardContents.then(rows => {
@@ -153,6 +157,17 @@ context('View report', () => {
       reportPage.location.should('contain.text', 'Moorland')
       reportPage.reportedBy.should('contain.text', 'John Smith')
       reportPage.status.should('contain.text', 'Awaiting analysis')
+    })
+
+    it('should show comments', () => {
+      reportPage.commentsTimeline.should('exist')
+      reportPage.commentsTimelineContents.then(timeline => {
+        expect(timeline).to.have.lengthOf(1)
+        const [item] = timeline
+        expect(item.title).to.equal('USER2')
+        expect(item.date).to.contain(now.getFullYear().toString())
+        expect(item.description).to.contain('Please amend question 2')
+      })
     })
 
     it('should show report summary', () => {

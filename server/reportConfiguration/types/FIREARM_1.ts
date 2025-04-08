@@ -2025,6 +2025,6 @@ export const FIREARM_1: IncidentTypeConfiguration = {
       active: true,
     },
   ],
-} as const
+}
 
 export default FIREARM_1

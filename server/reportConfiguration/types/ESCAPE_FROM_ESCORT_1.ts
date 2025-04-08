@@ -2969,6 +2969,7 @@ export const ESCAPE_FROM_ESCORT_1: IncidentTypeConfiguration = {
       active: true,
     },
   ],
-} as const
+  requiresPrisoners: true,
+}
 
 export default ESCAPE_FROM_ESCORT_1

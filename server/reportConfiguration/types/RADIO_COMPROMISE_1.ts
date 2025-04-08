@@ -575,6 +575,6 @@ export const RADIO_COMPROMISE_1: IncidentTypeConfiguration = {
       active: true,
     },
   ],
-} as const
+}
 
 export default RADIO_COMPROMISE_1

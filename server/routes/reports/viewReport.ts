@@ -18,6 +18,16 @@ import { populateReportConfiguration } from '../../middleware/populateReportConf
 import { type ReportWithDetails } from '../../data/incidentReportingApi'
 import { cannotViewReport } from './permissions'
 
+const typesLookup = Object.fromEntries(types.map(type => [type.code, type.description]))
+const statusLookup = Object.fromEntries(statuses.map(status => [status.code, status.description]))
+const prisonerInvolvementLookup = Object.fromEntries(
+  prisonerInvolvementRoles.map(role => [role.code, role.description]),
+)
+const prisonerOutcomeLookup = Object.fromEntries(
+  prisonerInvolvementOutcomes.map(outcome => [outcome.code, outcome.description]),
+)
+const staffInvolvementLookup = Object.fromEntries(staffInvolvementRoles.map(role => [role.code, role.description]))
+
 // eslint-disable-next-line import/prefer-default-export
 export function viewReportRouter(service: Services): Router {
   const { userService } = service
@@ -47,16 +57,6 @@ export function viewReportRouter(service: Services): Router {
       userService.getUsers(res.locals.systemToken, usernames),
       prisonApi.getPrisons(),
     ])
-
-    const typesLookup = Object.fromEntries(types.map(type => [type.code, type.description]))
-    const statusLookup = Object.fromEntries(statuses.map(status => [status.code, status.description]))
-    const prisonerInvolvementLookup = Object.fromEntries(
-      prisonerInvolvementRoles.map(role => [role.code, role.description]),
-    )
-    const prisonerOutcomeLookup = Object.fromEntries(
-      prisonerInvolvementOutcomes.map(outcome => [outcome.code, outcome.description]),
-    )
-    const staffInvolvementLookup = Object.fromEntries(staffInvolvementRoles.map(role => [role.code, role.description]))
 
     const questionProgressSteps = Array.from(questionProgress)
 

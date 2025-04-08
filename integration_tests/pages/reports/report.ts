@@ -21,6 +21,31 @@ export default class ReportPage extends FormWizardPage {
     return cy.get('[data-qa=report-status]')
   }
 
+  get commentsTimeline(): PageElement<HTMLDivElement> {
+    return cy.get('.moj-timeline')
+  }
+
+  get commentsTimelineContents(): Cypress.Chainable<
+    {
+      title: string
+      date: string
+      description: string
+    }[]
+  > {
+    return this.commentsTimeline.then($timelineDiv => {
+      return $timelineDiv
+        .find('.moj-timeline__item')
+        .map((_, itemDiv: HTMLDivElement) => {
+          const $itemDiv = Cypress.$(itemDiv)
+          const title = $itemDiv.find('.moj-timeline__title').text().trim()
+          const date = $itemDiv.find('.moj-timeline__date').text().trim()
+          const description = $itemDiv.find('.moj-timeline__description').text().trim()
+          return { title, date, description }
+        })
+        .toArray()
+    })
+  }
+
   private checkSummaryCard(title: string) {
     const getCard = () => cy.get('.govuk-summary-card__title').contains(title).parent().parent()
 

@@ -4014,6 +4014,6 @@ export const FIND_2: IncidentTypeConfiguration = {
       active: false,
     },
   ],
-} as const
+}
 
 export default FIND_2

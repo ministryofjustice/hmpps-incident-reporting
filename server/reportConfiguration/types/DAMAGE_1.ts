@@ -1084,6 +1084,6 @@ export const DAMAGE_1: IncidentTypeConfiguration = {
       active: true,
     },
   ],
-} as const
+}
 
 export default DAMAGE_1

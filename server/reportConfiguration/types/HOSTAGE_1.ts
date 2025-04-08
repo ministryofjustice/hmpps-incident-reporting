@@ -2288,6 +2288,6 @@ export const HOSTAGE_1: IncidentTypeConfiguration = {
       active: true,
     },
   ],
-} as const
+}
 
 export default HOSTAGE_1

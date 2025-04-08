@@ -11,6 +11,16 @@ export class ManualStaffNameController extends BaseController<Values> {
   getBackLink(_req: FormWizard.Request<Values>, res: express.Response): string {
     return `${res.locals.reportSubUrlPrefix}/staff`
   }
+
+  protected errorMessage(error: FormWizard.Error, req: FormWizard.Request<Values>, res: express.Response): string {
+    if (error.key === 'firstName') {
+      return 'Enter their first name'
+    }
+    if (error.key === 'lastName') {
+      return 'Enter their last name'
+    }
+    return super.errorMessage(error, req, res)
+  }
 }
 
 export class AddManualStaffInvolvementController extends AddStaffInvolvementController<Values> {

@@ -95,8 +95,10 @@ export class Permissions {
         this.roles.has(roleApproveReject) &&
         this.roles.has(rolePecs) &&
         !config.activeForPecsRegions) ||
-        // has caseload but prison is inactive in service
-        (this.caseloadIds.has(report.location) && !isPrisonActiveInService(report.location)))
+        // isn't a data warden and has caseload but prison is inactive in service
+        (this.caseloadIds.has(report.location) &&
+          !this.roles.has(roleApproveReject) &&
+          !isPrisonActiveInService(report.location)))
     )
   }
 

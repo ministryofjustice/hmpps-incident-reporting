@@ -520,7 +520,7 @@ describe('View report page', () => {
 
     it.each([
       { userType: 'reporting officer', user: reportingUser, warn: true },
-      { userType: 'data warden', user: approverUser, warn: true },
+      { userType: 'data warden', user: approverUser, warn: false },
       { userType: 'HQ view-only user', user: hqUser, warn: false },
       { userType: 'unauthorised user', user: unauthorisedUser, warn: false },
     ])('should warn $userType that report is only editable in NOMIS: $warn', ({ user, warn }) => {

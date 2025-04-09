@@ -1,7 +1,6 @@
-import FormWizardPage from '../formWizard'
-import type { PageElement } from '../page'
+import Page, { type PageElement } from '../page'
 
-export default class ReportPage extends FormWizardPage {
+export default class ReportPage extends Page {
   constructor(reference: string, unsubmitted = false) {
     super(
       unsubmitted ? `Check your answers – incident report ${reference}` : `Incident report ${reference}`,
@@ -114,5 +113,13 @@ export default class ReportPage extends FormWizardPage {
         link.click()
       })
       .end()
+  }
+
+  private get userActionsForm(): PageElement<HTMLFormElement> {
+    return cy.get('form#user-actions')
+  }
+
+  get submitButton(): PageElement<HTMLButtonElement> {
+    return this.userActionsForm.find<HTMLButtonElement>('.govuk-button').contains('Submit')
   }
 }

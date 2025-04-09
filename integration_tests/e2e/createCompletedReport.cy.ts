@@ -6,8 +6,9 @@ import type { UsersSearchResult } from '../../server/data/manageUsersApiClient'
 import { mockReport } from '../../server/data/testData/incidentReporting'
 import { andrew } from '../../server/data/testData/offenderSearch'
 import { moorland, staffMary } from '../../server/data/testData/prisonApi'
-import HomePage from '../pages/home'
 import Page from '../pages/page'
+import HomePage from '../pages/home'
+import { DashboardPage } from '../pages/dashboard'
 import { TypePage } from '../pages/reports/type'
 import DetailsPage from '../pages/reports/details'
 import {
@@ -386,8 +387,28 @@ context('Creating a completed draft report', () => {
     cy.task('stubManageKnownUsers')
     questionPage.submit()
 
-    Page.verifyOnPage(ReportPage, '6544', true)
-    // TODO: submit report once possible
+    const reportPage = Page.verifyOnPage(ReportPage, '6544', true)
+
+    // report is about to be updated…
+    reportWithDetails = {
+      ...reportWithDetails,
+      status: 'AWAITING_ANALYSIS',
+    }
+    cy.task('stubIncidentReportingApiUpdateReport', {
+      request: { title: 'Attempted escape from establishment: Arnold A1111AA (Moorland (HMP & YOI))' },
+      report: reportWithDetails,
+    })
+    cy.task('stubIncidentReportingApiChangeReportStatus', {
+      request: { newStatus: 'AWAITING_ANALYSIS' },
+      report: reportWithDetails,
+    })
+    cy.task('stubIncidentReportingApiGetReports')
+    reportPage.submitButton.click()
+
+    const dashboardPage = Page.verifyOnPage(DashboardPage)
+    dashboardPage.checkNotificationBannerContent(
+      `You have submitted incident report ${reportWithDetails.reportReference}`,
+    )
   })
 })
 

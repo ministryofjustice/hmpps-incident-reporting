@@ -2334,6 +2334,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
     },
   ],
   requiresPrisoners: true,
+  requiresStaff: true,
 }
 
 export default DISORDER_2

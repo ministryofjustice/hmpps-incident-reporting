@@ -1,10 +1,10 @@
 import { Readable } from 'stream'
 
-import Agent, { HttpsAgent } from 'agentkeepalive'
+import { HttpAgent, HttpsAgent } from 'agentkeepalive'
 import superagent from 'superagent'
+import { type ApiConfig } from '@ministryofjustice/hmpps-rest-client'
 
 import logger from '../../logger'
-import type { ApiConfig } from '../config'
 import type { UnsanitisedError } from '../sanitisedError'
 import { sanitiseError } from '../sanitisedError'
 
@@ -28,14 +28,14 @@ interface StreamRequest {
 }
 
 export default class RestClient {
-  agent: Agent
+  agent: HttpAgent
 
   constructor(
     private readonly name: string,
     private readonly config: ApiConfig,
     private readonly token: string,
   ) {
-    this.agent = config.url.startsWith('https') ? new HttpsAgent(config.agent) : new Agent(config.agent)
+    this.agent = config.url.startsWith('https') ? new HttpsAgent(config.agent) : new HttpAgent(config.agent)
   }
 
   private apiUrl() {

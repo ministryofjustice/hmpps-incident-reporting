@@ -193,6 +193,30 @@ describe('Permissions', () => {
           const permissions = new Permissions(user)
           expect(permissions.canCreateReportInLocation('LEI')).toBe(action === granted)
         })
+
+        it.each([
+          { userType: notLoggedIn, action: denied },
+          { userType: unauthorisedNotInLeeds, action: denied },
+          { userType: unauthorisedInLeeds, action: denied },
+          { userType: reportingNotInLeeds, action: denied },
+          { userType: reportingInLeeds, action: granted },
+          { userType: reportingInLeedsWithPecs, action: granted },
+          { userType: approverNotInLeeds, action: denied },
+          { userType: approverInLeeds, action: denied },
+          { userType: approverInLeedsWithoutPecs, action: denied },
+          { userType: viewOnlyNotInLeeds, action: denied },
+          { userType: viewOnlyInLeeds, action: denied },
+          { userType: viewOnlyInLeedsWithPecs, action: denied },
+        ])(
+          'should be $action to $userType.description only in NOMIS when Leeds is inactive in DPS',
+          ({ userType: { user }, action }) => {
+            config.activePrisons = ['MDI']
+
+            const permissions = new Permissions(user)
+            expect(permissions.canCreateReportInLocation('LEI')).toBe(false)
+            expect(permissions.canCreateReportInLocationInNomisOnly('LEI')).toBe(action === granted)
+          },
+        )
       })
 
       describe('in active caseload', () => {
@@ -232,6 +256,23 @@ describe('Permissions', () => {
           const permissions = new Permissions(user)
           expect(permissions.canCreateReportInActiveCaseload).toBe(action === granted)
         })
+
+        it.each([
+          { userType: notLoggedIn, action: denied },
+          { userType: unauthorisedNotInLeeds, action: denied },
+          { userType: reportingNotInLeeds, action: granted },
+          { userType: approverNotInLeeds, action: denied },
+          { userType: viewOnlyNotInLeeds, action: denied },
+        ])(
+          'should be $action to $userType.descriptionIgnoringCaseload only in NOMIS when active casload is inactive in DPS',
+          ({ userType: { user }, action }) => {
+            config.activePrisons = []
+
+            const permissions = new Permissions(user)
+            expect(permissions.canCreateReportInActiveCaseload).toBe(false)
+            expect(permissions.canCreateReportInActiveCaseloadInNomisOnly).toBe(action === granted)
+          },
+        )
       })
 
       describe('in a PECS region', () => {
@@ -252,6 +293,30 @@ describe('Permissions', () => {
           const permissions = new Permissions(user)
           expect(permissions.canCreateReportInLocation('NORTH')).toBe(action === granted)
         })
+
+        it.each([
+          { userType: notLoggedIn, action: denied },
+          { userType: unauthorisedNotInLeeds, action: denied },
+          { userType: unauthorisedInLeeds, action: denied },
+          { userType: reportingNotInLeeds, action: denied },
+          { userType: reportingInLeeds, action: denied },
+          { userType: reportingInLeedsWithPecs, action: denied },
+          { userType: approverNotInLeeds, action: granted },
+          { userType: approverInLeeds, action: granted },
+          { userType: approverInLeedsWithoutPecs, action: denied },
+          { userType: viewOnlyNotInLeeds, action: denied },
+          { userType: viewOnlyInLeeds, action: denied },
+          { userType: viewOnlyInLeedsWithPecs, action: denied },
+        ])(
+          'should be $action to $userType.description only in NOMIS when PECS reports are inactive in DPS',
+          ({ userType: { user }, action }) => {
+            config.activeForPecsRegions = false
+
+            const permissions = new Permissions(user)
+            expect(permissions.canCreateReportInLocation('NORTH')).toBe(false)
+            expect(permissions.canCreateReportInLocationInNomisOnly('NORTH')).toBe(action === granted)
+          },
+        )
       })
     })
 

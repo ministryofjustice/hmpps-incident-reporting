@@ -71,9 +71,26 @@ export class Permissions {
     )
   }
 
+  /** Could have created new report in DPS if given prison was active or PECS regions are enabled */
+  canCreateReportInLocationInNomisOnly(code: string): boolean {
+    return (
+      // user could have created report at this location were it enabled
+      this.couldCreateReportInLocationIfActiveInService(code) &&
+      // if PECS region, are they enabled?
+      ((isPecsRegionCode(code) && !config.activeForPecsRegions) ||
+        // otherwise is the prison enabled?
+        !isPrisonActiveInService(code))
+    )
+  }
+
   /** Can create new report in active caseload prison */
   get canCreateReportInActiveCaseload(): boolean {
     return this.canCreateReportInLocation(this.activeCaseloadId)
+  }
+
+  /** Could have created new report in active caseload prison were it enabled */
+  get canCreateReportInActiveCaseloadInNomisOnly(): boolean {
+    return this.canCreateReportInLocationInNomisOnly(this.activeCaseloadId)
   }
 
   private couldEditReportIfLocationActiveInService(report: ReportBasic): boolean {
@@ -131,6 +148,18 @@ export class Permissions {
       ((isPecsRegionCode(report.location) && config.activeForPecsRegions) ||
         // otherwise is the prison enabled?
         isPrisonActiveInService(report.location))
+    )
+  }
+
+  /** Could have approved or rejected this report in DPS if prison was active or PECS regions are enabled */
+  canApproveOrRejectReportInNomisOnly(report: ReportBasic): boolean {
+    return (
+      // user could have approved/rejected report at this location were it enabled
+      this.couldApproveOrRejectReportIfLocationActiveInService(report) &&
+      // if PECS region, are they enabled?
+      ((isPecsRegionCode(report.location) && !config.activeForPecsRegions) ||
+        // otherwise is the prison enabled?
+        !isPrisonActiveInService(report.location))
     )
   }
 }

@@ -431,6 +431,32 @@ describe('Permissions', () => {
           const permissions = new Permissions(user)
           expect(mockReports.every(report => permissions.canApproveOrRejectReport(report))).toBe(action === granted)
         })
+
+        it.each([
+          { userType: notLoggedIn, action: denied },
+          { userType: unauthorisedNotInLeeds, action: denied },
+          { userType: unauthorisedInLeeds, action: denied },
+          { userType: reportingNotInLeeds, action: denied },
+          { userType: reportingInLeeds, action: denied },
+          { userType: reportingInLeedsWithPecs, action: denied },
+          { userType: approverNotInLeeds, action: denied },
+          { userType: approverInLeeds, action: granted },
+          { userType: approverInLeedsWithoutPecs, action: granted },
+          { userType: viewOnlyNotInLeeds, action: denied },
+          { userType: viewOnlyInLeeds, action: denied },
+          { userType: viewOnlyInLeedsWithPecs, action: denied },
+        ])(
+          'should be $action to $userType.description only in NOMIS when Leeds is inactive in DPS',
+          ({ userType: { user }, action }) => {
+            config.activePrisons = ['MDI']
+
+            const permissions = new Permissions(user)
+            expect(mockReports.every(report => permissions.canApproveOrRejectReport(report))).toBe(false)
+            expect(mockReports.every(report => permissions.canApproveOrRejectReportInNomisOnly(report))).toBe(
+              action === granted,
+            )
+          },
+        )
       })
 
       describe('in a PECS region', () => {
@@ -451,6 +477,32 @@ describe('Permissions', () => {
           const permissions = new Permissions(user)
           expect(mockPecsReports.every(report => permissions.canApproveOrRejectReport(report))).toBe(action === granted)
         })
+
+        it.each([
+          { userType: notLoggedIn, action: denied },
+          { userType: unauthorisedNotInLeeds, action: denied },
+          { userType: unauthorisedInLeeds, action: denied },
+          { userType: reportingNotInLeeds, action: denied },
+          { userType: reportingInLeeds, action: denied },
+          { userType: reportingInLeedsWithPecs, action: denied },
+          { userType: approverNotInLeeds, action: granted },
+          { userType: approverInLeeds, action: granted },
+          { userType: approverInLeedsWithoutPecs, action: denied },
+          { userType: viewOnlyNotInLeeds, action: denied },
+          { userType: viewOnlyInLeeds, action: denied },
+          { userType: viewOnlyInLeedsWithPecs, action: denied },
+        ])(
+          'should be $action to $userType.description only in NOMIS when active casload is inactive in DPS',
+          ({ userType: { user }, action }) => {
+            config.activeForPecsRegions = false
+
+            const permissions = new Permissions(user)
+            expect(mockPecsReports.every(report => permissions.canApproveOrRejectReport(report))).toBe(false)
+            expect(mockPecsReports.every(report => permissions.canApproveOrRejectReportInNomisOnly(report))).toBe(
+              action === granted,
+            )
+          },
+        )
       })
     })
   })

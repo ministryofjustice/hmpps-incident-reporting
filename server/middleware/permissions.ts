@@ -76,9 +76,9 @@ export class Permissions {
     return (
       // user could have created report at this location were it enabled
       this.couldCreateReportInLocationIfActiveInService(code) &&
-      // if PECS region, are they enabled?
+      // if PECS region, are they disabled?
       ((isPecsRegionCode(code) && !config.activeForPecsRegions) ||
-        // otherwise is the prison enabled?
+        // otherwise is the prison disabled?
         !isPrisonActiveInService(code))
     )
   }
@@ -121,9 +121,9 @@ export class Permissions {
     return (
       // user could have edited report at this location were it enabled
       this.couldEditReportIfLocationActiveInService(report) &&
-      // if PECS region, are they enabled?
+      // if PECS region, are they disabled?
       ((isPecsRegionCode(report.location) && !config.activeForPecsRegions) ||
-        // otherwise is the prison enabled?
+        // otherwise is the prison disabled?
         !isPrisonActiveInService(report.location))
     )
   }
@@ -156,9 +156,9 @@ export class Permissions {
     return (
       // user could have approved/rejected report at this location were it enabled
       this.couldApproveOrRejectReportIfLocationActiveInService(report) &&
-      // if PECS region, are they enabled?
+      // if PECS region, are they disabled?
       ((isPecsRegionCode(report.location) && !config.activeForPecsRegions) ||
-        // otherwise is the prison enabled?
+        // otherwise is the prison disabled?
         !isPrisonActiveInService(report.location))
     )
   }

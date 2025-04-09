@@ -48,7 +48,7 @@ export const types = [
   {
     familyCode: 'DAMAGE',
     code: 'DAMAGE_1',
-    description: 'Deliberate damage to prison property',
+    description: 'Deliberate damage',
     active: false,
     nomisCode: 'DAMAGE',
   },

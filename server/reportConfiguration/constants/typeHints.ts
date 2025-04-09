@@ -30,7 +30,7 @@ export const shortTypeTitles: Partial<Record<TypeFamily, string>> = {
   BREACH_OF_SECURITY: 'breach or attempted breach of security',
   CLOSE_DOWN_SEARCH: 'close down search',
   CONCERTED_INDISCIPLINE: 'incident involving 2 or more prisioners acting together',
-  DAMAGE: 'deliberate damage to prison property',
+  DAMAGE: 'deliberate damage',
   DEATH_OTHER: 'death of other person',
   DEATH_PRISONER: 'death of a prisioner',
   DISORDER: 'disorder',

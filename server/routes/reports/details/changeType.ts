@@ -75,7 +75,8 @@ class TypeController extends BaseTypeController<TypeValues> {
   }
 
   getNextStep(_req: FormWizard.Request<TypeValues>, res: express.Response): string {
-    return res.locals.reportUrl
+    // proceed with re-adding prisoners if they chose to continue
+    return `/create-report/${res.locals.report.id}/prisoners`
   }
 }
 

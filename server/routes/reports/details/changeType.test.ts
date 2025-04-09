@@ -141,7 +141,7 @@ describe('Changing incident type', () => {
         .expect(302)
         .expect(res => {
           expect(res.redirect).toBe(true)
-          expect(res.header.location).toEqual(`/reports/${mockedReport.id}`)
+          expect(res.header.location).toEqual(`/create-report/${mockedReport.id}/prisoners`)
           expect(incidentReportingApi.changeReportType).toHaveBeenCalledWith(mockedReport.id, {
             newType: 'MISCELLANEOUS_1',
           })

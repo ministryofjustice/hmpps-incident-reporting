@@ -48,18 +48,26 @@ export class Permissions {
   /** Can create new report (ignoring caseload!) */
   readonly canCreateReport: boolean
 
-  /** Can create new report in given prison or PECS region */
-  canCreateReportInLocation(code: string): boolean {
+  private couldCreateReportInLocationIfActiveInService(code: string): boolean {
     return (
       // has minimal roles
       this.canCreateReport &&
-      // if PECS region, are PECS reports enabled and user can edit PECS reports (has approver & PECS roles)?
-      ((isPecsRegionCode(code) &&
-        config.activeForPecsRegions &&
-        this.roles.has(roleApproveReject) &&
-        this.roles.has(rolePecs)) ||
-        // otherwise is prison enabled and user has caseload but isn't a data warden?
-        (isPrisonActiveInService(code) && this.caseloadIds.has(code) && !this.roles.has(roleApproveReject)))
+      // if PECS region, can user edit PECS reports (has approver & PECS roles)?
+      ((isPecsRegionCode(code) && this.roles.has(roleApproveReject) && this.roles.has(rolePecs)) ||
+        // otherwise does user have caseload but isn't a data warden?
+        (this.caseloadIds.has(code) && !this.roles.has(roleApproveReject)))
+    )
+  }
+
+  /** Can create new report in given prison or PECS region */
+  canCreateReportInLocation(code: string): boolean {
+    return (
+      // user could have created report at this location were it enabled
+      this.couldCreateReportInLocationIfActiveInService(code) &&
+      // if PECS region, are they enabled?
+      ((isPecsRegionCode(code) && config.activeForPecsRegions) ||
+        // otherwise is the prison enabled?
+        isPrisonActiveInService(code))
     )
   }
 
@@ -68,49 +76,61 @@ export class Permissions {
     return this.canCreateReportInLocation(this.activeCaseloadId)
   }
 
-  /** Can edit this report */
-  canEditReport(report: ReportBasic): boolean {
+  private couldEditReportIfLocationActiveInService(report: ReportBasic): boolean {
     return (
       // has minimal roles
       this.canCreateReport &&
-      // if PECS region, are PECS reports enabled and user can edit PECS reports (has approver & PECS roles)?
-      ((isPecsRegionCode(report.location) &&
-        config.activeForPecsRegions &&
-        this.roles.has(roleApproveReject) &&
-        this.roles.has(rolePecs)) ||
-        // otherwise is prison enabled and user has caseload but isn't a data warden?
-        (isPrisonActiveInService(report.location) &&
-          this.caseloadIds.has(report.location) &&
-          !this.roles.has(roleApproveReject)))
+      // if PECS region, can user edit PECS reports (has approver & PECS roles)?
+      ((isPecsRegionCode(report.location) && this.roles.has(roleApproveReject) && this.roles.has(rolePecs)) ||
+        // otherwise does user have caseload but isn't a data warden?
+        (this.caseloadIds.has(report.location) && !this.roles.has(roleApproveReject)))
+    )
+  }
+
+  /** Can edit this report */
+  canEditReport(report: ReportBasic): boolean {
+    return (
+      // user could have edited report at this location were it enabled
+      this.couldEditReportIfLocationActiveInService(report) &&
+      // if PECS region, are they enabled?
+      ((isPecsRegionCode(report.location) && config.activeForPecsRegions) ||
+        // otherwise is the prison enabled?
+        isPrisonActiveInService(report.location))
     )
   }
 
   /** Could have edited this report in DPS if prison was active or PECS regions are enabled */
   canEditReportInNomisOnly(report: ReportBasic): boolean {
     return (
-      // has minimal roles
-      this.canCreateReport &&
-      // if PECS region and user can edit PECS reports (has approver & PECS roles), but PECS reports are inactive in service
-      ((isPecsRegionCode(report.location) &&
-        this.roles.has(roleApproveReject) &&
-        this.roles.has(rolePecs) &&
-        !config.activeForPecsRegions) ||
-        // isn't a data warden and has caseload but prison is inactive in service
-        (this.caseloadIds.has(report.location) &&
-          !this.roles.has(roleApproveReject) &&
-          !isPrisonActiveInService(report.location)))
+      // user could have edited report at this location were it enabled
+      this.couldEditReportIfLocationActiveInService(report) &&
+      // if PECS region, are they enabled?
+      ((isPecsRegionCode(report.location) && !config.activeForPecsRegions) ||
+        // otherwise is the prison enabled?
+        !isPrisonActiveInService(report.location))
+    )
+  }
+
+  private couldApproveOrRejectReportIfLocationActiveInService(report: ReportBasic): boolean {
+    return (
+      // has specific approve role
+      this.roles.has(roleApproveReject) &&
+      // if PECS region, does user have PECS role?
+      ((isPecsRegionCode(report.location) && this.roles.has(rolePecs)) ||
+        // otherwise does user have caseload?
+        this.caseloadIds.has(report.location))
     )
   }
 
   /** Can approve or reject this report */
   canApproveOrRejectReport(report: ReportBasic): boolean {
     return (
-      // has specific approve role
-      this.roles.has(roleApproveReject) &&
-      // if PECS region, are PECS reports enabled and user has PECS role?
-      ((isPecsRegionCode(report.location) && config.activeForPecsRegions && this.roles.has(rolePecs)) ||
-        // otherwise is prison enabled and user has caseload?
-        (isPrisonActiveInService(report.location) && this.caseloadIds.has(report.location)))
+      // user could have approved/rejected report at this location were it enabled
+      this.couldApproveOrRejectReportIfLocationActiveInService(report) &&
+      // if PECS region, are they enabled?
+      ((isPecsRegionCode(report.location) && config.activeForPecsRegions) ||
+        // otherwise is the prison enabled?
+        isPrisonActiveInService(report.location))
     )
   }
 }

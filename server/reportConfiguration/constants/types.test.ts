@@ -47,7 +47,7 @@ describe('aboutTheType()', () => {
   it.each([
     { type: 'ASSAULT_5' as const, expectedTitle: 'About the assault' },
     { type: 'CLOSE_DOWN_SEARCH_1' as const, expectedTitle: 'About the close down search' },
-    { type: 'DAMAGE_1' as const, expectedTitle: 'About the deliberate damage to prison property' },
+    { type: 'DAMAGE_1' as const, expectedTitle: 'About the deliberate damage' },
     { type: 'MISCELLANEOUS_1' as const, expectedTitle: 'About the incident' },
   ])('should generate a title for type: $type', ({ type, expectedTitle }) => {
     const title = aboutTheType(type)
@@ -57,7 +57,7 @@ describe('aboutTheType()', () => {
   it.each([
     { typeFamily: 'ASSAULT' as const, expectedTitle: 'About the assault' },
     { typeFamily: 'CLOSE_DOWN_SEARCH' as const, expectedTitle: 'About the close down search' },
-    { typeFamily: 'DAMAGE' as const, expectedTitle: 'About the deliberate damage to prison property' },
+    { typeFamily: 'DAMAGE' as const, expectedTitle: 'About the deliberate damage' },
     { typeFamily: 'MISCELLANEOUS' as const, expectedTitle: 'About the incident' },
   ])('should generate a title for type family: $typeFamily', ({ typeFamily, expectedTitle }) => {
     const title = aboutTheType(typeFamily)

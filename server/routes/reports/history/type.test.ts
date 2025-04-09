@@ -137,7 +137,7 @@ describe('Report incident type history', () => {
         expect(res.text).toContain('4 December 2023')
         expect(res.text).toContain('A-003')
 
-        expect(res.text).toContain('Deliberate damage to prison property')
+        expect(res.text).toContain('Deliberate damage')
         expect(res.text).toContain('by Mary Johnson')
         expect(res.text).toContain('Was anyone hurt?')
         expect(res.text).toContain('YES')

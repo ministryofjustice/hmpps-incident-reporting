@@ -11,7 +11,7 @@ export const typeFamilies = [
   { code: 'BREACH_OF_SECURITY', description: 'Breach or attempted breach of security' },
   { code: 'CLOSE_DOWN_SEARCH', description: 'Close down search' },
   { code: 'CONCERTED_INDISCIPLINE', description: 'Incident involving 2 or more prisioners acting together' },
-  { code: 'DAMAGE', description: 'Deliberate damage to prison property' },
+  { code: 'DAMAGE', description: 'Deliberate damage' },
   { code: 'DEATH_PRISONER', description: 'Death of prisoner' },
   { code: 'DEATH_OTHER', description: 'Death of other person' },
   { code: 'DISORDER', description: 'Disorder' },

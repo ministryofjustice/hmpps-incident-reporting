@@ -1,6 +1,7 @@
 {% extends "partials/layout.njk" %}
 
 {% from "govuk/components/breadcrumbs/macro.njk" import govukBreadcrumbs %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
 {% from "govuk/components/error-summary/macro.njk" import govukErrorSummary %}
 {% from "govuk/components/warning-text/macro.njk" import govukWarningText %}
 
@@ -68,5 +69,26 @@
   {% include "./_prisoners.njk" %}
   {% include "./_staff.njk" %}
   {% include "./_questions.njk" %}
+
+  <form id="user-actions" method="post" novalidate>
+    <input type="hidden" name="_csrf" value="{{ csrfToken }}" />
+
+    <div class="govuk-button-group">
+      {# TODO: will need to work for other statuses too once lifecycle confirmed #}
+      {% if report.status == "DRAFT" and canEditReport %}
+        {{ govukButton({
+          text: "Submit",
+          name: "userAction",
+          value: "submit",
+          preventDoubleClick: true,
+          type: "submit"
+        }) }}
+      {% endif %}
+
+      <a href="/reports" class="govuk-link govuk-link--no-visited-state">
+        Back to incidents
+      </a>
+    </div>
+  </form>
 
 {% endblock %}

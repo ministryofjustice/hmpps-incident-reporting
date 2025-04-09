@@ -1,8 +1,10 @@
 import { Router } from 'express'
 import { MethodNotAllowed } from 'http-errors'
 
+import logger from '../../../logger'
 import type { Services } from '../../services'
 import {
+  type Status,
   aboutTheType,
   prisonerInvolvementOutcomes,
   prisonerInvolvementRoles,
@@ -14,7 +16,9 @@ import asyncMiddleware from '../../middleware/asyncMiddleware'
 import { logoutIf } from '../../middleware/permissions'
 import { populateReport } from '../../middleware/populateReport'
 import { populateReportConfiguration } from '../../middleware/populateReportConfiguration'
-import { type ReportWithDetails } from '../../data/incidentReportingApi'
+import type { ReportWithDetails } from '../../data/incidentReportingApi'
+import type { QuestionProgressStep } from '../../data/incidentTypeConfiguration/questionProgress'
+import type { IncidentTypeConfiguration } from '../../data/incidentTypeConfiguration/types'
 import type { GovukErrorSummaryItem } from '../../utils/govukFrontend'
 import { cannotViewReport } from './permissions'
 
@@ -47,10 +51,10 @@ export function viewReportRouter(service: Services): Router {
     logoutIf(cannotViewReport),
     populateReportConfiguration(true),
     asyncMiddleware(async (req, res) => {
-      const { prisonApi } = res.locals.apis
+      const { incidentReportingApi, prisonApi } = res.locals.apis
 
       const report = res.locals.report as ReportWithDetails
-      const { permissions, reportConfig, questionProgress } = res.locals
+      const { permissions, reportConfig, reportUrl, questionProgress } = res.locals
 
       const usernames = [report.reportedBy]
       if (report.correctionRequests) {
@@ -68,7 +72,55 @@ export function viewReportRouter(service: Services): Router {
 
       const errors: GovukErrorSummaryItem[] = []
       if (req.method === 'POST') {
-        errors.push({ text: 'TODO: not implemented', href: '?' })
+        if (req.body.userAction === 'submit') {
+          // TODO: will need to work for other statuses too once lifecycle confirmed
+          if (report.status !== 'DRAFT') {
+            // incorrect status; users would never reach here through normal actions
+            errors.push({
+              text: 'Only a draft report can be submitted',
+              href: '?',
+            })
+          } else if (!canEditReport) {
+            // missing edit permission; users would never reach here through normal actions
+            errors.push({
+              text: 'You do not have permission to submit this report',
+              href: '?',
+            })
+          } else {
+            // allowed to submit so check report for validity
+            for (const error of checkReportIsComplete(report, reportConfig, questionProgressSteps, reportUrl)) {
+              errors.push(error)
+            }
+          }
+
+          if (errors.length === 0) {
+            // can submit for review
+            try {
+              // TODO: will need to work for other statuses too once lifecycle confirmed
+              const newStatus: Status = 'AWAITING_ANALYSIS'
+              await incidentReportingApi.changeReportStatus(report.id, { newStatus })
+              // TODO: set report validation=true flag? not supported by api/db yet / ever will be?
+              logger.info(
+                `Report ${report.reportReference} submitted for review and changed status from ${report.status} to ${newStatus}`,
+              )
+              req.flash('success', { title: `You have submitted incident report ${report.reportReference}` })
+              res.redirect('/reports')
+              return
+            } catch (e) {
+              logger.error(e, `Report ${report.reportReference} could not be submitted: %j`, e)
+              errors.push({
+                text: 'Report could not be submitted, please try again',
+                href: '#user-actions',
+              })
+            }
+          }
+        } else {
+          // failsafe; users would never reach here through normal actions
+          errors.push({
+            text: 'Unknown action, please try again',
+            href: '?',
+          })
+        }
       }
 
       // Gather notification banner entries if they exist
@@ -97,4 +149,58 @@ export function viewReportRouter(service: Services): Router {
   )
 
   return router
+}
+
+/**
+ * Generates error messages for incomplete reports:
+ * - not all questions are complete
+ * - prisoner involvements skipped initially
+ * - prisoner involvements not added but incident type requires some
+ * - staff involvements skipped initially
+ * - staff involvements not added but incident type requires some
+ */
+function* checkReportIsComplete(
+  report: ReportWithDetails,
+  reportConfig: IncidentTypeConfiguration,
+  questionProgressSteps: QuestionProgressStep[],
+  reportUrl: string,
+): Generator<GovukErrorSummaryItem, void, void> {
+  if (!report.prisonerInvolvementDone) {
+    // prisoners skipped, so must return
+    yield {
+      // TODO: message could be better since user chose to skip
+      text: 'You need to add a prisoner',
+      href: `${reportUrl}/prisoners`,
+    }
+  } else if (report.prisonersInvolved.length === 0 && reportConfig.requiresPrisoners) {
+    // prisoner required
+    yield {
+      text: 'You need to add a prisoner',
+      href: `${reportUrl}/prisoners`,
+    }
+  }
+
+  if (!report.staffInvolvementDone) {
+    // staff skipped, so must return
+    yield {
+      // TODO: message could be better since user chose to skip
+      text: 'You need to add a member of staff',
+      href: `${reportUrl}/staff`,
+    }
+  } else if (report.staffInvolved.length === 0 && reportConfig.requiresStaff) {
+    // staff required
+    yield {
+      text: 'You need to add a member of staff',
+      href: `${reportUrl}/staff`,
+    }
+  }
+
+  const lastQuestion = questionProgressSteps.at(-1)
+  if (!lastQuestion.isComplete) {
+    // last question is incomplete
+    yield {
+      text: `You must answer question ${lastQuestion.questionNumber}`,
+      href: `${reportUrl}/questions${lastQuestion.urlSuffix}`,
+    }
+  }
 }

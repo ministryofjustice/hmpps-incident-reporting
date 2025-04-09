@@ -3,6 +3,7 @@ import { MethodNotAllowed } from 'http-errors'
 
 import logger from '../../../logger'
 import type { Services } from '../../services'
+import { regenerateTitleForReport } from '../../services/reportTitle'
 import {
   type Status,
   aboutTheType,
@@ -96,10 +97,20 @@ export function viewReportRouter(service: Services): Router {
           if (errors.length === 0) {
             // can submit for review
             try {
+              // TODO: PECS regions need a different lookup
+              const newTitle = regenerateTitleForReport(
+                report,
+                prisonsLookup[report.location].description || report.location,
+              )
+              await incidentReportingApi.updateReport(report.id, {
+                title: newTitle,
+              })
+
               // TODO: will need to work for other statuses too once lifecycle confirmed
               const newStatus: Status = 'AWAITING_ANALYSIS'
               await incidentReportingApi.changeReportStatus(report.id, { newStatus })
               // TODO: set report validation=true flag? not supported by api/db yet / ever will be?
+
               logger.info(
                 `Report ${report.reportReference} submitted for review and changed status from ${report.status} to ${newStatus}`,
               )

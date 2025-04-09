@@ -483,13 +483,15 @@ describe('View report page', () => {
       incidentReportingApi.getReportWithDetailsById.mockReset()
       incidentReportingApi.getReportWithDetailsById.mockResolvedValueOnce(mockedReport)
       viewReportUrl = `/reports/${mockedReport.id}`
+
+      incidentReportingApi.updateReport.mockRejectedValue(new Error('should not be called'))
+      incidentReportingApi.changeReportStatus.mockRejectedValue(new Error('should not be called'))
     })
 
     it.each(statuses.map(s => s.code).filter(s => s !== 'DRAFT'))(
       'should not allow submitting a non-draft report with status %s',
       status => {
         mockedReport.status = status
-        incidentReportingApi.changeReportStatus.mockRejectedValue(new Error('should not be called'))
 
         return request
           .agent(app)
@@ -506,6 +508,9 @@ describe('View report page', () => {
 
     describe('when it’s type requires involvements', () => {
       it('should allow submitting a fully complete draft report for review', () => {
+        incidentReportingApi.updateReport.mockReset()
+        incidentReportingApi.updateReport.mockResolvedValueOnce(mockedReport) // return value ignored
+        incidentReportingApi.changeReportStatus.mockReset()
         incidentReportingApi.changeReportStatus.mockResolvedValueOnce(mockedReport) // return value ignored
 
         return request
@@ -517,6 +522,13 @@ describe('View report page', () => {
           .expect(res => {
             expect(res.text).toContain('app-dashboard')
             expect(res.text).toContain(`You have submitted incident report ${mockedReport.reportReference}`)
+
+            expect(incidentReportingApi.updateReport).toHaveBeenCalledWith(mockedReport.id, {
+              title: 'Assault: Arnold A1111AA, Benjamin A2222BB (Moorland (HMP & YOI))',
+            })
+            expect(incidentReportingApi.changeReportStatus).toHaveBeenCalledWith(mockedReport.id, {
+              newStatus: 'AWAITING_ANALYSIS',
+            })
           })
       })
 
@@ -526,7 +538,6 @@ describe('View report page', () => {
       ])('should not allow submitting a draft report $scenario when the type requires them', ({ skipped }) => {
         mockedReport.prisonersInvolved = []
         mockedReport.prisonerInvolvementDone = !skipped
-        incidentReportingApi.changeReportStatus.mockRejectedValue(new Error('should not be called'))
 
         return request
           .agent(app)
@@ -538,6 +549,9 @@ describe('View report page', () => {
             expect(res.text).toContain('There is a problem')
             // NB: this error message ought to be different when deliberately skipped
             expect(res.text).toContain('You need to add a prisoner')
+
+            expect(incidentReportingApi.updateReport).not.toHaveBeenCalled()
+            expect(incidentReportingApi.changeReportStatus).not.toHaveBeenCalled()
           })
       })
 
@@ -547,7 +561,6 @@ describe('View report page', () => {
       ])('should not allow submitting a draft report $scenario when the type requires them', ({ skipped }) => {
         mockedReport.staffInvolved = []
         mockedReport.staffInvolvementDone = !skipped
-        incidentReportingApi.changeReportStatus.mockRejectedValue(new Error('should not be called'))
 
         return request
           .agent(app)
@@ -559,12 +572,14 @@ describe('View report page', () => {
             expect(res.text).toContain('There is a problem')
             // NB: this error message ought to be different when deliberately skipped
             expect(res.text).toContain('You need to add a member of staff')
+
+            expect(incidentReportingApi.updateReport).not.toHaveBeenCalled()
+            expect(incidentReportingApi.changeReportStatus).not.toHaveBeenCalled()
           })
       })
 
       it('should not allow submitting a draft report with no answered questions', () => {
         mockedReport.questions = []
-        incidentReportingApi.changeReportStatus.mockRejectedValue(new Error('should not be called'))
 
         return request
           .agent(app)
@@ -576,12 +591,14 @@ describe('View report page', () => {
             expect(res.text).toContain('There is a problem')
             expect(res.text).toContain('You must answer question 1')
             expect(res.text).not.toContain('You must answer question 17')
+
+            expect(incidentReportingApi.updateReport).not.toHaveBeenCalled()
+            expect(incidentReportingApi.changeReportStatus).not.toHaveBeenCalled()
           })
       })
 
       it('should not allow submitting a draft report with incomplete questions', () => {
         mockedReport.questions.pop()
-        incidentReportingApi.changeReportStatus.mockRejectedValue(new Error('should not be called'))
 
         return request
           .agent(app)
@@ -592,6 +609,9 @@ describe('View report page', () => {
           .expect(res => {
             expect(res.text).toContain('There is a problem')
             expect(res.text).toContain('You must answer question 17')
+
+            expect(incidentReportingApi.updateReport).not.toHaveBeenCalled()
+            expect(incidentReportingApi.changeReportStatus).not.toHaveBeenCalled()
           })
       })
     })
@@ -628,6 +648,10 @@ describe('View report page', () => {
         mockedReport.prisonerInvolvementDone = true
         mockedReport.staffInvolved = []
         mockedReport.staffInvolvementDone = true
+
+        incidentReportingApi.updateReport.mockReset()
+        incidentReportingApi.updateReport.mockResolvedValueOnce(mockedReport) // return value ignored
+        incidentReportingApi.changeReportStatus.mockReset()
         incidentReportingApi.changeReportStatus.mockResolvedValueOnce(mockedReport) // return value ignored
 
         return request
@@ -639,13 +663,19 @@ describe('View report page', () => {
           .expect(res => {
             expect(res.text).toContain('app-dashboard')
             expect(res.text).toContain(`You have submitted incident report ${mockedReport.reportReference}`)
+
+            expect(incidentReportingApi.updateReport).toHaveBeenCalledWith(mockedReport.id, {
+              title: 'Find of illicit items (Moorland (HMP & YOI))',
+            })
+            expect(incidentReportingApi.changeReportStatus).toHaveBeenCalledWith(mockedReport.id, {
+              newStatus: 'AWAITING_ANALYSIS',
+            })
           })
       })
 
       it('should still not allow submitting a draft report if prisoner involvements were skipped', () => {
         mockedReport.prisonersInvolved = []
         mockedReport.prisonerInvolvementDone = false
-        incidentReportingApi.changeReportStatus.mockRejectedValue(new Error('should not be called'))
 
         return request
           .agent(app)
@@ -657,13 +687,15 @@ describe('View report page', () => {
             expect(res.text).toContain('There is a problem')
             // NB: this error message ought to be different since deliberately skipped
             expect(res.text).toContain('You need to add a prisoner')
+
+            expect(incidentReportingApi.updateReport).not.toHaveBeenCalled()
+            expect(incidentReportingApi.changeReportStatus).not.toHaveBeenCalled()
           })
       })
 
       it('should still not allow submitting a draft report if staff involvements were skipped', () => {
         mockedReport.staffInvolved = []
         mockedReport.staffInvolvementDone = false
-        incidentReportingApi.changeReportStatus.mockRejectedValue(new Error('should not be called'))
 
         return request
           .agent(app)
@@ -675,12 +707,14 @@ describe('View report page', () => {
             expect(res.text).toContain('There is a problem')
             // NB: this error message ought to be different since deliberately skipped
             expect(res.text).toContain('You need to add a member of staff')
+
+            expect(incidentReportingApi.updateReport).not.toHaveBeenCalled()
+            expect(incidentReportingApi.changeReportStatus).not.toHaveBeenCalled()
           })
       })
 
       it('should still not allow submitting a draft report with incomplete questions', () => {
         mockedReport.questions.pop()
-        incidentReportingApi.changeReportStatus.mockRejectedValue(new Error('should not be called'))
 
         return request
           .agent(app)
@@ -691,6 +725,9 @@ describe('View report page', () => {
           .expect(res => {
             expect(res.text).toContain('There is a problem')
             expect(res.text).toContain('You must answer question 8')
+
+            expect(incidentReportingApi.updateReport).not.toHaveBeenCalled()
+            expect(incidentReportingApi.changeReportStatus).not.toHaveBeenCalled()
           })
       })
     })

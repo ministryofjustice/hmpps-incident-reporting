@@ -394,6 +394,10 @@ context('Creating a completed draft report', () => {
       ...reportWithDetails,
       status: 'AWAITING_ANALYSIS',
     }
+    cy.task('stubIncidentReportingApiUpdateReport', {
+      request: { title: 'Attempted escape from establishment: Arnold A1111AA (Moorland (HMP & YOI))' },
+      report: reportWithDetails,
+    })
     cy.task('stubIncidentReportingApiChangeReportStatus', {
       request: { newStatus: 'AWAITING_ANALYSIS' },
       report: reportWithDetails,

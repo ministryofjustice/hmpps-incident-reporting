@@ -25,6 +25,7 @@ class DetailsController extends BaseDetailsController<CreateReportValues> {
     const incidentDateAndTime = this.buildIncidentDateAndTime(incidentDate, incidentTime)
 
     // TODO: it's not possible to create a PECS report
+    //       location description is assumed to be active caseload
 
     try {
       const report = await res.locals.apis.incidentReportingApi.createReport({

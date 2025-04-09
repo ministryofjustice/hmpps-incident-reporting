@@ -1,6 +1,7 @@
 import { mockReport } from '../../server/data/testData/incidentReporting'
 import Page from '../pages/page'
 import { ChangeTypeConfirmationPage, TypePage } from '../pages/reports/type'
+import { PrisonerInvolvementsPage } from '../pages/reports/involvements/prisoners'
 
 context('Change incident type', () => {
   const now = new Date()
@@ -172,5 +173,7 @@ context('Change incident type', () => {
     cy.task('stubManageKnownUsers')
 
     typePage.submit()
+
+    Page.verifyOnPage(PrisonerInvolvementsPage, false)
   })
 })

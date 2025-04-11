@@ -61,7 +61,7 @@ class DetailsController extends BaseDetailsController<DetailsValues> {
       logger.info(`Report ${report.reportReference} details updated`)
 
       // clear session since report has been saved
-      req.journeyModel.reset()
+      res.locals.clearSessionOnSuccess = true
 
       super.successHandler(req, res, next)
     } catch (e) {
@@ -91,6 +91,7 @@ const updateDetailsFields: FormWizard.Fields<DetailsValues> = { ...detailsFields
 
 const updateDetailsConfig: FormWizard.Config<DetailsValues> = {
   name: 'updateDetails',
+  journeyName: 'updateDetails',
   checkSession: false,
   csrf: false,
   templatePath: 'pages/reports',

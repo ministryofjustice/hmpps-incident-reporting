@@ -66,6 +66,8 @@ export declare global {
       reportSubUrlPrefix?: string
       /** Some routes load incident type config */
       reportConfig?: IncidentTypeConfiguration
+      /** Form wizard controllers can reset the journey session on success by setting this to true */
+      clearSessionOnSuccess?: boolean
       /** Some routes load question form wizard steps into locals */
       questionSteps?: FormWizard.Steps<FormWizard.MultiValues>
       /** Some routes load question form wizard fields into locals */

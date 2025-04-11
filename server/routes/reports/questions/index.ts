@@ -19,6 +19,7 @@ questionsRouter.use(populateReportConfiguration(), (req, res, next) => {
 
   const wizardRouter = wizard(res.locals.questionSteps, res.locals.questionFields, {
     name: `${reportId}-questions`,
+    journeyName: `${reportId}-questions`,
     template: 'pages/reports/questions',
     // Needs to be false, session already handled by application
     checkSession: false,

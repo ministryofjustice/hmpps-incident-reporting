@@ -100,6 +100,7 @@ describe('Error handling', () => {
       const fields: FormWizard.Fields = { name: { validate: ['required'] } }
       const formConfig: FormWizard.Config = {
         name: 'redirect-test',
+        journeyName: 'redirect-test',
         // TODO: will need to swap to an empty template if index page becomes complex and stops working
         template: 'pages/index',
         checkSession: false,

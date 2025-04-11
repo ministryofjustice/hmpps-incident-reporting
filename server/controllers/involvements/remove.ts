@@ -67,7 +67,7 @@ export abstract class RemoveInvolvement<
         await this.deleteInvolvement(req, res)
 
         // clear session since involvement has been saved
-        req.journeyModel.reset()
+        res.locals.clearSessionOnSuccess = true
       }
 
       next()

@@ -1,5 +1,6 @@
 import { type RequestHandler, Router } from 'express'
 
+import config from '../config'
 import asyncMiddleware from '../middleware/asyncMiddleware'
 import { logoutIf } from '../middleware/permissions'
 import type { Services } from '../services'
@@ -28,8 +29,17 @@ export default function routes(services: Services): Router {
   })
 
   // view-only debug pages
+  // TODO: remove once not needed
   const debugRoutes = makeDebugRoutes(services)
   get('/incidents/:eventId', debugRoutes.eventDetails)
+  if (config.environment !== 'prod') {
+    router.get('/inspect-session', (req, res) => {
+      const sessionAsJson = JSON.stringify({
+        ...req.session,
+      })
+      res.send(sessionAsJson)
+    })
+  }
 
   // creating and editing a report
   router.use('/reports', dashboard(services))

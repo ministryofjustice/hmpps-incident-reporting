@@ -120,6 +120,22 @@ export abstract class BaseController<
 
     return allValues
   }
+
+  successHandler(req: FormWizard.Request<V, K>, res: express.Response, next: express.NextFunction): void {
+    // optionally, clear the journey from the session as the final action
+    // form wizard’s standard `successHandler` will add a history step to the journey model
+    // so _here_ is too early to clear the session and the `next` function is never called
+    if (res.locals.clearSessionOnSuccess) {
+      const actualRedirect = res.redirect.bind(res)
+      res.redirect = (...args: unknown[]) => {
+        // clear the session just before redirecting
+        req.journeyModel.reset()
+        actualRedirect(...args)
+      }
+    }
+
+    super.successHandler(req, res, next)
+  }
 }
 
 // install application-specific validators

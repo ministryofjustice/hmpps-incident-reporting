@@ -298,6 +298,9 @@ export default class QuestionsController extends BaseController<FormWizard.Multi
             await incidentReportingApi.deleteQuestionsAndTheirResponses(report.id, questionsToDelete)
             logger.info('Removed obsolete questions from report %s', report.id)
           }
+
+          // clear session since questions have been saved
+          res.locals.clearSessionOnSuccess = true
         } catch (e) {
           logger.error(e, 'Questions could not be updated in report %s: %j', report.id, e)
           const err = this.convertIntoValidationError(e)
@@ -311,21 +314,5 @@ export default class QuestionsController extends BaseController<FormWizard.Multi
         next()
       }
     })
-  }
-
-  successHandler(
-    req: FormWizard.Request<FormWizard.MultiValues, string>,
-    res: express.Response,
-    next: express.NextFunction,
-  ): void {
-    // clear session since questions have been saved
-    // NB: there is no method to override and next callback is unused,
-    // so this seems to be the only way to do it at the right time
-    const actualRedirect = res.redirect.bind(res)
-    res.redirect = (...args: unknown[]) => {
-      req.journeyModel.reset()
-      actualRedirect(...args)
-    }
-    super.successHandler(req, res, next)
   }
 }

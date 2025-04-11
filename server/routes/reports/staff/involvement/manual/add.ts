@@ -6,6 +6,7 @@ import { steps } from './steps'
 // eslint-disable-next-line import/prefer-default-export
 export const manualAddRouter = FormWizard(steps, fields, {
   name: 'addManualStaffInvolvement',
+  journeyName: 'addManualStaffInvolvement',
   checkSession: false,
   csrf: false,
 })

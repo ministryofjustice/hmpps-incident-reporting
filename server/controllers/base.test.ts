@@ -1,7 +1,12 @@
-import type express from 'express'
-import type FormWizard from 'hmpo-form-wizard'
+// eslint-disable-next-line max-classes-per-file
+import cookieParser from 'cookie-parser'
+import cookieSession from 'cookie-session'
+import express from 'express'
+import FormWizard from 'hmpo-form-wizard'
+import request from 'supertest'
 
 import { mockThrownError } from '../data/testData/thrownErrors'
+import nunjucksSetup from '../utils/nunjucksSetup'
 import { BaseController } from './base'
 
 class TestController extends BaseController {
@@ -230,6 +235,126 @@ describe('Base form wizard controller', () => {
 
       const error = controller.validateField('time', req, res)
       expect(error).toBeUndefined()
+    })
+  })
+
+  describe('Sessions', () => {
+    function makeApp(shouldClearSessionOnSuccess: boolean): express.Express {
+      const app = express()
+
+      // cookies needed for form wizard session handling
+      app.use(cookieParser())
+      app.use(cookieSession({ keys: [''] }))
+
+      // accept POSTs
+      app.use(express.json())
+
+      // CSRF middleware needed for base controller to forward secrets properly
+      app.use((_req, res, next) => {
+        res.locals.csrfToken = 'csrf-token'
+        next()
+      })
+
+      // template rendering middleware is expected to exist
+      nunjucksSetup(app)
+
+      class Controller extends BaseController {
+        successHandler(req: FormWizard.Request, res: express.Response, next: express.NextFunction) {
+          if (shouldClearSessionOnSuccess) {
+            res.locals.clearSessionOnSuccess = true
+          }
+
+          super.successHandler(req, res, next)
+        }
+      }
+
+      // debug route to inspect session contents
+      app.get('/dump-session', (req, res) => {
+        const sessionAsJson = JSON.stringify({
+          ...req.session,
+        })
+        res.send(sessionAsJson)
+      })
+
+      const router = FormWizard(
+        { '/': { fields: ['name'], entryPoint: true, next: '/dump-session' } },
+        { name: { name: 'name', label: 'Name', validate: ['required'], component: 'govukInput' } },
+        {
+          name: 'test',
+          journeyName: 'test',
+          controller: Controller,
+          template: 'partials/formWizardLayout',
+          csrf: false,
+        },
+      )
+      app.use('/', router)
+
+      return app
+    }
+
+    it('should be cleared on success when locals flag is set', async () => {
+      const app = makeApp(true)
+      const agent = request.agent(app)
+
+      await agent.get('/').expect(200)
+      return agent
+        .post('/')
+        .send({ name: 'John' })
+        .redirects(1)
+        .expect(200)
+        .expect(res => {
+          const session = JSON.parse(res.text)
+
+          // clearing wizard journey retains the keys in the session but the values are empty objects
+          expect(session).toHaveProperty('hmpo-wizard-test', {})
+          expect(session).toHaveProperty('hmpo-journey-test', {})
+        })
+    })
+
+    it('should not be cleared on success when locals flag is absent', async () => {
+      const app = makeApp(false)
+      const agent = request.agent(app)
+
+      await agent.get('/').expect(200)
+      return agent
+        .post('/')
+        .send({ name: 'John' })
+        .redirects(1)
+        .expect(200)
+        .expect(res => {
+          const session = JSON.parse(res.text)
+
+          // session model is not cleared and form value exists
+          expect(session).toHaveProperty('hmpo-wizard-test')
+          expect(session['hmpo-wizard-test']).toHaveProperty('name', 'John')
+
+          // journey model is not cleared and history properties exist
+          expect(session).toHaveProperty('hmpo-journey-test')
+          expect(session['hmpo-journey-test']).toHaveProperty('lastVisited')
+          expect(session['hmpo-journey-test']).toHaveProperty('history')
+          expect(session['hmpo-journey-test']).toHaveProperty('registered-models')
+        })
+    })
+
+    it('should not be cleared on error', async () => {
+      const app = makeApp(true)
+      const agent = request.agent(app)
+
+      await agent.get('/').expect(200)
+      await agent.post('/').send({ name: '' }).redirects(1).expect(200)
+      await agent.get('/dump-session').expect(res => {
+        const session = JSON.parse(res.text)
+
+        // session model is not cleared and error properties exist
+        expect(session).toHaveProperty('hmpo-wizard-test')
+        expect(session['hmpo-wizard-test']).toHaveProperty('errors')
+        expect(session['hmpo-wizard-test']).toHaveProperty('errorValues')
+
+        // journey model is not cleared and history properties exist
+        expect(session).toHaveProperty('hmpo-journey-test')
+        expect(session['hmpo-journey-test']).toHaveProperty('lastVisited')
+        expect(session['hmpo-journey-test']).toHaveProperty('registered-models')
+      })
     })
   })
 })

@@ -92,8 +92,10 @@ class EditPrisonerInvolvementController extends PrisonerInvolvementController {
         comment: allValues.comment ?? '',
       })
       logger.info('Prisoner involvement %d updated in report %s', index, report.id)
+
       // clear session since involvement has been saved
-      req.journeyModel.reset()
+      res.locals.clearSessionOnSuccess = true
+
       next()
     } catch (e) {
       logger.error(e, 'Prisoner involvement %d could not be updated in report %s: %j', index, report.id, e)
@@ -107,6 +109,7 @@ class EditPrisonerInvolvementController extends PrisonerInvolvementController {
 // eslint-disable-next-line import/prefer-default-export
 export const editRouter = FormWizard(steps, fields, {
   name: 'editPrisonerInvolvement',
+  journeyName: 'editPrisonerInvolvement',
   checkSession: false,
   csrf: false,
   template: 'pages/prisoners/involvement',

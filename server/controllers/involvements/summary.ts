@@ -108,10 +108,10 @@ export abstract class InvolvementSummary extends BaseController<Values> {
     const report = res.locals.report as ReportWithDetails
     const { confirmAdd } = req.form.values
 
-    // clear session since choice made
-    req.journeyModel.reset()
-
     if (confirmAdd === 'yes') {
+      // clear session since choice made
+      req.journeyModel.reset()
+
       res.redirect(`${res.locals.reportSubUrlPrefix}/${this.type}/search`)
     } else {
       if (confirmAdd === 'no' && report[this.involvementField].length === 0) {
@@ -127,6 +127,10 @@ export abstract class InvolvementSummary extends BaseController<Values> {
           return
         }
       }
+
+      // clear session since choice made
+      res.locals.clearSessionOnSuccess = true
+
       super.successHandler(req, res, next)
     }
   }

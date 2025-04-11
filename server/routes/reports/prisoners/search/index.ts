@@ -7,6 +7,7 @@ import { steps } from './steps'
 // eslint-disable-next-line import/prefer-default-export
 export const searchRouter = FormWizard(steps, fields, {
   name: 'prisonerInvolvementSearch',
+  journeyName: 'prisonerInvolvementSearch',
   checkSession: false,
   csrf: false,
   template: 'pages/prisoners/search',

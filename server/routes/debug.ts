@@ -17,8 +17,10 @@ export default function makeDebugRoutes(services: Services): Record<string, Requ
 
       const event = await incidentReportingApi.getEventById(eventId)
       const usernames = event.reports.map(report => report.reportedBy)
-      const usersLookup = await userService.getUsers(res.locals.systemToken, usernames)
-      const prisonsLookup = await prisonApi.getPrisons()
+      const [usersLookup, prisonsLookup] = await Promise.all([
+        userService.getUsers(res.locals.systemToken, usernames),
+        prisonApi.getPrisons(),
+      ])
 
       res.render('pages/debug/eventDetails', { event, usersLookup, prisonsLookup })
     },

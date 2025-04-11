@@ -71,8 +71,10 @@ class EditStaffInvolvementController extends StaffInvolvementController {
         comment: allValues.comment ?? '',
       })
       logger.info('Staff involvement %d updated in report %s', index, report.id)
+
       // clear session since involvement has been saved
-      req.journeyModel.reset()
+      res.locals.clearSessionOnSuccess = true
+
       next()
     } catch (e) {
       logger.error(e, 'Staff involvement %d could not be updated in report %s: %j', index, report.id, e)
@@ -85,6 +87,7 @@ class EditStaffInvolvementController extends StaffInvolvementController {
 // eslint-disable-next-line import/prefer-default-export
 export const editRouter = FormWizard(steps, fields, {
   name: 'editStaffInvolvement',
+  journeyName: 'editStaffInvolvement',
   checkSession: false,
   csrf: false,
   template: 'pages/staff/involvement',

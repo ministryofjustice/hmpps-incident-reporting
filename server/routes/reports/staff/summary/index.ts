@@ -7,6 +7,7 @@ import { steps } from './steps'
 // eslint-disable-next-line import/prefer-default-export
 export const summaryRouter = FormWizard(steps, fields, {
   name: 'staffSummary',
+  journeyName: 'staffSummary',
   checkSession: false,
   csrf: false,
   template: 'pages/staff/summary',

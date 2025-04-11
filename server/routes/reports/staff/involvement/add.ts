@@ -26,8 +26,10 @@ export class AddStaffInvolvementController<V extends Values = Values> extends St
         comment: allValues.comment ?? '',
       })
       logger.info('Staff involvement added to report %s', report.id)
+
       // clear session since involvement has been saved
-      req.journeyModel.reset()
+      res.locals.clearSessionOnSuccess = true
+
       next()
     } catch (e) {
       logger.error(e, 'Staff involvement could not be added to report %s: %j', report.id, e)

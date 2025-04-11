@@ -61,7 +61,7 @@ class DetailsController extends BaseDetailsController<DetailsValues> {
       logger.info(`Report ${report.reportReference} details updated`)
 
       // clear session since report has been saved
-      req.journeyModel.reset()
+      res.locals.clearSessionOnSuccess = true
 
       super.successHandler(req, res, next)
     } catch (e) {

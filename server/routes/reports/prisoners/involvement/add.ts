@@ -48,8 +48,10 @@ class AddPrisonerInvolvementController extends PrisonerInvolvementController {
         comment: allValues.comment ?? '',
       })
       logger.info('Prisoner involvement added to report %s', report.id)
+
       // clear session since involvement has been saved
-      req.journeyModel.reset()
+      res.locals.clearSessionOnSuccess = true
+
       next()
     } catch (e) {
       logger.error(e, 'Prisoner involvement could not be added to report %s: %j', report.id, e)

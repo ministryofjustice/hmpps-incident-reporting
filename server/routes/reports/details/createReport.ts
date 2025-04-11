@@ -42,7 +42,7 @@ class DetailsController extends BaseDetailsController<CreateReportValues> {
       res.locals.reportSubUrlPrefix = `/create-report/${report.id}`
 
       // clear session since report has been saved
-      req.journeyModel.reset()
+      res.locals.clearSessionOnSuccess = true
 
       super.successHandler(req, res, next)
     } catch (e) {

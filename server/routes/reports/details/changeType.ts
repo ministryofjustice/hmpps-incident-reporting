@@ -60,7 +60,7 @@ class TypeController extends BaseTypeController<TypeValues> {
       logger.info(`Report ${report.reportReference} type changed to ${type}`)
 
       // clear session since report has been saved
-      req.journeyModel.reset()
+      res.locals.clearSessionOnSuccess = true
 
       super.successHandler(req, res, next)
     } catch (e) {

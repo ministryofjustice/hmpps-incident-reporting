@@ -286,7 +286,6 @@ describe('Base form wizard controller', () => {
           template: 'partials/formWizardLayout',
           csrf: false,
         },
-        // TODO: checkSession: false
       )
       app.use('/', router)
 

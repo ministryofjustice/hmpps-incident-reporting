@@ -92,6 +92,7 @@ const createReportFields: FormWizard.Fields<CreateReportValues> = { ...typeField
 
 const createReportConfig: FormWizard.Config<CreateReportValues> = {
   name: 'createReport',
+  journeyName: 'createReport',
   checkSession: false,
   csrf: false,
   templatePath: 'pages/reports',

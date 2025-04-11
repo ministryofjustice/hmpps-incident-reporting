@@ -54,6 +54,7 @@ export class AddStaffInvolvementController<V extends Values = Values> extends St
 
 export const addRouter = FormWizard(steps, fields, {
   name: 'addStaffInvolvement',
+  journeyName: 'addStaffInvolvement',
   checkSession: false,
   csrf: false,
   template: 'pages/staff/involvement',

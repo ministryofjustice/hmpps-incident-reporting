@@ -63,6 +63,7 @@ class AddPrisonerInvolvementController extends PrisonerInvolvementController {
 // eslint-disable-next-line import/prefer-default-export
 export const addRouter = FormWizard(steps, fields, {
   name: 'addPrisonerInvolvement',
+  journeyName: 'addPrisonerInvolvement',
   checkSession: false,
   csrf: false,
   template: 'pages/prisoners/involvement',

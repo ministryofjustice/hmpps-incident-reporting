@@ -91,6 +91,7 @@ const updateDetailsFields: FormWizard.Fields<DetailsValues> = { ...detailsFields
 
 const updateDetailsConfig: FormWizard.Config<DetailsValues> = {
   name: 'updateDetails',
+  journeyName: 'updateDetails',
   checkSession: false,
   csrf: false,
   templatePath: 'pages/reports',

@@ -7,6 +7,7 @@ import { steps } from './steps'
 // eslint-disable-next-line import/prefer-default-export
 export const removeRouter = FormWizard(steps, fields, {
   name: 'removeStaff',
+  journeyName: 'removeStaff',
   template: 'pages/staff/remove',
   checkSession: false,
   csrf: false,

@@ -98,6 +98,7 @@ const changeTypeFields: FormWizard.Fields<TypeValues> = { ...typeFields }
 
 const changeTypeConfig: FormWizard.Config<TypeValues> = {
   name: 'changeType',
+  journeyName: 'changeType',
   checkSession: false,
   csrf: false,
   templatePath: 'pages/reports',

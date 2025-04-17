@@ -55,7 +55,6 @@ export function viewReportRouter(service: Services): Router {
       const { incidentReportingApi, prisonApi } = res.locals.apis
 
       const report = res.locals.report as ReportWithDetails
-      console.log(report)
       const { permissions, reportConfig, reportUrl, questionProgress } = res.locals
 
       const usernames = [report.reportedBy]

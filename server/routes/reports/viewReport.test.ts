@@ -533,50 +533,62 @@ describe('View report page', () => {
       })
 
       it.each([
-        { scenario: 'skipping prisoner involvements', skipped: true },
-        { scenario: 'without prisoner involvements', skipped: false },
-      ])('should not allow submitting a draft report $scenario when the type requires them', ({ skipped }) => {
-        mockedReport.prisonersInvolved = []
-        mockedReport.prisonerInvolvementDone = !skipped
+        {
+          scenario: 'skipping prisoner involvements',
+          skipped: true,
+          errorMessage: 'Please complete the prisoner involvement section',
+        },
+        { scenario: 'without prisoner involvements', skipped: false, errorMessage: 'You need to add a prisoner' },
+      ])(
+        'should not allow submitting a draft report $scenario when the type requires them',
+        ({ skipped, errorMessage }) => {
+          mockedReport.prisonersInvolved = []
+          mockedReport.prisonerInvolvementDone = !skipped
 
-        return request
-          .agent(app)
-          .post(viewReportUrl)
-          .send({ userAction: 'submit' })
-          .redirects(1)
-          .expect(200)
-          .expect(res => {
-            expect(res.text).toContain('There is a problem')
-            // NB: this error message ought to be different when deliberately skipped
-            expect(res.text).toContain('You need to add a prisoner')
+          return request
+            .agent(app)
+            .post(viewReportUrl)
+            .send({ userAction: 'submit' })
+            .redirects(1)
+            .expect(200)
+            .expect(res => {
+              expect(res.text).toContain('There is a problem')
+              expect(res.text).toContain(errorMessage)
 
-            expect(incidentReportingApi.updateReport).not.toHaveBeenCalled()
-            expect(incidentReportingApi.changeReportStatus).not.toHaveBeenCalled()
-          })
-      })
+              expect(incidentReportingApi.updateReport).not.toHaveBeenCalled()
+              expect(incidentReportingApi.changeReportStatus).not.toHaveBeenCalled()
+            })
+        },
+      )
 
       it.each([
-        { scenario: 'skipping staff involvements', skipped: true },
-        { scenario: 'without staff involvements', skipped: false },
-      ])('should not allow submitting a draft report $scenario when the type requires them', ({ skipped }) => {
-        mockedReport.staffInvolved = []
-        mockedReport.staffInvolvementDone = !skipped
+        {
+          scenario: 'skipping staff involvements',
+          skipped: true,
+          errorMessage: 'Please complete the staff involvement section',
+        },
+        { scenario: 'without staff involvements', skipped: false, errorMessage: 'You need to add a member of staff' },
+      ])(
+        'should not allow submitting a draft report $scenario when the type requires them',
+        ({ skipped, errorMessage }) => {
+          mockedReport.staffInvolved = []
+          mockedReport.staffInvolvementDone = !skipped
 
-        return request
-          .agent(app)
-          .post(viewReportUrl)
-          .send({ userAction: 'submit' })
-          .redirects(1)
-          .expect(200)
-          .expect(res => {
-            expect(res.text).toContain('There is a problem')
-            // NB: this error message ought to be different when deliberately skipped
-            expect(res.text).toContain('You need to add a member of staff')
+          return request
+            .agent(app)
+            .post(viewReportUrl)
+            .send({ userAction: 'submit' })
+            .redirects(1)
+            .expect(200)
+            .expect(res => {
+              expect(res.text).toContain('There is a problem')
+              expect(res.text).toContain(errorMessage)
 
-            expect(incidentReportingApi.updateReport).not.toHaveBeenCalled()
-            expect(incidentReportingApi.changeReportStatus).not.toHaveBeenCalled()
-          })
-      })
+              expect(incidentReportingApi.updateReport).not.toHaveBeenCalled()
+              expect(incidentReportingApi.changeReportStatus).not.toHaveBeenCalled()
+            })
+        },
+      )
 
       it('should not allow submitting a draft report with no answered questions', () => {
         mockedReport.questions = []
@@ -685,8 +697,7 @@ describe('View report page', () => {
           .expect(200)
           .expect(res => {
             expect(res.text).toContain('There is a problem')
-            // NB: this error message ought to be different since deliberately skipped
-            expect(res.text).toContain('You need to add a prisoner')
+            expect(res.text).toContain('Please complete the prisoner involvement section')
 
             expect(incidentReportingApi.updateReport).not.toHaveBeenCalled()
             expect(incidentReportingApi.changeReportStatus).not.toHaveBeenCalled()
@@ -705,8 +716,7 @@ describe('View report page', () => {
           .expect(200)
           .expect(res => {
             expect(res.text).toContain('There is a problem')
-            // NB: this error message ought to be different since deliberately skipped
-            expect(res.text).toContain('You need to add a member of staff')
+            expect(res.text).toContain('Please complete the staff involvement section')
 
             expect(incidentReportingApi.updateReport).not.toHaveBeenCalled()
             expect(incidentReportingApi.changeReportStatus).not.toHaveBeenCalled()

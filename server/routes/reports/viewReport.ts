@@ -55,6 +55,7 @@ export function viewReportRouter(service: Services): Router {
       const { incidentReportingApi, prisonApi } = res.locals.apis
 
       const report = res.locals.report as ReportWithDetails
+      console.log(report)
       const { permissions, reportConfig, reportUrl, questionProgress } = res.locals
 
       const usernames = [report.reportedBy]
@@ -179,8 +180,7 @@ function* checkReportIsComplete(
   if (!report.prisonerInvolvementDone) {
     // prisoners skipped, so must return
     yield {
-      // TODO: message could be better since user chose to skip
-      text: 'You need to add a prisoner',
+      text: 'Please complete the prisoner involvement section',
       href: `${reportUrl}/prisoners`,
     }
   } else if (report.prisonersInvolved.length === 0 && reportConfig.requiresPrisoners) {
@@ -194,8 +194,7 @@ function* checkReportIsComplete(
   if (!report.staffInvolvementDone) {
     // staff skipped, so must return
     yield {
-      // TODO: message could be better since user chose to skip
-      text: 'You need to add a member of staff',
+      text: 'Please complete the staff involvement section',
       href: `${reportUrl}/staff`,
     }
   } else if (report.staffInvolved.length === 0 && reportConfig.requiresStaff) {

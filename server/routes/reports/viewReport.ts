@@ -179,8 +179,7 @@ function* checkReportIsComplete(
   if (!report.prisonerInvolvementDone) {
     // prisoners skipped, so must return
     yield {
-      // TODO: message could be better since user chose to skip
-      text: 'You need to add a prisoner',
+      text: 'Please complete the prisoner involvement section',
       href: `${reportUrl}/prisoners`,
     }
   } else if (report.prisonersInvolved.length === 0 && reportConfig.requiresPrisoners) {
@@ -194,8 +193,7 @@ function* checkReportIsComplete(
   if (!report.staffInvolvementDone) {
     // staff skipped, so must return
     yield {
-      // TODO: message could be better since user chose to skip
-      text: 'You need to add a member of staff',
+      text: 'Please complete the staff involvement section',
       href: `${reportUrl}/staff`,
     }
   } else if (report.staffInvolved.length === 0 && reportConfig.requiresStaff) {

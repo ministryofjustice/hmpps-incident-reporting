@@ -137,7 +137,7 @@ export const ASSAULT_5: IncidentTypeConfiguration = {
       id: '61283',
       active: true,
       code: 'IS THE LOCATION OF THE INCDENT KNOWN',
-      label: 'Is the location of the incdent known?',
+      label: 'Is the location of the incident known?',
       multipleAnswers: false,
       answers: [
         {

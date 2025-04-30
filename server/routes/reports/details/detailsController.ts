@@ -1,6 +1,7 @@
 import type express from 'express'
 import type FormWizard from 'hmpo-form-wizard'
 
+import format from '../../../utils/format'
 import { parseDateInput, parseTimeInput } from '../../../utils/parseDateTime'
 import { BaseController } from '../../../controllers'
 import { type DetailsValues, type DetailsFieldNames, hoursFieldName, minutesFieldName } from './detailsFields'
@@ -59,7 +60,7 @@ export abstract class BaseDetailsController<V extends DetailsValues> extends Bas
       const incidentDateAndTime = this.buildIncidentDateAndTime(incidentDate, incidentTime)
       const now = new Date()
       if (incidentDateAndTime > now) {
-        if (incidentDateAndTime.getDate() > now.getDate()) {
+        if (format.isoDate(incidentDateAndTime) > format.isoDate(now)) {
           const error = new this.Error('incidentDate', {
             key: 'incidentDate',
             message: 'Date of the incident must be today or in the past',
@@ -67,14 +68,12 @@ export abstract class BaseDetailsController<V extends DetailsValues> extends Bas
           next({ incidentDate: error })
           return
         }
-        if (incidentDateAndTime.getTime() > now.getTime()) {
-          const error = new this.Error('incidentTime', {
-            key: 'incidentTime',
-            message: 'Time of the incident must be in the past',
-          })
-          next({ incidentTime: error })
-          return
-        }
+        const error = new this.Error('incidentTime', {
+          key: 'incidentTime',
+          message: 'Time of the incident must be in the past',
+        })
+        next({ incidentTime: error })
+        return
       }
       // eslint-disable-next-line @typescript-eslint/no-unused-vars
     } catch (e) {

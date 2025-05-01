@@ -14,6 +14,7 @@ import type {
   PrisonerInvolvement,
   CorrectionRequest,
   Question,
+  DescriptionAddendum,
 } from '../incidentReportingApi'
 import { andrew, barry } from './offenderSearch'
 import { staffBarry, staffMary } from './prisonApi'
@@ -71,6 +72,7 @@ interface MockReportConfig {
   status?: Status
   type?: Type
   reportingUsername?: string
+  withAddendums?: boolean
 }
 
 export function mockReport(conf: MockReportConfig & { withDetails?: false }): DatesAsStrings<ReportBasic>
@@ -87,6 +89,7 @@ export function mockReport({
   type = 'FIND_6',
   reportingUsername = 'user1',
   withDetails = false,
+  withAddendums = false,
 }: MockReportConfig & { withDetails?: boolean }): DatesAsStrings<ReportBasic | ReportWithDetails> {
   const incidentDateAndTime = new Date(reportDateAndTime)
   incidentDateAndTime.setHours(incidentDateAndTime.getHours() - 1)
@@ -115,7 +118,24 @@ export function mockReport({
   if (withDetails) {
     return {
       ...basicReport,
-      descriptionAddendums: [],
+      descriptionAddendums: withAddendums
+        ? [
+            {
+              createdBy: 'user1',
+              createdAt: format.isoDateTime(new Date('2023-12-05T15:34:00')),
+              firstName: 'John',
+              lastName: 'Smith',
+              text: 'Addendum #1',
+            },
+            {
+              createdBy: 'user2',
+              createdAt: format.isoDateTime(new Date('2023-12-07T12:13:00')),
+              firstName: 'Jane',
+              lastName: 'Doe',
+              text: 'Addendum #2',
+            },
+          ]
+        : [],
       event: mockEvent({ eventReference: reportReference, reportDateAndTime }),
       historyOfStatuses: [
         {

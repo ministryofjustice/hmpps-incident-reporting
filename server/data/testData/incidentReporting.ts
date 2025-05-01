@@ -14,7 +14,6 @@ import type {
   PrisonerInvolvement,
   CorrectionRequest,
   Question,
-  DescriptionAddendum,
 } from '../incidentReportingApi'
 import { andrew, barry } from './offenderSearch'
 import { staffBarry, staffMary } from './prisonApi'

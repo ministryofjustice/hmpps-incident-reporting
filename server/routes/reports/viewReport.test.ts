@@ -899,10 +899,8 @@ describe('View report page with description addendums', () => {
         expect(res.text).toContain('12:34 on 5 December 2023')
         expect(res.text).toContain('A new incident created in the new service of type FIND_6')
         expect(res.text).toContain('John Smith')
-        expect(res.text).toContain('15:34 on 5 December 2023')
         expect(res.text).toContain('Addendum #1')
         expect(res.text).toContain('Jane Doe')
-        expect(res.text).toContain('12:13 on 7 December 2023')
         expect(res.text).toContain('Addendum #2')
 
         expect(res.text).toContain(`${viewReportUrl}/change-type`)

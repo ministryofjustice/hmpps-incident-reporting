@@ -138,7 +138,7 @@ export type PaginationSortingParams = {
 }
 
 export type DescriptionAddendum = {
-  createdBy: string | null
+  createdBy: string
   createdAt: Date
   firstName: string
   lastName: string

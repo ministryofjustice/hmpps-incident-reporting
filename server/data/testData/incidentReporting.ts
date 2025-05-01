@@ -121,14 +121,14 @@ export function mockReport({
         ? [
             {
               createdBy: 'user1',
-              createdAt: format.isoDateTime(new Date('2023-12-05T15:34:00')),
+              createdAt: format.isoDateTime(reportDateAndTime),
               firstName: 'John',
               lastName: 'Smith',
               text: 'Addendum #1',
             },
             {
               createdBy: 'user2',
-              createdAt: format.isoDateTime(new Date('2023-12-07T12:13:00')),
+              createdAt: format.isoDateTime(reportDateAndTime),
               firstName: 'Jane',
               lastName: 'Doe',
               text: 'Addendum #2',

@@ -115,6 +115,7 @@ export function mockReport({
   if (withDetails) {
     return {
       ...basicReport,
+      descriptionAddendums: [],
       event: mockEvent({ eventReference: reportReference, reportDateAndTime }),
       historyOfStatuses: [
         {

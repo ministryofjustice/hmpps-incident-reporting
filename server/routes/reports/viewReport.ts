@@ -56,7 +56,7 @@ export function viewReportRouter(service: Services): Router {
 
       const report = res.locals.report as ReportWithDetails
       const { permissions, reportConfig, reportUrl, questionProgress } = res.locals
-
+      console.log(report)
       const usernames = [report.reportedBy]
       if (report.correctionRequests) {
         usernames.push(...report.correctionRequests.map(correctionRequest => correctionRequest.correctionRequestedBy))

@@ -33,9 +33,6 @@ export default function setUpStaticResources(): Router {
     '/node_modules/@ministryofjustice/hmpps-digital-prison-reporting-frontend',
     '/node_modules/accessible-autocomplete/dist',
   ).forEach(dir => staticRoute('/assets', dir))
-  // Third-party plugins that DPR does not automatically bundle
-  staticRoute('/assets/ext/day.js', '/node_modules/dayjs/dayjs.min.js')
-  staticRoute('/assets/ext/dayjs/plugin/customParseFormat.js', '/node_modules/dayjs/plugin/customParseFormat.js')
 
   // Don't cache dynamic resources
   router.use(noCache())

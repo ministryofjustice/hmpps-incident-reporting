@@ -5,16 +5,14 @@
   {% set descriptionHtml %}
     <strong>{{ usersLookup[report.reportedBy].name or report.reportedBy }}</strong>
     <br />
-    <small>{{ report.reportedAt | timeOnDate }}</small>
-    <br />
+    <p class="govuk-body govuk-!-font-size-16">{{ report.reportedAt | timeOnDate }}</p>
     {{ report.description | escape | nl2br }}
     {% for addendum in report.descriptionAddendums %}
       <br />
       <br />
       <strong>{{ addendum | nameOfPerson }}</strong>
       <br />
-      <small>{{ addendum.createdAt | timeOnDate }}</small>
-      <br />
+      <p class="govuk-body govuk-!-font-size-16">{{ addendum.createdAt | timeOnDate }}</p>
       {{ addendum.text }}
     {% endfor %}
   {% endset %}

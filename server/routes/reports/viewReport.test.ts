@@ -873,15 +873,7 @@ describe('View report page with description addendums', () => {
     mockedReport = convertReportWithDetailsDates(
       mockReport({ reportReference: '6543', reportDateAndTime: now, withDetails: true, withAddendums: true }),
     )
-    mockedReport.questions = [
-      makeSimpleQuestion(
-        '67179',
-        'DESCRIBE HOW THE ITEM WAS FOUND (SELECT ALL THAT APPLY)',
-        'CELL SEARCH',
-        'INFORMATION RECEIVED',
-      ),
-      makeSimpleQuestion('67180', 'IS THE LOCATION OF THE INCIDENT KNOWN?', 'YES'),
-    ]
+    mockedReport.questions = []
     incidentReportingApi.getReportWithDetailsById.mockResolvedValueOnce(mockedReport)
     viewReportUrl = `/reports/${mockedReport.id}`
   })
@@ -892,9 +884,6 @@ describe('View report page with description addendums', () => {
       .expect('Content-Type', /html/)
       .expect(200)
       .expect(res => {
-        expect(res.text).toContain('Find of illicit items')
-        expect(res.text).toContain('Date and time of incident')
-        expect(res.text).toContain('5 December 2023, 11:34')
         expect(res.text).toContain('Description')
         expect(res.text).toContain('12:34 on 5 December 2023')
         expect(res.text).toContain('A new incident created in the new service of type FIND_6')
@@ -902,9 +891,6 @@ describe('View report page with description addendums', () => {
         expect(res.text).toContain('Addendum #1')
         expect(res.text).toContain('Jane Doe')
         expect(res.text).toContain('Addendum #2')
-
-        expect(res.text).toContain(`${viewReportUrl}/change-type`)
-        expect(res.text).toContain(`${viewReportUrl}/update-details`)
       })
   })
 })

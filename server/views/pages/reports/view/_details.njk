@@ -1,5 +1,30 @@
 {% from "govuk/components/summary-list/macro.njk" import govukSummaryList %}
 
+{% if report.descriptionAddendums.length != 0 %}
+
+  {% set descriptionHtml %}
+    <strong>{{ usersLookup[report.reportedBy].name or report.reportedBy }}</strong>
+    <br />
+    <small class="govuk-!-font-size-16">{{ report.reportedAt | timeOnDate }}</small>
+    <br />
+    {{ report.description | escape | nl2br }}
+    {% for addendum in report.descriptionAddendums %}
+      <br />
+      <br />
+      <strong>{{ addendum | nameOfPerson }}</strong>
+      <br />
+      <small class="govuk-!-font-size-16">{{ addendum.createdAt | timeOnDate }}</small>
+      <br />
+      {{ addendum.text | escape | nl2br }}
+    {% endfor %}
+  {% endset %}
+
+
+{% else %}
+  {% set descriptionHtml = report.description | escape | nl2br %}
+{% endif %}
+
+
 {{ govukSummaryList({
   card: {
     title: { text: "Incident summary" }
@@ -38,7 +63,7 @@
     {
       key: { text: "Description" },
       value: {
-        html: report.description | escape | nl2br
+        html: descriptionHtml
       },
       actions: {
         items: [

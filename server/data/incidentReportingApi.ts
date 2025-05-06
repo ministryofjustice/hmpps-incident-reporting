@@ -96,6 +96,7 @@ export type ReportBasic = {
 }
 
 export type ReportWithDetails = ReportBasic & {
+  descriptionAddendums: DescriptionAddendum[]
   event: Event
   questions: Question[]
   history: HistoricReport[]
@@ -134,6 +135,14 @@ export type PaginationSortingParams = {
   size: number
   // TODO: Add enums?
   sort: string[]
+}
+
+export type DescriptionAddendum = {
+  createdBy: string
+  createdAt: Date
+  firstName: string
+  lastName: string
+  text: string
 }
 
 export type Question = {

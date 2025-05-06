@@ -1,5 +1,6 @@
 import type {
   CorrectionRequest,
+  DescriptionAddendum,
   Event,
   EventWithBasicReports,
   HistoricReport,
@@ -28,6 +29,7 @@ export function convertReportWithDetailsDates(report: DatesAsStrings<ReportWithD
   return {
     ...report,
     ...convertBasicReportDates(report),
+    descriptionAddendums: report.descriptionAddendums.map(convertDescriptionAddendumDates),
     event: convertEventDates(report.event),
     questions: report.questions.map(convertQuestionDates),
     history: report.history.map(convertHistoricReportDates),
@@ -58,6 +60,13 @@ export function convertEventWithBasicReportsDates(event: DatesAsStrings<EventWit
   return {
     ...convertEventDates(event),
     reports: event.reports.map(convertBasicReportDates),
+  }
+}
+
+function convertDescriptionAddendumDates(addendum: DatesAsStrings<DescriptionAddendum>): DescriptionAddendum {
+  return {
+    ...addendum,
+    createdAt: new Date(addendum.createdAt),
   }
 }
 

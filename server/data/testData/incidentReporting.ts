@@ -71,6 +71,7 @@ interface MockReportConfig {
   status?: Status
   type?: Type
   reportingUsername?: string
+  withAddendums?: boolean
 }
 
 export function mockReport(conf: MockReportConfig & { withDetails?: false }): DatesAsStrings<ReportBasic>
@@ -87,6 +88,7 @@ export function mockReport({
   type = 'FIND_6',
   reportingUsername = 'user1',
   withDetails = false,
+  withAddendums = false,
 }: MockReportConfig & { withDetails?: boolean }): DatesAsStrings<ReportBasic | ReportWithDetails> {
   const incidentDateAndTime = new Date(reportDateAndTime)
   incidentDateAndTime.setHours(incidentDateAndTime.getHours() - 1)
@@ -115,6 +117,24 @@ export function mockReport({
   if (withDetails) {
     return {
       ...basicReport,
+      descriptionAddendums: withAddendums
+        ? [
+            {
+              createdBy: 'user1',
+              createdAt: format.isoDateTime(reportDateAndTime),
+              firstName: 'John',
+              lastName: 'Smith',
+              text: 'Addendum #1',
+            },
+            {
+              createdBy: 'user2',
+              createdAt: format.isoDateTime(reportDateAndTime),
+              firstName: 'Jane',
+              lastName: 'Doe',
+              text: 'Addendum #2',
+            },
+          ]
+        : [],
       event: mockEvent({ eventReference: reportReference, reportDateAndTime }),
       historyOfStatuses: [
         {

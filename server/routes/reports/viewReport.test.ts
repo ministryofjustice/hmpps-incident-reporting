@@ -103,7 +103,7 @@ describe('View report page', () => {
         })
     })
 
-    it('should render incident summary', () => {
+    it('should render incident summary without description addendums', () => {
       return request(app)
         .get(viewReportUrl)
         .expect('Content-Type', /html/)
@@ -114,6 +114,7 @@ describe('View report page', () => {
           expect(res.text).toContain('5 December 2023, 11:34')
           expect(res.text).toContain('Description')
           expect(res.text).toContain('A new incident created in the new service of type FIND_6')
+          expect(res.text).not.toContain('12:34 on 5 December 2023')
 
           expect(res.text).toContain(`${viewReportUrl}/change-type`)
           expect(res.text).toContain(`${viewReportUrl}/update-details`)
@@ -861,5 +862,35 @@ describe('View report page', () => {
           })
       })
     })
+  })
+})
+
+describe('View report page with description addendums', () => {
+  let mockedReport: ReportWithDetails
+  let viewReportUrl: string
+
+  beforeEach(() => {
+    mockedReport = convertReportWithDetailsDates(
+      mockReport({ reportReference: '6543', reportDateAndTime: now, withDetails: true, withAddendums: true }),
+    )
+    mockedReport.questions = []
+    incidentReportingApi.getReportWithDetailsById.mockResolvedValueOnce(mockedReport)
+    viewReportUrl = `/reports/${mockedReport.id}`
+  })
+
+  it('should render incident summary with description addendums', () => {
+    return request(app)
+      .get(viewReportUrl)
+      .expect('Content-Type', /html/)
+      .expect(200)
+      .expect(res => {
+        expect(res.text).toContain('Description')
+        expect(res.text).toContain('12:34 on 5 December 2023')
+        expect(res.text).toContain('A new incident created in the new service of type FIND_6')
+        expect(res.text).toContain('John Smith')
+        expect(res.text).toContain('Addendum #1')
+        expect(res.text).toContain('Jane Doe')
+        expect(res.text).toContain('Addendum #2')
+      })
   })
 })

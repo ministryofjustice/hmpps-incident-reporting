@@ -1,5 +1,13 @@
 import { now } from '../testutils/fakeClock'
-import type { CorrectionRequest, Event, HistoricStatus, Question, ReportBasic, Response } from './incidentReportingApi'
+import type {
+  CorrectionRequest,
+  DescriptionAddendum,
+  Event,
+  HistoricStatus,
+  Question,
+  ReportBasic,
+  Response,
+} from './incidentReportingApi'
 import { mockEvent, mockReport } from './testData/incidentReporting'
 import {
   convertEventDates,
@@ -42,6 +50,10 @@ describe('Incident-reporting API utilities', () => {
       expect(basicReport.reportedAt).toEqual(reportDateAndTime)
       expect(basicReport.createdAt).toEqual(reportDateAndTime)
       expect(basicReport.modifiedAt).toEqual(reportDateAndTime)
+    }
+
+    function expectCorrectDatesInDescriptionAddendum(addendum: DescriptionAddendum) {
+      expect(addendum.createdAt).toEqual(reportDateAndTime)
     }
 
     function expectCorrectDatesInCorrectionRequest(correctionRequest: CorrectionRequest) {
@@ -88,7 +100,7 @@ describe('Incident-reporting API utilities', () => {
 
     it('should work for a report with full details', () => {
       const reportWithDetails = convertReportWithDetailsDates(
-        mockReport({ reportReference: '4321', reportDateAndTime, withDetails: true }),
+        mockReport({ reportReference: '4321', reportDateAndTime, withDetails: true, withAddendums: true }),
       )
       expectCorrectDatesInBasicReport(reportWithDetails)
       expect(reportWithDetails.historyOfStatuses).toHaveLength(1)
@@ -102,6 +114,8 @@ describe('Incident-reporting API utilities', () => {
         expect(history.questions).toHaveLength(2)
         history.questions.forEach(expectCorrectDatesInQuestion)
       })
+      expect(reportWithDetails.descriptionAddendums).toHaveLength(2)
+      reportWithDetails.descriptionAddendums.forEach(expectCorrectDatesInDescriptionAddendum)
     })
   })
 })

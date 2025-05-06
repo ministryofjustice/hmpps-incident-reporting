@@ -21,6 +21,28 @@ export default {
   },
 
   /**
+   * Format time of day on Date as Europe/London.
+   *
+   * Example: `11:00 on 22 February 2022`
+   */
+  timeOnDate(date: Date): string {
+    if (typeof date === 'undefined' || date === null) {
+      return ''
+    }
+    const formatted = date.toLocaleDateString('en-GB', {
+      hour: '2-digit',
+      hour12: false,
+      minute: '2-digit',
+      day: 'numeric',
+      month: 'long',
+      year: 'numeric',
+      timeZone: 'Europe/London',
+    })
+    const dateTimeParts = formatted.split(' at ')
+    return `${dateTimeParts[1]} on ${dateTimeParts[0]}`
+  },
+
+  /**
    * Format Date as Europe/London ignoring time-of-day.
    *
    * Example: `22 February 2022`

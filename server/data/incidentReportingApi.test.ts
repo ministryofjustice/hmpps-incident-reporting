@@ -13,6 +13,7 @@ import {
   isErrorResponse,
 } from './incidentReportingApi'
 import {
+  mockDescriptionAddendum,
   mockCorrectionRequest,
   mockErrorResponse,
   mockEvent,
@@ -122,6 +123,38 @@ describe('Incident reporting API client', () => {
         url: `/incident-reports/${reportWithDetails.id}`,
         urlMethod: 'delete',
         testCase: () => apiClient.deleteReport(reportWithDetails.id),
+      },
+      {
+        method: 'descriptionAddendums.listForReport',
+        url: `/incident-reports/${reportWithDetails.id}/description-addendums`,
+        testCase: () => apiClient.descriptionAddendums.listForReport(reportWithDetails.id),
+      },
+      {
+        method: 'descriptionAddendums.addToReport',
+        url: `/incident-reports/${reportWithDetails.id}/description-addendums`,
+        urlMethod: 'post',
+        testCase: () =>
+          apiClient.descriptionAddendums.addToReport(reportWithDetails.id, {
+            createdBy: 'abc12a',
+            firstName: 'MARY',
+            lastName: 'JOHNSON',
+            text: 'Prisoner was released from hospital',
+          }),
+      },
+      {
+        method: 'descriptionAddendums.updateForReport',
+        url: `/incident-reports/${reportWithDetails.id}/description-addendums/1`,
+        urlMethod: 'patch',
+        testCase: () =>
+          apiClient.descriptionAddendums.updateForReport(reportWithDetails.id, 1, {
+            text: 'Prisoner was released from healthcare',
+          }),
+      },
+      {
+        method: 'descriptionAddendums.deleteFromReport',
+        url: `/incident-reports/${reportWithDetails.id}/description-addendums/1`,
+        urlMethod: 'delete',
+        testCase: () => apiClient.descriptionAddendums.deleteFromReport(reportWithDetails.id, 1),
       },
       {
         method: 'staffInvolved.listForReport',
@@ -513,6 +546,49 @@ describe('Incident reporting API client', () => {
         await testCase()
       },
     )
+
+    it.each([
+      {
+        method: 'descriptionAddendums.listForReport',
+        url: `/incident-reports/${reportWithDetails.id}/description-addendums`,
+        testCase: () => apiClient.descriptionAddendums.listForReport(reportWithDetails.id),
+      },
+      {
+        method: 'descriptionAddendums.addToReport',
+        url: `/incident-reports/${reportWithDetails.id}/description-addendums`,
+        urlMethod: 'post',
+        testCase: () =>
+          apiClient.descriptionAddendums.addToReport(reportWithDetails.id, {
+            createdBy: 'abc12a',
+            firstName: 'MARY',
+            lastName: 'JOHNSON',
+            text: 'Prisoner was released from hospital',
+          }),
+      },
+      {
+        method: 'descriptionAddendums.updateForReport',
+        url: `/incident-reports/${reportWithDetails.id}/description-addendums/1`,
+        urlMethod: 'patch',
+        testCase: () =>
+          apiClient.descriptionAddendums.updateForReport(reportWithDetails.id, 1, {
+            text: 'Prisoner was released from healthcare',
+          }),
+      },
+      {
+        method: 'descriptionAddendums.deleteFromReport',
+        url: `/incident-reports/${reportWithDetails.id}/description-addendums/1`,
+        urlMethod: 'delete',
+        testCase: () => apiClient.descriptionAddendums.deleteFromReport(reportWithDetails.id, 1),
+      },
+    ])('should work for $method returning a list of description addendums', async ({ url, urlMethod, testCase }) => {
+      fakeApiClient
+        .intercept(url, urlMethod ?? 'get')
+        .query(true)
+        .reply(200, [mockDescriptionAddendum(0, now), mockDescriptionAddendum(1, now)])
+      const response = await testCase()
+      const shouldBeDates = response.map(item => item.createdAt)
+      shouldBeDates.forEach(value => expect(value).toBeInstanceOf(Date))
+    })
 
     it.each([
       {

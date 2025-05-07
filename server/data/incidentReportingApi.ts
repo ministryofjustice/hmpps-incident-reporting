@@ -13,6 +13,7 @@ import type {
 import {
   convertBasicReportDates,
   convertCorrectionRequestDates,
+  convertDescriptionAddendumDates,
   convertEventWithBasicReportsDates,
   convertQuestionDates,
   convertReportWithDetailsDates,
@@ -477,6 +478,14 @@ export class IncidentReportingApi extends RestClient {
     return convertReportWithDetailsDates(report)
   }
 
+  get descriptionAddendums(): RelatedObjects<
+    DescriptionAddendum,
+    AddDescriptionAddendumRequest,
+    UpdateDescriptionAddendumRequest
+  > {
+    return new RelatedObjects(this, RelatedObjectUrlSlug.descriptionAddendums, convertDescriptionAddendumDates)
+  }
+
   get staffInvolved(): RelatedObjects<StaffInvolvement, AddStaffInvolvementRequest, UpdateStaffInvolvementRequest> {
     return new RelatedObjects(this, RelatedObjectUrlSlug.staffInvolved)
   }
@@ -531,6 +540,22 @@ export class IncidentReportingApi extends RestClient {
   }
 }
 
+export type AddDescriptionAddendumRequest = {
+  createdBy: string
+  createdAt?: Date
+  firstName: string
+  lastName: string
+  text: string
+}
+
+export type UpdateDescriptionAddendumRequest = {
+  createdBy?: string
+  createdAt?: Date | null
+  firstName?: string
+  lastName?: string
+  text?: string
+}
+
 export type AddStaffInvolvementRequest = {
   staffUsername?: string
   firstName: string
@@ -574,6 +599,7 @@ type UpdateCorrectionRequestRequest = {
 }
 
 export enum RelatedObjectUrlSlug {
+  descriptionAddendums = 'description-addendums',
   prisonersInvolved = 'prisoners-involved',
   staffInvolved = 'staff-involved',
   correctionRequests = 'correction-requests',

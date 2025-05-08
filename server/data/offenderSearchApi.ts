@@ -1,6 +1,7 @@
+import { RestClient } from '@ministryofjustice/hmpps-rest-client'
 import config from '../config'
 import { TransferPrisonId, OutsidePrisonId, transferPrisonId, outsidePrisonId } from './constants'
-import RestClient from './restClient'
+import logger from '../../logger'
 
 interface BaseOffenderSearchResult {
   prisonerNumber: string
@@ -56,7 +57,9 @@ export class OffenderSearchApi extends RestClient {
   static readonly PAGE_SIZE = 20
 
   constructor(systemToken: string) {
-    super('HMPPS Offender Search API', config.apis.offenderSearchApi, systemToken)
+    super('HMPPS Offender Search API', config.apis.offenderSearchApi, logger, {
+      getToken: async () => systemToken,
+    })
   }
 
   /**

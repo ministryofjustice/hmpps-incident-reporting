@@ -38,7 +38,7 @@ describe('prisoner-loading middleware', () => {
     const next: NextFunction = jest.fn()
     await populatePrisoner()(req, res, next)
 
-    expect(next).toHaveBeenCalledWith(expect.objectContaining({ message: 'Not Found', status: 404 }))
+    expect(next).toHaveBeenCalledWith(expect.objectContaining({ message: 'Not Found', responseStatus: 404 }))
     expect(res.locals.prisoner).toBeUndefined()
   })
 

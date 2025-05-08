@@ -1,5 +1,5 @@
 // eslint-disable-next-line max-classes-per-file
-import { RestClient } from '@ministryofjustice/hmpps-rest-client'
+import { asSystem, RestClient } from '@ministryofjustice/hmpps-rest-client'
 import config from '../config'
 import logger from '../../logger'
 import format from '../utils/format'
@@ -288,10 +288,13 @@ export class IncidentReportingApi extends RestClient {
       query.eventDateUntil = format.isoDate(eventDateUntil)
     }
 
-    const response = await this.get<DatesAsStrings<PaginatedEventsWithBasicReports>>({
-      path: '/incident-events',
-      query,
-    })
+    const response = await this.get<DatesAsStrings<PaginatedEventsWithBasicReports>>(
+      {
+        path: '/incident-events',
+        query,
+      },
+      asSystem(),
+    )
     return {
       ...response,
       content: response.content.map(convertEventWithBasicReportsDates),
@@ -299,16 +302,22 @@ export class IncidentReportingApi extends RestClient {
   }
 
   async getEventById(id: string): Promise<EventWithBasicReports> {
-    const event = await this.get<DatesAsStrings<EventWithBasicReports>>({
-      path: `/incident-events/${encodeURIComponent(id)}`,
-    })
+    const event = await this.get<DatesAsStrings<EventWithBasicReports>>(
+      {
+        path: `/incident-events/${encodeURIComponent(id)}`,
+      },
+      asSystem(),
+    )
     return convertEventWithBasicReportsDates(event)
   }
 
   async getEventByReference(reference: string): Promise<EventWithBasicReports> {
-    const event = await this.get<DatesAsStrings<EventWithBasicReports>>({
-      path: `/incident-events/reference/${encodeURIComponent(reference)}`,
-    })
+    const event = await this.get<DatesAsStrings<EventWithBasicReports>>(
+      {
+        path: `/incident-events/reference/${encodeURIComponent(reference)}`,
+      },
+      asSystem(),
+    )
     return convertEventWithBasicReportsDates(event)
   }
 
@@ -389,10 +398,13 @@ export class IncidentReportingApi extends RestClient {
       query.involvingPrisonerNumber = involvingPrisonerNumber
     }
 
-    const response = await this.get<DatesAsStrings<PaginatedBasicReports>>({
-      path: '/incident-reports',
-      query,
-    })
+    const response = await this.get<DatesAsStrings<PaginatedBasicReports>>(
+      {
+        path: '/incident-reports',
+        query,
+      },
+      asSystem(),
+    )
     return {
       ...response,
       content: response.content.map(convertBasicReportDates),
@@ -400,36 +412,51 @@ export class IncidentReportingApi extends RestClient {
   }
 
   async getReportById(id: string): Promise<ReportBasic> {
-    const report = await this.get<DatesAsStrings<ReportBasic>>({
-      path: `/incident-reports/${encodeURIComponent(id)}`,
-    })
+    const report = await this.get<DatesAsStrings<ReportBasic>>(
+      {
+        path: `/incident-reports/${encodeURIComponent(id)}`,
+      },
+      asSystem(),
+    )
     return convertBasicReportDates(report)
   }
 
   async getReportByReference(reference: string): Promise<ReportBasic> {
-    const report = await this.get<DatesAsStrings<ReportBasic>>({
-      path: `/incident-reports/reference/${encodeURIComponent(reference)}`,
-    })
+    const report = await this.get<DatesAsStrings<ReportBasic>>(
+      {
+        path: `/incident-reports/reference/${encodeURIComponent(reference)}`,
+      },
+      asSystem(),
+    )
     return convertBasicReportDates(report)
   }
 
   async getManagementReportDefinitions(): Promise<ManagementReportDefinition[]> {
-    return this.get<ManagementReportDefinition[]>({
-      path: `/definitions`,
-    })
+    return this.get<ManagementReportDefinition[]>(
+      {
+        path: `/definitions`,
+      },
+      asSystem(),
+    )
   }
 
   async getReportWithDetailsById(id: string): Promise<ReportWithDetails> {
-    const report = await this.get<DatesAsStrings<ReportWithDetails>>({
-      path: `/incident-reports/${encodeURIComponent(id)}/with-details`,
-    })
+    const report = await this.get<DatesAsStrings<ReportWithDetails>>(
+      {
+        path: `/incident-reports/${encodeURIComponent(id)}/with-details`,
+      },
+      asSystem(),
+    )
     return convertReportWithDetailsDates(report)
   }
 
   async getReportWithDetailsByReference(reference: string): Promise<ReportWithDetails> {
-    const report = await this.get<DatesAsStrings<ReportWithDetails>>({
-      path: `/incident-reports/reference/${encodeURIComponent(reference)}/with-details`,
-    })
+    const report = await this.get<DatesAsStrings<ReportWithDetails>>(
+      {
+        path: `/incident-reports/reference/${encodeURIComponent(reference)}/with-details`,
+      },
+      asSystem(),
+    )
     return convertReportWithDetailsDates(report)
   }
 
@@ -438,10 +465,13 @@ export class IncidentReportingApi extends RestClient {
       ...data,
       incidentDateAndTime: format.isoDateTime(data.incidentDateAndTime),
     }
-    const report = await this.post<DatesAsStrings<ReportWithDetails>>({
-      path: '/incident-reports',
-      data: dataWithDatesAsStrings,
-    })
+    const report = await this.post<DatesAsStrings<ReportWithDetails>>(
+      {
+        path: '/incident-reports',
+        data: dataWithDatesAsStrings,
+      },
+      asSystem(),
+    )
     return convertReportWithDetailsDates(report)
   }
 
@@ -450,34 +480,46 @@ export class IncidentReportingApi extends RestClient {
       ...data,
       incidentDateAndTime: format.isoDateTime(data.incidentDateAndTime),
     }
-    const report = await this.patch<DatesAsStrings<ReportBasic>>({
-      path: `/incident-reports/${encodeURIComponent(id)}`,
-      data: dataWithDatesAsStrings,
-    })
+    const report = await this.patch<DatesAsStrings<ReportBasic>>(
+      {
+        path: `/incident-reports/${encodeURIComponent(id)}`,
+        data: dataWithDatesAsStrings,
+      },
+      asSystem(),
+    )
     return convertBasicReportDates(report)
   }
 
   async changeReportStatus(id: string, data: ChangeStatusRequest): Promise<ReportWithDetails> {
-    const report = await this.patch<DatesAsStrings<ReportWithDetails>>({
-      path: `/incident-reports/${encodeURIComponent(id)}/status`,
-      data,
-    })
+    const report = await this.patch<DatesAsStrings<ReportWithDetails>>(
+      {
+        path: `/incident-reports/${encodeURIComponent(id)}/status`,
+        data,
+      },
+      asSystem(),
+    )
     return convertReportWithDetailsDates(report)
   }
 
   async changeReportType(id: string, data: ChangeTypeRequest): Promise<ReportWithDetails> {
-    const report = await this.patch<DatesAsStrings<ReportWithDetails>>({
-      path: `/incident-reports/${encodeURIComponent(id)}/type`,
-      data,
-    })
+    const report = await this.patch<DatesAsStrings<ReportWithDetails>>(
+      {
+        path: `/incident-reports/${encodeURIComponent(id)}/type`,
+        data,
+      },
+      asSystem(),
+    )
     return convertReportWithDetailsDates(report)
   }
 
   async deleteReport(id: string, deleteOrphanedEvents: boolean = true): Promise<ReportWithDetails> {
-    const report = await this.delete<DatesAsStrings<ReportWithDetails>>({
-      path: `/incident-reports/${encodeURIComponent(id)}`,
-      query: { deleteOrphanedEvents },
-    })
+    const report = await this.delete<DatesAsStrings<ReportWithDetails>>(
+      {
+        path: `/incident-reports/${encodeURIComponent(id)}`,
+        query: { deleteOrphanedEvents },
+      },
+      asSystem(),
+    )
     return convertReportWithDetailsDates(report)
   }
 
@@ -510,9 +552,12 @@ export class IncidentReportingApi extends RestClient {
   }
 
   async getQuestions(reportId: string): Promise<Question[]> {
-    const questions = await this.get<DatesAsStrings<Question[]>>({
-      path: `/incident-reports/${encodeURIComponent(reportId)}/questions`,
-    })
+    const questions = await this.get<DatesAsStrings<Question[]>>(
+      {
+        path: `/incident-reports/${encodeURIComponent(reportId)}/questions`,
+      },
+      asSystem(),
+    )
     return questions.map(convertQuestionDates)
   }
 
@@ -527,18 +572,24 @@ export class IncidentReportingApi extends RestClient {
         responseDate: format.isoDate(response.responseDate),
       })),
     }))
-    const questions = await this.put<DatesAsStrings<Question[]>>({
-      path: `/incident-reports/${encodeURIComponent(reportId)}/questions`,
-      data: data as unknown as Record<string, unknown>,
-    })
+    const questions = await this.put<DatesAsStrings<Question[]>>(
+      {
+        path: `/incident-reports/${encodeURIComponent(reportId)}/questions`,
+        data: data as unknown as Record<string, unknown>,
+      },
+      asSystem(),
+    )
     return questions.map(convertQuestionDates)
   }
 
   async deleteQuestionsAndTheirResponses(reportId: string, questionCodes: string[]): Promise<Question[]> {
-    const questions = await this.delete<DatesAsStrings<Question[]>>({
-      path: `/incident-reports/${encodeURIComponent(reportId)}/questions`,
-      query: { code: questionCodes },
-    })
+    const questions = await this.delete<DatesAsStrings<Question[]>>(
+      {
+        path: `/incident-reports/${encodeURIComponent(reportId)}/questions`,
+        query: { code: questionCodes },
+      },
+      asSystem(),
+    )
     return questions.map(convertQuestionDates)
   }
 }
@@ -633,32 +684,44 @@ export class RelatedObjects<
   }
 
   async listForReport(reportId: string): Promise<ResponseType[]> {
-    const response = await this.apiClient.get<DatesAsStrings<ResponseType>[]>({
-      path: this.listUrl(reportId),
-    })
+    const response = await this.apiClient.get<DatesAsStrings<ResponseType>[]>(
+      {
+        path: this.listUrl(reportId),
+      },
+      asSystem(),
+    )
     return response.map(this.responseDateConverter)
   }
 
   async addToReport(reportId: string, data: AddRequestType): Promise<ResponseType[]> {
-    const response = await this.apiClient.post<DatesAsStrings<ResponseType>[]>({
-      path: this.listUrl(reportId),
-      data,
-    })
+    const response = await this.apiClient.post<DatesAsStrings<ResponseType>[]>(
+      {
+        path: this.listUrl(reportId),
+        data,
+      },
+      asSystem(),
+    )
     return response.map(this.responseDateConverter)
   }
 
   async updateForReport(reportId: string, index: number, data: UpdateRequestType): Promise<ResponseType[]> {
-    const response = await this.apiClient.patch<DatesAsStrings<ResponseType>[]>({
-      path: this.itemUrl(reportId, index),
-      data,
-    })
+    const response = await this.apiClient.patch<DatesAsStrings<ResponseType>[]>(
+      {
+        path: this.itemUrl(reportId, index),
+        data,
+      },
+      asSystem(),
+    )
     return response.map(this.responseDateConverter)
   }
 
   async deleteFromReport(reportId: string, index: number): Promise<ResponseType[]> {
-    const response = await this.apiClient.delete<DatesAsStrings<ResponseType>[]>({
-      path: this.itemUrl(reportId, index),
-    })
+    const response = await this.apiClient.delete<DatesAsStrings<ResponseType>[]>(
+      {
+        path: this.itemUrl(reportId, index),
+      },
+      asSystem(),
+    )
     return response.map(this.responseDateConverter)
   }
 }
@@ -694,9 +757,12 @@ class Constants {
   constructor(private readonly apiClient: IncidentReportingApi) {}
 
   private listConstants<T extends Constant>(urlSlug: string): Promise<T[]> {
-    return this.apiClient.get({
-      path: `/constants/${urlSlug}`,
-    })
+    return this.apiClient.get(
+      {
+        path: `/constants/${urlSlug}`,
+      },
+      asSystem(),
+    )
   }
 
   types(): Promise<TypeConstant[]> {

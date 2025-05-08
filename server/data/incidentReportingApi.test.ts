@@ -1,7 +1,7 @@
 import nock from 'nock'
+import { SanitisedError } from '@ministryofjustice/hmpps-rest-client'
 
 import config from '../config'
-import type { SanitisedError } from '../sanitisedError'
 import { ErrorCode } from '../reportConfiguration/constants'
 import { now } from '../testutils/fakeClock'
 import {
@@ -322,7 +322,7 @@ describe('Incident reporting API client', () => {
         .reply(400, badRequest)
 
       const expectedSantisedError: SanitisedError<ErrorResponse> = {
-        status: 400,
+        responseStatus: 400,
         name: expect.any(String),
         stack: expect.any(String),
         message: expect.any(String),

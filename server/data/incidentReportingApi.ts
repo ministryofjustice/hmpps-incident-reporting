@@ -541,7 +541,7 @@ export class IncidentReportingApi extends RestClient {
 }
 
 export type AddDescriptionAddendumRequest = {
-  createdBy: string
+  createdBy?: string
   createdAt?: Date
   firstName: string
   lastName: string

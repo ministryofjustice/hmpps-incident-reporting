@@ -7,12 +7,13 @@ import { andrew, barry, chris } from './testData/offenderSearch'
 jest.mock('./tokenStore/redisTokenStore')
 
 describe('offenderSearchApi', () => {
+  const accessToken = 'token'
   let fakeApiClient: nock.Scope
   let apiClient: OffenderSearchApi
 
   beforeEach(() => {
     fakeApiClient = nock(config.apis.offenderSearchApi.url)
-    apiClient = new OffenderSearchApi('token')
+    apiClient = new OffenderSearchApi(accessToken)
   })
 
   afterEach(() => {
@@ -22,11 +23,14 @@ describe('offenderSearchApi', () => {
 
   describe('getPrisoners', () => {
     it('should de-duplicate input prisoner numbers', async () => {
-      fakeApiClient.post('/prisoner-search/prisoner-numbers').reply(200, (_uri, requestBody) => {
-        const request = requestBody as { prisonerNumbers: string[] }
-        expect(request.prisonerNumbers).toHaveLength(3)
-        return [chris, barry, andrew]
-      })
+      fakeApiClient
+        .post('/prisoner-search/prisoner-numbers')
+        .matchHeader('authorization', `Bearer ${accessToken}`)
+        .reply(200, (_uri, requestBody) => {
+          const request = requestBody as { prisonerNumbers: string[] }
+          expect(request.prisonerNumbers).toHaveLength(3)
+          return [chris, barry, andrew]
+        })
 
       const responseFuture = apiClient.getPrisoners(['A1111AA', 'A2222BB', 'A1111AA', 'A3333CC'])
       await expect(responseFuture).resolves.toEqual({

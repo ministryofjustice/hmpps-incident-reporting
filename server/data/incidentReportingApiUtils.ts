@@ -63,7 +63,7 @@ export function convertEventWithBasicReportsDates(event: DatesAsStrings<EventWit
   }
 }
 
-function convertDescriptionAddendumDates(addendum: DatesAsStrings<DescriptionAddendum>): DescriptionAddendum {
+export function convertDescriptionAddendumDates(addendum: DatesAsStrings<DescriptionAddendum>): DescriptionAddendum {
   return {
     ...addendum,
     createdAt: new Date(addendum.createdAt),

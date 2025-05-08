@@ -1,5 +1,7 @@
 // eslint-disable-next-line max-classes-per-file
+import { RestClient } from '@ministryofjustice/hmpps-rest-client'
 import config from '../config'
+import logger from '../../logger'
 import format from '../utils/format'
 import type {
   ErrorCode,
@@ -18,7 +20,6 @@ import {
   convertQuestionDates,
   convertReportWithDetailsDates,
 } from './incidentReportingApiUtils'
-import RestClient from './restClient'
 
 /**
  * Structure representing an error response from the incident reporting api
@@ -249,7 +250,9 @@ export type ReportVariant = {
 
 export class IncidentReportingApi extends RestClient {
   constructor(systemToken: string) {
-    super('HMPPS Incident Reporting API', config.apis.hmppsIncidentReportingApi, systemToken)
+    super('HMPPS Incident Reporting API', config.apis.hmppsIncidentReportingApi, logger, {
+      getToken: async () => systemToken,
+    })
   }
 
   get constants(): Constants {

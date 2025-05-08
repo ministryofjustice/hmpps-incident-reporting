@@ -29,9 +29,9 @@ export function populateReport(withDetails = true) {
       next()
     } catch (error) {
       logger.error(error, `Failed to load report ${reportId}`)
-      if (error.status === 400) {
+      if (error.responseStatus === 400) {
         // if a mistyped UUID is looked up, the api response is 400, but for the purpose of this app the report simply can't be found
-        error.status = 404
+        error.responseStatus = 404
       }
       next(error)
     }

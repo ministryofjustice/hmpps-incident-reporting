@@ -1,4 +1,5 @@
 import type { NextFunction, Request, Response } from 'express'
+import { NotImplemented } from 'http-errors'
 import nock from 'nock'
 
 import config from '../config'
@@ -57,7 +58,7 @@ describe('report-loading middleware', () => {
     expect(res.locals.report).toBeUndefined()
     expect(res.locals.reportUrl).toBeUndefined()
     expect(res.locals.reportSubUrlPrefix).toBeUndefined()
-    expect(next).toHaveBeenCalledWith(expect.objectContaining({ message: 'Not Found', status: 404 }))
+    expect(next).toHaveBeenCalledWith(expect.objectContaining({ message: 'Not Found', responseStatus: 404 }))
   })
 
   it('should forward rewrite the status a 400 bad request error into a 404 not found', async () => {
@@ -75,7 +76,7 @@ describe('report-loading middleware', () => {
     expect(res.locals.report).toBeUndefined()
     expect(res.locals.reportUrl).toBeUndefined()
     expect(res.locals.reportSubUrlPrefix).toBeUndefined()
-    expect(next).toHaveBeenCalledWith(expect.objectContaining({ message: 'Bad Request', status: 404 }))
+    expect(next).toHaveBeenCalledWith(expect.objectContaining({ message: 'Bad Request', responseStatus: 404 }))
   })
 
   it('should fail if report ID parameter is not supplied', async () => {
@@ -90,8 +91,6 @@ describe('report-loading middleware', () => {
     expect(res.locals.report).toBeUndefined()
     expect(res.locals.reportUrl).toBeUndefined()
     expect(res.locals.reportSubUrlPrefix).toBeUndefined()
-    expect(next).toHaveBeenCalledWith(
-      expect.objectContaining({ message: 'populateReport() requires req.params.reportId', status: 501 }),
-    )
+    expect(next).toHaveBeenCalledWith(new NotImplemented('populateReport() requires req.params.reportId'))
   })
 })

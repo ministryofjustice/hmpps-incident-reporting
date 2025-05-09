@@ -4,8 +4,6 @@ import config from '../config'
 import { OffenderSearchApi } from './offenderSearchApi'
 import { andrew, barry, chris } from './testData/offenderSearch'
 
-jest.mock('./tokenStore/redisTokenStore')
-
 describe('offenderSearchApi', () => {
   const accessToken = 'token'
   let fakeApiClient: nock.Scope

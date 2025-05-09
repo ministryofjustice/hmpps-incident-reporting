@@ -10,6 +10,7 @@ import type {
   EventWithBasicReports,
   ReportBasic,
   ReportWithDetails,
+  DescriptionAddendum,
   StaffInvolvement,
   PrisonerInvolvement,
   CorrectionRequest,
@@ -118,22 +119,7 @@ export function mockReport({
     return {
       ...basicReport,
       descriptionAddendums: withAddendums
-        ? [
-            {
-              createdBy: 'user1',
-              createdAt: format.isoDateTime(reportDateAndTime),
-              firstName: 'John',
-              lastName: 'Smith',
-              text: 'Addendum #1',
-            },
-            {
-              createdBy: 'user2',
-              createdAt: format.isoDateTime(reportDateAndTime),
-              firstName: 'Jane',
-              lastName: 'Doe',
-              text: 'Addendum #2',
-            },
-          ]
+        ? [mockDescriptionAddendum(0, reportDateAndTime), mockDescriptionAddendum(1, reportDateAndTime)]
         : [],
       event: mockEvent({ eventReference: reportReference, reportDateAndTime }),
       historyOfStatuses: [
@@ -170,6 +156,29 @@ export function mockReport({
   }
 
   return basicReport
+}
+
+export function mockDescriptionAddendum(index: number, createdAt: Date): DatesAsStrings<DescriptionAddendum> {
+  switch (index) {
+    case 0:
+      return {
+        createdBy: 'user1',
+        createdAt: format.isoDateTime(createdAt),
+        firstName: 'John',
+        lastName: 'Smith',
+        text: 'Addendum #1',
+      }
+    case 1:
+      return {
+        createdBy: 'user2',
+        createdAt: format.isoDateTime(createdAt),
+        firstName: 'Jane',
+        lastName: 'Doe',
+        text: 'Addendum #2',
+      }
+    default:
+      throw new Error('not implemented')
+  }
 }
 
 export function mockStaffInvolvement(index: number): DatesAsStrings<StaffInvolvement> {

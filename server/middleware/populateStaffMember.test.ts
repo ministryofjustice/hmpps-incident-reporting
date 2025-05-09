@@ -1,4 +1,5 @@
 import type { NextFunction, Request, Response } from 'express'
+import { NotFound } from 'http-errors'
 import nock from 'nock'
 
 import config from '../config'
@@ -42,7 +43,7 @@ describe('staff-member-loading middleware', () => {
     await populateStaffMember()(req, res, next)
 
     expect(res.locals.staffMember).toBeUndefined()
-    expect(next).toHaveBeenCalledWith(expect.objectContaining({ message: 'Not Found', status: 404 }))
+    expect(next).toHaveBeenCalledWith(new NotFound('Not Found'))
   })
 
   it('should fail if staff member username parameter is not supplied', async () => {

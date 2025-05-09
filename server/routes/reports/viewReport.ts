@@ -139,6 +139,10 @@ export function viewReportRouter(service: Services): Router {
 
       // “About the [incident]”
       res.locals.aboutTheType = aboutTheType(res.locals.report.type)
+      let canEditDescription: boolean = false
+      if (['DRAFT', 'AWAITING_ANALYSIS'].includes(report.status)) {
+        canEditDescription = true
+      }
 
       res.render('pages/reports/view/index', {
         errors,
@@ -148,6 +152,7 @@ export function viewReportRouter(service: Services): Router {
         questionProgressSteps,
         canEditReport,
         canEditReportInNomisOnly,
+        canEditDescription,
         usersLookup,
         prisonsLookup,
         prisonerInvolvementLookup,

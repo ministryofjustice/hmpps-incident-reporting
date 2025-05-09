@@ -7,10 +7,12 @@ import { BaseController } from '../../../controllers'
 import { populateReport } from '../../../middleware/populateReport'
 import { logoutIf } from '../../../middleware/permissions'
 import { cannotViewReport } from '../permissions'
+import logger from '../../../../logger'
+import { ReportWithDetails } from '../../../data/incidentReportingApi'
 
 class AddDescriptionAddendumController extends BaseController<Values> {
   middlewareLocals(): void {
-    this.router.use(logoutIf(cannotViewReport))
+    // this.router.use(logoutIf(cannotViewReport))
     this.router.use(populateReport(true))
     super.middlewareLocals()
   }
@@ -19,11 +21,10 @@ class AddDescriptionAddendumController extends BaseController<Values> {
     return `${res.locals.reportSubUrlPrefix}`
   }
 
-  /*  async saveValues(req: FormWizard.Request<Values>, res: express.Response, next: express.NextFunction): Promise<void> {
+  async saveValues(req: FormWizard.Request<Values>, res: express.Response, next: express.NextFunction): Promise<void> {
     const report = res.locals.report as ReportWithDetails
-    const prisoner = res.locals.prisoner as OffenderSearchResult
     const allValues = this.getAllValues(req, false)
-    const userNames = res.locals.user.name.split(" ")
+    const userNames = res.locals.user.name.split(' ')
 
     try {
       await res.locals.apis.incidentReportingApi.descriptionAddendums.addToReport(report.id, {
@@ -31,19 +32,19 @@ class AddDescriptionAddendumController extends BaseController<Values> {
         lastName: userNames[1],
         text: allValues.descriptionAddendum,
       })
-      logger.info('Prisoner involvement added to report %s', report.id)
+      logger.info('Additional description added to report %s', report.id)
 
       // clear session since involvement has been saved
       res.locals.clearSessionOnSuccess = true
 
       next()
     } catch (e) {
-      logger.error(e, 'Prisoner involvement could not be added to report %s: %j', report.id, e)
+      logger.error(e, 'Additional description could not be added to report %s: %j', report.id, e)
       const err = this.convertIntoValidationError(e)
       // TODO: find a different way to report whole-form errors rather than attaching to specific field
-      this.errorHandler({ prisonerRole: err }, req, res, next)
+      this.errorHandler({ descriptionAddendum: err }, req, res, next)
     }
-  } */
+  }
 }
 
 // eslint-disable-next-line import/prefer-default-export

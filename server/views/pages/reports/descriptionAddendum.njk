@@ -1,0 +1,76 @@
+{% extends "partials/layout.njk" %}
+
+{% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "macros/renderFields.njk" import renderFields %}
+{% from "govuk/components/inset-text/macro.njk" import govukInsetText %}
+
+
+{% block beforeContent %}
+  {% if backLink %}
+    {{ govukBackLink({
+      text: "Back",
+      href: backLink
+    }) }}
+  {% endif %}
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    {% include "partials/errorSummary.njk" %}
+
+    <h1 class="govuk-heading-l">
+      {% block heading %}
+      Incident description
+      {% endblock %}
+    </h1>
+
+    {% set descriptionHtml %}
+      <strong>{{ usersLookup[report.reportedBy].name or report.reportedBy }}</strong>
+      <br />
+      <small class="govuk-!-font-size-16">{{ report.reportedAt | timeOnDate }}</small>
+      <br />
+      {{ report.description | escape | nl2br }}
+      {% if report.descriptionAddendums.length != 0 %}
+        {% for addendum in report.descriptionAddendums %}
+          <br />
+          <br />
+          <strong>{{ addendum | nameOfPerson }}</strong>
+          <br />
+          <small class="govuk-!-font-size-16">{{ addendum.createdAt | timeOnDate }}</small>
+          <br />
+          {{ addendum.text | escape | nl2br }}
+        {% endfor %}
+      {% endif %}
+    {% endset %}
+
+    {{ govukInsetText({
+      html: descriptionHtml
+    }) }}
+
+    <form id="form-wizard" method="post" novalidate>
+      <input type="hidden" name="_csrf" value="{{ csrfToken }}" />
+      <input type="hidden" name="x-csrf-token" value="{{ csrfToken }}" />
+
+      {% block formFields %}
+      {{ renderFields(options, values, errors) }}
+      {% endblock %}
+
+      <div class="govuk-button-group">
+        {{ govukButton({
+        text: saveButtonText or "Continue",
+        name: "userAction",
+        value: "continue",
+        preventDoubleClick: true,
+        type: "submit"
+        }) }}
+
+        <a href="{{ cancelUrl }}" class="govuk-link govuk-link--no-visited-state">Cancel</a>
+      </div>
+    </form>
+
+  </div>
+</div>
+{% endblock %}

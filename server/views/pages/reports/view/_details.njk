@@ -24,6 +24,14 @@
   {% set descriptionHtml = report.description | escape | nl2br %}
 {% endif %}
 
+{% if canEditDescription %}
+  {% set descriptionLink = reportUrl + "/update-details" %}
+  {% set descriptionHiddenText = "incident summary" %}
+{% else %}
+  {% set descriptionLink = reportUrl + "/add-description" %}
+  {% set descriptionHiddenText = "Add to description" %}
+{% endif %}
+
 
 {{ govukSummaryList({
   card: {
@@ -68,7 +76,7 @@
       actions: {
         items: [
           {
-            href: reportUrl + "/update-details",
+            href: descriptionLink,
             text: "Change",
             visuallyHiddenText: "incident summary"
           }

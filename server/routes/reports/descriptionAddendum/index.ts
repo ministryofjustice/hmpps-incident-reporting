@@ -37,7 +37,8 @@ class AddDescriptionAddendumController extends BaseController<Values> {
       // clear session since involvement has been saved
       res.locals.clearSessionOnSuccess = true
 
-      next()
+      req.flash('success', { title: `You have added information to the description` })
+      res.redirect(`/reports/${report.id}`)
     } catch (e) {
       logger.error(e, 'Additional description could not be added to report %s: %j', report.id, e)
       const err = this.convertIntoValidationError(e)

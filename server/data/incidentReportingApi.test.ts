@@ -22,8 +22,6 @@ import {
 } from './testData/incidentReporting'
 import { unsortedPageOf } from './testData/paginatedResponses'
 
-jest.mock('./tokenStore/redisTokenStore')
-
 describe('Incident reporting API client', () => {
   const accessToken = 'token'
   const eventWith1Report = mockEvent({ eventReference: '54322', reportDateAndTime: now, includeReports: 1 })

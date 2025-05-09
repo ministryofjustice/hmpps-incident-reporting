@@ -1,8 +1,8 @@
 import { URLSearchParams } from 'node:url'
 
 import superagent from 'superagent'
+import { TokenStore } from '@ministryofjustice/hmpps-auth-clients'
 
-import type TokenStore from './tokenStore/tokenStore'
 import logger from '../../logger'
 import config from '../config'
 import generateOauthClientToken from '../authentication/clientCredentials'

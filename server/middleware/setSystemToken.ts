@@ -8,7 +8,7 @@ export default function setSystemToken(services: Services): RequestHandler {
 
   return asyncMiddleware(async (req, res, next) => {
     const { username } = res.locals.user
-    const systemToken = await hmppsAuthClient.getSystemClientToken(username)
+    const systemToken = await hmppsAuthClient.getToken(username)
 
     res.locals.systemToken = systemToken
 

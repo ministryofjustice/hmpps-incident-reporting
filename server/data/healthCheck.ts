@@ -1,8 +1,8 @@
 import Agent, { HttpsAgent } from 'agentkeepalive'
+import { AgentConfig } from '@ministryofjustice/hmpps-rest-client'
 import superagent from 'superagent'
 
 import logger from '../../logger'
-import type { AgentConfig } from '../config'
 
 export type ServiceCheck = () => Promise<string>
 

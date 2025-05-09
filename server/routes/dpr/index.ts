@@ -7,7 +7,7 @@ import { Services } from '../../services'
 let definitionsRoutesInitialised: boolean = false
 
 async function getIncidentReportingApi(services: Services): Promise<IncidentReportingApi> {
-  const systemToken = await services.hmppsAuthClient.getSystemClientToken()
+  const systemToken = await services.hmppsAuthClient.getToken()
   return new IncidentReportingApi(systemToken)
 }
 

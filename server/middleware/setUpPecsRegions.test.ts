@@ -1,6 +1,6 @@
 import type { Request, Response } from 'express'
+import { AuthenticationClient } from '@ministryofjustice/hmpps-auth-clients'
 
-import HmppsAuthClient from '../data/hmppsAuthClient'
 import { PrisonApi } from '../data/prisonApi'
 import { type PecsRegion, pecsRegions } from '../data/pecsRegions'
 import { mockErrorResponse } from '../data/testData/incidentReporting'
@@ -10,7 +10,7 @@ import { mockThrownError } from '../data/testData/thrownErrors'
 import type { Services } from '../services'
 import setUpPecsRegions from './setUpPecsRegions'
 
-jest.mock('../data/hmppsAuthClient')
+jest.mock('@ministryofjustice/hmpps-auth-clients')
 jest.mock('../data/prisonApi')
 
 describe('Loading PECS regions', () => {
@@ -24,12 +24,12 @@ describe('Loading PECS regions', () => {
     pecsRegions.splice(0, pecsRegions.length, ...previousPecsRegions)
   })
 
-  let hmppsAuthClient: jest.Mocked<HmppsAuthClient>
+  let hmppsAuthClient: jest.Mocked<AuthenticationClient>
   let prisonApi: jest.Mocked<PrisonApi>
 
   beforeEach(() => {
-    hmppsAuthClient = HmppsAuthClient.prototype as jest.Mocked<HmppsAuthClient>
-    hmppsAuthClient.getSystemClientToken.mockResolvedValueOnce('test-system-token')
+    hmppsAuthClient = AuthenticationClient.prototype as jest.Mocked<AuthenticationClient>
+    hmppsAuthClient.getToken.mockResolvedValueOnce('test-system-token')
 
     prisonApi = PrisonApi.prototype as jest.Mocked<PrisonApi>
     prisonApi.getPecsRegions.mockResolvedValueOnce({
@@ -67,7 +67,7 @@ describe('Loading PECS regions', () => {
     const res = {} as Response
     middleware(req, res, (...nextArgs) => {
       expect(nextArgs).toHaveLength(0) // next function called with no args
-      expect(hmppsAuthClient.getSystemClientToken).not.toHaveBeenCalled()
+      expect(hmppsAuthClient.getToken).not.toHaveBeenCalled()
       expect(prisonApi.getPecsRegions).not.toHaveBeenCalled()
       expect(pecsRegions).toEqual([pecsNorthRegion, pecsSouthRegion])
 

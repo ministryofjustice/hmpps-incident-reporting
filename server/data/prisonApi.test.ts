@@ -4,8 +4,6 @@ import config from '../config'
 import { PrisonApi, type Agency, type IncidentTypeConfiguration, type ReferenceCode } from './prisonApi'
 import { leeds, moorland, pecsNorth, pecsSouth, staffMary } from './testData/prisonApi'
 
-jest.mock('./tokenStore/redisTokenStore')
-
 describe('prisonApi', () => {
   const accessToken = 'token'
   let fakeApiClient: nock.Scope

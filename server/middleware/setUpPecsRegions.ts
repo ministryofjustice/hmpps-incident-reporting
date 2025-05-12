@@ -13,7 +13,7 @@ export default function setUpPecsRegions(services: Services): RequestHandler {
   return (_req, _res, next) => {
     if (pecsRegions.length === 0) {
       hmppsAuthClient
-        .getSystemClientToken()
+        .getToken()
         .then(systemToken => new PrisonApi(systemToken).getPecsRegions(false))
         .then(
           regionMap => {

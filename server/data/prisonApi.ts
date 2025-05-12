@@ -1,6 +1,7 @@
+import { asSystem, RestClient } from '@ministryofjustice/hmpps-rest-client'
 import config from '../config'
 import { type NomisPrisonerInvolvementRole, type NomisType } from '../reportConfiguration/constants'
-import RestClient from './restClient'
+import logger from '../../logger'
 
 export enum AgencyType {
   /** Prison */
@@ -130,17 +131,22 @@ export interface ReferenceCode {
 
 export class PrisonApi extends RestClient {
   constructor(systemToken: string) {
-    super('HMPPS Prison API', config.apis.hmppsPrisonApi, systemToken)
+    super('HMPPS Prison API', config.apis.hmppsPrisonApi, logger, {
+      getToken: async () => systemToken,
+    })
   }
 
   async getPrison(prisonId: string, activeOnly = true): Promise<Agency | null> {
     try {
-      return await this.get<Agency>({
-        path: `/api/agencies/${encodeURIComponent(prisonId)}`,
-        query: { activeOnly: activeOnly.toString() },
-      })
+      return await this.get<Agency>(
+        {
+          path: `/api/agencies/${encodeURIComponent(prisonId)}`,
+          query: { activeOnly: activeOnly.toString() },
+        },
+        asSystem(),
+      )
     } catch (error) {
-      const status = error?.status
+      const status = error?.responseStatus
       if (status === 404) {
         // return null if not found
         return null
@@ -150,9 +156,12 @@ export class PrisonApi extends RestClient {
   }
 
   async getPrisons(): Promise<Record<string, Agency>> {
-    const prisons = await this.get<Agency[]>({
-      path: '/api/agencies/prisons',
-    })
+    const prisons = await this.get<Agency[]>(
+      {
+        path: '/api/agencies/prisons',
+      },
+      asSystem(),
+    )
 
     // Returns the prisons in an object for easy access
     return prisons.reduce((prev, prisonInfo) => ({ ...prev, [prisonInfo.agencyId]: prisonInfo }), {})
@@ -163,10 +172,13 @@ export class PrisonApi extends RestClient {
   }
 
   private async getAgencies(agencyType: AgencyType, activeOnly = true): Promise<Record<string, Agency>> {
-    const agencies = await this.get<Agency[]>({
-      path: `/api/agencies/type/${encodeURIComponent(agencyType)}`,
-      query: { activeOnly },
-    })
+    const agencies = await this.get<Agency[]>(
+      {
+        path: `/api/agencies/type/${encodeURIComponent(agencyType)}`,
+        query: { activeOnly },
+      },
+      asSystem(),
+    )
 
     // Returns the agencies in an object for easy access
     return agencies.reduce((prev, agency) => ({ ...prev, [agency.agencyId]: agency }), {})
@@ -174,12 +186,15 @@ export class PrisonApi extends RestClient {
 
   async getPhoto(prisonerNumber: string): Promise<Buffer | null> {
     try {
-      return await this.get<Buffer>({
-        path: `/api/bookings/offenderNo/${encodeURIComponent(prisonerNumber)}/image/data`,
-        query: { fullSizeImage: 'false' },
-      })
+      return await this.get<Buffer>(
+        {
+          path: `/api/bookings/offenderNo/${encodeURIComponent(prisonerNumber)}/image/data`,
+          query: { fullSizeImage: 'false' },
+        },
+        asSystem(),
+      )
     } catch (error) {
-      const status = error?.status
+      const status = error?.responseStatus
       if (status === 403 || status === 404) {
         // return null if unauthorised or not found
         return null
@@ -190,11 +205,14 @@ export class PrisonApi extends RestClient {
 
   async getStaffDetails(username: string): Promise<Staff | null> {
     try {
-      return await this.get<Staff>({
-        path: `/api/users/${username}`,
-      })
+      return await this.get<Staff>(
+        {
+          path: `/api/users/${username}`,
+        },
+        asSystem(),
+      )
     } catch (error) {
-      const status = error?.status
+      const status = error?.responseStatus
       if (status === 404) {
         // return null if not found
         return null
@@ -208,10 +226,13 @@ export class PrisonApi extends RestClient {
    * Optionally, can be filtered to return only 1 type.
    */
   async getIncidentTypeConfiguration(type?: string): Promise<IncidentTypeConfiguration[]> {
-    const incidentTypes = await this.get<DatesAsStrings<IncidentTypeConfiguration>[]>({
-      path: '/api/incidents/configuration',
-      query: { 'incident-type': type },
-    })
+    const incidentTypes = await this.get<DatesAsStrings<IncidentTypeConfiguration>[]>(
+      {
+        path: '/api/incidents/configuration',
+        query: { 'incident-type': type },
+      },
+      asSystem(),
+    )
     return incidentTypes.map(
       incidentType =>
         ({
@@ -252,9 +273,12 @@ export class PrisonApi extends RestClient {
       }
     }
 
-    const codes = await this.get<DatesAsStrings<ReferenceCode[]>>({
-      path: `/api/reference-domains/domains/${encodeURIComponent(domain)}/codes`,
-    })
+    const codes = await this.get<DatesAsStrings<ReferenceCode[]>>(
+      {
+        path: `/api/reference-domains/domains/${encodeURIComponent(domain)}/codes`,
+      },
+      asSystem(),
+    )
     return codes.map(parseDates).sort((code1, code2) => (code1.listSeq ?? Infinity) - (code2.listSeq ?? Infinity))
   }
 

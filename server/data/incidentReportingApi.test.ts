@@ -1,7 +1,7 @@
 import nock from 'nock'
+import { SanitisedError } from '@ministryofjustice/hmpps-rest-client'
 
 import config from '../config'
-import type { SanitisedError } from '../sanitisedError'
 import { ErrorCode } from '../reportConfiguration/constants'
 import { now } from '../testutils/fakeClock'
 import {
@@ -22,9 +22,8 @@ import {
 } from './testData/incidentReporting'
 import { unsortedPageOf } from './testData/paginatedResponses'
 
-jest.mock('./tokenStore/redisTokenStore')
-
 describe('Incident reporting API client', () => {
+  const accessToken = 'token'
   const eventWith1Report = mockEvent({ eventReference: '54322', reportDateAndTime: now, includeReports: 1 })
   const basicReport = mockReport({ reportReference: '6543', reportDateAndTime: now })
   const reportWithDetails = mockReport({ reportReference: '6544', reportDateAndTime: now, withDetails: true })
@@ -34,7 +33,7 @@ describe('Incident reporting API client', () => {
 
   beforeEach(() => {
     fakeApiClient = nock(config.apis.hmppsIncidentReportingApi.url)
-    apiClient = new IncidentReportingApi('token')
+    apiClient = new IncidentReportingApi(accessToken)
   })
 
   afterEach(() => {
@@ -319,10 +318,11 @@ describe('Incident reporting API client', () => {
       fakeApiClient
         .intercept(url, urlMethod ?? 'get')
         .query(true)
+        .matchHeader('authorization', `Bearer ${accessToken}`)
         .reply(400, badRequest)
 
       const expectedSantisedError: SanitisedError<ErrorResponse> = {
-        status: 400,
+        responseStatus: 400,
         name: expect.any(String),
         stack: expect.any(String),
         message: expect.any(String),
@@ -343,6 +343,7 @@ describe('Incident reporting API client', () => {
       fakeApiClient
         .get('/incident-events')
         .query(true)
+        .matchHeader('authorization', `Bearer ${accessToken}`)
         .reply(200, unsortedPageOf([eventWith1Report]))
       const response = await apiClient.getEvents()
       const shouldBeDates = response.content.flatMap(item => [
@@ -369,7 +370,7 @@ describe('Incident reporting API client', () => {
         testCase: () => apiClient.getEventByReference(eventWith1Report.eventReference),
       },
     ])('should work for $method returning an event with reports', async ({ testCase, url }) => {
-      fakeApiClient.get(url).reply(200, eventWith1Report)
+      fakeApiClient.get(url).matchHeader('authorization', `Bearer ${accessToken}`).reply(200, eventWith1Report)
       const response = await testCase()
       const shouldBeDates = [
         response.eventDateAndTime,
@@ -387,6 +388,7 @@ describe('Incident reporting API client', () => {
       fakeApiClient
         .get('/incident-reports')
         .query(true)
+        .matchHeader('authorization', `Bearer ${accessToken}`)
         .reply(200, unsortedPageOf([basicReport]))
       const response = await apiClient.getReports()
       const shouldBeDates = response.content.flatMap(item => [
@@ -416,7 +418,10 @@ describe('Incident reporting API client', () => {
         testCase: () => apiClient.updateReport(basicReport.id, { description: 'Police informed' }),
       },
     ])('should work for $method returning a basic report', async ({ testCase, url, urlMethod }) => {
-      fakeApiClient.intercept(url, urlMethod ?? 'get').reply(200, basicReport)
+      fakeApiClient
+        .intercept(url, urlMethod ?? 'get')
+        .matchHeader('authorization', `Bearer ${accessToken}`)
+        .reply(200, basicReport)
       const response = await testCase()
       const shouldBeDates = [response.incidentDateAndTime, response.reportedAt, response.createdAt, response.modifiedAt]
       shouldBeDates.forEach(value => expect(value).toBeInstanceOf(Date))
@@ -469,6 +474,7 @@ describe('Incident reporting API client', () => {
       fakeApiClient
         .intercept(url, urlMethod ?? 'get')
         .query(true)
+        .matchHeader('authorization', `Bearer ${accessToken}`)
         .reply(200, reportWithDetails)
       const response = await testCase()
       const shouldBeDates = [
@@ -531,18 +537,24 @@ describe('Incident reporting API client', () => {
     ])(
       'should work on input request data for $method',
       async ({ testCase, url, urlMethod, mockResponse, responseDateExtractor, expectedDateString }) => {
-        fakeApiClient.intercept(url, urlMethod).reply((_uri, requestBody) => {
-          const request = requestBody as DatesAsStrings<
-            CreateReportRequest | UpdateReportRequest | AddOrUpdateQuestionWithResponsesRequest[]
-          >
-          // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-          // @ts-ignore because responseDateExtractor is appropriate for each request but TS cannot tell that
-          const fieldsWithDates = responseDateExtractor(request)
-          if (fieldsWithDates.every(field => field?.includes(expectedDateString))) {
-            return [mockResponse.status, mockResponse.data]
-          }
-          return [400, { status: 400, userMessage: 'Invalid input date', developerMessage: '' } satisfies ErrorResponse]
-        })
+        fakeApiClient
+          .intercept(url, urlMethod)
+          .matchHeader('authorization', `Bearer ${accessToken}`)
+          .reply((_uri, requestBody) => {
+            const request = requestBody as DatesAsStrings<
+              CreateReportRequest | UpdateReportRequest | AddOrUpdateQuestionWithResponsesRequest[]
+            >
+            // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+            // @ts-ignore because responseDateExtractor is appropriate for each request but TS cannot tell that
+            const fieldsWithDates = responseDateExtractor(request)
+            if (fieldsWithDates.every(field => field?.includes(expectedDateString))) {
+              return [mockResponse.status, mockResponse.data]
+            }
+            return [
+              400,
+              { status: 400, userMessage: 'Invalid input date', developerMessage: '' } satisfies ErrorResponse,
+            ]
+          })
         await testCase()
       },
     )
@@ -584,6 +596,7 @@ describe('Incident reporting API client', () => {
       fakeApiClient
         .intercept(url, urlMethod ?? 'get')
         .query(true)
+        .matchHeader('authorization', `Bearer ${accessToken}`)
         .reply(200, [mockDescriptionAddendum(0, now), mockDescriptionAddendum(1, now)])
       const response = await testCase()
       const shouldBeDates = response.map(item => item.createdAt)
@@ -624,6 +637,7 @@ describe('Incident reporting API client', () => {
       fakeApiClient
         .intercept(url, urlMethod ?? 'get')
         .query(true)
+        .matchHeader('authorization', `Bearer ${accessToken}`)
         .reply(200, [mockCorrectionRequest(0, now), mockCorrectionRequest(1, now)])
       const response = await testCase()
       const shouldBeDates = response.map(item => item.correctionRequestedAt)
@@ -659,6 +673,7 @@ describe('Incident reporting API client', () => {
       fakeApiClient
         .intercept(url, urlMethod ?? 'get')
         .query(true)
+        .matchHeader('authorization', `Bearer ${accessToken}`)
         .reply(200, [mockQuestion(0, now, 1), mockQuestion(1, now, 2)])
       const response = await testCase()
       const shouldBeDates = response.flatMap(question =>
@@ -720,17 +735,20 @@ describe('Incident reporting API client', () => {
       'in $method request data',
       ({ url, nullableFields, testCaseAbsentFields, testCaseNullFields, testCaseNonNullFields }) => {
         it('should omit fields when they are absent in the request', () => {
-          fakeApiClient.patch(url).reply((_uri, requestBody) => {
-            // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-            // @ts-ignore because nock cannot know about request data type
-            if (nullableFields.some(fieldName => fieldName in requestBody)) {
-              return [
-                400,
-                { status: 400, userMessage: 'Fields should be absent', developerMessage: '' } satisfies ErrorResponse,
-              ]
-            }
-            return [200, []]
-          })
+          fakeApiClient
+            .patch(url)
+            .matchHeader('authorization', `Bearer ${accessToken}`)
+            .reply((_uri, requestBody) => {
+              // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+              // @ts-ignore because nock cannot know about request data type
+              if (nullableFields.some(fieldName => fieldName in requestBody)) {
+                return [
+                  400,
+                  { status: 400, userMessage: 'Fields should be absent', developerMessage: '' } satisfies ErrorResponse,
+                ]
+              }
+              return [200, []]
+            })
           return testCaseAbsentFields()
         })
 

@@ -1,5 +1,4 @@
 import type { NextFunction, Request, Response } from 'express'
-import { NotImplemented } from 'http-errors'
 import nock from 'nock'
 
 import config from '../config'
@@ -91,6 +90,8 @@ describe('report-loading middleware', () => {
     expect(res.locals.report).toBeUndefined()
     expect(res.locals.reportUrl).toBeUndefined()
     expect(res.locals.reportSubUrlPrefix).toBeUndefined()
-    expect(next).toHaveBeenCalledWith(new NotImplemented('populateReport() requires req.params.reportId'))
+    expect(next).toHaveBeenCalledWith(
+      expect.objectContaining({ message: 'populateReport() requires req.params.reportId', status: 501 }),
+    )
   })
 })

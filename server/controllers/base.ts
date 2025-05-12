@@ -1,7 +1,7 @@
 import type express from 'express'
 import FormWizard from 'hmpo-form-wizard'
+import { SanitisedError } from '@ministryofjustice/hmpps-rest-client'
 
-import { SanitisedError } from '../sanitisedError'
 import { parseDateInput, parseTimeInput } from '../utils/parseDateTime'
 
 /**

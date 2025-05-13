@@ -22,7 +22,9 @@ export const testAppInfo: ApplicationInfo = {
   gitShortHash: '9fb9f70',
   branchName: 'main',
   assetsPath: './assets',
-  activeAgencies: ['MDI', 'LEI'],
+  additionalFields: {
+    activeAgencies: ['MDI', 'LEI'],
+  },
 }
 
 function appSetup(services: Services, production: boolean, userSupplier: () => Express.User): Express {

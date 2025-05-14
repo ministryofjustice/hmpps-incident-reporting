@@ -1,7 +1,7 @@
-import { asSystem } from '@ministryofjustice/hmpps-rest-client'
+import { RestClient, asUser } from '@ministryofjustice/hmpps-rest-client'
+
 import logger from '../../logger'
 import config from '../config'
-import ConcreteRestClient from './concreteRestClient'
 
 export interface User {
   username: string
@@ -43,40 +43,36 @@ export interface UsersSearchResult {
   }
 }
 
-export default class ManageUsersApiClient {
+export default class ManageUsersApiClient extends RestClient {
   static readonly PAGE_SIZE = 20
 
-  private static restClient(token: string): ConcreteRestClient {
-    return new ConcreteRestClient('Manage Users Api Client', config.apis.manageUsersApi, logger, {
-      getToken: async () => token,
-    })
+  constructor() {
+    super('Manage Users Api Client', config.apis.manageUsersApi, logger)
   }
 
   /**
    * Get current user details
    */
   getUser(token: string): Promise<User> {
-    logger.info('Getting user details: calling HMPPS Manage Users Api')
-    return ManageUsersApiClient.restClient(token).get<User>({ path: '/users/me' }, asSystem())
+    return this.get<User>({ path: '/users/me' }, asUser(token))
   }
 
   /**
    * Get a user by username
    */
   getNamedUser(token: string, username: string): Promise<User> {
-    logger.info(`Getting ${username} user details: calling HMPPS Manage Users Api`)
-    return ManageUsersApiClient.restClient(token).get<User>({ path: `/users/${username}` }, asSystem())
+    return this.get<User>({ path: `/users/${username}` }, asUser(token))
   }
 
   /**
    * Get a NOMIS/DPS user by username
    */
   getPrisonUser(token: string, username: string): Promise<PrisonUser> {
-    return ManageUsersApiClient.restClient(token).get(
+    return this.get(
       {
         path: `/prisonusers/${encodeURIComponent(username)}`,
       },
-      asSystem(),
+      asUser(token),
     )
   }
 
@@ -89,7 +85,7 @@ export default class ManageUsersApiClient {
     type Status = 'ACTIVE' | 'INACTIVE' | 'ALL'
     const status: Status = 'ACTIVE'
 
-    return ManageUsersApiClient.restClient(token).get(
+    return this.get(
       {
         path: '/prisonusers/search',
         query: {
@@ -99,7 +95,7 @@ export default class ManageUsersApiClient {
           page,
         },
       },
-      asSystem(),
+      asUser(token),
     )
   }
 }

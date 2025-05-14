@@ -8,7 +8,7 @@ import { SanitisedError } from '@ministryofjustice/hmpps-rest-client'
  */
 // eslint-disable-next-line import/prefer-default-export
 export function mockThrownError<T>(responseBody: T, status: number = 400): SanitisedError<T> {
-  const error = new Error(`Error: ${status}`) as SanitisedError<T>
+  const error = new SanitisedError<T>(`Error: ${status}`)
   error.responseStatus = status
   error.headers = {}
   error.data = responseBody

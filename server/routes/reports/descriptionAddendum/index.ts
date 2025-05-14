@@ -1,4 +1,4 @@
-import type express from 'express'
+import express from 'express'
 import FormWizard from 'hmpo-form-wizard'
 
 import { fields, type Values } from './fields'
@@ -6,14 +6,12 @@ import { steps } from './steps'
 import { BaseController } from '../../../controllers'
 import { populateReport } from '../../../middleware/populateReport'
 import { logoutIf } from '../../../middleware/permissions'
-import { cannotViewReport } from '../permissions'
+import { cannotEditReport } from '../permissions'
 import logger from '../../../../logger'
 import { ReportWithDetails } from '../../../data/incidentReportingApi'
 
 class AddDescriptionAddendumController extends BaseController<Values> {
   middlewareLocals(): void {
-    // this.router.use(logoutIf(cannotViewReport))
-    this.router.use(populateReport(true))
     super.middlewareLocals()
   }
 
@@ -48,8 +46,7 @@ class AddDescriptionAddendumController extends BaseController<Values> {
   }
 }
 
-// eslint-disable-next-line import/prefer-default-export
-export const addDescriptionRouter = FormWizard(steps, fields, {
+const addDescriptionWizardRouter = FormWizard(steps, fields, {
   name: 'descriptionAddendum',
   journeyName: 'descriptionAddendum',
   checkSession: false,
@@ -59,4 +56,7 @@ export const addDescriptionRouter = FormWizard(steps, fields, {
 })
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore because express types do not mention this property and form wizard does not allow you to pass in config for it's root router
-addDescriptionRouter.mergeParams = true
+addDescriptionWizardRouter.mergeParams = true
+// eslint-disable-next-line import/prefer-default-export
+export const addDescriptionRouter = express.Router({ mergeParams: true })
+addDescriptionRouter.use(populateReport(true), logoutIf(cannotEditReport), addDescriptionWizardRouter)

@@ -10,9 +10,12 @@ export type ApplicationInfo = {
   buildNumber: string
   gitRef: string
   gitShortHash: string
-  productId?: string
+  productId: string
   branchName: string
   assetsPath: string
+  additionalFields: {
+    activeAgencies: string[]
+  }
 }
 
 export default (): ApplicationInfo => {
@@ -28,5 +31,8 @@ export default (): ApplicationInfo => {
     productId,
     branchName,
     assetsPath,
+    additionalFields: {
+      activeAgencies: config.activePrisons,
+    },
   }
 }

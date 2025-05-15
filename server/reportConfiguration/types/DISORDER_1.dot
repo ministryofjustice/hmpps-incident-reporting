@@ -377,7 +377,7 @@ digraph DISORDER_1 {
       53183 -> 53184 [label=< <FONT COLOR="royalblue">202699 </FONT> Damage resulting in loss of facilities or utilities >, color="#DDD"];
       53183 -> 53184 [label=< <FONT COLOR="royalblue">202700 </FONT> Damage resulting in the loss of accommodation >, color="#DDD"];
       53183 -> 53184 [label=< <FONT COLOR="royalblue">202701 </FONT> Media interest >, color="#DDD"];
-      53183 -> 53184 [label=< <FONT COLOR="royalblue">202702 </FONT> Nrtg and/or NDTSG assistance required >, color="#DDD"];
+      53183 -> 53184 [label=< <FONT COLOR="royalblue">202702 </FONT> NTRG and/or NDTSG assistance required >, color="#DDD"];
       53183 -> 53184 [label=< <FONT COLOR="royalblue">202703 </FONT> Perpetrator under influence of drugs or alcohol >, color="#DDD"];
       53183 -> 53184 [label=< <FONT COLOR="royalblue">202704 </FONT> Threat or actual self harm >, color="#DDD"];
       53183 -> 53184 [label=< <FONT COLOR="royalblue">202705 </FONT> Use of weapons >, color="#DDD"];

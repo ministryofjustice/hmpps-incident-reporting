@@ -238,7 +238,7 @@ export function convertToSentenceCase(str: string): string {
     'NOMS',
     'NOU',
     'NPS',
-    'NTRG', // TODO: is it NTRG or NRTG?
+    'NTRG',
     'O.C',
     'OMA',
     'ORRU',

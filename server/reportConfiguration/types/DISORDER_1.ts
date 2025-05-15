@@ -3357,7 +3357,7 @@ export const DISORDER_1: IncidentTypeConfiguration = {
           id: '202702',
           code: 'NRTG And/Or NDTSG Assistance Required',
           active: false,
-          label: 'Nrtg and/or NDTSG assistance required',
+          label: 'NTRG and/or NDTSG assistance required',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '53184',

@@ -1413,7 +1413,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
           id: '182817',
           code: 'Heathcare Centre',
           active: false,
-          label: 'Heathcare centre',
+          label: 'Healthcare centre',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: null,

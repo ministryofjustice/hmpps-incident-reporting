@@ -585,7 +585,7 @@ export const DISORDER_1: IncidentTypeConfiguration = {
           id: '194741',
           code: 'Extensive / Mutliple Bruising',
           active: false,
-          label: 'Extensive / mutliple bruising',
+          label: 'Extensive / multiple bruising',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '49186',
@@ -1188,7 +1188,7 @@ export const DISORDER_1: IncidentTypeConfiguration = {
           id: '194794',
           code: 'Chemical Incapicitant',
           active: false,
-          label: 'Chemical incapicitant',
+          label: 'Chemical incapacitant',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '49200',
@@ -1622,7 +1622,7 @@ export const DISORDER_1: IncidentTypeConfiguration = {
       id: '49205',
       active: false,
       code: 'Was The Telephone System Shur Down Locally Or By The Service Supplier?',
-      label: 'Was the telephone system shur down locally or by the service supplier?',
+      label: 'Was the telephone system shut down locally or by the service supplier?',
       multipleAnswers: false,
       answers: [
         {

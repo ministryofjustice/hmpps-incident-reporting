@@ -3807,7 +3807,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           id: '208933',
           code: 'FACILTY',
           active: false,
-          label: 'Facilty',
+          label: 'Facility',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '57238',

@@ -42,7 +42,7 @@ describe('staff-member-loading middleware', () => {
     await populateStaffMember()(req, res, next)
 
     expect(res.locals.staffMember).toBeUndefined()
-    expect(next).toHaveBeenCalledWith(expect.objectContaining({ message: 'Not Found', status: 404 }))
+    expect(next).toHaveBeenCalledWith(expect.objectContaining({ message: 'Not Found', responseStatus: 404 }))
   })
 
   it('should fail if staff member username parameter is not supplied', async () => {

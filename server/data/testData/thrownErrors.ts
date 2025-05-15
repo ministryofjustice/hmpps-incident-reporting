@@ -1,4 +1,4 @@
-import { SanitisedError } from '../../sanitisedError'
+import { SanitisedError } from '@ministryofjustice/hmpps-rest-client'
 
 /**
  * Build an object mimicking a sanitised Error thrown by an api client in case of unsuccessful response.
@@ -9,7 +9,7 @@ import { SanitisedError } from '../../sanitisedError'
 // eslint-disable-next-line import/prefer-default-export
 export function mockThrownError<T>(responseBody: T, status: number = 400): SanitisedError<T> {
   const error = new SanitisedError<T>(`Error: ${status}`)
-  error.status = status
+  error.responseStatus = status
   error.headers = {}
   error.data = responseBody
   error.text = typeof responseBody === 'object' ? JSON.stringify(responseBody) : responseBody.toString()

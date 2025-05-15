@@ -1,6 +1,7 @@
+import { asSystem, RestClient } from '@ministryofjustice/hmpps-rest-client'
 import config from '../config'
 import { TransferPrisonId, OutsidePrisonId, transferPrisonId, outsidePrisonId } from './constants'
-import RestClient from './restClient'
+import logger from '../../logger'
 
 interface BaseOffenderSearchResult {
   prisonerNumber: string
@@ -56,16 +57,21 @@ export class OffenderSearchApi extends RestClient {
   static readonly PAGE_SIZE = 20
 
   constructor(systemToken: string) {
-    super('HMPPS Offender Search API', config.apis.offenderSearchApi, systemToken)
+    super('HMPPS Offender Search API', config.apis.offenderSearchApi, logger, {
+      getToken: async () => systemToken,
+    })
   }
 
   /**
    * Find a single person by prisoner number
    */
   getPrisoner(prisonerNumber: string): Promise<OffenderSearchResult> {
-    return this.get<OffenderSearchResult>({
-      path: `/prisoner/${encodeURIComponent(prisonerNumber)}`,
-    })
+    return this.get<OffenderSearchResult>(
+      {
+        path: `/prisoner/${encodeURIComponent(prisonerNumber)}`,
+      },
+      asSystem(),
+    )
   }
 
   /**
@@ -77,12 +83,15 @@ export class OffenderSearchApi extends RestClient {
       return {}
     }
 
-    const prisoners = await this.post<OffenderSearchResult[]>({
-      path: '/prisoner-search/prisoner-numbers',
-      data: {
-        prisonerNumbers: uniquePrisonerNumbers,
+    const prisoners = await this.post<OffenderSearchResult[]>(
+      {
+        path: '/prisoner-search/prisoner-numbers',
+        data: {
+          prisonerNumbers: uniquePrisonerNumbers,
+        },
       },
-    })
+      asSystem(),
+    )
 
     // Returns the prisoners in an object for easy access
     return prisoners.reduce((prev, prisonerInfo) => ({ ...prev, [prisonerInfo.prisonerNumber]: prisonerInfo }), {})
@@ -98,15 +107,18 @@ export class OffenderSearchApi extends RestClient {
     sort: Sort = 'lastName',
     order: Order = 'ASC',
   ): Promise<OffenderSearchResults> {
-    return this.get<OffenderSearchResults>({
-      path: `/prison/${encodeURIComponent(prisonId)}/prisoners`,
-      query: {
-        term,
-        size: OffenderSearchApi.PAGE_SIZE,
-        page,
-        sort: `${sort},${order}`,
+    return this.get<OffenderSearchResults>(
+      {
+        path: `/prison/${encodeURIComponent(prisonId)}/prisoners`,
+        query: {
+          term,
+          size: OffenderSearchApi.PAGE_SIZE,
+          page,
+          sort: `${sort},${order}`,
+        },
       },
-    })
+      asSystem(),
+    )
   }
 
   /**
@@ -131,13 +143,16 @@ export class OffenderSearchApi extends RestClient {
       // eslint-disable-next-line no-param-reassign
       filters.includeAliases = true
     }
-    return this.post<OffenderSearchResults>({
-      path: '/global-search',
-      query: {
-        size: OffenderSearchApi.PAGE_SIZE,
-        page: encodeURIComponent(page),
+    return this.post<OffenderSearchResults>(
+      {
+        path: '/global-search',
+        query: {
+          size: OffenderSearchApi.PAGE_SIZE,
+          page: encodeURIComponent(page),
+        },
+        data: filters,
       },
-      data: filters,
-    })
+      asSystem(),
+    )
   }
 }

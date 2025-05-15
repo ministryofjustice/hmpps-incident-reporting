@@ -1,5 +1,7 @@
+import { RestClient, asUser } from '@ministryofjustice/hmpps-rest-client'
+
+import logger from '../../logger'
 import config from '../config'
-import RestClient from './restClient'
 import type { AgencyType } from './prisonApi'
 
 export interface Component {
@@ -33,19 +35,22 @@ export interface ComponentsResponse extends Record<AvailableComponent, Component
   }
 }
 
-export default class FrontendComponentsClient {
-  private static restClient(token: string): RestClient {
-    return new RestClient('HMPPS Components Client', config.apis.frontendComponents, token)
+export default class FrontendComponentsClient extends RestClient {
+  constructor() {
+    super('HMPPS Components Client', config.apis.frontendComponents, logger)
   }
 
   getComponents<T extends AvailableComponent[]>(
     components: T,
     userToken: string,
   ): Promise<Pick<ComponentsResponse, 'meta' | T[number]>> {
-    return FrontendComponentsClient.restClient(userToken).get({
-      path: '/components',
-      query: { component: components },
-      headers: { 'x-user-token': userToken },
-    })
+    return this.get(
+      {
+        path: '/components',
+        query: { component: components },
+        headers: { 'x-user-token': userToken },
+      },
+      asUser(userToken),
+    )
   }
 }

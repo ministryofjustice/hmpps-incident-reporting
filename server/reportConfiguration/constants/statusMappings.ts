@@ -8,7 +8,7 @@ export type WorkListMapping = {
 
 /** Report work list status mappings */
 export const workListMapping: WorkListMapping[] = [
-  { code: 'toDo', description: 'To do', statuses: ['DRAFT', 'INFORMATION_REQUIRED'] },
+  { code: 'toDo', description: 'To do', statuses: ['DRAFT', 'NEEDS_UPDATING'] },
   {
     code: 'submitted',
     description: 'Submitted',

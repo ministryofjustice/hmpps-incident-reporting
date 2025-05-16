@@ -2349,7 +2349,7 @@ export const FIND_3: IncidentTypeConfiguration = {
           id: '196912',
           code: 'Viistor (official)',
           active: false,
-          label: 'Viistor (official)',
+          label: 'Visitor (official)',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '51216',
@@ -2799,7 +2799,7 @@ export const FIND_3: IncidentTypeConfiguration = {
           id: '196954',
           code: 'Communtiy Visit',
           active: false,
-          label: 'Communtiy visit',
+          label: 'Community visit',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '51224',
@@ -2846,7 +2846,7 @@ export const FIND_3: IncidentTypeConfiguration = {
       id: '51224',
       active: false,
       code: 'What was the total estimated valie of the findings (drugs, mobile phones, etc)?',
-      label: 'What was the total estimated valie of the findings (drugs, mobile phones, etc)?',
+      label: 'What was the total estimated value of the findings (drugs, mobile phones, etc)?',
       multipleAnswers: false,
       answers: [
         {

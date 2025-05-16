@@ -109,7 +109,7 @@ describe('Incident reporting API client', () => {
         method: 'changeReportStatus',
         url: `/incident-reports/${reportWithDetails.id}/status`,
         urlMethod: 'patch',
-        testCase: () => apiClient.changeReportStatus(reportWithDetails.id, { newStatus: 'IN_ANALYSIS' }),
+        testCase: () => apiClient.changeReportStatus(reportWithDetails.id, { newStatus: 'ON_HOLD' }),
       },
       {
         method: 'changeReportType',
@@ -456,7 +456,7 @@ describe('Incident reporting API client', () => {
         method: 'changeReportStatus',
         url: `/incident-reports/${reportWithDetails.id}/status`,
         urlMethod: 'patch',
-        testCase: () => apiClient.changeReportStatus(reportWithDetails.id, { newStatus: 'IN_ANALYSIS' }),
+        testCase: () => apiClient.changeReportStatus(reportWithDetails.id, { newStatus: 'ON_HOLD' }),
       },
       {
         method: 'changeReportType',

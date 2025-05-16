@@ -12,12 +12,12 @@ describe('Middleware to redirect to report view depending on status', () => {
   const reportUrl = `/reports/${mockedReport.id}`
 
   it('should redirect to report view page when the status is not listed', async () => {
-    mockedReport.status = 'AWAITING_ANALYSIS'
+    mockedReport.status = 'AWAITING_REVIEW'
     const req = {} as unknown as Request
     const res = { locals: { report: mockedReport, reportUrl }, redirect: jest.fn() } as unknown as Response
     const next: NextFunction = jest.fn()
 
-    await redirectIfStatusNot('DRAFT', 'INFORMATION_REQUIRED')(req, res, next)
+    await redirectIfStatusNot('DRAFT', 'NEEDS_UPDATING')(req, res, next)
 
     expect(next).not.toHaveBeenCalled()
     expect(res.redirect).toHaveBeenCalledWith(reportUrl)
@@ -29,7 +29,7 @@ describe('Middleware to redirect to report view depending on status', () => {
     const res = { locals: { report: mockedReport, reportUrl }, redirect: jest.fn() } as unknown as Response
     const next: NextFunction = jest.fn()
 
-    await redirectIfStatusNot('DRAFT', 'INFORMATION_REQUIRED')(req, res, next)
+    await redirectIfStatusNot('DRAFT', 'NEEDS_UPDATING')(req, res, next)
 
     expect(next).toHaveBeenCalledWith()
     expect(res.redirect).not.toHaveBeenCalled()
@@ -40,7 +40,7 @@ describe('Middleware to redirect to report view depending on status', () => {
     const res = { locals: {}, redirect: jest.fn() } as unknown as Response
     const next: NextFunction = jest.fn()
 
-    await redirectIfStatusNot('DRAFT', 'INFORMATION_REQUIRED')(req, res, next)
+    await redirectIfStatusNot('DRAFT', 'NEEDS_UPDATING')(req, res, next)
 
     expect(next).toHaveBeenCalledWith(
       expect.objectContaining({ message: 'redirectIfStatusNot() requires res.locals.report', status: 501 }),

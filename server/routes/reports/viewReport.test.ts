@@ -530,7 +530,7 @@ describe('View report page', () => {
               title: 'Assault: Arnold A1111AA, Benjamin A2222BB (Moorland (HMP & YOI))',
             })
             expect(incidentReportingApi.changeReportStatus).toHaveBeenCalledWith(mockedReport.id, {
-              newStatus: 'AWAITING_ANALYSIS',
+              newStatus: 'AWAITING_REVIEW',
             })
           })
       })
@@ -683,7 +683,7 @@ describe('View report page', () => {
               title: 'Find of illicit items (Moorland (HMP & YOI))',
             })
             expect(incidentReportingApi.changeReportStatus).toHaveBeenCalledWith(mockedReport.id, {
-              newStatus: 'AWAITING_ANALYSIS',
+              newStatus: 'AWAITING_REVIEW',
             })
           })
       })

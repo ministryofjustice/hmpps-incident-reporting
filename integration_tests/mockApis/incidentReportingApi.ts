@@ -410,8 +410,8 @@ export default {
                     mandatory: false,
                     staticOptions: [
                       {
-                        name: 'AWAITING_ANALYSIS',
-                        display: 'Awaiting analysis',
+                        name: 'AWAITING_REVIEW',
+                        display: 'Awaiting review',
                       },
                       {
                         name: 'CLOSED',
@@ -628,8 +628,8 @@ export default {
             report_reference: '10000042',
             type: 'SELF_HARM_1',
             type_description: 'Self harm',
-            status: 'AWAITING_ANALYSIS',
-            status_description: 'Awaiting Analysis',
+            status: 'AWAITING_REVIEW',
+            status_description: 'Awaiting review',
             incident_date_and_time: '10/03/2025 01:03',
             reported_at: '11/03/2025',
             reported_by: 'TEST_USER',

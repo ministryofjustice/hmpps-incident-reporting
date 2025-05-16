@@ -392,14 +392,14 @@ context('Creating a completed draft report', () => {
     // report is about to be updated…
     reportWithDetails = {
       ...reportWithDetails,
-      status: 'AWAITING_ANALYSIS',
+      status: 'AWAITING_REVIEW',
     }
     cy.task('stubIncidentReportingApiUpdateReport', {
       request: { title: 'Attempted escape from establishment: Arnold A1111AA (Moorland (HMP & YOI))' },
       report: reportWithDetails,
     })
     cy.task('stubIncidentReportingApiChangeReportStatus', {
-      request: { newStatus: 'AWAITING_ANALYSIS' },
+      request: { newStatus: 'AWAITING_REVIEW' },
       report: reportWithDetails,
     })
     cy.task('stubIncidentReportingApiGetReports')

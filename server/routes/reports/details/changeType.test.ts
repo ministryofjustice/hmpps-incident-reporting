@@ -58,7 +58,7 @@ describe('Changing incident type', () => {
   })
 
   it('should redirect if report is not a draft', () => {
-    mockedReport.status = 'AWAITING_ANALYSIS'
+    mockedReport.status = 'AWAITING_REVIEW'
     return agent
       .get(confirmationUrl)
       .expect(302)

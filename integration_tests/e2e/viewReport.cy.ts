@@ -114,7 +114,7 @@ context('View report', () => {
   context('With all sections filled in', () => {
     const reportWithDetails = mockReport({
       type: 'DISORDER_2',
-      status: 'AWAITING_ANALYSIS',
+      status: 'AWAITING_REVIEW',
       reportReference: '6543',
       reportDateAndTime: now,
       withDetails: true,
@@ -156,7 +156,7 @@ context('View report', () => {
 
       reportPage.location.should('contain.text', 'Moorland')
       reportPage.reportedBy.should('contain.text', 'John Smith')
-      reportPage.status.should('contain.text', 'Awaiting analysis')
+      reportPage.status.should('contain.text', 'Awaiting review')
     })
 
     it('should show comments', () => {

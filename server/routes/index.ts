@@ -15,6 +15,8 @@ import { viewReportRouter } from './reports/viewReport'
 import { editReportRouter } from './reports/editReportRouter'
 import dashboard from './dashboard'
 import { dprRouter } from './dpr'
+import { addDescriptionRouter } from './reports/descriptionAddendum'
+import { updateIncidentDateAndTimeRouter } from './reports/details/updateIncidentDateAndTime'
 
 export default function routes(services: Services): Router {
   const get = (path: string | string[], handler: RequestHandler) => router.get(path, asyncMiddleware(handler))
@@ -48,6 +50,8 @@ export default function routes(services: Services): Router {
   router.use('/reports/:reportId/history', historyRouter(services))
   router.use('/reports/:reportId/change-type', changeTypeRouter)
   router.use('/reports/:reportId/update-details', updateDetailsRouter)
+  router.use('/reports/:reportId/update-date-and-time', updateIncidentDateAndTimeRouter)
+  router.use('/reports/:reportId/add-description', addDescriptionRouter)
   router.use('/reports/:reportId', editReportRouter)
 
   // Auxiliary routes

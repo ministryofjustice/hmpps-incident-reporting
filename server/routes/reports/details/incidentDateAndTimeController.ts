@@ -4,8 +4,12 @@ import type FormWizard from 'hmpo-form-wizard'
 import format from '../../../utils/format'
 import { parseDateInput, parseTimeInput } from '../../../utils/parseDateTime'
 import { BaseController } from '../../../controllers'
-import { type DetailsValues, type DetailsFieldNames } from './detailsFields'
-import { hoursFieldName, minutesFieldName } from './incidentDateAndTimeFields'
+import {
+  hoursFieldName,
+  IncidentDateAndTimeFieldNames,
+  IncidentDateAndTimeValues,
+  minutesFieldName,
+} from './incidentDateAndTimeFields'
 
 /**
  * Controller for adding or updating the date and description of an incident report.
@@ -13,9 +17,12 @@ import { hoursFieldName, minutesFieldName } from './incidentDateAndTimeFields'
  * The generic V parameter is for specifying all steps’ values, not just this one.
  */
 // eslint-disable-next-line import/prefer-default-export
-export abstract class BaseDetailsController<V extends DetailsValues> extends BaseController<V, DetailsFieldNames> {
+export abstract class BaseIncidentDateAndTimeController<V extends IncidentDateAndTimeValues> extends BaseController<
+  V,
+  IncidentDateAndTimeFieldNames
+> {
   getValues(
-    req: FormWizard.Request<V, DetailsFieldNames>,
+    req: FormWizard.Request<V, IncidentDateAndTimeFieldNames>,
     res: express.Response,
     callback: FormWizard.Callback<V>,
   ): void {
@@ -39,7 +46,11 @@ export abstract class BaseDetailsController<V extends DetailsValues> extends Bas
     })
   }
 
-  process(req: FormWizard.Request<V, DetailsFieldNames>, res: express.Response, next: express.NextFunction): void {
+  process(
+    req: FormWizard.Request<V, IncidentDateAndTimeFieldNames>,
+    res: express.Response,
+    next: express.NextFunction,
+  ): void {
     const hours = req.form.values[hoursFieldName]
     const minutes = req.form.values[minutesFieldName]
     const digits = /^\d{1,2}$/
@@ -51,7 +62,7 @@ export abstract class BaseDetailsController<V extends DetailsValues> extends Bas
   }
 
   validate(
-    req: FormWizard.Request<Pick<V, DetailsFieldNames>>,
+    req: FormWizard.Request<Pick<V, IncidentDateAndTimeFieldNames>>,
     res: express.Response,
     next: express.NextFunction,
   ): void {
@@ -98,7 +109,7 @@ export abstract class BaseDetailsController<V extends DetailsValues> extends Bas
 
   protected errorMessage(
     error: FormWizard.Error,
-    req: FormWizard.Request<V, DetailsFieldNames>,
+    req: FormWizard.Request<V, IncidentDateAndTimeFieldNames>,
     res: express.Response,
   ): string {
     if (error.key === 'incidentDate' && error.type === 'required') {
@@ -109,9 +120,6 @@ export abstract class BaseDetailsController<V extends DetailsValues> extends Bas
     }
     if (error.key === 'incidentTime' && error.type === 'required') {
       return 'Enter the time of the incident using the 24 hour clock'
-    }
-    if (error.key === 'description') {
-      return 'Enter a description of the incident'
     }
     return super.errorMessage(error, req, res)
   }

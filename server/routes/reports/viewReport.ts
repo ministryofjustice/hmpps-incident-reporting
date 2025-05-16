@@ -12,6 +12,7 @@ import {
   staffInvolvementRoles,
   statuses,
   types,
+  beforeDwStatuses,
 } from '../../reportConfiguration/constants'
 import asyncMiddleware from '../../middleware/asyncMiddleware'
 import { logoutIf } from '../../middleware/permissions'
@@ -140,7 +141,7 @@ export function viewReportRouter(service: Services): Router {
       // “About the [incident]”
       res.locals.aboutTheType = aboutTheType(res.locals.report.type)
       let canEditDescription: boolean = false
-      if (['DRAFT', 'AWAITING_ANALYSIS'].includes(report.status)) {
+      if (beforeDwStatuses.includes(report.status)) {
         canEditDescription = true
       }
 

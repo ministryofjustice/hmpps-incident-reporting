@@ -31,3 +31,6 @@ export type NomisStatus = StatusDetails['nomisCode']
 export function getStatusDetails(code: string): StatusDetails | null {
   return statuses.find(item => item.code === code) ?? null
 }
+
+/** Statuses before DW has seen report * */
+export const beforeDwStatuses: Status[] = ['DRAFT', 'AWAITING_ANALYSIS']

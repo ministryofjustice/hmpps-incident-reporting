@@ -9,10 +9,22 @@ import { logoutIf } from '../../../middleware/permissions'
 import { cannotEditReport } from '../permissions'
 import logger from '../../../../logger'
 import { ReportWithDetails } from '../../../data/incidentReportingApi'
+import { beforeDwStatuses } from '../../../reportConfiguration/constants'
 
 class AddDescriptionAddendumController extends BaseController<Values> {
   middlewareLocals(): void {
     super.middlewareLocals()
+    this.use(this.checkReportStatus)
+  }
+
+  private checkReportStatus(_req: FormWizard.Request<Values>, res: express.Response, next: express.NextFunction): void {
+    /** Check status of report. If DW has not seen report yet, redirect to update details page * */
+    const report = res.locals.report as ReportWithDetails
+    if (beforeDwStatuses.includes(report.status)) {
+      res.redirect(`/reports/${report.id}/update-details`)
+    } else {
+      next()
+    }
   }
 
   getBackLink(_req: FormWizard.Request<Values>, res: express.Response): string {

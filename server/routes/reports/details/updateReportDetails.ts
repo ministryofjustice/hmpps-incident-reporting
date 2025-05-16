@@ -9,14 +9,31 @@ import { populateReport } from '../../../middleware/populateReport'
 import { cannotEditReport } from '../permissions'
 import { BaseDetailsController } from './detailsController'
 import { type DetailsValues, type DetailsFieldNames, detailsFields, detailsFieldNames } from './detailsFields'
+import { IncidentDateAndTimeFieldNames, IncidentDateAndTimeValues } from './incidentDateAndTimeFields'
+import { beforeDwStatuses } from '../../../reportConfiguration/constants'
 
 class DetailsController extends BaseDetailsController<DetailsValues> {
   // TODO: wizard namespace identifier is shared. consider generating it per request somehow?
   //       otherwise cannot edit 2 pages at once in different windows
 
   middlewareLocals(): void {
+    this.use(this.checkReportStatus)
     this.use(this.loadReportIntoSession)
     super.middlewareLocals()
+  }
+
+  private checkReportStatus(
+    _req: FormWizard.Request<DetailsValues, DetailsFieldNames>,
+    res: express.Response,
+    next: express.NextFunction,
+  ): void {
+    /** Check status of report. If DW has seen report, redirect to update incident date and time page * */
+    const report = res.locals.report as ReportBasic
+    if (!beforeDwStatuses.includes(report.status)) {
+      res.redirect(`/reports/${report.id}/update-date-and-time`)
+    } else {
+      next()
+    }
   }
 
   private loadReportIntoSession(

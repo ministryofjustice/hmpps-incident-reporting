@@ -1,5 +1,4 @@
-// Manually updated based on draft PR at 2025-05-16T15:00:00.000Z
-// https://github.com/ministryofjustice/hmpps-incident-reporting-api/pull/332
+// Generated with ./scripts/importDpsConstants.ts at 2025-05-16T15:28:51.253Z
 
 /** Report statuses */
 export const statuses = [
@@ -14,8 +13,14 @@ export const statuses = [
   { code: 'POST_INCIDENT_UPDATE', description: 'Post-incident update', nomisCode: 'PIU' },
   { code: 'INCIDENT_UPDATED', description: 'Incident updated', nomisCode: 'IUP' },
   { code: 'DUPLICATE', description: 'Duplicate', nomisCode: 'DUP' },
+  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+  // @ts-ignore because typescript treats nomisCode as `any`
   { code: 'NOT_REPORTABLE', description: 'Not reportable', nomisCode: null },
+  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+  // @ts-ignore because typescript treats nomisCode as `any`
   { code: 'REOPENED', description: 'Reopened', nomisCode: null },
+  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+  // @ts-ignore because typescript treats nomisCode as `any`
   { code: 'WAS_CLOSED', description: 'Was closed', nomisCode: null },
 ] as const
 

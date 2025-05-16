@@ -9,7 +9,6 @@ import { populateReport } from '../../../middleware/populateReport'
 import { cannotEditReport } from '../permissions'
 import { BaseDetailsController } from './detailsController'
 import { type DetailsValues, type DetailsFieldNames, detailsFields, detailsFieldNames } from './detailsFields'
-import { IncidentDateAndTimeFieldNames, IncidentDateAndTimeValues } from './incidentDateAndTimeFields'
 import { beforeDwStatuses } from '../../../reportConfiguration/constants'
 
 class DetailsController extends BaseDetailsController<DetailsValues> {

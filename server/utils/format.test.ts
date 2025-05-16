@@ -1,6 +1,6 @@
 import format from './format'
 
-describe('longDateAndTime(): Format datetime as Europe/London including time of day', () => {
+describe('longDateAndTime(): Format `Date` in long form as Europe/London including 24-hour time-of-day', () => {
   it.each([
     // same UTC offset, not DST
     ['2022-02-22T12:00:00Z', '22 February 2022 at 12:00'],
@@ -32,7 +32,7 @@ describe('longDateAndTime(): Format datetime as Europe/London including time of 
   })
 })
 
-describe('date(): Format dates as Europe/London ignoring time-of-day', () => {
+describe('longDate(): Format `Date` in long form as Europe/London ignoring time-of-day', () => {
   it.each([
     // same UTC offset, not DST
     ['2022-02-22T12:00:00Z', '22 February 2022'],

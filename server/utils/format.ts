@@ -1,39 +1,42 @@
+const longDateAndTimeFormatter = new Intl.DateTimeFormat('en-GB', {
+  hour: '2-digit',
+  hour12: false,
+  minute: '2-digit',
+  day: 'numeric',
+  month: 'long',
+  year: 'numeric',
+  timeZone: 'Europe/London',
+})
+const longDateFormatter = new Intl.DateTimeFormat('en-GB', {
+  day: 'numeric',
+  month: 'long',
+  year: 'numeric',
+  timeZone: 'Europe/London',
+})
+
 export default {
   /**
-   * Format `Date` in long form as Europe/London including 24-hour time of day.
+   * Format `Date` in long form as Europe/London including 24-hour time-of-day.
    *
-   * Example: `22 February 2022 at 11:00`
+   * Example: `2 March 2022 at 11:00`
    */
   longDateAndTime(date: Date): string {
     if (typeof date === 'undefined' || date === null) {
       return ''
     }
-    return date.toLocaleDateString('en-GB', {
-      hour: '2-digit',
-      hour12: false,
-      minute: '2-digit',
-      day: 'numeric',
-      month: 'long',
-      year: 'numeric',
-      timeZone: 'Europe/London',
-    })
+    return longDateAndTimeFormatter.format(date)
   },
 
   /**
-   * Format Date as Europe/London ignoring time-of-day.
+   * Format `Date` in long form as Europe/London ignoring time-of-day.
    *
-   * Example: `22 February 2022`
+   * Example: `2 March 2022`
    */
   longDate(date: Date): string {
     if (typeof date === 'undefined' || date === null) {
       return ''
     }
-    return date.toLocaleDateString('en-GB', {
-      day: 'numeric',
-      month: 'long',
-      year: 'numeric',
-      timeZone: 'Europe/London',
-    })
+    return longDateFormatter.format(date)
   },
 
   /**

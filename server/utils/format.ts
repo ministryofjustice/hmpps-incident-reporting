@@ -1,14 +1,14 @@
 export default {
   /**
-   * Format Date as Europe/London including time of day.
+   * Format `Date` in long form as Europe/London including 24-hour time of day.
    *
-   * Example: `22 February 2022, 11:00`
+   * Example: `22 February 2022 at 11:00`
    */
-  dateAndTime(date: Date): string {
+  longDateAndTime(date: Date): string {
     if (typeof date === 'undefined' || date === null) {
       return ''
     }
-    const formatted = date.toLocaleDateString('en-GB', {
+    return date.toLocaleDateString('en-GB', {
       hour: '2-digit',
       hour12: false,
       minute: '2-digit',
@@ -17,7 +17,6 @@ export default {
       year: 'numeric',
       timeZone: 'Europe/London',
     })
-    return formatted.replace(' at ', ', ')
   },
 
   /**

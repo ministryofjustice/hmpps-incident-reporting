@@ -111,7 +111,7 @@ describe('View report page', () => {
         .expect(res => {
           expect(res.text).toContain('Find of illicit items')
           expect(res.text).toContain('Date and time of incident')
-          expect(res.text).toContain('5 December 2023, 11:34')
+          expect(res.text).toContain('5 December 2023 at 11:34')
           expect(res.text).toContain('Description')
           expect(res.text).toContain('A new incident created in the new service of type FIND_6')
           expect(res.text).not.toContain('12:34 on 5 December 2023')
@@ -257,7 +257,7 @@ describe('View report page', () => {
         .expect(res => {
           expect(res.text).toContain('Drone sighting')
           expect(res.text).toContain('Date and time of incident')
-          expect(res.text).toContain('5 December 2023, 11:34')
+          expect(res.text).toContain('5 December 2023 at 11:34')
           expect(res.text).toContain('Description')
           expect(res.text).toContain('An old drone sighting')
 
@@ -389,7 +389,7 @@ describe('View report page', () => {
         .expect(res => {
           expect(res.text).toContain('Find of illicit items')
           expect(res.text).toContain('Date and time of incident')
-          expect(res.text).toContain('5 December 2023, 11:34')
+          expect(res.text).toContain('5 December 2023 at 11:34')
           expect(res.text).toContain('Description')
           expect(res.text).toContain('A new incident created in the new service of type FIND_6')
 

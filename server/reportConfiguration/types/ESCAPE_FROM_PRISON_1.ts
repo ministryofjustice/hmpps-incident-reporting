@@ -1604,7 +1604,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
       id: '44406',
       active: true,
       code: 'WHERE THE INJURIES CAUSED BY WEAPONS',
-      label: 'Where the injuries caused by weapons?',
+      label: 'Were the injuries caused by weapons?',
       multipleAnswers: false,
       answers: [
         {
@@ -4032,7 +4032,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           id: '182072',
           code: 'GROUNDS WITH NO ACCESS TO EXTERNAL PERIMITER',
           active: true,
-          label: 'Grounds with no access to external perimiter',
+          label: 'Grounds with no access to external perimeter',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44370',
@@ -4041,7 +4041,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           id: '182082',
           code: 'GROUNDS WITH ACCESS TO EXTERNAL PERIMITER',
           active: true,
-          label: 'Grounds with access to external perimiter',
+          label: 'Grounds with access to external perimeter',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '44851',

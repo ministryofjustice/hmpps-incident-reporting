@@ -126,7 +126,7 @@ export const DRONE_SIGHTING_3: IncidentTypeConfiguration = {
           id: '220691',
           code: 'YES - PLEASE ADDITIONALLY LOG A SEPRATE FIND INCIDENT',
           active: true,
-          label: 'Yes - please additionally log a seprate find incident',
+          label: 'Yes - please additionally log a separate find incident',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '69190',
@@ -288,7 +288,7 @@ export const DRONE_SIGHTING_3: IncidentTypeConfiguration = {
           id: '220697',
           code: 'Da-Jiang Innovations (DJI) - PHANTHOM',
           active: true,
-          label: 'Da-jiang innovations (DJI) - phanthom',
+          label: 'Da-jiang innovations (DJI) - phantom',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '69192',
@@ -776,7 +776,7 @@ export const DRONE_SIGHTING_3: IncidentTypeConfiguration = {
       id: '69200',
       active: true,
       code: 'TO THE EXTENT OF YOUR KNOWLEDGE WAS THE PILOT APPRHENDED?',
-      label: 'To the extent of your knowledge was the pilot apprhended?',
+      label: 'To the extent of your knowledge was the pilot apprehended?',
       multipleAnswers: false,
       answers: [
         {

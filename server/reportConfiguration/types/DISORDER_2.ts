@@ -1460,7 +1460,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
       id: '63203',
       active: true,
       code: 'ENTER DESCIPTION OF PERSON(S) INJURED (SERIOUS)',
-      label: 'Enter desciption of person(s) injured (serious)',
+      label: 'Enter description of person(s) injured (serious)',
       multipleAnswers: true,
       answers: [
         {
@@ -1874,7 +1874,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
       id: '63210',
       active: true,
       code: 'DID INCIDENT HAPPENT AT HEIGHT (FULLY OR PARTIALLY)',
-      label: 'Did incident happent at height (fully or partially)?',
+      label: 'Did incident happen at height (fully or partially)?',
       multipleAnswers: false,
       answers: [
         {

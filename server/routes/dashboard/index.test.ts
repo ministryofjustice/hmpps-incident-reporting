@@ -646,7 +646,7 @@ describe('work list filter validations in RO view', () => {
     {
       scenario: 'single "submitted" selected',
       statusQuery: 'submitted',
-      expectedArgs: ['AWAITING_REVIEW', 'INFORMATION_AMENDED', 'IN_ANALYSIS'],
+      expectedArgs: ['AWAITING_REVIEW', 'UPDATED', 'IN_ANALYSIS'],
     },
     {
       scenario: 'multiple selected - "to do" and "done"',
@@ -685,9 +685,9 @@ describe('work list filter validations in DW view', () => {
     { scenario: 'single "Draft" selected', statusQuery: 'DRAFT', expectedArgs: 'DRAFT' },
     { scenario: 'single "In analysis" selected', statusQuery: 'IN_ANALYSIS', expectedArgs: 'IN_ANALYSIS' },
     {
-      scenario: 'multiple selected - "DRAFT", "IN_ANALYSIS" and "INFORMATION_AMENDED"',
-      statusQuery: ['DRAFT', 'IN_ANALYSIS', 'INFORMATION_AMENDED'],
-      expectedArgs: ['DRAFT', 'IN_ANALYSIS', 'INFORMATION_AMENDED'],
+      scenario: 'multiple selected - "DRAFT", "IN_ANALYSIS" and "UPDATED"',
+      statusQuery: ['DRAFT', 'IN_ANALYSIS', 'UPDATED'],
+      expectedArgs: ['DRAFT', 'IN_ANALYSIS', 'UPDATED'],
     },
   ])('should submit correct status args when $scenario', ({ statusQuery, expectedArgs }) => {
     const expectedParams: Partial<GetReportsParams> = {

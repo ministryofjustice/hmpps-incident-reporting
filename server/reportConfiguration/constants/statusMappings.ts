@@ -12,7 +12,7 @@ export const workListMapping: WorkListMapping[] = [
   {
     code: 'submitted',
     description: 'Submitted',
-    statuses: ['AWAITING_REVIEW', 'INFORMATION_AMENDED', 'IN_ANALYSIS'],
+    statuses: ['AWAITING_REVIEW', 'UPDATED', 'IN_ANALYSIS'],
   },
   { code: 'done', description: 'Done', statuses: ['CLOSED', 'DUPLICATE'] },
 ] as const

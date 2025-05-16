@@ -117,7 +117,7 @@ context('Searching for a report', () => {
           dashboardPage.statusCheckbox('To do').click()
           dashboardPage.statusCheckbox('Submitted').click()
         },
-        expectedRequest: { status: ['AWAITING_REVIEW', 'INFORMATION_AMENDED'] },
+        expectedRequest: { status: ['AWAITING_REVIEW', 'UPDATED'] },
         testPage: dashboardPage => {
           dashboardPage.selectedStatuses.should('deep.equal', ['submitted'])
         },
@@ -128,7 +128,7 @@ context('Searching for a report', () => {
           dashboardPage.statusCheckbox('Submitted').click()
         },
         expectedRequest: {
-          status: ['DRAFT', 'INFORMATION_REQUIRED', 'AWAITING_REVIEW', 'INFORMATION_AMENDED', 'IN_ANALYSIS'],
+          status: ['DRAFT', 'NEEDS_UPDATING', 'AWAITING_REVIEW', 'UPDATED', 'IN_ANALYSIS'],
         },
         testPage: dashboardPage => {
           dashboardPage.selectedStatuses.should('deep.equal', ['toDo', 'submitted'])

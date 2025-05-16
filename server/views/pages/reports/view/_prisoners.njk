@@ -28,7 +28,8 @@
 
     {% set prisonerUrl %}
       <a href="{{ dpsUrl + "/prisoner/" + prisonerInvolved.prisonerNumber }}">
-        {{ prisonerInvolved | nameOfPerson }}
+        {{ prisonerInvolved | nameOfPerson }},
+        {{ prisonerInvolved.prisonerNumber }}
       </a>
     {% endset %}
 

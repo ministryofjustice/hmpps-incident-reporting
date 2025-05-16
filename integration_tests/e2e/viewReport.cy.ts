@@ -198,11 +198,13 @@ context('View report', () => {
         const [row1, row2] = rows
 
         expect(row1.key).to.contain('Andrew Arnold')
+        expect(row1.key).to.contain('A1111AA')
         expect(row1.value).to.contain('Role: Active involvement')
         expect(row1.value).to.contain('Details: Comment about A1111AA')
         expect(row1.actionLinks).to.have.lengthOf(0)
 
         expect(row2.key).to.contain('Barry Benjamin')
+        expect(row2.key).to.contain('A2222BB')
         expect(row2.value).to.contain('Role: Suspected involved')
         expect(row2.value).to.contain('Details: No comment')
         expect(row2.actionLinks).to.have.lengthOf(0)

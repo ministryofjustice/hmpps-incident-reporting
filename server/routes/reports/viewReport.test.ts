@@ -132,7 +132,7 @@ describe('View report page', () => {
         .get(viewReportUrl)
         .expect('Content-Type', /html/)
         .expect(res => {
-          expect(res.text).toContain('Andrew Arnold')
+          expect(res.text).toContain('Andrew Arnold,')
           expect(res.text).toContain('Role: Active involvement')
           if (createdInNomis) {
             expect(res.text).toContain('Outcome: Investigation (local)')
@@ -140,6 +140,8 @@ describe('View report page', () => {
             expect(res.text).not.toContain('Outcome:')
           }
           expect(res.text).toContain('Details: Comment about A1111AA')
+
+          expect(res.text).toContain('Barry Benjamin,')
           expect(res.text).toContain('A2222BB')
           expect(res.text).toContain('Role: Suspected involved')
           if (createdInNomis) {

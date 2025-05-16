@@ -1,24 +1,23 @@
 {% from "govuk/components/summary-list/macro.njk" import govukSummaryList %}
 
+{% macro descriptionChunk(name, date, text) %}
+  <strong>{{ name }}</strong>
+  <br />
+  <small class="govuk-!-font-size-16">{{ date | longDateAndTime }}</small>
+  <br />
+  {{ text | escape | nl2br }}
+{% endmacro %}
+
 {% if report.descriptionAddendums.length != 0 %}
 
   {% set descriptionHtml %}
-    <strong>{{ usersLookup[report.reportedBy].name or report.reportedBy }}</strong>
-    <br />
-    <small class="govuk-!-font-size-16">{{ report.reportedAt | timeOnDate }}</small>
-    <br />
-    {{ report.description | escape | nl2br }}
+    {{ descriptionChunk(usersLookup[report.reportedBy].name or report.reportedBy, report.reportedAt, report.description) }}
     {% for addendum in report.descriptionAddendums %}
       <br />
       <br />
-      <strong>{{ addendum | nameOfPerson }}</strong>
-      <br />
-      <small class="govuk-!-font-size-16">{{ addendum.createdAt | timeOnDate }}</small>
-      <br />
-      {{ addendum.text | escape | nl2br }}
+      {{ descriptionChunk(addendum | nameOfPerson, addendum.createdAt, addendum.text) }}
     {% endfor %}
   {% endset %}
-
 
 {% else %}
   {% set descriptionHtml = report.description | escape | nl2br %}
@@ -48,7 +47,7 @@
     {
       key: { text: "Date and time of incident" },
       value: {
-        text: report.incidentDateAndTime | dateAndTime
+        text: report.incidentDateAndTime | longDateAndTime
       },
       actions: {
         items: [

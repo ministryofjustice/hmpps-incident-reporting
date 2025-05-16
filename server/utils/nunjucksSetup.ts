@@ -95,8 +95,7 @@ export default function nunjucksSetup(app: express.Express): void {
   njkEnv.addFilter('possessive', possessive)
 
   // date/datetime handling
-  njkEnv.addFilter('dateAndTime', format.dateAndTime)
-  njkEnv.addFilter('timeOnDate', format.timeOnDate)
+  njkEnv.addFilter('longDateAndTime', format.longDateAndTime)
   njkEnv.addFilter('longDate', format.longDate)
   njkEnv.addFilter('shortDate', format.shortDate)
   njkEnv.addFilter('time', format.time)

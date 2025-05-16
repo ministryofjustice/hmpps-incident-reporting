@@ -66,6 +66,7 @@ context('View report', () => {
         expect(descriptionRow.actionLinks).to.have.lengthOf(1)
         expect(descriptionRow.actionLinks[0]).to.contain('Change')
         expect(descriptionRow.actionLinks[0]).attr('href').contains(`/reports/${reportWithDetails.id}/update-details`)
+        // TODO: add a variation with description addendums
       })
     })
 

@@ -1,62 +1,42 @@
+const longDateAndTimeFormatter = new Intl.DateTimeFormat('en-GB', {
+  hour: '2-digit',
+  hour12: false,
+  minute: '2-digit',
+  day: 'numeric',
+  month: 'long',
+  year: 'numeric',
+  timeZone: 'Europe/London',
+})
+const longDateFormatter = new Intl.DateTimeFormat('en-GB', {
+  day: 'numeric',
+  month: 'long',
+  year: 'numeric',
+  timeZone: 'Europe/London',
+})
+
 export default {
   /**
-   * Format Date as Europe/London including time of day.
+   * Format `Date` in long form as Europe/London including 24-hour time-of-day.
    *
-   * Example: `22 February 2022, 11:00`
+   * Example: `2 March 2022 at 11:00`
    */
-  dateAndTime(date: Date): string {
+  longDateAndTime(date: Date): string {
     if (typeof date === 'undefined' || date === null) {
       return ''
     }
-    const formatted = date.toLocaleDateString('en-GB', {
-      hour: '2-digit',
-      hour12: false,
-      minute: '2-digit',
-      day: 'numeric',
-      month: 'long',
-      year: 'numeric',
-      timeZone: 'Europe/London',
-    })
-    return formatted.replace(' at ', ', ')
+    return longDateAndTimeFormatter.format(date)
   },
 
   /**
-   * Format time of day on Date as Europe/London.
+   * Format `Date` in long form as Europe/London ignoring time-of-day.
    *
-   * Example: `11:00 on 22 February 2022`
-   */
-  timeOnDate(date: Date): string {
-    if (typeof date === 'undefined' || date === null) {
-      return ''
-    }
-    const formatted = date.toLocaleDateString('en-GB', {
-      hour: '2-digit',
-      hour12: false,
-      minute: '2-digit',
-      day: 'numeric',
-      month: 'long',
-      year: 'numeric',
-      timeZone: 'Europe/London',
-    })
-    const dateTimeParts = formatted.split(' at ')
-    return `${dateTimeParts[1]} on ${dateTimeParts[0]}`
-  },
-
-  /**
-   * Format Date as Europe/London ignoring time-of-day.
-   *
-   * Example: `22 February 2022`
+   * Example: `2 March 2022`
    */
   longDate(date: Date): string {
     if (typeof date === 'undefined' || date === null) {
       return ''
     }
-    return date.toLocaleDateString('en-GB', {
-      day: 'numeric',
-      month: 'long',
-      year: 'numeric',
-      timeZone: 'Europe/London',
-    })
+    return longDateFormatter.format(date)
   },
 
   /**

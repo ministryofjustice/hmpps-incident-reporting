@@ -99,7 +99,7 @@ describe('GET dashboard', () => {
       page: 0,
       reference: undefined,
       sort: ['incidentDateAndTime,DESC'],
-      status: ['DRAFT', 'INFORMATION_REQUIRED'],
+      status: ['DRAFT', 'NEEDS_UPDATING'],
       type: undefined,
     }
     return request(app)
@@ -154,7 +154,7 @@ describe('GET dashboard', () => {
       page: 0,
       reference: undefined,
       sort: ['incidentDateAndTime,DESC'],
-      status: ['DRAFT', 'INFORMATION_REQUIRED'],
+      status: ['DRAFT', 'NEEDS_UPDATING'],
       type: ['ATTEMPTED_ESCAPE_FROM_PRISON_1'],
     }
 
@@ -274,7 +274,7 @@ describe('GET dashboard', () => {
       page: 0,
       reference: undefined,
       sort: ['incidentDateAndTime,DESC'],
-      status: ['DRAFT', 'INFORMATION_REQUIRED'],
+      status: ['DRAFT', 'NEEDS_UPDATING'],
       type: undefined,
     }
     return request(appWithAllRoutes({ services: { userService }, userSupplier: () => reportingUser }))
@@ -349,7 +349,7 @@ describe('GET dashboard', () => {
       page: 0,
       reference: undefined,
       sort: ['incidentDateAndTime,DESC'],
-      status: ['DRAFT', 'INFORMATION_REQUIRED'],
+      status: ['DRAFT', 'NEEDS_UPDATING'],
       type: undefined,
     }
     return request(appWithAllRoutes({ services: { userService }, userSupplier: () => reportingUser }))
@@ -642,7 +642,7 @@ describe('work list filter validations in RO view', () => {
   })
 
   it.each([
-    { scenario: 'single "to do" selected', statusQuery: 'toDo', expectedArgs: ['DRAFT', 'INFORMATION_REQUIRED'] },
+    { scenario: 'single "to do" selected', statusQuery: 'toDo', expectedArgs: ['DRAFT', 'NEEDS_UPDATING'] },
     {
       scenario: 'single "submitted" selected',
       statusQuery: 'submitted',
@@ -651,7 +651,7 @@ describe('work list filter validations in RO view', () => {
     {
       scenario: 'multiple selected - "to do" and "done"',
       statusQuery: ['toDo', 'done'],
-      expectedArgs: ['DRAFT', 'INFORMATION_REQUIRED', 'CLOSED', 'DUPLICATE'],
+      expectedArgs: ['DRAFT', 'NEEDS_UPDATING', 'CLOSED', 'DUPLICATE'],
     },
   ])('should submit correct status args when $scenario', ({ statusQuery, expectedArgs }) => {
     const expectedParams: Partial<GetReportsParams> = {

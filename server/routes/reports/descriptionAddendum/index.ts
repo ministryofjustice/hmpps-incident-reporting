@@ -1,8 +1,7 @@
 import express from 'express'
 import FormWizard from 'hmpo-form-wizard'
 
-import { fields, type Values } from './fields'
-import { steps } from './steps'
+import { descriptionFields, type Values } from './fields'
 import { BaseController } from '../../../controllers'
 import { populateReport } from '../../../middleware/populateReport'
 import { logoutIf } from '../../../middleware/permissions'
@@ -31,6 +30,13 @@ class AddDescriptionAddendumController extends BaseController<Values> {
     return `${res.locals.reportSubUrlPrefix}`
   }
 
+  protected errorMessage(error: FormWizard.Error, req: FormWizard.Request<Values>, res: express.Response): string {
+    if (error.key === 'descriptionAddendum') {
+      return 'Enter some additional information'
+    }
+    return super.errorMessage(error, req, res)
+  }
+
   async saveValues(req: FormWizard.Request<Values>, res: express.Response, next: express.NextFunction): Promise<void> {
     const report = res.locals.report as ReportWithDetails
     const allValues = this.getAllValues(req, false)
@@ -48,7 +54,8 @@ class AddDescriptionAddendumController extends BaseController<Values> {
       res.locals.clearSessionOnSuccess = true
 
       req.flash('success', { title: `You have added information to the description` })
-      res.redirect(`/reports/${report.id}`)
+
+      super.successHandler(req, res, next)
     } catch (e) {
       logger.error(e, 'Additional description could not be added to report %s: %j', report.id, e)
       const err = this.convertIntoValidationError(e)
@@ -56,15 +63,29 @@ class AddDescriptionAddendumController extends BaseController<Values> {
       this.errorHandler({ descriptionAddendum: err }, req, res, next)
     }
   }
+
+  getNextStep(_req: FormWizard.Request<Values>, res: express.Response): string {
+    return res.locals.reportUrl
+  }
 }
 
-const addDescriptionWizardRouter = FormWizard(steps, fields, {
+const addDescriptionSteps: FormWizard.Steps<Values> = {
+  '/': {
+    fields: ['descriptionAddendum'],
+    controller: AddDescriptionAddendumController,
+    entryPoint: true,
+    template: 'descriptionAddendum',
+  },
+}
+
+const addDescriptionFields: FormWizard.Fields<Values> = { ...descriptionFields }
+
+const addDescriptionWizardRouter = FormWizard(addDescriptionSteps, addDescriptionFields, {
   name: 'descriptionAddendum',
   journeyName: 'descriptionAddendum',
   checkSession: false,
   csrf: false,
-  template: 'pages/reports/descriptionAddendum',
-  controller: AddDescriptionAddendumController,
+  templatePath: 'pages/reports',
 })
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore because express types do not mention this property and form wizard does not allow you to pass in config for it's root router

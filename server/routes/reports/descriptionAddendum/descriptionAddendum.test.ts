@@ -1,0 +1,210 @@
+import type { Express } from 'express'
+import request, { type Agent, type Response } from 'supertest'
+
+import { appWithAllRoutes } from '../../testutils/appSetup'
+import {
+  type AddDescriptionAddendumRequest,
+  type DescriptionAddendum,
+  IncidentReportingApi,
+  RelatedObjects,
+  type UpdateDescriptionAddendumRequest,
+} from '../../../data/incidentReportingApi'
+import { convertReportWithDetailsDates } from '../../../data/incidentReportingApiUtils'
+import { mockErrorResponse, mockReport } from '../../../data/testData/incidentReporting'
+import { mockThrownError } from '../../../data/testData/thrownErrors'
+import { approverUser, hqUser, reportingUser, unauthorisedUser } from '../../../data/testData/users'
+import type { Status } from '../../../reportConfiguration/constants'
+
+jest.mock('../../../data/incidentReportingApi')
+
+let app: Express
+let incidentReportingApi: jest.Mocked<IncidentReportingApi>
+let incidentReportingRelatedObjects: jest.Mocked<
+  RelatedObjects<DescriptionAddendum, AddDescriptionAddendumRequest, UpdateDescriptionAddendumRequest>
+>
+
+beforeEach(() => {
+  app = appWithAllRoutes()
+  incidentReportingApi = IncidentReportingApi.prototype as jest.Mocked<IncidentReportingApi>
+  incidentReportingRelatedObjects = RelatedObjects.prototype as jest.Mocked<
+    RelatedObjects<DescriptionAddendum, AddDescriptionAddendumRequest, UpdateDescriptionAddendumRequest>
+  >
+})
+
+afterEach(() => {
+  jest.resetAllMocks()
+})
+
+describe('Adding a description addendum to report', () => {
+  const incidentDateAndTime = new Date('2024-10-21T16:32:00+01:00')
+  const mockedReport = convertReportWithDetailsDates(
+    mockReport({
+      type: 'DISORDER_2',
+      reportReference: '6544',
+      reportDateAndTime: incidentDateAndTime,
+      withDetails: true,
+      withAddendums: true,
+    }),
+  )
+  mockedReport.status = 'IN_ANALYSIS'
+  const addDescriptionAddendumUrl = `/reports/${mockedReport.id}/add-description`
+  const validPayload = {
+    descriptionAddendum: 'Additional information',
+  }
+  const expectedCall = {
+    firstName: 'JOHN',
+    lastName: 'SMITH',
+    text: 'Additional information',
+  }
+
+  let agent: Agent
+
+  beforeEach(() => {
+    agent = request.agent(app)
+    incidentReportingApi.getReportWithDetailsById.mockResolvedValue(mockedReport)
+  })
+
+  function expectOnDetailsPage(res: Response): void {
+    expect(res.request.url.endsWith(addDescriptionAddendumUrl)).toBe(true)
+    expect(res.text).toContain('app-description-addendum')
+    expect(res.text).toContain('Incident description')
+  }
+
+  function expectRedirectToReportPage(res: Response): void {
+    expect(res.redirect).toBe(true)
+    expect(res.header.location).toEqual(`/reports/${mockedReport.id}`)
+  }
+
+  it('should 404 if report is not found', () => {
+    const error = mockThrownError(mockErrorResponse({ status: 404, message: 'Report not found' }), 404)
+    incidentReportingApi.getReportWithDetailsById.mockReset()
+    incidentReportingApi.getReportWithDetailsById.mockRejectedValueOnce(error)
+
+    return agent
+      .get(addDescriptionAddendumUrl)
+      .expect(404)
+      .expect(res => {
+        expect(res.text).toContain('Page not found')
+      })
+  })
+
+  it('should display existing description addenda along with new entry text box', () => {
+    return agent
+      .get(addDescriptionAddendumUrl)
+      .expect(200)
+      .expect(res => {
+        expectOnDetailsPage(res)
+        expect(res.text).not.toContain('There is a problem')
+        expect(res.text).toContain('Incident description')
+        expect(res.text).toContain('16:32 on 21 October 2024')
+        expect(res.text).toContain('A new incident created in the new service of type DISORDER_2')
+        expect(res.text).toContain('John Smith')
+        expect(res.text).toContain('Addendum #1')
+        expect(res.text).toContain('Jane Doe')
+        expect(res.text).toContain('Addendum #2')
+        expect(res.text).toContain('Add information to the description')
+        expect(res.text).toContain('descriptionAddendum')
+      })
+  })
+
+  it('should show an error if additional description is left empty', () => {
+    const invalidPayload = {
+      ...validPayload,
+      descriptionAddendum: '',
+    }
+    return agent
+      .post(addDescriptionAddendumUrl)
+      .send(invalidPayload)
+      .redirects(1)
+      .expect(200)
+      .expect(res => {
+        expectOnDetailsPage(res)
+        expect(res.text).toContain('There is a problem')
+        expect(res.text).toContain('Enter some additional information')
+      })
+  })
+
+  it('should send request to API if form is valid and proceed to next step', () => {
+    incidentReportingApi.getReportWithDetailsById.mockResolvedValueOnce(mockedReport)
+    incidentReportingRelatedObjects.addToReport.mockResolvedValueOnce([]) // NB: response is ignored
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore need to mock a getter method
+    incidentReportingApi.descriptionAddendums = incidentReportingRelatedObjects
+
+    return agent
+      .post(addDescriptionAddendumUrl)
+      .send(validPayload)
+      .redirects(0)
+      .expect(302)
+      .expect(res => {
+        expectRedirectToReportPage(res)
+        expect(incidentReportingRelatedObjects.addToReport).toHaveBeenCalledWith(mockedReport.id, expectedCall)
+      })
+  })
+
+  describe('Permissions', () => {
+    // NB: these test cases are simplified because the permissions class methods are thoroughly tested elsewhere
+
+    const granted = 'granted' as const
+    const denied = 'denied' as const
+    it.each([
+      { userType: 'reporting officer', user: reportingUser, action: granted },
+      { userType: 'data warden', user: approverUser, action: denied },
+      { userType: 'HQ view-only user', user: hqUser, action: denied },
+      { userType: 'unauthorised user', user: unauthorisedUser, action: denied },
+    ])('should be $action to $userType', ({ user, action }) => {
+      const testRequest = request
+        .agent(appWithAllRoutes({ userSupplier: () => user }))
+        .get(addDescriptionAddendumUrl)
+        .redirects(1)
+      if (action === 'granted') {
+        return testRequest.expect(200)
+      }
+      return testRequest.expect(res => {
+        expect(res.redirects[0]).toContain('/sign-out')
+      })
+    })
+  })
+})
+
+describe('redirect if status before DW has seen report', () => {
+  const incidentDateAndTime = new Date('2024-10-21T16:32:00+01:00')
+  const mockedReport = convertReportWithDetailsDates(
+    mockReport({
+      type: 'DISORDER_2',
+      reportReference: '6544',
+      reportDateAndTime: incidentDateAndTime,
+      withDetails: true,
+    }),
+  )
+
+  const addDescriptionUrl = `/reports/${mockedReport.id}/add-description`
+  const updateDetailsUrl = `/reports/${mockedReport.id}/update-details`
+
+  let agent: Agent
+
+  beforeEach(() => {
+    agent = request.agent(app)
+    incidentReportingApi.getReportWithDetailsById.mockResolvedValue(mockedReport)
+  })
+
+  it.each([
+    { status: 'DRAFT', redirect: true },
+    { status: 'AWAITING_ANALYSIS', redirect: true },
+    { status: 'IN_ANALYSIS', redirect: false },
+    { status: 'INFORMATION_REQUIRED', redirect: false },
+    { status: 'INFORMATION_AMENDED', redirect: false },
+    { status: 'CLOSED', redirect: false },
+    { status: 'INCIDENT_UPDATED', redirect: false },
+    { status: 'DUPLICATE', redirect: false },
+  ])('report status of $status redirects page: $redirect', ({ status, redirect }) => {
+    mockedReport.status = status as Status
+    const testAgent = agent.get(addDescriptionUrl).redirects(1)
+    if (!redirect) {
+      return testAgent.expect(200)
+    }
+    return testAgent.expect(res => {
+      expect(res.redirects[0]).toContain(updateDetailsUrl)
+    })
+  })
+})

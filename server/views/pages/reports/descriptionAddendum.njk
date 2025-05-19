@@ -5,6 +5,7 @@
 {% from "macros/renderFields.njk" import renderFields %}
 {% from "govuk/components/inset-text/macro.njk" import govukInsetText %}
 
+{% set bodyClasses = "app-description-addendum" %}
 
 {% block beforeContent %}
   {% if backLink %}
@@ -67,7 +68,7 @@
         type: "submit"
         }) }}
 
-        <a href="{{ cancelUrl }}" class="govuk-link govuk-link--no-visited-state">Cancel</a>
+        <a href="{{ backLink }}" class="govuk-link govuk-link--no-visited-state">Cancel</a>
       </div>
     </form>
 

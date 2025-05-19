@@ -46,7 +46,7 @@ describe('Adding a description addendum to report', () => {
       withAddendums: true,
     }),
   )
-  mockedReport.status = 'IN_ANALYSIS'
+  mockedReport.status = 'ON_HOLD'
   const addDescriptionAddendumUrl = `/reports/${mockedReport.id}/add-description`
   const validPayload = {
     descriptionAddendum: 'Additional information',
@@ -190,13 +190,16 @@ describe('redirect if status before DW has seen report', () => {
 
   it.each([
     { status: 'DRAFT', redirect: true },
-    { status: 'AWAITING_ANALYSIS', redirect: true },
-    { status: 'IN_ANALYSIS', redirect: false },
-    { status: 'INFORMATION_REQUIRED', redirect: false },
-    { status: 'INFORMATION_AMENDED', redirect: false },
+    { status: 'AWAITING_REVIEW', redirect: true },
+    { status: 'ON_HOLD', redirect: false },
+    { status: 'NEEDS_UPDATING', redirect: false },
+    { status: 'UPDATED', redirect: false },
     { status: 'CLOSED', redirect: false },
     { status: 'INCIDENT_UPDATED', redirect: false },
     { status: 'DUPLICATE', redirect: false },
+    { status: 'NOT_REPORTABLE', redirect: false },
+    { status: 'REOPENED', redirect: false },
+    { status: 'WAS_CLOSED', redirect: false },
   ])('report status of $status redirects page: $redirect', ({ status, redirect }) => {
     mockedReport.status = status as Status
     const testAgent = agent.get(addDescriptionUrl).redirects(1)

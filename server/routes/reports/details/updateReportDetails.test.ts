@@ -292,13 +292,16 @@ describe('redirect if status after DW has seen report', () => {
 
   it.each([
     { status: 'DRAFT', redirect: false },
-    { status: 'AWAITING_ANALYSIS', redirect: false },
-    { status: 'IN_ANALYSIS', redirect: true },
-    { status: 'INFORMATION_REQUIRED', redirect: true },
-    { status: 'INFORMATION_AMENDED', redirect: true },
+    { status: 'AWAITING_REVIEW', redirect: false },
+    { status: 'ON_HOLD', redirect: true },
+    { status: 'NEEDS_UPDATING', redirect: true },
+    { status: 'UPDATED', redirect: true },
+    { status: 'CLOSED', redirect: true },
     { status: 'CLOSED', redirect: true },
     { status: 'INCIDENT_UPDATED', redirect: true },
     { status: 'DUPLICATE', redirect: true },
+    { status: 'REOPENED', redirect: true },
+    { status: 'WAS_CLOSED', redirect: true },
   ])('report status of $status redirects page: $redirect', ({ status, redirect }) => {
     reportBasic.status = status as Status
     const testAgent = agent.get(updateDetailsUrl).redirects(1)

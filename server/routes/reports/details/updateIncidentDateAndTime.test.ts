@@ -33,7 +33,7 @@ describe('Updating report incident date and time', () => {
       reportDateAndTime: incidentDateAndTime,
     }),
   )
-  reportBasic.status = 'IN_ANALYSIS'
+  reportBasic.status = 'ON_HOLD'
   const updateIncidentDateAndTimeUrl = `/reports/${reportBasic.id}/update-date-and-time`
   const validPayload = {
     incidentDate: '21/10/2024',
@@ -270,13 +270,16 @@ describe('redirect if status before DW has seen report', () => {
 
   it.each([
     { status: 'DRAFT', redirect: true },
-    { status: 'AWAITING_ANALYSIS', redirect: true },
-    { status: 'IN_ANALYSIS', redirect: false },
-    { status: 'INFORMATION_REQUIRED', redirect: false },
-    { status: 'INFORMATION_AMENDED', redirect: false },
+    { status: 'AWAITING_REVIEW', redirect: true },
+    { status: 'ON_HOLD', redirect: false },
+    { status: 'NEEDS_UPDATING', redirect: false },
+    { status: 'UPDATED', redirect: false },
     { status: 'CLOSED', redirect: false },
     { status: 'INCIDENT_UPDATED', redirect: false },
     { status: 'DUPLICATE', redirect: false },
+    { status: 'NOT_REPORTABLE', redirect: false },
+    { status: 'REOPENED', redirect: false },
+    { status: 'WAS_CLOSED', redirect: false },
   ])('report status of $status redirects page: $redirect', ({ status, redirect }) => {
     reportBasic.status = status as Status
     const testAgent = agent.get(updateIncidentDateAndTimeUrl).redirects(1)

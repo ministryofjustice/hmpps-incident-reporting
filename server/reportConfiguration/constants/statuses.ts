@@ -1,18 +1,27 @@
-// Generated with ./scripts/importDpsConstants.ts at 2025-04-01T17:16:18.535Z
+// Generated with ./scripts/importDpsConstants.ts at 2025-05-16T15:28:51.253Z
 
 /** Report statuses */
 export const statuses = [
   // eslint-disable-next-line @typescript-eslint/ban-ts-comment
   // @ts-ignore because typescript treats nomisCode as `any`
   { code: 'DRAFT', description: 'Draft', nomisCode: null },
-  { code: 'AWAITING_ANALYSIS', description: 'Awaiting analysis', nomisCode: 'AWAN' },
-  { code: 'IN_ANALYSIS', description: 'In analysis', nomisCode: 'INAN' },
-  { code: 'INFORMATION_REQUIRED', description: 'Information required', nomisCode: 'INREQ' },
-  { code: 'INFORMATION_AMENDED', description: 'Information amended', nomisCode: 'INAME' },
+  { code: 'AWAITING_REVIEW', description: 'Awaiting review', nomisCode: 'AWAN' },
+  { code: 'ON_HOLD', description: 'On hold', nomisCode: 'INAN' },
+  { code: 'NEEDS_UPDATING', description: 'Needs updating', nomisCode: 'INREQ' },
+  { code: 'UPDATED', description: 'Updated', nomisCode: 'INAME' },
   { code: 'CLOSED', description: 'Closed', nomisCode: 'CLOSE' },
   { code: 'POST_INCIDENT_UPDATE', description: 'Post-incident update', nomisCode: 'PIU' },
   { code: 'INCIDENT_UPDATED', description: 'Incident updated', nomisCode: 'IUP' },
   { code: 'DUPLICATE', description: 'Duplicate', nomisCode: 'DUP' },
+  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+  // @ts-ignore because typescript treats nomisCode as `any`
+  { code: 'NOT_REPORTABLE', description: 'Not reportable', nomisCode: null },
+  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+  // @ts-ignore because typescript treats nomisCode as `any`
+  { code: 'REOPENED', description: 'Reopened', nomisCode: null },
+  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+  // @ts-ignore because typescript treats nomisCode as `any`
+  { code: 'WAS_CLOSED', description: 'Was closed', nomisCode: null },
 ] as const
 
 /** Report statuses */

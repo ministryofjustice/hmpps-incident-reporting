@@ -5,7 +5,7 @@ import type { PageElement } from '../page'
 
 export class ChangeTypeConfirmationPage extends FormWizardPage {
   constructor() {
-    super('Some of your answers will be deleted')
+    super('Most of your answers will be deleted')
   }
 }
 

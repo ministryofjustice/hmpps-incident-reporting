@@ -75,7 +75,7 @@ describe('Changing incident type', () => {
       .expect(res => {
         expect(res.request.url.endsWith('/change-type')).toBe(true)
         expect(res.text).toContain('app-confirm-change-type')
-        expect(res.text).toContain('Some of your answers will be deleted')
+        expect(res.text).toContain('Most of your answers will be deleted')
       })
   })
 

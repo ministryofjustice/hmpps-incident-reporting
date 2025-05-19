@@ -108,7 +108,7 @@ export function viewReportRouter(service: Services): Router {
               })
 
               // TODO: will need to work for other statuses too once lifecycle confirmed
-              const newStatus: Status = 'AWAITING_ANALYSIS'
+              const newStatus: Status = 'AWAITING_REVIEW'
               await incidentReportingApi.changeReportStatus(report.id, { newStatus })
               // TODO: set report validation=true flag? not supported by api/db yet / ever will be?
 

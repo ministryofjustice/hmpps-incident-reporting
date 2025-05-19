@@ -3,10 +3,10 @@ import request, { type Agent, type Response } from 'supertest'
 
 import { appWithAllRoutes } from '../../testutils/appSetup'
 import {
-  type AddDescriptionAddendumRequest,
-  type DescriptionAddendum,
   IncidentReportingApi,
   RelatedObjects,
+  type DescriptionAddendum,
+  type AddDescriptionAddendumRequest,
   type UpdateDescriptionAddendumRequest,
 } from '../../../data/incidentReportingApi'
 import { convertReportWithDetailsDates } from '../../../data/incidentReportingApiUtils'

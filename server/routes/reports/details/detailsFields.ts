@@ -6,7 +6,7 @@ export const minutesFieldName = '_incidentTime-minutes' as const
 export const detailsFields = {
   incidentDate: {
     label: 'Date of incident',
-    hint: 'For example, 17/05/2024',
+    hint: 'For example, 17/5/2024',
     component: 'mojDatePicker',
     validate: ['required', 'ukDate'],
   },

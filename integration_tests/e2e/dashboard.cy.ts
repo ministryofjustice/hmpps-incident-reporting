@@ -154,12 +154,12 @@ context('Searching for a report', () => {
   it('should allow clearing filters', () => {
     cy.task('stubIncidentReportingApiGetReports')
     cy.visit(
-      '/reports?searchID=6544&fromDate=19%2F03%2F2025&toDate=20%2F03%2F2025&location=MDI&typeFamily=MISCELLANEOUS&incidentStatuses=submitted',
+      '/reports?searchID=6544&fromDate=19%2F03%2F2025&toDate=20%2F3%2F2025&location=MDI&typeFamily=MISCELLANEOUS&incidentStatuses=submitted',
     )
     let dashboardPage = Page.verifyOnPage(DashboardPage)
     dashboardPage.query.should('have.value', '6544')
-    dashboardPage.fromDate.should('have.value', '19/03/2025')
-    dashboardPage.toDate.should('have.value', '20/03/2025')
+    dashboardPage.fromDate.should('have.value', '19/03/2025') // leading zero
+    dashboardPage.toDate.should('have.value', '20/3/2025') // no leading zero
     dashboardPage.type.should('have.value', 'Miscellaneous')
     dashboardPage.selectedStatuses.should('deep.equal', ['submitted'])
 

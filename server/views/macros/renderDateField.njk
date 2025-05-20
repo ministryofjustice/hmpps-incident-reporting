@@ -12,7 +12,6 @@
       }
     },
     hint: { text: field.hint } if field.hint else undefined,
-    leadingZeros: "true",
     maxDate: now() | shortDate,
     value: values[fieldName],
     errorMessage: { text: errors[fieldName].message } if errors[fieldName] else undefined

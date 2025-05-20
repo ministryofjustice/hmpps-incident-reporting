@@ -13,6 +13,26 @@ const longDateFormatter = new Intl.DateTimeFormat('en-GB', {
   year: 'numeric',
   timeZone: 'Europe/London',
 })
+const shortDateFormatter = new Intl.DateTimeFormat('en-GB', {
+  // NB: 'numeric' for day or month always produces leading zeroes so might as well make it explicit
+  day: '2-digit',
+  month: '2-digit',
+  year: 'numeric',
+  timeZone: 'Europe/London',
+})
+const hourAndMinuteFormatter = new Intl.DateTimeFormat('en-GB', {
+  hour: '2-digit',
+  hour12: false,
+  minute: '2-digit',
+  timeZone: 'Europe/London',
+})
+const hourMinuteAndSecondFormatter = new Intl.DateTimeFormat('en-GB', {
+  hour: '2-digit',
+  hour12: false,
+  minute: '2-digit',
+  second: '2-digit',
+  timeZone: 'Europe/London',
+})
 
 export default {
   /**
@@ -40,24 +60,23 @@ export default {
   },
 
   /**
-   * Format Date as Europe/London ignoring time-of-day.
+   * Format `Date` in short form as Europe/London ignoring time-of-day.
+   * Note absence of leading zeroes.
    *
-   * Example: `22/02/2022`
+   * Example: `2/3/2022`
    */
   shortDate(date: Date): string {
     if (typeof date === 'undefined' || date === null) {
       return ''
     }
-    return date.toLocaleDateString('en-GB', {
-      day: 'numeric',
-      month: 'numeric',
-      year: 'numeric',
-      timeZone: 'Europe/London',
-    })
+    return shortDateFormatter
+      .formatToParts(date)
+      .map(part => part.value.replace(/^0+/, ''))
+      .join('')
   },
 
   /**
-   * Format Date as time in Europe/London.
+   * Format `Date` as time alone in Europe/London using 24 hour clock.
    *
    * Example: `14:22`
    */
@@ -65,16 +84,12 @@ export default {
     if (typeof date === 'undefined' || date === null) {
       return ''
     }
-    return date.toLocaleTimeString('en-GB', {
-      hour: '2-digit',
-      hour12: false,
-      minute: '2-digit',
-      timeZone: 'Europe/London',
-    })
+    return hourAndMinuteFormatter.format(date)
   },
 
   /**
    * Formats dates in Europe/London ISO style, used when calling APIs.
+   * NB: time zone is _not_ appended.
    *
    * Example: `2024-07-30`
    */
@@ -84,14 +99,15 @@ export default {
       // @ts-ignore just in case value is not a Date
       return date
     }
-    const shortDate: string = this.shortDate(date)
-    const [day, month, year] = shortDate.split('/')
+    const { day, month, year } = Object.fromEntries(
+      shortDateFormatter.formatToParts(date).map(part => [part.type, part.value]),
+    ) as Record<'day' | 'month' | 'year', string>
     return `${year}-${month}-${day}`
   },
 
   /**
    * Formats dates with time-of-day in Europe/London ISO style, used when calling APIs.
-   * NB: time zone is _not_ appended
+   * NB: time zone is _not_ appended.
    *
    * Example: `2024-07-30T14:22`
    */
@@ -101,16 +117,9 @@ export default {
       // @ts-ignore just in case value is not a Date
       return date
     }
-    const shortDate: string = this.shortDate(date)
-    const [day, month, year] = shortDate.split('/')
-    const time = date.toLocaleTimeString('en-GB', {
-      hour: '2-digit',
-      hour12: false,
-      minute: '2-digit',
-      second: '2-digit',
-      timeZone: 'Europe/London',
-    })
+    const isoDate: string = this.isoDate(date)
+    const time = hourMinuteAndSecondFormatter.format(date)
     const [hours, minutes, seconds] = time.split(':')
-    return `${year}-${month}-${day}T${hours}:${minutes}:${seconds}`
+    return `${isoDate}T${hours}:${minutes}:${seconds}`
   },
 }

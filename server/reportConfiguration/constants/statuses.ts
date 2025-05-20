@@ -1,4 +1,4 @@
-// Generated with ./scripts/importDpsConstants.ts at 2025-05-19T16:10:52.481Z
+// Generated with ./scripts/importDpsConstants.ts at 2025-05-20T13:40:05.081Z
 
 /** Report statuses */
 export const statuses = [
@@ -11,7 +11,6 @@ export const statuses = [
   { code: 'UPDATED', description: 'Updated', nomisCode: 'INAME' },
   { code: 'CLOSED', description: 'Closed', nomisCode: 'CLOSE' },
   { code: 'POST_INCIDENT_UPDATE', description: 'Post-incident update', nomisCode: 'PIU' },
-  { code: 'INCIDENT_UPDATED', description: 'Incident updated', nomisCode: 'IUP' },
   { code: 'DUPLICATE', description: 'Duplicate', nomisCode: 'DUP' },
   // eslint-disable-next-line @typescript-eslint/ban-ts-comment
   // @ts-ignore because typescript treats nomisCode as `any`

@@ -297,8 +297,6 @@ describe('redirect if status after DW has seen report', () => {
     { status: 'NEEDS_UPDATING', redirect: true },
     { status: 'UPDATED', redirect: true },
     { status: 'CLOSED', redirect: true },
-    { status: 'CLOSED', redirect: true },
-    { status: 'INCIDENT_UPDATED', redirect: true },
     { status: 'DUPLICATE', redirect: true },
     { status: 'REOPENED', redirect: true },
     { status: 'WAS_CLOSED', redirect: true },

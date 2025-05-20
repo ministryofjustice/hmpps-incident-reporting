@@ -99,7 +99,7 @@ describe('GET dashboard', () => {
       page: 0,
       reference: undefined,
       sort: ['incidentDateAndTime,DESC'],
-      status: ['DRAFT', 'NEEDS_UPDATING'],
+      status: ['DRAFT', 'NEEDS_UPDATING', 'REOPENED'],
       type: undefined,
     }
     return request(app)
@@ -154,7 +154,7 @@ describe('GET dashboard', () => {
       page: 0,
       reference: undefined,
       sort: ['incidentDateAndTime,DESC'],
-      status: ['DRAFT', 'NEEDS_UPDATING'],
+      status: ['DRAFT', 'NEEDS_UPDATING', 'REOPENED'],
       type: ['ATTEMPTED_ESCAPE_FROM_PRISON_1'],
     }
 
@@ -274,7 +274,7 @@ describe('GET dashboard', () => {
       page: 0,
       reference: undefined,
       sort: ['incidentDateAndTime,DESC'],
-      status: ['DRAFT', 'NEEDS_UPDATING'],
+      status: ['DRAFT', 'NEEDS_UPDATING', 'REOPENED'],
       type: undefined,
     }
     return request(appWithAllRoutes({ services: { userService }, userSupplier: () => reportingUser }))
@@ -349,7 +349,7 @@ describe('GET dashboard', () => {
       page: 0,
       reference: undefined,
       sort: ['incidentDateAndTime,DESC'],
-      status: ['DRAFT', 'NEEDS_UPDATING'],
+      status: ['DRAFT', 'NEEDS_UPDATING', 'REOPENED'],
       type: undefined,
     }
     return request(appWithAllRoutes({ services: { userService }, userSupplier: () => reportingUser }))
@@ -642,16 +642,16 @@ describe('work list filter validations in RO view', () => {
   })
 
   it.each([
-    { scenario: 'single "to do" selected', statusQuery: 'toDo', expectedArgs: ['DRAFT', 'NEEDS_UPDATING'] },
+    { scenario: 'single "to do" selected', statusQuery: 'toDo', expectedArgs: ['DRAFT', 'NEEDS_UPDATING', 'REOPENED'] },
     {
       scenario: 'single "submitted" selected',
       statusQuery: 'submitted',
-      expectedArgs: ['AWAITING_REVIEW', 'UPDATED', 'ON_HOLD'],
+      expectedArgs: ['AWAITING_REVIEW', 'UPDATED', 'ON_HOLD', 'WAS_CLOSED'],
     },
     {
       scenario: 'multiple selected - "to do" and "done"',
       statusQuery: ['toDo', 'done'],
-      expectedArgs: ['DRAFT', 'NEEDS_UPDATING', 'CLOSED', 'DUPLICATE'],
+      expectedArgs: ['DRAFT', 'NEEDS_UPDATING', 'REOPENED', 'CLOSED', 'DUPLICATE', 'NOT_REPORTABLE'],
     },
   ])('should submit correct status args when $scenario', ({ statusQuery, expectedArgs }) => {
     const expectedParams: Partial<GetReportsParams> = {

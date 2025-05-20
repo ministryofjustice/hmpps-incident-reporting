@@ -65,7 +65,7 @@ describe('Report status history', () => {
         expect(res.text).toContain('Incident report 6543 – status history')
         expect(res.text).toContain('Draft')
         expect(res.text).toContain('by John Smith')
-        expect(res.text).toContain('5 December 2023 at 12:34pm')
+        expect(res.text).toContain('5 December 2023 at 12:34')
         expect(res.text).not.toContain('The history of status changes in NOMIS is not recorded')
 
         expect(incidentReportingApi.getReportWithDetailsById).toHaveBeenCalledTimes(1)
@@ -91,10 +91,10 @@ describe('Report status history', () => {
         expect(res.text).toContain('Incident report 6543 – status history')
         expect(res.text).toContain('Draft')
         expect(res.text).toContain('by John Smith')
-        expect(res.text).toContain('5 December 2023 at 12:34pm')
+        expect(res.text).toContain('5 December 2023 at 12:34')
         expect(res.text).toContain('Awaiting analysis')
         expect(res.text).toContain('by Mary Johnson')
-        expect(res.text).toContain('6 December 2023 at 10:20am') // minutes don't round up apparently
+        expect(res.text).toContain('6 December 2023 at 10:20') // minutes don't round up apparently
 
         expect(incidentReportingApi.getReportWithDetailsById).toHaveBeenCalledTimes(1)
 

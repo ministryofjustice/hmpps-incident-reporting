@@ -77,8 +77,8 @@
               text: typesLookup[item.type] or item.type
             },
             datetime: {
-              timestamp: item.changedAt,
-              type: "datetime"
+              timestamp: item.changedAt | longDateAndTime,
+              type: "custom"
             },
             byline: {
               text: usersLookup[item.changedBy].name or item.changedBy

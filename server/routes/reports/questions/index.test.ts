@@ -118,7 +118,7 @@ describe('Displaying questions and responses', () => {
           expect(fieldNames(res.text)).toEqual(['45054'])
           expect(res.text).not.toContain('There is a problem')
           // 'YES' response to '45054' requires a date, this is displayed
-          expect(res.text).toContain('name="45054-182204-date" type="text" value="05/12/2023"')
+          expect(res.text).toContain('name="45054-182204-date" type="text" value="5/12/2023"')
           expect(res.text).toContain('name="45054" type="radio" value="YES" checked')
         })
     })
@@ -543,7 +543,7 @@ describe('Submitting questions’ responses', () => {
       reportWithDetails.type = 'DEATH_OTHER_1'
       const firstQuestionStep = DEATH_OTHER_1.startingQuestionId
       const followingStep = '44434'
-      const responseDate = '06/12/2023'
+      const responseDate = '6/12/2023'
       const submittedAnswers = {
         // 'WERE THE POLICE INFORMED OF THE INCIDENT',
         '45054': 'YES',

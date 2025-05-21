@@ -16,8 +16,8 @@
         text: usersLookup[correctionRequest.correctionRequestedBy].name or correctionRequest.correctionRequestedBy
       },
       datetime: {
-        timestamp: correctionRequest.correctionRequestedAt,
-        type: "datetime"
+        timestamp: correctionRequest.correctionRequestedAt | longDateAndTime,
+        type: "custom"
       },
       html: comment
     }) %}

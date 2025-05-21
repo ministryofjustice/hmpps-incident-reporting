@@ -2,7 +2,7 @@ import express from 'express'
 import nunjucks from 'nunjucks'
 
 import config from '../config'
-import { fakeClock, resetClock } from '../testutils/fakeClock'
+import { fakeClock, resetClock } from '../testutils/fakeJestClock'
 import nunjucksSetup from './nunjucksSetup'
 
 describe('nunjucks context', () => {

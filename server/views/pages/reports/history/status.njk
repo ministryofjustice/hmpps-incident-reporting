@@ -39,8 +39,8 @@
             text: statusLookup[item.status] or item.status
           },
           datetime: {
-            timestamp: item.changedAt,
-            type: "datetime"
+            timestamp: item.changedAt | longDateAndTime,
+            type: "custom"
           },
           byline: {
             text: usersLookup[item.changedBy].name or item.changedBy

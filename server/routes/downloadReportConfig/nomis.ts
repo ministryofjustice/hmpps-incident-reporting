@@ -32,7 +32,7 @@ async function downloadIncidentTypes(req: Request, res: Response): Promise<void>
         incidentType.incidentTypeDescription,
         incidentType.questionnaireId,
         incidentType.active,
-        format.shortDate(incidentType.expiryDate),
+        format.isoDate(incidentType.expiryDate),
       ]
     }
   }
@@ -92,7 +92,7 @@ async function downloadIncidentTypeQuestions(req: Request, res: Response): Promi
         question.questionDesc,
         question.multipleAnswerFlag,
         question.questionActiveFlag,
-        format.shortDate(question.questionExpiryDate),
+        format.isoDate(question.questionExpiryDate),
         ...Array(8),
       ]
       for (const answer of question.answers) {
@@ -105,7 +105,7 @@ async function downloadIncidentTypeQuestions(req: Request, res: Response): Promi
           answer.answerActiveFlag,
           answer.commentRequiredFlag,
           answer.dateRequiredFlag,
-          format.shortDate(answer.answerExpiryDate),
+          format.isoDate(answer.answerExpiryDate),
           answer.nextQuestionnaireQueId ?? 'None',
         ]
       }
@@ -151,7 +151,7 @@ async function downloadIncidentTypePrisonerRoles(req: Request, res: Response): P
         prisonerInvolvementMap.get(prisonerRole.prisonerRole) ?? '',
         prisonerRole.singleRole,
         prisonerRole.active,
-        format.shortDate(prisonerRole.expiryDate),
+        format.isoDate(prisonerRole.expiryDate),
       ]
     }
   }

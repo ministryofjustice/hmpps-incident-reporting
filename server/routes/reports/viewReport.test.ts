@@ -111,11 +111,13 @@ describe('View report page', () => {
         .expect(res => {
           expect(res.text).toContain('Find of illicit items')
           expect(res.text).toContain('Date and time of incident')
-          expect(res.text).toContain('5 December 2023, 11:34')
+          expect(res.text).toContain('5 December 2023 at 11:34')
           expect(res.text).toContain('Description')
           expect(res.text).toContain('A new incident created in the new service of type FIND_6')
-          expect(res.text).not.toContain('12:34 on 5 December 2023')
-
+          // there is a correction request from 12:34, but no description chunks
+          const startOfDescriptionArea = res.text.indexOf('Description')
+          const datePosition = res.text.lastIndexOf('5 December 2023 at 12:34')
+          expect(startOfDescriptionArea).toBeGreaterThan(datePosition)
           expect(res.text).toContain(`${viewReportUrl}/change-type`)
           expect(res.text).toContain(`${viewReportUrl}/update-details`)
         })
@@ -205,7 +207,7 @@ describe('View report page', () => {
           expect(res.text).toContain('moj-timeline')
           expect(res.text).toContain('USER2')
           expect(res.text).toContain('Please amend question 2')
-          expect(res.text).toContain('5 December 2023 at 12:34pm')
+          expect(res.text).toContain('5 December 2023 at 12:34')
         })
     })
   })
@@ -257,7 +259,7 @@ describe('View report page', () => {
         .expect(res => {
           expect(res.text).toContain('Drone sighting')
           expect(res.text).toContain('Date and time of incident')
-          expect(res.text).toContain('5 December 2023, 11:34')
+          expect(res.text).toContain('5 December 2023 at 11:34')
           expect(res.text).toContain('Description')
           expect(res.text).toContain('An old drone sighting')
 
@@ -348,7 +350,7 @@ describe('View report page', () => {
           expect(res.text).toContain('moj-timeline')
           expect(res.text).toContain('USER2')
           expect(res.text).toContain('Please amend question 2')
-          expect(res.text).toContain('5 December 2023 at 12:34pm')
+          expect(res.text).toContain('5 December 2023 at 12:34')
         })
     })
   })
@@ -389,7 +391,7 @@ describe('View report page', () => {
         .expect(res => {
           expect(res.text).toContain('Find of illicit items')
           expect(res.text).toContain('Date and time of incident')
-          expect(res.text).toContain('5 December 2023, 11:34')
+          expect(res.text).toContain('5 December 2023 at 11:34')
           expect(res.text).toContain('Description')
           expect(res.text).toContain('A new incident created in the new service of type FIND_6')
 
@@ -876,6 +878,9 @@ describe('View report page with description addendums', () => {
       mockReport({ reportReference: '6543', reportDateAndTime: now, withDetails: true, withAddendums: true }),
     )
     mockedReport.questions = []
+    mockedReport.prisonersInvolved = []
+    mockedReport.staffInvolved = []
+    mockedReport.correctionRequests = []
     incidentReportingApi.getReportWithDetailsById.mockResolvedValueOnce(mockedReport)
     viewReportUrl = `/reports/${mockedReport.id}`
   })
@@ -887,7 +892,10 @@ describe('View report page with description addendums', () => {
       .expect(200)
       .expect(res => {
         expect(res.text).toContain('Description')
-        expect(res.text).toContain('12:34 on 5 December 2023')
+        // a description chunk appears in the description section
+        const startOfDescriptionArea = res.text.indexOf('Description')
+        const datePosition = res.text.indexOf('5 December 2023 at 12:34')
+        expect(startOfDescriptionArea).toBeLessThan(datePosition)
         expect(res.text).toContain('A new incident created in the new service of type FIND_6')
         expect(res.text).toContain('John Smith')
         expect(res.text).toContain('Addendum #1')

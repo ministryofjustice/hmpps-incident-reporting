@@ -1,11 +1,13 @@
 import type { Response as SuperAgentResponse } from 'superagent'
+
 import type { GetReportsParams } from '../../server/data/incidentReportingApi'
+import { mockReport } from '../../server/data/testData/incidentReporting'
+import { now } from '../../server/testutils/fakeClock'
 import { DashboardPage } from '../pages/dashboard'
 import HomePage from '../pages/home'
 import Page from '../pages/page'
 import ReportPage from '../pages/reports/report'
 import { TypePage } from '../pages/reports/type'
-import { mockReport } from '../../server/data/testData/incidentReporting'
 
 context('Searching for a report', () => {
   beforeEach(() => {
@@ -154,12 +156,12 @@ context('Searching for a report', () => {
   it('should allow clearing filters', () => {
     cy.task('stubIncidentReportingApiGetReports')
     cy.visit(
-      '/reports?searchID=6544&fromDate=19%2F03%2F2025&toDate=20%2F03%2F2025&location=MDI&typeFamily=MISCELLANEOUS&incidentStatuses=submitted',
+      '/reports?searchID=6544&fromDate=19%2F03%2F2025&toDate=20%2F3%2F2025&location=MDI&typeFamily=MISCELLANEOUS&incidentStatuses=submitted',
     )
     let dashboardPage = Page.verifyOnPage(DashboardPage)
     dashboardPage.query.should('have.value', '6544')
-    dashboardPage.fromDate.should('have.value', '19/03/2025')
-    dashboardPage.toDate.should('have.value', '20/03/2025')
+    dashboardPage.fromDate.should('have.value', '19/03/2025') // leading zero
+    dashboardPage.toDate.should('have.value', '20/3/2025') // no leading zero
     dashboardPage.type.should('have.value', 'Miscellaneous')
     dashboardPage.selectedStatuses.should('deep.equal', ['submitted'])
 
@@ -178,13 +180,13 @@ context('Searching for a report', () => {
       mockReport({
         type: 'ATTEMPTED_ESCAPE_FROM_PRISON_1',
         reportReference: '6544',
-        reportDateAndTime: new Date(),
+        reportDateAndTime: now,
       }),
       mockReport({
         type: 'MISCELLANEOUS_1',
         status: 'AWAITING_REVIEW',
         reportReference: '6543',
-        reportDateAndTime: new Date(),
+        reportDateAndTime: now,
       }),
     ]
 
@@ -209,6 +211,7 @@ context('Searching for a report', () => {
         expect(row1).to.contain({
           type: 'Attempted escape from establishment',
           status: 'Draft',
+          incidentDate: '5/12/2023 at 11:34',
           locationOrReporter: 'John Smith',
           description: 'A new incident created in the new service of type ATTEMPTED_ESCAPE_FROM_PRISON_1',
         })
@@ -218,6 +221,7 @@ context('Searching for a report', () => {
         expect(row2).to.contain({
           type: 'Miscellaneous',
           status: 'Awaiting review',
+          incidentDate: '5/12/2023 at 11:34',
           locationOrReporter: 'John Smith',
           description: 'A new incident created in the new service of type MISCELLANEOUS_1',
         })

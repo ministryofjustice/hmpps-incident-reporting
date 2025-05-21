@@ -1,70 +1,38 @@
 import format from './format'
 
-describe('dateAndTime(): Format datetime as Europe/London including time of day', () => {
+describe('longDateAndTime(): Format `Date` in long form as Europe/London including 24-hour time-of-day', () => {
   it.each([
     // same UTC offset, not DST
-    ['2022-02-22T12:00:00Z', '22 February 2022, 12:00'],
+    ['2022-02-22T12:00:00Z', '22 February 2022 at 12:00'],
     // differing UTC offset, not DST
-    ['2022-02-22T12:00:00+01:00', '22 February 2022, 11:00'],
+    ['2022-02-22T12:00:00+01:00', '22 February 2022 at 11:00'],
 
     // same UTC offset, DST
-    ['2022-06-22T12:00:00Z', '22 June 2022, 13:00'],
+    ['2022-06-22T12:00:00Z', '22 June 2022 at 13:00'],
     // differing UTC offset, DST
-    ['2022-06-22T12:00:00+01:00', '22 June 2022, 12:00'],
+    ['2022-06-22T12:00:00+01:00', '22 June 2022 at 12:00'],
 
     // near DST switch
-    ['2021-10-30T23:59:59Z', '31 October 2021, 00:59'],
-    ['2021-10-31T00:00:00Z', '31 October 2021, 01:00'],
-    ['2021-10-31T00:00:01Z', '31 October 2021, 01:00'],
-    ['2021-10-31T00:59:59Z', '31 October 2021, 01:59'],
-    ['2021-10-31T01:00:00Z', '31 October 2021, 01:00'],
-    ['2021-10-31T01:00:01Z', '31 October 2021, 01:00'],
+    ['2021-10-30T23:59:59Z', '31 October 2021 at 00:59'],
+    ['2021-10-31T00:00:00Z', '31 October 2021 at 01:00'],
+    ['2021-10-31T00:00:01Z', '31 October 2021 at 01:00'],
+    ['2021-10-31T00:59:59Z', '31 October 2021 at 01:59'],
+    ['2021-10-31T01:00:00Z', '31 October 2021 at 01:00'],
+    ['2021-10-31T01:00:01Z', '31 October 2021 at 01:00'],
 
     // 24-hr clock
-    ['2022-02-23T16:37:53Z', '23 February 2022, 16:37'],
+    ['2022-02-23T16:37:53Z', '23 February 2022 at 16:37'],
   ])('new Date(%s) is formatted as %s', (date, expected) => {
-    expect(format.dateAndTime(new Date(date))).toEqual(expected)
+    expect(format.longDateAndTime(new Date(date))).toEqual(expected)
   })
 
   it("returns '' for null and undefined", () => {
-    expect(format.dateAndTime(null)).toEqual('')
-    expect(format.dateAndTime(undefined)).toEqual('')
+    expect(format.longDateAndTime(null)).toEqual('')
+    expect(format.longDateAndTime(undefined)).toEqual('')
   })
 })
 
-describe('timeOnDate(): Format datetime as time of day on Europe/London date ', () => {
-  it.each([
-    // same UTC offset, not DST
-    ['2022-02-22T12:00:00Z', '12:00 on 22 February 2022'],
-    // differing UTC offset, not DST
-    ['2022-02-22T12:00:00+01:00', '11:00 on 22 February 2022'],
-
-    // same UTC offset, DST
-    ['2022-06-22T12:00:00Z', '13:00 on 22 June 2022'],
-    // differing UTC offset, DST
-    ['2022-06-22T12:00:00+01:00', '12:00 on 22 June 2022'],
-
-    // near DST switch
-    ['2021-10-30T23:59:59Z', '00:59 on 31 October 2021'],
-    ['2021-10-31T00:00:00Z', '01:00 on 31 October 2021'],
-    ['2021-10-31T00:00:01Z', '01:00 on 31 October 2021'],
-    ['2021-10-31T00:59:59Z', '01:59 on 31 October 2021'],
-    ['2021-10-31T01:00:00Z', '01:00 on 31 October 2021'],
-    ['2021-10-31T01:00:01Z', '01:00 on 31 October 2021'],
-
-    // 24-hr clock
-    ['2022-02-23T16:37:53Z', '16:37 on 23 February 2022'],
-  ])('new Date(%s) is formatted as %s', (date, expected) => {
-    expect(format.timeOnDate(new Date(date))).toEqual(expected)
-  })
-
-  it("returns '' for null and undefined", () => {
-    expect(format.timeOnDate(null)).toEqual('')
-    expect(format.timeOnDate(undefined)).toEqual('')
-  })
-})
-
-describe('date(): Format dates as Europe/London ignoring time-of-day', () => {
+describe('longDate(): Format `Date` in long form as Europe/London ignoring time-of-day', () => {
   it.each([
     // same UTC offset, not DST
     ['2022-02-22T12:00:00Z', '22 February 2022'],
@@ -96,17 +64,52 @@ describe('date(): Format dates as Europe/London ignoring time-of-day', () => {
   })
 })
 
-describe('shortDate(): Format shorts dates as Europe/London ignoring time-of-day', () => {
+describe('shortDateAndTime(): Format `Date` in short form as Europe/London including 24-hour time-of-day', () => {
   it.each([
     // same UTC offset, not DST
-    ['2022-02-22T12:00:00Z', '22/02/2022'],
+    ['2022-02-22T12:00:00Z', '22/2/2022 at 12:00'],
     // differing UTC offset, not DST
-    ['2022-02-22T12:00:00+01:00', '22/02/2022'],
+    ['2022-02-22T12:00:00+01:00', '22/2/2022 at 11:00'],
 
     // same UTC offset, DST
-    ['2022-06-22T12:00:00Z', '22/06/2022'],
+    ['2022-06-22T12:00:00Z', '22/6/2022 at 13:00'],
     // differing UTC offset, DST
-    ['2022-06-22T12:00:00+01:00', '22/06/2022'],
+    ['2022-06-22T12:00:00+01:00', '22/6/2022 at 12:00'],
+
+    // near DST switch
+    ['2021-10-30T23:59:59Z', '31/10/2021 at 00:59'],
+    ['2021-10-31T00:00:00Z', '31/10/2021 at 01:00'],
+    ['2021-10-31T00:00:01Z', '31/10/2021 at 01:00'],
+    ['2021-10-31T00:59:59Z', '31/10/2021 at 01:59'],
+    ['2021-10-31T01:00:00Z', '31/10/2021 at 01:00'],
+    ['2021-10-31T01:00:01Z', '31/10/2021 at 01:00'],
+
+    // 24-hr clock
+    ['2022-02-23T16:37:53Z', '23/2/2022 at 16:37'],
+
+    // no leading zeroes
+    ['2025-01-01T12:34:56.78Z', '1/1/2025 at 12:34'],
+  ])('new Date(%s) is formatted as %s ignoring time-of-day', (date, expected) => {
+    expect(format.shortDateAndTime(new Date(date))).toEqual(expected)
+  })
+
+  it("returns '' for null and undefined", () => {
+    expect(format.shortDateAndTime(null)).toEqual('')
+    expect(format.shortDateAndTime(undefined)).toEqual('')
+  })
+})
+
+describe('shortDate(): Format `Date` in short form as Europe/London ignoring time-of-day', () => {
+  it.each([
+    // same UTC offset, not DST
+    ['2022-02-22T12:00:00Z', '22/2/2022'],
+    // differing UTC offset, not DST
+    ['2022-02-22T12:00:00+01:00', '22/2/2022'],
+
+    // same UTC offset, DST
+    ['2022-06-22T12:00:00Z', '22/6/2022'],
+    // differing UTC offset, DST
+    ['2022-06-22T12:00:00+01:00', '22/6/2022'],
 
     // near DST switch
     ['2021-10-30T23:59:59Z', '31/10/2021'],
@@ -117,7 +120,10 @@ describe('shortDate(): Format shorts dates as Europe/London ignoring time-of-day
     ['2021-10-31T01:00:01Z', '31/10/2021'],
 
     // 24-hr clock
-    ['2022-02-23T16:37:53Z', '23/02/2022'],
+    ['2022-02-23T16:37:53Z', '23/2/2022'],
+
+    // no leading zeroes
+    ['2025-01-01T12:34:56.78Z', '1/1/2025'],
   ])('new Date(%s) is formatted as %s ignoring time-of-day', (date, expected) => {
     expect(format.shortDate(new Date(date))).toEqual(expected)
   })
@@ -128,7 +134,7 @@ describe('shortDate(): Format shorts dates as Europe/London ignoring time-of-day
   })
 })
 
-describe('time(): Formats dates as time in Europe/London', () => {
+describe('time(): Format `Date` as time alone in Europe/London using 24 hour clock', () => {
   it.each([
     // same UTC offset, not DST
     ['2022-02-22T12:00:00Z', '12:00'],

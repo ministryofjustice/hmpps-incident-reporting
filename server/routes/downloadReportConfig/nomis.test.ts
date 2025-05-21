@@ -63,8 +63,8 @@ describe('NOMIS config downloads', () => {
             expect(res.text).toContain(
               `
 Type,Description,Questionnaire ID,Active,Expired
-ASSAULTS1,Assaults1,1,FALSE,20/08/2020
-DRONE,Drone,2,FALSE,20/08/2020
+ASSAULTS1,Assaults1,1,FALSE,2020-08-20
+DRONE,Drone,2,FALSE,2020-08-20
               `.trim(),
             )
           } else {
@@ -156,9 +156,9 @@ DRONE,Drone,2,FALSE,20/08/2020
             expect(res.text).toContain(
               `
 Question ID,Question sequence,Question list sequence,Question,Allows multiple answers?,Question is active,Question expired,Answer ID,Answer sequence,Answer list sequence,Answer,Answer requires comment,Answer requires date,Answer is active,Answer expired,Next question ID
-1,1,1,WHO WAS INFORMED OF THE INCIDENT,TRUE,FALSE,20/08/2022,,,,,,,,
-,,,,,,,1,1,1,POLICE (ENTER DATE),FALSE,FALSE,TRUE,20/08/2022,2
-,,,,,,,2,2,2,SOMEONE ELSE (ENTER WHO IN COMMENT),FALSE,TRUE,FALSE,20/08/2022,2
+1,1,1,WHO WAS INFORMED OF THE INCIDENT,TRUE,FALSE,2022-08-20,,,,,,,,
+,,,,,,,1,1,1,POLICE (ENTER DATE),FALSE,FALSE,TRUE,2022-08-20,2
+,,,,,,,2,2,2,SOMEONE ELSE (ENTER WHO IN COMMENT),FALSE,TRUE,FALSE,2022-08-20,2
 2,2,2,WERE THE POLICE INFORMED OF THE INCIDENT,FALSE,TRUE,,,,,,,,,
 ,,,,,,,3,1,1,YES,TRUE,FALSE,FALSE,,None
 ,,,,,,,4,2,2,NO,TRUE,FALSE,FALSE,,None
@@ -232,8 +232,8 @@ Question ID,Question sequence,Question list sequence,Question,Allows multiple an
               `
 Role,Description (from reference data),Only one prisoner can have this role,Active,Expired
 ACTINV,Active Involvement,FALSE,TRUE,
-IMPED,Impeded Staff,FALSE,FALSE,20/08/2022
-PRESENT,,TRUE,FALSE,12/05/2010
+IMPED,Impeded Staff,FALSE,FALSE,2022-08-20
+PRESENT,,TRUE,FALSE,2010-05-12
             `.trim(),
             )
           } else {

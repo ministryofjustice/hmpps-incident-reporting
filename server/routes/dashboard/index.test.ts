@@ -111,7 +111,7 @@ describe('GET dashboard', () => {
         expect(res.text).toContain('Create a report for Moorland')
         expect(res.text).toContain('6543')
         expect(res.text).toContain('6544')
-        expect(res.text).toContain('5 December 2023, 11:34')
+        expect(res.text).toContain('5/12/2023 at 11:34')
         expect(res.text).not.toContain('There is a problem')
         expect(incidentReportingApi.getReports).toHaveBeenCalledWith(expectedParams)
       })
@@ -139,7 +139,7 @@ describe('GET dashboard', () => {
         expect(res.text).toContain('Create a report for Moorland')
         expect(res.text).toContain('6543')
         expect(res.text).toContain('6544')
-        expect(res.text).toContain('5 December 2023, 11:34')
+        expect(res.text).toContain('5/12/2023 at 11:34')
         expect(res.text).not.toContain('There is a problem')
         expect(incidentReportingApi.getReports).toHaveBeenCalledWith(expectedParams)
       })
@@ -160,8 +160,8 @@ describe('GET dashboard', () => {
 
     const queryParams = {
       searchID: 'A0011BC',
-      fromDate: '01/01/2025',
-      toDate: '14/01/2025',
+      fromDate: '1/1/2025',
+      toDate: '14/1/2025',
       location: 'MDI',
       typeFamily: 'ATTEMPTED_ESCAPE_FROM_PRISON',
       incidentStatuses: 'toDo',
@@ -184,7 +184,7 @@ describe('GET dashboard', () => {
     const expectedParams: Partial<GetReportsParams> = {
       location: 'LEI',
       incidentDateFrom: new Date(2025, 0, 1, 12, 0, 0),
-      incidentDateUntil: new Date(2025, 0, 14, 12, 0, 0),
+      incidentDateUntil: new Date(2025, 0, 4, 12, 0, 0),
       involvingPrisonerNumber: 'A0011BC',
       page: 0,
       reference: undefined,
@@ -195,8 +195,8 @@ describe('GET dashboard', () => {
 
     const queryParams = {
       searchID: 'A0011BC',
-      fromDate: '01/01/2025',
-      toDate: '14/01/2025',
+      fromDate: '01/01/2025', // leading zeros
+      toDate: '4/1/2025', // no leading zeros
       location: 'LEI',
       typeFamily: 'ATTEMPTED_ESCAPE_FROM_PRISON',
       incidentStatuses: 'DRAFT',
@@ -359,7 +359,7 @@ describe('GET dashboard', () => {
       .expect(res => {
         expect(res.text).toContain('6543')
         expect(res.text).toContain('Find of illicit items')
-        expect(res.text).toContain('5 December 2023, 11:34')
+        expect(res.text).toContain('5/12/2023 at 11:34')
         expect(res.text).toContain('A new incident created in the new service of type FIND_6')
         expect(res.text).toContain('John Smith')
         expect(res.text).not.toContain('Establishment') // cannot check for Moorland because it appears in create button
@@ -387,7 +387,7 @@ describe('GET dashboard', () => {
       .expect(res => {
         expect(res.text).toContain('6543')
         expect(res.text).toContain('Find of illicit items')
-        expect(res.text).toContain('5 December 2023, 11:34')
+        expect(res.text).toContain('5/12/2023 at 11:34')
         expect(res.text).toContain('A new incident created in the new service of type FIND_6')
         expect(res.text).not.toContain('John Smith')
         expect(res.text).toContain('Establishment') // cannot check for Moorland because it appears in create button
@@ -622,7 +622,7 @@ describe('date validation', () => {
   it('should present an error if date range is invalid', () => {
     return request(app)
       .get('/reports')
-      .query({ fromDate: '02/01/2025', toDate: '01/01/2025' })
+      .query({ fromDate: '2/1/2025', toDate: '1/1/2025' })
       .expect(200)
       .expect(res => {
         expect(res.text).toContain('There is a problem')

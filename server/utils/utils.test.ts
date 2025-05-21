@@ -15,7 +15,7 @@ import {
 } from './utils'
 import { andrew, barry, chris, donald, ernie, fred } from '../data/testData/offenderSearch'
 import { isBeingTransferred, isOutside, isInPrison } from '../data/offenderSearchApi'
-import { fakeClock } from '../testutils/fakeClock'
+import { fakeClock } from '../testutils/fakeJestClock'
 
 describe('convert to title case', () => {
   it.each([

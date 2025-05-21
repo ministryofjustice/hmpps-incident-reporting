@@ -79,7 +79,7 @@ describe('Report status history', () => {
 
   it('should show status history for a report that has changed status', () => {
     mockedReport.historyOfStatuses.push({
-      status: 'AWAITING_ANALYSIS',
+      status: 'AWAITING_REVIEW',
       changedAt: new Date(2023, 11, 6, 10, 20, 50),
       changedBy: 'user2',
     })
@@ -92,7 +92,7 @@ describe('Report status history', () => {
         expect(res.text).toContain('Draft')
         expect(res.text).toContain('by John Smith')
         expect(res.text).toContain('5 December 2023 at 12:34')
-        expect(res.text).toContain('Awaiting analysis')
+        expect(res.text).toContain('Awaiting review')
         expect(res.text).toContain('by Mary Johnson')
         expect(res.text).toContain('6 December 2023 at 10:20') // minutes don't round up apparently
 

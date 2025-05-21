@@ -99,7 +99,7 @@ describe('GET dashboard', () => {
       page: 0,
       reference: undefined,
       sort: ['incidentDateAndTime,DESC'],
-      status: ['DRAFT', 'INFORMATION_REQUIRED'],
+      status: ['DRAFT', 'NEEDS_UPDATING', 'REOPENED'],
       type: undefined,
     }
     return request(app)
@@ -154,7 +154,7 @@ describe('GET dashboard', () => {
       page: 0,
       reference: undefined,
       sort: ['incidentDateAndTime,DESC'],
-      status: ['DRAFT', 'INFORMATION_REQUIRED'],
+      status: ['DRAFT', 'NEEDS_UPDATING', 'REOPENED'],
       type: ['ATTEMPTED_ESCAPE_FROM_PRISON_1'],
     }
 
@@ -274,7 +274,7 @@ describe('GET dashboard', () => {
       page: 0,
       reference: undefined,
       sort: ['incidentDateAndTime,DESC'],
-      status: ['DRAFT', 'INFORMATION_REQUIRED'],
+      status: ['DRAFT', 'NEEDS_UPDATING', 'REOPENED'],
       type: undefined,
     }
     return request(appWithAllRoutes({ services: { userService }, userSupplier: () => reportingUser }))
@@ -349,7 +349,7 @@ describe('GET dashboard', () => {
       page: 0,
       reference: undefined,
       sort: ['incidentDateAndTime,DESC'],
-      status: ['DRAFT', 'INFORMATION_REQUIRED'],
+      status: ['DRAFT', 'NEEDS_UPDATING', 'REOPENED'],
       type: undefined,
     }
     return request(appWithAllRoutes({ services: { userService }, userSupplier: () => reportingUser }))
@@ -642,16 +642,16 @@ describe('work list filter validations in RO view', () => {
   })
 
   it.each([
-    { scenario: 'single "to do" selected', statusQuery: 'toDo', expectedArgs: ['DRAFT', 'INFORMATION_REQUIRED'] },
+    { scenario: 'single "to do" selected', statusQuery: 'toDo', expectedArgs: ['DRAFT', 'NEEDS_UPDATING', 'REOPENED'] },
     {
       scenario: 'single "submitted" selected',
       statusQuery: 'submitted',
-      expectedArgs: ['AWAITING_ANALYSIS', 'INFORMATION_AMENDED', 'IN_ANALYSIS'],
+      expectedArgs: ['AWAITING_REVIEW', 'UPDATED', 'ON_HOLD', 'WAS_CLOSED'],
     },
     {
       scenario: 'multiple selected - "to do" and "done"',
       statusQuery: ['toDo', 'done'],
-      expectedArgs: ['DRAFT', 'INFORMATION_REQUIRED', 'CLOSED', 'DUPLICATE'],
+      expectedArgs: ['DRAFT', 'NEEDS_UPDATING', 'REOPENED', 'CLOSED', 'DUPLICATE', 'NOT_REPORTABLE'],
     },
   ])('should submit correct status args when $scenario', ({ statusQuery, expectedArgs }) => {
     const expectedParams: Partial<GetReportsParams> = {
@@ -683,11 +683,11 @@ describe('work list filter validations in DW view', () => {
 
   it.each([
     { scenario: 'single "Draft" selected', statusQuery: 'DRAFT', expectedArgs: 'DRAFT' },
-    { scenario: 'single "In analysis" selected', statusQuery: 'IN_ANALYSIS', expectedArgs: 'IN_ANALYSIS' },
+    { scenario: 'single "On hold" selected', statusQuery: 'ON_HOLD', expectedArgs: 'ON_HOLD' },
     {
-      scenario: 'multiple selected - "DRAFT", "IN_ANALYSIS" and "INFORMATION_AMENDED"',
-      statusQuery: ['DRAFT', 'IN_ANALYSIS', 'INFORMATION_AMENDED'],
-      expectedArgs: ['DRAFT', 'IN_ANALYSIS', 'INFORMATION_AMENDED'],
+      scenario: 'multiple selected - "DRAFT", "ON_HOLD" and "UPDATED"',
+      statusQuery: ['DRAFT', 'ON_HOLD', 'UPDATED'],
+      expectedArgs: ['DRAFT', 'ON_HOLD', 'UPDATED'],
     },
   ])('should submit correct status args when $scenario', ({ statusQuery, expectedArgs }) => {
     const expectedParams: Partial<GetReportsParams> = {
@@ -799,7 +799,7 @@ describe('Status/work list filter validations', () => {
       usertype: 'RO',
       expectedLocations: ['MDI'],
       user: reportingUser,
-      queryStatus: ['DRAFT', 'AWAITING_ANALYSIS'],
+      queryStatus: ['DRAFT', 'AWAITING_REVIEW'],
       expectedStatus: undefined,
       expectedError: 'Work list filter submitted contains invalid values',
     },
@@ -808,7 +808,7 @@ describe('Status/work list filter validations', () => {
       usertype: 'RO',
       expectedLocations: ['MDI'],
       user: reportingUser,
-      queryStatus: ['submitted', 'done', 'DRAFT', 'AWAITING_ANALYSIS'],
+      queryStatus: ['submitted', 'done', 'DRAFT', 'AWAITING_REVIEW'],
       expectedStatus: undefined,
       expectedError: 'Work list filter submitted contains invalid values',
     },
@@ -853,7 +853,7 @@ describe('Status/work list filter validations', () => {
       usertype: 'DW',
       expectedLocations: ['MDI', 'LEI'],
       user: approverUser,
-      queryStatus: ['submitted', 'done', 'DRAFT', 'AWAITING_ANALYSIS'],
+      queryStatus: ['submitted', 'done', 'DRAFT', 'AWAITING_REVIEW'],
       expectedStatus: undefined,
       expectedError: 'Status filter submitted contains invalid values',
     },

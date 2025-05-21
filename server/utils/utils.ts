@@ -224,6 +224,7 @@ export function convertToSentenceCase(str: string): string {
     'HMD',
     'HMPPS',
     'HMPS',
+    'HMP',
     'HSE',
     'IEP',
     'IMB',
@@ -260,6 +261,7 @@ export function convertToSentenceCase(str: string): string {
     'Vantive',
     'VPU',
     'YO',
+    'YOI',
     // 'IT', // IT is problematic: IT (Information Technology) or "it" pronoun?
   ]
 

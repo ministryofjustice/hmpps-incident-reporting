@@ -1352,7 +1352,7 @@ export const ASSAULT_5: IncidentTypeConfiguration = {
       id: '61304',
       active: false,
       code: 'WHO WAS ADMMITED TO OUTSIDE HOSPITAL',
-      label: 'Who was admmited to outside hospital?',
+      label: 'Who was admitted to outside hospital?',
       multipleAnswers: true,
       answers: [
         {

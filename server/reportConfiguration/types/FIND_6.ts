@@ -3989,7 +3989,7 @@ export const FIND_6: IncidentTypeConfiguration = {
       id: '67218',
       active: true,
       code: 'WAS ANY OHTER MOBULE PHONE/COMMUNICATION RELATED ITEM FOUND?',
-      label: 'Was any ohter mobule phone/communication related item found?',
+      label: 'Was any other mobile phone/communication related item found?',
       multipleAnswers: false,
       answers: [
         {
@@ -4221,7 +4221,7 @@ export const FIND_6: IncidentTypeConfiguration = {
           id: '219108',
           code: 'LOOSE TOBACO',
           active: true,
-          label: 'Loose tobaco',
+          label: 'Loose tobacco',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '67223',

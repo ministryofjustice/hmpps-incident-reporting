@@ -36,7 +36,7 @@ export const TEMPORARY_RELEASE_FAILURE_3: IncidentTypeConfiguration = {
           id: '206686',
           code: 'Placed on report/adjudication referal',
           active: false,
-          label: 'Placed on report/adjudication referal',
+          label: 'Placed on report/adjudication referral',
           commentRequired: false,
           dateRequired: false,
           nextQuestionId: '55180',

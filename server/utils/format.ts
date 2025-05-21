@@ -60,8 +60,21 @@ export default {
   },
 
   /**
+   * Format `Date` in short form as Europe/London including 24-hour time-of-day.
+   * Note absence of leading zeroes for day and month parts.
+   *
+   * Example: `2/3/2022`
+   */
+  shortDateAndTime(date: Date): string {
+    if (typeof date === 'undefined' || date === null) {
+      return ''
+    }
+    return `${this.shortDate(date)} at ${this.time(date)}`
+  },
+
+  /**
    * Format `Date` in short form as Europe/London ignoring time-of-day.
-   * Note absence of leading zeroes.
+   * Note absence of leading zeroes for day and month parts.
    *
    * Example: `2/3/2022`
    */

@@ -64,6 +64,41 @@ describe('longDate(): Format `Date` in long form as Europe/London ignoring time-
   })
 })
 
+describe('shortDateAndTime(): Format `Date` in short form as Europe/London including 24-hour time-of-day', () => {
+  it.each([
+    // same UTC offset, not DST
+    ['2022-02-22T12:00:00Z', '22/2/2022 at 12:00'],
+    // differing UTC offset, not DST
+    ['2022-02-22T12:00:00+01:00', '22/2/2022 at 11:00'],
+
+    // same UTC offset, DST
+    ['2022-06-22T12:00:00Z', '22/6/2022 at 13:00'],
+    // differing UTC offset, DST
+    ['2022-06-22T12:00:00+01:00', '22/6/2022 at 12:00'],
+
+    // near DST switch
+    ['2021-10-30T23:59:59Z', '31/10/2021 at 00:59'],
+    ['2021-10-31T00:00:00Z', '31/10/2021 at 01:00'],
+    ['2021-10-31T00:00:01Z', '31/10/2021 at 01:00'],
+    ['2021-10-31T00:59:59Z', '31/10/2021 at 01:59'],
+    ['2021-10-31T01:00:00Z', '31/10/2021 at 01:00'],
+    ['2021-10-31T01:00:01Z', '31/10/2021 at 01:00'],
+
+    // 24-hr clock
+    ['2022-02-23T16:37:53Z', '23/2/2022 at 16:37'],
+
+    // no leading zeroes
+    ['2025-01-01T12:34:56.78Z', '1/1/2025 at 12:34'],
+  ])('new Date(%s) is formatted as %s ignoring time-of-day', (date, expected) => {
+    expect(format.shortDateAndTime(new Date(date))).toEqual(expected)
+  })
+
+  it("returns '' for null and undefined", () => {
+    expect(format.shortDateAndTime(null)).toEqual('')
+    expect(format.shortDateAndTime(undefined)).toEqual('')
+  })
+})
+
 describe('shortDate(): Format `Date` in short form as Europe/London ignoring time-of-day', () => {
   it.each([
     // same UTC offset, not DST

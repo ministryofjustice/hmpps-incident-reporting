@@ -193,7 +193,7 @@
           [
             { html: link },
             { text: typesLookup[report.type] or report.type },
-            { text: report.incidentDateAndTime | longDateAndTime },
+            { text: report.incidentDateAndTime | shortDateAndTime },
             { html: description },
             { text: establishmentLookup[report.location] or report.location },
             { text: statusLookup[report.status] or report.status }
@@ -204,7 +204,7 @@
           [
             { html: link },
             { text: typesLookup[report.type] or report.type },
-            { text: report.incidentDateAndTime | longDateAndTime },
+            { text: report.incidentDateAndTime | shortDateAndTime },
             { html: description },
             { text: usersLookup[report.reportedBy].name or report.reportedBy },
             { text: statusLookup[report.status] or report.status }

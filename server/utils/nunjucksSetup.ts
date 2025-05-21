@@ -95,11 +95,11 @@ export default function nunjucksSetup(app: express.Express): void {
   njkEnv.addFilter('possessive', possessive)
 
   // date/datetime handling
-  njkEnv.addFilter('longDateAndTime', format.longDateAndTime)
-  njkEnv.addFilter('longDate', format.longDate)
-  njkEnv.addFilter('shortDateAndTime', format.shortDateAndTime)
-  njkEnv.addFilter('shortDate', format.shortDate)
-  njkEnv.addFilter('time', format.time)
+  njkEnv.addFilter('longDateAndTime', format.longDateAndTime.bind(format))
+  njkEnv.addFilter('longDate', format.longDate.bind(format))
+  njkEnv.addFilter('shortDateAndTime', format.shortDateAndTime.bind(format))
+  njkEnv.addFilter('shortDate', format.shortDate.bind(format))
+  njkEnv.addFilter('time', format.time.bind(format))
   njkEnv.addFilter('yearsSince', yearsSince)
 
   // prisoner utils

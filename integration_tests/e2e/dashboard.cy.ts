@@ -1,11 +1,13 @@
 import type { Response as SuperAgentResponse } from 'superagent'
+
 import type { GetReportsParams } from '../../server/data/incidentReportingApi'
+import { mockReport } from '../../server/data/testData/incidentReporting'
+import { now } from '../../server/testutils/fakeClock'
 import { DashboardPage } from '../pages/dashboard'
 import HomePage from '../pages/home'
 import Page from '../pages/page'
 import ReportPage from '../pages/reports/report'
 import { TypePage } from '../pages/reports/type'
-import { mockReport } from '../../server/data/testData/incidentReporting'
 
 context('Searching for a report', () => {
   beforeEach(() => {
@@ -178,13 +180,13 @@ context('Searching for a report', () => {
       mockReport({
         type: 'ATTEMPTED_ESCAPE_FROM_PRISON_1',
         reportReference: '6544',
-        reportDateAndTime: new Date(),
+        reportDateAndTime: now,
       }),
       mockReport({
         type: 'MISCELLANEOUS_1',
         status: 'AWAITING_ANALYSIS',
         reportReference: '6543',
-        reportDateAndTime: new Date(),
+        reportDateAndTime: now,
       }),
     ]
 
@@ -209,6 +211,7 @@ context('Searching for a report', () => {
         expect(row1).to.contain({
           type: 'Attempted escape from establishment',
           status: 'Draft',
+          incidentDate: '5/12/2023 at 11:34',
           locationOrReporter: 'John Smith',
           description: 'A new incident created in the new service of type ATTEMPTED_ESCAPE_FROM_PRISON_1',
         })
@@ -218,6 +221,7 @@ context('Searching for a report', () => {
         expect(row2).to.contain({
           type: 'Miscellaneous',
           status: 'Awaiting analysis',
+          incidentDate: '5/12/2023 at 11:34',
           locationOrReporter: 'John Smith',
           description: 'A new incident created in the new service of type MISCELLANEOUS_1',
         })

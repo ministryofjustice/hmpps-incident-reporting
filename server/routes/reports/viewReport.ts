@@ -12,7 +12,7 @@ import {
   staffInvolvementRoles,
   statuses,
   types,
-  beforeDwStatuses,
+  dwNotReviewed,
 } from '../../reportConfiguration/constants'
 import asyncMiddleware from '../../middleware/asyncMiddleware'
 import { logoutIf } from '../../middleware/permissions'
@@ -140,9 +140,9 @@ export function viewReportRouter(service: Services): Router {
 
       // “About the [incident]”
       res.locals.aboutTheType = aboutTheType(res.locals.report.type)
-      let canEditDescription: boolean = false
-      if (beforeDwStatuses.includes(report.status)) {
-        canEditDescription = true
+      let descriptionAppendOnly: boolean = false
+      if (dwNotReviewed.includes(report.status)) {
+        descriptionAppendOnly = true
       }
 
       res.render('pages/reports/view/index', {
@@ -153,7 +153,7 @@ export function viewReportRouter(service: Services): Router {
         questionProgressSteps,
         canEditReport,
         canEditReportInNomisOnly,
-        canEditDescription,
+        descriptionAppendOnly,
         usersLookup,
         prisonsLookup,
         prisonerInvolvementLookup,

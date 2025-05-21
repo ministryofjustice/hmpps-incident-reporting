@@ -14,7 +14,7 @@ import {
   IncidentDateAndTimeValues,
 } from './incidentDateAndTimeFields'
 import { BaseIncidentDateAndTimeController } from './incidentDateAndTimeController'
-import { beforeDwStatuses } from '../../../reportConfiguration/constants'
+import { dwNotReviewed } from '../../../reportConfiguration/constants'
 
 class IncidentDateAndTimeController extends BaseIncidentDateAndTimeController<IncidentDateAndTimeValues> {
   // TODO: merge controllers with details controllers to reduce code duplication
@@ -32,7 +32,7 @@ class IncidentDateAndTimeController extends BaseIncidentDateAndTimeController<In
   ): void {
     /** Check status of report. If DW has not seen report yet, redirect to update details page * */
     const report = res.locals.report as ReportBasic
-    if (beforeDwStatuses.includes(report.status)) {
+    if (dwNotReviewed.includes(report.status)) {
       res.redirect(`/reports/${report.id}/update-details`)
     } else {
       next()

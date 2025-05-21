@@ -9,7 +9,7 @@ import { populateReport } from '../../../middleware/populateReport'
 import { cannotEditReport } from '../permissions'
 import { BaseDetailsController } from './detailsController'
 import { type DetailsValues, type DetailsFieldNames, detailsFields, detailsFieldNames } from './detailsFields'
-import { beforeDwStatuses } from '../../../reportConfiguration/constants'
+import { dwNotReviewed } from '../../../reportConfiguration/constants'
 
 class DetailsController extends BaseDetailsController<DetailsValues> {
   // TODO: wizard namespace identifier is shared. consider generating it per request somehow?
@@ -28,7 +28,7 @@ class DetailsController extends BaseDetailsController<DetailsValues> {
   ): void {
     /** Check status of report. If DW has seen report, redirect to update incident date and time page * */
     const report = res.locals.report as ReportBasic
-    if (!beforeDwStatuses.includes(report.status)) {
+    if (!dwNotReviewed.includes(report.status)) {
       res.redirect(`/reports/${report.id}/update-date-and-time`)
     } else {
       next()

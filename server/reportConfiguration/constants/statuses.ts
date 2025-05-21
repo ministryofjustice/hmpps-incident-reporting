@@ -41,4 +41,4 @@ export function getStatusDetails(code: string): StatusDetails | null {
 }
 
 /** Statuses before DW has seen report * */
-export const beforeDwStatuses: Status[] = ['DRAFT', 'AWAITING_REVIEW']
+export const dwNotReviewed: Status[] = ['DRAFT', 'AWAITING_REVIEW']

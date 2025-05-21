@@ -8,7 +8,7 @@ import { logoutIf } from '../../../middleware/permissions'
 import { cannotEditReport } from '../permissions'
 import logger from '../../../../logger'
 import { ReportWithDetails } from '../../../data/incidentReportingApi'
-import { beforeDwStatuses } from '../../../reportConfiguration/constants'
+import { dwNotReviewed } from '../../../reportConfiguration/constants'
 
 class AddDescriptionAddendumController extends BaseController<Values> {
   middlewareLocals(): void {
@@ -19,7 +19,7 @@ class AddDescriptionAddendumController extends BaseController<Values> {
   private checkReportStatus(_req: FormWizard.Request<Values>, res: express.Response, next: express.NextFunction): void {
     /** Check status of report. If DW has not seen report yet, redirect to update details page * */
     const report = res.locals.report as ReportWithDetails
-    if (beforeDwStatuses.includes(report.status)) {
+    if (dwNotReviewed.includes(report.status)) {
       res.redirect(`/reports/${report.id}/update-details`)
     } else {
       next()
@@ -27,7 +27,7 @@ class AddDescriptionAddendumController extends BaseController<Values> {
   }
 
   getBackLink(_req: FormWizard.Request<Values>, res: express.Response): string {
-    return `${res.locals.reportSubUrlPrefix}`
+    return `${res.locals.reportUrl}`
   }
 
   protected errorMessage(error: FormWizard.Error, req: FormWizard.Request<Values>, res: express.Response): string {
@@ -40,12 +40,13 @@ class AddDescriptionAddendumController extends BaseController<Values> {
   async saveValues(req: FormWizard.Request<Values>, res: express.Response, next: express.NextFunction): Promise<void> {
     const report = res.locals.report as ReportWithDetails
     const allValues = this.getAllValues(req, false)
-    const userNames = res.locals.user.name.split(' ')
+    const [firstName, ...lastNames] = res.locals.user.name.split(/\s+/)
+    const lastName = lastNames.join(' ')
 
     try {
       await res.locals.apis.incidentReportingApi.descriptionAddendums.addToReport(report.id, {
-        firstName: userNames[0],
-        lastName: userNames[1],
+        firstName: firstName || 'not specified',
+        lastName: lastName || 'not specified',
         text: allValues.descriptionAddendum,
       })
       logger.info('Additional description added to report %s', report.id)

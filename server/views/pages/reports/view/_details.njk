@@ -24,14 +24,14 @@
   {% set descriptionHtml = report.description | escape | nl2br %}
 {% endif %}
 
-{% if canEditDescription %}
+{% if descriptionAppendOnly %}
   {% set descriptionLink = reportUrl + "/update-details" %}
   {% set descriptionHiddenText = "incident summary" %}
   {% set dateAndTimeLink = reportUrl + "/update-details" %}
   {% set dateAndTimeHiddenText = "incident summary" %}
 {% else %}
   {% set descriptionLink = reportUrl + "/add-description" %}
-  {% set descriptionHiddenText = "add to description" %}
+  {% set descriptionHiddenText = "description" %}
   {% set dateAndTimeLink = reportUrl + "/update-date-and-time" %}
   {% set dateAndTimeHiddenText = "incident date and time" %}
 {% endif %}

@@ -86,8 +86,7 @@
             label: {text: "Incident date from"},
             value: formValues.fromDate,
             maxDate: todayAsShortDate,
-            errorMessage: errors | findFieldInGovukErrorSummary("fromDate"),
-            leadingZeros: "true"
+            errorMessage: errors | findFieldInGovukErrorSummary("fromDate")
           }) }}
         </div>
 
@@ -98,8 +97,7 @@
             label: {text: "Incident date to"},
             value: formValues.toDate,
             maxDate: todayAsShortDate,
-            errorMessage: errors | findFieldInGovukErrorSummary("toDate"),
-            leadingZeros: "true"
+            errorMessage: errors | findFieldInGovukErrorSummary("toDate")
           }) }}
         </div>
       </div>
@@ -195,7 +193,7 @@
           [
             { html: link },
             { text: typesLookup[report.type] or report.type },
-            { text: report.incidentDateAndTime | dateAndTime },
+            { text: report.incidentDateAndTime | shortDateAndTime },
             { html: description },
             { text: establishmentLookup[report.location] or report.location },
             { text: statusLookup[report.status] or report.status }
@@ -206,7 +204,7 @@
           [
             { html: link },
             { text: typesLookup[report.type] or report.type },
-            { text: report.incidentDateAndTime | dateAndTime },
+            { text: report.incidentDateAndTime | shortDateAndTime },
             { html: description },
             { text: usersLookup[report.reportedBy].name or report.reportedBy },
             { text: statusLookup[report.status] or report.status }

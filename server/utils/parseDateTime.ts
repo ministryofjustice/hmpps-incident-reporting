@@ -1,6 +1,10 @@
-// NB: this module is shared with frontend code!
+// NB: this module is shared with frontend code so cannot import or use anything not found in the browser!
 
-/** Parse date in the form DD/MM/YYYY; the returned time part should be ignored. Throws an error when invalid */
+/**
+ * Parse date in the form DD/MM/YYYY; the returned time part should be ignored.
+ * Accepts 1-digit date and month parts.
+ * Throws an error when invalid.
+ */
 export function parseDateInput(input: string): Date {
   const match = input && /^(?<day>\d{1,2})\/(?<month>\d{1,2})\/(?<year>\d{4})$/.exec(input.trim())
   if (!match) throw new Error('Invalid date')
@@ -18,7 +22,11 @@ export function parseDateInput(input: string): Date {
   throw new Error('Invalid date')
 }
 
-/** Parse time in the form HH:MM. Throws an error when invalid */
+/**
+ * Parse time in the form HH:MM.
+ * Accepts 1-digit hour part, but requires colon as the separator.
+ * Throws an error when invalid.
+ */
 export function parseTimeInput(input: string): { hours: number; minutes: number; time: string } {
   const match = input && /^(?<hours>\d{1,2}):(?<minutes>\d\d)$/.exec(input.trim())
   if (!match) throw new Error('Invalid time')

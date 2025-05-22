@@ -96,7 +96,7 @@ describe('Adding a description addendum to report', () => {
         expectOnDetailsPage(res)
         expect(res.text).not.toContain('There is a problem')
         expect(res.text).toContain('Incident description')
-        expect(res.text).toContain('16:32 on 21 October 2024')
+        expect(res.text).toContain('21 October 2024 at 16:32')
         expect(res.text).toContain('A new incident created in the new service of type DISORDER_2')
         expect(res.text).toContain('John Smith')
         expect(res.text).toContain('Addendum #1')

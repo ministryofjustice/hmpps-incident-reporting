@@ -12,7 +12,7 @@ import {
 } from './incidentDateAndTimeFields'
 
 /**
- * Controller for updating the date of an incident report.
+ * Controller for adding or updating the date of an incident report.
  * Handles error messages and validating combined date and time fields.
  * The generic V parameter is for specifying all steps’ values, not just this one.
  */

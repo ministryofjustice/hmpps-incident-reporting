@@ -17,9 +17,7 @@ import {
 import { BaseIncidentDateAndTimeController } from './incidentDateAndTimeController'
 import { dwNotReviewed } from '../../../reportConfiguration/constants'
 
-class IncidentDateAndTimeController extends BaseIncidentDateAndTimeController<IncidentDateAndTimeValues> {
-  // TODO: merge controllers with details controllers to reduce code duplication
-
+class UpdateIncidentDateAndTimeController extends BaseIncidentDateAndTimeController<IncidentDateAndTimeValues> {
   middlewareLocals(): void {
     this.use(this.checkReportStatus)
     this.use(this.loadReportIntoSession)
@@ -100,7 +98,7 @@ class IncidentDateAndTimeController extends BaseIncidentDateAndTimeController<In
 const updateIncidentDateAndTimeSteps: FormWizard.Steps<IncidentDateAndTimeValues> = {
   '/': {
     fields: incidentDateAndTimeFieldNames,
-    controller: IncidentDateAndTimeController,
+    controller: UpdateIncidentDateAndTimeController,
     entryPoint: true,
     template: 'details',
   },

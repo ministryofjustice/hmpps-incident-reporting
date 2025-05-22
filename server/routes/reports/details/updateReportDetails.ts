@@ -10,7 +10,7 @@ import { cannotEditReport } from '../permissions'
 import { dwNotReviewed } from '../../../reportConfiguration/constants'
 import { BaseDetailsController } from './detailsController'
 import { hoursFieldName, minutesFieldName } from './incidentDateAndTimeFields'
-import { type DetailsValues, type DetailsFieldNames, detailsFields, detailsFieldNames } from './detailsFields'
+import { type DetailsValues, detailsFields, detailsFieldNames } from './detailsFields'
 
 class DetailsController extends BaseDetailsController<DetailsValues> {
   // TODO: wizard namespace identifier is shared. consider generating it per request somehow?
@@ -23,7 +23,7 @@ class DetailsController extends BaseDetailsController<DetailsValues> {
   }
 
   private checkReportStatus(
-    _req: FormWizard.Request<DetailsValues, DetailsFieldNames>,
+    _req: FormWizard.Request<DetailsValues>,
     res: express.Response,
     next: express.NextFunction,
   ): void {
@@ -37,7 +37,7 @@ class DetailsController extends BaseDetailsController<DetailsValues> {
   }
 
   private loadReportIntoSession(
-    req: FormWizard.Request<DetailsValues, DetailsFieldNames>,
+    req: FormWizard.Request<DetailsValues>,
     res: express.Response,
     next: express.NextFunction,
   ): void {
@@ -53,12 +53,12 @@ class DetailsController extends BaseDetailsController<DetailsValues> {
     next()
   }
 
-  getBackLink(_req: FormWizard.Request<DetailsValues, DetailsFieldNames>, res: express.Response): string {
+  getBackLink(_req: FormWizard.Request<DetailsValues>, res: express.Response): string {
     return res.locals.reportUrl
   }
 
   async successHandler(
-    req: FormWizard.Request<DetailsValues, DetailsFieldNames>,
+    req: FormWizard.Request<DetailsValues>,
     res: express.Response,
     next: express.NextFunction,
   ): Promise<void> {
@@ -89,7 +89,7 @@ class DetailsController extends BaseDetailsController<DetailsValues> {
     }
   }
 
-  getNextStep(_req: FormWizard.Request<DetailsValues, DetailsFieldNames>, res: express.Response): string {
+  getNextStep(_req: FormWizard.Request<DetailsValues>, res: express.Response): string {
     // TODO: does this page have 2 save buttons? where do they both lead?
     return res.locals.reportUrl
   }

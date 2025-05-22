@@ -9,7 +9,6 @@ import { populateReport } from '../../../middleware/populateReport'
 import { cannotEditReport } from '../permissions'
 import {
   type IncidentDateAndTimeValues,
-  type IncidentDateAndTimeFieldNames,
   hoursFieldName,
   minutesFieldName,
   incidentDateAndTimeFieldNames,
@@ -28,7 +27,7 @@ class IncidentDateAndTimeController extends BaseIncidentDateAndTimeController<In
   }
 
   private checkReportStatus(
-    _req: FormWizard.Request<IncidentDateAndTimeValues, IncidentDateAndTimeFieldNames>,
+    _req: FormWizard.Request<IncidentDateAndTimeValues>,
     res: express.Response,
     next: express.NextFunction,
   ): void {
@@ -42,7 +41,7 @@ class IncidentDateAndTimeController extends BaseIncidentDateAndTimeController<In
   }
 
   private loadReportIntoSession(
-    req: FormWizard.Request<IncidentDateAndTimeValues, IncidentDateAndTimeFieldNames>,
+    req: FormWizard.Request<IncidentDateAndTimeValues>,
     res: express.Response,
     next: express.NextFunction,
   ): void {
@@ -57,15 +56,12 @@ class IncidentDateAndTimeController extends BaseIncidentDateAndTimeController<In
     next()
   }
 
-  getBackLink(
-    _req: FormWizard.Request<IncidentDateAndTimeValues, IncidentDateAndTimeFieldNames>,
-    res: express.Response,
-  ): string {
+  getBackLink(_req: FormWizard.Request<IncidentDateAndTimeValues>, res: express.Response): string {
     return res.locals.reportUrl
   }
 
   async successHandler(
-    req: FormWizard.Request<IncidentDateAndTimeValues, IncidentDateAndTimeFieldNames>,
+    req: FormWizard.Request<IncidentDateAndTimeValues>,
     res: express.Response,
     next: express.NextFunction,
   ): Promise<void> {
@@ -95,10 +91,7 @@ class IncidentDateAndTimeController extends BaseIncidentDateAndTimeController<In
     }
   }
 
-  getNextStep(
-    _req: FormWizard.Request<IncidentDateAndTimeValues, IncidentDateAndTimeFieldNames>,
-    res: express.Response,
-  ): string {
+  getNextStep(_req: FormWizard.Request<IncidentDateAndTimeValues>, res: express.Response): string {
     // TODO: does this page have 2 save buttons? where do they both lead?
     return res.locals.reportUrl
   }

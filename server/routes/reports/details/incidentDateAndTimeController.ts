@@ -5,9 +5,9 @@ import format from '../../../utils/format'
 import { parseDateInput, parseTimeInput } from '../../../utils/parseDateTime'
 import { BaseController } from '../../../controllers'
 import {
+  type IncidentDateAndTimeValues,
+  type IncidentDateAndTimeFieldNames,
   hoursFieldName,
-  IncidentDateAndTimeFieldNames,
-  IncidentDateAndTimeValues,
   minutesFieldName,
 } from './incidentDateAndTimeFields'
 

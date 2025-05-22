@@ -12,19 +12,28 @@ import {
 import { convertReportWithDetailsDates } from '../../../data/incidentReportingApiUtils'
 import { mockErrorResponse, mockReport } from '../../../data/testData/incidentReporting'
 import { mockThrownError } from '../../../data/testData/thrownErrors'
+import { mockSharedUser } from '../../../data/testData/manageUsers'
 import { approverUser, hqUser, reportingUser, unauthorisedUser } from '../../../data/testData/users'
+import UserService from '../../../services/userService'
 import type { Status } from '../../../reportConfiguration/constants'
 
 jest.mock('../../../data/incidentReportingApi')
+jest.mock('../../../services/userService')
 
 let app: Express
 let incidentReportingApi: jest.Mocked<IncidentReportingApi>
 let incidentReportingRelatedObjects: jest.Mocked<
   RelatedObjects<DescriptionAddendum, AddDescriptionAddendumRequest, UpdateDescriptionAddendumRequest>
 >
+let userService: jest.Mocked<UserService>
 
 beforeEach(() => {
-  app = appWithAllRoutes()
+  userService = UserService.prototype as jest.Mocked<UserService>
+  userService.getUsers.mockResolvedValueOnce({
+    [mockSharedUser.username]: mockSharedUser,
+  })
+
+  app = appWithAllRoutes({ services: { userService } })
   incidentReportingApi = IncidentReportingApi.prototype as jest.Mocked<IncidentReportingApi>
   incidentReportingRelatedObjects = RelatedObjects.prototype as jest.Mocked<
     RelatedObjects<DescriptionAddendum, AddDescriptionAddendumRequest, UpdateDescriptionAddendumRequest>
@@ -104,6 +113,8 @@ describe('Adding a description addendum to report', () => {
         expect(res.text).toContain('Addendum #2')
         expect(res.text).toContain('Add information to the description')
         expect(res.text).toContain('descriptionAddendum')
+
+        expect(userService.getUsers).toHaveBeenCalledWith('test-system-token', ['user1'])
       })
   })
 
@@ -154,7 +165,7 @@ describe('Adding a description addendum to report', () => {
       { userType: 'unauthorised user', user: unauthorisedUser, action: denied },
     ])('should be $action to $userType', ({ user, action }) => {
       const testRequest = request
-        .agent(appWithAllRoutes({ userSupplier: () => user }))
+        .agent(appWithAllRoutes({ services: { userService }, userSupplier: () => user }))
         .get(addDescriptionAddendumUrl)
         .redirects(1)
       if (action === 'granted') {

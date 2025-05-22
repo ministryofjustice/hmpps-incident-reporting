@@ -1,19 +1,20 @@
 import express from 'express'
 import FormWizard from 'hmpo-form-wizard'
 
-import { descriptionFields, type Values } from './fields'
-import { BaseController } from '../../../controllers'
-import { populateReport } from '../../../middleware/populateReport'
-import { logoutIf } from '../../../middleware/permissions'
-import { cannotEditReport } from '../permissions'
 import logger from '../../../../logger'
-import { ReportWithDetails } from '../../../data/incidentReportingApi'
+import { BaseController } from '../../../controllers'
+import type { ReportWithDetails } from '../../../data/incidentReportingApi'
+import { logoutIf } from '../../../middleware/permissions'
+import { populateReport } from '../../../middleware/populateReport'
+import { cannotEditReport } from '../permissions'
 import { dwNotReviewed } from '../../../reportConfiguration/constants'
+import { descriptionFields, type Values } from './fields'
 
 class AddDescriptionAddendumController extends BaseController<Values> {
   middlewareLocals(): void {
     super.middlewareLocals()
     this.use(this.checkReportStatus)
+    this.use(this.lookupUsers)
   }
 
   private checkReportStatus(_req: FormWizard.Request<Values>, res: express.Response, next: express.NextFunction): void {
@@ -26,9 +27,19 @@ class AddDescriptionAddendumController extends BaseController<Values> {
     }
   }
 
+  private async lookupUsers(
+    _req: FormWizard.Request<Values>,
+    res: express.Response,
+    next: express.NextFunction,
+  ): Promise<void> {
+    const report = res.locals.report as ReportWithDetails
+    res.locals.usersLookup = await res.locals.apis.userService.getUsers(res.locals.systemToken, [report.reportedBy])
+    next()
+  }
+
   getBackLink(_req: FormWizard.Request<Values>, res: express.Response): string {
     res.locals.cancelUrl = res.locals.reportUrl
-    return `${res.locals.reportUrl}`
+    return res.locals.reportUrl
   }
 
   protected errorMessage(error: FormWizard.Error, req: FormWizard.Request<Values>, res: express.Response): string {

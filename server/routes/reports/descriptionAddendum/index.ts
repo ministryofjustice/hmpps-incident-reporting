@@ -27,6 +27,7 @@ class AddDescriptionAddendumController extends BaseController<Values> {
   }
 
   getBackLink(_req: FormWizard.Request<Values>, res: express.Response): string {
+    res.locals.cancelUrl = res.locals.reportUrl
     return `${res.locals.reportUrl}`
   }
 

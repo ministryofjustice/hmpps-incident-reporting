@@ -1,0 +1,17 @@
+{% from "macros/renderDescriptions.njk" import renderDescriptions %}
+{% from "govuk/components/inset-text/macro.njk" import govukInsetText %}
+
+{% extends "partials/formWizardLayout.njk" %}
+
+{% set pageTitle = "Incident description" %}
+{% set bodyClasses = "app-description-addendum" %}
+
+{% set descriptionHtml %} {{ renderDescriptions(report, usersLookup) }} {% endset %}
+
+{% block formFields %}
+  {{ govukInsetText({
+    html: descriptionHtml
+  }) }}
+
+  {{ super() }}
+{% endblock %}

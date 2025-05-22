@@ -1,26 +1,24 @@
 {% from "govuk/components/summary-list/macro.njk" import govukSummaryList %}
-
-{% macro descriptionChunk(name, date, text) %}
-  <strong>{{ name }}</strong>
-  <br />
-  <small class="govuk-!-font-size-16">{{ date | longDateAndTime }}</small>
-  <br />
-  {{ text | escape | nl2br }}
-{% endmacro %}
+{% from "macros/renderDescriptions.njk" import renderDescriptions %}
 
 {% if report.descriptionAddendums.length != 0 %}
-
   {% set descriptionHtml %}
-    {{ descriptionChunk(usersLookup[report.reportedBy].name or report.reportedBy, report.reportedAt, report.description) }}
-    {% for addendum in report.descriptionAddendums %}
-      <br />
-      <br />
-      {{ descriptionChunk(addendum | nameOfPerson, addendum.createdAt, addendum.text) }}
-    {% endfor %}
+    {{ renderDescriptions(report, usersLookup) }}
   {% endset %}
-
 {% else %}
   {% set descriptionHtml = report.description | escape | nl2br %}
+{% endif %}
+
+{% if descriptionAppendOnly %}
+  {% set descriptionLink = reportUrl + "/update-details" %}
+  {% set descriptionHiddenText = "incident summary" %}
+  {% set dateAndTimeLink = reportUrl + "/update-details" %}
+  {% set dateAndTimeHiddenText = "incident summary" %}
+{% else %}
+  {% set descriptionLink = reportUrl + "/add-description" %}
+  {% set descriptionHiddenText = "description" %}
+  {% set dateAndTimeLink = reportUrl + "/update-date-and-time" %}
+  {% set dateAndTimeHiddenText = "incident date and time" %}
 {% endif %}
 
 
@@ -52,9 +50,9 @@
       actions: {
         items: [
           {
-            href: reportUrl + "/update-details",
+            href: dateAndTimeLink,
             text: "Change",
-            visuallyHiddenText: "incident summary"
+            visuallyHiddenText: dateAndTimeHiddenText
           }
         ]
       } if canEditReport else {}
@@ -67,9 +65,9 @@
       actions: {
         items: [
           {
-            href: reportUrl + "/update-details",
+            href: descriptionLink,
             text: "Change",
-            visuallyHiddenText: "incident summary"
+            visuallyHiddenText: descriptionHiddenText
           }
         ]
       } if canEditReport else {}

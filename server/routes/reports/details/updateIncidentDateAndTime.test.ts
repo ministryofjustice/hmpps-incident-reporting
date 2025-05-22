@@ -8,7 +8,7 @@ import { convertBasicReportDates } from '../../../data/incidentReportingApiUtils
 import { mockErrorResponse, mockReport } from '../../../data/testData/incidentReporting'
 import { mockThrownError } from '../../../data/testData/thrownErrors'
 import { approverUser, hqUser, reportingUser, unauthorisedUser } from '../../../data/testData/users'
-import type { Status } from '../../../reportConfiguration/constants'
+import { type Status } from '../../../reportConfiguration/constants'
 
 jest.mock('../../../data/incidentReportingApi')
 
@@ -24,7 +24,7 @@ afterEach(() => {
   jest.resetAllMocks()
 })
 
-describe('Updating report details', () => {
+describe('Updating report incident date and time', () => {
   const incidentDateAndTime = new Date('2024-10-21T16:32:00+01:00')
   const reportBasic = convertBasicReportDates(
     mockReport({
@@ -33,12 +33,12 @@ describe('Updating report details', () => {
       reportDateAndTime: incidentDateAndTime,
     }),
   )
-  const updateDetailsUrl = `/reports/${reportBasic.id}/update-details`
+  reportBasic.status = 'ON_HOLD'
+  const updateIncidentDateAndTimeUrl = `/reports/${reportBasic.id}/update-date-and-time`
   const validPayload = {
     incidentDate: '21/10/2024',
     '_incidentTime-hours': '16',
     '_incidentTime-minutes': '32',
-    description: 'Disorder took place on A wing',
   }
 
   let agent: Agent
@@ -49,7 +49,7 @@ describe('Updating report details', () => {
   })
 
   function expectOnDetailsPage(res: Response): void {
-    expect(res.request.url.endsWith(updateDetailsUrl)).toBe(true)
+    expect(res.request.url.endsWith(updateIncidentDateAndTimeUrl)).toBe(true)
     expect(res.text).toContain('app-details')
     expect(res.text).toContain('Incident summary')
   }
@@ -65,16 +65,16 @@ describe('Updating report details', () => {
     incidentReportingApi.getReportById.mockRejectedValueOnce(error)
 
     return agent
-      .get(updateDetailsUrl)
+      .get(updateIncidentDateAndTimeUrl)
       .expect(404)
       .expect(res => {
         expect(res.text).toContain('Page not found')
       })
   })
 
-  it('should display form prefilled with existing report details', () => {
+  it('should display form prefilled with existing incident date and time', () => {
     return agent
-      .get(updateDetailsUrl)
+      .get(updateIncidentDateAndTimeUrl)
       .expect(200)
       .expect(res => {
         expectOnDetailsPage(res)
@@ -82,13 +82,12 @@ describe('Updating report details', () => {
         expect(res.text).toContain('value="21/10/2024"')
         expect(res.text).toContain('value="15"')
         expect(res.text).toContain('value="32"')
-        expect(res.text).toContain('A new incident created in the new service of type DISORDER')
       })
   })
 
   it('should not include date-checking component', () => {
     return agent
-      .get(updateDetailsUrl)
+      .get(updateIncidentDateAndTimeUrl)
       .expect(200)
       .expect(res => {
         expect(res.text).not.toContain('<dialog')
@@ -100,14 +99,13 @@ describe('Updating report details', () => {
     { missingField: 'incidentDate', expectedError: 'Enter the date of the incident' },
     { missingField: '_incidentTime-hours', expectedError: 'Enter the time of the incident using the 24 hour clock' },
     { missingField: '_incidentTime-minutes', expectedError: 'Enter the time of the incident using the 24 hour clock' },
-    { missingField: 'description', expectedError: 'Enter a description of the incident' },
   ])('should show an error if $missingField is left empty', ({ missingField, expectedError }) => {
     const invalidPayload = {
       ...validPayload,
       [missingField]: '',
     }
     return agent
-      .post(updateDetailsUrl)
+      .post(updateIncidentDateAndTimeUrl)
       .send(invalidPayload)
       .redirects(1)
       .expect(200)
@@ -136,7 +134,7 @@ describe('Updating report details', () => {
     },
   ])('should show an error if $scenario', ({ invalidPayload, errorMessage }) => {
     return agent
-      .post(updateDetailsUrl)
+      .post(updateIncidentDateAndTimeUrl)
       .send(invalidPayload)
       .redirects(1)
       .expect(200)
@@ -178,7 +176,7 @@ describe('Updating report details', () => {
       '_incidentTime-minutes': minutes,
     }
     return agent
-      .post(updateDetailsUrl)
+      .post(updateIncidentDateAndTimeUrl)
       .send(invalidPayload)
       .redirects(1)
       .expect(200)
@@ -195,7 +193,7 @@ describe('Updating report details', () => {
       '_incidentTime-hours': '24',
     }
     return agent
-      .post(updateDetailsUrl)
+      .post(updateIncidentDateAndTimeUrl)
       .send(invalidPayload)
       .redirects(1)
       .expect(200)
@@ -205,7 +203,6 @@ describe('Updating report details', () => {
         expect(res.text).toContain('value="21/10/2024"')
         expect(res.text).toContain('value="24"')
         expect(res.text).toContain('value="32"')
-        expect(res.text).toContain('Disorder took place on A wing')
       })
   })
 
@@ -213,35 +210,16 @@ describe('Updating report details', () => {
     incidentReportingApi.updateReport.mockResolvedValueOnce(reportBasic)
 
     return agent
-      .post(updateDetailsUrl)
+      .post(updateIncidentDateAndTimeUrl)
       .send(validPayload)
       .redirects(0)
       .expect(302)
       .expect(res => {
         expectRedirectToReportPage(res)
         expect(incidentReportingApi.updateReport).toHaveBeenCalledWith(reportBasic.id, {
-          description: 'Disorder took place on A wing',
           incidentDateAndTime,
           updateEvent: true,
         })
-      })
-  })
-
-  it('should show an error if API rejects request', () => {
-    const error = mockThrownError(mockErrorResponse({ message: 'Description is too short' }))
-    incidentReportingApi.updateReport.mockRejectedValueOnce(error)
-
-    return agent
-      .post(updateDetailsUrl)
-      .send(validPayload)
-      .redirects(1)
-      .expect(200)
-      .expect(res => {
-        expectOnDetailsPage(res)
-        expect(res.text).toContain('There is a problem')
-        expect(res.text).toContain('Sorry, there was a problem with your request')
-        expect(res.text).not.toContain('Bad Request')
-        expect(res.text).not.toContain('Description is too short')
       })
   })
 
@@ -258,7 +236,7 @@ describe('Updating report details', () => {
     ])('should be $action to $userType', ({ user, action }) => {
       const testRequest = request
         .agent(appWithAllRoutes({ userSupplier: () => user }))
-        .get(updateDetailsUrl)
+        .get(updateIncidentDateAndTimeUrl)
         .redirects(1)
       if (action === 'granted') {
         return testRequest.expect(200)
@@ -270,7 +248,7 @@ describe('Updating report details', () => {
   })
 })
 
-describe('redirect if status after DW has seen report', () => {
+describe('redirect if status before DW has seen report', () => {
   const incidentDateAndTime = new Date('2024-10-21T16:32:00+01:00')
   const reportBasic = convertBasicReportDates(
     mockReport({
@@ -291,23 +269,24 @@ describe('redirect if status after DW has seen report', () => {
   })
 
   it.each([
-    { status: 'DRAFT', redirect: false },
-    { status: 'AWAITING_REVIEW', redirect: false },
-    { status: 'ON_HOLD', redirect: true },
-    { status: 'NEEDS_UPDATING', redirect: true },
-    { status: 'UPDATED', redirect: true },
-    { status: 'CLOSED', redirect: true },
-    { status: 'DUPLICATE', redirect: true },
-    { status: 'REOPENED', redirect: true },
-    { status: 'WAS_CLOSED', redirect: true },
+    { status: 'DRAFT', redirect: true },
+    { status: 'AWAITING_REVIEW', redirect: true },
+    { status: 'ON_HOLD', redirect: false },
+    { status: 'NEEDS_UPDATING', redirect: false },
+    { status: 'UPDATED', redirect: false },
+    { status: 'CLOSED', redirect: false },
+    { status: 'DUPLICATE', redirect: false },
+    { status: 'NOT_REPORTABLE', redirect: false },
+    { status: 'REOPENED', redirect: false },
+    { status: 'WAS_CLOSED', redirect: false },
   ])('report status of $status redirects page: $redirect', ({ status, redirect }) => {
     reportBasic.status = status as Status
-    const testAgent = agent.get(updateDetailsUrl).redirects(1)
+    const testAgent = agent.get(updateIncidentDateAndTimeUrl).redirects(1)
     if (!redirect) {
       return testAgent.expect(200)
     }
     return testAgent.expect(res => {
-      expect(res.redirects[0]).toContain(updateIncidentDateAndTimeUrl)
+      expect(res.redirects[0]).toContain(updateDetailsUrl)
     })
   })
 })

@@ -7,13 +7,17 @@ import type { ReportBasic } from '../../../data/incidentReportingApi'
 import { logoutIf } from '../../../middleware/permissions'
 import { populateReport } from '../../../middleware/populateReport'
 import { cannotEditReport } from '../permissions'
-import { BaseDetailsController } from './detailsController'
-import { type DetailsValues, type DetailsFieldNames, detailsFields, detailsFieldNames } from './detailsFields'
+import {
+  IncidentDateAndTimeFieldNames,
+  incidentDateAndTimeFieldNames,
+  incidentDateAndTimeFields,
+  IncidentDateAndTimeValues,
+} from './incidentDateAndTimeFields'
+import { BaseIncidentDateAndTimeController } from './incidentDateAndTimeController'
 import { dwNotReviewed } from '../../../reportConfiguration/constants'
 
-class DetailsController extends BaseDetailsController<DetailsValues> {
-  // TODO: wizard namespace identifier is shared. consider generating it per request somehow?
-  //       otherwise cannot edit 2 pages at once in different windows
+class IncidentDateAndTimeController extends BaseIncidentDateAndTimeController<IncidentDateAndTimeValues> {
+  // TODO: merge controllers with details controllers to reduce code duplication
 
   middlewareLocals(): void {
     this.use(this.checkReportStatus)
@@ -22,21 +26,21 @@ class DetailsController extends BaseDetailsController<DetailsValues> {
   }
 
   private checkReportStatus(
-    _req: FormWizard.Request<DetailsValues, DetailsFieldNames>,
+    _req: FormWizard.Request<IncidentDateAndTimeValues, IncidentDateAndTimeFieldNames>,
     res: express.Response,
     next: express.NextFunction,
   ): void {
-    /** Check status of report. If DW has seen report, redirect to update incident date and time page * */
+    /** Check status of report. If DW has not seen report yet, redirect to update details page * */
     const report = res.locals.report as ReportBasic
-    if (!dwNotReviewed.includes(report.status)) {
-      res.redirect(`/reports/${report.id}/update-date-and-time`)
+    if (dwNotReviewed.includes(report.status)) {
+      res.redirect(`/reports/${report.id}/update-details`)
     } else {
       next()
     }
   }
 
   private loadReportIntoSession(
-    req: FormWizard.Request<DetailsValues, DetailsFieldNames>,
+    req: FormWizard.Request<IncidentDateAndTimeValues, IncidentDateAndTimeFieldNames>,
     res: express.Response,
     next: express.NextFunction,
   ): void {
@@ -47,30 +51,31 @@ class DetailsController extends BaseDetailsController<DetailsValues> {
     const [hours, minutes] = format.time(report.incidentDateAndTime).split(':')
     req.sessionModel.set('_incidentTime-hours', hours)
     req.sessionModel.set('_incidentTime-minutes', minutes)
-    req.sessionModel.set('description', report.description)
 
     next()
   }
 
-  getBackLink(_req: FormWizard.Request<DetailsValues, DetailsFieldNames>, res: express.Response): string {
+  getBackLink(
+    _req: FormWizard.Request<IncidentDateAndTimeValues, IncidentDateAndTimeFieldNames>,
+    res: express.Response,
+  ): string {
     return res.locals.reportUrl
   }
 
   async successHandler(
-    req: FormWizard.Request<DetailsValues, DetailsFieldNames>,
+    req: FormWizard.Request<IncidentDateAndTimeValues, IncidentDateAndTimeFieldNames>,
     res: express.Response,
     next: express.NextFunction,
   ): Promise<void> {
     const report = res.locals.report as ReportBasic
     const allValues = this.getAllValues(req)
 
-    const { description, incidentDate, incidentTime } = allValues
+    const { incidentDate, incidentTime } = allValues
     const incidentDateAndTime = this.buildIncidentDateAndTime(incidentDate, incidentTime)
 
     try {
       await res.locals.apis.incidentReportingApi.updateReport(report.id, {
         // TODO: maybe title needs to change, depending on how it's generated
-        description,
         incidentDateAndTime,
         updateEvent: true,
       })
@@ -88,35 +93,46 @@ class DetailsController extends BaseDetailsController<DetailsValues> {
     }
   }
 
-  getNextStep(_req: FormWizard.Request<DetailsValues, DetailsFieldNames>, res: express.Response): string {
+  getNextStep(
+    _req: FormWizard.Request<IncidentDateAndTimeValues, IncidentDateAndTimeFieldNames>,
+    res: express.Response,
+  ): string {
     // TODO: does this page have 2 save buttons? where do they both lead?
     return res.locals.reportUrl
   }
 }
 
-const updateDetailsSteps: FormWizard.Steps<DetailsValues> = {
+const updateIncidentDateAndTimeSteps: FormWizard.Steps<IncidentDateAndTimeValues> = {
   '/': {
-    fields: detailsFieldNames,
-    controller: DetailsController,
+    fields: incidentDateAndTimeFieldNames,
+    controller: IncidentDateAndTimeController,
     entryPoint: true,
     template: 'details',
   },
 }
 
-const updateDetailsFields: FormWizard.Fields<DetailsValues> = { ...detailsFields }
+const updateIncidentDateAndTimeFields: FormWizard.Fields<IncidentDateAndTimeValues> = { ...incidentDateAndTimeFields }
 
-const updateDetailsConfig: FormWizard.Config<DetailsValues> = {
-  name: 'updateDetails',
-  journeyName: 'updateDetails',
+const updateIncidentDateAndTimeConfig: FormWizard.Config<IncidentDateAndTimeValues> = {
+  name: 'updateIncidentDateAndTime',
+  journeyName: 'updateIncidentDateAndTime',
   checkSession: false,
   csrf: false,
   templatePath: 'pages/reports',
 }
 
-const updateDetailsWizardRouter = FormWizard(updateDetailsSteps, updateDetailsFields, updateDetailsConfig)
+const updateIncidentDateAndTimeWizardRouter = FormWizard(
+  updateIncidentDateAndTimeSteps,
+  updateIncidentDateAndTimeFields,
+  updateIncidentDateAndTimeConfig,
+)
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore because express types do not mention this property and form wizard does not allow you to pass in config for it's root router
-updateDetailsWizardRouter.mergeParams = true
+updateIncidentDateAndTimeWizardRouter.mergeParams = true
 // eslint-disable-next-line import/prefer-default-export
-export const updateDetailsRouter = express.Router({ mergeParams: true })
-updateDetailsRouter.use(populateReport(false), logoutIf(cannotEditReport), updateDetailsWizardRouter)
+export const updateIncidentDateAndTimeRouter = express.Router({ mergeParams: true })
+updateIncidentDateAndTimeRouter.use(
+  populateReport(false),
+  logoutIf(cannotEditReport),
+  updateIncidentDateAndTimeWizardRouter,
+)

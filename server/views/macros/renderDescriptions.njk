@@ -1,0 +1,18 @@
+{% macro descriptionChunk(name, date, text) %}
+  <strong>{{ name }}</strong>
+  <br />
+  <small class="govuk-!-font-size-16">{{ date | longDateAndTime }}</small>
+  <br />
+  {{ text | escape | nl2br }}
+{% endmacro %}
+
+{% macro renderDescriptions(report, usersLookup) %}
+  {{ descriptionChunk(usersLookup[report.reportedBy].name or report.reportedBy, report.reportedAt, report.description) }}
+  {% if report.descriptionAddendums.length != 0 %}
+    {% for addendum in report.descriptionAddendums %}
+      <br />
+      <br />
+      {{ descriptionChunk(addendum | nameOfPerson, addendum.createdAt, addendum.text) }}
+    {% endfor %}
+  {% endif %}
+{% endmacro %}

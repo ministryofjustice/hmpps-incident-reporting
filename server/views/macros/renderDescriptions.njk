@@ -1,0 +1,20 @@
+{% macro renderDescriptions(report, usersLookup) %}
+
+  <strong>{{ usersLookup[report.reportedBy].name or report.reportedBy }}</strong>
+  <br />
+  <small class="govuk-!-font-size-16">{{ report.reportedAt | longDateAndTime }}</small>
+  <br />
+  {{ report.description | escape | nl2br }}
+  {% if report.descriptionAddendums.length != 0 %}
+    {% for addendum in report.descriptionAddendums %}
+      <br />
+      <br />
+      <strong>{{ addendum | nameOfPerson }}</strong>
+      <br />
+      <small class="govuk-!-font-size-16">{{ addendum.createdAt | longDateAndTime }}</small>
+      <br />
+      {{ addendum.text | escape | nl2br }}
+    {% endfor %}
+  {% endif %}
+
+{% endmacro %}

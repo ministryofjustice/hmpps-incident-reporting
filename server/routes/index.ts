@@ -10,13 +10,13 @@ import makeDownloadConfigRouter from './downloadReportConfig'
 import { createReportRouter } from './reports/createReportRouter'
 import { changeTypeRouter } from './reports/details/changeType'
 import { updateDetailsRouter } from './reports/details/updateReportDetails'
+import { updateIncidentDateAndTimeRouter } from './reports/details/updateIncidentDateAndTime'
+import { addDescriptionRouter } from './reports/details/addDescription'
 import { historyRouter } from './reports/history'
 import { viewReportRouter } from './reports/viewReport'
 import { editReportRouter } from './reports/editReportRouter'
 import dashboard from './dashboard'
 import { dprRouter } from './dpr'
-import { addDescriptionRouter } from './reports/descriptionAddendum'
-import { updateIncidentDateAndTimeRouter } from './reports/details/updateIncidentDateAndTime'
 
 export default function routes(services: Services): Router {
   const get = (path: string | string[], handler: RequestHandler) => router.get(path, asyncMiddleware(handler))

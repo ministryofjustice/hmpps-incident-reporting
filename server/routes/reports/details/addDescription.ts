@@ -8,17 +8,21 @@ import { logoutIf } from '../../../middleware/permissions'
 import { populateReport } from '../../../middleware/populateReport'
 import { cannotEditReport } from '../permissions'
 import { dwNotReviewed } from '../../../reportConfiguration/constants'
-import { descriptionFields, type Values } from './fields'
+import { type AddDescriptionValues, addDescriptionFields } from './addDescriptionFields'
 
-class AddDescriptionAddendumController extends BaseController<Values> {
+class AddDescriptionAddendumController extends BaseController<AddDescriptionValues> {
   middlewareLocals(): void {
     super.middlewareLocals()
     this.use(this.checkReportStatus)
     this.use(this.lookupUsers)
   }
 
-  private checkReportStatus(_req: FormWizard.Request<Values>, res: express.Response, next: express.NextFunction): void {
-    /** Check status of report. If DW has not seen report yet, redirect to update details page * */
+  private checkReportStatus(
+    _req: FormWizard.Request<AddDescriptionValues>,
+    res: express.Response,
+    next: express.NextFunction,
+  ): void {
+    /** Check status of report. If DW has not seen report yet, redirect to update details page */
     const report = res.locals.report as ReportWithDetails
     if (dwNotReviewed.includes(report.status)) {
       res.redirect(`/reports/${report.id}/update-details`)
@@ -28,7 +32,7 @@ class AddDescriptionAddendumController extends BaseController<Values> {
   }
 
   private async lookupUsers(
-    _req: FormWizard.Request<Values>,
+    _req: FormWizard.Request<AddDescriptionValues>,
     res: express.Response,
     next: express.NextFunction,
   ): Promise<void> {
@@ -37,19 +41,22 @@ class AddDescriptionAddendumController extends BaseController<Values> {
     next()
   }
 
-  getBackLink(_req: FormWizard.Request<Values>, res: express.Response): string {
-    res.locals.cancelUrl = res.locals.reportUrl
-    return res.locals.reportUrl
-  }
-
-  protected errorMessage(error: FormWizard.Error, req: FormWizard.Request<Values>, res: express.Response): string {
+  protected errorMessage(
+    error: FormWizard.Error,
+    req: FormWizard.Request<AddDescriptionValues>,
+    res: express.Response,
+  ): string {
     if (error.key === 'descriptionAddendum') {
       return 'Enter some additional information'
     }
     return super.errorMessage(error, req, res)
   }
 
-  async saveValues(req: FormWizard.Request<Values>, res: express.Response, next: express.NextFunction): Promise<void> {
+  async successHandler(
+    req: FormWizard.Request<AddDescriptionValues>,
+    res: express.Response,
+    next: express.NextFunction,
+  ): Promise<void> {
     const report = res.locals.report as ReportWithDetails
     const allValues = this.getAllValues(req, false)
     const [firstName, ...lastNames] = res.locals.user.name.split(/\s+/)
@@ -77,12 +84,17 @@ class AddDescriptionAddendumController extends BaseController<Values> {
     }
   }
 
-  getNextStep(_req: FormWizard.Request<Values>, res: express.Response): string {
+  getBackLink(_req: FormWizard.Request<AddDescriptionValues>, res: express.Response): string {
+    res.locals.cancelUrl = res.locals.reportUrl
+    return res.locals.reportUrl
+  }
+
+  getNextStep(_req: FormWizard.Request<AddDescriptionValues>, res: express.Response): string {
     return res.locals.reportUrl
   }
 }
 
-const addDescriptionSteps: FormWizard.Steps<Values> = {
+const addDescriptionSteps: FormWizard.Steps<AddDescriptionValues> = {
   '/': {
     fields: ['descriptionAddendum'],
     controller: AddDescriptionAddendumController,
@@ -90,8 +102,6 @@ const addDescriptionSteps: FormWizard.Steps<Values> = {
     template: 'descriptionAddendum',
   },
 }
-
-const addDescriptionFields: FormWizard.Fields<Values> = { ...descriptionFields }
 
 const addDescriptionWizardRouter = FormWizard(addDescriptionSteps, addDescriptionFields, {
   name: 'descriptionAddendum',

@@ -29,7 +29,7 @@ class UpdateIncidentDateAndTimeController extends BaseIncidentDateAndTimeControl
     res: express.Response,
     next: express.NextFunction,
   ): void {
-    /** Check status of report. If DW has not seen report yet, redirect to update details page * */
+    /** Check status of report. If DW has not seen report yet, redirect to update details page */
     const report = res.locals.report as ReportBasic
     if (dwNotReviewed.includes(report.status)) {
       res.redirect(`/reports/${report.id}/update-details`)
@@ -52,10 +52,6 @@ class UpdateIncidentDateAndTimeController extends BaseIncidentDateAndTimeControl
     req.sessionModel.set(minutesFieldName, minutes)
 
     next()
-  }
-
-  getBackLink(_req: FormWizard.Request<IncidentDateAndTimeValues>, res: express.Response): string {
-    return res.locals.reportUrl
   }
 
   async successHandler(
@@ -87,6 +83,10 @@ class UpdateIncidentDateAndTimeController extends BaseIncidentDateAndTimeControl
       // TODO: find a different way to report whole-form errors rather than attaching to specific field
       this.errorHandler({ incidentDate: err }, req, res, next)
     }
+  }
+
+  getBackLink(_req: FormWizard.Request<IncidentDateAndTimeValues>, res: express.Response): string {
+    return res.locals.reportUrl
   }
 
   getNextStep(_req: FormWizard.Request<IncidentDateAndTimeValues>, res: express.Response): string {

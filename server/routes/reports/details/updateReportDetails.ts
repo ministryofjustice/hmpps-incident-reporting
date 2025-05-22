@@ -27,7 +27,7 @@ class DetailsController extends BaseDetailsController<DetailsValues> {
     res: express.Response,
     next: express.NextFunction,
   ): void {
-    /** Check status of report. If DW has seen report, redirect to update incident date and time page * */
+    /** Check status of report. If DW has seen report, redirect to update incident date and time page */
     const report = res.locals.report as ReportBasic
     if (!dwNotReviewed.includes(report.status)) {
       res.redirect(`/reports/${report.id}/update-date-and-time`)
@@ -51,10 +51,6 @@ class DetailsController extends BaseDetailsController<DetailsValues> {
     req.sessionModel.set('description', report.description)
 
     next()
-  }
-
-  getBackLink(_req: FormWizard.Request<DetailsValues>, res: express.Response): string {
-    return res.locals.reportUrl
   }
 
   async successHandler(
@@ -87,6 +83,10 @@ class DetailsController extends BaseDetailsController<DetailsValues> {
       // TODO: find a different way to report whole-form errors rather than attaching to specific field
       this.errorHandler({ incidentDate: err }, req, res, next)
     }
+  }
+
+  getBackLink(_req: FormWizard.Request<DetailsValues>, res: express.Response): string {
+    return res.locals.reportUrl
   }
 
   getNextStep(_req: FormWizard.Request<DetailsValues>, res: express.Response): string {

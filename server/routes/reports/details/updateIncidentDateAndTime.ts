@@ -8,10 +8,12 @@ import { logoutIf } from '../../../middleware/permissions'
 import { populateReport } from '../../../middleware/populateReport'
 import { cannotEditReport } from '../permissions'
 import {
-  IncidentDateAndTimeFieldNames,
+  type IncidentDateAndTimeValues,
+  type IncidentDateAndTimeFieldNames,
+  hoursFieldName,
+  minutesFieldName,
   incidentDateAndTimeFieldNames,
   incidentDateAndTimeFields,
-  IncidentDateAndTimeValues,
 } from './incidentDateAndTimeFields'
 import { BaseIncidentDateAndTimeController } from './incidentDateAndTimeController'
 import { dwNotReviewed } from '../../../reportConfiguration/constants'
@@ -49,8 +51,8 @@ class IncidentDateAndTimeController extends BaseIncidentDateAndTimeController<In
     // load existing report details into session model to prefill inputs
     req.sessionModel.set('incidentDate', format.shortDate(report.incidentDateAndTime))
     const [hours, minutes] = format.time(report.incidentDateAndTime).split(':')
-    req.sessionModel.set('_incidentTime-hours', hours)
-    req.sessionModel.set('_incidentTime-minutes', minutes)
+    req.sessionModel.set(hoursFieldName, hours)
+    req.sessionModel.set(minutesFieldName, minutes)
 
     next()
   }

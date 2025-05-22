@@ -32,7 +32,7 @@ export default function routes(services: Services): Router {
 
   // view-only debug pages
   // TODO: remove once not needed
-  const debugRoutes = makeDebugRoutes(services)
+  const debugRoutes = makeDebugRoutes()
   get('/incidents/:eventId', debugRoutes.eventDetails)
   if (config.environment !== 'prod') {
     router.get('/inspect-session', (req, res) => {
@@ -44,10 +44,10 @@ export default function routes(services: Services): Router {
   }
 
   // creating and editing a report
-  router.use('/reports', dashboard(services))
+  router.use('/reports', dashboard())
   router.use('/create-report', createReportRouter)
-  router.use('/reports/:reportId', viewReportRouter(services))
-  router.use('/reports/:reportId/history', historyRouter(services))
+  router.use('/reports/:reportId', viewReportRouter())
+  router.use('/reports/:reportId/history', historyRouter())
   router.use('/reports/:reportId/change-type', changeTypeRouter)
   router.use('/reports/:reportId/update-details', updateDetailsRouter)
   router.use('/reports/:reportId/update-date-and-time', updateIncidentDateAndTimeRouter)

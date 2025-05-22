@@ -73,7 +73,7 @@ describe('Adding a description addendum to report', () => {
     incidentReportingApi.getReportWithDetailsById.mockResolvedValue(mockedReport)
   })
 
-  function expectOnDetailsPage(res: Response): void {
+  function expectOnDescriptionAddendumPage(res: Response): void {
     expect(res.request.url.endsWith(addDescriptionAddendumUrl)).toBe(true)
     expect(res.text).toContain('app-description-addendum')
     expect(res.text).toContain('Incident description')
@@ -102,7 +102,7 @@ describe('Adding a description addendum to report', () => {
       .get(addDescriptionAddendumUrl)
       .expect(200)
       .expect(res => {
-        expectOnDetailsPage(res)
+        expectOnDescriptionAddendumPage(res)
         expect(res.text).not.toContain('There is a problem')
         expect(res.text).toContain('Incident description')
         expect(res.text).toContain('21 October 2024 at 16:32')
@@ -129,13 +129,13 @@ describe('Adding a description addendum to report', () => {
       .redirects(1)
       .expect(200)
       .expect(res => {
-        expectOnDetailsPage(res)
+        expectOnDescriptionAddendumPage(res)
         expect(res.text).toContain('There is a problem')
         expect(res.text).toContain('Enter some additional information')
       })
   })
 
-  it('should send request to API if form is valid and proceed to next step', () => {
+  it('should send request to API if form is valid and return to report page', () => {
     incidentReportingApi.getReportWithDetailsById.mockResolvedValueOnce(mockedReport)
     incidentReportingRelatedObjects.addToReport.mockResolvedValueOnce([]) // NB: response is ignored
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment

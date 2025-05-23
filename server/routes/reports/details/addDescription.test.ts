@@ -49,21 +49,16 @@ describe('Adding a description addendum to report', () => {
   const mockedReport = convertReportWithDetailsDates(
     mockReport({
       type: 'DISORDER_2',
+      status: 'ON_HOLD',
       reportReference: '6544',
       reportDateAndTime: incidentDateAndTime,
       withDetails: true,
       withAddendums: true,
     }),
   )
-  mockedReport.status = 'ON_HOLD'
   const addDescriptionAddendumUrl = `/reports/${mockedReport.id}/add-description`
   const validPayload = {
     descriptionAddendum: 'Additional information',
-  }
-  const expectedCall = {
-    firstName: 'JOHN',
-    lastName: 'SMITH',
-    text: 'Additional information',
   }
 
   let agent: Agent
@@ -149,8 +144,37 @@ describe('Adding a description addendum to report', () => {
       .expect(302)
       .expect(res => {
         expectRedirectToReportPage(res)
-        expect(incidentReportingRelatedObjects.addToReport).toHaveBeenCalledWith(mockedReport.id, expectedCall)
+        expect(incidentReportingRelatedObjects.addToReport).toHaveBeenCalledWith(mockedReport.id, {
+          firstName: 'JOHN',
+          lastName: 'SMITH',
+          text: 'Additional information',
+        })
       })
+  })
+
+  describe('redirect if status before DW has seen report', () => {
+    const scenarios: { status: Status; redirect: boolean }[] = [
+      { status: 'DRAFT', redirect: true },
+      { status: 'AWAITING_REVIEW', redirect: true },
+      { status: 'ON_HOLD', redirect: false },
+      { status: 'NEEDS_UPDATING', redirect: false },
+      { status: 'UPDATED', redirect: false },
+      { status: 'CLOSED', redirect: false },
+      { status: 'DUPLICATE', redirect: false },
+      { status: 'NOT_REPORTABLE', redirect: false },
+      { status: 'REOPENED', redirect: false },
+      { status: 'WAS_CLOSED', redirect: false },
+    ]
+    it.each(scenarios)('report status of $status redirects page: $redirect', ({ status, redirect }) => {
+      mockedReport.status = status
+      const testAgent = agent.get(addDescriptionAddendumUrl).redirects(1)
+      if (!redirect) {
+        return testAgent.expect(200)
+      }
+      return testAgent.expect(res => {
+        expect(res.redirects[0]).toContain(`/reports/${mockedReport.id}/update-details`)
+      })
+    })
   })
 
   describe('Permissions', () => {
@@ -174,50 +198,6 @@ describe('Adding a description addendum to report', () => {
       return testRequest.expect(res => {
         expect(res.redirects[0]).toContain('/sign-out')
       })
-    })
-  })
-})
-
-describe('redirect if status before DW has seen report', () => {
-  const incidentDateAndTime = new Date('2024-10-21T16:32:00+01:00')
-  const mockedReport = convertReportWithDetailsDates(
-    mockReport({
-      type: 'DISORDER_2',
-      reportReference: '6544',
-      reportDateAndTime: incidentDateAndTime,
-      withDetails: true,
-    }),
-  )
-
-  const addDescriptionUrl = `/reports/${mockedReport.id}/add-description`
-  const updateDetailsUrl = `/reports/${mockedReport.id}/update-details`
-
-  let agent: Agent
-
-  beforeEach(() => {
-    agent = request.agent(app)
-    incidentReportingApi.getReportWithDetailsById.mockResolvedValue(mockedReport)
-  })
-
-  it.each([
-    { status: 'DRAFT', redirect: true },
-    { status: 'AWAITING_REVIEW', redirect: true },
-    { status: 'ON_HOLD', redirect: false },
-    { status: 'NEEDS_UPDATING', redirect: false },
-    { status: 'UPDATED', redirect: false },
-    { status: 'CLOSED', redirect: false },
-    { status: 'DUPLICATE', redirect: false },
-    { status: 'NOT_REPORTABLE', redirect: false },
-    { status: 'REOPENED', redirect: false },
-    { status: 'WAS_CLOSED', redirect: false },
-  ])('report status of $status redirects page: $redirect', ({ status, redirect }) => {
-    mockedReport.status = status as Status
-    const testAgent = agent.get(addDescriptionUrl).redirects(1)
-    if (!redirect) {
-      return testAgent.expect(200)
-    }
-    return testAgent.expect(res => {
-      expect(res.redirects[0]).toContain(updateDetailsUrl)
     })
   })
 })

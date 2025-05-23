@@ -38,6 +38,9 @@ beforeEach(() => {
   incidentReportingRelatedObjects = RelatedObjects.prototype as jest.Mocked<
     RelatedObjects<DescriptionAddendum, AddDescriptionAddendumRequest, UpdateDescriptionAddendumRequest>
   >
+  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+  // @ts-ignore need to mock a getter method
+  incidentReportingApi.descriptionAddendums = incidentReportingRelatedObjects
 })
 
 afterEach(() => {
@@ -131,11 +134,7 @@ describe('Adding a description addendum to report', () => {
   })
 
   it('should send request to API if form is valid and return to report page', () => {
-    incidentReportingApi.getReportWithDetailsById.mockResolvedValueOnce(mockedReport)
     incidentReportingRelatedObjects.addToReport.mockResolvedValueOnce([]) // NB: response is ignored
-    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-    // @ts-ignore need to mock a getter method
-    incidentReportingApi.descriptionAddendums = incidentReportingRelatedObjects
 
     return agent
       .post(addDescriptionAddendumUrl)
@@ -149,6 +148,24 @@ describe('Adding a description addendum to report', () => {
           lastName: 'SMITH',
           text: 'Additional information',
         })
+      })
+  })
+
+  it('should show an error if API rejects request', () => {
+    const error = mockThrownError(mockErrorResponse({ message: 'Description is too short' }))
+    incidentReportingRelatedObjects.addToReport.mockRejectedValueOnce(error)
+
+    return agent
+      .post(addDescriptionAddendumUrl)
+      .send(validPayload)
+      .redirects(1)
+      .expect(200)
+      .expect(res => {
+        expectOnDescriptionAddendumPage(res)
+        expect(res.text).toContain('There is a problem')
+        expect(res.text).toContain('Sorry, there was a problem with your request')
+        expect(res.text).not.toContain('Bad Request')
+        expect(res.text).not.toContain('Description is too short')
       })
   })
 

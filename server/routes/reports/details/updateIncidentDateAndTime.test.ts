@@ -8,7 +8,7 @@ import { convertBasicReportDates } from '../../../data/incidentReportingApiUtils
 import { mockErrorResponse, mockReport } from '../../../data/testData/incidentReporting'
 import { mockThrownError } from '../../../data/testData/thrownErrors'
 import { approverUser, hqUser, reportingUser, unauthorisedUser } from '../../../data/testData/users'
-import { type Status } from '../../../reportConfiguration/constants'
+import type { Status } from '../../../reportConfiguration/constants'
 
 jest.mock('../../../data/incidentReportingApi')
 
@@ -220,6 +220,24 @@ describe('Updating report incident date and time', () => {
           incidentDateAndTime,
           updateEvent: true,
         })
+      })
+  })
+
+  it('should show an error if API rejects request', () => {
+    const error = mockThrownError(mockErrorResponse({ message: 'Date format is invalid' }))
+    incidentReportingApi.updateReport.mockRejectedValueOnce(error)
+
+    return agent
+      .post(updateIncidentDateAndTimeUrl)
+      .send(validPayload)
+      .redirects(1)
+      .expect(200)
+      .expect(res => {
+        expectOnDetailsPage(res)
+        expect(res.text).toContain('There is a problem')
+        expect(res.text).toContain('Sorry, there was a problem with your request')
+        expect(res.text).not.toContain('Bad Request')
+        expect(res.text).not.toContain('Date format is invalid')
       })
   })
 

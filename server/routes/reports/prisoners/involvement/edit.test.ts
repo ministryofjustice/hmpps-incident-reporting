@@ -33,6 +33,9 @@ beforeEach(() => {
   incidentReportingRelatedObjects = RelatedObjects.prototype as jest.Mocked<
     RelatedObjects<PrisonerInvolvement, AddPrisonerInvolvementRequest, UpdatePrisonerInvolvementRequest>
   >
+  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+  // @ts-ignore need to mock a getter method
+  incidentReportingApi.prisonersInvolved = incidentReportingRelatedObjects
 })
 
 afterEach(() => {
@@ -296,9 +299,6 @@ describe('Editing an existing prisoner in a report', () => {
       ({ validPayload, expectedCall }) => {
         incidentReportingApi.getReportWithDetailsById.mockResolvedValueOnce(report)
         incidentReportingRelatedObjects.updateForReport.mockResolvedValueOnce([]) // NB: response is ignored
-        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-        // @ts-ignore need to mock a getter method
-        incidentReportingApi.prisonersInvolved = incidentReportingRelatedObjects
 
         return request(app)
           .post(editPageUrl(1))
@@ -317,9 +317,6 @@ describe('Editing an existing prisoner in a report', () => {
     it('should allow exiting to report view when saving', () => {
       incidentReportingApi.getReportWithDetailsById.mockResolvedValueOnce(report)
       incidentReportingRelatedObjects.updateForReport.mockResolvedValueOnce([]) // NB: response is ignored
-      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-      // @ts-ignore need to mock a getter method
-      incidentReportingApi.prisonersInvolved = incidentReportingRelatedObjects
 
       return request(app)
         .post(editPageUrl(1))
@@ -412,9 +409,6 @@ describe('Editing an existing prisoner in a report', () => {
       incidentReportingApi.getReportWithDetailsById.mockResolvedValueOnce(report)
       const error = mockThrownError(mockErrorResponse({ message: 'Comment is too short' }))
       incidentReportingRelatedObjects.updateForReport.mockRejectedValueOnce(error)
-      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-      // @ts-ignore need to mock a getter method
-      incidentReportingApi.prisonersInvolved = incidentReportingRelatedObjects
 
       return request
         .agent(app)

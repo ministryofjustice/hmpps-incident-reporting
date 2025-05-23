@@ -100,7 +100,7 @@ const updateIncidentDateAndTimeSteps: FormWizard.Steps<IncidentDateAndTimeValues
     fields: incidentDateAndTimeFieldNames,
     controller: UpdateIncidentDateAndTimeController,
     entryPoint: true,
-    template: 'details',
+    template: 'update-incident-date-time',
   },
 }
 

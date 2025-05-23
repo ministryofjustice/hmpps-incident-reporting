@@ -48,10 +48,10 @@ describe('Updating report incident date and time', () => {
     incidentReportingApi.getReportById.mockResolvedValue(reportBasic)
   })
 
-  function expectOnDetailsPage(res: Response): void {
+  function expectOnUpdateDatePage(res: Response): void {
     expect(res.request.url.endsWith(updateIncidentDateAndTimeUrl)).toBe(true)
-    expect(res.text).toContain('app-details')
-    expect(res.text).toContain('Incident summary')
+    expect(res.text).toContain('app-update-incident-date-time')
+    expect(res.text).toContain('Incident date and time')
   }
 
   function expectRedirectToReportPage(res: Response): void {
@@ -77,7 +77,7 @@ describe('Updating report incident date and time', () => {
       .get(updateIncidentDateAndTimeUrl)
       .expect(200)
       .expect(res => {
-        expectOnDetailsPage(res)
+        expectOnUpdateDatePage(res)
         expect(res.text).not.toContain('There is a problem')
         expect(res.text).toContain('value="21/10/2024"')
         expect(res.text).toContain('value="15"')
@@ -110,7 +110,7 @@ describe('Updating report incident date and time', () => {
       .redirects(1)
       .expect(200)
       .expect(res => {
-        expectOnDetailsPage(res)
+        expectOnUpdateDatePage(res)
         expect(res.text).toContain('There is a problem')
         expect(res.text).toContain(expectedError)
       })
@@ -139,7 +139,7 @@ describe('Updating report incident date and time', () => {
       .redirects(1)
       .expect(200)
       .expect(res => {
-        expectOnDetailsPage(res)
+        expectOnUpdateDatePage(res)
         expect(res.text).toContain('There is a problem')
         expect(res.text).toContain(errorMessage)
       })
@@ -181,7 +181,7 @@ describe('Updating report incident date and time', () => {
       .redirects(1)
       .expect(200)
       .expect(res => {
-        expectOnDetailsPage(res)
+        expectOnUpdateDatePage(res)
         expect(res.text).toContain('There is a problem')
         expect(res.text).toContain(errorMessage)
       })
@@ -198,7 +198,7 @@ describe('Updating report incident date and time', () => {
       .redirects(1)
       .expect(200)
       .expect(res => {
-        expectOnDetailsPage(res)
+        expectOnUpdateDatePage(res)
         expect(res.text).toContain('There is a problem')
         expect(res.text).toContain('value="21/10/2024"')
         expect(res.text).toContain('value="24"')
@@ -233,7 +233,7 @@ describe('Updating report incident date and time', () => {
       .redirects(1)
       .expect(200)
       .expect(res => {
-        expectOnDetailsPage(res)
+        expectOnUpdateDatePage(res)
         expect(res.text).toContain('There is a problem')
         expect(res.text).toContain('Sorry, there was a problem with your request')
         expect(res.text).not.toContain('Bad Request')

@@ -72,6 +72,13 @@ describe('govukCheckedItems and govukMultipleCheckedItems', () => {
     ])
   })
 
+  it('should throw an error when govukMultipleCheckedItems is not called with an Array nor undefined', () => {
+    expect(() => {
+      // NOTE: Tricking the typecheck so that function can be invoked with a string
+      govukMultipleCheckedItems(items, 'A' as unknown as string[])
+    }).toThrow('govukMultipleCheckedItems: multipleValues argument must be an Array or undefined')
+  })
+
   it('should mark no items as checked when none match multiple values', () => {
     expect(govukMultipleCheckedItems(items, undefined)).toEqual([
       { text: 'A', value: 'a', checked: false },

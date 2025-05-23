@@ -119,6 +119,7 @@ context('View report', () => {
       reportReference: '6543',
       reportDateAndTime: now,
       withDetails: true,
+      withAddendums: true,
     })
     reportWithDetails.questions = [
       {
@@ -185,10 +186,19 @@ context('View report', () => {
         expect(dateRow.actionLinks[0]).to.contain('Change')
         expect(dateRow.actionLinks[0]).attr('href').contains(`/reports/${reportWithDetails.id}/update-details`)
 
-        expect(descriptionRow.value).to.contain('A new incident created in the new service of type DISORDER')
         expect(descriptionRow.actionLinks).to.have.lengthOf(1)
         expect(descriptionRow.actionLinks[0]).to.contain('Change')
         expect(descriptionRow.actionLinks[0]).attr('href').contains(`/reports/${reportWithDetails.id}/update-details`)
+      })
+      reportPage.summary.descriptionChunks.then(chunks => {
+        expect(chunks).to.have.lengthOf(3)
+        const [chunk1, chunk2, chunk3] = chunks
+        expect(chunk1).to.have.property('name', 'John Smith')
+        expect(chunk1).to.have.property('text', 'A new incident created in the new service of type DISORDER_2')
+        expect(chunk2).to.have.property('name', 'John Smith')
+        expect(chunk2).to.have.property('text', 'Addendum #1')
+        expect(chunk3).to.have.property('name', 'Jane Doe')
+        expect(chunk3).to.have.property('text', 'Addendum #2')
       })
     })
 

@@ -30,6 +30,21 @@ context('Add to a report’s description after it’s been reviewed', () => {
     cy.visit(`/reports/${reportWithDetails.id}/add-description`)
   })
 
+  it('should show existing description chunks', () => {
+    const descriptionAddendumPage = Page.verifyOnPage(DescriptionAddendumPage)
+
+    descriptionAddendumPage.descriptionChunks.then(chunks => {
+      expect(chunks).to.have.lengthOf(3)
+      const [chunk1, chunk2, chunk3] = chunks
+      expect(chunk1).to.have.property('name', 'John Smith')
+      expect(chunk1).to.have.property('text', 'A new incident created in the new service of type DISORDER_2')
+      expect(chunk2).to.have.property('name', 'John Smith')
+      expect(chunk2).to.have.property('text', 'Addendum #1')
+      expect(chunk3).to.have.property('name', 'Jane Doe')
+      expect(chunk3).to.have.property('text', 'Addendum #2')
+    })
+  })
+
   it('should allow entering the basic information', () => {
     const descriptionAddendumPage = Page.verifyOnPage(DescriptionAddendumPage)
 

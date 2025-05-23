@@ -189,7 +189,7 @@ describe('GET dashboard', () => {
       page: 0,
       reference: undefined,
       sort: ['incidentDateAndTime,DESC'],
-      status: 'DRAFT',
+      status: ['DRAFT'],
       type: ['ATTEMPTED_ESCAPE_FROM_PRISON_1'],
     }
 
@@ -682,8 +682,8 @@ describe('work list filter validations in DW view', () => {
   })
 
   it.each([
-    { scenario: 'single "Draft" selected', statusQuery: 'DRAFT', expectedArgs: 'DRAFT' },
-    { scenario: 'single "On hold" selected', statusQuery: 'ON_HOLD', expectedArgs: 'ON_HOLD' },
+    { scenario: 'single "Draft" selected', statusQuery: 'DRAFT', expectedArgs: ['DRAFT'] },
+    { scenario: 'single "On hold" selected', statusQuery: 'ON_HOLD', expectedArgs: ['ON_HOLD'] },
     {
       scenario: 'multiple selected - "DRAFT", "ON_HOLD" and "UPDATED"',
       statusQuery: ['DRAFT', 'ON_HOLD', 'UPDATED'],
@@ -698,7 +698,7 @@ describe('work list filter validations in DW view', () => {
       page: 0,
       reference: undefined,
       sort: ['incidentDateAndTime,DESC'],
-      status: expectedArgs as Status,
+      status: expectedArgs as Status[],
       type: undefined,
     }
     return request(appWithAllRoutes({ services: { userService }, userSupplier: () => approverUser }))
@@ -761,8 +761,8 @@ describe('Establishment filter validations', () => {
 
 describe('Type family filter validations', () => {
   it.each([
-    { scenario: 'unknown family code was supplied', query: { typeFamily: 'MISSING' } },
-    { scenario: 'mistakenly filtering by type, not family', query: { typeFamily: 'DAMAGE_1' } },
+    { scenario: 'unknown family code was supplied', query: { typeFamily: ['MISSING'] } },
+    { scenario: 'mistakenly filtering by type, not family', query: { typeFamily: ['DAMAGE_1'] } },
     { scenario: 'more than one family was supplied', query: { typeFamily: ['DAMAGE', 'FIND'] } },
   ])('should show an error when $scenario', ({ query }) => {
     return request(app)

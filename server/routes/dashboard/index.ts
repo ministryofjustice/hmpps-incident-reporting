@@ -63,6 +63,10 @@ export default function dashboard(): Router {
 
     const { location, fromDate: fromDateInput, toDate: toDateInput, page }: ListFormData = req.query
     let { searchID, typeFamily, incidentStatuses, sort, order }: ListFormData = req.query
+    // Ensure incidentStatuses is an array
+    if (incidentStatuses && !Array.isArray(incidentStatuses)) {
+      incidentStatuses = [incidentStatuses]
+    }
 
     if (searchID) {
       searchID = searchID.trim()
@@ -147,7 +151,7 @@ export default function dashboard(): Router {
       !('sort' in req.query || 'page' in req.query) &&
       noFiltersSupplied
     ) {
-      incidentStatuses = 'toDo'
+      incidentStatuses = ['toDo']
       noFiltersSupplied = false
     }
 

@@ -14,9 +14,9 @@ context('Update an existing report’s date after it’s been reviewed', () => {
     withAddendums: true,
   })
   reportWithDetails.prisonersInvolved = []
-  reportWithDetails.prisonerInvolvementDone = false
+  reportWithDetails.prisonerInvolvementDone = true
   reportWithDetails.staffInvolved = []
-  reportWithDetails.staffInvolvementDone = false
+  reportWithDetails.staffInvolvementDone = true
   reportWithDetails.questions = []
   reportWithDetails.correctionRequests = []
 

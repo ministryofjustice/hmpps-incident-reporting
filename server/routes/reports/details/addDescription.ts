@@ -73,7 +73,7 @@ class AddDescriptionAddendumController extends BaseController<AddDescriptionValu
       // clear session since involvement has been saved
       res.locals.clearSessionOnSuccess = true
 
-      req.flash('success', { title: `You have added information to the description` })
+      req.flash('success', { title: 'You have added information to the description' })
 
       super.successHandler(req, res, next)
     } catch (e) {

@@ -10,13 +10,13 @@ import makeDownloadConfigRouter from './downloadReportConfig'
 import { createReportRouter } from './reports/createReportRouter'
 import { changeTypeRouter } from './reports/details/changeType'
 import { updateDetailsRouter } from './reports/details/updateReportDetails'
+import { updateIncidentDateAndTimeRouter } from './reports/details/updateIncidentDateAndTime'
+import { addDescriptionRouter } from './reports/details/addDescription'
 import { historyRouter } from './reports/history'
 import { viewReportRouter } from './reports/viewReport'
 import { editReportRouter } from './reports/editReportRouter'
 import dashboard from './dashboard'
 import { dprRouter } from './dpr'
-import { addDescriptionRouter } from './reports/descriptionAddendum'
-import { updateIncidentDateAndTimeRouter } from './reports/details/updateIncidentDateAndTime'
 
 export default function routes(services: Services): Router {
   const get = (path: string | string[], handler: RequestHandler) => router.get(path, asyncMiddleware(handler))
@@ -32,7 +32,7 @@ export default function routes(services: Services): Router {
 
   // view-only debug pages
   // TODO: remove once not needed
-  const debugRoutes = makeDebugRoutes(services)
+  const debugRoutes = makeDebugRoutes()
   get('/incidents/:eventId', debugRoutes.eventDetails)
   if (config.environment !== 'prod') {
     router.get('/inspect-session', (req, res) => {
@@ -44,10 +44,10 @@ export default function routes(services: Services): Router {
   }
 
   // creating and editing a report
-  router.use('/reports', dashboard(services))
+  router.use('/reports', dashboard())
   router.use('/create-report', createReportRouter)
-  router.use('/reports/:reportId', viewReportRouter(services))
-  router.use('/reports/:reportId/history', historyRouter(services))
+  router.use('/reports/:reportId', viewReportRouter())
+  router.use('/reports/:reportId/history', historyRouter())
   router.use('/reports/:reportId/change-type', changeTypeRouter)
   router.use('/reports/:reportId/update-details', updateDetailsRouter)
   router.use('/reports/:reportId/update-date-and-time', updateIncidentDateAndTimeRouter)

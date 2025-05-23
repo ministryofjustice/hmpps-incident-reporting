@@ -6,7 +6,7 @@ import { PrisonApi } from '../../data/prisonApi'
 import { appWithAllRoutes } from '../testutils/appSetup'
 import { now } from '../../testutils/fakeClock'
 import UserService from '../../services/userService'
-import { statuses } from '../../reportConfiguration/constants'
+import { type Status, statuses } from '../../reportConfiguration/constants'
 import { IncidentReportingApi, type ReportWithDetails } from '../../data/incidentReportingApi'
 import { convertReportWithDetailsDates } from '../../data/incidentReportingApiUtils'
 import { mockErrorResponse, mockReport } from '../../data/testData/incidentReporting'
@@ -54,7 +54,7 @@ describe('View report page', () => {
 
   beforeEach(() => {
     mockedReport = convertReportWithDetailsDates(
-      mockReport({ reportReference: '6543', reportDateAndTime: now, withDetails: true }),
+      mockReport({ reportReference: '6543', reportDateAndTime: now, withDetails: true, withAddendums: true }),
     )
     mockedReport.questions = [
       makeSimpleQuestion(
@@ -104,6 +104,8 @@ describe('View report page', () => {
     })
 
     it('should render incident summary without description addendums', () => {
+      mockedReport.descriptionAddendums = []
+
       return request(app)
         .get(viewReportUrl)
         .expect('Content-Type', /html/)
@@ -114,16 +116,71 @@ describe('View report page', () => {
           expect(res.text).toContain('5 December 2023 at 11:34')
           expect(res.text).toContain('Description')
           expect(res.text).toContain('A new incident created in the new service of type FIND_6')
+          expect(res.text).not.toContain('app-description-chunks')
           // there is a correction request from 12:34, but no description chunks
           const startOfDescriptionArea = res.text.indexOf('Description')
           const datePosition = res.text.lastIndexOf('5 December 2023 at 12:34')
           expect(startOfDescriptionArea).toBeGreaterThan(datePosition)
           expect(res.text).toContain(`${viewReportUrl}/change-type`)
-          expect(res.text).toContain(`${viewReportUrl}/update-details`)
-          expect(res.text).not.toContain(`${viewReportUrl}/update-date-and-time`)
-          expect(res.text).not.toContain(`${viewReportUrl}/add-description`)
         })
     })
+
+    it('should render incident summary without description addendums', () => {
+      return request(app)
+        .get(viewReportUrl)
+        .expect('Content-Type', /html/)
+        .expect(200)
+        .expect(res => {
+          expect(res.text).toContain('Description')
+          // a description chunk appears in the description section
+          const startOfDescriptionArea = res.text.indexOf('Description')
+          const endOfDescriptionArea = res.text.indexOf('</div>', startOfDescriptionArea)
+          const datePosition = res.text.indexOf('5 December 2023 at 12:34', startOfDescriptionArea)
+          expect(datePosition).toBeLessThan(endOfDescriptionArea)
+          expect(res.text).toContain('A new incident created in the new service of type FIND_6')
+          expect(res.text).toContain('John Smith')
+          expect(res.text).toContain('Addendum #1')
+          expect(res.text).toContain('Jane Doe')
+          expect(res.text).toContain('Addendum #2')
+          expect(res.text).toContain('app-description-chunks')
+        })
+    })
+
+    const mustAppendDescriptionScenarios: { status: Status; mustAppend: boolean }[] = [
+      { status: 'DRAFT', mustAppend: false },
+      { status: 'AWAITING_REVIEW', mustAppend: false },
+      { status: 'ON_HOLD', mustAppend: true },
+      { status: 'NEEDS_UPDATING', mustAppend: true },
+      { status: 'UPDATED', mustAppend: true },
+      { status: 'CLOSED', mustAppend: true },
+      { status: 'POST_INCIDENT_UPDATE', mustAppend: true },
+      { status: 'DUPLICATE', mustAppend: true },
+      { status: 'NOT_REPORTABLE', mustAppend: true },
+      { status: 'REOPENED', mustAppend: true },
+      { status: 'WAS_CLOSED', mustAppend: true },
+    ]
+    it.each(mustAppendDescriptionScenarios)(
+      'should link to separate page for adding to descriptions when status is $status? $mustAppend',
+      ({ status, mustAppend }) => {
+        mockedReport.status = status
+
+        return request(app)
+          .get(viewReportUrl)
+          .expect('Content-Type', /html/)
+          .expect(200)
+          .expect(res => {
+            if (mustAppend) {
+              expect(res.text).not.toContain(`${viewReportUrl}/update-details`)
+              expect(res.text).toContain(`${viewReportUrl}/update-date-and-time`)
+              expect(res.text).toContain(`${viewReportUrl}/add-description`)
+            } else {
+              expect(res.text).toContain(`${viewReportUrl}/update-details`)
+              expect(res.text).not.toContain(`${viewReportUrl}/update-date-and-time`)
+              expect(res.text).not.toContain(`${viewReportUrl}/add-description`)
+            }
+          })
+      },
+    )
 
     it.each([
       { scenario: 'roles for reports made on DPS', createdInNomis: false },
@@ -267,6 +324,7 @@ describe('View report page', () => {
 
           expect(res.text).not.toContain(`${viewReportUrl}/change-type`)
           expect(res.text).not.toContain(`${viewReportUrl}/update-details`)
+          // TODO: this will need to change because a closed report must first be reopened. there will be no change links
           expect(res.text).toContain(`${viewReportUrl}/update-date-and-time`)
           expect(res.text).toContain(`${viewReportUrl}/add-description`)
         })
@@ -870,41 +928,5 @@ describe('View report page', () => {
           })
       })
     })
-  })
-})
-
-describe('View report page with description addendums', () => {
-  let mockedReport: ReportWithDetails
-  let viewReportUrl: string
-
-  beforeEach(() => {
-    mockedReport = convertReportWithDetailsDates(
-      mockReport({ reportReference: '6543', reportDateAndTime: now, withDetails: true, withAddendums: true }),
-    )
-    mockedReport.questions = []
-    mockedReport.prisonersInvolved = []
-    mockedReport.staffInvolved = []
-    mockedReport.correctionRequests = []
-    incidentReportingApi.getReportWithDetailsById.mockResolvedValueOnce(mockedReport)
-    viewReportUrl = `/reports/${mockedReport.id}`
-  })
-
-  it('should render incident summary with description addendums', () => {
-    return request(app)
-      .get(viewReportUrl)
-      .expect('Content-Type', /html/)
-      .expect(200)
-      .expect(res => {
-        expect(res.text).toContain('Description')
-        // a description chunk appears in the description section
-        const startOfDescriptionArea = res.text.indexOf('Description')
-        const datePosition = res.text.indexOf('5 December 2023 at 12:34')
-        expect(startOfDescriptionArea).toBeLessThan(datePosition)
-        expect(res.text).toContain('A new incident created in the new service of type FIND_6')
-        expect(res.text).toContain('John Smith')
-        expect(res.text).toContain('Addendum #1')
-        expect(res.text).toContain('Jane Doe')
-        expect(res.text).toContain('Addendum #2')
-      })
   })
 })

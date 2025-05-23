@@ -170,7 +170,7 @@ export function mockDescriptionAddendum(index: number, createdAt: Date): DatesAs
       }
     case 1:
       return {
-        createdBy: 'user2',
+        createdBy: 'user8',
         createdAt: format.isoDateTime(createdAt),
         firstName: 'Jane',
         lastName: 'Doe',

@@ -80,6 +80,23 @@ export default class ReportPage extends Page {
               .toArray()
           })
       },
+
+      get descriptionChunks() {
+        return getCard()
+          .find<HTMLLIElement>('.app-description-chunks li')
+          .then(chunks =>
+            chunks
+              .map((_, chunk) => {
+                const $chunk = Cypress.$(chunk)
+                return {
+                  name: $chunk.find('strong').text().trim(),
+                  date: $chunk.find('small').text().trim(),
+                  text: $chunk.find('p').text().trim(),
+                }
+              })
+              .toArray(),
+          )
+      },
     }
   }
 

@@ -54,6 +54,7 @@ export declare global {
       permissions: Permissions
       /** All routes have api instances */
       apis: {
+        userService: UserService
         incidentReportingApi: IncidentReportingApi
         prisonApi: PrisonApi
         offenderSearchApi: OffenderSearchApi

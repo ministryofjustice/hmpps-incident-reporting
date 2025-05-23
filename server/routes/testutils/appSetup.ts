@@ -50,7 +50,7 @@ function appSetup(services: Services, production: boolean, userSupplier: () => E
   })
   app.use(express.json())
   app.use(express.urlencoded({ extended: true }))
-  app.use(setApis())
+  app.use(setApis(services))
   app.use(setupPermissions)
 
   app.use(routes(services))

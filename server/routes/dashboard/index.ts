@@ -25,7 +25,6 @@ import { parseDateInput } from '../../utils/parseDateTime'
 import { checkForOutliers } from '../../utils/utils'
 import { sortableTableHead } from '../../utils/sortableTable'
 import { type LegacyPagination, pagination } from '../../utils/pagination'
-import type { Services } from '../../services'
 import asyncMiddleware from '../../middleware/asyncMiddleware'
 import { type ColumnEntry, multiCaseloadColumns, singleCaseloadColumns } from './tableColumns'
 
@@ -43,13 +42,13 @@ interface ListFormData {
   page?: string
 }
 
-export default function dashboard(service: Services): Router {
+export default function dashboard(): Router {
   const router = Router({ mergeParams: true })
-  const { userService } = service
+
   const get = (path: PathParams, handler: RequestHandler) => router.get(path, asyncMiddleware(handler))
 
   get('/', async (req, res) => {
-    const { incidentReportingApi } = res.locals.apis
+    const { incidentReportingApi, userService } = res.locals.apis
 
     const userRoles: string[] = res.locals.user.roles
 

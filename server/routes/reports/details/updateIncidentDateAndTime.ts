@@ -8,17 +8,16 @@ import { logoutIf } from '../../../middleware/permissions'
 import { populateReport } from '../../../middleware/populateReport'
 import { cannotEditReport } from '../permissions'
 import {
-  IncidentDateAndTimeFieldNames,
+  type IncidentDateAndTimeValues,
+  hoursFieldName,
+  minutesFieldName,
   incidentDateAndTimeFieldNames,
   incidentDateAndTimeFields,
-  IncidentDateAndTimeValues,
 } from './incidentDateAndTimeFields'
 import { BaseIncidentDateAndTimeController } from './incidentDateAndTimeController'
 import { dwNotReviewed } from '../../../reportConfiguration/constants'
 
-class IncidentDateAndTimeController extends BaseIncidentDateAndTimeController<IncidentDateAndTimeValues> {
-  // TODO: merge controllers with details controllers to reduce code duplication
-
+class UpdateIncidentDateAndTimeController extends BaseIncidentDateAndTimeController<IncidentDateAndTimeValues> {
   middlewareLocals(): void {
     this.use(this.checkReportStatus)
     this.use(this.loadReportIntoSession)
@@ -26,11 +25,11 @@ class IncidentDateAndTimeController extends BaseIncidentDateAndTimeController<In
   }
 
   private checkReportStatus(
-    _req: FormWizard.Request<IncidentDateAndTimeValues, IncidentDateAndTimeFieldNames>,
+    _req: FormWizard.Request<IncidentDateAndTimeValues>,
     res: express.Response,
     next: express.NextFunction,
   ): void {
-    /** Check status of report. If DW has not seen report yet, redirect to update details page * */
+    /** Check status of report. If DW has not seen report yet, redirect to update details page */
     const report = res.locals.report as ReportBasic
     if (dwNotReviewed.includes(report.status)) {
       res.redirect(`/reports/${report.id}/update-details`)
@@ -40,7 +39,7 @@ class IncidentDateAndTimeController extends BaseIncidentDateAndTimeController<In
   }
 
   private loadReportIntoSession(
-    req: FormWizard.Request<IncidentDateAndTimeValues, IncidentDateAndTimeFieldNames>,
+    req: FormWizard.Request<IncidentDateAndTimeValues>,
     res: express.Response,
     next: express.NextFunction,
   ): void {
@@ -49,21 +48,14 @@ class IncidentDateAndTimeController extends BaseIncidentDateAndTimeController<In
     // load existing report details into session model to prefill inputs
     req.sessionModel.set('incidentDate', format.shortDate(report.incidentDateAndTime))
     const [hours, minutes] = format.time(report.incidentDateAndTime).split(':')
-    req.sessionModel.set('_incidentTime-hours', hours)
-    req.sessionModel.set('_incidentTime-minutes', minutes)
+    req.sessionModel.set(hoursFieldName, hours)
+    req.sessionModel.set(minutesFieldName, minutes)
 
     next()
   }
 
-  getBackLink(
-    _req: FormWizard.Request<IncidentDateAndTimeValues, IncidentDateAndTimeFieldNames>,
-    res: express.Response,
-  ): string {
-    return res.locals.reportUrl
-  }
-
   async successHandler(
-    req: FormWizard.Request<IncidentDateAndTimeValues, IncidentDateAndTimeFieldNames>,
+    req: FormWizard.Request<IncidentDateAndTimeValues>,
     res: express.Response,
     next: express.NextFunction,
   ): Promise<void> {
@@ -93,10 +85,12 @@ class IncidentDateAndTimeController extends BaseIncidentDateAndTimeController<In
     }
   }
 
-  getNextStep(
-    _req: FormWizard.Request<IncidentDateAndTimeValues, IncidentDateAndTimeFieldNames>,
-    res: express.Response,
-  ): string {
+  getBackLink(_req: FormWizard.Request<IncidentDateAndTimeValues>, res: express.Response): string {
+    res.locals.cancelUrl = res.locals.reportUrl
+    return res.locals.reportUrl
+  }
+
+  getNextStep(_req: FormWizard.Request<IncidentDateAndTimeValues>, res: express.Response): string {
     // TODO: does this page have 2 save buttons? where do they both lead?
     return res.locals.reportUrl
   }
@@ -105,9 +99,9 @@ class IncidentDateAndTimeController extends BaseIncidentDateAndTimeController<In
 const updateIncidentDateAndTimeSteps: FormWizard.Steps<IncidentDateAndTimeValues> = {
   '/': {
     fields: incidentDateAndTimeFieldNames,
-    controller: IncidentDateAndTimeController,
+    controller: UpdateIncidentDateAndTimeController,
     entryPoint: true,
-    template: 'details',
+    template: 'update-incident-date-time',
   },
 }
 

@@ -44,7 +44,7 @@ export default function createApp(services: Services): express.Application {
   app.use(setUpCurrentUser(services))
   app.use(setSystemToken(services))
   app.use(setUpPecsRegions(services))
-  app.use(setApis())
+  app.use(setApis(services))
   app.use(frontendComponents(services))
   app.use(setupPermissions)
 

@@ -245,6 +245,31 @@ describe('Updating report details', () => {
       })
   })
 
+  describe('redirect if status after DW has seen report', () => {
+    const scenarios: { status: Status; redirect: boolean }[] = [
+      { status: 'DRAFT', redirect: false },
+      { status: 'AWAITING_REVIEW', redirect: false },
+      { status: 'ON_HOLD', redirect: true },
+      { status: 'NEEDS_UPDATING', redirect: true },
+      { status: 'UPDATED', redirect: true },
+      { status: 'CLOSED', redirect: true },
+      { status: 'DUPLICATE', redirect: true },
+      { status: 'NOT_REPORTABLE', redirect: true },
+      { status: 'REOPENED', redirect: true },
+      { status: 'WAS_CLOSED', redirect: true },
+    ]
+    it.each(scenarios)('report status of $status redirects page: $redirect', ({ status, redirect }) => {
+      reportBasic.status = status
+      const testAgent = agent.get(updateDetailsUrl).redirects(1)
+      if (!redirect) {
+        return testAgent.expect(200)
+      }
+      return testAgent.expect(res => {
+        expect(res.redirects[0]).toContain(`/reports/${reportBasic.id}/update-date-and-time`)
+      })
+    })
+  })
+
   describe('Permissions', () => {
     // NB: these test cases are simplified because the permissions class methods are thoroughly tested elsewhere
 
@@ -266,48 +291,6 @@ describe('Updating report details', () => {
       return testRequest.expect(res => {
         expect(res.redirects[0]).toContain('/sign-out')
       })
-    })
-  })
-})
-
-describe('redirect if status after DW has seen report', () => {
-  const incidentDateAndTime = new Date('2024-10-21T16:32:00+01:00')
-  const reportBasic = convertBasicReportDates(
-    mockReport({
-      type: 'DISORDER_2',
-      reportReference: '6544',
-      reportDateAndTime: incidentDateAndTime,
-    }),
-  )
-
-  const updateIncidentDateAndTimeUrl = `/reports/${reportBasic.id}/update-date-and-time`
-  const updateDetailsUrl = `/reports/${reportBasic.id}/update-details`
-
-  let agent: Agent
-
-  beforeEach(() => {
-    agent = request.agent(app)
-    incidentReportingApi.getReportById.mockResolvedValue(reportBasic)
-  })
-
-  it.each([
-    { status: 'DRAFT', redirect: false },
-    { status: 'AWAITING_REVIEW', redirect: false },
-    { status: 'ON_HOLD', redirect: true },
-    { status: 'NEEDS_UPDATING', redirect: true },
-    { status: 'UPDATED', redirect: true },
-    { status: 'CLOSED', redirect: true },
-    { status: 'DUPLICATE', redirect: true },
-    { status: 'REOPENED', redirect: true },
-    { status: 'WAS_CLOSED', redirect: true },
-  ])('report status of $status redirects page: $redirect', ({ status, redirect }) => {
-    reportBasic.status = status as Status
-    const testAgent = agent.get(updateDetailsUrl).redirects(1)
-    if (!redirect) {
-      return testAgent.expect(200)
-    }
-    return testAgent.expect(res => {
-      expect(res.redirects[0]).toContain(updateIncidentDateAndTimeUrl)
     })
   })
 })

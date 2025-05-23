@@ -1,13 +1,9 @@
-import type { RequestHandler } from 'express'
+import type { Request, Response } from 'express'
 import { NotFound } from 'http-errors'
 
-import type { Services } from '../services'
-
-export default function makeDebugRoutes(services: Services): Record<string, RequestHandler> {
-  const { userService } = services
-
+export default function makeDebugRoutes() {
   return {
-    async eventDetails(req, res) {
+    async eventDetails(req: Request, res: Response): Promise<void> {
       const { incidentReportingApi, prisonApi } = res.locals.apis
 
       const { eventId } = req.params
@@ -18,11 +14,11 @@ export default function makeDebugRoutes(services: Services): Record<string, Requ
       const event = await incidentReportingApi.getEventById(eventId)
       const usernames = event.reports.map(report => report.reportedBy)
       const [usersLookup, prisonsLookup] = await Promise.all([
-        userService.getUsers(res.locals.systemToken, usernames),
+        res.locals.api.userService.getUsers(res.locals.systemToken, usernames),
         prisonApi.getPrisons(),
       ])
 
       res.render('pages/debug/eventDetails', { event, usersLookup, prisonsLookup })
     },
-  }
+  } as const
 }

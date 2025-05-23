@@ -40,6 +40,10 @@ export default abstract class Page {
     return cy.get<HTMLAnchorElement>('.govuk-back-link').should('have.attr', 'href', url)
   }
 
+  checkCancelLink(url: string): PageElement<HTMLAnchorElement> {
+    return cy.get<HTMLAnchorElement>('[data-qa=cancelLink]').should('have.attr', 'href', url)
+  }
+
   get notificationBanner(): PageElement<HTMLDivElement> {
     return cy.get('.govuk-notification-banner')
   }

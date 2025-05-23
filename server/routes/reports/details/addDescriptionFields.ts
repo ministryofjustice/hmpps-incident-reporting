@@ -1,6 +1,6 @@
 import type FormWizard from 'hmpo-form-wizard'
 
-export const descriptionFields = {
+export const addDescriptionFields = {
   descriptionAddendum: {
     label: 'Add information to the description',
     component: 'govukTextarea',
@@ -8,4 +8,4 @@ export const descriptionFields = {
   },
 } satisfies FormWizard.Fields
 
-export type Values = FormWizard.ValuesFromFields<typeof descriptionFields>
+export type AddDescriptionValues = FormWizard.ValuesFromFields<typeof addDescriptionFields>

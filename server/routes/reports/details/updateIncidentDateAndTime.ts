@@ -86,6 +86,7 @@ class UpdateIncidentDateAndTimeController extends BaseIncidentDateAndTimeControl
   }
 
   getBackLink(_req: FormWizard.Request<IncidentDateAndTimeValues>, res: express.Response): string {
+    res.locals.cancelUrl = res.locals.reportUrl
     return res.locals.reportUrl
   }
 

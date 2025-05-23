@@ -30,7 +30,10 @@ context('Update an existing report’s date after it’s been reviewed', () => {
 
   it('should allow entering the basic information', () => {
     const incidentDateTimePage = Page.verifyOnPage(IncidentDateTimePage)
+
     incidentDateTimePage.checkBackLink(`/reports/${reportWithDetails.id}`)
+    incidentDateTimePage.checkCancelLink(`/reports/${reportWithDetails.id}`)
+
     incidentDateTimePage.enterDate(new Date(reportWithDetails.incidentDateAndTime))
     const time = /(?<hours>\d\d):(?<minutes>\d\d)/.exec(reportWithDetails.incidentDateAndTime)
     incidentDateTimePage.enterTime(time.groups.hours, time.groups.minutes)

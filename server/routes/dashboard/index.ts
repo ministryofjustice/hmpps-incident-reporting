@@ -22,7 +22,7 @@ import type { HeaderCell } from '../../utils/sortableTable'
 import format from '../../utils/format'
 import type { GovukCheckboxesItem, GovukErrorSummaryItem, GovukSelectItem } from '../../utils/govukFrontend'
 import { parseDateInput } from '../../utils/parseDateTime'
-import { checkForOutliers } from '../../utils/utils'
+import { hasInvalidValues } from '../../utils/utils'
 import { sortableTableHead } from '../../utils/sortableTable'
 import { type LegacyPagination, pagination } from '../../utils/pagination'
 import asyncMiddleware from '../../middleware/asyncMiddleware'
@@ -352,7 +352,7 @@ function statusesFromParam(statusesParam: IncidentStatuses[] | undefined, useWor
 
   // Reporting Officer
   if (useWorklists) {
-    const hasInvalidWorklist = checkForOutliers(statusesParam, workListCodes)
+    const hasInvalidWorklist = hasInvalidValues(statusesParam, workListCodes)
     if (hasInvalidWorklist) {
       throw new Error('Invalid worklist')
     }
@@ -364,7 +364,7 @@ function statusesFromParam(statusesParam: IncidentStatuses[] | undefined, useWor
 
   // Data Warden
   const statusCodes = statuses.map(status => status.code)
-  const hasInvalidStatus = checkForOutliers(statusesParam, statusCodes)
+  const hasInvalidStatus = hasInvalidValues(statusesParam, statusCodes)
   if (hasInvalidStatus) {
     throw new Error('Invalid status')
   }

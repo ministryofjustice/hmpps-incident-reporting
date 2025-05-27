@@ -120,7 +120,7 @@ export default function dashboard(): Router {
 
     let noFiltersSupplied = Boolean(!searchID && !location && !fromDate && !toDate && !typeFamily && !incidentStatuses)
 
-    // Check for invalid work list filter options submitted via the url query
+    // RO: Check for invalid work list filter options submitted via the url query
     if (
       userRoles.includes(roleReadWrite) &&
       !userRoles.includes(roleApproveReject) &&
@@ -130,7 +130,7 @@ export default function dashboard(): Router {
       incidentStatuses = undefined
       errors.push({ href: '#incidentStatuses', text: 'Work list filter submitted contains invalid values' })
     }
-    // Check for invalid status filter options submitted via the url query
+    // DW: Check for invalid status filter options submitted via the url query
     if (
       !userRoles.includes(roleReadWrite) &&
       userRoles.includes(roleApproveReject) &&
@@ -143,7 +143,7 @@ export default function dashboard(): Router {
       incidentStatuses = undefined
       errors.push({ href: '#incidentStatuses', text: 'Status filter submitted contains invalid values' })
     }
-    // Default work list to 'To do' for an RO when no other filters are applied and when the user arrives on page
+    // RO: Default work list to 'To do' for an RO when no other filters are applied and when the user arrives on page
     if (
       userRoles.includes(roleReadWrite) &&
       !userRoles.includes(roleApproveReject) &&
@@ -193,8 +193,8 @@ export default function dashboard(): Router {
       })
     }
 
-    let searchStatuses: Status | Status[]
-    // Replace status mappings if RO viewing page
+    let searchStatuses: Status[] | undefined
+    // RO: Replace status mappings if RO viewing page
     if (userRoles.includes(roleReadWrite) && !userRoles.includes(roleApproveReject)) {
       if (Array.isArray(incidentStatuses)) {
         searchStatuses = (incidentStatuses as WorkList[])
@@ -204,7 +204,8 @@ export default function dashboard(): Router {
         searchStatuses = workListStatusMapping[incidentStatuses]
       }
     } else {
-      searchStatuses = incidentStatuses as Status
+      // Could be undefined if invalid status passed
+      searchStatuses = incidentStatuses as Status[]
     }
 
     // Get reports from API

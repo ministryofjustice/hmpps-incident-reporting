@@ -554,6 +554,17 @@ describe('Permissions', () => {
         middleware(req, res, next)
         expect(next).toHaveBeenCalledWith()
       })
+
+      it('should fail if permissions class is not supplied', () => {
+        const middleware = logoutIf(() => true)
+        const req = {} as Request
+        const res = { locals: { user: undefined } } as Response
+        const next: NextFunction = jest.fn()
+        middleware(req, res, next)
+        expect(next).toHaveBeenCalledWith(
+          expect.objectContaining({ message: 'logoutIf() requires res.locals.permissions', status: 501 }),
+        )
+      })
     })
   })
 

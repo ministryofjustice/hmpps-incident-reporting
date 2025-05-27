@@ -1,12 +1,10 @@
-import type { Response } from 'express'
-
-import { Permissions } from '../../middleware/permissions'
+import type { LogoutCondition } from '../../middleware/permissions'
 
 /**
  * Used in `logoutIf()` middleware to check that current user can view report in locals.
  * Replies on `populatePrison()` middleware.
  */
-export function cannotViewReport(permissions: Permissions, res: Response) {
+export const cannotViewReport: LogoutCondition = (permissions, res) => {
   const { report } = res.locals
   return !permissions.canViewReport(report)
 }
@@ -14,7 +12,7 @@ export function cannotViewReport(permissions: Permissions, res: Response) {
 /**
  * Used in `logoutIf()` middleware to check that current user can create a report in their active caseload.
  */
-export function cannotCreateReportInActiveCaseload(permissions: Permissions): boolean {
+export const cannotCreateReportInActiveCaseload: LogoutCondition = permissions => {
   return !permissions.canCreateReportInActiveCaseload
 }
 
@@ -22,7 +20,7 @@ export function cannotCreateReportInActiveCaseload(permissions: Permissions): bo
  * Used in `logoutIf()` middleware to check that current user can edit report in locals.
  * Replies on `populatePrison()` middleware.
  */
-export function cannotEditReport(permissions: Permissions, res: Response): boolean {
+export const cannotEditReport: LogoutCondition = (permissions, res) => {
   const { report } = res.locals
   return !permissions.canEditReport(report)
 }
@@ -31,7 +29,7 @@ export function cannotEditReport(permissions: Permissions, res: Response): boole
  * Used in `logoutIf()` middleware to check that current user can approve or reject report in locals.
  * Replies on `populatePrison()` middleware.
  */
-export function cannotApproveOrRejectReport(permissions: Permissions, res: Response): boolean {
+export const cannotApproveOrRejectReport: LogoutCondition = (permissions, res) => {
   const { report } = res.locals
   return !permissions.canApproveOrRejectReport(report)
 }

@@ -55,7 +55,7 @@ services:
       - NOMIS_ENDPOINT_URL=http://nomis-user-roles-api:8080
 
   prison-api:
-    image: quay.io/hmpps/prison-api:latest
+    image: ghcr.io/ministryofjustice/prison-api:latest
     pull_policy: always
     container_name: prison-api
     networks:

@@ -12,23 +12,35 @@ import {
 import { convertReportWithDetailsDates } from '../../../data/incidentReportingApiUtils'
 import { mockErrorResponse, mockReport } from '../../../data/testData/incidentReporting'
 import { mockThrownError } from '../../../data/testData/thrownErrors'
+import { mockSharedUser } from '../../../data/testData/manageUsers'
 import { approverUser, hqUser, reportingUser, unauthorisedUser } from '../../../data/testData/users'
+import UserService from '../../../services/userService'
 import type { Status } from '../../../reportConfiguration/constants'
 
 jest.mock('../../../data/incidentReportingApi')
+jest.mock('../../../services/userService')
 
 let app: Express
 let incidentReportingApi: jest.Mocked<IncidentReportingApi>
 let incidentReportingRelatedObjects: jest.Mocked<
   RelatedObjects<DescriptionAddendum, AddDescriptionAddendumRequest, UpdateDescriptionAddendumRequest>
 >
+let userService: jest.Mocked<UserService>
 
 beforeEach(() => {
-  app = appWithAllRoutes()
+  userService = UserService.prototype as jest.Mocked<UserService>
+  userService.getUsers.mockResolvedValueOnce({
+    [mockSharedUser.username]: mockSharedUser,
+  })
+
+  app = appWithAllRoutes({ services: { userService } })
   incidentReportingApi = IncidentReportingApi.prototype as jest.Mocked<IncidentReportingApi>
   incidentReportingRelatedObjects = RelatedObjects.prototype as jest.Mocked<
     RelatedObjects<DescriptionAddendum, AddDescriptionAddendumRequest, UpdateDescriptionAddendumRequest>
   >
+  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+  // @ts-ignore need to mock a getter method
+  incidentReportingApi.descriptionAddendums = incidentReportingRelatedObjects
 })
 
 afterEach(() => {
@@ -40,21 +52,16 @@ describe('Adding a description addendum to report', () => {
   const mockedReport = convertReportWithDetailsDates(
     mockReport({
       type: 'DISORDER_2',
+      status: 'ON_HOLD',
       reportReference: '6544',
       reportDateAndTime: incidentDateAndTime,
       withDetails: true,
       withAddendums: true,
     }),
   )
-  mockedReport.status = 'ON_HOLD'
   const addDescriptionAddendumUrl = `/reports/${mockedReport.id}/add-description`
   const validPayload = {
     descriptionAddendum: 'Additional information',
-  }
-  const expectedCall = {
-    firstName: 'JOHN',
-    lastName: 'SMITH',
-    text: 'Additional information',
   }
 
   let agent: Agent
@@ -64,7 +71,7 @@ describe('Adding a description addendum to report', () => {
     incidentReportingApi.getReportWithDetailsById.mockResolvedValue(mockedReport)
   })
 
-  function expectOnDetailsPage(res: Response): void {
+  function expectOnDescriptionAddendumPage(res: Response): void {
     expect(res.request.url.endsWith(addDescriptionAddendumUrl)).toBe(true)
     expect(res.text).toContain('app-description-addendum')
     expect(res.text).toContain('Incident description')
@@ -93,7 +100,7 @@ describe('Adding a description addendum to report', () => {
       .get(addDescriptionAddendumUrl)
       .expect(200)
       .expect(res => {
-        expectOnDetailsPage(res)
+        expectOnDescriptionAddendumPage(res)
         expect(res.text).not.toContain('There is a problem')
         expect(res.text).toContain('Incident description')
         expect(res.text).toContain('21 October 2024 at 16:32')
@@ -104,6 +111,8 @@ describe('Adding a description addendum to report', () => {
         expect(res.text).toContain('Addendum #2')
         expect(res.text).toContain('Add information to the description')
         expect(res.text).toContain('descriptionAddendum')
+
+        expect(userService.getUsers).toHaveBeenCalledWith('test-system-token', ['user1'])
       })
   })
 
@@ -118,18 +127,14 @@ describe('Adding a description addendum to report', () => {
       .redirects(1)
       .expect(200)
       .expect(res => {
-        expectOnDetailsPage(res)
+        expectOnDescriptionAddendumPage(res)
         expect(res.text).toContain('There is a problem')
         expect(res.text).toContain('Enter some additional information')
       })
   })
 
-  it('should send request to API if form is valid and proceed to next step', () => {
-    incidentReportingApi.getReportWithDetailsById.mockResolvedValueOnce(mockedReport)
+  it('should send request to API if form is valid and return to report page', () => {
     incidentReportingRelatedObjects.addToReport.mockResolvedValueOnce([]) // NB: response is ignored
-    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-    // @ts-ignore need to mock a getter method
-    incidentReportingApi.descriptionAddendums = incidentReportingRelatedObjects
 
     return agent
       .post(addDescriptionAddendumUrl)
@@ -138,8 +143,55 @@ describe('Adding a description addendum to report', () => {
       .expect(302)
       .expect(res => {
         expectRedirectToReportPage(res)
-        expect(incidentReportingRelatedObjects.addToReport).toHaveBeenCalledWith(mockedReport.id, expectedCall)
+        expect(incidentReportingRelatedObjects.addToReport).toHaveBeenCalledWith(mockedReport.id, {
+          firstName: 'JOHN',
+          lastName: 'SMITH',
+          text: 'Additional information',
+        })
       })
+  })
+
+  it('should show an error if API rejects request', () => {
+    const error = mockThrownError(mockErrorResponse({ message: 'Description is too short' }))
+    incidentReportingRelatedObjects.addToReport.mockRejectedValueOnce(error)
+
+    return agent
+      .post(addDescriptionAddendumUrl)
+      .send(validPayload)
+      .redirects(1)
+      .expect(200)
+      .expect(res => {
+        expectOnDescriptionAddendumPage(res)
+        expect(res.text).toContain('There is a problem')
+        expect(res.text).toContain('Sorry, there was a problem with your request')
+        expect(res.text).not.toContain('Bad Request')
+        expect(res.text).not.toContain('Description is too short')
+      })
+  })
+
+  describe('redirect if status before DW has seen report', () => {
+    const scenarios: { status: Status; redirect: boolean }[] = [
+      { status: 'DRAFT', redirect: true },
+      { status: 'AWAITING_REVIEW', redirect: true },
+      { status: 'ON_HOLD', redirect: false },
+      { status: 'NEEDS_UPDATING', redirect: false },
+      { status: 'UPDATED', redirect: false },
+      { status: 'CLOSED', redirect: false },
+      { status: 'DUPLICATE', redirect: false },
+      { status: 'NOT_REPORTABLE', redirect: false },
+      { status: 'REOPENED', redirect: false },
+      { status: 'WAS_CLOSED', redirect: false },
+    ]
+    it.each(scenarios)('report status of $status redirects page: $redirect', ({ status, redirect }) => {
+      mockedReport.status = status
+      const testAgent = agent.get(addDescriptionAddendumUrl).redirects(1)
+      if (!redirect) {
+        return testAgent.expect(200)
+      }
+      return testAgent.expect(res => {
+        expect(res.redirects[0]).toContain(`/reports/${mockedReport.id}/update-details`)
+      })
+    })
   })
 
   describe('Permissions', () => {
@@ -154,7 +206,7 @@ describe('Adding a description addendum to report', () => {
       { userType: 'unauthorised user', user: unauthorisedUser, action: denied },
     ])('should be $action to $userType', ({ user, action }) => {
       const testRequest = request
-        .agent(appWithAllRoutes({ userSupplier: () => user }))
+        .agent(appWithAllRoutes({ services: { userService }, userSupplier: () => user }))
         .get(addDescriptionAddendumUrl)
         .redirects(1)
       if (action === 'granted') {
@@ -163,50 +215,6 @@ describe('Adding a description addendum to report', () => {
       return testRequest.expect(res => {
         expect(res.redirects[0]).toContain('/sign-out')
       })
-    })
-  })
-})
-
-describe('redirect if status before DW has seen report', () => {
-  const incidentDateAndTime = new Date('2024-10-21T16:32:00+01:00')
-  const mockedReport = convertReportWithDetailsDates(
-    mockReport({
-      type: 'DISORDER_2',
-      reportReference: '6544',
-      reportDateAndTime: incidentDateAndTime,
-      withDetails: true,
-    }),
-  )
-
-  const addDescriptionUrl = `/reports/${mockedReport.id}/add-description`
-  const updateDetailsUrl = `/reports/${mockedReport.id}/update-details`
-
-  let agent: Agent
-
-  beforeEach(() => {
-    agent = request.agent(app)
-    incidentReportingApi.getReportWithDetailsById.mockResolvedValue(mockedReport)
-  })
-
-  it.each([
-    { status: 'DRAFT', redirect: true },
-    { status: 'AWAITING_REVIEW', redirect: true },
-    { status: 'ON_HOLD', redirect: false },
-    { status: 'NEEDS_UPDATING', redirect: false },
-    { status: 'UPDATED', redirect: false },
-    { status: 'CLOSED', redirect: false },
-    { status: 'DUPLICATE', redirect: false },
-    { status: 'NOT_REPORTABLE', redirect: false },
-    { status: 'REOPENED', redirect: false },
-    { status: 'WAS_CLOSED', redirect: false },
-  ])('report status of $status redirects page: $redirect', ({ status, redirect }) => {
-    mockedReport.status = status as Status
-    const testAgent = agent.get(addDescriptionUrl).redirects(1)
-    if (!redirect) {
-      return testAgent.expect(200)
-    }
-    return testAgent.expect(res => {
-      expect(res.redirects[0]).toContain(updateDetailsUrl)
     })
   })
 })

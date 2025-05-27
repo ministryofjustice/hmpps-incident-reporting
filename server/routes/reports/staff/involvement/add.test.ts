@@ -36,6 +36,9 @@ beforeEach(() => {
   incidentReportingRelatedObjects = RelatedObjects.prototype as jest.Mocked<
     RelatedObjects<StaffInvolvement, AddStaffInvolvementRequest, UpdateStaffInvolvementRequest>
   >
+  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+  // @ts-ignore need to mock a getter method
+  incidentReportingApi.staffInvolved = incidentReportingRelatedObjects
 
   manageUsersApiClient = ManageUsersApiClient.prototype as jest.Mocked<ManageUsersApiClient>
   manageUsersApiClient.getPrisonUser.mockResolvedValueOnce(mockPrisonUser)
@@ -146,9 +149,6 @@ describe('Adding a new staff member to a report', () => {
     ({ validPayload, expectedCall }) => {
       incidentReportingApi.getReportWithDetailsById.mockResolvedValueOnce(report)
       incidentReportingRelatedObjects.addToReport.mockResolvedValueOnce([]) // NB: response is ignored
-      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-      // @ts-ignore need to mock a getter method
-      incidentReportingApi.staffInvolved = incidentReportingRelatedObjects
       manageUsersApiClient.getPrisonUser.mockResolvedValueOnce(mockPrisonUser)
 
       return request(app)
@@ -168,9 +168,6 @@ describe('Adding a new staff member to a report', () => {
   it('should allow exiting to report view when saving', () => {
     incidentReportingApi.getReportWithDetailsById.mockResolvedValueOnce(report)
     incidentReportingRelatedObjects.addToReport.mockResolvedValueOnce([]) // NB: response is ignored
-    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-    // @ts-ignore need to mock a getter method
-    incidentReportingApi.staffInvolved = incidentReportingRelatedObjects
     manageUsersApiClient.getPrisonUser.mockResolvedValueOnce(mockPrisonUser)
 
     return request(app)
@@ -229,9 +226,6 @@ describe('Adding a new staff member to a report', () => {
     incidentReportingApi.getReportWithDetailsById.mockResolvedValueOnce(report)
     const error = mockThrownError(mockErrorResponse({ message: 'Comment is too short' }))
     incidentReportingRelatedObjects.addToReport.mockRejectedValueOnce(error)
-    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-    // @ts-ignore need to mock a getter method
-    incidentReportingApi.staffInvolved = incidentReportingRelatedObjects
     manageUsersApiClient.getPrisonUser.mockResolvedValueOnce(mockPrisonUser)
 
     return request

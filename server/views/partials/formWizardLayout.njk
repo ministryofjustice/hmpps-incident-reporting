@@ -54,7 +54,9 @@
           {% endif %}
 
           {% if cancelUrl %}
-            <a href="{{ cancelUrl }}" class="govuk-link govuk-link--no-visited-state">Cancel</a>
+            <a href="{{ cancelUrl }}" class="govuk-link govuk-link--no-visited-state" data-qa="cancelLink">
+              Cancel
+            </a>
           {% endif %}
         </div>
       </form>

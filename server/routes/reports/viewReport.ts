@@ -2,7 +2,6 @@ import { Router } from 'express'
 import { MethodNotAllowed } from 'http-errors'
 
 import logger from '../../../logger'
-import type { Services } from '../../services'
 import { regenerateTitleForReport } from '../../services/reportTitle'
 import {
   type Status,
@@ -35,9 +34,7 @@ const prisonerOutcomeLookup = Object.fromEntries(
 const staffInvolvementLookup = Object.fromEntries(staffInvolvementRoles.map(role => [role.code, role.description]))
 
 // eslint-disable-next-line import/prefer-default-export
-export function viewReportRouter(service: Services): Router {
-  const { userService } = service
-
+export function viewReportRouter(): Router {
   const router = Router({ mergeParams: true })
 
   router.all(
@@ -53,7 +50,7 @@ export function viewReportRouter(service: Services): Router {
     logoutIf(cannotViewReport),
     populateReportConfiguration(true),
     asyncMiddleware(async (req, res) => {
-      const { incidentReportingApi, prisonApi } = res.locals.apis
+      const { incidentReportingApi, prisonApi, userService } = res.locals.apis
 
       const report = res.locals.report as ReportWithDetails
       const { permissions, reportConfig, reportUrl, questionProgress } = res.locals

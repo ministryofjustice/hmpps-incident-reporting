@@ -35,6 +35,9 @@ beforeEach(() => {
   incidentReportingRelatedObjects = RelatedObjects.prototype as jest.Mocked<
     RelatedObjects<StaffInvolvement, AddStaffInvolvementRequest, UpdateStaffInvolvementRequest>
   >
+  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+  // @ts-ignore need to mock a getter method
+  incidentReportingApi.staffInvolved = incidentReportingRelatedObjects
 
   manageUsersApiClient = ManageUsersApiClient.prototype as jest.Mocked<ManageUsersApiClient>
   manageUsersApiClient.getPrisonUser.mockRejectedValue(new Error('should not be called'))
@@ -175,9 +178,6 @@ describe('Adding a new staff member to a report who does not have a DPS/NOMIS ac
       ({ validPayload, expectedCall }) => {
         incidentReportingApi.getReportWithDetailsById.mockResolvedValueOnce(report)
         incidentReportingRelatedObjects.addToReport.mockResolvedValueOnce([]) // NB: response is ignored
-        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-        // @ts-ignore need to mock a getter method
-        incidentReportingApi.staffInvolved = incidentReportingRelatedObjects
 
         return agent
           .post(detailsPageUrl())
@@ -196,9 +196,6 @@ describe('Adding a new staff member to a report who does not have a DPS/NOMIS ac
     it('should allow exiting to report view when saving', () => {
       incidentReportingApi.getReportWithDetailsById.mockResolvedValueOnce(report)
       incidentReportingRelatedObjects.addToReport.mockResolvedValueOnce([]) // NB: response is ignored
-      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-      // @ts-ignore need to mock a getter method
-      incidentReportingApi.staffInvolved = incidentReportingRelatedObjects
 
       return agent
         .post(detailsPageUrl())
@@ -254,9 +251,6 @@ describe('Adding a new staff member to a report who does not have a DPS/NOMIS ac
       incidentReportingApi.getReportWithDetailsById.mockResolvedValueOnce(report)
       const error = mockThrownError(mockErrorResponse({ message: 'Comment is too short' }))
       incidentReportingRelatedObjects.addToReport.mockRejectedValueOnce(error)
-      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-      // @ts-ignore need to mock a getter method
-      incidentReportingApi.staffInvolved = incidentReportingRelatedObjects
 
       return agent
         .post(detailsPageUrl())

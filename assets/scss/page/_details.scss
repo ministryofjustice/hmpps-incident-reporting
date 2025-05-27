@@ -3,3 +3,9 @@
     @extend .govuk-label--m;
   }
 }
+
+.app-description-addendum {
+  #descriptionAddendum__label {
+    @extend .govuk-label--m;
+  }
+}

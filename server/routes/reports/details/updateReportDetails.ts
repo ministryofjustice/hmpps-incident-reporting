@@ -7,9 +7,10 @@ import type { ReportBasic } from '../../../data/incidentReportingApi'
 import { logoutIf } from '../../../middleware/permissions'
 import { populateReport } from '../../../middleware/populateReport'
 import { cannotEditReport } from '../permissions'
-import { BaseDetailsController } from './detailsController'
-import { type DetailsValues, type DetailsFieldNames, detailsFields, detailsFieldNames } from './detailsFields'
 import { dwNotReviewed } from '../../../reportConfiguration/constants'
+import { BaseDetailsController } from './detailsController'
+import { hoursFieldName, minutesFieldName } from './incidentDateAndTimeFields'
+import { type DetailsValues, detailsFields, detailsFieldNames } from './detailsFields'
 
 class DetailsController extends BaseDetailsController<DetailsValues> {
   // TODO: wizard namespace identifier is shared. consider generating it per request somehow?
@@ -22,11 +23,11 @@ class DetailsController extends BaseDetailsController<DetailsValues> {
   }
 
   private checkReportStatus(
-    _req: FormWizard.Request<DetailsValues, DetailsFieldNames>,
+    _req: FormWizard.Request<DetailsValues>,
     res: express.Response,
     next: express.NextFunction,
   ): void {
-    /** Check status of report. If DW has seen report, redirect to update incident date and time page * */
+    /** Check status of report. If DW has seen report, redirect to update incident date and time page */
     const report = res.locals.report as ReportBasic
     if (!dwNotReviewed.includes(report.status)) {
       res.redirect(`/reports/${report.id}/update-date-and-time`)
@@ -36,7 +37,7 @@ class DetailsController extends BaseDetailsController<DetailsValues> {
   }
 
   private loadReportIntoSession(
-    req: FormWizard.Request<DetailsValues, DetailsFieldNames>,
+    req: FormWizard.Request<DetailsValues>,
     res: express.Response,
     next: express.NextFunction,
   ): void {
@@ -45,19 +46,15 @@ class DetailsController extends BaseDetailsController<DetailsValues> {
     // load existing report details into session model to prefill inputs
     req.sessionModel.set('incidentDate', format.shortDate(report.incidentDateAndTime))
     const [hours, minutes] = format.time(report.incidentDateAndTime).split(':')
-    req.sessionModel.set('_incidentTime-hours', hours)
-    req.sessionModel.set('_incidentTime-minutes', minutes)
+    req.sessionModel.set(hoursFieldName, hours)
+    req.sessionModel.set(minutesFieldName, minutes)
     req.sessionModel.set('description', report.description)
 
     next()
   }
 
-  getBackLink(_req: FormWizard.Request<DetailsValues, DetailsFieldNames>, res: express.Response): string {
-    return res.locals.reportUrl
-  }
-
   async successHandler(
-    req: FormWizard.Request<DetailsValues, DetailsFieldNames>,
+    req: FormWizard.Request<DetailsValues>,
     res: express.Response,
     next: express.NextFunction,
   ): Promise<void> {
@@ -88,7 +85,11 @@ class DetailsController extends BaseDetailsController<DetailsValues> {
     }
   }
 
-  getNextStep(_req: FormWizard.Request<DetailsValues, DetailsFieldNames>, res: express.Response): string {
+  getBackLink(_req: FormWizard.Request<DetailsValues>, res: express.Response): string {
+    return res.locals.reportUrl
+  }
+
+  getNextStep(_req: FormWizard.Request<DetailsValues>, res: express.Response): string {
     // TODO: does this page have 2 save buttons? where do they both lead?
     return res.locals.reportUrl
   }

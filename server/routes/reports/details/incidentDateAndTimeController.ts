@@ -5,14 +5,14 @@ import format from '../../../utils/format'
 import { parseDateInput, parseTimeInput } from '../../../utils/parseDateTime'
 import { BaseController } from '../../../controllers'
 import {
+  type IncidentDateAndTimeValues,
+  type IncidentDateAndTimeFieldNames,
   hoursFieldName,
-  IncidentDateAndTimeFieldNames,
-  IncidentDateAndTimeValues,
   minutesFieldName,
 } from './incidentDateAndTimeFields'
 
 /**
- * Controller for adding or updating the date and description of an incident report.
+ * Controller for adding or updating the date of an incident report.
  * Handles error messages and validating combined date and time fields.
  * The generic V parameter is for specifying all steps’ values, not just this one.
  */

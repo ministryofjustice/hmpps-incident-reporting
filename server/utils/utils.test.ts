@@ -1,7 +1,7 @@
 import {
   addQuestionMarkToQuestion,
   buildArray,
-  checkForOutliers,
+  hasInvalidValues,
   convertToSentenceCase,
   convertToTitleCase,
   datesAsStrings,
@@ -326,17 +326,17 @@ describe('sentence case', () => {
   })
 })
 
-describe('check for outliers', () => {
+describe('hasInvalidValues()', () => {
   it.each([
-    ['String included', 'a', ['a', 'b', 'c'], false],
-    ['String excluded', 'd', ['a', 'b', 'c'], true],
-    ['Array all included', ['a', 'c'], ['a', 'b', 'c'], false],
-    ['Array all excluded', ['e', 'f', 'g'], ['a', 'b', 'c'], true],
-    ['Array some excluded', ['a', 'b', 'g'], ['a', 'b', 'c'], true],
+    ['String valid', 'a', ['a', 'b', 'c'], false],
+    ['String invalid', 'd', ['a', 'b', 'c'], true],
+    ['Array all valid', ['a', 'c'], ['a', 'b', 'c'], false],
+    ['Array all invalid', ['e', 'f', 'g'], ['a', 'b', 'c'], true],
+    ['Array some invalid', ['a', 'b', 'g'], ['a', 'b', 'c'], true],
   ])(
-    `For %s checkForOutliers shows %s outside of %s as '%s'`,
+    `For %s hasInvalidValues(%j, %j) returns %s`,
     (_: string, a: string | string[], b: string[], expected: boolean) => {
-      expect(checkForOutliers(a, b)).toEqual(expected)
+      expect(hasInvalidValues(a, b)).toEqual(expected)
     },
   )
 })

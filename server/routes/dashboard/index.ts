@@ -22,7 +22,7 @@ import type { HeaderCell } from '../../utils/sortableTable'
 import format from '../../utils/format'
 import type { GovukCheckboxesItem, GovukErrorSummaryItem, GovukSelectItem } from '../../utils/govukFrontend'
 import { parseDateInput } from '../../utils/parseDateTime'
-import { checkForOutliers } from '../../utils/utils'
+import { hasInvalidValues } from '../../utils/utils'
 import { sortableTableHead } from '../../utils/sortableTable'
 import { type LegacyPagination, pagination } from '../../utils/pagination'
 import asyncMiddleware from '../../middleware/asyncMiddleware'
@@ -116,39 +116,38 @@ export default function dashboard(): Router {
 
     let noFiltersSupplied = Boolean(!searchID && !location && !fromDate && !toDate && !typeFamily && !incidentStatuses)
 
-    // Check for invalid work list filter options submitted via the url query
+    const isReportingOfficer = userRoles.includes(roleReadWrite) && !userRoles.includes(roleApproveReject)
+
+    // RO: Default work list to 'To do' for an RO when no other filters are applied and when the user arrives on page
     if (
-      userRoles.includes(roleReadWrite) &&
-      !userRoles.includes(roleApproveReject) &&
-      incidentStatuses &&
-      checkForOutliers(incidentStatuses, workListCodes)
-    ) {
-      incidentStatuses = undefined
-      errors.push({ href: '#incidentStatuses', text: 'Work list filter submitted contains invalid values' })
-    }
-    // Check for invalid status filter options submitted via the url query
-    if (
-      !userRoles.includes(roleReadWrite) &&
-      userRoles.includes(roleApproveReject) &&
-      incidentStatuses &&
-      checkForOutliers(
-        incidentStatuses,
-        statuses.map(status => status.code),
-      )
-    ) {
-      incidentStatuses = undefined
-      errors.push({ href: '#incidentStatuses', text: 'Status filter submitted contains invalid values' })
-    }
-    // Default work list to 'To do' for an RO when no other filters are applied and when the user arrives on page
-    if (
-      userRoles.includes(roleReadWrite) &&
-      !userRoles.includes(roleApproveReject) &&
+      isReportingOfficer &&
       !('incidentStatuses' in req.query) &&
       !('sort' in req.query || 'page' in req.query) &&
       noFiltersSupplied
     ) {
-      incidentStatuses = 'toDo'
+      incidentStatuses = ['toDo']
       noFiltersSupplied = false
+    }
+
+    // Ensure incidentStatuses is an array when provided
+    if (incidentStatuses && !Array.isArray(incidentStatuses)) {
+      incidentStatuses = [incidentStatuses]
+    }
+
+    let searchStatuses: Status[] | undefined
+    try {
+      const useWorklists = isReportingOfficer
+      searchStatuses = statusesFromParam(incidentStatuses as IncidentStatuses[], useWorklists)
+    } catch (err) {
+      let errorMessage
+      if (err.message === 'Invalid status') {
+        errorMessage = 'Status filter submitted contains invalid values'
+      } else {
+        errorMessage = 'Work list filter submitted contains invalid values'
+      }
+
+      incidentStatuses = undefined
+      errors.push({ href: '#incidentStatuses', text: errorMessage })
     }
 
     let prisonerId: string
@@ -187,20 +186,6 @@ export default function dashboard(): Router {
         href: '#location',
         text: 'Establishments can only be selected if they exist in the user’s caseload',
       })
-    }
-
-    let searchStatuses: Status | Status[]
-    // Replace status mappings if RO viewing page
-    if (userRoles.includes(roleReadWrite) && !userRoles.includes(roleApproveReject)) {
-      if (Array.isArray(incidentStatuses)) {
-        searchStatuses = (incidentStatuses as WorkList[])
-          .map(incidentStatus => workListStatusMapping[incidentStatus])
-          .flat(1)
-      } else {
-        searchStatuses = workListStatusMapping[incidentStatuses]
-      }
-    } else {
-      searchStatuses = incidentStatuses as Status
     }
 
     // Get reports from API
@@ -358,3 +343,30 @@ const familyToType = Object.fromEntries(
       .map(({ code }) => code),
   ]),
 )
+
+/** Converts the `incidentStatuses` query param into a list of statuses */
+function statusesFromParam(statusesParam: IncidentStatuses[] | undefined, useWorklists: boolean): Status[] | undefined {
+  if (!statusesParam) {
+    return undefined
+  }
+
+  // Reporting Officer
+  if (useWorklists) {
+    const hasInvalidWorklist = hasInvalidValues(statusesParam, workListCodes)
+    if (hasInvalidWorklist) {
+      throw new Error('Invalid worklist')
+    }
+
+    const worklists = statusesParam as WorkList[]
+    // Map RO worklists to list of statuses
+    return worklists.map(worklist => workListStatusMapping[worklist]).flat(1)
+  }
+
+  // Data Warden
+  const statusCodes = statuses.map(status => status.code)
+  const hasInvalidStatus = hasInvalidValues(statusesParam, statusCodes)
+  if (hasInvalidStatus) {
+    throw new Error('Invalid status')
+  }
+  return statusesParam as Status[]
+}

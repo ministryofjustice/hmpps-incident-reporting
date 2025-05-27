@@ -328,9 +328,10 @@ function postProcessSentenceCase(input: string): string {
   return output
 }
 
-export function checkForOutliers(inputValues: string | string[], compareValues: string[]): boolean {
-  if (Array.isArray(inputValues)) {
-    return inputValues.some(value => !compareValues.includes(value))
+/** Checks whether a value or list of values is valid */
+export function hasInvalidValues(input: string | string[], validValues: string[]): boolean {
+  if (Array.isArray(input)) {
+    return input.some(value => !validValues.includes(value))
   }
-  return !compareValues.includes(inputValues)
+  return !validValues.includes(input)
 }

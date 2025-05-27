@@ -179,6 +179,10 @@ export function govukMultipleCheckedItems<I extends GovukCheckboxesItem>(
   items: I[],
   multipleValues: string[] | undefined,
 ): I[] {
+  if (multipleValues && !Array.isArray(multipleValues)) {
+    throw new Error('govukMultipleCheckedItems: multipleValues argument must be an Array or undefined')
+  }
+
   return items.map(item => {
     if (!('value' in item)) {
       return item

@@ -61,26 +61,12 @@ export class Permissions {
 
   /** Can create new report in given prison or PECS region */
   canCreateReportInLocation(code: string): boolean {
-    return (
-      // user could have created report at this location were it enabled
-      this.couldCreateReportInLocationIfActiveInService(code) &&
-      // if PECS region, are they enabled?
-      ((isPecsRegionCode(code) && config.activeForPecsRegions) ||
-        // otherwise is the prison enabled?
-        isPrisonActiveInService(code))
-    )
+    return this.couldCreateReportInLocationIfActiveInService(code) && isLocationActiveInService(code)
   }
 
   /** Could have created new report in DPS if given prison was active or PECS regions are enabled */
   canCreateReportInLocationInNomisOnly(code: string): boolean {
-    return (
-      // user could have created report at this location were it enabled
-      this.couldCreateReportInLocationIfActiveInService(code) &&
-      // if PECS region, are they disabled?
-      ((isPecsRegionCode(code) && !config.activeForPecsRegions) ||
-        // otherwise is the prison disabled?
-        !isPrisonActiveInService(code))
-    )
+    return this.couldCreateReportInLocationIfActiveInService(code) && !isLocationActiveInService(code)
   }
 
   /** Can create new report in active caseload prison */
@@ -106,26 +92,12 @@ export class Permissions {
 
   /** Can edit this report */
   canEditReport(report: ReportBasic): boolean {
-    return (
-      // user could have edited report at this location were it enabled
-      this.couldEditReportIfLocationActiveInService(report) &&
-      // if PECS region, are they enabled?
-      ((isPecsRegionCode(report.location) && config.activeForPecsRegions) ||
-        // otherwise is the prison enabled?
-        isPrisonActiveInService(report.location))
-    )
+    return this.couldEditReportIfLocationActiveInService(report) && isLocationActiveInService(report.location)
   }
 
   /** Could have edited this report in DPS if prison was active or PECS regions are enabled */
   canEditReportInNomisOnly(report: ReportBasic): boolean {
-    return (
-      // user could have edited report at this location were it enabled
-      this.couldEditReportIfLocationActiveInService(report) &&
-      // if PECS region, are they disabled?
-      ((isPecsRegionCode(report.location) && !config.activeForPecsRegions) ||
-        // otherwise is the prison disabled?
-        !isPrisonActiveInService(report.location))
-    )
+    return this.couldEditReportIfLocationActiveInService(report) && !isLocationActiveInService(report.location)
   }
 
   private couldApproveOrRejectReportIfLocationActiveInService(report: ReportBasic): boolean {
@@ -142,26 +114,24 @@ export class Permissions {
   /** Can approve or reject this report */
   canApproveOrRejectReport(report: ReportBasic): boolean {
     return (
-      // user could have approved/rejected report at this location were it enabled
-      this.couldApproveOrRejectReportIfLocationActiveInService(report) &&
-      // if PECS region, are they enabled?
-      ((isPecsRegionCode(report.location) && config.activeForPecsRegions) ||
-        // otherwise is the prison enabled?
-        isPrisonActiveInService(report.location))
+      this.couldApproveOrRejectReportIfLocationActiveInService(report) && isLocationActiveInService(report.location)
     )
   }
 
   /** Could have approved or rejected this report in DPS if prison was active or PECS regions are enabled */
   canApproveOrRejectReportInNomisOnly(report: ReportBasic): boolean {
     return (
-      // user could have approved/rejected report at this location were it enabled
-      this.couldApproveOrRejectReportIfLocationActiveInService(report) &&
-      // if PECS region, are they disabled?
-      ((isPecsRegionCode(report.location) && !config.activeForPecsRegions) ||
-        // otherwise is the prison disabled?
-        !isPrisonActiveInService(report.location))
+      this.couldApproveOrRejectReportIfLocationActiveInService(report) && !isLocationActiveInService(report.location)
     )
   }
+}
+
+/**
+ * If the location is a PECS region, is it enabled?
+ * Otherwise, is the prison enabled?
+ */
+export function isLocationActiveInService(code: string): boolean {
+  return (isPecsRegionCode(code) && config.activeForPecsRegions) || isPrisonActiveInService(code)
 }
 
 /**

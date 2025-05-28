@@ -4,9 +4,8 @@ import FormWizard from 'hmpo-form-wizard'
 import logger from '../../../../logger'
 import format from '../../../utils/format'
 import type { ReportBasic } from '../../../data/incidentReportingApi'
-import { logoutUnless } from '../../../middleware/permissions'
+import { logoutUnless, canEditReport } from '../../../middleware/permissions'
 import { populateReport } from '../../../middleware/populateReport'
-import { canEditReport } from '../permissions'
 import {
   type IncidentDateAndTimeValues,
   hoursFieldName,

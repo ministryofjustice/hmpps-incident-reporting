@@ -1,8 +1,7 @@
 import express from 'express'
 
 import { populateReport } from '../../middleware/populateReport'
-import { logoutUnless } from '../../middleware/permissions'
-import { canCreateReportInActiveCaseload, canEditReport } from './permissions'
+import { logoutUnless, canCreateReportInActiveCaseload, canEditReport } from '../../middleware/permissions'
 import { prisonerInvolvementRouter } from './prisoners'
 import { staffInvolvementRouter } from './staff'
 import { questionsRouter } from './questions'

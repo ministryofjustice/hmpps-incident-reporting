@@ -14,14 +14,13 @@ import {
   dwNotReviewed,
 } from '../../reportConfiguration/constants'
 import asyncMiddleware from '../../middleware/asyncMiddleware'
-import { logoutUnless } from '../../middleware/permissions'
+import { logoutUnless, canViewReport } from '../../middleware/permissions'
 import { populateReport } from '../../middleware/populateReport'
 import { populateReportConfiguration } from '../../middleware/populateReportConfiguration'
 import type { ReportWithDetails } from '../../data/incidentReportingApi'
 import type { QuestionProgressStep } from '../../data/incidentTypeConfiguration/questionProgress'
 import type { IncidentTypeConfiguration } from '../../data/incidentTypeConfiguration/types'
 import type { GovukErrorSummaryItem } from '../../utils/govukFrontend'
-import { canViewReport } from './permissions'
 
 const typesLookup = Object.fromEntries(types.map(type => [type.code, type.description]))
 const statusLookup = Object.fromEntries(statuses.map(status => [status.code, status.description]))

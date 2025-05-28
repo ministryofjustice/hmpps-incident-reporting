@@ -6,7 +6,7 @@ import nunjucksSetup from './utils/nunjucksSetup'
 import errorHandler from './errorHandler'
 import authorisationMiddleware from './middleware/authorisationMiddleware'
 
-import { setupPermissions } from './middleware/permissions'
+import { Permissions } from './middleware/permissions'
 import setApis from './middleware/setApis'
 import setSystemToken from './middleware/setSystemToken'
 import setUpAuthentication from './middleware/setUpAuthentication'
@@ -46,7 +46,7 @@ export default function createApp(services: Services): express.Application {
   app.use(setUpPecsRegions(services))
   app.use(setApis(services))
   app.use(frontendComponents(services))
-  app.use(setupPermissions)
+  app.use(Permissions.middleware)
 
   app.use(routes(services))
 

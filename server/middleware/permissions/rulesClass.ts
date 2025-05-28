@@ -1,10 +1,9 @@
-import type { Request, RequestHandler, Response, NextFunction } from 'express'
-import { Forbidden, NotImplemented } from 'http-errors'
+import type { NextFunction, Request, Response } from 'express'
 
-import config from '../config'
-import { roleReadOnly, roleReadWrite, roleApproveReject, rolePecs } from '../data/constants'
-import type { ReportBasic } from '../data/incidentReportingApi'
-import { isPecsRegionCode } from '../data/pecsRegions'
+import { roleReadOnly, roleReadWrite, roleApproveReject, rolePecs } from '../../data/constants'
+import type { ReportBasic } from '../../data/incidentReportingApi'
+import { isPecsRegionCode } from '../../data/pecsRegions'
+import { isLocationActiveInService } from './locationActiveInService'
 
 /**
  * Per-request class to check whether the user is allowed to perform a given action.
@@ -12,7 +11,14 @@ import { isPecsRegionCode } from '../data/pecsRegions'
  *
  * See roles constants for explanation of their permissions.
  */
+// eslint-disable-next-line import/prefer-default-export
 export class Permissions {
+  /** Creates an instance of this class for the current user */
+  static middleware(_req: Request, res: Response, next: NextFunction): void {
+    res.locals.permissions = new Permissions(res.locals.user)
+    next()
+  }
+
   /** Current user’s active caseload */
   private readonly activeCaseloadId: string
 
@@ -123,64 +129,5 @@ export class Permissions {
     return (
       this.couldApproveOrRejectReportIfLocationActiveInService(report) && !isLocationActiveInService(report.location)
     )
-  }
-}
-
-/**
- * If the location is a PECS region, is it enabled?
- * Otherwise, is the prison enabled?
- */
-export function isLocationActiveInService(code: string): boolean {
-  return (isPecsRegionCode(code) && config.activeForPecsRegions) || isPrisonActiveInService(code)
-}
-
-/**
- * Whether given prison should have full access to incident report on DPS, ie. the service has been rolled out there.
- * Otherwise, users are expected to continue using NOMIS.
- */
-export function isPrisonActiveInService(prisonId: string): boolean {
-  // empty list permits none
-  if (config.activePrisons.length === 0) {
-    return false
-  }
-  // list with only "***" permits all
-  if (config.activePrisons.length === 1 && config.activePrisons[0] === '***') {
-    return true
-  }
-  // otherwise actually check
-  return config.activePrisons.includes(prisonId)
-}
-
-export function setupPermissions(_req: Request, res: Response, next: NextFunction): void {
-  res.locals.permissions = new Permissions(res.locals.user)
-  next()
-}
-
-/** A condition function to check whether user is allowed to access a route */
-export interface LogoutCondition {
-  (permissions: Permissions, res: Response): boolean
-}
-
-/**
- * If condition evaluates to _true_, sends Forbidden (403) error to next request handler which logs user out.
- * Must come after setupPermissions() middleware.
- *
- * TODO: a better alternative could be to show them instructions about getting access
- */
-export function logoutIf(condition: LogoutCondition): RequestHandler {
-  return (_req, res, next) => {
-    const { permissions } = res.locals
-
-    if (!(permissions instanceof Permissions)) {
-      next(new NotImplemented('logoutIf() requires res.locals.permissions'))
-      return
-    }
-
-    if (condition(permissions, res)) {
-      next(new Forbidden())
-      return
-    }
-
-    next()
   }
 }

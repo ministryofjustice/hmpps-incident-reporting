@@ -1,8 +1,8 @@
 import express from 'express'
 
 import { populateReport } from '../../middleware/populateReport'
-import { logoutIf } from '../../middleware/permissions'
-import { cannotEditReport } from './permissions'
+import { logoutUnless } from '../../middleware/permissions'
+import { canEditReport } from './permissions'
 import { prisonerInvolvementRouter } from './prisoners'
 import { staffInvolvementRouter } from './staff'
 import { questionsRouter } from './questions'
@@ -11,7 +11,7 @@ import { questionsRouter } from './questions'
 export const editReportRouter = express.Router({ mergeParams: true })
 
 // require report-editing permissions
-editReportRouter.use(populateReport(true), logoutIf(cannotEditReport))
+editReportRouter.use(populateReport(true), logoutUnless(canEditReport))
 
 // mark nested routes as NOT being part of report creation journey
 editReportRouter.use((_req, res, next) => {

@@ -1,35 +1,35 @@
-import type { LogoutCondition } from '../../middleware/permissions'
+import type { GrantAccess } from '../../middleware/permissions'
 
 /**
- * Used in `logoutIf()` middleware to check that current user can view report in locals.
- * Replies on `populatePrison()` middleware.
+ * Used in `logoutUnless()` middleware to check that current user can view report in locals.
+ * Relies on `populatePrison()` middleware.
  */
-export const cannotViewReport: LogoutCondition = (permissions, res) => {
+export const canViewReport: GrantAccess = (permissions, res) => {
   const { report } = res.locals
-  return !permissions.canViewReport(report)
+  return permissions.canViewReport(report)
 }
 
 /**
- * Used in `logoutIf()` middleware to check that current user can create a report in their active caseload.
+ * Used in `logoutUnless()` middleware to check that current user can create a report in their active caseload.
  */
-export const cannotCreateReportInActiveCaseload: LogoutCondition = permissions => {
-  return !permissions.canCreateReportInActiveCaseload
+export const canCreateReportInActiveCaseload: GrantAccess = permissions => {
+  return permissions.canCreateReportInActiveCaseload
 }
 
 /**
- * Used in `logoutIf()` middleware to check that current user can edit report in locals.
- * Replies on `populatePrison()` middleware.
+ * Used in `logoutUnless()` middleware to check that current user can edit report in locals.
+ * Relies on `populatePrison()` middleware.
  */
-export const cannotEditReport: LogoutCondition = (permissions, res) => {
+export const canEditReport: GrantAccess = (permissions, res) => {
   const { report } = res.locals
-  return !permissions.canEditReport(report)
+  return permissions.canEditReport(report)
 }
 
 /**
- * Used in `logoutIf()` middleware to check that current user can approve or reject report in locals.
- * Replies on `populatePrison()` middleware.
+ * Used in `logoutUnless()` middleware to check that current user can approve or reject report in locals.
+ * Relies on `populatePrison()` middleware.
  */
-export const cannotApproveOrRejectReport: LogoutCondition = (permissions, res) => {
+export const canApproveOrRejectReport: GrantAccess = (permissions, res) => {
   const { report } = res.locals
-  return !permissions.canApproveOrRejectReport(report)
+  return permissions.canApproveOrRejectReport(report)
 }

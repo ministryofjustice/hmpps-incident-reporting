@@ -2,16 +2,16 @@ import { Router } from 'express'
 
 import type { ReportWithDetails } from '../../../data/incidentReportingApi'
 import asyncMiddleware from '../../../middleware/asyncMiddleware'
-import { logoutIf } from '../../../middleware/permissions'
+import { logoutUnless } from '../../../middleware/permissions'
 import { populateReport } from '../../../middleware/populateReport'
 import { statuses, types } from '../../../reportConfiguration/constants'
-import { cannotViewReport } from '../permissions'
+import { canViewReport } from '../permissions'
 import { populateReportConfiguration } from '../../../middleware/populateReportConfiguration'
 
 // eslint-disable-next-line import/prefer-default-export
 export function historyRouter(): Router {
   const router = Router({ mergeParams: true })
-  router.use(populateReport(), logoutIf(cannotViewReport))
+  router.use(populateReport(), logoutUnless(canViewReport))
 
   router.get(
     '/status',

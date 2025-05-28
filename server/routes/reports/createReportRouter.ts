@@ -1,8 +1,8 @@
 import express from 'express'
 
 import { populateReport } from '../../middleware/populateReport'
-import { logoutIf } from '../../middleware/permissions'
-import { cannotCreateReportInActiveCaseload, cannotEditReport } from './permissions'
+import { logoutUnless } from '../../middleware/permissions'
+import { canCreateReportInActiveCaseload, canEditReport } from './permissions'
 import { prisonerInvolvementRouter } from './prisoners'
 import { staffInvolvementRouter } from './staff'
 import { questionsRouter } from './questions'
@@ -14,7 +14,7 @@ export const createReportRouter = express.Router({ mergeParams: true })
 // form wizard to save minimal report details
 // and mark all routes as being part of report creation journey
 createReportRouter.use(
-  logoutIf(cannotCreateReportInActiveCaseload),
+  logoutUnless(canCreateReportInActiveCaseload),
   (_req, res, next) => {
     res.locals.creationJourney = true
     next()
@@ -27,7 +27,7 @@ const nestedRouter = express.Router({ mergeParams: true })
 createReportRouter.use('/:reportId', nestedRouter)
 
 // require report-editing permissions
-nestedRouter.use(populateReport(true), logoutIf(cannotEditReport))
+nestedRouter.use(populateReport(true), logoutUnless(canEditReport))
 
 // set url prefix for nested routes
 nestedRouter.use((req, res, next) => {

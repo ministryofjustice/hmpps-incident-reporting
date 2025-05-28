@@ -14,14 +14,14 @@ import {
   dwNotReviewed,
 } from '../../reportConfiguration/constants'
 import asyncMiddleware from '../../middleware/asyncMiddleware'
-import { logoutIf } from '../../middleware/permissions'
+import { logoutUnless } from '../../middleware/permissions'
 import { populateReport } from '../../middleware/populateReport'
 import { populateReportConfiguration } from '../../middleware/populateReportConfiguration'
 import type { ReportWithDetails } from '../../data/incidentReportingApi'
 import type { QuestionProgressStep } from '../../data/incidentTypeConfiguration/questionProgress'
 import type { IncidentTypeConfiguration } from '../../data/incidentTypeConfiguration/types'
 import type { GovukErrorSummaryItem } from '../../utils/govukFrontend'
-import { cannotViewReport } from './permissions'
+import { canViewReport } from './permissions'
 
 const typesLookup = Object.fromEntries(types.map(type => [type.code, type.description]))
 const statusLookup = Object.fromEntries(statuses.map(status => [status.code, status.description]))
@@ -47,7 +47,7 @@ export function viewReportRouter(): Router {
       }
     },
     populateReport(true),
-    logoutIf(cannotViewReport),
+    logoutUnless(canViewReport),
     populateReportConfiguration(true),
     asyncMiddleware(async (req, res) => {
       const { incidentReportingApi, prisonApi, userService } = res.locals.apis

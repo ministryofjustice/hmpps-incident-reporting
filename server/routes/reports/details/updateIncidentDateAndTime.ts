@@ -4,9 +4,9 @@ import FormWizard from 'hmpo-form-wizard'
 import logger from '../../../../logger'
 import format from '../../../utils/format'
 import type { ReportBasic } from '../../../data/incidentReportingApi'
-import { logoutIf } from '../../../middleware/permissions'
+import { logoutUnless } from '../../../middleware/permissions'
 import { populateReport } from '../../../middleware/populateReport'
-import { cannotEditReport } from '../permissions'
+import { canEditReport } from '../permissions'
 import {
   type IncidentDateAndTimeValues,
   hoursFieldName,
@@ -127,6 +127,6 @@ updateIncidentDateAndTimeWizardRouter.mergeParams = true
 export const updateIncidentDateAndTimeRouter = express.Router({ mergeParams: true })
 updateIncidentDateAndTimeRouter.use(
   populateReport(false),
-  logoutIf(cannotEditReport),
+  logoutUnless(canEditReport),
   updateIncidentDateAndTimeWizardRouter,
 )

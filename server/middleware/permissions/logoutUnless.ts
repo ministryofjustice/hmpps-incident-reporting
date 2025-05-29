@@ -4,10 +4,10 @@ import { Forbidden, NotImplemented } from 'http-errors'
 import { Permissions } from './rulesClass'
 
 /**
- * A condition function to check whether user is allowed to access a route.
+ * A condition function to check whether user is allowed to access a route using `logoutUnless` middleware.
  * Return true to *grant* access.
  */
-interface GrantAccess {
+interface AccessCondition {
   (permissions: Permissions, res: Response): boolean
 }
 
@@ -17,7 +17,7 @@ interface GrantAccess {
  *
  * TODO: a better alternative could be to show them instructions about getting access
  */
-export function logoutUnless(grantAccess: GrantAccess): RequestHandler {
+export function logoutUnless(accessCondition: AccessCondition): RequestHandler {
   return (_req, res, next) => {
     const { permissions } = res.locals
 
@@ -26,7 +26,7 @@ export function logoutUnless(grantAccess: GrantAccess): RequestHandler {
       return
     }
 
-    if (!grantAccess(permissions, res)) {
+    if (!accessCondition(permissions, res)) {
       next(new Forbidden())
       return
     }
@@ -39,7 +39,7 @@ export function logoutUnless(grantAccess: GrantAccess): RequestHandler {
  * Used in `logoutUnless()` middleware to check that current user can view report in locals.
  * Relies on `populatePrison()` middleware.
  */
-export const canViewReport: GrantAccess = (permissions, res) => {
+export const canViewReport: AccessCondition = (permissions, res) => {
   const { report } = res.locals
   return permissions.canViewReport(report)
 }
@@ -47,7 +47,7 @@ export const canViewReport: GrantAccess = (permissions, res) => {
 /**
  * Used in `logoutUnless()` middleware to check that current user can create a report in their active caseload.
  */
-export const canCreateReportInActiveCaseload: GrantAccess = permissions => {
+export const canCreateReportInActiveCaseload: AccessCondition = permissions => {
   return permissions.canCreateReportInActiveCaseload
 }
 
@@ -55,7 +55,7 @@ export const canCreateReportInActiveCaseload: GrantAccess = permissions => {
  * Used in `logoutUnless()` middleware to check that current user can edit report in locals.
  * Relies on `populatePrison()` middleware.
  */
-export const canEditReport: GrantAccess = (permissions, res) => {
+export const canEditReport: AccessCondition = (permissions, res) => {
   const { report } = res.locals
   return permissions.canEditReport(report)
 }
@@ -64,7 +64,7 @@ export const canEditReport: GrantAccess = (permissions, res) => {
  * Used in `logoutUnless()` middleware to check that current user can approve or reject report in locals.
  * Relies on `populatePrison()` middleware.
  */
-export const canApproveOrRejectReport: GrantAccess = (permissions, res) => {
+export const canApproveOrRejectReport: AccessCondition = (permissions, res) => {
   const { report } = res.locals
   return permissions.canApproveOrRejectReport(report)
 }

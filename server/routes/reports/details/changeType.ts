@@ -5,10 +5,9 @@ import FormWizard from 'hmpo-form-wizard'
 import logger from '../../../../logger'
 import { BaseController } from '../../../controllers'
 import type { ReportBasic } from '../../../data/incidentReportingApi'
-import { logoutIf } from '../../../middleware/permissions'
+import { logoutUnless, canEditReport } from '../../../middleware/permissions'
 import { populateReport } from '../../../middleware/populateReport'
 import { redirectIfStatusNot } from '../../../middleware/redirectOnReportStatus'
-import { cannotEditReport } from '../permissions'
 import { BaseTypeController } from './typeController'
 import { type TypeValues, typeFields, typeFieldNames } from './typeFields'
 
@@ -112,7 +111,7 @@ changeTypeWizardRouter.mergeParams = true
 export const changeTypeRouter = express.Router({ mergeParams: true })
 changeTypeRouter.use(
   populateReport(false),
-  logoutIf(cannotEditReport),
+  logoutUnless(canEditReport),
   redirectIfStatusNot('DRAFT'),
   changeTypeWizardRouter,
 )

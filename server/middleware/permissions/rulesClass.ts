@@ -1,10 +1,9 @@
-import type { Request, RequestHandler, Response, NextFunction } from 'express'
-import { Forbidden } from 'http-errors'
+import type { NextFunction, Request, Response } from 'express'
 
-import config from '../config'
-import { roleReadOnly, roleReadWrite, roleApproveReject, rolePecs } from '../data/constants'
-import type { ReportBasic } from '../data/incidentReportingApi'
-import { isPecsRegionCode } from '../data/pecsRegions'
+import { roleReadOnly, roleReadWrite, roleApproveReject, rolePecs } from '../../data/constants'
+import type { ReportBasic } from '../../data/incidentReportingApi'
+import { isPecsRegionCode } from '../../data/pecsRegions'
+import { isLocationActiveInService } from './locationActiveInService'
 
 /**
  * Per-request class to check whether the user is allowed to perform a given action.
@@ -12,7 +11,14 @@ import { isPecsRegionCode } from '../data/pecsRegions'
  *
  * See roles constants for explanation of their permissions.
  */
+// eslint-disable-next-line import/prefer-default-export
 export class Permissions {
+  /** Creates an instance of this class for the current user */
+  static middleware(_req: Request, res: Response, next: NextFunction): void {
+    res.locals.permissions = new Permissions(res.locals.user)
+    next()
+  }
+
   /** Current user’s active caseload */
   private readonly activeCaseloadId: string
 
@@ -61,26 +67,12 @@ export class Permissions {
 
   /** Can create new report in given prison or PECS region */
   canCreateReportInLocation(code: string): boolean {
-    return (
-      // user could have created report at this location were it enabled
-      this.couldCreateReportInLocationIfActiveInService(code) &&
-      // if PECS region, are they enabled?
-      ((isPecsRegionCode(code) && config.activeForPecsRegions) ||
-        // otherwise is the prison enabled?
-        isPrisonActiveInService(code))
-    )
+    return this.couldCreateReportInLocationIfActiveInService(code) && isLocationActiveInService(code)
   }
 
   /** Could have created new report in DPS if given prison was active or PECS regions are enabled */
   canCreateReportInLocationInNomisOnly(code: string): boolean {
-    return (
-      // user could have created report at this location were it enabled
-      this.couldCreateReportInLocationIfActiveInService(code) &&
-      // if PECS region, are they disabled?
-      ((isPecsRegionCode(code) && !config.activeForPecsRegions) ||
-        // otherwise is the prison disabled?
-        !isPrisonActiveInService(code))
-    )
+    return this.couldCreateReportInLocationIfActiveInService(code) && !isLocationActiveInService(code)
   }
 
   /** Can create new report in active caseload prison */
@@ -106,26 +98,12 @@ export class Permissions {
 
   /** Can edit this report */
   canEditReport(report: ReportBasic): boolean {
-    return (
-      // user could have edited report at this location were it enabled
-      this.couldEditReportIfLocationActiveInService(report) &&
-      // if PECS region, are they enabled?
-      ((isPecsRegionCode(report.location) && config.activeForPecsRegions) ||
-        // otherwise is the prison enabled?
-        isPrisonActiveInService(report.location))
-    )
+    return this.couldEditReportIfLocationActiveInService(report) && isLocationActiveInService(report.location)
   }
 
   /** Could have edited this report in DPS if prison was active or PECS regions are enabled */
   canEditReportInNomisOnly(report: ReportBasic): boolean {
-    return (
-      // user could have edited report at this location were it enabled
-      this.couldEditReportIfLocationActiveInService(report) &&
-      // if PECS region, are they disabled?
-      ((isPecsRegionCode(report.location) && !config.activeForPecsRegions) ||
-        // otherwise is the prison disabled?
-        !isPrisonActiveInService(report.location))
-    )
+    return this.couldEditReportIfLocationActiveInService(report) && !isLocationActiveInService(report.location)
   }
 
   private couldApproveOrRejectReportIfLocationActiveInService(report: ReportBasic): boolean {
@@ -142,65 +120,14 @@ export class Permissions {
   /** Can approve or reject this report */
   canApproveOrRejectReport(report: ReportBasic): boolean {
     return (
-      // user could have approved/rejected report at this location were it enabled
-      this.couldApproveOrRejectReportIfLocationActiveInService(report) &&
-      // if PECS region, are they enabled?
-      ((isPecsRegionCode(report.location) && config.activeForPecsRegions) ||
-        // otherwise is the prison enabled?
-        isPrisonActiveInService(report.location))
+      this.couldApproveOrRejectReportIfLocationActiveInService(report) && isLocationActiveInService(report.location)
     )
   }
 
   /** Could have approved or rejected this report in DPS if prison was active or PECS regions are enabled */
   canApproveOrRejectReportInNomisOnly(report: ReportBasic): boolean {
     return (
-      // user could have approved/rejected report at this location were it enabled
-      this.couldApproveOrRejectReportIfLocationActiveInService(report) &&
-      // if PECS region, are they disabled?
-      ((isPecsRegionCode(report.location) && !config.activeForPecsRegions) ||
-        // otherwise is the prison disabled?
-        !isPrisonActiveInService(report.location))
+      this.couldApproveOrRejectReportIfLocationActiveInService(report) && !isLocationActiveInService(report.location)
     )
-  }
-}
-
-/**
- * Whether given prison should have full access to incident report on DPS, ie. the service has been rolled out there.
- * Otherwise, users are expected to continue using NOMIS.
- */
-export function isPrisonActiveInService(prisonId: string): boolean {
-  // empty list permits none
-  if (config.activePrisons.length === 0) {
-    return false
-  }
-  // list with only "***" permits all
-  if (config.activePrisons.length === 1 && config.activePrisons[0] === '***') {
-    return true
-  }
-  // otherwise actually check
-  return config.activePrisons.includes(prisonId)
-}
-
-export function setupPermissions(_req: Request, res: Response, next: NextFunction): void {
-  res.locals.permissions = new Permissions(res.locals.user)
-  next()
-}
-
-/**
- * If condition evaluates to _true_, sends Forbidden (403) error to next request handler which logs user out.
- * Must come after setupPermissions() middleware.
- *
- * TODO: a better alternative could be to show them instructions about getting access
- */
-export function logoutIf(condition: (permissions: Permissions, res: Response) => boolean): RequestHandler {
-  return (_req: Request, res: Response, next: NextFunction): void => {
-    const { permissions } = res.locals
-
-    if (condition(permissions, res)) {
-      next(new Forbidden())
-      return
-    }
-
-    next()
   }
 }

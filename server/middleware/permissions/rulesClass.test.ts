@@ -1,15 +1,15 @@
 import type { Request, Response, NextFunction } from 'express'
 
-import { now } from '../testutils/fakeClock'
-import { mockUser, unauthorisedUser, reportingUser, approverUser, hqUser } from '../data/testData/users'
-import { Permissions, isPrisonActiveInService, setupPermissions, logoutIf } from './permissions'
-import config from '../config'
-import { roleReadOnly, roleReadWrite, roleApproveReject, rolePecs } from '../data/constants'
-import { convertReportDates } from '../data/incidentReportingApiUtils'
-import { mockReport } from '../data/testData/incidentReporting'
-import { makeMockCaseload } from '../data/testData/frontendComponents'
-import { mockPecsRegions, resetPecsRegions } from '../data/testData/pecsRegions'
-import { brixton, leeds, moorland } from '../data/testData/prisonApi'
+import { now } from '../../testutils/fakeClock'
+import { mockUser, unauthorisedUser, reportingUser, approverUser, hqUser } from '../../data/testData/users'
+import config from '../../config'
+import { roleReadOnly, roleReadWrite, roleApproveReject, rolePecs } from '../../data/constants'
+import { convertReportDates } from '../../data/incidentReportingApiUtils'
+import { mockReport } from '../../data/testData/incidentReporting'
+import { makeMockCaseload } from '../../data/testData/frontendComponents'
+import { mockPecsRegions, resetPecsRegions } from '../../data/testData/pecsRegions'
+import { brixton, leeds, moorland } from '../../data/testData/prisonApi'
+import { Permissions } from './rulesClass'
 
 const granted = 'granted' as const
 const denied = 'denied' as const
@@ -514,71 +514,10 @@ describe('Permissions', () => {
         const req = {} as Request
         const res = { locals: { user } } as Response
         const next: NextFunction = jest.fn()
-        setupPermissions(req, res, next)
+        Permissions.middleware(req, res, next)
         expect(next).toHaveBeenCalledWith()
         expect(res.locals.permissions).toBeInstanceOf(Permissions)
       },
     )
-
-    describe('Conditional logout', () => {
-      it('should send a forbidden 403 error to next request handler if condition evaluates to true', () => {
-        const middleware = logoutIf((permissions, res) => {
-          expect(permissions).toBeInstanceOf(Permissions)
-          expect(res.locals).toHaveProperty('user')
-          return true
-        })
-        const req = {} as Request
-        const res = { locals: { user: undefined } } as Response
-        const next: NextFunction = jest.fn()
-        setupPermissions(req, res, next)
-        middleware(req, res, next)
-        expect(next).toHaveBeenCalledWith(expect.objectContaining({ message: 'Forbidden', status: 403 }))
-      })
-
-      it('should forward to next request handler if condition evaluates to false', () => {
-        const middleware = logoutIf(permissions => {
-          expect(permissions).toBeInstanceOf(Permissions)
-          return false
-        })
-        const req = {} as Request
-        const res = { locals: { user: undefined } } as Response
-        const next: NextFunction = jest.fn()
-        setupPermissions(req, res, next)
-        middleware(req, res, next)
-        expect(next).toHaveBeenCalledWith()
-      })
-    })
-  })
-
-  describe('Active prison helper function', () => {
-    it('should always return true if all prisons are permitted', () => {
-      config.activePrisons = ['***']
-
-      const prisons = [undefined, null, '', 'MDI', 'LEI']
-      for (const prison of prisons) {
-        expect(isPrisonActiveInService(prison)).toBe(true)
-      }
-    })
-
-    it('should always return false if no prisons are permitted', () => {
-      config.activePrisons = []
-
-      const prisons = [undefined, null, '', 'MDI', 'LEI']
-      for (const prison of prisons) {
-        expect(isPrisonActiveInService(prison)).toBe(false)
-      }
-    })
-
-    it('should check prison against configured list', () => {
-      config.activePrisons = ['BXI', 'LEI']
-
-      expect(isPrisonActiveInService(undefined)).toBe(false)
-      expect(isPrisonActiveInService(null)).toBe(false)
-      expect(isPrisonActiveInService('')).toBe(false)
-      expect(isPrisonActiveInService('BXI')).toBe(true)
-      expect(isPrisonActiveInService('LEI')).toBe(true)
-      expect(isPrisonActiveInService('MDI')).toBe(false)
-      expect(isPrisonActiveInService('OWI')).toBe(false)
-    })
   })
 })

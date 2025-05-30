@@ -11,7 +11,7 @@ import type { ApplicationInfo } from '../../applicationInfo'
 import errorHandler from '../../errorHandler'
 import type { Services } from '../../services'
 import { reportingUser } from '../../data/testData/users'
-import { setupPermissions } from '../../middleware/permissions'
+import { Permissions } from '../../middleware/permissions'
 import setApis from '../../middleware/setApis'
 
 export const testAppInfo: ApplicationInfo = {
@@ -51,7 +51,7 @@ function appSetup(services: Services, production: boolean, userSupplier: () => E
   app.use(express.json())
   app.use(express.urlencoded({ extended: true }))
   app.use(setApis(services))
-  app.use(setupPermissions)
+  app.use(Permissions.middleware)
 
   app.use(routes(services))
 

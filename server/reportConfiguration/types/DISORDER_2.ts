@@ -2333,7 +2333,6 @@ export const DISORDER_2: IncidentTypeConfiguration = {
       active: true,
     },
   ],
-  requiresPrisoners: true,
   requiresStaff: true,
 }
 

@@ -1,6 +1,6 @@
 # Deployment Notes
 
-Deployment is usually handled through CircleCI, but sometimes it’s useful to access the cluster directly
+Deployment is usually handled through GitHub Actions, but sometimes it’s useful to access the cluster directly
 (e.g. to diagnose problems).
 
 ## Prerequisites

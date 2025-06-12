@@ -39,7 +39,7 @@ generic-service:
     - secretRef:
         name: hmpps-incident-reporting
     - secretRef:
-        name: application-insights
+        name: hmpps-incident-reporting-application-insights
 
   namespace_secrets:
     elasticache-redis:

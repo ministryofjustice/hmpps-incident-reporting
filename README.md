@@ -1,7 +1,7 @@
 # HMPPS Incident Reporting UI
 
 [![repo standards badge](https://img.shields.io/badge/dynamic/json?color=blue&style=flat&logo=github&label=MoJ%20Compliant&query=%24.result&url=https%3A%2F%2Foperations-engineering-reports.cloud-platform.service.justice.gov.uk%2Fapi%2Fv1%2Fcompliant_public_repositories%2Fhmpps-incident-reporting)](https://operations-engineering-reports.cloud-platform.service.justice.gov.uk/public-github-repositories.html#hmpps-incident-reporting "Link to report")
-[![CircleCI](https://circleci.com/gh/ministryofjustice/hmpps-incident-reporting/tree/main.svg?style=svg)](https://circleci.com/gh/ministryofjustice/hmpps-incident-reporting)
+[![Docker Repository on ghcr](https://img.shields.io/badge/ghcr.io-repository-2496ED.svg?logo=docker)](https://ghcr.io/ministryofjustice/hmpps-incident-reporting)
 
 This application is a front-end application used by staff in HMPPS prisons to view and submit incident reports.
 
@@ -105,7 +105,7 @@ npx npm-check-updates --upgrade --doctor
 
 ## Testing
 
-Continuous integration on CircleCI will always perform the full suite of tests on pull requests and branches pushed to github,
+Continuous integration on GitHub Actions will always perform the full suite of tests on pull requests and branches pushed to github,
 but they can be run locally too.
 
 ### Unit tests
@@ -188,8 +188,8 @@ See `/helm_deploy/`.
 ### Deployment
 
 When the main branch is updated (e.g. when a pull request is merged),
-a new version of the application is released to `dev` automatically by CircleCI.
-This release can be promoted to `preprod` and `prod` using the CircleCI interface.
+a new version of the application is released to `dev` automatically by GitHub Actions.
+This release can be promoted to `preprod` and `prod` by approving it in the GitHub Actions interface.
 
 See `/helm_deploy/README.md` for manual deployment steps.
 

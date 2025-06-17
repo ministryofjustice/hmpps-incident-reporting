@@ -34,6 +34,8 @@ export const roleApproveReject = 'INCIDENT_REPORTS__APPROVE' as const
  */
 export const rolePecs = 'INCIDENT_REPORTS__PECS' as const
 
+// TODO: will management reporting need a separate role?
+
 /**
  * Used by DPS/NOMIS central admin/support.
  */

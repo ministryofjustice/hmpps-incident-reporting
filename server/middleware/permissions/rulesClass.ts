@@ -32,12 +32,13 @@ export class Permissions {
     this.activeCaseloadId = user?.activeCaseLoad?.caseLoadId ?? 'NONE'
     this.caseloadIds = new Set(user?.caseLoads?.map(caseLoad => caseLoad.caseLoadId) ?? [])
     this.roles = new Set(user?.roles ?? [])
-    this.canAccessService = [roleReadWrite, roleApproveReject, roleReadOnly].some(role => this.roles.has(role))
-    this.canCreateReport = [roleReadWrite, roleApproveReject].some(role => this.roles.has(role))
   }
 
-  /** Has some role granting access to service */
-  readonly canAccessService: boolean
+  /** Has *some* role granting access to service */
+  get canAccessService(): boolean {
+    // TODO: will management reporting need a separate role?
+    return [roleReadOnly, roleReadWrite, roleApproveReject].some(role => this.roles.has(role))
+  }
 
   /** Can view this report at all */
   canViewReport(report: ReportBasic): boolean {
@@ -51,17 +52,12 @@ export class Permissions {
     )
   }
 
-  /** Can create new report (ignoring caseload!) */
-  readonly canCreateReport: boolean
-
   private couldCreateReportInLocationIfActiveInService(code: string): boolean {
     return (
-      // has minimal roles
-      this.canCreateReport &&
       // if PECS region, can user edit PECS reports (has approver & PECS roles)?
-      ((isPecsRegionCode(code) && this.roles.has(roleApproveReject) && this.roles.has(rolePecs)) ||
-        // otherwise does user have caseload but isn't a data warden?
-        (this.caseloadIds.has(code) && !this.roles.has(roleApproveReject)))
+      (isPecsRegionCode(code) && this.roles.has(roleApproveReject) && this.roles.has(rolePecs)) ||
+      // otherwise does user have caseload but isn't a data warden?
+      (this.caseloadIds.has(code) && this.roles.has(roleReadWrite) && !this.roles.has(roleApproveReject))
     )
   }
 
@@ -87,12 +83,10 @@ export class Permissions {
 
   private couldEditReportIfLocationActiveInService(report: ReportBasic): boolean {
     return (
-      // has minimal roles
-      this.canCreateReport &&
       // if PECS region, can user edit PECS reports (has approver & PECS roles)?
-      ((isPecsRegionCode(report.location) && this.roles.has(roleApproveReject) && this.roles.has(rolePecs)) ||
-        // otherwise does user have caseload but isn't a data warden?
-        (this.caseloadIds.has(report.location) && !this.roles.has(roleApproveReject)))
+      (isPecsRegionCode(report.location) && this.roles.has(roleApproveReject) && this.roles.has(rolePecs)) ||
+      // otherwise does user have caseload but isn't a data warden?
+      (this.caseloadIds.has(report.location) && this.roles.has(roleReadWrite) && !this.roles.has(roleApproveReject))
     )
   }
 

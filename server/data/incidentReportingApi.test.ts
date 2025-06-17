@@ -16,7 +16,6 @@ import {
   mockDescriptionAddendum,
   mockCorrectionRequest,
   mockErrorResponse,
-  mockEvent,
   mockQuestion,
   mockReport,
 } from './testData/incidentReporting'
@@ -24,7 +23,6 @@ import { unsortedPageOf } from './testData/paginatedResponses'
 
 describe('Incident reporting API client', () => {
   const accessToken = 'token'
-  const eventWith1Report = mockEvent({ eventReference: '54322', reportDateAndTime: now, includeReports: 1 })
   const basicReport = mockReport({ reportReference: '6543', reportDateAndTime: now })
   const reportWithDetails = mockReport({ reportReference: '6544', reportDateAndTime: now, withDetails: true })
 
@@ -53,17 +51,6 @@ describe('Incident reporting API client', () => {
 
     it.each([
       { method: 'getDefinitions', url: '/definitions', testCase: () => apiClient.getManagementReportDefinitions() },
-      { method: 'getEvents', url: '/incident-events', testCase: () => apiClient.getEvents() },
-      {
-        method: 'getEventById',
-        url: `/incident-events/${eventWith1Report.id}`,
-        testCase: () => apiClient.getEventById(eventWith1Report.id),
-      },
-      {
-        method: 'getEventByReference',
-        url: `/incident-events/reference/${eventWith1Report.eventReference}`,
-        testCase: () => apiClient.getEventByReference(eventWith1Report.eventReference),
-      },
       { method: 'getReports', url: '/incident-reports', testCase: () => apiClient.getReports() },
       {
         method: 'getReportById',
@@ -91,7 +78,6 @@ describe('Incident reporting API client', () => {
         urlMethod: 'post',
         testCase: () =>
           apiClient.createReport({
-            createNewEvent: true,
             type: 'FIND_6',
             title: 'Chewing gum',
             description: 'Chewing gum found in cell',
@@ -339,51 +325,6 @@ describe('Incident reporting API client', () => {
   })
 
   describe('conversion of date fields', () => {
-    it('should work for getEvents returning a list of events with reports', async () => {
-      fakeApiClient
-        .get('/incident-events')
-        .query(true)
-        .matchHeader('authorization', `Bearer ${accessToken}`)
-        .reply(200, unsortedPageOf([eventWith1Report]))
-      const response = await apiClient.getEvents()
-      const shouldBeDates = response.content.flatMap(item => [
-        item.eventDateAndTime,
-        item.createdAt,
-        item.modifiedAt,
-        item.reports[0].incidentDateAndTime,
-        item.reports[0].reportedAt,
-        item.reports[0].createdAt,
-        item.reports[0].modifiedAt,
-      ])
-      shouldBeDates.forEach(value => expect(value).toBeInstanceOf(Date))
-    })
-
-    it.each([
-      {
-        method: 'getEventById',
-        url: `/incident-events/${eventWith1Report.id}`,
-        testCase: () => apiClient.getEventById(eventWith1Report.id),
-      },
-      {
-        method: 'getEventByReference',
-        url: `/incident-events/reference/${eventWith1Report.eventReference}`,
-        testCase: () => apiClient.getEventByReference(eventWith1Report.eventReference),
-      },
-    ])('should work for $method returning an event with reports', async ({ testCase, url }) => {
-      fakeApiClient.get(url).matchHeader('authorization', `Bearer ${accessToken}`).reply(200, eventWith1Report)
-      const response = await testCase()
-      const shouldBeDates = [
-        response.eventDateAndTime,
-        response.createdAt,
-        response.modifiedAt,
-        response.reports[0].incidentDateAndTime,
-        response.reports[0].reportedAt,
-        response.reports[0].createdAt,
-        response.reports[0].modifiedAt,
-      ]
-      shouldBeDates.forEach(value => expect(value).toBeInstanceOf(Date))
-    })
-
     it('should work for getReports returning a list of basic reports', async () => {
       fakeApiClient
         .get('/incident-reports')
@@ -444,7 +385,6 @@ describe('Incident reporting API client', () => {
         urlMethod: 'post',
         testCase: () =>
           apiClient.createReport({
-            createNewEvent: true,
             type: 'FIND_6',
             title: 'Chewing gum',
             description: 'Chewing gum found in cell',
@@ -482,9 +422,6 @@ describe('Incident reporting API client', () => {
         response.reportedAt,
         response.createdAt,
         response.modifiedAt,
-        response.event.eventDateAndTime,
-        response.event.createdAt,
-        response.event.modifiedAt,
         // NB: other children are checked in incidentReportingApiUtils.test.ts
       ]
       shouldBeDates.forEach(value => expect(value).toBeInstanceOf(Date))
@@ -497,7 +434,6 @@ describe('Incident reporting API client', () => {
         urlMethod: 'post',
         testCase: () =>
           apiClient.createReport({
-            createNewEvent: true,
             type: 'FIND_6',
             title: 'Chewing gum',
             description: 'Chewing gum found in cell',

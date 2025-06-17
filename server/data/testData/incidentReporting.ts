@@ -6,8 +6,6 @@ import type { ErrorCode, Status, Type } from '../../reportConfiguration/constant
 import { getTypeDetails } from '../../reportConfiguration/constants'
 import type {
   ErrorResponse,
-  Event,
-  EventWithBasicReports,
   ReportBasic,
   ReportWithDetails,
   DescriptionAddendum,
@@ -18,51 +16,6 @@ import type {
 } from '../incidentReportingApi'
 import { andrew, barry } from './offenderSearch'
 import { staffBarry, staffMary } from './prisonApi'
-
-interface MockEventConfig {
-  eventReference: string
-  reportDateAndTime: Date
-  location?: string
-  reportingUsername?: string
-}
-
-export function mockEvent(conf: MockEventConfig & { includeReports?: 0 }): DatesAsStrings<Event>
-export function mockEvent(conf: MockEventConfig & { includeReports: number }): DatesAsStrings<EventWithBasicReports>
-export function mockEvent({
-  eventReference,
-  reportDateAndTime,
-  location = 'MDI',
-  reportingUsername = 'user1',
-  includeReports = 0,
-}: MockEventConfig & { includeReports?: number }): DatesAsStrings<Event | EventWithBasicReports> {
-  const incidentDateAndTime = new Date(reportDateAndTime)
-  incidentDateAndTime.setHours(incidentDateAndTime.getHours() - 1)
-  incidentDateAndTime.setSeconds(0)
-  incidentDateAndTime.setMilliseconds(0)
-
-  const event: DatesAsStrings<Event> = {
-    id: uuidFromDate({ msecs: reportDateAndTime.getTime() }),
-    eventReference,
-    eventDateAndTime: format.isoDateTime(incidentDateAndTime),
-    location,
-    title: 'An event occurred',
-    description: 'Details of the event',
-    createdAt: format.isoDateTime(reportDateAndTime),
-    modifiedAt: format.isoDateTime(reportDateAndTime),
-    modifiedBy: reportingUsername,
-  }
-
-  if (includeReports > 0) {
-    return {
-      ...event,
-      reports: buildArray(includeReports, i =>
-        mockReport({ reportReference: (10000 + i).toString(), reportDateAndTime }),
-      ),
-    } satisfies DatesAsStrings<EventWithBasicReports>
-  }
-
-  return event
-}
 
 interface MockReportConfig {
   reportReference: string
@@ -121,7 +74,6 @@ export function mockReport({
       descriptionAddendums: withAddendums
         ? [mockDescriptionAddendum(0, reportDateAndTime), mockDescriptionAddendum(1, reportDateAndTime)]
         : [],
-      event: mockEvent({ eventReference: reportReference, reportDateAndTime }),
       historyOfStatuses: [
         {
           status,

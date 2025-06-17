@@ -42,7 +42,6 @@ context('Update an existing report’s date after it’s been reviewed', () => {
     cy.task('stubIncidentReportingApiUpdateReport', {
       request: {
         incidentDateAndTime: reportWithDetails.incidentDateAndTime,
-        updateEvent: true,
       },
       report: reportWithDetails,
     })

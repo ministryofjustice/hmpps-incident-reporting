@@ -257,7 +257,6 @@ describe('Creating a report', () => {
           expect(res.redirect).toBe(true)
           expect(res.header.location).toEqual(`/create-report/${reportWithDetails.id}/prisoners`)
           expect(incidentReportingApi.createReport).toHaveBeenCalledWith({
-            createNewEvent: true,
             description: 'Disorder took place on A wing',
             incidentDateAndTime,
             location: 'MDI',

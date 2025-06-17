@@ -89,7 +89,6 @@ context('Creating a completed draft report', () => {
         location: 'MDI',
         title: 'Attempted escape from establishment (Moorland (HMP & YOI))',
         description: reportWithDetails.description,
-        createNewEvent: true,
       },
       report: reportWithDetails,
     })

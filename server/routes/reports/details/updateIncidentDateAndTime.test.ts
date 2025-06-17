@@ -218,7 +218,6 @@ describe('Updating report incident date and time', () => {
         expectRedirectToReportPage(res)
         expect(incidentReportingApi.updateReport).toHaveBeenCalledWith(reportBasic.id, {
           incidentDateAndTime,
-          updateEvent: true,
         })
       })
   })

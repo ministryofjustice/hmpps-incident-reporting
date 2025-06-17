@@ -16,7 +16,6 @@ import {
   convertBasicReportDates,
   convertCorrectionRequestDates,
   convertDescriptionAddendumDates,
-  convertEventWithBasicReportsDates,
   convertQuestionDates,
   convertReportWithDetailsDates,
 } from './incidentReportingApiUtils'
@@ -59,24 +58,7 @@ export interface Page<T> {
   sort: string[]
 }
 
-export type PaginatedEventsWithBasicReports = Page<EventWithBasicReports>
 export type PaginatedBasicReports = Page<ReportBasic>
-
-export type Event = {
-  id: string
-  eventReference: string
-  eventDateAndTime: Date
-  location: string
-  title: string
-  description: string
-  createdAt: Date
-  modifiedAt: Date
-  modifiedBy: string
-}
-
-export type EventWithBasicReports = Event & {
-  reports: ReportBasic[]
-}
 
 export type ReportBasic = {
   id: string
@@ -99,7 +81,6 @@ export type ReportBasic = {
 
 export type ReportWithDetails = ReportBasic & {
   descriptionAddendums: DescriptionAddendum[]
-  event: Event
   questions: Question[]
   history: HistoricReport[]
   historyOfStatuses: HistoricStatus[]
@@ -109,13 +90,6 @@ export type ReportWithDetails = ReportBasic & {
   staffInvolvementDone: boolean
   prisonerInvolvementDone: boolean
 }
-
-export type GetEventsParams = {
-  reference: string
-  location: string | string[]
-  eventDateFrom: Date // Inclusive
-  eventDateUntil: Date // Inclusive
-} & PaginationSortingParams
 
 export type GetReportsParams = {
   reference: string
@@ -204,8 +178,6 @@ export type CreateReportRequest = {
   location: string
   title: string
   description: string
-  createNewEvent: boolean
-  linkedEventReference?: string
 }
 
 export type UpdateReportRequest = {
@@ -215,7 +187,6 @@ export type UpdateReportRequest = {
   description?: string
   staffInvolvementDone?: boolean
   prisonerInvolvementDone?: boolean
-  updateEvent?: boolean
 }
 
 export type ChangeStatusRequest = { newStatus: Status }
@@ -257,68 +228,6 @@ export class IncidentReportingApi extends RestClient {
 
   get constants(): Constants {
     return new Constants(this)
-  }
-
-  async getEvents(
-    { reference, location, eventDateFrom, eventDateUntil, page, size, sort }: Partial<GetEventsParams> = {
-      reference: null,
-      location: null,
-      eventDateFrom: null,
-      eventDateUntil: null,
-      page: 0,
-      size: defaultPageSize,
-      sort: ['eventDateAndTime,DESC'],
-    },
-  ): Promise<PaginatedEventsWithBasicReports> {
-    const query: Partial<DatesAsStrings<GetEventsParams>> = {
-      page,
-      size,
-      sort,
-    }
-    if (reference) {
-      query.reference = reference
-    }
-    if (location) {
-      query.location = location
-    }
-    if (eventDateFrom) {
-      query.eventDateFrom = format.isoDate(eventDateFrom)
-    }
-    if (eventDateUntil) {
-      query.eventDateUntil = format.isoDate(eventDateUntil)
-    }
-
-    const response = await this.get<DatesAsStrings<PaginatedEventsWithBasicReports>>(
-      {
-        path: '/incident-events',
-        query,
-      },
-      asSystem(),
-    )
-    return {
-      ...response,
-      content: response.content.map(convertEventWithBasicReportsDates),
-    }
-  }
-
-  async getEventById(id: string): Promise<EventWithBasicReports> {
-    const event = await this.get<DatesAsStrings<EventWithBasicReports>>(
-      {
-        path: `/incident-events/${encodeURIComponent(id)}`,
-      },
-      asSystem(),
-    )
-    return convertEventWithBasicReportsDates(event)
-  }
-
-  async getEventByReference(reference: string): Promise<EventWithBasicReports> {
-    const event = await this.get<DatesAsStrings<EventWithBasicReports>>(
-      {
-        path: `/incident-events/reference/${encodeURIComponent(reference)}`,
-      },
-      asSystem(),
-    )
-    return convertEventWithBasicReportsDates(event)
   }
 
   async getReports(
@@ -512,11 +421,10 @@ export class IncidentReportingApi extends RestClient {
     return convertReportWithDetailsDates(report)
   }
 
-  async deleteReport(id: string, deleteOrphanedEvents: boolean = true): Promise<ReportWithDetails> {
+  async deleteReport(id: string): Promise<ReportWithDetails> {
     const report = await this.delete<DatesAsStrings<ReportWithDetails>>(
       {
         path: `/incident-reports/${encodeURIComponent(id)}`,
-        query: { deleteOrphanedEvents },
       },
       asSystem(),
     )

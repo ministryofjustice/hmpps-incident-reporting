@@ -39,7 +39,6 @@ context('Update an existing report’s details', () => {
       request: {
         incidentDateAndTime: reportWithDetails.incidentDateAndTime,
         description: reportWithDetails.description,
-        updateEvent: true,
       },
       report: reportWithDetails,
     })

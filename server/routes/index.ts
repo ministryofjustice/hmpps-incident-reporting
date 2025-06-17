@@ -5,7 +5,6 @@ import asyncMiddleware from '../middleware/asyncMiddleware'
 import { logoutUnless } from '../middleware/permissions'
 import type { Services } from '../services'
 import { PrisonApi } from '../data/prisonApi'
-import makeDebugRoutes from './debug'
 import makeDownloadConfigRouter from './downloadReportConfig'
 import { createReportRouter } from './reports/createReportRouter'
 import { changeTypeRouter } from './reports/details/changeType'
@@ -32,8 +31,6 @@ export default function routes(services: Services): Router {
 
   // view-only debug pages
   // TODO: remove once not needed
-  const debugRoutes = makeDebugRoutes()
-  get('/incidents/:eventId', debugRoutes.eventDetails)
   if (config.environment !== 'prod') {
     router.get('/inspect-session', (req, res) => {
       const sessionAsJson = JSON.stringify({

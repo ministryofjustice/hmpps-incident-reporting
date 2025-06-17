@@ -46,6 +46,8 @@ export function dprRouter(router: Router, services: Services): Router {
     getIncidentReportingApi(services).then(incidentReportingApi => populateRoutes(incidentReportingApi, router))
   }
 
+  // TODO: will management reporting need a separate role?
+
   router.get('/management-reporting', async (req, res) => {
     const { incidentReportingApi } = res.locals.apis
     const definitions = await populateRoutes(incidentReportingApi, router)

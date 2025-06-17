@@ -49,20 +49,18 @@
 
   <h1 class="govuk-heading-l">Incident reports</h1>
 
-  {% if permissions.canCreateReport %}
-    {% if permissions.canCreateReportInActiveCaseload %}
-      {# TODO: should be different for data wardens (those who can create PECS reports) #}
-      {{ govukButton({
-        text: "Create a report for " + activeCaseLoad.description,
-        preventDoubleClick: true,
-        href: "/create-report"
-      }) }}
-    {% else %}
-      {{ govukWarningText({
-        text: "You must use NOMIS to create reports in this establishment",
-        iconFallbackText: "Warning"
-      }) }}
-    {% endif %}
+  {# TODO: should be different for data wardens (those who can create PECS reports) #}
+  {% if permissions.canCreateReportInActiveCaseload %}
+    {{ govukButton({
+      text: "Create a report for " + activeCaseLoad.description,
+      preventDoubleClick: true,
+      href: "/create-report"
+    }) }}
+  {% elif permissions.canCreateReportInActiveCaseloadInNomisOnly %}
+    {{ govukWarningText({
+      text: "You must use NOMIS to create reports in this establishment",
+      iconFallbackText: "Warning"
+    }) }}
   {% endif %}
 
   <div class="app-dashboard__search-box govuk-!-padding-3 govuk-!-margin-bottom-5">

@@ -162,19 +162,6 @@ describe('Permissions', () => {
     })
 
     describe('Creating a new report', () => {
-      describe('ignoring caseloads', () => {
-        it.each([
-          { userType: notLoggedIn, action: denied },
-          { userType: unauthorisedNotInLeeds, action: denied },
-          { userType: reportingNotInLeeds, action: granted },
-          { userType: approverNotInLeeds, action: granted },
-          { userType: viewOnlyNotInLeeds, action: denied },
-        ])('should by $action to $userType.descriptionIgnoringCaseload', ({ userType: { user }, action }) => {
-          const permissions = new Permissions(user)
-          expect(permissions.canCreateReport).toBe(action === granted)
-        })
-      })
-
       describe('in Leeds', () => {
         it.each([
           { userType: notLoggedIn, action: denied },

@@ -34,7 +34,6 @@ class DetailsController extends BaseDetailsController<CreateReportValues> {
         title: newReportTitle(type, res.locals.user.activeCaseLoad.description),
         description,
         location: res.locals.user.activeCaseLoad.caseLoadId,
-        createNewEvent: true,
       })
       logger.info(`Report ${report.reportReference} created`)
       res.locals.createdReport = report

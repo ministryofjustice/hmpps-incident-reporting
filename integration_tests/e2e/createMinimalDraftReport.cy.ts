@@ -50,7 +50,6 @@ context('Creating a new minimal draft report', () => {
         location: 'MDI',
         title: 'Miscellaneous (Moorland (HMP & YOI))',
         description: reportWithDetails.description,
-        createNewEvent: true,
       },
       report: reportWithDetails,
     })
@@ -92,7 +91,6 @@ context('Creating a new minimal draft report', () => {
         location: 'MDI',
         title: 'Miscellaneous (Moorland (HMP & YOI))',
         description: reportWithDetails.description,
-        createNewEvent: true,
       },
       report: reportWithDetails,
     })

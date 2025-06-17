@@ -1,8 +1,6 @@
 import type {
   CorrectionRequest,
   DescriptionAddendum,
-  Event,
-  EventWithBasicReports,
   HistoricReport,
   HistoricStatus,
   Question,
@@ -12,7 +10,7 @@ import type {
 } from './incidentReportingApi'
 
 export function reportHasDetails(report: ReportBasic | ReportWithDetails): report is ReportWithDetails {
-  return 'event' in report
+  return 'historyOfStatuses' in report
 }
 
 export function convertBasicReportDates(report: DatesAsStrings<ReportBasic>): ReportBasic {
@@ -30,7 +28,6 @@ export function convertReportWithDetailsDates(report: DatesAsStrings<ReportWithD
     ...report,
     ...convertBasicReportDates(report),
     descriptionAddendums: report.descriptionAddendums.map(convertDescriptionAddendumDates),
-    event: convertEventDates(report.event),
     questions: report.questions.map(convertQuestionDates),
     history: report.history.map(convertHistoricReportDates),
     historyOfStatuses: report.historyOfStatuses.map(convertHistoricStatusDates),
@@ -41,26 +38,10 @@ export function convertReportWithDetailsDates(report: DatesAsStrings<ReportWithD
 export function convertReportDates(
   report: DatesAsStrings<ReportBasic | ReportWithDetails>,
 ): ReportBasic | ReportWithDetails {
-  if ('event' in report) {
+  if ('historyOfStatuses' in report) {
     return convertReportWithDetailsDates(report)
   }
   return convertBasicReportDates(report)
-}
-
-export function convertEventDates(event: DatesAsStrings<Event>): Event {
-  return {
-    ...event,
-    eventDateAndTime: new Date(event.eventDateAndTime),
-    createdAt: new Date(event.createdAt),
-    modifiedAt: new Date(event.modifiedAt),
-  }
-}
-
-export function convertEventWithBasicReportsDates(event: DatesAsStrings<EventWithBasicReports>): EventWithBasicReports {
-  return {
-    ...convertEventDates(event),
-    reports: event.reports.map(convertBasicReportDates),
-  }
 }
 
 export function convertDescriptionAddendumDates(addendum: DatesAsStrings<DescriptionAddendum>): DescriptionAddendum {

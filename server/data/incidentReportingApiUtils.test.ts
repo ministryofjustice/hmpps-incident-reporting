@@ -2,16 +2,13 @@ import { now } from '../testutils/fakeClock'
 import type {
   CorrectionRequest,
   DescriptionAddendum,
-  Event,
   HistoricStatus,
   Question,
   ReportBasic,
   Response,
 } from './incidentReportingApi'
-import { mockEvent, mockReport } from './testData/incidentReporting'
+import { mockReport } from './testData/incidentReporting'
 import {
-  convertEventDates,
-  convertEventWithBasicReportsDates,
   convertBasicReportDates,
   convertReportDates,
   convertReportWithDetailsDates,
@@ -38,12 +35,6 @@ describe('Incident-reporting API utilities', () => {
     const reportDate = new Date(2023, 11, 5)
     // actual incident happened 1 hour before: 2023-12-05T11:34:00.000Z (NB: seconds are truncated to mimic designs)
     const incidentDateAndTime = new Date(2023, 11, 5, 11, 34, 0)
-
-    function expectCorrectDatesInEvent(event: Event) {
-      expect(event.eventDateAndTime).toEqual(incidentDateAndTime)
-      expect(event.createdAt).toEqual(reportDateAndTime)
-      expect(event.modifiedAt).toEqual(reportDateAndTime)
-    }
 
     function expectCorrectDatesInBasicReport(basicReport: ReportBasic) {
       expect(basicReport.incidentDateAndTime).toEqual(incidentDateAndTime)
@@ -78,20 +69,6 @@ describe('Incident-reporting API utilities', () => {
       }
       expect(response.recordedAt).toEqual(reportDateAndTime)
     }
-
-    it('should work for an event', () => {
-      const event = convertEventDates(mockEvent({ eventReference: '12345', reportDateAndTime }))
-      expectCorrectDatesInEvent(event)
-    })
-
-    it('should work for an event containing reports with basic details', () => {
-      const eventWithDetails = convertEventWithBasicReportsDates(
-        mockEvent({ eventReference: '12345', reportDateAndTime, includeReports: 2 }),
-      )
-      expectCorrectDatesInEvent(eventWithDetails)
-      expect(eventWithDetails.reports).toHaveLength(2)
-      eventWithDetails.reports.forEach(expectCorrectDatesInBasicReport)
-    })
 
     it('should work for a report with basic details', () => {
       const basicReport = convertBasicReportDates(mockReport({ reportReference: '4321', reportDateAndTime }))

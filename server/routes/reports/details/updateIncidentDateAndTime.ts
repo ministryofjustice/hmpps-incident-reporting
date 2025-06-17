@@ -68,7 +68,6 @@ class UpdateIncidentDateAndTimeController extends BaseIncidentDateAndTimeControl
       await res.locals.apis.incidentReportingApi.updateReport(report.id, {
         // TODO: maybe title needs to change, depending on how it's generated
         incidentDateAndTime,
-        updateEvent: true,
       })
       logger.info(`Report ${report.reportReference} details updated`)
 

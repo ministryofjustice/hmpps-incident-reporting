@@ -4,7 +4,6 @@
 // eslint-disable-next-line import/prefer-default-export
 export enum ErrorCode {
   ValidationFailure = 100,
-  EventNotFound = 201,
   ReportNotFound = 301,
   ReportAlreadyExists = 302,
   ReportModifedInDps = 303,

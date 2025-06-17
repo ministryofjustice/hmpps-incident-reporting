@@ -10,7 +10,7 @@ import nunjucksSetup from '../../utils/nunjucksSetup'
 import type { ApplicationInfo } from '../../applicationInfo'
 import errorHandler from '../../errorHandler'
 import type { Services } from '../../services'
-import { reportingUser } from '../../data/testData/users'
+import { mockReportingOfficer } from '../../data/testData/users'
 import { Permissions } from '../../middleware/permissions'
 import setApis from '../../middleware/setApis'
 
@@ -64,7 +64,7 @@ function appSetup(services: Services, production: boolean, userSupplier: () => E
 export function appWithAllRoutes({
   production = false,
   services = { applicationInfo: testAppInfo },
-  userSupplier = () => reportingUser,
+  userSupplier = () => mockReportingOfficer,
 }: {
   production?: boolean
   services?: Partial<Services>

@@ -9,7 +9,7 @@ import { convertBasicReportDates } from '../../data/incidentReportingApiUtils'
 import { mockErrorResponse, mockReport } from '../../data/testData/incidentReporting'
 import { unsortedPageOf } from '../../data/testData/paginatedResponses'
 import { mockSharedUser } from '../../data/testData/manageUsers'
-import { approverUser, hqUser, reportingUser, unauthorisedUser } from '../../data/testData/users'
+import { mockDataWarden, mockReportingOfficer, mockHqViewer, mockUnauthorisedUser } from '../../data/testData/users'
 import { mockThrownError } from '../../data/testData/thrownErrors'
 import UserService from '../../services/userService'
 import { Status } from '../../reportConfiguration/constants'
@@ -50,10 +50,10 @@ describe('Dashboard permissions', () => {
   const hide = 'hide' as const
 
   it.each([
-    { userType: 'reporting officer', user: reportingUser, action: show },
-    { userType: 'data warden', user: approverUser, action: hide },
-    { userType: 'HQ view-only user', user: hqUser, action: hide },
-    { userType: 'unauthorised user', user: unauthorisedUser, action: hide },
+    { userType: 'reporting officer', user: mockReportingOfficer, action: show },
+    { userType: 'data warden', user: mockDataWarden, action: hide },
+    { userType: 'HQ view-only user', user: mockHqViewer, action: hide },
+    { userType: 'unauthorised user', user: mockUnauthorisedUser, action: hide },
   ])('should $action report button for $userType', ({ user, action }) => {
     return request(appWithAllRoutes({ services: { userService }, userSupplier: () => user }))
       .get('/reports')
@@ -69,7 +69,7 @@ describe('Dashboard permissions', () => {
   it('should hide report button for reporting officer when their active caseload in not active in the service', () => {
     config.activePrisons = ['LEI']
 
-    return request(appWithAllRoutes({ services: { userService }, userSupplier: () => reportingUser }))
+    return request(appWithAllRoutes({ services: { userService }, userSupplier: () => mockReportingOfficer }))
       .get('/reports')
       .expect(res => {
         expect(res.text).not.toContain('Report an incident')
@@ -167,7 +167,7 @@ describe('GET dashboard', () => {
       incidentStatuses: 'toDo',
     }
 
-    return request(appWithAllRoutes({ services: { userService }, userSupplier: () => reportingUser }))
+    return request(appWithAllRoutes({ services: { userService }, userSupplier: () => mockReportingOfficer }))
       .get('/reports')
       .query(queryParams)
       .expect('Content-Type', /html/)
@@ -202,7 +202,7 @@ describe('GET dashboard', () => {
       incidentStatuses: 'DRAFT',
     }
 
-    return request(appWithAllRoutes({ services: { userService }, userSupplier: () => approverUser }))
+    return request(appWithAllRoutes({ services: { userService }, userSupplier: () => mockDataWarden }))
       .get('/reports')
       .query(queryParams)
       .expect('Content-Type', /html/)
@@ -220,7 +220,7 @@ describe('GET dashboard', () => {
       typeFamily: 'FIND',
     }
 
-    return request(appWithAllRoutes({ services: { userService }, userSupplier: () => approverUser }))
+    return request(appWithAllRoutes({ services: { userService }, userSupplier: () => mockDataWarden }))
       .get('/reports')
       .query(queryParams)
       .expect('Content-Type', /html/)
@@ -277,7 +277,7 @@ describe('GET dashboard', () => {
       status: ['DRAFT', 'NEEDS_UPDATING', 'REOPENED'],
       type: undefined,
     }
-    return request(appWithAllRoutes({ services: { userService }, userSupplier: () => reportingUser }))
+    return request(appWithAllRoutes({ services: { userService }, userSupplier: () => mockReportingOfficer }))
       .get('/reports')
       .expect('Content-Type', /html/)
       .expect(200)
@@ -314,7 +314,7 @@ describe('GET dashboard', () => {
       status: undefined,
       type: undefined,
     }
-    return request(appWithAllRoutes({ services: { userService }, userSupplier: () => reportingUser }))
+    return request(appWithAllRoutes({ services: { userService }, userSupplier: () => mockReportingOfficer }))
       .get('/reports')
       .query({ incidentStatuses: '' })
       .expect('Content-Type', /html/)
@@ -352,7 +352,7 @@ describe('GET dashboard', () => {
       status: ['DRAFT', 'NEEDS_UPDATING', 'REOPENED'],
       type: undefined,
     }
-    return request(appWithAllRoutes({ services: { userService }, userSupplier: () => reportingUser }))
+    return request(appWithAllRoutes({ services: { userService }, userSupplier: () => mockReportingOfficer }))
       .get('/reports')
       .expect('Content-Type', /html/)
       .expect(200)
@@ -380,7 +380,7 @@ describe('GET dashboard', () => {
       status: undefined,
       type: undefined,
     }
-    return request(appWithAllRoutes({ services: { userService }, userSupplier: () => approverUser }))
+    return request(appWithAllRoutes({ services: { userService }, userSupplier: () => mockDataWarden }))
       .get('/reports')
       .expect('Content-Type', /html/)
       .expect(200)
@@ -408,7 +408,7 @@ describe('GET dashboard', () => {
       status: undefined,
       type: undefined,
     }
-    return request(appWithAllRoutes({ services: { userService }, userSupplier: () => approverUser }))
+    return request(appWithAllRoutes({ services: { userService }, userSupplier: () => mockDataWarden }))
       .get('/reports')
       .expect('Content-Type', /html/)
       .expect(200)
@@ -458,7 +458,7 @@ describe('search validations', () => {
       type: undefined,
     }
 
-    return request(appWithAllRoutes({ services: { userService }, userSupplier: () => reportingUser }))
+    return request(appWithAllRoutes({ services: { userService }, userSupplier: () => mockReportingOfficer }))
       .get('/reports')
       .query({ searchID: searchValue })
       .expect('Content-Type', /html/)
@@ -665,7 +665,7 @@ describe('work list filter validations in RO view', () => {
       status: expectedArgs as Status[],
       type: undefined,
     }
-    return request(appWithAllRoutes({ services: { userService }, userSupplier: () => reportingUser }))
+    return request(appWithAllRoutes({ services: { userService }, userSupplier: () => mockReportingOfficer }))
       .get('/reports')
       .query({ incidentStatuses: statusQuery })
       .expect('Content-Type', /html/)
@@ -701,7 +701,7 @@ describe('work list filter validations in DW view', () => {
       status: expectedArgs as Status[],
       type: undefined,
     }
-    return request(appWithAllRoutes({ services: { userService }, userSupplier: () => approverUser }))
+    return request(appWithAllRoutes({ services: { userService }, userSupplier: () => mockDataWarden }))
       .get('/reports')
       .query({ incidentStatuses: statusQuery })
       .expect('Content-Type', /html/)
@@ -722,14 +722,14 @@ describe('Establishment filter validations', () => {
       usertype: 'RO',
       queryLocation: 'ASH',
       expectedLocations: ['MDI'],
-      user: reportingUser,
+      user: mockReportingOfficer,
       expectedStatus: undefined,
     },
     {
       usertype: 'DW',
       queryLocation: 'ASH',
       expectedLocations: ['MDI', 'LEI'],
-      user: approverUser,
+      user: mockDataWarden,
       expectedStatus: undefined,
     },
   ])(
@@ -789,7 +789,7 @@ describe('Status/work list filter validations', () => {
       scenario: 'single invalid entry',
       usertype: 'RO',
       expectedLocations: ['MDI'],
-      user: reportingUser,
+      user: mockReportingOfficer,
       queryStatus: 'DRAFT',
       expectedStatus: undefined,
       expectedError: 'Work list filter submitted contains invalid values',
@@ -798,7 +798,7 @@ describe('Status/work list filter validations', () => {
       scenario: 'multiple invalid entries',
       usertype: 'RO',
       expectedLocations: ['MDI'],
-      user: reportingUser,
+      user: mockReportingOfficer,
       queryStatus: ['DRAFT', 'AWAITING_REVIEW'],
       expectedStatus: undefined,
       expectedError: 'Work list filter submitted contains invalid values',
@@ -807,7 +807,7 @@ describe('Status/work list filter validations', () => {
       scenario: 'invalid entries alongside valid entries',
       usertype: 'RO',
       expectedLocations: ['MDI'],
-      user: reportingUser,
+      user: mockReportingOfficer,
       queryStatus: ['submitted', 'done', 'DRAFT', 'AWAITING_REVIEW'],
       expectedStatus: undefined,
       expectedError: 'Work list filter submitted contains invalid values',
@@ -816,7 +816,7 @@ describe('Status/work list filter validations', () => {
       scenario: 'entry entirely invalid for any user',
       usertype: 'RO',
       expectedLocations: ['MDI'],
-      user: reportingUser,
+      user: mockReportingOfficer,
       queryStatus: 'random_status',
       expectedStatus: undefined,
       expectedError: 'Work list filter submitted contains invalid values',
@@ -825,7 +825,7 @@ describe('Status/work list filter validations', () => {
       scenario: 'entries entirely invalid for any user',
       usertype: 'RO',
       expectedLocations: ['MDI'],
-      user: reportingUser,
+      user: mockReportingOfficer,
       queryStatus: ['random_status', 'another_option'],
       expectedStatus: undefined,
       expectedError: 'Work list filter submitted contains invalid values',
@@ -834,7 +834,7 @@ describe('Status/work list filter validations', () => {
       scenario: 'single invalid entry',
       usertype: 'DW',
       expectedLocations: ['MDI', 'LEI'],
-      user: approverUser,
+      user: mockDataWarden,
       queryStatus: 'toDo',
       expectedStatus: undefined,
       expectedError: 'Status filter submitted contains invalid values',
@@ -843,7 +843,7 @@ describe('Status/work list filter validations', () => {
       scenario: 'multiple invalid entries',
       usertype: 'DW',
       expectedLocations: ['MDI', 'LEI'],
-      user: approverUser,
+      user: mockDataWarden,
       queryStatus: ['toDo', 'done'],
       expectedStatus: undefined,
       expectedError: 'Status filter submitted contains invalid values',
@@ -852,7 +852,7 @@ describe('Status/work list filter validations', () => {
       scenario: 'invalid entries alongside valid entries',
       usertype: 'DW',
       expectedLocations: ['MDI', 'LEI'],
-      user: approverUser,
+      user: mockDataWarden,
       queryStatus: ['submitted', 'done', 'DRAFT', 'AWAITING_REVIEW'],
       expectedStatus: undefined,
       expectedError: 'Status filter submitted contains invalid values',
@@ -861,7 +861,7 @@ describe('Status/work list filter validations', () => {
       scenario: 'entry entirely invalid for any user',
       usertype: 'DW',
       expectedLocations: ['MDI', 'LEI'],
-      user: approverUser,
+      user: mockDataWarden,
       queryStatus: 'random_status',
       expectedStatus: undefined,
       expectedError: 'Status filter submitted contains invalid values',
@@ -870,7 +870,7 @@ describe('Status/work list filter validations', () => {
       scenario: 'entries entirely invalid for any user',
       usertype: 'DW',
       expectedLocations: ['MDI', 'LEI'],
-      user: approverUser,
+      user: mockDataWarden,
       queryStatus: ['random_status', 'another_option'],
       expectedStatus: undefined,
       expectedError: 'Status filter submitted contains invalid values',

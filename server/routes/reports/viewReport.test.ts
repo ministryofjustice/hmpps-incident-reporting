@@ -14,7 +14,7 @@ import { makeSimpleQuestion } from '../../data/testData/incidentReportingJest'
 import { mockSharedUser } from '../../data/testData/manageUsers'
 import { leeds, moorland } from '../../data/testData/prisonApi'
 import { mockThrownError } from '../../data/testData/thrownErrors'
-import { reportingUser, approverUser, hqUser, unauthorisedUser } from '../../data/testData/users'
+import { mockDataWarden, mockReportingOfficer, mockHqViewer, mockUnauthorisedUser } from '../../data/testData/users'
 
 jest.mock('../../data/prisonApi')
 jest.mock('../../data/incidentReportingApi')
@@ -850,10 +850,10 @@ describe('View report page', () => {
     })
 
     describe.each([
-      { userType: 'reporting officer', user: reportingUser, canView: true, canEdit: true, canSubmit: true },
-      { userType: 'data warden', user: approverUser, canView: true, canEdit: false, canSubmit: false },
-      { userType: 'HQ view-only user', user: hqUser, canView: true, canEdit: false, canSubmit: false },
-      { userType: 'unauthorised user', user: unauthorisedUser, canView: false, canEdit: false, canSubmit: false },
+      { userType: 'reporting officer', user: mockReportingOfficer, canView: true, canEdit: true, canSubmit: true },
+      { userType: 'data warden', user: mockDataWarden, canView: true, canEdit: false, canSubmit: false },
+      { userType: 'HQ view-only user', user: mockHqViewer, canView: true, canEdit: false, canSubmit: false },
+      { userType: 'unauthorised user', user: mockUnauthorisedUser, canView: false, canEdit: false, canSubmit: false },
     ])('for $userType', ({ user, canView, canEdit, canSubmit }) => {
       it(`should ${canView ? 'grant' : 'deny'} viewing a report`, () => {
         const testRequest = request(appWithAllRoutes({ services: { userService }, userSupplier: () => user }))

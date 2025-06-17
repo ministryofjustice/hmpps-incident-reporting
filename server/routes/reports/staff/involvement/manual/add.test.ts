@@ -12,7 +12,12 @@ import { convertReportWithDetailsDates } from '../../../../../data/incidentRepor
 import ManageUsersApiClient from '../../../../../data/manageUsersApiClient'
 import { mockErrorResponse, mockReport } from '../../../../../data/testData/incidentReporting'
 import { mockThrownError } from '../../../../../data/testData/thrownErrors'
-import { approverUser, hqUser, reportingUser, unauthorisedUser } from '../../../../../data/testData/users'
+import {
+  mockDataWarden,
+  mockReportingOfficer,
+  mockHqViewer,
+  mockUnauthorisedUser,
+} from '../../../../../data/testData/users'
 import { appWithAllRoutes } from '../../../../testutils/appSetup'
 import { now } from '../../../../../testutils/fakeClock'
 import type { Values } from './fields'
@@ -275,10 +280,10 @@ describe('Adding a new staff member to a report who does not have a DPS/NOMIS ac
     const granted = 'granted' as const
     const denied = 'denied' as const
     it.each([
-      { userType: 'reporting officer', user: reportingUser, action: granted },
-      { userType: 'data warden', user: approverUser, action: denied },
-      { userType: 'HQ view-only user', user: hqUser, action: denied },
-      { userType: 'unauthorised user', user: unauthorisedUser, action: denied },
+      { userType: 'reporting officer', user: mockReportingOfficer, action: granted },
+      { userType: 'data warden', user: mockDataWarden, action: denied },
+      { userType: 'HQ view-only user', user: mockHqViewer, action: denied },
+      { userType: 'unauthorised user', user: mockUnauthorisedUser, action: denied },
     ])('should be $action to $userType', ({ user, action }) => {
       incidentReportingApi.getReportWithDetailsById.mockResolvedValueOnce(report)
 

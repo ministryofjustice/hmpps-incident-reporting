@@ -7,7 +7,7 @@ import { IncidentReportingApi } from '../../../data/incidentReportingApi'
 import { convertBasicReportDates } from '../../../data/incidentReportingApiUtils'
 import { mockErrorResponse, mockReport } from '../../../data/testData/incidentReporting'
 import { mockThrownError } from '../../../data/testData/thrownErrors'
-import { approverUser, hqUser, reportingUser, unauthorisedUser } from '../../../data/testData/users'
+import { mockDataWarden, mockReportingOfficer, mockHqViewer, mockUnauthorisedUser } from '../../../data/testData/users'
 import type { Status } from '../../../reportConfiguration/constants'
 
 jest.mock('../../../data/incidentReportingApi')
@@ -271,10 +271,10 @@ describe('Updating report incident date and time', () => {
     const granted = 'granted' as const
     const denied = 'denied' as const
     it.each([
-      { userType: 'reporting officer', user: reportingUser, action: granted },
-      { userType: 'data warden', user: approverUser, action: denied },
-      { userType: 'HQ view-only user', user: hqUser, action: denied },
-      { userType: 'unauthorised user', user: unauthorisedUser, action: denied },
+      { userType: 'reporting officer', user: mockReportingOfficer, action: granted },
+      { userType: 'data warden', user: mockDataWarden, action: denied },
+      { userType: 'HQ view-only user', user: mockHqViewer, action: denied },
+      { userType: 'unauthorised user', user: mockUnauthorisedUser, action: denied },
     ])('should be $action to $userType', ({ user, action }) => {
       const testRequest = request
         .agent(appWithAllRoutes({ userSupplier: () => user }))

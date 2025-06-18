@@ -8,7 +8,7 @@ import { IncidentReportingApi } from '../../../data/incidentReportingApi'
 import { convertReportWithDetailsDates } from '../../../data/incidentReportingApiUtils'
 import { mockErrorResponse, mockReport } from '../../../data/testData/incidentReporting'
 import { mockThrownError } from '../../../data/testData/thrownErrors'
-import { approverUser, hqUser, reportingUser, unauthorisedUser } from '../../../data/testData/users'
+import { mockDataWarden, mockReportingOfficer, mockHqViewer, mockUnauthorisedUser } from '../../../data/testData/users'
 
 jest.mock('../../../data/incidentReportingApi')
 
@@ -345,10 +345,10 @@ describe('Creating a report', () => {
     const granted = 'granted' as const
     const denied = 'denied' as const
     it.each([
-      { userType: 'reporting officer', user: reportingUser, action: granted },
-      { userType: 'data warden', user: approverUser, action: denied },
-      { userType: 'HQ view-only user', user: hqUser, action: denied },
-      { userType: 'unauthorised user', user: unauthorisedUser, action: denied },
+      { userType: 'reporting officer', user: mockReportingOfficer, action: granted },
+      { userType: 'data warden', user: mockDataWarden, action: denied },
+      { userType: 'HQ view-only user', user: mockHqViewer, action: denied },
+      { userType: 'unauthorised user', user: mockUnauthorisedUser, action: denied },
     ])('should be $action to $userType', ({ user, action }) => {
       const testRequest = request(appWithAllRoutes({ userSupplier: () => user }))
         .get('/create-report')
@@ -362,8 +362,8 @@ describe('Creating a report', () => {
     })
 
     it.each([
-      { userType: 'reporting officer', user: reportingUser },
-      { userType: 'data warden', user: approverUser },
+      { userType: 'reporting officer', user: mockReportingOfficer },
+      { userType: 'data warden', user: mockDataWarden },
     ])('should be denied to $userType if active caseload is not an active prison', ({ user }) => {
       config.activePrisons = ['LEI']
 

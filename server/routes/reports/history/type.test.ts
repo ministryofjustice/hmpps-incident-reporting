@@ -6,7 +6,7 @@ import { convertReportWithDetailsDates } from '../../../data/incidentReportingAp
 import { mockErrorResponse, mockReport } from '../../../data/testData/incidentReporting'
 import { mockSharedUser, mockUser } from '../../../data/testData/manageUsers'
 import { mockThrownError } from '../../../data/testData/thrownErrors'
-import { reportingUser, approverUser, hqUser, unauthorisedUser } from '../../../data/testData/users'
+import { mockDataWarden, mockReportingOfficer, mockHqViewer, mockUnauthorisedUser } from '../../../data/testData/users'
 import UserService from '../../../services/userService'
 import { appWithAllRoutes } from '../../testutils/appSetup'
 import { now } from '../../../testutils/fakeClock'
@@ -163,10 +163,10 @@ describe('Report incident type history', () => {
     const granted = 'granted' as const
     const denied = 'denied' as const
     it.each([
-      { userType: 'reporting officer', user: reportingUser, action: granted },
-      { userType: 'data warden', user: approverUser, action: granted },
-      { userType: 'HQ view-only user', user: hqUser, action: granted },
-      { userType: 'unauthorised user', user: unauthorisedUser, action: denied },
+      { userType: 'reporting officer', user: mockReportingOfficer, action: granted },
+      { userType: 'data warden', user: mockDataWarden, action: granted },
+      { userType: 'HQ view-only user', user: mockHqViewer, action: granted },
+      { userType: 'unauthorised user', user: mockUnauthorisedUser, action: denied },
     ])('should be $action to $userType', ({ user, action }) => {
       const testRequest = request(appWithAllRoutes({ services: { userService }, userSupplier: () => user }))
         .get(typeHistoryUrl)

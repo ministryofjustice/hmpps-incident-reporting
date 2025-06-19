@@ -2,7 +2,7 @@ import type { Express } from 'express'
 import request from 'supertest'
 
 import { PrisonApi } from '../data/prisonApi'
-import { unauthorisedUser } from '../data/testData/users'
+import { mockUnauthorisedUser } from '../data/testData/users'
 import { appWithAllRoutes } from './testutils/appSetup'
 
 jest.mock('../data/prisonApi')
@@ -29,7 +29,7 @@ describe('GET /', () => {
   })
 
   it('should log user out if they do not have appropriate role', () => {
-    return request(appWithAllRoutes({ userSupplier: () => unauthorisedUser }))
+    return request(appWithAllRoutes({ userSupplier: () => mockUnauthorisedUser }))
       .get('/')
       .expect(302)
       .expect(res => {

@@ -15,7 +15,6 @@ import {
   typeFamilies,
   workListCodes,
 } from '../../reportConfiguration/constants'
-import { roleApproveReject, roleReadWrite } from '../../data/constants'
 import type { PaginatedBasicReports } from '../../data/incidentReportingApi'
 import { type Order, orderOptions } from '../../data/offenderSearchApi'
 import type { HeaderCell } from '../../utils/sortableTable'
@@ -50,13 +49,12 @@ export default function dashboard(): Router {
   get('/', async (req, res) => {
     const { incidentReportingApi, userService } = res.locals.apis
 
-    const userRoles: string[] = res.locals.user.roles
-
+    const { permissions } = res.locals
     const { activeCaseLoad, caseLoads: userCaseloads } = res.locals.user
     const userCaseloadIds = userCaseloads.map(caseload => caseload.caseLoadId)
 
     let showEstablishmentsFilter = false
-    // TODO: PECS
+    // TODO: add PECS regions for users with permissions.hasPecsAccess
     if (userCaseloadIds.length > 1) {
       showEstablishmentsFilter = true
     }
@@ -116,11 +114,9 @@ export default function dashboard(): Router {
 
     let noFiltersSupplied = Boolean(!searchID && !location && !fromDate && !toDate && !typeFamily && !incidentStatuses)
 
-    const isReportingOfficer = userRoles.includes(roleReadWrite) && !userRoles.includes(roleApproveReject)
-
     // RO: Default work list to 'To do' for an RO when no other filters are applied and when the user arrives on page
     if (
-      isReportingOfficer &&
+      permissions.isReportingOfficer &&
       !('incidentStatuses' in req.query) &&
       !('sort' in req.query || 'page' in req.query) &&
       noFiltersSupplied
@@ -136,7 +132,7 @@ export default function dashboard(): Router {
 
     let searchStatuses: Status[] | undefined
     try {
-      const useWorklists = isReportingOfficer
+      const useWorklists = permissions.isReportingOfficer
       searchStatuses = statusesFromParam(incidentStatuses as IncidentStatuses[], useWorklists)
     } catch (err) {
       let errorMessage
@@ -262,7 +258,7 @@ export default function dashboard(): Router {
     }))
     let statusItems: GovukCheckboxesItem[]
     let statusCheckboxLabel: string
-    if (userRoles.includes(roleReadWrite) && !userRoles.includes(roleApproveReject)) {
+    if (permissions.isReportingOfficer) {
       statusItems = workListMapping.map(workListValue => ({
         value: workListValue.code,
         text: workListValue.description,

@@ -60,10 +60,10 @@ describe('View report page', () => {
       makeSimpleQuestion(
         '67179',
         'DESCRIBE HOW THE ITEM WAS FOUND (SELECT ALL THAT APPLY)',
-        'CELL SEARCH',
-        'INFORMATION RECEIVED',
+        ['CELL SEARCH', '218687'],
+        ['INFORMATION RECEIVED', '218695'],
       ),
-      makeSimpleQuestion('67180', 'IS THE LOCATION OF THE INCIDENT KNOWN?', 'YES'),
+      makeSimpleQuestion('67180', 'IS THE LOCATION OF THE INCIDENT KNOWN?', ['YES', '218711']),
     ]
     incidentReportingApi.getReportWithDetailsById.mockResolvedValueOnce(mockedReport)
     viewReportUrl = `/reports/${mockedReport.id}`
@@ -277,14 +277,14 @@ describe('View report page', () => {
       mockedReport.status = 'CLOSED'
       mockedReport.description = 'An old drone sighting'
       mockedReport.questions = [
-        makeSimpleQuestion('57179', 'Was a drone sighted in mid-flight', 'Yes'),
-        makeSimpleQuestion('57180', 'What time was the drone(s) sighted.', '12am to 6am'),
-        makeSimpleQuestion('57181', 'Number of drones observed', '1'),
+        makeSimpleQuestion('57179', 'Was a drone sighted in mid-flight', ['Yes', '208684']),
+        makeSimpleQuestion('57180', 'What time was the drone(s) sighted.', ['12am to 6am', '208686']),
+        makeSimpleQuestion('57181', 'Number of drones observed', ['1', '208690']),
         makeSimpleQuestion(
           '57184',
           'Where was the drone(s) sighted',
-          'Beyond the external perimeter border',
-          'Exercise yard',
+          ['Beyond the external perimeter border', '208696'],
+          ['Exercise yard', '208697'],
         ),
       ]
     })
@@ -529,23 +529,26 @@ describe('View report page', () => {
         }),
       )
       mockedReport.questions = [
-        makeSimpleQuestion('61279', 'WHAT WAS THE MAIN MANAGEMENT OUTCOME OF THE INCIDENT', 'IEP REGRESSION'),
-        makeSimpleQuestion('61280', 'IS ANY MEMBER OF STAFF FACING DISCIPLINARY CHARGES', 'NO'),
-        makeSimpleQuestion('61281', 'IS THERE ANY MEDIA INTEREST IN THIS INCIDENT', 'NO'),
-        makeSimpleQuestion('61282', 'HAS THE PRISON SERVICE PRESS OFFICE BEEN INFORMED', 'NO'),
-        makeSimpleQuestion('61283', 'IS THE LOCATION OF THE INCDENT KNOWN', 'NO'),
-        makeSimpleQuestion('61285', 'WAS THIS A SEXUAL ASSAULT', 'NO'),
-        makeSimpleQuestion('61286', 'DID THE ASSAULT OCCUR DURING A FIGHT', 'NO'),
-        makeSimpleQuestion('61287', 'WHAT TYPE OF ASSAULT WAS IT', 'PRISONER ON STAFF'),
-        makeSimpleQuestion('61289', 'DESCRIBE THE TYPE OF STAFF', 'OPERATIONAL STAFF - OTHER'),
-        makeSimpleQuestion('61290', 'WAS SPITTING USED IN THIS INCIDENT', 'NO'),
-        makeSimpleQuestion('61294', 'WERE ANY WEAPONS USED', 'NO'),
-        makeSimpleQuestion('61296', 'WERE ANY INJURIES RECEIVED DURING THIS INCIDENT', 'NO'),
-        makeSimpleQuestion('61306', 'ARE THERE ANY STAFF NOW OFF DUTY AS A RESULT OF THIS INCIDENT', 'NO'),
-        makeSimpleQuestion('61307', 'ARE ANY STAFF ON SICK LEAVE AS A RESULT OF THIS INCIDENT', 'NO'),
-        makeSimpleQuestion('61308', 'DID THE ASSAULT OCCUR IN PUBLIC VIEW', 'YES'),
-        makeSimpleQuestion('61309', 'IS THERE ANY AUDIO OR VISUAL FOOTAGE OF THE ASSAULT', 'NO'),
-        makeSimpleQuestion('61311', 'WAS THERE AN APPARENT REASON FOR THE ASSAULT', 'NO'),
+        makeSimpleQuestion('61279', 'WHAT WAS THE MAIN MANAGEMENT OUTCOME OF THE INCIDENT', [
+          'IEP REGRESSION',
+          '213063',
+        ]),
+        makeSimpleQuestion('61280', 'IS ANY MEMBER OF STAFF FACING DISCIPLINARY CHARGES', ['NO', '213067']),
+        makeSimpleQuestion('61281', 'IS THERE ANY MEDIA INTEREST IN THIS INCIDENT', ['NO', '213069']),
+        makeSimpleQuestion('61282', 'HAS THE PRISON SERVICE PRESS OFFICE BEEN INFORMED', ['NO', '213071']),
+        makeSimpleQuestion('61283', 'IS THE LOCATION OF THE INCDENT KNOWN', ['NO', '213073']),
+        makeSimpleQuestion('61285', 'WAS THIS A SEXUAL ASSAULT', ['NO', '213112']),
+        makeSimpleQuestion('61286', 'DID THE ASSAULT OCCUR DURING A FIGHT', ['NO', '213114']),
+        makeSimpleQuestion('61287', 'WHAT TYPE OF ASSAULT WAS IT', ['PRISONER ON STAFF', '213116']),
+        makeSimpleQuestion('61289', 'DESCRIBE THE TYPE OF STAFF', ['OPERATIONAL STAFF - OTHER', '213122']),
+        makeSimpleQuestion('61290', 'WAS SPITTING USED IN THIS INCIDENT', ['NO', '213125']),
+        makeSimpleQuestion('61294', 'WERE ANY WEAPONS USED', ['NO', '213136']),
+        makeSimpleQuestion('61296', 'WERE ANY INJURIES RECEIVED DURING THIS INCIDENT', ['NO', '213150']),
+        makeSimpleQuestion('61306', 'ARE THERE ANY STAFF NOW OFF DUTY AS A RESULT OF THIS INCIDENT', ['NO', '213200']),
+        makeSimpleQuestion('61307', 'ARE ANY STAFF ON SICK LEAVE AS A RESULT OF THIS INCIDENT', ['NO', '213202']),
+        makeSimpleQuestion('61308', 'DID THE ASSAULT OCCUR IN PUBLIC VIEW', ['YES', '213203']),
+        makeSimpleQuestion('61309', 'IS THERE ANY AUDIO OR VISUAL FOOTAGE OF THE ASSAULT', ['NO', '213205']),
+        makeSimpleQuestion('61311', 'WAS THERE AN APPARENT REASON FOR THE ASSAULT', ['NO', '213213']),
       ]
       incidentReportingApi.getReportWithDetailsById.mockReset()
       incidentReportingApi.getReportWithDetailsById.mockResolvedValueOnce(mockedReport)
@@ -699,26 +702,23 @@ describe('View report page', () => {
       beforeEach(() => {
         mockedReport.type = 'FIND_6'
         mockedReport.questions = [
-          makeSimpleQuestion(
-            '67179',
-            'DESCRIBE HOW THE ITEM WAS FOUND (SELECT ALL THAT APPLY)',
+          makeSimpleQuestion('67179', 'DESCRIBE HOW THE ITEM WAS FOUND (SELECT ALL THAT APPLY)', [
             'INFORMATION RECEIVED',
-          ),
-          makeSimpleQuestion('67180', 'IS THE LOCATION OF THE INCIDENT KNOWN?', 'NO'),
-          makeSimpleQuestion('67182', 'DESCRIBE THE METHOD OF ENTRY INTO THE ESTABLISHMENT', 'UNKNOWN'),
-          makeSimpleQuestion('67184', 'IF FOUND IN POSSESSION, WHOSE WAS IT FOUND IN?', 'NOT APPLICABLE'),
-          makeSimpleQuestion('67186', 'WHAT WAS THE METHOD OF CONCEALMENT', 'IN HAND'),
-          makeSimpleQuestion(
-            '67187',
-            'PLEASE SELECT CATEGORY OF FIND',
+            '218695',
+          ]),
+          makeSimpleQuestion('67180', 'IS THE LOCATION OF THE INCIDENT KNOWN?', ['NO', '218710']),
+          makeSimpleQuestion('67182', 'DESCRIBE THE METHOD OF ENTRY INTO THE ESTABLISHMENT', ['UNKNOWN', '218741']),
+          makeSimpleQuestion('67184', 'IF FOUND IN POSSESSION, WHOSE WAS IT FOUND IN?', ['NOT APPLICABLE', '218756']),
+          makeSimpleQuestion('67186', 'WHAT WAS THE METHOD OF CONCEALMENT', ['IN HAND', '218774']),
+          makeSimpleQuestion('67187', 'PLEASE SELECT CATEGORY OF FIND', [
             'OTHER REPORTABLE ITEMS (BY NATIONAL OR LOCAL POLICY)',
-          ),
-          makeSimpleQuestion(
-            '67204',
-            'OTHER REPORTABLE ITEMS FOUND (BY NATIONAL OR LOCAL POLICY)',
+            '218790',
+          ]),
+          makeSimpleQuestion('67204', 'OTHER REPORTABLE ITEMS FOUND (BY NATIONAL OR LOCAL POLICY)', [
             'YES (NOOSE / LIGATURE)',
-          ),
-          makeSimpleQuestion('67226', 'WERE THE ITEMS OBTAINED ON TEMPORARY RELEASE?', 'NO'),
+            '218951',
+          ]),
+          makeSimpleQuestion('67226', 'WERE THE ITEMS OBTAINED ON TEMPORARY RELEASE?', ['NO', '219123']),
         ]
       })
 
@@ -827,22 +827,23 @@ describe('View report page', () => {
       )
       mockedReport.questions = [
         // NB: all questions are complete
-        makeSimpleQuestion('67179', 'DESCRIBE HOW THE ITEM WAS FOUND (SELECT ALL THAT APPLY)', 'INFORMATION RECEIVED'),
-        makeSimpleQuestion('67180', 'IS THE LOCATION OF THE INCIDENT KNOWN?', 'NO'),
-        makeSimpleQuestion('67182', 'DESCRIBE THE METHOD OF ENTRY INTO THE ESTABLISHMENT', 'UNKNOWN'),
-        makeSimpleQuestion('67184', 'IF FOUND IN POSSESSION, WHOSE WAS IT FOUND IN?', 'NOT APPLICABLE'),
-        makeSimpleQuestion('67186', 'WHAT WAS THE METHOD OF CONCEALMENT', 'IN HAND'),
-        makeSimpleQuestion(
-          '67187',
-          'PLEASE SELECT CATEGORY OF FIND',
+        makeSimpleQuestion('67179', 'DESCRIBE HOW THE ITEM WAS FOUND (SELECT ALL THAT APPLY)', [
+          'INFORMATION RECEIVED',
+          '218695',
+        ]),
+        makeSimpleQuestion('67180', 'IS THE LOCATION OF THE INCIDENT KNOWN?', ['NO', '218710']),
+        makeSimpleQuestion('67182', 'DESCRIBE THE METHOD OF ENTRY INTO THE ESTABLISHMENT', ['UNKNOWN', '218741']),
+        makeSimpleQuestion('67184', 'IF FOUND IN POSSESSION, WHOSE WAS IT FOUND IN?', ['NOT APPLICABLE', '218756']),
+        makeSimpleQuestion('67186', 'WHAT WAS THE METHOD OF CONCEALMENT', ['IN HAND', '218774']),
+        makeSimpleQuestion('67187', 'PLEASE SELECT CATEGORY OF FIND', [
           'OTHER REPORTABLE ITEMS (BY NATIONAL OR LOCAL POLICY)',
-        ),
-        makeSimpleQuestion(
-          '67204',
-          'OTHER REPORTABLE ITEMS FOUND (BY NATIONAL OR LOCAL POLICY)',
+          '218790',
+        ]),
+        makeSimpleQuestion('67204', 'OTHER REPORTABLE ITEMS FOUND (BY NATIONAL OR LOCAL POLICY)', [
           'YES (NOOSE / LIGATURE)',
-        ),
-        makeSimpleQuestion('67226', 'WERE THE ITEMS OBTAINED ON TEMPORARY RELEASE?', 'NO'),
+          '218951',
+        ]),
+        makeSimpleQuestion('67226', 'WERE THE ITEMS OBTAINED ON TEMPORARY RELEASE?', ['NO', '219123']),
       ]
       incidentReportingApi.getReportWithDetailsById.mockReset()
       incidentReportingApi.getReportWithDetailsById.mockResolvedValueOnce(mockedReport)

@@ -199,6 +199,7 @@ describe('Question progress', () => {
         responses: [
           {
             response: 'A1-1',
+            code: '1-1',
             responseDate: null,
             additionalInformation: null,
             recordedAt: new Date(),
@@ -262,6 +263,7 @@ describe('Question progress', () => {
         responses: [
           {
             response: 'A1-2',
+            code: '1-2',
             responseDate: null,
             additionalInformation: null,
             recordedAt: new Date(),
@@ -328,6 +330,7 @@ describe('Question progress', () => {
         responses: [
           {
             response: 'A1-1',
+            code: '1-1',
             responseDate: null,
             additionalInformation: null,
             recordedAt: new Date(),
@@ -342,6 +345,7 @@ describe('Question progress', () => {
         responses: [
           {
             response: 'A2-2',
+            code: '2-2',
             responseDate: null,
             additionalInformation: null,
             recordedAt: new Date(),
@@ -356,6 +360,7 @@ describe('Question progress', () => {
         responses: [
           {
             response: 'A3-2',
+            code: '3-2',
             responseDate: null,
             additionalInformation: null,
             recordedAt: new Date(),
@@ -370,6 +375,7 @@ describe('Question progress', () => {
         responses: [
           {
             response: 'A4-1',
+            code: '4-1',
             responseDate: null,
             additionalInformation: null,
             recordedAt: new Date(),
@@ -468,6 +474,7 @@ describe('Question progress', () => {
           responses: [
             {
               response: 'A1-10',
+              code: '1-10',
               responseDate: null,
               additionalInformation: null,
               recordedAt: new Date(),
@@ -571,6 +578,7 @@ describe('Question progress', () => {
           [
             {
               response: 'A1',
+              code: '1',
               responseDate: null,
               additionalInformation: null,
               recordedAt: new Date(),
@@ -589,6 +597,7 @@ describe('Question progress', () => {
           [
             {
               response: 'A2',
+              code: '2',
               responseDate: provided ? new Date() : null,
               additionalInformation: null,
               recordedAt: new Date(),
@@ -607,6 +616,7 @@ describe('Question progress', () => {
           [
             {
               response: 'A3',
+              code: '3',
               responseDate: null,
               additionalInformation: provided ? 'COMMENT' : null,
               recordedAt: new Date(),
@@ -627,6 +637,7 @@ describe('Question progress', () => {
           [
             {
               response: 'A4',
+              code: '4',
               responseDate: commentProvided ? new Date() : null,
               additionalInformation: dateProvided ? 'COMMENT' : null,
               recordedAt: new Date(),
@@ -642,6 +653,7 @@ describe('Question progress', () => {
           [
             {
               response: 'A1',
+              code: '1',
               responseDate: new Date(),
               additionalInformation: 'COMMENT',
               recordedAt: new Date(),
@@ -657,6 +669,7 @@ describe('Question progress', () => {
           [
             {
               response: 'A1',
+              code: '1',
               responseDate: null,
               additionalInformation: null,
               recordedAt: new Date(),
@@ -664,6 +677,7 @@ describe('Question progress', () => {
             },
             {
               response: 'A4',
+              code: '4',
               responseDate: new Date(),
               additionalInformation: 'COMMENT',
               recordedAt: new Date(),
@@ -758,6 +772,7 @@ describe('Question progress', () => {
             // complete
             {
               response: 'A1',
+              code: '1',
               responseDate: null,
               additionalInformation: null,
               recordedAt: new Date(),
@@ -766,6 +781,7 @@ describe('Question progress', () => {
             // complete
             {
               response: 'A3',
+              code: '3',
               responseDate: null,
               additionalInformation: 'COMMENT',
               recordedAt: new Date(),
@@ -782,6 +798,7 @@ describe('Question progress', () => {
             // complete
             {
               response: 'A1',
+              code: '1',
               responseDate: null,
               additionalInformation: null,
               recordedAt: new Date(),
@@ -790,6 +807,7 @@ describe('Question progress', () => {
             // incomplete
             {
               response: 'A3',
+              code: '3',
               responseDate: null,
               additionalInformation: null,
               recordedAt: new Date(),
@@ -856,6 +874,7 @@ describe('Question progress', () => {
           responses: [
             {
               response: 'A1',
+              code: '1',
               responseDate: null,
               additionalInformation: null,
               recordedAt: new Date(),

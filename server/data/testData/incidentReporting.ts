@@ -97,6 +97,7 @@ export function mockReport({
           additionalInformation: '',
           responses: buildArray(2, responseIndex => ({
             response: `Historic response #${responseIndex + 1}`,
+            code: `${responseIndex + 1}`,
             responseDate: format.isoDate(reportDateAndTime),
             additionalInformation: `Historic comment #${responseIndex + 1}`,
             recordedBy: 'some-user-2',
@@ -211,6 +212,7 @@ export function mockQuestion(
     additionalInformation: `Explanation #${questionIndex + 1}`,
     responses: buildArray(numberOfResponses, responseIndex => ({
       response: `Response #${responseIndex + 1}`,
+      code: `${responseIndex + 1}`,
       responseDate: format.isoDate(responseDate),
       recordedBy: 'some-user',
       recordedAt: format.isoDateTime(responseDate),

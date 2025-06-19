@@ -268,6 +268,7 @@ export default class QuestionsController extends BaseController<FormWizard.Multi
 
             const response: AddOrUpdateQuestionResponseRequest = {
               response: responseCode,
+              code: answerConfig.id,
               responseDate: null,
               additionalInformation: null,
             }

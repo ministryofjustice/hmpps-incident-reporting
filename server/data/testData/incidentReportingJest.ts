@@ -7,14 +7,15 @@ but typescript thinks that jest types are needed
 */
 
 // eslint-disable-next-line import/prefer-default-export
-export function makeSimpleQuestion(code: string, question: string, ...responseCodes: string[]): Question {
+export function makeSimpleQuestion(code: string, question: string, ...responses: [string, string][]): Question {
   return {
     code,
     question,
     additionalInformation: null,
-    responses: responseCodes.map(responseCode => {
+    responses: responses.map(([responseCode, responseId]) => {
       const response: Response = {
         response: responseCode,
+        code: responseId,
         responseDate: null,
         additionalInformation: null,
         recordedBy: 'USER1',

@@ -32,6 +32,7 @@ context('Responding to questions', () => {
         responses: [
           {
             response: 'NO',
+            code: '181153',
             responseDate: null,
             additionalInformation: null,
             recordedBy: 'user1',
@@ -46,6 +47,7 @@ context('Responding to questions', () => {
         responses: [
           {
             response: 'INVESTIGATION BY POLICE',
+            code: '181648',
             responseDate: null,
             additionalInformation: null,
             recordedBy: 'user1',
@@ -53,6 +55,7 @@ context('Responding to questions', () => {
           },
           {
             response: 'INVESTIGATION INTERNALLY',
+            code: '181649',
             responseDate: null,
             additionalInformation: null,
             recordedBy: 'user1',
@@ -67,6 +70,7 @@ context('Responding to questions', () => {
         responses: [
           {
             response: 'NO',
+            code: '182083',
             responseDate: null,
             additionalInformation: null,
             recordedBy: 'user1',
@@ -81,6 +85,7 @@ context('Responding to questions', () => {
         responses: [
           {
             response: 'NO',
+            code: '180711',
             responseDate: null,
             additionalInformation: null,
             recordedBy: 'user1',
@@ -95,6 +100,7 @@ context('Responding to questions', () => {
         responses: [
           {
             response: 'YES',
+            code: '181104',
             responseDate: '2025-03-19',
             additionalInformation: null,
             recordedBy: 'user1',
@@ -189,6 +195,7 @@ context('Responding to questions', () => {
             responses: [
               {
                 response: 'NO',
+                code: '181153',
                 responseDate: null,
                 additionalInformation: null,
               },
@@ -201,11 +208,13 @@ context('Responding to questions', () => {
             responses: [
               {
                 response: 'INVESTIGATION BY POLICE',
+                code: '181648',
                 responseDate: null,
                 additionalInformation: null,
               },
               {
                 response: 'INVESTIGATION INTERNALLY',
+                code: '181649',
                 responseDate: null,
                 additionalInformation: null,
               },
@@ -218,6 +227,7 @@ context('Responding to questions', () => {
             responses: [
               {
                 response: 'NO',
+                code: '182083',
                 responseDate: null,
                 additionalInformation: null,
               },
@@ -230,6 +240,7 @@ context('Responding to questions', () => {
             responses: [
               {
                 response: 'NO',
+                code: '180711',
                 responseDate: null,
                 additionalInformation: null,
               },
@@ -242,6 +253,7 @@ context('Responding to questions', () => {
             responses: [
               {
                 response: 'YES',
+                code: '181104',
                 responseDate: '2025-03-19',
                 additionalInformation: null,
               },
@@ -374,6 +386,7 @@ context('Responding to questions', () => {
             responses: [
               {
                 response: 'NO',
+                code: '181153',
                 responseDate: null,
                 additionalInformation: null,
               },
@@ -386,11 +399,13 @@ context('Responding to questions', () => {
             responses: [
               {
                 response: 'INVESTIGATION INTERNALLY',
+                code: '181649',
                 responseDate: null,
                 additionalInformation: null,
               },
               {
                 response: 'NO INVESTIGATION',
+                code: '181650',
                 responseDate: null,
                 additionalInformation: null,
               },
@@ -403,6 +418,7 @@ context('Responding to questions', () => {
             responses: [
               {
                 response: 'NO',
+                code: '182083',
                 responseDate: null,
                 additionalInformation: null,
               },
@@ -415,6 +431,7 @@ context('Responding to questions', () => {
             responses: [
               {
                 response: 'NO',
+                code: '180711',
                 responseDate: null,
                 additionalInformation: null,
               },
@@ -427,6 +444,7 @@ context('Responding to questions', () => {
             responses: [
               {
                 response: 'YES',
+                code: '181104',
                 responseDate: '2025-03-19',
                 additionalInformation: null,
               },

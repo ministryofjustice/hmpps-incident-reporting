@@ -128,6 +128,7 @@ context('View report', () => {
         responses: [
           {
             response: 'INCIDENT AT HEIGHT',
+            code: '214687',
             responseDate: null,
             additionalInformation: null,
             recordedBy: 'USER1',

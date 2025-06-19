@@ -101,6 +101,7 @@ describe('Displaying questions and responses', () => {
           responses: [
             {
               response: 'YES',
+              code: '182204',
               responseDate: now,
               additionalInformation: null,
               recordedBy: 'USER1',
@@ -129,10 +130,10 @@ describe('Displaying questions and responses', () => {
         makeSimpleQuestion(
           '67179',
           'DESCRIBE HOW THE ITEM WAS FOUND (SELECT ALL THAT APPLY)',
-          'BOSS CHAIR',
-          'DOG SEARCH',
+          ['BOSS CHAIR', '218686'],
+          ['DOG SEARCH', '218688'],
         ),
-        makeSimpleQuestion('67180', 'IS THE LOCATION OF THE INCIDENT KNOWN?', 'NO'),
+        makeSimpleQuestion('67180', 'IS THE LOCATION OF THE INCIDENT KNOWN?', ['NO', '218710']),
       ]
 
       return agent
@@ -150,11 +151,14 @@ describe('Displaying questions and responses', () => {
     it('form is prefilled with report answers, multiple questions answered', () => {
       reportWithDetails.type = 'ASSAULT_5'
       reportWithDetails.questions = [
-        makeSimpleQuestion('61279', 'WHAT WAS THE MAIN MANAGEMENT OUTCOME OF THE INCIDENT', 'POLICE REFERRAL'),
-        makeSimpleQuestion('61280', 'IS ANY MEMBER OF STAFF FACING DISCIPLINARY CHARGES', 'NO'),
-        makeSimpleQuestion('61281', 'IS THERE ANY MEDIA INTEREST IN THIS INCIDENT', 'NO'),
-        makeSimpleQuestion('61282', 'HAS THE PRISON SERVICE PRESS OFFICE BEEN INFORMED', 'NO'),
-        makeSimpleQuestion('61283', 'IS THE LOCATION OF THE INCDENT KNOWN', 'YES'),
+        makeSimpleQuestion('61279', 'WHAT WAS THE MAIN MANAGEMENT OUTCOME OF THE INCIDENT', [
+          'POLICE REFERRAL',
+          '213065',
+        ]),
+        makeSimpleQuestion('61280', 'IS ANY MEMBER OF STAFF FACING DISCIPLINARY CHARGES', ['NO', '213067']),
+        makeSimpleQuestion('61281', 'IS THERE ANY MEDIA INTEREST IN THIS INCIDENT', ['NO', '213069']),
+        makeSimpleQuestion('61282', 'HAS THE PRISON SERVICE PRESS OFFICE BEEN INFORMED', ['NO', '213071']),
+        makeSimpleQuestion('61283', 'IS THE LOCATION OF THE INCDENT KNOWN', ['YES', '213072']),
       ]
 
       return agent
@@ -197,11 +201,11 @@ describe('Displaying questions and responses', () => {
 
       it('should show question numbers on second page', async () => {
         const questionsResponse: Question[] = [
-          makeSimpleQuestion('44769', 'WERE THE POLICE INFORMED OF THE INCIDENT', 'NO'),
-          makeSimpleQuestion('44919', 'THE INCIDENT IS SUBJECT TO', 'INVESTIGATION INTERNALLY'),
-          makeSimpleQuestion('45033', 'IS ANY MEMBER OF STAFF FACING DISCIPLINARY CHARGES', 'NO'),
-          makeSimpleQuestion('44636', 'IS THERE ANY MEDIA INTEREST IN THIS INCIDENT', 'NO'),
-          makeSimpleQuestion('44749', 'HAS THE PRISON SERVICE PRESS OFFICE BEEN INFORMED', 'NO'),
+          makeSimpleQuestion('44769', 'WERE THE POLICE INFORMED OF THE INCIDENT', ['NO', '181153']),
+          makeSimpleQuestion('44919', 'THE INCIDENT IS SUBJECT TO', ['INVESTIGATION INTERNALLY', '181649']),
+          makeSimpleQuestion('45033', 'IS ANY MEMBER OF STAFF FACING DISCIPLINARY CHARGES', ['NO', '182083']),
+          makeSimpleQuestion('44636', 'IS THERE ANY MEDIA INTEREST IN THIS INCIDENT', ['NO', '180711']),
+          makeSimpleQuestion('44749', 'HAS THE PRISON SERVICE PRESS OFFICE BEEN INFORMED', ['NO', '181103']),
         ]
         reportWithDetails.type = 'ATTEMPTED_ESCAPE_FROM_PRISON_1'
         reportWithDetails.questions = questionsResponse
@@ -260,6 +264,7 @@ describe('Displaying questions and responses', () => {
             responses: [
               {
                 response: 'CELL SEARCH',
+                code: '218687',
                 responseDate: null,
                 additionalInformation: null,
                 recordedBy: 'USER_1',
@@ -316,7 +321,12 @@ describe('Displaying questions and responses', () => {
         ({ someResponses }) => {
           reportWithDetails.type = 'FIND_6'
           reportWithDetails.questions = someResponses
-            ? [makeSimpleQuestion('67179', 'DESCRIBE HOW THE ITEM WAS FOUND (SELECT ALL THAT APPLY)', 'CELL SEARCH')]
+            ? [
+                makeSimpleQuestion('67179', 'DESCRIBE HOW THE ITEM WAS FOUND (SELECT ALL THAT APPLY)', [
+                  'CELL SEARCH',
+                  '218687',
+                ]),
+              ]
             : []
           return agent
             .get(reportQuestionsUrl(createJourney))
@@ -333,8 +343,11 @@ describe('Displaying questions and responses', () => {
         answeredQuestionId => {
           reportWithDetails.type = 'FIND_6'
           reportWithDetails.questions = [
-            makeSimpleQuestion('67179', 'DESCRIBE HOW THE ITEM WAS FOUND (SELECT ALL THAT APPLY)', 'CELL SEARCH'),
-            makeSimpleQuestion('67180', 'IS THE LOCATION OF THE INCIDENT KNOWN?', 'NO'),
+            makeSimpleQuestion('67179', 'DESCRIBE HOW THE ITEM WAS FOUND (SELECT ALL THAT APPLY)', [
+              'CELL SEARCH',
+              '218687',
+            ]),
+            makeSimpleQuestion('67180', 'IS THE LOCATION OF THE INCIDENT KNOWN?', ['NO', '218710']),
           ]
           return agent
             .get(`${reportQuestionsUrl(createJourney)}/${answeredQuestionId}`)
@@ -349,8 +362,11 @@ describe('Displaying questions and responses', () => {
       it('should allow skipping directly to the next page after existing responses', () => {
         reportWithDetails.type = 'FIND_6'
         reportWithDetails.questions = [
-          makeSimpleQuestion('67179', 'DESCRIBE HOW THE ITEM WAS FOUND (SELECT ALL THAT APPLY)', 'CELL SEARCH'),
-          makeSimpleQuestion('67180', 'IS THE LOCATION OF THE INCIDENT KNOWN?', 'NO'),
+          makeSimpleQuestion('67179', 'DESCRIBE HOW THE ITEM WAS FOUND (SELECT ALL THAT APPLY)', [
+            'CELL SEARCH',
+            '218687',
+          ]),
+          makeSimpleQuestion('67180', 'IS THE LOCATION OF THE INCIDENT KNOWN?', ['NO', '218710']),
         ]
         return agent
           .get(`${reportQuestionsUrl(createJourney)}/67182`)
@@ -364,8 +380,11 @@ describe('Displaying questions and responses', () => {
       it('should redirect to first page of questions if one tries to skip ahead', () => {
         reportWithDetails.type = 'FIND_6'
         reportWithDetails.questions = [
-          makeSimpleQuestion('67179', 'DESCRIBE HOW THE ITEM WAS FOUND (SELECT ALL THAT APPLY)', 'CELL SEARCH'),
-          makeSimpleQuestion('67180', 'IS THE LOCATION OF THE INCIDENT KNOWN?', 'NO'),
+          makeSimpleQuestion('67179', 'DESCRIBE HOW THE ITEM WAS FOUND (SELECT ALL THAT APPLY)', [
+            'CELL SEARCH',
+            '218687',
+          ]),
+          makeSimpleQuestion('67180', 'IS THE LOCATION OF THE INCIDENT KNOWN?', ['NO', '218710']),
         ]
         return agent
           .get(`${reportQuestionsUrl(createJourney)}/67184`)
@@ -474,11 +493,11 @@ describe('Submitting questions’ responses', () => {
 
     it('submitting with missing comment shows errors', () => {
       const questionsResponse: Question[] = [
-        makeSimpleQuestion('44769', 'WERE THE POLICE INFORMED OF THE INCIDENT', 'NO'),
-        makeSimpleQuestion('44919', 'THE INCIDENT IS SUBJECT TO', 'INVESTIGATION INTERNALLY'),
-        makeSimpleQuestion('45033', 'IS ANY MEMBER OF STAFF FACING DISCIPLINARY CHARGES', 'NO'),
-        makeSimpleQuestion('44636', 'IS THERE ANY MEDIA INTEREST IN THIS INCIDENT', 'NO'),
-        makeSimpleQuestion('44749', 'HAS THE PRISON SERVICE PRESS OFFICE BEEN INFORMED', 'NO'),
+        makeSimpleQuestion('44769', 'WERE THE POLICE INFORMED OF THE INCIDENT', ['NO', '181153']),
+        makeSimpleQuestion('44919', 'THE INCIDENT IS SUBJECT TO', ['INVESTIGATION INTERNALLY', '181649']),
+        makeSimpleQuestion('45033', 'IS ANY MEMBER OF STAFF FACING DISCIPLINARY CHARGES', ['NO', '182083']),
+        makeSimpleQuestion('44636', 'IS THERE ANY MEDIA INTEREST IN THIS INCIDENT', ['NO', '180711']),
+        makeSimpleQuestion('44749', 'HAS THE PRISON SERVICE PRESS OFFICE BEEN INFORMED', ['NO', '181103']),
       ]
       reportWithDetails.type = 'ATTEMPTED_ESCAPE_FROM_PRISON_1'
       reportWithDetails.questions = questionsResponse
@@ -558,6 +577,7 @@ describe('Submitting questions’ responses', () => {
           responses: [
             {
               response: 'YES',
+              code: '182204',
               responseDate: parseDateInput(responseDate),
               additionalInformation: null,
             },
@@ -573,6 +593,7 @@ describe('Submitting questions’ responses', () => {
           responses: [
             {
               response: 'YES',
+              code: '182204',
               responseDate: parseDateInput(responseDate),
               recordedAt: new Date(),
               recordedBy: 'USER_1',
@@ -617,11 +638,13 @@ describe('Submitting questions’ responses', () => {
           responses: [
             {
               response: 'BOSS CHAIR',
+              code: '218686',
               responseDate: null,
               additionalInformation: null,
             },
             {
               response: 'DOG SEARCH',
+              code: '218688',
               responseDate: null,
               additionalInformation: null,
             },
@@ -633,8 +656,8 @@ describe('Submitting questions’ responses', () => {
         makeSimpleQuestion(
           '67179',
           'DESCRIBE HOW THE ITEM WAS FOUND (SELECT ALL THAT APPLY)',
-          'BOSS CHAIR',
-          'DOG SEARCH',
+          ['BOSS CHAIR', '218686'],
+          ['DOG SEARCH', '218688'],
         ),
       ]
       incidentReportingApi.getReportWithDetailsById.mockResolvedValueOnce(reportWithDetails)
@@ -681,6 +704,7 @@ describe('Submitting questions’ responses', () => {
           responses: [
             {
               response: 'POLICE REFERRAL',
+              code: '213065',
               responseDate: null,
               additionalInformation: null,
             },
@@ -693,6 +717,7 @@ describe('Submitting questions’ responses', () => {
           responses: [
             {
               response: 'YES',
+              code: '213066',
               responseDate: null,
               additionalInformation: null,
             },
@@ -705,6 +730,7 @@ describe('Submitting questions’ responses', () => {
           responses: [
             {
               response: 'NO',
+              code: '213069',
               responseDate: null,
               additionalInformation: null,
             },
@@ -717,6 +743,7 @@ describe('Submitting questions’ responses', () => {
           responses: [
             {
               response: 'YES',
+              code: '213070',
               responseDate: null,
               additionalInformation: null,
             },
@@ -729,6 +756,7 @@ describe('Submitting questions’ responses', () => {
           responses: [
             {
               response: 'NO',
+              code: '213073',
               responseDate: null,
               additionalInformation: null,
             },
@@ -737,18 +765,21 @@ describe('Submitting questions’ responses', () => {
       ]
 
       const questionsResponse: Question[] = [
-        makeSimpleQuestion('61279', 'WHAT WAS THE MAIN MANAGEMENT OUTCOME OF THE INCIDENT', 'POLICE REFERRAL'),
-        makeSimpleQuestion('61280', 'IS ANY MEMBER OF STAFF FACING DISCIPLINARY CHARGES', 'YES'),
-        makeSimpleQuestion('61281', 'IS THERE ANY MEDIA INTEREST IN THIS INCIDENT', 'NO'),
-        makeSimpleQuestion('61282', 'HAS THE PRISON SERVICE PRESS OFFICE BEEN INFORMED', 'YES'),
+        makeSimpleQuestion('61279', 'WHAT WAS THE MAIN MANAGEMENT OUTCOME OF THE INCIDENT', [
+          'POLICE REFERRAL',
+          '213065',
+        ]),
+        makeSimpleQuestion('61280', 'IS ANY MEMBER OF STAFF FACING DISCIPLINARY CHARGES', ['YES', '213066']),
+        makeSimpleQuestion('61281', 'IS THERE ANY MEDIA INTEREST IN THIS INCIDENT', ['NO', '213069']),
+        makeSimpleQuestion('61282', 'HAS THE PRISON SERVICE PRESS OFFICE BEEN INFORMED', ['YES', '213070']),
         // NOTE: Answer changed from 'YES' to 'NO'
-        makeSimpleQuestion('61283', 'IS THE LOCATION OF THE INCDENT KNOWN', 'NO'),
+        makeSimpleQuestion('61283', 'IS THE LOCATION OF THE INCDENT KNOWN', ['NO', '213073']),
         // NOTE: This question will need to be deleted.
         // Answer to previous question changed so branch where this
         // sits is no longer entered now
-        makeSimpleQuestion('61284', 'WHAT WAS THE LOCATION OF THE INCIDENT', 'GYM'),
+        makeSimpleQuestion('61284', 'WHAT WAS THE LOCATION OF THE INCIDENT', ['GYM', '213083']),
         // NOTE: This question asked regardless of branching, will be retained
-        makeSimpleQuestion('61285', 'WAS THIS A SEXUAL ASSAULT', 'NO'),
+        makeSimpleQuestion('61285', 'WAS THIS A SEXUAL ASSAULT', ['NO', '213112']),
       ]
       incidentReportingApi.getReportWithDetailsById.mockResolvedValueOnce(reportWithDetails)
       incidentReportingApi.addOrUpdateQuestionsWithResponses.mockResolvedValueOnce(questionsResponse)
@@ -774,11 +805,11 @@ describe('Submitting questions’ responses', () => {
 
     it('should allow exiting to report view when saving', () => {
       const questionsResponse: Question[] = [
-        makeSimpleQuestion('44769', 'WERE THE POLICE INFORMED OF THE INCIDENT', 'NO'),
-        makeSimpleQuestion('44919', 'THE INCIDENT IS SUBJECT TO', 'INVESTIGATION INTERNALLY'),
-        makeSimpleQuestion('45033', 'IS ANY MEMBER OF STAFF FACING DISCIPLINARY CHARGES', 'NO'),
-        makeSimpleQuestion('44636', 'IS THERE ANY MEDIA INTEREST IN THIS INCIDENT', 'NO'),
-        makeSimpleQuestion('44749', 'HAS THE PRISON SERVICE PRESS OFFICE BEEN INFORMED', 'NO'),
+        makeSimpleQuestion('44769', 'WERE THE POLICE INFORMED OF THE INCIDENT', ['NO', '181153']),
+        makeSimpleQuestion('44919', 'THE INCIDENT IS SUBJECT TO', ['INVESTIGATION INTERNALLY', '181649']),
+        makeSimpleQuestion('45033', 'IS ANY MEMBER OF STAFF FACING DISCIPLINARY CHARGES', ['NO', '182083']),
+        makeSimpleQuestion('44636', 'IS THERE ANY MEDIA INTEREST IN THIS INCIDENT', ['NO', '180711']),
+        makeSimpleQuestion('44749', 'HAS THE PRISON SERVICE PRESS OFFICE BEEN INFORMED', ['NO', '181103']),
       ]
       reportWithDetails.type = 'ATTEMPTED_ESCAPE_FROM_PRISON_1'
       reportWithDetails.questions = questionsResponse
@@ -805,27 +836,29 @@ describe('Submitting questions’ responses', () => {
       // simulate last 1-question page being unanswered
       reportWithDetails.type = 'ATTEMPTED_ESCAPE_FROM_PRISON_1'
       const questionsResponse: Question[] = [
-        makeSimpleQuestion('44769', 'WERE THE POLICE INFORMED OF THE INCIDENT', 'NO'),
-        makeSimpleQuestion('44919', 'THE INCIDENT IS SUBJECT TO', 'INVESTIGATION INTERNALLY'),
-        makeSimpleQuestion('45033', 'IS ANY MEMBER OF STAFF FACING DISCIPLINARY CHARGES', 'NO'),
-        makeSimpleQuestion('44636', 'IS THERE ANY MEDIA INTEREST IN THIS INCIDENT', 'NO'),
-        makeSimpleQuestion('44749', 'HAS THE PRISON SERVICE PRESS OFFICE BEEN INFORMED', 'NO'),
-        makeSimpleQuestion(
-          '44594',
-          'WHERE WAS THE PRISONER PRIOR TO THE START OF THE ATTEMPTED ESCAPE',
+        makeSimpleQuestion('44769', 'WERE THE POLICE INFORMED OF THE INCIDENT', ['NO', '181153']),
+        makeSimpleQuestion('44919', 'THE INCIDENT IS SUBJECT TO', ['INVESTIGATION INTERNALLY', '181649']),
+        makeSimpleQuestion('45033', 'IS ANY MEMBER OF STAFF FACING DISCIPLINARY CHARGES', ['NO', '182083']),
+        makeSimpleQuestion('44636', 'IS THERE ANY MEDIA INTEREST IN THIS INCIDENT', ['NO', '180711']),
+        makeSimpleQuestion('44749', 'HAS THE PRISON SERVICE PRESS OFFICE BEEN INFORMED', ['NO', '181103']),
+        makeSimpleQuestion('44594', 'WHERE WAS THE PRISONER PRIOR TO THE START OF THE ATTEMPTED ESCAPE', [
           'ADMINISTRATION',
-        ),
-        makeSimpleQuestion('44545', 'DID PRISONER GAIN ACCESS TO THE EXTERNAL PERIMETER', 'NO'),
-        makeSimpleQuestion('44441', 'DID THE PRISONER ATTEMPT TO GAIN ACCESS TO THE EXTERNAL PERIMETER', 'NO'),
-        makeSimpleQuestion('44746', 'ARE THE GROUNDS PATROLLED BY DOGS', 'NO'),
-        makeSimpleQuestion('44595', 'WAS AN AIRCRAFT INVOLVED', 'NO'),
-        makeSimpleQuestion('44983', 'WAS OUTSIDE ASSISTANCE INVOLVED IN THE ATTEMPTED ESCAPE', 'NO'),
-        makeSimpleQuestion('44320', 'WERE ANY WEAPONS USED', 'NO'),
-        makeSimpleQuestion('44731', 'WERE ANY INJURIES RECEIVED DURING THIS INCIDENT', 'NO'),
-        makeSimpleQuestion('45073', 'HOW WAS THE ESCAPE ATTEMPT DISCOVERED', 'STAFF VIGILANCE'),
-        makeSimpleQuestion('44349', 'HOW WAS THE ESCAPE ATTEMPT FOILED', 'STAFF INTERVENTION'),
-        makeSimpleQuestion('44447', 'WAS DAMAGE CAUSED TO PRISON PROPERTY', 'NO'),
-        makeSimpleQuestion('44863', 'WAS THE TELEPHONE/IT SYSTEM SHUT DOWN DURING THE INCIDENT?', 'NO'),
+          '180575',
+        ]),
+        makeSimpleQuestion('44545', 'DID PRISONER GAIN ACCESS TO THE EXTERNAL PERIMETER', ['NO', '180421']),
+        makeSimpleQuestion('44441', 'DID THE PRISONER ATTEMPT TO GAIN ACCESS TO THE EXTERNAL PERIMETER', [
+          'NO',
+          '179954',
+        ]),
+        makeSimpleQuestion('44746', 'ARE THE GROUNDS PATROLLED BY DOGS', ['NO', '181096']),
+        makeSimpleQuestion('44595', 'WAS AN AIRCRAFT INVOLVED', ['NO', '180592']),
+        makeSimpleQuestion('44983', 'WAS OUTSIDE ASSISTANCE INVOLVED IN THE ATTEMPTED ESCAPE', ['NO', '181911']),
+        makeSimpleQuestion('44320', 'WERE ANY WEAPONS USED', ['NO', '179561']),
+        makeSimpleQuestion('44731', 'WERE ANY INJURIES RECEIVED DURING THIS INCIDENT', ['NO', '181059']),
+        makeSimpleQuestion('45073', 'HOW WAS THE ESCAPE ATTEMPT DISCOVERED', ['STAFF VIGILANCE', '182267']),
+        makeSimpleQuestion('44349', 'HOW WAS THE ESCAPE ATTEMPT FOILED', ['STAFF INTERVENTION', '179676']),
+        makeSimpleQuestion('44447', 'WAS DAMAGE CAUSED TO PRISON PROPERTY', ['NO', '179978']),
+        makeSimpleQuestion('44863', 'WAS THE TELEPHONE/IT SYSTEM SHUT DOWN DURING THE INCIDENT?', ['NO', '181444']),
       ]
       reportWithDetails.questions = questionsResponse.slice(0, -1)
       incidentReportingApi.addOrUpdateQuestionsWithResponses.mockResolvedValueOnce(questionsResponse)
@@ -851,26 +884,28 @@ describe('Submitting questions’ responses', () => {
       // simulate last 1-question page being unanswered
       reportWithDetails.type = 'ATTEMPTED_ESCAPE_FROM_PRISON_1'
       reportWithDetails.questions = [
-        makeSimpleQuestion('44769', 'WERE THE POLICE INFORMED OF THE INCIDENT', 'NO'),
-        makeSimpleQuestion('44919', 'THE INCIDENT IS SUBJECT TO', 'INVESTIGATION INTERNALLY'),
-        makeSimpleQuestion('45033', 'IS ANY MEMBER OF STAFF FACING DISCIPLINARY CHARGES', 'NO'),
-        makeSimpleQuestion('44636', 'IS THERE ANY MEDIA INTEREST IN THIS INCIDENT', 'NO'),
-        makeSimpleQuestion('44749', 'HAS THE PRISON SERVICE PRESS OFFICE BEEN INFORMED', 'NO'),
-        makeSimpleQuestion(
-          '44594',
-          'WHERE WAS THE PRISONER PRIOR TO THE START OF THE ATTEMPTED ESCAPE',
+        makeSimpleQuestion('44769', 'WERE THE POLICE INFORMED OF THE INCIDENT', ['NO', '181153']),
+        makeSimpleQuestion('44919', 'THE INCIDENT IS SUBJECT TO', ['INVESTIGATION INTERNALLY', '181649']),
+        makeSimpleQuestion('45033', 'IS ANY MEMBER OF STAFF FACING DISCIPLINARY CHARGES', ['NO', '182083']),
+        makeSimpleQuestion('44636', 'IS THERE ANY MEDIA INTEREST IN THIS INCIDENT', ['NO', '180711']),
+        makeSimpleQuestion('44749', 'HAS THE PRISON SERVICE PRESS OFFICE BEEN INFORMED', ['NO', '181103']),
+        makeSimpleQuestion('44594', 'WHERE WAS THE PRISONER PRIOR TO THE START OF THE ATTEMPTED ESCAPE', [
           'ADMINISTRATION',
-        ),
-        makeSimpleQuestion('44545', 'DID PRISONER GAIN ACCESS TO THE EXTERNAL PERIMETER', 'NO'),
-        makeSimpleQuestion('44441', 'DID THE PRISONER ATTEMPT TO GAIN ACCESS TO THE EXTERNAL PERIMETER', 'NO'),
-        makeSimpleQuestion('44746', 'ARE THE GROUNDS PATROLLED BY DOGS', 'NO'),
-        makeSimpleQuestion('44595', 'WAS AN AIRCRAFT INVOLVED', 'NO'),
-        makeSimpleQuestion('44983', 'WAS OUTSIDE ASSISTANCE INVOLVED IN THE ATTEMPTED ESCAPE', 'NO'),
-        makeSimpleQuestion('44320', 'WERE ANY WEAPONS USED', 'NO'),
-        makeSimpleQuestion('44731', 'WERE ANY INJURIES RECEIVED DURING THIS INCIDENT', 'NO'),
-        makeSimpleQuestion('45073', 'HOW WAS THE ESCAPE ATTEMPT DISCOVERED', 'STAFF VIGILANCE'),
-        makeSimpleQuestion('44349', 'HOW WAS THE ESCAPE ATTEMPT FOILED', 'STAFF INTERVENTION'),
-        makeSimpleQuestion('44447', 'WAS DAMAGE CAUSED TO PRISON PROPERTY', 'NO'),
+          '180575',
+        ]),
+        makeSimpleQuestion('44545', 'DID PRISONER GAIN ACCESS TO THE EXTERNAL PERIMETER', ['NO', '180421']),
+        makeSimpleQuestion('44441', 'DID THE PRISONER ATTEMPT TO GAIN ACCESS TO THE EXTERNAL PERIMETER', [
+          'NO',
+          '179954',
+        ]),
+        makeSimpleQuestion('44746', 'ARE THE GROUNDS PATROLLED BY DOGS', ['NO', '181096']),
+        makeSimpleQuestion('44595', 'WAS AN AIRCRAFT INVOLVED', ['NO', '180592']),
+        makeSimpleQuestion('44983', 'WAS OUTSIDE ASSISTANCE INVOLVED IN THE ATTEMPTED ESCAPE', ['NO', '181911']),
+        makeSimpleQuestion('44320', 'WERE ANY WEAPONS USED', ['NO', '179561']),
+        makeSimpleQuestion('44731', 'WERE ANY INJURIES RECEIVED DURING THIS INCIDENT', ['NO', '181059']),
+        makeSimpleQuestion('45073', 'HOW WAS THE ESCAPE ATTEMPT DISCOVERED', ['STAFF VIGILANCE', '182267']),
+        makeSimpleQuestion('44349', 'HOW WAS THE ESCAPE ATTEMPT FOILED', ['STAFF INTERVENTION', '179676']),
+        makeSimpleQuestion('44447', 'WAS DAMAGE CAUSED TO PRISON PROPERTY', ['NO', '179978']),
       ]
       incidentReportingApi.getReportWithDetailsById.mockResolvedValueOnce(reportWithDetails)
 
@@ -902,11 +937,11 @@ describe('Submitting questions’ responses', () => {
         '44749': 'NO',
       }
       const questionsResponse: Question[] = [
-        makeSimpleQuestion('44769', 'WERE THE POLICE INFORMED OF THE INCIDENT', 'NO'),
-        makeSimpleQuestion('44919', 'THE INCIDENT IS SUBJECT TO', 'INVESTIGATION INTERNALLY'),
-        makeSimpleQuestion('45033', 'IS ANY MEMBER OF STAFF FACING DISCIPLINARY CHARGES', 'NO'),
-        makeSimpleQuestion('44636', 'IS THERE ANY MEDIA INTEREST IN THIS INCIDENT', 'NO'),
-        makeSimpleQuestion('44749', 'HAS THE PRISON SERVICE PRESS OFFICE BEEN INFORMED', 'NO'),
+        makeSimpleQuestion('44769', 'WERE THE POLICE INFORMED OF THE INCIDENT', ['NO', '181153']),
+        makeSimpleQuestion('44919', 'THE INCIDENT IS SUBJECT TO', ['INVESTIGATION INTERNALLY', '181649']),
+        makeSimpleQuestion('45033', 'IS ANY MEMBER OF STAFF FACING DISCIPLINARY CHARGES', ['NO', '182083']),
+        makeSimpleQuestion('44636', 'IS THERE ANY MEDIA INTEREST IN THIS INCIDENT', ['NO', '180711']),
+        makeSimpleQuestion('44749', 'HAS THE PRISON SERVICE PRESS OFFICE BEEN INFORMED', ['NO', '181103']),
       ]
       reportWithDetails.questions = questionsResponse
       incidentReportingApi.addOrUpdateQuestionsWithResponses.mockResolvedValueOnce(questionsResponse)

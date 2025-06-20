@@ -4,6 +4,7 @@ import { roleReadOnly, roleReadWrite, roleApproveReject, rolePecs } from '../../
 import type { ReportBasic } from '../../data/incidentReportingApi'
 import { isPecsRegionCode } from '../../data/pecsRegions'
 import { isLocationActiveInService } from './locationActiveInService'
+import type { UserAction } from './userActions'
 
 /**
  * Per-request class to check whether the user is allowed to perform a given action.
@@ -140,5 +141,70 @@ export class Permissions {
     return (
       this.couldApproveOrRejectReportIfLocationActiveInService(report) && !isLocationActiveInService(report.location)
     )
+  }
+
+  allowedActionsOnReport(report: ReportBasic): ReadonlySet<UserAction> {
+    const isPecsReport = isPecsRegionCode(report.location)
+    const { canAccessService, isDataWarden, isReportingOfficer } = this
+    const canAccessLocation = isPecsReport ? this.hasPecsAccess : this.caseloadIds.has(report.location)
+
+    const permissionsMap: Record<UserAction, boolean> = {
+      view: canAccessService && canAccessLocation,
+      edit: (isPecsReport ? isDataWarden : isReportingOfficer) && canAccessLocation,
+      requestReview: false,
+      requestDuplicate: false,
+      requestNotReportable: false,
+      recall: false,
+      requestCorrection: false,
+      close: false,
+      markDuplicate: false,
+      markNotReportable: false,
+      hold: false,
+    }
+    return new Set(
+      Object.entries(permissionsMap)
+        .filter(([_action, allowed]) => allowed)
+        .map(([action, _allowed]) => action as UserAction),
+    )
+
+    // view
+    // knownUserType()
+    // anyStatus()
+    // accessibleLocation()
+    /*
+    const canAccessService = () => this.canAccessService
+    const accessibleLocation = () => this.canAccessService
+
+    const permissionsMap: Record<UserAction, () => boolean> = {
+      view: allOf(canAccessService, accessibleLocation),
+      edit(): boolean {
+        throw new Error('Function not implemented.')
+      },
+      requestReview(): boolean {
+        throw new Error('Function not implemented.')
+      },
+      requestRemove(): boolean {
+        throw new Error('Function not implemented.')
+      },
+      recall(): boolean {
+        throw new Error('Function not implemented.')
+      },
+      close(): boolean {
+        throw new Error('Function not implemented.')
+      },
+      remove(): boolean {
+        throw new Error('Function not implemented.')
+      },
+      hold(): boolean {
+        throw new Error('Function not implemented.')
+      },
+    }
+
+    return new Set(
+      Object.entries(permissionsMap)
+        .filter(([_action, check]) => check())
+        .map(([action, _check]) => action as UserAction),
+    )
+    */
   }
 }

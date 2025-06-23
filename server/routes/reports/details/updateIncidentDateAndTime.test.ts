@@ -29,11 +29,11 @@ describe('Updating report incident date and time', () => {
   const reportBasic = convertBasicReportDates(
     mockReport({
       type: 'DISORDER_2',
+      status: 'NEEDS_UPDATING',
       reportReference: '6544',
       reportDateAndTime: incidentDateAndTime,
     }),
   )
-  reportBasic.status = 'ON_HOLD'
   const updateIncidentDateAndTimeUrl = `/reports/${reportBasic.id}/update-date-and-time`
   const validPayload = {
     incidentDate: '21/10/2024',
@@ -240,27 +240,42 @@ describe('Updating report incident date and time', () => {
       })
   })
 
-  describe('redirect if status before DW has seen report', () => {
-    const scenarios: { status: Status; redirect: boolean }[] = [
-      { status: 'DRAFT', redirect: true },
-      { status: 'AWAITING_REVIEW', redirect: true },
-      { status: 'ON_HOLD', redirect: false },
-      { status: 'NEEDS_UPDATING', redirect: false },
-      { status: 'UPDATED', redirect: false },
-      { status: 'CLOSED', redirect: false },
-      { status: 'DUPLICATE', redirect: false },
-      { status: 'NOT_REPORTABLE', redirect: false },
-      { status: 'REOPENED', redirect: false },
-      { status: 'WAS_CLOSED', redirect: false },
+  describe('Cannot be used before data warden review', () => {
+    afterAll(() => {
+      reportBasic.status = 'NEEDS_UPDATING'
+    })
+
+    const scenarios: {
+      status: Status
+      result:
+        | 'allow changing incident date'
+        | 'redirect to incident date and description page'
+        | 'forbid changing incident date'
+    }[] = [
+      { status: 'DRAFT', result: 'redirect to incident date and description page' },
+      { status: 'AWAITING_REVIEW', result: 'redirect to incident date and description page' },
+      { status: 'ON_HOLD', result: 'forbid changing incident date' },
+      { status: 'NEEDS_UPDATING', result: 'allow changing incident date' },
+      { status: 'UPDATED', result: 'forbid changing incident date' },
+      { status: 'CLOSED', result: 'forbid changing incident date' },
+      { status: 'DUPLICATE', result: 'forbid changing incident date' },
+      { status: 'NOT_REPORTABLE', result: 'forbid changing incident date' },
+      { status: 'REOPENED', result: 'allow changing incident date' },
+      { status: 'WAS_CLOSED', result: 'forbid changing incident date' },
     ]
-    it.each(scenarios)('report status of $status redirects page: $redirect', ({ status, redirect }) => {
+    it.each(scenarios)('should $result when report status is $status', ({ status, result }) => {
       reportBasic.status = status
       const testAgent = agent.get(updateIncidentDateAndTimeUrl).redirects(1)
-      if (!redirect) {
+      if (result === 'allow changing incident date') {
         return testAgent.expect(200)
       }
       return testAgent.expect(res => {
-        expect(res.redirects[0]).toContain(`/reports/${reportBasic.id}/update-details`)
+        const redirectedTo = res.redirects[0]
+        if (result === 'redirect to incident date and description page') {
+          expect(redirectedTo).toContain(`/reports/${reportBasic.id}/update-details`)
+        } else {
+          expect(redirectedTo).toContain('/sign-out')
+        }
       })
     })
   })

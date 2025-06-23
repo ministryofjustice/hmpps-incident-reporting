@@ -52,7 +52,7 @@ describe('Adding a description addendum to report', () => {
   const mockedReport = convertReportWithDetailsDates(
     mockReport({
       type: 'DISORDER_2',
-      status: 'ON_HOLD',
+      status: 'NEEDS_UPDATING',
       reportReference: '6544',
       reportDateAndTime: incidentDateAndTime,
       withDetails: true,
@@ -169,27 +169,42 @@ describe('Adding a description addendum to report', () => {
       })
   })
 
-  describe('redirect if status before DW has seen report', () => {
-    const scenarios: { status: Status; redirect: boolean }[] = [
-      { status: 'DRAFT', redirect: true },
-      { status: 'AWAITING_REVIEW', redirect: true },
-      { status: 'ON_HOLD', redirect: false },
-      { status: 'NEEDS_UPDATING', redirect: false },
-      { status: 'UPDATED', redirect: false },
-      { status: 'CLOSED', redirect: false },
-      { status: 'DUPLICATE', redirect: false },
-      { status: 'NOT_REPORTABLE', redirect: false },
-      { status: 'REOPENED', redirect: false },
-      { status: 'WAS_CLOSED', redirect: false },
+  describe('Cannot be used before data warden review', () => {
+    afterAll(() => {
+      mockedReport.status = 'NEEDS_UPDATING'
+    })
+
+    const scenarios: {
+      status: Status
+      result:
+        | 'allow appending to the description'
+        | 'redirect to incident date and description page'
+        | 'forbid appending to the description'
+    }[] = [
+      { status: 'DRAFT', result: 'redirect to incident date and description page' },
+      { status: 'AWAITING_REVIEW', result: 'redirect to incident date and description page' },
+      { status: 'ON_HOLD', result: 'forbid appending to the description' },
+      { status: 'NEEDS_UPDATING', result: 'allow appending to the description' },
+      { status: 'UPDATED', result: 'forbid appending to the description' },
+      { status: 'CLOSED', result: 'forbid appending to the description' },
+      { status: 'DUPLICATE', result: 'forbid appending to the description' },
+      { status: 'NOT_REPORTABLE', result: 'forbid appending to the description' },
+      { status: 'REOPENED', result: 'allow appending to the description' },
+      { status: 'WAS_CLOSED', result: 'forbid appending to the description' },
     ]
-    it.each(scenarios)('report status of $status redirects page: $redirect', ({ status, redirect }) => {
+    it.each(scenarios)('should $result when report status is $status', ({ status, result }) => {
       mockedReport.status = status
       const testAgent = agent.get(addDescriptionAddendumUrl).redirects(1)
-      if (!redirect) {
+      if (result === 'allow appending to the description') {
         return testAgent.expect(200)
       }
       return testAgent.expect(res => {
-        expect(res.redirects[0]).toContain(`/reports/${mockedReport.id}/update-details`)
+        const redirectedTo = res.redirects[0]
+        if (result === 'redirect to incident date and description page') {
+          expect(redirectedTo).toContain(`/reports/${mockedReport.id}/update-details`)
+        } else {
+          expect(redirectedTo).toContain('/sign-out')
+        }
       })
     })
   })

@@ -73,14 +73,8 @@ export class Permissions {
 
   /** Can view this report */
   canViewReport(report: ReportBasic): boolean {
-    return (
-      // has minimal roles
-      this.canAccessService &&
-      // if PECS region, user has specific PECS role?
-      ((isPecsRegionCode(report.location) && this.hasPecsAccess) ||
-        // otherwise user has caseload?
-        this.caseloadIds.has(report.location))
-    )
+    // TODO: remove
+    return this.allowedActionsOnReport(report).has('view')
   }
 
   private couldCreateReportInLocationIfActiveInService(location: string): boolean {
@@ -113,36 +107,30 @@ export class Permissions {
   }
 
   private couldEditReportIfLocationActiveInService(report: ReportBasic): boolean {
-    return (
-      // if PECS region, requires data warden and PECS role
-      (isPecsRegionCode(report.location) && this.isDataWarden && this.hasPecsAccess) ||
-      // otherwise requires reporting officer and caseload
-      (this.caseloadIds.has(report.location) && this.isReportingOfficer)
-    )
+    // TODO: remove
+    return this.allowedActionsOnReport(report).has('edit')
   }
 
   /** Can edit this report */
   canEditReport(report: ReportBasic): boolean {
+    // TODO: remove
     return this.couldEditReportIfLocationActiveInService(report) && isLocationActiveInService(report.location)
   }
 
   /** Could have edited this report in DPS if prison was active or PECS regions are enabled */
   canEditReportInNomisOnly(report: ReportBasic): boolean {
+    // TODO: remove
     return this.couldEditReportIfLocationActiveInService(report) && !isLocationActiveInService(report.location)
   }
 
   private couldApproveOrRejectReportIfLocationActiveInService(report: ReportBasic): boolean {
-    return (
-      this.isDataWarden &&
-      // if PECS region, requires PECS role
-      ((isPecsRegionCode(report.location) && this.hasPecsAccess) ||
-        // otherwise requires caseload
-        this.caseloadIds.has(report.location))
-    )
+    // TODO: remove
+    return this.allowedActionsOnReport(report).has('close')
   }
 
   /** Can approve or reject this report */
   canApproveOrRejectReport(report: ReportBasic): boolean {
+    // TODO: remove
     return (
       this.couldApproveOrRejectReportIfLocationActiveInService(report) && isLocationActiveInService(report.location)
     )
@@ -150,6 +138,7 @@ export class Permissions {
 
   /** Could have approved or rejected this report in DPS if prison was active or PECS regions are enabled */
   canApproveOrRejectReportInNomisOnly(report: ReportBasic): boolean {
+    // TODO: remove
     return (
       this.couldApproveOrRejectReportIfLocationActiveInService(report) && !isLocationActiveInService(report.location)
     )

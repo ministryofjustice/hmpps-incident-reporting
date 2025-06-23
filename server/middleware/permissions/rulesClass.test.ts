@@ -15,7 +15,6 @@ import { mockReport } from '../../data/testData/incidentReporting'
 import { makeMockCaseload } from '../../data/testData/frontendComponents'
 import { mockPecsRegions, resetPecsRegions } from '../../data/testData/pecsRegions'
 import { brixton, leeds, moorland } from '../../data/testData/prisonApi'
-import type { Status } from '../../reportConfiguration/constants'
 import { Permissions } from './rulesClass'
 import type { UserAction } from './userActions'
 
@@ -111,24 +110,14 @@ describe('Permissions', () => {
       permissions,
       userActions,
       all,
-      status,
     }: {
       permissions: Permissions
       userActions: UserAction[]
       all: 'granted' | 'denied'
-      status?: Status
     }) {
       for (const report of mockReports) {
-        try {
-          if (status) {
-            report.status = status
-          }
-
-          const allowedActions = permissions.allowedActionsOnReport(report)
-          expect(userActions.every(userAction => allowedActions.has(userAction))).toBe(all === granted)
-        } finally {
-          report.status = 'DRAFT'
-        }
+        const allowedActions = permissions.allowedActionsOnReport(report)
+        expect(userActions.every(userAction => allowedActions.has(userAction))).toBe(all === granted)
       }
     }
 
@@ -142,24 +131,14 @@ describe('Permissions', () => {
       permissions,
       userActions,
       all,
-      status,
     }: {
       permissions: Permissions
       userActions: UserAction[]
       all: 'granted' | 'denied'
-      status?: Status
     }) {
       for (const report of mockPecsReports) {
-        try {
-          if (status) {
-            report.status = status
-          }
-
-          const allowedActions = permissions.allowedActionsOnReport(report)
-          expect(userActions.every(userAction => allowedActions.has(userAction))).toBe(all === granted)
-        } finally {
-          report.status = 'DRAFT'
-        }
+        const allowedActions = permissions.allowedActionsOnReport(report)
+        expect(userActions.every(userAction => allowedActions.has(userAction))).toBe(all === granted)
       }
     }
 
@@ -478,6 +457,19 @@ describe('Permissions', () => {
 
     describe('Approving or rejecting a report', () => {
       describe('in Leeds', () => {
+        beforeAll(() => {
+          mockReports.forEach(r => {
+            // eslint-disable-next-line no-param-reassign
+            r.status = 'AWAITING_REVIEW'
+          })
+        })
+        afterAll(() => {
+          mockReports.forEach(r => {
+            // eslint-disable-next-line no-param-reassign
+            r.status = 'DRAFT'
+          })
+        })
+
         it.each([
           { userType: notLoggedIn, action: denied },
           { userType: unauthorisedNotInLeeds, action: denied },
@@ -498,7 +490,6 @@ describe('Permissions', () => {
             permissions,
             userActions: ['close', 'markDuplicate', 'markNotReportable'],
             all: action,
-            status: 'AWAITING_REVIEW',
           })
         })
 

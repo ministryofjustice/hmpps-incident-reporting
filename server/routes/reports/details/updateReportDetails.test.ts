@@ -244,27 +244,42 @@ describe('Updating report details', () => {
       })
   })
 
-  describe('redirect if status after DW has seen report', () => {
-    const scenarios: { status: Status; redirect: boolean }[] = [
-      { status: 'DRAFT', redirect: false },
-      { status: 'AWAITING_REVIEW', redirect: false },
-      { status: 'ON_HOLD', redirect: true },
-      { status: 'NEEDS_UPDATING', redirect: true },
-      { status: 'UPDATED', redirect: true },
-      { status: 'CLOSED', redirect: true },
-      { status: 'DUPLICATE', redirect: true },
-      { status: 'NOT_REPORTABLE', redirect: true },
-      { status: 'REOPENED', redirect: true },
-      { status: 'WAS_CLOSED', redirect: true },
+  describe('Cannot be used after data warden review', () => {
+    afterAll(() => {
+      reportBasic.status = 'DRAFT'
+    })
+
+    const scenarios: {
+      status: Status
+      result:
+        | 'allow editing date and description'
+        | 'redirect to incident date page'
+        | 'forbid editing date and description'
+    }[] = [
+      { status: 'DRAFT', result: 'allow editing date and description' },
+      { status: 'AWAITING_REVIEW', result: 'allow editing date and description' },
+      { status: 'ON_HOLD', result: 'forbid editing date and description' },
+      { status: 'NEEDS_UPDATING', result: 'redirect to incident date page' },
+      { status: 'UPDATED', result: 'forbid editing date and description' },
+      { status: 'CLOSED', result: 'forbid editing date and description' },
+      { status: 'DUPLICATE', result: 'forbid editing date and description' },
+      { status: 'NOT_REPORTABLE', result: 'forbid editing date and description' },
+      { status: 'REOPENED', result: 'redirect to incident date page' },
+      { status: 'WAS_CLOSED', result: 'forbid editing date and description' },
     ]
-    it.each(scenarios)('report status of $status redirects page: $redirect', ({ status, redirect }) => {
+    it.each(scenarios)('should $result when report status is $status', ({ status, result }) => {
       reportBasic.status = status
       const testAgent = agent.get(updateDetailsUrl).redirects(1)
-      if (!redirect) {
+      if (result === 'allow editing date and description') {
         return testAgent.expect(200)
       }
       return testAgent.expect(res => {
-        expect(res.redirects[0]).toContain(`/reports/${reportBasic.id}/update-date-and-time`)
+        const redirectedTo = res.redirects[0]
+        if (result === 'redirect to incident date page') {
+          expect(redirectedTo).toContain(`/reports/${reportBasic.id}/update-date-and-time`)
+        } else {
+          expect(redirectedTo).toContain('/sign-out')
+        }
       })
     })
   })

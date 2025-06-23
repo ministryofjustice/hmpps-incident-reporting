@@ -13,8 +13,12 @@ export type Transitions = {
 }
 
 /**
- * When a user type performs an action on a prison report, does the status change?
- * NB: `view` action is not included as it never transitions a report
+ * Given a prison report and a user of a particular type, what actions are possible
+ * and what is the resulting status transition?
+ *
+ * NB:
+ * - `view` action is not included as it never transitions a report
+ * - presence of a user action does not guarantee permission: report location and validity also matter
  */
 export const prisonReportTransitions: Transitions = {
   reportingOfficer: {
@@ -102,13 +106,19 @@ export const prisonReportTransitions: Transitions = {
 }
 
 /**
- * When a user type performs an action on a PECS report, does the status change?
- * NB: `view` action is not included as it never transitions a report
+ * Given a PECS report and a user of a particular type, what actions are possible
+ * and what is the resulting status transition?
+ *
+ * NB:
+ * - `view` action is not included as it never transitions a report
+ * - presence of a user action does not guarantee permission: report location and validity also matter
+ *
  * TODO: not confirmed, eg: is on-hold needed?
  */
 export const pecsReportTransitions: Transitions = {
   dataWarden: {
     DRAFT: {
+      edit: {},
       close: { newStatus: 'CLOSED' },
       markDuplicate: { newStatus: 'DUPLICATE' },
       markNotReportable: { newStatus: 'NOT_REPORTABLE' },

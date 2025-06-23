@@ -4,6 +4,9 @@ import { roleReadOnly, roleReadWrite, roleApproveReject, rolePecs } from '../../
 import type { ReportBasic } from '../../data/incidentReportingApi'
 import { isPecsRegionCode } from '../../data/pecsRegions'
 import { isLocationActiveInService } from './locationActiveInService'
+import { prisonReportTransitions, pecsReportTransitions } from './statusTransitions'
+import type { UserAction } from './userActions'
+import type { UserType } from './userType'
 
 /**
  * Per-request class to check whether the user is allowed to perform a given action.
@@ -30,25 +33,35 @@ export class Permissions {
     this.caseloadIds = new Set(user?.caseLoads?.map(caseLoad => caseLoad.caseLoadId) ?? [])
 
     const roles = new Set(user?.roles ?? [])
+
     // choose user type in descending abilities/trust based on role set
     if (roles.has(roleApproveReject)) {
-      this.isDataWarden = true
+      this.userType = 'dataWarden'
     } else if (roles.has(roleReadWrite)) {
-      this.isReportingOfficer = true
+      this.userType = 'reportingOfficer'
     } else if (roles.has(roleReadOnly)) {
-      this.isHqViewer = true
+      this.userType = 'hqViewer'
     }
+
     // access to PECS is additionally granted to any user type
     if (roles.has(rolePecs)) {
       this.hasPecsAccess = true
     }
   }
 
-  readonly isDataWarden: boolean = false
+  readonly userType: UserType | null = null
 
-  readonly isReportingOfficer: boolean = false
+  get isDataWarden(): boolean {
+    return this.userType === 'dataWarden'
+  }
 
-  readonly isHqViewer: boolean = false
+  get isReportingOfficer(): boolean {
+    return this.userType === 'reportingOfficer'
+  }
+
+  get isHqViewer(): boolean {
+    return this.userType === 'hqViewer'
+  }
 
   readonly hasPecsAccess: boolean = false
 
@@ -140,5 +153,25 @@ export class Permissions {
     return (
       this.couldApproveOrRejectReportIfLocationActiveInService(report) && !isLocationActiveInService(report.location)
     )
+  }
+
+  allowedActionsOnReport(report: ReportBasic): ReadonlySet<UserAction> {
+    const isPecsReport = isPecsRegionCode(report.location)
+    const { userType, canAccessService, hasPecsAccess } = this
+    const canAccessLocation = isPecsReport ? hasPecsAccess : this.caseloadIds.has(report.location)
+
+    if (!canAccessService || !canAccessLocation) {
+      return new Set<UserAction>()
+    }
+
+    const allowedActions = new Set<UserAction>(['view'])
+    const transitions = isPecsReport ? pecsReportTransitions : prisonReportTransitions
+    const nonViewAllowedActions = transitions[userType]?.[report.status] ?? {}
+    Object.keys(nonViewAllowedActions).forEach((action: UserAction) => allowedActions.add(action))
+
+    // TODO: require valid report for certain actions
+    // TODO: handle location being inactive in service
+
+    return allowedActions
   }
 }

@@ -15,12 +15,14 @@ import { mockReport } from '../../data/testData/incidentReporting'
 import { makeMockCaseload } from '../../data/testData/frontendComponents'
 import { mockPecsRegions, resetPecsRegions } from '../../data/testData/pecsRegions'
 import { brixton, leeds, moorland } from '../../data/testData/prisonApi'
+import type { Status } from '../../reportConfiguration/constants'
 import { Permissions } from './rulesClass'
+import type { UserAction } from './userActions'
 
 const granted = 'granted' as const
 const denied = 'denied' as const
 
-interface UserType {
+interface Scenario {
   /** Most tests use this description since they are affected by roles and caseloads */
   description: string
   /** Some tests use this description since they are not affected by caseloads */
@@ -28,50 +30,50 @@ interface UserType {
   user: Express.User
 }
 
-const notLoggedIn: UserType = {
+const notLoggedIn: Scenario = {
   description: 'missing user',
   descriptionIgnoringCaseload: 'missing user',
   user: undefined,
 }
-const unauthorisedNotInLeeds: UserType = {
+const unauthorisedNotInLeeds: Scenario = {
   description: 'user without roles or Leeds caseload',
   descriptionIgnoringCaseload: 'user without roles',
   user: mockUnauthorisedUser,
 }
-const unauthorisedInLeeds: UserType = {
+const unauthorisedInLeeds: Scenario = {
   description: 'user without roles but with Leeds caseload',
   user: mockUser([makeMockCaseload(leeds)]),
 }
-const reportingOfficerNotInLeeds: UserType = {
+const reportingOfficerNotInLeeds: Scenario = {
   description: 'reporting officer without Leeds caseload',
   descriptionIgnoringCaseload: 'reporting officer',
   user: mockReportingOfficer,
 }
-const reportingOfficerInLeeds: UserType = {
+const reportingOfficerInLeeds: Scenario = {
   description: 'reporting officer with Leeds caseload',
   user: mockUser([makeMockCaseload(leeds)], [roleReadWrite]),
 }
-const reportingOfficerInLeedsWithPecs: UserType = {
+const reportingOfficerInLeedsWithPecs: Scenario = {
   description: 'reporting officer with Leeds caseload and PECS role',
   user: mockUser([makeMockCaseload(leeds)], [roleReadWrite, rolePecs]),
 }
-const dataWardenNotInLeeds: UserType = {
+const dataWardenNotInLeeds: Scenario = {
   description: 'data warden without Leeds caseload',
   descriptionIgnoringCaseload: 'data warden',
   user: mockUser([makeMockCaseload(moorland)], [roleApproveReject, rolePecs]),
 }
-const dataWardenInLeeds: UserType = { description: 'data warden with Leeds caseload', user: mockDataWarden }
-const dataWardenInLeedsWithoutPecs: UserType = {
+const dataWardenInLeeds: Scenario = { description: 'data warden with Leeds caseload', user: mockDataWarden }
+const dataWardenInLeedsWithoutPecs: Scenario = {
   description: 'data warden with Leeds caseload missing PECS role',
   user: mockUser([makeMockCaseload(leeds)], [roleApproveReject]),
 }
-const hqViewerNotInLeeds: UserType = {
+const hqViewerNotInLeeds: Scenario = {
   description: 'HQ view-only user without Leeds caseload',
   descriptionIgnoringCaseload: 'HQ view-only user',
   user: mockUser([makeMockCaseload(moorland)], [roleReadOnly]),
 }
-const hqViewerInLeeds: UserType = { description: 'HQ view-only user with Leeds caseload', user: mockHqViewer }
-const hqViewerInLeedsWithPecs: UserType = {
+const hqViewerInLeeds: Scenario = { description: 'HQ view-only user with Leeds caseload', user: mockHqViewer }
+const hqViewerInLeedsWithPecs: Scenario = {
   description: 'HQ view-only user with Leeds caseload and PECS role',
   user: mockUser([makeMockCaseload(moorland), makeMockCaseload(leeds)], [roleReadOnly, rolePecs]),
 }
@@ -105,12 +107,61 @@ describe('Permissions', () => {
     const mockReports = [true, false].map(withDetails =>
       convertReportDates(mockReport({ reportReference: '6543', reportDateAndTime: now, location: 'LEI', withDetails })),
     )
+    function expectActionsOnPrisonReports({
+      permissions,
+      userActions,
+      all,
+      status,
+    }: {
+      permissions: Permissions
+      userActions: UserAction[]
+      all: 'granted' | 'denied'
+      status?: Status
+    }) {
+      for (const report of mockReports) {
+        try {
+          if (status) {
+            report.status = status
+          }
+
+          const allowedActions = permissions.allowedActionsOnReport(report)
+          expect(userActions.every(userAction => allowedActions.has(userAction))).toBe(all === granted)
+        } finally {
+          report.status = 'DRAFT'
+        }
+      }
+    }
+
     // mock reports in a PECS region
     const mockPecsReports = [true, false].map(withDetails =>
       convertReportDates(
         mockReport({ reportReference: '6544', reportDateAndTime: now, location: 'NORTH', withDetails }),
       ),
     )
+    function expectActionsOnPecsReports({
+      permissions,
+      userActions,
+      all,
+      status,
+    }: {
+      permissions: Permissions
+      userActions: UserAction[]
+      all: 'granted' | 'denied'
+      status?: Status
+    }) {
+      for (const report of mockPecsReports) {
+        try {
+          if (status) {
+            report.status = status
+          }
+
+          const allowedActions = permissions.allowedActionsOnReport(report)
+          expect(userActions.every(userAction => allowedActions.has(userAction))).toBe(all === granted)
+        } finally {
+          report.status = 'DRAFT'
+        }
+      }
+    }
 
     describe('Access to the service', () => {
       it.each([
@@ -143,6 +194,11 @@ describe('Permissions', () => {
         ])('should be $action to $userType.description', ({ userType: { user }, action }) => {
           const permissions = new Permissions(user)
           expect(mockReports.every(report => permissions.canViewReport(report))).toBe(action === granted)
+          expectActionsOnPrisonReports({
+            permissions,
+            userActions: ['view'],
+            all: action,
+          })
         })
       })
 
@@ -163,6 +219,11 @@ describe('Permissions', () => {
         ])('should be $action to $userType.description', ({ userType: { user }, action }) => {
           const permissions = new Permissions(user)
           expect(mockPecsReports.every(report => permissions.canViewReport(report))).toBe(action === granted)
+          expectActionsOnPecsReports({
+            permissions,
+            userActions: ['view'],
+            all: action,
+          })
         })
       })
     })
@@ -331,6 +392,11 @@ describe('Permissions', () => {
         ])('should be $action to $userType.description', ({ userType: { user }, action }) => {
           const permissions = new Permissions(user)
           expect(mockReports.every(report => permissions.canEditReport(report))).toBe(action === granted)
+          expectActionsOnPrisonReports({
+            permissions,
+            userActions: ['edit'],
+            all: action,
+          })
         })
 
         it.each([
@@ -375,6 +441,11 @@ describe('Permissions', () => {
         ])('should be $action to $userType.description', ({ userType: { user }, action }) => {
           const permissions = new Permissions(user)
           expect(mockPecsReports.every(report => permissions.canEditReport(report))).toBe(action === granted)
+          expectActionsOnPecsReports({
+            permissions,
+            userActions: ['edit'],
+            all: action,
+          })
         })
 
         it.each([
@@ -423,6 +494,12 @@ describe('Permissions', () => {
         ])('should be $action to $userType.description', ({ userType: { user }, action }) => {
           const permissions = new Permissions(user)
           expect(mockReports.every(report => permissions.canApproveOrRejectReport(report))).toBe(action === granted)
+          expectActionsOnPrisonReports({
+            permissions,
+            userActions: ['close', 'markDuplicate', 'markNotReportable'],
+            all: action,
+            status: 'AWAITING_REVIEW',
+          })
         })
 
         it.each([
@@ -469,6 +546,11 @@ describe('Permissions', () => {
         ])('should be $action to $userType.description', ({ userType: { user }, action }) => {
           const permissions = new Permissions(user)
           expect(mockPecsReports.every(report => permissions.canApproveOrRejectReport(report))).toBe(action === granted)
+          expectActionsOnPecsReports({
+            permissions,
+            userActions: ['close', 'markDuplicate', 'markNotReportable'],
+            all: action,
+          })
         })
 
         it.each([

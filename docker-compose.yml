@@ -71,7 +71,7 @@ services:
       - SPRING_SECURITY_OAUTH2_RESOURCESERVER_JWT_JWK_SET_URI=http://hmpps-auth:8080/auth/.well-known/jwks.json
 
   incident-reporting-api:
-    image: quay.io/hmpps/hmpps-incident-reporting-api:latest
+    image: ghcr.io/ministryofjustice/hmpps-incident-reporting-api:latest
     pull_policy: always
     container_name: incident-reporting-api
     depends_on:

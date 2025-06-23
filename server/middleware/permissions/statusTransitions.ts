@@ -3,10 +3,16 @@ import type { UserAction } from './userActions'
 import type { UserType } from './userType'
 
 export type Transitions = {
+  /** Given a user type… */
   [U in UserType]?: {
+    /** …and a report with this status… */
     [S in Status]?: {
+      /** …they can possibly perform this action */
       [A in UserAction]?: {
+        /** If action is performed, should report status also be changed? */
         newStatus?: Status
+        /** Is report required to be valid before action is performed? */
+        mustBeValid?: boolean
       }
     }
   }
@@ -26,7 +32,7 @@ export const prisonReportTransitions: Transitions = {
       edit: {},
       requestDuplicate: { newStatus: 'AWAITING_REVIEW' },
       requestNotReportable: { newStatus: 'AWAITING_REVIEW' },
-      requestReview: { newStatus: 'AWAITING_REVIEW' },
+      requestReview: { newStatus: 'AWAITING_REVIEW', mustBeValid: true },
     },
     AWAITING_REVIEW: {
       edit: { newStatus: 'DRAFT' },
@@ -36,7 +42,7 @@ export const prisonReportTransitions: Transitions = {
       edit: {},
       requestDuplicate: { newStatus: 'UPDATED' },
       requestNotReportable: { newStatus: 'UPDATED' },
-      requestReview: { newStatus: 'UPDATED' },
+      requestReview: { newStatus: 'UPDATED', mustBeValid: true },
     },
     UPDATED: {
       recall: { newStatus: 'DRAFT' },
@@ -54,7 +60,7 @@ export const prisonReportTransitions: Transitions = {
       edit: {},
       requestDuplicate: { newStatus: 'WAS_CLOSED' },
       requestNotReportable: { newStatus: 'WAS_CLOSED' },
-      requestReview: { newStatus: 'WAS_CLOSED' },
+      requestReview: { newStatus: 'WAS_CLOSED', mustBeValid: true },
     },
     WAS_CLOSED: {
       recall: { newStatus: 'DRAFT' },
@@ -63,14 +69,14 @@ export const prisonReportTransitions: Transitions = {
   dataWarden: {
     AWAITING_REVIEW: {
       requestCorrection: { newStatus: 'NEEDS_UPDATING' },
-      close: { newStatus: 'CLOSED' },
+      close: { newStatus: 'CLOSED', mustBeValid: true },
       markDuplicate: { newStatus: 'DUPLICATE' },
       markNotReportable: { newStatus: 'NOT_REPORTABLE' },
       hold: { newStatus: 'ON_HOLD' },
     },
     ON_HOLD: {
       requestCorrection: { newStatus: 'NEEDS_UPDATING' },
-      close: { newStatus: 'CLOSED' },
+      close: { newStatus: 'CLOSED', mustBeValid: true },
       markDuplicate: { newStatus: 'DUPLICATE' },
       markNotReportable: { newStatus: 'NOT_REPORTABLE' },
     },
@@ -79,7 +85,7 @@ export const prisonReportTransitions: Transitions = {
     },
     UPDATED: {
       requestCorrection: { newStatus: 'NEEDS_UPDATING' },
-      close: { newStatus: 'CLOSED' },
+      close: { newStatus: 'CLOSED', mustBeValid: true },
       markDuplicate: { newStatus: 'DUPLICATE' },
       markNotReportable: { newStatus: 'NOT_REPORTABLE' },
       hold: { newStatus: 'ON_HOLD' },
@@ -98,7 +104,7 @@ export const prisonReportTransitions: Transitions = {
     },
     WAS_CLOSED: {
       requestCorrection: { newStatus: 'REOPENED' },
-      close: { newStatus: 'CLOSED' },
+      close: { newStatus: 'CLOSED', mustBeValid: true },
       markDuplicate: { newStatus: 'DUPLICATE' },
       markNotReportable: { newStatus: 'NOT_REPORTABLE' },
     },
@@ -119,7 +125,7 @@ export const pecsReportTransitions: Transitions = {
   dataWarden: {
     DRAFT: {
       edit: {},
-      close: { newStatus: 'CLOSED' },
+      close: { newStatus: 'CLOSED', mustBeValid: true },
       markDuplicate: { newStatus: 'DUPLICATE' },
       markNotReportable: { newStatus: 'NOT_REPORTABLE' },
     },

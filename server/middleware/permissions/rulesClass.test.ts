@@ -176,7 +176,6 @@ describe('Permissions', () => {
           { userType: hqViewerInLeedsWithPecs, action: granted },
         ])('should be $action to $userType.description', ({ userType: { user }, action }) => {
           const permissions = new Permissions(user)
-          expect(mockReports.every(report => permissions.canViewReport(report))).toBe(action === granted)
           expectActionsOnPrisonReports({
             permissions,
             userActions: ['view'],
@@ -201,7 +200,6 @@ describe('Permissions', () => {
           { userType: hqViewerInLeedsWithPecs, action: granted },
         ])('should be $action to $userType.description', ({ userType: { user }, action }) => {
           const permissions = new Permissions(user)
-          expect(mockPecsReports.every(report => permissions.canViewReport(report))).toBe(action === granted)
           expectActionsOnPecsReports({
             permissions,
             userActions: ['view'],

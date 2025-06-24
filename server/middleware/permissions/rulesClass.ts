@@ -71,29 +71,14 @@ export class Permissions {
     return this.isHqViewer || this.isReportingOfficer || this.isDataWarden
   }
 
-  /** Can view this report */
-  canViewReport(report: ReportBasic): boolean {
-    // TODO: remove
-    return this.allowedActionsOnReport(report).has('view')
-  }
-
-  private couldCreateReportInLocationIfActiveInService(location: string): boolean {
-    return (
-      // if PECS region, requires data warden and PECS role
-      (isPecsRegionCode(location) && this.isDataWarden && this.hasPecsAccess) ||
-      // otherwise requires reporting officer and caseload
-      (this.caseloadIds.has(location) && this.isReportingOfficer)
-    )
-  }
-
   /** Can create new report in given prison or PECS region */
   canCreateReportInLocation(location: string): boolean {
-    return this.couldCreateReportInLocationIfActiveInService(location) && isLocationActiveInService(location)
+    return this.allowedActionsOnReport({ status: 'DRAFT', location }).has('edit')
   }
 
   /** Could have created new report in DPS if given prison was active or PECS regions are enabled */
   canCreateReportInLocationInNomisOnly(location: string): boolean {
-    return this.couldCreateReportInLocationIfActiveInService(location) && !isLocationActiveInService(location)
+    return this.allowedActionsOnReport({ status: 'DRAFT', location }, 'nomis').has('edit')
   }
 
   /** Can create new report in active caseload prison */
@@ -112,11 +97,14 @@ export class Permissions {
    * Set `where` to “nomis” to get actions that would have been allowed if the location were active in DPS –
    * this indicates that users should go to NOMIS to complete their intended work.
    */
-  allowedActionsOnReport(report: ReportBasic, where: 'dps' | 'nomis' = 'dps'): ReadonlySet<UserAction> {
-    const isPecsReport = isPecsRegionCode(report.location)
+  allowedActionsOnReport(
+    reportLike: Pick<ReportBasic, 'status' | 'location'>,
+    where: 'dps' | 'nomis' = 'dps',
+  ): ReadonlySet<UserAction> {
+    const isPecsReport = isPecsRegionCode(reportLike.location)
     const { userType, canAccessService, hasPecsAccess } = this
-    const canAccessLocation = isPecsReport ? hasPecsAccess : this.caseloadIds.has(report.location)
-    const locationIsActive = isLocationActiveInService(report.location)
+    const canAccessLocation = isPecsReport ? hasPecsAccess : this.caseloadIds.has(reportLike.location)
+    const locationIsActive = isLocationActiveInService(reportLike.location)
 
     if (!canAccessService || !canAccessLocation) {
       // insufficient roles or caseloads
@@ -131,7 +119,7 @@ export class Permissions {
     }
 
     const transitions = isPecsReport ? pecsReportTransitions : prisonReportTransitions
-    const nonViewAllowedActions = transitions[userType]?.[report.status] ?? {}
+    const nonViewAllowedActions = transitions[userType]?.[reportLike.status] ?? {}
     Object.keys(nonViewAllowedActions).forEach((action: UserAction) => allowedActions.add(action))
 
     // TODO: require valid report for certain actions

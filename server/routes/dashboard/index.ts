@@ -8,12 +8,12 @@ import {
   type Status,
   type TypeFamily,
   type WorkList,
+  workLists,
+  workListCodes,
   workListMapping,
-  workListStatusMapping,
   statuses,
   types,
   typeFamilies,
-  workListCodes,
 } from '../../reportConfiguration/constants'
 import type { PaginatedBasicReports } from '../../data/incidentReportingApi'
 import { type Order, orderOptions } from '../../data/offenderSearchApi'
@@ -259,7 +259,7 @@ export default function dashboard(): Router {
     let statusItems: GovukCheckboxesItem[]
     let statusCheckboxLabel: string
     if (permissions.isReportingOfficer) {
-      statusItems = workListMapping.map(workListValue => ({
+      statusItems = workLists.map(workListValue => ({
         value: workListValue.code,
         text: workListValue.description,
       }))
@@ -355,7 +355,7 @@ function statusesFromParam(statusesParam: IncidentStatuses[] | undefined, useWor
 
     const worklists = statusesParam as WorkList[]
     // Map RO worklists to list of statuses
-    return worklists.map(worklist => workListStatusMapping[worklist]).flat(1)
+    return worklists.map(worklist => workListMapping[worklist]).flat(1)
   }
 
   // Data Warden

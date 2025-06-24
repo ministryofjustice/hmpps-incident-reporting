@@ -30,8 +30,8 @@ interface Scenario {
 }
 
 const notLoggedIn: Scenario = {
-  description: 'missing user',
-  descriptionIgnoringCaseload: 'missing user',
+  description: 'unauthorised user',
+  descriptionIgnoringCaseload: 'unauthorised user',
   user: undefined,
 }
 const unauthorisedNotInLeeds: Scenario = {
@@ -77,7 +77,7 @@ const hqViewerInLeedsWithPecs: Scenario = {
   user: mockUser([makeMockCaseload(moorland), makeMockCaseload(leeds)], [roleReadOnly, rolePecs]),
 }
 
-describe('Permissions', () => {
+describe('Permissions class', () => {
   let previousActivePrisons: string[]
   let previousActiveForPecsRegions: boolean
 
@@ -96,7 +96,70 @@ describe('Permissions', () => {
     config.activeForPecsRegions = previousActiveForPecsRegions
   })
 
-  describe('Class performs checks', () => {
+  describe('User types', () => {
+    it.each([dataWardenNotInLeeds, dataWardenNotInLeeds, dataWardenInLeedsWithoutPecs])(
+      'should categorise $description',
+      ({ user }) => {
+        const permissions = new Permissions(user)
+        expect(permissions.userType).toEqual('dataWarden')
+        expect(permissions.isDataWarden).toBe(true)
+        expect(permissions.isReportingOfficer).toBe(false)
+        expect(permissions.isHqViewer).toBe(false)
+      },
+    )
+
+    it.each([reportingOfficerNotInLeeds, reportingOfficerInLeeds, reportingOfficerInLeedsWithPecs])(
+      'should categorise $description',
+      ({ user }) => {
+        const permissions = new Permissions(user)
+        expect(permissions.userType).toEqual('reportingOfficer')
+        expect(permissions.isDataWarden).toBe(false)
+        expect(permissions.isReportingOfficer).toBe(true)
+        expect(permissions.isHqViewer).toBe(false)
+      },
+    )
+
+    it.each([hqViewerNotInLeeds, hqViewerInLeeds, hqViewerInLeedsWithPecs])(
+      'should categorise $description',
+      ({ user }) => {
+        const permissions = new Permissions(user)
+        expect(permissions.userType).toEqual('hqViewer')
+        expect(permissions.isDataWarden).toBe(false)
+        expect(permissions.isReportingOfficer).toBe(false)
+        expect(permissions.isHqViewer).toBe(true)
+      },
+    )
+
+    it.each([notLoggedIn, unauthorisedNotInLeeds, unauthorisedInLeeds])(
+      'should categorise $description',
+      ({ user }) => {
+        const permissions = new Permissions(user)
+        expect(permissions.userType).toBeNull()
+        expect(permissions.isDataWarden).toBe(false)
+        expect(permissions.isReportingOfficer).toBe(false)
+        expect(permissions.isHqViewer).toBe(false)
+        expect(permissions.hasPecsAccess).toBe(false)
+      },
+    )
+
+    it.each([dataWardenNotInLeeds, dataWardenNotInLeeds, reportingOfficerInLeedsWithPecs, hqViewerInLeedsWithPecs])(
+      'should grant PECS access to $description',
+      ({ user }) => {
+        const permissions = new Permissions(user)
+        expect(permissions.hasPecsAccess).toBe(true)
+      },
+    )
+
+    it.each([dataWardenInLeedsWithoutPecs, reportingOfficerInLeeds, hqViewerInLeeds])(
+      'should deny PECS access to $description',
+      ({ user }) => {
+        const permissions = new Permissions(user)
+        expect(permissions.hasPecsAccess).toBe(false)
+      },
+    )
+  })
+
+  describe('Allowed actions', () => {
     beforeEach(() => {
       config.activePrisons = ['MDI', 'LEI']
       config.activeForPecsRegions = true

@@ -119,8 +119,8 @@ export class Permissions {
     }
 
     const transitions = isPecsReport ? pecsReportTransitions : prisonReportTransitions
-    const nonViewAllowedActions = transitions[userType]?.[reportLike.status] ?? {}
-    Object.keys(nonViewAllowedActions).forEach((action: UserAction) => allowedActions.add(action))
+    const modifyingAllowedActions = transitions[userType]?.[reportLike.status] ?? {}
+    Object.keys(modifyingAllowedActions).forEach((action: UserAction) => allowedActions.add(action))
 
     // TODO: require valid report for certain actions
 

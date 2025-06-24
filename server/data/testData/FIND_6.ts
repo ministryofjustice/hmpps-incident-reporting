@@ -1,6 +1,7 @@
 import type FormWizard from 'hmpo-form-wizard'
 
-import QuestionsController from '../../routes/reports/questions/controller'
+import { EmptyController } from '../../controllers/empty'
+import { QuestionsController } from '../../routes/reports/questions/controller'
 import { type IncidentTypeConfiguration } from '../incidentTypeConfiguration/types'
 import { checkMultipleValues } from '../incidentTypeConfiguration/formWizard'
 
@@ -4512,7 +4513,7 @@ export const config: IncidentTypeConfiguration = {
 }
 
 export const steps: FormWizard.Steps<FormWizard.MultiValues> = {
-  '/': { entryPoint: true, reset: true, resetJourney: true, skip: true, next: '67179' },
+  '/': { entryPoint: true, reset: true, resetJourney: true, skip: true, next: '67179', controller: EmptyController },
   '/67179': {
     controller: QuestionsController,
     next: [

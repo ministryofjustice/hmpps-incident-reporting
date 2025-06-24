@@ -28,6 +28,22 @@ export abstract class BaseController<
     super(options)
   }
 
+  // Overriding default method which uses a wildcard path incompatible with express 5
+  // TODO: once hmpo-form-wizard supports express 5, remove this method
+  useWithMethod(
+    method: 'all' | 'get' | 'post' | 'put' | 'delete' | 'patch' | 'options' | 'head',
+    ...requestHandlers: FormWizard.RequestHandler<V, K>[]
+  ): void {
+    if (!this.router) {
+      throw new Error('Cannot use middleware outside of middleware mixins')
+    }
+    const boundRequestHandlers: FormWizard.RequestHandler<V, K>[] = requestHandlers.map(requestHandler =>
+      requestHandler.bind(this),
+    )
+    const boundRouterMethod: (typeof this.router)[typeof method] = this.router[method].bind(this.router)
+    boundRouterMethod('{*allPaths}', ...boundRequestHandlers)
+  }
+
   /**
    * Generic human-readable error messages for default form wizard validators.
    */

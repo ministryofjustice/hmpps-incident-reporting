@@ -1,7 +1,8 @@
 import type express from 'express'
 import type FormWizard from 'hmpo-form-wizard'
 
-import QuestionsController from '../../routes/reports/questions/controller'
+import { EmptyController } from '../../controllers/empty'
+import { QuestionsController } from '../../routes/reports/questions/controller'
 import type { AnswerConfiguration, IncidentTypeConfiguration, QuestionConfiguration } from './types'
 import { conditionalFieldName, questionFieldName } from './utils'
 
@@ -25,6 +26,7 @@ export function generateSteps(
       resetJourney: true,
       skip: true,
       next: config.startingQuestionId,
+      controller: EmptyController,
     },
   }
 

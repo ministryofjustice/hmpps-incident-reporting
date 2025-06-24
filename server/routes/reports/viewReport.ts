@@ -13,7 +13,6 @@ import {
   types,
   dwNotReviewed,
 } from '../../reportConfiguration/constants'
-import asyncMiddleware from '../../middleware/asyncMiddleware'
 import { logoutUnless, canViewReport } from '../../middleware/permissions'
 import { populateReport } from '../../middleware/populateReport'
 import { populateReportConfiguration } from '../../middleware/populateReportConfiguration'
@@ -48,7 +47,7 @@ export function viewReportRouter(): Router {
     populateReport(true),
     logoutUnless(canViewReport),
     populateReportConfiguration(true),
-    asyncMiddleware(async (req, res) => {
+    async (req, res) => {
       const { incidentReportingApi, prisonApi, userService } = res.locals.apis
 
       const report = res.locals.report as ReportWithDetails
@@ -70,7 +69,7 @@ export function viewReportRouter(): Router {
 
       const errors: GovukErrorSummaryItem[] = []
       if (req.method === 'POST') {
-        if (req.body.userAction === 'submit') {
+        if (req.body?.userAction === 'submit') {
           // TODO: will need to work for other statuses too once lifecycle confirmed
           if (report.status !== 'DRAFT') {
             // incorrect status; users would never reach here through normal actions
@@ -158,7 +157,7 @@ export function viewReportRouter(): Router {
         typesLookup,
         statusLookup,
       })
-    }),
+    },
   )
 
   return router

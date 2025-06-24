@@ -35,7 +35,7 @@ export default class StaffSummary extends InvolvementSummary {
   }
 
   getNextStep(req: FormWizard.Request<Values>, res: express.Response): string {
-    if (res.locals.creationJourney && req.body.userAction !== 'exit') {
+    if (res.locals.creationJourney && req.body?.userAction !== 'exit') {
       // proceed to questions section when following create journey
       return `${res.locals.reportSubUrlPrefix}/questions`
     }

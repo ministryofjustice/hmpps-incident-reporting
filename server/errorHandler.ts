@@ -11,7 +11,7 @@ export default function createErrorHandler(production: boolean) {
     error: HttpError | SuperagentHttpError | FormWizard.Error | SanitisedError,
     req: Request,
     res: Response,
-    next: NextFunction,
+    _next: NextFunction,
   ): void => {
     // Form wizard redirect; refer: https://github.com/HMPO/hmpo-form-wizard?tab=readme-ov-file#error-handling
     if ('redirect' in error && error.redirect) {

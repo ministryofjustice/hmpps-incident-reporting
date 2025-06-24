@@ -57,14 +57,14 @@ export const canCreateReportInActiveCaseload: AccessCondition = permissions => {
  */
 export const canEditReport: AccessCondition = (permissions, res) => {
   const { report } = res.locals
-  return permissions.canEditReport(report)
+  return permissions.allowedActionsOnReport(report).has('edit')
 }
 
 /**
- * Used in `logoutUnless()` middleware to check that current user can approve or reject report in locals.
+ * Used in `logoutUnless()` middleware to check that current user can review and close report in locals.
  * Relies on `populatePrison()` middleware.
  */
-export const canApproveOrRejectReport: AccessCondition = (permissions, res) => {
+export const canReviewReport: AccessCondition = (permissions, res) => {
   const { report } = res.locals
-  return permissions.canApproveOrRejectReport(report)
+  return permissions.allowedActionsOnReport(report).has('close')
 }

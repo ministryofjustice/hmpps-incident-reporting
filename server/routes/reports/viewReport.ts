@@ -65,8 +65,10 @@ export function viewReportRouter(): Router {
 
       const questionProgressSteps = Array.from(questionProgress)
 
-      const canEditReport = permissions.canEditReport(report)
-      const canEditReportInNomisOnly = permissions.canEditReportInNomisOnly(report)
+      const allowedActions = permissions.allowedActionsOnReport(report)
+      const allowedActionsInNomisOnly = permissions.allowedActionsOnReport(report, 'nomis')
+      const canEditReport = allowedActions.has('edit')
+      const canEditReportInNomisOnly = allowedActionsInNomisOnly.has('edit')
 
       const errors: GovukErrorSummaryItem[] = []
       if (req.method === 'POST') {

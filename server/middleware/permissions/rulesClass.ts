@@ -106,30 +106,6 @@ export class Permissions {
     return this.canCreateReportInLocationInNomisOnly(this.activeCaseloadId)
   }
 
-  /** Can edit this report */
-  canEditReport(report: ReportBasic): boolean {
-    // TODO: remove
-    return this.allowedActionsOnReport(report).has('edit')
-  }
-
-  /** Could have edited this report in DPS if prison was active or PECS regions are enabled */
-  canEditReportInNomisOnly(report: ReportBasic): boolean {
-    // TODO: remove
-    return this.allowedActionsOnReport(report, 'nomis').has('edit')
-  }
-
-  /** Can approve or reject this report */
-  canApproveOrRejectReport(report: ReportBasic): boolean {
-    // TODO: remove
-    return this.allowedActionsOnReport(report).has('close')
-  }
-
-  /** Could have approved or rejected this report in DPS if prison was active or PECS regions are enabled */
-  canApproveOrRejectReportInNomisOnly(report: ReportBasic): boolean {
-    // TODO: remove
-    return this.allowedActionsOnReport(report, 'nomis').has('close')
-  }
-
   /**
    * Returns the set of user actions allowed on this report.
    * Actions that change a report are permitted either only on DPS or only in NOMIS.

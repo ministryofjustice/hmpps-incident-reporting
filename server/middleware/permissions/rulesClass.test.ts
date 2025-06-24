@@ -374,7 +374,6 @@ describe('Permissions', () => {
           { userType: hqViewerInLeedsWithPecs, action: denied },
         ])('should be $action to $userType.description', ({ userType: { user }, action }) => {
           const permissions = new Permissions(user)
-          expect(mockReports.every(report => permissions.canEditReport(report))).toBe(action === granted)
           expectActionsOnPrisonReports({
             permissions,
             userActions: ['edit'],
@@ -401,8 +400,6 @@ describe('Permissions', () => {
             config.activePrisons = ['MDI']
 
             const permissions = new Permissions(user)
-            expect(mockReports.every(report => permissions.canEditReport(report))).toBe(false)
-            expect(mockReports.every(report => permissions.canEditReportInNomisOnly(report))).toBe(action === granted)
             expectActionsOnPrisonReports({
               permissions,
               userActions: ['edit'],
@@ -434,7 +431,6 @@ describe('Permissions', () => {
           { userType: hqViewerInLeedsWithPecs, action: denied },
         ])('should be $action to $userType.description', ({ userType: { user }, action }) => {
           const permissions = new Permissions(user)
-          expect(mockPecsReports.every(report => permissions.canEditReport(report))).toBe(action === granted)
           expectActionsOnPecsReports({
             permissions,
             userActions: ['edit'],
@@ -461,10 +457,6 @@ describe('Permissions', () => {
             config.activeForPecsRegions = false
 
             const permissions = new Permissions(user)
-            expect(mockPecsReports.every(report => permissions.canEditReport(report))).toBe(false)
-            expect(mockPecsReports.every(report => permissions.canEditReportInNomisOnly(report))).toBe(
-              action === granted,
-            )
             expectActionsOnPecsReports({
               permissions,
               userActions: ['edit'],
@@ -511,7 +503,6 @@ describe('Permissions', () => {
           { userType: hqViewerInLeedsWithPecs, action: denied },
         ])('should be $action to $userType.description', ({ userType: { user }, action }) => {
           const permissions = new Permissions(user)
-          expect(mockReports.every(report => permissions.canApproveOrRejectReport(report))).toBe(action === granted)
           expectActionsOnPrisonReports({
             permissions,
             userActions: ['close', 'markDuplicate', 'markNotReportable'],
@@ -538,10 +529,6 @@ describe('Permissions', () => {
             config.activePrisons = ['MDI']
 
             const permissions = new Permissions(user)
-            expect(mockReports.every(report => permissions.canApproveOrRejectReport(report))).toBe(false)
-            expect(mockReports.every(report => permissions.canApproveOrRejectReportInNomisOnly(report))).toBe(
-              action === granted,
-            )
             expectActionsOnPrisonReports({
               permissions,
               userActions: ['close', 'markDuplicate', 'markNotReportable'],
@@ -573,7 +560,6 @@ describe('Permissions', () => {
           { userType: hqViewerInLeedsWithPecs, action: denied },
         ])('should be $action to $userType.description', ({ userType: { user }, action }) => {
           const permissions = new Permissions(user)
-          expect(mockPecsReports.every(report => permissions.canApproveOrRejectReport(report))).toBe(action === granted)
           expectActionsOnPecsReports({
             permissions,
             userActions: ['close', 'markDuplicate', 'markNotReportable'],
@@ -600,10 +586,6 @@ describe('Permissions', () => {
             config.activeForPecsRegions = false
 
             const permissions = new Permissions(user)
-            expect(mockPecsReports.every(report => permissions.canApproveOrRejectReport(report))).toBe(false)
-            expect(mockPecsReports.every(report => permissions.canApproveOrRejectReportInNomisOnly(report))).toBe(
-              action === granted,
-            )
             expectActionsOnPecsReports({
               permissions,
               userActions: ['close', 'markDuplicate', 'markNotReportable'],

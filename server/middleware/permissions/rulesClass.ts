@@ -106,60 +106,59 @@ export class Permissions {
     return this.canCreateReportInLocationInNomisOnly(this.activeCaseloadId)
   }
 
-  private couldEditReportIfLocationActiveInService(report: ReportBasic): boolean {
-    // TODO: remove
-    return this.allowedActionsOnReport(report).has('edit')
-  }
-
   /** Can edit this report */
   canEditReport(report: ReportBasic): boolean {
     // TODO: remove
-    return this.couldEditReportIfLocationActiveInService(report) && isLocationActiveInService(report.location)
+    return this.allowedActionsOnReport(report).has('edit')
   }
 
   /** Could have edited this report in DPS if prison was active or PECS regions are enabled */
   canEditReportInNomisOnly(report: ReportBasic): boolean {
     // TODO: remove
-    return this.couldEditReportIfLocationActiveInService(report) && !isLocationActiveInService(report.location)
-  }
-
-  private couldApproveOrRejectReportIfLocationActiveInService(report: ReportBasic): boolean {
-    // TODO: remove
-    return this.allowedActionsOnReport(report).has('close')
+    return this.allowedActionsOnReport(report, 'nomis').has('edit')
   }
 
   /** Can approve or reject this report */
   canApproveOrRejectReport(report: ReportBasic): boolean {
     // TODO: remove
-    return (
-      this.couldApproveOrRejectReportIfLocationActiveInService(report) && isLocationActiveInService(report.location)
-    )
+    return this.allowedActionsOnReport(report).has('close')
   }
 
   /** Could have approved or rejected this report in DPS if prison was active or PECS regions are enabled */
   canApproveOrRejectReportInNomisOnly(report: ReportBasic): boolean {
     // TODO: remove
-    return (
-      this.couldApproveOrRejectReportIfLocationActiveInService(report) && !isLocationActiveInService(report.location)
-    )
+    return this.allowedActionsOnReport(report, 'nomis').has('close')
   }
 
-  allowedActionsOnReport(report: ReportBasic): ReadonlySet<UserAction> {
+  /**
+   * Returns the set of user actions allowed on this report.
+   * Actions that change a report are permitted either only on DPS or only in NOMIS.
+   * Set `where` to “nomis” to get actions that would have been allowed if the location were active in DPS –
+   * this indicates that users should go to NOMIS to complete their intended work.
+   */
+  allowedActionsOnReport(report: ReportBasic, where: 'dps' | 'nomis' = 'dps'): ReadonlySet<UserAction> {
     const isPecsReport = isPecsRegionCode(report.location)
     const { userType, canAccessService, hasPecsAccess } = this
     const canAccessLocation = isPecsReport ? hasPecsAccess : this.caseloadIds.has(report.location)
+    const locationIsActive = isLocationActiveInService(report.location)
 
     if (!canAccessService || !canAccessLocation) {
+      // insufficient roles or caseloads
       return new Set<UserAction>()
     }
 
     const allowedActions = new Set<UserAction>(['view'])
+
+    if ((where === 'dps' && !locationIsActive) || (where === 'nomis' && locationIsActive)) {
+      // only modifiable in nomis
+      return allowedActions
+    }
+
     const transitions = isPecsReport ? pecsReportTransitions : prisonReportTransitions
     const nonViewAllowedActions = transitions[userType]?.[report.status] ?? {}
     Object.keys(nonViewAllowedActions).forEach((action: UserAction) => allowedActions.add(action))
 
     // TODO: require valid report for certain actions
-    // TODO: handle location being inactive in service
 
     return allowedActions
   }

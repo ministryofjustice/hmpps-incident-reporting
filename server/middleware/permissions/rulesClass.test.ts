@@ -110,13 +110,15 @@ describe('Permissions', () => {
       permissions,
       userActions,
       all,
+      onlyInNomis,
     }: {
       permissions: Permissions
       userActions: UserAction[]
       all: 'granted' | 'denied'
+      onlyInNomis?: true
     }) {
       for (const report of mockReports) {
-        const allowedActions = permissions.allowedActionsOnReport(report)
+        const allowedActions = permissions.allowedActionsOnReport(report, onlyInNomis ? 'nomis' : 'dps')
         expect(userActions.every(userAction => allowedActions.has(userAction))).toBe(all === granted)
       }
     }
@@ -131,13 +133,15 @@ describe('Permissions', () => {
       permissions,
       userActions,
       all,
+      onlyInNomis,
     }: {
       permissions: Permissions
       userActions: UserAction[]
       all: 'granted' | 'denied'
+      onlyInNomis?: true
     }) {
       for (const report of mockPecsReports) {
-        const allowedActions = permissions.allowedActionsOnReport(report)
+        const allowedActions = permissions.allowedActionsOnReport(report, onlyInNomis ? 'nomis' : 'dps')
         expect(userActions.every(userAction => allowedActions.has(userAction))).toBe(all === granted)
       }
     }
@@ -399,6 +403,17 @@ describe('Permissions', () => {
             const permissions = new Permissions(user)
             expect(mockReports.every(report => permissions.canEditReport(report))).toBe(false)
             expect(mockReports.every(report => permissions.canEditReportInNomisOnly(report))).toBe(action === granted)
+            expectActionsOnPrisonReports({
+              permissions,
+              userActions: ['edit'],
+              all: denied,
+            })
+            expectActionsOnPrisonReports({
+              permissions,
+              userActions: ['edit'],
+              all: action,
+              onlyInNomis: true,
+            })
           },
         )
       })
@@ -450,6 +465,17 @@ describe('Permissions', () => {
             expect(mockPecsReports.every(report => permissions.canEditReportInNomisOnly(report))).toBe(
               action === granted,
             )
+            expectActionsOnPecsReports({
+              permissions,
+              userActions: ['edit'],
+              all: denied,
+            })
+            expectActionsOnPecsReports({
+              permissions,
+              userActions: ['edit'],
+              all: action,
+              onlyInNomis: true,
+            })
           },
         )
       })
@@ -516,6 +542,17 @@ describe('Permissions', () => {
             expect(mockReports.every(report => permissions.canApproveOrRejectReportInNomisOnly(report))).toBe(
               action === granted,
             )
+            expectActionsOnPrisonReports({
+              permissions,
+              userActions: ['close', 'markDuplicate', 'markNotReportable'],
+              all: denied,
+            })
+            expectActionsOnPrisonReports({
+              permissions,
+              userActions: ['close', 'markDuplicate', 'markNotReportable'],
+              all: action,
+              onlyInNomis: true,
+            })
           },
         )
       })
@@ -567,6 +604,17 @@ describe('Permissions', () => {
             expect(mockPecsReports.every(report => permissions.canApproveOrRejectReportInNomisOnly(report))).toBe(
               action === granted,
             )
+            expectActionsOnPecsReports({
+              permissions,
+              userActions: ['close', 'markDuplicate', 'markNotReportable'],
+              all: denied,
+            })
+            expectActionsOnPecsReports({
+              permissions,
+              userActions: ['close', 'markDuplicate', 'markNotReportable'],
+              all: action,
+              onlyInNomis: true,
+            })
           },
         )
       })

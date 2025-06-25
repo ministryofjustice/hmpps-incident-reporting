@@ -16,7 +16,7 @@ export const ESCAPE_FROM_ESCORT_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '178932',
-          code: 'YES',
+          response: 'YES',
           active: true,
           label: 'Yes',
           commentRequired: true,
@@ -25,7 +25,7 @@ export const ESCAPE_FROM_ESCORT_1: IncidentTypeConfiguration = {
         },
         {
           id: '178933',
-          code: 'NO',
+          response: 'NO',
           active: true,
           label: 'No',
           commentRequired: false,
@@ -43,7 +43,7 @@ export const ESCAPE_FROM_ESCORT_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '178974',
-          code: 'CATEGORY A',
+          response: 'CATEGORY A',
           active: true,
           label: 'Category A',
           commentRequired: true,
@@ -52,7 +52,7 @@ export const ESCAPE_FROM_ESCORT_1: IncidentTypeConfiguration = {
         },
         {
           id: '178975',
-          code: 'CATEGORY B',
+          response: 'CATEGORY B',
           active: true,
           label: 'Category B',
           commentRequired: true,
@@ -61,7 +61,7 @@ export const ESCAPE_FROM_ESCORT_1: IncidentTypeConfiguration = {
         },
         {
           id: '178976',
-          code: 'CATEGORY C',
+          response: 'CATEGORY C',
           active: true,
           label: 'Category C',
           commentRequired: true,
@@ -70,7 +70,7 @@ export const ESCAPE_FROM_ESCORT_1: IncidentTypeConfiguration = {
         },
         {
           id: '178973',
-          code: 'CATEGORISED YO',
+          response: 'CATEGORISED YO',
           active: true,
           label: 'Categorised YO',
           commentRequired: true,
@@ -79,7 +79,7 @@ export const ESCAPE_FROM_ESCORT_1: IncidentTypeConfiguration = {
         },
         {
           id: '178977',
-          code: 'CATEGORY D',
+          response: 'CATEGORY D',
           active: true,
           label: 'Category D',
           commentRequired: true,
@@ -88,7 +88,7 @@ export const ESCAPE_FROM_ESCORT_1: IncidentTypeConfiguration = {
         },
         {
           id: '178980',
-          code: 'UNCATEGORISED YO',
+          response: 'UNCATEGORISED YO',
           active: true,
           label: 'Uncategorised YO',
           commentRequired: true,
@@ -97,7 +97,7 @@ export const ESCAPE_FROM_ESCORT_1: IncidentTypeConfiguration = {
         },
         {
           id: '178972',
-          code: 'CATEGORISED FEMALE',
+          response: 'CATEGORISED FEMALE',
           active: true,
           label: 'Categorised female',
           commentRequired: true,
@@ -106,7 +106,7 @@ export const ESCAPE_FROM_ESCORT_1: IncidentTypeConfiguration = {
         },
         {
           id: '178979',
-          code: 'UNCATEGORISED FEMALE',
+          response: 'UNCATEGORISED FEMALE',
           active: true,
           label: 'Uncategorised female',
           commentRequired: true,
@@ -115,7 +115,7 @@ export const ESCAPE_FROM_ESCORT_1: IncidentTypeConfiguration = {
         },
         {
           id: '178978',
-          code: 'UNCATEGORISED ADULT MALE',
+          response: 'UNCATEGORISED ADULT MALE',
           active: true,
           label: 'Uncategorised adult male',
           commentRequired: true,
@@ -133,7 +133,7 @@ export const ESCAPE_FROM_ESCORT_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '179039',
-          code: 'GRAZES, SCRATCHES OR ABRASIONS',
+          response: 'GRAZES, SCRATCHES OR ABRASIONS',
           active: true,
           label: 'Grazes, scratches or abrasions',
           commentRequired: false,
@@ -142,7 +142,7 @@ export const ESCAPE_FROM_ESCORT_1: IncidentTypeConfiguration = {
         },
         {
           id: '179040',
-          code: 'MINOR BRUISES',
+          response: 'MINOR BRUISES',
           active: true,
           label: 'Minor bruises',
           commentRequired: false,
@@ -151,7 +151,7 @@ export const ESCAPE_FROM_ESCORT_1: IncidentTypeConfiguration = {
         },
         {
           id: '179043',
-          code: 'SWELLINGS',
+          response: 'SWELLINGS',
           active: true,
           label: 'Swellings',
           commentRequired: false,
@@ -160,7 +160,7 @@ export const ESCAPE_FROM_ESCORT_1: IncidentTypeConfiguration = {
         },
         {
           id: '179042',
-          code: 'SUPERFICIAL CUTS',
+          response: 'SUPERFICIAL CUTS',
           active: true,
           label: 'Superficial cuts',
           commentRequired: false,
@@ -169,7 +169,7 @@ export const ESCAPE_FROM_ESCORT_1: IncidentTypeConfiguration = {
         },
         {
           id: '179041',
-          code: 'OTHER',
+          response: 'OTHER',
           active: true,
           label: 'Other',
           commentRequired: true,
@@ -187,7 +187,7 @@ export const ESCAPE_FROM_ESCORT_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '179106',
-          code: 'COACH',
+          response: 'COACH',
           active: true,
           label: 'Coach',
           commentRequired: false,
@@ -196,7 +196,7 @@ export const ESCAPE_FROM_ESCORT_1: IncidentTypeConfiguration = {
         },
         {
           id: '179107',
-          code: 'MINIBUS',
+          response: 'MINIBUS',
           active: true,
           label: 'Minibus',
           commentRequired: false,
@@ -205,7 +205,7 @@ export const ESCAPE_FROM_ESCORT_1: IncidentTypeConfiguration = {
         },
         {
           id: '179110',
-          code: 'TAXI',
+          response: 'TAXI',
           active: true,
           label: 'Taxi',
           commentRequired: false,
@@ -214,7 +214,7 @@ export const ESCAPE_FROM_ESCORT_1: IncidentTypeConfiguration = {
         },
         {
           id: '179105',
-          code: 'CELLULAR VEHICLE',
+          response: 'CELLULAR VEHICLE',
           active: true,
           label: 'Cellular vehicle',
           commentRequired: false,
@@ -223,7 +223,7 @@ export const ESCAPE_FROM_ESCORT_1: IncidentTypeConfiguration = {
         },
         {
           id: '179109',
-          code: 'SECURE TRANSIT',
+          response: 'SECURE TRANSIT',
           active: true,
           label: 'Secure transit',
           commentRequired: false,
@@ -232,7 +232,7 @@ export const ESCAPE_FROM_ESCORT_1: IncidentTypeConfiguration = {
         },
         {
           id: '179108',
-          code: 'OTHER',
+          response: 'OTHER',
           active: true,
           label: 'Other',
           commentRequired: true,
@@ -250,7 +250,7 @@ export const ESCAPE_FROM_ESCORT_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '179195',
-          code: 'YES',
+          response: 'YES',
           active: true,
           label: 'Yes',
           commentRequired: false,
@@ -259,7 +259,7 @@ export const ESCAPE_FROM_ESCORT_1: IncidentTypeConfiguration = {
         },
         {
           id: '179196',
-          code: 'NO',
+          response: 'NO',
           active: true,
           label: 'No',
           commentRequired: false,
@@ -277,7 +277,7 @@ export const ESCAPE_FROM_ESCORT_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '179203',
-          code: 'LIVE',
+          response: 'LIVE',
           active: true,
           label: 'Live',
           commentRequired: false,
@@ -286,7 +286,7 @@ export const ESCAPE_FROM_ESCORT_1: IncidentTypeConfiguration = {
         },
         {
           id: '179202',
-          code: 'BLANK',
+          response: 'BLANK',
           active: true,
           label: 'Blank',
           commentRequired: false,
@@ -295,7 +295,7 @@ export const ESCAPE_FROM_ESCORT_1: IncidentTypeConfiguration = {
         },
         {
           id: '179204',
-          code: 'NOT KNOWN',
+          response: 'NOT KNOWN',
           active: true,
           label: 'Not known',
           commentRequired: false,
@@ -313,7 +313,7 @@ export const ESCAPE_FROM_ESCORT_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '179314',
-          code: 'REAL',
+          response: 'REAL',
           active: true,
           label: 'Real',
           commentRequired: true,
@@ -322,7 +322,7 @@ export const ESCAPE_FROM_ESCORT_1: IncidentTypeConfiguration = {
         },
         {
           id: '179315',
-          code: 'REPLICA',
+          response: 'REPLICA',
           active: true,
           label: 'Replica',
           commentRequired: true,
@@ -331,7 +331,7 @@ export const ESCAPE_FROM_ESCORT_1: IncidentTypeConfiguration = {
         },
         {
           id: '179313',
-          code: 'NOT KNOWN',
+          response: 'NOT KNOWN',
           active: true,
           label: 'Not known',
           commentRequired: true,
@@ -349,7 +349,7 @@ export const ESCAPE_FROM_ESCORT_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '179397',
-          code: 'A CO-DEFENDANT',
+          response: 'A CO-DEFENDANT',
           active: true,
           label: 'A co-defendant',
           commentRequired: false,
@@ -358,7 +358,7 @@ export const ESCAPE_FROM_ESCORT_1: IncidentTypeConfiguration = {
         },
         {
           id: '179399',
-          code: 'A RELATIVE',
+          response: 'A RELATIVE',
           active: true,
           label: 'A relative',
           commentRequired: false,
@@ -367,7 +367,7 @@ export const ESCAPE_FROM_ESCORT_1: IncidentTypeConfiguration = {
         },
         {
           id: '179398',
-          code: 'A KNOWN ASSOCIATE',
+          response: 'A KNOWN ASSOCIATE',
           active: true,
           label: 'A known associate',
           commentRequired: false,
@@ -376,7 +376,7 @@ export const ESCAPE_FROM_ESCORT_1: IncidentTypeConfiguration = {
         },
         {
           id: '179400',
-          code: 'AN E LIST PRISONER',
+          response: 'AN E LIST PRISONER',
           active: true,
           label: 'An e list prisoner',
           commentRequired: false,
@@ -385,7 +385,7 @@ export const ESCAPE_FROM_ESCORT_1: IncidentTypeConfiguration = {
         },
         {
           id: '179401',
-          code: 'NONE OF THE ABOVE',
+          response: 'NONE OF THE ABOVE',
           active: true,
           label: 'None of the above',
           commentRequired: false,
@@ -403,7 +403,7 @@ export const ESCAPE_FROM_ESCORT_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '179447',
-          code: 'YES',
+          response: 'YES',
           active: true,
           label: 'Yes',
           commentRequired: false,
@@ -412,7 +412,7 @@ export const ESCAPE_FROM_ESCORT_1: IncidentTypeConfiguration = {
         },
         {
           id: '179448',
-          code: 'NO',
+          response: 'NO',
           active: true,
           label: 'No',
           commentRequired: false,
@@ -430,7 +430,7 @@ export const ESCAPE_FROM_ESCORT_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '179709',
-          code: 'INVESTIGATION BY POLICE',
+          response: 'INVESTIGATION BY POLICE',
           active: true,
           label: 'Investigation by police',
           commentRequired: false,
@@ -439,7 +439,7 @@ export const ESCAPE_FROM_ESCORT_1: IncidentTypeConfiguration = {
         },
         {
           id: '179710',
-          code: 'INVESTIGATION INTERNALLY',
+          response: 'INVESTIGATION INTERNALLY',
           active: true,
           label: 'Investigation internally',
           commentRequired: false,
@@ -448,7 +448,7 @@ export const ESCAPE_FROM_ESCORT_1: IncidentTypeConfiguration = {
         },
         {
           id: '179708',
-          code: "GOVERNOR'S ADJUDICATION",
+          response: "GOVERNOR'S ADJUDICATION",
           active: true,
           label: "Governor's adjudication",
           commentRequired: false,
@@ -457,7 +457,7 @@ export const ESCAPE_FROM_ESCORT_1: IncidentTypeConfiguration = {
         },
         {
           id: '179711',
-          code: 'NO INVESTIGATION',
+          response: 'NO INVESTIGATION',
           active: true,
           label: 'No investigation',
           commentRequired: false,
@@ -475,7 +475,7 @@ export const ESCAPE_FROM_ESCORT_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '179878',
-          code: 'YES',
+          response: 'YES',
           active: true,
           label: 'Yes',
           commentRequired: false,
@@ -484,7 +484,7 @@ export const ESCAPE_FROM_ESCORT_1: IncidentTypeConfiguration = {
         },
         {
           id: '179877',
-          code: 'NO',
+          response: 'NO',
           active: true,
           label: 'No',
           commentRequired: false,
@@ -502,7 +502,7 @@ export const ESCAPE_FROM_ESCORT_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '179895',
-          code: 'YES',
+          response: 'YES',
           active: true,
           label: 'Yes',
           commentRequired: false,
@@ -511,7 +511,7 @@ export const ESCAPE_FROM_ESCORT_1: IncidentTypeConfiguration = {
         },
         {
           id: '179896',
-          code: 'NO',
+          response: 'NO',
           active: true,
           label: 'No',
           commentRequired: false,
@@ -529,7 +529,7 @@ export const ESCAPE_FROM_ESCORT_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '179911',
-          code: 'ENTER AMOUNT IN POUND STERLING',
+          response: 'ENTER AMOUNT IN POUND STERLING',
           active: true,
           label: 'Enter amount in pound sterling',
           commentRequired: true,
@@ -547,7 +547,7 @@ export const ESCAPE_FROM_ESCORT_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '179959',
-          code: 'YES',
+          response: 'YES',
           active: true,
           label: 'Yes',
           commentRequired: true,
@@ -556,7 +556,7 @@ export const ESCAPE_FROM_ESCORT_1: IncidentTypeConfiguration = {
         },
         {
           id: '179958',
-          code: 'NO',
+          response: 'NO',
           active: true,
           label: 'No',
           commentRequired: false,
@@ -574,7 +574,7 @@ export const ESCAPE_FROM_ESCORT_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '179980',
-          code: 'MALE',
+          response: 'MALE',
           active: true,
           label: 'Male',
           commentRequired: true,
@@ -583,7 +583,7 @@ export const ESCAPE_FROM_ESCORT_1: IncidentTypeConfiguration = {
         },
         {
           id: '179979',
-          code: 'FEMALE',
+          response: 'FEMALE',
           active: true,
           label: 'Female',
           commentRequired: true,
@@ -601,7 +601,7 @@ export const ESCAPE_FROM_ESCORT_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '180172',
-          code: 'HOSPITAL OUTPATIENT',
+          response: 'HOSPITAL OUTPATIENT',
           active: true,
           label: 'Hospital outpatient',
           commentRequired: true,
@@ -610,7 +610,7 @@ export const ESCAPE_FROM_ESCORT_1: IncidentTypeConfiguration = {
         },
         {
           id: '180171',
-          code: 'HOSPITAL INPATIENT',
+          response: 'HOSPITAL INPATIENT',
           active: true,
           label: 'Hospital inpatient',
           commentRequired: true,
@@ -619,7 +619,7 @@ export const ESCAPE_FROM_ESCORT_1: IncidentTypeConfiguration = {
         },
         {
           id: '180178',
-          code: 'INTER PRISON TRANSFER',
+          response: 'INTER PRISON TRANSFER',
           active: true,
           label: 'Inter prison transfer',
           commentRequired: false,
@@ -628,7 +628,7 @@ export const ESCAPE_FROM_ESCORT_1: IncidentTypeConfiguration = {
         },
         {
           id: '180179',
-          code: 'MAGISTRATES COURT',
+          response: 'MAGISTRATES COURT',
           active: true,
           label: 'Magistrates court',
           commentRequired: true,
@@ -637,7 +637,7 @@ export const ESCAPE_FROM_ESCORT_1: IncidentTypeConfiguration = {
         },
         {
           id: '180174',
-          code: 'CROWN COURT',
+          response: 'CROWN COURT',
           active: true,
           label: 'Crown court',
           commentRequired: true,
@@ -646,7 +646,7 @@ export const ESCAPE_FROM_ESCORT_1: IncidentTypeConfiguration = {
         },
         {
           id: '180173',
-          code: 'COUNTY COURT',
+          response: 'COUNTY COURT',
           active: true,
           label: 'County court',
           commentRequired: true,
@@ -655,7 +655,7 @@ export const ESCAPE_FROM_ESCORT_1: IncidentTypeConfiguration = {
         },
         {
           id: '180175',
-          code: 'FUNERAL',
+          response: 'FUNERAL',
           active: true,
           label: 'Funeral',
           commentRequired: false,
@@ -664,7 +664,7 @@ export const ESCAPE_FROM_ESCORT_1: IncidentTypeConfiguration = {
         },
         {
           id: '180181',
-          code: 'WEDDING',
+          response: 'WEDDING',
           active: true,
           label: 'Wedding',
           commentRequired: false,
@@ -673,7 +673,7 @@ export const ESCAPE_FROM_ESCORT_1: IncidentTypeConfiguration = {
         },
         {
           id: '180176',
-          code: 'HOME VISIT',
+          response: 'HOME VISIT',
           active: true,
           label: 'Home visit',
           commentRequired: false,
@@ -682,7 +682,7 @@ export const ESCAPE_FROM_ESCORT_1: IncidentTypeConfiguration = {
         },
         {
           id: '180177',
-          code: 'HOSP VISIT (DYING RELATIVE)',
+          response: 'HOSP VISIT (DYING RELATIVE)',
           active: true,
           label: 'Hosp visit (dying relative)',
           commentRequired: true,
@@ -691,7 +691,7 @@ export const ESCAPE_FROM_ESCORT_1: IncidentTypeConfiguration = {
         },
         {
           id: '180180',
-          code: 'OTHER',
+          response: 'OTHER',
           active: true,
           label: 'Other',
           commentRequired: true,
@@ -709,7 +709,7 @@ export const ESCAPE_FROM_ESCORT_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '180246',
-          code: 'SECRETED ON PRISONER',
+          response: 'SECRETED ON PRISONER',
           active: true,
           label: 'Secreted on prisoner',
           commentRequired: false,
@@ -718,7 +718,7 @@ export const ESCAPE_FROM_ESCORT_1: IncidentTypeConfiguration = {
         },
         {
           id: '180244',
-          code: 'FOUND IN VEHICLE/AREA',
+          response: 'FOUND IN VEHICLE/AREA',
           active: true,
           label: 'Found in vehicle/area',
           commentRequired: false,
@@ -727,7 +727,7 @@ export const ESCAPE_FROM_ESCORT_1: IncidentTypeConfiguration = {
         },
         {
           id: '180243',
-          code: 'BROUGHT BY OUTSIDE ACCOMPLICE',
+          response: 'BROUGHT BY OUTSIDE ACCOMPLICE',
           active: true,
           label: 'Brought by outside accomplice',
           commentRequired: false,
@@ -736,7 +736,7 @@ export const ESCAPE_FROM_ESCORT_1: IncidentTypeConfiguration = {
         },
         {
           id: '180245',
-          code: 'NOT KNOWN',
+          response: 'NOT KNOWN',
           active: true,
           label: 'Not known',
           commentRequired: false,
@@ -754,7 +754,7 @@ export const ESCAPE_FROM_ESCORT_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '180275',
-          code: 'YES',
+          response: 'YES',
           active: true,
           label: 'Yes',
           commentRequired: false,
@@ -763,7 +763,7 @@ export const ESCAPE_FROM_ESCORT_1: IncidentTypeConfiguration = {
         },
         {
           id: '180276',
-          code: 'NO',
+          response: 'NO',
           active: true,
           label: 'No',
           commentRequired: false,
@@ -781,7 +781,7 @@ export const ESCAPE_FROM_ESCORT_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '180280',
-          code: 'YES',
+          response: 'YES',
           active: true,
           label: 'Yes',
           commentRequired: true,
@@ -790,7 +790,7 @@ export const ESCAPE_FROM_ESCORT_1: IncidentTypeConfiguration = {
         },
         {
           id: '180281',
-          code: 'NO',
+          response: 'NO',
           active: true,
           label: 'No',
           commentRequired: false,
@@ -808,7 +808,7 @@ export const ESCAPE_FROM_ESCORT_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '180401',
-          code: 'PRISON HEALTH CARE CENTRE',
+          response: 'PRISON HEALTH CARE CENTRE',
           active: true,
           label: 'Prison health care centre',
           commentRequired: false,
@@ -817,7 +817,7 @@ export const ESCAPE_FROM_ESCORT_1: IncidentTypeConfiguration = {
         },
         {
           id: '180399',
-          code: 'OUTSIDE HOSPITAL',
+          response: 'OUTSIDE HOSPITAL',
           active: true,
           label: 'Outside hospital',
           commentRequired: false,
@@ -826,7 +826,7 @@ export const ESCAPE_FROM_ESCORT_1: IncidentTypeConfiguration = {
         },
         {
           id: '180400',
-          code: 'OWN GP',
+          response: 'OWN GP',
           active: true,
           label: 'Own GP',
           commentRequired: false,
@@ -844,7 +844,7 @@ export const ESCAPE_FROM_ESCORT_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '180402',
-          code: 'YES',
+          response: 'YES',
           active: true,
           label: 'Yes',
           commentRequired: false,
@@ -853,7 +853,7 @@ export const ESCAPE_FROM_ESCORT_1: IncidentTypeConfiguration = {
         },
         {
           id: '180403',
-          code: 'NO',
+          response: 'NO',
           active: true,
           label: 'No',
           commentRequired: false,
@@ -871,7 +871,7 @@ export const ESCAPE_FROM_ESCORT_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '180489',
-          code: 'YES',
+          response: 'YES',
           active: true,
           label: 'Yes',
           commentRequired: false,
@@ -880,7 +880,7 @@ export const ESCAPE_FROM_ESCORT_1: IncidentTypeConfiguration = {
         },
         {
           id: '180490',
-          code: 'NO',
+          response: 'NO',
           active: true,
           label: 'No',
           commentRequired: false,
@@ -898,7 +898,7 @@ export const ESCAPE_FROM_ESCORT_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '180522',
-          code: 'YES',
+          response: 'YES',
           active: true,
           label: 'Yes',
           commentRequired: false,
@@ -907,7 +907,7 @@ export const ESCAPE_FROM_ESCORT_1: IncidentTypeConfiguration = {
         },
         {
           id: '180523',
-          code: 'NO',
+          response: 'NO',
           active: true,
           label: 'No',
           commentRequired: false,
@@ -925,7 +925,7 @@ export const ESCAPE_FROM_ESCORT_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '180615',
-          code: 'PRISONER WHO ESCAPED',
+          response: 'PRISONER WHO ESCAPED',
           active: true,
           label: 'Prisoner who escaped',
           commentRequired: false,
@@ -934,7 +934,7 @@ export const ESCAPE_FROM_ESCORT_1: IncidentTypeConfiguration = {
         },
         {
           id: '180613',
-          code: 'OTHER PRISONER',
+          response: 'OTHER PRISONER',
           active: true,
           label: 'Other prisoner',
           commentRequired: false,
@@ -943,7 +943,7 @@ export const ESCAPE_FROM_ESCORT_1: IncidentTypeConfiguration = {
         },
         {
           id: '180614',
-          code: 'OUTSIDE ACCOMPLICE',
+          response: 'OUTSIDE ACCOMPLICE',
           active: true,
           label: 'Outside accomplice',
           commentRequired: false,
@@ -961,7 +961,7 @@ export const ESCAPE_FROM_ESCORT_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '180736',
-          code: 'YES',
+          response: 'YES',
           active: true,
           label: 'Yes',
           commentRequired: false,
@@ -970,7 +970,7 @@ export const ESCAPE_FROM_ESCORT_1: IncidentTypeConfiguration = {
         },
         {
           id: '180735',
-          code: 'NO',
+          response: 'NO',
           active: true,
           label: 'No',
           commentRequired: false,
@@ -988,7 +988,7 @@ export const ESCAPE_FROM_ESCORT_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '180749',
-          code: 'MINOR',
+          response: 'MINOR',
           active: true,
           label: 'Minor',
           commentRequired: true,
@@ -997,7 +997,7 @@ export const ESCAPE_FROM_ESCORT_1: IncidentTypeConfiguration = {
         },
         {
           id: '180750',
-          code: 'SERIOUS',
+          response: 'SERIOUS',
           active: true,
           label: 'Serious',
           commentRequired: true,
@@ -1006,7 +1006,7 @@ export const ESCAPE_FROM_ESCORT_1: IncidentTypeConfiguration = {
         },
         {
           id: '180748',
-          code: 'EXTENSIVE',
+          response: 'EXTENSIVE',
           active: true,
           label: 'Extensive',
           commentRequired: true,
@@ -1024,7 +1024,7 @@ export const ESCAPE_FROM_ESCORT_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '180832',
-          code: 'YES',
+          response: 'YES',
           active: true,
           label: 'Yes',
           commentRequired: false,
@@ -1033,7 +1033,7 @@ export const ESCAPE_FROM_ESCORT_1: IncidentTypeConfiguration = {
         },
         {
           id: '180831',
-          code: 'NO',
+          response: 'NO',
           active: true,
           label: 'No',
           commentRequired: false,
@@ -1051,7 +1051,7 @@ export const ESCAPE_FROM_ESCORT_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '180837',
-          code: 'REAL',
+          response: 'REAL',
           active: true,
           label: 'Real',
           commentRequired: false,
@@ -1060,7 +1060,7 @@ export const ESCAPE_FROM_ESCORT_1: IncidentTypeConfiguration = {
         },
         {
           id: '180835',
-          code: 'IMPROVISED',
+          response: 'IMPROVISED',
           active: true,
           label: 'Improvised',
           commentRequired: false,
@@ -1069,7 +1069,7 @@ export const ESCAPE_FROM_ESCORT_1: IncidentTypeConfiguration = {
         },
         {
           id: '180836',
-          code: 'NOT KNOWN',
+          response: 'NOT KNOWN',
           active: true,
           label: 'Not known',
           commentRequired: false,
@@ -1087,7 +1087,7 @@ export const ESCAPE_FROM_ESCORT_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '180913',
-          code: 'YES',
+          response: 'YES',
           active: true,
           label: 'Yes',
           commentRequired: false,
@@ -1096,7 +1096,7 @@ export const ESCAPE_FROM_ESCORT_1: IncidentTypeConfiguration = {
         },
         {
           id: '180912',
-          code: 'NO',
+          response: 'NO',
           active: true,
           label: 'No',
           commentRequired: false,
@@ -1114,7 +1114,7 @@ export const ESCAPE_FROM_ESCORT_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '180970',
-          code: 'PRISON HEALTH CARE CENTRE',
+          response: 'PRISON HEALTH CARE CENTRE',
           active: true,
           label: 'Prison health care centre',
           commentRequired: false,
@@ -1123,7 +1123,7 @@ export const ESCAPE_FROM_ESCORT_1: IncidentTypeConfiguration = {
         },
         {
           id: '180969',
-          code: 'OUTSIDE HOSPITAL',
+          response: 'OUTSIDE HOSPITAL',
           active: true,
           label: 'Outside hospital',
           commentRequired: false,
@@ -1141,7 +1141,7 @@ export const ESCAPE_FROM_ESCORT_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '180990',
-          code: 'PRISONER WHO ESCAPED',
+          response: 'PRISONER WHO ESCAPED',
           active: true,
           label: 'Prisoner who escaped',
           commentRequired: false,
@@ -1150,7 +1150,7 @@ export const ESCAPE_FROM_ESCORT_1: IncidentTypeConfiguration = {
         },
         {
           id: '180988',
-          code: 'OTHER PRISONER',
+          response: 'OTHER PRISONER',
           active: true,
           label: 'Other prisoner',
           commentRequired: false,
@@ -1159,7 +1159,7 @@ export const ESCAPE_FROM_ESCORT_1: IncidentTypeConfiguration = {
         },
         {
           id: '180989',
-          code: 'OUTSIDE ACCOMPLICE',
+          response: 'OUTSIDE ACCOMPLICE',
           active: true,
           label: 'Outside accomplice',
           commentRequired: false,
@@ -1177,7 +1177,7 @@ export const ESCAPE_FROM_ESCORT_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '181039',
-          code: 'GOVERNORS INSTRUCTION',
+          response: 'GOVERNORS INSTRUCTION',
           active: true,
           label: 'Governors instruction',
           commentRequired: false,
@@ -1186,7 +1186,7 @@ export const ESCAPE_FROM_ESCORT_1: IncidentTypeConfiguration = {
         },
         {
           id: '181046',
-          code: 'PREVENTED BY DISABILITY',
+          response: 'PREVENTED BY DISABILITY',
           active: true,
           label: 'Prevented by disability',
           commentRequired: false,
@@ -1195,7 +1195,7 @@ export const ESCAPE_FROM_ESCORT_1: IncidentTypeConfiguration = {
         },
         {
           id: '181047',
-          code: 'PREVENTED BY INJURY',
+          response: 'PREVENTED BY INJURY',
           active: true,
           label: 'Prevented by injury',
           commentRequired: false,
@@ -1204,7 +1204,7 @@ export const ESCAPE_FROM_ESCORT_1: IncidentTypeConfiguration = {
         },
         {
           id: '181043',
-          code: 'MEDICAL TREATMENT/REQUEST',
+          response: 'MEDICAL TREATMENT/REQUEST',
           active: true,
           label: 'Medical treatment/request',
           commentRequired: false,
@@ -1213,7 +1213,7 @@ export const ESCAPE_FROM_ESCORT_1: IncidentTypeConfiguration = {
         },
         {
           id: '181041',
-          code: 'IN COURT ROOM',
+          response: 'IN COURT ROOM',
           active: true,
           label: 'In court room',
           commentRequired: false,
@@ -1222,7 +1222,7 @@ export const ESCAPE_FROM_ESCORT_1: IncidentTypeConfiguration = {
         },
         {
           id: '181042',
-          code: 'LOCATED IN SECURE AREA',
+          response: 'LOCATED IN SECURE AREA',
           active: true,
           label: 'Located in secure area',
           commentRequired: false,
@@ -1231,7 +1231,7 @@ export const ESCAPE_FROM_ESCORT_1: IncidentTypeConfiguration = {
         },
         {
           id: '181040',
-          code: 'IN CELL OF CELLULAR VEHICLE',
+          response: 'IN CELL OF CELLULAR VEHICLE',
           active: true,
           label: 'In cell of cellular vehicle',
           commentRequired: false,
@@ -1240,7 +1240,7 @@ export const ESCAPE_FROM_ESCORT_1: IncidentTypeConfiguration = {
         },
         {
           id: '181048',
-          code: 'TRANSFER TO MENTAL HOSPITAL',
+          response: 'TRANSFER TO MENTAL HOSPITAL',
           active: true,
           label: 'Transfer to mental hospital',
           commentRequired: false,
@@ -1249,7 +1249,7 @@ export const ESCAPE_FROM_ESCORT_1: IncidentTypeConfiguration = {
         },
         {
           id: '181037',
-          code: 'DURING MARRIAGE CEREMONY',
+          response: 'DURING MARRIAGE CEREMONY',
           active: true,
           label: 'During marriage ceremony',
           commentRequired: false,
@@ -1258,7 +1258,7 @@ export const ESCAPE_FROM_ESCORT_1: IncidentTypeConfiguration = {
         },
         {
           id: '181044',
-          code: 'NONE AVAILABLE',
+          response: 'NONE AVAILABLE',
           active: true,
           label: 'None available',
           commentRequired: false,
@@ -1267,7 +1267,7 @@ export const ESCAPE_FROM_ESCORT_1: IncidentTypeConfiguration = {
         },
         {
           id: '181038',
-          code: 'FAILURE TO USE',
+          response: 'FAILURE TO USE',
           active: true,
           label: 'Failure to use',
           commentRequired: false,
@@ -1276,7 +1276,7 @@ export const ESCAPE_FROM_ESCORT_1: IncidentTypeConfiguration = {
         },
         {
           id: '181045',
-          code: 'OTHER',
+          response: 'OTHER',
           active: true,
           label: 'Other',
           commentRequired: true,
@@ -1294,7 +1294,7 @@ export const ESCAPE_FROM_ESCORT_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '181051',
-          code: 'YES',
+          response: 'YES',
           active: true,
           label: 'Yes',
           commentRequired: true,
@@ -1303,7 +1303,7 @@ export const ESCAPE_FROM_ESCORT_1: IncidentTypeConfiguration = {
         },
         {
           id: '181052',
-          code: 'NO',
+          response: 'NO',
           active: true,
           label: 'No',
           commentRequired: false,
@@ -1321,7 +1321,7 @@ export const ESCAPE_FROM_ESCORT_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '181114',
-          code: 'PRISONER WHO ESCAPED',
+          response: 'PRISONER WHO ESCAPED',
           active: true,
           label: 'Prisoner who escaped',
           commentRequired: false,
@@ -1330,7 +1330,7 @@ export const ESCAPE_FROM_ESCORT_1: IncidentTypeConfiguration = {
         },
         {
           id: '181112',
-          code: 'OTHER PRISONER',
+          response: 'OTHER PRISONER',
           active: true,
           label: 'Other prisoner',
           commentRequired: false,
@@ -1339,7 +1339,7 @@ export const ESCAPE_FROM_ESCORT_1: IncidentTypeConfiguration = {
         },
         {
           id: '181113',
-          code: 'OUTSIDE ACCOMPLICE',
+          response: 'OUTSIDE ACCOMPLICE',
           active: true,
           label: 'Outside accomplice',
           commentRequired: false,
@@ -1357,7 +1357,7 @@ export const ESCAPE_FROM_ESCORT_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '181120',
-          code: 'MALE',
+          response: 'MALE',
           active: true,
           label: 'Male',
           commentRequired: true,
@@ -1366,7 +1366,7 @@ export const ESCAPE_FROM_ESCORT_1: IncidentTypeConfiguration = {
         },
         {
           id: '181119',
-          code: 'FEMALE',
+          response: 'FEMALE',
           active: true,
           label: 'Female',
           commentRequired: true,
@@ -1384,7 +1384,7 @@ export const ESCAPE_FROM_ESCORT_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '181322',
-          code: 'YES',
+          response: 'YES',
           active: true,
           label: 'Yes',
           commentRequired: false,
@@ -1393,7 +1393,7 @@ export const ESCAPE_FROM_ESCORT_1: IncidentTypeConfiguration = {
         },
         {
           id: '181321',
-          code: 'NO',
+          response: 'NO',
           active: true,
           label: 'No',
           commentRequired: false,
@@ -1411,7 +1411,7 @@ export const ESCAPE_FROM_ESCORT_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '181345',
-          code: 'SECRETED ON THE PRISONER',
+          response: 'SECRETED ON THE PRISONER',
           active: true,
           label: 'Secreted on the prisoner',
           commentRequired: false,
@@ -1420,7 +1420,7 @@ export const ESCAPE_FROM_ESCORT_1: IncidentTypeConfiguration = {
         },
         {
           id: '181343',
-          code: 'FOUND IN VEHICLE/AREA',
+          response: 'FOUND IN VEHICLE/AREA',
           active: true,
           label: 'Found in vehicle/area',
           commentRequired: false,
@@ -1429,7 +1429,7 @@ export const ESCAPE_FROM_ESCORT_1: IncidentTypeConfiguration = {
         },
         {
           id: '181342',
-          code: 'BROUGHT BY ACCOMPLICE',
+          response: 'BROUGHT BY ACCOMPLICE',
           active: true,
           label: 'Brought by accomplice',
           commentRequired: false,
@@ -1438,7 +1438,7 @@ export const ESCAPE_FROM_ESCORT_1: IncidentTypeConfiguration = {
         },
         {
           id: '181344',
-          code: 'NOT KNOWN',
+          response: 'NOT KNOWN',
           active: true,
           label: 'Not known',
           commentRequired: false,
@@ -1456,7 +1456,7 @@ export const ESCAPE_FROM_ESCORT_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '181372',
-          code: 'YES',
+          response: 'YES',
           active: true,
           label: 'Yes',
           commentRequired: false,
@@ -1465,7 +1465,7 @@ export const ESCAPE_FROM_ESCORT_1: IncidentTypeConfiguration = {
         },
         {
           id: '181373',
-          code: 'NO',
+          response: 'NO',
           active: true,
           label: 'No',
           commentRequired: false,
@@ -1483,7 +1483,7 @@ export const ESCAPE_FROM_ESCORT_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '181382',
-          code: 'PRISON SERVICE',
+          response: 'PRISON SERVICE',
           active: true,
           label: 'Prison service',
           commentRequired: false,
@@ -1492,7 +1492,7 @@ export const ESCAPE_FROM_ESCORT_1: IncidentTypeConfiguration = {
         },
         {
           id: '181381',
-          code: 'POLICE',
+          response: 'POLICE',
           active: true,
           label: 'Police',
           commentRequired: false,
@@ -1510,7 +1510,7 @@ export const ESCAPE_FROM_ESCORT_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '181430',
-          code: 'PRISONER USED KEY',
+          response: 'PRISONER USED KEY',
           active: true,
           label: 'Prisoner used key',
           commentRequired: false,
@@ -1519,7 +1519,7 @@ export const ESCAPE_FROM_ESCORT_1: IncidentTypeConfiguration = {
         },
         {
           id: '181431',
-          code: 'SLIPPED RESTRAINT',
+          response: 'SLIPPED RESTRAINT',
           active: true,
           label: 'Slipped restraint',
           commentRequired: false,
@@ -1528,7 +1528,7 @@ export const ESCAPE_FROM_ESCORT_1: IncidentTypeConfiguration = {
         },
         {
           id: '181435',
-          code: 'PICKED LOCK',
+          response: 'PICKED LOCK',
           active: true,
           label: 'Picked lock',
           commentRequired: false,
@@ -1537,7 +1537,7 @@ export const ESCAPE_FROM_ESCORT_1: IncidentTypeConfiguration = {
         },
         {
           id: '181436',
-          code: 'STAFF UNLOCKED UNDER THREAT',
+          response: 'STAFF UNLOCKED UNDER THREAT',
           active: true,
           label: 'Staff unlocked under threat',
           commentRequired: false,
@@ -1546,7 +1546,7 @@ export const ESCAPE_FROM_ESCORT_1: IncidentTypeConfiguration = {
         },
         {
           id: '181432',
-          code: 'IMPROPER APPLICATION',
+          response: 'IMPROPER APPLICATION',
           active: true,
           label: 'Improper application',
           commentRequired: false,
@@ -1555,7 +1555,7 @@ export const ESCAPE_FROM_ESCORT_1: IncidentTypeConfiguration = {
         },
         {
           id: '181434',
-          code: 'OTHER',
+          response: 'OTHER',
           active: true,
           label: 'Other',
           commentRequired: true,
@@ -1564,7 +1564,7 @@ export const ESCAPE_FROM_ESCORT_1: IncidentTypeConfiguration = {
         },
         {
           id: '181433',
-          code: 'NOT KNOWN',
+          response: 'NOT KNOWN',
           active: true,
           label: 'Not known',
           commentRequired: false,
@@ -1582,7 +1582,7 @@ export const ESCAPE_FROM_ESCORT_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '181526',
-          code: 'OTHER SHARP INSTRUMENT',
+          response: 'OTHER SHARP INSTRUMENT',
           active: true,
           label: 'Other sharp instrument',
           commentRequired: false,
@@ -1591,7 +1591,7 @@ export const ESCAPE_FROM_ESCORT_1: IncidentTypeConfiguration = {
         },
         {
           id: '181520',
-          code: 'BLUNT INSTRUMENT',
+          response: 'BLUNT INSTRUMENT',
           active: true,
           label: 'Blunt instrument',
           commentRequired: false,
@@ -1600,7 +1600,7 @@ export const ESCAPE_FROM_ESCORT_1: IncidentTypeConfiguration = {
         },
         {
           id: '181524',
-          code: 'LIGATURE',
+          response: 'LIGATURE',
           active: true,
           label: 'Ligature',
           commentRequired: false,
@@ -1609,7 +1609,7 @@ export const ESCAPE_FROM_ESCORT_1: IncidentTypeConfiguration = {
         },
         {
           id: '181521',
-          code: 'DANGEROUS LIQUID',
+          response: 'DANGEROUS LIQUID',
           active: true,
           label: 'Dangerous liquid',
           commentRequired: false,
@@ -1618,7 +1618,7 @@ export const ESCAPE_FROM_ESCORT_1: IncidentTypeConfiguration = {
         },
         {
           id: '181522',
-          code: 'EXCRETA/URINE',
+          response: 'EXCRETA/URINE',
           active: true,
           label: 'Excreta/urine',
           commentRequired: false,
@@ -1627,7 +1627,7 @@ export const ESCAPE_FROM_ESCORT_1: IncidentTypeConfiguration = {
         },
         {
           id: '181527',
-          code: 'SPITTING',
+          response: 'SPITTING',
           active: true,
           label: 'Spitting',
           commentRequired: false,
@@ -1636,7 +1636,7 @@ export const ESCAPE_FROM_ESCORT_1: IncidentTypeConfiguration = {
         },
         {
           id: '181523',
-          code: 'FOOD',
+          response: 'FOOD',
           active: true,
           label: 'Food',
           commentRequired: false,
@@ -1645,7 +1645,7 @@ export const ESCAPE_FROM_ESCORT_1: IncidentTypeConfiguration = {
         },
         {
           id: '181529',
-          code: 'THROWN FURNITURE',
+          response: 'THROWN FURNITURE',
           active: true,
           label: 'Thrown furniture',
           commentRequired: false,
@@ -1654,7 +1654,7 @@ export const ESCAPE_FROM_ESCORT_1: IncidentTypeConfiguration = {
         },
         {
           id: '181528',
-          code: 'THROWN EQUIPMENT',
+          response: 'THROWN EQUIPMENT',
           active: true,
           label: 'Thrown equipment',
           commentRequired: false,
@@ -1663,7 +1663,7 @@ export const ESCAPE_FROM_ESCORT_1: IncidentTypeConfiguration = {
         },
         {
           id: '181525',
-          code: 'OTHER',
+          response: 'OTHER',
           active: true,
           label: 'Other',
           commentRequired: true,
@@ -1681,7 +1681,7 @@ export const ESCAPE_FROM_ESCORT_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '181588',
-          code: 'C.N (CHLORACETOPHEONE)',
+          response: 'C.N (CHLORACETOPHEONE)',
           active: true,
           label: 'C.n (chloracetopheone)',
           commentRequired: false,
@@ -1690,7 +1690,7 @@ export const ESCAPE_FROM_ESCORT_1: IncidentTypeConfiguration = {
         },
         {
           id: '181589',
-          code: 'C.S (ORTHO..NITRILE)',
+          response: 'C.S (ORTHO..NITRILE)',
           active: true,
           label: 'C.s (ortho..nitrile)',
           commentRequired: false,
@@ -1699,7 +1699,7 @@ export const ESCAPE_FROM_ESCORT_1: IncidentTypeConfiguration = {
         },
         {
           id: '181591',
-          code: 'O.C (MACE/PEPPER)',
+          response: 'O.C (MACE/PEPPER)',
           active: true,
           label: 'O.c (mace/pepper)',
           commentRequired: false,
@@ -1708,7 +1708,7 @@ export const ESCAPE_FROM_ESCORT_1: IncidentTypeConfiguration = {
         },
         {
           id: '181592',
-          code: 'OTHER',
+          response: 'OTHER',
           active: true,
           label: 'Other',
           commentRequired: true,
@@ -1717,7 +1717,7 @@ export const ESCAPE_FROM_ESCORT_1: IncidentTypeConfiguration = {
         },
         {
           id: '181590',
-          code: 'NOT KNOWN',
+          response: 'NOT KNOWN',
           active: true,
           label: 'Not known',
           commentRequired: false,
@@ -1735,7 +1735,7 @@ export const ESCAPE_FROM_ESCORT_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '181611',
-          code: 'YES',
+          response: 'YES',
           active: true,
           label: 'Yes',
           commentRequired: false,
@@ -1744,7 +1744,7 @@ export const ESCAPE_FROM_ESCORT_1: IncidentTypeConfiguration = {
         },
         {
           id: '181612',
-          code: 'NO',
+          response: 'NO',
           active: true,
           label: 'No',
           commentRequired: false,
@@ -1762,7 +1762,7 @@ export const ESCAPE_FROM_ESCORT_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '181724',
-          code: 'OFFICER',
+          response: 'OFFICER',
           active: true,
           label: 'Officer',
           commentRequired: false,
@@ -1771,7 +1771,7 @@ export const ESCAPE_FROM_ESCORT_1: IncidentTypeConfiguration = {
         },
         {
           id: '181723',
-          code: 'OTHER PRISONER',
+          response: 'OTHER PRISONER',
           active: true,
           label: 'Other prisoner',
           commentRequired: false,
@@ -1789,7 +1789,7 @@ export const ESCAPE_FROM_ESCORT_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '181837',
-          code: 'HANDCUFFS',
+          response: 'HANDCUFFS',
           active: true,
           label: 'Handcuffs',
           commentRequired: false,
@@ -1798,7 +1798,7 @@ export const ESCAPE_FROM_ESCORT_1: IncidentTypeConfiguration = {
         },
         {
           id: '181839',
-          code: 'ESCORT CHAIN',
+          response: 'ESCORT CHAIN',
           active: true,
           label: 'Escort chain',
           commentRequired: false,
@@ -1807,7 +1807,7 @@ export const ESCAPE_FROM_ESCORT_1: IncidentTypeConfiguration = {
         },
         {
           id: '181838',
-          code: 'CLOSETING CHAIN',
+          response: 'CLOSETING CHAIN',
           active: true,
           label: 'Closeting chain',
           commentRequired: false,
@@ -1816,7 +1816,7 @@ export const ESCAPE_FROM_ESCORT_1: IncidentTypeConfiguration = {
         },
         {
           id: '181840',
-          code: 'OTHER',
+          response: 'OTHER',
           active: true,
           label: 'Other',
           commentRequired: true,
@@ -1834,7 +1834,7 @@ export const ESCAPE_FROM_ESCORT_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '181856',
-          code: 'MURDER/ATTEMPTED MURDER',
+          response: 'MURDER/ATTEMPTED MURDER',
           active: true,
           label: 'Murder/attempted murder',
           commentRequired: false,
@@ -1843,7 +1843,7 @@ export const ESCAPE_FROM_ESCORT_1: IncidentTypeConfiguration = {
         },
         {
           id: '181855',
-          code: 'MANSLAUGHTER',
+          response: 'MANSLAUGHTER',
           active: true,
           label: 'Manslaughter',
           commentRequired: false,
@@ -1852,7 +1852,7 @@ export const ESCAPE_FROM_ESCORT_1: IncidentTypeConfiguration = {
         },
         {
           id: '181852',
-          code: 'ASSAULT',
+          response: 'ASSAULT',
           active: true,
           label: 'Assault',
           commentRequired: false,
@@ -1861,7 +1861,7 @@ export const ESCAPE_FROM_ESCORT_1: IncidentTypeConfiguration = {
         },
         {
           id: '181860',
-          code: 'RAPE/ATTEMPTED RAPE',
+          response: 'RAPE/ATTEMPTED RAPE',
           active: true,
           label: 'Rape/attempted rape',
           commentRequired: false,
@@ -1870,7 +1870,7 @@ export const ESCAPE_FROM_ESCORT_1: IncidentTypeConfiguration = {
         },
         {
           id: '181858',
-          code: 'OTHER SEXUAL OFFENCE',
+          response: 'OTHER SEXUAL OFFENCE',
           active: true,
           label: 'Other sexual offence',
           commentRequired: false,
@@ -1879,7 +1879,7 @@ export const ESCAPE_FROM_ESCORT_1: IncidentTypeConfiguration = {
         },
         {
           id: '181862',
-          code: 'THEFT',
+          response: 'THEFT',
           active: true,
           label: 'Theft',
           commentRequired: false,
@@ -1888,7 +1888,7 @@ export const ESCAPE_FROM_ESCORT_1: IncidentTypeConfiguration = {
         },
         {
           id: '181861',
-          code: 'ROBBERY',
+          response: 'ROBBERY',
           active: true,
           label: 'Robbery',
           commentRequired: false,
@@ -1897,7 +1897,7 @@ export const ESCAPE_FROM_ESCORT_1: IncidentTypeConfiguration = {
         },
         {
           id: '181854',
-          code: 'FIREARM OFFENCE',
+          response: 'FIREARM OFFENCE',
           active: true,
           label: 'Firearm offence',
           commentRequired: false,
@@ -1906,7 +1906,7 @@ export const ESCAPE_FROM_ESCORT_1: IncidentTypeConfiguration = {
         },
         {
           id: '181853',
-          code: 'DRUG OFFENCE',
+          response: 'DRUG OFFENCE',
           active: true,
           label: 'Drug offence',
           commentRequired: false,
@@ -1915,7 +1915,7 @@ export const ESCAPE_FROM_ESCORT_1: IncidentTypeConfiguration = {
         },
         {
           id: '181863',
-          code: 'VEHICLE CRIME',
+          response: 'VEHICLE CRIME',
           active: true,
           label: 'Vehicle crime',
           commentRequired: false,
@@ -1924,7 +1924,7 @@ export const ESCAPE_FROM_ESCORT_1: IncidentTypeConfiguration = {
         },
         {
           id: '181859',
-          code: 'PUBLIC ORDER OFFENCE',
+          response: 'PUBLIC ORDER OFFENCE',
           active: true,
           label: 'Public order offence',
           commentRequired: false,
@@ -1933,7 +1933,7 @@ export const ESCAPE_FROM_ESCORT_1: IncidentTypeConfiguration = {
         },
         {
           id: '181857',
-          code: 'OTHER',
+          response: 'OTHER',
           active: true,
           label: 'Other',
           commentRequired: true,
@@ -1951,7 +1951,7 @@ export const ESCAPE_FROM_ESCORT_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '181891',
-          code: 'YES',
+          response: 'YES',
           active: true,
           label: 'Yes',
           commentRequired: false,
@@ -1960,7 +1960,7 @@ export const ESCAPE_FROM_ESCORT_1: IncidentTypeConfiguration = {
         },
         {
           id: '181890',
-          code: 'NO',
+          response: 'NO',
           active: true,
           label: 'No',
           commentRequired: false,
@@ -1978,7 +1978,7 @@ export const ESCAPE_FROM_ESCORT_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '181944',
-          code: 'PRISONER WHO ESCAPED',
+          response: 'PRISONER WHO ESCAPED',
           active: true,
           label: 'Prisoner who escaped',
           commentRequired: false,
@@ -1987,7 +1987,7 @@ export const ESCAPE_FROM_ESCORT_1: IncidentTypeConfiguration = {
         },
         {
           id: '181942',
-          code: 'OTHER PRISONER',
+          response: 'OTHER PRISONER',
           active: true,
           label: 'Other prisoner',
           commentRequired: false,
@@ -1996,7 +1996,7 @@ export const ESCAPE_FROM_ESCORT_1: IncidentTypeConfiguration = {
         },
         {
           id: '181943',
-          code: 'OUTSIDE ACCOMPLICE',
+          response: 'OUTSIDE ACCOMPLICE',
           active: true,
           label: 'Outside accomplice',
           commentRequired: false,
@@ -2014,7 +2014,7 @@ export const ESCAPE_FROM_ESCORT_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '181953',
-          code: 'YES',
+          response: 'YES',
           active: true,
           label: 'Yes',
           commentRequired: false,
@@ -2023,7 +2023,7 @@ export const ESCAPE_FROM_ESCORT_1: IncidentTypeConfiguration = {
         },
         {
           id: '181954',
-          code: 'NO',
+          response: 'NO',
           active: true,
           label: 'No',
           commentRequired: false,
@@ -2041,7 +2041,7 @@ export const ESCAPE_FROM_ESCORT_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '182034',
-          code: 'YES',
+          response: 'YES',
           active: true,
           label: 'Yes',
           commentRequired: false,
@@ -2050,7 +2050,7 @@ export const ESCAPE_FROM_ESCORT_1: IncidentTypeConfiguration = {
         },
         {
           id: '182035',
-          code: 'NO',
+          response: 'NO',
           active: true,
           label: 'No',
           commentRequired: false,
@@ -2068,7 +2068,7 @@ export const ESCAPE_FROM_ESCORT_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '182037',
-          code: 'POLICE ARREST',
+          response: 'POLICE ARREST',
           active: true,
           label: 'Police arrest',
           commentRequired: false,
@@ -2077,7 +2077,7 @@ export const ESCAPE_FROM_ESCORT_1: IncidentTypeConfiguration = {
         },
         {
           id: '182038',
-          code: 'PRISON STAFF ARREST',
+          response: 'PRISON STAFF ARREST',
           active: true,
           label: 'Prison staff arrest',
           commentRequired: false,
@@ -2086,7 +2086,7 @@ export const ESCAPE_FROM_ESCORT_1: IncidentTypeConfiguration = {
         },
         {
           id: '182039',
-          code: 'SURRENDER',
+          response: 'SURRENDER',
           active: true,
           label: 'Surrender',
           commentRequired: false,
@@ -2095,7 +2095,7 @@ export const ESCAPE_FROM_ESCORT_1: IncidentTypeConfiguration = {
         },
         {
           id: '182036',
-          code: 'OTHER',
+          response: 'OTHER',
           active: true,
           label: 'Other',
           commentRequired: true,
@@ -2113,7 +2113,7 @@ export const ESCAPE_FROM_ESCORT_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '182057',
-          code: 'FRACTURE',
+          response: 'FRACTURE',
           active: true,
           label: 'Fracture',
           commentRequired: false,
@@ -2122,7 +2122,7 @@ export const ESCAPE_FROM_ESCORT_1: IncidentTypeConfiguration = {
         },
         {
           id: '182059',
-          code: 'SCALD OR BURN',
+          response: 'SCALD OR BURN',
           active: true,
           label: 'Scald or burn',
           commentRequired: false,
@@ -2131,7 +2131,7 @@ export const ESCAPE_FROM_ESCORT_1: IncidentTypeConfiguration = {
         },
         {
           id: '182060',
-          code: 'STABBING',
+          response: 'STABBING',
           active: true,
           label: 'Stabbing',
           commentRequired: false,
@@ -2140,7 +2140,7 @@ export const ESCAPE_FROM_ESCORT_1: IncidentTypeConfiguration = {
         },
         {
           id: '182054',
-          code: 'CRUSHING',
+          response: 'CRUSHING',
           active: true,
           label: 'Crushing',
           commentRequired: false,
@@ -2149,7 +2149,7 @@ export const ESCAPE_FROM_ESCORT_1: IncidentTypeConfiguration = {
         },
         {
           id: '182056',
-          code: 'EXTENSIVE/MULTIPLE BRUISING',
+          response: 'EXTENSIVE/MULTIPLE BRUISING',
           active: true,
           label: 'Extensive/multiple bruising',
           commentRequired: false,
@@ -2158,7 +2158,7 @@ export const ESCAPE_FROM_ESCORT_1: IncidentTypeConfiguration = {
         },
         {
           id: '182051',
-          code: 'BLACK EYE',
+          response: 'BLACK EYE',
           active: true,
           label: 'Black eye',
           commentRequired: false,
@@ -2167,7 +2167,7 @@ export const ESCAPE_FROM_ESCORT_1: IncidentTypeConfiguration = {
         },
         {
           id: '182052',
-          code: 'BROKEN NOSE',
+          response: 'BROKEN NOSE',
           active: true,
           label: 'Broken nose',
           commentRequired: false,
@@ -2176,7 +2176,7 @@ export const ESCAPE_FROM_ESCORT_1: IncidentTypeConfiguration = {
         },
         {
           id: '182053',
-          code: 'BROKEN TEETH',
+          response: 'BROKEN TEETH',
           active: true,
           label: 'Broken teeth',
           commentRequired: false,
@@ -2185,7 +2185,7 @@ export const ESCAPE_FROM_ESCORT_1: IncidentTypeConfiguration = {
         },
         {
           id: '182055',
-          code: 'CUTS REQUIRING SUTURES',
+          response: 'CUTS REQUIRING SUTURES',
           active: true,
           label: 'Cuts requiring sutures',
           commentRequired: false,
@@ -2194,7 +2194,7 @@ export const ESCAPE_FROM_ESCORT_1: IncidentTypeConfiguration = {
         },
         {
           id: '182050',
-          code: 'BITES',
+          response: 'BITES',
           active: true,
           label: 'Bites',
           commentRequired: false,
@@ -2203,7 +2203,7 @@ export const ESCAPE_FROM_ESCORT_1: IncidentTypeConfiguration = {
         },
         {
           id: '182058',
-          code: 'GUN SHOT WOUND',
+          response: 'GUN SHOT WOUND',
           active: true,
           label: 'Gun shot wound',
           commentRequired: false,
@@ -2212,7 +2212,7 @@ export const ESCAPE_FROM_ESCORT_1: IncidentTypeConfiguration = {
         },
         {
           id: '182061',
-          code: 'TEMPORARY/PERMANENT BLINDNESS',
+          response: 'TEMPORARY/PERMANENT BLINDNESS',
           active: true,
           label: 'Temporary/permanent blindness',
           commentRequired: false,
@@ -2230,7 +2230,7 @@ export const ESCAPE_FROM_ESCORT_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '182094',
-          code: 'FRACTURE',
+          response: 'FRACTURE',
           active: true,
           label: 'Fracture',
           commentRequired: false,
@@ -2239,7 +2239,7 @@ export const ESCAPE_FROM_ESCORT_1: IncidentTypeConfiguration = {
         },
         {
           id: '182096',
-          code: 'SCALD OR BURN',
+          response: 'SCALD OR BURN',
           active: true,
           label: 'Scald or burn',
           commentRequired: false,
@@ -2248,7 +2248,7 @@ export const ESCAPE_FROM_ESCORT_1: IncidentTypeConfiguration = {
         },
         {
           id: '182097',
-          code: 'STABBING',
+          response: 'STABBING',
           active: true,
           label: 'Stabbing',
           commentRequired: false,
@@ -2257,7 +2257,7 @@ export const ESCAPE_FROM_ESCORT_1: IncidentTypeConfiguration = {
         },
         {
           id: '182091',
-          code: 'CRUSHING',
+          response: 'CRUSHING',
           active: true,
           label: 'Crushing',
           commentRequired: false,
@@ -2266,7 +2266,7 @@ export const ESCAPE_FROM_ESCORT_1: IncidentTypeConfiguration = {
         },
         {
           id: '182093',
-          code: 'EXTENSIVE/MULTIPLE BRUISING',
+          response: 'EXTENSIVE/MULTIPLE BRUISING',
           active: true,
           label: 'Extensive/multiple bruising',
           commentRequired: false,
@@ -2275,7 +2275,7 @@ export const ESCAPE_FROM_ESCORT_1: IncidentTypeConfiguration = {
         },
         {
           id: '182088',
-          code: 'BLACK EYE',
+          response: 'BLACK EYE',
           active: true,
           label: 'Black eye',
           commentRequired: false,
@@ -2284,7 +2284,7 @@ export const ESCAPE_FROM_ESCORT_1: IncidentTypeConfiguration = {
         },
         {
           id: '182089',
-          code: 'BROKEN NOSE',
+          response: 'BROKEN NOSE',
           active: true,
           label: 'Broken nose',
           commentRequired: false,
@@ -2293,7 +2293,7 @@ export const ESCAPE_FROM_ESCORT_1: IncidentTypeConfiguration = {
         },
         {
           id: '182090',
-          code: 'BROKEN TEETH',
+          response: 'BROKEN TEETH',
           active: true,
           label: 'Broken teeth',
           commentRequired: false,
@@ -2302,7 +2302,7 @@ export const ESCAPE_FROM_ESCORT_1: IncidentTypeConfiguration = {
         },
         {
           id: '182092',
-          code: 'CUTS REQUIRING SUTURES',
+          response: 'CUTS REQUIRING SUTURES',
           active: true,
           label: 'Cuts requiring sutures',
           commentRequired: false,
@@ -2311,7 +2311,7 @@ export const ESCAPE_FROM_ESCORT_1: IncidentTypeConfiguration = {
         },
         {
           id: '182087',
-          code: 'BITES',
+          response: 'BITES',
           active: true,
           label: 'Bites',
           commentRequired: false,
@@ -2320,7 +2320,7 @@ export const ESCAPE_FROM_ESCORT_1: IncidentTypeConfiguration = {
         },
         {
           id: '182095',
-          code: 'GUN SHOT WOUND',
+          response: 'GUN SHOT WOUND',
           active: true,
           label: 'Gun shot wound',
           commentRequired: false,
@@ -2329,7 +2329,7 @@ export const ESCAPE_FROM_ESCORT_1: IncidentTypeConfiguration = {
         },
         {
           id: '182098',
-          code: 'TEMPORARY/PERMANENT BLINDNESS',
+          response: 'TEMPORARY/PERMANENT BLINDNESS',
           active: true,
           label: 'Temporary/permanent blindness',
           commentRequired: false,
@@ -2347,7 +2347,7 @@ export const ESCAPE_FROM_ESCORT_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '182248',
-          code: 'YES',
+          response: 'YES',
           active: true,
           label: 'Yes',
           commentRequired: false,
@@ -2356,7 +2356,7 @@ export const ESCAPE_FROM_ESCORT_1: IncidentTypeConfiguration = {
         },
         {
           id: '182247',
-          code: 'NO',
+          response: 'NO',
           active: true,
           label: 'No',
           commentRequired: false,
@@ -2374,7 +2374,7 @@ export const ESCAPE_FROM_ESCORT_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '182253',
-          code: 'PURPOSE MADE',
+          response: 'PURPOSE MADE',
           active: true,
           label: 'Purpose made',
           commentRequired: false,
@@ -2383,7 +2383,7 @@ export const ESCAPE_FROM_ESCORT_1: IncidentTypeConfiguration = {
         },
         {
           id: '182251',
-          code: 'IMPROVISED',
+          response: 'IMPROVISED',
           active: true,
           label: 'Improvised',
           commentRequired: false,
@@ -2392,7 +2392,7 @@ export const ESCAPE_FROM_ESCORT_1: IncidentTypeConfiguration = {
         },
         {
           id: '182252',
-          code: 'NOT KNOWN',
+          response: 'NOT KNOWN',
           active: true,
           label: 'Not known',
           commentRequired: false,
@@ -2410,7 +2410,7 @@ export const ESCAPE_FROM_ESCORT_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '182257',
-          code: 'MALE',
+          response: 'MALE',
           active: true,
           label: 'Male',
           commentRequired: true,
@@ -2419,7 +2419,7 @@ export const ESCAPE_FROM_ESCORT_1: IncidentTypeConfiguration = {
         },
         {
           id: '182256',
-          code: 'FEMALE',
+          response: 'FEMALE',
           active: true,
           label: 'Female',
           commentRequired: true,
@@ -2437,7 +2437,7 @@ export const ESCAPE_FROM_ESCORT_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '182283',
-          code: 'SECRETED ON THE PRISONER',
+          response: 'SECRETED ON THE PRISONER',
           active: true,
           label: 'Secreted on the prisoner',
           commentRequired: false,
@@ -2446,7 +2446,7 @@ export const ESCAPE_FROM_ESCORT_1: IncidentTypeConfiguration = {
         },
         {
           id: '182281',
-          code: 'FOUND IN VEHICLE/AREA',
+          response: 'FOUND IN VEHICLE/AREA',
           active: true,
           label: 'Found in vehicle/area',
           commentRequired: false,
@@ -2455,7 +2455,7 @@ export const ESCAPE_FROM_ESCORT_1: IncidentTypeConfiguration = {
         },
         {
           id: '182280',
-          code: 'BROUGHT BY ACCOMPLICE',
+          response: 'BROUGHT BY ACCOMPLICE',
           active: true,
           label: 'Brought by accomplice',
           commentRequired: false,
@@ -2464,7 +2464,7 @@ export const ESCAPE_FROM_ESCORT_1: IncidentTypeConfiguration = {
         },
         {
           id: '182282',
-          code: 'NOT KNOWN',
+          response: 'NOT KNOWN',
           active: true,
           label: 'Not known',
           commentRequired: false,
@@ -2482,7 +2482,7 @@ export const ESCAPE_FROM_ESCORT_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '182302',
-          code: 'YES',
+          response: 'YES',
           active: true,
           label: 'Yes',
           commentRequired: false,
@@ -2491,7 +2491,7 @@ export const ESCAPE_FROM_ESCORT_1: IncidentTypeConfiguration = {
         },
         {
           id: '182301',
-          code: 'NO',
+          response: 'NO',
           active: true,
           label: 'No',
           commentRequired: false,
@@ -2509,7 +2509,7 @@ export const ESCAPE_FROM_ESCORT_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '182365',
-          code: 'SECRETED ON THE PRISONER',
+          response: 'SECRETED ON THE PRISONER',
           active: true,
           label: 'Secreted on the prisoner',
           commentRequired: false,
@@ -2518,7 +2518,7 @@ export const ESCAPE_FROM_ESCORT_1: IncidentTypeConfiguration = {
         },
         {
           id: '182363',
-          code: 'FOUND IN VEHICLE/AREA',
+          response: 'FOUND IN VEHICLE/AREA',
           active: true,
           label: 'Found in vehicle/area',
           commentRequired: false,
@@ -2527,7 +2527,7 @@ export const ESCAPE_FROM_ESCORT_1: IncidentTypeConfiguration = {
         },
         {
           id: '182362',
-          code: 'BROUGHT BY ACCOMPLICE',
+          response: 'BROUGHT BY ACCOMPLICE',
           active: true,
           label: 'Brought by accomplice',
           commentRequired: false,
@@ -2536,7 +2536,7 @@ export const ESCAPE_FROM_ESCORT_1: IncidentTypeConfiguration = {
         },
         {
           id: '182364',
-          code: 'NOT KNOWN',
+          response: 'NOT KNOWN',
           active: true,
           label: 'Not known',
           commentRequired: false,
@@ -2554,7 +2554,7 @@ export const ESCAPE_FROM_ESCORT_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '182377',
-          code: 'PUBLIC SECTOR',
+          response: 'PUBLIC SECTOR',
           active: true,
           label: 'Public sector',
           commentRequired: false,
@@ -2563,7 +2563,7 @@ export const ESCAPE_FROM_ESCORT_1: IncidentTypeConfiguration = {
         },
         {
           id: '182376',
-          code: 'PRIVATE SECTOR',
+          response: 'PRIVATE SECTOR',
           active: true,
           label: 'Private sector',
           commentRequired: false,
@@ -2581,7 +2581,7 @@ export const ESCAPE_FROM_ESCORT_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '182389',
-          code: 'VEHICLE EN ROUTE TO VENUE',
+          response: 'VEHICLE EN ROUTE TO VENUE',
           active: true,
           label: 'Vehicle en route to venue',
           commentRequired: false,
@@ -2590,7 +2590,7 @@ export const ESCAPE_FROM_ESCORT_1: IncidentTypeConfiguration = {
         },
         {
           id: '182388',
-          code: 'VEHICLE EN ROUTE FROM VENUE',
+          response: 'VEHICLE EN ROUTE FROM VENUE',
           active: true,
           label: 'Vehicle en route from venue',
           commentRequired: false,
@@ -2599,7 +2599,7 @@ export const ESCAPE_FROM_ESCORT_1: IncidentTypeConfiguration = {
         },
         {
           id: '182387',
-          code: 'LEAVING VEHICLE (DEBUSSING)',
+          response: 'LEAVING VEHICLE (DEBUSSING)',
           active: true,
           label: 'Leaving vehicle (debussing)',
           commentRequired: false,
@@ -2608,7 +2608,7 @@ export const ESCAPE_FROM_ESCORT_1: IncidentTypeConfiguration = {
         },
         {
           id: '182386',
-          code: 'ENTERING VEHICLE (EMBUSSING)',
+          response: 'ENTERING VEHICLE (EMBUSSING)',
           active: true,
           label: 'Entering vehicle (embussing)',
           commentRequired: false,
@@ -2617,7 +2617,7 @@ export const ESCAPE_FROM_ESCORT_1: IncidentTypeConfiguration = {
         },
         {
           id: '182398',
-          code: 'UNSCHEDULED STOP',
+          response: 'UNSCHEDULED STOP',
           active: true,
           label: 'Unscheduled stop',
           commentRequired: false,
@@ -2626,7 +2626,7 @@ export const ESCAPE_FROM_ESCORT_1: IncidentTypeConfiguration = {
         },
         {
           id: '182390',
-          code: 'CELL AT COURT',
+          response: 'CELL AT COURT',
           active: true,
           label: 'Cell at court',
           commentRequired: false,
@@ -2635,7 +2635,7 @@ export const ESCAPE_FROM_ESCORT_1: IncidentTypeConfiguration = {
         },
         {
           id: '182391',
-          code: 'COURT CELLS AREA',
+          response: 'COURT CELLS AREA',
           active: true,
           label: 'Court cells area',
           commentRequired: false,
@@ -2644,7 +2644,7 @@ export const ESCAPE_FROM_ESCORT_1: IncidentTypeConfiguration = {
         },
         {
           id: '182393',
-          code: 'COURT VISITS AREA',
+          response: 'COURT VISITS AREA',
           active: true,
           label: 'Court visits area',
           commentRequired: false,
@@ -2653,7 +2653,7 @@ export const ESCAPE_FROM_ESCORT_1: IncidentTypeConfiguration = {
         },
         {
           id: '182392',
-          code: 'COURT DOCK',
+          response: 'COURT DOCK',
           active: true,
           label: 'Court dock',
           commentRequired: false,
@@ -2662,7 +2662,7 @@ export const ESCAPE_FROM_ESCORT_1: IncidentTypeConfiguration = {
         },
         {
           id: '182396',
-          code: 'HOSPITAL WARD/ROOM',
+          response: 'HOSPITAL WARD/ROOM',
           active: true,
           label: 'Hospital ward/room',
           commentRequired: false,
@@ -2671,7 +2671,7 @@ export const ESCAPE_FROM_ESCORT_1: IncidentTypeConfiguration = {
         },
         {
           id: '182394',
-          code: 'HOSPITAL TREATMENT ROOM',
+          response: 'HOSPITAL TREATMENT ROOM',
           active: true,
           label: 'Hospital treatment room',
           commentRequired: false,
@@ -2680,7 +2680,7 @@ export const ESCAPE_FROM_ESCORT_1: IncidentTypeConfiguration = {
         },
         {
           id: '182395',
-          code: 'HOSPITAL WAITING AREA',
+          response: 'HOSPITAL WAITING AREA',
           active: true,
           label: 'Hospital waiting area',
           commentRequired: false,
@@ -2689,7 +2689,7 @@ export const ESCAPE_FROM_ESCORT_1: IncidentTypeConfiguration = {
         },
         {
           id: '182397',
-          code: 'OTHER',
+          response: 'OTHER',
           active: true,
           label: 'Other',
           commentRequired: true,
@@ -2707,7 +2707,7 @@ export const ESCAPE_FROM_ESCORT_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '182421',
-          code: 'YES',
+          response: 'YES',
           active: true,
           label: 'Yes',
           commentRequired: false,
@@ -2716,7 +2716,7 @@ export const ESCAPE_FROM_ESCORT_1: IncidentTypeConfiguration = {
         },
         {
           id: '182422',
-          code: 'NO',
+          response: 'NO',
           active: true,
           label: 'No',
           commentRequired: false,
@@ -2734,7 +2734,7 @@ export const ESCAPE_FROM_ESCORT_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '182512',
-          code: 'YES',
+          response: 'YES',
           active: true,
           label: 'Yes',
           commentRequired: false,
@@ -2743,7 +2743,7 @@ export const ESCAPE_FROM_ESCORT_1: IncidentTypeConfiguration = {
         },
         {
           id: '182513',
-          code: 'NO',
+          response: 'NO',
           active: true,
           label: 'No',
           commentRequired: false,
@@ -2761,7 +2761,7 @@ export const ESCAPE_FROM_ESCORT_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '182546',
-          code: 'YES',
+          response: 'YES',
           active: true,
           label: 'Yes',
           commentRequired: false,
@@ -2770,7 +2770,7 @@ export const ESCAPE_FROM_ESCORT_1: IncidentTypeConfiguration = {
         },
         {
           id: '182545',
-          code: 'NO',
+          response: 'NO',
           active: true,
           label: 'No',
           commentRequired: false,
@@ -2788,7 +2788,7 @@ export const ESCAPE_FROM_ESCORT_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '182556',
-          code: 'YES',
+          response: 'YES',
           active: true,
           label: 'Yes',
           commentRequired: false,
@@ -2797,7 +2797,7 @@ export const ESCAPE_FROM_ESCORT_1: IncidentTypeConfiguration = {
         },
         {
           id: '182555',
-          code: 'NO',
+          response: 'NO',
           active: true,
           label: 'No',
           commentRequired: false,
@@ -2815,7 +2815,7 @@ export const ESCAPE_FROM_ESCORT_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '182559',
-          code: 'YES',
+          response: 'YES',
           active: true,
           label: 'Yes',
           commentRequired: false,
@@ -2824,7 +2824,7 @@ export const ESCAPE_FROM_ESCORT_1: IncidentTypeConfiguration = {
         },
         {
           id: '182560',
-          code: 'NO',
+          response: 'NO',
           active: true,
           label: 'No',
           commentRequired: false,
@@ -2842,7 +2842,7 @@ export const ESCAPE_FROM_ESCORT_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '182571',
-          code: 'GRAZES, SCRATCHES OR ABRASIONS',
+          response: 'GRAZES, SCRATCHES OR ABRASIONS',
           active: true,
           label: 'Grazes, scratches or abrasions',
           commentRequired: false,
@@ -2851,7 +2851,7 @@ export const ESCAPE_FROM_ESCORT_1: IncidentTypeConfiguration = {
         },
         {
           id: '182572',
-          code: 'MINOR BRUISES',
+          response: 'MINOR BRUISES',
           active: true,
           label: 'Minor bruises',
           commentRequired: false,
@@ -2860,7 +2860,7 @@ export const ESCAPE_FROM_ESCORT_1: IncidentTypeConfiguration = {
         },
         {
           id: '182575',
-          code: 'SWELLINGS',
+          response: 'SWELLINGS',
           active: true,
           label: 'Swellings',
           commentRequired: false,
@@ -2869,7 +2869,7 @@ export const ESCAPE_FROM_ESCORT_1: IncidentTypeConfiguration = {
         },
         {
           id: '182574',
-          code: 'SUPERFICIAL CUTS',
+          response: 'SUPERFICIAL CUTS',
           active: true,
           label: 'Superficial cuts',
           commentRequired: false,
@@ -2878,7 +2878,7 @@ export const ESCAPE_FROM_ESCORT_1: IncidentTypeConfiguration = {
         },
         {
           id: '182573',
-          code: 'OTHER',
+          response: 'OTHER',
           active: true,
           label: 'Other',
           commentRequired: true,
@@ -2896,7 +2896,7 @@ export const ESCAPE_FROM_ESCORT_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '182589',
-          code: 'YES',
+          response: 'YES',
           active: true,
           label: 'Yes',
           commentRequired: false,
@@ -2905,7 +2905,7 @@ export const ESCAPE_FROM_ESCORT_1: IncidentTypeConfiguration = {
         },
         {
           id: '182588',
-          code: 'NO',
+          response: 'NO',
           active: true,
           label: 'No',
           commentRequired: false,
@@ -2923,7 +2923,7 @@ export const ESCAPE_FROM_ESCORT_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '182590',
-          code: 'YES',
+          response: 'YES',
           active: true,
           label: 'Yes',
           commentRequired: false,
@@ -2932,7 +2932,7 @@ export const ESCAPE_FROM_ESCORT_1: IncidentTypeConfiguration = {
         },
         {
           id: '182591',
-          code: 'NO',
+          response: 'NO',
           active: true,
           label: 'No',
           commentRequired: false,

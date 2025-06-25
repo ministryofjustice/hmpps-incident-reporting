@@ -16,7 +16,7 @@ export const DEATH_OTHER_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '178925',
-          code: 'NAME',
+          response: 'NAME',
           active: true,
           label: 'Name',
           commentRequired: true,
@@ -34,7 +34,7 @@ export const DEATH_OTHER_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '178971',
-          code: 'YES',
+          response: 'YES',
           active: true,
           label: 'Yes',
           commentRequired: false,
@@ -43,7 +43,7 @@ export const DEATH_OTHER_1: IncidentTypeConfiguration = {
         },
         {
           id: '178970',
-          code: 'NO',
+          response: 'NO',
           active: true,
           label: 'No',
           commentRequired: false,
@@ -61,7 +61,7 @@ export const DEATH_OTHER_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '179279',
-          code: 'NATURAL CAUSES',
+          response: 'NATURAL CAUSES',
           active: true,
           label: 'Natural causes',
           commentRequired: false,
@@ -70,7 +70,7 @@ export const DEATH_OTHER_1: IncidentTypeConfiguration = {
         },
         {
           id: '179282',
-          code: 'SUICIDE',
+          response: 'SUICIDE',
           active: true,
           label: 'Suicide',
           commentRequired: false,
@@ -79,7 +79,7 @@ export const DEATH_OTHER_1: IncidentTypeConfiguration = {
         },
         {
           id: '179277',
-          code: 'ACCIDENTAL',
+          response: 'ACCIDENTAL',
           active: true,
           label: 'Accidental',
           commentRequired: false,
@@ -88,7 +88,7 @@ export const DEATH_OTHER_1: IncidentTypeConfiguration = {
         },
         {
           id: '179278',
-          code: 'MISADVENTURE',
+          response: 'MISADVENTURE',
           active: true,
           label: 'Misadventure',
           commentRequired: false,
@@ -97,7 +97,7 @@ export const DEATH_OTHER_1: IncidentTypeConfiguration = {
         },
         {
           id: '179280',
-          code: 'OPEN VERDICT',
+          response: 'OPEN VERDICT',
           active: true,
           label: 'Open verdict',
           commentRequired: false,
@@ -106,7 +106,7 @@ export const DEATH_OTHER_1: IncidentTypeConfiguration = {
         },
         {
           id: '179281',
-          code: 'OTHER',
+          response: 'OTHER',
           active: true,
           label: 'Other',
           commentRequired: true,
@@ -124,7 +124,7 @@ export const DEATH_OTHER_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '179320',
-          code: 'PRISON MEDICAL OFFICER',
+          response: 'PRISON MEDICAL OFFICER',
           active: true,
           label: 'Prison medical officer',
           commentRequired: false,
@@ -133,7 +133,7 @@ export const DEATH_OTHER_1: IncidentTypeConfiguration = {
         },
         {
           id: '179318',
-          code: 'HOSPITAL DOCTOR',
+          response: 'HOSPITAL DOCTOR',
           active: true,
           label: 'Hospital doctor',
           commentRequired: false,
@@ -142,7 +142,7 @@ export const DEATH_OTHER_1: IncidentTypeConfiguration = {
         },
         {
           id: '179319',
-          code: 'OTHER',
+          response: 'OTHER',
           active: true,
           label: 'Other',
           commentRequired: true,
@@ -160,7 +160,7 @@ export const DEATH_OTHER_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '179677',
-          code: 'YES',
+          response: 'YES',
           active: true,
           label: 'Yes',
           commentRequired: false,
@@ -169,7 +169,7 @@ export const DEATH_OTHER_1: IncidentTypeConfiguration = {
         },
         {
           id: '179678',
-          code: 'NO',
+          response: 'NO',
           active: true,
           label: 'No',
           commentRequired: false,
@@ -187,7 +187,7 @@ export const DEATH_OTHER_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '179795',
-          code: 'YES',
+          response: 'YES',
           active: true,
           label: 'Yes',
           commentRequired: false,
@@ -196,7 +196,7 @@ export const DEATH_OTHER_1: IncidentTypeConfiguration = {
         },
         {
           id: '179794',
-          code: 'NO',
+          response: 'NO',
           active: true,
           label: 'No',
           commentRequired: false,
@@ -214,7 +214,7 @@ export const DEATH_OTHER_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '179824',
-          code: 'OFFICER',
+          response: 'OFFICER',
           active: true,
           label: 'Officer',
           commentRequired: false,
@@ -223,7 +223,7 @@ export const DEATH_OTHER_1: IncidentTypeConfiguration = {
         },
         {
           id: '179822',
-          code: 'CIVILIAN STAFF',
+          response: 'CIVILIAN STAFF',
           active: true,
           label: 'Civilian staff',
           commentRequired: false,
@@ -232,7 +232,7 @@ export const DEATH_OTHER_1: IncidentTypeConfiguration = {
         },
         {
           id: '179823',
-          code: 'EXTERNAL CIVILIAN',
+          response: 'EXTERNAL CIVILIAN',
           active: true,
           label: 'External civilian',
           commentRequired: false,
@@ -241,7 +241,7 @@ export const DEATH_OTHER_1: IncidentTypeConfiguration = {
         },
         {
           id: '179825',
-          code: 'OTHER',
+          response: 'OTHER',
           active: true,
           label: 'Other',
           commentRequired: true,
@@ -259,7 +259,7 @@ export const DEATH_OTHER_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '179834',
-          code: 'YES',
+          response: 'YES',
           active: true,
           label: 'Yes',
           commentRequired: false,
@@ -268,7 +268,7 @@ export const DEATH_OTHER_1: IncidentTypeConfiguration = {
         },
         {
           id: '179833',
-          code: 'NO',
+          response: 'NO',
           active: true,
           label: 'No',
           commentRequired: false,
@@ -286,7 +286,7 @@ export const DEATH_OTHER_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '179838',
-          code: 'YES',
+          response: 'YES',
           active: true,
           label: 'Yes',
           commentRequired: false,
@@ -295,7 +295,7 @@ export const DEATH_OTHER_1: IncidentTypeConfiguration = {
         },
         {
           id: '179837',
-          code: 'NO',
+          response: 'NO',
           active: true,
           label: 'No',
           commentRequired: false,
@@ -313,7 +313,7 @@ export const DEATH_OTHER_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '179909',
-          code: 'APPARENT SELF INFLICTED',
+          response: 'APPARENT SELF INFLICTED',
           active: true,
           label: 'Apparent self inflicted',
           commentRequired: false,
@@ -322,7 +322,7 @@ export const DEATH_OTHER_1: IncidentTypeConfiguration = {
         },
         {
           id: '179908',
-          code: 'APPARENT NATURAL CAUSES',
+          response: 'APPARENT NATURAL CAUSES',
           active: true,
           label: 'Apparent natural causes',
           commentRequired: false,
@@ -331,7 +331,7 @@ export const DEATH_OTHER_1: IncidentTypeConfiguration = {
         },
         {
           id: '179907',
-          code: 'ACCIDENTAL',
+          response: 'ACCIDENTAL',
           active: true,
           label: 'Accidental',
           commentRequired: false,
@@ -340,7 +340,7 @@ export const DEATH_OTHER_1: IncidentTypeConfiguration = {
         },
         {
           id: '179910',
-          code: 'SUSPICIOUS CIRCUMSTANCES',
+          response: 'SUSPICIOUS CIRCUMSTANCES',
           active: true,
           label: 'Suspicious circumstances',
           commentRequired: true,
@@ -358,7 +358,7 @@ export const DEATH_OTHER_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '179932',
-          code: 'YES',
+          response: 'YES',
           active: true,
           label: 'Yes',
           commentRequired: false,
@@ -367,7 +367,7 @@ export const DEATH_OTHER_1: IncidentTypeConfiguration = {
         },
         {
           id: '179931',
-          code: 'NO',
+          response: 'NO',
           active: true,
           label: 'No',
           commentRequired: false,
@@ -385,7 +385,7 @@ export const DEATH_OTHER_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '180738',
-          code: 'YES',
+          response: 'YES',
           active: true,
           label: 'Yes',
           commentRequired: true,
@@ -394,7 +394,7 @@ export const DEATH_OTHER_1: IncidentTypeConfiguration = {
         },
         {
           id: '180737',
-          code: 'NO',
+          response: 'NO',
           active: true,
           label: 'No',
           commentRequired: false,
@@ -412,7 +412,7 @@ export const DEATH_OTHER_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '180957',
-          code: 'DATE',
+          response: 'DATE',
           active: true,
           label: 'Date',
           commentRequired: false,
@@ -421,7 +421,7 @@ export const DEATH_OTHER_1: IncidentTypeConfiguration = {
         },
         {
           id: '180958',
-          code: 'TIME',
+          response: 'TIME',
           active: true,
           label: 'Time',
           commentRequired: true,
@@ -439,7 +439,7 @@ export const DEATH_OTHER_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '181102',
-          code: 'YES',
+          response: 'YES',
           active: true,
           label: 'Yes',
           commentRequired: false,
@@ -448,7 +448,7 @@ export const DEATH_OTHER_1: IncidentTypeConfiguration = {
         },
         {
           id: '181101',
-          code: 'NO',
+          response: 'NO',
           active: true,
           label: 'No',
           commentRequired: false,
@@ -466,7 +466,7 @@ export const DEATH_OTHER_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '181107',
-          code: 'SPECIFY',
+          response: 'SPECIFY',
           active: true,
           label: 'Specify',
           commentRequired: true,
@@ -484,7 +484,7 @@ export const DEATH_OTHER_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '181347',
-          code: 'YES',
+          response: 'YES',
           active: true,
           label: 'Yes',
           commentRequired: false,
@@ -493,7 +493,7 @@ export const DEATH_OTHER_1: IncidentTypeConfiguration = {
         },
         {
           id: '181346',
-          code: 'NO',
+          response: 'NO',
           active: true,
           label: 'No',
           commentRequired: false,
@@ -511,7 +511,7 @@ export const DEATH_OTHER_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '182063',
-          code: 'YES',
+          response: 'YES',
           active: true,
           label: 'Yes',
           commentRequired: false,
@@ -520,7 +520,7 @@ export const DEATH_OTHER_1: IncidentTypeConfiguration = {
         },
         {
           id: '182062',
-          code: 'NO',
+          response: 'NO',
           active: true,
           label: 'No',
           commentRequired: false,
@@ -538,7 +538,7 @@ export const DEATH_OTHER_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '182204',
-          code: 'YES',
+          response: 'YES',
           active: true,
           label: 'Yes',
           commentRequired: false,
@@ -547,7 +547,7 @@ export const DEATH_OTHER_1: IncidentTypeConfiguration = {
         },
         {
           id: '182205',
-          code: 'NO',
+          response: 'NO',
           active: true,
           label: 'No',
           commentRequired: false,

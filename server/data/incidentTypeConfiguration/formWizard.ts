@@ -248,7 +248,7 @@ export function generateFields(config: IncidentTypeConfiguration): FormWizard.Fi
         component: question.multipleAnswers ? 'govukCheckboxes' : 'govukRadios',
         items: activeAnswers.map(answer => {
           return {
-            value: answer.code,
+            value: answer.response,
             label: answer.label,
             dateRequired: answer.dateRequired,
             commentRequired: answer.commentRequired,
@@ -267,7 +267,7 @@ export function generateFields(config: IncidentTypeConfiguration): FormWizard.Fi
             validate: ['required', 'ukDate'],
             dependent: {
               field: fieldName,
-              value: answer.code,
+              value: answer.response,
             },
           } satisfies FormWizard.Field
         }
@@ -281,7 +281,7 @@ export function generateFields(config: IncidentTypeConfiguration): FormWizard.Fi
             validate: ['required'],
             dependent: {
               field: fieldName,
-              value: answer.code,
+              value: answer.response,
             },
           } satisfies FormWizard.Field
         }
@@ -313,7 +313,7 @@ function nextSteps(question: QuestionConfiguration, answers: AnswerConfiguration
 
   const next: FormWizard.NextStepCondition[] = []
   for (const [nextQuestionId, groupAnswers] of groupedByNextQuestion.entries()) {
-    const answerCodes = groupAnswers.map(answer => answer.code)
+    const answerCodes = groupAnswers.map(answer => answer.response)
 
     next.push({
       field: questionFieldName(question),

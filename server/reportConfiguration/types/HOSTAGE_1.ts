@@ -16,7 +16,7 @@ export const HOSTAGE_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '178952',
-          code: 'YES',
+          response: 'YES',
           active: false,
           label: 'Yes',
           commentRequired: false,
@@ -25,7 +25,7 @@ export const HOSTAGE_1: IncidentTypeConfiguration = {
         },
         {
           id: '178951',
-          code: 'NO',
+          response: 'NO',
           active: false,
           label: 'No',
           commentRequired: false,
@@ -43,7 +43,7 @@ export const HOSTAGE_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '179194',
-          code: 'YES',
+          response: 'YES',
           active: false,
           label: 'Yes',
           commentRequired: false,
@@ -52,7 +52,7 @@ export const HOSTAGE_1: IncidentTypeConfiguration = {
         },
         {
           id: '179193',
-          code: 'NO',
+          response: 'NO',
           active: false,
           label: 'No',
           commentRequired: false,
@@ -70,7 +70,7 @@ export const HOSTAGE_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '179199',
-          code: 'ENTER AMOUNT IN POUND STERLING',
+          response: 'ENTER AMOUNT IN POUND STERLING',
           active: false,
           label: 'Enter amount in pound sterling',
           commentRequired: true,
@@ -88,7 +88,7 @@ export const HOSTAGE_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '179209',
-          code: 'YES',
+          response: 'YES',
           active: false,
           label: 'Yes',
           commentRequired: false,
@@ -97,7 +97,7 @@ export const HOSTAGE_1: IncidentTypeConfiguration = {
         },
         {
           id: '179210',
-          code: 'NO',
+          response: 'NO',
           active: false,
           label: 'No',
           commentRequired: false,
@@ -115,7 +115,7 @@ export const HOSTAGE_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '179270',
-          code: 'YES',
+          response: 'YES',
           active: false,
           label: 'Yes',
           commentRequired: false,
@@ -124,7 +124,7 @@ export const HOSTAGE_1: IncidentTypeConfiguration = {
         },
         {
           id: '179269',
-          code: 'NO',
+          response: 'NO',
           active: false,
           label: 'No',
           commentRequired: false,
@@ -142,7 +142,7 @@ export const HOSTAGE_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '179275',
-          code: 'STAFF',
+          response: 'STAFF',
           active: false,
           label: 'Staff',
           commentRequired: true,
@@ -151,7 +151,7 @@ export const HOSTAGE_1: IncidentTypeConfiguration = {
         },
         {
           id: '179274',
-          code: 'PRISONERS',
+          response: 'PRISONERS',
           active: false,
           label: 'Prisoners',
           commentRequired: true,
@@ -160,7 +160,7 @@ export const HOSTAGE_1: IncidentTypeConfiguration = {
         },
         {
           id: '179271',
-          code: 'CIVILIAN GRADES',
+          response: 'CIVILIAN GRADES',
           active: false,
           label: 'Civilian grades',
           commentRequired: true,
@@ -169,7 +169,7 @@ export const HOSTAGE_1: IncidentTypeConfiguration = {
         },
         {
           id: '179273',
-          code: 'POLICE',
+          response: 'POLICE',
           active: false,
           label: 'Police',
           commentRequired: true,
@@ -178,7 +178,7 @@ export const HOSTAGE_1: IncidentTypeConfiguration = {
         },
         {
           id: '179272',
-          code: 'EXTERNAL CIVILIANS',
+          response: 'EXTERNAL CIVILIANS',
           active: false,
           label: 'External civilians',
           commentRequired: true,
@@ -196,7 +196,7 @@ export const HOSTAGE_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '179287',
-          code: 'GOVERNOR',
+          response: 'GOVERNOR',
           active: false,
           label: 'Governor',
           commentRequired: false,
@@ -205,7 +205,7 @@ export const HOSTAGE_1: IncidentTypeConfiguration = {
         },
         {
           id: '179285',
-          code: 'DEPUTY GOVERNOR',
+          response: 'DEPUTY GOVERNOR',
           active: false,
           label: 'Deputy governor',
           commentRequired: false,
@@ -214,7 +214,7 @@ export const HOSTAGE_1: IncidentTypeConfiguration = {
         },
         {
           id: '179286',
-          code: 'DUTY GOVERNOR',
+          response: 'DUTY GOVERNOR',
           active: false,
           label: 'Duty governor',
           commentRequired: false,
@@ -223,7 +223,7 @@ export const HOSTAGE_1: IncidentTypeConfiguration = {
         },
         {
           id: '179288',
-          code: 'OTHER',
+          response: 'OTHER',
           active: false,
           label: 'Other',
           commentRequired: true,
@@ -241,7 +241,7 @@ export const HOSTAGE_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '179338',
-          code: 'YES',
+          response: 'YES',
           active: false,
           label: 'Yes',
           commentRequired: false,
@@ -250,7 +250,7 @@ export const HOSTAGE_1: IncidentTypeConfiguration = {
         },
         {
           id: '179337',
-          code: 'NO',
+          response: 'NO',
           active: false,
           label: 'No',
           commentRequired: false,
@@ -268,7 +268,7 @@ export const HOSTAGE_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '179357',
-          code: 'YES',
+          response: 'YES',
           active: false,
           label: 'Yes',
           commentRequired: false,
@@ -277,7 +277,7 @@ export const HOSTAGE_1: IncidentTypeConfiguration = {
         },
         {
           id: '179356',
-          code: 'NO',
+          response: 'NO',
           active: false,
           label: 'No',
           commentRequired: false,
@@ -295,7 +295,7 @@ export const HOSTAGE_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '179388',
-          code: 'TELEPHONY',
+          response: 'TELEPHONY',
           active: false,
           label: 'Telephony',
           commentRequired: true,
@@ -304,7 +304,7 @@ export const HOSTAGE_1: IncidentTypeConfiguration = {
         },
         {
           id: '179387',
-          code: 'IT',
+          response: 'IT',
           active: false,
           label: 'IT',
           commentRequired: true,
@@ -322,7 +322,7 @@ export const HOSTAGE_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '179424',
-          code: 'YES',
+          response: 'YES',
           active: false,
           label: 'Yes',
           commentRequired: false,
@@ -331,7 +331,7 @@ export const HOSTAGE_1: IncidentTypeConfiguration = {
         },
         {
           id: '179425',
-          code: 'NO',
+          response: 'NO',
           active: false,
           label: 'No',
           commentRequired: false,
@@ -349,7 +349,7 @@ export const HOSTAGE_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '179532',
-          code: 'YES',
+          response: 'YES',
           active: false,
           label: 'Yes',
           commentRequired: false,
@@ -358,7 +358,7 @@ export const HOSTAGE_1: IncidentTypeConfiguration = {
         },
         {
           id: '179533',
-          code: 'NO',
+          response: 'NO',
           active: false,
           label: 'No',
           commentRequired: false,
@@ -376,7 +376,7 @@ export const HOSTAGE_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '179553',
-          code: 'YES',
+          response: 'YES',
           active: false,
           label: 'Yes',
           commentRequired: false,
@@ -385,7 +385,7 @@ export const HOSTAGE_1: IncidentTypeConfiguration = {
         },
         {
           id: '179554',
-          code: 'NO',
+          response: 'NO',
           active: false,
           label: 'No',
           commentRequired: false,
@@ -403,7 +403,7 @@ export const HOSTAGE_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '179568',
-          code: 'YES',
+          response: 'YES',
           active: false,
           label: 'Yes',
           commentRequired: false,
@@ -412,7 +412,7 @@ export const HOSTAGE_1: IncidentTypeConfiguration = {
         },
         {
           id: '179567',
-          code: 'NO',
+          response: 'NO',
           active: false,
           label: 'No',
           commentRequired: false,
@@ -430,7 +430,7 @@ export const HOSTAGE_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '179627',
-          code: 'YES',
+          response: 'YES',
           active: false,
           label: 'Yes',
           commentRequired: false,
@@ -439,7 +439,7 @@ export const HOSTAGE_1: IncidentTypeConfiguration = {
         },
         {
           id: '179628',
-          code: 'NO',
+          response: 'NO',
           active: false,
           label: 'No',
           commentRequired: false,
@@ -457,7 +457,7 @@ export const HOSTAGE_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '179669',
-          code: 'YES',
+          response: 'YES',
           active: false,
           label: 'Yes',
           commentRequired: true,
@@ -466,7 +466,7 @@ export const HOSTAGE_1: IncidentTypeConfiguration = {
         },
         {
           id: '179668',
-          code: 'NO',
+          response: 'NO',
           active: false,
           label: 'No',
           commentRequired: false,
@@ -484,7 +484,7 @@ export const HOSTAGE_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '179701',
-          code: 'YES',
+          response: 'YES',
           active: false,
           label: 'Yes',
           commentRequired: false,
@@ -493,7 +493,7 @@ export const HOSTAGE_1: IncidentTypeConfiguration = {
         },
         {
           id: '179700',
-          code: 'NO',
+          response: 'NO',
           active: false,
           label: 'No',
           commentRequired: false,
@@ -511,7 +511,7 @@ export const HOSTAGE_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '179720',
-          code: 'YES',
+          response: 'YES',
           active: false,
           label: 'Yes',
           commentRequired: false,
@@ -520,7 +520,7 @@ export const HOSTAGE_1: IncidentTypeConfiguration = {
         },
         {
           id: '179719',
-          code: 'NO',
+          response: 'NO',
           active: false,
           label: 'No',
           commentRequired: false,
@@ -538,7 +538,7 @@ export const HOSTAGE_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '179850',
-          code: 'NUMBER',
+          response: 'NUMBER',
           active: false,
           label: 'Number',
           commentRequired: true,
@@ -556,7 +556,7 @@ export const HOSTAGE_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '179881',
-          code: 'YES',
+          response: 'YES',
           active: false,
           label: 'Yes',
           commentRequired: false,
@@ -565,7 +565,7 @@ export const HOSTAGE_1: IncidentTypeConfiguration = {
         },
         {
           id: '179880',
-          code: 'NO',
+          response: 'NO',
           active: false,
           label: 'No',
           commentRequired: false,
@@ -583,7 +583,7 @@ export const HOSTAGE_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '179920',
-          code: 'YES',
+          response: 'YES',
           active: false,
           label: 'Yes',
           commentRequired: false,
@@ -592,7 +592,7 @@ export const HOSTAGE_1: IncidentTypeConfiguration = {
         },
         {
           id: '179919',
-          code: 'NO',
+          response: 'NO',
           active: false,
           label: 'No',
           commentRequired: false,
@@ -610,7 +610,7 @@ export const HOSTAGE_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '179989',
-          code: 'YES',
+          response: 'YES',
           active: false,
           label: 'Yes',
           commentRequired: false,
@@ -619,7 +619,7 @@ export const HOSTAGE_1: IncidentTypeConfiguration = {
         },
         {
           id: '179990',
-          code: 'NO',
+          response: 'NO',
           active: false,
           label: 'No',
           commentRequired: false,
@@ -637,7 +637,7 @@ export const HOSTAGE_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '180034',
-          code: 'ADMINISTRATION',
+          response: 'ADMINISTRATION',
           active: false,
           label: 'Administration',
           commentRequired: false,
@@ -646,7 +646,7 @@ export const HOSTAGE_1: IncidentTypeConfiguration = {
         },
         {
           id: '180035',
-          code: 'ASSOCIATION AREA',
+          response: 'ASSOCIATION AREA',
           active: false,
           label: 'Association area',
           commentRequired: false,
@@ -655,7 +655,7 @@ export const HOSTAGE_1: IncidentTypeConfiguration = {
         },
         {
           id: '180036',
-          code: 'CELL',
+          response: 'CELL',
           active: false,
           label: 'Cell',
           commentRequired: false,
@@ -664,7 +664,7 @@ export const HOSTAGE_1: IncidentTypeConfiguration = {
         },
         {
           id: '180037',
-          code: 'CHAPEL',
+          response: 'CHAPEL',
           active: false,
           label: 'Chapel',
           commentRequired: false,
@@ -673,7 +673,7 @@ export const HOSTAGE_1: IncidentTypeConfiguration = {
         },
         {
           id: '180039',
-          code: 'DINING ROOM',
+          response: 'DINING ROOM',
           active: false,
           label: 'Dining room',
           commentRequired: false,
@@ -682,7 +682,7 @@ export const HOSTAGE_1: IncidentTypeConfiguration = {
         },
         {
           id: '180040',
-          code: 'DORMITORY',
+          response: 'DORMITORY',
           active: false,
           label: 'Dormitory',
           commentRequired: false,
@@ -691,7 +691,7 @@ export const HOSTAGE_1: IncidentTypeConfiguration = {
         },
         {
           id: '180041',
-          code: 'EDUCATION',
+          response: 'EDUCATION',
           active: false,
           label: 'Education',
           commentRequired: false,
@@ -700,7 +700,7 @@ export const HOSTAGE_1: IncidentTypeConfiguration = {
         },
         {
           id: '180043',
-          code: 'EXERCISE YARD',
+          response: 'EXERCISE YARD',
           active: false,
           label: 'Exercise yard',
           commentRequired: false,
@@ -709,7 +709,7 @@ export const HOSTAGE_1: IncidentTypeConfiguration = {
         },
         {
           id: '180045',
-          code: 'GATE',
+          response: 'GATE',
           active: false,
           label: 'Gate',
           commentRequired: false,
@@ -718,7 +718,7 @@ export const HOSTAGE_1: IncidentTypeConfiguration = {
         },
         {
           id: '180046',
-          code: 'GYM',
+          response: 'GYM',
           active: false,
           label: 'Gym',
           commentRequired: false,
@@ -727,7 +727,7 @@ export const HOSTAGE_1: IncidentTypeConfiguration = {
         },
         {
           id: '180047',
-          code: 'HEALTH CARE CENTRE',
+          response: 'HEALTH CARE CENTRE',
           active: false,
           label: 'Health care centre',
           commentRequired: false,
@@ -736,7 +736,7 @@ export const HOSTAGE_1: IncidentTypeConfiguration = {
         },
         {
           id: '180050',
-          code: 'KITCHEN',
+          response: 'KITCHEN',
           active: false,
           label: 'Kitchen',
           commentRequired: false,
@@ -745,7 +745,7 @@ export const HOSTAGE_1: IncidentTypeConfiguration = {
         },
         {
           id: '180052',
-          code: 'OFFICE',
+          response: 'OFFICE',
           active: false,
           label: 'Office',
           commentRequired: false,
@@ -754,7 +754,7 @@ export const HOSTAGE_1: IncidentTypeConfiguration = {
         },
         {
           id: '180054',
-          code: 'RECEPTION',
+          response: 'RECEPTION',
           active: false,
           label: 'Reception',
           commentRequired: false,
@@ -763,7 +763,7 @@ export const HOSTAGE_1: IncidentTypeConfiguration = {
         },
         {
           id: '180055',
-          code: 'RECESS',
+          response: 'RECESS',
           active: false,
           label: 'Recess',
           commentRequired: false,
@@ -772,7 +772,7 @@ export const HOSTAGE_1: IncidentTypeConfiguration = {
         },
         {
           id: '180056',
-          code: 'SEGREGATION UNIT',
+          response: 'SEGREGATION UNIT',
           active: false,
           label: 'Segregation unit',
           commentRequired: false,
@@ -781,7 +781,7 @@ export const HOSTAGE_1: IncidentTypeConfiguration = {
         },
         {
           id: '180058',
-          code: 'SPECIAL UNIT',
+          response: 'SPECIAL UNIT',
           active: false,
           label: 'Special unit',
           commentRequired: false,
@@ -790,7 +790,7 @@ export const HOSTAGE_1: IncidentTypeConfiguration = {
         },
         {
           id: '180057',
-          code: 'SHOWERS/CHANGING ROOM',
+          response: 'SHOWERS/CHANGING ROOM',
           active: false,
           label: 'Showers/changing room',
           commentRequired: false,
@@ -799,7 +799,7 @@ export const HOSTAGE_1: IncidentTypeConfiguration = {
         },
         {
           id: '180061',
-          code: 'VISITS',
+          response: 'VISITS',
           active: false,
           label: 'Visits',
           commentRequired: false,
@@ -808,7 +808,7 @@ export const HOSTAGE_1: IncidentTypeConfiguration = {
         },
         {
           id: '180063',
-          code: 'WING',
+          response: 'WING',
           active: false,
           label: 'Wing',
           commentRequired: false,
@@ -817,7 +817,7 @@ export const HOSTAGE_1: IncidentTypeConfiguration = {
         },
         {
           id: '180065',
-          code: 'WORKS DEPARTMENT',
+          response: 'WORKS DEPARTMENT',
           active: false,
           label: 'Works department',
           commentRequired: false,
@@ -826,7 +826,7 @@ export const HOSTAGE_1: IncidentTypeConfiguration = {
         },
         {
           id: '180066',
-          code: 'WORKSHOP',
+          response: 'WORKSHOP',
           active: false,
           label: 'Workshop',
           commentRequired: false,
@@ -835,7 +835,7 @@ export const HOSTAGE_1: IncidentTypeConfiguration = {
         },
         {
           id: '180064',
-          code: 'WITHIN PERIMETER',
+          response: 'WITHIN PERIMETER',
           active: false,
           label: 'Within perimeter',
           commentRequired: false,
@@ -844,7 +844,7 @@ export const HOSTAGE_1: IncidentTypeConfiguration = {
         },
         {
           id: '180042',
-          code: 'ELSEWHERE',
+          response: 'ELSEWHERE',
           active: false,
           label: 'Elsewhere',
           commentRequired: true,
@@ -853,7 +853,7 @@ export const HOSTAGE_1: IncidentTypeConfiguration = {
         },
         {
           id: '180044',
-          code: 'FUNERAL',
+          response: 'FUNERAL',
           active: false,
           label: 'Funeral',
           commentRequired: false,
@@ -862,7 +862,7 @@ export const HOSTAGE_1: IncidentTypeConfiguration = {
         },
         {
           id: '180048',
-          code: 'HOSPITAL OUTSIDE (PATIENT)',
+          response: 'HOSPITAL OUTSIDE (PATIENT)',
           active: false,
           label: 'Hospital outside (patient)',
           commentRequired: false,
@@ -871,7 +871,7 @@ export const HOSTAGE_1: IncidentTypeConfiguration = {
         },
         {
           id: '180049',
-          code: 'HOSPITAL OUTSIDE (VISITING)',
+          response: 'HOSPITAL OUTSIDE (VISITING)',
           active: false,
           label: 'Hospital outside (visiting)',
           commentRequired: false,
@@ -880,7 +880,7 @@ export const HOSTAGE_1: IncidentTypeConfiguration = {
         },
         {
           id: '180053',
-          code: 'OUTSIDE WORKING PARTY',
+          response: 'OUTSIDE WORKING PARTY',
           active: false,
           label: 'Outside working party',
           commentRequired: false,
@@ -889,7 +889,7 @@ export const HOSTAGE_1: IncidentTypeConfiguration = {
         },
         {
           id: '180059',
-          code: 'SPORTS FIELD',
+          response: 'SPORTS FIELD',
           active: false,
           label: 'Sports field',
           commentRequired: false,
@@ -898,7 +898,7 @@ export const HOSTAGE_1: IncidentTypeConfiguration = {
         },
         {
           id: '180060',
-          code: 'VEHICLE',
+          response: 'VEHICLE',
           active: false,
           label: 'Vehicle',
           commentRequired: false,
@@ -907,7 +907,7 @@ export const HOSTAGE_1: IncidentTypeConfiguration = {
         },
         {
           id: '180062',
-          code: 'WEDDINGS',
+          response: 'WEDDINGS',
           active: false,
           label: 'Weddings',
           commentRequired: false,
@@ -916,7 +916,7 @@ export const HOSTAGE_1: IncidentTypeConfiguration = {
         },
         {
           id: '180051',
-          code: 'MAGISTRATES COURT',
+          response: 'MAGISTRATES COURT',
           active: false,
           label: 'Magistrates court',
           commentRequired: false,
@@ -925,7 +925,7 @@ export const HOSTAGE_1: IncidentTypeConfiguration = {
         },
         {
           id: '180038',
-          code: 'CROWN COURT',
+          response: 'CROWN COURT',
           active: true,
           label: 'Crown court',
           commentRequired: false,
@@ -943,7 +943,7 @@ export const HOSTAGE_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '180117',
-          code: 'FIREARM',
+          response: 'FIREARM',
           active: false,
           label: 'Firearm',
           commentRequired: false,
@@ -952,7 +952,7 @@ export const HOSTAGE_1: IncidentTypeConfiguration = {
         },
         {
           id: '180114',
-          code: 'CHEMICAL INCAPACITANT',
+          response: 'CHEMICAL INCAPACITANT',
           active: false,
           label: 'Chemical incapacitant',
           commentRequired: false,
@@ -961,7 +961,7 @@ export const HOSTAGE_1: IncidentTypeConfiguration = {
         },
         {
           id: '180119',
-          code: 'KNIFE/BLADE',
+          response: 'KNIFE/BLADE',
           active: false,
           label: 'Knife/blade',
           commentRequired: false,
@@ -970,7 +970,7 @@ export const HOSTAGE_1: IncidentTypeConfiguration = {
         },
         {
           id: '180122',
-          code: 'OTHER SHARP INSTRUMENT',
+          response: 'OTHER SHARP INSTRUMENT',
           active: false,
           label: 'Other sharp instrument',
           commentRequired: false,
@@ -979,7 +979,7 @@ export const HOSTAGE_1: IncidentTypeConfiguration = {
         },
         {
           id: '180113',
-          code: 'BLUNT INSTRUMENT',
+          response: 'BLUNT INSTRUMENT',
           active: false,
           label: 'Blunt instrument',
           commentRequired: false,
@@ -988,7 +988,7 @@ export const HOSTAGE_1: IncidentTypeConfiguration = {
         },
         {
           id: '180120',
-          code: 'LIGATURE',
+          response: 'LIGATURE',
           active: false,
           label: 'Ligature',
           commentRequired: false,
@@ -997,7 +997,7 @@ export const HOSTAGE_1: IncidentTypeConfiguration = {
         },
         {
           id: '180115',
-          code: 'DANGEROUS LIQUID',
+          response: 'DANGEROUS LIQUID',
           active: false,
           label: 'Dangerous liquid',
           commentRequired: false,
@@ -1006,7 +1006,7 @@ export const HOSTAGE_1: IncidentTypeConfiguration = {
         },
         {
           id: '180116',
-          code: 'EXCRETA/URINE',
+          response: 'EXCRETA/URINE',
           active: false,
           label: 'Excreta/urine',
           commentRequired: false,
@@ -1015,7 +1015,7 @@ export const HOSTAGE_1: IncidentTypeConfiguration = {
         },
         {
           id: '180123',
-          code: 'SPITTING',
+          response: 'SPITTING',
           active: false,
           label: 'Spitting',
           commentRequired: false,
@@ -1024,7 +1024,7 @@ export const HOSTAGE_1: IncidentTypeConfiguration = {
         },
         {
           id: '180118',
-          code: 'FOOD',
+          response: 'FOOD',
           active: false,
           label: 'Food',
           commentRequired: false,
@@ -1033,7 +1033,7 @@ export const HOSTAGE_1: IncidentTypeConfiguration = {
         },
         {
           id: '180125',
-          code: 'THROWN FURNITURE',
+          response: 'THROWN FURNITURE',
           active: false,
           label: 'Thrown furniture',
           commentRequired: false,
@@ -1042,7 +1042,7 @@ export const HOSTAGE_1: IncidentTypeConfiguration = {
         },
         {
           id: '180124',
-          code: 'THROWN EQUIPMENT',
+          response: 'THROWN EQUIPMENT',
           active: false,
           label: 'Thrown equipment',
           commentRequired: false,
@@ -1051,7 +1051,7 @@ export const HOSTAGE_1: IncidentTypeConfiguration = {
         },
         {
           id: '180121',
-          code: 'OTHER',
+          response: 'OTHER',
           active: false,
           label: 'Other',
           commentRequired: true,
@@ -1069,7 +1069,7 @@ export const HOSTAGE_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '180167',
-          code: 'LOCAL',
+          response: 'LOCAL',
           active: false,
           label: 'Local',
           commentRequired: false,
@@ -1078,7 +1078,7 @@ export const HOSTAGE_1: IncidentTypeConfiguration = {
         },
         {
           id: '180168',
-          code: 'SERVICE SUPPLIER',
+          response: 'SERVICE SUPPLIER',
           active: false,
           label: 'Service supplier',
           commentRequired: false,
@@ -1096,7 +1096,7 @@ export const HOSTAGE_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '180207',
-          code: 'YES',
+          response: 'YES',
           active: false,
           label: 'Yes',
           commentRequired: false,
@@ -1105,7 +1105,7 @@ export const HOSTAGE_1: IncidentTypeConfiguration = {
         },
         {
           id: '180208',
-          code: 'NO',
+          response: 'NO',
           active: false,
           label: 'No',
           commentRequired: false,
@@ -1123,7 +1123,7 @@ export const HOSTAGE_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '180454',
-          code: 'YES',
+          response: 'YES',
           active: false,
           label: 'Yes',
           commentRequired: false,
@@ -1132,7 +1132,7 @@ export const HOSTAGE_1: IncidentTypeConfiguration = {
         },
         {
           id: '180453',
-          code: 'NO',
+          response: 'NO',
           active: false,
           label: 'No',
           commentRequired: false,
@@ -1150,7 +1150,7 @@ export const HOSTAGE_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '180472',
-          code: 'NUMBER',
+          response: 'NUMBER',
           active: false,
           label: 'Number',
           commentRequired: true,
@@ -1168,7 +1168,7 @@ export const HOSTAGE_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '180486',
-          code: 'YES',
+          response: 'YES',
           active: false,
           label: 'Yes',
           commentRequired: false,
@@ -1177,7 +1177,7 @@ export const HOSTAGE_1: IncidentTypeConfiguration = {
         },
         {
           id: '180485',
-          code: 'NO',
+          response: 'NO',
           active: false,
           label: 'No',
           commentRequired: false,
@@ -1195,7 +1195,7 @@ export const HOSTAGE_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '180536',
-          code: 'INTERVENTION',
+          response: 'INTERVENTION',
           active: false,
           label: 'Intervention',
           commentRequired: false,
@@ -1204,7 +1204,7 @@ export const HOSTAGE_1: IncidentTypeConfiguration = {
         },
         {
           id: '180537',
-          code: 'NEGOTIATION',
+          response: 'NEGOTIATION',
           active: false,
           label: 'Negotiation',
           commentRequired: false,
@@ -1213,7 +1213,7 @@ export const HOSTAGE_1: IncidentTypeConfiguration = {
         },
         {
           id: '180538',
-          code: 'OTHER',
+          response: 'OTHER',
           active: false,
           label: 'Other',
           commentRequired: true,
@@ -1231,7 +1231,7 @@ export const HOSTAGE_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '180602',
-          code: 'MINOR',
+          response: 'MINOR',
           active: false,
           label: 'Minor',
           commentRequired: true,
@@ -1240,7 +1240,7 @@ export const HOSTAGE_1: IncidentTypeConfiguration = {
         },
         {
           id: '180603',
-          code: 'SERIOUS',
+          response: 'SERIOUS',
           active: false,
           label: 'Serious',
           commentRequired: true,
@@ -1249,7 +1249,7 @@ export const HOSTAGE_1: IncidentTypeConfiguration = {
         },
         {
           id: '180601',
-          code: 'EXTENSIVE',
+          response: 'EXTENSIVE',
           active: false,
           label: 'Extensive',
           commentRequired: true,
@@ -1267,7 +1267,7 @@ export const HOSTAGE_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '180622',
-          code: 'GRAZES, SCRATCHES OR ABRASIONS',
+          response: 'GRAZES, SCRATCHES OR ABRASIONS',
           active: false,
           label: 'Grazes, scratches or abrasions',
           commentRequired: false,
@@ -1276,7 +1276,7 @@ export const HOSTAGE_1: IncidentTypeConfiguration = {
         },
         {
           id: '180623',
-          code: 'MINOR BRUISES',
+          response: 'MINOR BRUISES',
           active: false,
           label: 'Minor bruises',
           commentRequired: false,
@@ -1285,7 +1285,7 @@ export const HOSTAGE_1: IncidentTypeConfiguration = {
         },
         {
           id: '180626',
-          code: 'SWELLINGS',
+          response: 'SWELLINGS',
           active: false,
           label: 'Swellings',
           commentRequired: false,
@@ -1294,7 +1294,7 @@ export const HOSTAGE_1: IncidentTypeConfiguration = {
         },
         {
           id: '180625',
-          code: 'SUPERFICIAL CUTS',
+          response: 'SUPERFICIAL CUTS',
           active: false,
           label: 'Superficial cuts',
           commentRequired: false,
@@ -1303,7 +1303,7 @@ export const HOSTAGE_1: IncidentTypeConfiguration = {
         },
         {
           id: '180624',
-          code: 'OTHER',
+          response: 'OTHER',
           active: false,
           label: 'Other',
           commentRequired: true,
@@ -1321,7 +1321,7 @@ export const HOSTAGE_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '180631',
-          code: 'DESCRIPTION',
+          response: 'DESCRIPTION',
           active: false,
           label: 'Description',
           commentRequired: true,
@@ -1339,7 +1339,7 @@ export const HOSTAGE_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '180637',
-          code: 'YES',
+          response: 'YES',
           active: false,
           label: 'Yes',
           commentRequired: false,
@@ -1348,7 +1348,7 @@ export const HOSTAGE_1: IncidentTypeConfiguration = {
         },
         {
           id: '180638',
-          code: 'NO',
+          response: 'NO',
           active: false,
           label: 'No',
           commentRequired: false,
@@ -1366,7 +1366,7 @@ export const HOSTAGE_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '180640',
-          code: 'YES',
+          response: 'YES',
           active: false,
           label: 'Yes',
           commentRequired: false,
@@ -1375,7 +1375,7 @@ export const HOSTAGE_1: IncidentTypeConfiguration = {
         },
         {
           id: '180639',
-          code: 'NO',
+          response: 'NO',
           active: false,
           label: 'No',
           commentRequired: false,
@@ -1393,7 +1393,7 @@ export const HOSTAGE_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '180879',
-          code: 'YES',
+          response: 'YES',
           active: false,
           label: 'Yes',
           commentRequired: false,
@@ -1402,7 +1402,7 @@ export const HOSTAGE_1: IncidentTypeConfiguration = {
         },
         {
           id: '180878',
-          code: 'NO',
+          response: 'NO',
           active: false,
           label: 'No',
           commentRequired: false,
@@ -1420,7 +1420,7 @@ export const HOSTAGE_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '180893',
-          code: 'FRACTURE',
+          response: 'FRACTURE',
           active: false,
           label: 'Fracture',
           commentRequired: false,
@@ -1429,7 +1429,7 @@ export const HOSTAGE_1: IncidentTypeConfiguration = {
         },
         {
           id: '180895',
-          code: 'SCALD OR BURN',
+          response: 'SCALD OR BURN',
           active: false,
           label: 'Scald or burn',
           commentRequired: false,
@@ -1438,7 +1438,7 @@ export const HOSTAGE_1: IncidentTypeConfiguration = {
         },
         {
           id: '180896',
-          code: 'STABBING',
+          response: 'STABBING',
           active: false,
           label: 'Stabbing',
           commentRequired: false,
@@ -1447,7 +1447,7 @@ export const HOSTAGE_1: IncidentTypeConfiguration = {
         },
         {
           id: '180890',
-          code: 'CRUSHING',
+          response: 'CRUSHING',
           active: false,
           label: 'Crushing',
           commentRequired: false,
@@ -1456,7 +1456,7 @@ export const HOSTAGE_1: IncidentTypeConfiguration = {
         },
         {
           id: '180892',
-          code: 'EXTENSIVE/MULTIPLE BRUISING',
+          response: 'EXTENSIVE/MULTIPLE BRUISING',
           active: false,
           label: 'Extensive/multiple bruising',
           commentRequired: false,
@@ -1465,7 +1465,7 @@ export const HOSTAGE_1: IncidentTypeConfiguration = {
         },
         {
           id: '180887',
-          code: 'BLACK EYE',
+          response: 'BLACK EYE',
           active: false,
           label: 'Black eye',
           commentRequired: false,
@@ -1474,7 +1474,7 @@ export const HOSTAGE_1: IncidentTypeConfiguration = {
         },
         {
           id: '180888',
-          code: 'BROKEN NOSE',
+          response: 'BROKEN NOSE',
           active: false,
           label: 'Broken nose',
           commentRequired: false,
@@ -1483,7 +1483,7 @@ export const HOSTAGE_1: IncidentTypeConfiguration = {
         },
         {
           id: '180889',
-          code: 'BROKEN TEETH',
+          response: 'BROKEN TEETH',
           active: false,
           label: 'Broken teeth',
           commentRequired: false,
@@ -1492,7 +1492,7 @@ export const HOSTAGE_1: IncidentTypeConfiguration = {
         },
         {
           id: '180891',
-          code: 'CUTS REQUIRING SUTURES',
+          response: 'CUTS REQUIRING SUTURES',
           active: false,
           label: 'Cuts requiring sutures',
           commentRequired: false,
@@ -1501,7 +1501,7 @@ export const HOSTAGE_1: IncidentTypeConfiguration = {
         },
         {
           id: '180886',
-          code: 'BITES',
+          response: 'BITES',
           active: false,
           label: 'Bites',
           commentRequired: false,
@@ -1510,7 +1510,7 @@ export const HOSTAGE_1: IncidentTypeConfiguration = {
         },
         {
           id: '180894',
-          code: 'GUN SHOT WOUND',
+          response: 'GUN SHOT WOUND',
           active: false,
           label: 'Gun shot wound',
           commentRequired: false,
@@ -1519,7 +1519,7 @@ export const HOSTAGE_1: IncidentTypeConfiguration = {
         },
         {
           id: '180897',
-          code: 'TEMPORARY/PERMANENT BLINDNESS',
+          response: 'TEMPORARY/PERMANENT BLINDNESS',
           active: false,
           label: 'Temporary/permanent blindness',
           commentRequired: false,
@@ -1537,7 +1537,7 @@ export const HOSTAGE_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '180983',
-          code: 'YES',
+          response: 'YES',
           active: false,
           label: 'Yes',
           commentRequired: false,
@@ -1546,7 +1546,7 @@ export const HOSTAGE_1: IncidentTypeConfiguration = {
         },
         {
           id: '180982',
-          code: 'NO',
+          response: 'NO',
           active: false,
           label: 'No',
           commentRequired: false,
@@ -1564,7 +1564,7 @@ export const HOSTAGE_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '181173',
-          code: 'YES',
+          response: 'YES',
           active: false,
           label: 'Yes',
           commentRequired: true,
@@ -1573,7 +1573,7 @@ export const HOSTAGE_1: IncidentTypeConfiguration = {
         },
         {
           id: '181172',
-          code: 'NO',
+          response: 'NO',
           active: false,
           label: 'No',
           commentRequired: false,
@@ -1591,7 +1591,7 @@ export const HOSTAGE_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '181205',
-          code: 'ENTER TIME',
+          response: 'ENTER TIME',
           active: false,
           label: 'Enter time',
           commentRequired: true,
@@ -1609,7 +1609,7 @@ export const HOSTAGE_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '181269',
-          code: 'LOCAL',
+          response: 'LOCAL',
           active: false,
           label: 'Local',
           commentRequired: false,
@@ -1618,7 +1618,7 @@ export const HOSTAGE_1: IncidentTypeConfiguration = {
         },
         {
           id: '181268',
-          code: 'SERVICE SUPPLIER',
+          response: 'SERVICE SUPPLIER',
           active: false,
           label: 'Service supplier',
           commentRequired: false,
@@ -1636,7 +1636,7 @@ export const HOSTAGE_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '181293',
-          code: 'YES',
+          response: 'YES',
           active: false,
           label: 'Yes',
           commentRequired: false,
@@ -1645,7 +1645,7 @@ export const HOSTAGE_1: IncidentTypeConfiguration = {
         },
         {
           id: '181292',
-          code: 'NO',
+          response: 'NO',
           active: false,
           label: 'No',
           commentRequired: false,
@@ -1663,7 +1663,7 @@ export const HOSTAGE_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '181298',
-          code: 'ENTER COMMENT AND DATE',
+          response: 'ENTER COMMENT AND DATE',
           active: false,
           label: 'Enter comment and date',
           commentRequired: true,
@@ -1681,7 +1681,7 @@ export const HOSTAGE_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '181309',
-          code: 'PRISONER',
+          response: 'PRISONER',
           active: false,
           label: 'Prisoner',
           commentRequired: false,
@@ -1690,7 +1690,7 @@ export const HOSTAGE_1: IncidentTypeConfiguration = {
         },
         {
           id: '181310',
-          code: 'VISITOR',
+          response: 'VISITOR',
           active: false,
           label: 'Visitor',
           commentRequired: false,
@@ -1699,7 +1699,7 @@ export const HOSTAGE_1: IncidentTypeConfiguration = {
         },
         {
           id: '181308',
-          code: 'OTHER',
+          response: 'OTHER',
           active: false,
           label: 'Other',
           commentRequired: true,
@@ -1717,7 +1717,7 @@ export const HOSTAGE_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '181327',
-          code: 'YES',
+          response: 'YES',
           active: false,
           label: 'Yes',
           commentRequired: false,
@@ -1726,7 +1726,7 @@ export const HOSTAGE_1: IncidentTypeConfiguration = {
         },
         {
           id: '181328',
-          code: 'NO',
+          response: 'NO',
           active: false,
           label: 'No',
           commentRequired: false,
@@ -1744,7 +1744,7 @@ export const HOSTAGE_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '181557',
-          code: 'YES',
+          response: 'YES',
           active: false,
           label: 'Yes',
           commentRequired: false,
@@ -1753,7 +1753,7 @@ export const HOSTAGE_1: IncidentTypeConfiguration = {
         },
         {
           id: '181556',
-          code: 'NO',
+          response: 'NO',
           active: false,
           label: 'No',
           commentRequired: false,
@@ -1771,7 +1771,7 @@ export const HOSTAGE_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '181748',
-          code: 'YES',
+          response: 'YES',
           active: false,
           label: 'Yes',
           commentRequired: true,
@@ -1780,7 +1780,7 @@ export const HOSTAGE_1: IncidentTypeConfiguration = {
         },
         {
           id: '181747',
-          code: 'NO',
+          response: 'NO',
           active: false,
           label: 'No',
           commentRequired: false,
@@ -1798,7 +1798,7 @@ export const HOSTAGE_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '181752',
-          code: 'YES',
+          response: 'YES',
           active: false,
           label: 'Yes',
           commentRequired: false,
@@ -1807,7 +1807,7 @@ export const HOSTAGE_1: IncidentTypeConfiguration = {
         },
         {
           id: '181751',
-          code: 'NO',
+          response: 'NO',
           active: false,
           label: 'No',
           commentRequired: false,
@@ -1825,7 +1825,7 @@ export const HOSTAGE_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '181821',
-          code: 'YES',
+          response: 'YES',
           active: false,
           label: 'Yes',
           commentRequired: false,
@@ -1834,7 +1834,7 @@ export const HOSTAGE_1: IncidentTypeConfiguration = {
         },
         {
           id: '181820',
-          code: 'NO',
+          response: 'NO',
           active: false,
           label: 'No',
           commentRequired: false,
@@ -1852,7 +1852,7 @@ export const HOSTAGE_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '181832',
-          code: 'YES',
+          response: 'YES',
           active: false,
           label: 'Yes',
           commentRequired: false,
@@ -1861,7 +1861,7 @@ export const HOSTAGE_1: IncidentTypeConfiguration = {
         },
         {
           id: '181831',
-          code: 'NO',
+          response: 'NO',
           active: false,
           label: 'No',
           commentRequired: false,
@@ -1879,7 +1879,7 @@ export const HOSTAGE_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '181969',
-          code: 'NUMBER',
+          response: 'NUMBER',
           active: false,
           label: 'Number',
           commentRequired: true,
@@ -1897,7 +1897,7 @@ export const HOSTAGE_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '181991',
-          code: 'FULL',
+          response: 'FULL',
           active: false,
           label: 'Full',
           commentRequired: false,
@@ -1906,7 +1906,7 @@ export const HOSTAGE_1: IncidentTypeConfiguration = {
         },
         {
           id: '181992',
-          code: 'PARTIAL',
+          response: 'PARTIAL',
           active: false,
           label: 'Partial',
           commentRequired: true,
@@ -1924,7 +1924,7 @@ export const HOSTAGE_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '182220',
-          code: 'STAFF',
+          response: 'STAFF',
           active: false,
           label: 'Staff',
           commentRequired: true,
@@ -1933,7 +1933,7 @@ export const HOSTAGE_1: IncidentTypeConfiguration = {
         },
         {
           id: '182219',
-          code: 'PRISONERS',
+          response: 'PRISONERS',
           active: false,
           label: 'Prisoners',
           commentRequired: true,
@@ -1942,7 +1942,7 @@ export const HOSTAGE_1: IncidentTypeConfiguration = {
         },
         {
           id: '182216',
-          code: 'CIVILIAN GRADES',
+          response: 'CIVILIAN GRADES',
           active: false,
           label: 'Civilian grades',
           commentRequired: true,
@@ -1951,7 +1951,7 @@ export const HOSTAGE_1: IncidentTypeConfiguration = {
         },
         {
           id: '182218',
-          code: 'POLICE',
+          response: 'POLICE',
           active: false,
           label: 'Police',
           commentRequired: true,
@@ -1960,7 +1960,7 @@ export const HOSTAGE_1: IncidentTypeConfiguration = {
         },
         {
           id: '182217',
-          code: 'EXTERNAL CIVILIANS',
+          response: 'EXTERNAL CIVILIANS',
           active: false,
           label: 'External civilians',
           commentRequired: true,
@@ -1978,7 +1978,7 @@ export const HOSTAGE_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '182272',
-          code: 'YES',
+          response: 'YES',
           active: false,
           label: 'Yes',
           commentRequired: false,
@@ -1987,7 +1987,7 @@ export const HOSTAGE_1: IncidentTypeConfiguration = {
         },
         {
           id: '182273',
-          code: 'NO',
+          response: 'NO',
           active: false,
           label: 'No',
           commentRequired: false,
@@ -2005,7 +2005,7 @@ export const HOSTAGE_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '182277',
-          code: 'YES',
+          response: 'YES',
           active: false,
           label: 'Yes',
           commentRequired: false,
@@ -2014,7 +2014,7 @@ export const HOSTAGE_1: IncidentTypeConfiguration = {
         },
         {
           id: '182276',
-          code: 'NO',
+          response: 'NO',
           active: false,
           label: 'No',
           commentRequired: false,
@@ -2032,7 +2032,7 @@ export const HOSTAGE_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '182279',
-          code: 'YES',
+          response: 'YES',
           active: false,
           label: 'Yes',
           commentRequired: false,
@@ -2041,7 +2041,7 @@ export const HOSTAGE_1: IncidentTypeConfiguration = {
         },
         {
           id: '182278',
-          code: 'NO',
+          response: 'NO',
           active: false,
           label: 'No',
           commentRequired: false,
@@ -2059,7 +2059,7 @@ export const HOSTAGE_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '182298',
-          code: 'YES',
+          response: 'YES',
           active: false,
           label: 'Yes',
           commentRequired: false,
@@ -2068,7 +2068,7 @@ export const HOSTAGE_1: IncidentTypeConfiguration = {
         },
         {
           id: '182297',
-          code: 'NO',
+          response: 'NO',
           active: false,
           label: 'No',
           commentRequired: false,
@@ -2086,7 +2086,7 @@ export const HOSTAGE_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '182322',
-          code: 'YES',
+          response: 'YES',
           active: false,
           label: 'Yes',
           commentRequired: false,
@@ -2095,7 +2095,7 @@ export const HOSTAGE_1: IncidentTypeConfiguration = {
         },
         {
           id: '182321',
-          code: 'NO',
+          response: 'NO',
           active: false,
           label: 'No',
           commentRequired: false,
@@ -2113,7 +2113,7 @@ export const HOSTAGE_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '182344',
-          code: 'YES',
+          response: 'YES',
           active: false,
           label: 'Yes',
           commentRequired: false,
@@ -2122,7 +2122,7 @@ export const HOSTAGE_1: IncidentTypeConfiguration = {
         },
         {
           id: '182345',
-          code: 'NO',
+          response: 'NO',
           active: false,
           label: 'No',
           commentRequired: false,
@@ -2140,7 +2140,7 @@ export const HOSTAGE_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '182509',
-          code: 'INVESTIGATION BY POLICE',
+          response: 'INVESTIGATION BY POLICE',
           active: false,
           label: 'Investigation by police',
           commentRequired: false,
@@ -2149,7 +2149,7 @@ export const HOSTAGE_1: IncidentTypeConfiguration = {
         },
         {
           id: '182510',
-          code: 'INVESTIGATION INTERNALLY',
+          response: 'INVESTIGATION INTERNALLY',
           active: false,
           label: 'Investigation internally',
           commentRequired: false,
@@ -2158,7 +2158,7 @@ export const HOSTAGE_1: IncidentTypeConfiguration = {
         },
         {
           id: '182508',
-          code: "GOVERNOR'S ADJUDICATION",
+          response: "GOVERNOR'S ADJUDICATION",
           active: false,
           label: "Governor's adjudication",
           commentRequired: false,
@@ -2167,7 +2167,7 @@ export const HOSTAGE_1: IncidentTypeConfiguration = {
         },
         {
           id: '182511',
-          code: 'NO INVESTIGATION',
+          response: 'NO INVESTIGATION',
           active: false,
           label: 'No investigation',
           commentRequired: false,
@@ -2185,7 +2185,7 @@ export const HOSTAGE_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '182538',
-          code: 'PRISONER',
+          response: 'PRISONER',
           active: false,
           label: 'Prisoner',
           commentRequired: false,
@@ -2194,7 +2194,7 @@ export const HOSTAGE_1: IncidentTypeConfiguration = {
         },
         {
           id: '182539',
-          code: 'STAFF',
+          response: 'STAFF',
           active: false,
           label: 'Staff',
           commentRequired: false,
@@ -2203,7 +2203,7 @@ export const HOSTAGE_1: IncidentTypeConfiguration = {
         },
         {
           id: '182536',
-          code: 'OFFICER',
+          response: 'OFFICER',
           active: false,
           label: 'Officer',
           commentRequired: false,
@@ -2212,7 +2212,7 @@ export const HOSTAGE_1: IncidentTypeConfiguration = {
         },
         {
           id: '182535',
-          code: 'CIVILIAN STAFF',
+          response: 'CIVILIAN STAFF',
           active: false,
           label: 'Civilian staff',
           commentRequired: false,
@@ -2221,7 +2221,7 @@ export const HOSTAGE_1: IncidentTypeConfiguration = {
         },
         {
           id: '182537',
-          code: 'OTHER',
+          response: 'OTHER',
           active: false,
           label: 'Other',
           commentRequired: true,
@@ -2239,7 +2239,7 @@ export const HOSTAGE_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '182554',
-          code: 'YES',
+          response: 'YES',
           active: false,
           label: 'Yes',
           commentRequired: false,
@@ -2248,7 +2248,7 @@ export const HOSTAGE_1: IncidentTypeConfiguration = {
         },
         {
           id: '182553',
-          code: 'NO',
+          response: 'NO',
           active: false,
           label: 'No',
           commentRequired: false,
@@ -2266,7 +2266,7 @@ export const HOSTAGE_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '182603',
-          code: 'HOURS',
+          response: 'HOURS',
           active: false,
           label: 'Hours',
           commentRequired: true,

@@ -16,7 +16,7 @@ export const BARRICADE_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '179077',
-          code: 'STAFF',
+          response: 'STAFF',
           active: false,
           label: 'Staff',
           commentRequired: true,
@@ -25,7 +25,7 @@ export const BARRICADE_1: IncidentTypeConfiguration = {
         },
         {
           id: '179076',
-          code: 'PRISONERS',
+          response: 'PRISONERS',
           active: false,
           label: 'Prisoners',
           commentRequired: true,
@@ -34,7 +34,7 @@ export const BARRICADE_1: IncidentTypeConfiguration = {
         },
         {
           id: '179073',
-          code: 'CIVILIAN GRADES',
+          response: 'CIVILIAN GRADES',
           active: false,
           label: 'Civilian grades',
           commentRequired: true,
@@ -43,7 +43,7 @@ export const BARRICADE_1: IncidentTypeConfiguration = {
         },
         {
           id: '179075',
-          code: 'POLICE',
+          response: 'POLICE',
           active: false,
           label: 'Police',
           commentRequired: true,
@@ -52,7 +52,7 @@ export const BARRICADE_1: IncidentTypeConfiguration = {
         },
         {
           id: '179074',
-          code: 'EXTERNAL CIVILIANS',
+          response: 'EXTERNAL CIVILIANS',
           active: false,
           label: 'External civilians',
           commentRequired: true,
@@ -70,7 +70,7 @@ export const BARRICADE_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '179100',
-          code: 'YES',
+          response: 'YES',
           active: false,
           label: 'Yes',
           commentRequired: false,
@@ -79,7 +79,7 @@ export const BARRICADE_1: IncidentTypeConfiguration = {
         },
         {
           id: '179099',
-          code: 'NO',
+          response: 'NO',
           active: false,
           label: 'No',
           commentRequired: false,
@@ -97,7 +97,7 @@ export const BARRICADE_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '179116',
-          code: 'YES',
+          response: 'YES',
           active: false,
           label: 'Yes',
           commentRequired: false,
@@ -106,7 +106,7 @@ export const BARRICADE_1: IncidentTypeConfiguration = {
         },
         {
           id: '179115',
-          code: 'NO',
+          response: 'NO',
           active: false,
           label: 'No',
           commentRequired: false,
@@ -124,7 +124,7 @@ export const BARRICADE_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '179185',
-          code: 'YES',
+          response: 'YES',
           active: false,
           label: 'Yes',
           commentRequired: false,
@@ -133,7 +133,7 @@ export const BARRICADE_1: IncidentTypeConfiguration = {
         },
         {
           id: '179186',
-          code: 'NO',
+          response: 'NO',
           active: false,
           label: 'No',
           commentRequired: false,
@@ -151,7 +151,7 @@ export const BARRICADE_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '179218',
-          code: 'YES',
+          response: 'YES',
           active: false,
           label: 'Yes',
           commentRequired: false,
@@ -160,7 +160,7 @@ export const BARRICADE_1: IncidentTypeConfiguration = {
         },
         {
           id: '179217',
-          code: 'NO',
+          response: 'NO',
           active: false,
           label: 'No',
           commentRequired: false,
@@ -178,7 +178,7 @@ export const BARRICADE_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '179237',
-          code: 'YES',
+          response: 'YES',
           active: false,
           label: 'Yes',
           commentRequired: false,
@@ -187,7 +187,7 @@ export const BARRICADE_1: IncidentTypeConfiguration = {
         },
         {
           id: '179238',
-          code: 'NO',
+          response: 'NO',
           active: false,
           label: 'No',
           commentRequired: false,
@@ -205,7 +205,7 @@ export const BARRICADE_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '179352',
-          code: 'YES',
+          response: 'YES',
           active: false,
           label: 'Yes',
           commentRequired: false,
@@ -214,7 +214,7 @@ export const BARRICADE_1: IncidentTypeConfiguration = {
         },
         {
           id: '179353',
-          code: 'NO',
+          response: 'NO',
           active: false,
           label: 'No',
           commentRequired: false,
@@ -232,7 +232,7 @@ export const BARRICADE_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '179670',
-          code: 'EXTENSIVE',
+          response: 'EXTENSIVE',
           active: false,
           label: 'Extensive',
           commentRequired: true,
@@ -241,7 +241,7 @@ export const BARRICADE_1: IncidentTypeConfiguration = {
         },
         {
           id: '179671',
-          code: 'MINOR',
+          response: 'MINOR',
           active: false,
           label: 'Minor',
           commentRequired: true,
@@ -250,7 +250,7 @@ export const BARRICADE_1: IncidentTypeConfiguration = {
         },
         {
           id: '179672',
-          code: 'SERIOUS',
+          response: 'SERIOUS',
           active: false,
           label: 'Serious',
           commentRequired: true,
@@ -268,7 +268,7 @@ export const BARRICADE_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '179702',
-          code: 'YES',
+          response: 'YES',
           active: false,
           label: 'Yes',
           commentRequired: false,
@@ -277,7 +277,7 @@ export const BARRICADE_1: IncidentTypeConfiguration = {
         },
         {
           id: '179703',
-          code: 'NO',
+          response: 'NO',
           active: false,
           label: 'No',
           commentRequired: false,
@@ -295,7 +295,7 @@ export const BARRICADE_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '179782',
-          code: 'YES',
+          response: 'YES',
           active: false,
           label: 'Yes',
           commentRequired: false,
@@ -304,7 +304,7 @@ export const BARRICADE_1: IncidentTypeConfiguration = {
         },
         {
           id: '179783',
-          code: 'NO',
+          response: 'NO',
           active: false,
           label: 'No',
           commentRequired: false,
@@ -322,7 +322,7 @@ export const BARRICADE_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '179844',
-          code: 'YES',
+          response: 'YES',
           active: false,
           label: 'Yes',
           commentRequired: false,
@@ -331,7 +331,7 @@ export const BARRICADE_1: IncidentTypeConfiguration = {
         },
         {
           id: '179845',
-          code: 'NO',
+          response: 'NO',
           active: false,
           label: 'No',
           commentRequired: false,
@@ -349,7 +349,7 @@ export const BARRICADE_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '179884',
-          code: 'ENTER AMOUNT IN POUND STERLING',
+          response: 'ENTER AMOUNT IN POUND STERLING',
           active: false,
           label: 'Enter amount in pound sterling',
           commentRequired: true,
@@ -367,7 +367,7 @@ export const BARRICADE_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '179942',
-          code: 'YES',
+          response: 'YES',
           active: false,
           label: 'Yes',
           commentRequired: false,
@@ -376,7 +376,7 @@ export const BARRICADE_1: IncidentTypeConfiguration = {
         },
         {
           id: '179943',
-          code: 'NO',
+          response: 'NO',
           active: false,
           label: 'No',
           commentRequired: false,
@@ -394,7 +394,7 @@ export const BARRICADE_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '180020',
-          code: 'FIREARM',
+          response: 'FIREARM',
           active: false,
           label: 'Firearm',
           commentRequired: false,
@@ -403,7 +403,7 @@ export const BARRICADE_1: IncidentTypeConfiguration = {
         },
         {
           id: '180017',
-          code: 'CHEMICAL INCAPACITANT',
+          response: 'CHEMICAL INCAPACITANT',
           active: false,
           label: 'Chemical incapacitant',
           commentRequired: false,
@@ -412,7 +412,7 @@ export const BARRICADE_1: IncidentTypeConfiguration = {
         },
         {
           id: '180022',
-          code: 'KNIFE/BLADE',
+          response: 'KNIFE/BLADE',
           active: false,
           label: 'Knife/blade',
           commentRequired: false,
@@ -421,7 +421,7 @@ export const BARRICADE_1: IncidentTypeConfiguration = {
         },
         {
           id: '180025',
-          code: 'OTHER SHARP INSTRUMENT',
+          response: 'OTHER SHARP INSTRUMENT',
           active: false,
           label: 'Other sharp instrument',
           commentRequired: false,
@@ -430,7 +430,7 @@ export const BARRICADE_1: IncidentTypeConfiguration = {
         },
         {
           id: '180016',
-          code: 'BLUNT INSTRUMENT',
+          response: 'BLUNT INSTRUMENT',
           active: false,
           label: 'Blunt instrument',
           commentRequired: false,
@@ -439,7 +439,7 @@ export const BARRICADE_1: IncidentTypeConfiguration = {
         },
         {
           id: '180023',
-          code: 'LIGATURE',
+          response: 'LIGATURE',
           active: false,
           label: 'Ligature',
           commentRequired: false,
@@ -448,7 +448,7 @@ export const BARRICADE_1: IncidentTypeConfiguration = {
         },
         {
           id: '180018',
-          code: 'DANGEROUS LIQUID',
+          response: 'DANGEROUS LIQUID',
           active: false,
           label: 'Dangerous liquid',
           commentRequired: false,
@@ -457,7 +457,7 @@ export const BARRICADE_1: IncidentTypeConfiguration = {
         },
         {
           id: '180019',
-          code: 'EXCRETA/URINE',
+          response: 'EXCRETA/URINE',
           active: false,
           label: 'Excreta/urine',
           commentRequired: false,
@@ -466,7 +466,7 @@ export const BARRICADE_1: IncidentTypeConfiguration = {
         },
         {
           id: '180026',
-          code: 'SPITTING',
+          response: 'SPITTING',
           active: false,
           label: 'Spitting',
           commentRequired: false,
@@ -475,7 +475,7 @@ export const BARRICADE_1: IncidentTypeConfiguration = {
         },
         {
           id: '180021',
-          code: 'FOOD',
+          response: 'FOOD',
           active: false,
           label: 'Food',
           commentRequired: false,
@@ -484,7 +484,7 @@ export const BARRICADE_1: IncidentTypeConfiguration = {
         },
         {
           id: '180028',
-          code: 'THROWN FURNITURE',
+          response: 'THROWN FURNITURE',
           active: false,
           label: 'Thrown furniture',
           commentRequired: false,
@@ -493,7 +493,7 @@ export const BARRICADE_1: IncidentTypeConfiguration = {
         },
         {
           id: '180027',
-          code: 'THROWN EQUIPMENT',
+          response: 'THROWN EQUIPMENT',
           active: false,
           label: 'Thrown equipment',
           commentRequired: false,
@@ -502,7 +502,7 @@ export const BARRICADE_1: IncidentTypeConfiguration = {
         },
         {
           id: '180024',
-          code: 'OTHER',
+          response: 'OTHER',
           active: false,
           label: 'Other',
           commentRequired: true,
@@ -520,7 +520,7 @@ export const BARRICADE_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '180153',
-          code: 'ENTER NUMBER',
+          response: 'ENTER NUMBER',
           active: false,
           label: 'Enter number',
           commentRequired: true,
@@ -538,7 +538,7 @@ export const BARRICADE_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '180186',
-          code: 'GOVERNOR',
+          response: 'GOVERNOR',
           active: false,
           label: 'Governor',
           commentRequired: false,
@@ -547,7 +547,7 @@ export const BARRICADE_1: IncidentTypeConfiguration = {
         },
         {
           id: '180184',
-          code: 'DEPUTY GOVERNOR',
+          response: 'DEPUTY GOVERNOR',
           active: false,
           label: 'Deputy governor',
           commentRequired: false,
@@ -556,7 +556,7 @@ export const BARRICADE_1: IncidentTypeConfiguration = {
         },
         {
           id: '180185',
-          code: 'DUTY GOVERNOR',
+          response: 'DUTY GOVERNOR',
           active: false,
           label: 'Duty governor',
           commentRequired: false,
@@ -565,7 +565,7 @@ export const BARRICADE_1: IncidentTypeConfiguration = {
         },
         {
           id: '180187',
-          code: 'OTHER',
+          response: 'OTHER',
           active: false,
           label: 'Other',
           commentRequired: true,
@@ -583,7 +583,7 @@ export const BARRICADE_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '180239',
-          code: 'NEGOTIATION',
+          response: 'NEGOTIATION',
           active: false,
           label: 'Negotiation',
           commentRequired: false,
@@ -592,7 +592,7 @@ export const BARRICADE_1: IncidentTypeConfiguration = {
         },
         {
           id: '180238',
-          code: 'INTERVENTION',
+          response: 'INTERVENTION',
           active: false,
           label: 'Intervention',
           commentRequired: false,
@@ -601,7 +601,7 @@ export const BARRICADE_1: IncidentTypeConfiguration = {
         },
         {
           id: '180240',
-          code: 'OTHER',
+          response: 'OTHER',
           active: false,
           label: 'Other',
           commentRequired: true,
@@ -619,7 +619,7 @@ export const BARRICADE_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '180264',
-          code: 'YES',
+          response: 'YES',
           active: false,
           label: 'Yes',
           commentRequired: false,
@@ -628,7 +628,7 @@ export const BARRICADE_1: IncidentTypeConfiguration = {
         },
         {
           id: '180265',
-          code: 'NO',
+          response: 'NO',
           active: false,
           label: 'No',
           commentRequired: false,
@@ -646,7 +646,7 @@ export const BARRICADE_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '180351',
-          code: 'TELEPHONY',
+          response: 'TELEPHONY',
           active: false,
           label: 'Telephony',
           commentRequired: true,
@@ -655,7 +655,7 @@ export const BARRICADE_1: IncidentTypeConfiguration = {
         },
         {
           id: '180350',
-          code: 'IT',
+          response: 'IT',
           active: false,
           label: 'IT',
           commentRequired: true,
@@ -673,7 +673,7 @@ export const BARRICADE_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '180354',
-          code: 'ADMINISTRATION',
+          response: 'ADMINISTRATION',
           active: false,
           label: 'Administration',
           commentRequired: false,
@@ -682,7 +682,7 @@ export const BARRICADE_1: IncidentTypeConfiguration = {
         },
         {
           id: '180355',
-          code: 'ASSOCIATION AREA',
+          response: 'ASSOCIATION AREA',
           active: false,
           label: 'Association area',
           commentRequired: false,
@@ -691,7 +691,7 @@ export const BARRICADE_1: IncidentTypeConfiguration = {
         },
         {
           id: '180356',
-          code: 'CELL',
+          response: 'CELL',
           active: false,
           label: 'Cell',
           commentRequired: false,
@@ -700,7 +700,7 @@ export const BARRICADE_1: IncidentTypeConfiguration = {
         },
         {
           id: '180357',
-          code: 'CHAPEL',
+          response: 'CHAPEL',
           active: false,
           label: 'Chapel',
           commentRequired: false,
@@ -709,7 +709,7 @@ export const BARRICADE_1: IncidentTypeConfiguration = {
         },
         {
           id: '180359',
-          code: 'DINING ROOM',
+          response: 'DINING ROOM',
           active: false,
           label: 'Dining room',
           commentRequired: false,
@@ -718,7 +718,7 @@ export const BARRICADE_1: IncidentTypeConfiguration = {
         },
         {
           id: '180360',
-          code: 'DORMITORY',
+          response: 'DORMITORY',
           active: false,
           label: 'Dormitory',
           commentRequired: false,
@@ -727,7 +727,7 @@ export const BARRICADE_1: IncidentTypeConfiguration = {
         },
         {
           id: '180361',
-          code: 'EDUCATION',
+          response: 'EDUCATION',
           active: false,
           label: 'Education',
           commentRequired: false,
@@ -736,7 +736,7 @@ export const BARRICADE_1: IncidentTypeConfiguration = {
         },
         {
           id: '180363',
-          code: 'EXERCISE YARD',
+          response: 'EXERCISE YARD',
           active: false,
           label: 'Exercise yard',
           commentRequired: false,
@@ -745,7 +745,7 @@ export const BARRICADE_1: IncidentTypeConfiguration = {
         },
         {
           id: '180365',
-          code: 'GATE',
+          response: 'GATE',
           active: false,
           label: 'Gate',
           commentRequired: false,
@@ -754,7 +754,7 @@ export const BARRICADE_1: IncidentTypeConfiguration = {
         },
         {
           id: '180366',
-          code: 'GYM',
+          response: 'GYM',
           active: false,
           label: 'Gym',
           commentRequired: false,
@@ -763,7 +763,7 @@ export const BARRICADE_1: IncidentTypeConfiguration = {
         },
         {
           id: '180367',
-          code: 'HEALTH CARE CENTRE',
+          response: 'HEALTH CARE CENTRE',
           active: false,
           label: 'Health care centre',
           commentRequired: false,
@@ -772,7 +772,7 @@ export const BARRICADE_1: IncidentTypeConfiguration = {
         },
         {
           id: '180370',
-          code: 'KITCHEN',
+          response: 'KITCHEN',
           active: false,
           label: 'Kitchen',
           commentRequired: false,
@@ -781,7 +781,7 @@ export const BARRICADE_1: IncidentTypeConfiguration = {
         },
         {
           id: '180372',
-          code: 'OFFICE',
+          response: 'OFFICE',
           active: false,
           label: 'Office',
           commentRequired: false,
@@ -790,7 +790,7 @@ export const BARRICADE_1: IncidentTypeConfiguration = {
         },
         {
           id: '180374',
-          code: 'RECEPTION',
+          response: 'RECEPTION',
           active: false,
           label: 'Reception',
           commentRequired: false,
@@ -799,7 +799,7 @@ export const BARRICADE_1: IncidentTypeConfiguration = {
         },
         {
           id: '180375',
-          code: 'RECESS',
+          response: 'RECESS',
           active: false,
           label: 'Recess',
           commentRequired: false,
@@ -808,7 +808,7 @@ export const BARRICADE_1: IncidentTypeConfiguration = {
         },
         {
           id: '180376',
-          code: 'SEGREGATION UNIT',
+          response: 'SEGREGATION UNIT',
           active: false,
           label: 'Segregation unit',
           commentRequired: false,
@@ -817,7 +817,7 @@ export const BARRICADE_1: IncidentTypeConfiguration = {
         },
         {
           id: '180378',
-          code: 'SPECIAL UNIT',
+          response: 'SPECIAL UNIT',
           active: false,
           label: 'Special unit',
           commentRequired: false,
@@ -826,7 +826,7 @@ export const BARRICADE_1: IncidentTypeConfiguration = {
         },
         {
           id: '180377',
-          code: 'SHOWERS/CHANGING ROOM',
+          response: 'SHOWERS/CHANGING ROOM',
           active: false,
           label: 'Showers/changing room',
           commentRequired: false,
@@ -835,7 +835,7 @@ export const BARRICADE_1: IncidentTypeConfiguration = {
         },
         {
           id: '180381',
-          code: 'VISITS',
+          response: 'VISITS',
           active: false,
           label: 'Visits',
           commentRequired: false,
@@ -844,7 +844,7 @@ export const BARRICADE_1: IncidentTypeConfiguration = {
         },
         {
           id: '180383',
-          code: 'WING',
+          response: 'WING',
           active: false,
           label: 'Wing',
           commentRequired: false,
@@ -853,7 +853,7 @@ export const BARRICADE_1: IncidentTypeConfiguration = {
         },
         {
           id: '180385',
-          code: 'WORKS DEPARTMENT',
+          response: 'WORKS DEPARTMENT',
           active: false,
           label: 'Works department',
           commentRequired: false,
@@ -862,7 +862,7 @@ export const BARRICADE_1: IncidentTypeConfiguration = {
         },
         {
           id: '180386',
-          code: 'WORKSHOP',
+          response: 'WORKSHOP',
           active: false,
           label: 'Workshop',
           commentRequired: false,
@@ -871,7 +871,7 @@ export const BARRICADE_1: IncidentTypeConfiguration = {
         },
         {
           id: '180384',
-          code: 'WITHIN PERIMETER',
+          response: 'WITHIN PERIMETER',
           active: false,
           label: 'Within perimeter',
           commentRequired: false,
@@ -880,7 +880,7 @@ export const BARRICADE_1: IncidentTypeConfiguration = {
         },
         {
           id: '180362',
-          code: 'ELSEWHERE (ENTER DETAILS)',
+          response: 'ELSEWHERE (ENTER DETAILS)',
           active: false,
           label: 'Elsewhere (enter details)',
           commentRequired: true,
@@ -889,7 +889,7 @@ export const BARRICADE_1: IncidentTypeConfiguration = {
         },
         {
           id: '180364',
-          code: 'FUNERAL',
+          response: 'FUNERAL',
           active: false,
           label: 'Funeral',
           commentRequired: false,
@@ -898,7 +898,7 @@ export const BARRICADE_1: IncidentTypeConfiguration = {
         },
         {
           id: '180368',
-          code: 'HOSPITAL OUTSIDE (PATIENT)',
+          response: 'HOSPITAL OUTSIDE (PATIENT)',
           active: false,
           label: 'Hospital outside (patient)',
           commentRequired: false,
@@ -907,7 +907,7 @@ export const BARRICADE_1: IncidentTypeConfiguration = {
         },
         {
           id: '180369',
-          code: 'HOSPITAL OUTSIDE (VISITING)',
+          response: 'HOSPITAL OUTSIDE (VISITING)',
           active: false,
           label: 'Hospital outside (visiting)',
           commentRequired: false,
@@ -916,7 +916,7 @@ export const BARRICADE_1: IncidentTypeConfiguration = {
         },
         {
           id: '180373',
-          code: 'OUTSIDE WORKING PARTY',
+          response: 'OUTSIDE WORKING PARTY',
           active: false,
           label: 'Outside working party',
           commentRequired: false,
@@ -925,7 +925,7 @@ export const BARRICADE_1: IncidentTypeConfiguration = {
         },
         {
           id: '180379',
-          code: 'SPORTS FIELD',
+          response: 'SPORTS FIELD',
           active: false,
           label: 'Sports field',
           commentRequired: false,
@@ -934,7 +934,7 @@ export const BARRICADE_1: IncidentTypeConfiguration = {
         },
         {
           id: '180380',
-          code: 'VEHICLE',
+          response: 'VEHICLE',
           active: false,
           label: 'Vehicle',
           commentRequired: false,
@@ -943,7 +943,7 @@ export const BARRICADE_1: IncidentTypeConfiguration = {
         },
         {
           id: '180382',
-          code: 'WEDDINGS',
+          response: 'WEDDINGS',
           active: false,
           label: 'Weddings',
           commentRequired: false,
@@ -952,7 +952,7 @@ export const BARRICADE_1: IncidentTypeConfiguration = {
         },
         {
           id: '180371',
-          code: 'MAGISTRATES COURT',
+          response: 'MAGISTRATES COURT',
           active: false,
           label: 'Magistrates court',
           commentRequired: false,
@@ -961,7 +961,7 @@ export const BARRICADE_1: IncidentTypeConfiguration = {
         },
         {
           id: '180358',
-          code: 'CROWN COURT',
+          response: 'CROWN COURT',
           active: false,
           label: 'Crown court',
           commentRequired: false,
@@ -979,7 +979,7 @@ export const BARRICADE_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '180471',
-          code: 'STAFF',
+          response: 'STAFF',
           active: false,
           label: 'Staff',
           commentRequired: true,
@@ -988,7 +988,7 @@ export const BARRICADE_1: IncidentTypeConfiguration = {
         },
         {
           id: '180470',
-          code: 'PRISONERS',
+          response: 'PRISONERS',
           active: false,
           label: 'Prisoners',
           commentRequired: true,
@@ -997,7 +997,7 @@ export const BARRICADE_1: IncidentTypeConfiguration = {
         },
         {
           id: '180467',
-          code: 'CIVILIAN GRADES',
+          response: 'CIVILIAN GRADES',
           active: false,
           label: 'Civilian grades',
           commentRequired: true,
@@ -1006,7 +1006,7 @@ export const BARRICADE_1: IncidentTypeConfiguration = {
         },
         {
           id: '180469',
-          code: 'POLICE',
+          response: 'POLICE',
           active: false,
           label: 'Police',
           commentRequired: true,
@@ -1015,7 +1015,7 @@ export const BARRICADE_1: IncidentTypeConfiguration = {
         },
         {
           id: '180468',
-          code: 'EXTERNAL CIVILIANS',
+          response: 'EXTERNAL CIVILIANS',
           active: false,
           label: 'External civilians',
           commentRequired: true,
@@ -1033,7 +1033,7 @@ export const BARRICADE_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '180657',
-          code: 'LOCAL',
+          response: 'LOCAL',
           active: false,
           label: 'Local',
           commentRequired: false,
@@ -1042,7 +1042,7 @@ export const BARRICADE_1: IncidentTypeConfiguration = {
         },
         {
           id: '180658',
-          code: 'SERVICE SUPPLIER',
+          response: 'SERVICE SUPPLIER',
           active: false,
           label: 'Service supplier',
           commentRequired: false,
@@ -1060,7 +1060,7 @@ export const BARRICADE_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '180692',
-          code: 'LOCAL',
+          response: 'LOCAL',
           active: false,
           label: 'Local',
           commentRequired: false,
@@ -1069,7 +1069,7 @@ export const BARRICADE_1: IncidentTypeConfiguration = {
         },
         {
           id: '180691',
-          code: 'SERVICE SUPPLIER',
+          response: 'SERVICE SUPPLIER',
           active: false,
           label: 'Service supplier',
           commentRequired: false,
@@ -1087,7 +1087,7 @@ export const BARRICADE_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '180698',
-          code: 'ENTER COMMENT AND DATE',
+          response: 'ENTER COMMENT AND DATE',
           active: false,
           label: 'Enter comment and date',
           commentRequired: true,
@@ -1105,7 +1105,7 @@ export const BARRICADE_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '180704',
-          code: 'GRAZES, SCRATCHES OR ABRASIONS',
+          response: 'GRAZES, SCRATCHES OR ABRASIONS',
           active: false,
           label: 'Grazes, scratches or abrasions',
           commentRequired: false,
@@ -1114,7 +1114,7 @@ export const BARRICADE_1: IncidentTypeConfiguration = {
         },
         {
           id: '180705',
-          code: 'MINOR BRUISES',
+          response: 'MINOR BRUISES',
           active: false,
           label: 'Minor bruises',
           commentRequired: false,
@@ -1123,7 +1123,7 @@ export const BARRICADE_1: IncidentTypeConfiguration = {
         },
         {
           id: '180708',
-          code: 'SWELLINGS',
+          response: 'SWELLINGS',
           active: false,
           label: 'Swellings',
           commentRequired: false,
@@ -1132,7 +1132,7 @@ export const BARRICADE_1: IncidentTypeConfiguration = {
         },
         {
           id: '180707',
-          code: 'SUPERFICIAL CUTS',
+          response: 'SUPERFICIAL CUTS',
           active: false,
           label: 'Superficial cuts',
           commentRequired: false,
@@ -1141,7 +1141,7 @@ export const BARRICADE_1: IncidentTypeConfiguration = {
         },
         {
           id: '180706',
-          code: 'OTHER',
+          response: 'OTHER',
           active: false,
           label: 'Other',
           commentRequired: true,
@@ -1159,7 +1159,7 @@ export const BARRICADE_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '180805',
-          code: 'YES',
+          response: 'YES',
           active: false,
           label: 'Yes',
           commentRequired: false,
@@ -1168,7 +1168,7 @@ export const BARRICADE_1: IncidentTypeConfiguration = {
         },
         {
           id: '180806',
-          code: 'NO',
+          response: 'NO',
           active: false,
           label: 'No',
           commentRequired: false,
@@ -1186,7 +1186,7 @@ export const BARRICADE_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '180807',
-          code: 'ENTER TIME',
+          response: 'ENTER TIME',
           active: false,
           label: 'Enter time',
           commentRequired: true,
@@ -1204,7 +1204,7 @@ export const BARRICADE_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '180961',
-          code: 'FACILITIES',
+          response: 'FACILITIES',
           active: false,
           label: 'Facilities',
           commentRequired: false,
@@ -1213,7 +1213,7 @@ export const BARRICADE_1: IncidentTypeConfiguration = {
         },
         {
           id: '180962',
-          code: 'FOOD',
+          response: 'FOOD',
           active: false,
           label: 'Food',
           commentRequired: false,
@@ -1222,7 +1222,7 @@ export const BARRICADE_1: IncidentTypeConfiguration = {
         },
         {
           id: '180964',
-          code: 'PAY',
+          response: 'PAY',
           active: false,
           label: 'Pay',
           commentRequired: false,
@@ -1231,7 +1231,7 @@ export const BARRICADE_1: IncidentTypeConfiguration = {
         },
         {
           id: '180966',
-          code: 'VISITS',
+          response: 'VISITS',
           active: false,
           label: 'Visits',
           commentRequired: false,
@@ -1240,7 +1240,7 @@ export const BARRICADE_1: IncidentTypeConfiguration = {
         },
         {
           id: '180965',
-          code: 'TIME OUT OF CELL',
+          response: 'TIME OUT OF CELL',
           active: false,
           label: 'Time out of cell',
           commentRequired: false,
@@ -1249,7 +1249,7 @@ export const BARRICADE_1: IncidentTypeConfiguration = {
         },
         {
           id: '180963',
-          code: 'OTHER',
+          response: 'OTHER',
           active: false,
           label: 'Other',
           commentRequired: true,
@@ -1267,7 +1267,7 @@ export const BARRICADE_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '181014',
-          code: 'FRACTURE',
+          response: 'FRACTURE',
           active: false,
           label: 'Fracture',
           commentRequired: false,
@@ -1276,7 +1276,7 @@ export const BARRICADE_1: IncidentTypeConfiguration = {
         },
         {
           id: '181016',
-          code: 'SCALD OR BURN',
+          response: 'SCALD OR BURN',
           active: false,
           label: 'Scald or burn',
           commentRequired: false,
@@ -1285,7 +1285,7 @@ export const BARRICADE_1: IncidentTypeConfiguration = {
         },
         {
           id: '181017',
-          code: 'STABBING',
+          response: 'STABBING',
           active: false,
           label: 'Stabbing',
           commentRequired: false,
@@ -1294,7 +1294,7 @@ export const BARRICADE_1: IncidentTypeConfiguration = {
         },
         {
           id: '181011',
-          code: 'CRUSHING',
+          response: 'CRUSHING',
           active: false,
           label: 'Crushing',
           commentRequired: false,
@@ -1303,7 +1303,7 @@ export const BARRICADE_1: IncidentTypeConfiguration = {
         },
         {
           id: '181013',
-          code: 'EXTENSIVE/MULTIPLE BRUISING',
+          response: 'EXTENSIVE/MULTIPLE BRUISING',
           active: false,
           label: 'Extensive/multiple bruising',
           commentRequired: false,
@@ -1312,7 +1312,7 @@ export const BARRICADE_1: IncidentTypeConfiguration = {
         },
         {
           id: '181008',
-          code: 'BLACK EYE',
+          response: 'BLACK EYE',
           active: false,
           label: 'Black eye',
           commentRequired: false,
@@ -1321,7 +1321,7 @@ export const BARRICADE_1: IncidentTypeConfiguration = {
         },
         {
           id: '181009',
-          code: 'BROKEN NOSE',
+          response: 'BROKEN NOSE',
           active: false,
           label: 'Broken nose',
           commentRequired: false,
@@ -1330,7 +1330,7 @@ export const BARRICADE_1: IncidentTypeConfiguration = {
         },
         {
           id: '181010',
-          code: 'BROKEN TEETH',
+          response: 'BROKEN TEETH',
           active: false,
           label: 'Broken teeth',
           commentRequired: false,
@@ -1339,7 +1339,7 @@ export const BARRICADE_1: IncidentTypeConfiguration = {
         },
         {
           id: '181012',
-          code: 'CUTS REQUIRING SUTURES',
+          response: 'CUTS REQUIRING SUTURES',
           active: false,
           label: 'Cuts requiring sutures',
           commentRequired: false,
@@ -1348,7 +1348,7 @@ export const BARRICADE_1: IncidentTypeConfiguration = {
         },
         {
           id: '181007',
-          code: 'BITES',
+          response: 'BITES',
           active: false,
           label: 'Bites',
           commentRequired: false,
@@ -1357,7 +1357,7 @@ export const BARRICADE_1: IncidentTypeConfiguration = {
         },
         {
           id: '181015',
-          code: 'GUN SHOT WOUND',
+          response: 'GUN SHOT WOUND',
           active: false,
           label: 'Gun shot wound',
           commentRequired: false,
@@ -1366,7 +1366,7 @@ export const BARRICADE_1: IncidentTypeConfiguration = {
         },
         {
           id: '181018',
-          code: 'TEMPORARY/PERMANENT BLINDNESS',
+          response: 'TEMPORARY/PERMANENT BLINDNESS',
           active: false,
           label: 'Temporary/permanent blindness',
           commentRequired: false,
@@ -1384,7 +1384,7 @@ export const BARRICADE_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '181249',
-          code: 'YES',
+          response: 'YES',
           active: false,
           label: 'Yes',
           commentRequired: false,
@@ -1393,7 +1393,7 @@ export const BARRICADE_1: IncidentTypeConfiguration = {
         },
         {
           id: '181250',
-          code: 'NO',
+          response: 'NO',
           active: false,
           label: 'No',
           commentRequired: false,
@@ -1411,7 +1411,7 @@ export const BARRICADE_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '181297',
-          code: 'YES',
+          response: 'YES',
           active: false,
           label: 'Yes',
           commentRequired: false,
@@ -1420,7 +1420,7 @@ export const BARRICADE_1: IncidentTypeConfiguration = {
         },
         {
           id: '181296',
-          code: 'NO',
+          response: 'NO',
           active: false,
           label: 'No',
           commentRequired: false,
@@ -1438,7 +1438,7 @@ export const BARRICADE_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '181438',
-          code: 'YES',
+          response: 'YES',
           active: false,
           label: 'Yes',
           commentRequired: false,
@@ -1447,7 +1447,7 @@ export const BARRICADE_1: IncidentTypeConfiguration = {
         },
         {
           id: '181437',
-          code: 'NO',
+          response: 'NO',
           active: false,
           label: 'No',
           commentRequired: false,
@@ -1465,7 +1465,7 @@ export const BARRICADE_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '181516',
-          code: 'YES',
+          response: 'YES',
           active: false,
           label: 'Yes',
           commentRequired: false,
@@ -1474,7 +1474,7 @@ export const BARRICADE_1: IncidentTypeConfiguration = {
         },
         {
           id: '181515',
-          code: 'NO',
+          response: 'NO',
           active: false,
           label: 'No',
           commentRequired: false,
@@ -1492,7 +1492,7 @@ export const BARRICADE_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '181631',
-          code: 'YES',
+          response: 'YES',
           active: false,
           label: 'Yes',
           commentRequired: false,
@@ -1501,7 +1501,7 @@ export const BARRICADE_1: IncidentTypeConfiguration = {
         },
         {
           id: '181630',
-          code: 'NO',
+          response: 'NO',
           active: false,
           label: 'No',
           commentRequired: false,
@@ -1519,7 +1519,7 @@ export const BARRICADE_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '181728',
-          code: 'YES',
+          response: 'YES',
           active: false,
           label: 'Yes',
           commentRequired: false,
@@ -1528,7 +1528,7 @@ export const BARRICADE_1: IncidentTypeConfiguration = {
         },
         {
           id: '181727',
-          code: 'NO',
+          response: 'NO',
           active: false,
           label: 'No',
           commentRequired: false,
@@ -1546,7 +1546,7 @@ export const BARRICADE_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '181749',
-          code: 'YES',
+          response: 'YES',
           active: false,
           label: 'Yes',
           commentRequired: false,
@@ -1555,7 +1555,7 @@ export const BARRICADE_1: IncidentTypeConfiguration = {
         },
         {
           id: '181750',
-          code: 'NO',
+          response: 'NO',
           active: false,
           label: 'No',
           commentRequired: false,
@@ -1573,7 +1573,7 @@ export const BARRICADE_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '181779',
-          code: 'FULL',
+          response: 'FULL',
           active: false,
           label: 'Full',
           commentRequired: false,
@@ -1582,7 +1582,7 @@ export const BARRICADE_1: IncidentTypeConfiguration = {
         },
         {
           id: '181780',
-          code: 'PARTIAL',
+          response: 'PARTIAL',
           active: false,
           label: 'Partial',
           commentRequired: true,
@@ -1600,7 +1600,7 @@ export const BARRICADE_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '181924',
-          code: 'DESCRIBE COMPROMISE',
+          response: 'DESCRIBE COMPROMISE',
           active: false,
           label: 'Describe compromise',
           commentRequired: true,
@@ -1618,7 +1618,7 @@ export const BARRICADE_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '182031',
-          code: 'YES',
+          response: 'YES',
           active: false,
           label: 'Yes',
           commentRequired: false,
@@ -1627,7 +1627,7 @@ export const BARRICADE_1: IncidentTypeConfiguration = {
         },
         {
           id: '182030',
-          code: 'NO',
+          response: 'NO',
           active: false,
           label: 'No',
           commentRequired: false,
@@ -1645,7 +1645,7 @@ export const BARRICADE_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '182259',
-          code: 'YES',
+          response: 'YES',
           active: false,
           label: 'Yes',
           commentRequired: false,
@@ -1654,7 +1654,7 @@ export const BARRICADE_1: IncidentTypeConfiguration = {
         },
         {
           id: '182258',
-          code: 'NO',
+          response: 'NO',
           active: false,
           label: 'No',
           commentRequired: false,
@@ -1672,7 +1672,7 @@ export const BARRICADE_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '182270',
-          code: 'YES',
+          response: 'YES',
           active: false,
           label: 'Yes',
           commentRequired: false,
@@ -1681,7 +1681,7 @@ export const BARRICADE_1: IncidentTypeConfiguration = {
         },
         {
           id: '182271',
-          code: 'NO',
+          response: 'NO',
           active: false,
           label: 'No',
           commentRequired: false,
@@ -1699,7 +1699,7 @@ export const BARRICADE_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '182288',
-          code: 'YES',
+          response: 'YES',
           active: false,
           label: 'Yes',
           commentRequired: false,
@@ -1708,7 +1708,7 @@ export const BARRICADE_1: IncidentTypeConfiguration = {
         },
         {
           id: '182289',
-          code: 'NO',
+          response: 'NO',
           active: false,
           label: 'No',
           commentRequired: false,
@@ -1726,7 +1726,7 @@ export const BARRICADE_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '182296',
-          code: 'YES',
+          response: 'YES',
           active: false,
           label: 'Yes',
           commentRequired: false,
@@ -1735,7 +1735,7 @@ export const BARRICADE_1: IncidentTypeConfiguration = {
         },
         {
           id: '182295',
-          code: 'NO',
+          response: 'NO',
           active: false,
           label: 'No',
           commentRequired: false,
@@ -1753,7 +1753,7 @@ export const BARRICADE_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '182628',
-          code: 'ENTER HOURS',
+          response: 'ENTER HOURS',
           active: false,
           label: 'Enter hours',
           commentRequired: true,

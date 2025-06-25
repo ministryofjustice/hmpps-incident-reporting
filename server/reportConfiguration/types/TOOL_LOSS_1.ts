@@ -16,7 +16,7 @@ export const TOOL_LOSS_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '179154',
-          code: 'FULL CLOSE DOWN SEARCH',
+          response: 'FULL CLOSE DOWN SEARCH',
           active: true,
           label: 'Full close down search',
           commentRequired: false,
@@ -25,7 +25,7 @@ export const TOOL_LOSS_1: IncidentTypeConfiguration = {
         },
         {
           id: '179156',
-          code: 'PARTIAL SEARCH',
+          response: 'PARTIAL SEARCH',
           active: true,
           label: 'Partial search',
           commentRequired: false,
@@ -34,7 +34,7 @@ export const TOOL_LOSS_1: IncidentTypeConfiguration = {
         },
         {
           id: '179155',
-          code: 'OTHER',
+          response: 'OTHER',
           active: true,
           label: 'Other',
           commentRequired: true,
@@ -52,7 +52,7 @@ export const TOOL_LOSS_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '179749',
-          code: 'LOST',
+          response: 'LOST',
           active: true,
           label: 'Lost',
           commentRequired: false,
@@ -61,7 +61,7 @@ export const TOOL_LOSS_1: IncidentTypeConfiguration = {
         },
         {
           id: '179750',
-          code: 'MISLAID',
+          response: 'MISLAID',
           active: true,
           label: 'Mislaid',
           commentRequired: false,
@@ -70,7 +70,7 @@ export const TOOL_LOSS_1: IncidentTypeConfiguration = {
         },
         {
           id: '179751',
-          code: 'STOLEN',
+          response: 'STOLEN',
           active: true,
           label: 'Stolen',
           commentRequired: false,
@@ -88,7 +88,7 @@ export const TOOL_LOSS_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '179883',
-          code: 'YES',
+          response: 'YES',
           active: true,
           label: 'Yes',
           commentRequired: false,
@@ -97,7 +97,7 @@ export const TOOL_LOSS_1: IncidentTypeConfiguration = {
         },
         {
           id: '179882',
-          code: 'NO',
+          response: 'NO',
           active: true,
           label: 'No',
           commentRequired: false,
@@ -115,7 +115,7 @@ export const TOOL_LOSS_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '179974',
-          code: 'YES',
+          response: 'YES',
           active: true,
           label: 'Yes',
           commentRequired: false,
@@ -124,7 +124,7 @@ export const TOOL_LOSS_1: IncidentTypeConfiguration = {
         },
         {
           id: '179973',
-          code: 'NO',
+          response: 'NO',
           active: true,
           label: 'No',
           commentRequired: false,
@@ -142,7 +142,7 @@ export const TOOL_LOSS_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '180133',
-          code: 'SHADOW BOARD',
+          response: 'SHADOW BOARD',
           active: true,
           label: 'Shadow board',
           commentRequired: false,
@@ -151,7 +151,7 @@ export const TOOL_LOSS_1: IncidentTypeConfiguration = {
         },
         {
           id: '180131',
-          code: 'SECURE CABINET',
+          response: 'SECURE CABINET',
           active: true,
           label: 'Secure cabinet',
           commentRequired: false,
@@ -160,7 +160,7 @@ export const TOOL_LOSS_1: IncidentTypeConfiguration = {
         },
         {
           id: '180132',
-          code: 'SECURE ROOM',
+          response: 'SECURE ROOM',
           active: true,
           label: 'Secure room',
           commentRequired: false,
@@ -169,7 +169,7 @@ export const TOOL_LOSS_1: IncidentTypeConfiguration = {
         },
         {
           id: '180130',
-          code: 'OTHER',
+          response: 'OTHER',
           active: true,
           label: 'Other',
           commentRequired: true,
@@ -187,7 +187,7 @@ export const TOOL_LOSS_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '180170',
-          code: 'YES',
+          response: 'YES',
           active: true,
           label: 'Yes',
           commentRequired: false,
@@ -196,7 +196,7 @@ export const TOOL_LOSS_1: IncidentTypeConfiguration = {
         },
         {
           id: '180169',
-          code: 'NO',
+          response: 'NO',
           active: true,
           label: 'No',
           commentRequired: false,
@@ -214,7 +214,7 @@ export const TOOL_LOSS_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '180253',
-          code: 'YES',
+          response: 'YES',
           active: true,
           label: 'Yes',
           commentRequired: false,
@@ -223,7 +223,7 @@ export const TOOL_LOSS_1: IncidentTypeConfiguration = {
         },
         {
           id: '180252',
-          code: 'NO',
+          response: 'NO',
           active: true,
           label: 'No',
           commentRequired: false,
@@ -241,7 +241,7 @@ export const TOOL_LOSS_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '180473',
-          code: 'YES',
+          response: 'YES',
           active: true,
           label: 'Yes',
           commentRequired: false,
@@ -250,7 +250,7 @@ export const TOOL_LOSS_1: IncidentTypeConfiguration = {
         },
         {
           id: '180474',
-          code: 'NO',
+          response: 'NO',
           active: true,
           label: 'No',
           commentRequired: false,
@@ -268,7 +268,7 @@ export const TOOL_LOSS_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '180563',
-          code: 'KNIFE',
+          response: 'KNIFE',
           active: true,
           label: 'Knife',
           commentRequired: true,
@@ -277,7 +277,7 @@ export const TOOL_LOSS_1: IncidentTypeConfiguration = {
         },
         {
           id: '180562',
-          code: 'HACKSAW',
+          response: 'HACKSAW',
           active: true,
           label: 'Hacksaw',
           commentRequired: false,
@@ -286,7 +286,7 @@ export const TOOL_LOSS_1: IncidentTypeConfiguration = {
         },
         {
           id: '180565',
-          code: 'OTHER SAW',
+          response: 'OTHER SAW',
           active: true,
           label: 'Other saw',
           commentRequired: false,
@@ -295,7 +295,7 @@ export const TOOL_LOSS_1: IncidentTypeConfiguration = {
         },
         {
           id: '180570',
-          code: 'SPADE',
+          response: 'SPADE',
           active: true,
           label: 'Spade',
           commentRequired: false,
@@ -304,7 +304,7 @@ export const TOOL_LOSS_1: IncidentTypeConfiguration = {
         },
         {
           id: '180560',
-          code: 'AXE',
+          response: 'AXE',
           active: true,
           label: 'Axe',
           commentRequired: false,
@@ -313,7 +313,7 @@ export const TOOL_LOSS_1: IncidentTypeConfiguration = {
         },
         {
           id: '180566',
-          code: 'PICKAXE',
+          response: 'PICKAXE',
           active: true,
           label: 'Pickaxe',
           commentRequired: false,
@@ -322,7 +322,7 @@ export const TOOL_LOSS_1: IncidentTypeConfiguration = {
         },
         {
           id: '180567',
-          code: 'PLIERS',
+          response: 'PLIERS',
           active: true,
           label: 'Pliers',
           commentRequired: false,
@@ -331,7 +331,7 @@ export const TOOL_LOSS_1: IncidentTypeConfiguration = {
         },
         {
           id: '180569',
-          code: 'SCREWDRIVER',
+          response: 'SCREWDRIVER',
           active: true,
           label: 'Screwdriver',
           commentRequired: false,
@@ -340,7 +340,7 @@ export const TOOL_LOSS_1: IncidentTypeConfiguration = {
         },
         {
           id: '180571',
-          code: 'WIRE CUTTERS',
+          response: 'WIRE CUTTERS',
           active: true,
           label: 'Wire cutters',
           commentRequired: false,
@@ -349,7 +349,7 @@ export const TOOL_LOSS_1: IncidentTypeConfiguration = {
         },
         {
           id: '180561',
-          code: 'BOLT CROPPERS',
+          response: 'BOLT CROPPERS',
           active: true,
           label: 'Bolt croppers',
           commentRequired: false,
@@ -358,7 +358,7 @@ export const TOOL_LOSS_1: IncidentTypeConfiguration = {
         },
         {
           id: '180568',
-          code: 'SCISSORS',
+          response: 'SCISSORS',
           active: true,
           label: 'Scissors',
           commentRequired: false,
@@ -367,7 +367,7 @@ export const TOOL_LOSS_1: IncidentTypeConfiguration = {
         },
         {
           id: '180564',
-          code: 'OTHER',
+          response: 'OTHER',
           active: true,
           label: 'Other',
           commentRequired: true,
@@ -385,7 +385,7 @@ export const TOOL_LOSS_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '180609',
-          code: 'YES',
+          response: 'YES',
           active: true,
           label: 'Yes',
           commentRequired: false,
@@ -394,7 +394,7 @@ export const TOOL_LOSS_1: IncidentTypeConfiguration = {
         },
         {
           id: '180608',
-          code: 'NO',
+          response: 'NO',
           active: true,
           label: 'No',
           commentRequired: false,
@@ -412,7 +412,7 @@ export const TOOL_LOSS_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '180830',
-          code: 'YES',
+          response: 'YES',
           active: true,
           label: 'Yes',
           commentRequired: false,
@@ -421,7 +421,7 @@ export const TOOL_LOSS_1: IncidentTypeConfiguration = {
         },
         {
           id: '180829',
-          code: 'NO',
+          response: 'NO',
           active: true,
           label: 'No',
           commentRequired: false,
@@ -439,7 +439,7 @@ export const TOOL_LOSS_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '181276',
-          code: 'YES',
+          response: 'YES',
           active: true,
           label: 'Yes',
           commentRequired: false,
@@ -448,7 +448,7 @@ export const TOOL_LOSS_1: IncidentTypeConfiguration = {
         },
         {
           id: '181275',
-          code: 'NO',
+          response: 'NO',
           active: true,
           label: 'No',
           commentRequired: false,
@@ -466,7 +466,7 @@ export const TOOL_LOSS_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '181796',
-          code: 'WORKS DEPARTMENT',
+          response: 'WORKS DEPARTMENT',
           active: true,
           label: 'Works department',
           commentRequired: false,
@@ -475,7 +475,7 @@ export const TOOL_LOSS_1: IncidentTypeConfiguration = {
         },
         {
           id: '181788',
-          code: 'CONTRACTORS',
+          response: 'CONTRACTORS',
           active: true,
           label: 'Contractors',
           commentRequired: false,
@@ -484,7 +484,7 @@ export const TOOL_LOSS_1: IncidentTypeConfiguration = {
         },
         {
           id: '181789',
-          code: 'EDUCATION',
+          response: 'EDUCATION',
           active: true,
           label: 'Education',
           commentRequired: false,
@@ -493,7 +493,7 @@ export const TOOL_LOSS_1: IncidentTypeConfiguration = {
         },
         {
           id: '181792',
-          code: 'HEALTH CARE CENTRE',
+          response: 'HEALTH CARE CENTRE',
           active: true,
           label: 'Health care centre',
           commentRequired: false,
@@ -502,7 +502,7 @@ export const TOOL_LOSS_1: IncidentTypeConfiguration = {
         },
         {
           id: '181790',
-          code: 'FARMS AND GARDENS',
+          response: 'FARMS AND GARDENS',
           active: true,
           label: 'Farms and gardens',
           commentRequired: false,
@@ -511,7 +511,7 @@ export const TOOL_LOSS_1: IncidentTypeConfiguration = {
         },
         {
           id: '181791',
-          code: 'GYMNASIUM/SPORTSFIELD',
+          response: 'GYMNASIUM/SPORTSFIELD',
           active: true,
           label: 'Gymnasium/sportsfield',
           commentRequired: false,
@@ -520,7 +520,7 @@ export const TOOL_LOSS_1: IncidentTypeConfiguration = {
         },
         {
           id: '181797',
-          code: 'WORKSHOP',
+          response: 'WORKSHOP',
           active: true,
           label: 'Workshop',
           commentRequired: false,
@@ -529,7 +529,7 @@ export const TOOL_LOSS_1: IncidentTypeConfiguration = {
         },
         {
           id: '181793',
-          code: 'KITCHEN',
+          response: 'KITCHEN',
           active: true,
           label: 'Kitchen',
           commentRequired: false,
@@ -538,7 +538,7 @@ export const TOOL_LOSS_1: IncidentTypeConfiguration = {
         },
         {
           id: '181787',
-          code: 'CELL HOBBIES',
+          response: 'CELL HOBBIES',
           active: true,
           label: 'Cell hobbies',
           commentRequired: false,
@@ -547,7 +547,7 @@ export const TOOL_LOSS_1: IncidentTypeConfiguration = {
         },
         {
           id: '181795',
-          code: 'WING OFFICE',
+          response: 'WING OFFICE',
           active: true,
           label: 'Wing office',
           commentRequired: false,
@@ -556,7 +556,7 @@ export const TOOL_LOSS_1: IncidentTypeConfiguration = {
         },
         {
           id: '181794',
-          code: 'OTHER',
+          response: 'OTHER',
           active: true,
           label: 'Other',
           commentRequired: true,
@@ -574,7 +574,7 @@ export const TOOL_LOSS_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '181941',
-          code: 'YES',
+          response: 'YES',
           active: true,
           label: 'Yes',
           commentRequired: false,
@@ -583,7 +583,7 @@ export const TOOL_LOSS_1: IncidentTypeConfiguration = {
         },
         {
           id: '181940',
-          code: 'NO',
+          response: 'NO',
           active: true,
           label: 'No',
           commentRequired: false,
@@ -601,7 +601,7 @@ export const TOOL_LOSS_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '182533',
-          code: 'YES',
+          response: 'YES',
           active: true,
           label: 'Yes',
           commentRequired: false,
@@ -610,7 +610,7 @@ export const TOOL_LOSS_1: IncidentTypeConfiguration = {
         },
         {
           id: '182534',
-          code: 'NO',
+          response: 'NO',
           active: true,
           label: 'No',
           commentRequired: false,
@@ -628,7 +628,7 @@ export const TOOL_LOSS_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '182624',
-          code: 'PRISONERS POSSESSION',
+          response: 'PRISONERS POSSESSION',
           active: true,
           label: 'Prisoners possession',
           commentRequired: false,
@@ -637,7 +637,7 @@ export const TOOL_LOSS_1: IncidentTypeConfiguration = {
         },
         {
           id: '182621',
-          code: 'CONCEALED',
+          response: 'CONCEALED',
           active: true,
           label: 'Concealed',
           commentRequired: false,
@@ -646,7 +646,7 @@ export const TOOL_LOSS_1: IncidentTypeConfiguration = {
         },
         {
           id: '182622',
-          code: 'DISCARDED',
+          response: 'DISCARDED',
           active: true,
           label: 'Discarded',
           commentRequired: false,
@@ -655,7 +655,7 @@ export const TOOL_LOSS_1: IncidentTypeConfiguration = {
         },
         {
           id: '182625',
-          code: 'WHERE MISLAID/LOST',
+          response: 'WHERE MISLAID/LOST',
           active: true,
           label: 'Where mislaid/lost',
           commentRequired: false,
@@ -664,7 +664,7 @@ export const TOOL_LOSS_1: IncidentTypeConfiguration = {
         },
         {
           id: '182623',
-          code: 'OTHER',
+          response: 'OTHER',
           active: true,
           label: 'Other',
           commentRequired: true,

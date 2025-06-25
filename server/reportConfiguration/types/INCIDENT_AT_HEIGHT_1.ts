@@ -16,7 +16,7 @@ export const INCIDENT_AT_HEIGHT_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '178986',
-          code: 'FULL',
+          response: 'FULL',
           active: false,
           label: 'Full',
           commentRequired: false,
@@ -25,7 +25,7 @@ export const INCIDENT_AT_HEIGHT_1: IncidentTypeConfiguration = {
         },
         {
           id: '178987',
-          code: 'PARTIAL',
+          response: 'PARTIAL',
           active: false,
           label: 'Partial',
           commentRequired: true,
@@ -43,7 +43,7 @@ export const INCIDENT_AT_HEIGHT_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '178998',
-          code: 'ENTER AMOUNT IN POUND STERLING',
+          response: 'ENTER AMOUNT IN POUND STERLING',
           active: false,
           label: 'Enter amount in pound sterling',
           commentRequired: true,
@@ -61,7 +61,7 @@ export const INCIDENT_AT_HEIGHT_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '178999',
-          code: 'YES',
+          response: 'YES',
           active: false,
           label: 'Yes',
           commentRequired: false,
@@ -70,7 +70,7 @@ export const INCIDENT_AT_HEIGHT_1: IncidentTypeConfiguration = {
         },
         {
           id: '179000',
-          code: 'NO',
+          response: 'NO',
           active: false,
           label: 'No',
           commentRequired: false,
@@ -88,7 +88,7 @@ export const INCIDENT_AT_HEIGHT_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '179082',
-          code: 'STAFF',
+          response: 'STAFF',
           active: false,
           label: 'Staff',
           commentRequired: true,
@@ -97,7 +97,7 @@ export const INCIDENT_AT_HEIGHT_1: IncidentTypeConfiguration = {
         },
         {
           id: '179081',
-          code: 'PRISONERS',
+          response: 'PRISONERS',
           active: false,
           label: 'Prisoners',
           commentRequired: true,
@@ -106,7 +106,7 @@ export const INCIDENT_AT_HEIGHT_1: IncidentTypeConfiguration = {
         },
         {
           id: '179078',
-          code: 'CIVILIAN GRADES',
+          response: 'CIVILIAN GRADES',
           active: false,
           label: 'Civilian grades',
           commentRequired: true,
@@ -115,7 +115,7 @@ export const INCIDENT_AT_HEIGHT_1: IncidentTypeConfiguration = {
         },
         {
           id: '179080',
-          code: 'POLICE',
+          response: 'POLICE',
           active: false,
           label: 'Police',
           commentRequired: true,
@@ -124,7 +124,7 @@ export const INCIDENT_AT_HEIGHT_1: IncidentTypeConfiguration = {
         },
         {
           id: '179079',
-          code: 'EXTERNAL CIVILIANS',
+          response: 'EXTERNAL CIVILIANS',
           active: false,
           label: 'External civilians',
           commentRequired: true,
@@ -142,7 +142,7 @@ export const INCIDENT_AT_HEIGHT_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '179084',
-          code: 'ENTER COMMENT AND DATE',
+          response: 'ENTER COMMENT AND DATE',
           active: false,
           label: 'Enter comment and date',
           commentRequired: true,
@@ -160,7 +160,7 @@ export const INCIDENT_AT_HEIGHT_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '179096',
-          code: 'NUMBER OF HOURS',
+          response: 'NUMBER OF HOURS',
           active: false,
           label: 'Number of hours',
           commentRequired: true,
@@ -178,7 +178,7 @@ export const INCIDENT_AT_HEIGHT_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '179157',
-          code: 'YES',
+          response: 'YES',
           active: false,
           label: 'Yes',
           commentRequired: false,
@@ -187,7 +187,7 @@ export const INCIDENT_AT_HEIGHT_1: IncidentTypeConfiguration = {
         },
         {
           id: '179158',
-          code: 'NO',
+          response: 'NO',
           active: false,
           label: 'No',
           commentRequired: false,
@@ -205,7 +205,7 @@ export const INCIDENT_AT_HEIGHT_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '179384',
-          code: 'YES',
+          response: 'YES',
           active: false,
           label: 'Yes',
           commentRequired: false,
@@ -214,7 +214,7 @@ export const INCIDENT_AT_HEIGHT_1: IncidentTypeConfiguration = {
         },
         {
           id: '179383',
-          code: 'NO',
+          response: 'NO',
           active: false,
           label: 'No',
           commentRequired: false,
@@ -232,7 +232,7 @@ export const INCIDENT_AT_HEIGHT_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '179416',
-          code: 'YES',
+          response: 'YES',
           active: false,
           label: 'Yes',
           commentRequired: false,
@@ -241,7 +241,7 @@ export const INCIDENT_AT_HEIGHT_1: IncidentTypeConfiguration = {
         },
         {
           id: '179417',
-          code: 'NO',
+          response: 'NO',
           active: false,
           label: 'No',
           commentRequired: false,
@@ -259,7 +259,7 @@ export const INCIDENT_AT_HEIGHT_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '179610',
-          code: 'LOCAL',
+          response: 'LOCAL',
           active: false,
           label: 'Local',
           commentRequired: false,
@@ -268,7 +268,7 @@ export const INCIDENT_AT_HEIGHT_1: IncidentTypeConfiguration = {
         },
         {
           id: '179611',
-          code: 'SERVICE SUPPLIER',
+          response: 'SERVICE SUPPLIER',
           active: false,
           label: 'Service supplier',
           commentRequired: false,
@@ -286,7 +286,7 @@ export const INCIDENT_AT_HEIGHT_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '179625',
-          code: 'YES',
+          response: 'YES',
           active: false,
           label: 'Yes',
           commentRequired: false,
@@ -295,7 +295,7 @@ export const INCIDENT_AT_HEIGHT_1: IncidentTypeConfiguration = {
         },
         {
           id: '179626',
-          code: 'NO',
+          response: 'NO',
           active: false,
           label: 'No',
           commentRequired: false,
@@ -313,7 +313,7 @@ export const INCIDENT_AT_HEIGHT_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '179631',
-          code: 'FACILITIES',
+          response: 'FACILITIES',
           active: false,
           label: 'Facilities',
           commentRequired: false,
@@ -322,7 +322,7 @@ export const INCIDENT_AT_HEIGHT_1: IncidentTypeConfiguration = {
         },
         {
           id: '179632',
-          code: 'FOOD',
+          response: 'FOOD',
           active: false,
           label: 'Food',
           commentRequired: false,
@@ -331,7 +331,7 @@ export const INCIDENT_AT_HEIGHT_1: IncidentTypeConfiguration = {
         },
         {
           id: '179634',
-          code: 'PAY',
+          response: 'PAY',
           active: false,
           label: 'Pay',
           commentRequired: false,
@@ -340,7 +340,7 @@ export const INCIDENT_AT_HEIGHT_1: IncidentTypeConfiguration = {
         },
         {
           id: '179636',
-          code: 'VISITS',
+          response: 'VISITS',
           active: false,
           label: 'Visits',
           commentRequired: false,
@@ -349,7 +349,7 @@ export const INCIDENT_AT_HEIGHT_1: IncidentTypeConfiguration = {
         },
         {
           id: '179635',
-          code: 'TIME OUT OF CELL',
+          response: 'TIME OUT OF CELL',
           active: false,
           label: 'Time out of cell',
           commentRequired: false,
@@ -358,7 +358,7 @@ export const INCIDENT_AT_HEIGHT_1: IncidentTypeConfiguration = {
         },
         {
           id: '179633',
-          code: 'OTHER',
+          response: 'OTHER',
           active: false,
           label: 'Other',
           commentRequired: true,
@@ -376,7 +376,7 @@ export const INCIDENT_AT_HEIGHT_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '179707',
-          code: 'YES',
+          response: 'YES',
           active: false,
           label: 'Yes',
           commentRequired: false,
@@ -385,7 +385,7 @@ export const INCIDENT_AT_HEIGHT_1: IncidentTypeConfiguration = {
         },
         {
           id: '179706',
-          code: 'NO',
+          response: 'NO',
           active: false,
           label: 'No',
           commentRequired: false,
@@ -403,7 +403,7 @@ export const INCIDENT_AT_HEIGHT_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '179765',
-          code: 'YES',
+          response: 'YES',
           active: false,
           label: 'Yes',
           commentRequired: false,
@@ -412,7 +412,7 @@ export const INCIDENT_AT_HEIGHT_1: IncidentTypeConfiguration = {
         },
         {
           id: '179764',
-          code: 'NO',
+          response: 'NO',
           active: false,
           label: 'No',
           commentRequired: false,
@@ -430,7 +430,7 @@ export const INCIDENT_AT_HEIGHT_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '179767',
-          code: 'YES',
+          response: 'YES',
           active: false,
           label: 'Yes',
           commentRequired: false,
@@ -439,7 +439,7 @@ export const INCIDENT_AT_HEIGHT_1: IncidentTypeConfiguration = {
         },
         {
           id: '179766',
-          code: 'NO',
+          response: 'NO',
           active: false,
           label: 'No',
           commentRequired: false,
@@ -457,7 +457,7 @@ export const INCIDENT_AT_HEIGHT_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '179828',
-          code: 'GRAZES, SCRATCHES OR ABRASIONS',
+          response: 'GRAZES, SCRATCHES OR ABRASIONS',
           active: false,
           label: 'Grazes, scratches or abrasions',
           commentRequired: false,
@@ -466,7 +466,7 @@ export const INCIDENT_AT_HEIGHT_1: IncidentTypeConfiguration = {
         },
         {
           id: '179829',
-          code: 'MINOR BRUISES',
+          response: 'MINOR BRUISES',
           active: false,
           label: 'Minor bruises',
           commentRequired: false,
@@ -475,7 +475,7 @@ export const INCIDENT_AT_HEIGHT_1: IncidentTypeConfiguration = {
         },
         {
           id: '179832',
-          code: 'SWELLINGS',
+          response: 'SWELLINGS',
           active: false,
           label: 'Swellings',
           commentRequired: false,
@@ -484,7 +484,7 @@ export const INCIDENT_AT_HEIGHT_1: IncidentTypeConfiguration = {
         },
         {
           id: '179831',
-          code: 'SUPERFICIAL CUTS',
+          response: 'SUPERFICIAL CUTS',
           active: false,
           label: 'Superficial cuts',
           commentRequired: false,
@@ -493,7 +493,7 @@ export const INCIDENT_AT_HEIGHT_1: IncidentTypeConfiguration = {
         },
         {
           id: '179830',
-          code: 'OTHER',
+          response: 'OTHER',
           active: false,
           label: 'Other',
           commentRequired: true,
@@ -511,7 +511,7 @@ export const INCIDENT_AT_HEIGHT_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '179891',
-          code: 'YES',
+          response: 'YES',
           active: false,
           label: 'Yes',
           commentRequired: false,
@@ -520,7 +520,7 @@ export const INCIDENT_AT_HEIGHT_1: IncidentTypeConfiguration = {
         },
         {
           id: '179892',
-          code: 'NO',
+          response: 'NO',
           active: false,
           label: 'No',
           commentRequired: false,
@@ -538,7 +538,7 @@ export const INCIDENT_AT_HEIGHT_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '179901',
-          code: 'YES',
+          response: 'YES',
           active: false,
           label: 'Yes',
           commentRequired: false,
@@ -547,7 +547,7 @@ export const INCIDENT_AT_HEIGHT_1: IncidentTypeConfiguration = {
         },
         {
           id: '179902',
-          code: 'NO',
+          response: 'NO',
           active: false,
           label: 'No',
           commentRequired: false,
@@ -565,7 +565,7 @@ export const INCIDENT_AT_HEIGHT_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '180033',
-          code: 'STAFF',
+          response: 'STAFF',
           active: false,
           label: 'Staff',
           commentRequired: true,
@@ -574,7 +574,7 @@ export const INCIDENT_AT_HEIGHT_1: IncidentTypeConfiguration = {
         },
         {
           id: '180032',
-          code: 'PRISONERS',
+          response: 'PRISONERS',
           active: false,
           label: 'Prisoners',
           commentRequired: true,
@@ -583,7 +583,7 @@ export const INCIDENT_AT_HEIGHT_1: IncidentTypeConfiguration = {
         },
         {
           id: '180029',
-          code: 'CIVILIAN GRADES',
+          response: 'CIVILIAN GRADES',
           active: false,
           label: 'Civilian grades',
           commentRequired: true,
@@ -592,7 +592,7 @@ export const INCIDENT_AT_HEIGHT_1: IncidentTypeConfiguration = {
         },
         {
           id: '180031',
-          code: 'POLICE',
+          response: 'POLICE',
           active: false,
           label: 'Police',
           commentRequired: true,
@@ -601,7 +601,7 @@ export const INCIDENT_AT_HEIGHT_1: IncidentTypeConfiguration = {
         },
         {
           id: '180030',
-          code: 'EXTERNAL CIVILIANS',
+          response: 'EXTERNAL CIVILIANS',
           active: false,
           label: 'External civilians',
           commentRequired: true,
@@ -619,7 +619,7 @@ export const INCIDENT_AT_HEIGHT_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '180081',
-          code: 'YES',
+          response: 'YES',
           active: false,
           label: 'Yes',
           commentRequired: false,
@@ -628,7 +628,7 @@ export const INCIDENT_AT_HEIGHT_1: IncidentTypeConfiguration = {
         },
         {
           id: '180080',
-          code: 'NO',
+          response: 'NO',
           active: false,
           label: 'No',
           commentRequired: false,
@@ -646,7 +646,7 @@ export const INCIDENT_AT_HEIGHT_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '180089',
-          code: 'YES',
+          response: 'YES',
           active: false,
           label: 'Yes',
           commentRequired: false,
@@ -655,7 +655,7 @@ export const INCIDENT_AT_HEIGHT_1: IncidentTypeConfiguration = {
         },
         {
           id: '180088',
-          code: 'NO',
+          response: 'NO',
           active: false,
           label: 'No',
           commentRequired: false,
@@ -673,7 +673,7 @@ export const INCIDENT_AT_HEIGHT_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '180127',
-          code: 'YES',
+          response: 'YES',
           active: false,
           label: 'Yes',
           commentRequired: false,
@@ -682,7 +682,7 @@ export const INCIDENT_AT_HEIGHT_1: IncidentTypeConfiguration = {
         },
         {
           id: '180126',
-          code: 'NO',
+          response: 'NO',
           active: false,
           label: 'No',
           commentRequired: false,
@@ -700,7 +700,7 @@ export const INCIDENT_AT_HEIGHT_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '180163',
-          code: 'EXTERNAL ACCESS',
+          response: 'EXTERNAL ACCESS',
           active: false,
           label: 'External access',
           commentRequired: false,
@@ -709,7 +709,7 @@ export const INCIDENT_AT_HEIGHT_1: IncidentTypeConfiguration = {
         },
         {
           id: '180164',
-          code: 'INTERNAL ACCESS',
+          response: 'INTERNAL ACCESS',
           active: false,
           label: 'Internal access',
           commentRequired: false,
@@ -718,7 +718,7 @@ export const INCIDENT_AT_HEIGHT_1: IncidentTypeConfiguration = {
         },
         {
           id: '180166',
-          code: 'WORKS EQUIPMENT',
+          response: 'WORKS EQUIPMENT',
           active: false,
           label: 'Works equipment',
           commentRequired: false,
@@ -727,7 +727,7 @@ export const INCIDENT_AT_HEIGHT_1: IncidentTypeConfiguration = {
         },
         {
           id: '180162',
-          code: 'CONTRACTORS EQUIPMENT',
+          response: 'CONTRACTORS EQUIPMENT',
           active: false,
           label: 'Contractors equipment',
           commentRequired: false,
@@ -736,7 +736,7 @@ export const INCIDENT_AT_HEIGHT_1: IncidentTypeConfiguration = {
         },
         {
           id: '180165',
-          code: 'OTHER',
+          response: 'OTHER',
           active: false,
           label: 'Other',
           commentRequired: true,
@@ -754,7 +754,7 @@ export const INCIDENT_AT_HEIGHT_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '180273',
-          code: 'YES',
+          response: 'YES',
           active: false,
           label: 'Yes',
           commentRequired: false,
@@ -763,7 +763,7 @@ export const INCIDENT_AT_HEIGHT_1: IncidentTypeConfiguration = {
         },
         {
           id: '180274',
-          code: 'NO',
+          response: 'NO',
           active: false,
           label: 'No',
           commentRequired: false,
@@ -781,7 +781,7 @@ export const INCIDENT_AT_HEIGHT_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '180387',
-          code: 'YES',
+          response: 'YES',
           active: false,
           label: 'Yes',
           commentRequired: false,
@@ -790,7 +790,7 @@ export const INCIDENT_AT_HEIGHT_1: IncidentTypeConfiguration = {
         },
         {
           id: '180388',
-          code: 'NO',
+          response: 'NO',
           active: false,
           label: 'No',
           commentRequired: false,
@@ -808,7 +808,7 @@ export const INCIDENT_AT_HEIGHT_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '180394',
-          code: 'YES',
+          response: 'YES',
           active: false,
           label: 'Yes',
           commentRequired: false,
@@ -817,7 +817,7 @@ export const INCIDENT_AT_HEIGHT_1: IncidentTypeConfiguration = {
         },
         {
           id: '180393',
-          code: 'NO',
+          response: 'NO',
           active: false,
           label: 'No',
           commentRequired: false,
@@ -835,7 +835,7 @@ export const INCIDENT_AT_HEIGHT_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '180439',
-          code: 'YES',
+          response: 'YES',
           active: false,
           label: 'Yes',
           commentRequired: false,
@@ -844,7 +844,7 @@ export const INCIDENT_AT_HEIGHT_1: IncidentTypeConfiguration = {
         },
         {
           id: '180438',
-          code: 'NO',
+          response: 'NO',
           active: false,
           label: 'No',
           commentRequired: false,
@@ -862,7 +862,7 @@ export const INCIDENT_AT_HEIGHT_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '180521',
-          code: 'YES',
+          response: 'YES',
           active: false,
           label: 'Yes',
           commentRequired: false,
@@ -871,7 +871,7 @@ export const INCIDENT_AT_HEIGHT_1: IncidentTypeConfiguration = {
         },
         {
           id: '180520',
-          code: 'NO',
+          response: 'NO',
           active: false,
           label: 'No',
           commentRequired: false,
@@ -889,7 +889,7 @@ export const INCIDENT_AT_HEIGHT_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '180594',
-          code: 'YES',
+          response: 'YES',
           active: false,
           label: 'Yes',
           commentRequired: false,
@@ -898,7 +898,7 @@ export const INCIDENT_AT_HEIGHT_1: IncidentTypeConfiguration = {
         },
         {
           id: '180593',
-          code: 'NO',
+          response: 'NO',
           active: false,
           label: 'No',
           commentRequired: false,
@@ -916,7 +916,7 @@ export const INCIDENT_AT_HEIGHT_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '180630',
-          code: 'YES',
+          response: 'YES',
           active: false,
           label: 'Yes',
           commentRequired: false,
@@ -925,7 +925,7 @@ export const INCIDENT_AT_HEIGHT_1: IncidentTypeConfiguration = {
         },
         {
           id: '180629',
-          code: 'NO',
+          response: 'NO',
           active: false,
           label: 'No',
           commentRequired: false,
@@ -943,7 +943,7 @@ export const INCIDENT_AT_HEIGHT_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '180667',
-          code: 'YES',
+          response: 'YES',
           active: false,
           label: 'Yes',
           commentRequired: false,
@@ -952,7 +952,7 @@ export const INCIDENT_AT_HEIGHT_1: IncidentTypeConfiguration = {
         },
         {
           id: '180666',
-          code: 'NO',
+          response: 'NO',
           active: false,
           label: 'No',
           commentRequired: false,
@@ -970,7 +970,7 @@ export const INCIDENT_AT_HEIGHT_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '180694',
-          code: 'YES',
+          response: 'YES',
           active: false,
           label: 'Yes',
           commentRequired: false,
@@ -979,7 +979,7 @@ export const INCIDENT_AT_HEIGHT_1: IncidentTypeConfiguration = {
         },
         {
           id: '180693',
-          code: 'NO',
+          response: 'NO',
           active: false,
           label: 'No',
           commentRequired: true,
@@ -997,7 +997,7 @@ export const INCIDENT_AT_HEIGHT_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '180726',
-          code: 'YES',
+          response: 'YES',
           active: false,
           label: 'Yes',
           commentRequired: false,
@@ -1006,7 +1006,7 @@ export const INCIDENT_AT_HEIGHT_1: IncidentTypeConfiguration = {
         },
         {
           id: '180725',
-          code: 'NO',
+          response: 'NO',
           active: false,
           label: 'No',
           commentRequired: false,
@@ -1024,7 +1024,7 @@ export const INCIDENT_AT_HEIGHT_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '180797',
-          code: 'ENTER NUMBER',
+          response: 'ENTER NUMBER',
           active: false,
           label: 'Enter number',
           commentRequired: true,
@@ -1042,7 +1042,7 @@ export const INCIDENT_AT_HEIGHT_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '180865',
-          code: 'FIREARM',
+          response: 'FIREARM',
           active: false,
           label: 'Firearm',
           commentRequired: false,
@@ -1051,7 +1051,7 @@ export const INCIDENT_AT_HEIGHT_1: IncidentTypeConfiguration = {
         },
         {
           id: '180862',
-          code: 'CHEMICAL INCAPACITANT',
+          response: 'CHEMICAL INCAPACITANT',
           active: false,
           label: 'Chemical incapacitant',
           commentRequired: false,
@@ -1060,7 +1060,7 @@ export const INCIDENT_AT_HEIGHT_1: IncidentTypeConfiguration = {
         },
         {
           id: '180867',
-          code: 'KNIFE/BLADE',
+          response: 'KNIFE/BLADE',
           active: false,
           label: 'Knife/blade',
           commentRequired: false,
@@ -1069,7 +1069,7 @@ export const INCIDENT_AT_HEIGHT_1: IncidentTypeConfiguration = {
         },
         {
           id: '180870',
-          code: 'OTHER SHARP INSTRUMENT',
+          response: 'OTHER SHARP INSTRUMENT',
           active: false,
           label: 'Other sharp instrument',
           commentRequired: false,
@@ -1078,7 +1078,7 @@ export const INCIDENT_AT_HEIGHT_1: IncidentTypeConfiguration = {
         },
         {
           id: '180861',
-          code: 'BLUNT INSTRUMENT',
+          response: 'BLUNT INSTRUMENT',
           active: false,
           label: 'Blunt instrument',
           commentRequired: false,
@@ -1087,7 +1087,7 @@ export const INCIDENT_AT_HEIGHT_1: IncidentTypeConfiguration = {
         },
         {
           id: '180868',
-          code: 'LIGATURE',
+          response: 'LIGATURE',
           active: false,
           label: 'Ligature',
           commentRequired: false,
@@ -1096,7 +1096,7 @@ export const INCIDENT_AT_HEIGHT_1: IncidentTypeConfiguration = {
         },
         {
           id: '180863',
-          code: 'DANGEROUS LIQUID',
+          response: 'DANGEROUS LIQUID',
           active: false,
           label: 'Dangerous liquid',
           commentRequired: false,
@@ -1105,7 +1105,7 @@ export const INCIDENT_AT_HEIGHT_1: IncidentTypeConfiguration = {
         },
         {
           id: '180864',
-          code: 'EXCRETA/URINE',
+          response: 'EXCRETA/URINE',
           active: false,
           label: 'Excreta/urine',
           commentRequired: false,
@@ -1114,7 +1114,7 @@ export const INCIDENT_AT_HEIGHT_1: IncidentTypeConfiguration = {
         },
         {
           id: '180871',
-          code: 'SPITTING',
+          response: 'SPITTING',
           active: false,
           label: 'Spitting',
           commentRequired: false,
@@ -1123,7 +1123,7 @@ export const INCIDENT_AT_HEIGHT_1: IncidentTypeConfiguration = {
         },
         {
           id: '180866',
-          code: 'FOOD',
+          response: 'FOOD',
           active: false,
           label: 'Food',
           commentRequired: false,
@@ -1132,7 +1132,7 @@ export const INCIDENT_AT_HEIGHT_1: IncidentTypeConfiguration = {
         },
         {
           id: '180873',
-          code: 'THROWN FURNITURE',
+          response: 'THROWN FURNITURE',
           active: false,
           label: 'Thrown furniture',
           commentRequired: false,
@@ -1141,7 +1141,7 @@ export const INCIDENT_AT_HEIGHT_1: IncidentTypeConfiguration = {
         },
         {
           id: '180872',
-          code: 'THROWN EQUIPMENT',
+          response: 'THROWN EQUIPMENT',
           active: false,
           label: 'Thrown equipment',
           commentRequired: false,
@@ -1150,7 +1150,7 @@ export const INCIDENT_AT_HEIGHT_1: IncidentTypeConfiguration = {
         },
         {
           id: '180869',
-          code: 'OTHER',
+          response: 'OTHER',
           active: false,
           label: 'Other',
           commentRequired: true,
@@ -1168,7 +1168,7 @@ export const INCIDENT_AT_HEIGHT_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '180981',
-          code: 'YES',
+          response: 'YES',
           active: false,
           label: 'Yes',
           commentRequired: false,
@@ -1177,7 +1177,7 @@ export const INCIDENT_AT_HEIGHT_1: IncidentTypeConfiguration = {
         },
         {
           id: '180980',
-          code: 'NO',
+          response: 'NO',
           active: false,
           label: 'No',
           commentRequired: false,
@@ -1195,7 +1195,7 @@ export const INCIDENT_AT_HEIGHT_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '180987',
-          code: 'NUMBER',
+          response: 'NUMBER',
           active: false,
           label: 'Number',
           commentRequired: true,
@@ -1213,7 +1213,7 @@ export const INCIDENT_AT_HEIGHT_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '181034',
-          code: 'YES',
+          response: 'YES',
           active: false,
           label: 'Yes',
           commentRequired: true,
@@ -1222,7 +1222,7 @@ export const INCIDENT_AT_HEIGHT_1: IncidentTypeConfiguration = {
         },
         {
           id: '181033',
-          code: 'NO',
+          response: 'NO',
           active: false,
           label: 'No',
           commentRequired: false,
@@ -1240,7 +1240,7 @@ export const INCIDENT_AT_HEIGHT_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '181118',
-          code: 'YES',
+          response: 'YES',
           active: false,
           label: 'Yes',
           commentRequired: false,
@@ -1249,7 +1249,7 @@ export const INCIDENT_AT_HEIGHT_1: IncidentTypeConfiguration = {
         },
         {
           id: '181117',
-          code: 'NO',
+          response: 'NO',
           active: false,
           label: 'No',
           commentRequired: false,
@@ -1267,7 +1267,7 @@ export const INCIDENT_AT_HEIGHT_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '181148',
-          code: 'YES',
+          response: 'YES',
           active: false,
           label: 'Yes',
           commentRequired: false,
@@ -1276,7 +1276,7 @@ export const INCIDENT_AT_HEIGHT_1: IncidentTypeConfiguration = {
         },
         {
           id: '181147',
-          code: 'NO',
+          response: 'NO',
           active: false,
           label: 'No',
           commentRequired: false,
@@ -1294,7 +1294,7 @@ export const INCIDENT_AT_HEIGHT_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '181178',
-          code: 'NEGOTIATION',
+          response: 'NEGOTIATION',
           active: false,
           label: 'Negotiation',
           commentRequired: false,
@@ -1303,7 +1303,7 @@ export const INCIDENT_AT_HEIGHT_1: IncidentTypeConfiguration = {
         },
         {
           id: '181177',
-          code: 'INTERVENTION',
+          response: 'INTERVENTION',
           active: false,
           label: 'Intervention',
           commentRequired: false,
@@ -1312,7 +1312,7 @@ export const INCIDENT_AT_HEIGHT_1: IncidentTypeConfiguration = {
         },
         {
           id: '181179',
-          code: 'OTHER',
+          response: 'OTHER',
           active: false,
           label: 'Other',
           commentRequired: true,
@@ -1330,7 +1330,7 @@ export const INCIDENT_AT_HEIGHT_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '181252',
-          code: 'YES',
+          response: 'YES',
           active: false,
           label: 'Yes',
           commentRequired: false,
@@ -1339,7 +1339,7 @@ export const INCIDENT_AT_HEIGHT_1: IncidentTypeConfiguration = {
         },
         {
           id: '181251',
-          code: 'NO',
+          response: 'NO',
           active: false,
           label: 'No',
           commentRequired: false,
@@ -1357,7 +1357,7 @@ export const INCIDENT_AT_HEIGHT_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '181267',
-          code: 'YES',
+          response: 'YES',
           active: false,
           label: 'Yes',
           commentRequired: false,
@@ -1366,7 +1366,7 @@ export const INCIDENT_AT_HEIGHT_1: IncidentTypeConfiguration = {
         },
         {
           id: '181266',
-          code: 'NO',
+          response: 'NO',
           active: false,
           label: 'No',
           commentRequired: false,
@@ -1384,7 +1384,7 @@ export const INCIDENT_AT_HEIGHT_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '181272',
-          code: 'GOVERNOR',
+          response: 'GOVERNOR',
           active: false,
           label: 'Governor',
           commentRequired: false,
@@ -1393,7 +1393,7 @@ export const INCIDENT_AT_HEIGHT_1: IncidentTypeConfiguration = {
         },
         {
           id: '181270',
-          code: 'DEPUTY GOVERNOR',
+          response: 'DEPUTY GOVERNOR',
           active: false,
           label: 'Deputy governor',
           commentRequired: false,
@@ -1402,7 +1402,7 @@ export const INCIDENT_AT_HEIGHT_1: IncidentTypeConfiguration = {
         },
         {
           id: '181271',
-          code: 'DUTY GOVERNOR',
+          response: 'DUTY GOVERNOR',
           active: false,
           label: 'Duty governor',
           commentRequired: false,
@@ -1411,7 +1411,7 @@ export const INCIDENT_AT_HEIGHT_1: IncidentTypeConfiguration = {
         },
         {
           id: '181273',
-          code: 'OTHER',
+          response: 'OTHER',
           active: false,
           label: 'Other',
           commentRequired: true,
@@ -1429,7 +1429,7 @@ export const INCIDENT_AT_HEIGHT_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '181295',
-          code: 'YES',
+          response: 'YES',
           active: false,
           label: 'Yes',
           commentRequired: false,
@@ -1438,7 +1438,7 @@ export const INCIDENT_AT_HEIGHT_1: IncidentTypeConfiguration = {
         },
         {
           id: '181294',
-          code: 'NO',
+          response: 'NO',
           active: false,
           label: 'No',
           commentRequired: false,
@@ -1456,7 +1456,7 @@ export const INCIDENT_AT_HEIGHT_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '181313',
-          code: 'YES',
+          response: 'YES',
           active: false,
           label: 'Yes',
           commentRequired: false,
@@ -1465,7 +1465,7 @@ export const INCIDENT_AT_HEIGHT_1: IncidentTypeConfiguration = {
         },
         {
           id: '181314',
-          code: 'NO',
+          response: 'NO',
           active: false,
           label: 'No',
           commentRequired: false,
@@ -1483,7 +1483,7 @@ export const INCIDENT_AT_HEIGHT_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '181359',
-          code: 'YES',
+          response: 'YES',
           active: false,
           label: 'Yes',
           commentRequired: false,
@@ -1492,7 +1492,7 @@ export const INCIDENT_AT_HEIGHT_1: IncidentTypeConfiguration = {
         },
         {
           id: '181358',
-          code: 'NO',
+          response: 'NO',
           active: false,
           label: 'No',
           commentRequired: false,
@@ -1510,7 +1510,7 @@ export const INCIDENT_AT_HEIGHT_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '181375',
-          code: 'DESCRIPTION',
+          response: 'DESCRIPTION',
           active: false,
           label: 'Description',
           commentRequired: true,
@@ -1528,7 +1528,7 @@ export const INCIDENT_AT_HEIGHT_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '181399',
-          code: 'YES',
+          response: 'YES',
           active: false,
           label: 'Yes',
           commentRequired: false,
@@ -1537,7 +1537,7 @@ export const INCIDENT_AT_HEIGHT_1: IncidentTypeConfiguration = {
         },
         {
           id: '181398',
-          code: 'NO',
+          response: 'NO',
           active: false,
           label: 'No',
           commentRequired: false,
@@ -1555,7 +1555,7 @@ export const INCIDENT_AT_HEIGHT_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '181492',
-          code: 'YES',
+          response: 'YES',
           active: false,
           label: 'Yes',
           commentRequired: false,
@@ -1564,7 +1564,7 @@ export const INCIDENT_AT_HEIGHT_1: IncidentTypeConfiguration = {
         },
         {
           id: '181493',
-          code: 'NO',
+          response: 'NO',
           active: false,
           label: 'No',
           commentRequired: false,
@@ -1582,7 +1582,7 @@ export const INCIDENT_AT_HEIGHT_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '181551',
-          code: 'YES',
+          response: 'YES',
           active: false,
           label: 'Yes',
           commentRequired: false,
@@ -1591,7 +1591,7 @@ export const INCIDENT_AT_HEIGHT_1: IncidentTypeConfiguration = {
         },
         {
           id: '181550',
-          code: 'NO',
+          response: 'NO',
           active: false,
           label: 'No',
           commentRequired: false,
@@ -1609,7 +1609,7 @@ export const INCIDENT_AT_HEIGHT_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '181559',
-          code: 'YES',
+          response: 'YES',
           active: false,
           label: 'Yes',
           commentRequired: false,
@@ -1618,7 +1618,7 @@ export const INCIDENT_AT_HEIGHT_1: IncidentTypeConfiguration = {
         },
         {
           id: '181558',
-          code: 'NO',
+          response: 'NO',
           active: false,
           label: 'No',
           commentRequired: false,
@@ -1636,7 +1636,7 @@ export const INCIDENT_AT_HEIGHT_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '181684',
-          code: 'ADMINISTRATION',
+          response: 'ADMINISTRATION',
           active: false,
           label: 'Administration',
           commentRequired: false,
@@ -1645,7 +1645,7 @@ export const INCIDENT_AT_HEIGHT_1: IncidentTypeConfiguration = {
         },
         {
           id: '181685',
-          code: 'ASSOCIATION AREA',
+          response: 'ASSOCIATION AREA',
           active: false,
           label: 'Association area',
           commentRequired: false,
@@ -1654,7 +1654,7 @@ export const INCIDENT_AT_HEIGHT_1: IncidentTypeConfiguration = {
         },
         {
           id: '181686',
-          code: 'CELL',
+          response: 'CELL',
           active: false,
           label: 'Cell',
           commentRequired: false,
@@ -1663,7 +1663,7 @@ export const INCIDENT_AT_HEIGHT_1: IncidentTypeConfiguration = {
         },
         {
           id: '181687',
-          code: 'CHAPEL',
+          response: 'CHAPEL',
           active: false,
           label: 'Chapel',
           commentRequired: false,
@@ -1672,7 +1672,7 @@ export const INCIDENT_AT_HEIGHT_1: IncidentTypeConfiguration = {
         },
         {
           id: '181689',
-          code: 'DINING ROOM',
+          response: 'DINING ROOM',
           active: false,
           label: 'Dining room',
           commentRequired: false,
@@ -1681,7 +1681,7 @@ export const INCIDENT_AT_HEIGHT_1: IncidentTypeConfiguration = {
         },
         {
           id: '181690',
-          code: 'DORMITORY',
+          response: 'DORMITORY',
           active: false,
           label: 'Dormitory',
           commentRequired: false,
@@ -1690,7 +1690,7 @@ export const INCIDENT_AT_HEIGHT_1: IncidentTypeConfiguration = {
         },
         {
           id: '181691',
-          code: 'EDUCATION',
+          response: 'EDUCATION',
           active: false,
           label: 'Education',
           commentRequired: false,
@@ -1699,7 +1699,7 @@ export const INCIDENT_AT_HEIGHT_1: IncidentTypeConfiguration = {
         },
         {
           id: '181693',
-          code: 'EXERCISE YARD',
+          response: 'EXERCISE YARD',
           active: false,
           label: 'Exercise yard',
           commentRequired: false,
@@ -1708,7 +1708,7 @@ export const INCIDENT_AT_HEIGHT_1: IncidentTypeConfiguration = {
         },
         {
           id: '181695',
-          code: 'GATE',
+          response: 'GATE',
           active: false,
           label: 'Gate',
           commentRequired: false,
@@ -1717,7 +1717,7 @@ export const INCIDENT_AT_HEIGHT_1: IncidentTypeConfiguration = {
         },
         {
           id: '181696',
-          code: 'GYM',
+          response: 'GYM',
           active: false,
           label: 'Gym',
           commentRequired: false,
@@ -1726,7 +1726,7 @@ export const INCIDENT_AT_HEIGHT_1: IncidentTypeConfiguration = {
         },
         {
           id: '181697',
-          code: 'HEALTH CARE CENTRE',
+          response: 'HEALTH CARE CENTRE',
           active: false,
           label: 'Health care centre',
           commentRequired: false,
@@ -1735,7 +1735,7 @@ export const INCIDENT_AT_HEIGHT_1: IncidentTypeConfiguration = {
         },
         {
           id: '181700',
-          code: 'KITCHEN',
+          response: 'KITCHEN',
           active: false,
           label: 'Kitchen',
           commentRequired: false,
@@ -1744,7 +1744,7 @@ export const INCIDENT_AT_HEIGHT_1: IncidentTypeConfiguration = {
         },
         {
           id: '181702',
-          code: 'OFFICE',
+          response: 'OFFICE',
           active: false,
           label: 'Office',
           commentRequired: false,
@@ -1753,7 +1753,7 @@ export const INCIDENT_AT_HEIGHT_1: IncidentTypeConfiguration = {
         },
         {
           id: '181704',
-          code: 'RECEPTION',
+          response: 'RECEPTION',
           active: false,
           label: 'Reception',
           commentRequired: false,
@@ -1762,7 +1762,7 @@ export const INCIDENT_AT_HEIGHT_1: IncidentTypeConfiguration = {
         },
         {
           id: '181705',
-          code: 'RECESS',
+          response: 'RECESS',
           active: false,
           label: 'Recess',
           commentRequired: false,
@@ -1771,7 +1771,7 @@ export const INCIDENT_AT_HEIGHT_1: IncidentTypeConfiguration = {
         },
         {
           id: '181706',
-          code: 'SEGREGATION UNIT',
+          response: 'SEGREGATION UNIT',
           active: false,
           label: 'Segregation unit',
           commentRequired: false,
@@ -1780,7 +1780,7 @@ export const INCIDENT_AT_HEIGHT_1: IncidentTypeConfiguration = {
         },
         {
           id: '181708',
-          code: 'SPECIAL UNIT',
+          response: 'SPECIAL UNIT',
           active: false,
           label: 'Special unit',
           commentRequired: false,
@@ -1789,7 +1789,7 @@ export const INCIDENT_AT_HEIGHT_1: IncidentTypeConfiguration = {
         },
         {
           id: '181707',
-          code: 'SHOWERS/CHANGING ROOM',
+          response: 'SHOWERS/CHANGING ROOM',
           active: false,
           label: 'Showers/changing room',
           commentRequired: false,
@@ -1798,7 +1798,7 @@ export const INCIDENT_AT_HEIGHT_1: IncidentTypeConfiguration = {
         },
         {
           id: '181711',
-          code: 'VISITS',
+          response: 'VISITS',
           active: false,
           label: 'Visits',
           commentRequired: false,
@@ -1807,7 +1807,7 @@ export const INCIDENT_AT_HEIGHT_1: IncidentTypeConfiguration = {
         },
         {
           id: '181713',
-          code: 'WING',
+          response: 'WING',
           active: false,
           label: 'Wing',
           commentRequired: false,
@@ -1816,7 +1816,7 @@ export const INCIDENT_AT_HEIGHT_1: IncidentTypeConfiguration = {
         },
         {
           id: '181715',
-          code: 'WORKS DEPARTMENT',
+          response: 'WORKS DEPARTMENT',
           active: false,
           label: 'Works department',
           commentRequired: false,
@@ -1825,7 +1825,7 @@ export const INCIDENT_AT_HEIGHT_1: IncidentTypeConfiguration = {
         },
         {
           id: '181716',
-          code: 'WORKSHOP',
+          response: 'WORKSHOP',
           active: false,
           label: 'Workshop',
           commentRequired: false,
@@ -1834,7 +1834,7 @@ export const INCIDENT_AT_HEIGHT_1: IncidentTypeConfiguration = {
         },
         {
           id: '181714',
-          code: 'WITHIN PERIMETER',
+          response: 'WITHIN PERIMETER',
           active: false,
           label: 'Within perimeter',
           commentRequired: false,
@@ -1843,7 +1843,7 @@ export const INCIDENT_AT_HEIGHT_1: IncidentTypeConfiguration = {
         },
         {
           id: '181692',
-          code: 'ELSEWHERE',
+          response: 'ELSEWHERE',
           active: false,
           label: 'Elsewhere',
           commentRequired: true,
@@ -1852,7 +1852,7 @@ export const INCIDENT_AT_HEIGHT_1: IncidentTypeConfiguration = {
         },
         {
           id: '181694',
-          code: 'FUNERAL',
+          response: 'FUNERAL',
           active: false,
           label: 'Funeral',
           commentRequired: false,
@@ -1861,7 +1861,7 @@ export const INCIDENT_AT_HEIGHT_1: IncidentTypeConfiguration = {
         },
         {
           id: '181698',
-          code: 'HOSPITAL OUTSIDE (PATIENT)',
+          response: 'HOSPITAL OUTSIDE (PATIENT)',
           active: false,
           label: 'Hospital outside (patient)',
           commentRequired: false,
@@ -1870,7 +1870,7 @@ export const INCIDENT_AT_HEIGHT_1: IncidentTypeConfiguration = {
         },
         {
           id: '181699',
-          code: 'HOSPITAL OUTSIDE (VISITING)',
+          response: 'HOSPITAL OUTSIDE (VISITING)',
           active: false,
           label: 'Hospital outside (visiting)',
           commentRequired: false,
@@ -1879,7 +1879,7 @@ export const INCIDENT_AT_HEIGHT_1: IncidentTypeConfiguration = {
         },
         {
           id: '181703',
-          code: 'OUTSIDE WORKING PARTY',
+          response: 'OUTSIDE WORKING PARTY',
           active: false,
           label: 'Outside working party',
           commentRequired: false,
@@ -1888,7 +1888,7 @@ export const INCIDENT_AT_HEIGHT_1: IncidentTypeConfiguration = {
         },
         {
           id: '181709',
-          code: 'SPORTS FIELD',
+          response: 'SPORTS FIELD',
           active: false,
           label: 'Sports field',
           commentRequired: false,
@@ -1897,7 +1897,7 @@ export const INCIDENT_AT_HEIGHT_1: IncidentTypeConfiguration = {
         },
         {
           id: '181710',
-          code: 'VEHICLE',
+          response: 'VEHICLE',
           active: false,
           label: 'Vehicle',
           commentRequired: false,
@@ -1906,7 +1906,7 @@ export const INCIDENT_AT_HEIGHT_1: IncidentTypeConfiguration = {
         },
         {
           id: '181712',
-          code: 'WEDDINGS',
+          response: 'WEDDINGS',
           active: false,
           label: 'Weddings',
           commentRequired: false,
@@ -1915,7 +1915,7 @@ export const INCIDENT_AT_HEIGHT_1: IncidentTypeConfiguration = {
         },
         {
           id: '181701',
-          code: 'MAGISTRATES COURT',
+          response: 'MAGISTRATES COURT',
           active: false,
           label: 'Magistrates court',
           commentRequired: false,
@@ -1924,7 +1924,7 @@ export const INCIDENT_AT_HEIGHT_1: IncidentTypeConfiguration = {
         },
         {
           id: '181688',
-          code: 'CROWN COURT',
+          response: 'CROWN COURT',
           active: false,
           label: 'Crown court',
           commentRequired: false,
@@ -1942,7 +1942,7 @@ export const INCIDENT_AT_HEIGHT_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '181799',
-          code: 'YES',
+          response: 'YES',
           active: false,
           label: 'Yes',
           commentRequired: false,
@@ -1951,7 +1951,7 @@ export const INCIDENT_AT_HEIGHT_1: IncidentTypeConfiguration = {
         },
         {
           id: '181798',
-          code: 'NO',
+          response: 'NO',
           active: false,
           label: 'No',
           commentRequired: false,
@@ -1969,7 +1969,7 @@ export const INCIDENT_AT_HEIGHT_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '181921',
-          code: 'LOCAL',
+          response: 'LOCAL',
           active: false,
           label: 'Local',
           commentRequired: false,
@@ -1978,7 +1978,7 @@ export const INCIDENT_AT_HEIGHT_1: IncidentTypeConfiguration = {
         },
         {
           id: '181920',
-          code: 'SERVICE SUPPLIER',
+          response: 'SERVICE SUPPLIER',
           active: false,
           label: 'Service supplier',
           commentRequired: false,
@@ -1996,7 +1996,7 @@ export const INCIDENT_AT_HEIGHT_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '181923',
-          code: 'YES',
+          response: 'YES',
           active: false,
           label: 'Yes',
           commentRequired: false,
@@ -2005,7 +2005,7 @@ export const INCIDENT_AT_HEIGHT_1: IncidentTypeConfiguration = {
         },
         {
           id: '181922',
-          code: 'NO',
+          response: 'NO',
           active: false,
           label: 'No',
           commentRequired: false,
@@ -2023,7 +2023,7 @@ export const INCIDENT_AT_HEIGHT_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '182044',
-          code: 'ENTER TIME',
+          response: 'ENTER TIME',
           active: false,
           label: 'Enter time',
           commentRequired: true,
@@ -2041,7 +2041,7 @@ export const INCIDENT_AT_HEIGHT_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '182338',
-          code: 'MINOR',
+          response: 'MINOR',
           active: false,
           label: 'Minor',
           commentRequired: false,
@@ -2050,7 +2050,7 @@ export const INCIDENT_AT_HEIGHT_1: IncidentTypeConfiguration = {
         },
         {
           id: '182339',
-          code: 'SERIOUS',
+          response: 'SERIOUS',
           active: false,
           label: 'Serious',
           commentRequired: false,
@@ -2059,7 +2059,7 @@ export const INCIDENT_AT_HEIGHT_1: IncidentTypeConfiguration = {
         },
         {
           id: '182337',
-          code: 'EXTENSIVE',
+          response: 'EXTENSIVE',
           active: false,
           label: 'Extensive',
           commentRequired: false,
@@ -2077,7 +2077,7 @@ export const INCIDENT_AT_HEIGHT_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '182461',
-          code: 'YES',
+          response: 'YES',
           active: false,
           label: 'Yes',
           commentRequired: false,
@@ -2086,7 +2086,7 @@ export const INCIDENT_AT_HEIGHT_1: IncidentTypeConfiguration = {
         },
         {
           id: '182462',
-          code: 'NO',
+          response: 'NO',
           active: false,
           label: 'No',
           commentRequired: false,
@@ -2104,7 +2104,7 @@ export const INCIDENT_AT_HEIGHT_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '182463',
-          code: 'ACTIVE',
+          response: 'ACTIVE',
           active: false,
           label: 'Active',
           commentRequired: false,
@@ -2113,7 +2113,7 @@ export const INCIDENT_AT_HEIGHT_1: IncidentTypeConfiguration = {
         },
         {
           id: '182464',
-          code: 'PASSIVE',
+          response: 'PASSIVE',
           active: false,
           label: 'Passive',
           commentRequired: false,
@@ -2131,7 +2131,7 @@ export const INCIDENT_AT_HEIGHT_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '182583',
-          code: 'FRACTURE',
+          response: 'FRACTURE',
           active: false,
           label: 'Fracture',
           commentRequired: false,
@@ -2140,7 +2140,7 @@ export const INCIDENT_AT_HEIGHT_1: IncidentTypeConfiguration = {
         },
         {
           id: '182585',
-          code: 'SCALD OR BURN',
+          response: 'SCALD OR BURN',
           active: false,
           label: 'Scald or burn',
           commentRequired: false,
@@ -2149,7 +2149,7 @@ export const INCIDENT_AT_HEIGHT_1: IncidentTypeConfiguration = {
         },
         {
           id: '182586',
-          code: 'STABBING',
+          response: 'STABBING',
           active: false,
           label: 'Stabbing',
           commentRequired: false,
@@ -2158,7 +2158,7 @@ export const INCIDENT_AT_HEIGHT_1: IncidentTypeConfiguration = {
         },
         {
           id: '182580',
-          code: 'CRUSHING',
+          response: 'CRUSHING',
           active: false,
           label: 'Crushing',
           commentRequired: false,
@@ -2167,7 +2167,7 @@ export const INCIDENT_AT_HEIGHT_1: IncidentTypeConfiguration = {
         },
         {
           id: '182582',
-          code: 'EXTENSIVE/MULTIPLE BRUISING',
+          response: 'EXTENSIVE/MULTIPLE BRUISING',
           active: false,
           label: 'Extensive/multiple bruising',
           commentRequired: false,
@@ -2176,7 +2176,7 @@ export const INCIDENT_AT_HEIGHT_1: IncidentTypeConfiguration = {
         },
         {
           id: '182577',
-          code: 'BLACK EYE',
+          response: 'BLACK EYE',
           active: false,
           label: 'Black eye',
           commentRequired: false,
@@ -2185,7 +2185,7 @@ export const INCIDENT_AT_HEIGHT_1: IncidentTypeConfiguration = {
         },
         {
           id: '182578',
-          code: 'BROKEN NOSE',
+          response: 'BROKEN NOSE',
           active: false,
           label: 'Broken nose',
           commentRequired: false,
@@ -2194,7 +2194,7 @@ export const INCIDENT_AT_HEIGHT_1: IncidentTypeConfiguration = {
         },
         {
           id: '182579',
-          code: 'BROKEN TEETH',
+          response: 'BROKEN TEETH',
           active: false,
           label: 'Broken teeth',
           commentRequired: false,
@@ -2203,7 +2203,7 @@ export const INCIDENT_AT_HEIGHT_1: IncidentTypeConfiguration = {
         },
         {
           id: '182581',
-          code: 'CUTS REQUIRING SUTURES',
+          response: 'CUTS REQUIRING SUTURES',
           active: false,
           label: 'Cuts requiring sutures',
           commentRequired: false,
@@ -2212,7 +2212,7 @@ export const INCIDENT_AT_HEIGHT_1: IncidentTypeConfiguration = {
         },
         {
           id: '182576',
-          code: 'BITES',
+          response: 'BITES',
           active: false,
           label: 'Bites',
           commentRequired: false,
@@ -2221,7 +2221,7 @@ export const INCIDENT_AT_HEIGHT_1: IncidentTypeConfiguration = {
         },
         {
           id: '182584',
-          code: 'GUN SHOT WOUND',
+          response: 'GUN SHOT WOUND',
           active: false,
           label: 'Gun shot wound',
           commentRequired: false,
@@ -2230,7 +2230,7 @@ export const INCIDENT_AT_HEIGHT_1: IncidentTypeConfiguration = {
         },
         {
           id: '182587',
-          code: 'TEMPORARY/PERMANENT BLINDNESS',
+          response: 'TEMPORARY/PERMANENT BLINDNESS',
           active: false,
           label: 'Temporary/permanent blindness',
           commentRequired: false,
@@ -2248,7 +2248,7 @@ export const INCIDENT_AT_HEIGHT_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '182605',
-          code: 'TELEPHONY',
+          response: 'TELEPHONY',
           active: false,
           label: 'Telephony',
           commentRequired: true,
@@ -2257,7 +2257,7 @@ export const INCIDENT_AT_HEIGHT_1: IncidentTypeConfiguration = {
         },
         {
           id: '182604',
-          code: 'IT',
+          response: 'IT',
           active: false,
           label: 'IT',
           commentRequired: true,
@@ -2275,7 +2275,7 @@ export const INCIDENT_AT_HEIGHT_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '182643',
-          code: 'YES',
+          response: 'YES',
           active: false,
           label: 'Yes',
           commentRequired: false,
@@ -2284,7 +2284,7 @@ export const INCIDENT_AT_HEIGHT_1: IncidentTypeConfiguration = {
         },
         {
           id: '182644',
-          code: 'NO',
+          response: 'NO',
           active: false,
           label: 'No',
           commentRequired: false,

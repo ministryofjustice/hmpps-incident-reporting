@@ -51,7 +51,7 @@ export function fromNomis(nomisConfig: NomisIncidentTypeConfiguration): DpsIncid
           const nextQuestionId = ans.nextQuestionnaireQueId?.toString() ?? null
           return {
             id: ans.questionnaireAnsId.toString(),
-            code: ans.answerDesc,
+            response: ans.answerDesc,
             active: ans.answerActiveFlag === true,
             label: convertToSentenceCase(ans.answerDesc),
             commentRequired: ans.commentRequiredFlag === true,

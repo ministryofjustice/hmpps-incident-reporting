@@ -16,7 +16,7 @@ export const TEMPORARY_RELEASE_FAILURE_2: IncidentTypeConfiguration = {
       answers: [
         {
           id: '195150',
-          code: 'Resettlement Day',
+          response: 'Resettlement Day',
           active: false,
           label: 'Resettlement day',
           commentRequired: false,
@@ -25,7 +25,7 @@ export const TEMPORARY_RELEASE_FAILURE_2: IncidentTypeConfiguration = {
         },
         {
           id: '195151',
-          code: 'Resettlement Overnight',
+          response: 'Resettlement Overnight',
           active: false,
           label: 'Resettlement overnight',
           commentRequired: false,
@@ -34,7 +34,7 @@ export const TEMPORARY_RELEASE_FAILURE_2: IncidentTypeConfiguration = {
         },
         {
           id: '195152',
-          code: 'Childcare Resettlement',
+          response: 'Childcare Resettlement',
           active: false,
           label: 'Childcare resettlement',
           commentRequired: false,
@@ -43,7 +43,7 @@ export const TEMPORARY_RELEASE_FAILURE_2: IncidentTypeConfiguration = {
         },
         {
           id: '195153',
-          code: 'Special Purpose',
+          response: 'Special Purpose',
           active: false,
           label: 'Special purpose',
           commentRequired: false,
@@ -61,7 +61,7 @@ export const TEMPORARY_RELEASE_FAILURE_2: IncidentTypeConfiguration = {
       answers: [
         {
           id: '195154',
-          code: 'Court / Legal / Police',
+          response: 'Court / Legal / Police',
           active: false,
           label: 'Court / legal / police',
           commentRequired: false,
@@ -70,7 +70,7 @@ export const TEMPORARY_RELEASE_FAILURE_2: IncidentTypeConfiguration = {
         },
         {
           id: '195155',
-          code: 'CRL',
+          response: 'CRL',
           active: false,
           label: 'Crl',
           commentRequired: false,
@@ -79,7 +79,7 @@ export const TEMPORARY_RELEASE_FAILURE_2: IncidentTypeConfiguration = {
         },
         {
           id: '195156',
-          code: 'Funeral / Visiting A Dying Relative',
+          response: 'Funeral / Visiting A Dying Relative',
           active: false,
           label: 'Funeral / visiting a dying relative',
           commentRequired: false,
@@ -88,7 +88,7 @@ export const TEMPORARY_RELEASE_FAILURE_2: IncidentTypeConfiguration = {
         },
         {
           id: '195157',
-          code: 'Maintaining Family Ties',
+          response: 'Maintaining Family Ties',
           active: false,
           label: 'Maintaining family ties',
           commentRequired: false,
@@ -97,7 +97,7 @@ export const TEMPORARY_RELEASE_FAILURE_2: IncidentTypeConfiguration = {
         },
         {
           id: '195158',
-          code: 'Other Compassionate Reason',
+          response: 'Other Compassionate Reason',
           active: false,
           label: 'Other compassionate reason',
           commentRequired: false,
@@ -106,7 +106,7 @@ export const TEMPORARY_RELEASE_FAILURE_2: IncidentTypeConfiguration = {
         },
         {
           id: '195159',
-          code: 'Other RDR Linked to Sentence Plan',
+          response: 'Other RDR Linked to Sentence Plan',
           active: false,
           label: 'Other rdr linked to sentence plan',
           commentRequired: false,
@@ -115,7 +115,7 @@ export const TEMPORARY_RELEASE_FAILURE_2: IncidentTypeConfiguration = {
         },
         {
           id: '195160',
-          code: 'Outside Prison Activity (OPA)',
+          response: 'Outside Prison Activity (OPA)',
           active: false,
           label: 'Outside prison activity (opa)',
           commentRequired: false,
@@ -124,7 +124,7 @@ export const TEMPORARY_RELEASE_FAILURE_2: IncidentTypeConfiguration = {
         },
         {
           id: '195161',
-          code: 'Resettlement Overnight Release (ROR)',
+          response: 'Resettlement Overnight Release (ROR)',
           active: false,
           label: 'Resettlement overnight release (ror)',
           commentRequired: false,
@@ -133,7 +133,7 @@ export const TEMPORARY_RELEASE_FAILURE_2: IncidentTypeConfiguration = {
         },
         {
           id: '195162',
-          code: 'Training Or Education',
+          response: 'Training Or Education',
           active: false,
           label: 'Training or education',
           commentRequired: false,
@@ -151,7 +151,7 @@ export const TEMPORARY_RELEASE_FAILURE_2: IncidentTypeConfiguration = {
       answers: [
         {
           id: '195163',
-          code: 'Yes (Enter Date)',
+          response: 'Yes (Enter Date)',
           active: false,
           label: 'Yes (enter date)',
           commentRequired: true,
@@ -160,7 +160,7 @@ export const TEMPORARY_RELEASE_FAILURE_2: IncidentTypeConfiguration = {
         },
         {
           id: '195164',
-          code: 'No',
+          response: 'No',
           active: false,
           label: 'No',
           commentRequired: false,
@@ -178,7 +178,7 @@ export const TEMPORARY_RELEASE_FAILURE_2: IncidentTypeConfiguration = {
       answers: [
         {
           id: '195165',
-          code: 'Yes',
+          response: 'Yes',
           active: false,
           label: 'Yes',
           commentRequired: false,
@@ -187,7 +187,7 @@ export const TEMPORARY_RELEASE_FAILURE_2: IncidentTypeConfiguration = {
         },
         {
           id: '195166',
-          code: 'No',
+          response: 'No',
           active: false,
           label: 'No',
           commentRequired: false,
@@ -205,7 +205,7 @@ export const TEMPORARY_RELEASE_FAILURE_2: IncidentTypeConfiguration = {
       answers: [
         {
           id: '195167',
-          code: 'Yes - Local Only',
+          response: 'Yes - Local Only',
           active: false,
           label: 'Yes - local only',
           commentRequired: false,
@@ -214,7 +214,7 @@ export const TEMPORARY_RELEASE_FAILURE_2: IncidentTypeConfiguration = {
         },
         {
           id: '195168',
-          code: 'Yes - DDC Commissioned',
+          response: 'Yes - DDC Commissioned',
           active: false,
           label: 'Yes - ddc commissioned',
           commentRequired: false,
@@ -223,7 +223,7 @@ export const TEMPORARY_RELEASE_FAILURE_2: IncidentTypeConfiguration = {
         },
         {
           id: '195169',
-          code: 'Yes - SFO Investigation',
+          response: 'Yes - SFO Investigation',
           active: false,
           label: 'Yes - SFO investigation',
           commentRequired: false,
@@ -232,7 +232,7 @@ export const TEMPORARY_RELEASE_FAILURE_2: IncidentTypeConfiguration = {
         },
         {
           id: '195170',
-          code: 'No (Enter Reasons)',
+          response: 'No (Enter Reasons)',
           active: false,
           label: 'No (enter reasons)',
           commentRequired: true,
@@ -250,7 +250,7 @@ export const TEMPORARY_RELEASE_FAILURE_2: IncidentTypeConfiguration = {
       answers: [
         {
           id: '195171',
-          code: 'Yes',
+          response: 'Yes',
           active: false,
           label: 'Yes',
           commentRequired: false,
@@ -259,7 +259,7 @@ export const TEMPORARY_RELEASE_FAILURE_2: IncidentTypeConfiguration = {
         },
         {
           id: '195172',
-          code: 'No',
+          response: 'No',
           active: false,
           label: 'No',
           commentRequired: false,
@@ -277,7 +277,7 @@ export const TEMPORARY_RELEASE_FAILURE_2: IncidentTypeConfiguration = {
       answers: [
         {
           id: '195173',
-          code: 'Yes',
+          response: 'Yes',
           active: false,
           label: 'Yes',
           commentRequired: false,
@@ -286,7 +286,7 @@ export const TEMPORARY_RELEASE_FAILURE_2: IncidentTypeConfiguration = {
         },
         {
           id: '195174',
-          code: 'No',
+          response: 'No',
           active: false,
           label: 'No',
           commentRequired: false,
@@ -304,7 +304,7 @@ export const TEMPORARY_RELEASE_FAILURE_2: IncidentTypeConfiguration = {
       answers: [
         {
           id: '195175',
-          code: 'Yes (Enter Date)',
+          response: 'Yes (Enter Date)',
           active: false,
           label: 'Yes (enter date)',
           commentRequired: true,
@@ -313,7 +313,7 @@ export const TEMPORARY_RELEASE_FAILURE_2: IncidentTypeConfiguration = {
         },
         {
           id: '195176',
-          code: 'No (Enter Reason)',
+          response: 'No (Enter Reason)',
           active: false,
           label: 'No (enter reason)',
           commentRequired: true,
@@ -331,7 +331,7 @@ export const TEMPORARY_RELEASE_FAILURE_2: IncidentTypeConfiguration = {
       answers: [
         {
           id: '195177',
-          code: 'Yes',
+          response: 'Yes',
           active: false,
           label: 'Yes',
           commentRequired: false,
@@ -340,7 +340,7 @@ export const TEMPORARY_RELEASE_FAILURE_2: IncidentTypeConfiguration = {
         },
         {
           id: '195178',
-          code: 'No',
+          response: 'No',
           active: false,
           label: 'No',
           commentRequired: false,
@@ -358,7 +358,7 @@ export const TEMPORARY_RELEASE_FAILURE_2: IncidentTypeConfiguration = {
       answers: [
         {
           id: '195179',
-          code: 'Yes (Enter Date)',
+          response: 'Yes (Enter Date)',
           active: false,
           label: 'Yes (enter date)',
           commentRequired: true,
@@ -367,7 +367,7 @@ export const TEMPORARY_RELEASE_FAILURE_2: IncidentTypeConfiguration = {
         },
         {
           id: '195180',
-          code: 'No (Enter Reason)',
+          response: 'No (Enter Reason)',
           active: false,
           label: 'No (enter reason)',
           commentRequired: true,
@@ -385,7 +385,7 @@ export const TEMPORARY_RELEASE_FAILURE_2: IncidentTypeConfiguration = {
       answers: [
         {
           id: '195181',
-          code: 'Yes (Enter Date)',
+          response: 'Yes (Enter Date)',
           active: false,
           label: 'Yes (enter date)',
           commentRequired: true,
@@ -394,7 +394,7 @@ export const TEMPORARY_RELEASE_FAILURE_2: IncidentTypeConfiguration = {
         },
         {
           id: '195182',
-          code: 'No (Enter Reasons)',
+          response: 'No (Enter Reasons)',
           active: false,
           label: 'No (enter reasons)',
           commentRequired: true,
@@ -412,7 +412,7 @@ export const TEMPORARY_RELEASE_FAILURE_2: IncidentTypeConfiguration = {
       answers: [
         {
           id: '195183',
-          code: 'Yes',
+          response: 'Yes',
           active: false,
           label: 'Yes',
           commentRequired: false,
@@ -421,7 +421,7 @@ export const TEMPORARY_RELEASE_FAILURE_2: IncidentTypeConfiguration = {
         },
         {
           id: '195184',
-          code: 'No',
+          response: 'No',
           active: false,
           label: 'No',
           commentRequired: false,
@@ -440,7 +440,7 @@ export const TEMPORARY_RELEASE_FAILURE_2: IncidentTypeConfiguration = {
       answers: [
         {
           id: '195185',
-          code: 'Yes',
+          response: 'Yes',
           active: false,
           label: 'Yes',
           commentRequired: false,
@@ -449,7 +449,7 @@ export const TEMPORARY_RELEASE_FAILURE_2: IncidentTypeConfiguration = {
         },
         {
           id: '195186',
-          code: 'No (Enter Reasons)',
+          response: 'No (Enter Reasons)',
           active: false,
           label: 'No (enter reasons)',
           commentRequired: true,
@@ -467,7 +467,7 @@ export const TEMPORARY_RELEASE_FAILURE_2: IncidentTypeConfiguration = {
       answers: [
         {
           id: '195187',
-          code: 'Yes',
+          response: 'Yes',
           active: false,
           label: 'Yes',
           commentRequired: false,
@@ -476,7 +476,7 @@ export const TEMPORARY_RELEASE_FAILURE_2: IncidentTypeConfiguration = {
         },
         {
           id: '195188',
-          code: 'No',
+          response: 'No',
           active: false,
           label: 'No',
           commentRequired: false,
@@ -494,7 +494,7 @@ export const TEMPORARY_RELEASE_FAILURE_2: IncidentTypeConfiguration = {
       answers: [
         {
           id: '195189',
-          code: 'Yes (Enter Date)',
+          response: 'Yes (Enter Date)',
           active: false,
           label: 'Yes (enter date)',
           commentRequired: true,
@@ -503,7 +503,7 @@ export const TEMPORARY_RELEASE_FAILURE_2: IncidentTypeConfiguration = {
         },
         {
           id: '195190',
-          code: 'No',
+          response: 'No',
           active: false,
           label: 'No',
           commentRequired: false,
@@ -521,7 +521,7 @@ export const TEMPORARY_RELEASE_FAILURE_2: IncidentTypeConfiguration = {
       answers: [
         {
           id: '195191',
-          code: 'Surrender To HMPS',
+          response: 'Surrender To HMPS',
           active: false,
           label: 'Surrender to HMPS',
           commentRequired: false,
@@ -530,7 +530,7 @@ export const TEMPORARY_RELEASE_FAILURE_2: IncidentTypeConfiguration = {
         },
         {
           id: '195192',
-          code: 'Surrender To Police',
+          response: 'Surrender To Police',
           active: false,
           label: 'Surrender to police',
           commentRequired: false,
@@ -539,7 +539,7 @@ export const TEMPORARY_RELEASE_FAILURE_2: IncidentTypeConfiguration = {
         },
         {
           id: '195193',
-          code: 'Arrest By HMPS',
+          response: 'Arrest By HMPS',
           active: false,
           label: 'Arrest by HMPS',
           commentRequired: false,
@@ -548,7 +548,7 @@ export const TEMPORARY_RELEASE_FAILURE_2: IncidentTypeConfiguration = {
         },
         {
           id: '195194',
-          code: 'Arrest By Police',
+          response: 'Arrest By Police',
           active: false,
           label: 'Arrest by police',
           commentRequired: false,
@@ -557,7 +557,7 @@ export const TEMPORARY_RELEASE_FAILURE_2: IncidentTypeConfiguration = {
         },
         {
           id: '195195',
-          code: 'Other (Provide Details)',
+          response: 'Other (Provide Details)',
           active: false,
           label: 'Other (provide details)',
           commentRequired: true,
@@ -576,7 +576,7 @@ export const TEMPORARY_RELEASE_FAILURE_2: IncidentTypeConfiguration = {
       answers: [
         {
           id: '195196',
-          code: 'Yes',
+          response: 'Yes',
           active: false,
           label: 'Yes',
           commentRequired: false,
@@ -585,7 +585,7 @@ export const TEMPORARY_RELEASE_FAILURE_2: IncidentTypeConfiguration = {
         },
         {
           id: '195197',
-          code: 'No',
+          response: 'No',
           active: false,
           label: 'No',
           commentRequired: false,
@@ -603,7 +603,7 @@ export const TEMPORARY_RELEASE_FAILURE_2: IncidentTypeConfiguration = {
       answers: [
         {
           id: '195198',
-          code: 'Alcohol',
+          response: 'Alcohol',
           active: false,
           label: 'Alcohol',
           commentRequired: false,
@@ -612,7 +612,7 @@ export const TEMPORARY_RELEASE_FAILURE_2: IncidentTypeConfiguration = {
         },
         {
           id: '195199',
-          code: 'Gambling',
+          response: 'Gambling',
           active: false,
           label: 'Gambling',
           commentRequired: false,
@@ -621,7 +621,7 @@ export const TEMPORARY_RELEASE_FAILURE_2: IncidentTypeConfiguration = {
         },
         {
           id: '195200',
-          code: 'Drugs',
+          response: 'Drugs',
           active: false,
           label: 'Drugs',
           commentRequired: false,
@@ -630,7 +630,7 @@ export const TEMPORARY_RELEASE_FAILURE_2: IncidentTypeConfiguration = {
         },
         {
           id: '195201',
-          code: 'Location',
+          response: 'Location',
           active: false,
           label: 'Location',
           commentRequired: false,
@@ -639,7 +639,7 @@ export const TEMPORARY_RELEASE_FAILURE_2: IncidentTypeConfiguration = {
         },
         {
           id: '195202',
-          code: 'Social Media',
+          response: 'Social Media',
           active: false,
           label: 'Social media',
           commentRequired: false,
@@ -648,7 +648,7 @@ export const TEMPORARY_RELEASE_FAILURE_2: IncidentTypeConfiguration = {
         },
         {
           id: '195203',
-          code: 'Bad Behaviour',
+          response: 'Bad Behaviour',
           active: false,
           label: 'Bad behaviour',
           commentRequired: false,
@@ -657,7 +657,7 @@ export const TEMPORARY_RELEASE_FAILURE_2: IncidentTypeConfiguration = {
         },
         {
           id: '195204',
-          code: 'Media Contact',
+          response: 'Media Contact',
           active: false,
           label: 'Media contact',
           commentRequired: false,
@@ -666,7 +666,7 @@ export const TEMPORARY_RELEASE_FAILURE_2: IncidentTypeConfiguration = {
         },
         {
           id: '195205',
-          code: 'Other (Provide Details)',
+          response: 'Other (Provide Details)',
           active: false,
           label: 'Other (provide details)',
           commentRequired: true,
@@ -684,7 +684,7 @@ export const TEMPORARY_RELEASE_FAILURE_2: IncidentTypeConfiguration = {
       answers: [
         {
           id: '195223',
-          code: 'Yes',
+          response: 'Yes',
           active: false,
           label: 'Yes',
           commentRequired: false,
@@ -693,7 +693,7 @@ export const TEMPORARY_RELEASE_FAILURE_2: IncidentTypeConfiguration = {
         },
         {
           id: '195224',
-          code: 'No',
+          response: 'No',
           active: false,
           label: 'No',
           commentRequired: false,
@@ -711,7 +711,7 @@ export const TEMPORARY_RELEASE_FAILURE_2: IncidentTypeConfiguration = {
       answers: [
         {
           id: '195225',
-          code: 'Yes',
+          response: 'Yes',
           active: false,
           label: 'Yes',
           commentRequired: false,
@@ -720,7 +720,7 @@ export const TEMPORARY_RELEASE_FAILURE_2: IncidentTypeConfiguration = {
         },
         {
           id: '195226',
-          code: 'No',
+          response: 'No',
           active: false,
           label: 'No',
           commentRequired: false,
@@ -729,7 +729,7 @@ export const TEMPORARY_RELEASE_FAILURE_2: IncidentTypeConfiguration = {
         },
         {
           id: '195227',
-          code: 'No',
+          response: 'No',
           active: false,
           label: 'No',
           commentRequired: false,
@@ -747,7 +747,7 @@ export const TEMPORARY_RELEASE_FAILURE_2: IncidentTypeConfiguration = {
       answers: [
         {
           id: '195228',
-          code: 'Violence Against The Person',
+          response: 'Violence Against The Person',
           active: false,
           label: 'Violence against the person',
           commentRequired: false,
@@ -756,7 +756,7 @@ export const TEMPORARY_RELEASE_FAILURE_2: IncidentTypeConfiguration = {
         },
         {
           id: '195229',
-          code: 'Sexual Offences',
+          response: 'Sexual Offences',
           active: false,
           label: 'Sexual offences',
           commentRequired: false,
@@ -765,7 +765,7 @@ export const TEMPORARY_RELEASE_FAILURE_2: IncidentTypeConfiguration = {
         },
         {
           id: '195230',
-          code: 'Robbery',
+          response: 'Robbery',
           active: false,
           label: 'Robbery',
           commentRequired: false,
@@ -774,7 +774,7 @@ export const TEMPORARY_RELEASE_FAILURE_2: IncidentTypeConfiguration = {
         },
         {
           id: '195231',
-          code: 'Burglary',
+          response: 'Burglary',
           active: false,
           label: 'Burglary',
           commentRequired: false,
@@ -783,7 +783,7 @@ export const TEMPORARY_RELEASE_FAILURE_2: IncidentTypeConfiguration = {
         },
         {
           id: '195232',
-          code: 'Theft And Handling',
+          response: 'Theft And Handling',
           active: false,
           label: 'Theft and handling',
           commentRequired: false,
@@ -792,7 +792,7 @@ export const TEMPORARY_RELEASE_FAILURE_2: IncidentTypeConfiguration = {
         },
         {
           id: '195233',
-          code: 'Fraud And Forgery',
+          response: 'Fraud And Forgery',
           active: false,
           label: 'Fraud and forgery',
           commentRequired: false,
@@ -801,7 +801,7 @@ export const TEMPORARY_RELEASE_FAILURE_2: IncidentTypeConfiguration = {
         },
         {
           id: '195234',
-          code: 'Drug Offences',
+          response: 'Drug Offences',
           active: false,
           label: 'Drug offences',
           commentRequired: false,
@@ -810,7 +810,7 @@ export const TEMPORARY_RELEASE_FAILURE_2: IncidentTypeConfiguration = {
         },
         {
           id: '195235',
-          code: 'Motoring Offences',
+          response: 'Motoring Offences',
           active: false,
           label: 'Motoring offences',
           commentRequired: false,
@@ -819,7 +819,7 @@ export const TEMPORARY_RELEASE_FAILURE_2: IncidentTypeConfiguration = {
         },
         {
           id: '195236',
-          code: 'Failure To Return From ROTL',
+          response: 'Failure To Return From ROTL',
           active: false,
           label: 'Failure to return from ROTL',
           commentRequired: false,
@@ -828,7 +828,7 @@ export const TEMPORARY_RELEASE_FAILURE_2: IncidentTypeConfiguration = {
         },
         {
           id: '195237',
-          code: 'Other Offence',
+          response: 'Other Offence',
           active: false,
           label: 'Other offence',
           commentRequired: false,
@@ -846,7 +846,7 @@ export const TEMPORARY_RELEASE_FAILURE_2: IncidentTypeConfiguration = {
       answers: [
         {
           id: '195249',
-          code: 'Yes',
+          response: 'Yes',
           active: false,
           label: 'Yes',
           commentRequired: false,
@@ -855,7 +855,7 @@ export const TEMPORARY_RELEASE_FAILURE_2: IncidentTypeConfiguration = {
         },
         {
           id: '195250',
-          code: 'No',
+          response: 'No',
           active: false,
           label: 'No',
           commentRequired: false,
@@ -873,7 +873,7 @@ export const TEMPORARY_RELEASE_FAILURE_2: IncidentTypeConfiguration = {
       answers: [
         {
           id: '195238',
-          code: 'Violence Against The Person',
+          response: 'Violence Against The Person',
           active: false,
           label: 'Violence against the person',
           commentRequired: false,
@@ -882,7 +882,7 @@ export const TEMPORARY_RELEASE_FAILURE_2: IncidentTypeConfiguration = {
         },
         {
           id: '195239',
-          code: 'Sexual Offences',
+          response: 'Sexual Offences',
           active: false,
           label: 'Sexual offences',
           commentRequired: false,
@@ -891,7 +891,7 @@ export const TEMPORARY_RELEASE_FAILURE_2: IncidentTypeConfiguration = {
         },
         {
           id: '195240',
-          code: 'Robbery',
+          response: 'Robbery',
           active: false,
           label: 'Robbery',
           commentRequired: false,
@@ -900,7 +900,7 @@ export const TEMPORARY_RELEASE_FAILURE_2: IncidentTypeConfiguration = {
         },
         {
           id: '195241',
-          code: 'Burglary',
+          response: 'Burglary',
           active: false,
           label: 'Burglary',
           commentRequired: false,
@@ -909,7 +909,7 @@ export const TEMPORARY_RELEASE_FAILURE_2: IncidentTypeConfiguration = {
         },
         {
           id: '195242',
-          code: 'Theft And Handling',
+          response: 'Theft And Handling',
           active: false,
           label: 'Theft and handling',
           commentRequired: false,
@@ -918,7 +918,7 @@ export const TEMPORARY_RELEASE_FAILURE_2: IncidentTypeConfiguration = {
         },
         {
           id: '195243',
-          code: 'Fraud And Forgery',
+          response: 'Fraud And Forgery',
           active: false,
           label: 'Fraud and forgery',
           commentRequired: false,
@@ -927,7 +927,7 @@ export const TEMPORARY_RELEASE_FAILURE_2: IncidentTypeConfiguration = {
         },
         {
           id: '195244',
-          code: 'Drug Offences',
+          response: 'Drug Offences',
           active: false,
           label: 'Drug offences',
           commentRequired: false,
@@ -936,7 +936,7 @@ export const TEMPORARY_RELEASE_FAILURE_2: IncidentTypeConfiguration = {
         },
         {
           id: '195245',
-          code: 'Motoring Offences',
+          response: 'Motoring Offences',
           active: false,
           label: 'Motoring offences',
           commentRequired: false,
@@ -945,7 +945,7 @@ export const TEMPORARY_RELEASE_FAILURE_2: IncidentTypeConfiguration = {
         },
         {
           id: '195246',
-          code: 'Failure To Return From ROTL',
+          response: 'Failure To Return From ROTL',
           active: false,
           label: 'Failure to return from ROTL',
           commentRequired: false,
@@ -954,7 +954,7 @@ export const TEMPORARY_RELEASE_FAILURE_2: IncidentTypeConfiguration = {
         },
         {
           id: '195247',
-          code: 'Other Offence',
+          response: 'Other Offence',
           active: false,
           label: 'Other offence',
           commentRequired: false,
@@ -973,7 +973,7 @@ export const TEMPORARY_RELEASE_FAILURE_2: IncidentTypeConfiguration = {
       answers: [
         {
           id: '195248',
-          code: 'Yes (Date)',
+          response: 'Yes (Date)',
           active: false,
           label: 'Yes (date)',
           commentRequired: true,

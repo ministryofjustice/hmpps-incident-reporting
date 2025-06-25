@@ -16,7 +16,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '178990',
-          code: 'YES',
+          response: 'YES',
           active: true,
           label: 'Yes',
           commentRequired: false,
@@ -25,7 +25,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '178991',
-          code: 'NO',
+          response: 'NO',
           active: true,
           label: 'No',
           commentRequired: false,
@@ -43,7 +43,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '179004',
-          code: 'LADDER',
+          response: 'LADDER',
           active: true,
           label: 'Ladder',
           commentRequired: false,
@@ -52,7 +52,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '179006',
-          code: 'ROPE',
+          response: 'ROPE',
           active: true,
           label: 'Rope',
           commentRequired: false,
@@ -61,7 +61,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '179001',
-          code: 'CLIMBING AIDS',
+          response: 'CLIMBING AIDS',
           active: true,
           label: 'Climbing aids',
           commentRequired: false,
@@ -70,7 +70,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '179002',
-          code: 'FURNITURE ITEMS',
+          response: 'FURNITURE ITEMS',
           active: true,
           label: 'Furniture items',
           commentRequired: false,
@@ -79,7 +79,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '179007',
-          code: 'SPORTS ITEMS',
+          response: 'SPORTS ITEMS',
           active: true,
           label: 'Sports items',
           commentRequired: false,
@@ -88,7 +88,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '179003',
-          code: 'GROUNDS ITEMS',
+          response: 'GROUNDS ITEMS',
           active: true,
           label: 'Grounds items',
           commentRequired: false,
@@ -97,7 +97,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '179005',
-          code: 'OTHER',
+          response: 'OTHER',
           active: true,
           label: 'Other',
           commentRequired: true,
@@ -115,7 +115,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '179037',
-          code: 'SSU',
+          response: 'SSU',
           active: true,
           label: 'SSU',
           commentRequired: false,
@@ -124,7 +124,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '179032',
-          code: 'CRC',
+          response: 'CRC',
           active: true,
           label: 'CRC',
           commentRequired: false,
@@ -133,7 +133,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '179038',
-          code: 'WING/HOUSEBLOCK',
+          response: 'WING/HOUSEBLOCK',
           active: true,
           label: 'Wing/houseblock',
           commentRequired: false,
@@ -142,7 +142,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '179033',
-          code: 'HEALTH CARE CENTRE',
+          response: 'HEALTH CARE CENTRE',
           active: true,
           label: 'Health care centre',
           commentRequired: false,
@@ -151,7 +151,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '179036',
-          code: 'SEGREGATION UNIT',
+          response: 'SEGREGATION UNIT',
           active: true,
           label: 'Segregation unit',
           commentRequired: false,
@@ -160,7 +160,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '179035',
-          code: 'RULE 43 UNIT (OR)',
+          response: 'RULE 43 UNIT (OR)',
           active: true,
           label: 'Rule 43 unit (or)',
           commentRequired: false,
@@ -169,7 +169,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '179034',
-          code: 'RULE 43 UNIT (GOAD)',
+          response: 'RULE 43 UNIT (GOAD)',
           active: true,
           label: 'Rule 43 unit (GOAD)',
           commentRequired: false,
@@ -187,7 +187,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '179068',
-          code: 'WINDOW',
+          response: 'WINDOW',
           active: true,
           label: 'Window',
           commentRequired: false,
@@ -196,7 +196,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '179063',
-          code: 'EXTERNAL WALL',
+          response: 'EXTERNAL WALL',
           active: true,
           label: 'External wall',
           commentRequired: false,
@@ -205,7 +205,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '179064',
-          code: 'FLOOR',
+          response: 'FLOOR',
           active: true,
           label: 'Floor',
           commentRequired: false,
@@ -214,7 +214,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '179065',
-          code: 'ROOF',
+          response: 'ROOF',
           active: true,
           label: 'Roof',
           commentRequired: false,
@@ -223,7 +223,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '179062',
-          code: 'DOOR/GATE',
+          response: 'DOOR/GATE',
           active: true,
           label: 'Door/gate',
           commentRequired: false,
@@ -232,7 +232,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '179066',
-          code: 'THROUGH FENCE',
+          response: 'THROUGH FENCE',
           active: true,
           label: 'Through fence',
           commentRequired: false,
@@ -241,7 +241,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '179067',
-          code: 'UNDER FENCE',
+          response: 'UNDER FENCE',
           active: true,
           label: 'Under fence',
           commentRequired: false,
@@ -250,7 +250,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '179061',
-          code: 'OVER FENCE',
+          response: 'OVER FENCE',
           active: true,
           label: 'Over fence',
           commentRequired: false,
@@ -268,7 +268,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '179228',
-          code: 'CLAD',
+          response: 'CLAD',
           active: true,
           label: 'Clad',
           commentRequired: false,
@@ -277,7 +277,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '179229',
-          code: 'UNCLAD',
+          response: 'UNCLAD',
           active: true,
           label: 'Unclad',
           commentRequired: false,
@@ -295,7 +295,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '179242',
-          code: 'YES',
+          response: 'YES',
           active: true,
           label: 'Yes',
           commentRequired: false,
@@ -304,7 +304,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '179241',
-          code: 'NO',
+          response: 'NO',
           active: true,
           label: 'No',
           commentRequired: false,
@@ -322,7 +322,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '179268',
-          code: 'STAFF',
+          response: 'STAFF',
           active: true,
           label: 'Staff',
           commentRequired: true,
@@ -331,7 +331,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '179267',
-          code: 'PRISONERS',
+          response: 'PRISONERS',
           active: true,
           label: 'Prisoners',
           commentRequired: true,
@@ -340,7 +340,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '179264',
-          code: 'CIVILIAN GRADES',
+          response: 'CIVILIAN GRADES',
           active: true,
           label: 'Civilian grades',
           commentRequired: true,
@@ -349,7 +349,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '179266',
-          code: 'POLICE',
+          response: 'POLICE',
           active: true,
           label: 'Police',
           commentRequired: true,
@@ -358,7 +358,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '179265',
-          code: 'EXTERNAL CIVILIANS',
+          response: 'EXTERNAL CIVILIANS',
           active: true,
           label: 'External civilians',
           commentRequired: true,
@@ -376,7 +376,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '179298',
-          code: 'YES',
+          response: 'YES',
           active: true,
           label: 'Yes',
           commentRequired: false,
@@ -385,7 +385,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '179299',
-          code: 'NO',
+          response: 'NO',
           active: true,
           label: 'No',
           commentRequired: false,
@@ -403,7 +403,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '179316',
-          code: 'YES',
+          response: 'YES',
           active: true,
           label: 'Yes',
           commentRequired: false,
@@ -412,7 +412,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '179317',
-          code: 'NO',
+          response: 'NO',
           active: true,
           label: 'No',
           commentRequired: false,
@@ -430,7 +430,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '179333',
-          code: 'FULL',
+          response: 'FULL',
           active: true,
           label: 'Full',
           commentRequired: false,
@@ -439,7 +439,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '179334',
-          code: 'PARTIAL (ENTER DETAILS)',
+          response: 'PARTIAL (ENTER DETAILS)',
           active: true,
           label: 'Partial (enter details)',
           commentRequired: true,
@@ -457,7 +457,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '179386',
-          code: 'YES',
+          response: 'YES',
           active: true,
           label: 'Yes',
           commentRequired: false,
@@ -466,7 +466,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '179385',
-          code: 'NO',
+          response: 'NO',
           active: true,
           label: 'No',
           commentRequired: false,
@@ -484,7 +484,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '179392',
-          code: 'INSIDE',
+          response: 'INSIDE',
           active: true,
           label: 'Inside',
           commentRequired: false,
@@ -493,7 +493,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '179393',
-          code: 'OUTSIDE',
+          response: 'OUTSIDE',
           active: true,
           label: 'Outside',
           commentRequired: false,
@@ -511,7 +511,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '179408',
-          code: 'LOCAL',
+          response: 'LOCAL',
           active: true,
           label: 'Local',
           commentRequired: false,
@@ -520,7 +520,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '179407',
-          code: 'SERVICE SUPPLIER',
+          response: 'SERVICE SUPPLIER',
           active: true,
           label: 'Service supplier',
           commentRequired: false,
@@ -538,7 +538,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '179445',
-          code: 'WORKS DEPARTMENT',
+          response: 'WORKS DEPARTMENT',
           active: true,
           label: 'Works department',
           commentRequired: false,
@@ -547,7 +547,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '179435',
-          code: 'CONTRACTORS',
+          response: 'CONTRACTORS',
           active: true,
           label: 'Contractors',
           commentRequired: false,
@@ -556,7 +556,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '179436',
-          code: 'EDUCATION',
+          response: 'EDUCATION',
           active: true,
           label: 'Education',
           commentRequired: false,
@@ -565,7 +565,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '179439',
-          code: 'HEALTH CARE CENTRE',
+          response: 'HEALTH CARE CENTRE',
           active: true,
           label: 'Health care centre',
           commentRequired: false,
@@ -574,7 +574,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '179437',
-          code: 'FARMS AND GARDENS',
+          response: 'FARMS AND GARDENS',
           active: true,
           label: 'Farms and gardens',
           commentRequired: false,
@@ -583,7 +583,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '179438',
-          code: 'GYMNASIUM/SPORTS FIELD',
+          response: 'GYMNASIUM/SPORTS FIELD',
           active: true,
           label: 'Gymnasium/sports field',
           commentRequired: false,
@@ -592,7 +592,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '179446',
-          code: 'WORKSHOPS',
+          response: 'WORKSHOPS',
           active: true,
           label: 'Workshops',
           commentRequired: false,
@@ -601,7 +601,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '179441',
-          code: 'KITCHEN',
+          response: 'KITCHEN',
           active: true,
           label: 'Kitchen',
           commentRequired: false,
@@ -610,7 +610,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '179440',
-          code: 'HOBBIES',
+          response: 'HOBBIES',
           active: true,
           label: 'Hobbies',
           commentRequired: false,
@@ -619,7 +619,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '179434',
-          code: 'CELL FURNISHINGS',
+          response: 'CELL FURNISHINGS',
           active: true,
           label: 'Cell furnishings',
           commentRequired: false,
@@ -628,7 +628,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '179444',
-          code: 'WING/HOUSEBLOCK FURNISHINGS',
+          response: 'WING/HOUSEBLOCK FURNISHINGS',
           active: true,
           label: 'Wing/houseblock furnishings',
           commentRequired: false,
@@ -637,7 +637,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '179443',
-          code: 'SMUGGLED',
+          response: 'SMUGGLED',
           active: true,
           label: 'Smuggled',
           commentRequired: false,
@@ -646,7 +646,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '179442',
-          code: 'NOT KNOWN',
+          response: 'NOT KNOWN',
           active: true,
           label: 'Not known',
           commentRequired: false,
@@ -664,7 +664,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '179463',
-          code: 'WORKS DEPARTMENT',
+          response: 'WORKS DEPARTMENT',
           active: true,
           label: 'Works department',
           commentRequired: false,
@@ -673,7 +673,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '179452',
-          code: 'CONTRACTORS',
+          response: 'CONTRACTORS',
           active: true,
           label: 'Contractors',
           commentRequired: false,
@@ -682,7 +682,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '179453',
-          code: 'EDUCATION',
+          response: 'EDUCATION',
           active: true,
           label: 'Education',
           commentRequired: false,
@@ -691,7 +691,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '179456',
-          code: 'HEALTH CARE CENTRE',
+          response: 'HEALTH CARE CENTRE',
           active: true,
           label: 'Health care centre',
           commentRequired: false,
@@ -700,7 +700,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '179454',
-          code: 'FARMS AND GARDENS',
+          response: 'FARMS AND GARDENS',
           active: true,
           label: 'Farms and gardens',
           commentRequired: false,
@@ -709,7 +709,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '179455',
-          code: 'GYMNASIUM/SPORTS FIELD',
+          response: 'GYMNASIUM/SPORTS FIELD',
           active: true,
           label: 'Gymnasium/sports field',
           commentRequired: false,
@@ -718,7 +718,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '179464',
-          code: 'WORKSHOPS',
+          response: 'WORKSHOPS',
           active: true,
           label: 'Workshops',
           commentRequired: false,
@@ -727,7 +727,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '179458',
-          code: 'KITCHEN',
+          response: 'KITCHEN',
           active: true,
           label: 'Kitchen',
           commentRequired: false,
@@ -736,7 +736,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '179457',
-          code: 'HOBBIES',
+          response: 'HOBBIES',
           active: true,
           label: 'Hobbies',
           commentRequired: false,
@@ -745,7 +745,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '179451',
-          code: 'CELL FURNISHINGS',
+          response: 'CELL FURNISHINGS',
           active: true,
           label: 'Cell furnishings',
           commentRequired: false,
@@ -754,7 +754,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '179462',
-          code: 'WING/HOUSEBLOCK FURNISHINGS',
+          response: 'WING/HOUSEBLOCK FURNISHINGS',
           active: true,
           label: 'Wing/houseblock furnishings',
           commentRequired: false,
@@ -763,7 +763,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '179461',
-          code: 'SMUGGLED',
+          response: 'SMUGGLED',
           active: true,
           label: 'Smuggled',
           commentRequired: false,
@@ -772,7 +772,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '179459',
-          code: 'NOT KNOWN',
+          response: 'NOT KNOWN',
           active: true,
           label: 'Not known',
           commentRequired: false,
@@ -781,7 +781,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '179460',
-          code: 'OTHER',
+          response: 'OTHER',
           active: true,
           label: 'Other',
           commentRequired: true,
@@ -799,7 +799,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '179536',
-          code: 'INSIDE',
+          response: 'INSIDE',
           active: true,
           label: 'Inside',
           commentRequired: false,
@@ -808,7 +808,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '179537',
-          code: 'OUTSIDE',
+          response: 'OUTSIDE',
           active: true,
           label: 'Outside',
           commentRequired: false,
@@ -826,7 +826,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '179543',
-          code: 'HACKSAW BLADE',
+          response: 'HACKSAW BLADE',
           active: true,
           label: 'Hacksaw blade',
           commentRequired: false,
@@ -835,7 +835,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '179546',
-          code: 'OTHER BLADE',
+          response: 'OTHER BLADE',
           active: true,
           label: 'Other blade',
           commentRequired: false,
@@ -844,7 +844,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '179548',
-          code: 'WIRE CUTTERS',
+          response: 'WIRE CUTTERS',
           active: true,
           label: 'Wire cutters',
           commentRequired: false,
@@ -853,7 +853,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '179540',
-          code: 'BOLT CROPPERS',
+          response: 'BOLT CROPPERS',
           active: true,
           label: 'Bolt croppers',
           commentRequired: false,
@@ -862,7 +862,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '179542',
-          code: 'DIGGING TOOL',
+          response: 'DIGGING TOOL',
           active: true,
           label: 'Digging tool',
           commentRequired: false,
@@ -871,7 +871,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '179541',
-          code: 'CROW BAR',
+          response: 'CROW BAR',
           active: true,
           label: 'Crow bar',
           commentRequired: false,
@@ -880,7 +880,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '179544',
-          code: 'IMPROVISED TOOL',
+          response: 'IMPROVISED TOOL',
           active: true,
           label: 'Improvised tool',
           commentRequired: false,
@@ -889,7 +889,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '179547',
-          code: 'OTHER TOOL',
+          response: 'OTHER TOOL',
           active: true,
           label: 'Other tool',
           commentRequired: true,
@@ -898,7 +898,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '179545',
-          code: 'NOT KNOWN',
+          response: 'NOT KNOWN',
           active: true,
           label: 'Not known',
           commentRequired: false,
@@ -916,7 +916,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '179560',
-          code: 'YES',
+          response: 'YES',
           active: true,
           label: 'Yes',
           commentRequired: false,
@@ -925,7 +925,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '179561',
-          code: 'NO',
+          response: 'NO',
           active: true,
           label: 'No',
           commentRequired: false,
@@ -943,7 +943,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '179608',
-          code: 'YES',
+          response: 'YES',
           active: true,
           label: 'Yes',
           commentRequired: false,
@@ -952,7 +952,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '179609',
-          code: 'NO',
+          response: 'NO',
           active: true,
           label: 'No',
           commentRequired: false,
@@ -970,7 +970,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '179642',
-          code: 'YES',
+          response: 'YES',
           active: true,
           label: 'Yes',
           commentRequired: false,
@@ -979,7 +979,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '179643',
-          code: 'NO',
+          response: 'NO',
           active: true,
           label: 'No',
           commentRequired: false,
@@ -997,7 +997,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '179644',
-          code: 'ANOTHER CELL',
+          response: 'ANOTHER CELL',
           active: true,
           label: 'Another cell',
           commentRequired: false,
@@ -1006,7 +1006,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '179650',
-          code: 'RECESS/SHOWERS',
+          response: 'RECESS/SHOWERS',
           active: true,
           label: 'Recess/showers',
           commentRequired: false,
@@ -1015,7 +1015,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '179652',
-          code: 'STORE ROOM',
+          response: 'STORE ROOM',
           active: true,
           label: 'Store room',
           commentRequired: false,
@@ -1024,7 +1024,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '179645',
-          code: 'ASSOCIATION AREA',
+          response: 'ASSOCIATION AREA',
           active: true,
           label: 'Association area',
           commentRequired: false,
@@ -1033,7 +1033,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '179649',
-          code: 'OFFICE',
+          response: 'OFFICE',
           active: true,
           label: 'Office',
           commentRequired: false,
@@ -1042,7 +1042,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '179647',
-          code: 'CANTEEN',
+          response: 'CANTEEN',
           active: true,
           label: 'Canteen',
           commentRequired: false,
@@ -1051,7 +1051,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '179648',
-          code: 'KITCHEN/SERVERY',
+          response: 'KITCHEN/SERVERY',
           active: true,
           label: 'Kitchen/servery',
           commentRequired: false,
@@ -1060,7 +1060,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '179651',
-          code: 'ROOF SPACE',
+          response: 'ROOF SPACE',
           active: true,
           label: 'Roof space',
           commentRequired: false,
@@ -1069,7 +1069,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '179646',
-          code: 'BASEMENT',
+          response: 'BASEMENT',
           active: true,
           label: 'Basement',
           commentRequired: false,
@@ -1078,7 +1078,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '3921',
-          code: 'OTHER',
+          response: 'OTHER',
           active: true,
           label: 'Other',
           commentRequired: true,
@@ -1096,7 +1096,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '179666',
-          code: 'GOVERNOR',
+          response: 'GOVERNOR',
           active: true,
           label: 'Governor',
           commentRequired: false,
@@ -1105,7 +1105,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '179664',
-          code: 'DEPUTY GOVERNOR',
+          response: 'DEPUTY GOVERNOR',
           active: true,
           label: 'Deputy governor',
           commentRequired: false,
@@ -1114,7 +1114,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '179665',
-          code: 'DUTY GOVERNOR',
+          response: 'DUTY GOVERNOR',
           active: true,
           label: 'Duty governor',
           commentRequired: false,
@@ -1123,7 +1123,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '179667',
-          code: 'OTHER',
+          response: 'OTHER',
           active: true,
           label: 'Other',
           commentRequired: true,
@@ -1141,7 +1141,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '179676',
-          code: 'STAFF INTERVENTION',
+          response: 'STAFF INTERVENTION',
           active: true,
           label: 'Staff intervention',
           commentRequired: false,
@@ -1150,7 +1150,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '179674',
-          code: 'PRISONER ABANDONED ATTEMPT',
+          response: 'PRISONER ABANDONED ATTEMPT',
           active: true,
           label: 'Prisoner abandoned attempt',
           commentRequired: false,
@@ -1159,7 +1159,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '179675',
-          code: 'PRISONER INJURED',
+          response: 'PRISONER INJURED',
           active: true,
           label: 'Prisoner injured',
           commentRequired: false,
@@ -1168,7 +1168,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '179673',
-          code: 'PHYSICAL BARRIER',
+          response: 'PHYSICAL BARRIER',
           active: true,
           label: 'Physical barrier',
           commentRequired: false,
@@ -1186,7 +1186,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '179681',
-          code: 'YES',
+          response: 'YES',
           active: true,
           label: 'Yes',
           commentRequired: false,
@@ -1195,7 +1195,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '179682',
-          code: 'NO',
+          response: 'NO',
           active: true,
           label: 'No',
           commentRequired: false,
@@ -1213,7 +1213,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '179695',
-          code: 'WORKS DEPARTMENT',
+          response: 'WORKS DEPARTMENT',
           active: true,
           label: 'Works department',
           commentRequired: false,
@@ -1222,7 +1222,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '179684',
-          code: 'CONTRACTORS',
+          response: 'CONTRACTORS',
           active: true,
           label: 'Contractors',
           commentRequired: false,
@@ -1231,7 +1231,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '179685',
-          code: 'EDUCATION',
+          response: 'EDUCATION',
           active: true,
           label: 'Education',
           commentRequired: false,
@@ -1240,7 +1240,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '179688',
-          code: 'HEALTH CARE CENTRE',
+          response: 'HEALTH CARE CENTRE',
           active: true,
           label: 'Health care centre',
           commentRequired: false,
@@ -1249,7 +1249,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '179686',
-          code: 'FARMS AND GARDENS',
+          response: 'FARMS AND GARDENS',
           active: true,
           label: 'Farms and gardens',
           commentRequired: false,
@@ -1258,7 +1258,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '179687',
-          code: 'GYMNASIUM/SPORTS FIELD',
+          response: 'GYMNASIUM/SPORTS FIELD',
           active: true,
           label: 'Gymnasium/sports field',
           commentRequired: false,
@@ -1267,7 +1267,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '179696',
-          code: 'WORKSHOPS',
+          response: 'WORKSHOPS',
           active: true,
           label: 'Workshops',
           commentRequired: false,
@@ -1276,7 +1276,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '179690',
-          code: 'KITCHEN',
+          response: 'KITCHEN',
           active: true,
           label: 'Kitchen',
           commentRequired: false,
@@ -1285,7 +1285,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '179689',
-          code: 'HOBBIES',
+          response: 'HOBBIES',
           active: true,
           label: 'Hobbies',
           commentRequired: false,
@@ -1294,7 +1294,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '179683',
-          code: 'CELL FURNISHINGS',
+          response: 'CELL FURNISHINGS',
           active: true,
           label: 'Cell furnishings',
           commentRequired: false,
@@ -1303,7 +1303,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '179694',
-          code: 'WING/HOUSEBLOCK FURNISHINGS',
+          response: 'WING/HOUSEBLOCK FURNISHINGS',
           active: true,
           label: 'Wing/houseblock furnishings',
           commentRequired: false,
@@ -1312,7 +1312,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '179693',
-          code: 'SMUGGLED',
+          response: 'SMUGGLED',
           active: true,
           label: 'Smuggled',
           commentRequired: false,
@@ -1321,7 +1321,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '179691',
-          code: 'NOT KNOWN',
+          response: 'NOT KNOWN',
           active: true,
           label: 'Not known',
           commentRequired: false,
@@ -1330,7 +1330,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '179692',
-          code: 'OTHER',
+          response: 'OTHER',
           active: true,
           label: 'Other',
           commentRequired: true,
@@ -1348,7 +1348,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '179736',
-          code: 'THROUGH THE CLADDING',
+          response: 'THROUGH THE CLADDING',
           active: true,
           label: 'Through the cladding',
           commentRequired: false,
@@ -1357,7 +1357,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '179734',
-          code: 'ABOVE THE CLADDING',
+          response: 'ABOVE THE CLADDING',
           active: true,
           label: 'Above the cladding',
           commentRequired: false,
@@ -1366,7 +1366,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '179735',
-          code: 'BELOW THE CLADDING',
+          response: 'BELOW THE CLADDING',
           active: true,
           label: 'Below the cladding',
           commentRequired: false,
@@ -1384,7 +1384,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '179930',
-          code: 'ENTER COMMENT AND DATE',
+          response: 'ENTER COMMENT AND DATE',
           active: true,
           label: 'Enter comment and date',
           commentRequired: true,
@@ -1402,7 +1402,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '179947',
-          code: 'HACKSAW BLADE',
+          response: 'HACKSAW BLADE',
           active: true,
           label: 'Hacksaw blade',
           commentRequired: false,
@@ -1411,7 +1411,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '179950',
-          code: 'OTHER BLADE',
+          response: 'OTHER BLADE',
           active: true,
           label: 'Other blade',
           commentRequired: false,
@@ -1420,7 +1420,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '179952',
-          code: 'WIRE CUTTERS',
+          response: 'WIRE CUTTERS',
           active: true,
           label: 'Wire cutters',
           commentRequired: false,
@@ -1429,7 +1429,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '179944',
-          code: 'BOLT CROPPERS',
+          response: 'BOLT CROPPERS',
           active: true,
           label: 'Bolt croppers',
           commentRequired: false,
@@ -1438,7 +1438,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '179946',
-          code: 'DIGGING TOOL',
+          response: 'DIGGING TOOL',
           active: true,
           label: 'Digging tool',
           commentRequired: false,
@@ -1447,7 +1447,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '179945',
-          code: 'CROW BAR',
+          response: 'CROW BAR',
           active: true,
           label: 'Crow bar',
           commentRequired: false,
@@ -1456,7 +1456,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '179948',
-          code: 'IMPROVISED TOOL',
+          response: 'IMPROVISED TOOL',
           active: true,
           label: 'Improvised tool',
           commentRequired: false,
@@ -1465,7 +1465,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '179951',
-          code: 'OTHER TOOL',
+          response: 'OTHER TOOL',
           active: true,
           label: 'Other tool',
           commentRequired: true,
@@ -1474,7 +1474,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '179949',
-          code: 'NOT KNOWN',
+          response: 'NOT KNOWN',
           active: true,
           label: 'Not known',
           commentRequired: false,
@@ -1492,7 +1492,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '179953',
-          code: 'YES',
+          response: 'YES',
           active: true,
           label: 'Yes',
           commentRequired: false,
@@ -1501,7 +1501,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '179954',
-          code: 'NO',
+          response: 'NO',
           active: true,
           label: 'No',
           commentRequired: false,
@@ -1519,7 +1519,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '179971',
-          code: 'WORKS DEPARTMENT',
+          response: 'WORKS DEPARTMENT',
           active: true,
           label: 'Works department',
           commentRequired: false,
@@ -1528,7 +1528,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '179961',
-          code: 'CONTRACTORS',
+          response: 'CONTRACTORS',
           active: true,
           label: 'Contractors',
           commentRequired: false,
@@ -1537,7 +1537,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '179962',
-          code: 'EDUCATION',
+          response: 'EDUCATION',
           active: true,
           label: 'Education',
           commentRequired: false,
@@ -1546,7 +1546,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '179965',
-          code: 'HEALTH CARE CENTRE',
+          response: 'HEALTH CARE CENTRE',
           active: true,
           label: 'Health care centre',
           commentRequired: false,
@@ -1555,7 +1555,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '179963',
-          code: 'FARMS AND GARDENS',
+          response: 'FARMS AND GARDENS',
           active: true,
           label: 'Farms and gardens',
           commentRequired: false,
@@ -1564,7 +1564,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '179964',
-          code: 'GYMNASIUM/SPORTS FIELD',
+          response: 'GYMNASIUM/SPORTS FIELD',
           active: true,
           label: 'Gymnasium/sports field',
           commentRequired: false,
@@ -1573,7 +1573,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '179972',
-          code: 'WORKSHOPS',
+          response: 'WORKSHOPS',
           active: true,
           label: 'Workshops',
           commentRequired: false,
@@ -1582,7 +1582,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '179967',
-          code: 'KITCHEN',
+          response: 'KITCHEN',
           active: true,
           label: 'Kitchen',
           commentRequired: false,
@@ -1591,7 +1591,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '179966',
-          code: 'HOBBIES',
+          response: 'HOBBIES',
           active: true,
           label: 'Hobbies',
           commentRequired: false,
@@ -1600,7 +1600,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '179960',
-          code: 'CELL FURNISHINGS',
+          response: 'CELL FURNISHINGS',
           active: true,
           label: 'Cell furnishings',
           commentRequired: false,
@@ -1609,7 +1609,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '179970',
-          code: 'WING/HOUSEBLOCK FURNISHINGS',
+          response: 'WING/HOUSEBLOCK FURNISHINGS',
           active: true,
           label: 'Wing/houseblock furnishings',
           commentRequired: false,
@@ -1618,7 +1618,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '179969',
-          code: 'SMUGGLED',
+          response: 'SMUGGLED',
           active: true,
           label: 'Smuggled',
           commentRequired: false,
@@ -1627,7 +1627,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '179968',
-          code: 'NOT KNOWN',
+          response: 'NOT KNOWN',
           active: true,
           label: 'Not known',
           commentRequired: false,
@@ -1645,7 +1645,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '179977',
-          code: 'YES',
+          response: 'YES',
           active: true,
           label: 'Yes',
           commentRequired: false,
@@ -1654,7 +1654,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '179978',
-          code: 'NO',
+          response: 'NO',
           active: true,
           label: 'No',
           commentRequired: false,
@@ -1672,7 +1672,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '179986',
-          code: 'ANOTHER PRISONER',
+          response: 'ANOTHER PRISONER',
           active: true,
           label: 'Another prisoner',
           commentRequired: false,
@@ -1681,7 +1681,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '179985',
-          code: 'A VISITOR (ENTER IDENTITY IF KNOWN)',
+          response: 'A VISITOR (ENTER IDENTITY IF KNOWN)',
           active: true,
           label: 'A visitor (enter identity if known)',
           commentRequired: true,
@@ -1699,7 +1699,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '180104',
-          code: 'WORKS DEPARTMENT',
+          response: 'WORKS DEPARTMENT',
           active: true,
           label: 'Works department',
           commentRequired: false,
@@ -1708,7 +1708,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '180093',
-          code: 'CONTRACTORS',
+          response: 'CONTRACTORS',
           active: true,
           label: 'Contractors',
           commentRequired: false,
@@ -1717,7 +1717,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '180094',
-          code: 'EDUCATION',
+          response: 'EDUCATION',
           active: true,
           label: 'Education',
           commentRequired: false,
@@ -1726,7 +1726,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '180097',
-          code: 'HEALTH CARE CENTRE',
+          response: 'HEALTH CARE CENTRE',
           active: true,
           label: 'Health care centre',
           commentRequired: false,
@@ -1735,7 +1735,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '180095',
-          code: 'FARMS AND GARDENS',
+          response: 'FARMS AND GARDENS',
           active: true,
           label: 'Farms and gardens',
           commentRequired: false,
@@ -1744,7 +1744,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '180096',
-          code: 'GYMNASIUM/SPORTS FIELD',
+          response: 'GYMNASIUM/SPORTS FIELD',
           active: true,
           label: 'Gymnasium/sports field',
           commentRequired: false,
@@ -1753,7 +1753,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '180105',
-          code: 'WORKSHOPS',
+          response: 'WORKSHOPS',
           active: true,
           label: 'Workshops',
           commentRequired: false,
@@ -1762,7 +1762,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '180099',
-          code: 'KITCHEN',
+          response: 'KITCHEN',
           active: true,
           label: 'Kitchen',
           commentRequired: false,
@@ -1771,7 +1771,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '180098',
-          code: 'HOBBIES',
+          response: 'HOBBIES',
           active: true,
           label: 'Hobbies',
           commentRequired: false,
@@ -1780,7 +1780,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '180092',
-          code: 'CELL FURNISHINGS',
+          response: 'CELL FURNISHINGS',
           active: true,
           label: 'Cell furnishings',
           commentRequired: false,
@@ -1789,7 +1789,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '180103',
-          code: 'WING/HOUSEBLOCK FURNISHINGS',
+          response: 'WING/HOUSEBLOCK FURNISHINGS',
           active: true,
           label: 'Wing/houseblock furnishings',
           commentRequired: false,
@@ -1798,7 +1798,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '180102',
-          code: 'SMUGGLED',
+          response: 'SMUGGLED',
           active: true,
           label: 'Smuggled',
           commentRequired: false,
@@ -1807,7 +1807,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '180100',
-          code: 'NOT KNOWN',
+          response: 'NOT KNOWN',
           active: true,
           label: 'Not known',
           commentRequired: false,
@@ -1816,7 +1816,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '180101',
-          code: 'OTHER',
+          response: 'OTHER',
           active: true,
           label: 'Other',
           commentRequired: true,
@@ -1834,7 +1834,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '180149',
-          code: 'WORKS DEPARTMENT',
+          response: 'WORKS DEPARTMENT',
           active: true,
           label: 'Works department',
           commentRequired: false,
@@ -1843,7 +1843,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '180139',
-          code: 'CONTRACTORS',
+          response: 'CONTRACTORS',
           active: true,
           label: 'Contractors',
           commentRequired: false,
@@ -1852,7 +1852,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '180140',
-          code: 'EDUCATION',
+          response: 'EDUCATION',
           active: true,
           label: 'Education',
           commentRequired: false,
@@ -1861,7 +1861,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '180143',
-          code: 'HEALTH CARE CENTRE',
+          response: 'HEALTH CARE CENTRE',
           active: true,
           label: 'Health care centre',
           commentRequired: false,
@@ -1870,7 +1870,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '180141',
-          code: 'FARMS AND GARDENS',
+          response: 'FARMS AND GARDENS',
           active: true,
           label: 'Farms and gardens',
           commentRequired: false,
@@ -1879,7 +1879,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '180142',
-          code: 'GYMNASIUM/SPORTS FIELD',
+          response: 'GYMNASIUM/SPORTS FIELD',
           active: true,
           label: 'Gymnasium/sports field',
           commentRequired: false,
@@ -1888,7 +1888,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '180150',
-          code: 'WORKSHOPS',
+          response: 'WORKSHOPS',
           active: true,
           label: 'Workshops',
           commentRequired: false,
@@ -1897,7 +1897,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '180145',
-          code: 'KITCHEN',
+          response: 'KITCHEN',
           active: true,
           label: 'Kitchen',
           commentRequired: false,
@@ -1906,7 +1906,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '180144',
-          code: 'HOBBIES',
+          response: 'HOBBIES',
           active: true,
           label: 'Hobbies',
           commentRequired: false,
@@ -1915,7 +1915,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '180138',
-          code: 'CELL FURNISHINGS',
+          response: 'CELL FURNISHINGS',
           active: true,
           label: 'Cell furnishings',
           commentRequired: false,
@@ -1924,7 +1924,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '180148',
-          code: 'WING/HOUSEBLOCK FURNISHINGS',
+          response: 'WING/HOUSEBLOCK FURNISHINGS',
           active: true,
           label: 'Wing/houseblock furnishings',
           commentRequired: false,
@@ -1933,7 +1933,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '180147',
-          code: 'SMUGGLED',
+          response: 'SMUGGLED',
           active: true,
           label: 'Smuggled',
           commentRequired: false,
@@ -1942,7 +1942,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '180146',
-          code: 'NOT KNOWN',
+          response: 'NOT KNOWN',
           active: true,
           label: 'Not known',
           commentRequired: false,
@@ -1951,7 +1951,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '3923',
-          code: 'OTHER',
+          response: 'OTHER',
           active: true,
           label: 'Other',
           commentRequired: true,
@@ -1969,7 +1969,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '180157',
-          code: 'YES',
+          response: 'YES',
           active: true,
           label: 'Yes',
           commentRequired: false,
@@ -1978,7 +1978,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '180156',
-          code: 'NO',
+          response: 'NO',
           active: true,
           label: 'No',
           commentRequired: false,
@@ -1996,7 +1996,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '180191',
-          code: 'PRISON HEALTH CARE CENTRE',
+          response: 'PRISON HEALTH CARE CENTRE',
           active: true,
           label: 'Prison health care centre',
           commentRequired: false,
@@ -2005,7 +2005,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '180190',
-          code: 'OUTSIDE HOSPITAL',
+          response: 'OUTSIDE HOSPITAL',
           active: true,
           label: 'Outside hospital',
           commentRequired: false,
@@ -2023,7 +2023,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '180221',
-          code: 'WORKS DEPARTMENT',
+          response: 'WORKS DEPARTMENT',
           active: true,
           label: 'Works department',
           commentRequired: false,
@@ -2032,7 +2032,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '180210',
-          code: 'CONTRACTORS',
+          response: 'CONTRACTORS',
           active: true,
           label: 'Contractors',
           commentRequired: false,
@@ -2041,7 +2041,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '180211',
-          code: 'EDUCATION',
+          response: 'EDUCATION',
           active: true,
           label: 'Education',
           commentRequired: false,
@@ -2050,7 +2050,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '180214',
-          code: 'HEALTH CARE CENTRE',
+          response: 'HEALTH CARE CENTRE',
           active: true,
           label: 'Health care centre',
           commentRequired: false,
@@ -2059,7 +2059,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '180212',
-          code: 'FARMS AND GARDENS',
+          response: 'FARMS AND GARDENS',
           active: true,
           label: 'Farms and gardens',
           commentRequired: false,
@@ -2068,7 +2068,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '180213',
-          code: 'GYMNASIUM/SPORTS FIELD',
+          response: 'GYMNASIUM/SPORTS FIELD',
           active: true,
           label: 'Gymnasium/sports field',
           commentRequired: false,
@@ -2077,7 +2077,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '180222',
-          code: 'WORKSHOPS',
+          response: 'WORKSHOPS',
           active: true,
           label: 'Workshops',
           commentRequired: false,
@@ -2086,7 +2086,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '180216',
-          code: 'KITCHEN',
+          response: 'KITCHEN',
           active: true,
           label: 'Kitchen',
           commentRequired: false,
@@ -2095,7 +2095,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '180215',
-          code: 'HOBBIES',
+          response: 'HOBBIES',
           active: true,
           label: 'Hobbies',
           commentRequired: false,
@@ -2104,7 +2104,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '180209',
-          code: 'CELL FURNISHINGS',
+          response: 'CELL FURNISHINGS',
           active: true,
           label: 'Cell furnishings',
           commentRequired: false,
@@ -2113,7 +2113,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '180220',
-          code: 'WING/HOUSEBLOCK FURNISHINGS',
+          response: 'WING/HOUSEBLOCK FURNISHINGS',
           active: true,
           label: 'Wing/houseblock furnishings',
           commentRequired: false,
@@ -2122,7 +2122,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '180219',
-          code: 'SMUGGLED',
+          response: 'SMUGGLED',
           active: true,
           label: 'Smuggled',
           commentRequired: false,
@@ -2131,7 +2131,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '180217',
-          code: 'NOT KNOWN',
+          response: 'NOT KNOWN',
           active: true,
           label: 'Not known',
           commentRequired: false,
@@ -2140,7 +2140,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '180218',
-          code: 'OTHER',
+          response: 'OTHER',
           active: true,
           label: 'Other',
           commentRequired: true,
@@ -2158,7 +2158,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '180242',
-          code: 'SINGLE',
+          response: 'SINGLE',
           active: true,
           label: 'Single',
           commentRequired: false,
@@ -2167,7 +2167,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '180241',
-          code: 'MULTIPLE OCCUPANCY (ENTER CAPACITY)',
+          response: 'MULTIPLE OCCUPANCY (ENTER CAPACITY)',
           active: true,
           label: 'Multiple occupancy (enter capacity)',
           commentRequired: true,
@@ -2185,7 +2185,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '180272',
-          code: 'UV HAND STAMP',
+          response: 'UV HAND STAMP',
           active: true,
           label: 'UV hand stamp',
           commentRequired: false,
@@ -2194,7 +2194,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '180268',
-          code: 'HAND GEOMETRY',
+          response: 'HAND GEOMETRY',
           active: true,
           label: 'Hand geometry',
           commentRequired: false,
@@ -2203,7 +2203,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '180270',
-          code: 'PHOTOGRAPHIC RECORD',
+          response: 'PHOTOGRAPHIC RECORD',
           active: true,
           label: 'Photographic record',
           commentRequired: false,
@@ -2212,7 +2212,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '180269',
-          code: 'IDENTIFYING CLOTHING',
+          response: 'IDENTIFYING CLOTHING',
           active: true,
           label: 'Identifying clothing',
           commentRequired: false,
@@ -2221,7 +2221,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '180271',
-          code: 'STAFF SUPERVISION',
+          response: 'STAFF SUPERVISION',
           active: true,
           label: 'Staff supervision',
           commentRequired: false,
@@ -2230,7 +2230,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '3922',
-          code: 'OTHER',
+          response: 'OTHER',
           active: true,
           label: 'Other',
           commentRequired: true,
@@ -2248,7 +2248,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '180295',
-          code: 'HACKSAW BLADE',
+          response: 'HACKSAW BLADE',
           active: true,
           label: 'Hacksaw blade',
           commentRequired: false,
@@ -2257,7 +2257,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '180298',
-          code: 'OTHER BLADE',
+          response: 'OTHER BLADE',
           active: true,
           label: 'Other blade',
           commentRequired: false,
@@ -2266,7 +2266,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '180300',
-          code: 'WIRE CUTTERS',
+          response: 'WIRE CUTTERS',
           active: true,
           label: 'Wire cutters',
           commentRequired: false,
@@ -2275,7 +2275,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '180292',
-          code: 'BOLT CROPPERS',
+          response: 'BOLT CROPPERS',
           active: true,
           label: 'Bolt croppers',
           commentRequired: false,
@@ -2284,7 +2284,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '180294',
-          code: 'DIGGING TOOL',
+          response: 'DIGGING TOOL',
           active: true,
           label: 'Digging tool',
           commentRequired: false,
@@ -2293,7 +2293,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '180293',
-          code: 'CROW BAR',
+          response: 'CROW BAR',
           active: true,
           label: 'Crow bar',
           commentRequired: false,
@@ -2302,7 +2302,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '180296',
-          code: 'IMPROVISED TOOL',
+          response: 'IMPROVISED TOOL',
           active: true,
           label: 'Improvised tool',
           commentRequired: false,
@@ -2311,7 +2311,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '180299',
-          code: 'OTHER TOOL',
+          response: 'OTHER TOOL',
           active: true,
           label: 'Other tool',
           commentRequired: true,
@@ -2320,7 +2320,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '180297',
-          code: 'NOT KNOWN',
+          response: 'NOT KNOWN',
           active: true,
           label: 'Not known',
           commentRequired: false,
@@ -2338,7 +2338,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '180336',
-          code: 'YES',
+          response: 'YES',
           active: true,
           label: 'Yes',
           commentRequired: false,
@@ -2347,7 +2347,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '180337',
-          code: 'NO',
+          response: 'NO',
           active: true,
           label: 'No',
           commentRequired: false,
@@ -2365,7 +2365,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '180419',
-          code: 'ENTER AMOUNT IN POUND STERLING',
+          response: 'ENTER AMOUNT IN POUND STERLING',
           active: true,
           label: 'Enter amount in pound sterling',
           commentRequired: true,
@@ -2383,7 +2383,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '180420',
-          code: 'YES',
+          response: 'YES',
           active: true,
           label: 'Yes',
           commentRequired: false,
@@ -2392,7 +2392,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '180421',
-          code: 'NO',
+          response: 'NO',
           active: true,
           label: 'No',
           commentRequired: false,
@@ -2410,7 +2410,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '180433',
-          code: 'DESCRIPTION',
+          response: 'DESCRIPTION',
           active: true,
           label: 'Description',
           commentRequired: true,
@@ -2428,7 +2428,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '180444',
-          code: 'FIREARM',
+          response: 'FIREARM',
           active: true,
           label: 'Firearm',
           commentRequired: false,
@@ -2437,7 +2437,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '180441',
-          code: 'CHEMICAL INCAPACITANT',
+          response: 'CHEMICAL INCAPACITANT',
           active: true,
           label: 'Chemical incapacitant',
           commentRequired: false,
@@ -2446,7 +2446,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '180446',
-          code: 'KNIFE/BLADE',
+          response: 'KNIFE/BLADE',
           active: true,
           label: 'Knife/blade',
           commentRequired: false,
@@ -2455,7 +2455,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '180449',
-          code: 'OTHER SHARP INSTRUMENT',
+          response: 'OTHER SHARP INSTRUMENT',
           active: true,
           label: 'Other sharp instrument',
           commentRequired: false,
@@ -2464,7 +2464,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '180440',
-          code: 'BLUNT INSTRUMENT',
+          response: 'BLUNT INSTRUMENT',
           active: true,
           label: 'Blunt instrument',
           commentRequired: false,
@@ -2473,7 +2473,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '180447',
-          code: 'LIGATURE',
+          response: 'LIGATURE',
           active: true,
           label: 'Ligature',
           commentRequired: false,
@@ -2482,7 +2482,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '180442',
-          code: 'DANGEROUS LIQUID',
+          response: 'DANGEROUS LIQUID',
           active: true,
           label: 'Dangerous liquid',
           commentRequired: false,
@@ -2491,7 +2491,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '180443',
-          code: 'EXCRETA/URINE',
+          response: 'EXCRETA/URINE',
           active: true,
           label: 'Excreta/urine',
           commentRequired: false,
@@ -2500,7 +2500,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '180450',
-          code: 'SPITTING',
+          response: 'SPITTING',
           active: true,
           label: 'Spitting',
           commentRequired: false,
@@ -2509,7 +2509,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '180445',
-          code: 'FOOD',
+          response: 'FOOD',
           active: true,
           label: 'Food',
           commentRequired: false,
@@ -2518,7 +2518,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '180452',
-          code: 'THROWN FURNITURE',
+          response: 'THROWN FURNITURE',
           active: true,
           label: 'Thrown furniture',
           commentRequired: false,
@@ -2527,7 +2527,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '180451',
-          code: 'THROWN EQUIPMENT',
+          response: 'THROWN EQUIPMENT',
           active: true,
           label: 'Thrown equipment',
           commentRequired: false,
@@ -2536,7 +2536,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '180448',
-          code: 'OTHER',
+          response: 'OTHER',
           active: true,
           label: 'Other',
           commentRequired: true,
@@ -2554,7 +2554,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '180500',
-          code: 'YES',
+          response: 'YES',
           active: true,
           label: 'Yes',
           commentRequired: false,
@@ -2563,7 +2563,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '180501',
-          code: 'NO',
+          response: 'NO',
           active: true,
           label: 'No',
           commentRequired: false,
@@ -2581,7 +2581,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '180524',
-          code: 'YES',
+          response: 'YES',
           active: true,
           label: 'Yes',
           commentRequired: false,
@@ -2590,7 +2590,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '180525',
-          code: 'NO',
+          response: 'NO',
           active: true,
           label: 'No',
           commentRequired: false,
@@ -2608,7 +2608,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '180545',
-          code: 'YES',
+          response: 'YES',
           active: true,
           label: 'Yes',
           commentRequired: false,
@@ -2617,7 +2617,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '180546',
-          code: 'NO',
+          response: 'NO',
           active: true,
           label: 'No',
           commentRequired: false,
@@ -2635,7 +2635,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '180558',
-          code: 'YES',
+          response: 'YES',
           active: true,
           label: 'Yes',
           commentRequired: false,
@@ -2644,7 +2644,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '180559',
-          code: 'NO',
+          response: 'NO',
           active: true,
           label: 'No',
           commentRequired: false,
@@ -2662,7 +2662,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '180572',
-          code: 'SPORTS FIELD',
+          response: 'SPORTS FIELD',
           active: true,
           label: 'Sports field',
           commentRequired: false,
@@ -2671,7 +2671,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '180573',
-          code: 'CELL (ENTER LOCATION)',
+          response: 'CELL (ENTER LOCATION)',
           active: true,
           label: 'Cell (enter location)',
           commentRequired: true,
@@ -2680,7 +2680,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '180574',
-          code: 'VISITS',
+          response: 'VISITS',
           active: true,
           label: 'Visits',
           commentRequired: false,
@@ -2689,7 +2689,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '180588',
-          code: 'WING/HOUSEBLOCK',
+          response: 'WING/HOUSEBLOCK',
           active: true,
           label: 'Wing/houseblock',
           commentRequired: false,
@@ -2698,7 +2698,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '180577',
-          code: 'DORMITORY',
+          response: 'DORMITORY',
           active: true,
           label: 'Dormitory',
           commentRequired: false,
@@ -2707,7 +2707,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '180583',
-          code: 'HEALTH CARE CENTRE',
+          response: 'HEALTH CARE CENTRE',
           active: true,
           label: 'Health care centre',
           commentRequired: false,
@@ -2716,7 +2716,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '180576',
-          code: 'CHAPEL',
+          response: 'CHAPEL',
           active: true,
           label: 'Chapel',
           commentRequired: false,
@@ -2725,7 +2725,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '180584',
-          code: 'KITCHEN',
+          response: 'KITCHEN',
           active: true,
           label: 'Kitchen',
           commentRequired: false,
@@ -2734,7 +2734,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '180578',
-          code: 'EDUCATION/LIBRARY',
+          response: 'EDUCATION/LIBRARY',
           active: true,
           label: 'Education/library',
           commentRequired: false,
@@ -2743,7 +2743,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '180590',
-          code: 'WORKSHOP',
+          response: 'WORKSHOP',
           active: true,
           label: 'Workshop',
           commentRequired: false,
@@ -2752,7 +2752,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '180587',
-          code: 'STORES',
+          response: 'STORES',
           active: true,
           label: 'Stores',
           commentRequired: false,
@@ -2761,7 +2761,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '180575',
-          code: 'ADMINISTRATION',
+          response: 'ADMINISTRATION',
           active: true,
           label: 'Administration',
           commentRequired: false,
@@ -2770,7 +2770,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '180582',
-          code: 'GYMNASIUM',
+          response: 'GYMNASIUM',
           active: true,
           label: 'Gymnasium',
           commentRequired: false,
@@ -2779,7 +2779,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '180586',
-          code: 'RECEPTION',
+          response: 'RECEPTION',
           active: true,
           label: 'Reception',
           commentRequired: false,
@@ -2788,7 +2788,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '180589',
-          code: 'WORKS DEPARTMENT',
+          response: 'WORKS DEPARTMENT',
           active: true,
           label: 'Works department',
           commentRequired: false,
@@ -2797,7 +2797,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '180579',
-          code: 'EXERCISE YARD',
+          response: 'EXERCISE YARD',
           active: true,
           label: 'Exercise yard',
           commentRequired: false,
@@ -2806,7 +2806,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '180585',
-          code: 'OTHER SECURE AREA',
+          response: 'OTHER SECURE AREA',
           active: true,
           label: 'Other secure area',
           commentRequired: true,
@@ -2815,7 +2815,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '180581',
-          code: 'GROUNDS WITH NO ACCESS TO EXTERNAL PERIMITER',
+          response: 'GROUNDS WITH NO ACCESS TO EXTERNAL PERIMITER',
           active: true,
           label: 'Grounds with no access to external perimeter',
           commentRequired: false,
@@ -2824,7 +2824,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '180580',
-          code: 'GROUNDS WITH ACCESS TO EXTERNAL PERIMITER',
+          response: 'GROUNDS WITH ACCESS TO EXTERNAL PERIMITER',
           active: true,
           label: 'Grounds with access to external perimeter',
           commentRequired: false,
@@ -2842,7 +2842,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '180591',
-          code: 'YES',
+          response: 'YES',
           active: true,
           label: 'Yes',
           commentRequired: true,
@@ -2851,7 +2851,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '180592',
-          code: 'NO',
+          response: 'NO',
           active: true,
           label: 'No',
           commentRequired: false,
@@ -2869,7 +2869,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '180595',
-          code: 'YES',
+          response: 'YES',
           active: true,
           label: 'Yes',
           commentRequired: false,
@@ -2878,7 +2878,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '180596',
-          code: 'NO',
+          response: 'NO',
           active: true,
           label: 'No',
           commentRequired: false,
@@ -2896,7 +2896,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '180647',
-          code: 'HACKSAW BLADE',
+          response: 'HACKSAW BLADE',
           active: true,
           label: 'Hacksaw blade',
           commentRequired: false,
@@ -2905,7 +2905,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '180650',
-          code: 'OTHER BLADE',
+          response: 'OTHER BLADE',
           active: true,
           label: 'Other blade',
           commentRequired: false,
@@ -2914,7 +2914,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '180652',
-          code: 'WIRE CUTTERS',
+          response: 'WIRE CUTTERS',
           active: true,
           label: 'Wire cutters',
           commentRequired: false,
@@ -2923,7 +2923,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '180644',
-          code: 'BOLT CROPPERS',
+          response: 'BOLT CROPPERS',
           active: true,
           label: 'Bolt croppers',
           commentRequired: false,
@@ -2932,7 +2932,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '180646',
-          code: 'DIGGING TOOL',
+          response: 'DIGGING TOOL',
           active: true,
           label: 'Digging tool',
           commentRequired: false,
@@ -2941,7 +2941,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '180645',
-          code: 'CROW BAR',
+          response: 'CROW BAR',
           active: true,
           label: 'Crow bar',
           commentRequired: false,
@@ -2950,7 +2950,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '180648',
-          code: 'IMPROVISED TOOL',
+          response: 'IMPROVISED TOOL',
           active: true,
           label: 'Improvised tool',
           commentRequired: false,
@@ -2959,7 +2959,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '180651',
-          code: 'OTHER TOOL',
+          response: 'OTHER TOOL',
           active: true,
           label: 'Other tool',
           commentRequired: true,
@@ -2968,7 +2968,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '180649',
-          code: 'NOT KNOWN',
+          response: 'NOT KNOWN',
           active: true,
           label: 'Not known',
           commentRequired: false,
@@ -2986,7 +2986,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '180695',
-          code: 'ON FOOT',
+          response: 'ON FOOT',
           active: true,
           label: 'On foot',
           commentRequired: false,
@@ -2995,7 +2995,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '180697',
-          code: 'DROVE VEHICLE OUT',
+          response: 'DROVE VEHICLE OUT',
           active: true,
           label: 'Drove vehicle out',
           commentRequired: false,
@@ -3004,7 +3004,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '180696',
-          code: 'CONCEALED IN VEHICLE',
+          response: 'CONCEALED IN VEHICLE',
           active: true,
           label: 'Concealed in vehicle',
           commentRequired: false,
@@ -3022,7 +3022,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '180712',
-          code: 'YES',
+          response: 'YES',
           active: true,
           label: 'Yes',
           commentRequired: false,
@@ -3031,7 +3031,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '180711',
-          code: 'NO',
+          response: 'NO',
           active: true,
           label: 'No',
           commentRequired: false,
@@ -3049,7 +3049,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '180822',
-          code: 'DIGGING THROUGH',
+          response: 'DIGGING THROUGH',
           active: true,
           label: 'Digging through',
           commentRequired: false,
@@ -3058,7 +3058,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '180823',
-          code: 'DIGGING UNDER',
+          response: 'DIGGING UNDER',
           active: true,
           label: 'Digging under',
           commentRequired: false,
@@ -3067,7 +3067,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '180824',
-          code: 'EXPLOSION',
+          response: 'EXPLOSION',
           active: true,
           label: 'Explosion',
           commentRequired: false,
@@ -3076,7 +3076,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '180827',
-          code: 'RAMMED BY VEHICLE',
+          response: 'RAMMED BY VEHICLE',
           active: true,
           label: 'Rammed by vehicle',
           commentRequired: false,
@@ -3085,7 +3085,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '180826',
-          code: 'OTHER',
+          response: 'OTHER',
           active: true,
           label: 'Other',
           commentRequired: true,
@@ -3094,7 +3094,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '180825',
-          code: 'NOT KNOWN',
+          response: 'NOT KNOWN',
           active: true,
           label: 'Not known',
           commentRequired: false,
@@ -3112,7 +3112,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '180833',
-          code: 'LOCAL',
+          response: 'LOCAL',
           active: true,
           label: 'Local',
           commentRequired: false,
@@ -3121,7 +3121,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '180834',
-          code: 'SERVICE SUPPLIER',
+          response: 'SERVICE SUPPLIER',
           active: true,
           label: 'Service supplier',
           commentRequired: false,
@@ -3139,7 +3139,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '180848',
-          code: 'YES',
+          response: 'YES',
           active: true,
           label: 'Yes',
           commentRequired: false,
@@ -3148,7 +3148,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '180849',
-          code: 'NO',
+          response: 'NO',
           active: true,
           label: 'No',
           commentRequired: false,
@@ -3166,7 +3166,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '180857',
-          code: 'YES',
+          response: 'YES',
           active: true,
           label: 'Yes',
           commentRequired: false,
@@ -3175,7 +3175,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '180858',
-          code: 'NO',
+          response: 'NO',
           active: true,
           label: 'No',
           commentRequired: false,
@@ -3193,7 +3193,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '180971',
-          code: 'CLAD',
+          response: 'CLAD',
           active: true,
           label: 'Clad',
           commentRequired: false,
@@ -3202,7 +3202,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '180972',
-          code: 'UNCLAD',
+          response: 'UNCLAD',
           active: true,
           label: 'Unclad',
           commentRequired: false,
@@ -3220,7 +3220,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '180986',
-          code: 'ENTER TIME',
+          response: 'ENTER TIME',
           active: true,
           label: 'Enter time',
           commentRequired: true,
@@ -3238,7 +3238,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '181058',
-          code: 'YES',
+          response: 'YES',
           active: true,
           label: 'Yes',
           commentRequired: false,
@@ -3247,7 +3247,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '181059',
-          code: 'NO',
+          response: 'NO',
           active: true,
           label: 'No',
           commentRequired: false,
@@ -3265,7 +3265,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '181073',
-          code: 'FROM INSIDE',
+          response: 'FROM INSIDE',
           active: true,
           label: 'From inside',
           commentRequired: false,
@@ -3274,7 +3274,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '181074',
-          code: 'FROM OUTSIDE',
+          response: 'FROM OUTSIDE',
           active: true,
           label: 'From outside',
           commentRequired: false,
@@ -3292,7 +3292,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '181097',
-          code: 'YES',
+          response: 'YES',
           active: true,
           label: 'Yes',
           commentRequired: false,
@@ -3301,7 +3301,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '181096',
-          code: 'NO',
+          response: 'NO',
           active: true,
           label: 'No',
           commentRequired: false,
@@ -3319,7 +3319,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '181104',
-          code: 'YES',
+          response: 'YES',
           active: true,
           label: 'Yes',
           commentRequired: false,
@@ -3328,7 +3328,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '181103',
-          code: 'NO',
+          response: 'NO',
           active: true,
           label: 'No',
           commentRequired: false,
@@ -3346,7 +3346,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '181108',
-          code: 'YES',
+          response: 'YES',
           active: true,
           label: 'Yes',
           commentRequired: false,
@@ -3355,7 +3355,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '181109',
-          code: 'NO',
+          response: 'NO',
           active: true,
           label: 'No',
           commentRequired: false,
@@ -3373,7 +3373,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '181123',
-          code: 'YES',
+          response: 'YES',
           active: true,
           label: 'Yes',
           commentRequired: false,
@@ -3382,7 +3382,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '181124',
-          code: 'NO',
+          response: 'NO',
           active: true,
           label: 'No',
           commentRequired: false,
@@ -3400,7 +3400,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '181154',
-          code: 'YES',
+          response: 'YES',
           active: true,
           label: 'Yes',
           commentRequired: false,
@@ -3409,7 +3409,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '181153',
-          code: 'NO',
+          response: 'NO',
           active: true,
           label: 'No',
           commentRequired: false,
@@ -3427,7 +3427,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '181218',
-          code: 'WORKS DEPARTMENT',
+          response: 'WORKS DEPARTMENT',
           active: true,
           label: 'Works department',
           commentRequired: false,
@@ -3436,7 +3436,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '181207',
-          code: 'CONTRACTORS',
+          response: 'CONTRACTORS',
           active: true,
           label: 'Contractors',
           commentRequired: false,
@@ -3445,7 +3445,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '181208',
-          code: 'EDUCATION',
+          response: 'EDUCATION',
           active: true,
           label: 'Education',
           commentRequired: false,
@@ -3454,7 +3454,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '181211',
-          code: 'HEALTH CARE CENTRE',
+          response: 'HEALTH CARE CENTRE',
           active: true,
           label: 'Health care centre',
           commentRequired: false,
@@ -3463,7 +3463,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '181209',
-          code: 'FARMS AND GARDENS',
+          response: 'FARMS AND GARDENS',
           active: true,
           label: 'Farms and gardens',
           commentRequired: false,
@@ -3472,7 +3472,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '181210',
-          code: 'GYMNASIUM/SPORTS FIELD',
+          response: 'GYMNASIUM/SPORTS FIELD',
           active: true,
           label: 'Gymnasium/sports field',
           commentRequired: false,
@@ -3481,7 +3481,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '181219',
-          code: 'WORKSHOPS',
+          response: 'WORKSHOPS',
           active: true,
           label: 'Workshops',
           commentRequired: false,
@@ -3490,7 +3490,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '181213',
-          code: 'KITCHEN',
+          response: 'KITCHEN',
           active: true,
           label: 'Kitchen',
           commentRequired: false,
@@ -3499,7 +3499,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '181212',
-          code: 'HOBBIES',
+          response: 'HOBBIES',
           active: true,
           label: 'Hobbies',
           commentRequired: false,
@@ -3508,7 +3508,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '181206',
-          code: 'CELL FURNISHINGS',
+          response: 'CELL FURNISHINGS',
           active: true,
           label: 'Cell furnishings',
           commentRequired: false,
@@ -3517,7 +3517,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '181217',
-          code: 'WING/HOUSEBLOCK FURNISHINGS',
+          response: 'WING/HOUSEBLOCK FURNISHINGS',
           active: true,
           label: 'Wing/houseblock furnishings',
           commentRequired: false,
@@ -3526,7 +3526,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '181216',
-          code: 'SMUGGLED',
+          response: 'SMUGGLED',
           active: true,
           label: 'Smuggled',
           commentRequired: false,
@@ -3535,7 +3535,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '181214',
-          code: 'NOT KNOWN',
+          response: 'NOT KNOWN',
           active: true,
           label: 'Not known',
           commentRequired: false,
@@ -3544,7 +3544,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '181215',
-          code: 'OTHER',
+          response: 'OTHER',
           active: true,
           label: 'Other',
           commentRequired: true,
@@ -3562,7 +3562,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '181306',
-          code: 'YES',
+          response: 'YES',
           active: true,
           label: 'Yes',
           commentRequired: false,
@@ -3571,7 +3571,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '181307',
-          code: 'NO',
+          response: 'NO',
           active: true,
           label: 'No',
           commentRequired: false,
@@ -3589,7 +3589,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '181351',
-          code: 'LADDER',
+          response: 'LADDER',
           active: true,
           label: 'Ladder',
           commentRequired: false,
@@ -3598,7 +3598,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '181353',
-          code: 'ROPE',
+          response: 'ROPE',
           active: true,
           label: 'Rope',
           commentRequired: false,
@@ -3607,7 +3607,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '181348',
-          code: 'CLIMBING AIDS',
+          response: 'CLIMBING AIDS',
           active: true,
           label: 'Climbing aids',
           commentRequired: false,
@@ -3616,7 +3616,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '181349',
-          code: 'FURNITURE ITEMS',
+          response: 'FURNITURE ITEMS',
           active: true,
           label: 'Furniture items',
           commentRequired: false,
@@ -3625,7 +3625,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '181354',
-          code: 'SPORTS ITEMS',
+          response: 'SPORTS ITEMS',
           active: true,
           label: 'Sports items',
           commentRequired: false,
@@ -3634,7 +3634,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '181350',
-          code: 'GROUNDS ITEMS',
+          response: 'GROUNDS ITEMS',
           active: true,
           label: 'Grounds items',
           commentRequired: false,
@@ -3643,7 +3643,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '181352',
-          code: 'OTHER',
+          response: 'OTHER',
           active: true,
           label: 'Other',
           commentRequired: true,
@@ -3661,7 +3661,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '181361',
-          code: 'MINOR',
+          response: 'MINOR',
           active: true,
           label: 'Minor',
           commentRequired: true,
@@ -3670,7 +3670,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '181362',
-          code: 'SERIOUS',
+          response: 'SERIOUS',
           active: true,
           label: 'Serious',
           commentRequired: true,
@@ -3679,7 +3679,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '181360',
-          code: 'EXTENSIVE',
+          response: 'EXTENSIVE',
           active: true,
           label: 'Extensive',
           commentRequired: true,
@@ -3697,7 +3697,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '181379',
-          code: 'YES',
+          response: 'YES',
           active: true,
           label: 'Yes',
           commentRequired: false,
@@ -3706,7 +3706,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '181380',
-          code: 'NO',
+          response: 'NO',
           active: true,
           label: 'No',
           commentRequired: false,
@@ -3724,7 +3724,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '181443',
-          code: 'YES (ENTER DATE)',
+          response: 'YES (ENTER DATE)',
           active: true,
           label: 'Yes (enter date)',
           commentRequired: false,
@@ -3733,7 +3733,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '181444',
-          code: 'NO',
+          response: 'NO',
           active: true,
           label: 'No',
           commentRequired: false,
@@ -3751,7 +3751,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '181469',
-          code: 'WORKS DEPARTMENT',
+          response: 'WORKS DEPARTMENT',
           active: true,
           label: 'Works department',
           commentRequired: false,
@@ -3760,7 +3760,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '181458',
-          code: 'CONTRACTORS',
+          response: 'CONTRACTORS',
           active: true,
           label: 'Contractors',
           commentRequired: false,
@@ -3769,7 +3769,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '181459',
-          code: 'EDUCATION',
+          response: 'EDUCATION',
           active: true,
           label: 'Education',
           commentRequired: false,
@@ -3778,7 +3778,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '181462',
-          code: 'HEALTH CARE CENTRE',
+          response: 'HEALTH CARE CENTRE',
           active: true,
           label: 'Health care centre',
           commentRequired: false,
@@ -3787,7 +3787,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '181460',
-          code: 'FARMS AND GARDENS',
+          response: 'FARMS AND GARDENS',
           active: true,
           label: 'Farms and gardens',
           commentRequired: false,
@@ -3796,7 +3796,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '181461',
-          code: 'GYMNASIUM/SPORTS FIELD',
+          response: 'GYMNASIUM/SPORTS FIELD',
           active: true,
           label: 'Gymnasium/sports field',
           commentRequired: false,
@@ -3805,7 +3805,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '181470',
-          code: 'WORKSHOPS',
+          response: 'WORKSHOPS',
           active: true,
           label: 'Workshops',
           commentRequired: false,
@@ -3814,7 +3814,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '181464',
-          code: 'KITCHEN',
+          response: 'KITCHEN',
           active: true,
           label: 'Kitchen',
           commentRequired: false,
@@ -3823,7 +3823,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '181463',
-          code: 'HOBBIES',
+          response: 'HOBBIES',
           active: true,
           label: 'Hobbies',
           commentRequired: false,
@@ -3832,7 +3832,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '181457',
-          code: 'CELL FURNISHINGS',
+          response: 'CELL FURNISHINGS',
           active: true,
           label: 'Cell furnishings',
           commentRequired: false,
@@ -3841,7 +3841,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '181468',
-          code: 'WING/HOUSEBLOCK FURNISHINGS',
+          response: 'WING/HOUSEBLOCK FURNISHINGS',
           active: true,
           label: 'Wing/houseblock furnishings',
           commentRequired: false,
@@ -3850,7 +3850,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '181467',
-          code: 'SMUGGLED',
+          response: 'SMUGGLED',
           active: true,
           label: 'Smuggled',
           commentRequired: false,
@@ -3859,7 +3859,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '181465',
-          code: 'NOT KNOWN',
+          response: 'NOT KNOWN',
           active: true,
           label: 'Not known',
           commentRequired: false,
@@ -3868,7 +3868,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '181466',
-          code: 'OTHER',
+          response: 'OTHER',
           active: true,
           label: 'Other',
           commentRequired: true,
@@ -3886,7 +3886,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '181488',
-          code: 'WORKS DEPARTMENT',
+          response: 'WORKS DEPARTMENT',
           active: true,
           label: 'Works department',
           commentRequired: false,
@@ -3895,7 +3895,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '181477',
-          code: 'CONTRACTORS',
+          response: 'CONTRACTORS',
           active: true,
           label: 'Contractors',
           commentRequired: false,
@@ -3904,7 +3904,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '181478',
-          code: 'EDUCATION',
+          response: 'EDUCATION',
           active: true,
           label: 'Education',
           commentRequired: false,
@@ -3913,7 +3913,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '181481',
-          code: 'HEALTH CARE CENTRE',
+          response: 'HEALTH CARE CENTRE',
           active: true,
           label: 'Health care centre',
           commentRequired: false,
@@ -3922,7 +3922,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '181479',
-          code: 'FARMS AND GARDENS',
+          response: 'FARMS AND GARDENS',
           active: true,
           label: 'Farms and gardens',
           commentRequired: false,
@@ -3931,7 +3931,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '181480',
-          code: 'GYMNASIUM/SPORTS FIELD',
+          response: 'GYMNASIUM/SPORTS FIELD',
           active: true,
           label: 'Gymnasium/sports field',
           commentRequired: false,
@@ -3940,7 +3940,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '181489',
-          code: 'WORKSHOPS',
+          response: 'WORKSHOPS',
           active: true,
           label: 'Workshops',
           commentRequired: false,
@@ -3949,7 +3949,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '181483',
-          code: 'KITCHEN',
+          response: 'KITCHEN',
           active: true,
           label: 'Kitchen',
           commentRequired: false,
@@ -3958,7 +3958,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '181482',
-          code: 'HOBBIES',
+          response: 'HOBBIES',
           active: true,
           label: 'Hobbies',
           commentRequired: false,
@@ -3967,7 +3967,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '181476',
-          code: 'CELL FURNISHINGS',
+          response: 'CELL FURNISHINGS',
           active: true,
           label: 'Cell furnishings',
           commentRequired: false,
@@ -3976,7 +3976,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '181487',
-          code: 'WING/HOUSEBLOCK FURNISHINGS',
+          response: 'WING/HOUSEBLOCK FURNISHINGS',
           active: true,
           label: 'Wing/houseblock furnishings',
           commentRequired: false,
@@ -3985,7 +3985,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '181486',
-          code: 'SMUGGLED',
+          response: 'SMUGGLED',
           active: true,
           label: 'Smuggled',
           commentRequired: false,
@@ -3994,7 +3994,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '181484',
-          code: 'NOT KNOWN',
+          response: 'NOT KNOWN',
           active: true,
           label: 'Not known',
           commentRequired: false,
@@ -4003,7 +4003,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '181485',
-          code: 'OTHER',
+          response: 'OTHER',
           active: true,
           label: 'Other',
           commentRequired: true,
@@ -4021,7 +4021,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '181499',
-          code: 'HACKSAW BLADE',
+          response: 'HACKSAW BLADE',
           active: true,
           label: 'Hacksaw blade',
           commentRequired: false,
@@ -4030,7 +4030,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '181502',
-          code: 'OTHER BLADE',
+          response: 'OTHER BLADE',
           active: true,
           label: 'Other blade',
           commentRequired: false,
@@ -4039,7 +4039,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '181504',
-          code: 'WIRE CUTTERS',
+          response: 'WIRE CUTTERS',
           active: true,
           label: 'Wire cutters',
           commentRequired: false,
@@ -4048,7 +4048,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '181496',
-          code: 'BOLT CROPPERS',
+          response: 'BOLT CROPPERS',
           active: true,
           label: 'Bolt croppers',
           commentRequired: false,
@@ -4057,7 +4057,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '181498',
-          code: 'DIGGING TOOL',
+          response: 'DIGGING TOOL',
           active: true,
           label: 'Digging tool',
           commentRequired: false,
@@ -4066,7 +4066,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '181497',
-          code: 'CROW BAR',
+          response: 'CROW BAR',
           active: true,
           label: 'Crow bar',
           commentRequired: false,
@@ -4075,7 +4075,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '181500',
-          code: 'IMPROVISED TOOL',
+          response: 'IMPROVISED TOOL',
           active: true,
           label: 'Improvised tool',
           commentRequired: false,
@@ -4084,7 +4084,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '181503',
-          code: 'OTHER TOOL',
+          response: 'OTHER TOOL',
           active: true,
           label: 'Other tool',
           commentRequired: true,
@@ -4093,7 +4093,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '181501',
-          code: 'NOT KNOWN',
+          response: 'NOT KNOWN',
           active: true,
           label: 'Not known',
           commentRequired: false,
@@ -4111,7 +4111,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '181616',
-          code: 'HACKSAW BLADE',
+          response: 'HACKSAW BLADE',
           active: true,
           label: 'Hacksaw blade',
           commentRequired: false,
@@ -4120,7 +4120,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '181619',
-          code: 'OTHER BLADE',
+          response: 'OTHER BLADE',
           active: true,
           label: 'Other blade',
           commentRequired: false,
@@ -4129,7 +4129,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '181621',
-          code: 'WIRE CUTTERS',
+          response: 'WIRE CUTTERS',
           active: true,
           label: 'Wire cutters',
           commentRequired: false,
@@ -4138,7 +4138,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '181613',
-          code: 'BOLT CROPPERS',
+          response: 'BOLT CROPPERS',
           active: true,
           label: 'Bolt croppers',
           commentRequired: false,
@@ -4147,7 +4147,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '181615',
-          code: 'DIGGING TOOL',
+          response: 'DIGGING TOOL',
           active: true,
           label: 'Digging tool',
           commentRequired: false,
@@ -4156,7 +4156,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '181614',
-          code: 'CROW BAR',
+          response: 'CROW BAR',
           active: true,
           label: 'Crow bar',
           commentRequired: false,
@@ -4165,7 +4165,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '181617',
-          code: 'IMPROVISED TOOL',
+          response: 'IMPROVISED TOOL',
           active: true,
           label: 'Improvised tool',
           commentRequired: false,
@@ -4174,7 +4174,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '181620',
-          code: 'OTHER TOOL',
+          response: 'OTHER TOOL',
           active: true,
           label: 'Other tool',
           commentRequired: true,
@@ -4183,7 +4183,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '181618',
-          code: 'NOT KNOWN',
+          response: 'NOT KNOWN',
           active: true,
           label: 'Not known',
           commentRequired: false,
@@ -4201,7 +4201,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '181627',
-          code: 'YES',
+          response: 'YES',
           active: true,
           label: 'Yes',
           commentRequired: false,
@@ -4210,7 +4210,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '181626',
-          code: 'NO',
+          response: 'NO',
           active: true,
           label: 'No',
           commentRequired: false,
@@ -4228,7 +4228,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '181648',
-          code: 'INVESTIGATION BY POLICE',
+          response: 'INVESTIGATION BY POLICE',
           active: true,
           label: 'Investigation by police',
           commentRequired: false,
@@ -4237,7 +4237,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '181649',
-          code: 'INVESTIGATION INTERNALLY',
+          response: 'INVESTIGATION INTERNALLY',
           active: true,
           label: 'Investigation internally',
           commentRequired: false,
@@ -4246,7 +4246,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '181647',
-          code: "GOVERNOR'S ADJUDICATION",
+          response: "GOVERNOR'S ADJUDICATION",
           active: true,
           label: "Governor's adjudication",
           commentRequired: false,
@@ -4255,7 +4255,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '181650',
-          code: 'NO INVESTIGATION',
+          response: 'NO INVESTIGATION',
           active: true,
           label: 'No investigation',
           commentRequired: false,
@@ -4273,7 +4273,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '181651',
-          code: 'NUMBER',
+          response: 'NUMBER',
           active: true,
           label: 'Number',
           commentRequired: true,
@@ -4291,7 +4291,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '181660',
-          code: 'HACKSAW BLADE',
+          response: 'HACKSAW BLADE',
           active: true,
           label: 'Hacksaw blade',
           commentRequired: false,
@@ -4300,7 +4300,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '181663',
-          code: 'OTHER BLADE',
+          response: 'OTHER BLADE',
           active: true,
           label: 'Other blade',
           commentRequired: false,
@@ -4309,7 +4309,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '181665',
-          code: 'WIRE CUTTERS',
+          response: 'WIRE CUTTERS',
           active: true,
           label: 'Wire cutters',
           commentRequired: false,
@@ -4318,7 +4318,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '181657',
-          code: 'BOLT CROPPERS',
+          response: 'BOLT CROPPERS',
           active: true,
           label: 'Bolt croppers',
           commentRequired: false,
@@ -4327,7 +4327,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '181659',
-          code: 'DIGGING TOOL',
+          response: 'DIGGING TOOL',
           active: true,
           label: 'Digging tool',
           commentRequired: false,
@@ -4336,7 +4336,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '181658',
-          code: 'CROW BAR',
+          response: 'CROW BAR',
           active: true,
           label: 'Crow bar',
           commentRequired: false,
@@ -4345,7 +4345,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '181661',
-          code: 'IMPROVISED TOOL',
+          response: 'IMPROVISED TOOL',
           active: true,
           label: 'Improvised tool',
           commentRequired: false,
@@ -4354,7 +4354,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '181664',
-          code: 'OTHER TOOL',
+          response: 'OTHER TOOL',
           active: true,
           label: 'Other tool',
           commentRequired: true,
@@ -4363,7 +4363,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '181662',
-          code: 'NOT KNOWN',
+          response: 'NOT KNOWN',
           active: true,
           label: 'Not known',
           commentRequired: false,
@@ -4381,7 +4381,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '181729',
-          code: 'CUT',
+          response: 'CUT',
           active: true,
           label: 'Cut',
           commentRequired: false,
@@ -4390,7 +4390,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '181730',
-          code: 'REMOVED',
+          response: 'REMOVED',
           active: true,
           label: 'Removed',
           commentRequired: false,
@@ -4408,7 +4408,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '181744',
-          code: 'YES',
+          response: 'YES',
           active: true,
           label: 'Yes',
           commentRequired: false,
@@ -4417,7 +4417,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '181743',
-          code: 'NO',
+          response: 'NO',
           active: true,
           label: 'No',
           commentRequired: false,
@@ -4435,7 +4435,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '181759',
-          code: 'MAIN GATE',
+          response: 'MAIN GATE',
           active: true,
           label: 'Main gate',
           commentRequired: false,
@@ -4444,7 +4444,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '181760',
-          code: 'OTHER GATE IN PERIMETER',
+          response: 'OTHER GATE IN PERIMETER',
           active: true,
           label: 'Other gate in perimeter',
           commentRequired: false,
@@ -4453,7 +4453,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '181754',
-          code: 'OVER WALL',
+          response: 'OVER WALL',
           active: true,
           label: 'Over wall',
           commentRequired: false,
@@ -4462,7 +4462,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '181753',
-          code: 'OVER FENCE',
+          response: 'OVER FENCE',
           active: true,
           label: 'Over fence',
           commentRequired: false,
@@ -4471,7 +4471,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '181755',
-          code: 'THROUGH FENCE',
+          response: 'THROUGH FENCE',
           active: true,
           label: 'Through fence',
           commentRequired: false,
@@ -4480,7 +4480,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '181756',
-          code: 'UNDER FENCE',
+          response: 'UNDER FENCE',
           active: true,
           label: 'Under fence',
           commentRequired: false,
@@ -4489,7 +4489,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '181757',
-          code: 'THROUGH WALL',
+          response: 'THROUGH WALL',
           active: true,
           label: 'Through wall',
           commentRequired: false,
@@ -4498,7 +4498,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '181758',
-          code: 'UNDER WALL',
+          response: 'UNDER WALL',
           active: true,
           label: 'Under wall',
           commentRequired: false,
@@ -4516,7 +4516,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '181800',
-          code: 'YES',
+          response: 'YES',
           active: true,
           label: 'Yes',
           commentRequired: false,
@@ -4525,7 +4525,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '181801',
-          code: 'NO',
+          response: 'NO',
           active: true,
           label: 'No',
           commentRequired: false,
@@ -4543,7 +4543,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '181804',
-          code: 'CUT WINDOW OR BARS',
+          response: 'CUT WINDOW OR BARS',
           active: true,
           label: 'Cut window or bars',
           commentRequired: false,
@@ -4552,7 +4552,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '181809',
-          code: 'FORCED WINDOW OR BARS',
+          response: 'FORCED WINDOW OR BARS',
           active: true,
           label: 'Forced window or bars',
           commentRequired: false,
@@ -4561,7 +4561,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '181803',
-          code: 'CUT AND FORCED WINDOW AND BARS',
+          response: 'CUT AND FORCED WINDOW AND BARS',
           active: true,
           label: 'Cut and forced window and bars',
           commentRequired: false,
@@ -4570,7 +4570,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '181805',
-          code: 'DUG THROUGH EXTERNAL WALL',
+          response: 'DUG THROUGH EXTERNAL WALL',
           active: true,
           label: 'Dug through external wall',
           commentRequired: false,
@@ -4579,7 +4579,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '181807',
-          code: 'DUG THROUGH INTERNAL WALL',
+          response: 'DUG THROUGH INTERNAL WALL',
           active: true,
           label: 'Dug through internal wall',
           commentRequired: false,
@@ -4588,7 +4588,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '181806',
-          code: 'DUG THROUGH FLOOR',
+          response: 'DUG THROUGH FLOOR',
           active: true,
           label: 'Dug through floor',
           commentRequired: false,
@@ -4597,7 +4597,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '181802',
-          code: 'BROKE THROUGH CEILING',
+          response: 'BROKE THROUGH CEILING',
           active: true,
           label: 'Broke through ceiling',
           commentRequired: false,
@@ -4606,7 +4606,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '181808',
-          code: 'FORCED DOOR',
+          response: 'FORCED DOOR',
           active: true,
           label: 'Forced door',
           commentRequired: false,
@@ -4624,7 +4624,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '181818',
-          code: 'YES',
+          response: 'YES',
           active: true,
           label: 'Yes',
           commentRequired: false,
@@ -4633,7 +4633,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '181819',
-          code: 'NO',
+          response: 'NO',
           active: true,
           label: 'No',
           commentRequired: false,
@@ -4651,7 +4651,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '181898',
-          code: 'SMUGGLED WEAPONS',
+          response: 'SMUGGLED WEAPONS',
           active: true,
           label: 'Smuggled weapons',
           commentRequired: false,
@@ -4660,7 +4660,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '181897',
-          code: 'SMUGGLED TOOLS/EQUIPMENT',
+          response: 'SMUGGLED TOOLS/EQUIPMENT',
           active: true,
           label: 'Smuggled tools/equipment',
           commentRequired: false,
@@ -4669,7 +4669,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '181899',
-          code: 'SWAPPED IDENTITY',
+          response: 'SWAPPED IDENTITY',
           active: true,
           label: 'Swapped identity',
           commentRequired: false,
@@ -4678,7 +4678,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '181894',
-          code: 'BREACHED PERIMETER',
+          response: 'BREACHED PERIMETER',
           active: true,
           label: 'Breached perimeter',
           commentRequired: false,
@@ -4687,7 +4687,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '181896',
-          code: 'PROVIDED GET AWAY VEHICLE',
+          response: 'PROVIDED GET AWAY VEHICLE',
           active: true,
           label: 'Provided get away vehicle',
           commentRequired: false,
@@ -4696,7 +4696,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '181895',
-          code: 'OTHER',
+          response: 'OTHER',
           active: true,
           label: 'Other',
           commentRequired: true,
@@ -4714,7 +4714,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '181910',
-          code: 'YES',
+          response: 'YES',
           active: true,
           label: 'Yes',
           commentRequired: true,
@@ -4723,7 +4723,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '181911',
-          code: 'NO',
+          response: 'NO',
           active: true,
           label: 'No',
           commentRequired: false,
@@ -4741,7 +4741,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '181917',
-          code: 'CUT WINDOW OR BARS',
+          response: 'CUT WINDOW OR BARS',
           active: true,
           label: 'Cut window or bars',
           commentRequired: false,
@@ -4750,7 +4750,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '181919',
-          code: 'FORCED WINDOW OR BARS',
+          response: 'FORCED WINDOW OR BARS',
           active: true,
           label: 'Forced window or bars',
           commentRequired: false,
@@ -4759,7 +4759,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '181916',
-          code: 'CUT AND FORCED WINDOW AND BARS',
+          response: 'CUT AND FORCED WINDOW AND BARS',
           active: true,
           label: 'Cut and forced window and bars',
           commentRequired: false,
@@ -4768,7 +4768,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '181918',
-          code: 'DUG THROUGH EXTERNAL WALL',
+          response: 'DUG THROUGH EXTERNAL WALL',
           active: true,
           label: 'Dug through external wall',
           commentRequired: false,
@@ -4777,7 +4777,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '181914',
-          code: 'DUG THROUGH INTERNAL WALL',
+          response: 'DUG THROUGH INTERNAL WALL',
           active: true,
           label: 'Dug through internal wall',
           commentRequired: false,
@@ -4786,7 +4786,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '181913',
-          code: 'DUG THROUGH FLOOR',
+          response: 'DUG THROUGH FLOOR',
           active: true,
           label: 'Dug through floor',
           commentRequired: false,
@@ -4795,7 +4795,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '181912',
-          code: 'BROKE THROUGH CEILING',
+          response: 'BROKE THROUGH CEILING',
           active: true,
           label: 'Broke through ceiling',
           commentRequired: false,
@@ -4804,7 +4804,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '181915',
-          code: 'FORCED DOOR',
+          response: 'FORCED DOOR',
           active: true,
           label: 'Forced door',
           commentRequired: false,
@@ -4822,7 +4822,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '181934',
-          code: 'DUG THROUGH',
+          response: 'DUG THROUGH',
           active: true,
           label: 'Dug through',
           commentRequired: false,
@@ -4831,7 +4831,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '181935',
-          code: 'DUG UNDER',
+          response: 'DUG UNDER',
           active: true,
           label: 'Dug under',
           commentRequired: false,
@@ -4840,7 +4840,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '181936',
-          code: 'EXPLOSION',
+          response: 'EXPLOSION',
           active: true,
           label: 'Explosion',
           commentRequired: false,
@@ -4849,7 +4849,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '181939',
-          code: 'RAMMED BY VEHICLE',
+          response: 'RAMMED BY VEHICLE',
           active: true,
           label: 'Rammed by vehicle',
           commentRequired: false,
@@ -4858,7 +4858,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '181938',
-          code: 'OTHER',
+          response: 'OTHER',
           active: true,
           label: 'Other',
           commentRequired: true,
@@ -4867,7 +4867,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '181937',
-          code: 'NOT KNOWN',
+          response: 'NOT KNOWN',
           active: true,
           label: 'Not known',
           commentRequired: false,
@@ -4885,7 +4885,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '181967',
-          code: 'YES',
+          response: 'YES',
           active: true,
           label: 'Yes',
           commentRequired: false,
@@ -4894,7 +4894,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '181968',
-          code: 'NO',
+          response: 'NO',
           active: true,
           label: 'No',
           commentRequired: false,
@@ -4912,7 +4912,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '181972',
-          code: 'YES',
+          response: 'YES',
           active: true,
           label: 'Yes',
           commentRequired: false,
@@ -4921,7 +4921,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '181973',
-          code: 'NO',
+          response: 'NO',
           active: true,
           label: 'No',
           commentRequired: false,
@@ -4939,7 +4939,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '181994',
-          code: 'YES',
+          response: 'YES',
           active: true,
           label: 'Yes',
           commentRequired: false,
@@ -4948,7 +4948,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '181995',
-          code: 'NO',
+          response: 'NO',
           active: true,
           label: 'No',
           commentRequired: false,
@@ -4966,7 +4966,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '182012',
-          code: 'THROUGH THE CLADDING',
+          response: 'THROUGH THE CLADDING',
           active: true,
           label: 'Through the cladding',
           commentRequired: false,
@@ -4975,7 +4975,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '182013',
-          code: 'ABOVE THE CLADDING',
+          response: 'ABOVE THE CLADDING',
           active: true,
           label: 'Above the cladding',
           commentRequired: false,
@@ -4984,7 +4984,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '182014',
-          code: 'BELOW THE CLADDING',
+          response: 'BELOW THE CLADDING',
           active: true,
           label: 'Below the cladding',
           commentRequired: false,
@@ -5002,7 +5002,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '182024',
-          code: 'HACKSAW BLADE',
+          response: 'HACKSAW BLADE',
           active: true,
           label: 'Hacksaw blade',
           commentRequired: false,
@@ -5011,7 +5011,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '182027',
-          code: 'OTHER BLADE',
+          response: 'OTHER BLADE',
           active: true,
           label: 'Other blade',
           commentRequired: false,
@@ -5020,7 +5020,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '182029',
-          code: 'WIRE CUTTERS',
+          response: 'WIRE CUTTERS',
           active: true,
           label: 'Wire cutters',
           commentRequired: false,
@@ -5029,7 +5029,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '182021',
-          code: 'BOLT CROPPERS',
+          response: 'BOLT CROPPERS',
           active: true,
           label: 'Bolt croppers',
           commentRequired: false,
@@ -5038,7 +5038,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '182023',
-          code: 'DIGGING TOOL',
+          response: 'DIGGING TOOL',
           active: true,
           label: 'Digging tool',
           commentRequired: false,
@@ -5047,7 +5047,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '182022',
-          code: 'CROW BAR',
+          response: 'CROW BAR',
           active: true,
           label: 'Crow bar',
           commentRequired: false,
@@ -5056,7 +5056,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '182025',
-          code: 'IMPROVISED TOOL',
+          response: 'IMPROVISED TOOL',
           active: true,
           label: 'Improvised tool',
           commentRequired: false,
@@ -5065,7 +5065,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '182028',
-          code: 'OTHER TOOL',
+          response: 'OTHER TOOL',
           active: true,
           label: 'Other tool',
           commentRequired: true,
@@ -5074,7 +5074,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '182026',
-          code: 'NOT KNOWN',
+          response: 'NOT KNOWN',
           active: true,
           label: 'Not known',
           commentRequired: false,
@@ -5092,7 +5092,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '182084',
-          code: 'YES',
+          response: 'YES',
           active: true,
           label: 'Yes',
           commentRequired: false,
@@ -5101,7 +5101,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '182083',
-          code: 'NO',
+          response: 'NO',
           active: true,
           label: 'No',
           commentRequired: false,
@@ -5119,7 +5119,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '182166',
-          code: 'YES',
+          response: 'YES',
           active: true,
           label: 'Yes',
           commentRequired: false,
@@ -5128,7 +5128,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '182167',
-          code: 'NO',
+          response: 'NO',
           active: true,
           label: 'No',
           commentRequired: false,
@@ -5146,7 +5146,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '182267',
-          code: 'STAFF VIGILANCE',
+          response: 'STAFF VIGILANCE',
           active: true,
           label: 'Staff vigilance',
           commentRequired: false,
@@ -5155,7 +5155,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '182263',
-          code: 'EQUIPMENT FOUND',
+          response: 'EQUIPMENT FOUND',
           active: true,
           label: 'Equipment found',
           commentRequired: false,
@@ -5164,7 +5164,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '182264',
-          code: 'INFORMATION/INTELLIGENCE',
+          response: 'INFORMATION/INTELLIGENCE',
           active: true,
           label: 'Information/intelligence',
           commentRequired: false,
@@ -5173,7 +5173,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '182265',
-          code: 'OBSERVED IN PROGRESS',
+          response: 'OBSERVED IN PROGRESS',
           active: true,
           label: 'Observed in progress',
           commentRequired: false,
@@ -5182,7 +5182,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '182262',
-          code: 'ALERTED BY SECURITY AID',
+          response: 'ALERTED BY SECURITY AID',
           active: true,
           label: 'Alerted by security aid',
           commentRequired: true,
@@ -5191,7 +5191,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '182266',
-          code: 'OTHER',
+          response: 'OTHER',
           active: true,
           label: 'Other',
           commentRequired: true,
@@ -5209,7 +5209,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '182306',
-          code: 'GANDER',
+          response: 'GANDER',
           active: true,
           label: 'Gander',
           commentRequired: false,
@@ -5218,7 +5218,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '182312',
-          code: 'PIPE',
+          response: 'PIPE',
           active: true,
           label: 'Pipe',
           commentRequired: false,
@@ -5227,7 +5227,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '182303',
-          code: "'S' WIRE",
+          response: "'S' WIRE",
           active: true,
           label: "'s' wire",
           commentRequired: false,
@@ -5236,7 +5236,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '182314',
-          code: 'SCARE STRIP',
+          response: 'SCARE STRIP',
           active: true,
           label: 'Scare strip',
           commentRequired: false,
@@ -5245,7 +5245,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '182315',
-          code: 'TAUT WIRE',
+          response: 'TAUT WIRE',
           active: true,
           label: 'Taut wire',
           commentRequired: false,
@@ -5254,7 +5254,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '182307',
-          code: 'GEOPHONES',
+          response: 'GEOPHONES',
           active: true,
           label: 'Geophones',
           commentRequired: false,
@@ -5263,7 +5263,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '182308',
-          code: 'INFRA RED DETECTORS',
+          response: 'INFRA RED DETECTORS',
           active: true,
           label: 'Infra red detectors',
           commentRequired: false,
@@ -5272,7 +5272,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '182310',
-          code: 'MICROPHONIC CABLE',
+          response: 'MICROPHONIC CABLE',
           active: true,
           label: 'Microphonic cable',
           commentRequired: false,
@@ -5281,7 +5281,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '182305',
-          code: 'FIBRE OPTIC SYSTEM',
+          response: 'FIBRE OPTIC SYSTEM',
           active: true,
           label: 'Fibre optic system',
           commentRequired: false,
@@ -5290,7 +5290,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '182309',
-          code: 'LEAKY CO-AXIL CABLE',
+          response: 'LEAKY CO-AXIL CABLE',
           active: true,
           label: 'Leaky co-axil cable',
           commentRequired: false,
@@ -5299,7 +5299,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '182313',
-          code: 'PRESSURE SENSORS',
+          response: 'PRESSURE SENSORS',
           active: true,
           label: 'Pressure sensors',
           commentRequired: false,
@@ -5308,7 +5308,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '182304',
-          code: 'CCTV',
+          response: 'CCTV',
           active: true,
           label: 'CCTV',
           commentRequired: false,
@@ -5317,7 +5317,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '182311',
-          code: 'OTHER',
+          response: 'OTHER',
           active: true,
           label: 'Other',
           commentRequired: true,
@@ -5335,7 +5335,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '182329',
-          code: 'CUT WINDOW OR BARS',
+          response: 'CUT WINDOW OR BARS',
           active: true,
           label: 'Cut window or bars',
           commentRequired: false,
@@ -5344,7 +5344,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '182334',
-          code: 'FORCED WINDOW OR BARS',
+          response: 'FORCED WINDOW OR BARS',
           active: true,
           label: 'Forced window or bars',
           commentRequired: false,
@@ -5353,7 +5353,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '182328',
-          code: 'CUT AND FORCED WINDOW AND BARS',
+          response: 'CUT AND FORCED WINDOW AND BARS',
           active: true,
           label: 'Cut and forced window and bars',
           commentRequired: false,
@@ -5362,7 +5362,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '182330',
-          code: 'DUG THROUGH EXTERNAL WALL',
+          response: 'DUG THROUGH EXTERNAL WALL',
           active: true,
           label: 'Dug through external wall',
           commentRequired: false,
@@ -5371,7 +5371,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '182332',
-          code: 'DUG THROUGH INTERNAL WALL',
+          response: 'DUG THROUGH INTERNAL WALL',
           active: true,
           label: 'Dug through internal wall',
           commentRequired: false,
@@ -5380,7 +5380,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '182331',
-          code: 'DUG THROUGH FLOOR',
+          response: 'DUG THROUGH FLOOR',
           active: true,
           label: 'Dug through floor',
           commentRequired: false,
@@ -5389,7 +5389,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '182327',
-          code: 'BROKE THROUGH CEILING',
+          response: 'BROKE THROUGH CEILING',
           active: true,
           label: 'Broke through ceiling',
           commentRequired: false,
@@ -5398,7 +5398,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '182333',
-          code: 'FORCED DOOR',
+          response: 'FORCED DOOR',
           active: true,
           label: 'Forced door',
           commentRequired: false,
@@ -5416,7 +5416,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '182372',
-          code: 'YES',
+          response: 'YES',
           active: true,
           label: 'Yes',
           commentRequired: false,
@@ -5425,7 +5425,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '182371',
-          code: 'NO',
+          response: 'NO',
           active: true,
           label: 'No',
           commentRequired: false,
@@ -5443,7 +5443,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '182385',
-          code: 'WINDOW',
+          response: 'WINDOW',
           active: true,
           label: 'Window',
           commentRequired: false,
@@ -5452,7 +5452,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '182380',
-          code: 'EXTERNAL WALL',
+          response: 'EXTERNAL WALL',
           active: true,
           label: 'External wall',
           commentRequired: false,
@@ -5461,7 +5461,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '182381',
-          code: 'FLOOR',
+          response: 'FLOOR',
           active: true,
           label: 'Floor',
           commentRequired: false,
@@ -5470,7 +5470,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '182382',
-          code: 'ROOF',
+          response: 'ROOF',
           active: true,
           label: 'Roof',
           commentRequired: false,
@@ -5479,7 +5479,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '182379',
-          code: 'DOOR/GATE',
+          response: 'DOOR/GATE',
           active: true,
           label: 'Door/gate',
           commentRequired: false,
@@ -5488,7 +5488,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '182383',
-          code: 'THROUGH FENCE',
+          response: 'THROUGH FENCE',
           active: true,
           label: 'Through fence',
           commentRequired: false,
@@ -5497,7 +5497,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '182384',
-          code: 'UNDER FENCE',
+          response: 'UNDER FENCE',
           active: true,
           label: 'Under fence',
           commentRequired: false,
@@ -5506,7 +5506,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '182378',
-          code: 'OVER FENCE',
+          response: 'OVER FENCE',
           active: true,
           label: 'Over fence',
           commentRequired: false,
@@ -5524,7 +5524,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '182404',
-          code: 'LADDER',
+          response: 'LADDER',
           active: true,
           label: 'Ladder',
           commentRequired: false,
@@ -5533,7 +5533,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '182406',
-          code: 'ROPE',
+          response: 'ROPE',
           active: true,
           label: 'Rope',
           commentRequired: false,
@@ -5542,7 +5542,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '182401',
-          code: 'CLIMBING AIDS',
+          response: 'CLIMBING AIDS',
           active: true,
           label: 'Climbing aids',
           commentRequired: false,
@@ -5551,7 +5551,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '182402',
-          code: 'FURNITURE ITEMS',
+          response: 'FURNITURE ITEMS',
           active: true,
           label: 'Furniture items',
           commentRequired: false,
@@ -5560,7 +5560,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '182407',
-          code: 'SPORTS ITEMS',
+          response: 'SPORTS ITEMS',
           active: true,
           label: 'Sports items',
           commentRequired: false,
@@ -5569,7 +5569,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '182403',
-          code: 'GROUNDS ITEMS',
+          response: 'GROUNDS ITEMS',
           active: true,
           label: 'Grounds items',
           commentRequired: false,
@@ -5578,7 +5578,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '182405',
-          code: 'OTHER',
+          response: 'OTHER',
           active: true,
           label: 'Other',
           commentRequired: true,
@@ -5596,7 +5596,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '182442',
-          code: 'WORKS DEPARTMENT',
+          response: 'WORKS DEPARTMENT',
           active: true,
           label: 'Works department',
           commentRequired: false,
@@ -5605,7 +5605,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '182431',
-          code: 'CONTRACTORS',
+          response: 'CONTRACTORS',
           active: true,
           label: 'Contractors',
           commentRequired: false,
@@ -5614,7 +5614,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '182432',
-          code: 'EDUCATION',
+          response: 'EDUCATION',
           active: true,
           label: 'Education',
           commentRequired: false,
@@ -5623,7 +5623,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '182435',
-          code: 'HEALTH CARE CENTRE',
+          response: 'HEALTH CARE CENTRE',
           active: true,
           label: 'Health care centre',
           commentRequired: false,
@@ -5632,7 +5632,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '182433',
-          code: 'FARMS AND GARDENS',
+          response: 'FARMS AND GARDENS',
           active: true,
           label: 'Farms and gardens',
           commentRequired: false,
@@ -5641,7 +5641,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '182434',
-          code: 'GYMNASIUM/SPORTS FIELD',
+          response: 'GYMNASIUM/SPORTS FIELD',
           active: true,
           label: 'Gymnasium/sports field',
           commentRequired: false,
@@ -5650,7 +5650,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '182443',
-          code: 'WORKSHOPS',
+          response: 'WORKSHOPS',
           active: true,
           label: 'Workshops',
           commentRequired: false,
@@ -5659,7 +5659,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '182437',
-          code: 'KITCHEN',
+          response: 'KITCHEN',
           active: true,
           label: 'Kitchen',
           commentRequired: false,
@@ -5668,7 +5668,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '182436',
-          code: 'HOBBIES',
+          response: 'HOBBIES',
           active: true,
           label: 'Hobbies',
           commentRequired: false,
@@ -5677,7 +5677,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '182430',
-          code: 'CELL FURNISHINGS',
+          response: 'CELL FURNISHINGS',
           active: true,
           label: 'Cell furnishings',
           commentRequired: false,
@@ -5686,7 +5686,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '182441',
-          code: 'WING/HOUSEBLOCK FURNISHINGS',
+          response: 'WING/HOUSEBLOCK FURNISHINGS',
           active: true,
           label: 'Wing/houseblock furnishings',
           commentRequired: false,
@@ -5695,7 +5695,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '182440',
-          code: 'SMUGGLED',
+          response: 'SMUGGLED',
           active: true,
           label: 'Smuggled',
           commentRequired: false,
@@ -5704,7 +5704,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '182438',
-          code: 'NOT KNOWN',
+          response: 'NOT KNOWN',
           active: true,
           label: 'Not known',
           commentRequired: false,
@@ -5713,7 +5713,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '182439',
-          code: 'OTHER',
+          response: 'OTHER',
           active: true,
           label: 'Other',
           commentRequired: true,
@@ -5731,7 +5731,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '182452',
-          code: 'YES',
+          response: 'YES',
           active: true,
           label: 'Yes',
           commentRequired: false,
@@ -5740,7 +5740,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '182451',
-          code: 'NO',
+          response: 'NO',
           active: true,
           label: 'No',
           commentRequired: false,
@@ -5758,7 +5758,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '182558',
-          code: 'TELEPHONY',
+          response: 'TELEPHONY',
           active: true,
           label: 'Telephony',
           commentRequired: true,
@@ -5767,7 +5767,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '182557',
-          code: 'IT',
+          response: 'IT',
           active: true,
           label: 'IT',
           commentRequired: true,
@@ -5785,7 +5785,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '182565',
-          code: 'PRISON SERVICE VEHICLE',
+          response: 'PRISON SERVICE VEHICLE',
           active: true,
           label: 'Prison service vehicle',
           commentRequired: false,
@@ -5794,7 +5794,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '182561',
-          code: 'CONTRACTORS',
+          response: 'CONTRACTORS',
           active: true,
           label: 'Contractors',
           commentRequired: false,
@@ -5803,7 +5803,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '182562',
-          code: 'ESCORT CONTRACTOR',
+          response: 'ESCORT CONTRACTOR',
           active: true,
           label: 'Escort contractor',
           commentRequired: false,
@@ -5812,7 +5812,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '182563',
-          code: 'OFFICIAL VEHICLE',
+          response: 'OFFICIAL VEHICLE',
           active: true,
           label: 'Official vehicle',
           commentRequired: false,
@@ -5821,7 +5821,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '182567',
-          code: 'STAFF VEHICLE',
+          response: 'STAFF VEHICLE',
           active: true,
           label: 'Staff vehicle',
           commentRequired: false,
@@ -5830,7 +5830,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '182566',
-          code: 'PRIVATE VEHICLE',
+          response: 'PRIVATE VEHICLE',
           active: true,
           label: 'Private vehicle',
           commentRequired: false,
@@ -5839,7 +5839,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '182568',
-          code: 'TAXI',
+          response: 'TAXI',
           active: true,
           label: 'Taxi',
           commentRequired: false,
@@ -5848,7 +5848,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '182564',
-          code: 'OTHER',
+          response: 'OTHER',
           active: true,
           label: 'Other',
           commentRequired: true,
@@ -5866,7 +5866,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '182626',
-          code: 'FROM INSIDE',
+          response: 'FROM INSIDE',
           active: true,
           label: 'From inside',
           commentRequired: false,
@@ -5875,7 +5875,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '182627',
-          code: 'FROM OUTSIDE',
+          response: 'FROM OUTSIDE',
           active: true,
           label: 'From outside',
           commentRequired: false,
@@ -5893,7 +5893,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '182631',
-          code: 'CUT WINDOW OR BARS',
+          response: 'CUT WINDOW OR BARS',
           active: true,
           label: 'Cut window or bars',
           commentRequired: false,
@@ -5902,7 +5902,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '182636',
-          code: 'FORCED WINDOW OR BARS',
+          response: 'FORCED WINDOW OR BARS',
           active: true,
           label: 'Forced window or bars',
           commentRequired: false,
@@ -5911,7 +5911,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '182630',
-          code: 'CUT AND FORCED WINDOW AND BARS',
+          response: 'CUT AND FORCED WINDOW AND BARS',
           active: true,
           label: 'Cut and forced window and bars',
           commentRequired: false,
@@ -5920,7 +5920,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '182632',
-          code: 'DUG THROUGH EXTERNAL WALL',
+          response: 'DUG THROUGH EXTERNAL WALL',
           active: true,
           label: 'Dug through external wall',
           commentRequired: false,
@@ -5929,7 +5929,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '182634',
-          code: 'DUG THROUGH INTERNAL WALL',
+          response: 'DUG THROUGH INTERNAL WALL',
           active: true,
           label: 'Dug through internal wall',
           commentRequired: false,
@@ -5938,7 +5938,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '182633',
-          code: 'DUG THROUGH FLOOR',
+          response: 'DUG THROUGH FLOOR',
           active: true,
           label: 'Dug through floor',
           commentRequired: false,
@@ -5947,7 +5947,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '182629',
-          code: 'BROKE THROUGH CEILING',
+          response: 'BROKE THROUGH CEILING',
           active: true,
           label: 'Broke through ceiling',
           commentRequired: false,
@@ -5956,7 +5956,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
         },
         {
           id: '182635',
-          code: 'FORCED DOOR',
+          response: 'FORCED DOOR',
           active: true,
           label: 'Forced door',
           commentRequired: false,

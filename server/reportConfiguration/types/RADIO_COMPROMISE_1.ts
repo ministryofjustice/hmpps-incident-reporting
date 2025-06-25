@@ -16,7 +16,7 @@ export const RADIO_COMPROMISE_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '178897',
-          code: 'YES',
+          response: 'YES',
           active: true,
           label: 'Yes',
           commentRequired: false,
@@ -25,7 +25,7 @@ export const RADIO_COMPROMISE_1: IncidentTypeConfiguration = {
         },
         {
           id: '178896',
-          code: 'NO',
+          response: 'NO',
           active: true,
           label: 'No',
           commentRequired: false,
@@ -43,7 +43,7 @@ export const RADIO_COMPROMISE_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '178928',
-          code: 'YES',
+          response: 'YES',
           active: true,
           label: 'Yes',
           commentRequired: false,
@@ -52,7 +52,7 @@ export const RADIO_COMPROMISE_1: IncidentTypeConfiguration = {
         },
         {
           id: '178929',
-          code: 'NO',
+          response: 'NO',
           active: true,
           label: 'No',
           commentRequired: false,
@@ -70,7 +70,7 @@ export const RADIO_COMPROMISE_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '179072',
-          code: 'YES',
+          response: 'YES',
           active: true,
           label: 'Yes',
           commentRequired: false,
@@ -79,7 +79,7 @@ export const RADIO_COMPROMISE_1: IncidentTypeConfiguration = {
         },
         {
           id: '179071',
-          code: 'NO',
+          response: 'NO',
           active: true,
           label: 'No',
           commentRequired: false,
@@ -97,7 +97,7 @@ export const RADIO_COMPROMISE_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '179097',
-          code: 'MALICIOUS',
+          response: 'MALICIOUS',
           active: true,
           label: 'Malicious',
           commentRequired: false,
@@ -106,7 +106,7 @@ export const RADIO_COMPROMISE_1: IncidentTypeConfiguration = {
         },
         {
           id: '179098',
-          code: 'UNINTENTIONAL',
+          response: 'UNINTENTIONAL',
           active: true,
           label: 'Unintentional',
           commentRequired: false,
@@ -124,7 +124,7 @@ export const RADIO_COMPROMISE_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '179328',
-          code: 'YES',
+          response: 'YES',
           active: true,
           label: 'Yes',
           commentRequired: false,
@@ -133,7 +133,7 @@ export const RADIO_COMPROMISE_1: IncidentTypeConfiguration = {
         },
         {
           id: '179327',
-          code: 'NO',
+          response: 'NO',
           active: true,
           label: 'No',
           commentRequired: false,
@@ -151,7 +151,7 @@ export const RADIO_COMPROMISE_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '179403',
-          code: 'YES',
+          response: 'YES',
           active: true,
           label: 'Yes',
           commentRequired: false,
@@ -160,7 +160,7 @@ export const RADIO_COMPROMISE_1: IncidentTypeConfiguration = {
         },
         {
           id: '179402',
-          code: 'NO',
+          response: 'NO',
           active: true,
           label: 'No',
           commentRequired: false,
@@ -178,7 +178,7 @@ export const RADIO_COMPROMISE_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '179991',
-          code: 'INTERFERENCE',
+          response: 'INTERFERENCE',
           active: true,
           label: 'Interference',
           commentRequired: false,
@@ -187,7 +187,7 @@ export const RADIO_COMPROMISE_1: IncidentTypeConfiguration = {
         },
         {
           id: '179992',
-          code: 'NET JAM',
+          response: 'NET JAM',
           active: true,
           label: 'Net jam',
           commentRequired: false,
@@ -196,7 +196,7 @@ export const RADIO_COMPROMISE_1: IncidentTypeConfiguration = {
         },
         {
           id: '179993',
-          code: 'MISSING RADIO',
+          response: 'MISSING RADIO',
           active: true,
           label: 'Missing radio',
           commentRequired: false,
@@ -214,7 +214,7 @@ export const RADIO_COMPROMISE_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '180653',
-          code: 'FULL SEARCH',
+          response: 'FULL SEARCH',
           active: true,
           label: 'Full search',
           commentRequired: false,
@@ -223,7 +223,7 @@ export const RADIO_COMPROMISE_1: IncidentTypeConfiguration = {
         },
         {
           id: '180654',
-          code: 'PARTIAL SEARCH',
+          response: 'PARTIAL SEARCH',
           active: true,
           label: 'Partial search',
           commentRequired: false,
@@ -241,7 +241,7 @@ export const RADIO_COMPROMISE_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '180744',
-          code: 'INTERNAL',
+          response: 'INTERNAL',
           active: true,
           label: 'Internal',
           commentRequired: false,
@@ -250,7 +250,7 @@ export const RADIO_COMPROMISE_1: IncidentTypeConfiguration = {
         },
         {
           id: '180743',
-          code: 'EXTERNAL',
+          response: 'EXTERNAL',
           active: true,
           label: 'External',
           commentRequired: false,
@@ -259,7 +259,7 @@ export const RADIO_COMPROMISE_1: IncidentTypeConfiguration = {
         },
         {
           id: '180745',
-          code: 'NOT KNOWN',
+          response: 'NOT KNOWN',
           active: true,
           label: 'Not known',
           commentRequired: false,
@@ -277,7 +277,7 @@ export const RADIO_COMPROMISE_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '180985',
-          code: 'YES',
+          response: 'YES',
           active: true,
           label: 'Yes',
           commentRequired: false,
@@ -286,7 +286,7 @@ export const RADIO_COMPROMISE_1: IncidentTypeConfiguration = {
         },
         {
           id: '180984',
-          code: 'NO',
+          response: 'NO',
           active: true,
           label: 'No',
           commentRequired: false,
@@ -304,7 +304,7 @@ export const RADIO_COMPROMISE_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '181256',
-          code: 'YES',
+          response: 'YES',
           active: true,
           label: 'Yes',
           commentRequired: false,
@@ -313,7 +313,7 @@ export const RADIO_COMPROMISE_1: IncidentTypeConfiguration = {
         },
         {
           id: '181255',
-          code: 'NO',
+          response: 'NO',
           active: true,
           label: 'No',
           commentRequired: false,
@@ -331,7 +331,7 @@ export const RADIO_COMPROMISE_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '181261',
-          code: 'YES',
+          response: 'YES',
           active: true,
           label: 'Yes',
           commentRequired: false,
@@ -340,7 +340,7 @@ export const RADIO_COMPROMISE_1: IncidentTypeConfiguration = {
         },
         {
           id: '181260',
-          code: 'NO',
+          response: 'NO',
           active: true,
           label: 'No',
           commentRequired: false,
@@ -358,7 +358,7 @@ export const RADIO_COMPROMISE_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '181262',
-          code: 'YES',
+          response: 'YES',
           active: true,
           label: 'Yes',
           commentRequired: false,
@@ -367,7 +367,7 @@ export const RADIO_COMPROMISE_1: IncidentTypeConfiguration = {
         },
         {
           id: '181263',
-          code: 'NO',
+          response: 'NO',
           active: true,
           label: 'No',
           commentRequired: false,
@@ -385,7 +385,7 @@ export const RADIO_COMPROMISE_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '181284',
-          code: 'YES',
+          response: 'YES',
           active: true,
           label: 'Yes',
           commentRequired: false,
@@ -394,7 +394,7 @@ export const RADIO_COMPROMISE_1: IncidentTypeConfiguration = {
         },
         {
           id: '181283',
-          code: 'NO',
+          response: 'NO',
           active: true,
           label: 'No',
           commentRequired: false,
@@ -412,7 +412,7 @@ export const RADIO_COMPROMISE_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '181355',
-          code: 'LOST',
+          response: 'LOST',
           active: true,
           label: 'Lost',
           commentRequired: false,
@@ -421,7 +421,7 @@ export const RADIO_COMPROMISE_1: IncidentTypeConfiguration = {
         },
         {
           id: '181356',
-          code: 'MISLAID',
+          response: 'MISLAID',
           active: true,
           label: 'Mislaid',
           commentRequired: false,
@@ -430,7 +430,7 @@ export const RADIO_COMPROMISE_1: IncidentTypeConfiguration = {
         },
         {
           id: '181357',
-          code: 'STOLEN',
+          response: 'STOLEN',
           active: true,
           label: 'Stolen',
           commentRequired: false,
@@ -448,7 +448,7 @@ export const RADIO_COMPROMISE_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '181415',
-          code: 'YES',
+          response: 'YES',
           active: true,
           label: 'Yes',
           commentRequired: false,
@@ -457,7 +457,7 @@ export const RADIO_COMPROMISE_1: IncidentTypeConfiguration = {
         },
         {
           id: '181414',
-          code: 'NO',
+          response: 'NO',
           active: true,
           label: 'No',
           commentRequired: false,
@@ -475,7 +475,7 @@ export const RADIO_COMPROMISE_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '181638',
-          code: 'YES',
+          response: 'YES',
           active: true,
           label: 'Yes',
           commentRequired: false,
@@ -484,7 +484,7 @@ export const RADIO_COMPROMISE_1: IncidentTypeConfiguration = {
         },
         {
           id: '181637',
-          code: 'NO',
+          response: 'NO',
           active: true,
           label: 'No',
           commentRequired: false,
@@ -502,7 +502,7 @@ export const RADIO_COMPROMISE_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '182450',
-          code: 'PRISONER POSSESSION',
+          response: 'PRISONER POSSESSION',
           active: true,
           label: 'Prisoner possession',
           commentRequired: false,
@@ -511,7 +511,7 @@ export const RADIO_COMPROMISE_1: IncidentTypeConfiguration = {
         },
         {
           id: '182446',
-          code: 'CONCEALED',
+          response: 'CONCEALED',
           active: true,
           label: 'Concealed',
           commentRequired: false,
@@ -520,7 +520,7 @@ export const RADIO_COMPROMISE_1: IncidentTypeConfiguration = {
         },
         {
           id: '182447',
-          code: 'DISCARDED',
+          response: 'DISCARDED',
           active: true,
           label: 'Discarded',
           commentRequired: false,
@@ -529,7 +529,7 @@ export const RADIO_COMPROMISE_1: IncidentTypeConfiguration = {
         },
         {
           id: '182448',
-          code: 'MISLAID/LOST',
+          response: 'MISLAID/LOST',
           active: true,
           label: 'Mislaid/lost',
           commentRequired: true,
@@ -538,7 +538,7 @@ export const RADIO_COMPROMISE_1: IncidentTypeConfiguration = {
         },
         {
           id: '182449',
-          code: 'OTHER',
+          response: 'OTHER',
           active: true,
           label: 'Other',
           commentRequired: true,

@@ -16,7 +16,7 @@ export const CLOSE_DOWN_SEARCH_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '178989',
-          code: 'YES',
+          response: 'YES',
           active: true,
           label: 'Yes',
           commentRequired: false,
@@ -25,7 +25,7 @@ export const CLOSE_DOWN_SEARCH_1: IncidentTypeConfiguration = {
         },
         {
           id: '178988',
-          code: 'NO',
+          response: 'NO',
           active: true,
           label: 'No',
           commentRequired: false,
@@ -43,7 +43,7 @@ export const CLOSE_DOWN_SEARCH_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '179804',
-          code: 'YES',
+          response: 'YES',
           active: true,
           label: 'Yes',
           commentRequired: false,
@@ -52,7 +52,7 @@ export const CLOSE_DOWN_SEARCH_1: IncidentTypeConfiguration = {
         },
         {
           id: '179805',
-          code: 'NO',
+          response: 'NO',
           active: true,
           label: 'No',
           commentRequired: false,
@@ -70,7 +70,7 @@ export const CLOSE_DOWN_SEARCH_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '179926',
-          code: 'FIREARM',
+          response: 'FIREARM',
           active: true,
           label: 'Firearm',
           commentRequired: false,
@@ -79,7 +79,7 @@ export const CLOSE_DOWN_SEARCH_1: IncidentTypeConfiguration = {
         },
         {
           id: '179921',
-          code: 'AMMUNITION',
+          response: 'AMMUNITION',
           active: true,
           label: 'Ammunition',
           commentRequired: false,
@@ -88,7 +88,7 @@ export const CLOSE_DOWN_SEARCH_1: IncidentTypeConfiguration = {
         },
         {
           id: '179922',
-          code: 'C.I SPRAY',
+          response: 'C.I SPRAY',
           active: true,
           label: 'C.i spray',
           commentRequired: false,
@@ -97,7 +97,7 @@ export const CLOSE_DOWN_SEARCH_1: IncidentTypeConfiguration = {
         },
         {
           id: '179929',
-          code: 'OTHER WEAPON',
+          response: 'OTHER WEAPON',
           active: true,
           label: 'Other weapon',
           commentRequired: true,
@@ -106,7 +106,7 @@ export const CLOSE_DOWN_SEARCH_1: IncidentTypeConfiguration = {
         },
         {
           id: '179925',
-          code: 'EXPLOSIVES',
+          response: 'EXPLOSIVES',
           active: true,
           label: 'Explosives',
           commentRequired: false,
@@ -115,7 +115,7 @@ export const CLOSE_DOWN_SEARCH_1: IncidentTypeConfiguration = {
         },
         {
           id: '179923',
-          code: 'DRUGS',
+          response: 'DRUGS',
           active: true,
           label: 'Drugs',
           commentRequired: false,
@@ -124,7 +124,7 @@ export const CLOSE_DOWN_SEARCH_1: IncidentTypeConfiguration = {
         },
         {
           id: '179924',
-          code: 'ESCAPE EQUIPMENT',
+          response: 'ESCAPE EQUIPMENT',
           active: true,
           label: 'Escape equipment',
           commentRequired: false,
@@ -133,7 +133,7 @@ export const CLOSE_DOWN_SEARCH_1: IncidentTypeConfiguration = {
         },
         {
           id: '179927',
-          code: 'GATHER EVIDENCE',
+          response: 'GATHER EVIDENCE',
           active: true,
           label: 'Gather evidence',
           commentRequired: false,
@@ -142,7 +142,7 @@ export const CLOSE_DOWN_SEARCH_1: IncidentTypeConfiguration = {
         },
         {
           id: '179928',
-          code: 'OTHER',
+          response: 'OTHER',
           active: true,
           label: 'Other',
           commentRequired: true,
@@ -160,7 +160,7 @@ export const CLOSE_DOWN_SEARCH_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '180488',
-          code: 'YES',
+          response: 'YES',
           active: true,
           label: 'Yes',
           commentRequired: false,
@@ -169,7 +169,7 @@ export const CLOSE_DOWN_SEARCH_1: IncidentTypeConfiguration = {
         },
         {
           id: '180487',
-          code: 'NO',
+          response: 'NO',
           active: true,
           label: 'No',
           commentRequired: false,
@@ -187,7 +187,7 @@ export const CLOSE_DOWN_SEARCH_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '180841',
-          code: 'YES',
+          response: 'YES',
           active: true,
           label: 'Yes',
           commentRequired: false,
@@ -196,7 +196,7 @@ export const CLOSE_DOWN_SEARCH_1: IncidentTypeConfiguration = {
         },
         {
           id: '180840',
-          code: 'NO',
+          response: 'NO',
           active: true,
           label: 'No',
           commentRequired: false,
@@ -214,7 +214,7 @@ export const CLOSE_DOWN_SEARCH_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '181020',
-          code: 'YES',
+          response: 'YES',
           active: true,
           label: 'Yes',
           commentRequired: false,
@@ -223,7 +223,7 @@ export const CLOSE_DOWN_SEARCH_1: IncidentTypeConfiguration = {
         },
         {
           id: '181019',
-          code: 'NO',
+          response: 'NO',
           active: true,
           label: 'No',
           commentRequired: false,
@@ -241,7 +241,7 @@ export const CLOSE_DOWN_SEARCH_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '181265',
-          code: 'YES',
+          response: 'YES',
           active: true,
           label: 'Yes',
           commentRequired: false,
@@ -250,7 +250,7 @@ export const CLOSE_DOWN_SEARCH_1: IncidentTypeConfiguration = {
         },
         {
           id: '181264',
-          code: 'NO',
+          response: 'NO',
           active: true,
           label: 'No',
           commentRequired: false,
@@ -268,7 +268,7 @@ export const CLOSE_DOWN_SEARCH_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '181851',
-          code: 'WEAPONS',
+          response: 'WEAPONS',
           active: true,
           label: 'Weapons',
           commentRequired: false,
@@ -277,7 +277,7 @@ export const CLOSE_DOWN_SEARCH_1: IncidentTypeConfiguration = {
         },
         {
           id: '181847',
-          code: 'HOOCH/ALCOHOL',
+          response: 'HOOCH/ALCOHOL',
           active: true,
           label: 'Hooch/alcohol',
           commentRequired: false,
@@ -286,7 +286,7 @@ export const CLOSE_DOWN_SEARCH_1: IncidentTypeConfiguration = {
         },
         {
           id: '181846',
-          code: 'CASH',
+          response: 'CASH',
           active: true,
           label: 'Cash',
           commentRequired: false,
@@ -295,7 +295,7 @@ export const CLOSE_DOWN_SEARCH_1: IncidentTypeConfiguration = {
         },
         {
           id: '181849',
-          code: 'MOBILE PHONE',
+          response: 'MOBILE PHONE',
           active: true,
           label: 'Mobile phone',
           commentRequired: false,
@@ -304,7 +304,7 @@ export const CLOSE_DOWN_SEARCH_1: IncidentTypeConfiguration = {
         },
         {
           id: '181848',
-          code: 'INCENDIARY DEVICE',
+          response: 'INCENDIARY DEVICE',
           active: true,
           label: 'Incendiary device',
           commentRequired: false,
@@ -313,7 +313,7 @@ export const CLOSE_DOWN_SEARCH_1: IncidentTypeConfiguration = {
         },
         {
           id: '181850',
-          code: 'OTHER',
+          response: 'OTHER',
           active: true,
           label: 'Other',
           commentRequired: true,
@@ -331,7 +331,7 @@ export const CLOSE_DOWN_SEARCH_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '182011',
-          code: 'YES',
+          response: 'YES',
           active: true,
           label: 'Yes',
           commentRequired: false,
@@ -340,7 +340,7 @@ export const CLOSE_DOWN_SEARCH_1: IncidentTypeConfiguration = {
         },
         {
           id: '182010',
-          code: 'NO',
+          response: 'NO',
           active: true,
           label: 'No',
           commentRequired: false,
@@ -358,7 +358,7 @@ export const CLOSE_DOWN_SEARCH_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '182234',
-          code: 'INFORMATION/INTELLIGENCE',
+          response: 'INFORMATION/INTELLIGENCE',
           active: true,
           label: 'Information/intelligence',
           commentRequired: false,
@@ -367,7 +367,7 @@ export const CLOSE_DOWN_SEARCH_1: IncidentTypeConfiguration = {
         },
         {
           id: '182237',
-          code: 'SPECIFIC FIND',
+          response: 'SPECIFIC FIND',
           active: true,
           label: 'Specific find',
           commentRequired: false,
@@ -376,7 +376,7 @@ export const CLOSE_DOWN_SEARCH_1: IncidentTypeConfiguration = {
         },
         {
           id: '182233',
-          code: 'HEADQUARTERS INSTRUCTIONS',
+          response: 'HEADQUARTERS INSTRUCTIONS',
           active: true,
           label: 'Headquarters instructions',
           commentRequired: false,
@@ -385,7 +385,7 @@ export const CLOSE_DOWN_SEARCH_1: IncidentTypeConfiguration = {
         },
         {
           id: '182236',
-          code: 'ROUTINE REQUIREMENT',
+          response: 'ROUTINE REQUIREMENT',
           active: true,
           label: 'Routine requirement',
           commentRequired: false,
@@ -394,7 +394,7 @@ export const CLOSE_DOWN_SEARCH_1: IncidentTypeConfiguration = {
         },
         {
           id: '182235',
-          code: 'OTHER',
+          response: 'OTHER',
           active: true,
           label: 'Other',
           commentRequired: true,
@@ -412,7 +412,7 @@ export const CLOSE_DOWN_SEARCH_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '182249',
-          code: 'YES',
+          response: 'YES',
           active: true,
           label: 'Yes',
           commentRequired: false,
@@ -421,7 +421,7 @@ export const CLOSE_DOWN_SEARCH_1: IncidentTypeConfiguration = {
         },
         {
           id: '182250',
-          code: 'NO',
+          response: 'NO',
           active: true,
           label: 'No',
           commentRequired: false,

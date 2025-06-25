@@ -16,7 +16,7 @@ export const CONCERTED_INDISCIPLINE_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '178890',
-          code: 'YES',
+          response: 'YES',
           active: false,
           label: 'Yes',
           commentRequired: false,
@@ -25,7 +25,7 @@ export const CONCERTED_INDISCIPLINE_1: IncidentTypeConfiguration = {
         },
         {
           id: '178889',
-          code: 'NO',
+          response: 'NO',
           active: false,
           label: 'No',
           commentRequired: false,
@@ -43,7 +43,7 @@ export const CONCERTED_INDISCIPLINE_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '178967',
-          code: 'YES',
+          response: 'YES',
           active: false,
           label: 'Yes',
           commentRequired: false,
@@ -52,7 +52,7 @@ export const CONCERTED_INDISCIPLINE_1: IncidentTypeConfiguration = {
         },
         {
           id: '178966',
-          code: 'NO',
+          response: 'NO',
           active: false,
           label: 'No',
           commentRequired: false,
@@ -70,7 +70,7 @@ export const CONCERTED_INDISCIPLINE_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '179016',
-          code: 'YES',
+          response: 'YES',
           active: false,
           label: 'Yes',
           commentRequired: false,
@@ -79,7 +79,7 @@ export const CONCERTED_INDISCIPLINE_1: IncidentTypeConfiguration = {
         },
         {
           id: '179015',
-          code: 'NO',
+          response: 'NO',
           active: false,
           label: 'No',
           commentRequired: false,
@@ -97,7 +97,7 @@ export const CONCERTED_INDISCIPLINE_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '179029',
-          code: 'YES',
+          response: 'YES',
           active: false,
           label: 'Yes',
           commentRequired: false,
@@ -106,7 +106,7 @@ export const CONCERTED_INDISCIPLINE_1: IncidentTypeConfiguration = {
         },
         {
           id: '179028',
-          code: 'NO',
+          response: 'NO',
           active: false,
           label: 'No',
           commentRequired: false,
@@ -124,7 +124,7 @@ export const CONCERTED_INDISCIPLINE_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '179031',
-          code: 'YES',
+          response: 'YES',
           active: false,
           label: 'Yes',
           commentRequired: false,
@@ -133,7 +133,7 @@ export const CONCERTED_INDISCIPLINE_1: IncidentTypeConfiguration = {
         },
         {
           id: '179030',
-          code: 'NO',
+          response: 'NO',
           active: false,
           label: 'No',
           commentRequired: false,
@@ -151,7 +151,7 @@ export const CONCERTED_INDISCIPLINE_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '179060',
-          code: 'NUMBER',
+          response: 'NUMBER',
           active: false,
           label: 'Number',
           commentRequired: true,
@@ -169,7 +169,7 @@ export const CONCERTED_INDISCIPLINE_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '179094',
-          code: 'YES',
+          response: 'YES',
           active: false,
           label: 'Yes',
           commentRequired: false,
@@ -178,7 +178,7 @@ export const CONCERTED_INDISCIPLINE_1: IncidentTypeConfiguration = {
         },
         {
           id: '179095',
-          code: 'NO',
+          response: 'NO',
           active: false,
           label: 'No',
           commentRequired: false,
@@ -196,7 +196,7 @@ export const CONCERTED_INDISCIPLINE_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '179206',
-          code: 'TELEPHONY',
+          response: 'TELEPHONY',
           active: false,
           label: 'Telephony',
           commentRequired: true,
@@ -205,7 +205,7 @@ export const CONCERTED_INDISCIPLINE_1: IncidentTypeConfiguration = {
         },
         {
           id: '179205',
-          code: 'IT',
+          response: 'IT',
           active: false,
           label: 'IT',
           commentRequired: true,
@@ -223,7 +223,7 @@ export const CONCERTED_INDISCIPLINE_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '179284',
-          code: 'YES',
+          response: 'YES',
           active: false,
           label: 'Yes',
           commentRequired: false,
@@ -232,7 +232,7 @@ export const CONCERTED_INDISCIPLINE_1: IncidentTypeConfiguration = {
         },
         {
           id: '179283',
-          code: 'NO',
+          response: 'NO',
           active: false,
           label: 'No',
           commentRequired: false,
@@ -250,7 +250,7 @@ export const CONCERTED_INDISCIPLINE_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '179323',
-          code: 'YES',
+          response: 'YES',
           active: false,
           label: 'Yes',
           commentRequired: false,
@@ -259,7 +259,7 @@ export const CONCERTED_INDISCIPLINE_1: IncidentTypeConfiguration = {
         },
         {
           id: '179324',
-          code: 'NO',
+          response: 'NO',
           active: false,
           label: 'No',
           commentRequired: false,
@@ -277,7 +277,7 @@ export const CONCERTED_INDISCIPLINE_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '179336',
-          code: 'YES',
+          response: 'YES',
           active: false,
           label: 'Yes',
           commentRequired: false,
@@ -286,7 +286,7 @@ export const CONCERTED_INDISCIPLINE_1: IncidentTypeConfiguration = {
         },
         {
           id: '179335',
-          code: 'NO',
+          response: 'NO',
           active: false,
           label: 'No',
           commentRequired: false,
@@ -304,7 +304,7 @@ export const CONCERTED_INDISCIPLINE_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '179360',
-          code: 'YES',
+          response: 'YES',
           active: false,
           label: 'Yes',
           commentRequired: false,
@@ -313,7 +313,7 @@ export const CONCERTED_INDISCIPLINE_1: IncidentTypeConfiguration = {
         },
         {
           id: '179361',
-          code: 'NO',
+          response: 'NO',
           active: false,
           label: 'No',
           commentRequired: false,
@@ -331,7 +331,7 @@ export const CONCERTED_INDISCIPLINE_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '179394',
-          code: 'NUMBER',
+          response: 'NUMBER',
           active: false,
           label: 'Number',
           commentRequired: true,
@@ -349,7 +349,7 @@ export const CONCERTED_INDISCIPLINE_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '179433',
-          code: 'YES',
+          response: 'YES',
           active: false,
           label: 'Yes',
           commentRequired: false,
@@ -358,7 +358,7 @@ export const CONCERTED_INDISCIPLINE_1: IncidentTypeConfiguration = {
         },
         {
           id: '179432',
-          code: 'NO',
+          response: 'NO',
           active: false,
           label: 'No',
           commentRequired: false,
@@ -376,7 +376,7 @@ export const CONCERTED_INDISCIPLINE_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '179450',
-          code: 'YES',
+          response: 'YES',
           active: false,
           label: 'Yes',
           commentRequired: false,
@@ -385,7 +385,7 @@ export const CONCERTED_INDISCIPLINE_1: IncidentTypeConfiguration = {
         },
         {
           id: '179449',
-          code: 'NO',
+          response: 'NO',
           active: false,
           label: 'No',
           commentRequired: false,
@@ -403,7 +403,7 @@ export const CONCERTED_INDISCIPLINE_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '179481',
-          code: 'ADMINISTRATION',
+          response: 'ADMINISTRATION',
           active: false,
           label: 'Administration',
           commentRequired: false,
@@ -412,7 +412,7 @@ export const CONCERTED_INDISCIPLINE_1: IncidentTypeConfiguration = {
         },
         {
           id: '179482',
-          code: 'ASSOCIATION AREA',
+          response: 'ASSOCIATION AREA',
           active: false,
           label: 'Association area',
           commentRequired: false,
@@ -421,7 +421,7 @@ export const CONCERTED_INDISCIPLINE_1: IncidentTypeConfiguration = {
         },
         {
           id: '179483',
-          code: 'CELL',
+          response: 'CELL',
           active: false,
           label: 'Cell',
           commentRequired: false,
@@ -430,7 +430,7 @@ export const CONCERTED_INDISCIPLINE_1: IncidentTypeConfiguration = {
         },
         {
           id: '179484',
-          code: 'CHAPEL',
+          response: 'CHAPEL',
           active: false,
           label: 'Chapel',
           commentRequired: false,
@@ -439,7 +439,7 @@ export const CONCERTED_INDISCIPLINE_1: IncidentTypeConfiguration = {
         },
         {
           id: '179486',
-          code: 'DINING ROOM',
+          response: 'DINING ROOM',
           active: false,
           label: 'Dining room',
           commentRequired: false,
@@ -448,7 +448,7 @@ export const CONCERTED_INDISCIPLINE_1: IncidentTypeConfiguration = {
         },
         {
           id: '179487',
-          code: 'DORMITORY',
+          response: 'DORMITORY',
           active: false,
           label: 'Dormitory',
           commentRequired: false,
@@ -457,7 +457,7 @@ export const CONCERTED_INDISCIPLINE_1: IncidentTypeConfiguration = {
         },
         {
           id: '179488',
-          code: 'EDUCATION',
+          response: 'EDUCATION',
           active: false,
           label: 'Education',
           commentRequired: false,
@@ -466,7 +466,7 @@ export const CONCERTED_INDISCIPLINE_1: IncidentTypeConfiguration = {
         },
         {
           id: '179490',
-          code: 'EXERCISE YARD',
+          response: 'EXERCISE YARD',
           active: false,
           label: 'Exercise yard',
           commentRequired: false,
@@ -475,7 +475,7 @@ export const CONCERTED_INDISCIPLINE_1: IncidentTypeConfiguration = {
         },
         {
           id: '179492',
-          code: 'GATE',
+          response: 'GATE',
           active: false,
           label: 'Gate',
           commentRequired: false,
@@ -484,7 +484,7 @@ export const CONCERTED_INDISCIPLINE_1: IncidentTypeConfiguration = {
         },
         {
           id: '179493',
-          code: 'GYM',
+          response: 'GYM',
           active: false,
           label: 'Gym',
           commentRequired: false,
@@ -493,7 +493,7 @@ export const CONCERTED_INDISCIPLINE_1: IncidentTypeConfiguration = {
         },
         {
           id: '179494',
-          code: 'HEALTH CARE CENTRE',
+          response: 'HEALTH CARE CENTRE',
           active: false,
           label: 'Health care centre',
           commentRequired: false,
@@ -502,7 +502,7 @@ export const CONCERTED_INDISCIPLINE_1: IncidentTypeConfiguration = {
         },
         {
           id: '179497',
-          code: 'KITCHEN',
+          response: 'KITCHEN',
           active: false,
           label: 'Kitchen',
           commentRequired: false,
@@ -511,7 +511,7 @@ export const CONCERTED_INDISCIPLINE_1: IncidentTypeConfiguration = {
         },
         {
           id: '179499',
-          code: 'OFFICE',
+          response: 'OFFICE',
           active: false,
           label: 'Office',
           commentRequired: false,
@@ -520,7 +520,7 @@ export const CONCERTED_INDISCIPLINE_1: IncidentTypeConfiguration = {
         },
         {
           id: '179501',
-          code: 'RECEPTION',
+          response: 'RECEPTION',
           active: false,
           label: 'Reception',
           commentRequired: false,
@@ -529,7 +529,7 @@ export const CONCERTED_INDISCIPLINE_1: IncidentTypeConfiguration = {
         },
         {
           id: '179502',
-          code: 'RECESS',
+          response: 'RECESS',
           active: false,
           label: 'Recess',
           commentRequired: false,
@@ -538,7 +538,7 @@ export const CONCERTED_INDISCIPLINE_1: IncidentTypeConfiguration = {
         },
         {
           id: '179503',
-          code: 'SEGREGATION UNIT',
+          response: 'SEGREGATION UNIT',
           active: false,
           label: 'Segregation unit',
           commentRequired: false,
@@ -547,7 +547,7 @@ export const CONCERTED_INDISCIPLINE_1: IncidentTypeConfiguration = {
         },
         {
           id: '179505',
-          code: 'SPECIAL UNIT',
+          response: 'SPECIAL UNIT',
           active: false,
           label: 'Special unit',
           commentRequired: false,
@@ -556,7 +556,7 @@ export const CONCERTED_INDISCIPLINE_1: IncidentTypeConfiguration = {
         },
         {
           id: '179504',
-          code: 'SHOWERS/CHANGING ROOM',
+          response: 'SHOWERS/CHANGING ROOM',
           active: false,
           label: 'Showers/changing room',
           commentRequired: false,
@@ -565,7 +565,7 @@ export const CONCERTED_INDISCIPLINE_1: IncidentTypeConfiguration = {
         },
         {
           id: '179508',
-          code: 'VISITS',
+          response: 'VISITS',
           active: false,
           label: 'Visits',
           commentRequired: false,
@@ -574,7 +574,7 @@ export const CONCERTED_INDISCIPLINE_1: IncidentTypeConfiguration = {
         },
         {
           id: '179510',
-          code: 'WING',
+          response: 'WING',
           active: false,
           label: 'Wing',
           commentRequired: false,
@@ -583,7 +583,7 @@ export const CONCERTED_INDISCIPLINE_1: IncidentTypeConfiguration = {
         },
         {
           id: '179512',
-          code: 'WORKS DEPARTMENT',
+          response: 'WORKS DEPARTMENT',
           active: false,
           label: 'Works department',
           commentRequired: false,
@@ -592,7 +592,7 @@ export const CONCERTED_INDISCIPLINE_1: IncidentTypeConfiguration = {
         },
         {
           id: '179513',
-          code: 'WORKSHOP',
+          response: 'WORKSHOP',
           active: false,
           label: 'Workshop',
           commentRequired: false,
@@ -601,7 +601,7 @@ export const CONCERTED_INDISCIPLINE_1: IncidentTypeConfiguration = {
         },
         {
           id: '179511',
-          code: 'WITHIN PERIMETER',
+          response: 'WITHIN PERIMETER',
           active: false,
           label: 'Within perimeter',
           commentRequired: false,
@@ -610,7 +610,7 @@ export const CONCERTED_INDISCIPLINE_1: IncidentTypeConfiguration = {
         },
         {
           id: '179489',
-          code: 'ELSEWHERE',
+          response: 'ELSEWHERE',
           active: false,
           label: 'Elsewhere',
           commentRequired: true,
@@ -619,7 +619,7 @@ export const CONCERTED_INDISCIPLINE_1: IncidentTypeConfiguration = {
         },
         {
           id: '179491',
-          code: 'FUNERAL',
+          response: 'FUNERAL',
           active: false,
           label: 'Funeral',
           commentRequired: false,
@@ -628,7 +628,7 @@ export const CONCERTED_INDISCIPLINE_1: IncidentTypeConfiguration = {
         },
         {
           id: '179495',
-          code: 'HOSPITAL OUTSIDE (PATIENT)',
+          response: 'HOSPITAL OUTSIDE (PATIENT)',
           active: false,
           label: 'Hospital outside (patient)',
           commentRequired: false,
@@ -637,7 +637,7 @@ export const CONCERTED_INDISCIPLINE_1: IncidentTypeConfiguration = {
         },
         {
           id: '179496',
-          code: 'HOSPITAL OUTSIDE (VISITING)',
+          response: 'HOSPITAL OUTSIDE (VISITING)',
           active: false,
           label: 'Hospital outside (visiting)',
           commentRequired: false,
@@ -646,7 +646,7 @@ export const CONCERTED_INDISCIPLINE_1: IncidentTypeConfiguration = {
         },
         {
           id: '179500',
-          code: 'OUTSIDE WORKING PARTY',
+          response: 'OUTSIDE WORKING PARTY',
           active: false,
           label: 'Outside working party',
           commentRequired: false,
@@ -655,7 +655,7 @@ export const CONCERTED_INDISCIPLINE_1: IncidentTypeConfiguration = {
         },
         {
           id: '179506',
-          code: 'SPORTS FIELD',
+          response: 'SPORTS FIELD',
           active: false,
           label: 'Sports field',
           commentRequired: false,
@@ -664,7 +664,7 @@ export const CONCERTED_INDISCIPLINE_1: IncidentTypeConfiguration = {
         },
         {
           id: '179507',
-          code: 'VEHICLE',
+          response: 'VEHICLE',
           active: false,
           label: 'Vehicle',
           commentRequired: false,
@@ -673,7 +673,7 @@ export const CONCERTED_INDISCIPLINE_1: IncidentTypeConfiguration = {
         },
         {
           id: '179509',
-          code: 'WEDDINGS',
+          response: 'WEDDINGS',
           active: false,
           label: 'Weddings',
           commentRequired: false,
@@ -682,7 +682,7 @@ export const CONCERTED_INDISCIPLINE_1: IncidentTypeConfiguration = {
         },
         {
           id: '179498',
-          code: 'MAGISTRATES COURT',
+          response: 'MAGISTRATES COURT',
           active: false,
           label: 'Magistrates court',
           commentRequired: false,
@@ -691,7 +691,7 @@ export const CONCERTED_INDISCIPLINE_1: IncidentTypeConfiguration = {
         },
         {
           id: '179485',
-          code: 'CROWN COURT',
+          response: 'CROWN COURT',
           active: false,
           label: 'Crown court',
           commentRequired: false,
@@ -709,7 +709,7 @@ export const CONCERTED_INDISCIPLINE_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '179552',
-          code: 'YES',
+          response: 'YES',
           active: false,
           label: 'Yes',
           commentRequired: false,
@@ -718,7 +718,7 @@ export const CONCERTED_INDISCIPLINE_1: IncidentTypeConfiguration = {
         },
         {
           id: '179551',
-          code: 'NO',
+          response: 'NO',
           active: false,
           label: 'No',
           commentRequired: false,
@@ -736,7 +736,7 @@ export const CONCERTED_INDISCIPLINE_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '179630',
-          code: 'YES',
+          response: 'YES',
           active: false,
           label: 'Yes',
           commentRequired: true,
@@ -745,7 +745,7 @@ export const CONCERTED_INDISCIPLINE_1: IncidentTypeConfiguration = {
         },
         {
           id: '179629',
-          code: 'NO',
+          response: 'NO',
           active: false,
           label: 'No',
           commentRequired: false,
@@ -763,7 +763,7 @@ export const CONCERTED_INDISCIPLINE_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '179637',
-          code: 'NUMBER OF HOURS',
+          response: 'NUMBER OF HOURS',
           active: false,
           label: 'Number of hours',
           commentRequired: true,
@@ -781,7 +781,7 @@ export const CONCERTED_INDISCIPLINE_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '179809',
-          code: 'MINOR',
+          response: 'MINOR',
           active: false,
           label: 'Minor',
           commentRequired: false,
@@ -790,7 +790,7 @@ export const CONCERTED_INDISCIPLINE_1: IncidentTypeConfiguration = {
         },
         {
           id: '179810',
-          code: 'SERIOUS',
+          response: 'SERIOUS',
           active: false,
           label: 'Serious',
           commentRequired: false,
@@ -799,7 +799,7 @@ export const CONCERTED_INDISCIPLINE_1: IncidentTypeConfiguration = {
         },
         {
           id: '179808',
-          code: 'EXTENSIVE',
+          response: 'EXTENSIVE',
           active: false,
           label: 'Extensive',
           commentRequired: false,
@@ -817,7 +817,7 @@ export const CONCERTED_INDISCIPLINE_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '179940',
-          code: 'YES',
+          response: 'YES',
           active: false,
           label: 'Yes',
           commentRequired: false,
@@ -826,7 +826,7 @@ export const CONCERTED_INDISCIPLINE_1: IncidentTypeConfiguration = {
         },
         {
           id: '179941',
-          code: 'NO',
+          response: 'NO',
           active: false,
           label: 'No',
           commentRequired: false,
@@ -844,7 +844,7 @@ export const CONCERTED_INDISCIPLINE_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '180154',
-          code: 'YES',
+          response: 'YES',
           active: false,
           label: 'Yes',
           commentRequired: false,
@@ -853,7 +853,7 @@ export const CONCERTED_INDISCIPLINE_1: IncidentTypeConfiguration = {
         },
         {
           id: '180155',
-          code: 'NO',
+          response: 'NO',
           active: false,
           label: 'No',
           commentRequired: false,
@@ -871,7 +871,7 @@ export const CONCERTED_INDISCIPLINE_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '180352',
-          code: 'YES',
+          response: 'YES',
           active: false,
           label: 'Yes',
           commentRequired: false,
@@ -880,7 +880,7 @@ export const CONCERTED_INDISCIPLINE_1: IncidentTypeConfiguration = {
         },
         {
           id: '180353',
-          code: 'NO',
+          response: 'NO',
           active: false,
           label: 'No',
           commentRequired: false,
@@ -898,7 +898,7 @@ export const CONCERTED_INDISCIPLINE_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '180435',
-          code: 'YES',
+          response: 'YES',
           active: false,
           label: 'Yes',
           commentRequired: false,
@@ -907,7 +907,7 @@ export const CONCERTED_INDISCIPLINE_1: IncidentTypeConfiguration = {
         },
         {
           id: '180434',
-          code: 'NO',
+          response: 'NO',
           active: false,
           label: 'No',
           commentRequired: false,
@@ -925,7 +925,7 @@ export const CONCERTED_INDISCIPLINE_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '180466',
-          code: 'ENTER TIME',
+          response: 'ENTER TIME',
           active: false,
           label: 'Enter time',
           commentRequired: true,
@@ -943,7 +943,7 @@ export const CONCERTED_INDISCIPLINE_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '180509',
-          code: 'FULL',
+          response: 'FULL',
           active: false,
           label: 'Full',
           commentRequired: false,
@@ -952,7 +952,7 @@ export const CONCERTED_INDISCIPLINE_1: IncidentTypeConfiguration = {
         },
         {
           id: '180510',
-          code: 'PARTIAL',
+          response: 'PARTIAL',
           active: false,
           label: 'Partial',
           commentRequired: true,
@@ -970,7 +970,7 @@ export const CONCERTED_INDISCIPLINE_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '180663',
-          code: 'YES',
+          response: 'YES',
           active: false,
           label: 'Yes',
           commentRequired: false,
@@ -979,7 +979,7 @@ export const CONCERTED_INDISCIPLINE_1: IncidentTypeConfiguration = {
         },
         {
           id: '180662',
-          code: 'NO',
+          response: 'NO',
           active: false,
           label: 'No',
           commentRequired: false,
@@ -997,7 +997,7 @@ export const CONCERTED_INDISCIPLINE_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '180765',
-          code: 'FIREARM',
+          response: 'FIREARM',
           active: false,
           label: 'Firearm',
           commentRequired: false,
@@ -1006,7 +1006,7 @@ export const CONCERTED_INDISCIPLINE_1: IncidentTypeConfiguration = {
         },
         {
           id: '180762',
-          code: 'CHEMICAL INCAPACITANT',
+          response: 'CHEMICAL INCAPACITANT',
           active: false,
           label: 'Chemical incapacitant',
           commentRequired: false,
@@ -1015,7 +1015,7 @@ export const CONCERTED_INDISCIPLINE_1: IncidentTypeConfiguration = {
         },
         {
           id: '180767',
-          code: 'KNIFE/BLADE',
+          response: 'KNIFE/BLADE',
           active: false,
           label: 'Knife/blade',
           commentRequired: false,
@@ -1024,7 +1024,7 @@ export const CONCERTED_INDISCIPLINE_1: IncidentTypeConfiguration = {
         },
         {
           id: '180770',
-          code: 'OTHER SHARP INSTRUMENT',
+          response: 'OTHER SHARP INSTRUMENT',
           active: false,
           label: 'Other sharp instrument',
           commentRequired: false,
@@ -1033,7 +1033,7 @@ export const CONCERTED_INDISCIPLINE_1: IncidentTypeConfiguration = {
         },
         {
           id: '180761',
-          code: 'BLUNT INSTRUMENT',
+          response: 'BLUNT INSTRUMENT',
           active: false,
           label: 'Blunt instrument',
           commentRequired: false,
@@ -1042,7 +1042,7 @@ export const CONCERTED_INDISCIPLINE_1: IncidentTypeConfiguration = {
         },
         {
           id: '180768',
-          code: 'LIGATURE',
+          response: 'LIGATURE',
           active: false,
           label: 'Ligature',
           commentRequired: false,
@@ -1051,7 +1051,7 @@ export const CONCERTED_INDISCIPLINE_1: IncidentTypeConfiguration = {
         },
         {
           id: '180763',
-          code: 'DANGEROUS LIQUID',
+          response: 'DANGEROUS LIQUID',
           active: false,
           label: 'Dangerous liquid',
           commentRequired: false,
@@ -1060,7 +1060,7 @@ export const CONCERTED_INDISCIPLINE_1: IncidentTypeConfiguration = {
         },
         {
           id: '180764',
-          code: 'EXCRETA/URINE',
+          response: 'EXCRETA/URINE',
           active: false,
           label: 'Excreta/urine',
           commentRequired: false,
@@ -1069,7 +1069,7 @@ export const CONCERTED_INDISCIPLINE_1: IncidentTypeConfiguration = {
         },
         {
           id: '180771',
-          code: 'SPITTING',
+          response: 'SPITTING',
           active: false,
           label: 'Spitting',
           commentRequired: false,
@@ -1078,7 +1078,7 @@ export const CONCERTED_INDISCIPLINE_1: IncidentTypeConfiguration = {
         },
         {
           id: '180766',
-          code: 'FOOD',
+          response: 'FOOD',
           active: false,
           label: 'Food',
           commentRequired: false,
@@ -1087,7 +1087,7 @@ export const CONCERTED_INDISCIPLINE_1: IncidentTypeConfiguration = {
         },
         {
           id: '180773',
-          code: 'THROWN FURNITURE',
+          response: 'THROWN FURNITURE',
           active: false,
           label: 'Thrown furniture',
           commentRequired: false,
@@ -1096,7 +1096,7 @@ export const CONCERTED_INDISCIPLINE_1: IncidentTypeConfiguration = {
         },
         {
           id: '180772',
-          code: 'THROWN EQUIPMENT',
+          response: 'THROWN EQUIPMENT',
           active: false,
           label: 'Thrown equipment',
           commentRequired: false,
@@ -1105,7 +1105,7 @@ export const CONCERTED_INDISCIPLINE_1: IncidentTypeConfiguration = {
         },
         {
           id: '180769',
-          code: 'OTHER',
+          response: 'OTHER',
           active: false,
           label: 'Other',
           commentRequired: true,
@@ -1123,7 +1123,7 @@ export const CONCERTED_INDISCIPLINE_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '180776',
-          code: 'FACILITIES',
+          response: 'FACILITIES',
           active: false,
           label: 'Facilities',
           commentRequired: false,
@@ -1132,7 +1132,7 @@ export const CONCERTED_INDISCIPLINE_1: IncidentTypeConfiguration = {
         },
         {
           id: '180777',
-          code: 'FOOD',
+          response: 'FOOD',
           active: false,
           label: 'Food',
           commentRequired: false,
@@ -1141,7 +1141,7 @@ export const CONCERTED_INDISCIPLINE_1: IncidentTypeConfiguration = {
         },
         {
           id: '180779',
-          code: 'PAY',
+          response: 'PAY',
           active: false,
           label: 'Pay',
           commentRequired: false,
@@ -1150,7 +1150,7 @@ export const CONCERTED_INDISCIPLINE_1: IncidentTypeConfiguration = {
         },
         {
           id: '180781',
-          code: 'VISITS',
+          response: 'VISITS',
           active: false,
           label: 'Visits',
           commentRequired: false,
@@ -1159,7 +1159,7 @@ export const CONCERTED_INDISCIPLINE_1: IncidentTypeConfiguration = {
         },
         {
           id: '180780',
-          code: 'TIME OUT OF CELL',
+          response: 'TIME OUT OF CELL',
           active: false,
           label: 'Time out of cell',
           commentRequired: false,
@@ -1168,7 +1168,7 @@ export const CONCERTED_INDISCIPLINE_1: IncidentTypeConfiguration = {
         },
         {
           id: '180778',
-          code: 'OTHER',
+          response: 'OTHER',
           active: false,
           label: 'Other',
           commentRequired: true,
@@ -1186,7 +1186,7 @@ export const CONCERTED_INDISCIPLINE_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '180798',
-          code: 'ENTER AMOUNT IN POUND STERLING',
+          response: 'ENTER AMOUNT IN POUND STERLING',
           active: false,
           label: 'Enter amount in pound sterling',
           commentRequired: true,
@@ -1204,7 +1204,7 @@ export const CONCERTED_INDISCIPLINE_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '180799',
-          code: 'LOCAL',
+          response: 'LOCAL',
           active: false,
           label: 'Local',
           commentRequired: false,
@@ -1213,7 +1213,7 @@ export const CONCERTED_INDISCIPLINE_1: IncidentTypeConfiguration = {
         },
         {
           id: '180800',
-          code: 'SERVICE SUPPLIER',
+          response: 'SERVICE SUPPLIER',
           active: false,
           label: 'Service supplier',
           commentRequired: false,
@@ -1231,7 +1231,7 @@ export const CONCERTED_INDISCIPLINE_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '180802',
-          code: 'YES',
+          response: 'YES',
           active: false,
           label: 'Yes',
           commentRequired: false,
@@ -1240,7 +1240,7 @@ export const CONCERTED_INDISCIPLINE_1: IncidentTypeConfiguration = {
         },
         {
           id: '180801',
-          code: 'NO',
+          response: 'NO',
           active: false,
           label: 'No',
           commentRequired: false,
@@ -1258,7 +1258,7 @@ export const CONCERTED_INDISCIPLINE_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '180845',
-          code: 'YES',
+          response: 'YES',
           active: false,
           label: 'Yes',
           commentRequired: false,
@@ -1267,7 +1267,7 @@ export const CONCERTED_INDISCIPLINE_1: IncidentTypeConfiguration = {
         },
         {
           id: '180844',
-          code: 'NO',
+          response: 'NO',
           active: false,
           label: 'No',
           commentRequired: false,
@@ -1285,7 +1285,7 @@ export const CONCERTED_INDISCIPLINE_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '180856',
-          code: 'YES',
+          response: 'YES',
           active: false,
           label: 'Yes',
           commentRequired: false,
@@ -1294,7 +1294,7 @@ export const CONCERTED_INDISCIPLINE_1: IncidentTypeConfiguration = {
         },
         {
           id: '180855',
-          code: 'NO',
+          response: 'NO',
           active: false,
           label: 'No',
           commentRequired: false,
@@ -1312,7 +1312,7 @@ export const CONCERTED_INDISCIPLINE_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '180918',
-          code: 'STAFF',
+          response: 'STAFF',
           active: false,
           label: 'Staff',
           commentRequired: true,
@@ -1321,7 +1321,7 @@ export const CONCERTED_INDISCIPLINE_1: IncidentTypeConfiguration = {
         },
         {
           id: '180917',
-          code: 'PRISONERS',
+          response: 'PRISONERS',
           active: false,
           label: 'Prisoners',
           commentRequired: true,
@@ -1330,7 +1330,7 @@ export const CONCERTED_INDISCIPLINE_1: IncidentTypeConfiguration = {
         },
         {
           id: '180914',
-          code: 'CIVILIAN GRADES',
+          response: 'CIVILIAN GRADES',
           active: false,
           label: 'Civilian grades',
           commentRequired: true,
@@ -1339,7 +1339,7 @@ export const CONCERTED_INDISCIPLINE_1: IncidentTypeConfiguration = {
         },
         {
           id: '180916',
-          code: 'POLICE',
+          response: 'POLICE',
           active: false,
           label: 'Police',
           commentRequired: true,
@@ -1348,7 +1348,7 @@ export const CONCERTED_INDISCIPLINE_1: IncidentTypeConfiguration = {
         },
         {
           id: '180915',
-          code: 'EXTERNAL CIVILIANS',
+          response: 'EXTERNAL CIVILIANS',
           active: false,
           label: 'External civilians',
           commentRequired: true,
@@ -1366,7 +1366,7 @@ export const CONCERTED_INDISCIPLINE_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '181028',
-          code: 'FRACTURE',
+          response: 'FRACTURE',
           active: false,
           label: 'Fracture',
           commentRequired: false,
@@ -1375,7 +1375,7 @@ export const CONCERTED_INDISCIPLINE_1: IncidentTypeConfiguration = {
         },
         {
           id: '181030',
-          code: 'SCALD OR BURN',
+          response: 'SCALD OR BURN',
           active: false,
           label: 'Scald or burn',
           commentRequired: false,
@@ -1384,7 +1384,7 @@ export const CONCERTED_INDISCIPLINE_1: IncidentTypeConfiguration = {
         },
         {
           id: '181031',
-          code: 'STABBING',
+          response: 'STABBING',
           active: false,
           label: 'Stabbing',
           commentRequired: false,
@@ -1393,7 +1393,7 @@ export const CONCERTED_INDISCIPLINE_1: IncidentTypeConfiguration = {
         },
         {
           id: '181025',
-          code: 'CRUSHING',
+          response: 'CRUSHING',
           active: false,
           label: 'Crushing',
           commentRequired: false,
@@ -1402,7 +1402,7 @@ export const CONCERTED_INDISCIPLINE_1: IncidentTypeConfiguration = {
         },
         {
           id: '181027',
-          code: 'EXTENSIVE/MULTIPLE BRUISING',
+          response: 'EXTENSIVE/MULTIPLE BRUISING',
           active: false,
           label: 'Extensive/multiple bruising',
           commentRequired: false,
@@ -1411,7 +1411,7 @@ export const CONCERTED_INDISCIPLINE_1: IncidentTypeConfiguration = {
         },
         {
           id: '181022',
-          code: 'BLACK EYE',
+          response: 'BLACK EYE',
           active: false,
           label: 'Black eye',
           commentRequired: false,
@@ -1420,7 +1420,7 @@ export const CONCERTED_INDISCIPLINE_1: IncidentTypeConfiguration = {
         },
         {
           id: '181023',
-          code: 'BROKEN NOSE',
+          response: 'BROKEN NOSE',
           active: false,
           label: 'Broken nose',
           commentRequired: false,
@@ -1429,7 +1429,7 @@ export const CONCERTED_INDISCIPLINE_1: IncidentTypeConfiguration = {
         },
         {
           id: '181024',
-          code: 'BROKEN TEETH',
+          response: 'BROKEN TEETH',
           active: false,
           label: 'Broken teeth',
           commentRequired: false,
@@ -1438,7 +1438,7 @@ export const CONCERTED_INDISCIPLINE_1: IncidentTypeConfiguration = {
         },
         {
           id: '181026',
-          code: 'CUTS REQUIRING SUTURES',
+          response: 'CUTS REQUIRING SUTURES',
           active: false,
           label: 'Cuts requiring sutures',
           commentRequired: false,
@@ -1447,7 +1447,7 @@ export const CONCERTED_INDISCIPLINE_1: IncidentTypeConfiguration = {
         },
         {
           id: '181021',
-          code: 'BITES',
+          response: 'BITES',
           active: false,
           label: 'Bites',
           commentRequired: false,
@@ -1456,7 +1456,7 @@ export const CONCERTED_INDISCIPLINE_1: IncidentTypeConfiguration = {
         },
         {
           id: '181029',
-          code: 'GUN SHOT WOUND',
+          response: 'GUN SHOT WOUND',
           active: false,
           label: 'Gun shot wound',
           commentRequired: false,
@@ -1465,7 +1465,7 @@ export const CONCERTED_INDISCIPLINE_1: IncidentTypeConfiguration = {
         },
         {
           id: '181032',
-          code: 'TEMPORARY/PERMANENT BLINDNESS',
+          response: 'TEMPORARY/PERMANENT BLINDNESS',
           active: false,
           label: 'Temporary/permanent blindness',
           commentRequired: false,
@@ -1483,7 +1483,7 @@ export const CONCERTED_INDISCIPLINE_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '181068',
-          code: 'STAFF',
+          response: 'STAFF',
           active: false,
           label: 'Staff',
           commentRequired: true,
@@ -1492,7 +1492,7 @@ export const CONCERTED_INDISCIPLINE_1: IncidentTypeConfiguration = {
         },
         {
           id: '181067',
-          code: 'PRISONERS',
+          response: 'PRISONERS',
           active: false,
           label: 'Prisoners',
           commentRequired: true,
@@ -1501,7 +1501,7 @@ export const CONCERTED_INDISCIPLINE_1: IncidentTypeConfiguration = {
         },
         {
           id: '181064',
-          code: 'CIVILIAN GRADES',
+          response: 'CIVILIAN GRADES',
           active: false,
           label: 'Civilian grades',
           commentRequired: true,
@@ -1510,7 +1510,7 @@ export const CONCERTED_INDISCIPLINE_1: IncidentTypeConfiguration = {
         },
         {
           id: '181066',
-          code: 'POLICE',
+          response: 'POLICE',
           active: false,
           label: 'Police',
           commentRequired: true,
@@ -1519,7 +1519,7 @@ export const CONCERTED_INDISCIPLINE_1: IncidentTypeConfiguration = {
         },
         {
           id: '181065',
-          code: 'EXTERNAL CIVILIANS',
+          response: 'EXTERNAL CIVILIANS',
           active: false,
           label: 'External civilians',
           commentRequired: true,
@@ -1537,7 +1537,7 @@ export const CONCERTED_INDISCIPLINE_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '181075',
-          code: 'ACTIVE',
+          response: 'ACTIVE',
           active: false,
           label: 'Active',
           commentRequired: false,
@@ -1546,7 +1546,7 @@ export const CONCERTED_INDISCIPLINE_1: IncidentTypeConfiguration = {
         },
         {
           id: '181076',
-          code: 'PASSIVE',
+          response: 'PASSIVE',
           active: false,
           label: 'Passive',
           commentRequired: false,
@@ -1564,7 +1564,7 @@ export const CONCERTED_INDISCIPLINE_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '181105',
-          code: 'YES',
+          response: 'YES',
           active: false,
           label: 'Yes',
           commentRequired: false,
@@ -1573,7 +1573,7 @@ export const CONCERTED_INDISCIPLINE_1: IncidentTypeConfiguration = {
         },
         {
           id: '181106',
-          code: 'NO',
+          response: 'NO',
           active: false,
           label: 'No',
           commentRequired: false,
@@ -1591,7 +1591,7 @@ export const CONCERTED_INDISCIPLINE_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '181122',
-          code: 'LOCAL',
+          response: 'LOCAL',
           active: false,
           label: 'Local',
           commentRequired: false,
@@ -1600,7 +1600,7 @@ export const CONCERTED_INDISCIPLINE_1: IncidentTypeConfiguration = {
         },
         {
           id: '181121',
-          code: 'SERVICE SUPPLIER',
+          response: 'SERVICE SUPPLIER',
           active: false,
           label: 'Service supplier',
           commentRequired: false,
@@ -1618,7 +1618,7 @@ export const CONCERTED_INDISCIPLINE_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '181126',
-          code: 'NEGOTIATION',
+          response: 'NEGOTIATION',
           active: false,
           label: 'Negotiation',
           commentRequired: false,
@@ -1627,7 +1627,7 @@ export const CONCERTED_INDISCIPLINE_1: IncidentTypeConfiguration = {
         },
         {
           id: '181125',
-          code: 'INTERVENTION',
+          response: 'INTERVENTION',
           active: false,
           label: 'Intervention',
           commentRequired: false,
@@ -1636,7 +1636,7 @@ export const CONCERTED_INDISCIPLINE_1: IncidentTypeConfiguration = {
         },
         {
           id: '181127',
-          code: 'OTHER',
+          response: 'OTHER',
           active: false,
           label: 'Other',
           commentRequired: true,
@@ -1654,7 +1654,7 @@ export const CONCERTED_INDISCIPLINE_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '181141',
-          code: 'YES',
+          response: 'YES',
           active: false,
           label: 'Yes',
           commentRequired: false,
@@ -1663,7 +1663,7 @@ export const CONCERTED_INDISCIPLINE_1: IncidentTypeConfiguration = {
         },
         {
           id: '181142',
-          code: 'NO',
+          response: 'NO',
           active: false,
           label: 'No',
           commentRequired: false,
@@ -1681,7 +1681,7 @@ export const CONCERTED_INDISCIPLINE_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '181167',
-          code: 'YES',
+          response: 'YES',
           active: false,
           label: 'Yes',
           commentRequired: false,
@@ -1690,7 +1690,7 @@ export const CONCERTED_INDISCIPLINE_1: IncidentTypeConfiguration = {
         },
         {
           id: '181166',
-          code: 'NO',
+          response: 'NO',
           active: false,
           label: 'No',
           commentRequired: false,
@@ -1708,7 +1708,7 @@ export const CONCERTED_INDISCIPLINE_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '181185',
-          code: 'YES',
+          response: 'YES',
           active: false,
           label: 'Yes',
           commentRequired: false,
@@ -1717,7 +1717,7 @@ export const CONCERTED_INDISCIPLINE_1: IncidentTypeConfiguration = {
         },
         {
           id: '181184',
-          code: 'NO',
+          response: 'NO',
           active: false,
           label: 'No',
           commentRequired: false,
@@ -1735,7 +1735,7 @@ export const CONCERTED_INDISCIPLINE_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '181279',
-          code: 'GOVERNOR',
+          response: 'GOVERNOR',
           active: false,
           label: 'Governor',
           commentRequired: false,
@@ -1744,7 +1744,7 @@ export const CONCERTED_INDISCIPLINE_1: IncidentTypeConfiguration = {
         },
         {
           id: '181277',
-          code: 'DEPUTY GOVERNOR',
+          response: 'DEPUTY GOVERNOR',
           active: false,
           label: 'Deputy governor',
           commentRequired: false,
@@ -1753,7 +1753,7 @@ export const CONCERTED_INDISCIPLINE_1: IncidentTypeConfiguration = {
         },
         {
           id: '181278',
-          code: 'DUTY GOVERNOR',
+          response: 'DUTY GOVERNOR',
           active: false,
           label: 'Duty governor',
           commentRequired: false,
@@ -1762,7 +1762,7 @@ export const CONCERTED_INDISCIPLINE_1: IncidentTypeConfiguration = {
         },
         {
           id: '181280',
-          code: 'OTHER',
+          response: 'OTHER',
           active: false,
           label: 'Other',
           commentRequired: true,
@@ -1780,7 +1780,7 @@ export const CONCERTED_INDISCIPLINE_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '181281',
-          code: 'YES',
+          response: 'YES',
           active: false,
           label: 'Yes',
           commentRequired: false,
@@ -1789,7 +1789,7 @@ export const CONCERTED_INDISCIPLINE_1: IncidentTypeConfiguration = {
         },
         {
           id: '181282',
-          code: 'NO',
+          response: 'NO',
           active: false,
           label: 'No',
           commentRequired: false,
@@ -1807,7 +1807,7 @@ export const CONCERTED_INDISCIPLINE_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '181453',
-          code: 'YES',
+          response: 'YES',
           active: false,
           label: 'Yes',
           commentRequired: false,
@@ -1816,7 +1816,7 @@ export const CONCERTED_INDISCIPLINE_1: IncidentTypeConfiguration = {
         },
         {
           id: '181452',
-          code: 'NO',
+          response: 'NO',
           active: false,
           label: 'No',
           commentRequired: false,
@@ -1834,7 +1834,7 @@ export const CONCERTED_INDISCIPLINE_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '181507',
-          code: 'GRAZES, SCRATCHES OR ABRASIONS',
+          response: 'GRAZES, SCRATCHES OR ABRASIONS',
           active: false,
           label: 'Grazes, scratches or abrasions',
           commentRequired: false,
@@ -1843,7 +1843,7 @@ export const CONCERTED_INDISCIPLINE_1: IncidentTypeConfiguration = {
         },
         {
           id: '181508',
-          code: 'MINOR BRUISES',
+          response: 'MINOR BRUISES',
           active: false,
           label: 'Minor bruises',
           commentRequired: false,
@@ -1852,7 +1852,7 @@ export const CONCERTED_INDISCIPLINE_1: IncidentTypeConfiguration = {
         },
         {
           id: '181511',
-          code: 'SWELLINGS',
+          response: 'SWELLINGS',
           active: false,
           label: 'Swellings',
           commentRequired: false,
@@ -1861,7 +1861,7 @@ export const CONCERTED_INDISCIPLINE_1: IncidentTypeConfiguration = {
         },
         {
           id: '181510',
-          code: 'SUPERFICIAL CUTS',
+          response: 'SUPERFICIAL CUTS',
           active: false,
           label: 'Superficial cuts',
           commentRequired: false,
@@ -1870,7 +1870,7 @@ export const CONCERTED_INDISCIPLINE_1: IncidentTypeConfiguration = {
         },
         {
           id: '181509',
-          code: 'OTHER',
+          response: 'OTHER',
           active: false,
           label: 'Other',
           commentRequired: true,
@@ -1888,7 +1888,7 @@ export const CONCERTED_INDISCIPLINE_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '181533',
-          code: 'YES',
+          response: 'YES',
           active: false,
           label: 'Yes',
           commentRequired: false,
@@ -1897,7 +1897,7 @@ export const CONCERTED_INDISCIPLINE_1: IncidentTypeConfiguration = {
         },
         {
           id: '181532',
-          code: 'NO',
+          response: 'NO',
           active: false,
           label: 'No',
           commentRequired: false,
@@ -1915,7 +1915,7 @@ export const CONCERTED_INDISCIPLINE_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '181584',
-          code: 'ENTER COMMENT AND DATE',
+          response: 'ENTER COMMENT AND DATE',
           active: false,
           label: 'Enter comment and date',
           commentRequired: true,
@@ -1933,7 +1933,7 @@ export const CONCERTED_INDISCIPLINE_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '181623',
-          code: 'YES',
+          response: 'YES',
           active: false,
           label: 'Yes',
           commentRequired: false,
@@ -1942,7 +1942,7 @@ export const CONCERTED_INDISCIPLINE_1: IncidentTypeConfiguration = {
         },
         {
           id: '181622',
-          code: 'NO',
+          response: 'NO',
           active: false,
           label: 'No',
           commentRequired: false,
@@ -1960,7 +1960,7 @@ export const CONCERTED_INDISCIPLINE_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '181640',
-          code: 'YES',
+          response: 'YES',
           active: false,
           label: 'Yes',
           commentRequired: false,
@@ -1969,7 +1969,7 @@ export const CONCERTED_INDISCIPLINE_1: IncidentTypeConfiguration = {
         },
         {
           id: '181639',
-          code: 'NO',
+          response: 'NO',
           active: false,
           label: 'No',
           commentRequired: false,
@@ -1987,7 +1987,7 @@ export const CONCERTED_INDISCIPLINE_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '181882',
-          code: 'YES',
+          response: 'YES',
           active: false,
           label: 'Yes',
           commentRequired: false,
@@ -1996,7 +1996,7 @@ export const CONCERTED_INDISCIPLINE_1: IncidentTypeConfiguration = {
         },
         {
           id: '181883',
-          code: 'NO',
+          response: 'NO',
           active: false,
           label: 'No',
           commentRequired: false,
@@ -2014,7 +2014,7 @@ export const CONCERTED_INDISCIPLINE_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '181903',
-          code: 'YES',
+          response: 'YES',
           active: false,
           label: 'Yes',
           commentRequired: false,
@@ -2023,7 +2023,7 @@ export const CONCERTED_INDISCIPLINE_1: IncidentTypeConfiguration = {
         },
         {
           id: '181902',
-          code: 'NO',
+          response: 'NO',
           active: false,
           label: 'No',
           commentRequired: false,
@@ -2041,7 +2041,7 @@ export const CONCERTED_INDISCIPLINE_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '181993',
-          code: 'DESCRIPTION',
+          response: 'DESCRIPTION',
           active: false,
           label: 'Description',
           commentRequired: true,
@@ -2059,7 +2059,7 @@ export const CONCERTED_INDISCIPLINE_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '182163',
-          code: 'YES',
+          response: 'YES',
           active: false,
           label: 'Yes',
           commentRequired: false,
@@ -2068,7 +2068,7 @@ export const CONCERTED_INDISCIPLINE_1: IncidentTypeConfiguration = {
         },
         {
           id: '182162',
-          code: 'NO',
+          response: 'NO',
           active: false,
           label: 'No',
           commentRequired: false,
@@ -2086,7 +2086,7 @@ export const CONCERTED_INDISCIPLINE_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '182246',
-          code: 'YES',
+          response: 'YES',
           active: false,
           label: 'Yes',
           commentRequired: false,
@@ -2095,7 +2095,7 @@ export const CONCERTED_INDISCIPLINE_1: IncidentTypeConfiguration = {
         },
         {
           id: '182245',
-          code: 'NO',
+          response: 'NO',
           active: false,
           label: 'No',
           commentRequired: false,
@@ -2113,7 +2113,7 @@ export const CONCERTED_INDISCIPLINE_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '182419',
-          code: 'YES',
+          response: 'YES',
           active: false,
           label: 'Yes',
           commentRequired: false,
@@ -2122,7 +2122,7 @@ export const CONCERTED_INDISCIPLINE_1: IncidentTypeConfiguration = {
         },
         {
           id: '182420',
-          code: 'NO',
+          response: 'NO',
           active: false,
           label: 'No',
           commentRequired: false,
@@ -2140,7 +2140,7 @@ export const CONCERTED_INDISCIPLINE_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '182465',
-          code: 'YES',
+          response: 'YES',
           active: false,
           label: 'Yes',
           commentRequired: false,
@@ -2149,7 +2149,7 @@ export const CONCERTED_INDISCIPLINE_1: IncidentTypeConfiguration = {
         },
         {
           id: '182466',
-          code: 'NO',
+          response: 'NO',
           active: false,
           label: 'No',
           commentRequired: false,
@@ -2167,7 +2167,7 @@ export const CONCERTED_INDISCIPLINE_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '182570',
-          code: 'YES',
+          response: 'YES',
           active: false,
           label: 'Yes',
           commentRequired: false,
@@ -2176,7 +2176,7 @@ export const CONCERTED_INDISCIPLINE_1: IncidentTypeConfiguration = {
         },
         {
           id: '182569',
-          code: 'NO',
+          response: 'NO',
           active: false,
           label: 'No',
           commentRequired: false,
@@ -2194,7 +2194,7 @@ export const CONCERTED_INDISCIPLINE_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '182593',
-          code: 'YES',
+          response: 'YES',
           active: false,
           label: 'Yes',
           commentRequired: false,
@@ -2203,7 +2203,7 @@ export const CONCERTED_INDISCIPLINE_1: IncidentTypeConfiguration = {
         },
         {
           id: '182592',
-          code: 'NO',
+          response: 'NO',
           active: false,
           label: 'No',
           commentRequired: false,
@@ -2221,7 +2221,7 @@ export const CONCERTED_INDISCIPLINE_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '182609',
-          code: 'YES',
+          response: 'YES',
           active: false,
           label: 'Yes',
           commentRequired: false,
@@ -2230,7 +2230,7 @@ export const CONCERTED_INDISCIPLINE_1: IncidentTypeConfiguration = {
         },
         {
           id: '182608',
-          code: 'NO',
+          response: 'NO',
           active: false,
           label: 'No',
           commentRequired: false,
@@ -2248,7 +2248,7 @@ export const CONCERTED_INDISCIPLINE_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '182642',
-          code: 'YES',
+          response: 'YES',
           active: false,
           label: 'Yes',
           commentRequired: false,
@@ -2257,7 +2257,7 @@ export const CONCERTED_INDISCIPLINE_1: IncidentTypeConfiguration = {
         },
         {
           id: '182641',
-          code: 'NO',
+          response: 'NO',
           active: false,
           label: 'No',
           commentRequired: false,

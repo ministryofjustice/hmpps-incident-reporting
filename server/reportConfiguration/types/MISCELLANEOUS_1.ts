@@ -16,7 +16,7 @@ export const MISCELLANEOUS_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '178923',
-          code: 'YES',
+          response: 'YES',
           active: true,
           label: 'Yes',
           commentRequired: false,
@@ -25,7 +25,7 @@ export const MISCELLANEOUS_1: IncidentTypeConfiguration = {
         },
         {
           id: '178924',
-          code: 'NO',
+          response: 'NO',
           active: true,
           label: 'No',
           commentRequired: false,
@@ -43,7 +43,7 @@ export const MISCELLANEOUS_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '178931',
-          code: 'YES',
+          response: 'YES',
           active: true,
           label: 'Yes',
           commentRequired: false,
@@ -52,7 +52,7 @@ export const MISCELLANEOUS_1: IncidentTypeConfiguration = {
         },
         {
           id: '178930',
-          code: 'NO',
+          response: 'NO',
           active: true,
           label: 'No',
           commentRequired: false,
@@ -70,7 +70,7 @@ export const MISCELLANEOUS_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '178981',
-          code: 'GRAZES, SCRATCHES OR ABRASIONS',
+          response: 'GRAZES, SCRATCHES OR ABRASIONS',
           active: true,
           label: 'Grazes, scratches or abrasions',
           commentRequired: false,
@@ -79,7 +79,7 @@ export const MISCELLANEOUS_1: IncidentTypeConfiguration = {
         },
         {
           id: '178982',
-          code: 'MINOR BRUISES',
+          response: 'MINOR BRUISES',
           active: true,
           label: 'Minor bruises',
           commentRequired: false,
@@ -88,7 +88,7 @@ export const MISCELLANEOUS_1: IncidentTypeConfiguration = {
         },
         {
           id: '178985',
-          code: 'SWELLINGS',
+          response: 'SWELLINGS',
           active: true,
           label: 'Swellings',
           commentRequired: false,
@@ -97,7 +97,7 @@ export const MISCELLANEOUS_1: IncidentTypeConfiguration = {
         },
         {
           id: '178984',
-          code: 'SUPERFICIAL CUTS',
+          response: 'SUPERFICIAL CUTS',
           active: true,
           label: 'Superficial cuts',
           commentRequired: false,
@@ -106,7 +106,7 @@ export const MISCELLANEOUS_1: IncidentTypeConfiguration = {
         },
         {
           id: '178983',
-          code: 'OTHER',
+          response: 'OTHER',
           active: true,
           label: 'Other',
           commentRequired: true,
@@ -124,7 +124,7 @@ export const MISCELLANEOUS_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '179220',
-          code: 'YES',
+          response: 'YES',
           active: true,
           label: 'Yes',
           commentRequired: false,
@@ -133,7 +133,7 @@ export const MISCELLANEOUS_1: IncidentTypeConfiguration = {
         },
         {
           id: '179219',
-          code: 'NO',
+          response: 'NO',
           active: true,
           label: 'No',
           commentRequired: false,
@@ -151,7 +151,7 @@ export const MISCELLANEOUS_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '179418',
-          code: 'YES',
+          response: 'YES',
           active: true,
           label: 'Yes',
           commentRequired: false,
@@ -160,7 +160,7 @@ export const MISCELLANEOUS_1: IncidentTypeConfiguration = {
         },
         {
           id: '179419',
-          code: 'NO',
+          response: 'NO',
           active: true,
           label: 'No',
           commentRequired: false,
@@ -178,7 +178,7 @@ export const MISCELLANEOUS_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '180003',
-          code: 'YES',
+          response: 'YES',
           active: true,
           label: 'Yes',
           commentRequired: false,
@@ -187,7 +187,7 @@ export const MISCELLANEOUS_1: IncidentTypeConfiguration = {
         },
         {
           id: '180004',
-          code: 'NO',
+          response: 'NO',
           active: true,
           label: 'No',
           commentRequired: false,
@@ -205,7 +205,7 @@ export const MISCELLANEOUS_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '180236',
-          code: 'STAFF',
+          response: 'STAFF',
           active: true,
           label: 'Staff',
           commentRequired: true,
@@ -214,7 +214,7 @@ export const MISCELLANEOUS_1: IncidentTypeConfiguration = {
         },
         {
           id: '180235',
-          code: 'PRISONERS',
+          response: 'PRISONERS',
           active: true,
           label: 'Prisoners',
           commentRequired: true,
@@ -223,7 +223,7 @@ export const MISCELLANEOUS_1: IncidentTypeConfiguration = {
         },
         {
           id: '180232',
-          code: 'CIVILIAN GRADES',
+          response: 'CIVILIAN GRADES',
           active: true,
           label: 'Civilian grades',
           commentRequired: true,
@@ -232,7 +232,7 @@ export const MISCELLANEOUS_1: IncidentTypeConfiguration = {
         },
         {
           id: '180234',
-          code: 'POLICE',
+          response: 'POLICE',
           active: true,
           label: 'Police',
           commentRequired: true,
@@ -241,7 +241,7 @@ export const MISCELLANEOUS_1: IncidentTypeConfiguration = {
         },
         {
           id: '180233',
-          code: 'EXTERNAL CIVILIANS',
+          response: 'EXTERNAL CIVILIANS',
           active: true,
           label: 'External civilians',
           commentRequired: true,
@@ -259,7 +259,7 @@ export const MISCELLANEOUS_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '180412',
-          code: 'YES',
+          response: 'YES',
           active: true,
           label: 'Yes',
           commentRequired: false,
@@ -268,7 +268,7 @@ export const MISCELLANEOUS_1: IncidentTypeConfiguration = {
         },
         {
           id: '180411',
-          code: 'NO',
+          response: 'NO',
           active: true,
           label: 'No',
           commentRequired: false,
@@ -286,7 +286,7 @@ export const MISCELLANEOUS_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '180544',
-          code: 'YES',
+          response: 'YES',
           active: true,
           label: 'Yes',
           commentRequired: false,
@@ -295,7 +295,7 @@ export const MISCELLANEOUS_1: IncidentTypeConfiguration = {
         },
         {
           id: '180543',
-          code: 'NO',
+          response: 'NO',
           active: true,
           label: 'No',
           commentRequired: false,
@@ -313,7 +313,7 @@ export const MISCELLANEOUS_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '180557',
-          code: 'YES',
+          response: 'YES',
           active: true,
           label: 'Yes',
           commentRequired: false,
@@ -322,7 +322,7 @@ export const MISCELLANEOUS_1: IncidentTypeConfiguration = {
         },
         {
           id: '180556',
-          code: 'NO',
+          response: 'NO',
           active: true,
           label: 'No',
           commentRequired: false,
@@ -340,7 +340,7 @@ export const MISCELLANEOUS_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '180604',
-          code: 'YES',
+          response: 'YES',
           active: true,
           label: 'Yes',
           commentRequired: false,
@@ -349,7 +349,7 @@ export const MISCELLANEOUS_1: IncidentTypeConfiguration = {
         },
         {
           id: '180605',
-          code: 'NO',
+          response: 'NO',
           active: true,
           label: 'No',
           commentRequired: false,
@@ -367,7 +367,7 @@ export const MISCELLANEOUS_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '180620',
-          code: 'YES',
+          response: 'YES',
           active: true,
           label: 'Yes',
           commentRequired: false,
@@ -376,7 +376,7 @@ export const MISCELLANEOUS_1: IncidentTypeConfiguration = {
         },
         {
           id: '180621',
-          code: 'NO',
+          response: 'NO',
           active: true,
           label: 'No',
           commentRequired: false,
@@ -394,7 +394,7 @@ export const MISCELLANEOUS_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '180815',
-          code: 'FRACTURE',
+          response: 'FRACTURE',
           active: true,
           label: 'Fracture',
           commentRequired: false,
@@ -403,7 +403,7 @@ export const MISCELLANEOUS_1: IncidentTypeConfiguration = {
         },
         {
           id: '180816',
-          code: 'SCALD OR BURN',
+          response: 'SCALD OR BURN',
           active: true,
           label: 'Scald or burn',
           commentRequired: false,
@@ -412,7 +412,7 @@ export const MISCELLANEOUS_1: IncidentTypeConfiguration = {
         },
         {
           id: '180817',
-          code: 'STABBING',
+          response: 'STABBING',
           active: true,
           label: 'Stabbing',
           commentRequired: false,
@@ -421,7 +421,7 @@ export const MISCELLANEOUS_1: IncidentTypeConfiguration = {
         },
         {
           id: '180812',
-          code: 'CRUSHING',
+          response: 'CRUSHING',
           active: true,
           label: 'Crushing',
           commentRequired: false,
@@ -430,7 +430,7 @@ export const MISCELLANEOUS_1: IncidentTypeConfiguration = {
         },
         {
           id: '180814',
-          code: 'EXTENSIVE OR MULTIPLE BRUISING',
+          response: 'EXTENSIVE OR MULTIPLE BRUISING',
           active: true,
           label: 'Extensive or multiple bruising',
           commentRequired: false,
@@ -439,7 +439,7 @@ export const MISCELLANEOUS_1: IncidentTypeConfiguration = {
         },
         {
           id: '180809',
-          code: 'BLACK EYE',
+          response: 'BLACK EYE',
           active: true,
           label: 'Black eye',
           commentRequired: false,
@@ -448,7 +448,7 @@ export const MISCELLANEOUS_1: IncidentTypeConfiguration = {
         },
         {
           id: '180810',
-          code: 'BROKEN NOSE',
+          response: 'BROKEN NOSE',
           active: true,
           label: 'Broken nose',
           commentRequired: false,
@@ -457,7 +457,7 @@ export const MISCELLANEOUS_1: IncidentTypeConfiguration = {
         },
         {
           id: '180811',
-          code: 'BROKEN TEETH',
+          response: 'BROKEN TEETH',
           active: true,
           label: 'Broken teeth',
           commentRequired: false,
@@ -466,7 +466,7 @@ export const MISCELLANEOUS_1: IncidentTypeConfiguration = {
         },
         {
           id: '180813',
-          code: 'CUTS REQUIRING SUTURING',
+          response: 'CUTS REQUIRING SUTURING',
           active: true,
           label: 'Cuts requiring suturing',
           commentRequired: false,
@@ -475,7 +475,7 @@ export const MISCELLANEOUS_1: IncidentTypeConfiguration = {
         },
         {
           id: '180808',
-          code: 'BITES',
+          response: 'BITES',
           active: true,
           label: 'Bites',
           commentRequired: false,
@@ -484,7 +484,7 @@ export const MISCELLANEOUS_1: IncidentTypeConfiguration = {
         },
         {
           id: '180818',
-          code: 'TEMPORARY/PERMANENT BLINDNESS',
+          response: 'TEMPORARY/PERMANENT BLINDNESS',
           active: true,
           label: 'Temporary/permanent blindness',
           commentRequired: false,
@@ -502,7 +502,7 @@ export const MISCELLANEOUS_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '181057',
-          code: 'STAFF',
+          response: 'STAFF',
           active: true,
           label: 'Staff',
           commentRequired: true,
@@ -511,7 +511,7 @@ export const MISCELLANEOUS_1: IncidentTypeConfiguration = {
         },
         {
           id: '181056',
-          code: 'PRISONERS',
+          response: 'PRISONERS',
           active: true,
           label: 'Prisoners',
           commentRequired: true,
@@ -520,7 +520,7 @@ export const MISCELLANEOUS_1: IncidentTypeConfiguration = {
         },
         {
           id: '181053',
-          code: 'CIVILIAN GRADES',
+          response: 'CIVILIAN GRADES',
           active: true,
           label: 'Civilian grades',
           commentRequired: true,
@@ -529,7 +529,7 @@ export const MISCELLANEOUS_1: IncidentTypeConfiguration = {
         },
         {
           id: '181055',
-          code: 'POLICE',
+          response: 'POLICE',
           active: true,
           label: 'Police',
           commentRequired: true,
@@ -538,7 +538,7 @@ export const MISCELLANEOUS_1: IncidentTypeConfiguration = {
         },
         {
           id: '181054',
-          code: 'EXTERNAL CIVILIANS',
+          response: 'EXTERNAL CIVILIANS',
           active: true,
           label: 'External civilians',
           commentRequired: true,
@@ -556,7 +556,7 @@ export const MISCELLANEOUS_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '181416',
-          code: 'YES',
+          response: 'YES',
           active: true,
           label: 'Yes',
           commentRequired: false,
@@ -565,7 +565,7 @@ export const MISCELLANEOUS_1: IncidentTypeConfiguration = {
         },
         {
           id: '181417',
-          code: 'NO',
+          response: 'NO',
           active: true,
           label: 'No',
           commentRequired: false,
@@ -583,7 +583,7 @@ export const MISCELLANEOUS_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '181946',
-          code: 'YES',
+          response: 'YES',
           active: true,
           label: 'Yes',
           commentRequired: false,
@@ -592,7 +592,7 @@ export const MISCELLANEOUS_1: IncidentTypeConfiguration = {
         },
         {
           id: '181945',
-          code: 'NO',
+          response: 'NO',
           active: true,
           label: 'No',
           commentRequired: false,
@@ -610,7 +610,7 @@ export const MISCELLANEOUS_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '182370',
-          code: 'ENTER AMOUNT IN POUND STERLING',
+          response: 'ENTER AMOUNT IN POUND STERLING',
           active: true,
           label: 'Enter amount in pound sterling',
           commentRequired: true,
@@ -628,7 +628,7 @@ export const MISCELLANEOUS_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '182445',
-          code: 'YES',
+          response: 'YES',
           active: true,
           label: 'Yes',
           commentRequired: false,
@@ -637,7 +637,7 @@ export const MISCELLANEOUS_1: IncidentTypeConfiguration = {
         },
         {
           id: '182444',
-          code: 'NO',
+          response: 'NO',
           active: true,
           label: 'No',
           commentRequired: false,
@@ -655,7 +655,7 @@ export const MISCELLANEOUS_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '182454',
-          code: 'MINOR',
+          response: 'MINOR',
           active: true,
           label: 'Minor',
           commentRequired: false,
@@ -664,7 +664,7 @@ export const MISCELLANEOUS_1: IncidentTypeConfiguration = {
         },
         {
           id: '182455',
-          code: 'SERIOUS',
+          response: 'SERIOUS',
           active: true,
           label: 'Serious',
           commentRequired: false,
@@ -673,7 +673,7 @@ export const MISCELLANEOUS_1: IncidentTypeConfiguration = {
         },
         {
           id: '182453',
-          code: 'EXTENSIVE',
+          response: 'EXTENSIVE',
           active: true,
           label: 'Extensive',
           commentRequired: false,
@@ -691,7 +691,7 @@ export const MISCELLANEOUS_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '182523',
-          code: 'YES',
+          response: 'YES',
           active: true,
           label: 'Yes',
           commentRequired: false,
@@ -700,7 +700,7 @@ export const MISCELLANEOUS_1: IncidentTypeConfiguration = {
         },
         {
           id: '182522',
-          code: 'NO',
+          response: 'NO',
           active: true,
           label: 'No',
           commentRequired: false,
@@ -718,7 +718,7 @@ export const MISCELLANEOUS_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '182596',
-          code: 'FURNITURE',
+          response: 'FURNITURE',
           active: true,
           label: 'Furniture',
           commentRequired: false,
@@ -727,7 +727,7 @@ export const MISCELLANEOUS_1: IncidentTypeConfiguration = {
         },
         {
           id: '182595',
-          code: 'FITTINGS',
+          response: 'FITTINGS',
           active: true,
           label: 'Fittings',
           commentRequired: false,
@@ -736,7 +736,7 @@ export const MISCELLANEOUS_1: IncidentTypeConfiguration = {
         },
         {
           id: '182597',
-          code: 'MACHINERY',
+          response: 'MACHINERY',
           active: true,
           label: 'Machinery',
           commentRequired: false,
@@ -745,7 +745,7 @@ export const MISCELLANEOUS_1: IncidentTypeConfiguration = {
         },
         {
           id: '182594',
-          code: 'EQUIPMENT',
+          response: 'EQUIPMENT',
           active: true,
           label: 'Equipment',
           commentRequired: false,
@@ -754,7 +754,7 @@ export const MISCELLANEOUS_1: IncidentTypeConfiguration = {
         },
         {
           id: '182598',
-          code: 'OTHER',
+          response: 'OTHER',
           active: true,
           label: 'Other',
           commentRequired: true,
@@ -772,7 +772,7 @@ export const MISCELLANEOUS_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '182601',
-          code: 'YES',
+          response: 'YES',
           active: true,
           label: 'Yes',
           commentRequired: false,
@@ -781,7 +781,7 @@ export const MISCELLANEOUS_1: IncidentTypeConfiguration = {
         },
         {
           id: '182602',
-          code: 'NO',
+          response: 'NO',
           active: true,
           label: 'No',
           commentRequired: false,

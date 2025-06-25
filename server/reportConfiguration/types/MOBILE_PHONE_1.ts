@@ -16,7 +16,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '182826',
-          code: 'Mobile:',
+          response: 'Mobile:',
           active: false,
           label: 'Mobile:',
           commentRequired: true,
@@ -25,7 +25,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
         },
         {
           id: '182827',
-          code: 'SIM:',
+          response: 'SIM:',
           active: false,
           label: 'SIM:',
           commentRequired: true,
@@ -34,7 +34,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
         },
         {
           id: '182828',
-          code: 'Charger:',
+          response: 'Charger:',
           active: false,
           label: 'Charger:',
           commentRequired: true,
@@ -43,7 +43,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
         },
         {
           id: '182829',
-          code: 'Other please specify:',
+          response: 'Other please specify:',
           active: false,
           label: 'Other please specify:',
           commentRequired: true,
@@ -52,7 +52,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
         },
         {
           id: '182941',
-          code: 'Mobile:',
+          response: 'Mobile:',
           active: false,
           label: 'Mobile:',
           commentRequired: true,
@@ -61,7 +61,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
         },
         {
           id: '182942',
-          code: 'SIM:',
+          response: 'SIM:',
           active: false,
           label: 'SIM:',
           commentRequired: true,
@@ -70,7 +70,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
         },
         {
           id: '182943',
-          code: 'Charger:',
+          response: 'Charger:',
           active: false,
           label: 'Charger:',
           commentRequired: true,
@@ -79,7 +79,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
         },
         {
           id: '182944',
-          code: 'Other please specify:',
+          response: 'Other please specify:',
           active: false,
           label: 'Other please specify:',
           commentRequired: true,
@@ -97,7 +97,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '182830',
-          code: 'Enter Date:',
+          response: 'Enter Date:',
           active: false,
           label: 'Enter date:',
           commentRequired: false,
@@ -106,7 +106,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
         },
         {
           id: '183080',
-          code: 'Enter Date:',
+          response: 'Enter Date:',
           active: false,
           label: 'Enter date:',
           commentRequired: false,
@@ -124,7 +124,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '182831',
-          code: 'Enter Time:',
+          response: 'Enter Time:',
           active: true,
           label: 'Enter time:',
           commentRequired: true,
@@ -133,7 +133,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
         },
         {
           id: '183081',
-          code: 'Enter Time:',
+          response: 'Enter Time:',
           active: true,
           label: 'Enter time:',
           commentRequired: true,
@@ -151,7 +151,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '182832',
-          code: 'Yes',
+          response: 'Yes',
           active: false,
           label: 'Yes',
           commentRequired: false,
@@ -160,7 +160,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
         },
         {
           id: '182833',
-          code: 'No',
+          response: 'No',
           active: false,
           label: 'No',
           commentRequired: false,
@@ -169,7 +169,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
         },
         {
           id: '183082',
-          code: 'Yes',
+          response: 'Yes',
           active: false,
           label: 'Yes',
           commentRequired: false,
@@ -178,7 +178,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
         },
         {
           id: '183083',
-          code: 'No',
+          response: 'No',
           active: false,
           label: 'No',
           commentRequired: false,
@@ -196,7 +196,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '182834',
-          code: 'Staff',
+          response: 'Staff',
           active: false,
           label: 'Staff',
           commentRequired: false,
@@ -205,7 +205,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
         },
         {
           id: '182835',
-          code: 'Prisoner/Young Offender',
+          response: 'Prisoner/Young Offender',
           active: false,
           label: 'Prisoner/young offender',
           commentRequired: false,
@@ -214,7 +214,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
         },
         {
           id: '182836',
-          code: 'Visitor: Specify:',
+          response: 'Visitor: Specify:',
           active: false,
           label: 'Visitor: specify:',
           commentRequired: true,
@@ -223,7 +223,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
         },
         {
           id: '182837',
-          code: 'Social',
+          response: 'Social',
           active: false,
           label: 'Social',
           commentRequired: false,
@@ -232,7 +232,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
         },
         {
           id: '182838',
-          code: 'Official',
+          response: 'Official',
           active: false,
           label: 'Official',
           commentRequired: false,
@@ -241,7 +241,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
         },
         {
           id: '182839',
-          code: 'Contractor',
+          response: 'Contractor',
           active: false,
           label: 'Contractor',
           commentRequired: false,
@@ -250,7 +250,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
         },
         {
           id: '182840',
-          code: 'Thrown In',
+          response: 'Thrown In',
           active: false,
           label: 'Thrown in',
           commentRequired: false,
@@ -259,7 +259,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
         },
         {
           id: '182841',
-          code: 'Post - Social/Rule 39',
+          response: 'Post - Social/Rule 39',
           active: false,
           label: 'Post - social/rule 39',
           commentRequired: false,
@@ -268,7 +268,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
         },
         {
           id: '182842',
-          code: 'Not attributable',
+          response: 'Not attributable',
           active: false,
           label: 'Not attributable',
           commentRequired: false,
@@ -277,7 +277,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
         },
         {
           id: '182843',
-          code: 'Other: Please specify',
+          response: 'Other: Please specify',
           active: false,
           label: 'Other: please specify',
           commentRequired: true,
@@ -286,7 +286,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
         },
         {
           id: '183084',
-          code: 'Staff',
+          response: 'Staff',
           active: false,
           label: 'Staff',
           commentRequired: false,
@@ -295,7 +295,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
         },
         {
           id: '183085',
-          code: 'Prisoner / Young Offender',
+          response: 'Prisoner / Young Offender',
           active: false,
           label: 'Prisoner / young offender',
           commentRequired: false,
@@ -304,7 +304,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
         },
         {
           id: '183086',
-          code: 'Visitor: Social',
+          response: 'Visitor: Social',
           active: false,
           label: 'Visitor: social',
           commentRequired: false,
@@ -313,7 +313,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
         },
         {
           id: '183087',
-          code: 'Visitor: Official',
+          response: 'Visitor: Official',
           active: false,
           label: 'Visitor: official',
           commentRequired: false,
@@ -322,7 +322,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
         },
         {
           id: '183088',
-          code: 'Contractor',
+          response: 'Contractor',
           active: false,
           label: 'Contractor',
           commentRequired: false,
@@ -331,7 +331,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
         },
         {
           id: '183089',
-          code: 'Thrown In',
+          response: 'Thrown In',
           active: false,
           label: 'Thrown in',
           commentRequired: false,
@@ -340,7 +340,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
         },
         {
           id: '183090',
-          code: 'Post – Social / Rule 39',
+          response: 'Post – Social / Rule 39',
           active: false,
           label: 'Post – social / rule 39',
           commentRequired: false,
@@ -349,7 +349,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
         },
         {
           id: '183091',
-          code: 'Not attributable',
+          response: 'Not attributable',
           active: false,
           label: 'Not attributable',
           commentRequired: false,
@@ -358,7 +358,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
         },
         {
           id: '183092',
-          code: 'Other : Please Specify',
+          response: 'Other : Please Specify',
           active: false,
           label: 'Other : please specify',
           commentRequired: true,
@@ -376,7 +376,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '182844',
-          code: 'Boss Chair',
+          response: 'Boss Chair',
           active: false,
           label: 'Boss chair',
           commentRequired: false,
@@ -385,7 +385,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
         },
         {
           id: '182845',
-          code: 'High Sensitivity Wand',
+          response: 'High Sensitivity Wand',
           active: false,
           label: 'High sensitivity wand',
           commentRequired: false,
@@ -394,7 +394,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
         },
         {
           id: '182846',
-          code: 'Mobile Phone Detection Dog',
+          response: 'Mobile Phone Detection Dog',
           active: false,
           label: 'Mobile phone detection dog',
           commentRequired: false,
@@ -403,7 +403,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
         },
         {
           id: '182847',
-          code: 'Physical search',
+          response: 'Physical search',
           active: false,
           label: 'Physical search',
           commentRequired: false,
@@ -412,7 +412,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
         },
         {
           id: '182848',
-          code: 'Cell search',
+          response: 'Cell search',
           active: false,
           label: 'Cell search',
           commentRequired: false,
@@ -421,7 +421,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
         },
         {
           id: '182849',
-          code: 'Unusual/Suspicious behaviour',
+          response: 'Unusual/Suspicious behaviour',
           active: false,
           label: 'Unusual/suspicious behaviour',
           commentRequired: false,
@@ -430,7 +430,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
         },
         {
           id: '182850',
-          code: 'Mobile phone signal detector',
+          response: 'Mobile phone signal detector',
           active: false,
           label: 'Mobile phone signal detector',
           commentRequired: false,
@@ -439,7 +439,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
         },
         {
           id: '182851',
-          code: 'Intelligence led search',
+          response: 'Intelligence led search',
           active: false,
           label: 'Intelligence led search',
           commentRequired: false,
@@ -448,7 +448,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
         },
         {
           id: '182852',
-          code: 'Information received',
+          response: 'Information received',
           active: false,
           label: 'Information received',
           commentRequired: false,
@@ -457,7 +457,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
         },
         {
           id: '182853',
-          code: 'Other: Please specify',
+          response: 'Other: Please specify',
           active: false,
           label: 'Other: please specify',
           commentRequired: true,
@@ -466,7 +466,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
         },
         {
           id: '183093',
-          code: 'Boss Chair',
+          response: 'Boss Chair',
           active: false,
           label: 'Boss chair',
           commentRequired: false,
@@ -475,7 +475,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
         },
         {
           id: '183094',
-          code: 'High Sensitivity Wand',
+          response: 'High Sensitivity Wand',
           active: false,
           label: 'High sensitivity wand',
           commentRequired: false,
@@ -484,7 +484,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
         },
         {
           id: '183095',
-          code: 'Mobile phone detection Dog',
+          response: 'Mobile phone detection Dog',
           active: false,
           label: 'Mobile phone detection dog',
           commentRequired: false,
@@ -493,7 +493,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
         },
         {
           id: '183096',
-          code: 'Physical Search',
+          response: 'Physical Search',
           active: false,
           label: 'Physical search',
           commentRequired: false,
@@ -502,7 +502,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
         },
         {
           id: '183097',
-          code: 'Cell Search',
+          response: 'Cell Search',
           active: false,
           label: 'Cell search',
           commentRequired: false,
@@ -511,7 +511,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
         },
         {
           id: '183098',
-          code: 'Unusual/Suspicious Behaviour',
+          response: 'Unusual/Suspicious Behaviour',
           active: false,
           label: 'Unusual/suspicious behaviour',
           commentRequired: false,
@@ -520,7 +520,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
         },
         {
           id: '183099',
-          code: 'Mobile phone signal detector',
+          response: 'Mobile phone signal detector',
           active: false,
           label: 'Mobile phone signal detector',
           commentRequired: false,
@@ -529,7 +529,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
         },
         {
           id: '183100',
-          code: 'Intelligence led search',
+          response: 'Intelligence led search',
           active: false,
           label: 'Intelligence led search',
           commentRequired: false,
@@ -538,7 +538,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
         },
         {
           id: '183101',
-          code: 'Information Received',
+          response: 'Information Received',
           active: false,
           label: 'Information received',
           commentRequired: false,
@@ -547,7 +547,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
         },
         {
           id: '183102',
-          code: 'Other: Please Specify',
+          response: 'Other: Please Specify',
           active: false,
           label: 'Other: please specify',
           commentRequired: true,
@@ -565,7 +565,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '182854',
-          code: 'Prisoner/Young Offender',
+          response: 'Prisoner/Young Offender',
           active: false,
           label: 'Prisoner/young offender',
           commentRequired: false,
@@ -574,7 +574,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
         },
         {
           id: '182855',
-          code: 'Staff',
+          response: 'Staff',
           active: false,
           label: 'Staff',
           commentRequired: false,
@@ -583,7 +583,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
         },
         {
           id: '182856',
-          code: 'Contractor',
+          response: 'Contractor',
           active: false,
           label: 'Contractor',
           commentRequired: false,
@@ -592,7 +592,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
         },
         {
           id: '182857',
-          code: 'Visitor: Please specify',
+          response: 'Visitor: Please specify',
           active: false,
           label: 'Visitor: please specify',
           commentRequired: true,
@@ -601,7 +601,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
         },
         {
           id: '182858',
-          code: 'Official',
+          response: 'Official',
           active: false,
           label: 'Official',
           commentRequired: false,
@@ -610,7 +610,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
         },
         {
           id: '182859',
-          code: 'Other: Please specify',
+          response: 'Other: Please specify',
           active: false,
           label: 'Other: please specify',
           commentRequired: true,
@@ -619,7 +619,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
         },
         {
           id: '183103',
-          code: 'Prisoner/Young Offender',
+          response: 'Prisoner/Young Offender',
           active: false,
           label: 'Prisoner/young offender',
           commentRequired: false,
@@ -628,7 +628,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
         },
         {
           id: '183104',
-          code: 'Staff',
+          response: 'Staff',
           active: false,
           label: 'Staff',
           commentRequired: false,
@@ -637,7 +637,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
         },
         {
           id: '183105',
-          code: 'Contractor',
+          response: 'Contractor',
           active: false,
           label: 'Contractor',
           commentRequired: false,
@@ -646,7 +646,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
         },
         {
           id: '183106',
-          code: 'Visitor: Social',
+          response: 'Visitor: Social',
           active: false,
           label: 'Visitor: social',
           commentRequired: false,
@@ -655,7 +655,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
         },
         {
           id: '183107',
-          code: 'Visitor: Official',
+          response: 'Visitor: Official',
           active: false,
           label: 'Visitor: official',
           commentRequired: false,
@@ -664,7 +664,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
         },
         {
           id: '183108',
-          code: 'Other: Please Specify',
+          response: 'Other: Please Specify',
           active: false,
           label: 'Other: please specify',
           commentRequired: true,
@@ -682,7 +682,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '182860',
-          code: 'Administration Area',
+          response: 'Administration Area',
           active: false,
           label: 'Administration area',
           commentRequired: false,
@@ -691,7 +691,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
         },
         {
           id: '182861',
-          code: 'Association Area',
+          response: 'Association Area',
           active: false,
           label: 'Association area',
           commentRequired: false,
@@ -700,7 +700,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
         },
         {
           id: '182862',
-          code: 'Prisoner Accommodation',
+          response: 'Prisoner Accommodation',
           active: false,
           label: 'Prisoner accommodation',
           commentRequired: false,
@@ -709,7 +709,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
         },
         {
           id: '182863',
-          code: 'Chapel',
+          response: 'Chapel',
           active: false,
           label: 'Chapel',
           commentRequired: false,
@@ -718,7 +718,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
         },
         {
           id: '182864',
-          code: 'Dormitory',
+          response: 'Dormitory',
           active: false,
           label: 'Dormitory',
           commentRequired: false,
@@ -727,7 +727,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
         },
         {
           id: '182865',
-          code: 'Education',
+          response: 'Education',
           active: false,
           label: 'Education',
           commentRequired: false,
@@ -736,7 +736,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
         },
         {
           id: '182866',
-          code: 'Exercise Yard',
+          response: 'Exercise Yard',
           active: false,
           label: 'Exercise yard',
           commentRequired: false,
@@ -745,7 +745,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
         },
         {
           id: '182867',
-          code: 'External Area (within prison grounds)',
+          response: 'External Area (within prison grounds)',
           active: false,
           label: 'External area (within prison grounds)',
           commentRequired: false,
@@ -754,7 +754,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
         },
         {
           id: '182868',
-          code: 'Gate',
+          response: 'Gate',
           active: false,
           label: 'Gate',
           commentRequired: false,
@@ -763,7 +763,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
         },
         {
           id: '182869',
-          code: 'Gym',
+          response: 'Gym',
           active: false,
           label: 'Gym',
           commentRequired: false,
@@ -772,7 +772,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
         },
         {
           id: '182870',
-          code: 'Health Care Centre',
+          response: 'Health Care Centre',
           active: false,
           label: 'Health care centre',
           commentRequired: false,
@@ -781,7 +781,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
         },
         {
           id: '182871',
-          code: 'Kitchen',
+          response: 'Kitchen',
           active: false,
           label: 'Kitchen',
           commentRequired: false,
@@ -790,7 +790,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
         },
         {
           id: '182872',
-          code: 'Post/Parcel',
+          response: 'Post/Parcel',
           active: false,
           label: 'Post/parcel',
           commentRequired: false,
@@ -799,7 +799,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
         },
         {
           id: '182873',
-          code: 'Reception',
+          response: 'Reception',
           active: false,
           label: 'Reception',
           commentRequired: false,
@@ -808,7 +808,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
         },
         {
           id: '182874',
-          code: 'Recess',
+          response: 'Recess',
           active: false,
           label: 'Recess',
           commentRequired: false,
@@ -817,7 +817,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
         },
         {
           id: '182875',
-          code: 'Segregation Unit',
+          response: 'Segregation Unit',
           active: false,
           label: 'Segregation unit',
           commentRequired: false,
@@ -826,7 +826,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
         },
         {
           id: '182876',
-          code: 'Special Unit',
+          response: 'Special Unit',
           active: false,
           label: 'Special unit',
           commentRequired: false,
@@ -835,7 +835,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
         },
         {
           id: '182877',
-          code: 'Showers/Changing Room',
+          response: 'Showers/Changing Room',
           active: false,
           label: 'Showers/changing room',
           commentRequired: false,
@@ -844,7 +844,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
         },
         {
           id: '182878',
-          code: 'Visits',
+          response: 'Visits',
           active: false,
           label: 'Visits',
           commentRequired: false,
@@ -853,7 +853,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
         },
         {
           id: '182879',
-          code: 'Wing',
+          response: 'Wing',
           active: false,
           label: 'Wing',
           commentRequired: false,
@@ -862,7 +862,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
         },
         {
           id: '182880',
-          code: 'Works Department',
+          response: 'Works Department',
           active: false,
           label: 'Works department',
           commentRequired: false,
@@ -871,7 +871,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
         },
         {
           id: '182881',
-          code: 'Workshop',
+          response: 'Workshop',
           active: false,
           label: 'Workshop',
           commentRequired: false,
@@ -880,7 +880,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
         },
         {
           id: '182882',
-          code: 'Sports field',
+          response: 'Sports field',
           active: false,
           label: 'Sports field',
           commentRequired: false,
@@ -889,7 +889,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
         },
         {
           id: '182883',
-          code: 'Staff Area',
+          response: 'Staff Area',
           active: false,
           label: 'Staff area',
           commentRequired: false,
@@ -898,7 +898,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
         },
         {
           id: '182884',
-          code: 'Other: Please Specify',
+          response: 'Other: Please Specify',
           active: false,
           label: 'Other: please specify',
           commentRequired: true,
@@ -907,7 +907,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
         },
         {
           id: '183109',
-          code: 'Administration Area',
+          response: 'Administration Area',
           active: false,
           label: 'Administration area',
           commentRequired: false,
@@ -916,7 +916,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
         },
         {
           id: '183110',
-          code: 'Association Area',
+          response: 'Association Area',
           active: false,
           label: 'Association area',
           commentRequired: false,
@@ -925,7 +925,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
         },
         {
           id: '183111',
-          code: 'Prisoner Accommodation',
+          response: 'Prisoner Accommodation',
           active: false,
           label: 'Prisoner accommodation',
           commentRequired: false,
@@ -934,7 +934,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
         },
         {
           id: '183112',
-          code: 'Chapel',
+          response: 'Chapel',
           active: false,
           label: 'Chapel',
           commentRequired: false,
@@ -943,7 +943,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
         },
         {
           id: '183113',
-          code: 'Dormitory',
+          response: 'Dormitory',
           active: false,
           label: 'Dormitory',
           commentRequired: false,
@@ -952,7 +952,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
         },
         {
           id: '183114',
-          code: 'Education',
+          response: 'Education',
           active: false,
           label: 'Education',
           commentRequired: false,
@@ -961,7 +961,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
         },
         {
           id: '183115',
-          code: 'Exercise Yard',
+          response: 'Exercise Yard',
           active: false,
           label: 'Exercise yard',
           commentRequired: false,
@@ -970,7 +970,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
         },
         {
           id: '183116',
-          code: 'External Area (within prison grounds)',
+          response: 'External Area (within prison grounds)',
           active: false,
           label: 'External area (within prison grounds)',
           commentRequired: false,
@@ -979,7 +979,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
         },
         {
           id: '183117',
-          code: 'Gate',
+          response: 'Gate',
           active: false,
           label: 'Gate',
           commentRequired: false,
@@ -988,7 +988,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
         },
         {
           id: '183118',
-          code: 'Gym',
+          response: 'Gym',
           active: false,
           label: 'Gym',
           commentRequired: false,
@@ -997,7 +997,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
         },
         {
           id: '183119',
-          code: 'Health Care Centre',
+          response: 'Health Care Centre',
           active: false,
           label: 'Health care centre',
           commentRequired: false,
@@ -1006,7 +1006,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
         },
         {
           id: '183120',
-          code: 'Kitchen',
+          response: 'Kitchen',
           active: false,
           label: 'Kitchen',
           commentRequired: false,
@@ -1015,7 +1015,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
         },
         {
           id: '183121',
-          code: 'Post/Parcel',
+          response: 'Post/Parcel',
           active: false,
           label: 'Post/parcel',
           commentRequired: false,
@@ -1024,7 +1024,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
         },
         {
           id: '183122',
-          code: 'Reception',
+          response: 'Reception',
           active: false,
           label: 'Reception',
           commentRequired: false,
@@ -1033,7 +1033,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
         },
         {
           id: '183123',
-          code: 'Recess',
+          response: 'Recess',
           active: false,
           label: 'Recess',
           commentRequired: false,
@@ -1042,7 +1042,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
         },
         {
           id: '183124',
-          code: 'Segregation Unit',
+          response: 'Segregation Unit',
           active: false,
           label: 'Segregation unit',
           commentRequired: false,
@@ -1051,7 +1051,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
         },
         {
           id: '183125',
-          code: 'Special Unit',
+          response: 'Special Unit',
           active: false,
           label: 'Special unit',
           commentRequired: false,
@@ -1060,7 +1060,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
         },
         {
           id: '183126',
-          code: 'Showers/Changing Room',
+          response: 'Showers/Changing Room',
           active: false,
           label: 'Showers/changing room',
           commentRequired: false,
@@ -1069,7 +1069,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
         },
         {
           id: '183127',
-          code: 'Visits',
+          response: 'Visits',
           active: false,
           label: 'Visits',
           commentRequired: false,
@@ -1078,7 +1078,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
         },
         {
           id: '183128',
-          code: 'Wing',
+          response: 'Wing',
           active: false,
           label: 'Wing',
           commentRequired: false,
@@ -1087,7 +1087,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
         },
         {
           id: '183129',
-          code: 'Works Department',
+          response: 'Works Department',
           active: false,
           label: 'Works department',
           commentRequired: false,
@@ -1096,7 +1096,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
         },
         {
           id: '183130',
-          code: 'Workshop',
+          response: 'Workshop',
           active: false,
           label: 'Workshop',
           commentRequired: false,
@@ -1105,7 +1105,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
         },
         {
           id: '183131',
-          code: 'Sports field',
+          response: 'Sports field',
           active: false,
           label: 'Sports field',
           commentRequired: false,
@@ -1114,7 +1114,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
         },
         {
           id: '183132',
-          code: 'Staff Area',
+          response: 'Staff Area',
           active: false,
           label: 'Staff area',
           commentRequired: false,
@@ -1123,7 +1123,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
         },
         {
           id: '183133',
-          code: 'Other: Please Specify',
+          response: 'Other: Please Specify',
           active: false,
           label: 'Other: please specify',
           commentRequired: true,
@@ -1141,7 +1141,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '182885',
-          code: 'Yes: Please specify',
+          response: 'Yes: Please specify',
           active: false,
           label: 'Yes: please specify',
           commentRequired: true,
@@ -1150,7 +1150,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
         },
         {
           id: '182886',
-          code: 'No',
+          response: 'No',
           active: false,
           label: 'No',
           commentRequired: false,
@@ -1159,7 +1159,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
         },
         {
           id: '183134',
-          code: 'Yes: Please specify',
+          response: 'Yes: Please specify',
           active: false,
           label: 'Yes: please specify',
           commentRequired: true,
@@ -1168,7 +1168,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
         },
         {
           id: '183135',
-          code: 'No',
+          response: 'No',
           active: false,
           label: 'No',
           commentRequired: false,
@@ -1186,7 +1186,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '182887',
-          code: 'Yes: Date',
+          response: 'Yes: Date',
           active: false,
           label: 'Yes: date',
           commentRequired: false,
@@ -1195,7 +1195,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
         },
         {
           id: '182888',
-          code: 'Evidence Bag Number:',
+          response: 'Evidence Bag Number:',
           active: false,
           label: 'Evidence bag number:',
           commentRequired: true,
@@ -1204,7 +1204,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
         },
         {
           id: '182889',
-          code: 'No: Please state why',
+          response: 'No: Please state why',
           active: false,
           label: 'No: please state why',
           commentRequired: true,
@@ -1213,7 +1213,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
         },
         {
           id: '183136',
-          code: 'Yes: Date',
+          response: 'Yes: Date',
           active: false,
           label: 'Yes: date',
           commentRequired: false,
@@ -1222,7 +1222,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
         },
         {
           id: '183137',
-          code: 'Evidence Bag Number:',
+          response: 'Evidence Bag Number:',
           active: false,
           label: 'Evidence bag number:',
           commentRequired: true,
@@ -1231,7 +1231,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
         },
         {
           id: '183138',
-          code: 'No: Please state why',
+          response: 'No: Please state why',
           active: false,
           label: 'No: please state why',
           commentRequired: true,
@@ -1249,7 +1249,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '182890',
-          code: 'Name:',
+          response: 'Name:',
           active: false,
           label: 'Name:',
           commentRequired: true,
@@ -1258,7 +1258,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
         },
         {
           id: '182891',
-          code: 'Grade:',
+          response: 'Grade:',
           active: false,
           label: 'Grade:',
           commentRequired: true,
@@ -1267,7 +1267,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
         },
         {
           id: '183139',
-          code: 'Name:',
+          response: 'Name:',
           active: false,
           label: 'Name:',
           commentRequired: true,
@@ -1276,7 +1276,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
         },
         {
           id: '183140',
-          code: 'Grade:',
+          response: 'Grade:',
           active: false,
           label: 'Grade:',
           commentRequired: true,
@@ -1294,7 +1294,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '182892',
-          code: 'Yes: Date',
+          response: 'Yes: Date',
           active: false,
           label: 'Yes: date',
           commentRequired: false,
@@ -1303,7 +1303,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
         },
         {
           id: '182893',
-          code: 'Police Incident Number:',
+          response: 'Police Incident Number:',
           active: false,
           label: 'Police incident number:',
           commentRequired: true,
@@ -1312,7 +1312,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
         },
         {
           id: '182894',
-          code: 'No',
+          response: 'No',
           active: false,
           label: 'No',
           commentRequired: false,
@@ -1321,7 +1321,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
         },
         {
           id: '183141',
-          code: 'Yes: Date',
+          response: 'Yes: Date',
           active: false,
           label: 'Yes: date',
           commentRequired: false,
@@ -1330,7 +1330,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
         },
         {
           id: '183142',
-          code: 'Police Incident Number:',
+          response: 'Police Incident Number:',
           active: false,
           label: 'Police incident number:',
           commentRequired: true,
@@ -1339,7 +1339,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
         },
         {
           id: '183143',
-          code: 'No',
+          response: 'No',
           active: false,
           label: 'No',
           commentRequired: false,
@@ -1357,7 +1357,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '182895',
-          code: 'Yes: Date',
+          response: 'Yes: Date',
           active: false,
           label: 'Yes: date',
           commentRequired: false,
@@ -1366,7 +1366,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
         },
         {
           id: '182896',
-          code: 'Police Ref Number:',
+          response: 'Police Ref Number:',
           active: false,
           label: 'Police ref number:',
           commentRequired: true,
@@ -1375,7 +1375,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
         },
         {
           id: '182897',
-          code: 'No',
+          response: 'No',
           active: false,
           label: 'No',
           commentRequired: false,
@@ -1384,7 +1384,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
         },
         {
           id: '183144',
-          code: 'Yes: Date',
+          response: 'Yes: Date',
           active: false,
           label: 'Yes: date',
           commentRequired: false,
@@ -1393,7 +1393,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
         },
         {
           id: '183145',
-          code: 'Police Ref Number:',
+          response: 'Police Ref Number:',
           active: false,
           label: 'Police ref number:',
           commentRequired: true,
@@ -1402,7 +1402,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
         },
         {
           id: '183146',
-          code: 'No',
+          response: 'No',
           active: false,
           label: 'No',
           commentRequired: false,
@@ -1420,7 +1420,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '182898',
-          code: '1',
+          response: '1',
           active: false,
           label: '1',
           commentRequired: false,
@@ -1429,7 +1429,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
         },
         {
           id: '182899',
-          code: '2',
+          response: '2',
           active: false,
           label: '2',
           commentRequired: false,
@@ -1438,7 +1438,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
         },
         {
           id: '182900',
-          code: 'Urgent',
+          response: 'Urgent',
           active: false,
           label: 'Urgent',
           commentRequired: false,
@@ -1447,7 +1447,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
         },
         {
           id: '183147',
-          code: '1',
+          response: '1',
           active: false,
           label: '1',
           commentRequired: false,
@@ -1456,7 +1456,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
         },
         {
           id: '183148',
-          code: '2',
+          response: '2',
           active: false,
           label: '2',
           commentRequired: false,
@@ -1465,7 +1465,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
         },
         {
           id: '183149',
-          code: 'Urgent',
+          response: 'Urgent',
           active: false,
           label: 'Urgent',
           commentRequired: false,
@@ -1474,7 +1474,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
         },
         {
           id: '186684',
-          code: 'N/A Not Applicable',
+          response: 'N/A Not Applicable',
           active: false,
           label: 'N/A not applicable',
           commentRequired: false,
@@ -1493,7 +1493,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '182901',
-          code: 'Please state where on person mobile phone was found:',
+          response: 'Please state where on person mobile phone was found:',
           active: false,
           label: 'Please state where on person mobile phone was found:',
           commentRequired: true,
@@ -1502,7 +1502,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
         },
         {
           id: '183150',
-          code: 'Please state where on person mobile phone was found:',
+          response: 'Please state where on person mobile phone was found:',
           active: false,
           label: 'Please state where on person mobile phone was found:',
           commentRequired: true,
@@ -1520,7 +1520,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '182902',
-          code: 'Yes',
+          response: 'Yes',
           active: false,
           label: 'Yes',
           commentRequired: false,
@@ -1529,7 +1529,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
         },
         {
           id: '182903',
-          code: 'No',
+          response: 'No',
           active: false,
           label: 'No',
           commentRequired: false,
@@ -1538,7 +1538,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
         },
         {
           id: '183151',
-          code: 'Yes',
+          response: 'Yes',
           active: false,
           label: 'Yes',
           commentRequired: false,
@@ -1547,7 +1547,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
         },
         {
           id: '183152',
-          code: 'No',
+          response: 'No',
           active: false,
           label: 'No',
           commentRequired: false,
@@ -1565,7 +1565,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '182904',
-          code: 'Yes: Please state why',
+          response: 'Yes: Please state why',
           active: false,
           label: 'Yes: please state why',
           commentRequired: true,
@@ -1574,7 +1574,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
         },
         {
           id: '182905',
-          code: 'No',
+          response: 'No',
           active: false,
           label: 'No',
           commentRequired: false,
@@ -1583,7 +1583,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
         },
         {
           id: '183153',
-          code: 'Yes: Please state why',
+          response: 'Yes: Please state why',
           active: false,
           label: 'Yes: please state why',
           commentRequired: true,
@@ -1592,7 +1592,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
         },
         {
           id: '183154',
-          code: 'No',
+          response: 'No',
           active: false,
           label: 'No',
           commentRequired: false,
@@ -1610,7 +1610,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '182906',
-          code: 'Yes',
+          response: 'Yes',
           active: false,
           label: 'Yes',
           commentRequired: false,
@@ -1619,7 +1619,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
         },
         {
           id: '182907',
-          code: 'No: Please state why',
+          response: 'No: Please state why',
           active: false,
           label: 'No: please state why',
           commentRequired: true,
@@ -1628,7 +1628,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
         },
         {
           id: '183155',
-          code: 'Yes',
+          response: 'Yes',
           active: false,
           label: 'Yes',
           commentRequired: false,
@@ -1637,7 +1637,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
         },
         {
           id: '183156',
-          code: 'No: Please state why',
+          response: 'No: Please state why',
           active: false,
           label: 'No: please state why',
           commentRequired: true,
@@ -1655,7 +1655,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '182908',
-          code: 'Yes',
+          response: 'Yes',
           active: false,
           label: 'Yes',
           commentRequired: false,
@@ -1664,7 +1664,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
         },
         {
           id: '182909',
-          code: 'No',
+          response: 'No',
           active: false,
           label: 'No',
           commentRequired: false,
@@ -1673,7 +1673,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
         },
         {
           id: '183157',
-          code: 'Yes',
+          response: 'Yes',
           active: false,
           label: 'Yes',
           commentRequired: false,
@@ -1682,7 +1682,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
         },
         {
           id: '183158',
-          code: 'No',
+          response: 'No',
           active: false,
           label: 'No',
           commentRequired: false,
@@ -1700,7 +1700,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '182910',
-          code: 'Yes',
+          response: 'Yes',
           active: false,
           label: 'Yes',
           commentRequired: false,
@@ -1709,7 +1709,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
         },
         {
           id: '182911',
-          code: 'No',
+          response: 'No',
           active: false,
           label: 'No',
           commentRequired: false,
@@ -1718,7 +1718,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
         },
         {
           id: '183159',
-          code: 'Yes',
+          response: 'Yes',
           active: false,
           label: 'Yes',
           commentRequired: false,
@@ -1727,7 +1727,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
         },
         {
           id: '183160',
-          code: 'No',
+          response: 'No',
           active: false,
           label: 'No',
           commentRequired: false,
@@ -1745,7 +1745,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '182912',
-          code: 'Yes',
+          response: 'Yes',
           active: false,
           label: 'Yes',
           commentRequired: false,
@@ -1754,7 +1754,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
         },
         {
           id: '182913',
-          code: 'No',
+          response: 'No',
           active: false,
           label: 'No',
           commentRequired: false,
@@ -1763,7 +1763,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
         },
         {
           id: '183161',
-          code: 'Yes',
+          response: 'Yes',
           active: false,
           label: 'Yes',
           commentRequired: false,
@@ -1772,7 +1772,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
         },
         {
           id: '183162',
-          code: 'No',
+          response: 'No',
           active: false,
           label: 'No',
           commentRequired: false,
@@ -1790,7 +1790,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '182914',
-          code: 'Yes',
+          response: 'Yes',
           active: false,
           label: 'Yes',
           commentRequired: false,
@@ -1799,7 +1799,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
         },
         {
           id: '182915',
-          code: 'No',
+          response: 'No',
           active: false,
           label: 'No',
           commentRequired: false,
@@ -1808,7 +1808,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
         },
         {
           id: '183163',
-          code: 'Yes',
+          response: 'Yes',
           active: false,
           label: 'Yes',
           commentRequired: false,
@@ -1817,7 +1817,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
         },
         {
           id: '183164',
-          code: 'No',
+          response: 'No',
           active: false,
           label: 'No',
           commentRequired: false,
@@ -1835,7 +1835,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '182916',
-          code: 'Yes: Date',
+          response: 'Yes: Date',
           active: false,
           label: 'Yes: date',
           commentRequired: true,
@@ -1844,7 +1844,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
         },
         {
           id: '182917',
-          code: 'No',
+          response: 'No',
           active: false,
           label: 'No',
           commentRequired: false,
@@ -1853,7 +1853,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
         },
         {
           id: '183165',
-          code: 'Yes: Date',
+          response: 'Yes: Date',
           active: false,
           label: 'Yes: date',
           commentRequired: true,
@@ -1862,7 +1862,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
         },
         {
           id: '183166',
-          code: 'No',
+          response: 'No',
           active: false,
           label: 'No',
           commentRequired: false,
@@ -1880,7 +1880,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '182918',
-          code: 'HSE',
+          response: 'HSE',
           active: false,
           label: 'HSE',
           commentRequired: false,
@@ -1889,7 +1889,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
         },
         {
           id: '182919',
-          code: 'Local Male',
+          response: 'Local Male',
           active: false,
           label: 'Local male',
           commentRequired: false,
@@ -1898,7 +1898,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
         },
         {
           id: '182920',
-          code: 'Cat B Male',
+          response: 'Cat B Male',
           active: false,
           label: 'Cat b male',
           commentRequired: false,
@@ -1907,7 +1907,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
         },
         {
           id: '182921',
-          code: 'Cat C Male',
+          response: 'Cat C Male',
           active: false,
           label: 'Cat c male',
           commentRequired: false,
@@ -1916,7 +1916,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
         },
         {
           id: '182922',
-          code: 'Open Male',
+          response: 'Open Male',
           active: false,
           label: 'Open male',
           commentRequired: false,
@@ -1925,7 +1925,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
         },
         {
           id: '182923',
-          code: 'Cluster',
+          response: 'Cluster',
           active: false,
           label: 'Cluster',
           commentRequired: false,
@@ -1934,7 +1934,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
         },
         {
           id: '182924',
-          code: 'YOI Male',
+          response: 'YOI Male',
           active: false,
           label: 'YOI male',
           commentRequired: false,
@@ -1943,7 +1943,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
         },
         {
           id: '182925',
-          code: 'Young People',
+          response: 'Young People',
           active: false,
           label: 'Young people',
           commentRequired: false,
@@ -1952,7 +1952,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
         },
         {
           id: '182926',
-          code: 'Female Estate',
+          response: 'Female Estate',
           active: false,
           label: 'Female estate',
           commentRequired: false,
@@ -1961,7 +1961,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
         },
         {
           id: '183167',
-          code: 'HSE',
+          response: 'HSE',
           active: false,
           label: 'HSE',
           commentRequired: false,
@@ -1970,7 +1970,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
         },
         {
           id: '183168',
-          code: 'Local Male',
+          response: 'Local Male',
           active: false,
           label: 'Local male',
           commentRequired: false,
@@ -1979,7 +1979,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
         },
         {
           id: '183169',
-          code: 'Cat B Male',
+          response: 'Cat B Male',
           active: false,
           label: 'Cat b male',
           commentRequired: false,
@@ -1988,7 +1988,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
         },
         {
           id: '183170',
-          code: 'Cat C Male',
+          response: 'Cat C Male',
           active: false,
           label: 'Cat c male',
           commentRequired: false,
@@ -1997,7 +1997,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
         },
         {
           id: '183171',
-          code: 'Open Male',
+          response: 'Open Male',
           active: false,
           label: 'Open male',
           commentRequired: false,
@@ -2006,7 +2006,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
         },
         {
           id: '183172',
-          code: 'Cluster',
+          response: 'Cluster',
           active: false,
           label: 'Cluster',
           commentRequired: false,
@@ -2015,7 +2015,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
         },
         {
           id: '183173',
-          code: 'YOI Male',
+          response: 'YOI Male',
           active: false,
           label: 'YOI male',
           commentRequired: false,
@@ -2024,7 +2024,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
         },
         {
           id: '183174',
-          code: 'Young People',
+          response: 'Young People',
           active: false,
           label: 'Young people',
           commentRequired: false,
@@ -2033,7 +2033,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
         },
         {
           id: '183175',
-          code: 'Female Estate',
+          response: 'Female Estate',
           active: false,
           label: 'Female estate',
           commentRequired: false,
@@ -2051,7 +2051,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '182927',
-          code: 'Enter Establishment name in comments:',
+          response: 'Enter Establishment name in comments:',
           active: false,
           label: 'Enter establishment name in comments:',
           commentRequired: true,
@@ -2060,7 +2060,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
         },
         {
           id: '183176',
-          code: 'Enter Establishment name in comments:',
+          response: 'Enter Establishment name in comments:',
           active: false,
           label: 'Enter establishment name in comments:',
           commentRequired: true,
@@ -2078,7 +2078,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '182928',
-          code: 'High Security',
+          response: 'High Security',
           active: false,
           label: 'High security',
           commentRequired: false,
@@ -2087,7 +2087,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
         },
         {
           id: '182929',
-          code: 'East Midlands',
+          response: 'East Midlands',
           active: false,
           label: 'East midlands',
           commentRequired: false,
@@ -2096,7 +2096,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
         },
         {
           id: '182930',
-          code: 'West Midlands',
+          response: 'West Midlands',
           active: false,
           label: 'West midlands',
           commentRequired: false,
@@ -2105,7 +2105,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
         },
         {
           id: '182931',
-          code: 'Greater London',
+          response: 'Greater London',
           active: false,
           label: 'Greater london',
           commentRequired: false,
@@ -2114,7 +2114,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
         },
         {
           id: '182932',
-          code: 'South West',
+          response: 'South West',
           active: false,
           label: 'South west',
           commentRequired: false,
@@ -2123,7 +2123,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
         },
         {
           id: '182933',
-          code: 'Kent & Sussex',
+          response: 'Kent & Sussex',
           active: false,
           label: 'Kent & sussex',
           commentRequired: false,
@@ -2132,7 +2132,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
         },
         {
           id: '182934',
-          code: 'North East',
+          response: 'North East',
           active: false,
           label: 'North east',
           commentRequired: false,
@@ -2141,7 +2141,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
         },
         {
           id: '182935',
-          code: 'South Central',
+          response: 'South Central',
           active: false,
           label: 'South central',
           commentRequired: false,
@@ -2150,7 +2150,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
         },
         {
           id: '182936',
-          code: 'East of England',
+          response: 'East of England',
           active: false,
           label: 'East of england',
           commentRequired: false,
@@ -2159,7 +2159,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
         },
         {
           id: '182937',
-          code: 'North West',
+          response: 'North West',
           active: false,
           label: 'North west',
           commentRequired: false,
@@ -2168,7 +2168,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
         },
         {
           id: '182938',
-          code: 'Wales',
+          response: 'Wales',
           active: false,
           label: 'Wales',
           commentRequired: false,
@@ -2177,7 +2177,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
         },
         {
           id: '182939',
-          code: 'Yorkshire & Humberside',
+          response: 'Yorkshire & Humberside',
           active: false,
           label: 'Yorkshire & humberside',
           commentRequired: false,
@@ -2186,7 +2186,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
         },
         {
           id: '182940',
-          code: 'Contracted',
+          response: 'Contracted',
           active: false,
           label: 'Contracted',
           commentRequired: false,
@@ -2204,7 +2204,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '192684',
-          code: 'Mobile:',
+          response: 'Mobile:',
           active: false,
           label: 'Mobile:',
           commentRequired: true,
@@ -2213,7 +2213,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
         },
         {
           id: '192685',
-          code: 'SIM:',
+          response: 'SIM:',
           active: false,
           label: 'SIM:',
           commentRequired: true,
@@ -2222,7 +2222,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
         },
         {
           id: '192686',
-          code: 'Charger:',
+          response: 'Charger:',
           active: false,
           label: 'Charger:',
           commentRequired: true,
@@ -2231,7 +2231,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
         },
         {
           id: '192687',
-          code: 'Other please specify:',
+          response: 'Other please specify:',
           active: false,
           label: 'Other please specify:',
           commentRequired: true,

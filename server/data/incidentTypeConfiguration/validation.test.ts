@@ -474,7 +474,7 @@ function buildAnswer({
 }): AnswerConfiguration {
   return {
     id,
-    code: label.toUpperCase(),
+    response: label.toUpperCase(),
     label,
     active,
     dateRequired: false,

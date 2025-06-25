@@ -40,7 +40,7 @@ export interface AnswerConfiguration {
   /** Answer as seen by machines, e.g. it shouldn't change.
    *
    * For example 'DRONE RECOVERY' */
-  code: string
+  response: string
   active: boolean
   /** Answer as shown to humans.
    *

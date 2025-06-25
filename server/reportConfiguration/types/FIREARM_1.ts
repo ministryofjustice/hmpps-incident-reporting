@@ -16,7 +16,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '178891',
-          code: 'TARGET SEARCH',
+          response: 'TARGET SEARCH',
           active: false,
           label: 'Target search',
           commentRequired: false,
@@ -25,7 +25,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
         },
         {
           id: '178893',
-          code: 'ROUTINE SEARCH',
+          response: 'ROUTINE SEARCH',
           active: false,
           label: 'Routine search',
           commentRequired: false,
@@ -34,7 +34,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
         },
         {
           id: '178892',
-          code: 'CHANCE',
+          response: 'CHANCE',
           active: false,
           label: 'Chance',
           commentRequired: false,
@@ -52,7 +52,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '179027',
-          code: 'SPECIFY',
+          response: 'SPECIFY',
           active: false,
           label: 'Specify',
           commentRequired: true,
@@ -70,7 +70,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '179069',
-          code: 'YES',
+          response: 'YES',
           active: false,
           label: 'Yes',
           commentRequired: false,
@@ -79,7 +79,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
         },
         {
           id: '179070',
-          code: 'NO',
+          response: 'NO',
           active: false,
           label: 'No',
           commentRequired: false,
@@ -97,7 +97,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '179112',
-          code: 'YES',
+          response: 'YES',
           active: false,
           label: 'Yes',
           commentRequired: false,
@@ -106,7 +106,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
         },
         {
           id: '179111',
-          code: 'NO',
+          response: 'NO',
           active: false,
           label: 'No',
           commentRequired: false,
@@ -124,7 +124,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '179119',
-          code: 'YES',
+          response: 'YES',
           active: false,
           label: 'Yes',
           commentRequired: false,
@@ -133,7 +133,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
         },
         {
           id: '179120',
-          code: 'NO',
+          response: 'NO',
           active: false,
           label: 'No',
           commentRequired: false,
@@ -151,7 +151,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '179190',
-          code: 'YES',
+          response: 'YES',
           active: false,
           label: 'Yes',
           commentRequired: false,
@@ -160,7 +160,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
         },
         {
           id: '179189',
-          code: 'NO',
+          response: 'NO',
           active: false,
           label: 'No',
           commentRequired: false,
@@ -178,7 +178,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '179191',
-          code: 'LOCAL',
+          response: 'LOCAL',
           active: false,
           label: 'Local',
           commentRequired: false,
@@ -187,7 +187,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
         },
         {
           id: '179192',
-          code: 'SERVICE SUPPLIER',
+          response: 'SERVICE SUPPLIER',
           active: false,
           label: 'Service supplier',
           commentRequired: false,
@@ -205,7 +205,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '179569',
-          code: 'DESCRIPTION',
+          response: 'DESCRIPTION',
           active: false,
           label: 'Description',
           commentRequired: true,
@@ -223,7 +223,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '179616',
-          code: 'YES',
+          response: 'YES',
           active: false,
           label: 'Yes',
           commentRequired: false,
@@ -232,7 +232,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
         },
         {
           id: '179615',
-          code: 'NO',
+          response: 'NO',
           active: false,
           label: 'No',
           commentRequired: false,
@@ -250,7 +250,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '179817',
-          code: 'PISTOL/REVOLVER',
+          response: 'PISTOL/REVOLVER',
           active: false,
           label: 'Pistol/revolver',
           commentRequired: false,
@@ -259,7 +259,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
         },
         {
           id: '179818',
-          code: 'RIFLE',
+          response: 'RIFLE',
           active: false,
           label: 'Rifle',
           commentRequired: false,
@@ -268,7 +268,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
         },
         {
           id: '179819',
-          code: 'SHOTGUN',
+          response: 'SHOTGUN',
           active: false,
           label: 'Shotgun',
           commentRequired: false,
@@ -277,7 +277,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
         },
         {
           id: '179815',
-          code: 'HILTI GUN',
+          response: 'HILTI GUN',
           active: false,
           label: 'Hilti gun',
           commentRequired: false,
@@ -286,7 +286,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
         },
         {
           id: '179816',
-          code: 'OTHER',
+          response: 'OTHER',
           active: false,
           label: 'Other',
           commentRequired: true,
@@ -304,7 +304,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '179839',
-          code: 'ENTER TIME',
+          response: 'ENTER TIME',
           active: false,
           label: 'Enter time',
           commentRequired: true,
@@ -322,7 +322,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '179918',
-          code: 'NUMBER',
+          response: 'NUMBER',
           active: false,
           label: 'Number',
           commentRequired: true,
@@ -340,7 +340,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '179975',
-          code: 'YES',
+          response: 'YES',
           active: false,
           label: 'Yes',
           commentRequired: false,
@@ -349,7 +349,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
         },
         {
           id: '179976',
-          code: 'NO',
+          response: 'NO',
           active: false,
           label: 'No',
           commentRequired: false,
@@ -367,7 +367,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '179988',
-          code: 'LOCAL',
+          response: 'LOCAL',
           active: false,
           label: 'Local',
           commentRequired: false,
@@ -376,7 +376,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
         },
         {
           id: '179987',
-          code: 'SERVICE SUPPLIER',
+          response: 'SERVICE SUPPLIER',
           active: false,
           label: 'Service supplier',
           commentRequired: false,
@@ -394,7 +394,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '180000',
-          code: 'PRISONER',
+          response: 'PRISONER',
           active: false,
           label: 'Prisoner',
           commentRequired: false,
@@ -403,7 +403,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
         },
         {
           id: '180001',
-          code: 'STAFF',
+          response: 'STAFF',
           active: false,
           label: 'Staff',
           commentRequired: false,
@@ -412,7 +412,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
         },
         {
           id: '179999',
-          code: 'POLICE',
+          response: 'POLICE',
           active: false,
           label: 'Police',
           commentRequired: false,
@@ -421,7 +421,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
         },
         {
           id: '180002',
-          code: 'VISITOR',
+          response: 'VISITOR',
           active: false,
           label: 'Visitor',
           commentRequired: false,
@@ -430,7 +430,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
         },
         {
           id: '179998',
-          code: 'OTHER',
+          response: 'OTHER',
           active: false,
           label: 'Other',
           commentRequired: true,
@@ -448,7 +448,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '180090',
-          code: 'CONCEALED',
+          response: 'CONCEALED',
           active: false,
           label: 'Concealed',
           commentRequired: false,
@@ -457,7 +457,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
         },
         {
           id: '180091',
-          code: 'DISCARDED',
+          response: 'DISCARDED',
           active: false,
           label: 'Discarded',
           commentRequired: false,
@@ -475,7 +475,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '180112',
-          code: 'YES',
+          response: 'YES',
           active: false,
           label: 'Yes',
           commentRequired: false,
@@ -484,7 +484,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
         },
         {
           id: '180111',
-          code: 'NO',
+          response: 'NO',
           active: false,
           label: 'No',
           commentRequired: false,
@@ -502,7 +502,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '180237',
-          code: 'SPECIFY',
+          response: 'SPECIFY',
           active: false,
           label: 'Specify',
           commentRequired: true,
@@ -520,7 +520,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '180261',
-          code: 'YES',
+          response: 'YES',
           active: false,
           label: 'Yes',
           commentRequired: false,
@@ -529,7 +529,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
         },
         {
           id: '180260',
-          code: 'NO',
+          response: 'NO',
           active: false,
           label: 'No',
           commentRequired: false,
@@ -547,7 +547,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '180289',
-          code: 'PRISONER',
+          response: 'PRISONER',
           active: false,
           label: 'Prisoner',
           commentRequired: false,
@@ -556,7 +556,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
         },
         {
           id: '180291',
-          code: 'STAFF',
+          response: 'STAFF',
           active: false,
           label: 'Staff',
           commentRequired: false,
@@ -565,7 +565,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
         },
         {
           id: '180290',
-          code: 'SOCIAL VISITOR',
+          response: 'SOCIAL VISITOR',
           active: false,
           label: 'Social visitor',
           commentRequired: false,
@@ -574,7 +574,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
         },
         {
           id: '180287',
-          code: 'OFFICIAL VISITOR',
+          response: 'OFFICIAL VISITOR',
           active: false,
           label: 'Official visitor',
           commentRequired: false,
@@ -583,7 +583,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
         },
         {
           id: '180288',
-          code: 'OTHER',
+          response: 'OTHER',
           active: false,
           label: 'Other',
           commentRequired: true,
@@ -601,7 +601,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '180301',
-          code: 'ADMINISTRATION',
+          response: 'ADMINISTRATION',
           active: false,
           label: 'Administration',
           commentRequired: false,
@@ -610,7 +610,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
         },
         {
           id: '180303',
-          code: 'CELL',
+          response: 'CELL',
           active: false,
           label: 'Cell',
           commentRequired: false,
@@ -619,7 +619,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
         },
         {
           id: '180302',
-          code: 'ASSOCIATION AREA',
+          response: 'ASSOCIATION AREA',
           active: false,
           label: 'Association area',
           commentRequired: false,
@@ -628,7 +628,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
         },
         {
           id: '180304',
-          code: 'CHAPEL',
+          response: 'CHAPEL',
           active: false,
           label: 'Chapel',
           commentRequired: false,
@@ -637,7 +637,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
         },
         {
           id: '180306',
-          code: 'DINING ROOM',
+          response: 'DINING ROOM',
           active: false,
           label: 'Dining room',
           commentRequired: false,
@@ -646,7 +646,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
         },
         {
           id: '180307',
-          code: 'DORMITORY',
+          response: 'DORMITORY',
           active: false,
           label: 'Dormitory',
           commentRequired: false,
@@ -655,7 +655,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
         },
         {
           id: '180308',
-          code: 'EDUCATION',
+          response: 'EDUCATION',
           active: false,
           label: 'Education',
           commentRequired: false,
@@ -664,7 +664,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
         },
         {
           id: '180310',
-          code: 'EXERCISE YARD',
+          response: 'EXERCISE YARD',
           active: false,
           label: 'Exercise yard',
           commentRequired: false,
@@ -673,7 +673,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
         },
         {
           id: '180312',
-          code: 'GATE',
+          response: 'GATE',
           active: false,
           label: 'Gate',
           commentRequired: false,
@@ -682,7 +682,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
         },
         {
           id: '180313',
-          code: 'GYM',
+          response: 'GYM',
           active: false,
           label: 'Gym',
           commentRequired: false,
@@ -691,7 +691,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
         },
         {
           id: '180314',
-          code: 'HEALTH CARE CENTRE',
+          response: 'HEALTH CARE CENTRE',
           active: false,
           label: 'Health care centre',
           commentRequired: false,
@@ -700,7 +700,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
         },
         {
           id: '180317',
-          code: 'KITCHEN',
+          response: 'KITCHEN',
           active: false,
           label: 'Kitchen',
           commentRequired: false,
@@ -709,7 +709,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
         },
         {
           id: '180319',
-          code: 'OFFICE',
+          response: 'OFFICE',
           active: false,
           label: 'Office',
           commentRequired: false,
@@ -718,7 +718,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
         },
         {
           id: '180321',
-          code: 'RECEPTION',
+          response: 'RECEPTION',
           active: false,
           label: 'Reception',
           commentRequired: false,
@@ -727,7 +727,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
         },
         {
           id: '180322',
-          code: 'RECESS',
+          response: 'RECESS',
           active: false,
           label: 'Recess',
           commentRequired: false,
@@ -736,7 +736,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
         },
         {
           id: '180323',
-          code: 'SEGREGATION UNIT',
+          response: 'SEGREGATION UNIT',
           active: false,
           label: 'Segregation unit',
           commentRequired: false,
@@ -745,7 +745,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
         },
         {
           id: '180325',
-          code: 'SPECIAL UNIT',
+          response: 'SPECIAL UNIT',
           active: false,
           label: 'Special unit',
           commentRequired: false,
@@ -754,7 +754,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
         },
         {
           id: '180324',
-          code: 'SHOWERS/CHANGING ROOM',
+          response: 'SHOWERS/CHANGING ROOM',
           active: false,
           label: 'Showers/changing room',
           commentRequired: false,
@@ -763,7 +763,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
         },
         {
           id: '180328',
-          code: 'VISITS',
+          response: 'VISITS',
           active: false,
           label: 'Visits',
           commentRequired: false,
@@ -772,7 +772,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
         },
         {
           id: '180330',
-          code: 'WING',
+          response: 'WING',
           active: false,
           label: 'Wing',
           commentRequired: false,
@@ -781,7 +781,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
         },
         {
           id: '180332',
-          code: 'WORKS DEPARTMENT',
+          response: 'WORKS DEPARTMENT',
           active: false,
           label: 'Works department',
           commentRequired: false,
@@ -790,7 +790,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
         },
         {
           id: '180333',
-          code: 'WORKSHOP',
+          response: 'WORKSHOP',
           active: false,
           label: 'Workshop',
           commentRequired: false,
@@ -799,7 +799,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
         },
         {
           id: '180331',
-          code: 'WITHIN PERIMETER',
+          response: 'WITHIN PERIMETER',
           active: false,
           label: 'Within perimeter',
           commentRequired: false,
@@ -808,7 +808,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
         },
         {
           id: '180309',
-          code: 'ELSEWHERE',
+          response: 'ELSEWHERE',
           active: false,
           label: 'Elsewhere',
           commentRequired: true,
@@ -817,7 +817,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
         },
         {
           id: '180311',
-          code: 'FUNERAL',
+          response: 'FUNERAL',
           active: false,
           label: 'Funeral',
           commentRequired: false,
@@ -826,7 +826,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
         },
         {
           id: '180315',
-          code: 'HOSPITAL OUTSIDE (PATIENT)',
+          response: 'HOSPITAL OUTSIDE (PATIENT)',
           active: false,
           label: 'Hospital outside (patient)',
           commentRequired: false,
@@ -835,7 +835,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
         },
         {
           id: '180316',
-          code: 'HOSPITAL OUTSIDE (VISITING)',
+          response: 'HOSPITAL OUTSIDE (VISITING)',
           active: false,
           label: 'Hospital outside (visiting)',
           commentRequired: false,
@@ -844,7 +844,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
         },
         {
           id: '180320',
-          code: 'OUTSIDE WORKING PARTY',
+          response: 'OUTSIDE WORKING PARTY',
           active: false,
           label: 'Outside working party',
           commentRequired: false,
@@ -853,7 +853,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
         },
         {
           id: '180326',
-          code: 'SPORTSFIELD',
+          response: 'SPORTSFIELD',
           active: false,
           label: 'Sportsfield',
           commentRequired: false,
@@ -862,7 +862,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
         },
         {
           id: '180327',
-          code: 'VEHICLE',
+          response: 'VEHICLE',
           active: false,
           label: 'Vehicle',
           commentRequired: false,
@@ -871,7 +871,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
         },
         {
           id: '180329',
-          code: 'WEDDING',
+          response: 'WEDDING',
           active: false,
           label: 'Wedding',
           commentRequired: false,
@@ -880,7 +880,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
         },
         {
           id: '180318',
-          code: 'MAGISTRATES COURT',
+          response: 'MAGISTRATES COURT',
           active: false,
           label: 'Magistrates court',
           commentRequired: false,
@@ -889,7 +889,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
         },
         {
           id: '180305',
-          code: 'CROWN COURT',
+          response: 'CROWN COURT',
           active: false,
           label: 'Crown court',
           commentRequired: false,
@@ -907,7 +907,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '180426',
-          code: 'C.N (CHLORACETOPHEONE)',
+          response: 'C.N (CHLORACETOPHEONE)',
           active: false,
           label: 'C.n (chloracetopheone)',
           commentRequired: false,
@@ -916,7 +916,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
         },
         {
           id: '180427',
-          code: 'C.S (ORTHO..NITRILE)',
+          response: 'C.S (ORTHO..NITRILE)',
           active: false,
           label: 'C.s (ortho..nitrile)',
           commentRequired: false,
@@ -925,7 +925,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
         },
         {
           id: '180429',
-          code: 'O.C (MACE/PEPPER)',
+          response: 'O.C (MACE/PEPPER)',
           active: false,
           label: 'O.c (mace/pepper)',
           commentRequired: false,
@@ -934,7 +934,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
         },
         {
           id: '180430',
-          code: 'OTHER',
+          response: 'OTHER',
           active: false,
           label: 'Other',
           commentRequired: true,
@@ -943,7 +943,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
         },
         {
           id: '180428',
-          code: 'NOT KNOWN',
+          response: 'NOT KNOWN',
           active: false,
           label: 'Not known',
           commentRequired: false,
@@ -961,7 +961,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '180661',
-          code: 'SPECIFY',
+          response: 'SPECIFY',
           active: false,
           label: 'Specify',
           commentRequired: true,
@@ -979,7 +979,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '180664',
-          code: 'YES',
+          response: 'YES',
           active: false,
           label: 'Yes',
           commentRequired: false,
@@ -988,7 +988,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
         },
         {
           id: '180665',
-          code: 'NO',
+          response: 'NO',
           active: false,
           label: 'No',
           commentRequired: false,
@@ -1006,7 +1006,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '180713',
-          code: 'YES',
+          response: 'YES',
           active: false,
           label: 'Yes',
           commentRequired: false,
@@ -1015,7 +1015,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
         },
         {
           id: '180714',
-          code: 'NO',
+          response: 'NO',
           active: false,
           label: 'No',
           commentRequired: false,
@@ -1033,7 +1033,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '180839',
-          code: 'YES',
+          response: 'YES',
           active: false,
           label: 'Yes',
           commentRequired: false,
@@ -1042,7 +1042,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
         },
         {
           id: '180838',
-          code: 'NO',
+          response: 'NO',
           active: false,
           label: 'No',
           commentRequired: false,
@@ -1060,7 +1060,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '180885',
-          code: 'YES',
+          response: 'YES',
           active: false,
           label: 'Yes',
           commentRequired: false,
@@ -1069,7 +1069,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
         },
         {
           id: '180884',
-          code: 'NO',
+          response: 'NO',
           active: false,
           label: 'No',
           commentRequired: true,
@@ -1087,7 +1087,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '180919',
-          code: 'SPECIFY',
+          response: 'SPECIFY',
           active: false,
           label: 'Specify',
           commentRequired: true,
@@ -1105,7 +1105,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '180959',
-          code: 'YES',
+          response: 'YES',
           active: false,
           label: 'Yes',
           commentRequired: false,
@@ -1114,7 +1114,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
         },
         {
           id: '180960',
-          code: 'NO',
+          response: 'NO',
           active: false,
           label: 'No',
           commentRequired: false,
@@ -1132,7 +1132,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '181116',
-          code: 'TELEPHONY',
+          response: 'TELEPHONY',
           active: false,
           label: 'Telephony',
           commentRequired: true,
@@ -1141,7 +1141,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
         },
         {
           id: '181115',
-          code: 'IT',
+          response: 'IT',
           active: false,
           label: 'IT',
           commentRequired: true,
@@ -1159,7 +1159,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '181170',
-          code: 'YES',
+          response: 'YES',
           active: false,
           label: 'Yes',
           commentRequired: false,
@@ -1168,7 +1168,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
         },
         {
           id: '181171',
-          code: 'NO',
+          response: 'NO',
           active: false,
           label: 'No',
           commentRequired: false,
@@ -1186,7 +1186,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '181176',
-          code: 'ENTER COMMENT AND DATE',
+          response: 'ENTER COMMENT AND DATE',
           active: false,
           label: 'Enter comment and date',
           commentRequired: true,
@@ -1204,7 +1204,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '181302',
-          code: 'YES',
+          response: 'YES',
           active: false,
           label: 'Yes',
           commentRequired: false,
@@ -1213,7 +1213,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
         },
         {
           id: '181303',
-          code: 'NO',
+          response: 'NO',
           active: false,
           label: 'No',
           commentRequired: false,
@@ -1231,7 +1231,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '181317',
-          code: 'BARREL',
+          response: 'BARREL',
           active: false,
           label: 'Barrel',
           commentRequired: false,
@@ -1240,7 +1240,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
         },
         {
           id: '181318',
-          code: 'BUTT',
+          response: 'BUTT',
           active: false,
           label: 'Butt',
           commentRequired: false,
@@ -1249,7 +1249,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
         },
         {
           id: '181319',
-          code: 'MAGAZINE',
+          response: 'MAGAZINE',
           active: false,
           label: 'Magazine',
           commentRequired: false,
@@ -1258,7 +1258,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
         },
         {
           id: '181320',
-          code: 'OTHER',
+          response: 'OTHER',
           active: false,
           label: 'Other',
           commentRequired: true,
@@ -1276,7 +1276,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '181329',
-          code: 'YES',
+          response: 'YES',
           active: false,
           label: 'Yes',
           commentRequired: false,
@@ -1285,7 +1285,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
         },
         {
           id: '181330',
-          code: 'NO',
+          response: 'NO',
           active: false,
           label: 'No',
           commentRequired: false,
@@ -1303,7 +1303,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '181374',
-          code: 'SPECIFY',
+          response: 'SPECIFY',
           active: false,
           label: 'Specify',
           commentRequired: true,
@@ -1321,7 +1321,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '181474',
-          code: 'LIVE',
+          response: 'LIVE',
           active: false,
           label: 'Live',
           commentRequired: false,
@@ -1330,7 +1330,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
         },
         {
           id: '181471',
-          code: 'BLANK',
+          response: 'BLANK',
           active: false,
           label: 'Blank',
           commentRequired: false,
@@ -1339,7 +1339,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
         },
         {
           id: '181473',
-          code: 'DISABLED',
+          response: 'DISABLED',
           active: false,
           label: 'Disabled',
           commentRequired: false,
@@ -1348,7 +1348,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
         },
         {
           id: '181472',
-          code: 'CARTRIDGE CASE',
+          response: 'CARTRIDGE CASE',
           active: false,
           label: 'Cartridge case',
           commentRequired: false,
@@ -1357,7 +1357,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
         },
         {
           id: '181475',
-          code: 'OTHER',
+          response: 'OTHER',
           active: false,
           label: 'Other',
           commentRequired: true,
@@ -1375,7 +1375,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '181495',
-          code: 'YES',
+          response: 'YES',
           active: false,
           label: 'Yes',
           commentRequired: false,
@@ -1384,7 +1384,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
         },
         {
           id: '181494',
-          code: 'NO',
+          response: 'NO',
           active: false,
           label: 'No',
           commentRequired: false,
@@ -1402,7 +1402,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '181609',
-          code: 'GOVERNOR',
+          response: 'GOVERNOR',
           active: false,
           label: 'Governor',
           commentRequired: false,
@@ -1411,7 +1411,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
         },
         {
           id: '181607',
-          code: 'DEPUTY GOVERNOR',
+          response: 'DEPUTY GOVERNOR',
           active: false,
           label: 'Deputy governor',
           commentRequired: false,
@@ -1420,7 +1420,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
         },
         {
           id: '181608',
-          code: 'DUTY GOVERNOR',
+          response: 'DUTY GOVERNOR',
           active: false,
           label: 'Duty governor',
           commentRequired: false,
@@ -1429,7 +1429,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
         },
         {
           id: '181610',
-          code: 'OTHER',
+          response: 'OTHER',
           active: false,
           label: 'Other',
           commentRequired: true,
@@ -1447,7 +1447,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '181654',
-          code: 'METAL DETECTING PORTAL',
+          response: 'METAL DETECTING PORTAL',
           active: false,
           label: 'Metal detecting portal',
           commentRequired: false,
@@ -1456,7 +1456,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
         },
         {
           id: '181653',
-          code: 'HAND HELD METAL DETECTOR',
+          response: 'HAND HELD METAL DETECTOR',
           active: false,
           label: 'Hand held metal detector',
           commentRequired: false,
@@ -1465,7 +1465,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
         },
         {
           id: '181656',
-          code: 'X-RAY MACHINE',
+          response: 'X-RAY MACHINE',
           active: false,
           label: 'X-ray machine',
           commentRequired: false,
@@ -1474,7 +1474,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
         },
         {
           id: '181655',
-          code: 'OTHER',
+          response: 'OTHER',
           active: false,
           label: 'Other',
           commentRequired: true,
@@ -1492,7 +1492,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '181717',
-          code: 'YES',
+          response: 'YES',
           active: false,
           label: 'Yes',
           commentRequired: false,
@@ -1501,7 +1501,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
         },
         {
           id: '181718',
-          code: 'NO',
+          response: 'NO',
           active: false,
           label: 'No',
           commentRequired: false,
@@ -1519,7 +1519,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '181833',
-          code: 'FULL',
+          response: 'FULL',
           active: false,
           label: 'Full',
           commentRequired: false,
@@ -1528,7 +1528,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
         },
         {
           id: '181834',
-          code: 'PARTIAL',
+          response: 'PARTIAL',
           active: false,
           label: 'Partial',
           commentRequired: true,
@@ -1546,7 +1546,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '181905',
-          code: 'YES',
+          response: 'YES',
           active: false,
           label: 'Yes',
           commentRequired: false,
@@ -1555,7 +1555,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
         },
         {
           id: '181904',
-          code: 'NO',
+          response: 'NO',
           active: false,
           label: 'No',
           commentRequired: false,
@@ -1573,7 +1573,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '181925',
-          code: 'NUMBER',
+          response: 'NUMBER',
           active: false,
           label: 'Number',
           commentRequired: true,
@@ -1591,7 +1591,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '181959',
-          code: 'YES',
+          response: 'YES',
           active: false,
           label: 'Yes',
           commentRequired: false,
@@ -1600,7 +1600,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
         },
         {
           id: '181958',
-          code: 'NO',
+          response: 'NO',
           active: false,
           label: 'No',
           commentRequired: false,
@@ -1618,7 +1618,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '181961',
-          code: 'YES',
+          response: 'YES',
           active: false,
           label: 'Yes',
           commentRequired: false,
@@ -1627,7 +1627,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
         },
         {
           id: '181960',
-          code: 'NO',
+          response: 'NO',
           active: false,
           label: 'No',
           commentRequired: false,
@@ -1645,7 +1645,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '181971',
-          code: 'YES',
+          response: 'YES',
           active: false,
           label: 'Yes',
           commentRequired: false,
@@ -1654,7 +1654,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
         },
         {
           id: '181970',
-          code: 'NO',
+          response: 'NO',
           active: false,
           label: 'No',
           commentRequired: false,
@@ -1672,7 +1672,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '182040',
-          code: 'YES',
+          response: 'YES',
           active: false,
           label: 'Yes',
           commentRequired: false,
@@ -1681,7 +1681,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
         },
         {
           id: '182041',
-          code: 'NO',
+          response: 'NO',
           active: false,
           label: 'No',
           commentRequired: false,
@@ -1699,7 +1699,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '182046',
-          code: 'PISTOL',
+          response: 'PISTOL',
           active: false,
           label: 'Pistol',
           commentRequired: false,
@@ -1708,7 +1708,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
         },
         {
           id: '182047',
-          code: 'REVOLVER',
+          response: 'REVOLVER',
           active: false,
           label: 'Revolver',
           commentRequired: false,
@@ -1717,7 +1717,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
         },
         {
           id: '182048',
-          code: 'RIFLE',
+          response: 'RIFLE',
           active: false,
           label: 'Rifle',
           commentRequired: false,
@@ -1726,7 +1726,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
         },
         {
           id: '182049',
-          code: 'SHOTGUN',
+          response: 'SHOTGUN',
           active: false,
           label: 'Shotgun',
           commentRequired: false,
@@ -1735,7 +1735,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
         },
         {
           id: '182045',
-          code: 'OTHER',
+          response: 'OTHER',
           active: false,
           label: 'Other',
           commentRequired: true,
@@ -1753,7 +1753,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '182172',
-          code: 'PRISON',
+          response: 'PRISON',
           active: false,
           label: 'Prison',
           commentRequired: false,
@@ -1762,7 +1762,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
         },
         {
           id: '182171',
-          code: 'POLICE',
+          response: 'POLICE',
           active: false,
           label: 'Police',
           commentRequired: false,
@@ -1771,7 +1771,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
         },
         {
           id: '182170',
-          code: 'OTHER',
+          response: 'OTHER',
           active: false,
           label: 'Other',
           commentRequired: true,
@@ -1789,7 +1789,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '182210',
-          code: 'PRISONER',
+          response: 'PRISONER',
           active: false,
           label: 'Prisoner',
           commentRequired: false,
@@ -1798,7 +1798,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
         },
         {
           id: '182212',
-          code: 'STAFF',
+          response: 'STAFF',
           active: false,
           label: 'Staff',
           commentRequired: false,
@@ -1807,7 +1807,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
         },
         {
           id: '182211',
-          code: 'SOCIAL VISITOR',
+          response: 'SOCIAL VISITOR',
           active: false,
           label: 'Social visitor',
           commentRequired: false,
@@ -1816,7 +1816,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
         },
         {
           id: '182208',
-          code: 'OFFICIAL VISITOR',
+          response: 'OFFICIAL VISITOR',
           active: false,
           label: 'Official visitor',
           commentRequired: false,
@@ -1825,7 +1825,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
         },
         {
           id: '182209',
-          code: 'OTHER',
+          response: 'OTHER',
           active: false,
           label: 'Other',
           commentRequired: true,
@@ -1843,7 +1843,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '182346',
-          code: 'ON A PERSON',
+          response: 'ON A PERSON',
           active: false,
           label: 'On a person',
           commentRequired: false,
@@ -1852,7 +1852,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
         },
         {
           id: '182347',
-          code: 'BURIED',
+          response: 'BURIED',
           active: false,
           label: 'Buried',
           commentRequired: false,
@@ -1861,7 +1861,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
         },
         {
           id: '182352',
-          code: 'IN I/P PROPERTY',
+          response: 'IN I/P PROPERTY',
           active: false,
           label: 'In i/p property',
           commentRequired: false,
@@ -1870,7 +1870,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
         },
         {
           id: '182353',
-          code: 'IN STORED PROPERTY',
+          response: 'IN STORED PROPERTY',
           active: false,
           label: 'In stored property',
           commentRequired: false,
@@ -1879,7 +1879,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
         },
         {
           id: '182351',
-          code: 'IN CELL FURNITURE',
+          response: 'IN CELL FURNITURE',
           active: false,
           label: 'In cell furniture',
           commentRequired: true,
@@ -1888,7 +1888,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
         },
         {
           id: '182350',
-          code: 'IN BUILDING FABRIC',
+          response: 'IN BUILDING FABRIC',
           active: false,
           label: 'In building fabric',
           commentRequired: true,
@@ -1897,7 +1897,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
         },
         {
           id: '182354',
-          code: 'STORES ITEMS',
+          response: 'STORES ITEMS',
           active: false,
           label: 'Stores items',
           commentRequired: true,
@@ -1906,7 +1906,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
         },
         {
           id: '182348',
-          code: 'DELIVERED FOODS/PARCELS',
+          response: 'DELIVERED FOODS/PARCELS',
           active: false,
           label: 'Delivered foods/parcels',
           commentRequired: false,
@@ -1915,7 +1915,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
         },
         {
           id: '182355',
-          code: 'VEHICLE',
+          response: 'VEHICLE',
           active: false,
           label: 'Vehicle',
           commentRequired: false,
@@ -1924,7 +1924,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
         },
         {
           id: '182349',
-          code: 'ELSEWHERE',
+          response: 'ELSEWHERE',
           active: false,
           label: 'Elsewhere',
           commentRequired: true,
@@ -1942,7 +1942,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '182424',
-          code: 'REAL (FUNCTIONAL)',
+          response: 'REAL (FUNCTIONAL)',
           active: false,
           label: 'Real (functional)',
           commentRequired: false,
@@ -1951,7 +1951,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
         },
         {
           id: '182425',
-          code: 'REAL (NON-FUNCTIONAL)',
+          response: 'REAL (NON-FUNCTIONAL)',
           active: false,
           label: 'Real (non-functional)',
           commentRequired: false,
@@ -1960,7 +1960,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
         },
         {
           id: '182426',
-          code: 'REPLICA',
+          response: 'REPLICA',
           active: false,
           label: 'Replica',
           commentRequired: false,
@@ -1969,7 +1969,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
         },
         {
           id: '182423',
-          code: 'HOME MADE',
+          response: 'HOME MADE',
           active: false,
           label: 'Home made',
           commentRequired: false,
@@ -1978,7 +1978,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
         },
         {
           id: '182427',
-          code: 'TOY',
+          response: 'TOY',
           active: false,
           label: 'Toy',
           commentRequired: false,

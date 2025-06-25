@@ -16,7 +16,7 @@ export const BREACH_OF_SECURITY_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '178894',
-          code: 'YES',
+          response: 'YES',
           active: true,
           label: 'Yes',
           commentRequired: false,
@@ -25,7 +25,7 @@ export const BREACH_OF_SECURITY_1: IncidentTypeConfiguration = {
         },
         {
           id: '178895',
-          code: 'NO',
+          response: 'NO',
           active: true,
           label: 'No',
           commentRequired: false,
@@ -43,7 +43,7 @@ export const BREACH_OF_SECURITY_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '178948',
-          code: 'FURNITURE',
+          response: 'FURNITURE',
           active: true,
           label: 'Furniture',
           commentRequired: false,
@@ -52,7 +52,7 @@ export const BREACH_OF_SECURITY_1: IncidentTypeConfiguration = {
         },
         {
           id: '178947',
-          code: 'FITTINGS',
+          response: 'FITTINGS',
           active: true,
           label: 'Fittings',
           commentRequired: false,
@@ -61,7 +61,7 @@ export const BREACH_OF_SECURITY_1: IncidentTypeConfiguration = {
         },
         {
           id: '178949',
-          code: 'MACHINERY',
+          response: 'MACHINERY',
           active: true,
           label: 'Machinery',
           commentRequired: false,
@@ -70,7 +70,7 @@ export const BREACH_OF_SECURITY_1: IncidentTypeConfiguration = {
         },
         {
           id: '178946',
-          code: 'EQUIPMENT',
+          response: 'EQUIPMENT',
           active: true,
           label: 'Equipment',
           commentRequired: false,
@@ -79,7 +79,7 @@ export const BREACH_OF_SECURITY_1: IncidentTypeConfiguration = {
         },
         {
           id: '178950',
-          code: 'OTHER',
+          response: 'OTHER',
           active: true,
           label: 'Other',
           commentRequired: true,
@@ -97,7 +97,7 @@ export const BREACH_OF_SECURITY_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '179321',
-          code: 'YES',
+          response: 'YES',
           active: true,
           label: 'Yes',
           commentRequired: false,
@@ -106,7 +106,7 @@ export const BREACH_OF_SECURITY_1: IncidentTypeConfiguration = {
         },
         {
           id: '179322',
-          code: 'NO',
+          response: 'NO',
           active: true,
           label: 'No',
           commentRequired: false,
@@ -124,7 +124,7 @@ export const BREACH_OF_SECURITY_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '179329',
-          code: 'YES',
+          response: 'YES',
           active: true,
           label: 'Yes',
           commentRequired: false,
@@ -133,7 +133,7 @@ export const BREACH_OF_SECURITY_1: IncidentTypeConfiguration = {
         },
         {
           id: '179330',
-          code: 'NO',
+          response: 'NO',
           active: true,
           label: 'No',
           commentRequired: false,
@@ -151,7 +151,7 @@ export const BREACH_OF_SECURITY_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '179410',
-          code: 'YES',
+          response: 'YES',
           active: true,
           label: 'Yes',
           commentRequired: false,
@@ -160,7 +160,7 @@ export const BREACH_OF_SECURITY_1: IncidentTypeConfiguration = {
         },
         {
           id: '179409',
-          code: 'NO',
+          response: 'NO',
           active: true,
           label: 'No',
           commentRequired: false,
@@ -178,7 +178,7 @@ export const BREACH_OF_SECURITY_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '179472',
-          code: 'WEAPONS',
+          response: 'WEAPONS',
           active: true,
           label: 'Weapons',
           commentRequired: false,
@@ -187,7 +187,7 @@ export const BREACH_OF_SECURITY_1: IncidentTypeConfiguration = {
         },
         {
           id: '179465',
-          code: 'ALCOHOL',
+          response: 'ALCOHOL',
           active: true,
           label: 'Alcohol',
           commentRequired: false,
@@ -196,7 +196,7 @@ export const BREACH_OF_SECURITY_1: IncidentTypeConfiguration = {
         },
         {
           id: '179467',
-          code: 'CIGARETTES',
+          response: 'CIGARETTES',
           active: true,
           label: 'Cigarettes',
           commentRequired: false,
@@ -205,7 +205,7 @@ export const BREACH_OF_SECURITY_1: IncidentTypeConfiguration = {
         },
         {
           id: '179470',
-          code: 'TOBACCO',
+          response: 'TOBACCO',
           active: true,
           label: 'Tobacco',
           commentRequired: false,
@@ -214,7 +214,7 @@ export const BREACH_OF_SECURITY_1: IncidentTypeConfiguration = {
         },
         {
           id: '179466',
-          code: 'CASH',
+          response: 'CASH',
           active: true,
           label: 'Cash',
           commentRequired: false,
@@ -223,7 +223,7 @@ export const BREACH_OF_SECURITY_1: IncidentTypeConfiguration = {
         },
         {
           id: '179468',
-          code: 'ESCAPE EQUIPMENT',
+          response: 'ESCAPE EQUIPMENT',
           active: true,
           label: 'Escape equipment',
           commentRequired: false,
@@ -232,7 +232,7 @@ export const BREACH_OF_SECURITY_1: IncidentTypeConfiguration = {
         },
         {
           id: '179471',
-          code: 'TOOLS',
+          response: 'TOOLS',
           active: true,
           label: 'Tools',
           commentRequired: false,
@@ -241,7 +241,7 @@ export const BREACH_OF_SECURITY_1: IncidentTypeConfiguration = {
         },
         {
           id: '179469',
-          code: 'OTHER',
+          response: 'OTHER',
           active: true,
           label: 'Other',
           commentRequired: true,
@@ -259,7 +259,7 @@ export const BREACH_OF_SECURITY_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '179624',
-          code: 'YES',
+          response: 'YES',
           active: true,
           label: 'Yes',
           commentRequired: false,
@@ -268,7 +268,7 @@ export const BREACH_OF_SECURITY_1: IncidentTypeConfiguration = {
         },
         {
           id: '179623',
-          code: 'NO',
+          response: 'NO',
           active: true,
           label: 'No',
           commentRequired: false,
@@ -286,7 +286,7 @@ export const BREACH_OF_SECURITY_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '179718',
-          code: 'YES',
+          response: 'YES',
           active: true,
           label: 'Yes',
           commentRequired: false,
@@ -295,7 +295,7 @@ export const BREACH_OF_SECURITY_1: IncidentTypeConfiguration = {
         },
         {
           id: '179717',
-          code: 'NO',
+          response: 'NO',
           active: true,
           label: 'No',
           commentRequired: false,
@@ -313,7 +313,7 @@ export const BREACH_OF_SECURITY_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '179814',
-          code: 'YES',
+          response: 'YES',
           active: true,
           label: 'Yes',
           commentRequired: false,
@@ -322,7 +322,7 @@ export const BREACH_OF_SECURITY_1: IncidentTypeConfiguration = {
         },
         {
           id: '179813',
-          code: 'NO',
+          response: 'NO',
           active: true,
           label: 'No',
           commentRequired: false,
@@ -340,7 +340,7 @@ export const BREACH_OF_SECURITY_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '180225',
-          code: 'YES',
+          response: 'YES',
           active: true,
           label: 'Yes',
           commentRequired: false,
@@ -349,7 +349,7 @@ export const BREACH_OF_SECURITY_1: IncidentTypeConfiguration = {
         },
         {
           id: '180226',
-          code: 'NO',
+          response: 'NO',
           active: true,
           label: 'No',
           commentRequired: false,
@@ -367,7 +367,7 @@ export const BREACH_OF_SECURITY_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '180262',
-          code: 'YES',
+          response: 'YES',
           active: true,
           label: 'Yes',
           commentRequired: false,
@@ -376,7 +376,7 @@ export const BREACH_OF_SECURITY_1: IncidentTypeConfiguration = {
         },
         {
           id: '180263',
-          code: 'NO',
+          response: 'NO',
           active: true,
           label: 'No',
           commentRequired: false,
@@ -394,7 +394,7 @@ export const BREACH_OF_SECURITY_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '180417',
-          code: 'YES',
+          response: 'YES',
           active: true,
           label: 'Yes',
           commentRequired: true,
@@ -403,7 +403,7 @@ export const BREACH_OF_SECURITY_1: IncidentTypeConfiguration = {
         },
         {
           id: '180418',
-          code: 'NO',
+          response: 'NO',
           active: true,
           label: 'No',
           commentRequired: false,
@@ -421,7 +421,7 @@ export const BREACH_OF_SECURITY_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '180465',
-          code: 'YES',
+          response: 'YES',
           active: true,
           label: 'Yes',
           commentRequired: true,
@@ -430,7 +430,7 @@ export const BREACH_OF_SECURITY_1: IncidentTypeConfiguration = {
         },
         {
           id: '180464',
-          code: 'NO',
+          response: 'NO',
           active: true,
           label: 'No',
           commentRequired: false,
@@ -448,7 +448,7 @@ export const BREACH_OF_SECURITY_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '180618',
-          code: 'INFORMATION FROM PRISONERS',
+          response: 'INFORMATION FROM PRISONERS',
           active: true,
           label: 'Information from prisoners',
           commentRequired: false,
@@ -457,7 +457,7 @@ export const BREACH_OF_SECURITY_1: IncidentTypeConfiguration = {
         },
         {
           id: '180617',
-          code: 'INFORMATION FROM POLICE',
+          response: 'INFORMATION FROM POLICE',
           active: true,
           label: 'Information from police',
           commentRequired: false,
@@ -466,7 +466,7 @@ export const BREACH_OF_SECURITY_1: IncidentTypeConfiguration = {
         },
         {
           id: '180616',
-          code: 'INFORMATION FROM HQ/AM',
+          response: 'INFORMATION FROM HQ/AM',
           active: true,
           label: 'Information from hq/am',
           commentRequired: false,
@@ -475,7 +475,7 @@ export const BREACH_OF_SECURITY_1: IncidentTypeConfiguration = {
         },
         {
           id: '180619',
-          code: 'OTHER',
+          response: 'OTHER',
           active: true,
           label: 'Other',
           commentRequired: true,
@@ -493,7 +493,7 @@ export const BREACH_OF_SECURITY_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '180643',
-          code: 'ENTER AMOUNT IN POUND STERLING',
+          response: 'ENTER AMOUNT IN POUND STERLING',
           active: true,
           label: 'Enter amount in pound sterling',
           commentRequired: true,
@@ -511,7 +511,7 @@ export const BREACH_OF_SECURITY_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '180794',
-          code: 'PARTICULAR PRISONER',
+          response: 'PARTICULAR PRISONER',
           active: true,
           label: 'Particular prisoner',
           commentRequired: false,
@@ -520,7 +520,7 @@ export const BREACH_OF_SECURITY_1: IncidentTypeConfiguration = {
         },
         {
           id: '180792',
-          code: 'LOCAL ISSUE',
+          response: 'LOCAL ISSUE',
           active: true,
           label: 'Local issue',
           commentRequired: true,
@@ -529,7 +529,7 @@ export const BREACH_OF_SECURITY_1: IncidentTypeConfiguration = {
         },
         {
           id: '180791',
-          code: 'GENERAL ISSUE',
+          response: 'GENERAL ISSUE',
           active: true,
           label: 'General issue',
           commentRequired: true,
@@ -538,7 +538,7 @@ export const BREACH_OF_SECURITY_1: IncidentTypeConfiguration = {
         },
         {
           id: '180793',
-          code: 'OTHER',
+          response: 'OTHER',
           active: true,
           label: 'Other',
           commentRequired: true,
@@ -556,7 +556,7 @@ export const BREACH_OF_SECURITY_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '180859',
-          code: 'YES',
+          response: 'YES',
           active: true,
           label: 'Yes',
           commentRequired: false,
@@ -565,7 +565,7 @@ export const BREACH_OF_SECURITY_1: IncidentTypeConfiguration = {
         },
         {
           id: '180860',
-          code: 'NO',
+          response: 'NO',
           active: true,
           label: 'No',
           commentRequired: false,
@@ -583,7 +583,7 @@ export const BREACH_OF_SECURITY_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '180978',
-          code: 'ORGANISED',
+          response: 'ORGANISED',
           active: true,
           label: 'Organised',
           commentRequired: false,
@@ -592,7 +592,7 @@ export const BREACH_OF_SECURITY_1: IncidentTypeConfiguration = {
         },
         {
           id: '180979',
-          code: 'SPONTANEOUS',
+          response: 'SPONTANEOUS',
           active: true,
           label: 'Spontaneous',
           commentRequired: false,
@@ -610,7 +610,7 @@ export const BREACH_OF_SECURITY_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '181050',
-          code: 'YES',
+          response: 'YES',
           active: true,
           label: 'Yes',
           commentRequired: false,
@@ -619,7 +619,7 @@ export const BREACH_OF_SECURITY_1: IncidentTypeConfiguration = {
         },
         {
           id: '181049',
-          code: 'NO',
+          response: 'NO',
           active: true,
           label: 'No',
           commentRequired: false,
@@ -637,7 +637,7 @@ export const BREACH_OF_SECURITY_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '181201',
-          code: 'YES',
+          response: 'YES',
           active: true,
           label: 'Yes',
           commentRequired: false,
@@ -646,7 +646,7 @@ export const BREACH_OF_SECURITY_1: IncidentTypeConfiguration = {
         },
         {
           id: '181200',
-          code: 'NO',
+          response: 'NO',
           active: true,
           label: 'No',
           commentRequired: false,
@@ -664,7 +664,7 @@ export const BREACH_OF_SECURITY_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '181412',
-          code: 'YES',
+          response: 'YES',
           active: true,
           label: 'Yes',
           commentRequired: false,
@@ -673,7 +673,7 @@ export const BREACH_OF_SECURITY_1: IncidentTypeConfiguration = {
         },
         {
           id: '181413',
-          code: 'NO',
+          response: 'NO',
           active: true,
           label: 'No',
           commentRequired: false,
@@ -691,7 +691,7 @@ export const BREACH_OF_SECURITY_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '181445',
-          code: 'YES',
+          response: 'YES',
           active: true,
           label: 'Yes',
           commentRequired: false,
@@ -700,7 +700,7 @@ export const BREACH_OF_SECURITY_1: IncidentTypeConfiguration = {
         },
         {
           id: '181446',
-          code: 'NO',
+          response: 'NO',
           active: true,
           label: 'No',
           commentRequired: false,
@@ -718,7 +718,7 @@ export const BREACH_OF_SECURITY_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '181530',
-          code: 'YES',
+          response: 'YES',
           active: true,
           label: 'Yes',
           commentRequired: false,
@@ -727,7 +727,7 @@ export const BREACH_OF_SECURITY_1: IncidentTypeConfiguration = {
         },
         {
           id: '181531',
-          code: 'NO',
+          response: 'NO',
           active: true,
           label: 'No',
           commentRequired: false,
@@ -745,7 +745,7 @@ export const BREACH_OF_SECURITY_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '181605',
-          code: 'YES',
+          response: 'YES',
           active: true,
           label: 'Yes',
           commentRequired: false,
@@ -754,7 +754,7 @@ export const BREACH_OF_SECURITY_1: IncidentTypeConfiguration = {
         },
         {
           id: '181606',
-          code: 'NO',
+          response: 'NO',
           active: true,
           label: 'No',
           commentRequired: false,
@@ -772,7 +772,7 @@ export const BREACH_OF_SECURITY_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '181645',
-          code: 'THROWN OVER',
+          response: 'THROWN OVER',
           active: true,
           label: 'Thrown over',
           commentRequired: false,
@@ -781,7 +781,7 @@ export const BREACH_OF_SECURITY_1: IncidentTypeConfiguration = {
         },
         {
           id: '181641',
-          code: 'CLIMBED OVER',
+          response: 'CLIMBED OVER',
           active: true,
           label: 'Climbed over',
           commentRequired: false,
@@ -790,7 +790,7 @@ export const BREACH_OF_SECURITY_1: IncidentTypeConfiguration = {
         },
         {
           id: '181642',
-          code: 'CUT THROUGH',
+          response: 'CUT THROUGH',
           active: true,
           label: 'Cut through',
           commentRequired: false,
@@ -799,7 +799,7 @@ export const BREACH_OF_SECURITY_1: IncidentTypeConfiguration = {
         },
         {
           id: '181646',
-          code: 'VEHICLE RAMMED',
+          response: 'VEHICLE RAMMED',
           active: true,
           label: 'Vehicle rammed',
           commentRequired: false,
@@ -808,7 +808,7 @@ export const BREACH_OF_SECURITY_1: IncidentTypeConfiguration = {
         },
         {
           id: '181643',
-          code: 'EXPLOSIVES',
+          response: 'EXPLOSIVES',
           active: true,
           label: 'Explosives',
           commentRequired: false,
@@ -817,7 +817,7 @@ export const BREACH_OF_SECURITY_1: IncidentTypeConfiguration = {
         },
         {
           id: '181644',
-          code: 'OTHER',
+          response: 'OTHER',
           active: true,
           label: 'Other',
           commentRequired: true,
@@ -835,7 +835,7 @@ export const BREACH_OF_SECURITY_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '181777',
-          code: 'INSIDE PRISON',
+          response: 'INSIDE PRISON',
           active: true,
           label: 'Inside prison',
           commentRequired: true,
@@ -844,7 +844,7 @@ export const BREACH_OF_SECURITY_1: IncidentTypeConfiguration = {
         },
         {
           id: '181778',
-          code: 'OUTSIDE PRISON',
+          response: 'OUTSIDE PRISON',
           active: true,
           label: 'Outside prison',
           commentRequired: false,
@@ -862,7 +862,7 @@ export const BREACH_OF_SECURITY_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '182006',
-          code: 'MINOR',
+          response: 'MINOR',
           active: true,
           label: 'Minor',
           commentRequired: true,
@@ -871,7 +871,7 @@ export const BREACH_OF_SECURITY_1: IncidentTypeConfiguration = {
         },
         {
           id: '182007',
-          code: 'SERIOUS',
+          response: 'SERIOUS',
           active: true,
           label: 'Serious',
           commentRequired: true,
@@ -880,7 +880,7 @@ export const BREACH_OF_SECURITY_1: IncidentTypeConfiguration = {
         },
         {
           id: '182005',
-          code: 'EXTENSIVE',
+          response: 'EXTENSIVE',
           active: true,
           label: 'Extensive',
           commentRequired: true,
@@ -898,7 +898,7 @@ export const BREACH_OF_SECURITY_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '182326',
-          code: 'YES',
+          response: 'YES',
           active: true,
           label: 'Yes',
           commentRequired: false,
@@ -907,7 +907,7 @@ export const BREACH_OF_SECURITY_1: IncidentTypeConfiguration = {
         },
         {
           id: '182325',
-          code: 'NO',
+          response: 'NO',
           active: true,
           label: 'No',
           commentRequired: false,
@@ -925,7 +925,7 @@ export const BREACH_OF_SECURITY_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '182518',
-          code: 'STAFF',
+          response: 'STAFF',
           active: true,
           label: 'Staff',
           commentRequired: true,
@@ -934,7 +934,7 @@ export const BREACH_OF_SECURITY_1: IncidentTypeConfiguration = {
         },
         {
           id: '182517',
-          code: 'PRISONERS',
+          response: 'PRISONERS',
           active: true,
           label: 'Prisoners',
           commentRequired: true,
@@ -943,7 +943,7 @@ export const BREACH_OF_SECURITY_1: IncidentTypeConfiguration = {
         },
         {
           id: '182514',
-          code: 'CIVILIAN GRADES',
+          response: 'CIVILIAN GRADES',
           active: true,
           label: 'Civilian grades',
           commentRequired: true,
@@ -952,7 +952,7 @@ export const BREACH_OF_SECURITY_1: IncidentTypeConfiguration = {
         },
         {
           id: '182516',
-          code: 'POLICE',
+          response: 'POLICE',
           active: true,
           label: 'Police',
           commentRequired: true,
@@ -961,7 +961,7 @@ export const BREACH_OF_SECURITY_1: IncidentTypeConfiguration = {
         },
         {
           id: '182515',
-          code: 'EXTERNAL CIVILIANS',
+          response: 'EXTERNAL CIVILIANS',
           active: true,
           label: 'External civilians',
           commentRequired: true,

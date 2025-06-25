@@ -16,7 +16,7 @@ export const ABSCOND_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '179161',
-          code: 'YES',
+          response: 'YES',
           active: true,
           label: 'Yes',
           commentRequired: false,
@@ -25,7 +25,7 @@ export const ABSCOND_1: IncidentTypeConfiguration = {
         },
         {
           id: '179162',
-          code: 'NO',
+          response: 'NO',
           active: true,
           label: 'No',
           commentRequired: false,
@@ -43,7 +43,7 @@ export const ABSCOND_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '179380',
-          code: 'YES',
+          response: 'YES',
           active: true,
           label: 'Yes',
           commentRequired: true,
@@ -52,7 +52,7 @@ export const ABSCOND_1: IncidentTypeConfiguration = {
         },
         {
           id: '179379',
-          code: 'NO',
+          response: 'NO',
           active: true,
           label: 'No',
           commentRequired: false,
@@ -70,7 +70,7 @@ export const ABSCOND_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '179406',
-          code: 'YES',
+          response: 'YES',
           active: true,
           label: 'Yes',
           commentRequired: true,
@@ -79,7 +79,7 @@ export const ABSCOND_1: IncidentTypeConfiguration = {
         },
         {
           id: '179405',
-          code: 'NO',
+          response: 'NO',
           active: true,
           label: 'No',
           commentRequired: false,
@@ -97,7 +97,7 @@ export const ABSCOND_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '179607',
-          code: 'YES (ENTER DATE)',
+          response: 'YES (ENTER DATE)',
           active: true,
           label: 'Yes (enter date)',
           commentRequired: false,
@@ -106,7 +106,7 @@ export const ABSCOND_1: IncidentTypeConfiguration = {
         },
         {
           id: '179606',
-          code: 'NO',
+          response: 'NO',
           active: true,
           label: 'No',
           commentRequired: false,
@@ -124,7 +124,7 @@ export const ABSCOND_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '179847',
-          code: 'POLICE ARREST',
+          response: 'POLICE ARREST',
           active: true,
           label: 'Police arrest',
           commentRequired: false,
@@ -133,7 +133,7 @@ export const ABSCOND_1: IncidentTypeConfiguration = {
         },
         {
           id: '179848',
-          code: 'PRISON STAFF ARREST',
+          response: 'PRISON STAFF ARREST',
           active: true,
           label: 'Prison staff arrest',
           commentRequired: false,
@@ -142,7 +142,7 @@ export const ABSCOND_1: IncidentTypeConfiguration = {
         },
         {
           id: '179849',
-          code: 'SURRENDER',
+          response: 'SURRENDER',
           active: true,
           label: 'Surrender',
           commentRequired: false,
@@ -151,7 +151,7 @@ export const ABSCOND_1: IncidentTypeConfiguration = {
         },
         {
           id: '179846',
-          code: 'OTHER',
+          response: 'OTHER',
           active: true,
           label: 'Other',
           commentRequired: true,
@@ -169,7 +169,7 @@ export const ABSCOND_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '179890',
-          code: 'YES',
+          response: 'YES',
           active: true,
           label: 'Yes',
           commentRequired: false,
@@ -178,7 +178,7 @@ export const ABSCOND_1: IncidentTypeConfiguration = {
         },
         {
           id: '179889',
-          code: 'NO',
+          response: 'NO',
           active: true,
           label: 'No',
           commentRequired: false,
@@ -196,7 +196,7 @@ export const ABSCOND_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '180085',
-          code: 'ENTER AMOUNT IN POUND STERLING',
+          response: 'ENTER AMOUNT IN POUND STERLING',
           active: true,
           label: 'Enter amount in pound sterling',
           commentRequired: true,
@@ -214,7 +214,7 @@ export const ABSCOND_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '180389',
-          code: 'YES',
+          response: 'YES',
           active: true,
           label: 'Yes',
           commentRequired: false,
@@ -223,7 +223,7 @@ export const ABSCOND_1: IncidentTypeConfiguration = {
         },
         {
           id: '180390',
-          code: 'NO',
+          response: 'NO',
           active: true,
           label: 'No',
           commentRequired: false,
@@ -241,7 +241,7 @@ export const ABSCOND_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '180628',
-          code: 'YES',
+          response: 'YES',
           active: true,
           label: 'Yes',
           commentRequired: false,
@@ -250,7 +250,7 @@ export const ABSCOND_1: IncidentTypeConfiguration = {
         },
         {
           id: '180627',
-          code: 'NO',
+          response: 'NO',
           active: true,
           label: 'No',
           commentRequired: false,
@@ -268,7 +268,7 @@ export const ABSCOND_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '180641',
-          code: 'YES',
+          response: 'YES',
           active: true,
           label: 'Yes',
           commentRequired: false,
@@ -277,7 +277,7 @@ export const ABSCOND_1: IncidentTypeConfiguration = {
         },
         {
           id: '180642',
-          code: 'NO',
+          response: 'NO',
           active: true,
           label: 'No',
           commentRequired: false,
@@ -295,7 +295,7 @@ export const ABSCOND_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '180993',
-          code: 'FROM ESTABLISHMENT',
+          response: 'FROM ESTABLISHMENT',
           active: true,
           label: 'From establishment',
           commentRequired: false,
@@ -304,7 +304,7 @@ export const ABSCOND_1: IncidentTypeConfiguration = {
         },
         {
           id: '180995',
-          code: 'SUPERVISED OUTSIDE PARTY',
+          response: 'SUPERVISED OUTSIDE PARTY',
           active: true,
           label: 'Supervised outside party',
           commentRequired: false,
@@ -313,7 +313,7 @@ export const ABSCOND_1: IncidentTypeConfiguration = {
         },
         {
           id: '180996',
-          code: 'UNSUPERVISED OUTSIDE PARTY',
+          response: 'UNSUPERVISED OUTSIDE PARTY',
           active: true,
           label: 'Unsupervised outside party',
           commentRequired: false,
@@ -322,7 +322,7 @@ export const ABSCOND_1: IncidentTypeConfiguration = {
         },
         {
           id: '180994',
-          code: 'OTHER',
+          response: 'OTHER',
           active: true,
           label: 'Other',
           commentRequired: true,
@@ -340,7 +340,7 @@ export const ABSCOND_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '181146',
-          code: 'YES',
+          response: 'YES',
           active: true,
           label: 'Yes',
           commentRequired: false,
@@ -349,7 +349,7 @@ export const ABSCOND_1: IncidentTypeConfiguration = {
         },
         {
           id: '181145',
-          code: 'NO',
+          response: 'NO',
           active: true,
           label: 'No',
           commentRequired: false,
@@ -367,7 +367,7 @@ export const ABSCOND_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '181258',
-          code: 'MINOR',
+          response: 'MINOR',
           active: true,
           label: 'Minor',
           commentRequired: true,
@@ -376,7 +376,7 @@ export const ABSCOND_1: IncidentTypeConfiguration = {
         },
         {
           id: '181259',
-          code: 'SERIOUS',
+          response: 'SERIOUS',
           active: true,
           label: 'Serious',
           commentRequired: true,
@@ -385,7 +385,7 @@ export const ABSCOND_1: IncidentTypeConfiguration = {
         },
         {
           id: '181257',
-          code: 'EXTENSIVE',
+          response: 'EXTENSIVE',
           active: true,
           label: 'Extensive',
           commentRequired: true,
@@ -403,7 +403,7 @@ export const ABSCOND_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '181404',
-          code: 'MURDER/ATTEMPTED MURDER',
+          response: 'MURDER/ATTEMPTED MURDER',
           active: true,
           label: 'Murder/attempted murder',
           commentRequired: false,
@@ -412,7 +412,7 @@ export const ABSCOND_1: IncidentTypeConfiguration = {
         },
         {
           id: '181403',
-          code: 'MANSLAUGHTER',
+          response: 'MANSLAUGHTER',
           active: true,
           label: 'Manslaughter',
           commentRequired: false,
@@ -421,7 +421,7 @@ export const ABSCOND_1: IncidentTypeConfiguration = {
         },
         {
           id: '181400',
-          code: 'ASSAULT',
+          response: 'ASSAULT',
           active: true,
           label: 'Assault',
           commentRequired: false,
@@ -430,7 +430,7 @@ export const ABSCOND_1: IncidentTypeConfiguration = {
         },
         {
           id: '181408',
-          code: 'RAPE/ATTEMPTED RAPE',
+          response: 'RAPE/ATTEMPTED RAPE',
           active: true,
           label: 'Rape/attempted rape',
           commentRequired: false,
@@ -439,7 +439,7 @@ export const ABSCOND_1: IncidentTypeConfiguration = {
         },
         {
           id: '181406',
-          code: 'OTHER SEXUAL OFFENCE',
+          response: 'OTHER SEXUAL OFFENCE',
           active: true,
           label: 'Other sexual offence',
           commentRequired: false,
@@ -448,7 +448,7 @@ export const ABSCOND_1: IncidentTypeConfiguration = {
         },
         {
           id: '181410',
-          code: 'THEFT',
+          response: 'THEFT',
           active: true,
           label: 'Theft',
           commentRequired: false,
@@ -457,7 +457,7 @@ export const ABSCOND_1: IncidentTypeConfiguration = {
         },
         {
           id: '181409',
-          code: 'ROBBERY',
+          response: 'ROBBERY',
           active: true,
           label: 'Robbery',
           commentRequired: false,
@@ -466,7 +466,7 @@ export const ABSCOND_1: IncidentTypeConfiguration = {
         },
         {
           id: '181402',
-          code: 'FIREARM OFFENCE',
+          response: 'FIREARM OFFENCE',
           active: true,
           label: 'Firearm offence',
           commentRequired: false,
@@ -475,7 +475,7 @@ export const ABSCOND_1: IncidentTypeConfiguration = {
         },
         {
           id: '181401',
-          code: 'DRUG OFFENCE',
+          response: 'DRUG OFFENCE',
           active: true,
           label: 'Drug offence',
           commentRequired: false,
@@ -484,7 +484,7 @@ export const ABSCOND_1: IncidentTypeConfiguration = {
         },
         {
           id: '181411',
-          code: 'VEHICLE CRIME',
+          response: 'VEHICLE CRIME',
           active: true,
           label: 'Vehicle crime',
           commentRequired: false,
@@ -493,7 +493,7 @@ export const ABSCOND_1: IncidentTypeConfiguration = {
         },
         {
           id: '181407',
-          code: 'PUBLIC ORDER OFFENCE',
+          response: 'PUBLIC ORDER OFFENCE',
           active: true,
           label: 'Public order offence',
           commentRequired: false,
@@ -502,7 +502,7 @@ export const ABSCOND_1: IncidentTypeConfiguration = {
         },
         {
           id: '181405',
-          code: 'OTHER',
+          response: 'OTHER',
           active: true,
           label: 'Other',
           commentRequired: true,
@@ -520,7 +520,7 @@ export const ABSCOND_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '181439',
-          code: 'YES (ENTER DATE)',
+          response: 'YES (ENTER DATE)',
           active: true,
           label: 'Yes (enter date)',
           commentRequired: false,
@@ -529,7 +529,7 @@ export const ABSCOND_1: IncidentTypeConfiguration = {
         },
         {
           id: '181440',
-          code: 'NO',
+          response: 'NO',
           active: true,
           label: 'No',
           commentRequired: false,
@@ -547,7 +547,7 @@ export const ABSCOND_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '181455',
-          code: 'MINOR',
+          response: 'MINOR',
           active: true,
           label: 'Minor',
           commentRequired: true,
@@ -556,7 +556,7 @@ export const ABSCOND_1: IncidentTypeConfiguration = {
         },
         {
           id: '181456',
-          code: 'SERIOUS',
+          response: 'SERIOUS',
           active: true,
           label: 'Serious',
           commentRequired: true,
@@ -565,7 +565,7 @@ export const ABSCOND_1: IncidentTypeConfiguration = {
         },
         {
           id: '181454',
-          code: 'EXTENSIVE',
+          response: 'EXTENSIVE',
           active: true,
           label: 'Extensive',
           commentRequired: true,
@@ -583,7 +583,7 @@ export const ABSCOND_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '181762',
-          code: 'YES',
+          response: 'YES',
           active: true,
           label: 'Yes',
           commentRequired: false,
@@ -592,7 +592,7 @@ export const ABSCOND_1: IncidentTypeConfiguration = {
         },
         {
           id: '181761',
-          code: 'NO',
+          response: 'NO',
           active: true,
           label: 'No',
           commentRequired: false,
@@ -610,7 +610,7 @@ export const ABSCOND_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '181892',
-          code: 'YES',
+          response: 'YES',
           active: true,
           label: 'Yes',
           commentRequired: false,
@@ -619,7 +619,7 @@ export const ABSCOND_1: IncidentTypeConfiguration = {
         },
         {
           id: '181893',
-          code: 'NO',
+          response: 'NO',
           active: true,
           label: 'No',
           commentRequired: false,
@@ -637,7 +637,7 @@ export const ABSCOND_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '182275',
-          code: 'YES',
+          response: 'YES',
           active: true,
           label: 'Yes',
           commentRequired: false,
@@ -646,7 +646,7 @@ export const ABSCOND_1: IncidentTypeConfiguration = {
         },
         {
           id: '182274',
-          code: 'NO',
+          response: 'NO',
           active: true,
           label: 'No',
           commentRequired: false,

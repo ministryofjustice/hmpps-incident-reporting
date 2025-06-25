@@ -50,7 +50,7 @@ describe('Question progress', () => {
         answers: [
           {
             id: '11',
-            code: 'A1-1',
+            response: 'A1-1',
             active: true,
             label: 'Answer 1-1',
             dateRequired: false,
@@ -59,7 +59,7 @@ describe('Question progress', () => {
           },
           {
             id: '12',
-            code: 'A1-2',
+            response: 'A1-2',
             active: true,
             label: 'Answer 1-2',
             dateRequired: false,
@@ -77,7 +77,7 @@ describe('Question progress', () => {
         answers: [
           {
             id: '21',
-            code: 'A2-1',
+            response: 'A2-1',
             active: true,
             label: 'Answer 2-1',
             dateRequired: false,
@@ -86,7 +86,7 @@ describe('Question progress', () => {
           },
           {
             id: '22',
-            code: 'A2-2',
+            response: 'A2-2',
             active: true,
             label: 'Answer 2-2',
             dateRequired: false,
@@ -104,7 +104,7 @@ describe('Question progress', () => {
         answers: [
           {
             id: '31',
-            code: 'A3-1',
+            response: 'A3-1',
             active: true,
             label: 'Answer 3-1',
             dateRequired: false,
@@ -113,7 +113,7 @@ describe('Question progress', () => {
           },
           {
             id: '32',
-            code: 'A3-2',
+            response: 'A3-2',
             active: true,
             label: 'Answer 3-2',
             dateRequired: false,
@@ -131,7 +131,7 @@ describe('Question progress', () => {
         answers: [
           {
             id: '41',
-            code: 'A4-1',
+            response: 'A4-1',
             active: true,
             label: 'Answer 4-1',
             dateRequired: false,
@@ -140,7 +140,7 @@ describe('Question progress', () => {
           },
           {
             id: '42',
-            code: 'A4-2',
+            response: 'A4-2',
             active: true,
             label: 'Answer 4-2',
             dateRequired: false,
@@ -508,7 +508,7 @@ describe('Question progress', () => {
             answers: [
               {
                 id: '1',
-                code: 'A1',
+                response: 'A1',
                 active: true,
                 label: 'Answer 1',
                 dateRequired: false,
@@ -517,7 +517,7 @@ describe('Question progress', () => {
               },
               {
                 id: '2',
-                code: 'A2',
+                response: 'A2',
                 active: true,
                 label: 'Answer 2 (enter date)',
                 dateRequired: true,
@@ -526,7 +526,7 @@ describe('Question progress', () => {
               },
               {
                 id: '3',
-                code: 'A3',
+                response: 'A3',
                 active: true,
                 label: 'Answer 3 (enter details)',
                 dateRequired: false,
@@ -535,7 +535,7 @@ describe('Question progress', () => {
               },
               {
                 id: '4',
-                code: 'A4',
+                response: 'A4',
                 active: true,
                 label: 'Answer 4 (enter both)',
                 dateRequired: true,
@@ -705,7 +705,7 @@ describe('Question progress', () => {
             answers: [
               {
                 id: '1',
-                code: 'A1',
+                response: 'A1',
                 active: true,
                 label: 'Answer 1',
                 dateRequired: false,
@@ -714,7 +714,7 @@ describe('Question progress', () => {
               },
               {
                 id: '2',
-                code: 'A2',
+                response: 'A2',
                 active: true,
                 label: 'Answer 2 (enter date)',
                 dateRequired: true,
@@ -723,7 +723,7 @@ describe('Question progress', () => {
               },
               {
                 id: '3',
-                code: 'A3',
+                response: 'A3',
                 active: true,
                 label: 'Answer 3 (enter details)',
                 dateRequired: false,
@@ -732,7 +732,7 @@ describe('Question progress', () => {
               },
               {
                 id: '4',
-                code: 'A4',
+                response: 'A4',
                 active: true,
                 label: 'Answer 4 (enter both)',
                 dateRequired: true,
@@ -835,7 +835,7 @@ describe('Question progress', () => {
             answers: [
               {
                 id: '1',
-                code: 'A1',
+                response: 'A1',
                 active: false,
                 label: 'Answer 1 (old, inactive)',
                 dateRequired: false,
@@ -844,7 +844,7 @@ describe('Question progress', () => {
               },
               {
                 id: '2',
-                code: 'A1',
+                response: 'A1',
                 active: true,
                 label: 'Answer 1 (new, active)',
                 dateRequired: false,

@@ -16,7 +16,7 @@ export const DRUGS_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '179087',
-          code: 'YES',
+          response: 'YES',
           active: false,
           label: 'Yes',
           commentRequired: false,
@@ -25,7 +25,7 @@ export const DRUGS_1: IncidentTypeConfiguration = {
         },
         {
           id: '179088',
-          code: 'NO',
+          response: 'NO',
           active: false,
           label: 'No',
           commentRequired: false,
@@ -43,7 +43,7 @@ export const DRUGS_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '179174',
-          code: 'YES',
+          response: 'YES',
           active: false,
           label: 'Yes',
           commentRequired: false,
@@ -52,7 +52,7 @@ export const DRUGS_1: IncidentTypeConfiguration = {
         },
         {
           id: '179173',
-          code: 'NO',
+          response: 'NO',
           active: false,
           label: 'No',
           commentRequired: false,
@@ -70,7 +70,7 @@ export const DRUGS_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '179181',
-          code: 'HEROIN',
+          response: 'HEROIN',
           active: false,
           label: 'Heroin',
           commentRequired: true,
@@ -79,7 +79,7 @@ export const DRUGS_1: IncidentTypeConfiguration = {
         },
         {
           id: '179179',
-          code: 'COCAINE',
+          response: 'COCAINE',
           active: false,
           label: 'Cocaine',
           commentRequired: true,
@@ -88,7 +88,7 @@ export const DRUGS_1: IncidentTypeConfiguration = {
         },
         {
           id: '179182',
-          code: 'LSD',
+          response: 'LSD',
           active: false,
           label: 'LSD',
           commentRequired: true,
@@ -97,7 +97,7 @@ export const DRUGS_1: IncidentTypeConfiguration = {
         },
         {
           id: '179175',
-          code: 'AMPHETAMINES',
+          response: 'AMPHETAMINES',
           active: false,
           label: 'Amphetamines',
           commentRequired: true,
@@ -106,7 +106,7 @@ export const DRUGS_1: IncidentTypeConfiguration = {
         },
         {
           id: '179176',
-          code: 'BARBITURATES',
+          response: 'BARBITURATES',
           active: false,
           label: 'Barbiturates',
           commentRequired: true,
@@ -115,7 +115,7 @@ export const DRUGS_1: IncidentTypeConfiguration = {
         },
         {
           id: '179177',
-          code: 'CANNABIS',
+          response: 'CANNABIS',
           active: false,
           label: 'Cannabis',
           commentRequired: true,
@@ -124,7 +124,7 @@ export const DRUGS_1: IncidentTypeConfiguration = {
         },
         {
           id: '179178',
-          code: 'CANNABIS PLANT',
+          response: 'CANNABIS PLANT',
           active: false,
           label: 'Cannabis plant',
           commentRequired: true,
@@ -133,7 +133,7 @@ export const DRUGS_1: IncidentTypeConfiguration = {
         },
         {
           id: '179180',
-          code: 'CRACK',
+          response: 'CRACK',
           active: false,
           label: 'Crack',
           commentRequired: true,
@@ -142,7 +142,7 @@ export const DRUGS_1: IncidentTypeConfiguration = {
         },
         {
           id: '179184',
-          code: 'TRANQUILISERS',
+          response: 'TRANQUILISERS',
           active: false,
           label: 'Tranquilisers',
           commentRequired: true,
@@ -151,7 +151,7 @@ export const DRUGS_1: IncidentTypeConfiguration = {
         },
         {
           id: '179183',
-          code: 'OTHER',
+          response: 'OTHER',
           active: false,
           label: 'Other',
           commentRequired: true,
@@ -169,7 +169,7 @@ export const DRUGS_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '179211',
-          code: 'YES',
+          response: 'YES',
           active: false,
           label: 'Yes',
           commentRequired: false,
@@ -178,7 +178,7 @@ export const DRUGS_1: IncidentTypeConfiguration = {
         },
         {
           id: '179212',
-          code: 'NO',
+          response: 'NO',
           active: false,
           label: 'No',
           commentRequired: false,
@@ -196,7 +196,7 @@ export const DRUGS_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '179222',
-          code: 'AUTHENTIC SYRINGE',
+          response: 'AUTHENTIC SYRINGE',
           active: false,
           label: 'Authentic syringe',
           commentRequired: false,
@@ -205,7 +205,7 @@ export const DRUGS_1: IncidentTypeConfiguration = {
         },
         {
           id: '179224',
-          code: 'IMPROVISED SYRINGE',
+          response: 'IMPROVISED SYRINGE',
           active: false,
           label: 'Improvised syringe',
           commentRequired: false,
@@ -214,7 +214,7 @@ export const DRUGS_1: IncidentTypeConfiguration = {
         },
         {
           id: '179221',
-          code: 'AUTHENTIC NEEDLE',
+          response: 'AUTHENTIC NEEDLE',
           active: false,
           label: 'Authentic needle',
           commentRequired: false,
@@ -223,7 +223,7 @@ export const DRUGS_1: IncidentTypeConfiguration = {
         },
         {
           id: '179223',
-          code: 'IMPROVISED NEEDLE',
+          response: 'IMPROVISED NEEDLE',
           active: false,
           label: 'Improvised needle',
           commentRequired: false,
@@ -232,7 +232,7 @@ export const DRUGS_1: IncidentTypeConfiguration = {
         },
         {
           id: '179226',
-          code: 'PIPE(S)',
+          response: 'PIPE(S)',
           active: false,
           label: 'Pipe(s)',
           commentRequired: false,
@@ -241,7 +241,7 @@ export const DRUGS_1: IncidentTypeConfiguration = {
         },
         {
           id: '179227',
-          code: 'ROACH',
+          response: 'ROACH',
           active: false,
           label: 'Roach',
           commentRequired: false,
@@ -250,7 +250,7 @@ export const DRUGS_1: IncidentTypeConfiguration = {
         },
         {
           id: '179225',
-          code: 'OTHER',
+          response: 'OTHER',
           active: false,
           label: 'Other',
           commentRequired: false,
@@ -268,7 +268,7 @@ export const DRUGS_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '179300',
-          code: 'YES',
+          response: 'YES',
           active: false,
           label: 'Yes',
           commentRequired: false,
@@ -277,7 +277,7 @@ export const DRUGS_1: IncidentTypeConfiguration = {
         },
         {
           id: '179301',
-          code: 'NO',
+          response: 'NO',
           active: false,
           label: 'No',
           commentRequired: false,
@@ -295,7 +295,7 @@ export const DRUGS_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '179549',
-          code: 'YES',
+          response: 'YES',
           active: false,
           label: 'Yes',
           commentRequired: false,
@@ -304,7 +304,7 @@ export const DRUGS_1: IncidentTypeConfiguration = {
         },
         {
           id: '179550',
-          code: 'NO',
+          response: 'NO',
           active: false,
           label: 'No',
           commentRequired: false,
@@ -322,7 +322,7 @@ export const DRUGS_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '179835',
-          code: 'YES',
+          response: 'YES',
           active: false,
           label: 'Yes',
           commentRequired: false,
@@ -331,7 +331,7 @@ export const DRUGS_1: IncidentTypeConfiguration = {
         },
         {
           id: '179836',
-          code: 'NO',
+          response: 'NO',
           active: false,
           label: 'No',
           commentRequired: false,
@@ -349,7 +349,7 @@ export const DRUGS_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '179873',
-          code: 'SPECIAL SEARCH',
+          response: 'SPECIAL SEARCH',
           active: false,
           label: 'Special search',
           commentRequired: false,
@@ -358,7 +358,7 @@ export const DRUGS_1: IncidentTypeConfiguration = {
         },
         {
           id: '179874',
-          code: 'STRIP SEARCH',
+          response: 'STRIP SEARCH',
           active: false,
           label: 'Strip search',
           commentRequired: false,
@@ -367,7 +367,7 @@ export const DRUGS_1: IncidentTypeConfiguration = {
         },
         {
           id: '179866',
-          code: 'CELL SEARCH',
+          response: 'CELL SEARCH',
           active: false,
           label: 'Cell search',
           commentRequired: false,
@@ -376,7 +376,7 @@ export const DRUGS_1: IncidentTypeConfiguration = {
         },
         {
           id: '179867',
-          code: 'DOG SEARCH',
+          response: 'DOG SEARCH',
           active: false,
           label: 'Dog search',
           commentRequired: false,
@@ -385,7 +385,7 @@ export const DRUGS_1: IncidentTypeConfiguration = {
         },
         {
           id: '179870',
-          code: 'OTHER SEARCH (INMATE)',
+          response: 'OTHER SEARCH (INMATE)',
           active: false,
           label: 'Other search (inmate)',
           commentRequired: false,
@@ -394,7 +394,7 @@ export const DRUGS_1: IncidentTypeConfiguration = {
         },
         {
           id: '179872',
-          code: 'OTHER SEARCH (VISITOR)',
+          response: 'OTHER SEARCH (VISITOR)',
           active: true,
           label: 'Other search (visitor)',
           commentRequired: false,
@@ -403,7 +403,7 @@ export const DRUGS_1: IncidentTypeConfiguration = {
         },
         {
           id: '179871',
-          code: 'OTHER SEARCH (PREMISES)',
+          response: 'OTHER SEARCH (PREMISES)',
           active: false,
           label: 'Other search (premises)',
           commentRequired: false,
@@ -412,7 +412,7 @@ export const DRUGS_1: IncidentTypeConfiguration = {
         },
         {
           id: '179868',
-          code: 'INFORMATION RECEIVED',
+          response: 'INFORMATION RECEIVED',
           active: false,
           label: 'Information received',
           commentRequired: false,
@@ -421,7 +421,7 @@ export const DRUGS_1: IncidentTypeConfiguration = {
         },
         {
           id: '179875',
-          code: 'SUBSTANCE OBSERVED',
+          response: 'SUBSTANCE OBSERVED',
           active: false,
           label: 'Substance observed',
           commentRequired: false,
@@ -430,7 +430,7 @@ export const DRUGS_1: IncidentTypeConfiguration = {
         },
         {
           id: '179876',
-          code: 'UNUSUAL BEHAVIOUR',
+          response: 'UNUSUAL BEHAVIOUR',
           active: false,
           label: 'Unusual behaviour',
           commentRequired: false,
@@ -439,7 +439,7 @@ export const DRUGS_1: IncidentTypeConfiguration = {
         },
         {
           id: '179869',
-          code: 'OTHER',
+          response: 'OTHER',
           active: false,
           label: 'Other',
           commentRequired: true,
@@ -457,7 +457,7 @@ export const DRUGS_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '180009',
-          code: 'COMPASSIONATE',
+          response: 'COMPASSIONATE',
           active: false,
           label: 'Compassionate',
           commentRequired: false,
@@ -466,7 +466,7 @@ export const DRUGS_1: IncidentTypeConfiguration = {
         },
         {
           id: '180010',
-          code: 'FACILITY',
+          response: 'FACILITY',
           active: false,
           label: 'Facility',
           commentRequired: false,
@@ -475,7 +475,7 @@ export const DRUGS_1: IncidentTypeConfiguration = {
         },
         {
           id: '180011',
-          code: 'RESETTLEMENT',
+          response: 'RESETTLEMENT',
           active: false,
           label: 'Resettlement',
           commentRequired: false,
@@ -484,7 +484,7 @@ export const DRUGS_1: IncidentTypeConfiguration = {
         },
         {
           id: '180008',
-          code: 'COMMUNITY VISIT',
+          response: 'COMMUNITY VISIT',
           active: false,
           label: 'Community visit',
           commentRequired: false,
@@ -502,7 +502,7 @@ export const DRUGS_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '180231',
-          code: 'YES',
+          response: 'YES',
           active: false,
           label: 'Yes',
           commentRequired: false,
@@ -511,7 +511,7 @@ export const DRUGS_1: IncidentTypeConfiguration = {
         },
         {
           id: '180230',
-          code: 'NO',
+          response: 'NO',
           active: false,
           label: 'No',
           commentRequired: false,
@@ -529,7 +529,7 @@ export const DRUGS_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '180249',
-          code: 'OFFICER',
+          response: 'OFFICER',
           active: false,
           label: 'Officer',
           commentRequired: true,
@@ -538,7 +538,7 @@ export const DRUGS_1: IncidentTypeConfiguration = {
         },
         {
           id: '180251',
-          code: 'PRISONER',
+          response: 'PRISONER',
           active: false,
           label: 'Prisoner',
           commentRequired: true,
@@ -547,7 +547,7 @@ export const DRUGS_1: IncidentTypeConfiguration = {
         },
         {
           id: '180247',
-          code: 'CIVILIAN GRADES',
+          response: 'CIVILIAN GRADES',
           active: false,
           label: 'Civilian grades',
           commentRequired: true,
@@ -556,7 +556,7 @@ export const DRUGS_1: IncidentTypeConfiguration = {
         },
         {
           id: '180250',
-          code: 'POLICE',
+          response: 'POLICE',
           active: false,
           label: 'Police',
           commentRequired: true,
@@ -565,7 +565,7 @@ export const DRUGS_1: IncidentTypeConfiguration = {
         },
         {
           id: '180248',
-          code: 'EXTERNAL CIVILIANS',
+          response: 'EXTERNAL CIVILIANS',
           active: false,
           label: 'External civilians',
           commentRequired: true,
@@ -583,7 +583,7 @@ export const DRUGS_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '180458',
-          code: 'YES',
+          response: 'YES',
           active: false,
           label: 'Yes',
           commentRequired: false,
@@ -592,7 +592,7 @@ export const DRUGS_1: IncidentTypeConfiguration = {
         },
         {
           id: '180457',
-          code: 'NO',
+          response: 'NO',
           active: false,
           label: 'No',
           commentRequired: false,
@@ -610,7 +610,7 @@ export const DRUGS_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '180710',
-          code: 'LOCAL WITH BDH KIT OR SIMILAR',
+          response: 'LOCAL WITH BDH KIT OR SIMILAR',
           active: false,
           label: 'Local with BDH kit or similar',
           commentRequired: false,
@@ -619,7 +619,7 @@ export const DRUGS_1: IncidentTypeConfiguration = {
         },
         {
           id: '180709',
-          code: 'FORENSIC LABORATORY',
+          response: 'FORENSIC LABORATORY',
           active: false,
           label: 'Forensic laboratory',
           commentRequired: true,
@@ -637,7 +637,7 @@ export const DRUGS_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '180746',
-          code: 'YES',
+          response: 'YES',
           active: false,
           label: 'Yes',
           commentRequired: false,
@@ -646,7 +646,7 @@ export const DRUGS_1: IncidentTypeConfiguration = {
         },
         {
           id: '180747',
-          code: 'NO',
+          response: 'NO',
           active: false,
           label: 'No',
           commentRequired: false,
@@ -664,7 +664,7 @@ export const DRUGS_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '180804',
-          code: 'YES',
+          response: 'YES',
           active: false,
           label: 'Yes',
           commentRequired: false,
@@ -673,7 +673,7 @@ export const DRUGS_1: IncidentTypeConfiguration = {
         },
         {
           id: '180803',
-          code: 'NO',
+          response: 'NO',
           active: false,
           label: 'No',
           commentRequired: false,
@@ -691,7 +691,7 @@ export const DRUGS_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '180851',
-          code: 'YES',
+          response: 'YES',
           active: false,
           label: 'Yes',
           commentRequired: false,
@@ -700,7 +700,7 @@ export const DRUGS_1: IncidentTypeConfiguration = {
         },
         {
           id: '180850',
-          code: 'NO',
+          response: 'NO',
           active: false,
           label: 'No',
           commentRequired: false,
@@ -718,7 +718,7 @@ export const DRUGS_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '180922',
-          code: 'ADMINISTRATION',
+          response: 'ADMINISTRATION',
           active: false,
           label: 'Administration',
           commentRequired: false,
@@ -727,7 +727,7 @@ export const DRUGS_1: IncidentTypeConfiguration = {
         },
         {
           id: '180923',
-          code: 'ASSOCIATION AREA',
+          response: 'ASSOCIATION AREA',
           active: false,
           label: 'Association area',
           commentRequired: false,
@@ -736,7 +736,7 @@ export const DRUGS_1: IncidentTypeConfiguration = {
         },
         {
           id: '180924',
-          code: 'CELL',
+          response: 'CELL',
           active: false,
           label: 'Cell',
           commentRequired: false,
@@ -745,7 +745,7 @@ export const DRUGS_1: IncidentTypeConfiguration = {
         },
         {
           id: '180925',
-          code: 'CHAPEL',
+          response: 'CHAPEL',
           active: false,
           label: 'Chapel',
           commentRequired: false,
@@ -754,7 +754,7 @@ export const DRUGS_1: IncidentTypeConfiguration = {
         },
         {
           id: '180927',
-          code: 'DINING ROOM',
+          response: 'DINING ROOM',
           active: false,
           label: 'Dining room',
           commentRequired: false,
@@ -763,7 +763,7 @@ export const DRUGS_1: IncidentTypeConfiguration = {
         },
         {
           id: '180928',
-          code: 'DORMITORY',
+          response: 'DORMITORY',
           active: false,
           label: 'Dormitory',
           commentRequired: false,
@@ -772,7 +772,7 @@ export const DRUGS_1: IncidentTypeConfiguration = {
         },
         {
           id: '180929',
-          code: 'EDUCATION',
+          response: 'EDUCATION',
           active: false,
           label: 'Education',
           commentRequired: false,
@@ -781,7 +781,7 @@ export const DRUGS_1: IncidentTypeConfiguration = {
         },
         {
           id: '180931',
-          code: 'EXERCISE YARD',
+          response: 'EXERCISE YARD',
           active: false,
           label: 'Exercise yard',
           commentRequired: false,
@@ -790,7 +790,7 @@ export const DRUGS_1: IncidentTypeConfiguration = {
         },
         {
           id: '180933',
-          code: 'GATE',
+          response: 'GATE',
           active: false,
           label: 'Gate',
           commentRequired: false,
@@ -799,7 +799,7 @@ export const DRUGS_1: IncidentTypeConfiguration = {
         },
         {
           id: '180934',
-          code: 'GYM',
+          response: 'GYM',
           active: false,
           label: 'Gym',
           commentRequired: false,
@@ -808,7 +808,7 @@ export const DRUGS_1: IncidentTypeConfiguration = {
         },
         {
           id: '180935',
-          code: 'HEALTH CARE CENTRE',
+          response: 'HEALTH CARE CENTRE',
           active: false,
           label: 'Health care centre',
           commentRequired: false,
@@ -817,7 +817,7 @@ export const DRUGS_1: IncidentTypeConfiguration = {
         },
         {
           id: '180938',
-          code: 'KITCHEN',
+          response: 'KITCHEN',
           active: false,
           label: 'Kitchen',
           commentRequired: false,
@@ -826,7 +826,7 @@ export const DRUGS_1: IncidentTypeConfiguration = {
         },
         {
           id: '180940',
-          code: 'OFFICE',
+          response: 'OFFICE',
           active: false,
           label: 'Office',
           commentRequired: false,
@@ -835,7 +835,7 @@ export const DRUGS_1: IncidentTypeConfiguration = {
         },
         {
           id: '180942',
-          code: 'RECEPTION',
+          response: 'RECEPTION',
           active: false,
           label: 'Reception',
           commentRequired: false,
@@ -844,7 +844,7 @@ export const DRUGS_1: IncidentTypeConfiguration = {
         },
         {
           id: '180943',
-          code: 'RECESS',
+          response: 'RECESS',
           active: false,
           label: 'Recess',
           commentRequired: false,
@@ -853,7 +853,7 @@ export const DRUGS_1: IncidentTypeConfiguration = {
         },
         {
           id: '180944',
-          code: 'SEGREGATION UNIT',
+          response: 'SEGREGATION UNIT',
           active: false,
           label: 'Segregation unit',
           commentRequired: false,
@@ -862,7 +862,7 @@ export const DRUGS_1: IncidentTypeConfiguration = {
         },
         {
           id: '180946',
-          code: 'SPECIAL UNIT',
+          response: 'SPECIAL UNIT',
           active: false,
           label: 'Special unit',
           commentRequired: false,
@@ -871,7 +871,7 @@ export const DRUGS_1: IncidentTypeConfiguration = {
         },
         {
           id: '180945',
-          code: 'SHOWERS/CHANGING ROOM',
+          response: 'SHOWERS/CHANGING ROOM',
           active: false,
           label: 'Showers/changing room',
           commentRequired: false,
@@ -880,7 +880,7 @@ export const DRUGS_1: IncidentTypeConfiguration = {
         },
         {
           id: '180949',
-          code: 'VISITS',
+          response: 'VISITS',
           active: false,
           label: 'Visits',
           commentRequired: false,
@@ -889,7 +889,7 @@ export const DRUGS_1: IncidentTypeConfiguration = {
         },
         {
           id: '180951',
-          code: 'WING',
+          response: 'WING',
           active: false,
           label: 'Wing',
           commentRequired: false,
@@ -898,7 +898,7 @@ export const DRUGS_1: IncidentTypeConfiguration = {
         },
         {
           id: '180953',
-          code: 'WORKS DEPARTMENT',
+          response: 'WORKS DEPARTMENT',
           active: false,
           label: 'Works department',
           commentRequired: false,
@@ -907,7 +907,7 @@ export const DRUGS_1: IncidentTypeConfiguration = {
         },
         {
           id: '180954',
-          code: 'WORKSHOP',
+          response: 'WORKSHOP',
           active: false,
           label: 'Workshop',
           commentRequired: false,
@@ -916,7 +916,7 @@ export const DRUGS_1: IncidentTypeConfiguration = {
         },
         {
           id: '180952',
-          code: 'WITHIN PERIMETER',
+          response: 'WITHIN PERIMETER',
           active: false,
           label: 'Within perimeter',
           commentRequired: false,
@@ -925,7 +925,7 @@ export const DRUGS_1: IncidentTypeConfiguration = {
         },
         {
           id: '180930',
-          code: 'ELSEWHERE',
+          response: 'ELSEWHERE',
           active: false,
           label: 'Elsewhere',
           commentRequired: true,
@@ -934,7 +934,7 @@ export const DRUGS_1: IncidentTypeConfiguration = {
         },
         {
           id: '180932',
-          code: 'FUNERAL',
+          response: 'FUNERAL',
           active: false,
           label: 'Funeral',
           commentRequired: false,
@@ -943,7 +943,7 @@ export const DRUGS_1: IncidentTypeConfiguration = {
         },
         {
           id: '180936',
-          code: 'HOSPITAL OUTSIDE (PATIENT)',
+          response: 'HOSPITAL OUTSIDE (PATIENT)',
           active: false,
           label: 'Hospital outside (patient)',
           commentRequired: false,
@@ -952,7 +952,7 @@ export const DRUGS_1: IncidentTypeConfiguration = {
         },
         {
           id: '180937',
-          code: 'HOSPITAL OUTSIDE (VISITING)',
+          response: 'HOSPITAL OUTSIDE (VISITING)',
           active: false,
           label: 'Hospital outside (visiting)',
           commentRequired: false,
@@ -961,7 +961,7 @@ export const DRUGS_1: IncidentTypeConfiguration = {
         },
         {
           id: '180941',
-          code: 'OUTSIDE WORKING PARTY',
+          response: 'OUTSIDE WORKING PARTY',
           active: false,
           label: 'Outside working party',
           commentRequired: false,
@@ -970,7 +970,7 @@ export const DRUGS_1: IncidentTypeConfiguration = {
         },
         {
           id: '180947',
-          code: 'SPORTS FIELD',
+          response: 'SPORTS FIELD',
           active: false,
           label: 'Sports field',
           commentRequired: false,
@@ -979,7 +979,7 @@ export const DRUGS_1: IncidentTypeConfiguration = {
         },
         {
           id: '180948',
-          code: 'VEHICLE',
+          response: 'VEHICLE',
           active: false,
           label: 'Vehicle',
           commentRequired: false,
@@ -988,7 +988,7 @@ export const DRUGS_1: IncidentTypeConfiguration = {
         },
         {
           id: '180950',
-          code: 'WEDDINGS',
+          response: 'WEDDINGS',
           active: false,
           label: 'Weddings',
           commentRequired: false,
@@ -997,7 +997,7 @@ export const DRUGS_1: IncidentTypeConfiguration = {
         },
         {
           id: '180939',
-          code: 'MAGISTRATES COURT',
+          response: 'MAGISTRATES COURT',
           active: false,
           label: 'Magistrates court',
           commentRequired: false,
@@ -1006,7 +1006,7 @@ export const DRUGS_1: IncidentTypeConfiguration = {
         },
         {
           id: '180926',
-          code: 'CROWN COURT',
+          response: 'CROWN COURT',
           active: false,
           label: 'Crown court',
           commentRequired: false,
@@ -1024,7 +1024,7 @@ export const DRUGS_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '181144',
-          code: 'YES',
+          response: 'YES',
           active: false,
           label: 'Yes',
           commentRequired: false,
@@ -1033,7 +1033,7 @@ export const DRUGS_1: IncidentTypeConfiguration = {
         },
         {
           id: '181143',
-          code: 'NO',
+          response: 'NO',
           active: false,
           label: 'No',
           commentRequired: false,
@@ -1051,7 +1051,7 @@ export const DRUGS_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '181237',
-          code: 'YES',
+          response: 'YES',
           active: false,
           label: 'Yes',
           commentRequired: false,
@@ -1060,7 +1060,7 @@ export const DRUGS_1: IncidentTypeConfiguration = {
         },
         {
           id: '181236',
-          code: 'NO',
+          response: 'NO',
           active: false,
           label: 'No',
           commentRequired: false,
@@ -1078,7 +1078,7 @@ export const DRUGS_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '181246',
-          code: 'PRISONER',
+          response: 'PRISONER',
           active: false,
           label: 'Prisoner',
           commentRequired: false,
@@ -1087,7 +1087,7 @@ export const DRUGS_1: IncidentTypeConfiguration = {
         },
         {
           id: '181245',
-          code: 'VISITOR',
+          response: 'VISITOR',
           active: false,
           label: 'Visitor',
           commentRequired: false,
@@ -1096,7 +1096,7 @@ export const DRUGS_1: IncidentTypeConfiguration = {
         },
         {
           id: '181248',
-          code: 'THROWN IN',
+          response: 'THROWN IN',
           active: false,
           label: 'Thrown in',
           commentRequired: false,
@@ -1105,7 +1105,7 @@ export const DRUGS_1: IncidentTypeConfiguration = {
         },
         {
           id: '181247',
-          code: 'OTHER',
+          response: 'OTHER',
           active: false,
           label: 'Other',
           commentRequired: true,
@@ -1123,7 +1123,7 @@ export const DRUGS_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '181274',
-          code: 'SPECIFY',
+          response: 'SPECIFY',
           active: false,
           label: 'Specify',
           commentRequired: true,
@@ -1141,7 +1141,7 @@ export const DRUGS_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '181299',
-          code: 'NAME',
+          response: 'NAME',
           active: false,
           label: 'Name',
           commentRequired: true,
@@ -1159,7 +1159,7 @@ export const DRUGS_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '181304',
-          code: 'YES',
+          response: 'YES',
           active: false,
           label: 'Yes',
           commentRequired: false,
@@ -1168,7 +1168,7 @@ export const DRUGS_1: IncidentTypeConfiguration = {
         },
         {
           id: '181305',
-          code: 'NO',
+          response: 'NO',
           active: false,
           label: 'No',
           commentRequired: false,
@@ -1186,7 +1186,7 @@ export const DRUGS_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '181335',
-          code: 'YES',
+          response: 'YES',
           active: false,
           label: 'Yes',
           commentRequired: false,
@@ -1195,7 +1195,7 @@ export const DRUGS_1: IncidentTypeConfiguration = {
         },
         {
           id: '181336',
-          code: 'NO',
+          response: 'NO',
           active: false,
           label: 'No',
           commentRequired: false,
@@ -1213,7 +1213,7 @@ export const DRUGS_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '181579',
-          code: 'BEFORE ENTERING PRISON',
+          response: 'BEFORE ENTERING PRISON',
           active: false,
           label: 'Before entering prison',
           commentRequired: false,
@@ -1222,7 +1222,7 @@ export const DRUGS_1: IncidentTypeConfiguration = {
         },
         {
           id: '181578',
-          code: 'AFTER ENTERING PRISON',
+          response: 'AFTER ENTERING PRISON',
           active: false,
           label: 'After entering prison',
           commentRequired: false,
@@ -1240,7 +1240,7 @@ export const DRUGS_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '181908',
-          code: 'YES',
+          response: 'YES',
           active: false,
           label: 'Yes',
           commentRequired: false,
@@ -1249,7 +1249,7 @@ export const DRUGS_1: IncidentTypeConfiguration = {
         },
         {
           id: '181909',
-          code: 'NO',
+          response: 'NO',
           active: false,
           label: 'No',
           commentRequired: false,
@@ -1267,7 +1267,7 @@ export const DRUGS_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '181976',
-          code: 'YES',
+          response: 'YES',
           active: false,
           label: 'Yes',
           commentRequired: false,
@@ -1276,7 +1276,7 @@ export const DRUGS_1: IncidentTypeConfiguration = {
         },
         {
           id: '181977',
-          code: 'NO',
+          response: 'NO',
           active: false,
           label: 'No',
           commentRequired: false,
@@ -1294,7 +1294,7 @@ export const DRUGS_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '182213',
-          code: 'SPECIFY',
+          response: 'SPECIFY',
           active: false,
           label: 'Specify',
           commentRequired: true,
@@ -1312,7 +1312,7 @@ export const DRUGS_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '182335',
-          code: 'YES',
+          response: 'YES',
           active: false,
           label: 'Yes',
           commentRequired: false,
@@ -1321,7 +1321,7 @@ export const DRUGS_1: IncidentTypeConfiguration = {
         },
         {
           id: '182336',
-          code: 'NO',
+          response: 'NO',
           active: false,
           label: 'No',
           commentRequired: false,
@@ -1339,7 +1339,7 @@ export const DRUGS_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '182620',
-          code: 'RELATIVE',
+          response: 'RELATIVE',
           active: false,
           label: 'Relative',
           commentRequired: false,
@@ -1348,7 +1348,7 @@ export const DRUGS_1: IncidentTypeConfiguration = {
         },
         {
           id: '182618',
-          code: 'FRIEND',
+          response: 'FRIEND',
           active: false,
           label: 'Friend',
           commentRequired: false,
@@ -1357,7 +1357,7 @@ export const DRUGS_1: IncidentTypeConfiguration = {
         },
         {
           id: '182619',
-          code: 'OFFICIAL VISITOR',
+          response: 'OFFICIAL VISITOR',
           active: false,
           label: 'Official visitor',
           commentRequired: true,

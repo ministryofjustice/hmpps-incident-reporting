@@ -16,7 +16,7 @@ export const BOMB_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '178914',
-          code: 'BLAST BOMB',
+          response: 'BLAST BOMB',
           active: true,
           label: 'Blast bomb',
           commentRequired: false,
@@ -25,7 +25,7 @@ export const BOMB_1: IncidentTypeConfiguration = {
         },
         {
           id: '178922',
-          code: 'VEHICLE BOMB',
+          response: 'VEHICLE BOMB',
           active: true,
           label: 'Vehicle bomb',
           commentRequired: false,
@@ -34,7 +34,7 @@ export const BOMB_1: IncidentTypeConfiguration = {
         },
         {
           id: '178920',
-          code: 'POSTAL BOMB',
+          response: 'POSTAL BOMB',
           active: true,
           label: 'Postal bomb',
           commentRequired: false,
@@ -43,7 +43,7 @@ export const BOMB_1: IncidentTypeConfiguration = {
         },
         {
           id: '178919',
-          code: 'INCENDIARY DEVICE',
+          response: 'INCENDIARY DEVICE',
           active: true,
           label: 'Incendiary device',
           commentRequired: false,
@@ -52,7 +52,7 @@ export const BOMB_1: IncidentTypeConfiguration = {
         },
         {
           id: '178918',
-          code: 'HOAX PACKAGE',
+          response: 'HOAX PACKAGE',
           active: true,
           label: 'Hoax package',
           commentRequired: false,
@@ -61,7 +61,7 @@ export const BOMB_1: IncidentTypeConfiguration = {
         },
         {
           id: '178921',
-          code: 'SUSPECT PACKAGE',
+          response: 'SUSPECT PACKAGE',
           active: true,
           label: 'Suspect package',
           commentRequired: false,
@@ -70,7 +70,7 @@ export const BOMB_1: IncidentTypeConfiguration = {
         },
         {
           id: '178915',
-          code: 'DETONATORS',
+          response: 'DETONATORS',
           active: true,
           label: 'Detonators',
           commentRequired: false,
@@ -79,7 +79,7 @@ export const BOMB_1: IncidentTypeConfiguration = {
         },
         {
           id: '178917',
-          code: 'FUSES',
+          response: 'FUSES',
           active: true,
           label: 'Fuses',
           commentRequired: false,
@@ -88,7 +88,7 @@ export const BOMB_1: IncidentTypeConfiguration = {
         },
         {
           id: '178916',
-          code: 'EXPLOSIVE',
+          response: 'EXPLOSIVE',
           active: true,
           label: 'Explosive',
           commentRequired: true,
@@ -106,7 +106,7 @@ export const BOMB_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '178941',
-          code: 'FRACTURE',
+          response: 'FRACTURE',
           active: true,
           label: 'Fracture',
           commentRequired: false,
@@ -115,7 +115,7 @@ export const BOMB_1: IncidentTypeConfiguration = {
         },
         {
           id: '178943',
-          code: 'SCALD OR BURN',
+          response: 'SCALD OR BURN',
           active: true,
           label: 'Scald or burn',
           commentRequired: false,
@@ -124,7 +124,7 @@ export const BOMB_1: IncidentTypeConfiguration = {
         },
         {
           id: '178944',
-          code: 'STABBING',
+          response: 'STABBING',
           active: true,
           label: 'Stabbing',
           commentRequired: false,
@@ -133,7 +133,7 @@ export const BOMB_1: IncidentTypeConfiguration = {
         },
         {
           id: '178938',
-          code: 'CRUSHING',
+          response: 'CRUSHING',
           active: true,
           label: 'Crushing',
           commentRequired: false,
@@ -142,7 +142,7 @@ export const BOMB_1: IncidentTypeConfiguration = {
         },
         {
           id: '178940',
-          code: 'EXTENSIVE/MULTIPLE BRUISING',
+          response: 'EXTENSIVE/MULTIPLE BRUISING',
           active: true,
           label: 'Extensive/multiple bruising',
           commentRequired: false,
@@ -151,7 +151,7 @@ export const BOMB_1: IncidentTypeConfiguration = {
         },
         {
           id: '178935',
-          code: 'BLACK EYE',
+          response: 'BLACK EYE',
           active: true,
           label: 'Black eye',
           commentRequired: false,
@@ -160,7 +160,7 @@ export const BOMB_1: IncidentTypeConfiguration = {
         },
         {
           id: '178936',
-          code: 'BROKEN NOSE',
+          response: 'BROKEN NOSE',
           active: true,
           label: 'Broken nose',
           commentRequired: false,
@@ -169,7 +169,7 @@ export const BOMB_1: IncidentTypeConfiguration = {
         },
         {
           id: '178937',
-          code: 'BROKEN TEETH',
+          response: 'BROKEN TEETH',
           active: true,
           label: 'Broken teeth',
           commentRequired: false,
@@ -178,7 +178,7 @@ export const BOMB_1: IncidentTypeConfiguration = {
         },
         {
           id: '178939',
-          code: 'CUTS REQUIRING SUTURES',
+          response: 'CUTS REQUIRING SUTURES',
           active: true,
           label: 'Cuts requiring sutures',
           commentRequired: false,
@@ -187,7 +187,7 @@ export const BOMB_1: IncidentTypeConfiguration = {
         },
         {
           id: '178934',
-          code: 'BITES',
+          response: 'BITES',
           active: true,
           label: 'Bites',
           commentRequired: false,
@@ -196,7 +196,7 @@ export const BOMB_1: IncidentTypeConfiguration = {
         },
         {
           id: '178942',
-          code: 'GUN SHOT WOUND',
+          response: 'GUN SHOT WOUND',
           active: true,
           label: 'Gun shot wound',
           commentRequired: false,
@@ -205,7 +205,7 @@ export const BOMB_1: IncidentTypeConfiguration = {
         },
         {
           id: '178945',
-          code: 'TEMPORARY/PERMANENT BLINDNESS',
+          response: 'TEMPORARY/PERMANENT BLINDNESS',
           active: true,
           label: 'Temporary/permanent blindness',
           commentRequired: false,
@@ -223,7 +223,7 @@ export const BOMB_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '178997',
-          code: 'TELEPHONY',
+          response: 'TELEPHONY',
           active: true,
           label: 'Telephony',
           commentRequired: true,
@@ -232,7 +232,7 @@ export const BOMB_1: IncidentTypeConfiguration = {
         },
         {
           id: '178996',
-          code: 'IT',
+          response: 'IT',
           active: true,
           label: 'IT',
           commentRequired: true,
@@ -250,7 +250,7 @@ export const BOMB_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '179103',
-          code: 'CONTROLLED',
+          response: 'CONTROLLED',
           active: true,
           label: 'Controlled',
           commentRequired: false,
@@ -259,7 +259,7 @@ export const BOMB_1: IncidentTypeConfiguration = {
         },
         {
           id: '179104',
-          code: 'UNCONTROLLED',
+          response: 'UNCONTROLLED',
           active: true,
           label: 'Uncontrolled',
           commentRequired: false,
@@ -277,7 +277,7 @@ export const BOMB_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '179159',
-          code: 'YES',
+          response: 'YES',
           active: true,
           label: 'Yes',
           commentRequired: false,
@@ -286,7 +286,7 @@ export const BOMB_1: IncidentTypeConfiguration = {
         },
         {
           id: '179160',
-          code: 'NO',
+          response: 'NO',
           active: true,
           label: 'No',
           commentRequired: false,
@@ -304,7 +304,7 @@ export const BOMB_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '179276',
-          code: 'ENTER AMOUNT IN POUND STERLING',
+          response: 'ENTER AMOUNT IN POUND STERLING',
           active: true,
           label: 'Enter amount in pound sterling',
           commentRequired: true,
@@ -322,7 +322,7 @@ export const BOMB_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '179347',
-          code: 'YES',
+          response: 'YES',
           active: true,
           label: 'Yes',
           commentRequired: false,
@@ -331,7 +331,7 @@ export const BOMB_1: IncidentTypeConfiguration = {
         },
         {
           id: '179346',
-          code: 'NO',
+          response: 'NO',
           active: true,
           label: 'No',
           commentRequired: false,
@@ -349,7 +349,7 @@ export const BOMB_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '179348',
-          code: 'ENTER DESCRIPTION',
+          response: 'ENTER DESCRIPTION',
           active: true,
           label: 'Enter description',
           commentRequired: true,
@@ -367,7 +367,7 @@ export const BOMB_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '179389',
-          code: 'ENTER COMMENT AND DATE',
+          response: 'ENTER COMMENT AND DATE',
           active: true,
           label: 'Enter comment and date',
           commentRequired: true,
@@ -385,7 +385,7 @@ export const BOMB_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '179390',
-          code: 'YES',
+          response: 'YES',
           active: true,
           label: 'Yes',
           commentRequired: false,
@@ -394,7 +394,7 @@ export const BOMB_1: IncidentTypeConfiguration = {
         },
         {
           id: '179391',
-          code: 'NO',
+          response: 'NO',
           active: true,
           label: 'No',
           commentRequired: false,
@@ -412,7 +412,7 @@ export const BOMB_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '179404',
-          code: 'SPECIFY',
+          response: 'SPECIFY',
           active: true,
           label: 'Specify',
           commentRequired: true,
@@ -430,7 +430,7 @@ export const BOMB_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '179515',
-          code: 'YES',
+          response: 'YES',
           active: true,
           label: 'Yes',
           commentRequired: false,
@@ -439,7 +439,7 @@ export const BOMB_1: IncidentTypeConfiguration = {
         },
         {
           id: '179514',
-          code: 'NO',
+          response: 'NO',
           active: true,
           label: 'No',
           commentRequired: false,
@@ -457,7 +457,7 @@ export const BOMB_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '179713',
-          code: 'YES',
+          response: 'YES',
           active: true,
           label: 'Yes',
           commentRequired: false,
@@ -466,7 +466,7 @@ export const BOMB_1: IncidentTypeConfiguration = {
         },
         {
           id: '179712',
-          code: 'NO',
+          response: 'NO',
           active: true,
           label: 'No',
           commentRequired: false,
@@ -484,7 +484,7 @@ export const BOMB_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '179714',
-          code: 'YES',
+          response: 'YES',
           active: true,
           label: 'Yes',
           commentRequired: false,
@@ -493,7 +493,7 @@ export const BOMB_1: IncidentTypeConfiguration = {
         },
         {
           id: '179715',
-          code: 'NO',
+          response: 'NO',
           active: true,
           label: 'No',
           commentRequired: false,
@@ -511,7 +511,7 @@ export const BOMB_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '179748',
-          code: 'YES',
+          response: 'YES',
           active: true,
           label: 'Yes',
           commentRequired: false,
@@ -520,7 +520,7 @@ export const BOMB_1: IncidentTypeConfiguration = {
         },
         {
           id: '179747',
-          code: 'NO',
+          response: 'NO',
           active: true,
           label: 'No',
           commentRequired: false,
@@ -538,7 +538,7 @@ export const BOMB_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '179787',
-          code: 'YES',
+          response: 'YES',
           active: true,
           label: 'Yes',
           commentRequired: false,
@@ -547,7 +547,7 @@ export const BOMB_1: IncidentTypeConfiguration = {
         },
         {
           id: '179786',
-          code: 'NO',
+          response: 'NO',
           active: true,
           label: 'No',
           commentRequired: false,
@@ -565,7 +565,7 @@ export const BOMB_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '179826',
-          code: 'YES',
+          response: 'YES',
           active: true,
           label: 'Yes',
           commentRequired: false,
@@ -574,7 +574,7 @@ export const BOMB_1: IncidentTypeConfiguration = {
         },
         {
           id: '179827',
-          code: 'NO',
+          response: 'NO',
           active: true,
           label: 'No',
           commentRequired: false,
@@ -592,7 +592,7 @@ export const BOMB_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '179852',
-          code: 'YES',
+          response: 'YES',
           active: true,
           label: 'Yes',
           commentRequired: false,
@@ -601,7 +601,7 @@ export const BOMB_1: IncidentTypeConfiguration = {
         },
         {
           id: '179851',
-          code: 'NO',
+          response: 'NO',
           active: true,
           label: 'No',
           commentRequired: false,
@@ -619,7 +619,7 @@ export const BOMB_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '180110',
-          code: 'STAFF',
+          response: 'STAFF',
           active: true,
           label: 'Staff',
           commentRequired: true,
@@ -628,7 +628,7 @@ export const BOMB_1: IncidentTypeConfiguration = {
         },
         {
           id: '180109',
-          code: 'PRISONERS',
+          response: 'PRISONERS',
           active: true,
           label: 'Prisoners',
           commentRequired: true,
@@ -637,7 +637,7 @@ export const BOMB_1: IncidentTypeConfiguration = {
         },
         {
           id: '180106',
-          code: 'CIVILIAN GRADES',
+          response: 'CIVILIAN GRADES',
           active: true,
           label: 'Civilian grades',
           commentRequired: true,
@@ -646,7 +646,7 @@ export const BOMB_1: IncidentTypeConfiguration = {
         },
         {
           id: '180108',
-          code: 'POLICE',
+          response: 'POLICE',
           active: true,
           label: 'Police',
           commentRequired: true,
@@ -655,7 +655,7 @@ export const BOMB_1: IncidentTypeConfiguration = {
         },
         {
           id: '180107',
-          code: 'EXTERNAL CIVILIANS',
+          response: 'EXTERNAL CIVILIANS',
           active: true,
           label: 'External civilians',
           commentRequired: true,
@@ -673,7 +673,7 @@ export const BOMB_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '180255',
-          code: 'YES',
+          response: 'YES',
           active: true,
           label: 'Yes',
           commentRequired: false,
@@ -682,7 +682,7 @@ export const BOMB_1: IncidentTypeConfiguration = {
         },
         {
           id: '180254',
-          code: 'NO',
+          response: 'NO',
           active: true,
           label: 'No',
           commentRequired: false,
@@ -700,7 +700,7 @@ export const BOMB_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '180267',
-          code: 'YES',
+          response: 'YES',
           active: true,
           label: 'Yes',
           commentRequired: false,
@@ -709,7 +709,7 @@ export const BOMB_1: IncidentTypeConfiguration = {
         },
         {
           id: '180266',
-          code: 'NO',
+          response: 'NO',
           active: true,
           label: 'No',
           commentRequired: false,
@@ -727,7 +727,7 @@ export const BOMB_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '180285',
-          code: 'MINOR',
+          response: 'MINOR',
           active: true,
           label: 'Minor',
           commentRequired: false,
@@ -736,7 +736,7 @@ export const BOMB_1: IncidentTypeConfiguration = {
         },
         {
           id: '180286',
-          code: 'SERIOUS',
+          response: 'SERIOUS',
           active: true,
           label: 'Serious',
           commentRequired: false,
@@ -745,7 +745,7 @@ export const BOMB_1: IncidentTypeConfiguration = {
         },
         {
           id: '180284',
-          code: 'EXTENSIVE',
+          response: 'EXTENSIVE',
           active: true,
           label: 'Extensive',
           commentRequired: false,
@@ -763,7 +763,7 @@ export const BOMB_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '180425',
-          code: 'YES',
+          response: 'YES',
           active: true,
           label: 'Yes',
           commentRequired: false,
@@ -772,7 +772,7 @@ export const BOMB_1: IncidentTypeConfiguration = {
         },
         {
           id: '180424',
-          code: 'NO',
+          response: 'NO',
           active: true,
           label: 'No',
           commentRequired: false,
@@ -790,7 +790,7 @@ export const BOMB_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '180463',
-          code: 'SPECIFY',
+          response: 'SPECIFY',
           active: true,
           label: 'Specify',
           commentRequired: true,
@@ -808,7 +808,7 @@ export const BOMB_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '180518',
-          code: 'YES',
+          response: 'YES',
           active: true,
           label: 'Yes',
           commentRequired: false,
@@ -817,7 +817,7 @@ export const BOMB_1: IncidentTypeConfiguration = {
         },
         {
           id: '180519',
-          code: 'NO',
+          response: 'NO',
           active: true,
           label: 'No',
           commentRequired: false,
@@ -835,7 +835,7 @@ export const BOMB_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '180541',
-          code: 'YES',
+          response: 'YES',
           active: true,
           label: 'Yes',
           commentRequired: false,
@@ -844,7 +844,7 @@ export const BOMB_1: IncidentTypeConfiguration = {
         },
         {
           id: '180542',
-          code: 'NO',
+          response: 'NO',
           active: true,
           label: 'No',
           commentRequired: false,
@@ -862,7 +862,7 @@ export const BOMB_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '180732',
-          code: 'YES',
+          response: 'YES',
           active: true,
           label: 'Yes',
           commentRequired: false,
@@ -871,7 +871,7 @@ export const BOMB_1: IncidentTypeConfiguration = {
         },
         {
           id: '180731',
-          code: 'NO',
+          response: 'NO',
           active: true,
           label: 'No',
           commentRequired: false,
@@ -889,7 +889,7 @@ export const BOMB_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '180821',
-          code: 'SPECIFY',
+          response: 'SPECIFY',
           active: true,
           label: 'Specify',
           commentRequired: true,
@@ -907,7 +907,7 @@ export const BOMB_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '180828',
-          code: 'ENTER NUMBER',
+          response: 'ENTER NUMBER',
           active: true,
           label: 'Enter number',
           commentRequired: true,
@@ -925,7 +925,7 @@ export const BOMB_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '180991',
-          code: 'YES',
+          response: 'YES',
           active: true,
           label: 'Yes',
           commentRequired: false,
@@ -934,7 +934,7 @@ export const BOMB_1: IncidentTypeConfiguration = {
         },
         {
           id: '180992',
-          code: 'NO',
+          response: 'NO',
           active: true,
           label: 'No',
           commentRequired: false,
@@ -952,7 +952,7 @@ export const BOMB_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '181000',
-          code: 'YES',
+          response: 'YES',
           active: true,
           label: 'Yes',
           commentRequired: false,
@@ -961,7 +961,7 @@ export const BOMB_1: IncidentTypeConfiguration = {
         },
         {
           id: '181001',
-          code: 'NO',
+          response: 'NO',
           active: true,
           label: 'No',
           commentRequired: false,
@@ -979,7 +979,7 @@ export const BOMB_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '181089',
-          code: 'STAFF',
+          response: 'STAFF',
           active: true,
           label: 'Staff',
           commentRequired: true,
@@ -988,7 +988,7 @@ export const BOMB_1: IncidentTypeConfiguration = {
         },
         {
           id: '181088',
-          code: 'PRISONERS',
+          response: 'PRISONERS',
           active: true,
           label: 'Prisoners',
           commentRequired: true,
@@ -997,7 +997,7 @@ export const BOMB_1: IncidentTypeConfiguration = {
         },
         {
           id: '181085',
-          code: 'CIVILIAN GRADES',
+          response: 'CIVILIAN GRADES',
           active: true,
           label: 'Civilian grades',
           commentRequired: true,
@@ -1006,7 +1006,7 @@ export const BOMB_1: IncidentTypeConfiguration = {
         },
         {
           id: '181087',
-          code: 'POLICE',
+          response: 'POLICE',
           active: true,
           label: 'Police',
           commentRequired: true,
@@ -1015,7 +1015,7 @@ export const BOMB_1: IncidentTypeConfiguration = {
         },
         {
           id: '181086',
-          code: 'EXTERNAL CIVILIANS',
+          response: 'EXTERNAL CIVILIANS',
           active: true,
           label: 'External civilians',
           commentRequired: true,
@@ -1033,7 +1033,7 @@ export const BOMB_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '181094',
-          code: 'YES',
+          response: 'YES',
           active: true,
           label: 'Yes',
           commentRequired: false,
@@ -1042,7 +1042,7 @@ export const BOMB_1: IncidentTypeConfiguration = {
         },
         {
           id: '181095',
-          code: 'NO',
+          response: 'NO',
           active: true,
           label: 'No',
           commentRequired: false,
@@ -1060,7 +1060,7 @@ export const BOMB_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '181174',
-          code: 'YES',
+          response: 'YES',
           active: true,
           label: 'Yes',
           commentRequired: false,
@@ -1069,7 +1069,7 @@ export const BOMB_1: IncidentTypeConfiguration = {
         },
         {
           id: '181175',
-          code: 'NO',
+          response: 'NO',
           active: true,
           label: 'No',
           commentRequired: false,
@@ -1087,7 +1087,7 @@ export const BOMB_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '181285',
-          code: 'FULL',
+          response: 'FULL',
           active: true,
           label: 'Full',
           commentRequired: false,
@@ -1096,7 +1096,7 @@ export const BOMB_1: IncidentTypeConfiguration = {
         },
         {
           id: '181286',
-          code: 'PARTIAL (ENTER DETAILS)',
+          response: 'PARTIAL (ENTER DETAILS)',
           active: true,
           label: 'Partial (enter details)',
           commentRequired: true,
@@ -1114,7 +1114,7 @@ export const BOMB_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '181571',
-          code: 'STAFF',
+          response: 'STAFF',
           active: true,
           label: 'Staff',
           commentRequired: true,
@@ -1123,7 +1123,7 @@ export const BOMB_1: IncidentTypeConfiguration = {
         },
         {
           id: '181570',
-          code: 'PRISONERS',
+          response: 'PRISONERS',
           active: true,
           label: 'Prisoners',
           commentRequired: true,
@@ -1132,7 +1132,7 @@ export const BOMB_1: IncidentTypeConfiguration = {
         },
         {
           id: '181567',
-          code: 'CIVILIAN GRADES',
+          response: 'CIVILIAN GRADES',
           active: true,
           label: 'Civilian grades',
           commentRequired: true,
@@ -1141,7 +1141,7 @@ export const BOMB_1: IncidentTypeConfiguration = {
         },
         {
           id: '181569',
-          code: 'POLICE',
+          response: 'POLICE',
           active: true,
           label: 'Police',
           commentRequired: true,
@@ -1150,7 +1150,7 @@ export const BOMB_1: IncidentTypeConfiguration = {
         },
         {
           id: '181568',
-          code: 'EXTERNAL CIVILIANS',
+          response: 'EXTERNAL CIVILIANS',
           active: true,
           label: 'External civilians',
           commentRequired: true,
@@ -1168,7 +1168,7 @@ export const BOMB_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '181624',
-          code: 'YES',
+          response: 'YES',
           active: true,
           label: 'Yes',
           commentRequired: false,
@@ -1177,7 +1177,7 @@ export const BOMB_1: IncidentTypeConfiguration = {
         },
         {
           id: '181625',
-          code: 'NO',
+          response: 'NO',
           active: true,
           label: 'No',
           commentRequired: false,
@@ -1195,7 +1195,7 @@ export const BOMB_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '181781',
-          code: 'EVACUATION',
+          response: 'EVACUATION',
           active: true,
           label: 'Evacuation',
           commentRequired: false,
@@ -1204,7 +1204,7 @@ export const BOMB_1: IncidentTypeConfiguration = {
         },
         {
           id: '181784',
-          code: 'PARTIAL SEARCH',
+          response: 'PARTIAL SEARCH',
           active: true,
           label: 'Partial search',
           commentRequired: false,
@@ -1213,7 +1213,7 @@ export const BOMB_1: IncidentTypeConfiguration = {
         },
         {
           id: '181783',
-          code: 'FULL CLOSE DOWN',
+          response: 'FULL CLOSE DOWN',
           active: true,
           label: 'Full close down',
           commentRequired: false,
@@ -1222,7 +1222,7 @@ export const BOMB_1: IncidentTypeConfiguration = {
         },
         {
           id: '181782',
-          code: 'DOG SEARCH',
+          response: 'DOG SEARCH',
           active: true,
           label: 'Dog search',
           commentRequired: false,
@@ -1240,7 +1240,7 @@ export const BOMB_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '181815',
-          code: 'YES',
+          response: 'YES',
           active: true,
           label: 'Yes',
           commentRequired: false,
@@ -1249,7 +1249,7 @@ export const BOMB_1: IncidentTypeConfiguration = {
         },
         {
           id: '181816',
-          code: 'NO',
+          response: 'NO',
           active: true,
           label: 'No',
           commentRequired: false,
@@ -1267,7 +1267,7 @@ export const BOMB_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '181884',
-          code: 'THREAT',
+          response: 'THREAT',
           active: true,
           label: 'Threat',
           commentRequired: false,
@@ -1276,7 +1276,7 @@ export const BOMB_1: IncidentTypeConfiguration = {
         },
         {
           id: '181885',
-          code: 'WARNING',
+          response: 'WARNING',
           active: true,
           label: 'Warning',
           commentRequired: false,
@@ -1285,7 +1285,7 @@ export const BOMB_1: IncidentTypeConfiguration = {
         },
         {
           id: '181887',
-          code: 'EXPLOSION',
+          response: 'EXPLOSION',
           active: true,
           label: 'Explosion',
           commentRequired: false,
@@ -1294,7 +1294,7 @@ export const BOMB_1: IncidentTypeConfiguration = {
         },
         {
           id: '181889',
-          code: 'SUSPICIOUS PACKAGE',
+          response: 'SUSPICIOUS PACKAGE',
           active: true,
           label: 'Suspicious package',
           commentRequired: false,
@@ -1303,7 +1303,7 @@ export const BOMB_1: IncidentTypeConfiguration = {
         },
         {
           id: '181888',
-          code: 'INTELLIGENCE',
+          response: 'INTELLIGENCE',
           active: true,
           label: 'Intelligence',
           commentRequired: false,
@@ -1312,7 +1312,7 @@ export const BOMB_1: IncidentTypeConfiguration = {
         },
         {
           id: '181886',
-          code: 'DOG SEARCH',
+          response: 'DOG SEARCH',
           active: true,
           label: 'Dog search',
           commentRequired: false,
@@ -1330,7 +1330,7 @@ export const BOMB_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '181901',
-          code: 'YES',
+          response: 'YES',
           active: true,
           label: 'Yes',
           commentRequired: false,
@@ -1339,7 +1339,7 @@ export const BOMB_1: IncidentTypeConfiguration = {
         },
         {
           id: '181900',
-          code: 'NO',
+          response: 'NO',
           active: true,
           label: 'No',
           commentRequired: false,
@@ -1357,7 +1357,7 @@ export const BOMB_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '181975',
-          code: 'YES',
+          response: 'YES',
           active: true,
           label: 'Yes',
           commentRequired: false,
@@ -1366,7 +1366,7 @@ export const BOMB_1: IncidentTypeConfiguration = {
         },
         {
           id: '181974',
-          code: 'NO',
+          response: 'NO',
           active: true,
           label: 'No',
           commentRequired: false,
@@ -1384,7 +1384,7 @@ export const BOMB_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '181987',
-          code: 'YES',
+          response: 'YES',
           active: true,
           label: 'Yes',
           commentRequired: false,
@@ -1393,7 +1393,7 @@ export const BOMB_1: IncidentTypeConfiguration = {
         },
         {
           id: '181988',
-          code: 'NO',
+          response: 'NO',
           active: true,
           label: 'No',
           commentRequired: false,
@@ -1411,7 +1411,7 @@ export const BOMB_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '182142',
-          code: 'TO ANOTHER AREA OF THE PRISON',
+          response: 'TO ANOTHER AREA OF THE PRISON',
           active: true,
           label: 'To another area of the prison',
           commentRequired: false,
@@ -1420,7 +1420,7 @@ export const BOMB_1: IncidentTypeConfiguration = {
         },
         {
           id: '182141',
-          code: 'OUTSIDE THE PRISON',
+          response: 'OUTSIDE THE PRISON',
           active: true,
           label: 'Outside the prison',
           commentRequired: false,
@@ -1429,7 +1429,7 @@ export const BOMB_1: IncidentTypeConfiguration = {
         },
         {
           id: '182143',
-          code: 'TO ANOTHER PRISON',
+          response: 'TO ANOTHER PRISON',
           active: true,
           label: 'To another prison',
           commentRequired: false,
@@ -1447,7 +1447,7 @@ export const BOMB_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '182343',
-          code: 'LOCAL',
+          response: 'LOCAL',
           active: true,
           label: 'Local',
           commentRequired: false,
@@ -1456,7 +1456,7 @@ export const BOMB_1: IncidentTypeConfiguration = {
         },
         {
           id: '182342',
-          code: 'SERVICE SUPPLIER',
+          response: 'SERVICE SUPPLIER',
           active: true,
           label: 'Service supplier',
           commentRequired: false,
@@ -1474,7 +1474,7 @@ export const BOMB_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '182375',
-          code: 'ENTER TIME',
+          response: 'ENTER TIME',
           active: true,
           label: 'Enter time',
           commentRequired: true,
@@ -1492,7 +1492,7 @@ export const BOMB_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '182399',
-          code: 'YES',
+          response: 'YES',
           active: true,
           label: 'Yes',
           commentRequired: false,
@@ -1501,7 +1501,7 @@ export const BOMB_1: IncidentTypeConfiguration = {
         },
         {
           id: '182400',
-          code: 'NO',
+          response: 'NO',
           active: true,
           label: 'No',
           commentRequired: false,
@@ -1519,7 +1519,7 @@ export const BOMB_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '182456',
-          code: 'GRAZES, SCRATCHES OR ABRASIONS',
+          response: 'GRAZES, SCRATCHES OR ABRASIONS',
           active: true,
           label: 'Grazes, scratches or abrasions',
           commentRequired: false,
@@ -1528,7 +1528,7 @@ export const BOMB_1: IncidentTypeConfiguration = {
         },
         {
           id: '182457',
-          code: 'MINOR BRUISES',
+          response: 'MINOR BRUISES',
           active: true,
           label: 'Minor bruises',
           commentRequired: false,
@@ -1537,7 +1537,7 @@ export const BOMB_1: IncidentTypeConfiguration = {
         },
         {
           id: '182460',
-          code: 'SWELLINGS',
+          response: 'SWELLINGS',
           active: true,
           label: 'Swellings',
           commentRequired: false,
@@ -1546,7 +1546,7 @@ export const BOMB_1: IncidentTypeConfiguration = {
         },
         {
           id: '182459',
-          code: 'SUPERFICIAL CUTS',
+          response: 'SUPERFICIAL CUTS',
           active: true,
           label: 'Superficial cuts',
           commentRequired: false,
@@ -1555,7 +1555,7 @@ export const BOMB_1: IncidentTypeConfiguration = {
         },
         {
           id: '182458',
-          code: 'OTHER',
+          response: 'OTHER',
           active: true,
           label: 'Other',
           commentRequired: true,
@@ -1573,7 +1573,7 @@ export const BOMB_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '182526',
-          code: 'GOVERNOR',
+          response: 'GOVERNOR',
           active: true,
           label: 'Governor',
           commentRequired: false,
@@ -1582,7 +1582,7 @@ export const BOMB_1: IncidentTypeConfiguration = {
         },
         {
           id: '182524',
-          code: 'DEPUTY GOVERNOR',
+          response: 'DEPUTY GOVERNOR',
           active: true,
           label: 'Deputy governor',
           commentRequired: false,
@@ -1591,7 +1591,7 @@ export const BOMB_1: IncidentTypeConfiguration = {
         },
         {
           id: '182525',
-          code: 'DUTY GOVERNOR',
+          response: 'DUTY GOVERNOR',
           active: true,
           label: 'Duty governor',
           commentRequired: false,
@@ -1600,7 +1600,7 @@ export const BOMB_1: IncidentTypeConfiguration = {
         },
         {
           id: '182527',
-          code: 'OTHER',
+          response: 'OTHER',
           active: true,
           label: 'Other',
           commentRequired: true,
@@ -1618,7 +1618,7 @@ export const BOMB_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '182645',
-          code: 'LOCAL',
+          response: 'LOCAL',
           active: true,
           label: 'Local',
           commentRequired: false,
@@ -1627,7 +1627,7 @@ export const BOMB_1: IncidentTypeConfiguration = {
         },
         {
           id: '182646',
-          code: 'SERVICE SUPPLIER',
+          response: 'SERVICE SUPPLIER',
           active: true,
           label: 'Service supplier',
           commentRequired: false,
@@ -1645,7 +1645,7 @@ export const BOMB_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '182651',
-          code: 'ADMINISTRATION',
+          response: 'ADMINISTRATION',
           active: true,
           label: 'Administration',
           commentRequired: false,
@@ -1654,7 +1654,7 @@ export const BOMB_1: IncidentTypeConfiguration = {
         },
         {
           id: '182652',
-          code: 'ASSOCIATION AREA',
+          response: 'ASSOCIATION AREA',
           active: true,
           label: 'Association area',
           commentRequired: false,
@@ -1663,7 +1663,7 @@ export const BOMB_1: IncidentTypeConfiguration = {
         },
         {
           id: '182653',
-          code: 'CELL',
+          response: 'CELL',
           active: true,
           label: 'Cell',
           commentRequired: false,
@@ -1672,7 +1672,7 @@ export const BOMB_1: IncidentTypeConfiguration = {
         },
         {
           id: '182654',
-          code: 'CHAPEL',
+          response: 'CHAPEL',
           active: true,
           label: 'Chapel',
           commentRequired: false,
@@ -1681,7 +1681,7 @@ export const BOMB_1: IncidentTypeConfiguration = {
         },
         {
           id: '182656',
-          code: 'DINING ROOM',
+          response: 'DINING ROOM',
           active: true,
           label: 'Dining room',
           commentRequired: false,
@@ -1690,7 +1690,7 @@ export const BOMB_1: IncidentTypeConfiguration = {
         },
         {
           id: '182657',
-          code: 'DORMITORY',
+          response: 'DORMITORY',
           active: true,
           label: 'Dormitory',
           commentRequired: false,
@@ -1699,7 +1699,7 @@ export const BOMB_1: IncidentTypeConfiguration = {
         },
         {
           id: '182658',
-          code: 'EDUCATION',
+          response: 'EDUCATION',
           active: true,
           label: 'Education',
           commentRequired: false,
@@ -1708,7 +1708,7 @@ export const BOMB_1: IncidentTypeConfiguration = {
         },
         {
           id: '182660',
-          code: 'EXERCISE YARD',
+          response: 'EXERCISE YARD',
           active: true,
           label: 'Exercise yard',
           commentRequired: false,
@@ -1717,7 +1717,7 @@ export const BOMB_1: IncidentTypeConfiguration = {
         },
         {
           id: '182662',
-          code: 'GATE',
+          response: 'GATE',
           active: true,
           label: 'Gate',
           commentRequired: false,
@@ -1726,7 +1726,7 @@ export const BOMB_1: IncidentTypeConfiguration = {
         },
         {
           id: '182663',
-          code: 'GYM',
+          response: 'GYM',
           active: true,
           label: 'Gym',
           commentRequired: false,
@@ -1735,7 +1735,7 @@ export const BOMB_1: IncidentTypeConfiguration = {
         },
         {
           id: '182664',
-          code: 'HEALTH CARE CENTRE',
+          response: 'HEALTH CARE CENTRE',
           active: true,
           label: 'Health care centre',
           commentRequired: false,
@@ -1744,7 +1744,7 @@ export const BOMB_1: IncidentTypeConfiguration = {
         },
         {
           id: '182667',
-          code: 'KITCHEN',
+          response: 'KITCHEN',
           active: true,
           label: 'Kitchen',
           commentRequired: false,
@@ -1753,7 +1753,7 @@ export const BOMB_1: IncidentTypeConfiguration = {
         },
         {
           id: '182669',
-          code: 'OFFICE',
+          response: 'OFFICE',
           active: true,
           label: 'Office',
           commentRequired: false,
@@ -1762,7 +1762,7 @@ export const BOMB_1: IncidentTypeConfiguration = {
         },
         {
           id: '182671',
-          code: 'RECEPTION',
+          response: 'RECEPTION',
           active: true,
           label: 'Reception',
           commentRequired: false,
@@ -1771,7 +1771,7 @@ export const BOMB_1: IncidentTypeConfiguration = {
         },
         {
           id: '182672',
-          code: 'RECESS',
+          response: 'RECESS',
           active: true,
           label: 'Recess',
           commentRequired: false,
@@ -1780,7 +1780,7 @@ export const BOMB_1: IncidentTypeConfiguration = {
         },
         {
           id: '182673',
-          code: 'SEGREGATION UNIT',
+          response: 'SEGREGATION UNIT',
           active: true,
           label: 'Segregation unit',
           commentRequired: false,
@@ -1789,7 +1789,7 @@ export const BOMB_1: IncidentTypeConfiguration = {
         },
         {
           id: '182675',
-          code: 'SPECIAL UNIT',
+          response: 'SPECIAL UNIT',
           active: true,
           label: 'Special unit',
           commentRequired: false,
@@ -1798,7 +1798,7 @@ export const BOMB_1: IncidentTypeConfiguration = {
         },
         {
           id: '182674',
-          code: 'SHOWERS/CHANGING ROOM',
+          response: 'SHOWERS/CHANGING ROOM',
           active: true,
           label: 'Showers/changing room',
           commentRequired: false,
@@ -1807,7 +1807,7 @@ export const BOMB_1: IncidentTypeConfiguration = {
         },
         {
           id: '182678',
-          code: 'VISITS',
+          response: 'VISITS',
           active: true,
           label: 'Visits',
           commentRequired: false,
@@ -1816,7 +1816,7 @@ export const BOMB_1: IncidentTypeConfiguration = {
         },
         {
           id: '182680',
-          code: 'WING',
+          response: 'WING',
           active: true,
           label: 'Wing',
           commentRequired: false,
@@ -1825,7 +1825,7 @@ export const BOMB_1: IncidentTypeConfiguration = {
         },
         {
           id: '182682',
-          code: 'WORKS DEPARTMENT',
+          response: 'WORKS DEPARTMENT',
           active: true,
           label: 'Works department',
           commentRequired: false,
@@ -1834,7 +1834,7 @@ export const BOMB_1: IncidentTypeConfiguration = {
         },
         {
           id: '182683',
-          code: 'WORKSHOP',
+          response: 'WORKSHOP',
           active: true,
           label: 'Workshop',
           commentRequired: false,
@@ -1843,7 +1843,7 @@ export const BOMB_1: IncidentTypeConfiguration = {
         },
         {
           id: '182681',
-          code: 'WITHIN PERIMETER',
+          response: 'WITHIN PERIMETER',
           active: true,
           label: 'Within perimeter',
           commentRequired: false,
@@ -1852,7 +1852,7 @@ export const BOMB_1: IncidentTypeConfiguration = {
         },
         {
           id: '182659',
-          code: 'ELSEWHERE',
+          response: 'ELSEWHERE',
           active: true,
           label: 'Elsewhere',
           commentRequired: true,
@@ -1861,7 +1861,7 @@ export const BOMB_1: IncidentTypeConfiguration = {
         },
         {
           id: '182661',
-          code: 'FUNERAL',
+          response: 'FUNERAL',
           active: true,
           label: 'Funeral',
           commentRequired: false,
@@ -1870,7 +1870,7 @@ export const BOMB_1: IncidentTypeConfiguration = {
         },
         {
           id: '182665',
-          code: 'HOSPITAL OUTSIDE (PATIENT)',
+          response: 'HOSPITAL OUTSIDE (PATIENT)',
           active: true,
           label: 'Hospital outside (patient)',
           commentRequired: false,
@@ -1879,7 +1879,7 @@ export const BOMB_1: IncidentTypeConfiguration = {
         },
         {
           id: '182666',
-          code: 'HOSPITAL OUTSIDE (VISITING)',
+          response: 'HOSPITAL OUTSIDE (VISITING)',
           active: true,
           label: 'Hospital outside (visiting)',
           commentRequired: false,
@@ -1888,7 +1888,7 @@ export const BOMB_1: IncidentTypeConfiguration = {
         },
         {
           id: '182670',
-          code: 'OUTSIDE WORKING PARTY',
+          response: 'OUTSIDE WORKING PARTY',
           active: true,
           label: 'Outside working party',
           commentRequired: false,
@@ -1897,7 +1897,7 @@ export const BOMB_1: IncidentTypeConfiguration = {
         },
         {
           id: '182676',
-          code: 'SPORTS FIELD',
+          response: 'SPORTS FIELD',
           active: true,
           label: 'Sports field',
           commentRequired: false,
@@ -1906,7 +1906,7 @@ export const BOMB_1: IncidentTypeConfiguration = {
         },
         {
           id: '182677',
-          code: 'VEHICLE',
+          response: 'VEHICLE',
           active: true,
           label: 'Vehicle',
           commentRequired: false,
@@ -1915,7 +1915,7 @@ export const BOMB_1: IncidentTypeConfiguration = {
         },
         {
           id: '182679',
-          code: 'WEDDINGS',
+          response: 'WEDDINGS',
           active: true,
           label: 'Weddings',
           commentRequired: false,
@@ -1924,7 +1924,7 @@ export const BOMB_1: IncidentTypeConfiguration = {
         },
         {
           id: '182668',
-          code: 'MAGISTRATES COURT',
+          response: 'MAGISTRATES COURT',
           active: true,
           label: 'Magistrates court',
           commentRequired: false,
@@ -1933,7 +1933,7 @@ export const BOMB_1: IncidentTypeConfiguration = {
         },
         {
           id: '182655',
-          code: 'CROWN COURT',
+          response: 'CROWN COURT',
           active: true,
           label: 'Crown court',
           commentRequired: false,

@@ -16,7 +16,7 @@ export const ASSAULT_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '178912',
-          code: 'YES (ENTER DATE)',
+          response: 'YES (ENTER DATE)',
           active: true,
           label: 'Yes (enter date)',
           commentRequired: false,
@@ -25,7 +25,7 @@ export const ASSAULT_1: IncidentTypeConfiguration = {
         },
         {
           id: '178913',
-          code: 'NO',
+          response: 'NO',
           active: true,
           label: 'No',
           commentRequired: false,
@@ -43,7 +43,7 @@ export const ASSAULT_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '178968',
-          code: 'YES',
+          response: 'YES',
           active: true,
           label: 'Yes',
           commentRequired: false,
@@ -52,7 +52,7 @@ export const ASSAULT_1: IncidentTypeConfiguration = {
         },
         {
           id: '178969',
-          code: 'NO',
+          response: 'NO',
           active: true,
           label: 'No',
           commentRequired: false,
@@ -70,7 +70,7 @@ export const ASSAULT_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '179009',
-          code: 'YES',
+          response: 'YES',
           active: true,
           label: 'Yes',
           commentRequired: false,
@@ -79,7 +79,7 @@ export const ASSAULT_1: IncidentTypeConfiguration = {
         },
         {
           id: '179008',
-          code: 'NO',
+          response: 'NO',
           active: true,
           label: 'No',
           commentRequired: false,
@@ -97,7 +97,7 @@ export const ASSAULT_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '179102',
-          code: 'YES',
+          response: 'YES',
           active: true,
           label: 'Yes',
           commentRequired: false,
@@ -106,7 +106,7 @@ export const ASSAULT_1: IncidentTypeConfiguration = {
         },
         {
           id: '179101',
-          code: 'NO',
+          response: 'NO',
           active: true,
           label: 'No',
           commentRequired: false,
@@ -124,7 +124,7 @@ export const ASSAULT_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '179167',
-          code: 'YES',
+          response: 'YES',
           active: true,
           label: 'Yes',
           commentRequired: false,
@@ -133,7 +133,7 @@ export const ASSAULT_1: IncidentTypeConfiguration = {
         },
         {
           id: '179168',
-          code: 'NO',
+          response: 'NO',
           active: true,
           label: 'No',
           commentRequired: false,
@@ -151,7 +151,7 @@ export const ASSAULT_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '179331',
-          code: 'YES',
+          response: 'YES',
           active: true,
           label: 'Yes',
           commentRequired: false,
@@ -160,7 +160,7 @@ export const ASSAULT_1: IncidentTypeConfiguration = {
         },
         {
           id: '179332',
-          code: 'NO',
+          response: 'NO',
           active: true,
           label: 'No',
           commentRequired: false,
@@ -178,7 +178,7 @@ export const ASSAULT_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '179660',
-          code: 'YES',
+          response: 'YES',
           active: true,
           label: 'Yes',
           commentRequired: false,
@@ -187,7 +187,7 @@ export const ASSAULT_1: IncidentTypeConfiguration = {
         },
         {
           id: '179661',
-          code: 'NO',
+          response: 'NO',
           active: true,
           label: 'No',
           commentRequired: false,
@@ -205,7 +205,7 @@ export const ASSAULT_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '179730',
-          code: 'PRISONER ON PRISONER',
+          response: 'PRISONER ON PRISONER',
           active: true,
           label: 'Prisoner on prisoner',
           commentRequired: false,
@@ -214,7 +214,7 @@ export const ASSAULT_1: IncidentTypeConfiguration = {
         },
         {
           id: '179732',
-          code: 'PRISONER ON OFFICER',
+          response: 'PRISONER ON OFFICER',
           active: true,
           label: 'Prisoner on officer',
           commentRequired: false,
@@ -223,7 +223,7 @@ export const ASSAULT_1: IncidentTypeConfiguration = {
         },
         {
           id: '179733',
-          code: 'PRISONER ON OTHER',
+          response: 'PRISONER ON OTHER',
           active: true,
           label: 'Prisoner on other',
           commentRequired: false,
@@ -232,7 +232,7 @@ export const ASSAULT_1: IncidentTypeConfiguration = {
         },
         {
           id: '179731',
-          code: 'OTHER',
+          response: 'OTHER',
           active: true,
           label: 'Other',
           commentRequired: true,
@@ -250,7 +250,7 @@ export const ASSAULT_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '179821',
-          code: 'YES',
+          response: 'YES',
           active: true,
           label: 'Yes',
           commentRequired: false,
@@ -259,7 +259,7 @@ export const ASSAULT_1: IncidentTypeConfiguration = {
         },
         {
           id: '179820',
-          code: 'NO',
+          response: 'NO',
           active: true,
           label: 'No',
           commentRequired: false,
@@ -277,7 +277,7 @@ export const ASSAULT_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '179854',
-          code: 'YES',
+          response: 'YES',
           active: true,
           label: 'Yes',
           commentRequired: false,
@@ -286,7 +286,7 @@ export const ASSAULT_1: IncidentTypeConfiguration = {
         },
         {
           id: '179853',
-          code: 'NO',
+          response: 'NO',
           active: true,
           label: 'No',
           commentRequired: false,
@@ -304,7 +304,7 @@ export const ASSAULT_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '180014',
-          code: 'YES',
+          response: 'YES',
           active: true,
           label: 'Yes',
           commentRequired: false,
@@ -313,7 +313,7 @@ export const ASSAULT_1: IncidentTypeConfiguration = {
         },
         {
           id: '180015',
-          code: 'NO',
+          response: 'NO',
           active: true,
           label: 'No',
           commentRequired: false,
@@ -331,7 +331,7 @@ export const ASSAULT_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '180071',
-          code: 'FIREARM',
+          response: 'FIREARM',
           active: true,
           label: 'Firearm',
           commentRequired: false,
@@ -340,7 +340,7 @@ export const ASSAULT_1: IncidentTypeConfiguration = {
         },
         {
           id: '180068',
-          code: 'CHEMICAL INCAPACITANT',
+          response: 'CHEMICAL INCAPACITANT',
           active: true,
           label: 'Chemical incapacitant',
           commentRequired: false,
@@ -349,7 +349,7 @@ export const ASSAULT_1: IncidentTypeConfiguration = {
         },
         {
           id: '180073',
-          code: 'KNIFE/BLADE',
+          response: 'KNIFE/BLADE',
           active: true,
           label: 'Knife/blade',
           commentRequired: false,
@@ -358,7 +358,7 @@ export const ASSAULT_1: IncidentTypeConfiguration = {
         },
         {
           id: '180076',
-          code: 'OTHER SHARP INSTRUMENT',
+          response: 'OTHER SHARP INSTRUMENT',
           active: true,
           label: 'Other sharp instrument',
           commentRequired: false,
@@ -367,7 +367,7 @@ export const ASSAULT_1: IncidentTypeConfiguration = {
         },
         {
           id: '180067',
-          code: 'BLUNT INSTRUMENT',
+          response: 'BLUNT INSTRUMENT',
           active: true,
           label: 'Blunt instrument',
           commentRequired: false,
@@ -376,7 +376,7 @@ export const ASSAULT_1: IncidentTypeConfiguration = {
         },
         {
           id: '180074',
-          code: 'LIGATURE',
+          response: 'LIGATURE',
           active: true,
           label: 'Ligature',
           commentRequired: false,
@@ -385,7 +385,7 @@ export const ASSAULT_1: IncidentTypeConfiguration = {
         },
         {
           id: '180069',
-          code: 'DANGEROUS LIQUID',
+          response: 'DANGEROUS LIQUID',
           active: true,
           label: 'Dangerous liquid',
           commentRequired: false,
@@ -394,7 +394,7 @@ export const ASSAULT_1: IncidentTypeConfiguration = {
         },
         {
           id: '180070',
-          code: 'EXCRETA/URINE',
+          response: 'EXCRETA/URINE',
           active: true,
           label: 'Excreta/urine',
           commentRequired: false,
@@ -403,7 +403,7 @@ export const ASSAULT_1: IncidentTypeConfiguration = {
         },
         {
           id: '180077',
-          code: 'SPITTING',
+          response: 'SPITTING',
           active: true,
           label: 'Spitting',
           commentRequired: false,
@@ -412,7 +412,7 @@ export const ASSAULT_1: IncidentTypeConfiguration = {
         },
         {
           id: '180072',
-          code: 'FOOD',
+          response: 'FOOD',
           active: true,
           label: 'Food',
           commentRequired: false,
@@ -421,7 +421,7 @@ export const ASSAULT_1: IncidentTypeConfiguration = {
         },
         {
           id: '180079',
-          code: 'THROWN FURNITURE',
+          response: 'THROWN FURNITURE',
           active: true,
           label: 'Thrown furniture',
           commentRequired: false,
@@ -430,7 +430,7 @@ export const ASSAULT_1: IncidentTypeConfiguration = {
         },
         {
           id: '180078',
-          code: 'THROWN EQUIPMENT',
+          response: 'THROWN EQUIPMENT',
           active: true,
           label: 'Thrown equipment',
           commentRequired: false,
@@ -439,7 +439,7 @@ export const ASSAULT_1: IncidentTypeConfiguration = {
         },
         {
           id: '180075',
-          code: 'OTHER',
+          response: 'OTHER',
           active: true,
           label: 'Other',
           commentRequired: true,
@@ -457,7 +457,7 @@ export const ASSAULT_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '180193',
-          code: 'YES',
+          response: 'YES',
           active: true,
           label: 'Yes',
           commentRequired: false,
@@ -466,7 +466,7 @@ export const ASSAULT_1: IncidentTypeConfiguration = {
         },
         {
           id: '180192',
-          code: 'NO',
+          response: 'NO',
           active: true,
           label: 'No',
           commentRequired: false,
@@ -484,7 +484,7 @@ export const ASSAULT_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '180283',
-          code: 'YES',
+          response: 'YES',
           active: true,
           label: 'Yes',
           commentRequired: false,
@@ -493,7 +493,7 @@ export const ASSAULT_1: IncidentTypeConfiguration = {
         },
         {
           id: '180282',
-          code: 'NO',
+          response: 'NO',
           active: true,
           label: 'No',
           commentRequired: false,
@@ -511,7 +511,7 @@ export const ASSAULT_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '180540',
-          code: 'YES',
+          response: 'YES',
           active: true,
           label: 'Yes',
           commentRequired: false,
@@ -520,7 +520,7 @@ export const ASSAULT_1: IncidentTypeConfiguration = {
         },
         {
           id: '180539',
-          code: 'NO',
+          response: 'NO',
           active: true,
           label: 'No',
           commentRequired: false,
@@ -538,7 +538,7 @@ export const ASSAULT_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '180632',
-          code: 'GRAZES, SCRATCHES OR ABRASIONS',
+          response: 'GRAZES, SCRATCHES OR ABRASIONS',
           active: true,
           label: 'Grazes, scratches or abrasions',
           commentRequired: false,
@@ -547,7 +547,7 @@ export const ASSAULT_1: IncidentTypeConfiguration = {
         },
         {
           id: '180633',
-          code: 'MINOR BRUISES',
+          response: 'MINOR BRUISES',
           active: true,
           label: 'Minor bruises',
           commentRequired: false,
@@ -556,7 +556,7 @@ export const ASSAULT_1: IncidentTypeConfiguration = {
         },
         {
           id: '180636',
-          code: 'SWELLINGS',
+          response: 'SWELLINGS',
           active: true,
           label: 'Swellings',
           commentRequired: false,
@@ -565,7 +565,7 @@ export const ASSAULT_1: IncidentTypeConfiguration = {
         },
         {
           id: '180635',
-          code: 'SUPERFICIAL CUTS',
+          response: 'SUPERFICIAL CUTS',
           active: true,
           label: 'Superficial cuts',
           commentRequired: false,
@@ -574,7 +574,7 @@ export const ASSAULT_1: IncidentTypeConfiguration = {
         },
         {
           id: '180634',
-          code: 'OTHER',
+          response: 'OTHER',
           active: true,
           label: 'Other',
           commentRequired: true,
@@ -592,7 +592,7 @@ export const ASSAULT_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '180754',
-          code: 'YES',
+          response: 'YES',
           active: true,
           label: 'Yes',
           commentRequired: false,
@@ -601,7 +601,7 @@ export const ASSAULT_1: IncidentTypeConfiguration = {
         },
         {
           id: '180753',
-          code: 'NO',
+          response: 'NO',
           active: true,
           label: 'No',
           commentRequired: false,
@@ -619,7 +619,7 @@ export const ASSAULT_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '181164',
-          code: 'YES',
+          response: 'YES',
           active: true,
           label: 'Yes',
           commentRequired: false,
@@ -628,7 +628,7 @@ export const ASSAULT_1: IncidentTypeConfiguration = {
         },
         {
           id: '181165',
-          code: 'NO',
+          response: 'NO',
           active: true,
           label: 'No',
           commentRequired: false,
@@ -646,7 +646,7 @@ export const ASSAULT_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '181242',
-          code: 'STAFF',
+          response: 'STAFF',
           active: true,
           label: 'Staff',
           commentRequired: true,
@@ -655,7 +655,7 @@ export const ASSAULT_1: IncidentTypeConfiguration = {
         },
         {
           id: '181241',
-          code: 'PRISONERS',
+          response: 'PRISONERS',
           active: true,
           label: 'Prisoners',
           commentRequired: true,
@@ -664,7 +664,7 @@ export const ASSAULT_1: IncidentTypeConfiguration = {
         },
         {
           id: '181238',
-          code: 'CIVILIAN GRADES',
+          response: 'CIVILIAN GRADES',
           active: true,
           label: 'Civilian grades',
           commentRequired: true,
@@ -673,7 +673,7 @@ export const ASSAULT_1: IncidentTypeConfiguration = {
         },
         {
           id: '181240',
-          code: 'POLICE',
+          response: 'POLICE',
           active: true,
           label: 'Police',
           commentRequired: true,
@@ -682,7 +682,7 @@ export const ASSAULT_1: IncidentTypeConfiguration = {
         },
         {
           id: '181239',
-          code: 'EXTERNAL CIVILIANS',
+          response: 'EXTERNAL CIVILIANS',
           active: true,
           label: 'External civilians',
           commentRequired: true,
@@ -700,7 +700,7 @@ export const ASSAULT_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '181518',
-          code: 'YES',
+          response: 'YES',
           active: true,
           label: 'Yes',
           commentRequired: false,
@@ -709,7 +709,7 @@ export const ASSAULT_1: IncidentTypeConfiguration = {
         },
         {
           id: '181517',
-          code: 'NO',
+          response: 'NO',
           active: true,
           label: 'No',
           commentRequired: false,
@@ -727,7 +727,7 @@ export const ASSAULT_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '181628',
-          code: 'YES',
+          response: 'YES',
           active: true,
           label: 'Yes',
           commentRequired: false,
@@ -736,7 +736,7 @@ export const ASSAULT_1: IncidentTypeConfiguration = {
         },
         {
           id: '181629',
-          code: 'NO',
+          response: 'NO',
           active: true,
           label: 'No',
           commentRequired: false,
@@ -754,7 +754,7 @@ export const ASSAULT_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '181771',
-          code: 'STAFF',
+          response: 'STAFF',
           active: true,
           label: 'Staff',
           commentRequired: true,
@@ -763,7 +763,7 @@ export const ASSAULT_1: IncidentTypeConfiguration = {
         },
         {
           id: '181770',
-          code: 'PRISONERS',
+          response: 'PRISONERS',
           active: true,
           label: 'Prisoners',
           commentRequired: true,
@@ -772,7 +772,7 @@ export const ASSAULT_1: IncidentTypeConfiguration = {
         },
         {
           id: '181767',
-          code: 'CIVILIAN GRADES',
+          response: 'CIVILIAN GRADES',
           active: true,
           label: 'Civilian grades',
           commentRequired: true,
@@ -781,7 +781,7 @@ export const ASSAULT_1: IncidentTypeConfiguration = {
         },
         {
           id: '181769',
-          code: 'POLICE',
+          response: 'POLICE',
           active: true,
           label: 'Police',
           commentRequired: true,
@@ -790,7 +790,7 @@ export const ASSAULT_1: IncidentTypeConfiguration = {
         },
         {
           id: '181768',
-          code: 'EXTERNAL CIVILIANS',
+          response: 'EXTERNAL CIVILIANS',
           active: true,
           label: 'External civilians',
           commentRequired: true,
@@ -808,7 +808,7 @@ export const ASSAULT_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '182153',
-          code: 'FRACTURE',
+          response: 'FRACTURE',
           active: true,
           label: 'Fracture',
           commentRequired: false,
@@ -817,7 +817,7 @@ export const ASSAULT_1: IncidentTypeConfiguration = {
         },
         {
           id: '182155',
-          code: 'SCALD OR BURN',
+          response: 'SCALD OR BURN',
           active: true,
           label: 'Scald or burn',
           commentRequired: false,
@@ -826,7 +826,7 @@ export const ASSAULT_1: IncidentTypeConfiguration = {
         },
         {
           id: '182156',
-          code: 'STABBING',
+          response: 'STABBING',
           active: true,
           label: 'Stabbing',
           commentRequired: false,
@@ -835,7 +835,7 @@ export const ASSAULT_1: IncidentTypeConfiguration = {
         },
         {
           id: '182150',
-          code: 'CRUSHING',
+          response: 'CRUSHING',
           active: true,
           label: 'Crushing',
           commentRequired: false,
@@ -844,7 +844,7 @@ export const ASSAULT_1: IncidentTypeConfiguration = {
         },
         {
           id: '182152',
-          code: 'EXTENSIVE/MULTIPLE BRUISING',
+          response: 'EXTENSIVE/MULTIPLE BRUISING',
           active: true,
           label: 'Extensive/multiple bruising',
           commentRequired: false,
@@ -853,7 +853,7 @@ export const ASSAULT_1: IncidentTypeConfiguration = {
         },
         {
           id: '182147',
-          code: 'BLACK EYE',
+          response: 'BLACK EYE',
           active: true,
           label: 'Black eye',
           commentRequired: false,
@@ -862,7 +862,7 @@ export const ASSAULT_1: IncidentTypeConfiguration = {
         },
         {
           id: '182148',
-          code: 'BROKEN NOSE',
+          response: 'BROKEN NOSE',
           active: true,
           label: 'Broken nose',
           commentRequired: false,
@@ -871,7 +871,7 @@ export const ASSAULT_1: IncidentTypeConfiguration = {
         },
         {
           id: '182149',
-          code: 'BROKEN TEETH',
+          response: 'BROKEN TEETH',
           active: true,
           label: 'Broken teeth',
           commentRequired: false,
@@ -880,7 +880,7 @@ export const ASSAULT_1: IncidentTypeConfiguration = {
         },
         {
           id: '182151',
-          code: 'CUTS REQUIRING SUTURES',
+          response: 'CUTS REQUIRING SUTURES',
           active: true,
           label: 'Cuts requiring sutures',
           commentRequired: false,
@@ -889,7 +889,7 @@ export const ASSAULT_1: IncidentTypeConfiguration = {
         },
         {
           id: '182146',
-          code: 'BITES',
+          response: 'BITES',
           active: true,
           label: 'Bites',
           commentRequired: false,
@@ -898,7 +898,7 @@ export const ASSAULT_1: IncidentTypeConfiguration = {
         },
         {
           id: '182154',
-          code: 'GUN SHOT WOUND',
+          response: 'GUN SHOT WOUND',
           active: true,
           label: 'Gun shot wound',
           commentRequired: false,
@@ -907,7 +907,7 @@ export const ASSAULT_1: IncidentTypeConfiguration = {
         },
         {
           id: '182157',
-          code: 'TEMPORARY/PERMANENT BLINDNESS',
+          response: 'TEMPORARY/PERMANENT BLINDNESS',
           active: true,
           label: 'Temporary/permanent blindness',
           commentRequired: false,
@@ -925,7 +925,7 @@ export const ASSAULT_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '182269',
-          code: 'YES',
+          response: 'YES',
           active: true,
           label: 'Yes',
           commentRequired: true,
@@ -934,7 +934,7 @@ export const ASSAULT_1: IncidentTypeConfiguration = {
         },
         {
           id: '182268',
-          code: 'NO',
+          response: 'NO',
           active: true,
           label: 'No',
           commentRequired: false,
@@ -952,7 +952,7 @@ export const ASSAULT_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '182300',
-          code: 'YES',
+          response: 'YES',
           active: true,
           label: 'Yes',
           commentRequired: false,
@@ -961,7 +961,7 @@ export const ASSAULT_1: IncidentTypeConfiguration = {
         },
         {
           id: '182299',
-          code: 'NO',
+          response: 'NO',
           active: true,
           label: 'No',
           commentRequired: false,
@@ -979,7 +979,7 @@ export const ASSAULT_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '182320',
-          code: 'YES',
+          response: 'YES',
           active: true,
           label: 'Yes',
           commentRequired: true,
@@ -988,7 +988,7 @@ export const ASSAULT_1: IncidentTypeConfiguration = {
         },
         {
           id: '182319',
-          code: 'NO',
+          response: 'NO',
           active: true,
           label: 'No',
           commentRequired: false,
@@ -1006,7 +1006,7 @@ export const ASSAULT_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '182468',
-          code: 'YES',
+          response: 'YES',
           active: true,
           label: 'Yes',
           commentRequired: false,
@@ -1015,7 +1015,7 @@ export const ASSAULT_1: IncidentTypeConfiguration = {
         },
         {
           id: '182467',
-          code: 'NO',
+          response: 'NO',
           active: true,
           label: 'No',
           commentRequired: false,
@@ -1033,7 +1033,7 @@ export const ASSAULT_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '182475',
-          code: 'ADMINISTRATION',
+          response: 'ADMINISTRATION',
           active: true,
           label: 'Administration',
           commentRequired: false,
@@ -1042,7 +1042,7 @@ export const ASSAULT_1: IncidentTypeConfiguration = {
         },
         {
           id: '182476',
-          code: 'ASSOCIATION AREA',
+          response: 'ASSOCIATION AREA',
           active: true,
           label: 'Association area',
           commentRequired: false,
@@ -1051,7 +1051,7 @@ export const ASSAULT_1: IncidentTypeConfiguration = {
         },
         {
           id: '182477',
-          code: 'CELL',
+          response: 'CELL',
           active: true,
           label: 'Cell',
           commentRequired: false,
@@ -1060,7 +1060,7 @@ export const ASSAULT_1: IncidentTypeConfiguration = {
         },
         {
           id: '182478',
-          code: 'CHAPEL',
+          response: 'CHAPEL',
           active: true,
           label: 'Chapel',
           commentRequired: false,
@@ -1069,7 +1069,7 @@ export const ASSAULT_1: IncidentTypeConfiguration = {
         },
         {
           id: '182480',
-          code: 'DINING ROOM',
+          response: 'DINING ROOM',
           active: true,
           label: 'Dining room',
           commentRequired: false,
@@ -1078,7 +1078,7 @@ export const ASSAULT_1: IncidentTypeConfiguration = {
         },
         {
           id: '182481',
-          code: 'DORMITORY',
+          response: 'DORMITORY',
           active: true,
           label: 'Dormitory',
           commentRequired: false,
@@ -1087,7 +1087,7 @@ export const ASSAULT_1: IncidentTypeConfiguration = {
         },
         {
           id: '182482',
-          code: 'EDUCATION',
+          response: 'EDUCATION',
           active: true,
           label: 'Education',
           commentRequired: false,
@@ -1096,7 +1096,7 @@ export const ASSAULT_1: IncidentTypeConfiguration = {
         },
         {
           id: '182484',
-          code: 'EXERCISE YARD',
+          response: 'EXERCISE YARD',
           active: true,
           label: 'Exercise yard',
           commentRequired: false,
@@ -1105,7 +1105,7 @@ export const ASSAULT_1: IncidentTypeConfiguration = {
         },
         {
           id: '182486',
-          code: 'GATE',
+          response: 'GATE',
           active: true,
           label: 'Gate',
           commentRequired: false,
@@ -1114,7 +1114,7 @@ export const ASSAULT_1: IncidentTypeConfiguration = {
         },
         {
           id: '182487',
-          code: 'GYM',
+          response: 'GYM',
           active: true,
           label: 'Gym',
           commentRequired: false,
@@ -1123,7 +1123,7 @@ export const ASSAULT_1: IncidentTypeConfiguration = {
         },
         {
           id: '182488',
-          code: 'HEALTH CARE CENTRE',
+          response: 'HEALTH CARE CENTRE',
           active: true,
           label: 'Health care centre',
           commentRequired: false,
@@ -1132,7 +1132,7 @@ export const ASSAULT_1: IncidentTypeConfiguration = {
         },
         {
           id: '182491',
-          code: 'KITCHEN',
+          response: 'KITCHEN',
           active: true,
           label: 'Kitchen',
           commentRequired: false,
@@ -1141,7 +1141,7 @@ export const ASSAULT_1: IncidentTypeConfiguration = {
         },
         {
           id: '182493',
-          code: 'OFFICE',
+          response: 'OFFICE',
           active: true,
           label: 'Office',
           commentRequired: false,
@@ -1150,7 +1150,7 @@ export const ASSAULT_1: IncidentTypeConfiguration = {
         },
         {
           id: '182495',
-          code: 'RECEPTION',
+          response: 'RECEPTION',
           active: true,
           label: 'Reception',
           commentRequired: false,
@@ -1159,7 +1159,7 @@ export const ASSAULT_1: IncidentTypeConfiguration = {
         },
         {
           id: '182496',
-          code: 'RECESS',
+          response: 'RECESS',
           active: true,
           label: 'Recess',
           commentRequired: false,
@@ -1168,7 +1168,7 @@ export const ASSAULT_1: IncidentTypeConfiguration = {
         },
         {
           id: '182497',
-          code: 'SEGREGATION UNIT',
+          response: 'SEGREGATION UNIT',
           active: true,
           label: 'Segregation unit',
           commentRequired: false,
@@ -1177,7 +1177,7 @@ export const ASSAULT_1: IncidentTypeConfiguration = {
         },
         {
           id: '182499',
-          code: 'SPECIAL UNIT',
+          response: 'SPECIAL UNIT',
           active: true,
           label: 'Special unit',
           commentRequired: false,
@@ -1186,7 +1186,7 @@ export const ASSAULT_1: IncidentTypeConfiguration = {
         },
         {
           id: '182498',
-          code: 'SHOWERS/CHANGING ROOM',
+          response: 'SHOWERS/CHANGING ROOM',
           active: true,
           label: 'Showers/changing room',
           commentRequired: false,
@@ -1195,7 +1195,7 @@ export const ASSAULT_1: IncidentTypeConfiguration = {
         },
         {
           id: '182502',
-          code: 'VISITS',
+          response: 'VISITS',
           active: true,
           label: 'Visits',
           commentRequired: false,
@@ -1204,7 +1204,7 @@ export const ASSAULT_1: IncidentTypeConfiguration = {
         },
         {
           id: '182504',
-          code: 'WING',
+          response: 'WING',
           active: true,
           label: 'Wing',
           commentRequired: false,
@@ -1213,7 +1213,7 @@ export const ASSAULT_1: IncidentTypeConfiguration = {
         },
         {
           id: '182506',
-          code: 'WORKS DEPARTMENT',
+          response: 'WORKS DEPARTMENT',
           active: true,
           label: 'Works department',
           commentRequired: false,
@@ -1222,7 +1222,7 @@ export const ASSAULT_1: IncidentTypeConfiguration = {
         },
         {
           id: '182507',
-          code: 'WORKSHOP',
+          response: 'WORKSHOP',
           active: true,
           label: 'Workshop',
           commentRequired: false,
@@ -1231,7 +1231,7 @@ export const ASSAULT_1: IncidentTypeConfiguration = {
         },
         {
           id: '182505',
-          code: 'WITHIN PERIMETER',
+          response: 'WITHIN PERIMETER',
           active: true,
           label: 'Within perimeter',
           commentRequired: false,
@@ -1240,7 +1240,7 @@ export const ASSAULT_1: IncidentTypeConfiguration = {
         },
         {
           id: '182483',
-          code: 'ELSEWHERE',
+          response: 'ELSEWHERE',
           active: true,
           label: 'Elsewhere',
           commentRequired: true,
@@ -1249,7 +1249,7 @@ export const ASSAULT_1: IncidentTypeConfiguration = {
         },
         {
           id: '182485',
-          code: 'FUNERAL',
+          response: 'FUNERAL',
           active: true,
           label: 'Funeral',
           commentRequired: false,
@@ -1258,7 +1258,7 @@ export const ASSAULT_1: IncidentTypeConfiguration = {
         },
         {
           id: '182489',
-          code: 'HOSPITAL OUTSIDE (PATIENT)',
+          response: 'HOSPITAL OUTSIDE (PATIENT)',
           active: true,
           label: 'Hospital outside (patient)',
           commentRequired: false,
@@ -1267,7 +1267,7 @@ export const ASSAULT_1: IncidentTypeConfiguration = {
         },
         {
           id: '182490',
-          code: 'HOSPITAL OUTSIDE (VISITING)',
+          response: 'HOSPITAL OUTSIDE (VISITING)',
           active: true,
           label: 'Hospital outside (visiting)',
           commentRequired: false,
@@ -1276,7 +1276,7 @@ export const ASSAULT_1: IncidentTypeConfiguration = {
         },
         {
           id: '182494',
-          code: 'OUTSIDE WORKING PARTY',
+          response: 'OUTSIDE WORKING PARTY',
           active: true,
           label: 'Outside working party',
           commentRequired: false,
@@ -1285,7 +1285,7 @@ export const ASSAULT_1: IncidentTypeConfiguration = {
         },
         {
           id: '182500',
-          code: 'SPORTS FIELD',
+          response: 'SPORTS FIELD',
           active: true,
           label: 'Sports field',
           commentRequired: false,
@@ -1294,7 +1294,7 @@ export const ASSAULT_1: IncidentTypeConfiguration = {
         },
         {
           id: '182501',
-          code: 'VEHICLE',
+          response: 'VEHICLE',
           active: true,
           label: 'Vehicle',
           commentRequired: false,
@@ -1303,7 +1303,7 @@ export const ASSAULT_1: IncidentTypeConfiguration = {
         },
         {
           id: '182503',
-          code: 'WEDDINGS',
+          response: 'WEDDINGS',
           active: true,
           label: 'Weddings',
           commentRequired: false,
@@ -1312,7 +1312,7 @@ export const ASSAULT_1: IncidentTypeConfiguration = {
         },
         {
           id: '182492',
-          code: 'MAGISTRATES COURT',
+          response: 'MAGISTRATES COURT',
           active: true,
           label: 'Magistrates court',
           commentRequired: false,
@@ -1321,7 +1321,7 @@ export const ASSAULT_1: IncidentTypeConfiguration = {
         },
         {
           id: '182479',
-          code: 'CROWN COURT',
+          response: 'CROWN COURT',
           active: true,
           label: 'Crown court',
           commentRequired: false,

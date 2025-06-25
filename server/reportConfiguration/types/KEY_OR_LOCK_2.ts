@@ -16,7 +16,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
       answers: [
         {
           id: '182748',
-          code: 'Keys taken out of the establishment',
+          response: 'Keys taken out of the establishment',
           active: false,
           label: 'Keys taken out of the establishment',
           commentRequired: false,
@@ -25,7 +25,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
         },
         {
           id: '182749',
-          code: 'Keys lost',
+          response: 'Keys lost',
           active: false,
           label: 'Keys lost',
           commentRequired: false,
@@ -34,7 +34,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
         },
         {
           id: '182750',
-          code: 'Key left unattended in prison',
+          response: 'Key left unattended in prison',
           active: false,
           label: 'Key left unattended in prison',
           commentRequired: false,
@@ -43,7 +43,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
         },
         {
           id: '182751',
-          code: 'Key issued to wrong person',
+          response: 'Key issued to wrong person',
           active: false,
           label: 'Key issued to wrong person',
           commentRequired: false,
@@ -52,7 +52,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
         },
         {
           id: '182752',
-          code: 'Doors/Gates/Cell door left unlocked',
+          response: 'Doors/Gates/Cell door left unlocked',
           active: false,
           label: 'Doors/gates/cell door left unlocked',
           commentRequired: false,
@@ -61,7 +61,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
         },
         {
           id: '182753',
-          code: 'Loss of handcuffs',
+          response: 'Loss of handcuffs',
           active: false,
           label: 'Loss of handcuffs',
           commentRequired: false,
@@ -70,7 +70,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
         },
         {
           id: '182754',
-          code: 'Loss of escort chain',
+          response: 'Loss of escort chain',
           active: false,
           label: 'Loss of escort chain',
           commentRequired: false,
@@ -79,7 +79,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
         },
         {
           id: '182755',
-          code: 'Other handcuff key/lock issues',
+          response: 'Other handcuff key/lock issues',
           active: false,
           label: 'Other handcuff key/lock issues',
           commentRequired: true,
@@ -88,7 +88,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
         },
         {
           id: '182756',
-          code: 'Broken/Damaged keys',
+          response: 'Broken/Damaged keys',
           active: false,
           label: 'Broken/damaged keys',
           commentRequired: false,
@@ -97,7 +97,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
         },
         {
           id: '182757',
-          code: 'Worn locks (not malicious)',
+          response: 'Worn locks (not malicious)',
           active: false,
           label: 'Worn locks (not malicious)',
           commentRequired: false,
@@ -106,7 +106,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
         },
         {
           id: '182758',
-          code: 'Malicious damage to/blockage of locks',
+          response: 'Malicious damage to/blockage of locks',
           active: false,
           label: 'Malicious damage to/blockage of locks',
           commentRequired: false,
@@ -115,7 +115,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
         },
         {
           id: '182759',
-          code: 'Lock picked',
+          response: 'Lock picked',
           active: false,
           label: 'Lock picked',
           commentRequired: false,
@@ -124,7 +124,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
         },
         {
           id: '182760',
-          code: 'Part of lock removed',
+          response: 'Part of lock removed',
           active: false,
           label: 'Part of lock removed',
           commentRequired: false,
@@ -133,7 +133,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
         },
         {
           id: '182761',
-          code: 'Complete lock removed',
+          response: 'Complete lock removed',
           active: false,
           label: 'Complete lock removed',
           commentRequired: false,
@@ -142,7 +142,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
         },
         {
           id: '182762',
-          code: 'Electronics overcome (electronic door)',
+          response: 'Electronics overcome (electronic door)',
           active: false,
           label: 'Electronics overcome (electronic door)',
           commentRequired: false,
@@ -151,7 +151,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
         },
         {
           id: '182763',
-          code: 'Electronics failure (electronic door)',
+          response: 'Electronics failure (electronic door)',
           active: false,
           label: 'Electronics failure (electronic door)',
           commentRequired: false,
@@ -160,7 +160,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
         },
         {
           id: '182764',
-          code: 'Replica key found/used',
+          response: 'Replica key found/used',
           active: false,
           label: 'Replica key found/used',
           commentRequired: false,
@@ -169,7 +169,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
         },
         {
           id: '182765',
-          code: 'Key viewed by prisoner',
+          response: 'Key viewed by prisoner',
           active: false,
           label: 'Key viewed by prisoner',
           commentRequired: false,
@@ -178,7 +178,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
         },
         {
           id: '182766',
-          code: 'Other: (anything else including prisoner grabbing key chain, etc)',
+          response: 'Other: (anything else including prisoner grabbing key chain, etc)',
           active: false,
           label: 'Other: (anything else including prisoner grabbing key chain, etc)',
           commentRequired: true,
@@ -187,7 +187,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
         },
         {
           id: '182945',
-          code: 'Keys taken out of the establishment',
+          response: 'Keys taken out of the establishment',
           active: true,
           label: 'Keys taken out of the establishment',
           commentRequired: false,
@@ -196,7 +196,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
         },
         {
           id: '182946',
-          code: 'Keys lost',
+          response: 'Keys lost',
           active: true,
           label: 'Keys lost',
           commentRequired: false,
@@ -205,7 +205,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
         },
         {
           id: '182947',
-          code: 'Key left unattended in prison',
+          response: 'Key left unattended in prison',
           active: true,
           label: 'Key left unattended in prison',
           commentRequired: false,
@@ -214,7 +214,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
         },
         {
           id: '182948',
-          code: 'Key issued to wrong person',
+          response: 'Key issued to wrong person',
           active: true,
           label: 'Key issued to wrong person',
           commentRequired: false,
@@ -223,7 +223,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
         },
         {
           id: '182949',
-          code: 'Doors/Gates/cell door left unlocked',
+          response: 'Doors/Gates/cell door left unlocked',
           active: true,
           label: 'Doors/gates/cell door left unlocked',
           commentRequired: false,
@@ -232,7 +232,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
         },
         {
           id: '182950',
-          code: 'Loss of handcuffs',
+          response: 'Loss of handcuffs',
           active: true,
           label: 'Loss of handcuffs',
           commentRequired: false,
@@ -241,7 +241,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
         },
         {
           id: '182951',
-          code: 'Loss of escort chain',
+          response: 'Loss of escort chain',
           active: true,
           label: 'Loss of escort chain',
           commentRequired: false,
@@ -250,7 +250,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
         },
         {
           id: '182952',
-          code: 'Other handcuff key/lock issues',
+          response: 'Other handcuff key/lock issues',
           active: true,
           label: 'Other handcuff key/lock issues',
           commentRequired: false,
@@ -259,7 +259,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
         },
         {
           id: '182953',
-          code: 'Broken/Damaged keys',
+          response: 'Broken/Damaged keys',
           active: true,
           label: 'Broken/damaged keys',
           commentRequired: false,
@@ -268,7 +268,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
         },
         {
           id: '182954',
-          code: 'Worn locks (not malicious)',
+          response: 'Worn locks (not malicious)',
           active: true,
           label: 'Worn locks (not malicious)',
           commentRequired: false,
@@ -277,7 +277,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
         },
         {
           id: '182955',
-          code: 'Malicious damage to/blockage of locks',
+          response: 'Malicious damage to/blockage of locks',
           active: true,
           label: 'Malicious damage to/blockage of locks',
           commentRequired: false,
@@ -286,7 +286,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
         },
         {
           id: '182956',
-          code: 'Lock picked',
+          response: 'Lock picked',
           active: true,
           label: 'Lock picked',
           commentRequired: false,
@@ -295,7 +295,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
         },
         {
           id: '182957',
-          code: 'Part of lock removed',
+          response: 'Part of lock removed',
           active: true,
           label: 'Part of lock removed',
           commentRequired: false,
@@ -304,7 +304,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
         },
         {
           id: '182958',
-          code: 'Complete lock removed',
+          response: 'Complete lock removed',
           active: true,
           label: 'Complete lock removed',
           commentRequired: false,
@@ -313,7 +313,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
         },
         {
           id: '182959',
-          code: 'Electronics overcome (electronic door)',
+          response: 'Electronics overcome (electronic door)',
           active: true,
           label: 'Electronics overcome (electronic door)',
           commentRequired: false,
@@ -322,7 +322,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
         },
         {
           id: '182960',
-          code: 'Electronics failure (electronic door)',
+          response: 'Electronics failure (electronic door)',
           active: true,
           label: 'Electronics failure (electronic door)',
           commentRequired: false,
@@ -331,7 +331,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
         },
         {
           id: '182961',
-          code: 'Replica key found/used',
+          response: 'Replica key found/used',
           active: true,
           label: 'Replica key found/used',
           commentRequired: false,
@@ -340,7 +340,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
         },
         {
           id: '182962',
-          code: 'Key viewed by prisoner',
+          response: 'Key viewed by prisoner',
           active: true,
           label: 'Key viewed by prisoner',
           commentRequired: false,
@@ -349,7 +349,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
         },
         {
           id: '182963',
-          code: 'Other  (anything else including prisoner grabbing key chain, etc)',
+          response: 'Other  (anything else including prisoner grabbing key chain, etc)',
           active: true,
           label: 'Other (anything else including prisoner grabbing key chain, etc)',
           commentRequired: true,
@@ -367,7 +367,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
       answers: [
         {
           id: '182767',
-          code: 'Class 1 pass key',
+          response: 'Class 1 pass key',
           active: false,
           label: 'Class 1 pass key',
           commentRequired: false,
@@ -376,7 +376,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
         },
         {
           id: '182768',
-          code: 'Class 2 pass key',
+          response: 'Class 2 pass key',
           active: false,
           label: 'Class 2 pass key',
           commentRequired: false,
@@ -385,7 +385,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
         },
         {
           id: '182769',
-          code: 'Cell key',
+          response: 'Cell key',
           active: false,
           label: 'Cell key',
           commentRequired: false,
@@ -394,7 +394,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
         },
         {
           id: '182770',
-          code: 'Class 3 A1 Suite key',
+          response: 'Class 3 A1 Suite key',
           active: false,
           label: 'Class 3 A1 suite key',
           commentRequired: false,
@@ -403,7 +403,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
         },
         {
           id: '182771',
-          code: 'Class 3 Accountable key',
+          response: 'Class 3 Accountable key',
           active: false,
           label: 'Class 3 accountable key',
           commentRequired: false,
@@ -412,7 +412,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
         },
         {
           id: '182772',
-          code: 'Handcuff key',
+          response: 'Handcuff key',
           active: false,
           label: 'Handcuff key',
           commentRequired: false,
@@ -421,7 +421,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
         },
         {
           id: '182773',
-          code: 'Escort Chain key',
+          response: 'Escort Chain key',
           active: false,
           label: 'Escort chain key',
           commentRequired: false,
@@ -430,7 +430,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
         },
         {
           id: '182774',
-          code: 'Class 1 Lock',
+          response: 'Class 1 Lock',
           active: false,
           label: 'Class 1 lock',
           commentRequired: false,
@@ -439,7 +439,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
         },
         {
           id: '182775',
-          code: 'Class 2 Lock',
+          response: 'Class 2 Lock',
           active: false,
           label: 'Class 2 lock',
           commentRequired: false,
@@ -448,7 +448,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
         },
         {
           id: '182776',
-          code: 'Cell Lock',
+          response: 'Cell Lock',
           active: false,
           label: 'Cell lock',
           commentRequired: false,
@@ -457,7 +457,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
         },
         {
           id: '182777',
-          code: 'Class 3 A1 Suite Lock',
+          response: 'Class 3 A1 Suite Lock',
           active: false,
           label: 'Class 3 A1 suite lock',
           commentRequired: false,
@@ -466,7 +466,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
         },
         {
           id: '182778',
-          code: 'Class 3 Accountable Lock',
+          response: 'Class 3 Accountable Lock',
           active: false,
           label: 'Class 3 accountable lock',
           commentRequired: false,
@@ -475,7 +475,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
         },
         {
           id: '182779',
-          code: 'Handcuffs',
+          response: 'Handcuffs',
           active: false,
           label: 'Handcuffs',
           commentRequired: false,
@@ -484,7 +484,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
         },
         {
           id: '182780',
-          code: 'Escort chain',
+          response: 'Escort chain',
           active: false,
           label: 'Escort chain',
           commentRequired: false,
@@ -493,7 +493,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
         },
         {
           id: '182781',
-          code: 'Electronic Lock System',
+          response: 'Electronic Lock System',
           active: false,
           label: 'Electronic lock system',
           commentRequired: false,
@@ -502,7 +502,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
         },
         {
           id: '182782',
-          code: 'Magnetic Keys',
+          response: 'Magnetic Keys',
           active: false,
           label: 'Magnetic keys',
           commentRequired: false,
@@ -511,7 +511,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
         },
         {
           id: '182783',
-          code: 'Magnetic Lock',
+          response: 'Magnetic Lock',
           active: false,
           label: 'Magnetic lock',
           commentRequired: false,
@@ -520,7 +520,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
         },
         {
           id: '182784',
-          code: 'Cell Door',
+          response: 'Cell Door',
           active: false,
           label: 'Cell door',
           commentRequired: false,
@@ -529,7 +529,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
         },
         {
           id: '182785',
-          code: 'Brent Keys',
+          response: 'Brent Keys',
           active: false,
           label: 'Brent keys',
           commentRequired: false,
@@ -538,7 +538,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
         },
         {
           id: '182786',
-          code: 'Other: Specify',
+          response: 'Other: Specify',
           active: false,
           label: 'Other: specify',
           commentRequired: true,
@@ -547,7 +547,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
         },
         {
           id: '182964',
-          code: 'Class 1 pass key',
+          response: 'Class 1 pass key',
           active: true,
           label: 'Class 1 pass key',
           commentRequired: false,
@@ -556,7 +556,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
         },
         {
           id: '182965',
-          code: 'Class 2 pass key',
+          response: 'Class 2 pass key',
           active: true,
           label: 'Class 2 pass key',
           commentRequired: false,
@@ -565,7 +565,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
         },
         {
           id: '182966',
-          code: 'Cell key',
+          response: 'Cell key',
           active: true,
           label: 'Cell key',
           commentRequired: false,
@@ -574,7 +574,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
         },
         {
           id: '182967',
-          code: 'Class 3 A1 Suite key',
+          response: 'Class 3 A1 Suite key',
           active: true,
           label: 'Class 3 A1 suite key',
           commentRequired: false,
@@ -583,7 +583,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
         },
         {
           id: '182968',
-          code: 'Class 3 Accountable key',
+          response: 'Class 3 Accountable key',
           active: true,
           label: 'Class 3 accountable key',
           commentRequired: false,
@@ -592,7 +592,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
         },
         {
           id: '182969',
-          code: 'Handcuff key',
+          response: 'Handcuff key',
           active: true,
           label: 'Handcuff key',
           commentRequired: false,
@@ -601,7 +601,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
         },
         {
           id: '182970',
-          code: 'Escort Chain key',
+          response: 'Escort Chain key',
           active: true,
           label: 'Escort chain key',
           commentRequired: false,
@@ -610,7 +610,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
         },
         {
           id: '182971',
-          code: 'Class 1 Lock',
+          response: 'Class 1 Lock',
           active: true,
           label: 'Class 1 lock',
           commentRequired: false,
@@ -619,7 +619,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
         },
         {
           id: '182972',
-          code: 'Class 2 Lock',
+          response: 'Class 2 Lock',
           active: true,
           label: 'Class 2 lock',
           commentRequired: false,
@@ -628,7 +628,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
         },
         {
           id: '182973',
-          code: 'Cell Lock',
+          response: 'Cell Lock',
           active: true,
           label: 'Cell lock',
           commentRequired: false,
@@ -637,7 +637,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
         },
         {
           id: '182974',
-          code: 'Class 3 A1 Suite Lock',
+          response: 'Class 3 A1 Suite Lock',
           active: true,
           label: 'Class 3 A1 suite lock',
           commentRequired: false,
@@ -646,7 +646,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
         },
         {
           id: '182975',
-          code: 'Class 3 Accountable Lock',
+          response: 'Class 3 Accountable Lock',
           active: true,
           label: 'Class 3 accountable lock',
           commentRequired: false,
@@ -655,7 +655,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
         },
         {
           id: '182976',
-          code: 'Handcuffs',
+          response: 'Handcuffs',
           active: true,
           label: 'Handcuffs',
           commentRequired: false,
@@ -664,7 +664,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
         },
         {
           id: '182977',
-          code: 'Escort chain',
+          response: 'Escort chain',
           active: true,
           label: 'Escort chain',
           commentRequired: false,
@@ -673,7 +673,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
         },
         {
           id: '182978',
-          code: 'Electronic Lock System',
+          response: 'Electronic Lock System',
           active: true,
           label: 'Electronic lock system',
           commentRequired: false,
@@ -682,7 +682,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
         },
         {
           id: '182979',
-          code: 'Magnetic Keys',
+          response: 'Magnetic Keys',
           active: true,
           label: 'Magnetic keys',
           commentRequired: false,
@@ -691,7 +691,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
         },
         {
           id: '182980',
-          code: 'Magnetic Lock',
+          response: 'Magnetic Lock',
           active: true,
           label: 'Magnetic lock',
           commentRequired: false,
@@ -700,7 +700,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
         },
         {
           id: '182981',
-          code: 'Cell Door',
+          response: 'Cell Door',
           active: true,
           label: 'Cell door',
           commentRequired: false,
@@ -709,7 +709,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
         },
         {
           id: '182982',
-          code: 'Brent Keys',
+          response: 'Brent Keys',
           active: true,
           label: 'Brent keys',
           commentRequired: false,
@@ -718,7 +718,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
         },
         {
           id: '182983',
-          code: 'Other :  Specify',
+          response: 'Other :  Specify',
           active: true,
           label: 'Other : specify',
           commentRequired: true,
@@ -736,7 +736,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
       answers: [
         {
           id: '182787',
-          code: 'Enter Value:',
+          response: 'Enter Value:',
           active: false,
           label: 'Enter value:',
           commentRequired: true,
@@ -745,7 +745,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
         },
         {
           id: '182984',
-          code: 'Enter Value:',
+          response: 'Enter Value:',
           active: true,
           label: 'Enter value:',
           commentRequired: true,
@@ -763,7 +763,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
       answers: [
         {
           id: '182788',
-          code: 'Yes',
+          response: 'Yes',
           active: false,
           label: 'Yes',
           commentRequired: false,
@@ -772,7 +772,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
         },
         {
           id: '182789',
-          code: 'No',
+          response: 'No',
           active: false,
           label: 'No',
           commentRequired: false,
@@ -781,7 +781,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
         },
         {
           id: '182985',
-          code: 'Yes',
+          response: 'Yes',
           active: true,
           label: 'Yes',
           commentRequired: false,
@@ -790,7 +790,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
         },
         {
           id: '182986',
-          code: 'No',
+          response: 'No',
           active: false,
           label: 'No',
           commentRequired: false,
@@ -799,7 +799,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
         },
         {
           id: '184687',
-          code: 'No',
+          response: 'No',
           active: false,
           label: 'No',
           commentRequired: false,
@@ -808,7 +808,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
         },
         {
           id: '188684',
-          code: 'No',
+          response: 'No',
           active: false,
           label: 'No',
           commentRequired: false,
@@ -817,7 +817,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
         },
         {
           id: '190684',
-          code: 'No',
+          response: 'No',
           active: true,
           label: 'No',
           commentRequired: false,
@@ -835,7 +835,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
       answers: [
         {
           id: '182790',
-          code: 'Complete relock',
+          response: 'Complete relock',
           active: false,
           label: 'Complete relock',
           commentRequired: false,
@@ -844,7 +844,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
         },
         {
           id: '182791',
-          code: 'Partial relock',
+          response: 'Partial relock',
           active: false,
           label: 'Partial relock',
           commentRequired: false,
@@ -853,7 +853,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
         },
         {
           id: '182792',
-          code: 'Complete replacement',
+          response: 'Complete replacement',
           active: false,
           label: 'Complete replacement',
           commentRequired: false,
@@ -862,7 +862,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
         },
         {
           id: '182793',
-          code: 'Partial replacement',
+          response: 'Partial replacement',
           active: false,
           label: 'Partial replacement',
           commentRequired: false,
@@ -871,7 +871,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
         },
         {
           id: '182794',
-          code: 'Forensic testing',
+          response: 'Forensic testing',
           active: false,
           label: 'Forensic testing',
           commentRequired: false,
@@ -880,7 +880,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
         },
         {
           id: '182987',
-          code: 'Complete relock',
+          response: 'Complete relock',
           active: true,
           label: 'Complete relock',
           commentRequired: false,
@@ -889,7 +889,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
         },
         {
           id: '182988',
-          code: 'Partial relock',
+          response: 'Partial relock',
           active: true,
           label: 'Partial relock',
           commentRequired: false,
@@ -898,7 +898,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
         },
         {
           id: '182989',
-          code: 'Complete replacement',
+          response: 'Complete replacement',
           active: true,
           label: 'Complete replacement',
           commentRequired: false,
@@ -907,7 +907,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
         },
         {
           id: '182990',
-          code: 'Partial replacement',
+          response: 'Partial replacement',
           active: true,
           label: 'Partial replacement',
           commentRequired: false,
@@ -916,7 +916,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
         },
         {
           id: '182991',
-          code: 'Forensic testing',
+          response: 'Forensic testing',
           active: true,
           label: 'Forensic testing',
           commentRequired: false,
@@ -925,7 +925,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
         },
         {
           id: '188685',
-          code: 'Other',
+          response: 'Other',
           active: true,
           label: 'Other',
           commentRequired: true,
@@ -943,7 +943,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
       answers: [
         {
           id: '182795',
-          code: '£',
+          response: '£',
           active: false,
           label: '£',
           commentRequired: true,
@@ -952,7 +952,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
         },
         {
           id: '182992',
-          code: '£',
+          response: '£',
           active: true,
           label: '£',
           commentRequired: true,
@@ -961,7 +961,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
         },
         {
           id: '190687',
-          code: 'N/A',
+          response: 'N/A',
           active: true,
           label: 'N/A',
           commentRequired: false,
@@ -979,7 +979,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
       answers: [
         {
           id: '182796',
-          code: 'Yes',
+          response: 'Yes',
           active: false,
           label: 'Yes',
           commentRequired: false,
@@ -988,7 +988,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
         },
         {
           id: '182797',
-          code: 'No',
+          response: 'No',
           active: false,
           label: 'No',
           commentRequired: false,
@@ -997,7 +997,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
         },
         {
           id: '182993',
-          code: 'Yes',
+          response: 'Yes',
           active: true,
           label: 'Yes',
           commentRequired: false,
@@ -1006,7 +1006,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
         },
         {
           id: '182994',
-          code: 'No',
+          response: 'No',
           active: true,
           label: 'No',
           commentRequired: false,
@@ -1015,7 +1015,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
         },
         {
           id: '190686',
-          code: 'N/A',
+          response: 'N/A',
           active: true,
           label: 'N/A',
           commentRequired: false,
@@ -1033,7 +1033,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
       answers: [
         {
           id: '182798',
-          code: 'Yes',
+          response: 'Yes',
           active: false,
           label: 'Yes',
           commentRequired: false,
@@ -1042,7 +1042,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
         },
         {
           id: '182799',
-          code: 'No',
+          response: 'No',
           active: false,
           label: 'No',
           commentRequired: false,
@@ -1051,7 +1051,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
         },
         {
           id: '182995',
-          code: 'Yes',
+          response: 'Yes',
           active: true,
           label: 'Yes',
           commentRequired: false,
@@ -1060,7 +1060,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
         },
         {
           id: '182996',
-          code: 'No',
+          response: 'No',
           active: false,
           label: 'No',
           commentRequired: false,
@@ -1069,7 +1069,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
         },
         {
           id: '184688',
-          code: 'No',
+          response: 'No',
           active: true,
           label: 'No',
           commentRequired: false,
@@ -1078,7 +1078,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
         },
         {
           id: '190688',
-          code: 'N/A',
+          response: 'N/A',
           active: true,
           label: 'N/A',
           commentRequired: false,
@@ -1096,7 +1096,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
       answers: [
         {
           id: '182800',
-          code: 'Full close down search',
+          response: 'Full close down search',
           active: false,
           label: 'Full close down search',
           commentRequired: false,
@@ -1105,7 +1105,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
         },
         {
           id: '182801',
-          code: 'Partial search',
+          response: 'Partial search',
           active: false,
           label: 'Partial search',
           commentRequired: false,
@@ -1114,7 +1114,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
         },
         {
           id: '182802',
-          code: 'Other: Specify',
+          response: 'Other: Specify',
           active: false,
           label: 'Other: specify',
           commentRequired: true,
@@ -1123,7 +1123,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
         },
         {
           id: '182997',
-          code: 'Full close down search',
+          response: 'Full close down search',
           active: true,
           label: 'Full close down search',
           commentRequired: false,
@@ -1132,7 +1132,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
         },
         {
           id: '182998',
-          code: 'Partial search',
+          response: 'Partial search',
           active: true,
           label: 'Partial search',
           commentRequired: false,
@@ -1141,7 +1141,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
         },
         {
           id: '182999',
-          code: 'Other: Please specify',
+          response: 'Other: Please specify',
           active: true,
           label: 'Other: please specify',
           commentRequired: true,
@@ -1159,7 +1159,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
       answers: [
         {
           id: '182803',
-          code: 'Yes',
+          response: 'Yes',
           active: false,
           label: 'Yes',
           commentRequired: false,
@@ -1168,7 +1168,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
         },
         {
           id: '182804',
-          code: 'No',
+          response: 'No',
           active: false,
           label: 'No',
           commentRequired: false,
@@ -1177,7 +1177,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
         },
         {
           id: '183000',
-          code: 'Yes',
+          response: 'Yes',
           active: true,
           label: 'Yes',
           commentRequired: false,
@@ -1186,7 +1186,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
         },
         {
           id: '183001',
-          code: 'No',
+          response: 'No',
           active: false,
           label: 'No',
           commentRequired: false,
@@ -1195,7 +1195,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
         },
         {
           id: '190685',
-          code: 'No',
+          response: 'No',
           active: true,
           label: 'No',
           commentRequired: false,
@@ -1213,7 +1213,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
       answers: [
         {
           id: '182805',
-          code: 'Hacksaw blade',
+          response: 'Hacksaw blade',
           active: false,
           label: 'Hacksaw blade',
           commentRequired: false,
@@ -1222,7 +1222,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
         },
         {
           id: '182806',
-          code: 'Other Blade',
+          response: 'Other Blade',
           active: false,
           label: 'Other blade',
           commentRequired: false,
@@ -1231,7 +1231,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
         },
         {
           id: '182807',
-          code: 'Wire cutters',
+          response: 'Wire cutters',
           active: false,
           label: 'Wire cutters',
           commentRequired: false,
@@ -1240,7 +1240,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
         },
         {
           id: '182808',
-          code: 'Bolt cutters',
+          response: 'Bolt cutters',
           active: false,
           label: 'Bolt cutters',
           commentRequired: false,
@@ -1249,7 +1249,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
         },
         {
           id: '182809',
-          code: 'Digging tool',
+          response: 'Digging tool',
           active: false,
           label: 'Digging tool',
           commentRequired: false,
@@ -1258,7 +1258,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
         },
         {
           id: '182810',
-          code: 'Crow bar',
+          response: 'Crow bar',
           active: false,
           label: 'Crow bar',
           commentRequired: false,
@@ -1267,7 +1267,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
         },
         {
           id: '182811',
-          code: 'Improvised tool',
+          response: 'Improvised tool',
           active: false,
           label: 'Improvised tool',
           commentRequired: false,
@@ -1276,7 +1276,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
         },
         {
           id: '182812',
-          code: 'Other: Specify',
+          response: 'Other: Specify',
           active: false,
           label: 'Other: specify',
           commentRequired: false,
@@ -1285,7 +1285,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
         },
         {
           id: '182813',
-          code: 'Not Known',
+          response: 'Not Known',
           active: false,
           label: 'Not known',
           commentRequired: false,
@@ -1294,7 +1294,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
         },
         {
           id: '183002',
-          code: 'Hacksaw blade',
+          response: 'Hacksaw blade',
           active: true,
           label: 'Hacksaw blade',
           commentRequired: false,
@@ -1303,7 +1303,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
         },
         {
           id: '183003',
-          code: 'Other blade',
+          response: 'Other blade',
           active: true,
           label: 'Other blade',
           commentRequired: false,
@@ -1312,7 +1312,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
         },
         {
           id: '183004',
-          code: 'Wire cutters',
+          response: 'Wire cutters',
           active: true,
           label: 'Wire cutters',
           commentRequired: false,
@@ -1321,7 +1321,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
         },
         {
           id: '183005',
-          code: 'Bolt cutters',
+          response: 'Bolt cutters',
           active: true,
           label: 'Bolt cutters',
           commentRequired: false,
@@ -1330,7 +1330,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
         },
         {
           id: '183006',
-          code: 'Digging tool',
+          response: 'Digging tool',
           active: true,
           label: 'Digging tool',
           commentRequired: false,
@@ -1339,7 +1339,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
         },
         {
           id: '183007',
-          code: 'Crow bar',
+          response: 'Crow bar',
           active: true,
           label: 'Crow bar',
           commentRequired: false,
@@ -1348,7 +1348,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
         },
         {
           id: '183008',
-          code: 'Improvised tool',
+          response: 'Improvised tool',
           active: true,
           label: 'Improvised tool',
           commentRequired: false,
@@ -1357,7 +1357,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
         },
         {
           id: '183009',
-          code: 'Other: Please specify',
+          response: 'Other: Please specify',
           active: true,
           label: 'Other: please specify',
           commentRequired: true,
@@ -1366,7 +1366,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
         },
         {
           id: '183010',
-          code: 'Not Known',
+          response: 'Not Known',
           active: true,
           label: 'Not known',
           commentRequired: false,
@@ -1384,7 +1384,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
       answers: [
         {
           id: '182814',
-          code: 'Works Department',
+          response: 'Works Department',
           active: false,
           label: 'Works department',
           commentRequired: false,
@@ -1393,7 +1393,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
         },
         {
           id: '182815',
-          code: 'Contractors',
+          response: 'Contractors',
           active: false,
           label: 'Contractors',
           commentRequired: false,
@@ -1402,7 +1402,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
         },
         {
           id: '182816',
-          code: 'Education',
+          response: 'Education',
           active: false,
           label: 'Education',
           commentRequired: false,
@@ -1411,7 +1411,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
         },
         {
           id: '182817',
-          code: 'Heathcare Centre',
+          response: 'Heathcare Centre',
           active: false,
           label: 'Healthcare centre',
           commentRequired: false,
@@ -1420,7 +1420,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
         },
         {
           id: '182818',
-          code: 'Farms and Gardens',
+          response: 'Farms and Gardens',
           active: false,
           label: 'Farms and gardens',
           commentRequired: false,
@@ -1429,7 +1429,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
         },
         {
           id: '182819',
-          code: 'Staff',
+          response: 'Staff',
           active: false,
           label: 'Staff',
           commentRequired: false,
@@ -1438,7 +1438,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
         },
         {
           id: '182820',
-          code: 'Visitor',
+          response: 'Visitor',
           active: false,
           label: 'Visitor',
           commentRequired: false,
@@ -1447,7 +1447,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
         },
         {
           id: '182821',
-          code: 'Other: Specify',
+          response: 'Other: Specify',
           active: false,
           label: 'Other: specify',
           commentRequired: true,
@@ -1456,7 +1456,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
         },
         {
           id: '182822',
-          code: 'Not Known',
+          response: 'Not Known',
           active: false,
           label: 'Not known',
           commentRequired: false,
@@ -1465,7 +1465,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
         },
         {
           id: '183011',
-          code: 'Works Department',
+          response: 'Works Department',
           active: true,
           label: 'Works department',
           commentRequired: false,
@@ -1474,7 +1474,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
         },
         {
           id: '183012',
-          code: 'Contractors',
+          response: 'Contractors',
           active: true,
           label: 'Contractors',
           commentRequired: false,
@@ -1483,7 +1483,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
         },
         {
           id: '183013',
-          code: 'Education',
+          response: 'Education',
           active: true,
           label: 'Education',
           commentRequired: false,
@@ -1492,7 +1492,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
         },
         {
           id: '183014',
-          code: 'Health Care Centre',
+          response: 'Health Care Centre',
           active: true,
           label: 'Health care centre',
           commentRequired: false,
@@ -1501,7 +1501,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
         },
         {
           id: '183015',
-          code: 'Farms and Gardens',
+          response: 'Farms and Gardens',
           active: true,
           label: 'Farms and gardens',
           commentRequired: false,
@@ -1510,7 +1510,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
         },
         {
           id: '183016',
-          code: 'Staff',
+          response: 'Staff',
           active: true,
           label: 'Staff',
           commentRequired: false,
@@ -1519,7 +1519,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
         },
         {
           id: '183017',
-          code: 'Visitor',
+          response: 'Visitor',
           active: true,
           label: 'Visitor',
           commentRequired: false,
@@ -1528,7 +1528,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
         },
         {
           id: '183018',
-          code: 'Other: Please specify',
+          response: 'Other: Please specify',
           active: true,
           label: 'Other: please specify',
           commentRequired: true,
@@ -1537,7 +1537,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
         },
         {
           id: '183019',
-          code: 'Not Known',
+          response: 'Not Known',
           active: true,
           label: 'Not known',
           commentRequired: false,
@@ -1555,7 +1555,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
       answers: [
         {
           id: '182823',
-          code: 'Yes: Date',
+          response: 'Yes: Date',
           active: true,
           label: 'Yes: date',
           commentRequired: false,
@@ -1564,7 +1564,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
         },
         {
           id: '182824',
-          code: 'No',
+          response: 'No',
           active: true,
           label: 'No',
           commentRequired: false,
@@ -1573,7 +1573,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
         },
         {
           id: '182825',
-          code: 'Incident Ref No:',
+          response: 'Incident Ref No:',
           active: true,
           label: 'Incident ref no:',
           commentRequired: true,

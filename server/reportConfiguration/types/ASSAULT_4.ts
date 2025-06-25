@@ -16,7 +16,7 @@ export const ASSAULT_4: IncidentTypeConfiguration = {
       answers: [
         {
           id: '212856',
-          code: 'No further action',
+          response: 'No further action',
           active: false,
           label: 'No further action',
           commentRequired: false,
@@ -25,7 +25,7 @@ export const ASSAULT_4: IncidentTypeConfiguration = {
         },
         {
           id: '212857',
-          code: 'IEP regression',
+          response: 'IEP regression',
           active: false,
           label: 'IEP regression',
           commentRequired: false,
@@ -34,7 +34,7 @@ export const ASSAULT_4: IncidentTypeConfiguration = {
         },
         {
           id: '212858',
-          code: 'Placed on report/adjudication referral',
+          response: 'Placed on report/adjudication referral',
           active: false,
           label: 'Placed on report/adjudication referral',
           commentRequired: false,
@@ -43,7 +43,7 @@ export const ASSAULT_4: IncidentTypeConfiguration = {
         },
         {
           id: '212859',
-          code: 'Police referral',
+          response: 'Police referral',
           active: false,
           label: 'Police referral',
           commentRequired: false,
@@ -61,7 +61,7 @@ export const ASSAULT_4: IncidentTypeConfiguration = {
       answers: [
         {
           id: '212860',
-          code: 'No',
+          response: 'No',
           active: false,
           label: 'No',
           commentRequired: false,
@@ -70,7 +70,7 @@ export const ASSAULT_4: IncidentTypeConfiguration = {
         },
         {
           id: '212861',
-          code: 'Yes',
+          response: 'Yes',
           active: false,
           label: 'Yes',
           commentRequired: false,
@@ -88,7 +88,7 @@ export const ASSAULT_4: IncidentTypeConfiguration = {
       answers: [
         {
           id: '212862',
-          code: 'No',
+          response: 'No',
           active: false,
           label: 'No',
           commentRequired: false,
@@ -97,7 +97,7 @@ export const ASSAULT_4: IncidentTypeConfiguration = {
         },
         {
           id: '212863',
-          code: 'Yes',
+          response: 'Yes',
           active: false,
           label: 'Yes',
           commentRequired: false,
@@ -115,7 +115,7 @@ export const ASSAULT_4: IncidentTypeConfiguration = {
       answers: [
         {
           id: '212864',
-          code: 'No',
+          response: 'No',
           active: false,
           label: 'No',
           commentRequired: false,
@@ -124,7 +124,7 @@ export const ASSAULT_4: IncidentTypeConfiguration = {
         },
         {
           id: '212865',
-          code: 'Yes',
+          response: 'Yes',
           active: false,
           label: 'Yes',
           commentRequired: false,
@@ -142,7 +142,7 @@ export const ASSAULT_4: IncidentTypeConfiguration = {
       answers: [
         {
           id: '212866',
-          code: 'No',
+          response: 'No',
           active: false,
           label: 'No',
           commentRequired: false,
@@ -151,7 +151,7 @@ export const ASSAULT_4: IncidentTypeConfiguration = {
         },
         {
           id: '212867',
-          code: 'Yes',
+          response: 'Yes',
           active: false,
           label: 'Yes',
           commentRequired: false,
@@ -169,7 +169,7 @@ export const ASSAULT_4: IncidentTypeConfiguration = {
       answers: [
         {
           id: '212868',
-          code: 'Administration',
+          response: 'Administration',
           active: false,
           label: 'Administration',
           commentRequired: false,
@@ -178,7 +178,7 @@ export const ASSAULT_4: IncidentTypeConfiguration = {
         },
         {
           id: '212869',
-          code: 'Association area',
+          response: 'Association area',
           active: false,
           label: 'Association area',
           commentRequired: true,
@@ -187,7 +187,7 @@ export const ASSAULT_4: IncidentTypeConfiguration = {
         },
         {
           id: '212870',
-          code: 'Cell',
+          response: 'Cell',
           active: false,
           label: 'Cell',
           commentRequired: true,
@@ -196,7 +196,7 @@ export const ASSAULT_4: IncidentTypeConfiguration = {
         },
         {
           id: '212871',
-          code: 'Chapel',
+          response: 'Chapel',
           active: false,
           label: 'Chapel',
           commentRequired: false,
@@ -205,7 +205,7 @@ export const ASSAULT_4: IncidentTypeConfiguration = {
         },
         {
           id: '212872',
-          code: 'Crown Court',
+          response: 'Crown Court',
           active: false,
           label: 'Crown court',
           commentRequired: true,
@@ -214,7 +214,7 @@ export const ASSAULT_4: IncidentTypeConfiguration = {
         },
         {
           id: '212873',
-          code: 'Dining room',
+          response: 'Dining room',
           active: false,
           label: 'Dining room',
           commentRequired: false,
@@ -223,7 +223,7 @@ export const ASSAULT_4: IncidentTypeConfiguration = {
         },
         {
           id: '212874',
-          code: 'Dormitory',
+          response: 'Dormitory',
           active: false,
           label: 'Dormitory',
           commentRequired: false,
@@ -232,7 +232,7 @@ export const ASSAULT_4: IncidentTypeConfiguration = {
         },
         {
           id: '212875',
-          code: 'Education',
+          response: 'Education',
           active: false,
           label: 'Education',
           commentRequired: false,
@@ -241,7 +241,7 @@ export const ASSAULT_4: IncidentTypeConfiguration = {
         },
         {
           id: '212876',
-          code: 'Elsewhere',
+          response: 'Elsewhere',
           active: false,
           label: 'Elsewhere',
           commentRequired: true,
@@ -250,7 +250,7 @@ export const ASSAULT_4: IncidentTypeConfiguration = {
         },
         {
           id: '212877',
-          code: 'Exercise yard',
+          response: 'Exercise yard',
           active: false,
           label: 'Exercise yard',
           commentRequired: false,
@@ -259,7 +259,7 @@ export const ASSAULT_4: IncidentTypeConfiguration = {
         },
         {
           id: '212878',
-          code: 'External roof',
+          response: 'External roof',
           active: false,
           label: 'External roof',
           commentRequired: true,
@@ -268,7 +268,7 @@ export const ASSAULT_4: IncidentTypeConfiguration = {
         },
         {
           id: '212879',
-          code: 'Funeral',
+          response: 'Funeral',
           active: false,
           label: 'Funeral',
           commentRequired: false,
@@ -277,7 +277,7 @@ export const ASSAULT_4: IncidentTypeConfiguration = {
         },
         {
           id: '212880',
-          code: 'Gate',
+          response: 'Gate',
           active: false,
           label: 'Gate',
           commentRequired: false,
@@ -286,7 +286,7 @@ export const ASSAULT_4: IncidentTypeConfiguration = {
         },
         {
           id: '212881',
-          code: 'Gym',
+          response: 'Gym',
           active: false,
           label: 'Gym',
           commentRequired: false,
@@ -295,7 +295,7 @@ export const ASSAULT_4: IncidentTypeConfiguration = {
         },
         {
           id: '212882',
-          code: 'Health care centre',
+          response: 'Health care centre',
           active: false,
           label: 'Health care centre',
           commentRequired: false,
@@ -304,7 +304,7 @@ export const ASSAULT_4: IncidentTypeConfiguration = {
         },
         {
           id: '212883',
-          code: 'Hospital outside (patient)',
+          response: 'Hospital outside (patient)',
           active: false,
           label: 'Hospital outside (patient)',
           commentRequired: false,
@@ -313,7 +313,7 @@ export const ASSAULT_4: IncidentTypeConfiguration = {
         },
         {
           id: '212884',
-          code: 'Hospital outside (visiting)',
+          response: 'Hospital outside (visiting)',
           active: false,
           label: 'Hospital outside (visiting)',
           commentRequired: false,
@@ -322,7 +322,7 @@ export const ASSAULT_4: IncidentTypeConfiguration = {
         },
         {
           id: '212885',
-          code: 'Induction/First night centre',
+          response: 'Induction/First night centre',
           active: false,
           label: 'Induction/first night centre',
           commentRequired: true,
@@ -331,7 +331,7 @@ export const ASSAULT_4: IncidentTypeConfiguration = {
         },
         {
           id: '212886',
-          code: 'Kitchen',
+          response: 'Kitchen',
           active: false,
           label: 'Kitchen',
           commentRequired: false,
@@ -340,7 +340,7 @@ export const ASSAULT_4: IncidentTypeConfiguration = {
         },
         {
           id: '212887',
-          code: 'Magistrates court',
+          response: 'Magistrates court',
           active: false,
           label: 'Magistrates court',
           commentRequired: true,
@@ -349,7 +349,7 @@ export const ASSAULT_4: IncidentTypeConfiguration = {
         },
         {
           id: '212888',
-          code: 'Mail room',
+          response: 'Mail room',
           active: false,
           label: 'Mail room',
           commentRequired: false,
@@ -358,7 +358,7 @@ export const ASSAULT_4: IncidentTypeConfiguration = {
         },
         {
           id: '212889',
-          code: 'Office',
+          response: 'Office',
           active: false,
           label: 'Office',
           commentRequired: false,
@@ -367,7 +367,7 @@ export const ASSAULT_4: IncidentTypeConfiguration = {
         },
         {
           id: '212890',
-          code: 'Outside working party',
+          response: 'Outside working party',
           active: false,
           label: 'Outside working party',
           commentRequired: true,
@@ -376,7 +376,7 @@ export const ASSAULT_4: IncidentTypeConfiguration = {
         },
         {
           id: '212891',
-          code: 'Reception',
+          response: 'Reception',
           active: false,
           label: 'Reception',
           commentRequired: false,
@@ -385,7 +385,7 @@ export const ASSAULT_4: IncidentTypeConfiguration = {
         },
         {
           id: '212892',
-          code: 'Recess',
+          response: 'Recess',
           active: false,
           label: 'Recess',
           commentRequired: false,
@@ -394,7 +394,7 @@ export const ASSAULT_4: IncidentTypeConfiguration = {
         },
         {
           id: '212893',
-          code: 'Segregation unit',
+          response: 'Segregation unit',
           active: false,
           label: 'Segregation unit',
           commentRequired: false,
@@ -403,7 +403,7 @@ export const ASSAULT_4: IncidentTypeConfiguration = {
         },
         {
           id: '212894',
-          code: 'Showers/changing room',
+          response: 'Showers/changing room',
           active: false,
           label: 'Showers/changing room',
           commentRequired: false,
@@ -412,7 +412,7 @@ export const ASSAULT_4: IncidentTypeConfiguration = {
         },
         {
           id: '212895',
-          code: 'Special unit',
+          response: 'Special unit',
           active: false,
           label: 'Special unit',
           commentRequired: true,
@@ -421,7 +421,7 @@ export const ASSAULT_4: IncidentTypeConfiguration = {
         },
         {
           id: '212896',
-          code: 'Sports field',
+          response: 'Sports field',
           active: false,
           label: 'Sports field',
           commentRequired: false,
@@ -430,7 +430,7 @@ export const ASSAULT_4: IncidentTypeConfiguration = {
         },
         {
           id: '212897',
-          code: 'Vehicle',
+          response: 'Vehicle',
           active: false,
           label: 'Vehicle',
           commentRequired: false,
@@ -439,7 +439,7 @@ export const ASSAULT_4: IncidentTypeConfiguration = {
         },
         {
           id: '212898',
-          code: 'Visits',
+          response: 'Visits',
           active: false,
           label: 'Visits',
           commentRequired: false,
@@ -448,7 +448,7 @@ export const ASSAULT_4: IncidentTypeConfiguration = {
         },
         {
           id: '212899',
-          code: 'Vulnerable prisoners unit (VPU)',
+          response: 'Vulnerable prisoners unit (VPU)',
           active: false,
           label: 'Vulnerable prisoners unit (VPU)',
           commentRequired: true,
@@ -457,7 +457,7 @@ export const ASSAULT_4: IncidentTypeConfiguration = {
         },
         {
           id: '212900',
-          code: 'Weddings',
+          response: 'Weddings',
           active: false,
           label: 'Weddings',
           commentRequired: false,
@@ -466,7 +466,7 @@ export const ASSAULT_4: IncidentTypeConfiguration = {
         },
         {
           id: '212901',
-          code: 'Wing',
+          response: 'Wing',
           active: false,
           label: 'Wing',
           commentRequired: true,
@@ -475,7 +475,7 @@ export const ASSAULT_4: IncidentTypeConfiguration = {
         },
         {
           id: '212902',
-          code: 'Within perimeter',
+          response: 'Within perimeter',
           active: false,
           label: 'Within perimeter',
           commentRequired: true,
@@ -484,7 +484,7 @@ export const ASSAULT_4: IncidentTypeConfiguration = {
         },
         {
           id: '212903',
-          code: 'Works department',
+          response: 'Works department',
           active: false,
           label: 'Works department',
           commentRequired: false,
@@ -493,7 +493,7 @@ export const ASSAULT_4: IncidentTypeConfiguration = {
         },
         {
           id: '212904',
-          code: 'Workshop',
+          response: 'Workshop',
           active: false,
           label: 'Workshop',
           commentRequired: true,
@@ -511,7 +511,7 @@ export const ASSAULT_4: IncidentTypeConfiguration = {
       answers: [
         {
           id: '212905',
-          code: 'No',
+          response: 'No',
           active: false,
           label: 'No',
           commentRequired: false,
@@ -520,7 +520,7 @@ export const ASSAULT_4: IncidentTypeConfiguration = {
         },
         {
           id: '212906',
-          code: 'Yes',
+          response: 'Yes',
           active: false,
           label: 'Yes',
           commentRequired: false,
@@ -538,7 +538,7 @@ export const ASSAULT_4: IncidentTypeConfiguration = {
       answers: [
         {
           id: '212907',
-          code: 'No',
+          response: 'No',
           active: false,
           label: 'No',
           commentRequired: false,
@@ -547,7 +547,7 @@ export const ASSAULT_4: IncidentTypeConfiguration = {
         },
         {
           id: '212908',
-          code: 'Yes',
+          response: 'Yes',
           active: false,
           label: 'Yes',
           commentRequired: false,
@@ -565,7 +565,7 @@ export const ASSAULT_4: IncidentTypeConfiguration = {
       answers: [
         {
           id: '212909',
-          code: 'Prisoner on prisoner',
+          response: 'Prisoner on prisoner',
           active: false,
           label: 'Prisoner on prisoner',
           commentRequired: false,
@@ -574,7 +574,7 @@ export const ASSAULT_4: IncidentTypeConfiguration = {
         },
         {
           id: '212910',
-          code: 'Prisoner on staff',
+          response: 'Prisoner on staff',
           active: false,
           label: 'Prisoner on staff',
           commentRequired: false,
@@ -583,7 +583,7 @@ export const ASSAULT_4: IncidentTypeConfiguration = {
         },
         {
           id: '212911',
-          code: 'Prisoner on other',
+          response: 'Prisoner on other',
           active: false,
           label: 'Prisoner on other',
           commentRequired: true,
@@ -592,7 +592,7 @@ export const ASSAULT_4: IncidentTypeConfiguration = {
         },
         {
           id: '212912',
-          code: 'Other',
+          response: 'Other',
           active: false,
           label: 'Other',
           commentRequired: true,
@@ -610,7 +610,7 @@ export const ASSAULT_4: IncidentTypeConfiguration = {
       answers: [
         {
           id: '212913',
-          code: 'No',
+          response: 'No',
           active: false,
           label: 'No',
           commentRequired: false,
@@ -619,7 +619,7 @@ export const ASSAULT_4: IncidentTypeConfiguration = {
         },
         {
           id: '212914',
-          code: 'Yes',
+          response: 'Yes',
           active: false,
           label: 'Yes',
           commentRequired: false,
@@ -637,7 +637,7 @@ export const ASSAULT_4: IncidentTypeConfiguration = {
       answers: [
         {
           id: '212915',
-          code: 'Operational staff- Prison Officer',
+          response: 'Operational staff- Prison Officer',
           active: false,
           label: 'Operational staff- prison officer',
           commentRequired: false,
@@ -646,7 +646,7 @@ export const ASSAULT_4: IncidentTypeConfiguration = {
         },
         {
           id: '212916',
-          code: 'Operational staff - Other',
+          response: 'Operational staff - Other',
           active: false,
           label: 'Operational staff - other',
           commentRequired: false,
@@ -655,7 +655,7 @@ export const ASSAULT_4: IncidentTypeConfiguration = {
         },
         {
           id: '212917',
-          code: 'Non-operational staff',
+          response: 'Non-operational staff',
           active: false,
           label: 'Non-operational staff',
           commentRequired: false,
@@ -664,7 +664,7 @@ export const ASSAULT_4: IncidentTypeConfiguration = {
         },
         {
           id: '212918',
-          code: 'Non-directly employed staff',
+          response: 'Non-directly employed staff',
           active: false,
           label: 'Non-directly employed staff',
           commentRequired: false,
@@ -682,7 +682,7 @@ export const ASSAULT_4: IncidentTypeConfiguration = {
       answers: [
         {
           id: '212919',
-          code: 'No',
+          response: 'No',
           active: false,
           label: 'No',
           commentRequired: false,
@@ -691,7 +691,7 @@ export const ASSAULT_4: IncidentTypeConfiguration = {
         },
         {
           id: '212920',
-          code: 'Yes',
+          response: 'Yes',
           active: false,
           label: 'Yes',
           commentRequired: false,
@@ -709,7 +709,7 @@ export const ASSAULT_4: IncidentTypeConfiguration = {
       answers: [
         {
           id: '212921',
-          code: 'No',
+          response: 'No',
           active: false,
           label: 'No',
           commentRequired: false,
@@ -718,7 +718,7 @@ export const ASSAULT_4: IncidentTypeConfiguration = {
         },
         {
           id: '212922',
-          code: 'Yes',
+          response: 'Yes',
           active: false,
           label: 'Yes',
           commentRequired: true,
@@ -736,7 +736,7 @@ export const ASSAULT_4: IncidentTypeConfiguration = {
       answers: [
         {
           id: '212923',
-          code: 'No',
+          response: 'No',
           active: false,
           label: 'No',
           commentRequired: false,
@@ -745,7 +745,7 @@ export const ASSAULT_4: IncidentTypeConfiguration = {
         },
         {
           id: '212924',
-          code: 'Yes',
+          response: 'Yes',
           active: false,
           label: 'Yes',
           commentRequired: false,
@@ -763,7 +763,7 @@ export const ASSAULT_4: IncidentTypeConfiguration = {
       answers: [
         {
           id: '212925',
-          code: 'Neck or above',
+          response: 'Neck or above',
           active: false,
           label: 'Neck or above',
           commentRequired: false,
@@ -772,7 +772,7 @@ export const ASSAULT_4: IncidentTypeConfiguration = {
         },
         {
           id: '212926',
-          code: 'Torso',
+          response: 'Torso',
           active: false,
           label: 'Torso',
           commentRequired: false,
@@ -781,7 +781,7 @@ export const ASSAULT_4: IncidentTypeConfiguration = {
         },
         {
           id: '212927',
-          code: 'Arms or hands',
+          response: 'Arms or hands',
           active: false,
           label: 'Arms or hands',
           commentRequired: false,
@@ -790,7 +790,7 @@ export const ASSAULT_4: IncidentTypeConfiguration = {
         },
         {
           id: '212928',
-          code: 'Legs or feet',
+          response: 'Legs or feet',
           active: false,
           label: 'Legs or feet',
           commentRequired: false,
@@ -808,7 +808,7 @@ export const ASSAULT_4: IncidentTypeConfiguration = {
       answers: [
         {
           id: '212929',
-          code: 'No',
+          response: 'No',
           active: false,
           label: 'No',
           commentRequired: false,
@@ -817,7 +817,7 @@ export const ASSAULT_4: IncidentTypeConfiguration = {
         },
         {
           id: '212930',
-          code: 'Yes',
+          response: 'Yes',
           active: false,
           label: 'Yes',
           commentRequired: false,
@@ -835,7 +835,7 @@ export const ASSAULT_4: IncidentTypeConfiguration = {
       answers: [
         {
           id: '212931',
-          code: 'Blunt instrument',
+          response: 'Blunt instrument',
           active: false,
           label: 'Blunt instrument',
           commentRequired: false,
@@ -844,7 +844,7 @@ export const ASSAULT_4: IncidentTypeConfiguration = {
         },
         {
           id: '212932',
-          code: 'Knife/blade',
+          response: 'Knife/blade',
           active: false,
           label: 'Knife/blade',
           commentRequired: false,
@@ -853,7 +853,7 @@ export const ASSAULT_4: IncidentTypeConfiguration = {
         },
         {
           id: '212933',
-          code: 'Other sharp instrument',
+          response: 'Other sharp instrument',
           active: false,
           label: 'Other sharp instrument',
           commentRequired: false,
@@ -862,7 +862,7 @@ export const ASSAULT_4: IncidentTypeConfiguration = {
         },
         {
           id: '212934',
-          code: 'Dangerous liquid',
+          response: 'Dangerous liquid',
           active: false,
           label: 'Dangerous liquid',
           commentRequired: false,
@@ -871,7 +871,7 @@ export const ASSAULT_4: IncidentTypeConfiguration = {
         },
         {
           id: '212935',
-          code: 'Excreta/urine',
+          response: 'Excreta/urine',
           active: false,
           label: 'Excreta/urine',
           commentRequired: false,
@@ -880,7 +880,7 @@ export const ASSAULT_4: IncidentTypeConfiguration = {
         },
         {
           id: '212936',
-          code: 'Thrown equipment',
+          response: 'Thrown equipment',
           active: false,
           label: 'Thrown equipment',
           commentRequired: false,
@@ -889,7 +889,7 @@ export const ASSAULT_4: IncidentTypeConfiguration = {
         },
         {
           id: '212937',
-          code: 'Thrown furniture',
+          response: 'Thrown furniture',
           active: false,
           label: 'Thrown furniture',
           commentRequired: false,
@@ -898,7 +898,7 @@ export const ASSAULT_4: IncidentTypeConfiguration = {
         },
         {
           id: '212938',
-          code: 'Food',
+          response: 'Food',
           active: false,
           label: 'Food',
           commentRequired: false,
@@ -907,7 +907,7 @@ export const ASSAULT_4: IncidentTypeConfiguration = {
         },
         {
           id: '212939',
-          code: 'Ligature',
+          response: 'Ligature',
           active: false,
           label: 'Ligature',
           commentRequired: false,
@@ -916,7 +916,7 @@ export const ASSAULT_4: IncidentTypeConfiguration = {
         },
         {
           id: '212940',
-          code: 'Chemical incapacitant',
+          response: 'Chemical incapacitant',
           active: false,
           label: 'Chemical incapacitant',
           commentRequired: false,
@@ -925,7 +925,7 @@ export const ASSAULT_4: IncidentTypeConfiguration = {
         },
         {
           id: '212941',
-          code: 'Firearm',
+          response: 'Firearm',
           active: false,
           label: 'Firearm',
           commentRequired: false,
@@ -934,7 +934,7 @@ export const ASSAULT_4: IncidentTypeConfiguration = {
         },
         {
           id: '212942',
-          code: 'Other',
+          response: 'Other',
           active: false,
           label: 'Other',
           commentRequired: true,
@@ -952,7 +952,7 @@ export const ASSAULT_4: IncidentTypeConfiguration = {
       answers: [
         {
           id: '212943',
-          code: 'No',
+          response: 'No',
           active: false,
           label: 'No',
           commentRequired: false,
@@ -961,7 +961,7 @@ export const ASSAULT_4: IncidentTypeConfiguration = {
         },
         {
           id: '212944',
-          code: 'Yes',
+          response: 'Yes',
           active: false,
           label: 'Yes',
           commentRequired: false,
@@ -979,7 +979,7 @@ export const ASSAULT_4: IncidentTypeConfiguration = {
       answers: [
         {
           id: '212945',
-          code: 'Prisoners',
+          response: 'Prisoners',
           active: false,
           label: 'Prisoners',
           commentRequired: false,
@@ -988,7 +988,7 @@ export const ASSAULT_4: IncidentTypeConfiguration = {
         },
         {
           id: '212946',
-          code: 'Operational staff- Prison Officer',
+          response: 'Operational staff- Prison Officer',
           active: false,
           label: 'Operational staff- prison officer',
           commentRequired: false,
@@ -997,7 +997,7 @@ export const ASSAULT_4: IncidentTypeConfiguration = {
         },
         {
           id: '212947',
-          code: 'Operational staff - Other',
+          response: 'Operational staff - Other',
           active: false,
           label: 'Operational staff - other',
           commentRequired: false,
@@ -1006,7 +1006,7 @@ export const ASSAULT_4: IncidentTypeConfiguration = {
         },
         {
           id: '212948',
-          code: 'Non-operational staff',
+          response: 'Non-operational staff',
           active: false,
           label: 'Non-operational staff',
           commentRequired: false,
@@ -1015,7 +1015,7 @@ export const ASSAULT_4: IncidentTypeConfiguration = {
         },
         {
           id: '212949',
-          code: 'Non-directly employed staff',
+          response: 'Non-directly employed staff',
           active: false,
           label: 'Non-directly employed staff',
           commentRequired: false,
@@ -1024,7 +1024,7 @@ export const ASSAULT_4: IncidentTypeConfiguration = {
         },
         {
           id: '212950',
-          code: 'Police',
+          response: 'Police',
           active: false,
           label: 'Police',
           commentRequired: false,
@@ -1033,7 +1033,7 @@ export const ASSAULT_4: IncidentTypeConfiguration = {
         },
         {
           id: '212951',
-          code: 'Visitor',
+          response: 'Visitor',
           active: false,
           label: 'Visitor',
           commentRequired: false,
@@ -1042,7 +1042,7 @@ export const ASSAULT_4: IncidentTypeConfiguration = {
         },
         {
           id: '212952',
-          code: 'Other',
+          response: 'Other',
           active: false,
           label: 'Other',
           commentRequired: true,
@@ -1060,7 +1060,7 @@ export const ASSAULT_4: IncidentTypeConfiguration = {
       answers: [
         {
           id: '212953',
-          code: 'No',
+          response: 'No',
           active: false,
           label: 'No',
           commentRequired: false,
@@ -1069,7 +1069,7 @@ export const ASSAULT_4: IncidentTypeConfiguration = {
         },
         {
           id: '212954',
-          code: 'Yes',
+          response: 'Yes',
           active: false,
           label: 'Yes',
           commentRequired: false,
@@ -1087,7 +1087,7 @@ export const ASSAULT_4: IncidentTypeConfiguration = {
       answers: [
         {
           id: '212955',
-          code: 'Black eye',
+          response: 'Black eye',
           active: false,
           label: 'Black eye',
           commentRequired: false,
@@ -1096,7 +1096,7 @@ export const ASSAULT_4: IncidentTypeConfiguration = {
         },
         {
           id: '212956',
-          code: 'Bites',
+          response: 'Bites',
           active: false,
           label: 'Bites',
           commentRequired: false,
@@ -1105,7 +1105,7 @@ export const ASSAULT_4: IncidentTypeConfiguration = {
         },
         {
           id: '212957',
-          code: 'Cuts requiring sutures',
+          response: 'Cuts requiring sutures',
           active: false,
           label: 'Cuts requiring sutures',
           commentRequired: false,
@@ -1114,7 +1114,7 @@ export const ASSAULT_4: IncidentTypeConfiguration = {
         },
         {
           id: '212958',
-          code: 'Extensive/multiple bruising',
+          response: 'Extensive/multiple bruising',
           active: false,
           label: 'Extensive/multiple bruising',
           commentRequired: false,
@@ -1123,7 +1123,7 @@ export const ASSAULT_4: IncidentTypeConfiguration = {
         },
         {
           id: '212959',
-          code: 'Fracture',
+          response: 'Fracture',
           active: false,
           label: 'Fracture',
           commentRequired: false,
@@ -1132,7 +1132,7 @@ export const ASSAULT_4: IncidentTypeConfiguration = {
         },
         {
           id: '212960',
-          code: 'Scald or burn',
+          response: 'Scald or burn',
           active: false,
           label: 'Scald or burn',
           commentRequired: false,
@@ -1141,7 +1141,7 @@ export const ASSAULT_4: IncidentTypeConfiguration = {
         },
         {
           id: '212961',
-          code: 'Stabbing',
+          response: 'Stabbing',
           active: false,
           label: 'Stabbing',
           commentRequired: false,
@@ -1150,7 +1150,7 @@ export const ASSAULT_4: IncidentTypeConfiguration = {
         },
         {
           id: '212962',
-          code: 'Broken teeth',
+          response: 'Broken teeth',
           active: false,
           label: 'Broken teeth',
           commentRequired: false,
@@ -1159,7 +1159,7 @@ export const ASSAULT_4: IncidentTypeConfiguration = {
         },
         {
           id: '212963',
-          code: 'Broken nose',
+          response: 'Broken nose',
           active: false,
           label: 'Broken nose',
           commentRequired: false,
@@ -1168,7 +1168,7 @@ export const ASSAULT_4: IncidentTypeConfiguration = {
         },
         {
           id: '212964',
-          code: 'Crushing',
+          response: 'Crushing',
           active: false,
           label: 'Crushing',
           commentRequired: false,
@@ -1177,7 +1177,7 @@ export const ASSAULT_4: IncidentTypeConfiguration = {
         },
         {
           id: '212965',
-          code: 'Temporary/permanent blindness',
+          response: 'Temporary/permanent blindness',
           active: false,
           label: 'Temporary/permanent blindness',
           commentRequired: false,
@@ -1186,7 +1186,7 @@ export const ASSAULT_4: IncidentTypeConfiguration = {
         },
         {
           id: '212966',
-          code: 'Gun shot wound',
+          response: 'Gun shot wound',
           active: false,
           label: 'Gun shot wound',
           commentRequired: false,
@@ -1204,7 +1204,7 @@ export const ASSAULT_4: IncidentTypeConfiguration = {
       answers: [
         {
           id: '212967',
-          code: 'No',
+          response: 'No',
           active: false,
           label: 'No',
           commentRequired: false,
@@ -1213,7 +1213,7 @@ export const ASSAULT_4: IncidentTypeConfiguration = {
         },
         {
           id: '212968',
-          code: 'Yes',
+          response: 'Yes',
           active: false,
           label: 'Yes',
           commentRequired: false,
@@ -1231,7 +1231,7 @@ export const ASSAULT_4: IncidentTypeConfiguration = {
       answers: [
         {
           id: '212969',
-          code: 'Grazes, scratches or abrasions',
+          response: 'Grazes, scratches or abrasions',
           active: false,
           label: 'Grazes, scratches or abrasions',
           commentRequired: false,
@@ -1240,7 +1240,7 @@ export const ASSAULT_4: IncidentTypeConfiguration = {
         },
         {
           id: '212970',
-          code: 'Minor bruises',
+          response: 'Minor bruises',
           active: false,
           label: 'Minor bruises',
           commentRequired: false,
@@ -1249,7 +1249,7 @@ export const ASSAULT_4: IncidentTypeConfiguration = {
         },
         {
           id: '212971',
-          code: 'Superficial cuts',
+          response: 'Superficial cuts',
           active: false,
           label: 'Superficial cuts',
           commentRequired: false,
@@ -1258,7 +1258,7 @@ export const ASSAULT_4: IncidentTypeConfiguration = {
         },
         {
           id: '212972',
-          code: 'Swellings',
+          response: 'Swellings',
           active: false,
           label: 'Swellings',
           commentRequired: false,
@@ -1267,7 +1267,7 @@ export const ASSAULT_4: IncidentTypeConfiguration = {
         },
         {
           id: '212973',
-          code: 'Other',
+          response: 'Other',
           active: false,
           label: 'Other',
           commentRequired: false,
@@ -1285,7 +1285,7 @@ export const ASSAULT_4: IncidentTypeConfiguration = {
       answers: [
         {
           id: '212974',
-          code: 'No',
+          response: 'No',
           active: false,
           label: 'No',
           commentRequired: false,
@@ -1294,7 +1294,7 @@ export const ASSAULT_4: IncidentTypeConfiguration = {
         },
         {
           id: '212975',
-          code: 'Yes',
+          response: 'Yes',
           active: false,
           label: 'Yes',
           commentRequired: false,
@@ -1312,7 +1312,7 @@ export const ASSAULT_4: IncidentTypeConfiguration = {
       answers: [
         {
           id: '212976',
-          code: 'A and E',
+          response: 'A and E',
           active: false,
           label: 'A&E',
           commentRequired: false,
@@ -1321,7 +1321,7 @@ export const ASSAULT_4: IncidentTypeConfiguration = {
         },
         {
           id: '212977',
-          code: 'Inpatient (overnight only)',
+          response: 'Inpatient (overnight only)',
           active: false,
           label: 'Inpatient (overnight only)',
           commentRequired: false,
@@ -1330,7 +1330,7 @@ export const ASSAULT_4: IncidentTypeConfiguration = {
         },
         {
           id: '212978',
-          code: 'Inpatient (over 24hr)',
+          response: 'Inpatient (over 24hr)',
           active: false,
           label: 'Inpatient (over 24hr)',
           commentRequired: false,
@@ -1339,7 +1339,7 @@ export const ASSAULT_4: IncidentTypeConfiguration = {
         },
         {
           id: '212979',
-          code: 'Life support',
+          response: 'Life support',
           active: false,
           label: 'Life support',
           commentRequired: false,
@@ -1357,7 +1357,7 @@ export const ASSAULT_4: IncidentTypeConfiguration = {
       answers: [
         {
           id: '212980',
-          code: 'Prisoners',
+          response: 'Prisoners',
           active: false,
           label: 'Prisoners',
           commentRequired: false,
@@ -1366,7 +1366,7 @@ export const ASSAULT_4: IncidentTypeConfiguration = {
         },
         {
           id: '212981',
-          code: 'Operational staff- Prison Officer',
+          response: 'Operational staff- Prison Officer',
           active: false,
           label: 'Operational staff- prison officer',
           commentRequired: false,
@@ -1375,7 +1375,7 @@ export const ASSAULT_4: IncidentTypeConfiguration = {
         },
         {
           id: '212982',
-          code: 'Operational staff - Other',
+          response: 'Operational staff - Other',
           active: false,
           label: 'Operational staff - other',
           commentRequired: false,
@@ -1384,7 +1384,7 @@ export const ASSAULT_4: IncidentTypeConfiguration = {
         },
         {
           id: '212983',
-          code: 'Non-operational staff',
+          response: 'Non-operational staff',
           active: false,
           label: 'Non-operational staff',
           commentRequired: false,
@@ -1393,7 +1393,7 @@ export const ASSAULT_4: IncidentTypeConfiguration = {
         },
         {
           id: '212984',
-          code: 'Non-directly employed staff',
+          response: 'Non-directly employed staff',
           active: false,
           label: 'Non-directly employed staff',
           commentRequired: false,
@@ -1402,7 +1402,7 @@ export const ASSAULT_4: IncidentTypeConfiguration = {
         },
         {
           id: '212985',
-          code: 'Police',
+          response: 'Police',
           active: false,
           label: 'Police',
           commentRequired: false,
@@ -1411,7 +1411,7 @@ export const ASSAULT_4: IncidentTypeConfiguration = {
         },
         {
           id: '212986',
-          code: 'Visitor',
+          response: 'Visitor',
           active: false,
           label: 'Visitor',
           commentRequired: false,
@@ -1420,7 +1420,7 @@ export const ASSAULT_4: IncidentTypeConfiguration = {
         },
         {
           id: '212987',
-          code: 'Other',
+          response: 'Other',
           active: false,
           label: 'Other',
           commentRequired: true,
@@ -1438,7 +1438,7 @@ export const ASSAULT_4: IncidentTypeConfiguration = {
       answers: [
         {
           id: '212988',
-          code: 'No',
+          response: 'No',
           active: false,
           label: 'No',
           commentRequired: false,
@@ -1447,7 +1447,7 @@ export const ASSAULT_4: IncidentTypeConfiguration = {
         },
         {
           id: '212989',
-          code: 'Yes',
+          response: 'Yes',
           active: false,
           label: 'Yes',
           commentRequired: false,
@@ -1465,7 +1465,7 @@ export const ASSAULT_4: IncidentTypeConfiguration = {
       answers: [
         {
           id: '212990',
-          code: 'No',
+          response: 'No',
           active: false,
           label: 'No',
           commentRequired: false,
@@ -1474,7 +1474,7 @@ export const ASSAULT_4: IncidentTypeConfiguration = {
         },
         {
           id: '212991',
-          code: 'Yes',
+          response: 'Yes',
           active: false,
           label: 'Yes',
           commentRequired: false,
@@ -1492,7 +1492,7 @@ export const ASSAULT_4: IncidentTypeConfiguration = {
       answers: [
         {
           id: '212992',
-          code: 'No',
+          response: 'No',
           active: false,
           label: 'No',
           commentRequired: false,
@@ -1501,7 +1501,7 @@ export const ASSAULT_4: IncidentTypeConfiguration = {
         },
         {
           id: '212993',
-          code: 'Yes',
+          response: 'Yes',
           active: false,
           label: 'Yes',
           commentRequired: false,
@@ -1519,7 +1519,7 @@ export const ASSAULT_4: IncidentTypeConfiguration = {
       answers: [
         {
           id: '212994',
-          code: 'No',
+          response: 'No',
           active: false,
           label: 'No',
           commentRequired: false,
@@ -1528,7 +1528,7 @@ export const ASSAULT_4: IncidentTypeConfiguration = {
         },
         {
           id: '212995',
-          code: 'Yes',
+          response: 'Yes',
           active: false,
           label: 'Yes',
           commentRequired: false,
@@ -1546,7 +1546,7 @@ export const ASSAULT_4: IncidentTypeConfiguration = {
       answers: [
         {
           id: '212996',
-          code: 'No',
+          response: 'No',
           active: false,
           label: 'No',
           commentRequired: false,
@@ -1555,7 +1555,7 @@ export const ASSAULT_4: IncidentTypeConfiguration = {
         },
         {
           id: '212997',
-          code: 'Yes',
+          response: 'Yes',
           active: false,
           label: 'Yes',
           commentRequired: false,
@@ -1573,7 +1573,7 @@ export const ASSAULT_4: IncidentTypeConfiguration = {
       answers: [
         {
           id: '212998',
-          code: 'Body Worn Video Camera',
+          response: 'Body Worn Video Camera',
           active: false,
           label: 'Body worn video camera',
           commentRequired: true,
@@ -1582,7 +1582,7 @@ export const ASSAULT_4: IncidentTypeConfiguration = {
         },
         {
           id: '212999',
-          code: 'CCTV',
+          response: 'CCTV',
           active: false,
           label: 'CCTV',
           commentRequired: true,
@@ -1591,7 +1591,7 @@ export const ASSAULT_4: IncidentTypeConfiguration = {
         },
         {
           id: '213000',
-          code: 'Pin Phones',
+          response: 'Pin Phones',
           active: false,
           label: 'Pin phones',
           commentRequired: true,
@@ -1600,7 +1600,7 @@ export const ASSAULT_4: IncidentTypeConfiguration = {
         },
         {
           id: '213001',
-          code: 'Radio Net',
+          response: 'Radio Net',
           active: false,
           label: 'Radio net',
           commentRequired: true,
@@ -1609,7 +1609,7 @@ export const ASSAULT_4: IncidentTypeConfiguration = {
         },
         {
           id: '213002',
-          code: 'Other',
+          response: 'Other',
           active: false,
           label: 'Other',
           commentRequired: true,
@@ -1627,7 +1627,7 @@ export const ASSAULT_4: IncidentTypeConfiguration = {
       answers: [
         {
           id: '213005',
-          code: 'No',
+          response: 'No',
           active: false,
           label: 'No',
           commentRequired: false,
@@ -1636,7 +1636,7 @@ export const ASSAULT_4: IncidentTypeConfiguration = {
         },
         {
           id: '213006',
-          code: 'Yes',
+          response: 'Yes',
           active: false,
           label: 'Yes',
           commentRequired: true,

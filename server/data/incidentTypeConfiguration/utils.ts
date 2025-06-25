@@ -48,7 +48,7 @@ export function findAnswerConfigByCode(
   mustBeActive = true,
 ): AnswerConfiguration {
   return questionConfig.answers.find(
-    answerConfig => (answerConfig.active || !mustBeActive) && answerConfig.code === answerCode.trim(),
+    answerConfig => (answerConfig.active || !mustBeActive) && answerConfig.response === answerCode.trim(),
   )
 }
 

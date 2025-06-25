@@ -16,7 +16,7 @@ export const FIND_2: IncidentTypeConfiguration = {
       answers: [
         {
           id: '198684',
-          code: 'NO FURTHER ACTION',
+          response: 'NO FURTHER ACTION',
           active: false,
           label: 'No further action',
           commentRequired: false,
@@ -25,7 +25,7 @@ export const FIND_2: IncidentTypeConfiguration = {
         },
         {
           id: '198685',
-          code: 'IEP REGRESSION',
+          response: 'IEP REGRESSION',
           active: false,
           label: 'IEP regression',
           commentRequired: false,
@@ -34,7 +34,7 @@ export const FIND_2: IncidentTypeConfiguration = {
         },
         {
           id: '198686',
-          code: 'PLACED ON REPORT/ADJUDICATION REFERRAL',
+          response: 'PLACED ON REPORT/ADJUDICATION REFERRAL',
           active: false,
           label: 'Placed on report/adjudication referral',
           commentRequired: false,
@@ -43,7 +43,7 @@ export const FIND_2: IncidentTypeConfiguration = {
         },
         {
           id: '198687',
-          code: 'POLICE REFERRAL',
+          response: 'POLICE REFERRAL',
           active: false,
           label: 'Police referral',
           commentRequired: false,
@@ -52,7 +52,7 @@ export const FIND_2: IncidentTypeConfiguration = {
         },
         {
           id: '198688',
-          code: 'CPS REFERRAL',
+          response: 'CPS REFERRAL',
           active: false,
           label: 'CPS referral',
           commentRequired: false,
@@ -61,7 +61,7 @@ export const FIND_2: IncidentTypeConfiguration = {
         },
         {
           id: '198689',
-          code: 'PROSECUTION REFERRAL',
+          response: 'PROSECUTION REFERRAL',
           active: false,
           label: 'Prosecution referral',
           commentRequired: false,
@@ -79,7 +79,7 @@ export const FIND_2: IncidentTypeConfiguration = {
       answers: [
         {
           id: '198690',
-          code: 'YES',
+          response: 'YES',
           active: false,
           label: 'Yes',
           commentRequired: false,
@@ -88,7 +88,7 @@ export const FIND_2: IncidentTypeConfiguration = {
         },
         {
           id: '198691',
-          code: 'NO',
+          response: 'NO',
           active: false,
           label: 'No',
           commentRequired: false,
@@ -106,7 +106,7 @@ export const FIND_2: IncidentTypeConfiguration = {
       answers: [
         {
           id: '198692',
-          code: 'YES',
+          response: 'YES',
           active: false,
           label: 'Yes',
           commentRequired: false,
@@ -115,7 +115,7 @@ export const FIND_2: IncidentTypeConfiguration = {
         },
         {
           id: '198693',
-          code: 'NO',
+          response: 'NO',
           active: false,
           label: 'No',
           commentRequired: false,
@@ -133,7 +133,7 @@ export const FIND_2: IncidentTypeConfiguration = {
       answers: [
         {
           id: '198694',
-          code: 'ADMINISTRATION',
+          response: 'ADMINISTRATION',
           active: false,
           label: 'Administration',
           commentRequired: false,
@@ -142,7 +142,7 @@ export const FIND_2: IncidentTypeConfiguration = {
         },
         {
           id: '198695',
-          code: 'ASSOCIATION AREA',
+          response: 'ASSOCIATION AREA',
           active: false,
           label: 'Association area',
           commentRequired: false,
@@ -151,7 +151,7 @@ export const FIND_2: IncidentTypeConfiguration = {
         },
         {
           id: '198696',
-          code: 'CELL',
+          response: 'CELL',
           active: false,
           label: 'Cell',
           commentRequired: false,
@@ -160,7 +160,7 @@ export const FIND_2: IncidentTypeConfiguration = {
         },
         {
           id: '198697',
-          code: 'CHAPEL',
+          response: 'CHAPEL',
           active: false,
           label: 'Chapel',
           commentRequired: false,
@@ -169,7 +169,7 @@ export const FIND_2: IncidentTypeConfiguration = {
         },
         {
           id: '198698',
-          code: 'CROWN COURT',
+          response: 'CROWN COURT',
           active: false,
           label: 'Crown court',
           commentRequired: false,
@@ -178,7 +178,7 @@ export const FIND_2: IncidentTypeConfiguration = {
         },
         {
           id: '198699',
-          code: 'DINING ROOM',
+          response: 'DINING ROOM',
           active: false,
           label: 'Dining room',
           commentRequired: false,
@@ -187,7 +187,7 @@ export const FIND_2: IncidentTypeConfiguration = {
         },
         {
           id: '198700',
-          code: 'DORMITORY',
+          response: 'DORMITORY',
           active: false,
           label: 'Dormitory',
           commentRequired: false,
@@ -196,7 +196,7 @@ export const FIND_2: IncidentTypeConfiguration = {
         },
         {
           id: '198701',
-          code: 'EDUCATION',
+          response: 'EDUCATION',
           active: false,
           label: 'Education',
           commentRequired: false,
@@ -205,7 +205,7 @@ export const FIND_2: IncidentTypeConfiguration = {
         },
         {
           id: '198702',
-          code: 'ELSEWHERE',
+          response: 'ELSEWHERE',
           active: false,
           label: 'Elsewhere',
           commentRequired: false,
@@ -214,7 +214,7 @@ export const FIND_2: IncidentTypeConfiguration = {
         },
         {
           id: '198703',
-          code: 'EXERCISE YARD',
+          response: 'EXERCISE YARD',
           active: false,
           label: 'Exercise yard',
           commentRequired: false,
@@ -223,7 +223,7 @@ export const FIND_2: IncidentTypeConfiguration = {
         },
         {
           id: '198704',
-          code: 'FUNERAL',
+          response: 'FUNERAL',
           active: false,
           label: 'Funeral',
           commentRequired: false,
@@ -232,7 +232,7 @@ export const FIND_2: IncidentTypeConfiguration = {
         },
         {
           id: '198705',
-          code: 'GATE',
+          response: 'GATE',
           active: false,
           label: 'Gate',
           commentRequired: false,
@@ -241,7 +241,7 @@ export const FIND_2: IncidentTypeConfiguration = {
         },
         {
           id: '198706',
-          code: 'GYM',
+          response: 'GYM',
           active: false,
           label: 'Gym',
           commentRequired: false,
@@ -250,7 +250,7 @@ export const FIND_2: IncidentTypeConfiguration = {
         },
         {
           id: '198707',
-          code: 'HEALTH CARE CENTRE',
+          response: 'HEALTH CARE CENTRE',
           active: false,
           label: 'Health care centre',
           commentRequired: false,
@@ -259,7 +259,7 @@ export const FIND_2: IncidentTypeConfiguration = {
         },
         {
           id: '198708',
-          code: 'HOSPITAL OUTSIDE (PATIENT)',
+          response: 'HOSPITAL OUTSIDE (PATIENT)',
           active: false,
           label: 'Hospital outside (patient)',
           commentRequired: false,
@@ -268,7 +268,7 @@ export const FIND_2: IncidentTypeConfiguration = {
         },
         {
           id: '198709',
-          code: 'HOSPITAL OUTSIDE (VISITING)',
+          response: 'HOSPITAL OUTSIDE (VISITING)',
           active: false,
           label: 'Hospital outside (visiting)',
           commentRequired: false,
@@ -277,7 +277,7 @@ export const FIND_2: IncidentTypeConfiguration = {
         },
         {
           id: '198710',
-          code: 'KITCHEN',
+          response: 'KITCHEN',
           active: false,
           label: 'Kitchen',
           commentRequired: false,
@@ -286,7 +286,7 @@ export const FIND_2: IncidentTypeConfiguration = {
         },
         {
           id: '198711',
-          code: 'MAGISTRATES COURT',
+          response: 'MAGISTRATES COURT',
           active: false,
           label: 'Magistrates court',
           commentRequired: false,
@@ -295,7 +295,7 @@ export const FIND_2: IncidentTypeConfiguration = {
         },
         {
           id: '198712',
-          code: 'OFFICE',
+          response: 'OFFICE',
           active: false,
           label: 'Office',
           commentRequired: false,
@@ -304,7 +304,7 @@ export const FIND_2: IncidentTypeConfiguration = {
         },
         {
           id: '198713',
-          code: 'OUTSIDE WORKING PARTY',
+          response: 'OUTSIDE WORKING PARTY',
           active: false,
           label: 'Outside working party',
           commentRequired: false,
@@ -313,7 +313,7 @@ export const FIND_2: IncidentTypeConfiguration = {
         },
         {
           id: '198714',
-          code: 'RECEPTION',
+          response: 'RECEPTION',
           active: false,
           label: 'Reception',
           commentRequired: false,
@@ -322,7 +322,7 @@ export const FIND_2: IncidentTypeConfiguration = {
         },
         {
           id: '198715',
-          code: 'RECESS',
+          response: 'RECESS',
           active: false,
           label: 'Recess',
           commentRequired: false,
@@ -331,7 +331,7 @@ export const FIND_2: IncidentTypeConfiguration = {
         },
         {
           id: '198716',
-          code: 'SEGREGATION UNIT',
+          response: 'SEGREGATION UNIT',
           active: false,
           label: 'Segregation unit',
           commentRequired: false,
@@ -340,7 +340,7 @@ export const FIND_2: IncidentTypeConfiguration = {
         },
         {
           id: '198717',
-          code: 'SHOWERS/CHANGING ROOM',
+          response: 'SHOWERS/CHANGING ROOM',
           active: false,
           label: 'Showers/changing room',
           commentRequired: false,
@@ -349,7 +349,7 @@ export const FIND_2: IncidentTypeConfiguration = {
         },
         {
           id: '198718',
-          code: 'SPECIAL UNIT',
+          response: 'SPECIAL UNIT',
           active: false,
           label: 'Special unit',
           commentRequired: false,
@@ -358,7 +358,7 @@ export const FIND_2: IncidentTypeConfiguration = {
         },
         {
           id: '198719',
-          code: 'SPORTS FIELD',
+          response: 'SPORTS FIELD',
           active: false,
           label: 'Sports field',
           commentRequired: false,
@@ -367,7 +367,7 @@ export const FIND_2: IncidentTypeConfiguration = {
         },
         {
           id: '198720',
-          code: 'VEHICLE',
+          response: 'VEHICLE',
           active: false,
           label: 'Vehicle',
           commentRequired: false,
@@ -376,7 +376,7 @@ export const FIND_2: IncidentTypeConfiguration = {
         },
         {
           id: '198721',
-          code: 'VISITS',
+          response: 'VISITS',
           active: false,
           label: 'Visits',
           commentRequired: false,
@@ -385,7 +385,7 @@ export const FIND_2: IncidentTypeConfiguration = {
         },
         {
           id: '198722',
-          code: 'WEDDINGS',
+          response: 'WEDDINGS',
           active: false,
           label: 'Weddings',
           commentRequired: false,
@@ -394,7 +394,7 @@ export const FIND_2: IncidentTypeConfiguration = {
         },
         {
           id: '198723',
-          code: 'WING',
+          response: 'WING',
           active: false,
           label: 'Wing',
           commentRequired: false,
@@ -403,7 +403,7 @@ export const FIND_2: IncidentTypeConfiguration = {
         },
         {
           id: '198724',
-          code: 'WITHIN PERIMETER',
+          response: 'WITHIN PERIMETER',
           active: false,
           label: 'Within perimeter',
           commentRequired: false,
@@ -412,7 +412,7 @@ export const FIND_2: IncidentTypeConfiguration = {
         },
         {
           id: '198725',
-          code: 'WORKS DEPARTMENT',
+          response: 'WORKS DEPARTMENT',
           active: false,
           label: 'Works department',
           commentRequired: false,
@@ -421,7 +421,7 @@ export const FIND_2: IncidentTypeConfiguration = {
         },
         {
           id: '198726',
-          code: 'WORKSHOP',
+          response: 'WORKSHOP',
           active: false,
           label: 'Workshop',
           commentRequired: false,
@@ -430,7 +430,7 @@ export const FIND_2: IncidentTypeConfiguration = {
         },
         {
           id: '198727',
-          code: 'INDUCTION/FIRST NIGHT CENTRE',
+          response: 'INDUCTION/FIRST NIGHT CENTRE',
           active: false,
           label: 'Induction/first night centre',
           commentRequired: false,
@@ -439,7 +439,7 @@ export const FIND_2: IncidentTypeConfiguration = {
         },
         {
           id: '198728',
-          code: 'MAIL ROOM',
+          response: 'MAIL ROOM',
           active: false,
           label: 'Mail room',
           commentRequired: false,
@@ -448,7 +448,7 @@ export const FIND_2: IncidentTypeConfiguration = {
         },
         {
           id: '198729',
-          code: 'EXTERNAL ROOF',
+          response: 'EXTERNAL ROOF',
           active: false,
           label: 'External roof',
           commentRequired: false,
@@ -457,7 +457,7 @@ export const FIND_2: IncidentTypeConfiguration = {
         },
         {
           id: '198730',
-          code: 'VULNERABLE PRISONERS UNIT (VPU)',
+          response: 'VULNERABLE PRISONERS UNIT (VPU)',
           active: false,
           label: 'Vulnerable prisoners unit (VPU)',
           commentRequired: false,
@@ -475,7 +475,7 @@ export const FIND_2: IncidentTypeConfiguration = {
       answers: [
         {
           id: '198731',
-          code: 'YES',
+          response: 'YES',
           active: false,
           label: 'Yes',
           commentRequired: false,
@@ -484,7 +484,7 @@ export const FIND_2: IncidentTypeConfiguration = {
         },
         {
           id: '198732',
-          code: 'NO',
+          response: 'NO',
           active: false,
           label: 'No',
           commentRequired: false,
@@ -502,7 +502,7 @@ export const FIND_2: IncidentTypeConfiguration = {
       answers: [
         {
           id: '198733',
-          code: 'AMPHETAMINES',
+          response: 'AMPHETAMINES',
           active: false,
           label: 'Amphetamines',
           commentRequired: false,
@@ -511,7 +511,7 @@ export const FIND_2: IncidentTypeConfiguration = {
         },
         {
           id: '198734',
-          code: 'BARBITURATES',
+          response: 'BARBITURATES',
           active: false,
           label: 'Barbiturates',
           commentRequired: false,
@@ -520,7 +520,7 @@ export const FIND_2: IncidentTypeConfiguration = {
         },
         {
           id: '198735',
-          code: 'BENZODIAZEPINES',
+          response: 'BENZODIAZEPINES',
           active: false,
           label: 'Benzodiazepines',
           commentRequired: false,
@@ -529,7 +529,7 @@ export const FIND_2: IncidentTypeConfiguration = {
         },
         {
           id: '198736',
-          code: 'BUPRENORPHINE/SUBUTEX',
+          response: 'BUPRENORPHINE/SUBUTEX',
           active: false,
           label: 'Buprenorphine/subutex',
           commentRequired: false,
@@ -538,7 +538,7 @@ export const FIND_2: IncidentTypeConfiguration = {
         },
         {
           id: '198737',
-          code: 'CANNABIS',
+          response: 'CANNABIS',
           active: false,
           label: 'Cannabis',
           commentRequired: false,
@@ -547,7 +547,7 @@ export const FIND_2: IncidentTypeConfiguration = {
         },
         {
           id: '198738',
-          code: 'CANNABIS PLANT',
+          response: 'CANNABIS PLANT',
           active: false,
           label: 'Cannabis plant',
           commentRequired: false,
@@ -556,7 +556,7 @@ export const FIND_2: IncidentTypeConfiguration = {
         },
         {
           id: '198739',
-          code: 'COCAINE',
+          response: 'COCAINE',
           active: false,
           label: 'Cocaine',
           commentRequired: false,
@@ -565,7 +565,7 @@ export const FIND_2: IncidentTypeConfiguration = {
         },
         {
           id: '198740',
-          code: 'CRACK',
+          response: 'CRACK',
           active: false,
           label: 'Crack',
           commentRequired: false,
@@ -574,7 +574,7 @@ export const FIND_2: IncidentTypeConfiguration = {
         },
         {
           id: '198741',
-          code: 'HEROIN',
+          response: 'HEROIN',
           active: false,
           label: 'Heroin',
           commentRequired: false,
@@ -583,7 +583,7 @@ export const FIND_2: IncidentTypeConfiguration = {
         },
         {
           id: '198742',
-          code: 'LSD',
+          response: 'LSD',
           active: false,
           label: 'LSD',
           commentRequired: false,
@@ -592,7 +592,7 @@ export const FIND_2: IncidentTypeConfiguration = {
         },
         {
           id: '198743',
-          code: 'METHADONE',
+          response: 'METHADONE',
           active: false,
           label: 'Methadone',
           commentRequired: false,
@@ -601,7 +601,7 @@ export const FIND_2: IncidentTypeConfiguration = {
         },
         {
           id: '198744',
-          code: 'PREGABALIN',
+          response: 'PREGABALIN',
           active: false,
           label: 'Pregabalin',
           commentRequired: false,
@@ -610,7 +610,7 @@ export const FIND_2: IncidentTypeConfiguration = {
         },
         {
           id: '198745',
-          code: 'TRANQUILISERS',
+          response: 'TRANQUILISERS',
           active: false,
           label: 'Tranquilisers',
           commentRequired: false,
@@ -619,7 +619,7 @@ export const FIND_2: IncidentTypeConfiguration = {
         },
         {
           id: '198746',
-          code: 'TRAMADOL',
+          response: 'TRAMADOL',
           active: false,
           label: 'Tramadol',
           commentRequired: false,
@@ -628,7 +628,7 @@ export const FIND_2: IncidentTypeConfiguration = {
         },
         {
           id: '198747',
-          code: 'GABAPENTIN',
+          response: 'GABAPENTIN',
           active: false,
           label: 'Gabapentin',
           commentRequired: false,
@@ -637,7 +637,7 @@ export const FIND_2: IncidentTypeConfiguration = {
         },
         {
           id: '198748',
-          code: 'NPS: SPICE',
+          response: 'NPS: SPICE',
           active: false,
           label: 'NPS: spice',
           commentRequired: false,
@@ -646,7 +646,7 @@ export const FIND_2: IncidentTypeConfiguration = {
         },
         {
           id: '198749',
-          code: 'NPS: BLACK MAMBA',
+          response: 'NPS: BLACK MAMBA',
           active: false,
           label: 'NPS: black mamba',
           commentRequired: false,
@@ -655,7 +655,7 @@ export const FIND_2: IncidentTypeConfiguration = {
         },
         {
           id: '198750',
-          code: 'NPS: OTHER',
+          response: 'NPS: OTHER',
           active: false,
           label: 'NPS: other',
           commentRequired: false,
@@ -664,7 +664,7 @@ export const FIND_2: IncidentTypeConfiguration = {
         },
         {
           id: '198751',
-          code: 'STEROIDS',
+          response: 'STEROIDS',
           active: false,
           label: 'Steroids',
           commentRequired: false,
@@ -673,7 +673,7 @@ export const FIND_2: IncidentTypeConfiguration = {
         },
         {
           id: '198752',
-          code: 'OTHER (PLEASE SPECIFY)',
+          response: 'OTHER (PLEASE SPECIFY)',
           active: false,
           label: 'Other (please specify)',
           commentRequired: true,
@@ -682,7 +682,7 @@ export const FIND_2: IncidentTypeConfiguration = {
         },
         {
           id: '198753',
-          code: 'UNKNOWN',
+          response: 'UNKNOWN',
           active: false,
           label: 'Unknown',
           commentRequired: false,
@@ -700,7 +700,7 @@ export const FIND_2: IncidentTypeConfiguration = {
       answers: [
         {
           id: '198754',
-          code: '<1G',
+          response: '<1G',
           active: false,
           label: '<1g',
           commentRequired: false,
@@ -709,7 +709,7 @@ export const FIND_2: IncidentTypeConfiguration = {
         },
         {
           id: '198755',
-          code: '2G TO 5G',
+          response: '2G TO 5G',
           active: false,
           label: '2g to 5g',
           commentRequired: false,
@@ -718,7 +718,7 @@ export const FIND_2: IncidentTypeConfiguration = {
         },
         {
           id: '198756',
-          code: '6G TO 10G',
+          response: '6G TO 10G',
           active: false,
           label: '6g to 10g',
           commentRequired: false,
@@ -727,7 +727,7 @@ export const FIND_2: IncidentTypeConfiguration = {
         },
         {
           id: '198757',
-          code: '11G TO 20G',
+          response: '11G TO 20G',
           active: false,
           label: '11g to 20g',
           commentRequired: false,
@@ -736,7 +736,7 @@ export const FIND_2: IncidentTypeConfiguration = {
         },
         {
           id: '198758',
-          code: '21G TO 30G',
+          response: '21G TO 30G',
           active: false,
           label: '21g to 30g',
           commentRequired: false,
@@ -745,7 +745,7 @@ export const FIND_2: IncidentTypeConfiguration = {
         },
         {
           id: '198759',
-          code: '31G TO 40G',
+          response: '31G TO 40G',
           active: false,
           label: '31g to 40g',
           commentRequired: false,
@@ -754,7 +754,7 @@ export const FIND_2: IncidentTypeConfiguration = {
         },
         {
           id: '198760',
-          code: '41G TO 50G',
+          response: '41G TO 50G',
           active: false,
           label: '41g to 50g',
           commentRequired: false,
@@ -763,7 +763,7 @@ export const FIND_2: IncidentTypeConfiguration = {
         },
         {
           id: '198761',
-          code: '50G TO 100G',
+          response: '50G TO 100G',
           active: false,
           label: '50g to 100g',
           commentRequired: false,
@@ -772,7 +772,7 @@ export const FIND_2: IncidentTypeConfiguration = {
         },
         {
           id: '198762',
-          code: '101G TO 200G',
+          response: '101G TO 200G',
           active: false,
           label: '101g to 200g',
           commentRequired: false,
@@ -781,7 +781,7 @@ export const FIND_2: IncidentTypeConfiguration = {
         },
         {
           id: '198763',
-          code: '201G TO 300G',
+          response: '201G TO 300G',
           active: false,
           label: '201g to 300g',
           commentRequired: false,
@@ -790,7 +790,7 @@ export const FIND_2: IncidentTypeConfiguration = {
         },
         {
           id: '198764',
-          code: '301G TO 400G',
+          response: '301G TO 400G',
           active: false,
           label: '301g to 400g',
           commentRequired: false,
@@ -799,7 +799,7 @@ export const FIND_2: IncidentTypeConfiguration = {
         },
         {
           id: '198765',
-          code: '401G TO 500G',
+          response: '401G TO 500G',
           active: false,
           label: '401g to 500g',
           commentRequired: false,
@@ -808,7 +808,7 @@ export const FIND_2: IncidentTypeConfiguration = {
         },
         {
           id: '198766',
-          code: '501G TO 1,000G',
+          response: '501G TO 1,000G',
           active: false,
           label: '501g to 1,000g',
           commentRequired: false,
@@ -817,7 +817,7 @@ export const FIND_2: IncidentTypeConfiguration = {
         },
         {
           id: '198767',
-          code: 'MORE THAN 1KG',
+          response: 'MORE THAN 1KG',
           active: false,
           label: 'More than 1kg',
           commentRequired: false,
@@ -826,7 +826,7 @@ export const FIND_2: IncidentTypeConfiguration = {
         },
         {
           id: '198768',
-          code: 'UNKNOWN',
+          response: 'UNKNOWN',
           active: false,
           label: 'Unknown',
           commentRequired: false,
@@ -844,7 +844,7 @@ export const FIND_2: IncidentTypeConfiguration = {
       answers: [
         {
           id: '198769',
-          code: 'YES',
+          response: 'YES',
           active: false,
           label: 'Yes',
           commentRequired: false,
@@ -853,7 +853,7 @@ export const FIND_2: IncidentTypeConfiguration = {
         },
         {
           id: '198770',
-          code: 'NO',
+          response: 'NO',
           active: false,
           label: 'No',
           commentRequired: false,
@@ -871,7 +871,7 @@ export const FIND_2: IncidentTypeConfiguration = {
       answers: [
         {
           id: '198771',
-          code: 'FORENSIC LABORATORY',
+          response: 'FORENSIC LABORATORY',
           active: false,
           label: 'Forensic laboratory',
           commentRequired: false,
@@ -880,7 +880,7 @@ export const FIND_2: IncidentTypeConfiguration = {
         },
         {
           id: '198772',
-          code: 'LOCAL WITH BDH KIT OR SIMILAR',
+          response: 'LOCAL WITH BDH KIT OR SIMILAR',
           active: false,
           label: 'Local with BDH kit or similar',
           commentRequired: false,
@@ -898,7 +898,7 @@ export const FIND_2: IncidentTypeConfiguration = {
       answers: [
         {
           id: '198773',
-          code: 'NAME',
+          response: 'NAME',
           active: false,
           label: 'Name',
           commentRequired: true,
@@ -916,7 +916,7 @@ export const FIND_2: IncidentTypeConfiguration = {
       answers: [
         {
           id: '198774',
-          code: 'YES',
+          response: 'YES',
           active: false,
           label: 'Yes',
           commentRequired: false,
@@ -925,7 +925,7 @@ export const FIND_2: IncidentTypeConfiguration = {
         },
         {
           id: '198775',
-          code: 'NO',
+          response: 'NO',
           active: false,
           label: 'No',
           commentRequired: false,
@@ -943,7 +943,7 @@ export const FIND_2: IncidentTypeConfiguration = {
       answers: [
         {
           id: '198776',
-          code: 'AUTHENTIC NEEDLE',
+          response: 'AUTHENTIC NEEDLE',
           active: false,
           label: 'Authentic needle',
           commentRequired: false,
@@ -952,7 +952,7 @@ export const FIND_2: IncidentTypeConfiguration = {
         },
         {
           id: '198777',
-          code: 'AUTHENTIC SYRINGE',
+          response: 'AUTHENTIC SYRINGE',
           active: false,
           label: 'Authentic syringe',
           commentRequired: false,
@@ -961,7 +961,7 @@ export const FIND_2: IncidentTypeConfiguration = {
         },
         {
           id: '198778',
-          code: 'IMPROVISED NEEDLE',
+          response: 'IMPROVISED NEEDLE',
           active: false,
           label: 'Improvised needle',
           commentRequired: false,
@@ -970,7 +970,7 @@ export const FIND_2: IncidentTypeConfiguration = {
         },
         {
           id: '198779',
-          code: 'IMPROVISED SYRINGE',
+          response: 'IMPROVISED SYRINGE',
           active: false,
           label: 'Improvised syringe',
           commentRequired: false,
@@ -979,7 +979,7 @@ export const FIND_2: IncidentTypeConfiguration = {
         },
         {
           id: '198780',
-          code: 'PIPE(S)',
+          response: 'PIPE(S)',
           active: false,
           label: 'Pipe(s)',
           commentRequired: false,
@@ -988,7 +988,7 @@ export const FIND_2: IncidentTypeConfiguration = {
         },
         {
           id: '198781',
-          code: 'ROACH',
+          response: 'ROACH',
           active: false,
           label: 'Roach',
           commentRequired: false,
@@ -997,7 +997,7 @@ export const FIND_2: IncidentTypeConfiguration = {
         },
         {
           id: '198782',
-          code: 'OTHER (PLEASE SPECIFY)',
+          response: 'OTHER (PLEASE SPECIFY)',
           active: false,
           label: 'Other (please specify)',
           commentRequired: true,
@@ -1015,7 +1015,7 @@ export const FIND_2: IncidentTypeConfiguration = {
       answers: [
         {
           id: '198783',
-          code: 'YES',
+          response: 'YES',
           active: false,
           label: 'Yes',
           commentRequired: false,
@@ -1024,7 +1024,7 @@ export const FIND_2: IncidentTypeConfiguration = {
         },
         {
           id: '198784',
-          code: 'NO',
+          response: 'NO',
           active: false,
           label: 'No',
           commentRequired: false,
@@ -1042,7 +1042,7 @@ export const FIND_2: IncidentTypeConfiguration = {
       answers: [
         {
           id: '198785',
-          code: 'YES',
+          response: 'YES',
           active: false,
           label: 'Yes',
           commentRequired: false,
@@ -1051,7 +1051,7 @@ export const FIND_2: IncidentTypeConfiguration = {
         },
         {
           id: '198786',
-          code: 'NO',
+          response: 'NO',
           active: false,
           label: 'No',
           commentRequired: false,
@@ -1069,7 +1069,7 @@ export const FIND_2: IncidentTypeConfiguration = {
       answers: [
         {
           id: '198787',
-          code: '0',
+          response: '0',
           active: false,
           label: '0',
           commentRequired: false,
@@ -1078,7 +1078,7 @@ export const FIND_2: IncidentTypeConfiguration = {
         },
         {
           id: '198788',
-          code: '1',
+          response: '1',
           active: false,
           label: '1',
           commentRequired: false,
@@ -1087,7 +1087,7 @@ export const FIND_2: IncidentTypeConfiguration = {
         },
         {
           id: '198789',
-          code: '2',
+          response: '2',
           active: false,
           label: '2',
           commentRequired: false,
@@ -1096,7 +1096,7 @@ export const FIND_2: IncidentTypeConfiguration = {
         },
         {
           id: '198790',
-          code: '4',
+          response: '4',
           active: false,
           label: '4',
           commentRequired: false,
@@ -1105,7 +1105,7 @@ export const FIND_2: IncidentTypeConfiguration = {
         },
         {
           id: '198791',
-          code: '5',
+          response: '5',
           active: false,
           label: '5',
           commentRequired: false,
@@ -1114,7 +1114,7 @@ export const FIND_2: IncidentTypeConfiguration = {
         },
         {
           id: '198792',
-          code: '6',
+          response: '6',
           active: false,
           label: '6',
           commentRequired: false,
@@ -1123,7 +1123,7 @@ export const FIND_2: IncidentTypeConfiguration = {
         },
         {
           id: '198793',
-          code: '7',
+          response: '7',
           active: false,
           label: '7',
           commentRequired: false,
@@ -1132,7 +1132,7 @@ export const FIND_2: IncidentTypeConfiguration = {
         },
         {
           id: '198794',
-          code: '8',
+          response: '8',
           active: false,
           label: '8',
           commentRequired: false,
@@ -1141,7 +1141,7 @@ export const FIND_2: IncidentTypeConfiguration = {
         },
         {
           id: '198795',
-          code: '9',
+          response: '9',
           active: false,
           label: '9',
           commentRequired: false,
@@ -1150,7 +1150,7 @@ export const FIND_2: IncidentTypeConfiguration = {
         },
         {
           id: '198796',
-          code: '10',
+          response: '10',
           active: false,
           label: '10',
           commentRequired: false,
@@ -1159,7 +1159,7 @@ export const FIND_2: IncidentTypeConfiguration = {
         },
         {
           id: '198797',
-          code: '11',
+          response: '11',
           active: false,
           label: '11',
           commentRequired: false,
@@ -1168,7 +1168,7 @@ export const FIND_2: IncidentTypeConfiguration = {
         },
         {
           id: '198798',
-          code: '12',
+          response: '12',
           active: false,
           label: '12',
           commentRequired: false,
@@ -1177,7 +1177,7 @@ export const FIND_2: IncidentTypeConfiguration = {
         },
         {
           id: '198799',
-          code: '13',
+          response: '13',
           active: false,
           label: '13',
           commentRequired: false,
@@ -1186,7 +1186,7 @@ export const FIND_2: IncidentTypeConfiguration = {
         },
         {
           id: '198800',
-          code: '14',
+          response: '14',
           active: false,
           label: '14',
           commentRequired: false,
@@ -1195,7 +1195,7 @@ export const FIND_2: IncidentTypeConfiguration = {
         },
         {
           id: '198801',
-          code: '15',
+          response: '15',
           active: false,
           label: '15',
           commentRequired: false,
@@ -1204,7 +1204,7 @@ export const FIND_2: IncidentTypeConfiguration = {
         },
         {
           id: '198802',
-          code: '16',
+          response: '16',
           active: false,
           label: '16',
           commentRequired: false,
@@ -1213,7 +1213,7 @@ export const FIND_2: IncidentTypeConfiguration = {
         },
         {
           id: '198803',
-          code: '17',
+          response: '17',
           active: false,
           label: '17',
           commentRequired: false,
@@ -1222,7 +1222,7 @@ export const FIND_2: IncidentTypeConfiguration = {
         },
         {
           id: '198804',
-          code: '18',
+          response: '18',
           active: false,
           label: '18',
           commentRequired: false,
@@ -1231,7 +1231,7 @@ export const FIND_2: IncidentTypeConfiguration = {
         },
         {
           id: '198805',
-          code: '19',
+          response: '19',
           active: false,
           label: '19',
           commentRequired: false,
@@ -1240,7 +1240,7 @@ export const FIND_2: IncidentTypeConfiguration = {
         },
         {
           id: '198806',
-          code: '20',
+          response: '20',
           active: false,
           label: '20',
           commentRequired: false,
@@ -1249,7 +1249,7 @@ export const FIND_2: IncidentTypeConfiguration = {
         },
         {
           id: '198807',
-          code: 'MORE THAN 20',
+          response: 'MORE THAN 20',
           active: false,
           label: 'More than 20',
           commentRequired: false,
@@ -1258,7 +1258,7 @@ export const FIND_2: IncidentTypeConfiguration = {
         },
         {
           id: '198808',
-          code: 'UNKNOWN',
+          response: 'UNKNOWN',
           active: false,
           label: 'Unknown',
           commentRequired: false,
@@ -1267,7 +1267,7 @@ export const FIND_2: IncidentTypeConfiguration = {
         },
         {
           id: '200684',
-          code: '3',
+          response: '3',
           active: false,
           label: '3',
           commentRequired: false,
@@ -1285,7 +1285,7 @@ export const FIND_2: IncidentTypeConfiguration = {
       answers: [
         {
           id: '198809',
-          code: 'YES',
+          response: 'YES',
           active: false,
           label: 'Yes',
           commentRequired: false,
@@ -1294,7 +1294,7 @@ export const FIND_2: IncidentTypeConfiguration = {
         },
         {
           id: '198810',
-          code: 'NO',
+          response: 'NO',
           active: false,
           label: 'No',
           commentRequired: false,
@@ -1312,7 +1312,7 @@ export const FIND_2: IncidentTypeConfiguration = {
       answers: [
         {
           id: '198811',
-          code: '0',
+          response: '0',
           active: false,
           label: '0',
           commentRequired: false,
@@ -1321,7 +1321,7 @@ export const FIND_2: IncidentTypeConfiguration = {
         },
         {
           id: '198812',
-          code: '1',
+          response: '1',
           active: false,
           label: '1',
           commentRequired: false,
@@ -1330,7 +1330,7 @@ export const FIND_2: IncidentTypeConfiguration = {
         },
         {
           id: '198813',
-          code: '2',
+          response: '2',
           active: false,
           label: '2',
           commentRequired: false,
@@ -1339,7 +1339,7 @@ export const FIND_2: IncidentTypeConfiguration = {
         },
         {
           id: '198814',
-          code: '3',
+          response: '3',
           active: false,
           label: '3',
           commentRequired: false,
@@ -1348,7 +1348,7 @@ export const FIND_2: IncidentTypeConfiguration = {
         },
         {
           id: '198815',
-          code: '4',
+          response: '4',
           active: false,
           label: '4',
           commentRequired: false,
@@ -1357,7 +1357,7 @@ export const FIND_2: IncidentTypeConfiguration = {
         },
         {
           id: '198816',
-          code: '5',
+          response: '5',
           active: false,
           label: '5',
           commentRequired: false,
@@ -1366,7 +1366,7 @@ export const FIND_2: IncidentTypeConfiguration = {
         },
         {
           id: '198817',
-          code: '6',
+          response: '6',
           active: false,
           label: '6',
           commentRequired: false,
@@ -1375,7 +1375,7 @@ export const FIND_2: IncidentTypeConfiguration = {
         },
         {
           id: '198818',
-          code: '7',
+          response: '7',
           active: false,
           label: '7',
           commentRequired: false,
@@ -1384,7 +1384,7 @@ export const FIND_2: IncidentTypeConfiguration = {
         },
         {
           id: '198819',
-          code: '8',
+          response: '8',
           active: false,
           label: '8',
           commentRequired: false,
@@ -1393,7 +1393,7 @@ export const FIND_2: IncidentTypeConfiguration = {
         },
         {
           id: '198820',
-          code: '9',
+          response: '9',
           active: false,
           label: '9',
           commentRequired: false,
@@ -1402,7 +1402,7 @@ export const FIND_2: IncidentTypeConfiguration = {
         },
         {
           id: '198821',
-          code: '10',
+          response: '10',
           active: false,
           label: '10',
           commentRequired: false,
@@ -1411,7 +1411,7 @@ export const FIND_2: IncidentTypeConfiguration = {
         },
         {
           id: '198822',
-          code: '11',
+          response: '11',
           active: false,
           label: '11',
           commentRequired: false,
@@ -1420,7 +1420,7 @@ export const FIND_2: IncidentTypeConfiguration = {
         },
         {
           id: '198823',
-          code: '12',
+          response: '12',
           active: false,
           label: '12',
           commentRequired: false,
@@ -1429,7 +1429,7 @@ export const FIND_2: IncidentTypeConfiguration = {
         },
         {
           id: '198824',
-          code: '13',
+          response: '13',
           active: false,
           label: '13',
           commentRequired: false,
@@ -1438,7 +1438,7 @@ export const FIND_2: IncidentTypeConfiguration = {
         },
         {
           id: '198825',
-          code: '14',
+          response: '14',
           active: false,
           label: '14',
           commentRequired: false,
@@ -1447,7 +1447,7 @@ export const FIND_2: IncidentTypeConfiguration = {
         },
         {
           id: '198826',
-          code: '15',
+          response: '15',
           active: false,
           label: '15',
           commentRequired: false,
@@ -1456,7 +1456,7 @@ export const FIND_2: IncidentTypeConfiguration = {
         },
         {
           id: '198827',
-          code: '16',
+          response: '16',
           active: false,
           label: '16',
           commentRequired: false,
@@ -1465,7 +1465,7 @@ export const FIND_2: IncidentTypeConfiguration = {
         },
         {
           id: '198828',
-          code: '17',
+          response: '17',
           active: false,
           label: '17',
           commentRequired: false,
@@ -1474,7 +1474,7 @@ export const FIND_2: IncidentTypeConfiguration = {
         },
         {
           id: '198829',
-          code: '18',
+          response: '18',
           active: false,
           label: '18',
           commentRequired: false,
@@ -1483,7 +1483,7 @@ export const FIND_2: IncidentTypeConfiguration = {
         },
         {
           id: '198830',
-          code: '19',
+          response: '19',
           active: false,
           label: '19',
           commentRequired: false,
@@ -1492,7 +1492,7 @@ export const FIND_2: IncidentTypeConfiguration = {
         },
         {
           id: '198831',
-          code: '20',
+          response: '20',
           active: false,
           label: '20',
           commentRequired: false,
@@ -1501,7 +1501,7 @@ export const FIND_2: IncidentTypeConfiguration = {
         },
         {
           id: '198832',
-          code: 'MORE THAN 20',
+          response: 'MORE THAN 20',
           active: false,
           label: 'More than 20',
           commentRequired: false,
@@ -1510,7 +1510,7 @@ export const FIND_2: IncidentTypeConfiguration = {
         },
         {
           id: '198833',
-          code: 'UNKNOWN',
+          response: 'UNKNOWN',
           active: false,
           label: 'Unknown',
           commentRequired: false,
@@ -1528,7 +1528,7 @@ export const FIND_2: IncidentTypeConfiguration = {
       answers: [
         {
           id: '198834',
-          code: 'YES',
+          response: 'YES',
           active: false,
           label: 'Yes',
           commentRequired: false,
@@ -1537,7 +1537,7 @@ export const FIND_2: IncidentTypeConfiguration = {
         },
         {
           id: '198835',
-          code: 'NO',
+          response: 'NO',
           active: false,
           label: 'No',
           commentRequired: false,
@@ -1555,7 +1555,7 @@ export const FIND_2: IncidentTypeConfiguration = {
       answers: [
         {
           id: '198836',
-          code: '0',
+          response: '0',
           active: false,
           label: '0',
           commentRequired: false,
@@ -1564,7 +1564,7 @@ export const FIND_2: IncidentTypeConfiguration = {
         },
         {
           id: '198837',
-          code: '1',
+          response: '1',
           active: false,
           label: '1',
           commentRequired: false,
@@ -1573,7 +1573,7 @@ export const FIND_2: IncidentTypeConfiguration = {
         },
         {
           id: '198838',
-          code: '2',
+          response: '2',
           active: false,
           label: '2',
           commentRequired: false,
@@ -1582,7 +1582,7 @@ export const FIND_2: IncidentTypeConfiguration = {
         },
         {
           id: '198839',
-          code: '3',
+          response: '3',
           active: false,
           label: '3',
           commentRequired: false,
@@ -1591,7 +1591,7 @@ export const FIND_2: IncidentTypeConfiguration = {
         },
         {
           id: '198840',
-          code: '4',
+          response: '4',
           active: false,
           label: '4',
           commentRequired: false,
@@ -1600,7 +1600,7 @@ export const FIND_2: IncidentTypeConfiguration = {
         },
         {
           id: '198841',
-          code: '5',
+          response: '5',
           active: false,
           label: '5',
           commentRequired: false,
@@ -1609,7 +1609,7 @@ export const FIND_2: IncidentTypeConfiguration = {
         },
         {
           id: '198842',
-          code: '6',
+          response: '6',
           active: false,
           label: '6',
           commentRequired: false,
@@ -1618,7 +1618,7 @@ export const FIND_2: IncidentTypeConfiguration = {
         },
         {
           id: '198843',
-          code: '7',
+          response: '7',
           active: false,
           label: '7',
           commentRequired: false,
@@ -1627,7 +1627,7 @@ export const FIND_2: IncidentTypeConfiguration = {
         },
         {
           id: '198844',
-          code: '8',
+          response: '8',
           active: false,
           label: '8',
           commentRequired: false,
@@ -1636,7 +1636,7 @@ export const FIND_2: IncidentTypeConfiguration = {
         },
         {
           id: '198845',
-          code: '9',
+          response: '9',
           active: false,
           label: '9',
           commentRequired: false,
@@ -1645,7 +1645,7 @@ export const FIND_2: IncidentTypeConfiguration = {
         },
         {
           id: '198846',
-          code: '10',
+          response: '10',
           active: false,
           label: '10',
           commentRequired: false,
@@ -1654,7 +1654,7 @@ export const FIND_2: IncidentTypeConfiguration = {
         },
         {
           id: '198847',
-          code: '11',
+          response: '11',
           active: false,
           label: '11',
           commentRequired: false,
@@ -1663,7 +1663,7 @@ export const FIND_2: IncidentTypeConfiguration = {
         },
         {
           id: '198848',
-          code: '12',
+          response: '12',
           active: false,
           label: '12',
           commentRequired: false,
@@ -1672,7 +1672,7 @@ export const FIND_2: IncidentTypeConfiguration = {
         },
         {
           id: '198849',
-          code: '13',
+          response: '13',
           active: false,
           label: '13',
           commentRequired: false,
@@ -1681,7 +1681,7 @@ export const FIND_2: IncidentTypeConfiguration = {
         },
         {
           id: '198850',
-          code: '14',
+          response: '14',
           active: false,
           label: '14',
           commentRequired: false,
@@ -1690,7 +1690,7 @@ export const FIND_2: IncidentTypeConfiguration = {
         },
         {
           id: '198851',
-          code: '15',
+          response: '15',
           active: false,
           label: '15',
           commentRequired: false,
@@ -1699,7 +1699,7 @@ export const FIND_2: IncidentTypeConfiguration = {
         },
         {
           id: '198852',
-          code: '16',
+          response: '16',
           active: false,
           label: '16',
           commentRequired: false,
@@ -1708,7 +1708,7 @@ export const FIND_2: IncidentTypeConfiguration = {
         },
         {
           id: '198853',
-          code: '17',
+          response: '17',
           active: false,
           label: '17',
           commentRequired: false,
@@ -1717,7 +1717,7 @@ export const FIND_2: IncidentTypeConfiguration = {
         },
         {
           id: '198854',
-          code: '18',
+          response: '18',
           active: false,
           label: '18',
           commentRequired: false,
@@ -1726,7 +1726,7 @@ export const FIND_2: IncidentTypeConfiguration = {
         },
         {
           id: '198855',
-          code: '19',
+          response: '19',
           active: false,
           label: '19',
           commentRequired: false,
@@ -1735,7 +1735,7 @@ export const FIND_2: IncidentTypeConfiguration = {
         },
         {
           id: '198856',
-          code: '20',
+          response: '20',
           active: false,
           label: '20',
           commentRequired: false,
@@ -1744,7 +1744,7 @@ export const FIND_2: IncidentTypeConfiguration = {
         },
         {
           id: '198857',
-          code: 'MORE THAN 20',
+          response: 'MORE THAN 20',
           active: false,
           label: 'More than 20',
           commentRequired: false,
@@ -1753,7 +1753,7 @@ export const FIND_2: IncidentTypeConfiguration = {
         },
         {
           id: '198858',
-          code: 'UNKNOWN',
+          response: 'UNKNOWN',
           active: false,
           label: 'Unknown',
           commentRequired: false,
@@ -1771,7 +1771,7 @@ export const FIND_2: IncidentTypeConfiguration = {
       answers: [
         {
           id: '198859',
-          code: 'YES',
+          response: 'YES',
           active: false,
           label: 'Yes',
           commentRequired: false,
@@ -1780,7 +1780,7 @@ export const FIND_2: IncidentTypeConfiguration = {
         },
         {
           id: '198860',
-          code: 'NO',
+          response: 'NO',
           active: false,
           label: 'No',
           commentRequired: false,
@@ -1798,7 +1798,7 @@ export const FIND_2: IncidentTypeConfiguration = {
       answers: [
         {
           id: '198861',
-          code: 'YES: PLEASE SPECIFY',
+          response: 'YES: PLEASE SPECIFY',
           active: false,
           label: 'Yes: please specify',
           commentRequired: true,
@@ -1807,7 +1807,7 @@ export const FIND_2: IncidentTypeConfiguration = {
         },
         {
           id: '198862',
-          code: 'NO',
+          response: 'NO',
           active: false,
           label: 'No',
           commentRequired: false,
@@ -1825,7 +1825,7 @@ export const FIND_2: IncidentTypeConfiguration = {
       answers: [
         {
           id: '198863',
-          code: 'YES: DATE',
+          response: 'YES: DATE',
           active: false,
           label: 'Yes: date',
           commentRequired: false,
@@ -1834,7 +1834,7 @@ export const FIND_2: IncidentTypeConfiguration = {
         },
         {
           id: '198864',
-          code: 'EVIDENCE BAG NUMBER',
+          response: 'EVIDENCE BAG NUMBER',
           active: false,
           label: 'Evidence bag number',
           commentRequired: true,
@@ -1843,7 +1843,7 @@ export const FIND_2: IncidentTypeConfiguration = {
         },
         {
           id: '198865',
-          code: 'NO: PLEASE STATE WHY',
+          response: 'NO: PLEASE STATE WHY',
           active: false,
           label: 'No: please state why',
           commentRequired: true,
@@ -1861,7 +1861,7 @@ export const FIND_2: IncidentTypeConfiguration = {
       answers: [
         {
           id: '198866',
-          code: 'YES',
+          response: 'YES',
           active: false,
           label: 'Yes',
           commentRequired: false,
@@ -1870,7 +1870,7 @@ export const FIND_2: IncidentTypeConfiguration = {
         },
         {
           id: '198867',
-          code: 'NO',
+          response: 'NO',
           active: false,
           label: 'No',
           commentRequired: false,
@@ -1888,7 +1888,7 @@ export const FIND_2: IncidentTypeConfiguration = {
       answers: [
         {
           id: '198868',
-          code: 'YES',
+          response: 'YES',
           active: false,
           label: 'Yes',
           commentRequired: false,
@@ -1897,7 +1897,7 @@ export const FIND_2: IncidentTypeConfiguration = {
         },
         {
           id: '198869',
-          code: 'NO',
+          response: 'NO',
           active: false,
           label: 'No',
           commentRequired: false,
@@ -1915,7 +1915,7 @@ export const FIND_2: IncidentTypeConfiguration = {
       answers: [
         {
           id: '198870',
-          code: 'BLUNT INSTRUMENT (COSH, ITEM IN SOCK ETC)',
+          response: 'BLUNT INSTRUMENT (COSH, ITEM IN SOCK ETC)',
           active: false,
           label: 'Blunt instrument (cosh, item in sock etc)',
           commentRequired: false,
@@ -1924,7 +1924,7 @@ export const FIND_2: IncidentTypeConfiguration = {
         },
         {
           id: '198871',
-          code: 'KNIFE/BLADED ARTICLE',
+          response: 'KNIFE/BLADED ARTICLE',
           active: false,
           label: 'Knife/bladed article',
           commentRequired: false,
@@ -1933,7 +1933,7 @@ export const FIND_2: IncidentTypeConfiguration = {
         },
         {
           id: '198872',
-          code: 'FIREARM (FAKE GUNS, AMMUNITION, CHEMICAL INCAPACITANT ETC)',
+          response: 'FIREARM (FAKE GUNS, AMMUNITION, CHEMICAL INCAPACITANT ETC)',
           active: false,
           label: 'Firearm (fake guns, ammunition, chemical incapacitant etc)',
           commentRequired: false,
@@ -1942,7 +1942,7 @@ export const FIND_2: IncidentTypeConfiguration = {
         },
         {
           id: '198873',
-          code: 'OTHER (PLEASE SPECIFY)',
+          response: 'OTHER (PLEASE SPECIFY)',
           active: false,
           label: 'Other (please specify)',
           commentRequired: true,
@@ -1960,7 +1960,7 @@ export const FIND_2: IncidentTypeConfiguration = {
       answers: [
         {
           id: '198874',
-          code: 'YES',
+          response: 'YES',
           active: false,
           label: 'Yes',
           commentRequired: false,
@@ -1969,7 +1969,7 @@ export const FIND_2: IncidentTypeConfiguration = {
         },
         {
           id: '198875',
-          code: 'NO',
+          response: 'NO',
           active: false,
           label: 'No',
           commentRequired: false,
@@ -1987,7 +1987,7 @@ export const FIND_2: IncidentTypeConfiguration = {
       answers: [
         {
           id: '198876',
-          code: '< 1 LITRE',
+          response: '< 1 LITRE',
           active: false,
           label: '< 1 litre',
           commentRequired: false,
@@ -1996,7 +1996,7 @@ export const FIND_2: IncidentTypeConfiguration = {
         },
         {
           id: '198877',
-          code: '1 TO 2 LITRES',
+          response: '1 TO 2 LITRES',
           active: false,
           label: '1 to 2 litres',
           commentRequired: false,
@@ -2005,7 +2005,7 @@ export const FIND_2: IncidentTypeConfiguration = {
         },
         {
           id: '198878',
-          code: '2 TO 3 LITRES',
+          response: '2 TO 3 LITRES',
           active: false,
           label: '2 to 3 litres',
           commentRequired: false,
@@ -2014,7 +2014,7 @@ export const FIND_2: IncidentTypeConfiguration = {
         },
         {
           id: '198879',
-          code: '3 TO 4 LITRES',
+          response: '3 TO 4 LITRES',
           active: false,
           label: '3 to 4 litres',
           commentRequired: false,
@@ -2023,7 +2023,7 @@ export const FIND_2: IncidentTypeConfiguration = {
         },
         {
           id: '198880',
-          code: '4 TO 5 LITRES',
+          response: '4 TO 5 LITRES',
           active: false,
           label: '4 to 5 litres',
           commentRequired: false,
@@ -2032,7 +2032,7 @@ export const FIND_2: IncidentTypeConfiguration = {
         },
         {
           id: '198881',
-          code: '6 TO 10 LITRES',
+          response: '6 TO 10 LITRES',
           active: false,
           label: '6 to 10 litres',
           commentRequired: false,
@@ -2041,7 +2041,7 @@ export const FIND_2: IncidentTypeConfiguration = {
         },
         {
           id: '198882',
-          code: '11 TO 20 LITRES',
+          response: '11 TO 20 LITRES',
           active: false,
           label: '11 to 20 litres',
           commentRequired: false,
@@ -2050,7 +2050,7 @@ export const FIND_2: IncidentTypeConfiguration = {
         },
         {
           id: '198883',
-          code: 'MORE THAN 20 LITRES',
+          response: 'MORE THAN 20 LITRES',
           active: false,
           label: 'More than 20 litres',
           commentRequired: false,
@@ -2059,7 +2059,7 @@ export const FIND_2: IncidentTypeConfiguration = {
         },
         {
           id: '198884',
-          code: 'UNKNOWN',
+          response: 'UNKNOWN',
           active: false,
           label: 'Unknown',
           commentRequired: false,
@@ -2077,7 +2077,7 @@ export const FIND_2: IncidentTypeConfiguration = {
       answers: [
         {
           id: '198885',
-          code: 'YES',
+          response: 'YES',
           active: false,
           label: 'Yes',
           commentRequired: false,
@@ -2086,7 +2086,7 @@ export const FIND_2: IncidentTypeConfiguration = {
         },
         {
           id: '198886',
-          code: 'NO',
+          response: 'NO',
           active: false,
           label: 'No',
           commentRequired: false,
@@ -2104,7 +2104,7 @@ export const FIND_2: IncidentTypeConfiguration = {
       answers: [
         {
           id: '198887',
-          code: 'YES',
+          response: 'YES',
           active: true,
           label: 'Yes',
           commentRequired: false,
@@ -2113,7 +2113,7 @@ export const FIND_2: IncidentTypeConfiguration = {
         },
         {
           id: '198888',
-          code: 'NO',
+          response: 'NO',
           active: true,
           label: 'No',
           commentRequired: false,
@@ -2131,7 +2131,7 @@ export const FIND_2: IncidentTypeConfiguration = {
       answers: [
         {
           id: '198889',
-          code: 'PLEASE SPECIFY',
+          response: 'PLEASE SPECIFY',
           active: true,
           label: 'Please specify',
           commentRequired: true,
@@ -2149,7 +2149,7 @@ export const FIND_2: IncidentTypeConfiguration = {
       answers: [
         {
           id: '198890',
-          code: 'BOSS CHAIR',
+          response: 'BOSS CHAIR',
           active: true,
           label: 'Boss chair',
           commentRequired: false,
@@ -2158,7 +2158,7 @@ export const FIND_2: IncidentTypeConfiguration = {
         },
         {
           id: '198891',
-          code: 'CELL SEARCH',
+          response: 'CELL SEARCH',
           active: true,
           label: 'Cell search',
           commentRequired: false,
@@ -2167,7 +2167,7 @@ export const FIND_2: IncidentTypeConfiguration = {
         },
         {
           id: '198892',
-          code: 'CRIME SCENE',
+          response: 'CRIME SCENE',
           active: true,
           label: 'Crime scene',
           commentRequired: false,
@@ -2176,7 +2176,7 @@ export const FIND_2: IncidentTypeConfiguration = {
         },
         {
           id: '198893',
-          code: 'DOG SEARCH',
+          response: 'DOG SEARCH',
           active: true,
           label: 'Dog search',
           commentRequired: false,
@@ -2185,7 +2185,7 @@ export const FIND_2: IncidentTypeConfiguration = {
         },
         {
           id: '198894',
-          code: 'HIGH SENSITIVITY WAND',
+          response: 'HIGH SENSITIVITY WAND',
           active: true,
           label: 'High sensitivity wand',
           commentRequired: false,
@@ -2194,7 +2194,7 @@ export const FIND_2: IncidentTypeConfiguration = {
         },
         {
           id: '198895',
-          code: 'INFORMATION RECEIVED',
+          response: 'INFORMATION RECEIVED',
           active: true,
           label: 'Information received',
           commentRequired: false,
@@ -2203,7 +2203,7 @@ export const FIND_2: IncidentTypeConfiguration = {
         },
         {
           id: '198896',
-          code: 'INTELLIGENCE LED SEARCH',
+          response: 'INTELLIGENCE LED SEARCH',
           active: true,
           label: 'Intelligence led search',
           commentRequired: false,
@@ -2212,7 +2212,7 @@ export const FIND_2: IncidentTypeConfiguration = {
         },
         {
           id: '198897',
-          code: 'ITEM OBSERVED',
+          response: 'ITEM OBSERVED',
           active: true,
           label: 'Item observed',
           commentRequired: false,
@@ -2221,7 +2221,7 @@ export const FIND_2: IncidentTypeConfiguration = {
         },
         {
           id: '198898',
-          code: 'MOBILE PHONE SIGNAL DETECTOR',
+          response: 'MOBILE PHONE SIGNAL DETECTOR',
           active: true,
           label: 'Mobile phone signal detector',
           commentRequired: false,
@@ -2230,7 +2230,7 @@ export const FIND_2: IncidentTypeConfiguration = {
         },
         {
           id: '198899',
-          code: 'MOBILE PHONE ROD',
+          response: 'MOBILE PHONE ROD',
           active: true,
           label: 'Mobile phone rod',
           commentRequired: false,
@@ -2239,7 +2239,7 @@ export const FIND_2: IncidentTypeConfiguration = {
         },
         {
           id: '198900',
-          code: 'OTHER SEARCH (INMATE)',
+          response: 'OTHER SEARCH (INMATE)',
           active: true,
           label: 'Other search (inmate)',
           commentRequired: false,
@@ -2248,7 +2248,7 @@ export const FIND_2: IncidentTypeConfiguration = {
         },
         {
           id: '198901',
-          code: 'OTHER SEARCH (PREMISES)',
+          response: 'OTHER SEARCH (PREMISES)',
           active: true,
           label: 'Other search (premises)',
           commentRequired: false,
@@ -2257,7 +2257,7 @@ export const FIND_2: IncidentTypeConfiguration = {
         },
         {
           id: '198902',
-          code: 'OTHER SEARCH (VISITOR)',
+          response: 'OTHER SEARCH (VISITOR)',
           active: true,
           label: 'Other search (visitor)',
           commentRequired: false,
@@ -2266,7 +2266,7 @@ export const FIND_2: IncidentTypeConfiguration = {
         },
         {
           id: '198903',
-          code: 'PRE-OCCUPATION SEARCH',
+          response: 'PRE-OCCUPATION SEARCH',
           active: true,
           label: 'Pre-occupation search',
           commentRequired: false,
@@ -2275,7 +2275,7 @@ export const FIND_2: IncidentTypeConfiguration = {
         },
         {
           id: '198904',
-          code: 'UNUSUAL BEHAVIOUR',
+          response: 'UNUSUAL BEHAVIOUR',
           active: true,
           label: 'Unusual behaviour',
           commentRequired: false,
@@ -2284,7 +2284,7 @@ export const FIND_2: IncidentTypeConfiguration = {
         },
         {
           id: '198905',
-          code: 'OTHER (PLEASE SPECIFY)',
+          response: 'OTHER (PLEASE SPECIFY)',
           active: true,
           label: 'Other (please specify)',
           commentRequired: true,
@@ -2293,7 +2293,7 @@ export const FIND_2: IncidentTypeConfiguration = {
         },
         {
           id: '208853',
-          code: 'DRONE RECOVERY',
+          response: 'DRONE RECOVERY',
           active: true,
           label: 'Drone recovery',
           commentRequired: false,
@@ -2311,7 +2311,7 @@ export const FIND_2: IncidentTypeConfiguration = {
       answers: [
         {
           id: '198906',
-          code: 'PRISONER',
+          response: 'PRISONER',
           active: true,
           label: 'Prisoner',
           commentRequired: false,
@@ -2320,7 +2320,7 @@ export const FIND_2: IncidentTypeConfiguration = {
         },
         {
           id: '198907',
-          code: 'STAFF',
+          response: 'STAFF',
           active: true,
           label: 'Staff',
           commentRequired: false,
@@ -2329,7 +2329,7 @@ export const FIND_2: IncidentTypeConfiguration = {
         },
         {
           id: '198908',
-          code: 'VISITOR (FRIEND)',
+          response: 'VISITOR (FRIEND)',
           active: true,
           label: 'Visitor (friend)',
           commentRequired: false,
@@ -2338,7 +2338,7 @@ export const FIND_2: IncidentTypeConfiguration = {
         },
         {
           id: '198909',
-          code: 'VISITOR (OFFICIAL)',
+          response: 'VISITOR (OFFICIAL)',
           active: true,
           label: 'Visitor (official)',
           commentRequired: false,
@@ -2347,7 +2347,7 @@ export const FIND_2: IncidentTypeConfiguration = {
         },
         {
           id: '198910',
-          code: 'VISITOR (RELATIVE)',
+          response: 'VISITOR (RELATIVE)',
           active: true,
           label: 'Visitor (relative)',
           commentRequired: false,
@@ -2356,7 +2356,7 @@ export const FIND_2: IncidentTypeConfiguration = {
         },
         {
           id: '198911',
-          code: 'CONTRACTOR',
+          response: 'CONTRACTOR',
           active: true,
           label: 'Contractor',
           commentRequired: false,
@@ -2365,7 +2365,7 @@ export const FIND_2: IncidentTypeConfiguration = {
         },
         {
           id: '198912',
-          code: 'POST (RULE 39)',
+          response: 'POST (RULE 39)',
           active: true,
           label: 'Post (rule 39)',
           commentRequired: false,
@@ -2374,7 +2374,7 @@ export const FIND_2: IncidentTypeConfiguration = {
         },
         {
           id: '198913',
-          code: 'POST (OTHER)',
+          response: 'POST (OTHER)',
           active: true,
           label: 'Post (other)',
           commentRequired: false,
@@ -2383,7 +2383,7 @@ export const FIND_2: IncidentTypeConfiguration = {
         },
         {
           id: '198914',
-          code: 'THROWN IN',
+          response: 'THROWN IN',
           active: true,
           label: 'Thrown in',
           commentRequired: false,
@@ -2392,7 +2392,7 @@ export const FIND_2: IncidentTypeConfiguration = {
         },
         {
           id: '198915',
-          code: 'DRONE/UAV',
+          response: 'DRONE/UAV',
           active: true,
           label: 'Drone/UAV',
           commentRequired: false,
@@ -2401,7 +2401,7 @@ export const FIND_2: IncidentTypeConfiguration = {
         },
         {
           id: '198916',
-          code: 'OTHER (PLEASE SPECIFY)',
+          response: 'OTHER (PLEASE SPECIFY)',
           active: true,
           label: 'Other (please specify)',
           commentRequired: true,
@@ -2410,7 +2410,7 @@ export const FIND_2: IncidentTypeConfiguration = {
         },
         {
           id: '198917',
-          code: 'UNKNOWN',
+          response: 'UNKNOWN',
           active: true,
           label: 'Unknown',
           commentRequired: false,
@@ -2428,7 +2428,7 @@ export const FIND_2: IncidentTypeConfiguration = {
       answers: [
         {
           id: '198918',
-          code: 'PRISONER',
+          response: 'PRISONER',
           active: true,
           label: 'Prisoner',
           commentRequired: false,
@@ -2437,7 +2437,7 @@ export const FIND_2: IncidentTypeConfiguration = {
         },
         {
           id: '198919',
-          code: 'STAFF',
+          response: 'STAFF',
           active: true,
           label: 'Staff',
           commentRequired: false,
@@ -2446,7 +2446,7 @@ export const FIND_2: IncidentTypeConfiguration = {
         },
         {
           id: '198920',
-          code: 'VISITOR (FRIEND)',
+          response: 'VISITOR (FRIEND)',
           active: true,
           label: 'Visitor (friend)',
           commentRequired: false,
@@ -2455,7 +2455,7 @@ export const FIND_2: IncidentTypeConfiguration = {
         },
         {
           id: '198921',
-          code: 'VISITOR (OFFICIAL)',
+          response: 'VISITOR (OFFICIAL)',
           active: true,
           label: 'Visitor (official)',
           commentRequired: false,
@@ -2464,7 +2464,7 @@ export const FIND_2: IncidentTypeConfiguration = {
         },
         {
           id: '198922',
-          code: 'VISITOR (RELATIVE)',
+          response: 'VISITOR (RELATIVE)',
           active: true,
           label: 'Visitor (relative)',
           commentRequired: false,
@@ -2473,7 +2473,7 @@ export const FIND_2: IncidentTypeConfiguration = {
         },
         {
           id: '198923',
-          code: 'CONTRACTOR',
+          response: 'CONTRACTOR',
           active: true,
           label: 'Contractor',
           commentRequired: false,
@@ -2482,7 +2482,7 @@ export const FIND_2: IncidentTypeConfiguration = {
         },
         {
           id: '198924',
-          code: 'OTHER (PLEASE SPECIFY)',
+          response: 'OTHER (PLEASE SPECIFY)',
           active: true,
           label: 'Other (please specify)',
           commentRequired: true,
@@ -2491,7 +2491,7 @@ export const FIND_2: IncidentTypeConfiguration = {
         },
         {
           id: '198925',
-          code: 'NOT APPLICABLE',
+          response: 'NOT APPLICABLE',
           active: true,
           label: 'Not applicable',
           commentRequired: false,
@@ -2509,7 +2509,7 @@ export const FIND_2: IncidentTypeConfiguration = {
       answers: [
         {
           id: '198926',
-          code: 'NOT CONCEALED',
+          response: 'NOT CONCEALED',
           active: true,
           label: 'Not concealed',
           commentRequired: false,
@@ -2518,7 +2518,7 @@ export const FIND_2: IncidentTypeConfiguration = {
         },
         {
           id: '198927',
-          code: 'BED/BEDDING',
+          response: 'BED/BEDDING',
           active: true,
           label: 'Bed/bedding',
           commentRequired: false,
@@ -2527,7 +2527,7 @@ export const FIND_2: IncidentTypeConfiguration = {
         },
         {
           id: '198928',
-          code: 'BOOK/PAPERS',
+          response: 'BOOK/PAPERS',
           active: true,
           label: 'Book/papers',
           commentRequired: false,
@@ -2536,7 +2536,7 @@ export const FIND_2: IncidentTypeConfiguration = {
         },
         {
           id: '198929',
-          code: 'CELL/BUILDING FABRIC',
+          response: 'CELL/BUILDING FABRIC',
           active: true,
           label: 'Cell/building fabric',
           commentRequired: false,
@@ -2545,7 +2545,7 @@ export const FIND_2: IncidentTypeConfiguration = {
         },
         {
           id: '198930',
-          code: 'FOOD/CONTAINER',
+          response: 'FOOD/CONTAINER',
           active: true,
           label: 'Food/container',
           commentRequired: false,
@@ -2554,7 +2554,7 @@ export const FIND_2: IncidentTypeConfiguration = {
         },
         {
           id: '198931',
-          code: 'IN CLOTHING',
+          response: 'IN CLOTHING',
           active: true,
           label: 'In clothing',
           commentRequired: false,
@@ -2563,7 +2563,7 @@ export const FIND_2: IncidentTypeConfiguration = {
         },
         {
           id: '198932',
-          code: 'IN HAND',
+          response: 'IN HAND',
           active: true,
           label: 'In hand',
           commentRequired: false,
@@ -2572,7 +2572,7 @@ export const FIND_2: IncidentTypeConfiguration = {
         },
         {
           id: '198933',
-          code: 'IN MOUTH',
+          response: 'IN MOUTH',
           active: true,
           label: 'In mouth',
           commentRequired: false,
@@ -2581,7 +2581,7 @@ export const FIND_2: IncidentTypeConfiguration = {
         },
         {
           id: '198934',
-          code: 'INTERNALLY/PLUGGED',
+          response: 'INTERNALLY/PLUGGED',
           active: true,
           label: 'Internally/plugged',
           commentRequired: false,
@@ -2590,7 +2590,7 @@ export const FIND_2: IncidentTypeConfiguration = {
         },
         {
           id: '198935',
-          code: 'LETTER/PARCEL',
+          response: 'LETTER/PARCEL',
           active: true,
           label: 'Letter/parcel',
           commentRequired: false,
@@ -2599,7 +2599,7 @@ export const FIND_2: IncidentTypeConfiguration = {
         },
         {
           id: '198936',
-          code: 'LIGHT FITTINGS',
+          response: 'LIGHT FITTINGS',
           active: true,
           label: 'Light fittings',
           commentRequired: false,
@@ -2608,7 +2608,7 @@ export const FIND_2: IncidentTypeConfiguration = {
         },
         {
           id: '198937',
-          code: 'PIPEWORK',
+          response: 'PIPEWORK',
           active: true,
           label: 'Pipework',
           commentRequired: false,
@@ -2617,7 +2617,7 @@ export const FIND_2: IncidentTypeConfiguration = {
         },
         {
           id: '198938',
-          code: 'RULE 39/LEGAL PAPERS',
+          response: 'RULE 39/LEGAL PAPERS',
           active: true,
           label: 'Rule 39/legal papers',
           commentRequired: false,
@@ -2626,7 +2626,7 @@ export const FIND_2: IncidentTypeConfiguration = {
         },
         {
           id: '198939',
-          code: 'TV/RADIO/DVD/CONSOLES ETC',
+          response: 'TV/RADIO/DVD/CONSOLES ETC',
           active: true,
           label: 'TV/radio/DVD/consoles etc',
           commentRequired: false,
@@ -2635,7 +2635,7 @@ export const FIND_2: IncidentTypeConfiguration = {
         },
         {
           id: '198940',
-          code: 'OTHER',
+          response: 'OTHER',
           active: true,
           label: 'Other',
           commentRequired: false,
@@ -2653,7 +2653,7 @@ export const FIND_2: IncidentTypeConfiguration = {
       answers: [
         {
           id: '198941',
-          code: 'YES',
+          response: 'YES',
           active: true,
           label: 'Yes',
           commentRequired: false,
@@ -2662,7 +2662,7 @@ export const FIND_2: IncidentTypeConfiguration = {
         },
         {
           id: '198942',
-          code: 'NO',
+          response: 'NO',
           active: true,
           label: 'No',
           commentRequired: false,
@@ -2680,7 +2680,7 @@ export const FIND_2: IncidentTypeConfiguration = {
       answers: [
         {
           id: '198943',
-          code: 'YES',
+          response: 'YES',
           active: true,
           label: 'Yes',
           commentRequired: false,
@@ -2689,7 +2689,7 @@ export const FIND_2: IncidentTypeConfiguration = {
         },
         {
           id: '198944',
-          code: 'NO',
+          response: 'NO',
           active: true,
           label: 'No',
           commentRequired: false,
@@ -2707,7 +2707,7 @@ export const FIND_2: IncidentTypeConfiguration = {
       answers: [
         {
           id: '198945',
-          code: 'AFTER ENTERING PRISON',
+          response: 'AFTER ENTERING PRISON',
           active: true,
           label: 'After entering prison',
           commentRequired: false,
@@ -2716,7 +2716,7 @@ export const FIND_2: IncidentTypeConfiguration = {
         },
         {
           id: '198946',
-          code: 'BEFORE ENTERING PRISON',
+          response: 'BEFORE ENTERING PRISON',
           active: true,
           label: 'Before entering prison',
           commentRequired: false,
@@ -2734,7 +2734,7 @@ export const FIND_2: IncidentTypeConfiguration = {
       answers: [
         {
           id: '198947',
-          code: 'PLEASE SPECIFY',
+          response: 'PLEASE SPECIFY',
           active: true,
           label: 'Please specify',
           commentRequired: true,
@@ -2752,7 +2752,7 @@ export const FIND_2: IncidentTypeConfiguration = {
       answers: [
         {
           id: '198948',
-          code: 'YES',
+          response: 'YES',
           active: true,
           label: 'Yes',
           commentRequired: false,
@@ -2761,7 +2761,7 @@ export const FIND_2: IncidentTypeConfiguration = {
         },
         {
           id: '198949',
-          code: 'NO',
+          response: 'NO',
           active: true,
           label: 'No',
           commentRequired: false,
@@ -2770,7 +2770,7 @@ export const FIND_2: IncidentTypeConfiguration = {
         },
         {
           id: '198950',
-          code: 'UNKNOWN',
+          response: 'UNKNOWN',
           active: true,
           label: 'Unknown',
           commentRequired: false,
@@ -2788,7 +2788,7 @@ export const FIND_2: IncidentTypeConfiguration = {
       answers: [
         {
           id: '198951',
-          code: 'COMMUNITY VISIT',
+          response: 'COMMUNITY VISIT',
           active: true,
           label: 'Community visit',
           commentRequired: false,
@@ -2797,7 +2797,7 @@ export const FIND_2: IncidentTypeConfiguration = {
         },
         {
           id: '198952',
-          code: 'COMPASSIONATE',
+          response: 'COMPASSIONATE',
           active: true,
           label: 'Compassionate',
           commentRequired: false,
@@ -2806,7 +2806,7 @@ export const FIND_2: IncidentTypeConfiguration = {
         },
         {
           id: '198953',
-          code: 'FACILITY',
+          response: 'FACILITY',
           active: true,
           label: 'Facility',
           commentRequired: false,
@@ -2815,7 +2815,7 @@ export const FIND_2: IncidentTypeConfiguration = {
         },
         {
           id: '198954',
-          code: 'RESETTLEMENT',
+          response: 'RESETTLEMENT',
           active: true,
           label: 'Resettlement',
           commentRequired: false,
@@ -2824,7 +2824,7 @@ export const FIND_2: IncidentTypeConfiguration = {
         },
         {
           id: '198955',
-          code: 'UNKNOWN',
+          response: 'UNKNOWN',
           active: true,
           label: 'Unknown',
           commentRequired: false,
@@ -2842,7 +2842,7 @@ export const FIND_2: IncidentTypeConfiguration = {
       answers: [
         {
           id: '198956',
-          code: '£0',
+          response: '£0',
           active: true,
           label: '£0',
           commentRequired: false,
@@ -2851,7 +2851,7 @@ export const FIND_2: IncidentTypeConfiguration = {
         },
         {
           id: '198957',
-          code: '£1 TO £100',
+          response: '£1 TO £100',
           active: true,
           label: '£1 to £100',
           commentRequired: false,
@@ -2860,7 +2860,7 @@ export const FIND_2: IncidentTypeConfiguration = {
         },
         {
           id: '198958',
-          code: '£101 TO £200',
+          response: '£101 TO £200',
           active: true,
           label: '£101 to £200',
           commentRequired: false,
@@ -2869,7 +2869,7 @@ export const FIND_2: IncidentTypeConfiguration = {
         },
         {
           id: '198959',
-          code: '£201 TO £300',
+          response: '£201 TO £300',
           active: true,
           label: '£201 to £300',
           commentRequired: false,
@@ -2878,7 +2878,7 @@ export const FIND_2: IncidentTypeConfiguration = {
         },
         {
           id: '198960',
-          code: '£301 TO £400',
+          response: '£301 TO £400',
           active: true,
           label: '£301 to £400',
           commentRequired: false,
@@ -2887,7 +2887,7 @@ export const FIND_2: IncidentTypeConfiguration = {
         },
         {
           id: '198961',
-          code: '£401 TO £500',
+          response: '£401 TO £500',
           active: true,
           label: '£401 to £500',
           commentRequired: false,
@@ -2896,7 +2896,7 @@ export const FIND_2: IncidentTypeConfiguration = {
         },
         {
           id: '198962',
-          code: '£501 TO £1000',
+          response: '£501 TO £1000',
           active: true,
           label: '£501 to £1000',
           commentRequired: false,
@@ -2905,7 +2905,7 @@ export const FIND_2: IncidentTypeConfiguration = {
         },
         {
           id: '198963',
-          code: '£1001 TO £5000',
+          response: '£1001 TO £5000',
           active: true,
           label: '£1001 to £5000',
           commentRequired: false,
@@ -2914,7 +2914,7 @@ export const FIND_2: IncidentTypeConfiguration = {
         },
         {
           id: '198964',
-          code: '£5001 TO £10,000',
+          response: '£5001 TO £10,000',
           active: true,
           label: '£5001 to £10,000',
           commentRequired: false,
@@ -2923,7 +2923,7 @@ export const FIND_2: IncidentTypeConfiguration = {
         },
         {
           id: '198965',
-          code: '£10,001 TO £20,000',
+          response: '£10,001 TO £20,000',
           active: true,
           label: '£10,001 to £20,000',
           commentRequired: false,
@@ -2932,7 +2932,7 @@ export const FIND_2: IncidentTypeConfiguration = {
         },
         {
           id: '198966',
-          code: '£20,001 TO £30,000',
+          response: '£20,001 TO £30,000',
           active: true,
           label: '£20,001 to £30,000',
           commentRequired: false,
@@ -2941,7 +2941,7 @@ export const FIND_2: IncidentTypeConfiguration = {
         },
         {
           id: '198967',
-          code: '£30,001 TO £40,000',
+          response: '£30,001 TO £40,000',
           active: true,
           label: '£30,001 to £40,000',
           commentRequired: false,
@@ -2950,7 +2950,7 @@ export const FIND_2: IncidentTypeConfiguration = {
         },
         {
           id: '198968',
-          code: '£40,001 TO £50,000',
+          response: '£40,001 TO £50,000',
           active: true,
           label: '£40,001 to £50,000',
           commentRequired: false,
@@ -2959,7 +2959,7 @@ export const FIND_2: IncidentTypeConfiguration = {
         },
         {
           id: '198969',
-          code: 'MORE THAN £50,000',
+          response: 'MORE THAN £50,000',
           active: true,
           label: 'More than £50,000',
           commentRequired: false,
@@ -2968,7 +2968,7 @@ export const FIND_2: IncidentTypeConfiguration = {
         },
         {
           id: '198970',
-          code: 'UNKNOWN',
+          response: 'UNKNOWN',
           active: true,
           label: 'Unknown',
           commentRequired: false,
@@ -2986,7 +2986,7 @@ export const FIND_2: IncidentTypeConfiguration = {
       answers: [
         {
           id: '208855',
-          code: 'YES',
+          response: 'YES',
           active: false,
           label: 'Yes',
           commentRequired: false,
@@ -2995,7 +2995,7 @@ export const FIND_2: IncidentTypeConfiguration = {
         },
         {
           id: '208856',
-          code: 'NO',
+          response: 'NO',
           active: false,
           label: 'No',
           commentRequired: false,
@@ -3013,7 +3013,7 @@ export const FIND_2: IncidentTypeConfiguration = {
       answers: [
         {
           id: '208857',
-          code: 'LOOSE TOBACCO',
+          response: 'LOOSE TOBACCO',
           active: false,
           label: 'Loose tobacco',
           commentRequired: false,
@@ -3022,7 +3022,7 @@ export const FIND_2: IncidentTypeConfiguration = {
         },
         {
           id: '208872',
-          code: 'CIGARETTES/CIGARS',
+          response: 'CIGARETTES/CIGARS',
           active: false,
           label: 'Cigarettes/cigars',
           commentRequired: false,
@@ -3031,7 +3031,7 @@ export const FIND_2: IncidentTypeConfiguration = {
         },
         {
           id: '208873',
-          code: 'OTHER (including packaging and roaches)',
+          response: 'OTHER (including packaging and roaches)',
           active: false,
           label: 'Other (including packaging and roaches)',
           commentRequired: false,
@@ -3049,7 +3049,7 @@ export const FIND_2: IncidentTypeConfiguration = {
       answers: [
         {
           id: '208858',
-          code: 'UP TO 1 GRAMME',
+          response: 'UP TO 1 GRAMME',
           active: false,
           label: 'Up to 1 gramme',
           commentRequired: false,
@@ -3058,7 +3058,7 @@ export const FIND_2: IncidentTypeConfiguration = {
         },
         {
           id: '208874',
-          code: '2g TO 5g',
+          response: '2g TO 5g',
           active: false,
           label: '2g to 5g',
           commentRequired: false,
@@ -3067,7 +3067,7 @@ export const FIND_2: IncidentTypeConfiguration = {
         },
         {
           id: '208875',
-          code: '6g to 10g',
+          response: '6g to 10g',
           active: false,
           label: '6g to 10g',
           commentRequired: false,
@@ -3076,7 +3076,7 @@ export const FIND_2: IncidentTypeConfiguration = {
         },
         {
           id: '208876',
-          code: '10g +',
+          response: '10g +',
           active: false,
           label: '10g +',
           commentRequired: false,
@@ -3094,7 +3094,7 @@ export const FIND_2: IncidentTypeConfiguration = {
       answers: [
         {
           id: '208859',
-          code: 'YES',
+          response: 'YES',
           active: false,
           label: 'Yes',
           commentRequired: false,
@@ -3103,7 +3103,7 @@ export const FIND_2: IncidentTypeConfiguration = {
         },
         {
           id: '208877',
-          code: 'NO',
+          response: 'NO',
           active: false,
           label: 'No',
           commentRequired: false,
@@ -3121,7 +3121,7 @@ export const FIND_2: IncidentTypeConfiguration = {
       answers: [
         {
           id: '208860',
-          code: 'PLEASE SPECIFY',
+          response: 'PLEASE SPECIFY',
           active: false,
           label: 'Please specify',
           commentRequired: true,
@@ -3139,7 +3139,7 @@ export const FIND_2: IncidentTypeConfiguration = {
       answers: [
         {
           id: '208861',
-          code: 'BOSS CHAIR',
+          response: 'BOSS CHAIR',
           active: false,
           label: 'Boss chair',
           commentRequired: false,
@@ -3148,7 +3148,7 @@ export const FIND_2: IncidentTypeConfiguration = {
         },
         {
           id: '208878',
-          code: 'CELL SEARCH',
+          response: 'CELL SEARCH',
           active: false,
           label: 'Cell search',
           commentRequired: false,
@@ -3157,7 +3157,7 @@ export const FIND_2: IncidentTypeConfiguration = {
         },
         {
           id: '208879',
-          code: 'CRIME SCENE',
+          response: 'CRIME SCENE',
           active: false,
           label: 'Crime scene',
           commentRequired: false,
@@ -3166,7 +3166,7 @@ export const FIND_2: IncidentTypeConfiguration = {
         },
         {
           id: '208880',
-          code: 'DOG SEARCH',
+          response: 'DOG SEARCH',
           active: false,
           label: 'Dog search',
           commentRequired: false,
@@ -3175,7 +3175,7 @@ export const FIND_2: IncidentTypeConfiguration = {
         },
         {
           id: '208881',
-          code: 'DRONE RECOVERY',
+          response: 'DRONE RECOVERY',
           active: false,
           label: 'Drone recovery',
           commentRequired: false,
@@ -3184,7 +3184,7 @@ export const FIND_2: IncidentTypeConfiguration = {
         },
         {
           id: '208882',
-          code: 'HIGH SENSITIVITY WAND',
+          response: 'HIGH SENSITIVITY WAND',
           active: false,
           label: 'High sensitivity wand',
           commentRequired: false,
@@ -3193,7 +3193,7 @@ export const FIND_2: IncidentTypeConfiguration = {
         },
         {
           id: '208883',
-          code: 'INFORMATION RECEIVED',
+          response: 'INFORMATION RECEIVED',
           active: false,
           label: 'Information received',
           commentRequired: false,
@@ -3202,7 +3202,7 @@ export const FIND_2: IncidentTypeConfiguration = {
         },
         {
           id: '208884',
-          code: 'NTELLIGENCE LED SEARCH',
+          response: 'NTELLIGENCE LED SEARCH',
           active: false,
           label: 'Ntelligence led search',
           commentRequired: false,
@@ -3211,7 +3211,7 @@ export const FIND_2: IncidentTypeConfiguration = {
         },
         {
           id: '208885',
-          code: 'ITEM OBSERVED',
+          response: 'ITEM OBSERVED',
           active: false,
           label: 'Item observed',
           commentRequired: false,
@@ -3220,7 +3220,7 @@ export const FIND_2: IncidentTypeConfiguration = {
         },
         {
           id: '208886',
-          code: 'MOBILE PHONE SIGNAL DETECTOR',
+          response: 'MOBILE PHONE SIGNAL DETECTOR',
           active: false,
           label: 'Mobile phone signal detector',
           commentRequired: false,
@@ -3229,7 +3229,7 @@ export const FIND_2: IncidentTypeConfiguration = {
         },
         {
           id: '208887',
-          code: 'MOBILE PHONE ROD',
+          response: 'MOBILE PHONE ROD',
           active: false,
           label: 'Mobile phone rod',
           commentRequired: false,
@@ -3238,7 +3238,7 @@ export const FIND_2: IncidentTypeConfiguration = {
         },
         {
           id: '208888',
-          code: 'OTHER SEARCH (INMATE)',
+          response: 'OTHER SEARCH (INMATE)',
           active: false,
           label: 'Other search (inmate)',
           commentRequired: false,
@@ -3247,7 +3247,7 @@ export const FIND_2: IncidentTypeConfiguration = {
         },
         {
           id: '208889',
-          code: 'OTHER SEARCH (PREMISES)',
+          response: 'OTHER SEARCH (PREMISES)',
           active: false,
           label: 'Other search (premises)',
           commentRequired: false,
@@ -3256,7 +3256,7 @@ export const FIND_2: IncidentTypeConfiguration = {
         },
         {
           id: '208890',
-          code: 'OTHER SEARCH (VISITOR)',
+          response: 'OTHER SEARCH (VISITOR)',
           active: false,
           label: 'Other search (visitor)',
           commentRequired: false,
@@ -3265,7 +3265,7 @@ export const FIND_2: IncidentTypeConfiguration = {
         },
         {
           id: '208891',
-          code: 'PRE-OCCUPATION SEARCH',
+          response: 'PRE-OCCUPATION SEARCH',
           active: false,
           label: 'Pre-occupation search',
           commentRequired: false,
@@ -3274,7 +3274,7 @@ export const FIND_2: IncidentTypeConfiguration = {
         },
         {
           id: '208892',
-          code: 'UNUSUAL BEHAVIOUR',
+          response: 'UNUSUAL BEHAVIOUR',
           active: false,
           label: 'Unusual behaviour',
           commentRequired: false,
@@ -3283,7 +3283,7 @@ export const FIND_2: IncidentTypeConfiguration = {
         },
         {
           id: '208893',
-          code: 'OTHER (PLEASE SPECIFY)',
+          response: 'OTHER (PLEASE SPECIFY)',
           active: false,
           label: 'Other (please specify)',
           commentRequired: true,
@@ -3301,7 +3301,7 @@ export const FIND_2: IncidentTypeConfiguration = {
       answers: [
         {
           id: '208862',
-          code: 'PRISONER',
+          response: 'PRISONER',
           active: false,
           label: 'Prisoner',
           commentRequired: false,
@@ -3310,7 +3310,7 @@ export const FIND_2: IncidentTypeConfiguration = {
         },
         {
           id: '208894',
-          code: 'STAFF',
+          response: 'STAFF',
           active: false,
           label: 'Staff',
           commentRequired: false,
@@ -3319,7 +3319,7 @@ export const FIND_2: IncidentTypeConfiguration = {
         },
         {
           id: '208895',
-          code: 'VISITOR (FRIEND)',
+          response: 'VISITOR (FRIEND)',
           active: false,
           label: 'Visitor (friend)',
           commentRequired: false,
@@ -3328,7 +3328,7 @@ export const FIND_2: IncidentTypeConfiguration = {
         },
         {
           id: '208896',
-          code: 'VISITOR (RELATIVE)',
+          response: 'VISITOR (RELATIVE)',
           active: false,
           label: 'Visitor (relative)',
           commentRequired: false,
@@ -3337,7 +3337,7 @@ export const FIND_2: IncidentTypeConfiguration = {
         },
         {
           id: '208897',
-          code: 'VISITOR (OFFICIAL)',
+          response: 'VISITOR (OFFICIAL)',
           active: false,
           label: 'Visitor (official)',
           commentRequired: false,
@@ -3346,7 +3346,7 @@ export const FIND_2: IncidentTypeConfiguration = {
         },
         {
           id: '208898',
-          code: 'CONTRACTOR',
+          response: 'CONTRACTOR',
           active: false,
           label: 'Contractor',
           commentRequired: false,
@@ -3355,7 +3355,7 @@ export const FIND_2: IncidentTypeConfiguration = {
         },
         {
           id: '208899',
-          code: 'POST (RULE39)',
+          response: 'POST (RULE39)',
           active: false,
           label: 'Post (rule39)',
           commentRequired: false,
@@ -3364,7 +3364,7 @@ export const FIND_2: IncidentTypeConfiguration = {
         },
         {
           id: '208900',
-          code: 'POST (OTHER)',
+          response: 'POST (OTHER)',
           active: false,
           label: 'Post (other)',
           commentRequired: false,
@@ -3373,7 +3373,7 @@ export const FIND_2: IncidentTypeConfiguration = {
         },
         {
           id: '208901',
-          code: 'DRONE/UAV',
+          response: 'DRONE/UAV',
           active: false,
           label: 'Drone/UAV',
           commentRequired: false,
@@ -3382,7 +3382,7 @@ export const FIND_2: IncidentTypeConfiguration = {
         },
         {
           id: '208902',
-          code: 'OTHER (PLEASE SPECIFY',
+          response: 'OTHER (PLEASE SPECIFY',
           active: false,
           label: 'Other (please specify',
           commentRequired: true,
@@ -3391,7 +3391,7 @@ export const FIND_2: IncidentTypeConfiguration = {
         },
         {
           id: '208903',
-          code: 'UNKNOWN',
+          response: 'UNKNOWN',
           active: false,
           label: 'Unknown',
           commentRequired: false,
@@ -3400,7 +3400,7 @@ export const FIND_2: IncidentTypeConfiguration = {
         },
         {
           id: '208904',
-          code: 'THROWN IN',
+          response: 'THROWN IN',
           active: false,
           label: 'Thrown in',
           commentRequired: false,
@@ -3418,7 +3418,7 @@ export const FIND_2: IncidentTypeConfiguration = {
       answers: [
         {
           id: '208863',
-          code: 'PRISONER',
+          response: 'PRISONER',
           active: false,
           label: 'Prisoner',
           commentRequired: false,
@@ -3427,7 +3427,7 @@ export const FIND_2: IncidentTypeConfiguration = {
         },
         {
           id: '208905',
-          code: 'STAFF',
+          response: 'STAFF',
           active: false,
           label: 'Staff',
           commentRequired: false,
@@ -3436,7 +3436,7 @@ export const FIND_2: IncidentTypeConfiguration = {
         },
         {
           id: '208906',
-          code: 'VISITOR (FRIEND)',
+          response: 'VISITOR (FRIEND)',
           active: false,
           label: 'Visitor (friend)',
           commentRequired: false,
@@ -3445,7 +3445,7 @@ export const FIND_2: IncidentTypeConfiguration = {
         },
         {
           id: '208907',
-          code: 'VISITOR (OFFICIAL)',
+          response: 'VISITOR (OFFICIAL)',
           active: false,
           label: 'Visitor (official)',
           commentRequired: false,
@@ -3454,7 +3454,7 @@ export const FIND_2: IncidentTypeConfiguration = {
         },
         {
           id: '208908',
-          code: 'VISITOR (RELATIVE)',
+          response: 'VISITOR (RELATIVE)',
           active: false,
           label: 'Visitor (relative)',
           commentRequired: false,
@@ -3463,7 +3463,7 @@ export const FIND_2: IncidentTypeConfiguration = {
         },
         {
           id: '208909',
-          code: 'CONTRACTOR',
+          response: 'CONTRACTOR',
           active: false,
           label: 'Contractor',
           commentRequired: false,
@@ -3472,7 +3472,7 @@ export const FIND_2: IncidentTypeConfiguration = {
         },
         {
           id: '208910',
-          code: 'OTHER (PLEASE SPECIFY)',
+          response: 'OTHER (PLEASE SPECIFY)',
           active: false,
           label: 'Other (please specify)',
           commentRequired: true,
@@ -3481,7 +3481,7 @@ export const FIND_2: IncidentTypeConfiguration = {
         },
         {
           id: '208911',
-          code: 'NOT APPLICABLE',
+          response: 'NOT APPLICABLE',
           active: false,
           label: 'Not applicable',
           commentRequired: false,
@@ -3499,7 +3499,7 @@ export const FIND_2: IncidentTypeConfiguration = {
       answers: [
         {
           id: '208864',
-          code: 'NOT CONCEALED',
+          response: 'NOT CONCEALED',
           active: false,
           label: 'Not concealed',
           commentRequired: false,
@@ -3508,7 +3508,7 @@ export const FIND_2: IncidentTypeConfiguration = {
         },
         {
           id: '208912',
-          code: 'NOT CONCEALED',
+          response: 'NOT CONCEALED',
           active: false,
           label: 'Not concealed',
           commentRequired: false,
@@ -3517,7 +3517,7 @@ export const FIND_2: IncidentTypeConfiguration = {
         },
         {
           id: '208913',
-          code: 'BED/BEDDING',
+          response: 'BED/BEDDING',
           active: false,
           label: 'Bed/bedding',
           commentRequired: false,
@@ -3526,7 +3526,7 @@ export const FIND_2: IncidentTypeConfiguration = {
         },
         {
           id: '208914',
-          code: 'BOOK/PAPERS',
+          response: 'BOOK/PAPERS',
           active: false,
           label: 'Book/papers',
           commentRequired: false,
@@ -3535,7 +3535,7 @@ export const FIND_2: IncidentTypeConfiguration = {
         },
         {
           id: '208915',
-          code: 'CELL/BUILDING FABRIC',
+          response: 'CELL/BUILDING FABRIC',
           active: false,
           label: 'Cell/building fabric',
           commentRequired: false,
@@ -3544,7 +3544,7 @@ export const FIND_2: IncidentTypeConfiguration = {
         },
         {
           id: '208916',
-          code: 'FOOD/CONTAINER',
+          response: 'FOOD/CONTAINER',
           active: false,
           label: 'Food/container',
           commentRequired: false,
@@ -3553,7 +3553,7 @@ export const FIND_2: IncidentTypeConfiguration = {
         },
         {
           id: '208917',
-          code: 'IN CLOTHING',
+          response: 'IN CLOTHING',
           active: false,
           label: 'In clothing',
           commentRequired: false,
@@ -3562,7 +3562,7 @@ export const FIND_2: IncidentTypeConfiguration = {
         },
         {
           id: '208918',
-          code: 'IN HAND',
+          response: 'IN HAND',
           active: false,
           label: 'In hand',
           commentRequired: false,
@@ -3571,7 +3571,7 @@ export const FIND_2: IncidentTypeConfiguration = {
         },
         {
           id: '208919',
-          code: 'IN MOUTH',
+          response: 'IN MOUTH',
           active: false,
           label: 'In mouth',
           commentRequired: false,
@@ -3580,7 +3580,7 @@ export const FIND_2: IncidentTypeConfiguration = {
         },
         {
           id: '208920',
-          code: 'INTERNALLY/PLUGGED',
+          response: 'INTERNALLY/PLUGGED',
           active: false,
           label: 'Internally/plugged',
           commentRequired: false,
@@ -3589,7 +3589,7 @@ export const FIND_2: IncidentTypeConfiguration = {
         },
         {
           id: '208921',
-          code: 'LETTER/PARCEL',
+          response: 'LETTER/PARCEL',
           active: false,
           label: 'Letter/parcel',
           commentRequired: false,
@@ -3598,7 +3598,7 @@ export const FIND_2: IncidentTypeConfiguration = {
         },
         {
           id: '208922',
-          code: 'LIGHT FITTINGS',
+          response: 'LIGHT FITTINGS',
           active: false,
           label: 'Light fittings',
           commentRequired: false,
@@ -3607,7 +3607,7 @@ export const FIND_2: IncidentTypeConfiguration = {
         },
         {
           id: '208923',
-          code: 'PIPEWORK',
+          response: 'PIPEWORK',
           active: false,
           label: 'Pipework',
           commentRequired: false,
@@ -3616,7 +3616,7 @@ export const FIND_2: IncidentTypeConfiguration = {
         },
         {
           id: '208924',
-          code: 'RULE 39/LEGAL PAPERS',
+          response: 'RULE 39/LEGAL PAPERS',
           active: false,
           label: 'Rule 39/legal papers',
           commentRequired: false,
@@ -3625,7 +3625,7 @@ export const FIND_2: IncidentTypeConfiguration = {
         },
         {
           id: '208925',
-          code: 'TV/RADIO/DVD/CONSOLES ETC.',
+          response: 'TV/RADIO/DVD/CONSOLES ETC.',
           active: false,
           label: 'TV/radio/DVD/consoles etc.',
           commentRequired: false,
@@ -3634,7 +3634,7 @@ export const FIND_2: IncidentTypeConfiguration = {
         },
         {
           id: '208926',
-          code: 'OTHER',
+          response: 'OTHER',
           active: false,
           label: 'Other',
           commentRequired: true,
@@ -3652,7 +3652,7 @@ export const FIND_2: IncidentTypeConfiguration = {
       answers: [
         {
           id: '208865',
-          code: 'YES',
+          response: 'YES',
           active: false,
           label: 'Yes',
           commentRequired: false,
@@ -3661,7 +3661,7 @@ export const FIND_2: IncidentTypeConfiguration = {
         },
         {
           id: '208927',
-          code: 'NO',
+          response: 'NO',
           active: false,
           label: 'No',
           commentRequired: false,
@@ -3679,7 +3679,7 @@ export const FIND_2: IncidentTypeConfiguration = {
       answers: [
         {
           id: '208866',
-          code: 'YES',
+          response: 'YES',
           active: false,
           label: 'Yes',
           commentRequired: false,
@@ -3688,7 +3688,7 @@ export const FIND_2: IncidentTypeConfiguration = {
         },
         {
           id: '208928',
-          code: 'NO',
+          response: 'NO',
           active: false,
           label: 'No',
           commentRequired: false,
@@ -3706,7 +3706,7 @@ export const FIND_2: IncidentTypeConfiguration = {
       answers: [
         {
           id: '208867',
-          code: 'AFTER ENTERING PRISON',
+          response: 'AFTER ENTERING PRISON',
           active: false,
           label: 'After entering prison',
           commentRequired: false,
@@ -3715,7 +3715,7 @@ export const FIND_2: IncidentTypeConfiguration = {
         },
         {
           id: '208929',
-          code: 'BEFORE ENTERING PRISON',
+          response: 'BEFORE ENTERING PRISON',
           active: false,
           label: 'Before entering prison',
           commentRequired: false,
@@ -3733,7 +3733,7 @@ export const FIND_2: IncidentTypeConfiguration = {
       answers: [
         {
           id: '208868',
-          code: 'SPECIFY',
+          response: 'SPECIFY',
           active: false,
           label: 'Specify',
           commentRequired: true,
@@ -3751,7 +3751,7 @@ export const FIND_2: IncidentTypeConfiguration = {
       answers: [
         {
           id: '208869',
-          code: 'YES',
+          response: 'YES',
           active: false,
           label: 'Yes',
           commentRequired: false,
@@ -3760,7 +3760,7 @@ export const FIND_2: IncidentTypeConfiguration = {
         },
         {
           id: '208930',
-          code: 'NO',
+          response: 'NO',
           active: false,
           label: 'No',
           commentRequired: false,
@@ -3769,7 +3769,7 @@ export const FIND_2: IncidentTypeConfiguration = {
         },
         {
           id: '208931',
-          code: 'UNKNOWN',
+          response: 'UNKNOWN',
           active: false,
           label: 'Unknown',
           commentRequired: false,
@@ -3787,7 +3787,7 @@ export const FIND_2: IncidentTypeConfiguration = {
       answers: [
         {
           id: '208870',
-          code: 'COMMUNITY VISIT',
+          response: 'COMMUNITY VISIT',
           active: false,
           label: 'Community visit',
           commentRequired: false,
@@ -3796,7 +3796,7 @@ export const FIND_2: IncidentTypeConfiguration = {
         },
         {
           id: '208932',
-          code: 'COMPASSIONATE',
+          response: 'COMPASSIONATE',
           active: false,
           label: 'Compassionate',
           commentRequired: false,
@@ -3805,7 +3805,7 @@ export const FIND_2: IncidentTypeConfiguration = {
         },
         {
           id: '208933',
-          code: 'FACILTY',
+          response: 'FACILTY',
           active: false,
           label: 'Facility',
           commentRequired: false,
@@ -3814,7 +3814,7 @@ export const FIND_2: IncidentTypeConfiguration = {
         },
         {
           id: '208934',
-          code: 'RESETTLEMENT',
+          response: 'RESETTLEMENT',
           active: false,
           label: 'Resettlement',
           commentRequired: false,
@@ -3823,7 +3823,7 @@ export const FIND_2: IncidentTypeConfiguration = {
         },
         {
           id: '208935',
-          code: 'UNKNOWN',
+          response: 'UNKNOWN',
           active: false,
           label: 'Unknown',
           commentRequired: false,
@@ -3841,7 +3841,7 @@ export const FIND_2: IncidentTypeConfiguration = {
       answers: [
         {
           id: '208871',
-          code: '£0',
+          response: '£0',
           active: false,
           label: '£0',
           commentRequired: false,
@@ -3850,7 +3850,7 @@ export const FIND_2: IncidentTypeConfiguration = {
         },
         {
           id: '208936',
-          code: '£1 to £100',
+          response: '£1 to £100',
           active: false,
           label: '£1 to £100',
           commentRequired: false,
@@ -3859,7 +3859,7 @@ export const FIND_2: IncidentTypeConfiguration = {
         },
         {
           id: '208937',
-          code: '£101 to £200',
+          response: '£101 to £200',
           active: false,
           label: '£101 to £200',
           commentRequired: false,
@@ -3868,7 +3868,7 @@ export const FIND_2: IncidentTypeConfiguration = {
         },
         {
           id: '208938',
-          code: '£201 to £300',
+          response: '£201 to £300',
           active: false,
           label: '£201 to £300',
           commentRequired: false,
@@ -3877,7 +3877,7 @@ export const FIND_2: IncidentTypeConfiguration = {
         },
         {
           id: '208939',
-          code: '£301 to £400',
+          response: '£301 to £400',
           active: false,
           label: '£301 to £400',
           commentRequired: false,
@@ -3886,7 +3886,7 @@ export const FIND_2: IncidentTypeConfiguration = {
         },
         {
           id: '208940',
-          code: '£401 to £500',
+          response: '£401 to £500',
           active: false,
           label: '£401 to £500',
           commentRequired: false,
@@ -3895,7 +3895,7 @@ export const FIND_2: IncidentTypeConfiguration = {
         },
         {
           id: '208941',
-          code: '£501 to £1,000',
+          response: '£501 to £1,000',
           active: false,
           label: '£501 to £1,000',
           commentRequired: false,
@@ -3904,7 +3904,7 @@ export const FIND_2: IncidentTypeConfiguration = {
         },
         {
           id: '208942',
-          code: '£1,001 to £5,000',
+          response: '£1,001 to £5,000',
           active: false,
           label: '£1,001 to £5,000',
           commentRequired: false,
@@ -3913,7 +3913,7 @@ export const FIND_2: IncidentTypeConfiguration = {
         },
         {
           id: '208943',
-          code: '£5,001 to £10,000',
+          response: '£5,001 to £10,000',
           active: false,
           label: '£5,001 to £10,000',
           commentRequired: false,
@@ -3922,7 +3922,7 @@ export const FIND_2: IncidentTypeConfiguration = {
         },
         {
           id: '208944',
-          code: '£10,001 to £20,000',
+          response: '£10,001 to £20,000',
           active: false,
           label: '£10,001 to £20,000',
           commentRequired: false,
@@ -3931,7 +3931,7 @@ export const FIND_2: IncidentTypeConfiguration = {
         },
         {
           id: '208945',
-          code: '£20,001 to £30,000',
+          response: '£20,001 to £30,000',
           active: false,
           label: '£20,001 to £30,000',
           commentRequired: false,
@@ -3940,7 +3940,7 @@ export const FIND_2: IncidentTypeConfiguration = {
         },
         {
           id: '208946',
-          code: '£30,001 to £40,000',
+          response: '£30,001 to £40,000',
           active: false,
           label: '£30,001 to £40,000',
           commentRequired: false,
@@ -3949,7 +3949,7 @@ export const FIND_2: IncidentTypeConfiguration = {
         },
         {
           id: '208947',
-          code: '£40,001 to £50,000',
+          response: '£40,001 to £50,000',
           active: false,
           label: '£40,001 to £50,000',
           commentRequired: false,
@@ -3958,7 +3958,7 @@ export const FIND_2: IncidentTypeConfiguration = {
         },
         {
           id: '208948',
-          code: 'More than £50,000',
+          response: 'More than £50,000',
           active: false,
           label: 'More than £50,000',
           commentRequired: false,
@@ -3967,7 +3967,7 @@ export const FIND_2: IncidentTypeConfiguration = {
         },
         {
           id: '208949',
-          code: 'UNKNOWN',
+          response: 'UNKNOWN',
           active: false,
           label: 'Unknown',
           commentRequired: false,

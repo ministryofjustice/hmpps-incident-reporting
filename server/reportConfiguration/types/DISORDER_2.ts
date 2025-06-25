@@ -16,7 +16,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
       answers: [
         {
           id: '214684',
-          code: 'BARRICADE/PREVENTION OF ACCESS',
+          response: 'BARRICADE/PREVENTION OF ACCESS',
           active: true,
           label: 'Barricade/prevention of access',
           commentRequired: false,
@@ -25,7 +25,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
         },
         {
           id: '214685',
-          code: 'CONCERTED INDISCIPLINE',
+          response: 'CONCERTED INDISCIPLINE',
           active: true,
           label: 'Concerted indiscipline',
           commentRequired: false,
@@ -34,7 +34,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
         },
         {
           id: '214686',
-          code: 'HOSTAGE',
+          response: 'HOSTAGE',
           active: true,
           label: 'Hostage',
           commentRequired: false,
@@ -43,7 +43,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
         },
         {
           id: '214687',
-          code: 'INCIDENT AT HEIGHT',
+          response: 'INCIDENT AT HEIGHT',
           active: true,
           label: 'Incident at height',
           commentRequired: false,
@@ -61,7 +61,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
       answers: [
         {
           id: '214688',
-          code: 'NO FURTHER ACTION',
+          response: 'NO FURTHER ACTION',
           active: true,
           label: 'No further action',
           commentRequired: false,
@@ -70,7 +70,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
         },
         {
           id: '214689',
-          code: 'PLACED ON REPORT/ADJUDICATION REFERRAL',
+          response: 'PLACED ON REPORT/ADJUDICATION REFERRAL',
           active: true,
           label: 'Placed on report/adjudication referral',
           commentRequired: false,
@@ -79,7 +79,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
         },
         {
           id: '214690',
-          code: 'IEP REGRESSION',
+          response: 'IEP REGRESSION',
           active: true,
           label: 'IEP regression',
           commentRequired: false,
@@ -88,7 +88,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
         },
         {
           id: '214691',
-          code: 'POLICE REFERRAL',
+          response: 'POLICE REFERRAL',
           active: true,
           label: 'Police referral',
           commentRequired: false,
@@ -106,7 +106,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
       answers: [
         {
           id: '214692',
-          code: 'NO',
+          response: 'NO',
           active: true,
           label: 'No',
           commentRequired: false,
@@ -115,7 +115,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
         },
         {
           id: '214693',
-          code: 'YES',
+          response: 'YES',
           active: true,
           label: 'Yes',
           commentRequired: false,
@@ -133,7 +133,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
       answers: [
         {
           id: '214694',
-          code: 'ADMINISTRATION',
+          response: 'ADMINISTRATION',
           active: true,
           label: 'Administration',
           commentRequired: false,
@@ -142,7 +142,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
         },
         {
           id: '214695',
-          code: 'ASSOCIATION AREA',
+          response: 'ASSOCIATION AREA',
           active: true,
           label: 'Association area',
           commentRequired: false,
@@ -151,7 +151,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
         },
         {
           id: '214696',
-          code: 'CELL',
+          response: 'CELL',
           active: true,
           label: 'Cell',
           commentRequired: false,
@@ -160,7 +160,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
         },
         {
           id: '214697',
-          code: 'CHAPEL',
+          response: 'CHAPEL',
           active: true,
           label: 'Chapel',
           commentRequired: false,
@@ -169,7 +169,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
         },
         {
           id: '214698',
-          code: 'CROWN COURT',
+          response: 'CROWN COURT',
           active: true,
           label: 'Crown court',
           commentRequired: false,
@@ -178,7 +178,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
         },
         {
           id: '214699',
-          code: 'DINING ROOM',
+          response: 'DINING ROOM',
           active: true,
           label: 'Dining room',
           commentRequired: false,
@@ -187,7 +187,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
         },
         {
           id: '214700',
-          code: 'DORMITORY',
+          response: 'DORMITORY',
           active: true,
           label: 'Dormitory',
           commentRequired: false,
@@ -196,7 +196,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
         },
         {
           id: '214701',
-          code: 'EDUCATION',
+          response: 'EDUCATION',
           active: true,
           label: 'Education',
           commentRequired: false,
@@ -205,7 +205,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
         },
         {
           id: '214702',
-          code: 'EXERCISE YARD',
+          response: 'EXERCISE YARD',
           active: true,
           label: 'Exercise yard',
           commentRequired: false,
@@ -214,7 +214,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
         },
         {
           id: '214703',
-          code: 'EXTERNAL ROOF',
+          response: 'EXTERNAL ROOF',
           active: true,
           label: 'External roof',
           commentRequired: false,
@@ -223,7 +223,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
         },
         {
           id: '214704',
-          code: 'FUNERAL',
+          response: 'FUNERAL',
           active: true,
           label: 'Funeral',
           commentRequired: false,
@@ -232,7 +232,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
         },
         {
           id: '214705',
-          code: 'GATE',
+          response: 'GATE',
           active: true,
           label: 'Gate',
           commentRequired: false,
@@ -241,7 +241,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
         },
         {
           id: '214706',
-          code: 'GYM',
+          response: 'GYM',
           active: true,
           label: 'Gym',
           commentRequired: false,
@@ -250,7 +250,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
         },
         {
           id: '214707',
-          code: 'HEALTH CARE CENTRE',
+          response: 'HEALTH CARE CENTRE',
           active: true,
           label: 'Health care centre',
           commentRequired: false,
@@ -259,7 +259,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
         },
         {
           id: '214708',
-          code: 'HOSPITAL OUTSIDE (PATIENT)',
+          response: 'HOSPITAL OUTSIDE (PATIENT)',
           active: true,
           label: 'Hospital outside (patient)',
           commentRequired: false,
@@ -268,7 +268,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
         },
         {
           id: '214709',
-          code: 'HOSPITAL OUTSIDE (VISITING)',
+          response: 'HOSPITAL OUTSIDE (VISITING)',
           active: true,
           label: 'Hospital outside (visiting)',
           commentRequired: false,
@@ -277,7 +277,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
         },
         {
           id: '214710',
-          code: 'INDUCTION/1ST NIGHT CENTRE',
+          response: 'INDUCTION/1ST NIGHT CENTRE',
           active: true,
           label: 'Induction/1st night centre',
           commentRequired: false,
@@ -286,7 +286,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
         },
         {
           id: '214711',
-          code: 'KITCHEN',
+          response: 'KITCHEN',
           active: true,
           label: 'Kitchen',
           commentRequired: false,
@@ -295,7 +295,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
         },
         {
           id: '214712',
-          code: 'MAGISTRATES COURT',
+          response: 'MAGISTRATES COURT',
           active: true,
           label: 'Magistrates court',
           commentRequired: false,
@@ -304,7 +304,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
         },
         {
           id: '214713',
-          code: 'OFFICE',
+          response: 'OFFICE',
           active: true,
           label: 'Office',
           commentRequired: false,
@@ -313,7 +313,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
         },
         {
           id: '214714',
-          code: 'OUTSIDE WORKING PARTY',
+          response: 'OUTSIDE WORKING PARTY',
           active: true,
           label: 'Outside working party',
           commentRequired: false,
@@ -322,7 +322,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
         },
         {
           id: '214715',
-          code: 'RECEPTION',
+          response: 'RECEPTION',
           active: true,
           label: 'Reception',
           commentRequired: false,
@@ -331,7 +331,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
         },
         {
           id: '214716',
-          code: 'RECESS',
+          response: 'RECESS',
           active: true,
           label: 'Recess',
           commentRequired: false,
@@ -340,7 +340,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
         },
         {
           id: '214717',
-          code: 'SEGREGATION UNIT',
+          response: 'SEGREGATION UNIT',
           active: true,
           label: 'Segregation unit',
           commentRequired: false,
@@ -349,7 +349,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
         },
         {
           id: '214718',
-          code: 'SHOWERS/CHANGING ROOM',
+          response: 'SHOWERS/CHANGING ROOM',
           active: true,
           label: 'Showers/changing room',
           commentRequired: false,
@@ -358,7 +358,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
         },
         {
           id: '214719',
-          code: 'SPECIAL UNIT',
+          response: 'SPECIAL UNIT',
           active: true,
           label: 'Special unit',
           commentRequired: false,
@@ -367,7 +367,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
         },
         {
           id: '214720',
-          code: 'SPORTS FIELD',
+          response: 'SPORTS FIELD',
           active: true,
           label: 'Sports field',
           commentRequired: false,
@@ -376,7 +376,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
         },
         {
           id: '214721',
-          code: 'VEHICLE',
+          response: 'VEHICLE',
           active: true,
           label: 'Vehicle',
           commentRequired: false,
@@ -385,7 +385,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
         },
         {
           id: '214722',
-          code: 'VISITS',
+          response: 'VISITS',
           active: true,
           label: 'Visits',
           commentRequired: false,
@@ -394,7 +394,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
         },
         {
           id: '214723',
-          code: 'VULNERABLE PRISONERS UNIT',
+          response: 'VULNERABLE PRISONERS UNIT',
           active: true,
           label: 'Vulnerable prisoners unit',
           commentRequired: false,
@@ -403,7 +403,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
         },
         {
           id: '214724',
-          code: 'WEDDINGS',
+          response: 'WEDDINGS',
           active: true,
           label: 'Weddings',
           commentRequired: false,
@@ -412,7 +412,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
         },
         {
           id: '214725',
-          code: 'WING',
+          response: 'WING',
           active: true,
           label: 'Wing',
           commentRequired: false,
@@ -421,7 +421,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
         },
         {
           id: '214726',
-          code: 'WITHIN PERIMETER',
+          response: 'WITHIN PERIMETER',
           active: true,
           label: 'Within perimeter',
           commentRequired: false,
@@ -430,7 +430,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
         },
         {
           id: '214727',
-          code: 'WORKS DEPARTMENT',
+          response: 'WORKS DEPARTMENT',
           active: true,
           label: 'Works department',
           commentRequired: false,
@@ -439,7 +439,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
         },
         {
           id: '214728',
-          code: 'WORKSHOP',
+          response: 'WORKSHOP',
           active: true,
           label: 'Workshop',
           commentRequired: false,
@@ -448,7 +448,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
         },
         {
           id: '214729',
-          code: 'OTHER - ENTER DETAILS',
+          response: 'OTHER - ENTER DETAILS',
           active: true,
           label: 'Other - enter details',
           commentRequired: true,
@@ -466,7 +466,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
       answers: [
         {
           id: '214730',
-          code: 'NO',
+          response: 'NO',
           active: true,
           label: 'No',
           commentRequired: false,
@@ -475,7 +475,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
         },
         {
           id: '214731',
-          code: 'YES',
+          response: 'YES',
           active: true,
           label: 'Yes',
           commentRequired: false,
@@ -493,7 +493,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
       answers: [
         {
           id: '214732',
-          code: 'NO',
+          response: 'NO',
           active: true,
           label: 'No',
           commentRequired: false,
@@ -502,7 +502,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
         },
         {
           id: '214733',
-          code: 'DEMANDING EXTERNAL TRANSFER',
+          response: 'DEMANDING EXTERNAL TRANSFER',
           active: true,
           label: 'Demanding external transfer',
           commentRequired: false,
@@ -511,7 +511,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
         },
         {
           id: '214734',
-          code: 'DEMANDING INTERNAL TRANSFER',
+          response: 'DEMANDING INTERNAL TRANSFER',
           active: true,
           label: 'Demanding internal transfer',
           commentRequired: false,
@@ -520,7 +520,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
         },
         {
           id: '214735',
-          code: 'FACILITIES',
+          response: 'FACILITIES',
           active: true,
           label: 'Facilities',
           commentRequired: false,
@@ -529,7 +529,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
         },
         {
           id: '214736',
-          code: 'FOOD',
+          response: 'FOOD',
           active: true,
           label: 'Food',
           commentRequired: false,
@@ -538,7 +538,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
         },
         {
           id: '214737',
-          code: 'PAY',
+          response: 'PAY',
           active: true,
           label: 'Pay',
           commentRequired: false,
@@ -547,7 +547,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
         },
         {
           id: '214738',
-          code: 'REFUSING EXTERNAL TRANSFER',
+          response: 'REFUSING EXTERNAL TRANSFER',
           active: true,
           label: 'Refusing external transfer',
           commentRequired: false,
@@ -556,7 +556,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
         },
         {
           id: '214739',
-          code: 'REFUSING INTERNAL TRANSFER',
+          response: 'REFUSING INTERNAL TRANSFER',
           active: true,
           label: 'Refusing internal transfer',
           commentRequired: false,
@@ -565,7 +565,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
         },
         {
           id: '214740',
-          code: 'TIME OUT OF CELL',
+          response: 'TIME OUT OF CELL',
           active: true,
           label: 'Time out of cell',
           commentRequired: false,
@@ -574,7 +574,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
         },
         {
           id: '214741',
-          code: 'VISITS',
+          response: 'VISITS',
           active: true,
           label: 'Visits',
           commentRequired: false,
@@ -583,7 +583,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
         },
         {
           id: '214742',
-          code: 'OTHER - ENTER DETAILS',
+          response: 'OTHER - ENTER DETAILS',
           active: true,
           label: 'Other - enter details',
           commentRequired: true,
@@ -601,7 +601,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
       answers: [
         {
           id: '214743',
-          code: 'ACCESS DIFFICULTIES',
+          response: 'ACCESS DIFFICULTIES',
           active: true,
           label: 'Access difficulties',
           commentRequired: false,
@@ -610,7 +610,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
         },
         {
           id: '214744',
-          code: 'DAMAGE RESULTING IN LOSS OF FACILITIES OR UTILITIES',
+          response: 'DAMAGE RESULTING IN LOSS OF FACILITIES OR UTILITIES',
           active: true,
           label: 'Damage resulting in loss of facilities or utilities',
           commentRequired: false,
@@ -619,7 +619,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
         },
         {
           id: '214745',
-          code: 'DAMAGE RESULTING IN THE LOSS OF ACCOMMODATION',
+          response: 'DAMAGE RESULTING IN THE LOSS OF ACCOMMODATION',
           active: true,
           label: 'Damage resulting in the loss of accommodation',
           commentRequired: false,
@@ -628,7 +628,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
         },
         {
           id: '214746',
-          code: 'MEDIA INTEREST',
+          response: 'MEDIA INTEREST',
           active: true,
           label: 'Media interest',
           commentRequired: false,
@@ -637,7 +637,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
         },
         {
           id: '214747',
-          code: 'ORRU ASSISTANCE REQUESTED',
+          response: 'ORRU ASSISTANCE REQUESTED',
           active: true,
           label: 'ORRU assistance requested',
           commentRequired: false,
@@ -646,7 +646,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
         },
         {
           id: '214748',
-          code: 'PERPETRATOR UNDER INFLUENCE OF DRUGS OR ALCOHOL',
+          response: 'PERPETRATOR UNDER INFLUENCE OF DRUGS OR ALCOHOL',
           active: true,
           label: 'Perpetrator under influence of drugs or alcohol',
           commentRequired: false,
@@ -655,7 +655,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
         },
         {
           id: '214749',
-          code: 'THREAT OR ACTUAL SELF HARM',
+          response: 'THREAT OR ACTUAL SELF HARM',
           active: true,
           label: 'Threat or actual self harm',
           commentRequired: false,
@@ -664,7 +664,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
         },
         {
           id: '214750',
-          code: 'VIOLENCE DIRECTED AGAINST STAFF',
+          response: 'VIOLENCE DIRECTED AGAINST STAFF',
           active: true,
           label: 'Violence directed against staff',
           commentRequired: false,
@@ -682,7 +682,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
       answers: [
         {
           id: '214751',
-          code: '< 1 minute',
+          response: '< 1 minute',
           active: true,
           label: '< 1 minute',
           commentRequired: false,
@@ -691,7 +691,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
         },
         {
           id: '214752',
-          code: '1 min to <5mins',
+          response: '1 min to <5mins',
           active: true,
           label: '1 min to <5mins',
           commentRequired: false,
@@ -700,7 +700,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
         },
         {
           id: '214753',
-          code: '10 mins to <15mins',
+          response: '10 mins to <15mins',
           active: true,
           label: '10 mins to <15mins',
           commentRequired: false,
@@ -709,7 +709,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
         },
         {
           id: '214754',
-          code: '15 mins to <30mins',
+          response: '15 mins to <30mins',
           active: true,
           label: '15 mins to <30mins',
           commentRequired: false,
@@ -718,7 +718,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
         },
         {
           id: '214755',
-          code: '30 mins to <1 hour',
+          response: '30 mins to <1 hour',
           active: true,
           label: '30 mins to <1 hour',
           commentRequired: false,
@@ -727,7 +727,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
         },
         {
           id: '214756',
-          code: '1 hour to <2 hours',
+          response: '1 hour to <2 hours',
           active: true,
           label: '1 hour to <2 hours',
           commentRequired: false,
@@ -736,7 +736,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
         },
         {
           id: '214757',
-          code: '2 hours to <3 hours',
+          response: '2 hours to <3 hours',
           active: true,
           label: '2 hours to <3 hours',
           commentRequired: false,
@@ -745,7 +745,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
         },
         {
           id: '214758',
-          code: '3 hours to <4 hours',
+          response: '3 hours to <4 hours',
           active: true,
           label: '3 hours to <4 hours',
           commentRequired: false,
@@ -754,7 +754,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
         },
         {
           id: '214759',
-          code: '4 hours to <5 hours',
+          response: '4 hours to <5 hours',
           active: true,
           label: '4 hours to <5 hours',
           commentRequired: false,
@@ -763,7 +763,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
         },
         {
           id: '214760',
-          code: '5 hours plus',
+          response: '5 hours plus',
           active: true,
           label: '5 hours plus',
           commentRequired: false,
@@ -772,7 +772,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
         },
         {
           id: '214761',
-          code: 'UNKNOWN - ENTER DETAILS',
+          response: 'UNKNOWN - ENTER DETAILS',
           active: true,
           label: 'Unknown - enter details',
           commentRequired: true,
@@ -790,7 +790,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
       answers: [
         {
           id: '214762',
-          code: 'COMPLIED WITH ORDER OR INSTRUCTION',
+          response: 'COMPLIED WITH ORDER OR INSTRUCTION',
           active: true,
           label: 'Complied with order or instruction',
           commentRequired: false,
@@ -799,7 +799,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
         },
         {
           id: '214763',
-          code: 'NEGOTIATION',
+          response: 'NEGOTIATION',
           active: true,
           label: 'Negotiation',
           commentRequired: false,
@@ -808,7 +808,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
         },
         {
           id: '214764',
-          code: 'INTERVENTION (LOCAL STAFF)',
+          response: 'INTERVENTION (LOCAL STAFF)',
           active: true,
           label: 'Intervention (local staff)',
           commentRequired: false,
@@ -817,7 +817,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
         },
         {
           id: '214765',
-          code: 'INTERVENTION (ORRU STAFF)',
+          response: 'INTERVENTION (ORRU STAFF)',
           active: true,
           label: 'Intervention (ORRU staff)',
           commentRequired: false,
@@ -826,7 +826,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
         },
         {
           id: '214766',
-          code: 'INTERVENTION (OPERATION TORNADO)',
+          response: 'INTERVENTION (OPERATION TORNADO)',
           active: true,
           label: 'Intervention (operation Tornado)',
           commentRequired: false,
@@ -835,7 +835,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
         },
         {
           id: '214767',
-          code: 'OTHER - ENTER DETAILS',
+          response: 'OTHER - ENTER DETAILS',
           active: true,
           label: 'Other - enter details',
           commentRequired: true,
@@ -853,7 +853,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
       answers: [
         {
           id: '214768',
-          code: 'NO',
+          response: 'NO',
           active: true,
           label: 'No',
           commentRequired: false,
@@ -862,7 +862,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
         },
         {
           id: '214769',
-          code: 'YES',
+          response: 'YES',
           active: true,
           label: 'Yes',
           commentRequired: false,
@@ -880,7 +880,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
       answers: [
         {
           id: '214770',
-          code: 'NO',
+          response: 'NO',
           active: true,
           label: 'No',
           commentRequired: false,
@@ -889,7 +889,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
         },
         {
           id: '214771',
-          code: 'C & R ADVISOR',
+          response: 'C & R ADVISOR',
           active: true,
           label: 'C & r advisor',
           commentRequired: false,
@@ -898,7 +898,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
         },
         {
           id: '214772',
-          code: 'INCIDENT LIAISON OFFICER',
+          response: 'INCIDENT LIAISON OFFICER',
           active: true,
           label: 'Incident liaison officer',
           commentRequired: false,
@@ -907,7 +907,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
         },
         {
           id: '214773',
-          code: 'HEALTH CARE STAFF',
+          response: 'HEALTH CARE STAFF',
           active: true,
           label: 'Health care staff',
           commentRequired: false,
@@ -916,7 +916,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
         },
         {
           id: '214774',
-          code: 'WORKS SERVICES STAFF',
+          response: 'WORKS SERVICES STAFF',
           active: true,
           label: 'Works services staff',
           commentRequired: false,
@@ -925,7 +925,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
         },
         {
           id: '214775',
-          code: 'OTHER - ENTER DETAILS',
+          response: 'OTHER - ENTER DETAILS',
           active: true,
           label: 'Other - enter details',
           commentRequired: true,
@@ -943,7 +943,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
       answers: [
         {
           id: '214776',
-          code: 'NO',
+          response: 'NO',
           active: true,
           label: 'No',
           commentRequired: false,
@@ -952,7 +952,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
         },
         {
           id: '214777',
-          code: 'DOOR JACK',
+          response: 'DOOR JACK',
           active: true,
           label: 'Door jack',
           commentRequired: false,
@@ -961,7 +961,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
         },
         {
           id: '214778',
-          code: 'EXTENDABLE BATONS',
+          response: 'EXTENDABLE BATONS',
           active: true,
           label: 'Extendable batons',
           commentRequired: false,
@@ -970,7 +970,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
         },
         {
           id: '214779',
-          code: 'NEGOTIATION ADVISER (INCLUDING HOSTAGE)',
+          response: 'NEGOTIATION ADVISER (INCLUDING HOSTAGE)',
           active: true,
           label: 'Negotiation adviser (including hostage)',
           commentRequired: false,
@@ -979,7 +979,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
         },
         {
           id: '214780',
-          code: 'OPERATIONAL RESILIENCE AND RESPONSE UNIT (ORRU)',
+          response: 'OPERATIONAL RESILIENCE AND RESPONSE UNIT (ORRU)',
           active: true,
           label: 'Operational resilience and response unit (ORRU)',
           commentRequired: false,
@@ -988,7 +988,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
         },
         {
           id: '214781',
-          code: 'TORNADO',
+          response: 'TORNADO',
           active: true,
           label: 'Tornado',
           commentRequired: false,
@@ -997,7 +997,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
         },
         {
           id: '214782',
-          code: 'WATER HOSES',
+          response: 'WATER HOSES',
           active: true,
           label: 'Water hoses',
           commentRequired: false,
@@ -1006,7 +1006,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
         },
         {
           id: '214783',
-          code: 'OTHER - ENTER DETAILS',
+          response: 'OTHER - ENTER DETAILS',
           active: true,
           label: 'Other - enter details',
           commentRequired: true,
@@ -1024,7 +1024,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
       answers: [
         {
           id: '214784',
-          code: 'NO',
+          response: 'NO',
           active: true,
           label: 'No',
           commentRequired: false,
@@ -1033,7 +1033,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
         },
         {
           id: '214785',
-          code: 'POLICE',
+          response: 'POLICE',
           active: true,
           label: 'Police',
           commentRequired: false,
@@ -1042,7 +1042,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
         },
         {
           id: '214786',
-          code: 'FIRE',
+          response: 'FIRE',
           active: true,
           label: 'Fire',
           commentRequired: false,
@@ -1051,7 +1051,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
         },
         {
           id: '214787',
-          code: 'AMBULANCE',
+          response: 'AMBULANCE',
           active: true,
           label: 'Ambulance',
           commentRequired: false,
@@ -1060,7 +1060,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
         },
         {
           id: '214788',
-          code: 'OTHER - ENTER DETAILS',
+          response: 'OTHER - ENTER DETAILS',
           active: true,
           label: 'Other - enter details',
           commentRequired: true,
@@ -1078,7 +1078,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
       answers: [
         {
           id: '214789',
-          code: 'NO',
+          response: 'NO',
           active: true,
           label: 'No',
           commentRequired: false,
@@ -1087,7 +1087,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
         },
         {
           id: '214790',
-          code: 'YES',
+          response: 'YES',
           active: true,
           label: 'Yes',
           commentRequired: false,
@@ -1105,7 +1105,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
       answers: [
         {
           id: '214791',
-          code: 'ACTIVE',
+          response: 'ACTIVE',
           active: true,
           label: 'Active',
           commentRequired: false,
@@ -1114,7 +1114,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
         },
         {
           id: '214792',
-          code: 'PASSIVE',
+          response: 'PASSIVE',
           active: true,
           label: 'Passive',
           commentRequired: false,
@@ -1132,7 +1132,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
       answers: [
         {
           id: '214793',
-          code: 'NUMBER - ENTER DETAILS',
+          response: 'NUMBER - ENTER DETAILS',
           active: true,
           label: 'Number - enter details',
           commentRequired: true,
@@ -1150,7 +1150,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
       answers: [
         {
           id: '214794',
-          code: 'PRISONER - ENTER NUMBER OF',
+          response: 'PRISONER - ENTER NUMBER OF',
           active: true,
           label: 'Prisoner - enter number of',
           commentRequired: true,
@@ -1159,7 +1159,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
         },
         {
           id: '214795',
-          code: 'VISITOR - ENTER NUMBER OF',
+          response: 'VISITOR - ENTER NUMBER OF',
           active: true,
           label: 'Visitor - enter number of',
           commentRequired: true,
@@ -1168,7 +1168,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
         },
         {
           id: '214796',
-          code: 'OTHER - ENTER NUMBER OF',
+          response: 'OTHER - ENTER NUMBER OF',
           active: true,
           label: 'Other - enter number of',
           commentRequired: true,
@@ -1186,7 +1186,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
       answers: [
         {
           id: '214797',
-          code: 'NO',
+          response: 'NO',
           active: true,
           label: 'No',
           commentRequired: false,
@@ -1195,7 +1195,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
         },
         {
           id: '214798',
-          code: 'YES',
+          response: 'YES',
           active: true,
           label: 'Yes',
           commentRequired: false,
@@ -1213,7 +1213,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
       answers: [
         {
           id: '214799',
-          code: 'NO',
+          response: 'NO',
           active: true,
           label: 'No',
           commentRequired: false,
@@ -1222,7 +1222,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
         },
         {
           id: '214800',
-          code: 'YES',
+          response: 'YES',
           active: true,
           label: 'Yes',
           commentRequired: false,
@@ -1240,7 +1240,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
       answers: [
         {
           id: '214801',
-          code: 'NO',
+          response: 'NO',
           active: true,
           label: 'No',
           commentRequired: false,
@@ -1249,7 +1249,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
         },
         {
           id: '214802',
-          code: 'YES - PLEASE LOG FIND INCIDENT IF WEAPON RECOVERED',
+          response: 'YES - PLEASE LOG FIND INCIDENT IF WEAPON RECOVERED',
           active: true,
           label: 'Yes - please log find incident if weapon recovered',
           commentRequired: false,
@@ -1267,7 +1267,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
       answers: [
         {
           id: '214803',
-          code: 'NO',
+          response: 'NO',
           active: true,
           label: 'No',
           commentRequired: false,
@@ -1276,7 +1276,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
         },
         {
           id: '214804',
-          code: 'YES - PLEASE LOG DAMAGE INCIDENT',
+          response: 'YES - PLEASE LOG DAMAGE INCIDENT',
           active: true,
           label: 'Yes - please log damage incident',
           commentRequired: true,
@@ -1294,7 +1294,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
       answers: [
         {
           id: '214805',
-          code: 'NO',
+          response: 'NO',
           active: true,
           label: 'No',
           commentRequired: false,
@@ -1303,7 +1303,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
         },
         {
           id: '214806',
-          code: 'YES',
+          response: 'YES',
           active: true,
           label: 'Yes',
           commentRequired: false,
@@ -1321,7 +1321,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
       answers: [
         {
           id: '214807',
-          code: 'NO',
+          response: 'NO',
           active: true,
           label: 'No',
           commentRequired: false,
@@ -1330,7 +1330,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
         },
         {
           id: '214808',
-          code: 'YES',
+          response: 'YES',
           active: true,
           label: 'Yes',
           commentRequired: false,
@@ -1348,7 +1348,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
       answers: [
         {
           id: '214809',
-          code: 'BITES',
+          response: 'BITES',
           active: true,
           label: 'Bites',
           commentRequired: false,
@@ -1357,7 +1357,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
         },
         {
           id: '214810',
-          code: 'BLACK EYE',
+          response: 'BLACK EYE',
           active: true,
           label: 'Black eye',
           commentRequired: false,
@@ -1366,7 +1366,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
         },
         {
           id: '214811',
-          code: 'BROKEN NOSE',
+          response: 'BROKEN NOSE',
           active: true,
           label: 'Broken nose',
           commentRequired: false,
@@ -1375,7 +1375,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
         },
         {
           id: '214812',
-          code: 'BROKEN TEETH',
+          response: 'BROKEN TEETH',
           active: true,
           label: 'Broken teeth',
           commentRequired: false,
@@ -1384,7 +1384,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
         },
         {
           id: '214813',
-          code: 'CRUSHING',
+          response: 'CRUSHING',
           active: true,
           label: 'Crushing',
           commentRequired: false,
@@ -1393,7 +1393,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
         },
         {
           id: '214814',
-          code: 'CUTS REQUIRING SUTURES',
+          response: 'CUTS REQUIRING SUTURES',
           active: true,
           label: 'Cuts requiring sutures',
           commentRequired: false,
@@ -1402,7 +1402,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
         },
         {
           id: '214815',
-          code: 'EXTENSIVE/MULTIPLE BRUISING',
+          response: 'EXTENSIVE/MULTIPLE BRUISING',
           active: true,
           label: 'Extensive/multiple bruising',
           commentRequired: false,
@@ -1411,7 +1411,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
         },
         {
           id: '214816',
-          code: 'FRACTURE',
+          response: 'FRACTURE',
           active: true,
           label: 'Fracture',
           commentRequired: false,
@@ -1420,7 +1420,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
         },
         {
           id: '214817',
-          code: 'GUN SHOT WOUND',
+          response: 'GUN SHOT WOUND',
           active: true,
           label: 'Gun shot wound',
           commentRequired: false,
@@ -1429,7 +1429,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
         },
         {
           id: '214818',
-          code: 'SCALD OR BURN',
+          response: 'SCALD OR BURN',
           active: true,
           label: 'Scald or burn',
           commentRequired: false,
@@ -1438,7 +1438,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
         },
         {
           id: '214819',
-          code: 'STABBING',
+          response: 'STABBING',
           active: true,
           label: 'Stabbing',
           commentRequired: false,
@@ -1447,7 +1447,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
         },
         {
           id: '214820',
-          code: 'TEMPORARY/PERMANENT BLINDNESS',
+          response: 'TEMPORARY/PERMANENT BLINDNESS',
           active: true,
           label: 'Temporary/permanent blindness',
           commentRequired: false,
@@ -1465,7 +1465,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
       answers: [
         {
           id: '214821',
-          code: 'CIVILIAN GRADES',
+          response: 'CIVILIAN GRADES',
           active: true,
           label: 'Civilian grades',
           commentRequired: false,
@@ -1474,7 +1474,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
         },
         {
           id: '214822',
-          code: 'EXTERNAL CIVILIANS',
+          response: 'EXTERNAL CIVILIANS',
           active: true,
           label: 'External civilians',
           commentRequired: false,
@@ -1483,7 +1483,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
         },
         {
           id: '214823',
-          code: 'POLICE',
+          response: 'POLICE',
           active: true,
           label: 'Police',
           commentRequired: false,
@@ -1492,7 +1492,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
         },
         {
           id: '214824',
-          code: 'PRISONERS',
+          response: 'PRISONERS',
           active: true,
           label: 'Prisoners',
           commentRequired: false,
@@ -1501,7 +1501,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
         },
         {
           id: '214825',
-          code: 'OPERATIONAL STAFF - PRISON OFFICER',
+          response: 'OPERATIONAL STAFF - PRISON OFFICER',
           active: true,
           label: 'Operational staff - prison officer',
           commentRequired: false,
@@ -1510,7 +1510,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
         },
         {
           id: '214826',
-          code: 'OPERATIONAL STAFF - OTHER',
+          response: 'OPERATIONAL STAFF - OTHER',
           active: true,
           label: 'Operational staff - other',
           commentRequired: false,
@@ -1519,7 +1519,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
         },
         {
           id: '214827',
-          code: 'NON-OPERATIONAL STAFF',
+          response: 'NON-OPERATIONAL STAFF',
           active: true,
           label: 'Non-operational staff',
           commentRequired: false,
@@ -1528,7 +1528,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
         },
         {
           id: '214828',
-          code: 'NON-DIRECTLY EMPLOYED STAFF',
+          response: 'NON-DIRECTLY EMPLOYED STAFF',
           active: true,
           label: 'Non-directly employed staff',
           commentRequired: false,
@@ -1537,7 +1537,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
         },
         {
           id: '214829',
-          code: 'OTHER - ENTER DETAILS',
+          response: 'OTHER - ENTER DETAILS',
           active: true,
           label: 'Other - enter details',
           commentRequired: true,
@@ -1555,7 +1555,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
       answers: [
         {
           id: '214830',
-          code: 'NO',
+          response: 'NO',
           active: true,
           label: 'No',
           commentRequired: false,
@@ -1564,7 +1564,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
         },
         {
           id: '214831',
-          code: 'YES',
+          response: 'YES',
           active: true,
           label: 'Yes',
           commentRequired: false,
@@ -1582,7 +1582,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
       answers: [
         {
           id: '214832',
-          code: 'GRAZES, SCRATCHES OR ABRASIONS',
+          response: 'GRAZES, SCRATCHES OR ABRASIONS',
           active: true,
           label: 'Grazes, scratches or abrasions',
           commentRequired: false,
@@ -1591,7 +1591,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
         },
         {
           id: '214833',
-          code: 'MINOR BRUISES',
+          response: 'MINOR BRUISES',
           active: true,
           label: 'Minor bruises',
           commentRequired: false,
@@ -1600,7 +1600,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
         },
         {
           id: '214834',
-          code: 'SUPERFICIAL CUTS',
+          response: 'SUPERFICIAL CUTS',
           active: true,
           label: 'Superficial cuts',
           commentRequired: false,
@@ -1609,7 +1609,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
         },
         {
           id: '214835',
-          code: 'SWELLINGS',
+          response: 'SWELLINGS',
           active: true,
           label: 'Swellings',
           commentRequired: false,
@@ -1618,7 +1618,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
         },
         {
           id: '214836',
-          code: 'OTHER - ENTER DETAILS',
+          response: 'OTHER - ENTER DETAILS',
           active: true,
           label: 'Other - enter details',
           commentRequired: false,
@@ -1636,7 +1636,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
       answers: [
         {
           id: '214837',
-          code: 'CIVILIAN GRADES',
+          response: 'CIVILIAN GRADES',
           active: true,
           label: 'Civilian grades',
           commentRequired: false,
@@ -1645,7 +1645,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
         },
         {
           id: '214838',
-          code: 'EXTERNAL CIVILIANS',
+          response: 'EXTERNAL CIVILIANS',
           active: true,
           label: 'External civilians',
           commentRequired: false,
@@ -1654,7 +1654,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
         },
         {
           id: '214839',
-          code: 'POLICE',
+          response: 'POLICE',
           active: true,
           label: 'Police',
           commentRequired: false,
@@ -1663,7 +1663,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
         },
         {
           id: '214840',
-          code: 'PRISONERS',
+          response: 'PRISONERS',
           active: true,
           label: 'Prisoners',
           commentRequired: false,
@@ -1672,7 +1672,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
         },
         {
           id: '214841',
-          code: 'OPERATIONAL STAFF - PRISON OFFICER',
+          response: 'OPERATIONAL STAFF - PRISON OFFICER',
           active: true,
           label: 'Operational staff - prison officer',
           commentRequired: false,
@@ -1681,7 +1681,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
         },
         {
           id: '214842',
-          code: 'OPERATIONAL STAFF - OTHER',
+          response: 'OPERATIONAL STAFF - OTHER',
           active: true,
           label: 'Operational staff - other',
           commentRequired: false,
@@ -1690,7 +1690,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
         },
         {
           id: '214843',
-          code: 'NON-OPERATIONAL STAFF',
+          response: 'NON-OPERATIONAL STAFF',
           active: true,
           label: 'Non-operational staff',
           commentRequired: false,
@@ -1699,7 +1699,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
         },
         {
           id: '214844',
-          code: 'NON-DIRECTLY EMPLOYED STAFF',
+          response: 'NON-DIRECTLY EMPLOYED STAFF',
           active: true,
           label: 'Non-directly employed staff',
           commentRequired: false,
@@ -1708,7 +1708,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
         },
         {
           id: '214845',
-          code: 'OTHER - ENTER DETAILS',
+          response: 'OTHER - ENTER DETAILS',
           active: false,
           label: 'Other - enter details',
           commentRequired: false,
@@ -1717,7 +1717,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
         },
         {
           id: '214846',
-          code: 'OTHER - ENTER DETAILS',
+          response: 'OTHER - ENTER DETAILS',
           active: true,
           label: 'Other - enter details',
           commentRequired: true,
@@ -1735,7 +1735,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
       answers: [
         {
           id: '214847',
-          code: 'NO',
+          response: 'NO',
           active: true,
           label: 'No',
           commentRequired: false,
@@ -1744,7 +1744,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
         },
         {
           id: '214848',
-          code: 'YES',
+          response: 'YES',
           active: true,
           label: 'Yes',
           commentRequired: false,
@@ -1762,7 +1762,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
       answers: [
         {
           id: '214849',
-          code: 'CIVILIAN GRADES',
+          response: 'CIVILIAN GRADES',
           active: true,
           label: 'Civilian grades',
           commentRequired: false,
@@ -1771,7 +1771,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
         },
         {
           id: '214850',
-          code: 'EXTERNAL CIVILIANS',
+          response: 'EXTERNAL CIVILIANS',
           active: true,
           label: 'External civilians',
           commentRequired: false,
@@ -1780,7 +1780,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
         },
         {
           id: '214851',
-          code: 'POLICE',
+          response: 'POLICE',
           active: true,
           label: 'Police',
           commentRequired: false,
@@ -1789,7 +1789,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
         },
         {
           id: '214852',
-          code: 'PRISONERS',
+          response: 'PRISONERS',
           active: true,
           label: 'Prisoners',
           commentRequired: false,
@@ -1798,7 +1798,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
         },
         {
           id: '214853',
-          code: 'OPERATIONAL STAFF - PRISON OFFICER',
+          response: 'OPERATIONAL STAFF - PRISON OFFICER',
           active: true,
           label: 'Operational staff - prison officer',
           commentRequired: false,
@@ -1807,7 +1807,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
         },
         {
           id: '214854',
-          code: 'OPERATIONAL STAFF - OTHER',
+          response: 'OPERATIONAL STAFF - OTHER',
           active: true,
           label: 'Operational staff - other',
           commentRequired: false,
@@ -1816,7 +1816,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
         },
         {
           id: '214855',
-          code: 'NON-OPERATIONAL STAFF',
+          response: 'NON-OPERATIONAL STAFF',
           active: true,
           label: 'Non-operational staff',
           commentRequired: false,
@@ -1825,7 +1825,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
         },
         {
           id: '214856',
-          code: 'NON-DIRECTLY EMPLOYED STAFF',
+          response: 'NON-DIRECTLY EMPLOYED STAFF',
           active: true,
           label: 'Non-directly employed staff',
           commentRequired: false,
@@ -1834,7 +1834,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
         },
         {
           id: '214857',
-          code: 'OTHER - ENTER DETAILS',
+          response: 'OTHER - ENTER DETAILS',
           active: true,
           label: 'Other - enter details',
           commentRequired: true,
@@ -1852,7 +1852,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
       answers: [
         {
           id: '214858',
-          code: 'NO',
+          response: 'NO',
           active: true,
           label: 'No',
           commentRequired: false,
@@ -1861,7 +1861,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
         },
         {
           id: '214859',
-          code: 'YES',
+          response: 'YES',
           active: true,
           label: 'Yes',
           commentRequired: false,
@@ -1879,7 +1879,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
       answers: [
         {
           id: '214860',
-          code: 'NO',
+          response: 'NO',
           active: true,
           label: 'No',
           commentRequired: false,
@@ -1888,7 +1888,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
         },
         {
           id: '214861',
-          code: 'YES',
+          response: 'YES',
           active: true,
           label: 'Yes',
           commentRequired: false,
@@ -1906,7 +1906,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
       answers: [
         {
           id: '214862',
-          code: 'CONTRACTORS EQUIPMENT',
+          response: 'CONTRACTORS EQUIPMENT',
           active: true,
           label: 'Contractors equipment',
           commentRequired: false,
@@ -1915,7 +1915,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
         },
         {
           id: '214863',
-          code: 'EXTERNAL ACCESS: FENCING',
+          response: 'EXTERNAL ACCESS: FENCING',
           active: true,
           label: 'External access: fencing',
           commentRequired: false,
@@ -1924,7 +1924,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
         },
         {
           id: '214864',
-          code: 'EXTERNAL ACCESS: ROOF',
+          response: 'EXTERNAL ACCESS: ROOF',
           active: true,
           label: 'External access: roof',
           commentRequired: false,
@@ -1933,7 +1933,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
         },
         {
           id: '214865',
-          code: 'EXTERNAL ACCESS: TREE',
+          response: 'EXTERNAL ACCESS: TREE',
           active: true,
           label: 'External access: tree',
           commentRequired: false,
@@ -1942,7 +1942,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
         },
         {
           id: '214866',
-          code: 'INTERNAL ACCESS: LANDINGS/RAILINGS',
+          response: 'INTERNAL ACCESS: LANDINGS/RAILINGS',
           active: true,
           label: 'Internal access: landings/railings',
           commentRequired: false,
@@ -1951,7 +1951,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
         },
         {
           id: '214867',
-          code: 'INTERNAL ACCESS: NETTING',
+          response: 'INTERNAL ACCESS: NETTING',
           active: true,
           label: 'Internal access: netting',
           commentRequired: false,
@@ -1960,7 +1960,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
         },
         {
           id: '214868',
-          code: 'INTERNAL ACCESS: WINDOW/GATE BARS',
+          response: 'INTERNAL ACCESS: WINDOW/GATE BARS',
           active: true,
           label: 'Internal access: window/gate bars',
           commentRequired: false,
@@ -1969,7 +1969,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
         },
         {
           id: '214869',
-          code: 'OTHER: INTERNAL - ENTER DETAILS',
+          response: 'OTHER: INTERNAL - ENTER DETAILS',
           active: true,
           label: 'Other: internal - enter details',
           commentRequired: true,
@@ -1978,7 +1978,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
         },
         {
           id: '214870',
-          code: 'OTHER: EXTERNAL - ENTER DETAILS',
+          response: 'OTHER: EXTERNAL - ENTER DETAILS',
           active: true,
           label: 'Other: external - enter details',
           commentRequired: true,
@@ -1996,7 +1996,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
       answers: [
         {
           id: '214871',
-          code: 'BETWEEN 3 FEET AND <1ST FLOOR',
+          response: 'BETWEEN 3 FEET AND <1ST FLOOR',
           active: true,
           label: 'Between 3 feet and <1st floor',
           commentRequired: false,
@@ -2005,7 +2005,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
         },
         {
           id: '214872',
-          code: '1ST FLOOR',
+          response: '1ST FLOOR',
           active: true,
           label: '1st floor',
           commentRequired: false,
@@ -2014,7 +2014,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
         },
         {
           id: '214873',
-          code: '2ND FLOOR',
+          response: '2ND FLOOR',
           active: true,
           label: '2nd floor',
           commentRequired: false,
@@ -2023,7 +2023,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
         },
         {
           id: '214874',
-          code: '3RD FLOOR OR HIGHER',
+          response: '3RD FLOOR OR HIGHER',
           active: true,
           label: '3rd floor or higher',
           commentRequired: false,
@@ -2041,7 +2041,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
       answers: [
         {
           id: '214875',
-          code: 'NO',
+          response: 'NO',
           active: true,
           label: 'No',
           commentRequired: false,
@@ -2050,7 +2050,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
         },
         {
           id: '214876',
-          code: 'YES',
+          response: 'YES',
           active: true,
           label: 'Yes',
           commentRequired: false,
@@ -2068,7 +2068,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
       answers: [
         {
           id: '214877',
-          code: 'NO',
+          response: 'NO',
           active: true,
           label: 'No',
           commentRequired: false,
@@ -2077,7 +2077,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
         },
         {
           id: '214878',
-          code: 'YES',
+          response: 'YES',
           active: true,
           label: 'Yes',
           commentRequired: false,
@@ -2095,7 +2095,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
       answers: [
         {
           id: '214879',
-          code: 'CIVILIAN STAFF - STATE NUMBER OF',
+          response: 'CIVILIAN STAFF - STATE NUMBER OF',
           active: true,
           label: 'Civilian staff - state number of',
           commentRequired: true,
@@ -2104,7 +2104,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
         },
         {
           id: '214880',
-          code: 'OFFICER - STATE NUMBER OF',
+          response: 'OFFICER - STATE NUMBER OF',
           active: true,
           label: 'Officer - state number of',
           commentRequired: true,
@@ -2113,7 +2113,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
         },
         {
           id: '214881',
-          code: 'PRISONER - STATE NUMBER OF',
+          response: 'PRISONER - STATE NUMBER OF',
           active: true,
           label: 'Prisoner - state number of',
           commentRequired: true,
@@ -2122,7 +2122,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
         },
         {
           id: '214882',
-          code: 'STAFF - STATE NUMBER OF',
+          response: 'STAFF - STATE NUMBER OF',
           active: true,
           label: 'Staff - state number of',
           commentRequired: true,
@@ -2131,7 +2131,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
         },
         {
           id: '214883',
-          code: 'OTHER - STATE NUMBER OF',
+          response: 'OTHER - STATE NUMBER OF',
           active: true,
           label: 'Other - state number of',
           commentRequired: true,
@@ -2149,7 +2149,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
       answers: [
         {
           id: '214884',
-          code: 'NO',
+          response: 'NO',
           active: true,
           label: 'No',
           commentRequired: false,
@@ -2158,7 +2158,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
         },
         {
           id: '214885',
-          code: 'YES',
+          response: 'YES',
           active: true,
           label: 'Yes',
           commentRequired: false,
@@ -2176,7 +2176,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
       answers: [
         {
           id: '214886',
-          code: 'NO',
+          response: 'NO',
           active: true,
           label: 'No',
           commentRequired: false,
@@ -2185,7 +2185,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
         },
         {
           id: '214887',
-          code: 'YES',
+          response: 'YES',
           active: true,
           label: 'Yes',
           commentRequired: false,
@@ -2203,7 +2203,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
       answers: [
         {
           id: '214888',
-          code: 'NO',
+          response: 'NO',
           active: true,
           label: 'No',
           commentRequired: false,
@@ -2212,7 +2212,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
         },
         {
           id: '214889',
-          code: 'YES',
+          response: 'YES',
           active: true,
           label: 'Yes',
           commentRequired: false,
@@ -2230,7 +2230,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
       answers: [
         {
           id: '214890',
-          code: 'NO',
+          response: 'NO',
           active: true,
           label: 'No',
           commentRequired: false,
@@ -2239,7 +2239,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
         },
         {
           id: '214891',
-          code: 'YES',
+          response: 'YES',
           active: true,
           label: 'Yes',
           commentRequired: false,
@@ -2257,7 +2257,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
       answers: [
         {
           id: '214892',
-          code: 'NO',
+          response: 'NO',
           active: true,
           label: 'No',
           commentRequired: false,
@@ -2266,7 +2266,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
         },
         {
           id: '214893',
-          code: 'YES',
+          response: 'YES',
           active: true,
           label: 'Yes',
           commentRequired: false,

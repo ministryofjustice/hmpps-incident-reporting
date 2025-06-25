@@ -16,7 +16,7 @@ export const FIND_5: IncidentTypeConfiguration = {
       answers: [
         {
           id: '209109',
-          code: 'NO FURTHER ACTION',
+          response: 'NO FURTHER ACTION',
           active: true,
           label: 'No further action',
           commentRequired: false,
@@ -25,7 +25,7 @@ export const FIND_5: IncidentTypeConfiguration = {
         },
         {
           id: '209110',
-          code: 'IEP REGRESSION',
+          response: 'IEP REGRESSION',
           active: true,
           label: 'IEP regression',
           commentRequired: false,
@@ -34,7 +34,7 @@ export const FIND_5: IncidentTypeConfiguration = {
         },
         {
           id: '209111',
-          code: 'PLACED ON REPORT/ADJUDICATION REFERRAL',
+          response: 'PLACED ON REPORT/ADJUDICATION REFERRAL',
           active: true,
           label: 'Placed on report/adjudication referral',
           commentRequired: false,
@@ -43,7 +43,7 @@ export const FIND_5: IncidentTypeConfiguration = {
         },
         {
           id: '209112',
-          code: 'POLICE REFERRAL',
+          response: 'POLICE REFERRAL',
           active: true,
           label: 'Police referral',
           commentRequired: false,
@@ -52,7 +52,7 @@ export const FIND_5: IncidentTypeConfiguration = {
         },
         {
           id: '209113',
-          code: 'CPS REFRRAL',
+          response: 'CPS REFRRAL',
           active: false,
           label: 'CPS referral',
           commentRequired: false,
@@ -61,7 +61,7 @@ export const FIND_5: IncidentTypeConfiguration = {
         },
         {
           id: '209114',
-          code: 'PROSECUTION REFERRAL',
+          response: 'PROSECUTION REFERRAL',
           active: true,
           label: 'Prosecution referral',
           commentRequired: false,
@@ -79,7 +79,7 @@ export const FIND_5: IncidentTypeConfiguration = {
       answers: [
         {
           id: '209115',
-          code: 'YES',
+          response: 'YES',
           active: true,
           label: 'Yes',
           commentRequired: false,
@@ -88,7 +88,7 @@ export const FIND_5: IncidentTypeConfiguration = {
         },
         {
           id: '209116',
-          code: 'NO',
+          response: 'NO',
           active: true,
           label: 'No',
           commentRequired: false,
@@ -106,7 +106,7 @@ export const FIND_5: IncidentTypeConfiguration = {
       answers: [
         {
           id: '209117',
-          code: 'YES',
+          response: 'YES',
           active: true,
           label: 'Yes',
           commentRequired: false,
@@ -115,7 +115,7 @@ export const FIND_5: IncidentTypeConfiguration = {
         },
         {
           id: '209118',
-          code: 'NO',
+          response: 'NO',
           active: true,
           label: 'No',
           commentRequired: false,
@@ -133,7 +133,7 @@ export const FIND_5: IncidentTypeConfiguration = {
       answers: [
         {
           id: '209119',
-          code: 'ADMINISTRATION',
+          response: 'ADMINISTRATION',
           active: true,
           label: 'Administration',
           commentRequired: false,
@@ -142,7 +142,7 @@ export const FIND_5: IncidentTypeConfiguration = {
         },
         {
           id: '209120',
-          code: 'ASSOCIATION AREA',
+          response: 'ASSOCIATION AREA',
           active: true,
           label: 'Association area',
           commentRequired: false,
@@ -151,7 +151,7 @@ export const FIND_5: IncidentTypeConfiguration = {
         },
         {
           id: '209121',
-          code: 'CELL',
+          response: 'CELL',
           active: true,
           label: 'Cell',
           commentRequired: false,
@@ -160,7 +160,7 @@ export const FIND_5: IncidentTypeConfiguration = {
         },
         {
           id: '209122',
-          code: 'CHAPEL',
+          response: 'CHAPEL',
           active: true,
           label: 'Chapel',
           commentRequired: false,
@@ -169,7 +169,7 @@ export const FIND_5: IncidentTypeConfiguration = {
         },
         {
           id: '209123',
-          code: 'CROWN COURT',
+          response: 'CROWN COURT',
           active: true,
           label: 'Crown court',
           commentRequired: false,
@@ -178,7 +178,7 @@ export const FIND_5: IncidentTypeConfiguration = {
         },
         {
           id: '209124',
-          code: 'DINING ROOM',
+          response: 'DINING ROOM',
           active: true,
           label: 'Dining room',
           commentRequired: false,
@@ -187,7 +187,7 @@ export const FIND_5: IncidentTypeConfiguration = {
         },
         {
           id: '209125',
-          code: 'DORMITORY',
+          response: 'DORMITORY',
           active: true,
           label: 'Dormitory',
           commentRequired: false,
@@ -196,7 +196,7 @@ export const FIND_5: IncidentTypeConfiguration = {
         },
         {
           id: '209126',
-          code: 'EDUCATION',
+          response: 'EDUCATION',
           active: true,
           label: 'Education',
           commentRequired: false,
@@ -205,7 +205,7 @@ export const FIND_5: IncidentTypeConfiguration = {
         },
         {
           id: '209127',
-          code: 'ELSEWHERE',
+          response: 'ELSEWHERE',
           active: true,
           label: 'Elsewhere',
           commentRequired: true,
@@ -214,7 +214,7 @@ export const FIND_5: IncidentTypeConfiguration = {
         },
         {
           id: '209128',
-          code: 'EXERCISE YARD',
+          response: 'EXERCISE YARD',
           active: true,
           label: 'Exercise yard',
           commentRequired: false,
@@ -223,7 +223,7 @@ export const FIND_5: IncidentTypeConfiguration = {
         },
         {
           id: '209129',
-          code: 'FUNERAL',
+          response: 'FUNERAL',
           active: true,
           label: 'Funeral',
           commentRequired: false,
@@ -232,7 +232,7 @@ export const FIND_5: IncidentTypeConfiguration = {
         },
         {
           id: '209130',
-          code: 'GATE',
+          response: 'GATE',
           active: true,
           label: 'Gate',
           commentRequired: false,
@@ -241,7 +241,7 @@ export const FIND_5: IncidentTypeConfiguration = {
         },
         {
           id: '209131',
-          code: 'GYM',
+          response: 'GYM',
           active: true,
           label: 'Gym',
           commentRequired: false,
@@ -250,7 +250,7 @@ export const FIND_5: IncidentTypeConfiguration = {
         },
         {
           id: '209132',
-          code: 'HEALTH CARE CENTRE',
+          response: 'HEALTH CARE CENTRE',
           active: true,
           label: 'Health care centre',
           commentRequired: false,
@@ -259,7 +259,7 @@ export const FIND_5: IncidentTypeConfiguration = {
         },
         {
           id: '209133',
-          code: 'HOSPITAL OUTSIDE (PATIENT)',
+          response: 'HOSPITAL OUTSIDE (PATIENT)',
           active: true,
           label: 'Hospital outside (patient)',
           commentRequired: false,
@@ -268,7 +268,7 @@ export const FIND_5: IncidentTypeConfiguration = {
         },
         {
           id: '209134',
-          code: 'HOSPITAL OUTSIDE (VISITING)',
+          response: 'HOSPITAL OUTSIDE (VISITING)',
           active: true,
           label: 'Hospital outside (visiting)',
           commentRequired: false,
@@ -277,7 +277,7 @@ export const FIND_5: IncidentTypeConfiguration = {
         },
         {
           id: '209135',
-          code: 'KITCHEN',
+          response: 'KITCHEN',
           active: true,
           label: 'Kitchen',
           commentRequired: false,
@@ -286,7 +286,7 @@ export const FIND_5: IncidentTypeConfiguration = {
         },
         {
           id: '209136',
-          code: 'MAGISTRATES COURT',
+          response: 'MAGISTRATES COURT',
           active: true,
           label: 'Magistrates court',
           commentRequired: false,
@@ -295,7 +295,7 @@ export const FIND_5: IncidentTypeConfiguration = {
         },
         {
           id: '209137',
-          code: 'OFFICE',
+          response: 'OFFICE',
           active: true,
           label: 'Office',
           commentRequired: false,
@@ -304,7 +304,7 @@ export const FIND_5: IncidentTypeConfiguration = {
         },
         {
           id: '209138',
-          code: 'OUTSIDE WORKING PARTY',
+          response: 'OUTSIDE WORKING PARTY',
           active: true,
           label: 'Outside working party',
           commentRequired: false,
@@ -313,7 +313,7 @@ export const FIND_5: IncidentTypeConfiguration = {
         },
         {
           id: '209139',
-          code: 'RECEPTION',
+          response: 'RECEPTION',
           active: true,
           label: 'Reception',
           commentRequired: false,
@@ -322,7 +322,7 @@ export const FIND_5: IncidentTypeConfiguration = {
         },
         {
           id: '209140',
-          code: 'RECESS',
+          response: 'RECESS',
           active: true,
           label: 'Recess',
           commentRequired: false,
@@ -331,7 +331,7 @@ export const FIND_5: IncidentTypeConfiguration = {
         },
         {
           id: '209141',
-          code: 'SEGREGATION UNIT',
+          response: 'SEGREGATION UNIT',
           active: true,
           label: 'Segregation unit',
           commentRequired: false,
@@ -340,7 +340,7 @@ export const FIND_5: IncidentTypeConfiguration = {
         },
         {
           id: '209142',
-          code: 'SHOWERS/CHANGING ROOM',
+          response: 'SHOWERS/CHANGING ROOM',
           active: true,
           label: 'Showers/changing room',
           commentRequired: false,
@@ -349,7 +349,7 @@ export const FIND_5: IncidentTypeConfiguration = {
         },
         {
           id: '209143',
-          code: 'SPECIAL UNIT',
+          response: 'SPECIAL UNIT',
           active: true,
           label: 'Special unit',
           commentRequired: false,
@@ -358,7 +358,7 @@ export const FIND_5: IncidentTypeConfiguration = {
         },
         {
           id: '209144',
-          code: 'SPORTS FIELD',
+          response: 'SPORTS FIELD',
           active: true,
           label: 'Sports field',
           commentRequired: false,
@@ -367,7 +367,7 @@ export const FIND_5: IncidentTypeConfiguration = {
         },
         {
           id: '209145',
-          code: 'VEHICLE',
+          response: 'VEHICLE',
           active: true,
           label: 'Vehicle',
           commentRequired: false,
@@ -376,7 +376,7 @@ export const FIND_5: IncidentTypeConfiguration = {
         },
         {
           id: '209146',
-          code: 'VISITS',
+          response: 'VISITS',
           active: true,
           label: 'Visits',
           commentRequired: false,
@@ -385,7 +385,7 @@ export const FIND_5: IncidentTypeConfiguration = {
         },
         {
           id: '209147',
-          code: 'WEDDINGS',
+          response: 'WEDDINGS',
           active: true,
           label: 'Weddings',
           commentRequired: false,
@@ -394,7 +394,7 @@ export const FIND_5: IncidentTypeConfiguration = {
         },
         {
           id: '209148',
-          code: 'WING',
+          response: 'WING',
           active: true,
           label: 'Wing',
           commentRequired: false,
@@ -403,7 +403,7 @@ export const FIND_5: IncidentTypeConfiguration = {
         },
         {
           id: '209149',
-          code: 'WITHIN PERIMETER',
+          response: 'WITHIN PERIMETER',
           active: true,
           label: 'Within perimeter',
           commentRequired: false,
@@ -412,7 +412,7 @@ export const FIND_5: IncidentTypeConfiguration = {
         },
         {
           id: '209150',
-          code: 'WORKS DEPARTMENT',
+          response: 'WORKS DEPARTMENT',
           active: true,
           label: 'Works department',
           commentRequired: false,
@@ -421,7 +421,7 @@ export const FIND_5: IncidentTypeConfiguration = {
         },
         {
           id: '209151',
-          code: 'WORKSHOP',
+          response: 'WORKSHOP',
           active: true,
           label: 'Workshop',
           commentRequired: false,
@@ -430,7 +430,7 @@ export const FIND_5: IncidentTypeConfiguration = {
         },
         {
           id: '209152',
-          code: 'INDUCTION/1ST NIGHT CENTRE',
+          response: 'INDUCTION/1ST NIGHT CENTRE',
           active: true,
           label: 'Induction/1st night centre',
           commentRequired: false,
@@ -439,7 +439,7 @@ export const FIND_5: IncidentTypeConfiguration = {
         },
         {
           id: '209153',
-          code: 'MAIL ROOM',
+          response: 'MAIL ROOM',
           active: true,
           label: 'Mail room',
           commentRequired: false,
@@ -448,7 +448,7 @@ export const FIND_5: IncidentTypeConfiguration = {
         },
         {
           id: '209154',
-          code: 'EXTERNAL ROOF',
+          response: 'EXTERNAL ROOF',
           active: true,
           label: 'External roof',
           commentRequired: false,
@@ -457,7 +457,7 @@ export const FIND_5: IncidentTypeConfiguration = {
         },
         {
           id: '209155',
-          code: 'VULNERABLE PRISONERS UNIT (VPU)',
+          response: 'VULNERABLE PRISONERS UNIT (VPU)',
           active: true,
           label: 'Vulnerable prisoners unit (VPU)',
           commentRequired: false,
@@ -475,7 +475,7 @@ export const FIND_5: IncidentTypeConfiguration = {
       answers: [
         {
           id: '209156',
-          code: 'YES',
+          response: 'YES',
           active: true,
           label: 'Yes',
           commentRequired: false,
@@ -484,7 +484,7 @@ export const FIND_5: IncidentTypeConfiguration = {
         },
         {
           id: '209157',
-          code: 'NO',
+          response: 'NO',
           active: true,
           label: 'No',
           commentRequired: false,
@@ -502,7 +502,7 @@ export const FIND_5: IncidentTypeConfiguration = {
       answers: [
         {
           id: '209158',
-          code: 'AMPHETAMINES',
+          response: 'AMPHETAMINES',
           active: true,
           label: 'Amphetamines',
           commentRequired: false,
@@ -511,7 +511,7 @@ export const FIND_5: IncidentTypeConfiguration = {
         },
         {
           id: '209159',
-          code: 'BARBITURATES',
+          response: 'BARBITURATES',
           active: true,
           label: 'Barbiturates',
           commentRequired: false,
@@ -520,7 +520,7 @@ export const FIND_5: IncidentTypeConfiguration = {
         },
         {
           id: '209160',
-          code: 'BENZODIAZEPINES',
+          response: 'BENZODIAZEPINES',
           active: true,
           label: 'Benzodiazepines',
           commentRequired: false,
@@ -529,7 +529,7 @@ export const FIND_5: IncidentTypeConfiguration = {
         },
         {
           id: '209161',
-          code: 'BUPRENORPHINE/SUBUTEX',
+          response: 'BUPRENORPHINE/SUBUTEX',
           active: true,
           label: 'Buprenorphine/subutex',
           commentRequired: false,
@@ -538,7 +538,7 @@ export const FIND_5: IncidentTypeConfiguration = {
         },
         {
           id: '209162',
-          code: 'CANNABIS',
+          response: 'CANNABIS',
           active: true,
           label: 'Cannabis',
           commentRequired: false,
@@ -547,7 +547,7 @@ export const FIND_5: IncidentTypeConfiguration = {
         },
         {
           id: '209163',
-          code: 'CANNABIS PLANT',
+          response: 'CANNABIS PLANT',
           active: true,
           label: 'Cannabis plant',
           commentRequired: false,
@@ -556,7 +556,7 @@ export const FIND_5: IncidentTypeConfiguration = {
         },
         {
           id: '209164',
-          code: 'COCAINE',
+          response: 'COCAINE',
           active: true,
           label: 'Cocaine',
           commentRequired: false,
@@ -565,7 +565,7 @@ export const FIND_5: IncidentTypeConfiguration = {
         },
         {
           id: '209165',
-          code: 'CRACK',
+          response: 'CRACK',
           active: true,
           label: 'Crack',
           commentRequired: false,
@@ -574,7 +574,7 @@ export const FIND_5: IncidentTypeConfiguration = {
         },
         {
           id: '209166',
-          code: 'HEROIN',
+          response: 'HEROIN',
           active: true,
           label: 'Heroin',
           commentRequired: false,
@@ -583,7 +583,7 @@ export const FIND_5: IncidentTypeConfiguration = {
         },
         {
           id: '209167',
-          code: 'LSD',
+          response: 'LSD',
           active: true,
           label: 'LSD',
           commentRequired: false,
@@ -592,7 +592,7 @@ export const FIND_5: IncidentTypeConfiguration = {
         },
         {
           id: '209168',
-          code: 'METHADONE',
+          response: 'METHADONE',
           active: true,
           label: 'Methadone',
           commentRequired: false,
@@ -601,7 +601,7 @@ export const FIND_5: IncidentTypeConfiguration = {
         },
         {
           id: '209169',
-          code: 'PREGABALIN',
+          response: 'PREGABALIN',
           active: true,
           label: 'Pregabalin',
           commentRequired: false,
@@ -610,7 +610,7 @@ export const FIND_5: IncidentTypeConfiguration = {
         },
         {
           id: '209170',
-          code: 'TRANQUILISERS',
+          response: 'TRANQUILISERS',
           active: true,
           label: 'Tranquilisers',
           commentRequired: false,
@@ -619,7 +619,7 @@ export const FIND_5: IncidentTypeConfiguration = {
         },
         {
           id: '209171',
-          code: 'TRAMADOL',
+          response: 'TRAMADOL',
           active: true,
           label: 'Tramadol',
           commentRequired: false,
@@ -628,7 +628,7 @@ export const FIND_5: IncidentTypeConfiguration = {
         },
         {
           id: '209172',
-          code: 'GABAPENTIN',
+          response: 'GABAPENTIN',
           active: true,
           label: 'Gabapentin',
           commentRequired: false,
@@ -637,7 +637,7 @@ export const FIND_5: IncidentTypeConfiguration = {
         },
         {
           id: '209173',
-          code: 'NPS: SPICE',
+          response: 'NPS: SPICE',
           active: true,
           label: 'NPS: spice',
           commentRequired: false,
@@ -646,7 +646,7 @@ export const FIND_5: IncidentTypeConfiguration = {
         },
         {
           id: '209174',
-          code: 'NPS: BLACK MAMBA',
+          response: 'NPS: BLACK MAMBA',
           active: true,
           label: 'NPS: black mamba',
           commentRequired: false,
@@ -655,7 +655,7 @@ export const FIND_5: IncidentTypeConfiguration = {
         },
         {
           id: '209175',
-          code: 'NPS: OTHER',
+          response: 'NPS: OTHER',
           active: true,
           label: 'NPS: other',
           commentRequired: false,
@@ -664,7 +664,7 @@ export const FIND_5: IncidentTypeConfiguration = {
         },
         {
           id: '209176',
-          code: 'STEROIDS',
+          response: 'STEROIDS',
           active: true,
           label: 'Steroids',
           commentRequired: false,
@@ -673,7 +673,7 @@ export const FIND_5: IncidentTypeConfiguration = {
         },
         {
           id: '209177',
-          code: 'OTHER (PLEASE SPECIFY)',
+          response: 'OTHER (PLEASE SPECIFY)',
           active: true,
           label: 'Other (please specify)',
           commentRequired: true,
@@ -682,7 +682,7 @@ export const FIND_5: IncidentTypeConfiguration = {
         },
         {
           id: '209178',
-          code: 'UNKNOWN',
+          response: 'UNKNOWN',
           active: true,
           label: 'Unknown',
           commentRequired: false,
@@ -700,7 +700,7 @@ export const FIND_5: IncidentTypeConfiguration = {
       answers: [
         {
           id: '209179',
-          code: '<1g',
+          response: '<1g',
           active: true,
           label: '<1g',
           commentRequired: false,
@@ -709,7 +709,7 @@ export const FIND_5: IncidentTypeConfiguration = {
         },
         {
           id: '209180',
-          code: '2g to 5g',
+          response: '2g to 5g',
           active: true,
           label: '2g to 5g',
           commentRequired: false,
@@ -718,7 +718,7 @@ export const FIND_5: IncidentTypeConfiguration = {
         },
         {
           id: '209181',
-          code: '6g to 10g',
+          response: '6g to 10g',
           active: true,
           label: '6g to 10g',
           commentRequired: false,
@@ -727,7 +727,7 @@ export const FIND_5: IncidentTypeConfiguration = {
         },
         {
           id: '209182',
-          code: '11g to 20g',
+          response: '11g to 20g',
           active: true,
           label: '11g to 20g',
           commentRequired: false,
@@ -736,7 +736,7 @@ export const FIND_5: IncidentTypeConfiguration = {
         },
         {
           id: '209183',
-          code: '21g to 30g',
+          response: '21g to 30g',
           active: true,
           label: '21g to 30g',
           commentRequired: false,
@@ -745,7 +745,7 @@ export const FIND_5: IncidentTypeConfiguration = {
         },
         {
           id: '209184',
-          code: '31g to 40g',
+          response: '31g to 40g',
           active: true,
           label: '31g to 40g',
           commentRequired: false,
@@ -754,7 +754,7 @@ export const FIND_5: IncidentTypeConfiguration = {
         },
         {
           id: '209185',
-          code: '41g to 50g',
+          response: '41g to 50g',
           active: true,
           label: '41g to 50g',
           commentRequired: false,
@@ -763,7 +763,7 @@ export const FIND_5: IncidentTypeConfiguration = {
         },
         {
           id: '209186',
-          code: '51g to 100g',
+          response: '51g to 100g',
           active: true,
           label: '51g to 100g',
           commentRequired: false,
@@ -772,7 +772,7 @@ export const FIND_5: IncidentTypeConfiguration = {
         },
         {
           id: '209187',
-          code: '101g to 200g',
+          response: '101g to 200g',
           active: true,
           label: '101g to 200g',
           commentRequired: false,
@@ -781,7 +781,7 @@ export const FIND_5: IncidentTypeConfiguration = {
         },
         {
           id: '209188',
-          code: '201g to 300g',
+          response: '201g to 300g',
           active: true,
           label: '201g to 300g',
           commentRequired: false,
@@ -790,7 +790,7 @@ export const FIND_5: IncidentTypeConfiguration = {
         },
         {
           id: '209189',
-          code: '301g to 400g',
+          response: '301g to 400g',
           active: true,
           label: '301g to 400g',
           commentRequired: false,
@@ -799,7 +799,7 @@ export const FIND_5: IncidentTypeConfiguration = {
         },
         {
           id: '209190',
-          code: '401g to 500g',
+          response: '401g to 500g',
           active: true,
           label: '401g to 500g',
           commentRequired: false,
@@ -808,7 +808,7 @@ export const FIND_5: IncidentTypeConfiguration = {
         },
         {
           id: '209191',
-          code: '501g to 1,000g',
+          response: '501g to 1,000g',
           active: true,
           label: '501g to 1,000g',
           commentRequired: false,
@@ -817,7 +817,7 @@ export const FIND_5: IncidentTypeConfiguration = {
         },
         {
           id: '209192',
-          code: 'More than 1kg',
+          response: 'More than 1kg',
           active: true,
           label: 'More than 1kg',
           commentRequired: false,
@@ -826,7 +826,7 @@ export const FIND_5: IncidentTypeConfiguration = {
         },
         {
           id: '209193',
-          code: 'UNKNOWN',
+          response: 'UNKNOWN',
           active: true,
           label: 'Unknown',
           commentRequired: false,
@@ -844,7 +844,7 @@ export const FIND_5: IncidentTypeConfiguration = {
       answers: [
         {
           id: '209194',
-          code: 'YES',
+          response: 'YES',
           active: true,
           label: 'Yes',
           commentRequired: false,
@@ -853,7 +853,7 @@ export const FIND_5: IncidentTypeConfiguration = {
         },
         {
           id: '209195',
-          code: 'NO',
+          response: 'NO',
           active: true,
           label: 'No',
           commentRequired: false,
@@ -871,7 +871,7 @@ export const FIND_5: IncidentTypeConfiguration = {
       answers: [
         {
           id: '209196',
-          code: 'FORENSIC LABORATORY',
+          response: 'FORENSIC LABORATORY',
           active: true,
           label: 'Forensic laboratory',
           commentRequired: false,
@@ -880,7 +880,7 @@ export const FIND_5: IncidentTypeConfiguration = {
         },
         {
           id: '209197',
-          code: 'LOCAL WITH BDH KIT OR SIMILAR',
+          response: 'LOCAL WITH BDH KIT OR SIMILAR',
           active: true,
           label: 'Local with BDH kit or similar',
           commentRequired: false,
@@ -898,7 +898,7 @@ export const FIND_5: IncidentTypeConfiguration = {
       answers: [
         {
           id: '209198',
-          code: 'NAME',
+          response: 'NAME',
           active: true,
           label: 'Name',
           commentRequired: true,
@@ -916,7 +916,7 @@ export const FIND_5: IncidentTypeConfiguration = {
       answers: [
         {
           id: '209199',
-          code: 'YES',
+          response: 'YES',
           active: true,
           label: 'Yes',
           commentRequired: false,
@@ -925,7 +925,7 @@ export const FIND_5: IncidentTypeConfiguration = {
         },
         {
           id: '209200',
-          code: 'NO',
+          response: 'NO',
           active: true,
           label: 'No',
           commentRequired: false,
@@ -943,7 +943,7 @@ export const FIND_5: IncidentTypeConfiguration = {
       answers: [
         {
           id: '209201',
-          code: 'AUTHENTIC NEEDLE',
+          response: 'AUTHENTIC NEEDLE',
           active: true,
           label: 'Authentic needle',
           commentRequired: false,
@@ -952,7 +952,7 @@ export const FIND_5: IncidentTypeConfiguration = {
         },
         {
           id: '209202',
-          code: 'AUTHENTIC SYRINGE',
+          response: 'AUTHENTIC SYRINGE',
           active: true,
           label: 'Authentic syringe',
           commentRequired: false,
@@ -961,7 +961,7 @@ export const FIND_5: IncidentTypeConfiguration = {
         },
         {
           id: '209203',
-          code: 'IMPROVISED NEEDLE',
+          response: 'IMPROVISED NEEDLE',
           active: true,
           label: 'Improvised needle',
           commentRequired: false,
@@ -970,7 +970,7 @@ export const FIND_5: IncidentTypeConfiguration = {
         },
         {
           id: '209204',
-          code: 'IMPROVISED SYRINGE',
+          response: 'IMPROVISED SYRINGE',
           active: true,
           label: 'Improvised syringe',
           commentRequired: false,
@@ -979,7 +979,7 @@ export const FIND_5: IncidentTypeConfiguration = {
         },
         {
           id: '209205',
-          code: 'PIPE(S)',
+          response: 'PIPE(S)',
           active: true,
           label: 'Pipe(s)',
           commentRequired: false,
@@ -988,7 +988,7 @@ export const FIND_5: IncidentTypeConfiguration = {
         },
         {
           id: '209206',
-          code: 'ROACH',
+          response: 'ROACH',
           active: true,
           label: 'Roach',
           commentRequired: false,
@@ -997,7 +997,7 @@ export const FIND_5: IncidentTypeConfiguration = {
         },
         {
           id: '209207',
-          code: 'OTHER (PLEASE SPECIFY)',
+          response: 'OTHER (PLEASE SPECIFY)',
           active: true,
           label: 'Other (please specify)',
           commentRequired: true,
@@ -1015,7 +1015,7 @@ export const FIND_5: IncidentTypeConfiguration = {
       answers: [
         {
           id: '209208',
-          code: 'YES',
+          response: 'YES',
           active: true,
           label: 'Yes',
           commentRequired: false,
@@ -1024,7 +1024,7 @@ export const FIND_5: IncidentTypeConfiguration = {
         },
         {
           id: '209209',
-          code: 'NO',
+          response: 'NO',
           active: true,
           label: 'No',
           commentRequired: false,
@@ -1042,7 +1042,7 @@ export const FIND_5: IncidentTypeConfiguration = {
       answers: [
         {
           id: '209210',
-          code: 'YES',
+          response: 'YES',
           active: true,
           label: 'Yes',
           commentRequired: false,
@@ -1051,7 +1051,7 @@ export const FIND_5: IncidentTypeConfiguration = {
         },
         {
           id: '209211',
-          code: 'NO',
+          response: 'NO',
           active: true,
           label: 'No',
           commentRequired: false,
@@ -1069,7 +1069,7 @@ export const FIND_5: IncidentTypeConfiguration = {
       answers: [
         {
           id: '209212',
-          code: '1',
+          response: '1',
           active: true,
           label: '1',
           commentRequired: false,
@@ -1078,7 +1078,7 @@ export const FIND_5: IncidentTypeConfiguration = {
         },
         {
           id: '209213',
-          code: '2',
+          response: '2',
           active: true,
           label: '2',
           commentRequired: false,
@@ -1087,7 +1087,7 @@ export const FIND_5: IncidentTypeConfiguration = {
         },
         {
           id: '209214',
-          code: '3',
+          response: '3',
           active: true,
           label: '3',
           commentRequired: false,
@@ -1096,7 +1096,7 @@ export const FIND_5: IncidentTypeConfiguration = {
         },
         {
           id: '209215',
-          code: '4',
+          response: '4',
           active: true,
           label: '4',
           commentRequired: false,
@@ -1105,7 +1105,7 @@ export const FIND_5: IncidentTypeConfiguration = {
         },
         {
           id: '209216',
-          code: '5',
+          response: '5',
           active: true,
           label: '5',
           commentRequired: false,
@@ -1114,7 +1114,7 @@ export const FIND_5: IncidentTypeConfiguration = {
         },
         {
           id: '209217',
-          code: '6',
+          response: '6',
           active: true,
           label: '6',
           commentRequired: false,
@@ -1123,7 +1123,7 @@ export const FIND_5: IncidentTypeConfiguration = {
         },
         {
           id: '209218',
-          code: '7',
+          response: '7',
           active: true,
           label: '7',
           commentRequired: false,
@@ -1132,7 +1132,7 @@ export const FIND_5: IncidentTypeConfiguration = {
         },
         {
           id: '209219',
-          code: '8',
+          response: '8',
           active: true,
           label: '8',
           commentRequired: false,
@@ -1141,7 +1141,7 @@ export const FIND_5: IncidentTypeConfiguration = {
         },
         {
           id: '209220',
-          code: '9',
+          response: '9',
           active: true,
           label: '9',
           commentRequired: false,
@@ -1150,7 +1150,7 @@ export const FIND_5: IncidentTypeConfiguration = {
         },
         {
           id: '209221',
-          code: '10',
+          response: '10',
           active: true,
           label: '10',
           commentRequired: false,
@@ -1159,7 +1159,7 @@ export const FIND_5: IncidentTypeConfiguration = {
         },
         {
           id: '209222',
-          code: '11',
+          response: '11',
           active: true,
           label: '11',
           commentRequired: false,
@@ -1168,7 +1168,7 @@ export const FIND_5: IncidentTypeConfiguration = {
         },
         {
           id: '209223',
-          code: '12',
+          response: '12',
           active: true,
           label: '12',
           commentRequired: false,
@@ -1177,7 +1177,7 @@ export const FIND_5: IncidentTypeConfiguration = {
         },
         {
           id: '209224',
-          code: '13',
+          response: '13',
           active: true,
           label: '13',
           commentRequired: false,
@@ -1186,7 +1186,7 @@ export const FIND_5: IncidentTypeConfiguration = {
         },
         {
           id: '209225',
-          code: '14',
+          response: '14',
           active: true,
           label: '14',
           commentRequired: false,
@@ -1195,7 +1195,7 @@ export const FIND_5: IncidentTypeConfiguration = {
         },
         {
           id: '209226',
-          code: '15',
+          response: '15',
           active: true,
           label: '15',
           commentRequired: false,
@@ -1204,7 +1204,7 @@ export const FIND_5: IncidentTypeConfiguration = {
         },
         {
           id: '209227',
-          code: '16',
+          response: '16',
           active: true,
           label: '16',
           commentRequired: false,
@@ -1213,7 +1213,7 @@ export const FIND_5: IncidentTypeConfiguration = {
         },
         {
           id: '209228',
-          code: '17',
+          response: '17',
           active: true,
           label: '17',
           commentRequired: false,
@@ -1222,7 +1222,7 @@ export const FIND_5: IncidentTypeConfiguration = {
         },
         {
           id: '209229',
-          code: '18',
+          response: '18',
           active: true,
           label: '18',
           commentRequired: false,
@@ -1231,7 +1231,7 @@ export const FIND_5: IncidentTypeConfiguration = {
         },
         {
           id: '209230',
-          code: '19',
+          response: '19',
           active: true,
           label: '19',
           commentRequired: false,
@@ -1240,7 +1240,7 @@ export const FIND_5: IncidentTypeConfiguration = {
         },
         {
           id: '209231',
-          code: '20',
+          response: '20',
           active: true,
           label: '20',
           commentRequired: false,
@@ -1249,7 +1249,7 @@ export const FIND_5: IncidentTypeConfiguration = {
         },
         {
           id: '209232',
-          code: 'MORE THAN 20',
+          response: 'MORE THAN 20',
           active: true,
           label: 'More than 20',
           commentRequired: false,
@@ -1258,7 +1258,7 @@ export const FIND_5: IncidentTypeConfiguration = {
         },
         {
           id: '209233',
-          code: 'UNKNOWN',
+          response: 'UNKNOWN',
           active: true,
           label: 'Unknown',
           commentRequired: false,
@@ -1276,7 +1276,7 @@ export const FIND_5: IncidentTypeConfiguration = {
       answers: [
         {
           id: '209234',
-          code: 'YES',
+          response: 'YES',
           active: true,
           label: 'Yes',
           commentRequired: false,
@@ -1285,7 +1285,7 @@ export const FIND_5: IncidentTypeConfiguration = {
         },
         {
           id: '209235',
-          code: 'NO',
+          response: 'NO',
           active: true,
           label: 'No',
           commentRequired: false,
@@ -1303,7 +1303,7 @@ export const FIND_5: IncidentTypeConfiguration = {
       answers: [
         {
           id: '209236',
-          code: '1',
+          response: '1',
           active: true,
           label: '1',
           commentRequired: false,
@@ -1312,7 +1312,7 @@ export const FIND_5: IncidentTypeConfiguration = {
         },
         {
           id: '209237',
-          code: '2',
+          response: '2',
           active: true,
           label: '2',
           commentRequired: false,
@@ -1321,7 +1321,7 @@ export const FIND_5: IncidentTypeConfiguration = {
         },
         {
           id: '209238',
-          code: '3',
+          response: '3',
           active: true,
           label: '3',
           commentRequired: false,
@@ -1330,7 +1330,7 @@ export const FIND_5: IncidentTypeConfiguration = {
         },
         {
           id: '209239',
-          code: '4',
+          response: '4',
           active: true,
           label: '4',
           commentRequired: false,
@@ -1339,7 +1339,7 @@ export const FIND_5: IncidentTypeConfiguration = {
         },
         {
           id: '209240',
-          code: '5',
+          response: '5',
           active: true,
           label: '5',
           commentRequired: false,
@@ -1348,7 +1348,7 @@ export const FIND_5: IncidentTypeConfiguration = {
         },
         {
           id: '209241',
-          code: '6',
+          response: '6',
           active: true,
           label: '6',
           commentRequired: false,
@@ -1357,7 +1357,7 @@ export const FIND_5: IncidentTypeConfiguration = {
         },
         {
           id: '209242',
-          code: '7',
+          response: '7',
           active: true,
           label: '7',
           commentRequired: false,
@@ -1366,7 +1366,7 @@ export const FIND_5: IncidentTypeConfiguration = {
         },
         {
           id: '209243',
-          code: '8',
+          response: '8',
           active: true,
           label: '8',
           commentRequired: false,
@@ -1375,7 +1375,7 @@ export const FIND_5: IncidentTypeConfiguration = {
         },
         {
           id: '209244',
-          code: '9',
+          response: '9',
           active: true,
           label: '9',
           commentRequired: false,
@@ -1384,7 +1384,7 @@ export const FIND_5: IncidentTypeConfiguration = {
         },
         {
           id: '209245',
-          code: '10',
+          response: '10',
           active: true,
           label: '10',
           commentRequired: false,
@@ -1393,7 +1393,7 @@ export const FIND_5: IncidentTypeConfiguration = {
         },
         {
           id: '209246',
-          code: '11',
+          response: '11',
           active: true,
           label: '11',
           commentRequired: false,
@@ -1402,7 +1402,7 @@ export const FIND_5: IncidentTypeConfiguration = {
         },
         {
           id: '209247',
-          code: '12',
+          response: '12',
           active: true,
           label: '12',
           commentRequired: false,
@@ -1411,7 +1411,7 @@ export const FIND_5: IncidentTypeConfiguration = {
         },
         {
           id: '209248',
-          code: '13',
+          response: '13',
           active: true,
           label: '13',
           commentRequired: false,
@@ -1420,7 +1420,7 @@ export const FIND_5: IncidentTypeConfiguration = {
         },
         {
           id: '209249',
-          code: '14',
+          response: '14',
           active: true,
           label: '14',
           commentRequired: false,
@@ -1429,7 +1429,7 @@ export const FIND_5: IncidentTypeConfiguration = {
         },
         {
           id: '209250',
-          code: '15',
+          response: '15',
           active: true,
           label: '15',
           commentRequired: false,
@@ -1438,7 +1438,7 @@ export const FIND_5: IncidentTypeConfiguration = {
         },
         {
           id: '209251',
-          code: '16',
+          response: '16',
           active: true,
           label: '16',
           commentRequired: false,
@@ -1447,7 +1447,7 @@ export const FIND_5: IncidentTypeConfiguration = {
         },
         {
           id: '209252',
-          code: '17',
+          response: '17',
           active: true,
           label: '17',
           commentRequired: false,
@@ -1456,7 +1456,7 @@ export const FIND_5: IncidentTypeConfiguration = {
         },
         {
           id: '209253',
-          code: '18',
+          response: '18',
           active: true,
           label: '18',
           commentRequired: false,
@@ -1465,7 +1465,7 @@ export const FIND_5: IncidentTypeConfiguration = {
         },
         {
           id: '209254',
-          code: '19',
+          response: '19',
           active: true,
           label: '19',
           commentRequired: false,
@@ -1474,7 +1474,7 @@ export const FIND_5: IncidentTypeConfiguration = {
         },
         {
           id: '209255',
-          code: '20',
+          response: '20',
           active: true,
           label: '20',
           commentRequired: false,
@@ -1483,7 +1483,7 @@ export const FIND_5: IncidentTypeConfiguration = {
         },
         {
           id: '209256',
-          code: 'MORE THAN 20',
+          response: 'MORE THAN 20',
           active: true,
           label: 'More than 20',
           commentRequired: false,
@@ -1492,7 +1492,7 @@ export const FIND_5: IncidentTypeConfiguration = {
         },
         {
           id: '209257',
-          code: 'UNKNOWN',
+          response: 'UNKNOWN',
           active: true,
           label: 'Unknown',
           commentRequired: false,
@@ -1510,7 +1510,7 @@ export const FIND_5: IncidentTypeConfiguration = {
       answers: [
         {
           id: '209258',
-          code: 'YES',
+          response: 'YES',
           active: true,
           label: 'Yes',
           commentRequired: false,
@@ -1519,7 +1519,7 @@ export const FIND_5: IncidentTypeConfiguration = {
         },
         {
           id: '209259',
-          code: 'NO',
+          response: 'NO',
           active: true,
           label: 'No',
           commentRequired: false,
@@ -1537,7 +1537,7 @@ export const FIND_5: IncidentTypeConfiguration = {
       answers: [
         {
           id: '209260',
-          code: '1',
+          response: '1',
           active: true,
           label: '1',
           commentRequired: false,
@@ -1546,7 +1546,7 @@ export const FIND_5: IncidentTypeConfiguration = {
         },
         {
           id: '209261',
-          code: '2',
+          response: '2',
           active: true,
           label: '2',
           commentRequired: false,
@@ -1555,7 +1555,7 @@ export const FIND_5: IncidentTypeConfiguration = {
         },
         {
           id: '209262',
-          code: '3',
+          response: '3',
           active: true,
           label: '3',
           commentRequired: false,
@@ -1564,7 +1564,7 @@ export const FIND_5: IncidentTypeConfiguration = {
         },
         {
           id: '209263',
-          code: '4',
+          response: '4',
           active: true,
           label: '4',
           commentRequired: false,
@@ -1573,7 +1573,7 @@ export const FIND_5: IncidentTypeConfiguration = {
         },
         {
           id: '209264',
-          code: '5',
+          response: '5',
           active: true,
           label: '5',
           commentRequired: false,
@@ -1582,7 +1582,7 @@ export const FIND_5: IncidentTypeConfiguration = {
         },
         {
           id: '209265',
-          code: '6',
+          response: '6',
           active: true,
           label: '6',
           commentRequired: false,
@@ -1591,7 +1591,7 @@ export const FIND_5: IncidentTypeConfiguration = {
         },
         {
           id: '209266',
-          code: '7',
+          response: '7',
           active: true,
           label: '7',
           commentRequired: false,
@@ -1600,7 +1600,7 @@ export const FIND_5: IncidentTypeConfiguration = {
         },
         {
           id: '209267',
-          code: '8',
+          response: '8',
           active: true,
           label: '8',
           commentRequired: false,
@@ -1609,7 +1609,7 @@ export const FIND_5: IncidentTypeConfiguration = {
         },
         {
           id: '209268',
-          code: '9',
+          response: '9',
           active: true,
           label: '9',
           commentRequired: false,
@@ -1618,7 +1618,7 @@ export const FIND_5: IncidentTypeConfiguration = {
         },
         {
           id: '209269',
-          code: '10',
+          response: '10',
           active: true,
           label: '10',
           commentRequired: false,
@@ -1627,7 +1627,7 @@ export const FIND_5: IncidentTypeConfiguration = {
         },
         {
           id: '209270',
-          code: '11',
+          response: '11',
           active: true,
           label: '11',
           commentRequired: false,
@@ -1636,7 +1636,7 @@ export const FIND_5: IncidentTypeConfiguration = {
         },
         {
           id: '209271',
-          code: '12',
+          response: '12',
           active: true,
           label: '12',
           commentRequired: false,
@@ -1645,7 +1645,7 @@ export const FIND_5: IncidentTypeConfiguration = {
         },
         {
           id: '209272',
-          code: '13',
+          response: '13',
           active: true,
           label: '13',
           commentRequired: false,
@@ -1654,7 +1654,7 @@ export const FIND_5: IncidentTypeConfiguration = {
         },
         {
           id: '209273',
-          code: '14',
+          response: '14',
           active: true,
           label: '14',
           commentRequired: false,
@@ -1663,7 +1663,7 @@ export const FIND_5: IncidentTypeConfiguration = {
         },
         {
           id: '209274',
-          code: '15',
+          response: '15',
           active: true,
           label: '15',
           commentRequired: false,
@@ -1672,7 +1672,7 @@ export const FIND_5: IncidentTypeConfiguration = {
         },
         {
           id: '209275',
-          code: '16',
+          response: '16',
           active: true,
           label: '16',
           commentRequired: false,
@@ -1681,7 +1681,7 @@ export const FIND_5: IncidentTypeConfiguration = {
         },
         {
           id: '209276',
-          code: '17',
+          response: '17',
           active: true,
           label: '17',
           commentRequired: false,
@@ -1690,7 +1690,7 @@ export const FIND_5: IncidentTypeConfiguration = {
         },
         {
           id: '209277',
-          code: '18',
+          response: '18',
           active: true,
           label: '18',
           commentRequired: false,
@@ -1699,7 +1699,7 @@ export const FIND_5: IncidentTypeConfiguration = {
         },
         {
           id: '209278',
-          code: '19',
+          response: '19',
           active: true,
           label: '19',
           commentRequired: false,
@@ -1708,7 +1708,7 @@ export const FIND_5: IncidentTypeConfiguration = {
         },
         {
           id: '209279',
-          code: '20',
+          response: '20',
           active: true,
           label: '20',
           commentRequired: false,
@@ -1717,7 +1717,7 @@ export const FIND_5: IncidentTypeConfiguration = {
         },
         {
           id: '209280',
-          code: 'MORE THAN 20',
+          response: 'MORE THAN 20',
           active: true,
           label: 'More than 20',
           commentRequired: false,
@@ -1726,7 +1726,7 @@ export const FIND_5: IncidentTypeConfiguration = {
         },
         {
           id: '209281',
-          code: 'UNKNOWN',
+          response: 'UNKNOWN',
           active: true,
           label: 'Unknown',
           commentRequired: false,
@@ -1744,7 +1744,7 @@ export const FIND_5: IncidentTypeConfiguration = {
       answers: [
         {
           id: '209282',
-          code: 'YES',
+          response: 'YES',
           active: true,
           label: 'Yes',
           commentRequired: false,
@@ -1753,7 +1753,7 @@ export const FIND_5: IncidentTypeConfiguration = {
         },
         {
           id: '209283',
-          code: 'NO',
+          response: 'NO',
           active: true,
           label: 'No',
           commentRequired: false,
@@ -1771,7 +1771,7 @@ export const FIND_5: IncidentTypeConfiguration = {
       answers: [
         {
           id: '209284',
-          code: 'YES (PLEASE SPECIFY)',
+          response: 'YES (PLEASE SPECIFY)',
           active: true,
           label: 'Yes (please specify)',
           commentRequired: true,
@@ -1780,7 +1780,7 @@ export const FIND_5: IncidentTypeConfiguration = {
         },
         {
           id: '209285',
-          code: 'NO',
+          response: 'NO',
           active: true,
           label: 'No',
           commentRequired: false,
@@ -1798,7 +1798,7 @@ export const FIND_5: IncidentTypeConfiguration = {
       answers: [
         {
           id: '209286',
-          code: 'YES (PLEASE ENTER DATE)',
+          response: 'YES (PLEASE ENTER DATE)',
           active: true,
           label: 'Yes (please enter date)',
           commentRequired: false,
@@ -1807,7 +1807,7 @@ export const FIND_5: IncidentTypeConfiguration = {
         },
         {
           id: '209287',
-          code: 'EVIDENCE BAG (PLEASE ENTER BAG NUMBER)',
+          response: 'EVIDENCE BAG (PLEASE ENTER BAG NUMBER)',
           active: true,
           label: 'Evidence bag (please enter bag number)',
           commentRequired: true,
@@ -1816,7 +1816,7 @@ export const FIND_5: IncidentTypeConfiguration = {
         },
         {
           id: '209288',
-          code: 'NO (PLEASE STATE WHY)',
+          response: 'NO (PLEASE STATE WHY)',
           active: true,
           label: 'No (please state why)',
           commentRequired: true,
@@ -1834,7 +1834,7 @@ export const FIND_5: IncidentTypeConfiguration = {
       answers: [
         {
           id: '209289',
-          code: 'YES',
+          response: 'YES',
           active: true,
           label: 'Yes',
           commentRequired: false,
@@ -1843,7 +1843,7 @@ export const FIND_5: IncidentTypeConfiguration = {
         },
         {
           id: '209290',
-          code: 'NO',
+          response: 'NO',
           active: true,
           label: 'No',
           commentRequired: false,
@@ -1861,7 +1861,7 @@ export const FIND_5: IncidentTypeConfiguration = {
       answers: [
         {
           id: '209291',
-          code: 'YES',
+          response: 'YES',
           active: true,
           label: 'Yes',
           commentRequired: false,
@@ -1870,7 +1870,7 @@ export const FIND_5: IncidentTypeConfiguration = {
         },
         {
           id: '209292',
-          code: 'NO',
+          response: 'NO',
           active: true,
           label: 'No',
           commentRequired: false,
@@ -1888,7 +1888,7 @@ export const FIND_5: IncidentTypeConfiguration = {
       answers: [
         {
           id: '209293',
-          code: 'BLUNT INSTRUMENT (COSH, ITEM IN SOCK ETC.)',
+          response: 'BLUNT INSTRUMENT (COSH, ITEM IN SOCK ETC.)',
           active: true,
           label: 'Blunt instrument (cosh, item in sock etc.)',
           commentRequired: false,
@@ -1897,7 +1897,7 @@ export const FIND_5: IncidentTypeConfiguration = {
         },
         {
           id: '209294',
-          code: 'KNIFE/BLADED ARTICLE',
+          response: 'KNIFE/BLADED ARTICLE',
           active: true,
           label: 'Knife/bladed article',
           commentRequired: false,
@@ -1906,7 +1906,7 @@ export const FIND_5: IncidentTypeConfiguration = {
         },
         {
           id: '209295',
-          code: 'FIREARM (FAKE GUNS, AMMUNITION, CHEMIICAL INCAPACITANT ETC.)',
+          response: 'FIREARM (FAKE GUNS, AMMUNITION, CHEMIICAL INCAPACITANT ETC.)',
           active: true,
           label: 'Firearm (fake guns, ammunition, chemical incapacitant etc.)',
           commentRequired: false,
@@ -1915,7 +1915,7 @@ export const FIND_5: IncidentTypeConfiguration = {
         },
         {
           id: '209296',
-          code: 'OTHER (PLEASE SPECIFY)',
+          response: 'OTHER (PLEASE SPECIFY)',
           active: true,
           label: 'Other (please specify)',
           commentRequired: true,
@@ -1933,7 +1933,7 @@ export const FIND_5: IncidentTypeConfiguration = {
       answers: [
         {
           id: '209297',
-          code: 'YES',
+          response: 'YES',
           active: true,
           label: 'Yes',
           commentRequired: false,
@@ -1942,7 +1942,7 @@ export const FIND_5: IncidentTypeConfiguration = {
         },
         {
           id: '209298',
-          code: 'NO',
+          response: 'NO',
           active: true,
           label: 'No',
           commentRequired: false,
@@ -1960,7 +1960,7 @@ export const FIND_5: IncidentTypeConfiguration = {
       answers: [
         {
           id: '209299',
-          code: '< 1 litre',
+          response: '< 1 litre',
           active: true,
           label: '< 1 litre',
           commentRequired: false,
@@ -1969,7 +1969,7 @@ export const FIND_5: IncidentTypeConfiguration = {
         },
         {
           id: '209300',
-          code: '1 to 2 litres',
+          response: '1 to 2 litres',
           active: true,
           label: '1 to 2 litres',
           commentRequired: false,
@@ -1978,7 +1978,7 @@ export const FIND_5: IncidentTypeConfiguration = {
         },
         {
           id: '209301',
-          code: '2 to 3 litres',
+          response: '2 to 3 litres',
           active: true,
           label: '2 to 3 litres',
           commentRequired: false,
@@ -1987,7 +1987,7 @@ export const FIND_5: IncidentTypeConfiguration = {
         },
         {
           id: '209302',
-          code: '3 to 4 litres',
+          response: '3 to 4 litres',
           active: true,
           label: '3 to 4 litres',
           commentRequired: false,
@@ -1996,7 +1996,7 @@ export const FIND_5: IncidentTypeConfiguration = {
         },
         {
           id: '209303',
-          code: ' 4 to 5 litres',
+          response: ' 4 to 5 litres',
           active: true,
           label: '4 to 5 litres',
           commentRequired: false,
@@ -2005,7 +2005,7 @@ export const FIND_5: IncidentTypeConfiguration = {
         },
         {
           id: '209304',
-          code: '6 to 10 litres',
+          response: '6 to 10 litres',
           active: true,
           label: '6 to 10 litres',
           commentRequired: false,
@@ -2014,7 +2014,7 @@ export const FIND_5: IncidentTypeConfiguration = {
         },
         {
           id: '209305',
-          code: '11 to 20 litres',
+          response: '11 to 20 litres',
           active: true,
           label: '11 to 20 litres',
           commentRequired: false,
@@ -2023,7 +2023,7 @@ export const FIND_5: IncidentTypeConfiguration = {
         },
         {
           id: '209306',
-          code: 'More than 20 litres',
+          response: 'More than 20 litres',
           active: true,
           label: 'More than 20 litres',
           commentRequired: false,
@@ -2032,7 +2032,7 @@ export const FIND_5: IncidentTypeConfiguration = {
         },
         {
           id: '209307',
-          code: 'UNKNOWN',
+          response: 'UNKNOWN',
           active: true,
           label: 'Unknown',
           commentRequired: false,
@@ -2050,7 +2050,7 @@ export const FIND_5: IncidentTypeConfiguration = {
       answers: [
         {
           id: '209308',
-          code: 'YES',
+          response: 'YES',
           active: true,
           label: 'Yes',
           commentRequired: false,
@@ -2059,7 +2059,7 @@ export const FIND_5: IncidentTypeConfiguration = {
         },
         {
           id: '209309',
-          code: 'NO',
+          response: 'NO',
           active: true,
           label: 'No',
           commentRequired: false,
@@ -2077,7 +2077,7 @@ export const FIND_5: IncidentTypeConfiguration = {
       answers: [
         {
           id: '209310',
-          code: 'YES',
+          response: 'YES',
           active: true,
           label: 'Yes',
           commentRequired: false,
@@ -2086,7 +2086,7 @@ export const FIND_5: IncidentTypeConfiguration = {
         },
         {
           id: '209311',
-          code: 'NO',
+          response: 'NO',
           active: true,
           label: 'No',
           commentRequired: false,
@@ -2104,7 +2104,7 @@ export const FIND_5: IncidentTypeConfiguration = {
       answers: [
         {
           id: '209312',
-          code: 'LOOSE TOBACCO',
+          response: 'LOOSE TOBACCO',
           active: true,
           label: 'Loose tobacco',
           commentRequired: false,
@@ -2113,7 +2113,7 @@ export const FIND_5: IncidentTypeConfiguration = {
         },
         {
           id: '209313',
-          code: 'CIGARETTES/CIGARS',
+          response: 'CIGARETTES/CIGARS',
           active: true,
           label: 'Cigarettes/cigars',
           commentRequired: false,
@@ -2122,7 +2122,7 @@ export const FIND_5: IncidentTypeConfiguration = {
         },
         {
           id: '209314',
-          code: 'OTHER (INC PACKAGING AND ROACHES)',
+          response: 'OTHER (INC PACKAGING AND ROACHES)',
           active: true,
           label: 'Other (inc packaging and roaches)',
           commentRequired: false,
@@ -2140,7 +2140,7 @@ export const FIND_5: IncidentTypeConfiguration = {
       answers: [
         {
           id: '209315',
-          code: '<1g',
+          response: '<1g',
           active: true,
           label: '<1g',
           commentRequired: false,
@@ -2149,7 +2149,7 @@ export const FIND_5: IncidentTypeConfiguration = {
         },
         {
           id: '209316',
-          code: '2g to 5g',
+          response: '2g to 5g',
           active: true,
           label: '2g to 5g',
           commentRequired: false,
@@ -2158,7 +2158,7 @@ export const FIND_5: IncidentTypeConfiguration = {
         },
         {
           id: '209317',
-          code: '6g to 10g',
+          response: '6g to 10g',
           active: true,
           label: '6g to 10g',
           commentRequired: false,
@@ -2167,7 +2167,7 @@ export const FIND_5: IncidentTypeConfiguration = {
         },
         {
           id: '209318',
-          code: '10g+',
+          response: '10g+',
           active: true,
           label: '10g+',
           commentRequired: false,
@@ -2185,7 +2185,7 @@ export const FIND_5: IncidentTypeConfiguration = {
       answers: [
         {
           id: '209319',
-          code: 'YES',
+          response: 'YES',
           active: true,
           label: 'Yes',
           commentRequired: false,
@@ -2194,7 +2194,7 @@ export const FIND_5: IncidentTypeConfiguration = {
         },
         {
           id: '209320',
-          code: 'NO',
+          response: 'NO',
           active: true,
           label: 'No',
           commentRequired: false,
@@ -2212,7 +2212,7 @@ export const FIND_5: IncidentTypeConfiguration = {
       answers: [
         {
           id: '209321',
-          code: 'PLEASE SPECIFY',
+          response: 'PLEASE SPECIFY',
           active: true,
           label: 'Please specify',
           commentRequired: true,
@@ -2230,7 +2230,7 @@ export const FIND_5: IncidentTypeConfiguration = {
       answers: [
         {
           id: '209322',
-          code: 'BOSS CHAIR',
+          response: 'BOSS CHAIR',
           active: true,
           label: 'Boss chair',
           commentRequired: false,
@@ -2239,7 +2239,7 @@ export const FIND_5: IncidentTypeConfiguration = {
         },
         {
           id: '209323',
-          code: 'CELL SEARCH',
+          response: 'CELL SEARCH',
           active: true,
           label: 'Cell search',
           commentRequired: false,
@@ -2248,7 +2248,7 @@ export const FIND_5: IncidentTypeConfiguration = {
         },
         {
           id: '209324',
-          code: 'CRIME SCENE',
+          response: 'CRIME SCENE',
           active: true,
           label: 'Crime scene',
           commentRequired: false,
@@ -2257,7 +2257,7 @@ export const FIND_5: IncidentTypeConfiguration = {
         },
         {
           id: '209325',
-          code: 'DOG SEARCH',
+          response: 'DOG SEARCH',
           active: true,
           label: 'Dog search',
           commentRequired: false,
@@ -2266,7 +2266,7 @@ export const FIND_5: IncidentTypeConfiguration = {
         },
         {
           id: '209326',
-          code: 'DRONE RECOVERY',
+          response: 'DRONE RECOVERY',
           active: true,
           label: 'Drone recovery',
           commentRequired: false,
@@ -2275,7 +2275,7 @@ export const FIND_5: IncidentTypeConfiguration = {
         },
         {
           id: '209327',
-          code: 'HIGH SENSITIVITY WAND',
+          response: 'HIGH SENSITIVITY WAND',
           active: true,
           label: 'High sensitivity wand',
           commentRequired: false,
@@ -2284,7 +2284,7 @@ export const FIND_5: IncidentTypeConfiguration = {
         },
         {
           id: '209328',
-          code: 'INFORMATION RECEIVED',
+          response: 'INFORMATION RECEIVED',
           active: true,
           label: 'Information received',
           commentRequired: false,
@@ -2293,7 +2293,7 @@ export const FIND_5: IncidentTypeConfiguration = {
         },
         {
           id: '209329',
-          code: 'INTELLIGENCE LED SEARCH',
+          response: 'INTELLIGENCE LED SEARCH',
           active: true,
           label: 'Intelligence led search',
           commentRequired: false,
@@ -2302,7 +2302,7 @@ export const FIND_5: IncidentTypeConfiguration = {
         },
         {
           id: '209330',
-          code: 'ITEM OBSERVED',
+          response: 'ITEM OBSERVED',
           active: true,
           label: 'Item observed',
           commentRequired: false,
@@ -2311,7 +2311,7 @@ export const FIND_5: IncidentTypeConfiguration = {
         },
         {
           id: '209331',
-          code: 'MOBILE PHONE SIGNAL DETECTOR',
+          response: 'MOBILE PHONE SIGNAL DETECTOR',
           active: true,
           label: 'Mobile phone signal detector',
           commentRequired: false,
@@ -2320,7 +2320,7 @@ export const FIND_5: IncidentTypeConfiguration = {
         },
         {
           id: '209332',
-          code: 'MOBILE PHONE ROD',
+          response: 'MOBILE PHONE ROD',
           active: true,
           label: 'Mobile phone rod',
           commentRequired: false,
@@ -2329,7 +2329,7 @@ export const FIND_5: IncidentTypeConfiguration = {
         },
         {
           id: '209333',
-          code: 'OTHER SEARCH (INMATE)',
+          response: 'OTHER SEARCH (INMATE)',
           active: true,
           label: 'Other search (inmate)',
           commentRequired: false,
@@ -2338,7 +2338,7 @@ export const FIND_5: IncidentTypeConfiguration = {
         },
         {
           id: '209334',
-          code: 'OTHER SEARCH (PREMISES)',
+          response: 'OTHER SEARCH (PREMISES)',
           active: true,
           label: 'Other search (premises)',
           commentRequired: false,
@@ -2347,7 +2347,7 @@ export const FIND_5: IncidentTypeConfiguration = {
         },
         {
           id: '209335',
-          code: 'OTHER SEARCH (VISITOR)',
+          response: 'OTHER SEARCH (VISITOR)',
           active: true,
           label: 'Other search (visitor)',
           commentRequired: false,
@@ -2356,7 +2356,7 @@ export const FIND_5: IncidentTypeConfiguration = {
         },
         {
           id: '209336',
-          code: 'PRE-OCCUPATION SEARCH',
+          response: 'PRE-OCCUPATION SEARCH',
           active: true,
           label: 'Pre-occupation search',
           commentRequired: false,
@@ -2365,7 +2365,7 @@ export const FIND_5: IncidentTypeConfiguration = {
         },
         {
           id: '209337',
-          code: 'UNUSUAL BEHAVIOUR',
+          response: 'UNUSUAL BEHAVIOUR',
           active: true,
           label: 'Unusual behaviour',
           commentRequired: false,
@@ -2374,7 +2374,7 @@ export const FIND_5: IncidentTypeConfiguration = {
         },
         {
           id: '209338',
-          code: 'OTHER (PLEASE SPECIFY)',
+          response: 'OTHER (PLEASE SPECIFY)',
           active: true,
           label: 'Other (please specify)',
           commentRequired: true,
@@ -2392,7 +2392,7 @@ export const FIND_5: IncidentTypeConfiguration = {
       answers: [
         {
           id: '209339',
-          code: 'PRISONER',
+          response: 'PRISONER',
           active: true,
           label: 'Prisoner',
           commentRequired: false,
@@ -2401,7 +2401,7 @@ export const FIND_5: IncidentTypeConfiguration = {
         },
         {
           id: '209340',
-          code: 'STAFF',
+          response: 'STAFF',
           active: true,
           label: 'Staff',
           commentRequired: false,
@@ -2410,7 +2410,7 @@ export const FIND_5: IncidentTypeConfiguration = {
         },
         {
           id: '209341',
-          code: 'VISITOR (FRIEND)',
+          response: 'VISITOR (FRIEND)',
           active: true,
           label: 'Visitor (friend)',
           commentRequired: false,
@@ -2419,7 +2419,7 @@ export const FIND_5: IncidentTypeConfiguration = {
         },
         {
           id: '209342',
-          code: 'VISITOR (OFFICIAL)',
+          response: 'VISITOR (OFFICIAL)',
           active: true,
           label: 'Visitor (official)',
           commentRequired: false,
@@ -2428,7 +2428,7 @@ export const FIND_5: IncidentTypeConfiguration = {
         },
         {
           id: '209343',
-          code: 'VISITOR (RELATIVE)',
+          response: 'VISITOR (RELATIVE)',
           active: true,
           label: 'Visitor (relative)',
           commentRequired: false,
@@ -2437,7 +2437,7 @@ export const FIND_5: IncidentTypeConfiguration = {
         },
         {
           id: '209344',
-          code: 'CONTRACTOR',
+          response: 'CONTRACTOR',
           active: true,
           label: 'Contractor',
           commentRequired: false,
@@ -2446,7 +2446,7 @@ export const FIND_5: IncidentTypeConfiguration = {
         },
         {
           id: '209345',
-          code: 'POST (RULE 39)',
+          response: 'POST (RULE 39)',
           active: true,
           label: 'Post (rule 39)',
           commentRequired: false,
@@ -2455,7 +2455,7 @@ export const FIND_5: IncidentTypeConfiguration = {
         },
         {
           id: '209346',
-          code: 'POST (OTHER)',
+          response: 'POST (OTHER)',
           active: true,
           label: 'Post (other)',
           commentRequired: false,
@@ -2464,7 +2464,7 @@ export const FIND_5: IncidentTypeConfiguration = {
         },
         {
           id: '209347',
-          code: 'THROWN IN',
+          response: 'THROWN IN',
           active: true,
           label: 'Thrown in',
           commentRequired: false,
@@ -2473,7 +2473,7 @@ export const FIND_5: IncidentTypeConfiguration = {
         },
         {
           id: '209348',
-          code: 'DRONE/UAV',
+          response: 'DRONE/UAV',
           active: true,
           label: 'Drone/UAV',
           commentRequired: false,
@@ -2482,7 +2482,7 @@ export const FIND_5: IncidentTypeConfiguration = {
         },
         {
           id: '209349',
-          code: 'OTHER (PLEASE SPECIFY)',
+          response: 'OTHER (PLEASE SPECIFY)',
           active: true,
           label: 'Other (please specify)',
           commentRequired: true,
@@ -2491,7 +2491,7 @@ export const FIND_5: IncidentTypeConfiguration = {
         },
         {
           id: '209350',
-          code: 'UNKNOWN',
+          response: 'UNKNOWN',
           active: true,
           label: 'Unknown',
           commentRequired: false,
@@ -2509,7 +2509,7 @@ export const FIND_5: IncidentTypeConfiguration = {
       answers: [
         {
           id: '209351',
-          code: 'PRISONER',
+          response: 'PRISONER',
           active: true,
           label: 'Prisoner',
           commentRequired: false,
@@ -2518,7 +2518,7 @@ export const FIND_5: IncidentTypeConfiguration = {
         },
         {
           id: '209352',
-          code: 'STAFF',
+          response: 'STAFF',
           active: true,
           label: 'Staff',
           commentRequired: false,
@@ -2527,7 +2527,7 @@ export const FIND_5: IncidentTypeConfiguration = {
         },
         {
           id: '209353',
-          code: 'VISITOR (FRIEND)',
+          response: 'VISITOR (FRIEND)',
           active: true,
           label: 'Visitor (friend)',
           commentRequired: false,
@@ -2536,7 +2536,7 @@ export const FIND_5: IncidentTypeConfiguration = {
         },
         {
           id: '209354',
-          code: 'VISITOR (OFFICIAL)',
+          response: 'VISITOR (OFFICIAL)',
           active: true,
           label: 'Visitor (official)',
           commentRequired: false,
@@ -2545,7 +2545,7 @@ export const FIND_5: IncidentTypeConfiguration = {
         },
         {
           id: '209355',
-          code: 'VISITOR (RELATIVE)',
+          response: 'VISITOR (RELATIVE)',
           active: true,
           label: 'Visitor (relative)',
           commentRequired: false,
@@ -2554,7 +2554,7 @@ export const FIND_5: IncidentTypeConfiguration = {
         },
         {
           id: '209356',
-          code: 'CONTRACTOR',
+          response: 'CONTRACTOR',
           active: true,
           label: 'Contractor',
           commentRequired: false,
@@ -2563,7 +2563,7 @@ export const FIND_5: IncidentTypeConfiguration = {
         },
         {
           id: '209357',
-          code: 'OTHER (PLEASE SPECIFY)',
+          response: 'OTHER (PLEASE SPECIFY)',
           active: true,
           label: 'Other (please specify)',
           commentRequired: true,
@@ -2572,7 +2572,7 @@ export const FIND_5: IncidentTypeConfiguration = {
         },
         {
           id: '209358',
-          code: 'NOT APPLICABLE',
+          response: 'NOT APPLICABLE',
           active: true,
           label: 'Not applicable',
           commentRequired: false,
@@ -2590,7 +2590,7 @@ export const FIND_5: IncidentTypeConfiguration = {
       answers: [
         {
           id: '209359',
-          code: 'NOT CONCEALED',
+          response: 'NOT CONCEALED',
           active: true,
           label: 'Not concealed',
           commentRequired: false,
@@ -2599,7 +2599,7 @@ export const FIND_5: IncidentTypeConfiguration = {
         },
         {
           id: '209360',
-          code: 'BED/BEDDING',
+          response: 'BED/BEDDING',
           active: true,
           label: 'Bed/bedding',
           commentRequired: false,
@@ -2608,7 +2608,7 @@ export const FIND_5: IncidentTypeConfiguration = {
         },
         {
           id: '209361',
-          code: 'BOOK/PAPERS',
+          response: 'BOOK/PAPERS',
           active: true,
           label: 'Book/papers',
           commentRequired: false,
@@ -2617,7 +2617,7 @@ export const FIND_5: IncidentTypeConfiguration = {
         },
         {
           id: '209362',
-          code: 'CELL/BUILDING FABRIC',
+          response: 'CELL/BUILDING FABRIC',
           active: true,
           label: 'Cell/building fabric',
           commentRequired: false,
@@ -2626,7 +2626,7 @@ export const FIND_5: IncidentTypeConfiguration = {
         },
         {
           id: '209363',
-          code: 'FOOD/CONTAINER',
+          response: 'FOOD/CONTAINER',
           active: true,
           label: 'Food/container',
           commentRequired: false,
@@ -2635,7 +2635,7 @@ export const FIND_5: IncidentTypeConfiguration = {
         },
         {
           id: '209364',
-          code: 'IN CLOTHING',
+          response: 'IN CLOTHING',
           active: true,
           label: 'In clothing',
           commentRequired: false,
@@ -2644,7 +2644,7 @@ export const FIND_5: IncidentTypeConfiguration = {
         },
         {
           id: '209365',
-          code: 'IN HAND',
+          response: 'IN HAND',
           active: true,
           label: 'In hand',
           commentRequired: false,
@@ -2653,7 +2653,7 @@ export const FIND_5: IncidentTypeConfiguration = {
         },
         {
           id: '209366',
-          code: 'IN MOUTH',
+          response: 'IN MOUTH',
           active: true,
           label: 'In mouth',
           commentRequired: false,
@@ -2662,7 +2662,7 @@ export const FIND_5: IncidentTypeConfiguration = {
         },
         {
           id: '209367',
-          code: 'INTERNALLY/PLUGGED',
+          response: 'INTERNALLY/PLUGGED',
           active: true,
           label: 'Internally/plugged',
           commentRequired: false,
@@ -2671,7 +2671,7 @@ export const FIND_5: IncidentTypeConfiguration = {
         },
         {
           id: '209368',
-          code: 'LETTER/PARCEL',
+          response: 'LETTER/PARCEL',
           active: true,
           label: 'Letter/parcel',
           commentRequired: false,
@@ -2680,7 +2680,7 @@ export const FIND_5: IncidentTypeConfiguration = {
         },
         {
           id: '209369',
-          code: 'LIGHT FITTINGS',
+          response: 'LIGHT FITTINGS',
           active: true,
           label: 'Light fittings',
           commentRequired: false,
@@ -2689,7 +2689,7 @@ export const FIND_5: IncidentTypeConfiguration = {
         },
         {
           id: '209370',
-          code: 'PIPEWORK',
+          response: 'PIPEWORK',
           active: true,
           label: 'Pipework',
           commentRequired: false,
@@ -2698,7 +2698,7 @@ export const FIND_5: IncidentTypeConfiguration = {
         },
         {
           id: '209371',
-          code: 'RULE 39/LEGAL PAPERS',
+          response: 'RULE 39/LEGAL PAPERS',
           active: true,
           label: 'Rule 39/legal papers',
           commentRequired: false,
@@ -2707,7 +2707,7 @@ export const FIND_5: IncidentTypeConfiguration = {
         },
         {
           id: '209372',
-          code: 'TV/RADIO/DVD/CONSOLES ETC.',
+          response: 'TV/RADIO/DVD/CONSOLES ETC.',
           active: true,
           label: 'TV/radio/DVD/consoles etc.',
           commentRequired: false,
@@ -2716,7 +2716,7 @@ export const FIND_5: IncidentTypeConfiguration = {
         },
         {
           id: '209373',
-          code: 'OTHER (PLEASE SPECIFY)',
+          response: 'OTHER (PLEASE SPECIFY)',
           active: true,
           label: 'Other (please specify)',
           commentRequired: true,
@@ -2734,7 +2734,7 @@ export const FIND_5: IncidentTypeConfiguration = {
       answers: [
         {
           id: '209374',
-          code: 'YES',
+          response: 'YES',
           active: true,
           label: 'Yes',
           commentRequired: false,
@@ -2743,7 +2743,7 @@ export const FIND_5: IncidentTypeConfiguration = {
         },
         {
           id: '209375',
-          code: 'NO',
+          response: 'NO',
           active: true,
           label: 'No',
           commentRequired: false,
@@ -2761,7 +2761,7 @@ export const FIND_5: IncidentTypeConfiguration = {
       answers: [
         {
           id: '209376',
-          code: 'YES',
+          response: 'YES',
           active: true,
           label: 'Yes',
           commentRequired: false,
@@ -2770,7 +2770,7 @@ export const FIND_5: IncidentTypeConfiguration = {
         },
         {
           id: '209377',
-          code: 'NO',
+          response: 'NO',
           active: true,
           label: 'No',
           commentRequired: false,
@@ -2788,7 +2788,7 @@ export const FIND_5: IncidentTypeConfiguration = {
       answers: [
         {
           id: '209378',
-          code: 'AFTER ENTERING PRISON',
+          response: 'AFTER ENTERING PRISON',
           active: true,
           label: 'After entering prison',
           commentRequired: false,
@@ -2797,7 +2797,7 @@ export const FIND_5: IncidentTypeConfiguration = {
         },
         {
           id: '209379',
-          code: 'BEFORE ENTERING PRISON',
+          response: 'BEFORE ENTERING PRISON',
           active: true,
           label: 'Before entering prison',
           commentRequired: false,
@@ -2815,7 +2815,7 @@ export const FIND_5: IncidentTypeConfiguration = {
       answers: [
         {
           id: '209380',
-          code: 'PLEASE SPECIFY',
+          response: 'PLEASE SPECIFY',
           active: true,
           label: 'Please specify',
           commentRequired: true,
@@ -2833,7 +2833,7 @@ export const FIND_5: IncidentTypeConfiguration = {
       answers: [
         {
           id: '209381',
-          code: 'YES',
+          response: 'YES',
           active: true,
           label: 'Yes',
           commentRequired: false,
@@ -2842,7 +2842,7 @@ export const FIND_5: IncidentTypeConfiguration = {
         },
         {
           id: '209382',
-          code: 'NO',
+          response: 'NO',
           active: true,
           label: 'No',
           commentRequired: false,
@@ -2851,7 +2851,7 @@ export const FIND_5: IncidentTypeConfiguration = {
         },
         {
           id: '209383',
-          code: 'UNKNOWN',
+          response: 'UNKNOWN',
           active: true,
           label: 'Unknown',
           commentRequired: false,
@@ -2869,7 +2869,7 @@ export const FIND_5: IncidentTypeConfiguration = {
       answers: [
         {
           id: '209384',
-          code: 'COMMUNITY VISIT',
+          response: 'COMMUNITY VISIT',
           active: true,
           label: 'Community visit',
           commentRequired: false,
@@ -2878,7 +2878,7 @@ export const FIND_5: IncidentTypeConfiguration = {
         },
         {
           id: '209385',
-          code: 'COMPASSIONATE',
+          response: 'COMPASSIONATE',
           active: true,
           label: 'Compassionate',
           commentRequired: false,
@@ -2887,7 +2887,7 @@ export const FIND_5: IncidentTypeConfiguration = {
         },
         {
           id: '209386',
-          code: 'FACILITY',
+          response: 'FACILITY',
           active: true,
           label: 'Facility',
           commentRequired: false,
@@ -2896,7 +2896,7 @@ export const FIND_5: IncidentTypeConfiguration = {
         },
         {
           id: '209387',
-          code: 'RESETTLEMENT',
+          response: 'RESETTLEMENT',
           active: true,
           label: 'Resettlement',
           commentRequired: false,
@@ -2905,7 +2905,7 @@ export const FIND_5: IncidentTypeConfiguration = {
         },
         {
           id: '209388',
-          code: 'UNKNOWN',
+          response: 'UNKNOWN',
           active: true,
           label: 'Unknown',
           commentRequired: false,
@@ -2923,7 +2923,7 @@ export const FIND_5: IncidentTypeConfiguration = {
       answers: [
         {
           id: '209389',
-          code: '£0',
+          response: '£0',
           active: true,
           label: '£0',
           commentRequired: false,
@@ -2932,7 +2932,7 @@ export const FIND_5: IncidentTypeConfiguration = {
         },
         {
           id: '209390',
-          code: '£1 to £100',
+          response: '£1 to £100',
           active: true,
           label: '£1 to £100',
           commentRequired: false,
@@ -2941,7 +2941,7 @@ export const FIND_5: IncidentTypeConfiguration = {
         },
         {
           id: '209391',
-          code: '£101 to £200',
+          response: '£101 to £200',
           active: true,
           label: '£101 to £200',
           commentRequired: false,
@@ -2950,7 +2950,7 @@ export const FIND_5: IncidentTypeConfiguration = {
         },
         {
           id: '209392',
-          code: '£201 to £300',
+          response: '£201 to £300',
           active: true,
           label: '£201 to £300',
           commentRequired: false,
@@ -2959,7 +2959,7 @@ export const FIND_5: IncidentTypeConfiguration = {
         },
         {
           id: '209393',
-          code: '£301 to £400',
+          response: '£301 to £400',
           active: true,
           label: '£301 to £400',
           commentRequired: false,
@@ -2968,7 +2968,7 @@ export const FIND_5: IncidentTypeConfiguration = {
         },
         {
           id: '209394',
-          code: '£401 to £500',
+          response: '£401 to £500',
           active: true,
           label: '£401 to £500',
           commentRequired: false,
@@ -2977,7 +2977,7 @@ export const FIND_5: IncidentTypeConfiguration = {
         },
         {
           id: '209395',
-          code: '£501 to £1,000',
+          response: '£501 to £1,000',
           active: true,
           label: '£501 to £1,000',
           commentRequired: false,
@@ -2986,7 +2986,7 @@ export const FIND_5: IncidentTypeConfiguration = {
         },
         {
           id: '209396',
-          code: '£1,001 to £5,000',
+          response: '£1,001 to £5,000',
           active: true,
           label: '£1,001 to £5,000',
           commentRequired: false,
@@ -2995,7 +2995,7 @@ export const FIND_5: IncidentTypeConfiguration = {
         },
         {
           id: '209397',
-          code: '£5,001 to £10,000',
+          response: '£5,001 to £10,000',
           active: true,
           label: '£5,001 to £10,000',
           commentRequired: false,
@@ -3004,7 +3004,7 @@ export const FIND_5: IncidentTypeConfiguration = {
         },
         {
           id: '209398',
-          code: '£10,001 to £20,000',
+          response: '£10,001 to £20,000',
           active: true,
           label: '£10,001 to £20,000',
           commentRequired: false,
@@ -3013,7 +3013,7 @@ export const FIND_5: IncidentTypeConfiguration = {
         },
         {
           id: '209399',
-          code: '£20,001 to £30,000',
+          response: '£20,001 to £30,000',
           active: true,
           label: '£20,001 to £30,000',
           commentRequired: false,
@@ -3022,7 +3022,7 @@ export const FIND_5: IncidentTypeConfiguration = {
         },
         {
           id: '209400',
-          code: '£30,001 to £40,000',
+          response: '£30,001 to £40,000',
           active: true,
           label: '£30,001 to £40,000',
           commentRequired: false,
@@ -3031,7 +3031,7 @@ export const FIND_5: IncidentTypeConfiguration = {
         },
         {
           id: '209401',
-          code: '£40,001 to £50,000',
+          response: '£40,001 to £50,000',
           active: true,
           label: '£40,001 to £50,000',
           commentRequired: false,
@@ -3040,7 +3040,7 @@ export const FIND_5: IncidentTypeConfiguration = {
         },
         {
           id: '209402',
-          code: 'More than £50,000',
+          response: 'More than £50,000',
           active: true,
           label: 'More than £50,000',
           commentRequired: false,
@@ -3049,7 +3049,7 @@ export const FIND_5: IncidentTypeConfiguration = {
         },
         {
           id: '209403',
-          code: 'UNKNOWN',
+          response: 'UNKNOWN',
           active: true,
           label: 'Unknown',
           commentRequired: false,

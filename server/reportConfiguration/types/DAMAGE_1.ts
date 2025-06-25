@@ -16,7 +16,7 @@ export const DAMAGE_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '179054',
-          code: 'YES',
+          response: 'YES',
           active: true,
           label: 'Yes',
           commentRequired: false,
@@ -25,7 +25,7 @@ export const DAMAGE_1: IncidentTypeConfiguration = {
         },
         {
           id: '179055',
-          code: 'NO',
+          response: 'NO',
           active: true,
           label: 'No',
           commentRequired: false,
@@ -43,7 +43,7 @@ export const DAMAGE_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '179113',
-          code: 'YES',
+          response: 'YES',
           active: true,
           label: 'Yes',
           commentRequired: false,
@@ -52,7 +52,7 @@ export const DAMAGE_1: IncidentTypeConfiguration = {
         },
         {
           id: '179114',
-          code: 'NO',
+          response: 'NO',
           active: true,
           label: 'No',
           commentRequired: false,
@@ -70,7 +70,7 @@ export const DAMAGE_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '179166',
-          code: 'YES',
+          response: 'YES',
           active: true,
           label: 'Yes',
           commentRequired: false,
@@ -79,7 +79,7 @@ export const DAMAGE_1: IncidentTypeConfiguration = {
         },
         {
           id: '179165',
-          code: 'NO',
+          response: 'NO',
           active: true,
           label: 'No',
           commentRequired: false,
@@ -97,7 +97,7 @@ export const DAMAGE_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '179247',
-          code: 'STAFF',
+          response: 'STAFF',
           active: true,
           label: 'Staff',
           commentRequired: true,
@@ -106,7 +106,7 @@ export const DAMAGE_1: IncidentTypeConfiguration = {
         },
         {
           id: '179246',
-          code: 'PRISONERS',
+          response: 'PRISONERS',
           active: true,
           label: 'Prisoners',
           commentRequired: true,
@@ -115,7 +115,7 @@ export const DAMAGE_1: IncidentTypeConfiguration = {
         },
         {
           id: '179243',
-          code: 'CIVILIAN GRADES',
+          response: 'CIVILIAN GRADES',
           active: true,
           label: 'Civilian grades',
           commentRequired: true,
@@ -124,7 +124,7 @@ export const DAMAGE_1: IncidentTypeConfiguration = {
         },
         {
           id: '179245',
-          code: 'POLICE',
+          response: 'POLICE',
           active: true,
           label: 'Police',
           commentRequired: true,
@@ -133,7 +133,7 @@ export const DAMAGE_1: IncidentTypeConfiguration = {
         },
         {
           id: '179244',
-          code: 'EXTERNAL CIVILIANS',
+          response: 'EXTERNAL CIVILIANS',
           active: true,
           label: 'External civilians',
           commentRequired: true,
@@ -151,7 +151,7 @@ export const DAMAGE_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '179430',
-          code: 'YES',
+          response: 'YES',
           active: true,
           label: 'Yes',
           commentRequired: false,
@@ -160,7 +160,7 @@ export const DAMAGE_1: IncidentTypeConfiguration = {
         },
         {
           id: '179431',
-          code: 'NO',
+          response: 'NO',
           active: true,
           label: 'No',
           commentRequired: false,
@@ -178,7 +178,7 @@ export const DAMAGE_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '179570',
-          code: 'ADMINISTRATION',
+          response: 'ADMINISTRATION',
           active: true,
           label: 'Administration',
           commentRequired: false,
@@ -187,7 +187,7 @@ export const DAMAGE_1: IncidentTypeConfiguration = {
         },
         {
           id: '179571',
-          code: 'ASSOCIATION AREA',
+          response: 'ASSOCIATION AREA',
           active: true,
           label: 'Association area',
           commentRequired: false,
@@ -196,7 +196,7 @@ export const DAMAGE_1: IncidentTypeConfiguration = {
         },
         {
           id: '179572',
-          code: 'CELL',
+          response: 'CELL',
           active: true,
           label: 'Cell',
           commentRequired: false,
@@ -205,7 +205,7 @@ export const DAMAGE_1: IncidentTypeConfiguration = {
         },
         {
           id: '179573',
-          code: 'CHAPEL',
+          response: 'CHAPEL',
           active: true,
           label: 'Chapel',
           commentRequired: false,
@@ -214,7 +214,7 @@ export const DAMAGE_1: IncidentTypeConfiguration = {
         },
         {
           id: '179575',
-          code: 'DINING ROOM',
+          response: 'DINING ROOM',
           active: true,
           label: 'Dining room',
           commentRequired: false,
@@ -223,7 +223,7 @@ export const DAMAGE_1: IncidentTypeConfiguration = {
         },
         {
           id: '179576',
-          code: 'DORMITORY',
+          response: 'DORMITORY',
           active: true,
           label: 'Dormitory',
           commentRequired: false,
@@ -232,7 +232,7 @@ export const DAMAGE_1: IncidentTypeConfiguration = {
         },
         {
           id: '179577',
-          code: 'EDUCATION',
+          response: 'EDUCATION',
           active: true,
           label: 'Education',
           commentRequired: false,
@@ -241,7 +241,7 @@ export const DAMAGE_1: IncidentTypeConfiguration = {
         },
         {
           id: '179579',
-          code: 'EXERCISE YARD',
+          response: 'EXERCISE YARD',
           active: true,
           label: 'Exercise yard',
           commentRequired: false,
@@ -250,7 +250,7 @@ export const DAMAGE_1: IncidentTypeConfiguration = {
         },
         {
           id: '179581',
-          code: 'GATE',
+          response: 'GATE',
           active: true,
           label: 'Gate',
           commentRequired: false,
@@ -259,7 +259,7 @@ export const DAMAGE_1: IncidentTypeConfiguration = {
         },
         {
           id: '179582',
-          code: 'GYM',
+          response: 'GYM',
           active: true,
           label: 'Gym',
           commentRequired: false,
@@ -268,7 +268,7 @@ export const DAMAGE_1: IncidentTypeConfiguration = {
         },
         {
           id: '179583',
-          code: 'HEALTH CARE CENTRE',
+          response: 'HEALTH CARE CENTRE',
           active: true,
           label: 'Health care centre',
           commentRequired: false,
@@ -277,7 +277,7 @@ export const DAMAGE_1: IncidentTypeConfiguration = {
         },
         {
           id: '179586',
-          code: 'KITCHEN',
+          response: 'KITCHEN',
           active: true,
           label: 'Kitchen',
           commentRequired: false,
@@ -286,7 +286,7 @@ export const DAMAGE_1: IncidentTypeConfiguration = {
         },
         {
           id: '179588',
-          code: 'OFFICE',
+          response: 'OFFICE',
           active: true,
           label: 'Office',
           commentRequired: false,
@@ -295,7 +295,7 @@ export const DAMAGE_1: IncidentTypeConfiguration = {
         },
         {
           id: '179590',
-          code: 'RECEPTION',
+          response: 'RECEPTION',
           active: true,
           label: 'Reception',
           commentRequired: false,
@@ -304,7 +304,7 @@ export const DAMAGE_1: IncidentTypeConfiguration = {
         },
         {
           id: '179591',
-          code: 'RECESS',
+          response: 'RECESS',
           active: true,
           label: 'Recess',
           commentRequired: false,
@@ -313,7 +313,7 @@ export const DAMAGE_1: IncidentTypeConfiguration = {
         },
         {
           id: '179592',
-          code: 'SEGREGATION UNIT',
+          response: 'SEGREGATION UNIT',
           active: true,
           label: 'Segregation unit',
           commentRequired: false,
@@ -322,7 +322,7 @@ export const DAMAGE_1: IncidentTypeConfiguration = {
         },
         {
           id: '179594',
-          code: 'SPECIAL UNIT',
+          response: 'SPECIAL UNIT',
           active: true,
           label: 'Special unit',
           commentRequired: false,
@@ -331,7 +331,7 @@ export const DAMAGE_1: IncidentTypeConfiguration = {
         },
         {
           id: '179593',
-          code: 'SHOWERS/CHANGING ROOM',
+          response: 'SHOWERS/CHANGING ROOM',
           active: true,
           label: 'Showers/changing room',
           commentRequired: false,
@@ -340,7 +340,7 @@ export const DAMAGE_1: IncidentTypeConfiguration = {
         },
         {
           id: '179597',
-          code: 'VISITS',
+          response: 'VISITS',
           active: true,
           label: 'Visits',
           commentRequired: false,
@@ -349,7 +349,7 @@ export const DAMAGE_1: IncidentTypeConfiguration = {
         },
         {
           id: '179599',
-          code: 'WING',
+          response: 'WING',
           active: true,
           label: 'Wing',
           commentRequired: false,
@@ -358,7 +358,7 @@ export const DAMAGE_1: IncidentTypeConfiguration = {
         },
         {
           id: '179601',
-          code: 'WORKS DEPARTMENT',
+          response: 'WORKS DEPARTMENT',
           active: true,
           label: 'Works department',
           commentRequired: false,
@@ -367,7 +367,7 @@ export const DAMAGE_1: IncidentTypeConfiguration = {
         },
         {
           id: '179602',
-          code: 'WORKSHOP',
+          response: 'WORKSHOP',
           active: true,
           label: 'Workshop',
           commentRequired: false,
@@ -376,7 +376,7 @@ export const DAMAGE_1: IncidentTypeConfiguration = {
         },
         {
           id: '179600',
-          code: 'WITHIN PERIMETER',
+          response: 'WITHIN PERIMETER',
           active: true,
           label: 'Within perimeter',
           commentRequired: false,
@@ -385,7 +385,7 @@ export const DAMAGE_1: IncidentTypeConfiguration = {
         },
         {
           id: '179578',
-          code: 'ELSEWHERE',
+          response: 'ELSEWHERE',
           active: true,
           label: 'Elsewhere',
           commentRequired: true,
@@ -394,7 +394,7 @@ export const DAMAGE_1: IncidentTypeConfiguration = {
         },
         {
           id: '179580',
-          code: 'FUNERAL',
+          response: 'FUNERAL',
           active: true,
           label: 'Funeral',
           commentRequired: false,
@@ -403,7 +403,7 @@ export const DAMAGE_1: IncidentTypeConfiguration = {
         },
         {
           id: '179584',
-          code: 'HOSPITAL OUTSIDE (PATIENT)',
+          response: 'HOSPITAL OUTSIDE (PATIENT)',
           active: true,
           label: 'Hospital outside (patient)',
           commentRequired: false,
@@ -412,7 +412,7 @@ export const DAMAGE_1: IncidentTypeConfiguration = {
         },
         {
           id: '179585',
-          code: 'HOSPITAL OUTSIDE (VISITING)',
+          response: 'HOSPITAL OUTSIDE (VISITING)',
           active: true,
           label: 'Hospital outside (visiting)',
           commentRequired: false,
@@ -421,7 +421,7 @@ export const DAMAGE_1: IncidentTypeConfiguration = {
         },
         {
           id: '179589',
-          code: 'OUTSIDE WORKING PARTY',
+          response: 'OUTSIDE WORKING PARTY',
           active: true,
           label: 'Outside working party',
           commentRequired: false,
@@ -430,7 +430,7 @@ export const DAMAGE_1: IncidentTypeConfiguration = {
         },
         {
           id: '179595',
-          code: 'SPORTS FIELD',
+          response: 'SPORTS FIELD',
           active: true,
           label: 'Sports field',
           commentRequired: false,
@@ -439,7 +439,7 @@ export const DAMAGE_1: IncidentTypeConfiguration = {
         },
         {
           id: '179596',
-          code: 'VEHICLE',
+          response: 'VEHICLE',
           active: true,
           label: 'Vehicle',
           commentRequired: false,
@@ -448,7 +448,7 @@ export const DAMAGE_1: IncidentTypeConfiguration = {
         },
         {
           id: '179598',
-          code: 'WEDDINGS',
+          response: 'WEDDINGS',
           active: true,
           label: 'Weddings',
           commentRequired: false,
@@ -457,7 +457,7 @@ export const DAMAGE_1: IncidentTypeConfiguration = {
         },
         {
           id: '179587',
-          code: 'MAGISTRATES COURT',
+          response: 'MAGISTRATES COURT',
           active: true,
           label: 'Magistrates court',
           commentRequired: false,
@@ -466,7 +466,7 @@ export const DAMAGE_1: IncidentTypeConfiguration = {
         },
         {
           id: '179574',
-          code: 'CROWN COURT',
+          response: 'CROWN COURT',
           active: true,
           label: 'Crown court',
           commentRequired: false,
@@ -484,7 +484,7 @@ export const DAMAGE_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '179657',
-          code: 'FURNITURE',
+          response: 'FURNITURE',
           active: true,
           label: 'Furniture',
           commentRequired: false,
@@ -493,7 +493,7 @@ export const DAMAGE_1: IncidentTypeConfiguration = {
         },
         {
           id: '179656',
-          code: 'FITTINGS',
+          response: 'FITTINGS',
           active: true,
           label: 'Fittings',
           commentRequired: false,
@@ -502,7 +502,7 @@ export const DAMAGE_1: IncidentTypeConfiguration = {
         },
         {
           id: '179658',
-          code: 'MACHINERY',
+          response: 'MACHINERY',
           active: true,
           label: 'Machinery',
           commentRequired: false,
@@ -511,7 +511,7 @@ export const DAMAGE_1: IncidentTypeConfiguration = {
         },
         {
           id: '179655',
-          code: 'EQUIPMENT',
+          response: 'EQUIPMENT',
           active: true,
           label: 'Equipment',
           commentRequired: false,
@@ -520,7 +520,7 @@ export const DAMAGE_1: IncidentTypeConfiguration = {
         },
         {
           id: '179659',
-          code: 'OTHER',
+          response: 'OTHER',
           active: true,
           label: 'Other',
           commentRequired: true,
@@ -538,7 +538,7 @@ export const DAMAGE_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '179784',
-          code: 'YES',
+          response: 'YES',
           active: true,
           label: 'Yes',
           commentRequired: false,
@@ -547,7 +547,7 @@ export const DAMAGE_1: IncidentTypeConfiguration = {
         },
         {
           id: '179785',
-          code: 'NO',
+          response: 'NO',
           active: true,
           label: 'No',
           commentRequired: false,
@@ -565,7 +565,7 @@ export const DAMAGE_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '180083',
-          code: 'MINOR',
+          response: 'MINOR',
           active: true,
           label: 'Minor',
           commentRequired: true,
@@ -574,7 +574,7 @@ export const DAMAGE_1: IncidentTypeConfiguration = {
         },
         {
           id: '180084',
-          code: 'SERIOUS',
+          response: 'SERIOUS',
           active: true,
           label: 'Serious',
           commentRequired: true,
@@ -583,7 +583,7 @@ export const DAMAGE_1: IncidentTypeConfiguration = {
         },
         {
           id: '180082',
-          code: 'EXTENSIVE',
+          response: 'EXTENSIVE',
           active: true,
           label: 'Extensive',
           commentRequired: true,
@@ -601,7 +601,7 @@ export const DAMAGE_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '180259',
-          code: 'YES',
+          response: 'YES',
           active: true,
           label: 'Yes',
           commentRequired: false,
@@ -610,7 +610,7 @@ export const DAMAGE_1: IncidentTypeConfiguration = {
         },
         {
           id: '180258',
-          code: 'NO',
+          response: 'NO',
           active: true,
           label: 'No',
           commentRequired: false,
@@ -628,7 +628,7 @@ export const DAMAGE_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '180492',
-          code: 'YES',
+          response: 'YES',
           active: true,
           label: 'Yes',
           commentRequired: false,
@@ -637,7 +637,7 @@ export const DAMAGE_1: IncidentTypeConfiguration = {
         },
         {
           id: '180491',
-          code: 'NO',
+          response: 'NO',
           active: true,
           label: 'No',
           commentRequired: false,
@@ -655,7 +655,7 @@ export const DAMAGE_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '180504',
-          code: 'GRAZES, SCRATCHES OR ABRASIONS',
+          response: 'GRAZES, SCRATCHES OR ABRASIONS',
           active: true,
           label: 'Grazes, scratches or abrasions',
           commentRequired: false,
@@ -664,7 +664,7 @@ export const DAMAGE_1: IncidentTypeConfiguration = {
         },
         {
           id: '180505',
-          code: 'MINOR BRUISES',
+          response: 'MINOR BRUISES',
           active: true,
           label: 'Minor bruises',
           commentRequired: false,
@@ -673,7 +673,7 @@ export const DAMAGE_1: IncidentTypeConfiguration = {
         },
         {
           id: '180508',
-          code: 'SWELLINGS',
+          response: 'SWELLINGS',
           active: true,
           label: 'Swellings',
           commentRequired: false,
@@ -682,7 +682,7 @@ export const DAMAGE_1: IncidentTypeConfiguration = {
         },
         {
           id: '180507',
-          code: 'SUPERFICIAL CUTS',
+          response: 'SUPERFICIAL CUTS',
           active: true,
           label: 'Superficial cuts',
           commentRequired: false,
@@ -691,7 +691,7 @@ export const DAMAGE_1: IncidentTypeConfiguration = {
         },
         {
           id: '180506',
-          code: 'OTHER',
+          response: 'OTHER',
           active: true,
           label: 'Other',
           commentRequired: true,
@@ -709,7 +709,7 @@ export const DAMAGE_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '180775',
-          code: 'YES',
+          response: 'YES',
           active: true,
           label: 'Yes',
           commentRequired: false,
@@ -718,7 +718,7 @@ export const DAMAGE_1: IncidentTypeConfiguration = {
         },
         {
           id: '180774',
-          code: 'NO',
+          response: 'NO',
           active: true,
           label: 'No',
           commentRequired: false,
@@ -736,7 +736,7 @@ export const DAMAGE_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '181070',
-          code: 'YES',
+          response: 'YES',
           active: true,
           label: 'Yes',
           commentRequired: false,
@@ -745,7 +745,7 @@ export const DAMAGE_1: IncidentTypeConfiguration = {
         },
         {
           id: '181069',
-          code: 'NO',
+          response: 'NO',
           active: true,
           label: 'No',
           commentRequired: false,
@@ -763,7 +763,7 @@ export const DAMAGE_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '181140',
-          code: 'ENTER AMOUNT IN POUND STERLING',
+          response: 'ENTER AMOUNT IN POUND STERLING',
           active: true,
           label: 'Enter amount in pound sterling',
           commentRequired: true,
@@ -781,7 +781,7 @@ export const DAMAGE_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '181186',
-          code: 'YES',
+          response: 'YES',
           active: true,
           label: 'Yes',
           commentRequired: false,
@@ -790,7 +790,7 @@ export const DAMAGE_1: IncidentTypeConfiguration = {
         },
         {
           id: '181187',
-          code: 'NO',
+          response: 'NO',
           active: true,
           label: 'No',
           commentRequired: false,
@@ -808,7 +808,7 @@ export const DAMAGE_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '181195',
-          code: 'FRACTURE',
+          response: 'FRACTURE',
           active: true,
           label: 'Fracture',
           commentRequired: false,
@@ -817,7 +817,7 @@ export const DAMAGE_1: IncidentTypeConfiguration = {
         },
         {
           id: '181197',
-          code: 'SCALD OR BURN',
+          response: 'SCALD OR BURN',
           active: true,
           label: 'Scald or burn',
           commentRequired: false,
@@ -826,7 +826,7 @@ export const DAMAGE_1: IncidentTypeConfiguration = {
         },
         {
           id: '181198',
-          code: 'STABBING',
+          response: 'STABBING',
           active: true,
           label: 'Stabbing',
           commentRequired: false,
@@ -835,7 +835,7 @@ export const DAMAGE_1: IncidentTypeConfiguration = {
         },
         {
           id: '181192',
-          code: 'CRUSHING',
+          response: 'CRUSHING',
           active: true,
           label: 'Crushing',
           commentRequired: false,
@@ -844,7 +844,7 @@ export const DAMAGE_1: IncidentTypeConfiguration = {
         },
         {
           id: '181194',
-          code: 'EXTENSIVE/MULTIPLE BRUISING',
+          response: 'EXTENSIVE/MULTIPLE BRUISING',
           active: true,
           label: 'Extensive/multiple bruising',
           commentRequired: false,
@@ -853,7 +853,7 @@ export const DAMAGE_1: IncidentTypeConfiguration = {
         },
         {
           id: '181189',
-          code: 'BLACK EYE',
+          response: 'BLACK EYE',
           active: true,
           label: 'Black eye',
           commentRequired: false,
@@ -862,7 +862,7 @@ export const DAMAGE_1: IncidentTypeConfiguration = {
         },
         {
           id: '181190',
-          code: 'BROKEN NOSE',
+          response: 'BROKEN NOSE',
           active: true,
           label: 'Broken nose',
           commentRequired: false,
@@ -871,7 +871,7 @@ export const DAMAGE_1: IncidentTypeConfiguration = {
         },
         {
           id: '181191',
-          code: 'BROKEN TEETH',
+          response: 'BROKEN TEETH',
           active: true,
           label: 'Broken teeth',
           commentRequired: false,
@@ -880,7 +880,7 @@ export const DAMAGE_1: IncidentTypeConfiguration = {
         },
         {
           id: '181193',
-          code: 'CUTS REQUIRING SUTURES',
+          response: 'CUTS REQUIRING SUTURES',
           active: true,
           label: 'Cuts requiring sutures',
           commentRequired: false,
@@ -889,7 +889,7 @@ export const DAMAGE_1: IncidentTypeConfiguration = {
         },
         {
           id: '181188',
-          code: 'BITES',
+          response: 'BITES',
           active: true,
           label: 'Bites',
           commentRequired: false,
@@ -898,7 +898,7 @@ export const DAMAGE_1: IncidentTypeConfiguration = {
         },
         {
           id: '181196',
-          code: 'GUN SHOT WOUND',
+          response: 'GUN SHOT WOUND',
           active: true,
           label: 'Gun shot wound',
           commentRequired: false,
@@ -907,7 +907,7 @@ export const DAMAGE_1: IncidentTypeConfiguration = {
         },
         {
           id: '181199',
-          code: 'TEMPORARY/PERMANENT BLINDNESS',
+          response: 'TEMPORARY/PERMANENT BLINDNESS',
           active: true,
           label: 'Temporary/permanent blindness',
           commentRequired: false,
@@ -925,7 +925,7 @@ export const DAMAGE_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '181864',
-          code: 'YES',
+          response: 'YES',
           active: true,
           label: 'Yes',
           commentRequired: false,
@@ -934,7 +934,7 @@ export const DAMAGE_1: IncidentTypeConfiguration = {
         },
         {
           id: '181865',
-          code: 'NO',
+          response: 'NO',
           active: true,
           label: 'No',
           commentRequired: false,
@@ -952,7 +952,7 @@ export const DAMAGE_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '181966',
-          code: 'STAFF',
+          response: 'STAFF',
           active: true,
           label: 'Staff',
           commentRequired: true,
@@ -961,7 +961,7 @@ export const DAMAGE_1: IncidentTypeConfiguration = {
         },
         {
           id: '181965',
-          code: 'PRISONERS',
+          response: 'PRISONERS',
           active: true,
           label: 'Prisoners',
           commentRequired: true,
@@ -970,7 +970,7 @@ export const DAMAGE_1: IncidentTypeConfiguration = {
         },
         {
           id: '181962',
-          code: 'CIVILIAN GRADES',
+          response: 'CIVILIAN GRADES',
           active: true,
           label: 'Civilian grades',
           commentRequired: true,
@@ -979,7 +979,7 @@ export const DAMAGE_1: IncidentTypeConfiguration = {
         },
         {
           id: '181964',
-          code: 'POLICE',
+          response: 'POLICE',
           active: true,
           label: 'Police',
           commentRequired: true,
@@ -988,7 +988,7 @@ export const DAMAGE_1: IncidentTypeConfiguration = {
         },
         {
           id: '181963',
-          code: 'EXTERNAL CIVILIANS',
+          response: 'EXTERNAL CIVILIANS',
           active: true,
           label: 'External civilians',
           commentRequired: true,
@@ -1006,7 +1006,7 @@ export const DAMAGE_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '182174',
-          code: 'YES',
+          response: 'YES',
           active: true,
           label: 'Yes',
           commentRequired: false,
@@ -1015,7 +1015,7 @@ export const DAMAGE_1: IncidentTypeConfiguration = {
         },
         {
           id: '182173',
-          code: 'NO',
+          response: 'NO',
           active: true,
           label: 'No',
           commentRequired: false,
@@ -1033,7 +1033,7 @@ export const DAMAGE_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '182287',
-          code: 'YES',
+          response: 'YES',
           active: true,
           label: 'Yes',
           commentRequired: false,
@@ -1042,7 +1042,7 @@ export const DAMAGE_1: IncidentTypeConfiguration = {
         },
         {
           id: '182286',
-          code: 'NO',
+          response: 'NO',
           active: true,
           label: 'No',
           commentRequired: false,

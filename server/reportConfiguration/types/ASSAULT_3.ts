@@ -16,7 +16,7 @@ export const ASSAULT_3: IncidentTypeConfiguration = {
       answers: [
         {
           id: '212725',
-          code: 'No further action',
+          response: 'No further action',
           active: false,
           label: 'No further action',
           commentRequired: false,
@@ -25,7 +25,7 @@ export const ASSAULT_3: IncidentTypeConfiguration = {
         },
         {
           id: '212726',
-          code: 'IEP regression',
+          response: 'IEP regression',
           active: false,
           label: 'IEP regression',
           commentRequired: false,
@@ -34,7 +34,7 @@ export const ASSAULT_3: IncidentTypeConfiguration = {
         },
         {
           id: '212727',
-          code: 'Placed on report/adjudication referral',
+          response: 'Placed on report/adjudication referral',
           active: false,
           label: 'Placed on report/adjudication referral',
           commentRequired: false,
@@ -43,7 +43,7 @@ export const ASSAULT_3: IncidentTypeConfiguration = {
         },
         {
           id: '212728',
-          code: 'Police referral',
+          response: 'Police referral',
           active: false,
           label: 'Police referral',
           commentRequired: false,
@@ -61,7 +61,7 @@ export const ASSAULT_3: IncidentTypeConfiguration = {
       answers: [
         {
           id: '212729',
-          code: 'No',
+          response: 'No',
           active: false,
           label: 'No',
           commentRequired: false,
@@ -70,7 +70,7 @@ export const ASSAULT_3: IncidentTypeConfiguration = {
         },
         {
           id: '212730',
-          code: 'Yes',
+          response: 'Yes',
           active: false,
           label: 'Yes',
           commentRequired: false,
@@ -88,7 +88,7 @@ export const ASSAULT_3: IncidentTypeConfiguration = {
       answers: [
         {
           id: '212731',
-          code: 'No',
+          response: 'No',
           active: false,
           label: 'No',
           commentRequired: false,
@@ -97,7 +97,7 @@ export const ASSAULT_3: IncidentTypeConfiguration = {
         },
         {
           id: '212732',
-          code: 'Yes',
+          response: 'Yes',
           active: false,
           label: 'Yes',
           commentRequired: false,
@@ -115,7 +115,7 @@ export const ASSAULT_3: IncidentTypeConfiguration = {
       answers: [
         {
           id: '212733',
-          code: 'No',
+          response: 'No',
           active: false,
           label: 'No',
           commentRequired: false,
@@ -124,7 +124,7 @@ export const ASSAULT_3: IncidentTypeConfiguration = {
         },
         {
           id: '212734',
-          code: 'Yes',
+          response: 'Yes',
           active: false,
           label: 'Yes',
           commentRequired: false,
@@ -142,7 +142,7 @@ export const ASSAULT_3: IncidentTypeConfiguration = {
       answers: [
         {
           id: '212735',
-          code: 'No',
+          response: 'No',
           active: false,
           label: 'No',
           commentRequired: false,
@@ -151,7 +151,7 @@ export const ASSAULT_3: IncidentTypeConfiguration = {
         },
         {
           id: '212736',
-          code: 'Yes',
+          response: 'Yes',
           active: false,
           label: 'Yes',
           commentRequired: false,
@@ -169,7 +169,7 @@ export const ASSAULT_3: IncidentTypeConfiguration = {
       answers: [
         {
           id: '212737',
-          code: 'Administration',
+          response: 'Administration',
           active: false,
           label: 'Administration',
           commentRequired: false,
@@ -178,7 +178,7 @@ export const ASSAULT_3: IncidentTypeConfiguration = {
         },
         {
           id: '212738',
-          code: 'Association area',
+          response: 'Association area',
           active: false,
           label: 'Association area',
           commentRequired: true,
@@ -187,7 +187,7 @@ export const ASSAULT_3: IncidentTypeConfiguration = {
         },
         {
           id: '212739',
-          code: 'Cell',
+          response: 'Cell',
           active: false,
           label: 'Cell',
           commentRequired: true,
@@ -196,7 +196,7 @@ export const ASSAULT_3: IncidentTypeConfiguration = {
         },
         {
           id: '212740',
-          code: 'Chapel',
+          response: 'Chapel',
           active: false,
           label: 'Chapel',
           commentRequired: false,
@@ -205,7 +205,7 @@ export const ASSAULT_3: IncidentTypeConfiguration = {
         },
         {
           id: '212741',
-          code: 'Crown Court',
+          response: 'Crown Court',
           active: false,
           label: 'Crown court',
           commentRequired: true,
@@ -214,7 +214,7 @@ export const ASSAULT_3: IncidentTypeConfiguration = {
         },
         {
           id: '212742',
-          code: 'Dining room',
+          response: 'Dining room',
           active: false,
           label: 'Dining room',
           commentRequired: false,
@@ -223,7 +223,7 @@ export const ASSAULT_3: IncidentTypeConfiguration = {
         },
         {
           id: '212743',
-          code: 'Dormitory',
+          response: 'Dormitory',
           active: false,
           label: 'Dormitory',
           commentRequired: false,
@@ -232,7 +232,7 @@ export const ASSAULT_3: IncidentTypeConfiguration = {
         },
         {
           id: '212744',
-          code: 'Education',
+          response: 'Education',
           active: false,
           label: 'Education',
           commentRequired: false,
@@ -241,7 +241,7 @@ export const ASSAULT_3: IncidentTypeConfiguration = {
         },
         {
           id: '212745',
-          code: 'Elsewhere',
+          response: 'Elsewhere',
           active: false,
           label: 'Elsewhere',
           commentRequired: true,
@@ -250,7 +250,7 @@ export const ASSAULT_3: IncidentTypeConfiguration = {
         },
         {
           id: '212746',
-          code: 'Exercise yard',
+          response: 'Exercise yard',
           active: false,
           label: 'Exercise yard',
           commentRequired: false,
@@ -259,7 +259,7 @@ export const ASSAULT_3: IncidentTypeConfiguration = {
         },
         {
           id: '212747',
-          code: 'External roof',
+          response: 'External roof',
           active: false,
           label: 'External roof',
           commentRequired: true,
@@ -268,7 +268,7 @@ export const ASSAULT_3: IncidentTypeConfiguration = {
         },
         {
           id: '212748',
-          code: 'Funeral',
+          response: 'Funeral',
           active: false,
           label: 'Funeral',
           commentRequired: false,
@@ -277,7 +277,7 @@ export const ASSAULT_3: IncidentTypeConfiguration = {
         },
         {
           id: '212749',
-          code: 'Gate',
+          response: 'Gate',
           active: false,
           label: 'Gate',
           commentRequired: false,
@@ -286,7 +286,7 @@ export const ASSAULT_3: IncidentTypeConfiguration = {
         },
         {
           id: '212750',
-          code: 'Gym',
+          response: 'Gym',
           active: false,
           label: 'Gym',
           commentRequired: false,
@@ -295,7 +295,7 @@ export const ASSAULT_3: IncidentTypeConfiguration = {
         },
         {
           id: '212751',
-          code: 'Health care centre',
+          response: 'Health care centre',
           active: false,
           label: 'Health care centre',
           commentRequired: false,
@@ -304,7 +304,7 @@ export const ASSAULT_3: IncidentTypeConfiguration = {
         },
         {
           id: '212752',
-          code: 'Hospital outside (patient)',
+          response: 'Hospital outside (patient)',
           active: false,
           label: 'Hospital outside (patient)',
           commentRequired: false,
@@ -313,7 +313,7 @@ export const ASSAULT_3: IncidentTypeConfiguration = {
         },
         {
           id: '212753',
-          code: 'Hospital outside (visiting)',
+          response: 'Hospital outside (visiting)',
           active: false,
           label: 'Hospital outside (visiting)',
           commentRequired: false,
@@ -322,7 +322,7 @@ export const ASSAULT_3: IncidentTypeConfiguration = {
         },
         {
           id: '212754',
-          code: 'Induction/First night centre',
+          response: 'Induction/First night centre',
           active: false,
           label: 'Induction/first night centre',
           commentRequired: true,
@@ -331,7 +331,7 @@ export const ASSAULT_3: IncidentTypeConfiguration = {
         },
         {
           id: '212755',
-          code: 'Kitchen',
+          response: 'Kitchen',
           active: false,
           label: 'Kitchen',
           commentRequired: false,
@@ -340,7 +340,7 @@ export const ASSAULT_3: IncidentTypeConfiguration = {
         },
         {
           id: '212756',
-          code: 'Magistrates court',
+          response: 'Magistrates court',
           active: false,
           label: 'Magistrates court',
           commentRequired: true,
@@ -349,7 +349,7 @@ export const ASSAULT_3: IncidentTypeConfiguration = {
         },
         {
           id: '212757',
-          code: 'Mail room',
+          response: 'Mail room',
           active: false,
           label: 'Mail room',
           commentRequired: false,
@@ -358,7 +358,7 @@ export const ASSAULT_3: IncidentTypeConfiguration = {
         },
         {
           id: '212758',
-          code: 'Office',
+          response: 'Office',
           active: false,
           label: 'Office',
           commentRequired: false,
@@ -367,7 +367,7 @@ export const ASSAULT_3: IncidentTypeConfiguration = {
         },
         {
           id: '212759',
-          code: 'Outside working party',
+          response: 'Outside working party',
           active: false,
           label: 'Outside working party',
           commentRequired: true,
@@ -376,7 +376,7 @@ export const ASSAULT_3: IncidentTypeConfiguration = {
         },
         {
           id: '212760',
-          code: 'Reception',
+          response: 'Reception',
           active: false,
           label: 'Reception',
           commentRequired: false,
@@ -385,7 +385,7 @@ export const ASSAULT_3: IncidentTypeConfiguration = {
         },
         {
           id: '212761',
-          code: 'Recess',
+          response: 'Recess',
           active: false,
           label: 'Recess',
           commentRequired: false,
@@ -394,7 +394,7 @@ export const ASSAULT_3: IncidentTypeConfiguration = {
         },
         {
           id: '212762',
-          code: 'Segregation unit',
+          response: 'Segregation unit',
           active: false,
           label: 'Segregation unit',
           commentRequired: false,
@@ -403,7 +403,7 @@ export const ASSAULT_3: IncidentTypeConfiguration = {
         },
         {
           id: '212763',
-          code: 'Showers/changing room',
+          response: 'Showers/changing room',
           active: false,
           label: 'Showers/changing room',
           commentRequired: false,
@@ -412,7 +412,7 @@ export const ASSAULT_3: IncidentTypeConfiguration = {
         },
         {
           id: '212764',
-          code: 'Special unit',
+          response: 'Special unit',
           active: false,
           label: 'Special unit',
           commentRequired: true,
@@ -421,7 +421,7 @@ export const ASSAULT_3: IncidentTypeConfiguration = {
         },
         {
           id: '212765',
-          code: 'Sports field',
+          response: 'Sports field',
           active: false,
           label: 'Sports field',
           commentRequired: false,
@@ -430,7 +430,7 @@ export const ASSAULT_3: IncidentTypeConfiguration = {
         },
         {
           id: '212766',
-          code: 'Vehicle',
+          response: 'Vehicle',
           active: false,
           label: 'Vehicle',
           commentRequired: false,
@@ -439,7 +439,7 @@ export const ASSAULT_3: IncidentTypeConfiguration = {
         },
         {
           id: '212767',
-          code: 'Visits',
+          response: 'Visits',
           active: false,
           label: 'Visits',
           commentRequired: false,
@@ -448,7 +448,7 @@ export const ASSAULT_3: IncidentTypeConfiguration = {
         },
         {
           id: '212768',
-          code: 'Vulnerable prisoners unit (VPU)',
+          response: 'Vulnerable prisoners unit (VPU)',
           active: false,
           label: 'Vulnerable prisoners unit (VPU)',
           commentRequired: true,
@@ -457,7 +457,7 @@ export const ASSAULT_3: IncidentTypeConfiguration = {
         },
         {
           id: '212769',
-          code: 'Weddings',
+          response: 'Weddings',
           active: false,
           label: 'Weddings',
           commentRequired: false,
@@ -466,7 +466,7 @@ export const ASSAULT_3: IncidentTypeConfiguration = {
         },
         {
           id: '212770',
-          code: 'Wing',
+          response: 'Wing',
           active: false,
           label: 'Wing',
           commentRequired: true,
@@ -475,7 +475,7 @@ export const ASSAULT_3: IncidentTypeConfiguration = {
         },
         {
           id: '212771',
-          code: 'Within perimeter',
+          response: 'Within perimeter',
           active: false,
           label: 'Within perimeter',
           commentRequired: true,
@@ -484,7 +484,7 @@ export const ASSAULT_3: IncidentTypeConfiguration = {
         },
         {
           id: '212772',
-          code: 'Works department',
+          response: 'Works department',
           active: false,
           label: 'Works department',
           commentRequired: false,
@@ -493,7 +493,7 @@ export const ASSAULT_3: IncidentTypeConfiguration = {
         },
         {
           id: '212773',
-          code: 'Workshop',
+          response: 'Workshop',
           active: false,
           label: 'Workshop',
           commentRequired: true,
@@ -511,7 +511,7 @@ export const ASSAULT_3: IncidentTypeConfiguration = {
       answers: [
         {
           id: '212774',
-          code: 'No',
+          response: 'No',
           active: false,
           label: 'No',
           commentRequired: false,
@@ -520,7 +520,7 @@ export const ASSAULT_3: IncidentTypeConfiguration = {
         },
         {
           id: '212775',
-          code: 'Yes',
+          response: 'Yes',
           active: false,
           label: 'Yes',
           commentRequired: false,
@@ -538,7 +538,7 @@ export const ASSAULT_3: IncidentTypeConfiguration = {
       answers: [
         {
           id: '212776',
-          code: 'No',
+          response: 'No',
           active: false,
           label: 'No',
           commentRequired: false,
@@ -547,7 +547,7 @@ export const ASSAULT_3: IncidentTypeConfiguration = {
         },
         {
           id: '212777',
-          code: 'Yes',
+          response: 'Yes',
           active: false,
           label: 'Yes',
           commentRequired: false,
@@ -565,7 +565,7 @@ export const ASSAULT_3: IncidentTypeConfiguration = {
       answers: [
         {
           id: '212778',
-          code: 'Prisoner on prisoner',
+          response: 'Prisoner on prisoner',
           active: false,
           label: 'Prisoner on prisoner',
           commentRequired: false,
@@ -574,7 +574,7 @@ export const ASSAULT_3: IncidentTypeConfiguration = {
         },
         {
           id: '212779',
-          code: 'Prisoner on staff',
+          response: 'Prisoner on staff',
           active: false,
           label: 'Prisoner on staff',
           commentRequired: false,
@@ -583,7 +583,7 @@ export const ASSAULT_3: IncidentTypeConfiguration = {
         },
         {
           id: '212780',
-          code: 'Prisoner on other',
+          response: 'Prisoner on other',
           active: false,
           label: 'Prisoner on other',
           commentRequired: true,
@@ -592,7 +592,7 @@ export const ASSAULT_3: IncidentTypeConfiguration = {
         },
         {
           id: '212781',
-          code: 'Other',
+          response: 'Other',
           active: false,
           label: 'Other',
           commentRequired: true,
@@ -610,7 +610,7 @@ export const ASSAULT_3: IncidentTypeConfiguration = {
       answers: [
         {
           id: '212782',
-          code: 'No',
+          response: 'No',
           active: false,
           label: 'No',
           commentRequired: false,
@@ -619,7 +619,7 @@ export const ASSAULT_3: IncidentTypeConfiguration = {
         },
         {
           id: '212783',
-          code: 'Yes',
+          response: 'Yes',
           active: false,
           label: 'Yes',
           commentRequired: false,
@@ -637,7 +637,7 @@ export const ASSAULT_3: IncidentTypeConfiguration = {
       answers: [
         {
           id: '213039',
-          code: 'n',
+          response: 'n',
           active: false,
           label: 'N',
           commentRequired: false,
@@ -655,7 +655,7 @@ export const ASSAULT_3: IncidentTypeConfiguration = {
       answers: [
         {
           id: '213040',
-          code: 'n',
+          response: 'n',
           active: false,
           label: 'N',
           commentRequired: false,
@@ -673,7 +673,7 @@ export const ASSAULT_3: IncidentTypeConfiguration = {
       answers: [
         {
           id: '213041',
-          code: 'n',
+          response: 'n',
           active: false,
           label: 'N',
           commentRequired: false,
@@ -691,7 +691,7 @@ export const ASSAULT_3: IncidentTypeConfiguration = {
       answers: [
         {
           id: '213042',
-          code: 'n',
+          response: 'n',
           active: false,
           label: 'N',
           commentRequired: false,
@@ -709,7 +709,7 @@ export const ASSAULT_3: IncidentTypeConfiguration = {
       answers: [
         {
           id: '213043',
-          code: 'n',
+          response: 'n',
           active: false,
           label: 'N',
           commentRequired: false,
@@ -727,7 +727,7 @@ export const ASSAULT_3: IncidentTypeConfiguration = {
       answers: [
         {
           id: '213044',
-          code: 'n',
+          response: 'n',
           active: false,
           label: 'N',
           commentRequired: false,
@@ -745,7 +745,7 @@ export const ASSAULT_3: IncidentTypeConfiguration = {
       answers: [
         {
           id: '213045',
-          code: 'n',
+          response: 'n',
           active: true,
           label: 'N',
           commentRequired: false,
@@ -763,7 +763,7 @@ export const ASSAULT_3: IncidentTypeConfiguration = {
       answers: [
         {
           id: '213046',
-          code: 'n',
+          response: 'n',
           active: false,
           label: 'N',
           commentRequired: false,
@@ -781,7 +781,7 @@ export const ASSAULT_3: IncidentTypeConfiguration = {
       answers: [
         {
           id: '213047',
-          code: 'n',
+          response: 'n',
           active: false,
           label: 'N',
           commentRequired: false,
@@ -799,7 +799,7 @@ export const ASSAULT_3: IncidentTypeConfiguration = {
       answers: [
         {
           id: '213048',
-          code: 'n',
+          response: 'n',
           active: false,
           label: 'N',
           commentRequired: false,
@@ -817,7 +817,7 @@ export const ASSAULT_3: IncidentTypeConfiguration = {
       answers: [
         {
           id: '213049',
-          code: 'n',
+          response: 'n',
           active: false,
           label: 'N',
           commentRequired: false,
@@ -835,7 +835,7 @@ export const ASSAULT_3: IncidentTypeConfiguration = {
       answers: [
         {
           id: '213050',
-          code: 'n',
+          response: 'n',
           active: false,
           label: 'N',
           commentRequired: false,
@@ -853,7 +853,7 @@ export const ASSAULT_3: IncidentTypeConfiguration = {
       answers: [
         {
           id: '213051',
-          code: 'n',
+          response: 'n',
           active: false,
           label: 'N',
           commentRequired: false,
@@ -871,7 +871,7 @@ export const ASSAULT_3: IncidentTypeConfiguration = {
       answers: [
         {
           id: '213052',
-          code: 'n',
+          response: 'n',
           active: false,
           label: 'N',
           commentRequired: false,
@@ -889,7 +889,7 @@ export const ASSAULT_3: IncidentTypeConfiguration = {
       answers: [
         {
           id: '213053',
-          code: 'n',
+          response: 'n',
           active: false,
           label: 'N',
           commentRequired: false,
@@ -907,7 +907,7 @@ export const ASSAULT_3: IncidentTypeConfiguration = {
       answers: [
         {
           id: '213054',
-          code: 'n',
+          response: 'n',
           active: false,
           label: 'N',
           commentRequired: false,
@@ -925,7 +925,7 @@ export const ASSAULT_3: IncidentTypeConfiguration = {
       answers: [
         {
           id: '213055',
-          code: 'n',
+          response: 'n',
           active: false,
           label: 'N',
           commentRequired: false,
@@ -943,7 +943,7 @@ export const ASSAULT_3: IncidentTypeConfiguration = {
       answers: [
         {
           id: '213056',
-          code: 'n',
+          response: 'n',
           active: false,
           label: 'N',
           commentRequired: false,
@@ -961,7 +961,7 @@ export const ASSAULT_3: IncidentTypeConfiguration = {
       answers: [
         {
           id: '213057',
-          code: 'n',
+          response: 'n',
           active: false,
           label: 'N',
           commentRequired: false,
@@ -979,7 +979,7 @@ export const ASSAULT_3: IncidentTypeConfiguration = {
       answers: [
         {
           id: '213058',
-          code: 'n',
+          response: 'n',
           active: false,
           label: 'N',
           commentRequired: false,
@@ -997,7 +997,7 @@ export const ASSAULT_3: IncidentTypeConfiguration = {
       answers: [
         {
           id: '213059',
-          code: 'n',
+          response: 'n',
           active: false,
           label: 'N',
           commentRequired: false,
@@ -1015,7 +1015,7 @@ export const ASSAULT_3: IncidentTypeConfiguration = {
       answers: [
         {
           id: '213060',
-          code: 'n',
+          response: 'n',
           active: false,
           label: 'N',
           commentRequired: false,
@@ -1033,7 +1033,7 @@ export const ASSAULT_3: IncidentTypeConfiguration = {
       answers: [
         {
           id: '213061',
-          code: 'n',
+          response: 'n',
           active: false,
           label: 'N',
           commentRequired: false,

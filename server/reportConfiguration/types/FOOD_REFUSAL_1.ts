@@ -16,7 +16,7 @@ export const FOOD_REFUSAL_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '179164',
-          code: 'YES',
+          response: 'YES',
           active: true,
           label: 'Yes',
           commentRequired: true,
@@ -25,7 +25,7 @@ export const FOOD_REFUSAL_1: IncidentTypeConfiguration = {
         },
         {
           id: '179163',
-          code: 'NO',
+          response: 'NO',
           active: true,
           label: 'No',
           commentRequired: false,
@@ -43,7 +43,7 @@ export const FOOD_REFUSAL_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '179556',
-          code: 'NORMAL LOCATION',
+          response: 'NORMAL LOCATION',
           active: true,
           label: 'Normal location',
           commentRequired: false,
@@ -52,7 +52,7 @@ export const FOOD_REFUSAL_1: IncidentTypeConfiguration = {
         },
         {
           id: '179559',
-          code: 'SEGREGATION UNIT',
+          response: 'SEGREGATION UNIT',
           active: true,
           label: 'Segregation unit',
           commentRequired: false,
@@ -61,7 +61,7 @@ export const FOOD_REFUSAL_1: IncidentTypeConfiguration = {
         },
         {
           id: '179555',
-          code: 'HEALTH CARE CENTRE',
+          response: 'HEALTH CARE CENTRE',
           active: true,
           label: 'Health care centre',
           commentRequired: false,
@@ -70,7 +70,7 @@ export const FOOD_REFUSAL_1: IncidentTypeConfiguration = {
         },
         {
           id: '179558',
-          code: 'OUTSIDE HOSPITAL',
+          response: 'OUTSIDE HOSPITAL',
           active: true,
           label: 'Outside hospital',
           commentRequired: false,
@@ -79,7 +79,7 @@ export const FOOD_REFUSAL_1: IncidentTypeConfiguration = {
         },
         {
           id: '179557',
-          code: 'OTHER',
+          response: 'OTHER',
           active: true,
           label: 'Other',
           commentRequired: true,
@@ -97,7 +97,7 @@ export const FOOD_REFUSAL_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '179841',
-          code: 'YES',
+          response: 'YES',
           active: true,
           label: 'Yes',
           commentRequired: true,
@@ -106,7 +106,7 @@ export const FOOD_REFUSAL_1: IncidentTypeConfiguration = {
         },
         {
           id: '179840',
-          code: 'NO',
+          response: 'NO',
           active: true,
           label: 'No',
           commentRequired: false,
@@ -124,7 +124,7 @@ export const FOOD_REFUSAL_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '179913',
-          code: 'YES',
+          response: 'YES',
           active: true,
           label: 'Yes',
           commentRequired: false,
@@ -133,7 +133,7 @@ export const FOOD_REFUSAL_1: IncidentTypeConfiguration = {
         },
         {
           id: '179912',
-          code: 'NO',
+          response: 'NO',
           active: true,
           label: 'No',
           commentRequired: false,
@@ -151,7 +151,7 @@ export const FOOD_REFUSAL_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '180503',
-          code: 'YES',
+          response: 'YES',
           active: true,
           label: 'Yes',
           commentRequired: false,
@@ -160,7 +160,7 @@ export const FOOD_REFUSAL_1: IncidentTypeConfiguration = {
         },
         {
           id: '180502',
-          code: 'NO',
+          response: 'NO',
           active: true,
           label: 'No',
           commentRequired: false,
@@ -178,7 +178,7 @@ export const FOOD_REFUSAL_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '180875',
-          code: 'YES',
+          response: 'YES',
           active: true,
           label: 'Yes',
           commentRequired: false,
@@ -187,7 +187,7 @@ export const FOOD_REFUSAL_1: IncidentTypeConfiguration = {
         },
         {
           id: '180874',
-          code: 'NO',
+          response: 'NO',
           active: true,
           label: 'No',
           commentRequired: false,
@@ -205,7 +205,7 @@ export const FOOD_REFUSAL_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '181149',
-          code: 'ALL FOOD AND LIQUIDS',
+          response: 'ALL FOOD AND LIQUIDS',
           active: true,
           label: 'All food and liquids',
           commentRequired: false,
@@ -214,7 +214,7 @@ export const FOOD_REFUSAL_1: IncidentTypeConfiguration = {
         },
         {
           id: '181151',
-          code: 'FOOD ONLY',
+          response: 'FOOD ONLY',
           active: true,
           label: 'Food only',
           commentRequired: false,
@@ -223,7 +223,7 @@ export const FOOD_REFUSAL_1: IncidentTypeConfiguration = {
         },
         {
           id: '181150',
-          code: 'FLUIDS ONLY',
+          response: 'FLUIDS ONLY',
           active: true,
           label: 'Fluids only',
           commentRequired: false,
@@ -232,7 +232,7 @@ export const FOOD_REFUSAL_1: IncidentTypeConfiguration = {
         },
         {
           id: '181152',
-          code: 'OTHER',
+          response: 'OTHER',
           active: true,
           label: 'Other',
           commentRequired: true,
@@ -250,7 +250,7 @@ export const FOOD_REFUSAL_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '181539',
-          code: 'FACILITIES',
+          response: 'FACILITIES',
           active: true,
           label: 'Facilities',
           commentRequired: false,
@@ -259,7 +259,7 @@ export const FOOD_REFUSAL_1: IncidentTypeConfiguration = {
         },
         {
           id: '181540',
-          code: 'FOOD',
+          response: 'FOOD',
           active: true,
           label: 'Food',
           commentRequired: false,
@@ -268,7 +268,7 @@ export const FOOD_REFUSAL_1: IncidentTypeConfiguration = {
         },
         {
           id: '181543',
-          code: 'PAY',
+          response: 'PAY',
           active: true,
           label: 'Pay',
           commentRequired: false,
@@ -277,7 +277,7 @@ export const FOOD_REFUSAL_1: IncidentTypeConfiguration = {
         },
         {
           id: '181546',
-          code: 'VISITS',
+          response: 'VISITS',
           active: true,
           label: 'Visits',
           commentRequired: false,
@@ -286,7 +286,7 @@ export const FOOD_REFUSAL_1: IncidentTypeConfiguration = {
         },
         {
           id: '181544',
-          code: 'TIME OUT OF CELL',
+          response: 'TIME OUT OF CELL',
           active: true,
           label: 'Time out of cell',
           commentRequired: false,
@@ -295,7 +295,7 @@ export const FOOD_REFUSAL_1: IncidentTypeConfiguration = {
         },
         {
           id: '181541',
-          code: 'LOCATION',
+          response: 'LOCATION',
           active: true,
           label: 'Location',
           commentRequired: false,
@@ -304,7 +304,7 @@ export const FOOD_REFUSAL_1: IncidentTypeConfiguration = {
         },
         {
           id: '181545',
-          code: 'TRANSFER',
+          response: 'TRANSFER',
           active: true,
           label: 'Transfer',
           commentRequired: false,
@@ -313,7 +313,7 @@ export const FOOD_REFUSAL_1: IncidentTypeConfiguration = {
         },
         {
           id: '181538',
-          code: 'CHARGES/CONVICTIONS',
+          response: 'CHARGES/CONVICTIONS',
           active: true,
           label: 'Charges/convictions',
           commentRequired: false,
@@ -322,7 +322,7 @@ export const FOOD_REFUSAL_1: IncidentTypeConfiguration = {
         },
         {
           id: '181542',
-          code: 'OTHER',
+          response: 'OTHER',
           active: true,
           label: 'Other',
           commentRequired: true,
@@ -340,7 +340,7 @@ export const FOOD_REFUSAL_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '181926',
-          code: 'ENTER HOURS',
+          response: 'ENTER HOURS',
           active: true,
           label: 'Enter hours',
           commentRequired: true,
@@ -358,7 +358,7 @@ export const FOOD_REFUSAL_1: IncidentTypeConfiguration = {
       answers: [
         {
           id: '181928',
-          code: 'YES',
+          response: 'YES',
           active: true,
           label: 'Yes',
           commentRequired: false,
@@ -367,7 +367,7 @@ export const FOOD_REFUSAL_1: IncidentTypeConfiguration = {
         },
         {
           id: '181927',
-          code: 'NO',
+          response: 'NO',
           active: true,
           label: 'No',
           commentRequired: false,

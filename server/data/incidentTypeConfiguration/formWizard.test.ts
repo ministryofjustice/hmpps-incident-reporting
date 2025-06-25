@@ -23,7 +23,7 @@ const testConfig: IncidentTypeConfiguration = {
       answers: [
         {
           id: 'qanimals-a1',
-          code: 'DOG',
+          response: 'DOG',
           label: 'Dog',
           active: true,
           dateRequired: false,
@@ -32,7 +32,7 @@ const testConfig: IncidentTypeConfiguration = {
         },
         {
           id: 'qanimals-a2',
-          code: 'CAT',
+          response: 'CAT',
           label: 'Cat',
           active: true,
           dateRequired: false,
@@ -41,7 +41,7 @@ const testConfig: IncidentTypeConfiguration = {
         },
         {
           id: 'qanimals-a3',
-          code: 'FOX',
+          response: 'FOX',
           label: 'Fox',
           active: true,
           dateRequired: false,
@@ -51,7 +51,7 @@ const testConfig: IncidentTypeConfiguration = {
         // Inactive answer
         {
           id: 'qanimals-a4',
-          code: 'HONEY BADGER',
+          response: 'HONEY BADGER',
           label: 'Honey badger',
           active: false,
           dateRequired: false,
@@ -69,7 +69,7 @@ const testConfig: IncidentTypeConfiguration = {
       answers: [
         {
           id: 'qdog-a1',
-          code: 'YES',
+          response: 'YES',
           label: 'Yes',
           active: true,
           dateRequired: true,
@@ -78,7 +78,7 @@ const testConfig: IncidentTypeConfiguration = {
         },
         {
           id: 'qdog-a2',
-          code: 'NO',
+          response: 'NO',
           label: 'No',
           active: true,
           dateRequired: false,
@@ -96,7 +96,7 @@ const testConfig: IncidentTypeConfiguration = {
       answers: [
         {
           id: 'qicecream-a1',
-          code: 'YES (SPECIFY FAVOURITE FLAVOUR)',
+          response: 'YES (SPECIFY FAVOURITE FLAVOUR)',
           label: 'Yes (specify favourite flabour)',
           active: true,
           dateRequired: false,
@@ -105,7 +105,7 @@ const testConfig: IncidentTypeConfiguration = {
         },
         {
           id: 'q2-a2',
-          code: 'no',
+          response: 'no',
           label: 'No',
           active: true,
           dateRequired: false,
@@ -123,7 +123,7 @@ const testConfig: IncidentTypeConfiguration = {
       answers: [
         {
           id: 'q2-a1',
-          code: 'yes',
+          response: 'yes',
           label: 'Yes',
           active: true,
           dateRequired: false,
@@ -132,7 +132,7 @@ const testConfig: IncidentTypeConfiguration = {
         },
         {
           id: 'q2-a2',
-          code: 'no',
+          response: 'no',
           label: 'No',
           active: true,
           dateRequired: false,

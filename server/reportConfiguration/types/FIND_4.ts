@@ -10,7 +10,7 @@ export const FIND_4: IncidentTypeConfiguration = {
     '65179': {
       id: '65179',
       active: true,
-      code: 'DESCRIBE HOW THE ITEM WAS FOUND (SELECT ALL THAT APPLY)',
+      question: 'DESCRIBE HOW THE ITEM WAS FOUND (SELECT ALL THAT APPLY)',
       label: 'Describe how the item was found (select all that apply)',
       multipleAnswers: true,
       answers: [
@@ -262,7 +262,7 @@ export const FIND_4: IncidentTypeConfiguration = {
     '65180': {
       id: '65180',
       active: true,
-      code: 'IS THE LOCATION OF THE INCIDENT KNOWN?',
+      question: 'IS THE LOCATION OF THE INCIDENT KNOWN?',
       label: 'Is the location of the incident known?',
       multipleAnswers: false,
       answers: [
@@ -289,7 +289,7 @@ export const FIND_4: IncidentTypeConfiguration = {
     '65181': {
       id: '65181',
       active: true,
-      code: 'WHAT WAS THE LOCATION OF THE INCIDENT?',
+      question: 'WHAT WAS THE LOCATION OF THE INCIDENT?',
       label: 'What was the location of the incident?',
       multipleAnswers: false,
       answers: [
@@ -559,7 +559,7 @@ export const FIND_4: IncidentTypeConfiguration = {
     '65182': {
       id: '65182',
       active: true,
-      code: 'DESCRIBE THE METHOD OF ENTRY INTO THE ESTABLISHMENT',
+      question: 'DESCRIBE THE METHOD OF ENTRY INTO THE ESTABLISHMENT',
       label: 'Describe the method of entry into the establishment',
       multipleAnswers: false,
       answers: [
@@ -676,7 +676,7 @@ export const FIND_4: IncidentTypeConfiguration = {
     '65183': {
       id: '65183',
       active: true,
-      code: 'DID RULE 39 MAIL BARCODE PASS SCANNER CHECK?',
+      question: 'DID RULE 39 MAIL BARCODE PASS SCANNER CHECK?',
       label: 'Did rule 39 mail barcode pass scanner check?',
       multipleAnswers: false,
       answers: [
@@ -703,7 +703,7 @@ export const FIND_4: IncidentTypeConfiguration = {
     '65184': {
       id: '65184',
       active: true,
-      code: 'IF FOUND IN POSSESSION, WHOSE WAS IT FOUND IN?',
+      question: 'IF FOUND IN POSSESSION, WHOSE WAS IT FOUND IN?',
       label: 'If found in possession, whose was it found in?',
       multipleAnswers: false,
       answers: [
@@ -793,7 +793,7 @@ export const FIND_4: IncidentTypeConfiguration = {
     '65185': {
       id: '65185',
       active: true,
-      code: 'IS IT SUSPECTED THAT THE ITEM WAS BROUGHT IN BY ACCIDENT?',
+      question: 'IS IT SUSPECTED THAT THE ITEM WAS BROUGHT IN BY ACCIDENT?',
       label: 'Is it suspected that the item was brought in by accident?',
       multipleAnswers: false,
       answers: [
@@ -829,7 +829,7 @@ export const FIND_4: IncidentTypeConfiguration = {
     '65186': {
       id: '65186',
       active: true,
-      code: 'WHAT WAS THE METHOD OF CONCEALMENT?',
+      question: 'WHAT WAS THE METHOD OF CONCEALMENT?',
       label: 'What was the method of concealment?',
       multipleAnswers: true,
       answers: [
@@ -982,7 +982,7 @@ export const FIND_4: IncidentTypeConfiguration = {
     '65187': {
       id: '65187',
       active: true,
-      code: 'PLEASE SELECT CATEGORY OF FIND',
+      question: 'PLEASE SELECT CATEGORY OF FIND',
       label: 'Please select category of find',
       multipleAnswers: false,
       answers: [
@@ -1063,7 +1063,7 @@ export const FIND_4: IncidentTypeConfiguration = {
     '65188': {
       id: '65188',
       active: true,
-      code: 'WHAT QUANTITY OF ALCOHOL/HOOCH WAS FOUND',
+      question: 'WHAT QUANTITY OF ALCOHOL/HOOCH WAS FOUND',
       label: 'What quantity of alcohol/hooch was found?',
       multipleAnswers: false,
       answers: [
@@ -1153,7 +1153,7 @@ export const FIND_4: IncidentTypeConfiguration = {
     '65189': {
       id: '65189',
       active: true,
-      code: 'WAS ANY DISTILLING EQUIPMENT FOUND?',
+      question: 'WAS ANY DISTILLING EQUIPMENT FOUND?',
       label: 'Was any distilling equipment found?',
       multipleAnswers: false,
       answers: [
@@ -1180,7 +1180,7 @@ export const FIND_4: IncidentTypeConfiguration = {
     '65190': {
       id: '65190',
       active: true,
-      code: 'DESCRIBE THE DRUG FOUND',
+      question: 'DESCRIBE THE DRUG FOUND',
       label: 'Describe the drug found',
       multipleAnswers: true,
       answers: [
@@ -1378,7 +1378,7 @@ export const FIND_4: IncidentTypeConfiguration = {
     '65191': {
       id: '65191',
       active: true,
-      code: 'WHAT WAS THE ESTIMATED WEIGHT OF ALL DRUGS/SUBSTANCES FOUND',
+      question: 'WHAT WAS THE ESTIMATED WEIGHT OF ALL DRUGS/SUBSTANCES FOUND',
       label: 'What was the estimated weight of all drugs/substances found?',
       multipleAnswers: false,
       answers: [
@@ -1522,7 +1522,7 @@ export const FIND_4: IncidentTypeConfiguration = {
     '65192': {
       id: '65192',
       active: true,
-      code: 'WAS THE SUBSTANCE FOUND ANALYSED?',
+      question: 'WAS THE SUBSTANCE FOUND ANALYSED?',
       label: 'Was the substance found analysed?',
       multipleAnswers: false,
       answers: [
@@ -1558,7 +1558,7 @@ export const FIND_4: IncidentTypeConfiguration = {
     '65193': {
       id: '65193',
       active: true,
-      code: 'DESCRIBE DRUG EQUIPMENT FOUND',
+      question: 'DESCRIBE DRUG EQUIPMENT FOUND',
       label: 'Describe drug equipment found',
       multipleAnswers: true,
       answers: [
@@ -1639,7 +1639,7 @@ export const FIND_4: IncidentTypeConfiguration = {
     '65194': {
       id: '65194',
       active: true,
-      code: 'ENTER NUMBER OF MOBILES FOUND',
+      question: 'ENTER NUMBER OF MOBILES FOUND',
       label: 'Enter number of mobiles found',
       multipleAnswers: false,
       answers: [
@@ -1855,7 +1855,7 @@ export const FIND_4: IncidentTypeConfiguration = {
     '65195': {
       id: '65195',
       active: true,
-      code: 'ENTER NUMBER OF SIM CARDS FOUND',
+      question: 'ENTER NUMBER OF SIM CARDS FOUND',
       label: 'Enter number of SIM cards found',
       multipleAnswers: false,
       answers: [
@@ -2071,7 +2071,7 @@ export const FIND_4: IncidentTypeConfiguration = {
     '65196': {
       id: '65196',
       active: true,
-      code: 'ENTER NUMBER OF MEMORY CARDS FOUND',
+      question: 'ENTER NUMBER OF MEMORY CARDS FOUND',
       label: 'Enter number of memory cards found',
       multipleAnswers: false,
       answers: [
@@ -2287,7 +2287,7 @@ export const FIND_4: IncidentTypeConfiguration = {
     '65197': {
       id: '65197',
       active: true,
-      code: 'HAS PHONE/SIM/MEMORY CARD BEEN SENT TO DMIU (DIGITAL MEDIA INVESTIGATION UNIT)',
+      question: 'HAS PHONE/SIM/MEMORY CARD BEEN SENT TO DMIU (DIGITAL MEDIA INVESTIGATION UNIT)',
       label: 'Has phone/SIM/memory card been sent to DMIU (digital media investigation unit)?',
       multipleAnswers: false,
       answers: [
@@ -2314,7 +2314,7 @@ export const FIND_4: IncidentTypeConfiguration = {
     '65198': {
       id: '65198',
       active: true,
-      code: 'WAS A PHONE CHARGER FOUND?',
+      question: 'WAS A PHONE CHARGER FOUND?',
       label: 'Was a phone charger found?',
       multipleAnswers: false,
       answers: [
@@ -2350,7 +2350,7 @@ export const FIND_4: IncidentTypeConfiguration = {
     '65199': {
       id: '65199',
       active: true,
-      code: 'WAS ANY OTHER MOBILE PHONE/COMMUNICATION RELATED ITEM FOUND?',
+      question: 'WAS ANY OTHER MOBILE PHONE/COMMUNICATION RELATED ITEM FOUND?',
       label: 'Was any other mobile phone/communication related item found?',
       multipleAnswers: false,
       answers: [
@@ -2377,7 +2377,7 @@ export const FIND_4: IncidentTypeConfiguration = {
     '65200': {
       id: '65200',
       active: true,
-      code: 'OTHER DIGITAL FIND (PLEASE STATE MAKE/MODEL WHERE KNOWN)',
+      question: 'OTHER DIGITAL FIND (PLEASE STATE MAKE/MODEL WHERE KNOWN)',
       label: 'Other digital find (please state make/model where known)',
       multipleAnswers: false,
       answers: [
@@ -2503,7 +2503,7 @@ export const FIND_4: IncidentTypeConfiguration = {
     '65201': {
       id: '65201',
       active: true,
-      code: 'DESCRIBE THE TOBACCO FOUND',
+      question: 'DESCRIBE THE TOBACCO FOUND',
       label: 'Describe the tobacco found',
       multipleAnswers: true,
       answers: [
@@ -2539,7 +2539,7 @@ export const FIND_4: IncidentTypeConfiguration = {
     '65202': {
       id: '65202',
       active: true,
-      code: 'APPROX WEIGHT OF TOBACCO',
+      question: 'APPROX WEIGHT OF TOBACCO',
       label: 'Approx weight of tobacco',
       multipleAnswers: false,
       answers: [
@@ -2602,7 +2602,7 @@ export const FIND_4: IncidentTypeConfiguration = {
     '65203': {
       id: '65203',
       active: true,
-      code: 'WAS A WEAPON FOUND?',
+      question: 'WAS A WEAPON FOUND?',
       label: 'Was a weapon found?',
       multipleAnswers: true,
       answers: [
@@ -2647,7 +2647,7 @@ export const FIND_4: IncidentTypeConfiguration = {
     '65204': {
       id: '65204',
       active: true,
-      code: 'WERE ANY OTHER REPORTABLE ITEMS FOUND (BY NATIONAL OR LOCAL POLICY)?',
+      question: 'WERE ANY OTHER REPORTABLE ITEMS FOUND (BY NATIONAL OR LOCAL POLICY)?',
       label: 'Were any other reportable items found (by national or local policy)?',
       multipleAnswers: true,
       answers: [
@@ -2674,7 +2674,7 @@ export const FIND_4: IncidentTypeConfiguration = {
     '65205': {
       id: '65205',
       active: true,
-      code: 'WHAT QUANTITY OF ALCOHOL/HOOCH WAS FOUND',
+      question: 'WHAT QUANTITY OF ALCOHOL/HOOCH WAS FOUND',
       label: 'What quantity of alcohol/hooch was found?',
       multipleAnswers: false,
       answers: [
@@ -2773,7 +2773,7 @@ export const FIND_4: IncidentTypeConfiguration = {
     '65206': {
       id: '65206',
       active: true,
-      code: 'WAS ANY DISTILLING EQUIPMENT FOUND?',
+      question: 'WAS ANY DISTILLING EQUIPMENT FOUND?',
       label: 'Was any distilling equipment found?',
       multipleAnswers: false,
       answers: [
@@ -2800,7 +2800,7 @@ export const FIND_4: IncidentTypeConfiguration = {
     '65207': {
       id: '65207',
       active: true,
-      code: 'WERE ANY DRUGS FOUND?',
+      question: 'WERE ANY DRUGS FOUND?',
       label: 'Were any drugs found?',
       multipleAnswers: false,
       answers: [
@@ -2827,7 +2827,7 @@ export const FIND_4: IncidentTypeConfiguration = {
     '65208': {
       id: '65208',
       active: true,
-      code: 'DESCRIBE THE DRUG FOUND',
+      question: 'DESCRIBE THE DRUG FOUND',
       label: 'Describe the drug found',
       multipleAnswers: true,
       answers: [
@@ -3016,7 +3016,7 @@ export const FIND_4: IncidentTypeConfiguration = {
     '65209': {
       id: '65209',
       active: true,
-      code: 'WHAT WAS THE ESTIMATED WEIGHT OF ALL DRUGS/SUBSTANCES FOUND',
+      question: 'WHAT WAS THE ESTIMATED WEIGHT OF ALL DRUGS/SUBSTANCES FOUND',
       label: 'What was the estimated weight of all drugs/substances found?',
       multipleAnswers: false,
       answers: [
@@ -3160,7 +3160,7 @@ export const FIND_4: IncidentTypeConfiguration = {
     '65210': {
       id: '65210',
       active: true,
-      code: 'WAS THE SUBSTANCE FOUND ANALYSED?',
+      question: 'WAS THE SUBSTANCE FOUND ANALYSED?',
       label: 'Was the substance found analysed?',
       multipleAnswers: false,
       answers: [
@@ -3196,7 +3196,7 @@ export const FIND_4: IncidentTypeConfiguration = {
     '65211': {
       id: '65211',
       active: true,
-      code: 'WAS DRUG EQUIPMENT FOUND',
+      question: 'WAS DRUG EQUIPMENT FOUND',
       label: 'Was drug equipment found?',
       multipleAnswers: false,
       answers: [
@@ -3223,7 +3223,7 @@ export const FIND_4: IncidentTypeConfiguration = {
     '65212': {
       id: '65212',
       active: true,
-      code: 'DESCRIBE DRUG EQUIPMENT FOUND',
+      question: 'DESCRIBE DRUG EQUIPMENT FOUND',
       label: 'Describe drug equipment found',
       multipleAnswers: true,
       answers: [
@@ -3295,7 +3295,7 @@ export const FIND_4: IncidentTypeConfiguration = {
     '65213': {
       id: '65213',
       active: true,
-      code: 'WERE MOBILE PHONE / MOBILE PHONE RELATED ITEMS FOUND',
+      question: 'WERE MOBILE PHONE / MOBILE PHONE RELATED ITEMS FOUND',
       label: 'Were mobile phone / mobile phone related items found?',
       multipleAnswers: false,
       answers: [
@@ -3322,7 +3322,7 @@ export const FIND_4: IncidentTypeConfiguration = {
     '65214': {
       id: '65214',
       active: true,
-      code: 'ENTER NUMBER OF MOBILES FOUND',
+      question: 'ENTER NUMBER OF MOBILES FOUND',
       label: 'Enter number of mobiles found',
       multipleAnswers: false,
       answers: [
@@ -3538,7 +3538,7 @@ export const FIND_4: IncidentTypeConfiguration = {
     '65215': {
       id: '65215',
       active: true,
-      code: 'ENTER NUMBER OF SIM CARDS FOUND',
+      question: 'ENTER NUMBER OF SIM CARDS FOUND',
       label: 'Enter number of SIM cards found',
       multipleAnswers: false,
       answers: [
@@ -3754,7 +3754,7 @@ export const FIND_4: IncidentTypeConfiguration = {
     '65216': {
       id: '65216',
       active: true,
-      code: 'ENTER NUMBER OF MEMORY CARDS FOUND',
+      question: 'ENTER NUMBER OF MEMORY CARDS FOUND',
       label: 'Enter number of memory cards found',
       multipleAnswers: false,
       answers: [
@@ -3970,7 +3970,7 @@ export const FIND_4: IncidentTypeConfiguration = {
     '65217': {
       id: '65217',
       active: true,
-      code: 'WAS A PHONE CHARGER FOUND?',
+      question: 'WAS A PHONE CHARGER FOUND?',
       label: 'Was a phone charger found?',
       multipleAnswers: false,
       answers: [
@@ -4006,7 +4006,7 @@ export const FIND_4: IncidentTypeConfiguration = {
     '65218': {
       id: '65218',
       active: true,
-      code: 'WAS ANY OTHER MOBILE PHONE/COMMUNICATION RELATED ITEM FOUND?',
+      question: 'WAS ANY OTHER MOBILE PHONE/COMMUNICATION RELATED ITEM FOUND?',
       label: 'Was any other mobile phone/communication related item found?',
       multipleAnswers: false,
       answers: [
@@ -4033,7 +4033,7 @@ export const FIND_4: IncidentTypeConfiguration = {
     '65219': {
       id: '65219',
       active: true,
-      code: 'HAS PHONE/SIM/MEMORY CARD BEEN SENT TO DMIU (DIGITAL MEDIA INVESTIGATION UNIT)',
+      question: 'HAS PHONE/SIM/MEMORY CARD BEEN SENT TO DMIU (DIGITAL MEDIA INVESTIGATION UNIT)',
       label: 'Has phone/SIM/memory card been sent to DMIU (digital media investigation unit)?',
       multipleAnswers: true,
       answers: [
@@ -4060,7 +4060,7 @@ export const FIND_4: IncidentTypeConfiguration = {
     '65220': {
       id: '65220',
       active: true,
-      code: 'OTHER DIGITAL FIND (PLEASE STATE MAKE/MODEL WHERE KNOWN)',
+      question: 'OTHER DIGITAL FIND (PLEASE STATE MAKE/MODEL WHERE KNOWN)',
       label: 'Other digital find (please state make/model where known)',
       multipleAnswers: false,
       answers: [
@@ -4195,7 +4195,7 @@ export const FIND_4: IncidentTypeConfiguration = {
     '65221': {
       id: '65221',
       active: true,
-      code: 'WAS TOBACCO / TOBACCO RELATED ITEMS FOUND',
+      question: 'WAS TOBACCO / TOBACCO RELATED ITEMS FOUND',
       label: 'Was tobacco / tobacco related items found?',
       multipleAnswers: false,
       answers: [
@@ -4222,7 +4222,7 @@ export const FIND_4: IncidentTypeConfiguration = {
     '65222': {
       id: '65222',
       active: true,
-      code: 'DESCRIBE THE TOBACCO FOUND',
+      question: 'DESCRIBE THE TOBACCO FOUND',
       label: 'Describe the tobacco found',
       multipleAnswers: true,
       answers: [
@@ -4258,7 +4258,7 @@ export const FIND_4: IncidentTypeConfiguration = {
     '65223': {
       id: '65223',
       active: true,
-      code: 'APPROX WEIGHT OF TOBACCO',
+      question: 'APPROX WEIGHT OF TOBACCO',
       label: 'Approx weight of tobacco',
       multipleAnswers: false,
       answers: [
@@ -4312,7 +4312,7 @@ export const FIND_4: IncidentTypeConfiguration = {
     '65224': {
       id: '65224',
       active: true,
-      code: 'WAS A WEAPON FOUND?',
+      question: 'WAS A WEAPON FOUND?',
       label: 'Was a weapon found?',
       multipleAnswers: true,
       answers: [
@@ -4366,7 +4366,7 @@ export const FIND_4: IncidentTypeConfiguration = {
     '65225': {
       id: '65225',
       active: true,
-      code: 'WERE ANY OTHER REPORTABLE ITEMS FOUND (BY NATIONAL OR LOCAL POLICY)',
+      question: 'WERE ANY OTHER REPORTABLE ITEMS FOUND (BY NATIONAL OR LOCAL POLICY)',
       label: 'Were any other reportable items found (by national or local policy)?',
       multipleAnswers: true,
       answers: [
@@ -4402,7 +4402,7 @@ export const FIND_4: IncidentTypeConfiguration = {
     '65226': {
       id: '65226',
       active: true,
-      code: 'WERE THE ITEMS OBTAINED ON TEMPORARY RELEASE?',
+      question: 'WERE THE ITEMS OBTAINED ON TEMPORARY RELEASE?',
       label: 'Were the items obtained on temporary release?',
       multipleAnswers: false,
       answers: [
@@ -4438,7 +4438,7 @@ export const FIND_4: IncidentTypeConfiguration = {
     '65227': {
       id: '65227',
       active: true,
-      code: 'DESCRIBE THE TYPE OF TEMPORARY RELEASE',
+      question: 'DESCRIBE THE TYPE OF TEMPORARY RELEASE',
       label: 'Describe the type of temporary release',
       multipleAnswers: true,
       answers: [

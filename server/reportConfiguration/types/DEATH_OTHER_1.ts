@@ -10,7 +10,7 @@ export const DEATH_OTHER_1: IncidentTypeConfiguration = {
     '44130': {
       id: '44130',
       active: true,
-      code: 'NAME OF DECEASED',
+      question: 'NAME OF DECEASED',
       label: 'Name of deceased',
       multipleAnswers: false,
       answers: [
@@ -28,7 +28,7 @@ export const DEATH_OTHER_1: IncidentTypeConfiguration = {
     '44142': {
       id: '44142',
       active: true,
-      code: 'HAS THE PRISON SERVICE PRESS OFFICE BEEN INFORMED',
+      question: 'HAS THE PRISON SERVICE PRESS OFFICE BEEN INFORMED',
       label: 'Has the prison service press office been informed?',
       multipleAnswers: false,
       answers: [
@@ -55,7 +55,7 @@ export const DEATH_OTHER_1: IncidentTypeConfiguration = {
     '44237': {
       id: '44237',
       active: true,
-      code: 'WHAT VERDICT DID THE INQUEST REACH',
+      question: 'WHAT VERDICT DID THE INQUEST REACH',
       label: 'What verdict did the inquest reach?',
       multipleAnswers: false,
       answers: [
@@ -118,7 +118,7 @@ export const DEATH_OTHER_1: IncidentTypeConfiguration = {
     '44248': {
       id: '44248',
       active: true,
-      code: 'WHO PRONOUNCED DEATH',
+      question: 'WHO PRONOUNCED DEATH',
       label: 'Who pronounced death?',
       multipleAnswers: false,
       answers: [
@@ -154,7 +154,7 @@ export const DEATH_OTHER_1: IncidentTypeConfiguration = {
     '44350': {
       id: '44350',
       active: true,
-      code: 'HAS AN INQUEST BEEN HELD',
+      question: 'HAS AN INQUEST BEEN HELD',
       label: 'Has an inquest been held?',
       multipleAnswers: false,
       answers: [
@@ -181,7 +181,7 @@ export const DEATH_OTHER_1: IncidentTypeConfiguration = {
     '44382': {
       id: '44382',
       active: true,
-      code: 'IS THE DEATH SUBJECT TO A HEALTH AND SAFETY INVESTIGATION',
+      question: 'IS THE DEATH SUBJECT TO A HEALTH AND SAFETY INVESTIGATION',
       label: 'Is the death subject to a health and safety investigation?',
       multipleAnswers: false,
       answers: [
@@ -208,7 +208,7 @@ export const DEATH_OTHER_1: IncidentTypeConfiguration = {
     '44392': {
       id: '44392',
       active: true,
-      code: 'STATUS OF DECEASED',
+      question: 'STATUS OF DECEASED',
       label: 'Status of deceased',
       multipleAnswers: false,
       answers: [
@@ -253,7 +253,7 @@ export const DEATH_OTHER_1: IncidentTypeConfiguration = {
     '44395': {
       id: '44395',
       active: true,
-      code: 'WAS RESUSCITATION ATTEMPTED',
+      question: 'WAS RESUSCITATION ATTEMPTED',
       label: 'Was resuscitation attempted?',
       multipleAnswers: false,
       answers: [
@@ -280,7 +280,7 @@ export const DEATH_OTHER_1: IncidentTypeConfiguration = {
     '44397': {
       id: '44397',
       active: true,
-      code: 'HAS CORONER BEEN INFORMED',
+      question: 'HAS CORONER BEEN INFORMED',
       label: 'Has coroner been informed?',
       multipleAnswers: false,
       answers: [
@@ -307,7 +307,7 @@ export const DEATH_OTHER_1: IncidentTypeConfiguration = {
     '44425': {
       id: '44425',
       active: true,
-      code: 'WHAT WERE THE CIRCUMSTANCES OF THE DEATH',
+      question: 'WHAT WERE THE CIRCUMSTANCES OF THE DEATH',
       label: 'What were the circumstances of the death?',
       multipleAnswers: false,
       answers: [
@@ -352,7 +352,7 @@ export const DEATH_OTHER_1: IncidentTypeConfiguration = {
     '44434': {
       id: '44434',
       active: true,
-      code: 'IS THE INCIDENT THE SUBJECT OF A POLICE INVESTIGATION',
+      question: 'IS THE INCIDENT THE SUBJECT OF A POLICE INVESTIGATION',
       label: 'Is the incident the subject of a police investigation?',
       multipleAnswers: false,
       answers: [
@@ -379,7 +379,7 @@ export const DEATH_OTHER_1: IncidentTypeConfiguration = {
     '44645': {
       id: '44645',
       active: true,
-      code: 'HAVE NEXT OF KIN BEEN INFORMED',
+      question: 'HAVE NEXT OF KIN BEEN INFORMED',
       label: 'Have next of kin been informed?',
       multipleAnswers: false,
       answers: [
@@ -406,7 +406,7 @@ export const DEATH_OTHER_1: IncidentTypeConfiguration = {
     '44702': {
       id: '44702',
       active: true,
-      code: 'WHAT TIME WAS DEATH PRONOUNCED',
+      question: 'WHAT TIME WAS DEATH PRONOUNCED',
       label: 'What time was death pronounced?',
       multipleAnswers: true,
       answers: [
@@ -433,7 +433,7 @@ export const DEATH_OTHER_1: IncidentTypeConfiguration = {
     '44748': {
       id: '44748',
       active: true,
-      code: 'IS THERE ANY MEDIA INTEREST IN THIS INCIDENT',
+      question: 'IS THERE ANY MEDIA INTEREST IN THIS INCIDENT',
       label: 'Is there any media interest in this incident?',
       multipleAnswers: false,
       answers: [
@@ -460,7 +460,7 @@ export const DEATH_OTHER_1: IncidentTypeConfiguration = {
     '44751': {
       id: '44751',
       active: true,
-      code: 'WHAT WAS THE LOCATION OF THE INCIDENT',
+      question: 'WHAT WAS THE LOCATION OF THE INCIDENT',
       label: 'What was the location of the incident?',
       multipleAnswers: false,
       answers: [
@@ -478,7 +478,7 @@ export const DEATH_OTHER_1: IncidentTypeConfiguration = {
     '44839': {
       id: '44839',
       active: true,
-      code: 'IS THE INCIDENT THE SUBJECT OF AN INTERNAL INVESTIGATION',
+      question: 'IS THE INCIDENT THE SUBJECT OF AN INTERNAL INVESTIGATION',
       label: 'Is the incident the subject of an internal investigation?',
       multipleAnswers: false,
       answers: [
@@ -505,7 +505,7 @@ export const DEATH_OTHER_1: IncidentTypeConfiguration = {
     '45031': {
       id: '45031',
       active: true,
-      code: 'WAS THE PERSON TAKEN TO AN OUTSIDE HOSPITAL',
+      question: 'WAS THE PERSON TAKEN TO AN OUTSIDE HOSPITAL',
       label: 'Was the person taken to an outside hospital?',
       multipleAnswers: false,
       answers: [
@@ -532,7 +532,7 @@ export const DEATH_OTHER_1: IncidentTypeConfiguration = {
     '45054': {
       id: '45054',
       active: true,
-      code: 'WERE THE POLICE INFORMED OF THE INCIDENT',
+      question: 'WERE THE POLICE INFORMED OF THE INCIDENT',
       label: 'Were the police informed of the incident?',
       multipleAnswers: false,
       answers: [

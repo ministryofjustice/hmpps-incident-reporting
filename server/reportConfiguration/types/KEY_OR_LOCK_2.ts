@@ -10,7 +10,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
     '45196': {
       id: '45196',
       active: true,
-      code: 'Describe the nature of the Incident',
+      question: 'Describe the nature of the Incident',
       label: 'Describe the nature of the incident',
       multipleAnswers: true,
       answers: [
@@ -361,7 +361,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
     '45197': {
       id: '45197',
       active: true,
-      code: 'Describe the type of key or lock',
+      question: 'Describe the type of key or lock',
       label: 'Describe the type of key or lock',
       multipleAnswers: true,
       answers: [
@@ -730,7 +730,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
     '45198': {
       id: '45198',
       active: true,
-      code: 'Incident Level: 1-5. 1 High Risk, 5 No Risk',
+      question: 'Incident Level: 1-5. 1 High Risk, 5 No Risk',
       label: 'Incident level: 1-5. 1 high risk, 5 no risk',
       multipleAnswers: false,
       answers: [
@@ -757,7 +757,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
     '45199': {
       id: '45199',
       active: true,
-      code: 'Has any remedial action been taken?',
+      question: 'Has any remedial action been taken?',
       label: 'Has any remedial action been taken?',
       multipleAnswers: false,
       answers: [
@@ -829,7 +829,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
     '45200': {
       id: '45200',
       active: true,
-      code: 'Describe the remedial action taken',
+      question: 'Describe the remedial action taken',
       label: 'Describe the remedial action taken',
       multipleAnswers: false,
       answers: [
@@ -937,7 +937,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
     '45201': {
       id: '45201',
       active: true,
-      code: 'Estimated cost of this action',
+      question: 'Estimated cost of this action',
       label: 'Estimated cost of this action',
       multipleAnswers: false,
       answers: [
@@ -973,7 +973,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
     '45202': {
       id: '45202',
       active: true,
-      code: 'Have the lost item (s) been found?',
+      question: 'Have the lost item (s) been found?',
       label: 'Have the lost item (s) been found?',
       multipleAnswers: false,
       answers: [
@@ -1027,7 +1027,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
     '45203': {
       id: '45203',
       active: true,
-      code: 'Has a replica key been found?',
+      question: 'Has a replica key been found?',
       label: 'Has a replica key been found?',
       multipleAnswers: false,
       answers: [
@@ -1090,7 +1090,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
     '45204': {
       id: '45204',
       active: true,
-      code: 'What action was taken to find these items?',
+      question: 'What action was taken to find these items?',
       label: 'What action was taken to find these items?',
       multipleAnswers: false,
       answers: [
@@ -1153,7 +1153,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
     '45205': {
       id: '45205',
       active: true,
-      code: 'Were tools used in the Incident?',
+      question: 'Were tools used in the Incident?',
       label: 'Were tools used in the incident?',
       multipleAnswers: false,
       answers: [
@@ -1207,7 +1207,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
     '45206': {
       id: '45206',
       active: true,
-      code: 'What tools/foreign objects were used?',
+      question: 'What tools/foreign objects were used?',
       label: 'What tools/foreign objects were used?',
       multipleAnswers: true,
       answers: [
@@ -1378,7 +1378,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
     '45207': {
       id: '45207',
       active: true,
-      code: 'What was the source of the tools/foreign object?',
+      question: 'What was the source of the tools/foreign object?',
       label: 'What was the source of the tools/foreign object?',
       multipleAnswers: false,
       answers: [
@@ -1549,7 +1549,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
     '45208': {
       id: '45208',
       active: true,
-      code: 'Has the Key Lock Incident been reported to NOU?',
+      question: 'Has the Key Lock Incident been reported to NOU?',
       label: 'Has the key lock incident been reported to NOU?',
       multipleAnswers: true,
       answers: [

@@ -10,7 +10,7 @@ export const CLOSE_DOWN_SEARCH_1: IncidentTypeConfiguration = {
     '44146': {
       id: '44146',
       active: true,
-      code: 'IS THERE ANY MEDIA INTEREST IN THIS INCIDENT',
+      question: 'IS THERE ANY MEDIA INTEREST IN THIS INCIDENT',
       label: 'Is there any media interest in this incident?',
       multipleAnswers: false,
       answers: [
@@ -37,7 +37,7 @@ export const CLOSE_DOWN_SEARCH_1: IncidentTypeConfiguration = {
     '44385': {
       id: '44385',
       active: true,
-      code: 'WERE ANY ILLICIT ITEMS FOUND',
+      question: 'WERE ANY ILLICIT ITEMS FOUND',
       label: 'Were any illicit items found?',
       multipleAnswers: false,
       answers: [
@@ -64,7 +64,7 @@ export const CLOSE_DOWN_SEARCH_1: IncidentTypeConfiguration = {
     '44432': {
       id: '44432',
       active: true,
-      code: 'WHAT WAS THE PURPOSE OF THE SEARCH',
+      question: 'WHAT WAS THE PURPOSE OF THE SEARCH',
       label: 'What was the purpose of the search?',
       multipleAnswers: true,
       answers: [
@@ -154,7 +154,7 @@ export const CLOSE_DOWN_SEARCH_1: IncidentTypeConfiguration = {
     '44570': {
       id: '44570',
       active: true,
-      code: 'WERE SUPPORT STAFF FROM OTHER PRISONS DEPLOYED',
+      question: 'WERE SUPPORT STAFF FROM OTHER PRISONS DEPLOYED',
       label: 'Were support staff from other prisons deployed?',
       multipleAnswers: false,
       answers: [
@@ -181,7 +181,7 @@ export const CLOSE_DOWN_SEARCH_1: IncidentTypeConfiguration = {
     '44677': {
       id: '44677',
       active: true,
-      code: 'HAS THE PRISON SERVICE PRESS OFFICE BEEN INFORMED',
+      question: 'HAS THE PRISON SERVICE PRESS OFFICE BEEN INFORMED',
       label: 'Has the prison service press office been informed?',
       multipleAnswers: false,
       answers: [
@@ -208,7 +208,7 @@ export const CLOSE_DOWN_SEARCH_1: IncidentTypeConfiguration = {
     '44723': {
       id: '44723',
       active: true,
-      code: 'IS THE INCIDENT THE SUBJECT OF A POLICE INVESTIGATION',
+      question: 'IS THE INCIDENT THE SUBJECT OF A POLICE INVESTIGATION',
       label: 'Is the incident the subject of a police investigation?',
       multipleAnswers: false,
       answers: [
@@ -235,7 +235,7 @@ export const CLOSE_DOWN_SEARCH_1: IncidentTypeConfiguration = {
     '44803': {
       id: '44803',
       active: true,
-      code: 'WERE SPECIALIST DOGS USED',
+      question: 'WERE SPECIALIST DOGS USED',
       label: 'Were specialist dogs used?',
       multipleAnswers: false,
       answers: [
@@ -262,7 +262,7 @@ export const CLOSE_DOWN_SEARCH_1: IncidentTypeConfiguration = {
     '44969': {
       id: '44969',
       active: true,
-      code: 'DESCRIBE THE ILLICIT ITEMS',
+      question: 'DESCRIBE THE ILLICIT ITEMS',
       label: 'Describe the illicit items',
       multipleAnswers: true,
       answers: [
@@ -325,7 +325,7 @@ export const CLOSE_DOWN_SEARCH_1: IncidentTypeConfiguration = {
     '45018': {
       id: '45018',
       active: true,
-      code: 'IS THE INCIDENT THE SUBJECT OF AN INTERNAL INVESTIGATION',
+      question: 'IS THE INCIDENT THE SUBJECT OF AN INTERNAL INVESTIGATION',
       label: 'Is the incident the subject of an internal investigation?',
       multipleAnswers: false,
       answers: [
@@ -352,7 +352,7 @@ export const CLOSE_DOWN_SEARCH_1: IncidentTypeConfiguration = {
     '45062': {
       id: '45062',
       active: true,
-      code: 'WHY WAS SEARCH CARRIED OUT',
+      question: 'WHY WAS SEARCH CARRIED OUT',
       label: 'Why was search carried out?',
       multipleAnswers: false,
       answers: [
@@ -406,7 +406,7 @@ export const CLOSE_DOWN_SEARCH_1: IncidentTypeConfiguration = {
     '45067': {
       id: '45067',
       active: true,
-      code: 'WERE THE POLICE INFORMED OF THE INCIDENT',
+      question: 'WERE THE POLICE INFORMED OF THE INCIDENT',
       label: 'Were the police informed of the incident?',
       multipleAnswers: false,
       answers: [

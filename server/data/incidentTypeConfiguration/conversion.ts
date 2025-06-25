@@ -44,7 +44,7 @@ export function fromNomis(nomisConfig: NomisIncidentTypeConfiguration): DpsIncid
       qs[questionId] = {
         id: questionId,
         active: q.questionActiveFlag === true,
-        code: q.questionDesc,
+        question: q.questionDesc,
         label: addQuestionMarkToQuestion(convertToSentenceCase(q.questionDesc)),
         multipleAnswers: q.multipleAnswerFlag === true,
         answers: nomisAnswers.map(ans => {

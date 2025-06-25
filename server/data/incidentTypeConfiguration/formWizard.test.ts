@@ -16,7 +16,7 @@ const testConfig: IncidentTypeConfiguration = {
   questions: {
     qanimals: {
       id: 'qanimals',
-      code: 'WHICH ANIMALS DO YOU LIKE',
+      question: 'WHICH ANIMALS DO YOU LIKE',
       label: 'Which animals do you like?',
       active: true,
       multipleAnswers: true,
@@ -62,7 +62,7 @@ const testConfig: IncidentTypeConfiguration = {
     },
     qdog: {
       id: 'qdog',
-      code: 'DO YOU HAVE A DOG',
+      question: 'DO YOU HAVE A DOG',
       label: 'Do you have a dog?',
       active: true,
       multipleAnswers: false,
@@ -89,7 +89,7 @@ const testConfig: IncidentTypeConfiguration = {
     },
     qicecream: {
       id: 'qicecream',
-      code: 'DO YOU LIKE ICE CREAM',
+      question: 'DO YOU LIKE ICE CREAM',
       label: 'Do you like ice cream?',
       active: true,
       multipleAnswers: false,
@@ -116,7 +116,7 @@ const testConfig: IncidentTypeConfiguration = {
     },
     qend: {
       id: 'qend',
-      code: 'DO YOU WANT TO FINISH',
+      question: 'DO YOU WANT TO FINISH',
       label: 'Do you want to finish?',
       active: true,
       multipleAnswers: false,
@@ -144,7 +144,7 @@ const testConfig: IncidentTypeConfiguration = {
     // Inactive question
     'q3-inactive': {
       id: 'q3-inactive',
-      code: 'REMOVE',
+      question: 'REMOVE',
       label: 'Remove this question please',
       active: false,
       multipleAnswers: false,

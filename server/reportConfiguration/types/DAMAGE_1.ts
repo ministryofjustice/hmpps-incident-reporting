@@ -10,7 +10,7 @@ export const DAMAGE_1: IncidentTypeConfiguration = {
     '44167': {
       id: '44167',
       active: true,
-      code: 'DID INJURIES RESULT IN DETENTION IN OUTSIDE HOSPITAL AS AN IN-PATIENT',
+      question: 'DID INJURIES RESULT IN DETENTION IN OUTSIDE HOSPITAL AS AN IN-PATIENT',
       label: 'Did injuries result in detention in outside hospital as an in-patient?',
       multipleAnswers: false,
       answers: [
@@ -37,7 +37,7 @@ export const DAMAGE_1: IncidentTypeConfiguration = {
     '44190': {
       id: '44190',
       active: true,
-      code: 'IS THE INCIDENT THE SUBJECT OF A POLICE INVESTIGATION',
+      question: 'IS THE INCIDENT THE SUBJECT OF A POLICE INVESTIGATION',
       label: 'Is the incident the subject of a police investigation?',
       multipleAnswers: false,
       answers: [
@@ -64,7 +64,7 @@ export const DAMAGE_1: IncidentTypeConfiguration = {
     '44200': {
       id: '44200',
       active: true,
-      code: 'IS THE INCIDENT THE SUBJECT OF AN INTERNAL INVESTIGATION',
+      question: 'IS THE INCIDENT THE SUBJECT OF AN INTERNAL INVESTIGATION',
       label: 'Is the incident the subject of an internal investigation?',
       multipleAnswers: false,
       answers: [
@@ -91,7 +91,7 @@ export const DAMAGE_1: IncidentTypeConfiguration = {
     '44230': {
       id: '44230',
       active: true,
-      code: 'ENTER DESCRIPTION OF PERSON(S) INJURED',
+      question: 'ENTER DESCRIPTION OF PERSON(S) INJURED',
       label: 'Enter description of person(s) injured',
       multipleAnswers: true,
       answers: [
@@ -145,7 +145,7 @@ export const DAMAGE_1: IncidentTypeConfiguration = {
     '44295': {
       id: '44295',
       active: true,
-      code: 'WAS A SERIOUS INJURY SUSTAINED',
+      question: 'WAS A SERIOUS INJURY SUSTAINED',
       label: 'Was a serious injury sustained?',
       multipleAnswers: false,
       answers: [
@@ -172,7 +172,7 @@ export const DAMAGE_1: IncidentTypeConfiguration = {
     '44324': {
       id: '44324',
       active: true,
-      code: 'WHAT WAS THE LOCATION OF THE INCIDENT',
+      question: 'WHAT WAS THE LOCATION OF THE INCIDENT',
       label: 'What was the location of the incident?',
       multipleAnswers: false,
       answers: [
@@ -478,7 +478,7 @@ export const DAMAGE_1: IncidentTypeConfiguration = {
     '44343': {
       id: '44343',
       active: true,
-      code: 'WHAT WAS DAMAGED',
+      question: 'WHAT WAS DAMAGED',
       label: 'What was damaged?',
       multipleAnswers: true,
       answers: [
@@ -532,7 +532,7 @@ export const DAMAGE_1: IncidentTypeConfiguration = {
     '44379': {
       id: '44379',
       active: true,
-      code: 'WERE ANY INJURIES RECEIVED DURING THIS INCIDENT',
+      question: 'WERE ANY INJURIES RECEIVED DURING THIS INCIDENT',
       label: 'Were any injuries received during this incident?',
       multipleAnswers: false,
       answers: [
@@ -559,7 +559,7 @@ export const DAMAGE_1: IncidentTypeConfiguration = {
     '44466': {
       id: '44466',
       active: true,
-      code: 'DESCRIBE THE DAMAGE',
+      question: 'DESCRIBE THE DAMAGE',
       label: 'Describe the damage',
       multipleAnswers: false,
       answers: [
@@ -595,7 +595,7 @@ export const DAMAGE_1: IncidentTypeConfiguration = {
     '44512': {
       id: '44512',
       active: true,
-      code: 'IS THERE ANY MEDIA INTEREST IN THIS INCIDENT',
+      question: 'IS THERE ANY MEDIA INTEREST IN THIS INCIDENT',
       label: 'Is there any media interest in this incident?',
       multipleAnswers: false,
       answers: [
@@ -622,7 +622,7 @@ export const DAMAGE_1: IncidentTypeConfiguration = {
     '44572': {
       id: '44572',
       active: true,
-      code: 'HAS ANY PROSECUTION TAKEN PLACE OR IS ANY PENDING',
+      question: 'HAS ANY PROSECUTION TAKEN PLACE OR IS ANY PENDING',
       label: 'Has any prosecution taken place or is any pending?',
       multipleAnswers: false,
       answers: [
@@ -649,7 +649,7 @@ export const DAMAGE_1: IncidentTypeConfiguration = {
     '44576': {
       id: '44576',
       active: true,
-      code: 'WHICH MINOR INJURIES WERE SUSTAINED',
+      question: 'WHICH MINOR INJURIES WERE SUSTAINED',
       label: 'Which minor injuries were sustained?',
       multipleAnswers: true,
       answers: [
@@ -703,7 +703,7 @@ export const DAMAGE_1: IncidentTypeConfiguration = {
     '44655': {
       id: '44655',
       active: true,
-      code: 'ARE THERE ANY STAFF NOW OFF DUTY AS A RESULT OF THIS INCIDENT',
+      question: 'ARE THERE ANY STAFF NOW OFF DUTY AS A RESULT OF THIS INCIDENT',
       label: 'Are there any staff now off duty as a result of this incident?',
       multipleAnswers: false,
       answers: [
@@ -730,7 +730,7 @@ export const DAMAGE_1: IncidentTypeConfiguration = {
     '44735': {
       id: '44735',
       active: true,
-      code: 'ARE ANY STAFF ON SICK LEAVE AS A RESULT OF THIS INCIDENT',
+      question: 'ARE ANY STAFF ON SICK LEAVE AS A RESULT OF THIS INCIDENT',
       label: 'Are any staff on sick leave as a result of this incident?',
       multipleAnswers: false,
       answers: [
@@ -757,7 +757,7 @@ export const DAMAGE_1: IncidentTypeConfiguration = {
     '44763': {
       id: '44763',
       active: true,
-      code: 'ESTIMATED COST OF DAMAGE',
+      question: 'ESTIMATED COST OF DAMAGE',
       label: 'Estimated cost of damage',
       multipleAnswers: false,
       answers: [
@@ -775,7 +775,7 @@ export const DAMAGE_1: IncidentTypeConfiguration = {
     '44784': {
       id: '44784',
       active: true,
-      code: 'WERE THE POLICE INFORMED OF THE INCIDENT',
+      question: 'WERE THE POLICE INFORMED OF THE INCIDENT',
       label: 'Were the police informed of the incident?',
       multipleAnswers: false,
       answers: [
@@ -802,7 +802,7 @@ export const DAMAGE_1: IncidentTypeConfiguration = {
     '44785': {
       id: '44785',
       active: true,
-      code: 'WHICH SERIOUS INJURIES WERE SUSTAINED',
+      question: 'WHICH SERIOUS INJURIES WERE SUSTAINED',
       label: 'Which serious injuries were sustained?',
       multipleAnswers: true,
       answers: [
@@ -919,7 +919,7 @@ export const DAMAGE_1: IncidentTypeConfiguration = {
     '44971': {
       id: '44971',
       active: true,
-      code: 'WAS A MINOR INJURY SUSTAINED',
+      question: 'WAS A MINOR INJURY SUSTAINED',
       label: 'Was a minor injury sustained?',
       multipleAnswers: false,
       answers: [
@@ -946,7 +946,7 @@ export const DAMAGE_1: IncidentTypeConfiguration = {
     '45002': {
       id: '45002',
       active: true,
-      code: 'WHO WAS DETAINED IN OUTSIDE HOSPITAL',
+      question: 'WHO WAS DETAINED IN OUTSIDE HOSPITAL',
       label: 'Who was detained in outside hospital?',
       multipleAnswers: true,
       answers: [
@@ -1000,7 +1000,7 @@ export const DAMAGE_1: IncidentTypeConfiguration = {
     '45050': {
       id: '45050',
       active: true,
-      code: "IS THE INCIDENT SUBJECT TO A GOVERNOR'S ADJUDICATION",
+      question: "IS THE INCIDENT SUBJECT TO A GOVERNOR'S ADJUDICATION",
       label: "Is the incident subject to a governor's adjudication?",
       multipleAnswers: false,
       answers: [
@@ -1027,7 +1027,7 @@ export const DAMAGE_1: IncidentTypeConfiguration = {
     '45082': {
       id: '45082',
       active: true,
-      code: 'HAS THE PRISON SERVICE PRESS OFFICE BEEN INFORMED',
+      question: 'HAS THE PRISON SERVICE PRESS OFFICE BEEN INFORMED',
       label: 'Has the prison service press office been informed?',
       multipleAnswers: false,
       answers: [

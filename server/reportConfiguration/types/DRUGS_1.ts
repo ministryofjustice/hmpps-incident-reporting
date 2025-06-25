@@ -10,7 +10,7 @@ export const DRUGS_1: IncidentTypeConfiguration = {
     '44179': {
       id: '44179',
       active: false,
-      code: 'WAS A VISITOR SUSPECTED OF INVOLVEMENT AND ARRESTED BY THE POLICE',
+      question: 'WAS A VISITOR SUSPECTED OF INVOLVEMENT AND ARRESTED BY THE POLICE',
       label: 'Was a visitor suspected of involvement and arrested by the police?',
       multipleAnswers: false,
       answers: [
@@ -37,7 +37,7 @@ export const DRUGS_1: IncidentTypeConfiguration = {
     '44204': {
       id: '44204',
       active: false,
-      code: 'IS ANY MEMBER OF STAFF FACING DISCIPLINARY CHARGES',
+      question: 'IS ANY MEMBER OF STAFF FACING DISCIPLINARY CHARGES',
       label: 'Is any member of staff facing disciplinary charges?',
       multipleAnswers: false,
       answers: [
@@ -64,7 +64,7 @@ export const DRUGS_1: IncidentTypeConfiguration = {
     '44205': {
       id: '44205',
       active: false,
-      code: 'DESCRIBE THE DRUG FOUND',
+      question: 'DESCRIBE THE DRUG FOUND',
       label: 'Describe the drug found',
       multipleAnswers: true,
       answers: [
@@ -163,7 +163,7 @@ export const DRUGS_1: IncidentTypeConfiguration = {
     '44219': {
       id: '44219',
       active: false,
-      code: 'WAS HOSPITALISATION REQUIRED',
+      question: 'WAS HOSPITALISATION REQUIRED',
       label: 'Was hospitalisation required?',
       multipleAnswers: false,
       answers: [
@@ -190,7 +190,7 @@ export const DRUGS_1: IncidentTypeConfiguration = {
     '44224': {
       id: '44224',
       active: false,
-      code: 'DESCRIBE DRUG EQUIPMENT FOUND',
+      question: 'DESCRIBE DRUG EQUIPMENT FOUND',
       label: 'Describe drug equipment found',
       multipleAnswers: true,
       answers: [
@@ -262,7 +262,7 @@ export const DRUGS_1: IncidentTypeConfiguration = {
     '44243': {
       id: '44243',
       active: false,
-      code: 'IS THE INCIDENT THE SUBJECT OF A POLICE INVESTIGATION',
+      question: 'IS THE INCIDENT THE SUBJECT OF A POLICE INVESTIGATION',
       label: 'Is the incident the subject of a police investigation?',
       multipleAnswers: false,
       answers: [
@@ -289,7 +289,7 @@ export const DRUGS_1: IncidentTypeConfiguration = {
     '44316': {
       id: '44316',
       active: false,
-      code: 'IS THE LOCATION OF THE INCIDENT KNOWN',
+      question: 'IS THE LOCATION OF THE INCIDENT KNOWN',
       label: 'Is the location of the incident known?',
       multipleAnswers: false,
       answers: [
@@ -316,7 +316,7 @@ export const DRUGS_1: IncidentTypeConfiguration = {
     '44396': {
       id: '44396',
       active: false,
-      code: 'WAS A DRUG FOUND',
+      question: 'WAS A DRUG FOUND',
       label: 'Was a drug found?',
       multipleAnswers: false,
       answers: [
@@ -343,7 +343,7 @@ export const DRUGS_1: IncidentTypeConfiguration = {
     '44408': {
       id: '44408',
       active: false,
-      code: 'DESCRIBE HOW THE DRUG OR EQUIPMENT WAS FOUND',
+      question: 'DESCRIBE HOW THE DRUG OR EQUIPMENT WAS FOUND',
       label: 'Describe how the drug or equipment was found',
       multipleAnswers: true,
       answers: [
@@ -451,7 +451,7 @@ export const DRUGS_1: IncidentTypeConfiguration = {
     '44458': {
       id: '44458',
       active: false,
-      code: 'DESCRIBE THE TYPE OF TEMPORARY RELEASE',
+      question: 'DESCRIBE THE TYPE OF TEMPORARY RELEASE',
       label: 'Describe the type of temporary release',
       multipleAnswers: false,
       answers: [
@@ -496,7 +496,7 @@ export const DRUGS_1: IncidentTypeConfiguration = {
     '44502': {
       id: '44502',
       active: false,
-      code: 'HAS ANY PROSECUTION TAKEN PLACE OR IS ANY PENDING',
+      question: 'HAS ANY PROSECUTION TAKEN PLACE OR IS ANY PENDING',
       label: 'Has any prosecution taken place or is any pending?',
       multipleAnswers: false,
       answers: [
@@ -523,7 +523,7 @@ export const DRUGS_1: IncidentTypeConfiguration = {
     '44508': {
       id: '44508',
       active: false,
-      code: 'ENTER DESCRIPTION OF PERSON HOSPITALISED',
+      question: 'ENTER DESCRIPTION OF PERSON HOSPITALISED',
       label: 'Enter description of person hospitalised',
       multipleAnswers: true,
       answers: [
@@ -577,7 +577,7 @@ export const DRUGS_1: IncidentTypeConfiguration = {
     '44557': {
       id: '44557',
       active: false,
-      code: 'IS THE INCIDENT THE SUBJECT OF AN INTERNAL INVESTIGATION',
+      question: 'IS THE INCIDENT THE SUBJECT OF AN INTERNAL INVESTIGATION',
       label: 'Is the incident the subject of an internal investigation?',
       multipleAnswers: false,
       answers: [
@@ -604,7 +604,7 @@ export const DRUGS_1: IncidentTypeConfiguration = {
     '44635': {
       id: '44635',
       active: false,
-      code: 'HOW WAS THE SUBSTANCE ANALYSED',
+      question: 'HOW WAS THE SUBSTANCE ANALYSED',
       label: 'How was the substance analysed?',
       multipleAnswers: false,
       answers: [
@@ -631,7 +631,7 @@ export const DRUGS_1: IncidentTypeConfiguration = {
     '44649': {
       id: '44649',
       active: false,
-      code: 'WAS THE SUBSTANCE FOUND ANALYSED',
+      question: 'WAS THE SUBSTANCE FOUND ANALYSED',
       label: 'Was the substance found analysed?',
       multipleAnswers: false,
       answers: [
@@ -658,7 +658,7 @@ export const DRUGS_1: IncidentTypeConfiguration = {
     '44664': {
       id: '44664',
       active: false,
-      code: "IS THE INCIDENT SUBJECT TO A GOVERNOR'S ADJUDICATION",
+      question: "IS THE INCIDENT SUBJECT TO A GOVERNOR'S ADJUDICATION",
       label: "Is the incident subject to a governor's adjudication?",
       multipleAnswers: false,
       answers: [
@@ -685,7 +685,7 @@ export const DRUGS_1: IncidentTypeConfiguration = {
     '44682': {
       id: '44682',
       active: false,
-      code: 'IS THERE ANY MEDIA INTEREST IN THIS INCIDENT',
+      question: 'IS THERE ANY MEDIA INTEREST IN THIS INCIDENT',
       label: 'Is there any media interest in this incident?',
       multipleAnswers: false,
       answers: [
@@ -712,7 +712,7 @@ export const DRUGS_1: IncidentTypeConfiguration = {
     '44700': {
       id: '44700',
       active: false,
-      code: 'WHAT WAS THE LOCATION OF THE INCIDENT',
+      question: 'WHAT WAS THE LOCATION OF THE INCIDENT',
       label: 'What was the location of the incident?',
       multipleAnswers: false,
       answers: [
@@ -1018,7 +1018,7 @@ export const DRUGS_1: IncidentTypeConfiguration = {
     '44765': {
       id: '44765',
       active: false,
-      code: 'IS THIS INCIDENT ASSOCIATED WITH AN ASSAULT',
+      question: 'IS THIS INCIDENT ASSOCIATED WITH AN ASSAULT',
       label: 'Is this incident associated with an assault?',
       multipleAnswers: false,
       answers: [
@@ -1045,7 +1045,7 @@ export const DRUGS_1: IncidentTypeConfiguration = {
     '44792': {
       id: '44792',
       active: false,
-      code: 'HAS THE PRISON SERVICE PRESS OFFICE BEEN INFORMED',
+      question: 'HAS THE PRISON SERVICE PRESS OFFICE BEEN INFORMED',
       label: 'Has the prison service press office been informed?',
       multipleAnswers: false,
       answers: [
@@ -1072,7 +1072,7 @@ export const DRUGS_1: IncidentTypeConfiguration = {
     '44795': {
       id: '44795',
       active: false,
-      code: 'DESCRIBE THE DRUG/EQUIPMENT METHOD OF ENTRY INTO THE ESTABLISHMENT',
+      question: 'DESCRIBE THE DRUG/EQUIPMENT METHOD OF ENTRY INTO THE ESTABLISHMENT',
       label: 'Describe the drug/equipment method of entry into the establishment',
       multipleAnswers: false,
       answers: [
@@ -1117,7 +1117,7 @@ export const DRUGS_1: IncidentTypeConfiguration = {
     '44807': {
       id: '44807',
       active: false,
-      code: 'TO WHICH POLICE STATION WAS THE VISITOR TAKEN TO',
+      question: 'TO WHICH POLICE STATION WAS THE VISITOR TAKEN TO',
       label: 'To which police station was the visitor taken to?',
       multipleAnswers: false,
       answers: [
@@ -1135,7 +1135,7 @@ export const DRUGS_1: IncidentTypeConfiguration = {
     '44818': {
       id: '44818',
       active: false,
-      code: 'TO WHICH POLICE STATION ARE SEIZED DRUGS SENT FOR DESTRUCTION',
+      question: 'TO WHICH POLICE STATION ARE SEIZED DRUGS SENT FOR DESTRUCTION',
       label: 'To which police station are seized drugs sent for destruction?',
       multipleAnswers: false,
       answers: [
@@ -1153,7 +1153,7 @@ export const DRUGS_1: IncidentTypeConfiguration = {
     '44821': {
       id: '44821',
       active: false,
-      code: 'WAS DRUG EQUIPMENT FOUND',
+      question: 'WAS DRUG EQUIPMENT FOUND',
       label: 'Was drug equipment found?',
       multipleAnswers: false,
       answers: [
@@ -1180,7 +1180,7 @@ export const DRUGS_1: IncidentTypeConfiguration = {
     '44835': {
       id: '44835',
       active: false,
-      code: 'WERE THE POLICE INFORMED OF THE INCIDENT',
+      question: 'WERE THE POLICE INFORMED OF THE INCIDENT',
       label: 'Were the police informed of the incident?',
       multipleAnswers: false,
       answers: [
@@ -1207,7 +1207,7 @@ export const DRUGS_1: IncidentTypeConfiguration = {
     '44899': {
       id: '44899',
       active: false,
-      code: 'DESCRIBE CIRCUMSTANCES OF VISITORS ARREST',
+      question: 'DESCRIBE CIRCUMSTANCES OF VISITORS ARREST',
       label: 'Describe circumstances of visitors arrest',
       multipleAnswers: false,
       answers: [
@@ -1234,7 +1234,7 @@ export const DRUGS_1: IncidentTypeConfiguration = {
     '44982': {
       id: '44982',
       active: false,
-      code: 'WAS THE SUBSTANCE A DRUG',
+      question: 'WAS THE SUBSTANCE A DRUG',
       label: 'Was the substance a drug?',
       multipleAnswers: false,
       answers: [
@@ -1261,7 +1261,7 @@ export const DRUGS_1: IncidentTypeConfiguration = {
     '45008': {
       id: '45008',
       active: false,
-      code: 'WERE THE DRUGS OBTAINED ON TEMPORARY RELEASE',
+      question: 'WERE THE DRUGS OBTAINED ON TEMPORARY RELEASE',
       label: 'Were the drugs obtained on temporary release?',
       multipleAnswers: false,
       answers: [
@@ -1288,7 +1288,7 @@ export const DRUGS_1: IncidentTypeConfiguration = {
     '45057': {
       id: '45057',
       active: false,
-      code: 'DESCRIBE THE REASON FOR HOSPITALISATION',
+      question: 'DESCRIBE THE REASON FOR HOSPITALISATION',
       label: 'Describe the reason for hospitalisation',
       multipleAnswers: false,
       answers: [
@@ -1306,7 +1306,7 @@ export const DRUGS_1: IncidentTypeConfiguration = {
     '45097': {
       id: '45097',
       active: false,
-      code: 'IS THE METHOD OF ENTRY OF DRUG/EQUIPMENT INTO THE ESTABLISHMENT KNOWN',
+      question: 'IS THE METHOD OF ENTRY OF DRUG/EQUIPMENT INTO THE ESTABLISHMENT KNOWN',
       label: 'Is the method of entry of drug/equipment into the establishment known?',
       multipleAnswers: false,
       answers: [
@@ -1333,7 +1333,7 @@ export const DRUGS_1: IncidentTypeConfiguration = {
     '45168': {
       id: '45168',
       active: false,
-      code: 'DESCRIBE THE VISITOR',
+      question: 'DESCRIBE THE VISITOR',
       label: 'Describe the visitor',
       multipleAnswers: false,
       answers: [

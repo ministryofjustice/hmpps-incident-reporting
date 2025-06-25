@@ -10,7 +10,7 @@ export const ABSCOND_1: IncidentTypeConfiguration = {
     '44198': {
       id: '44198',
       active: true,
-      code: 'HAS THE PRISONER BEEN CHARGED WITH A FURTHER OFFENCE',
+      question: 'HAS THE PRISONER BEEN CHARGED WITH A FURTHER OFFENCE',
       label: 'Has the prisoner been charged with a further offence?',
       multipleAnswers: false,
       answers: [
@@ -37,7 +37,7 @@ export const ABSCOND_1: IncidentTypeConfiguration = {
     '44271': {
       id: '44271',
       active: true,
-      code: 'WAS ANY FORM OF DECEPTION USED IN THE ABSCOND',
+      question: 'WAS ANY FORM OF DECEPTION USED IN THE ABSCOND',
       label: 'Was any form of deception used in the abscond?',
       multipleAnswers: false,
       answers: [
@@ -64,7 +64,7 @@ export const ABSCOND_1: IncidentTypeConfiguration = {
     '44284': {
       id: '44284',
       active: true,
-      code: 'WAS THE ABSCOND IN THE COMPANY OF OTHER PRISONERS',
+      question: 'WAS THE ABSCOND IN THE COMPANY OF OTHER PRISONERS',
       label: 'Was the abscond in the company of other prisoners?',
       multipleAnswers: false,
       answers: [
@@ -91,7 +91,7 @@ export const ABSCOND_1: IncidentTypeConfiguration = {
     '44326': {
       id: '44326',
       active: true,
-      code: 'HAS THE PRISON SERVICE PRESS OFFICE BEEN INFORMED',
+      question: 'HAS THE PRISON SERVICE PRESS OFFICE BEEN INFORMED',
       label: 'Has the prison service press office been informed?',
       multipleAnswers: false,
       answers: [
@@ -118,7 +118,7 @@ export const ABSCOND_1: IncidentTypeConfiguration = {
     '44402': {
       id: '44402',
       active: true,
-      code: 'HOW WAS THE PRISONER RECAPTURED',
+      question: 'HOW WAS THE PRISONER RECAPTURED',
       label: 'How was the prisoner recaptured?',
       multipleAnswers: false,
       answers: [
@@ -163,7 +163,7 @@ export const ABSCOND_1: IncidentTypeConfiguration = {
     '44416': {
       id: '44416',
       active: true,
-      code: 'HAS ANY PROSECUTION TAKEN PLACE OR IS ANY PENDING',
+      question: 'HAS ANY PROSECUTION TAKEN PLACE OR IS ANY PENDING',
       label: 'Has any prosecution taken place or is any pending?',
       multipleAnswers: false,
       answers: [
@@ -190,7 +190,7 @@ export const ABSCOND_1: IncidentTypeConfiguration = {
     '44467': {
       id: '44467',
       active: true,
-      code: 'ESTIMATED COST OF DAMAGE',
+      question: 'ESTIMATED COST OF DAMAGE',
       label: 'Estimated cost of damage',
       multipleAnswers: false,
       answers: [
@@ -208,7 +208,7 @@ export const ABSCOND_1: IncidentTypeConfiguration = {
     '44534': {
       id: '44534',
       active: true,
-      code: 'WERE THE POLICE INFORMED OF THE INCIDENT',
+      question: 'WERE THE POLICE INFORMED OF THE INCIDENT',
       label: 'Were the police informed of the incident?',
       multipleAnswers: false,
       answers: [
@@ -235,7 +235,7 @@ export const ABSCOND_1: IncidentTypeConfiguration = {
     '44609': {
       id: '44609',
       active: true,
-      code: "IS THE INCIDENT SUBJECT TO A GOVERNOR'S ADJUDICATION",
+      question: "IS THE INCIDENT SUBJECT TO A GOVERNOR'S ADJUDICATION",
       label: "Is the incident subject to a governor's adjudication?",
       multipleAnswers: false,
       answers: [
@@ -262,7 +262,7 @@ export const ABSCOND_1: IncidentTypeConfiguration = {
     '44615': {
       id: '44615',
       active: true,
-      code: 'WAS DAMAGE CAUSED TO PRISON PROPERTY',
+      question: 'WAS DAMAGE CAUSED TO PRISON PROPERTY',
       label: 'Was damage caused to prison property?',
       multipleAnswers: false,
       answers: [
@@ -289,7 +289,7 @@ export const ABSCOND_1: IncidentTypeConfiguration = {
     '44717': {
       id: '44717',
       active: true,
-      code: 'FROM WHICH AREA DID THE ABSCOND TAKE PLACE',
+      question: 'FROM WHICH AREA DID THE ABSCOND TAKE PLACE',
       label: 'From which area did the abscond take place?',
       multipleAnswers: false,
       answers: [
@@ -334,7 +334,7 @@ export const ABSCOND_1: IncidentTypeConfiguration = {
     '44766': {
       id: '44766',
       active: true,
-      code: 'IS THE INCIDENT THE SUBJECT OF AN INTERNAL INVESTIGATION',
+      question: 'IS THE INCIDENT THE SUBJECT OF AN INTERNAL INVESTIGATION',
       label: 'Is the incident the subject of an internal investigation?',
       multipleAnswers: false,
       answers: [
@@ -361,7 +361,7 @@ export const ABSCOND_1: IncidentTypeConfiguration = {
     '44800': {
       id: '44800',
       active: true,
-      code: 'DESCRIBE THE DAMAGE',
+      question: 'DESCRIBE THE DAMAGE',
       label: 'Describe the damage',
       multipleAnswers: false,
       answers: [
@@ -397,7 +397,7 @@ export const ABSCOND_1: IncidentTypeConfiguration = {
     '44854': {
       id: '44854',
       active: true,
-      code: 'WITH WHAT OFFENCE HAS THE PRISONER BEEN CHARGED',
+      question: 'WITH WHAT OFFENCE HAS THE PRISONER BEEN CHARGED',
       label: 'With what offence has the prisoner been charged?',
       multipleAnswers: true,
       answers: [
@@ -514,7 +514,7 @@ export const ABSCOND_1: IncidentTypeConfiguration = {
     '44861': {
       id: '44861',
       active: true,
-      code: 'HAS PRISONER BEEN RECAPTURED',
+      question: 'HAS PRISONER BEEN RECAPTURED',
       label: 'Has prisoner been recaptured?',
       multipleAnswers: false,
       answers: [
@@ -541,7 +541,7 @@ export const ABSCOND_1: IncidentTypeConfiguration = {
     '44868': {
       id: '44868',
       active: true,
-      code: 'DESCRIBE THE DAMAGE',
+      question: 'DESCRIBE THE DAMAGE',
       label: 'Describe the damage',
       multipleAnswers: false,
       answers: [
@@ -577,7 +577,7 @@ export const ABSCOND_1: IncidentTypeConfiguration = {
     '44941': {
       id: '44941',
       active: true,
-      code: 'IS THE INCIDENT THE SUBJECT OF A POLICE INVESTIGATION',
+      question: 'IS THE INCIDENT THE SUBJECT OF A POLICE INVESTIGATION',
       label: 'Is the incident the subject of a police investigation?',
       multipleAnswers: false,
       answers: [
@@ -604,7 +604,7 @@ export const ABSCOND_1: IncidentTypeConfiguration = {
     '44976': {
       id: '44976',
       active: true,
-      code: 'WAS ANY DAMAGE CAUSED TO PRIVATE PROPERTY DURING ABSCOND',
+      question: 'WAS ANY DAMAGE CAUSED TO PRIVATE PROPERTY DURING ABSCOND',
       label: 'Was any damage caused to private property during abscond?',
       multipleAnswers: false,
       answers: [
@@ -631,7 +631,7 @@ export const ABSCOND_1: IncidentTypeConfiguration = {
     '45077': {
       id: '45077',
       active: true,
-      code: 'IS THERE ANY MEDIA INTEREST IN THIS INCIDENT',
+      question: 'IS THERE ANY MEDIA INTEREST IN THIS INCIDENT',
       label: 'Is there any media interest in this incident?',
       multipleAnswers: false,
       answers: [

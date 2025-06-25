@@ -447,7 +447,7 @@ function buildQuestion({
   return {
     id,
     active,
-    code: label.toUpperCase(),
+    question: label.toUpperCase(),
     label,
     multipleAnswers,
     answers: answers ?? yesNoAnswers(nextQuestionId),

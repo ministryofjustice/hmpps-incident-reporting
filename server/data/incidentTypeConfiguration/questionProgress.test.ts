@@ -44,7 +44,7 @@ describe('Question progress', () => {
       '1': {
         id: '1',
         active: true,
-        code: 'Q1',
+        question: 'Q1',
         label: 'Question 1',
         multipleAnswers: false,
         answers: [
@@ -71,7 +71,7 @@ describe('Question progress', () => {
       '2': {
         id: '2',
         active: true,
-        code: 'Q2',
+        question: 'Q2',
         label: 'Question 2',
         multipleAnswers: false,
         answers: [
@@ -98,7 +98,7 @@ describe('Question progress', () => {
       '3': {
         id: '3',
         active: true,
-        code: 'Q3',
+        question: 'Q3',
         label: 'Question 3',
         multipleAnswers: false,
         answers: [
@@ -125,7 +125,7 @@ describe('Question progress', () => {
       '4': {
         id: '4',
         active: true,
-        code: 'Q4',
+        question: 'Q4',
         label: 'Question 4',
         multipleAnswers: false,
         answers: [
@@ -502,7 +502,7 @@ describe('Question progress', () => {
           '1': {
             id: '1',
             active: true,
-            code: 'Q1',
+            question: 'Q1',
             label: 'Question 1',
             multipleAnswers: false,
             answers: [
@@ -699,7 +699,7 @@ describe('Question progress', () => {
           '1': {
             id: '1',
             active: true,
-            code: 'Q1',
+            question: 'Q1',
             label: 'Question 1',
             multipleAnswers: true,
             answers: [
@@ -829,7 +829,7 @@ describe('Question progress', () => {
           '1': {
             id: '1',
             active: true,
-            code: 'Q1',
+            question: 'Q1',
             label: 'Question 1',
             multipleAnswers: false,
             answers: [
@@ -856,7 +856,7 @@ describe('Question progress', () => {
           '2': {
             id: '2',
             active: true,
-            code: 'Q2',
+            question: 'Q2',
             label: 'Question 2',
             multipleAnswers: false,
             answers: [...config.questions['4'].answers],

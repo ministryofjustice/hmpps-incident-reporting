@@ -10,7 +10,7 @@ export const TEMPORARY_RELEASE_FAILURE_1: IncidentTypeConfiguration = {
     '44259': {
       id: '44259',
       active: false,
-      code: 'HAS THE PRISONER BEEN CHARGED WITH A FURTHER OFFENCE',
+      question: 'HAS THE PRISONER BEEN CHARGED WITH A FURTHER OFFENCE',
       label: 'Has the prisoner been charged with a further offence?',
       multipleAnswers: false,
       answers: [
@@ -37,7 +37,7 @@ export const TEMPORARY_RELEASE_FAILURE_1: IncidentTypeConfiguration = {
     '44266': {
       id: '44266',
       active: false,
-      code: 'HAS THE PRISONER BEEN CHARGED WITH A FURTHER OFFENCE',
+      question: 'HAS THE PRISONER BEEN CHARGED WITH A FURTHER OFFENCE',
       label: 'Has the prisoner been charged with a further offence?',
       multipleAnswers: false,
       answers: [
@@ -64,7 +64,7 @@ export const TEMPORARY_RELEASE_FAILURE_1: IncidentTypeConfiguration = {
     '44345': {
       id: '44345',
       active: false,
-      code: 'IS THE INCIDENT THE SUBJECT OF A POLICE INVESTIGATION',
+      question: 'IS THE INCIDENT THE SUBJECT OF A POLICE INVESTIGATION',
       label: 'Is the incident the subject of a police investigation?',
       multipleAnswers: false,
       answers: [
@@ -91,7 +91,7 @@ export const TEMPORARY_RELEASE_FAILURE_1: IncidentTypeConfiguration = {
     '44351': {
       id: '44351',
       active: false,
-      code: 'WAS THE BREACH CHARGED WITH A FURTHER OFFENCE',
+      question: 'WAS THE BREACH CHARGED WITH A FURTHER OFFENCE',
       label: 'Was the breach charged with a further offence?',
       multipleAnswers: false,
       answers: [
@@ -118,7 +118,7 @@ export const TEMPORARY_RELEASE_FAILURE_1: IncidentTypeConfiguration = {
     '44358': {
       id: '44358',
       active: false,
-      code: 'WAS THE BREACH FAILING TO RETURN ON TIME',
+      question: 'WAS THE BREACH FAILING TO RETURN ON TIME',
       label: 'Was the breach failing to return on time?',
       multipleAnswers: false,
       answers: [
@@ -145,7 +145,7 @@ export const TEMPORARY_RELEASE_FAILURE_1: IncidentTypeConfiguration = {
     '44459': {
       id: '44459',
       active: false,
-      code: 'IS THERE ANY MEDIA INTEREST IN THIS INCIDENT',
+      question: 'IS THERE ANY MEDIA INTEREST IN THIS INCIDENT',
       label: 'Is there any media interest in this incident?',
       multipleAnswers: false,
       answers: [
@@ -172,7 +172,7 @@ export const TEMPORARY_RELEASE_FAILURE_1: IncidentTypeConfiguration = {
     '44602': {
       id: '44602',
       active: false,
-      code: 'HAS ANY PROSECUTION TAKEN PLACE OR IS ANY PENDING',
+      question: 'HAS ANY PROSECUTION TAKEN PLACE OR IS ANY PENDING',
       label: 'Has any prosecution taken place or is any pending?',
       multipleAnswers: false,
       answers: [
@@ -199,7 +199,7 @@ export const TEMPORARY_RELEASE_FAILURE_1: IncidentTypeConfiguration = {
     '44694': {
       id: '44694',
       active: false,
-      code: 'WITH WHAT OFFENCE HAS THE PRISONER BEEN CHARGED',
+      question: 'WITH WHAT OFFENCE HAS THE PRISONER BEEN CHARGED',
       label: 'With what offence has the prisoner been charged?',
       multipleAnswers: true,
       answers: [
@@ -316,7 +316,7 @@ export const TEMPORARY_RELEASE_FAILURE_1: IncidentTypeConfiguration = {
     '44736': {
       id: '44736',
       active: false,
-      code: 'HAS THE PRISON SERVICE PRESS OFFICE BEEN INFORMED',
+      question: 'HAS THE PRISON SERVICE PRESS OFFICE BEEN INFORMED',
       label: 'Has the prison service press office been informed?',
       multipleAnswers: false,
       answers: [
@@ -343,7 +343,7 @@ export const TEMPORARY_RELEASE_FAILURE_1: IncidentTypeConfiguration = {
     '44772': {
       id: '44772',
       active: false,
-      code: 'IS THAT OFFENCE UNDER THE PRISONERS (RETURN TO CUSTODY)',
+      question: 'IS THAT OFFENCE UNDER THE PRISONERS (RETURN TO CUSTODY)',
       label: 'Is that offence under the prisoners (return to custody)?',
       multipleAnswers: false,
       answers: [
@@ -370,7 +370,7 @@ export const TEMPORARY_RELEASE_FAILURE_1: IncidentTypeConfiguration = {
     '44826': {
       id: '44826',
       active: false,
-      code: 'HAS PRISONER BEEN RECAPTURED',
+      question: 'HAS PRISONER BEEN RECAPTURED',
       label: 'Has prisoner been recaptured?',
       multipleAnswers: false,
       answers: [
@@ -397,7 +397,7 @@ export const TEMPORARY_RELEASE_FAILURE_1: IncidentTypeConfiguration = {
     '44885': {
       id: '44885',
       active: false,
-      code: 'WERE THE POLICE INFORMED OF THE INCIDENT',
+      question: 'WERE THE POLICE INFORMED OF THE INCIDENT',
       label: 'Were the police informed of the incident?',
       multipleAnswers: false,
       answers: [
@@ -424,7 +424,7 @@ export const TEMPORARY_RELEASE_FAILURE_1: IncidentTypeConfiguration = {
     '44893': {
       id: '44893',
       active: false,
-      code: 'IS THE INCIDENT THE SUBJECT OF AN INTERNAL INVESTIGATION',
+      question: 'IS THE INCIDENT THE SUBJECT OF AN INTERNAL INVESTIGATION',
       label: 'Is the incident the subject of an internal investigation?',
       multipleAnswers: false,
       answers: [
@@ -451,7 +451,7 @@ export const TEMPORARY_RELEASE_FAILURE_1: IncidentTypeConfiguration = {
     '44926': {
       id: '44926',
       active: false,
-      code: "IS THE INCIDENT SUBJECT TO A GOVERNOR'S ADJUDICATION",
+      question: "IS THE INCIDENT SUBJECT TO A GOVERNOR'S ADJUDICATION",
       label: "Is the incident subject to a governor's adjudication?",
       multipleAnswers: false,
       answers: [
@@ -478,7 +478,7 @@ export const TEMPORARY_RELEASE_FAILURE_1: IncidentTypeConfiguration = {
     '44934': {
       id: '44934',
       active: false,
-      code: 'WITH WHAT OFFENCE HAS THE PRISONER BEEN CHARGED',
+      question: 'WITH WHAT OFFENCE HAS THE PRISONER BEEN CHARGED',
       label: 'With what offence has the prisoner been charged?',
       multipleAnswers: true,
       answers: [
@@ -595,7 +595,7 @@ export const TEMPORARY_RELEASE_FAILURE_1: IncidentTypeConfiguration = {
     '44942': {
       id: '44942',
       active: false,
-      code: 'WHAT TYPE OF LICENCE WAS BREACHED',
+      question: 'WHAT TYPE OF LICENCE WAS BREACHED',
       label: 'What type of licence was breached?',
       multipleAnswers: false,
       answers: [
@@ -640,7 +640,7 @@ export const TEMPORARY_RELEASE_FAILURE_1: IncidentTypeConfiguration = {
     '44997': {
       id: '44997',
       active: false,
-      code: 'HOW WAS THE PRISONER RECAPTURED',
+      question: 'HOW WAS THE PRISONER RECAPTURED',
       label: 'How was the prisoner recaptured?',
       multipleAnswers: false,
       answers: [
@@ -685,7 +685,7 @@ export const TEMPORARY_RELEASE_FAILURE_1: IncidentTypeConfiguration = {
     '45081': {
       id: '45081',
       active: false,
-      code: 'WAS THE BREACH FAILING TO RETURN REPORTED TO POLICE AS UAL',
+      question: 'WAS THE BREACH FAILING TO RETURN REPORTED TO POLICE AS UAL',
       label: 'Was the breach failing to return reported to police as UAL?',
       multipleAnswers: false,
       answers: [
@@ -712,7 +712,7 @@ export const TEMPORARY_RELEASE_FAILURE_1: IncidentTypeConfiguration = {
     '45160': {
       id: '45160',
       active: false,
-      code: 'WAS THE BREACH FAILING TO COMPLY WITH ANY OTHER LICENCE CONDITIONS',
+      question: 'WAS THE BREACH FAILING TO COMPLY WITH ANY OTHER LICENCE CONDITIONS',
       label: 'Was the breach failing to comply with any other licence conditions?',
       multipleAnswers: false,
       answers: [

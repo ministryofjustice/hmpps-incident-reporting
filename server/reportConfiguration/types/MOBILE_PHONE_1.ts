@@ -10,7 +10,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
     '45209': {
       id: '45209',
       active: false,
-      code: 'Item found. Must enter value (how many found) in comments field',
+      question: 'Item found. Must enter value (how many found) in comments field',
       label: 'Item found. must enter value (how many found) in comments field',
       multipleAnswers: true,
       answers: [
@@ -91,7 +91,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
     '45210': {
       id: '45210',
       active: false,
-      code: 'Date item was found',
+      question: 'Date item was found',
       label: 'Date item was found',
       multipleAnswers: false,
       answers: [
@@ -118,7 +118,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
     '45211': {
       id: '45211',
       active: false,
-      code: 'Time item was found',
+      question: 'Time item was found',
       label: 'Time item was found',
       multipleAnswers: false,
       answers: [
@@ -145,7 +145,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
     '45212': {
       id: '45212',
       active: false,
-      code: 'Is the method of entry into the establishment known?',
+      question: 'Is the method of entry into the establishment known?',
       label: 'Is the method of entry into the establishment known?',
       multipleAnswers: false,
       answers: [
@@ -190,7 +190,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
     '45213': {
       id: '45213',
       active: false,
-      code: 'Describe the method of entry into the establishment',
+      question: 'Describe the method of entry into the establishment',
       label: 'Describe the method of entry into the establishment',
       multipleAnswers: false,
       answers: [
@@ -370,7 +370,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
     '45214': {
       id: '45214',
       active: false,
-      code: 'Describe how item/s were found',
+      question: 'Describe how item/s were found',
       label: 'Describe how item/s were found',
       multipleAnswers: true,
       answers: [
@@ -559,7 +559,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
     '45215': {
       id: '45215',
       active: false,
-      code: 'If the item was found in possession - Whose possession was it found in?',
+      question: 'If the item was found in possession - Whose possession was it found in?',
       label: 'If the item was found in possession - whose possession was it found in?',
       multipleAnswers: false,
       answers: [
@@ -676,7 +676,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
     '45216': {
       id: '45216',
       active: false,
-      code: 'Where was the mobile phone found?',
+      question: 'Where was the mobile phone found?',
       label: 'Where was the mobile phone found?',
       multipleAnswers: false,
       answers: [
@@ -1135,7 +1135,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
     '45217': {
       id: '45217',
       active: false,
-      code: 'Is make of phone/sims/equipment known?',
+      question: 'Is make of phone/sims/equipment known?',
       label: 'Is make of phone/sims/equipment known?',
       multipleAnswers: false,
       answers: [
@@ -1180,7 +1180,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
     '45218': {
       id: '45218',
       active: false,
-      code: 'Has Phone/SIM/Equipment been sent to NDTSG?',
+      question: 'Has Phone/SIM/Equipment been sent to NDTSG?',
       label: 'Has phone/SIM/equipment been sent to NDTSG?',
       multipleAnswers: true,
       answers: [
@@ -1243,7 +1243,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
     '45219': {
       id: '45219',
       active: false,
-      code: 'Name and grade of member of staff who has authorised for the mobile/SIM to be interrogated',
+      question: 'Name and grade of member of staff who has authorised for the mobile/SIM to be interrogated',
       label: 'Name and grade of member of staff who has authorised for the mobile/SIM to be interrogated',
       multipleAnswers: true,
       answers: [
@@ -1288,7 +1288,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
     '45220': {
       id: '45220',
       active: false,
-      code: 'Has Phone/SIM/Equipment been retained by Police?',
+      question: 'Has Phone/SIM/Equipment been retained by Police?',
       label: 'Has phone/SIM/equipment been retained by police?',
       multipleAnswers: true,
       answers: [
@@ -1351,7 +1351,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
     '45221': {
       id: '45221',
       active: false,
-      code: 'Has incident been referred to Police for consideration under OMA or Crime & Security Act?',
+      question: 'Has incident been referred to Police for consideration under OMA or Crime & Security Act?',
       label: 'Has incident been referred to police for consideration under OMA or crime & security act?',
       multipleAnswers: true,
       answers: [
@@ -1414,7 +1414,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
     '45222': {
       id: '45222',
       active: false,
-      code: 'NDTSG Priority',
+      question: 'NDTSG Priority',
       label: 'NDTSG priority',
       multipleAnswers: false,
       answers: [
@@ -1486,7 +1486,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
     '45223': {
       id: '45223',
       active: false,
-      code: 'If a mobile / SIM was found on a person, please state where (this will assist with identifying contaminated mobiles)',
+      question: 'If a mobile / SIM was found on a person, please state where (this will assist with identifying contaminated mobiles)',
       label:
         'If a mobile / SIM was found on a person, please state where (this will assist with identifying contaminated mobiles)',
       multipleAnswers: false,
@@ -1514,7 +1514,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
     '45224': {
       id: '45224',
       active: false,
-      code: 'Is the item heavily contaminated?',
+      question: 'Is the item heavily contaminated?',
       label: 'Is the item heavily contaminated?',
       multipleAnswers: false,
       answers: [
@@ -1559,7 +1559,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
     '45225': {
       id: '45225',
       active: false,
-      code: 'If the item is heavily contaminated is interrogation still required?',
+      question: 'If the item is heavily contaminated is interrogation still required?',
       label: 'If the item is heavily contaminated is interrogation still required?',
       multipleAnswers: false,
       answers: [
@@ -1604,7 +1604,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
     '45226': {
       id: '45226',
       active: false,
-      code: 'Has written consent been given to interrogate item (Only necessary for staff, visitors and contractors)',
+      question: 'Has written consent been given to interrogate item (Only necessary for staff, visitors and contractors)',
       label: 'Has written consent been given to interrogate item (only necessary for staff, visitors and contractors)?',
       multipleAnswers: false,
       answers: [
@@ -1649,7 +1649,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
     '45227': {
       id: '45227',
       active: false,
-      code: 'Has any prosecution taken place or are any pending?',
+      question: 'Has any prosecution taken place or are any pending?',
       label: 'Has any prosecution taken place or are any pending?',
       multipleAnswers: false,
       answers: [
@@ -1694,7 +1694,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
     '45228': {
       id: '45228',
       active: false,
-      code: 'Is the Incident subject to an internal investigation?',
+      question: 'Is the Incident subject to an internal investigation?',
       label: 'Is the incident subject to an internal investigation?',
       multipleAnswers: false,
       answers: [
@@ -1739,7 +1739,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
     '45229': {
       id: '45229',
       active: false,
-      code: 'Is the incident subject to an adjudication?',
+      question: 'Is the incident subject to an adjudication?',
       label: 'Is the incident subject to an adjudication?',
       multipleAnswers: false,
       answers: [
@@ -1784,7 +1784,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
     '45230': {
       id: '45230',
       active: false,
-      code: 'Is any member of staff facing disciplinary charges?',
+      question: 'Is any member of staff facing disciplinary charges?',
       label: 'Is any member of staff facing disciplinary charges?',
       multipleAnswers: false,
       answers: [
@@ -1829,7 +1829,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
     '45231': {
       id: '45231',
       active: false,
-      code: 'Have items been returned: Please specify who to in comments field',
+      question: 'Have items been returned: Please specify who to in comments field',
       label: 'Have items been returned: please specify who to in comments field?',
       multipleAnswers: false,
       answers: [
@@ -1874,7 +1874,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
     '45232': {
       id: '45232',
       active: false,
-      code: 'Establishment Category',
+      question: 'Establishment Category',
       label: 'Establishment category',
       multipleAnswers: false,
       answers: [
@@ -2045,7 +2045,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
     '45233': {
       id: '45233',
       active: false,
-      code: 'Establishment Name',
+      question: 'Establishment Name',
       label: 'Establishment name',
       multipleAnswers: false,
       answers: [
@@ -2072,7 +2072,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
     '45234': {
       id: '45234',
       active: false,
-      code: 'Area/Region',
+      question: 'Area/Region',
       label: 'Area/region',
       multipleAnswers: false,
       answers: [
@@ -2198,7 +2198,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
     '47179': {
       id: '47179',
       active: false,
-      code: 'Item found. Must enter how many found in comments field',
+      question: 'Item found. Must enter how many found in comments field',
       label: 'Item found. must enter how many found in comments field',
       multipleAnswers: true,
       answers: [

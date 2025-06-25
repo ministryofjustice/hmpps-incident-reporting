@@ -10,7 +10,7 @@ export const KEY_OR_LOCK_1: IncidentTypeConfiguration = {
     '44166': {
       id: '44166',
       active: false,
-      code: 'HAS ANY PROSECUTION TAKEN PLACE OR IS ANY PENDING',
+      question: 'HAS ANY PROSECUTION TAKEN PLACE OR IS ANY PENDING',
       label: 'Has any prosecution taken place or is any pending?',
       multipleAnswers: false,
       answers: [
@@ -37,7 +37,7 @@ export const KEY_OR_LOCK_1: IncidentTypeConfiguration = {
     '44228': {
       id: '44228',
       active: false,
-      code: 'HAS THE PRISON SERVICE PRESS OFFICE BEEN INFORMED',
+      question: 'HAS THE PRISON SERVICE PRESS OFFICE BEEN INFORMED',
       label: 'Has the prison service press office been informed?',
       multipleAnswers: false,
       answers: [
@@ -64,7 +64,7 @@ export const KEY_OR_LOCK_1: IncidentTypeConfiguration = {
     '44331': {
       id: '44331',
       active: false,
-      code: 'IS THE INCIDENT THE SUBJECT OF AN INTERNAL INVESTIGATION',
+      question: 'IS THE INCIDENT THE SUBJECT OF AN INTERNAL INVESTIGATION',
       label: 'Is the incident the subject of an internal investigation?',
       multipleAnswers: false,
       answers: [
@@ -91,7 +91,7 @@ export const KEY_OR_LOCK_1: IncidentTypeConfiguration = {
     '44355': {
       id: '44355',
       active: false,
-      code: 'HAS A REPLICA BEEN FOUND',
+      question: 'HAS A REPLICA BEEN FOUND',
       label: 'Has a replica been found?',
       multipleAnswers: false,
       answers: [
@@ -118,7 +118,7 @@ export const KEY_OR_LOCK_1: IncidentTypeConfiguration = {
     '44386': {
       id: '44386',
       active: false,
-      code: "IS THE INCIDENT SUBJECT TO A GOVERNOR'S ADJUDICATION",
+      question: "IS THE INCIDENT SUBJECT TO A GOVERNOR'S ADJUDICATION",
       label: "Is the incident subject to a governor's adjudication?",
       multipleAnswers: false,
       answers: [
@@ -145,7 +145,7 @@ export const KEY_OR_LOCK_1: IncidentTypeConfiguration = {
     '44407': {
       id: '44407',
       active: false,
-      code: 'WHAT TOOLS WERE USED',
+      question: 'WHAT TOOLS WERE USED',
       label: 'What tools were used?',
       multipleAnswers: true,
       answers: [
@@ -235,7 +235,7 @@ export const KEY_OR_LOCK_1: IncidentTypeConfiguration = {
     '44414': {
       id: '44414',
       active: false,
-      code: 'IS ANY MEMBER OF STAFF FACING DISCIPLINARY CHARGES',
+      question: 'IS ANY MEMBER OF STAFF FACING DISCIPLINARY CHARGES',
       label: 'Is any member of staff facing disciplinary charges?',
       multipleAnswers: false,
       answers: [
@@ -262,7 +262,7 @@ export const KEY_OR_LOCK_1: IncidentTypeConfiguration = {
     '44449': {
       id: '44449',
       active: false,
-      code: 'DESCRIBE THE REMEDIAL ACTION TAKEN',
+      question: 'DESCRIBE THE REMEDIAL ACTION TAKEN',
       label: 'Describe the remedial action taken',
       multipleAnswers: false,
       answers: [
@@ -307,7 +307,7 @@ export const KEY_OR_LOCK_1: IncidentTypeConfiguration = {
     '44598': {
       id: '44598',
       active: false,
-      code: 'WERE THE POLICE INFORMED OF THE INCIDENT',
+      question: 'WERE THE POLICE INFORMED OF THE INCIDENT',
       label: 'Were the police informed of the incident?',
       multipleAnswers: false,
       answers: [
@@ -334,7 +334,7 @@ export const KEY_OR_LOCK_1: IncidentTypeConfiguration = {
     '44619': {
       id: '44619',
       active: false,
-      code: 'HAVE THE LOST ITEM(S) BEEN FOUND',
+      question: 'HAVE THE LOST ITEM(S) BEEN FOUND',
       label: 'Have the lost item(s) been found?',
       multipleAnswers: false,
       answers: [
@@ -361,7 +361,7 @@ export const KEY_OR_LOCK_1: IncidentTypeConfiguration = {
     '44678': {
       id: '44678',
       active: false,
-      code: 'IS THERE ANY MEDIA INTEREST IN THIS INCIDENT',
+      question: 'IS THERE ANY MEDIA INTEREST IN THIS INCIDENT',
       label: 'Is there any media interest in this incident?',
       multipleAnswers: false,
       answers: [
@@ -388,7 +388,7 @@ export const KEY_OR_LOCK_1: IncidentTypeConfiguration = {
     '44775': {
       id: '44775',
       active: false,
-      code: 'HAS ANY REMEDIAL ACTION BEEN TAKEN',
+      question: 'HAS ANY REMEDIAL ACTION BEEN TAKEN',
       label: 'Has any remedial action been taken?',
       multipleAnswers: false,
       answers: [
@@ -415,7 +415,7 @@ export const KEY_OR_LOCK_1: IncidentTypeConfiguration = {
     '44866': {
       id: '44866',
       active: false,
-      code: 'WERE TOOLS USED',
+      question: 'WERE TOOLS USED',
       label: 'Were tools used?',
       multipleAnswers: false,
       answers: [
@@ -442,7 +442,7 @@ export const KEY_OR_LOCK_1: IncidentTypeConfiguration = {
     '44894': {
       id: '44894',
       active: false,
-      code: 'WHAT ACTION WAS TAKEN TO FIND THESE ITEMS',
+      question: 'WHAT ACTION WAS TAKEN TO FIND THESE ITEMS',
       label: 'What action was taken to find these items?',
       multipleAnswers: false,
       answers: [
@@ -478,7 +478,7 @@ export const KEY_OR_LOCK_1: IncidentTypeConfiguration = {
     '44921': {
       id: '44921',
       active: false,
-      code: 'ESTIMATED COST OF THIS ACTION',
+      question: 'ESTIMATED COST OF THIS ACTION',
       label: 'Estimated cost of this action',
       multipleAnswers: false,
       answers: [
@@ -496,7 +496,7 @@ export const KEY_OR_LOCK_1: IncidentTypeConfiguration = {
     '44925': {
       id: '44925',
       active: false,
-      code: 'WHAT WAS THE SOURCE OF THE TOOLS',
+      question: 'WHAT WAS THE SOURCE OF THE TOOLS',
       label: 'What was the source of the tools?',
       multipleAnswers: true,
       answers: [
@@ -631,7 +631,7 @@ export const KEY_OR_LOCK_1: IncidentTypeConfiguration = {
     '44972': {
       id: '44972',
       active: false,
-      code: 'DESCRIBE THE TYPE OF KEY OR LOCK COMPROMISE',
+      question: 'DESCRIBE THE TYPE OF KEY OR LOCK COMPROMISE',
       label: 'Describe the type of key or lock compromise',
       multipleAnswers: true,
       answers: [
@@ -784,7 +784,7 @@ export const KEY_OR_LOCK_1: IncidentTypeConfiguration = {
     '45015': {
       id: '45015',
       active: false,
-      code: 'DESCRIBE THE NATURE OF THE COMPROMISE',
+      question: 'DESCRIBE THE NATURE OF THE COMPROMISE',
       label: 'Describe the nature of the compromise',
       multipleAnswers: true,
       answers: [
@@ -874,7 +874,7 @@ export const KEY_OR_LOCK_1: IncidentTypeConfiguration = {
     '45072': {
       id: '45072',
       active: false,
-      code: 'IS THE INCIDENT THE SUBJECT OF A POLICE INVESTIGATION',
+      question: 'IS THE INCIDENT THE SUBJECT OF A POLICE INVESTIGATION',
       label: 'Is the incident the subject of a police investigation?',
       multipleAnswers: false,
       answers: [

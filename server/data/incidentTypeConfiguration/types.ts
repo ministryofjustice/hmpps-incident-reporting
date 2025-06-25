@@ -23,7 +23,7 @@ export interface QuestionConfiguration {
    *
    * For example: 'WHAT WAS THE METHOD OF CONCEALMENT'
    */
-  code: string
+  question: string
   /** Question as shown to humans.
    *
    * For example: 'What was the method of concealment?'

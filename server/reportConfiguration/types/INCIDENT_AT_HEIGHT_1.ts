@@ -10,7 +10,7 @@ export const INCIDENT_AT_HEIGHT_1: IncidentTypeConfiguration = {
     '44145': {
       id: '44145',
       active: false,
-      code: 'WAS THIS A FULL OR PARTIAL SHUT DOWN?',
+      question: 'WAS THIS A FULL OR PARTIAL SHUT DOWN?',
       label: 'Was this a full or partial shut down?',
       multipleAnswers: false,
       answers: [
@@ -37,7 +37,7 @@ export const INCIDENT_AT_HEIGHT_1: IncidentTypeConfiguration = {
     '44150': {
       id: '44150',
       active: false,
-      code: 'ESTIMATED COST OF DAMAGE',
+      question: 'ESTIMATED COST OF DAMAGE',
       label: 'Estimated cost of damage',
       multipleAnswers: false,
       answers: [
@@ -55,7 +55,7 @@ export const INCIDENT_AT_HEIGHT_1: IncidentTypeConfiguration = {
     '44151': {
       id: '44151',
       active: false,
-      code: 'WERE ANY INJURIES RECEIVED DURING THIS INCIDENT',
+      question: 'WERE ANY INJURIES RECEIVED DURING THIS INCIDENT',
       label: 'Were any injuries received during this incident?',
       multipleAnswers: false,
       answers: [
@@ -82,7 +82,7 @@ export const INCIDENT_AT_HEIGHT_1: IncidentTypeConfiguration = {
     '44175': {
       id: '44175',
       active: false,
-      code: 'WHO WAS DETAINED IN OUTSIDE HOSPITAL',
+      question: 'WHO WAS DETAINED IN OUTSIDE HOSPITAL',
       label: 'Who was detained in outside hospital?',
       multipleAnswers: true,
       answers: [
@@ -136,7 +136,7 @@ export const INCIDENT_AT_HEIGHT_1: IncidentTypeConfiguration = {
     '44177': {
       id: '44177',
       active: false,
-      code: 'WHEN WAS THE SYSTEM RE-ACTIVATED?',
+      question: 'WHEN WAS THE SYSTEM RE-ACTIVATED?',
       label: 'When was the system re-activated?',
       multipleAnswers: false,
       answers: [
@@ -154,7 +154,7 @@ export const INCIDENT_AT_HEIGHT_1: IncidentTypeConfiguration = {
     '44183': {
       id: '44183',
       active: false,
-      code: 'DURATION OF INCIDENT IN HOURS',
+      question: 'DURATION OF INCIDENT IN HOURS',
       label: 'Duration of incident in hours',
       multipleAnswers: false,
       answers: [
@@ -172,7 +172,7 @@ export const INCIDENT_AT_HEIGHT_1: IncidentTypeConfiguration = {
     '44196': {
       id: '44196',
       active: false,
-      code: 'WAS THERE AN APPARENT REASON FOR THE INCIDENT',
+      question: 'WAS THERE AN APPARENT REASON FOR THE INCIDENT',
       label: 'Was there an apparent reason for the incident?',
       multipleAnswers: false,
       answers: [
@@ -199,7 +199,7 @@ export const INCIDENT_AT_HEIGHT_1: IncidentTypeConfiguration = {
     '44273': {
       id: '44273',
       active: false,
-      code: 'ARE ANY STAFF ON SICK LEAVE AS A RESULT OF THIS INCIDENT',
+      question: 'ARE ANY STAFF ON SICK LEAVE AS A RESULT OF THIS INCIDENT',
       label: 'Are any staff on sick leave as a result of this incident?',
       multipleAnswers: false,
       answers: [
@@ -226,7 +226,7 @@ export const INCIDENT_AT_HEIGHT_1: IncidentTypeConfiguration = {
     '44289': {
       id: '44289',
       active: false,
-      code: 'WAS THE KEYWORD REQUESTED?',
+      question: 'WAS THE KEYWORD REQUESTED?',
       label: 'Was the keyword requested?',
       multipleAnswers: false,
       answers: [
@@ -253,7 +253,7 @@ export const INCIDENT_AT_HEIGHT_1: IncidentTypeConfiguration = {
     '44328': {
       id: '44328',
       active: false,
-      code: 'WAS THE SYSTEM RE-ACTIVATED LOCALLY OR BY THE SERVICE SUPPLIER',
+      question: 'WAS THE SYSTEM RE-ACTIVATED LOCALLY OR BY THE SERVICE SUPPLIER',
       label: 'Was the system re-activated locally or by the service supplier?',
       multipleAnswers: false,
       answers: [
@@ -280,7 +280,7 @@ export const INCIDENT_AT_HEIGHT_1: IncidentTypeConfiguration = {
     '44334': {
       id: '44334',
       active: false,
-      code: 'WAS DAMAGE CAUSED TO PRISON PROPERTY',
+      question: 'WAS DAMAGE CAUSED TO PRISON PROPERTY',
       label: 'Was damage caused to prison property?',
       multipleAnswers: false,
       answers: [
@@ -307,7 +307,7 @@ export const INCIDENT_AT_HEIGHT_1: IncidentTypeConfiguration = {
     '44337': {
       id: '44337',
       active: false,
-      code: 'DESCRIBE THE APPARENT REASON FOR THE INCIDENT',
+      question: 'DESCRIBE THE APPARENT REASON FOR THE INCIDENT',
       label: 'Describe the apparent reason for the incident',
       multipleAnswers: false,
       answers: [
@@ -370,7 +370,7 @@ export const INCIDENT_AT_HEIGHT_1: IncidentTypeConfiguration = {
     '44359': {
       id: '44359',
       active: false,
-      code: 'IS THERE ANY MEDIA INTEREST IN THIS INCIDENT',
+      question: 'IS THERE ANY MEDIA INTEREST IN THIS INCIDENT',
       label: 'Is there any media interest in this incident?',
       multipleAnswers: false,
       answers: [
@@ -397,7 +397,7 @@ export const INCIDENT_AT_HEIGHT_1: IncidentTypeConfiguration = {
     '44374': {
       id: '44374',
       active: false,
-      code: 'WAS THE AMBULANCE SERVICE PRESENT',
+      question: 'WAS THE AMBULANCE SERVICE PRESENT',
       label: 'Was the ambulance service present?',
       multipleAnswers: false,
       answers: [
@@ -424,7 +424,7 @@ export const INCIDENT_AT_HEIGHT_1: IncidentTypeConfiguration = {
     '44375': {
       id: '44375',
       active: false,
-      code: 'HAS THE PRISON SERVICE PRESS OFFICE BEEN INFORMED',
+      question: 'HAS THE PRISON SERVICE PRESS OFFICE BEEN INFORMED',
       label: 'Has the prison service press office been informed?',
       multipleAnswers: false,
       answers: [
@@ -451,7 +451,7 @@ export const INCIDENT_AT_HEIGHT_1: IncidentTypeConfiguration = {
     '44394': {
       id: '44394',
       active: false,
-      code: 'WHICH MINOR INJURIES WERE SUSTAINED',
+      question: 'WHICH MINOR INJURIES WERE SUSTAINED',
       label: 'Which minor injuries were sustained?',
       multipleAnswers: true,
       answers: [
@@ -505,7 +505,7 @@ export const INCIDENT_AT_HEIGHT_1: IncidentTypeConfiguration = {
     '44417': {
       id: '44417',
       active: false,
-      code: 'IS THE LOCATION OF THE INCIDENT KNOWN',
+      question: 'IS THE LOCATION OF THE INCIDENT KNOWN',
       label: 'Is the location of the incident known?',
       multipleAnswers: false,
       answers: [
@@ -532,7 +532,7 @@ export const INCIDENT_AT_HEIGHT_1: IncidentTypeConfiguration = {
     '44422': {
       id: '44422',
       active: false,
-      code: 'IS THE INCIDENT THE SUBJECT OF A POLICE INVESTIGATION',
+      question: 'IS THE INCIDENT THE SUBJECT OF A POLICE INVESTIGATION',
       label: 'Is the incident the subject of a police investigation?',
       multipleAnswers: false,
       answers: [
@@ -559,7 +559,7 @@ export const INCIDENT_AT_HEIGHT_1: IncidentTypeConfiguration = {
     '44462': {
       id: '44462',
       active: false,
-      code: 'ENTER DESCRIPTION OF PERSON(S) INJURED',
+      question: 'ENTER DESCRIPTION OF PERSON(S) INJURED',
       label: 'Enter description of person(s) injured',
       multipleAnswers: true,
       answers: [
@@ -613,7 +613,7 @@ export const INCIDENT_AT_HEIGHT_1: IncidentTypeConfiguration = {
     '44465': {
       id: '44465',
       active: false,
-      code: 'IS ANY MEMBER OF STAFF FACING DISCIPLINARY CHARGES',
+      question: 'IS ANY MEMBER OF STAFF FACING DISCIPLINARY CHARGES',
       label: 'Is any member of staff facing disciplinary charges?',
       multipleAnswers: false,
       answers: [
@@ -640,7 +640,7 @@ export const INCIDENT_AT_HEIGHT_1: IncidentTypeConfiguration = {
     '44469': {
       id: '44469',
       active: false,
-      code: 'WERE WORKS SERVICES STAFF PRESENT',
+      question: 'WERE WORKS SERVICES STAFF PRESENT',
       label: 'Were works services staff present?',
       multipleAnswers: false,
       answers: [
@@ -667,7 +667,7 @@ export const INCIDENT_AT_HEIGHT_1: IncidentTypeConfiguration = {
     '44475': {
       id: '44475',
       active: false,
-      code: 'WERE EXTENDABLE BATONS USED',
+      question: 'WERE EXTENDABLE BATONS USED',
       label: 'Were extendable batons used?',
       multipleAnswers: false,
       answers: [
@@ -694,7 +694,7 @@ export const INCIDENT_AT_HEIGHT_1: IncidentTypeConfiguration = {
     '44487': {
       id: '44487',
       active: false,
-      code: 'DESCRIBE METHOD OF GAINING ACCESS TO AREA AT HEIGHT',
+      question: 'DESCRIBE METHOD OF GAINING ACCESS TO AREA AT HEIGHT',
       label: 'Describe method of gaining access to area at height',
       multipleAnswers: false,
       answers: [
@@ -748,7 +748,7 @@ export const INCIDENT_AT_HEIGHT_1: IncidentTypeConfiguration = {
     '44518': {
       id: '44518',
       active: false,
-      code: 'WAS A SERIOUS INJURY SUSTAINED',
+      question: 'WAS A SERIOUS INJURY SUSTAINED',
       label: 'Was a serious injury sustained?',
       multipleAnswers: false,
       answers: [
@@ -775,7 +775,7 @@ export const INCIDENT_AT_HEIGHT_1: IncidentTypeConfiguration = {
     '44533': {
       id: '44533',
       active: false,
-      code: 'DID INJURIES RESULT IN DETENTION IN OUTSIDE HOSPITAL AS AN IN-PATIENT',
+      question: 'DID INJURIES RESULT IN DETENTION IN OUTSIDE HOSPITAL AS AN IN-PATIENT',
       label: 'Did injuries result in detention in outside hospital as an in-patient?',
       multipleAnswers: false,
       answers: [
@@ -802,7 +802,7 @@ export const INCIDENT_AT_HEIGHT_1: IncidentTypeConfiguration = {
     '44536': {
       id: '44536',
       active: false,
-      code: 'WAS THE FIRE SERVICE PRESENT',
+      question: 'WAS THE FIRE SERVICE PRESENT',
       label: 'Was the fire service present?',
       multipleAnswers: false,
       answers: [
@@ -829,7 +829,7 @@ export const INCIDENT_AT_HEIGHT_1: IncidentTypeConfiguration = {
     '44553': {
       id: '44553',
       active: false,
-      code: "IS THE INCIDENT SUBJECT TO A GOVERNOR'S ADJUDICATION",
+      question: "IS THE INCIDENT SUBJECT TO A GOVERNOR'S ADJUDICATION",
       label: "Is the incident subject to a governor's adjudication?",
       multipleAnswers: false,
       answers: [
@@ -856,7 +856,7 @@ export const INCIDENT_AT_HEIGHT_1: IncidentTypeConfiguration = {
     '44580': {
       id: '44580',
       active: false,
-      code: 'WERE HEALTH CARE CENTRE STAFF PRESENT',
+      question: 'WERE HEALTH CARE CENTRE STAFF PRESENT',
       label: 'Were health care centre staff present?',
       multipleAnswers: false,
       answers: [
@@ -883,7 +883,7 @@ export const INCIDENT_AT_HEIGHT_1: IncidentTypeConfiguration = {
     '44596': {
       id: '44596',
       active: false,
-      code: 'WERE THE POLICE INFORMED OF THE INCIDENT',
+      question: 'WERE THE POLICE INFORMED OF THE INCIDENT',
       label: 'Were the police informed of the incident?',
       multipleAnswers: false,
       answers: [
@@ -910,7 +910,7 @@ export const INCIDENT_AT_HEIGHT_1: IncidentTypeConfiguration = {
     '44610': {
       id: '44610',
       active: false,
-      code: 'WERE WATER HOSES USED',
+      question: 'WERE WATER HOSES USED',
       label: 'Were water hoses used?',
       multipleAnswers: false,
       answers: [
@@ -937,7 +937,7 @@ export const INCIDENT_AT_HEIGHT_1: IncidentTypeConfiguration = {
     '44625': {
       id: '44625',
       active: false,
-      code: 'WERE IMB MEMBERS PRESENT',
+      question: 'WERE IMB MEMBERS PRESENT',
       label: 'Were IMB members present?',
       multipleAnswers: false,
       answers: [
@@ -964,7 +964,7 @@ export const INCIDENT_AT_HEIGHT_1: IncidentTypeConfiguration = {
     '44630': {
       id: '44630',
       active: false,
-      code: 'HAVE THE RING LEADERS BEEN ENTERED ON INMATE INVOLVEMENT',
+      question: 'HAVE THE RING LEADERS BEEN ENTERED ON INMATE INVOLVEMENT',
       label: 'Have the ring leaders been entered on inmate involvement?',
       multipleAnswers: false,
       answers: [
@@ -991,7 +991,7 @@ export const INCIDENT_AT_HEIGHT_1: IncidentTypeConfiguration = {
     '44639': {
       id: '44639',
       active: false,
-      code: 'WAS THE INCIDENT IN PUBLIC VIEW',
+      question: 'WAS THE INCIDENT IN PUBLIC VIEW',
       label: 'Was the incident in public view?',
       multipleAnswers: false,
       answers: [
@@ -1018,7 +1018,7 @@ export const INCIDENT_AT_HEIGHT_1: IncidentTypeConfiguration = {
     '44660': {
       id: '44660',
       active: false,
-      code: 'HOW MANY PRISONERS WERE INVOLVED',
+      question: 'HOW MANY PRISONERS WERE INVOLVED',
       label: 'How many prisoners were involved?',
       multipleAnswers: false,
       answers: [
@@ -1036,7 +1036,7 @@ export const INCIDENT_AT_HEIGHT_1: IncidentTypeConfiguration = {
     '44687': {
       id: '44687',
       active: false,
-      code: 'DESCRIBE WEAPONS USED',
+      question: 'DESCRIBE WEAPONS USED',
       label: 'Describe weapons used',
       multipleAnswers: true,
       answers: [
@@ -1162,7 +1162,7 @@ export const INCIDENT_AT_HEIGHT_1: IncidentTypeConfiguration = {
     '44710': {
       id: '44710',
       active: false,
-      code: 'WAS CONTROL AND RESTRAINTS EMPLOYED',
+      question: 'WAS CONTROL AND RESTRAINTS EMPLOYED',
       label: 'Was control and restraints employed?',
       multipleAnswers: false,
       answers: [
@@ -1189,7 +1189,7 @@ export const INCIDENT_AT_HEIGHT_1: IncidentTypeConfiguration = {
     '44714': {
       id: '44714',
       active: false,
-      code: 'QUOTE THE VANTIVE CASE NUMBER',
+      question: 'QUOTE THE VANTIVE CASE NUMBER',
       label: 'Quote the Vantive case number',
       multipleAnswers: false,
       answers: [
@@ -1207,7 +1207,7 @@ export const INCIDENT_AT_HEIGHT_1: IncidentTypeConfiguration = {
     '44725': {
       id: '44725',
       active: false,
-      code: 'WAS ANY EVACUATION NECESSARY',
+      question: 'WAS ANY EVACUATION NECESSARY',
       label: 'Was any evacuation necessary?',
       multipleAnswers: false,
       answers: [
@@ -1234,7 +1234,7 @@ export const INCIDENT_AT_HEIGHT_1: IncidentTypeConfiguration = {
     '44756': {
       id: '44756',
       active: false,
-      code: 'WAS OPERATION TORNADO USED',
+      question: 'WAS OPERATION TORNADO USED',
       label: 'Was operation Tornado used?',
       multipleAnswers: false,
       answers: [
@@ -1261,7 +1261,7 @@ export const INCIDENT_AT_HEIGHT_1: IncidentTypeConfiguration = {
     '44767': {
       id: '44767',
       active: false,
-      code: 'HAS THE SERVICE SUPPLIER BEEN NOTIFIED OF A REPLACEMENT KEYWORD?',
+      question: 'HAS THE SERVICE SUPPLIER BEEN NOTIFIED OF A REPLACEMENT KEYWORD?',
       label: 'Has the service supplier been notified of a replacement keyword?',
       multipleAnswers: false,
       answers: [
@@ -1288,7 +1288,7 @@ export const INCIDENT_AT_HEIGHT_1: IncidentTypeConfiguration = {
     '44780': {
       id: '44780',
       active: false,
-      code: 'DESCRIBE HOW THE INCIDENT WAS RESOLVED',
+      question: 'DESCRIBE HOW THE INCIDENT WAS RESOLVED',
       label: 'Describe how the incident was resolved',
       multipleAnswers: false,
       answers: [
@@ -1324,7 +1324,7 @@ export const INCIDENT_AT_HEIGHT_1: IncidentTypeConfiguration = {
     '44797': {
       id: '44797',
       active: false,
-      code: 'WERE THE POLICE PRESENT',
+      question: 'WERE THE POLICE PRESENT',
       label: 'Were the police present?',
       multipleAnswers: false,
       answers: [
@@ -1351,7 +1351,7 @@ export const INCIDENT_AT_HEIGHT_1: IncidentTypeConfiguration = {
     '44804': {
       id: '44804',
       active: false,
-      code: 'IS THE INCIDENT THE SUBJECT OF AN INTERNAL INVESTIGATION',
+      question: 'IS THE INCIDENT THE SUBJECT OF AN INTERNAL INVESTIGATION',
       label: 'Is the incident the subject of an internal investigation?',
       multipleAnswers: false,
       answers: [
@@ -1378,7 +1378,7 @@ export const INCIDENT_AT_HEIGHT_1: IncidentTypeConfiguration = {
     '44806': {
       id: '44806',
       active: false,
-      code: 'WHO AUTHORISED THE SHUT DOWN?',
+      question: 'WHO AUTHORISED THE SHUT DOWN?',
       label: 'Who authorised the shut down?',
       multipleAnswers: false,
       answers: [
@@ -1423,7 +1423,7 @@ export const INCIDENT_AT_HEIGHT_1: IncidentTypeConfiguration = {
     '44815': {
       id: '44815',
       active: false,
-      code: 'WERE TRAINED NEGOTIATORS DEPLOYED',
+      question: 'WERE TRAINED NEGOTIATORS DEPLOYED',
       label: 'Were trained negotiators deployed?',
       multipleAnswers: false,
       answers: [
@@ -1450,7 +1450,7 @@ export const INCIDENT_AT_HEIGHT_1: IncidentTypeConfiguration = {
     '44825': {
       id: '44825',
       active: false,
-      code: 'WAS THE SYSTEM COMPROMISED?',
+      question: 'WAS THE SYSTEM COMPROMISED?',
       label: 'Was the system compromised?',
       multipleAnswers: false,
       answers: [
@@ -1477,7 +1477,7 @@ export const INCIDENT_AT_HEIGHT_1: IncidentTypeConfiguration = {
     '44842': {
       id: '44842',
       active: false,
-      code: 'ARE THERE ANY STAFF NOW OFF DUTY AS A RESULT OF THIS INCIDENT',
+      question: 'ARE THERE ANY STAFF NOW OFF DUTY AS A RESULT OF THIS INCIDENT',
       label: 'Are there any staff now off duty as a result of this incident?',
       multipleAnswers: false,
       answers: [
@@ -1504,7 +1504,7 @@ export const INCIDENT_AT_HEIGHT_1: IncidentTypeConfiguration = {
     '44847': {
       id: '44847',
       active: false,
-      code: 'DESCRIBE WHAT WAS COMPROMISED AND BY WHOM',
+      question: 'DESCRIBE WHAT WAS COMPROMISED AND BY WHOM',
       label: 'Describe what was compromised and by whom',
       multipleAnswers: false,
       answers: [
@@ -1522,7 +1522,7 @@ export const INCIDENT_AT_HEIGHT_1: IncidentTypeConfiguration = {
     '44853': {
       id: '44853',
       active: false,
-      code: 'HAS ANY PROSECUTION TAKEN PLACE OR IS ANY PENDING',
+      question: 'HAS ANY PROSECUTION TAKEN PLACE OR IS ANY PENDING',
       label: 'Has any prosecution taken place or is any pending?',
       multipleAnswers: false,
       answers: [
@@ -1549,7 +1549,7 @@ export const INCIDENT_AT_HEIGHT_1: IncidentTypeConfiguration = {
     '44873': {
       id: '44873',
       active: false,
-      code: 'WERE WEAPONS USED BY THE PERPETRATOR',
+      question: 'WERE WEAPONS USED BY THE PERPETRATOR',
       label: 'Were weapons used by the perpetrator?',
       multipleAnswers: false,
       answers: [
@@ -1576,7 +1576,7 @@ export const INCIDENT_AT_HEIGHT_1: IncidentTypeConfiguration = {
     '44889': {
       id: '44889',
       active: false,
-      code: 'HAVE THE RING LEADERS BEEN IDENTIFIED',
+      question: 'HAVE THE RING LEADERS BEEN IDENTIFIED',
       label: 'Have the ring leaders been identified?',
       multipleAnswers: false,
       answers: [
@@ -1603,7 +1603,7 @@ export const INCIDENT_AT_HEIGHT_1: IncidentTypeConfiguration = {
     '44892': {
       id: '44892',
       active: false,
-      code: 'WAS THE EMERGENCY RESPONSE VEHICLE PRESENT',
+      question: 'WAS THE EMERGENCY RESPONSE VEHICLE PRESENT',
       label: 'Was the emergency response vehicle present?',
       multipleAnswers: false,
       answers: [
@@ -1630,7 +1630,7 @@ export const INCIDENT_AT_HEIGHT_1: IncidentTypeConfiguration = {
     '44927': {
       id: '44927',
       active: false,
-      code: 'WHAT WAS THE LOCATION OF THE INCIDENT',
+      question: 'WHAT WAS THE LOCATION OF THE INCIDENT',
       label: 'What was the location of the incident?',
       multipleAnswers: false,
       answers: [
@@ -1936,7 +1936,7 @@ export const INCIDENT_AT_HEIGHT_1: IncidentTypeConfiguration = {
     '44951': {
       id: '44951',
       active: false,
-      code: 'WAS AN INCIDENT LIAISON OFFICER PRESENT',
+      question: 'WAS AN INCIDENT LIAISON OFFICER PRESENT',
       label: 'Was an incident liaison officer present?',
       multipleAnswers: false,
       answers: [
@@ -1963,7 +1963,7 @@ export const INCIDENT_AT_HEIGHT_1: IncidentTypeConfiguration = {
     '44985': {
       id: '44985',
       active: false,
-      code: 'WAS THE TELEPHONE/IT SYSTEM SHUT DOWN LOCALLY OR BY THE SERVICE SUPPLIER',
+      question: 'WAS THE TELEPHONE/IT SYSTEM SHUT DOWN LOCALLY OR BY THE SERVICE SUPPLIER',
       label: 'Was the telephone/it system shut down locally or by the service supplier?',
       multipleAnswers: false,
       answers: [
@@ -1990,7 +1990,7 @@ export const INCIDENT_AT_HEIGHT_1: IncidentTypeConfiguration = {
     '44986': {
       id: '44986',
       active: false,
-      code: 'WAS A CANDR ADVISOR PRESENT',
+      question: 'WAS A CANDR ADVISOR PRESENT',
       label: 'Was a CANDR advisor present?',
       multipleAnswers: false,
       answers: [
@@ -2017,7 +2017,7 @@ export const INCIDENT_AT_HEIGHT_1: IncidentTypeConfiguration = {
     '45028': {
       id: '45028',
       active: false,
-      code: 'WHAT TIME WAS THE SYSTEM SHUT DOWN?',
+      question: 'WHAT TIME WAS THE SYSTEM SHUT DOWN?',
       label: 'What time was the system shut down?',
       multipleAnswers: false,
       answers: [
@@ -2035,7 +2035,7 @@ export const INCIDENT_AT_HEIGHT_1: IncidentTypeConfiguration = {
     '45098': {
       id: '45098',
       active: false,
-      code: 'DESCRIBE THE DAMAGE',
+      question: 'DESCRIBE THE DAMAGE',
       label: 'Describe the damage',
       multipleAnswers: false,
       answers: [
@@ -2071,7 +2071,7 @@ export const INCIDENT_AT_HEIGHT_1: IncidentTypeConfiguration = {
     '45127': {
       id: '45127',
       active: false,
-      code: 'WAS THE TELEPHONE/IT SYSTEM SHUT DOWN DURING THE INCIDENT?',
+      question: 'WAS THE TELEPHONE/IT SYSTEM SHUT DOWN DURING THE INCIDENT?',
       label: 'Was the telephone/it system shut down during the incident?',
       multipleAnswers: false,
       answers: [
@@ -2098,7 +2098,7 @@ export const INCIDENT_AT_HEIGHT_1: IncidentTypeConfiguration = {
     '45128': {
       id: '45128',
       active: false,
-      code: 'DESCRIBE THE INCIDENT AS EITHER ACTIVE OR PASSIVE',
+      question: 'DESCRIBE THE INCIDENT AS EITHER ACTIVE OR PASSIVE',
       label: 'Describe the incident as either active or passive',
       multipleAnswers: false,
       answers: [
@@ -2125,7 +2125,7 @@ export const INCIDENT_AT_HEIGHT_1: IncidentTypeConfiguration = {
     '45155': {
       id: '45155',
       active: false,
-      code: 'WHICH SERIOUS INJURIES WERE SUSTAINED',
+      question: 'WHICH SERIOUS INJURIES WERE SUSTAINED',
       label: 'Which serious injuries were sustained?',
       multipleAnswers: true,
       answers: [
@@ -2242,7 +2242,7 @@ export const INCIDENT_AT_HEIGHT_1: IncidentTypeConfiguration = {
     '45163': {
       id: '45163',
       active: false,
-      code: 'INDICATE THE NATURE OF THE SHUT DOWN',
+      question: 'INDICATE THE NATURE OF THE SHUT DOWN',
       label: 'Indicate the nature of the shut down',
       multipleAnswers: true,
       answers: [
@@ -2269,7 +2269,7 @@ export const INCIDENT_AT_HEIGHT_1: IncidentTypeConfiguration = {
     '45175': {
       id: '45175',
       active: false,
-      code: 'WAS A MINOR INJURY SUSTAINED',
+      question: 'WAS A MINOR INJURY SUSTAINED',
       label: 'Was a minor injury sustained?',
       multipleAnswers: false,
       answers: [

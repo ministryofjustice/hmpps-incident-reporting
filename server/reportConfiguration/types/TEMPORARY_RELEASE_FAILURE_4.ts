@@ -10,7 +10,7 @@ export const TEMPORARY_RELEASE_FAILURE_4: IncidentTypeConfiguration = {
     '59179': {
       id: '59179',
       active: true,
-      code: 'What was the main management outcome of the incident?',
+      question: 'What was the main management outcome of the incident?',
       label: 'What was the main management outcome of the incident?',
       multipleAnswers: true,
       answers: [
@@ -73,7 +73,7 @@ export const TEMPORARY_RELEASE_FAILURE_4: IncidentTypeConfiguration = {
     '59180': {
       id: '59180',
       active: true,
-      code: 'Is any member of staff facing disciplinary charges?',
+      question: 'Is any member of staff facing disciplinary charges?',
       label: 'Is any member of staff facing disciplinary charges?',
       multipleAnswers: false,
       answers: [
@@ -100,7 +100,7 @@ export const TEMPORARY_RELEASE_FAILURE_4: IncidentTypeConfiguration = {
     '59181': {
       id: '59181',
       active: true,
-      code: 'Was ROTL Standard or Restricted?',
+      question: 'Was ROTL Standard or Restricted?',
       label: 'Was ROTL standard or restricted?',
       multipleAnswers: false,
       answers: [
@@ -127,7 +127,7 @@ export const TEMPORARY_RELEASE_FAILURE_4: IncidentTypeConfiguration = {
     '59182': {
       id: '59182',
       active: true,
-      code: 'What Type Of Temporary Licence Was Breached?',
+      question: 'What Type Of Temporary Licence Was Breached?',
       label: 'What type of temporary licence was breached?',
       multipleAnswers: false,
       answers: [
@@ -181,7 +181,7 @@ export const TEMPORARY_RELEASE_FAILURE_4: IncidentTypeConfiguration = {
     '59183': {
       id: '59183',
       active: true,
-      code: 'What Was The Specific Purpose Of Temporary Release?',
+      question: 'What Was The Specific Purpose Of Temporary Release?',
       label: 'What was the specific purpose of temporary release?',
       multipleAnswers: false,
       answers: [
@@ -307,7 +307,7 @@ export const TEMPORARY_RELEASE_FAILURE_4: IncidentTypeConfiguration = {
     '59184': {
       id: '59184',
       active: true,
-      code: 'Were UAL contingency plans (including notification to the police) activated?',
+      question: 'Were UAL contingency plans (including notification to the police) activated?',
       label: 'Were UAL contingency plans (including notification to the police) activated?',
       multipleAnswers: false,
       answers: [
@@ -334,7 +334,7 @@ export const TEMPORARY_RELEASE_FAILURE_4: IncidentTypeConfiguration = {
     '59185': {
       id: '59185',
       active: true,
-      code: 'Why were UAL contingency plans activated?',
+      question: 'Why were UAL contingency plans activated?',
       label: 'Why were UAL contingency plans activated?',
       multipleAnswers: false,
       answers: [
@@ -361,7 +361,7 @@ export const TEMPORARY_RELEASE_FAILURE_4: IncidentTypeConfiguration = {
     '59186': {
       id: '59186',
       active: true,
-      code: 'Has the prisoner surrendered/been recaptured?',
+      question: 'Has the prisoner surrendered/been recaptured?',
       label: 'Has the prisoner surrendered/been recaptured?',
       multipleAnswers: false,
       answers: [
@@ -388,7 +388,7 @@ export const TEMPORARY_RELEASE_FAILURE_4: IncidentTypeConfiguration = {
     '59187': {
       id: '59187',
       active: true,
-      code: 'How did prisoner surrender/get recaptured?',
+      question: 'How did prisoner surrender/get recaptured?',
       label: 'How did prisoner surrender/get recaptured?',
       multipleAnswers: false,
       answers: [
@@ -469,7 +469,7 @@ export const TEMPORARY_RELEASE_FAILURE_4: IncidentTypeConfiguration = {
     '59188': {
       id: '59188',
       active: true,
-      code: 'Was the prisoner late returning back to prison?',
+      question: 'Was the prisoner late returning back to prison?',
       label: 'Was the prisoner late returning back to prison?',
       multipleAnswers: false,
       answers: [
@@ -496,7 +496,7 @@ export const TEMPORARY_RELEASE_FAILURE_4: IncidentTypeConfiguration = {
     '59189': {
       id: '59189',
       active: true,
-      code: 'Was prisoner arrested for an offence allegedly committed whilst temp released? (do not include FAILURE TO RETURN)',
+      question: 'Was prisoner arrested for an offence allegedly committed whilst temp released? (do not include FAILURE TO RETURN)',
       label:
         'Was prisoner arrested for an offence allegedly committed whilst temp released? (do not include failure to return)?',
       multipleAnswers: false,
@@ -524,7 +524,7 @@ export const TEMPORARY_RELEASE_FAILURE_4: IncidentTypeConfiguration = {
     '59190': {
       id: '59190',
       active: true,
-      code: 'For What Type Of Offence Or Offences Has The Prisoner Been Arrested?',
+      question: 'For What Type Of Offence Or Offences Has The Prisoner Been Arrested?',
       label: 'For what type of offence or offences has the prisoner been arrested?',
       multipleAnswers: true,
       answers: [
@@ -623,7 +623,7 @@ export const TEMPORARY_RELEASE_FAILURE_4: IncidentTypeConfiguration = {
     '59191': {
       id: '59191',
       active: true,
-      code: 'Has The Prisoner Been Charged With Any Offence (INCLUDE the offence of failure to return)?',
+      question: 'Has The Prisoner Been Charged With Any Offence (INCLUDE the offence of failure to return)?',
       label: 'Has the prisoner been charged with any offence (include the offence of failure to return)?',
       multipleAnswers: false,
       answers: [
@@ -650,7 +650,7 @@ export const TEMPORARY_RELEASE_FAILURE_4: IncidentTypeConfiguration = {
     '59192': {
       id: '59192',
       active: true,
-      code: 'With What Type Of Offence or Offences Has The Prisoner Been Charged?',
+      question: 'With What Type Of Offence or Offences Has The Prisoner Been Charged?',
       label: 'With what type of offence or offences has the prisoner been charged?',
       multipleAnswers: true,
       answers: [
@@ -740,7 +740,7 @@ export const TEMPORARY_RELEASE_FAILURE_4: IncidentTypeConfiguration = {
     '59193': {
       id: '59193',
       active: true,
-      code: 'Has The Prisoner Been Found Guilty Of Offences Committed On ROTL?',
+      question: 'Has The Prisoner Been Found Guilty Of Offences Committed On ROTL?',
       label: 'Has the prisoner been found guilty of offences committed on ROTL?',
       multipleAnswers: false,
       answers: [
@@ -767,7 +767,7 @@ export const TEMPORARY_RELEASE_FAILURE_4: IncidentTypeConfiguration = {
     '59194': {
       id: '59194',
       active: true,
-      code: 'What Offence Or Offences Has The Prisoner Been Found Guilty Of?',
+      question: 'What Offence Or Offences Has The Prisoner Been Found Guilty Of?',
       label: 'What offence or offences has the prisoner been found guilty of?',
       multipleAnswers: true,
       answers: [
@@ -866,7 +866,7 @@ export const TEMPORARY_RELEASE_FAILURE_4: IncidentTypeConfiguration = {
     '59195': {
       id: '59195',
       active: true,
-      code: 'Was Any Part Of The Failure Failing To Comply With Any Other Licence Conditions (Standard or Bespoke)?',
+      question: 'Was Any Part Of The Failure Failing To Comply With Any Other Licence Conditions (Standard or Bespoke)?',
       label: 'Was any part of the failure failing to comply with any other licence conditions (standard or bespoke)?',
       multipleAnswers: false,
       answers: [
@@ -893,7 +893,7 @@ export const TEMPORARY_RELEASE_FAILURE_4: IncidentTypeConfiguration = {
     '59196': {
       id: '59196',
       active: true,
-      code: 'Please Specify Which Conditions apply',
+      question: 'Please Specify Which Conditions apply',
       label: 'Please specify which conditions apply',
       multipleAnswers: true,
       answers: [
@@ -974,7 +974,7 @@ export const TEMPORARY_RELEASE_FAILURE_4: IncidentTypeConfiguration = {
     '59197': {
       id: '59197',
       active: true,
-      code: 'Was failure due to matters beyond the prisoner’s control?',
+      question: 'Was failure due to matters beyond the prisoner’s control?',
       label: 'Was failure due to matters beyond the prisoner’s control?',
       multipleAnswers: false,
       answers: [
@@ -1001,7 +1001,7 @@ export const TEMPORARY_RELEASE_FAILURE_4: IncidentTypeConfiguration = {
     '59198': {
       id: '59198',
       active: true,
-      code: 'Has the NOMS SFO Team been informed (SFO CASES only)',
+      question: 'Has the NOMS SFO Team been informed (SFO CASES only)',
       label: 'Has the NOMS SFO team been informed (SFO cases only)?',
       multipleAnswers: false,
       answers: [
@@ -1028,7 +1028,7 @@ export const TEMPORARY_RELEASE_FAILURE_4: IncidentTypeConfiguration = {
     '59199': {
       id: '59199',
       active: true,
-      code: 'Has the Offender Manager been informed?',
+      question: 'Has the Offender Manager been informed?',
       label: 'Has the offender manager been informed?',
       multipleAnswers: false,
       answers: [
@@ -1055,7 +1055,7 @@ export const TEMPORARY_RELEASE_FAILURE_4: IncidentTypeConfiguration = {
     '59200': {
       id: '59200',
       active: true,
-      code: 'Has the Victim Liaison Officer been informed (where appropriate)?',
+      question: 'Has the Victim Liaison Officer been informed (where appropriate)?',
       label: 'Has the victim liaison officer been informed (where appropriate)?',
       multipleAnswers: false,
       answers: [
@@ -1082,7 +1082,7 @@ export const TEMPORARY_RELEASE_FAILURE_4: IncidentTypeConfiguration = {
     '59201': {
       id: '59201',
       active: true,
-      code: 'Has the ROTL Placement Provider been informed (where appropriate)?',
+      question: 'Has the ROTL Placement Provider been informed (where appropriate)?',
       label: 'Has the ROTL placement provider been informed (where appropriate)?',
       multipleAnswers: false,
       answers: [
@@ -1109,7 +1109,7 @@ export const TEMPORARY_RELEASE_FAILURE_4: IncidentTypeConfiguration = {
     '59202': {
       id: '59202',
       active: true,
-      code: 'Has The Deputy Director Of Custody Been Informed?',
+      question: 'Has The Deputy Director Of Custody Been Informed?',
       label: 'Has the deputy director of custody been informed?',
       multipleAnswers: false,
       answers: [
@@ -1136,7 +1136,7 @@ export const TEMPORARY_RELEASE_FAILURE_4: IncidentTypeConfiguration = {
     '59203': {
       id: '59203',
       active: true,
-      code: 'Have PPCS Been Informed?',
+      question: 'Have PPCS Been Informed?',
       label: 'Have PPCS been informed?',
       multipleAnswers: false,
       answers: [

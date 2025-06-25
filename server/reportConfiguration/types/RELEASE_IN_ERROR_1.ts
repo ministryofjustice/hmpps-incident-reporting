@@ -10,7 +10,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
     '45179': {
       id: '45179',
       active: true,
-      code: 'How was this person released?',
+      question: 'How was this person released?',
       label: 'How was this person released?',
       multipleAnswers: true,
       answers: [
@@ -136,7 +136,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
     '45180': {
       id: '45180',
       active: true,
-      code: 'Where did the release occur from?',
+      question: 'Where did the release occur from?',
       label: 'Where did the release occur from?',
       multipleAnswers: true,
       answers: [
@@ -199,7 +199,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
     '45181': {
       id: '45181',
       active: true,
-      code: 'What was the nature of the Incident?',
+      question: 'What was the nature of the Incident?',
       label: 'What was the nature of the incident?',
       multipleAnswers: true,
       answers: [
@@ -406,7 +406,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
     '45182': {
       id: '45182',
       active: true,
-      code: 'What action is being taken to return the person to custody by the Establishment?',
+      question: 'What action is being taken to return the person to custody by the Establishment?',
       label: 'What action is being taken to return the person to custody by the establishment?',
       multipleAnswers: true,
       answers: [
@@ -541,7 +541,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
     '45183': {
       id: '45183',
       active: true,
-      code: 'How was the error identified?',
+      question: 'How was the error identified?',
       label: 'How was the error identified?',
       multipleAnswers: true,
       answers: [
@@ -703,7 +703,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
     '45184': {
       id: '45184',
       active: true,
-      code: 'What date was the error identified?',
+      question: 'What date was the error identified?',
       label: 'What date was the error identified?',
       multipleAnswers: false,
       answers: [
@@ -730,7 +730,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
     '45185': {
       id: '45185',
       active: true,
-      code: 'What was the category of the person?',
+      question: 'What was the category of the person?',
       label: 'What was the category of the person?',
       multipleAnswers: false,
       answers: [
@@ -757,7 +757,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
     '45186': {
       id: '45186',
       active: true,
-      code: 'What was the prisoner status?',
+      question: 'What was the prisoner status?',
       label: 'What was the prisoner status?',
       multipleAnswers: false,
       answers: [
@@ -856,7 +856,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
     '45187': {
       id: '45187',
       active: false,
-      code: 'Has the person been reported UAL to the Police?',
+      question: 'Has the person been reported UAL to the Police?',
       label: 'Has the person been reported UAL to the police?',
       multipleAnswers: false,
       answers: [
@@ -892,7 +892,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
     '45188': {
       id: '45188',
       active: true,
-      code: 'Has the release in error been reported to NOU?',
+      question: 'Has the release in error been reported to NOU?',
       label: 'Has the release in error been reported to NOU?',
       multipleAnswers: true,
       answers: [
@@ -955,7 +955,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
     '45189': {
       id: '45189',
       active: true,
-      code: 'Has the person been reported UAL to the Police?',
+      question: 'Has the person been reported UAL to the Police?',
       label: 'Has the person been reported UAL to the police?',
       multipleAnswers: true,
       answers: [
@@ -1018,7 +1018,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
     '45190': {
       id: '45190',
       active: true,
-      code: 'Has the person been returned to custody?',
+      question: 'Has the person been returned to custody?',
       label: 'Has the person been returned to custody?',
       multipleAnswers: false,
       answers: [
@@ -1090,7 +1090,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
     '45191': {
       id: '45191',
       active: true,
-      code: 'Date returned to custody',
+      question: 'Date returned to custody',
       label: 'Date returned to custody',
       multipleAnswers: false,
       answers: [
@@ -1117,7 +1117,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
     '45192': {
       id: '45192',
       active: true,
-      code: 'Was person charged with committing a further offence while at large?',
+      question: 'Was person charged with committing a further offence while at large?',
       label: 'Was person charged with committing a further offence while at large?',
       multipleAnswers: false,
       answers: [
@@ -1162,7 +1162,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
     '45193': {
       id: '45193',
       active: true,
-      code: 'To which establishment was person returned?',
+      question: 'To which establishment was person returned?',
       label: 'To which establishment was person returned?',
       multipleAnswers: false,
       answers: [
@@ -1189,7 +1189,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
     '45194': {
       id: '45194',
       active: false,
-      code: 'How long was person UAL?',
+      question: 'How long was person UAL?',
       label: 'How long was person UAL?',
       multipleAnswers: false,
       answers: [
@@ -1207,7 +1207,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
     '45195': {
       id: '45195',
       active: false,
-      code: 'How long was person UAL?',
+      question: 'How long was person UAL?',
       label: 'How long was person UAL?',
       multipleAnswers: true,
       answers: [
@@ -1261,7 +1261,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
     '45235': {
       id: '45235',
       active: true,
-      code: 'How long was person UAL?',
+      question: 'How long was person UAL?',
       label: 'How long was person UAL?',
       multipleAnswers: true,
       answers: [

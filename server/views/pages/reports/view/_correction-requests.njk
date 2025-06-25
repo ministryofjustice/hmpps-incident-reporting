@@ -5,7 +5,7 @@
 {% if report.correctionRequests.length > 0 %}
 
   {% set items = [] %}
-  {% for correctionRequest in report.correctionRequests %}
+  {% for correctionRequest in report.correctionRequests | sortCorrectionRequests %}
     {% set comment %}
       {# TODO: preliminary build: does not support all possible forms of comments #}
       {{ correctionRequest.descriptionOfChange | escape | nl2br }}

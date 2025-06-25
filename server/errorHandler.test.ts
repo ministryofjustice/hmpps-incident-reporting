@@ -3,6 +3,7 @@ import FormWizard from 'hmpo-form-wizard'
 import { Forbidden, Unauthorized } from 'http-errors'
 import request from 'supertest'
 
+import { EmptyController } from './controllers/empty'
 import { appWithAllRoutes } from './routes/testutils/appSetup'
 import * as routes from './routes'
 
@@ -101,6 +102,7 @@ describe('Error handling', () => {
       const formConfig: FormWizard.Config = {
         name: 'redirect-test',
         journeyName: 'redirect-test',
+        controller: EmptyController,
         // TODO: will need to swap to an empty template if index page becomes complex and stops working
         template: 'pages/index',
         checkSession: false,

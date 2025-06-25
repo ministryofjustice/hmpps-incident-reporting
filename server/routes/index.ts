@@ -1,7 +1,6 @@
-import { type RequestHandler, Router } from 'express'
+import { Router } from 'express'
 
 import config from '../config'
-import asyncMiddleware from '../middleware/asyncMiddleware'
 import { logoutUnless } from '../middleware/permissions'
 import type { Services } from '../services'
 import { PrisonApi } from '../data/prisonApi'
@@ -18,14 +17,12 @@ import dashboard from './dashboard'
 import { dprRouter } from './dpr'
 
 export default function routes(services: Services): Router {
-  const get = (path: string | string[], handler: RequestHandler) => router.get(path, asyncMiddleware(handler))
-
   const router = Router()
 
   // require user to have necessary role for *all* routes
   router.use(logoutUnless(permissions => permissions.canAccessService))
 
-  get('/', (_req, res) => {
+  router.get('/', (_req, res) => {
     res.render('pages/index')
   })
 
@@ -52,7 +49,7 @@ export default function routes(services: Services): Router {
   router.use('/reports/:reportId', editReportRouter)
 
   // Auxiliary routes
-  get('/prisoner/:prisonerNumber/photo.jpeg', async (req, res) => {
+  router.get('/prisoner/:prisonerNumber/photo.jpeg', async (req, res) => {
     const { user } = res.locals
     const { prisonerNumber } = req.params
 

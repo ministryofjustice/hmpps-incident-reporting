@@ -1,7 +1,9 @@
 import { FormWizard } from 'hmpo-form-wizard'
-import { IncidentTypeConfiguration } from '../incidentTypeConfiguration/types'
-import QuestionsController from '../../routes/reports/questions/controller'
+
+import { EmptyController } from '../../controllers/empty'
+import { QuestionsController } from '../../routes/reports/questions/controller'
 import { checkMultipleValues } from '../incidentTypeConfiguration/formWizard'
+import { IncidentTypeConfiguration } from '../incidentTypeConfiguration/types'
 
 // Generated with ./scripts/updateNomisIncidentTypeConfigurations.ts at 2025-04-01T17:28:13.786Z
 export const config: IncidentTypeConfiguration = {
@@ -4839,6 +4841,7 @@ export const steps: FormWizard.Steps<FormWizard.MultiValues> = {
     reset: true,
     resetJourney: true,
     skip: true,
+    controller: EmptyController,
   },
   '/44121': {
     controller: QuestionsController,

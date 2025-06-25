@@ -20,7 +20,8 @@ import { aboutTheType } from '../../../reportConfiguration/constants'
 import QuestionsToDelete from '../../../services/questionsToDelete'
 import { BaseController } from '../../../controllers'
 
-export default class QuestionsController extends BaseController<FormWizard.MultiValues> {
+// eslint-disable-next-line import/prefer-default-export
+export class QuestionsController extends BaseController<FormWizard.MultiValues> {
   middlewareLocals(): void {
     super.middlewareLocals()
     this.use(this.checkQuestionProgress)
@@ -87,7 +88,7 @@ export default class QuestionsController extends BaseController<FormWizard.Multi
 
   getNextStep(req: FormWizard.Request<FormWizard.MultiValues>, res: express.Response): string {
     // go to report view if user chose to exit
-    if (req.body.userAction === 'exit') {
+    if (req.body?.userAction === 'exit') {
       return res.locals.reportUrl
     }
     // …or continue with question pages

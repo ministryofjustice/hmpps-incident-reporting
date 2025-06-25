@@ -19,11 +19,11 @@ export type Transitions = {
 }
 
 /**
- * Given a prison report and a user of a particular type, what actions are possible
+ * Given a prison report and a user of a particular type, what *modifying* actions are possible
  * and what is the resulting status transition?
  *
  * NB:
- * - `view` action is not included as it never transitions a report
+ * - `view` action is not included as it never changes a report nor transitions status
  * - presence of a user action does not guarantee permission: report location and validity also matter
  */
 export const prisonReportTransitions: Transitions = {
@@ -112,11 +112,11 @@ export const prisonReportTransitions: Transitions = {
 }
 
 /**
- * Given a PECS report and a user of a particular type, what actions are possible
+ * Given a PECS report and a user of a particular type, what *modifying* actions are possible
  * and what is the resulting status transition?
  *
  * NB:
- * - `view` action is not included as it never transitions a report
+ * - `view` action is not included as it never changes a report nor transitions status
  * - presence of a user action does not guarantee permission: report location and validity also matter
  *
  * TODO: not confirmed, eg: is on-hold needed?

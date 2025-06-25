@@ -39,9 +39,9 @@ export function logoutUnless(accessCondition: AccessCondition): RequestHandler {
  * Used in `logoutUnless()` middleware to check that current user can view report in locals.
  * Relies on `populatePrison()` middleware.
  */
-export const canViewReport: AccessCondition = (permissions, res) => {
-  const { report } = res.locals
-  return permissions.canViewReport(report)
+export const canViewReport: AccessCondition = (_permissions, res) => {
+  const { allowedActions } = res.locals
+  return allowedActions.has('view')
 }
 
 /**
@@ -55,16 +55,16 @@ export const canCreateReportInActiveCaseload: AccessCondition = permissions => {
  * Used in `logoutUnless()` middleware to check that current user can edit report in locals.
  * Relies on `populatePrison()` middleware.
  */
-export const canEditReport: AccessCondition = (permissions, res) => {
-  const { report } = res.locals
-  return permissions.canEditReport(report)
+export const canEditReport: AccessCondition = (_permissions, res) => {
+  const { allowedActions } = res.locals
+  return allowedActions.has('edit')
 }
 
 /**
- * Used in `logoutUnless()` middleware to check that current user can approve or reject report in locals.
+ * Used in `logoutUnless()` middleware to check that current user can review and close report in locals.
  * Relies on `populatePrison()` middleware.
  */
-export const canApproveOrRejectReport: AccessCondition = (permissions, res) => {
-  const { report } = res.locals
-  return permissions.canApproveOrRejectReport(report)
+export const canReviewReport: AccessCondition = (_permissions, res) => {
+  const { allowedActions } = res.locals
+  return allowedActions.has('close')
 }

@@ -146,22 +146,24 @@ describe('View report page', () => {
         })
     })
 
-    const mustAppendDescriptionScenarios: { status: Status; mustAppend: boolean }[] = [
-      { status: 'DRAFT', mustAppend: false },
-      { status: 'AWAITING_REVIEW', mustAppend: false },
-      { status: 'ON_HOLD', mustAppend: true },
-      { status: 'NEEDS_UPDATING', mustAppend: true },
-      { status: 'UPDATED', mustAppend: true },
-      { status: 'CLOSED', mustAppend: true },
-      { status: 'POST_INCIDENT_UPDATE', mustAppend: true },
-      { status: 'DUPLICATE', mustAppend: true },
-      { status: 'NOT_REPORTABLE', mustAppend: true },
-      { status: 'REOPENED', mustAppend: true },
-      { status: 'WAS_CLOSED', mustAppend: true },
+    const mustAppendDescriptionScenarios: {
+      status: Status
+      updateLinks: 'change description page' | 'append-only description page' | 'no description pages'
+    }[] = [
+      { status: 'DRAFT', updateLinks: 'change description page' },
+      { status: 'AWAITING_REVIEW', updateLinks: 'change description page' },
+      { status: 'ON_HOLD', updateLinks: 'no description pages' },
+      { status: 'NEEDS_UPDATING', updateLinks: 'append-only description page' },
+      { status: 'UPDATED', updateLinks: 'no description pages' },
+      { status: 'CLOSED', updateLinks: 'no description pages' },
+      { status: 'DUPLICATE', updateLinks: 'no description pages' },
+      { status: 'NOT_REPORTABLE', updateLinks: 'no description pages' },
+      { status: 'REOPENED', updateLinks: 'append-only description page' },
+      { status: 'WAS_CLOSED', updateLinks: 'no description pages' },
     ]
     it.each(mustAppendDescriptionScenarios)(
-      'should link to separate page for adding to descriptions when status is $status? $mustAppend',
-      ({ status, mustAppend }) => {
+      'should link to $updateLinks when status is $status',
+      ({ status, updateLinks }) => {
         mockedReport.status = status
 
         return request(app)
@@ -169,12 +171,16 @@ describe('View report page', () => {
           .expect('Content-Type', /html/)
           .expect(200)
           .expect(res => {
-            if (mustAppend) {
+            if (updateLinks === 'change description page') {
+              expect(res.text).toContain(`${viewReportUrl}/update-details`)
+              expect(res.text).not.toContain(`${viewReportUrl}/update-date-and-time`)
+              expect(res.text).not.toContain(`${viewReportUrl}/add-description`)
+            } else if (updateLinks === 'append-only description page') {
               expect(res.text).not.toContain(`${viewReportUrl}/update-details`)
               expect(res.text).toContain(`${viewReportUrl}/update-date-and-time`)
               expect(res.text).toContain(`${viewReportUrl}/add-description`)
             } else {
-              expect(res.text).toContain(`${viewReportUrl}/update-details`)
+              expect(res.text).not.toContain(`${viewReportUrl}/update-details`)
               expect(res.text).not.toContain(`${viewReportUrl}/update-date-and-time`)
               expect(res.text).not.toContain(`${viewReportUrl}/add-description`)
             }
@@ -274,7 +280,7 @@ describe('View report page', () => {
   describe('When all sections of an inactive type are filled', () => {
     beforeEach(() => {
       mockedReport.type = 'DRONE_SIGHTING_1'
-      mockedReport.status = 'CLOSED'
+      mockedReport.status = 'REOPENED'
       mockedReport.description = 'An old drone sighting'
       mockedReport.questions = [
         makeSimpleQuestion('57179', 'Was a drone sighted in mid-flight', ['Yes', '208684']),
@@ -299,7 +305,7 @@ describe('View report page', () => {
           expect(res.text).toContain('Incident report 6543')
           expect(res.text).toContain('John Smith')
           expect(res.text).toContain('Moorland (HMP &amp; YOI)')
-          expect(res.text).toContain('Closed')
+          expect(res.text).toContain('Reopened')
 
           expect(incidentReportingApi.getReportWithDetailsById).toHaveBeenCalledWith(mockedReport.id)
 
@@ -324,7 +330,6 @@ describe('View report page', () => {
 
           expect(res.text).not.toContain(`${viewReportUrl}/change-type`)
           expect(res.text).not.toContain(`${viewReportUrl}/update-details`)
-          // TODO: this will need to change because a closed report must first be reopened. there will be no change links
           expect(res.text).toContain(`${viewReportUrl}/update-date-and-time`)
           expect(res.text).toContain(`${viewReportUrl}/add-description`)
         })

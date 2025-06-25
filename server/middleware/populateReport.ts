@@ -10,8 +10,13 @@ import logger from '../../logger'
 export function populateReport(withDetails = true) {
   return async (req: Request, res: Response, next: NextFunction): Promise<void> => {
     const { reportId } = req.params
+    const { permissions } = res.locals
     if (!reportId) {
       next(new NotImplemented('populateReport() requires req.params.reportId'))
+      return
+    }
+    if (!permissions) {
+      next(new NotImplemented('populateReport() requires permissions middleware'))
       return
     }
 
@@ -25,6 +30,8 @@ export function populateReport(withDetails = true) {
       }
       res.locals.reportUrl = `/reports/${reportId}`
       res.locals.reportSubUrlPrefix = res.locals.reportUrl
+
+      res.locals.allowedActions = permissions.allowedActionsOnReport(res.locals.report)
 
       next()
     } catch (error) {

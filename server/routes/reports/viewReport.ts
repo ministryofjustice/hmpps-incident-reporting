@@ -52,7 +52,7 @@ export function viewReportRouter(): Router {
       const { incidentReportingApi, prisonApi, userService } = res.locals.apis
 
       const report = res.locals.report as ReportWithDetails
-      const { permissions, reportConfig, reportUrl, questionProgress } = res.locals
+      const { permissions, allowedActions, reportConfig, reportUrl, questionProgress } = res.locals
 
       const usernames = [report.reportedBy]
       if (report.correctionRequests) {
@@ -65,8 +65,9 @@ export function viewReportRouter(): Router {
 
       const questionProgressSteps = Array.from(questionProgress)
 
-      const canEditReport = permissions.canEditReport(report)
-      const canEditReportInNomisOnly = permissions.canEditReportInNomisOnly(report)
+      const canEditReport = allowedActions.has('edit')
+      const allowedActionsInNomisOnly = permissions.allowedActionsOnReport(report, 'nomis')
+      const canEditReportInNomisOnly = allowedActionsInNomisOnly.has('edit')
 
       const errors: GovukErrorSummaryItem[] = []
       if (req.method === 'POST') {

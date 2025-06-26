@@ -15,7 +15,7 @@ export const BOMB_1: IncidentTypeConfiguration = {
       multipleAnswers: true,
       answers: [
         {
-          id: '178914',
+          code: '178914',
           response: 'BLAST BOMB',
           active: true,
           label: 'Blast bomb',
@@ -24,7 +24,7 @@ export const BOMB_1: IncidentTypeConfiguration = {
           nextQuestionId: '44669',
         },
         {
-          id: '178922',
+          code: '178922',
           response: 'VEHICLE BOMB',
           active: true,
           label: 'Vehicle bomb',
@@ -33,7 +33,7 @@ export const BOMB_1: IncidentTypeConfiguration = {
           nextQuestionId: '44669',
         },
         {
-          id: '178920',
+          code: '178920',
           response: 'POSTAL BOMB',
           active: true,
           label: 'Postal bomb',
@@ -42,7 +42,7 @@ export const BOMB_1: IncidentTypeConfiguration = {
           nextQuestionId: '44669',
         },
         {
-          id: '178919',
+          code: '178919',
           response: 'INCENDIARY DEVICE',
           active: true,
           label: 'Incendiary device',
@@ -51,7 +51,7 @@ export const BOMB_1: IncidentTypeConfiguration = {
           nextQuestionId: '44669',
         },
         {
-          id: '178918',
+          code: '178918',
           response: 'HOAX PACKAGE',
           active: true,
           label: 'Hoax package',
@@ -60,7 +60,7 @@ export const BOMB_1: IncidentTypeConfiguration = {
           nextQuestionId: '44669',
         },
         {
-          id: '178921',
+          code: '178921',
           response: 'SUSPECT PACKAGE',
           active: true,
           label: 'Suspect package',
@@ -69,7 +69,7 @@ export const BOMB_1: IncidentTypeConfiguration = {
           nextQuestionId: '44669',
         },
         {
-          id: '178915',
+          code: '178915',
           response: 'DETONATORS',
           active: true,
           label: 'Detonators',
@@ -78,7 +78,7 @@ export const BOMB_1: IncidentTypeConfiguration = {
           nextQuestionId: '44669',
         },
         {
-          id: '178917',
+          code: '178917',
           response: 'FUSES',
           active: true,
           label: 'Fuses',
@@ -87,7 +87,7 @@ export const BOMB_1: IncidentTypeConfiguration = {
           nextQuestionId: '44669',
         },
         {
-          id: '178916',
+          code: '178916',
           response: 'EXPLOSIVE',
           active: true,
           label: 'Explosive',
@@ -105,7 +105,7 @@ export const BOMB_1: IncidentTypeConfiguration = {
       multipleAnswers: true,
       answers: [
         {
-          id: '178941',
+          code: '178941',
           response: 'FRACTURE',
           active: true,
           label: 'Fracture',
@@ -114,7 +114,7 @@ export const BOMB_1: IncidentTypeConfiguration = {
           nextQuestionId: '44745',
         },
         {
-          id: '178943',
+          code: '178943',
           response: 'SCALD OR BURN',
           active: true,
           label: 'Scald or burn',
@@ -123,7 +123,7 @@ export const BOMB_1: IncidentTypeConfiguration = {
           nextQuestionId: '44745',
         },
         {
-          id: '178944',
+          code: '178944',
           response: 'STABBING',
           active: true,
           label: 'Stabbing',
@@ -132,7 +132,7 @@ export const BOMB_1: IncidentTypeConfiguration = {
           nextQuestionId: '44745',
         },
         {
-          id: '178938',
+          code: '178938',
           response: 'CRUSHING',
           active: true,
           label: 'Crushing',
@@ -141,7 +141,7 @@ export const BOMB_1: IncidentTypeConfiguration = {
           nextQuestionId: '44745',
         },
         {
-          id: '178940',
+          code: '178940',
           response: 'EXTENSIVE/MULTIPLE BRUISING',
           active: true,
           label: 'Extensive/multiple bruising',
@@ -150,7 +150,7 @@ export const BOMB_1: IncidentTypeConfiguration = {
           nextQuestionId: '44745',
         },
         {
-          id: '178935',
+          code: '178935',
           response: 'BLACK EYE',
           active: true,
           label: 'Black eye',
@@ -159,7 +159,7 @@ export const BOMB_1: IncidentTypeConfiguration = {
           nextQuestionId: '44745',
         },
         {
-          id: '178936',
+          code: '178936',
           response: 'BROKEN NOSE',
           active: true,
           label: 'Broken nose',
@@ -168,7 +168,7 @@ export const BOMB_1: IncidentTypeConfiguration = {
           nextQuestionId: '44745',
         },
         {
-          id: '178937',
+          code: '178937',
           response: 'BROKEN TEETH',
           active: true,
           label: 'Broken teeth',
@@ -177,7 +177,7 @@ export const BOMB_1: IncidentTypeConfiguration = {
           nextQuestionId: '44745',
         },
         {
-          id: '178939',
+          code: '178939',
           response: 'CUTS REQUIRING SUTURES',
           active: true,
           label: 'Cuts requiring sutures',
@@ -186,7 +186,7 @@ export const BOMB_1: IncidentTypeConfiguration = {
           nextQuestionId: '44745',
         },
         {
-          id: '178934',
+          code: '178934',
           response: 'BITES',
           active: true,
           label: 'Bites',
@@ -195,7 +195,7 @@ export const BOMB_1: IncidentTypeConfiguration = {
           nextQuestionId: '44745',
         },
         {
-          id: '178942',
+          code: '178942',
           response: 'GUN SHOT WOUND',
           active: true,
           label: 'Gun shot wound',
@@ -204,7 +204,7 @@ export const BOMB_1: IncidentTypeConfiguration = {
           nextQuestionId: '44745',
         },
         {
-          id: '178945',
+          code: '178945',
           response: 'TEMPORARY/PERMANENT BLINDNESS',
           active: true,
           label: 'Temporary/permanent blindness',
@@ -222,7 +222,7 @@ export const BOMB_1: IncidentTypeConfiguration = {
       multipleAnswers: true,
       answers: [
         {
-          id: '178997',
+          code: '178997',
           response: 'TELEPHONY',
           active: true,
           label: 'Telephony',
@@ -231,7 +231,7 @@ export const BOMB_1: IncidentTypeConfiguration = {
           nextQuestionId: '45109',
         },
         {
-          id: '178996',
+          code: '178996',
           response: 'IT',
           active: true,
           label: 'IT',
@@ -249,7 +249,7 @@ export const BOMB_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '179103',
+          code: '179103',
           response: 'CONTROLLED',
           active: true,
           label: 'Controlled',
@@ -258,7 +258,7 @@ export const BOMB_1: IncidentTypeConfiguration = {
           nextQuestionId: '44277',
         },
         {
-          id: '179104',
+          code: '179104',
           response: 'UNCONTROLLED',
           active: true,
           label: 'Uncontrolled',
@@ -276,7 +276,7 @@ export const BOMB_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '179159',
+          code: '179159',
           response: 'YES',
           active: true,
           label: 'Yes',
@@ -285,7 +285,7 @@ export const BOMB_1: IncidentTypeConfiguration = {
           nextQuestionId: '44587',
         },
         {
-          id: '179160',
+          code: '179160',
           response: 'NO',
           active: true,
           label: 'No',
@@ -303,7 +303,7 @@ export const BOMB_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '179276',
+          code: '179276',
           response: 'ENTER AMOUNT IN POUND STERLING',
           active: true,
           label: 'Enter amount in pound sterling',
@@ -321,7 +321,7 @@ export const BOMB_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '179347',
+          code: '179347',
           response: 'YES',
           active: true,
           label: 'Yes',
@@ -330,7 +330,7 @@ export const BOMB_1: IncidentTypeConfiguration = {
           nextQuestionId: '44579',
         },
         {
-          id: '179346',
+          code: '179346',
           response: 'NO',
           active: true,
           label: 'No',
@@ -348,7 +348,7 @@ export const BOMB_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '179348',
+          code: '179348',
           response: 'ENTER DESCRIPTION',
           active: true,
           label: 'Enter description',
@@ -366,7 +366,7 @@ export const BOMB_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '179389',
+          code: '179389',
           response: 'ENTER COMMENT AND DATE',
           active: true,
           label: 'Enter comment and date',
@@ -384,7 +384,7 @@ export const BOMB_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '179390',
+          code: '179390',
           response: 'YES',
           active: true,
           label: 'Yes',
@@ -393,7 +393,7 @@ export const BOMB_1: IncidentTypeConfiguration = {
           nextQuestionId: '44523',
         },
         {
-          id: '179391',
+          code: '179391',
           response: 'NO',
           active: true,
           label: 'No',
@@ -411,7 +411,7 @@ export const BOMB_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '179404',
+          code: '179404',
           response: 'SPECIFY',
           active: true,
           label: 'Specify',
@@ -429,7 +429,7 @@ export const BOMB_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '179515',
+          code: '179515',
           response: 'YES',
           active: true,
           label: 'Yes',
@@ -438,7 +438,7 @@ export const BOMB_1: IncidentTypeConfiguration = {
           nextQuestionId: '44260',
         },
         {
-          id: '179514',
+          code: '179514',
           response: 'NO',
           active: true,
           label: 'No',
@@ -456,7 +456,7 @@ export const BOMB_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '179713',
+          code: '179713',
           response: 'YES',
           active: true,
           label: 'Yes',
@@ -465,7 +465,7 @@ export const BOMB_1: IncidentTypeConfiguration = {
           nextQuestionId: '44380',
         },
         {
-          id: '179712',
+          code: '179712',
           response: 'NO',
           active: true,
           label: 'No',
@@ -483,7 +483,7 @@ export const BOMB_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '179714',
+          code: '179714',
           response: 'YES',
           active: true,
           label: 'Yes',
@@ -492,7 +492,7 @@ export const BOMB_1: IncidentTypeConfiguration = {
           nextQuestionId: '44261',
         },
         {
-          id: '179715',
+          code: '179715',
           response: 'NO',
           active: true,
           label: 'No',
@@ -510,7 +510,7 @@ export const BOMB_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '179748',
+          code: '179748',
           response: 'YES',
           active: true,
           label: 'Yes',
@@ -519,7 +519,7 @@ export const BOMB_1: IncidentTypeConfiguration = {
           nextQuestionId: '44978',
         },
         {
-          id: '179747',
+          code: '179747',
           response: 'NO',
           active: true,
           label: 'No',
@@ -537,7 +537,7 @@ export const BOMB_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '179787',
+          code: '179787',
           response: 'YES',
           active: true,
           label: 'Yes',
@@ -546,7 +546,7 @@ export const BOMB_1: IncidentTypeConfiguration = {
           nextQuestionId: '44197',
         },
         {
-          id: '179786',
+          code: '179786',
           response: 'NO',
           active: true,
           label: 'No',
@@ -564,7 +564,7 @@ export const BOMB_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '179826',
+          code: '179826',
           response: 'YES',
           active: true,
           label: 'Yes',
@@ -573,7 +573,7 @@ export const BOMB_1: IncidentTypeConfiguration = {
           nextQuestionId: '44716',
         },
         {
-          id: '179827',
+          code: '179827',
           response: 'NO',
           active: true,
           label: 'No',
@@ -591,7 +591,7 @@ export const BOMB_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '179852',
+          code: '179852',
           response: 'YES',
           active: true,
           label: 'Yes',
@@ -600,7 +600,7 @@ export const BOMB_1: IncidentTypeConfiguration = {
           nextQuestionId: '44547',
         },
         {
-          id: '179851',
+          code: '179851',
           response: 'NO',
           active: true,
           label: 'No',
@@ -618,7 +618,7 @@ export const BOMB_1: IncidentTypeConfiguration = {
       multipleAnswers: true,
       answers: [
         {
-          id: '180110',
+          code: '180110',
           response: 'STAFF',
           active: true,
           label: 'Staff',
@@ -627,7 +627,7 @@ export const BOMB_1: IncidentTypeConfiguration = {
           nextQuestionId: '44393',
         },
         {
-          id: '180109',
+          code: '180109',
           response: 'PRISONERS',
           active: true,
           label: 'Prisoners',
@@ -636,7 +636,7 @@ export const BOMB_1: IncidentTypeConfiguration = {
           nextQuestionId: '44393',
         },
         {
-          id: '180106',
+          code: '180106',
           response: 'CIVILIAN GRADES',
           active: true,
           label: 'Civilian grades',
@@ -645,7 +645,7 @@ export const BOMB_1: IncidentTypeConfiguration = {
           nextQuestionId: '44393',
         },
         {
-          id: '180108',
+          code: '180108',
           response: 'POLICE',
           active: true,
           label: 'Police',
@@ -654,7 +654,7 @@ export const BOMB_1: IncidentTypeConfiguration = {
           nextQuestionId: '44393',
         },
         {
-          id: '180107',
+          code: '180107',
           response: 'EXTERNAL CIVILIANS',
           active: true,
           label: 'External civilians',
@@ -672,7 +672,7 @@ export const BOMB_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '180255',
+          code: '180255',
           response: 'YES',
           active: true,
           label: 'Yes',
@@ -681,7 +681,7 @@ export const BOMB_1: IncidentTypeConfiguration = {
           nextQuestionId: '45113',
         },
         {
-          id: '180254',
+          code: '180254',
           response: 'NO',
           active: true,
           label: 'No',
@@ -699,7 +699,7 @@ export const BOMB_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '180267',
+          code: '180267',
           response: 'YES',
           active: true,
           label: 'Yes',
@@ -708,7 +708,7 @@ export const BOMB_1: IncidentTypeConfiguration = {
           nextQuestionId: '44149',
         },
         {
-          id: '180266',
+          code: '180266',
           response: 'NO',
           active: true,
           label: 'No',
@@ -726,7 +726,7 @@ export const BOMB_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '180285',
+          code: '180285',
           response: 'MINOR',
           active: true,
           label: 'Minor',
@@ -735,7 +735,7 @@ export const BOMB_1: IncidentTypeConfiguration = {
           nextQuestionId: '44236',
         },
         {
-          id: '180286',
+          code: '180286',
           response: 'SERIOUS',
           active: true,
           label: 'Serious',
@@ -744,7 +744,7 @@ export const BOMB_1: IncidentTypeConfiguration = {
           nextQuestionId: '44236',
         },
         {
-          id: '180284',
+          code: '180284',
           response: 'EXTENSIVE',
           active: true,
           label: 'Extensive',
@@ -762,7 +762,7 @@ export const BOMB_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '180425',
+          code: '180425',
           response: 'YES',
           active: true,
           label: 'Yes',
@@ -771,7 +771,7 @@ export const BOMB_1: IncidentTypeConfiguration = {
           nextQuestionId: '44974',
         },
         {
-          id: '180424',
+          code: '180424',
           response: 'NO',
           active: true,
           label: 'No',
@@ -789,7 +789,7 @@ export const BOMB_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '180463',
+          code: '180463',
           response: 'SPECIFY',
           active: true,
           label: 'Specify',
@@ -807,7 +807,7 @@ export const BOMB_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '180518',
+          code: '180518',
           response: 'YES',
           active: true,
           label: 'Yes',
@@ -816,7 +816,7 @@ export const BOMB_1: IncidentTypeConfiguration = {
           nextQuestionId: '45100',
         },
         {
-          id: '180519',
+          code: '180519',
           response: 'NO',
           active: true,
           label: 'No',
@@ -834,7 +834,7 @@ export const BOMB_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '180541',
+          code: '180541',
           response: 'YES',
           active: true,
           label: 'Yes',
@@ -843,7 +843,7 @@ export const BOMB_1: IncidentTypeConfiguration = {
           nextQuestionId: '45007',
         },
         {
-          id: '180542',
+          code: '180542',
           response: 'NO',
           active: true,
           label: 'No',
@@ -861,7 +861,7 @@ export const BOMB_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '180732',
+          code: '180732',
           response: 'YES',
           active: true,
           label: 'Yes',
@@ -870,7 +870,7 @@ export const BOMB_1: IncidentTypeConfiguration = {
           nextQuestionId: '44510',
         },
         {
-          id: '180731',
+          code: '180731',
           response: 'NO',
           active: true,
           label: 'No',
@@ -888,7 +888,7 @@ export const BOMB_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '180821',
+          code: '180821',
           response: 'SPECIFY',
           active: true,
           label: 'Specify',
@@ -906,7 +906,7 @@ export const BOMB_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '180828',
+          code: '180828',
           response: 'ENTER NUMBER',
           active: true,
           label: 'Enter number',
@@ -924,7 +924,7 @@ export const BOMB_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '180991',
+          code: '180991',
           response: 'YES',
           active: true,
           label: 'Yes',
@@ -933,7 +933,7 @@ export const BOMB_1: IncidentTypeConfiguration = {
           nextQuestionId: '44135',
         },
         {
-          id: '180992',
+          code: '180992',
           response: 'NO',
           active: true,
           label: 'No',
@@ -951,7 +951,7 @@ export const BOMB_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '181000',
+          code: '181000',
           response: 'YES',
           active: true,
           label: 'Yes',
@@ -960,7 +960,7 @@ export const BOMB_1: IncidentTypeConfiguration = {
           nextQuestionId: '44187',
         },
         {
-          id: '181001',
+          code: '181001',
           response: 'NO',
           active: true,
           label: 'No',
@@ -978,7 +978,7 @@ export const BOMB_1: IncidentTypeConfiguration = {
       multipleAnswers: true,
       answers: [
         {
-          id: '181089',
+          code: '181089',
           response: 'STAFF',
           active: true,
           label: 'Staff',
@@ -987,7 +987,7 @@ export const BOMB_1: IncidentTypeConfiguration = {
           nextQuestionId: '44361',
         },
         {
-          id: '181088',
+          code: '181088',
           response: 'PRISONERS',
           active: true,
           label: 'Prisoners',
@@ -996,7 +996,7 @@ export const BOMB_1: IncidentTypeConfiguration = {
           nextQuestionId: '44361',
         },
         {
-          id: '181085',
+          code: '181085',
           response: 'CIVILIAN GRADES',
           active: true,
           label: 'Civilian grades',
@@ -1005,7 +1005,7 @@ export const BOMB_1: IncidentTypeConfiguration = {
           nextQuestionId: '44361',
         },
         {
-          id: '181087',
+          code: '181087',
           response: 'POLICE',
           active: true,
           label: 'Police',
@@ -1014,7 +1014,7 @@ export const BOMB_1: IncidentTypeConfiguration = {
           nextQuestionId: '44361',
         },
         {
-          id: '181086',
+          code: '181086',
           response: 'EXTERNAL CIVILIANS',
           active: true,
           label: 'External civilians',
@@ -1032,7 +1032,7 @@ export const BOMB_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '181094',
+          code: '181094',
           response: 'YES',
           active: true,
           label: 'Yes',
@@ -1041,7 +1041,7 @@ export const BOMB_1: IncidentTypeConfiguration = {
           nextQuestionId: '45126',
         },
         {
-          id: '181095',
+          code: '181095',
           response: 'NO',
           active: true,
           label: 'No',
@@ -1059,7 +1059,7 @@ export const BOMB_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '181174',
+          code: '181174',
           response: 'YES',
           active: true,
           label: 'Yes',
@@ -1068,7 +1068,7 @@ export const BOMB_1: IncidentTypeConfiguration = {
           nextQuestionId: '44516',
         },
         {
-          id: '181175',
+          code: '181175',
           response: 'NO',
           active: true,
           label: 'No',
@@ -1086,7 +1086,7 @@ export const BOMB_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '181285',
+          code: '181285',
           response: 'FULL',
           active: true,
           label: 'Full',
@@ -1095,7 +1095,7 @@ export const BOMB_1: IncidentTypeConfiguration = {
           nextQuestionId: '45140',
         },
         {
-          id: '181286',
+          code: '181286',
           response: 'PARTIAL (ENTER DETAILS)',
           active: true,
           label: 'Partial (enter details)',
@@ -1113,7 +1113,7 @@ export const BOMB_1: IncidentTypeConfiguration = {
       multipleAnswers: true,
       answers: [
         {
-          id: '181571',
+          code: '181571',
           response: 'STAFF',
           active: true,
           label: 'Staff',
@@ -1122,7 +1122,7 @@ export const BOMB_1: IncidentTypeConfiguration = {
           nextQuestionId: '44956',
         },
         {
-          id: '181570',
+          code: '181570',
           response: 'PRISONERS',
           active: true,
           label: 'Prisoners',
@@ -1131,7 +1131,7 @@ export const BOMB_1: IncidentTypeConfiguration = {
           nextQuestionId: '44956',
         },
         {
-          id: '181567',
+          code: '181567',
           response: 'CIVILIAN GRADES',
           active: true,
           label: 'Civilian grades',
@@ -1140,7 +1140,7 @@ export const BOMB_1: IncidentTypeConfiguration = {
           nextQuestionId: '44956',
         },
         {
-          id: '181569',
+          code: '181569',
           response: 'POLICE',
           active: true,
           label: 'Police',
@@ -1149,7 +1149,7 @@ export const BOMB_1: IncidentTypeConfiguration = {
           nextQuestionId: '44956',
         },
         {
-          id: '181568',
+          code: '181568',
           response: 'EXTERNAL CIVILIANS',
           active: true,
           label: 'External civilians',
@@ -1167,7 +1167,7 @@ export const BOMB_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '181624',
+          code: '181624',
           response: 'YES',
           active: true,
           label: 'Yes',
@@ -1176,7 +1176,7 @@ export const BOMB_1: IncidentTypeConfiguration = {
           nextQuestionId: '45178',
         },
         {
-          id: '181625',
+          code: '181625',
           response: 'NO',
           active: true,
           label: 'No',
@@ -1194,7 +1194,7 @@ export const BOMB_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '181781',
+          code: '181781',
           response: 'EVACUATION',
           active: true,
           label: 'Evacuation',
@@ -1203,7 +1203,7 @@ export const BOMB_1: IncidentTypeConfiguration = {
           nextQuestionId: '45040',
         },
         {
-          id: '181784',
+          code: '181784',
           response: 'PARTIAL SEARCH',
           active: true,
           label: 'Partial search',
@@ -1212,7 +1212,7 @@ export const BOMB_1: IncidentTypeConfiguration = {
           nextQuestionId: '44642',
         },
         {
-          id: '181783',
+          code: '181783',
           response: 'FULL CLOSE DOWN',
           active: true,
           label: 'Full close down',
@@ -1221,7 +1221,7 @@ export const BOMB_1: IncidentTypeConfiguration = {
           nextQuestionId: '44642',
         },
         {
-          id: '181782',
+          code: '181782',
           response: 'DOG SEARCH',
           active: true,
           label: 'Dog search',
@@ -1239,7 +1239,7 @@ export const BOMB_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '181815',
+          code: '181815',
           response: 'YES',
           active: true,
           label: 'Yes',
@@ -1248,7 +1248,7 @@ export const BOMB_1: IncidentTypeConfiguration = {
           nextQuestionId: '44742',
         },
         {
-          id: '181816',
+          code: '181816',
           response: 'NO',
           active: true,
           label: 'No',
@@ -1266,7 +1266,7 @@ export const BOMB_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '181884',
+          code: '181884',
           response: 'THREAT',
           active: true,
           label: 'Threat',
@@ -1275,7 +1275,7 @@ export const BOMB_1: IncidentTypeConfiguration = {
           nextQuestionId: '44283',
         },
         {
-          id: '181885',
+          code: '181885',
           response: 'WARNING',
           active: true,
           label: 'Warning',
@@ -1284,7 +1284,7 @@ export const BOMB_1: IncidentTypeConfiguration = {
           nextQuestionId: '44283',
         },
         {
-          id: '181887',
+          code: '181887',
           response: 'EXPLOSION',
           active: true,
           label: 'Explosion',
@@ -1293,7 +1293,7 @@ export const BOMB_1: IncidentTypeConfiguration = {
           nextQuestionId: '44948',
         },
         {
-          id: '181889',
+          code: '181889',
           response: 'SUSPICIOUS PACKAGE',
           active: true,
           label: 'Suspicious package',
@@ -1302,7 +1302,7 @@ export const BOMB_1: IncidentTypeConfiguration = {
           nextQuestionId: '44948',
         },
         {
-          id: '181888',
+          code: '181888',
           response: 'INTELLIGENCE',
           active: true,
           label: 'Intelligence',
@@ -1311,7 +1311,7 @@ export const BOMB_1: IncidentTypeConfiguration = {
           nextQuestionId: '44948',
         },
         {
-          id: '181886',
+          code: '181886',
           response: 'DOG SEARCH',
           active: true,
           label: 'Dog search',
@@ -1329,7 +1329,7 @@ export const BOMB_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '181901',
+          code: '181901',
           response: 'YES',
           active: true,
           label: 'Yes',
@@ -1338,7 +1338,7 @@ export const BOMB_1: IncidentTypeConfiguration = {
           nextQuestionId: '44404',
         },
         {
-          id: '181900',
+          code: '181900',
           response: 'NO',
           active: true,
           label: 'No',
@@ -1356,7 +1356,7 @@ export const BOMB_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '181975',
+          code: '181975',
           response: 'YES',
           active: true,
           label: 'Yes',
@@ -1365,7 +1365,7 @@ export const BOMB_1: IncidentTypeConfiguration = {
           nextQuestionId: '44305',
         },
         {
-          id: '181974',
+          code: '181974',
           response: 'NO',
           active: true,
           label: 'No',
@@ -1383,7 +1383,7 @@ export const BOMB_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '181987',
+          code: '181987',
           response: 'YES',
           active: true,
           label: 'Yes',
@@ -1392,7 +1392,7 @@ export const BOMB_1: IncidentTypeConfiguration = {
           nextQuestionId: '44472',
         },
         {
-          id: '181988',
+          code: '181988',
           response: 'NO',
           active: true,
           label: 'No',
@@ -1410,7 +1410,7 @@ export const BOMB_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '182142',
+          code: '182142',
           response: 'TO ANOTHER AREA OF THE PRISON',
           active: true,
           label: 'To another area of the prison',
@@ -1419,7 +1419,7 @@ export const BOMB_1: IncidentTypeConfiguration = {
           nextQuestionId: '44642',
         },
         {
-          id: '182141',
+          code: '182141',
           response: 'OUTSIDE THE PRISON',
           active: true,
           label: 'Outside the prison',
@@ -1428,7 +1428,7 @@ export const BOMB_1: IncidentTypeConfiguration = {
           nextQuestionId: '44642',
         },
         {
-          id: '182143',
+          code: '182143',
           response: 'TO ANOTHER PRISON',
           active: true,
           label: 'To another prison',
@@ -1446,7 +1446,7 @@ export const BOMB_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '182343',
+          code: '182343',
           response: 'LOCAL',
           active: true,
           label: 'Local',
@@ -1455,7 +1455,7 @@ export const BOMB_1: IncidentTypeConfiguration = {
           nextQuestionId: '44149',
         },
         {
-          id: '182342',
+          code: '182342',
           response: 'SERVICE SUPPLIER',
           active: true,
           label: 'Service supplier',
@@ -1473,7 +1473,7 @@ export const BOMB_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '182375',
+          code: '182375',
           response: 'ENTER TIME',
           active: true,
           label: 'Enter time',
@@ -1491,7 +1491,7 @@ export const BOMB_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '182399',
+          code: '182399',
           response: 'YES',
           active: true,
           label: 'Yes',
@@ -1500,7 +1500,7 @@ export const BOMB_1: IncidentTypeConfiguration = {
           nextQuestionId: '44128',
         },
         {
-          id: '182400',
+          code: '182400',
           response: 'NO',
           active: true,
           label: 'No',
@@ -1518,7 +1518,7 @@ export const BOMB_1: IncidentTypeConfiguration = {
       multipleAnswers: true,
       answers: [
         {
-          id: '182456',
+          code: '182456',
           response: 'GRAZES, SCRATCHES OR ABRASIONS',
           active: true,
           label: 'Grazes, scratches or abrasions',
@@ -1527,7 +1527,7 @@ export const BOMB_1: IncidentTypeConfiguration = {
           nextQuestionId: '44896',
         },
         {
-          id: '182457',
+          code: '182457',
           response: 'MINOR BRUISES',
           active: true,
           label: 'Minor bruises',
@@ -1536,7 +1536,7 @@ export const BOMB_1: IncidentTypeConfiguration = {
           nextQuestionId: '44896',
         },
         {
-          id: '182460',
+          code: '182460',
           response: 'SWELLINGS',
           active: true,
           label: 'Swellings',
@@ -1545,7 +1545,7 @@ export const BOMB_1: IncidentTypeConfiguration = {
           nextQuestionId: '44896',
         },
         {
-          id: '182459',
+          code: '182459',
           response: 'SUPERFICIAL CUTS',
           active: true,
           label: 'Superficial cuts',
@@ -1554,7 +1554,7 @@ export const BOMB_1: IncidentTypeConfiguration = {
           nextQuestionId: '44896',
         },
         {
-          id: '182458',
+          code: '182458',
           response: 'OTHER',
           active: true,
           label: 'Other',
@@ -1572,7 +1572,7 @@ export const BOMB_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '182526',
+          code: '182526',
           response: 'GOVERNOR',
           active: true,
           label: 'Governor',
@@ -1581,7 +1581,7 @@ export const BOMB_1: IncidentTypeConfiguration = {
           nextQuestionId: '44362',
         },
         {
-          id: '182524',
+          code: '182524',
           response: 'DEPUTY GOVERNOR',
           active: true,
           label: 'Deputy governor',
@@ -1590,7 +1590,7 @@ export const BOMB_1: IncidentTypeConfiguration = {
           nextQuestionId: '44362',
         },
         {
-          id: '182525',
+          code: '182525',
           response: 'DUTY GOVERNOR',
           active: true,
           label: 'Duty governor',
@@ -1599,7 +1599,7 @@ export const BOMB_1: IncidentTypeConfiguration = {
           nextQuestionId: '44362',
         },
         {
-          id: '182527',
+          code: '182527',
           response: 'OTHER',
           active: true,
           label: 'Other',
@@ -1617,7 +1617,7 @@ export const BOMB_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '182645',
+          code: '182645',
           response: 'LOCAL',
           active: true,
           label: 'Local',
@@ -1626,7 +1626,7 @@ export const BOMB_1: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
-          id: '182646',
+          code: '182646',
           response: 'SERVICE SUPPLIER',
           active: true,
           label: 'Service supplier',
@@ -1644,7 +1644,7 @@ export const BOMB_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '182651',
+          code: '182651',
           response: 'ADMINISTRATION',
           active: true,
           label: 'Administration',
@@ -1653,7 +1653,7 @@ export const BOMB_1: IncidentTypeConfiguration = {
           nextQuestionId: '44371',
         },
         {
-          id: '182652',
+          code: '182652',
           response: 'ASSOCIATION AREA',
           active: true,
           label: 'Association area',
@@ -1662,7 +1662,7 @@ export const BOMB_1: IncidentTypeConfiguration = {
           nextQuestionId: '44371',
         },
         {
-          id: '182653',
+          code: '182653',
           response: 'CELL',
           active: true,
           label: 'Cell',
@@ -1671,7 +1671,7 @@ export const BOMB_1: IncidentTypeConfiguration = {
           nextQuestionId: '44371',
         },
         {
-          id: '182654',
+          code: '182654',
           response: 'CHAPEL',
           active: true,
           label: 'Chapel',
@@ -1680,7 +1680,7 @@ export const BOMB_1: IncidentTypeConfiguration = {
           nextQuestionId: '44371',
         },
         {
-          id: '182656',
+          code: '182656',
           response: 'DINING ROOM',
           active: true,
           label: 'Dining room',
@@ -1689,7 +1689,7 @@ export const BOMB_1: IncidentTypeConfiguration = {
           nextQuestionId: '44371',
         },
         {
-          id: '182657',
+          code: '182657',
           response: 'DORMITORY',
           active: true,
           label: 'Dormitory',
@@ -1698,7 +1698,7 @@ export const BOMB_1: IncidentTypeConfiguration = {
           nextQuestionId: '44371',
         },
         {
-          id: '182658',
+          code: '182658',
           response: 'EDUCATION',
           active: true,
           label: 'Education',
@@ -1707,7 +1707,7 @@ export const BOMB_1: IncidentTypeConfiguration = {
           nextQuestionId: '44371',
         },
         {
-          id: '182660',
+          code: '182660',
           response: 'EXERCISE YARD',
           active: true,
           label: 'Exercise yard',
@@ -1716,7 +1716,7 @@ export const BOMB_1: IncidentTypeConfiguration = {
           nextQuestionId: '44371',
         },
         {
-          id: '182662',
+          code: '182662',
           response: 'GATE',
           active: true,
           label: 'Gate',
@@ -1725,7 +1725,7 @@ export const BOMB_1: IncidentTypeConfiguration = {
           nextQuestionId: '44371',
         },
         {
-          id: '182663',
+          code: '182663',
           response: 'GYM',
           active: true,
           label: 'Gym',
@@ -1734,7 +1734,7 @@ export const BOMB_1: IncidentTypeConfiguration = {
           nextQuestionId: '44371',
         },
         {
-          id: '182664',
+          code: '182664',
           response: 'HEALTH CARE CENTRE',
           active: true,
           label: 'Health care centre',
@@ -1743,7 +1743,7 @@ export const BOMB_1: IncidentTypeConfiguration = {
           nextQuestionId: '44371',
         },
         {
-          id: '182667',
+          code: '182667',
           response: 'KITCHEN',
           active: true,
           label: 'Kitchen',
@@ -1752,7 +1752,7 @@ export const BOMB_1: IncidentTypeConfiguration = {
           nextQuestionId: '44371',
         },
         {
-          id: '182669',
+          code: '182669',
           response: 'OFFICE',
           active: true,
           label: 'Office',
@@ -1761,7 +1761,7 @@ export const BOMB_1: IncidentTypeConfiguration = {
           nextQuestionId: '44371',
         },
         {
-          id: '182671',
+          code: '182671',
           response: 'RECEPTION',
           active: true,
           label: 'Reception',
@@ -1770,7 +1770,7 @@ export const BOMB_1: IncidentTypeConfiguration = {
           nextQuestionId: '44371',
         },
         {
-          id: '182672',
+          code: '182672',
           response: 'RECESS',
           active: true,
           label: 'Recess',
@@ -1779,7 +1779,7 @@ export const BOMB_1: IncidentTypeConfiguration = {
           nextQuestionId: '44371',
         },
         {
-          id: '182673',
+          code: '182673',
           response: 'SEGREGATION UNIT',
           active: true,
           label: 'Segregation unit',
@@ -1788,7 +1788,7 @@ export const BOMB_1: IncidentTypeConfiguration = {
           nextQuestionId: '44371',
         },
         {
-          id: '182675',
+          code: '182675',
           response: 'SPECIAL UNIT',
           active: true,
           label: 'Special unit',
@@ -1797,7 +1797,7 @@ export const BOMB_1: IncidentTypeConfiguration = {
           nextQuestionId: '44371',
         },
         {
-          id: '182674',
+          code: '182674',
           response: 'SHOWERS/CHANGING ROOM',
           active: true,
           label: 'Showers/changing room',
@@ -1806,7 +1806,7 @@ export const BOMB_1: IncidentTypeConfiguration = {
           nextQuestionId: '44371',
         },
         {
-          id: '182678',
+          code: '182678',
           response: 'VISITS',
           active: true,
           label: 'Visits',
@@ -1815,7 +1815,7 @@ export const BOMB_1: IncidentTypeConfiguration = {
           nextQuestionId: '44371',
         },
         {
-          id: '182680',
+          code: '182680',
           response: 'WING',
           active: true,
           label: 'Wing',
@@ -1824,7 +1824,7 @@ export const BOMB_1: IncidentTypeConfiguration = {
           nextQuestionId: '44371',
         },
         {
-          id: '182682',
+          code: '182682',
           response: 'WORKS DEPARTMENT',
           active: true,
           label: 'Works department',
@@ -1833,7 +1833,7 @@ export const BOMB_1: IncidentTypeConfiguration = {
           nextQuestionId: '44371',
         },
         {
-          id: '182683',
+          code: '182683',
           response: 'WORKSHOP',
           active: true,
           label: 'Workshop',
@@ -1842,7 +1842,7 @@ export const BOMB_1: IncidentTypeConfiguration = {
           nextQuestionId: '44371',
         },
         {
-          id: '182681',
+          code: '182681',
           response: 'WITHIN PERIMETER',
           active: true,
           label: 'Within perimeter',
@@ -1851,7 +1851,7 @@ export const BOMB_1: IncidentTypeConfiguration = {
           nextQuestionId: '44371',
         },
         {
-          id: '182659',
+          code: '182659',
           response: 'ELSEWHERE',
           active: true,
           label: 'Elsewhere',
@@ -1860,7 +1860,7 @@ export const BOMB_1: IncidentTypeConfiguration = {
           nextQuestionId: '44371',
         },
         {
-          id: '182661',
+          code: '182661',
           response: 'FUNERAL',
           active: true,
           label: 'Funeral',
@@ -1869,7 +1869,7 @@ export const BOMB_1: IncidentTypeConfiguration = {
           nextQuestionId: '44371',
         },
         {
-          id: '182665',
+          code: '182665',
           response: 'HOSPITAL OUTSIDE (PATIENT)',
           active: true,
           label: 'Hospital outside (patient)',
@@ -1878,7 +1878,7 @@ export const BOMB_1: IncidentTypeConfiguration = {
           nextQuestionId: '44371',
         },
         {
-          id: '182666',
+          code: '182666',
           response: 'HOSPITAL OUTSIDE (VISITING)',
           active: true,
           label: 'Hospital outside (visiting)',
@@ -1887,7 +1887,7 @@ export const BOMB_1: IncidentTypeConfiguration = {
           nextQuestionId: '44371',
         },
         {
-          id: '182670',
+          code: '182670',
           response: 'OUTSIDE WORKING PARTY',
           active: true,
           label: 'Outside working party',
@@ -1896,7 +1896,7 @@ export const BOMB_1: IncidentTypeConfiguration = {
           nextQuestionId: '44371',
         },
         {
-          id: '182676',
+          code: '182676',
           response: 'SPORTS FIELD',
           active: true,
           label: 'Sports field',
@@ -1905,7 +1905,7 @@ export const BOMB_1: IncidentTypeConfiguration = {
           nextQuestionId: '44371',
         },
         {
-          id: '182677',
+          code: '182677',
           response: 'VEHICLE',
           active: true,
           label: 'Vehicle',
@@ -1914,7 +1914,7 @@ export const BOMB_1: IncidentTypeConfiguration = {
           nextQuestionId: '44371',
         },
         {
-          id: '182679',
+          code: '182679',
           response: 'WEDDINGS',
           active: true,
           label: 'Weddings',
@@ -1923,7 +1923,7 @@ export const BOMB_1: IncidentTypeConfiguration = {
           nextQuestionId: '44371',
         },
         {
-          id: '182668',
+          code: '182668',
           response: 'MAGISTRATES COURT',
           active: true,
           label: 'Magistrates court',
@@ -1932,7 +1932,7 @@ export const BOMB_1: IncidentTypeConfiguration = {
           nextQuestionId: '44371',
         },
         {
-          id: '182655',
+          code: '182655',
           response: 'CROWN COURT',
           active: true,
           label: 'Crown court',

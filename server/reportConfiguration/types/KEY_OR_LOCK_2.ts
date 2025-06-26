@@ -15,7 +15,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
       multipleAnswers: true,
       answers: [
         {
-          id: '182748',
+          code: '182748',
           response: 'Keys taken out of the establishment',
           active: false,
           label: 'Keys taken out of the establishment',
@@ -24,7 +24,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
-          id: '182749',
+          code: '182749',
           response: 'Keys lost',
           active: false,
           label: 'Keys lost',
@@ -33,7 +33,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
-          id: '182750',
+          code: '182750',
           response: 'Key left unattended in prison',
           active: false,
           label: 'Key left unattended in prison',
@@ -42,7 +42,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
-          id: '182751',
+          code: '182751',
           response: 'Key issued to wrong person',
           active: false,
           label: 'Key issued to wrong person',
@@ -51,7 +51,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
-          id: '182752',
+          code: '182752',
           response: 'Doors/Gates/Cell door left unlocked',
           active: false,
           label: 'Doors/gates/cell door left unlocked',
@@ -60,7 +60,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
-          id: '182753',
+          code: '182753',
           response: 'Loss of handcuffs',
           active: false,
           label: 'Loss of handcuffs',
@@ -69,7 +69,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
-          id: '182754',
+          code: '182754',
           response: 'Loss of escort chain',
           active: false,
           label: 'Loss of escort chain',
@@ -78,7 +78,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
-          id: '182755',
+          code: '182755',
           response: 'Other handcuff key/lock issues',
           active: false,
           label: 'Other handcuff key/lock issues',
@@ -87,7 +87,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
-          id: '182756',
+          code: '182756',
           response: 'Broken/Damaged keys',
           active: false,
           label: 'Broken/damaged keys',
@@ -96,7 +96,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
-          id: '182757',
+          code: '182757',
           response: 'Worn locks (not malicious)',
           active: false,
           label: 'Worn locks (not malicious)',
@@ -105,7 +105,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
-          id: '182758',
+          code: '182758',
           response: 'Malicious damage to/blockage of locks',
           active: false,
           label: 'Malicious damage to/blockage of locks',
@@ -114,7 +114,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
-          id: '182759',
+          code: '182759',
           response: 'Lock picked',
           active: false,
           label: 'Lock picked',
@@ -123,7 +123,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
-          id: '182760',
+          code: '182760',
           response: 'Part of lock removed',
           active: false,
           label: 'Part of lock removed',
@@ -132,7 +132,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
-          id: '182761',
+          code: '182761',
           response: 'Complete lock removed',
           active: false,
           label: 'Complete lock removed',
@@ -141,7 +141,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
-          id: '182762',
+          code: '182762',
           response: 'Electronics overcome (electronic door)',
           active: false,
           label: 'Electronics overcome (electronic door)',
@@ -150,7 +150,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
-          id: '182763',
+          code: '182763',
           response: 'Electronics failure (electronic door)',
           active: false,
           label: 'Electronics failure (electronic door)',
@@ -159,7 +159,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
-          id: '182764',
+          code: '182764',
           response: 'Replica key found/used',
           active: false,
           label: 'Replica key found/used',
@@ -168,7 +168,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
-          id: '182765',
+          code: '182765',
           response: 'Key viewed by prisoner',
           active: false,
           label: 'Key viewed by prisoner',
@@ -177,7 +177,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
-          id: '182766',
+          code: '182766',
           response: 'Other: (anything else including prisoner grabbing key chain, etc)',
           active: false,
           label: 'Other: (anything else including prisoner grabbing key chain, etc)',
@@ -186,7 +186,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
-          id: '182945',
+          code: '182945',
           response: 'Keys taken out of the establishment',
           active: true,
           label: 'Keys taken out of the establishment',
@@ -195,7 +195,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
           nextQuestionId: '45197',
         },
         {
-          id: '182946',
+          code: '182946',
           response: 'Keys lost',
           active: true,
           label: 'Keys lost',
@@ -204,7 +204,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
           nextQuestionId: '45197',
         },
         {
-          id: '182947',
+          code: '182947',
           response: 'Key left unattended in prison',
           active: true,
           label: 'Key left unattended in prison',
@@ -213,7 +213,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
           nextQuestionId: '45197',
         },
         {
-          id: '182948',
+          code: '182948',
           response: 'Key issued to wrong person',
           active: true,
           label: 'Key issued to wrong person',
@@ -222,7 +222,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
           nextQuestionId: '45197',
         },
         {
-          id: '182949',
+          code: '182949',
           response: 'Doors/Gates/cell door left unlocked',
           active: true,
           label: 'Doors/gates/cell door left unlocked',
@@ -231,7 +231,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
           nextQuestionId: '45197',
         },
         {
-          id: '182950',
+          code: '182950',
           response: 'Loss of handcuffs',
           active: true,
           label: 'Loss of handcuffs',
@@ -240,7 +240,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
           nextQuestionId: '45197',
         },
         {
-          id: '182951',
+          code: '182951',
           response: 'Loss of escort chain',
           active: true,
           label: 'Loss of escort chain',
@@ -249,7 +249,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
           nextQuestionId: '45197',
         },
         {
-          id: '182952',
+          code: '182952',
           response: 'Other handcuff key/lock issues',
           active: true,
           label: 'Other handcuff key/lock issues',
@@ -258,7 +258,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
           nextQuestionId: '45197',
         },
         {
-          id: '182953',
+          code: '182953',
           response: 'Broken/Damaged keys',
           active: true,
           label: 'Broken/damaged keys',
@@ -267,7 +267,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
           nextQuestionId: '45197',
         },
         {
-          id: '182954',
+          code: '182954',
           response: 'Worn locks (not malicious)',
           active: true,
           label: 'Worn locks (not malicious)',
@@ -276,7 +276,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
           nextQuestionId: '45197',
         },
         {
-          id: '182955',
+          code: '182955',
           response: 'Malicious damage to/blockage of locks',
           active: true,
           label: 'Malicious damage to/blockage of locks',
@@ -285,7 +285,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
           nextQuestionId: '45197',
         },
         {
-          id: '182956',
+          code: '182956',
           response: 'Lock picked',
           active: true,
           label: 'Lock picked',
@@ -294,7 +294,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
           nextQuestionId: '45197',
         },
         {
-          id: '182957',
+          code: '182957',
           response: 'Part of lock removed',
           active: true,
           label: 'Part of lock removed',
@@ -303,7 +303,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
           nextQuestionId: '45197',
         },
         {
-          id: '182958',
+          code: '182958',
           response: 'Complete lock removed',
           active: true,
           label: 'Complete lock removed',
@@ -312,7 +312,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
           nextQuestionId: '45197',
         },
         {
-          id: '182959',
+          code: '182959',
           response: 'Electronics overcome (electronic door)',
           active: true,
           label: 'Electronics overcome (electronic door)',
@@ -321,7 +321,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
           nextQuestionId: '45197',
         },
         {
-          id: '182960',
+          code: '182960',
           response: 'Electronics failure (electronic door)',
           active: true,
           label: 'Electronics failure (electronic door)',
@@ -330,7 +330,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
           nextQuestionId: '45197',
         },
         {
-          id: '182961',
+          code: '182961',
           response: 'Replica key found/used',
           active: true,
           label: 'Replica key found/used',
@@ -339,7 +339,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
           nextQuestionId: '45197',
         },
         {
-          id: '182962',
+          code: '182962',
           response: 'Key viewed by prisoner',
           active: true,
           label: 'Key viewed by prisoner',
@@ -348,7 +348,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
           nextQuestionId: '45197',
         },
         {
-          id: '182963',
+          code: '182963',
           response: 'Other  (anything else including prisoner grabbing key chain, etc)',
           active: true,
           label: 'Other (anything else including prisoner grabbing key chain, etc)',
@@ -366,7 +366,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
       multipleAnswers: true,
       answers: [
         {
-          id: '182767',
+          code: '182767',
           response: 'Class 1 pass key',
           active: false,
           label: 'Class 1 pass key',
@@ -375,7 +375,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
-          id: '182768',
+          code: '182768',
           response: 'Class 2 pass key',
           active: false,
           label: 'Class 2 pass key',
@@ -384,7 +384,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
-          id: '182769',
+          code: '182769',
           response: 'Cell key',
           active: false,
           label: 'Cell key',
@@ -393,7 +393,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
-          id: '182770',
+          code: '182770',
           response: 'Class 3 A1 Suite key',
           active: false,
           label: 'Class 3 A1 suite key',
@@ -402,7 +402,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
-          id: '182771',
+          code: '182771',
           response: 'Class 3 Accountable key',
           active: false,
           label: 'Class 3 accountable key',
@@ -411,7 +411,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
-          id: '182772',
+          code: '182772',
           response: 'Handcuff key',
           active: false,
           label: 'Handcuff key',
@@ -420,7 +420,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
-          id: '182773',
+          code: '182773',
           response: 'Escort Chain key',
           active: false,
           label: 'Escort chain key',
@@ -429,7 +429,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
-          id: '182774',
+          code: '182774',
           response: 'Class 1 Lock',
           active: false,
           label: 'Class 1 lock',
@@ -438,7 +438,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
-          id: '182775',
+          code: '182775',
           response: 'Class 2 Lock',
           active: false,
           label: 'Class 2 lock',
@@ -447,7 +447,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
-          id: '182776',
+          code: '182776',
           response: 'Cell Lock',
           active: false,
           label: 'Cell lock',
@@ -456,7 +456,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
-          id: '182777',
+          code: '182777',
           response: 'Class 3 A1 Suite Lock',
           active: false,
           label: 'Class 3 A1 suite lock',
@@ -465,7 +465,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
-          id: '182778',
+          code: '182778',
           response: 'Class 3 Accountable Lock',
           active: false,
           label: 'Class 3 accountable lock',
@@ -474,7 +474,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
-          id: '182779',
+          code: '182779',
           response: 'Handcuffs',
           active: false,
           label: 'Handcuffs',
@@ -483,7 +483,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
-          id: '182780',
+          code: '182780',
           response: 'Escort chain',
           active: false,
           label: 'Escort chain',
@@ -492,7 +492,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
-          id: '182781',
+          code: '182781',
           response: 'Electronic Lock System',
           active: false,
           label: 'Electronic lock system',
@@ -501,7 +501,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
-          id: '182782',
+          code: '182782',
           response: 'Magnetic Keys',
           active: false,
           label: 'Magnetic keys',
@@ -510,7 +510,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
-          id: '182783',
+          code: '182783',
           response: 'Magnetic Lock',
           active: false,
           label: 'Magnetic lock',
@@ -519,7 +519,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
-          id: '182784',
+          code: '182784',
           response: 'Cell Door',
           active: false,
           label: 'Cell door',
@@ -528,7 +528,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
-          id: '182785',
+          code: '182785',
           response: 'Brent Keys',
           active: false,
           label: 'Brent keys',
@@ -537,7 +537,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
-          id: '182786',
+          code: '182786',
           response: 'Other: Specify',
           active: false,
           label: 'Other: specify',
@@ -546,7 +546,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
-          id: '182964',
+          code: '182964',
           response: 'Class 1 pass key',
           active: true,
           label: 'Class 1 pass key',
@@ -555,7 +555,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
           nextQuestionId: '45198',
         },
         {
-          id: '182965',
+          code: '182965',
           response: 'Class 2 pass key',
           active: true,
           label: 'Class 2 pass key',
@@ -564,7 +564,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
           nextQuestionId: '45198',
         },
         {
-          id: '182966',
+          code: '182966',
           response: 'Cell key',
           active: true,
           label: 'Cell key',
@@ -573,7 +573,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
           nextQuestionId: '45198',
         },
         {
-          id: '182967',
+          code: '182967',
           response: 'Class 3 A1 Suite key',
           active: true,
           label: 'Class 3 A1 suite key',
@@ -582,7 +582,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
           nextQuestionId: '45198',
         },
         {
-          id: '182968',
+          code: '182968',
           response: 'Class 3 Accountable key',
           active: true,
           label: 'Class 3 accountable key',
@@ -591,7 +591,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
           nextQuestionId: '45198',
         },
         {
-          id: '182969',
+          code: '182969',
           response: 'Handcuff key',
           active: true,
           label: 'Handcuff key',
@@ -600,7 +600,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
           nextQuestionId: '45198',
         },
         {
-          id: '182970',
+          code: '182970',
           response: 'Escort Chain key',
           active: true,
           label: 'Escort chain key',
@@ -609,7 +609,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
           nextQuestionId: '45198',
         },
         {
-          id: '182971',
+          code: '182971',
           response: 'Class 1 Lock',
           active: true,
           label: 'Class 1 lock',
@@ -618,7 +618,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
           nextQuestionId: '45198',
         },
         {
-          id: '182972',
+          code: '182972',
           response: 'Class 2 Lock',
           active: true,
           label: 'Class 2 lock',
@@ -627,7 +627,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
           nextQuestionId: '45198',
         },
         {
-          id: '182973',
+          code: '182973',
           response: 'Cell Lock',
           active: true,
           label: 'Cell lock',
@@ -636,7 +636,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
           nextQuestionId: '45198',
         },
         {
-          id: '182974',
+          code: '182974',
           response: 'Class 3 A1 Suite Lock',
           active: true,
           label: 'Class 3 A1 suite lock',
@@ -645,7 +645,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
           nextQuestionId: '45198',
         },
         {
-          id: '182975',
+          code: '182975',
           response: 'Class 3 Accountable Lock',
           active: true,
           label: 'Class 3 accountable lock',
@@ -654,7 +654,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
           nextQuestionId: '45198',
         },
         {
-          id: '182976',
+          code: '182976',
           response: 'Handcuffs',
           active: true,
           label: 'Handcuffs',
@@ -663,7 +663,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
           nextQuestionId: '45198',
         },
         {
-          id: '182977',
+          code: '182977',
           response: 'Escort chain',
           active: true,
           label: 'Escort chain',
@@ -672,7 +672,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
           nextQuestionId: '45198',
         },
         {
-          id: '182978',
+          code: '182978',
           response: 'Electronic Lock System',
           active: true,
           label: 'Electronic lock system',
@@ -681,7 +681,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
           nextQuestionId: '45198',
         },
         {
-          id: '182979',
+          code: '182979',
           response: 'Magnetic Keys',
           active: true,
           label: 'Magnetic keys',
@@ -690,7 +690,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
           nextQuestionId: '45198',
         },
         {
-          id: '182980',
+          code: '182980',
           response: 'Magnetic Lock',
           active: true,
           label: 'Magnetic lock',
@@ -699,7 +699,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
           nextQuestionId: '45198',
         },
         {
-          id: '182981',
+          code: '182981',
           response: 'Cell Door',
           active: true,
           label: 'Cell door',
@@ -708,7 +708,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
           nextQuestionId: '45198',
         },
         {
-          id: '182982',
+          code: '182982',
           response: 'Brent Keys',
           active: true,
           label: 'Brent keys',
@@ -717,7 +717,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
           nextQuestionId: '45198',
         },
         {
-          id: '182983',
+          code: '182983',
           response: 'Other :  Specify',
           active: true,
           label: 'Other : specify',
@@ -735,7 +735,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '182787',
+          code: '182787',
           response: 'Enter Value:',
           active: false,
           label: 'Enter value:',
@@ -744,7 +744,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
-          id: '182984',
+          code: '182984',
           response: 'Enter Value:',
           active: true,
           label: 'Enter value:',
@@ -762,7 +762,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '182788',
+          code: '182788',
           response: 'Yes',
           active: false,
           label: 'Yes',
@@ -771,7 +771,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
-          id: '182789',
+          code: '182789',
           response: 'No',
           active: false,
           label: 'No',
@@ -780,7 +780,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
-          id: '182985',
+          code: '182985',
           response: 'Yes',
           active: true,
           label: 'Yes',
@@ -789,7 +789,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
           nextQuestionId: '45200',
         },
         {
-          id: '182986',
+          code: '182986',
           response: 'No',
           active: false,
           label: 'No',
@@ -798,7 +798,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
           nextQuestionId: '45200',
         },
         {
-          id: '184687',
+          code: '184687',
           response: 'No',
           active: false,
           label: 'No',
@@ -807,7 +807,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
           nextQuestionId: '45202',
         },
         {
-          id: '188684',
+          code: '188684',
           response: 'No',
           active: false,
           label: 'No',
@@ -816,7 +816,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
           nextQuestionId: '45208',
         },
         {
-          id: '190684',
+          code: '190684',
           response: 'No',
           active: true,
           label: 'No',
@@ -834,7 +834,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '182790',
+          code: '182790',
           response: 'Complete relock',
           active: false,
           label: 'Complete relock',
@@ -843,7 +843,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
-          id: '182791',
+          code: '182791',
           response: 'Partial relock',
           active: false,
           label: 'Partial relock',
@@ -852,7 +852,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
-          id: '182792',
+          code: '182792',
           response: 'Complete replacement',
           active: false,
           label: 'Complete replacement',
@@ -861,7 +861,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
-          id: '182793',
+          code: '182793',
           response: 'Partial replacement',
           active: false,
           label: 'Partial replacement',
@@ -870,7 +870,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
-          id: '182794',
+          code: '182794',
           response: 'Forensic testing',
           active: false,
           label: 'Forensic testing',
@@ -879,7 +879,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
-          id: '182987',
+          code: '182987',
           response: 'Complete relock',
           active: true,
           label: 'Complete relock',
@@ -888,7 +888,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
           nextQuestionId: '45201',
         },
         {
-          id: '182988',
+          code: '182988',
           response: 'Partial relock',
           active: true,
           label: 'Partial relock',
@@ -897,7 +897,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
           nextQuestionId: '45201',
         },
         {
-          id: '182989',
+          code: '182989',
           response: 'Complete replacement',
           active: true,
           label: 'Complete replacement',
@@ -906,7 +906,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
           nextQuestionId: '45201',
         },
         {
-          id: '182990',
+          code: '182990',
           response: 'Partial replacement',
           active: true,
           label: 'Partial replacement',
@@ -915,7 +915,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
           nextQuestionId: '45201',
         },
         {
-          id: '182991',
+          code: '182991',
           response: 'Forensic testing',
           active: true,
           label: 'Forensic testing',
@@ -924,7 +924,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
           nextQuestionId: '45201',
         },
         {
-          id: '188685',
+          code: '188685',
           response: 'Other',
           active: true,
           label: 'Other',
@@ -942,7 +942,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '182795',
+          code: '182795',
           response: '£',
           active: false,
           label: '£',
@@ -951,7 +951,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
-          id: '182992',
+          code: '182992',
           response: '£',
           active: true,
           label: '£',
@@ -960,7 +960,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
           nextQuestionId: '45202',
         },
         {
-          id: '190687',
+          code: '190687',
           response: 'N/A',
           active: true,
           label: 'N/A',
@@ -978,7 +978,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '182796',
+          code: '182796',
           response: 'Yes',
           active: false,
           label: 'Yes',
@@ -987,7 +987,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
-          id: '182797',
+          code: '182797',
           response: 'No',
           active: false,
           label: 'No',
@@ -996,7 +996,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
-          id: '182993',
+          code: '182993',
           response: 'Yes',
           active: true,
           label: 'Yes',
@@ -1005,7 +1005,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
           nextQuestionId: '45203',
         },
         {
-          id: '182994',
+          code: '182994',
           response: 'No',
           active: true,
           label: 'No',
@@ -1014,7 +1014,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
           nextQuestionId: '45203',
         },
         {
-          id: '190686',
+          code: '190686',
           response: 'N/A',
           active: true,
           label: 'N/A',
@@ -1032,7 +1032,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '182798',
+          code: '182798',
           response: 'Yes',
           active: false,
           label: 'Yes',
@@ -1041,7 +1041,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
-          id: '182799',
+          code: '182799',
           response: 'No',
           active: false,
           label: 'No',
@@ -1050,7 +1050,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
-          id: '182995',
+          code: '182995',
           response: 'Yes',
           active: true,
           label: 'Yes',
@@ -1059,7 +1059,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
           nextQuestionId: '45204',
         },
         {
-          id: '182996',
+          code: '182996',
           response: 'No',
           active: false,
           label: 'No',
@@ -1068,7 +1068,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
           nextQuestionId: '45204',
         },
         {
-          id: '184688',
+          code: '184688',
           response: 'No',
           active: true,
           label: 'No',
@@ -1077,7 +1077,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
           nextQuestionId: '45205',
         },
         {
-          id: '190688',
+          code: '190688',
           response: 'N/A',
           active: true,
           label: 'N/A',
@@ -1095,7 +1095,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '182800',
+          code: '182800',
           response: 'Full close down search',
           active: false,
           label: 'Full close down search',
@@ -1104,7 +1104,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
-          id: '182801',
+          code: '182801',
           response: 'Partial search',
           active: false,
           label: 'Partial search',
@@ -1113,7 +1113,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
-          id: '182802',
+          code: '182802',
           response: 'Other: Specify',
           active: false,
           label: 'Other: specify',
@@ -1122,7 +1122,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
-          id: '182997',
+          code: '182997',
           response: 'Full close down search',
           active: true,
           label: 'Full close down search',
@@ -1131,7 +1131,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
           nextQuestionId: '45205',
         },
         {
-          id: '182998',
+          code: '182998',
           response: 'Partial search',
           active: true,
           label: 'Partial search',
@@ -1140,7 +1140,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
           nextQuestionId: '45205',
         },
         {
-          id: '182999',
+          code: '182999',
           response: 'Other: Please specify',
           active: true,
           label: 'Other: please specify',
@@ -1158,7 +1158,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '182803',
+          code: '182803',
           response: 'Yes',
           active: false,
           label: 'Yes',
@@ -1167,7 +1167,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
-          id: '182804',
+          code: '182804',
           response: 'No',
           active: false,
           label: 'No',
@@ -1176,7 +1176,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
-          id: '183000',
+          code: '183000',
           response: 'Yes',
           active: true,
           label: 'Yes',
@@ -1185,7 +1185,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
           nextQuestionId: '45206',
         },
         {
-          id: '183001',
+          code: '183001',
           response: 'No',
           active: false,
           label: 'No',
@@ -1194,7 +1194,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
           nextQuestionId: '45206',
         },
         {
-          id: '190685',
+          code: '190685',
           response: 'No',
           active: true,
           label: 'No',
@@ -1212,7 +1212,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
       multipleAnswers: true,
       answers: [
         {
-          id: '182805',
+          code: '182805',
           response: 'Hacksaw blade',
           active: false,
           label: 'Hacksaw blade',
@@ -1221,7 +1221,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
-          id: '182806',
+          code: '182806',
           response: 'Other Blade',
           active: false,
           label: 'Other blade',
@@ -1230,7 +1230,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
-          id: '182807',
+          code: '182807',
           response: 'Wire cutters',
           active: false,
           label: 'Wire cutters',
@@ -1239,7 +1239,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
-          id: '182808',
+          code: '182808',
           response: 'Bolt cutters',
           active: false,
           label: 'Bolt cutters',
@@ -1248,7 +1248,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
-          id: '182809',
+          code: '182809',
           response: 'Digging tool',
           active: false,
           label: 'Digging tool',
@@ -1257,7 +1257,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
-          id: '182810',
+          code: '182810',
           response: 'Crow bar',
           active: false,
           label: 'Crow bar',
@@ -1266,7 +1266,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
-          id: '182811',
+          code: '182811',
           response: 'Improvised tool',
           active: false,
           label: 'Improvised tool',
@@ -1275,7 +1275,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
-          id: '182812',
+          code: '182812',
           response: 'Other: Specify',
           active: false,
           label: 'Other: specify',
@@ -1284,7 +1284,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
-          id: '182813',
+          code: '182813',
           response: 'Not Known',
           active: false,
           label: 'Not known',
@@ -1293,7 +1293,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
-          id: '183002',
+          code: '183002',
           response: 'Hacksaw blade',
           active: true,
           label: 'Hacksaw blade',
@@ -1302,7 +1302,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
           nextQuestionId: '45207',
         },
         {
-          id: '183003',
+          code: '183003',
           response: 'Other blade',
           active: true,
           label: 'Other blade',
@@ -1311,7 +1311,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
           nextQuestionId: '45207',
         },
         {
-          id: '183004',
+          code: '183004',
           response: 'Wire cutters',
           active: true,
           label: 'Wire cutters',
@@ -1320,7 +1320,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
           nextQuestionId: '45207',
         },
         {
-          id: '183005',
+          code: '183005',
           response: 'Bolt cutters',
           active: true,
           label: 'Bolt cutters',
@@ -1329,7 +1329,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
           nextQuestionId: '45207',
         },
         {
-          id: '183006',
+          code: '183006',
           response: 'Digging tool',
           active: true,
           label: 'Digging tool',
@@ -1338,7 +1338,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
           nextQuestionId: '45207',
         },
         {
-          id: '183007',
+          code: '183007',
           response: 'Crow bar',
           active: true,
           label: 'Crow bar',
@@ -1347,7 +1347,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
           nextQuestionId: '45207',
         },
         {
-          id: '183008',
+          code: '183008',
           response: 'Improvised tool',
           active: true,
           label: 'Improvised tool',
@@ -1356,7 +1356,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
           nextQuestionId: '45207',
         },
         {
-          id: '183009',
+          code: '183009',
           response: 'Other: Please specify',
           active: true,
           label: 'Other: please specify',
@@ -1365,7 +1365,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
           nextQuestionId: '45207',
         },
         {
-          id: '183010',
+          code: '183010',
           response: 'Not Known',
           active: true,
           label: 'Not known',
@@ -1383,7 +1383,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '182814',
+          code: '182814',
           response: 'Works Department',
           active: false,
           label: 'Works department',
@@ -1392,7 +1392,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
-          id: '182815',
+          code: '182815',
           response: 'Contractors',
           active: false,
           label: 'Contractors',
@@ -1401,7 +1401,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
-          id: '182816',
+          code: '182816',
           response: 'Education',
           active: false,
           label: 'Education',
@@ -1410,7 +1410,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
-          id: '182817',
+          code: '182817',
           response: 'Heathcare Centre',
           active: false,
           label: 'Healthcare centre',
@@ -1419,7 +1419,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
-          id: '182818',
+          code: '182818',
           response: 'Farms and Gardens',
           active: false,
           label: 'Farms and gardens',
@@ -1428,7 +1428,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
-          id: '182819',
+          code: '182819',
           response: 'Staff',
           active: false,
           label: 'Staff',
@@ -1437,7 +1437,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
-          id: '182820',
+          code: '182820',
           response: 'Visitor',
           active: false,
           label: 'Visitor',
@@ -1446,7 +1446,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
-          id: '182821',
+          code: '182821',
           response: 'Other: Specify',
           active: false,
           label: 'Other: specify',
@@ -1455,7 +1455,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
-          id: '182822',
+          code: '182822',
           response: 'Not Known',
           active: false,
           label: 'Not known',
@@ -1464,7 +1464,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
-          id: '183011',
+          code: '183011',
           response: 'Works Department',
           active: true,
           label: 'Works department',
@@ -1473,7 +1473,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
           nextQuestionId: '45208',
         },
         {
-          id: '183012',
+          code: '183012',
           response: 'Contractors',
           active: true,
           label: 'Contractors',
@@ -1482,7 +1482,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
           nextQuestionId: '45208',
         },
         {
-          id: '183013',
+          code: '183013',
           response: 'Education',
           active: true,
           label: 'Education',
@@ -1491,7 +1491,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
           nextQuestionId: '45208',
         },
         {
-          id: '183014',
+          code: '183014',
           response: 'Health Care Centre',
           active: true,
           label: 'Health care centre',
@@ -1500,7 +1500,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
           nextQuestionId: '45208',
         },
         {
-          id: '183015',
+          code: '183015',
           response: 'Farms and Gardens',
           active: true,
           label: 'Farms and gardens',
@@ -1509,7 +1509,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
           nextQuestionId: '45208',
         },
         {
-          id: '183016',
+          code: '183016',
           response: 'Staff',
           active: true,
           label: 'Staff',
@@ -1518,7 +1518,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
           nextQuestionId: '45208',
         },
         {
-          id: '183017',
+          code: '183017',
           response: 'Visitor',
           active: true,
           label: 'Visitor',
@@ -1527,7 +1527,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
           nextQuestionId: '45208',
         },
         {
-          id: '183018',
+          code: '183018',
           response: 'Other: Please specify',
           active: true,
           label: 'Other: please specify',
@@ -1536,7 +1536,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
           nextQuestionId: '45208',
         },
         {
-          id: '183019',
+          code: '183019',
           response: 'Not Known',
           active: true,
           label: 'Not known',
@@ -1554,7 +1554,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
       multipleAnswers: true,
       answers: [
         {
-          id: '182823',
+          code: '182823',
           response: 'Yes: Date',
           active: true,
           label: 'Yes: date',
@@ -1563,7 +1563,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
-          id: '182824',
+          code: '182824',
           response: 'No',
           active: true,
           label: 'No',
@@ -1572,7 +1572,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
-          id: '182825',
+          code: '182825',
           response: 'Incident Ref No:',
           active: true,
           label: 'Incident ref no:',

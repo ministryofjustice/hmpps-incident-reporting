@@ -50,8 +50,8 @@ function checkIdsDontIncludeHyphens(config: IncidentTypeConfiguration, errors: E
       question.answers
         .filter(answer => answer.active)
         .forEach(answer => {
-          if (answer.id.includes('-')) {
-            errors.push(new Error(`active answer '${answer.id}' has hiphen in its ID`))
+          if (answer.code.includes('-')) {
+            errors.push(new Error(`active answer '${answer.code}' has hiphen in its code`))
           }
         })
     })

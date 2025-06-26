@@ -15,7 +15,7 @@ export const TOOL_LOSS_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '179154',
+          code: '179154',
           response: 'FULL CLOSE DOWN SEARCH',
           active: true,
           label: 'Full close down search',
@@ -24,7 +24,7 @@ export const TOOL_LOSS_1: IncidentTypeConfiguration = {
           nextQuestionId: '44565',
         },
         {
-          id: '179156',
+          code: '179156',
           response: 'PARTIAL SEARCH',
           active: true,
           label: 'Partial search',
@@ -33,7 +33,7 @@ export const TOOL_LOSS_1: IncidentTypeConfiguration = {
           nextQuestionId: '44565',
         },
         {
-          id: '179155',
+          code: '179155',
           response: 'OTHER',
           active: true,
           label: 'Other',
@@ -51,7 +51,7 @@ export const TOOL_LOSS_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '179749',
+          code: '179749',
           response: 'LOST',
           active: true,
           label: 'Lost',
@@ -60,7 +60,7 @@ export const TOOL_LOSS_1: IncidentTypeConfiguration = {
           nextQuestionId: '44445',
         },
         {
-          id: '179750',
+          code: '179750',
           response: 'MISLAID',
           active: true,
           label: 'Mislaid',
@@ -69,7 +69,7 @@ export const TOOL_LOSS_1: IncidentTypeConfiguration = {
           nextQuestionId: '44445',
         },
         {
-          id: '179751',
+          code: '179751',
           response: 'STOLEN',
           active: true,
           label: 'Stolen',
@@ -87,7 +87,7 @@ export const TOOL_LOSS_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '179883',
+          code: '179883',
           response: 'YES',
           active: true,
           label: 'Yes',
@@ -96,7 +96,7 @@ export const TOOL_LOSS_1: IncidentTypeConfiguration = {
           nextQuestionId: '44593',
         },
         {
-          id: '179882',
+          code: '179882',
           response: 'NO',
           active: true,
           label: 'No',
@@ -114,7 +114,7 @@ export const TOOL_LOSS_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '179974',
+          code: '179974',
           response: 'YES',
           active: true,
           label: 'Yes',
@@ -123,7 +123,7 @@ export const TOOL_LOSS_1: IncidentTypeConfiguration = {
           nextQuestionId: '44195',
         },
         {
-          id: '179973',
+          code: '179973',
           response: 'NO',
           active: true,
           label: 'No',
@@ -141,7 +141,7 @@ export const TOOL_LOSS_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '180133',
+          code: '180133',
           response: 'SHADOW BOARD',
           active: true,
           label: 'Shadow board',
@@ -150,7 +150,7 @@ export const TOOL_LOSS_1: IncidentTypeConfiguration = {
           nextQuestionId: '44509',
         },
         {
-          id: '180131',
+          code: '180131',
           response: 'SECURE CABINET',
           active: true,
           label: 'Secure cabinet',
@@ -159,7 +159,7 @@ export const TOOL_LOSS_1: IncidentTypeConfiguration = {
           nextQuestionId: '44509',
         },
         {
-          id: '180132',
+          code: '180132',
           response: 'SECURE ROOM',
           active: true,
           label: 'Secure room',
@@ -168,7 +168,7 @@ export const TOOL_LOSS_1: IncidentTypeConfiguration = {
           nextQuestionId: '44509',
         },
         {
-          id: '180130',
+          code: '180130',
           response: 'OTHER',
           active: true,
           label: 'Other',
@@ -186,7 +186,7 @@ export const TOOL_LOSS_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '180170',
+          code: '180170',
           response: 'YES',
           active: true,
           label: 'Yes',
@@ -195,7 +195,7 @@ export const TOOL_LOSS_1: IncidentTypeConfiguration = {
           nextQuestionId: '44993',
         },
         {
-          id: '180169',
+          code: '180169',
           response: 'NO',
           active: true,
           label: 'No',
@@ -213,7 +213,7 @@ export const TOOL_LOSS_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '180253',
+          code: '180253',
           response: 'YES',
           active: true,
           label: 'Yes',
@@ -222,7 +222,7 @@ export const TOOL_LOSS_1: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
-          id: '180252',
+          code: '180252',
           response: 'NO',
           active: true,
           label: 'No',
@@ -240,7 +240,7 @@ export const TOOL_LOSS_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '180473',
+          code: '180473',
           response: 'YES',
           active: true,
           label: 'Yes',
@@ -249,7 +249,7 @@ export const TOOL_LOSS_1: IncidentTypeConfiguration = {
           nextQuestionId: '45169',
         },
         {
-          id: '180474',
+          code: '180474',
           response: 'NO',
           active: true,
           label: 'No',
@@ -267,7 +267,7 @@ export const TOOL_LOSS_1: IncidentTypeConfiguration = {
       multipleAnswers: true,
       answers: [
         {
-          id: '180563',
+          code: '180563',
           response: 'KNIFE',
           active: true,
           label: 'Knife',
@@ -276,7 +276,7 @@ export const TOOL_LOSS_1: IncidentTypeConfiguration = {
           nextQuestionId: '44950',
         },
         {
-          id: '180562',
+          code: '180562',
           response: 'HACKSAW',
           active: true,
           label: 'Hacksaw',
@@ -285,7 +285,7 @@ export const TOOL_LOSS_1: IncidentTypeConfiguration = {
           nextQuestionId: '44950',
         },
         {
-          id: '180565',
+          code: '180565',
           response: 'OTHER SAW',
           active: true,
           label: 'Other saw',
@@ -294,7 +294,7 @@ export const TOOL_LOSS_1: IncidentTypeConfiguration = {
           nextQuestionId: '44950',
         },
         {
-          id: '180570',
+          code: '180570',
           response: 'SPADE',
           active: true,
           label: 'Spade',
@@ -303,7 +303,7 @@ export const TOOL_LOSS_1: IncidentTypeConfiguration = {
           nextQuestionId: '44950',
         },
         {
-          id: '180560',
+          code: '180560',
           response: 'AXE',
           active: true,
           label: 'Axe',
@@ -312,7 +312,7 @@ export const TOOL_LOSS_1: IncidentTypeConfiguration = {
           nextQuestionId: '44950',
         },
         {
-          id: '180566',
+          code: '180566',
           response: 'PICKAXE',
           active: true,
           label: 'Pickaxe',
@@ -321,7 +321,7 @@ export const TOOL_LOSS_1: IncidentTypeConfiguration = {
           nextQuestionId: '44950',
         },
         {
-          id: '180567',
+          code: '180567',
           response: 'PLIERS',
           active: true,
           label: 'Pliers',
@@ -330,7 +330,7 @@ export const TOOL_LOSS_1: IncidentTypeConfiguration = {
           nextQuestionId: '44950',
         },
         {
-          id: '180569',
+          code: '180569',
           response: 'SCREWDRIVER',
           active: true,
           label: 'Screwdriver',
@@ -339,7 +339,7 @@ export const TOOL_LOSS_1: IncidentTypeConfiguration = {
           nextQuestionId: '44950',
         },
         {
-          id: '180571',
+          code: '180571',
           response: 'WIRE CUTTERS',
           active: true,
           label: 'Wire cutters',
@@ -348,7 +348,7 @@ export const TOOL_LOSS_1: IncidentTypeConfiguration = {
           nextQuestionId: '44950',
         },
         {
-          id: '180561',
+          code: '180561',
           response: 'BOLT CROPPERS',
           active: true,
           label: 'Bolt croppers',
@@ -357,7 +357,7 @@ export const TOOL_LOSS_1: IncidentTypeConfiguration = {
           nextQuestionId: '44950',
         },
         {
-          id: '180568',
+          code: '180568',
           response: 'SCISSORS',
           active: true,
           label: 'Scissors',
@@ -366,7 +366,7 @@ export const TOOL_LOSS_1: IncidentTypeConfiguration = {
           nextQuestionId: '44950',
         },
         {
-          id: '180564',
+          code: '180564',
           response: 'OTHER',
           active: true,
           label: 'Other',
@@ -384,7 +384,7 @@ export const TOOL_LOSS_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '180609',
+          code: '180609',
           response: 'YES',
           active: true,
           label: 'Yes',
@@ -393,7 +393,7 @@ export const TOOL_LOSS_1: IncidentTypeConfiguration = {
           nextQuestionId: '44672',
         },
         {
-          id: '180608',
+          code: '180608',
           response: 'NO',
           active: true,
           label: 'No',
@@ -411,7 +411,7 @@ export const TOOL_LOSS_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '180830',
+          code: '180830',
           response: 'YES',
           active: true,
           label: 'Yes',
@@ -420,7 +420,7 @@ export const TOOL_LOSS_1: IncidentTypeConfiguration = {
           nextQuestionId: '44412',
         },
         {
-          id: '180829',
+          code: '180829',
           response: 'NO',
           active: true,
           label: 'No',
@@ -438,7 +438,7 @@ export const TOOL_LOSS_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '181276',
+          code: '181276',
           response: 'YES',
           active: true,
           label: 'Yes',
@@ -447,7 +447,7 @@ export const TOOL_LOSS_1: IncidentTypeConfiguration = {
           nextQuestionId: '44489',
         },
         {
-          id: '181275',
+          code: '181275',
           response: 'NO',
           active: true,
           label: 'No',
@@ -465,7 +465,7 @@ export const TOOL_LOSS_1: IncidentTypeConfiguration = {
       multipleAnswers: true,
       answers: [
         {
-          id: '181796',
+          code: '181796',
           response: 'WORKS DEPARTMENT',
           active: true,
           label: 'Works department',
@@ -474,7 +474,7 @@ export const TOOL_LOSS_1: IncidentTypeConfiguration = {
           nextQuestionId: '44372',
         },
         {
-          id: '181788',
+          code: '181788',
           response: 'CONTRACTORS',
           active: true,
           label: 'Contractors',
@@ -483,7 +483,7 @@ export const TOOL_LOSS_1: IncidentTypeConfiguration = {
           nextQuestionId: '44372',
         },
         {
-          id: '181789',
+          code: '181789',
           response: 'EDUCATION',
           active: true,
           label: 'Education',
@@ -492,7 +492,7 @@ export const TOOL_LOSS_1: IncidentTypeConfiguration = {
           nextQuestionId: '44372',
         },
         {
-          id: '181792',
+          code: '181792',
           response: 'HEALTH CARE CENTRE',
           active: true,
           label: 'Health care centre',
@@ -501,7 +501,7 @@ export const TOOL_LOSS_1: IncidentTypeConfiguration = {
           nextQuestionId: '44372',
         },
         {
-          id: '181790',
+          code: '181790',
           response: 'FARMS AND GARDENS',
           active: true,
           label: 'Farms and gardens',
@@ -510,7 +510,7 @@ export const TOOL_LOSS_1: IncidentTypeConfiguration = {
           nextQuestionId: '44372',
         },
         {
-          id: '181791',
+          code: '181791',
           response: 'GYMNASIUM/SPORTSFIELD',
           active: true,
           label: 'Gymnasium/sportsfield',
@@ -519,7 +519,7 @@ export const TOOL_LOSS_1: IncidentTypeConfiguration = {
           nextQuestionId: '44372',
         },
         {
-          id: '181797',
+          code: '181797',
           response: 'WORKSHOP',
           active: true,
           label: 'Workshop',
@@ -528,7 +528,7 @@ export const TOOL_LOSS_1: IncidentTypeConfiguration = {
           nextQuestionId: '44372',
         },
         {
-          id: '181793',
+          code: '181793',
           response: 'KITCHEN',
           active: true,
           label: 'Kitchen',
@@ -537,7 +537,7 @@ export const TOOL_LOSS_1: IncidentTypeConfiguration = {
           nextQuestionId: '44372',
         },
         {
-          id: '181787',
+          code: '181787',
           response: 'CELL HOBBIES',
           active: true,
           label: 'Cell hobbies',
@@ -546,7 +546,7 @@ export const TOOL_LOSS_1: IncidentTypeConfiguration = {
           nextQuestionId: '44372',
         },
         {
-          id: '181795',
+          code: '181795',
           response: 'WING OFFICE',
           active: true,
           label: 'Wing office',
@@ -555,7 +555,7 @@ export const TOOL_LOSS_1: IncidentTypeConfiguration = {
           nextQuestionId: '44372',
         },
         {
-          id: '181794',
+          code: '181794',
           response: 'OTHER',
           active: true,
           label: 'Other',
@@ -573,7 +573,7 @@ export const TOOL_LOSS_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '181941',
+          code: '181941',
           response: 'YES',
           active: true,
           label: 'Yes',
@@ -582,7 +582,7 @@ export const TOOL_LOSS_1: IncidentTypeConfiguration = {
           nextQuestionId: '44603',
         },
         {
-          id: '181940',
+          code: '181940',
           response: 'NO',
           active: true,
           label: 'No',
@@ -600,7 +600,7 @@ export const TOOL_LOSS_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '182533',
+          code: '182533',
           response: 'YES',
           active: true,
           label: 'Yes',
@@ -609,7 +609,7 @@ export const TOOL_LOSS_1: IncidentTypeConfiguration = {
           nextQuestionId: '44808',
         },
         {
-          id: '182534',
+          code: '182534',
           response: 'NO',
           active: true,
           label: 'No',
@@ -627,7 +627,7 @@ export const TOOL_LOSS_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '182624',
+          code: '182624',
           response: 'PRISONERS POSSESSION',
           active: true,
           label: 'Prisoners possession',
@@ -636,7 +636,7 @@ export const TOOL_LOSS_1: IncidentTypeConfiguration = {
           nextQuestionId: '44477',
         },
         {
-          id: '182621',
+          code: '182621',
           response: 'CONCEALED',
           active: true,
           label: 'Concealed',
@@ -645,7 +645,7 @@ export const TOOL_LOSS_1: IncidentTypeConfiguration = {
           nextQuestionId: '44477',
         },
         {
-          id: '182622',
+          code: '182622',
           response: 'DISCARDED',
           active: true,
           label: 'Discarded',
@@ -654,7 +654,7 @@ export const TOOL_LOSS_1: IncidentTypeConfiguration = {
           nextQuestionId: '44477',
         },
         {
-          id: '182625',
+          code: '182625',
           response: 'WHERE MISLAID/LOST',
           active: true,
           label: 'Where mislaid/lost',
@@ -663,7 +663,7 @@ export const TOOL_LOSS_1: IncidentTypeConfiguration = {
           nextQuestionId: '44477',
         },
         {
-          id: '182623',
+          code: '182623',
           response: 'OTHER',
           active: true,
           label: 'Other',

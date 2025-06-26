@@ -15,7 +15,7 @@ export const DRUGS_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '179087',
+          code: '179087',
           response: 'YES',
           active: false,
           label: 'Yes',
@@ -24,7 +24,7 @@ export const DRUGS_1: IncidentTypeConfiguration = {
           nextQuestionId: '44899',
         },
         {
-          id: '179088',
+          code: '179088',
           response: 'NO',
           active: false,
           label: 'No',
@@ -42,7 +42,7 @@ export const DRUGS_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '179174',
+          code: '179174',
           response: 'YES',
           active: false,
           label: 'Yes',
@@ -51,7 +51,7 @@ export const DRUGS_1: IncidentTypeConfiguration = {
           nextQuestionId: '44682',
         },
         {
-          id: '179173',
+          code: '179173',
           response: 'NO',
           active: false,
           label: 'No',
@@ -69,7 +69,7 @@ export const DRUGS_1: IncidentTypeConfiguration = {
       multipleAnswers: true,
       answers: [
         {
-          id: '179181',
+          code: '179181',
           response: 'HEROIN',
           active: false,
           label: 'Heroin',
@@ -78,7 +78,7 @@ export const DRUGS_1: IncidentTypeConfiguration = {
           nextQuestionId: '44821',
         },
         {
-          id: '179179',
+          code: '179179',
           response: 'COCAINE',
           active: false,
           label: 'Cocaine',
@@ -87,7 +87,7 @@ export const DRUGS_1: IncidentTypeConfiguration = {
           nextQuestionId: '44821',
         },
         {
-          id: '179182',
+          code: '179182',
           response: 'LSD',
           active: false,
           label: 'LSD',
@@ -96,7 +96,7 @@ export const DRUGS_1: IncidentTypeConfiguration = {
           nextQuestionId: '44821',
         },
         {
-          id: '179175',
+          code: '179175',
           response: 'AMPHETAMINES',
           active: false,
           label: 'Amphetamines',
@@ -105,7 +105,7 @@ export const DRUGS_1: IncidentTypeConfiguration = {
           nextQuestionId: '44821',
         },
         {
-          id: '179176',
+          code: '179176',
           response: 'BARBITURATES',
           active: false,
           label: 'Barbiturates',
@@ -114,7 +114,7 @@ export const DRUGS_1: IncidentTypeConfiguration = {
           nextQuestionId: '44821',
         },
         {
-          id: '179177',
+          code: '179177',
           response: 'CANNABIS',
           active: false,
           label: 'Cannabis',
@@ -123,7 +123,7 @@ export const DRUGS_1: IncidentTypeConfiguration = {
           nextQuestionId: '44821',
         },
         {
-          id: '179178',
+          code: '179178',
           response: 'CANNABIS PLANT',
           active: false,
           label: 'Cannabis plant',
@@ -132,7 +132,7 @@ export const DRUGS_1: IncidentTypeConfiguration = {
           nextQuestionId: '44821',
         },
         {
-          id: '179180',
+          code: '179180',
           response: 'CRACK',
           active: false,
           label: 'Crack',
@@ -141,7 +141,7 @@ export const DRUGS_1: IncidentTypeConfiguration = {
           nextQuestionId: '44821',
         },
         {
-          id: '179184',
+          code: '179184',
           response: 'TRANQUILISERS',
           active: false,
           label: 'Tranquilisers',
@@ -150,7 +150,7 @@ export const DRUGS_1: IncidentTypeConfiguration = {
           nextQuestionId: '44821',
         },
         {
-          id: '179183',
+          code: '179183',
           response: 'OTHER',
           active: false,
           label: 'Other',
@@ -168,7 +168,7 @@ export const DRUGS_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '179211',
+          code: '179211',
           response: 'YES',
           active: false,
           label: 'Yes',
@@ -177,7 +177,7 @@ export const DRUGS_1: IncidentTypeConfiguration = {
           nextQuestionId: '45057',
         },
         {
-          id: '179212',
+          code: '179212',
           response: 'NO',
           active: false,
           label: 'No',
@@ -195,7 +195,7 @@ export const DRUGS_1: IncidentTypeConfiguration = {
       multipleAnswers: true,
       answers: [
         {
-          id: '179222',
+          code: '179222',
           response: 'AUTHENTIC SYRINGE',
           active: false,
           label: 'Authentic syringe',
@@ -204,7 +204,7 @@ export const DRUGS_1: IncidentTypeConfiguration = {
           nextQuestionId: '44818',
         },
         {
-          id: '179224',
+          code: '179224',
           response: 'IMPROVISED SYRINGE',
           active: false,
           label: 'Improvised syringe',
@@ -213,7 +213,7 @@ export const DRUGS_1: IncidentTypeConfiguration = {
           nextQuestionId: '44818',
         },
         {
-          id: '179221',
+          code: '179221',
           response: 'AUTHENTIC NEEDLE',
           active: false,
           label: 'Authentic needle',
@@ -222,7 +222,7 @@ export const DRUGS_1: IncidentTypeConfiguration = {
           nextQuestionId: '44818',
         },
         {
-          id: '179223',
+          code: '179223',
           response: 'IMPROVISED NEEDLE',
           active: false,
           label: 'Improvised needle',
@@ -231,7 +231,7 @@ export const DRUGS_1: IncidentTypeConfiguration = {
           nextQuestionId: '44818',
         },
         {
-          id: '179226',
+          code: '179226',
           response: 'PIPE(S)',
           active: false,
           label: 'Pipe(s)',
@@ -240,7 +240,7 @@ export const DRUGS_1: IncidentTypeConfiguration = {
           nextQuestionId: '44818',
         },
         {
-          id: '179227',
+          code: '179227',
           response: 'ROACH',
           active: false,
           label: 'Roach',
@@ -249,7 +249,7 @@ export const DRUGS_1: IncidentTypeConfiguration = {
           nextQuestionId: '44818',
         },
         {
-          id: '179225',
+          code: '179225',
           response: 'OTHER',
           active: false,
           label: 'Other',
@@ -267,7 +267,7 @@ export const DRUGS_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '179300',
+          code: '179300',
           response: 'YES',
           active: false,
           label: 'Yes',
@@ -276,7 +276,7 @@ export const DRUGS_1: IncidentTypeConfiguration = {
           nextQuestionId: '44502',
         },
         {
-          id: '179301',
+          code: '179301',
           response: 'NO',
           active: false,
           label: 'No',
@@ -294,7 +294,7 @@ export const DRUGS_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '179549',
+          code: '179549',
           response: 'YES',
           active: false,
           label: 'Yes',
@@ -303,7 +303,7 @@ export const DRUGS_1: IncidentTypeConfiguration = {
           nextQuestionId: '44700',
         },
         {
-          id: '179550',
+          code: '179550',
           response: 'NO',
           active: false,
           label: 'No',
@@ -321,7 +321,7 @@ export const DRUGS_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '179835',
+          code: '179835',
           response: 'YES',
           active: false,
           label: 'Yes',
@@ -330,7 +330,7 @@ export const DRUGS_1: IncidentTypeConfiguration = {
           nextQuestionId: '44649',
         },
         {
-          id: '179836',
+          code: '179836',
           response: 'NO',
           active: false,
           label: 'No',
@@ -348,7 +348,7 @@ export const DRUGS_1: IncidentTypeConfiguration = {
       multipleAnswers: true,
       answers: [
         {
-          id: '179873',
+          code: '179873',
           response: 'SPECIAL SEARCH',
           active: false,
           label: 'Special search',
@@ -357,7 +357,7 @@ export const DRUGS_1: IncidentTypeConfiguration = {
           nextQuestionId: '45097',
         },
         {
-          id: '179874',
+          code: '179874',
           response: 'STRIP SEARCH',
           active: false,
           label: 'Strip search',
@@ -366,7 +366,7 @@ export const DRUGS_1: IncidentTypeConfiguration = {
           nextQuestionId: '45097',
         },
         {
-          id: '179866',
+          code: '179866',
           response: 'CELL SEARCH',
           active: false,
           label: 'Cell search',
@@ -375,7 +375,7 @@ export const DRUGS_1: IncidentTypeConfiguration = {
           nextQuestionId: '45097',
         },
         {
-          id: '179867',
+          code: '179867',
           response: 'DOG SEARCH',
           active: false,
           label: 'Dog search',
@@ -384,7 +384,7 @@ export const DRUGS_1: IncidentTypeConfiguration = {
           nextQuestionId: '45097',
         },
         {
-          id: '179870',
+          code: '179870',
           response: 'OTHER SEARCH (INMATE)',
           active: false,
           label: 'Other search (inmate)',
@@ -393,7 +393,7 @@ export const DRUGS_1: IncidentTypeConfiguration = {
           nextQuestionId: '45097',
         },
         {
-          id: '179872',
+          code: '179872',
           response: 'OTHER SEARCH (VISITOR)',
           active: true,
           label: 'Other search (visitor)',
@@ -402,7 +402,7 @@ export const DRUGS_1: IncidentTypeConfiguration = {
           nextQuestionId: '45097',
         },
         {
-          id: '179871',
+          code: '179871',
           response: 'OTHER SEARCH (PREMISES)',
           active: false,
           label: 'Other search (premises)',
@@ -411,7 +411,7 @@ export const DRUGS_1: IncidentTypeConfiguration = {
           nextQuestionId: '45097',
         },
         {
-          id: '179868',
+          code: '179868',
           response: 'INFORMATION RECEIVED',
           active: false,
           label: 'Information received',
@@ -420,7 +420,7 @@ export const DRUGS_1: IncidentTypeConfiguration = {
           nextQuestionId: '45097',
         },
         {
-          id: '179875',
+          code: '179875',
           response: 'SUBSTANCE OBSERVED',
           active: false,
           label: 'Substance observed',
@@ -429,7 +429,7 @@ export const DRUGS_1: IncidentTypeConfiguration = {
           nextQuestionId: '45097',
         },
         {
-          id: '179876',
+          code: '179876',
           response: 'UNUSUAL BEHAVIOUR',
           active: false,
           label: 'Unusual behaviour',
@@ -438,7 +438,7 @@ export const DRUGS_1: IncidentTypeConfiguration = {
           nextQuestionId: '45097',
         },
         {
-          id: '179869',
+          code: '179869',
           response: 'OTHER',
           active: false,
           label: 'Other',
@@ -456,7 +456,7 @@ export const DRUGS_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '180009',
+          code: '180009',
           response: 'COMPASSIONATE',
           active: false,
           label: 'Compassionate',
@@ -465,7 +465,7 @@ export const DRUGS_1: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
-          id: '180010',
+          code: '180010',
           response: 'FACILITY',
           active: false,
           label: 'Facility',
@@ -474,7 +474,7 @@ export const DRUGS_1: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
-          id: '180011',
+          code: '180011',
           response: 'RESETTLEMENT',
           active: false,
           label: 'Resettlement',
@@ -483,7 +483,7 @@ export const DRUGS_1: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
-          id: '180008',
+          code: '180008',
           response: 'COMMUNITY VISIT',
           active: false,
           label: 'Community visit',
@@ -501,7 +501,7 @@ export const DRUGS_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '180231',
+          code: '180231',
           response: 'YES',
           active: false,
           label: 'Yes',
@@ -510,7 +510,7 @@ export const DRUGS_1: IncidentTypeConfiguration = {
           nextQuestionId: '44557',
         },
         {
-          id: '180230',
+          code: '180230',
           response: 'NO',
           active: false,
           label: 'No',
@@ -528,7 +528,7 @@ export const DRUGS_1: IncidentTypeConfiguration = {
       multipleAnswers: true,
       answers: [
         {
-          id: '180249',
+          code: '180249',
           response: 'OFFICER',
           active: false,
           label: 'Officer',
@@ -537,7 +537,7 @@ export const DRUGS_1: IncidentTypeConfiguration = {
           nextQuestionId: '44316',
         },
         {
-          id: '180251',
+          code: '180251',
           response: 'PRISONER',
           active: false,
           label: 'Prisoner',
@@ -546,7 +546,7 @@ export const DRUGS_1: IncidentTypeConfiguration = {
           nextQuestionId: '44316',
         },
         {
-          id: '180247',
+          code: '180247',
           response: 'CIVILIAN GRADES',
           active: false,
           label: 'Civilian grades',
@@ -555,7 +555,7 @@ export const DRUGS_1: IncidentTypeConfiguration = {
           nextQuestionId: '44316',
         },
         {
-          id: '180250',
+          code: '180250',
           response: 'POLICE',
           active: false,
           label: 'Police',
@@ -564,7 +564,7 @@ export const DRUGS_1: IncidentTypeConfiguration = {
           nextQuestionId: '44316',
         },
         {
-          id: '180248',
+          code: '180248',
           response: 'EXTERNAL CIVILIANS',
           active: false,
           label: 'External civilians',
@@ -582,7 +582,7 @@ export const DRUGS_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '180458',
+          code: '180458',
           response: 'YES',
           active: false,
           label: 'Yes',
@@ -591,7 +591,7 @@ export const DRUGS_1: IncidentTypeConfiguration = {
           nextQuestionId: '44664',
         },
         {
-          id: '180457',
+          code: '180457',
           response: 'NO',
           active: false,
           label: 'No',
@@ -609,7 +609,7 @@ export const DRUGS_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '180710',
+          code: '180710',
           response: 'LOCAL WITH BDH KIT OR SIMILAR',
           active: false,
           label: 'Local with BDH kit or similar',
@@ -618,7 +618,7 @@ export const DRUGS_1: IncidentTypeConfiguration = {
           nextQuestionId: '44982',
         },
         {
-          id: '180709',
+          code: '180709',
           response: 'FORENSIC LABORATORY',
           active: false,
           label: 'Forensic laboratory',
@@ -636,7 +636,7 @@ export const DRUGS_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '180746',
+          code: '180746',
           response: 'YES',
           active: false,
           label: 'Yes',
@@ -645,7 +645,7 @@ export const DRUGS_1: IncidentTypeConfiguration = {
           nextQuestionId: '44635',
         },
         {
-          id: '180747',
+          code: '180747',
           response: 'NO',
           active: false,
           label: 'No',
@@ -663,7 +663,7 @@ export const DRUGS_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '180804',
+          code: '180804',
           response: 'YES',
           active: false,
           label: 'Yes',
@@ -672,7 +672,7 @@ export const DRUGS_1: IncidentTypeConfiguration = {
           nextQuestionId: '44204',
         },
         {
-          id: '180803',
+          code: '180803',
           response: 'NO',
           active: false,
           label: 'No',
@@ -690,7 +690,7 @@ export const DRUGS_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '180851',
+          code: '180851',
           response: 'YES',
           active: false,
           label: 'Yes',
@@ -699,7 +699,7 @@ export const DRUGS_1: IncidentTypeConfiguration = {
           nextQuestionId: '44792',
         },
         {
-          id: '180850',
+          code: '180850',
           response: 'NO',
           active: false,
           label: 'No',
@@ -717,7 +717,7 @@ export const DRUGS_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '180922',
+          code: '180922',
           response: 'ADMINISTRATION',
           active: false,
           label: 'Administration',
@@ -726,7 +726,7 @@ export const DRUGS_1: IncidentTypeConfiguration = {
           nextQuestionId: '44179',
         },
         {
-          id: '180923',
+          code: '180923',
           response: 'ASSOCIATION AREA',
           active: false,
           label: 'Association area',
@@ -735,7 +735,7 @@ export const DRUGS_1: IncidentTypeConfiguration = {
           nextQuestionId: '44179',
         },
         {
-          id: '180924',
+          code: '180924',
           response: 'CELL',
           active: false,
           label: 'Cell',
@@ -744,7 +744,7 @@ export const DRUGS_1: IncidentTypeConfiguration = {
           nextQuestionId: '44179',
         },
         {
-          id: '180925',
+          code: '180925',
           response: 'CHAPEL',
           active: false,
           label: 'Chapel',
@@ -753,7 +753,7 @@ export const DRUGS_1: IncidentTypeConfiguration = {
           nextQuestionId: '44179',
         },
         {
-          id: '180927',
+          code: '180927',
           response: 'DINING ROOM',
           active: false,
           label: 'Dining room',
@@ -762,7 +762,7 @@ export const DRUGS_1: IncidentTypeConfiguration = {
           nextQuestionId: '44179',
         },
         {
-          id: '180928',
+          code: '180928',
           response: 'DORMITORY',
           active: false,
           label: 'Dormitory',
@@ -771,7 +771,7 @@ export const DRUGS_1: IncidentTypeConfiguration = {
           nextQuestionId: '44179',
         },
         {
-          id: '180929',
+          code: '180929',
           response: 'EDUCATION',
           active: false,
           label: 'Education',
@@ -780,7 +780,7 @@ export const DRUGS_1: IncidentTypeConfiguration = {
           nextQuestionId: '44179',
         },
         {
-          id: '180931',
+          code: '180931',
           response: 'EXERCISE YARD',
           active: false,
           label: 'Exercise yard',
@@ -789,7 +789,7 @@ export const DRUGS_1: IncidentTypeConfiguration = {
           nextQuestionId: '44179',
         },
         {
-          id: '180933',
+          code: '180933',
           response: 'GATE',
           active: false,
           label: 'Gate',
@@ -798,7 +798,7 @@ export const DRUGS_1: IncidentTypeConfiguration = {
           nextQuestionId: '44179',
         },
         {
-          id: '180934',
+          code: '180934',
           response: 'GYM',
           active: false,
           label: 'Gym',
@@ -807,7 +807,7 @@ export const DRUGS_1: IncidentTypeConfiguration = {
           nextQuestionId: '44179',
         },
         {
-          id: '180935',
+          code: '180935',
           response: 'HEALTH CARE CENTRE',
           active: false,
           label: 'Health care centre',
@@ -816,7 +816,7 @@ export const DRUGS_1: IncidentTypeConfiguration = {
           nextQuestionId: '44179',
         },
         {
-          id: '180938',
+          code: '180938',
           response: 'KITCHEN',
           active: false,
           label: 'Kitchen',
@@ -825,7 +825,7 @@ export const DRUGS_1: IncidentTypeConfiguration = {
           nextQuestionId: '44179',
         },
         {
-          id: '180940',
+          code: '180940',
           response: 'OFFICE',
           active: false,
           label: 'Office',
@@ -834,7 +834,7 @@ export const DRUGS_1: IncidentTypeConfiguration = {
           nextQuestionId: '44179',
         },
         {
-          id: '180942',
+          code: '180942',
           response: 'RECEPTION',
           active: false,
           label: 'Reception',
@@ -843,7 +843,7 @@ export const DRUGS_1: IncidentTypeConfiguration = {
           nextQuestionId: '44179',
         },
         {
-          id: '180943',
+          code: '180943',
           response: 'RECESS',
           active: false,
           label: 'Recess',
@@ -852,7 +852,7 @@ export const DRUGS_1: IncidentTypeConfiguration = {
           nextQuestionId: '44179',
         },
         {
-          id: '180944',
+          code: '180944',
           response: 'SEGREGATION UNIT',
           active: false,
           label: 'Segregation unit',
@@ -861,7 +861,7 @@ export const DRUGS_1: IncidentTypeConfiguration = {
           nextQuestionId: '44179',
         },
         {
-          id: '180946',
+          code: '180946',
           response: 'SPECIAL UNIT',
           active: false,
           label: 'Special unit',
@@ -870,7 +870,7 @@ export const DRUGS_1: IncidentTypeConfiguration = {
           nextQuestionId: '44179',
         },
         {
-          id: '180945',
+          code: '180945',
           response: 'SHOWERS/CHANGING ROOM',
           active: false,
           label: 'Showers/changing room',
@@ -879,7 +879,7 @@ export const DRUGS_1: IncidentTypeConfiguration = {
           nextQuestionId: '44179',
         },
         {
-          id: '180949',
+          code: '180949',
           response: 'VISITS',
           active: false,
           label: 'Visits',
@@ -888,7 +888,7 @@ export const DRUGS_1: IncidentTypeConfiguration = {
           nextQuestionId: '44179',
         },
         {
-          id: '180951',
+          code: '180951',
           response: 'WING',
           active: false,
           label: 'Wing',
@@ -897,7 +897,7 @@ export const DRUGS_1: IncidentTypeConfiguration = {
           nextQuestionId: '44179',
         },
         {
-          id: '180953',
+          code: '180953',
           response: 'WORKS DEPARTMENT',
           active: false,
           label: 'Works department',
@@ -906,7 +906,7 @@ export const DRUGS_1: IncidentTypeConfiguration = {
           nextQuestionId: '44179',
         },
         {
-          id: '180954',
+          code: '180954',
           response: 'WORKSHOP',
           active: false,
           label: 'Workshop',
@@ -915,7 +915,7 @@ export const DRUGS_1: IncidentTypeConfiguration = {
           nextQuestionId: '44179',
         },
         {
-          id: '180952',
+          code: '180952',
           response: 'WITHIN PERIMETER',
           active: false,
           label: 'Within perimeter',
@@ -924,7 +924,7 @@ export const DRUGS_1: IncidentTypeConfiguration = {
           nextQuestionId: '44179',
         },
         {
-          id: '180930',
+          code: '180930',
           response: 'ELSEWHERE',
           active: false,
           label: 'Elsewhere',
@@ -933,7 +933,7 @@ export const DRUGS_1: IncidentTypeConfiguration = {
           nextQuestionId: '44179',
         },
         {
-          id: '180932',
+          code: '180932',
           response: 'FUNERAL',
           active: false,
           label: 'Funeral',
@@ -942,7 +942,7 @@ export const DRUGS_1: IncidentTypeConfiguration = {
           nextQuestionId: '44179',
         },
         {
-          id: '180936',
+          code: '180936',
           response: 'HOSPITAL OUTSIDE (PATIENT)',
           active: false,
           label: 'Hospital outside (patient)',
@@ -951,7 +951,7 @@ export const DRUGS_1: IncidentTypeConfiguration = {
           nextQuestionId: '44179',
         },
         {
-          id: '180937',
+          code: '180937',
           response: 'HOSPITAL OUTSIDE (VISITING)',
           active: false,
           label: 'Hospital outside (visiting)',
@@ -960,7 +960,7 @@ export const DRUGS_1: IncidentTypeConfiguration = {
           nextQuestionId: '44179',
         },
         {
-          id: '180941',
+          code: '180941',
           response: 'OUTSIDE WORKING PARTY',
           active: false,
           label: 'Outside working party',
@@ -969,7 +969,7 @@ export const DRUGS_1: IncidentTypeConfiguration = {
           nextQuestionId: '44179',
         },
         {
-          id: '180947',
+          code: '180947',
           response: 'SPORTS FIELD',
           active: false,
           label: 'Sports field',
@@ -978,7 +978,7 @@ export const DRUGS_1: IncidentTypeConfiguration = {
           nextQuestionId: '44179',
         },
         {
-          id: '180948',
+          code: '180948',
           response: 'VEHICLE',
           active: false,
           label: 'Vehicle',
@@ -987,7 +987,7 @@ export const DRUGS_1: IncidentTypeConfiguration = {
           nextQuestionId: '44179',
         },
         {
-          id: '180950',
+          code: '180950',
           response: 'WEDDINGS',
           active: false,
           label: 'Weddings',
@@ -996,7 +996,7 @@ export const DRUGS_1: IncidentTypeConfiguration = {
           nextQuestionId: '44179',
         },
         {
-          id: '180939',
+          code: '180939',
           response: 'MAGISTRATES COURT',
           active: false,
           label: 'Magistrates court',
@@ -1005,7 +1005,7 @@ export const DRUGS_1: IncidentTypeConfiguration = {
           nextQuestionId: '44179',
         },
         {
-          id: '180926',
+          code: '180926',
           response: 'CROWN COURT',
           active: false,
           label: 'Crown court',
@@ -1023,7 +1023,7 @@ export const DRUGS_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '181144',
+          code: '181144',
           response: 'YES',
           active: false,
           label: 'Yes',
@@ -1032,7 +1032,7 @@ export const DRUGS_1: IncidentTypeConfiguration = {
           nextQuestionId: '44219',
         },
         {
-          id: '181143',
+          code: '181143',
           response: 'NO',
           active: false,
           label: 'No',
@@ -1050,7 +1050,7 @@ export const DRUGS_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '181237',
+          code: '181237',
           response: 'YES',
           active: false,
           label: 'Yes',
@@ -1059,7 +1059,7 @@ export const DRUGS_1: IncidentTypeConfiguration = {
           nextQuestionId: '44765',
         },
         {
-          id: '181236',
+          code: '181236',
           response: 'NO',
           active: false,
           label: 'No',
@@ -1077,7 +1077,7 @@ export const DRUGS_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '181246',
+          code: '181246',
           response: 'PRISONER',
           active: false,
           label: 'Prisoner',
@@ -1086,7 +1086,7 @@ export const DRUGS_1: IncidentTypeConfiguration = {
           nextQuestionId: '45008',
         },
         {
-          id: '181245',
+          code: '181245',
           response: 'VISITOR',
           active: false,
           label: 'Visitor',
@@ -1095,7 +1095,7 @@ export const DRUGS_1: IncidentTypeConfiguration = {
           nextQuestionId: '45168',
         },
         {
-          id: '181248',
+          code: '181248',
           response: 'THROWN IN',
           active: false,
           label: 'Thrown in',
@@ -1104,7 +1104,7 @@ export const DRUGS_1: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
-          id: '181247',
+          code: '181247',
           response: 'OTHER',
           active: false,
           label: 'Other',
@@ -1122,7 +1122,7 @@ export const DRUGS_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '181274',
+          code: '181274',
           response: 'SPECIFY',
           active: false,
           label: 'Specify',
@@ -1140,7 +1140,7 @@ export const DRUGS_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '181299',
+          code: '181299',
           response: 'NAME',
           active: false,
           label: 'Name',
@@ -1158,7 +1158,7 @@ export const DRUGS_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '181304',
+          code: '181304',
           response: 'YES',
           active: false,
           label: 'Yes',
@@ -1167,7 +1167,7 @@ export const DRUGS_1: IncidentTypeConfiguration = {
           nextQuestionId: '44224',
         },
         {
-          id: '181305',
+          code: '181305',
           response: 'NO',
           active: false,
           label: 'No',
@@ -1185,7 +1185,7 @@ export const DRUGS_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '181335',
+          code: '181335',
           response: 'YES',
           active: false,
           label: 'Yes',
@@ -1194,7 +1194,7 @@ export const DRUGS_1: IncidentTypeConfiguration = {
           nextQuestionId: '44243',
         },
         {
-          id: '181336',
+          code: '181336',
           response: 'NO',
           active: false,
           label: 'No',
@@ -1212,7 +1212,7 @@ export const DRUGS_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '181579',
+          code: '181579',
           response: 'BEFORE ENTERING PRISON',
           active: false,
           label: 'Before entering prison',
@@ -1221,7 +1221,7 @@ export const DRUGS_1: IncidentTypeConfiguration = {
           nextQuestionId: '44807',
         },
         {
-          id: '181578',
+          code: '181578',
           response: 'AFTER ENTERING PRISON',
           active: false,
           label: 'After entering prison',
@@ -1239,7 +1239,7 @@ export const DRUGS_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '181908',
+          code: '181908',
           response: 'YES',
           active: false,
           label: 'Yes',
@@ -1248,7 +1248,7 @@ export const DRUGS_1: IncidentTypeConfiguration = {
           nextQuestionId: '44205',
         },
         {
-          id: '181909',
+          code: '181909',
           response: 'NO',
           active: false,
           label: 'No',
@@ -1266,7 +1266,7 @@ export const DRUGS_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '181976',
+          code: '181976',
           response: 'YES',
           active: false,
           label: 'Yes',
@@ -1275,7 +1275,7 @@ export const DRUGS_1: IncidentTypeConfiguration = {
           nextQuestionId: '44458',
         },
         {
-          id: '181977',
+          code: '181977',
           response: 'NO',
           active: false,
           label: 'No',
@@ -1293,7 +1293,7 @@ export const DRUGS_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '182213',
+          code: '182213',
           response: 'SPECIFY',
           active: false,
           label: 'Specify',
@@ -1311,7 +1311,7 @@ export const DRUGS_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '182335',
+          code: '182335',
           response: 'YES',
           active: false,
           label: 'Yes',
@@ -1320,7 +1320,7 @@ export const DRUGS_1: IncidentTypeConfiguration = {
           nextQuestionId: '44795',
         },
         {
-          id: '182336',
+          code: '182336',
           response: 'NO',
           active: false,
           label: 'No',
@@ -1338,7 +1338,7 @@ export const DRUGS_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '182620',
+          code: '182620',
           response: 'RELATIVE',
           active: false,
           label: 'Relative',
@@ -1347,7 +1347,7 @@ export const DRUGS_1: IncidentTypeConfiguration = {
           nextQuestionId: '45008',
         },
         {
-          id: '182618',
+          code: '182618',
           response: 'FRIEND',
           active: false,
           label: 'Friend',
@@ -1356,7 +1356,7 @@ export const DRUGS_1: IncidentTypeConfiguration = {
           nextQuestionId: '45008',
         },
         {
-          id: '182619',
+          code: '182619',
           response: 'OFFICIAL VISITOR',
           active: false,
           label: 'Official visitor',

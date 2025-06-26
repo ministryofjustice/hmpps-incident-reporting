@@ -22,7 +22,7 @@ const testConfig: IncidentTypeConfiguration = {
       multipleAnswers: true,
       answers: [
         {
-          id: 'qanimals-a1',
+          code: 'qanimals-a1',
           response: 'DOG',
           label: 'Dog',
           active: true,
@@ -31,7 +31,7 @@ const testConfig: IncidentTypeConfiguration = {
           nextQuestionId: 'qdog',
         },
         {
-          id: 'qanimals-a2',
+          code: 'qanimals-a2',
           response: 'CAT',
           label: 'Cat',
           active: true,
@@ -40,7 +40,7 @@ const testConfig: IncidentTypeConfiguration = {
           nextQuestionId: 'qicecream',
         },
         {
-          id: 'qanimals-a3',
+          code: 'qanimals-a3',
           response: 'FOX',
           label: 'Fox',
           active: true,
@@ -50,7 +50,7 @@ const testConfig: IncidentTypeConfiguration = {
         },
         // Inactive answer
         {
-          id: 'qanimals-a4',
+          code: 'qanimals-a4',
           response: 'HONEY BADGER',
           label: 'Honey badger',
           active: false,
@@ -68,7 +68,7 @@ const testConfig: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: 'qdog-a1',
+          code: 'qdog-a1',
           response: 'YES',
           label: 'Yes',
           active: true,
@@ -77,7 +77,7 @@ const testConfig: IncidentTypeConfiguration = {
           nextQuestionId: 'qicecream',
         },
         {
-          id: 'qdog-a2',
+          code: 'qdog-a2',
           response: 'NO',
           label: 'No',
           active: true,
@@ -95,7 +95,7 @@ const testConfig: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: 'qicecream-a1',
+          code: 'qicecream-a1',
           response: 'YES (SPECIFY FAVOURITE FLAVOUR)',
           label: 'Yes (specify favourite flabour)',
           active: true,
@@ -104,7 +104,7 @@ const testConfig: IncidentTypeConfiguration = {
           nextQuestionId: 'qend',
         },
         {
-          id: 'q2-a2',
+          code: 'q2-a2',
           response: 'no',
           label: 'No',
           active: true,
@@ -122,7 +122,7 @@ const testConfig: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: 'q2-a1',
+          code: 'q2-a1',
           response: 'yes',
           label: 'Yes',
           active: true,
@@ -131,7 +131,7 @@ const testConfig: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
-          id: 'q2-a2',
+          code: 'q2-a2',
           response: 'no',
           label: 'No',
           active: true,

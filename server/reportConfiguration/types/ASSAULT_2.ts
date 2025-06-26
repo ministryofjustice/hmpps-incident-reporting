@@ -15,7 +15,7 @@ export const ASSAULT_2: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '212684',
+          code: '212684',
           response: 'No further action',
           active: false,
           label: 'No further action',
@@ -24,7 +24,7 @@ export const ASSAULT_2: IncidentTypeConfiguration = {
           nextQuestionId: '61180',
         },
         {
-          id: '212685',
+          code: '212685',
           response: 'IEP regression',
           active: false,
           label: 'IEP regression',
@@ -33,7 +33,7 @@ export const ASSAULT_2: IncidentTypeConfiguration = {
           nextQuestionId: '61180',
         },
         {
-          id: '212686',
+          code: '212686',
           response: 'Placed on report/adjudication referral',
           active: false,
           label: 'Placed on report/adjudication referral',
@@ -42,7 +42,7 @@ export const ASSAULT_2: IncidentTypeConfiguration = {
           nextQuestionId: '61180',
         },
         {
-          id: '212687',
+          code: '212687',
           response: 'Police referral',
           active: false,
           label: 'Police referral',
@@ -60,7 +60,7 @@ export const ASSAULT_2: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '213007',
+          code: '213007',
           response: 'no',
           active: false,
           label: 'No',
@@ -78,7 +78,7 @@ export const ASSAULT_2: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '213011',
+          code: '213011',
           response: 'n',
           active: false,
           label: 'N',
@@ -96,7 +96,7 @@ export const ASSAULT_2: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '213012',
+          code: '213012',
           response: 'n',
           active: false,
           label: 'N',
@@ -114,7 +114,7 @@ export const ASSAULT_2: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '213008',
+          code: '213008',
           response: 'n',
           active: true,
           label: 'N',
@@ -132,7 +132,7 @@ export const ASSAULT_2: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '213009',
+          code: '213009',
           response: 'n',
           active: false,
           label: 'N',
@@ -150,7 +150,7 @@ export const ASSAULT_2: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '213010',
+          code: '213010',
           response: 'n',
           active: false,
           label: 'N',
@@ -168,7 +168,7 @@ export const ASSAULT_2: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '213013',
+          code: '213013',
           response: 'n',
           active: false,
           label: 'N',
@@ -186,7 +186,7 @@ export const ASSAULT_2: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '213014',
+          code: '213014',
           response: 'n',
           active: false,
           label: 'N',
@@ -204,7 +204,7 @@ export const ASSAULT_2: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '213015',
+          code: '213015',
           response: 'n',
           active: false,
           label: 'N',
@@ -222,7 +222,7 @@ export const ASSAULT_2: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '213016',
+          code: '213016',
           response: 'n',
           active: false,
           label: 'N',
@@ -240,7 +240,7 @@ export const ASSAULT_2: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '213017',
+          code: '213017',
           response: 'n',
           active: false,
           label: 'N',
@@ -258,7 +258,7 @@ export const ASSAULT_2: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '213018',
+          code: '213018',
           response: 'n',
           active: false,
           label: 'N',
@@ -276,7 +276,7 @@ export const ASSAULT_2: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '213019',
+          code: '213019',
           response: 'n',
           active: false,
           label: 'N',
@@ -294,7 +294,7 @@ export const ASSAULT_2: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '213020',
+          code: '213020',
           response: 'n',
           active: false,
           label: 'N',
@@ -312,7 +312,7 @@ export const ASSAULT_2: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '213021',
+          code: '213021',
           response: 'n',
           active: false,
           label: 'N',
@@ -330,7 +330,7 @@ export const ASSAULT_2: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '213022',
+          code: '213022',
           response: 'n',
           active: false,
           label: 'N',
@@ -348,7 +348,7 @@ export const ASSAULT_2: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '213023',
+          code: '213023',
           response: 'n',
           active: false,
           label: 'N',
@@ -366,7 +366,7 @@ export const ASSAULT_2: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '213024',
+          code: '213024',
           response: 'n',
           active: false,
           label: 'N',
@@ -384,7 +384,7 @@ export const ASSAULT_2: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '213025',
+          code: '213025',
           response: 'n',
           active: false,
           label: 'N',
@@ -402,7 +402,7 @@ export const ASSAULT_2: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '213026',
+          code: '213026',
           response: 'n',
           active: false,
           label: 'N',
@@ -420,7 +420,7 @@ export const ASSAULT_2: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '213027',
+          code: '213027',
           response: 'n',
           active: false,
           label: 'N',
@@ -438,7 +438,7 @@ export const ASSAULT_2: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '213028',
+          code: '213028',
           response: 'n',
           active: false,
           label: 'N',
@@ -456,7 +456,7 @@ export const ASSAULT_2: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '213029',
+          code: '213029',
           response: 'n',
           active: false,
           label: 'N',
@@ -474,7 +474,7 @@ export const ASSAULT_2: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '213030',
+          code: '213030',
           response: 'n',
           active: false,
           label: 'N',
@@ -492,7 +492,7 @@ export const ASSAULT_2: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '213031',
+          code: '213031',
           response: 'n',
           active: false,
           label: 'N',
@@ -510,7 +510,7 @@ export const ASSAULT_2: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '213032',
+          code: '213032',
           response: 'n',
           active: false,
           label: 'N',
@@ -528,7 +528,7 @@ export const ASSAULT_2: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '213033',
+          code: '213033',
           response: 'n',
           active: false,
           label: 'N',
@@ -546,7 +546,7 @@ export const ASSAULT_2: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '213034',
+          code: '213034',
           response: 'n',
           active: false,
           label: 'N',
@@ -564,7 +564,7 @@ export const ASSAULT_2: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '213035',
+          code: '213035',
           response: 'n',
           active: false,
           label: 'N',
@@ -582,7 +582,7 @@ export const ASSAULT_2: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '213036',
+          code: '213036',
           response: 'n',
           active: false,
           label: 'N',
@@ -600,7 +600,7 @@ export const ASSAULT_2: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '213037',
+          code: '213037',
           response: 'n',
           active: false,
           label: 'N',
@@ -618,7 +618,7 @@ export const ASSAULT_2: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '213038',
+          code: '213038',
           response: 'n',
           active: false,
           label: 'N',

@@ -15,7 +15,7 @@ export const ASSAULT_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '178912',
+          code: '178912',
           response: 'YES (ENTER DATE)',
           active: true,
           label: 'Yes (enter date)',
@@ -24,7 +24,7 @@ export const ASSAULT_1: IncidentTypeConfiguration = {
           nextQuestionId: '44913',
         },
         {
-          id: '178913',
+          code: '178913',
           response: 'NO',
           active: true,
           label: 'No',
@@ -42,7 +42,7 @@ export const ASSAULT_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '178968',
+          code: '178968',
           response: 'YES',
           active: true,
           label: 'Yes',
@@ -51,7 +51,7 @@ export const ASSAULT_1: IncidentTypeConfiguration = {
           nextQuestionId: '44612',
         },
         {
-          id: '178969',
+          code: '178969',
           response: 'NO',
           active: true,
           label: 'No',
@@ -69,7 +69,7 @@ export const ASSAULT_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '179009',
+          code: '179009',
           response: 'YES',
           active: true,
           label: 'Yes',
@@ -78,7 +78,7 @@ export const ASSAULT_1: IncidentTypeConfiguration = {
           nextQuestionId: '44186',
         },
         {
-          id: '179008',
+          code: '179008',
           response: 'NO',
           active: true,
           label: 'No',
@@ -96,7 +96,7 @@ export const ASSAULT_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '179102',
+          code: '179102',
           response: 'YES',
           active: true,
           label: 'Yes',
@@ -105,7 +105,7 @@ export const ASSAULT_1: IncidentTypeConfiguration = {
           nextQuestionId: '44201',
         },
         {
-          id: '179101',
+          code: '179101',
           response: 'NO',
           active: true,
           label: 'No',
@@ -123,7 +123,7 @@ export const ASSAULT_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '179167',
+          code: '179167',
           response: 'YES',
           active: true,
           label: 'Yes',
@@ -132,7 +132,7 @@ export const ASSAULT_1: IncidentTypeConfiguration = {
           nextQuestionId: '45134',
         },
         {
-          id: '179168',
+          code: '179168',
           response: 'NO',
           active: true,
           label: 'No',
@@ -150,7 +150,7 @@ export const ASSAULT_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '179331',
+          code: '179331',
           response: 'YES',
           active: true,
           label: 'Yes',
@@ -159,7 +159,7 @@ export const ASSAULT_1: IncidentTypeConfiguration = {
           nextQuestionId: '44793',
         },
         {
-          id: '179332',
+          code: '179332',
           response: 'NO',
           active: true,
           label: 'No',
@@ -177,7 +177,7 @@ export const ASSAULT_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '179660',
+          code: '179660',
           response: 'YES',
           active: true,
           label: 'Yes',
@@ -186,7 +186,7 @@ export const ASSAULT_1: IncidentTypeConfiguration = {
           nextQuestionId: '44464',
         },
         {
-          id: '179661',
+          code: '179661',
           response: 'NO',
           active: true,
           label: 'No',
@@ -204,7 +204,7 @@ export const ASSAULT_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '179730',
+          code: '179730',
           response: 'PRISONER ON PRISONER',
           active: true,
           label: 'Prisoner on prisoner',
@@ -213,7 +213,7 @@ export const ASSAULT_1: IncidentTypeConfiguration = {
           nextQuestionId: '45130',
         },
         {
-          id: '179732',
+          code: '179732',
           response: 'PRISONER ON OFFICER',
           active: true,
           label: 'Prisoner on officer',
@@ -222,7 +222,7 @@ export const ASSAULT_1: IncidentTypeConfiguration = {
           nextQuestionId: '44495',
         },
         {
-          id: '179733',
+          code: '179733',
           response: 'PRISONER ON OTHER',
           active: true,
           label: 'Prisoner on other',
@@ -231,7 +231,7 @@ export const ASSAULT_1: IncidentTypeConfiguration = {
           nextQuestionId: '44495',
         },
         {
-          id: '179731',
+          code: '179731',
           response: 'OTHER',
           active: true,
           label: 'Other',
@@ -249,7 +249,7 @@ export const ASSAULT_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '179821',
+          code: '179821',
           response: 'YES',
           active: true,
           label: 'Yes',
@@ -258,7 +258,7 @@ export const ASSAULT_1: IncidentTypeConfiguration = {
           nextQuestionId: '44652',
         },
         {
-          id: '179820',
+          code: '179820',
           response: 'NO',
           active: true,
           label: 'No',
@@ -276,7 +276,7 @@ export const ASSAULT_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '179854',
+          code: '179854',
           response: 'YES',
           active: true,
           label: 'Yes',
@@ -285,7 +285,7 @@ export const ASSAULT_1: IncidentTypeConfiguration = {
           nextQuestionId: '45088',
         },
         {
-          id: '179853',
+          code: '179853',
           response: 'NO',
           active: true,
           label: 'No',
@@ -303,7 +303,7 @@ export const ASSAULT_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '180014',
+          code: '180014',
           response: 'YES',
           active: true,
           label: 'Yes',
@@ -312,7 +312,7 @@ export const ASSAULT_1: IncidentTypeConfiguration = {
           nextQuestionId: '44943',
         },
         {
-          id: '180015',
+          code: '180015',
           response: 'NO',
           active: true,
           label: 'No',
@@ -330,7 +330,7 @@ export const ASSAULT_1: IncidentTypeConfiguration = {
       multipleAnswers: true,
       answers: [
         {
-          id: '180071',
+          code: '180071',
           response: 'FIREARM',
           active: true,
           label: 'Firearm',
@@ -339,7 +339,7 @@ export const ASSAULT_1: IncidentTypeConfiguration = {
           nextQuestionId: '45074',
         },
         {
-          id: '180068',
+          code: '180068',
           response: 'CHEMICAL INCAPACITANT',
           active: true,
           label: 'Chemical incapacitant',
@@ -348,7 +348,7 @@ export const ASSAULT_1: IncidentTypeConfiguration = {
           nextQuestionId: '45074',
         },
         {
-          id: '180073',
+          code: '180073',
           response: 'KNIFE/BLADE',
           active: true,
           label: 'Knife/blade',
@@ -357,7 +357,7 @@ export const ASSAULT_1: IncidentTypeConfiguration = {
           nextQuestionId: '45074',
         },
         {
-          id: '180076',
+          code: '180076',
           response: 'OTHER SHARP INSTRUMENT',
           active: true,
           label: 'Other sharp instrument',
@@ -366,7 +366,7 @@ export const ASSAULT_1: IncidentTypeConfiguration = {
           nextQuestionId: '45074',
         },
         {
-          id: '180067',
+          code: '180067',
           response: 'BLUNT INSTRUMENT',
           active: true,
           label: 'Blunt instrument',
@@ -375,7 +375,7 @@ export const ASSAULT_1: IncidentTypeConfiguration = {
           nextQuestionId: '45074',
         },
         {
-          id: '180074',
+          code: '180074',
           response: 'LIGATURE',
           active: true,
           label: 'Ligature',
@@ -384,7 +384,7 @@ export const ASSAULT_1: IncidentTypeConfiguration = {
           nextQuestionId: '45074',
         },
         {
-          id: '180069',
+          code: '180069',
           response: 'DANGEROUS LIQUID',
           active: true,
           label: 'Dangerous liquid',
@@ -393,7 +393,7 @@ export const ASSAULT_1: IncidentTypeConfiguration = {
           nextQuestionId: '45074',
         },
         {
-          id: '180070',
+          code: '180070',
           response: 'EXCRETA/URINE',
           active: true,
           label: 'Excreta/urine',
@@ -402,7 +402,7 @@ export const ASSAULT_1: IncidentTypeConfiguration = {
           nextQuestionId: '45074',
         },
         {
-          id: '180077',
+          code: '180077',
           response: 'SPITTING',
           active: true,
           label: 'Spitting',
@@ -411,7 +411,7 @@ export const ASSAULT_1: IncidentTypeConfiguration = {
           nextQuestionId: '45074',
         },
         {
-          id: '180072',
+          code: '180072',
           response: 'FOOD',
           active: true,
           label: 'Food',
@@ -420,7 +420,7 @@ export const ASSAULT_1: IncidentTypeConfiguration = {
           nextQuestionId: '45074',
         },
         {
-          id: '180079',
+          code: '180079',
           response: 'THROWN FURNITURE',
           active: true,
           label: 'Thrown furniture',
@@ -429,7 +429,7 @@ export const ASSAULT_1: IncidentTypeConfiguration = {
           nextQuestionId: '45074',
         },
         {
-          id: '180078',
+          code: '180078',
           response: 'THROWN EQUIPMENT',
           active: true,
           label: 'Thrown equipment',
@@ -438,7 +438,7 @@ export const ASSAULT_1: IncidentTypeConfiguration = {
           nextQuestionId: '45074',
         },
         {
-          id: '180075',
+          code: '180075',
           response: 'OTHER',
           active: true,
           label: 'Other',
@@ -456,7 +456,7 @@ export const ASSAULT_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '180193',
+          code: '180193',
           response: 'YES',
           active: true,
           label: 'Yes',
@@ -465,7 +465,7 @@ export const ASSAULT_1: IncidentTypeConfiguration = {
           nextQuestionId: '44344',
         },
         {
-          id: '180192',
+          code: '180192',
           response: 'NO',
           active: true,
           label: 'No',
@@ -483,7 +483,7 @@ export const ASSAULT_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '180283',
+          code: '180283',
           response: 'YES',
           active: true,
           label: 'Yes',
@@ -492,7 +492,7 @@ export const ASSAULT_1: IncidentTypeConfiguration = {
           nextQuestionId: '44254',
         },
         {
-          id: '180282',
+          code: '180282',
           response: 'NO',
           active: true,
           label: 'No',
@@ -510,7 +510,7 @@ export const ASSAULT_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '180540',
+          code: '180540',
           response: 'YES',
           active: true,
           label: 'Yes',
@@ -519,7 +519,7 @@ export const ASSAULT_1: IncidentTypeConfiguration = {
           nextQuestionId: '44522',
         },
         {
-          id: '180539',
+          code: '180539',
           response: 'NO',
           active: true,
           label: 'No',
@@ -537,7 +537,7 @@ export const ASSAULT_1: IncidentTypeConfiguration = {
       multipleAnswers: true,
       answers: [
         {
-          id: '180632',
+          code: '180632',
           response: 'GRAZES, SCRATCHES OR ABRASIONS',
           active: true,
           label: 'Grazes, scratches or abrasions',
@@ -546,7 +546,7 @@ export const ASSAULT_1: IncidentTypeConfiguration = {
           nextQuestionId: '44460',
         },
         {
-          id: '180633',
+          code: '180633',
           response: 'MINOR BRUISES',
           active: true,
           label: 'Minor bruises',
@@ -555,7 +555,7 @@ export const ASSAULT_1: IncidentTypeConfiguration = {
           nextQuestionId: '44460',
         },
         {
-          id: '180636',
+          code: '180636',
           response: 'SWELLINGS',
           active: true,
           label: 'Swellings',
@@ -564,7 +564,7 @@ export const ASSAULT_1: IncidentTypeConfiguration = {
           nextQuestionId: '44460',
         },
         {
-          id: '180635',
+          code: '180635',
           response: 'SUPERFICIAL CUTS',
           active: true,
           label: 'Superficial cuts',
@@ -573,7 +573,7 @@ export const ASSAULT_1: IncidentTypeConfiguration = {
           nextQuestionId: '44460',
         },
         {
-          id: '180634',
+          code: '180634',
           response: 'OTHER',
           active: true,
           label: 'Other',
@@ -591,7 +591,7 @@ export const ASSAULT_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '180754',
+          code: '180754',
           response: 'YES',
           active: true,
           label: 'Yes',
@@ -600,7 +600,7 @@ export const ASSAULT_1: IncidentTypeConfiguration = {
           nextQuestionId: '44367',
         },
         {
-          id: '180753',
+          code: '180753',
           response: 'NO',
           active: true,
           label: 'No',
@@ -618,7 +618,7 @@ export const ASSAULT_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '181164',
+          code: '181164',
           response: 'YES',
           active: true,
           label: 'Yes',
@@ -627,7 +627,7 @@ export const ASSAULT_1: IncidentTypeConfiguration = {
           nextQuestionId: '45042',
         },
         {
-          id: '181165',
+          code: '181165',
           response: 'NO',
           active: true,
           label: 'No',
@@ -645,7 +645,7 @@ export const ASSAULT_1: IncidentTypeConfiguration = {
       multipleAnswers: true,
       answers: [
         {
-          id: '181242',
+          code: '181242',
           response: 'STAFF',
           active: true,
           label: 'Staff',
@@ -654,7 +654,7 @@ export const ASSAULT_1: IncidentTypeConfiguration = {
           nextQuestionId: '44773',
         },
         {
-          id: '181241',
+          code: '181241',
           response: 'PRISONERS',
           active: true,
           label: 'Prisoners',
@@ -663,7 +663,7 @@ export const ASSAULT_1: IncidentTypeConfiguration = {
           nextQuestionId: '44773',
         },
         {
-          id: '181238',
+          code: '181238',
           response: 'CIVILIAN GRADES',
           active: true,
           label: 'Civilian grades',
@@ -672,7 +672,7 @@ export const ASSAULT_1: IncidentTypeConfiguration = {
           nextQuestionId: '44773',
         },
         {
-          id: '181240',
+          code: '181240',
           response: 'POLICE',
           active: true,
           label: 'Police',
@@ -681,7 +681,7 @@ export const ASSAULT_1: IncidentTypeConfiguration = {
           nextQuestionId: '44773',
         },
         {
-          id: '181239',
+          code: '181239',
           response: 'EXTERNAL CIVILIANS',
           active: true,
           label: 'External civilians',
@@ -699,7 +699,7 @@ export const ASSAULT_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '181518',
+          code: '181518',
           response: 'YES',
           active: true,
           label: 'Yes',
@@ -708,7 +708,7 @@ export const ASSAULT_1: IncidentTypeConfiguration = {
           nextQuestionId: '44153',
         },
         {
-          id: '181517',
+          code: '181517',
           response: 'NO',
           active: true,
           label: 'No',
@@ -726,7 +726,7 @@ export const ASSAULT_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '181628',
+          code: '181628',
           response: 'YES',
           active: true,
           label: 'Yes',
@@ -735,7 +735,7 @@ export const ASSAULT_1: IncidentTypeConfiguration = {
           nextQuestionId: '45092',
         },
         {
-          id: '181629',
+          code: '181629',
           response: 'NO',
           active: true,
           label: 'No',
@@ -753,7 +753,7 @@ export const ASSAULT_1: IncidentTypeConfiguration = {
       multipleAnswers: true,
       answers: [
         {
-          id: '181771',
+          code: '181771',
           response: 'STAFF',
           active: true,
           label: 'Staff',
@@ -762,7 +762,7 @@ export const ASSAULT_1: IncidentTypeConfiguration = {
           nextQuestionId: '44391',
         },
         {
-          id: '181770',
+          code: '181770',
           response: 'PRISONERS',
           active: true,
           label: 'Prisoners',
@@ -771,7 +771,7 @@ export const ASSAULT_1: IncidentTypeConfiguration = {
           nextQuestionId: '44391',
         },
         {
-          id: '181767',
+          code: '181767',
           response: 'CIVILIAN GRADES',
           active: true,
           label: 'Civilian grades',
@@ -780,7 +780,7 @@ export const ASSAULT_1: IncidentTypeConfiguration = {
           nextQuestionId: '44391',
         },
         {
-          id: '181769',
+          code: '181769',
           response: 'POLICE',
           active: true,
           label: 'Police',
@@ -789,7 +789,7 @@ export const ASSAULT_1: IncidentTypeConfiguration = {
           nextQuestionId: '44391',
         },
         {
-          id: '181768',
+          code: '181768',
           response: 'EXTERNAL CIVILIANS',
           active: true,
           label: 'External civilians',
@@ -807,7 +807,7 @@ export const ASSAULT_1: IncidentTypeConfiguration = {
       multipleAnswers: true,
       answers: [
         {
-          id: '182153',
+          code: '182153',
           response: 'FRACTURE',
           active: true,
           label: 'Fracture',
@@ -816,7 +816,7 @@ export const ASSAULT_1: IncidentTypeConfiguration = {
           nextQuestionId: '44141',
         },
         {
-          id: '182155',
+          code: '182155',
           response: 'SCALD OR BURN',
           active: true,
           label: 'Scald or burn',
@@ -825,7 +825,7 @@ export const ASSAULT_1: IncidentTypeConfiguration = {
           nextQuestionId: '44141',
         },
         {
-          id: '182156',
+          code: '182156',
           response: 'STABBING',
           active: true,
           label: 'Stabbing',
@@ -834,7 +834,7 @@ export const ASSAULT_1: IncidentTypeConfiguration = {
           nextQuestionId: '44141',
         },
         {
-          id: '182150',
+          code: '182150',
           response: 'CRUSHING',
           active: true,
           label: 'Crushing',
@@ -843,7 +843,7 @@ export const ASSAULT_1: IncidentTypeConfiguration = {
           nextQuestionId: '44141',
         },
         {
-          id: '182152',
+          code: '182152',
           response: 'EXTENSIVE/MULTIPLE BRUISING',
           active: true,
           label: 'Extensive/multiple bruising',
@@ -852,7 +852,7 @@ export const ASSAULT_1: IncidentTypeConfiguration = {
           nextQuestionId: '44141',
         },
         {
-          id: '182147',
+          code: '182147',
           response: 'BLACK EYE',
           active: true,
           label: 'Black eye',
@@ -861,7 +861,7 @@ export const ASSAULT_1: IncidentTypeConfiguration = {
           nextQuestionId: '44141',
         },
         {
-          id: '182148',
+          code: '182148',
           response: 'BROKEN NOSE',
           active: true,
           label: 'Broken nose',
@@ -870,7 +870,7 @@ export const ASSAULT_1: IncidentTypeConfiguration = {
           nextQuestionId: '44141',
         },
         {
-          id: '182149',
+          code: '182149',
           response: 'BROKEN TEETH',
           active: true,
           label: 'Broken teeth',
@@ -879,7 +879,7 @@ export const ASSAULT_1: IncidentTypeConfiguration = {
           nextQuestionId: '44141',
         },
         {
-          id: '182151',
+          code: '182151',
           response: 'CUTS REQUIRING SUTURES',
           active: true,
           label: 'Cuts requiring sutures',
@@ -888,7 +888,7 @@ export const ASSAULT_1: IncidentTypeConfiguration = {
           nextQuestionId: '44141',
         },
         {
-          id: '182146',
+          code: '182146',
           response: 'BITES',
           active: true,
           label: 'Bites',
@@ -897,7 +897,7 @@ export const ASSAULT_1: IncidentTypeConfiguration = {
           nextQuestionId: '44141',
         },
         {
-          id: '182154',
+          code: '182154',
           response: 'GUN SHOT WOUND',
           active: true,
           label: 'Gun shot wound',
@@ -906,7 +906,7 @@ export const ASSAULT_1: IncidentTypeConfiguration = {
           nextQuestionId: '44141',
         },
         {
-          id: '182157',
+          code: '182157',
           response: 'TEMPORARY/PERMANENT BLINDNESS',
           active: true,
           label: 'Temporary/permanent blindness',
@@ -924,7 +924,7 @@ export const ASSAULT_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '182269',
+          code: '182269',
           response: 'YES',
           active: true,
           label: 'Yes',
@@ -933,7 +933,7 @@ export const ASSAULT_1: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
-          id: '182268',
+          code: '182268',
           response: 'NO',
           active: true,
           label: 'No',
@@ -951,7 +951,7 @@ export const ASSAULT_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '182300',
+          code: '182300',
           response: 'YES',
           active: true,
           label: 'Yes',
@@ -960,7 +960,7 @@ export const ASSAULT_1: IncidentTypeConfiguration = {
           nextQuestionId: '44880',
         },
         {
-          id: '182299',
+          code: '182299',
           response: 'NO',
           active: true,
           label: 'No',
@@ -978,7 +978,7 @@ export const ASSAULT_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '182320',
+          code: '182320',
           response: 'YES',
           active: true,
           label: 'Yes',
@@ -987,7 +987,7 @@ export const ASSAULT_1: IncidentTypeConfiguration = {
           nextQuestionId: '44405',
         },
         {
-          id: '182319',
+          code: '182319',
           response: 'NO',
           active: true,
           label: 'No',
@@ -1005,7 +1005,7 @@ export const ASSAULT_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '182468',
+          code: '182468',
           response: 'YES',
           active: true,
           label: 'Yes',
@@ -1014,7 +1014,7 @@ export const ASSAULT_1: IncidentTypeConfiguration = {
           nextQuestionId: '44495',
         },
         {
-          id: '182467',
+          code: '182467',
           response: 'NO',
           active: true,
           label: 'No',
@@ -1032,7 +1032,7 @@ export const ASSAULT_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '182475',
+          code: '182475',
           response: 'ADMINISTRATION',
           active: true,
           label: 'Administration',
@@ -1041,7 +1041,7 @@ export const ASSAULT_1: IncidentTypeConfiguration = {
           nextQuestionId: '44586',
         },
         {
-          id: '182476',
+          code: '182476',
           response: 'ASSOCIATION AREA',
           active: true,
           label: 'Association area',
@@ -1050,7 +1050,7 @@ export const ASSAULT_1: IncidentTypeConfiguration = {
           nextQuestionId: '44586',
         },
         {
-          id: '182477',
+          code: '182477',
           response: 'CELL',
           active: true,
           label: 'Cell',
@@ -1059,7 +1059,7 @@ export const ASSAULT_1: IncidentTypeConfiguration = {
           nextQuestionId: '44586',
         },
         {
-          id: '182478',
+          code: '182478',
           response: 'CHAPEL',
           active: true,
           label: 'Chapel',
@@ -1068,7 +1068,7 @@ export const ASSAULT_1: IncidentTypeConfiguration = {
           nextQuestionId: '44586',
         },
         {
-          id: '182480',
+          code: '182480',
           response: 'DINING ROOM',
           active: true,
           label: 'Dining room',
@@ -1077,7 +1077,7 @@ export const ASSAULT_1: IncidentTypeConfiguration = {
           nextQuestionId: '44586',
         },
         {
-          id: '182481',
+          code: '182481',
           response: 'DORMITORY',
           active: true,
           label: 'Dormitory',
@@ -1086,7 +1086,7 @@ export const ASSAULT_1: IncidentTypeConfiguration = {
           nextQuestionId: '44586',
         },
         {
-          id: '182482',
+          code: '182482',
           response: 'EDUCATION',
           active: true,
           label: 'Education',
@@ -1095,7 +1095,7 @@ export const ASSAULT_1: IncidentTypeConfiguration = {
           nextQuestionId: '44586',
         },
         {
-          id: '182484',
+          code: '182484',
           response: 'EXERCISE YARD',
           active: true,
           label: 'Exercise yard',
@@ -1104,7 +1104,7 @@ export const ASSAULT_1: IncidentTypeConfiguration = {
           nextQuestionId: '44586',
         },
         {
-          id: '182486',
+          code: '182486',
           response: 'GATE',
           active: true,
           label: 'Gate',
@@ -1113,7 +1113,7 @@ export const ASSAULT_1: IncidentTypeConfiguration = {
           nextQuestionId: '44586',
         },
         {
-          id: '182487',
+          code: '182487',
           response: 'GYM',
           active: true,
           label: 'Gym',
@@ -1122,7 +1122,7 @@ export const ASSAULT_1: IncidentTypeConfiguration = {
           nextQuestionId: '44586',
         },
         {
-          id: '182488',
+          code: '182488',
           response: 'HEALTH CARE CENTRE',
           active: true,
           label: 'Health care centre',
@@ -1131,7 +1131,7 @@ export const ASSAULT_1: IncidentTypeConfiguration = {
           nextQuestionId: '44586',
         },
         {
-          id: '182491',
+          code: '182491',
           response: 'KITCHEN',
           active: true,
           label: 'Kitchen',
@@ -1140,7 +1140,7 @@ export const ASSAULT_1: IncidentTypeConfiguration = {
           nextQuestionId: '44586',
         },
         {
-          id: '182493',
+          code: '182493',
           response: 'OFFICE',
           active: true,
           label: 'Office',
@@ -1149,7 +1149,7 @@ export const ASSAULT_1: IncidentTypeConfiguration = {
           nextQuestionId: '44586',
         },
         {
-          id: '182495',
+          code: '182495',
           response: 'RECEPTION',
           active: true,
           label: 'Reception',
@@ -1158,7 +1158,7 @@ export const ASSAULT_1: IncidentTypeConfiguration = {
           nextQuestionId: '44586',
         },
         {
-          id: '182496',
+          code: '182496',
           response: 'RECESS',
           active: true,
           label: 'Recess',
@@ -1167,7 +1167,7 @@ export const ASSAULT_1: IncidentTypeConfiguration = {
           nextQuestionId: '44586',
         },
         {
-          id: '182497',
+          code: '182497',
           response: 'SEGREGATION UNIT',
           active: true,
           label: 'Segregation unit',
@@ -1176,7 +1176,7 @@ export const ASSAULT_1: IncidentTypeConfiguration = {
           nextQuestionId: '44586',
         },
         {
-          id: '182499',
+          code: '182499',
           response: 'SPECIAL UNIT',
           active: true,
           label: 'Special unit',
@@ -1185,7 +1185,7 @@ export const ASSAULT_1: IncidentTypeConfiguration = {
           nextQuestionId: '44586',
         },
         {
-          id: '182498',
+          code: '182498',
           response: 'SHOWERS/CHANGING ROOM',
           active: true,
           label: 'Showers/changing room',
@@ -1194,7 +1194,7 @@ export const ASSAULT_1: IncidentTypeConfiguration = {
           nextQuestionId: '44586',
         },
         {
-          id: '182502',
+          code: '182502',
           response: 'VISITS',
           active: true,
           label: 'Visits',
@@ -1203,7 +1203,7 @@ export const ASSAULT_1: IncidentTypeConfiguration = {
           nextQuestionId: '44586',
         },
         {
-          id: '182504',
+          code: '182504',
           response: 'WING',
           active: true,
           label: 'Wing',
@@ -1212,7 +1212,7 @@ export const ASSAULT_1: IncidentTypeConfiguration = {
           nextQuestionId: '44586',
         },
         {
-          id: '182506',
+          code: '182506',
           response: 'WORKS DEPARTMENT',
           active: true,
           label: 'Works department',
@@ -1221,7 +1221,7 @@ export const ASSAULT_1: IncidentTypeConfiguration = {
           nextQuestionId: '44586',
         },
         {
-          id: '182507',
+          code: '182507',
           response: 'WORKSHOP',
           active: true,
           label: 'Workshop',
@@ -1230,7 +1230,7 @@ export const ASSAULT_1: IncidentTypeConfiguration = {
           nextQuestionId: '44586',
         },
         {
-          id: '182505',
+          code: '182505',
           response: 'WITHIN PERIMETER',
           active: true,
           label: 'Within perimeter',
@@ -1239,7 +1239,7 @@ export const ASSAULT_1: IncidentTypeConfiguration = {
           nextQuestionId: '44586',
         },
         {
-          id: '182483',
+          code: '182483',
           response: 'ELSEWHERE',
           active: true,
           label: 'Elsewhere',
@@ -1248,7 +1248,7 @@ export const ASSAULT_1: IncidentTypeConfiguration = {
           nextQuestionId: '44586',
         },
         {
-          id: '182485',
+          code: '182485',
           response: 'FUNERAL',
           active: true,
           label: 'Funeral',
@@ -1257,7 +1257,7 @@ export const ASSAULT_1: IncidentTypeConfiguration = {
           nextQuestionId: '44586',
         },
         {
-          id: '182489',
+          code: '182489',
           response: 'HOSPITAL OUTSIDE (PATIENT)',
           active: true,
           label: 'Hospital outside (patient)',
@@ -1266,7 +1266,7 @@ export const ASSAULT_1: IncidentTypeConfiguration = {
           nextQuestionId: '44586',
         },
         {
-          id: '182490',
+          code: '182490',
           response: 'HOSPITAL OUTSIDE (VISITING)',
           active: true,
           label: 'Hospital outside (visiting)',
@@ -1275,7 +1275,7 @@ export const ASSAULT_1: IncidentTypeConfiguration = {
           nextQuestionId: '44586',
         },
         {
-          id: '182494',
+          code: '182494',
           response: 'OUTSIDE WORKING PARTY',
           active: true,
           label: 'Outside working party',
@@ -1284,7 +1284,7 @@ export const ASSAULT_1: IncidentTypeConfiguration = {
           nextQuestionId: '44586',
         },
         {
-          id: '182500',
+          code: '182500',
           response: 'SPORTS FIELD',
           active: true,
           label: 'Sports field',
@@ -1293,7 +1293,7 @@ export const ASSAULT_1: IncidentTypeConfiguration = {
           nextQuestionId: '44586',
         },
         {
-          id: '182501',
+          code: '182501',
           response: 'VEHICLE',
           active: true,
           label: 'Vehicle',
@@ -1302,7 +1302,7 @@ export const ASSAULT_1: IncidentTypeConfiguration = {
           nextQuestionId: '44586',
         },
         {
-          id: '182503',
+          code: '182503',
           response: 'WEDDINGS',
           active: true,
           label: 'Weddings',
@@ -1311,7 +1311,7 @@ export const ASSAULT_1: IncidentTypeConfiguration = {
           nextQuestionId: '44586',
         },
         {
-          id: '182492',
+          code: '182492',
           response: 'MAGISTRATES COURT',
           active: true,
           label: 'Magistrates court',
@@ -1320,7 +1320,7 @@ export const ASSAULT_1: IncidentTypeConfiguration = {
           nextQuestionId: '44586',
         },
         {
-          id: '182479',
+          code: '182479',
           response: 'CROWN COURT',
           active: true,
           label: 'Crown court',

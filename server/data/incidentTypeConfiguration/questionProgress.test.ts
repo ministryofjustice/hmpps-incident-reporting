@@ -49,7 +49,7 @@ describe('Question progress', () => {
         multipleAnswers: false,
         answers: [
           {
-            id: '11',
+            code: '11',
             response: 'A1-1',
             active: true,
             label: 'Answer 1-1',
@@ -58,7 +58,7 @@ describe('Question progress', () => {
             nextQuestionId: '2',
           },
           {
-            id: '12',
+            code: '12',
             response: 'A1-2',
             active: true,
             label: 'Answer 1-2',
@@ -76,7 +76,7 @@ describe('Question progress', () => {
         multipleAnswers: false,
         answers: [
           {
-            id: '21',
+            code: '21',
             response: 'A2-1',
             active: true,
             label: 'Answer 2-1',
@@ -85,7 +85,7 @@ describe('Question progress', () => {
             nextQuestionId: '3',
           },
           {
-            id: '22',
+            code: '22',
             response: 'A2-2',
             active: true,
             label: 'Answer 2-2',
@@ -103,7 +103,7 @@ describe('Question progress', () => {
         multipleAnswers: false,
         answers: [
           {
-            id: '31',
+            code: '31',
             response: 'A3-1',
             active: true,
             label: 'Answer 3-1',
@@ -112,7 +112,7 @@ describe('Question progress', () => {
             nextQuestionId: '4',
           },
           {
-            id: '32',
+            code: '32',
             response: 'A3-2',
             active: true,
             label: 'Answer 3-2',
@@ -130,7 +130,7 @@ describe('Question progress', () => {
         multipleAnswers: false,
         answers: [
           {
-            id: '41',
+            code: '41',
             response: 'A4-1',
             active: true,
             label: 'Answer 4-1',
@@ -139,7 +139,7 @@ describe('Question progress', () => {
             nextQuestionId: null,
           },
           {
-            id: '42',
+            code: '42',
             response: 'A4-2',
             active: true,
             label: 'Answer 4-2',
@@ -507,7 +507,7 @@ describe('Question progress', () => {
             multipleAnswers: false,
             answers: [
               {
-                id: '1',
+                code: '1',
                 response: 'A1',
                 active: true,
                 label: 'Answer 1',
@@ -516,7 +516,7 @@ describe('Question progress', () => {
                 nextQuestionId: null,
               },
               {
-                id: '2',
+                code: '2',
                 response: 'A2',
                 active: true,
                 label: 'Answer 2 (enter date)',
@@ -525,7 +525,7 @@ describe('Question progress', () => {
                 nextQuestionId: null,
               },
               {
-                id: '3',
+                code: '3',
                 response: 'A3',
                 active: true,
                 label: 'Answer 3 (enter details)',
@@ -534,7 +534,7 @@ describe('Question progress', () => {
                 nextQuestionId: null,
               },
               {
-                id: '4',
+                code: '4',
                 response: 'A4',
                 active: true,
                 label: 'Answer 4 (enter both)',
@@ -704,7 +704,7 @@ describe('Question progress', () => {
             multipleAnswers: true,
             answers: [
               {
-                id: '1',
+                code: '1',
                 response: 'A1',
                 active: true,
                 label: 'Answer 1',
@@ -713,7 +713,7 @@ describe('Question progress', () => {
                 nextQuestionId: null,
               },
               {
-                id: '2',
+                code: '2',
                 response: 'A2',
                 active: true,
                 label: 'Answer 2 (enter date)',
@@ -722,7 +722,7 @@ describe('Question progress', () => {
                 nextQuestionId: null,
               },
               {
-                id: '3',
+                code: '3',
                 response: 'A3',
                 active: true,
                 label: 'Answer 3 (enter details)',
@@ -731,7 +731,7 @@ describe('Question progress', () => {
                 nextQuestionId: null,
               },
               {
-                id: '4',
+                code: '4',
                 response: 'A4',
                 active: true,
                 label: 'Answer 4 (enter both)',
@@ -834,7 +834,7 @@ describe('Question progress', () => {
             multipleAnswers: false,
             answers: [
               {
-                id: '1',
+                code: '1',
                 response: 'A1',
                 active: false,
                 label: 'Answer 1 (old, inactive)',
@@ -843,7 +843,7 @@ describe('Question progress', () => {
                 nextQuestionId: null,
               },
               {
-                id: '2',
+                code: '2',
                 response: 'A1',
                 active: true,
                 label: 'Answer 1 (new, active)',

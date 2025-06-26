@@ -15,7 +15,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '178885',
+          code: '178885',
           response: 'PRISON SERVICE VEHICLE',
           active: true,
           label: 'Prison service vehicle',
@@ -24,7 +24,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           nextQuestionId: '44251',
         },
         {
-          id: '178881',
+          code: '178881',
           response: 'CONTRACTORS',
           active: true,
           label: 'Contractors',
@@ -33,7 +33,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           nextQuestionId: '44251',
         },
         {
-          id: '178882',
+          code: '178882',
           response: 'ESCORT CONTRACTOR',
           active: true,
           label: 'Escort contractor',
@@ -42,7 +42,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           nextQuestionId: '44251',
         },
         {
-          id: '178883',
+          code: '178883',
           response: 'OFFICIAL VEHICLE',
           active: true,
           label: 'Official vehicle',
@@ -51,7 +51,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           nextQuestionId: '44251',
         },
         {
-          id: '178887',
+          code: '178887',
           response: 'STAFF VEHICLE',
           active: true,
           label: 'Staff vehicle',
@@ -60,7 +60,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           nextQuestionId: '44251',
         },
         {
-          id: '178886',
+          code: '178886',
           response: 'PRIVATE VEHICLE',
           active: true,
           label: 'Private vehicle',
@@ -69,7 +69,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           nextQuestionId: '44251',
         },
         {
-          id: '178888',
+          code: '178888',
           response: 'TAXI',
           active: true,
           label: 'Taxi',
@@ -78,7 +78,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           nextQuestionId: '44251',
         },
         {
-          id: '178884',
+          code: '178884',
           response: 'OTHER',
           active: true,
           label: 'Other',
@@ -96,7 +96,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
       multipleAnswers: true,
       answers: [
         {
-          id: '178910',
+          code: '178910',
           response: 'WORKS DEPARTMENT',
           active: true,
           label: 'Works department',
@@ -105,7 +105,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           nextQuestionId: '44436',
         },
         {
-          id: '178899',
+          code: '178899',
           response: 'CONTRACTORS',
           active: true,
           label: 'Contractors',
@@ -114,7 +114,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           nextQuestionId: '44436',
         },
         {
-          id: '178900',
+          code: '178900',
           response: 'EDUCATION',
           active: true,
           label: 'Education',
@@ -123,7 +123,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           nextQuestionId: '44436',
         },
         {
-          id: '178903',
+          code: '178903',
           response: 'HEALTH CARE CENTRE',
           active: true,
           label: 'Health care centre',
@@ -132,7 +132,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           nextQuestionId: '44436',
         },
         {
-          id: '178901',
+          code: '178901',
           response: 'FARMS AND GARDENS',
           active: true,
           label: 'Farms and gardens',
@@ -141,7 +141,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           nextQuestionId: '44436',
         },
         {
-          id: '178902',
+          code: '178902',
           response: 'GYMNASIUM/SPORTS FIELD',
           active: true,
           label: 'Gymnasium/sports field',
@@ -150,7 +150,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           nextQuestionId: '44436',
         },
         {
-          id: '178911',
+          code: '178911',
           response: 'WORKSHOPS',
           active: true,
           label: 'Workshops',
@@ -159,7 +159,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           nextQuestionId: '44436',
         },
         {
-          id: '178905',
+          code: '178905',
           response: 'KITCHEN',
           active: true,
           label: 'Kitchen',
@@ -168,7 +168,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           nextQuestionId: '44436',
         },
         {
-          id: '178904',
+          code: '178904',
           response: 'HOBBIES',
           active: true,
           label: 'Hobbies',
@@ -177,7 +177,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           nextQuestionId: '44436',
         },
         {
-          id: '178898',
+          code: '178898',
           response: 'CELL FURNISHINGS',
           active: true,
           label: 'Cell furnishings',
@@ -186,7 +186,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           nextQuestionId: '44436',
         },
         {
-          id: '178909',
+          code: '178909',
           response: 'WING/HOUSEBLOCK FURNISHINGS',
           active: true,
           label: 'Wing/houseblock furnishings',
@@ -195,7 +195,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           nextQuestionId: '44436',
         },
         {
-          id: '178908',
+          code: '178908',
           response: 'SMUGGLED',
           active: true,
           label: 'Smuggled',
@@ -204,7 +204,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           nextQuestionId: '44436',
         },
         {
-          id: '178906',
+          code: '178906',
           response: 'NOT KNOWN',
           active: true,
           label: 'Not known',
@@ -213,7 +213,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           nextQuestionId: '44436',
         },
         {
-          id: '178907',
+          code: '178907',
           response: 'OTHER',
           active: true,
           label: 'Other',
@@ -231,7 +231,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '178953',
+          code: '178953',
           response: 'YES',
           active: true,
           label: 'Yes',
@@ -240,7 +240,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           nextQuestionId: '44621',
         },
         {
-          id: '178954',
+          code: '178954',
           response: 'NO',
           active: true,
           label: 'No',
@@ -258,7 +258,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '179046',
+          code: '179046',
           response: 'CUT WINDOW OR BARS',
           active: true,
           label: 'Cut window or bars',
@@ -267,7 +267,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           nextQuestionId: '44931',
         },
         {
-          id: '179051',
+          code: '179051',
           response: 'FORCED WINDOW OR BARS',
           active: true,
           label: 'Forced window or bars',
@@ -276,7 +276,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           nextQuestionId: '44931',
         },
         {
-          id: '179045',
+          code: '179045',
           response: 'CUT AND FORCED WINDOW AND BARS',
           active: true,
           label: 'Cut and forced window and bars',
@@ -285,7 +285,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           nextQuestionId: '44931',
         },
         {
-          id: '179047',
+          code: '179047',
           response: 'DUG THROUGH EXTERNAL WALL',
           active: true,
           label: 'Dug through external wall',
@@ -294,7 +294,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           nextQuestionId: '44931',
         },
         {
-          id: '179049',
+          code: '179049',
           response: 'DUG THROUGH INTERNAL WALL',
           active: true,
           label: 'Dug through internal wall',
@@ -303,7 +303,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           nextQuestionId: '44931',
         },
         {
-          id: '179048',
+          code: '179048',
           response: 'DUG THROUGH FLOOR',
           active: true,
           label: 'Dug through floor',
@@ -312,7 +312,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           nextQuestionId: '44931',
         },
         {
-          id: '179044',
+          code: '179044',
           response: 'BROKE THROUGH CEILING',
           active: true,
           label: 'Broke through ceiling',
@@ -321,7 +321,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           nextQuestionId: '44931',
         },
         {
-          id: '179050',
+          code: '179050',
           response: 'FORCED DOOR',
           active: true,
           label: 'Forced door',
@@ -339,7 +339,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '179058',
+          code: '179058',
           response: 'YES',
           active: true,
           label: 'Yes',
@@ -348,7 +348,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           nextQuestionId: '44633',
         },
         {
-          id: '179059',
+          code: '179059',
           response: 'NO',
           active: true,
           label: 'No',
@@ -366,7 +366,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '179086',
+          code: '179086',
           response: 'YES',
           active: true,
           label: 'Yes',
@@ -375,7 +375,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           nextQuestionId: '44851',
         },
         {
-          id: '179085',
+          code: '179085',
           response: 'NO',
           active: true,
           label: 'No',
@@ -393,7 +393,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '179117',
+          code: '179117',
           response: 'YES',
           active: true,
           label: 'Yes',
@@ -402,7 +402,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           nextQuestionId: '44590',
         },
         {
-          id: '179118',
+          code: '179118',
           response: 'NO',
           active: true,
           label: 'No',
@@ -420,7 +420,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '179198',
+          code: '179198',
           response: 'PRISON HEALTH CARE CENTRE',
           active: true,
           label: 'Prison health care centre',
@@ -429,7 +429,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           nextQuestionId: '44388',
         },
         {
-          id: '179197',
+          code: '179197',
           response: 'OUTSIDE HOSPITAL',
           active: true,
           label: 'Outside hospital',
@@ -447,7 +447,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '179208',
+          code: '179208',
           response: 'YES',
           active: true,
           label: 'Yes',
@@ -456,7 +456,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           nextQuestionId: '44851',
         },
         {
-          id: '179207',
+          code: '179207',
           response: 'NO',
           active: true,
           label: 'No',
@@ -474,7 +474,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '179213',
+          code: '179213',
           response: 'YES',
           active: true,
           label: 'Yes',
@@ -483,7 +483,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           nextQuestionId: '44406',
         },
         {
-          id: '179214',
+          code: '179214',
           response: 'NO',
           active: true,
           label: 'No',
@@ -501,7 +501,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '179215',
+          code: '179215',
           response: 'YES',
           active: true,
           label: 'Yes',
@@ -510,7 +510,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           nextQuestionId: '44790',
         },
         {
-          id: '179216',
+          code: '179216',
           response: 'NO',
           active: true,
           label: 'No',
@@ -528,7 +528,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
       multipleAnswers: true,
       answers: [
         {
-          id: '179260',
+          code: '179260',
           response: 'WORKS DEPARTMENT',
           active: true,
           label: 'Works department',
@@ -537,7 +537,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           nextQuestionId: '44178',
         },
         {
-          id: '179249',
+          code: '179249',
           response: 'CONTRACTORS',
           active: true,
           label: 'Contractors',
@@ -546,7 +546,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           nextQuestionId: '44178',
         },
         {
-          id: '179250',
+          code: '179250',
           response: 'EDUCATION',
           active: true,
           label: 'Education',
@@ -555,7 +555,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           nextQuestionId: '44178',
         },
         {
-          id: '179253',
+          code: '179253',
           response: 'HEALTH CARE CENTRE',
           active: true,
           label: 'Health care centre',
@@ -564,7 +564,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           nextQuestionId: '44178',
         },
         {
-          id: '179251',
+          code: '179251',
           response: 'FARMS AND GARDENS',
           active: true,
           label: 'Farms and gardens',
@@ -573,7 +573,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           nextQuestionId: '44178',
         },
         {
-          id: '179252',
+          code: '179252',
           response: 'GYMNASIUM/SPORTS FIELD',
           active: true,
           label: 'Gymnasium/sports field',
@@ -582,7 +582,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           nextQuestionId: '44178',
         },
         {
-          id: '179261',
+          code: '179261',
           response: 'WORKSHOPS',
           active: true,
           label: 'Workshops',
@@ -591,7 +591,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           nextQuestionId: '44178',
         },
         {
-          id: '179255',
+          code: '179255',
           response: 'KITCHEN',
           active: true,
           label: 'Kitchen',
@@ -600,7 +600,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           nextQuestionId: '44178',
         },
         {
-          id: '179254',
+          code: '179254',
           response: 'HOBBIES',
           active: true,
           label: 'Hobbies',
@@ -609,7 +609,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           nextQuestionId: '44178',
         },
         {
-          id: '179248',
+          code: '179248',
           response: 'CELL FURNISHINGS',
           active: true,
           label: 'Cell furnishings',
@@ -618,7 +618,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           nextQuestionId: '44178',
         },
         {
-          id: '179259',
+          code: '179259',
           response: 'WING/HOUSEBLOCK FURNISHINGS',
           active: true,
           label: 'Wing/houseblock furnishings',
@@ -627,7 +627,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           nextQuestionId: '44178',
         },
         {
-          id: '179258',
+          code: '179258',
           response: 'SMUGGLED',
           active: true,
           label: 'Smuggled',
@@ -636,7 +636,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           nextQuestionId: '44178',
         },
         {
-          id: '179256',
+          code: '179256',
           response: 'NOT KNOWN',
           active: true,
           label: 'Not known',
@@ -645,7 +645,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           nextQuestionId: '44178',
         },
         {
-          id: '179257',
+          code: '179257',
           response: 'OTHER',
           active: true,
           label: 'Other',
@@ -663,7 +663,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
       multipleAnswers: true,
       answers: [
         {
-          id: '179297',
+          code: '179297',
           response: 'MALE',
           active: true,
           label: 'Male',
@@ -672,7 +672,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           nextQuestionId: '44549',
         },
         {
-          id: '179296',
+          code: '179296',
           response: 'FEMALE',
           active: true,
           label: 'Female',
@@ -690,7 +690,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
       multipleAnswers: true,
       answers: [
         {
-          id: '179307',
+          code: '179307',
           response: 'HACKSAW BLADE',
           active: true,
           label: 'Hacksaw blade',
@@ -699,7 +699,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           nextQuestionId: '44628',
         },
         {
-          id: '179310',
+          code: '179310',
           response: 'OTHER BLADE',
           active: true,
           label: 'Other blade',
@@ -708,7 +708,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           nextQuestionId: '44628',
         },
         {
-          id: '179312',
+          code: '179312',
           response: 'WIRE CUTTERS',
           active: true,
           label: 'Wire cutters',
@@ -717,7 +717,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           nextQuestionId: '44628',
         },
         {
-          id: '179304',
+          code: '179304',
           response: 'BOLT CROPPERS',
           active: true,
           label: 'Bolt croppers',
@@ -726,7 +726,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           nextQuestionId: '44628',
         },
         {
-          id: '179306',
+          code: '179306',
           response: 'DIGGING TOOL',
           active: true,
           label: 'Digging tool',
@@ -735,7 +735,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           nextQuestionId: '44628',
         },
         {
-          id: '179305',
+          code: '179305',
           response: 'CROW BAR',
           active: true,
           label: 'Crow bar',
@@ -744,7 +744,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           nextQuestionId: '44628',
         },
         {
-          id: '179308',
+          code: '179308',
           response: 'IMPROVISED TOOL',
           active: true,
           label: 'Improvised tool',
@@ -753,7 +753,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           nextQuestionId: '44628',
         },
         {
-          id: '179311',
+          code: '179311',
           response: 'OTHER TOOL',
           active: true,
           label: 'Other tool',
@@ -762,7 +762,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           nextQuestionId: '44628',
         },
         {
-          id: '179309',
+          code: '179309',
           response: 'NOT KNOWN',
           active: true,
           label: 'Not known',
@@ -780,7 +780,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '179326',
+          code: '179326',
           response: 'YES',
           active: true,
           label: 'Yes',
@@ -789,7 +789,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           nextQuestionId: '44138',
         },
         {
-          id: '179325',
+          code: '179325',
           response: 'NO',
           active: true,
           label: 'No',
@@ -807,7 +807,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
       multipleAnswers: true,
       answers: [
         {
-          id: '179339',
+          code: '179339',
           response: 'GRAZES, SCRATCHES OR ABRASIONS',
           active: true,
           label: 'Grazes, scratches or abrasions',
@@ -816,7 +816,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           nextQuestionId: '44485',
         },
         {
-          id: '179340',
+          code: '179340',
           response: 'MINOR BRUISES',
           active: true,
           label: 'Minor bruises',
@@ -825,7 +825,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           nextQuestionId: '44485',
         },
         {
-          id: '179343',
+          code: '179343',
           response: 'SWELLINGS',
           active: true,
           label: 'Swellings',
@@ -834,7 +834,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           nextQuestionId: '44485',
         },
         {
-          id: '179342',
+          code: '179342',
           response: 'SUPERFICIAL CUTS',
           active: true,
           label: 'Superficial cuts',
@@ -843,7 +843,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           nextQuestionId: '44485',
         },
         {
-          id: '179341',
+          code: '179341',
           response: 'OTHER',
           active: true,
           label: 'Other',
@@ -861,7 +861,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '179350',
+          code: '179350',
           response: 'MINOR',
           active: true,
           label: 'Minor',
@@ -870,7 +870,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           nextQuestionId: '44363',
         },
         {
-          id: '179351',
+          code: '179351',
           response: 'SERIOUS',
           active: true,
           label: 'Serious',
@@ -879,7 +879,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           nextQuestionId: '44363',
         },
         {
-          id: '179349',
+          code: '179349',
           response: 'EXTENSIVE',
           active: true,
           label: 'Extensive',
@@ -897,7 +897,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '179377',
+          code: '179377',
           response: 'YES',
           active: true,
           label: 'Yes',
@@ -906,7 +906,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           nextQuestionId: '44897',
         },
         {
-          id: '179378',
+          code: '179378',
           response: 'NO',
           active: true,
           label: 'No',
@@ -924,7 +924,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '179420',
+          code: '179420',
           response: 'YES',
           active: true,
           label: 'Yes',
@@ -933,7 +933,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           nextQuestionId: '44245',
         },
         {
-          id: '179421',
+          code: '179421',
           response: 'NO',
           active: true,
           label: 'No',
@@ -951,7 +951,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '179528',
+          code: '179528',
           response: 'YES',
           active: true,
           label: 'Yes',
@@ -960,7 +960,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           nextQuestionId: '44241',
         },
         {
-          id: '179529',
+          code: '179529',
           response: 'NO',
           active: true,
           label: 'No',
@@ -978,7 +978,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '179531',
+          code: '179531',
           response: 'YES',
           active: true,
           label: 'Yes',
@@ -987,7 +987,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           nextQuestionId: '45032',
         },
         {
-          id: '179530',
+          code: '179530',
           response: 'NO',
           active: true,
           label: 'No',
@@ -1005,7 +1005,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
       multipleAnswers: true,
       answers: [
         {
-          id: '179566',
+          code: '179566',
           response: 'UV HAND STAMP',
           active: true,
           label: 'UV hand stamp',
@@ -1014,7 +1014,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           nextQuestionId: '44546',
         },
         {
-          id: '179562',
+          code: '179562',
           response: 'HAND GEOMETRY',
           active: true,
           label: 'Hand geometry',
@@ -1023,7 +1023,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           nextQuestionId: '44546',
         },
         {
-          id: '179564',
+          code: '179564',
           response: 'PHOTOGRAPHIC RECORD',
           active: true,
           label: 'Photographic record',
@@ -1032,7 +1032,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           nextQuestionId: '44546',
         },
         {
-          id: '179563',
+          code: '179563',
           response: 'IDENTIFYING CLOTHING',
           active: true,
           label: 'Identifying clothing',
@@ -1041,7 +1041,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           nextQuestionId: '44546',
         },
         {
-          id: '179565',
+          code: '179565',
           response: 'STAFF SUPERVISION',
           active: true,
           label: 'Staff supervision',
@@ -1059,7 +1059,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
       multipleAnswers: true,
       answers: [
         {
-          id: '179605',
+          code: '179605',
           response: 'PRISONER WHO ESCAPED',
           active: true,
           label: 'Prisoner who escaped',
@@ -1068,7 +1068,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           nextQuestionId: '44169',
         },
         {
-          id: '179603',
+          code: '179603',
           response: 'OTHER PRISONER',
           active: true,
           label: 'Other prisoner',
@@ -1077,7 +1077,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           nextQuestionId: '44169',
         },
         {
-          id: '179604',
+          code: '179604',
           response: 'OUTSIDE ACCOMPLICE',
           active: true,
           label: 'Outside accomplice',
@@ -1095,7 +1095,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '179614',
+          code: '179614',
           response: 'PURPOSE MADE',
           active: true,
           label: 'Purpose made',
@@ -1104,7 +1104,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           nextQuestionId: '44787',
         },
         {
-          id: '179612',
+          code: '179612',
           response: 'IMPROVISED',
           active: true,
           label: 'Improvised',
@@ -1113,7 +1113,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           nextQuestionId: '44787',
         },
         {
-          id: '179613',
+          code: '179613',
           response: 'NOT KNOWN',
           active: true,
           label: 'Not known',
@@ -1131,7 +1131,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '179716',
+          code: '179716',
           response: 'ENTER AMOUNT IN POUND STERLING',
           active: true,
           label: 'Enter amount in pound sterling',
@@ -1149,7 +1149,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '179737',
+          code: '179737',
           response: 'YES',
           active: true,
           label: 'Yes',
@@ -1158,7 +1158,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           nextQuestionId: '44761',
         },
         {
-          id: '179738',
+          code: '179738',
           response: 'NO',
           active: true,
           label: 'No',
@@ -1176,7 +1176,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '179746',
+          code: '179746',
           response: 'WINDOW',
           active: true,
           label: 'Window',
@@ -1185,7 +1185,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           nextQuestionId: '44726',
         },
         {
-          id: '179741',
+          code: '179741',
           response: 'EXTERNAL WALL',
           active: true,
           label: 'External wall',
@@ -1194,7 +1194,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           nextQuestionId: '44726',
         },
         {
-          id: '179742',
+          code: '179742',
           response: 'FLOOR',
           active: true,
           label: 'Floor',
@@ -1203,7 +1203,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           nextQuestionId: '44726',
         },
         {
-          id: '179743',
+          code: '179743',
           response: 'ROOF',
           active: true,
           label: 'Roof',
@@ -1212,7 +1212,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           nextQuestionId: '44726',
         },
         {
-          id: '179740',
+          code: '179740',
           response: 'DOOR/GATE',
           active: true,
           label: 'Door/gate',
@@ -1221,7 +1221,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           nextQuestionId: '44726',
         },
         {
-          id: '179744',
+          code: '179744',
           response: 'THROUGH FENCE',
           active: true,
           label: 'Through fence',
@@ -1230,7 +1230,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           nextQuestionId: '44726',
         },
         {
-          id: '179745',
+          code: '179745',
           response: 'UNDER FENCE',
           active: true,
           label: 'Under fence',
@@ -1239,7 +1239,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           nextQuestionId: '44726',
         },
         {
-          id: '179739',
+          code: '179739',
           response: 'OVER FENCE',
           active: true,
           label: 'Over fence',
@@ -1257,7 +1257,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
       multipleAnswers: true,
       answers: [
         {
-          id: '179756',
+          code: '179756',
           response: 'MURDER/ATTEMPTED MURDER',
           active: true,
           label: 'Murder/attempted murder',
@@ -1266,7 +1266,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           nextQuestionId: '44699',
         },
         {
-          id: '179755',
+          code: '179755',
           response: 'MANSLAUGHTER',
           active: true,
           label: 'Manslaughter',
@@ -1275,7 +1275,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           nextQuestionId: '44699',
         },
         {
-          id: '179752',
+          code: '179752',
           response: 'ASSAULT',
           active: true,
           label: 'Assault',
@@ -1284,7 +1284,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           nextQuestionId: '44699',
         },
         {
-          id: '179760',
+          code: '179760',
           response: 'RAPE/ATTEMPTED RAPE',
           active: true,
           label: 'Rape/attempted rape',
@@ -1293,7 +1293,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           nextQuestionId: '44699',
         },
         {
-          id: '179758',
+          code: '179758',
           response: 'OTHER SEXUAL OFFENCE',
           active: true,
           label: 'Other sexual offence',
@@ -1302,7 +1302,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           nextQuestionId: '44699',
         },
         {
-          id: '179762',
+          code: '179762',
           response: 'THEFT',
           active: true,
           label: 'Theft',
@@ -1311,7 +1311,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           nextQuestionId: '44699',
         },
         {
-          id: '179761',
+          code: '179761',
           response: 'ROBBERY',
           active: true,
           label: 'Robbery',
@@ -1320,7 +1320,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           nextQuestionId: '44699',
         },
         {
-          id: '179754',
+          code: '179754',
           response: 'FIREARM OFFENCE',
           active: true,
           label: 'Firearm offence',
@@ -1329,7 +1329,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           nextQuestionId: '44699',
         },
         {
-          id: '179753',
+          code: '179753',
           response: 'DRUG OFFENCE',
           active: true,
           label: 'Drug offence',
@@ -1338,7 +1338,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           nextQuestionId: '44699',
         },
         {
-          id: '179763',
+          code: '179763',
           response: 'VEHICLE CRIME',
           active: true,
           label: 'Vehicle crime',
@@ -1347,7 +1347,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           nextQuestionId: '44699',
         },
         {
-          id: '179759',
+          code: '179759',
           response: 'PUBLIC ORDER OFFENCE',
           active: true,
           label: 'Public order offence',
@@ -1356,7 +1356,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           nextQuestionId: '44699',
         },
         {
-          id: '179757',
+          code: '179757',
           response: 'OTHER',
           active: true,
           label: 'Other',
@@ -1374,7 +1374,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '179769',
+          code: '179769',
           response: 'YES',
           active: true,
           label: 'Yes',
@@ -1383,7 +1383,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           nextQuestionId: '45177',
         },
         {
-          id: '179768',
+          code: '179768',
           response: 'NO',
           active: true,
           label: 'No',
@@ -1401,7 +1401,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
       multipleAnswers: true,
       answers: [
         {
-          id: '179777',
+          code: '179777',
           response: 'FRACTURE',
           active: true,
           label: 'Fracture',
@@ -1410,7 +1410,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           nextQuestionId: '44872',
         },
         {
-          id: '179779',
+          code: '179779',
           response: 'SCALD OR BURN',
           active: true,
           label: 'Scald or burn',
@@ -1419,7 +1419,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           nextQuestionId: '44872',
         },
         {
-          id: '179780',
+          code: '179780',
           response: 'STABBING',
           active: true,
           label: 'Stabbing',
@@ -1428,7 +1428,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           nextQuestionId: '44872',
         },
         {
-          id: '179774',
+          code: '179774',
           response: 'CRUSHING',
           active: true,
           label: 'Crushing',
@@ -1437,7 +1437,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           nextQuestionId: '44872',
         },
         {
-          id: '179776',
+          code: '179776',
           response: 'EXTENSIVE/MULTIPLE BRUISING',
           active: true,
           label: 'Extensive/multiple bruising',
@@ -1446,7 +1446,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           nextQuestionId: '44872',
         },
         {
-          id: '179771',
+          code: '179771',
           response: 'BLACK EYE',
           active: true,
           label: 'Black eye',
@@ -1455,7 +1455,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           nextQuestionId: '44872',
         },
         {
-          id: '179772',
+          code: '179772',
           response: 'BROKEN NOSE',
           active: true,
           label: 'Broken nose',
@@ -1464,7 +1464,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           nextQuestionId: '44872',
         },
         {
-          id: '179773',
+          code: '179773',
           response: 'BROKEN TEETH',
           active: true,
           label: 'Broken teeth',
@@ -1473,7 +1473,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           nextQuestionId: '44872',
         },
         {
-          id: '179775',
+          code: '179775',
           response: 'CUTS REQUIRING SUTURES',
           active: true,
           label: 'Cuts requiring sutures',
@@ -1482,7 +1482,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           nextQuestionId: '44872',
         },
         {
-          id: '179770',
+          code: '179770',
           response: 'BITES',
           active: true,
           label: 'Bites',
@@ -1491,7 +1491,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           nextQuestionId: '44872',
         },
         {
-          id: '179778',
+          code: '179778',
           response: 'GUN SHOT WOUND',
           active: true,
           label: 'Gun shot wound',
@@ -1500,7 +1500,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           nextQuestionId: '44872',
         },
         {
-          id: '179781',
+          code: '179781',
           response: 'TEMPORARY/PERMANENT BLINDNESS',
           active: true,
           label: 'Temporary/permanent blindness',
@@ -1518,7 +1518,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
       multipleAnswers: true,
       answers: [
         {
-          id: '179792',
+          code: '179792',
           response: 'SMUGGLED WEAPONS',
           active: true,
           label: 'Smuggled weapons',
@@ -1527,7 +1527,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           nextQuestionId: '44689',
         },
         {
-          id: '179791',
+          code: '179791',
           response: 'SMUGGLED TOOLS/EQUIPMENT',
           active: true,
           label: 'Smuggled tools/equipment',
@@ -1536,7 +1536,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           nextQuestionId: '44689',
         },
         {
-          id: '179793',
+          code: '179793',
           response: 'SWAPPED IDENTITY',
           active: true,
           label: 'Swapped identity',
@@ -1545,7 +1545,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           nextQuestionId: '44689',
         },
         {
-          id: '179788',
+          code: '179788',
           response: 'BREACHED PERIMETER',
           active: true,
           label: 'Breached perimeter',
@@ -1554,7 +1554,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           nextQuestionId: '44689',
         },
         {
-          id: '179790',
+          code: '179790',
           response: 'PROVIDED GET AWAY VEHICLE',
           active: true,
           label: 'Provided get away vehicle',
@@ -1563,7 +1563,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           nextQuestionId: '44689',
         },
         {
-          id: '179789',
+          code: '179789',
           response: 'OTHER',
           active: true,
           label: 'Other',
@@ -1581,7 +1581,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '179811',
+          code: '179811',
           response: 'YES',
           active: true,
           label: 'Yes',
@@ -1590,7 +1590,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           nextQuestionId: '45147',
         },
         {
-          id: '179812',
+          code: '179812',
           response: 'NO',
           active: true,
           label: 'No',
@@ -1608,7 +1608,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '179856',
+          code: '179856',
           response: 'INTENTIONAL',
           active: true,
           label: 'Intentional',
@@ -1617,7 +1617,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           nextQuestionId: '44309',
         },
         {
-          id: '179855',
+          code: '179855',
           response: 'ACCIDENTAL',
           active: true,
           label: 'Accidental',
@@ -1635,7 +1635,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '179887',
+          code: '179887',
           response: 'YES',
           active: true,
           label: 'Yes',
@@ -1644,7 +1644,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           nextQuestionId: '44373',
         },
         {
-          id: '179888',
+          code: '179888',
           response: 'NO',
           active: true,
           label: 'No',
@@ -1662,7 +1662,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '179914',
+          code: '179914',
           response: 'YES',
           active: true,
           label: 'Yes',
@@ -1671,7 +1671,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           nextQuestionId: '44377',
         },
         {
-          id: '179915',
+          code: '179915',
           response: 'NO',
           active: true,
           label: 'No',
@@ -1689,7 +1689,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '179936',
+          code: '179936',
           response: 'YES',
           active: true,
           label: 'Yes',
@@ -1698,7 +1698,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           nextQuestionId: '45039',
         },
         {
-          id: '179937',
+          code: '179937',
           response: 'NO',
           active: true,
           label: 'No',
@@ -1716,7 +1716,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '179957',
+          code: '179957',
           response: 'PRISON HEALTH CARE CENTRE',
           active: true,
           label: 'Prison health care centre',
@@ -1725,7 +1725,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           nextQuestionId: '45164',
         },
         {
-          id: '179955',
+          code: '179955',
           response: 'OUTSIDE HOSPITAL',
           active: true,
           label: 'Outside hospital',
@@ -1734,7 +1734,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           nextQuestionId: '45164',
         },
         {
-          id: '179956',
+          code: '179956',
           response: 'OWN GP',
           active: true,
           label: 'Own GP',
@@ -1752,7 +1752,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '180128',
+          code: '180128',
           response: 'CUT',
           active: true,
           label: 'Cut',
@@ -1761,7 +1761,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           nextQuestionId: '44192',
         },
         {
-          id: '180129',
+          code: '180129',
           response: 'REMOVED',
           active: true,
           label: 'Removed',
@@ -1779,7 +1779,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '180158',
+          code: '180158',
           response: 'YES',
           active: true,
           label: 'Yes',
@@ -1788,7 +1788,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           nextQuestionId: '44212',
         },
         {
-          id: '180159',
+          code: '180159',
           response: 'NO',
           active: true,
           label: 'No',
@@ -1806,7 +1806,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '180224',
+          code: '180224',
           response: 'YES',
           active: true,
           label: 'Yes',
@@ -1815,7 +1815,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           nextQuestionId: '44310',
         },
         {
-          id: '180223',
+          code: '180223',
           response: 'NO',
           active: true,
           label: 'No',
@@ -1833,7 +1833,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '180228',
+          code: '180228',
           response: 'REAL',
           active: true,
           label: 'Real',
@@ -1842,7 +1842,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           nextQuestionId: '44270',
         },
         {
-          id: '180229',
+          code: '180229',
           response: 'REPLICA',
           active: true,
           label: 'Replica',
@@ -1851,7 +1851,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           nextQuestionId: '44270',
         },
         {
-          id: '180227',
+          code: '180227',
           response: 'NOT KNOWN',
           active: true,
           label: 'Not known',
@@ -1869,7 +1869,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '180335',
+          code: '180335',
           response: 'YES',
           active: true,
           label: 'Yes',
@@ -1878,7 +1878,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           nextQuestionId: '44321',
         },
         {
-          id: '180334',
+          code: '180334',
           response: 'NO',
           active: true,
           label: 'No',
@@ -1896,7 +1896,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '180409',
+          code: '180409',
           response: 'SSU',
           active: true,
           label: 'SSU',
@@ -1905,7 +1905,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           nextQuestionId: '44558',
         },
         {
-          id: '180410',
+          code: '180410',
           response: 'WING/HOUSEBLOCK',
           active: true,
           label: 'Wing/houseblock',
@@ -1914,7 +1914,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           nextQuestionId: '44558',
         },
         {
-          id: '180404',
+          code: '180404',
           response: 'CRC',
           active: true,
           label: 'CRC',
@@ -1923,7 +1923,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           nextQuestionId: '44558',
         },
         {
-          id: '180405',
+          code: '180405',
           response: 'HEALTH CARE CENTRE',
           active: true,
           label: 'Health care centre',
@@ -1932,7 +1932,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           nextQuestionId: '44558',
         },
         {
-          id: '180408',
+          code: '180408',
           response: 'SEGREGATION UNIT',
           active: true,
           label: 'Segregation unit',
@@ -1941,7 +1941,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           nextQuestionId: '44558',
         },
         {
-          id: '180407',
+          code: '180407',
           response: 'RULE 45 UNIT (OR)',
           active: true,
           label: 'Rule 45 unit (or)',
@@ -1950,7 +1950,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           nextQuestionId: '44558',
         },
         {
-          id: '180406',
+          code: '180406',
           response: 'RULE 45 UNIT (GOAD)',
           active: true,
           label: 'Rule 45 unit (GOAD)',
@@ -1968,7 +1968,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '180422',
+          code: '180422',
           response: 'YES',
           active: true,
           label: 'Yes',
@@ -1977,7 +1977,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           nextQuestionId: '44651',
         },
         {
-          id: '180423',
+          code: '180423',
           response: 'NO',
           active: true,
           label: 'No',
@@ -1995,7 +1995,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '180431',
+          code: '180431',
           response: 'YES',
           active: true,
           label: 'Yes',
@@ -2004,7 +2004,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           nextQuestionId: '44858',
         },
         {
-          id: '180432',
+          code: '180432',
           response: 'NO',
           active: true,
           label: 'No',
@@ -2022,7 +2022,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '180460',
+          code: '180460',
           response: 'SINGLE',
           active: true,
           label: 'Single',
@@ -2031,7 +2031,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           nextQuestionId: '44221',
         },
         {
-          id: '180459',
+          code: '180459',
           response: 'MULTIPLE OCCUPANCY',
           active: true,
           label: 'Multiple occupancy',
@@ -2049,7 +2049,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '180482',
+          code: '180482',
           response: 'ON FOOT',
           active: true,
           label: 'On foot',
@@ -2058,7 +2058,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           nextQuestionId: '45048',
         },
         {
-          id: '180484',
+          code: '180484',
           response: 'DROVE VEHICLE OUT',
           active: true,
           label: 'Drove vehicle out',
@@ -2067,7 +2067,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           nextQuestionId: '44121',
         },
         {
-          id: '180483',
+          code: '180483',
           response: 'CONCEALED IN VEHICLE',
           active: true,
           label: 'Concealed in vehicle',
@@ -2085,7 +2085,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
       multipleAnswers: true,
       answers: [
         {
-          id: '180514',
+          code: '180514',
           response: 'LADDER',
           active: true,
           label: 'Ladder',
@@ -2094,7 +2094,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           nextQuestionId: '45036',
         },
         {
-          id: '180516',
+          code: '180516',
           response: 'ROPE',
           active: true,
           label: 'Rope',
@@ -2103,7 +2103,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           nextQuestionId: '45036',
         },
         {
-          id: '180511',
+          code: '180511',
           response: 'CLIMBING AIDS',
           active: true,
           label: 'Climbing aids',
@@ -2112,7 +2112,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           nextQuestionId: '45036',
         },
         {
-          id: '180512',
+          code: '180512',
           response: 'FURNITURE ITEMS',
           active: true,
           label: 'Furniture items',
@@ -2121,7 +2121,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           nextQuestionId: '45036',
         },
         {
-          id: '180517',
+          code: '180517',
           response: 'SPORTS ITEMS',
           active: true,
           label: 'Sports items',
@@ -2130,7 +2130,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           nextQuestionId: '45036',
         },
         {
-          id: '180513',
+          code: '180513',
           response: 'GROUNDS ITEMS',
           active: true,
           label: 'Grounds items',
@@ -2139,7 +2139,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           nextQuestionId: '45036',
         },
         {
-          id: '180515',
+          code: '180515',
           response: 'OTHER',
           active: true,
           label: 'Other',
@@ -2157,7 +2157,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
       multipleAnswers: true,
       answers: [
         {
-          id: '180550',
+          code: '180550',
           response: 'HACKSAW BLADE',
           active: true,
           label: 'Hacksaw blade',
@@ -2166,7 +2166,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           nextQuestionId: '44126',
         },
         {
-          id: '180553',
+          code: '180553',
           response: 'OTHER BLADE',
           active: true,
           label: 'Other blade',
@@ -2175,7 +2175,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           nextQuestionId: '44126',
         },
         {
-          id: '180555',
+          code: '180555',
           response: 'WIRE CUTTERS',
           active: true,
           label: 'Wire cutters',
@@ -2184,7 +2184,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           nextQuestionId: '44126',
         },
         {
-          id: '180547',
+          code: '180547',
           response: 'BOLT CROPPERS',
           active: true,
           label: 'Bolt croppers',
@@ -2193,7 +2193,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           nextQuestionId: '44126',
         },
         {
-          id: '180549',
+          code: '180549',
           response: 'DIGGING TOOL',
           active: true,
           label: 'Digging tool',
@@ -2202,7 +2202,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           nextQuestionId: '44126',
         },
         {
-          id: '180548',
+          code: '180548',
           response: 'CROW BAR',
           active: true,
           label: 'Crow bar',
@@ -2211,7 +2211,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           nextQuestionId: '44126',
         },
         {
-          id: '180551',
+          code: '180551',
           response: 'IMPROVISED TOOL',
           active: true,
           label: 'Improvised tool',
@@ -2220,7 +2220,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           nextQuestionId: '44126',
         },
         {
-          id: '180554',
+          code: '180554',
           response: 'OTHER TOOL',
           active: true,
           label: 'Other tool',
@@ -2229,7 +2229,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           nextQuestionId: '44126',
         },
         {
-          id: '180552',
+          code: '180552',
           response: 'NOT KNOWN',
           active: true,
           label: 'Not known',
@@ -2247,7 +2247,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '180660',
+          code: '180660',
           response: 'YES',
           active: true,
           label: 'Yes',
@@ -2256,7 +2256,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           nextQuestionId: '44781',
         },
         {
-          id: '180659',
+          code: '180659',
           response: 'NO',
           active: true,
           label: 'No',
@@ -2274,7 +2274,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
       multipleAnswers: true,
       answers: [
         {
-          id: '180689',
+          code: '180689',
           response: 'WORKS DEPARTMENT',
           active: true,
           label: 'Works department',
@@ -2283,7 +2283,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           nextQuestionId: '44436',
         },
         {
-          id: '180678',
+          code: '180678',
           response: 'CONTRACTORS',
           active: true,
           label: 'Contractors',
@@ -2292,7 +2292,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           nextQuestionId: '44436',
         },
         {
-          id: '180679',
+          code: '180679',
           response: 'EDUCATION',
           active: true,
           label: 'Education',
@@ -2301,7 +2301,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           nextQuestionId: '44436',
         },
         {
-          id: '180682',
+          code: '180682',
           response: 'HEALTH CARE CENTRE',
           active: true,
           label: 'Health care centre',
@@ -2310,7 +2310,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           nextQuestionId: '44436',
         },
         {
-          id: '180680',
+          code: '180680',
           response: 'FARMS AND GARDENS',
           active: true,
           label: 'Farms and gardens',
@@ -2319,7 +2319,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           nextQuestionId: '44436',
         },
         {
-          id: '180681',
+          code: '180681',
           response: 'GYMNASIUM/SPORTS FIELD',
           active: true,
           label: 'Gymnasium/sports field',
@@ -2328,7 +2328,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           nextQuestionId: '44436',
         },
         {
-          id: '180690',
+          code: '180690',
           response: 'WORKSHOPS',
           active: true,
           label: 'Workshops',
@@ -2337,7 +2337,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           nextQuestionId: '44436',
         },
         {
-          id: '180684',
+          code: '180684',
           response: 'KITCHEN',
           active: true,
           label: 'Kitchen',
@@ -2346,7 +2346,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           nextQuestionId: '44436',
         },
         {
-          id: '180683',
+          code: '180683',
           response: 'HOBBIES',
           active: true,
           label: 'Hobbies',
@@ -2355,7 +2355,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           nextQuestionId: '44436',
         },
         {
-          id: '180677',
+          code: '180677',
           response: 'CELL FURNISHINGS',
           active: true,
           label: 'Cell furnishings',
@@ -2364,7 +2364,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           nextQuestionId: '44436',
         },
         {
-          id: '180688',
+          code: '180688',
           response: 'WING/HOUSEBLOCK FURNISHINGS',
           active: true,
           label: 'Wing/houseblock furnishings',
@@ -2373,7 +2373,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           nextQuestionId: '44436',
         },
         {
-          id: '180687',
+          code: '180687',
           response: 'SMUGGLED',
           active: true,
           label: 'Smuggled',
@@ -2382,7 +2382,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           nextQuestionId: '44436',
         },
         {
-          id: '180685',
+          code: '180685',
           response: 'NOT KNOWN',
           active: true,
           label: 'Not known',
@@ -2391,7 +2391,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           nextQuestionId: '44436',
         },
         {
-          id: '180686',
+          code: '180686',
           response: 'OTHER',
           active: true,
           label: 'Other',
@@ -2409,7 +2409,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
       multipleAnswers: true,
       answers: [
         {
-          id: '180699',
+          code: '180699',
           response: 'C.N (CHLORACETOPHEONE)',
           active: true,
           label: 'C.n (chloracetopheone)',
@@ -2418,7 +2418,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           nextQuestionId: '44848',
         },
         {
-          id: '180700',
+          code: '180700',
           response: 'C.S (ORTHO..NITRILE)',
           active: true,
           label: 'C.s (ortho..nitrile)',
@@ -2427,7 +2427,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           nextQuestionId: '44848',
         },
         {
-          id: '180702',
+          code: '180702',
           response: 'O.C (MACE/PEPPER)',
           active: true,
           label: 'O.c (mace/pepper)',
@@ -2436,7 +2436,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           nextQuestionId: '44848',
         },
         {
-          id: '180703',
+          code: '180703',
           response: 'OTHER',
           active: true,
           label: 'Other',
@@ -2445,7 +2445,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           nextQuestionId: '44848',
         },
         {
-          id: '180701',
+          code: '180701',
           response: 'NOT KNOWN',
           active: true,
           label: 'Not known',
@@ -2463,7 +2463,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '180729',
+          code: '180729',
           response: 'YES',
           active: true,
           label: 'Yes',
@@ -2472,7 +2472,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           nextQuestionId: '44329',
         },
         {
-          id: '180730',
+          code: '180730',
           response: 'NO',
           active: true,
           label: 'No',
@@ -2490,7 +2490,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '180752',
+          code: '180752',
           response: 'ANOTHER PRISONER',
           active: true,
           label: 'Another prisoner',
@@ -2499,7 +2499,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           nextQuestionId: '44217',
         },
         {
-          id: '180751',
+          code: '180751',
           response: 'A VISITOR',
           active: true,
           label: 'A visitor',
@@ -2517,7 +2517,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
       multipleAnswers: true,
       answers: [
         {
-          id: '180785',
+          code: '180785',
           response: 'HACKSAW BLADE',
           active: true,
           label: 'Hacksaw blade',
@@ -2526,7 +2526,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           nextQuestionId: '45037',
         },
         {
-          id: '180788',
+          code: '180788',
           response: 'OTHER BLADE',
           active: true,
           label: 'Other blade',
@@ -2535,7 +2535,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           nextQuestionId: '45037',
         },
         {
-          id: '180790',
+          code: '180790',
           response: 'WIRE CUTTERS',
           active: true,
           label: 'Wire cutters',
@@ -2544,7 +2544,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           nextQuestionId: '45037',
         },
         {
-          id: '180782',
+          code: '180782',
           response: 'BOLT CROPPERS',
           active: true,
           label: 'Bolt croppers',
@@ -2553,7 +2553,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           nextQuestionId: '45037',
         },
         {
-          id: '180784',
+          code: '180784',
           response: 'DIGGING TOOL',
           active: true,
           label: 'Digging tool',
@@ -2562,7 +2562,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           nextQuestionId: '45037',
         },
         {
-          id: '180783',
+          code: '180783',
           response: 'CROW BAR',
           active: true,
           label: 'Crow bar',
@@ -2571,7 +2571,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           nextQuestionId: '45037',
         },
         {
-          id: '180786',
+          code: '180786',
           response: 'IMPROVISED TOOL',
           active: true,
           label: 'Improvised tool',
@@ -2580,7 +2580,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           nextQuestionId: '45037',
         },
         {
-          id: '180789',
+          code: '180789',
           response: 'OTHER TOOL',
           active: true,
           label: 'Other tool',
@@ -2589,7 +2589,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           nextQuestionId: '45037',
         },
         {
-          id: '180787',
+          code: '180787',
           response: 'NOT KNOWN',
           active: true,
           label: 'Not known',
@@ -2607,7 +2607,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '180795',
+          code: '180795',
           response: 'YES',
           active: true,
           label: 'Yes',
@@ -2616,7 +2616,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           nextQuestionId: '44262',
         },
         {
-          id: '180796',
+          code: '180796',
           response: 'NO',
           active: true,
           label: 'No',
@@ -2634,7 +2634,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
       multipleAnswers: true,
       answers: [
         {
-          id: '180854',
+          code: '180854',
           response: 'PRISONER WHO ESCAPED',
           active: true,
           label: 'Prisoner who escaped',
@@ -2643,7 +2643,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           nextQuestionId: '44220',
         },
         {
-          id: '180852',
+          code: '180852',
           response: 'OTHER PRISONER',
           active: true,
           label: 'Other prisoner',
@@ -2652,7 +2652,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           nextQuestionId: '44220',
         },
         {
-          id: '180853',
+          code: '180853',
           response: 'OUTSIDE ACCOMPLICE',
           active: true,
           label: 'Outside accomplice',
@@ -2670,7 +2670,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '180876',
+          code: '180876',
           response: 'YES',
           active: true,
           label: 'Yes',
@@ -2679,7 +2679,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           nextQuestionId: '44501',
         },
         {
-          id: '180877',
+          code: '180877',
           response: 'NO',
           active: true,
           label: 'No',
@@ -2697,7 +2697,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '180921',
+          code: '180921',
           response: 'YES',
           active: true,
           label: 'Yes',
@@ -2706,7 +2706,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           nextQuestionId: '44968',
         },
         {
-          id: '180920',
+          code: '180920',
           response: 'NO',
           active: true,
           label: 'No',
@@ -2724,7 +2724,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '180968',
+          code: '180968',
           response: 'YES',
           active: true,
           label: 'Yes',
@@ -2733,7 +2733,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           nextQuestionId: '44851',
         },
         {
-          id: '180967',
+          code: '180967',
           response: 'NO',
           active: true,
           label: 'No',
@@ -2751,7 +2751,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '181035',
+          code: '181035',
           response: 'YES',
           active: true,
           label: 'Yes',
@@ -2760,7 +2760,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           nextQuestionId: '44165',
         },
         {
-          id: '181036',
+          code: '181036',
           response: 'NO',
           active: true,
           label: 'No',
@@ -2778,7 +2778,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
       multipleAnswers: true,
       answers: [
         {
-          id: '181134',
+          code: '181134',
           response: 'OTHER SHARP INSTRUMENT',
           active: true,
           label: 'Other sharp instrument',
@@ -2787,7 +2787,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           nextQuestionId: '44683',
         },
         {
-          id: '181128',
+          code: '181128',
           response: 'BLUNT INSTRUMENT',
           active: true,
           label: 'Blunt instrument',
@@ -2796,7 +2796,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           nextQuestionId: '44683',
         },
         {
-          id: '181132',
+          code: '181132',
           response: 'LIGATURE',
           active: true,
           label: 'Ligature',
@@ -2805,7 +2805,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           nextQuestionId: '44683',
         },
         {
-          id: '181129',
+          code: '181129',
           response: 'DANGEROUS LIQUID',
           active: true,
           label: 'Dangerous liquid',
@@ -2814,7 +2814,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           nextQuestionId: '44683',
         },
         {
-          id: '181130',
+          code: '181130',
           response: 'EXCRETA/URINE',
           active: true,
           label: 'Excreta/urine',
@@ -2823,7 +2823,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           nextQuestionId: '44683',
         },
         {
-          id: '181135',
+          code: '181135',
           response: 'SPITTING',
           active: true,
           label: 'Spitting',
@@ -2832,7 +2832,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           nextQuestionId: '44683',
         },
         {
-          id: '181131',
+          code: '181131',
           response: 'FOOD',
           active: true,
           label: 'Food',
@@ -2841,7 +2841,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           nextQuestionId: '44683',
         },
         {
-          id: '181137',
+          code: '181137',
           response: 'THROWN FURNITURE',
           active: true,
           label: 'Thrown furniture',
@@ -2850,7 +2850,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           nextQuestionId: '44683',
         },
         {
-          id: '181136',
+          code: '181136',
           response: 'THROWN EQUIPMENT',
           active: true,
           label: 'Thrown equipment',
@@ -2859,7 +2859,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           nextQuestionId: '44683',
         },
         {
-          id: '181133',
+          code: '181133',
           response: 'OTHER',
           active: true,
           label: 'Other',
@@ -2877,7 +2877,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '181180',
+          code: '181180',
           response: 'YES',
           active: true,
           label: 'Yes',
@@ -2886,7 +2886,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           nextQuestionId: '44381',
         },
         {
-          id: '181181',
+          code: '181181',
           response: 'NO',
           active: true,
           label: 'No',
@@ -2904,7 +2904,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
       multipleAnswers: true,
       answers: [
         {
-          id: '181204',
+          code: '181204',
           response: 'PRISONER WHO ESCAPED',
           active: true,
           label: 'Prisoner who escaped',
@@ -2913,7 +2913,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           nextQuestionId: '44369',
         },
         {
-          id: '181202',
+          code: '181202',
           response: 'OTHER PRISONER',
           active: true,
           label: 'Other prisoner',
@@ -2922,7 +2922,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           nextQuestionId: '44369',
         },
         {
-          id: '181203',
+          code: '181203',
           response: 'OUTSIDE ACCOMPLICE',
           active: true,
           label: 'Outside accomplice',
@@ -2940,7 +2940,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '181225',
+          code: '181225',
           response: 'CUT WINDOW OR BARS',
           active: true,
           label: 'Cut window or bars',
@@ -2949,7 +2949,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           nextQuestionId: '44936',
         },
         {
-          id: '181227',
+          code: '181227',
           response: 'FORCED WINDOW OR BARS',
           active: true,
           label: 'Forced window or bars',
@@ -2958,7 +2958,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           nextQuestionId: '44936',
         },
         {
-          id: '181224',
+          code: '181224',
           response: 'CUT AND FORCED WINDOW AND BARS',
           active: true,
           label: 'Cut and forced window and bars',
@@ -2967,7 +2967,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           nextQuestionId: '44936',
         },
         {
-          id: '181226',
+          code: '181226',
           response: 'DUG THROUGH EXTERNAL WALL',
           active: true,
           label: 'Dug through external wall',
@@ -2976,7 +2976,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           nextQuestionId: '44936',
         },
         {
-          id: '181222',
+          code: '181222',
           response: 'DUG THROUGH INTERNAL WALL',
           active: true,
           label: 'Dug through internal wall',
@@ -2985,7 +2985,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           nextQuestionId: '45009',
         },
         {
-          id: '181221',
+          code: '181221',
           response: 'DUG THROUGH FLOOR',
           active: true,
           label: 'Dug through floor',
@@ -2994,7 +2994,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           nextQuestionId: '45009',
         },
         {
-          id: '181220',
+          code: '181220',
           response: 'BROKE THROUGH CEILING',
           active: true,
           label: 'Broke through ceiling',
@@ -3003,7 +3003,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           nextQuestionId: '45009',
         },
         {
-          id: '181223',
+          code: '181223',
           response: 'FORCED DOOR',
           active: true,
           label: 'Forced door',
@@ -3021,7 +3021,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '181254',
+          code: '181254',
           response: 'YES',
           active: true,
           label: 'Yes',
@@ -3030,7 +3030,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           nextQuestionId: '44499',
         },
         {
-          id: '181253',
+          code: '181253',
           response: 'NO',
           active: true,
           label: 'No',
@@ -3048,7 +3048,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
       multipleAnswers: true,
       answers: [
         {
-          id: '181311',
+          code: '181311',
           response: 'INSIDE',
           active: true,
           label: 'Inside',
@@ -3057,7 +3057,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           nextQuestionId: '45103',
         },
         {
-          id: '181312',
+          code: '181312',
           response: 'OUTSIDE',
           active: true,
           label: 'Outside',
@@ -3075,7 +3075,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '181325',
+          code: '181325',
           response: 'CLAD',
           active: true,
           label: 'Clad',
@@ -3084,7 +3084,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           nextQuestionId: '44903',
         },
         {
-          id: '181326',
+          code: '181326',
           response: 'UNCLAD',
           active: true,
           label: 'Unclad',
@@ -3102,7 +3102,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
       multipleAnswers: true,
       answers: [
         {
-          id: '181333',
+          code: '181333',
           response: 'INSIDE',
           active: true,
           label: 'Inside',
@@ -3111,7 +3111,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           nextQuestionId: '44830',
         },
         {
-          id: '181334',
+          code: '181334',
           response: 'OUTSIDE',
           active: true,
           label: 'Outside',
@@ -3129,7 +3129,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
       multipleAnswers: true,
       answers: [
         {
-          id: '181366',
+          code: '181366',
           response: 'HACKSAW BLADE',
           active: true,
           label: 'Hacksaw blade',
@@ -3138,7 +3138,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           nextQuestionId: '44231',
         },
         {
-          id: '181369',
+          code: '181369',
           response: 'OTHER BLADE',
           active: true,
           label: 'Other blade',
@@ -3147,7 +3147,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           nextQuestionId: '44231',
         },
         {
-          id: '181371',
+          code: '181371',
           response: 'WIRE CUTTERS',
           active: true,
           label: 'Wire cutters',
@@ -3156,7 +3156,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           nextQuestionId: '44231',
         },
         {
-          id: '181363',
+          code: '181363',
           response: 'BOLT CROPPERS',
           active: true,
           label: 'Bolt croppers',
@@ -3165,7 +3165,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           nextQuestionId: '44231',
         },
         {
-          id: '181365',
+          code: '181365',
           response: 'DIGGING TOOL',
           active: true,
           label: 'Digging tool',
@@ -3174,7 +3174,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           nextQuestionId: '44231',
         },
         {
-          id: '181364',
+          code: '181364',
           response: 'CROW BAR',
           active: true,
           label: 'Crow bar',
@@ -3183,7 +3183,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           nextQuestionId: '44231',
         },
         {
-          id: '181367',
+          code: '181367',
           response: 'IMPROVISED TOOL',
           active: true,
           label: 'Improvised tool',
@@ -3192,7 +3192,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           nextQuestionId: '44231',
         },
         {
-          id: '181370',
+          code: '181370',
           response: 'OTHER TOOL',
           active: true,
           label: 'Other tool',
@@ -3201,7 +3201,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           nextQuestionId: '44231',
         },
         {
-          id: '181368',
+          code: '181368',
           response: 'NOT KNOWN',
           active: true,
           label: 'Not known',
@@ -3219,7 +3219,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
       multipleAnswers: true,
       answers: [
         {
-          id: '181378',
+          code: '181378',
           response: 'PRISONER WHO ESCAPED',
           active: true,
           label: 'Prisoner who escaped',
@@ -3228,7 +3228,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           nextQuestionId: '44641',
         },
         {
-          id: '181376',
+          code: '181376',
           response: 'OTHER PRISONER',
           active: true,
           label: 'Other prisoner',
@@ -3237,7 +3237,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           nextQuestionId: '44641',
         },
         {
-          id: '181377',
+          code: '181377',
           response: 'OUTSIDE ACCOMPLICE',
           active: true,
           label: 'Outside accomplice',
@@ -3255,7 +3255,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '181389',
+          code: '181389',
           response: 'MAIN GATE',
           active: true,
           label: 'Main gate',
@@ -3264,7 +3264,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           nextQuestionId: '44568',
         },
         {
-          id: '181390',
+          code: '181390',
           response: 'OTHER GATE IN PERIMETER',
           active: true,
           label: 'Other gate in perimeter',
@@ -3273,7 +3273,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           nextQuestionId: '44568',
         },
         {
-          id: '181384',
+          code: '181384',
           response: 'OVER WALL',
           active: true,
           label: 'Over wall',
@@ -3282,7 +3282,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           nextQuestionId: '44852',
         },
         {
-          id: '181383',
+          code: '181383',
           response: 'OVER FENCE',
           active: true,
           label: 'Over fence',
@@ -3291,7 +3291,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           nextQuestionId: '44852',
         },
         {
-          id: '181385',
+          code: '181385',
           response: 'THROUGH FENCE',
           active: true,
           label: 'Through fence',
@@ -3300,7 +3300,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           nextQuestionId: '44834',
         },
         {
-          id: '181387',
+          code: '181387',
           response: 'THROUGH WALL',
           active: true,
           label: 'Through wall',
@@ -3309,7 +3309,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           nextQuestionId: '44824',
         },
         {
-          id: '181386',
+          code: '181386',
           response: 'UNDER FENCE',
           active: true,
           label: 'Under fence',
@@ -3318,7 +3318,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           nextQuestionId: '44834',
         },
         {
-          id: '181388',
+          code: '181388',
           response: 'UNDER WALL',
           active: true,
           label: 'Under wall',
@@ -3336,7 +3336,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
       multipleAnswers: true,
       answers: [
         {
-          id: '181394',
+          code: '181394',
           response: 'LADDER',
           active: true,
           label: 'Ladder',
@@ -3345,7 +3345,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           nextQuestionId: '45052',
         },
         {
-          id: '181396',
+          code: '181396',
           response: 'ROPE',
           active: true,
           label: 'Rope',
@@ -3354,7 +3354,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           nextQuestionId: '45052',
         },
         {
-          id: '181391',
+          code: '181391',
           response: 'CLIMBING AIDS',
           active: true,
           label: 'Climbing aids',
@@ -3363,7 +3363,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           nextQuestionId: '45052',
         },
         {
-          id: '181392',
+          code: '181392',
           response: 'FURNITURE ITEMS',
           active: true,
           label: 'Furniture items',
@@ -3372,7 +3372,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           nextQuestionId: '45052',
         },
         {
-          id: '181397',
+          code: '181397',
           response: 'SPORTS ITEMS',
           active: true,
           label: 'Sports items',
@@ -3381,7 +3381,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           nextQuestionId: '45052',
         },
         {
-          id: '181393',
+          code: '181393',
           response: 'GROUNDS ITEMS',
           active: true,
           label: 'Grounds items',
@@ -3390,7 +3390,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           nextQuestionId: '45052',
         },
         {
-          id: '181395',
+          code: '181395',
           response: 'OTHER',
           active: true,
           label: 'Other',
@@ -3408,7 +3408,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
       multipleAnswers: true,
       answers: [
         {
-          id: '181425',
+          code: '181425',
           response: 'FRACTURE',
           active: true,
           label: 'Fracture',
@@ -3417,7 +3417,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           nextQuestionId: '44981',
         },
         {
-          id: '181427',
+          code: '181427',
           response: 'SCALD OR BURN',
           active: true,
           label: 'Scald or burn',
@@ -3426,7 +3426,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           nextQuestionId: '44981',
         },
         {
-          id: '181428',
+          code: '181428',
           response: 'STABBING',
           active: true,
           label: 'Stabbing',
@@ -3435,7 +3435,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           nextQuestionId: '44981',
         },
         {
-          id: '181422',
+          code: '181422',
           response: 'CRUSHING',
           active: true,
           label: 'Crushing',
@@ -3444,7 +3444,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           nextQuestionId: '44981',
         },
         {
-          id: '181424',
+          code: '181424',
           response: 'EXTENSIVE/MULTIPLE BRUISING',
           active: true,
           label: 'Extensive/multiple bruising',
@@ -3453,7 +3453,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           nextQuestionId: '44981',
         },
         {
-          id: '181419',
+          code: '181419',
           response: 'BLACK EYE',
           active: true,
           label: 'Black eye',
@@ -3462,7 +3462,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           nextQuestionId: '44981',
         },
         {
-          id: '181420',
+          code: '181420',
           response: 'BROKEN NOSE',
           active: true,
           label: 'Broken nose',
@@ -3471,7 +3471,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           nextQuestionId: '44981',
         },
         {
-          id: '181421',
+          code: '181421',
           response: 'BROKEN TEETH',
           active: true,
           label: 'Broken teeth',
@@ -3480,7 +3480,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           nextQuestionId: '44981',
         },
         {
-          id: '181423',
+          code: '181423',
           response: 'CUTS REQUIRING SUTURES',
           active: true,
           label: 'Cuts requiring sutures',
@@ -3489,7 +3489,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           nextQuestionId: '44981',
         },
         {
-          id: '181418',
+          code: '181418',
           response: 'BITES',
           active: true,
           label: 'Bites',
@@ -3498,7 +3498,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           nextQuestionId: '44981',
         },
         {
-          id: '181426',
+          code: '181426',
           response: 'GUN SHOT WOUND',
           active: true,
           label: 'Gun shot wound',
@@ -3507,7 +3507,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           nextQuestionId: '44981',
         },
         {
-          id: '181429',
+          code: '181429',
           response: 'TEMPORARY/PERMANENT BLINDNESS',
           active: true,
           label: 'Temporary/permanent blindness',
@@ -3525,7 +3525,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '181490',
+          code: '181490',
           response: 'YES',
           active: true,
           label: 'Yes',
@@ -3534,7 +3534,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           nextQuestionId: '44258',
         },
         {
-          id: '181491',
+          code: '181491',
           response: 'NO',
           active: true,
           label: 'No',
@@ -3552,7 +3552,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '181573',
+          code: '181573',
           response: 'LIVE',
           active: true,
           label: 'Live',
@@ -3561,7 +3561,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           nextQuestionId: '44325',
         },
         {
-          id: '181572',
+          code: '181572',
           response: 'BLANK',
           active: true,
           label: 'Blank',
@@ -3570,7 +3570,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           nextQuestionId: '44325',
         },
         {
-          id: '181574',
+          code: '181574',
           response: 'NOT KNOWN',
           active: true,
           label: 'Not known',
@@ -3588,7 +3588,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '181585',
+          code: '181585',
           response: 'THROUGH THE CLADDING',
           active: true,
           label: 'Through the cladding',
@@ -3597,7 +3597,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           nextQuestionId: '44476',
         },
         {
-          id: '181586',
+          code: '181586',
           response: 'ABOVE THE CLADDING',
           active: true,
           label: 'Above the cladding',
@@ -3606,7 +3606,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           nextQuestionId: '44192',
         },
         {
-          id: '181587',
+          code: '181587',
           response: 'BELOW THE CLADDING',
           active: true,
           label: 'Below the cladding',
@@ -3624,7 +3624,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '181725',
+          code: '181725',
           response: 'YES',
           active: true,
           label: 'Yes',
@@ -3633,7 +3633,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           nextQuestionId: '44844',
         },
         {
-          id: '181726',
+          code: '181726',
           response: 'NO',
           active: true,
           label: 'No',
@@ -3651,7 +3651,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '181745',
+          code: '181745',
           response: 'YES',
           active: true,
           label: 'Yes',
@@ -3660,7 +3660,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           nextQuestionId: '44657',
         },
         {
-          id: '181746',
+          code: '181746',
           response: 'NO',
           active: true,
           label: 'No',
@@ -3678,7 +3678,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
       multipleAnswers: true,
       answers: [
         {
-          id: '181824',
+          code: '181824',
           response: 'GRAZES, SCRATCHES OR ABRASIONS',
           active: true,
           label: 'Grazes, scratches or abrasions',
@@ -3687,7 +3687,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           nextQuestionId: '45132',
         },
         {
-          id: '181825',
+          code: '181825',
           response: 'MINOR BRUISES',
           active: true,
           label: 'Minor bruises',
@@ -3696,7 +3696,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           nextQuestionId: '45132',
         },
         {
-          id: '181828',
+          code: '181828',
           response: 'SWELLINGS',
           active: true,
           label: 'Swellings',
@@ -3705,7 +3705,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           nextQuestionId: '45132',
         },
         {
-          id: '181827',
+          code: '181827',
           response: 'SUPERFICIAL CUTS',
           active: true,
           label: 'Superficial cuts',
@@ -3714,7 +3714,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           nextQuestionId: '45132',
         },
         {
-          id: '181826',
+          code: '181826',
           response: 'OTHER',
           active: true,
           label: 'Other',
@@ -3732,7 +3732,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '181845',
+          code: '181845',
           response: 'YES',
           active: true,
           label: 'Yes',
@@ -3741,7 +3741,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           nextQuestionId: '44659',
         },
         {
-          id: '181844',
+          code: '181844',
           response: 'NO',
           active: true,
           label: 'No',
@@ -3759,7 +3759,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '181906',
+          code: '181906',
           response: 'YES',
           active: true,
           label: 'Yes',
@@ -3768,7 +3768,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           nextQuestionId: '44961',
         },
         {
-          id: '181907',
+          code: '181907',
           response: 'NO',
           active: true,
           label: 'No',
@@ -3786,7 +3786,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '181978',
+          code: '181978',
           response: 'ANOTHER CELL',
           active: true,
           label: 'Another cell',
@@ -3795,7 +3795,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           nextQuestionId: '44936',
         },
         {
-          id: '181984',
+          code: '181984',
           response: 'RECESS/SHOWERS',
           active: true,
           label: 'Recess/showers',
@@ -3804,7 +3804,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           nextQuestionId: '44936',
         },
         {
-          id: '181986',
+          code: '181986',
           response: 'STORE ROOM',
           active: true,
           label: 'Store room',
@@ -3813,7 +3813,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           nextQuestionId: '44936',
         },
         {
-          id: '181979',
+          code: '181979',
           response: 'ASSOCIATION AREA',
           active: true,
           label: 'Association area',
@@ -3822,7 +3822,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           nextQuestionId: '44936',
         },
         {
-          id: '181983',
+          code: '181983',
           response: 'OFFICE',
           active: true,
           label: 'Office',
@@ -3831,7 +3831,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           nextQuestionId: '44936',
         },
         {
-          id: '181981',
+          code: '181981',
           response: 'CANTEEN',
           active: true,
           label: 'Canteen',
@@ -3840,7 +3840,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           nextQuestionId: '44936',
         },
         {
-          id: '181982',
+          code: '181982',
           response: 'KITCHEN/SERVERY',
           active: true,
           label: 'Kitchen/servery',
@@ -3849,7 +3849,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           nextQuestionId: '44936',
         },
         {
-          id: '181985',
+          code: '181985',
           response: 'ROOF SPACE',
           active: true,
           label: 'Roof space',
@@ -3858,7 +3858,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           nextQuestionId: '44936',
         },
         {
-          id: '181980',
+          code: '181980',
           response: 'BASEMENT',
           active: true,
           label: 'Basement',
@@ -3876,7 +3876,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '182064',
+          code: '182064',
           response: 'SPORTS FIELD',
           active: true,
           label: 'Sports field',
@@ -3885,7 +3885,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           nextQuestionId: '44705',
         },
         {
-          id: '182065',
+          code: '182065',
           response: 'CELL',
           active: true,
           label: 'Cell',
@@ -3894,7 +3894,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           nextQuestionId: '44540',
         },
         {
-          id: '182066',
+          code: '182066',
           response: 'VISITS',
           active: true,
           label: 'Visits',
@@ -3903,7 +3903,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           nextQuestionId: '44527',
         },
         {
-          id: '182079',
+          code: '182079',
           response: 'WING/HOUSEBLOCK',
           active: true,
           label: 'Wing/houseblock',
@@ -3912,7 +3912,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           nextQuestionId: '44370',
         },
         {
-          id: '182069',
+          code: '182069',
           response: 'DORMITORY',
           active: true,
           label: 'Dormitory',
@@ -3921,7 +3921,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           nextQuestionId: '44370',
         },
         {
-          id: '182074',
+          code: '182074',
           response: 'HEALTH CARE CENTRE',
           active: true,
           label: 'Health care centre',
@@ -3930,7 +3930,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           nextQuestionId: '44370',
         },
         {
-          id: '182068',
+          code: '182068',
           response: 'CHAPEL',
           active: true,
           label: 'Chapel',
@@ -3939,7 +3939,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           nextQuestionId: '44370',
         },
         {
-          id: '182075',
+          code: '182075',
           response: 'KITCHEN',
           active: true,
           label: 'Kitchen',
@@ -3948,7 +3948,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           nextQuestionId: '44370',
         },
         {
-          id: '182070',
+          code: '182070',
           response: 'EDUCATION/LIBRARY',
           active: true,
           label: 'Education/library',
@@ -3957,7 +3957,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           nextQuestionId: '44370',
         },
         {
-          id: '182081',
+          code: '182081',
           response: 'WORKSHOP',
           active: true,
           label: 'Workshop',
@@ -3966,7 +3966,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           nextQuestionId: '44370',
         },
         {
-          id: '182078',
+          code: '182078',
           response: 'STORES',
           active: true,
           label: 'Stores',
@@ -3975,7 +3975,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           nextQuestionId: '44370',
         },
         {
-          id: '182067',
+          code: '182067',
           response: 'ADMINISTRATION',
           active: true,
           label: 'Administration',
@@ -3984,7 +3984,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           nextQuestionId: '44370',
         },
         {
-          id: '182073',
+          code: '182073',
           response: 'GYMNASIUM',
           active: true,
           label: 'Gymnasium',
@@ -3993,7 +3993,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           nextQuestionId: '44370',
         },
         {
-          id: '182077',
+          code: '182077',
           response: 'RECEPTION',
           active: true,
           label: 'Reception',
@@ -4002,7 +4002,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           nextQuestionId: '44370',
         },
         {
-          id: '182080',
+          code: '182080',
           response: 'WORKS DEPARTMENT',
           active: true,
           label: 'Works department',
@@ -4011,7 +4011,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           nextQuestionId: '44370',
         },
         {
-          id: '182071',
+          code: '182071',
           response: 'EXERCISE YARD',
           active: true,
           label: 'Exercise yard',
@@ -4020,7 +4020,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           nextQuestionId: '44370',
         },
         {
-          id: '182076',
+          code: '182076',
           response: 'OTHER SECURE AREA',
           active: true,
           label: 'Other secure area',
@@ -4029,7 +4029,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           nextQuestionId: '44370',
         },
         {
-          id: '182072',
+          code: '182072',
           response: 'GROUNDS WITH NO ACCESS TO EXTERNAL PERIMITER',
           active: true,
           label: 'Grounds with no access to external perimeter',
@@ -4038,7 +4038,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           nextQuestionId: '44370',
         },
         {
-          id: '182082',
+          code: '182082',
           response: 'GROUNDS WITH ACCESS TO EXTERNAL PERIMITER',
           active: true,
           label: 'Grounds with access to external perimeter',
@@ -4056,7 +4056,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
       multipleAnswers: true,
       answers: [
         {
-          id: '182110',
+          code: '182110',
           response: 'WORKS DEPARTMENT',
           active: true,
           label: 'Works department',
@@ -4065,7 +4065,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           nextQuestionId: '44851',
         },
         {
-          id: '182100',
+          code: '182100',
           response: 'CONTRACTORS',
           active: true,
           label: 'Contractors',
@@ -4074,7 +4074,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           nextQuestionId: '44851',
         },
         {
-          id: '182101',
+          code: '182101',
           response: 'EDUCATION',
           active: true,
           label: 'Education',
@@ -4083,7 +4083,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           nextQuestionId: '44851',
         },
         {
-          id: '182104',
+          code: '182104',
           response: 'HEALTH CARE CENTRE',
           active: true,
           label: 'Health care centre',
@@ -4092,7 +4092,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           nextQuestionId: '44851',
         },
         {
-          id: '182102',
+          code: '182102',
           response: 'FARMS AND GARDENS',
           active: true,
           label: 'Farms and gardens',
@@ -4101,7 +4101,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           nextQuestionId: '44851',
         },
         {
-          id: '182103',
+          code: '182103',
           response: 'GYMNASIUM/SPORTS FIELD',
           active: true,
           label: 'Gymnasium/sports field',
@@ -4110,7 +4110,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           nextQuestionId: '44851',
         },
         {
-          id: '182111',
+          code: '182111',
           response: 'WORKSHOPS',
           active: true,
           label: 'Workshops',
@@ -4119,7 +4119,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           nextQuestionId: '44851',
         },
         {
-          id: '182106',
+          code: '182106',
           response: 'KITCHEN',
           active: true,
           label: 'Kitchen',
@@ -4128,7 +4128,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           nextQuestionId: '44851',
         },
         {
-          id: '182105',
+          code: '182105',
           response: 'HOBBIES',
           active: true,
           label: 'Hobbies',
@@ -4137,7 +4137,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           nextQuestionId: '44851',
         },
         {
-          id: '182099',
+          code: '182099',
           response: 'CELL FURNISHINGS',
           active: true,
           label: 'Cell furnishings',
@@ -4146,7 +4146,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           nextQuestionId: '44851',
         },
         {
-          id: '182109',
+          code: '182109',
           response: 'WING/HOUSEBLOCK FURNISHINGS',
           active: true,
           label: 'Wing/houseblock furnishings',
@@ -4155,7 +4155,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           nextQuestionId: '44851',
         },
         {
-          id: '182108',
+          code: '182108',
           response: 'SMUGGLED',
           active: true,
           label: 'Smuggled',
@@ -4164,7 +4164,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           nextQuestionId: '44851',
         },
         {
-          id: '182107',
+          code: '182107',
           response: 'NOT KNOWN',
           active: true,
           label: 'Not known',
@@ -4182,7 +4182,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
       multipleAnswers: true,
       answers: [
         {
-          id: '182124',
+          code: '182124',
           response: 'WORKS DEPARTMENT',
           active: true,
           label: 'Works department',
@@ -4191,7 +4191,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           nextQuestionId: '44217',
         },
         {
-          id: '182113',
+          code: '182113',
           response: 'CONTRACTORS',
           active: true,
           label: 'Contractors',
@@ -4200,7 +4200,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           nextQuestionId: '44217',
         },
         {
-          id: '182114',
+          code: '182114',
           response: 'EDUCATION',
           active: true,
           label: 'Education',
@@ -4209,7 +4209,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           nextQuestionId: '44217',
         },
         {
-          id: '182117',
+          code: '182117',
           response: 'HEALTH CARE CENTRE',
           active: true,
           label: 'Health care centre',
@@ -4218,7 +4218,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           nextQuestionId: '44217',
         },
         {
-          id: '182115',
+          code: '182115',
           response: 'FARMS AND GARDENS',
           active: true,
           label: 'Farms and gardens',
@@ -4227,7 +4227,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           nextQuestionId: '44217',
         },
         {
-          id: '182116',
+          code: '182116',
           response: 'GYMNASIUM/SPORTS FIELD',
           active: true,
           label: 'Gymnasium/sports field',
@@ -4236,7 +4236,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           nextQuestionId: '44217',
         },
         {
-          id: '182125',
+          code: '182125',
           response: 'WORKSHOPS',
           active: true,
           label: 'Workshops',
@@ -4245,7 +4245,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           nextQuestionId: '44217',
         },
         {
-          id: '182119',
+          code: '182119',
           response: 'KITCHEN',
           active: true,
           label: 'Kitchen',
@@ -4254,7 +4254,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           nextQuestionId: '44217',
         },
         {
-          id: '182118',
+          code: '182118',
           response: 'HOBBIES',
           active: true,
           label: 'Hobbies',
@@ -4263,7 +4263,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           nextQuestionId: '44217',
         },
         {
-          id: '182112',
+          code: '182112',
           response: 'CELL FURNISHINGS',
           active: true,
           label: 'Cell furnishings',
@@ -4272,7 +4272,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           nextQuestionId: '44217',
         },
         {
-          id: '182123',
+          code: '182123',
           response: 'WING/HOUSEBLOCK FURNISHINGS',
           active: true,
           label: 'Wing/houseblock furnishings',
@@ -4281,7 +4281,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           nextQuestionId: '44217',
         },
         {
-          id: '182122',
+          code: '182122',
           response: 'SMUGGLED',
           active: true,
           label: 'Smuggled',
@@ -4290,7 +4290,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           nextQuestionId: '44217',
         },
         {
-          id: '182120',
+          code: '182120',
           response: 'NOT KNOWN',
           active: true,
           label: 'Not known',
@@ -4299,7 +4299,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           nextQuestionId: '44217',
         },
         {
-          id: '182121',
+          code: '182121',
           response: 'OTHER',
           active: true,
           label: 'Other',
@@ -4317,7 +4317,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
       multipleAnswers: true,
       answers: [
         {
-          id: '182131',
+          code: '182131',
           response: 'GANDER',
           active: true,
           label: 'Gander',
@@ -4326,7 +4326,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           nextQuestionId: '45048',
         },
         {
-          id: '182137',
+          code: '182137',
           response: 'PIPE',
           active: true,
           label: 'Pipe',
@@ -4335,7 +4335,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           nextQuestionId: '45048',
         },
         {
-          id: '182128',
+          code: '182128',
           response: "'S' WIRE",
           active: true,
           label: "'s' wire",
@@ -4344,7 +4344,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           nextQuestionId: '45048',
         },
         {
-          id: '182139',
+          code: '182139',
           response: 'SCARE STRIP',
           active: true,
           label: 'Scare strip',
@@ -4353,7 +4353,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           nextQuestionId: '45048',
         },
         {
-          id: '182140',
+          code: '182140',
           response: 'TAUT WIRE',
           active: true,
           label: 'Taut wire',
@@ -4362,7 +4362,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           nextQuestionId: '45048',
         },
         {
-          id: '182132',
+          code: '182132',
           response: 'GEOPHONES',
           active: true,
           label: 'Geophones',
@@ -4371,7 +4371,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           nextQuestionId: '45048',
         },
         {
-          id: '182133',
+          code: '182133',
           response: 'INFRA RED DETECTORS',
           active: true,
           label: 'Infra red detectors',
@@ -4380,7 +4380,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           nextQuestionId: '45048',
         },
         {
-          id: '182135',
+          code: '182135',
           response: 'MICROPHONIC CABLE',
           active: true,
           label: 'Microphonic cable',
@@ -4389,7 +4389,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           nextQuestionId: '45048',
         },
         {
-          id: '182130',
+          code: '182130',
           response: 'FIBRE OPTIC SYSTEM',
           active: true,
           label: 'Fibre optic system',
@@ -4398,7 +4398,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           nextQuestionId: '45048',
         },
         {
-          id: '182134',
+          code: '182134',
           response: 'LEAKY CO-AXIL CABLE',
           active: true,
           label: 'Leaky co-axil cable',
@@ -4407,7 +4407,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           nextQuestionId: '45048',
         },
         {
-          id: '182138',
+          code: '182138',
           response: 'PRESSURE SENSORS',
           active: true,
           label: 'Pressure sensors',
@@ -4416,7 +4416,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           nextQuestionId: '45048',
         },
         {
-          id: '182129',
+          code: '182129',
           response: 'CCTV',
           active: true,
           label: 'CCTV',
@@ -4425,7 +4425,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           nextQuestionId: '45048',
         },
         {
-          id: '182136',
+          code: '182136',
           response: 'OTHER',
           active: true,
           label: 'Other',
@@ -4443,7 +4443,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '182168',
+          code: '182168',
           response: 'YES',
           active: true,
           label: 'Yes',
@@ -4452,7 +4452,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           nextQuestionId: '44121',
         },
         {
-          id: '182169',
+          code: '182169',
           response: 'NO',
           active: true,
           label: 'No',
@@ -4470,7 +4470,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
       multipleAnswers: true,
       answers: [
         {
-          id: '182195',
+          code: '182195',
           response: 'WORKS DEPARTMENT',
           active: true,
           label: 'Works department',
@@ -4479,7 +4479,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           nextQuestionId: '44436',
         },
         {
-          id: '182185',
+          code: '182185',
           response: 'CONTRACTORS',
           active: true,
           label: 'Contractors',
@@ -4488,7 +4488,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           nextQuestionId: '44436',
         },
         {
-          id: '182186',
+          code: '182186',
           response: 'EDUCATION',
           active: true,
           label: 'Education',
@@ -4497,7 +4497,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           nextQuestionId: '44436',
         },
         {
-          id: '182189',
+          code: '182189',
           response: 'HEALTH CARE CENTRE',
           active: true,
           label: 'Health care centre',
@@ -4506,7 +4506,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           nextQuestionId: '44436',
         },
         {
-          id: '182187',
+          code: '182187',
           response: 'FARMS AND GARDENS',
           active: true,
           label: 'Farms and gardens',
@@ -4515,7 +4515,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           nextQuestionId: '44436',
         },
         {
-          id: '182188',
+          code: '182188',
           response: 'GYMNASIUM/SPORTS FIELD',
           active: true,
           label: 'Gymnasium/sports field',
@@ -4524,7 +4524,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           nextQuestionId: '44436',
         },
         {
-          id: '182196',
+          code: '182196',
           response: 'WORKSHOPS',
           active: true,
           label: 'Workshops',
@@ -4533,7 +4533,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           nextQuestionId: '44436',
         },
         {
-          id: '182191',
+          code: '182191',
           response: 'KITCHEN',
           active: true,
           label: 'Kitchen',
@@ -4542,7 +4542,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           nextQuestionId: '44436',
         },
         {
-          id: '182190',
+          code: '182190',
           response: 'HOBBIES',
           active: true,
           label: 'Hobbies',
@@ -4551,7 +4551,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           nextQuestionId: '44436',
         },
         {
-          id: '182184',
+          code: '182184',
           response: 'CELL FURNISHINGS',
           active: true,
           label: 'Cell furnishings',
@@ -4560,7 +4560,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           nextQuestionId: '44436',
         },
         {
-          id: '182194',
+          code: '182194',
           response: 'WING/HOUSEBLOCK FURNISHINGS',
           active: true,
           label: 'Wing/houseblock furnishings',
@@ -4569,7 +4569,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           nextQuestionId: '44436',
         },
         {
-          id: '182193',
+          code: '182193',
           response: 'SMUGGLED',
           active: true,
           label: 'Smuggled',
@@ -4578,7 +4578,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           nextQuestionId: '44436',
         },
         {
-          id: '182192',
+          code: '182192',
           response: 'NOT KNOWN',
           active: true,
           label: 'Not known',
@@ -4596,7 +4596,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '182356',
+          code: '182356',
           response: 'DUG THROUGH',
           active: true,
           label: 'Dug through',
@@ -4605,7 +4605,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           nextQuestionId: '44291',
         },
         {
-          id: '182357',
+          code: '182357',
           response: 'DUG UNDER',
           active: true,
           label: 'Dug under',
@@ -4614,7 +4614,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           nextQuestionId: '44291',
         },
         {
-          id: '182358',
+          code: '182358',
           response: 'EXPLOSION',
           active: true,
           label: 'Explosion',
@@ -4623,7 +4623,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           nextQuestionId: '44291',
         },
         {
-          id: '182361',
+          code: '182361',
           response: 'RAMMED BY VEHICLE',
           active: true,
           label: 'Rammed by vehicle',
@@ -4632,7 +4632,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           nextQuestionId: '44291',
         },
         {
-          id: '182360',
+          code: '182360',
           response: 'OTHER',
           active: true,
           label: 'Other',
@@ -4641,7 +4641,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           nextQuestionId: '44291',
         },
         {
-          id: '182359',
+          code: '182359',
           response: 'NOT KNOWN',
           active: true,
           label: 'Not known',
@@ -4659,7 +4659,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '182471',
+          code: '182471',
           response: 'YES',
           active: true,
           label: 'Yes',
@@ -4668,7 +4668,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           nextQuestionId: '44442',
         },
         {
-          id: '182472',
+          code: '182472',
           response: 'NO',
           active: true,
           label: 'No',
@@ -4686,7 +4686,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '182550',
+          code: '182550',
           response: 'POLICE ARREST',
           active: true,
           label: 'Police arrest',
@@ -4695,7 +4695,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           nextQuestionId: '44415',
         },
         {
-          id: '182551',
+          code: '182551',
           response: 'PRISON STAFF ARREST',
           active: true,
           label: 'Prison staff arrest',
@@ -4704,7 +4704,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           nextQuestionId: '44415',
         },
         {
-          id: '182552',
+          code: '182552',
           response: 'SURRENDER',
           active: true,
           label: 'Surrender',
@@ -4713,7 +4713,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           nextQuestionId: '44415',
         },
         {
-          id: '182549',
+          code: '182549',
           response: 'OTHER',
           active: true,
           label: 'Other',
@@ -4731,7 +4731,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '182606',
+          code: '182606',
           response: 'YES',
           active: true,
           label: 'Yes',
@@ -4740,7 +4740,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           nextQuestionId: '44428',
         },
         {
-          id: '182607',
+          code: '182607',
           response: 'NO',
           active: true,
           label: 'No',
@@ -4758,7 +4758,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
       multipleAnswers: true,
       answers: [
         {
-          id: '182648',
+          code: '182648',
           response: 'INVESTIGATION BY POLICE',
           active: true,
           label: 'Investigation by police',
@@ -4767,7 +4767,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           nextQuestionId: '44798',
         },
         {
-          id: '182649',
+          code: '182649',
           response: 'INVESTIGATION INTERNALLY',
           active: true,
           label: 'Investigation internally',
@@ -4776,7 +4776,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           nextQuestionId: '44798',
         },
         {
-          id: '182647',
+          code: '182647',
           response: "GOVERNOR'S ADJUDICATION",
           active: true,
           label: "Governor's adjudication",
@@ -4785,7 +4785,7 @@ export const ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           nextQuestionId: '44798',
         },
         {
-          id: '182650',
+          code: '182650',
           response: 'NO INVESTIGATION',
           active: true,
           label: 'No investigation',

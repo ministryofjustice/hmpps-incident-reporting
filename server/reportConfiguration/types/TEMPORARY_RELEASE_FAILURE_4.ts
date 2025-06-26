@@ -15,7 +15,7 @@ export const TEMPORARY_RELEASE_FAILURE_4: IncidentTypeConfiguration = {
       multipleAnswers: true,
       answers: [
         {
-          id: '210684',
+          code: '210684',
           response: 'No further action',
           active: true,
           label: 'No further action',
@@ -24,7 +24,7 @@ export const TEMPORARY_RELEASE_FAILURE_4: IncidentTypeConfiguration = {
           nextQuestionId: '59180',
         },
         {
-          id: '210685',
+          code: '210685',
           response: 'IEP Regression',
           active: true,
           label: 'IEP regression',
@@ -33,7 +33,7 @@ export const TEMPORARY_RELEASE_FAILURE_4: IncidentTypeConfiguration = {
           nextQuestionId: '59180',
         },
         {
-          id: '210686',
+          code: '210686',
           response: 'Placed on report/adjudication referral',
           active: true,
           label: 'Placed on report/adjudication referral',
@@ -42,7 +42,7 @@ export const TEMPORARY_RELEASE_FAILURE_4: IncidentTypeConfiguration = {
           nextQuestionId: '59180',
         },
         {
-          id: '210687',
+          code: '210687',
           response: 'Police referral',
           active: true,
           label: 'Police referral',
@@ -51,7 +51,7 @@ export const TEMPORARY_RELEASE_FAILURE_4: IncidentTypeConfiguration = {
           nextQuestionId: '59180',
         },
         {
-          id: '210688',
+          code: '210688',
           response: 'CPS referral',
           active: true,
           label: 'CPS referral',
@@ -60,7 +60,7 @@ export const TEMPORARY_RELEASE_FAILURE_4: IncidentTypeConfiguration = {
           nextQuestionId: '59180',
         },
         {
-          id: '210689',
+          code: '210689',
           response: 'Prosecution referral',
           active: true,
           label: 'Prosecution referral',
@@ -78,7 +78,7 @@ export const TEMPORARY_RELEASE_FAILURE_4: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '210690',
+          code: '210690',
           response: 'Yes',
           active: true,
           label: 'Yes',
@@ -87,7 +87,7 @@ export const TEMPORARY_RELEASE_FAILURE_4: IncidentTypeConfiguration = {
           nextQuestionId: '59181',
         },
         {
-          id: '210691',
+          code: '210691',
           response: 'No',
           active: true,
           label: 'No',
@@ -105,7 +105,7 @@ export const TEMPORARY_RELEASE_FAILURE_4: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '210692',
+          code: '210692',
           response: 'Standard ROTL',
           active: true,
           label: 'Standard ROTL',
@@ -114,7 +114,7 @@ export const TEMPORARY_RELEASE_FAILURE_4: IncidentTypeConfiguration = {
           nextQuestionId: '59182',
         },
         {
-          id: '210693',
+          code: '210693',
           response: 'Restricted ROTL',
           active: true,
           label: 'Restricted ROTL',
@@ -132,7 +132,7 @@ export const TEMPORARY_RELEASE_FAILURE_4: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '210694',
+          code: '210694',
           response: 'Resettlement Day',
           active: true,
           label: 'Resettlement day',
@@ -141,7 +141,7 @@ export const TEMPORARY_RELEASE_FAILURE_4: IncidentTypeConfiguration = {
           nextQuestionId: '59183',
         },
         {
-          id: '210695',
+          code: '210695',
           response: 'Resettlement Overnight',
           active: true,
           label: 'Resettlement overnight',
@@ -150,7 +150,7 @@ export const TEMPORARY_RELEASE_FAILURE_4: IncidentTypeConfiguration = {
           nextQuestionId: '59183',
         },
         {
-          id: '210696',
+          code: '210696',
           response: 'Childcare Resettlement',
           active: true,
           label: 'Childcare resettlement',
@@ -159,7 +159,7 @@ export const TEMPORARY_RELEASE_FAILURE_4: IncidentTypeConfiguration = {
           nextQuestionId: '59183',
         },
         {
-          id: '210697',
+          code: '210697',
           response: 'Special Purpose (medical)',
           active: true,
           label: 'Special purpose (medical)',
@@ -168,7 +168,7 @@ export const TEMPORARY_RELEASE_FAILURE_4: IncidentTypeConfiguration = {
           nextQuestionId: '59183',
         },
         {
-          id: '210698',
+          code: '210698',
           response: 'Special Purpose (other)',
           active: true,
           label: 'Special purpose (other)',
@@ -186,7 +186,7 @@ export const TEMPORARY_RELEASE_FAILURE_4: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '210699',
+          code: '210699',
           response: 'Training or Education',
           active: true,
           label: 'Training or education',
@@ -195,7 +195,7 @@ export const TEMPORARY_RELEASE_FAILURE_4: IncidentTypeConfiguration = {
           nextQuestionId: '59184',
         },
         {
-          id: '210700',
+          code: '210700',
           response: 'Unpaid Work Placements',
           active: true,
           label: 'Unpaid work placements',
@@ -204,7 +204,7 @@ export const TEMPORARY_RELEASE_FAILURE_4: IncidentTypeConfiguration = {
           nextQuestionId: '59184',
         },
         {
-          id: '210701',
+          code: '210701',
           response: 'Paid Work Placements',
           active: true,
           label: 'Paid work placements',
@@ -213,7 +213,7 @@ export const TEMPORARY_RELEASE_FAILURE_4: IncidentTypeConfiguration = {
           nextQuestionId: '59184',
         },
         {
-          id: '210702',
+          code: '210702',
           response: 'Maintain Family Ties',
           active: true,
           label: 'Maintain family ties',
@@ -222,7 +222,7 @@ export const TEMPORARY_RELEASE_FAILURE_4: IncidentTypeConfiguration = {
           nextQuestionId: '59184',
         },
         {
-          id: '210703',
+          code: '210703',
           response: 'Outside Prison Activity',
           active: true,
           label: 'Outside prison activity',
@@ -231,7 +231,7 @@ export const TEMPORARY_RELEASE_FAILURE_4: IncidentTypeConfiguration = {
           nextQuestionId: '59184',
         },
         {
-          id: '210704',
+          code: '210704',
           response: 'Accommodation Related',
           active: true,
           label: 'Accommodation related',
@@ -240,7 +240,7 @@ export const TEMPORARY_RELEASE_FAILURE_4: IncidentTypeConfiguration = {
           nextQuestionId: '59184',
         },
         {
-          id: '210705',
+          code: '210705',
           response: 'Other Day Release linked to Sentence/Resettlement Plan',
           active: true,
           label: 'Other day release linked to sentence/resettlement plan',
@@ -249,7 +249,7 @@ export const TEMPORARY_RELEASE_FAILURE_4: IncidentTypeConfiguration = {
           nextQuestionId: '59184',
         },
         {
-          id: '210706',
+          code: '210706',
           response: 'Resettlement Overnight Release',
           active: true,
           label: 'Resettlement overnight release',
@@ -258,7 +258,7 @@ export const TEMPORARY_RELEASE_FAILURE_4: IncidentTypeConfiguration = {
           nextQuestionId: '59184',
         },
         {
-          id: '210707',
+          code: '210707',
           response: 'Childcare Resettlement Leave',
           active: true,
           label: 'Childcare resettlement leave',
@@ -267,7 +267,7 @@ export const TEMPORARY_RELEASE_FAILURE_4: IncidentTypeConfiguration = {
           nextQuestionId: '59184',
         },
         {
-          id: '210708',
+          code: '210708',
           response: 'Funeral/Visiting Dying Relative',
           active: true,
           label: 'Funeral/visiting dying relative',
@@ -276,7 +276,7 @@ export const TEMPORARY_RELEASE_FAILURE_4: IncidentTypeConfiguration = {
           nextQuestionId: '59184',
         },
         {
-          id: '210709',
+          code: '210709',
           response: 'Medical Treatment',
           active: true,
           label: 'Medical treatment',
@@ -285,7 +285,7 @@ export const TEMPORARY_RELEASE_FAILURE_4: IncidentTypeConfiguration = {
           nextQuestionId: '59184',
         },
         {
-          id: '210710',
+          code: '210710',
           response: 'Other Compassionate Reason',
           active: true,
           label: 'Other compassionate reason',
@@ -294,7 +294,7 @@ export const TEMPORARY_RELEASE_FAILURE_4: IncidentTypeConfiguration = {
           nextQuestionId: '59184',
         },
         {
-          id: '210711',
+          code: '210711',
           response: 'Court/Legal/Police',
           active: true,
           label: 'Court/legal/police',
@@ -312,7 +312,7 @@ export const TEMPORARY_RELEASE_FAILURE_4: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '210712',
+          code: '210712',
           response: 'Yes',
           active: true,
           label: 'Yes',
@@ -321,7 +321,7 @@ export const TEMPORARY_RELEASE_FAILURE_4: IncidentTypeConfiguration = {
           nextQuestionId: '59185',
         },
         {
-          id: '210713',
+          code: '210713',
           response: 'No',
           active: true,
           label: 'No',
@@ -339,7 +339,7 @@ export const TEMPORARY_RELEASE_FAILURE_4: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '210714',
+          code: '210714',
           response: 'Apparent failure to return',
           active: true,
           label: 'Apparent failure to return',
@@ -348,7 +348,7 @@ export const TEMPORARY_RELEASE_FAILURE_4: IncidentTypeConfiguration = {
           nextQuestionId: '59186',
         },
         {
-          id: '210715',
+          code: '210715',
           response: "Revocation of the prisoner's licence",
           active: true,
           label: "Revocation of the prisoner's licence",
@@ -366,7 +366,7 @@ export const TEMPORARY_RELEASE_FAILURE_4: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '210716',
+          code: '210716',
           response: 'Yes (Enter Date)',
           active: true,
           label: 'Yes (enter date)',
@@ -375,7 +375,7 @@ export const TEMPORARY_RELEASE_FAILURE_4: IncidentTypeConfiguration = {
           nextQuestionId: '59187',
         },
         {
-          id: '210717',
+          code: '210717',
           response: 'No',
           active: true,
           label: 'No',
@@ -393,7 +393,7 @@ export const TEMPORARY_RELEASE_FAILURE_4: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '210718',
+          code: '210718',
           response: 'Surrendered before midnight on return date',
           active: true,
           label: 'Surrendered before midnight on return date',
@@ -402,7 +402,7 @@ export const TEMPORARY_RELEASE_FAILURE_4: IncidentTypeConfiguration = {
           nextQuestionId: '59188',
         },
         {
-          id: '210719',
+          code: '210719',
           response: 'Surrender To HMPS (after midnight on return date)',
           active: true,
           label: 'Surrender to HMPS (after midnight on return date)',
@@ -411,7 +411,7 @@ export const TEMPORARY_RELEASE_FAILURE_4: IncidentTypeConfiguration = {
           nextQuestionId: '59188',
         },
         {
-          id: '210720',
+          code: '210720',
           response: 'Surrender To Police (after midnight on return date)',
           active: true,
           label: 'Surrender to police (after midnight on return date)',
@@ -420,7 +420,7 @@ export const TEMPORARY_RELEASE_FAILURE_4: IncidentTypeConfiguration = {
           nextQuestionId: '59188',
         },
         {
-          id: '210721',
+          code: '210721',
           response: 'Arrest By HMPS',
           active: true,
           label: 'Arrest by HMPS',
@@ -429,7 +429,7 @@ export const TEMPORARY_RELEASE_FAILURE_4: IncidentTypeConfiguration = {
           nextQuestionId: '59188',
         },
         {
-          id: '210722',
+          code: '210722',
           response: 'Arrest By Police',
           active: true,
           label: 'Arrest by police',
@@ -438,7 +438,7 @@ export const TEMPORARY_RELEASE_FAILURE_4: IncidentTypeConfiguration = {
           nextQuestionId: '59188',
         },
         {
-          id: '210723',
+          code: '210723',
           response: 'Admitted to hospital for treatment',
           active: true,
           label: 'Admitted to hospital for treatment',
@@ -447,7 +447,7 @@ export const TEMPORARY_RELEASE_FAILURE_4: IncidentTypeConfiguration = {
           nextQuestionId: '59188',
         },
         {
-          id: '210724',
+          code: '210724',
           response: 'Deceased',
           active: true,
           label: 'Deceased',
@@ -456,7 +456,7 @@ export const TEMPORARY_RELEASE_FAILURE_4: IncidentTypeConfiguration = {
           nextQuestionId: '59188',
         },
         {
-          id: '210725',
+          code: '210725',
           response: 'Other (Provide Details)',
           active: true,
           label: 'Other (provide details)',
@@ -474,7 +474,7 @@ export const TEMPORARY_RELEASE_FAILURE_4: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '210726',
+          code: '210726',
           response: 'Yes',
           active: true,
           label: 'Yes',
@@ -483,7 +483,7 @@ export const TEMPORARY_RELEASE_FAILURE_4: IncidentTypeConfiguration = {
           nextQuestionId: '59189',
         },
         {
-          id: '210727',
+          code: '210727',
           response: 'No',
           active: true,
           label: 'No',
@@ -502,7 +502,7 @@ export const TEMPORARY_RELEASE_FAILURE_4: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '210728',
+          code: '210728',
           response: 'Yes',
           active: true,
           label: 'Yes',
@@ -511,7 +511,7 @@ export const TEMPORARY_RELEASE_FAILURE_4: IncidentTypeConfiguration = {
           nextQuestionId: '59190',
         },
         {
-          id: '210729',
+          code: '210729',
           response: 'No',
           active: true,
           label: 'No',
@@ -529,7 +529,7 @@ export const TEMPORARY_RELEASE_FAILURE_4: IncidentTypeConfiguration = {
       multipleAnswers: true,
       answers: [
         {
-          id: '210730',
+          code: '210730',
           response: 'Violence Against The Person',
           active: true,
           label: 'Violence against the person',
@@ -538,7 +538,7 @@ export const TEMPORARY_RELEASE_FAILURE_4: IncidentTypeConfiguration = {
           nextQuestionId: '59191',
         },
         {
-          id: '210731',
+          code: '210731',
           response: 'Sexual Offences',
           active: true,
           label: 'Sexual offences',
@@ -547,7 +547,7 @@ export const TEMPORARY_RELEASE_FAILURE_4: IncidentTypeConfiguration = {
           nextQuestionId: '59191',
         },
         {
-          id: '210732',
+          code: '210732',
           response: 'Robbery',
           active: true,
           label: 'Robbery',
@@ -556,7 +556,7 @@ export const TEMPORARY_RELEASE_FAILURE_4: IncidentTypeConfiguration = {
           nextQuestionId: '59191',
         },
         {
-          id: '210733',
+          code: '210733',
           response: 'Burglary',
           active: true,
           label: 'Burglary',
@@ -565,7 +565,7 @@ export const TEMPORARY_RELEASE_FAILURE_4: IncidentTypeConfiguration = {
           nextQuestionId: '59191',
         },
         {
-          id: '210734',
+          code: '210734',
           response: 'Theft And Handling',
           active: true,
           label: 'Theft and handling',
@@ -574,7 +574,7 @@ export const TEMPORARY_RELEASE_FAILURE_4: IncidentTypeConfiguration = {
           nextQuestionId: '59191',
         },
         {
-          id: '210735',
+          code: '210735',
           response: 'Fraud And Forgery',
           active: true,
           label: 'Fraud and forgery',
@@ -583,7 +583,7 @@ export const TEMPORARY_RELEASE_FAILURE_4: IncidentTypeConfiguration = {
           nextQuestionId: '59191',
         },
         {
-          id: '210736',
+          code: '210736',
           response: 'Drug Offences',
           active: true,
           label: 'Drug offences',
@@ -592,7 +592,7 @@ export const TEMPORARY_RELEASE_FAILURE_4: IncidentTypeConfiguration = {
           nextQuestionId: '59191',
         },
         {
-          id: '210737',
+          code: '210737',
           response: 'Motoring Offences',
           active: true,
           label: 'Motoring offences',
@@ -601,7 +601,7 @@ export const TEMPORARY_RELEASE_FAILURE_4: IncidentTypeConfiguration = {
           nextQuestionId: '59191',
         },
         {
-          id: '210738',
+          code: '210738',
           response: 'Other Offence (Please specify)',
           active: true,
           label: 'Other offence (please specify)',
@@ -610,7 +610,7 @@ export const TEMPORARY_RELEASE_FAILURE_4: IncidentTypeConfiguration = {
           nextQuestionId: '59191',
         },
         {
-          id: '210739',
+          code: '210739',
           response: 'Unknown',
           active: true,
           label: 'Unknown',
@@ -628,7 +628,7 @@ export const TEMPORARY_RELEASE_FAILURE_4: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '210740',
+          code: '210740',
           response: 'Yes',
           active: true,
           label: 'Yes',
@@ -637,7 +637,7 @@ export const TEMPORARY_RELEASE_FAILURE_4: IncidentTypeConfiguration = {
           nextQuestionId: '59192',
         },
         {
-          id: '210741',
+          code: '210741',
           response: 'No',
           active: true,
           label: 'No',
@@ -655,7 +655,7 @@ export const TEMPORARY_RELEASE_FAILURE_4: IncidentTypeConfiguration = {
       multipleAnswers: true,
       answers: [
         {
-          id: '210742',
+          code: '210742',
           response: 'Violence Against The Person',
           active: true,
           label: 'Violence against the person',
@@ -664,7 +664,7 @@ export const TEMPORARY_RELEASE_FAILURE_4: IncidentTypeConfiguration = {
           nextQuestionId: '59193',
         },
         {
-          id: '210743',
+          code: '210743',
           response: 'Sexual Offences',
           active: true,
           label: 'Sexual offences',
@@ -673,7 +673,7 @@ export const TEMPORARY_RELEASE_FAILURE_4: IncidentTypeConfiguration = {
           nextQuestionId: '59193',
         },
         {
-          id: '210744',
+          code: '210744',
           response: 'Robbery',
           active: true,
           label: 'Robbery',
@@ -682,7 +682,7 @@ export const TEMPORARY_RELEASE_FAILURE_4: IncidentTypeConfiguration = {
           nextQuestionId: '59193',
         },
         {
-          id: '210745',
+          code: '210745',
           response: 'Burglary',
           active: true,
           label: 'Burglary',
@@ -691,7 +691,7 @@ export const TEMPORARY_RELEASE_FAILURE_4: IncidentTypeConfiguration = {
           nextQuestionId: '59193',
         },
         {
-          id: '210746',
+          code: '210746',
           response: 'Theft And Handling',
           active: true,
           label: 'Theft and handling',
@@ -700,7 +700,7 @@ export const TEMPORARY_RELEASE_FAILURE_4: IncidentTypeConfiguration = {
           nextQuestionId: '59193',
         },
         {
-          id: '210747',
+          code: '210747',
           response: 'Fraud And Forgery',
           active: true,
           label: 'Fraud and forgery',
@@ -709,7 +709,7 @@ export const TEMPORARY_RELEASE_FAILURE_4: IncidentTypeConfiguration = {
           nextQuestionId: '59193',
         },
         {
-          id: '210748',
+          code: '210748',
           response: 'Drug Offences',
           active: true,
           label: 'Drug offences',
@@ -718,7 +718,7 @@ export const TEMPORARY_RELEASE_FAILURE_4: IncidentTypeConfiguration = {
           nextQuestionId: '59193',
         },
         {
-          id: '210749',
+          code: '210749',
           response: 'Motoring Offences',
           active: true,
           label: 'Motoring offences',
@@ -727,7 +727,7 @@ export const TEMPORARY_RELEASE_FAILURE_4: IncidentTypeConfiguration = {
           nextQuestionId: '59193',
         },
         {
-          id: '210750',
+          code: '210750',
           response: 'Other Offence (Please specify)',
           active: true,
           label: 'Other offence (please specify)',
@@ -745,7 +745,7 @@ export const TEMPORARY_RELEASE_FAILURE_4: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '210751',
+          code: '210751',
           response: 'Yes',
           active: true,
           label: 'Yes',
@@ -754,7 +754,7 @@ export const TEMPORARY_RELEASE_FAILURE_4: IncidentTypeConfiguration = {
           nextQuestionId: '59194',
         },
         {
-          id: '210752',
+          code: '210752',
           response: 'No',
           active: true,
           label: 'No',
@@ -772,7 +772,7 @@ export const TEMPORARY_RELEASE_FAILURE_4: IncidentTypeConfiguration = {
       multipleAnswers: true,
       answers: [
         {
-          id: '210753',
+          code: '210753',
           response: 'Violence Against The Person',
           active: true,
           label: 'Violence against the person',
@@ -781,7 +781,7 @@ export const TEMPORARY_RELEASE_FAILURE_4: IncidentTypeConfiguration = {
           nextQuestionId: '59195',
         },
         {
-          id: '210754',
+          code: '210754',
           response: 'Sexual Offences',
           active: true,
           label: 'Sexual offences',
@@ -790,7 +790,7 @@ export const TEMPORARY_RELEASE_FAILURE_4: IncidentTypeConfiguration = {
           nextQuestionId: '59195',
         },
         {
-          id: '210755',
+          code: '210755',
           response: 'Robbery',
           active: true,
           label: 'Robbery',
@@ -799,7 +799,7 @@ export const TEMPORARY_RELEASE_FAILURE_4: IncidentTypeConfiguration = {
           nextQuestionId: '59195',
         },
         {
-          id: '210756',
+          code: '210756',
           response: 'Burglary',
           active: true,
           label: 'Burglary',
@@ -808,7 +808,7 @@ export const TEMPORARY_RELEASE_FAILURE_4: IncidentTypeConfiguration = {
           nextQuestionId: '59195',
         },
         {
-          id: '210757',
+          code: '210757',
           response: 'Theft And Handling',
           active: true,
           label: 'Theft and handling',
@@ -817,7 +817,7 @@ export const TEMPORARY_RELEASE_FAILURE_4: IncidentTypeConfiguration = {
           nextQuestionId: '59195',
         },
         {
-          id: '210758',
+          code: '210758',
           response: 'Fraud And Forgery',
           active: true,
           label: 'Fraud and forgery',
@@ -826,7 +826,7 @@ export const TEMPORARY_RELEASE_FAILURE_4: IncidentTypeConfiguration = {
           nextQuestionId: '59195',
         },
         {
-          id: '210759',
+          code: '210759',
           response: 'Drug Offences',
           active: true,
           label: 'Drug offences',
@@ -835,7 +835,7 @@ export const TEMPORARY_RELEASE_FAILURE_4: IncidentTypeConfiguration = {
           nextQuestionId: '59195',
         },
         {
-          id: '210760',
+          code: '210760',
           response: 'Motoring Offences',
           active: true,
           label: 'Motoring offences',
@@ -844,7 +844,7 @@ export const TEMPORARY_RELEASE_FAILURE_4: IncidentTypeConfiguration = {
           nextQuestionId: '59195',
         },
         {
-          id: '210761',
+          code: '210761',
           response: 'Failure To Return From ROTL',
           active: true,
           label: 'Failure to return from ROTL',
@@ -853,7 +853,7 @@ export const TEMPORARY_RELEASE_FAILURE_4: IncidentTypeConfiguration = {
           nextQuestionId: '59195',
         },
         {
-          id: '210762',
+          code: '210762',
           response: 'Other Offence (Please specify)',
           active: true,
           label: 'Other offence (please specify)',
@@ -871,7 +871,7 @@ export const TEMPORARY_RELEASE_FAILURE_4: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '210763',
+          code: '210763',
           response: 'Yes',
           active: true,
           label: 'Yes',
@@ -880,7 +880,7 @@ export const TEMPORARY_RELEASE_FAILURE_4: IncidentTypeConfiguration = {
           nextQuestionId: '59196',
         },
         {
-          id: '210764',
+          code: '210764',
           response: 'No',
           active: true,
           label: 'No',
@@ -898,7 +898,7 @@ export const TEMPORARY_RELEASE_FAILURE_4: IncidentTypeConfiguration = {
       multipleAnswers: true,
       answers: [
         {
-          id: '210765',
+          code: '210765',
           response: 'Location',
           active: true,
           label: 'Location',
@@ -907,7 +907,7 @@ export const TEMPORARY_RELEASE_FAILURE_4: IncidentTypeConfiguration = {
           nextQuestionId: '59197',
         },
         {
-          id: '210766',
+          code: '210766',
           response: 'Alcohol/drugs (under influence)',
           active: true,
           label: 'Alcohol/drugs (under influence)',
@@ -916,7 +916,7 @@ export const TEMPORARY_RELEASE_FAILURE_4: IncidentTypeConfiguration = {
           nextQuestionId: '59197',
         },
         {
-          id: '210767',
+          code: '210767',
           response: 'Gambling',
           active: true,
           label: 'Gambling',
@@ -925,7 +925,7 @@ export const TEMPORARY_RELEASE_FAILURE_4: IncidentTypeConfiguration = {
           nextQuestionId: '59197',
         },
         {
-          id: '210768',
+          code: '210768',
           response: 'Finds (fill in separate report)',
           active: true,
           label: 'Finds (fill in separate report)',
@@ -934,7 +934,7 @@ export const TEMPORARY_RELEASE_FAILURE_4: IncidentTypeConfiguration = {
           nextQuestionId: '59197',
         },
         {
-          id: '210769',
+          code: '210769',
           response: 'Social Media',
           active: true,
           label: 'Social media',
@@ -943,7 +943,7 @@ export const TEMPORARY_RELEASE_FAILURE_4: IncidentTypeConfiguration = {
           nextQuestionId: '59197',
         },
         {
-          id: '210770',
+          code: '210770',
           response: 'Bad Behaviour',
           active: true,
           label: 'Bad behaviour',
@@ -952,7 +952,7 @@ export const TEMPORARY_RELEASE_FAILURE_4: IncidentTypeConfiguration = {
           nextQuestionId: '59197',
         },
         {
-          id: '210771',
+          code: '210771',
           response: 'Media Contact',
           active: true,
           label: 'Media contact',
@@ -961,7 +961,7 @@ export const TEMPORARY_RELEASE_FAILURE_4: IncidentTypeConfiguration = {
           nextQuestionId: '59197',
         },
         {
-          id: '210772',
+          code: '210772',
           response: 'Other (Provide Details)',
           active: true,
           label: 'Other (provide details)',
@@ -979,7 +979,7 @@ export const TEMPORARY_RELEASE_FAILURE_4: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '210773',
+          code: '210773',
           response: 'Yes',
           active: true,
           label: 'Yes',
@@ -988,7 +988,7 @@ export const TEMPORARY_RELEASE_FAILURE_4: IncidentTypeConfiguration = {
           nextQuestionId: '59198',
         },
         {
-          id: '210774',
+          code: '210774',
           response: 'No',
           active: true,
           label: 'No',
@@ -1006,7 +1006,7 @@ export const TEMPORARY_RELEASE_FAILURE_4: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '210775',
+          code: '210775',
           response: 'Yes',
           active: true,
           label: 'Yes',
@@ -1015,7 +1015,7 @@ export const TEMPORARY_RELEASE_FAILURE_4: IncidentTypeConfiguration = {
           nextQuestionId: '59199',
         },
         {
-          id: '210776',
+          code: '210776',
           response: 'No',
           active: true,
           label: 'No',
@@ -1033,7 +1033,7 @@ export const TEMPORARY_RELEASE_FAILURE_4: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '210777',
+          code: '210777',
           response: 'Yes',
           active: true,
           label: 'Yes',
@@ -1042,7 +1042,7 @@ export const TEMPORARY_RELEASE_FAILURE_4: IncidentTypeConfiguration = {
           nextQuestionId: '59200',
         },
         {
-          id: '210778',
+          code: '210778',
           response: 'No',
           active: true,
           label: 'No',
@@ -1060,7 +1060,7 @@ export const TEMPORARY_RELEASE_FAILURE_4: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '210779',
+          code: '210779',
           response: 'Yes',
           active: true,
           label: 'Yes',
@@ -1069,7 +1069,7 @@ export const TEMPORARY_RELEASE_FAILURE_4: IncidentTypeConfiguration = {
           nextQuestionId: '59201',
         },
         {
-          id: '210780',
+          code: '210780',
           response: 'No',
           active: true,
           label: 'No',
@@ -1087,7 +1087,7 @@ export const TEMPORARY_RELEASE_FAILURE_4: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '210781',
+          code: '210781',
           response: 'Yes',
           active: true,
           label: 'Yes',
@@ -1096,7 +1096,7 @@ export const TEMPORARY_RELEASE_FAILURE_4: IncidentTypeConfiguration = {
           nextQuestionId: '59202',
         },
         {
-          id: '210782',
+          code: '210782',
           response: 'No',
           active: true,
           label: 'No',
@@ -1114,7 +1114,7 @@ export const TEMPORARY_RELEASE_FAILURE_4: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '210783',
+          code: '210783',
           response: 'Yes',
           active: true,
           label: 'Yes',
@@ -1123,7 +1123,7 @@ export const TEMPORARY_RELEASE_FAILURE_4: IncidentTypeConfiguration = {
           nextQuestionId: '59203',
         },
         {
-          id: '210784',
+          code: '210784',
           response: 'No',
           active: true,
           label: 'No',
@@ -1141,7 +1141,7 @@ export const TEMPORARY_RELEASE_FAILURE_4: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '210785',
+          code: '210785',
           response: 'Yes',
           active: true,
           label: 'Yes',
@@ -1150,7 +1150,7 @@ export const TEMPORARY_RELEASE_FAILURE_4: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
-          id: '210786',
+          code: '210786',
           response: 'No',
           active: true,
           label: 'No',

@@ -35,8 +35,8 @@ export interface QuestionConfiguration {
 
 /** Describes possible answers for a given question */
 export interface AnswerConfiguration {
-  /** Answer ID (cannot contain hyphens), useful to generate unique names for comment/date inputs */
-  id: string
+  /** Answer code (cannot contain hyphens), useful to generate unique names for comment/date inputs */
+  code: string
   /** Answer as seen by machines, e.g. it shouldn't change.
    *
    * For example 'DRONE RECOVERY' */

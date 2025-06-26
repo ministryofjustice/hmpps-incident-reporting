@@ -47,11 +47,11 @@ describe('DPS config validation', () => {
     it('returns an error', () => {
       const config: IncidentTypeConfiguration = buildValidConfig()
       config.questions['2'].code += '-BROKEN'
-      config.questions['1'].answers[0].id += '-BROKEN'
+      config.questions['1'].answers[0].code += '-BROKEN'
 
       const errors = validateConfig(config).map(err => err.message)
-      expect(errors).toContain(`active question '2-BROKEN' has hiphen in its ID`)
-      expect(errors).toContain(`active answer 'yes-BROKEN' has hiphen in its ID`)
+      expect(errors).toContain(`active question '2-BROKEN' has hiphen in its code`)
+      expect(errors).toContain(`active answer 'yes-BROKEN' has hiphen in its code`)
     })
   })
 
@@ -100,7 +100,7 @@ describe('DPS config validation', () => {
         active: true,
         questions: {
           '1': buildQuestion({
-            id: '1',
+            code: '1',
             label: 'Is this the start?',
             nextQuestionId: null,
           }),
@@ -145,77 +145,77 @@ describe('DPS config validation', () => {
       config.startingQuestionId = '1'
       config.questions = {
         '1': buildQuestion({
-          id: '1',
+          code: '1',
           label: '1st question?',
           multipleAnswers: false,
           answers: [
             buildAnswer({
-              id: 'yes',
+              code: 'yes',
               label: 'yes',
               nextQuestionId: '2',
             }),
             buildAnswer({
-              id: 'no',
+              code: 'no',
               label: 'no',
               nextQuestionId: '3',
             }),
           ],
         }),
         '2': buildQuestion({
-          id: '2',
+          code: '2',
           label: '2nd question?',
           multipleAnswers: true,
           answers: [
             buildAnswer({
-              id: 'yes',
+              code: 'yes',
               label: 'yes',
               nextQuestionId: '3',
             }),
             buildAnswer({
-              id: 'no',
+              code: 'no',
               label: 'no',
               nextQuestionId: '4', // leads to a different next question
             }),
           ],
         }),
         '3': buildQuestion({
-          id: '3',
+          code: '3',
           label: '3rd question?',
           multipleAnswers: true,
           answers: [
             buildAnswer({
-              id: 'yes',
+              code: 'yes',
               label: 'yes',
               nextQuestionId: '4',
             }),
             buildAnswer({
-              id: 'no',
+              code: 'no',
               label: 'no',
               nextQuestionId: '4',
             }),
             buildAnswer({
-              id: 'maybe',
+              code: 'maybe',
               label: 'maybe',
               active: false,
               nextQuestionId: null, // leads to a different next question BUT it's inactive
             }),
           ],
         }),
-        '4': buildQuestion({ id: '4', label: '4th question?', nextQuestionId: null }),
+        '4': buildQuestion({ code: '4', label: '4th question?', nextQuestionId: null }),
         // Inactive question
         old: buildQuestion({
-          id: 'old',
+          code: 'old',
           label: 'Old inactive question',
           multipleAnswers: true,
           active: false,
           answers: [
             buildAnswer({
-              id: 'yes',
+              code: 'yes',
               label: 'yes',
               nextQuestionId: '2',
             }),
             buildAnswer({
-              id: 'no',
+              code: 'no',
               label: 'no',
               nextQuestionId: '3', // leads to a different next question
             }),
@@ -244,12 +244,12 @@ describe('DPS config validation', () => {
       //   - no   =>  /
       const config: IncidentTypeConfiguration = buildValidConfig()
       config.questions.unreachable_1 = buildQuestion({
-        id: 'unreachable_1',
+        code: 'unreachable_1',
         label: 'Unreachable 1?',
         nextQuestionId: 'unreachable_2',
       })
       config.questions.unreachable_2 = buildQuestion({
-        id: 'unreachable_2',
+        code: 'unreachable_2',
         label: 'Unreachable 2?',
         nextQuestionId: null,
       })
@@ -277,28 +277,28 @@ describe('DPS config validation', () => {
       config.startingQuestionId = '1'
       config.questions = {
         '1': buildQuestion({
-          id: '1',
+          code: '1',
           label: '1st question?',
           answers: [
             buildAnswer({
-              id: 'yes',
+              code: 'yes',
               label: 'yes',
               nextQuestionId: '2',
             }),
             buildAnswer({
-              id: 'no',
+              code: 'no',
               label: 'no',
               nextQuestionId: '3',
             }),
           ],
         }),
-        '2': buildQuestion({ id: '2', label: '2nd question?', nextQuestionId: '3' }),
+        '2': buildQuestion({ code: '2', label: '2nd question?', nextQuestionId: '3' }),
         '3': buildQuestion({
-          id: '3',
+          code: '3',
           label: '3rd question?',
           nextQuestionId: '4',
         }),
-        '4': buildQuestion({ id: '4', label: '4th question?', nextQuestionId: null }),
+        '4': buildQuestion({ code: '4', label: '4th question?', nextQuestionId: null }),
       }
 
       const errors = validateConfig(config)
@@ -327,40 +327,40 @@ describe('DPS config validation', () => {
       config.startingQuestionId = '1'
       config.questions = {
         '1': buildQuestion({
-          id: '1',
+          code: '1',
           label: '1st question?',
           answers: [
             buildAnswer({
-              id: 'yes',
+              code: 'yes',
               label: 'yes',
               nextQuestionId: '2',
             }),
             buildAnswer({
-              id: 'no',
+              code: 'no',
               label: 'no',
               nextQuestionId: '3',
             }),
           ],
         }),
-        '2': buildQuestion({ id: '2', label: '2nd question?', nextQuestionId: '3' }),
+        '2': buildQuestion({ code: '2', label: '2nd question?', nextQuestionId: '3' }),
         '3': buildQuestion({
-          id: '3',
+          code: '3',
           label: '3rd question?',
           answers: [
             buildAnswer({
-              id: 'yes',
+              code: 'yes',
               label: 'yes',
               nextQuestionId: '4',
             }),
             buildAnswer({
-              id: 'no',
+              code: 'no',
               label: 'no',
               nextQuestionId: '5',
             }),
           ],
         }),
-        '4': buildQuestion({ id: '4', label: '4th question cycle?', nextQuestionId: '1' }),
-        '5': buildQuestion({ id: '5', label: '5th question?', nextQuestionId: null }),
+        '4': buildQuestion({ code: '4', label: '4th question cycle?', nextQuestionId: '1' }),
+        '5': buildQuestion({ code: '5', label: '5th question?', nextQuestionId: null }),
       }
 
       const errors = validateConfig(config).map(err => err.message)
@@ -409,12 +409,12 @@ function buildValidConfig(): IncidentTypeConfiguration {
     active: true,
     questions: {
       '1': buildQuestion({
-        id: '1',
+        code: '1',
         label: 'Is this the start?',
         nextQuestionId: '2',
       }),
       '2': buildQuestion({
-        id: '2',
+        code: '2',
         label: 'Do you wanna stop now?',
         nextQuestionId: null,
       }),
@@ -430,14 +430,14 @@ function buildValidConfig(): IncidentTypeConfiguration {
 }
 
 function buildQuestion({
-  id,
+  code,
   label,
   active = true,
   multipleAnswers = false,
   answers,
   nextQuestionId,
 }: {
-  id: string
+  code: string
   label: string
   active?: boolean
   multipleAnswers?: boolean
@@ -445,7 +445,7 @@ function buildQuestion({
   nextQuestionId?: string | null
 }): QuestionConfiguration {
   return {
-    code: id,
+    code,
     active,
     question: label.toUpperCase(),
     label,
@@ -456,24 +456,24 @@ function buildQuestion({
 
 function yesNoAnswers(nextQuestionId: string | null): AnswerConfiguration[] {
   return [
-    buildAnswer({ id: 'yes', label: 'yes', nextQuestionId }),
-    buildAnswer({ id: 'no', label: 'no', nextQuestionId }),
+    buildAnswer({ code: 'yes', label: 'yes', nextQuestionId }),
+    buildAnswer({ code: 'no', label: 'no', nextQuestionId }),
   ]
 }
 
 function buildAnswer({
-  id,
+  code,
   label,
   active = true,
   nextQuestionId,
 }: {
-  id: string
+  code: string
   label: string
   active?: boolean
   nextQuestionId: string | null
 }): AnswerConfiguration {
   return {
-    id,
+    code,
     response: label.toUpperCase(),
     label,
     active,

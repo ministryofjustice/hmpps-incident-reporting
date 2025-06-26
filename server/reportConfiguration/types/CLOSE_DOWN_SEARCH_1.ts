@@ -15,7 +15,7 @@ export const CLOSE_DOWN_SEARCH_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '178989',
+          code: '178989',
           response: 'YES',
           active: true,
           label: 'Yes',
@@ -24,7 +24,7 @@ export const CLOSE_DOWN_SEARCH_1: IncidentTypeConfiguration = {
           nextQuestionId: '44677',
         },
         {
-          id: '178988',
+          code: '178988',
           response: 'NO',
           active: true,
           label: 'No',
@@ -42,7 +42,7 @@ export const CLOSE_DOWN_SEARCH_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '179804',
+          code: '179804',
           response: 'YES',
           active: true,
           label: 'Yes',
@@ -51,7 +51,7 @@ export const CLOSE_DOWN_SEARCH_1: IncidentTypeConfiguration = {
           nextQuestionId: '44969',
         },
         {
-          id: '179805',
+          code: '179805',
           response: 'NO',
           active: true,
           label: 'No',
@@ -69,7 +69,7 @@ export const CLOSE_DOWN_SEARCH_1: IncidentTypeConfiguration = {
       multipleAnswers: true,
       answers: [
         {
-          id: '179926',
+          code: '179926',
           response: 'FIREARM',
           active: true,
           label: 'Firearm',
@@ -78,7 +78,7 @@ export const CLOSE_DOWN_SEARCH_1: IncidentTypeConfiguration = {
           nextQuestionId: '44385',
         },
         {
-          id: '179921',
+          code: '179921',
           response: 'AMMUNITION',
           active: true,
           label: 'Ammunition',
@@ -87,7 +87,7 @@ export const CLOSE_DOWN_SEARCH_1: IncidentTypeConfiguration = {
           nextQuestionId: '44385',
         },
         {
-          id: '179922',
+          code: '179922',
           response: 'C.I SPRAY',
           active: true,
           label: 'C.i spray',
@@ -96,7 +96,7 @@ export const CLOSE_DOWN_SEARCH_1: IncidentTypeConfiguration = {
           nextQuestionId: '44385',
         },
         {
-          id: '179929',
+          code: '179929',
           response: 'OTHER WEAPON',
           active: true,
           label: 'Other weapon',
@@ -105,7 +105,7 @@ export const CLOSE_DOWN_SEARCH_1: IncidentTypeConfiguration = {
           nextQuestionId: '44385',
         },
         {
-          id: '179925',
+          code: '179925',
           response: 'EXPLOSIVES',
           active: true,
           label: 'Explosives',
@@ -114,7 +114,7 @@ export const CLOSE_DOWN_SEARCH_1: IncidentTypeConfiguration = {
           nextQuestionId: '44385',
         },
         {
-          id: '179923',
+          code: '179923',
           response: 'DRUGS',
           active: true,
           label: 'Drugs',
@@ -123,7 +123,7 @@ export const CLOSE_DOWN_SEARCH_1: IncidentTypeConfiguration = {
           nextQuestionId: '44385',
         },
         {
-          id: '179924',
+          code: '179924',
           response: 'ESCAPE EQUIPMENT',
           active: true,
           label: 'Escape equipment',
@@ -132,7 +132,7 @@ export const CLOSE_DOWN_SEARCH_1: IncidentTypeConfiguration = {
           nextQuestionId: '44385',
         },
         {
-          id: '179927',
+          code: '179927',
           response: 'GATHER EVIDENCE',
           active: true,
           label: 'Gather evidence',
@@ -141,7 +141,7 @@ export const CLOSE_DOWN_SEARCH_1: IncidentTypeConfiguration = {
           nextQuestionId: '44385',
         },
         {
-          id: '179928',
+          code: '179928',
           response: 'OTHER',
           active: true,
           label: 'Other',
@@ -159,7 +159,7 @@ export const CLOSE_DOWN_SEARCH_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '180488',
+          code: '180488',
           response: 'YES',
           active: true,
           label: 'Yes',
@@ -168,7 +168,7 @@ export const CLOSE_DOWN_SEARCH_1: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
-          id: '180487',
+          code: '180487',
           response: 'NO',
           active: true,
           label: 'No',
@@ -186,7 +186,7 @@ export const CLOSE_DOWN_SEARCH_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '180841',
+          code: '180841',
           response: 'YES',
           active: true,
           label: 'Yes',
@@ -195,7 +195,7 @@ export const CLOSE_DOWN_SEARCH_1: IncidentTypeConfiguration = {
           nextQuestionId: '45062',
         },
         {
-          id: '180840',
+          code: '180840',
           response: 'NO',
           active: true,
           label: 'No',
@@ -213,7 +213,7 @@ export const CLOSE_DOWN_SEARCH_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '181020',
+          code: '181020',
           response: 'YES',
           active: true,
           label: 'Yes',
@@ -222,7 +222,7 @@ export const CLOSE_DOWN_SEARCH_1: IncidentTypeConfiguration = {
           nextQuestionId: '45018',
         },
         {
-          id: '181019',
+          code: '181019',
           response: 'NO',
           active: true,
           label: 'No',
@@ -240,7 +240,7 @@ export const CLOSE_DOWN_SEARCH_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '181265',
+          code: '181265',
           response: 'YES',
           active: true,
           label: 'Yes',
@@ -249,7 +249,7 @@ export const CLOSE_DOWN_SEARCH_1: IncidentTypeConfiguration = {
           nextQuestionId: '44570',
         },
         {
-          id: '181264',
+          code: '181264',
           response: 'NO',
           active: true,
           label: 'No',
@@ -267,7 +267,7 @@ export const CLOSE_DOWN_SEARCH_1: IncidentTypeConfiguration = {
       multipleAnswers: true,
       answers: [
         {
-          id: '181851',
+          code: '181851',
           response: 'WEAPONS',
           active: true,
           label: 'Weapons',
@@ -276,7 +276,7 @@ export const CLOSE_DOWN_SEARCH_1: IncidentTypeConfiguration = {
           nextQuestionId: '44803',
         },
         {
-          id: '181847',
+          code: '181847',
           response: 'HOOCH/ALCOHOL',
           active: true,
           label: 'Hooch/alcohol',
@@ -285,7 +285,7 @@ export const CLOSE_DOWN_SEARCH_1: IncidentTypeConfiguration = {
           nextQuestionId: '44803',
         },
         {
-          id: '181846',
+          code: '181846',
           response: 'CASH',
           active: true,
           label: 'Cash',
@@ -294,7 +294,7 @@ export const CLOSE_DOWN_SEARCH_1: IncidentTypeConfiguration = {
           nextQuestionId: '44803',
         },
         {
-          id: '181849',
+          code: '181849',
           response: 'MOBILE PHONE',
           active: true,
           label: 'Mobile phone',
@@ -303,7 +303,7 @@ export const CLOSE_DOWN_SEARCH_1: IncidentTypeConfiguration = {
           nextQuestionId: '44803',
         },
         {
-          id: '181848',
+          code: '181848',
           response: 'INCENDIARY DEVICE',
           active: true,
           label: 'Incendiary device',
@@ -312,7 +312,7 @@ export const CLOSE_DOWN_SEARCH_1: IncidentTypeConfiguration = {
           nextQuestionId: '44803',
         },
         {
-          id: '181850',
+          code: '181850',
           response: 'OTHER',
           active: true,
           label: 'Other',
@@ -330,7 +330,7 @@ export const CLOSE_DOWN_SEARCH_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '182011',
+          code: '182011',
           response: 'YES',
           active: true,
           label: 'Yes',
@@ -339,7 +339,7 @@ export const CLOSE_DOWN_SEARCH_1: IncidentTypeConfiguration = {
           nextQuestionId: '44146',
         },
         {
-          id: '182010',
+          code: '182010',
           response: 'NO',
           active: true,
           label: 'No',
@@ -357,7 +357,7 @@ export const CLOSE_DOWN_SEARCH_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '182234',
+          code: '182234',
           response: 'INFORMATION/INTELLIGENCE',
           active: true,
           label: 'Information/intelligence',
@@ -366,7 +366,7 @@ export const CLOSE_DOWN_SEARCH_1: IncidentTypeConfiguration = {
           nextQuestionId: '44432',
         },
         {
-          id: '182237',
+          code: '182237',
           response: 'SPECIFIC FIND',
           active: true,
           label: 'Specific find',
@@ -375,7 +375,7 @@ export const CLOSE_DOWN_SEARCH_1: IncidentTypeConfiguration = {
           nextQuestionId: '44432',
         },
         {
-          id: '182233',
+          code: '182233',
           response: 'HEADQUARTERS INSTRUCTIONS',
           active: true,
           label: 'Headquarters instructions',
@@ -384,7 +384,7 @@ export const CLOSE_DOWN_SEARCH_1: IncidentTypeConfiguration = {
           nextQuestionId: '44432',
         },
         {
-          id: '182236',
+          code: '182236',
           response: 'ROUTINE REQUIREMENT',
           active: true,
           label: 'Routine requirement',
@@ -393,7 +393,7 @@ export const CLOSE_DOWN_SEARCH_1: IncidentTypeConfiguration = {
           nextQuestionId: '44432',
         },
         {
-          id: '182235',
+          code: '182235',
           response: 'OTHER',
           active: true,
           label: 'Other',
@@ -411,7 +411,7 @@ export const CLOSE_DOWN_SEARCH_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '182249',
+          code: '182249',
           response: 'YES',
           active: true,
           label: 'Yes',
@@ -420,7 +420,7 @@ export const CLOSE_DOWN_SEARCH_1: IncidentTypeConfiguration = {
           nextQuestionId: '44723',
         },
         {
-          id: '182250',
+          code: '182250',
           response: 'NO',
           active: true,
           label: 'No',

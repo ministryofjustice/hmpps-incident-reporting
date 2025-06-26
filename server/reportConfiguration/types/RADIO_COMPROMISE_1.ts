@@ -15,7 +15,7 @@ export const RADIO_COMPROMISE_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '178897',
+          code: '178897',
           response: 'YES',
           active: true,
           label: 'Yes',
@@ -24,7 +24,7 @@ export const RADIO_COMPROMISE_1: IncidentTypeConfiguration = {
           nextQuestionId: '44811',
         },
         {
-          id: '178896',
+          code: '178896',
           response: 'NO',
           active: true,
           label: 'No',
@@ -42,7 +42,7 @@ export const RADIO_COMPROMISE_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '178928',
+          code: '178928',
           response: 'YES',
           active: true,
           label: 'Yes',
@@ -51,7 +51,7 @@ export const RADIO_COMPROMISE_1: IncidentTypeConfiguration = {
           nextQuestionId: '45123',
         },
         {
-          id: '178929',
+          code: '178929',
           response: 'NO',
           active: true,
           label: 'No',
@@ -69,7 +69,7 @@ export const RADIO_COMPROMISE_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '179072',
+          code: '179072',
           response: 'YES',
           active: true,
           label: 'Yes',
@@ -78,7 +78,7 @@ export const RADIO_COMPROMISE_1: IncidentTypeConfiguration = {
           nextQuestionId: '44916',
         },
         {
-          id: '179071',
+          code: '179071',
           response: 'NO',
           active: true,
           label: 'No',
@@ -96,7 +96,7 @@ export const RADIO_COMPROMISE_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '179097',
+          code: '179097',
           response: 'MALICIOUS',
           active: true,
           label: 'Malicious',
@@ -105,7 +105,7 @@ export const RADIO_COMPROMISE_1: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
-          id: '179098',
+          code: '179098',
           response: 'UNINTENTIONAL',
           active: true,
           label: 'Unintentional',
@@ -123,7 +123,7 @@ export const RADIO_COMPROMISE_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '179328',
+          code: '179328',
           response: 'YES',
           active: true,
           label: 'Yes',
@@ -132,7 +132,7 @@ export const RADIO_COMPROMISE_1: IncidentTypeConfiguration = {
           nextQuestionId: '44282',
         },
         {
-          id: '179327',
+          code: '179327',
           response: 'NO',
           active: true,
           label: 'No',
@@ -150,7 +150,7 @@ export const RADIO_COMPROMISE_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '179403',
+          code: '179403',
           response: 'YES',
           active: true,
           label: 'Yes',
@@ -159,7 +159,7 @@ export const RADIO_COMPROMISE_1: IncidentTypeConfiguration = {
           nextQuestionId: '44618',
         },
         {
-          id: '179402',
+          code: '179402',
           response: 'NO',
           active: true,
           label: 'No',
@@ -177,7 +177,7 @@ export const RADIO_COMPROMISE_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '179991',
+          code: '179991',
           response: 'INTERFERENCE',
           active: true,
           label: 'Interference',
@@ -186,7 +186,7 @@ export const RADIO_COMPROMISE_1: IncidentTypeConfiguration = {
           nextQuestionId: '44648',
         },
         {
-          id: '179992',
+          code: '179992',
           response: 'NET JAM',
           active: true,
           label: 'Net jam',
@@ -195,7 +195,7 @@ export const RADIO_COMPROMISE_1: IncidentTypeConfiguration = {
           nextQuestionId: '44648',
         },
         {
-          id: '179993',
+          code: '179993',
           response: 'MISSING RADIO',
           active: true,
           label: 'Missing radio',
@@ -213,7 +213,7 @@ export const RADIO_COMPROMISE_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '180653',
+          code: '180653',
           response: 'FULL SEARCH',
           active: true,
           label: 'Full search',
@@ -222,7 +222,7 @@ export const RADIO_COMPROMISE_1: IncidentTypeConfiguration = {
           nextQuestionId: '44132',
         },
         {
-          id: '180654',
+          code: '180654',
           response: 'PARTIAL SEARCH',
           active: true,
           label: 'Partial search',
@@ -240,7 +240,7 @@ export const RADIO_COMPROMISE_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '180744',
+          code: '180744',
           response: 'INTERNAL',
           active: true,
           label: 'Internal',
@@ -249,7 +249,7 @@ export const RADIO_COMPROMISE_1: IncidentTypeConfiguration = {
           nextQuestionId: '44184',
         },
         {
-          id: '180743',
+          code: '180743',
           response: 'EXTERNAL',
           active: true,
           label: 'External',
@@ -258,7 +258,7 @@ export const RADIO_COMPROMISE_1: IncidentTypeConfiguration = {
           nextQuestionId: '44184',
         },
         {
-          id: '180745',
+          code: '180745',
           response: 'NOT KNOWN',
           active: true,
           label: 'Not known',
@@ -276,7 +276,7 @@ export const RADIO_COMPROMISE_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '180985',
+          code: '180985',
           response: 'YES',
           active: true,
           label: 'Yes',
@@ -285,7 +285,7 @@ export const RADIO_COMPROMISE_1: IncidentTypeConfiguration = {
           nextQuestionId: '44252',
         },
         {
-          id: '180984',
+          code: '180984',
           response: 'NO',
           active: true,
           label: 'No',
@@ -303,7 +303,7 @@ export const RADIO_COMPROMISE_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '181256',
+          code: '181256',
           response: 'YES',
           active: true,
           label: 'Yes',
@@ -312,7 +312,7 @@ export const RADIO_COMPROMISE_1: IncidentTypeConfiguration = {
           nextQuestionId: '44173',
         },
         {
-          id: '181255',
+          code: '181255',
           response: 'NO',
           active: true,
           label: 'No',
@@ -330,7 +330,7 @@ export const RADIO_COMPROMISE_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '181261',
+          code: '181261',
           response: 'YES',
           active: true,
           label: 'Yes',
@@ -339,7 +339,7 @@ export const RADIO_COMPROMISE_1: IncidentTypeConfiguration = {
           nextQuestionId: '44125',
         },
         {
-          id: '181260',
+          code: '181260',
           response: 'NO',
           active: true,
           label: 'No',
@@ -357,7 +357,7 @@ export const RADIO_COMPROMISE_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '181262',
+          code: '181262',
           response: 'YES',
           active: true,
           label: 'Yes',
@@ -366,7 +366,7 @@ export const RADIO_COMPROMISE_1: IncidentTypeConfiguration = {
           nextQuestionId: '44801',
         },
         {
-          id: '181263',
+          code: '181263',
           response: 'NO',
           active: true,
           label: 'No',
@@ -384,7 +384,7 @@ export const RADIO_COMPROMISE_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '181284',
+          code: '181284',
           response: 'YES',
           active: true,
           label: 'Yes',
@@ -393,7 +393,7 @@ export const RADIO_COMPROMISE_1: IncidentTypeConfiguration = {
           nextQuestionId: '44799',
         },
         {
-          id: '181283',
+          code: '181283',
           response: 'NO',
           active: true,
           label: 'No',
@@ -411,7 +411,7 @@ export const RADIO_COMPROMISE_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '181355',
+          code: '181355',
           response: 'LOST',
           active: true,
           label: 'Lost',
@@ -420,7 +420,7 @@ export const RADIO_COMPROMISE_1: IncidentTypeConfiguration = {
           nextQuestionId: '44856',
         },
         {
-          id: '181356',
+          code: '181356',
           response: 'MISLAID',
           active: true,
           label: 'Mislaid',
@@ -429,7 +429,7 @@ export const RADIO_COMPROMISE_1: IncidentTypeConfiguration = {
           nextQuestionId: '44856',
         },
         {
-          id: '181357',
+          code: '181357',
           response: 'STOLEN',
           active: true,
           label: 'Stolen',
@@ -447,7 +447,7 @@ export const RADIO_COMPROMISE_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '181415',
+          code: '181415',
           response: 'YES',
           active: true,
           label: 'Yes',
@@ -456,7 +456,7 @@ export const RADIO_COMPROMISE_1: IncidentTypeConfiguration = {
           nextQuestionId: '44712',
         },
         {
-          id: '181414',
+          code: '181414',
           response: 'NO',
           active: true,
           label: 'No',
@@ -474,7 +474,7 @@ export const RADIO_COMPROMISE_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '181638',
+          code: '181638',
           response: 'YES',
           active: true,
           label: 'Yes',
@@ -483,7 +483,7 @@ export const RADIO_COMPROMISE_1: IncidentTypeConfiguration = {
           nextQuestionId: '44453',
         },
         {
-          id: '181637',
+          code: '181637',
           response: 'NO',
           active: true,
           label: 'No',
@@ -501,7 +501,7 @@ export const RADIO_COMPROMISE_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '182450',
+          code: '182450',
           response: 'PRISONER POSSESSION',
           active: true,
           label: 'Prisoner possession',
@@ -510,7 +510,7 @@ export const RADIO_COMPROMISE_1: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
-          id: '182446',
+          code: '182446',
           response: 'CONCEALED',
           active: true,
           label: 'Concealed',
@@ -519,7 +519,7 @@ export const RADIO_COMPROMISE_1: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
-          id: '182447',
+          code: '182447',
           response: 'DISCARDED',
           active: true,
           label: 'Discarded',
@@ -528,7 +528,7 @@ export const RADIO_COMPROMISE_1: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
-          id: '182448',
+          code: '182448',
           response: 'MISLAID/LOST',
           active: true,
           label: 'Mislaid/lost',
@@ -537,7 +537,7 @@ export const RADIO_COMPROMISE_1: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
-          id: '182449',
+          code: '182449',
           response: 'OTHER',
           active: true,
           label: 'Other',

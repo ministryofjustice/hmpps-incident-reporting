@@ -15,7 +15,7 @@ export const TEMPORARY_RELEASE_FAILURE_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '179344',
+          code: '179344',
           response: 'YES',
           active: true,
           label: 'Yes',
@@ -24,7 +24,7 @@ export const TEMPORARY_RELEASE_FAILURE_1: IncidentTypeConfiguration = {
           nextQuestionId: '44772',
         },
         {
-          id: '179345',
+          code: '179345',
           response: 'NO',
           active: true,
           label: 'No',
@@ -42,7 +42,7 @@ export const TEMPORARY_RELEASE_FAILURE_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '179358',
+          code: '179358',
           response: 'YES',
           active: true,
           label: 'Yes',
@@ -51,7 +51,7 @@ export const TEMPORARY_RELEASE_FAILURE_1: IncidentTypeConfiguration = {
           nextQuestionId: '44694',
         },
         {
-          id: '179359',
+          code: '179359',
           response: 'NO',
           active: true,
           label: 'No',
@@ -69,7 +69,7 @@ export const TEMPORARY_RELEASE_FAILURE_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '179663',
+          code: '179663',
           response: 'YES',
           active: true,
           label: 'Yes',
@@ -78,7 +78,7 @@ export const TEMPORARY_RELEASE_FAILURE_1: IncidentTypeConfiguration = {
           nextQuestionId: '44893',
         },
         {
-          id: '179662',
+          code: '179662',
           response: 'NO',
           active: true,
           label: 'No',
@@ -96,7 +96,7 @@ export const TEMPORARY_RELEASE_FAILURE_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '179679',
+          code: '179679',
           response: 'YES',
           active: true,
           label: 'Yes',
@@ -105,7 +105,7 @@ export const TEMPORARY_RELEASE_FAILURE_1: IncidentTypeConfiguration = {
           nextQuestionId: '44934',
         },
         {
-          id: '179680',
+          code: '179680',
           response: 'NO',
           active: true,
           label: 'No',
@@ -123,7 +123,7 @@ export const TEMPORARY_RELEASE_FAILURE_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '179705',
+          code: '179705',
           response: 'YES',
           active: true,
           label: 'Yes',
@@ -132,7 +132,7 @@ export const TEMPORARY_RELEASE_FAILURE_1: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
-          id: '179704',
+          code: '179704',
           response: 'NO',
           active: true,
           label: 'No',
@@ -150,7 +150,7 @@ export const TEMPORARY_RELEASE_FAILURE_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '180013',
+          code: '180013',
           response: 'YES',
           active: true,
           label: 'Yes',
@@ -159,7 +159,7 @@ export const TEMPORARY_RELEASE_FAILURE_1: IncidentTypeConfiguration = {
           nextQuestionId: '44736',
         },
         {
-          id: '180012',
+          code: '180012',
           response: 'NO',
           active: true,
           label: 'No',
@@ -177,7 +177,7 @@ export const TEMPORARY_RELEASE_FAILURE_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '180607',
+          code: '180607',
           response: 'YES',
           active: true,
           label: 'Yes',
@@ -186,7 +186,7 @@ export const TEMPORARY_RELEASE_FAILURE_1: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
-          id: '180606',
+          code: '180606',
           response: 'NO',
           active: true,
           label: 'No',
@@ -204,7 +204,7 @@ export const TEMPORARY_RELEASE_FAILURE_1: IncidentTypeConfiguration = {
       multipleAnswers: true,
       answers: [
         {
-          id: '180902',
+          code: '180902',
           response: 'MURDER/ATTEMPTED MURDER',
           active: true,
           label: 'Murder/attempted murder',
@@ -213,7 +213,7 @@ export const TEMPORARY_RELEASE_FAILURE_1: IncidentTypeConfiguration = {
           nextQuestionId: '44602',
         },
         {
-          id: '180901',
+          code: '180901',
           response: 'MANSLAUGHTER',
           active: true,
           label: 'Manslaughter',
@@ -222,7 +222,7 @@ export const TEMPORARY_RELEASE_FAILURE_1: IncidentTypeConfiguration = {
           nextQuestionId: '44602',
         },
         {
-          id: '180898',
+          code: '180898',
           response: 'ASSAULT',
           active: true,
           label: 'Assault',
@@ -231,7 +231,7 @@ export const TEMPORARY_RELEASE_FAILURE_1: IncidentTypeConfiguration = {
           nextQuestionId: '44602',
         },
         {
-          id: '180906',
+          code: '180906',
           response: 'RAPE/ATTEMPTED RAPE',
           active: true,
           label: 'Rape/attempted rape',
@@ -240,7 +240,7 @@ export const TEMPORARY_RELEASE_FAILURE_1: IncidentTypeConfiguration = {
           nextQuestionId: '44602',
         },
         {
-          id: '180904',
+          code: '180904',
           response: 'OTHER SEXUAL OFFENCE',
           active: true,
           label: 'Other sexual offence',
@@ -249,7 +249,7 @@ export const TEMPORARY_RELEASE_FAILURE_1: IncidentTypeConfiguration = {
           nextQuestionId: '44602',
         },
         {
-          id: '180908',
+          code: '180908',
           response: 'THEFT',
           active: true,
           label: 'Theft',
@@ -258,7 +258,7 @@ export const TEMPORARY_RELEASE_FAILURE_1: IncidentTypeConfiguration = {
           nextQuestionId: '44602',
         },
         {
-          id: '180907',
+          code: '180907',
           response: 'ROBBERY',
           active: true,
           label: 'Robbery',
@@ -267,7 +267,7 @@ export const TEMPORARY_RELEASE_FAILURE_1: IncidentTypeConfiguration = {
           nextQuestionId: '44602',
         },
         {
-          id: '180900',
+          code: '180900',
           response: 'FIREARM OFFENCE',
           active: true,
           label: 'Firearm offence',
@@ -276,7 +276,7 @@ export const TEMPORARY_RELEASE_FAILURE_1: IncidentTypeConfiguration = {
           nextQuestionId: '44602',
         },
         {
-          id: '180899',
+          code: '180899',
           response: 'DRUG OFFENCE',
           active: true,
           label: 'Drug offence',
@@ -285,7 +285,7 @@ export const TEMPORARY_RELEASE_FAILURE_1: IncidentTypeConfiguration = {
           nextQuestionId: '44602',
         },
         {
-          id: '180909',
+          code: '180909',
           response: 'VEHICLE CRIME',
           active: true,
           label: 'Vehicle crime',
@@ -294,7 +294,7 @@ export const TEMPORARY_RELEASE_FAILURE_1: IncidentTypeConfiguration = {
           nextQuestionId: '44602',
         },
         {
-          id: '180905',
+          code: '180905',
           response: 'PUBLIC ORDER OFFENCE',
           active: true,
           label: 'Public order offence',
@@ -303,7 +303,7 @@ export const TEMPORARY_RELEASE_FAILURE_1: IncidentTypeConfiguration = {
           nextQuestionId: '44602',
         },
         {
-          id: '180903',
+          code: '180903',
           response: 'OTHER',
           active: true,
           label: 'Other',
@@ -321,7 +321,7 @@ export const TEMPORARY_RELEASE_FAILURE_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '181072',
+          code: '181072',
           response: 'YES',
           active: true,
           label: 'Yes',
@@ -330,7 +330,7 @@ export const TEMPORARY_RELEASE_FAILURE_1: IncidentTypeConfiguration = {
           nextQuestionId: '44942',
         },
         {
-          id: '181071',
+          code: '181071',
           response: 'NO',
           active: true,
           label: 'No',
@@ -348,7 +348,7 @@ export const TEMPORARY_RELEASE_FAILURE_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '181162',
+          code: '181162',
           response: 'YES',
           active: true,
           label: 'Yes',
@@ -357,7 +357,7 @@ export const TEMPORARY_RELEASE_FAILURE_1: IncidentTypeConfiguration = {
           nextQuestionId: '44266',
         },
         {
-          id: '181163',
+          code: '181163',
           response: 'NO',
           active: true,
           label: 'No',
@@ -375,7 +375,7 @@ export const TEMPORARY_RELEASE_FAILURE_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '181315',
+          code: '181315',
           response: 'YES',
           active: true,
           label: 'Yes',
@@ -384,7 +384,7 @@ export const TEMPORARY_RELEASE_FAILURE_1: IncidentTypeConfiguration = {
           nextQuestionId: '44997',
         },
         {
-          id: '181316',
+          code: '181316',
           response: 'NO',
           active: true,
           label: 'No',
@@ -402,7 +402,7 @@ export const TEMPORARY_RELEASE_FAILURE_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '181534',
+          code: '181534',
           response: 'YES',
           active: false,
           label: 'Yes',
@@ -411,7 +411,7 @@ export const TEMPORARY_RELEASE_FAILURE_1: IncidentTypeConfiguration = {
           nextQuestionId: '44345',
         },
         {
-          id: '181535',
+          code: '181535',
           response: 'NO',
           active: false,
           label: 'No',
@@ -429,7 +429,7 @@ export const TEMPORARY_RELEASE_FAILURE_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '181561',
+          code: '181561',
           response: 'YES',
           active: true,
           label: 'Yes',
@@ -438,7 +438,7 @@ export const TEMPORARY_RELEASE_FAILURE_1: IncidentTypeConfiguration = {
           nextQuestionId: '44926',
         },
         {
-          id: '181560',
+          code: '181560',
           response: 'NO',
           active: true,
           label: 'No',
@@ -456,7 +456,7 @@ export const TEMPORARY_RELEASE_FAILURE_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '181683',
+          code: '181683',
           response: 'YES',
           active: true,
           label: 'Yes',
@@ -465,7 +465,7 @@ export const TEMPORARY_RELEASE_FAILURE_1: IncidentTypeConfiguration = {
           nextQuestionId: '44459',
         },
         {
-          id: '181682',
+          code: '181682',
           response: 'NO',
           active: true,
           label: 'No',
@@ -483,7 +483,7 @@ export const TEMPORARY_RELEASE_FAILURE_1: IncidentTypeConfiguration = {
       multipleAnswers: true,
       answers: [
         {
-          id: '181735',
+          code: '181735',
           response: 'MURDER/ATTEMPTED MURDER',
           active: true,
           label: 'Murder/attempted murder',
@@ -492,7 +492,7 @@ export const TEMPORARY_RELEASE_FAILURE_1: IncidentTypeConfiguration = {
           nextQuestionId: '44602',
         },
         {
-          id: '181734',
+          code: '181734',
           response: 'MANSLAUGHTER',
           active: true,
           label: 'Manslaughter',
@@ -501,7 +501,7 @@ export const TEMPORARY_RELEASE_FAILURE_1: IncidentTypeConfiguration = {
           nextQuestionId: '44602',
         },
         {
-          id: '181731',
+          code: '181731',
           response: 'ASSAULT',
           active: true,
           label: 'Assault',
@@ -510,7 +510,7 @@ export const TEMPORARY_RELEASE_FAILURE_1: IncidentTypeConfiguration = {
           nextQuestionId: '44602',
         },
         {
-          id: '181739',
+          code: '181739',
           response: 'RAPE/ATTEMPTED RAPE',
           active: true,
           label: 'Rape/attempted rape',
@@ -519,7 +519,7 @@ export const TEMPORARY_RELEASE_FAILURE_1: IncidentTypeConfiguration = {
           nextQuestionId: '44602',
         },
         {
-          id: '181737',
+          code: '181737',
           response: 'OTHER SEXUAL OFFENCE',
           active: true,
           label: 'Other sexual offence',
@@ -528,7 +528,7 @@ export const TEMPORARY_RELEASE_FAILURE_1: IncidentTypeConfiguration = {
           nextQuestionId: '44602',
         },
         {
-          id: '181741',
+          code: '181741',
           response: 'THEFT',
           active: true,
           label: 'Theft',
@@ -537,7 +537,7 @@ export const TEMPORARY_RELEASE_FAILURE_1: IncidentTypeConfiguration = {
           nextQuestionId: '44602',
         },
         {
-          id: '181740',
+          code: '181740',
           response: 'ROBBERY',
           active: true,
           label: 'Robbery',
@@ -546,7 +546,7 @@ export const TEMPORARY_RELEASE_FAILURE_1: IncidentTypeConfiguration = {
           nextQuestionId: '44602',
         },
         {
-          id: '181733',
+          code: '181733',
           response: 'FIREARM OFFENCE',
           active: true,
           label: 'Firearm offence',
@@ -555,7 +555,7 @@ export const TEMPORARY_RELEASE_FAILURE_1: IncidentTypeConfiguration = {
           nextQuestionId: '44602',
         },
         {
-          id: '181732',
+          code: '181732',
           response: 'DRUG OFFENCE',
           active: true,
           label: 'Drug offence',
@@ -564,7 +564,7 @@ export const TEMPORARY_RELEASE_FAILURE_1: IncidentTypeConfiguration = {
           nextQuestionId: '44602',
         },
         {
-          id: '181742',
+          code: '181742',
           response: 'VEHICLE CRIME',
           active: true,
           label: 'Vehicle crime',
@@ -573,7 +573,7 @@ export const TEMPORARY_RELEASE_FAILURE_1: IncidentTypeConfiguration = {
           nextQuestionId: '44602',
         },
         {
-          id: '181738',
+          code: '181738',
           response: 'PUBLIC ORDER OFFENCE',
           active: true,
           label: 'Public order offence',
@@ -582,7 +582,7 @@ export const TEMPORARY_RELEASE_FAILURE_1: IncidentTypeConfiguration = {
           nextQuestionId: '44602',
         },
         {
-          id: '181736',
+          code: '181736',
           response: 'OTHER',
           active: true,
           label: 'Other',
@@ -600,7 +600,7 @@ export const TEMPORARY_RELEASE_FAILURE_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '181764',
+          code: '181764',
           response: 'COMPASSIONATE',
           active: true,
           label: 'Compassionate',
@@ -609,7 +609,7 @@ export const TEMPORARY_RELEASE_FAILURE_1: IncidentTypeConfiguration = {
           nextQuestionId: '45081',
         },
         {
-          id: '181765',
+          code: '181765',
           response: 'FACILITY',
           active: true,
           label: 'Facility',
@@ -618,7 +618,7 @@ export const TEMPORARY_RELEASE_FAILURE_1: IncidentTypeConfiguration = {
           nextQuestionId: '45081',
         },
         {
-          id: '181766',
+          code: '181766',
           response: 'RESETTLEMENT',
           active: true,
           label: 'Resettlement',
@@ -627,7 +627,7 @@ export const TEMPORARY_RELEASE_FAILURE_1: IncidentTypeConfiguration = {
           nextQuestionId: '45081',
         },
         {
-          id: '181763',
+          code: '181763',
           response: 'COMMUNITY VISIT',
           active: true,
           label: 'Community visit',
@@ -645,7 +645,7 @@ export const TEMPORARY_RELEASE_FAILURE_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '181950',
+          code: '181950',
           response: 'POLICE ARREST',
           active: true,
           label: 'Police arrest',
@@ -654,7 +654,7 @@ export const TEMPORARY_RELEASE_FAILURE_1: IncidentTypeConfiguration = {
           nextQuestionId: '44259',
         },
         {
-          id: '181951',
+          code: '181951',
           response: 'PRISON STAFF ARREST',
           active: true,
           label: 'Prison staff arrest',
@@ -663,7 +663,7 @@ export const TEMPORARY_RELEASE_FAILURE_1: IncidentTypeConfiguration = {
           nextQuestionId: '44259',
         },
         {
-          id: '181952',
+          code: '181952',
           response: 'SURRENDER',
           active: true,
           label: 'Surrender',
@@ -672,7 +672,7 @@ export const TEMPORARY_RELEASE_FAILURE_1: IncidentTypeConfiguration = {
           nextQuestionId: '44259',
         },
         {
-          id: '181949',
+          code: '181949',
           response: 'OTHER',
           active: true,
           label: 'Other',
@@ -690,7 +690,7 @@ export const TEMPORARY_RELEASE_FAILURE_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '182285',
+          code: '182285',
           response: 'YES',
           active: true,
           label: 'Yes',
@@ -699,7 +699,7 @@ export const TEMPORARY_RELEASE_FAILURE_1: IncidentTypeConfiguration = {
           nextQuestionId: '44826',
         },
         {
-          id: '182284',
+          code: '182284',
           response: 'NO',
           active: true,
           label: 'No',
@@ -717,7 +717,7 @@ export const TEMPORARY_RELEASE_FAILURE_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '182600',
+          code: '182600',
           response: 'YES',
           active: true,
           label: 'Yes',
@@ -726,7 +726,7 @@ export const TEMPORARY_RELEASE_FAILURE_1: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
-          id: '182599',
+          code: '182599',
           response: 'NO',
           active: true,
           label: 'No',

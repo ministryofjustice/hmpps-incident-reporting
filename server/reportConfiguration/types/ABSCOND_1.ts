@@ -15,7 +15,7 @@ export const ABSCOND_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '179161',
+          code: '179161',
           response: 'YES',
           active: true,
           label: 'Yes',
@@ -24,7 +24,7 @@ export const ABSCOND_1: IncidentTypeConfiguration = {
           nextQuestionId: '44854',
         },
         {
-          id: '179162',
+          code: '179162',
           response: 'NO',
           active: true,
           label: 'No',
@@ -42,7 +42,7 @@ export const ABSCOND_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '179380',
+          code: '179380',
           response: 'YES',
           active: true,
           label: 'Yes',
@@ -51,7 +51,7 @@ export const ABSCOND_1: IncidentTypeConfiguration = {
           nextQuestionId: '44284',
         },
         {
-          id: '179379',
+          code: '179379',
           response: 'NO',
           active: true,
           label: 'No',
@@ -69,7 +69,7 @@ export const ABSCOND_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '179406',
+          code: '179406',
           response: 'YES',
           active: true,
           label: 'Yes',
@@ -78,7 +78,7 @@ export const ABSCOND_1: IncidentTypeConfiguration = {
           nextQuestionId: '44861',
         },
         {
-          id: '179405',
+          code: '179405',
           response: 'NO',
           active: true,
           label: 'No',
@@ -96,7 +96,7 @@ export const ABSCOND_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '179607',
+          code: '179607',
           response: 'YES (ENTER DATE)',
           active: true,
           label: 'Yes (enter date)',
@@ -105,7 +105,7 @@ export const ABSCOND_1: IncidentTypeConfiguration = {
           nextQuestionId: '44717',
         },
         {
-          id: '179606',
+          code: '179606',
           response: 'NO',
           active: true,
           label: 'No',
@@ -123,7 +123,7 @@ export const ABSCOND_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '179847',
+          code: '179847',
           response: 'POLICE ARREST',
           active: true,
           label: 'Police arrest',
@@ -132,7 +132,7 @@ export const ABSCOND_1: IncidentTypeConfiguration = {
           nextQuestionId: '44198',
         },
         {
-          id: '179848',
+          code: '179848',
           response: 'PRISON STAFF ARREST',
           active: true,
           label: 'Prison staff arrest',
@@ -141,7 +141,7 @@ export const ABSCOND_1: IncidentTypeConfiguration = {
           nextQuestionId: '44198',
         },
         {
-          id: '179849',
+          code: '179849',
           response: 'SURRENDER',
           active: true,
           label: 'Surrender',
@@ -150,7 +150,7 @@ export const ABSCOND_1: IncidentTypeConfiguration = {
           nextQuestionId: '44198',
         },
         {
-          id: '179846',
+          code: '179846',
           response: 'OTHER',
           active: true,
           label: 'Other',
@@ -168,7 +168,7 @@ export const ABSCOND_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '179890',
+          code: '179890',
           response: 'YES',
           active: true,
           label: 'Yes',
@@ -177,7 +177,7 @@ export const ABSCOND_1: IncidentTypeConfiguration = {
           nextQuestionId: '44615',
         },
         {
-          id: '179889',
+          code: '179889',
           response: 'NO',
           active: true,
           label: 'No',
@@ -195,7 +195,7 @@ export const ABSCOND_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '180085',
+          code: '180085',
           response: 'ENTER AMOUNT IN POUND STERLING',
           active: true,
           label: 'Enter amount in pound sterling',
@@ -213,7 +213,7 @@ export const ABSCOND_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '180389',
+          code: '180389',
           response: 'YES',
           active: true,
           label: 'Yes',
@@ -222,7 +222,7 @@ export const ABSCOND_1: IncidentTypeConfiguration = {
           nextQuestionId: '44941',
         },
         {
-          id: '180390',
+          code: '180390',
           response: 'NO',
           active: true,
           label: 'No',
@@ -240,7 +240,7 @@ export const ABSCOND_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '180628',
+          code: '180628',
           response: 'YES',
           active: true,
           label: 'Yes',
@@ -249,7 +249,7 @@ export const ABSCOND_1: IncidentTypeConfiguration = {
           nextQuestionId: '45077',
         },
         {
-          id: '180627',
+          code: '180627',
           response: 'NO',
           active: true,
           label: 'No',
@@ -267,7 +267,7 @@ export const ABSCOND_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '180641',
+          code: '180641',
           response: 'YES',
           active: true,
           label: 'Yes',
@@ -276,7 +276,7 @@ export const ABSCOND_1: IncidentTypeConfiguration = {
           nextQuestionId: '44868',
         },
         {
-          id: '180642',
+          code: '180642',
           response: 'NO',
           active: true,
           label: 'No',
@@ -294,7 +294,7 @@ export const ABSCOND_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '180993',
+          code: '180993',
           response: 'FROM ESTABLISHMENT',
           active: true,
           label: 'From establishment',
@@ -303,7 +303,7 @@ export const ABSCOND_1: IncidentTypeConfiguration = {
           nextQuestionId: '44271',
         },
         {
-          id: '180995',
+          code: '180995',
           response: 'SUPERVISED OUTSIDE PARTY',
           active: true,
           label: 'Supervised outside party',
@@ -312,7 +312,7 @@ export const ABSCOND_1: IncidentTypeConfiguration = {
           nextQuestionId: '44271',
         },
         {
-          id: '180996',
+          code: '180996',
           response: 'UNSUPERVISED OUTSIDE PARTY',
           active: true,
           label: 'Unsupervised outside party',
@@ -321,7 +321,7 @@ export const ABSCOND_1: IncidentTypeConfiguration = {
           nextQuestionId: '44271',
         },
         {
-          id: '180994',
+          code: '180994',
           response: 'OTHER',
           active: true,
           label: 'Other',
@@ -339,7 +339,7 @@ export const ABSCOND_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '181146',
+          code: '181146',
           response: 'YES',
           active: true,
           label: 'Yes',
@@ -348,7 +348,7 @@ export const ABSCOND_1: IncidentTypeConfiguration = {
           nextQuestionId: '44609',
         },
         {
-          id: '181145',
+          code: '181145',
           response: 'NO',
           active: true,
           label: 'No',
@@ -366,7 +366,7 @@ export const ABSCOND_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '181258',
+          code: '181258',
           response: 'MINOR',
           active: true,
           label: 'Minor',
@@ -375,7 +375,7 @@ export const ABSCOND_1: IncidentTypeConfiguration = {
           nextQuestionId: '44467',
         },
         {
-          id: '181259',
+          code: '181259',
           response: 'SERIOUS',
           active: true,
           label: 'Serious',
@@ -384,7 +384,7 @@ export const ABSCOND_1: IncidentTypeConfiguration = {
           nextQuestionId: '44467',
         },
         {
-          id: '181257',
+          code: '181257',
           response: 'EXTENSIVE',
           active: true,
           label: 'Extensive',
@@ -402,7 +402,7 @@ export const ABSCOND_1: IncidentTypeConfiguration = {
       multipleAnswers: true,
       answers: [
         {
-          id: '181404',
+          code: '181404',
           response: 'MURDER/ATTEMPTED MURDER',
           active: true,
           label: 'Murder/attempted murder',
@@ -411,7 +411,7 @@ export const ABSCOND_1: IncidentTypeConfiguration = {
           nextQuestionId: '44416',
         },
         {
-          id: '181403',
+          code: '181403',
           response: 'MANSLAUGHTER',
           active: true,
           label: 'Manslaughter',
@@ -420,7 +420,7 @@ export const ABSCOND_1: IncidentTypeConfiguration = {
           nextQuestionId: '44416',
         },
         {
-          id: '181400',
+          code: '181400',
           response: 'ASSAULT',
           active: true,
           label: 'Assault',
@@ -429,7 +429,7 @@ export const ABSCOND_1: IncidentTypeConfiguration = {
           nextQuestionId: '44416',
         },
         {
-          id: '181408',
+          code: '181408',
           response: 'RAPE/ATTEMPTED RAPE',
           active: true,
           label: 'Rape/attempted rape',
@@ -438,7 +438,7 @@ export const ABSCOND_1: IncidentTypeConfiguration = {
           nextQuestionId: '44416',
         },
         {
-          id: '181406',
+          code: '181406',
           response: 'OTHER SEXUAL OFFENCE',
           active: true,
           label: 'Other sexual offence',
@@ -447,7 +447,7 @@ export const ABSCOND_1: IncidentTypeConfiguration = {
           nextQuestionId: '44416',
         },
         {
-          id: '181410',
+          code: '181410',
           response: 'THEFT',
           active: true,
           label: 'Theft',
@@ -456,7 +456,7 @@ export const ABSCOND_1: IncidentTypeConfiguration = {
           nextQuestionId: '44416',
         },
         {
-          id: '181409',
+          code: '181409',
           response: 'ROBBERY',
           active: true,
           label: 'Robbery',
@@ -465,7 +465,7 @@ export const ABSCOND_1: IncidentTypeConfiguration = {
           nextQuestionId: '44416',
         },
         {
-          id: '181402',
+          code: '181402',
           response: 'FIREARM OFFENCE',
           active: true,
           label: 'Firearm offence',
@@ -474,7 +474,7 @@ export const ABSCOND_1: IncidentTypeConfiguration = {
           nextQuestionId: '44416',
         },
         {
-          id: '181401',
+          code: '181401',
           response: 'DRUG OFFENCE',
           active: true,
           label: 'Drug offence',
@@ -483,7 +483,7 @@ export const ABSCOND_1: IncidentTypeConfiguration = {
           nextQuestionId: '44416',
         },
         {
-          id: '181411',
+          code: '181411',
           response: 'VEHICLE CRIME',
           active: true,
           label: 'Vehicle crime',
@@ -492,7 +492,7 @@ export const ABSCOND_1: IncidentTypeConfiguration = {
           nextQuestionId: '44416',
         },
         {
-          id: '181407',
+          code: '181407',
           response: 'PUBLIC ORDER OFFENCE',
           active: true,
           label: 'Public order offence',
@@ -501,7 +501,7 @@ export const ABSCOND_1: IncidentTypeConfiguration = {
           nextQuestionId: '44416',
         },
         {
-          id: '181405',
+          code: '181405',
           response: 'OTHER',
           active: true,
           label: 'Other',
@@ -519,7 +519,7 @@ export const ABSCOND_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '181439',
+          code: '181439',
           response: 'YES (ENTER DATE)',
           active: true,
           label: 'Yes (enter date)',
@@ -528,7 +528,7 @@ export const ABSCOND_1: IncidentTypeConfiguration = {
           nextQuestionId: '44402',
         },
         {
-          id: '181440',
+          code: '181440',
           response: 'NO',
           active: true,
           label: 'No',
@@ -546,7 +546,7 @@ export const ABSCOND_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '181455',
+          code: '181455',
           response: 'MINOR',
           active: true,
           label: 'Minor',
@@ -555,7 +555,7 @@ export const ABSCOND_1: IncidentTypeConfiguration = {
           nextQuestionId: '44976',
         },
         {
-          id: '181456',
+          code: '181456',
           response: 'SERIOUS',
           active: true,
           label: 'Serious',
@@ -564,7 +564,7 @@ export const ABSCOND_1: IncidentTypeConfiguration = {
           nextQuestionId: '44976',
         },
         {
-          id: '181454',
+          code: '181454',
           response: 'EXTENSIVE',
           active: true,
           label: 'Extensive',
@@ -582,7 +582,7 @@ export const ABSCOND_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '181762',
+          code: '181762',
           response: 'YES',
           active: true,
           label: 'Yes',
@@ -591,7 +591,7 @@ export const ABSCOND_1: IncidentTypeConfiguration = {
           nextQuestionId: '44766',
         },
         {
-          id: '181761',
+          code: '181761',
           response: 'NO',
           active: true,
           label: 'No',
@@ -609,7 +609,7 @@ export const ABSCOND_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '181892',
+          code: '181892',
           response: 'YES',
           active: true,
           label: 'Yes',
@@ -618,7 +618,7 @@ export const ABSCOND_1: IncidentTypeConfiguration = {
           nextQuestionId: '44800',
         },
         {
-          id: '181893',
+          code: '181893',
           response: 'NO',
           active: true,
           label: 'No',
@@ -636,7 +636,7 @@ export const ABSCOND_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '182275',
+          code: '182275',
           response: 'YES',
           active: true,
           label: 'Yes',
@@ -645,7 +645,7 @@ export const ABSCOND_1: IncidentTypeConfiguration = {
           nextQuestionId: '44326',
         },
         {
-          id: '182274',
+          code: '182274',
           response: 'NO',
           active: true,
           label: 'No',

@@ -15,7 +15,7 @@ export const MISCELLANEOUS_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '178923',
+          code: '178923',
           response: 'YES',
           active: true,
           label: 'Yes',
@@ -24,7 +24,7 @@ export const MISCELLANEOUS_1: IncidentTypeConfiguration = {
           nextQuestionId: '44503',
         },
         {
-          id: '178924',
+          code: '178924',
           response: 'NO',
           active: true,
           label: 'No',
@@ -42,7 +42,7 @@ export const MISCELLANEOUS_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '178931',
+          code: '178931',
           response: 'YES',
           active: true,
           label: 'Yes',
@@ -51,7 +51,7 @@ export const MISCELLANEOUS_1: IncidentTypeConfiguration = {
           nextQuestionId: '45122',
         },
         {
-          id: '178930',
+          code: '178930',
           response: 'NO',
           active: true,
           label: 'No',
@@ -69,7 +69,7 @@ export const MISCELLANEOUS_1: IncidentTypeConfiguration = {
       multipleAnswers: true,
       answers: [
         {
-          id: '178981',
+          code: '178981',
           response: 'GRAZES, SCRATCHES OR ABRASIONS',
           active: true,
           label: 'Grazes, scratches or abrasions',
@@ -78,7 +78,7 @@ export const MISCELLANEOUS_1: IncidentTypeConfiguration = {
           nextQuestionId: '44730',
         },
         {
-          id: '178982',
+          code: '178982',
           response: 'MINOR BRUISES',
           active: true,
           label: 'Minor bruises',
@@ -87,7 +87,7 @@ export const MISCELLANEOUS_1: IncidentTypeConfiguration = {
           nextQuestionId: '44730',
         },
         {
-          id: '178985',
+          code: '178985',
           response: 'SWELLINGS',
           active: true,
           label: 'Swellings',
@@ -96,7 +96,7 @@ export const MISCELLANEOUS_1: IncidentTypeConfiguration = {
           nextQuestionId: '44730',
         },
         {
-          id: '178984',
+          code: '178984',
           response: 'SUPERFICIAL CUTS',
           active: true,
           label: 'Superficial cuts',
@@ -105,7 +105,7 @@ export const MISCELLANEOUS_1: IncidentTypeConfiguration = {
           nextQuestionId: '44730',
         },
         {
-          id: '178983',
+          code: '178983',
           response: 'OTHER',
           active: true,
           label: 'Other',
@@ -123,7 +123,7 @@ export const MISCELLANEOUS_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '179220',
+          code: '179220',
           response: 'YES',
           active: true,
           label: 'Yes',
@@ -132,7 +132,7 @@ export const MISCELLANEOUS_1: IncidentTypeConfiguration = {
           nextQuestionId: '44133',
         },
         {
-          id: '179219',
+          code: '179219',
           response: 'NO',
           active: true,
           label: 'No',
@@ -150,7 +150,7 @@ export const MISCELLANEOUS_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '179418',
+          code: '179418',
           response: 'YES',
           active: true,
           label: 'Yes',
@@ -159,7 +159,7 @@ export const MISCELLANEOUS_1: IncidentTypeConfiguration = {
           nextQuestionId: '44607',
         },
         {
-          id: '179419',
+          code: '179419',
           response: 'NO',
           active: true,
           label: 'No',
@@ -177,7 +177,7 @@ export const MISCELLANEOUS_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '180003',
+          code: '180003',
           response: 'YES',
           active: true,
           label: 'Yes',
@@ -186,7 +186,7 @@ export const MISCELLANEOUS_1: IncidentTypeConfiguration = {
           nextQuestionId: '44667',
         },
         {
-          id: '180004',
+          code: '180004',
           response: 'NO',
           active: true,
           label: 'No',
@@ -204,7 +204,7 @@ export const MISCELLANEOUS_1: IncidentTypeConfiguration = {
       multipleAnswers: true,
       answers: [
         {
-          id: '180236',
+          code: '180236',
           response: 'STAFF',
           active: true,
           label: 'Staff',
@@ -213,7 +213,7 @@ export const MISCELLANEOUS_1: IncidentTypeConfiguration = {
           nextQuestionId: '44588',
         },
         {
-          id: '180235',
+          code: '180235',
           response: 'PRISONERS',
           active: true,
           label: 'Prisoners',
@@ -222,7 +222,7 @@ export const MISCELLANEOUS_1: IncidentTypeConfiguration = {
           nextQuestionId: '44588',
         },
         {
-          id: '180232',
+          code: '180232',
           response: 'CIVILIAN GRADES',
           active: true,
           label: 'Civilian grades',
@@ -231,7 +231,7 @@ export const MISCELLANEOUS_1: IncidentTypeConfiguration = {
           nextQuestionId: '44588',
         },
         {
-          id: '180234',
+          code: '180234',
           response: 'POLICE',
           active: true,
           label: 'Police',
@@ -240,7 +240,7 @@ export const MISCELLANEOUS_1: IncidentTypeConfiguration = {
           nextQuestionId: '44588',
         },
         {
-          id: '180233',
+          code: '180233',
           response: 'EXTERNAL CIVILIANS',
           active: true,
           label: 'External civilians',
@@ -258,7 +258,7 @@ export const MISCELLANEOUS_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '180412',
+          code: '180412',
           response: 'YES',
           active: true,
           label: 'Yes',
@@ -267,7 +267,7 @@ export const MISCELLANEOUS_1: IncidentTypeConfiguration = {
           nextQuestionId: '44601',
         },
         {
-          id: '180411',
+          code: '180411',
           response: 'NO',
           active: true,
           label: 'No',
@@ -285,7 +285,7 @@ export const MISCELLANEOUS_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '180544',
+          code: '180544',
           response: 'YES',
           active: true,
           label: 'Yes',
@@ -294,7 +294,7 @@ export const MISCELLANEOUS_1: IncidentTypeConfiguration = {
           nextQuestionId: '44541',
         },
         {
-          id: '180543',
+          code: '180543',
           response: 'NO',
           active: true,
           label: 'No',
@@ -312,7 +312,7 @@ export const MISCELLANEOUS_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '180557',
+          code: '180557',
           response: 'YES',
           active: true,
           label: 'Yes',
@@ -321,7 +321,7 @@ export const MISCELLANEOUS_1: IncidentTypeConfiguration = {
           nextQuestionId: '44995',
         },
         {
-          id: '180556',
+          code: '180556',
           response: 'NO',
           active: true,
           label: 'No',
@@ -339,7 +339,7 @@ export const MISCELLANEOUS_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '180604',
+          code: '180604',
           response: 'YES',
           active: true,
           label: 'Yes',
@@ -348,7 +348,7 @@ export const MISCELLANEOUS_1: IncidentTypeConfiguration = {
           nextQuestionId: '45159',
         },
         {
-          id: '180605',
+          code: '180605',
           response: 'NO',
           active: true,
           label: 'No',
@@ -366,7 +366,7 @@ export const MISCELLANEOUS_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '180620',
+          code: '180620',
           response: 'YES',
           active: true,
           label: 'Yes',
@@ -375,7 +375,7 @@ export const MISCELLANEOUS_1: IncidentTypeConfiguration = {
           nextQuestionId: '44223',
         },
         {
-          id: '180621',
+          code: '180621',
           response: 'NO',
           active: true,
           label: 'No',
@@ -393,7 +393,7 @@ export const MISCELLANEOUS_1: IncidentTypeConfiguration = {
       multipleAnswers: true,
       answers: [
         {
-          id: '180815',
+          code: '180815',
           response: 'FRACTURE',
           active: true,
           label: 'Fracture',
@@ -402,7 +402,7 @@ export const MISCELLANEOUS_1: IncidentTypeConfiguration = {
           nextQuestionId: '45161',
         },
         {
-          id: '180816',
+          code: '180816',
           response: 'SCALD OR BURN',
           active: true,
           label: 'Scald or burn',
@@ -411,7 +411,7 @@ export const MISCELLANEOUS_1: IncidentTypeConfiguration = {
           nextQuestionId: '45161',
         },
         {
-          id: '180817',
+          code: '180817',
           response: 'STABBING',
           active: true,
           label: 'Stabbing',
@@ -420,7 +420,7 @@ export const MISCELLANEOUS_1: IncidentTypeConfiguration = {
           nextQuestionId: '45161',
         },
         {
-          id: '180812',
+          code: '180812',
           response: 'CRUSHING',
           active: true,
           label: 'Crushing',
@@ -429,7 +429,7 @@ export const MISCELLANEOUS_1: IncidentTypeConfiguration = {
           nextQuestionId: '45161',
         },
         {
-          id: '180814',
+          code: '180814',
           response: 'EXTENSIVE OR MULTIPLE BRUISING',
           active: true,
           label: 'Extensive or multiple bruising',
@@ -438,7 +438,7 @@ export const MISCELLANEOUS_1: IncidentTypeConfiguration = {
           nextQuestionId: '45161',
         },
         {
-          id: '180809',
+          code: '180809',
           response: 'BLACK EYE',
           active: true,
           label: 'Black eye',
@@ -447,7 +447,7 @@ export const MISCELLANEOUS_1: IncidentTypeConfiguration = {
           nextQuestionId: '45161',
         },
         {
-          id: '180810',
+          code: '180810',
           response: 'BROKEN NOSE',
           active: true,
           label: 'Broken nose',
@@ -456,7 +456,7 @@ export const MISCELLANEOUS_1: IncidentTypeConfiguration = {
           nextQuestionId: '45161',
         },
         {
-          id: '180811',
+          code: '180811',
           response: 'BROKEN TEETH',
           active: true,
           label: 'Broken teeth',
@@ -465,7 +465,7 @@ export const MISCELLANEOUS_1: IncidentTypeConfiguration = {
           nextQuestionId: '45161',
         },
         {
-          id: '180813',
+          code: '180813',
           response: 'CUTS REQUIRING SUTURING',
           active: true,
           label: 'Cuts requiring suturing',
@@ -474,7 +474,7 @@ export const MISCELLANEOUS_1: IncidentTypeConfiguration = {
           nextQuestionId: '45161',
         },
         {
-          id: '180808',
+          code: '180808',
           response: 'BITES',
           active: true,
           label: 'Bites',
@@ -483,7 +483,7 @@ export const MISCELLANEOUS_1: IncidentTypeConfiguration = {
           nextQuestionId: '45161',
         },
         {
-          id: '180818',
+          code: '180818',
           response: 'TEMPORARY/PERMANENT BLINDNESS',
           active: true,
           label: 'Temporary/permanent blindness',
@@ -501,7 +501,7 @@ export const MISCELLANEOUS_1: IncidentTypeConfiguration = {
       multipleAnswers: true,
       answers: [
         {
-          id: '181057',
+          code: '181057',
           response: 'STAFF',
           active: true,
           label: 'Staff',
@@ -510,7 +510,7 @@ export const MISCELLANEOUS_1: IncidentTypeConfiguration = {
           nextQuestionId: '44129',
         },
         {
-          id: '181056',
+          code: '181056',
           response: 'PRISONERS',
           active: true,
           label: 'Prisoners',
@@ -519,7 +519,7 @@ export const MISCELLANEOUS_1: IncidentTypeConfiguration = {
           nextQuestionId: '44129',
         },
         {
-          id: '181053',
+          code: '181053',
           response: 'CIVILIAN GRADES',
           active: true,
           label: 'Civilian grades',
@@ -528,7 +528,7 @@ export const MISCELLANEOUS_1: IncidentTypeConfiguration = {
           nextQuestionId: '44129',
         },
         {
-          id: '181055',
+          code: '181055',
           response: 'POLICE',
           active: true,
           label: 'Police',
@@ -537,7 +537,7 @@ export const MISCELLANEOUS_1: IncidentTypeConfiguration = {
           nextQuestionId: '44129',
         },
         {
-          id: '181054',
+          code: '181054',
           response: 'EXTERNAL CIVILIANS',
           active: true,
           label: 'External civilians',
@@ -555,7 +555,7 @@ export const MISCELLANEOUS_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '181416',
+          code: '181416',
           response: 'YES',
           active: true,
           label: 'Yes',
@@ -564,7 +564,7 @@ export const MISCELLANEOUS_1: IncidentTypeConfiguration = {
           nextQuestionId: '44456',
         },
         {
-          id: '181417',
+          code: '181417',
           response: 'NO',
           active: true,
           label: 'No',
@@ -582,7 +582,7 @@ export const MISCELLANEOUS_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '181946',
+          code: '181946',
           response: 'YES',
           active: true,
           label: 'Yes',
@@ -591,7 +591,7 @@ export const MISCELLANEOUS_1: IncidentTypeConfiguration = {
           nextQuestionId: '44857',
         },
         {
-          id: '181945',
+          code: '181945',
           response: 'NO',
           active: true,
           label: 'No',
@@ -609,7 +609,7 @@ export const MISCELLANEOUS_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '182370',
+          code: '182370',
           response: 'ENTER AMOUNT IN POUND STERLING',
           active: true,
           label: 'Enter amount in pound sterling',
@@ -627,7 +627,7 @@ export const MISCELLANEOUS_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '182445',
+          code: '182445',
           response: 'YES',
           active: true,
           label: 'Yes',
@@ -636,7 +636,7 @@ export const MISCELLANEOUS_1: IncidentTypeConfiguration = {
           nextQuestionId: '45139',
         },
         {
-          id: '182444',
+          code: '182444',
           response: 'NO',
           active: true,
           label: 'No',
@@ -654,7 +654,7 @@ export const MISCELLANEOUS_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '182454',
+          code: '182454',
           response: 'MINOR',
           active: true,
           label: 'Minor',
@@ -663,7 +663,7 @@ export const MISCELLANEOUS_1: IncidentTypeConfiguration = {
           nextQuestionId: '45106',
         },
         {
-          id: '182455',
+          code: '182455',
           response: 'SERIOUS',
           active: true,
           label: 'Serious',
@@ -672,7 +672,7 @@ export const MISCELLANEOUS_1: IncidentTypeConfiguration = {
           nextQuestionId: '45106',
         },
         {
-          id: '182453',
+          code: '182453',
           response: 'EXTENSIVE',
           active: true,
           label: 'Extensive',
@@ -690,7 +690,7 @@ export const MISCELLANEOUS_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '182523',
+          code: '182523',
           response: 'YES',
           active: true,
           label: 'Yes',
@@ -699,7 +699,7 @@ export const MISCELLANEOUS_1: IncidentTypeConfiguration = {
           nextQuestionId: '44591',
         },
         {
-          id: '182522',
+          code: '182522',
           response: 'NO',
           active: true,
           label: 'No',
@@ -717,7 +717,7 @@ export const MISCELLANEOUS_1: IncidentTypeConfiguration = {
       multipleAnswers: true,
       answers: [
         {
-          id: '182596',
+          code: '182596',
           response: 'FURNITURE',
           active: true,
           label: 'Furniture',
@@ -726,7 +726,7 @@ export const MISCELLANEOUS_1: IncidentTypeConfiguration = {
           nextQuestionId: '45125',
         },
         {
-          id: '182595',
+          code: '182595',
           response: 'FITTINGS',
           active: true,
           label: 'Fittings',
@@ -735,7 +735,7 @@ export const MISCELLANEOUS_1: IncidentTypeConfiguration = {
           nextQuestionId: '45125',
         },
         {
-          id: '182597',
+          code: '182597',
           response: 'MACHINERY',
           active: true,
           label: 'Machinery',
@@ -744,7 +744,7 @@ export const MISCELLANEOUS_1: IncidentTypeConfiguration = {
           nextQuestionId: '45125',
         },
         {
-          id: '182594',
+          code: '182594',
           response: 'EQUIPMENT',
           active: true,
           label: 'Equipment',
@@ -753,7 +753,7 @@ export const MISCELLANEOUS_1: IncidentTypeConfiguration = {
           nextQuestionId: '45125',
         },
         {
-          id: '182598',
+          code: '182598',
           response: 'OTHER',
           active: true,
           label: 'Other',
@@ -771,7 +771,7 @@ export const MISCELLANEOUS_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '182601',
+          code: '182601',
           response: 'YES',
           active: true,
           label: 'Yes',
@@ -780,7 +780,7 @@ export const MISCELLANEOUS_1: IncidentTypeConfiguration = {
           nextQuestionId: '44144',
         },
         {
-          id: '182602',
+          code: '182602',
           response: 'NO',
           active: true,
           label: 'No',

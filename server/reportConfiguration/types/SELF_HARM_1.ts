@@ -15,7 +15,7 @@ export const SELF_HARM_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '179012',
+          code: '179012',
           response: 'NO TREATMENT',
           active: true,
           label: 'No treatment',
@@ -24,7 +24,7 @@ export const SELF_HARM_1: IncidentTypeConfiguration = {
           nextQuestionId: '44733',
         },
         {
-          id: '179014',
+          code: '179014',
           response: 'STERI STRIPS OR SUTURES',
           active: true,
           label: 'Steri strips or sutures',
@@ -33,7 +33,7 @@ export const SELF_HARM_1: IncidentTypeConfiguration = {
           nextQuestionId: '44733',
         },
         {
-          id: '179011',
+          code: '179011',
           response: 'CLEANED AND DRESSED',
           active: true,
           label: 'Cleaned and dressed',
@@ -42,7 +42,7 @@ export const SELF_HARM_1: IncidentTypeConfiguration = {
           nextQuestionId: '44733',
         },
         {
-          id: '179013',
+          code: '179013',
           response: 'OTHER',
           active: true,
           label: 'Other',
@@ -60,7 +60,7 @@ export const SELF_HARM_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '179187',
+          code: '179187',
           response: 'YES',
           active: true,
           label: 'Yes',
@@ -69,7 +69,7 @@ export const SELF_HARM_1: IncidentTypeConfiguration = {
           nextQuestionId: '44583',
         },
         {
-          id: '179188',
+          code: '179188',
           response: 'NO',
           active: true,
           label: 'No',
@@ -87,7 +87,7 @@ export const SELF_HARM_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '179201',
+          code: '179201',
           response: 'YES',
           active: true,
           label: 'Yes',
@@ -96,7 +96,7 @@ export const SELF_HARM_1: IncidentTypeConfiguration = {
           nextQuestionId: '44944',
         },
         {
-          id: '179200',
+          code: '179200',
           response: 'NO',
           active: true,
           label: 'No',
@@ -114,7 +114,7 @@ export const SELF_HARM_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '179302',
+          code: '179302',
           response: 'YES',
           active: true,
           label: 'Yes',
@@ -123,7 +123,7 @@ export const SELF_HARM_1: IncidentTypeConfiguration = {
           nextQuestionId: '44653',
         },
         {
-          id: '179303',
+          code: '179303',
           response: 'NO',
           active: true,
           label: 'No',
@@ -141,7 +141,7 @@ export const SELF_HARM_1: IncidentTypeConfiguration = {
       multipleAnswers: true,
       answers: [
         {
-          id: '179620',
+          code: '179620',
           response: 'NON HEALTHCARE STAFF',
           active: true,
           label: 'Non healthcare staff',
@@ -150,7 +150,7 @@ export const SELF_HARM_1: IncidentTypeConfiguration = {
           nextQuestionId: '44214',
         },
         {
-          id: '179621',
+          code: '179621',
           response: 'NURSE/HCO',
           active: true,
           label: 'Nurse/HCO',
@@ -159,7 +159,7 @@ export const SELF_HARM_1: IncidentTypeConfiguration = {
           nextQuestionId: '44214',
         },
         {
-          id: '179619',
+          code: '179619',
           response: 'MEDICAL OFFICER',
           active: true,
           label: 'Medical officer',
@@ -168,7 +168,7 @@ export const SELF_HARM_1: IncidentTypeConfiguration = {
           nextQuestionId: '44214',
         },
         {
-          id: '179622',
+          code: '179622',
           response: 'PARAMEDICS/AMBULANCE',
           active: true,
           label: 'Paramedics/ambulance',
@@ -186,7 +186,7 @@ export const SELF_HARM_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '179641',
+          code: '179641',
           response: 'SINGLE',
           active: true,
           label: 'Single',
@@ -195,7 +195,7 @@ export const SELF_HARM_1: IncidentTypeConfiguration = {
           nextQuestionId: '44244',
         },
         {
-          id: '179638',
+          code: '179638',
           response: 'DOUBLE',
           active: true,
           label: 'Double',
@@ -204,7 +204,7 @@ export const SELF_HARM_1: IncidentTypeConfiguration = {
           nextQuestionId: '44244',
         },
         {
-          id: '179639',
+          code: '179639',
           response: 'DOUBLE BUT ALONE',
           active: true,
           label: 'Double but alone',
@@ -213,7 +213,7 @@ export const SELF_HARM_1: IncidentTypeConfiguration = {
           nextQuestionId: '44244',
         },
         {
-          id: '179640',
+          code: '179640',
           response: 'MULTIPLE (3 OR  MORE)',
           active: true,
           label: 'Multiple (3 or more)',
@@ -231,7 +231,7 @@ export const SELF_HARM_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '179843',
+          code: '179843',
           response: 'YES',
           active: true,
           label: 'Yes',
@@ -240,7 +240,7 @@ export const SELF_HARM_1: IncidentTypeConfiguration = {
           nextQuestionId: '44435',
         },
         {
-          id: '179842',
+          code: '179842',
           response: 'NO',
           active: true,
           label: 'No',
@@ -258,7 +258,7 @@ export const SELF_HARM_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '179935',
+          code: '179935',
           response: 'WITHIN ONE MONTH',
           active: true,
           label: 'Within one month',
@@ -267,7 +267,7 @@ export const SELF_HARM_1: IncidentTypeConfiguration = {
           nextQuestionId: '44965',
         },
         {
-          id: '179933',
+          code: '179933',
           response: 'MORE THAN ONE MONTH',
           active: true,
           label: 'More than one month',
@@ -276,7 +276,7 @@ export const SELF_HARM_1: IncidentTypeConfiguration = {
           nextQuestionId: '44965',
         },
         {
-          id: '179934',
+          code: '179934',
           response: 'NOT APPLICABLE',
           active: true,
           label: 'Not applicable',
@@ -294,7 +294,7 @@ export const SELF_HARM_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '180256',
+          code: '180256',
           response: 'YES',
           active: true,
           label: 'Yes',
@@ -303,7 +303,7 @@ export const SELF_HARM_1: IncidentTypeConfiguration = {
           nextQuestionId: '44332',
         },
         {
-          id: '180257',
+          code: '180257',
           response: 'NO',
           active: true,
           label: 'No',
@@ -321,7 +321,7 @@ export const SELF_HARM_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '180436',
+          code: '180436',
           response: 'YES',
           active: true,
           label: 'Yes',
@@ -330,7 +330,7 @@ export const SELF_HARM_1: IncidentTypeConfiguration = {
           nextQuestionId: '45105',
         },
         {
-          id: '180437',
+          code: '180437',
           response: 'NO',
           active: true,
           label: 'No',
@@ -348,7 +348,7 @@ export const SELF_HARM_1: IncidentTypeConfiguration = {
       multipleAnswers: true,
       answers: [
         {
-          id: '180498',
+          code: '180498',
           response: 'OWN MEDICATION',
           active: true,
           label: 'Own medication',
@@ -357,7 +357,7 @@ export const SELF_HARM_1: IncidentTypeConfiguration = {
           nextQuestionId: '45167',
         },
         {
-          id: '180497',
+          code: '180497',
           response: 'OTHER PERSONS MEDICATION',
           active: true,
           label: 'Other persons medication',
@@ -366,7 +366,7 @@ export const SELF_HARM_1: IncidentTypeConfiguration = {
           nextQuestionId: '45167',
         },
         {
-          id: '180495',
+          code: '180495',
           response: 'ILLEGAL DRUGS',
           active: true,
           label: 'Illegal drugs',
@@ -375,7 +375,7 @@ export const SELF_HARM_1: IncidentTypeConfiguration = {
           nextQuestionId: '45167',
         },
         {
-          id: '180494',
+          code: '180494',
           response: 'CLEANING MATERIALS',
           active: true,
           label: 'Cleaning materials',
@@ -384,7 +384,7 @@ export const SELF_HARM_1: IncidentTypeConfiguration = {
           nextQuestionId: '45167',
         },
         {
-          id: '180499',
+          code: '180499',
           response: 'RAZOR BLADES',
           active: true,
           label: 'Razor blades',
@@ -393,7 +393,7 @@ export const SELF_HARM_1: IncidentTypeConfiguration = {
           nextQuestionId: '45167',
         },
         {
-          id: '180493',
+          code: '180493',
           response: 'BATTERIES',
           active: true,
           label: 'Batteries',
@@ -402,7 +402,7 @@ export const SELF_HARM_1: IncidentTypeConfiguration = {
           nextQuestionId: '45167',
         },
         {
-          id: '180496',
+          code: '180496',
           response: 'OTHER',
           active: true,
           label: 'Other',
@@ -420,7 +420,7 @@ export const SELF_HARM_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '180526',
+          code: '180526',
           response: 'BEDDING',
           active: true,
           label: 'Bedding',
@@ -429,7 +429,7 @@ export const SELF_HARM_1: IncidentTypeConfiguration = {
           nextQuestionId: '44753',
         },
         {
-          id: '180530',
+          code: '180530',
           response: 'SHOELACES',
           active: true,
           label: 'Shoelaces',
@@ -438,7 +438,7 @@ export const SELF_HARM_1: IncidentTypeConfiguration = {
           nextQuestionId: '44753',
         },
         {
-          id: '180531',
+          code: '180531',
           response: 'TOWEL',
           active: true,
           label: 'Towel',
@@ -447,7 +447,7 @@ export const SELF_HARM_1: IncidentTypeConfiguration = {
           nextQuestionId: '44753',
         },
         {
-          id: '180528',
+          code: '180528',
           response: 'CLOTHING',
           active: true,
           label: 'Clothing',
@@ -456,7 +456,7 @@ export const SELF_HARM_1: IncidentTypeConfiguration = {
           nextQuestionId: '44753',
         },
         {
-          id: '180527',
+          code: '180527',
           response: 'BELT',
           active: true,
           label: 'Belt',
@@ -465,7 +465,7 @@ export const SELF_HARM_1: IncidentTypeConfiguration = {
           nextQuestionId: '44753',
         },
         {
-          id: '180529',
+          code: '180529',
           response: 'OTHER',
           active: true,
           label: 'Other',
@@ -483,7 +483,7 @@ export const SELF_HARM_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '180532',
+          code: '180532',
           response: 'A AND E',
           active: true,
           label: 'A&E',
@@ -492,7 +492,7 @@ export const SELF_HARM_1: IncidentTypeConfiguration = {
           nextQuestionId: '44400',
         },
         {
-          id: '180534',
+          code: '180534',
           response: 'IN PATIENT (OVERNIGHT ONLY)',
           active: true,
           label: 'In patient (overnight only)',
@@ -501,7 +501,7 @@ export const SELF_HARM_1: IncidentTypeConfiguration = {
           nextQuestionId: '44400',
         },
         {
-          id: '180533',
+          code: '180533',
           response: 'IN PATIENT (OVER 24HR)',
           active: true,
           label: 'In patient (over 24hr)',
@@ -510,7 +510,7 @@ export const SELF_HARM_1: IncidentTypeConfiguration = {
           nextQuestionId: '44400',
         },
         {
-          id: '180535',
+          code: '180535',
           response: 'LIFE SUPPORT',
           active: true,
           label: 'Life support',
@@ -528,7 +528,7 @@ export const SELF_HARM_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '180734',
+          code: '180734',
           response: 'SUPERFICIAL E.G. CIGARETTE',
           active: true,
           label: 'Superficial e.g. cigarette',
@@ -537,7 +537,7 @@ export const SELF_HARM_1: IncidentTypeConfiguration = {
           nextQuestionId: '44552',
         },
         {
-          id: '180733',
+          code: '180733',
           response: 'NON SUPERFICIAL CELL/SELF FIRE',
           active: true,
           label: 'Non superficial cell/self fire',
@@ -555,7 +555,7 @@ export const SELF_HARM_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '180760',
+          code: '180760',
           response: 'WINDOW',
           active: true,
           label: 'Window',
@@ -564,7 +564,7 @@ export const SELF_HARM_1: IncidentTypeConfiguration = {
           nextQuestionId: '44718',
         },
         {
-          id: '180755',
+          code: '180755',
           response: 'BED',
           active: true,
           label: 'Bed',
@@ -573,7 +573,7 @@ export const SELF_HARM_1: IncidentTypeConfiguration = {
           nextQuestionId: '44718',
         },
         {
-          id: '180756',
+          code: '180756',
           response: 'DOOR',
           active: true,
           label: 'Door',
@@ -582,7 +582,7 @@ export const SELF_HARM_1: IncidentTypeConfiguration = {
           nextQuestionId: '44718',
         },
         {
-          id: '180758',
+          code: '180758',
           response: 'PIPES',
           active: true,
           label: 'Pipes',
@@ -591,7 +591,7 @@ export const SELF_HARM_1: IncidentTypeConfiguration = {
           nextQuestionId: '44718',
         },
         {
-          id: '180759',
+          code: '180759',
           response: 'TOILET AREA',
           active: true,
           label: 'Toilet area',
@@ -600,7 +600,7 @@ export const SELF_HARM_1: IncidentTypeConfiguration = {
           nextQuestionId: '44718',
         },
         {
-          id: '180757',
+          code: '180757',
           response: 'OTHER',
           active: true,
           label: 'Other',
@@ -618,7 +618,7 @@ export const SELF_HARM_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '180997',
+          code: '180997',
           response: 'FEET OFF FLOOR',
           active: true,
           label: 'Feet off floor',
@@ -627,7 +627,7 @@ export const SELF_HARM_1: IncidentTypeConfiguration = {
           nextQuestionId: '45020',
         },
         {
-          id: '180998',
+          code: '180998',
           response: 'KNEELING OR OTHER',
           active: true,
           label: 'Kneeling or other',
@@ -636,7 +636,7 @@ export const SELF_HARM_1: IncidentTypeConfiguration = {
           nextQuestionId: '45020',
         },
         {
-          id: '180999',
+          code: '180999',
           response: 'NEITHER OF ABOVE',
           active: true,
           label: 'Neither of above',
@@ -654,7 +654,7 @@ export const SELF_HARM_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '181062',
+          code: '181062',
           response: 'YES',
           active: true,
           label: 'Yes',
@@ -663,7 +663,7 @@ export const SELF_HARM_1: IncidentTypeConfiguration = {
           nextQuestionId: '44573',
         },
         {
-          id: '181063',
+          code: '181063',
           response: 'NO',
           active: true,
           label: 'No',
@@ -681,7 +681,7 @@ export const SELF_HARM_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '181110',
+          code: '181110',
           response: 'YES',
           active: true,
           label: 'Yes',
@@ -690,7 +690,7 @@ export const SELF_HARM_1: IncidentTypeConfiguration = {
           nextQuestionId: '44991',
         },
         {
-          id: '181111',
+          code: '181111',
           response: 'NO',
           active: true,
           label: 'No',
@@ -708,7 +708,7 @@ export const SELF_HARM_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '181230',
+          code: '181230',
           response: 'ORDINARY',
           active: true,
           label: 'Ordinary',
@@ -717,7 +717,7 @@ export const SELF_HARM_1: IncidentTypeConfiguration = {
           nextQuestionId: '44339',
         },
         {
-          id: '181229',
+          code: '181229',
           response: 'GATED',
           active: true,
           label: 'Gated',
@@ -726,7 +726,7 @@ export const SELF_HARM_1: IncidentTypeConfiguration = {
           nextQuestionId: '44339',
         },
         {
-          id: '181232',
+          code: '181232',
           response: 'SAFE ANTI-LIGATURE',
           active: true,
           label: 'Safe anti-ligature',
@@ -735,7 +735,7 @@ export const SELF_HARM_1: IncidentTypeConfiguration = {
           nextQuestionId: '44339',
         },
         {
-          id: '181233',
+          code: '181233',
           response: 'TIME OUT ROOM',
           active: true,
           label: 'Time out room',
@@ -744,7 +744,7 @@ export const SELF_HARM_1: IncidentTypeConfiguration = {
           nextQuestionId: '44339',
         },
         {
-          id: '181228',
+          code: '181228',
           response: 'CARE SUITE',
           active: true,
           label: 'Care suite',
@@ -753,7 +753,7 @@ export const SELF_HARM_1: IncidentTypeConfiguration = {
           nextQuestionId: '44339',
         },
         {
-          id: '181234',
+          code: '181234',
           response: 'UNFURNISHED/STRONG BOX',
           active: true,
           label: 'Unfurnished/strong box',
@@ -762,7 +762,7 @@ export const SELF_HARM_1: IncidentTypeConfiguration = {
           nextQuestionId: '44339',
         },
         {
-          id: '181235',
+          code: '181235',
           response: 'WARD/DORM',
           active: true,
           label: 'Ward/dorm',
@@ -771,7 +771,7 @@ export const SELF_HARM_1: IncidentTypeConfiguration = {
           nextQuestionId: '44339',
         },
         {
-          id: '181231',
+          code: '181231',
           response: 'OTHER',
           active: true,
           label: 'Other',
@@ -789,7 +789,7 @@ export const SELF_HARM_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '181555',
+          code: '181555',
           response: 'RAZOR',
           active: true,
           label: 'Razor',
@@ -798,7 +798,7 @@ export const SELF_HARM_1: IncidentTypeConfiguration = {
           nextQuestionId: '44155',
         },
         {
-          id: '181552',
+          code: '181552',
           response: 'BROKEN GLASS',
           active: true,
           label: 'Broken glass',
@@ -807,7 +807,7 @@ export const SELF_HARM_1: IncidentTypeConfiguration = {
           nextQuestionId: '44155',
         },
         {
-          id: '181554',
+          code: '181554',
           response: 'PLASTIC MATERIAL',
           active: true,
           label: 'Plastic material',
@@ -816,7 +816,7 @@ export const SELF_HARM_1: IncidentTypeConfiguration = {
           nextQuestionId: '44155',
         },
         {
-          id: '181553',
+          code: '181553',
           response: 'OTHER',
           active: true,
           label: 'Other',
@@ -834,7 +834,7 @@ export const SELF_HARM_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '181774',
+          code: '181774',
           response: 'YES',
           active: true,
           label: 'Yes',
@@ -843,7 +843,7 @@ export const SELF_HARM_1: IncidentTypeConfiguration = {
           nextQuestionId: '44954',
         },
         {
-          id: '181773',
+          code: '181773',
           response: 'NO',
           active: true,
           label: 'No',
@@ -852,7 +852,7 @@ export const SELF_HARM_1: IncidentTypeConfiguration = {
           nextQuestionId: '44954',
         },
         {
-          id: '181772',
+          code: '181772',
           response: 'ALREADY IN HEALTHCARE',
           active: true,
           label: 'Already in healthcare',
@@ -870,7 +870,7 @@ export const SELF_HARM_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '181810',
+          code: '181810',
           response: 'YES',
           active: true,
           label: 'Yes',
@@ -879,7 +879,7 @@ export const SELF_HARM_1: IncidentTypeConfiguration = {
           nextQuestionId: '44584',
         },
         {
-          id: '181811',
+          code: '181811',
           response: 'NO',
           active: true,
           label: 'No',
@@ -897,7 +897,7 @@ export const SELF_HARM_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '181836',
+          code: '181836',
           response: 'YES',
           active: true,
           label: 'Yes',
@@ -906,7 +906,7 @@ export const SELF_HARM_1: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
-          id: '181835',
+          code: '181835',
           response: 'NO',
           active: true,
           label: 'No',
@@ -924,7 +924,7 @@ export const SELF_HARM_1: IncidentTypeConfiguration = {
       multipleAnswers: true,
       answers: [
         {
-          id: '181933',
+          code: '181933',
           response: 'WRIST',
           active: true,
           label: 'Wrist',
@@ -933,7 +933,7 @@ export const SELF_HARM_1: IncidentTypeConfiguration = {
           nextQuestionId: '44890',
         },
         {
-          id: '181929',
+          code: '181929',
           response: 'ARMS/LEGS',
           active: true,
           label: 'Arms/legs',
@@ -942,7 +942,7 @@ export const SELF_HARM_1: IncidentTypeConfiguration = {
           nextQuestionId: '44890',
         },
         {
-          id: '181932',
+          code: '181932',
           response: 'TORSO',
           active: true,
           label: 'Torso',
@@ -951,7 +951,7 @@ export const SELF_HARM_1: IncidentTypeConfiguration = {
           nextQuestionId: '44890',
         },
         {
-          id: '181931',
+          code: '181931',
           response: 'THROAT',
           active: true,
           label: 'Throat',
@@ -960,7 +960,7 @@ export const SELF_HARM_1: IncidentTypeConfiguration = {
           nextQuestionId: '44890',
         },
         {
-          id: '181930',
+          code: '181930',
           response: 'OTHER',
           active: true,
           label: 'Other',
@@ -978,7 +978,7 @@ export const SELF_HARM_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '182015',
+          code: '182015',
           response: 'BEDDING',
           active: true,
           label: 'Bedding',
@@ -987,7 +987,7 @@ export const SELF_HARM_1: IncidentTypeConfiguration = {
           nextQuestionId: '44207',
         },
         {
-          id: '182019',
+          code: '182019',
           response: 'SHOELACES',
           active: true,
           label: 'Shoelaces',
@@ -996,7 +996,7 @@ export const SELF_HARM_1: IncidentTypeConfiguration = {
           nextQuestionId: '44207',
         },
         {
-          id: '182020',
+          code: '182020',
           response: 'TOWEL',
           active: true,
           label: 'Towel',
@@ -1005,7 +1005,7 @@ export const SELF_HARM_1: IncidentTypeConfiguration = {
           nextQuestionId: '44207',
         },
         {
-          id: '182017',
+          code: '182017',
           response: 'CLOTHING',
           active: true,
           label: 'Clothing',
@@ -1014,7 +1014,7 @@ export const SELF_HARM_1: IncidentTypeConfiguration = {
           nextQuestionId: '44207',
         },
         {
-          id: '182016',
+          code: '182016',
           response: 'BELT',
           active: true,
           label: 'Belt',
@@ -1023,7 +1023,7 @@ export const SELF_HARM_1: IncidentTypeConfiguration = {
           nextQuestionId: '44207',
         },
         {
-          id: '182018',
+          code: '182018',
           response: 'OTHER',
           active: true,
           label: 'Other',
@@ -1041,7 +1041,7 @@ export const SELF_HARM_1: IncidentTypeConfiguration = {
       multipleAnswers: true,
       answers: [
         {
-          id: '182179',
+          code: '182179',
           response: 'ORDINARY',
           active: true,
           label: 'Ordinary',
@@ -1050,7 +1050,7 @@ export const SELF_HARM_1: IncidentTypeConfiguration = {
           nextQuestionId: '44791',
         },
         {
-          id: '182183',
+          code: '182183',
           response: 'VPU/OTHER PROTECTED',
           active: true,
           label: 'VPU/other protected',
@@ -1059,7 +1059,7 @@ export const SELF_HARM_1: IncidentTypeConfiguration = {
           nextQuestionId: '44791',
         },
         {
-          id: '182177',
+          code: '182177',
           response: 'HEALTH CARE CENTRE',
           active: true,
           label: 'Health care centre',
@@ -1068,7 +1068,7 @@ export const SELF_HARM_1: IncidentTypeConfiguration = {
           nextQuestionId: '44791',
         },
         {
-          id: '182178',
+          code: '182178',
           response: "INDCT'N/RECP'N/1ST NIGHTCENTRE",
           active: true,
           label: "Indct'n/recp'n/1st nightcentre",
@@ -1077,7 +1077,7 @@ export const SELF_HARM_1: IncidentTypeConfiguration = {
           nextQuestionId: '44791',
         },
         {
-          id: '182182',
+          code: '182182',
           response: 'SEGREGATION UNIT',
           active: true,
           label: 'Segregation unit',
@@ -1086,7 +1086,7 @@ export const SELF_HARM_1: IncidentTypeConfiguration = {
           nextQuestionId: '44791',
         },
         {
-          id: '182176',
+          code: '182176',
           response: 'DETOX UNIT',
           active: true,
           label: 'Detox unit',
@@ -1095,7 +1095,7 @@ export const SELF_HARM_1: IncidentTypeConfiguration = {
           nextQuestionId: '44791',
         },
         {
-          id: '182181',
+          code: '182181',
           response: 'PRISON ESCORT VEHICLE',
           active: true,
           label: 'Prison escort vehicle',
@@ -1104,7 +1104,7 @@ export const SELF_HARM_1: IncidentTypeConfiguration = {
           nextQuestionId: '44791',
         },
         {
-          id: '182175',
+          code: '182175',
           response: 'COURT CELL',
           active: true,
           label: 'Court cell',
@@ -1113,7 +1113,7 @@ export const SELF_HARM_1: IncidentTypeConfiguration = {
           nextQuestionId: '44791',
         },
         {
-          id: '182180',
+          code: '182180',
           response: 'OTHER',
           active: true,
           label: 'Other',
@@ -1131,7 +1131,7 @@ export const SELF_HARM_1: IncidentTypeConfiguration = {
       multipleAnswers: true,
       answers: [
         {
-          id: '182366',
+          code: '182366',
           response: 'HEAD BANGING',
           active: true,
           label: 'Head banging',
@@ -1140,7 +1140,7 @@ export const SELF_HARM_1: IncidentTypeConfiguration = {
           nextQuestionId: '44511',
         },
         {
-          id: '182368',
+          code: '182368',
           response: 'SUFFOCATION',
           active: true,
           label: 'Suffocation',
@@ -1149,7 +1149,7 @@ export const SELF_HARM_1: IncidentTypeConfiguration = {
           nextQuestionId: '44511',
         },
         {
-          id: '182369',
+          code: '182369',
           response: 'WOUND',
           active: true,
           label: 'Wound',
@@ -1158,7 +1158,7 @@ export const SELF_HARM_1: IncidentTypeConfiguration = {
           nextQuestionId: '44511',
         },
         {
-          id: '182367',
+          code: '182367',
           response: 'NOOSE LIGATURE MAKING',
           active: true,
           label: 'Noose ligature making',
@@ -1167,7 +1167,7 @@ export const SELF_HARM_1: IncidentTypeConfiguration = {
           nextQuestionId: '44511',
         },
         {
-          id: '3901',
+          code: '3901',
           response: 'OTHER',
           active: true,
           label: 'Other',
@@ -1185,7 +1185,7 @@ export const SELF_HARM_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '182616',
+          code: '182616',
           response: 'YES',
           active: true,
           label: 'Yes',
@@ -1194,7 +1194,7 @@ export const SELF_HARM_1: IncidentTypeConfiguration = {
           nextQuestionId: '44643',
         },
         {
-          id: '182617',
+          code: '182617',
           response: 'NO',
           active: true,
           label: 'No',

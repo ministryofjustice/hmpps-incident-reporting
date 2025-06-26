@@ -15,7 +15,7 @@ export const FOOD_REFUSAL_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '179164',
+          code: '179164',
           response: 'YES',
           active: true,
           label: 'Yes',
@@ -24,7 +24,7 @@ export const FOOD_REFUSAL_1: IncidentTypeConfiguration = {
           nextQuestionId: '44427',
         },
         {
-          id: '179163',
+          code: '179163',
           response: 'NO',
           active: true,
           label: 'No',
@@ -42,7 +42,7 @@ export const FOOD_REFUSAL_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '179556',
+          code: '179556',
           response: 'NORMAL LOCATION',
           active: true,
           label: 'Normal location',
@@ -51,7 +51,7 @@ export const FOOD_REFUSAL_1: IncidentTypeConfiguration = {
           nextQuestionId: '44399',
         },
         {
-          id: '179559',
+          code: '179559',
           response: 'SEGREGATION UNIT',
           active: true,
           label: 'Segregation unit',
@@ -60,7 +60,7 @@ export const FOOD_REFUSAL_1: IncidentTypeConfiguration = {
           nextQuestionId: '44399',
         },
         {
-          id: '179555',
+          code: '179555',
           response: 'HEALTH CARE CENTRE',
           active: true,
           label: 'Health care centre',
@@ -69,7 +69,7 @@ export const FOOD_REFUSAL_1: IncidentTypeConfiguration = {
           nextQuestionId: '44399',
         },
         {
-          id: '179558',
+          code: '179558',
           response: 'OUTSIDE HOSPITAL',
           active: true,
           label: 'Outside hospital',
@@ -78,7 +78,7 @@ export const FOOD_REFUSAL_1: IncidentTypeConfiguration = {
           nextQuestionId: '44399',
         },
         {
-          id: '179557',
+          code: '179557',
           response: 'OTHER',
           active: true,
           label: 'Other',
@@ -96,7 +96,7 @@ export const FOOD_REFUSAL_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '179841',
+          code: '179841',
           response: 'YES',
           active: true,
           label: 'Yes',
@@ -105,7 +105,7 @@ export const FOOD_REFUSAL_1: IncidentTypeConfiguration = {
           nextQuestionId: '44688',
         },
         {
-          id: '179840',
+          code: '179840',
           response: 'NO',
           active: true,
           label: 'No',
@@ -123,7 +123,7 @@ export const FOOD_REFUSAL_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '179913',
+          code: '179913',
           response: 'YES',
           active: true,
           label: 'Yes',
@@ -132,7 +132,7 @@ export const FOOD_REFUSAL_1: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
-          id: '179912',
+          code: '179912',
           response: 'NO',
           active: true,
           label: 'No',
@@ -150,7 +150,7 @@ export const FOOD_REFUSAL_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '180503',
+          code: '180503',
           response: 'YES',
           active: true,
           label: 'Yes',
@@ -159,7 +159,7 @@ export const FOOD_REFUSAL_1: IncidentTypeConfiguration = {
           nextQuestionId: '44887',
         },
         {
-          id: '180502',
+          code: '180502',
           response: 'NO',
           active: true,
           label: 'No',
@@ -177,7 +177,7 @@ export const FOOD_REFUSAL_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '180875',
+          code: '180875',
           response: 'YES',
           active: true,
           label: 'Yes',
@@ -186,7 +186,7 @@ export const FOOD_REFUSAL_1: IncidentTypeConfiguration = {
           nextQuestionId: '44989',
         },
         {
-          id: '180874',
+          code: '180874',
           response: 'NO',
           active: true,
           label: 'No',
@@ -204,7 +204,7 @@ export const FOOD_REFUSAL_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '181149',
+          code: '181149',
           response: 'ALL FOOD AND LIQUIDS',
           active: true,
           label: 'All food and liquids',
@@ -213,7 +213,7 @@ export const FOOD_REFUSAL_1: IncidentTypeConfiguration = {
           nextQuestionId: '44319',
         },
         {
-          id: '181151',
+          code: '181151',
           response: 'FOOD ONLY',
           active: true,
           label: 'Food only',
@@ -222,7 +222,7 @@ export const FOOD_REFUSAL_1: IncidentTypeConfiguration = {
           nextQuestionId: '44319',
         },
         {
-          id: '181150',
+          code: '181150',
           response: 'FLUIDS ONLY',
           active: true,
           label: 'Fluids only',
@@ -231,7 +231,7 @@ export const FOOD_REFUSAL_1: IncidentTypeConfiguration = {
           nextQuestionId: '44319',
         },
         {
-          id: '181152',
+          code: '181152',
           response: 'OTHER',
           active: true,
           label: 'Other',
@@ -249,7 +249,7 @@ export const FOOD_REFUSAL_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '181539',
+          code: '181539',
           response: 'FACILITIES',
           active: true,
           label: 'Facilities',
@@ -258,7 +258,7 @@ export const FOOD_REFUSAL_1: IncidentTypeConfiguration = {
           nextQuestionId: '44768',
         },
         {
-          id: '181540',
+          code: '181540',
           response: 'FOOD',
           active: true,
           label: 'Food',
@@ -267,7 +267,7 @@ export const FOOD_REFUSAL_1: IncidentTypeConfiguration = {
           nextQuestionId: '44768',
         },
         {
-          id: '181543',
+          code: '181543',
           response: 'PAY',
           active: true,
           label: 'Pay',
@@ -276,7 +276,7 @@ export const FOOD_REFUSAL_1: IncidentTypeConfiguration = {
           nextQuestionId: '44768',
         },
         {
-          id: '181546',
+          code: '181546',
           response: 'VISITS',
           active: true,
           label: 'Visits',
@@ -285,7 +285,7 @@ export const FOOD_REFUSAL_1: IncidentTypeConfiguration = {
           nextQuestionId: '44768',
         },
         {
-          id: '181544',
+          code: '181544',
           response: 'TIME OUT OF CELL',
           active: true,
           label: 'Time out of cell',
@@ -294,7 +294,7 @@ export const FOOD_REFUSAL_1: IncidentTypeConfiguration = {
           nextQuestionId: '44768',
         },
         {
-          id: '181541',
+          code: '181541',
           response: 'LOCATION',
           active: true,
           label: 'Location',
@@ -303,7 +303,7 @@ export const FOOD_REFUSAL_1: IncidentTypeConfiguration = {
           nextQuestionId: '44768',
         },
         {
-          id: '181545',
+          code: '181545',
           response: 'TRANSFER',
           active: true,
           label: 'Transfer',
@@ -312,7 +312,7 @@ export const FOOD_REFUSAL_1: IncidentTypeConfiguration = {
           nextQuestionId: '44768',
         },
         {
-          id: '181538',
+          code: '181538',
           response: 'CHARGES/CONVICTIONS',
           active: true,
           label: 'Charges/convictions',
@@ -321,7 +321,7 @@ export const FOOD_REFUSAL_1: IncidentTypeConfiguration = {
           nextQuestionId: '44768',
         },
         {
-          id: '181542',
+          code: '181542',
           response: 'OTHER',
           active: true,
           label: 'Other',
@@ -339,7 +339,7 @@ export const FOOD_REFUSAL_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '181926',
+          code: '181926',
           response: 'ENTER HOURS',
           active: true,
           label: 'Enter hours',
@@ -357,7 +357,7 @@ export const FOOD_REFUSAL_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '181928',
+          code: '181928',
           response: 'YES',
           active: true,
           label: 'Yes',
@@ -366,7 +366,7 @@ export const FOOD_REFUSAL_1: IncidentTypeConfiguration = {
           nextQuestionId: '44575',
         },
         {
-          id: '181927',
+          code: '181927',
           response: 'NO',
           active: true,
           label: 'No',

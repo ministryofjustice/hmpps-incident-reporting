@@ -15,7 +15,7 @@ export const FIND_2: IncidentTypeConfiguration = {
       multipleAnswers: true,
       answers: [
         {
-          id: '198684',
+          code: '198684',
           response: 'NO FURTHER ACTION',
           active: false,
           label: 'No further action',
@@ -24,7 +24,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           nextQuestionId: '51231',
         },
         {
-          id: '198685',
+          code: '198685',
           response: 'IEP REGRESSION',
           active: false,
           label: 'IEP regression',
@@ -33,7 +33,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           nextQuestionId: '51231',
         },
         {
-          id: '198686',
+          code: '198686',
           response: 'PLACED ON REPORT/ADJUDICATION REFERRAL',
           active: false,
           label: 'Placed on report/adjudication referral',
@@ -42,7 +42,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           nextQuestionId: '51231',
         },
         {
-          id: '198687',
+          code: '198687',
           response: 'POLICE REFERRAL',
           active: false,
           label: 'Police referral',
@@ -51,7 +51,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           nextQuestionId: '51231',
         },
         {
-          id: '198688',
+          code: '198688',
           response: 'CPS REFERRAL',
           active: false,
           label: 'CPS referral',
@@ -60,7 +60,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           nextQuestionId: '51231',
         },
         {
-          id: '198689',
+          code: '198689',
           response: 'PROSECUTION REFERRAL',
           active: false,
           label: 'Prosecution referral',
@@ -78,7 +78,7 @@ export const FIND_2: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '198690',
+          code: '198690',
           response: 'YES',
           active: false,
           label: 'Yes',
@@ -87,7 +87,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           nextQuestionId: '51232',
         },
         {
-          id: '198691',
+          code: '198691',
           response: 'NO',
           active: false,
           label: 'No',
@@ -105,7 +105,7 @@ export const FIND_2: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '198692',
+          code: '198692',
           response: 'YES',
           active: false,
           label: 'Yes',
@@ -114,7 +114,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           nextQuestionId: '51233',
         },
         {
-          id: '198693',
+          code: '198693',
           response: 'NO',
           active: false,
           label: 'No',
@@ -132,7 +132,7 @@ export const FIND_2: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '198694',
+          code: '198694',
           response: 'ADMINISTRATION',
           active: false,
           label: 'Administration',
@@ -141,7 +141,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           nextQuestionId: '51234',
         },
         {
-          id: '198695',
+          code: '198695',
           response: 'ASSOCIATION AREA',
           active: false,
           label: 'Association area',
@@ -150,7 +150,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           nextQuestionId: '51234',
         },
         {
-          id: '198696',
+          code: '198696',
           response: 'CELL',
           active: false,
           label: 'Cell',
@@ -159,7 +159,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           nextQuestionId: '51234',
         },
         {
-          id: '198697',
+          code: '198697',
           response: 'CHAPEL',
           active: false,
           label: 'Chapel',
@@ -168,7 +168,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           nextQuestionId: '51234',
         },
         {
-          id: '198698',
+          code: '198698',
           response: 'CROWN COURT',
           active: false,
           label: 'Crown court',
@@ -177,7 +177,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           nextQuestionId: '51234',
         },
         {
-          id: '198699',
+          code: '198699',
           response: 'DINING ROOM',
           active: false,
           label: 'Dining room',
@@ -186,7 +186,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           nextQuestionId: '51234',
         },
         {
-          id: '198700',
+          code: '198700',
           response: 'DORMITORY',
           active: false,
           label: 'Dormitory',
@@ -195,7 +195,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           nextQuestionId: '51234',
         },
         {
-          id: '198701',
+          code: '198701',
           response: 'EDUCATION',
           active: false,
           label: 'Education',
@@ -204,7 +204,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           nextQuestionId: '51234',
         },
         {
-          id: '198702',
+          code: '198702',
           response: 'ELSEWHERE',
           active: false,
           label: 'Elsewhere',
@@ -213,7 +213,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           nextQuestionId: '51234',
         },
         {
-          id: '198703',
+          code: '198703',
           response: 'EXERCISE YARD',
           active: false,
           label: 'Exercise yard',
@@ -222,7 +222,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           nextQuestionId: '51234',
         },
         {
-          id: '198704',
+          code: '198704',
           response: 'FUNERAL',
           active: false,
           label: 'Funeral',
@@ -231,7 +231,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           nextQuestionId: '51234',
         },
         {
-          id: '198705',
+          code: '198705',
           response: 'GATE',
           active: false,
           label: 'Gate',
@@ -240,7 +240,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           nextQuestionId: '51234',
         },
         {
-          id: '198706',
+          code: '198706',
           response: 'GYM',
           active: false,
           label: 'Gym',
@@ -249,7 +249,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           nextQuestionId: '51234',
         },
         {
-          id: '198707',
+          code: '198707',
           response: 'HEALTH CARE CENTRE',
           active: false,
           label: 'Health care centre',
@@ -258,7 +258,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           nextQuestionId: '51234',
         },
         {
-          id: '198708',
+          code: '198708',
           response: 'HOSPITAL OUTSIDE (PATIENT)',
           active: false,
           label: 'Hospital outside (patient)',
@@ -267,7 +267,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           nextQuestionId: '51234',
         },
         {
-          id: '198709',
+          code: '198709',
           response: 'HOSPITAL OUTSIDE (VISITING)',
           active: false,
           label: 'Hospital outside (visiting)',
@@ -276,7 +276,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           nextQuestionId: '51234',
         },
         {
-          id: '198710',
+          code: '198710',
           response: 'KITCHEN',
           active: false,
           label: 'Kitchen',
@@ -285,7 +285,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           nextQuestionId: '51234',
         },
         {
-          id: '198711',
+          code: '198711',
           response: 'MAGISTRATES COURT',
           active: false,
           label: 'Magistrates court',
@@ -294,7 +294,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           nextQuestionId: '51234',
         },
         {
-          id: '198712',
+          code: '198712',
           response: 'OFFICE',
           active: false,
           label: 'Office',
@@ -303,7 +303,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           nextQuestionId: '51234',
         },
         {
-          id: '198713',
+          code: '198713',
           response: 'OUTSIDE WORKING PARTY',
           active: false,
           label: 'Outside working party',
@@ -312,7 +312,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           nextQuestionId: '51234',
         },
         {
-          id: '198714',
+          code: '198714',
           response: 'RECEPTION',
           active: false,
           label: 'Reception',
@@ -321,7 +321,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           nextQuestionId: '51234',
         },
         {
-          id: '198715',
+          code: '198715',
           response: 'RECESS',
           active: false,
           label: 'Recess',
@@ -330,7 +330,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           nextQuestionId: '51234',
         },
         {
-          id: '198716',
+          code: '198716',
           response: 'SEGREGATION UNIT',
           active: false,
           label: 'Segregation unit',
@@ -339,7 +339,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           nextQuestionId: '51234',
         },
         {
-          id: '198717',
+          code: '198717',
           response: 'SHOWERS/CHANGING ROOM',
           active: false,
           label: 'Showers/changing room',
@@ -348,7 +348,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           nextQuestionId: '51234',
         },
         {
-          id: '198718',
+          code: '198718',
           response: 'SPECIAL UNIT',
           active: false,
           label: 'Special unit',
@@ -357,7 +357,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           nextQuestionId: '51234',
         },
         {
-          id: '198719',
+          code: '198719',
           response: 'SPORTS FIELD',
           active: false,
           label: 'Sports field',
@@ -366,7 +366,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           nextQuestionId: '51234',
         },
         {
-          id: '198720',
+          code: '198720',
           response: 'VEHICLE',
           active: false,
           label: 'Vehicle',
@@ -375,7 +375,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           nextQuestionId: '51234',
         },
         {
-          id: '198721',
+          code: '198721',
           response: 'VISITS',
           active: false,
           label: 'Visits',
@@ -384,7 +384,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           nextQuestionId: '51234',
         },
         {
-          id: '198722',
+          code: '198722',
           response: 'WEDDINGS',
           active: false,
           label: 'Weddings',
@@ -393,7 +393,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           nextQuestionId: '51234',
         },
         {
-          id: '198723',
+          code: '198723',
           response: 'WING',
           active: false,
           label: 'Wing',
@@ -402,7 +402,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           nextQuestionId: '51234',
         },
         {
-          id: '198724',
+          code: '198724',
           response: 'WITHIN PERIMETER',
           active: false,
           label: 'Within perimeter',
@@ -411,7 +411,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           nextQuestionId: '51234',
         },
         {
-          id: '198725',
+          code: '198725',
           response: 'WORKS DEPARTMENT',
           active: false,
           label: 'Works department',
@@ -420,7 +420,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           nextQuestionId: '51234',
         },
         {
-          id: '198726',
+          code: '198726',
           response: 'WORKSHOP',
           active: false,
           label: 'Workshop',
@@ -429,7 +429,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           nextQuestionId: '51234',
         },
         {
-          id: '198727',
+          code: '198727',
           response: 'INDUCTION/FIRST NIGHT CENTRE',
           active: false,
           label: 'Induction/first night centre',
@@ -438,7 +438,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           nextQuestionId: '51234',
         },
         {
-          id: '198728',
+          code: '198728',
           response: 'MAIL ROOM',
           active: false,
           label: 'Mail room',
@@ -447,7 +447,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           nextQuestionId: '51234',
         },
         {
-          id: '198729',
+          code: '198729',
           response: 'EXTERNAL ROOF',
           active: false,
           label: 'External roof',
@@ -456,7 +456,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           nextQuestionId: '51234',
         },
         {
-          id: '198730',
+          code: '198730',
           response: 'VULNERABLE PRISONERS UNIT (VPU)',
           active: false,
           label: 'Vulnerable prisoners unit (VPU)',
@@ -474,7 +474,7 @@ export const FIND_2: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '198731',
+          code: '198731',
           response: 'YES',
           active: false,
           label: 'Yes',
@@ -483,7 +483,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           nextQuestionId: '51235',
         },
         {
-          id: '198732',
+          code: '198732',
           response: 'NO',
           active: false,
           label: 'No',
@@ -501,7 +501,7 @@ export const FIND_2: IncidentTypeConfiguration = {
       multipleAnswers: true,
       answers: [
         {
-          id: '198733',
+          code: '198733',
           response: 'AMPHETAMINES',
           active: false,
           label: 'Amphetamines',
@@ -510,7 +510,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           nextQuestionId: '51236',
         },
         {
-          id: '198734',
+          code: '198734',
           response: 'BARBITURATES',
           active: false,
           label: 'Barbiturates',
@@ -519,7 +519,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           nextQuestionId: '51236',
         },
         {
-          id: '198735',
+          code: '198735',
           response: 'BENZODIAZEPINES',
           active: false,
           label: 'Benzodiazepines',
@@ -528,7 +528,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           nextQuestionId: '51236',
         },
         {
-          id: '198736',
+          code: '198736',
           response: 'BUPRENORPHINE/SUBUTEX',
           active: false,
           label: 'Buprenorphine/subutex',
@@ -537,7 +537,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           nextQuestionId: '51236',
         },
         {
-          id: '198737',
+          code: '198737',
           response: 'CANNABIS',
           active: false,
           label: 'Cannabis',
@@ -546,7 +546,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           nextQuestionId: '51236',
         },
         {
-          id: '198738',
+          code: '198738',
           response: 'CANNABIS PLANT',
           active: false,
           label: 'Cannabis plant',
@@ -555,7 +555,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           nextQuestionId: '51236',
         },
         {
-          id: '198739',
+          code: '198739',
           response: 'COCAINE',
           active: false,
           label: 'Cocaine',
@@ -564,7 +564,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           nextQuestionId: '51236',
         },
         {
-          id: '198740',
+          code: '198740',
           response: 'CRACK',
           active: false,
           label: 'Crack',
@@ -573,7 +573,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           nextQuestionId: '51236',
         },
         {
-          id: '198741',
+          code: '198741',
           response: 'HEROIN',
           active: false,
           label: 'Heroin',
@@ -582,7 +582,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           nextQuestionId: '51236',
         },
         {
-          id: '198742',
+          code: '198742',
           response: 'LSD',
           active: false,
           label: 'LSD',
@@ -591,7 +591,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           nextQuestionId: '51236',
         },
         {
-          id: '198743',
+          code: '198743',
           response: 'METHADONE',
           active: false,
           label: 'Methadone',
@@ -600,7 +600,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           nextQuestionId: '51236',
         },
         {
-          id: '198744',
+          code: '198744',
           response: 'PREGABALIN',
           active: false,
           label: 'Pregabalin',
@@ -609,7 +609,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           nextQuestionId: '51236',
         },
         {
-          id: '198745',
+          code: '198745',
           response: 'TRANQUILISERS',
           active: false,
           label: 'Tranquilisers',
@@ -618,7 +618,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           nextQuestionId: '51236',
         },
         {
-          id: '198746',
+          code: '198746',
           response: 'TRAMADOL',
           active: false,
           label: 'Tramadol',
@@ -627,7 +627,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           nextQuestionId: '51236',
         },
         {
-          id: '198747',
+          code: '198747',
           response: 'GABAPENTIN',
           active: false,
           label: 'Gabapentin',
@@ -636,7 +636,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           nextQuestionId: '51236',
         },
         {
-          id: '198748',
+          code: '198748',
           response: 'NPS: SPICE',
           active: false,
           label: 'NPS: spice',
@@ -645,7 +645,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           nextQuestionId: '51236',
         },
         {
-          id: '198749',
+          code: '198749',
           response: 'NPS: BLACK MAMBA',
           active: false,
           label: 'NPS: black mamba',
@@ -654,7 +654,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           nextQuestionId: '51236',
         },
         {
-          id: '198750',
+          code: '198750',
           response: 'NPS: OTHER',
           active: false,
           label: 'NPS: other',
@@ -663,7 +663,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           nextQuestionId: '51236',
         },
         {
-          id: '198751',
+          code: '198751',
           response: 'STEROIDS',
           active: false,
           label: 'Steroids',
@@ -672,7 +672,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           nextQuestionId: '51236',
         },
         {
-          id: '198752',
+          code: '198752',
           response: 'OTHER (PLEASE SPECIFY)',
           active: false,
           label: 'Other (please specify)',
@@ -681,7 +681,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           nextQuestionId: '51236',
         },
         {
-          id: '198753',
+          code: '198753',
           response: 'UNKNOWN',
           active: false,
           label: 'Unknown',
@@ -699,7 +699,7 @@ export const FIND_2: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '198754',
+          code: '198754',
           response: '<1G',
           active: false,
           label: '<1g',
@@ -708,7 +708,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           nextQuestionId: '51237',
         },
         {
-          id: '198755',
+          code: '198755',
           response: '2G TO 5G',
           active: false,
           label: '2g to 5g',
@@ -717,7 +717,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           nextQuestionId: '51237',
         },
         {
-          id: '198756',
+          code: '198756',
           response: '6G TO 10G',
           active: false,
           label: '6g to 10g',
@@ -726,7 +726,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           nextQuestionId: '51237',
         },
         {
-          id: '198757',
+          code: '198757',
           response: '11G TO 20G',
           active: false,
           label: '11g to 20g',
@@ -735,7 +735,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           nextQuestionId: '51237',
         },
         {
-          id: '198758',
+          code: '198758',
           response: '21G TO 30G',
           active: false,
           label: '21g to 30g',
@@ -744,7 +744,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           nextQuestionId: '51237',
         },
         {
-          id: '198759',
+          code: '198759',
           response: '31G TO 40G',
           active: false,
           label: '31g to 40g',
@@ -753,7 +753,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           nextQuestionId: '51237',
         },
         {
-          id: '198760',
+          code: '198760',
           response: '41G TO 50G',
           active: false,
           label: '41g to 50g',
@@ -762,7 +762,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           nextQuestionId: '51237',
         },
         {
-          id: '198761',
+          code: '198761',
           response: '50G TO 100G',
           active: false,
           label: '50g to 100g',
@@ -771,7 +771,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           nextQuestionId: '51237',
         },
         {
-          id: '198762',
+          code: '198762',
           response: '101G TO 200G',
           active: false,
           label: '101g to 200g',
@@ -780,7 +780,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           nextQuestionId: '51237',
         },
         {
-          id: '198763',
+          code: '198763',
           response: '201G TO 300G',
           active: false,
           label: '201g to 300g',
@@ -789,7 +789,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           nextQuestionId: '51237',
         },
         {
-          id: '198764',
+          code: '198764',
           response: '301G TO 400G',
           active: false,
           label: '301g to 400g',
@@ -798,7 +798,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           nextQuestionId: '51237',
         },
         {
-          id: '198765',
+          code: '198765',
           response: '401G TO 500G',
           active: false,
           label: '401g to 500g',
@@ -807,7 +807,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           nextQuestionId: '51237',
         },
         {
-          id: '198766',
+          code: '198766',
           response: '501G TO 1,000G',
           active: false,
           label: '501g to 1,000g',
@@ -816,7 +816,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           nextQuestionId: '51237',
         },
         {
-          id: '198767',
+          code: '198767',
           response: 'MORE THAN 1KG',
           active: false,
           label: 'More than 1kg',
@@ -825,7 +825,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           nextQuestionId: '51237',
         },
         {
-          id: '198768',
+          code: '198768',
           response: 'UNKNOWN',
           active: false,
           label: 'Unknown',
@@ -843,7 +843,7 @@ export const FIND_2: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '198769',
+          code: '198769',
           response: 'YES',
           active: false,
           label: 'Yes',
@@ -852,7 +852,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           nextQuestionId: '51238',
         },
         {
-          id: '198770',
+          code: '198770',
           response: 'NO',
           active: false,
           label: 'No',
@@ -870,7 +870,7 @@ export const FIND_2: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '198771',
+          code: '198771',
           response: 'FORENSIC LABORATORY',
           active: false,
           label: 'Forensic laboratory',
@@ -879,7 +879,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           nextQuestionId: '51239',
         },
         {
-          id: '198772',
+          code: '198772',
           response: 'LOCAL WITH BDH KIT OR SIMILAR',
           active: false,
           label: 'Local with BDH kit or similar',
@@ -897,7 +897,7 @@ export const FIND_2: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '198773',
+          code: '198773',
           response: 'NAME',
           active: false,
           label: 'Name',
@@ -915,7 +915,7 @@ export const FIND_2: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '198774',
+          code: '198774',
           response: 'YES',
           active: false,
           label: 'Yes',
@@ -924,7 +924,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           nextQuestionId: '51241',
         },
         {
-          id: '198775',
+          code: '198775',
           response: 'NO',
           active: false,
           label: 'No',
@@ -942,7 +942,7 @@ export const FIND_2: IncidentTypeConfiguration = {
       multipleAnswers: true,
       answers: [
         {
-          id: '198776',
+          code: '198776',
           response: 'AUTHENTIC NEEDLE',
           active: false,
           label: 'Authentic needle',
@@ -951,7 +951,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           nextQuestionId: '51242',
         },
         {
-          id: '198777',
+          code: '198777',
           response: 'AUTHENTIC SYRINGE',
           active: false,
           label: 'Authentic syringe',
@@ -960,7 +960,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           nextQuestionId: '51242',
         },
         {
-          id: '198778',
+          code: '198778',
           response: 'IMPROVISED NEEDLE',
           active: false,
           label: 'Improvised needle',
@@ -969,7 +969,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           nextQuestionId: '51242',
         },
         {
-          id: '198779',
+          code: '198779',
           response: 'IMPROVISED SYRINGE',
           active: false,
           label: 'Improvised syringe',
@@ -978,7 +978,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           nextQuestionId: '51242',
         },
         {
-          id: '198780',
+          code: '198780',
           response: 'PIPE(S)',
           active: false,
           label: 'Pipe(s)',
@@ -987,7 +987,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           nextQuestionId: '51242',
         },
         {
-          id: '198781',
+          code: '198781',
           response: 'ROACH',
           active: false,
           label: 'Roach',
@@ -996,7 +996,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           nextQuestionId: '51242',
         },
         {
-          id: '198782',
+          code: '198782',
           response: 'OTHER (PLEASE SPECIFY)',
           active: false,
           label: 'Other (please specify)',
@@ -1014,7 +1014,7 @@ export const FIND_2: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '198783',
+          code: '198783',
           response: 'YES',
           active: false,
           label: 'Yes',
@@ -1023,7 +1023,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           nextQuestionId: '51243',
         },
         {
-          id: '198784',
+          code: '198784',
           response: 'NO',
           active: false,
           label: 'No',
@@ -1041,7 +1041,7 @@ export const FIND_2: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '198785',
+          code: '198785',
           response: 'YES',
           active: false,
           label: 'Yes',
@@ -1050,7 +1050,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           nextQuestionId: '51244',
         },
         {
-          id: '198786',
+          code: '198786',
           response: 'NO',
           active: false,
           label: 'No',
@@ -1068,7 +1068,7 @@ export const FIND_2: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '198787',
+          code: '198787',
           response: '0',
           active: false,
           label: '0',
@@ -1077,7 +1077,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           nextQuestionId: '51245',
         },
         {
-          id: '198788',
+          code: '198788',
           response: '1',
           active: false,
           label: '1',
@@ -1086,7 +1086,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           nextQuestionId: '51245',
         },
         {
-          id: '198789',
+          code: '198789',
           response: '2',
           active: false,
           label: '2',
@@ -1095,7 +1095,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           nextQuestionId: '51245',
         },
         {
-          id: '198790',
+          code: '198790',
           response: '4',
           active: false,
           label: '4',
@@ -1104,7 +1104,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           nextQuestionId: '51245',
         },
         {
-          id: '198791',
+          code: '198791',
           response: '5',
           active: false,
           label: '5',
@@ -1113,7 +1113,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           nextQuestionId: '51245',
         },
         {
-          id: '198792',
+          code: '198792',
           response: '6',
           active: false,
           label: '6',
@@ -1122,7 +1122,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           nextQuestionId: '51245',
         },
         {
-          id: '198793',
+          code: '198793',
           response: '7',
           active: false,
           label: '7',
@@ -1131,7 +1131,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           nextQuestionId: '51245',
         },
         {
-          id: '198794',
+          code: '198794',
           response: '8',
           active: false,
           label: '8',
@@ -1140,7 +1140,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           nextQuestionId: '51245',
         },
         {
-          id: '198795',
+          code: '198795',
           response: '9',
           active: false,
           label: '9',
@@ -1149,7 +1149,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           nextQuestionId: '51245',
         },
         {
-          id: '198796',
+          code: '198796',
           response: '10',
           active: false,
           label: '10',
@@ -1158,7 +1158,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           nextQuestionId: '51245',
         },
         {
-          id: '198797',
+          code: '198797',
           response: '11',
           active: false,
           label: '11',
@@ -1167,7 +1167,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           nextQuestionId: '51245',
         },
         {
-          id: '198798',
+          code: '198798',
           response: '12',
           active: false,
           label: '12',
@@ -1176,7 +1176,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           nextQuestionId: '51245',
         },
         {
-          id: '198799',
+          code: '198799',
           response: '13',
           active: false,
           label: '13',
@@ -1185,7 +1185,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           nextQuestionId: '51245',
         },
         {
-          id: '198800',
+          code: '198800',
           response: '14',
           active: false,
           label: '14',
@@ -1194,7 +1194,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           nextQuestionId: '51245',
         },
         {
-          id: '198801',
+          code: '198801',
           response: '15',
           active: false,
           label: '15',
@@ -1203,7 +1203,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           nextQuestionId: '51245',
         },
         {
-          id: '198802',
+          code: '198802',
           response: '16',
           active: false,
           label: '16',
@@ -1212,7 +1212,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           nextQuestionId: '51245',
         },
         {
-          id: '198803',
+          code: '198803',
           response: '17',
           active: false,
           label: '17',
@@ -1221,7 +1221,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           nextQuestionId: '51245',
         },
         {
-          id: '198804',
+          code: '198804',
           response: '18',
           active: false,
           label: '18',
@@ -1230,7 +1230,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           nextQuestionId: '51245',
         },
         {
-          id: '198805',
+          code: '198805',
           response: '19',
           active: false,
           label: '19',
@@ -1239,7 +1239,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           nextQuestionId: '51245',
         },
         {
-          id: '198806',
+          code: '198806',
           response: '20',
           active: false,
           label: '20',
@@ -1248,7 +1248,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           nextQuestionId: '51245',
         },
         {
-          id: '198807',
+          code: '198807',
           response: 'MORE THAN 20',
           active: false,
           label: 'More than 20',
@@ -1257,7 +1257,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           nextQuestionId: '51245',
         },
         {
-          id: '198808',
+          code: '198808',
           response: 'UNKNOWN',
           active: false,
           label: 'Unknown',
@@ -1266,7 +1266,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           nextQuestionId: '51245',
         },
         {
-          id: '200684',
+          code: '200684',
           response: '3',
           active: false,
           label: '3',
@@ -1284,7 +1284,7 @@ export const FIND_2: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '198809',
+          code: '198809',
           response: 'YES',
           active: false,
           label: 'Yes',
@@ -1293,7 +1293,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           nextQuestionId: '51246',
         },
         {
-          id: '198810',
+          code: '198810',
           response: 'NO',
           active: false,
           label: 'No',
@@ -1311,7 +1311,7 @@ export const FIND_2: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '198811',
+          code: '198811',
           response: '0',
           active: false,
           label: '0',
@@ -1320,7 +1320,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           nextQuestionId: '51247',
         },
         {
-          id: '198812',
+          code: '198812',
           response: '1',
           active: false,
           label: '1',
@@ -1329,7 +1329,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           nextQuestionId: '51247',
         },
         {
-          id: '198813',
+          code: '198813',
           response: '2',
           active: false,
           label: '2',
@@ -1338,7 +1338,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           nextQuestionId: '51247',
         },
         {
-          id: '198814',
+          code: '198814',
           response: '3',
           active: false,
           label: '3',
@@ -1347,7 +1347,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           nextQuestionId: '51247',
         },
         {
-          id: '198815',
+          code: '198815',
           response: '4',
           active: false,
           label: '4',
@@ -1356,7 +1356,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           nextQuestionId: '51247',
         },
         {
-          id: '198816',
+          code: '198816',
           response: '5',
           active: false,
           label: '5',
@@ -1365,7 +1365,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           nextQuestionId: '51247',
         },
         {
-          id: '198817',
+          code: '198817',
           response: '6',
           active: false,
           label: '6',
@@ -1374,7 +1374,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           nextQuestionId: '51247',
         },
         {
-          id: '198818',
+          code: '198818',
           response: '7',
           active: false,
           label: '7',
@@ -1383,7 +1383,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           nextQuestionId: '51247',
         },
         {
-          id: '198819',
+          code: '198819',
           response: '8',
           active: false,
           label: '8',
@@ -1392,7 +1392,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           nextQuestionId: '51247',
         },
         {
-          id: '198820',
+          code: '198820',
           response: '9',
           active: false,
           label: '9',
@@ -1401,7 +1401,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           nextQuestionId: '51247',
         },
         {
-          id: '198821',
+          code: '198821',
           response: '10',
           active: false,
           label: '10',
@@ -1410,7 +1410,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           nextQuestionId: '51247',
         },
         {
-          id: '198822',
+          code: '198822',
           response: '11',
           active: false,
           label: '11',
@@ -1419,7 +1419,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           nextQuestionId: '51247',
         },
         {
-          id: '198823',
+          code: '198823',
           response: '12',
           active: false,
           label: '12',
@@ -1428,7 +1428,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           nextQuestionId: '51247',
         },
         {
-          id: '198824',
+          code: '198824',
           response: '13',
           active: false,
           label: '13',
@@ -1437,7 +1437,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           nextQuestionId: '51247',
         },
         {
-          id: '198825',
+          code: '198825',
           response: '14',
           active: false,
           label: '14',
@@ -1446,7 +1446,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           nextQuestionId: '51247',
         },
         {
-          id: '198826',
+          code: '198826',
           response: '15',
           active: false,
           label: '15',
@@ -1455,7 +1455,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           nextQuestionId: '51247',
         },
         {
-          id: '198827',
+          code: '198827',
           response: '16',
           active: false,
           label: '16',
@@ -1464,7 +1464,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           nextQuestionId: '51247',
         },
         {
-          id: '198828',
+          code: '198828',
           response: '17',
           active: false,
           label: '17',
@@ -1473,7 +1473,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           nextQuestionId: '51247',
         },
         {
-          id: '198829',
+          code: '198829',
           response: '18',
           active: false,
           label: '18',
@@ -1482,7 +1482,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           nextQuestionId: '51247',
         },
         {
-          id: '198830',
+          code: '198830',
           response: '19',
           active: false,
           label: '19',
@@ -1491,7 +1491,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           nextQuestionId: '51247',
         },
         {
-          id: '198831',
+          code: '198831',
           response: '20',
           active: false,
           label: '20',
@@ -1500,7 +1500,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           nextQuestionId: '51247',
         },
         {
-          id: '198832',
+          code: '198832',
           response: 'MORE THAN 20',
           active: false,
           label: 'More than 20',
@@ -1509,7 +1509,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           nextQuestionId: '51247',
         },
         {
-          id: '198833',
+          code: '198833',
           response: 'UNKNOWN',
           active: false,
           label: 'Unknown',
@@ -1527,7 +1527,7 @@ export const FIND_2: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '198834',
+          code: '198834',
           response: 'YES',
           active: false,
           label: 'Yes',
@@ -1536,7 +1536,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           nextQuestionId: '51248',
         },
         {
-          id: '198835',
+          code: '198835',
           response: 'NO',
           active: false,
           label: 'No',
@@ -1554,7 +1554,7 @@ export const FIND_2: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '198836',
+          code: '198836',
           response: '0',
           active: false,
           label: '0',
@@ -1563,7 +1563,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           nextQuestionId: '51249',
         },
         {
-          id: '198837',
+          code: '198837',
           response: '1',
           active: false,
           label: '1',
@@ -1572,7 +1572,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           nextQuestionId: '51249',
         },
         {
-          id: '198838',
+          code: '198838',
           response: '2',
           active: false,
           label: '2',
@@ -1581,7 +1581,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           nextQuestionId: '51249',
         },
         {
-          id: '198839',
+          code: '198839',
           response: '3',
           active: false,
           label: '3',
@@ -1590,7 +1590,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           nextQuestionId: '51249',
         },
         {
-          id: '198840',
+          code: '198840',
           response: '4',
           active: false,
           label: '4',
@@ -1599,7 +1599,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           nextQuestionId: '51249',
         },
         {
-          id: '198841',
+          code: '198841',
           response: '5',
           active: false,
           label: '5',
@@ -1608,7 +1608,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           nextQuestionId: '51249',
         },
         {
-          id: '198842',
+          code: '198842',
           response: '6',
           active: false,
           label: '6',
@@ -1617,7 +1617,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           nextQuestionId: '51249',
         },
         {
-          id: '198843',
+          code: '198843',
           response: '7',
           active: false,
           label: '7',
@@ -1626,7 +1626,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           nextQuestionId: '51249',
         },
         {
-          id: '198844',
+          code: '198844',
           response: '8',
           active: false,
           label: '8',
@@ -1635,7 +1635,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           nextQuestionId: '51249',
         },
         {
-          id: '198845',
+          code: '198845',
           response: '9',
           active: false,
           label: '9',
@@ -1644,7 +1644,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           nextQuestionId: '51249',
         },
         {
-          id: '198846',
+          code: '198846',
           response: '10',
           active: false,
           label: '10',
@@ -1653,7 +1653,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           nextQuestionId: '51249',
         },
         {
-          id: '198847',
+          code: '198847',
           response: '11',
           active: false,
           label: '11',
@@ -1662,7 +1662,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           nextQuestionId: '51249',
         },
         {
-          id: '198848',
+          code: '198848',
           response: '12',
           active: false,
           label: '12',
@@ -1671,7 +1671,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           nextQuestionId: '51249',
         },
         {
-          id: '198849',
+          code: '198849',
           response: '13',
           active: false,
           label: '13',
@@ -1680,7 +1680,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           nextQuestionId: '51249',
         },
         {
-          id: '198850',
+          code: '198850',
           response: '14',
           active: false,
           label: '14',
@@ -1689,7 +1689,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           nextQuestionId: '51249',
         },
         {
-          id: '198851',
+          code: '198851',
           response: '15',
           active: false,
           label: '15',
@@ -1698,7 +1698,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           nextQuestionId: '51249',
         },
         {
-          id: '198852',
+          code: '198852',
           response: '16',
           active: false,
           label: '16',
@@ -1707,7 +1707,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           nextQuestionId: '51249',
         },
         {
-          id: '198853',
+          code: '198853',
           response: '17',
           active: false,
           label: '17',
@@ -1716,7 +1716,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           nextQuestionId: '51249',
         },
         {
-          id: '198854',
+          code: '198854',
           response: '18',
           active: false,
           label: '18',
@@ -1725,7 +1725,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           nextQuestionId: '51249',
         },
         {
-          id: '198855',
+          code: '198855',
           response: '19',
           active: false,
           label: '19',
@@ -1734,7 +1734,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           nextQuestionId: '51249',
         },
         {
-          id: '198856',
+          code: '198856',
           response: '20',
           active: false,
           label: '20',
@@ -1743,7 +1743,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           nextQuestionId: '51249',
         },
         {
-          id: '198857',
+          code: '198857',
           response: 'MORE THAN 20',
           active: false,
           label: 'More than 20',
@@ -1752,7 +1752,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           nextQuestionId: '51249',
         },
         {
-          id: '198858',
+          code: '198858',
           response: 'UNKNOWN',
           active: false,
           label: 'Unknown',
@@ -1770,7 +1770,7 @@ export const FIND_2: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '198859',
+          code: '198859',
           response: 'YES',
           active: false,
           label: 'Yes',
@@ -1779,7 +1779,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           nextQuestionId: '51250',
         },
         {
-          id: '198860',
+          code: '198860',
           response: 'NO',
           active: false,
           label: 'No',
@@ -1797,7 +1797,7 @@ export const FIND_2: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '198861',
+          code: '198861',
           response: 'YES: PLEASE SPECIFY',
           active: false,
           label: 'Yes: please specify',
@@ -1806,7 +1806,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           nextQuestionId: '51251',
         },
         {
-          id: '198862',
+          code: '198862',
           response: 'NO',
           active: false,
           label: 'No',
@@ -1824,7 +1824,7 @@ export const FIND_2: IncidentTypeConfiguration = {
       multipleAnswers: true,
       answers: [
         {
-          id: '198863',
+          code: '198863',
           response: 'YES: DATE',
           active: false,
           label: 'Yes: date',
@@ -1833,7 +1833,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           nextQuestionId: '51252',
         },
         {
-          id: '198864',
+          code: '198864',
           response: 'EVIDENCE BAG NUMBER',
           active: false,
           label: 'Evidence bag number',
@@ -1842,7 +1842,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           nextQuestionId: '51252',
         },
         {
-          id: '198865',
+          code: '198865',
           response: 'NO: PLEASE STATE WHY',
           active: false,
           label: 'No: please state why',
@@ -1860,7 +1860,7 @@ export const FIND_2: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '198866',
+          code: '198866',
           response: 'YES',
           active: false,
           label: 'Yes',
@@ -1869,7 +1869,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           nextQuestionId: '51253',
         },
         {
-          id: '198867',
+          code: '198867',
           response: 'NO',
           active: false,
           label: 'No',
@@ -1887,7 +1887,7 @@ export const FIND_2: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '198868',
+          code: '198868',
           response: 'YES',
           active: false,
           label: 'Yes',
@@ -1896,7 +1896,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           nextQuestionId: '51254',
         },
         {
-          id: '198869',
+          code: '198869',
           response: 'NO',
           active: false,
           label: 'No',
@@ -1914,7 +1914,7 @@ export const FIND_2: IncidentTypeConfiguration = {
       multipleAnswers: true,
       answers: [
         {
-          id: '198870',
+          code: '198870',
           response: 'BLUNT INSTRUMENT (COSH, ITEM IN SOCK ETC)',
           active: false,
           label: 'Blunt instrument (cosh, item in sock etc)',
@@ -1923,7 +1923,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           nextQuestionId: '51255',
         },
         {
-          id: '198871',
+          code: '198871',
           response: 'KNIFE/BLADED ARTICLE',
           active: false,
           label: 'Knife/bladed article',
@@ -1932,7 +1932,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           nextQuestionId: '51255',
         },
         {
-          id: '198872',
+          code: '198872',
           response: 'FIREARM (FAKE GUNS, AMMUNITION, CHEMICAL INCAPACITANT ETC)',
           active: false,
           label: 'Firearm (fake guns, ammunition, chemical incapacitant etc)',
@@ -1941,7 +1941,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           nextQuestionId: '51255',
         },
         {
-          id: '198873',
+          code: '198873',
           response: 'OTHER (PLEASE SPECIFY)',
           active: false,
           label: 'Other (please specify)',
@@ -1959,7 +1959,7 @@ export const FIND_2: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '198874',
+          code: '198874',
           response: 'YES',
           active: false,
           label: 'Yes',
@@ -1968,7 +1968,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           nextQuestionId: '51256',
         },
         {
-          id: '198875',
+          code: '198875',
           response: 'NO',
           active: false,
           label: 'No',
@@ -1986,7 +1986,7 @@ export const FIND_2: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '198876',
+          code: '198876',
           response: '< 1 LITRE',
           active: false,
           label: '< 1 litre',
@@ -1995,7 +1995,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           nextQuestionId: '51257',
         },
         {
-          id: '198877',
+          code: '198877',
           response: '1 TO 2 LITRES',
           active: false,
           label: '1 to 2 litres',
@@ -2004,7 +2004,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           nextQuestionId: '51257',
         },
         {
-          id: '198878',
+          code: '198878',
           response: '2 TO 3 LITRES',
           active: false,
           label: '2 to 3 litres',
@@ -2013,7 +2013,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           nextQuestionId: '51257',
         },
         {
-          id: '198879',
+          code: '198879',
           response: '3 TO 4 LITRES',
           active: false,
           label: '3 to 4 litres',
@@ -2022,7 +2022,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           nextQuestionId: '51257',
         },
         {
-          id: '198880',
+          code: '198880',
           response: '4 TO 5 LITRES',
           active: false,
           label: '4 to 5 litres',
@@ -2031,7 +2031,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           nextQuestionId: '51257',
         },
         {
-          id: '198881',
+          code: '198881',
           response: '6 TO 10 LITRES',
           active: false,
           label: '6 to 10 litres',
@@ -2040,7 +2040,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           nextQuestionId: '51257',
         },
         {
-          id: '198882',
+          code: '198882',
           response: '11 TO 20 LITRES',
           active: false,
           label: '11 to 20 litres',
@@ -2049,7 +2049,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           nextQuestionId: '51257',
         },
         {
-          id: '198883',
+          code: '198883',
           response: 'MORE THAN 20 LITRES',
           active: false,
           label: 'More than 20 litres',
@@ -2058,7 +2058,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           nextQuestionId: '51257',
         },
         {
-          id: '198884',
+          code: '198884',
           response: 'UNKNOWN',
           active: false,
           label: 'Unknown',
@@ -2076,7 +2076,7 @@ export const FIND_2: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '198885',
+          code: '198885',
           response: 'YES',
           active: false,
           label: 'Yes',
@@ -2085,7 +2085,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           nextQuestionId: '51258',
         },
         {
-          id: '198886',
+          code: '198886',
           response: 'NO',
           active: false,
           label: 'No',
@@ -2103,7 +2103,7 @@ export const FIND_2: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '198887',
+          code: '198887',
           response: 'YES',
           active: true,
           label: 'Yes',
@@ -2112,7 +2112,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           nextQuestionId: '51259',
         },
         {
-          id: '198888',
+          code: '198888',
           response: 'NO',
           active: true,
           label: 'No',
@@ -2130,7 +2130,7 @@ export const FIND_2: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '198889',
+          code: '198889',
           response: 'PLEASE SPECIFY',
           active: true,
           label: 'Please specify',
@@ -2148,7 +2148,7 @@ export const FIND_2: IncidentTypeConfiguration = {
       multipleAnswers: true,
       answers: [
         {
-          id: '198890',
+          code: '198890',
           response: 'BOSS CHAIR',
           active: true,
           label: 'Boss chair',
@@ -2157,7 +2157,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           nextQuestionId: '51261',
         },
         {
-          id: '198891',
+          code: '198891',
           response: 'CELL SEARCH',
           active: true,
           label: 'Cell search',
@@ -2166,7 +2166,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           nextQuestionId: '51261',
         },
         {
-          id: '198892',
+          code: '198892',
           response: 'CRIME SCENE',
           active: true,
           label: 'Crime scene',
@@ -2175,7 +2175,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           nextQuestionId: '51261',
         },
         {
-          id: '198893',
+          code: '198893',
           response: 'DOG SEARCH',
           active: true,
           label: 'Dog search',
@@ -2184,7 +2184,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           nextQuestionId: '51261',
         },
         {
-          id: '198894',
+          code: '198894',
           response: 'HIGH SENSITIVITY WAND',
           active: true,
           label: 'High sensitivity wand',
@@ -2193,7 +2193,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           nextQuestionId: '51261',
         },
         {
-          id: '198895',
+          code: '198895',
           response: 'INFORMATION RECEIVED',
           active: true,
           label: 'Information received',
@@ -2202,7 +2202,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           nextQuestionId: '51261',
         },
         {
-          id: '198896',
+          code: '198896',
           response: 'INTELLIGENCE LED SEARCH',
           active: true,
           label: 'Intelligence led search',
@@ -2211,7 +2211,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           nextQuestionId: '51261',
         },
         {
-          id: '198897',
+          code: '198897',
           response: 'ITEM OBSERVED',
           active: true,
           label: 'Item observed',
@@ -2220,7 +2220,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           nextQuestionId: '51261',
         },
         {
-          id: '198898',
+          code: '198898',
           response: 'MOBILE PHONE SIGNAL DETECTOR',
           active: true,
           label: 'Mobile phone signal detector',
@@ -2229,7 +2229,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           nextQuestionId: '51261',
         },
         {
-          id: '198899',
+          code: '198899',
           response: 'MOBILE PHONE ROD',
           active: true,
           label: 'Mobile phone rod',
@@ -2238,7 +2238,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           nextQuestionId: '51261',
         },
         {
-          id: '198900',
+          code: '198900',
           response: 'OTHER SEARCH (INMATE)',
           active: true,
           label: 'Other search (inmate)',
@@ -2247,7 +2247,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           nextQuestionId: '51261',
         },
         {
-          id: '198901',
+          code: '198901',
           response: 'OTHER SEARCH (PREMISES)',
           active: true,
           label: 'Other search (premises)',
@@ -2256,7 +2256,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           nextQuestionId: '51261',
         },
         {
-          id: '198902',
+          code: '198902',
           response: 'OTHER SEARCH (VISITOR)',
           active: true,
           label: 'Other search (visitor)',
@@ -2265,7 +2265,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           nextQuestionId: '51261',
         },
         {
-          id: '198903',
+          code: '198903',
           response: 'PRE-OCCUPATION SEARCH',
           active: true,
           label: 'Pre-occupation search',
@@ -2274,7 +2274,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           nextQuestionId: '51261',
         },
         {
-          id: '198904',
+          code: '198904',
           response: 'UNUSUAL BEHAVIOUR',
           active: true,
           label: 'Unusual behaviour',
@@ -2283,7 +2283,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           nextQuestionId: '51261',
         },
         {
-          id: '198905',
+          code: '198905',
           response: 'OTHER (PLEASE SPECIFY)',
           active: true,
           label: 'Other (please specify)',
@@ -2292,7 +2292,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           nextQuestionId: '51261',
         },
         {
-          id: '208853',
+          code: '208853',
           response: 'DRONE RECOVERY',
           active: true,
           label: 'Drone recovery',
@@ -2310,7 +2310,7 @@ export const FIND_2: IncidentTypeConfiguration = {
       multipleAnswers: true,
       answers: [
         {
-          id: '198906',
+          code: '198906',
           response: 'PRISONER',
           active: true,
           label: 'Prisoner',
@@ -2319,7 +2319,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           nextQuestionId: '51262',
         },
         {
-          id: '198907',
+          code: '198907',
           response: 'STAFF',
           active: true,
           label: 'Staff',
@@ -2328,7 +2328,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           nextQuestionId: '51262',
         },
         {
-          id: '198908',
+          code: '198908',
           response: 'VISITOR (FRIEND)',
           active: true,
           label: 'Visitor (friend)',
@@ -2337,7 +2337,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           nextQuestionId: '51262',
         },
         {
-          id: '198909',
+          code: '198909',
           response: 'VISITOR (OFFICIAL)',
           active: true,
           label: 'Visitor (official)',
@@ -2346,7 +2346,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           nextQuestionId: '51262',
         },
         {
-          id: '198910',
+          code: '198910',
           response: 'VISITOR (RELATIVE)',
           active: true,
           label: 'Visitor (relative)',
@@ -2355,7 +2355,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           nextQuestionId: '51262',
         },
         {
-          id: '198911',
+          code: '198911',
           response: 'CONTRACTOR',
           active: true,
           label: 'Contractor',
@@ -2364,7 +2364,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           nextQuestionId: '51262',
         },
         {
-          id: '198912',
+          code: '198912',
           response: 'POST (RULE 39)',
           active: true,
           label: 'Post (rule 39)',
@@ -2373,7 +2373,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           nextQuestionId: '51262',
         },
         {
-          id: '198913',
+          code: '198913',
           response: 'POST (OTHER)',
           active: true,
           label: 'Post (other)',
@@ -2382,7 +2382,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           nextQuestionId: '51262',
         },
         {
-          id: '198914',
+          code: '198914',
           response: 'THROWN IN',
           active: true,
           label: 'Thrown in',
@@ -2391,7 +2391,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           nextQuestionId: '51262',
         },
         {
-          id: '198915',
+          code: '198915',
           response: 'DRONE/UAV',
           active: true,
           label: 'Drone/UAV',
@@ -2400,7 +2400,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           nextQuestionId: '51262',
         },
         {
-          id: '198916',
+          code: '198916',
           response: 'OTHER (PLEASE SPECIFY)',
           active: true,
           label: 'Other (please specify)',
@@ -2409,7 +2409,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           nextQuestionId: '51262',
         },
         {
-          id: '198917',
+          code: '198917',
           response: 'UNKNOWN',
           active: true,
           label: 'Unknown',
@@ -2427,7 +2427,7 @@ export const FIND_2: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '198918',
+          code: '198918',
           response: 'PRISONER',
           active: true,
           label: 'Prisoner',
@@ -2436,7 +2436,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           nextQuestionId: '51263',
         },
         {
-          id: '198919',
+          code: '198919',
           response: 'STAFF',
           active: true,
           label: 'Staff',
@@ -2445,7 +2445,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           nextQuestionId: '51263',
         },
         {
-          id: '198920',
+          code: '198920',
           response: 'VISITOR (FRIEND)',
           active: true,
           label: 'Visitor (friend)',
@@ -2454,7 +2454,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           nextQuestionId: '51263',
         },
         {
-          id: '198921',
+          code: '198921',
           response: 'VISITOR (OFFICIAL)',
           active: true,
           label: 'Visitor (official)',
@@ -2463,7 +2463,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           nextQuestionId: '51263',
         },
         {
-          id: '198922',
+          code: '198922',
           response: 'VISITOR (RELATIVE)',
           active: true,
           label: 'Visitor (relative)',
@@ -2472,7 +2472,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           nextQuestionId: '51263',
         },
         {
-          id: '198923',
+          code: '198923',
           response: 'CONTRACTOR',
           active: true,
           label: 'Contractor',
@@ -2481,7 +2481,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           nextQuestionId: '51263',
         },
         {
-          id: '198924',
+          code: '198924',
           response: 'OTHER (PLEASE SPECIFY)',
           active: true,
           label: 'Other (please specify)',
@@ -2490,7 +2490,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           nextQuestionId: '51263',
         },
         {
-          id: '198925',
+          code: '198925',
           response: 'NOT APPLICABLE',
           active: true,
           label: 'Not applicable',
@@ -2508,7 +2508,7 @@ export const FIND_2: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '198926',
+          code: '198926',
           response: 'NOT CONCEALED',
           active: true,
           label: 'Not concealed',
@@ -2517,7 +2517,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           nextQuestionId: '51264',
         },
         {
-          id: '198927',
+          code: '198927',
           response: 'BED/BEDDING',
           active: true,
           label: 'Bed/bedding',
@@ -2526,7 +2526,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           nextQuestionId: '51264',
         },
         {
-          id: '198928',
+          code: '198928',
           response: 'BOOK/PAPERS',
           active: true,
           label: 'Book/papers',
@@ -2535,7 +2535,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           nextQuestionId: '51264',
         },
         {
-          id: '198929',
+          code: '198929',
           response: 'CELL/BUILDING FABRIC',
           active: true,
           label: 'Cell/building fabric',
@@ -2544,7 +2544,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           nextQuestionId: '51264',
         },
         {
-          id: '198930',
+          code: '198930',
           response: 'FOOD/CONTAINER',
           active: true,
           label: 'Food/container',
@@ -2553,7 +2553,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           nextQuestionId: '51264',
         },
         {
-          id: '198931',
+          code: '198931',
           response: 'IN CLOTHING',
           active: true,
           label: 'In clothing',
@@ -2562,7 +2562,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           nextQuestionId: '51264',
         },
         {
-          id: '198932',
+          code: '198932',
           response: 'IN HAND',
           active: true,
           label: 'In hand',
@@ -2571,7 +2571,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           nextQuestionId: '51264',
         },
         {
-          id: '198933',
+          code: '198933',
           response: 'IN MOUTH',
           active: true,
           label: 'In mouth',
@@ -2580,7 +2580,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           nextQuestionId: '51264',
         },
         {
-          id: '198934',
+          code: '198934',
           response: 'INTERNALLY/PLUGGED',
           active: true,
           label: 'Internally/plugged',
@@ -2589,7 +2589,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           nextQuestionId: '51264',
         },
         {
-          id: '198935',
+          code: '198935',
           response: 'LETTER/PARCEL',
           active: true,
           label: 'Letter/parcel',
@@ -2598,7 +2598,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           nextQuestionId: '51264',
         },
         {
-          id: '198936',
+          code: '198936',
           response: 'LIGHT FITTINGS',
           active: true,
           label: 'Light fittings',
@@ -2607,7 +2607,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           nextQuestionId: '51264',
         },
         {
-          id: '198937',
+          code: '198937',
           response: 'PIPEWORK',
           active: true,
           label: 'Pipework',
@@ -2616,7 +2616,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           nextQuestionId: '51264',
         },
         {
-          id: '198938',
+          code: '198938',
           response: 'RULE 39/LEGAL PAPERS',
           active: true,
           label: 'Rule 39/legal papers',
@@ -2625,7 +2625,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           nextQuestionId: '51264',
         },
         {
-          id: '198939',
+          code: '198939',
           response: 'TV/RADIO/DVD/CONSOLES ETC',
           active: true,
           label: 'TV/radio/DVD/consoles etc',
@@ -2634,7 +2634,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           nextQuestionId: '51264',
         },
         {
-          id: '198940',
+          code: '198940',
           response: 'OTHER',
           active: true,
           label: 'Other',
@@ -2652,7 +2652,7 @@ export const FIND_2: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '198941',
+          code: '198941',
           response: 'YES',
           active: true,
           label: 'Yes',
@@ -2661,7 +2661,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           nextQuestionId: '51265',
         },
         {
-          id: '198942',
+          code: '198942',
           response: 'NO',
           active: true,
           label: 'No',
@@ -2679,7 +2679,7 @@ export const FIND_2: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '198943',
+          code: '198943',
           response: 'YES',
           active: true,
           label: 'Yes',
@@ -2688,7 +2688,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           nextQuestionId: '51266',
         },
         {
-          id: '198944',
+          code: '198944',
           response: 'NO',
           active: true,
           label: 'No',
@@ -2706,7 +2706,7 @@ export const FIND_2: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '198945',
+          code: '198945',
           response: 'AFTER ENTERING PRISON',
           active: true,
           label: 'After entering prison',
@@ -2715,7 +2715,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           nextQuestionId: '51267',
         },
         {
-          id: '198946',
+          code: '198946',
           response: 'BEFORE ENTERING PRISON',
           active: true,
           label: 'Before entering prison',
@@ -2733,7 +2733,7 @@ export const FIND_2: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '198947',
+          code: '198947',
           response: 'PLEASE SPECIFY',
           active: true,
           label: 'Please specify',
@@ -2751,7 +2751,7 @@ export const FIND_2: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '198948',
+          code: '198948',
           response: 'YES',
           active: true,
           label: 'Yes',
@@ -2760,7 +2760,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           nextQuestionId: '51269',
         },
         {
-          id: '198949',
+          code: '198949',
           response: 'NO',
           active: true,
           label: 'No',
@@ -2769,7 +2769,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           nextQuestionId: '51270',
         },
         {
-          id: '198950',
+          code: '198950',
           response: 'UNKNOWN',
           active: true,
           label: 'Unknown',
@@ -2787,7 +2787,7 @@ export const FIND_2: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '198951',
+          code: '198951',
           response: 'COMMUNITY VISIT',
           active: true,
           label: 'Community visit',
@@ -2796,7 +2796,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           nextQuestionId: '51270',
         },
         {
-          id: '198952',
+          code: '198952',
           response: 'COMPASSIONATE',
           active: true,
           label: 'Compassionate',
@@ -2805,7 +2805,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           nextQuestionId: '51270',
         },
         {
-          id: '198953',
+          code: '198953',
           response: 'FACILITY',
           active: true,
           label: 'Facility',
@@ -2814,7 +2814,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           nextQuestionId: '51270',
         },
         {
-          id: '198954',
+          code: '198954',
           response: 'RESETTLEMENT',
           active: true,
           label: 'Resettlement',
@@ -2823,7 +2823,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           nextQuestionId: '51270',
         },
         {
-          id: '198955',
+          code: '198955',
           response: 'UNKNOWN',
           active: true,
           label: 'Unknown',
@@ -2841,7 +2841,7 @@ export const FIND_2: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '198956',
+          code: '198956',
           response: '£0',
           active: true,
           label: '£0',
@@ -2850,7 +2850,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
-          id: '198957',
+          code: '198957',
           response: '£1 TO £100',
           active: true,
           label: '£1 to £100',
@@ -2859,7 +2859,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
-          id: '198958',
+          code: '198958',
           response: '£101 TO £200',
           active: true,
           label: '£101 to £200',
@@ -2868,7 +2868,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
-          id: '198959',
+          code: '198959',
           response: '£201 TO £300',
           active: true,
           label: '£201 to £300',
@@ -2877,7 +2877,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
-          id: '198960',
+          code: '198960',
           response: '£301 TO £400',
           active: true,
           label: '£301 to £400',
@@ -2886,7 +2886,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
-          id: '198961',
+          code: '198961',
           response: '£401 TO £500',
           active: true,
           label: '£401 to £500',
@@ -2895,7 +2895,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
-          id: '198962',
+          code: '198962',
           response: '£501 TO £1000',
           active: true,
           label: '£501 to £1000',
@@ -2904,7 +2904,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
-          id: '198963',
+          code: '198963',
           response: '£1001 TO £5000',
           active: true,
           label: '£1001 to £5000',
@@ -2913,7 +2913,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
-          id: '198964',
+          code: '198964',
           response: '£5001 TO £10,000',
           active: true,
           label: '£5001 to £10,000',
@@ -2922,7 +2922,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
-          id: '198965',
+          code: '198965',
           response: '£10,001 TO £20,000',
           active: true,
           label: '£10,001 to £20,000',
@@ -2931,7 +2931,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
-          id: '198966',
+          code: '198966',
           response: '£20,001 TO £30,000',
           active: true,
           label: '£20,001 to £30,000',
@@ -2940,7 +2940,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
-          id: '198967',
+          code: '198967',
           response: '£30,001 TO £40,000',
           active: true,
           label: '£30,001 to £40,000',
@@ -2949,7 +2949,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
-          id: '198968',
+          code: '198968',
           response: '£40,001 TO £50,000',
           active: true,
           label: '£40,001 to £50,000',
@@ -2958,7 +2958,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
-          id: '198969',
+          code: '198969',
           response: 'MORE THAN £50,000',
           active: true,
           label: 'More than £50,000',
@@ -2967,7 +2967,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
-          id: '198970',
+          code: '198970',
           response: 'UNKNOWN',
           active: true,
           label: 'Unknown',
@@ -2985,7 +2985,7 @@ export const FIND_2: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '208855',
+          code: '208855',
           response: 'YES',
           active: false,
           label: 'Yes',
@@ -2994,7 +2994,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           nextQuestionId: '57224',
         },
         {
-          id: '208856',
+          code: '208856',
           response: 'NO',
           active: false,
           label: 'No',
@@ -3012,7 +3012,7 @@ export const FIND_2: IncidentTypeConfiguration = {
       multipleAnswers: true,
       answers: [
         {
-          id: '208857',
+          code: '208857',
           response: 'LOOSE TOBACCO',
           active: false,
           label: 'Loose tobacco',
@@ -3021,7 +3021,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           nextQuestionId: '57225',
         },
         {
-          id: '208872',
+          code: '208872',
           response: 'CIGARETTES/CIGARS',
           active: false,
           label: 'Cigarettes/cigars',
@@ -3030,7 +3030,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           nextQuestionId: '57225',
         },
         {
-          id: '208873',
+          code: '208873',
           response: 'OTHER (including packaging and roaches)',
           active: false,
           label: 'Other (including packaging and roaches)',
@@ -3048,7 +3048,7 @@ export const FIND_2: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '208858',
+          code: '208858',
           response: 'UP TO 1 GRAMME',
           active: false,
           label: 'Up to 1 gramme',
@@ -3057,7 +3057,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           nextQuestionId: '57226',
         },
         {
-          id: '208874',
+          code: '208874',
           response: '2g TO 5g',
           active: false,
           label: '2g to 5g',
@@ -3066,7 +3066,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           nextQuestionId: '57226',
         },
         {
-          id: '208875',
+          code: '208875',
           response: '6g to 10g',
           active: false,
           label: '6g to 10g',
@@ -3075,7 +3075,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           nextQuestionId: '57226',
         },
         {
-          id: '208876',
+          code: '208876',
           response: '10g +',
           active: false,
           label: '10g +',
@@ -3093,7 +3093,7 @@ export const FIND_2: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '208859',
+          code: '208859',
           response: 'YES',
           active: false,
           label: 'Yes',
@@ -3102,7 +3102,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           nextQuestionId: '57227',
         },
         {
-          id: '208877',
+          code: '208877',
           response: 'NO',
           active: false,
           label: 'No',
@@ -3120,7 +3120,7 @@ export const FIND_2: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '208860',
+          code: '208860',
           response: 'PLEASE SPECIFY',
           active: false,
           label: 'Please specify',
@@ -3138,7 +3138,7 @@ export const FIND_2: IncidentTypeConfiguration = {
       multipleAnswers: true,
       answers: [
         {
-          id: '208861',
+          code: '208861',
           response: 'BOSS CHAIR',
           active: false,
           label: 'Boss chair',
@@ -3147,7 +3147,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           nextQuestionId: '57229',
         },
         {
-          id: '208878',
+          code: '208878',
           response: 'CELL SEARCH',
           active: false,
           label: 'Cell search',
@@ -3156,7 +3156,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           nextQuestionId: '57229',
         },
         {
-          id: '208879',
+          code: '208879',
           response: 'CRIME SCENE',
           active: false,
           label: 'Crime scene',
@@ -3165,7 +3165,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           nextQuestionId: '57229',
         },
         {
-          id: '208880',
+          code: '208880',
           response: 'DOG SEARCH',
           active: false,
           label: 'Dog search',
@@ -3174,7 +3174,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           nextQuestionId: '57229',
         },
         {
-          id: '208881',
+          code: '208881',
           response: 'DRONE RECOVERY',
           active: false,
           label: 'Drone recovery',
@@ -3183,7 +3183,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           nextQuestionId: '57229',
         },
         {
-          id: '208882',
+          code: '208882',
           response: 'HIGH SENSITIVITY WAND',
           active: false,
           label: 'High sensitivity wand',
@@ -3192,7 +3192,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           nextQuestionId: '57230',
         },
         {
-          id: '208883',
+          code: '208883',
           response: 'INFORMATION RECEIVED',
           active: false,
           label: 'Information received',
@@ -3201,7 +3201,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           nextQuestionId: '57230',
         },
         {
-          id: '208884',
+          code: '208884',
           response: 'NTELLIGENCE LED SEARCH',
           active: false,
           label: 'Ntelligence led search',
@@ -3210,7 +3210,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           nextQuestionId: '57230',
         },
         {
-          id: '208885',
+          code: '208885',
           response: 'ITEM OBSERVED',
           active: false,
           label: 'Item observed',
@@ -3219,7 +3219,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           nextQuestionId: '57230',
         },
         {
-          id: '208886',
+          code: '208886',
           response: 'MOBILE PHONE SIGNAL DETECTOR',
           active: false,
           label: 'Mobile phone signal detector',
@@ -3228,7 +3228,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           nextQuestionId: '57230',
         },
         {
-          id: '208887',
+          code: '208887',
           response: 'MOBILE PHONE ROD',
           active: false,
           label: 'Mobile phone rod',
@@ -3237,7 +3237,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           nextQuestionId: '57230',
         },
         {
-          id: '208888',
+          code: '208888',
           response: 'OTHER SEARCH (INMATE)',
           active: false,
           label: 'Other search (inmate)',
@@ -3246,7 +3246,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           nextQuestionId: '57230',
         },
         {
-          id: '208889',
+          code: '208889',
           response: 'OTHER SEARCH (PREMISES)',
           active: false,
           label: 'Other search (premises)',
@@ -3255,7 +3255,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           nextQuestionId: '57230',
         },
         {
-          id: '208890',
+          code: '208890',
           response: 'OTHER SEARCH (VISITOR)',
           active: false,
           label: 'Other search (visitor)',
@@ -3264,7 +3264,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           nextQuestionId: '57230',
         },
         {
-          id: '208891',
+          code: '208891',
           response: 'PRE-OCCUPATION SEARCH',
           active: false,
           label: 'Pre-occupation search',
@@ -3273,7 +3273,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           nextQuestionId: '57230',
         },
         {
-          id: '208892',
+          code: '208892',
           response: 'UNUSUAL BEHAVIOUR',
           active: false,
           label: 'Unusual behaviour',
@@ -3282,7 +3282,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           nextQuestionId: '57230',
         },
         {
-          id: '208893',
+          code: '208893',
           response: 'OTHER (PLEASE SPECIFY)',
           active: false,
           label: 'Other (please specify)',
@@ -3300,7 +3300,7 @@ export const FIND_2: IncidentTypeConfiguration = {
       multipleAnswers: true,
       answers: [
         {
-          id: '208862',
+          code: '208862',
           response: 'PRISONER',
           active: false,
           label: 'Prisoner',
@@ -3309,7 +3309,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           nextQuestionId: '57230',
         },
         {
-          id: '208894',
+          code: '208894',
           response: 'STAFF',
           active: false,
           label: 'Staff',
@@ -3318,7 +3318,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           nextQuestionId: '57230',
         },
         {
-          id: '208895',
+          code: '208895',
           response: 'VISITOR (FRIEND)',
           active: false,
           label: 'Visitor (friend)',
@@ -3327,7 +3327,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           nextQuestionId: '57230',
         },
         {
-          id: '208896',
+          code: '208896',
           response: 'VISITOR (RELATIVE)',
           active: false,
           label: 'Visitor (relative)',
@@ -3336,7 +3336,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           nextQuestionId: '57230',
         },
         {
-          id: '208897',
+          code: '208897',
           response: 'VISITOR (OFFICIAL)',
           active: false,
           label: 'Visitor (official)',
@@ -3345,7 +3345,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           nextQuestionId: '57230',
         },
         {
-          id: '208898',
+          code: '208898',
           response: 'CONTRACTOR',
           active: false,
           label: 'Contractor',
@@ -3354,7 +3354,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           nextQuestionId: '57230',
         },
         {
-          id: '208899',
+          code: '208899',
           response: 'POST (RULE39)',
           active: false,
           label: 'Post (rule39)',
@@ -3363,7 +3363,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           nextQuestionId: '57230',
         },
         {
-          id: '208900',
+          code: '208900',
           response: 'POST (OTHER)',
           active: false,
           label: 'Post (other)',
@@ -3372,7 +3372,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           nextQuestionId: '57230',
         },
         {
-          id: '208901',
+          code: '208901',
           response: 'DRONE/UAV',
           active: false,
           label: 'Drone/UAV',
@@ -3381,7 +3381,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           nextQuestionId: '57230',
         },
         {
-          id: '208902',
+          code: '208902',
           response: 'OTHER (PLEASE SPECIFY',
           active: false,
           label: 'Other (please specify',
@@ -3390,7 +3390,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           nextQuestionId: '57230',
         },
         {
-          id: '208903',
+          code: '208903',
           response: 'UNKNOWN',
           active: false,
           label: 'Unknown',
@@ -3399,7 +3399,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           nextQuestionId: '57230',
         },
         {
-          id: '208904',
+          code: '208904',
           response: 'THROWN IN',
           active: false,
           label: 'Thrown in',
@@ -3417,7 +3417,7 @@ export const FIND_2: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '208863',
+          code: '208863',
           response: 'PRISONER',
           active: false,
           label: 'Prisoner',
@@ -3426,7 +3426,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           nextQuestionId: '57231',
         },
         {
-          id: '208905',
+          code: '208905',
           response: 'STAFF',
           active: false,
           label: 'Staff',
@@ -3435,7 +3435,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           nextQuestionId: '57231',
         },
         {
-          id: '208906',
+          code: '208906',
           response: 'VISITOR (FRIEND)',
           active: false,
           label: 'Visitor (friend)',
@@ -3444,7 +3444,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           nextQuestionId: '57231',
         },
         {
-          id: '208907',
+          code: '208907',
           response: 'VISITOR (OFFICIAL)',
           active: false,
           label: 'Visitor (official)',
@@ -3453,7 +3453,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           nextQuestionId: '57231',
         },
         {
-          id: '208908',
+          code: '208908',
           response: 'VISITOR (RELATIVE)',
           active: false,
           label: 'Visitor (relative)',
@@ -3462,7 +3462,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           nextQuestionId: '57231',
         },
         {
-          id: '208909',
+          code: '208909',
           response: 'CONTRACTOR',
           active: false,
           label: 'Contractor',
@@ -3471,7 +3471,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           nextQuestionId: '57231',
         },
         {
-          id: '208910',
+          code: '208910',
           response: 'OTHER (PLEASE SPECIFY)',
           active: false,
           label: 'Other (please specify)',
@@ -3480,7 +3480,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           nextQuestionId: '57231',
         },
         {
-          id: '208911',
+          code: '208911',
           response: 'NOT APPLICABLE',
           active: false,
           label: 'Not applicable',
@@ -3498,7 +3498,7 @@ export const FIND_2: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '208864',
+          code: '208864',
           response: 'NOT CONCEALED',
           active: false,
           label: 'Not concealed',
@@ -3507,7 +3507,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           nextQuestionId: '57232',
         },
         {
-          id: '208912',
+          code: '208912',
           response: 'NOT CONCEALED',
           active: false,
           label: 'Not concealed',
@@ -3516,7 +3516,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           nextQuestionId: '57232',
         },
         {
-          id: '208913',
+          code: '208913',
           response: 'BED/BEDDING',
           active: false,
           label: 'Bed/bedding',
@@ -3525,7 +3525,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           nextQuestionId: '57232',
         },
         {
-          id: '208914',
+          code: '208914',
           response: 'BOOK/PAPERS',
           active: false,
           label: 'Book/papers',
@@ -3534,7 +3534,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           nextQuestionId: '57232',
         },
         {
-          id: '208915',
+          code: '208915',
           response: 'CELL/BUILDING FABRIC',
           active: false,
           label: 'Cell/building fabric',
@@ -3543,7 +3543,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           nextQuestionId: '57232',
         },
         {
-          id: '208916',
+          code: '208916',
           response: 'FOOD/CONTAINER',
           active: false,
           label: 'Food/container',
@@ -3552,7 +3552,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           nextQuestionId: '57232',
         },
         {
-          id: '208917',
+          code: '208917',
           response: 'IN CLOTHING',
           active: false,
           label: 'In clothing',
@@ -3561,7 +3561,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           nextQuestionId: '57232',
         },
         {
-          id: '208918',
+          code: '208918',
           response: 'IN HAND',
           active: false,
           label: 'In hand',
@@ -3570,7 +3570,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           nextQuestionId: '57232',
         },
         {
-          id: '208919',
+          code: '208919',
           response: 'IN MOUTH',
           active: false,
           label: 'In mouth',
@@ -3579,7 +3579,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           nextQuestionId: '57232',
         },
         {
-          id: '208920',
+          code: '208920',
           response: 'INTERNALLY/PLUGGED',
           active: false,
           label: 'Internally/plugged',
@@ -3588,7 +3588,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           nextQuestionId: '57232',
         },
         {
-          id: '208921',
+          code: '208921',
           response: 'LETTER/PARCEL',
           active: false,
           label: 'Letter/parcel',
@@ -3597,7 +3597,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           nextQuestionId: '57232',
         },
         {
-          id: '208922',
+          code: '208922',
           response: 'LIGHT FITTINGS',
           active: false,
           label: 'Light fittings',
@@ -3606,7 +3606,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           nextQuestionId: '57232',
         },
         {
-          id: '208923',
+          code: '208923',
           response: 'PIPEWORK',
           active: false,
           label: 'Pipework',
@@ -3615,7 +3615,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           nextQuestionId: '57232',
         },
         {
-          id: '208924',
+          code: '208924',
           response: 'RULE 39/LEGAL PAPERS',
           active: false,
           label: 'Rule 39/legal papers',
@@ -3624,7 +3624,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           nextQuestionId: '57232',
         },
         {
-          id: '208925',
+          code: '208925',
           response: 'TV/RADIO/DVD/CONSOLES ETC.',
           active: false,
           label: 'TV/radio/DVD/consoles etc.',
@@ -3633,7 +3633,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           nextQuestionId: '57232',
         },
         {
-          id: '208926',
+          code: '208926',
           response: 'OTHER',
           active: false,
           label: 'Other',
@@ -3651,7 +3651,7 @@ export const FIND_2: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '208865',
+          code: '208865',
           response: 'YES',
           active: false,
           label: 'Yes',
@@ -3660,7 +3660,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           nextQuestionId: '57233',
         },
         {
-          id: '208927',
+          code: '208927',
           response: 'NO',
           active: false,
           label: 'No',
@@ -3678,7 +3678,7 @@ export const FIND_2: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '208866',
+          code: '208866',
           response: 'YES',
           active: false,
           label: 'Yes',
@@ -3687,7 +3687,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           nextQuestionId: '57234',
         },
         {
-          id: '208928',
+          code: '208928',
           response: 'NO',
           active: false,
           label: 'No',
@@ -3705,7 +3705,7 @@ export const FIND_2: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '208867',
+          code: '208867',
           response: 'AFTER ENTERING PRISON',
           active: false,
           label: 'After entering prison',
@@ -3714,7 +3714,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           nextQuestionId: '57235',
         },
         {
-          id: '208929',
+          code: '208929',
           response: 'BEFORE ENTERING PRISON',
           active: false,
           label: 'Before entering prison',
@@ -3732,7 +3732,7 @@ export const FIND_2: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '208868',
+          code: '208868',
           response: 'SPECIFY',
           active: false,
           label: 'Specify',
@@ -3750,7 +3750,7 @@ export const FIND_2: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '208869',
+          code: '208869',
           response: 'YES',
           active: false,
           label: 'Yes',
@@ -3759,7 +3759,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           nextQuestionId: '57237',
         },
         {
-          id: '208930',
+          code: '208930',
           response: 'NO',
           active: false,
           label: 'No',
@@ -3768,7 +3768,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           nextQuestionId: '57238',
         },
         {
-          id: '208931',
+          code: '208931',
           response: 'UNKNOWN',
           active: false,
           label: 'Unknown',
@@ -3786,7 +3786,7 @@ export const FIND_2: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '208870',
+          code: '208870',
           response: 'COMMUNITY VISIT',
           active: false,
           label: 'Community visit',
@@ -3795,7 +3795,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           nextQuestionId: '57238',
         },
         {
-          id: '208932',
+          code: '208932',
           response: 'COMPASSIONATE',
           active: false,
           label: 'Compassionate',
@@ -3804,7 +3804,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           nextQuestionId: '57238',
         },
         {
-          id: '208933',
+          code: '208933',
           response: 'FACILTY',
           active: false,
           label: 'Facility',
@@ -3813,7 +3813,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           nextQuestionId: '57238',
         },
         {
-          id: '208934',
+          code: '208934',
           response: 'RESETTLEMENT',
           active: false,
           label: 'Resettlement',
@@ -3822,7 +3822,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           nextQuestionId: '57238',
         },
         {
-          id: '208935',
+          code: '208935',
           response: 'UNKNOWN',
           active: false,
           label: 'Unknown',
@@ -3840,7 +3840,7 @@ export const FIND_2: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '208871',
+          code: '208871',
           response: '£0',
           active: false,
           label: '£0',
@@ -3849,7 +3849,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
-          id: '208936',
+          code: '208936',
           response: '£1 to £100',
           active: false,
           label: '£1 to £100',
@@ -3858,7 +3858,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
-          id: '208937',
+          code: '208937',
           response: '£101 to £200',
           active: false,
           label: '£101 to £200',
@@ -3867,7 +3867,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
-          id: '208938',
+          code: '208938',
           response: '£201 to £300',
           active: false,
           label: '£201 to £300',
@@ -3876,7 +3876,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
-          id: '208939',
+          code: '208939',
           response: '£301 to £400',
           active: false,
           label: '£301 to £400',
@@ -3885,7 +3885,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
-          id: '208940',
+          code: '208940',
           response: '£401 to £500',
           active: false,
           label: '£401 to £500',
@@ -3894,7 +3894,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
-          id: '208941',
+          code: '208941',
           response: '£501 to £1,000',
           active: false,
           label: '£501 to £1,000',
@@ -3903,7 +3903,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
-          id: '208942',
+          code: '208942',
           response: '£1,001 to £5,000',
           active: false,
           label: '£1,001 to £5,000',
@@ -3912,7 +3912,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
-          id: '208943',
+          code: '208943',
           response: '£5,001 to £10,000',
           active: false,
           label: '£5,001 to £10,000',
@@ -3921,7 +3921,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
-          id: '208944',
+          code: '208944',
           response: '£10,001 to £20,000',
           active: false,
           label: '£10,001 to £20,000',
@@ -3930,7 +3930,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
-          id: '208945',
+          code: '208945',
           response: '£20,001 to £30,000',
           active: false,
           label: '£20,001 to £30,000',
@@ -3939,7 +3939,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
-          id: '208946',
+          code: '208946',
           response: '£30,001 to £40,000',
           active: false,
           label: '£30,001 to £40,000',
@@ -3948,7 +3948,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
-          id: '208947',
+          code: '208947',
           response: '£40,001 to £50,000',
           active: false,
           label: '£40,001 to £50,000',
@@ -3957,7 +3957,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
-          id: '208948',
+          code: '208948',
           response: 'More than £50,000',
           active: false,
           label: 'More than £50,000',
@@ -3966,7 +3966,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
-          id: '208949',
+          code: '208949',
           response: 'UNKNOWN',
           active: false,
           label: 'Unknown',

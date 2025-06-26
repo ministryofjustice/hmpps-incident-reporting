@@ -15,7 +15,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
       multipleAnswers: true,
       answers: [
         {
-          id: '182684',
+          code: '182684',
           response: 'Bail',
           active: false,
           label: 'Bail',
@@ -24,7 +24,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
-          id: '182685',
+          code: '182685',
           response: 'Final discharge/end of sentence',
           active: false,
           label: 'Final discharge/end of sentence',
@@ -33,7 +33,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
-          id: '182686',
+          code: '182686',
           response: 'Police production',
           active: false,
           label: 'Police production',
@@ -42,7 +42,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
-          id: '182687',
+          code: '182687',
           response: 'Court production/PEMS',
           active: false,
           label: 'Court production/PEMS',
@@ -51,7 +51,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
-          id: '182688',
+          code: '182688',
           response: 'Escort - HMPS',
           active: false,
           label: 'Escort - HMPS',
@@ -60,7 +60,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
-          id: '182689',
+          code: '182689',
           response: 'Other: Please explain',
           active: false,
           label: 'Other: please explain',
@@ -69,7 +69,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
-          id: '183020',
+          code: '183020',
           response: 'Bail',
           active: true,
           label: 'Bail',
@@ -78,7 +78,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           nextQuestionId: '45180',
         },
         {
-          id: '183021',
+          code: '183021',
           response: 'Final discharge/end of sentence',
           active: true,
           label: 'Final discharge/end of sentence',
@@ -87,7 +87,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           nextQuestionId: '45180',
         },
         {
-          id: '183022',
+          code: '183022',
           response: 'Police production',
           active: true,
           label: 'Police production',
@@ -96,7 +96,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           nextQuestionId: '45180',
         },
         {
-          id: '183023',
+          code: '183023',
           response: 'Court production/PEMS',
           active: false,
           label: 'Court production/PEMS',
@@ -105,7 +105,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           nextQuestionId: '45180',
         },
         {
-          id: '183024',
+          code: '183024',
           response: 'Escort – HMPS',
           active: true,
           label: 'Escort – HMPS',
@@ -114,7 +114,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           nextQuestionId: '45180',
         },
         {
-          id: '183025',
+          code: '183025',
           response: 'Other : Please explain',
           active: true,
           label: 'Other : please explain',
@@ -123,7 +123,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           nextQuestionId: '45180',
         },
         {
-          id: '184685',
+          code: '184685',
           response: 'Court production/PEMS',
           active: true,
           label: 'Court production/PEMS',
@@ -141,7 +141,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
       multipleAnswers: true,
       answers: [
         {
-          id: '182690',
+          code: '182690',
           response: 'Establishment: Enter name',
           active: false,
           label: 'Establishment: enter name',
@@ -150,7 +150,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
-          id: '182691',
+          code: '182691',
           response: 'Court: Enter name',
           active: false,
           label: 'Court: enter name',
@@ -159,7 +159,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
-          id: '182692',
+          code: '182692',
           response: 'Other: Please enter details',
           active: false,
           label: 'Other: please enter details',
@@ -168,7 +168,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
-          id: '183026',
+          code: '183026',
           response: 'Establishment : Enter name',
           active: true,
           label: 'Establishment : enter name',
@@ -177,7 +177,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           nextQuestionId: '45181',
         },
         {
-          id: '183027',
+          code: '183027',
           response: 'Court : Enter name',
           active: true,
           label: 'Court : enter name',
@@ -186,7 +186,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           nextQuestionId: '45181',
         },
         {
-          id: '183028',
+          code: '183028',
           response: 'Other : Please enter details',
           active: true,
           label: 'Other : please enter details',
@@ -204,7 +204,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
       multipleAnswers: true,
       answers: [
         {
-          id: '182693',
+          code: '182693',
           response: 'Wrong person released',
           active: false,
           label: 'Wrong person released',
@@ -213,7 +213,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
-          id: '182694',
+          code: '182694',
           response: 'Sentence miscalculated',
           active: false,
           label: 'Sentence miscalculated',
@@ -222,7 +222,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
-          id: '182695',
+          code: '182695',
           response: 'ADA not included in calculations',
           active: false,
           label: 'ADA not included in calculations',
@@ -231,7 +231,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
-          id: '182696',
+          code: '182696',
           response: 'Immigration warrant not applied/misfiled/missing',
           active: false,
           label: 'Immigration warrant not applied/misfiled/missing',
@@ -240,7 +240,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
-          id: '182697',
+          code: '182697',
           response: 'Remand warrant not applied/misfiled/missing',
           active: false,
           label: 'Remand warrant not applied/misfiled/missing',
@@ -249,7 +249,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
-          id: '182698',
+          code: '182698',
           response: 'Imprisonment warrant not applied/misfiled/missing',
           active: false,
           label: 'Imprisonment warrant not applied/misfiled/missing',
@@ -258,7 +258,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
-          id: '182699',
+          code: '182699',
           response: 'Civil/non payment of fines warrant not applied/misfiled/missing',
           active: false,
           label: 'Civil/non payment of fines warrant not applied/misfiled/missing',
@@ -267,7 +267,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
-          id: '182700',
+          code: '182700',
           response: 'Bail conditions not fully met',
           active: false,
           label: 'Bail conditions not fully met',
@@ -276,7 +276,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
-          id: '182701',
+          code: '182701',
           response: 'Release criteria not met',
           active: false,
           label: 'Release criteria not met',
@@ -285,7 +285,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
-          id: '182702',
+          code: '182702',
           response: 'Recall procedures not applied',
           active: false,
           label: 'Recall procedures not applied',
@@ -294,7 +294,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
-          id: '182703',
+          code: '182703',
           response: 'Other: Please explain',
           active: false,
           label: 'Other: please explain',
@@ -303,7 +303,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
-          id: '183029',
+          code: '183029',
           response: 'Wrong person released',
           active: true,
           label: 'Wrong person released',
@@ -312,7 +312,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           nextQuestionId: '45182',
         },
         {
-          id: '183030',
+          code: '183030',
           response: 'Sentence Miscalculated',
           active: true,
           label: 'Sentence miscalculated',
@@ -321,7 +321,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           nextQuestionId: '45182',
         },
         {
-          id: '183031',
+          code: '183031',
           response: 'ADA not included on calculations',
           active: true,
           label: 'ADA not included on calculations',
@@ -330,7 +330,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           nextQuestionId: '45182',
         },
         {
-          id: '183032',
+          code: '183032',
           response: 'Immigration warrant not applied/misfiled/missing',
           active: true,
           label: 'Immigration warrant not applied/misfiled/missing',
@@ -339,7 +339,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           nextQuestionId: '45182',
         },
         {
-          id: '183033',
+          code: '183033',
           response: 'Remand warrant not applied/misfiled/missing',
           active: true,
           label: 'Remand warrant not applied/misfiled/missing',
@@ -348,7 +348,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           nextQuestionId: '45182',
         },
         {
-          id: '183034',
+          code: '183034',
           response: 'Imprisonment warrant not applied/misfiled/missing',
           active: true,
           label: 'Imprisonment warrant not applied/misfiled/missing',
@@ -357,7 +357,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           nextQuestionId: '45182',
         },
         {
-          id: '183035',
+          code: '183035',
           response: 'Civil/non payment of fines warrant not applied/misfiled/missing',
           active: true,
           label: 'Civil/non payment of fines warrant not applied/misfiled/missing',
@@ -366,7 +366,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           nextQuestionId: '45182',
         },
         {
-          id: '183036',
+          code: '183036',
           response: 'Bail conditions not fully met',
           active: true,
           label: 'Bail conditions not fully met',
@@ -375,7 +375,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           nextQuestionId: '45182',
         },
         {
-          id: '183037',
+          code: '183037',
           response: 'Release criteria not met',
           active: true,
           label: 'Release criteria not met',
@@ -384,7 +384,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           nextQuestionId: '45182',
         },
         {
-          id: '183038',
+          code: '183038',
           response: 'Recall procedures not applied',
           active: true,
           label: 'Recall procedures not applied',
@@ -393,7 +393,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           nextQuestionId: '45182',
         },
         {
-          id: '183039',
+          code: '183039',
           response: 'Other : Please explain',
           active: true,
           label: 'Other : please explain',
@@ -411,7 +411,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
       multipleAnswers: true,
       answers: [
         {
-          id: '182704',
+          code: '182704',
           response: 'Recall procedures',
           active: false,
           label: 'Recall procedures',
@@ -420,7 +420,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
-          id: '182705',
+          code: '182705',
           response: 'Home Probation Officer',
           active: false,
           label: 'Home probation officer',
@@ -429,7 +429,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
-          id: '182706',
+          code: '182706',
           response: 'Prisoner contacted',
           active: false,
           label: 'Prisoner contacted',
@@ -438,7 +438,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
-          id: '182707',
+          code: '182707',
           response: 'Court contacted',
           active: false,
           label: 'Court contacted',
@@ -447,7 +447,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
-          id: '182708',
+          code: '182708',
           response: 'Police contacted',
           active: false,
           label: 'Police contacted',
@@ -456,7 +456,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
-          id: '182709',
+          code: '182709',
           response: 'Other: Please explain',
           active: false,
           label: 'Other: please explain',
@@ -465,7 +465,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
-          id: '182710',
+          code: '182710',
           response: 'None - explain why none of the above procedures have been actioned',
           active: false,
           label: 'None - explain why none of the above procedures have been actioned',
@@ -474,7 +474,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
-          id: '183040',
+          code: '183040',
           response: 'Recall procedures',
           active: true,
           label: 'Recall procedures',
@@ -483,7 +483,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           nextQuestionId: '45183',
         },
         {
-          id: '183041',
+          code: '183041',
           response: 'Home Probation Officer',
           active: true,
           label: 'Home probation officer',
@@ -492,7 +492,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           nextQuestionId: '45183',
         },
         {
-          id: '183042',
+          code: '183042',
           response: 'Prisoner contacted',
           active: true,
           label: 'Prisoner contacted',
@@ -501,7 +501,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           nextQuestionId: '45183',
         },
         {
-          id: '183043',
+          code: '183043',
           response: 'Court contacted',
           active: true,
           label: 'Court contacted',
@@ -510,7 +510,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           nextQuestionId: '45183',
         },
         {
-          id: '183044',
+          code: '183044',
           response: 'Police contacted',
           active: true,
           label: 'Police contacted',
@@ -519,7 +519,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           nextQuestionId: '45183',
         },
         {
-          id: '183045',
+          code: '183045',
           response: 'Other : Please explain',
           active: true,
           label: 'Other : please explain',
@@ -528,7 +528,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           nextQuestionId: '45183',
         },
         {
-          id: '183046',
+          code: '183046',
           response: 'None - explain why none of the above procedures have been actioned',
           active: true,
           label: 'None - explain why none of the above procedures have been actioned',
@@ -546,7 +546,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
       multipleAnswers: true,
       answers: [
         {
-          id: '182711',
+          code: '182711',
           response: 'Contact from PEMS',
           active: false,
           label: 'Contact from PEMS',
@@ -555,7 +555,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
-          id: '182712',
+          code: '182712',
           response: 'Contact from Courts',
           active: false,
           label: 'Contact from courts',
@@ -564,7 +564,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
-          id: '182713',
+          code: '182713',
           response: 'Contact from UKBA',
           active: false,
           label: 'Contact from UKBA',
@@ -573,7 +573,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
-          id: '182714',
+          code: '182714',
           response: 'Contact from Police',
           active: false,
           label: 'Contact from police',
@@ -582,7 +582,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
-          id: '182715',
+          code: '182715',
           response: 'Post release check by Establishment',
           active: false,
           label: 'Post release check by establishment',
@@ -591,7 +591,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
-          id: '182716',
+          code: '182716',
           response: 'Contact from other agency: Please enter details',
           active: false,
           label: 'Contact from other agency: please enter details',
@@ -600,7 +600,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
-          id: '182717',
+          code: '182717',
           response: 'Sentence calculations',
           active: false,
           label: 'Sentence calculations',
@@ -609,7 +609,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
-          id: '182718',
+          code: '182718',
           response: 'Other: Please explain',
           active: false,
           label: 'Other: please explain',
@@ -618,7 +618,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
-          id: '183047',
+          code: '183047',
           response: 'Contact from PEMS',
           active: false,
           label: 'Contact from PEMS',
@@ -627,7 +627,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           nextQuestionId: '45184',
         },
         {
-          id: '183048',
+          code: '183048',
           response: 'Contact from courts',
           active: true,
           label: 'Contact from courts',
@@ -636,7 +636,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           nextQuestionId: '45184',
         },
         {
-          id: '183049',
+          code: '183049',
           response: 'Contact from UKBA',
           active: true,
           label: 'Contact from UKBA',
@@ -645,7 +645,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           nextQuestionId: '45184',
         },
         {
-          id: '183050',
+          code: '183050',
           response: 'Contact from police',
           active: true,
           label: 'Contact from police',
@@ -654,7 +654,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           nextQuestionId: '45184',
         },
         {
-          id: '183051',
+          code: '183051',
           response: 'Post release check by Establishment',
           active: true,
           label: 'Post release check by establishment',
@@ -663,7 +663,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           nextQuestionId: '45184',
         },
         {
-          id: '183052',
+          code: '183052',
           response: 'Contact from other agency : Please enter details',
           active: true,
           label: 'Contact from other agency : please enter details',
@@ -672,7 +672,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           nextQuestionId: '45184',
         },
         {
-          id: '183053',
+          code: '183053',
           response: 'Sentence calculations (new receptions)',
           active: true,
           label: 'Sentence calculations (new receptions)',
@@ -681,7 +681,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           nextQuestionId: '45184',
         },
         {
-          id: '183054',
+          code: '183054',
           response: 'Other: Please explain',
           active: true,
           label: 'Other: please explain',
@@ -690,7 +690,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           nextQuestionId: '45184',
         },
         {
-          id: '184686',
+          code: '184686',
           response: 'Contact from PEMS',
           active: true,
           label: 'Contact from PEMS',
@@ -708,7 +708,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '182719',
+          code: '182719',
           response: 'Date:',
           active: false,
           label: 'Date:',
@@ -717,7 +717,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
-          id: '183055',
+          code: '183055',
           response: 'Date:',
           active: true,
           label: 'Date:',
@@ -735,7 +735,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '182720',
+          code: '182720',
           response: 'Enter details:',
           active: false,
           label: 'Enter details:',
@@ -744,7 +744,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
-          id: '183056',
+          code: '183056',
           response: 'Enter details:',
           active: true,
           label: 'Enter details:',
@@ -762,7 +762,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '182721',
+          code: '182721',
           response: 'Sentenced prisoner',
           active: false,
           label: 'Sentenced prisoner',
@@ -771,7 +771,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
-          id: '182722',
+          code: '182722',
           response: 'Remand prisoner',
           active: false,
           label: 'Remand prisoner',
@@ -780,7 +780,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
-          id: '182723',
+          code: '182723',
           response: 'Immigration detainee',
           active: false,
           label: 'Immigration detainee',
@@ -789,7 +789,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
-          id: '182724',
+          code: '182724',
           response: 'Recall prisoner',
           active: false,
           label: 'Recall prisoner',
@@ -798,7 +798,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
-          id: '182725',
+          code: '182725',
           response: 'Civil prisoner',
           active: false,
           label: 'Civil prisoner',
@@ -807,7 +807,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
-          id: '183057',
+          code: '183057',
           response: 'Sentenced prisoner',
           active: true,
           label: 'Sentenced prisoner',
@@ -816,7 +816,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           nextQuestionId: '45189',
         },
         {
-          id: '183058',
+          code: '183058',
           response: 'Remand prisoner',
           active: true,
           label: 'Remand prisoner',
@@ -825,7 +825,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           nextQuestionId: '45189',
         },
         {
-          id: '183059',
+          code: '183059',
           response: 'Immigration detainee',
           active: true,
           label: 'Immigration detainee',
@@ -834,7 +834,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           nextQuestionId: '45189',
         },
         {
-          id: '183060',
+          code: '183060',
           response: 'Recall prisoner',
           active: true,
           label: 'Recall prisoner',
@@ -843,7 +843,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           nextQuestionId: '45189',
         },
         {
-          id: '183061',
+          code: '183061',
           response: 'Civil prisoner',
           active: true,
           label: 'Civil prisoner',
@@ -861,7 +861,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '182726',
+          code: '182726',
           response: 'Yes: Date',
           active: false,
           label: 'Yes: date',
@@ -870,7 +870,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
-          id: '182727',
+          code: '182727',
           response: 'Police Incident Number:',
           active: false,
           label: 'Police incident number:',
@@ -879,7 +879,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
-          id: '182728',
+          code: '182728',
           response: 'No',
           active: false,
           label: 'No',
@@ -897,7 +897,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
       multipleAnswers: true,
       answers: [
         {
-          id: '182729',
+          code: '182729',
           response: 'Yes: Date',
           active: false,
           label: 'Yes: date',
@@ -906,7 +906,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
-          id: '182730',
+          code: '182730',
           response: 'No',
           active: false,
           label: 'No',
@@ -915,7 +915,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
-          id: '182731',
+          code: '182731',
           response: 'Incident Ref No:',
           active: false,
           label: 'Incident ref no:',
@@ -924,7 +924,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
-          id: '183065',
+          code: '183065',
           response: 'Yes: Date',
           active: true,
           label: 'Yes: date',
@@ -933,7 +933,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           nextQuestionId: '45190',
         },
         {
-          id: '183066',
+          code: '183066',
           response: 'Incident Ref No:',
           active: true,
           label: 'Incident ref no:',
@@ -942,7 +942,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           nextQuestionId: '45190',
         },
         {
-          id: '183067',
+          code: '183067',
           response: 'No',
           active: true,
           label: 'No',
@@ -960,7 +960,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
       multipleAnswers: true,
       answers: [
         {
-          id: '182732',
+          code: '182732',
           response: 'Yes: Date',
           active: false,
           label: 'Yes: date',
@@ -969,7 +969,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
-          id: '182733',
+          code: '182733',
           response: 'Police Incident Number:',
           active: false,
           label: 'Police incident number:',
@@ -978,7 +978,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
-          id: '182734',
+          code: '182734',
           response: 'No',
           active: false,
           label: 'No',
@@ -987,7 +987,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
-          id: '183062',
+          code: '183062',
           response: 'Yes: Date',
           active: true,
           label: 'Yes: date',
@@ -996,7 +996,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           nextQuestionId: '45188',
         },
         {
-          id: '183063',
+          code: '183063',
           response: 'Police Incident Number:',
           active: true,
           label: 'Police incident number:',
@@ -1005,7 +1005,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           nextQuestionId: '45188',
         },
         {
-          id: '183064',
+          code: '183064',
           response: 'No',
           active: true,
           label: 'No',
@@ -1023,7 +1023,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '182735',
+          code: '182735',
           response: 'Yes',
           active: false,
           label: 'Yes',
@@ -1032,7 +1032,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
-          id: '182736',
+          code: '182736',
           response: 'No',
           active: false,
           label: 'No',
@@ -1041,7 +1041,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
-          id: '182737',
+          code: '182737',
           response: 'Other: Please enter details',
           active: false,
           label: 'Other: please enter details',
@@ -1050,7 +1050,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
-          id: '183068',
+          code: '183068',
           response: 'Yes',
           active: true,
           label: 'Yes',
@@ -1059,7 +1059,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           nextQuestionId: '45191',
         },
         {
-          id: '183069',
+          code: '183069',
           response: 'No',
           active: false,
           label: 'No',
@@ -1068,7 +1068,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           nextQuestionId: '45191',
         },
         {
-          id: '183070',
+          code: '183070',
           response: 'Other: Please enter details',
           active: true,
           label: 'Other: please enter details',
@@ -1077,7 +1077,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           nextQuestionId: '45191',
         },
         {
-          id: '184684',
+          code: '184684',
           response: 'No',
           active: true,
           label: 'No',
@@ -1095,7 +1095,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '182738',
+          code: '182738',
           response: 'Date:',
           active: false,
           label: 'Date:',
@@ -1104,7 +1104,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
-          id: '183071',
+          code: '183071',
           response: 'Date:',
           active: true,
           label: 'Date:',
@@ -1122,7 +1122,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '182739',
+          code: '182739',
           response: 'Yes: Please enter details of offence',
           active: false,
           label: 'Yes: please enter details of offence',
@@ -1131,7 +1131,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
-          id: '182740',
+          code: '182740',
           response: 'No',
           active: false,
           label: 'No',
@@ -1140,7 +1140,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
-          id: '183072',
+          code: '183072',
           response: 'Yes: Please enter details of offence',
           active: true,
           label: 'Yes: please enter details of offence',
@@ -1149,7 +1149,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           nextQuestionId: '45193',
         },
         {
-          id: '183073',
+          code: '183073',
           response: 'No',
           active: true,
           label: 'No',
@@ -1167,7 +1167,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '182741',
+          code: '182741',
           response: 'Enter details:',
           active: false,
           label: 'Enter details:',
@@ -1176,7 +1176,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
-          id: '183074',
+          code: '183074',
           response: 'Enter details:',
           active: true,
           label: 'Enter details:',
@@ -1194,7 +1194,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '182742',
+          code: '182742',
           response: 'Enter value',
           active: false,
           label: 'Enter value',
@@ -1212,7 +1212,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
       multipleAnswers: true,
       answers: [
         {
-          id: '182743',
+          code: '182743',
           response: 'Hours',
           active: false,
           label: 'Hours',
@@ -1221,7 +1221,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
-          id: '182744',
+          code: '182744',
           response: 'Days',
           active: false,
           label: 'Days',
@@ -1230,7 +1230,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
-          id: '182745',
+          code: '182745',
           response: 'Weeks',
           active: false,
           label: 'Weeks',
@@ -1239,7 +1239,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
-          id: '182746',
+          code: '182746',
           response: 'Months',
           active: false,
           label: 'Months',
@@ -1248,7 +1248,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
-          id: '182747',
+          code: '182747',
           response: 'Other',
           active: false,
           label: 'Other',
@@ -1266,7 +1266,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
       multipleAnswers: true,
       answers: [
         {
-          id: '183075',
+          code: '183075',
           response: 'Hours',
           active: true,
           label: 'Hours',
@@ -1275,7 +1275,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
-          id: '183076',
+          code: '183076',
           response: 'Days',
           active: true,
           label: 'Days',
@@ -1284,7 +1284,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
-          id: '183077',
+          code: '183077',
           response: 'Weeks',
           active: true,
           label: 'Weeks',
@@ -1293,7 +1293,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
-          id: '183078',
+          code: '183078',
           response: 'Months',
           active: true,
           label: 'Months',
@@ -1302,7 +1302,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
-          id: '183079',
+          code: '183079',
           response: 'Other',
           active: true,
           label: 'Other',

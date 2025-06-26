@@ -15,7 +15,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
       multipleAnswers: true,
       answers: [
         {
-          id: '182826',
+          code: '182826',
           response: 'Mobile:',
           active: false,
           label: 'Mobile:',
@@ -24,7 +24,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
-          id: '182827',
+          code: '182827',
           response: 'SIM:',
           active: false,
           label: 'SIM:',
@@ -33,7 +33,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
-          id: '182828',
+          code: '182828',
           response: 'Charger:',
           active: false,
           label: 'Charger:',
@@ -42,7 +42,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
-          id: '182829',
+          code: '182829',
           response: 'Other please specify:',
           active: false,
           label: 'Other please specify:',
@@ -51,7 +51,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
-          id: '182941',
+          code: '182941',
           response: 'Mobile:',
           active: false,
           label: 'Mobile:',
@@ -60,7 +60,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           nextQuestionId: '45210',
         },
         {
-          id: '182942',
+          code: '182942',
           response: 'SIM:',
           active: false,
           label: 'SIM:',
@@ -69,7 +69,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           nextQuestionId: '45210',
         },
         {
-          id: '182943',
+          code: '182943',
           response: 'Charger:',
           active: false,
           label: 'Charger:',
@@ -78,7 +78,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           nextQuestionId: '45210',
         },
         {
-          id: '182944',
+          code: '182944',
           response: 'Other please specify:',
           active: false,
           label: 'Other please specify:',
@@ -96,7 +96,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '182830',
+          code: '182830',
           response: 'Enter Date:',
           active: false,
           label: 'Enter date:',
@@ -105,7 +105,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
-          id: '183080',
+          code: '183080',
           response: 'Enter Date:',
           active: false,
           label: 'Enter date:',
@@ -123,7 +123,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '182831',
+          code: '182831',
           response: 'Enter Time:',
           active: true,
           label: 'Enter time:',
@@ -132,7 +132,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
-          id: '183081',
+          code: '183081',
           response: 'Enter Time:',
           active: true,
           label: 'Enter time:',
@@ -150,7 +150,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '182832',
+          code: '182832',
           response: 'Yes',
           active: false,
           label: 'Yes',
@@ -159,7 +159,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
-          id: '182833',
+          code: '182833',
           response: 'No',
           active: false,
           label: 'No',
@@ -168,7 +168,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
-          id: '183082',
+          code: '183082',
           response: 'Yes',
           active: false,
           label: 'Yes',
@@ -177,7 +177,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           nextQuestionId: '45213',
         },
         {
-          id: '183083',
+          code: '183083',
           response: 'No',
           active: false,
           label: 'No',
@@ -195,7 +195,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '182834',
+          code: '182834',
           response: 'Staff',
           active: false,
           label: 'Staff',
@@ -204,7 +204,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
-          id: '182835',
+          code: '182835',
           response: 'Prisoner/Young Offender',
           active: false,
           label: 'Prisoner/young offender',
@@ -213,7 +213,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
-          id: '182836',
+          code: '182836',
           response: 'Visitor: Specify:',
           active: false,
           label: 'Visitor: specify:',
@@ -222,7 +222,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
-          id: '182837',
+          code: '182837',
           response: 'Social',
           active: false,
           label: 'Social',
@@ -231,7 +231,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
-          id: '182838',
+          code: '182838',
           response: 'Official',
           active: false,
           label: 'Official',
@@ -240,7 +240,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
-          id: '182839',
+          code: '182839',
           response: 'Contractor',
           active: false,
           label: 'Contractor',
@@ -249,7 +249,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
-          id: '182840',
+          code: '182840',
           response: 'Thrown In',
           active: false,
           label: 'Thrown in',
@@ -258,7 +258,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
-          id: '182841',
+          code: '182841',
           response: 'Post - Social/Rule 39',
           active: false,
           label: 'Post - social/rule 39',
@@ -267,7 +267,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
-          id: '182842',
+          code: '182842',
           response: 'Not attributable',
           active: false,
           label: 'Not attributable',
@@ -276,7 +276,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
-          id: '182843',
+          code: '182843',
           response: 'Other: Please specify',
           active: false,
           label: 'Other: please specify',
@@ -285,7 +285,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
-          id: '183084',
+          code: '183084',
           response: 'Staff',
           active: false,
           label: 'Staff',
@@ -294,7 +294,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           nextQuestionId: '45214',
         },
         {
-          id: '183085',
+          code: '183085',
           response: 'Prisoner / Young Offender',
           active: false,
           label: 'Prisoner / young offender',
@@ -303,7 +303,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           nextQuestionId: '45214',
         },
         {
-          id: '183086',
+          code: '183086',
           response: 'Visitor: Social',
           active: false,
           label: 'Visitor: social',
@@ -312,7 +312,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           nextQuestionId: '45214',
         },
         {
-          id: '183087',
+          code: '183087',
           response: 'Visitor: Official',
           active: false,
           label: 'Visitor: official',
@@ -321,7 +321,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           nextQuestionId: '45214',
         },
         {
-          id: '183088',
+          code: '183088',
           response: 'Contractor',
           active: false,
           label: 'Contractor',
@@ -330,7 +330,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           nextQuestionId: '45214',
         },
         {
-          id: '183089',
+          code: '183089',
           response: 'Thrown In',
           active: false,
           label: 'Thrown in',
@@ -339,7 +339,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           nextQuestionId: '45214',
         },
         {
-          id: '183090',
+          code: '183090',
           response: 'Post – Social / Rule 39',
           active: false,
           label: 'Post – social / rule 39',
@@ -348,7 +348,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           nextQuestionId: '45214',
         },
         {
-          id: '183091',
+          code: '183091',
           response: 'Not attributable',
           active: false,
           label: 'Not attributable',
@@ -357,7 +357,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           nextQuestionId: '45214',
         },
         {
-          id: '183092',
+          code: '183092',
           response: 'Other : Please Specify',
           active: false,
           label: 'Other : please specify',
@@ -375,7 +375,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
       multipleAnswers: true,
       answers: [
         {
-          id: '182844',
+          code: '182844',
           response: 'Boss Chair',
           active: false,
           label: 'Boss chair',
@@ -384,7 +384,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
-          id: '182845',
+          code: '182845',
           response: 'High Sensitivity Wand',
           active: false,
           label: 'High sensitivity wand',
@@ -393,7 +393,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
-          id: '182846',
+          code: '182846',
           response: 'Mobile Phone Detection Dog',
           active: false,
           label: 'Mobile phone detection dog',
@@ -402,7 +402,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
-          id: '182847',
+          code: '182847',
           response: 'Physical search',
           active: false,
           label: 'Physical search',
@@ -411,7 +411,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
-          id: '182848',
+          code: '182848',
           response: 'Cell search',
           active: false,
           label: 'Cell search',
@@ -420,7 +420,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
-          id: '182849',
+          code: '182849',
           response: 'Unusual/Suspicious behaviour',
           active: false,
           label: 'Unusual/suspicious behaviour',
@@ -429,7 +429,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
-          id: '182850',
+          code: '182850',
           response: 'Mobile phone signal detector',
           active: false,
           label: 'Mobile phone signal detector',
@@ -438,7 +438,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
-          id: '182851',
+          code: '182851',
           response: 'Intelligence led search',
           active: false,
           label: 'Intelligence led search',
@@ -447,7 +447,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
-          id: '182852',
+          code: '182852',
           response: 'Information received',
           active: false,
           label: 'Information received',
@@ -456,7 +456,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
-          id: '182853',
+          code: '182853',
           response: 'Other: Please specify',
           active: false,
           label: 'Other: please specify',
@@ -465,7 +465,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
-          id: '183093',
+          code: '183093',
           response: 'Boss Chair',
           active: false,
           label: 'Boss chair',
@@ -474,7 +474,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           nextQuestionId: '45215',
         },
         {
-          id: '183094',
+          code: '183094',
           response: 'High Sensitivity Wand',
           active: false,
           label: 'High sensitivity wand',
@@ -483,7 +483,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           nextQuestionId: '45215',
         },
         {
-          id: '183095',
+          code: '183095',
           response: 'Mobile phone detection Dog',
           active: false,
           label: 'Mobile phone detection dog',
@@ -492,7 +492,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           nextQuestionId: '45215',
         },
         {
-          id: '183096',
+          code: '183096',
           response: 'Physical Search',
           active: false,
           label: 'Physical search',
@@ -501,7 +501,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           nextQuestionId: '45215',
         },
         {
-          id: '183097',
+          code: '183097',
           response: 'Cell Search',
           active: false,
           label: 'Cell search',
@@ -510,7 +510,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           nextQuestionId: '45215',
         },
         {
-          id: '183098',
+          code: '183098',
           response: 'Unusual/Suspicious Behaviour',
           active: false,
           label: 'Unusual/suspicious behaviour',
@@ -519,7 +519,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           nextQuestionId: '45215',
         },
         {
-          id: '183099',
+          code: '183099',
           response: 'Mobile phone signal detector',
           active: false,
           label: 'Mobile phone signal detector',
@@ -528,7 +528,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           nextQuestionId: '45215',
         },
         {
-          id: '183100',
+          code: '183100',
           response: 'Intelligence led search',
           active: false,
           label: 'Intelligence led search',
@@ -537,7 +537,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           nextQuestionId: '45215',
         },
         {
-          id: '183101',
+          code: '183101',
           response: 'Information Received',
           active: false,
           label: 'Information received',
@@ -546,7 +546,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           nextQuestionId: '45215',
         },
         {
-          id: '183102',
+          code: '183102',
           response: 'Other: Please Specify',
           active: false,
           label: 'Other: please specify',
@@ -564,7 +564,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '182854',
+          code: '182854',
           response: 'Prisoner/Young Offender',
           active: false,
           label: 'Prisoner/young offender',
@@ -573,7 +573,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
-          id: '182855',
+          code: '182855',
           response: 'Staff',
           active: false,
           label: 'Staff',
@@ -582,7 +582,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
-          id: '182856',
+          code: '182856',
           response: 'Contractor',
           active: false,
           label: 'Contractor',
@@ -591,7 +591,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
-          id: '182857',
+          code: '182857',
           response: 'Visitor: Please specify',
           active: false,
           label: 'Visitor: please specify',
@@ -600,7 +600,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
-          id: '182858',
+          code: '182858',
           response: 'Official',
           active: false,
           label: 'Official',
@@ -609,7 +609,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
-          id: '182859',
+          code: '182859',
           response: 'Other: Please specify',
           active: false,
           label: 'Other: please specify',
@@ -618,7 +618,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
-          id: '183103',
+          code: '183103',
           response: 'Prisoner/Young Offender',
           active: false,
           label: 'Prisoner/young offender',
@@ -627,7 +627,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           nextQuestionId: '45216',
         },
         {
-          id: '183104',
+          code: '183104',
           response: 'Staff',
           active: false,
           label: 'Staff',
@@ -636,7 +636,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           nextQuestionId: '45216',
         },
         {
-          id: '183105',
+          code: '183105',
           response: 'Contractor',
           active: false,
           label: 'Contractor',
@@ -645,7 +645,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           nextQuestionId: '45216',
         },
         {
-          id: '183106',
+          code: '183106',
           response: 'Visitor: Social',
           active: false,
           label: 'Visitor: social',
@@ -654,7 +654,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           nextQuestionId: '45216',
         },
         {
-          id: '183107',
+          code: '183107',
           response: 'Visitor: Official',
           active: false,
           label: 'Visitor: official',
@@ -663,7 +663,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           nextQuestionId: '45216',
         },
         {
-          id: '183108',
+          code: '183108',
           response: 'Other: Please Specify',
           active: false,
           label: 'Other: please specify',
@@ -681,7 +681,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '182860',
+          code: '182860',
           response: 'Administration Area',
           active: false,
           label: 'Administration area',
@@ -690,7 +690,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
-          id: '182861',
+          code: '182861',
           response: 'Association Area',
           active: false,
           label: 'Association area',
@@ -699,7 +699,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
-          id: '182862',
+          code: '182862',
           response: 'Prisoner Accommodation',
           active: false,
           label: 'Prisoner accommodation',
@@ -708,7 +708,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
-          id: '182863',
+          code: '182863',
           response: 'Chapel',
           active: false,
           label: 'Chapel',
@@ -717,7 +717,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
-          id: '182864',
+          code: '182864',
           response: 'Dormitory',
           active: false,
           label: 'Dormitory',
@@ -726,7 +726,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
-          id: '182865',
+          code: '182865',
           response: 'Education',
           active: false,
           label: 'Education',
@@ -735,7 +735,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
-          id: '182866',
+          code: '182866',
           response: 'Exercise Yard',
           active: false,
           label: 'Exercise yard',
@@ -744,7 +744,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
-          id: '182867',
+          code: '182867',
           response: 'External Area (within prison grounds)',
           active: false,
           label: 'External area (within prison grounds)',
@@ -753,7 +753,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
-          id: '182868',
+          code: '182868',
           response: 'Gate',
           active: false,
           label: 'Gate',
@@ -762,7 +762,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
-          id: '182869',
+          code: '182869',
           response: 'Gym',
           active: false,
           label: 'Gym',
@@ -771,7 +771,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
-          id: '182870',
+          code: '182870',
           response: 'Health Care Centre',
           active: false,
           label: 'Health care centre',
@@ -780,7 +780,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
-          id: '182871',
+          code: '182871',
           response: 'Kitchen',
           active: false,
           label: 'Kitchen',
@@ -789,7 +789,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
-          id: '182872',
+          code: '182872',
           response: 'Post/Parcel',
           active: false,
           label: 'Post/parcel',
@@ -798,7 +798,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
-          id: '182873',
+          code: '182873',
           response: 'Reception',
           active: false,
           label: 'Reception',
@@ -807,7 +807,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
-          id: '182874',
+          code: '182874',
           response: 'Recess',
           active: false,
           label: 'Recess',
@@ -816,7 +816,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
-          id: '182875',
+          code: '182875',
           response: 'Segregation Unit',
           active: false,
           label: 'Segregation unit',
@@ -825,7 +825,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
-          id: '182876',
+          code: '182876',
           response: 'Special Unit',
           active: false,
           label: 'Special unit',
@@ -834,7 +834,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
-          id: '182877',
+          code: '182877',
           response: 'Showers/Changing Room',
           active: false,
           label: 'Showers/changing room',
@@ -843,7 +843,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
-          id: '182878',
+          code: '182878',
           response: 'Visits',
           active: false,
           label: 'Visits',
@@ -852,7 +852,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
-          id: '182879',
+          code: '182879',
           response: 'Wing',
           active: false,
           label: 'Wing',
@@ -861,7 +861,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
-          id: '182880',
+          code: '182880',
           response: 'Works Department',
           active: false,
           label: 'Works department',
@@ -870,7 +870,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
-          id: '182881',
+          code: '182881',
           response: 'Workshop',
           active: false,
           label: 'Workshop',
@@ -879,7 +879,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
-          id: '182882',
+          code: '182882',
           response: 'Sports field',
           active: false,
           label: 'Sports field',
@@ -888,7 +888,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
-          id: '182883',
+          code: '182883',
           response: 'Staff Area',
           active: false,
           label: 'Staff area',
@@ -897,7 +897,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
-          id: '182884',
+          code: '182884',
           response: 'Other: Please Specify',
           active: false,
           label: 'Other: please specify',
@@ -906,7 +906,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
-          id: '183109',
+          code: '183109',
           response: 'Administration Area',
           active: false,
           label: 'Administration area',
@@ -915,7 +915,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           nextQuestionId: '45217',
         },
         {
-          id: '183110',
+          code: '183110',
           response: 'Association Area',
           active: false,
           label: 'Association area',
@@ -924,7 +924,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           nextQuestionId: '45217',
         },
         {
-          id: '183111',
+          code: '183111',
           response: 'Prisoner Accommodation',
           active: false,
           label: 'Prisoner accommodation',
@@ -933,7 +933,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           nextQuestionId: '45217',
         },
         {
-          id: '183112',
+          code: '183112',
           response: 'Chapel',
           active: false,
           label: 'Chapel',
@@ -942,7 +942,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           nextQuestionId: '45217',
         },
         {
-          id: '183113',
+          code: '183113',
           response: 'Dormitory',
           active: false,
           label: 'Dormitory',
@@ -951,7 +951,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           nextQuestionId: '45217',
         },
         {
-          id: '183114',
+          code: '183114',
           response: 'Education',
           active: false,
           label: 'Education',
@@ -960,7 +960,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           nextQuestionId: '45217',
         },
         {
-          id: '183115',
+          code: '183115',
           response: 'Exercise Yard',
           active: false,
           label: 'Exercise yard',
@@ -969,7 +969,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           nextQuestionId: '45217',
         },
         {
-          id: '183116',
+          code: '183116',
           response: 'External Area (within prison grounds)',
           active: false,
           label: 'External area (within prison grounds)',
@@ -978,7 +978,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           nextQuestionId: '45217',
         },
         {
-          id: '183117',
+          code: '183117',
           response: 'Gate',
           active: false,
           label: 'Gate',
@@ -987,7 +987,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           nextQuestionId: '45217',
         },
         {
-          id: '183118',
+          code: '183118',
           response: 'Gym',
           active: false,
           label: 'Gym',
@@ -996,7 +996,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           nextQuestionId: '45217',
         },
         {
-          id: '183119',
+          code: '183119',
           response: 'Health Care Centre',
           active: false,
           label: 'Health care centre',
@@ -1005,7 +1005,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           nextQuestionId: '45217',
         },
         {
-          id: '183120',
+          code: '183120',
           response: 'Kitchen',
           active: false,
           label: 'Kitchen',
@@ -1014,7 +1014,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           nextQuestionId: '45217',
         },
         {
-          id: '183121',
+          code: '183121',
           response: 'Post/Parcel',
           active: false,
           label: 'Post/parcel',
@@ -1023,7 +1023,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           nextQuestionId: '45217',
         },
         {
-          id: '183122',
+          code: '183122',
           response: 'Reception',
           active: false,
           label: 'Reception',
@@ -1032,7 +1032,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           nextQuestionId: '45217',
         },
         {
-          id: '183123',
+          code: '183123',
           response: 'Recess',
           active: false,
           label: 'Recess',
@@ -1041,7 +1041,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           nextQuestionId: '45217',
         },
         {
-          id: '183124',
+          code: '183124',
           response: 'Segregation Unit',
           active: false,
           label: 'Segregation unit',
@@ -1050,7 +1050,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           nextQuestionId: '45217',
         },
         {
-          id: '183125',
+          code: '183125',
           response: 'Special Unit',
           active: false,
           label: 'Special unit',
@@ -1059,7 +1059,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           nextQuestionId: '45217',
         },
         {
-          id: '183126',
+          code: '183126',
           response: 'Showers/Changing Room',
           active: false,
           label: 'Showers/changing room',
@@ -1068,7 +1068,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           nextQuestionId: '45217',
         },
         {
-          id: '183127',
+          code: '183127',
           response: 'Visits',
           active: false,
           label: 'Visits',
@@ -1077,7 +1077,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           nextQuestionId: '45217',
         },
         {
-          id: '183128',
+          code: '183128',
           response: 'Wing',
           active: false,
           label: 'Wing',
@@ -1086,7 +1086,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           nextQuestionId: '45217',
         },
         {
-          id: '183129',
+          code: '183129',
           response: 'Works Department',
           active: false,
           label: 'Works department',
@@ -1095,7 +1095,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           nextQuestionId: '45217',
         },
         {
-          id: '183130',
+          code: '183130',
           response: 'Workshop',
           active: false,
           label: 'Workshop',
@@ -1104,7 +1104,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           nextQuestionId: '45217',
         },
         {
-          id: '183131',
+          code: '183131',
           response: 'Sports field',
           active: false,
           label: 'Sports field',
@@ -1113,7 +1113,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           nextQuestionId: '45217',
         },
         {
-          id: '183132',
+          code: '183132',
           response: 'Staff Area',
           active: false,
           label: 'Staff area',
@@ -1122,7 +1122,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           nextQuestionId: '45217',
         },
         {
-          id: '183133',
+          code: '183133',
           response: 'Other: Please Specify',
           active: false,
           label: 'Other: please specify',
@@ -1140,7 +1140,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '182885',
+          code: '182885',
           response: 'Yes: Please specify',
           active: false,
           label: 'Yes: please specify',
@@ -1149,7 +1149,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
-          id: '182886',
+          code: '182886',
           response: 'No',
           active: false,
           label: 'No',
@@ -1158,7 +1158,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
-          id: '183134',
+          code: '183134',
           response: 'Yes: Please specify',
           active: false,
           label: 'Yes: please specify',
@@ -1167,7 +1167,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           nextQuestionId: '45218',
         },
         {
-          id: '183135',
+          code: '183135',
           response: 'No',
           active: false,
           label: 'No',
@@ -1185,7 +1185,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
       multipleAnswers: true,
       answers: [
         {
-          id: '182887',
+          code: '182887',
           response: 'Yes: Date',
           active: false,
           label: 'Yes: date',
@@ -1194,7 +1194,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
-          id: '182888',
+          code: '182888',
           response: 'Evidence Bag Number:',
           active: false,
           label: 'Evidence bag number:',
@@ -1203,7 +1203,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
-          id: '182889',
+          code: '182889',
           response: 'No: Please state why',
           active: false,
           label: 'No: please state why',
@@ -1212,7 +1212,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
-          id: '183136',
+          code: '183136',
           response: 'Yes: Date',
           active: false,
           label: 'Yes: date',
@@ -1221,7 +1221,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           nextQuestionId: '45219',
         },
         {
-          id: '183137',
+          code: '183137',
           response: 'Evidence Bag Number:',
           active: false,
           label: 'Evidence bag number:',
@@ -1230,7 +1230,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           nextQuestionId: '45219',
         },
         {
-          id: '183138',
+          code: '183138',
           response: 'No: Please state why',
           active: false,
           label: 'No: please state why',
@@ -1248,7 +1248,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
       multipleAnswers: true,
       answers: [
         {
-          id: '182890',
+          code: '182890',
           response: 'Name:',
           active: false,
           label: 'Name:',
@@ -1257,7 +1257,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
-          id: '182891',
+          code: '182891',
           response: 'Grade:',
           active: false,
           label: 'Grade:',
@@ -1266,7 +1266,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
-          id: '183139',
+          code: '183139',
           response: 'Name:',
           active: false,
           label: 'Name:',
@@ -1275,7 +1275,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           nextQuestionId: '45220',
         },
         {
-          id: '183140',
+          code: '183140',
           response: 'Grade:',
           active: false,
           label: 'Grade:',
@@ -1293,7 +1293,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
       multipleAnswers: true,
       answers: [
         {
-          id: '182892',
+          code: '182892',
           response: 'Yes: Date',
           active: false,
           label: 'Yes: date',
@@ -1302,7 +1302,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
-          id: '182893',
+          code: '182893',
           response: 'Police Incident Number:',
           active: false,
           label: 'Police incident number:',
@@ -1311,7 +1311,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
-          id: '182894',
+          code: '182894',
           response: 'No',
           active: false,
           label: 'No',
@@ -1320,7 +1320,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
-          id: '183141',
+          code: '183141',
           response: 'Yes: Date',
           active: false,
           label: 'Yes: date',
@@ -1329,7 +1329,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           nextQuestionId: '45221',
         },
         {
-          id: '183142',
+          code: '183142',
           response: 'Police Incident Number:',
           active: false,
           label: 'Police incident number:',
@@ -1338,7 +1338,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           nextQuestionId: '45221',
         },
         {
-          id: '183143',
+          code: '183143',
           response: 'No',
           active: false,
           label: 'No',
@@ -1356,7 +1356,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
       multipleAnswers: true,
       answers: [
         {
-          id: '182895',
+          code: '182895',
           response: 'Yes: Date',
           active: false,
           label: 'Yes: date',
@@ -1365,7 +1365,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
-          id: '182896',
+          code: '182896',
           response: 'Police Ref Number:',
           active: false,
           label: 'Police ref number:',
@@ -1374,7 +1374,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
-          id: '182897',
+          code: '182897',
           response: 'No',
           active: false,
           label: 'No',
@@ -1383,7 +1383,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
-          id: '183144',
+          code: '183144',
           response: 'Yes: Date',
           active: false,
           label: 'Yes: date',
@@ -1392,7 +1392,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           nextQuestionId: '45222',
         },
         {
-          id: '183145',
+          code: '183145',
           response: 'Police Ref Number:',
           active: false,
           label: 'Police ref number:',
@@ -1401,7 +1401,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           nextQuestionId: '45222',
         },
         {
-          id: '183146',
+          code: '183146',
           response: 'No',
           active: false,
           label: 'No',
@@ -1419,7 +1419,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '182898',
+          code: '182898',
           response: '1',
           active: false,
           label: '1',
@@ -1428,7 +1428,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
-          id: '182899',
+          code: '182899',
           response: '2',
           active: false,
           label: '2',
@@ -1437,7 +1437,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
-          id: '182900',
+          code: '182900',
           response: 'Urgent',
           active: false,
           label: 'Urgent',
@@ -1446,7 +1446,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
-          id: '183147',
+          code: '183147',
           response: '1',
           active: false,
           label: '1',
@@ -1455,7 +1455,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           nextQuestionId: '45223',
         },
         {
-          id: '183148',
+          code: '183148',
           response: '2',
           active: false,
           label: '2',
@@ -1464,7 +1464,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           nextQuestionId: '45223',
         },
         {
-          id: '183149',
+          code: '183149',
           response: 'Urgent',
           active: false,
           label: 'Urgent',
@@ -1473,7 +1473,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           nextQuestionId: '45223',
         },
         {
-          id: '186684',
+          code: '186684',
           response: 'N/A Not Applicable',
           active: false,
           label: 'N/A not applicable',
@@ -1492,7 +1492,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '182901',
+          code: '182901',
           response: 'Please state where on person mobile phone was found:',
           active: false,
           label: 'Please state where on person mobile phone was found:',
@@ -1501,7 +1501,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
-          id: '183150',
+          code: '183150',
           response: 'Please state where on person mobile phone was found:',
           active: false,
           label: 'Please state where on person mobile phone was found:',
@@ -1519,7 +1519,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '182902',
+          code: '182902',
           response: 'Yes',
           active: false,
           label: 'Yes',
@@ -1528,7 +1528,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
-          id: '182903',
+          code: '182903',
           response: 'No',
           active: false,
           label: 'No',
@@ -1537,7 +1537,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
-          id: '183151',
+          code: '183151',
           response: 'Yes',
           active: false,
           label: 'Yes',
@@ -1546,7 +1546,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           nextQuestionId: '45225',
         },
         {
-          id: '183152',
+          code: '183152',
           response: 'No',
           active: false,
           label: 'No',
@@ -1564,7 +1564,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '182904',
+          code: '182904',
           response: 'Yes: Please state why',
           active: false,
           label: 'Yes: please state why',
@@ -1573,7 +1573,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
-          id: '182905',
+          code: '182905',
           response: 'No',
           active: false,
           label: 'No',
@@ -1582,7 +1582,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
-          id: '183153',
+          code: '183153',
           response: 'Yes: Please state why',
           active: false,
           label: 'Yes: please state why',
@@ -1591,7 +1591,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           nextQuestionId: '45226',
         },
         {
-          id: '183154',
+          code: '183154',
           response: 'No',
           active: false,
           label: 'No',
@@ -1609,7 +1609,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '182906',
+          code: '182906',
           response: 'Yes',
           active: false,
           label: 'Yes',
@@ -1618,7 +1618,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
-          id: '182907',
+          code: '182907',
           response: 'No: Please state why',
           active: false,
           label: 'No: please state why',
@@ -1627,7 +1627,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
-          id: '183155',
+          code: '183155',
           response: 'Yes',
           active: false,
           label: 'Yes',
@@ -1636,7 +1636,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           nextQuestionId: '45227',
         },
         {
-          id: '183156',
+          code: '183156',
           response: 'No: Please state why',
           active: false,
           label: 'No: please state why',
@@ -1654,7 +1654,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '182908',
+          code: '182908',
           response: 'Yes',
           active: false,
           label: 'Yes',
@@ -1663,7 +1663,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
-          id: '182909',
+          code: '182909',
           response: 'No',
           active: false,
           label: 'No',
@@ -1672,7 +1672,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
-          id: '183157',
+          code: '183157',
           response: 'Yes',
           active: false,
           label: 'Yes',
@@ -1681,7 +1681,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           nextQuestionId: '45228',
         },
         {
-          id: '183158',
+          code: '183158',
           response: 'No',
           active: false,
           label: 'No',
@@ -1699,7 +1699,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '182910',
+          code: '182910',
           response: 'Yes',
           active: false,
           label: 'Yes',
@@ -1708,7 +1708,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
-          id: '182911',
+          code: '182911',
           response: 'No',
           active: false,
           label: 'No',
@@ -1717,7 +1717,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
-          id: '183159',
+          code: '183159',
           response: 'Yes',
           active: false,
           label: 'Yes',
@@ -1726,7 +1726,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           nextQuestionId: '45229',
         },
         {
-          id: '183160',
+          code: '183160',
           response: 'No',
           active: false,
           label: 'No',
@@ -1744,7 +1744,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '182912',
+          code: '182912',
           response: 'Yes',
           active: false,
           label: 'Yes',
@@ -1753,7 +1753,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
-          id: '182913',
+          code: '182913',
           response: 'No',
           active: false,
           label: 'No',
@@ -1762,7 +1762,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
-          id: '183161',
+          code: '183161',
           response: 'Yes',
           active: false,
           label: 'Yes',
@@ -1771,7 +1771,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           nextQuestionId: '45230',
         },
         {
-          id: '183162',
+          code: '183162',
           response: 'No',
           active: false,
           label: 'No',
@@ -1789,7 +1789,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '182914',
+          code: '182914',
           response: 'Yes',
           active: false,
           label: 'Yes',
@@ -1798,7 +1798,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
-          id: '182915',
+          code: '182915',
           response: 'No',
           active: false,
           label: 'No',
@@ -1807,7 +1807,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
-          id: '183163',
+          code: '183163',
           response: 'Yes',
           active: false,
           label: 'Yes',
@@ -1816,7 +1816,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           nextQuestionId: '45231',
         },
         {
-          id: '183164',
+          code: '183164',
           response: 'No',
           active: false,
           label: 'No',
@@ -1834,7 +1834,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '182916',
+          code: '182916',
           response: 'Yes: Date',
           active: false,
           label: 'Yes: date',
@@ -1843,7 +1843,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
-          id: '182917',
+          code: '182917',
           response: 'No',
           active: false,
           label: 'No',
@@ -1852,7 +1852,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
-          id: '183165',
+          code: '183165',
           response: 'Yes: Date',
           active: false,
           label: 'Yes: date',
@@ -1861,7 +1861,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           nextQuestionId: '45232',
         },
         {
-          id: '183166',
+          code: '183166',
           response: 'No',
           active: false,
           label: 'No',
@@ -1879,7 +1879,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '182918',
+          code: '182918',
           response: 'HSE',
           active: false,
           label: 'HSE',
@@ -1888,7 +1888,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
-          id: '182919',
+          code: '182919',
           response: 'Local Male',
           active: false,
           label: 'Local male',
@@ -1897,7 +1897,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
-          id: '182920',
+          code: '182920',
           response: 'Cat B Male',
           active: false,
           label: 'Cat b male',
@@ -1906,7 +1906,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
-          id: '182921',
+          code: '182921',
           response: 'Cat C Male',
           active: false,
           label: 'Cat c male',
@@ -1915,7 +1915,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
-          id: '182922',
+          code: '182922',
           response: 'Open Male',
           active: false,
           label: 'Open male',
@@ -1924,7 +1924,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
-          id: '182923',
+          code: '182923',
           response: 'Cluster',
           active: false,
           label: 'Cluster',
@@ -1933,7 +1933,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
-          id: '182924',
+          code: '182924',
           response: 'YOI Male',
           active: false,
           label: 'YOI male',
@@ -1942,7 +1942,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
-          id: '182925',
+          code: '182925',
           response: 'Young People',
           active: false,
           label: 'Young people',
@@ -1951,7 +1951,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
-          id: '182926',
+          code: '182926',
           response: 'Female Estate',
           active: false,
           label: 'Female estate',
@@ -1960,7 +1960,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
-          id: '183167',
+          code: '183167',
           response: 'HSE',
           active: false,
           label: 'HSE',
@@ -1969,7 +1969,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           nextQuestionId: '45233',
         },
         {
-          id: '183168',
+          code: '183168',
           response: 'Local Male',
           active: false,
           label: 'Local male',
@@ -1978,7 +1978,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           nextQuestionId: '45233',
         },
         {
-          id: '183169',
+          code: '183169',
           response: 'Cat B Male',
           active: false,
           label: 'Cat b male',
@@ -1987,7 +1987,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           nextQuestionId: '45233',
         },
         {
-          id: '183170',
+          code: '183170',
           response: 'Cat C Male',
           active: false,
           label: 'Cat c male',
@@ -1996,7 +1996,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           nextQuestionId: '45233',
         },
         {
-          id: '183171',
+          code: '183171',
           response: 'Open Male',
           active: false,
           label: 'Open male',
@@ -2005,7 +2005,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           nextQuestionId: '45233',
         },
         {
-          id: '183172',
+          code: '183172',
           response: 'Cluster',
           active: false,
           label: 'Cluster',
@@ -2014,7 +2014,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           nextQuestionId: '45233',
         },
         {
-          id: '183173',
+          code: '183173',
           response: 'YOI Male',
           active: false,
           label: 'YOI male',
@@ -2023,7 +2023,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           nextQuestionId: '45233',
         },
         {
-          id: '183174',
+          code: '183174',
           response: 'Young People',
           active: false,
           label: 'Young people',
@@ -2032,7 +2032,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           nextQuestionId: '45233',
         },
         {
-          id: '183175',
+          code: '183175',
           response: 'Female Estate',
           active: false,
           label: 'Female estate',
@@ -2050,7 +2050,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '182927',
+          code: '182927',
           response: 'Enter Establishment name in comments:',
           active: false,
           label: 'Enter establishment name in comments:',
@@ -2059,7 +2059,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
-          id: '183176',
+          code: '183176',
           response: 'Enter Establishment name in comments:',
           active: false,
           label: 'Enter establishment name in comments:',
@@ -2077,7 +2077,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '182928',
+          code: '182928',
           response: 'High Security',
           active: false,
           label: 'High security',
@@ -2086,7 +2086,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
-          id: '182929',
+          code: '182929',
           response: 'East Midlands',
           active: false,
           label: 'East midlands',
@@ -2095,7 +2095,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
-          id: '182930',
+          code: '182930',
           response: 'West Midlands',
           active: false,
           label: 'West midlands',
@@ -2104,7 +2104,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
-          id: '182931',
+          code: '182931',
           response: 'Greater London',
           active: false,
           label: 'Greater london',
@@ -2113,7 +2113,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
-          id: '182932',
+          code: '182932',
           response: 'South West',
           active: false,
           label: 'South west',
@@ -2122,7 +2122,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
-          id: '182933',
+          code: '182933',
           response: 'Kent & Sussex',
           active: false,
           label: 'Kent & sussex',
@@ -2131,7 +2131,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
-          id: '182934',
+          code: '182934',
           response: 'North East',
           active: false,
           label: 'North east',
@@ -2140,7 +2140,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
-          id: '182935',
+          code: '182935',
           response: 'South Central',
           active: false,
           label: 'South central',
@@ -2149,7 +2149,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
-          id: '182936',
+          code: '182936',
           response: 'East of England',
           active: false,
           label: 'East of england',
@@ -2158,7 +2158,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
-          id: '182937',
+          code: '182937',
           response: 'North West',
           active: false,
           label: 'North west',
@@ -2167,7 +2167,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
-          id: '182938',
+          code: '182938',
           response: 'Wales',
           active: false,
           label: 'Wales',
@@ -2176,7 +2176,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
-          id: '182939',
+          code: '182939',
           response: 'Yorkshire & Humberside',
           active: false,
           label: 'Yorkshire & humberside',
@@ -2185,7 +2185,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
-          id: '182940',
+          code: '182940',
           response: 'Contracted',
           active: false,
           label: 'Contracted',
@@ -2203,7 +2203,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
       multipleAnswers: true,
       answers: [
         {
-          id: '192684',
+          code: '192684',
           response: 'Mobile:',
           active: false,
           label: 'Mobile:',
@@ -2212,7 +2212,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           nextQuestionId: '45210',
         },
         {
-          id: '192685',
+          code: '192685',
           response: 'SIM:',
           active: false,
           label: 'SIM:',
@@ -2221,7 +2221,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           nextQuestionId: '45210',
         },
         {
-          id: '192686',
+          code: '192686',
           response: 'Charger:',
           active: false,
           label: 'Charger:',
@@ -2230,7 +2230,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           nextQuestionId: '45210',
         },
         {
-          id: '192687',
+          code: '192687',
           response: 'Other please specify:',
           active: false,
           label: 'Other please specify:',

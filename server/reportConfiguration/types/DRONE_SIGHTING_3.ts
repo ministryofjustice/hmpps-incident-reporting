@@ -15,7 +15,7 @@ export const DRONE_SIGHTING_3: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '220684',
+          code: '220684',
           response: 'NO',
           active: true,
           label: 'No',
@@ -24,7 +24,7 @@ export const DRONE_SIGHTING_3: IncidentTypeConfiguration = {
           nextQuestionId: '69180',
         },
         {
-          id: '220685',
+          code: '220685',
           response: 'YES',
           active: true,
           label: 'Yes',
@@ -42,7 +42,7 @@ export const DRONE_SIGHTING_3: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '220686',
+          code: '220686',
           response: 'Please Specify',
           active: true,
           label: 'Please specify',
@@ -60,7 +60,7 @@ export const DRONE_SIGHTING_3: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '220687',
+          code: '220687',
           response: 'Please Specify location of each Drone',
           active: true,
           label: 'Please specify location of each drone',
@@ -78,7 +78,7 @@ export const DRONE_SIGHTING_3: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '220688',
+          code: '220688',
           response: 'Please Specify',
           active: true,
           label: 'Please specify',
@@ -96,7 +96,7 @@ export const DRONE_SIGHTING_3: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '220689',
+          code: '220689',
           response: 'Please Specify',
           active: true,
           label: 'Please specify',
@@ -114,7 +114,7 @@ export const DRONE_SIGHTING_3: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '220690',
+          code: '220690',
           response: 'NO',
           active: true,
           label: 'No',
@@ -123,7 +123,7 @@ export const DRONE_SIGHTING_3: IncidentTypeConfiguration = {
           nextQuestionId: '69190',
         },
         {
-          id: '220691',
+          code: '220691',
           response: 'YES - PLEASE ADDITIONALLY LOG A SEPRATE FIND INCIDENT',
           active: true,
           label: 'Yes - please additionally log a separate find incident',
@@ -141,7 +141,7 @@ export const DRONE_SIGHTING_3: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '220749',
+          code: '220749',
           response: 'Junk',
           active: true,
           label: 'Junk',
@@ -159,7 +159,7 @@ export const DRONE_SIGHTING_3: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '220746',
+          code: '220746',
           response: 'Junk',
           active: true,
           label: 'Junk',
@@ -177,7 +177,7 @@ export const DRONE_SIGHTING_3: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '220745',
+          code: '220745',
           response: 'Junk',
           active: false,
           label: 'Junk',
@@ -195,7 +195,7 @@ export const DRONE_SIGHTING_3: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '220748',
+          code: '220748',
           response: 'junk',
           active: true,
           label: 'Junk',
@@ -213,7 +213,7 @@ export const DRONE_SIGHTING_3: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '220747',
+          code: '220747',
           response: 'junk',
           active: true,
           label: 'Junk',
@@ -231,7 +231,7 @@ export const DRONE_SIGHTING_3: IncidentTypeConfiguration = {
       multipleAnswers: true,
       answers: [
         {
-          id: '220692',
+          code: '220692',
           response: 'FIXED WING / PLANE',
           active: true,
           label: 'Fixed wing / plane',
@@ -240,7 +240,7 @@ export const DRONE_SIGHTING_3: IncidentTypeConfiguration = {
           nextQuestionId: '69191',
         },
         {
-          id: '220693',
+          code: '220693',
           response: 'MULTI-COPTER 4 MOTORS',
           active: true,
           label: 'Multi-copter 4 motors',
@@ -249,7 +249,7 @@ export const DRONE_SIGHTING_3: IncidentTypeConfiguration = {
           nextQuestionId: '69191',
         },
         {
-          id: '220694',
+          code: '220694',
           response: 'MULTI-COPTER 6 MOTORS',
           active: true,
           label: 'Multi-copter 6 motors',
@@ -258,7 +258,7 @@ export const DRONE_SIGHTING_3: IncidentTypeConfiguration = {
           nextQuestionId: '69191',
         },
         {
-          id: '220695',
+          code: '220695',
           response: 'UNKNOWN',
           active: true,
           label: 'Unknown',
@@ -267,7 +267,7 @@ export const DRONE_SIGHTING_3: IncidentTypeConfiguration = {
           nextQuestionId: '69191',
         },
         {
-          id: '220696',
+          code: '220696',
           response: 'OTHER (PLEASE SPECIFY)',
           active: true,
           label: 'Other (please specify)',
@@ -285,7 +285,7 @@ export const DRONE_SIGHTING_3: IncidentTypeConfiguration = {
       multipleAnswers: true,
       answers: [
         {
-          id: '220697',
+          code: '220697',
           response: 'Da-Jiang Innovations (DJI) - PHANTHOM',
           active: true,
           label: 'Da-jiang innovations (DJI) - phantom',
@@ -294,7 +294,7 @@ export const DRONE_SIGHTING_3: IncidentTypeConfiguration = {
           nextQuestionId: '69192',
         },
         {
-          id: '220698',
+          code: '220698',
           response: 'Da-Jiang Innovations (DJI) - INSPIRE',
           active: true,
           label: 'Da-jiang innovations (DJI) - inspire',
@@ -303,7 +303,7 @@ export const DRONE_SIGHTING_3: IncidentTypeConfiguration = {
           nextQuestionId: '69192',
         },
         {
-          id: '220699',
+          code: '220699',
           response: 'Da-Jiang Innovations (DJI) - MAVIC',
           active: true,
           label: 'Da-jiang innovations (DJI) - mavic',
@@ -312,7 +312,7 @@ export const DRONE_SIGHTING_3: IncidentTypeConfiguration = {
           nextQuestionId: '69192',
         },
         {
-          id: '220700',
+          code: '220700',
           response: 'Da-Jiang Innovations (DJI) - MINI',
           active: true,
           label: 'Da-jiang innovations (DJI) - mini',
@@ -321,7 +321,7 @@ export const DRONE_SIGHTING_3: IncidentTypeConfiguration = {
           nextQuestionId: '69192',
         },
         {
-          id: '220701',
+          code: '220701',
           response: 'AUTEL EVO',
           active: true,
           label: 'Autel evo',
@@ -330,7 +330,7 @@ export const DRONE_SIGHTING_3: IncidentTypeConfiguration = {
           nextQuestionId: '69192',
         },
         {
-          id: '220702',
+          code: '220702',
           response: 'PARROTT',
           active: true,
           label: 'Parrott',
@@ -339,7 +339,7 @@ export const DRONE_SIGHTING_3: IncidentTypeConfiguration = {
           nextQuestionId: '69192',
         },
         {
-          id: '220703',
+          code: '220703',
           response: 'SWELLPRO',
           active: true,
           label: 'Swellpro',
@@ -348,7 +348,7 @@ export const DRONE_SIGHTING_3: IncidentTypeConfiguration = {
           nextQuestionId: '69192',
         },
         {
-          id: '220704',
+          code: '220704',
           response: 'YUNEEC',
           active: true,
           label: 'Yuneec',
@@ -357,7 +357,7 @@ export const DRONE_SIGHTING_3: IncidentTypeConfiguration = {
           nextQuestionId: '69192',
         },
         {
-          id: '220705',
+          code: '220705',
           response: 'UNKNOWN',
           active: true,
           label: 'Unknown',
@@ -366,7 +366,7 @@ export const DRONE_SIGHTING_3: IncidentTypeConfiguration = {
           nextQuestionId: '69192',
         },
         {
-          id: '220706',
+          code: '220706',
           response: 'OTHER (PLEASE SPECIFY)',
           active: true,
           label: 'Other (please specify)',
@@ -384,7 +384,7 @@ export const DRONE_SIGHTING_3: IncidentTypeConfiguration = {
       multipleAnswers: true,
       answers: [
         {
-          id: '220707',
+          code: '220707',
           response: '0 TO LESS THAN 0.5M',
           active: true,
           label: '0 to less than 0.5m',
@@ -393,7 +393,7 @@ export const DRONE_SIGHTING_3: IncidentTypeConfiguration = {
           nextQuestionId: '69193',
         },
         {
-          id: '220708',
+          code: '220708',
           response: '0.5M TO LESS THAN 1.0M',
           active: true,
           label: '0.5m to less than 1.0m',
@@ -402,7 +402,7 @@ export const DRONE_SIGHTING_3: IncidentTypeConfiguration = {
           nextQuestionId: '69193',
         },
         {
-          id: '220709',
+          code: '220709',
           response: '1.0M TO LESS THAN 2.0M',
           active: true,
           label: '1.0m to less than 2.0m',
@@ -411,7 +411,7 @@ export const DRONE_SIGHTING_3: IncidentTypeConfiguration = {
           nextQuestionId: '69193',
         },
         {
-          id: '220710',
+          code: '220710',
           response: '2.0M TO LESS THAN 3.0M',
           active: true,
           label: '2.0m to less than 3.0m',
@@ -420,7 +420,7 @@ export const DRONE_SIGHTING_3: IncidentTypeConfiguration = {
           nextQuestionId: '69193',
         },
         {
-          id: '220711',
+          code: '220711',
           response: '3.0M OR LONGER',
           active: true,
           label: '3.0m or longer',
@@ -429,7 +429,7 @@ export const DRONE_SIGHTING_3: IncidentTypeConfiguration = {
           nextQuestionId: '69193',
         },
         {
-          id: '220712',
+          code: '220712',
           response: 'UNKNOWN',
           active: true,
           label: 'Unknown',
@@ -447,7 +447,7 @@ export const DRONE_SIGHTING_3: IncidentTypeConfiguration = {
       multipleAnswers: true,
       answers: [
         {
-          id: '220713',
+          code: '220713',
           response: 'ADDED HOOK',
           active: true,
           label: 'Added hook',
@@ -456,7 +456,7 @@ export const DRONE_SIGHTING_3: IncidentTypeConfiguration = {
           nextQuestionId: '69194',
         },
         {
-          id: '220714',
+          code: '220714',
           response: 'COVERED LIGHTS',
           active: true,
           label: 'Covered lights',
@@ -465,7 +465,7 @@ export const DRONE_SIGHTING_3: IncidentTypeConfiguration = {
           nextQuestionId: '69194',
         },
         {
-          id: '220715',
+          code: '220715',
           response: 'DROP MECHANISM FITTED',
           active: true,
           label: 'Drop mechanism fitted',
@@ -474,7 +474,7 @@ export const DRONE_SIGHTING_3: IncidentTypeConfiguration = {
           nextQuestionId: '69194',
         },
         {
-          id: '220716',
+          code: '220716',
           response: 'NONE',
           active: true,
           label: 'None',
@@ -483,7 +483,7 @@ export const DRONE_SIGHTING_3: IncidentTypeConfiguration = {
           nextQuestionId: '69194',
         },
         {
-          id: '220717',
+          code: '220717',
           response: 'PAINTED BLACK',
           active: true,
           label: 'Painted black',
@@ -492,7 +492,7 @@ export const DRONE_SIGHTING_3: IncidentTypeConfiguration = {
           nextQuestionId: '69194',
         },
         {
-          id: '220718',
+          code: '220718',
           response: 'TETHER ATTACHED',
           active: true,
           label: 'Tether attached',
@@ -501,7 +501,7 @@ export const DRONE_SIGHTING_3: IncidentTypeConfiguration = {
           nextQuestionId: '69194',
         },
         {
-          id: '220719',
+          code: '220719',
           response: 'OTHER (PLEASE SPECIFY)',
           active: true,
           label: 'Other (please specify)',
@@ -519,7 +519,7 @@ export const DRONE_SIGHTING_3: IncidentTypeConfiguration = {
       multipleAnswers: true,
       answers: [
         {
-          id: '220720',
+          code: '220720',
           response: 'CRASHED',
           active: true,
           label: 'Crashed',
@@ -528,7 +528,7 @@ export const DRONE_SIGHTING_3: IncidentTypeConfiguration = {
           nextQuestionId: '69195',
         },
         {
-          id: '220721',
+          code: '220721',
           response: 'INTERCEPTED',
           active: true,
           label: 'Intercepted',
@@ -537,7 +537,7 @@ export const DRONE_SIGHTING_3: IncidentTypeConfiguration = {
           nextQuestionId: '69195',
         },
         {
-          id: '220722',
+          code: '220722',
           response: 'NOT RECOVERED',
           active: true,
           label: 'Not recovered',
@@ -555,7 +555,7 @@ export const DRONE_SIGHTING_3: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '220723',
+          code: '220723',
           response: 'NO PACKAGE OBSERVED/RECOVERED',
           active: true,
           label: 'No package observed/recovered',
@@ -564,7 +564,7 @@ export const DRONE_SIGHTING_3: IncidentTypeConfiguration = {
           nextQuestionId: '69196',
         },
         {
-          id: '220724',
+          code: '220724',
           response: 'YES - UNKNOWN',
           active: true,
           label: 'Yes - unknown',
@@ -573,7 +573,7 @@ export const DRONE_SIGHTING_3: IncidentTypeConfiguration = {
           nextQuestionId: '69196',
         },
         {
-          id: '220725',
+          code: '220725',
           response: 'YES 0 TO 100G (MORE OPTIONS BELOW)',
           active: true,
           label: 'Yes 0 to 100g (more options below)',
@@ -582,7 +582,7 @@ export const DRONE_SIGHTING_3: IncidentTypeConfiguration = {
           nextQuestionId: '69196',
         },
         {
-          id: '220726',
+          code: '220726',
           response: 'YES 101G TO 200G',
           active: true,
           label: 'Yes 101g to 200g',
@@ -591,7 +591,7 @@ export const DRONE_SIGHTING_3: IncidentTypeConfiguration = {
           nextQuestionId: '69196',
         },
         {
-          id: '220727',
+          code: '220727',
           response: 'YES 201G TO 300G',
           active: true,
           label: 'Yes 201g to 300g',
@@ -600,7 +600,7 @@ export const DRONE_SIGHTING_3: IncidentTypeConfiguration = {
           nextQuestionId: '69196',
         },
         {
-          id: '220728',
+          code: '220728',
           response: 'YES 301G TO 400G',
           active: true,
           label: 'Yes 301g to 400g',
@@ -609,7 +609,7 @@ export const DRONE_SIGHTING_3: IncidentTypeConfiguration = {
           nextQuestionId: '69196',
         },
         {
-          id: '220729',
+          code: '220729',
           response: 'YES 401G TO 500G',
           active: true,
           label: 'Yes 401g to 500g',
@@ -618,7 +618,7 @@ export const DRONE_SIGHTING_3: IncidentTypeConfiguration = {
           nextQuestionId: '69196',
         },
         {
-          id: '220730',
+          code: '220730',
           response: 'YES 501G TO 1000G',
           active: true,
           label: 'Yes 501g to 1000g',
@@ -627,7 +627,7 @@ export const DRONE_SIGHTING_3: IncidentTypeConfiguration = {
           nextQuestionId: '69196',
         },
         {
-          id: '220731',
+          code: '220731',
           response: 'YES MORE THAN 1001G',
           active: true,
           label: 'Yes more than 1001g',
@@ -645,7 +645,7 @@ export const DRONE_SIGHTING_3: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '220732',
+          code: '220732',
           response: 'NO',
           active: true,
           label: 'No',
@@ -654,7 +654,7 @@ export const DRONE_SIGHTING_3: IncidentTypeConfiguration = {
           nextQuestionId: '69197',
         },
         {
-          id: '220733',
+          code: '220733',
           response: 'YES',
           active: true,
           label: 'Yes',
@@ -672,7 +672,7 @@ export const DRONE_SIGHTING_3: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '220734',
+          code: '220734',
           response: 'NO',
           active: true,
           label: 'No',
@@ -681,7 +681,7 @@ export const DRONE_SIGHTING_3: IncidentTypeConfiguration = {
           nextQuestionId: '69199',
         },
         {
-          id: '220735',
+          code: '220735',
           response: 'YES',
           active: true,
           label: 'Yes',
@@ -699,7 +699,7 @@ export const DRONE_SIGHTING_3: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '220736',
+          code: '220736',
           response: '0 TO LESS THAN 10 METRES',
           active: true,
           label: '0 to less than 10 metres',
@@ -708,7 +708,7 @@ export const DRONE_SIGHTING_3: IncidentTypeConfiguration = {
           nextQuestionId: '69199',
         },
         {
-          id: '220737',
+          code: '220737',
           response: '10 TO LESS THAN 100 METRES',
           active: true,
           label: '10 to less than 100 metres',
@@ -717,7 +717,7 @@ export const DRONE_SIGHTING_3: IncidentTypeConfiguration = {
           nextQuestionId: '69199',
         },
         {
-          id: '220738',
+          code: '220738',
           response: '100 TO LESS THAN 200 METRES',
           active: true,
           label: '100 to less than 200 metres',
@@ -726,7 +726,7 @@ export const DRONE_SIGHTING_3: IncidentTypeConfiguration = {
           nextQuestionId: '69199',
         },
         {
-          id: '220739',
+          code: '220739',
           response: '200 METRES OR MORE',
           active: true,
           label: '200 metres or more',
@@ -735,7 +735,7 @@ export const DRONE_SIGHTING_3: IncidentTypeConfiguration = {
           nextQuestionId: '69199',
         },
         {
-          id: '220740',
+          code: '220740',
           response: 'UNKNOWN',
           active: true,
           label: 'Unknown',
@@ -753,7 +753,7 @@ export const DRONE_SIGHTING_3: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '220741',
+          code: '220741',
           response: 'NO',
           active: true,
           label: 'No',
@@ -762,7 +762,7 @@ export const DRONE_SIGHTING_3: IncidentTypeConfiguration = {
           nextQuestionId: '69200',
         },
         {
-          id: '220742',
+          code: '220742',
           response: 'YES',
           active: true,
           label: 'Yes',
@@ -780,7 +780,7 @@ export const DRONE_SIGHTING_3: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '220743',
+          code: '220743',
           response: 'NO',
           active: true,
           label: 'No',
@@ -789,7 +789,7 @@ export const DRONE_SIGHTING_3: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
-          id: '220744',
+          code: '220744',
           response: 'YES',
           active: true,
           label: 'Yes',

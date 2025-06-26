@@ -13,7 +13,7 @@ export function conditionalFieldName(
   answer: AnswerConfiguration,
   suffix: 'comment' | 'date',
 ): string {
-  return `${questionFieldName(question)}-${answer.id}-${suffix}`
+  return `${questionFieldName(question)}-${answer.code}-${suffix}`
 }
 
 /**

@@ -15,7 +15,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '178891',
+          code: '178891',
           response: 'TARGET SEARCH',
           active: false,
           label: 'Target search',
@@ -24,7 +24,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
           nextQuestionId: '44637',
         },
         {
-          id: '178893',
+          code: '178893',
           response: 'ROUTINE SEARCH',
           active: false,
           label: 'Routine search',
@@ -33,7 +33,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
           nextQuestionId: '44980',
         },
         {
-          id: '178892',
+          code: '178892',
           response: 'CHANCE',
           active: false,
           label: 'Chance',
@@ -51,7 +51,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '179027',
+          code: '179027',
           response: 'SPECIFY',
           active: false,
           label: 'Specify',
@@ -69,7 +69,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '179069',
+          code: '179069',
           response: 'YES',
           active: false,
           label: 'Yes',
@@ -78,7 +78,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
           nextQuestionId: '44548',
         },
         {
-          id: '179070',
+          code: '179070',
           response: 'NO',
           active: false,
           label: 'No',
@@ -96,7 +96,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '179112',
+          code: '179112',
           response: 'YES',
           active: false,
           label: 'Yes',
@@ -105,7 +105,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
           nextQuestionId: '44846',
         },
         {
-          id: '179111',
+          code: '179111',
           response: 'NO',
           active: false,
           label: 'No',
@@ -123,7 +123,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '179119',
+          code: '179119',
           response: 'YES',
           active: false,
           label: 'Yes',
@@ -132,7 +132,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
           nextQuestionId: '44451',
         },
         {
-          id: '179120',
+          code: '179120',
           response: 'NO',
           active: false,
           label: 'No',
@@ -150,7 +150,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '179190',
+          code: '179190',
           response: 'YES',
           active: false,
           label: 'Yes',
@@ -159,7 +159,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
           nextQuestionId: '45049',
         },
         {
-          id: '179189',
+          code: '179189',
           response: 'NO',
           active: false,
           label: 'No',
@@ -177,7 +177,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '179191',
+          code: '179191',
           response: 'LOCAL',
           active: false,
           label: 'Local',
@@ -186,7 +186,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
           nextQuestionId: null,
         },
         {
-          id: '179192',
+          code: '179192',
           response: 'SERVICE SUPPLIER',
           active: false,
           label: 'Service supplier',
@@ -204,7 +204,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '179569',
+          code: '179569',
           response: 'DESCRIPTION',
           active: false,
           label: 'Description',
@@ -222,7 +222,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '179616',
+          code: '179616',
           response: 'YES',
           active: false,
           label: 'Yes',
@@ -231,7 +231,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
           nextQuestionId: '44755',
         },
         {
-          id: '179615',
+          code: '179615',
           response: 'NO',
           active: false,
           label: 'No',
@@ -249,7 +249,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
       multipleAnswers: true,
       answers: [
         {
-          id: '179817',
+          code: '179817',
           response: 'PISTOL/REVOLVER',
           active: false,
           label: 'Pistol/revolver',
@@ -258,7 +258,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
           nextQuestionId: '44698',
         },
         {
-          id: '179818',
+          code: '179818',
           response: 'RIFLE',
           active: false,
           label: 'Rifle',
@@ -267,7 +267,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
           nextQuestionId: '44698',
         },
         {
-          id: '179819',
+          code: '179819',
           response: 'SHOTGUN',
           active: false,
           label: 'Shotgun',
@@ -276,7 +276,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
           nextQuestionId: '44698',
         },
         {
-          id: '179815',
+          code: '179815',
           response: 'HILTI GUN',
           active: false,
           label: 'Hilti gun',
@@ -285,7 +285,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
           nextQuestionId: '44698',
         },
         {
-          id: '179816',
+          code: '179816',
           response: 'OTHER',
           active: false,
           label: 'Other',
@@ -303,7 +303,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '179839',
+          code: '179839',
           response: 'ENTER TIME',
           active: false,
           label: 'Enter time',
@@ -321,7 +321,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '179918',
+          code: '179918',
           response: 'NUMBER',
           active: false,
           label: 'Number',
@@ -339,7 +339,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '179975',
+          code: '179975',
           response: 'YES',
           active: false,
           label: 'Yes',
@@ -348,7 +348,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
           nextQuestionId: '44524',
         },
         {
-          id: '179976',
+          code: '179976',
           response: 'NO',
           active: false,
           label: 'No',
@@ -366,7 +366,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '179988',
+          code: '179988',
           response: 'LOCAL',
           active: false,
           label: 'Local',
@@ -375,7 +375,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
           nextQuestionId: '44755',
         },
         {
-          id: '179987',
+          code: '179987',
           response: 'SERVICE SUPPLIER',
           active: false,
           label: 'Service supplier',
@@ -393,7 +393,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '180000',
+          code: '180000',
           response: 'PRISONER',
           active: false,
           label: 'Prisoner',
@@ -402,7 +402,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
           nextQuestionId: '44980',
         },
         {
-          id: '180001',
+          code: '180001',
           response: 'STAFF',
           active: false,
           label: 'Staff',
@@ -411,7 +411,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
           nextQuestionId: '44980',
         },
         {
-          id: '179999',
+          code: '179999',
           response: 'POLICE',
           active: false,
           label: 'Police',
@@ -420,7 +420,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
           nextQuestionId: '44980',
         },
         {
-          id: '180002',
+          code: '180002',
           response: 'VISITOR',
           active: false,
           label: 'Visitor',
@@ -429,7 +429,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
           nextQuestionId: '44980',
         },
         {
-          id: '179998',
+          code: '179998',
           response: 'OTHER',
           active: false,
           label: 'Other',
@@ -447,7 +447,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '180090',
+          code: '180090',
           response: 'CONCEALED',
           active: false,
           label: 'Concealed',
@@ -456,7 +456,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
           nextQuestionId: '45102',
         },
         {
-          id: '180091',
+          code: '180091',
           response: 'DISCARDED',
           active: false,
           label: 'Discarded',
@@ -474,7 +474,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '180112',
+          code: '180112',
           response: 'YES',
           active: false,
           label: 'Yes',
@@ -483,7 +483,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
           nextQuestionId: '44676',
         },
         {
-          id: '180111',
+          code: '180111',
           response: 'NO',
           active: false,
           label: 'No',
@@ -501,7 +501,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '180237',
+          code: '180237',
           response: 'SPECIFY',
           active: false,
           label: 'Specify',
@@ -519,7 +519,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '180261',
+          code: '180261',
           response: 'YES',
           active: false,
           label: 'Yes',
@@ -528,7 +528,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
           nextQuestionId: '45000',
         },
         {
-          id: '180260',
+          code: '180260',
           response: 'NO',
           active: false,
           label: 'No',
@@ -546,7 +546,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
       multipleAnswers: true,
       answers: [
         {
-          id: '180289',
+          code: '180289',
           response: 'PRISONER',
           active: false,
           label: 'Prisoner',
@@ -555,7 +555,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
           nextQuestionId: '44874',
         },
         {
-          id: '180291',
+          code: '180291',
           response: 'STAFF',
           active: false,
           label: 'Staff',
@@ -564,7 +564,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
           nextQuestionId: '44874',
         },
         {
-          id: '180290',
+          code: '180290',
           response: 'SOCIAL VISITOR',
           active: false,
           label: 'Social visitor',
@@ -573,7 +573,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
           nextQuestionId: '44874',
         },
         {
-          id: '180287',
+          code: '180287',
           response: 'OFFICIAL VISITOR',
           active: false,
           label: 'Official visitor',
@@ -582,7 +582,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
           nextQuestionId: '44874',
         },
         {
-          id: '180288',
+          code: '180288',
           response: 'OTHER',
           active: false,
           label: 'Other',
@@ -600,7 +600,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '180301',
+          code: '180301',
           response: 'ADMINISTRATION',
           active: false,
           label: 'Administration',
@@ -609,7 +609,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
           nextQuestionId: '44470',
         },
         {
-          id: '180303',
+          code: '180303',
           response: 'CELL',
           active: false,
           label: 'Cell',
@@ -618,7 +618,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
           nextQuestionId: '44470',
         },
         {
-          id: '180302',
+          code: '180302',
           response: 'ASSOCIATION AREA',
           active: false,
           label: 'Association area',
@@ -627,7 +627,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
           nextQuestionId: '44470',
         },
         {
-          id: '180304',
+          code: '180304',
           response: 'CHAPEL',
           active: false,
           label: 'Chapel',
@@ -636,7 +636,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
           nextQuestionId: '44470',
         },
         {
-          id: '180306',
+          code: '180306',
           response: 'DINING ROOM',
           active: false,
           label: 'Dining room',
@@ -645,7 +645,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
           nextQuestionId: '44470',
         },
         {
-          id: '180307',
+          code: '180307',
           response: 'DORMITORY',
           active: false,
           label: 'Dormitory',
@@ -654,7 +654,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
           nextQuestionId: '44470',
         },
         {
-          id: '180308',
+          code: '180308',
           response: 'EDUCATION',
           active: false,
           label: 'Education',
@@ -663,7 +663,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
           nextQuestionId: '44470',
         },
         {
-          id: '180310',
+          code: '180310',
           response: 'EXERCISE YARD',
           active: false,
           label: 'Exercise yard',
@@ -672,7 +672,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
           nextQuestionId: '44470',
         },
         {
-          id: '180312',
+          code: '180312',
           response: 'GATE',
           active: false,
           label: 'Gate',
@@ -681,7 +681,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
           nextQuestionId: '44470',
         },
         {
-          id: '180313',
+          code: '180313',
           response: 'GYM',
           active: false,
           label: 'Gym',
@@ -690,7 +690,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
           nextQuestionId: '44470',
         },
         {
-          id: '180314',
+          code: '180314',
           response: 'HEALTH CARE CENTRE',
           active: false,
           label: 'Health care centre',
@@ -699,7 +699,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
           nextQuestionId: '44470',
         },
         {
-          id: '180317',
+          code: '180317',
           response: 'KITCHEN',
           active: false,
           label: 'Kitchen',
@@ -708,7 +708,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
           nextQuestionId: '44470',
         },
         {
-          id: '180319',
+          code: '180319',
           response: 'OFFICE',
           active: false,
           label: 'Office',
@@ -717,7 +717,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
           nextQuestionId: '44470',
         },
         {
-          id: '180321',
+          code: '180321',
           response: 'RECEPTION',
           active: false,
           label: 'Reception',
@@ -726,7 +726,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
           nextQuestionId: '44470',
         },
         {
-          id: '180322',
+          code: '180322',
           response: 'RECESS',
           active: false,
           label: 'Recess',
@@ -735,7 +735,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
           nextQuestionId: '44470',
         },
         {
-          id: '180323',
+          code: '180323',
           response: 'SEGREGATION UNIT',
           active: false,
           label: 'Segregation unit',
@@ -744,7 +744,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
           nextQuestionId: '44470',
         },
         {
-          id: '180325',
+          code: '180325',
           response: 'SPECIAL UNIT',
           active: false,
           label: 'Special unit',
@@ -753,7 +753,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
           nextQuestionId: '44470',
         },
         {
-          id: '180324',
+          code: '180324',
           response: 'SHOWERS/CHANGING ROOM',
           active: false,
           label: 'Showers/changing room',
@@ -762,7 +762,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
           nextQuestionId: '44470',
         },
         {
-          id: '180328',
+          code: '180328',
           response: 'VISITS',
           active: false,
           label: 'Visits',
@@ -771,7 +771,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
           nextQuestionId: '44470',
         },
         {
-          id: '180330',
+          code: '180330',
           response: 'WING',
           active: false,
           label: 'Wing',
@@ -780,7 +780,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
           nextQuestionId: '44470',
         },
         {
-          id: '180332',
+          code: '180332',
           response: 'WORKS DEPARTMENT',
           active: false,
           label: 'Works department',
@@ -789,7 +789,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
           nextQuestionId: '44470',
         },
         {
-          id: '180333',
+          code: '180333',
           response: 'WORKSHOP',
           active: false,
           label: 'Workshop',
@@ -798,7 +798,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
           nextQuestionId: '44470',
         },
         {
-          id: '180331',
+          code: '180331',
           response: 'WITHIN PERIMETER',
           active: false,
           label: 'Within perimeter',
@@ -807,7 +807,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
           nextQuestionId: '44470',
         },
         {
-          id: '180309',
+          code: '180309',
           response: 'ELSEWHERE',
           active: false,
           label: 'Elsewhere',
@@ -816,7 +816,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
           nextQuestionId: '44470',
         },
         {
-          id: '180311',
+          code: '180311',
           response: 'FUNERAL',
           active: false,
           label: 'Funeral',
@@ -825,7 +825,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
           nextQuestionId: '44470',
         },
         {
-          id: '180315',
+          code: '180315',
           response: 'HOSPITAL OUTSIDE (PATIENT)',
           active: false,
           label: 'Hospital outside (patient)',
@@ -834,7 +834,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
           nextQuestionId: '44470',
         },
         {
-          id: '180316',
+          code: '180316',
           response: 'HOSPITAL OUTSIDE (VISITING)',
           active: false,
           label: 'Hospital outside (visiting)',
@@ -843,7 +843,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
           nextQuestionId: '44470',
         },
         {
-          id: '180320',
+          code: '180320',
           response: 'OUTSIDE WORKING PARTY',
           active: false,
           label: 'Outside working party',
@@ -852,7 +852,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
           nextQuestionId: '44470',
         },
         {
-          id: '180326',
+          code: '180326',
           response: 'SPORTSFIELD',
           active: false,
           label: 'Sportsfield',
@@ -861,7 +861,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
           nextQuestionId: '44470',
         },
         {
-          id: '180327',
+          code: '180327',
           response: 'VEHICLE',
           active: false,
           label: 'Vehicle',
@@ -870,7 +870,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
           nextQuestionId: '44470',
         },
         {
-          id: '180329',
+          code: '180329',
           response: 'WEDDING',
           active: false,
           label: 'Wedding',
@@ -879,7 +879,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
           nextQuestionId: '44470',
         },
         {
-          id: '180318',
+          code: '180318',
           response: 'MAGISTRATES COURT',
           active: false,
           label: 'Magistrates court',
@@ -888,7 +888,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
           nextQuestionId: '44470',
         },
         {
-          id: '180305',
+          code: '180305',
           response: 'CROWN COURT',
           active: false,
           label: 'Crown court',
@@ -906,7 +906,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
       multipleAnswers: true,
       answers: [
         {
-          id: '180426',
+          code: '180426',
           response: 'C.N (CHLORACETOPHEONE)',
           active: false,
           label: 'C.n (chloracetopheone)',
@@ -915,7 +915,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
           nextQuestionId: '44622',
         },
         {
-          id: '180427',
+          code: '180427',
           response: 'C.S (ORTHO..NITRILE)',
           active: false,
           label: 'C.s (ortho..nitrile)',
@@ -924,7 +924,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
           nextQuestionId: '44622',
         },
         {
-          id: '180429',
+          code: '180429',
           response: 'O.C (MACE/PEPPER)',
           active: false,
           label: 'O.c (mace/pepper)',
@@ -933,7 +933,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
           nextQuestionId: '44622',
         },
         {
-          id: '180430',
+          code: '180430',
           response: 'OTHER',
           active: false,
           label: 'Other',
@@ -942,7 +942,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
           nextQuestionId: '44622',
         },
         {
-          id: '180428',
+          code: '180428',
           response: 'NOT KNOWN',
           active: false,
           label: 'Not known',
@@ -960,7 +960,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '180661',
+          code: '180661',
           response: 'SPECIFY',
           active: false,
           label: 'Specify',
@@ -978,7 +978,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '180664',
+          code: '180664',
           response: 'YES',
           active: false,
           label: 'Yes',
@@ -987,7 +987,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
           nextQuestionId: '44692',
         },
         {
-          id: '180665',
+          code: '180665',
           response: 'NO',
           active: false,
           label: 'No',
@@ -1005,7 +1005,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '180713',
+          code: '180713',
           response: 'YES',
           active: false,
           label: 'Yes',
@@ -1014,7 +1014,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
           nextQuestionId: '44455',
         },
         {
-          id: '180714',
+          code: '180714',
           response: 'NO',
           active: false,
           label: 'No',
@@ -1032,7 +1032,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '180839',
+          code: '180839',
           response: 'YES',
           active: false,
           label: 'Yes',
@@ -1041,7 +1041,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
           nextQuestionId: '45026',
         },
         {
-          id: '180838',
+          code: '180838',
           response: 'NO',
           active: false,
           label: 'No',
@@ -1059,7 +1059,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '180885',
+          code: '180885',
           response: 'YES',
           active: false,
           label: 'Yes',
@@ -1068,7 +1068,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
           nextQuestionId: '44446',
         },
         {
-          id: '180884',
+          code: '180884',
           response: 'NO',
           active: false,
           label: 'No',
@@ -1086,7 +1086,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '180919',
+          code: '180919',
           response: 'SPECIFY',
           active: false,
           label: 'Specify',
@@ -1104,7 +1104,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '180959',
+          code: '180959',
           response: 'YES',
           active: false,
           label: 'Yes',
@@ -1113,7 +1113,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
           nextQuestionId: '44870',
         },
         {
-          id: '180960',
+          code: '180960',
           response: 'NO',
           active: false,
           label: 'No',
@@ -1131,7 +1131,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
       multipleAnswers: true,
       answers: [
         {
-          id: '181116',
+          code: '181116',
           response: 'TELEPHONY',
           active: false,
           label: 'Telephony',
@@ -1140,7 +1140,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
           nextQuestionId: '44398',
         },
         {
-          id: '181115',
+          code: '181115',
           response: 'IT',
           active: false,
           label: 'IT',
@@ -1158,7 +1158,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '181170',
+          code: '181170',
           response: 'YES',
           active: false,
           label: 'Yes',
@@ -1167,7 +1167,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
           nextQuestionId: '44513',
         },
         {
-          id: '181171',
+          code: '181171',
           response: 'NO',
           active: false,
           label: 'No',
@@ -1185,7 +1185,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '181176',
+          code: '181176',
           response: 'ENTER COMMENT AND DATE',
           active: false,
           label: 'Enter comment and date',
@@ -1203,7 +1203,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '181302',
+          code: '181302',
           response: 'YES',
           active: false,
           label: 'Yes',
@@ -1212,7 +1212,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
           nextQuestionId: '44323',
         },
         {
-          id: '181303',
+          code: '181303',
           response: 'NO',
           active: false,
           label: 'No',
@@ -1230,7 +1230,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
       multipleAnswers: true,
       answers: [
         {
-          id: '181317',
+          code: '181317',
           response: 'BARREL',
           active: false,
           label: 'Barrel',
@@ -1239,7 +1239,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
           nextQuestionId: '44703',
         },
         {
-          id: '181318',
+          code: '181318',
           response: 'BUTT',
           active: false,
           label: 'Butt',
@@ -1248,7 +1248,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
           nextQuestionId: '44703',
         },
         {
-          id: '181319',
+          code: '181319',
           response: 'MAGAZINE',
           active: false,
           label: 'Magazine',
@@ -1257,7 +1257,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
           nextQuestionId: '44703',
         },
         {
-          id: '181320',
+          code: '181320',
           response: 'OTHER',
           active: false,
           label: 'Other',
@@ -1275,7 +1275,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '181329',
+          code: '181329',
           response: 'YES',
           active: false,
           label: 'Yes',
@@ -1284,7 +1284,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
           nextQuestionId: '44330',
         },
         {
-          id: '181330',
+          code: '181330',
           response: 'NO',
           active: false,
           label: 'No',
@@ -1302,7 +1302,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '181374',
+          code: '181374',
           response: 'SPECIFY',
           active: false,
           label: 'Specify',
@@ -1320,7 +1320,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
       multipleAnswers: true,
       answers: [
         {
-          id: '181474',
+          code: '181474',
           response: 'LIVE',
           active: false,
           label: 'Live',
@@ -1329,7 +1329,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
           nextQuestionId: '44390',
         },
         {
-          id: '181471',
+          code: '181471',
           response: 'BLANK',
           active: false,
           label: 'Blank',
@@ -1338,7 +1338,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
           nextQuestionId: '44390',
         },
         {
-          id: '181473',
+          code: '181473',
           response: 'DISABLED',
           active: false,
           label: 'Disabled',
@@ -1347,7 +1347,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
           nextQuestionId: '44390',
         },
         {
-          id: '181472',
+          code: '181472',
           response: 'CARTRIDGE CASE',
           active: false,
           label: 'Cartridge case',
@@ -1356,7 +1356,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
           nextQuestionId: '44390',
         },
         {
-          id: '181475',
+          code: '181475',
           response: 'OTHER',
           active: false,
           label: 'Other',
@@ -1374,7 +1374,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '181495',
+          code: '181495',
           response: 'YES',
           active: false,
           label: 'Yes',
@@ -1383,7 +1383,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
           nextQuestionId: '44208',
         },
         {
-          id: '181494',
+          code: '181494',
           response: 'NO',
           active: false,
           label: 'No',
@@ -1401,7 +1401,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '181609',
+          code: '181609',
           response: 'GOVERNOR',
           active: false,
           label: 'Governor',
@@ -1410,7 +1410,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
           nextQuestionId: '44820',
         },
         {
-          id: '181607',
+          code: '181607',
           response: 'DEPUTY GOVERNOR',
           active: false,
           label: 'Deputy governor',
@@ -1419,7 +1419,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
           nextQuestionId: '44820',
         },
         {
-          id: '181608',
+          code: '181608',
           response: 'DUTY GOVERNOR',
           active: false,
           label: 'Duty governor',
@@ -1428,7 +1428,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
           nextQuestionId: '44820',
         },
         {
-          id: '181610',
+          code: '181610',
           response: 'OTHER',
           active: false,
           label: 'Other',
@@ -1446,7 +1446,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
       multipleAnswers: true,
       answers: [
         {
-          id: '181654',
+          code: '181654',
           response: 'METAL DETECTING PORTAL',
           active: false,
           label: 'Metal detecting portal',
@@ -1455,7 +1455,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
           nextQuestionId: '44624',
         },
         {
-          id: '181653',
+          code: '181653',
           response: 'HAND HELD METAL DETECTOR',
           active: false,
           label: 'Hand held metal detector',
@@ -1464,7 +1464,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
           nextQuestionId: '44624',
         },
         {
-          id: '181656',
+          code: '181656',
           response: 'X-RAY MACHINE',
           active: false,
           label: 'X-ray machine',
@@ -1473,7 +1473,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
           nextQuestionId: '44624',
         },
         {
-          id: '181655',
+          code: '181655',
           response: 'OTHER',
           active: false,
           label: 'Other',
@@ -1491,7 +1491,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '181717',
+          code: '181717',
           response: 'YES',
           active: false,
           label: 'Yes',
@@ -1500,7 +1500,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
           nextQuestionId: '44922',
         },
         {
-          id: '181718',
+          code: '181718',
           response: 'NO',
           active: false,
           label: 'No',
@@ -1518,7 +1518,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '181833',
+          code: '181833',
           response: 'FULL',
           active: false,
           label: 'Full',
@@ -1527,7 +1527,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
           nextQuestionId: '44907',
         },
         {
-          id: '181834',
+          code: '181834',
           response: 'PARTIAL',
           active: false,
           label: 'Partial',
@@ -1545,7 +1545,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '181905',
+          code: '181905',
           response: 'YES',
           active: false,
           label: 'Yes',
@@ -1554,7 +1554,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
           nextQuestionId: '44928',
         },
         {
-          id: '181904',
+          code: '181904',
           response: 'NO',
           active: false,
           label: 'No',
@@ -1572,7 +1572,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '181925',
+          code: '181925',
           response: 'NUMBER',
           active: false,
           label: 'Number',
@@ -1590,7 +1590,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '181959',
+          code: '181959',
           response: 'YES',
           active: false,
           label: 'Yes',
@@ -1599,7 +1599,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
           nextQuestionId: '45005',
         },
         {
-          id: '181958',
+          code: '181958',
           response: 'NO',
           active: false,
           label: 'No',
@@ -1617,7 +1617,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '181961',
+          code: '181961',
           response: 'YES',
           active: false,
           label: 'Yes',
@@ -1626,7 +1626,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
           nextQuestionId: '44703',
         },
         {
-          id: '181960',
+          code: '181960',
           response: 'NO',
           active: false,
           label: 'No',
@@ -1644,7 +1644,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '181971',
+          code: '181971',
           response: 'YES',
           active: false,
           label: 'Yes',
@@ -1653,7 +1653,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
           nextQuestionId: '44473',
         },
         {
-          id: '181970',
+          code: '181970',
           response: 'NO',
           active: false,
           label: 'No',
@@ -1671,7 +1671,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '182040',
+          code: '182040',
           response: 'YES',
           active: false,
           label: 'Yes',
@@ -1680,7 +1680,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
           nextQuestionId: '45029',
         },
         {
-          id: '182041',
+          code: '182041',
           response: 'NO',
           active: false,
           label: 'No',
@@ -1698,7 +1698,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '182046',
+          code: '182046',
           response: 'PISTOL',
           active: false,
           label: 'Pistol',
@@ -1707,7 +1707,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
           nextQuestionId: '45119',
         },
         {
-          id: '182047',
+          code: '182047',
           response: 'REVOLVER',
           active: false,
           label: 'Revolver',
@@ -1716,7 +1716,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
           nextQuestionId: '45119',
         },
         {
-          id: '182048',
+          code: '182048',
           response: 'RIFLE',
           active: false,
           label: 'Rifle',
@@ -1725,7 +1725,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
           nextQuestionId: '45119',
         },
         {
-          id: '182049',
+          code: '182049',
           response: 'SHOTGUN',
           active: false,
           label: 'Shotgun',
@@ -1734,7 +1734,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
           nextQuestionId: '45119',
         },
         {
-          id: '182045',
+          code: '182045',
           response: 'OTHER',
           active: false,
           label: 'Other',
@@ -1752,7 +1752,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '182172',
+          code: '182172',
           response: 'PRISON',
           active: false,
           label: 'Prison',
@@ -1761,7 +1761,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
           nextQuestionId: '44193',
         },
         {
-          id: '182171',
+          code: '182171',
           response: 'POLICE',
           active: false,
           label: 'Police',
@@ -1770,7 +1770,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
           nextQuestionId: '44193',
         },
         {
-          id: '182170',
+          code: '182170',
           response: 'OTHER',
           active: false,
           label: 'Other',
@@ -1788,7 +1788,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '182210',
+          code: '182210',
           response: 'PRISONER',
           active: false,
           label: 'Prisoner',
@@ -1797,7 +1797,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
           nextQuestionId: '44123',
         },
         {
-          id: '182212',
+          code: '182212',
           response: 'STAFF',
           active: false,
           label: 'Staff',
@@ -1806,7 +1806,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
           nextQuestionId: '44123',
         },
         {
-          id: '182211',
+          code: '182211',
           response: 'SOCIAL VISITOR',
           active: false,
           label: 'Social visitor',
@@ -1815,7 +1815,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
           nextQuestionId: '44123',
         },
         {
-          id: '182208',
+          code: '182208',
           response: 'OFFICIAL VISITOR',
           active: false,
           label: 'Official visitor',
@@ -1824,7 +1824,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
           nextQuestionId: '44123',
         },
         {
-          id: '182209',
+          code: '182209',
           response: 'OTHER',
           active: false,
           label: 'Other',
@@ -1842,7 +1842,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '182346',
+          code: '182346',
           response: 'ON A PERSON',
           active: false,
           label: 'On a person',
@@ -1851,7 +1851,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
           nextQuestionId: '45056',
         },
         {
-          id: '182347',
+          code: '182347',
           response: 'BURIED',
           active: false,
           label: 'Buried',
@@ -1860,7 +1860,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
           nextQuestionId: '44123',
         },
         {
-          id: '182352',
+          code: '182352',
           response: 'IN I/P PROPERTY',
           active: false,
           label: 'In i/p property',
@@ -1869,7 +1869,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
           nextQuestionId: '44123',
         },
         {
-          id: '182353',
+          code: '182353',
           response: 'IN STORED PROPERTY',
           active: false,
           label: 'In stored property',
@@ -1878,7 +1878,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
           nextQuestionId: '44123',
         },
         {
-          id: '182351',
+          code: '182351',
           response: 'IN CELL FURNITURE',
           active: false,
           label: 'In cell furniture',
@@ -1887,7 +1887,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
           nextQuestionId: '44123',
         },
         {
-          id: '182350',
+          code: '182350',
           response: 'IN BUILDING FABRIC',
           active: false,
           label: 'In building fabric',
@@ -1896,7 +1896,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
           nextQuestionId: '44123',
         },
         {
-          id: '182354',
+          code: '182354',
           response: 'STORES ITEMS',
           active: false,
           label: 'Stores items',
@@ -1905,7 +1905,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
           nextQuestionId: '44123',
         },
         {
-          id: '182348',
+          code: '182348',
           response: 'DELIVERED FOODS/PARCELS',
           active: false,
           label: 'Delivered foods/parcels',
@@ -1914,7 +1914,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
           nextQuestionId: '44123',
         },
         {
-          id: '182355',
+          code: '182355',
           response: 'VEHICLE',
           active: false,
           label: 'Vehicle',
@@ -1923,7 +1923,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
           nextQuestionId: '44123',
         },
         {
-          id: '182349',
+          code: '182349',
           response: 'ELSEWHERE',
           active: false,
           label: 'Elsewhere',
@@ -1941,7 +1941,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          id: '182424',
+          code: '182424',
           response: 'REAL (FUNCTIONAL)',
           active: false,
           label: 'Real (functional)',
@@ -1950,7 +1950,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
           nextQuestionId: '44504',
         },
         {
-          id: '182425',
+          code: '182425',
           response: 'REAL (NON-FUNCTIONAL)',
           active: false,
           label: 'Real (non-functional)',
@@ -1959,7 +1959,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
           nextQuestionId: '44504',
         },
         {
-          id: '182426',
+          code: '182426',
           response: 'REPLICA',
           active: false,
           label: 'Replica',
@@ -1968,7 +1968,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
           nextQuestionId: '44504',
         },
         {
-          id: '182423',
+          code: '182423',
           response: 'HOME MADE',
           active: false,
           label: 'Home made',
@@ -1977,7 +1977,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
           nextQuestionId: '44504',
         },
         {
-          id: '182427',
+          code: '182427',
           response: 'TOY',
           active: false,
           label: 'Toy',

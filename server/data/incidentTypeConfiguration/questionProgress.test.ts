@@ -36,7 +36,7 @@ describe('Question progress', () => {
    * ```
    */
   const config: IncidentTypeConfiguration = {
-    startingQuestionId: '1',
+    startingQuestionCode: '1',
     active: true,
     incidentType: 'MISCELLANEOUS_1',
     prisonerRoles: [],
@@ -55,7 +55,7 @@ describe('Question progress', () => {
             label: 'Answer 1-1',
             dateRequired: false,
             commentRequired: false,
-            nextQuestionId: '2',
+            nextQuestionCode: '2',
           },
           {
             code: '12',
@@ -64,7 +64,7 @@ describe('Question progress', () => {
             label: 'Answer 1-2',
             dateRequired: false,
             commentRequired: false,
-            nextQuestionId: '4',
+            nextQuestionCode: '4',
           },
         ],
       },
@@ -82,7 +82,7 @@ describe('Question progress', () => {
             label: 'Answer 2-1',
             dateRequired: false,
             commentRequired: false,
-            nextQuestionId: '3',
+            nextQuestionCode: '3',
           },
           {
             code: '22',
@@ -91,7 +91,7 @@ describe('Question progress', () => {
             label: 'Answer 2-2',
             dateRequired: false,
             commentRequired: false,
-            nextQuestionId: '3',
+            nextQuestionCode: '3',
           },
         ],
       },
@@ -109,7 +109,7 @@ describe('Question progress', () => {
             label: 'Answer 3-1',
             dateRequired: false,
             commentRequired: false,
-            nextQuestionId: '4',
+            nextQuestionCode: '4',
           },
           {
             code: '32',
@@ -118,7 +118,7 @@ describe('Question progress', () => {
             label: 'Answer 3-2',
             dateRequired: false,
             commentRequired: false,
-            nextQuestionId: '4',
+            nextQuestionCode: '4',
           },
         ],
       },
@@ -136,7 +136,7 @@ describe('Question progress', () => {
             label: 'Answer 4-1',
             dateRequired: false,
             commentRequired: false,
-            nextQuestionId: null,
+            nextQuestionCode: null,
           },
           {
             code: '42',
@@ -145,7 +145,7 @@ describe('Question progress', () => {
             label: 'Answer 4-2',
             dateRequired: false,
             commentRequired: false,
-            nextQuestionId: null,
+            nextQuestionCode: null,
           },
         ],
       },
@@ -494,7 +494,7 @@ describe('Question progress', () => {
 
     describe('for single-choice questions', () => {
       const simplestConfig: IncidentTypeConfiguration = {
-        startingQuestionId: '1',
+        startingQuestionCode: '1',
         active: true,
         incidentType: 'MISCELLANEOUS_1',
         prisonerRoles: [],
@@ -513,7 +513,7 @@ describe('Question progress', () => {
                 label: 'Answer 1',
                 dateRequired: false,
                 commentRequired: false,
-                nextQuestionId: null,
+                nextQuestionCode: null,
               },
               {
                 code: '2',
@@ -522,7 +522,7 @@ describe('Question progress', () => {
                 label: 'Answer 2 (enter date)',
                 dateRequired: true,
                 commentRequired: false,
-                nextQuestionId: null,
+                nextQuestionCode: null,
               },
               {
                 code: '3',
@@ -531,7 +531,7 @@ describe('Question progress', () => {
                 label: 'Answer 3 (enter details)',
                 dateRequired: false,
                 commentRequired: true,
-                nextQuestionId: null,
+                nextQuestionCode: null,
               },
               {
                 code: '4',
@@ -540,7 +540,7 @@ describe('Question progress', () => {
                 label: 'Answer 4 (enter both)',
                 dateRequired: true,
                 commentRequired: true,
-                nextQuestionId: null,
+                nextQuestionCode: null,
               },
             ],
           },
@@ -691,7 +691,7 @@ describe('Question progress', () => {
 
     describe('for multiple-choice questions', () => {
       const multiChoiceConfig: IncidentTypeConfiguration = {
-        startingQuestionId: '1',
+        startingQuestionCode: '1',
         active: true,
         incidentType: 'MISCELLANEOUS_1',
         prisonerRoles: [],
@@ -710,7 +710,7 @@ describe('Question progress', () => {
                 label: 'Answer 1',
                 dateRequired: false,
                 commentRequired: false,
-                nextQuestionId: null,
+                nextQuestionCode: null,
               },
               {
                 code: '2',
@@ -719,7 +719,7 @@ describe('Question progress', () => {
                 label: 'Answer 2 (enter date)',
                 dateRequired: true,
                 commentRequired: false,
-                nextQuestionId: null,
+                nextQuestionCode: null,
               },
               {
                 code: '3',
@@ -728,7 +728,7 @@ describe('Question progress', () => {
                 label: 'Answer 3 (enter details)',
                 dateRequired: false,
                 commentRequired: true,
-                nextQuestionId: null,
+                nextQuestionCode: null,
               },
               {
                 code: '4',
@@ -737,7 +737,7 @@ describe('Question progress', () => {
                 label: 'Answer 4 (enter both)',
                 dateRequired: true,
                 commentRequired: true,
-                nextQuestionId: null,
+                nextQuestionCode: null,
               },
             ],
           },
@@ -821,7 +821,7 @@ describe('Question progress', () => {
 
     describe('for questions with inactive responses', () => {
       const configWithInactiveResponses: IncidentTypeConfiguration = {
-        startingQuestionId: '1',
+        startingQuestionCode: '1',
         active: true,
         incidentType: 'MISCELLANEOUS_1',
         prisonerRoles: [],
@@ -840,7 +840,7 @@ describe('Question progress', () => {
                 label: 'Answer 1 (old, inactive)',
                 dateRequired: false,
                 commentRequired: false,
-                nextQuestionId: null,
+                nextQuestionCode: null,
               },
               {
                 code: '2',
@@ -849,7 +849,7 @@ describe('Question progress', () => {
                 label: 'Answer 1 (new, active)',
                 dateRequired: false,
                 commentRequired: false,
-                nextQuestionId: '2',
+                nextQuestionCode: '2',
               },
             ],
           },

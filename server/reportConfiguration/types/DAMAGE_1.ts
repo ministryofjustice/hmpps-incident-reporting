@@ -5,7 +5,7 @@ import type { IncidentTypeConfiguration } from '../../data/incidentTypeConfigura
 export const DAMAGE_1: IncidentTypeConfiguration = {
   incidentType: 'DAMAGE_1',
   active: false,
-  startingQuestionId: '44784',
+  startingQuestionCode: '44784',
   questions: {
     '44167': {
       code: '44167',
@@ -21,7 +21,7 @@ export const DAMAGE_1: IncidentTypeConfiguration = {
           label: 'Yes',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '45002',
+          nextQuestionCode: '45002',
         },
         {
           code: '179055',
@@ -30,7 +30,7 @@ export const DAMAGE_1: IncidentTypeConfiguration = {
           label: 'No',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '44655',
+          nextQuestionCode: '44655',
         },
       ],
     },
@@ -48,7 +48,7 @@ export const DAMAGE_1: IncidentTypeConfiguration = {
           label: 'Yes',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '44572',
+          nextQuestionCode: '44572',
         },
         {
           code: '179114',
@@ -57,7 +57,7 @@ export const DAMAGE_1: IncidentTypeConfiguration = {
           label: 'No',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '44200',
+          nextQuestionCode: '44200',
         },
       ],
     },
@@ -75,7 +75,7 @@ export const DAMAGE_1: IncidentTypeConfiguration = {
           label: 'Yes',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '45050',
+          nextQuestionCode: '45050',
         },
         {
           code: '179165',
@@ -84,7 +84,7 @@ export const DAMAGE_1: IncidentTypeConfiguration = {
           label: 'No',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '45050',
+          nextQuestionCode: '45050',
         },
       ],
     },
@@ -102,7 +102,7 @@ export const DAMAGE_1: IncidentTypeConfiguration = {
           label: 'Staff',
           commentRequired: true,
           dateRequired: false,
-          nextQuestionId: '44167',
+          nextQuestionCode: '44167',
         },
         {
           code: '179246',
@@ -111,7 +111,7 @@ export const DAMAGE_1: IncidentTypeConfiguration = {
           label: 'Prisoners',
           commentRequired: true,
           dateRequired: false,
-          nextQuestionId: '44167',
+          nextQuestionCode: '44167',
         },
         {
           code: '179243',
@@ -120,7 +120,7 @@ export const DAMAGE_1: IncidentTypeConfiguration = {
           label: 'Civilian grades',
           commentRequired: true,
           dateRequired: false,
-          nextQuestionId: '44167',
+          nextQuestionCode: '44167',
         },
         {
           code: '179245',
@@ -129,7 +129,7 @@ export const DAMAGE_1: IncidentTypeConfiguration = {
           label: 'Police',
           commentRequired: true,
           dateRequired: false,
-          nextQuestionId: '44167',
+          nextQuestionCode: '44167',
         },
         {
           code: '179244',
@@ -138,7 +138,7 @@ export const DAMAGE_1: IncidentTypeConfiguration = {
           label: 'External civilians',
           commentRequired: true,
           dateRequired: false,
-          nextQuestionId: '44167',
+          nextQuestionCode: '44167',
         },
       ],
     },
@@ -156,7 +156,7 @@ export const DAMAGE_1: IncidentTypeConfiguration = {
           label: 'Yes',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '44785',
+          nextQuestionCode: '44785',
         },
         {
           code: '179431',
@@ -165,7 +165,7 @@ export const DAMAGE_1: IncidentTypeConfiguration = {
           label: 'No',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '44971',
+          nextQuestionCode: '44971',
         },
       ],
     },
@@ -183,7 +183,7 @@ export const DAMAGE_1: IncidentTypeConfiguration = {
           label: 'Administration',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '44343',
+          nextQuestionCode: '44343',
         },
         {
           code: '179571',
@@ -192,7 +192,7 @@ export const DAMAGE_1: IncidentTypeConfiguration = {
           label: 'Association area',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '44343',
+          nextQuestionCode: '44343',
         },
         {
           code: '179572',
@@ -201,7 +201,7 @@ export const DAMAGE_1: IncidentTypeConfiguration = {
           label: 'Cell',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '44343',
+          nextQuestionCode: '44343',
         },
         {
           code: '179573',
@@ -210,7 +210,7 @@ export const DAMAGE_1: IncidentTypeConfiguration = {
           label: 'Chapel',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '44343',
+          nextQuestionCode: '44343',
         },
         {
           code: '179575',
@@ -219,7 +219,7 @@ export const DAMAGE_1: IncidentTypeConfiguration = {
           label: 'Dining room',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '44343',
+          nextQuestionCode: '44343',
         },
         {
           code: '179576',
@@ -228,7 +228,7 @@ export const DAMAGE_1: IncidentTypeConfiguration = {
           label: 'Dormitory',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '44343',
+          nextQuestionCode: '44343',
         },
         {
           code: '179577',
@@ -237,7 +237,7 @@ export const DAMAGE_1: IncidentTypeConfiguration = {
           label: 'Education',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '44343',
+          nextQuestionCode: '44343',
         },
         {
           code: '179579',
@@ -246,7 +246,7 @@ export const DAMAGE_1: IncidentTypeConfiguration = {
           label: 'Exercise yard',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '44343',
+          nextQuestionCode: '44343',
         },
         {
           code: '179581',
@@ -255,7 +255,7 @@ export const DAMAGE_1: IncidentTypeConfiguration = {
           label: 'Gate',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '44343',
+          nextQuestionCode: '44343',
         },
         {
           code: '179582',
@@ -264,7 +264,7 @@ export const DAMAGE_1: IncidentTypeConfiguration = {
           label: 'Gym',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '44343',
+          nextQuestionCode: '44343',
         },
         {
           code: '179583',
@@ -273,7 +273,7 @@ export const DAMAGE_1: IncidentTypeConfiguration = {
           label: 'Health care centre',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '44343',
+          nextQuestionCode: '44343',
         },
         {
           code: '179586',
@@ -282,7 +282,7 @@ export const DAMAGE_1: IncidentTypeConfiguration = {
           label: 'Kitchen',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '44343',
+          nextQuestionCode: '44343',
         },
         {
           code: '179588',
@@ -291,7 +291,7 @@ export const DAMAGE_1: IncidentTypeConfiguration = {
           label: 'Office',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '44343',
+          nextQuestionCode: '44343',
         },
         {
           code: '179590',
@@ -300,7 +300,7 @@ export const DAMAGE_1: IncidentTypeConfiguration = {
           label: 'Reception',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '44343',
+          nextQuestionCode: '44343',
         },
         {
           code: '179591',
@@ -309,7 +309,7 @@ export const DAMAGE_1: IncidentTypeConfiguration = {
           label: 'Recess',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '44343',
+          nextQuestionCode: '44343',
         },
         {
           code: '179592',
@@ -318,7 +318,7 @@ export const DAMAGE_1: IncidentTypeConfiguration = {
           label: 'Segregation unit',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '44343',
+          nextQuestionCode: '44343',
         },
         {
           code: '179594',
@@ -327,7 +327,7 @@ export const DAMAGE_1: IncidentTypeConfiguration = {
           label: 'Special unit',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '44343',
+          nextQuestionCode: '44343',
         },
         {
           code: '179593',
@@ -336,7 +336,7 @@ export const DAMAGE_1: IncidentTypeConfiguration = {
           label: 'Showers/changing room',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '44343',
+          nextQuestionCode: '44343',
         },
         {
           code: '179597',
@@ -345,7 +345,7 @@ export const DAMAGE_1: IncidentTypeConfiguration = {
           label: 'Visits',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '44343',
+          nextQuestionCode: '44343',
         },
         {
           code: '179599',
@@ -354,7 +354,7 @@ export const DAMAGE_1: IncidentTypeConfiguration = {
           label: 'Wing',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '44343',
+          nextQuestionCode: '44343',
         },
         {
           code: '179601',
@@ -363,7 +363,7 @@ export const DAMAGE_1: IncidentTypeConfiguration = {
           label: 'Works department',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '44343',
+          nextQuestionCode: '44343',
         },
         {
           code: '179602',
@@ -372,7 +372,7 @@ export const DAMAGE_1: IncidentTypeConfiguration = {
           label: 'Workshop',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '44343',
+          nextQuestionCode: '44343',
         },
         {
           code: '179600',
@@ -381,7 +381,7 @@ export const DAMAGE_1: IncidentTypeConfiguration = {
           label: 'Within perimeter',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '44343',
+          nextQuestionCode: '44343',
         },
         {
           code: '179578',
@@ -390,7 +390,7 @@ export const DAMAGE_1: IncidentTypeConfiguration = {
           label: 'Elsewhere',
           commentRequired: true,
           dateRequired: false,
-          nextQuestionId: '44343',
+          nextQuestionCode: '44343',
         },
         {
           code: '179580',
@@ -399,7 +399,7 @@ export const DAMAGE_1: IncidentTypeConfiguration = {
           label: 'Funeral',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '44343',
+          nextQuestionCode: '44343',
         },
         {
           code: '179584',
@@ -408,7 +408,7 @@ export const DAMAGE_1: IncidentTypeConfiguration = {
           label: 'Hospital outside (patient)',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '44343',
+          nextQuestionCode: '44343',
         },
         {
           code: '179585',
@@ -417,7 +417,7 @@ export const DAMAGE_1: IncidentTypeConfiguration = {
           label: 'Hospital outside (visiting)',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '44343',
+          nextQuestionCode: '44343',
         },
         {
           code: '179589',
@@ -426,7 +426,7 @@ export const DAMAGE_1: IncidentTypeConfiguration = {
           label: 'Outside working party',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '44343',
+          nextQuestionCode: '44343',
         },
         {
           code: '179595',
@@ -435,7 +435,7 @@ export const DAMAGE_1: IncidentTypeConfiguration = {
           label: 'Sports field',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '44343',
+          nextQuestionCode: '44343',
         },
         {
           code: '179596',
@@ -444,7 +444,7 @@ export const DAMAGE_1: IncidentTypeConfiguration = {
           label: 'Vehicle',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '44343',
+          nextQuestionCode: '44343',
         },
         {
           code: '179598',
@@ -453,7 +453,7 @@ export const DAMAGE_1: IncidentTypeConfiguration = {
           label: 'Weddings',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '44343',
+          nextQuestionCode: '44343',
         },
         {
           code: '179587',
@@ -462,7 +462,7 @@ export const DAMAGE_1: IncidentTypeConfiguration = {
           label: 'Magistrates court',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '44343',
+          nextQuestionCode: '44343',
         },
         {
           code: '179574',
@@ -471,7 +471,7 @@ export const DAMAGE_1: IncidentTypeConfiguration = {
           label: 'Crown court',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '44343',
+          nextQuestionCode: '44343',
         },
       ],
     },
@@ -489,7 +489,7 @@ export const DAMAGE_1: IncidentTypeConfiguration = {
           label: 'Furniture',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '44466',
+          nextQuestionCode: '44466',
         },
         {
           code: '179656',
@@ -498,7 +498,7 @@ export const DAMAGE_1: IncidentTypeConfiguration = {
           label: 'Fittings',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '44466',
+          nextQuestionCode: '44466',
         },
         {
           code: '179658',
@@ -507,7 +507,7 @@ export const DAMAGE_1: IncidentTypeConfiguration = {
           label: 'Machinery',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '44466',
+          nextQuestionCode: '44466',
         },
         {
           code: '179655',
@@ -516,7 +516,7 @@ export const DAMAGE_1: IncidentTypeConfiguration = {
           label: 'Equipment',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '44466',
+          nextQuestionCode: '44466',
         },
         {
           code: '179659',
@@ -525,7 +525,7 @@ export const DAMAGE_1: IncidentTypeConfiguration = {
           label: 'Other',
           commentRequired: true,
           dateRequired: false,
-          nextQuestionId: '44466',
+          nextQuestionCode: '44466',
         },
       ],
     },
@@ -543,7 +543,7 @@ export const DAMAGE_1: IncidentTypeConfiguration = {
           label: 'Yes',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '44295',
+          nextQuestionCode: '44295',
         },
         {
           code: '179785',
@@ -552,7 +552,7 @@ export const DAMAGE_1: IncidentTypeConfiguration = {
           label: 'No',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '44655',
+          nextQuestionCode: '44655',
         },
       ],
     },
@@ -570,7 +570,7 @@ export const DAMAGE_1: IncidentTypeConfiguration = {
           label: 'Minor',
           commentRequired: true,
           dateRequired: false,
-          nextQuestionId: '44763',
+          nextQuestionCode: '44763',
         },
         {
           code: '180084',
@@ -579,7 +579,7 @@ export const DAMAGE_1: IncidentTypeConfiguration = {
           label: 'Serious',
           commentRequired: true,
           dateRequired: false,
-          nextQuestionId: '44763',
+          nextQuestionCode: '44763',
         },
         {
           code: '180082',
@@ -588,7 +588,7 @@ export const DAMAGE_1: IncidentTypeConfiguration = {
           label: 'Extensive',
           commentRequired: true,
           dateRequired: false,
-          nextQuestionId: '44763',
+          nextQuestionCode: '44763',
         },
       ],
     },
@@ -606,7 +606,7 @@ export const DAMAGE_1: IncidentTypeConfiguration = {
           label: 'Yes',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '45082',
+          nextQuestionCode: '45082',
         },
         {
           code: '180258',
@@ -615,7 +615,7 @@ export const DAMAGE_1: IncidentTypeConfiguration = {
           label: 'No',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '45082',
+          nextQuestionCode: '45082',
         },
       ],
     },
@@ -633,7 +633,7 @@ export const DAMAGE_1: IncidentTypeConfiguration = {
           label: 'Yes',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '44200',
+          nextQuestionCode: '44200',
         },
         {
           code: '180491',
@@ -642,7 +642,7 @@ export const DAMAGE_1: IncidentTypeConfiguration = {
           label: 'No',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '44200',
+          nextQuestionCode: '44200',
         },
       ],
     },
@@ -660,7 +660,7 @@ export const DAMAGE_1: IncidentTypeConfiguration = {
           label: 'Grazes, scratches or abrasions',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '44230',
+          nextQuestionCode: '44230',
         },
         {
           code: '180505',
@@ -669,7 +669,7 @@ export const DAMAGE_1: IncidentTypeConfiguration = {
           label: 'Minor bruises',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '44230',
+          nextQuestionCode: '44230',
         },
         {
           code: '180508',
@@ -678,7 +678,7 @@ export const DAMAGE_1: IncidentTypeConfiguration = {
           label: 'Swellings',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '44230',
+          nextQuestionCode: '44230',
         },
         {
           code: '180507',
@@ -687,7 +687,7 @@ export const DAMAGE_1: IncidentTypeConfiguration = {
           label: 'Superficial cuts',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '44230',
+          nextQuestionCode: '44230',
         },
         {
           code: '180506',
@@ -696,7 +696,7 @@ export const DAMAGE_1: IncidentTypeConfiguration = {
           label: 'Other',
           commentRequired: true,
           dateRequired: false,
-          nextQuestionId: '44230',
+          nextQuestionCode: '44230',
         },
       ],
     },
@@ -714,7 +714,7 @@ export const DAMAGE_1: IncidentTypeConfiguration = {
           label: 'Yes',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '44735',
+          nextQuestionCode: '44735',
         },
         {
           code: '180774',
@@ -723,7 +723,7 @@ export const DAMAGE_1: IncidentTypeConfiguration = {
           label: 'No',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '44735',
+          nextQuestionCode: '44735',
         },
       ],
     },
@@ -741,7 +741,7 @@ export const DAMAGE_1: IncidentTypeConfiguration = {
           label: 'Yes',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '44324',
+          nextQuestionCode: '44324',
         },
         {
           code: '181069',
@@ -750,7 +750,7 @@ export const DAMAGE_1: IncidentTypeConfiguration = {
           label: 'No',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '44324',
+          nextQuestionCode: '44324',
         },
       ],
     },
@@ -768,7 +768,7 @@ export const DAMAGE_1: IncidentTypeConfiguration = {
           label: 'Enter amount in pound sterling',
           commentRequired: true,
           dateRequired: false,
-          nextQuestionId: null,
+          nextQuestionCode: null,
         },
       ],
     },
@@ -786,7 +786,7 @@ export const DAMAGE_1: IncidentTypeConfiguration = {
           label: 'Yes',
           commentRequired: false,
           dateRequired: true,
-          nextQuestionId: '44190',
+          nextQuestionCode: '44190',
         },
         {
           code: '181187',
@@ -795,7 +795,7 @@ export const DAMAGE_1: IncidentTypeConfiguration = {
           label: 'No',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '44200',
+          nextQuestionCode: '44200',
         },
       ],
     },
@@ -813,7 +813,7 @@ export const DAMAGE_1: IncidentTypeConfiguration = {
           label: 'Fracture',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '44971',
+          nextQuestionCode: '44971',
         },
         {
           code: '181197',
@@ -822,7 +822,7 @@ export const DAMAGE_1: IncidentTypeConfiguration = {
           label: 'Scald or burn',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '44971',
+          nextQuestionCode: '44971',
         },
         {
           code: '181198',
@@ -831,7 +831,7 @@ export const DAMAGE_1: IncidentTypeConfiguration = {
           label: 'Stabbing',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '44971',
+          nextQuestionCode: '44971',
         },
         {
           code: '181192',
@@ -840,7 +840,7 @@ export const DAMAGE_1: IncidentTypeConfiguration = {
           label: 'Crushing',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '44971',
+          nextQuestionCode: '44971',
         },
         {
           code: '181194',
@@ -849,7 +849,7 @@ export const DAMAGE_1: IncidentTypeConfiguration = {
           label: 'Extensive/multiple bruising',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '44971',
+          nextQuestionCode: '44971',
         },
         {
           code: '181189',
@@ -858,7 +858,7 @@ export const DAMAGE_1: IncidentTypeConfiguration = {
           label: 'Black eye',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '44971',
+          nextQuestionCode: '44971',
         },
         {
           code: '181190',
@@ -867,7 +867,7 @@ export const DAMAGE_1: IncidentTypeConfiguration = {
           label: 'Broken nose',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '44971',
+          nextQuestionCode: '44971',
         },
         {
           code: '181191',
@@ -876,7 +876,7 @@ export const DAMAGE_1: IncidentTypeConfiguration = {
           label: 'Broken teeth',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '44971',
+          nextQuestionCode: '44971',
         },
         {
           code: '181193',
@@ -885,7 +885,7 @@ export const DAMAGE_1: IncidentTypeConfiguration = {
           label: 'Cuts requiring sutures',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '44971',
+          nextQuestionCode: '44971',
         },
         {
           code: '181188',
@@ -894,7 +894,7 @@ export const DAMAGE_1: IncidentTypeConfiguration = {
           label: 'Bites',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '44971',
+          nextQuestionCode: '44971',
         },
         {
           code: '181196',
@@ -903,7 +903,7 @@ export const DAMAGE_1: IncidentTypeConfiguration = {
           label: 'Gun shot wound',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '44971',
+          nextQuestionCode: '44971',
         },
         {
           code: '181199',
@@ -912,7 +912,7 @@ export const DAMAGE_1: IncidentTypeConfiguration = {
           label: 'Temporary/permanent blindness',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '44971',
+          nextQuestionCode: '44971',
         },
       ],
     },
@@ -930,7 +930,7 @@ export const DAMAGE_1: IncidentTypeConfiguration = {
           label: 'Yes',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '44576',
+          nextQuestionCode: '44576',
         },
         {
           code: '181865',
@@ -939,7 +939,7 @@ export const DAMAGE_1: IncidentTypeConfiguration = {
           label: 'No',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '44230',
+          nextQuestionCode: '44230',
         },
       ],
     },
@@ -957,7 +957,7 @@ export const DAMAGE_1: IncidentTypeConfiguration = {
           label: 'Staff',
           commentRequired: true,
           dateRequired: false,
-          nextQuestionId: '44655',
+          nextQuestionCode: '44655',
         },
         {
           code: '181965',
@@ -966,7 +966,7 @@ export const DAMAGE_1: IncidentTypeConfiguration = {
           label: 'Prisoners',
           commentRequired: true,
           dateRequired: false,
-          nextQuestionId: '44655',
+          nextQuestionCode: '44655',
         },
         {
           code: '181962',
@@ -975,7 +975,7 @@ export const DAMAGE_1: IncidentTypeConfiguration = {
           label: 'Civilian grades',
           commentRequired: true,
           dateRequired: false,
-          nextQuestionId: '44655',
+          nextQuestionCode: '44655',
         },
         {
           code: '181964',
@@ -984,7 +984,7 @@ export const DAMAGE_1: IncidentTypeConfiguration = {
           label: 'Police',
           commentRequired: true,
           dateRequired: false,
-          nextQuestionId: '44655',
+          nextQuestionCode: '44655',
         },
         {
           code: '181963',
@@ -993,7 +993,7 @@ export const DAMAGE_1: IncidentTypeConfiguration = {
           label: 'External civilians',
           commentRequired: true,
           dateRequired: false,
-          nextQuestionId: '44655',
+          nextQuestionCode: '44655',
         },
       ],
     },
@@ -1011,7 +1011,7 @@ export const DAMAGE_1: IncidentTypeConfiguration = {
           label: 'Yes',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '44512',
+          nextQuestionCode: '44512',
         },
         {
           code: '182173',
@@ -1020,7 +1020,7 @@ export const DAMAGE_1: IncidentTypeConfiguration = {
           label: 'No',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '44512',
+          nextQuestionCode: '44512',
         },
       ],
     },
@@ -1038,7 +1038,7 @@ export const DAMAGE_1: IncidentTypeConfiguration = {
           label: 'Yes',
           commentRequired: false,
           dateRequired: true,
-          nextQuestionId: '44379',
+          nextQuestionCode: '44379',
         },
         {
           code: '182286',
@@ -1047,7 +1047,7 @@ export const DAMAGE_1: IncidentTypeConfiguration = {
           label: 'No',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '44379',
+          nextQuestionCode: '44379',
         },
       ],
     },

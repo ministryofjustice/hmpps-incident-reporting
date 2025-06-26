@@ -23,58 +23,58 @@ export default class QuestionsToDelete {
    * Determines which of the currently answered questions need to be deleted
    *
    * This is done by traversing the questionnaire tree (from the start) and
-   * returning the question IDs which were not visited, given the current
+   * returning the question codes which were not visited, given the current
    * answers.
    *
    * @param config incident type config
    * @param answeredQuestions list of questions answered (and their responses)
    *
-   * @returns list of question IDs to delete
+   * @returns list of question codes to delete
    */
   public static forGivenAnswers(config: IncidentTypeConfiguration, answeredQuestions: AnsweredQuestion[]): string[] {
-    const currentQuestionsIds = answeredQuestions.map(question => question.code)
+    const currentQuestionsCodes = answeredQuestions.map(question => question.code)
 
-    const visitedQuestions = this.traverseQuestionnaire(config, config.startingQuestionId, answeredQuestions)
+    const visitedQuestions = this.traverseQuestionnaire(config, config.startingQuestionCode, answeredQuestions)
 
     // Delete questions not visited, they're in non-visited branches
-    return currentQuestionsIds.filter(questionId => !visitedQuestions.includes(questionId))
+    return currentQuestionsCodes.filter(questionCode => !visitedQuestions.includes(questionCode))
   }
 
   /**
-   * Traverses the questionnaire tree and return the visited question IDs
+   * Traverses the questionnaire tree and return the visited question codes
    *
    * The traversal starts at `start` and is based off the already answered
    * questions.
    *
    * @param config incident type config
-   * @param start question ID where to start
+   * @param start question code where to start
    * @param answeredQuestions list of questions answered (and their responses)
    *
-   * @returns list of question IDs to delete
+   * @returns list of question codes to delete
    */
   private static traverseQuestionnaire(
     config: IncidentTypeConfiguration,
     start: string,
     answeredQuestions: AnsweredQuestion[],
   ): string[] {
-    const nextQuestionId = this.findNextQuestionId(config, start, answeredQuestions)
-    if (!nextQuestionId) {
+    const nextQuestionCode = this.findNextQuestionCode(config, start, answeredQuestions)
+    if (!nextQuestionCode) {
       // question not found or answer is invalid
       return []
     }
-    if (nextQuestionId === endReached) {
+    if (nextQuestionCode === endReached) {
       // answer was found and reached the end
       return [start]
     }
 
     // answer was found and another step follows
-    return [start, ...this.traverseQuestionnaire(config, nextQuestionId as string, answeredQuestions)]
+    return [start, ...this.traverseQuestionnaire(config, nextQuestionCode as string, answeredQuestions)]
   }
 
   /**
-   * Returns the next question ID given the current answers
+   * Returns the next question code given the current answers
    *
-   * The logic is "clever" enough to determine the next question ID
+   * The logic is "clever" enough to determine the next question code
    * for some unanswered questions if no branching occurs.
    *
    * The implications of this is that more of the previous answers can
@@ -85,12 +85,12 @@ export default class QuestionsToDelete {
    * valid and it could be retained.
    *
    * @param config incident type config
-   * @param start question ID where to start
+   * @param start question code where to start
    * @param answeredQuestions list of questions answered (and their responses)
    *
-   * @returns the next question ID after a question
+   * @returns the next question code after a question
    */
-  private static findNextQuestionId(
+  private static findNextQuestionCode(
     config: IncidentTypeConfiguration,
     start: string,
     answeredQuestions: AnsweredQuestion[],
@@ -111,8 +111,8 @@ export default class QuestionsToDelete {
       questionConfig = config.questions[start]
       if (questionConfig) {
         const activeAnswers = questionConfig.answers.filter(ansConf => ansConf.active)
-        const nextQuestionIds = new Set(activeAnswers.map(ansConf => ansConf.nextQuestionId))
-        const noBranching = nextQuestionIds.size === 1
+        const nextQuestionCodes = new Set(activeAnswers.map(ansConf => ansConf.nextQuestionCode))
+        const noBranching = nextQuestionCodes.size === 1
         if (noBranching) {
           // eslint-disable-next-line prefer-destructuring
           answerConfig = activeAnswers[0]
@@ -124,6 +124,6 @@ export default class QuestionsToDelete {
       return null
     }
 
-    return answerConfig.nextQuestionId ?? endReached
+    return answerConfig.nextQuestionCode ?? endReached
   }
 }

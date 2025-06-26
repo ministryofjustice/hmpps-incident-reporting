@@ -5,7 +5,7 @@ import type { IncidentTypeConfiguration } from '../../data/incidentTypeConfigura
 export const DRONE_SIGHTING_2: IncidentTypeConfiguration = {
   incidentType: 'DRONE_SIGHTING_2',
   active: false,
-  startingQuestionId: '57253',
+  startingQuestionCode: '57253',
   questions: {
     '57253': {
       code: '57253',
@@ -21,7 +21,7 @@ export const DRONE_SIGHTING_2: IncidentTypeConfiguration = {
           label: 'Yes',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '57254',
+          nextQuestionCode: '57254',
         },
         {
           code: '208951',
@@ -30,7 +30,7 @@ export const DRONE_SIGHTING_2: IncidentTypeConfiguration = {
           label: 'No',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '57263',
+          nextQuestionCode: '57263',
         },
       ],
     },
@@ -48,7 +48,7 @@ export const DRONE_SIGHTING_2: IncidentTypeConfiguration = {
           label: '12am to 6am',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '57255',
+          nextQuestionCode: '57255',
         },
         {
           code: '208953',
@@ -57,7 +57,7 @@ export const DRONE_SIGHTING_2: IncidentTypeConfiguration = {
           label: '6am to 12pm',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '57255',
+          nextQuestionCode: '57255',
         },
         {
           code: '208954',
@@ -66,7 +66,7 @@ export const DRONE_SIGHTING_2: IncidentTypeConfiguration = {
           label: '12pm to 6pm',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '57255',
+          nextQuestionCode: '57255',
         },
         {
           code: '208955',
@@ -75,7 +75,7 @@ export const DRONE_SIGHTING_2: IncidentTypeConfiguration = {
           label: '6pm to 12am',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '57255',
+          nextQuestionCode: '57255',
         },
       ],
     },
@@ -93,7 +93,7 @@ export const DRONE_SIGHTING_2: IncidentTypeConfiguration = {
           label: '1',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '57256',
+          nextQuestionCode: '57256',
         },
         {
           code: '208957',
@@ -102,7 +102,7 @@ export const DRONE_SIGHTING_2: IncidentTypeConfiguration = {
           label: '2',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '57256',
+          nextQuestionCode: '57256',
         },
         {
           code: '208958',
@@ -111,7 +111,7 @@ export const DRONE_SIGHTING_2: IncidentTypeConfiguration = {
           label: '3',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '57256',
+          nextQuestionCode: '57256',
         },
         {
           code: '208959',
@@ -120,7 +120,7 @@ export const DRONE_SIGHTING_2: IncidentTypeConfiguration = {
           label: '4',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '57256',
+          nextQuestionCode: '57256',
         },
         {
           code: '208960',
@@ -129,7 +129,7 @@ export const DRONE_SIGHTING_2: IncidentTypeConfiguration = {
           label: '5',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '57256',
+          nextQuestionCode: '57256',
         },
         {
           code: '208961',
@@ -138,7 +138,7 @@ export const DRONE_SIGHTING_2: IncidentTypeConfiguration = {
           label: '6+',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '57256',
+          nextQuestionCode: '57256',
         },
       ],
     },
@@ -156,7 +156,7 @@ export const DRONE_SIGHTING_2: IncidentTypeConfiguration = {
           label: 'Beyond the external perimeter border',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '57257',
+          nextQuestionCode: '57257',
         },
         {
           code: '208963',
@@ -165,7 +165,7 @@ export const DRONE_SIGHTING_2: IncidentTypeConfiguration = {
           label: 'Exercise yard',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '57257',
+          nextQuestionCode: '57257',
         },
         {
           code: '208964',
@@ -174,7 +174,7 @@ export const DRONE_SIGHTING_2: IncidentTypeConfiguration = {
           label: 'External roof',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '57257',
+          nextQuestionCode: '57257',
         },
         {
           code: '208965',
@@ -183,7 +183,7 @@ export const DRONE_SIGHTING_2: IncidentTypeConfiguration = {
           label: 'Gate',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '57257',
+          nextQuestionCode: '57257',
         },
         {
           code: '208966',
@@ -192,7 +192,7 @@ export const DRONE_SIGHTING_2: IncidentTypeConfiguration = {
           label: 'Near cell window',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '57257',
+          nextQuestionCode: '57257',
         },
         {
           code: '208967',
@@ -201,7 +201,7 @@ export const DRONE_SIGHTING_2: IncidentTypeConfiguration = {
           label: 'Sports field',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '57257',
+          nextQuestionCode: '57257',
         },
         {
           code: '208968',
@@ -210,7 +210,7 @@ export const DRONE_SIGHTING_2: IncidentTypeConfiguration = {
           label: 'Within perimeter',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '57257',
+          nextQuestionCode: '57257',
         },
         {
           code: '208969',
@@ -219,7 +219,7 @@ export const DRONE_SIGHTING_2: IncidentTypeConfiguration = {
           label: 'Other (please specify)',
           commentRequired: true,
           dateRequired: false,
-          nextQuestionId: '57257',
+          nextQuestionCode: '57257',
         },
       ],
     },
@@ -237,7 +237,7 @@ export const DRONE_SIGHTING_2: IncidentTypeConfiguration = {
           label: 'Not applicable',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '57258',
+          nextQuestionCode: '57258',
         },
         {
           code: '208971',
@@ -246,7 +246,7 @@ export const DRONE_SIGHTING_2: IncidentTypeConfiguration = {
           label: '0 to less than 10 metres',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '57258',
+          nextQuestionCode: '57258',
         },
         {
           code: '208972',
@@ -255,7 +255,7 @@ export const DRONE_SIGHTING_2: IncidentTypeConfiguration = {
           label: '10 to less than 100 metres',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '57258',
+          nextQuestionCode: '57258',
         },
         {
           code: '208973',
@@ -264,7 +264,7 @@ export const DRONE_SIGHTING_2: IncidentTypeConfiguration = {
           label: '100 to less than 200 metres',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '57258',
+          nextQuestionCode: '57258',
         },
         {
           code: '208974',
@@ -273,7 +273,7 @@ export const DRONE_SIGHTING_2: IncidentTypeConfiguration = {
           label: '200 metres or more',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '57258',
+          nextQuestionCode: '57258',
         },
       ],
     },
@@ -291,7 +291,7 @@ export const DRONE_SIGHTING_2: IncidentTypeConfiguration = {
           label: 'Static',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '57259',
+          nextQuestionCode: '57259',
         },
         {
           code: '208976',
@@ -300,7 +300,7 @@ export const DRONE_SIGHTING_2: IncidentTypeConfiguration = {
           label: 'Walking pace',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '57259',
+          nextQuestionCode: '57259',
         },
         {
           code: '208977',
@@ -309,7 +309,7 @@ export const DRONE_SIGHTING_2: IncidentTypeConfiguration = {
           label: 'Running pace',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '57259',
+          nextQuestionCode: '57259',
         },
         {
           code: '208978',
@@ -318,7 +318,7 @@ export const DRONE_SIGHTING_2: IncidentTypeConfiguration = {
           label: 'Faster than running',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '57259',
+          nextQuestionCode: '57259',
         },
         {
           code: '208979',
@@ -327,7 +327,7 @@ export const DRONE_SIGHTING_2: IncidentTypeConfiguration = {
           label: 'Unknown',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '57259',
+          nextQuestionCode: '57259',
         },
       ],
     },
@@ -345,7 +345,7 @@ export const DRONE_SIGHTING_2: IncidentTypeConfiguration = {
           label: 'Hovering',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '57260',
+          nextQuestionCode: '57260',
         },
         {
           code: '208981',
@@ -354,7 +354,7 @@ export const DRONE_SIGHTING_2: IncidentTypeConfiguration = {
           label: 'Circling a point',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '57260',
+          nextQuestionCode: '57260',
         },
         {
           code: '208982',
@@ -363,7 +363,7 @@ export const DRONE_SIGHTING_2: IncidentTypeConfiguration = {
           label: 'Straight flight',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '57260',
+          nextQuestionCode: '57260',
         },
         {
           code: '208983',
@@ -372,7 +372,7 @@ export const DRONE_SIGHTING_2: IncidentTypeConfiguration = {
           label: 'Direct attack',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '57260',
+          nextQuestionCode: '57260',
         },
         {
           code: '208984',
@@ -381,7 +381,7 @@ export const DRONE_SIGHTING_2: IncidentTypeConfiguration = {
           label: 'Other (please specify)',
           commentRequired: true,
           dateRequired: false,
-          nextQuestionId: '57260',
+          nextQuestionCode: '57260',
         },
       ],
     },
@@ -399,7 +399,7 @@ export const DRONE_SIGHTING_2: IncidentTypeConfiguration = {
           label: 'Not believed to have been seen before',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '57261',
+          nextQuestionCode: '57261',
         },
         {
           code: '208986',
@@ -408,7 +408,7 @@ export const DRONE_SIGHTING_2: IncidentTypeConfiguration = {
           label: '1',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '57261',
+          nextQuestionCode: '57261',
         },
         {
           code: '208987',
@@ -417,7 +417,7 @@ export const DRONE_SIGHTING_2: IncidentTypeConfiguration = {
           label: '2',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '57261',
+          nextQuestionCode: '57261',
         },
         {
           code: '208988',
@@ -426,7 +426,7 @@ export const DRONE_SIGHTING_2: IncidentTypeConfiguration = {
           label: '3',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '57261',
+          nextQuestionCode: '57261',
         },
         {
           code: '208989',
@@ -435,7 +435,7 @@ export const DRONE_SIGHTING_2: IncidentTypeConfiguration = {
           label: '5',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '57261',
+          nextQuestionCode: '57261',
         },
         {
           code: '208990',
@@ -444,7 +444,7 @@ export const DRONE_SIGHTING_2: IncidentTypeConfiguration = {
           label: '6 or more (please specify)',
           commentRequired: true,
           dateRequired: false,
-          nextQuestionId: '57261',
+          nextQuestionCode: '57261',
         },
       ],
     },
@@ -462,7 +462,7 @@ export const DRONE_SIGHTING_2: IncidentTypeConfiguration = {
           label: 'Clear visibility',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '57262',
+          nextQuestionCode: '57262',
         },
         {
           code: '208992',
@@ -471,7 +471,7 @@ export const DRONE_SIGHTING_2: IncidentTypeConfiguration = {
           label: 'Poor visibility',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '57262',
+          nextQuestionCode: '57262',
         },
         {
           code: '208993',
@@ -480,7 +480,7 @@ export const DRONE_SIGHTING_2: IncidentTypeConfiguration = {
           label: 'Light',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '57262',
+          nextQuestionCode: '57262',
         },
         {
           code: '208994',
@@ -489,7 +489,7 @@ export const DRONE_SIGHTING_2: IncidentTypeConfiguration = {
           label: 'Dark',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '57262',
+          nextQuestionCode: '57262',
         },
         {
           code: '208995',
@@ -498,7 +498,7 @@ export const DRONE_SIGHTING_2: IncidentTypeConfiguration = {
           label: 'Rain',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '57262',
+          nextQuestionCode: '57262',
         },
         {
           code: '208996',
@@ -507,7 +507,7 @@ export const DRONE_SIGHTING_2: IncidentTypeConfiguration = {
           label: 'High wind',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '57262',
+          nextQuestionCode: '57262',
         },
         {
           code: '208997',
@@ -516,7 +516,7 @@ export const DRONE_SIGHTING_2: IncidentTypeConfiguration = {
           label: 'Low wind',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '57262',
+          nextQuestionCode: '57262',
         },
         {
           code: '208998',
@@ -525,7 +525,7 @@ export const DRONE_SIGHTING_2: IncidentTypeConfiguration = {
           label: 'Calm',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '57262',
+          nextQuestionCode: '57262',
         },
       ],
     },
@@ -543,7 +543,7 @@ export const DRONE_SIGHTING_2: IncidentTypeConfiguration = {
           label: 'Yes',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '57264',
+          nextQuestionCode: '57264',
         },
         {
           code: '209000',
@@ -552,7 +552,7 @@ export const DRONE_SIGHTING_2: IncidentTypeConfiguration = {
           label: 'No',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '57266',
+          nextQuestionCode: '57266',
         },
       ],
     },
@@ -570,7 +570,7 @@ export const DRONE_SIGHTING_2: IncidentTypeConfiguration = {
           label: 'Yes',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '57264',
+          nextQuestionCode: '57264',
         },
         {
           code: '209002',
@@ -579,7 +579,7 @@ export const DRONE_SIGHTING_2: IncidentTypeConfiguration = {
           label: 'No',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: null,
+          nextQuestionCode: null,
         },
       ],
     },
@@ -597,7 +597,7 @@ export const DRONE_SIGHTING_2: IncidentTypeConfiguration = {
           label: '1',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '57265',
+          nextQuestionCode: '57265',
         },
         {
           code: '209004',
@@ -606,7 +606,7 @@ export const DRONE_SIGHTING_2: IncidentTypeConfiguration = {
           label: '2',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '57265',
+          nextQuestionCode: '57265',
         },
         {
           code: '209005',
@@ -615,7 +615,7 @@ export const DRONE_SIGHTING_2: IncidentTypeConfiguration = {
           label: '3',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '57265',
+          nextQuestionCode: '57265',
         },
         {
           code: '209006',
@@ -624,7 +624,7 @@ export const DRONE_SIGHTING_2: IncidentTypeConfiguration = {
           label: '4',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '57265',
+          nextQuestionCode: '57265',
         },
         {
           code: '209007',
@@ -633,7 +633,7 @@ export const DRONE_SIGHTING_2: IncidentTypeConfiguration = {
           label: '5',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '57265',
+          nextQuestionCode: '57265',
         },
         {
           code: '209008',
@@ -642,7 +642,7 @@ export const DRONE_SIGHTING_2: IncidentTypeConfiguration = {
           label: '6+',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '57265',
+          nextQuestionCode: '57265',
         },
       ],
     },
@@ -660,7 +660,7 @@ export const DRONE_SIGHTING_2: IncidentTypeConfiguration = {
           label: 'Exercise yard',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '57266',
+          nextQuestionCode: '57266',
         },
         {
           code: '209010',
@@ -669,7 +669,7 @@ export const DRONE_SIGHTING_2: IncidentTypeConfiguration = {
           label: 'External roof',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '57266',
+          nextQuestionCode: '57266',
         },
         {
           code: '209011',
@@ -678,7 +678,7 @@ export const DRONE_SIGHTING_2: IncidentTypeConfiguration = {
           label: 'Gate',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '57266',
+          nextQuestionCode: '57266',
         },
         {
           code: '209012',
@@ -687,7 +687,7 @@ export const DRONE_SIGHTING_2: IncidentTypeConfiguration = {
           label: 'Near cell window',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '57266',
+          nextQuestionCode: '57266',
         },
         {
           code: '209013',
@@ -696,7 +696,7 @@ export const DRONE_SIGHTING_2: IncidentTypeConfiguration = {
           label: 'External perimeter border',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '57266',
+          nextQuestionCode: '57266',
         },
         {
           code: '209014',
@@ -705,7 +705,7 @@ export const DRONE_SIGHTING_2: IncidentTypeConfiguration = {
           label: 'Sports field',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '57266',
+          nextQuestionCode: '57266',
         },
         {
           code: '209015',
@@ -714,7 +714,7 @@ export const DRONE_SIGHTING_2: IncidentTypeConfiguration = {
           label: 'Within perimeter',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '57266',
+          nextQuestionCode: '57266',
         },
         {
           code: '209016',
@@ -723,7 +723,7 @@ export const DRONE_SIGHTING_2: IncidentTypeConfiguration = {
           label: 'Other (please specify)',
           commentRequired: true,
           dateRequired: false,
-          nextQuestionId: '57266',
+          nextQuestionCode: '57266',
         },
       ],
     },
@@ -741,7 +741,7 @@ export const DRONE_SIGHTING_2: IncidentTypeConfiguration = {
           label: 'Multicopter: square',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '57267',
+          nextQuestionCode: '57267',
         },
         {
           code: '209018',
@@ -750,7 +750,7 @@ export const DRONE_SIGHTING_2: IncidentTypeConfiguration = {
           label: 'Multicopter: circular',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '57267',
+          nextQuestionCode: '57267',
         },
         {
           code: '209019',
@@ -759,7 +759,7 @@ export const DRONE_SIGHTING_2: IncidentTypeConfiguration = {
           label: 'Multicopter: x-shape',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '57267',
+          nextQuestionCode: '57267',
         },
         {
           code: '209020',
@@ -768,7 +768,7 @@ export const DRONE_SIGHTING_2: IncidentTypeConfiguration = {
           label: 'Multicopter: hourglass',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '57267',
+          nextQuestionCode: '57267',
         },
         {
           code: '209021',
@@ -777,7 +777,7 @@ export const DRONE_SIGHTING_2: IncidentTypeConfiguration = {
           label: 'Multicopter: other',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '57267',
+          nextQuestionCode: '57267',
         },
         {
           code: '209022',
@@ -786,7 +786,7 @@ export const DRONE_SIGHTING_2: IncidentTypeConfiguration = {
           label: 'Fixed wing: standard aircraft',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '57267',
+          nextQuestionCode: '57267',
         },
         {
           code: '209023',
@@ -795,7 +795,7 @@ export const DRONE_SIGHTING_2: IncidentTypeConfiguration = {
           label: 'Fixed wing: delta-wing',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '57267',
+          nextQuestionCode: '57267',
         },
         {
           code: '209024',
@@ -804,7 +804,7 @@ export const DRONE_SIGHTING_2: IncidentTypeConfiguration = {
           label: 'Fixed wing: other',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '57267',
+          nextQuestionCode: '57267',
         },
         {
           code: '209025',
@@ -813,7 +813,7 @@ export const DRONE_SIGHTING_2: IncidentTypeConfiguration = {
           label: 'Other (please specify)',
           commentRequired: true,
           dateRequired: false,
-          nextQuestionId: '57267',
+          nextQuestionCode: '57267',
         },
         {
           code: '209026',
@@ -822,7 +822,7 @@ export const DRONE_SIGHTING_2: IncidentTypeConfiguration = {
           label: 'Unknown',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '57267',
+          nextQuestionCode: '57267',
         },
       ],
     },
@@ -840,7 +840,7 @@ export const DRONE_SIGHTING_2: IncidentTypeConfiguration = {
           label: 'DJI phantom',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '57268',
+          nextQuestionCode: '57268',
         },
         {
           code: '209028',
@@ -849,7 +849,7 @@ export const DRONE_SIGHTING_2: IncidentTypeConfiguration = {
           label: 'Syma x8c venture',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '57268',
+          nextQuestionCode: '57268',
         },
         {
           code: '209029',
@@ -858,7 +858,7 @@ export const DRONE_SIGHTING_2: IncidentTypeConfiguration = {
           label: 'Diy racing UAV',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '57268',
+          nextQuestionCode: '57268',
         },
         {
           code: '209030',
@@ -867,7 +867,7 @@ export const DRONE_SIGHTING_2: IncidentTypeConfiguration = {
           label: 'T600 inspire 1',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '57268',
+          nextQuestionCode: '57268',
         },
         {
           code: '209031',
@@ -876,7 +876,7 @@ export const DRONE_SIGHTING_2: IncidentTypeConfiguration = {
           label: 'Century neo660',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '57268',
+          nextQuestionCode: '57268',
         },
         {
           code: '209032',
@@ -885,7 +885,7 @@ export const DRONE_SIGHTING_2: IncidentTypeConfiguration = {
           label: 'X-8 flyingwing',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '57268',
+          nextQuestionCode: '57268',
         },
         {
           code: '209033',
@@ -894,7 +894,7 @@ export const DRONE_SIGHTING_2: IncidentTypeConfiguration = {
           label: 'Talon x-UAV',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '57268',
+          nextQuestionCode: '57268',
         },
         {
           code: '209034',
@@ -903,7 +903,7 @@ export const DRONE_SIGHTING_2: IncidentTypeConfiguration = {
           label: 'Sky hunter',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '57268',
+          nextQuestionCode: '57268',
         },
         {
           code: '209035',
@@ -912,7 +912,7 @@ export const DRONE_SIGHTING_2: IncidentTypeConfiguration = {
           label: 'Piper model aircraft',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '57268',
+          nextQuestionCode: '57268',
         },
         {
           code: '209036',
@@ -921,7 +921,7 @@ export const DRONE_SIGHTING_2: IncidentTypeConfiguration = {
           label: 'Other (please specify)',
           commentRequired: true,
           dateRequired: false,
-          nextQuestionId: '57268',
+          nextQuestionCode: '57268',
         },
         {
           code: '209037',
@@ -930,7 +930,7 @@ export const DRONE_SIGHTING_2: IncidentTypeConfiguration = {
           label: 'Unknown',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '57268',
+          nextQuestionCode: '57268',
         },
       ],
     },
@@ -948,7 +948,7 @@ export const DRONE_SIGHTING_2: IncidentTypeConfiguration = {
           label: '1',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '57269',
+          nextQuestionCode: '57269',
         },
         {
           code: '209039',
@@ -957,7 +957,7 @@ export const DRONE_SIGHTING_2: IncidentTypeConfiguration = {
           label: '2',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '57269',
+          nextQuestionCode: '57269',
         },
         {
           code: '209040',
@@ -966,7 +966,7 @@ export const DRONE_SIGHTING_2: IncidentTypeConfiguration = {
           label: '3',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '57269',
+          nextQuestionCode: '57269',
         },
         {
           code: '209041',
@@ -975,7 +975,7 @@ export const DRONE_SIGHTING_2: IncidentTypeConfiguration = {
           label: '4',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '57269',
+          nextQuestionCode: '57269',
         },
         {
           code: '209042',
@@ -984,7 +984,7 @@ export const DRONE_SIGHTING_2: IncidentTypeConfiguration = {
           label: '5',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '57269',
+          nextQuestionCode: '57269',
         },
         {
           code: '209043',
@@ -993,7 +993,7 @@ export const DRONE_SIGHTING_2: IncidentTypeConfiguration = {
           label: '6',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '57269',
+          nextQuestionCode: '57269',
         },
         {
           code: '209044',
@@ -1002,7 +1002,7 @@ export const DRONE_SIGHTING_2: IncidentTypeConfiguration = {
           label: '7',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '57269',
+          nextQuestionCode: '57269',
         },
         {
           code: '209045',
@@ -1011,7 +1011,7 @@ export const DRONE_SIGHTING_2: IncidentTypeConfiguration = {
           label: '8+',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '57269',
+          nextQuestionCode: '57269',
         },
         {
           code: '209046',
@@ -1020,7 +1020,7 @@ export const DRONE_SIGHTING_2: IncidentTypeConfiguration = {
           label: 'Unknown',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '57269',
+          nextQuestionCode: '57269',
         },
       ],
     },
@@ -1038,7 +1038,7 @@ export const DRONE_SIGHTING_2: IncidentTypeConfiguration = {
           label: '0 to less than 1m',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '57270',
+          nextQuestionCode: '57270',
         },
         {
           code: '209048',
@@ -1047,7 +1047,7 @@ export const DRONE_SIGHTING_2: IncidentTypeConfiguration = {
           label: '1m to less than 2m',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '57270',
+          nextQuestionCode: '57270',
         },
         {
           code: '209049',
@@ -1056,7 +1056,7 @@ export const DRONE_SIGHTING_2: IncidentTypeConfiguration = {
           label: '2m to less than 3m',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '57270',
+          nextQuestionCode: '57270',
         },
         {
           code: '209050',
@@ -1065,7 +1065,7 @@ export const DRONE_SIGHTING_2: IncidentTypeConfiguration = {
           label: '3m or longer',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '57270',
+          nextQuestionCode: '57270',
         },
         {
           code: '209051',
@@ -1074,7 +1074,7 @@ export const DRONE_SIGHTING_2: IncidentTypeConfiguration = {
           label: 'Unknown',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '57270',
+          nextQuestionCode: '57270',
         },
       ],
     },
@@ -1092,7 +1092,7 @@ export const DRONE_SIGHTING_2: IncidentTypeConfiguration = {
           label: '0 to less than 1m',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '57271',
+          nextQuestionCode: '57271',
         },
         {
           code: '209053',
@@ -1101,7 +1101,7 @@ export const DRONE_SIGHTING_2: IncidentTypeConfiguration = {
           label: '1m to less than 2m',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '57271',
+          nextQuestionCode: '57271',
         },
         {
           code: '209054',
@@ -1110,7 +1110,7 @@ export const DRONE_SIGHTING_2: IncidentTypeConfiguration = {
           label: '2m to less than 3m',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '57271',
+          nextQuestionCode: '57271',
         },
         {
           code: '209055',
@@ -1119,7 +1119,7 @@ export const DRONE_SIGHTING_2: IncidentTypeConfiguration = {
           label: '3m or longer',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '57271',
+          nextQuestionCode: '57271',
         },
         {
           code: '209056',
@@ -1128,7 +1128,7 @@ export const DRONE_SIGHTING_2: IncidentTypeConfiguration = {
           label: 'Unknown',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '57271',
+          nextQuestionCode: '57271',
         },
       ],
     },
@@ -1146,7 +1146,7 @@ export const DRONE_SIGHTING_2: IncidentTypeConfiguration = {
           label: 'Painted black',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '57272',
+          nextQuestionCode: '57272',
         },
         {
           code: '209058',
@@ -1155,7 +1155,7 @@ export const DRONE_SIGHTING_2: IncidentTypeConfiguration = {
           label: 'Removed camera',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '57272',
+          nextQuestionCode: '57272',
         },
         {
           code: '209059',
@@ -1164,7 +1164,7 @@ export const DRONE_SIGHTING_2: IncidentTypeConfiguration = {
           label: 'Added hook',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '57272',
+          nextQuestionCode: '57272',
         },
         {
           code: '209060',
@@ -1173,7 +1173,7 @@ export const DRONE_SIGHTING_2: IncidentTypeConfiguration = {
           label: 'Covered lights',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '57272',
+          nextQuestionCode: '57272',
         },
         {
           code: '209061',
@@ -1182,7 +1182,7 @@ export const DRONE_SIGHTING_2: IncidentTypeConfiguration = {
           label: 'Other (please specify)',
           commentRequired: true,
           dateRequired: false,
-          nextQuestionId: '57272',
+          nextQuestionCode: '57272',
         },
         {
           code: '209062',
@@ -1191,7 +1191,7 @@ export const DRONE_SIGHTING_2: IncidentTypeConfiguration = {
           label: 'None',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '57272',
+          nextQuestionCode: '57272',
         },
       ],
     },
@@ -1209,7 +1209,7 @@ export const DRONE_SIGHTING_2: IncidentTypeConfiguration = {
           label: 'Intercepted',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '57273',
+          nextQuestionCode: '57273',
         },
         {
           code: '209064',
@@ -1218,7 +1218,7 @@ export const DRONE_SIGHTING_2: IncidentTypeConfiguration = {
           label: 'Crashed',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '57273',
+          nextQuestionCode: '57273',
         },
       ],
     },
@@ -1236,7 +1236,7 @@ export const DRONE_SIGHTING_2: IncidentTypeConfiguration = {
           label: 'Yes',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '57274',
+          nextQuestionCode: '57274',
         },
         {
           code: '209066',
@@ -1245,7 +1245,7 @@ export const DRONE_SIGHTING_2: IncidentTypeConfiguration = {
           label: 'No',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '57277',
+          nextQuestionCode: '57277',
         },
       ],
     },
@@ -1263,7 +1263,7 @@ export const DRONE_SIGHTING_2: IncidentTypeConfiguration = {
           label: 'Yes (please enter the finds report incident number)',
           commentRequired: true,
           dateRequired: false,
-          nextQuestionId: '57275',
+          nextQuestionCode: '57275',
         },
         {
           code: '209068',
@@ -1272,7 +1272,7 @@ export const DRONE_SIGHTING_2: IncidentTypeConfiguration = {
           label: 'No',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '57277',
+          nextQuestionCode: '57277',
         },
       ],
     },
@@ -1290,7 +1290,7 @@ export const DRONE_SIGHTING_2: IncidentTypeConfiguration = {
           label: '0 to less than 100g',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '57276',
+          nextQuestionCode: '57276',
         },
         {
           code: '209070',
@@ -1299,7 +1299,7 @@ export const DRONE_SIGHTING_2: IncidentTypeConfiguration = {
           label: '100g to less than 200g',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '57276',
+          nextQuestionCode: '57276',
         },
         {
           code: '209071',
@@ -1308,7 +1308,7 @@ export const DRONE_SIGHTING_2: IncidentTypeConfiguration = {
           label: '200g to less than 300g',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '57276',
+          nextQuestionCode: '57276',
         },
         {
           code: '209072',
@@ -1317,7 +1317,7 @@ export const DRONE_SIGHTING_2: IncidentTypeConfiguration = {
           label: '300g to less than 400g',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '57276',
+          nextQuestionCode: '57276',
         },
         {
           code: '209073',
@@ -1326,7 +1326,7 @@ export const DRONE_SIGHTING_2: IncidentTypeConfiguration = {
           label: '400g to less than 500g',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '57276',
+          nextQuestionCode: '57276',
         },
         {
           code: '209074',
@@ -1335,7 +1335,7 @@ export const DRONE_SIGHTING_2: IncidentTypeConfiguration = {
           label: '500g to less than 1kg',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '57276',
+          nextQuestionCode: '57276',
         },
         {
           code: '209075',
@@ -1344,7 +1344,7 @@ export const DRONE_SIGHTING_2: IncidentTypeConfiguration = {
           label: '1kg to less than 2kg',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '57276',
+          nextQuestionCode: '57276',
         },
         {
           code: '209076',
@@ -1353,7 +1353,7 @@ export const DRONE_SIGHTING_2: IncidentTypeConfiguration = {
           label: '2kg to less than 3kg',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '57276',
+          nextQuestionCode: '57276',
         },
         {
           code: '209077',
@@ -1362,7 +1362,7 @@ export const DRONE_SIGHTING_2: IncidentTypeConfiguration = {
           label: '3kg to less than 4kg',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '57276',
+          nextQuestionCode: '57276',
         },
         {
           code: '209078',
@@ -1371,7 +1371,7 @@ export const DRONE_SIGHTING_2: IncidentTypeConfiguration = {
           label: '4kg to less than 5kg',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '57276',
+          nextQuestionCode: '57276',
         },
         {
           code: '209079',
@@ -1380,7 +1380,7 @@ export const DRONE_SIGHTING_2: IncidentTypeConfiguration = {
           label: '5kg to less than 6kg',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '57276',
+          nextQuestionCode: '57276',
         },
         {
           code: '209080',
@@ -1389,7 +1389,7 @@ export const DRONE_SIGHTING_2: IncidentTypeConfiguration = {
           label: '6kg to less than 7kg',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '57276',
+          nextQuestionCode: '57276',
         },
         {
           code: '209081',
@@ -1398,7 +1398,7 @@ export const DRONE_SIGHTING_2: IncidentTypeConfiguration = {
           label: '7kg to less than 8kg',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '57276',
+          nextQuestionCode: '57276',
         },
         {
           code: '209082',
@@ -1407,7 +1407,7 @@ export const DRONE_SIGHTING_2: IncidentTypeConfiguration = {
           label: '8kg to less than 9kg',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '57276',
+          nextQuestionCode: '57276',
         },
         {
           code: '209083',
@@ -1416,7 +1416,7 @@ export const DRONE_SIGHTING_2: IncidentTypeConfiguration = {
           label: '9kg to less than 10kg',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '57276',
+          nextQuestionCode: '57276',
         },
         {
           code: '209084',
@@ -1425,7 +1425,7 @@ export const DRONE_SIGHTING_2: IncidentTypeConfiguration = {
           label: 'More than 10kg',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '57276',
+          nextQuestionCode: '57276',
         },
         {
           code: '209085',
@@ -1434,7 +1434,7 @@ export const DRONE_SIGHTING_2: IncidentTypeConfiguration = {
           label: 'Unknown',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '57276',
+          nextQuestionCode: '57276',
         },
       ],
     },
@@ -1452,7 +1452,7 @@ export const DRONE_SIGHTING_2: IncidentTypeConfiguration = {
           label: 'Cameras',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '57277',
+          nextQuestionCode: '57277',
         },
         {
           code: '209087',
@@ -1461,7 +1461,7 @@ export const DRONE_SIGHTING_2: IncidentTypeConfiguration = {
           label: 'Mobile phone devices',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '57277',
+          nextQuestionCode: '57277',
         },
         {
           code: '209088',
@@ -1470,7 +1470,7 @@ export const DRONE_SIGHTING_2: IncidentTypeConfiguration = {
           label: 'Drugs',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '57277',
+          nextQuestionCode: '57277',
         },
         {
           code: '209089',
@@ -1479,7 +1479,7 @@ export const DRONE_SIGHTING_2: IncidentTypeConfiguration = {
           label: 'Weapons',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '57277',
+          nextQuestionCode: '57277',
         },
         {
           code: '209090',
@@ -1488,7 +1488,7 @@ export const DRONE_SIGHTING_2: IncidentTypeConfiguration = {
           label: 'Alcohol/hooch',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '57277',
+          nextQuestionCode: '57277',
         },
         {
           code: '209091',
@@ -1497,7 +1497,7 @@ export const DRONE_SIGHTING_2: IncidentTypeConfiguration = {
           label: 'Tobacco',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '57277',
+          nextQuestionCode: '57277',
         },
         {
           code: '209092',
@@ -1506,7 +1506,7 @@ export const DRONE_SIGHTING_2: IncidentTypeConfiguration = {
           label: 'Other (please specify)',
           commentRequired: true,
           dateRequired: false,
-          nextQuestionId: '57277',
+          nextQuestionCode: '57277',
         },
       ],
     },
@@ -1524,7 +1524,7 @@ export const DRONE_SIGHTING_2: IncidentTypeConfiguration = {
           label: 'Yes (specify where sent)',
           commentRequired: true,
           dateRequired: false,
-          nextQuestionId: '57278',
+          nextQuestionCode: '57278',
         },
         {
           code: '209094',
@@ -1533,7 +1533,7 @@ export const DRONE_SIGHTING_2: IncidentTypeConfiguration = {
           label: 'No',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '57278',
+          nextQuestionCode: '57278',
         },
       ],
     },
@@ -1551,7 +1551,7 @@ export const DRONE_SIGHTING_2: IncidentTypeConfiguration = {
           label: 'Yes',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '57279',
+          nextQuestionCode: '57279',
         },
         {
           code: '209096',
@@ -1560,7 +1560,7 @@ export const DRONE_SIGHTING_2: IncidentTypeConfiguration = {
           label: 'No',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '57282',
+          nextQuestionCode: '57282',
         },
       ],
     },
@@ -1578,7 +1578,7 @@ export const DRONE_SIGHTING_2: IncidentTypeConfiguration = {
           label: 'Yes',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '57280',
+          nextQuestionCode: '57280',
         },
         {
           code: '209098',
@@ -1587,7 +1587,7 @@ export const DRONE_SIGHTING_2: IncidentTypeConfiguration = {
           label: 'No',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '57280',
+          nextQuestionCode: '57280',
         },
       ],
     },
@@ -1605,7 +1605,7 @@ export const DRONE_SIGHTING_2: IncidentTypeConfiguration = {
           label: 'Yes',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '57281',
+          nextQuestionCode: '57281',
         },
         {
           code: '209100',
@@ -1614,7 +1614,7 @@ export const DRONE_SIGHTING_2: IncidentTypeConfiguration = {
           label: 'No',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '57282',
+          nextQuestionCode: '57282',
         },
       ],
     },
@@ -1632,7 +1632,7 @@ export const DRONE_SIGHTING_2: IncidentTypeConfiguration = {
           label: '0 to less than 10 metres',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '57282',
+          nextQuestionCode: '57282',
         },
         {
           code: '209102',
@@ -1641,7 +1641,7 @@ export const DRONE_SIGHTING_2: IncidentTypeConfiguration = {
           label: '10 to less than 100 metres',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '57282',
+          nextQuestionCode: '57282',
         },
         {
           code: '209103',
@@ -1650,7 +1650,7 @@ export const DRONE_SIGHTING_2: IncidentTypeConfiguration = {
           label: '100 to less than 200 metres',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '57282',
+          nextQuestionCode: '57282',
         },
         {
           code: '209104',
@@ -1659,7 +1659,7 @@ export const DRONE_SIGHTING_2: IncidentTypeConfiguration = {
           label: '200 metres or more',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '57282',
+          nextQuestionCode: '57282',
         },
       ],
     },
@@ -1677,7 +1677,7 @@ export const DRONE_SIGHTING_2: IncidentTypeConfiguration = {
           label: 'Yes',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '57283',
+          nextQuestionCode: '57283',
         },
         {
           code: '209106',
@@ -1686,7 +1686,7 @@ export const DRONE_SIGHTING_2: IncidentTypeConfiguration = {
           label: 'No',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '57283',
+          nextQuestionCode: '57283',
         },
       ],
     },
@@ -1704,7 +1704,7 @@ export const DRONE_SIGHTING_2: IncidentTypeConfiguration = {
           label: 'Yes',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: null,
+          nextQuestionCode: null,
         },
         {
           code: '209108',
@@ -1713,7 +1713,7 @@ export const DRONE_SIGHTING_2: IncidentTypeConfiguration = {
           label: 'No',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: null,
+          nextQuestionCode: null,
         },
       ],
     },

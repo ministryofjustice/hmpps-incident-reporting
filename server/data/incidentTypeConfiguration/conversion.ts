@@ -35,7 +35,7 @@ export function fromNomis(nomisConfig: NomisIncidentTypeConfiguration): DpsIncid
     incidentType: typeFromNomisCode(nomisConfig.incidentType),
     active: nomisConfig.active === true,
     // 1st question is starting question
-    startingQuestionId: nomisQuestions[0]?.questionnaireQueId?.toString() ?? null,
+    startingQuestionCode: nomisQuestions[0]?.questionnaireQueId?.toString() ?? null,
     questions: nomisQuestions.reduce((qs: Record<string, DpsQuestionConfiguration>, q: NomisQuestionConfiguration) => {
       const nomisAnswers = q.answers.sort(sortByAnswerSequence)
 
@@ -48,15 +48,15 @@ export function fromNomis(nomisConfig: NomisIncidentTypeConfiguration): DpsIncid
         label: addQuestionMarkToQuestion(convertToSentenceCase(q.questionDesc)),
         multipleAnswers: q.multipleAnswerFlag === true,
         answers: nomisAnswers.map(ans => {
-          const nextQuestionId = ans.nextQuestionnaireQueId?.toString() ?? null
+          const nextQuestionCode = ans.nextQuestionnaireQueId?.toString() ?? null
           return {
-            id: ans.questionnaireAnsId.toString(),
+            code: ans.questionnaireAnsId.toString(),
             response: ans.answerDesc,
             active: ans.answerActiveFlag === true,
             label: convertToSentenceCase(ans.answerDesc),
             commentRequired: ans.commentRequiredFlag === true,
             dateRequired: ans.dateRequiredFlag === true,
-            nextQuestionId,
+            nextQuestionCode,
           }
         }),
       }

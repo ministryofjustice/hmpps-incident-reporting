@@ -5,7 +5,7 @@ import type { IncidentTypeConfiguration } from '../../data/incidentTypeConfigura
 export const KEY_OR_LOCK_1: IncidentTypeConfiguration = {
   incidentType: 'KEY_OR_LOCK_1',
   active: false,
-  startingQuestionId: '44598',
+  startingQuestionCode: '44598',
   questions: {
     '44166': {
       code: '44166',
@@ -21,7 +21,7 @@ export const KEY_OR_LOCK_1: IncidentTypeConfiguration = {
           label: 'Yes',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '44331',
+          nextQuestionCode: '44331',
         },
         {
           code: '179052',
@@ -30,7 +30,7 @@ export const KEY_OR_LOCK_1: IncidentTypeConfiguration = {
           label: 'No',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '44331',
+          nextQuestionCode: '44331',
         },
       ],
     },
@@ -48,7 +48,7 @@ export const KEY_OR_LOCK_1: IncidentTypeConfiguration = {
           label: 'Yes',
           commentRequired: false,
           dateRequired: true,
-          nextQuestionId: '44972',
+          nextQuestionCode: '44972',
         },
         {
           code: '179239',
@@ -57,7 +57,7 @@ export const KEY_OR_LOCK_1: IncidentTypeConfiguration = {
           label: 'No',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '44972',
+          nextQuestionCode: '44972',
         },
       ],
     },
@@ -75,7 +75,7 @@ export const KEY_OR_LOCK_1: IncidentTypeConfiguration = {
           label: 'Yes',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '44386',
+          nextQuestionCode: '44386',
         },
         {
           code: '179617',
@@ -84,7 +84,7 @@ export const KEY_OR_LOCK_1: IncidentTypeConfiguration = {
           label: 'No',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '44386',
+          nextQuestionCode: '44386',
         },
       ],
     },
@@ -102,7 +102,7 @@ export const KEY_OR_LOCK_1: IncidentTypeConfiguration = {
           label: 'Yes',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '44894',
+          nextQuestionCode: '44894',
         },
         {
           code: '179698',
@@ -111,7 +111,7 @@ export const KEY_OR_LOCK_1: IncidentTypeConfiguration = {
           label: 'No',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '44894',
+          nextQuestionCode: '44894',
         },
       ],
     },
@@ -129,7 +129,7 @@ export const KEY_OR_LOCK_1: IncidentTypeConfiguration = {
           label: 'Yes',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '44414',
+          nextQuestionCode: '44414',
         },
         {
           code: '179806',
@@ -138,7 +138,7 @@ export const KEY_OR_LOCK_1: IncidentTypeConfiguration = {
           label: 'No',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '44414',
+          nextQuestionCode: '44414',
         },
       ],
     },
@@ -156,7 +156,7 @@ export const KEY_OR_LOCK_1: IncidentTypeConfiguration = {
           label: 'Hacksaw blade',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '44925',
+          nextQuestionCode: '44925',
         },
         {
           code: '179863',
@@ -165,7 +165,7 @@ export const KEY_OR_LOCK_1: IncidentTypeConfiguration = {
           label: 'Other blade',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '44925',
+          nextQuestionCode: '44925',
         },
         {
           code: '179865',
@@ -174,7 +174,7 @@ export const KEY_OR_LOCK_1: IncidentTypeConfiguration = {
           label: 'Wire cutters',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '44925',
+          nextQuestionCode: '44925',
         },
         {
           code: '179857',
@@ -183,7 +183,7 @@ export const KEY_OR_LOCK_1: IncidentTypeConfiguration = {
           label: 'Bolt croppers',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '44925',
+          nextQuestionCode: '44925',
         },
         {
           code: '179859',
@@ -192,7 +192,7 @@ export const KEY_OR_LOCK_1: IncidentTypeConfiguration = {
           label: 'Digging tool',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '44925',
+          nextQuestionCode: '44925',
         },
         {
           code: '179858',
@@ -201,7 +201,7 @@ export const KEY_OR_LOCK_1: IncidentTypeConfiguration = {
           label: 'Crow bar',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '44925',
+          nextQuestionCode: '44925',
         },
         {
           code: '179861',
@@ -210,7 +210,7 @@ export const KEY_OR_LOCK_1: IncidentTypeConfiguration = {
           label: 'Improvised tool',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '44925',
+          nextQuestionCode: '44925',
         },
         {
           code: '179864',
@@ -219,7 +219,7 @@ export const KEY_OR_LOCK_1: IncidentTypeConfiguration = {
           label: 'Other tool',
           commentRequired: true,
           dateRequired: false,
-          nextQuestionId: '44925',
+          nextQuestionCode: '44925',
         },
         {
           code: '179862',
@@ -228,7 +228,7 @@ export const KEY_OR_LOCK_1: IncidentTypeConfiguration = {
           label: 'Not known',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '44925',
+          nextQuestionCode: '44925',
         },
       ],
     },
@@ -246,7 +246,7 @@ export const KEY_OR_LOCK_1: IncidentTypeConfiguration = {
           label: 'Yes',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '44678',
+          nextQuestionCode: '44678',
         },
         {
           code: '179885',
@@ -255,7 +255,7 @@ export const KEY_OR_LOCK_1: IncidentTypeConfiguration = {
           label: 'No',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '44678',
+          nextQuestionCode: '44678',
         },
       ],
     },
@@ -273,7 +273,7 @@ export const KEY_OR_LOCK_1: IncidentTypeConfiguration = {
           label: 'Complete relock',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '44921',
+          nextQuestionCode: '44921',
         },
         {
           code: '179983',
@@ -282,7 +282,7 @@ export const KEY_OR_LOCK_1: IncidentTypeConfiguration = {
           label: 'Partial relock',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '44921',
+          nextQuestionCode: '44921',
         },
         {
           code: '179982',
@@ -291,7 +291,7 @@ export const KEY_OR_LOCK_1: IncidentTypeConfiguration = {
           label: 'Complete replacement',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '44921',
+          nextQuestionCode: '44921',
         },
         {
           code: '179984',
@@ -300,7 +300,7 @@ export const KEY_OR_LOCK_1: IncidentTypeConfiguration = {
           label: 'Partial replacement',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '44921',
+          nextQuestionCode: '44921',
         },
       ],
     },
@@ -318,7 +318,7 @@ export const KEY_OR_LOCK_1: IncidentTypeConfiguration = {
           label: 'Yes',
           commentRequired: false,
           dateRequired: true,
-          nextQuestionId: '45072',
+          nextQuestionCode: '45072',
         },
         {
           code: '180598',
@@ -327,7 +327,7 @@ export const KEY_OR_LOCK_1: IncidentTypeConfiguration = {
           label: 'No',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '44166',
+          nextQuestionCode: '44166',
         },
       ],
     },
@@ -345,7 +345,7 @@ export const KEY_OR_LOCK_1: IncidentTypeConfiguration = {
           label: 'Yes',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '44894',
+          nextQuestionCode: '44894',
         },
         {
           code: '180655',
@@ -354,7 +354,7 @@ export const KEY_OR_LOCK_1: IncidentTypeConfiguration = {
           label: 'No',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '44894',
+          nextQuestionCode: '44894',
         },
       ],
     },
@@ -372,7 +372,7 @@ export const KEY_OR_LOCK_1: IncidentTypeConfiguration = {
           label: 'Yes',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '44228',
+          nextQuestionCode: '44228',
         },
         {
           code: '180842',
@@ -381,7 +381,7 @@ export const KEY_OR_LOCK_1: IncidentTypeConfiguration = {
           label: 'No',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '44228',
+          nextQuestionCode: '44228',
         },
       ],
     },
@@ -399,7 +399,7 @@ export const KEY_OR_LOCK_1: IncidentTypeConfiguration = {
           label: 'Yes',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '44449',
+          nextQuestionCode: '44449',
         },
         {
           code: '181169',
@@ -408,7 +408,7 @@ export const KEY_OR_LOCK_1: IncidentTypeConfiguration = {
           label: 'No',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: null,
+          nextQuestionCode: null,
         },
       ],
     },
@@ -426,7 +426,7 @@ export const KEY_OR_LOCK_1: IncidentTypeConfiguration = {
           label: 'Yes',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '44407',
+          nextQuestionCode: '44407',
         },
         {
           code: '181451',
@@ -435,7 +435,7 @@ export const KEY_OR_LOCK_1: IncidentTypeConfiguration = {
           label: 'No',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '44775',
+          nextQuestionCode: '44775',
         },
       ],
     },
@@ -453,7 +453,7 @@ export const KEY_OR_LOCK_1: IncidentTypeConfiguration = {
           label: 'Full close down search',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '44866',
+          nextQuestionCode: '44866',
         },
         {
           code: '181564',
@@ -462,7 +462,7 @@ export const KEY_OR_LOCK_1: IncidentTypeConfiguration = {
           label: 'Partial search',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '44866',
+          nextQuestionCode: '44866',
         },
         {
           code: '181563',
@@ -471,7 +471,7 @@ export const KEY_OR_LOCK_1: IncidentTypeConfiguration = {
           label: 'Other',
           commentRequired: true,
           dateRequired: false,
-          nextQuestionId: '44866',
+          nextQuestionCode: '44866',
         },
       ],
     },
@@ -489,7 +489,7 @@ export const KEY_OR_LOCK_1: IncidentTypeConfiguration = {
           label: 'Enter amount in pound sterling',
           commentRequired: true,
           dateRequired: false,
-          nextQuestionId: null,
+          nextQuestionCode: null,
         },
       ],
     },
@@ -507,7 +507,7 @@ export const KEY_OR_LOCK_1: IncidentTypeConfiguration = {
           label: 'Works department',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '44775',
+          nextQuestionCode: '44775',
         },
         {
           code: '181669',
@@ -516,7 +516,7 @@ export const KEY_OR_LOCK_1: IncidentTypeConfiguration = {
           label: 'Contractors',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '44775',
+          nextQuestionCode: '44775',
         },
         {
           code: '181670',
@@ -525,7 +525,7 @@ export const KEY_OR_LOCK_1: IncidentTypeConfiguration = {
           label: 'Education',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '44775',
+          nextQuestionCode: '44775',
         },
         {
           code: '181673',
@@ -534,7 +534,7 @@ export const KEY_OR_LOCK_1: IncidentTypeConfiguration = {
           label: 'Health care centre',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '44775',
+          nextQuestionCode: '44775',
         },
         {
           code: '181671',
@@ -543,7 +543,7 @@ export const KEY_OR_LOCK_1: IncidentTypeConfiguration = {
           label: 'Farms and gardens',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '44775',
+          nextQuestionCode: '44775',
         },
         {
           code: '181672',
@@ -552,7 +552,7 @@ export const KEY_OR_LOCK_1: IncidentTypeConfiguration = {
           label: 'Gymnasium/sports field',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '44775',
+          nextQuestionCode: '44775',
         },
         {
           code: '181681',
@@ -561,7 +561,7 @@ export const KEY_OR_LOCK_1: IncidentTypeConfiguration = {
           label: 'Workshops',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '44775',
+          nextQuestionCode: '44775',
         },
         {
           code: '181675',
@@ -570,7 +570,7 @@ export const KEY_OR_LOCK_1: IncidentTypeConfiguration = {
           label: 'Kitchen',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '44775',
+          nextQuestionCode: '44775',
         },
         {
           code: '181674',
@@ -579,7 +579,7 @@ export const KEY_OR_LOCK_1: IncidentTypeConfiguration = {
           label: 'Hobbies',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '44775',
+          nextQuestionCode: '44775',
         },
         {
           code: '181668',
@@ -588,7 +588,7 @@ export const KEY_OR_LOCK_1: IncidentTypeConfiguration = {
           label: 'Cell furnishings',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '44775',
+          nextQuestionCode: '44775',
         },
         {
           code: '181679',
@@ -597,7 +597,7 @@ export const KEY_OR_LOCK_1: IncidentTypeConfiguration = {
           label: 'Wing/houseblock furnishings',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '44775',
+          nextQuestionCode: '44775',
         },
         {
           code: '181678',
@@ -606,7 +606,7 @@ export const KEY_OR_LOCK_1: IncidentTypeConfiguration = {
           label: 'Smuggled',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '44775',
+          nextQuestionCode: '44775',
         },
         {
           code: '181676',
@@ -615,7 +615,7 @@ export const KEY_OR_LOCK_1: IncidentTypeConfiguration = {
           label: 'Not known',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '44775',
+          nextQuestionCode: '44775',
         },
         {
           code: '181677',
@@ -624,7 +624,7 @@ export const KEY_OR_LOCK_1: IncidentTypeConfiguration = {
           label: 'Other',
           commentRequired: true,
           dateRequired: false,
-          nextQuestionId: '44775',
+          nextQuestionCode: '44775',
         },
       ],
     },
@@ -642,7 +642,7 @@ export const KEY_OR_LOCK_1: IncidentTypeConfiguration = {
           label: 'Class 1 pass key',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '45015',
+          nextQuestionCode: '45015',
         },
         {
           code: '181871',
@@ -651,7 +651,7 @@ export const KEY_OR_LOCK_1: IncidentTypeConfiguration = {
           label: 'Class 2 pass key',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '45015',
+          nextQuestionCode: '45015',
         },
         {
           code: '181866',
@@ -660,7 +660,7 @@ export const KEY_OR_LOCK_1: IncidentTypeConfiguration = {
           label: 'Cell key',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '45015',
+          nextQuestionCode: '45015',
         },
         {
           code: '181872',
@@ -669,7 +669,7 @@ export const KEY_OR_LOCK_1: IncidentTypeConfiguration = {
           label: 'Class 3 A1 suite key',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '45015',
+          nextQuestionCode: '45015',
         },
         {
           code: '181874',
@@ -678,7 +678,7 @@ export const KEY_OR_LOCK_1: IncidentTypeConfiguration = {
           label: 'Class 3 accountable key',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '45015',
+          nextQuestionCode: '45015',
         },
         {
           code: '181880',
@@ -687,7 +687,7 @@ export const KEY_OR_LOCK_1: IncidentTypeConfiguration = {
           label: 'Handcuff key',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '45015',
+          nextQuestionCode: '45015',
         },
         {
           code: '181877',
@@ -696,7 +696,7 @@ export const KEY_OR_LOCK_1: IncidentTypeConfiguration = {
           label: 'Closeting/escort chain key',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '45015',
+          nextQuestionCode: '45015',
         },
         {
           code: '181868',
@@ -705,7 +705,7 @@ export const KEY_OR_LOCK_1: IncidentTypeConfiguration = {
           label: 'Class 1 lock',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '45015',
+          nextQuestionCode: '45015',
         },
         {
           code: '181870',
@@ -714,7 +714,7 @@ export const KEY_OR_LOCK_1: IncidentTypeConfiguration = {
           label: 'Class 2 lock',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '45015',
+          nextQuestionCode: '45015',
         },
         {
           code: '181867',
@@ -723,7 +723,7 @@ export const KEY_OR_LOCK_1: IncidentTypeConfiguration = {
           label: 'Cell lock',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '45015',
+          nextQuestionCode: '45015',
         },
         {
           code: '181873',
@@ -732,7 +732,7 @@ export const KEY_OR_LOCK_1: IncidentTypeConfiguration = {
           label: 'Class 3 A1 suite lock',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '45015',
+          nextQuestionCode: '45015',
         },
         {
           code: '181875',
@@ -741,7 +741,7 @@ export const KEY_OR_LOCK_1: IncidentTypeConfiguration = {
           label: 'Class 3 accountable lock',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '45015',
+          nextQuestionCode: '45015',
         },
         {
           code: '181879',
@@ -750,7 +750,7 @@ export const KEY_OR_LOCK_1: IncidentTypeConfiguration = {
           label: 'Handcuff',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '45015',
+          nextQuestionCode: '45015',
         },
         {
           code: '181876',
@@ -759,7 +759,7 @@ export const KEY_OR_LOCK_1: IncidentTypeConfiguration = {
           label: 'Closeting/escort chain',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '45015',
+          nextQuestionCode: '45015',
         },
         {
           code: '181878',
@@ -768,7 +768,7 @@ export const KEY_OR_LOCK_1: IncidentTypeConfiguration = {
           label: 'Electronic lock system',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '45015',
+          nextQuestionCode: '45015',
         },
         {
           code: '181881',
@@ -777,7 +777,7 @@ export const KEY_OR_LOCK_1: IncidentTypeConfiguration = {
           label: 'Other',
           commentRequired: true,
           dateRequired: false,
-          nextQuestionId: '45015',
+          nextQuestionCode: '45015',
         },
       ],
     },
@@ -795,7 +795,7 @@ export const KEY_OR_LOCK_1: IncidentTypeConfiguration = {
           label: 'Loss of key(s)',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '44619',
+          nextQuestionCode: '44619',
         },
         {
           code: '181998',
@@ -804,7 +804,7 @@ export const KEY_OR_LOCK_1: IncidentTypeConfiguration = {
           label: 'Loss of handcuffs',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '44619',
+          nextQuestionCode: '44619',
         },
         {
           code: '181997',
@@ -813,7 +813,7 @@ export const KEY_OR_LOCK_1: IncidentTypeConfiguration = {
           label: 'Loss of closeting/escort chain',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '44619',
+          nextQuestionCode: '44619',
         },
         {
           code: '181996',
@@ -822,7 +822,7 @@ export const KEY_OR_LOCK_1: IncidentTypeConfiguration = {
           label: 'Complete lock removed',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '44619',
+          nextQuestionCode: '44619',
         },
         {
           code: '182000',
@@ -831,7 +831,7 @@ export const KEY_OR_LOCK_1: IncidentTypeConfiguration = {
           label: 'Part lock removed',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '44619',
+          nextQuestionCode: '44619',
         },
         {
           code: '182001',
@@ -840,7 +840,7 @@ export const KEY_OR_LOCK_1: IncidentTypeConfiguration = {
           label: 'Replica key used',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '44355',
+          nextQuestionCode: '44355',
         },
         {
           code: '182003',
@@ -849,7 +849,7 @@ export const KEY_OR_LOCK_1: IncidentTypeConfiguration = {
           label: 'Locks picked',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '44866',
+          nextQuestionCode: '44866',
         },
         {
           code: '182002',
@@ -858,7 +858,7 @@ export const KEY_OR_LOCK_1: IncidentTypeConfiguration = {
           label: 'Electronics overcome',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '44866',
+          nextQuestionCode: '44866',
         },
         {
           code: '182004',
@@ -867,7 +867,7 @@ export const KEY_OR_LOCK_1: IncidentTypeConfiguration = {
           label: 'Other',
           commentRequired: true,
           dateRequired: false,
-          nextQuestionId: '44866',
+          nextQuestionCode: '44866',
         },
       ],
     },
@@ -885,7 +885,7 @@ export const KEY_OR_LOCK_1: IncidentTypeConfiguration = {
           label: 'Yes',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '44166',
+          nextQuestionCode: '44166',
         },
         {
           code: '182260',
@@ -894,7 +894,7 @@ export const KEY_OR_LOCK_1: IncidentTypeConfiguration = {
           label: 'No',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '44166',
+          nextQuestionCode: '44166',
         },
       ],
     },

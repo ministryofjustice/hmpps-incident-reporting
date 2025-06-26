@@ -430,7 +430,7 @@ describe('Submitting questions’ responses', () => {
   ])('$scenario', ({ createJourney }) => {
     it('submitting when single-choice question not answered shows errors', () => {
       reportWithDetails.type = 'DEATH_OTHER_1'
-      const firstQuestionStep = DEATH_OTHER_1.startingQuestionId
+      const firstQuestionStep = DEATH_OTHER_1.startingQuestionCode
       const followingStep = '44434'
       const submittedAnswers = {
         // 'WERE THE POLICE INFORMED OF THE INCIDENT',
@@ -529,7 +529,7 @@ describe('Submitting questions’ responses', () => {
 
     it('submitting with invalid date shows errors', () => {
       reportWithDetails.type = 'DEATH_OTHER_1'
-      const firstQuestionStep = DEATH_OTHER_1.startingQuestionId
+      const firstQuestionStep = DEATH_OTHER_1.startingQuestionCode
       const followingStep = '44434'
       const submittedAnswers = {
         // 'WERE THE POLICE INFORMED OF THE INCIDENT',
@@ -560,7 +560,7 @@ describe('Submitting questions’ responses', () => {
 
     it('submitting answers requiring dates', () => {
       reportWithDetails.type = 'DEATH_OTHER_1'
-      const firstQuestionStep = DEATH_OTHER_1.startingQuestionId
+      const firstQuestionStep = DEATH_OTHER_1.startingQuestionCode
       const followingStep = '44434'
       const responseDate = '6/12/2023'
       const submittedAnswers = {
@@ -624,7 +624,7 @@ describe('Submitting questions’ responses', () => {
 
     it('submitting multiple answers to a question', () => {
       reportWithDetails.type = 'FIND_6'
-      const firstQuestionStep = FIND_6.startingQuestionId
+      const firstQuestionStep = FIND_6.startingQuestionCode
       const followingStep = '67180'
       const submittedAnswers = {
         // 'DESCRIBE HOW THE ITEM WAS FOUND (SELECT ALL THAT APPLY)'
@@ -682,7 +682,7 @@ describe('Submitting questions’ responses', () => {
 
     it('submitting responses to multiple questions', () => {
       reportWithDetails.type = 'ASSAULT_5'
-      const firstQuestionStep = ASSAULT_5.startingQuestionId
+      const firstQuestionStep = ASSAULT_5.startingQuestionCode
       const followingStep = '61285'
       const submittedAnswers = {
         // 'WHAT WAS THE MAIN MANAGEMENT OUTCOME OF THE INCIDENT'
@@ -923,7 +923,7 @@ describe('Submitting questions’ responses', () => {
     it('should use incident type’s field order', () => {
       // NB: this type’s questions are not in numeric order on page 1
       reportWithDetails.type = 'ATTEMPTED_ESCAPE_FROM_PRISON_1'
-      const firstQuestionStep = ATTEMPTED_ESCAPE_FROM_PRISON_1.startingQuestionId
+      const firstQuestionStep = ATTEMPTED_ESCAPE_FROM_PRISON_1.startingQuestionCode
       const submittedAnswers = {
         // WERE THE POLICE INFORMED OF THE INCIDENT
         '44769': 'NO',
@@ -964,7 +964,7 @@ describe('Submitting questions’ responses', () => {
 
     it('should show a message for API errors', () => {
       reportWithDetails.type = 'FIND_6'
-      const firstQuestionStep = FIND_6.startingQuestionId
+      const firstQuestionStep = FIND_6.startingQuestionCode
       const submittedAnswers = {
         // 'DESCRIBE HOW THE ITEM WAS FOUND (SELECT ALL THAT APPLY)'
         '67179': ['BOSS CHAIR', 'DOG SEARCH'],

@@ -12,7 +12,7 @@ const testConfig: IncidentTypeConfiguration = {
   incidentType: 'MISCELLANEOUS_1',
   active: true,
   prisonerRoles: [],
-  startingQuestionId: 'qanimals',
+  startingQuestionCode: 'qanimals',
   questions: {
     qanimals: {
       code: 'qanimals',
@@ -28,7 +28,7 @@ const testConfig: IncidentTypeConfiguration = {
           active: true,
           dateRequired: false,
           commentRequired: false,
-          nextQuestionId: 'qdog',
+          nextQuestionCode: 'qdog',
         },
         {
           code: 'qanimals-a2',
@@ -37,7 +37,7 @@ const testConfig: IncidentTypeConfiguration = {
           active: true,
           dateRequired: false,
           commentRequired: false,
-          nextQuestionId: 'qicecream',
+          nextQuestionCode: 'qicecream',
         },
         {
           code: 'qanimals-a3',
@@ -46,7 +46,7 @@ const testConfig: IncidentTypeConfiguration = {
           active: true,
           dateRequired: false,
           commentRequired: false,
-          nextQuestionId: 'qicecream',
+          nextQuestionCode: 'qicecream',
         },
         // Inactive answer
         {
@@ -56,7 +56,7 @@ const testConfig: IncidentTypeConfiguration = {
           active: false,
           dateRequired: false,
           commentRequired: false,
-          nextQuestionId: 'qicecream',
+          nextQuestionCode: 'qicecream',
         },
       ],
     },
@@ -74,7 +74,7 @@ const testConfig: IncidentTypeConfiguration = {
           active: true,
           dateRequired: true,
           commentRequired: true,
-          nextQuestionId: 'qicecream',
+          nextQuestionCode: 'qicecream',
         },
         {
           code: 'qdog-a2',
@@ -83,7 +83,7 @@ const testConfig: IncidentTypeConfiguration = {
           active: true,
           dateRequired: false,
           commentRequired: false,
-          nextQuestionId: 'qicecream',
+          nextQuestionCode: 'qicecream',
         },
       ],
     },
@@ -101,7 +101,7 @@ const testConfig: IncidentTypeConfiguration = {
           active: true,
           dateRequired: false,
           commentRequired: true,
-          nextQuestionId: 'qend',
+          nextQuestionCode: 'qend',
         },
         {
           code: 'q2-a2',
@@ -110,7 +110,7 @@ const testConfig: IncidentTypeConfiguration = {
           active: true,
           dateRequired: false,
           commentRequired: false,
-          nextQuestionId: 'qend',
+          nextQuestionCode: 'qend',
         },
       ],
     },
@@ -128,7 +128,7 @@ const testConfig: IncidentTypeConfiguration = {
           active: true,
           dateRequired: false,
           commentRequired: false,
-          nextQuestionId: null,
+          nextQuestionCode: null,
         },
         {
           code: 'q2-a2',
@@ -137,7 +137,7 @@ const testConfig: IncidentTypeConfiguration = {
           active: true,
           dateRequired: false,
           commentRequired: false,
-          nextQuestionId: null,
+          nextQuestionCode: null,
         },
       ],
     },

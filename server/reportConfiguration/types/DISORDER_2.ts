@@ -5,7 +5,7 @@ import type { IncidentTypeConfiguration } from '../../data/incidentTypeConfigura
 export const DISORDER_2: IncidentTypeConfiguration = {
   incidentType: 'DISORDER_2',
   active: true,
-  startingQuestionId: '63179',
+  startingQuestionCode: '63179',
   questions: {
     '63179': {
       code: '63179',
@@ -21,7 +21,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'Barricade/prevention of access',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '63180',
+          nextQuestionCode: '63180',
         },
         {
           code: '214685',
@@ -30,7 +30,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'Concerted indiscipline',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '63180',
+          nextQuestionCode: '63180',
         },
         {
           code: '214686',
@@ -39,7 +39,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'Hostage',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '63180',
+          nextQuestionCode: '63180',
         },
         {
           code: '214687',
@@ -48,7 +48,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'Incident at height',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '63180',
+          nextQuestionCode: '63180',
         },
       ],
     },
@@ -66,7 +66,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'No further action',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '63181',
+          nextQuestionCode: '63181',
         },
         {
           code: '214689',
@@ -75,7 +75,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'Placed on report/adjudication referral',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '63181',
+          nextQuestionCode: '63181',
         },
         {
           code: '214690',
@@ -84,7 +84,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'IEP regression',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '63181',
+          nextQuestionCode: '63181',
         },
         {
           code: '214691',
@@ -93,7 +93,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'Police referral',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '63181',
+          nextQuestionCode: '63181',
         },
       ],
     },
@@ -111,7 +111,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'No',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '63183',
+          nextQuestionCode: '63183',
         },
         {
           code: '214693',
@@ -120,7 +120,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'Yes',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '63182',
+          nextQuestionCode: '63182',
         },
       ],
     },
@@ -138,7 +138,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'Administration',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '63183',
+          nextQuestionCode: '63183',
         },
         {
           code: '214695',
@@ -147,7 +147,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'Association area',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '63183',
+          nextQuestionCode: '63183',
         },
         {
           code: '214696',
@@ -156,7 +156,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'Cell',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '63183',
+          nextQuestionCode: '63183',
         },
         {
           code: '214697',
@@ -165,7 +165,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'Chapel',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '63183',
+          nextQuestionCode: '63183',
         },
         {
           code: '214698',
@@ -174,7 +174,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'Crown court',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '63183',
+          nextQuestionCode: '63183',
         },
         {
           code: '214699',
@@ -183,7 +183,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'Dining room',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '63183',
+          nextQuestionCode: '63183',
         },
         {
           code: '214700',
@@ -192,7 +192,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'Dormitory',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '63183',
+          nextQuestionCode: '63183',
         },
         {
           code: '214701',
@@ -201,7 +201,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'Education',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '63183',
+          nextQuestionCode: '63183',
         },
         {
           code: '214702',
@@ -210,7 +210,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'Exercise yard',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '63183',
+          nextQuestionCode: '63183',
         },
         {
           code: '214703',
@@ -219,7 +219,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'External roof',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '63183',
+          nextQuestionCode: '63183',
         },
         {
           code: '214704',
@@ -228,7 +228,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'Funeral',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '63183',
+          nextQuestionCode: '63183',
         },
         {
           code: '214705',
@@ -237,7 +237,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'Gate',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '63183',
+          nextQuestionCode: '63183',
         },
         {
           code: '214706',
@@ -246,7 +246,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'Gym',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '63183',
+          nextQuestionCode: '63183',
         },
         {
           code: '214707',
@@ -255,7 +255,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'Health care centre',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '63183',
+          nextQuestionCode: '63183',
         },
         {
           code: '214708',
@@ -264,7 +264,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'Hospital outside (patient)',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '63183',
+          nextQuestionCode: '63183',
         },
         {
           code: '214709',
@@ -273,7 +273,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'Hospital outside (visiting)',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '63183',
+          nextQuestionCode: '63183',
         },
         {
           code: '214710',
@@ -282,7 +282,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'Induction/1st night centre',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '63183',
+          nextQuestionCode: '63183',
         },
         {
           code: '214711',
@@ -291,7 +291,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'Kitchen',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '63183',
+          nextQuestionCode: '63183',
         },
         {
           code: '214712',
@@ -300,7 +300,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'Magistrates court',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '63183',
+          nextQuestionCode: '63183',
         },
         {
           code: '214713',
@@ -309,7 +309,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'Office',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '63183',
+          nextQuestionCode: '63183',
         },
         {
           code: '214714',
@@ -318,7 +318,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'Outside working party',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '63183',
+          nextQuestionCode: '63183',
         },
         {
           code: '214715',
@@ -327,7 +327,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'Reception',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '63183',
+          nextQuestionCode: '63183',
         },
         {
           code: '214716',
@@ -336,7 +336,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'Recess',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '63183',
+          nextQuestionCode: '63183',
         },
         {
           code: '214717',
@@ -345,7 +345,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'Segregation unit',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '63183',
+          nextQuestionCode: '63183',
         },
         {
           code: '214718',
@@ -354,7 +354,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'Showers/changing room',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '63183',
+          nextQuestionCode: '63183',
         },
         {
           code: '214719',
@@ -363,7 +363,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'Special unit',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '63183',
+          nextQuestionCode: '63183',
         },
         {
           code: '214720',
@@ -372,7 +372,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'Sports field',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '63183',
+          nextQuestionCode: '63183',
         },
         {
           code: '214721',
@@ -381,7 +381,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'Vehicle',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '63183',
+          nextQuestionCode: '63183',
         },
         {
           code: '214722',
@@ -390,7 +390,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'Visits',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '63183',
+          nextQuestionCode: '63183',
         },
         {
           code: '214723',
@@ -399,7 +399,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'Vulnerable prisoners unit',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '63183',
+          nextQuestionCode: '63183',
         },
         {
           code: '214724',
@@ -408,7 +408,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'Weddings',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '63183',
+          nextQuestionCode: '63183',
         },
         {
           code: '214725',
@@ -417,7 +417,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'Wing',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '63183',
+          nextQuestionCode: '63183',
         },
         {
           code: '214726',
@@ -426,7 +426,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'Within perimeter',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '63183',
+          nextQuestionCode: '63183',
         },
         {
           code: '214727',
@@ -435,7 +435,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'Works department',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '63183',
+          nextQuestionCode: '63183',
         },
         {
           code: '214728',
@@ -444,7 +444,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'Workshop',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '63183',
+          nextQuestionCode: '63183',
         },
         {
           code: '214729',
@@ -453,7 +453,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'Other - enter details',
           commentRequired: true,
           dateRequired: false,
-          nextQuestionId: '63183',
+          nextQuestionCode: '63183',
         },
       ],
     },
@@ -471,7 +471,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'No',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '63184',
+          nextQuestionCode: '63184',
         },
         {
           code: '214731',
@@ -480,7 +480,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'Yes',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '63184',
+          nextQuestionCode: '63184',
         },
       ],
     },
@@ -498,7 +498,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'No',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '63185',
+          nextQuestionCode: '63185',
         },
         {
           code: '214733',
@@ -507,7 +507,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'Demanding external transfer',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '63185',
+          nextQuestionCode: '63185',
         },
         {
           code: '214734',
@@ -516,7 +516,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'Demanding internal transfer',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '63185',
+          nextQuestionCode: '63185',
         },
         {
           code: '214735',
@@ -525,7 +525,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'Facilities',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '63185',
+          nextQuestionCode: '63185',
         },
         {
           code: '214736',
@@ -534,7 +534,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'Food',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '63185',
+          nextQuestionCode: '63185',
         },
         {
           code: '214737',
@@ -543,7 +543,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'Pay',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '63185',
+          nextQuestionCode: '63185',
         },
         {
           code: '214738',
@@ -552,7 +552,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'Refusing external transfer',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '63185',
+          nextQuestionCode: '63185',
         },
         {
           code: '214739',
@@ -561,7 +561,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'Refusing internal transfer',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '63185',
+          nextQuestionCode: '63185',
         },
         {
           code: '214740',
@@ -570,7 +570,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'Time out of cell',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '63185',
+          nextQuestionCode: '63185',
         },
         {
           code: '214741',
@@ -579,7 +579,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'Visits',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '63185',
+          nextQuestionCode: '63185',
         },
         {
           code: '214742',
@@ -588,7 +588,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'Other - enter details',
           commentRequired: true,
           dateRequired: false,
-          nextQuestionId: '63185',
+          nextQuestionCode: '63185',
         },
       ],
     },
@@ -606,7 +606,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'Access difficulties',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '63186',
+          nextQuestionCode: '63186',
         },
         {
           code: '214744',
@@ -615,7 +615,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'Damage resulting in loss of facilities or utilities',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '63186',
+          nextQuestionCode: '63186',
         },
         {
           code: '214745',
@@ -624,7 +624,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'Damage resulting in the loss of accommodation',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '63186',
+          nextQuestionCode: '63186',
         },
         {
           code: '214746',
@@ -633,7 +633,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'Media interest',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '63186',
+          nextQuestionCode: '63186',
         },
         {
           code: '214747',
@@ -642,7 +642,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'ORRU assistance requested',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '63186',
+          nextQuestionCode: '63186',
         },
         {
           code: '214748',
@@ -651,7 +651,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'Perpetrator under influence of drugs or alcohol',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '63186',
+          nextQuestionCode: '63186',
         },
         {
           code: '214749',
@@ -660,7 +660,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'Threat or actual self harm',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '63186',
+          nextQuestionCode: '63186',
         },
         {
           code: '214750',
@@ -669,7 +669,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'Violence directed against staff',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '63186',
+          nextQuestionCode: '63186',
         },
       ],
     },
@@ -687,7 +687,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: '< 1 minute',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '63187',
+          nextQuestionCode: '63187',
         },
         {
           code: '214752',
@@ -696,7 +696,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: '1 min to <5mins',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '63187',
+          nextQuestionCode: '63187',
         },
         {
           code: '214753',
@@ -705,7 +705,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: '10 mins to <15mins',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '63187',
+          nextQuestionCode: '63187',
         },
         {
           code: '214754',
@@ -714,7 +714,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: '15 mins to <30mins',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '63187',
+          nextQuestionCode: '63187',
         },
         {
           code: '214755',
@@ -723,7 +723,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: '30 mins to <1 hour',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '63187',
+          nextQuestionCode: '63187',
         },
         {
           code: '214756',
@@ -732,7 +732,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: '1 hour to <2 hours',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '63187',
+          nextQuestionCode: '63187',
         },
         {
           code: '214757',
@@ -741,7 +741,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: '2 hours to <3 hours',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '63187',
+          nextQuestionCode: '63187',
         },
         {
           code: '214758',
@@ -750,7 +750,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: '3 hours to <4 hours',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '63187',
+          nextQuestionCode: '63187',
         },
         {
           code: '214759',
@@ -759,7 +759,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: '4 hours to <5 hours',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '63187',
+          nextQuestionCode: '63187',
         },
         {
           code: '214760',
@@ -768,7 +768,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: '5 hours plus',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '63187',
+          nextQuestionCode: '63187',
         },
         {
           code: '214761',
@@ -777,7 +777,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'Unknown - enter details',
           commentRequired: true,
           dateRequired: false,
-          nextQuestionId: '63187',
+          nextQuestionCode: '63187',
         },
       ],
     },
@@ -795,7 +795,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'Complied with order or instruction',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '63188',
+          nextQuestionCode: '63188',
         },
         {
           code: '214763',
@@ -804,7 +804,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'Negotiation',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '63188',
+          nextQuestionCode: '63188',
         },
         {
           code: '214764',
@@ -813,7 +813,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'Intervention (local staff)',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '63188',
+          nextQuestionCode: '63188',
         },
         {
           code: '214765',
@@ -822,7 +822,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'Intervention (ORRU staff)',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '63188',
+          nextQuestionCode: '63188',
         },
         {
           code: '214766',
@@ -831,7 +831,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'Intervention (operation Tornado)',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '63188',
+          nextQuestionCode: '63188',
         },
         {
           code: '214767',
@@ -840,7 +840,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'Other - enter details',
           commentRequired: true,
           dateRequired: false,
-          nextQuestionId: '63188',
+          nextQuestionCode: '63188',
         },
       ],
     },
@@ -858,7 +858,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'No',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '63189',
+          nextQuestionCode: '63189',
         },
         {
           code: '214769',
@@ -867,7 +867,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'Yes',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '63189',
+          nextQuestionCode: '63189',
         },
       ],
     },
@@ -885,7 +885,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'No',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '63190',
+          nextQuestionCode: '63190',
         },
         {
           code: '214771',
@@ -894,7 +894,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'C & r advisor',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '63190',
+          nextQuestionCode: '63190',
         },
         {
           code: '214772',
@@ -903,7 +903,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'Incident liaison officer',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '63190',
+          nextQuestionCode: '63190',
         },
         {
           code: '214773',
@@ -912,7 +912,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'Health care staff',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '63190',
+          nextQuestionCode: '63190',
         },
         {
           code: '214774',
@@ -921,7 +921,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'Works services staff',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '63190',
+          nextQuestionCode: '63190',
         },
         {
           code: '214775',
@@ -930,7 +930,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'Other - enter details',
           commentRequired: true,
           dateRequired: false,
-          nextQuestionId: '63190',
+          nextQuestionCode: '63190',
         },
       ],
     },
@@ -948,7 +948,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'No',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '63191',
+          nextQuestionCode: '63191',
         },
         {
           code: '214777',
@@ -957,7 +957,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'Door jack',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '63191',
+          nextQuestionCode: '63191',
         },
         {
           code: '214778',
@@ -966,7 +966,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'Extendable batons',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '63191',
+          nextQuestionCode: '63191',
         },
         {
           code: '214779',
@@ -975,7 +975,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'Negotiation adviser (including hostage)',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '63191',
+          nextQuestionCode: '63191',
         },
         {
           code: '214780',
@@ -984,7 +984,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'Operational resilience and response unit (ORRU)',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '63191',
+          nextQuestionCode: '63191',
         },
         {
           code: '214781',
@@ -993,7 +993,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'Tornado',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '63191',
+          nextQuestionCode: '63191',
         },
         {
           code: '214782',
@@ -1002,7 +1002,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'Water hoses',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '63191',
+          nextQuestionCode: '63191',
         },
         {
           code: '214783',
@@ -1011,7 +1011,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'Other - enter details',
           commentRequired: true,
           dateRequired: false,
-          nextQuestionId: '63191',
+          nextQuestionCode: '63191',
         },
       ],
     },
@@ -1029,7 +1029,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'No',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '63192',
+          nextQuestionCode: '63192',
         },
         {
           code: '214785',
@@ -1038,7 +1038,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'Police',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '63192',
+          nextQuestionCode: '63192',
         },
         {
           code: '214786',
@@ -1047,7 +1047,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'Fire',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '63192',
+          nextQuestionCode: '63192',
         },
         {
           code: '214787',
@@ -1056,7 +1056,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'Ambulance',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '63192',
+          nextQuestionCode: '63192',
         },
         {
           code: '214788',
@@ -1065,7 +1065,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'Other - enter details',
           commentRequired: true,
           dateRequired: false,
-          nextQuestionId: '63192',
+          nextQuestionCode: '63192',
         },
       ],
     },
@@ -1083,7 +1083,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'No',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '63193',
+          nextQuestionCode: '63193',
         },
         {
           code: '214790',
@@ -1092,7 +1092,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'Yes',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '63193',
+          nextQuestionCode: '63193',
         },
       ],
     },
@@ -1110,7 +1110,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'Active',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '63194',
+          nextQuestionCode: '63194',
         },
         {
           code: '214792',
@@ -1119,7 +1119,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'Passive',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '63194',
+          nextQuestionCode: '63194',
         },
       ],
     },
@@ -1137,7 +1137,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'Number - enter details',
           commentRequired: true,
           dateRequired: false,
-          nextQuestionId: '63195',
+          nextQuestionCode: '63195',
         },
       ],
     },
@@ -1155,7 +1155,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'Prisoner - enter number of',
           commentRequired: true,
           dateRequired: false,
-          nextQuestionId: '63196',
+          nextQuestionCode: '63196',
         },
         {
           code: '214795',
@@ -1164,7 +1164,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'Visitor - enter number of',
           commentRequired: true,
           dateRequired: false,
-          nextQuestionId: '63196',
+          nextQuestionCode: '63196',
         },
         {
           code: '214796',
@@ -1173,7 +1173,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'Other - enter number of',
           commentRequired: true,
           dateRequired: false,
-          nextQuestionId: '63196',
+          nextQuestionCode: '63196',
         },
       ],
     },
@@ -1191,7 +1191,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'No',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '63198',
+          nextQuestionCode: '63198',
         },
         {
           code: '214798',
@@ -1200,7 +1200,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'Yes',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '63197',
+          nextQuestionCode: '63197',
         },
       ],
     },
@@ -1218,7 +1218,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'No',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '63198',
+          nextQuestionCode: '63198',
         },
         {
           code: '214800',
@@ -1227,7 +1227,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'Yes',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '63198',
+          nextQuestionCode: '63198',
         },
       ],
     },
@@ -1245,7 +1245,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'No',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '63199',
+          nextQuestionCode: '63199',
         },
         {
           code: '214802',
@@ -1254,7 +1254,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'Yes - please log find incident if weapon recovered',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '63199',
+          nextQuestionCode: '63199',
         },
       ],
     },
@@ -1272,7 +1272,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'No',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '63200',
+          nextQuestionCode: '63200',
         },
         {
           code: '214804',
@@ -1281,7 +1281,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'Yes - please log damage incident',
           commentRequired: true,
           dateRequired: false,
-          nextQuestionId: '63200',
+          nextQuestionCode: '63200',
         },
       ],
     },
@@ -1299,7 +1299,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'No',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '63209',
+          nextQuestionCode: '63209',
         },
         {
           code: '214806',
@@ -1308,7 +1308,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'Yes',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '63201',
+          nextQuestionCode: '63201',
         },
       ],
     },
@@ -1326,7 +1326,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'No',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '63204',
+          nextQuestionCode: '63204',
         },
         {
           code: '214808',
@@ -1335,7 +1335,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'Yes',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '63202',
+          nextQuestionCode: '63202',
         },
       ],
     },
@@ -1353,7 +1353,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'Bites',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '63203',
+          nextQuestionCode: '63203',
         },
         {
           code: '214810',
@@ -1362,7 +1362,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'Black eye',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '63203',
+          nextQuestionCode: '63203',
         },
         {
           code: '214811',
@@ -1371,7 +1371,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'Broken nose',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '63203',
+          nextQuestionCode: '63203',
         },
         {
           code: '214812',
@@ -1380,7 +1380,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'Broken teeth',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '63203',
+          nextQuestionCode: '63203',
         },
         {
           code: '214813',
@@ -1389,7 +1389,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'Crushing',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '63203',
+          nextQuestionCode: '63203',
         },
         {
           code: '214814',
@@ -1398,7 +1398,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'Cuts requiring sutures',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '63203',
+          nextQuestionCode: '63203',
         },
         {
           code: '214815',
@@ -1407,7 +1407,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'Extensive/multiple bruising',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '63203',
+          nextQuestionCode: '63203',
         },
         {
           code: '214816',
@@ -1416,7 +1416,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'Fracture',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '63203',
+          nextQuestionCode: '63203',
         },
         {
           code: '214817',
@@ -1425,7 +1425,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'Gun shot wound',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '63203',
+          nextQuestionCode: '63203',
         },
         {
           code: '214818',
@@ -1434,7 +1434,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'Scald or burn',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '63203',
+          nextQuestionCode: '63203',
         },
         {
           code: '214819',
@@ -1443,7 +1443,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'Stabbing',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '63203',
+          nextQuestionCode: '63203',
         },
         {
           code: '214820',
@@ -1452,7 +1452,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'Temporary/permanent blindness',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '63203',
+          nextQuestionCode: '63203',
         },
       ],
     },
@@ -1470,7 +1470,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'Civilian grades',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '63204',
+          nextQuestionCode: '63204',
         },
         {
           code: '214822',
@@ -1479,7 +1479,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'External civilians',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '63204',
+          nextQuestionCode: '63204',
         },
         {
           code: '214823',
@@ -1488,7 +1488,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'Police',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '63204',
+          nextQuestionCode: '63204',
         },
         {
           code: '214824',
@@ -1497,7 +1497,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'Prisoners',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '63204',
+          nextQuestionCode: '63204',
         },
         {
           code: '214825',
@@ -1506,7 +1506,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'Operational staff - prison officer',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '63204',
+          nextQuestionCode: '63204',
         },
         {
           code: '214826',
@@ -1515,7 +1515,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'Operational staff - other',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '63204',
+          nextQuestionCode: '63204',
         },
         {
           code: '214827',
@@ -1524,7 +1524,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'Non-operational staff',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '63204',
+          nextQuestionCode: '63204',
         },
         {
           code: '214828',
@@ -1533,7 +1533,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'Non-directly employed staff',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '63204',
+          nextQuestionCode: '63204',
         },
         {
           code: '214829',
@@ -1542,7 +1542,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'Other - enter details',
           commentRequired: true,
           dateRequired: false,
-          nextQuestionId: '63204',
+          nextQuestionCode: '63204',
         },
       ],
     },
@@ -1560,7 +1560,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'No',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '63207',
+          nextQuestionCode: '63207',
         },
         {
           code: '214831',
@@ -1569,7 +1569,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'Yes',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '63205',
+          nextQuestionCode: '63205',
         },
       ],
     },
@@ -1587,7 +1587,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'Grazes, scratches or abrasions',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '63206',
+          nextQuestionCode: '63206',
         },
         {
           code: '214833',
@@ -1596,7 +1596,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'Minor bruises',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '63206',
+          nextQuestionCode: '63206',
         },
         {
           code: '214834',
@@ -1605,7 +1605,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'Superficial cuts',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '63206',
+          nextQuestionCode: '63206',
         },
         {
           code: '214835',
@@ -1614,7 +1614,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'Swellings',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '63206',
+          nextQuestionCode: '63206',
         },
         {
           code: '214836',
@@ -1623,7 +1623,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'Other - enter details',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '63206',
+          nextQuestionCode: '63206',
         },
       ],
     },
@@ -1641,7 +1641,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'Civilian grades',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '63207',
+          nextQuestionCode: '63207',
         },
         {
           code: '214838',
@@ -1650,7 +1650,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'External civilians',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '63207',
+          nextQuestionCode: '63207',
         },
         {
           code: '214839',
@@ -1659,7 +1659,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'Police',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '63207',
+          nextQuestionCode: '63207',
         },
         {
           code: '214840',
@@ -1668,7 +1668,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'Prisoners',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '63207',
+          nextQuestionCode: '63207',
         },
         {
           code: '214841',
@@ -1677,7 +1677,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'Operational staff - prison officer',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '63207',
+          nextQuestionCode: '63207',
         },
         {
           code: '214842',
@@ -1686,7 +1686,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'Operational staff - other',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '63207',
+          nextQuestionCode: '63207',
         },
         {
           code: '214843',
@@ -1695,7 +1695,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'Non-operational staff',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '63207',
+          nextQuestionCode: '63207',
         },
         {
           code: '214844',
@@ -1704,7 +1704,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'Non-directly employed staff',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '63207',
+          nextQuestionCode: '63207',
         },
         {
           code: '214845',
@@ -1713,7 +1713,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'Other - enter details',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '63207',
+          nextQuestionCode: '63207',
         },
         {
           code: '214846',
@@ -1722,7 +1722,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'Other - enter details',
           commentRequired: true,
           dateRequired: false,
-          nextQuestionId: '63207',
+          nextQuestionCode: '63207',
         },
       ],
     },
@@ -1740,7 +1740,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'No',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '63209',
+          nextQuestionCode: '63209',
         },
         {
           code: '214848',
@@ -1749,7 +1749,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'Yes',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '63208',
+          nextQuestionCode: '63208',
         },
       ],
     },
@@ -1767,7 +1767,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'Civilian grades',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '63209',
+          nextQuestionCode: '63209',
         },
         {
           code: '214850',
@@ -1776,7 +1776,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'External civilians',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '63209',
+          nextQuestionCode: '63209',
         },
         {
           code: '214851',
@@ -1785,7 +1785,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'Police',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '63209',
+          nextQuestionCode: '63209',
         },
         {
           code: '214852',
@@ -1794,7 +1794,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'Prisoners',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '63209',
+          nextQuestionCode: '63209',
         },
         {
           code: '214853',
@@ -1803,7 +1803,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'Operational staff - prison officer',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '63209',
+          nextQuestionCode: '63209',
         },
         {
           code: '214854',
@@ -1812,7 +1812,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'Operational staff - other',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '63209',
+          nextQuestionCode: '63209',
         },
         {
           code: '214855',
@@ -1821,7 +1821,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'Non-operational staff',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '63209',
+          nextQuestionCode: '63209',
         },
         {
           code: '214856',
@@ -1830,7 +1830,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'Non-directly employed staff',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '63209',
+          nextQuestionCode: '63209',
         },
         {
           code: '214857',
@@ -1839,7 +1839,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'Other - enter details',
           commentRequired: true,
           dateRequired: false,
-          nextQuestionId: '63209',
+          nextQuestionCode: '63209',
         },
       ],
     },
@@ -1857,7 +1857,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'No',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '63210',
+          nextQuestionCode: '63210',
         },
         {
           code: '214859',
@@ -1866,7 +1866,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'Yes',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '63210',
+          nextQuestionCode: '63210',
         },
       ],
     },
@@ -1884,7 +1884,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'No',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '63213',
+          nextQuestionCode: '63213',
         },
         {
           code: '214861',
@@ -1893,7 +1893,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'Yes',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '63211',
+          nextQuestionCode: '63211',
         },
       ],
     },
@@ -1911,7 +1911,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'Contractors equipment',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '63212',
+          nextQuestionCode: '63212',
         },
         {
           code: '214863',
@@ -1920,7 +1920,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'External access: fencing',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '63212',
+          nextQuestionCode: '63212',
         },
         {
           code: '214864',
@@ -1929,7 +1929,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'External access: roof',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '63212',
+          nextQuestionCode: '63212',
         },
         {
           code: '214865',
@@ -1938,7 +1938,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'External access: tree',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '63212',
+          nextQuestionCode: '63212',
         },
         {
           code: '214866',
@@ -1947,7 +1947,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'Internal access: landings/railings',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '63212',
+          nextQuestionCode: '63212',
         },
         {
           code: '214867',
@@ -1956,7 +1956,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'Internal access: netting',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '63212',
+          nextQuestionCode: '63212',
         },
         {
           code: '214868',
@@ -1965,7 +1965,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'Internal access: window/gate bars',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '63212',
+          nextQuestionCode: '63212',
         },
         {
           code: '214869',
@@ -1974,7 +1974,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'Other: internal - enter details',
           commentRequired: true,
           dateRequired: false,
-          nextQuestionId: '63212',
+          nextQuestionCode: '63212',
         },
         {
           code: '214870',
@@ -1983,7 +1983,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'Other: external - enter details',
           commentRequired: true,
           dateRequired: false,
-          nextQuestionId: '63212',
+          nextQuestionCode: '63212',
         },
       ],
     },
@@ -2001,7 +2001,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'Between 3 feet and <1st floor',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '63213',
+          nextQuestionCode: '63213',
         },
         {
           code: '214872',
@@ -2010,7 +2010,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: '1st floor',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '63213',
+          nextQuestionCode: '63213',
         },
         {
           code: '214873',
@@ -2019,7 +2019,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: '2nd floor',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '63213',
+          nextQuestionCode: '63213',
         },
         {
           code: '214874',
@@ -2028,7 +2028,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: '3rd floor or higher',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '63213',
+          nextQuestionCode: '63213',
         },
       ],
     },
@@ -2046,7 +2046,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'No',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '63214',
+          nextQuestionCode: '63214',
         },
         {
           code: '214876',
@@ -2055,7 +2055,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'Yes',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '63214',
+          nextQuestionCode: '63214',
         },
       ],
     },
@@ -2073,7 +2073,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'No',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: null,
+          nextQuestionCode: null,
         },
         {
           code: '214878',
@@ -2082,7 +2082,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'Yes',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '63215',
+          nextQuestionCode: '63215',
         },
       ],
     },
@@ -2100,7 +2100,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'Civilian staff - state number of',
           commentRequired: true,
           dateRequired: false,
-          nextQuestionId: '63216',
+          nextQuestionCode: '63216',
         },
         {
           code: '214880',
@@ -2109,7 +2109,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'Officer - state number of',
           commentRequired: true,
           dateRequired: false,
-          nextQuestionId: '63216',
+          nextQuestionCode: '63216',
         },
         {
           code: '214881',
@@ -2118,7 +2118,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'Prisoner - state number of',
           commentRequired: true,
           dateRequired: false,
-          nextQuestionId: '63216',
+          nextQuestionCode: '63216',
         },
         {
           code: '214882',
@@ -2127,7 +2127,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'Staff - state number of',
           commentRequired: true,
           dateRequired: false,
-          nextQuestionId: '63216',
+          nextQuestionCode: '63216',
         },
         {
           code: '214883',
@@ -2136,7 +2136,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'Other - state number of',
           commentRequired: true,
           dateRequired: false,
-          nextQuestionId: '63216',
+          nextQuestionCode: '63216',
         },
       ],
     },
@@ -2154,7 +2154,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'No',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '63217',
+          nextQuestionCode: '63217',
         },
         {
           code: '214885',
@@ -2163,7 +2163,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'Yes',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '63217',
+          nextQuestionCode: '63217',
         },
       ],
     },
@@ -2181,7 +2181,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'No',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '63218',
+          nextQuestionCode: '63218',
         },
         {
           code: '214887',
@@ -2190,7 +2190,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'Yes',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '63218',
+          nextQuestionCode: '63218',
         },
       ],
     },
@@ -2208,7 +2208,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'No',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '63219',
+          nextQuestionCode: '63219',
         },
         {
           code: '214889',
@@ -2217,7 +2217,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'Yes',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '63219',
+          nextQuestionCode: '63219',
         },
       ],
     },
@@ -2235,7 +2235,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'No',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '63220',
+          nextQuestionCode: '63220',
         },
         {
           code: '214891',
@@ -2244,7 +2244,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'Yes',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '63220',
+          nextQuestionCode: '63220',
         },
       ],
     },
@@ -2262,7 +2262,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'No',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: null,
+          nextQuestionCode: null,
         },
         {
           code: '214893',
@@ -2271,7 +2271,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'Yes',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: null,
+          nextQuestionCode: null,
         },
       ],
     },

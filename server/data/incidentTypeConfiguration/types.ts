@@ -4,7 +4,7 @@ import { type PrisonerInvolvementRole, type Type } from '../../reportConfigurati
 export interface IncidentTypeConfiguration {
   incidentType: Type
   active: boolean
-  startingQuestionId: string
+  startingQuestionCode: string
   questions: Record<string, QuestionConfiguration>
   /** Allowed prisoner involvement roles for this report type */
   prisonerRoles: PrisonerRoleConfiguration[]
@@ -48,7 +48,7 @@ export interface AnswerConfiguration {
   label: string
   dateRequired: boolean
   commentRequired: boolean
-  nextQuestionId: string | null
+  nextQuestionCode: string | null
 }
 
 /** Report type prisoner role configuration */

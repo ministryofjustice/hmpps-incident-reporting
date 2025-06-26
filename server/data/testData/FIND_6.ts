@@ -9,7 +9,7 @@ import { checkMultipleValues } from '../incidentTypeConfiguration/formWizard'
 export const config: IncidentTypeConfiguration = {
   incidentType: 'FIND_6',
   active: true,
-  startingQuestionId: '67179',
+  startingQuestionCode: '67179',
   questions: {
     '67179': {
       code: '67179',
@@ -27,7 +27,7 @@ export const config: IncidentTypeConfiguration = {
           commentRequired: true,
           // NB: flipped to true, unlike original FIND_6
           dateRequired: true,
-          nextQuestionId: '67180',
+          nextQuestionCode: '67180',
         },
         {
           code: '218685',
@@ -36,7 +36,7 @@ export const config: IncidentTypeConfiguration = {
           label: 'Archway metal detector (amd)',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67180',
+          nextQuestionCode: '67180',
         },
         {
           code: '218686',
@@ -45,7 +45,7 @@ export const config: IncidentTypeConfiguration = {
           label: 'Boss chair',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67180',
+          nextQuestionCode: '67180',
         },
         {
           code: '218687',
@@ -54,7 +54,7 @@ export const config: IncidentTypeConfiguration = {
           label: 'Cell search',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67180',
+          nextQuestionCode: '67180',
         },
         {
           code: '218688',
@@ -63,7 +63,7 @@ export const config: IncidentTypeConfiguration = {
           label: 'Dog search',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67180',
+          nextQuestionCode: '67180',
         },
         {
           code: '218689',
@@ -72,7 +72,7 @@ export const config: IncidentTypeConfiguration = {
           label: 'Drone recovery',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67180',
+          nextQuestionCode: '67180',
         },
         {
           code: '218690',
@@ -81,7 +81,7 @@ export const config: IncidentTypeConfiguration = {
           label: 'Drug trace detection machine',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67180',
+          nextQuestionCode: '67180',
         },
         {
           code: '218691',
@@ -90,7 +90,7 @@ export const config: IncidentTypeConfiguration = {
           label: 'Gate search - enhanced gate security (EGS)',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67180',
+          nextQuestionCode: '67180',
         },
         {
           code: '218692',
@@ -99,7 +99,7 @@ export const config: IncidentTypeConfiguration = {
           label: 'Gate search - front end search (FES), high security only (HSE)',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67180',
+          nextQuestionCode: '67180',
         },
         {
           code: '218693',
@@ -108,7 +108,7 @@ export const config: IncidentTypeConfiguration = {
           label: 'Gate search - other',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67180',
+          nextQuestionCode: '67180',
         },
         {
           code: '218694',
@@ -117,7 +117,7 @@ export const config: IncidentTypeConfiguration = {
           label: 'Handheld metal detector (HMD) wand',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67180',
+          nextQuestionCode: '67180',
         },
         {
           code: '218695',
@@ -126,7 +126,7 @@ export const config: IncidentTypeConfiguration = {
           label: 'Information received',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67180',
+          nextQuestionCode: '67180',
         },
         {
           code: '218696',
@@ -135,7 +135,7 @@ export const config: IncidentTypeConfiguration = {
           label: 'Intelligence led search',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67180',
+          nextQuestionCode: '67180',
         },
         {
           code: '218697',
@@ -144,7 +144,7 @@ export const config: IncidentTypeConfiguration = {
           label: 'Item handed over',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67180',
+          nextQuestionCode: '67180',
         },
         {
           code: '218698',
@@ -153,7 +153,7 @@ export const config: IncidentTypeConfiguration = {
           label: 'Item observed & recovered',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67180',
+          nextQuestionCode: '67180',
         },
         {
           code: '218699',
@@ -162,7 +162,7 @@ export const config: IncidentTypeConfiguration = {
           label: 'Mobile phone signal detector',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67180',
+          nextQuestionCode: '67180',
         },
         {
           code: '218700',
@@ -171,7 +171,7 @@ export const config: IncidentTypeConfiguration = {
           label: 'Phone detection pole',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67180',
+          nextQuestionCode: '67180',
         },
         {
           code: '218701',
@@ -180,7 +180,7 @@ export const config: IncidentTypeConfiguration = {
           label: 'Pre-occupation search',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67180',
+          nextQuestionCode: '67180',
         },
         {
           code: '218702',
@@ -189,7 +189,7 @@ export const config: IncidentTypeConfiguration = {
           label: 'Unusual behaviour',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67180',
+          nextQuestionCode: '67180',
         },
         {
           code: '218703',
@@ -198,7 +198,7 @@ export const config: IncidentTypeConfiguration = {
           label: 'X-ray baggage scanner',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67180',
+          nextQuestionCode: '67180',
         },
         {
           code: '218704',
@@ -207,7 +207,7 @@ export const config: IncidentTypeConfiguration = {
           label: 'X-ray body scanner',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67180',
+          nextQuestionCode: '67180',
         },
         {
           code: '218705',
@@ -216,7 +216,7 @@ export const config: IncidentTypeConfiguration = {
           label: 'Other search (prisoner)',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67180',
+          nextQuestionCode: '67180',
         },
         {
           code: '218706',
@@ -225,7 +225,7 @@ export const config: IncidentTypeConfiguration = {
           label: 'Other search (premises)',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67180',
+          nextQuestionCode: '67180',
         },
         {
           code: '218707',
@@ -234,7 +234,7 @@ export const config: IncidentTypeConfiguration = {
           label: 'Other search (staff)',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67180',
+          nextQuestionCode: '67180',
         },
         {
           code: '218708',
@@ -243,7 +243,7 @@ export const config: IncidentTypeConfiguration = {
           label: 'Other search (visitor)',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67180',
+          nextQuestionCode: '67180',
         },
         {
           code: '218709',
@@ -252,7 +252,7 @@ export const config: IncidentTypeConfiguration = {
           label: 'Other - (please specify)',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67180',
+          nextQuestionCode: '67180',
         },
       ],
     },
@@ -270,7 +270,7 @@ export const config: IncidentTypeConfiguration = {
           label: 'No',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67182',
+          nextQuestionCode: '67182',
         },
         {
           code: '218711',
@@ -279,7 +279,7 @@ export const config: IncidentTypeConfiguration = {
           label: 'Yes',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67181',
+          nextQuestionCode: '67181',
         },
       ],
     },
@@ -297,7 +297,7 @@ export const config: IncidentTypeConfiguration = {
           label: 'Administration',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67182',
+          nextQuestionCode: '67182',
         },
         {
           code: '218713',
@@ -306,7 +306,7 @@ export const config: IncidentTypeConfiguration = {
           label: 'Association area (please state location details in comment)',
           commentRequired: true,
           dateRequired: false,
-          nextQuestionId: '67182',
+          nextQuestionCode: '67182',
         },
         {
           code: '218714',
@@ -315,7 +315,7 @@ export const config: IncidentTypeConfiguration = {
           label: 'Cell - (please state location details in comment)',
           commentRequired: true,
           dateRequired: false,
-          nextQuestionId: '67182',
+          nextQuestionCode: '67182',
         },
         {
           code: '218715',
@@ -324,7 +324,7 @@ export const config: IncidentTypeConfiguration = {
           label: 'Chapel',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67182',
+          nextQuestionCode: '67182',
         },
         {
           code: '218716',
@@ -333,7 +333,7 @@ export const config: IncidentTypeConfiguration = {
           label: 'Court',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67182',
+          nextQuestionCode: '67182',
         },
         {
           code: '218717',
@@ -342,7 +342,7 @@ export const config: IncidentTypeConfiguration = {
           label: 'Dining room - (please state location details in comments)',
           commentRequired: true,
           dateRequired: false,
-          nextQuestionId: '67182',
+          nextQuestionCode: '67182',
         },
         {
           code: '218718',
@@ -351,7 +351,7 @@ export const config: IncidentTypeConfiguration = {
           label: 'Dormitory - (please state location details in comments)',
           commentRequired: true,
           dateRequired: false,
-          nextQuestionId: '67182',
+          nextQuestionCode: '67182',
         },
         {
           code: '218719',
@@ -360,7 +360,7 @@ export const config: IncidentTypeConfiguration = {
           label: 'Education',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67182',
+          nextQuestionCode: '67182',
         },
         {
           code: '218720',
@@ -369,7 +369,7 @@ export const config: IncidentTypeConfiguration = {
           label: 'Exercise yard - (please state location details in comment)',
           commentRequired: true,
           dateRequired: false,
-          nextQuestionId: '67182',
+          nextQuestionCode: '67182',
         },
         {
           code: '218721',
@@ -378,7 +378,7 @@ export const config: IncidentTypeConfiguration = {
           label: 'Gate/gate lodge',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67182',
+          nextQuestionCode: '67182',
         },
         {
           code: '218722',
@@ -387,7 +387,7 @@ export const config: IncidentTypeConfiguration = {
           label: 'Gym',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67182',
+          nextQuestionCode: '67182',
         },
         {
           code: '218723',
@@ -396,7 +396,7 @@ export const config: IncidentTypeConfiguration = {
           label: 'Health care centre',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67182',
+          nextQuestionCode: '67182',
         },
         {
           code: '218724',
@@ -405,7 +405,7 @@ export const config: IncidentTypeConfiguration = {
           label: 'Hospital outside (patient)',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67182',
+          nextQuestionCode: '67182',
         },
         {
           code: '218725',
@@ -414,7 +414,7 @@ export const config: IncidentTypeConfiguration = {
           label: 'Hospital outside (visiting)',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67182',
+          nextQuestionCode: '67182',
         },
         {
           code: '218726',
@@ -423,7 +423,7 @@ export const config: IncidentTypeConfiguration = {
           label: 'Induction/first night centre',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67182',
+          nextQuestionCode: '67182',
         },
         {
           code: '218727',
@@ -432,7 +432,7 @@ export const config: IncidentTypeConfiguration = {
           label: 'Kitchen',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67182',
+          nextQuestionCode: '67182',
         },
         {
           code: '218728',
@@ -441,7 +441,7 @@ export const config: IncidentTypeConfiguration = {
           label: 'Mail room',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67182',
+          nextQuestionCode: '67182',
         },
         {
           code: '218729',
@@ -450,7 +450,7 @@ export const config: IncidentTypeConfiguration = {
           label: 'Office',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67182',
+          nextQuestionCode: '67182',
         },
         {
           code: '218730',
@@ -459,7 +459,7 @@ export const config: IncidentTypeConfiguration = {
           label: 'Outside working party',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67182',
+          nextQuestionCode: '67182',
         },
         {
           code: '218731',
@@ -468,7 +468,7 @@ export const config: IncidentTypeConfiguration = {
           label: 'Reception',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67182',
+          nextQuestionCode: '67182',
         },
         {
           code: '218732',
@@ -477,7 +477,7 @@ export const config: IncidentTypeConfiguration = {
           label: 'Recess/ roof void',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67182',
+          nextQuestionCode: '67182',
         },
         {
           code: '218733',
@@ -486,7 +486,7 @@ export const config: IncidentTypeConfiguration = {
           label: 'Segregation unit - (please state location details in comment)',
           commentRequired: true,
           dateRequired: false,
-          nextQuestionId: '67182',
+          nextQuestionCode: '67182',
         },
         {
           code: '218734',
@@ -495,7 +495,7 @@ export const config: IncidentTypeConfiguration = {
           label: 'Showers/changing room (please state location details in comment)',
           commentRequired: true,
           dateRequired: false,
-          nextQuestionId: '67182',
+          nextQuestionCode: '67182',
         },
         {
           code: '218735',
@@ -504,7 +504,7 @@ export const config: IncidentTypeConfiguration = {
           label: 'Vehicle used for court/transfer',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67182',
+          nextQuestionCode: '67182',
         },
         {
           code: '218736',
@@ -513,7 +513,7 @@ export const config: IncidentTypeConfiguration = {
           label: 'Visits',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67182',
+          nextQuestionCode: '67182',
         },
         {
           code: '218737',
@@ -522,7 +522,7 @@ export const config: IncidentTypeConfiguration = {
           label: 'Vulnerable prisoners unit (VPU) - (please state location details in comment)',
           commentRequired: true,
           dateRequired: false,
-          nextQuestionId: '67182',
+          nextQuestionCode: '67182',
         },
         {
           code: '218738',
@@ -531,7 +531,7 @@ export const config: IncidentTypeConfiguration = {
           label: 'Wing - (please state location details in comment)',
           commentRequired: true,
           dateRequired: false,
-          nextQuestionId: '67182',
+          nextQuestionCode: '67182',
         },
         {
           code: '218739',
@@ -540,7 +540,7 @@ export const config: IncidentTypeConfiguration = {
           label: 'Workshop - (please state location details in comment)',
           commentRequired: true,
           dateRequired: false,
-          nextQuestionId: '67182',
+          nextQuestionCode: '67182',
         },
         {
           code: '218740',
@@ -549,7 +549,7 @@ export const config: IncidentTypeConfiguration = {
           label: 'Other - (please state location details in comment)',
           commentRequired: true,
           dateRequired: false,
-          nextQuestionId: '67182',
+          nextQuestionCode: '67182',
         },
       ],
     },
@@ -567,7 +567,7 @@ export const config: IncidentTypeConfiguration = {
           label: 'Unknown',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67184',
+          nextQuestionCode: '67184',
         },
         {
           code: '218742',
@@ -576,7 +576,7 @@ export const config: IncidentTypeConfiguration = {
           label: 'Contractor',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67184',
+          nextQuestionCode: '67184',
         },
         {
           code: '218743',
@@ -585,7 +585,7 @@ export const config: IncidentTypeConfiguration = {
           label: 'Drone/UAV',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67184',
+          nextQuestionCode: '67184',
         },
         {
           code: '218744',
@@ -594,7 +594,7 @@ export const config: IncidentTypeConfiguration = {
           label: 'Post - rule 39 (check rule 39 mail, barcoded)',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67183',
+          nextQuestionCode: '67183',
         },
         {
           code: '218745',
@@ -603,7 +603,7 @@ export const config: IncidentTypeConfiguration = {
           label: 'Post - rule 39 (not check rule 39 mail, no barcode)',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67184',
+          nextQuestionCode: '67184',
         },
         {
           code: '218746',
@@ -612,7 +612,7 @@ export const config: IncidentTypeConfiguration = {
           label: 'Post - other',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67184',
+          nextQuestionCode: '67184',
         },
         {
           code: '218747',
@@ -621,7 +621,7 @@ export const config: IncidentTypeConfiguration = {
           label: 'Prisoner',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67184',
+          nextQuestionCode: '67184',
         },
         {
           code: '218748',
@@ -630,7 +630,7 @@ export const config: IncidentTypeConfiguration = {
           label: 'Staff',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67184',
+          nextQuestionCode: '67184',
         },
         {
           code: '218749',
@@ -639,7 +639,7 @@ export const config: IncidentTypeConfiguration = {
           label: 'Thrown in',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67184',
+          nextQuestionCode: '67184',
         },
         {
           code: '218750',
@@ -648,7 +648,7 @@ export const config: IncidentTypeConfiguration = {
           label: 'Visitor - domestic',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67184',
+          nextQuestionCode: '67184',
         },
         {
           code: '218751',
@@ -657,7 +657,7 @@ export const config: IncidentTypeConfiguration = {
           label: 'Visitor - social',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67184',
+          nextQuestionCode: '67184',
         },
         {
           code: '218752',
@@ -666,7 +666,7 @@ export const config: IncidentTypeConfiguration = {
           label: 'Visitor - other (please enter comment to explain)',
           commentRequired: true,
           dateRequired: false,
-          nextQuestionId: '67184',
+          nextQuestionCode: '67184',
         },
         {
           code: '218753',
@@ -675,7 +675,7 @@ export const config: IncidentTypeConfiguration = {
           label: 'Other - (please enter comment to explain)',
           commentRequired: true,
           dateRequired: false,
-          nextQuestionId: '67184',
+          nextQuestionCode: '67184',
         },
       ],
     },
@@ -693,7 +693,7 @@ export const config: IncidentTypeConfiguration = {
           label: 'No',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67184',
+          nextQuestionCode: '67184',
         },
         {
           code: '218755',
@@ -702,7 +702,7 @@ export const config: IncidentTypeConfiguration = {
           label: 'Yes',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67184',
+          nextQuestionCode: '67184',
         },
       ],
     },
@@ -720,7 +720,7 @@ export const config: IncidentTypeConfiguration = {
           label: 'Not applicable',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67186',
+          nextQuestionCode: '67186',
         },
         {
           code: '218757',
@@ -729,7 +729,7 @@ export const config: IncidentTypeConfiguration = {
           label: 'Contractor',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67185',
+          nextQuestionCode: '67185',
         },
         {
           code: '218758',
@@ -738,7 +738,7 @@ export const config: IncidentTypeConfiguration = {
           label: 'Prisoner',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67185',
+          nextQuestionCode: '67185',
         },
         {
           code: '218759',
@@ -747,7 +747,7 @@ export const config: IncidentTypeConfiguration = {
           label: 'Staff',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67185',
+          nextQuestionCode: '67185',
         },
         {
           code: '218760',
@@ -756,7 +756,7 @@ export const config: IncidentTypeConfiguration = {
           label: 'Visitor - domestic',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67185',
+          nextQuestionCode: '67185',
         },
         {
           code: '218761',
@@ -765,7 +765,7 @@ export const config: IncidentTypeConfiguration = {
           label: 'Visitor - social',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67185',
+          nextQuestionCode: '67185',
         },
         {
           code: '218762',
@@ -774,7 +774,7 @@ export const config: IncidentTypeConfiguration = {
           label: 'Visitor - other (please enter comment to explain)',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67185',
+          nextQuestionCode: '67185',
         },
         {
           code: '218763',
@@ -783,7 +783,7 @@ export const config: IncidentTypeConfiguration = {
           label: 'Other - (please specify in comments)',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67185',
+          nextQuestionCode: '67185',
         },
       ],
     },
@@ -801,7 +801,7 @@ export const config: IncidentTypeConfiguration = {
           label: 'No',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67186',
+          nextQuestionCode: '67186',
         },
         {
           code: '218765',
@@ -810,7 +810,7 @@ export const config: IncidentTypeConfiguration = {
           label: 'Yes (e.g. item return to staff at end of shift/visit)',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67186',
+          nextQuestionCode: '67186',
         },
         {
           code: '218766',
@@ -819,7 +819,7 @@ export const config: IncidentTypeConfiguration = {
           label: 'Unknown',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67186',
+          nextQuestionCode: '67186',
         },
       ],
     },
@@ -837,7 +837,7 @@ export const config: IncidentTypeConfiguration = {
           label: 'Not concealed',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67187',
+          nextQuestionCode: '67187',
         },
         {
           code: '218768',
@@ -846,7 +846,7 @@ export const config: IncidentTypeConfiguration = {
           label: 'Bed/bedding',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67187',
+          nextQuestionCode: '67187',
         },
         {
           code: '218769',
@@ -855,7 +855,7 @@ export const config: IncidentTypeConfiguration = {
           label: 'Book/papers',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67187',
+          nextQuestionCode: '67187',
         },
         {
           code: '218770',
@@ -864,7 +864,7 @@ export const config: IncidentTypeConfiguration = {
           label: 'Cell/building fabric',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67187',
+          nextQuestionCode: '67187',
         },
         {
           code: '218771',
@@ -873,7 +873,7 @@ export const config: IncidentTypeConfiguration = {
           label: 'Food/container',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67187',
+          nextQuestionCode: '67187',
         },
         {
           code: '218772',
@@ -882,7 +882,7 @@ export const config: IncidentTypeConfiguration = {
           label: 'In bag (i.e. backpack/briefcase/handbag)',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67187',
+          nextQuestionCode: '67187',
         },
         {
           code: '218773',
@@ -891,7 +891,7 @@ export const config: IncidentTypeConfiguration = {
           label: 'In clothing',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67187',
+          nextQuestionCode: '67187',
         },
         {
           code: '218774',
@@ -900,7 +900,7 @@ export const config: IncidentTypeConfiguration = {
           label: 'In hand',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67187',
+          nextQuestionCode: '67187',
         },
         {
           code: '218775',
@@ -909,7 +909,7 @@ export const config: IncidentTypeConfiguration = {
           label: 'In mouth',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67187',
+          nextQuestionCode: '67187',
         },
         {
           code: '218776',
@@ -918,7 +918,7 @@ export const config: IncidentTypeConfiguration = {
           label: 'Internally concealed',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67187',
+          nextQuestionCode: '67187',
         },
         {
           code: '218777',
@@ -927,7 +927,7 @@ export const config: IncidentTypeConfiguration = {
           label: 'Letter/parcel',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67187',
+          nextQuestionCode: '67187',
         },
         {
           code: '218778',
@@ -936,7 +936,7 @@ export const config: IncidentTypeConfiguration = {
           label: 'Light fittings',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67187',
+          nextQuestionCode: '67187',
         },
         {
           code: '218779',
@@ -945,7 +945,7 @@ export const config: IncidentTypeConfiguration = {
           label: 'Pipework',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67187',
+          nextQuestionCode: '67187',
         },
         {
           code: '218780',
@@ -954,7 +954,7 @@ export const config: IncidentTypeConfiguration = {
           label: 'Rule 39/legal papers',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67187',
+          nextQuestionCode: '67187',
         },
         {
           code: '218781',
@@ -963,7 +963,7 @@ export const config: IncidentTypeConfiguration = {
           label: 'TV/radio/DVD/consoles etc',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67187',
+          nextQuestionCode: '67187',
         },
         {
           code: '218782',
@@ -972,7 +972,7 @@ export const config: IncidentTypeConfiguration = {
           label: 'Other - (please specify)',
           commentRequired: true,
           dateRequired: false,
-          nextQuestionId: '67187',
+          nextQuestionCode: '67187',
         },
       ],
     },
@@ -990,7 +990,7 @@ export const config: IncidentTypeConfiguration = {
           label: 'Multiple types (see full below list before selecting)',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67205',
+          nextQuestionCode: '67205',
         },
         {
           code: '218784',
@@ -999,7 +999,7 @@ export const config: IncidentTypeConfiguration = {
           label: 'Alcohol / hooch / distilling equipment',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67188',
+          nextQuestionCode: '67188',
         },
         {
           code: '218785',
@@ -1008,7 +1008,7 @@ export const config: IncidentTypeConfiguration = {
           label: 'Drug / drug equipment',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67190',
+          nextQuestionCode: '67190',
         },
         {
           code: '218786',
@@ -1017,7 +1017,7 @@ export const config: IncidentTypeConfiguration = {
           label: 'Mobile phone / mobile related item',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67194',
+          nextQuestionCode: '67194',
         },
         {
           code: '218787',
@@ -1026,7 +1026,7 @@ export const config: IncidentTypeConfiguration = {
           label: 'Digital find (excluding mobile phones)',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67200',
+          nextQuestionCode: '67200',
         },
         {
           code: '218788',
@@ -1035,7 +1035,7 @@ export const config: IncidentTypeConfiguration = {
           label: 'Tobacco / tobacco related items',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67201',
+          nextQuestionCode: '67201',
         },
         {
           code: '218789',
@@ -1044,7 +1044,7 @@ export const config: IncidentTypeConfiguration = {
           label: 'Weapon',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67203',
+          nextQuestionCode: '67203',
         },
         {
           code: '218790',
@@ -1053,7 +1053,7 @@ export const config: IncidentTypeConfiguration = {
           label: 'Other reportable items (by national or local policy)',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67204',
+          nextQuestionCode: '67204',
         },
       ],
     },
@@ -1071,7 +1071,7 @@ export const config: IncidentTypeConfiguration = {
           label: 'Nil',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67189',
+          nextQuestionCode: '67189',
         },
         {
           code: '218792',
@@ -1080,7 +1080,7 @@ export const config: IncidentTypeConfiguration = {
           label: 'Less than 1 litre - (please state number in comments)',
           commentRequired: true,
           dateRequired: false,
-          nextQuestionId: '67189',
+          nextQuestionCode: '67189',
         },
         {
           code: '218793',
@@ -1089,7 +1089,7 @@ export const config: IncidentTypeConfiguration = {
           label: '1 litre to less than 2 litres - (please state number in comments)',
           commentRequired: true,
           dateRequired: false,
-          nextQuestionId: '67189',
+          nextQuestionCode: '67189',
         },
         {
           code: '218794',
@@ -1098,7 +1098,7 @@ export const config: IncidentTypeConfiguration = {
           label: '2 litres to less than 3 litres - (please state number in comments)',
           commentRequired: true,
           dateRequired: false,
-          nextQuestionId: '67189',
+          nextQuestionCode: '67189',
         },
         {
           code: '218795',
@@ -1107,7 +1107,7 @@ export const config: IncidentTypeConfiguration = {
           label: '3 litres to less than 4 litres - (please state number in comments)',
           commentRequired: true,
           dateRequired: false,
-          nextQuestionId: '67189',
+          nextQuestionCode: '67189',
         },
         {
           code: '218796',
@@ -1116,7 +1116,7 @@ export const config: IncidentTypeConfiguration = {
           label: '4 litres to less than 5 litres - (please state number in comments)',
           commentRequired: true,
           dateRequired: false,
-          nextQuestionId: '67189',
+          nextQuestionCode: '67189',
         },
         {
           code: '218797',
@@ -1125,7 +1125,7 @@ export const config: IncidentTypeConfiguration = {
           label: '5 litres to less than 10 litres - (please state number in comments)',
           commentRequired: true,
           dateRequired: false,
-          nextQuestionId: '67189',
+          nextQuestionCode: '67189',
         },
         {
           code: '218798',
@@ -1134,7 +1134,7 @@ export const config: IncidentTypeConfiguration = {
           label: '10 litres to less than 20 litres - (please state number in comments)',
           commentRequired: true,
           dateRequired: false,
-          nextQuestionId: '67189',
+          nextQuestionCode: '67189',
         },
         {
           code: '218799',
@@ -1143,7 +1143,7 @@ export const config: IncidentTypeConfiguration = {
           label: '20 litres or more - (please state number in comments)',
           commentRequired: true,
           dateRequired: false,
-          nextQuestionId: '67189',
+          nextQuestionCode: '67189',
         },
       ],
     },
@@ -1161,7 +1161,7 @@ export const config: IncidentTypeConfiguration = {
           label: 'No',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67226',
+          nextQuestionCode: '67226',
         },
         {
           code: '218801',
@@ -1170,7 +1170,7 @@ export const config: IncidentTypeConfiguration = {
           label: 'Yes - (please specify in comments)',
           commentRequired: true,
           dateRequired: false,
-          nextQuestionId: '67226',
+          nextQuestionCode: '67226',
         },
       ],
     },
@@ -1188,7 +1188,7 @@ export const config: IncidentTypeConfiguration = {
           label: 'Unknown',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67191',
+          nextQuestionCode: '67191',
         },
         {
           code: '218803',
@@ -1197,7 +1197,7 @@ export const config: IncidentTypeConfiguration = {
           label: 'None found',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67191',
+          nextQuestionCode: '67191',
         },
         {
           code: '218804',
@@ -1206,7 +1206,7 @@ export const config: IncidentTypeConfiguration = {
           label: 'Amphetamines',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67191',
+          nextQuestionCode: '67191',
         },
         {
           code: '218805',
@@ -1215,7 +1215,7 @@ export const config: IncidentTypeConfiguration = {
           label: 'Barbiturates',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67191',
+          nextQuestionCode: '67191',
         },
         {
           code: '218806',
@@ -1224,7 +1224,7 @@ export const config: IncidentTypeConfiguration = {
           label: 'Benzodiazepines',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67191',
+          nextQuestionCode: '67191',
         },
         {
           code: '218807',
@@ -1233,7 +1233,7 @@ export const config: IncidentTypeConfiguration = {
           label: 'Buprenorphine/subutex',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67191',
+          nextQuestionCode: '67191',
         },
         {
           code: '218808',
@@ -1242,7 +1242,7 @@ export const config: IncidentTypeConfiguration = {
           label: 'Cannabis',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67191',
+          nextQuestionCode: '67191',
         },
         {
           code: '218809',
@@ -1251,7 +1251,7 @@ export const config: IncidentTypeConfiguration = {
           label: 'Cannabis plant',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67191',
+          nextQuestionCode: '67191',
         },
         {
           code: '218810',
@@ -1260,7 +1260,7 @@ export const config: IncidentTypeConfiguration = {
           label: 'Cocaine',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67191',
+          nextQuestionCode: '67191',
         },
         {
           code: '218811',
@@ -1269,7 +1269,7 @@ export const config: IncidentTypeConfiguration = {
           label: 'Crack',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67191',
+          nextQuestionCode: '67191',
         },
         {
           code: '218812',
@@ -1278,7 +1278,7 @@ export const config: IncidentTypeConfiguration = {
           label: 'Gabapentin',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67191',
+          nextQuestionCode: '67191',
         },
         {
           code: '218813',
@@ -1287,7 +1287,7 @@ export const config: IncidentTypeConfiguration = {
           label: 'Heroin',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67191',
+          nextQuestionCode: '67191',
         },
         {
           code: '218814',
@@ -1296,7 +1296,7 @@ export const config: IncidentTypeConfiguration = {
           label: 'Ketamine',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67191',
+          nextQuestionCode: '67191',
         },
         {
           code: '218815',
@@ -1305,7 +1305,7 @@ export const config: IncidentTypeConfiguration = {
           label: 'LSD',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67191',
+          nextQuestionCode: '67191',
         },
         {
           code: '218816',
@@ -1314,7 +1314,7 @@ export const config: IncidentTypeConfiguration = {
           label: 'Methadone',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67191',
+          nextQuestionCode: '67191',
         },
         {
           code: '218817',
@@ -1323,7 +1323,7 @@ export const config: IncidentTypeConfiguration = {
           label: 'NPS (new psychoactive substances)',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67191',
+          nextQuestionCode: '67191',
         },
         {
           code: '218818',
@@ -1332,7 +1332,7 @@ export const config: IncidentTypeConfiguration = {
           label: 'Pregabalin',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67191',
+          nextQuestionCode: '67191',
         },
         {
           code: '218819',
@@ -1341,7 +1341,7 @@ export const config: IncidentTypeConfiguration = {
           label: 'Steroids',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67191',
+          nextQuestionCode: '67191',
         },
         {
           code: '218820',
@@ -1350,7 +1350,7 @@ export const config: IncidentTypeConfiguration = {
           label: 'Tramadol',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67191',
+          nextQuestionCode: '67191',
         },
         {
           code: '218821',
@@ -1359,7 +1359,7 @@ export const config: IncidentTypeConfiguration = {
           label: 'Tranquilisers',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67191',
+          nextQuestionCode: '67191',
         },
         {
           code: '218822',
@@ -1368,7 +1368,7 @@ export const config: IncidentTypeConfiguration = {
           label: 'Other - (please specify)',
           commentRequired: true,
           dateRequired: false,
-          nextQuestionId: '67191',
+          nextQuestionCode: '67191',
         },
       ],
     },
@@ -1386,7 +1386,7 @@ export const config: IncidentTypeConfiguration = {
           label: 'Unknown',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67192',
+          nextQuestionCode: '67192',
         },
         {
           code: '218824',
@@ -1395,7 +1395,7 @@ export const config: IncidentTypeConfiguration = {
           label: 'Less than or equal to 1g',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67192',
+          nextQuestionCode: '67192',
         },
         {
           code: '218825',
@@ -1404,7 +1404,7 @@ export const config: IncidentTypeConfiguration = {
           label: '2g to 5g',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67192',
+          nextQuestionCode: '67192',
         },
         {
           code: '218826',
@@ -1413,7 +1413,7 @@ export const config: IncidentTypeConfiguration = {
           label: '6g to 10g',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67192',
+          nextQuestionCode: '67192',
         },
         {
           code: '218827',
@@ -1422,7 +1422,7 @@ export const config: IncidentTypeConfiguration = {
           label: '11g to 20g',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67192',
+          nextQuestionCode: '67192',
         },
         {
           code: '218828',
@@ -1431,7 +1431,7 @@ export const config: IncidentTypeConfiguration = {
           label: '21g to 30g',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67192',
+          nextQuestionCode: '67192',
         },
         {
           code: '218829',
@@ -1440,7 +1440,7 @@ export const config: IncidentTypeConfiguration = {
           label: '31g to 40g',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67192',
+          nextQuestionCode: '67192',
         },
         {
           code: '218830',
@@ -1449,7 +1449,7 @@ export const config: IncidentTypeConfiguration = {
           label: '41g to 50g',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67192',
+          nextQuestionCode: '67192',
         },
         {
           code: '218831',
@@ -1458,7 +1458,7 @@ export const config: IncidentTypeConfiguration = {
           label: '50g to 100g',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67192',
+          nextQuestionCode: '67192',
         },
         {
           code: '218832',
@@ -1467,7 +1467,7 @@ export const config: IncidentTypeConfiguration = {
           label: '101g to 200g',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67192',
+          nextQuestionCode: '67192',
         },
         {
           code: '218833',
@@ -1476,7 +1476,7 @@ export const config: IncidentTypeConfiguration = {
           label: '201g to 300g',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67192',
+          nextQuestionCode: '67192',
         },
         {
           code: '218834',
@@ -1485,7 +1485,7 @@ export const config: IncidentTypeConfiguration = {
           label: '301g to 400g',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67192',
+          nextQuestionCode: '67192',
         },
         {
           code: '218835',
@@ -1494,7 +1494,7 @@ export const config: IncidentTypeConfiguration = {
           label: '401g to 500g',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67192',
+          nextQuestionCode: '67192',
         },
         {
           code: '218836',
@@ -1503,7 +1503,7 @@ export const config: IncidentTypeConfiguration = {
           label: '501g to 1000g',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67192',
+          nextQuestionCode: '67192',
         },
         {
           code: '218837',
@@ -1512,7 +1512,7 @@ export const config: IncidentTypeConfiguration = {
           label: 'More than 1kg',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67192',
+          nextQuestionCode: '67192',
         },
       ],
     },
@@ -1530,7 +1530,7 @@ export const config: IncidentTypeConfiguration = {
           label: 'No',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67193',
+          nextQuestionCode: '67193',
         },
         {
           code: '218839',
@@ -1539,7 +1539,7 @@ export const config: IncidentTypeConfiguration = {
           label: 'Yes - forensic laboratory',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67193',
+          nextQuestionCode: '67193',
         },
         {
           code: '218840',
@@ -1548,7 +1548,7 @@ export const config: IncidentTypeConfiguration = {
           label: 'Yes - local with BDH kit or similar',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67193',
+          nextQuestionCode: '67193',
         },
       ],
     },
@@ -1566,7 +1566,7 @@ export const config: IncidentTypeConfiguration = {
           label: 'None found',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67226',
+          nextQuestionCode: '67226',
         },
         {
           code: '218842',
@@ -1575,7 +1575,7 @@ export const config: IncidentTypeConfiguration = {
           label: 'Authentic needle',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67226',
+          nextQuestionCode: '67226',
         },
         {
           code: '218843',
@@ -1584,7 +1584,7 @@ export const config: IncidentTypeConfiguration = {
           label: 'Authentic syringe',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67226',
+          nextQuestionCode: '67226',
         },
         {
           code: '218844',
@@ -1593,7 +1593,7 @@ export const config: IncidentTypeConfiguration = {
           label: 'Improvised needle',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67226',
+          nextQuestionCode: '67226',
         },
         {
           code: '218845',
@@ -1602,7 +1602,7 @@ export const config: IncidentTypeConfiguration = {
           label: 'Improvised syringe',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67226',
+          nextQuestionCode: '67226',
         },
         {
           code: '218846',
@@ -1611,7 +1611,7 @@ export const config: IncidentTypeConfiguration = {
           label: 'Pipe(s)',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67226',
+          nextQuestionCode: '67226',
         },
         {
           code: '218847',
@@ -1620,7 +1620,7 @@ export const config: IncidentTypeConfiguration = {
           label: 'Roach',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67226',
+          nextQuestionCode: '67226',
         },
         {
           code: '218848',
@@ -1629,7 +1629,7 @@ export const config: IncidentTypeConfiguration = {
           label: 'Other - (please specify)',
           commentRequired: true,
           dateRequired: false,
-          nextQuestionId: '67226',
+          nextQuestionCode: '67226',
         },
       ],
     },
@@ -1647,7 +1647,7 @@ export const config: IncidentTypeConfiguration = {
           label: 'No mobile phone found',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67195',
+          nextQuestionCode: '67195',
         },
         {
           code: '218850',
@@ -1656,7 +1656,7 @@ export const config: IncidentTypeConfiguration = {
           label: '1',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67195',
+          nextQuestionCode: '67195',
         },
         {
           code: '218851',
@@ -1665,7 +1665,7 @@ export const config: IncidentTypeConfiguration = {
           label: '2',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67195',
+          nextQuestionCode: '67195',
         },
         {
           code: '218852',
@@ -1674,7 +1674,7 @@ export const config: IncidentTypeConfiguration = {
           label: '3',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67195',
+          nextQuestionCode: '67195',
         },
         {
           code: '218853',
@@ -1683,7 +1683,7 @@ export const config: IncidentTypeConfiguration = {
           label: '4',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67195',
+          nextQuestionCode: '67195',
         },
         {
           code: '218854',
@@ -1692,7 +1692,7 @@ export const config: IncidentTypeConfiguration = {
           label: '5',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67195',
+          nextQuestionCode: '67195',
         },
         {
           code: '218855',
@@ -1701,7 +1701,7 @@ export const config: IncidentTypeConfiguration = {
           label: '6',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67195',
+          nextQuestionCode: '67195',
         },
         {
           code: '218856',
@@ -1710,7 +1710,7 @@ export const config: IncidentTypeConfiguration = {
           label: '7',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67195',
+          nextQuestionCode: '67195',
         },
         {
           code: '218857',
@@ -1719,7 +1719,7 @@ export const config: IncidentTypeConfiguration = {
           label: '8',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67195',
+          nextQuestionCode: '67195',
         },
         {
           code: '218858',
@@ -1728,7 +1728,7 @@ export const config: IncidentTypeConfiguration = {
           label: '9',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67195',
+          nextQuestionCode: '67195',
         },
         {
           code: '218859',
@@ -1737,7 +1737,7 @@ export const config: IncidentTypeConfiguration = {
           label: '10',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67195',
+          nextQuestionCode: '67195',
         },
         {
           code: '218860',
@@ -1746,7 +1746,7 @@ export const config: IncidentTypeConfiguration = {
           label: '11',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67195',
+          nextQuestionCode: '67195',
         },
         {
           code: '218861',
@@ -1755,7 +1755,7 @@ export const config: IncidentTypeConfiguration = {
           label: '12',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67195',
+          nextQuestionCode: '67195',
         },
         {
           code: '218862',
@@ -1764,7 +1764,7 @@ export const config: IncidentTypeConfiguration = {
           label: '13',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67195',
+          nextQuestionCode: '67195',
         },
         {
           code: '218863',
@@ -1773,7 +1773,7 @@ export const config: IncidentTypeConfiguration = {
           label: '14',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67195',
+          nextQuestionCode: '67195',
         },
         {
           code: '218864',
@@ -1782,7 +1782,7 @@ export const config: IncidentTypeConfiguration = {
           label: '15',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67195',
+          nextQuestionCode: '67195',
         },
         {
           code: '218865',
@@ -1791,7 +1791,7 @@ export const config: IncidentTypeConfiguration = {
           label: '16',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67195',
+          nextQuestionCode: '67195',
         },
         {
           code: '218866',
@@ -1800,7 +1800,7 @@ export const config: IncidentTypeConfiguration = {
           label: '17',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67195',
+          nextQuestionCode: '67195',
         },
         {
           code: '218867',
@@ -1809,7 +1809,7 @@ export const config: IncidentTypeConfiguration = {
           label: '18',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67195',
+          nextQuestionCode: '67195',
         },
         {
           code: '218868',
@@ -1818,7 +1818,7 @@ export const config: IncidentTypeConfiguration = {
           label: '19',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67195',
+          nextQuestionCode: '67195',
         },
         {
           code: '218869',
@@ -1827,7 +1827,7 @@ export const config: IncidentTypeConfiguration = {
           label: '20',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67195',
+          nextQuestionCode: '67195',
         },
         {
           code: '218870',
@@ -1836,7 +1836,7 @@ export const config: IncidentTypeConfiguration = {
           label: 'More than 20 - (state number in comment)',
           commentRequired: true,
           dateRequired: false,
-          nextQuestionId: '67195',
+          nextQuestionCode: '67195',
         },
         {
           code: '218871',
@@ -1845,7 +1845,7 @@ export const config: IncidentTypeConfiguration = {
           label: 'Unknown',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67195',
+          nextQuestionCode: '67195',
         },
       ],
     },
@@ -1863,7 +1863,7 @@ export const config: IncidentTypeConfiguration = {
           label: 'No SIM cards found',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67196',
+          nextQuestionCode: '67196',
         },
         {
           code: '218873',
@@ -1872,7 +1872,7 @@ export const config: IncidentTypeConfiguration = {
           label: '1',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67196',
+          nextQuestionCode: '67196',
         },
         {
           code: '218874',
@@ -1881,7 +1881,7 @@ export const config: IncidentTypeConfiguration = {
           label: '2',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67196',
+          nextQuestionCode: '67196',
         },
         {
           code: '218875',
@@ -1890,7 +1890,7 @@ export const config: IncidentTypeConfiguration = {
           label: '3',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67196',
+          nextQuestionCode: '67196',
         },
         {
           code: '218876',
@@ -1899,7 +1899,7 @@ export const config: IncidentTypeConfiguration = {
           label: '4',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67196',
+          nextQuestionCode: '67196',
         },
         {
           code: '218877',
@@ -1908,7 +1908,7 @@ export const config: IncidentTypeConfiguration = {
           label: '5',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67196',
+          nextQuestionCode: '67196',
         },
         {
           code: '218878',
@@ -1917,7 +1917,7 @@ export const config: IncidentTypeConfiguration = {
           label: '6',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67196',
+          nextQuestionCode: '67196',
         },
         {
           code: '218879',
@@ -1926,7 +1926,7 @@ export const config: IncidentTypeConfiguration = {
           label: '7',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67196',
+          nextQuestionCode: '67196',
         },
         {
           code: '218880',
@@ -1935,7 +1935,7 @@ export const config: IncidentTypeConfiguration = {
           label: '8',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67196',
+          nextQuestionCode: '67196',
         },
         {
           code: '218881',
@@ -1944,7 +1944,7 @@ export const config: IncidentTypeConfiguration = {
           label: '9',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67196',
+          nextQuestionCode: '67196',
         },
         {
           code: '218882',
@@ -1953,7 +1953,7 @@ export const config: IncidentTypeConfiguration = {
           label: '10',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67196',
+          nextQuestionCode: '67196',
         },
         {
           code: '218883',
@@ -1962,7 +1962,7 @@ export const config: IncidentTypeConfiguration = {
           label: '11',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67196',
+          nextQuestionCode: '67196',
         },
         {
           code: '218884',
@@ -1971,7 +1971,7 @@ export const config: IncidentTypeConfiguration = {
           label: '12',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67196',
+          nextQuestionCode: '67196',
         },
         {
           code: '218885',
@@ -1980,7 +1980,7 @@ export const config: IncidentTypeConfiguration = {
           label: '13',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67196',
+          nextQuestionCode: '67196',
         },
         {
           code: '218886',
@@ -1989,7 +1989,7 @@ export const config: IncidentTypeConfiguration = {
           label: '14',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67196',
+          nextQuestionCode: '67196',
         },
         {
           code: '218887',
@@ -1998,7 +1998,7 @@ export const config: IncidentTypeConfiguration = {
           label: '15',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67196',
+          nextQuestionCode: '67196',
         },
         {
           code: '218888',
@@ -2007,7 +2007,7 @@ export const config: IncidentTypeConfiguration = {
           label: '16',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67196',
+          nextQuestionCode: '67196',
         },
         {
           code: '218889',
@@ -2016,7 +2016,7 @@ export const config: IncidentTypeConfiguration = {
           label: '17',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67196',
+          nextQuestionCode: '67196',
         },
         {
           code: '218890',
@@ -2025,7 +2025,7 @@ export const config: IncidentTypeConfiguration = {
           label: '18',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67196',
+          nextQuestionCode: '67196',
         },
         {
           code: '218891',
@@ -2034,7 +2034,7 @@ export const config: IncidentTypeConfiguration = {
           label: '19',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67196',
+          nextQuestionCode: '67196',
         },
         {
           code: '218892',
@@ -2043,7 +2043,7 @@ export const config: IncidentTypeConfiguration = {
           label: '20',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67196',
+          nextQuestionCode: '67196',
         },
         {
           code: '218893',
@@ -2052,7 +2052,7 @@ export const config: IncidentTypeConfiguration = {
           label: 'More than 20 - (state number in comment)',
           commentRequired: true,
           dateRequired: false,
-          nextQuestionId: '67196',
+          nextQuestionCode: '67196',
         },
         {
           code: '218894',
@@ -2061,7 +2061,7 @@ export const config: IncidentTypeConfiguration = {
           label: 'Unknown',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67196',
+          nextQuestionCode: '67196',
         },
       ],
     },
@@ -2079,7 +2079,7 @@ export const config: IncidentTypeConfiguration = {
           label: 'No memory card found',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67197',
+          nextQuestionCode: '67197',
         },
         {
           code: '218896',
@@ -2088,7 +2088,7 @@ export const config: IncidentTypeConfiguration = {
           label: '1',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67197',
+          nextQuestionCode: '67197',
         },
         {
           code: '218897',
@@ -2097,7 +2097,7 @@ export const config: IncidentTypeConfiguration = {
           label: '2',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67197',
+          nextQuestionCode: '67197',
         },
         {
           code: '218898',
@@ -2106,7 +2106,7 @@ export const config: IncidentTypeConfiguration = {
           label: '3',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67197',
+          nextQuestionCode: '67197',
         },
         {
           code: '218899',
@@ -2115,7 +2115,7 @@ export const config: IncidentTypeConfiguration = {
           label: '4',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67197',
+          nextQuestionCode: '67197',
         },
         {
           code: '218900',
@@ -2124,7 +2124,7 @@ export const config: IncidentTypeConfiguration = {
           label: '5',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67197',
+          nextQuestionCode: '67197',
         },
         {
           code: '218901',
@@ -2133,7 +2133,7 @@ export const config: IncidentTypeConfiguration = {
           label: '6',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67197',
+          nextQuestionCode: '67197',
         },
         {
           code: '218902',
@@ -2142,7 +2142,7 @@ export const config: IncidentTypeConfiguration = {
           label: '7',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67197',
+          nextQuestionCode: '67197',
         },
         {
           code: '218903',
@@ -2151,7 +2151,7 @@ export const config: IncidentTypeConfiguration = {
           label: '8',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67197',
+          nextQuestionCode: '67197',
         },
         {
           code: '218904',
@@ -2160,7 +2160,7 @@ export const config: IncidentTypeConfiguration = {
           label: '9',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67197',
+          nextQuestionCode: '67197',
         },
         {
           code: '218905',
@@ -2169,7 +2169,7 @@ export const config: IncidentTypeConfiguration = {
           label: '10',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67197',
+          nextQuestionCode: '67197',
         },
         {
           code: '218906',
@@ -2178,7 +2178,7 @@ export const config: IncidentTypeConfiguration = {
           label: '11',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67197',
+          nextQuestionCode: '67197',
         },
         {
           code: '218907',
@@ -2187,7 +2187,7 @@ export const config: IncidentTypeConfiguration = {
           label: '12',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67197',
+          nextQuestionCode: '67197',
         },
         {
           code: '218908',
@@ -2196,7 +2196,7 @@ export const config: IncidentTypeConfiguration = {
           label: '13',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67197',
+          nextQuestionCode: '67197',
         },
         {
           code: '218909',
@@ -2205,7 +2205,7 @@ export const config: IncidentTypeConfiguration = {
           label: '14',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67197',
+          nextQuestionCode: '67197',
         },
         {
           code: '218910',
@@ -2214,7 +2214,7 @@ export const config: IncidentTypeConfiguration = {
           label: '15',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67197',
+          nextQuestionCode: '67197',
         },
         {
           code: '218911',
@@ -2223,7 +2223,7 @@ export const config: IncidentTypeConfiguration = {
           label: '16',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67197',
+          nextQuestionCode: '67197',
         },
         {
           code: '218912',
@@ -2232,7 +2232,7 @@ export const config: IncidentTypeConfiguration = {
           label: '17',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67197',
+          nextQuestionCode: '67197',
         },
         {
           code: '218913',
@@ -2241,7 +2241,7 @@ export const config: IncidentTypeConfiguration = {
           label: '18',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67197',
+          nextQuestionCode: '67197',
         },
         {
           code: '218914',
@@ -2250,7 +2250,7 @@ export const config: IncidentTypeConfiguration = {
           label: '19',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67197',
+          nextQuestionCode: '67197',
         },
         {
           code: '218915',
@@ -2259,7 +2259,7 @@ export const config: IncidentTypeConfiguration = {
           label: '20',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67197',
+          nextQuestionCode: '67197',
         },
         {
           code: '218916',
@@ -2268,7 +2268,7 @@ export const config: IncidentTypeConfiguration = {
           label: 'More than 20 - (state number in comment)',
           commentRequired: true,
           dateRequired: false,
-          nextQuestionId: '67197',
+          nextQuestionCode: '67197',
         },
         {
           code: '218917',
@@ -2277,7 +2277,7 @@ export const config: IncidentTypeConfiguration = {
           label: 'Unknown',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67197',
+          nextQuestionCode: '67197',
         },
       ],
     },
@@ -2295,7 +2295,7 @@ export const config: IncidentTypeConfiguration = {
           label: 'No - (enter reason in comment)',
           commentRequired: true,
           dateRequired: false,
-          nextQuestionId: '67198',
+          nextQuestionCode: '67198',
         },
         {
           code: '218919',
@@ -2304,7 +2304,7 @@ export const config: IncidentTypeConfiguration = {
           label: 'Yes - enter date and comment with bag number)',
           commentRequired: true,
           dateRequired: true,
-          nextQuestionId: '67198',
+          nextQuestionCode: '67198',
         },
       ],
     },
@@ -2322,7 +2322,7 @@ export const config: IncidentTypeConfiguration = {
           label: 'No',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67199',
+          nextQuestionCode: '67199',
         },
         {
           code: '218921',
@@ -2331,7 +2331,7 @@ export const config: IncidentTypeConfiguration = {
           label: 'Yes - homemade/adapted',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67199',
+          nextQuestionCode: '67199',
         },
         {
           code: '218922',
@@ -2340,7 +2340,7 @@ export const config: IncidentTypeConfiguration = {
           label: 'Yes - factory made/manufactured',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67199',
+          nextQuestionCode: '67199',
         },
       ],
     },
@@ -2358,7 +2358,7 @@ export const config: IncidentTypeConfiguration = {
           label: 'No',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67226',
+          nextQuestionCode: '67226',
         },
         {
           code: '218924',
@@ -2367,7 +2367,7 @@ export const config: IncidentTypeConfiguration = {
           label: 'Yes - (specify in comments)',
           commentRequired: true,
           dateRequired: false,
-          nextQuestionId: '67226',
+          nextQuestionCode: '67226',
         },
       ],
     },
@@ -2385,7 +2385,7 @@ export const config: IncidentTypeConfiguration = {
           label: 'Desktop',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67226',
+          nextQuestionCode: '67226',
         },
         {
           code: '218926',
@@ -2394,7 +2394,7 @@ export const config: IncidentTypeConfiguration = {
           label: 'DVD player',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67226',
+          nextQuestionCode: '67226',
         },
         {
           code: '218927',
@@ -2403,7 +2403,7 @@ export const config: IncidentTypeConfiguration = {
           label: 'External storage, e.g. external hard drive',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67226',
+          nextQuestionCode: '67226',
         },
         {
           code: '218928',
@@ -2412,7 +2412,7 @@ export const config: IncidentTypeConfiguration = {
           label: 'Games console',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67226',
+          nextQuestionCode: '67226',
         },
         {
           code: '218929',
@@ -2421,7 +2421,7 @@ export const config: IncidentTypeConfiguration = {
           label: 'Laptop',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67226',
+          nextQuestionCode: '67226',
         },
         {
           code: '218930',
@@ -2430,7 +2430,7 @@ export const config: IncidentTypeConfiguration = {
           label: 'Media streaming device, e.g. Amazon fire stick',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67226',
+          nextQuestionCode: '67226',
         },
         {
           code: '218931',
@@ -2439,7 +2439,7 @@ export const config: IncidentTypeConfiguration = {
           label: 'Mobile hot spot (MiFi device)',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67226',
+          nextQuestionCode: '67226',
         },
         {
           code: '218932',
@@ -2448,7 +2448,7 @@ export const config: IncidentTypeConfiguration = {
           label: 'Smart watch',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67226',
+          nextQuestionCode: '67226',
         },
         {
           code: '218933',
@@ -2457,7 +2457,7 @@ export const config: IncidentTypeConfiguration = {
           label: 'Stereo / radio',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67226',
+          nextQuestionCode: '67226',
         },
         {
           code: '218934',
@@ -2466,7 +2466,7 @@ export const config: IncidentTypeConfiguration = {
           label: 'Tablet, e.g. iPad',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67226',
+          nextQuestionCode: '67226',
         },
         {
           code: '218935',
@@ -2475,7 +2475,7 @@ export const config: IncidentTypeConfiguration = {
           label: 'USB memory stick',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67226',
+          nextQuestionCode: '67226',
         },
         {
           code: '218936',
@@ -2484,7 +2484,7 @@ export const config: IncidentTypeConfiguration = {
           label: 'Wireless headset . headphone, e.g. Apple AirPods',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67226',
+          nextQuestionCode: '67226',
         },
         {
           code: '218937',
@@ -2493,7 +2493,7 @@ export const config: IncidentTypeConfiguration = {
           label: 'Other - (please state in comments)',
           commentRequired: true,
           dateRequired: false,
-          nextQuestionId: '67226',
+          nextQuestionCode: '67226',
         },
       ],
     },
@@ -2511,7 +2511,7 @@ export const config: IncidentTypeConfiguration = {
           label: 'Cigarettes/cigars',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67202',
+          nextQuestionCode: '67202',
         },
         {
           code: '218939',
@@ -2520,7 +2520,7 @@ export const config: IncidentTypeConfiguration = {
           label: 'Loose tobacco',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67202',
+          nextQuestionCode: '67202',
         },
         {
           code: '218940',
@@ -2529,7 +2529,7 @@ export const config: IncidentTypeConfiguration = {
           label: 'Other - including packaging and roaches - (please state in comments)',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67202',
+          nextQuestionCode: '67202',
         },
       ],
     },
@@ -2547,7 +2547,7 @@ export const config: IncidentTypeConfiguration = {
           label: 'N/A',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67226',
+          nextQuestionCode: '67226',
         },
         {
           code: '218942',
@@ -2556,7 +2556,7 @@ export const config: IncidentTypeConfiguration = {
           label: 'Less than or equal to 1g - (please state number in comments)',
           commentRequired: true,
           dateRequired: false,
-          nextQuestionId: '67226',
+          nextQuestionCode: '67226',
         },
         {
           code: '218943',
@@ -2565,7 +2565,7 @@ export const config: IncidentTypeConfiguration = {
           label: '2g to 5g - (please state number in comments)',
           commentRequired: true,
           dateRequired: false,
-          nextQuestionId: '67226',
+          nextQuestionCode: '67226',
         },
         {
           code: '218944',
@@ -2574,7 +2574,7 @@ export const config: IncidentTypeConfiguration = {
           label: '6g to 10g - (please state number in comments)',
           commentRequired: true,
           dateRequired: false,
-          nextQuestionId: '67226',
+          nextQuestionCode: '67226',
         },
         {
           code: '218945',
@@ -2583,7 +2583,7 @@ export const config: IncidentTypeConfiguration = {
           label: '11g to 20g - (please state number in comments)',
           commentRequired: true,
           dateRequired: false,
-          nextQuestionId: '67226',
+          nextQuestionCode: '67226',
         },
         {
           code: '218946',
@@ -2592,7 +2592,7 @@ export const config: IncidentTypeConfiguration = {
           label: 'Greater than 20g - (please state number in comments)',
           commentRequired: true,
           dateRequired: false,
-          nextQuestionId: '67226',
+          nextQuestionCode: '67226',
         },
       ],
     },
@@ -2610,7 +2610,7 @@ export const config: IncidentTypeConfiguration = {
           label: 'Yes - blunt instrument (cosh, item in sock, etc)',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67226',
+          nextQuestionCode: '67226',
         },
         {
           code: '218948',
@@ -2619,7 +2619,7 @@ export const config: IncidentTypeConfiguration = {
           label: 'Yes - firearm (fake guns, ammunition, chemical incapacitant etc)',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67226',
+          nextQuestionCode: '67226',
         },
         {
           code: '218949',
@@ -2628,7 +2628,7 @@ export const config: IncidentTypeConfiguration = {
           label: 'Yes - knife/bladed article',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67226',
+          nextQuestionCode: '67226',
         },
         {
           code: '218950',
@@ -2637,7 +2637,7 @@ export const config: IncidentTypeConfiguration = {
           label: 'Yes - other (please specify)',
           commentRequired: true,
           dateRequired: false,
-          nextQuestionId: '67226',
+          nextQuestionCode: '67226',
         },
       ],
     },
@@ -2655,7 +2655,7 @@ export const config: IncidentTypeConfiguration = {
           label: 'Yes (noose / ligature)',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67226',
+          nextQuestionCode: '67226',
         },
         {
           code: '218952',
@@ -2664,7 +2664,7 @@ export const config: IncidentTypeConfiguration = {
           label: 'Yes - (please specify in comments)',
           commentRequired: true,
           dateRequired: false,
-          nextQuestionId: '67226',
+          nextQuestionCode: '67226',
         },
       ],
     },
@@ -2682,7 +2682,7 @@ export const config: IncidentTypeConfiguration = {
           label: 'Nil',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67206',
+          nextQuestionCode: '67206',
         },
         {
           code: '218954',
@@ -2691,7 +2691,7 @@ export const config: IncidentTypeConfiguration = {
           label: 'Less than 1 litre - (please state number in comments)',
           commentRequired: true,
           dateRequired: false,
-          nextQuestionId: '67206',
+          nextQuestionCode: '67206',
         },
         {
           code: '218955',
@@ -2700,7 +2700,7 @@ export const config: IncidentTypeConfiguration = {
           label: '1 litre to less than 2 litres - (please state number in comments)',
           commentRequired: true,
           dateRequired: false,
-          nextQuestionId: '67206',
+          nextQuestionCode: '67206',
         },
         {
           code: '218956',
@@ -2709,7 +2709,7 @@ export const config: IncidentTypeConfiguration = {
           label: '2 litres to less than 3 litres - (please state number in comments)',
           commentRequired: true,
           dateRequired: false,
-          nextQuestionId: '67206',
+          nextQuestionCode: '67206',
         },
         {
           code: '218957',
@@ -2718,7 +2718,7 @@ export const config: IncidentTypeConfiguration = {
           label: '3 litres to less than 4 litres - (please state number in comments)',
           commentRequired: true,
           dateRequired: false,
-          nextQuestionId: '67206',
+          nextQuestionCode: '67206',
         },
         {
           code: '218958',
@@ -2727,7 +2727,7 @@ export const config: IncidentTypeConfiguration = {
           label: '4 litres to less than 5 litres - (please state number in comments)',
           commentRequired: true,
           dateRequired: false,
-          nextQuestionId: '67206',
+          nextQuestionCode: '67206',
         },
         {
           code: '218959',
@@ -2736,7 +2736,7 @@ export const config: IncidentTypeConfiguration = {
           label: '5 litres to less than 10 litres - (please state number in comments)',
           commentRequired: true,
           dateRequired: false,
-          nextQuestionId: '67206',
+          nextQuestionCode: '67206',
         },
         {
           code: '218960',
@@ -2745,7 +2745,7 @@ export const config: IncidentTypeConfiguration = {
           label: '10 litres to less than 20 litres - (please state number in comments)',
           commentRequired: true,
           dateRequired: false,
-          nextQuestionId: '67206',
+          nextQuestionCode: '67206',
         },
         {
           code: '218961',
@@ -2754,7 +2754,7 @@ export const config: IncidentTypeConfiguration = {
           label: '20 litres or more - (please state number in comments)',
           commentRequired: true,
           dateRequired: false,
-          nextQuestionId: '67206',
+          nextQuestionCode: '67206',
         },
       ],
     },
@@ -2772,7 +2772,7 @@ export const config: IncidentTypeConfiguration = {
           label: 'No',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67207',
+          nextQuestionCode: '67207',
         },
         {
           code: '218963',
@@ -2781,7 +2781,7 @@ export const config: IncidentTypeConfiguration = {
           label: 'Yes - (please specify)',
           commentRequired: true,
           dateRequired: false,
-          nextQuestionId: '67207',
+          nextQuestionCode: '67207',
         },
       ],
     },
@@ -2799,7 +2799,7 @@ export const config: IncidentTypeConfiguration = {
           label: 'No',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67211',
+          nextQuestionCode: '67211',
         },
         {
           code: '218965',
@@ -2808,7 +2808,7 @@ export const config: IncidentTypeConfiguration = {
           label: 'Yes',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67208',
+          nextQuestionCode: '67208',
         },
       ],
     },
@@ -2826,7 +2826,7 @@ export const config: IncidentTypeConfiguration = {
           label: 'Unknown',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67209',
+          nextQuestionCode: '67209',
         },
         {
           code: '218967',
@@ -2835,7 +2835,7 @@ export const config: IncidentTypeConfiguration = {
           label: 'Amphetamines',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67209',
+          nextQuestionCode: '67209',
         },
         {
           code: '218968',
@@ -2844,7 +2844,7 @@ export const config: IncidentTypeConfiguration = {
           label: 'Barbiturates',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67209',
+          nextQuestionCode: '67209',
         },
         {
           code: '218969',
@@ -2853,7 +2853,7 @@ export const config: IncidentTypeConfiguration = {
           label: 'Benzodiazepines',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67209',
+          nextQuestionCode: '67209',
         },
         {
           code: '218970',
@@ -2862,7 +2862,7 @@ export const config: IncidentTypeConfiguration = {
           label: 'Buprenorphine/subutex',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67209',
+          nextQuestionCode: '67209',
         },
         {
           code: '218971',
@@ -2871,7 +2871,7 @@ export const config: IncidentTypeConfiguration = {
           label: 'Cannabis',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67209',
+          nextQuestionCode: '67209',
         },
         {
           code: '218972',
@@ -2880,7 +2880,7 @@ export const config: IncidentTypeConfiguration = {
           label: 'Cannabis plant',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67209',
+          nextQuestionCode: '67209',
         },
         {
           code: '218973',
@@ -2889,7 +2889,7 @@ export const config: IncidentTypeConfiguration = {
           label: 'Cocaine',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67209',
+          nextQuestionCode: '67209',
         },
         {
           code: '218974',
@@ -2898,7 +2898,7 @@ export const config: IncidentTypeConfiguration = {
           label: 'Crack',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67209',
+          nextQuestionCode: '67209',
         },
         {
           code: '218975',
@@ -2907,7 +2907,7 @@ export const config: IncidentTypeConfiguration = {
           label: 'Gabapentin',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67209',
+          nextQuestionCode: '67209',
         },
         {
           code: '218976',
@@ -2916,7 +2916,7 @@ export const config: IncidentTypeConfiguration = {
           label: 'Heroin',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67209',
+          nextQuestionCode: '67209',
         },
         {
           code: '218977',
@@ -2925,7 +2925,7 @@ export const config: IncidentTypeConfiguration = {
           label: 'Ketamine',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67209',
+          nextQuestionCode: '67209',
         },
         {
           code: '218978',
@@ -2934,7 +2934,7 @@ export const config: IncidentTypeConfiguration = {
           label: 'LSD',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67209',
+          nextQuestionCode: '67209',
         },
         {
           code: '218979',
@@ -2943,7 +2943,7 @@ export const config: IncidentTypeConfiguration = {
           label: 'Methadone',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67209',
+          nextQuestionCode: '67209',
         },
         {
           code: '218980',
@@ -2952,7 +2952,7 @@ export const config: IncidentTypeConfiguration = {
           label: 'NPS (new psychoactive substances)',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67209',
+          nextQuestionCode: '67209',
         },
         {
           code: '218981',
@@ -2961,7 +2961,7 @@ export const config: IncidentTypeConfiguration = {
           label: 'Pregablin',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67209',
+          nextQuestionCode: '67209',
         },
         {
           code: '218982',
@@ -2970,7 +2970,7 @@ export const config: IncidentTypeConfiguration = {
           label: 'Steroids',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67209',
+          nextQuestionCode: '67209',
         },
         {
           code: '218983',
@@ -2979,7 +2979,7 @@ export const config: IncidentTypeConfiguration = {
           label: 'Tramadol',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67209',
+          nextQuestionCode: '67209',
         },
         {
           code: '218984',
@@ -2988,7 +2988,7 @@ export const config: IncidentTypeConfiguration = {
           label: 'Tranquilisers',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67209',
+          nextQuestionCode: '67209',
         },
         {
           code: '218985',
@@ -2997,7 +2997,7 @@ export const config: IncidentTypeConfiguration = {
           label: 'Other - (please specify)',
           commentRequired: true,
           dateRequired: false,
-          nextQuestionId: '67209',
+          nextQuestionCode: '67209',
         },
       ],
     },
@@ -3015,7 +3015,7 @@ export const config: IncidentTypeConfiguration = {
           label: 'Unknown',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67210',
+          nextQuestionCode: '67210',
         },
         {
           code: '218987',
@@ -3024,7 +3024,7 @@ export const config: IncidentTypeConfiguration = {
           label: 'Less than or equal to 1g - (please state number in comments)',
           commentRequired: true,
           dateRequired: false,
-          nextQuestionId: '67210',
+          nextQuestionCode: '67210',
         },
         {
           code: '218988',
@@ -3033,7 +3033,7 @@ export const config: IncidentTypeConfiguration = {
           label: '2g to 5g - (please state number in comments)',
           commentRequired: true,
           dateRequired: false,
-          nextQuestionId: '67210',
+          nextQuestionCode: '67210',
         },
         {
           code: '218989',
@@ -3042,7 +3042,7 @@ export const config: IncidentTypeConfiguration = {
           label: '6g to 10g - (please state number in comments)',
           commentRequired: true,
           dateRequired: false,
-          nextQuestionId: '67210',
+          nextQuestionCode: '67210',
         },
         {
           code: '218990',
@@ -3051,7 +3051,7 @@ export const config: IncidentTypeConfiguration = {
           label: '11g to 20g - (please state number in comments)',
           commentRequired: true,
           dateRequired: false,
-          nextQuestionId: '67210',
+          nextQuestionCode: '67210',
         },
         {
           code: '218991',
@@ -3060,7 +3060,7 @@ export const config: IncidentTypeConfiguration = {
           label: '21g to 30g - (please state number in comments)',
           commentRequired: true,
           dateRequired: false,
-          nextQuestionId: '67210',
+          nextQuestionCode: '67210',
         },
         {
           code: '218992',
@@ -3069,7 +3069,7 @@ export const config: IncidentTypeConfiguration = {
           label: '31g to 40g - (please state number in comments)',
           commentRequired: true,
           dateRequired: false,
-          nextQuestionId: '67210',
+          nextQuestionCode: '67210',
         },
         {
           code: '218993',
@@ -3078,7 +3078,7 @@ export const config: IncidentTypeConfiguration = {
           label: '41g to 50g - (please state number in comments)',
           commentRequired: true,
           dateRequired: false,
-          nextQuestionId: '67210',
+          nextQuestionCode: '67210',
         },
         {
           code: '218994',
@@ -3087,7 +3087,7 @@ export const config: IncidentTypeConfiguration = {
           label: '50g to 100g - (please state number in comments)',
           commentRequired: true,
           dateRequired: false,
-          nextQuestionId: '67210',
+          nextQuestionCode: '67210',
         },
         {
           code: '218995',
@@ -3096,7 +3096,7 @@ export const config: IncidentTypeConfiguration = {
           label: '101g to 200g - (please state number in comments)',
           commentRequired: true,
           dateRequired: false,
-          nextQuestionId: '67210',
+          nextQuestionCode: '67210',
         },
         {
           code: '218996',
@@ -3105,7 +3105,7 @@ export const config: IncidentTypeConfiguration = {
           label: '201g to 300g - (please state number in comments)',
           commentRequired: true,
           dateRequired: false,
-          nextQuestionId: '67210',
+          nextQuestionCode: '67210',
         },
         {
           code: '218997',
@@ -3114,7 +3114,7 @@ export const config: IncidentTypeConfiguration = {
           label: '301g to 400g - (please state number in comments)',
           commentRequired: true,
           dateRequired: false,
-          nextQuestionId: '67210',
+          nextQuestionCode: '67210',
         },
         {
           code: '218998',
@@ -3123,7 +3123,7 @@ export const config: IncidentTypeConfiguration = {
           label: '401g to 500g - (please state number in comments)',
           commentRequired: true,
           dateRequired: false,
-          nextQuestionId: '67210',
+          nextQuestionCode: '67210',
         },
         {
           code: '218999',
@@ -3132,7 +3132,7 @@ export const config: IncidentTypeConfiguration = {
           label: '501g to 1,000g - (please state number in comments)',
           commentRequired: true,
           dateRequired: false,
-          nextQuestionId: '67210',
+          nextQuestionCode: '67210',
         },
         {
           code: '219000',
@@ -3141,7 +3141,7 @@ export const config: IncidentTypeConfiguration = {
           label: 'More than 1kg - (please state number in comments)',
           commentRequired: true,
           dateRequired: false,
-          nextQuestionId: '67210',
+          nextQuestionCode: '67210',
         },
       ],
     },
@@ -3159,7 +3159,7 @@ export const config: IncidentTypeConfiguration = {
           label: 'No',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67211',
+          nextQuestionCode: '67211',
         },
         {
           code: '219002',
@@ -3168,7 +3168,7 @@ export const config: IncidentTypeConfiguration = {
           label: 'Yes - forensic laboratory',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67211',
+          nextQuestionCode: '67211',
         },
         {
           code: '219003',
@@ -3177,7 +3177,7 @@ export const config: IncidentTypeConfiguration = {
           label: 'Yes - local with BDH kit or similar',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67211',
+          nextQuestionCode: '67211',
         },
       ],
     },
@@ -3195,7 +3195,7 @@ export const config: IncidentTypeConfiguration = {
           label: 'No',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67213',
+          nextQuestionCode: '67213',
         },
         {
           code: '219005',
@@ -3204,7 +3204,7 @@ export const config: IncidentTypeConfiguration = {
           label: 'Yes',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67212',
+          nextQuestionCode: '67212',
         },
       ],
     },
@@ -3222,7 +3222,7 @@ export const config: IncidentTypeConfiguration = {
           label: 'Authentic needle',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67213',
+          nextQuestionCode: '67213',
         },
         {
           code: '219007',
@@ -3231,7 +3231,7 @@ export const config: IncidentTypeConfiguration = {
           label: 'Authentic syringe',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67213',
+          nextQuestionCode: '67213',
         },
         {
           code: '219008',
@@ -3240,7 +3240,7 @@ export const config: IncidentTypeConfiguration = {
           label: 'Improvised needle',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67213',
+          nextQuestionCode: '67213',
         },
         {
           code: '219009',
@@ -3249,7 +3249,7 @@ export const config: IncidentTypeConfiguration = {
           label: 'Improvised syringe',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67213',
+          nextQuestionCode: '67213',
         },
         {
           code: '219010',
@@ -3258,7 +3258,7 @@ export const config: IncidentTypeConfiguration = {
           label: 'Pipe(s)',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67213',
+          nextQuestionCode: '67213',
         },
         {
           code: '219011',
@@ -3267,7 +3267,7 @@ export const config: IncidentTypeConfiguration = {
           label: 'Roach',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67214',
+          nextQuestionCode: '67214',
         },
         {
           code: '219012',
@@ -3276,7 +3276,7 @@ export const config: IncidentTypeConfiguration = {
           label: 'Other - (please specify)',
           commentRequired: true,
           dateRequired: false,
-          nextQuestionId: '67214',
+          nextQuestionCode: '67214',
         },
       ],
     },
@@ -3294,7 +3294,7 @@ export const config: IncidentTypeConfiguration = {
           label: 'No',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67220',
+          nextQuestionCode: '67220',
         },
         {
           code: '219014',
@@ -3303,7 +3303,7 @@ export const config: IncidentTypeConfiguration = {
           label: 'Yes',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67214',
+          nextQuestionCode: '67214',
         },
       ],
     },
@@ -3321,7 +3321,7 @@ export const config: IncidentTypeConfiguration = {
           label: 'No mobile phone found',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67215',
+          nextQuestionCode: '67215',
         },
         {
           code: '219016',
@@ -3330,7 +3330,7 @@ export const config: IncidentTypeConfiguration = {
           label: '1',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67215',
+          nextQuestionCode: '67215',
         },
         {
           code: '219017',
@@ -3339,7 +3339,7 @@ export const config: IncidentTypeConfiguration = {
           label: '2',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67215',
+          nextQuestionCode: '67215',
         },
         {
           code: '219018',
@@ -3348,7 +3348,7 @@ export const config: IncidentTypeConfiguration = {
           label: '3',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67215',
+          nextQuestionCode: '67215',
         },
         {
           code: '219019',
@@ -3357,7 +3357,7 @@ export const config: IncidentTypeConfiguration = {
           label: '4',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67215',
+          nextQuestionCode: '67215',
         },
         {
           code: '219020',
@@ -3366,7 +3366,7 @@ export const config: IncidentTypeConfiguration = {
           label: '5',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67215',
+          nextQuestionCode: '67215',
         },
         {
           code: '219021',
@@ -3375,7 +3375,7 @@ export const config: IncidentTypeConfiguration = {
           label: '6',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67215',
+          nextQuestionCode: '67215',
         },
         {
           code: '219022',
@@ -3384,7 +3384,7 @@ export const config: IncidentTypeConfiguration = {
           label: '7',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67215',
+          nextQuestionCode: '67215',
         },
         {
           code: '219023',
@@ -3393,7 +3393,7 @@ export const config: IncidentTypeConfiguration = {
           label: '8',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67215',
+          nextQuestionCode: '67215',
         },
         {
           code: '219024',
@@ -3402,7 +3402,7 @@ export const config: IncidentTypeConfiguration = {
           label: '9',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67215',
+          nextQuestionCode: '67215',
         },
         {
           code: '219025',
@@ -3411,7 +3411,7 @@ export const config: IncidentTypeConfiguration = {
           label: '10',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67215',
+          nextQuestionCode: '67215',
         },
         {
           code: '219026',
@@ -3420,7 +3420,7 @@ export const config: IncidentTypeConfiguration = {
           label: '11',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67215',
+          nextQuestionCode: '67215',
         },
         {
           code: '219027',
@@ -3429,7 +3429,7 @@ export const config: IncidentTypeConfiguration = {
           label: '12',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67215',
+          nextQuestionCode: '67215',
         },
         {
           code: '219028',
@@ -3438,7 +3438,7 @@ export const config: IncidentTypeConfiguration = {
           label: '13',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67215',
+          nextQuestionCode: '67215',
         },
         {
           code: '219029',
@@ -3447,7 +3447,7 @@ export const config: IncidentTypeConfiguration = {
           label: '14',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67215',
+          nextQuestionCode: '67215',
         },
         {
           code: '219030',
@@ -3456,7 +3456,7 @@ export const config: IncidentTypeConfiguration = {
           label: '15',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67215',
+          nextQuestionCode: '67215',
         },
         {
           code: '219031',
@@ -3465,7 +3465,7 @@ export const config: IncidentTypeConfiguration = {
           label: '16',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67215',
+          nextQuestionCode: '67215',
         },
         {
           code: '219032',
@@ -3474,7 +3474,7 @@ export const config: IncidentTypeConfiguration = {
           label: '17',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67215',
+          nextQuestionCode: '67215',
         },
         {
           code: '219033',
@@ -3483,7 +3483,7 @@ export const config: IncidentTypeConfiguration = {
           label: '18',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67215',
+          nextQuestionCode: '67215',
         },
         {
           code: '219034',
@@ -3492,7 +3492,7 @@ export const config: IncidentTypeConfiguration = {
           label: '19',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67215',
+          nextQuestionCode: '67215',
         },
         {
           code: '219035',
@@ -3501,7 +3501,7 @@ export const config: IncidentTypeConfiguration = {
           label: '20',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67215',
+          nextQuestionCode: '67215',
         },
         {
           code: '219036',
@@ -3510,7 +3510,7 @@ export const config: IncidentTypeConfiguration = {
           label: 'More than 20 - (state number in comment)',
           commentRequired: true,
           dateRequired: false,
-          nextQuestionId: '67215',
+          nextQuestionCode: '67215',
         },
         {
           code: '219037',
@@ -3519,7 +3519,7 @@ export const config: IncidentTypeConfiguration = {
           label: 'Unknown',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67215',
+          nextQuestionCode: '67215',
         },
       ],
     },
@@ -3537,7 +3537,7 @@ export const config: IncidentTypeConfiguration = {
           label: 'No SIM cards found',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67216',
+          nextQuestionCode: '67216',
         },
         {
           code: '219039',
@@ -3546,7 +3546,7 @@ export const config: IncidentTypeConfiguration = {
           label: '1',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67216',
+          nextQuestionCode: '67216',
         },
         {
           code: '219040',
@@ -3555,7 +3555,7 @@ export const config: IncidentTypeConfiguration = {
           label: '2',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67216',
+          nextQuestionCode: '67216',
         },
         {
           code: '219041',
@@ -3564,7 +3564,7 @@ export const config: IncidentTypeConfiguration = {
           label: '3',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67216',
+          nextQuestionCode: '67216',
         },
         {
           code: '219042',
@@ -3573,7 +3573,7 @@ export const config: IncidentTypeConfiguration = {
           label: '4',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67216',
+          nextQuestionCode: '67216',
         },
         {
           code: '219043',
@@ -3582,7 +3582,7 @@ export const config: IncidentTypeConfiguration = {
           label: '5',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67216',
+          nextQuestionCode: '67216',
         },
         {
           code: '219044',
@@ -3591,7 +3591,7 @@ export const config: IncidentTypeConfiguration = {
           label: '6',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67216',
+          nextQuestionCode: '67216',
         },
         {
           code: '219045',
@@ -3600,7 +3600,7 @@ export const config: IncidentTypeConfiguration = {
           label: '7',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67216',
+          nextQuestionCode: '67216',
         },
         {
           code: '219046',
@@ -3609,7 +3609,7 @@ export const config: IncidentTypeConfiguration = {
           label: '8',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67216',
+          nextQuestionCode: '67216',
         },
         {
           code: '219047',
@@ -3618,7 +3618,7 @@ export const config: IncidentTypeConfiguration = {
           label: '9',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67216',
+          nextQuestionCode: '67216',
         },
         {
           code: '219048',
@@ -3627,7 +3627,7 @@ export const config: IncidentTypeConfiguration = {
           label: '10',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67216',
+          nextQuestionCode: '67216',
         },
         {
           code: '219049',
@@ -3636,7 +3636,7 @@ export const config: IncidentTypeConfiguration = {
           label: '11',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67216',
+          nextQuestionCode: '67216',
         },
         {
           code: '219050',
@@ -3645,7 +3645,7 @@ export const config: IncidentTypeConfiguration = {
           label: '12',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67216',
+          nextQuestionCode: '67216',
         },
         {
           code: '219051',
@@ -3654,7 +3654,7 @@ export const config: IncidentTypeConfiguration = {
           label: '13',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67216',
+          nextQuestionCode: '67216',
         },
         {
           code: '219052',
@@ -3663,7 +3663,7 @@ export const config: IncidentTypeConfiguration = {
           label: '14',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67216',
+          nextQuestionCode: '67216',
         },
         {
           code: '219053',
@@ -3672,7 +3672,7 @@ export const config: IncidentTypeConfiguration = {
           label: '15',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67216',
+          nextQuestionCode: '67216',
         },
         {
           code: '219054',
@@ -3681,7 +3681,7 @@ export const config: IncidentTypeConfiguration = {
           label: '16',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67216',
+          nextQuestionCode: '67216',
         },
         {
           code: '219055',
@@ -3690,7 +3690,7 @@ export const config: IncidentTypeConfiguration = {
           label: '17',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67216',
+          nextQuestionCode: '67216',
         },
         {
           code: '219056',
@@ -3699,7 +3699,7 @@ export const config: IncidentTypeConfiguration = {
           label: '18',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67216',
+          nextQuestionCode: '67216',
         },
         {
           code: '219057',
@@ -3708,7 +3708,7 @@ export const config: IncidentTypeConfiguration = {
           label: '19',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67216',
+          nextQuestionCode: '67216',
         },
         {
           code: '219058',
@@ -3717,7 +3717,7 @@ export const config: IncidentTypeConfiguration = {
           label: '20',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67216',
+          nextQuestionCode: '67216',
         },
         {
           code: '219059',
@@ -3726,7 +3726,7 @@ export const config: IncidentTypeConfiguration = {
           label: 'More than 20 - (state number in comment)',
           commentRequired: true,
           dateRequired: false,
-          nextQuestionId: '67216',
+          nextQuestionCode: '67216',
         },
         {
           code: '219060',
@@ -3735,7 +3735,7 @@ export const config: IncidentTypeConfiguration = {
           label: 'Unknown',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67216',
+          nextQuestionCode: '67216',
         },
       ],
     },
@@ -3753,7 +3753,7 @@ export const config: IncidentTypeConfiguration = {
           label: 'No memory card found',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67217',
+          nextQuestionCode: '67217',
         },
         {
           code: '219062',
@@ -3762,7 +3762,7 @@ export const config: IncidentTypeConfiguration = {
           label: '1',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67217',
+          nextQuestionCode: '67217',
         },
         {
           code: '219063',
@@ -3771,7 +3771,7 @@ export const config: IncidentTypeConfiguration = {
           label: '2',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67217',
+          nextQuestionCode: '67217',
         },
         {
           code: '219064',
@@ -3780,7 +3780,7 @@ export const config: IncidentTypeConfiguration = {
           label: '3',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67217',
+          nextQuestionCode: '67217',
         },
         {
           code: '219065',
@@ -3789,7 +3789,7 @@ export const config: IncidentTypeConfiguration = {
           label: '4',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67217',
+          nextQuestionCode: '67217',
         },
         {
           code: '219066',
@@ -3798,7 +3798,7 @@ export const config: IncidentTypeConfiguration = {
           label: '5',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67217',
+          nextQuestionCode: '67217',
         },
         {
           code: '219067',
@@ -3807,7 +3807,7 @@ export const config: IncidentTypeConfiguration = {
           label: '6',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67217',
+          nextQuestionCode: '67217',
         },
         {
           code: '219068',
@@ -3816,7 +3816,7 @@ export const config: IncidentTypeConfiguration = {
           label: '7',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67217',
+          nextQuestionCode: '67217',
         },
         {
           code: '219069',
@@ -3825,7 +3825,7 @@ export const config: IncidentTypeConfiguration = {
           label: '8',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67217',
+          nextQuestionCode: '67217',
         },
         {
           code: '219070',
@@ -3834,7 +3834,7 @@ export const config: IncidentTypeConfiguration = {
           label: '9',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67217',
+          nextQuestionCode: '67217',
         },
         {
           code: '219071',
@@ -3843,7 +3843,7 @@ export const config: IncidentTypeConfiguration = {
           label: '10',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67217',
+          nextQuestionCode: '67217',
         },
         {
           code: '219072',
@@ -3852,7 +3852,7 @@ export const config: IncidentTypeConfiguration = {
           label: '11',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67217',
+          nextQuestionCode: '67217',
         },
         {
           code: '219073',
@@ -3861,7 +3861,7 @@ export const config: IncidentTypeConfiguration = {
           label: '12',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67217',
+          nextQuestionCode: '67217',
         },
         {
           code: '219074',
@@ -3870,7 +3870,7 @@ export const config: IncidentTypeConfiguration = {
           label: '13',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67217',
+          nextQuestionCode: '67217',
         },
         {
           code: '219075',
@@ -3879,7 +3879,7 @@ export const config: IncidentTypeConfiguration = {
           label: '14',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67217',
+          nextQuestionCode: '67217',
         },
         {
           code: '219076',
@@ -3888,7 +3888,7 @@ export const config: IncidentTypeConfiguration = {
           label: '15',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67217',
+          nextQuestionCode: '67217',
         },
         {
           code: '219077',
@@ -3897,7 +3897,7 @@ export const config: IncidentTypeConfiguration = {
           label: '16',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67217',
+          nextQuestionCode: '67217',
         },
         {
           code: '219078',
@@ -3906,7 +3906,7 @@ export const config: IncidentTypeConfiguration = {
           label: '17',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67217',
+          nextQuestionCode: '67217',
         },
         {
           code: '219079',
@@ -3915,7 +3915,7 @@ export const config: IncidentTypeConfiguration = {
           label: '18',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67217',
+          nextQuestionCode: '67217',
         },
         {
           code: '219080',
@@ -3924,7 +3924,7 @@ export const config: IncidentTypeConfiguration = {
           label: '19',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67217',
+          nextQuestionCode: '67217',
         },
         {
           code: '219081',
@@ -3933,7 +3933,7 @@ export const config: IncidentTypeConfiguration = {
           label: '20',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67217',
+          nextQuestionCode: '67217',
         },
         {
           code: '219082',
@@ -3942,7 +3942,7 @@ export const config: IncidentTypeConfiguration = {
           label: 'More than 20 - (state number in comment)',
           commentRequired: true,
           dateRequired: false,
-          nextQuestionId: '67217',
+          nextQuestionCode: '67217',
         },
         {
           code: '219083',
@@ -3951,7 +3951,7 @@ export const config: IncidentTypeConfiguration = {
           label: 'Unknown',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67217',
+          nextQuestionCode: '67217',
         },
       ],
     },
@@ -3969,7 +3969,7 @@ export const config: IncidentTypeConfiguration = {
           label: 'No - none found',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67218',
+          nextQuestionCode: '67218',
         },
         {
           code: '219085',
@@ -3978,7 +3978,7 @@ export const config: IncidentTypeConfiguration = {
           label: 'Yes - homemade/adapted',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67218',
+          nextQuestionCode: '67218',
         },
         {
           code: '219086',
@@ -3987,7 +3987,7 @@ export const config: IncidentTypeConfiguration = {
           label: 'Yes - factory made/manufactured',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67218',
+          nextQuestionCode: '67218',
         },
       ],
     },
@@ -4005,7 +4005,7 @@ export const config: IncidentTypeConfiguration = {
           label: 'No',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67219',
+          nextQuestionCode: '67219',
         },
         {
           code: '219088',
@@ -4014,7 +4014,7 @@ export const config: IncidentTypeConfiguration = {
           label: 'Yes - (specify in comments)',
           commentRequired: true,
           dateRequired: false,
-          nextQuestionId: '67219',
+          nextQuestionCode: '67219',
         },
       ],
     },
@@ -4032,7 +4032,7 @@ export const config: IncidentTypeConfiguration = {
           label: 'No - (enter reason in comment)',
           commentRequired: true,
           dateRequired: false,
-          nextQuestionId: '67220',
+          nextQuestionCode: '67220',
         },
         {
           code: '219090',
@@ -4041,7 +4041,7 @@ export const config: IncidentTypeConfiguration = {
           label: 'Yes - (enter date and comment with bag number)',
           commentRequired: true,
           dateRequired: true,
-          nextQuestionId: '67220',
+          nextQuestionCode: '67220',
         },
       ],
     },
@@ -4059,7 +4059,7 @@ export const config: IncidentTypeConfiguration = {
           label: 'No other digital finds',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67221',
+          nextQuestionCode: '67221',
         },
         {
           code: '219092',
@@ -4068,7 +4068,7 @@ export const config: IncidentTypeConfiguration = {
           label: 'Desktop',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67221',
+          nextQuestionCode: '67221',
         },
         {
           code: '219093',
@@ -4077,7 +4077,7 @@ export const config: IncidentTypeConfiguration = {
           label: 'DVD player',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67221',
+          nextQuestionCode: '67221',
         },
         {
           code: '219094',
@@ -4086,7 +4086,7 @@ export const config: IncidentTypeConfiguration = {
           label: 'External storage, e.g. external hard drive',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67221',
+          nextQuestionCode: '67221',
         },
         {
           code: '219095',
@@ -4095,7 +4095,7 @@ export const config: IncidentTypeConfiguration = {
           label: 'Games console',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67221',
+          nextQuestionCode: '67221',
         },
         {
           code: '219096',
@@ -4104,7 +4104,7 @@ export const config: IncidentTypeConfiguration = {
           label: 'Laptop',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67221',
+          nextQuestionCode: '67221',
         },
         {
           code: '219097',
@@ -4113,7 +4113,7 @@ export const config: IncidentTypeConfiguration = {
           label: 'Media streaming device, e.g. Amazon fire stick',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67221',
+          nextQuestionCode: '67221',
         },
         {
           code: '219098',
@@ -4122,7 +4122,7 @@ export const config: IncidentTypeConfiguration = {
           label: 'Mobile hot spot (MiFi device)',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67221',
+          nextQuestionCode: '67221',
         },
         {
           code: '219099',
@@ -4131,7 +4131,7 @@ export const config: IncidentTypeConfiguration = {
           label: 'Smart watch',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67221',
+          nextQuestionCode: '67221',
         },
         {
           code: '219100',
@@ -4140,7 +4140,7 @@ export const config: IncidentTypeConfiguration = {
           label: 'Stereo / radio',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67221',
+          nextQuestionCode: '67221',
         },
         {
           code: '219101',
@@ -4149,7 +4149,7 @@ export const config: IncidentTypeConfiguration = {
           label: 'Tablet, e.g. iPad',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67221',
+          nextQuestionCode: '67221',
         },
         {
           code: '219102',
@@ -4158,7 +4158,7 @@ export const config: IncidentTypeConfiguration = {
           label: 'USB memory stick',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67221',
+          nextQuestionCode: '67221',
         },
         {
           code: '219103',
@@ -4167,7 +4167,7 @@ export const config: IncidentTypeConfiguration = {
           label: 'Wireless headset / headphone, e.g. Apple AirPods',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67221',
+          nextQuestionCode: '67221',
         },
         {
           code: '219104',
@@ -4176,7 +4176,7 @@ export const config: IncidentTypeConfiguration = {
           label: 'Other - (please state)',
           commentRequired: true,
           dateRequired: false,
-          nextQuestionId: '67221',
+          nextQuestionCode: '67221',
         },
       ],
     },
@@ -4194,7 +4194,7 @@ export const config: IncidentTypeConfiguration = {
           label: 'No',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67224',
+          nextQuestionCode: '67224',
         },
         {
           code: '219106',
@@ -4203,7 +4203,7 @@ export const config: IncidentTypeConfiguration = {
           label: 'Yes',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67222',
+          nextQuestionCode: '67222',
         },
       ],
     },
@@ -4221,7 +4221,7 @@ export const config: IncidentTypeConfiguration = {
           label: 'Cigarettes/cigars',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67223',
+          nextQuestionCode: '67223',
         },
         {
           code: '219108',
@@ -4230,7 +4230,7 @@ export const config: IncidentTypeConfiguration = {
           label: 'Loose tobaco',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67223',
+          nextQuestionCode: '67223',
         },
         {
           code: '219109',
@@ -4239,7 +4239,7 @@ export const config: IncidentTypeConfiguration = {
           label: 'Other (including packaging and roaches)',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67223',
+          nextQuestionCode: '67223',
         },
       ],
     },
@@ -4257,7 +4257,7 @@ export const config: IncidentTypeConfiguration = {
           label: 'Less than or equal to 1g - (please state number in comments)',
           commentRequired: true,
           dateRequired: false,
-          nextQuestionId: '67224',
+          nextQuestionCode: '67224',
         },
         {
           code: '219111',
@@ -4266,7 +4266,7 @@ export const config: IncidentTypeConfiguration = {
           label: '2g to 5g - (please state number in comments)',
           commentRequired: true,
           dateRequired: false,
-          nextQuestionId: '67224',
+          nextQuestionCode: '67224',
         },
         {
           code: '219112',
@@ -4275,7 +4275,7 @@ export const config: IncidentTypeConfiguration = {
           label: '6g to 10g - (please state number in comments)',
           commentRequired: true,
           dateRequired: false,
-          nextQuestionId: '67224',
+          nextQuestionCode: '67224',
         },
         {
           code: '219113',
@@ -4284,7 +4284,7 @@ export const config: IncidentTypeConfiguration = {
           label: '11g to 20g - (please state number in comments)',
           commentRequired: true,
           dateRequired: false,
-          nextQuestionId: '67224',
+          nextQuestionCode: '67224',
         },
         {
           code: '219114',
@@ -4293,7 +4293,7 @@ export const config: IncidentTypeConfiguration = {
           label: 'Greater than 20g - (please state number in comments)',
           commentRequired: true,
           dateRequired: false,
-          nextQuestionId: '67224',
+          nextQuestionCode: '67224',
         },
       ],
     },
@@ -4311,7 +4311,7 @@ export const config: IncidentTypeConfiguration = {
           label: 'No - none found',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67225',
+          nextQuestionCode: '67225',
         },
         {
           code: '219116',
@@ -4320,7 +4320,7 @@ export const config: IncidentTypeConfiguration = {
           label: 'Yes - blunt instrument (cosh, item in sock etc)',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67225',
+          nextQuestionCode: '67225',
         },
         {
           code: '219117',
@@ -4329,7 +4329,7 @@ export const config: IncidentTypeConfiguration = {
           label: 'Yes - firearm (fake guns, ammunition, chemical incapacitant etc)',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67225',
+          nextQuestionCode: '67225',
         },
         {
           code: '219118',
@@ -4338,7 +4338,7 @@ export const config: IncidentTypeConfiguration = {
           label: 'Yes - knife/bladed article',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67225',
+          nextQuestionCode: '67225',
         },
         {
           code: '219119',
@@ -4347,7 +4347,7 @@ export const config: IncidentTypeConfiguration = {
           label: 'Yes - other (please specify)',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67225',
+          nextQuestionCode: '67225',
         },
       ],
     },
@@ -4365,7 +4365,7 @@ export const config: IncidentTypeConfiguration = {
           label: 'No',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67226',
+          nextQuestionCode: '67226',
         },
         {
           code: '219121',
@@ -4374,7 +4374,7 @@ export const config: IncidentTypeConfiguration = {
           label: 'Yes (noose / ligature)',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67226',
+          nextQuestionCode: '67226',
         },
         {
           code: '219122',
@@ -4383,7 +4383,7 @@ export const config: IncidentTypeConfiguration = {
           label: 'Yes - (please specify in comments)',
           commentRequired: true,
           dateRequired: false,
-          nextQuestionId: '67226',
+          nextQuestionCode: '67226',
         },
       ],
     },
@@ -4401,7 +4401,7 @@ export const config: IncidentTypeConfiguration = {
           label: 'No',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: null,
+          nextQuestionCode: null,
         },
         {
           code: '219124',
@@ -4410,7 +4410,7 @@ export const config: IncidentTypeConfiguration = {
           label: 'Unknown',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: null,
+          nextQuestionCode: null,
         },
         {
           code: '219125',
@@ -4419,7 +4419,7 @@ export const config: IncidentTypeConfiguration = {
           label: 'Yes',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '67227',
+          nextQuestionCode: '67227',
         },
       ],
     },
@@ -4437,7 +4437,7 @@ export const config: IncidentTypeConfiguration = {
           label: 'Community visit',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: null,
+          nextQuestionCode: null,
         },
         {
           code: '219127',
@@ -4446,7 +4446,7 @@ export const config: IncidentTypeConfiguration = {
           label: 'Compassionate',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: null,
+          nextQuestionCode: null,
         },
         {
           code: '219128',
@@ -4455,7 +4455,7 @@ export const config: IncidentTypeConfiguration = {
           label: 'Facility',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: null,
+          nextQuestionCode: null,
         },
         {
           code: '219129',
@@ -4464,7 +4464,7 @@ export const config: IncidentTypeConfiguration = {
           label: 'Resettlement',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: null,
+          nextQuestionCode: null,
         },
         {
           code: '219130',
@@ -4473,7 +4473,7 @@ export const config: IncidentTypeConfiguration = {
           label: 'Unknown',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: null,
+          nextQuestionCode: null,
         },
       ],
     },

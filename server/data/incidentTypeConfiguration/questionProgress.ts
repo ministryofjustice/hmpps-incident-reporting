@@ -90,21 +90,21 @@ export class QuestionProgress {
           })
       })
 
-    let nextQuestionId = this.config.startingQuestionId
+    let nextQuestionCode = this.config.startingQuestionCode
     let questionNumber = 0
     let pageNumber = 0
     let lastUrlSuffix = ''
     while (true) {
       questionNumber += 1
-      const questionConfig = this.config.questions[nextQuestionId]
+      const questionConfig = this.config.questions[nextQuestionCode]
       if (!questionConfig.active) {
         logger.warn(
           'Question progress in report %s passing through inactive question: %s',
           this.report.id,
-          nextQuestionId,
+          nextQuestionCode,
         )
       }
-      const urlSuffix = reportSteps.get(nextQuestionId)
+      const urlSuffix = reportSteps.get(nextQuestionCode)
       if (urlSuffix !== lastUrlSuffix) {
         pageNumber += 1
         lastUrlSuffix = urlSuffix
@@ -128,9 +128,8 @@ export class QuestionProgress {
         return new ResponseItem(response, answerConfig)
       })
       yield new QuestionProgressStep(questionConfig, responseItems, urlSuffix, questionNumber, pageNumber)
-      // TODO: assuming multiple choice questions have options all leading to the same place. was this validated? see IR-769
-      nextQuestionId = responseItems?.[0]?.answerConfig?.nextQuestionId
-      if (!nextQuestionId) {
+      nextQuestionCode = responseItems?.[0]?.answerConfig?.nextQuestionCode
+      if (!nextQuestionCode) {
         break
       }
     }

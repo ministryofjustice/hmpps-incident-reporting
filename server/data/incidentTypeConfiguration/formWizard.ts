@@ -25,7 +25,7 @@ export function generateSteps(
       reset: true,
       resetJourney: true,
       skip: true,
-      next: config.startingQuestionId,
+      next: config.startingQuestionCode,
       controller: EmptyController,
     },
   }
@@ -304,11 +304,11 @@ function nextSteps(question: QuestionConfiguration, answers: AnswerConfiguration
   // Group answers by next question id
   const groupedByNextQuestion: Map<string | null, AnswerConfiguration[]> = new Map()
   answers.forEach(answer => {
-    if (!groupedByNextQuestion.has(answer.nextQuestionId)) {
-      groupedByNextQuestion.set(answer.nextQuestionId, [])
+    if (!groupedByNextQuestion.has(answer.nextQuestionCode)) {
+      groupedByNextQuestion.set(answer.nextQuestionCode, [])
     }
 
-    groupedByNextQuestion.get(answer.nextQuestionId).push(answer)
+    groupedByNextQuestion.get(answer.nextQuestionCode).push(answer)
   })
 
   const next: FormWizard.NextStepCondition[] = []

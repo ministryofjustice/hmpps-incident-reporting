@@ -5,7 +5,7 @@ import type { IncidentTypeConfiguration } from '../../data/incidentTypeConfigura
 export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
   incidentType: 'MOBILE_PHONE_1',
   active: false,
-  startingQuestionId: '47179',
+  startingQuestionCode: '47179',
   questions: {
     '45209': {
       code: '45209',
@@ -21,7 +21,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           label: 'Mobile:',
           commentRequired: true,
           dateRequired: false,
-          nextQuestionId: null,
+          nextQuestionCode: null,
         },
         {
           code: '182827',
@@ -30,7 +30,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           label: 'SIM:',
           commentRequired: true,
           dateRequired: false,
-          nextQuestionId: null,
+          nextQuestionCode: null,
         },
         {
           code: '182828',
@@ -39,7 +39,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           label: 'Charger:',
           commentRequired: true,
           dateRequired: false,
-          nextQuestionId: null,
+          nextQuestionCode: null,
         },
         {
           code: '182829',
@@ -48,7 +48,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           label: 'Other please specify:',
           commentRequired: true,
           dateRequired: false,
-          nextQuestionId: null,
+          nextQuestionCode: null,
         },
         {
           code: '182941',
@@ -57,7 +57,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           label: 'Mobile:',
           commentRequired: true,
           dateRequired: false,
-          nextQuestionId: '45210',
+          nextQuestionCode: '45210',
         },
         {
           code: '182942',
@@ -66,7 +66,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           label: 'SIM:',
           commentRequired: true,
           dateRequired: false,
-          nextQuestionId: '45210',
+          nextQuestionCode: '45210',
         },
         {
           code: '182943',
@@ -75,7 +75,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           label: 'Charger:',
           commentRequired: true,
           dateRequired: false,
-          nextQuestionId: '45210',
+          nextQuestionCode: '45210',
         },
         {
           code: '182944',
@@ -84,7 +84,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           label: 'Other please specify:',
           commentRequired: true,
           dateRequired: false,
-          nextQuestionId: '45210',
+          nextQuestionCode: '45210',
         },
       ],
     },
@@ -102,7 +102,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           label: 'Enter date:',
           commentRequired: false,
           dateRequired: true,
-          nextQuestionId: null,
+          nextQuestionCode: null,
         },
         {
           code: '183080',
@@ -111,7 +111,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           label: 'Enter date:',
           commentRequired: false,
           dateRequired: true,
-          nextQuestionId: '45211',
+          nextQuestionCode: '45211',
         },
       ],
     },
@@ -129,7 +129,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           label: 'Enter time:',
           commentRequired: true,
           dateRequired: false,
-          nextQuestionId: null,
+          nextQuestionCode: null,
         },
         {
           code: '183081',
@@ -138,7 +138,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           label: 'Enter time:',
           commentRequired: true,
           dateRequired: false,
-          nextQuestionId: '45212',
+          nextQuestionCode: '45212',
         },
       ],
     },
@@ -156,7 +156,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           label: 'Yes',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: null,
+          nextQuestionCode: null,
         },
         {
           code: '182833',
@@ -165,7 +165,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           label: 'No',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: null,
+          nextQuestionCode: null,
         },
         {
           code: '183082',
@@ -174,7 +174,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           label: 'Yes',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '45213',
+          nextQuestionCode: '45213',
         },
         {
           code: '183083',
@@ -183,7 +183,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           label: 'No',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '45214',
+          nextQuestionCode: '45214',
         },
       ],
     },
@@ -201,7 +201,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           label: 'Staff',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: null,
+          nextQuestionCode: null,
         },
         {
           code: '182835',
@@ -210,7 +210,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           label: 'Prisoner/young offender',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: null,
+          nextQuestionCode: null,
         },
         {
           code: '182836',
@@ -219,7 +219,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           label: 'Visitor: specify:',
           commentRequired: true,
           dateRequired: false,
-          nextQuestionId: null,
+          nextQuestionCode: null,
         },
         {
           code: '182837',
@@ -228,7 +228,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           label: 'Social',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: null,
+          nextQuestionCode: null,
         },
         {
           code: '182838',
@@ -237,7 +237,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           label: 'Official',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: null,
+          nextQuestionCode: null,
         },
         {
           code: '182839',
@@ -246,7 +246,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           label: 'Contractor',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: null,
+          nextQuestionCode: null,
         },
         {
           code: '182840',
@@ -255,7 +255,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           label: 'Thrown in',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: null,
+          nextQuestionCode: null,
         },
         {
           code: '182841',
@@ -264,7 +264,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           label: 'Post - social/rule 39',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: null,
+          nextQuestionCode: null,
         },
         {
           code: '182842',
@@ -273,7 +273,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           label: 'Not attributable',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: null,
+          nextQuestionCode: null,
         },
         {
           code: '182843',
@@ -282,7 +282,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           label: 'Other: please specify',
           commentRequired: true,
           dateRequired: false,
-          nextQuestionId: null,
+          nextQuestionCode: null,
         },
         {
           code: '183084',
@@ -291,7 +291,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           label: 'Staff',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '45214',
+          nextQuestionCode: '45214',
         },
         {
           code: '183085',
@@ -300,7 +300,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           label: 'Prisoner / young offender',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '45214',
+          nextQuestionCode: '45214',
         },
         {
           code: '183086',
@@ -309,7 +309,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           label: 'Visitor: social',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '45214',
+          nextQuestionCode: '45214',
         },
         {
           code: '183087',
@@ -318,7 +318,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           label: 'Visitor: official',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '45214',
+          nextQuestionCode: '45214',
         },
         {
           code: '183088',
@@ -327,7 +327,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           label: 'Contractor',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '45214',
+          nextQuestionCode: '45214',
         },
         {
           code: '183089',
@@ -336,7 +336,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           label: 'Thrown in',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '45214',
+          nextQuestionCode: '45214',
         },
         {
           code: '183090',
@@ -345,7 +345,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           label: 'Post – social / rule 39',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '45214',
+          nextQuestionCode: '45214',
         },
         {
           code: '183091',
@@ -354,7 +354,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           label: 'Not attributable',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '45214',
+          nextQuestionCode: '45214',
         },
         {
           code: '183092',
@@ -363,7 +363,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           label: 'Other : please specify',
           commentRequired: true,
           dateRequired: false,
-          nextQuestionId: '45214',
+          nextQuestionCode: '45214',
         },
       ],
     },
@@ -381,7 +381,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           label: 'Boss chair',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: null,
+          nextQuestionCode: null,
         },
         {
           code: '182845',
@@ -390,7 +390,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           label: 'High sensitivity wand',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: null,
+          nextQuestionCode: null,
         },
         {
           code: '182846',
@@ -399,7 +399,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           label: 'Mobile phone detection dog',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: null,
+          nextQuestionCode: null,
         },
         {
           code: '182847',
@@ -408,7 +408,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           label: 'Physical search',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: null,
+          nextQuestionCode: null,
         },
         {
           code: '182848',
@@ -417,7 +417,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           label: 'Cell search',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: null,
+          nextQuestionCode: null,
         },
         {
           code: '182849',
@@ -426,7 +426,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           label: 'Unusual/suspicious behaviour',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: null,
+          nextQuestionCode: null,
         },
         {
           code: '182850',
@@ -435,7 +435,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           label: 'Mobile phone signal detector',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: null,
+          nextQuestionCode: null,
         },
         {
           code: '182851',
@@ -444,7 +444,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           label: 'Intelligence led search',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: null,
+          nextQuestionCode: null,
         },
         {
           code: '182852',
@@ -453,7 +453,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           label: 'Information received',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: null,
+          nextQuestionCode: null,
         },
         {
           code: '182853',
@@ -462,7 +462,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           label: 'Other: please specify',
           commentRequired: true,
           dateRequired: false,
-          nextQuestionId: null,
+          nextQuestionCode: null,
         },
         {
           code: '183093',
@@ -471,7 +471,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           label: 'Boss chair',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '45215',
+          nextQuestionCode: '45215',
         },
         {
           code: '183094',
@@ -480,7 +480,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           label: 'High sensitivity wand',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '45215',
+          nextQuestionCode: '45215',
         },
         {
           code: '183095',
@@ -489,7 +489,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           label: 'Mobile phone detection dog',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '45215',
+          nextQuestionCode: '45215',
         },
         {
           code: '183096',
@@ -498,7 +498,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           label: 'Physical search',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '45215',
+          nextQuestionCode: '45215',
         },
         {
           code: '183097',
@@ -507,7 +507,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           label: 'Cell search',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '45215',
+          nextQuestionCode: '45215',
         },
         {
           code: '183098',
@@ -516,7 +516,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           label: 'Unusual/suspicious behaviour',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '45215',
+          nextQuestionCode: '45215',
         },
         {
           code: '183099',
@@ -525,7 +525,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           label: 'Mobile phone signal detector',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '45215',
+          nextQuestionCode: '45215',
         },
         {
           code: '183100',
@@ -534,7 +534,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           label: 'Intelligence led search',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '45215',
+          nextQuestionCode: '45215',
         },
         {
           code: '183101',
@@ -543,7 +543,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           label: 'Information received',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '45215',
+          nextQuestionCode: '45215',
         },
         {
           code: '183102',
@@ -552,7 +552,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           label: 'Other: please specify',
           commentRequired: true,
           dateRequired: false,
-          nextQuestionId: '45215',
+          nextQuestionCode: '45215',
         },
       ],
     },
@@ -570,7 +570,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           label: 'Prisoner/young offender',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: null,
+          nextQuestionCode: null,
         },
         {
           code: '182855',
@@ -579,7 +579,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           label: 'Staff',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: null,
+          nextQuestionCode: null,
         },
         {
           code: '182856',
@@ -588,7 +588,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           label: 'Contractor',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: null,
+          nextQuestionCode: null,
         },
         {
           code: '182857',
@@ -597,7 +597,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           label: 'Visitor: please specify',
           commentRequired: true,
           dateRequired: false,
-          nextQuestionId: null,
+          nextQuestionCode: null,
         },
         {
           code: '182858',
@@ -606,7 +606,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           label: 'Official',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: null,
+          nextQuestionCode: null,
         },
         {
           code: '182859',
@@ -615,7 +615,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           label: 'Other: please specify',
           commentRequired: true,
           dateRequired: false,
-          nextQuestionId: null,
+          nextQuestionCode: null,
         },
         {
           code: '183103',
@@ -624,7 +624,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           label: 'Prisoner/young offender',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '45216',
+          nextQuestionCode: '45216',
         },
         {
           code: '183104',
@@ -633,7 +633,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           label: 'Staff',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '45216',
+          nextQuestionCode: '45216',
         },
         {
           code: '183105',
@@ -642,7 +642,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           label: 'Contractor',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '45216',
+          nextQuestionCode: '45216',
         },
         {
           code: '183106',
@@ -651,7 +651,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           label: 'Visitor: social',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '45216',
+          nextQuestionCode: '45216',
         },
         {
           code: '183107',
@@ -660,7 +660,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           label: 'Visitor: official',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '45216',
+          nextQuestionCode: '45216',
         },
         {
           code: '183108',
@@ -669,7 +669,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           label: 'Other: please specify',
           commentRequired: true,
           dateRequired: false,
-          nextQuestionId: '45216',
+          nextQuestionCode: '45216',
         },
       ],
     },
@@ -687,7 +687,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           label: 'Administration area',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: null,
+          nextQuestionCode: null,
         },
         {
           code: '182861',
@@ -696,7 +696,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           label: 'Association area',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: null,
+          nextQuestionCode: null,
         },
         {
           code: '182862',
@@ -705,7 +705,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           label: 'Prisoner accommodation',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: null,
+          nextQuestionCode: null,
         },
         {
           code: '182863',
@@ -714,7 +714,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           label: 'Chapel',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: null,
+          nextQuestionCode: null,
         },
         {
           code: '182864',
@@ -723,7 +723,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           label: 'Dormitory',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: null,
+          nextQuestionCode: null,
         },
         {
           code: '182865',
@@ -732,7 +732,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           label: 'Education',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: null,
+          nextQuestionCode: null,
         },
         {
           code: '182866',
@@ -741,7 +741,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           label: 'Exercise yard',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: null,
+          nextQuestionCode: null,
         },
         {
           code: '182867',
@@ -750,7 +750,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           label: 'External area (within prison grounds)',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: null,
+          nextQuestionCode: null,
         },
         {
           code: '182868',
@@ -759,7 +759,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           label: 'Gate',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: null,
+          nextQuestionCode: null,
         },
         {
           code: '182869',
@@ -768,7 +768,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           label: 'Gym',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: null,
+          nextQuestionCode: null,
         },
         {
           code: '182870',
@@ -777,7 +777,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           label: 'Health care centre',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: null,
+          nextQuestionCode: null,
         },
         {
           code: '182871',
@@ -786,7 +786,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           label: 'Kitchen',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: null,
+          nextQuestionCode: null,
         },
         {
           code: '182872',
@@ -795,7 +795,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           label: 'Post/parcel',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: null,
+          nextQuestionCode: null,
         },
         {
           code: '182873',
@@ -804,7 +804,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           label: 'Reception',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: null,
+          nextQuestionCode: null,
         },
         {
           code: '182874',
@@ -813,7 +813,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           label: 'Recess',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: null,
+          nextQuestionCode: null,
         },
         {
           code: '182875',
@@ -822,7 +822,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           label: 'Segregation unit',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: null,
+          nextQuestionCode: null,
         },
         {
           code: '182876',
@@ -831,7 +831,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           label: 'Special unit',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: null,
+          nextQuestionCode: null,
         },
         {
           code: '182877',
@@ -840,7 +840,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           label: 'Showers/changing room',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: null,
+          nextQuestionCode: null,
         },
         {
           code: '182878',
@@ -849,7 +849,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           label: 'Visits',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: null,
+          nextQuestionCode: null,
         },
         {
           code: '182879',
@@ -858,7 +858,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           label: 'Wing',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: null,
+          nextQuestionCode: null,
         },
         {
           code: '182880',
@@ -867,7 +867,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           label: 'Works department',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: null,
+          nextQuestionCode: null,
         },
         {
           code: '182881',
@@ -876,7 +876,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           label: 'Workshop',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: null,
+          nextQuestionCode: null,
         },
         {
           code: '182882',
@@ -885,7 +885,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           label: 'Sports field',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: null,
+          nextQuestionCode: null,
         },
         {
           code: '182883',
@@ -894,7 +894,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           label: 'Staff area',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: null,
+          nextQuestionCode: null,
         },
         {
           code: '182884',
@@ -903,7 +903,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           label: 'Other: please specify',
           commentRequired: true,
           dateRequired: false,
-          nextQuestionId: null,
+          nextQuestionCode: null,
         },
         {
           code: '183109',
@@ -912,7 +912,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           label: 'Administration area',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '45217',
+          nextQuestionCode: '45217',
         },
         {
           code: '183110',
@@ -921,7 +921,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           label: 'Association area',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '45217',
+          nextQuestionCode: '45217',
         },
         {
           code: '183111',
@@ -930,7 +930,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           label: 'Prisoner accommodation',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '45217',
+          nextQuestionCode: '45217',
         },
         {
           code: '183112',
@@ -939,7 +939,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           label: 'Chapel',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '45217',
+          nextQuestionCode: '45217',
         },
         {
           code: '183113',
@@ -948,7 +948,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           label: 'Dormitory',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '45217',
+          nextQuestionCode: '45217',
         },
         {
           code: '183114',
@@ -957,7 +957,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           label: 'Education',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '45217',
+          nextQuestionCode: '45217',
         },
         {
           code: '183115',
@@ -966,7 +966,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           label: 'Exercise yard',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '45217',
+          nextQuestionCode: '45217',
         },
         {
           code: '183116',
@@ -975,7 +975,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           label: 'External area (within prison grounds)',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '45217',
+          nextQuestionCode: '45217',
         },
         {
           code: '183117',
@@ -984,7 +984,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           label: 'Gate',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '45217',
+          nextQuestionCode: '45217',
         },
         {
           code: '183118',
@@ -993,7 +993,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           label: 'Gym',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '45217',
+          nextQuestionCode: '45217',
         },
         {
           code: '183119',
@@ -1002,7 +1002,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           label: 'Health care centre',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '45217',
+          nextQuestionCode: '45217',
         },
         {
           code: '183120',
@@ -1011,7 +1011,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           label: 'Kitchen',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '45217',
+          nextQuestionCode: '45217',
         },
         {
           code: '183121',
@@ -1020,7 +1020,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           label: 'Post/parcel',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '45217',
+          nextQuestionCode: '45217',
         },
         {
           code: '183122',
@@ -1029,7 +1029,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           label: 'Reception',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '45217',
+          nextQuestionCode: '45217',
         },
         {
           code: '183123',
@@ -1038,7 +1038,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           label: 'Recess',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '45217',
+          nextQuestionCode: '45217',
         },
         {
           code: '183124',
@@ -1047,7 +1047,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           label: 'Segregation unit',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '45217',
+          nextQuestionCode: '45217',
         },
         {
           code: '183125',
@@ -1056,7 +1056,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           label: 'Special unit',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '45217',
+          nextQuestionCode: '45217',
         },
         {
           code: '183126',
@@ -1065,7 +1065,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           label: 'Showers/changing room',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '45217',
+          nextQuestionCode: '45217',
         },
         {
           code: '183127',
@@ -1074,7 +1074,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           label: 'Visits',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '45217',
+          nextQuestionCode: '45217',
         },
         {
           code: '183128',
@@ -1083,7 +1083,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           label: 'Wing',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '45217',
+          nextQuestionCode: '45217',
         },
         {
           code: '183129',
@@ -1092,7 +1092,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           label: 'Works department',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '45217',
+          nextQuestionCode: '45217',
         },
         {
           code: '183130',
@@ -1101,7 +1101,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           label: 'Workshop',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '45217',
+          nextQuestionCode: '45217',
         },
         {
           code: '183131',
@@ -1110,7 +1110,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           label: 'Sports field',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '45217',
+          nextQuestionCode: '45217',
         },
         {
           code: '183132',
@@ -1119,7 +1119,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           label: 'Staff area',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '45217',
+          nextQuestionCode: '45217',
         },
         {
           code: '183133',
@@ -1128,7 +1128,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           label: 'Other: please specify',
           commentRequired: true,
           dateRequired: false,
-          nextQuestionId: '45217',
+          nextQuestionCode: '45217',
         },
       ],
     },
@@ -1146,7 +1146,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           label: 'Yes: please specify',
           commentRequired: true,
           dateRequired: false,
-          nextQuestionId: null,
+          nextQuestionCode: null,
         },
         {
           code: '182886',
@@ -1155,7 +1155,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           label: 'No',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: null,
+          nextQuestionCode: null,
         },
         {
           code: '183134',
@@ -1164,7 +1164,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           label: 'Yes: please specify',
           commentRequired: true,
           dateRequired: false,
-          nextQuestionId: '45218',
+          nextQuestionCode: '45218',
         },
         {
           code: '183135',
@@ -1173,7 +1173,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           label: 'No',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '45218',
+          nextQuestionCode: '45218',
         },
       ],
     },
@@ -1191,7 +1191,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           label: 'Yes: date',
           commentRequired: false,
           dateRequired: true,
-          nextQuestionId: null,
+          nextQuestionCode: null,
         },
         {
           code: '182888',
@@ -1200,7 +1200,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           label: 'Evidence bag number:',
           commentRequired: true,
           dateRequired: false,
-          nextQuestionId: null,
+          nextQuestionCode: null,
         },
         {
           code: '182889',
@@ -1209,7 +1209,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           label: 'No: please state why',
           commentRequired: true,
           dateRequired: false,
-          nextQuestionId: null,
+          nextQuestionCode: null,
         },
         {
           code: '183136',
@@ -1218,7 +1218,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           label: 'Yes: date',
           commentRequired: false,
           dateRequired: true,
-          nextQuestionId: '45219',
+          nextQuestionCode: '45219',
         },
         {
           code: '183137',
@@ -1227,7 +1227,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           label: 'Evidence bag number:',
           commentRequired: true,
           dateRequired: false,
-          nextQuestionId: '45219',
+          nextQuestionCode: '45219',
         },
         {
           code: '183138',
@@ -1236,7 +1236,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           label: 'No: please state why',
           commentRequired: true,
           dateRequired: false,
-          nextQuestionId: '45219',
+          nextQuestionCode: '45219',
         },
       ],
     },
@@ -1254,7 +1254,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           label: 'Name:',
           commentRequired: true,
           dateRequired: false,
-          nextQuestionId: null,
+          nextQuestionCode: null,
         },
         {
           code: '182891',
@@ -1263,7 +1263,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           label: 'Grade:',
           commentRequired: true,
           dateRequired: false,
-          nextQuestionId: null,
+          nextQuestionCode: null,
         },
         {
           code: '183139',
@@ -1272,7 +1272,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           label: 'Name:',
           commentRequired: true,
           dateRequired: false,
-          nextQuestionId: '45220',
+          nextQuestionCode: '45220',
         },
         {
           code: '183140',
@@ -1281,7 +1281,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           label: 'Grade:',
           commentRequired: true,
           dateRequired: false,
-          nextQuestionId: '45220',
+          nextQuestionCode: '45220',
         },
       ],
     },
@@ -1299,7 +1299,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           label: 'Yes: date',
           commentRequired: false,
           dateRequired: true,
-          nextQuestionId: null,
+          nextQuestionCode: null,
         },
         {
           code: '182893',
@@ -1308,7 +1308,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           label: 'Police incident number:',
           commentRequired: true,
           dateRequired: false,
-          nextQuestionId: null,
+          nextQuestionCode: null,
         },
         {
           code: '182894',
@@ -1317,7 +1317,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           label: 'No',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: null,
+          nextQuestionCode: null,
         },
         {
           code: '183141',
@@ -1326,7 +1326,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           label: 'Yes: date',
           commentRequired: false,
           dateRequired: true,
-          nextQuestionId: '45221',
+          nextQuestionCode: '45221',
         },
         {
           code: '183142',
@@ -1335,7 +1335,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           label: 'Police incident number:',
           commentRequired: true,
           dateRequired: false,
-          nextQuestionId: '45221',
+          nextQuestionCode: '45221',
         },
         {
           code: '183143',
@@ -1344,7 +1344,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           label: 'No',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '45221',
+          nextQuestionCode: '45221',
         },
       ],
     },
@@ -1362,7 +1362,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           label: 'Yes: date',
           commentRequired: false,
           dateRequired: true,
-          nextQuestionId: null,
+          nextQuestionCode: null,
         },
         {
           code: '182896',
@@ -1371,7 +1371,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           label: 'Police ref number:',
           commentRequired: true,
           dateRequired: false,
-          nextQuestionId: null,
+          nextQuestionCode: null,
         },
         {
           code: '182897',
@@ -1380,7 +1380,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           label: 'No',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: null,
+          nextQuestionCode: null,
         },
         {
           code: '183144',
@@ -1389,7 +1389,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           label: 'Yes: date',
           commentRequired: false,
           dateRequired: true,
-          nextQuestionId: '45222',
+          nextQuestionCode: '45222',
         },
         {
           code: '183145',
@@ -1398,7 +1398,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           label: 'Police ref number:',
           commentRequired: true,
           dateRequired: false,
-          nextQuestionId: '45222',
+          nextQuestionCode: '45222',
         },
         {
           code: '183146',
@@ -1407,7 +1407,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           label: 'No',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '45222',
+          nextQuestionCode: '45222',
         },
       ],
     },
@@ -1425,7 +1425,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           label: '1',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: null,
+          nextQuestionCode: null,
         },
         {
           code: '182899',
@@ -1434,7 +1434,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           label: '2',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: null,
+          nextQuestionCode: null,
         },
         {
           code: '182900',
@@ -1443,7 +1443,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           label: 'Urgent',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: null,
+          nextQuestionCode: null,
         },
         {
           code: '183147',
@@ -1452,7 +1452,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           label: '1',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '45223',
+          nextQuestionCode: '45223',
         },
         {
           code: '183148',
@@ -1461,7 +1461,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           label: '2',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '45223',
+          nextQuestionCode: '45223',
         },
         {
           code: '183149',
@@ -1470,7 +1470,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           label: 'Urgent',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '45223',
+          nextQuestionCode: '45223',
         },
         {
           code: '186684',
@@ -1479,7 +1479,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           label: 'N/A not applicable',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '45223',
+          nextQuestionCode: '45223',
         },
       ],
     },
@@ -1498,7 +1498,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           label: 'Please state where on person mobile phone was found:',
           commentRequired: true,
           dateRequired: false,
-          nextQuestionId: null,
+          nextQuestionCode: null,
         },
         {
           code: '183150',
@@ -1507,7 +1507,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           label: 'Please state where on person mobile phone was found:',
           commentRequired: true,
           dateRequired: false,
-          nextQuestionId: '45224',
+          nextQuestionCode: '45224',
         },
       ],
     },
@@ -1525,7 +1525,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           label: 'Yes',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: null,
+          nextQuestionCode: null,
         },
         {
           code: '182903',
@@ -1534,7 +1534,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           label: 'No',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: null,
+          nextQuestionCode: null,
         },
         {
           code: '183151',
@@ -1543,7 +1543,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           label: 'Yes',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '45225',
+          nextQuestionCode: '45225',
         },
         {
           code: '183152',
@@ -1552,7 +1552,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           label: 'No',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '45226',
+          nextQuestionCode: '45226',
         },
       ],
     },
@@ -1570,7 +1570,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           label: 'Yes: please state why',
           commentRequired: true,
           dateRequired: false,
-          nextQuestionId: null,
+          nextQuestionCode: null,
         },
         {
           code: '182905',
@@ -1579,7 +1579,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           label: 'No',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: null,
+          nextQuestionCode: null,
         },
         {
           code: '183153',
@@ -1588,7 +1588,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           label: 'Yes: please state why',
           commentRequired: true,
           dateRequired: false,
-          nextQuestionId: '45226',
+          nextQuestionCode: '45226',
         },
         {
           code: '183154',
@@ -1597,7 +1597,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           label: 'No',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '45226',
+          nextQuestionCode: '45226',
         },
       ],
     },
@@ -1615,7 +1615,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           label: 'Yes',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: null,
+          nextQuestionCode: null,
         },
         {
           code: '182907',
@@ -1624,7 +1624,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           label: 'No: please state why',
           commentRequired: true,
           dateRequired: false,
-          nextQuestionId: null,
+          nextQuestionCode: null,
         },
         {
           code: '183155',
@@ -1633,7 +1633,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           label: 'Yes',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '45227',
+          nextQuestionCode: '45227',
         },
         {
           code: '183156',
@@ -1642,7 +1642,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           label: 'No: please state why',
           commentRequired: true,
           dateRequired: false,
-          nextQuestionId: '45227',
+          nextQuestionCode: '45227',
         },
       ],
     },
@@ -1660,7 +1660,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           label: 'Yes',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: null,
+          nextQuestionCode: null,
         },
         {
           code: '182909',
@@ -1669,7 +1669,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           label: 'No',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: null,
+          nextQuestionCode: null,
         },
         {
           code: '183157',
@@ -1678,7 +1678,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           label: 'Yes',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '45228',
+          nextQuestionCode: '45228',
         },
         {
           code: '183158',
@@ -1687,7 +1687,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           label: 'No',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '45228',
+          nextQuestionCode: '45228',
         },
       ],
     },
@@ -1705,7 +1705,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           label: 'Yes',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: null,
+          nextQuestionCode: null,
         },
         {
           code: '182911',
@@ -1714,7 +1714,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           label: 'No',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: null,
+          nextQuestionCode: null,
         },
         {
           code: '183159',
@@ -1723,7 +1723,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           label: 'Yes',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '45229',
+          nextQuestionCode: '45229',
         },
         {
           code: '183160',
@@ -1732,7 +1732,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           label: 'No',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '45229',
+          nextQuestionCode: '45229',
         },
       ],
     },
@@ -1750,7 +1750,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           label: 'Yes',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: null,
+          nextQuestionCode: null,
         },
         {
           code: '182913',
@@ -1759,7 +1759,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           label: 'No',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: null,
+          nextQuestionCode: null,
         },
         {
           code: '183161',
@@ -1768,7 +1768,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           label: 'Yes',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '45230',
+          nextQuestionCode: '45230',
         },
         {
           code: '183162',
@@ -1777,7 +1777,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           label: 'No',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '45230',
+          nextQuestionCode: '45230',
         },
       ],
     },
@@ -1795,7 +1795,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           label: 'Yes',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: null,
+          nextQuestionCode: null,
         },
         {
           code: '182915',
@@ -1804,7 +1804,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           label: 'No',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: null,
+          nextQuestionCode: null,
         },
         {
           code: '183163',
@@ -1813,7 +1813,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           label: 'Yes',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '45231',
+          nextQuestionCode: '45231',
         },
         {
           code: '183164',
@@ -1822,7 +1822,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           label: 'No',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '45231',
+          nextQuestionCode: '45231',
         },
       ],
     },
@@ -1840,7 +1840,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           label: 'Yes: date',
           commentRequired: true,
           dateRequired: true,
-          nextQuestionId: null,
+          nextQuestionCode: null,
         },
         {
           code: '182917',
@@ -1849,7 +1849,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           label: 'No',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: null,
+          nextQuestionCode: null,
         },
         {
           code: '183165',
@@ -1858,7 +1858,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           label: 'Yes: date',
           commentRequired: true,
           dateRequired: true,
-          nextQuestionId: '45232',
+          nextQuestionCode: '45232',
         },
         {
           code: '183166',
@@ -1867,7 +1867,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           label: 'No',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '45232',
+          nextQuestionCode: '45232',
         },
       ],
     },
@@ -1885,7 +1885,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           label: 'HSE',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: null,
+          nextQuestionCode: null,
         },
         {
           code: '182919',
@@ -1894,7 +1894,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           label: 'Local male',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: null,
+          nextQuestionCode: null,
         },
         {
           code: '182920',
@@ -1903,7 +1903,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           label: 'Cat b male',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: null,
+          nextQuestionCode: null,
         },
         {
           code: '182921',
@@ -1912,7 +1912,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           label: 'Cat c male',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: null,
+          nextQuestionCode: null,
         },
         {
           code: '182922',
@@ -1921,7 +1921,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           label: 'Open male',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: null,
+          nextQuestionCode: null,
         },
         {
           code: '182923',
@@ -1930,7 +1930,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           label: 'Cluster',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: null,
+          nextQuestionCode: null,
         },
         {
           code: '182924',
@@ -1939,7 +1939,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           label: 'YOI male',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: null,
+          nextQuestionCode: null,
         },
         {
           code: '182925',
@@ -1948,7 +1948,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           label: 'Young people',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: null,
+          nextQuestionCode: null,
         },
         {
           code: '182926',
@@ -1957,7 +1957,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           label: 'Female estate',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: null,
+          nextQuestionCode: null,
         },
         {
           code: '183167',
@@ -1966,7 +1966,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           label: 'HSE',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '45233',
+          nextQuestionCode: '45233',
         },
         {
           code: '183168',
@@ -1975,7 +1975,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           label: 'Local male',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '45233',
+          nextQuestionCode: '45233',
         },
         {
           code: '183169',
@@ -1984,7 +1984,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           label: 'Cat b male',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '45233',
+          nextQuestionCode: '45233',
         },
         {
           code: '183170',
@@ -1993,7 +1993,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           label: 'Cat c male',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '45233',
+          nextQuestionCode: '45233',
         },
         {
           code: '183171',
@@ -2002,7 +2002,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           label: 'Open male',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '45233',
+          nextQuestionCode: '45233',
         },
         {
           code: '183172',
@@ -2011,7 +2011,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           label: 'Cluster',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '45233',
+          nextQuestionCode: '45233',
         },
         {
           code: '183173',
@@ -2020,7 +2020,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           label: 'YOI male',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '45233',
+          nextQuestionCode: '45233',
         },
         {
           code: '183174',
@@ -2029,7 +2029,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           label: 'Young people',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '45233',
+          nextQuestionCode: '45233',
         },
         {
           code: '183175',
@@ -2038,7 +2038,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           label: 'Female estate',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '45233',
+          nextQuestionCode: '45233',
         },
       ],
     },
@@ -2056,7 +2056,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           label: 'Enter establishment name in comments:',
           commentRequired: true,
           dateRequired: false,
-          nextQuestionId: null,
+          nextQuestionCode: null,
         },
         {
           code: '183176',
@@ -2065,7 +2065,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           label: 'Enter establishment name in comments:',
           commentRequired: true,
           dateRequired: false,
-          nextQuestionId: '45234',
+          nextQuestionCode: '45234',
         },
       ],
     },
@@ -2083,7 +2083,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           label: 'High security',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: null,
+          nextQuestionCode: null,
         },
         {
           code: '182929',
@@ -2092,7 +2092,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           label: 'East midlands',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: null,
+          nextQuestionCode: null,
         },
         {
           code: '182930',
@@ -2101,7 +2101,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           label: 'West midlands',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: null,
+          nextQuestionCode: null,
         },
         {
           code: '182931',
@@ -2110,7 +2110,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           label: 'Greater london',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: null,
+          nextQuestionCode: null,
         },
         {
           code: '182932',
@@ -2119,7 +2119,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           label: 'South west',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: null,
+          nextQuestionCode: null,
         },
         {
           code: '182933',
@@ -2128,7 +2128,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           label: 'Kent & sussex',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: null,
+          nextQuestionCode: null,
         },
         {
           code: '182934',
@@ -2137,7 +2137,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           label: 'North east',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: null,
+          nextQuestionCode: null,
         },
         {
           code: '182935',
@@ -2146,7 +2146,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           label: 'South central',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: null,
+          nextQuestionCode: null,
         },
         {
           code: '182936',
@@ -2155,7 +2155,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           label: 'East of england',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: null,
+          nextQuestionCode: null,
         },
         {
           code: '182937',
@@ -2164,7 +2164,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           label: 'North west',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: null,
+          nextQuestionCode: null,
         },
         {
           code: '182938',
@@ -2173,7 +2173,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           label: 'Wales',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: null,
+          nextQuestionCode: null,
         },
         {
           code: '182939',
@@ -2182,7 +2182,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           label: 'Yorkshire & humberside',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: null,
+          nextQuestionCode: null,
         },
         {
           code: '182940',
@@ -2191,7 +2191,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           label: 'Contracted',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: null,
+          nextQuestionCode: null,
         },
       ],
     },
@@ -2209,7 +2209,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           label: 'Mobile:',
           commentRequired: true,
           dateRequired: false,
-          nextQuestionId: '45210',
+          nextQuestionCode: '45210',
         },
         {
           code: '192685',
@@ -2218,7 +2218,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           label: 'SIM:',
           commentRequired: true,
           dateRequired: false,
-          nextQuestionId: '45210',
+          nextQuestionCode: '45210',
         },
         {
           code: '192686',
@@ -2227,7 +2227,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           label: 'Charger:',
           commentRequired: true,
           dateRequired: false,
-          nextQuestionId: '45210',
+          nextQuestionCode: '45210',
         },
         {
           code: '192687',
@@ -2236,7 +2236,7 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
           label: 'Other please specify:',
           commentRequired: true,
           dateRequired: false,
-          nextQuestionId: '45210',
+          nextQuestionCode: '45210',
         },
       ],
     },

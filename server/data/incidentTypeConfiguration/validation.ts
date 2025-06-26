@@ -8,12 +8,12 @@ export function validateConfig(config: IncidentTypeConfiguration): Error[] {
   const configGraph = buildConfigGraph(config)
 
   checkStartingQuestion(config, errors)
-  checkIdsDontIncludeHyphens(config, errors)
+  checkCodesDontIncludeHyphens(config, errors)
   checkQuestionsWithoutAnswers(config, errors)
   checkMultipleChoicesNextQuestions(config, errors)
   checkUnknownQuestions(configGraph, errors)
 
-  const dfsResult = configGraph.dfs(config.startingQuestionId)
+  const dfsResult = configGraph.dfs(config.startingQuestionCode)
   checkUnreachableQuestions(configGraph, dfsResult, errors)
   checkCycles(dfsResult, errors)
 
@@ -23,15 +23,15 @@ export function validateConfig(config: IncidentTypeConfiguration): Error[] {
 }
 
 function checkStartingQuestion(config: IncidentTypeConfiguration, errors: Error[]): void {
-  if (config.startingQuestionId === null) {
-    errors.push(new Error('startingQuestionId is null'))
-  } else if (config.startingQuestionId === undefined) {
-    errors.push(new Error('startingQuestionId is undefined'))
-  } else if (config.startingQuestionId.length === 0) {
-    errors.push(new Error('startingQuestionId is empty string'))
+  if (config.startingQuestionCode === null) {
+    errors.push(new Error('startingQuestionCode is null'))
+  } else if (config.startingQuestionCode === undefined) {
+    errors.push(new Error('startingQuestionCode is undefined'))
+  } else if (config.startingQuestionCode.length === 0) {
+    errors.push(new Error('startingQuestionCode is empty string'))
   }
 
-  const startingQuestion = config?.questions[config.startingQuestionId]
+  const startingQuestion = config?.questions[config.startingQuestionCode]
   if (!startingQuestion) {
     errors.push(new Error('starting question is unknown'))
   } else if (startingQuestion?.active !== true) {
@@ -39,7 +39,7 @@ function checkStartingQuestion(config: IncidentTypeConfiguration, errors: Error[
   }
 }
 
-function checkIdsDontIncludeHyphens(config: IncidentTypeConfiguration, errors: Error[]): void {
+function checkCodesDontIncludeHyphens(config: IncidentTypeConfiguration, errors: Error[]): void {
   Object.values(config.questions)
     .filter(question => question.active)
     .forEach(question => {
@@ -73,15 +73,15 @@ function checkMultipleChoicesNextQuestions(config: IncidentTypeConfiguration, er
   const multipleChoicesQs = activeQs.filter(q => q.multipleAnswers)
   const invalidQs = multipleChoicesQs.filter(q => {
     const activeAs = q.answers.filter(a => a.active)
-    const nextQuestionIds = new Set(activeAs.map(a => a.nextQuestionId))
-    return nextQuestionIds.size > 1
+    const nextQuestionCodes = new Set(activeAs.map(a => a.nextQuestionCode))
+    return nextQuestionCodes.size > 1
   })
 
   if (invalidQs.length > 0) {
-    const invalidQuestionsIds = invalidQs.map(q => q.code)
+    const invalidQuestionsCodes = invalidQs.map(q => q.code)
     errors.push(
       new Error(
-        `the following multiple choices questions can lead to different next questions: ${invalidQuestionsIds.join(', ')}`,
+        `the following multiple choices questions can lead to different next questions: ${invalidQuestionsCodes.join(', ')}`,
       ),
     )
   }
@@ -110,7 +110,7 @@ function buildConfigGraph(config: IncidentTypeConfiguration): Graph<string> {
   for (const question of activeQuestions) {
     const activeAnswers = question.answers.filter(ans => ans.active === true)
     for (const answer of activeAnswers) {
-      graph.addEdge(question.code, answer.nextQuestionId)
+      graph.addEdge(question.code, answer.nextQuestionCode)
     }
   }
 

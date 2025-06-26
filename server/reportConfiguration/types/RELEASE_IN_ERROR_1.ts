@@ -5,7 +5,7 @@ import type { IncidentTypeConfiguration } from '../../data/incidentTypeConfigura
 export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
   incidentType: 'RELEASE_IN_ERROR_1',
   active: true,
-  startingQuestionId: '45179',
+  startingQuestionCode: '45179',
   questions: {
     '45179': {
       code: '45179',
@@ -21,7 +21,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           label: 'Bail',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: null,
+          nextQuestionCode: null,
         },
         {
           code: '182685',
@@ -30,7 +30,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           label: 'Final discharge/end of sentence',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: null,
+          nextQuestionCode: null,
         },
         {
           code: '182686',
@@ -39,7 +39,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           label: 'Police production',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: null,
+          nextQuestionCode: null,
         },
         {
           code: '182687',
@@ -48,7 +48,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           label: 'Court production/PEMS',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: null,
+          nextQuestionCode: null,
         },
         {
           code: '182688',
@@ -57,7 +57,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           label: 'Escort - HMPS',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: null,
+          nextQuestionCode: null,
         },
         {
           code: '182689',
@@ -66,7 +66,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           label: 'Other: please explain',
           commentRequired: true,
           dateRequired: false,
-          nextQuestionId: null,
+          nextQuestionCode: null,
         },
         {
           code: '183020',
@@ -75,7 +75,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           label: 'Bail',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '45180',
+          nextQuestionCode: '45180',
         },
         {
           code: '183021',
@@ -84,7 +84,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           label: 'Final discharge/end of sentence',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '45180',
+          nextQuestionCode: '45180',
         },
         {
           code: '183022',
@@ -93,7 +93,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           label: 'Police production',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '45180',
+          nextQuestionCode: '45180',
         },
         {
           code: '183023',
@@ -102,7 +102,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           label: 'Court production/PEMS',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '45180',
+          nextQuestionCode: '45180',
         },
         {
           code: '183024',
@@ -111,7 +111,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           label: 'Escort – HMPS',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '45180',
+          nextQuestionCode: '45180',
         },
         {
           code: '183025',
@@ -120,7 +120,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           label: 'Other : please explain',
           commentRequired: true,
           dateRequired: false,
-          nextQuestionId: '45180',
+          nextQuestionCode: '45180',
         },
         {
           code: '184685',
@@ -129,7 +129,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           label: 'Court production/PEMS',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '45180',
+          nextQuestionCode: '45180',
         },
       ],
     },
@@ -147,7 +147,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           label: 'Establishment: enter name',
           commentRequired: true,
           dateRequired: false,
-          nextQuestionId: null,
+          nextQuestionCode: null,
         },
         {
           code: '182691',
@@ -156,7 +156,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           label: 'Court: enter name',
           commentRequired: true,
           dateRequired: false,
-          nextQuestionId: null,
+          nextQuestionCode: null,
         },
         {
           code: '182692',
@@ -165,7 +165,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           label: 'Other: please enter details',
           commentRequired: true,
           dateRequired: false,
-          nextQuestionId: null,
+          nextQuestionCode: null,
         },
         {
           code: '183026',
@@ -174,7 +174,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           label: 'Establishment : enter name',
           commentRequired: true,
           dateRequired: false,
-          nextQuestionId: '45181',
+          nextQuestionCode: '45181',
         },
         {
           code: '183027',
@@ -183,7 +183,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           label: 'Court : enter name',
           commentRequired: true,
           dateRequired: false,
-          nextQuestionId: '45181',
+          nextQuestionCode: '45181',
         },
         {
           code: '183028',
@@ -192,7 +192,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           label: 'Other : please enter details',
           commentRequired: true,
           dateRequired: false,
-          nextQuestionId: '45181',
+          nextQuestionCode: '45181',
         },
       ],
     },
@@ -210,7 +210,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           label: 'Wrong person released',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: null,
+          nextQuestionCode: null,
         },
         {
           code: '182694',
@@ -219,7 +219,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           label: 'Sentence miscalculated',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: null,
+          nextQuestionCode: null,
         },
         {
           code: '182695',
@@ -228,7 +228,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           label: 'ADA not included in calculations',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: null,
+          nextQuestionCode: null,
         },
         {
           code: '182696',
@@ -237,7 +237,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           label: 'Immigration warrant not applied/misfiled/missing',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: null,
+          nextQuestionCode: null,
         },
         {
           code: '182697',
@@ -246,7 +246,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           label: 'Remand warrant not applied/misfiled/missing',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: null,
+          nextQuestionCode: null,
         },
         {
           code: '182698',
@@ -255,7 +255,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           label: 'Imprisonment warrant not applied/misfiled/missing',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: null,
+          nextQuestionCode: null,
         },
         {
           code: '182699',
@@ -264,7 +264,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           label: 'Civil/non payment of fines warrant not applied/misfiled/missing',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: null,
+          nextQuestionCode: null,
         },
         {
           code: '182700',
@@ -273,7 +273,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           label: 'Bail conditions not fully met',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: null,
+          nextQuestionCode: null,
         },
         {
           code: '182701',
@@ -282,7 +282,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           label: 'Release criteria not met',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: null,
+          nextQuestionCode: null,
         },
         {
           code: '182702',
@@ -291,7 +291,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           label: 'Recall procedures not applied',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: null,
+          nextQuestionCode: null,
         },
         {
           code: '182703',
@@ -300,7 +300,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           label: 'Other: please explain',
           commentRequired: true,
           dateRequired: false,
-          nextQuestionId: null,
+          nextQuestionCode: null,
         },
         {
           code: '183029',
@@ -309,7 +309,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           label: 'Wrong person released',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '45182',
+          nextQuestionCode: '45182',
         },
         {
           code: '183030',
@@ -318,7 +318,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           label: 'Sentence miscalculated',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '45182',
+          nextQuestionCode: '45182',
         },
         {
           code: '183031',
@@ -327,7 +327,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           label: 'ADA not included on calculations',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '45182',
+          nextQuestionCode: '45182',
         },
         {
           code: '183032',
@@ -336,7 +336,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           label: 'Immigration warrant not applied/misfiled/missing',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '45182',
+          nextQuestionCode: '45182',
         },
         {
           code: '183033',
@@ -345,7 +345,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           label: 'Remand warrant not applied/misfiled/missing',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '45182',
+          nextQuestionCode: '45182',
         },
         {
           code: '183034',
@@ -354,7 +354,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           label: 'Imprisonment warrant not applied/misfiled/missing',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '45182',
+          nextQuestionCode: '45182',
         },
         {
           code: '183035',
@@ -363,7 +363,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           label: 'Civil/non payment of fines warrant not applied/misfiled/missing',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '45182',
+          nextQuestionCode: '45182',
         },
         {
           code: '183036',
@@ -372,7 +372,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           label: 'Bail conditions not fully met',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '45182',
+          nextQuestionCode: '45182',
         },
         {
           code: '183037',
@@ -381,7 +381,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           label: 'Release criteria not met',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '45182',
+          nextQuestionCode: '45182',
         },
         {
           code: '183038',
@@ -390,7 +390,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           label: 'Recall procedures not applied',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '45182',
+          nextQuestionCode: '45182',
         },
         {
           code: '183039',
@@ -399,7 +399,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           label: 'Other : please explain',
           commentRequired: true,
           dateRequired: false,
-          nextQuestionId: '45182',
+          nextQuestionCode: '45182',
         },
       ],
     },
@@ -417,7 +417,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           label: 'Recall procedures',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: null,
+          nextQuestionCode: null,
         },
         {
           code: '182705',
@@ -426,7 +426,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           label: 'Home probation officer',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: null,
+          nextQuestionCode: null,
         },
         {
           code: '182706',
@@ -435,7 +435,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           label: 'Prisoner contacted',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: null,
+          nextQuestionCode: null,
         },
         {
           code: '182707',
@@ -444,7 +444,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           label: 'Court contacted',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: null,
+          nextQuestionCode: null,
         },
         {
           code: '182708',
@@ -453,7 +453,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           label: 'Police contacted',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: null,
+          nextQuestionCode: null,
         },
         {
           code: '182709',
@@ -462,7 +462,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           label: 'Other: please explain',
           commentRequired: true,
           dateRequired: false,
-          nextQuestionId: null,
+          nextQuestionCode: null,
         },
         {
           code: '182710',
@@ -471,7 +471,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           label: 'None - explain why none of the above procedures have been actioned',
           commentRequired: true,
           dateRequired: false,
-          nextQuestionId: null,
+          nextQuestionCode: null,
         },
         {
           code: '183040',
@@ -480,7 +480,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           label: 'Recall procedures',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '45183',
+          nextQuestionCode: '45183',
         },
         {
           code: '183041',
@@ -489,7 +489,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           label: 'Home probation officer',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '45183',
+          nextQuestionCode: '45183',
         },
         {
           code: '183042',
@@ -498,7 +498,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           label: 'Prisoner contacted',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '45183',
+          nextQuestionCode: '45183',
         },
         {
           code: '183043',
@@ -507,7 +507,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           label: 'Court contacted',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '45183',
+          nextQuestionCode: '45183',
         },
         {
           code: '183044',
@@ -516,7 +516,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           label: 'Police contacted',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '45183',
+          nextQuestionCode: '45183',
         },
         {
           code: '183045',
@@ -525,7 +525,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           label: 'Other : please explain',
           commentRequired: true,
           dateRequired: false,
-          nextQuestionId: '45183',
+          nextQuestionCode: '45183',
         },
         {
           code: '183046',
@@ -534,7 +534,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           label: 'None - explain why none of the above procedures have been actioned',
           commentRequired: true,
           dateRequired: false,
-          nextQuestionId: '45183',
+          nextQuestionCode: '45183',
         },
       ],
     },
@@ -552,7 +552,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           label: 'Contact from PEMS',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: null,
+          nextQuestionCode: null,
         },
         {
           code: '182712',
@@ -561,7 +561,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           label: 'Contact from courts',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: null,
+          nextQuestionCode: null,
         },
         {
           code: '182713',
@@ -570,7 +570,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           label: 'Contact from UKBA',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: null,
+          nextQuestionCode: null,
         },
         {
           code: '182714',
@@ -579,7 +579,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           label: 'Contact from police',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: null,
+          nextQuestionCode: null,
         },
         {
           code: '182715',
@@ -588,7 +588,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           label: 'Post release check by establishment',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: null,
+          nextQuestionCode: null,
         },
         {
           code: '182716',
@@ -597,7 +597,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           label: 'Contact from other agency: please enter details',
           commentRequired: true,
           dateRequired: false,
-          nextQuestionId: null,
+          nextQuestionCode: null,
         },
         {
           code: '182717',
@@ -606,7 +606,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           label: 'Sentence calculations',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: null,
+          nextQuestionCode: null,
         },
         {
           code: '182718',
@@ -615,7 +615,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           label: 'Other: please explain',
           commentRequired: true,
           dateRequired: false,
-          nextQuestionId: null,
+          nextQuestionCode: null,
         },
         {
           code: '183047',
@@ -624,7 +624,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           label: 'Contact from PEMS',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '45184',
+          nextQuestionCode: '45184',
         },
         {
           code: '183048',
@@ -633,7 +633,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           label: 'Contact from courts',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '45184',
+          nextQuestionCode: '45184',
         },
         {
           code: '183049',
@@ -642,7 +642,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           label: 'Contact from UKBA',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '45184',
+          nextQuestionCode: '45184',
         },
         {
           code: '183050',
@@ -651,7 +651,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           label: 'Contact from police',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '45184',
+          nextQuestionCode: '45184',
         },
         {
           code: '183051',
@@ -660,7 +660,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           label: 'Post release check by establishment',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '45184',
+          nextQuestionCode: '45184',
         },
         {
           code: '183052',
@@ -669,7 +669,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           label: 'Contact from other agency : please enter details',
           commentRequired: true,
           dateRequired: false,
-          nextQuestionId: '45184',
+          nextQuestionCode: '45184',
         },
         {
           code: '183053',
@@ -678,7 +678,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           label: 'Sentence calculations (new receptions)',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '45184',
+          nextQuestionCode: '45184',
         },
         {
           code: '183054',
@@ -687,7 +687,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           label: 'Other: please explain',
           commentRequired: true,
           dateRequired: false,
-          nextQuestionId: '45184',
+          nextQuestionCode: '45184',
         },
         {
           code: '184686',
@@ -696,7 +696,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           label: 'Contact from PEMS',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '45184',
+          nextQuestionCode: '45184',
         },
       ],
     },
@@ -714,7 +714,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           label: 'Date:',
           commentRequired: false,
           dateRequired: true,
-          nextQuestionId: null,
+          nextQuestionCode: null,
         },
         {
           code: '183055',
@@ -723,7 +723,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           label: 'Date:',
           commentRequired: false,
           dateRequired: true,
-          nextQuestionId: '45185',
+          nextQuestionCode: '45185',
         },
       ],
     },
@@ -741,7 +741,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           label: 'Enter details:',
           commentRequired: true,
           dateRequired: false,
-          nextQuestionId: null,
+          nextQuestionCode: null,
         },
         {
           code: '183056',
@@ -750,7 +750,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           label: 'Enter details:',
           commentRequired: true,
           dateRequired: false,
-          nextQuestionId: '45186',
+          nextQuestionCode: '45186',
         },
       ],
     },
@@ -768,7 +768,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           label: 'Sentenced prisoner',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: null,
+          nextQuestionCode: null,
         },
         {
           code: '182722',
@@ -777,7 +777,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           label: 'Remand prisoner',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: null,
+          nextQuestionCode: null,
         },
         {
           code: '182723',
@@ -786,7 +786,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           label: 'Immigration detainee',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: null,
+          nextQuestionCode: null,
         },
         {
           code: '182724',
@@ -795,7 +795,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           label: 'Recall prisoner',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: null,
+          nextQuestionCode: null,
         },
         {
           code: '182725',
@@ -804,7 +804,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           label: 'Civil prisoner',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: null,
+          nextQuestionCode: null,
         },
         {
           code: '183057',
@@ -813,7 +813,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           label: 'Sentenced prisoner',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '45189',
+          nextQuestionCode: '45189',
         },
         {
           code: '183058',
@@ -822,7 +822,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           label: 'Remand prisoner',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '45189',
+          nextQuestionCode: '45189',
         },
         {
           code: '183059',
@@ -831,7 +831,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           label: 'Immigration detainee',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '45189',
+          nextQuestionCode: '45189',
         },
         {
           code: '183060',
@@ -840,7 +840,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           label: 'Recall prisoner',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '45189',
+          nextQuestionCode: '45189',
         },
         {
           code: '183061',
@@ -849,7 +849,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           label: 'Civil prisoner',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '45189',
+          nextQuestionCode: '45189',
         },
       ],
     },
@@ -867,7 +867,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           label: 'Yes: date',
           commentRequired: false,
           dateRequired: true,
-          nextQuestionId: null,
+          nextQuestionCode: null,
         },
         {
           code: '182727',
@@ -876,7 +876,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           label: 'Police incident number:',
           commentRequired: true,
           dateRequired: false,
-          nextQuestionId: null,
+          nextQuestionCode: null,
         },
         {
           code: '182728',
@@ -885,7 +885,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           label: 'No',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: null,
+          nextQuestionCode: null,
         },
       ],
     },
@@ -903,7 +903,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           label: 'Yes: date',
           commentRequired: false,
           dateRequired: true,
-          nextQuestionId: null,
+          nextQuestionCode: null,
         },
         {
           code: '182730',
@@ -912,7 +912,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           label: 'No',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: null,
+          nextQuestionCode: null,
         },
         {
           code: '182731',
@@ -921,7 +921,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           label: 'Incident ref no:',
           commentRequired: true,
           dateRequired: false,
-          nextQuestionId: null,
+          nextQuestionCode: null,
         },
         {
           code: '183065',
@@ -930,7 +930,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           label: 'Yes: date',
           commentRequired: false,
           dateRequired: true,
-          nextQuestionId: '45190',
+          nextQuestionCode: '45190',
         },
         {
           code: '183066',
@@ -939,7 +939,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           label: 'Incident ref no:',
           commentRequired: true,
           dateRequired: false,
-          nextQuestionId: '45190',
+          nextQuestionCode: '45190',
         },
         {
           code: '183067',
@@ -948,7 +948,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           label: 'No',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '45190',
+          nextQuestionCode: '45190',
         },
       ],
     },
@@ -966,7 +966,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           label: 'Yes: date',
           commentRequired: false,
           dateRequired: true,
-          nextQuestionId: null,
+          nextQuestionCode: null,
         },
         {
           code: '182733',
@@ -975,7 +975,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           label: 'Police incident number:',
           commentRequired: true,
           dateRequired: false,
-          nextQuestionId: null,
+          nextQuestionCode: null,
         },
         {
           code: '182734',
@@ -984,7 +984,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           label: 'No',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: null,
+          nextQuestionCode: null,
         },
         {
           code: '183062',
@@ -993,7 +993,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           label: 'Yes: date',
           commentRequired: false,
           dateRequired: true,
-          nextQuestionId: '45188',
+          nextQuestionCode: '45188',
         },
         {
           code: '183063',
@@ -1002,7 +1002,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           label: 'Police incident number:',
           commentRequired: true,
           dateRequired: false,
-          nextQuestionId: '45188',
+          nextQuestionCode: '45188',
         },
         {
           code: '183064',
@@ -1011,7 +1011,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           label: 'No',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '45188',
+          nextQuestionCode: '45188',
         },
       ],
     },
@@ -1029,7 +1029,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           label: 'Yes',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: null,
+          nextQuestionCode: null,
         },
         {
           code: '182736',
@@ -1038,7 +1038,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           label: 'No',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: null,
+          nextQuestionCode: null,
         },
         {
           code: '182737',
@@ -1047,7 +1047,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           label: 'Other: please enter details',
           commentRequired: true,
           dateRequired: false,
-          nextQuestionId: null,
+          nextQuestionCode: null,
         },
         {
           code: '183068',
@@ -1056,7 +1056,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           label: 'Yes',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '45191',
+          nextQuestionCode: '45191',
         },
         {
           code: '183069',
@@ -1065,7 +1065,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           label: 'No',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '45191',
+          nextQuestionCode: '45191',
         },
         {
           code: '183070',
@@ -1074,7 +1074,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           label: 'Other: please enter details',
           commentRequired: true,
           dateRequired: false,
-          nextQuestionId: '45191',
+          nextQuestionCode: '45191',
         },
         {
           code: '184684',
@@ -1083,7 +1083,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           label: 'No',
           commentRequired: true,
           dateRequired: false,
-          nextQuestionId: null,
+          nextQuestionCode: null,
         },
       ],
     },
@@ -1101,7 +1101,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           label: 'Date:',
           commentRequired: false,
           dateRequired: true,
-          nextQuestionId: null,
+          nextQuestionCode: null,
         },
         {
           code: '183071',
@@ -1110,7 +1110,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           label: 'Date:',
           commentRequired: false,
           dateRequired: true,
-          nextQuestionId: '45192',
+          nextQuestionCode: '45192',
         },
       ],
     },
@@ -1128,7 +1128,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           label: 'Yes: please enter details of offence',
           commentRequired: true,
           dateRequired: false,
-          nextQuestionId: null,
+          nextQuestionCode: null,
         },
         {
           code: '182740',
@@ -1137,7 +1137,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           label: 'No',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: null,
+          nextQuestionCode: null,
         },
         {
           code: '183072',
@@ -1146,7 +1146,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           label: 'Yes: please enter details of offence',
           commentRequired: true,
           dateRequired: false,
-          nextQuestionId: '45193',
+          nextQuestionCode: '45193',
         },
         {
           code: '183073',
@@ -1155,7 +1155,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           label: 'No',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: '45193',
+          nextQuestionCode: '45193',
         },
       ],
     },
@@ -1173,7 +1173,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           label: 'Enter details:',
           commentRequired: true,
           dateRequired: false,
-          nextQuestionId: null,
+          nextQuestionCode: null,
         },
         {
           code: '183074',
@@ -1182,7 +1182,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           label: 'Enter details:',
           commentRequired: true,
           dateRequired: false,
-          nextQuestionId: '45235',
+          nextQuestionCode: '45235',
         },
       ],
     },
@@ -1200,7 +1200,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           label: 'Enter value',
           commentRequired: false,
           dateRequired: false,
-          nextQuestionId: null,
+          nextQuestionCode: null,
         },
       ],
     },
@@ -1218,7 +1218,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           label: 'Hours',
           commentRequired: true,
           dateRequired: false,
-          nextQuestionId: null,
+          nextQuestionCode: null,
         },
         {
           code: '182744',
@@ -1227,7 +1227,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           label: 'Days',
           commentRequired: true,
           dateRequired: false,
-          nextQuestionId: null,
+          nextQuestionCode: null,
         },
         {
           code: '182745',
@@ -1236,7 +1236,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           label: 'Weeks',
           commentRequired: true,
           dateRequired: false,
-          nextQuestionId: null,
+          nextQuestionCode: null,
         },
         {
           code: '182746',
@@ -1245,7 +1245,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           label: 'Months',
           commentRequired: true,
           dateRequired: false,
-          nextQuestionId: null,
+          nextQuestionCode: null,
         },
         {
           code: '182747',
@@ -1254,7 +1254,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           label: 'Other',
           commentRequired: true,
           dateRequired: false,
-          nextQuestionId: null,
+          nextQuestionCode: null,
         },
       ],
     },
@@ -1272,7 +1272,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           label: 'Hours',
           commentRequired: true,
           dateRequired: false,
-          nextQuestionId: null,
+          nextQuestionCode: null,
         },
         {
           code: '183076',
@@ -1281,7 +1281,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           label: 'Days',
           commentRequired: true,
           dateRequired: false,
-          nextQuestionId: null,
+          nextQuestionCode: null,
         },
         {
           code: '183077',
@@ -1290,7 +1290,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           label: 'Weeks',
           commentRequired: true,
           dateRequired: false,
-          nextQuestionId: null,
+          nextQuestionCode: null,
         },
         {
           code: '183078',
@@ -1299,7 +1299,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           label: 'Months',
           commentRequired: true,
           dateRequired: false,
-          nextQuestionId: null,
+          nextQuestionCode: null,
         },
         {
           code: '183079',
@@ -1308,7 +1308,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           label: 'Other',
           commentRequired: true,
           dateRequired: false,
-          nextQuestionId: null,
+          nextQuestionCode: null,
         },
       ],
     },

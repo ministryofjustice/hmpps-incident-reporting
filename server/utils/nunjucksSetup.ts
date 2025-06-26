@@ -30,6 +30,7 @@ import {
 import { isBeingTransferred, isOutside, isInPrison } from '../data/offenderSearchApi'
 import format from './format'
 import { isLocationActiveInService, isPrisonActiveInService } from '../middleware/permissions'
+import { sortCorrectionRequests } from './sortCorrectionRequests'
 
 export default function nunjucksSetup(app: express.Express): void {
   app.set('view engine', 'njk')
@@ -87,6 +88,7 @@ export default function nunjucksSetup(app: express.Express): void {
   })
   njkEnv.addGlobal('now', () => new Date())
   njkEnv.addExtension('panic', new PanicExtension())
+  njkEnv.addFilter('sortCorrectionRequests', sortCorrectionRequests)
 
   // name formatting
   njkEnv.addFilter('convertToTitleCase', convertToTitleCase)

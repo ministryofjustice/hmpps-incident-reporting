@@ -8,7 +8,7 @@ export const DEATH_OTHER_1: IncidentTypeConfiguration = {
   startingQuestionId: '45054',
   questions: {
     '44130': {
-      id: '44130',
+      code: '44130',
       active: true,
       question: 'NAME OF DECEASED',
       label: 'Name of deceased',
@@ -26,7 +26,7 @@ export const DEATH_OTHER_1: IncidentTypeConfiguration = {
       ],
     },
     '44142': {
-      id: '44142',
+      code: '44142',
       active: true,
       question: 'HAS THE PRISON SERVICE PRESS OFFICE BEEN INFORMED',
       label: 'Has the prison service press office been informed?',
@@ -53,7 +53,7 @@ export const DEATH_OTHER_1: IncidentTypeConfiguration = {
       ],
     },
     '44237': {
-      id: '44237',
+      code: '44237',
       active: true,
       question: 'WHAT VERDICT DID THE INQUEST REACH',
       label: 'What verdict did the inquest reach?',
@@ -116,7 +116,7 @@ export const DEATH_OTHER_1: IncidentTypeConfiguration = {
       ],
     },
     '44248': {
-      id: '44248',
+      code: '44248',
       active: true,
       question: 'WHO PRONOUNCED DEATH',
       label: 'Who pronounced death?',
@@ -152,7 +152,7 @@ export const DEATH_OTHER_1: IncidentTypeConfiguration = {
       ],
     },
     '44350': {
-      id: '44350',
+      code: '44350',
       active: true,
       question: 'HAS AN INQUEST BEEN HELD',
       label: 'Has an inquest been held?',
@@ -179,7 +179,7 @@ export const DEATH_OTHER_1: IncidentTypeConfiguration = {
       ],
     },
     '44382': {
-      id: '44382',
+      code: '44382',
       active: true,
       question: 'IS THE DEATH SUBJECT TO A HEALTH AND SAFETY INVESTIGATION',
       label: 'Is the death subject to a health and safety investigation?',
@@ -206,7 +206,7 @@ export const DEATH_OTHER_1: IncidentTypeConfiguration = {
       ],
     },
     '44392': {
-      id: '44392',
+      code: '44392',
       active: true,
       question: 'STATUS OF DECEASED',
       label: 'Status of deceased',
@@ -251,7 +251,7 @@ export const DEATH_OTHER_1: IncidentTypeConfiguration = {
       ],
     },
     '44395': {
-      id: '44395',
+      code: '44395',
       active: true,
       question: 'WAS RESUSCITATION ATTEMPTED',
       label: 'Was resuscitation attempted?',
@@ -278,7 +278,7 @@ export const DEATH_OTHER_1: IncidentTypeConfiguration = {
       ],
     },
     '44397': {
-      id: '44397',
+      code: '44397',
       active: true,
       question: 'HAS CORONER BEEN INFORMED',
       label: 'Has coroner been informed?',
@@ -305,7 +305,7 @@ export const DEATH_OTHER_1: IncidentTypeConfiguration = {
       ],
     },
     '44425': {
-      id: '44425',
+      code: '44425',
       active: true,
       question: 'WHAT WERE THE CIRCUMSTANCES OF THE DEATH',
       label: 'What were the circumstances of the death?',
@@ -350,7 +350,7 @@ export const DEATH_OTHER_1: IncidentTypeConfiguration = {
       ],
     },
     '44434': {
-      id: '44434',
+      code: '44434',
       active: true,
       question: 'IS THE INCIDENT THE SUBJECT OF A POLICE INVESTIGATION',
       label: 'Is the incident the subject of a police investigation?',
@@ -377,7 +377,7 @@ export const DEATH_OTHER_1: IncidentTypeConfiguration = {
       ],
     },
     '44645': {
-      id: '44645',
+      code: '44645',
       active: true,
       question: 'HAVE NEXT OF KIN BEEN INFORMED',
       label: 'Have next of kin been informed?',
@@ -404,7 +404,7 @@ export const DEATH_OTHER_1: IncidentTypeConfiguration = {
       ],
     },
     '44702': {
-      id: '44702',
+      code: '44702',
       active: true,
       question: 'WHAT TIME WAS DEATH PRONOUNCED',
       label: 'What time was death pronounced?',
@@ -431,7 +431,7 @@ export const DEATH_OTHER_1: IncidentTypeConfiguration = {
       ],
     },
     '44748': {
-      id: '44748',
+      code: '44748',
       active: true,
       question: 'IS THERE ANY MEDIA INTEREST IN THIS INCIDENT',
       label: 'Is there any media interest in this incident?',
@@ -458,7 +458,7 @@ export const DEATH_OTHER_1: IncidentTypeConfiguration = {
       ],
     },
     '44751': {
-      id: '44751',
+      code: '44751',
       active: true,
       question: 'WHAT WAS THE LOCATION OF THE INCIDENT',
       label: 'What was the location of the incident?',
@@ -476,7 +476,7 @@ export const DEATH_OTHER_1: IncidentTypeConfiguration = {
       ],
     },
     '44839': {
-      id: '44839',
+      code: '44839',
       active: true,
       question: 'IS THE INCIDENT THE SUBJECT OF AN INTERNAL INVESTIGATION',
       label: 'Is the incident the subject of an internal investigation?',
@@ -503,7 +503,7 @@ export const DEATH_OTHER_1: IncidentTypeConfiguration = {
       ],
     },
     '45031': {
-      id: '45031',
+      code: '45031',
       active: true,
       question: 'WAS THE PERSON TAKEN TO AN OUTSIDE HOSPITAL',
       label: 'Was the person taken to an outside hospital?',
@@ -530,7 +530,7 @@ export const DEATH_OTHER_1: IncidentTypeConfiguration = {
       ],
     },
     '45054': {
-      id: '45054',
+      code: '45054',
       active: true,
       question: 'WERE THE POLICE INFORMED OF THE INCIDENT',
       label: 'Were the police informed of the incident?',

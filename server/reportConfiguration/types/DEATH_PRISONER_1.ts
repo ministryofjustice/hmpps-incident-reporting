@@ -8,7 +8,7 @@ export const DEATH_PRISONER_1: IncidentTypeConfiguration = {
   startingQuestionId: '44646',
   questions: {
     '44159': {
-      id: '44159',
+      code: '44159',
       active: true,
       question: 'WHAT WERE THE CIRCUMSTANCES OF THE DEATH',
       label: 'What were the circumstances of the death?',
@@ -53,7 +53,7 @@ export const DEATH_PRISONER_1: IncidentTypeConfiguration = {
       ],
     },
     '44292': {
-      id: '44292',
+      code: '44292',
       active: true,
       question: 'IS THE DEATH SUBJECT TO A HEALTH AND SAFETY INVESTIGATION',
       label: 'Is the death subject to a health and safety investigation?',
@@ -80,7 +80,7 @@ export const DEATH_PRISONER_1: IncidentTypeConfiguration = {
       ],
     },
     '44303': {
-      id: '44303',
+      code: '44303',
       active: true,
       question: 'WHAT VERDICT DID THE INQUEST REACH',
       label: 'What verdict did the inquest reach?',
@@ -143,7 +143,7 @@ export const DEATH_PRISONER_1: IncidentTypeConfiguration = {
       ],
     },
     '44366': {
-      id: '44366',
+      code: '44366',
       active: true,
       question: 'WHERE WAS THE PRISONER LOCATED AT THE TIME OF DEATH',
       label: 'Where was the prisoner located at the time of death?',
@@ -233,7 +233,7 @@ export const DEATH_PRISONER_1: IncidentTypeConfiguration = {
       ],
     },
     '44383': {
-      id: '44383',
+      code: '44383',
       active: true,
       question: 'WHAT METHOD WAS USED',
       label: 'What method was used?',
@@ -278,7 +278,7 @@ export const DEATH_PRISONER_1: IncidentTypeConfiguration = {
       ],
     },
     '44384': {
-      id: '44384',
+      code: '44384',
       active: true,
       question: 'WHAT WAS THE LIKELY CAUSE OF DEATH',
       label: 'What was the likely cause of death?',
@@ -323,7 +323,7 @@ export const DEATH_PRISONER_1: IncidentTypeConfiguration = {
       ],
     },
     '44418': {
-      id: '44418',
+      code: '44418',
       active: true,
       question: 'WAS THE PRISONER RECEIVING MEDICATION AT THE TIME OF DEATH',
       label: 'Was the prisoner receiving medication at the time of death?',
@@ -350,7 +350,7 @@ export const DEATH_PRISONER_1: IncidentTypeConfiguration = {
       ],
     },
     '44420': {
-      id: '44420',
+      code: '44420',
       active: true,
       question: 'IS THERE ANY MEDIA INTEREST IN THIS INCIDENT',
       label: 'Is there any media interest in this incident?',
@@ -377,7 +377,7 @@ export const DEATH_PRISONER_1: IncidentTypeConfiguration = {
       ],
     },
     '44468': {
-      id: '44468',
+      code: '44468',
       active: true,
       question: 'HAS THE NEXT OF KIN BEEN INFORMED',
       label: 'Has the next of kin been informed?',
@@ -404,7 +404,7 @@ export const DEATH_PRISONER_1: IncidentTypeConfiguration = {
       ],
     },
     '44537': {
-      id: '44537',
+      code: '44537',
       active: true,
       question: 'WHERE WAS THE PRISONER AT THE TIME OF DEATH',
       label: 'Where was the prisoner at the time of death?',
@@ -449,7 +449,7 @@ export const DEATH_PRISONER_1: IncidentTypeConfiguration = {
       ],
     },
     '44640': {
-      id: '44640',
+      code: '44640',
       active: true,
       question: "HAS A CORONER'S INQUEST BEEN HELD",
       label: "Has a coroner's inquest been held?",
@@ -476,7 +476,7 @@ export const DEATH_PRISONER_1: IncidentTypeConfiguration = {
       ],
     },
     '44646': {
-      id: '44646',
+      code: '44646',
       active: true,
       question: 'WERE THE POLICE INFORMED OF THE INCIDENT',
       label: 'Were the police informed of the incident?',
@@ -503,7 +503,7 @@ export const DEATH_PRISONER_1: IncidentTypeConfiguration = {
       ],
     },
     '44680': {
-      id: '44680',
+      code: '44680',
       active: true,
       question: 'WAS THE PRISONER ALONE AT THE TIME OF DEATH',
       label: 'Was the prisoner alone at the time of death?',
@@ -530,7 +530,7 @@ export const DEATH_PRISONER_1: IncidentTypeConfiguration = {
       ],
     },
     '44691': {
-      id: '44691',
+      code: '44691',
       active: true,
       question: 'WHO FOUND THE PRISONER',
       label: 'Who found the prisoner?',
@@ -575,7 +575,7 @@ export const DEATH_PRISONER_1: IncidentTypeConfiguration = {
       ],
     },
     '44720': {
-      id: '44720',
+      code: '44720',
       active: true,
       question: 'WHO PRONOUNCED DEATH',
       label: 'Who pronounced death?',
@@ -611,7 +611,7 @@ export const DEATH_PRISONER_1: IncidentTypeConfiguration = {
       ],
     },
     '44721': {
-      id: '44721',
+      code: '44721',
       active: true,
       question: 'WAS THE PRISONER ON T/R IN OUTSIDE HOSPITAL',
       label: 'Was the prisoner on t/r in outside hospital?',
@@ -638,7 +638,7 @@ export const DEATH_PRISONER_1: IncidentTypeConfiguration = {
       ],
     },
     '44743': {
-      id: '44743',
+      code: '44743',
       active: true,
       question: 'HAS THE PRISON SERVICE PRESS OFFICE BEEN INFORMED',
       label: 'Has the prison service press office been informed?',
@@ -665,7 +665,7 @@ export const DEATH_PRISONER_1: IncidentTypeConfiguration = {
       ],
     },
     '44770': {
-      id: '44770',
+      code: '44770',
       active: true,
       question: 'WHAT WAS THE LIGATURE ATTACHED TO',
       label: 'What was the ligature attached to?',
@@ -719,7 +719,7 @@ export const DEATH_PRISONER_1: IncidentTypeConfiguration = {
       ],
     },
     '44862': {
-      id: '44862',
+      code: '44862',
       active: true,
       question: 'IS ANY MEMBER OF STAFF FACING DISCIPLINARY CHARGES',
       label: 'Is any member of staff facing disciplinary charges?',
@@ -746,7 +746,7 @@ export const DEATH_PRISONER_1: IncidentTypeConfiguration = {
       ],
     },
     '44876': {
-      id: '44876',
+      code: '44876',
       active: true,
       question: 'WAS RESUSCITATION ATTEMPTED',
       label: 'Was resuscitation attempted?',
@@ -773,7 +773,7 @@ export const DEATH_PRISONER_1: IncidentTypeConfiguration = {
       ],
     },
     '44901': {
-      id: '44901',
+      code: '44901',
       active: true,
       question: 'WAS THE PRISONER TAKEN TO AN OUTSIDE HOSPITAL',
       label: 'Was the prisoner taken to an outside hospital?',
@@ -800,7 +800,7 @@ export const DEATH_PRISONER_1: IncidentTypeConfiguration = {
       ],
     },
     '44929': {
-      id: '44929',
+      code: '44929',
       active: true,
       question: 'WHAT WAS THE LIGATURE MADE FROM',
       label: 'What was the ligature made from?',
@@ -845,7 +845,7 @@ export const DEATH_PRISONER_1: IncidentTypeConfiguration = {
       ],
     },
     '44962': {
-      id: '44962',
+      code: '44962',
       active: true,
       question: 'WHAT TIME WAS DEATH PRONOUNCED',
       label: 'What time was death pronounced?',
@@ -872,7 +872,7 @@ export const DEATH_PRISONER_1: IncidentTypeConfiguration = {
       ],
     },
     '45023': {
-      id: '45023',
+      code: '45023',
       active: true,
       question: 'WAS A F2052SH/ACCT OPEN AT THE TIME OF DEATH',
       label: 'Was a F2052SH/ACCT open at the time of death?',
@@ -899,7 +899,7 @@ export const DEATH_PRISONER_1: IncidentTypeConfiguration = {
       ],
     },
     '45038': {
-      id: '45038',
+      code: '45038',
       active: true,
       question: 'IS THE INCIDENT THE SUBJECT OF A POLICE INVESTIGATION',
       label: 'Is the incident the subject of a police investigation?',
@@ -926,7 +926,7 @@ export const DEATH_PRISONER_1: IncidentTypeConfiguration = {
       ],
     },
     '45043': {
-      id: '45043',
+      code: '45043',
       active: true,
       question: 'IS THE PLACE OF DEATH KNOWN',
       label: 'Is the place of death known?',
@@ -953,7 +953,7 @@ export const DEATH_PRISONER_1: IncidentTypeConfiguration = {
       ],
     },
     '45063': {
-      id: '45063',
+      code: '45063',
       active: true,
       question: 'HAS CORONER BEEN INFORMED',
       label: 'Has coroner been informed?',
@@ -980,7 +980,7 @@ export const DEATH_PRISONER_1: IncidentTypeConfiguration = {
       ],
     },
     '45108': {
-      id: '45108',
+      code: '45108',
       active: true,
       question: 'AT WHAT TIME WAS THE PRISONER FOUND',
       label: 'At what time was the prisoner found',
@@ -1007,7 +1007,7 @@ export const DEATH_PRISONER_1: IncidentTypeConfiguration = {
       ],
     },
     '45120': {
-      id: '45120',
+      code: '45120',
       active: true,
       question: 'IS THE INCIDENT THE SUBJECT OF AN INTERNAL INVESTIGATION',
       label: 'Is the incident the subject of an internal investigation?',
@@ -1034,7 +1034,7 @@ export const DEATH_PRISONER_1: IncidentTypeConfiguration = {
       ],
     },
     '45144': {
-      id: '45144',
+      code: '45144',
       active: true,
       question: 'WAS THE ACCIDENTAL DEATH CAUSED BY',
       label: 'Was the accidental death caused by?',
@@ -1088,7 +1088,7 @@ export const DEATH_PRISONER_1: IncidentTypeConfiguration = {
       ],
     },
     '45166': {
-      id: '45166',
+      code: '45166',
       active: true,
       question: 'WHERE DID THE DEATH TAKE PLACE',
       label: 'Where did the death take place?',

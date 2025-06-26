@@ -8,7 +8,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
   startingQuestionId: '45196',
   questions: {
     '45196': {
-      id: '45196',
+      code: '45196',
       active: true,
       question: 'Describe the nature of the Incident',
       label: 'Describe the nature of the incident',
@@ -359,7 +359,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
       ],
     },
     '45197': {
-      id: '45197',
+      code: '45197',
       active: true,
       question: 'Describe the type of key or lock',
       label: 'Describe the type of key or lock',
@@ -728,7 +728,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
       ],
     },
     '45198': {
-      id: '45198',
+      code: '45198',
       active: true,
       question: 'Incident Level: 1-5. 1 High Risk, 5 No Risk',
       label: 'Incident level: 1-5. 1 high risk, 5 no risk',
@@ -755,7 +755,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
       ],
     },
     '45199': {
-      id: '45199',
+      code: '45199',
       active: true,
       question: 'Has any remedial action been taken?',
       label: 'Has any remedial action been taken?',
@@ -827,7 +827,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
       ],
     },
     '45200': {
-      id: '45200',
+      code: '45200',
       active: true,
       question: 'Describe the remedial action taken',
       label: 'Describe the remedial action taken',
@@ -935,7 +935,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
       ],
     },
     '45201': {
-      id: '45201',
+      code: '45201',
       active: true,
       question: 'Estimated cost of this action',
       label: 'Estimated cost of this action',
@@ -971,7 +971,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
       ],
     },
     '45202': {
-      id: '45202',
+      code: '45202',
       active: true,
       question: 'Have the lost item (s) been found?',
       label: 'Have the lost item (s) been found?',
@@ -1025,7 +1025,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
       ],
     },
     '45203': {
-      id: '45203',
+      code: '45203',
       active: true,
       question: 'Has a replica key been found?',
       label: 'Has a replica key been found?',
@@ -1088,7 +1088,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
       ],
     },
     '45204': {
-      id: '45204',
+      code: '45204',
       active: true,
       question: 'What action was taken to find these items?',
       label: 'What action was taken to find these items?',
@@ -1151,7 +1151,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
       ],
     },
     '45205': {
-      id: '45205',
+      code: '45205',
       active: true,
       question: 'Were tools used in the Incident?',
       label: 'Were tools used in the incident?',
@@ -1205,7 +1205,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
       ],
     },
     '45206': {
-      id: '45206',
+      code: '45206',
       active: true,
       question: 'What tools/foreign objects were used?',
       label: 'What tools/foreign objects were used?',
@@ -1376,7 +1376,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
       ],
     },
     '45207': {
-      id: '45207',
+      code: '45207',
       active: true,
       question: 'What was the source of the tools/foreign object?',
       label: 'What was the source of the tools/foreign object?',
@@ -1547,7 +1547,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
       ],
     },
     '45208': {
-      id: '45208',
+      code: '45208',
       active: true,
       question: 'Has the Key Lock Incident been reported to NOU?',
       label: 'Has the key lock incident been reported to NOU?',

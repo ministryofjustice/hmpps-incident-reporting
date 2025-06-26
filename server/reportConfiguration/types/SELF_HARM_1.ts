@@ -8,7 +8,7 @@ export const SELF_HARM_1: IncidentTypeConfiguration = {
   startingQuestionId: '45051',
   questions: {
     '44155': {
-      id: '44155',
+      code: '44155',
       active: true,
       question: 'TREATMENT REQUIRED FOLLOWING CUT SCRATCH',
       label: 'Treatment required following cut scratch',
@@ -53,7 +53,7 @@ export const SELF_HARM_1: IncidentTypeConfiguration = {
       ],
     },
     '44207': {
-      id: '44207',
+      code: '44207',
       active: true,
       question: 'DID SELF HARM METHOD INVOLVE SELF STRANGULATION',
       label: 'Did self harm method involve self strangulation?',
@@ -80,7 +80,7 @@ export const SELF_HARM_1: IncidentTypeConfiguration = {
       ],
     },
     '44214': {
-      id: '44214',
+      code: '44214',
       active: true,
       question: 'WAS RESUSCITATION REQUIRED',
       label: 'Was resuscitation required?',
@@ -107,7 +107,7 @@ export const SELF_HARM_1: IncidentTypeConfiguration = {
       ],
     },
     '44244': {
-      id: '44244',
+      code: '44244',
       active: true,
       question: 'DID SELF HARM METHOD INVOLVE HANGING',
       label: 'Did self harm method involve hanging?',
@@ -134,7 +134,7 @@ export const SELF_HARM_1: IncidentTypeConfiguration = {
       ],
     },
     '44332': {
-      id: '44332',
+      code: '44332',
       active: true,
       question: 'WHO ADMINISTERED TREATMENT',
       label: 'Who administered treatment?',
@@ -179,7 +179,7 @@ export const SELF_HARM_1: IncidentTypeConfiguration = {
       ],
     },
     '44339': {
-      id: '44339',
+      code: '44339',
       active: true,
       question: 'OCCUPANCY',
       label: 'Occupancy',
@@ -224,7 +224,7 @@ export const SELF_HARM_1: IncidentTypeConfiguration = {
       ],
     },
     '44400': {
-      id: '44400',
+      code: '44400',
       active: true,
       question: 'WAS A F2052SH/ACCT OPEN',
       label: 'Was a F2052SH/ACCT open?',
@@ -251,7 +251,7 @@ export const SELF_HARM_1: IncidentTypeConfiguration = {
       ],
     },
     '44435': {
-      id: '44435',
+      code: '44435',
       active: true,
       question: 'WHEN WAS THE LAST F2052SH/ACCT CLOSED',
       label: 'When was the last F2052SH/ACCT closed?',
@@ -287,7 +287,7 @@ export const SELF_HARM_1: IncidentTypeConfiguration = {
       ],
     },
     '44511': {
-      id: '44511',
+      code: '44511',
       active: true,
       question: 'WAS TREATMENT ADMINISTERED',
       label: 'Was treatment administered?',
@@ -314,7 +314,7 @@ export const SELF_HARM_1: IncidentTypeConfiguration = {
       ],
     },
     '44552': {
-      id: '44552',
+      code: '44552',
       active: true,
       question: 'WAS ANY OTHER SELF HARM METHOD INVOLVED',
       label: 'Was any other self harm method involved?',
@@ -341,7 +341,7 @@ export const SELF_HARM_1: IncidentTypeConfiguration = {
       ],
     },
     '44573': {
-      id: '44573',
+      code: '44573',
       active: true,
       question: 'SELF POISONING/OVERDOSE/SUBSTANCES/SWALLOWING',
       label: 'Self poisoning/overdose/substances/swallowing',
@@ -413,7 +413,7 @@ export const SELF_HARM_1: IncidentTypeConfiguration = {
       ],
     },
     '44583': {
-      id: '44583',
+      code: '44583',
       active: true,
       question: 'LIGATURE TYPE',
       label: 'Ligature type',
@@ -476,7 +476,7 @@ export const SELF_HARM_1: IncidentTypeConfiguration = {
       ],
     },
     '44584': {
-      id: '44584',
+      code: '44584',
       active: true,
       question: 'TYPE OF HOSPITAL',
       label: 'Type of hospital',
@@ -521,7 +521,7 @@ export const SELF_HARM_1: IncidentTypeConfiguration = {
       ],
     },
     '44643': {
-      id: '44643',
+      code: '44643',
       active: true,
       question: 'TYPE OF BURNING',
       label: 'Type of burning',
@@ -548,7 +548,7 @@ export const SELF_HARM_1: IncidentTypeConfiguration = {
       ],
     },
     '44653': {
-      id: '44653',
+      code: '44653',
       active: true,
       question: 'WHAT WAS THE LIGATURE POINT',
       label: 'What was the ligature point?',
@@ -611,7 +611,7 @@ export const SELF_HARM_1: IncidentTypeConfiguration = {
       ],
     },
     '44718': {
-      id: '44718',
+      code: '44718',
       active: true,
       question: 'HANGING SELF STRANGULATION METHOD',
       label: 'Hanging self strangulation method',
@@ -647,7 +647,7 @@ export const SELF_HARM_1: IncidentTypeConfiguration = {
       ],
     },
     '44733': {
-      id: '44733',
+      code: '44733',
       active: true,
       question: 'DID SELF HARM INVOLVE SELF POISONING/ OVERDOSE/SWALLOWING OBJECTS',
       label: 'Did self harm involve self poisoning/ overdose/swallowing objects?',
@@ -674,7 +674,7 @@ export const SELF_HARM_1: IncidentTypeConfiguration = {
       ],
     },
     '44753': {
-      id: '44753',
+      code: '44753',
       active: true,
       question: 'DID SELF HARM METHOD INVOLVE CUTTING',
       label: 'Did self harm method involve cutting?',
@@ -701,7 +701,7 @@ export const SELF_HARM_1: IncidentTypeConfiguration = {
       ],
     },
     '44791': {
-      id: '44791',
+      code: '44791',
       active: true,
       question: 'WHAT WAS THE CELL TYPE',
       label: 'What was the cell type?',
@@ -782,7 +782,7 @@ export const SELF_HARM_1: IncidentTypeConfiguration = {
       ],
     },
     '44890': {
-      id: '44890',
+      code: '44890',
       active: true,
       question: 'TYPE OF IMPLEMENT USED',
       label: 'Type of implement used',
@@ -827,7 +827,7 @@ export const SELF_HARM_1: IncidentTypeConfiguration = {
       ],
     },
     '44944': {
-      id: '44944',
+      code: '44944',
       active: true,
       question: 'WERE THEY ADMITTED TO HEALTHCARE',
       label: 'Were they admitted to healthcare?',
@@ -863,7 +863,7 @@ export const SELF_HARM_1: IncidentTypeConfiguration = {
       ],
     },
     '44954': {
-      id: '44954',
+      code: '44954',
       active: true,
       question: 'DID THEY GO TO OUTSIDE HOSPITAL',
       label: 'Did they go to outside hospital?',
@@ -890,7 +890,7 @@ export const SELF_HARM_1: IncidentTypeConfiguration = {
       ],
     },
     '44965': {
-      id: '44965',
+      code: '44965',
       active: true,
       question: 'IS A F2052SH/ACCT OPEN NOW',
       label: 'Is a F2052SH/ACCT open now?',
@@ -917,7 +917,7 @@ export const SELF_HARM_1: IncidentTypeConfiguration = {
       ],
     },
     '44991': {
-      id: '44991',
+      code: '44991',
       active: true,
       question: 'LOCATION OF CUTS',
       label: 'Location of cuts',
@@ -971,7 +971,7 @@ export const SELF_HARM_1: IncidentTypeConfiguration = {
       ],
     },
     '45020': {
-      id: '45020',
+      code: '45020',
       active: true,
       question: 'LIGATURE TYPE',
       label: 'Ligature type',
@@ -1034,7 +1034,7 @@ export const SELF_HARM_1: IncidentTypeConfiguration = {
       ],
     },
     '45051': {
-      id: '45051',
+      code: '45051',
       active: true,
       question: 'WHERE DID THE INCIDENT TAKE PLACE',
       label: 'Where did the incident take place?',
@@ -1124,7 +1124,7 @@ export const SELF_HARM_1: IncidentTypeConfiguration = {
       ],
     },
     '45105': {
-      id: '45105',
+      code: '45105',
       active: true,
       question: 'WHAT OTHER METHOD OF SELF HARM WAS INVOLVED',
       label: 'What other method of self harm was involved?',
@@ -1178,7 +1178,7 @@ export const SELF_HARM_1: IncidentTypeConfiguration = {
       ],
     },
     '45167': {
-      id: '45167',
+      code: '45167',
       active: true,
       question: 'DID SELF HARM METHOD INVOLVE BURNING',
       label: 'Did self harm method involve burning?',

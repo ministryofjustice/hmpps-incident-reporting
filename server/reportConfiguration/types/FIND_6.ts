@@ -8,7 +8,7 @@ export const FIND_6: IncidentTypeConfiguration = {
   startingQuestionId: '67179',
   questions: {
     '67179': {
-      id: '67179',
+      code: '67179',
       active: true,
       question: 'DESCRIBE HOW THE ITEM WAS FOUND (SELECT ALL THAT APPLY)',
       label: 'Describe how the item was found (select all that apply)',
@@ -251,7 +251,7 @@ export const FIND_6: IncidentTypeConfiguration = {
       ],
     },
     '67180': {
-      id: '67180',
+      code: '67180',
       active: true,
       question: 'IS THE LOCATION OF THE INCIDENT KNOWN?',
       label: 'Is the location of the incident known?',
@@ -278,7 +278,7 @@ export const FIND_6: IncidentTypeConfiguration = {
       ],
     },
     '67181': {
-      id: '67181',
+      code: '67181',
       active: true,
       question: 'WHAT WAS THE LOCATION OF THE INCIDENT?',
       label: 'What was the location of the incident?',
@@ -548,7 +548,7 @@ export const FIND_6: IncidentTypeConfiguration = {
       ],
     },
     '67182': {
-      id: '67182',
+      code: '67182',
       active: true,
       question: 'DESCRIBE THE METHOD OF ENTRY INTO THE ESTABLISHMENT',
       label: 'Describe the method of entry into the establishment',
@@ -674,7 +674,7 @@ export const FIND_6: IncidentTypeConfiguration = {
       ],
     },
     '67183': {
-      id: '67183',
+      code: '67183',
       active: true,
       question: 'DID RULE 39 MAIL BARCODE PASS SCANNER CHECK',
       label: 'Did rule 39 mail barcode pass scanner check?',
@@ -701,7 +701,7 @@ export const FIND_6: IncidentTypeConfiguration = {
       ],
     },
     '67184': {
-      id: '67184',
+      code: '67184',
       active: true,
       question: 'IF FOUND IN POSSESSION, WHOSE WAS IT FOUND IN?',
       label: 'If found in possession, whose was it found in?',
@@ -782,7 +782,7 @@ export const FIND_6: IncidentTypeConfiguration = {
       ],
     },
     '67185': {
-      id: '67185',
+      code: '67185',
       active: true,
       question: 'IS IT SUSPECTED THAT THE ITEM WAS BROUGHT IN BY ACCIDENT?',
       label: 'Is it suspected that the item was brought in by accident?',
@@ -818,7 +818,7 @@ export const FIND_6: IncidentTypeConfiguration = {
       ],
     },
     '67186': {
-      id: '67186',
+      code: '67186',
       active: true,
       question: 'WHAT WAS THE METHOD OF CONCEALMENT',
       label: 'What was the method of concealment?',
@@ -971,7 +971,7 @@ export const FIND_6: IncidentTypeConfiguration = {
       ],
     },
     '67187': {
-      id: '67187',
+      code: '67187',
       active: true,
       question: 'PLEASE SELECT CATEGORY OF FIND',
       label: 'Please select category of find',
@@ -1052,7 +1052,7 @@ export const FIND_6: IncidentTypeConfiguration = {
       ],
     },
     '67188': {
-      id: '67188',
+      code: '67188',
       active: true,
       question: 'WHAT QUANTITY OF ALCOHOL/HOOCH WAS FOUND',
       label: 'What quantity of alcohol/hooch was found?',
@@ -1142,7 +1142,7 @@ export const FIND_6: IncidentTypeConfiguration = {
       ],
     },
     '67189': {
-      id: '67189',
+      code: '67189',
       active: true,
       question: 'WAS ANY DISTILLING EQUIPMENT FOUND?',
       label: 'Was any distilling equipment found?',
@@ -1169,7 +1169,7 @@ export const FIND_6: IncidentTypeConfiguration = {
       ],
     },
     '67190': {
-      id: '67190',
+      code: '67190',
       active: true,
       question: 'DESCRIBE THE DRUG FOUND',
       label: 'Describe the drug found',
@@ -1367,7 +1367,7 @@ export const FIND_6: IncidentTypeConfiguration = {
       ],
     },
     '67191': {
-      id: '67191',
+      code: '67191',
       active: true,
       question: 'WHAT WAS THE ESTIMATED WEIGHT OF ALL DRUGS/SUBSTANCES FOUND',
       label: 'What was the estimated weight of all drugs/substances found?',
@@ -1511,7 +1511,7 @@ export const FIND_6: IncidentTypeConfiguration = {
       ],
     },
     '67192': {
-      id: '67192',
+      code: '67192',
       active: true,
       question: 'WAS THE SUBSTANCE FOUND ANALYSED?',
       label: 'Was the substance found analysed?',
@@ -1547,7 +1547,7 @@ export const FIND_6: IncidentTypeConfiguration = {
       ],
     },
     '67193': {
-      id: '67193',
+      code: '67193',
       active: true,
       question: 'DESCRIBE DRUG EQUIPMENT FOUND',
       label: 'Describe drug equipment found',
@@ -1628,7 +1628,7 @@ export const FIND_6: IncidentTypeConfiguration = {
       ],
     },
     '67194': {
-      id: '67194',
+      code: '67194',
       active: true,
       question: 'ENTER NUMBER OF MOBILES FOUND',
       label: 'Enter number of mobiles found',
@@ -1844,7 +1844,7 @@ export const FIND_6: IncidentTypeConfiguration = {
       ],
     },
     '67195': {
-      id: '67195',
+      code: '67195',
       active: true,
       question: 'ENTER NUMBER OF SIM CARDS FOUND',
       label: 'Enter number of SIM cards found',
@@ -2060,7 +2060,7 @@ export const FIND_6: IncidentTypeConfiguration = {
       ],
     },
     '67196': {
-      id: '67196',
+      code: '67196',
       active: true,
       question: 'ENTER NUMBER OF MEMORY CARDS FOUND',
       label: 'Enter number of memory cards found',
@@ -2276,7 +2276,7 @@ export const FIND_6: IncidentTypeConfiguration = {
       ],
     },
     '67197': {
-      id: '67197',
+      code: '67197',
       active: true,
       question: 'HAS PHONE/SIM/MEMORY CARD BEEN SENT TO DIMU (DIGITAL MEDIA INVESTIGATION UNIT)?',
       label: 'Has phone/SIM/memory card been sent to DIMU (digital media investigation unit)?',
@@ -2303,7 +2303,7 @@ export const FIND_6: IncidentTypeConfiguration = {
       ],
     },
     '67198': {
-      id: '67198',
+      code: '67198',
       active: true,
       question: 'WAS A PHONE CHARGER FOUND?',
       label: 'Was a phone charger found?',
@@ -2339,7 +2339,7 @@ export const FIND_6: IncidentTypeConfiguration = {
       ],
     },
     '67199': {
-      id: '67199',
+      code: '67199',
       active: true,
       question: 'WAS ANY OTHER MOBILE PHONE/COMMUNICATION RELATED ITEM FOUND?',
       label: 'Was any other mobile phone/communication related item found?',
@@ -2366,7 +2366,7 @@ export const FIND_6: IncidentTypeConfiguration = {
       ],
     },
     '67200': {
-      id: '67200',
+      code: '67200',
       active: true,
       question: 'OTHER DIGITAL FIND (PLEASE STATE MAKE/MODEL WHERE KNOWN)',
       label: 'Other digital find (please state make/model where known)',
@@ -2492,7 +2492,7 @@ export const FIND_6: IncidentTypeConfiguration = {
       ],
     },
     '67201': {
-      id: '67201',
+      code: '67201',
       active: true,
       question: 'DESCRIBE THE TOBACCO FOUND',
       label: 'Describe the tobacco found',
@@ -2528,7 +2528,7 @@ export const FIND_6: IncidentTypeConfiguration = {
       ],
     },
     '67202': {
-      id: '67202',
+      code: '67202',
       active: true,
       question: 'APPROX WEIGHT OF TOBACCO',
       label: 'Approx weight of tobacco',
@@ -2591,7 +2591,7 @@ export const FIND_6: IncidentTypeConfiguration = {
       ],
     },
     '67203': {
-      id: '67203',
+      code: '67203',
       active: true,
       question: 'WHAT WEAPON WAS FOUND?',
       label: 'What weapon was found?',
@@ -2636,7 +2636,7 @@ export const FIND_6: IncidentTypeConfiguration = {
       ],
     },
     '67204': {
-      id: '67204',
+      code: '67204',
       active: true,
       question: 'OTHER REPORTABLE ITEMS FOUND (BY NATIONAL OR LOCAL POLICY)',
       label: 'Other reportable items found (by national or local policy)',
@@ -2663,7 +2663,7 @@ export const FIND_6: IncidentTypeConfiguration = {
       ],
     },
     '67205': {
-      id: '67205',
+      code: '67205',
       active: true,
       question: 'WHAT QUANTITY OF ALCOHOL/HOOCH WAS FOUND',
       label: 'What quantity of alcohol/hooch was found?',
@@ -2753,7 +2753,7 @@ export const FIND_6: IncidentTypeConfiguration = {
       ],
     },
     '67206': {
-      id: '67206',
+      code: '67206',
       active: true,
       question: 'WAS ANY DISTILLING EQUIPMENT FOUND?',
       label: 'Was any distilling equipment found?',
@@ -2780,7 +2780,7 @@ export const FIND_6: IncidentTypeConfiguration = {
       ],
     },
     '67207': {
-      id: '67207',
+      code: '67207',
       active: true,
       question: 'WERE ANY DRUGS FOUND?',
       label: 'Were any drugs found?',
@@ -2807,7 +2807,7 @@ export const FIND_6: IncidentTypeConfiguration = {
       ],
     },
     '67208': {
-      id: '67208',
+      code: '67208',
       active: true,
       question: 'DESCRIBE THE DRUG FOUND',
       label: 'Describe the drug found',
@@ -2996,7 +2996,7 @@ export const FIND_6: IncidentTypeConfiguration = {
       ],
     },
     '67209': {
-      id: '67209',
+      code: '67209',
       active: true,
       question: 'WHAT WAS THE ESTIMATED WEIGHT OF ALL DRUGS/SUBSTANCES FOUND',
       label: 'What was the estimated weight of all drugs/substances found?',
@@ -3140,7 +3140,7 @@ export const FIND_6: IncidentTypeConfiguration = {
       ],
     },
     '67210': {
-      id: '67210',
+      code: '67210',
       active: true,
       question: 'WAS THE SUBSTANCE ANALYSED?',
       label: 'Was the substance analysed?',
@@ -3176,7 +3176,7 @@ export const FIND_6: IncidentTypeConfiguration = {
       ],
     },
     '67211': {
-      id: '67211',
+      code: '67211',
       active: true,
       question: 'WAS DRUG EQUIPMENT FOUND',
       label: 'Was drug equipment found?',
@@ -3203,7 +3203,7 @@ export const FIND_6: IncidentTypeConfiguration = {
       ],
     },
     '67212': {
-      id: '67212',
+      code: '67212',
       active: true,
       question: 'DESCRIBE DRUG EQUIPMENT FOUND',
       label: 'Describe drug equipment found',
@@ -3275,7 +3275,7 @@ export const FIND_6: IncidentTypeConfiguration = {
       ],
     },
     '67213': {
-      id: '67213',
+      code: '67213',
       active: true,
       question: 'WERE MOBILE PHONE / PHONE RELATED ITEMS FOUND',
       label: 'Were mobile phone / phone related items found?',
@@ -3302,7 +3302,7 @@ export const FIND_6: IncidentTypeConfiguration = {
       ],
     },
     '67214': {
-      id: '67214',
+      code: '67214',
       active: true,
       question: 'ENTER NUMBER OF ALL MOBILES FOUND',
       label: 'Enter number of all mobiles found',
@@ -3518,7 +3518,7 @@ export const FIND_6: IncidentTypeConfiguration = {
       ],
     },
     '67215': {
-      id: '67215',
+      code: '67215',
       active: true,
       question: 'ENTER NUMBER OF SIM CARDS FOUND',
       label: 'Enter number of SIM cards found',
@@ -3734,7 +3734,7 @@ export const FIND_6: IncidentTypeConfiguration = {
       ],
     },
     '67216': {
-      id: '67216',
+      code: '67216',
       active: true,
       question: 'ENTER NUMBER OF MEMORY CARDS FOUND',
       label: 'Enter number of memory cards found',
@@ -3950,7 +3950,7 @@ export const FIND_6: IncidentTypeConfiguration = {
       ],
     },
     '67217': {
-      id: '67217',
+      code: '67217',
       active: true,
       question: 'WAS A PHONE CHARGER FOUND?',
       label: 'Was a phone charger found?',
@@ -3986,7 +3986,7 @@ export const FIND_6: IncidentTypeConfiguration = {
       ],
     },
     '67218': {
-      id: '67218',
+      code: '67218',
       active: true,
       question: 'WAS ANY OHTER MOBULE PHONE/COMMUNICATION RELATED ITEM FOUND?',
       label: 'Was any other mobile phone/communication related item found?',
@@ -4013,7 +4013,7 @@ export const FIND_6: IncidentTypeConfiguration = {
       ],
     },
     '67219': {
-      id: '67219',
+      code: '67219',
       active: true,
       question: 'HAS PHONE/SIM/MEMORY CARD BEEN SENT TO DIMU (DIGITAL MEDIA INVESTIGATION UNIT)',
       label: 'Has phone/SIM/memory card been sent to DIMU (digital media investigation unit)?',
@@ -4040,7 +4040,7 @@ export const FIND_6: IncidentTypeConfiguration = {
       ],
     },
     '67220': {
-      id: '67220',
+      code: '67220',
       active: true,
       question: 'OTHER DIGITAL FIND (PLEASE STATE MAKE/MODEL WHERE KNOWN)',
       label: 'Other digital find (please state make/model where known)',
@@ -4175,7 +4175,7 @@ export const FIND_6: IncidentTypeConfiguration = {
       ],
     },
     '67221': {
-      id: '67221',
+      code: '67221',
       active: true,
       question: 'WAS TOBACCO / TOBACCO RELATED ITEMS FOUND',
       label: 'Was tobacco / tobacco related items found?',
@@ -4202,7 +4202,7 @@ export const FIND_6: IncidentTypeConfiguration = {
       ],
     },
     '67222': {
-      id: '67222',
+      code: '67222',
       active: true,
       question: 'DESCRIBE THE TOBACCO FOUND',
       label: 'Describe the tobacco found',
@@ -4238,7 +4238,7 @@ export const FIND_6: IncidentTypeConfiguration = {
       ],
     },
     '67223': {
-      id: '67223',
+      code: '67223',
       active: true,
       question: 'APPROX WEIGHT OF TOBACCO',
       label: 'Approx weight of tobacco',
@@ -4292,7 +4292,7 @@ export const FIND_6: IncidentTypeConfiguration = {
       ],
     },
     '67224': {
-      id: '67224',
+      code: '67224',
       active: true,
       question: 'WHAT WEAPON WAS FOUND?',
       label: 'What weapon was found?',
@@ -4346,7 +4346,7 @@ export const FIND_6: IncidentTypeConfiguration = {
       ],
     },
     '67225': {
-      id: '67225',
+      code: '67225',
       active: true,
       question: 'WERE ANY OTHER REPORTABLE ITEMS FOUND (BY NATIONAL OR LOCAL POLICY)',
       label: 'Were any other reportable items found (by national or local policy)?',
@@ -4382,7 +4382,7 @@ export const FIND_6: IncidentTypeConfiguration = {
       ],
     },
     '67226': {
-      id: '67226',
+      code: '67226',
       active: true,
       question: 'WERE THE ITEMS OBTAINED ON TEMPORARY RELEASE?',
       label: 'Were the items obtained on temporary release?',
@@ -4418,7 +4418,7 @@ export const FIND_6: IncidentTypeConfiguration = {
       ],
     },
     '67227': {
-      id: '67227',
+      code: '67227',
       active: true,
       question: 'DESCRIBE THE TYPE OF TEMPORARY RELEASE',
       label: 'Describe the type of temporary release',

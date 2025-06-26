@@ -39,10 +39,10 @@ export function fromNomis(nomisConfig: NomisIncidentTypeConfiguration): DpsIncid
     questions: nomisQuestions.reduce((qs: Record<string, DpsQuestionConfiguration>, q: NomisQuestionConfiguration) => {
       const nomisAnswers = q.answers.sort(sortByAnswerSequence)
 
-      const questionId = q.questionnaireQueId?.toString() ?? null
+      const questionCode = q.questionnaireQueId?.toString() ?? null
       // eslint-disable-next-line no-param-reassign
-      qs[questionId] = {
-        id: questionId,
+      qs[questionCode] = {
+        code: questionCode,
         active: q.questionActiveFlag === true,
         question: q.questionDesc,
         label: addQuestionMarkToQuestion(convertToSentenceCase(q.questionDesc)),

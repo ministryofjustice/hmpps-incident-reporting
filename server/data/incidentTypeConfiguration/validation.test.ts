@@ -46,7 +46,7 @@ describe('DPS config validation', () => {
   describe('when some of the questions/answers IDs contains an hyphen', () => {
     it('returns an error', () => {
       const config: IncidentTypeConfiguration = buildValidConfig()
-      config.questions['2'].id += '-BROKEN'
+      config.questions['2'].code += '-BROKEN'
       config.questions['1'].answers[0].id += '-BROKEN'
 
       const errors = validateConfig(config).map(err => err.message)
@@ -445,7 +445,7 @@ function buildQuestion({
   nextQuestionId?: string | null
 }): QuestionConfiguration {
   return {
-    id,
+    code: id,
     active,
     question: label.toUpperCase(),
     label,

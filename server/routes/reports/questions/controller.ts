@@ -170,7 +170,7 @@ export class QuestionsController extends BaseController<FormWizard.MultiValues> 
           const answerConfig = findAnswerConfigByCode(answerCode, questionConfig)
           if (answerConfig === undefined) {
             logger.error(
-              `Report '${report.id}': Answer with code '${answerCode}' not found in ${report.type}'s question '${questionConfig.id}' configuration.`,
+              `Report '${report.id}': Answer with code '${answerCode}' not found in ${report.type}'s question '${questionConfig.code}' configuration.`,
             )
             // eslint-disable-next-line no-continue
             continue
@@ -261,7 +261,7 @@ export class QuestionsController extends BaseController<FormWizard.MultiValues> 
             const answerConfig = findAnswerConfigByCode(responseCode, questionConfig)
             if (!answerConfig) {
               logger.error(
-                `Report '${report.id}': Submitted Answer with code '${responseCode}' not found in ${report.type}'s question '${questionConfig.id}' configuration.`,
+                `Report '${report.id}': Submitted Answer with code '${responseCode}' not found in ${report.type}'s question '${questionConfig.code}' configuration.`,
               )
               // eslint-disable-next-line no-continue
               continue

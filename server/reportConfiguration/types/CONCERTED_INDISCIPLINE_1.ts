@@ -8,7 +8,7 @@ export const CONCERTED_INDISCIPLINE_1: IncidentTypeConfiguration = {
   startingQuestionId: '44750',
   questions: {
     '44122': {
-      id: '44122',
+      code: '44122',
       active: false,
       question: 'WAS CONTROL AND RESTRAINTS EMPLOYED',
       label: 'Was control and restraints employed?',
@@ -35,7 +35,7 @@ export const CONCERTED_INDISCIPLINE_1: IncidentTypeConfiguration = {
       ],
     },
     '44140': {
-      id: '44140',
+      code: '44140',
       active: false,
       question: "IS THE INCIDENT SUBJECT TO A GOVERNOR'S ADJUDICATION",
       label: "Is the incident subject to a governor's adjudication?",
@@ -62,7 +62,7 @@ export const CONCERTED_INDISCIPLINE_1: IncidentTypeConfiguration = {
       ],
     },
     '44156': {
-      id: '44156',
+      code: '44156',
       active: false,
       question: 'HAS THE PRISON SERVICE PRESS OFFICE BEEN INFORMED',
       label: 'Has the prison service press office been informed?',
@@ -89,7 +89,7 @@ export const CONCERTED_INDISCIPLINE_1: IncidentTypeConfiguration = {
       ],
     },
     '44161': {
-      id: '44161',
+      code: '44161',
       active: false,
       question: 'WERE WORKS SERVICES STAFF PRESENT',
       label: 'Were works services staff present?',
@@ -116,7 +116,7 @@ export const CONCERTED_INDISCIPLINE_1: IncidentTypeConfiguration = {
       ],
     },
     '44162': {
-      id: '44162',
+      code: '44162',
       active: false,
       question: 'HAS THE SERVICE SUPPLIER BEEN NOTIFIED OF A REPLACEMENT KEYWORD?',
       label: 'Has the service supplier been notified of a replacement keyword?',
@@ -143,7 +143,7 @@ export const CONCERTED_INDISCIPLINE_1: IncidentTypeConfiguration = {
       ],
     },
     '44170': {
-      id: '44170',
+      code: '44170',
       active: false,
       question: 'HOW MANY PRISONERS WERE INVOLVED',
       label: 'How many prisoners were involved?',
@@ -161,7 +161,7 @@ export const CONCERTED_INDISCIPLINE_1: IncidentTypeConfiguration = {
       ],
     },
     '44182': {
-      id: '44182',
+      code: '44182',
       active: false,
       question: 'IS THE INCIDENT THE SUBJECT OF A POLICE INVESTIGATION',
       label: 'Is the incident the subject of a police investigation?',
@@ -188,7 +188,7 @@ export const CONCERTED_INDISCIPLINE_1: IncidentTypeConfiguration = {
       ],
     },
     '44216': {
-      id: '44216',
+      code: '44216',
       active: false,
       question: 'INDICATE THE NATURE OF THE SHUT DOWN',
       label: 'Indicate the nature of the shut down',
@@ -215,7 +215,7 @@ export const CONCERTED_INDISCIPLINE_1: IncidentTypeConfiguration = {
       ],
     },
     '44238': {
-      id: '44238',
+      code: '44238',
       active: false,
       question: 'WERE EXTENDABLE BATONS USED',
       label: 'Were extendable batons used?',
@@ -242,7 +242,7 @@ export const CONCERTED_INDISCIPLINE_1: IncidentTypeConfiguration = {
       ],
     },
     '44250': {
-      id: '44250',
+      code: '44250',
       active: false,
       question: 'WAS THE KEYWORD REQUESTED?',
       label: 'Was the keyword requested?',
@@ -269,7 +269,7 @@ export const CONCERTED_INDISCIPLINE_1: IncidentTypeConfiguration = {
       ],
     },
     '44256': {
-      id: '44256',
+      code: '44256',
       active: false,
       question: 'IS ANY MEMBER OF STAFF FACING DISCIPLINARY CHARGES',
       label: 'Is any member of staff facing disciplinary charges?',
@@ -296,7 +296,7 @@ export const CONCERTED_INDISCIPLINE_1: IncidentTypeConfiguration = {
       ],
     },
     '44267': {
-      id: '44267',
+      code: '44267',
       active: false,
       question: 'WERE ANY INJURIES RECEIVED DURING THIS INCIDENT',
       label: 'Were any injuries received during this incident?',
@@ -323,7 +323,7 @@ export const CONCERTED_INDISCIPLINE_1: IncidentTypeConfiguration = {
       ],
     },
     '44279': {
-      id: '44279',
+      code: '44279',
       active: false,
       question: 'QUOTE THE VANTIVE CASE NUMBER',
       label: 'Quote the Vantive case number',
@@ -341,7 +341,7 @@ export const CONCERTED_INDISCIPLINE_1: IncidentTypeConfiguration = {
       ],
     },
     '44296': {
-      id: '44296',
+      code: '44296',
       active: false,
       question: 'WERE TRAINED NEGOTIATORS DEPLOYED',
       label: 'Were trained negotiators deployed?',
@@ -368,7 +368,7 @@ export const CONCERTED_INDISCIPLINE_1: IncidentTypeConfiguration = {
       ],
     },
     '44299': {
-      id: '44299',
+      code: '44299',
       active: false,
       question: 'WAS THE FIRE SERVICE PRESENT',
       label: 'Was the fire service present?',
@@ -395,7 +395,7 @@ export const CONCERTED_INDISCIPLINE_1: IncidentTypeConfiguration = {
       ],
     },
     '44304': {
-      id: '44304',
+      code: '44304',
       active: false,
       question: 'WHAT WAS THE LOCATION OF THE INCIDENT',
       label: 'What was the location of the incident?',
@@ -701,7 +701,7 @@ export const CONCERTED_INDISCIPLINE_1: IncidentTypeConfiguration = {
       ],
     },
     '44317': {
-      id: '44317',
+      code: '44317',
       active: false,
       question: 'WAS AN INCIDENT LIAISON OFFICER PRESENT',
       label: 'Was an incident liaison officer present?',
@@ -728,7 +728,7 @@ export const CONCERTED_INDISCIPLINE_1: IncidentTypeConfiguration = {
       ],
     },
     '44336': {
-      id: '44336',
+      code: '44336',
       active: false,
       question: 'WAS ANY EVACUATION NECESSARY',
       label: 'Was any evacuation necessary?',
@@ -755,7 +755,7 @@ export const CONCERTED_INDISCIPLINE_1: IncidentTypeConfiguration = {
       ],
     },
     '44338': {
-      id: '44338',
+      code: '44338',
       active: false,
       question: 'DURATION OF INCIDENT IN HOURS',
       label: 'Duration of incident in hours',
@@ -773,7 +773,7 @@ export const CONCERTED_INDISCIPLINE_1: IncidentTypeConfiguration = {
       ],
     },
     '44387': {
-      id: '44387',
+      code: '44387',
       active: false,
       question: 'DESCRIBE THE DAMAGE',
       label: 'Describe the damage',
@@ -809,7 +809,7 @@ export const CONCERTED_INDISCIPLINE_1: IncidentTypeConfiguration = {
       ],
     },
     '44438': {
-      id: '44438',
+      code: '44438',
       active: false,
       question: 'WERE WEAPONS USED BY THE PERPETRATORS',
       label: 'Were weapons used by the perpetrators?',
@@ -836,7 +836,7 @@ export const CONCERTED_INDISCIPLINE_1: IncidentTypeConfiguration = {
       ],
     },
     '44483': {
-      id: '44483',
+      code: '44483',
       active: false,
       question: 'WAS THERE AN APPARENT REASON FOR THE INCIDENT',
       label: 'Was there an apparent reason for the incident?',
@@ -863,7 +863,7 @@ export const CONCERTED_INDISCIPLINE_1: IncidentTypeConfiguration = {
       ],
     },
     '44531': {
-      id: '44531',
+      code: '44531',
       active: false,
       question: 'WAS A MINOR INJURY SUSTAINED',
       label: 'Was a minor injury sustained?',
@@ -890,7 +890,7 @@ export const CONCERTED_INDISCIPLINE_1: IncidentTypeConfiguration = {
       ],
     },
     '44551': {
-      id: '44551',
+      code: '44551',
       active: false,
       question: 'HAVE THE RING LEADERS BEEN IDENTIFIED',
       label: 'Have the ring leaders been identified?',
@@ -917,7 +917,7 @@ export const CONCERTED_INDISCIPLINE_1: IncidentTypeConfiguration = {
       ],
     },
     '44562': {
-      id: '44562',
+      code: '44562',
       active: false,
       question: 'WHAT TIME WAS THE SYSTEM SHUT DOWN?',
       label: 'What time was the system shut down?',
@@ -935,7 +935,7 @@ export const CONCERTED_INDISCIPLINE_1: IncidentTypeConfiguration = {
       ],
     },
     '44577': {
-      id: '44577',
+      code: '44577',
       active: false,
       question: 'WAS THIS A FULL OR PARTIAL SHUT DOWN?',
       label: 'Was this a full or partial shut down?',
@@ -962,7 +962,7 @@ export const CONCERTED_INDISCIPLINE_1: IncidentTypeConfiguration = {
       ],
     },
     '44623': {
-      id: '44623',
+      code: '44623',
       active: false,
       question: 'HAVE THE RING LEADERS BEEN ENTERED ON INMATE INVOLVEMENT',
       label: 'Have the ring leaders been entered on inmate involvement?',
@@ -989,7 +989,7 @@ export const CONCERTED_INDISCIPLINE_1: IncidentTypeConfiguration = {
       ],
     },
     '44654': {
-      id: '44654',
+      code: '44654',
       active: false,
       question: 'DESCRIBE WEAPONS USED',
       label: 'Describe weapons used',
@@ -1115,7 +1115,7 @@ export const CONCERTED_INDISCIPLINE_1: IncidentTypeConfiguration = {
       ],
     },
     '44656': {
-      id: '44656',
+      code: '44656',
       active: false,
       question: 'DESCRIBE THE APPARENT REASON FOR THE INCIDENT',
       label: 'Describe the apparent reason for the incident',
@@ -1178,7 +1178,7 @@ export const CONCERTED_INDISCIPLINE_1: IncidentTypeConfiguration = {
       ],
     },
     '44661': {
-      id: '44661',
+      code: '44661',
       active: false,
       question: 'ESTIMATED COST OF DAMAGE',
       label: 'Estimated cost of damage',
@@ -1196,7 +1196,7 @@ export const CONCERTED_INDISCIPLINE_1: IncidentTypeConfiguration = {
       ],
     },
     '44662': {
-      id: '44662',
+      code: '44662',
       active: false,
       question: 'WAS THE SYSTEM RE-ACTIVATED LOCALLY OR BY THE SERVICE SUPPLIER',
       label: 'Was the system re-activated locally or by the service supplier?',
@@ -1223,7 +1223,7 @@ export const CONCERTED_INDISCIPLINE_1: IncidentTypeConfiguration = {
       ],
     },
     '44663': {
-      id: '44663',
+      code: '44663',
       active: false,
       question: 'WAS A CANDR ADVISOR PRESENT',
       label: 'Was a CANDR advisor present?',
@@ -1250,7 +1250,7 @@ export const CONCERTED_INDISCIPLINE_1: IncidentTypeConfiguration = {
       ],
     },
     '44679': {
-      id: '44679',
+      code: '44679',
       active: false,
       question: 'ARE ANY STAFF ON SICK LEAVE AS A RESULT OF THIS INCIDENT',
       label: 'Are any staff on sick leave as a result of this incident?',
@@ -1277,7 +1277,7 @@ export const CONCERTED_INDISCIPLINE_1: IncidentTypeConfiguration = {
       ],
     },
     '44684': {
-      id: '44684',
+      code: '44684',
       active: false,
       question: 'WAS THE EMERGENCY RESPONSE VEHICLE PRESENT',
       label: 'Was the emergency response vehicle present?',
@@ -1304,7 +1304,7 @@ export const CONCERTED_INDISCIPLINE_1: IncidentTypeConfiguration = {
       ],
     },
     '44697': {
-      id: '44697',
+      code: '44697',
       active: false,
       question: 'WHO WAS DETAINED IN OUTSIDE HOSPITAL',
       label: 'Who was detained in outside hospital?',
@@ -1358,7 +1358,7 @@ export const CONCERTED_INDISCIPLINE_1: IncidentTypeConfiguration = {
       ],
     },
     '44724': {
-      id: '44724',
+      code: '44724',
       active: false,
       question: 'WHICH SERIOUS INJURIES WERE SUSTAINED',
       label: 'Which serious injuries were sustained?',
@@ -1475,7 +1475,7 @@ export const CONCERTED_INDISCIPLINE_1: IncidentTypeConfiguration = {
       ],
     },
     '44734': {
-      id: '44734',
+      code: '44734',
       active: false,
       question: 'ENTER DESCRIPTION OF PERSON(S) INJURED',
       label: 'Enter description of person(s) injured',
@@ -1529,7 +1529,7 @@ export const CONCERTED_INDISCIPLINE_1: IncidentTypeConfiguration = {
       ],
     },
     '44738': {
-      id: '44738',
+      code: '44738',
       active: false,
       question: 'DESCRIBE THE INCIDENT AS EITHER ACTIVE OR PASSIVE',
       label: 'Describe the incident as either active or passive',
@@ -1556,7 +1556,7 @@ export const CONCERTED_INDISCIPLINE_1: IncidentTypeConfiguration = {
       ],
     },
     '44750': {
-      id: '44750',
+      code: '44750',
       active: false,
       question: 'IS THE LOCATION OF THE INCIDENT KNOWN',
       label: 'Is the location of the incident known?',
@@ -1583,7 +1583,7 @@ export const CONCERTED_INDISCIPLINE_1: IncidentTypeConfiguration = {
       ],
     },
     '44758': {
-      id: '44758',
+      code: '44758',
       active: false,
       question: 'WAS THE TELEPHONE/IT SYSTEM SHUT DOWN LOCALLY OR BY THE SERVICE SUPPLIER',
       label: 'Was the telephone/it system shut down locally or by the service supplier?',
@@ -1610,7 +1610,7 @@ export const CONCERTED_INDISCIPLINE_1: IncidentTypeConfiguration = {
       ],
     },
     '44760': {
-      id: '44760',
+      code: '44760',
       active: false,
       question: 'DESCRIBE HOW THE INCIDENT WAS RESOLVED',
       label: 'Describe how the incident was resolved',
@@ -1646,7 +1646,7 @@ export const CONCERTED_INDISCIPLINE_1: IncidentTypeConfiguration = {
       ],
     },
     '44764': {
-      id: '44764',
+      code: '44764',
       active: false,
       question: 'WAS THE SYSTEM COMPROMISED?',
       label: 'Was the system compromised?',
@@ -1673,7 +1673,7 @@ export const CONCERTED_INDISCIPLINE_1: IncidentTypeConfiguration = {
       ],
     },
     '44774': {
-      id: '44774',
+      code: '44774',
       active: false,
       question: 'IS THE INCIDENT THE SUBJECT OF AN INTERNAL INVESTIGATION',
       label: 'Is the incident the subject of an internal investigation?',
@@ -1700,7 +1700,7 @@ export const CONCERTED_INDISCIPLINE_1: IncidentTypeConfiguration = {
       ],
     },
     '44783': {
-      id: '44783',
+      code: '44783',
       active: false,
       question: 'HAS ANY PROSECUTION TAKEN PLACE OR IS ANY PENDING',
       label: 'Has any prosecution taken place or is any pending?',
@@ -1727,7 +1727,7 @@ export const CONCERTED_INDISCIPLINE_1: IncidentTypeConfiguration = {
       ],
     },
     '44809': {
-      id: '44809',
+      code: '44809',
       active: false,
       question: 'WHO AUTHORISED THE SHUT DOWN?',
       label: 'Who authorised the shut down?',
@@ -1772,7 +1772,7 @@ export const CONCERTED_INDISCIPLINE_1: IncidentTypeConfiguration = {
       ],
     },
     '44810': {
-      id: '44810',
+      code: '44810',
       active: false,
       question: 'WAS THE TELEPHONE/IT SYSTEM SHUT DOWN DURING THE INCIDENT?',
       label: 'Was the telephone/it system shut down during the incident?',
@@ -1799,7 +1799,7 @@ export const CONCERTED_INDISCIPLINE_1: IncidentTypeConfiguration = {
       ],
     },
     '44867': {
-      id: '44867',
+      code: '44867',
       active: false,
       question: 'WAS A BARRICADE USED',
       label: 'Was a barricade used?',
@@ -1826,7 +1826,7 @@ export const CONCERTED_INDISCIPLINE_1: IncidentTypeConfiguration = {
       ],
     },
     '44877': {
-      id: '44877',
+      code: '44877',
       active: false,
       question: 'WHICH MINOR INJURIES WERE SUSTAINED',
       label: 'Which minor injuries were sustained?',
@@ -1880,7 +1880,7 @@ export const CONCERTED_INDISCIPLINE_1: IncidentTypeConfiguration = {
       ],
     },
     '44884': {
-      id: '44884',
+      code: '44884',
       active: false,
       question: 'ARE THERE ANY STAFF NOW OFF DUTY AS A RESULT OF THIS INCIDENT',
       label: 'Are there any staff now off duty as a result of this incident?',
@@ -1907,7 +1907,7 @@ export const CONCERTED_INDISCIPLINE_1: IncidentTypeConfiguration = {
       ],
     },
     '44902': {
-      id: '44902',
+      code: '44902',
       active: false,
       question: 'WHEN WAS THE SYSTEM RE-ACTIVATED?',
       label: 'When was the system re-activated?',
@@ -1925,7 +1925,7 @@ export const CONCERTED_INDISCIPLINE_1: IncidentTypeConfiguration = {
       ],
     },
     '44910': {
-      id: '44910',
+      code: '44910',
       active: false,
       question: 'WERE THE POLICE INFORMED OF THE INCIDENT',
       label: 'Were the police informed of the incident?',
@@ -1952,7 +1952,7 @@ export const CONCERTED_INDISCIPLINE_1: IncidentTypeConfiguration = {
       ],
     },
     '44917': {
-      id: '44917',
+      code: '44917',
       active: false,
       question: 'WAS OPERATION TORNADO USED',
       label: 'Was operation Tornado used?',
@@ -1979,7 +1979,7 @@ export const CONCERTED_INDISCIPLINE_1: IncidentTypeConfiguration = {
       ],
     },
     '44973': {
-      id: '44973',
+      code: '44973',
       active: false,
       question: 'DID INJURIES RESULT IN DETENTION IN OUTSIDE HOSPITAL AS AN IN-PATIENT',
       label: 'Did injuries result in detention in outside hospital as an in-patient?',
@@ -2006,7 +2006,7 @@ export const CONCERTED_INDISCIPLINE_1: IncidentTypeConfiguration = {
       ],
     },
     '44979': {
-      id: '44979',
+      code: '44979',
       active: false,
       question: 'WERE WATER HOSES USED',
       label: 'Were water hoses used?',
@@ -2033,7 +2033,7 @@ export const CONCERTED_INDISCIPLINE_1: IncidentTypeConfiguration = {
       ],
     },
     '45013': {
-      id: '45013',
+      code: '45013',
       active: false,
       question: 'DESCRIBE WHAT WAS COMPROMISED AND BY WHOM',
       label: 'Describe what was compromised and by whom',
@@ -2051,7 +2051,7 @@ export const CONCERTED_INDISCIPLINE_1: IncidentTypeConfiguration = {
       ],
     },
     '45045': {
-      id: '45045',
+      code: '45045',
       active: false,
       question: 'WERE HEALTH CARE CENTRE STAFF PRESENT',
       label: 'Were health care centre staff present?',
@@ -2078,7 +2078,7 @@ export const CONCERTED_INDISCIPLINE_1: IncidentTypeConfiguration = {
       ],
     },
     '45065': {
-      id: '45065',
+      code: '45065',
       active: false,
       question: 'IS THERE ANY MEDIA INTEREST IN THIS INCIDENT',
       label: 'Is there any media interest in this incident?',
@@ -2105,7 +2105,7 @@ export const CONCERTED_INDISCIPLINE_1: IncidentTypeConfiguration = {
       ],
     },
     '45117': {
-      id: '45117',
+      code: '45117',
       active: false,
       question: 'WAS DAMAGE CAUSED TO PRISON PROPERTY',
       label: 'Was damage caused to prison property?',
@@ -2132,7 +2132,7 @@ export const CONCERTED_INDISCIPLINE_1: IncidentTypeConfiguration = {
       ],
     },
     '45129': {
-      id: '45129',
+      code: '45129',
       active: false,
       question: 'WAS A SERIOUS INJURY SUSTAINED',
       label: 'Was a serious injury sustained?',
@@ -2159,7 +2159,7 @@ export const CONCERTED_INDISCIPLINE_1: IncidentTypeConfiguration = {
       ],
     },
     '45153': {
-      id: '45153',
+      code: '45153',
       active: false,
       question: 'WAS THE INCIDENT IN PUBLIC VIEW',
       label: 'Was the incident in public view?',
@@ -2186,7 +2186,7 @@ export const CONCERTED_INDISCIPLINE_1: IncidentTypeConfiguration = {
       ],
     },
     '45158': {
-      id: '45158',
+      code: '45158',
       active: false,
       question: 'WAS THE AMBULANCE SERVICE PRESENT',
       label: 'Was the ambulance service present?',
@@ -2213,7 +2213,7 @@ export const CONCERTED_INDISCIPLINE_1: IncidentTypeConfiguration = {
       ],
     },
     '45165': {
-      id: '45165',
+      code: '45165',
       active: false,
       question: 'WERE BOARD OF VISITORS MEMBERS PRESENT',
       label: 'Were board of visitors members present?',
@@ -2240,7 +2240,7 @@ export const CONCERTED_INDISCIPLINE_1: IncidentTypeConfiguration = {
       ],
     },
     '45174': {
-      id: '45174',
+      code: '45174',
       active: false,
       question: 'WERE THE POLICE PRESENT',
       label: 'Were the police present?',

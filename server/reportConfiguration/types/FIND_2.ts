@@ -8,7 +8,7 @@ export const FIND_2: IncidentTypeConfiguration = {
   startingQuestionId: '51230',
   questions: {
     '51230': {
-      id: '51230',
+      code: '51230',
       active: false,
       question: 'WHAT WAS THE MAIN MANAGEMENT OUTCOME OF THIS INCIDENT?',
       label: 'What was the main management outcome of this incident?',
@@ -71,7 +71,7 @@ export const FIND_2: IncidentTypeConfiguration = {
       ],
     },
     '51231': {
-      id: '51231',
+      code: '51231',
       active: false,
       question: 'IS ANY MEMBER OF STAFF FACING DISCIPLINARY CHARGES?',
       label: 'Is any member of staff facing disciplinary charges?',
@@ -98,7 +98,7 @@ export const FIND_2: IncidentTypeConfiguration = {
       ],
     },
     '51232': {
-      id: '51232',
+      code: '51232',
       active: false,
       question: 'IS THE LOCATION OF THE INCIDENT KNOWN?',
       label: 'Is the location of the incident known?',
@@ -125,7 +125,7 @@ export const FIND_2: IncidentTypeConfiguration = {
       ],
     },
     '51233': {
-      id: '51233',
+      code: '51233',
       active: false,
       question: 'WHAT WAS THE LOCATION OF THE INCIDENT?',
       label: 'What was the location of the incident?',
@@ -467,7 +467,7 @@ export const FIND_2: IncidentTypeConfiguration = {
       ],
     },
     '51234': {
-      id: '51234',
+      code: '51234',
       active: false,
       question: 'WAS A DRUG FOUND?',
       label: 'Was a drug found?',
@@ -494,7 +494,7 @@ export const FIND_2: IncidentTypeConfiguration = {
       ],
     },
     '51235': {
-      id: '51235',
+      code: '51235',
       active: false,
       question: 'DESCRIBE THE DRUG FOUND',
       label: 'Describe the drug found',
@@ -692,7 +692,7 @@ export const FIND_2: IncidentTypeConfiguration = {
       ],
     },
     '51236': {
-      id: '51236',
+      code: '51236',
       active: false,
       question: 'WHAT WAS THE ESTIMATED WEIGHT OF ALL DRUGS/SUBSTANCES FOUND',
       label: 'What was the estimated weight of all drugs/substances found?',
@@ -836,7 +836,7 @@ export const FIND_2: IncidentTypeConfiguration = {
       ],
     },
     '51237': {
-      id: '51237',
+      code: '51237',
       active: false,
       question: 'WAS THE SUBSTANCE FOUND ANALYSED?',
       label: 'Was the substance found analysed?',
@@ -863,7 +863,7 @@ export const FIND_2: IncidentTypeConfiguration = {
       ],
     },
     '51238': {
-      id: '51238',
+      code: '51238',
       active: false,
       question: 'HOW WAS THE SUBSTANCE ANALYSED?',
       label: 'How was the substance analysed?',
@@ -890,7 +890,7 @@ export const FIND_2: IncidentTypeConfiguration = {
       ],
     },
     '51239': {
-      id: '51239',
+      code: '51239',
       active: false,
       question: 'TO WHICH POLICE STATION WERE SEIZED DRUGS SENT FOR DESTRUCTION?',
       label: 'To which police station were seized drugs sent for destruction?',
@@ -908,7 +908,7 @@ export const FIND_2: IncidentTypeConfiguration = {
       ],
     },
     '51240': {
-      id: '51240',
+      code: '51240',
       active: false,
       question: 'WAS DRUG EQUIPMENT FOUND?',
       label: 'Was drug equipment found?',
@@ -935,7 +935,7 @@ export const FIND_2: IncidentTypeConfiguration = {
       ],
     },
     '51241': {
-      id: '51241',
+      code: '51241',
       active: false,
       question: 'DESCRIBE DRUG EQUIPMENT FOUND',
       label: 'Describe drug equipment found',
@@ -1007,7 +1007,7 @@ export const FIND_2: IncidentTypeConfiguration = {
       ],
     },
     '51242': {
-      id: '51242',
+      code: '51242',
       active: false,
       question: 'WAS A MOBILE PHONE RELATED ITEM FOUND?',
       label: 'Was a mobile phone related item found?',
@@ -1034,7 +1034,7 @@ export const FIND_2: IncidentTypeConfiguration = {
       ],
     },
     '51243': {
-      id: '51243',
+      code: '51243',
       active: false,
       question: 'WAS A MOBILE PHONE FOUND?',
       label: 'Was a mobile phone found?',
@@ -1061,7 +1061,7 @@ export const FIND_2: IncidentTypeConfiguration = {
       ],
     },
     '51244': {
-      id: '51244',
+      code: '51244',
       active: false,
       question: 'ENTER NUMBER OF MOBILES FOUND',
       label: 'Enter number of mobiles found',
@@ -1277,7 +1277,7 @@ export const FIND_2: IncidentTypeConfiguration = {
       ],
     },
     '51245': {
-      id: '51245',
+      code: '51245',
       active: false,
       question: 'WAS A SIM CARD FOUND?',
       label: 'Was a SIM card found?',
@@ -1304,7 +1304,7 @@ export const FIND_2: IncidentTypeConfiguration = {
       ],
     },
     '51246': {
-      id: '51246',
+      code: '51246',
       active: false,
       question: 'ENTER NUMBER OF SIM CARDS FOUND',
       label: 'Enter number of SIM cards found',
@@ -1520,7 +1520,7 @@ export const FIND_2: IncidentTypeConfiguration = {
       ],
     },
     '51247': {
-      id: '51247',
+      code: '51247',
       active: false,
       question: 'WAS A MEMORY CARD FOUND?',
       label: 'Was a memory card found?',
@@ -1547,7 +1547,7 @@ export const FIND_2: IncidentTypeConfiguration = {
       ],
     },
     '51248': {
-      id: '51248',
+      code: '51248',
       active: false,
       question: 'ENTER NUMBER OF MEMORY CARDS FOUND',
       label: 'Enter number of memory cards found',
@@ -1763,7 +1763,7 @@ export const FIND_2: IncidentTypeConfiguration = {
       ],
     },
     '51249': {
-      id: '51249',
+      code: '51249',
       active: false,
       question: 'WAS A CHARGER FOUND?',
       label: 'Was a charger found?',
@@ -1790,7 +1790,7 @@ export const FIND_2: IncidentTypeConfiguration = {
       ],
     },
     '51250': {
-      id: '51250',
+      code: '51250',
       active: false,
       question: 'WAS ANY OTHER MOBILE PHONE/COMMUNICATION RELATED ITEM FOUND?',
       label: 'Was any other mobile phone/communication related item found?',
@@ -1817,7 +1817,7 @@ export const FIND_2: IncidentTypeConfiguration = {
       ],
     },
     '51251': {
-      id: '51251',
+      code: '51251',
       active: false,
       question: 'HAS PHONE/SIM/MEMORY CARD BEEN SENT TO NDTSG?',
       label: 'Has phone/SIM/memory card been sent to NDTSG?',
@@ -1853,7 +1853,7 @@ export const FIND_2: IncidentTypeConfiguration = {
       ],
     },
     '51252': {
-      id: '51252',
+      code: '51252',
       active: false,
       question: 'HAS PHONE/SIM/EQUIPMENT BEEN RETAINED BY POLICE?',
       label: 'Has phone/SIM/equipment been retained by police?',
@@ -1880,7 +1880,7 @@ export const FIND_2: IncidentTypeConfiguration = {
       ],
     },
     '51253': {
-      id: '51253',
+      code: '51253',
       active: false,
       question: 'WAS A WEAPON FOUND?',
       label: 'Was a weapon found?',
@@ -1907,7 +1907,7 @@ export const FIND_2: IncidentTypeConfiguration = {
       ],
     },
     '51254': {
-      id: '51254',
+      code: '51254',
       active: false,
       question: 'DESCRIBE THE WEAPON',
       label: 'Describe the weapon',
@@ -1952,7 +1952,7 @@ export const FIND_2: IncidentTypeConfiguration = {
       ],
     },
     '51255': {
-      id: '51255',
+      code: '51255',
       active: false,
       question: 'WAS ANY ALCOHOL/HOOCH FOUND?',
       label: 'Was any alcohol/hooch found?',
@@ -1979,7 +1979,7 @@ export const FIND_2: IncidentTypeConfiguration = {
       ],
     },
     '51256': {
-      id: '51256',
+      code: '51256',
       active: false,
       question: 'WHAT QUANTITY OF ALCOHOL/HOOCH WAS FOUND?',
       label: 'What quantity of alcohol/hooch was found?',
@@ -2069,7 +2069,7 @@ export const FIND_2: IncidentTypeConfiguration = {
       ],
     },
     '51257': {
-      id: '51257',
+      code: '51257',
       active: false,
       question: 'WAS ANY DISTILLING EQUIPMENT FOUND?',
       label: 'Was any distilling equipment found?',
@@ -2096,7 +2096,7 @@ export const FIND_2: IncidentTypeConfiguration = {
       ],
     },
     '51258': {
-      id: '51258',
+      code: '51258',
       active: false,
       question: 'WERE ANY OTHER REPORTABLE ITEMS FOUND?',
       label: 'Were any other reportable items found?',
@@ -2123,7 +2123,7 @@ export const FIND_2: IncidentTypeConfiguration = {
       ],
     },
     '51259': {
-      id: '51259',
+      code: '51259',
       active: false,
       question: 'DESCRIBE THE ITEM',
       label: 'Describe the item',
@@ -2141,7 +2141,7 @@ export const FIND_2: IncidentTypeConfiguration = {
       ],
     },
     '51260': {
-      id: '51260',
+      code: '51260',
       active: false,
       question: 'DESCRIBE HOW THE ITEM WAS FOUND',
       label: 'Describe how the item was found',
@@ -2303,7 +2303,7 @@ export const FIND_2: IncidentTypeConfiguration = {
       ],
     },
     '51261': {
-      id: '51261',
+      code: '51261',
       active: false,
       question: 'DESCRIBE THE METHOD OF ENTRY INTO THE ESTABLISHMENT',
       label: 'Describe the method of entry into the establishment',
@@ -2420,7 +2420,7 @@ export const FIND_2: IncidentTypeConfiguration = {
       ],
     },
     '51262': {
-      id: '51262',
+      code: '51262',
       active: false,
       question: 'IF FOUND IN POSSESSION, WHOSE WAS IT FOUND IN?',
       label: 'If found in possession, whose was it found in?',
@@ -2501,7 +2501,7 @@ export const FIND_2: IncidentTypeConfiguration = {
       ],
     },
     '51263': {
-      id: '51263',
+      code: '51263',
       active: false,
       question: 'WHAT WAS THE METHOD OF CONCEALMENT?',
       label: 'What was the method of concealment?',
@@ -2645,7 +2645,7 @@ export const FIND_2: IncidentTypeConfiguration = {
       ],
     },
     '51264': {
-      id: '51264',
+      code: '51264',
       active: false,
       question: 'IS THE ITEM HEAVILY CONTAMINATED (E.G. BLOOD OR FAECES)?',
       label: 'Is the item heavily contaminated (e.g. blood or faeces)?',
@@ -2672,7 +2672,7 @@ export const FIND_2: IncidentTypeConfiguration = {
       ],
     },
     '51265': {
-      id: '51265',
+      code: '51265',
       active: false,
       question: 'WAS A VISITOR SUSPECTED OF INVOLVEMENT AND ARRESTED BY THE POLICE?',
       label: 'Was a visitor suspected of involvement and arrested by the police?',
@@ -2699,7 +2699,7 @@ export const FIND_2: IncidentTypeConfiguration = {
       ],
     },
     '51266': {
-      id: '51266',
+      code: '51266',
       active: false,
       question: 'DESCRIBE CIRCUMSTANCES OF VISITORS ARREST',
       label: 'Describe circumstances of visitors arrest',
@@ -2726,7 +2726,7 @@ export const FIND_2: IncidentTypeConfiguration = {
       ],
     },
     '51267': {
-      id: '51267',
+      code: '51267',
       active: false,
       question: 'TO WHICH POLICE STATION WAS THE VISITOR TAKEN?',
       label: 'To which police station was the visitor taken?',
@@ -2744,7 +2744,7 @@ export const FIND_2: IncidentTypeConfiguration = {
       ],
     },
     '51268': {
-      id: '51268',
+      code: '51268',
       active: false,
       question: 'WERE THE ITEMS OBTAINED ON TEMPORARY RELEASE?',
       label: 'Were the items obtained on temporary release?',
@@ -2780,7 +2780,7 @@ export const FIND_2: IncidentTypeConfiguration = {
       ],
     },
     '51269': {
-      id: '51269',
+      code: '51269',
       active: false,
       question: 'DESCRIBE THE TYPE OF TEMPORARY RELEASE',
       label: 'Describe the type of temporary release',
@@ -2834,7 +2834,7 @@ export const FIND_2: IncidentTypeConfiguration = {
       ],
     },
     '51270': {
-      id: '51270',
+      code: '51270',
       active: false,
       question: 'WHAT WAS THE TOTAL ESTIMATED VALUE OF THE FIND (DRUGS, MOBILE PHONES ETC)',
       label: 'What was the total estimated value of the find (drugs, mobile phones etc)?',
@@ -2978,7 +2978,7 @@ export const FIND_2: IncidentTypeConfiguration = {
       ],
     },
     '57223': {
-      id: '57223',
+      code: '57223',
       active: false,
       question: 'WAS ANY TOBACCO FOUND',
       label: 'Was any tobacco found?',
@@ -3005,7 +3005,7 @@ export const FIND_2: IncidentTypeConfiguration = {
       ],
     },
     '57224': {
-      id: '57224',
+      code: '57224',
       active: false,
       question: 'DESCRIBE THE TOBACCO FOUND',
       label: 'Describe the tobacco found',
@@ -3041,7 +3041,7 @@ export const FIND_2: IncidentTypeConfiguration = {
       ],
     },
     '57225': {
-      id: '57225',
+      code: '57225',
       active: false,
       question: 'APPROX WEIGHT OF TOBACCO',
       label: 'Approx weight of tobacco',
@@ -3086,7 +3086,7 @@ export const FIND_2: IncidentTypeConfiguration = {
       ],
     },
     '57226': {
-      id: '57226',
+      code: '57226',
       active: false,
       question: 'WERE ANY OTHER REPORTABLE ITEMS FOUND',
       label: 'Were any other reportable items found?',
@@ -3113,7 +3113,7 @@ export const FIND_2: IncidentTypeConfiguration = {
       ],
     },
     '57227': {
-      id: '57227',
+      code: '57227',
       active: false,
       question: 'DESCRIBE THE ITEM',
       label: 'Describe the item',
@@ -3131,7 +3131,7 @@ export const FIND_2: IncidentTypeConfiguration = {
       ],
     },
     '57228': {
-      id: '57228',
+      code: '57228',
       active: false,
       question: 'DESCRIBE HOW THE ITEM WAS FOUND',
       label: 'Describe how the item was found',
@@ -3293,7 +3293,7 @@ export const FIND_2: IncidentTypeConfiguration = {
       ],
     },
     '57229': {
-      id: '57229',
+      code: '57229',
       active: false,
       question: 'DESCRIBE THE METHOD OF ENTRY INTO THE ESTABLISHMENT',
       label: 'Describe the method of entry into the establishment',
@@ -3410,7 +3410,7 @@ export const FIND_2: IncidentTypeConfiguration = {
       ],
     },
     '57230': {
-      id: '57230',
+      code: '57230',
       active: false,
       question: 'IF FOUND IN POSSESSION, WHOSE WAS IT FOUND IN',
       label: 'If found in possession, whose was it found in',
@@ -3491,7 +3491,7 @@ export const FIND_2: IncidentTypeConfiguration = {
       ],
     },
     '57231': {
-      id: '57231',
+      code: '57231',
       active: false,
       question: 'WHAT WAS THE METHOD OF CONCEALMENT',
       label: 'What was the method of concealment?',
@@ -3644,7 +3644,7 @@ export const FIND_2: IncidentTypeConfiguration = {
       ],
     },
     '57232': {
-      id: '57232',
+      code: '57232',
       active: false,
       question: 'IS THE ITEM HEAVILY CONTAMINATED (E.G. BLOOD,  FAECES)',
       label: 'Is the item heavily contaminated (e.g. blood, faeces)?',
@@ -3671,7 +3671,7 @@ export const FIND_2: IncidentTypeConfiguration = {
       ],
     },
     '57233': {
-      id: '57233',
+      code: '57233',
       active: false,
       question: 'WAS A VISITOR SUSPECTED OF INVOLVEMENT AND ARRESTED BY THE POLICE',
       label: 'Was a visitor suspected of involvement and arrested by the police?',
@@ -3698,7 +3698,7 @@ export const FIND_2: IncidentTypeConfiguration = {
       ],
     },
     '57234': {
-      id: '57234',
+      code: '57234',
       active: false,
       question: 'DESCRIBE CIRCUMSTANCES OF VISITORS ARREST',
       label: 'Describe circumstances of visitors arrest',
@@ -3725,7 +3725,7 @@ export const FIND_2: IncidentTypeConfiguration = {
       ],
     },
     '57235': {
-      id: '57235',
+      code: '57235',
       active: false,
       question: 'TO WHICH POLICE STATION WAS THE VISITOR TAKEN TO',
       label: 'To which police station was the visitor taken to?',
@@ -3743,7 +3743,7 @@ export const FIND_2: IncidentTypeConfiguration = {
       ],
     },
     '57236': {
-      id: '57236',
+      code: '57236',
       active: false,
       question: 'WERE THE ITEMS OBTAINED ON TEMPORARY RELEASE',
       label: 'Were the items obtained on temporary release?',
@@ -3779,7 +3779,7 @@ export const FIND_2: IncidentTypeConfiguration = {
       ],
     },
     '57237': {
-      id: '57237',
+      code: '57237',
       active: false,
       question: 'DESCRIBE THE TYPE OF TEMPORARY RELEASE',
       label: 'Describe the type of temporary release',
@@ -3833,7 +3833,7 @@ export const FIND_2: IncidentTypeConfiguration = {
       ],
     },
     '57238': {
-      id: '57238',
+      code: '57238',
       active: false,
       question: 'WHAT WAS THE TOTAL ESTIMATED VALUE OF THE FIND (DRUGS, MOBILE PHONES ETC.)',
       label: 'What was the total estimated value of the find (drugs, mobile phones etc.)?',

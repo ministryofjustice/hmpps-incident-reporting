@@ -8,7 +8,7 @@ export const TOOL_LOSS_1: IncidentTypeConfiguration = {
   startingQuestionId: '45142',
   questions: {
     '44195': {
-      id: '44195',
+      code: '44195',
       active: true,
       question: 'WHAT ACTION WAS TAKEN TO FIND THESE ITEMS',
       label: 'What action was taken to find these items?',
@@ -44,7 +44,7 @@ export const TOOL_LOSS_1: IncidentTypeConfiguration = {
       ],
     },
     '44372': {
-      id: '44372',
+      code: '44372',
       active: true,
       question: 'IS THE MISSING ITEM THOUGHT TO BE',
       label: 'Is the missing item thought to be?',
@@ -80,7 +80,7 @@ export const TOOL_LOSS_1: IncidentTypeConfiguration = {
       ],
     },
     '44412': {
-      id: '44412',
+      code: '44412',
       active: true,
       question: 'HAS THE PRISON SERVICE PRESS OFFICE BEEN INFORMED',
       label: 'Has the prison service press office been informed?',
@@ -107,7 +107,7 @@ export const TOOL_LOSS_1: IncidentTypeConfiguration = {
       ],
     },
     '44445': {
-      id: '44445',
+      code: '44445',
       active: true,
       question: "IS THE MISSING ITEM THOUGHT TO BE IN A PRISONER'S POSSESSION",
       label: "Is the missing item thought to be in a prisoner's possession?",
@@ -134,7 +134,7 @@ export const TOOL_LOSS_1: IncidentTypeConfiguration = {
       ],
     },
     '44477': {
-      id: '44477',
+      code: '44477',
       active: true,
       question: 'HOW ARE TOOLS/IMPLEMENTS STORED',
       label: 'How are tools/implements stored?',
@@ -179,7 +179,7 @@ export const TOOL_LOSS_1: IncidentTypeConfiguration = {
       ],
     },
     '44489': {
-      id: '44489',
+      code: '44489',
       active: true,
       question: 'IS THE INCIDENT THE SUBJECT OF AN INTERNAL INVESTIGATION',
       label: 'Is the incident the subject of an internal investigation?',
@@ -206,7 +206,7 @@ export const TOOL_LOSS_1: IncidentTypeConfiguration = {
       ],
     },
     '44509': {
-      id: '44509',
+      code: '44509',
       active: true,
       question: 'IS THE F78A CHECKING SYSTEM IN OPERATION',
       label: 'Is the F78A checking system in operation?',
@@ -233,7 +233,7 @@ export const TOOL_LOSS_1: IncidentTypeConfiguration = {
       ],
     },
     '44565': {
-      id: '44565',
+      code: '44565',
       active: true,
       question: 'HAS THE ITEM BEEN FOUND',
       label: 'Has the item been found?',
@@ -260,7 +260,7 @@ export const TOOL_LOSS_1: IncidentTypeConfiguration = {
       ],
     },
     '44593': {
-      id: '44593',
+      code: '44593',
       active: true,
       question: 'WHAT TOOL OR IMPLEMENT IS MISSING',
       label: 'What tool or implement is missing?',
@@ -377,7 +377,7 @@ export const TOOL_LOSS_1: IncidentTypeConfiguration = {
       ],
     },
     '44603': {
-      id: '44603',
+      code: '44603',
       active: true,
       question: 'IS ANY MEMBER OF STAFF FACING DISCIPLINARY CHARGES',
       label: 'Is any member of staff facing disciplinary charges?',
@@ -404,7 +404,7 @@ export const TOOL_LOSS_1: IncidentTypeConfiguration = {
       ],
     },
     '44672': {
-      id: '44672',
+      code: '44672',
       active: true,
       question: 'IS THERE ANY MEDIA INTEREST IN THIS INCIDENT',
       label: 'Is there any media interest in this incident?',
@@ -431,7 +431,7 @@ export const TOOL_LOSS_1: IncidentTypeConfiguration = {
       ],
     },
     '44808': {
-      id: '44808',
+      code: '44808',
       active: true,
       question: 'IS THE INCIDENT THE SUBJECT OF A POLICE INVESTIGATION',
       label: 'Is the incident the subject of a police investigation?',
@@ -458,7 +458,7 @@ export const TOOL_LOSS_1: IncidentTypeConfiguration = {
       ],
     },
     '44950': {
-      id: '44950',
+      code: '44950',
       active: true,
       question: 'WHERE WAS THE TOOLS LOST FROM',
       label: 'Where was the tools lost from?',
@@ -566,7 +566,7 @@ export const TOOL_LOSS_1: IncidentTypeConfiguration = {
       ],
     },
     '44993': {
-      id: '44993',
+      code: '44993',
       active: true,
       question: "IS THE INCIDENT SUBJECT TO A GOVERNOR'S ADJUDICATION",
       label: "Is the incident subject to a governor's adjudication?",
@@ -593,7 +593,7 @@ export const TOOL_LOSS_1: IncidentTypeConfiguration = {
       ],
     },
     '45142': {
-      id: '45142',
+      code: '45142',
       active: true,
       question: 'WERE THE POLICE INFORMED OF THE INCIDENT',
       label: 'Were the police informed of the incident?',
@@ -620,7 +620,7 @@ export const TOOL_LOSS_1: IncidentTypeConfiguration = {
       ],
     },
     '45169': {
-      id: '45169',
+      code: '45169',
       active: true,
       question: 'WHERE WAS THE ITEM FOUND',
       label: 'Where was the item found?',

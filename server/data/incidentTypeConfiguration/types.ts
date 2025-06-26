@@ -16,8 +16,8 @@ export interface IncidentTypeConfiguration {
 
 /** Describes a question that may appear in a report */
 export interface QuestionConfiguration {
-  /** Question ID (cannot contain hyphens), used to generate field names/ids */
-  id: string
+  /** Question code (cannot contain hyphens), used to generate field names/ids */
+  code: string
   active: boolean
   /** Question as seen by machines, e.g. it shouldn't change.
    *

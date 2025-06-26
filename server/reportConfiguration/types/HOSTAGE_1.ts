@@ -8,7 +8,7 @@ export const HOSTAGE_1: IncidentTypeConfiguration = {
   startingQuestionId: '44318',
   questions: {
     '44137': {
-      id: '44137',
+      code: '44137',
       active: false,
       question: 'WAS A HOSTAGE NEGOTIATION ADVISER PRESENT',
       label: 'Was a hostage negotiation adviser present?',
@@ -35,7 +35,7 @@ export const HOSTAGE_1: IncidentTypeConfiguration = {
       ],
     },
     '44210': {
-      id: '44210',
+      code: '44210',
       active: false,
       question: 'WERE IMB MEMBERS PRESENT',
       label: 'Were IMB members present?',
@@ -62,7 +62,7 @@ export const HOSTAGE_1: IncidentTypeConfiguration = {
       ],
     },
     '44213': {
-      id: '44213',
+      code: '44213',
       active: false,
       question: 'ESTIMATED COST OF DAMAGE',
       label: 'Estimated cost of damage',
@@ -80,7 +80,7 @@ export const HOSTAGE_1: IncidentTypeConfiguration = {
       ],
     },
     '44218': {
-      id: '44218',
+      code: '44218',
       active: false,
       question: 'DID INJURIES RESULT IN DETENTION IN OUTSIDE HOSPITAL AS AN IN-PATIENT',
       label: 'Did injuries result in detention in outside hospital as an in-patient?',
@@ -107,7 +107,7 @@ export const HOSTAGE_1: IncidentTypeConfiguration = {
       ],
     },
     '44234': {
-      id: '44234',
+      code: '44234',
       active: false,
       question: 'HAS ANY PROSECUTION TAKEN PLACE OR IS ANY PENDING',
       label: 'Has any prosecution taken place or is any pending?',
@@ -134,7 +134,7 @@ export const HOSTAGE_1: IncidentTypeConfiguration = {
       ],
     },
     '44235': {
-      id: '44235',
+      code: '44235',
       active: false,
       question: 'WHO WAS DETAINED IN OUTSIDE HOSPITAL',
       label: 'Who was detained in outside hospital?',
@@ -188,7 +188,7 @@ export const HOSTAGE_1: IncidentTypeConfiguration = {
       ],
     },
     '44239': {
-      id: '44239',
+      code: '44239',
       active: false,
       question: 'WHO AUTHORISED THE SHUT DOWN?',
       label: 'Who authorised the shut down?',
@@ -233,7 +233,7 @@ export const HOSTAGE_1: IncidentTypeConfiguration = {
       ],
     },
     '44257': {
-      id: '44257',
+      code: '44257',
       active: false,
       question: 'WERE WATER HOSES USED',
       label: 'Were water hoses used?',
@@ -260,7 +260,7 @@ export const HOSTAGE_1: IncidentTypeConfiguration = {
       ],
     },
     '44265': {
-      id: '44265',
+      code: '44265',
       active: false,
       question: 'WERE THE POLICE PRESENT',
       label: 'Were the police present?',
@@ -287,7 +287,7 @@ export const HOSTAGE_1: IncidentTypeConfiguration = {
       ],
     },
     '44275': {
-      id: '44275',
+      code: '44275',
       active: false,
       question: 'INDICATE THE NATURE OF THE SHUT DOWN',
       label: 'Indicate the nature of the shut down',
@@ -314,7 +314,7 @@ export const HOSTAGE_1: IncidentTypeConfiguration = {
       ],
     },
     '44293': {
-      id: '44293',
+      code: '44293',
       active: false,
       question: 'WAS THE TELEPHONE/IT SYSTEM SHUT DOWN DURING THE INCIDENT?',
       label: 'Was the telephone/it system shut down during the incident?',
@@ -341,7 +341,7 @@ export const HOSTAGE_1: IncidentTypeConfiguration = {
       ],
     },
     '44311': {
-      id: '44311',
+      code: '44311',
       active: false,
       question: 'WAS DAMAGE CAUSED TO PRISON PROPERTY',
       label: 'Was damage caused to prison property?',
@@ -368,7 +368,7 @@ export const HOSTAGE_1: IncidentTypeConfiguration = {
       ],
     },
     '44318': {
-      id: '44318',
+      code: '44318',
       active: false,
       question: 'IS THE LOCATION OF THE INCIDENT KNOWN',
       label: 'Is the location of the incident known?',
@@ -395,7 +395,7 @@ export const HOSTAGE_1: IncidentTypeConfiguration = {
       ],
     },
     '44322': {
-      id: '44322',
+      code: '44322',
       active: false,
       question: 'WAS THERE EVIDENCE OF COLLUSION',
       label: 'Was there evidence of collusion?',
@@ -422,7 +422,7 @@ export const HOSTAGE_1: IncidentTypeConfiguration = {
       ],
     },
     '44335': {
-      id: '44335',
+      code: '44335',
       active: false,
       question: 'WERE ANY INJURIES RECEIVED DURING THIS INCIDENT',
       label: 'Were any injuries received during this incident?',
@@ -449,7 +449,7 @@ export const HOSTAGE_1: IncidentTypeConfiguration = {
       ],
     },
     '44347': {
-      id: '44347',
+      code: '44347',
       active: false,
       question: 'ARE THERE ANY STAFF NOW OFF DUTY AS A RESULT',
       label: 'Are there any staff now off duty as a result?',
@@ -476,7 +476,7 @@ export const HOSTAGE_1: IncidentTypeConfiguration = {
       ],
     },
     '44356': {
-      id: '44356',
+      code: '44356',
       active: false,
       question: 'HAS THE SERVICE SUPPLIER BEEN NOTIFIED OF A REPLACEMENT KEYWORD?',
       label: 'Has the service supplier been notified of a replacement keyword?',
@@ -503,7 +503,7 @@ export const HOSTAGE_1: IncidentTypeConfiguration = {
       ],
     },
     '44365': {
-      id: '44365',
+      code: '44365',
       active: false,
       question: 'WAS A CANDR ADVISOR PRESENT',
       label: 'Was a CANDR advisor present?',
@@ -530,7 +530,7 @@ export const HOSTAGE_1: IncidentTypeConfiguration = {
       ],
     },
     '44403': {
-      id: '44403',
+      code: '44403',
       active: false,
       question: 'QUOTE THE VANTIVE CASE NUMBER',
       label: 'Quote the Vantive case number',
@@ -548,7 +548,7 @@ export const HOSTAGE_1: IncidentTypeConfiguration = {
       ],
     },
     '44411': {
-      id: '44411',
+      code: '44411',
       active: false,
       question: 'DID A TACTICAL FIREARMS ADVISER ATTEND',
       label: 'Did a tactical firearms adviser attend?',
@@ -575,7 +575,7 @@ export const HOSTAGE_1: IncidentTypeConfiguration = {
       ],
     },
     '44431': {
-      id: '44431',
+      code: '44431',
       active: false,
       question: 'WAS PHYSICAL VIOLENCE USED TOWARDS HOSTAGE',
       label: 'Was physical violence used towards hostage?',
@@ -602,7 +602,7 @@ export const HOSTAGE_1: IncidentTypeConfiguration = {
       ],
     },
     '44452': {
-      id: '44452',
+      code: '44452',
       active: false,
       question: 'WERE WEAPONS USED BY THE PERPETRATOR',
       label: 'Were weapons used by the perpetrator?',
@@ -629,7 +629,7 @@ export const HOSTAGE_1: IncidentTypeConfiguration = {
       ],
     },
     '44463': {
-      id: '44463',
+      code: '44463',
       active: false,
       question: 'WHAT WAS THE LOCATION OF THE INCIDENT',
       label: 'What was the location of the incident?',
@@ -935,7 +935,7 @@ export const HOSTAGE_1: IncidentTypeConfiguration = {
       ],
     },
     '44474': {
-      id: '44474',
+      code: '44474',
       active: false,
       question: 'DESCRIBE WEAPONS USED',
       label: 'Describe weapons used',
@@ -1061,7 +1061,7 @@ export const HOSTAGE_1: IncidentTypeConfiguration = {
       ],
     },
     '44488': {
-      id: '44488',
+      code: '44488',
       active: false,
       question: 'WAS THE SYSTEM RE-ACTIVATED LOCALLY OR BY THE SERVICE SUPPLIER',
       label: 'Was the system re-activated locally or by the service supplier?',
@@ -1088,7 +1088,7 @@ export const HOSTAGE_1: IncidentTypeConfiguration = {
       ],
     },
     '44497': {
-      id: '44497',
+      code: '44497',
       active: false,
       question: 'WAS A BARRICADE USED',
       label: 'Was a barricade used?',
@@ -1115,7 +1115,7 @@ export const HOSTAGE_1: IncidentTypeConfiguration = {
       ],
     },
     '44555': {
-      id: '44555',
+      code: '44555',
       active: false,
       question: 'WAS THE AMBULANCE SERVICE PRESENT',
       label: 'Was the ambulance service present?',
@@ -1142,7 +1142,7 @@ export const HOSTAGE_1: IncidentTypeConfiguration = {
       ],
     },
     '44564': {
-      id: '44564',
+      code: '44564',
       active: false,
       question: 'ENTER NUMBER OF PERPETRATORS',
       label: 'Enter number of perpetrators',
@@ -1160,7 +1160,7 @@ export const HOSTAGE_1: IncidentTypeConfiguration = {
       ],
     },
     '44569': {
-      id: '44569',
+      code: '44569',
       active: false,
       question: 'HAS THE PRISON SERVICE PRESS OFFICE BEEN INFORMED',
       label: 'Has the prison service press office been informed?',
@@ -1187,7 +1187,7 @@ export const HOSTAGE_1: IncidentTypeConfiguration = {
       ],
     },
     '44585': {
-      id: '44585',
+      code: '44585',
       active: false,
       question: 'DESCRIBE HOW THE INCIDENT WAS RESOLVED',
       label: 'Describe how the incident was resolved',
@@ -1223,7 +1223,7 @@ export const HOSTAGE_1: IncidentTypeConfiguration = {
       ],
     },
     '44600': {
-      id: '44600',
+      code: '44600',
       active: false,
       question: 'DESCRIBE THE DAMAGE',
       label: 'Describe the damage',
@@ -1259,7 +1259,7 @@ export const HOSTAGE_1: IncidentTypeConfiguration = {
       ],
     },
     '44608': {
-      id: '44608',
+      code: '44608',
       active: false,
       question: 'WHICH MINOR INJURIES WERE SUSTAINED',
       label: 'Which minor injuries were sustained?',
@@ -1313,7 +1313,7 @@ export const HOSTAGE_1: IncidentTypeConfiguration = {
       ],
     },
     '44611': {
-      id: '44611',
+      code: '44611',
       active: false,
       question: 'DESCRIBE WHAT WAS COMPROMISED AND BY WHOM',
       label: 'Describe what was compromised and by whom',
@@ -1331,7 +1331,7 @@ export const HOSTAGE_1: IncidentTypeConfiguration = {
       ],
     },
     '44613': {
-      id: '44613',
+      code: '44613',
       active: false,
       question: 'WAS A MINOR INJURY SUSTAINED',
       label: 'Was a minor injury sustained?',
@@ -1358,7 +1358,7 @@ export const HOSTAGE_1: IncidentTypeConfiguration = {
       ],
     },
     '44614': {
-      id: '44614',
+      code: '44614',
       active: false,
       question: 'WAS A HOSTAGE PART OF THE BARRICADE',
       label: 'Was a hostage part of the barricade?',
@@ -1385,7 +1385,7 @@ export const HOSTAGE_1: IncidentTypeConfiguration = {
       ],
     },
     '44690': {
-      id: '44690',
+      code: '44690',
       active: false,
       question: 'WERE THE POLICE INFORMED OF THE INCIDENT',
       label: 'Were the police informed of the incident?',
@@ -1412,7 +1412,7 @@ export const HOSTAGE_1: IncidentTypeConfiguration = {
       ],
     },
     '44693': {
-      id: '44693',
+      code: '44693',
       active: false,
       question: 'WHICH SERIOUS INJURIES WERE SUSTAINED',
       label: 'Which serious injuries were sustained?',
@@ -1529,7 +1529,7 @@ export const HOSTAGE_1: IncidentTypeConfiguration = {
       ],
     },
     '44711': {
-      id: '44711',
+      code: '44711',
       active: false,
       question: 'WERE HEALTH CARE CENTRE STAFF PRESENT',
       label: 'Were health care centre staff present?',
@@ -1556,7 +1556,7 @@ export const HOSTAGE_1: IncidentTypeConfiguration = {
       ],
     },
     '44777': {
-      id: '44777',
+      code: '44777',
       active: false,
       question: 'WAS THE HOSTAGE PHYSICALLY RESTRAINED BY THE PERPETRATOR',
       label: 'Was the hostage physically restrained by the perpetrator?',
@@ -1583,7 +1583,7 @@ export const HOSTAGE_1: IncidentTypeConfiguration = {
       ],
     },
     '44788': {
-      id: '44788',
+      code: '44788',
       active: false,
       question: 'WHAT TIME WAS THE SYSTEM SHUT DOWN?',
       label: 'What time was the system shut down?',
@@ -1601,7 +1601,7 @@ export const HOSTAGE_1: IncidentTypeConfiguration = {
       ],
     },
     '44805': {
-      id: '44805',
+      code: '44805',
       active: false,
       question: 'WAS THE TELEPHONE/IT SYSTEM SHUT DOWN LOCALLY OR BY THE SERVICE SUPPLIER',
       label: 'Was the telephone/it system shut down locally or by the service supplier?',
@@ -1628,7 +1628,7 @@ export const HOSTAGE_1: IncidentTypeConfiguration = {
       ],
     },
     '44814': {
-      id: '44814',
+      code: '44814',
       active: false,
       question: 'WAS A DOOR JACK USED',
       label: 'Was a door jack used?',
@@ -1655,7 +1655,7 @@ export const HOSTAGE_1: IncidentTypeConfiguration = {
       ],
     },
     '44817': {
-      id: '44817',
+      code: '44817',
       active: false,
       question: 'WHEN WAS THE SYSTEM RE-ACTIVATED?',
       label: 'When was the system re-activated?',
@@ -1673,7 +1673,7 @@ export const HOSTAGE_1: IncidentTypeConfiguration = {
       ],
     },
     '44823': {
-      id: '44823',
+      code: '44823',
       active: false,
       question: 'DESCRIBE STATUS OF PERPETRATORS',
       label: 'Describe status of perpetrators',
@@ -1709,7 +1709,7 @@ export const HOSTAGE_1: IncidentTypeConfiguration = {
       ],
     },
     '44831': {
-      id: '44831',
+      code: '44831',
       active: false,
       question: 'WAS THE KEYWORD REQUESTED?',
       label: 'Was the keyword requested?',
@@ -1736,7 +1736,7 @@ export const HOSTAGE_1: IncidentTypeConfiguration = {
       ],
     },
     '44891': {
-      id: '44891',
+      code: '44891',
       active: false,
       question: 'WAS THERE EVIDENCE OF THE STOCKHOLM SYNDROME',
       label: 'Was there evidence of the Stockholm syndrome?',
@@ -1763,7 +1763,7 @@ export const HOSTAGE_1: IncidentTypeConfiguration = {
       ],
     },
     '44937': {
-      id: '44937',
+      code: '44937',
       active: false,
       question: 'ARE ANY STAFF ON SICK LEAVE AS A RESULT OF INCIDENT',
       label: 'Are any staff on sick leave as a result of incident?',
@@ -1790,7 +1790,7 @@ export const HOSTAGE_1: IncidentTypeConfiguration = {
       ],
     },
     '44939': {
-      id: '44939',
+      code: '44939',
       active: false,
       question: 'WERE FIREARMS OFFICERS DEPLOYED',
       label: 'Were firearms officers deployed?',
@@ -1817,7 +1817,7 @@ export const HOSTAGE_1: IncidentTypeConfiguration = {
       ],
     },
     '44959': {
-      id: '44959',
+      code: '44959',
       active: false,
       question: 'WAS THE EMERGENCY RESPONSE VEHICLE PRESENT',
       label: 'Was the emergency response vehicle present?',
@@ -1844,7 +1844,7 @@ export const HOSTAGE_1: IncidentTypeConfiguration = {
       ],
     },
     '44963': {
-      id: '44963',
+      code: '44963',
       active: false,
       question: 'WAS A TECHNICAL SUPPORT UNIT PRESENT',
       label: 'Was a technical support unit present?',
@@ -1871,7 +1871,7 @@ export const HOSTAGE_1: IncidentTypeConfiguration = {
       ],
     },
     '45004': {
-      id: '45004',
+      code: '45004',
       active: false,
       question: 'ENTER NUMBER OF HOSTAGES',
       label: 'Enter number of hostages',
@@ -1889,7 +1889,7 @@ export const HOSTAGE_1: IncidentTypeConfiguration = {
       ],
     },
     '45012': {
-      id: '45012',
+      code: '45012',
       active: false,
       question: 'WAS THIS A FULL OR PARTIAL SHUT DOWN?',
       label: 'Was this a full or partial shut down?',
@@ -1916,7 +1916,7 @@ export const HOSTAGE_1: IncidentTypeConfiguration = {
       ],
     },
     '45059': {
-      id: '45059',
+      code: '45059',
       active: false,
       question: 'ENTER DESCRIPTION OF PERSON(S) INJURED',
       label: 'Enter description of person(s) injured',
@@ -1970,7 +1970,7 @@ export const HOSTAGE_1: IncidentTypeConfiguration = {
       ],
     },
     '45076': {
-      id: '45076',
+      code: '45076',
       active: false,
       question: 'WAS THE SYSTEM COMPROMISED?',
       label: 'Was the system compromised?',
@@ -1997,7 +1997,7 @@ export const HOSTAGE_1: IncidentTypeConfiguration = {
       ],
     },
     '45078': {
-      id: '45078',
+      code: '45078',
       active: false,
       question: 'WAS THE FIRE SERVICE PRESENT',
       label: 'Was the fire service present?',
@@ -2024,7 +2024,7 @@ export const HOSTAGE_1: IncidentTypeConfiguration = {
       ],
     },
     '45079': {
-      id: '45079',
+      code: '45079',
       active: false,
       question: 'WAS AN INCIDENT LIAISON OFFICER PRESENT',
       label: 'Was an incident liaison officer present?',
@@ -2051,7 +2051,7 @@ export const HOSTAGE_1: IncidentTypeConfiguration = {
       ],
     },
     '45087': {
-      id: '45087',
+      code: '45087',
       active: false,
       question: 'WAS A MEDICAL OFFICER PRESENT',
       label: 'Was a medical officer present?',
@@ -2078,7 +2078,7 @@ export const HOSTAGE_1: IncidentTypeConfiguration = {
       ],
     },
     '45093': {
-      id: '45093',
+      code: '45093',
       active: false,
       question: 'IS THERE ANY MEDIA INTEREST IN THIS INCIDENT',
       label: 'Is there any media interest in this incident?',
@@ -2105,7 +2105,7 @@ export const HOSTAGE_1: IncidentTypeConfiguration = {
       ],
     },
     '45101': {
-      id: '45101',
+      code: '45101',
       active: false,
       question: 'WAS A SERIOUS INJURY SUSTAINED',
       label: 'Was a serious injury sustained?',
@@ -2132,7 +2132,7 @@ export const HOSTAGE_1: IncidentTypeConfiguration = {
       ],
     },
     '45135': {
-      id: '45135',
+      code: '45135',
       active: false,
       question: 'THE INCIDENT IS SUBJECT TO',
       label: 'The incident is subject to',
@@ -2177,7 +2177,7 @@ export const HOSTAGE_1: IncidentTypeConfiguration = {
       ],
     },
     '45143': {
-      id: '45143',
+      code: '45143',
       active: false,
       question: 'DESCRIBE STATUS OF HOSTAGES',
       label: 'Describe status of hostages',
@@ -2231,7 +2231,7 @@ export const HOSTAGE_1: IncidentTypeConfiguration = {
       ],
     },
     '45148': {
-      id: '45148',
+      code: '45148',
       active: false,
       question: 'WERE WORKS SERVICES STAFF PRESENT',
       label: 'Were works services staff present?',
@@ -2258,7 +2258,7 @@ export const HOSTAGE_1: IncidentTypeConfiguration = {
       ],
     },
     '45162': {
-      id: '45162',
+      code: '45162',
       active: false,
       question: 'DURATION OF INCIDENT IN HOURS',
       label: 'Duration of incident in hours',

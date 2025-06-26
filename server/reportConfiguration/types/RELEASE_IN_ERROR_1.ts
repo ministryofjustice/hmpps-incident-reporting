@@ -8,7 +8,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
   startingQuestionId: '45179',
   questions: {
     '45179': {
-      id: '45179',
+      code: '45179',
       active: true,
       question: 'How was this person released?',
       label: 'How was this person released?',
@@ -134,7 +134,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
       ],
     },
     '45180': {
-      id: '45180',
+      code: '45180',
       active: true,
       question: 'Where did the release occur from?',
       label: 'Where did the release occur from?',
@@ -197,7 +197,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
       ],
     },
     '45181': {
-      id: '45181',
+      code: '45181',
       active: true,
       question: 'What was the nature of the Incident?',
       label: 'What was the nature of the incident?',
@@ -404,7 +404,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
       ],
     },
     '45182': {
-      id: '45182',
+      code: '45182',
       active: true,
       question: 'What action is being taken to return the person to custody by the Establishment?',
       label: 'What action is being taken to return the person to custody by the establishment?',
@@ -539,7 +539,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
       ],
     },
     '45183': {
-      id: '45183',
+      code: '45183',
       active: true,
       question: 'How was the error identified?',
       label: 'How was the error identified?',
@@ -701,7 +701,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
       ],
     },
     '45184': {
-      id: '45184',
+      code: '45184',
       active: true,
       question: 'What date was the error identified?',
       label: 'What date was the error identified?',
@@ -728,7 +728,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
       ],
     },
     '45185': {
-      id: '45185',
+      code: '45185',
       active: true,
       question: 'What was the category of the person?',
       label: 'What was the category of the person?',
@@ -755,7 +755,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
       ],
     },
     '45186': {
-      id: '45186',
+      code: '45186',
       active: true,
       question: 'What was the prisoner status?',
       label: 'What was the prisoner status?',
@@ -854,7 +854,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
       ],
     },
     '45187': {
-      id: '45187',
+      code: '45187',
       active: false,
       question: 'Has the person been reported UAL to the Police?',
       label: 'Has the person been reported UAL to the police?',
@@ -890,7 +890,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
       ],
     },
     '45188': {
-      id: '45188',
+      code: '45188',
       active: true,
       question: 'Has the release in error been reported to NOU?',
       label: 'Has the release in error been reported to NOU?',
@@ -953,7 +953,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
       ],
     },
     '45189': {
-      id: '45189',
+      code: '45189',
       active: true,
       question: 'Has the person been reported UAL to the Police?',
       label: 'Has the person been reported UAL to the police?',
@@ -1016,7 +1016,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
       ],
     },
     '45190': {
-      id: '45190',
+      code: '45190',
       active: true,
       question: 'Has the person been returned to custody?',
       label: 'Has the person been returned to custody?',
@@ -1088,7 +1088,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
       ],
     },
     '45191': {
-      id: '45191',
+      code: '45191',
       active: true,
       question: 'Date returned to custody',
       label: 'Date returned to custody',
@@ -1115,7 +1115,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
       ],
     },
     '45192': {
-      id: '45192',
+      code: '45192',
       active: true,
       question: 'Was person charged with committing a further offence while at large?',
       label: 'Was person charged with committing a further offence while at large?',
@@ -1160,7 +1160,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
       ],
     },
     '45193': {
-      id: '45193',
+      code: '45193',
       active: true,
       question: 'To which establishment was person returned?',
       label: 'To which establishment was person returned?',
@@ -1187,7 +1187,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
       ],
     },
     '45194': {
-      id: '45194',
+      code: '45194',
       active: false,
       question: 'How long was person UAL?',
       label: 'How long was person UAL?',
@@ -1205,7 +1205,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
       ],
     },
     '45195': {
-      id: '45195',
+      code: '45195',
       active: false,
       question: 'How long was person UAL?',
       label: 'How long was person UAL?',
@@ -1259,7 +1259,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
       ],
     },
     '45235': {
-      id: '45235',
+      code: '45235',
       active: true,
       question: 'How long was person UAL?',
       label: 'How long was person UAL?',

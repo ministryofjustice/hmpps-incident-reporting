@@ -109,7 +109,7 @@ export class QuestionProgress {
         pageNumber += 1
         lastUrlSuffix = urlSuffix
       }
-      const responses: Response[] | undefined = reportResponses.get(questionConfig.id)
+      const responses: Response[] | undefined = reportResponses.get(questionConfig.code)
       const responseItems = responses?.map(response => {
         let answerConfig = findAnswerConfigForResponse(response, questionConfig, true)
         if (!answerConfig) {

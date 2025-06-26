@@ -43,8 +43,8 @@ function checkIdsDontIncludeHyphens(config: IncidentTypeConfiguration, errors: E
   Object.values(config.questions)
     .filter(question => question.active)
     .forEach(question => {
-      if (question.id.includes('-')) {
-        errors.push(new Error(`active question '${question.id}' has hiphen in its ID`))
+      if (question.code.includes('-')) {
+        errors.push(new Error(`active question '${question.code}' has hiphen in its code`))
       }
 
       question.answers
@@ -63,7 +63,7 @@ function checkQuestionsWithoutAnswers(config: IncidentTypeConfiguration, errors:
     .forEach(question => {
       const activeAnswersExist = question.answers.some(answer => answer.active)
       if (!activeAnswersExist) {
-        errors.push(new Error(`active question ${question.id} has no active answers`))
+        errors.push(new Error(`active question ${question.code} has no active answers`))
       }
     })
 }
@@ -78,7 +78,7 @@ function checkMultipleChoicesNextQuestions(config: IncidentTypeConfiguration, er
   })
 
   if (invalidQs.length > 0) {
-    const invalidQuestionsIds = invalidQs.map(q => q.id)
+    const invalidQuestionsIds = invalidQs.map(q => q.code)
     errors.push(
       new Error(
         `the following multiple choices questions can lead to different next questions: ${invalidQuestionsIds.join(', ')}`,
@@ -110,7 +110,7 @@ function buildConfigGraph(config: IncidentTypeConfiguration): Graph<string> {
   for (const question of activeQuestions) {
     const activeAnswers = question.answers.filter(ans => ans.active === true)
     for (const answer of activeAnswers) {
-      graph.addEdge(question.id, answer.nextQuestionId)
+      graph.addEdge(question.code, answer.nextQuestionId)
     }
   }
 

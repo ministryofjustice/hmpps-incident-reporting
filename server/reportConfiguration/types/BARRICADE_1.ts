@@ -8,7 +8,7 @@ export const BARRICADE_1: IncidentTypeConfiguration = {
   startingQuestionId: '44439',
   questions: {
     '44174': {
-      id: '44174',
+      code: '44174',
       active: false,
       question: 'WHO WAS DETAINED IN OUTSIDE HOSPITAL',
       label: 'Who was detained in outside hospital?',
@@ -62,7 +62,7 @@ export const BARRICADE_1: IncidentTypeConfiguration = {
       ],
     },
     '44185': {
-      id: '44185',
+      code: '44185',
       active: false,
       question: 'HAS THE PRISON SERVICE PRESS OFFICE BEEN INFORMED',
       label: 'Has the prison service press office been informed?',
@@ -89,7 +89,7 @@ export const BARRICADE_1: IncidentTypeConfiguration = {
       ],
     },
     '44191': {
-      id: '44191',
+      code: '44191',
       active: false,
       question: 'WAS A DOOR JACK USED',
       label: 'Was a door jack used?',
@@ -116,7 +116,7 @@ export const BARRICADE_1: IncidentTypeConfiguration = {
       ],
     },
     '44206': {
-      id: '44206',
+      code: '44206',
       active: false,
       question: 'WAS THE SYSTEM COMPROMISED?',
       label: 'Was the system compromised?',
@@ -143,7 +143,7 @@ export const BARRICADE_1: IncidentTypeConfiguration = {
       ],
     },
     '44222': {
-      id: '44222',
+      code: '44222',
       active: false,
       question: 'ARE ANY STAFF ON SICK LEAVE AS A RESULT OF THIS INCIDENT',
       label: 'Are any staff on sick leave as a result of this incident?',
@@ -170,7 +170,7 @@ export const BARRICADE_1: IncidentTypeConfiguration = {
       ],
     },
     '44227': {
-      id: '44227',
+      code: '44227',
       active: false,
       question: 'WAS THE TELEPHONE/IT SYSTEM SHUT DOWN DURING THE INCIDENT?',
       label: 'Was the telephone/it system shut down during the incident?',
@@ -197,7 +197,7 @@ export const BARRICADE_1: IncidentTypeConfiguration = {
       ],
     },
     '44263': {
-      id: '44263',
+      code: '44263',
       active: false,
       question: 'IS THE LOCATION OF THE INCIDENT KNOWN',
       label: 'Is the location of the incident known?',
@@ -224,7 +224,7 @@ export const BARRICADE_1: IncidentTypeConfiguration = {
       ],
     },
     '44348': {
-      id: '44348',
+      code: '44348',
       active: false,
       question: 'DESCRIBE THE DAMAGE',
       label: 'Describe the damage',
@@ -260,7 +260,7 @@ export const BARRICADE_1: IncidentTypeConfiguration = {
       ],
     },
     '44357': {
-      id: '44357',
+      code: '44357',
       active: false,
       question: 'IS THE INCIDENT THE SUBJECT OF A POLICE INVESTIGATION',
       label: 'Is the incident the subject of a police investigation?',
@@ -287,7 +287,7 @@ export const BARRICADE_1: IncidentTypeConfiguration = {
       ],
     },
     '44378': {
-      id: '44378',
+      code: '44378',
       active: false,
       question: 'WAS DAMAGE CAUSED TO PRISON PROPERTY',
       label: 'Was damage caused to prison property?',
@@ -314,7 +314,7 @@ export const BARRICADE_1: IncidentTypeConfiguration = {
       ],
     },
     '44401': {
-      id: '44401',
+      code: '44401',
       active: false,
       question: 'WAS THE KEYWORD REQUESTED?',
       label: 'Was the keyword requested?',
@@ -341,7 +341,7 @@ export const BARRICADE_1: IncidentTypeConfiguration = {
       ],
     },
     '44413': {
-      id: '44413',
+      code: '44413',
       active: false,
       question: 'ESTIMATED COST OF DAMAGE',
       label: 'Estimated cost of damage',
@@ -359,7 +359,7 @@ export const BARRICADE_1: IncidentTypeConfiguration = {
       ],
     },
     '44439': {
-      id: '44439',
+      code: '44439',
       active: false,
       question: 'WERE THE POLICE INFORMED OF THE INCIDENT',
       label: 'Were the police informed of the incident?',
@@ -386,7 +386,7 @@ export const BARRICADE_1: IncidentTypeConfiguration = {
       ],
     },
     '44461': {
-      id: '44461',
+      code: '44461',
       active: false,
       question: 'DESCRIBE WEAPONS USED',
       label: 'Describe weapons used',
@@ -512,7 +512,7 @@ export const BARRICADE_1: IncidentTypeConfiguration = {
       ],
     },
     '44482': {
-      id: '44482',
+      code: '44482',
       active: false,
       question: 'QUOTE THE VANTIVE CASE NUMBER',
       label: 'Quote the Vantive case number',
@@ -530,7 +530,7 @@ export const BARRICADE_1: IncidentTypeConfiguration = {
       ],
     },
     '44492': {
-      id: '44492',
+      code: '44492',
       active: false,
       question: 'WHO AUTHORISED THE SHUT DOWN?',
       label: 'Who authorised the shut down?',
@@ -575,7 +575,7 @@ export const BARRICADE_1: IncidentTypeConfiguration = {
       ],
     },
     '44505': {
-      id: '44505',
+      code: '44505',
       active: false,
       question: 'DESCRIBE HOW THE INCIDENT WAS RESOLVED',
       label: 'Describe how the incident was resolved',
@@ -611,7 +611,7 @@ export const BARRICADE_1: IncidentTypeConfiguration = {
       ],
     },
     '44515': {
-      id: '44515',
+      code: '44515',
       active: false,
       question: 'WERE WEAPONS USED BY THE PERPETRATOR',
       label: 'Were weapons used by the perpetrator?',
@@ -638,7 +638,7 @@ export const BARRICADE_1: IncidentTypeConfiguration = {
       ],
     },
     '44530': {
-      id: '44530',
+      code: '44530',
       active: false,
       question: 'INDICATE THE NATURE OF THE SHUT DOWN',
       label: 'Indicate the nature of the shut down',
@@ -665,7 +665,7 @@ export const BARRICADE_1: IncidentTypeConfiguration = {
       ],
     },
     '44532': {
-      id: '44532',
+      code: '44532',
       active: false,
       question: 'WHAT WAS THE LOCATION OF THE INCIDENT',
       label: 'What was the location of the incident?',
@@ -971,7 +971,7 @@ export const BARRICADE_1: IncidentTypeConfiguration = {
       ],
     },
     '44563': {
-      id: '44563',
+      code: '44563',
       active: false,
       question: 'ENTER DESCRIPTION OF PERSON(S) INJURED',
       label: 'Enter description of person(s) injured',
@@ -1025,7 +1025,7 @@ export const BARRICADE_1: IncidentTypeConfiguration = {
       ],
     },
     '44620': {
-      id: '44620',
+      code: '44620',
       active: false,
       question: 'WAS THE SYSTEM RE-ACTIVATED LOCALLY OR BY THE IT AND T SERVICE SUPPLIER?',
       label: 'Was the system re-activated locally or by the it and t service supplier?',
@@ -1052,7 +1052,7 @@ export const BARRICADE_1: IncidentTypeConfiguration = {
       ],
     },
     '44629': {
-      id: '44629',
+      code: '44629',
       active: false,
       question: 'WAS THE TELEPHONE/IT SYSTEM SHUT DOWN LOCALLY OR BY THE SERVICE SUPPLIER',
       label: 'Was the telephone/it system shut down locally or by the service supplier?',
@@ -1079,7 +1079,7 @@ export const BARRICADE_1: IncidentTypeConfiguration = {
       ],
     },
     '44632': {
-      id: '44632',
+      code: '44632',
       active: false,
       question: 'WHEN WAS THE SYSTEM RE-ACTIVATED?',
       label: 'When was the system re-activated?',
@@ -1097,7 +1097,7 @@ export const BARRICADE_1: IncidentTypeConfiguration = {
       ],
     },
     '44634': {
-      id: '44634',
+      code: '44634',
       active: false,
       question: 'WHICH MINOR INJURIES WERE SUSTAINED',
       label: 'Which minor injuries were sustained?',
@@ -1151,7 +1151,7 @@ export const BARRICADE_1: IncidentTypeConfiguration = {
       ],
     },
     '44665': {
-      id: '44665',
+      code: '44665',
       active: false,
       question: 'WAS THERE AN APPARENT REASON FOR THE INCIDENT',
       label: 'Was there an apparent reason for the incident?',
@@ -1178,7 +1178,7 @@ export const BARRICADE_1: IncidentTypeConfiguration = {
       ],
     },
     '44666': {
-      id: '44666',
+      code: '44666',
       active: false,
       question: 'WHAT TIME WAS THE SYSTEM SHUT DOWN?',
       label: 'What time was the system shut down?',
@@ -1196,7 +1196,7 @@ export const BARRICADE_1: IncidentTypeConfiguration = {
       ],
     },
     '44704': {
-      id: '44704',
+      code: '44704',
       active: false,
       question: 'DESCRIBE THE APPARENT REASON FOR THE INCIDENT',
       label: 'Describe the apparent reason for the incident',
@@ -1259,7 +1259,7 @@ export const BARRICADE_1: IncidentTypeConfiguration = {
       ],
     },
     '44722': {
-      id: '44722',
+      code: '44722',
       active: false,
       question: 'WHICH SERIOUS INJURIES WERE SUSTAINED',
       label: 'Which serious injuries were sustained?',
@@ -1376,7 +1376,7 @@ export const BARRICADE_1: IncidentTypeConfiguration = {
       ],
     },
     '44796': {
-      id: '44796',
+      code: '44796',
       active: false,
       question: 'DID INJURIES RESULT IN DETENTION IN OUTSIDE HOSPITAL AS AN IN-PATIENT',
       label: 'Did injuries result in detention in outside hospital as an in-patient?',
@@ -1403,7 +1403,7 @@ export const BARRICADE_1: IncidentTypeConfiguration = {
       ],
     },
     '44816': {
-      id: '44816',
+      code: '44816',
       active: false,
       question: "IS THE INCIDENT SUBJECT TO A GOVERNOR'S ADJUDICATION",
       label: "Is the incident subject to a governor's adjudication?",
@@ -1430,7 +1430,7 @@ export const BARRICADE_1: IncidentTypeConfiguration = {
       ],
     },
     '44860': {
-      id: '44860',
+      code: '44860',
       active: false,
       question: 'WERE WATER HOSES USED',
       label: 'Were water hoses used?',
@@ -1457,7 +1457,7 @@ export const BARRICADE_1: IncidentTypeConfiguration = {
       ],
     },
     '44879': {
-      id: '44879',
+      code: '44879',
       active: false,
       question: 'HAS ANY PROSECUTION TAKEN PLACE OR IS ANY PENDING',
       label: 'Has any prosecution taken place or is any pending?',
@@ -1484,7 +1484,7 @@ export const BARRICADE_1: IncidentTypeConfiguration = {
       ],
     },
     '44914': {
-      id: '44914',
+      code: '44914',
       active: false,
       question: 'IS THERE ANY MEDIA INTEREST IN THIS INCIDENT',
       label: 'Is there any media interest in this incident?',
@@ -1511,7 +1511,7 @@ export const BARRICADE_1: IncidentTypeConfiguration = {
       ],
     },
     '44932': {
-      id: '44932',
+      code: '44932',
       active: false,
       question: 'HAS THE SERVICE SUPPLIER BEEN NOTIFIED OF A REPLACEMENT KEYWORD?',
       label: 'Has the service supplier been notified of a replacement keyword?',
@@ -1538,7 +1538,7 @@ export const BARRICADE_1: IncidentTypeConfiguration = {
       ],
     },
     '44938': {
-      id: '44938',
+      code: '44938',
       active: false,
       question: 'WERE ANY INJURIES RECEIVED DURING THIS INCIDENT',
       label: 'Were any injuries received during this incident?',
@@ -1565,7 +1565,7 @@ export const BARRICADE_1: IncidentTypeConfiguration = {
       ],
     },
     '44947': {
-      id: '44947',
+      code: '44947',
       active: false,
       question: 'WAS THIS A FULL OR PARTIAL SHUT DOWN?',
       label: 'Was this a full or partial shut down?',
@@ -1592,7 +1592,7 @@ export const BARRICADE_1: IncidentTypeConfiguration = {
       ],
     },
     '44987': {
-      id: '44987',
+      code: '44987',
       active: false,
       question: 'DESCRIBE WHAT WAS COMPROMISED AND BY WHOM',
       label: 'Describe what was compromised and by whom',
@@ -1610,7 +1610,7 @@ export const BARRICADE_1: IncidentTypeConfiguration = {
       ],
     },
     '45022': {
-      id: '45022',
+      code: '45022',
       active: false,
       question: 'WAS CONTROL AND RESTRAINTS EMPLOYED',
       label: 'Was control and restraints employed?',
@@ -1637,7 +1637,7 @@ export const BARRICADE_1: IncidentTypeConfiguration = {
       ],
     },
     '45071': {
-      id: '45071',
+      code: '45071',
       active: false,
       question: 'ARE THERE ANY STAFF NOW OFF DUTY AS A RESULT OF THIS INCIDENT',
       label: 'Are there any staff now off duty as a result of this incident?',
@@ -1664,7 +1664,7 @@ export const BARRICADE_1: IncidentTypeConfiguration = {
       ],
     },
     '45075': {
-      id: '45075',
+      code: '45075',
       active: false,
       question: 'WAS A SERIOUS INJURY SUSTAINED',
       label: 'Was a serious injury sustained?',
@@ -1691,7 +1691,7 @@ export const BARRICADE_1: IncidentTypeConfiguration = {
       ],
     },
     '45083': {
-      id: '45083',
+      code: '45083',
       active: false,
       question: 'WAS A MINOR INJURY SUSTAINED',
       label: 'Was a minor injury sustained?',
@@ -1718,7 +1718,7 @@ export const BARRICADE_1: IncidentTypeConfiguration = {
       ],
     },
     '45086': {
-      id: '45086',
+      code: '45086',
       active: false,
       question: 'IS THE INCIDENT THE SUBJECT OF AN INTERNAL INVESTIGATION',
       label: 'Is the incident the subject of an internal investigation?',
@@ -1745,7 +1745,7 @@ export const BARRICADE_1: IncidentTypeConfiguration = {
       ],
     },
     '45171': {
-      id: '45171',
+      code: '45171',
       active: false,
       question: 'DURATION OF INCIDENT IN HOURS',
       label: 'Duration of incident in hours',

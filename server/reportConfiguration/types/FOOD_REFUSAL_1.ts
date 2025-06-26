@@ -8,7 +8,7 @@ export const FOOD_REFUSAL_1: IncidentTypeConfiguration = {
   startingQuestionId: '44990',
   questions: {
     '44199': {
-      id: '44199',
+      code: '44199',
       active: true,
       question: 'IS THE FOOD REFUSAL EFFECTING ANY OTHER MEDICAL CONDITION',
       label: 'Is the food refusal effecting any other medical condition?',
@@ -35,7 +35,7 @@ export const FOOD_REFUSAL_1: IncidentTypeConfiguration = {
       ],
     },
     '44319': {
-      id: '44319',
+      code: '44319',
       active: true,
       question: 'WHERE IS THE PRISONER CURRENTLY LOCATED',
       label: 'Where is the prisoner currently located?',
@@ -89,7 +89,7 @@ export const FOOD_REFUSAL_1: IncidentTypeConfiguration = {
       ],
     },
     '44399': {
-      id: '44399',
+      code: '44399',
       active: true,
       question: 'IS THE PRISONER THOUGHT TO BE OBTAINING FOOD FROM OTHER SOURCES',
       label: 'Is the prisoner thought to be obtaining food from other sources?',
@@ -116,7 +116,7 @@ export const FOOD_REFUSAL_1: IncidentTypeConfiguration = {
       ],
     },
     '44427': {
-      id: '44427',
+      code: '44427',
       active: true,
       question: 'IS THE FOOD REFUSAL CURRENTLY CONSIDERED LIFE THREATENING',
       label: 'Is the food refusal currently considered life threatening?',
@@ -143,7 +143,7 @@ export const FOOD_REFUSAL_1: IncidentTypeConfiguration = {
       ],
     },
     '44575': {
-      id: '44575',
+      code: '44575',
       active: true,
       question: 'HAS THE PRISON SERVICE PRESS OFFICE BEEN INFORMED',
       label: 'Has the prison service press office been informed?',
@@ -170,7 +170,7 @@ export const FOOD_REFUSAL_1: IncidentTypeConfiguration = {
       ],
     },
     '44688': {
-      id: '44688',
+      code: '44688',
       active: true,
       question: 'IS THE FOOD REFUSAL CONTINUING',
       label: 'Is the food refusal continuing?',
@@ -197,7 +197,7 @@ export const FOOD_REFUSAL_1: IncidentTypeConfiguration = {
       ],
     },
     '44768': {
-      id: '44768',
+      code: '44768',
       active: true,
       question: 'DESCRIBE THE TYPE OF FOOD REFUSAL',
       label: 'Describe the type of food refusal',
@@ -242,7 +242,7 @@ export const FOOD_REFUSAL_1: IncidentTypeConfiguration = {
       ],
     },
     '44887': {
-      id: '44887',
+      code: '44887',
       active: true,
       question: 'WHAT IS THE REASON FOR THIS FOOD REFUSAL',
       label: 'What is the reason for this food refusal?',
@@ -332,7 +332,7 @@ export const FOOD_REFUSAL_1: IncidentTypeConfiguration = {
       ],
     },
     '44989': {
-      id: '44989',
+      code: '44989',
       active: true,
       question: 'DURATION OF FOOD REFUSAL',
       label: 'Duration of food refusal',
@@ -350,7 +350,7 @@ export const FOOD_REFUSAL_1: IncidentTypeConfiguration = {
       ],
     },
     '44990': {
-      id: '44990',
+      code: '44990',
       active: true,
       question: 'IS THERE ANY MEDIA INTEREST IN THIS INCIDENT',
       label: 'Is there any media interest in this incident?',

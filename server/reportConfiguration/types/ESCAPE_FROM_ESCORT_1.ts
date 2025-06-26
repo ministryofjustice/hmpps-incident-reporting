@@ -8,7 +8,7 @@ export const ESCAPE_FROM_ESCORT_1: IncidentTypeConfiguration = {
   startingQuestionId: '44975',
   questions: {
     '44134': {
-      id: '44134',
+      code: '44134',
       active: true,
       question: 'WERE ANY INJURIES SUSTAINED BY PRISONERS',
       label: 'Were any injuries sustained by prisoners?',
@@ -35,7 +35,7 @@ export const ESCAPE_FROM_ESCORT_1: IncidentTypeConfiguration = {
       ],
     },
     '44143': {
-      id: '44143',
+      code: '44143',
       active: true,
       question: 'WHAT WERE THE CATEGORIES OF THE PRISONERS UNDER ESCORT',
       label: 'What were the categories of the prisoners under escort?',
@@ -125,7 +125,7 @@ export const ESCAPE_FROM_ESCORT_1: IncidentTypeConfiguration = {
       ],
     },
     '44164': {
-      id: '44164',
+      code: '44164',
       active: true,
       question: 'WHICH MINOR INJURIES WERE SUSTAINED',
       label: 'Which minor injuries were sustained?',
@@ -179,7 +179,7 @@ export const ESCAPE_FROM_ESCORT_1: IncidentTypeConfiguration = {
       ],
     },
     '44188': {
-      id: '44188',
+      code: '44188',
       active: true,
       question: 'WHAT TYPE OF VEHICLE WAS IT',
       label: 'What type of vehicle was it?',
@@ -242,7 +242,7 @@ export const ESCAPE_FROM_ESCORT_1: IncidentTypeConfiguration = {
       ],
     },
     '44211': {
-      id: '44211',
+      code: '44211',
       active: true,
       question: 'WAS THE RESTRAINT OVERCOME AT THE POINT OF ESCAPE',
       label: 'Was the restraint overcome at the point of escape?',
@@ -269,7 +269,7 @@ export const ESCAPE_FROM_ESCORT_1: IncidentTypeConfiguration = {
       ],
     },
     '44215': {
-      id: '44215',
+      code: '44215',
       active: true,
       question: 'WERE THE ROUNDS DISCHARGED',
       label: 'Were the rounds discharged?',
@@ -305,7 +305,7 @@ export const ESCAPE_FROM_ESCORT_1: IncidentTypeConfiguration = {
       ],
     },
     '44246': {
-      id: '44246',
+      code: '44246',
       active: true,
       question: 'WAS THE FIREARM',
       label: 'Was the firearm?',
@@ -341,7 +341,7 @@ export const ESCAPE_FROM_ESCORT_1: IncidentTypeConfiguration = {
       ],
     },
     '44281': {
-      id: '44281',
+      code: '44281',
       active: true,
       question: 'WAS THE OTHER PRISONER',
       label: 'Was the other prisoner?',
@@ -395,7 +395,7 @@ export const ESCAPE_FROM_ESCORT_1: IncidentTypeConfiguration = {
       ],
     },
     '44298': {
-      id: '44298',
+      code: '44298',
       active: true,
       question: 'HAS THE PRISONER BEEN CHARGED WITH A FURTHER OFFENCE',
       label: 'Has the prisoner been charged with a further offence?',
@@ -422,7 +422,7 @@ export const ESCAPE_FROM_ESCORT_1: IncidentTypeConfiguration = {
       ],
     },
     '44360': {
-      id: '44360',
+      code: '44360',
       active: true,
       question: 'THE INCIDENT IS SUBJECT TO',
       label: 'The incident is subject to',
@@ -467,7 +467,7 @@ export const ESCAPE_FROM_ESCORT_1: IncidentTypeConfiguration = {
       ],
     },
     '44409': {
-      id: '44409',
+      code: '44409',
       active: true,
       question: 'WAS THE ESCORT FOR CHILD BIRTH OR PRE/POST NATAL TREATMENT',
       label: 'Was the escort for child birth or pre/post natal treatment?',
@@ -494,7 +494,7 @@ export const ESCAPE_FROM_ESCORT_1: IncidentTypeConfiguration = {
       ],
     },
     '44419': {
-      id: '44419',
+      code: '44419',
       active: true,
       question: 'WAS THE PRISONER RESTRAINED AT THE POINT OF ESCAPE',
       label: 'Was the prisoner restrained at the point of escape?',
@@ -521,7 +521,7 @@ export const ESCAPE_FROM_ESCORT_1: IncidentTypeConfiguration = {
       ],
     },
     '44426': {
-      id: '44426',
+      code: '44426',
       active: true,
       question: 'ESTIMATED COST OF DAMAGE',
       label: 'Estimated cost of damage',
@@ -539,7 +539,7 @@ export const ESCAPE_FROM_ESCORT_1: IncidentTypeConfiguration = {
       ],
     },
     '44443': {
-      id: '44443',
+      code: '44443',
       active: true,
       question: 'WAS OUTSIDE ASSISTANCE INVOLVED IN THE ESCAPE',
       label: 'Was outside assistance involved in the escape?',
@@ -566,7 +566,7 @@ export const ESCAPE_FROM_ESCORT_1: IncidentTypeConfiguration = {
       ],
     },
     '44448': {
-      id: '44448',
+      code: '44448',
       active: true,
       question: 'NUMBER OF STAFF ON ESCORT',
       label: 'Number of staff on escort',
@@ -593,7 +593,7 @@ export const ESCAPE_FROM_ESCORT_1: IncidentTypeConfiguration = {
       ],
     },
     '44490': {
-      id: '44490',
+      code: '44490',
       active: true,
       question: 'FROM WHAT ESCORT TYPE DID THE ESCAPE OCCUR',
       label: 'From what escort type did the escape occur?',
@@ -701,7 +701,7 @@ export const ESCAPE_FROM_ESCORT_1: IncidentTypeConfiguration = {
       ],
     },
     '44507': {
-      id: '44507',
+      code: '44507',
       active: true,
       question: 'WHAT WAS THE SOURCE OF THE WEAPONS USED',
       label: 'What was the source of the weapons used?',
@@ -746,7 +746,7 @@ export const ESCAPE_FROM_ESCORT_1: IncidentTypeConfiguration = {
       ],
     },
     '44519': {
-      id: '44519',
+      code: '44519',
       active: true,
       question: 'WAS A MINOR INJURY SUSTAINED BY A PRISONER',
       label: 'Was a minor injury sustained by a prisoner?',
@@ -773,7 +773,7 @@ export const ESCAPE_FROM_ESCORT_1: IncidentTypeConfiguration = {
       ],
     },
     '44521': {
-      id: '44521',
+      code: '44521',
       active: true,
       question: 'WAS A CHEMICAL INCAPACITANT SPRAY USED DURING THE ESCAPE',
       label: 'Was a chemical incapacitant spray used during the escape?',
@@ -800,7 +800,7 @@ export const ESCAPE_FROM_ESCORT_1: IncidentTypeConfiguration = {
       ],
     },
     '44538': {
-      id: '44538',
+      code: '44538',
       active: true,
       question: 'WHERE WERE THE INJURED STAFF TREATED',
       label: 'Where were the injured staff treated?',
@@ -836,7 +836,7 @@ export const ESCAPE_FROM_ESCORT_1: IncidentTypeConfiguration = {
       ],
     },
     '44539': {
-      id: '44539',
+      code: '44539',
       active: true,
       question: 'WERE MINOR INJURIES SUSTAINED BY STAFF',
       label: 'Were minor injuries sustained by staff?',
@@ -863,7 +863,7 @@ export const ESCAPE_FROM_ESCORT_1: IncidentTypeConfiguration = {
       ],
     },
     '44571': {
-      id: '44571',
+      code: '44571',
       active: true,
       question: 'DID ANY PRISONER REQUIRE MEDICAL TREATMENT FOR INJURIES',
       label: 'Did any prisoner require medical treatment for injuries?',
@@ -890,7 +890,7 @@ export const ESCAPE_FROM_ESCORT_1: IncidentTypeConfiguration = {
       ],
     },
     '44581': {
-      id: '44581',
+      code: '44581',
       active: true,
       question: 'WAS DAMAGE CAUSED TO PRISON PROPERTY',
       label: 'Was damage caused to prison property?',
@@ -917,7 +917,7 @@ export const ESCAPE_FROM_ESCORT_1: IncidentTypeConfiguration = {
       ],
     },
     '44605': {
-      id: '44605',
+      code: '44605',
       active: true,
       question: 'WHO USED THE OTHER WEAPONS',
       label: 'Who used the other weapons?',
@@ -953,7 +953,7 @@ export const ESCAPE_FROM_ESCORT_1: IncidentTypeConfiguration = {
       ],
     },
     '44644': {
-      id: '44644',
+      code: '44644',
       active: true,
       question: 'HAS THE KEY BEEN RECOVERED',
       label: 'Has the key been recovered?',
@@ -980,7 +980,7 @@ export const ESCAPE_FROM_ESCORT_1: IncidentTypeConfiguration = {
       ],
     },
     '44650': {
-      id: '44650',
+      code: '44650',
       active: true,
       question: 'DESCRIBE THE DAMAGE',
       label: 'Describe the damage',
@@ -1016,7 +1016,7 @@ export const ESCAPE_FROM_ESCORT_1: IncidentTypeConfiguration = {
       ],
     },
     '44673': {
-      id: '44673',
+      code: '44673',
       active: true,
       question: 'WERE INSERTS USED',
       label: 'Were inserts used?',
@@ -1043,7 +1043,7 @@ export const ESCAPE_FROM_ESCORT_1: IncidentTypeConfiguration = {
       ],
     },
     '44675': {
-      id: '44675',
+      code: '44675',
       active: true,
       question: 'WAS THE KEY USED',
       label: 'Was the key used?',
@@ -1079,7 +1079,7 @@ export const ESCAPE_FROM_ESCORT_1: IncidentTypeConfiguration = {
       ],
     },
     '44696': {
-      id: '44696',
+      code: '44696',
       active: true,
       question: 'WAS THIS A KPI ESCAPE',
       label: 'Was this a KPI escape?',
@@ -1106,7 +1106,7 @@ export const ESCAPE_FROM_ESCORT_1: IncidentTypeConfiguration = {
       ],
     },
     '44706': {
-      id: '44706',
+      code: '44706',
       active: true,
       question: 'WHERE WERE THE INJURED PRISONERS TREATED',
       label: 'Where were the injured prisoners treated?',
@@ -1133,7 +1133,7 @@ export const ESCAPE_FROM_ESCORT_1: IncidentTypeConfiguration = {
       ],
     },
     '44715': {
-      id: '44715',
+      code: '44715',
       active: true,
       question: 'WHO USED THE SPRAY',
       label: 'Who used the spray?',
@@ -1169,7 +1169,7 @@ export const ESCAPE_FROM_ESCORT_1: IncidentTypeConfiguration = {
       ],
     },
     '44727': {
-      id: '44727',
+      code: '44727',
       active: true,
       question: 'WHY WAS A RESTRAINT NOT APPLIED AT THE POINT OF ESCAPE',
       label: 'Why was a restraint not applied at the point of escape?',
@@ -1286,7 +1286,7 @@ export const ESCAPE_FROM_ESCORT_1: IncidentTypeConfiguration = {
       ],
     },
     '44729': {
-      id: '44729',
+      code: '44729',
       active: true,
       question: 'WAS A KNIFE OR BLADE USED DURING THE ESCAPE',
       label: 'Was a knife or blade used during the escape?',
@@ -1313,7 +1313,7 @@ export const ESCAPE_FROM_ESCORT_1: IncidentTypeConfiguration = {
       ],
     },
     '44754': {
-      id: '44754',
+      code: '44754',
       active: true,
       question: 'WHO USED THE KNIFE OR BLADE',
       label: 'Who used the knife or blade?',
@@ -1349,7 +1349,7 @@ export const ESCAPE_FROM_ESCORT_1: IncidentTypeConfiguration = {
       ],
     },
     '44757': {
-      id: '44757',
+      code: '44757',
       active: true,
       question: 'NUMBER OF PRISONERS ON ESCORT',
       label: 'Number of prisoners on escort',
@@ -1376,7 +1376,7 @@ export const ESCAPE_FROM_ESCORT_1: IncidentTypeConfiguration = {
       ],
     },
     '44828': {
-      id: '44828',
+      code: '44828',
       active: true,
       question: 'IS THERE ANY MEDIA INTEREST IN THIS INCIDENT',
       label: 'Is there any media interest in this incident?',
@@ -1403,7 +1403,7 @@ export const ESCAPE_FROM_ESCORT_1: IncidentTypeConfiguration = {
       ],
     },
     '44838': {
-      id: '44838',
+      code: '44838',
       active: true,
       question: 'WHAT WAS THE SOURCE OF THE SPRAY',
       label: 'What was the source of the spray?',
@@ -1448,7 +1448,7 @@ export const ESCAPE_FROM_ESCORT_1: IncidentTypeConfiguration = {
       ],
     },
     '44845': {
-      id: '44845',
+      code: '44845',
       active: true,
       question: 'WERE ANY OTHER WEAPONS USED DURING THE ESCAPE',
       label: 'Were any other weapons used during the escape?',
@@ -1475,7 +1475,7 @@ export const ESCAPE_FROM_ESCORT_1: IncidentTypeConfiguration = {
       ],
     },
     '44850': {
-      id: '44850',
+      code: '44850',
       active: true,
       question: 'PRIOR TO PRIVATE SECTOR INVOLVEMENT WOULD THE ESCORT HAVE BEEN',
       label: 'Prior to private sector involvement would the escort have been',
@@ -1502,7 +1502,7 @@ export const ESCAPE_FROM_ESCORT_1: IncidentTypeConfiguration = {
       ],
     },
     '44859': {
-      id: '44859',
+      code: '44859',
       active: true,
       question: 'HOW WAS THE RESTRAINT OVERCOME AT THE POINT OF ESCAPE',
       label: 'How was the restraint overcome at the point of escape?',
@@ -1574,7 +1574,7 @@ export const ESCAPE_FROM_ESCORT_1: IncidentTypeConfiguration = {
       ],
     },
     '44882': {
-      id: '44882',
+      code: '44882',
       active: true,
       question: 'WHAT OTHER WEAPONS WERE USED',
       label: 'What other weapons were used?',
@@ -1673,7 +1673,7 @@ export const ESCAPE_FROM_ESCORT_1: IncidentTypeConfiguration = {
       ],
     },
     '44904': {
-      id: '44904',
+      code: '44904',
       active: true,
       question: 'DESCRIBE THE TYPE OF SPRAY',
       label: 'Describe the type of spray',
@@ -1727,7 +1727,7 @@ export const ESCAPE_FROM_ESCORT_1: IncidentTypeConfiguration = {
       ],
     },
     '44908': {
-      id: '44908',
+      code: '44908',
       active: true,
       question: 'HAS PRISONER BEEN RECAPTURED',
       label: 'Has prisoner been recaptured?',
@@ -1754,7 +1754,7 @@ export const ESCAPE_FROM_ESCORT_1: IncidentTypeConfiguration = {
       ],
     },
     '44930': {
-      id: '44930',
+      code: '44930',
       active: true,
       question: 'TO WHOM WAS THE PRISONER HANDCUFFED',
       label: 'To whom was the prisoner handcuffed',
@@ -1781,7 +1781,7 @@ export const ESCAPE_FROM_ESCORT_1: IncidentTypeConfiguration = {
       ],
     },
     '44966': {
-      id: '44966',
+      code: '44966',
       active: true,
       question: 'WHAT RESTRAINT WAS BEING USED AT THE POINT OF ESCAPE',
       label: 'What restraint was being used at the point of escape?',
@@ -1826,7 +1826,7 @@ export const ESCAPE_FROM_ESCORT_1: IncidentTypeConfiguration = {
       ],
     },
     '44970': {
-      id: '44970',
+      code: '44970',
       active: true,
       question: 'WITH WHAT OFFENCE HAS THE PRISONER BEEN CHARGED',
       label: 'With what offence has the prisoner been charged?',
@@ -1943,7 +1943,7 @@ export const ESCAPE_FROM_ESCORT_1: IncidentTypeConfiguration = {
       ],
     },
     '44975': {
-      id: '44975',
+      code: '44975',
       active: true,
       question: 'WERE THE POLICE INFORMED OF THE INCIDENT',
       label: 'Were the police informed of the incident?',
@@ -1970,7 +1970,7 @@ export const ESCAPE_FROM_ESCORT_1: IncidentTypeConfiguration = {
       ],
     },
     '44994': {
-      id: '44994',
+      code: '44994',
       active: true,
       question: 'WHO USED THE FIREARM',
       label: 'Who used the firearm?',
@@ -2006,7 +2006,7 @@ export const ESCAPE_FROM_ESCORT_1: IncidentTypeConfiguration = {
       ],
     },
     '44998': {
-      id: '44998',
+      code: '44998',
       active: true,
       question: 'WAS THE FIREARM DISCHARGED',
       label: 'Was the firearm discharged?',
@@ -2033,7 +2033,7 @@ export const ESCAPE_FROM_ESCORT_1: IncidentTypeConfiguration = {
       ],
     },
     '45024': {
-      id: '45024',
+      code: '45024',
       active: true,
       question: 'DID ANY STAFF REQUIRE MEDICAL TREATMENT FOR INJURY',
       label: 'Did any staff require medical treatment for injury?',
@@ -2060,7 +2060,7 @@ export const ESCAPE_FROM_ESCORT_1: IncidentTypeConfiguration = {
       ],
     },
     '45025': {
-      id: '45025',
+      code: '45025',
       active: true,
       question: 'HOW WAS THE PRISONER RECAPTURED',
       label: 'How was the prisoner recaptured?',
@@ -2105,7 +2105,7 @@ export const ESCAPE_FROM_ESCORT_1: IncidentTypeConfiguration = {
       ],
     },
     '45030': {
-      id: '45030',
+      code: '45030',
       active: true,
       question: 'WHICH SERIOUS INJURIES WERE SUSTAINED',
       label: 'Which serious injuries were sustained?',
@@ -2222,7 +2222,7 @@ export const ESCAPE_FROM_ESCORT_1: IncidentTypeConfiguration = {
       ],
     },
     '45035': {
-      id: '45035',
+      code: '45035',
       active: true,
       question: 'WHICH SERIOUS INJURIES WERE SUSTAINED',
       label: 'Which serious injuries were sustained?',
@@ -2339,7 +2339,7 @@ export const ESCAPE_FROM_ESCORT_1: IncidentTypeConfiguration = {
       ],
     },
     '45066': {
-      id: '45066',
+      code: '45066',
       active: true,
       question: 'IS ANY MEMBER OF STAFF FACING DISCIPLINARY CHARGES',
       label: 'Is any member of staff facing disciplinary charges?',
@@ -2366,7 +2366,7 @@ export const ESCAPE_FROM_ESCORT_1: IncidentTypeConfiguration = {
       ],
     },
     '45068': {
-      id: '45068',
+      code: '45068',
       active: true,
       question: 'WAS THE KNIFE OR BLADE USED PURPOSE MADE OR IMPROVISED',
       label: 'Was the knife or blade used purpose made or improvised?',
@@ -2402,7 +2402,7 @@ export const ESCAPE_FROM_ESCORT_1: IncidentTypeConfiguration = {
       ],
     },
     '45070': {
-      id: '45070',
+      code: '45070',
       active: true,
       question: 'NUMBER OF STAFF INJURED',
       label: 'Number of staff injured',
@@ -2429,7 +2429,7 @@ export const ESCAPE_FROM_ESCORT_1: IncidentTypeConfiguration = {
       ],
     },
     '45080': {
-      id: '45080',
+      code: '45080',
       active: true,
       question: 'WHAT WAS THE SOURCE OF THE KNIFE OR BLADE',
       label: 'What was the source of the knife or blade?',
@@ -2474,7 +2474,7 @@ export const ESCAPE_FROM_ESCORT_1: IncidentTypeConfiguration = {
       ],
     },
     '45089': {
-      id: '45089',
+      code: '45089',
       active: true,
       question: 'HAS THE PRISON SERVICE PRESS OFFICE BEEN INFORMED',
       label: 'Has the prison service press office been informed?',
@@ -2501,7 +2501,7 @@ export const ESCAPE_FROM_ESCORT_1: IncidentTypeConfiguration = {
       ],
     },
     '45104': {
-      id: '45104',
+      code: '45104',
       active: true,
       question: 'WHAT WAS THE SOURCE OF THE FIREARM',
       label: 'What was the source of the firearm?',
@@ -2546,7 +2546,7 @@ export const ESCAPE_FROM_ESCORT_1: IncidentTypeConfiguration = {
       ],
     },
     '45110': {
-      id: '45110',
+      code: '45110',
       active: true,
       question: 'WHO WAS RESPONSIBLE FOR THE ESCORT',
       label: 'Who was responsible for the escort?',
@@ -2573,7 +2573,7 @@ export const ESCAPE_FROM_ESCORT_1: IncidentTypeConfiguration = {
       ],
     },
     '45112': {
-      id: '45112',
+      code: '45112',
       active: true,
       question: 'WHERE DID THE ESCAPE TAKE PLACE',
       label: 'Where did the escape take place?',
@@ -2699,7 +2699,7 @@ export const ESCAPE_FROM_ESCORT_1: IncidentTypeConfiguration = {
       ],
     },
     '45118': {
-      id: '45118',
+      code: '45118',
       active: true,
       question: 'WAS A SERIOUS INJURY SUSTAINED BY A PRISONER',
       label: 'Was a serious injury sustained by a prisoner?',
@@ -2726,7 +2726,7 @@ export const ESCAPE_FROM_ESCORT_1: IncidentTypeConfiguration = {
       ],
     },
     '45136': {
-      id: '45136',
+      code: '45136',
       active: true,
       question: 'WAS A FIREARM USED DURING THE ESCAPE',
       label: 'Was a firearm used during the escape?',
@@ -2753,7 +2753,7 @@ export const ESCAPE_FROM_ESCORT_1: IncidentTypeConfiguration = {
       ],
     },
     '45145': {
-      id: '45145',
+      code: '45145',
       active: true,
       question: 'HAS ANY PROSECUTION TAKEN PLACE OR IS ANY PENDING',
       label: 'Has any prosecution taken place or is any pending?',
@@ -2780,7 +2780,7 @@ export const ESCAPE_FROM_ESCORT_1: IncidentTypeConfiguration = {
       ],
     },
     '45149': {
-      id: '45149',
+      code: '45149',
       active: true,
       question: 'WAS DOUBLE CUFFING EMPLOYED',
       label: 'Was double cuffing employed?',
@@ -2807,7 +2807,7 @@ export const ESCAPE_FROM_ESCORT_1: IncidentTypeConfiguration = {
       ],
     },
     '45151': {
-      id: '45151',
+      code: '45151',
       active: true,
       question: 'WERE ANY INJURIES SUSTAINED BY STAFF',
       label: 'Were any injuries sustained by staff?',
@@ -2834,7 +2834,7 @@ export const ESCAPE_FROM_ESCORT_1: IncidentTypeConfiguration = {
       ],
     },
     '45154': {
-      id: '45154',
+      code: '45154',
       active: true,
       question: 'WHICH MINOR INJURIES WERE SUSTAINED',
       label: 'Which minor injuries were sustained?',
@@ -2888,7 +2888,7 @@ export const ESCAPE_FROM_ESCORT_1: IncidentTypeConfiguration = {
       ],
     },
     '45156': {
-      id: '45156',
+      code: '45156',
       active: true,
       question: 'WAS THE PRISONER WHO ESCAPED ON THE ESCAPE LIST',
       label: 'Was the prisoner who escaped on the escape list?',
@@ -2915,7 +2915,7 @@ export const ESCAPE_FROM_ESCORT_1: IncidentTypeConfiguration = {
       ],
     },
     '45157': {
-      id: '45157',
+      code: '45157',
       active: true,
       question: 'WAS A SERIOUS INJURY SUSTAINED BY STAFF',
       label: 'Was a serious injury sustained by staff?',

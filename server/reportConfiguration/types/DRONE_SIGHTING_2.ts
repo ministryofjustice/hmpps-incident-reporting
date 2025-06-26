@@ -8,7 +8,7 @@ export const DRONE_SIGHTING_2: IncidentTypeConfiguration = {
   startingQuestionId: '57253',
   questions: {
     '57253': {
-      id: '57253',
+      code: '57253',
       active: true,
       question: 'Was a drone sighted in mid-flight?',
       label: 'Was a drone sighted in mid-flight?',
@@ -35,7 +35,7 @@ export const DRONE_SIGHTING_2: IncidentTypeConfiguration = {
       ],
     },
     '57254': {
-      id: '57254',
+      code: '57254',
       active: true,
       question: 'What time was the drone(s) sighted?',
       label: 'What time was the drone(s) sighted?',
@@ -80,7 +80,7 @@ export const DRONE_SIGHTING_2: IncidentTypeConfiguration = {
       ],
     },
     '57255': {
-      id: '57255',
+      code: '57255',
       active: true,
       question: 'Number of drones observed?',
       label: 'Number of drones observed?',
@@ -143,7 +143,7 @@ export const DRONE_SIGHTING_2: IncidentTypeConfiguration = {
       ],
     },
     '57256': {
-      id: '57256',
+      code: '57256',
       active: true,
       question: 'Where was the drone(s) sighted?',
       label: 'Where was the drone(s) sighted?',
@@ -224,7 +224,7 @@ export const DRONE_SIGHTING_2: IncidentTypeConfiguration = {
       ],
     },
     '57257': {
-      id: '57257',
+      code: '57257',
       active: true,
       question: 'For drone(s) sighted beyond perimeter border, how close did the nearest drone get to the wall?',
       label: 'For drone(s) sighted beyond perimeter border, how close did the nearest drone get to the wall?',
@@ -278,7 +278,7 @@ export const DRONE_SIGHTING_2: IncidentTypeConfiguration = {
       ],
     },
     '57258': {
-      id: '57258',
+      code: '57258',
       active: true,
       question: 'What was the estimated speed of the drone(s)?',
       label: 'What was the estimated speed of the drone(s)?',
@@ -332,7 +332,7 @@ export const DRONE_SIGHTING_2: IncidentTypeConfiguration = {
       ],
     },
     '57259': {
-      id: '57259',
+      code: '57259',
       active: true,
       question: 'What was the flying pattern of the drone(s)?',
       label: 'What was the flying pattern of the drone(s)?',
@@ -386,7 +386,7 @@ export const DRONE_SIGHTING_2: IncidentTypeConfiguration = {
       ],
     },
     '57260': {
-      id: '57260',
+      code: '57260',
       active: true,
       question: 'How many times has the drone(s) been seen here before?',
       label: 'How many times has the drone(s) been seen here before?',
@@ -449,7 +449,7 @@ export const DRONE_SIGHTING_2: IncidentTypeConfiguration = {
       ],
     },
     '57261': {
-      id: '57261',
+      code: '57261',
       active: true,
       question: 'What were the weather conditions at the time of the sighting?',
       label: 'What were the weather conditions at the time of the sighting?',
@@ -530,7 +530,7 @@ export const DRONE_SIGHTING_2: IncidentTypeConfiguration = {
       ],
     },
     '57262': {
-      id: '57262',
+      code: '57262',
       active: true,
       question: 'Was the drone(s) recovered?',
       label: 'Was the drone(s) recovered?',
@@ -557,7 +557,7 @@ export const DRONE_SIGHTING_2: IncidentTypeConfiguration = {
       ],
     },
     '57263': {
-      id: '57263',
+      code: '57263',
       active: true,
       question: 'Was a drone recovered?',
       label: 'Was a drone recovered?',
@@ -584,7 +584,7 @@ export const DRONE_SIGHTING_2: IncidentTypeConfiguration = {
       ],
     },
     '57264': {
-      id: '57264',
+      code: '57264',
       active: true,
       question: 'How many drone(s) was recovered?',
       label: 'How many drone(s) was recovered?',
@@ -647,7 +647,7 @@ export const DRONE_SIGHTING_2: IncidentTypeConfiguration = {
       ],
     },
     '57265': {
-      id: '57265',
+      code: '57265',
       active: true,
       question: 'Where was the drone(s) recovered?',
       label: 'Where was the drone(s) recovered?',
@@ -728,7 +728,7 @@ export const DRONE_SIGHTING_2: IncidentTypeConfiguration = {
       ],
     },
     '57266': {
-      id: '57266',
+      code: '57266',
       active: true,
       question: 'What was the drone(s) type/airframe shape?',
       label: 'What was the drone(s) type/airframe shape?',
@@ -827,7 +827,7 @@ export const DRONE_SIGHTING_2: IncidentTypeConfiguration = {
       ],
     },
     '57267': {
-      id: '57267',
+      code: '57267',
       active: true,
       question: 'What is the drone model?',
       label: 'What is the drone model?',
@@ -935,7 +935,7 @@ export const DRONE_SIGHTING_2: IncidentTypeConfiguration = {
       ],
     },
     '57268': {
-      id: '57268',
+      code: '57268',
       active: true,
       question: 'How many motors does the drone(s) have?',
       label: 'How many motors does the drone(s) have?',
@@ -1025,7 +1025,7 @@ export const DRONE_SIGHTING_2: IncidentTypeConfiguration = {
       ],
     },
     '57269': {
-      id: '57269',
+      code: '57269',
       active: true,
       question: 'What was the approximate length of the drone(s)?',
       label: 'What was the approximate length of the drone(s)?',
@@ -1079,7 +1079,7 @@ export const DRONE_SIGHTING_2: IncidentTypeConfiguration = {
       ],
     },
     '57270': {
-      id: '57270',
+      code: '57270',
       active: true,
       question: 'What was the approximate width of the drone(s)?',
       label: 'What was the approximate width of the drone(s)?',
@@ -1133,7 +1133,7 @@ export const DRONE_SIGHTING_2: IncidentTypeConfiguration = {
       ],
     },
     '57271': {
-      id: '57271',
+      code: '57271',
       active: true,
       question: 'What modifications were made to the drone(s)?',
       label: 'What modifications were made to the drone(s)?',
@@ -1196,7 +1196,7 @@ export const DRONE_SIGHTING_2: IncidentTypeConfiguration = {
       ],
     },
     '57272': {
-      id: '57272',
+      code: '57272',
       active: true,
       question: 'How was the drone(s) recovered?',
       label: 'How was the drone(s) recovered?',
@@ -1223,7 +1223,7 @@ export const DRONE_SIGHTING_2: IncidentTypeConfiguration = {
       ],
     },
     '57273': {
-      id: '57273',
+      code: '57273',
       active: true,
       question: 'Did the drone(s) carry any package(s)?',
       label: 'Did the drone(s) carry any package(s)?',
@@ -1250,7 +1250,7 @@ export const DRONE_SIGHTING_2: IncidentTypeConfiguration = {
       ],
     },
     '57274': {
-      id: '57274',
+      code: '57274',
       active: true,
       question: 'Was the package(s) recovered?',
       label: 'Was the package(s) recovered?',
@@ -1277,7 +1277,7 @@ export const DRONE_SIGHTING_2: IncidentTypeConfiguration = {
       ],
     },
     '57275': {
-      id: '57275',
+      code: '57275',
       active: true,
       question: 'Total weight of the package(s)?',
       label: 'Total weight of the package(s)?',
@@ -1439,7 +1439,7 @@ export const DRONE_SIGHTING_2: IncidentTypeConfiguration = {
       ],
     },
     '57276': {
-      id: '57276',
+      code: '57276',
       active: true,
       question: 'What items were in the package(s)?',
       label: 'What items were in the package(s)?',
@@ -1511,7 +1511,7 @@ export const DRONE_SIGHTING_2: IncidentTypeConfiguration = {
       ],
     },
     '57277': {
-      id: '57277',
+      code: '57277',
       active: true,
       question: 'Were any photos taken of the drone and/or payload?',
       label: 'Were any photos taken of the drone and/or payload?',
@@ -1538,7 +1538,7 @@ export const DRONE_SIGHTING_2: IncidentTypeConfiguration = {
       ],
     },
     '57278': {
-      id: '57278',
+      code: '57278',
       active: true,
       question: 'Was the pilot identified?',
       label: 'Was the pilot identified?',
@@ -1565,7 +1565,7 @@ export const DRONE_SIGHTING_2: IncidentTypeConfiguration = {
       ],
     },
     '57279': {
-      id: '57279',
+      code: '57279',
       active: true,
       question: 'Do you know if the pilot was using line of sight?',
       label: 'Do you know if the pilot was using line of sight?',
@@ -1592,7 +1592,7 @@ export const DRONE_SIGHTING_2: IncidentTypeConfiguration = {
       ],
     },
     '57280': {
-      id: '57280',
+      code: '57280',
       active: true,
       question: 'Do you know the distance of the pilot from the prison?',
       label: 'Do you know the distance of the pilot from the prison?',
@@ -1619,7 +1619,7 @@ export const DRONE_SIGHTING_2: IncidentTypeConfiguration = {
       ],
     },
     '57281': {
-      id: '57281',
+      code: '57281',
       active: true,
       question: 'What was the distance?',
       label: 'What was the distance?',
@@ -1664,7 +1664,7 @@ export const DRONE_SIGHTING_2: IncidentTypeConfiguration = {
       ],
     },
     '57282': {
-      id: '57282',
+      code: '57282',
       active: true,
       question: 'Were the police contacted?',
       label: 'Were the police contacted?',
@@ -1691,7 +1691,7 @@ export const DRONE_SIGHTING_2: IncidentTypeConfiguration = {
       ],
     },
     '57283': {
-      id: '57283',
+      code: '57283',
       active: true,
       question: 'To the extent of your knowledge, was the pilot apprehended?',
       label: 'To the extent of your knowledge, was the pilot apprehended?',

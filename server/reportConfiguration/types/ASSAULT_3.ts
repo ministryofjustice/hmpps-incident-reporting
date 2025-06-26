@@ -8,7 +8,7 @@ export const ASSAULT_3: IncidentTypeConfiguration = {
   startingQuestionId: '61213',
   questions: {
     '61213': {
-      id: '61213',
+      code: '61213',
       active: false,
       question: 'What was the main management outcome of this incident?',
       label: 'What was the main management outcome of this incident?',
@@ -53,7 +53,7 @@ export const ASSAULT_3: IncidentTypeConfiguration = {
       ],
     },
     '61214': {
-      id: '61214',
+      code: '61214',
       active: false,
       question: 'Is any member of staff facing disciplinary charges?',
       label: 'Is any member of staff facing disciplinary charges?',
@@ -80,7 +80,7 @@ export const ASSAULT_3: IncidentTypeConfiguration = {
       ],
     },
     '61215': {
-      id: '61215',
+      code: '61215',
       active: false,
       question: 'Is there any media interest in this incident?',
       label: 'Is there any media interest in this incident?',
@@ -107,7 +107,7 @@ export const ASSAULT_3: IncidentTypeConfiguration = {
       ],
     },
     '61216': {
-      id: '61216',
+      code: '61216',
       active: false,
       question: 'Has the prison service press office been informed?',
       label: 'Has the prison service press office been informed?',
@@ -134,7 +134,7 @@ export const ASSAULT_3: IncidentTypeConfiguration = {
       ],
     },
     '61217': {
-      id: '61217',
+      code: '61217',
       active: false,
       question: 'Is the location of the incident known?',
       label: 'Is the location of the incident known?',
@@ -161,7 +161,7 @@ export const ASSAULT_3: IncidentTypeConfiguration = {
       ],
     },
     '61218': {
-      id: '61218',
+      code: '61218',
       active: false,
       question: 'What was the location of the incident?',
       label: 'What was the location of the incident?',
@@ -503,7 +503,7 @@ export const ASSAULT_3: IncidentTypeConfiguration = {
       ],
     },
     '61219': {
-      id: '61219',
+      code: '61219',
       active: false,
       question: 'Was this a sexual assault?',
       label: 'Was this a sexual assault?',
@@ -530,7 +530,7 @@ export const ASSAULT_3: IncidentTypeConfiguration = {
       ],
     },
     '61220': {
-      id: '61220',
+      code: '61220',
       active: false,
       question: 'Did the assault occur during a fight?',
       label: 'Did the assault occur during a fight?',
@@ -557,7 +557,7 @@ export const ASSAULT_3: IncidentTypeConfiguration = {
       ],
     },
     '61221': {
-      id: '61221',
+      code: '61221',
       active: false,
       question: 'What type of assault was it?',
       label: 'What type of assault was it?',
@@ -602,7 +602,7 @@ export const ASSAULT_3: IncidentTypeConfiguration = {
       ],
     },
     '61222': {
-      id: '61222',
+      code: '61222',
       active: false,
       question: 'Were any staff assaulted?',
       label: 'Were any staff assaulted?',
@@ -629,7 +629,7 @@ export const ASSAULT_3: IncidentTypeConfiguration = {
       ],
     },
     '61223': {
-      id: '61223',
+      code: '61223',
       active: false,
       question: 'Describe the type of staff',
       label: 'Describe the type of staff',
@@ -647,7 +647,7 @@ export const ASSAULT_3: IncidentTypeConfiguration = {
       ],
     },
     '61224': {
-      id: '61224',
+      code: '61224',
       active: false,
       question: 'Was spitting used in this incident?',
       label: 'Was spitting used in this incident?',
@@ -665,7 +665,7 @@ export const ASSAULT_3: IncidentTypeConfiguration = {
       ],
     },
     '61225': {
-      id: '61225',
+      code: '61225',
       active: false,
       question: 'Is the assailant known to have an infectious disease that can be transmitted in saliva?',
       label: 'Is the assailant known to have an infectious disease that can be transmitted in saliva?',
@@ -683,7 +683,7 @@ export const ASSAULT_3: IncidentTypeConfiguration = {
       ],
     },
     '61226': {
-      id: '61226',
+      code: '61226',
       active: false,
       question: 'Did the saliva hit the body or clothing of the victim(s)?',
       label: 'Did the saliva hit the body or clothing of the victim(s)?',
@@ -701,7 +701,7 @@ export const ASSAULT_3: IncidentTypeConfiguration = {
       ],
     },
     '61227': {
-      id: '61227',
+      code: '61227',
       active: false,
       question: 'Where did it hit?',
       label: 'Where did it hit?',
@@ -719,7 +719,7 @@ export const ASSAULT_3: IncidentTypeConfiguration = {
       ],
     },
     '61228': {
-      id: '61228',
+      code: '61228',
       active: false,
       question: 'Were any weapons used?',
       label: 'Were any weapons used?',
@@ -737,7 +737,7 @@ export const ASSAULT_3: IncidentTypeConfiguration = {
       ],
     },
     '61229': {
-      id: '61229',
+      code: '61229',
       active: false,
       question: 'Describe the weapons used?',
       label: 'Describe the weapons used?',
@@ -755,7 +755,7 @@ export const ASSAULT_3: IncidentTypeConfiguration = {
       ],
     },
     '61230': {
-      id: '61230',
+      code: '61230',
       active: false,
       question: 'Were any injuries received during this incident?',
       label: 'Were any injuries received during this incident?',
@@ -773,7 +773,7 @@ export const ASSAULT_3: IncidentTypeConfiguration = {
       ],
     },
     '61231': {
-      id: '61231',
+      code: '61231',
       active: false,
       question: 'Enter description of person(s) injured',
       label: 'Enter description of person(s) injured',
@@ -791,7 +791,7 @@ export const ASSAULT_3: IncidentTypeConfiguration = {
       ],
     },
     '61232': {
-      id: '61232',
+      code: '61232',
       active: false,
       question: 'Enter description of person(s) injured',
       label: 'Enter description of person(s) injured',
@@ -809,7 +809,7 @@ export const ASSAULT_3: IncidentTypeConfiguration = {
       ],
     },
     '61233': {
-      id: '61233',
+      code: '61233',
       active: false,
       question: 'Which serious injuries were sustained?',
       label: 'Which serious injuries were sustained?',
@@ -827,7 +827,7 @@ export const ASSAULT_3: IncidentTypeConfiguration = {
       ],
     },
     '61234': {
-      id: '61234',
+      code: '61234',
       active: false,
       question: 'Was a minor injury sustained?',
       label: 'Was a minor injury sustained?',
@@ -845,7 +845,7 @@ export const ASSAULT_3: IncidentTypeConfiguration = {
       ],
     },
     '61235': {
-      id: '61235',
+      code: '61235',
       active: false,
       question: 'Which minor injuries were sustained?',
       label: 'Which minor injuries were sustained?',
@@ -863,7 +863,7 @@ export const ASSAULT_3: IncidentTypeConfiguration = {
       ],
     },
     '61236': {
-      id: '61236',
+      code: '61236',
       active: false,
       question: 'Did injuries result in attendance to outside hospital?',
       label: 'Did injuries result in attendance to outside hospital?',
@@ -881,7 +881,7 @@ export const ASSAULT_3: IncidentTypeConfiguration = {
       ],
     },
     '61237': {
-      id: '61237',
+      code: '61237',
       active: false,
       question: 'Type of hospital admission',
       label: 'Type of hospital admission',
@@ -899,7 +899,7 @@ export const ASSAULT_3: IncidentTypeConfiguration = {
       ],
     },
     '61238': {
-      id: '61238',
+      code: '61238',
       active: false,
       question: 'Who was admitted to outside hospital?',
       label: 'Who was admitted to outside hospital?',
@@ -917,7 +917,7 @@ export const ASSAULT_3: IncidentTypeConfiguration = {
       ],
     },
     '61239': {
-      id: '61239',
+      code: '61239',
       active: false,
       question: 'Was medical treatment for concussion or internal injuries required?',
       label: 'Was medical treatment for concussion or internal injuries required?',
@@ -935,7 +935,7 @@ export const ASSAULT_3: IncidentTypeConfiguration = {
       ],
     },
     '61240': {
-      id: '61240',
+      code: '61240',
       active: false,
       question: 'Are there any staff now off duty as a result of this incident?',
       label: 'Are there any staff now off duty as a result of this incident?',
@@ -953,7 +953,7 @@ export const ASSAULT_3: IncidentTypeConfiguration = {
       ],
     },
     '61241': {
-      id: '61241',
+      code: '61241',
       active: false,
       question: 'Are any staff on sick leave as a result of this incident?',
       label: 'Are any staff on sick leave as a result of this incident?',
@@ -971,7 +971,7 @@ export const ASSAULT_3: IncidentTypeConfiguration = {
       ],
     },
     '61242': {
-      id: '61242',
+      code: '61242',
       active: false,
       question: 'Did the assault occur in public view?',
       label: 'Did the assault occur in public view?',
@@ -989,7 +989,7 @@ export const ASSAULT_3: IncidentTypeConfiguration = {
       ],
     },
     '61243': {
-      id: '61243',
+      code: '61243',
       active: false,
       question: 'Is there any audio or visual footage of the assault?',
       label: 'Is there any audio or visual footage of the assault?',
@@ -1007,7 +1007,7 @@ export const ASSAULT_3: IncidentTypeConfiguration = {
       ],
     },
     '61244': {
-      id: '61244',
+      code: '61244',
       active: false,
       question: 'What is the source of the footage?',
       label: 'What is the source of the footage?',
@@ -1025,7 +1025,7 @@ export const ASSAULT_3: IncidentTypeConfiguration = {
       ],
     },
     '61245': {
-      id: '61245',
+      code: '61245',
       active: false,
       question: 'Was there an apparent reason for the assault?',
       label: 'Was there an apparent reason for the assault?',

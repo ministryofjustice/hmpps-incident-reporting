@@ -8,7 +8,7 @@ export const ABSCOND_1: IncidentTypeConfiguration = {
   startingQuestionId: '44534',
   questions: {
     '44198': {
-      id: '44198',
+      code: '44198',
       active: true,
       question: 'HAS THE PRISONER BEEN CHARGED WITH A FURTHER OFFENCE',
       label: 'Has the prisoner been charged with a further offence?',
@@ -35,7 +35,7 @@ export const ABSCOND_1: IncidentTypeConfiguration = {
       ],
     },
     '44271': {
-      id: '44271',
+      code: '44271',
       active: true,
       question: 'WAS ANY FORM OF DECEPTION USED IN THE ABSCOND',
       label: 'Was any form of deception used in the abscond?',
@@ -62,7 +62,7 @@ export const ABSCOND_1: IncidentTypeConfiguration = {
       ],
     },
     '44284': {
-      id: '44284',
+      code: '44284',
       active: true,
       question: 'WAS THE ABSCOND IN THE COMPANY OF OTHER PRISONERS',
       label: 'Was the abscond in the company of other prisoners?',
@@ -89,7 +89,7 @@ export const ABSCOND_1: IncidentTypeConfiguration = {
       ],
     },
     '44326': {
-      id: '44326',
+      code: '44326',
       active: true,
       question: 'HAS THE PRISON SERVICE PRESS OFFICE BEEN INFORMED',
       label: 'Has the prison service press office been informed?',
@@ -116,7 +116,7 @@ export const ABSCOND_1: IncidentTypeConfiguration = {
       ],
     },
     '44402': {
-      id: '44402',
+      code: '44402',
       active: true,
       question: 'HOW WAS THE PRISONER RECAPTURED',
       label: 'How was the prisoner recaptured?',
@@ -161,7 +161,7 @@ export const ABSCOND_1: IncidentTypeConfiguration = {
       ],
     },
     '44416': {
-      id: '44416',
+      code: '44416',
       active: true,
       question: 'HAS ANY PROSECUTION TAKEN PLACE OR IS ANY PENDING',
       label: 'Has any prosecution taken place or is any pending?',
@@ -188,7 +188,7 @@ export const ABSCOND_1: IncidentTypeConfiguration = {
       ],
     },
     '44467': {
-      id: '44467',
+      code: '44467',
       active: true,
       question: 'ESTIMATED COST OF DAMAGE',
       label: 'Estimated cost of damage',
@@ -206,7 +206,7 @@ export const ABSCOND_1: IncidentTypeConfiguration = {
       ],
     },
     '44534': {
-      id: '44534',
+      code: '44534',
       active: true,
       question: 'WERE THE POLICE INFORMED OF THE INCIDENT',
       label: 'Were the police informed of the incident?',
@@ -233,7 +233,7 @@ export const ABSCOND_1: IncidentTypeConfiguration = {
       ],
     },
     '44609': {
-      id: '44609',
+      code: '44609',
       active: true,
       question: "IS THE INCIDENT SUBJECT TO A GOVERNOR'S ADJUDICATION",
       label: "Is the incident subject to a governor's adjudication?",
@@ -260,7 +260,7 @@ export const ABSCOND_1: IncidentTypeConfiguration = {
       ],
     },
     '44615': {
-      id: '44615',
+      code: '44615',
       active: true,
       question: 'WAS DAMAGE CAUSED TO PRISON PROPERTY',
       label: 'Was damage caused to prison property?',
@@ -287,7 +287,7 @@ export const ABSCOND_1: IncidentTypeConfiguration = {
       ],
     },
     '44717': {
-      id: '44717',
+      code: '44717',
       active: true,
       question: 'FROM WHICH AREA DID THE ABSCOND TAKE PLACE',
       label: 'From which area did the abscond take place?',
@@ -332,7 +332,7 @@ export const ABSCOND_1: IncidentTypeConfiguration = {
       ],
     },
     '44766': {
-      id: '44766',
+      code: '44766',
       active: true,
       question: 'IS THE INCIDENT THE SUBJECT OF AN INTERNAL INVESTIGATION',
       label: 'Is the incident the subject of an internal investigation?',
@@ -359,7 +359,7 @@ export const ABSCOND_1: IncidentTypeConfiguration = {
       ],
     },
     '44800': {
-      id: '44800',
+      code: '44800',
       active: true,
       question: 'DESCRIBE THE DAMAGE',
       label: 'Describe the damage',
@@ -395,7 +395,7 @@ export const ABSCOND_1: IncidentTypeConfiguration = {
       ],
     },
     '44854': {
-      id: '44854',
+      code: '44854',
       active: true,
       question: 'WITH WHAT OFFENCE HAS THE PRISONER BEEN CHARGED',
       label: 'With what offence has the prisoner been charged?',
@@ -512,7 +512,7 @@ export const ABSCOND_1: IncidentTypeConfiguration = {
       ],
     },
     '44861': {
-      id: '44861',
+      code: '44861',
       active: true,
       question: 'HAS PRISONER BEEN RECAPTURED',
       label: 'Has prisoner been recaptured?',
@@ -539,7 +539,7 @@ export const ABSCOND_1: IncidentTypeConfiguration = {
       ],
     },
     '44868': {
-      id: '44868',
+      code: '44868',
       active: true,
       question: 'DESCRIBE THE DAMAGE',
       label: 'Describe the damage',
@@ -575,7 +575,7 @@ export const ABSCOND_1: IncidentTypeConfiguration = {
       ],
     },
     '44941': {
-      id: '44941',
+      code: '44941',
       active: true,
       question: 'IS THE INCIDENT THE SUBJECT OF A POLICE INVESTIGATION',
       label: 'Is the incident the subject of a police investigation?',
@@ -602,7 +602,7 @@ export const ABSCOND_1: IncidentTypeConfiguration = {
       ],
     },
     '44976': {
-      id: '44976',
+      code: '44976',
       active: true,
       question: 'WAS ANY DAMAGE CAUSED TO PRIVATE PROPERTY DURING ABSCOND',
       label: 'Was any damage caused to private property during abscond?',
@@ -629,7 +629,7 @@ export const ABSCOND_1: IncidentTypeConfiguration = {
       ],
     },
     '45077': {
-      id: '45077',
+      code: '45077',
       active: true,
       question: 'IS THERE ANY MEDIA INTEREST IN THIS INCIDENT',
       label: 'Is there any media interest in this incident?',

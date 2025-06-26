@@ -8,7 +8,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
   startingQuestionId: '44776',
   questions: {
     '44123': {
-      id: '44123',
+      code: '44123',
       active: false,
       question: 'HOW WAS THE ITEM FOUND',
       label: 'How was the item found?',
@@ -44,7 +44,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
       ],
     },
     '44160': {
-      id: '44160',
+      code: '44160',
       active: false,
       question: 'WHAT WAS THE COUNTRY OF MANUFACTURE OF THE SPRAY',
       label: 'What was the country of manufacture of the spray?',
@@ -62,7 +62,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
       ],
     },
     '44172': {
-      id: '44172',
+      code: '44172',
       active: false,
       question: 'WAS A CHEMICAL INCAPACITANT SPRAY FOUND',
       label: 'Was a chemical incapacitant spray found?',
@@ -89,7 +89,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
       ],
     },
     '44189': {
-      id: '44189',
+      code: '44189',
       active: false,
       question: 'WAS THE FIREARM AN AUTOMATIC',
       label: 'Was the firearm an automatic?',
@@ -116,7 +116,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
       ],
     },
     '44193': {
-      id: '44193',
+      code: '44193',
       active: false,
       question: 'WAS THE TELEPHONE/IT SYSTEM SHUT DOWN DURING THE INCIDENT?',
       label: 'Was the telephone/it system shut down during the incident?',
@@ -143,7 +143,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
       ],
     },
     '44208': {
-      id: '44208',
+      code: '44208',
       active: false,
       question: 'IS THERE ANY SUSPICION OF TRAFFICKING',
       label: 'Is there any suspicion of trafficking?',
@@ -170,7 +170,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
       ],
     },
     '44209': {
-      id: '44209',
+      code: '44209',
       active: false,
       question: 'WAS THE SYSTEM RE-ACTIVATED LOCALLY OR BY THE SERVICE SUPPLIER',
       label: 'Was the system re-activated locally or by the service supplier?',
@@ -197,7 +197,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
       ],
     },
     '44323': {
-      id: '44323',
+      code: '44323',
       active: false,
       question: 'DESCRIBE WHAT WAS COMPROMISED AND BY WHOM',
       label: 'Describe what was compromised and by whom',
@@ -215,7 +215,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
       ],
     },
     '44330': {
-      id: '44330',
+      code: '44330',
       active: false,
       question: 'HAS THE SERVICE SUPPLIER BEEN NOTIFIED OF A REPLACEMENT KEYWORD?',
       label: 'Has the service supplier been notified of a replacement keyword?',
@@ -242,7 +242,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
       ],
     },
     '44390': {
-      id: '44390',
+      code: '44390',
       active: false,
       question: 'WHAT TYPE OF AMMUNITION WAS FOUND',
       label: 'What type of ammunition was found?',
@@ -296,7 +296,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
       ],
     },
     '44398': {
-      id: '44398',
+      code: '44398',
       active: false,
       question: 'WHAT TIME WAS THE SYSTEM SHUT DOWN?',
       label: 'What time was the system shut down?',
@@ -314,7 +314,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
       ],
     },
     '44430': {
-      id: '44430',
+      code: '44430',
       active: false,
       question: 'HOW MANY ROUNDS ETC WERE FOUND',
       label: 'How many rounds etc were found?',
@@ -332,7 +332,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
       ],
     },
     '44446': {
-      id: '44446',
+      code: '44446',
       active: false,
       question: 'HAS ANY PERSON BEEN ARRESTED BY THE POLICE',
       label: 'Has any person been arrested by the police?',
@@ -359,7 +359,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
       ],
     },
     '44451': {
-      id: '44451',
+      code: '44451',
       active: false,
       question: 'WAS THE TELEPHONE/IT SYSTEM SHUT DOWN LOCALLY OR BY THE SERVICE SUPPLIER',
       label: 'Was the telephone/it system shut down locally or by the service supplier?',
@@ -386,7 +386,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
       ],
     },
     '44455': {
-      id: '44455',
+      code: '44455',
       active: false,
       question: 'WHAT WAS THE SOURCE OF THE INFORMATION/INTELLIGENCE',
       label: 'What was the source of the information/intelligence?',
@@ -440,7 +440,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
       ],
     },
     '44470': {
-      id: '44470',
+      code: '44470',
       active: false,
       question: 'WAS THE ITEM CONCEALED/DISCARDED',
       label: 'Was the item concealed/discarded?',
@@ -467,7 +467,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
       ],
     },
     '44473': {
-      id: '44473',
+      code: '44473',
       active: false,
       question: 'IS THERE ANY MEDIA INTEREST IN THIS INCIDENT',
       label: 'Is there any media interest in this incident?',
@@ -494,7 +494,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
       ],
     },
     '44504': {
-      id: '44504',
+      code: '44504',
       active: false,
       question: 'WHAT WAS THE CALIBRE OF THE FIREARM',
       label: 'What was the calibre of the firearm?',
@@ -512,7 +512,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
       ],
     },
     '44513': {
-      id: '44513',
+      code: '44513',
       active: false,
       question: 'IS THE INCIDENT THE SUBJECT OF A POLICE INVESTIGATION',
       label: 'Is the incident the subject of a police investigation?',
@@ -539,7 +539,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
       ],
     },
     '44524': {
-      id: '44524',
+      code: '44524',
       active: false,
       question: 'DESCRIBE THE PERSON ARRESTED',
       label: 'Describe the person arrested',
@@ -593,7 +593,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
       ],
     },
     '44526': {
-      id: '44526',
+      code: '44526',
       active: false,
       question: 'WHERE WAS THE ITEM FOUND',
       label: 'Where was the item found?',
@@ -899,7 +899,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
       ],
     },
     '44548': {
-      id: '44548',
+      code: '44548',
       active: false,
       question: 'DESCRIBE THE TYPE OF SPRAY',
       label: 'Describe the type of spray',
@@ -953,7 +953,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
       ],
     },
     '44622': {
-      id: '44622',
+      code: '44622',
       active: false,
       question: 'WHAT WAS THE BRAND NAME OF THE SPRAY',
       label: 'What was the brand name of the spray?',
@@ -971,7 +971,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
       ],
     },
     '44624': {
-      id: '44624',
+      code: '44624',
       active: false,
       question: 'CAN ITEMS BE ATTRIBUTED TO A PARTICULAR PRISONER',
       label: 'Can items be attributed to a particular prisoner?',
@@ -998,7 +998,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
       ],
     },
     '44637': {
-      id: '44637',
+      code: '44637',
       active: false,
       question: 'WAS THE SEARCH AS A RESULT OF INFORMATION/INTELLIGENCE',
       label: 'Was the search as a result of information/intelligence?',
@@ -1025,7 +1025,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
       ],
     },
     '44676': {
-      id: '44676',
+      code: '44676',
       active: false,
       question: 'HAS THE PRISON SERVICE PRESS OFFICE BEEN INFORMED',
       label: 'Has the prison service press office been informed?',
@@ -1052,7 +1052,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
       ],
     },
     '44692': {
-      id: '44692',
+      code: '44692',
       active: false,
       question: 'HAS THE PRISONER BEEN ENTERED ON THE INMATE INVOLVEMENT',
       label: 'Has the prisoner been entered on the inmate involvement?',
@@ -1079,7 +1079,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
       ],
     },
     '44698': {
-      id: '44698',
+      code: '44698',
       active: false,
       question: 'WHAT WAS THE CALIBRE OF THE AMMUNITION',
       label: 'What was the calibre of the ammunition?',
@@ -1097,7 +1097,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
       ],
     },
     '44703': {
-      id: '44703',
+      code: '44703',
       active: false,
       question: 'WAS AMMUNITION FOUND',
       label: 'Was ammunition found?',
@@ -1124,7 +1124,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
       ],
     },
     '44755': {
-      id: '44755',
+      code: '44755',
       active: false,
       question: 'INDICATE THE NATURE OF THE SHUT DOWN',
       label: 'Indicate the nature of the shut down',
@@ -1151,7 +1151,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
       ],
     },
     '44776': {
-      id: '44776',
+      code: '44776',
       active: false,
       question: 'WERE THE POLICE INFORMED OF THE INCIDENT',
       label: 'Were the police informed of the incident?',
@@ -1178,7 +1178,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
       ],
     },
     '44779': {
-      id: '44779',
+      code: '44779',
       active: false,
       question: 'WHEN WAS THE SYSTEM RE-ACTIVATED?',
       label: 'When was the system re-activated?',
@@ -1196,7 +1196,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
       ],
     },
     '44820': {
-      id: '44820',
+      code: '44820',
       active: false,
       question: 'WAS THE SYSTEM COMPROMISED?',
       label: 'Was the system compromised?',
@@ -1223,7 +1223,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
       ],
     },
     '44827': {
-      id: '44827',
+      code: '44827',
       active: false,
       question: 'WHAT PARTS OF A FIREARM WERE FOUND',
       label: 'What parts of a firearm were found?',
@@ -1268,7 +1268,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
       ],
     },
     '44832': {
-      id: '44832',
+      code: '44832',
       active: false,
       question: 'WAS THE KEYWORD REQUESTED?',
       label: 'Was the keyword requested?',
@@ -1295,7 +1295,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
       ],
     },
     '44846': {
-      id: '44846',
+      code: '44846',
       active: false,
       question: 'WHAT WAS THE NAME OF THE MANUFACTURER',
       label: 'What was the name of the manufacturer?',
@@ -1313,7 +1313,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
       ],
     },
     '44870': {
-      id: '44870',
+      code: '44870',
       active: false,
       question: 'DESCRIBE THE AMMUNITION',
       label: 'Describe the ammunition',
@@ -1367,7 +1367,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
       ],
     },
     '44874': {
-      id: '44874',
+      code: '44874',
       active: false,
       question: 'HAS ANY PROSECUTION TAKEN PLACE OR IS ANY PENDING',
       label: 'Has any prosecution taken place or is any pending?',
@@ -1394,7 +1394,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
       ],
     },
     '44907': {
-      id: '44907',
+      code: '44907',
       active: false,
       question: 'WHO AUTHORISED THE SHUT DOWN?',
       label: 'Who authorised the shut down?',
@@ -1439,7 +1439,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
       ],
     },
     '44922': {
-      id: '44922',
+      code: '44922',
       active: false,
       question: 'WHICH DETECTION AIDS WERE USED',
       label: 'Which detection aids were used?',
@@ -1484,7 +1484,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
       ],
     },
     '44928': {
-      id: '44928',
+      code: '44928',
       active: false,
       question: 'WERE DETECTION AIDS USED',
       label: 'Were detection aids used?',
@@ -1511,7 +1511,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
       ],
     },
     '44964': {
-      id: '44964',
+      code: '44964',
       active: false,
       question: 'WAS THIS A FULL OR PARTIAL SHUT DOWN?',
       label: 'Was this a full or partial shut down?',
@@ -1538,7 +1538,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
       ],
     },
     '44980': {
-      id: '44980',
+      code: '44980',
       active: false,
       question: 'WERE SPECIALIST DOGS USED',
       label: 'Were specialist dogs used?',
@@ -1565,7 +1565,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
       ],
     },
     '44988': {
-      id: '44988',
+      code: '44988',
       active: false,
       question: 'QUOTE THE VANTIVE CASE NUMBER',
       label: 'Quote the Vantive case number',
@@ -1583,7 +1583,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
       ],
     },
     '45000': {
-      id: '45000',
+      code: '45000',
       active: false,
       question: 'IS THE INCIDENT THE SUBJECT OF AN INTERNAL INVESTIGATION',
       label: 'Is the incident the subject of an internal investigation?',
@@ -1610,7 +1610,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
       ],
     },
     '45001': {
-      id: '45001',
+      code: '45001',
       active: false,
       question: 'WAS THE FIREARM COMPLETE',
       label: 'Was the firearm complete?',
@@ -1637,7 +1637,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
       ],
     },
     '45005': {
-      id: '45005',
+      code: '45005',
       active: false,
       question: 'IS ANY MEMBER OF STAFF FACING DISCIPLINARY CHARGES',
       label: 'Is any member of staff facing disciplinary charges?',
@@ -1664,7 +1664,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
       ],
     },
     '45026': {
-      id: '45026',
+      code: '45026',
       active: false,
       question: 'WAS A FIREARM FOUND',
       label: 'Was a firearm found?',
@@ -1691,7 +1691,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
       ],
     },
     '45029': {
-      id: '45029',
+      code: '45029',
       active: false,
       question: 'WHAT TYPE OF FIREARM WAS FOUND',
       label: 'What type of firearm was found?',
@@ -1745,7 +1745,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
       ],
     },
     '45049': {
-      id: '45049',
+      code: '45049',
       active: false,
       question: 'WHO NOW HAS CUSTODY OF THE ITEMS',
       label: 'Who now has custody of the items?',
@@ -1781,7 +1781,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
       ],
     },
     '45056': {
-      id: '45056',
+      code: '45056',
       active: false,
       question: 'DESCRIBE THE PERSON',
       label: 'Describe the person',
@@ -1835,7 +1835,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
       ],
     },
     '45102': {
-      id: '45102',
+      code: '45102',
       active: false,
       question: 'WHERE WAS THE ITEM CONCEALED',
       label: 'Where was the item concealed?',
@@ -1934,7 +1934,7 @@ export const FIREARM_1: IncidentTypeConfiguration = {
       ],
     },
     '45119': {
-      id: '45119',
+      code: '45119',
       active: false,
       question: 'DESCRIBE THE FIREARM',
       label: 'Describe the firearm',

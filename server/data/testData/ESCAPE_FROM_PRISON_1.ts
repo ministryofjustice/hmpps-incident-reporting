@@ -12,7 +12,7 @@ export const config: IncidentTypeConfiguration = {
   startingQuestionId: '44376',
   questions: {
     '44121': {
-      id: '44121',
+      code: '44121',
       active: true,
       question: 'WHOSE WAS THE VEHICLE',
       label: 'Whose was the vehicle?',
@@ -93,7 +93,7 @@ export const config: IncidentTypeConfiguration = {
       ],
     },
     '44126': {
-      id: '44126',
+      code: '44126',
       active: true,
       question: 'WHAT WAS THE SOURCE OF THE TOOLS',
       label: 'What was the source of the tools?',
@@ -228,7 +228,7 @@ export const config: IncidentTypeConfiguration = {
       ],
     },
     '44138': {
-      id: '44138',
+      code: '44138',
       active: true,
       question: 'WAS AN AIRCRAFT INVOLVED',
       label: 'Was an aircraft involved?',
@@ -255,7 +255,7 @@ export const config: IncidentTypeConfiguration = {
       ],
     },
     '44165': {
-      id: '44165',
+      code: '44165',
       active: true,
       question: 'WHAT TYPE OF FORCE WAS USED',
       label: 'What type of force was used?',
@@ -336,7 +336,7 @@ export const config: IncidentTypeConfiguration = {
       ],
     },
     '44169': {
-      id: '44169',
+      code: '44169',
       active: true,
       question: 'WAS A CHEMICAL INCAPACITANT SPRAY USED DURING THE ESCAPE',
       label: 'Was a chemical incapacitant spray used during the escape?',
@@ -363,7 +363,7 @@ export const config: IncidentTypeConfiguration = {
       ],
     },
     '44178': {
-      id: '44178',
+      code: '44178',
       active: true,
       question: 'WAS THE EXIT THROUGH AN UNLOCKED DOOR OR GATE',
       label: 'Was the exit through an unlocked door or gate?',
@@ -390,7 +390,7 @@ export const config: IncidentTypeConfiguration = {
       ],
     },
     '44192': {
-      id: '44192',
+      code: '44192',
       active: true,
       question: 'WERE TOOLS USED',
       label: 'Were tools used?',
@@ -417,7 +417,7 @@ export const config: IncidentTypeConfiguration = {
       ],
     },
     '44212': {
-      id: '44212',
+      code: '44212',
       active: true,
       question: 'WHERE WERE THE INJURED PRISONERS TREATED',
       label: 'Where were the injured prisoners treated?',
@@ -444,7 +444,7 @@ export const config: IncidentTypeConfiguration = {
       ],
     },
     '44217': {
-      id: '44217',
+      code: '44217',
       active: true,
       question: 'DID THE EXIT GIVE ACCESS TO THE EXTERNAL PERIMETER',
       label: 'Did the exit give access to the external perimeter?',
@@ -471,7 +471,7 @@ export const config: IncidentTypeConfiguration = {
       ],
     },
     '44220': {
-      id: '44220',
+      code: '44220',
       active: true,
       question: 'WERE THERE ANY INJURIES CAUSED BY USE OF WEAPONS',
       label: 'Were there any injuries caused by use of weapons?',
@@ -498,7 +498,7 @@ export const config: IncidentTypeConfiguration = {
       ],
     },
     '44221': {
-      id: '44221',
+      code: '44221',
       active: true,
       question: 'WAS FORCE USED TO LEAVE THE CELL',
       label: 'Was force used to leave the cell?',
@@ -525,7 +525,7 @@ export const config: IncidentTypeConfiguration = {
       ],
     },
     '44231': {
-      id: '44231',
+      code: '44231',
       active: true,
       question: 'WHAT WAS THE SOURCE OF THE TOOLS',
       label: 'What was the source of the tools?',
@@ -660,7 +660,7 @@ export const config: IncidentTypeConfiguration = {
       ],
     },
     '44241': {
-      id: '44241',
+      code: '44241',
       active: true,
       question: 'NUMBER OF STAFF INJURED',
       label: 'Number of staff injured',
@@ -687,7 +687,7 @@ export const config: IncidentTypeConfiguration = {
       ],
     },
     '44245': {
-      id: '44245',
+      code: '44245',
       active: true,
       question: 'WHAT TOOLS WERE USED',
       label: 'What tools were used?',
@@ -777,7 +777,7 @@ export const config: IncidentTypeConfiguration = {
       ],
     },
     '44251': {
-      id: '44251',
+      code: '44251',
       active: true,
       question: 'ARE THE GROUNDS PATROLLED BY DOGS',
       label: 'Are the grounds patrolled by dogs?',
@@ -804,7 +804,7 @@ export const config: IncidentTypeConfiguration = {
       ],
     },
     '44258': {
-      id: '44258',
+      code: '44258',
       active: true,
       question: 'WHICH MINOR INJURIES WERE SUSTAINED',
       label: 'Which minor injuries were sustained?',
@@ -858,7 +858,7 @@ export const config: IncidentTypeConfiguration = {
       ],
     },
     '44262': {
-      id: '44262',
+      code: '44262',
       active: true,
       question: 'DESCRIBE THE DAMAGE',
       label: 'Describe the damage',
@@ -894,7 +894,7 @@ export const config: IncidentTypeConfiguration = {
       ],
     },
     '44270': {
-      id: '44270',
+      code: '44270',
       active: true,
       question: 'WAS THE FIREARM DISCHARGED',
       label: 'Was the firearm discharged?',
@@ -921,7 +921,7 @@ export const config: IncidentTypeConfiguration = {
       ],
     },
     '44291': {
-      id: '44291',
+      code: '44291',
       active: true,
       question: 'WERE TOOLS USED',
       label: 'Were tools used?',
@@ -948,7 +948,7 @@ export const config: IncidentTypeConfiguration = {
       ],
     },
     '44309': {
-      id: '44309',
+      code: '44309',
       active: true,
       question: 'WERE ANY INJURIES SUSTAINED BY STAFF',
       label: 'Were any injuries sustained by staff?',
@@ -975,7 +975,7 @@ export const config: IncidentTypeConfiguration = {
       ],
     },
     '44310': {
-      id: '44310',
+      code: '44310',
       active: true,
       question: 'HAS THE PRISON SERVICE PRESS OFFICE BEEN INFORMED',
       label: 'Has the prison service press office been informed?',
@@ -1002,7 +1002,7 @@ export const config: IncidentTypeConfiguration = {
       ],
     },
     '44321': {
-      id: '44321',
+      code: '44321',
       active: true,
       question: 'GIVE DETAILS OF SECURITY MEASURE OVERCOME',
       label: 'Give details of security measure overcome',
@@ -1056,7 +1056,7 @@ export const config: IncidentTypeConfiguration = {
       ],
     },
     '44325': {
-      id: '44325',
+      code: '44325',
       active: true,
       question: 'WHO USED THE FIREARM',
       label: 'Who used the firearm?',
@@ -1092,7 +1092,7 @@ export const config: IncidentTypeConfiguration = {
       ],
     },
     '44329': {
-      id: '44329',
+      code: '44329',
       active: true,
       question: 'WAS THE KNIFE OR BLADE USED PURPOSE MADE OR IMPROVISED',
       label: 'Was the knife or blade used purpose made or improvised?',
@@ -1128,7 +1128,7 @@ export const config: IncidentTypeConfiguration = {
       ],
     },
     '44363': {
-      id: '44363',
+      code: '44363',
       active: true,
       question: 'ESTIMATED COST OF DAMAGE',
       label: 'Estimated cost of damage',
@@ -1146,7 +1146,7 @@ export const config: IncidentTypeConfiguration = {
       ],
     },
     '44369': {
-      id: '44369',
+      code: '44369',
       active: true,
       question: 'WERE ANY OTHER WEAPONS USED DURING THE ESCAPE',
       label: 'Were any other weapons used during the escape?',
@@ -1173,7 +1173,7 @@ export const config: IncidentTypeConfiguration = {
       ],
     },
     '44370': {
-      id: '44370',
+      code: '44370',
       active: true,
       question: 'HOW DID THE PRISONER GAIN ACCESS TO THE EXTERNAL PERIMETER',
       label: 'How did the prisoner gain access to the external perimeter?',
@@ -1254,7 +1254,7 @@ export const config: IncidentTypeConfiguration = {
       ],
     },
     '44373': {
-      id: '44373',
+      code: '44373',
       active: true,
       question: 'WITH WHAT OFFENCE HAS THE PRISONER BEEN CHARGED',
       label: 'With what offence has the prisoner been charged?',
@@ -1371,7 +1371,7 @@ export const config: IncidentTypeConfiguration = {
       ],
     },
     '44376': {
-      id: '44376',
+      code: '44376',
       active: true,
       question: 'WERE THE POLICE INFORMED OF THE INCIDENT',
       label: 'Were the police informed of the incident?',
@@ -1398,7 +1398,7 @@ export const config: IncidentTypeConfiguration = {
       ],
     },
     '44377': {
-      id: '44377',
+      code: '44377',
       active: true,
       question: 'WHICH SERIOUS INJURIES WERE SUSTAINED',
       label: 'Which serious injuries were sustained?',
@@ -1515,7 +1515,7 @@ export const config: IncidentTypeConfiguration = {
       ],
     },
     '44381': {
-      id: '44381',
+      code: '44381',
       active: true,
       question: 'STATE THE NATURE OF ASSISTANCE',
       label: 'State the nature of assistance',
@@ -1578,7 +1578,7 @@ export const config: IncidentTypeConfiguration = {
       ],
     },
     '44388': {
-      id: '44388',
+      code: '44388',
       active: true,
       question: 'HAS PRISONER BEEN RECAPTURED',
       label: 'Has prisoner been recaptured?',
@@ -1605,7 +1605,7 @@ export const config: IncidentTypeConfiguration = {
       ],
     },
     '44406': {
-      id: '44406',
+      code: '44406',
       active: true,
       question: 'WHERE THE INJURIES CAUSED BY WEAPONS',
       label: 'Where the injuries caused by weapons?',
@@ -1632,7 +1632,7 @@ export const config: IncidentTypeConfiguration = {
       ],
     },
     '44415': {
-      id: '44415',
+      code: '44415',
       active: true,
       question: 'HAS THE PRISONER BEEN CHARGED WITH A FURTHER OFFENCE',
       label: 'Has the prisoner been charged with a further offence?',
@@ -1659,7 +1659,7 @@ export const config: IncidentTypeConfiguration = {
       ],
     },
     '44428': {
-      id: '44428',
+      code: '44428',
       active: true,
       question: 'WAS A SERIOUS INJURY SUSTAINED BY A PRISONER',
       label: 'Was a serious injury sustained by a prisoner?',
@@ -1686,7 +1686,7 @@ export const config: IncidentTypeConfiguration = {
       ],
     },
     '44436': {
-      id: '44436',
+      code: '44436',
       active: true,
       question: 'ARE ANY SECURITY AIDS COVERING THE WALL OR FENCE AT THE ESCAPE SITE',
       label: 'Are any security aids covering the wall or fence at the escape site?',
@@ -1713,7 +1713,7 @@ export const config: IncidentTypeConfiguration = {
       ],
     },
     '44442': {
-      id: '44442',
+      code: '44442',
       active: true,
       question: 'WHERE WERE THE INJURED STAFF TREATED',
       label: 'Where were the injured staff treated?',
@@ -1749,7 +1749,7 @@ export const config: IncidentTypeConfiguration = {
       ],
     },
     '44476': {
-      id: '44476',
+      code: '44476',
       active: true,
       question: 'HOW WAS THE CLADDING BREACHED',
       label: 'How was the cladding breached?',
@@ -1776,7 +1776,7 @@ export const config: IncidentTypeConfiguration = {
       ],
     },
     '44485': {
-      id: '44485',
+      code: '44485',
       active: true,
       question: 'DID ANY PRISONER REQUIRE MEDICAL TREATMENT FOR INJURIES',
       label: 'Did any prisoner require medical treatment for injuries?',
@@ -1803,7 +1803,7 @@ export const config: IncidentTypeConfiguration = {
       ],
     },
     '44499': {
-      id: '44499',
+      code: '44499',
       active: true,
       question: 'IS THERE ANY MEDIA INTEREST IN THIS INCIDENT',
       label: 'Is there any media interest in this incident?',
@@ -1830,7 +1830,7 @@ export const config: IncidentTypeConfiguration = {
       ],
     },
     '44501': {
-      id: '44501',
+      code: '44501',
       active: true,
       question: 'WAS THE FIREARM',
       label: 'Was the firearm?',
@@ -1866,7 +1866,7 @@ export const config: IncidentTypeConfiguration = {
       ],
     },
     '44527': {
-      id: '44527',
+      code: '44527',
       active: true,
       question: 'WAS THE EXIT THROUGH AN UNLOCKED DOOR OR GATE',
       label: 'Was the exit through an unlocked door or gate?',
@@ -1893,7 +1893,7 @@ export const config: IncidentTypeConfiguration = {
       ],
     },
     '44540': {
-      id: '44540',
+      code: '44540',
       active: true,
       question: 'WHERE WAS THE CELL SITUATED',
       label: 'Where was the cell situated?',
@@ -1965,7 +1965,7 @@ export const config: IncidentTypeConfiguration = {
       ],
     },
     '44546': {
-      id: '44546',
+      code: '44546',
       active: true,
       question: 'WAS THERE A SWITCH OF IDENTITY',
       label: 'Was there a switch of identity?',
@@ -1992,7 +1992,7 @@ export const config: IncidentTypeConfiguration = {
       ],
     },
     '44549': {
-      id: '44549',
+      code: '44549',
       active: true,
       question: 'WAS A SERIOUS INJURY SUSTAINED BY STAFF',
       label: 'Was a serious injury sustained by staff?',
@@ -2019,7 +2019,7 @@ export const config: IncidentTypeConfiguration = {
       ],
     },
     '44558': {
-      id: '44558',
+      code: '44558',
       active: true,
       question: 'HOW WAS THE CELL OCCUPIED',
       label: 'How was the cell occupied?',
@@ -2046,7 +2046,7 @@ export const config: IncidentTypeConfiguration = {
       ],
     },
     '44568': {
-      id: '44568',
+      code: '44568',
       active: true,
       question: 'HOW DID THE PRISONER LEAVE THE ESTABLISHMENT',
       label: 'How did the prisoner leave the establishment?',
@@ -2082,7 +2082,7 @@ export const config: IncidentTypeConfiguration = {
       ],
     },
     '44578': {
-      id: '44578',
+      code: '44578',
       active: true,
       question: 'HOW DID THE PRISONER GAIN ACCESS TO THE TOP OF THE FENCE',
       label: 'How did the prisoner gain access to the top of the fence?',
@@ -2154,7 +2154,7 @@ export const config: IncidentTypeConfiguration = {
       ],
     },
     '44590': {
-      id: '44590',
+      code: '44590',
       active: true,
       question: 'WHAT TOOLS WERE USED',
       label: 'What tools were used?',
@@ -2244,7 +2244,7 @@ export const config: IncidentTypeConfiguration = {
       ],
     },
     '44621': {
-      id: '44621',
+      code: '44621',
       active: true,
       question: 'WAS OPERATION LEWIS USED',
       label: 'Was operation Lewis used?',
@@ -2271,7 +2271,7 @@ export const config: IncidentTypeConfiguration = {
       ],
     },
     '44628': {
-      id: '44628',
+      code: '44628',
       active: true,
       question: 'WHAT WAS THE SOURCE OF THE TOOLS',
       label: 'What was the source of the tools?',
@@ -2406,7 +2406,7 @@ export const config: IncidentTypeConfiguration = {
       ],
     },
     '44633': {
-      id: '44633',
+      code: '44633',
       active: true,
       question: 'DESCRIBE THE TYPE OF SPRAY',
       label: 'Describe the type of spray',
@@ -2460,7 +2460,7 @@ export const config: IncidentTypeConfiguration = {
       ],
     },
     '44641': {
-      id: '44641',
+      code: '44641',
       active: true,
       question: 'WAS A KNIFE OR BLADE USED DURING THE ESCAPE',
       label: 'Was a knife or blade used during the escape?',
@@ -2487,7 +2487,7 @@ export const config: IncidentTypeConfiguration = {
       ],
     },
     '44651': {
-      id: '44651',
+      code: '44651',
       active: true,
       question: 'WAS THE SWITCH WITH',
       label: 'Was the switch with?',
@@ -2514,7 +2514,7 @@ export const config: IncidentTypeConfiguration = {
       ],
     },
     '44657': {
-      id: '44657',
+      code: '44657',
       active: true,
       question: 'WHAT TOOLS WERE USED',
       label: 'What tools were used?',
@@ -2604,7 +2604,7 @@ export const config: IncidentTypeConfiguration = {
       ],
     },
     '44659': {
-      id: '44659',
+      code: '44659',
       active: true,
       question: 'WAS DAMAGE CAUSED TO PRISON PROPERTY',
       label: 'Was damage caused to prison property?',
@@ -2631,7 +2631,7 @@ export const config: IncidentTypeConfiguration = {
       ],
     },
     '44683': {
-      id: '44683',
+      code: '44683',
       active: true,
       question: 'WHO USED THE OTHER WEAPONS',
       label: 'Who used the other weapons?',
@@ -2667,7 +2667,7 @@ export const config: IncidentTypeConfiguration = {
       ],
     },
     '44689': {
-      id: '44689',
+      code: '44689',
       active: true,
       question: 'WAS A FIREARM USED DURING THE ESCAPE',
       label: 'Was a firearm used during the escape?',
@@ -2694,7 +2694,7 @@ export const config: IncidentTypeConfiguration = {
       ],
     },
     '44699': {
-      id: '44699',
+      code: '44699',
       active: true,
       question: 'HAS ANY PROSECUTION TAKEN PLACE OR IS ANY PENDING',
       label: 'Has any prosecution taken place or is any pending?',
@@ -2721,7 +2721,7 @@ export const config: IncidentTypeConfiguration = {
       ],
     },
     '44705': {
-      id: '44705',
+      code: '44705',
       active: true,
       question: 'DOES THE SPORTSFIELD HAVE ACCESS TO EXTERNAL PERIMETER',
       label: 'Does the sportsfield have access to external perimeter?',
@@ -2748,7 +2748,7 @@ export const config: IncidentTypeConfiguration = {
       ],
     },
     '44726': {
-      id: '44726',
+      code: '44726',
       active: true,
       question: 'WAS FORCE USED',
       label: 'Was force used?',
@@ -2775,7 +2775,7 @@ export const config: IncidentTypeConfiguration = {
       ],
     },
     '44761': {
-      id: '44761',
+      code: '44761',
       active: true,
       question: 'WHAT OTHER WEAPONS WERE USED',
       label: 'What other weapons were used?',
@@ -2874,7 +2874,7 @@ export const config: IncidentTypeConfiguration = {
       ],
     },
     '44781': {
-      id: '44781',
+      code: '44781',
       active: true,
       question: 'WAS OUTSIDE ASSISTANCE INVOLVED IN THE ESCAPE',
       label: 'Was outside assistance involved in the escape?',
@@ -2901,7 +2901,7 @@ export const config: IncidentTypeConfiguration = {
       ],
     },
     '44787': {
-      id: '44787',
+      code: '44787',
       active: true,
       question: 'WHO USED THE KNIFE OR BLADE',
       label: 'Who used the knife or blade?',
@@ -2937,7 +2937,7 @@ export const config: IncidentTypeConfiguration = {
       ],
     },
     '44790': {
-      id: '44790',
+      code: '44790',
       active: true,
       question: 'WHAT TYPE OF FORCE WAS USED',
       label: 'What type of force was used?',
@@ -3018,7 +3018,7 @@ export const config: IncidentTypeConfiguration = {
       ],
     },
     '44798': {
-      id: '44798',
+      code: '44798',
       active: true,
       question: 'IS ANY MEMBER OF STAFF FACING DISCIPLINARY CHARGES',
       label: 'Is any member of staff facing disciplinary charges?',
@@ -3045,7 +3045,7 @@ export const config: IncidentTypeConfiguration = {
       ],
     },
     '44824': {
-      id: '44824',
+      code: '44824',
       active: true,
       question: 'WAS THE WALL BREACHED FROM',
       label: 'Was the wall breached from?',
@@ -3072,7 +3072,7 @@ export const config: IncidentTypeConfiguration = {
       ],
     },
     '44830': {
-      id: '44830',
+      code: '44830',
       active: true,
       question: 'WAS THE FENCE',
       label: 'Was the fence?',
@@ -3099,7 +3099,7 @@ export const config: IncidentTypeConfiguration = {
       ],
     },
     '44834': {
-      id: '44834',
+      code: '44834',
       active: true,
       question: 'WAS THE FENCE CUT OR BREACHED FROM',
       label: 'Was the fence cut or breached from?',
@@ -3126,7 +3126,7 @@ export const config: IncidentTypeConfiguration = {
       ],
     },
     '44844': {
-      id: '44844',
+      code: '44844',
       active: true,
       question: 'WHAT TOOLS WERE USED',
       label: 'What tools were used?',
@@ -3216,7 +3216,7 @@ export const config: IncidentTypeConfiguration = {
       ],
     },
     '44848': {
-      id: '44848',
+      code: '44848',
       active: true,
       question: 'WHO USED THE SPRAY',
       label: 'Who used the spray?',
@@ -3252,7 +3252,7 @@ export const config: IncidentTypeConfiguration = {
       ],
     },
     '44851': {
-      id: '44851',
+      code: '44851',
       active: true,
       question: 'HOW WAS THE EXTERNAL PERIMETER BREACHED',
       label: 'How was the external perimeter breached?',
@@ -3333,7 +3333,7 @@ export const config: IncidentTypeConfiguration = {
       ],
     },
     '44852': {
-      id: '44852',
+      code: '44852',
       active: true,
       question: 'HOW DID THE PRISONER GAIN ACCESS TO THE TOP OF THE WALL OR FENCE',
       label: 'How did the prisoner gain access to the top of the wall or fence?',
@@ -3405,7 +3405,7 @@ export const config: IncidentTypeConfiguration = {
       ],
     },
     '44858': {
-      id: '44858',
+      code: '44858',
       active: true,
       question: 'WHICH SERIOUS INJURIES WERE SUSTAINED',
       label: 'Which serious injuries were sustained?',
@@ -3522,7 +3522,7 @@ export const config: IncidentTypeConfiguration = {
       ],
     },
     '44872': {
-      id: '44872',
+      code: '44872',
       active: true,
       question: 'WAS A MINOR INJURY SUSTAINED BY A PRISONER',
       label: 'Was a minor injury sustained by a prisoner?',
@@ -3549,7 +3549,7 @@ export const config: IncidentTypeConfiguration = {
       ],
     },
     '44897': {
-      id: '44897',
+      code: '44897',
       active: true,
       question: 'WERE THE ROUNDS DISCHARGED',
       label: 'Were the rounds discharged?',
@@ -3585,7 +3585,7 @@ export const config: IncidentTypeConfiguration = {
       ],
     },
     '44903': {
-      id: '44903',
+      code: '44903',
       active: true,
       question: 'WAS THE FENCE BREACHED',
       label: 'Was the fence breached?',
@@ -3621,7 +3621,7 @@ export const config: IncidentTypeConfiguration = {
       ],
     },
     '44931': {
-      id: '44931',
+      code: '44931',
       active: true,
       question: 'WERE TOOLS USED',
       label: 'Were tools used?',
@@ -3648,7 +3648,7 @@ export const config: IncidentTypeConfiguration = {
       ],
     },
     '44936': {
-      id: '44936',
+      code: '44936',
       active: true,
       question: 'WERE TOOLS USED',
       label: 'Were tools used?',
@@ -3675,7 +3675,7 @@ export const config: IncidentTypeConfiguration = {
       ],
     },
     '44961': {
-      id: '44961',
+      code: '44961',
       active: true,
       question: 'WHICH MINOR INJURIES WERE SUSTAINED',
       label: 'Which minor injuries were sustained?',
@@ -3729,7 +3729,7 @@ export const config: IncidentTypeConfiguration = {
       ],
     },
     '44968': {
-      id: '44968',
+      code: '44968',
       active: true,
       question: 'WAS THIS A KPI ESCAPE',
       label: 'Was this a KPI escape?',
@@ -3756,7 +3756,7 @@ export const config: IncidentTypeConfiguration = {
       ],
     },
     '44981': {
-      id: '44981',
+      code: '44981',
       active: true,
       question: 'WERE MINOR INJURIES SUSTAINED BY STAFF',
       label: 'Were minor injuries sustained by staff?',
@@ -3783,7 +3783,7 @@ export const config: IncidentTypeConfiguration = {
       ],
     },
     '45009': {
-      id: '45009',
+      code: '45009',
       active: true,
       question: 'WHICH AREA DID THIS GIVE ACCESS TO',
       label: 'Which area did this give access to?',
@@ -3873,7 +3873,7 @@ export const config: IncidentTypeConfiguration = {
       ],
     },
     '45032': {
-      id: '45032',
+      code: '45032',
       active: true,
       question: 'WHERE WAS THE PRISONER PRIOR TO THE ESCAPE',
       label: 'Where was the prisoner prior to the escape?',
@@ -4053,7 +4053,7 @@ export const config: IncidentTypeConfiguration = {
       ],
     },
     '45036': {
-      id: '45036',
+      code: '45036',
       active: true,
       question: 'WHAT WAS THE SOURCE OF THE ITEMS',
       label: 'What was the source of the items?',
@@ -4179,7 +4179,7 @@ export const config: IncidentTypeConfiguration = {
       ],
     },
     '45037': {
-      id: '45037',
+      code: '45037',
       active: true,
       question: 'WHAT WAS THE SOURCE OF THE TOOLS',
       label: 'What was the source of the tools?',
@@ -4314,7 +4314,7 @@ export const config: IncidentTypeConfiguration = {
       ],
     },
     '45039': {
-      id: '45039',
+      code: '45039',
       active: true,
       question: 'WHAT ARE THE AIDS',
       label: 'What are the aids?',
@@ -4440,7 +4440,7 @@ export const config: IncidentTypeConfiguration = {
       ],
     },
     '45048': {
-      id: '45048',
+      code: '45048',
       active: true,
       question: 'WAS A VEHICLE INVOLVED IN THE ESCAPE',
       label: 'Was a vehicle involved in the escape?',
@@ -4467,7 +4467,7 @@ export const config: IncidentTypeConfiguration = {
       ],
     },
     '45052': {
-      id: '45052',
+      code: '45052',
       active: true,
       question: 'WHAT WAS THE SOURCE OF THE ITEMS',
       label: 'What was the source of the items?',
@@ -4593,7 +4593,7 @@ export const config: IncidentTypeConfiguration = {
       ],
     },
     '45103': {
-      id: '45103',
+      code: '45103',
       active: true,
       question: 'HOW WAS THE WALL BREACHED',
       label: 'How was the wall breached?',
@@ -4656,7 +4656,7 @@ export const config: IncidentTypeConfiguration = {
       ],
     },
     '45132': {
-      id: '45132',
+      code: '45132',
       active: true,
       question: 'DID ANY STAFF REQUIRE MEDICAL TREATMENT FOR INJURY',
       label: 'Did any staff require medical treatment for injury?',
@@ -4683,7 +4683,7 @@ export const config: IncidentTypeConfiguration = {
       ],
     },
     '45147': {
-      id: '45147',
+      code: '45147',
       active: true,
       question: 'HOW WAS THE PRISONER RECAPTURED',
       label: 'How was the prisoner recaptured?',
@@ -4728,7 +4728,7 @@ export const config: IncidentTypeConfiguration = {
       ],
     },
     '45164': {
-      id: '45164',
+      code: '45164',
       active: true,
       question: 'WERE ANY INJURIES SUSTAINED BY PRISONERS',
       label: 'Were any injuries sustained by prisoners?',
@@ -4755,7 +4755,7 @@ export const config: IncidentTypeConfiguration = {
       ],
     },
     '45177': {
-      id: '45177',
+      code: '45177',
       active: true,
       question: 'THE INCIDENT IS SUBJECT TO',
       label: 'The incident is subject to',

@@ -8,7 +8,7 @@ export const ASSAULT_1: IncidentTypeConfiguration = {
   startingQuestionId: '44127',
   questions: {
     '44127': {
-      id: '44127',
+      code: '44127',
       active: true,
       question: 'WERE THE POLICE INFORMED OF THE INCIDENT',
       label: 'Were the police informed of the incident?',
@@ -35,7 +35,7 @@ export const ASSAULT_1: IncidentTypeConfiguration = {
       ],
     },
     '44141': {
-      id: '44141',
+      code: '44141',
       active: true,
       question: 'WAS A MINOR INJURY SUSTAINED',
       label: 'Was a minor injury sustained?',
@@ -62,7 +62,7 @@ export const ASSAULT_1: IncidentTypeConfiguration = {
       ],
     },
     '44153': {
-      id: '44153',
+      code: '44153',
       active: true,
       question: 'IS THERE ANY MEDIA INTEREST IN THIS INCIDENT',
       label: 'Is there any media interest in this incident?',
@@ -89,7 +89,7 @@ export const ASSAULT_1: IncidentTypeConfiguration = {
       ],
     },
     '44186': {
-      id: '44186',
+      code: '44186',
       active: true,
       question: 'HAS THE PRISON SERVICE PRESS OFFICE BEEN INFORMED',
       label: 'Has the prison service press office been informed?',
@@ -116,7 +116,7 @@ export const ASSAULT_1: IncidentTypeConfiguration = {
       ],
     },
     '44201': {
-      id: '44201',
+      code: '44201',
       active: true,
       question: 'IS THE LOCATION OF THE INCIDENT KNOWN',
       label: 'Is the location of the incident known?',
@@ -143,7 +143,7 @@ export const ASSAULT_1: IncidentTypeConfiguration = {
       ],
     },
     '44254': {
-      id: '44254',
+      code: '44254',
       active: true,
       question: 'WERE ANY INJURIES RECEIVED DURING THIS INCIDENT',
       label: 'Were any injuries received during this incident?',
@@ -170,7 +170,7 @@ export const ASSAULT_1: IncidentTypeConfiguration = {
       ],
     },
     '44344': {
-      id: '44344',
+      code: '44344',
       active: true,
       question: 'WERE ANY WEAPONS USED',
       label: 'Were any weapons used?',
@@ -197,7 +197,7 @@ export const ASSAULT_1: IncidentTypeConfiguration = {
       ],
     },
     '44367': {
-      id: '44367',
+      code: '44367',
       active: true,
       question: 'WHAT TYPE OF ASSAULT WAS IT',
       label: 'What type of assault was it?',
@@ -242,7 +242,7 @@ export const ASSAULT_1: IncidentTypeConfiguration = {
       ],
     },
     '44391': {
-      id: '44391',
+      code: '44391',
       active: true,
       question: 'ARE THERE ANY STAFF NOW OFF DUTY AS A RESULT OF THIS INCIDENT',
       label: 'Are there any staff now off duty as a result of this incident?',
@@ -269,7 +269,7 @@ export const ASSAULT_1: IncidentTypeConfiguration = {
       ],
     },
     '44405': {
-      id: '44405',
+      code: '44405',
       active: true,
       question: 'IS THE INCIDENT THE SUBJECT OF AN INTERNAL INVESTIGATION',
       label: 'Is the incident the subject of an internal investigation?',
@@ -296,7 +296,7 @@ export const ASSAULT_1: IncidentTypeConfiguration = {
       ],
     },
     '44460': {
-      id: '44460',
+      code: '44460',
       active: true,
       question: 'DID INJURIES RESULT IN DETENTION IN OUTSIDE HOSPITAL AS AN IN-PATIENT',
       label: 'Did injuries result in detention in outside hospital as an in-patient?',
@@ -323,7 +323,7 @@ export const ASSAULT_1: IncidentTypeConfiguration = {
       ],
     },
     '44464': {
-      id: '44464',
+      code: '44464',
       active: true,
       question: 'DESCRIBE WEAPONS USED',
       label: 'Describe weapons used',
@@ -449,7 +449,7 @@ export const ASSAULT_1: IncidentTypeConfiguration = {
       ],
     },
     '44495': {
-      id: '44495',
+      code: '44495',
       active: true,
       question: 'DID THE ASSAULT OCCUR IN PUBLIC VIEW',
       label: 'Did the assault occur in public view?',
@@ -476,7 +476,7 @@ export const ASSAULT_1: IncidentTypeConfiguration = {
       ],
     },
     '44522': {
-      id: '44522',
+      code: '44522',
       active: true,
       question: 'WAS MEDICAL TREATMENT FOR CONCUSSION OR INTERNAL INJURIES REQUIRED',
       label: 'Was medical treatment for concussion or internal injuries required?',
@@ -503,7 +503,7 @@ export const ASSAULT_1: IncidentTypeConfiguration = {
       ],
     },
     '44586': {
-      id: '44586',
+      code: '44586',
       active: true,
       question: 'WAS THIS A SEXUAL ASSAULT',
       label: 'Was this a sexual assault?',
@@ -530,7 +530,7 @@ export const ASSAULT_1: IncidentTypeConfiguration = {
       ],
     },
     '44612': {
-      id: '44612',
+      code: '44612',
       active: true,
       question: 'WHICH MINOR INJURIES WERE SUSTAINED',
       label: 'Which minor injuries were sustained?',
@@ -584,7 +584,7 @@ export const ASSAULT_1: IncidentTypeConfiguration = {
       ],
     },
     '44652': {
-      id: '44652',
+      code: '44652',
       active: true,
       question: 'ARE ANY STAFF ON SICK LEAVE AS A RESULT OF THIS INCIDENT',
       label: 'Are any staff on sick leave as a result of this incident?',
@@ -611,7 +611,7 @@ export const ASSAULT_1: IncidentTypeConfiguration = {
       ],
     },
     '44773': {
-      id: '44773',
+      code: '44773',
       active: true,
       question: 'WAS A SERIOUS INJURY SUSTAINED',
       label: 'Was a serious injury sustained?',
@@ -638,7 +638,7 @@ export const ASSAULT_1: IncidentTypeConfiguration = {
       ],
     },
     '44793': {
-      id: '44793',
+      code: '44793',
       active: true,
       question: 'ENTER DESCRIPTION OF PERSON(S) INJURED',
       label: 'Enter description of person(s) injured',
@@ -692,7 +692,7 @@ export const ASSAULT_1: IncidentTypeConfiguration = {
       ],
     },
     '44880': {
-      id: '44880',
+      code: '44880',
       active: true,
       question: 'IS ANY MEMBER OF STAFF FACING DISCIPLINARY CHARGES',
       label: 'Is any member of staff facing disciplinary charges?',
@@ -719,7 +719,7 @@ export const ASSAULT_1: IncidentTypeConfiguration = {
       ],
     },
     '44913': {
-      id: '44913',
+      code: '44913',
       active: true,
       question: 'IS THE INCIDENT THE SUBJECT OF A POLICE INVESTIGATION',
       label: 'Is the incident the subject of a police investigation?',
@@ -746,7 +746,7 @@ export const ASSAULT_1: IncidentTypeConfiguration = {
       ],
     },
     '44943': {
-      id: '44943',
+      code: '44943',
       active: true,
       question: 'WHO WAS DETAINED IN OUTSIDE HOSPITAL',
       label: 'Who was detained in outside hospital?',
@@ -800,7 +800,7 @@ export const ASSAULT_1: IncidentTypeConfiguration = {
       ],
     },
     '45042': {
-      id: '45042',
+      code: '45042',
       active: true,
       question: 'WHICH SERIOUS INJURIES WERE SUSTAINED',
       label: 'Which serious injuries were sustained?',
@@ -917,7 +917,7 @@ export const ASSAULT_1: IncidentTypeConfiguration = {
       ],
     },
     '45074': {
-      id: '45074',
+      code: '45074',
       active: true,
       question: 'WAS THERE AN APPARENT REASON FOR THE ASSAULT',
       label: 'Was there an apparent reason for the assault?',
@@ -944,7 +944,7 @@ export const ASSAULT_1: IncidentTypeConfiguration = {
       ],
     },
     '45088': {
-      id: '45088',
+      code: '45088',
       active: true,
       question: "IS THE INCIDENT SUBJECT TO A GOVERNOR'S ADJUDICATION",
       label: "Is the incident subject to a governor's adjudication?",
@@ -971,7 +971,7 @@ export const ASSAULT_1: IncidentTypeConfiguration = {
       ],
     },
     '45092': {
-      id: '45092',
+      code: '45092',
       active: true,
       question: 'HAS ANY PROSECUTION TAKEN PLACE OR IS ANY PENDING',
       label: 'Has any prosecution taken place or is any pending?',
@@ -998,7 +998,7 @@ export const ASSAULT_1: IncidentTypeConfiguration = {
       ],
     },
     '45130': {
-      id: '45130',
+      code: '45130',
       active: true,
       question: 'DID THE ASSAULT OCCUR DURING A FIGHT',
       label: 'Did the assault occur during a fight?',
@@ -1025,7 +1025,7 @@ export const ASSAULT_1: IncidentTypeConfiguration = {
       ],
     },
     '45134': {
-      id: '45134',
+      code: '45134',
       active: true,
       question: 'WHAT WAS THE LOCATION OF THE INCIDENT',
       label: 'What was the location of the incident?',

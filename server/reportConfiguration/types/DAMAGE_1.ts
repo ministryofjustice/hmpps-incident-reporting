@@ -8,7 +8,7 @@ export const DAMAGE_1: IncidentTypeConfiguration = {
   startingQuestionId: '44784',
   questions: {
     '44167': {
-      id: '44167',
+      code: '44167',
       active: true,
       question: 'DID INJURIES RESULT IN DETENTION IN OUTSIDE HOSPITAL AS AN IN-PATIENT',
       label: 'Did injuries result in detention in outside hospital as an in-patient?',
@@ -35,7 +35,7 @@ export const DAMAGE_1: IncidentTypeConfiguration = {
       ],
     },
     '44190': {
-      id: '44190',
+      code: '44190',
       active: true,
       question: 'IS THE INCIDENT THE SUBJECT OF A POLICE INVESTIGATION',
       label: 'Is the incident the subject of a police investigation?',
@@ -62,7 +62,7 @@ export const DAMAGE_1: IncidentTypeConfiguration = {
       ],
     },
     '44200': {
-      id: '44200',
+      code: '44200',
       active: true,
       question: 'IS THE INCIDENT THE SUBJECT OF AN INTERNAL INVESTIGATION',
       label: 'Is the incident the subject of an internal investigation?',
@@ -89,7 +89,7 @@ export const DAMAGE_1: IncidentTypeConfiguration = {
       ],
     },
     '44230': {
-      id: '44230',
+      code: '44230',
       active: true,
       question: 'ENTER DESCRIPTION OF PERSON(S) INJURED',
       label: 'Enter description of person(s) injured',
@@ -143,7 +143,7 @@ export const DAMAGE_1: IncidentTypeConfiguration = {
       ],
     },
     '44295': {
-      id: '44295',
+      code: '44295',
       active: true,
       question: 'WAS A SERIOUS INJURY SUSTAINED',
       label: 'Was a serious injury sustained?',
@@ -170,7 +170,7 @@ export const DAMAGE_1: IncidentTypeConfiguration = {
       ],
     },
     '44324': {
-      id: '44324',
+      code: '44324',
       active: true,
       question: 'WHAT WAS THE LOCATION OF THE INCIDENT',
       label: 'What was the location of the incident?',
@@ -476,7 +476,7 @@ export const DAMAGE_1: IncidentTypeConfiguration = {
       ],
     },
     '44343': {
-      id: '44343',
+      code: '44343',
       active: true,
       question: 'WHAT WAS DAMAGED',
       label: 'What was damaged?',
@@ -530,7 +530,7 @@ export const DAMAGE_1: IncidentTypeConfiguration = {
       ],
     },
     '44379': {
-      id: '44379',
+      code: '44379',
       active: true,
       question: 'WERE ANY INJURIES RECEIVED DURING THIS INCIDENT',
       label: 'Were any injuries received during this incident?',
@@ -557,7 +557,7 @@ export const DAMAGE_1: IncidentTypeConfiguration = {
       ],
     },
     '44466': {
-      id: '44466',
+      code: '44466',
       active: true,
       question: 'DESCRIBE THE DAMAGE',
       label: 'Describe the damage',
@@ -593,7 +593,7 @@ export const DAMAGE_1: IncidentTypeConfiguration = {
       ],
     },
     '44512': {
-      id: '44512',
+      code: '44512',
       active: true,
       question: 'IS THERE ANY MEDIA INTEREST IN THIS INCIDENT',
       label: 'Is there any media interest in this incident?',
@@ -620,7 +620,7 @@ export const DAMAGE_1: IncidentTypeConfiguration = {
       ],
     },
     '44572': {
-      id: '44572',
+      code: '44572',
       active: true,
       question: 'HAS ANY PROSECUTION TAKEN PLACE OR IS ANY PENDING',
       label: 'Has any prosecution taken place or is any pending?',
@@ -647,7 +647,7 @@ export const DAMAGE_1: IncidentTypeConfiguration = {
       ],
     },
     '44576': {
-      id: '44576',
+      code: '44576',
       active: true,
       question: 'WHICH MINOR INJURIES WERE SUSTAINED',
       label: 'Which minor injuries were sustained?',
@@ -701,7 +701,7 @@ export const DAMAGE_1: IncidentTypeConfiguration = {
       ],
     },
     '44655': {
-      id: '44655',
+      code: '44655',
       active: true,
       question: 'ARE THERE ANY STAFF NOW OFF DUTY AS A RESULT OF THIS INCIDENT',
       label: 'Are there any staff now off duty as a result of this incident?',
@@ -728,7 +728,7 @@ export const DAMAGE_1: IncidentTypeConfiguration = {
       ],
     },
     '44735': {
-      id: '44735',
+      code: '44735',
       active: true,
       question: 'ARE ANY STAFF ON SICK LEAVE AS A RESULT OF THIS INCIDENT',
       label: 'Are any staff on sick leave as a result of this incident?',
@@ -755,7 +755,7 @@ export const DAMAGE_1: IncidentTypeConfiguration = {
       ],
     },
     '44763': {
-      id: '44763',
+      code: '44763',
       active: true,
       question: 'ESTIMATED COST OF DAMAGE',
       label: 'Estimated cost of damage',
@@ -773,7 +773,7 @@ export const DAMAGE_1: IncidentTypeConfiguration = {
       ],
     },
     '44784': {
-      id: '44784',
+      code: '44784',
       active: true,
       question: 'WERE THE POLICE INFORMED OF THE INCIDENT',
       label: 'Were the police informed of the incident?',
@@ -800,7 +800,7 @@ export const DAMAGE_1: IncidentTypeConfiguration = {
       ],
     },
     '44785': {
-      id: '44785',
+      code: '44785',
       active: true,
       question: 'WHICH SERIOUS INJURIES WERE SUSTAINED',
       label: 'Which serious injuries were sustained?',
@@ -917,7 +917,7 @@ export const DAMAGE_1: IncidentTypeConfiguration = {
       ],
     },
     '44971': {
-      id: '44971',
+      code: '44971',
       active: true,
       question: 'WAS A MINOR INJURY SUSTAINED',
       label: 'Was a minor injury sustained?',
@@ -944,7 +944,7 @@ export const DAMAGE_1: IncidentTypeConfiguration = {
       ],
     },
     '45002': {
-      id: '45002',
+      code: '45002',
       active: true,
       question: 'WHO WAS DETAINED IN OUTSIDE HOSPITAL',
       label: 'Who was detained in outside hospital?',
@@ -998,7 +998,7 @@ export const DAMAGE_1: IncidentTypeConfiguration = {
       ],
     },
     '45050': {
-      id: '45050',
+      code: '45050',
       active: true,
       question: "IS THE INCIDENT SUBJECT TO A GOVERNOR'S ADJUDICATION",
       label: "Is the incident subject to a governor's adjudication?",
@@ -1025,7 +1025,7 @@ export const DAMAGE_1: IncidentTypeConfiguration = {
       ],
     },
     '45082': {
-      id: '45082',
+      code: '45082',
       active: true,
       question: 'HAS THE PRISON SERVICE PRESS OFFICE BEEN INFORMED',
       label: 'Has the prison service press office been informed?',

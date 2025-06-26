@@ -8,7 +8,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
   startingQuestionId: '63179',
   questions: {
     '63179': {
-      id: '63179',
+      code: '63179',
       active: true,
       question: 'WHAT TYPE OF DISORDER INCIDENT WAS THIS?',
       label: 'What type of disorder incident was this?',
@@ -53,7 +53,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
       ],
     },
     '63180': {
-      id: '63180',
+      code: '63180',
       active: true,
       question: 'WHAT WAS THE MAIN MANAGEMENT OUTCOME OF THIS INCIDENT',
       label: 'What was the main management outcome of this incident?',
@@ -98,7 +98,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
       ],
     },
     '63181': {
-      id: '63181',
+      code: '63181',
       active: true,
       question: 'IS THE LOCATION OF THIS INCIDENT KNOWN',
       label: 'Is the location of this incident known?',
@@ -125,7 +125,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
       ],
     },
     '63182': {
-      id: '63182',
+      code: '63182',
       active: true,
       question: 'WHAT WAS THE LOCATION OF THE INCIDENT',
       label: 'What was the location of the incident?',
@@ -458,7 +458,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
       ],
     },
     '63183': {
-      id: '63183',
+      code: '63183',
       active: true,
       question: 'WAS THE INCIDENT IN PUBLIC VIEW',
       label: 'Was the incident in public view?',
@@ -485,7 +485,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
       ],
     },
     '63184': {
-      id: '63184',
+      code: '63184',
       active: true,
       question: 'WAS THERE AN APPARENT REASON FOR THE INCIDENT',
       label: 'Was there an apparent reason for the incident?',
@@ -593,7 +593,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
       ],
     },
     '63185': {
-      id: '63185',
+      code: '63185',
       active: true,
       question: 'WHAT AGGRAVATING FACTORS WHERE PRESENT',
       label: 'What aggravating factors where present?',
@@ -674,7 +674,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
       ],
     },
     '63186': {
-      id: '63186',
+      code: '63186',
       active: true,
       question: 'WHAT WAS THE DURATION OF THE INCIDENT',
       label: 'What was the duration of the incident?',
@@ -782,7 +782,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
       ],
     },
     '63187': {
-      id: '63187',
+      code: '63187',
       active: true,
       question: 'DESCRIBE HOW THE INCIDENT WAS RESOLVED',
       label: 'Describe how the incident was resolved',
@@ -845,7 +845,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
       ],
     },
     '63188': {
-      id: '63188',
+      code: '63188',
       active: true,
       question: 'WAS CONTROL AND RESTRAINTS EMPLOYED',
       label: 'Was control and restraints employed?',
@@ -872,7 +872,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
       ],
     },
     '63189': {
-      id: '63189',
+      code: '63189',
       active: true,
       question: 'WERE PRISON RESOURCES PRESENT',
       label: 'Were prison resources present?',
@@ -935,7 +935,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
       ],
     },
     '63190': {
-      id: '63190',
+      code: '63190',
       active: true,
       question: 'WAS SPECIALIST EQUIPMENT / RESOURCES USED?',
       label: 'Was specialist equipment / resources used?',
@@ -1016,7 +1016,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
       ],
     },
     '63191': {
-      id: '63191',
+      code: '63191',
       active: true,
       question: 'WERE EMERGENCY SERVICES PRESENT',
       label: 'Were emergency services present?',
@@ -1070,7 +1070,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
       ],
     },
     '63192': {
-      id: '63192',
+      code: '63192',
       active: true,
       question: 'WAS ANY EVACUATION NECESSARY',
       label: 'Was any evacuation necessary?',
@@ -1097,7 +1097,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
       ],
     },
     '63193': {
-      id: '63193',
+      code: '63193',
       active: true,
       question: 'DESCRIBE THE INCIDENT AS EITHER ACTIVE OR PASSIVE',
       label: 'Describe the incident as either active or passive',
@@ -1124,7 +1124,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
       ],
     },
     '63194': {
-      id: '63194',
+      code: '63194',
       active: true,
       question: 'HOW MANY PRISONERS WERE INVOLVED',
       label: 'How many prisoners were involved?',
@@ -1142,7 +1142,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
       ],
     },
     '63195': {
-      id: '63195',
+      code: '63195',
       active: true,
       question: 'PERPETRATOR(S) TYPE',
       label: 'Perpetrator(s) type',
@@ -1178,7 +1178,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
       ],
     },
     '63196': {
-      id: '63196',
+      code: '63196',
       active: true,
       question: 'HAVE THE RINGLEADERS BEEN IDENTIFIED',
       label: 'Have the ringleaders been identified?',
@@ -1205,7 +1205,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
       ],
     },
     '63197': {
-      id: '63197',
+      code: '63197',
       active: true,
       question: 'HAVE THE RINGLEADERS BEEN ENTERED ON LINKED OFFENDER',
       label: 'Have the ringleaders been entered on linked offender?',
@@ -1232,7 +1232,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
       ],
     },
     '63198': {
-      id: '63198',
+      code: '63198',
       active: true,
       question: 'WERE WEAPONS USED BY THE PERPETRATOR',
       label: 'Were weapons used by the perpetrator?',
@@ -1259,7 +1259,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
       ],
     },
     '63199': {
-      id: '63199',
+      code: '63199',
       active: true,
       question: 'WAS DAMAGE CAUSED TO PRISON PROPERTY',
       label: 'Was damage caused to prison property?',
@@ -1286,7 +1286,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
       ],
     },
     '63200': {
-      id: '63200',
+      code: '63200',
       active: true,
       question: 'WERE ANY INJURIES RECEIVED DURING THIS INCIDENT',
       label: 'Were any injuries received during this incident?',
@@ -1313,7 +1313,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
       ],
     },
     '63201': {
-      id: '63201',
+      code: '63201',
       active: true,
       question: 'WAS A SERIOUS INJURY SUSTAINED',
       label: 'Was a serious injury sustained?',
@@ -1340,7 +1340,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
       ],
     },
     '63202': {
-      id: '63202',
+      code: '63202',
       active: true,
       question: 'WHICH SERIOUS INJURIES WERE SUSTAINED',
       label: 'Which serious injuries were sustained?',
@@ -1457,7 +1457,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
       ],
     },
     '63203': {
-      id: '63203',
+      code: '63203',
       active: true,
       question: 'ENTER DESCIPTION OF PERSON(S) INJURED (SERIOUS)',
       label: 'Enter description of person(s) injured (serious)',
@@ -1547,7 +1547,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
       ],
     },
     '63204': {
-      id: '63204',
+      code: '63204',
       active: true,
       question: 'WAS A MINOR INJURY SUSTAINED',
       label: 'Was a minor injury sustained?',
@@ -1574,7 +1574,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
       ],
     },
     '63205': {
-      id: '63205',
+      code: '63205',
       active: true,
       question: 'WHICH MINOR INJURIES WERE SUSTAINED',
       label: 'Which minor injuries were sustained?',
@@ -1628,7 +1628,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
       ],
     },
     '63206': {
-      id: '63206',
+      code: '63206',
       active: true,
       question: 'ENTER DESCRIPTION OF PERSON(S) INJURED (MINOR)',
       label: 'Enter description of person(s) injured (minor)',
@@ -1727,7 +1727,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
       ],
     },
     '63207': {
-      id: '63207',
+      code: '63207',
       active: true,
       question: 'DID INJURIES RESULT IN DETENTION IN OUTSIDE HOSPITAL AS IN-PATIENT',
       label: 'Did injuries result in detention in outside hospital as in-patient?',
@@ -1754,7 +1754,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
       ],
     },
     '63208': {
-      id: '63208',
+      code: '63208',
       active: true,
       question: 'WHO WAS DETAINED IN OUTSIDE HOSPITAL',
       label: 'Who was detained in outside hospital?',
@@ -1844,7 +1844,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
       ],
     },
     '63209': {
-      id: '63209',
+      code: '63209',
       active: true,
       question: 'ARE THERE ANY STAFF NOW OFF DUTY AS A RESULT OF THIS INCIDENT',
       label: 'Are there any staff now off duty as a result of this incident?',
@@ -1871,7 +1871,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
       ],
     },
     '63210': {
-      id: '63210',
+      code: '63210',
       active: true,
       question: 'DID INCIDENT HAPPENT AT HEIGHT (FULLY OR PARTIALLY)',
       label: 'Did incident happen at height (fully or partially)?',
@@ -1898,7 +1898,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
       ],
     },
     '63211': {
-      id: '63211',
+      code: '63211',
       active: true,
       question: 'DESCRIBE METHOD OF GAINING ACCESS TO AREA AT HEIGHT',
       label: 'Describe method of gaining access to area at height',
@@ -1988,7 +1988,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
       ],
     },
     '63212': {
-      id: '63212',
+      code: '63212',
       active: true,
       question: 'WHAT HEIGHT DID THE INCIDENT TAKE PLACE',
       label: 'What height did the incident take place?',
@@ -2033,7 +2033,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
       ],
     },
     '63213': {
-      id: '63213',
+      code: '63213',
       active: true,
       question: 'WAS A BARRICADE USED',
       label: 'Was a barricade used?',
@@ -2060,7 +2060,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
       ],
     },
     '63214': {
-      id: '63214',
+      code: '63214',
       active: true,
       question: 'DID INCIDENT INVOLVE HOSTAGE(S)',
       label: 'Did incident involve hostage(s)?',
@@ -2087,7 +2087,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
       ],
     },
     '63215': {
-      id: '63215',
+      code: '63215',
       active: true,
       question: 'DESCRIBE STATUS OF HOSTAGES',
       label: 'Describe status of hostages',
@@ -2141,7 +2141,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
       ],
     },
     '63216': {
-      id: '63216',
+      code: '63216',
       active: true,
       question: 'WAS A HOSTAGE PART OF THE BARRICADE',
       label: 'Was a hostage part of the barricade?',
@@ -2168,7 +2168,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
       ],
     },
     '63217': {
-      id: '63217',
+      code: '63217',
       active: true,
       question: 'WAS PHYSICAL VIOLENCE USED TOWARDS HOSTAGE',
       label: 'Was physical violence used towards hostage?',
@@ -2195,7 +2195,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
       ],
     },
     '63218': {
-      id: '63218',
+      code: '63218',
       active: true,
       question: 'WAS THE HOSTAGE PHYSICALLY RESTRAINED BY THE PERPETRATOR',
       label: 'Was the hostage physically restrained by the perpetrator?',
@@ -2222,7 +2222,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
       ],
     },
     '63219': {
-      id: '63219',
+      code: '63219',
       active: true,
       question: 'WAS THERE EVIDENCE OF THE STOCKHOLM SYNDROME',
       label: 'Was there evidence of the Stockholm syndrome?',
@@ -2249,7 +2249,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
       ],
     },
     '63220': {
-      id: '63220',
+      code: '63220',
       active: true,
       question: 'WAS THERE EVIDENCE OF COLLUSION',
       label: 'Was there evidence of collusion?',

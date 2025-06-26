@@ -3,7 +3,7 @@ import type { Question, Response } from '../incidentReportingApi'
 
 export function questionFieldName(question: QuestionConfiguration | Question): string {
   if ('answers' in question) {
-    return question.id
+    return question.code
   }
   return question.code
 }

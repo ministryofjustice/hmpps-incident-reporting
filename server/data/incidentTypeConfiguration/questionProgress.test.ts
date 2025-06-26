@@ -42,7 +42,7 @@ describe('Question progress', () => {
     prisonerRoles: [],
     questions: {
       '1': {
-        id: '1',
+        code: '1',
         active: true,
         question: 'Q1',
         label: 'Question 1',
@@ -69,7 +69,7 @@ describe('Question progress', () => {
         ],
       },
       '2': {
-        id: '2',
+        code: '2',
         active: true,
         question: 'Q2',
         label: 'Question 2',
@@ -96,7 +96,7 @@ describe('Question progress', () => {
         ],
       },
       '3': {
-        id: '3',
+        code: '3',
         active: true,
         question: 'Q3',
         label: 'Question 3',
@@ -123,7 +123,7 @@ describe('Question progress', () => {
         ],
       },
       '4': {
-        id: '4',
+        code: '4',
         active: true,
         question: 'Q4',
         label: 'Question 4',
@@ -166,7 +166,7 @@ describe('Question progress', () => {
       expect(progress).toEqual([
         // on first question, which is incomplete
         expect.objectContaining({
-          questionConfig: expect.objectContaining({ id: '1' }),
+          questionConfig: expect.objectContaining({ code: '1' }),
           responses: undefined,
           urlSuffix: '/1',
           questionNumber: 1,
@@ -178,7 +178,7 @@ describe('Question progress', () => {
 
     it('should return first incomplete question', () => {
       const questionProgress = new QuestionProgress(config, steps, report)
-      expect(questionProgress.firstIncompleteStep()).toHaveProperty('questionConfig.id', '1')
+      expect(questionProgress.firstIncompleteStep()).toHaveProperty('questionConfig.code', '1')
     })
 
     it('should state that the report is incomplete', () => {
@@ -215,7 +215,7 @@ describe('Question progress', () => {
       const progress = Array.from(questionProgress)
       expect(progress).toEqual([
         expect.objectContaining({
-          questionConfig: expect.objectContaining({ id: '1' }),
+          questionConfig: expect.objectContaining({ code: '1' }),
           responses: [
             expect.objectContaining({
               response: expect.objectContaining({ response: 'A1-1' }),
@@ -230,7 +230,7 @@ describe('Question progress', () => {
         }),
         // on second question, which is incomplete
         expect.objectContaining({
-          questionConfig: expect.objectContaining({ id: '2' }),
+          questionConfig: expect.objectContaining({ code: '2' }),
           responses: undefined,
           urlSuffix: '/2',
           questionNumber: 2,
@@ -242,7 +242,7 @@ describe('Question progress', () => {
 
     it('should return first incomplete question', () => {
       const questionProgress = new QuestionProgress(config, steps, report)
-      expect(questionProgress.firstIncompleteStep()).toHaveProperty('questionConfig.id', '2')
+      expect(questionProgress.firstIncompleteStep()).toHaveProperty('questionConfig.code', '2')
     })
 
     it('should state that the report is incomplete', () => {
@@ -279,7 +279,7 @@ describe('Question progress', () => {
       const progress = Array.from(questionProgress)
       expect(progress).toEqual([
         expect.objectContaining({
-          questionConfig: expect.objectContaining({ id: '1' }),
+          questionConfig: expect.objectContaining({ code: '1' }),
           responses: [
             expect.objectContaining({
               response: expect.objectContaining({ response: 'A1-2' }),
@@ -294,7 +294,7 @@ describe('Question progress', () => {
         }),
         // on fourth question, which is incomplete
         expect.objectContaining({
-          questionConfig: expect.objectContaining({ id: '4' }),
+          questionConfig: expect.objectContaining({ code: '4' }),
           responses: undefined,
           urlSuffix: '/4',
           questionNumber: 2,
@@ -306,7 +306,7 @@ describe('Question progress', () => {
 
     it('should return first incomplete question', () => {
       const questionProgress = new QuestionProgress(config, steps, report)
-      expect(questionProgress.firstIncompleteStep()).toHaveProperty('questionConfig.id', '4')
+      expect(questionProgress.firstIncompleteStep()).toHaveProperty('questionConfig.code', '4')
     })
 
     it('should state that the report is incomplete', () => {
@@ -391,7 +391,7 @@ describe('Question progress', () => {
       const progress = Array.from(questionProgress)
       expect(progress).toEqual([
         expect.objectContaining({
-          questionConfig: expect.objectContaining({ id: '1' }),
+          questionConfig: expect.objectContaining({ code: '1' }),
           responses: [
             expect.objectContaining({
               response: expect.objectContaining({ response: 'A1-1' }),
@@ -405,7 +405,7 @@ describe('Question progress', () => {
           isComplete: true,
         }),
         expect.objectContaining({
-          questionConfig: expect.objectContaining({ id: '2' }),
+          questionConfig: expect.objectContaining({ code: '2' }),
           responses: [
             expect.objectContaining({
               response: expect.objectContaining({ response: 'A2-2' }),
@@ -419,7 +419,7 @@ describe('Question progress', () => {
           isComplete: true,
         }),
         expect.objectContaining({
-          questionConfig: expect.objectContaining({ id: '3' }),
+          questionConfig: expect.objectContaining({ code: '3' }),
           responses: [
             expect.objectContaining({
               response: expect.objectContaining({ response: 'A3-2' }),
@@ -434,7 +434,7 @@ describe('Question progress', () => {
         }),
         // on third question, which is complete
         expect.objectContaining({
-          questionConfig: expect.objectContaining({ id: '4' }),
+          questionConfig: expect.objectContaining({ code: '4' }),
           responses: [
             expect.objectContaining({
               response: expect.objectContaining({ response: 'A4-1' }),
@@ -500,7 +500,7 @@ describe('Question progress', () => {
         prisonerRoles: [],
         questions: {
           '1': {
-            id: '1',
+            code: '1',
             active: true,
             question: 'Q1',
             label: 'Question 1',
@@ -697,7 +697,7 @@ describe('Question progress', () => {
         prisonerRoles: [],
         questions: {
           '1': {
-            id: '1',
+            code: '1',
             active: true,
             question: 'Q1',
             label: 'Question 1',
@@ -827,7 +827,7 @@ describe('Question progress', () => {
         prisonerRoles: [],
         questions: {
           '1': {
-            id: '1',
+            code: '1',
             active: true,
             question: 'Q1',
             label: 'Question 1',
@@ -854,7 +854,7 @@ describe('Question progress', () => {
             ],
           },
           '2': {
-            id: '2',
+            code: '2',
             active: true,
             question: 'Q2',
             label: 'Question 2',

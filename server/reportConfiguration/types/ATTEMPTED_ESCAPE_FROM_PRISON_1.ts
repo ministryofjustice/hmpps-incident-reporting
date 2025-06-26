@@ -8,7 +8,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
   startingQuestionId: '44769',
   questions: {
     '44147': {
-      id: '44147',
+      code: '44147',
       active: true,
       question: 'WAS FORCE USED',
       label: 'Was force used?',
@@ -35,7 +35,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
       ],
     },
     '44152': {
-      id: '44152',
+      code: '44152',
       active: true,
       question: 'HOW DID THE PRISONER GAIN ACCESS TO THE TOP OF THE FENCE',
       label: 'How did the prisoner gain access to the top of the fence?',
@@ -107,7 +107,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
       ],
     },
     '44163': {
-      id: '44163',
+      code: '44163',
       active: true,
       question: 'WHERE WAS THE CELL SITUATED',
       label: 'Where was the cell situated?',
@@ -179,7 +179,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
       ],
     },
     '44171': {
-      id: '44171',
+      code: '44171',
       active: true,
       question: 'HOW DID THE PRISONER GAIN ACCESS TO THE EXTERNAL PERIMETER',
       label: 'How did the prisoner gain access to the external perimeter?',
@@ -260,7 +260,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
       ],
     },
     '44225': {
-      id: '44225',
+      code: '44225',
       active: true,
       question: 'WAS THE FENCE',
       label: 'Was the fence?',
@@ -287,7 +287,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
       ],
     },
     '44229': {
-      id: '44229',
+      code: '44229',
       active: true,
       question: 'WAS THE EXIT THROUGH AN UNLOCKED DOOR OR GATE',
       label: 'Was the exit through an unlocked door or gate?',
@@ -314,7 +314,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
       ],
     },
     '44233': {
-      id: '44233',
+      code: '44233',
       active: true,
       question: 'ENTER DESCRIPTION OF PERSON(S) INJURED',
       label: 'Enter description of person(s) injured',
@@ -368,7 +368,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
       ],
     },
     '44242': {
-      id: '44242',
+      code: '44242',
       active: true,
       question: 'DID THE PRISONER LEAVE THE CELL',
       label: 'Did the prisoner leave the cell?',
@@ -395,7 +395,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
       ],
     },
     '44247': {
-      id: '44247',
+      code: '44247',
       active: true,
       question: 'WAS AN ATTEMPT MADE TO CUT OR BREACH THE FENCE',
       label: 'Was an attempt made to cut or breach the fence?',
@@ -422,7 +422,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
       ],
     },
     '44255': {
-      id: '44255',
+      code: '44255',
       active: true,
       question: 'WAS THIS A FULL OR PARTIAL SHUT DOWN?',
       label: 'Was this a full or partial shut down?',
@@ -449,7 +449,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
       ],
     },
     '44274': {
-      id: '44274',
+      code: '44274',
       active: true,
       question: 'DOES THE SPORTSFIELD HAVE ACCESS TO EXTERNAL PERIMETER',
       label: 'Does the sportsfield have access to external perimeter?',
@@ -476,7 +476,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
       ],
     },
     '44278': {
-      id: '44278',
+      code: '44278',
       active: true,
       question: 'WAS THE FENCE CUT OR BREACHED FROM',
       label: 'Was the fence cut or breached from?',
@@ -503,7 +503,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
       ],
     },
     '44285': {
-      id: '44285',
+      code: '44285',
       active: true,
       question: 'WAS THE TELEPHONE/IT SYSTEM SHUT DOWN LOCALLY OR BY THE SERVICE SUPPLIER',
       label: 'Was the telephone/it system shut down locally or by the service supplier?',
@@ -530,7 +530,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
       ],
     },
     '44297': {
-      id: '44297',
+      code: '44297',
       active: true,
       question: 'WHAT WAS THE SOURCE OF THE ITEMS',
       label: 'What was the source of the items?',
@@ -656,7 +656,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
       ],
     },
     '44300': {
-      id: '44300',
+      code: '44300',
       active: true,
       question: 'WHAT WAS THE SOURCE OF THE TOOLS',
       label: 'What was the source of the tools?',
@@ -791,7 +791,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
       ],
     },
     '44313': {
-      id: '44313',
+      code: '44313',
       active: true,
       question: 'WAS THE WALL BREACHED FROM',
       label: 'Was the wall breached from?',
@@ -818,7 +818,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
       ],
     },
     '44315': {
-      id: '44315',
+      code: '44315',
       active: true,
       question: 'WHAT TOOLS WERE USED',
       label: 'What tools were used?',
@@ -908,7 +908,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
       ],
     },
     '44320': {
-      id: '44320',
+      code: '44320',
       active: true,
       question: 'WERE ANY WEAPONS USED',
       label: 'Were any weapons used?',
@@ -935,7 +935,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
       ],
     },
     '44327': {
-      id: '44327',
+      code: '44327',
       active: true,
       question: 'WERE TOOLS USED',
       label: 'Were tools used?',
@@ -962,7 +962,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
       ],
     },
     '44340': {
-      id: '44340',
+      code: '44340',
       active: true,
       question: 'WAS THE KEYWORD REQUESTED?',
       label: 'Was the keyword requested?',
@@ -989,7 +989,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
       ],
     },
     '44341': {
-      id: '44341',
+      code: '44341',
       active: true,
       question: 'WHICH AREA DID THIS GIVE ACCESS TO',
       label: 'Which area did this give access to?',
@@ -1088,7 +1088,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
       ],
     },
     '44346': {
-      id: '44346',
+      code: '44346',
       active: true,
       question: 'WHO AUTHORISED THE SHUT DOWN?',
       label: 'Who authorised the shut down?',
@@ -1133,7 +1133,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
       ],
     },
     '44349': {
-      id: '44349',
+      code: '44349',
       active: true,
       question: 'HOW WAS THE ESCAPE ATTEMPT FOILED',
       label: 'How was the escape attempt foiled?',
@@ -1178,7 +1178,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
       ],
     },
     '44352': {
-      id: '44352',
+      code: '44352',
       active: true,
       question: 'ARE THERE SECURITY AIDS AT SITE OF THE ATTEMPTED ESCAPE',
       label: 'Are there security aids at site of the attempted escape?',
@@ -1205,7 +1205,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
       ],
     },
     '44353': {
-      id: '44353',
+      code: '44353',
       active: true,
       question: 'WHAT WAS THE SOURCE OF THE TOOLS',
       label: 'What was the source of the tools?',
@@ -1340,7 +1340,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
       ],
     },
     '44368': {
-      id: '44368',
+      code: '44368',
       active: true,
       question: 'WAS THE ATTEMPT MADE',
       label: 'Was the attempt made?',
@@ -1376,7 +1376,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
       ],
     },
     '44433': {
-      id: '44433',
+      code: '44433',
       active: true,
       question: 'WHEN WAS THE SYSTEM RE-ACTIVATED?',
       label: 'When was the system re-activated?',
@@ -1394,7 +1394,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
       ],
     },
     '44440': {
-      id: '44440',
+      code: '44440',
       active: true,
       question: 'WHAT TOOLS WERE USED',
       label: 'What tools were used?',
@@ -1484,7 +1484,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
       ],
     },
     '44441': {
-      id: '44441',
+      code: '44441',
       active: true,
       question: 'DID THE PRISONER ATTEMPT TO GAIN ACCESS TO THE EXTERNAL PERIMETER',
       label: 'Did the prisoner attempt to gain access to the external perimeter?',
@@ -1511,7 +1511,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
       ],
     },
     '44444': {
-      id: '44444',
+      code: '44444',
       active: true,
       question: 'WHAT WAS THE SOURCE OF THE ITEMS',
       label: 'What was the source of the items?',
@@ -1637,7 +1637,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
       ],
     },
     '44447': {
-      id: '44447',
+      code: '44447',
       active: true,
       question: 'WAS DAMAGE CAUSED TO PRISON PROPERTY',
       label: 'Was damage caused to prison property?',
@@ -1664,7 +1664,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
       ],
     },
     '44450': {
-      id: '44450',
+      code: '44450',
       active: true,
       question: 'WAS THE SWITCH WITH',
       label: 'Was the switch with?',
@@ -1691,7 +1691,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
       ],
     },
     '44471': {
-      id: '44471',
+      code: '44471',
       active: true,
       question: 'WHAT WAS THE SOURCE OF THE TOOLS',
       label: 'What was the source of the tools?',
@@ -1826,7 +1826,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
       ],
     },
     '44480': {
-      id: '44480',
+      code: '44480',
       active: true,
       question: 'WHAT WAS THE SOURCE OF THE ITEMS',
       label: 'What was the source of the items?',
@@ -1961,7 +1961,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
       ],
     },
     '44484': {
-      id: '44484',
+      code: '44484',
       active: true,
       question: 'WAS THE VEHICLE AUTHORISED',
       label: 'Was the vehicle authorised?',
@@ -1988,7 +1988,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
       ],
     },
     '44494': {
-      id: '44494',
+      code: '44494',
       active: true,
       question: 'WHERE WERE THE INJURED TREATED',
       label: 'Where were the injured treated?',
@@ -2015,7 +2015,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
       ],
     },
     '44498': {
-      id: '44498',
+      code: '44498',
       active: true,
       question: 'WHAT WAS THE SOURCE OF THE TOOLS',
       label: 'What was the source of the tools?',
@@ -2150,7 +2150,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
       ],
     },
     '44506': {
-      id: '44506',
+      code: '44506',
       active: true,
       question: 'HOW WAS THE CELL OCCUPIED',
       label: 'How was the cell occupied?',
@@ -2177,7 +2177,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
       ],
     },
     '44517': {
-      id: '44517',
+      code: '44517',
       active: true,
       question: 'GIVE DETAILS OF SECURITY MEASURE OVERCOME',
       label: 'Give details of security measure overcome',
@@ -2240,7 +2240,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
       ],
     },
     '44525': {
-      id: '44525',
+      code: '44525',
       active: true,
       question: 'WHAT TOOLS WERE USED',
       label: 'What tools were used?',
@@ -2330,7 +2330,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
       ],
     },
     '44528': {
-      id: '44528',
+      code: '44528',
       active: true,
       question: 'WERE TOOLS USED',
       label: 'Were tools used?',
@@ -2357,7 +2357,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
       ],
     },
     '44544': {
-      id: '44544',
+      code: '44544',
       active: true,
       question: 'ESTIMATED COST OF DAMAGE',
       label: 'Estimated cost of damage',
@@ -2375,7 +2375,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
       ],
     },
     '44545': {
-      id: '44545',
+      code: '44545',
       active: true,
       question: 'DID PRISONER GAIN ACCESS TO THE EXTERNAL PERIMETER',
       label: 'Did prisoner gain access to the external perimeter?',
@@ -2402,7 +2402,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
       ],
     },
     '44550': {
-      id: '44550',
+      code: '44550',
       active: true,
       question: 'DESCRIBE WHAT WAS COMPROMISED AND BY WHOM',
       label: 'Describe what was compromised and by whom',
@@ -2420,7 +2420,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
       ],
     },
     '44554': {
-      id: '44554',
+      code: '44554',
       active: true,
       question: 'DESCRIBE WEAPONS USED',
       label: 'Describe weapons used',
@@ -2546,7 +2546,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
       ],
     },
     '44574': {
-      id: '44574',
+      code: '44574',
       active: true,
       question: 'WERE TOOLS USED',
       label: 'Were tools used?',
@@ -2573,7 +2573,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
       ],
     },
     '44582': {
-      id: '44582',
+      code: '44582',
       active: true,
       question: 'WERE TOOLS USED',
       label: 'Were tools used?',
@@ -2600,7 +2600,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
       ],
     },
     '44589': {
-      id: '44589',
+      code: '44589',
       active: true,
       question: 'WERE TOOLS USED',
       label: 'Were tools used?',
@@ -2627,7 +2627,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
       ],
     },
     '44592': {
-      id: '44592',
+      code: '44592',
       active: true,
       question: 'WERE TOOLS USED',
       label: 'Were tools used?',
@@ -2654,7 +2654,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
       ],
     },
     '44594': {
-      id: '44594',
+      code: '44594',
       active: true,
       question: 'WHERE WAS THE PRISONER PRIOR TO THE START OF THE ATTEMPTED ESCAPE',
       label: 'Where was the prisoner prior to the start of the attempted escape?',
@@ -2834,7 +2834,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
       ],
     },
     '44595': {
-      id: '44595',
+      code: '44595',
       active: true,
       question: 'WAS AN AIRCRAFT INVOLVED',
       label: 'Was an aircraft involved?',
@@ -2861,7 +2861,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
       ],
     },
     '44597': {
-      id: '44597',
+      code: '44597',
       active: true,
       question: 'WAS THERE A SWITCH OF IDENTITY',
       label: 'Was there a switch of identity?',
@@ -2888,7 +2888,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
       ],
     },
     '44617': {
-      id: '44617',
+      code: '44617',
       active: true,
       question: 'WHAT TOOLS WERE USED',
       label: 'What tools were used?',
@@ -2978,7 +2978,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
       ],
     },
     '44631': {
-      id: '44631',
+      code: '44631',
       active: true,
       question: 'HOW DID THE PRISONER LEAVE THE ESTABLISHMENT',
       label: 'How did the prisoner leave the establishment?',
@@ -3014,7 +3014,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
       ],
     },
     '44636': {
-      id: '44636',
+      code: '44636',
       active: true,
       question: 'IS THERE ANY MEDIA INTEREST IN THIS INCIDENT',
       label: 'Is there any media interest in this incident?',
@@ -3041,7 +3041,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
       ],
     },
     '44670': {
-      id: '44670',
+      code: '44670',
       active: true,
       question: 'HOW WAS THE ATTEMPT MADE',
       label: 'How was the attempt made?',
@@ -3104,7 +3104,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
       ],
     },
     '44674': {
-      id: '44674',
+      code: '44674',
       active: true,
       question: 'WAS THE SYSTEM RE-ACTIVATED LOCALLY OR BY THE SERVICE SUPPLIER',
       label: 'Was the system re-activated locally or by the service supplier?',
@@ -3131,7 +3131,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
       ],
     },
     '44681': {
-      id: '44681',
+      code: '44681',
       active: true,
       question: 'DID THE PRISONER ATTEMPT TO BREACH THE EXTERNAL PERIMETER',
       label: 'Did the prisoner attempt to breach the external perimeter?',
@@ -3158,7 +3158,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
       ],
     },
     '44685': {
-      id: '44685',
+      code: '44685',
       active: true,
       question: 'WERE TOOLS USED',
       label: 'Were tools used?',
@@ -3185,7 +3185,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
       ],
     },
     '44707': {
-      id: '44707',
+      code: '44707',
       active: true,
       question: 'WAS THE FENCE',
       label: 'Was the fence?',
@@ -3212,7 +3212,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
       ],
     },
     '44713': {
-      id: '44713',
+      code: '44713',
       active: true,
       question: 'WHAT TIME WAS THE SYSTEM SHUT DOWN?',
       label: 'What time was the system shut down?',
@@ -3230,7 +3230,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
       ],
     },
     '44731': {
-      id: '44731',
+      code: '44731',
       active: true,
       question: 'WERE ANY INJURIES RECEIVED DURING THIS INCIDENT',
       label: 'Were any injuries received during this incident?',
@@ -3257,7 +3257,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
       ],
     },
     '44737': {
-      id: '44737',
+      code: '44737',
       active: true,
       question: 'WAS THE ATTEMPT MADE',
       label: 'Was the attempt made?',
@@ -3284,7 +3284,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
       ],
     },
     '44746': {
-      id: '44746',
+      code: '44746',
       active: true,
       question: 'ARE THE GROUNDS PATROLLED BY DOGS',
       label: 'Are the grounds patrolled by dogs?',
@@ -3311,7 +3311,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
       ],
     },
     '44749': {
-      id: '44749',
+      code: '44749',
       active: true,
       question: 'HAS THE PRISON SERVICE PRESS OFFICE BEEN INFORMED',
       label: 'Has the prison service press office been informed?',
@@ -3338,7 +3338,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
       ],
     },
     '44752': {
-      id: '44752',
+      code: '44752',
       active: true,
       question: 'WAS A VEHICLE INVOLVED IN THE ATTEMPTED ESCAPE',
       label: 'Was a vehicle involved in the attempted escape?',
@@ -3365,7 +3365,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
       ],
     },
     '44759': {
-      id: '44759',
+      code: '44759',
       active: true,
       question: 'WAS THE WALL ACTUALLY BREACHED',
       label: 'Was the wall actually breached?',
@@ -3392,7 +3392,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
       ],
     },
     '44769': {
-      id: '44769',
+      code: '44769',
       active: true,
       question: 'WERE THE POLICE INFORMED OF THE INCIDENT',
       label: 'Were the police informed of the incident?',
@@ -3419,7 +3419,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
       ],
     },
     '44789': {
-      id: '44789',
+      code: '44789',
       active: true,
       question: 'WHAT WAS THE SOURCE OF THE TOOLS',
       label: 'What was the source of the tools?',
@@ -3554,7 +3554,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
       ],
     },
     '44822': {
-      id: '44822',
+      code: '44822',
       active: true,
       question: 'WAS THE FENCE ACTUALLY CUT OR BREACHED',
       label: 'Was the fence actually cut or breached?',
@@ -3581,7 +3581,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
       ],
     },
     '44840': {
-      id: '44840',
+      code: '44840',
       active: true,
       question: 'HOW DID THE PRISONER ATTEMPT ACCESS TO THE TOP OF THE FENCE OR WALL',
       label: 'How did the prisoner attempt access to the top of the fence or wall?',
@@ -3653,7 +3653,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
       ],
     },
     '44843': {
-      id: '44843',
+      code: '44843',
       active: true,
       question: 'DESCRIBE THE DAMAGE',
       label: 'Describe the damage',
@@ -3689,7 +3689,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
       ],
     },
     '44849': {
-      id: '44849',
+      code: '44849',
       active: true,
       question: 'WAS AN ATTEMPT MADE TO BREACH THE WALL',
       label: 'Was an attempt made to breach the wall?',
@@ -3716,7 +3716,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
       ],
     },
     '44863': {
-      id: '44863',
+      code: '44863',
       active: true,
       question: 'WAS THE TELEPHONE/IT SYSTEM SHUT DOWN DURING THE INCIDENT?',
       label: 'Was the telephone/it system shut down during the incident?',
@@ -3743,7 +3743,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
       ],
     },
     '44869': {
-      id: '44869',
+      code: '44869',
       active: true,
       question: 'WHAT WAS THE SOURCE OF THE TOOLS',
       label: 'What was the source of the tools?',
@@ -3878,7 +3878,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
       ],
     },
     '44871': {
-      id: '44871',
+      code: '44871',
       active: true,
       question: 'WHAT WAS THE SOURCE OF THE TOOLS',
       label: 'What was the source of the tools?',
@@ -4013,7 +4013,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
       ],
     },
     '44875': {
-      id: '44875',
+      code: '44875',
       active: true,
       question: 'WHAT TOOLS WERE USED',
       label: 'What tools were used?',
@@ -4103,7 +4103,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
       ],
     },
     '44909': {
-      id: '44909',
+      code: '44909',
       active: true,
       question: 'WHAT TOOLS WERE USED',
       label: 'What tools were used?',
@@ -4193,7 +4193,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
       ],
     },
     '44912': {
-      id: '44912',
+      code: '44912',
       active: true,
       question: 'WAS OPERATION LEWIS USED',
       label: 'Was operation Lewis used?',
@@ -4220,7 +4220,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
       ],
     },
     '44919': {
-      id: '44919',
+      code: '44919',
       active: true,
       question: 'THE INCIDENT IS SUBJECT TO',
       label: 'The incident is subject to',
@@ -4265,7 +4265,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
       ],
     },
     '44920': {
-      id: '44920',
+      code: '44920',
       active: true,
       question: 'QUOTE THE VANTIVE CASE NUMBER',
       label: 'Quote the Vantive case number',
@@ -4283,7 +4283,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
       ],
     },
     '44923': {
-      id: '44923',
+      code: '44923',
       active: true,
       question: 'WHAT TOOLS WERE USED',
       label: 'What tools were used?',
@@ -4373,7 +4373,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
       ],
     },
     '44933': {
-      id: '44933',
+      code: '44933',
       active: true,
       question: 'HOW WAS THE CLADDING BREACHED',
       label: 'How was the cladding breached?',
@@ -4400,7 +4400,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
       ],
     },
     '44935': {
-      id: '44935',
+      code: '44935',
       active: true,
       question: 'DID THE EXIT GIVE ACCESS TO THE EXTERNAL PERIMETER',
       label: 'Did the exit give access to the external perimeter?',
@@ -4427,7 +4427,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
       ],
     },
     '44940': {
-      id: '44940',
+      code: '44940',
       active: true,
       question: 'HOW DID THE PRISONER ATTEMPT TO BREACH THE EXTERNAL PERIMETER',
       label: 'How did the prisoner attempt to breach the external perimeter?',
@@ -4508,7 +4508,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
       ],
     },
     '44952': {
-      id: '44952',
+      code: '44952',
       active: true,
       question: 'WAS FORCE USED',
       label: 'Was force used?',
@@ -4535,7 +4535,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
       ],
     },
     '44953': {
-      id: '44953',
+      code: '44953',
       active: true,
       question: 'WHAT TYPE OF FORCE WAS USED',
       label: 'What type of force was used?',
@@ -4616,7 +4616,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
       ],
     },
     '44958': {
-      id: '44958',
+      code: '44958',
       active: true,
       question: 'WAS THE SYSTEM COMPROMISED?',
       label: 'Was the system compromised?',
@@ -4643,7 +4643,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
       ],
     },
     '44977': {
-      id: '44977',
+      code: '44977',
       active: true,
       question: 'STATE THE NATURE OF ASSISTANCE',
       label: 'State the nature of assistance',
@@ -4706,7 +4706,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
       ],
     },
     '44983': {
-      id: '44983',
+      code: '44983',
       active: true,
       question: 'WAS OUTSIDE ASSISTANCE INVOLVED IN THE ATTEMPTED ESCAPE',
       label: 'Was outside assistance involved in the attempted escape?',
@@ -4733,7 +4733,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
       ],
     },
     '44984': {
-      id: '44984',
+      code: '44984',
       active: true,
       question: 'WHAT TYPE OF FORCE WAS USED',
       label: 'What type of force was used?',
@@ -4814,7 +4814,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
       ],
     },
     '44992': {
-      id: '44992',
+      code: '44992',
       active: true,
       question: 'HOW WAS THE WALL BREACHED',
       label: 'How was the wall breached?',
@@ -4877,7 +4877,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
       ],
     },
     '45003': {
-      id: '45003',
+      code: '45003',
       active: true,
       question: 'WAS FORCE USED IN AN ATTEMPT TO LEAVE THE CELL',
       label: 'Was force used in an attempt to leave the cell?',
@@ -4904,7 +4904,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
       ],
     },
     '45006': {
-      id: '45006',
+      code: '45006',
       active: true,
       question: 'WAS FORCE USED TO LEAVE THE CELL',
       label: 'Was force used to leave the cell?',
@@ -4931,7 +4931,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
       ],
     },
     '45014': {
-      id: '45014',
+      code: '45014',
       active: true,
       question: 'WAS MEDICAL TREATMENT NEEDED',
       label: 'Was medical treatment needed?',
@@ -4958,7 +4958,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
       ],
     },
     '45019': {
-      id: '45019',
+      code: '45019',
       active: true,
       question: 'WAS THE FENCE BREACHED',
       label: 'Was the fence breached?',
@@ -4994,7 +4994,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
       ],
     },
     '45021': {
-      id: '45021',
+      code: '45021',
       active: true,
       question: 'WHAT TOOLS WERE USED',
       label: 'What tools were used?',
@@ -5084,7 +5084,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
       ],
     },
     '45033': {
-      id: '45033',
+      code: '45033',
       active: true,
       question: 'IS ANY MEMBER OF STAFF FACING DISCIPLINARY CHARGES',
       label: 'Is any member of staff facing disciplinary charges?',
@@ -5111,7 +5111,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
       ],
     },
     '45047': {
-      id: '45047',
+      code: '45047',
       active: true,
       question: 'WERE TOOLS USED',
       label: 'Were tools used?',
@@ -5138,7 +5138,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
       ],
     },
     '45073': {
-      id: '45073',
+      code: '45073',
       active: true,
       question: 'HOW WAS THE ESCAPE ATTEMPT DISCOVERED',
       label: 'How was the escape attempt discovered?',
@@ -5201,7 +5201,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
       ],
     },
     '45090': {
-      id: '45090',
+      code: '45090',
       active: true,
       question: 'WHAT ARE THE AIDS',
       label: 'What are the aids?',
@@ -5327,7 +5327,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
       ],
     },
     '45096': {
-      id: '45096',
+      code: '45096',
       active: true,
       question: 'WHAT TYPE OF FORCE WAS USED',
       label: 'What type of force was used?',
@@ -5408,7 +5408,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
       ],
     },
     '45107': {
-      id: '45107',
+      code: '45107',
       active: true,
       question: 'HAS THE SERVICE SUPPLIER BEEN NOTIFIED OF A REPLACEMENT KEYWORD?',
       label: 'Has the service supplier been notified of a replacement keyword?',
@@ -5435,7 +5435,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
       ],
     },
     '45111': {
-      id: '45111',
+      code: '45111',
       active: true,
       question: 'HOW DID THE PRISONER ATTEMPT TO GAIN ACCESS TO THE EXTERNAL PERIMETER',
       label: 'How did the prisoner attempt to gain access to the external perimeter?',
@@ -5516,7 +5516,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
       ],
     },
     '45114': {
-      id: '45114',
+      code: '45114',
       active: true,
       question: 'HOW DID THE PRISONER ATTEMPT TO GAIN ACCESS TO THE TOP OF THE FENCE',
       label: 'How did the prisoner attempt to gain access to the top of the fence?',
@@ -5588,7 +5588,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
       ],
     },
     '45121': {
-      id: '45121',
+      code: '45121',
       active: true,
       question: 'WHAT WAS THE SOURCE OF THE TOOLS',
       label: 'What was the source of the tools?',
@@ -5723,7 +5723,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
       ],
     },
     '45124': {
-      id: '45124',
+      code: '45124',
       active: true,
       question: 'WAS THE EXIT THROUGH AN UNLOCKED DOOR OR GATE',
       label: 'Was the exit through an unlocked door or gate?',
@@ -5750,7 +5750,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
       ],
     },
     '45150': {
-      id: '45150',
+      code: '45150',
       active: true,
       question: 'INDICATE THE NATURE OF THE SHUT DOWN',
       label: 'Indicate the nature of the shut down',
@@ -5777,7 +5777,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
       ],
     },
     '45152': {
-      id: '45152',
+      code: '45152',
       active: true,
       question: 'WHOSE WAS THE VEHICLE',
       label: 'Whose was the vehicle?',
@@ -5858,7 +5858,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
       ],
     },
     '45170': {
-      id: '45170',
+      code: '45170',
       active: true,
       question: 'WAS THE ATTEMPT MADE',
       label: 'Was the attempt made?',
@@ -5885,7 +5885,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
       ],
     },
     '45172': {
-      id: '45172',
+      code: '45172',
       active: true,
       question: 'WHAT TYPE OF FORCE WAS USED',
       label: 'What type of force was used?',

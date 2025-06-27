@@ -19,7 +19,7 @@ export function saveAsTypescript({
   fs.writeFileSync(tsPath, tsData)
 
   // Make TypeScript file pretty
-  spawnSync('npx', ['prettier', '--write', tsPath], { encoding: 'utf8', stdio: 'pipe' })
+  formatCode(tsPath)
 
   return tsPath
 }
@@ -33,9 +33,19 @@ export function saveAsGraphviz(config: IncidentTypeConfiguration): string {
   fs.writeFileSync(graphvizPath, graphvizData)
 
   // Converts to SVG using graphviz's dot command
-  spawnSync('dot', ['-T', 'svg', '-o', svgPath, graphvizPath], { stdio: 'pipe' })
+  const spawnResult = spawnSync('dot', ['-T', 'svg', '-o', svgPath, graphvizPath])
+  if (spawnResult.status !== 0) {
+    throw new Error(`dot returned an error: ${spawnResult.stderr}`)
+  }
 
   return svgPath
+}
+
+export function formatCode(target: string) {
+  const spawnResult = spawnSync('npx', ['prettier', '--write', target], { encoding: 'utf8' })
+  if (spawnResult.status !== 0) {
+    throw new Error(`prettier returned an error: ${spawnResult.stderr}`)
+  }
 }
 
 function typesPath(): string {

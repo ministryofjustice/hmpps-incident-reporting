@@ -1,5 +1,4 @@
 #!/usr/bin/env npx tsx
-import { spawnSync } from 'node:child_process'
 import fs from 'node:fs'
 import path from 'node:path'
 
@@ -12,6 +11,7 @@ import type {
   PrisonerRoleConstant,
   PrisonerOutcomeConstant,
 } from '../server/data/incidentReportingApi'
+import { formatCode } from '../server/data/incidentTypeConfiguration/persistance'
 
 interface Arguments {
   scriptName: string
@@ -126,7 +126,7 @@ function main() {
 
   fs.closeSync(outputFile)
 
-  spawnSync('npx', ['prettier', '--write', outputPath], { encoding: 'utf8' })
+  formatCode(outputPath)
 }
 
 function parseArgs(): Arguments {

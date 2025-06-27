@@ -712,7 +712,8 @@ export const TEMPORARY_RELEASE_FAILURE_3: IncidentTypeConfiguration = {
     '55193': {
       code: '55193',
       active: false,
-      question: 'Was Any Part Of The Failure Failing To Comply With Any Other Licence Conditions (Standard or Bespoke)?',
+      question:
+        'Was Any Part Of The Failure Failing To Comply With Any Other Licence Conditions (Standard or Bespoke)?',
       label: 'Was any part of the failure failing to comply with any other licence conditions (standard or bespoke)?',
       multipleAnswers: false,
       answers: [
@@ -847,7 +848,8 @@ export const TEMPORARY_RELEASE_FAILURE_3: IncidentTypeConfiguration = {
     '55196': {
       code: '55196',
       active: false,
-      question: 'Have SFO Team, Offender Manager In The Community, Victim Liaison Officer And Employer (where appropriate) been informed?',
+      question:
+        'Have SFO Team, Offender Manager In The Community, Victim Liaison Officer And Employer (where appropriate) been informed?',
       label:
         'Have SFO team, offender manager in the community, victim liaison officer and employer (where appropriate) been informed?',
       multipleAnswers: false,

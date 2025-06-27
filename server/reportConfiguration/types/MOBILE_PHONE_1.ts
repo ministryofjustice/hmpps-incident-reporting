@@ -1486,7 +1486,8 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
     '45223': {
       code: '45223',
       active: false,
-      question: 'If a mobile / SIM was found on a person, please state where (this will assist with identifying contaminated mobiles)',
+      question:
+        'If a mobile / SIM was found on a person, please state where (this will assist with identifying contaminated mobiles)',
       label:
         'If a mobile / SIM was found on a person, please state where (this will assist with identifying contaminated mobiles)',
       multipleAnswers: false,
@@ -1604,7 +1605,8 @@ export const MOBILE_PHONE_1: IncidentTypeConfiguration = {
     '45226': {
       code: '45226',
       active: false,
-      question: 'Has written consent been given to interrogate item (Only necessary for staff, visitors and contractors)',
+      question:
+        'Has written consent been given to interrogate item (Only necessary for staff, visitors and contractors)',
       label: 'Has written consent been given to interrogate item (only necessary for staff, visitors and contractors)?',
       multipleAnswers: false,
       answers: [

@@ -496,7 +496,8 @@ export const TEMPORARY_RELEASE_FAILURE_4: IncidentTypeConfiguration = {
     '59189': {
       code: '59189',
       active: true,
-      question: 'Was prisoner arrested for an offence allegedly committed whilst temp released? (do not include FAILURE TO RETURN)',
+      question:
+        'Was prisoner arrested for an offence allegedly committed whilst temp released? (do not include FAILURE TO RETURN)',
       label:
         'Was prisoner arrested for an offence allegedly committed whilst temp released? (do not include failure to return)?',
       multipleAnswers: false,
@@ -866,7 +867,8 @@ export const TEMPORARY_RELEASE_FAILURE_4: IncidentTypeConfiguration = {
     '59195': {
       code: '59195',
       active: true,
-      question: 'Was Any Part Of The Failure Failing To Comply With Any Other Licence Conditions (Standard or Bespoke)?',
+      question:
+        'Was Any Part Of The Failure Failing To Comply With Any Other Licence Conditions (Standard or Bespoke)?',
       label: 'Was any part of the failure failing to comply with any other licence conditions (standard or bespoke)?',
       multipleAnswers: false,
       answers: [

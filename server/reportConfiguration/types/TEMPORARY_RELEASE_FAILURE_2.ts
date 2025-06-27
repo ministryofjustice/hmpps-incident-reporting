@@ -433,7 +433,8 @@ export const TEMPORARY_RELEASE_FAILURE_2: IncidentTypeConfiguration = {
     '49320': {
       code: '49320',
       active: false,
-      question: 'Was The Failure To Return Reported To The Police As The Offence Of Failure To Return From Temporary Licence',
+      question:
+        'Was The Failure To Return Reported To The Police As The Offence Of Failure To Return From Temporary Licence',
       label:
         'Was the failure to return reported to the police as the offence of failure to return from temporary licence?',
       multipleAnswers: false,
@@ -569,7 +570,8 @@ export const TEMPORARY_RELEASE_FAILURE_2: IncidentTypeConfiguration = {
     '49324': {
       code: '49324',
       active: false,
-      question: 'Was Any Part Of The Failure Failing To Comply With Any Other Licence Conditions (These Can Be Standard or Bespoke)',
+      question:
+        'Was Any Part Of The Failure Failing To Comply With Any Other Licence Conditions (These Can Be Standard or Bespoke)',
       label:
         'Was any part of the failure failing to comply with any other licence conditions (these can be standard or bespoke)?',
       multipleAnswers: false,
@@ -966,7 +968,8 @@ export const TEMPORARY_RELEASE_FAILURE_2: IncidentTypeConfiguration = {
     '49335': {
       code: '49335',
       active: false,
-      question: 'Confirm SFO Team, Offender Manager In The Community, Victim Liaison Officer And Employer (where appropriate) Informed',
+      question:
+        'Confirm SFO Team, Offender Manager In The Community, Victim Liaison Officer And Employer (where appropriate) Informed',
       label:
         'Confirm SFO team, offender manager in the community, victim liaison officer and employer (where appropriate) informed',
       multipleAnswers: false,

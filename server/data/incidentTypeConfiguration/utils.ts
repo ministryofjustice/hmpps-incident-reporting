@@ -37,8 +37,8 @@ export function parseFieldName(
   return null
 }
 
-/** Finds the Answer config for a given answer code */
-export function findAnswerConfigByCode(
+/** Finds the Answer config for a given response (e.g. 'YES') */
+export function findAnswerConfigByResponse(
   answerCode: string,
   questionConfig: QuestionConfiguration,
   mustBeActive = true,
@@ -46,13 +46,4 @@ export function findAnswerConfigByCode(
   return questionConfig.answers.find(
     answerConfig => (answerConfig.active || !mustBeActive) && answerConfig.response === answerCode.trim(),
   )
-}
-
-/** Finds the Answer config for a given Response inside a report */
-export function findAnswerConfigForResponse(
-  response: Response,
-  questionConfig: QuestionConfiguration,
-  mustBeActive = true,
-): AnswerConfiguration {
-  return findAnswerConfigByCode(response.response, questionConfig, mustBeActive)
 }

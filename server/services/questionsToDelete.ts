@@ -3,7 +3,7 @@ import type {
   IncidentTypeConfiguration,
   QuestionConfiguration,
 } from '../data/incidentTypeConfiguration/types'
-import { findAnswerConfigByCode } from '../data/incidentTypeConfiguration/utils'
+import { findAnswerConfigByResponse } from '../data/incidentTypeConfiguration/utils'
 
 const endReached = Symbol('endReached')
 
@@ -103,7 +103,7 @@ export default class QuestionsToDelete {
       questionConfig = config.questions[answeredQuestion.code]
       if (questionConfig) {
         const response = answeredQuestion.responses[0]
-        answerConfig = findAnswerConfigByCode(response.response, questionConfig)
+        answerConfig = findAnswerConfigByResponse(response.response, questionConfig)
       }
     } else {
       // Current question not answered, but perhaps there is no branching...

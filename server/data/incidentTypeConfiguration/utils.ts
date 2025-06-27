@@ -1,5 +1,5 @@
 import type { AnswerConfiguration, QuestionConfiguration } from './types'
-import type { Question, Response } from '../incidentReportingApi'
+import type { Question } from '../incidentReportingApi'
 
 export function conditionalFieldName(
   question: QuestionConfiguration | Question,
@@ -37,22 +37,13 @@ export function parseFieldName(
   return null
 }
 
-/** Finds the Answer config for a given answer code */
-export function findAnswerConfigByCode(
-  answerCode: string,
+/** Finds the Answer config for a given response (e.g. 'YES') */
+export function findAnswerConfigByResponse(
+  response: string,
   questionConfig: QuestionConfiguration,
   mustBeActive = true,
 ): AnswerConfiguration {
   return questionConfig.answers.find(
-    answerConfig => (answerConfig.active || !mustBeActive) && answerConfig.response === answerCode.trim(),
+    answerConfig => (answerConfig.active || !mustBeActive) && answerConfig.response === response.trim(),
   )
-}
-
-/** Finds the Answer config for a given Response inside a report */
-export function findAnswerConfigForResponse(
-  response: Response,
-  questionConfig: QuestionConfiguration,
-  mustBeActive = true,
-): AnswerConfiguration {
-  return findAnswerConfigByCode(response.response, questionConfig, mustBeActive)
 }

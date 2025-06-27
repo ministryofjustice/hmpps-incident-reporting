@@ -4,7 +4,7 @@ import type FormWizard from 'hmpo-form-wizard'
 import logger from '../../../logger'
 import type { ReportWithDetails, Response } from '../incidentReportingApi'
 import type { AnswerConfiguration, IncidentTypeConfiguration, QuestionConfiguration } from './types'
-import { findAnswerConfigForResponse } from './utils'
+import { findAnswerConfigByResponse } from './utils'
 
 /** A step in the process of responding to all necessary questions in a report */
 export class QuestionProgressStep {
@@ -111,9 +111,9 @@ export class QuestionProgress {
       }
       const responses: Response[] | undefined = reportResponses.get(questionConfig.code)
       const responseItems = responses?.map(response => {
-        let answerConfig = findAnswerConfigForResponse(response, questionConfig, true)
+        let answerConfig = findAnswerConfigByResponse(response.response, questionConfig, true)
         if (!answerConfig) {
-          answerConfig = findAnswerConfigForResponse(response, questionConfig, false)
+          answerConfig = findAnswerConfigByResponse(response.response, questionConfig, false)
           if (answerConfig) {
             logger.warn(
               'Question progress in report %s passing through inactive response: %s',

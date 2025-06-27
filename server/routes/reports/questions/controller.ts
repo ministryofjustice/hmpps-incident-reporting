@@ -14,7 +14,6 @@ import {
   conditionalFieldName,
   findAnswerConfigByCode,
   parseFieldName,
-  questionFieldName,
 } from '../../../data/incidentTypeConfiguration/utils'
 import { aboutTheType } from '../../../reportConfiguration/constants'
 import QuestionsToDelete from '../../../services/questionsToDelete'
@@ -147,7 +146,7 @@ export class QuestionsController extends BaseController<FormWizard.MultiValues> 
       const { reportConfig } = res.locals
 
       for (const question of report.questions) {
-        const fieldName = questionFieldName(question)
+        const fieldName = question.code
         const questionConfig: QuestionConfiguration = reportConfig.questions[fieldName]
         if (questionConfig === undefined) {
           logger.error(

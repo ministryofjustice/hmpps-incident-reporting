@@ -1,19 +1,12 @@
 import type { AnswerConfiguration, QuestionConfiguration } from './types'
 import type { Question, Response } from '../incidentReportingApi'
 
-export function questionFieldName(question: QuestionConfiguration | Question): string {
-  if ('answers' in question) {
-    return question.code
-  }
-  return question.code
-}
-
 export function conditionalFieldName(
   question: QuestionConfiguration | Question,
   answer: AnswerConfiguration,
   suffix: 'comment' | 'date',
 ): string {
-  return `${questionFieldName(question)}-${answer.code}-${suffix}`
+  return `${question.code}-${answer.code}-${suffix}`
 }
 
 /**

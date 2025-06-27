@@ -4,7 +4,7 @@ import type FormWizard from 'hmpo-form-wizard'
 import { EmptyController } from '../../controllers/empty'
 import { QuestionsController } from '../../routes/reports/questions/controller'
 import type { AnswerConfiguration, IncidentTypeConfiguration, QuestionConfiguration } from './types'
-import { conditionalFieldName, questionFieldName } from './utils'
+import { conditionalFieldName } from './utils'
 
 const MAX_ANSWERS_PER_PAGE = 20
 
@@ -35,7 +35,7 @@ export function generateSteps(
     .forEach(question => {
       const activeAnswers = question.answers.filter(answer => includeInactive || answer.active)
 
-      const fieldName = questionFieldName(question)
+      const fieldName = question.code
       const fields = [fieldName]
       for (const answer of activeAnswers) {
         if (answer.dateRequired) {
@@ -239,7 +239,7 @@ export function generateFields(config: IncidentTypeConfiguration): FormWizard.Fi
     .forEach(question => {
       const activeAnswers = question.answers.filter(answer => answer.active)
 
-      const fieldName = questionFieldName(question)
+      const fieldName = question.code
       fields[fieldName] = {
         name: fieldName,
         label: question.label,
@@ -316,7 +316,7 @@ function nextSteps(question: QuestionConfiguration, answers: AnswerConfiguration
     const answerCodes = groupAnswers.map(answer => answer.response)
 
     next.push({
-      field: questionFieldName(question),
+      field: question.code,
       // - for single values, check if submitted value is
       //   contained **in** `condition.value`
       // - for multiple values, submitted values is an array, e.g.

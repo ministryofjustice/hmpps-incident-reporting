@@ -113,8 +113,8 @@ export class QuestionsController extends BaseController<FormWizard.MultiValues> 
 
     if (field.component === 'govukInput' || field.component === 'mojDatePicker') {
       const parsedField = parseFieldName(fieldName)
-      if ('questionId' in parsedField) {
-        const sourceField = req.form.options.fields[parsedField.questionId]
+      if ('questionCode' in parsedField) {
+        const sourceField = req.form.options.fields[parsedField.questionCode]
         if (sourceField) {
           if (field.component === 'mojDatePicker') {
             // date

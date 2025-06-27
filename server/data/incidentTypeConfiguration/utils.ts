@@ -14,20 +14,23 @@ export function conditionalFieldName(
  */
 export function parseFieldName(
   fieldName: string,
-): null | { questionId: string } | { questionId: string; responseId: string; conditionalField: 'comment' | 'date' } {
+):
+  | null
+  | { questionCode: string }
+  | { questionCode: string; responseCode: string; conditionalField: 'comment' | 'date' } {
   const parts = fieldName.split('-')
 
   if (parts.length === 1) {
-    const [questionId] = parts
-    if (questionId) {
-      return { questionId }
+    const [questionCode] = parts
+    if (questionCode) {
+      return { questionCode }
     }
   }
 
   if (parts.length === 3) {
-    const [questionId, responseId, conditionalField] = parts
-    if (questionId && responseId && (conditionalField === 'comment' || conditionalField === 'date')) {
-      return { questionId, responseId, conditionalField }
+    const [questionCode, responseCode, conditionalField] = parts
+    if (questionCode && responseCode && (conditionalField === 'comment' || conditionalField === 'date')) {
+      return { questionCode, responseCode, conditionalField }
     }
   }
 

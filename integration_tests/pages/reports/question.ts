@@ -30,18 +30,18 @@ export class QuestionPage extends FormWizardPage {
     })
   }
 
-  selectResponses(questionId: string, ...responseLabels: string[]): void {
+  selectResponses(questionCode: string, ...responseLabels: string[]): void {
     for (const responseLabel of responseLabels) {
-      this.radioOrCheckboxButton(questionId, responseLabel).click()
+      this.radioOrCheckboxButton(questionCode, responseLabel).click()
     }
   }
 
-  enterComment(questionId: string, responseId: string, comment: string): PageElement<HTMLInputElement> {
-    return this.textInput(`${questionId}-${responseId}-comment`).clear().type(comment)
+  enterComment(questionCode: string, responseCode: string, comment: string): PageElement<HTMLInputElement> {
+    return this.textInput(`${questionCode}-${responseCode}-comment`).clear().type(comment)
   }
 
-  enterDate(questionId: string, responseId: string, date: Date | string): PageElement<HTMLInputElement> {
+  enterDate(questionCode: string, responseCode: string, date: Date | string): PageElement<HTMLInputElement> {
     const value = date instanceof Date ? format.shortDate(date) : date
-    return this.dateInput(`${questionId}-${responseId}-date`).clear().type(value)
+    return this.dateInput(`${questionCode}-${responseCode}-date`).clear().type(value)
   }
 }

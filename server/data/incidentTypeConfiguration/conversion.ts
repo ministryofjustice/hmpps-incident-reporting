@@ -116,17 +116,17 @@ digraph {{ config.incidentType }} {
   node [shape = circle];
 
   START_NODE [label="", shape=none];
-  START_NODE -> {{ config.startingQuestionId }} [label = "start"];
+  START_NODE -> {{ config.startingQuestionCode }} [label = "start"];
   END_NODE [label="END", shape="doublecircle"];
 
   {%- for question in questions %}
-    {{ question.id }} [label=< <FONT COLOR="royalblue">{{ question.id }} </FONT> {{ question.label }} >
+    {{ question.code }} [label=< <FONT COLOR="royalblue">{{ question.code }} </FONT> {{ question.label }} >
       {%- if not question.active -%}
         , style="filled", color="#DDD"
       {%- endif -%}
       ];
     {%- for answer in question.answers %}
-      {{ question.id }} -> {{ answer.nextQuestionId or 'END_NODE' }} [label=< <FONT COLOR="royalblue">{{ answer.id }} </FONT> {{ answer.label }} >
+      {{ question.code }} -> {{ answer.nextQuestionCode or 'END_NODE' }} [label=< <FONT COLOR="royalblue">{{ answer.code }} </FONT> {{ answer.label }} >
         {%- if not answer.active -%}
           , color="#DDD"
         {%- endif -%}

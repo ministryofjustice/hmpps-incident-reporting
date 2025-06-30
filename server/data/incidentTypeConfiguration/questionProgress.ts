@@ -70,13 +70,13 @@ export class QuestionProgress {
    * but this scenario is not possible for users to create.
    */
   *[Symbol.iterator](): Generator<QuestionProgressStep, void, void> {
-    // map of question id to responses so that order isn't required to be identical
+    // map of question code to responses so that order isn't required to be identical
     const reportResponses = new Map<string, Response[]>()
     this.report.questions.forEach(({ code, responses }) => {
       reportResponses.set(code, responses)
     })
 
-    // map of question id to step url path suffix
+    // map of question code to step url path suffix
     const reportSteps = new Map<string, string>()
     Object.entries(this.steps)
       // ignore empty start step

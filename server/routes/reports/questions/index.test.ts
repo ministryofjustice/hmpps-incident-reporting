@@ -340,7 +340,7 @@ describe('Displaying questions and responses', () => {
 
       it.each(['67179', '67180'])(
         'should allow skipping directly to any page that has been started (sample question %d)',
-        answeredQuestionId => {
+        answeredQuestionCode => {
           reportWithDetails.type = 'FIND_6'
           reportWithDetails.questions = [
             makeSimpleQuestion('67179', 'DESCRIBE HOW THE ITEM WAS FOUND (SELECT ALL THAT APPLY)', [
@@ -350,7 +350,7 @@ describe('Displaying questions and responses', () => {
             makeSimpleQuestion('67180', 'IS THE LOCATION OF THE INCIDENT KNOWN?', ['NO', '218710']),
           ]
           return agent
-            .get(`${reportQuestionsUrl(createJourney)}/${answeredQuestionId}`)
+            .get(`${reportQuestionsUrl(createJourney)}/${answeredQuestionCode}`)
             .redirects(10)
             .expect(200)
             .expect(res => {

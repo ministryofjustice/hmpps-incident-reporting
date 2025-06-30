@@ -201,13 +201,13 @@ function groupSteps(steps: FormWizard.Steps<FormWizard.MultiValues>) {
     const stepsParentCount: Map<string | null, number> = new Map()
     for (const step of Object.values(steps)) {
       for (const nextStepCondition of Object.values(step.next)) {
-        const nextQuestionId = nextStepCondition.next
-        if (!stepsParentCount.has(nextQuestionId)) {
-          stepsParentCount.set(nextQuestionId, 0)
+        const nextQuestionCode = nextStepCondition.next
+        if (!stepsParentCount.has(nextQuestionCode)) {
+          stepsParentCount.set(nextQuestionCode, 0)
         }
 
-        const currentCount = stepsParentCount.get(nextQuestionId)
-        stepsParentCount.set(nextQuestionId, currentCount + 1)
+        const currentCount = stepsParentCount.get(nextQuestionCode)
+        stepsParentCount.set(nextQuestionCode, currentCount + 1)
       }
     }
 
@@ -301,7 +301,7 @@ export function generateFields(config: IncidentTypeConfiguration): FormWizard.Fi
  * @returns next step conditions
  */
 function nextSteps(question: QuestionConfiguration, answers: AnswerConfiguration[]): FormWizard.NextStepCondition[] {
-  // Group answers by next question id
+  // Group answers by next question code
   const groupedByNextQuestion: Map<string | null, AnswerConfiguration[]> = new Map()
   answers.forEach(answer => {
     if (!groupedByNextQuestion.has(answer.nextQuestionCode)) {
@@ -312,8 +312,8 @@ function nextSteps(question: QuestionConfiguration, answers: AnswerConfiguration
   })
 
   const next: FormWizard.NextStepCondition[] = []
-  for (const [nextQuestionId, groupAnswers] of groupedByNextQuestion.entries()) {
-    const answerCodes = groupAnswers.map(answer => answer.response)
+  for (const [nextQuestionCode, groupAnswers] of groupedByNextQuestion.entries()) {
+    const answerResponses = groupAnswers.map(answer => answer.response)
 
     next.push({
       field: question.code,
@@ -324,8 +324,8 @@ function nextSteps(question: QuestionConfiguration, answers: AnswerConfiguration
       //   is in `condition.value`
       //   NOTE: Form Wizard's `some` is NOT doing this on arrays
       op: question.multipleAnswers ? checkMultipleValues : 'in',
-      value: answerCodes,
-      next: nextQuestionId,
+      value: answerResponses,
+      next: nextQuestionCode,
     })
   }
 

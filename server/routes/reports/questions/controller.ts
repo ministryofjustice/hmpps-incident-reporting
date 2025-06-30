@@ -228,7 +228,7 @@ export class QuestionsController extends BaseController<FormWizard.MultiValues> 
             // submitted values are included later if the question
             // requires a date or comment.
             // Skipping these so that we don't get false errors
-            // when questions with ID like `{Q.id}-{A.id}-(date|comment)`
+            // when questions with code like `{Q.code}-{A.code}-(date|comment)`
             // are not found in the config
 
             // eslint-disable-next-line no-continue

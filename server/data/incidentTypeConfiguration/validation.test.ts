@@ -50,8 +50,8 @@ describe('DPS config validation', () => {
       config.questions['1'].answers[0].code += '-BROKEN'
 
       const errors = validateConfig(config).map(err => err.message)
-      expect(errors).toContain(`active question '2-BROKEN' has hiphen in its code`)
-      expect(errors).toContain(`active answer 'yes-BROKEN' has hiphen in its code`)
+      expect(errors).toContain(`active question '2-BROKEN' has hyphen in its code`)
+      expect(errors).toContain(`active answer 'yes-BROKEN' has hyphen in its code`)
     })
   })
 

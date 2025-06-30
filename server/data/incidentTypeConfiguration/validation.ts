@@ -44,14 +44,14 @@ function checkCodesDontIncludeHyphens(config: IncidentTypeConfiguration, errors:
     .filter(question => question.active)
     .forEach(question => {
       if (question.code.includes('-')) {
-        errors.push(new Error(`active question '${question.code}' has hiphen in its code`))
+        errors.push(new Error(`active question '${question.code}' has hyphen in its code`))
       }
 
       question.answers
         .filter(answer => answer.active)
         .forEach(answer => {
           if (answer.code.includes('-')) {
-            errors.push(new Error(`active answer '${answer.code}' has hiphen in its code`))
+            errors.push(new Error(`active answer '${answer.code}' has hyphen in its code`))
           }
         })
     })

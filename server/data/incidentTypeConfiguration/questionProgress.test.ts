@@ -36,116 +36,116 @@ describe('Question progress', () => {
    * ```
    */
   const config: IncidentTypeConfiguration = {
-    startingQuestionId: '1',
+    startingQuestionCode: '1',
     active: true,
     incidentType: 'MISCELLANEOUS_1',
     prisonerRoles: [],
     questions: {
       '1': {
-        id: '1',
+        code: '1',
         active: true,
-        code: 'Q1',
+        question: 'Q1',
         label: 'Question 1',
         multipleAnswers: false,
         answers: [
           {
-            id: '11',
-            code: 'A1-1',
+            code: '11',
+            response: 'A1-1',
             active: true,
             label: 'Answer 1-1',
             dateRequired: false,
             commentRequired: false,
-            nextQuestionId: '2',
+            nextQuestionCode: '2',
           },
           {
-            id: '12',
-            code: 'A1-2',
+            code: '12',
+            response: 'A1-2',
             active: true,
             label: 'Answer 1-2',
             dateRequired: false,
             commentRequired: false,
-            nextQuestionId: '4',
+            nextQuestionCode: '4',
           },
         ],
       },
       '2': {
-        id: '2',
+        code: '2',
         active: true,
-        code: 'Q2',
+        question: 'Q2',
         label: 'Question 2',
         multipleAnswers: false,
         answers: [
           {
-            id: '21',
-            code: 'A2-1',
+            code: '21',
+            response: 'A2-1',
             active: true,
             label: 'Answer 2-1',
             dateRequired: false,
             commentRequired: false,
-            nextQuestionId: '3',
+            nextQuestionCode: '3',
           },
           {
-            id: '22',
-            code: 'A2-2',
+            code: '22',
+            response: 'A2-2',
             active: true,
             label: 'Answer 2-2',
             dateRequired: false,
             commentRequired: false,
-            nextQuestionId: '3',
+            nextQuestionCode: '3',
           },
         ],
       },
       '3': {
-        id: '3',
+        code: '3',
         active: true,
-        code: 'Q3',
+        question: 'Q3',
         label: 'Question 3',
         multipleAnswers: false,
         answers: [
           {
-            id: '31',
-            code: 'A3-1',
+            code: '31',
+            response: 'A3-1',
             active: true,
             label: 'Answer 3-1',
             dateRequired: false,
             commentRequired: false,
-            nextQuestionId: '4',
+            nextQuestionCode: '4',
           },
           {
-            id: '32',
-            code: 'A3-2',
+            code: '32',
+            response: 'A3-2',
             active: true,
             label: 'Answer 3-2',
             dateRequired: false,
             commentRequired: false,
-            nextQuestionId: '4',
+            nextQuestionCode: '4',
           },
         ],
       },
       '4': {
-        id: '4',
+        code: '4',
         active: true,
-        code: 'Q4',
+        question: 'Q4',
         label: 'Question 4',
         multipleAnswers: false,
         answers: [
           {
-            id: '41',
-            code: 'A4-1',
+            code: '41',
+            response: 'A4-1',
             active: true,
             label: 'Answer 4-1',
             dateRequired: false,
             commentRequired: false,
-            nextQuestionId: null,
+            nextQuestionCode: null,
           },
           {
-            id: '42',
-            code: 'A4-2',
+            code: '42',
+            response: 'A4-2',
             active: true,
             label: 'Answer 4-2',
             dateRequired: false,
             commentRequired: false,
-            nextQuestionId: null,
+            nextQuestionCode: null,
           },
         ],
       },
@@ -166,7 +166,7 @@ describe('Question progress', () => {
       expect(progress).toEqual([
         // on first question, which is incomplete
         expect.objectContaining({
-          questionConfig: expect.objectContaining({ id: '1' }),
+          questionConfig: expect.objectContaining({ code: '1' }),
           responses: undefined,
           urlSuffix: '/1',
           questionNumber: 1,
@@ -178,7 +178,7 @@ describe('Question progress', () => {
 
     it('should return first incomplete question', () => {
       const questionProgress = new QuestionProgress(config, steps, report)
-      expect(questionProgress.firstIncompleteStep()).toHaveProperty('questionConfig.id', '1')
+      expect(questionProgress.firstIncompleteStep()).toHaveProperty('questionConfig.code', '1')
     })
 
     it('should state that the report is incomplete', () => {
@@ -215,7 +215,7 @@ describe('Question progress', () => {
       const progress = Array.from(questionProgress)
       expect(progress).toEqual([
         expect.objectContaining({
-          questionConfig: expect.objectContaining({ id: '1' }),
+          questionConfig: expect.objectContaining({ code: '1' }),
           responses: [
             expect.objectContaining({
               response: expect.objectContaining({ response: 'A1-1' }),
@@ -230,7 +230,7 @@ describe('Question progress', () => {
         }),
         // on second question, which is incomplete
         expect.objectContaining({
-          questionConfig: expect.objectContaining({ id: '2' }),
+          questionConfig: expect.objectContaining({ code: '2' }),
           responses: undefined,
           urlSuffix: '/2',
           questionNumber: 2,
@@ -242,7 +242,7 @@ describe('Question progress', () => {
 
     it('should return first incomplete question', () => {
       const questionProgress = new QuestionProgress(config, steps, report)
-      expect(questionProgress.firstIncompleteStep()).toHaveProperty('questionConfig.id', '2')
+      expect(questionProgress.firstIncompleteStep()).toHaveProperty('questionConfig.code', '2')
     })
 
     it('should state that the report is incomplete', () => {
@@ -279,7 +279,7 @@ describe('Question progress', () => {
       const progress = Array.from(questionProgress)
       expect(progress).toEqual([
         expect.objectContaining({
-          questionConfig: expect.objectContaining({ id: '1' }),
+          questionConfig: expect.objectContaining({ code: '1' }),
           responses: [
             expect.objectContaining({
               response: expect.objectContaining({ response: 'A1-2' }),
@@ -294,7 +294,7 @@ describe('Question progress', () => {
         }),
         // on fourth question, which is incomplete
         expect.objectContaining({
-          questionConfig: expect.objectContaining({ id: '4' }),
+          questionConfig: expect.objectContaining({ code: '4' }),
           responses: undefined,
           urlSuffix: '/4',
           questionNumber: 2,
@@ -306,7 +306,7 @@ describe('Question progress', () => {
 
     it('should return first incomplete question', () => {
       const questionProgress = new QuestionProgress(config, steps, report)
-      expect(questionProgress.firstIncompleteStep()).toHaveProperty('questionConfig.id', '4')
+      expect(questionProgress.firstIncompleteStep()).toHaveProperty('questionConfig.code', '4')
     })
 
     it('should state that the report is incomplete', () => {
@@ -391,7 +391,7 @@ describe('Question progress', () => {
       const progress = Array.from(questionProgress)
       expect(progress).toEqual([
         expect.objectContaining({
-          questionConfig: expect.objectContaining({ id: '1' }),
+          questionConfig: expect.objectContaining({ code: '1' }),
           responses: [
             expect.objectContaining({
               response: expect.objectContaining({ response: 'A1-1' }),
@@ -405,7 +405,7 @@ describe('Question progress', () => {
           isComplete: true,
         }),
         expect.objectContaining({
-          questionConfig: expect.objectContaining({ id: '2' }),
+          questionConfig: expect.objectContaining({ code: '2' }),
           responses: [
             expect.objectContaining({
               response: expect.objectContaining({ response: 'A2-2' }),
@@ -419,7 +419,7 @@ describe('Question progress', () => {
           isComplete: true,
         }),
         expect.objectContaining({
-          questionConfig: expect.objectContaining({ id: '3' }),
+          questionConfig: expect.objectContaining({ code: '3' }),
           responses: [
             expect.objectContaining({
               response: expect.objectContaining({ response: 'A3-2' }),
@@ -434,7 +434,7 @@ describe('Question progress', () => {
         }),
         // on third question, which is complete
         expect.objectContaining({
-          questionConfig: expect.objectContaining({ id: '4' }),
+          questionConfig: expect.objectContaining({ code: '4' }),
           responses: [
             expect.objectContaining({
               response: expect.objectContaining({ response: 'A4-1' }),
@@ -494,53 +494,53 @@ describe('Question progress', () => {
 
     describe('for single-choice questions', () => {
       const simplestConfig: IncidentTypeConfiguration = {
-        startingQuestionId: '1',
+        startingQuestionCode: '1',
         active: true,
         incidentType: 'MISCELLANEOUS_1',
         prisonerRoles: [],
         questions: {
           '1': {
-            id: '1',
+            code: '1',
             active: true,
-            code: 'Q1',
+            question: 'Q1',
             label: 'Question 1',
             multipleAnswers: false,
             answers: [
               {
-                id: '1',
-                code: 'A1',
+                code: '1',
+                response: 'A1',
                 active: true,
                 label: 'Answer 1',
                 dateRequired: false,
                 commentRequired: false,
-                nextQuestionId: null,
+                nextQuestionCode: null,
               },
               {
-                id: '2',
-                code: 'A2',
+                code: '2',
+                response: 'A2',
                 active: true,
                 label: 'Answer 2 (enter date)',
                 dateRequired: true,
                 commentRequired: false,
-                nextQuestionId: null,
+                nextQuestionCode: null,
               },
               {
-                id: '3',
-                code: 'A3',
+                code: '3',
+                response: 'A3',
                 active: true,
                 label: 'Answer 3 (enter details)',
                 dateRequired: false,
                 commentRequired: true,
-                nextQuestionId: null,
+                nextQuestionCode: null,
               },
               {
-                id: '4',
-                code: 'A4',
+                code: '4',
+                response: 'A4',
                 active: true,
                 label: 'Answer 4 (enter both)',
                 dateRequired: true,
                 commentRequired: true,
-                nextQuestionId: null,
+                nextQuestionCode: null,
               },
             ],
           },
@@ -691,53 +691,53 @@ describe('Question progress', () => {
 
     describe('for multiple-choice questions', () => {
       const multiChoiceConfig: IncidentTypeConfiguration = {
-        startingQuestionId: '1',
+        startingQuestionCode: '1',
         active: true,
         incidentType: 'MISCELLANEOUS_1',
         prisonerRoles: [],
         questions: {
           '1': {
-            id: '1',
+            code: '1',
             active: true,
-            code: 'Q1',
+            question: 'Q1',
             label: 'Question 1',
             multipleAnswers: true,
             answers: [
               {
-                id: '1',
-                code: 'A1',
+                code: '1',
+                response: 'A1',
                 active: true,
                 label: 'Answer 1',
                 dateRequired: false,
                 commentRequired: false,
-                nextQuestionId: null,
+                nextQuestionCode: null,
               },
               {
-                id: '2',
-                code: 'A2',
+                code: '2',
+                response: 'A2',
                 active: true,
                 label: 'Answer 2 (enter date)',
                 dateRequired: true,
                 commentRequired: false,
-                nextQuestionId: null,
+                nextQuestionCode: null,
               },
               {
-                id: '3',
-                code: 'A3',
+                code: '3',
+                response: 'A3',
                 active: true,
                 label: 'Answer 3 (enter details)',
                 dateRequired: false,
                 commentRequired: true,
-                nextQuestionId: null,
+                nextQuestionCode: null,
               },
               {
-                id: '4',
-                code: 'A4',
+                code: '4',
+                response: 'A4',
                 active: true,
                 label: 'Answer 4 (enter both)',
                 dateRequired: true,
                 commentRequired: true,
-                nextQuestionId: null,
+                nextQuestionCode: null,
               },
             ],
           },
@@ -821,42 +821,42 @@ describe('Question progress', () => {
 
     describe('for questions with inactive responses', () => {
       const configWithInactiveResponses: IncidentTypeConfiguration = {
-        startingQuestionId: '1',
+        startingQuestionCode: '1',
         active: true,
         incidentType: 'MISCELLANEOUS_1',
         prisonerRoles: [],
         questions: {
           '1': {
-            id: '1',
+            code: '1',
             active: true,
-            code: 'Q1',
+            question: 'Q1',
             label: 'Question 1',
             multipleAnswers: false,
             answers: [
               {
-                id: '1',
-                code: 'A1',
+                code: '1',
+                response: 'A1',
                 active: false,
                 label: 'Answer 1 (old, inactive)',
                 dateRequired: false,
                 commentRequired: false,
-                nextQuestionId: null,
+                nextQuestionCode: null,
               },
               {
-                id: '2',
-                code: 'A1',
+                code: '2',
+                response: 'A1',
                 active: true,
                 label: 'Answer 1 (new, active)',
                 dateRequired: false,
                 commentRequired: false,
-                nextQuestionId: '2',
+                nextQuestionCode: '2',
               },
             ],
           },
           '2': {
-            id: '2',
+            code: '2',
             active: true,
-            code: 'Q2',
+            question: 'Q2',
             label: 'Question 2',
             multipleAnswers: false,
             answers: [...config.questions['4'].answers],

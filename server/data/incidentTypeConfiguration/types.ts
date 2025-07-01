@@ -4,7 +4,7 @@ import { type PrisonerInvolvementRole, type Type } from '../../reportConfigurati
 export interface IncidentTypeConfiguration {
   incidentType: Type
   active: boolean
-  startingQuestionId: string
+  startingQuestionCode: string
   questions: Record<string, QuestionConfiguration>
   /** Allowed prisoner involvement roles for this report type */
   prisonerRoles: PrisonerRoleConfiguration[]
@@ -16,14 +16,14 @@ export interface IncidentTypeConfiguration {
 
 /** Describes a question that may appear in a report */
 export interface QuestionConfiguration {
-  /** Question ID (cannot contain hyphens), used to generate field names/ids */
-  id: string
+  /** Question code (cannot contain hyphens), used to generate field names/ids */
+  code: string
   active: boolean
   /** Question as seen by machines, e.g. it shouldn't change.
    *
    * For example: 'WHAT WAS THE METHOD OF CONCEALMENT'
    */
-  code: string
+  question: string
   /** Question as shown to humans.
    *
    * For example: 'What was the method of concealment?'
@@ -35,12 +35,12 @@ export interface QuestionConfiguration {
 
 /** Describes possible answers for a given question */
 export interface AnswerConfiguration {
-  /** Answer ID (cannot contain hyphens), useful to generate unique names for comment/date inputs */
-  id: string
+  /** Answer code (cannot contain hyphens), useful to generate unique names for comment/date inputs */
+  code: string
   /** Answer as seen by machines, e.g. it shouldn't change.
    *
    * For example 'DRONE RECOVERY' */
-  code: string
+  response: string
   active: boolean
   /** Answer as shown to humans.
    *
@@ -48,7 +48,7 @@ export interface AnswerConfiguration {
   label: string
   dateRequired: boolean
   commentRequired: boolean
-  nextQuestionId: string | null
+  nextQuestionCode: string | null
 }
 
 /** Report type prisoner role configuration */

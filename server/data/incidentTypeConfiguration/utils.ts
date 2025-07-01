@@ -1,19 +1,12 @@
 import type { AnswerConfiguration, QuestionConfiguration } from './types'
-import type { Question, Response } from '../incidentReportingApi'
-
-export function questionFieldName(question: QuestionConfiguration | Question): string {
-  if ('answers' in question) {
-    return question.id
-  }
-  return question.code
-}
+import type { Question } from '../incidentReportingApi'
 
 export function conditionalFieldName(
   question: QuestionConfiguration | Question,
   answer: AnswerConfiguration,
   suffix: 'comment' | 'date',
 ): string {
-  return `${questionFieldName(question)}-${answer.id}-${suffix}`
+  return `${question.code}-${answer.code}-${suffix}`
 }
 
 /**
@@ -21,42 +14,36 @@ export function conditionalFieldName(
  */
 export function parseFieldName(
   fieldName: string,
-): null | { questionId: string } | { questionId: string; responseId: string; conditionalField: 'comment' | 'date' } {
+):
+  | null
+  | { questionCode: string }
+  | { questionCode: string; responseCode: string; conditionalField: 'comment' | 'date' } {
   const parts = fieldName.split('-')
 
   if (parts.length === 1) {
-    const [questionId] = parts
-    if (questionId) {
-      return { questionId }
+    const [questionCode] = parts
+    if (questionCode) {
+      return { questionCode }
     }
   }
 
   if (parts.length === 3) {
-    const [questionId, responseId, conditionalField] = parts
-    if (questionId && responseId && (conditionalField === 'comment' || conditionalField === 'date')) {
-      return { questionId, responseId, conditionalField }
+    const [questionCode, responseCode, conditionalField] = parts
+    if (questionCode && responseCode && (conditionalField === 'comment' || conditionalField === 'date')) {
+      return { questionCode, responseCode, conditionalField }
     }
   }
 
   return null
 }
 
-/** Finds the Answer config for a given answer code */
-export function findAnswerConfigByCode(
-  answerCode: string,
+/** Finds the Answer config for a given response (e.g. 'YES') */
+export function findAnswerConfigByResponse(
+  response: string,
   questionConfig: QuestionConfiguration,
   mustBeActive = true,
 ): AnswerConfiguration {
   return questionConfig.answers.find(
-    answerConfig => (answerConfig.active || !mustBeActive) && answerConfig.code === answerCode.trim(),
+    answerConfig => (answerConfig.active || !mustBeActive) && answerConfig.response === response.trim(),
   )
-}
-
-/** Finds the Answer config for a given Response inside a report */
-export function findAnswerConfigForResponse(
-  response: Response,
-  questionConfig: QuestionConfiguration,
-  mustBeActive = true,
-): AnswerConfiguration {
-  return findAnswerConfigByCode(response.response, questionConfig, mustBeActive)
 }

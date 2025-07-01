@@ -35,28 +35,28 @@ export function fromNomis(nomisConfig: NomisIncidentTypeConfiguration): DpsIncid
     incidentType: typeFromNomisCode(nomisConfig.incidentType),
     active: nomisConfig.active === true,
     // 1st question is starting question
-    startingQuestionId: nomisQuestions[0]?.questionnaireQueId?.toString() ?? null,
+    startingQuestionCode: nomisQuestions[0]?.questionnaireQueId?.toString() ?? null,
     questions: nomisQuestions.reduce((qs: Record<string, DpsQuestionConfiguration>, q: NomisQuestionConfiguration) => {
       const nomisAnswers = q.answers.sort(sortByAnswerSequence)
 
-      const questionId = q.questionnaireQueId?.toString() ?? null
+      const questionCode = q.questionnaireQueId?.toString() ?? null
       // eslint-disable-next-line no-param-reassign
-      qs[questionId] = {
-        id: questionId,
+      qs[questionCode] = {
+        code: questionCode,
         active: q.questionActiveFlag === true,
-        code: q.questionDesc,
+        question: q.questionDesc,
         label: addQuestionMarkToQuestion(convertToSentenceCase(q.questionDesc)),
         multipleAnswers: q.multipleAnswerFlag === true,
         answers: nomisAnswers.map(ans => {
-          const nextQuestionId = ans.nextQuestionnaireQueId?.toString() ?? null
+          const nextQuestionCode = ans.nextQuestionnaireQueId?.toString() ?? null
           return {
-            id: ans.questionnaireAnsId.toString(),
-            code: ans.answerDesc,
+            code: ans.questionnaireAnsId.toString(),
+            response: ans.answerDesc,
             active: ans.answerActiveFlag === true,
             label: convertToSentenceCase(ans.answerDesc),
             commentRequired: ans.commentRequiredFlag === true,
             dateRequired: ans.dateRequiredFlag === true,
-            nextQuestionId,
+            nextQuestionCode,
           }
         }),
       }
@@ -116,17 +116,17 @@ digraph {{ config.incidentType }} {
   node [shape = circle];
 
   START_NODE [label="", shape=none];
-  START_NODE -> {{ config.startingQuestionId }} [label = "start"];
+  START_NODE -> {{ config.startingQuestionCode }} [label = "start"];
   END_NODE [label="END", shape="doublecircle"];
 
   {%- for question in questions %}
-    {{ question.id }} [label=< <FONT COLOR="royalblue">{{ question.id }} </FONT> {{ question.label }} >
+    {{ question.code }} [label=< <FONT COLOR="royalblue">{{ question.code }} </FONT> {{ question.label }} >
       {%- if not question.active -%}
         , style="filled", color="#DDD"
       {%- endif -%}
       ];
     {%- for answer in question.answers %}
-      {{ question.id }} -> {{ answer.nextQuestionId or 'END_NODE' }} [label=< <FONT COLOR="royalblue">{{ answer.id }} </FONT> {{ answer.label }} >
+      {{ question.code }} -> {{ answer.nextQuestionCode or 'END_NODE' }} [label=< <FONT COLOR="royalblue">{{ answer.code }} </FONT> {{ answer.label }} >
         {%- if not answer.active -%}
           , color="#DDD"
         {%- endif -%}

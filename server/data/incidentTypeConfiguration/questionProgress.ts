@@ -4,7 +4,7 @@ import type FormWizard from 'hmpo-form-wizard'
 import logger from '../../../logger'
 import type { ReportWithDetails, Response } from '../incidentReportingApi'
 import type { AnswerConfiguration, IncidentTypeConfiguration, QuestionConfiguration } from './types'
-import { findAnswerConfigForResponse, questionFieldName } from './utils'
+import { findAnswerConfigByResponse } from './utils'
 
 /** A step in the process of responding to all necessary questions in a report */
 export class QuestionProgressStep {
@@ -31,7 +31,7 @@ export class QuestionProgressStep {
   }
 
   get fieldName(): string {
-    return questionFieldName(this.questionConfig)
+    return this.questionConfig.code
   }
 }
 
@@ -70,13 +70,13 @@ export class QuestionProgress {
    * but this scenario is not possible for users to create.
    */
   *[Symbol.iterator](): Generator<QuestionProgressStep, void, void> {
-    // map of question id to responses so that order isn't required to be identical
+    // map of question code to responses so that order isn't required to be identical
     const reportResponses = new Map<string, Response[]>()
     this.report.questions.forEach(({ code, responses }) => {
       reportResponses.set(code, responses)
     })
 
-    // map of question id to step url path suffix
+    // map of question code to step url path suffix
     const reportSteps = new Map<string, string>()
     Object.entries(this.steps)
       // ignore empty start step
@@ -90,30 +90,30 @@ export class QuestionProgress {
           })
       })
 
-    let nextQuestionId = this.config.startingQuestionId
+    let nextQuestionCode = this.config.startingQuestionCode
     let questionNumber = 0
     let pageNumber = 0
     let lastUrlSuffix = ''
     while (true) {
       questionNumber += 1
-      const questionConfig = this.config.questions[nextQuestionId]
+      const questionConfig = this.config.questions[nextQuestionCode]
       if (!questionConfig.active) {
         logger.warn(
           'Question progress in report %s passing through inactive question: %s',
           this.report.id,
-          nextQuestionId,
+          nextQuestionCode,
         )
       }
-      const urlSuffix = reportSteps.get(nextQuestionId)
+      const urlSuffix = reportSteps.get(nextQuestionCode)
       if (urlSuffix !== lastUrlSuffix) {
         pageNumber += 1
         lastUrlSuffix = urlSuffix
       }
-      const responses: Response[] | undefined = reportResponses.get(questionConfig.id)
+      const responses: Response[] | undefined = reportResponses.get(questionConfig.code)
       const responseItems = responses?.map(response => {
-        let answerConfig = findAnswerConfigForResponse(response, questionConfig, true)
+        let answerConfig = findAnswerConfigByResponse(response.response, questionConfig, true)
         if (!answerConfig) {
-          answerConfig = findAnswerConfigForResponse(response, questionConfig, false)
+          answerConfig = findAnswerConfigByResponse(response.response, questionConfig, false)
           if (answerConfig) {
             logger.warn(
               'Question progress in report %s passing through inactive response: %s',
@@ -128,9 +128,8 @@ export class QuestionProgress {
         return new ResponseItem(response, answerConfig)
       })
       yield new QuestionProgressStep(questionConfig, responseItems, urlSuffix, questionNumber, pageNumber)
-      // TODO: assuming multiple choice questions have options all leading to the same place. was this validated? see IR-769
-      nextQuestionId = responseItems?.[0]?.answerConfig?.nextQuestionId
-      if (!nextQuestionId) {
+      nextQuestionCode = responseItems?.[0]?.answerConfig?.nextQuestionCode
+      if (!nextQuestionCode) {
         break
       }
     }

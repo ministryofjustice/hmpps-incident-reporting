@@ -12,9 +12,8 @@ import type {
 import type { QuestionConfiguration } from '../../../data/incidentTypeConfiguration/types'
 import {
   conditionalFieldName,
-  findAnswerConfigByCode,
+  findAnswerConfigByResponse,
   parseFieldName,
-  questionFieldName,
 } from '../../../data/incidentTypeConfiguration/utils'
 import { aboutTheType } from '../../../reportConfiguration/constants'
 import QuestionsToDelete from '../../../services/questionsToDelete'
@@ -114,8 +113,8 @@ export class QuestionsController extends BaseController<FormWizard.MultiValues> 
 
     if (field.component === 'govukInput' || field.component === 'mojDatePicker') {
       const parsedField = parseFieldName(fieldName)
-      if ('questionId' in parsedField) {
-        const sourceField = req.form.options.fields[parsedField.questionId]
+      if ('questionCode' in parsedField) {
+        const sourceField = req.form.options.fields[parsedField.questionCode]
         if (sourceField) {
           if (field.component === 'mojDatePicker') {
             // date
@@ -147,7 +146,7 @@ export class QuestionsController extends BaseController<FormWizard.MultiValues> 
       const { reportConfig } = res.locals
 
       for (const question of report.questions) {
-        const fieldName = questionFieldName(question)
+        const fieldName = question.code
         const questionConfig: QuestionConfiguration = reportConfig.questions[fieldName]
         if (questionConfig === undefined) {
           logger.error(
@@ -166,11 +165,11 @@ export class QuestionsController extends BaseController<FormWizard.MultiValues> 
         // Populate comment/date fields for each response
         // NOTE: Each response may have its own associated comment and/or date
         for (const response of question.responses) {
-          const answerCode = response.response
-          const answerConfig = findAnswerConfigByCode(answerCode, questionConfig)
+          const answerResponse = response.response
+          const answerConfig = findAnswerConfigByResponse(answerResponse, questionConfig)
           if (answerConfig === undefined) {
             logger.error(
-              `Report '${report.id}': Answer with code '${answerCode}' not found in ${report.type}'s question '${questionConfig.id}' configuration.`,
+              `Report '${report.id}': Answer with response '${answerResponse}' not found in ${report.type}'s question '${questionConfig.code}' configuration.`,
             )
             // eslint-disable-next-line no-continue
             continue
@@ -229,7 +228,7 @@ export class QuestionsController extends BaseController<FormWizard.MultiValues> 
             // submitted values are included later if the question
             // requires a date or comment.
             // Skipping these so that we don't get false errors
-            // when questions with ID like `{Q.id}-{A.id}-(date|comment)`
+            // when questions with code like `{Q.code}-{A.code}-(date|comment)`
             // are not found in the config
 
             // eslint-disable-next-line no-continue
@@ -247,29 +246,29 @@ export class QuestionsController extends BaseController<FormWizard.MultiValues> 
           }
           const questionResponses: AddOrUpdateQuestionWithResponsesRequest = {
             code: fieldName,
-            question: questionConfig.code,
+            question: questionConfig.question,
             additionalInformation: null,
             responses: [],
           }
 
-          const responseCodes = (questionConfig.multipleAnswers ? values : [values]) as string[]
-          for (const responseCode of responseCodes) {
-            if (responseCode === '') {
+          const answerResponses = (questionConfig.multipleAnswers ? values : [values]) as string[]
+          for (const answerResponse of answerResponses) {
+            if (answerResponse === '') {
               // eslint-disable-next-line no-continue
               continue
             }
-            const answerConfig = findAnswerConfigByCode(responseCode, questionConfig)
+            const answerConfig = findAnswerConfigByResponse(answerResponse, questionConfig)
             if (!answerConfig) {
               logger.error(
-                `Report '${report.id}': Submitted Answer with code '${responseCode}' not found in ${report.type}'s question '${questionConfig.id}' configuration.`,
+                `Report '${report.id}': Submitted Answer with response '${answerResponse}' not found in ${report.type}'s question '${questionConfig.code}' configuration.`,
               )
               // eslint-disable-next-line no-continue
               continue
             }
 
             const response: AddOrUpdateQuestionResponseRequest = {
-              response: responseCode,
-              code: answerConfig.id,
+              response: answerResponse,
+              code: answerConfig.code,
               responseDate: null,
               additionalInformation: null,
             }

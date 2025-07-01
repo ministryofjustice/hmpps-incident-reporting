@@ -4,7 +4,7 @@ import type FormWizard from 'hmpo-form-wizard'
 import { EmptyController } from '../../controllers/empty'
 import { QuestionsController } from '../../routes/reports/questions/controller'
 import type { AnswerConfiguration, IncidentTypeConfiguration, QuestionConfiguration } from './types'
-import { conditionalFieldName, questionFieldName } from './utils'
+import { conditionalFieldName } from './utils'
 
 const MAX_ANSWERS_PER_PAGE = 20
 
@@ -25,7 +25,7 @@ export function generateSteps(
       reset: true,
       resetJourney: true,
       skip: true,
-      next: config.startingQuestionId,
+      next: config.startingQuestionCode,
       controller: EmptyController,
     },
   }
@@ -35,7 +35,7 @@ export function generateSteps(
     .forEach(question => {
       const activeAnswers = question.answers.filter(answer => includeInactive || answer.active)
 
-      const fieldName = questionFieldName(question)
+      const fieldName = question.code
       const fields = [fieldName]
       for (const answer of activeAnswers) {
         if (answer.dateRequired) {
@@ -201,13 +201,13 @@ function groupSteps(steps: FormWizard.Steps<FormWizard.MultiValues>) {
     const stepsParentCount: Map<string | null, number> = new Map()
     for (const step of Object.values(steps)) {
       for (const nextStepCondition of Object.values(step.next)) {
-        const nextQuestionId = nextStepCondition.next
-        if (!stepsParentCount.has(nextQuestionId)) {
-          stepsParentCount.set(nextQuestionId, 0)
+        const nextQuestionCode = nextStepCondition.next
+        if (!stepsParentCount.has(nextQuestionCode)) {
+          stepsParentCount.set(nextQuestionCode, 0)
         }
 
-        const currentCount = stepsParentCount.get(nextQuestionId)
-        stepsParentCount.set(nextQuestionId, currentCount + 1)
+        const currentCount = stepsParentCount.get(nextQuestionCode)
+        stepsParentCount.set(nextQuestionCode, currentCount + 1)
       }
     }
 
@@ -239,7 +239,7 @@ export function generateFields(config: IncidentTypeConfiguration): FormWizard.Fi
     .forEach(question => {
       const activeAnswers = question.answers.filter(answer => answer.active)
 
-      const fieldName = questionFieldName(question)
+      const fieldName = question.code
       fields[fieldName] = {
         name: fieldName,
         label: question.label,
@@ -248,7 +248,7 @@ export function generateFields(config: IncidentTypeConfiguration): FormWizard.Fi
         component: question.multipleAnswers ? 'govukCheckboxes' : 'govukRadios',
         items: activeAnswers.map(answer => {
           return {
-            value: answer.code,
+            value: answer.response,
             label: answer.label,
             dateRequired: answer.dateRequired,
             commentRequired: answer.commentRequired,
@@ -267,7 +267,7 @@ export function generateFields(config: IncidentTypeConfiguration): FormWizard.Fi
             validate: ['required', 'ukDate'],
             dependent: {
               field: fieldName,
-              value: answer.code,
+              value: answer.response,
             },
           } satisfies FormWizard.Field
         }
@@ -281,7 +281,7 @@ export function generateFields(config: IncidentTypeConfiguration): FormWizard.Fi
             validate: ['required'],
             dependent: {
               field: fieldName,
-              value: answer.code,
+              value: answer.response,
             },
           } satisfies FormWizard.Field
         }
@@ -301,22 +301,22 @@ export function generateFields(config: IncidentTypeConfiguration): FormWizard.Fi
  * @returns next step conditions
  */
 function nextSteps(question: QuestionConfiguration, answers: AnswerConfiguration[]): FormWizard.NextStepCondition[] {
-  // Group answers by next question id
+  // Group answers by next question code
   const groupedByNextQuestion: Map<string | null, AnswerConfiguration[]> = new Map()
   answers.forEach(answer => {
-    if (!groupedByNextQuestion.has(answer.nextQuestionId)) {
-      groupedByNextQuestion.set(answer.nextQuestionId, [])
+    if (!groupedByNextQuestion.has(answer.nextQuestionCode)) {
+      groupedByNextQuestion.set(answer.nextQuestionCode, [])
     }
 
-    groupedByNextQuestion.get(answer.nextQuestionId).push(answer)
+    groupedByNextQuestion.get(answer.nextQuestionCode).push(answer)
   })
 
   const next: FormWizard.NextStepCondition[] = []
-  for (const [nextQuestionId, groupAnswers] of groupedByNextQuestion.entries()) {
-    const answerCodes = groupAnswers.map(answer => answer.code)
+  for (const [nextQuestionCode, groupAnswers] of groupedByNextQuestion.entries()) {
+    const answerResponses = groupAnswers.map(answer => answer.response)
 
     next.push({
-      field: questionFieldName(question),
+      field: question.code,
       // - for single values, check if submitted value is
       //   contained **in** `condition.value`
       // - for multiple values, submitted values is an array, e.g.
@@ -324,8 +324,8 @@ function nextSteps(question: QuestionConfiguration, answers: AnswerConfiguration
       //   is in `condition.value`
       //   NOTE: Form Wizard's `some` is NOT doing this on arrays
       op: question.multipleAnswers ? checkMultipleValues : 'in',
-      value: answerCodes,
-      next: nextQuestionId,
+      value: answerResponses,
+      next: nextQuestionCode,
     })
   }
 

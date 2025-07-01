@@ -196,6 +196,7 @@ describe('Question progress', () => {
       {
         code: '1',
         question: 'Q1',
+        label: 'Q1',
         responses: [
           {
             response: 'A1-1',
@@ -260,6 +261,7 @@ describe('Question progress', () => {
       {
         code: '1',
         question: 'Q1',
+        label: 'Q1',
         responses: [
           {
             response: 'A1-2',
@@ -327,6 +329,7 @@ describe('Question progress', () => {
       {
         code: '1',
         question: 'Q1',
+        label: 'Q1',
         responses: [
           {
             response: 'A1-1',
@@ -342,6 +345,7 @@ describe('Question progress', () => {
       {
         code: '2',
         question: 'Q2',
+        label: 'Q2',
         responses: [
           {
             response: 'A2-2',
@@ -357,6 +361,7 @@ describe('Question progress', () => {
       {
         code: '3',
         question: 'Q3',
+        label: 'Q3',
         responses: [
           {
             response: 'A3-2',
@@ -372,6 +377,7 @@ describe('Question progress', () => {
       {
         code: '4',
         question: 'Q4',
+        label: 'Q4',
         responses: [
           {
             response: 'A4-1',
@@ -471,6 +477,7 @@ describe('Question progress', () => {
         {
           code: '1',
           question: 'Q1',
+          label: 'Q1',
           responses: [
             {
               response: 'A1-10',
@@ -556,6 +563,7 @@ describe('Question progress', () => {
           {
             code: '1',
             question: 'Q1',
+            label: 'Q1',
             responses,
             additionalInformation: null,
           },
@@ -753,6 +761,7 @@ describe('Question progress', () => {
           {
             code: '1',
             question: 'Q1',
+            label: 'Q1',
             responses,
             additionalInformation: null,
           },
@@ -871,6 +880,7 @@ describe('Question progress', () => {
         {
           code: '1',
           question: 'Q1',
+          label: 'Q1',
           responses: [
             {
               response: 'A1',

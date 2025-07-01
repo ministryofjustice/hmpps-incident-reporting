@@ -250,6 +250,7 @@ describe('Incident reporting API client', () => {
             {
               code: '1',
               question: 'Was the police informed?',
+              label: 'Was the police informed?',
               responses: [{ code: '11', response: 'Yes', responseDate: now }],
             },
           ]),
@@ -462,6 +463,7 @@ describe('Incident reporting API client', () => {
             {
               code: '1',
               question: 'Was the police informed?',
+              label: 'Was the police informed?',
               responses: [{ code: '11', response: 'Yes', responseDate: now }],
             },
           ]),
@@ -595,6 +597,7 @@ describe('Incident reporting API client', () => {
             {
               code: '1',
               question: 'Was the police informed?',
+              label: 'Was the police informed?',
               responses: [{ code: '11', response: 'Yes', responseDate: now }],
             },
           ]),

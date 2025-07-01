@@ -97,6 +97,7 @@ describe('Displaying questions and responses', () => {
         {
           code: '45054',
           question: 'WERE THE POLICE INFORMED OF THE INCIDENT',
+          label: 'Were the police informed of the incident?',
           additionalInformation: null,
           responses: [
             {
@@ -260,6 +261,7 @@ describe('Displaying questions and responses', () => {
           {
             code: '67179',
             question: 'DESCRIBE HOW THE ITEM WAS FOUND (SELECT ALL THAT APPLY)',
+            label: 'Describe how the item was found (select all that apply)',
             additionalInformation: null,
             responses: [
               {
@@ -573,6 +575,7 @@ describe('Submitting questions’ responses', () => {
         {
           code: '45054',
           question: 'WERE THE POLICE INFORMED OF THE INCIDENT',
+          label: 'Were the police informed of the incident?',
           additionalInformation: null,
           responses: [
             {
@@ -589,6 +592,7 @@ describe('Submitting questions’ responses', () => {
         {
           code: '45054',
           question: 'WERE THE POLICE INFORMED OF THE INCIDENT',
+          label: 'Were the police informed of the incident?',
           additionalInformation: null,
           responses: [
             {
@@ -634,6 +638,7 @@ describe('Submitting questions’ responses', () => {
         {
           code: '67179',
           question: 'DESCRIBE HOW THE ITEM WAS FOUND (SELECT ALL THAT APPLY)',
+          label: 'Describe how the item was found (select all that apply)',
           additionalInformation: null,
           responses: [
             {
@@ -700,6 +705,7 @@ describe('Submitting questions’ responses', () => {
         {
           code: '61279',
           question: 'WHAT WAS THE MAIN MANAGEMENT OUTCOME OF THE INCIDENT',
+          label: 'What was the main management outcome of the incident?',
           additionalInformation: null,
           responses: [
             {
@@ -713,6 +719,7 @@ describe('Submitting questions’ responses', () => {
         {
           code: '61280',
           question: 'IS ANY MEMBER OF STAFF FACING DISCIPLINARY CHARGES',
+          label: 'Is any member of staff facing disciplinary charges?',
           additionalInformation: null,
           responses: [
             {
@@ -726,6 +733,7 @@ describe('Submitting questions’ responses', () => {
         {
           code: '61281',
           question: 'IS THERE ANY MEDIA INTEREST IN THIS INCIDENT',
+          label: 'Is there any media interest in this incident?',
           additionalInformation: null,
           responses: [
             {
@@ -739,6 +747,7 @@ describe('Submitting questions’ responses', () => {
         {
           code: '61282',
           question: 'HAS THE PRISON SERVICE PRESS OFFICE BEEN INFORMED',
+          label: 'Has the prison service press office been informed?',
           additionalInformation: null,
           responses: [
             {
@@ -752,6 +761,7 @@ describe('Submitting questions’ responses', () => {
         {
           code: '61283',
           question: 'IS THE LOCATION OF THE INCDENT KNOWN',
+          label: 'Is the location of the incident known?',
           additionalInformation: null,
           responses: [
             {

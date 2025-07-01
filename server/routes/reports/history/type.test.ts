@@ -87,6 +87,7 @@ describe('Report incident type history', () => {
           {
             code: 'WHERE DID IT HAPPEN',
             question: 'Where did it happen?',
+            label: 'Where did it happen?',
             additionalInformation: null,
             responses: [
               {
@@ -109,6 +110,7 @@ describe('Report incident type history', () => {
           {
             code: 'WAS ANYONE HURT',
             question: 'Was anyone hurt?',
+            label: 'Was anyone hurt?',
             additionalInformation: null,
             responses: [
               {

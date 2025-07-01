@@ -94,6 +94,7 @@ export function mockReport({
         questions: buildArray(2, questionIndex => ({
           code: (questionIndex + 1).toString(),
           question: `Historic question #${questionIndex + 1}`,
+          label: `Historic question #${questionIndex + 1}`,
           additionalInformation: '',
           responses: buildArray(2, responseIndex => ({
             response: `Historic response #${responseIndex + 1}`,
@@ -209,6 +210,7 @@ export function mockQuestion(
   return {
     code: (questionIndex + 1).toString(),
     question: `Question #${questionIndex + 1}`,
+    label: `Question #${questionIndex + 1}`,
     additionalInformation: `Explanation #${questionIndex + 1}`,
     responses: buildArray(numberOfResponses, responseIndex => ({
       response: `Response #${responseIndex + 1}`,

@@ -124,6 +124,7 @@ export type DescriptionAddendum = {
 export type Question = {
   code: string
   question: string
+  label: string
   responses: Response[]
   additionalInformation: string | null
 }
@@ -196,6 +197,7 @@ export type ChangeTypeRequest = { newType: Type }
 export type AddOrUpdateQuestionWithResponsesRequest = {
   code: string
   question: string
+  label: string
   responses: AddOrUpdateQuestionResponseRequest[]
   additionalInformation?: string
 }

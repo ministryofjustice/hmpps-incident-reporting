@@ -32,8 +32,9 @@ context('Responding to questions', () => {
         label: 'Were the police informed of the incident?',
         responses: [
           {
-            response: 'NO',
             code: '181153',
+            response: 'NO',
+            label: 'No',
             responseDate: null,
             additionalInformation: null,
             recordedBy: 'user1',
@@ -48,16 +49,18 @@ context('Responding to questions', () => {
         label: 'The incident is subject to',
         responses: [
           {
-            response: 'INVESTIGATION BY POLICE',
             code: '181648',
+            response: 'INVESTIGATION BY POLICE',
+            label: 'Investigation by police',
             responseDate: null,
             additionalInformation: null,
             recordedBy: 'user1',
             recordedAt: now.toISOString(),
           },
           {
-            response: 'INVESTIGATION INTERNALLY',
             code: '181649',
+            response: 'INVESTIGATION INTERNALLY',
+            label: 'Investigation internally',
             responseDate: null,
             additionalInformation: null,
             recordedBy: 'user1',
@@ -72,8 +75,9 @@ context('Responding to questions', () => {
         label: 'Is any member of staff facing disciplinary charges?',
         responses: [
           {
-            response: 'NO',
             code: '182083',
+            response: 'NO',
+            label: 'No',
             responseDate: null,
             additionalInformation: null,
             recordedBy: 'user1',
@@ -88,8 +92,9 @@ context('Responding to questions', () => {
         label: 'Is there any media interest in this incident?',
         responses: [
           {
-            response: 'NO',
             code: '180711',
+            response: 'NO',
+            label: 'No',
             responseDate: null,
             additionalInformation: null,
             recordedBy: 'user1',
@@ -104,8 +109,9 @@ context('Responding to questions', () => {
         label: 'Has the prison service press office been informed?',
         responses: [
           {
-            response: 'YES',
             code: '181104',
+            response: 'YES',
+            label: 'Yes',
             responseDate: '2025-03-19',
             additionalInformation: null,
             recordedBy: 'user1',

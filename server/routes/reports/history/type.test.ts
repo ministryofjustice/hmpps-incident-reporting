@@ -91,8 +91,9 @@ describe('Report incident type history', () => {
             additionalInformation: null,
             responses: [
               {
-                response: 'CELL',
                 code: '212870',
+                response: 'CELL',
+                label: 'Cell',
                 responseDate: new Date(2023, 11, 4),
                 additionalInformation: 'A-003',
                 recordedBy: 'user1',
@@ -114,8 +115,9 @@ describe('Report incident type history', () => {
             additionalInformation: null,
             responses: [
               {
-                response: 'YES',
                 code: '179784',
+                response: 'YES',
+                label: 'Yes',
                 responseDate: null,
                 additionalInformation: null,
                 recordedBy: 'user2',

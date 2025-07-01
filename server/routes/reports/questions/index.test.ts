@@ -101,8 +101,9 @@ describe('Displaying questions and responses', () => {
           additionalInformation: null,
           responses: [
             {
-              response: 'YES',
               code: '182204',
+              response: 'YES',
+              label: 'Yes',
               responseDate: now,
               additionalInformation: null,
               recordedBy: 'USER1',
@@ -265,8 +266,9 @@ describe('Displaying questions and responses', () => {
             additionalInformation: null,
             responses: [
               {
-                response: 'CELL SEARCH',
                 code: '218687',
+                response: 'CELL SEARCH',
+                label: 'Cell search',
                 responseDate: null,
                 additionalInformation: null,
                 recordedBy: 'USER_1',
@@ -579,8 +581,9 @@ describe('Submitting questions’ responses', () => {
           additionalInformation: null,
           responses: [
             {
-              response: 'YES',
               code: '182204',
+              response: 'YES',
+              label: 'Yes',
               responseDate: parseDateInput(responseDate),
               additionalInformation: null,
             },
@@ -596,8 +599,9 @@ describe('Submitting questions’ responses', () => {
           additionalInformation: null,
           responses: [
             {
-              response: 'YES',
               code: '182204',
+              response: 'YES',
+              label: 'Yes',
               responseDate: parseDateInput(responseDate),
               recordedAt: new Date(),
               recordedBy: 'USER_1',
@@ -642,14 +646,16 @@ describe('Submitting questions’ responses', () => {
           additionalInformation: null,
           responses: [
             {
-              response: 'BOSS CHAIR',
               code: '218686',
+              response: 'BOSS CHAIR',
+              label: 'Boss chair',
               responseDate: null,
               additionalInformation: null,
             },
             {
-              response: 'DOG SEARCH',
               code: '218688',
+              response: 'DOG SEARCH',
+              label: 'Dog search',
               responseDate: null,
               additionalInformation: null,
             },
@@ -709,8 +715,9 @@ describe('Submitting questions’ responses', () => {
           additionalInformation: null,
           responses: [
             {
-              response: 'POLICE REFERRAL',
               code: '213065',
+              response: 'POLICE REFERRAL',
+              label: 'Police referral',
               responseDate: null,
               additionalInformation: null,
             },
@@ -723,8 +730,9 @@ describe('Submitting questions’ responses', () => {
           additionalInformation: null,
           responses: [
             {
-              response: 'YES',
               code: '213066',
+              response: 'YES',
+              label: 'Yes',
               responseDate: null,
               additionalInformation: null,
             },
@@ -737,8 +745,9 @@ describe('Submitting questions’ responses', () => {
           additionalInformation: null,
           responses: [
             {
-              response: 'NO',
               code: '213069',
+              response: 'NO',
+              label: 'No',
               responseDate: null,
               additionalInformation: null,
             },
@@ -751,8 +760,9 @@ describe('Submitting questions’ responses', () => {
           additionalInformation: null,
           responses: [
             {
-              response: 'YES',
               code: '213070',
+              response: 'YES',
+              label: 'Yes',
               responseDate: null,
               additionalInformation: null,
             },
@@ -765,8 +775,9 @@ describe('Submitting questions’ responses', () => {
           additionalInformation: null,
           responses: [
             {
-              response: 'NO',
               code: '213073',
+              response: 'NO',
+              label: 'No',
               responseDate: null,
               additionalInformation: null,
             },

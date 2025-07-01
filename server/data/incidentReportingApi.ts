@@ -129,8 +129,9 @@ export type Question = {
 }
 
 export type Response = {
-  response: string
   code: string
+  response: string
+  label: string
   responseDate: Date | null
   additionalInformation: string | null
   recordedBy: string
@@ -202,8 +203,9 @@ export type AddOrUpdateQuestionWithResponsesRequest = {
 }
 
 export type AddOrUpdateQuestionResponseRequest = {
-  response: string
   code: string
+  response: string
+  label: string
   responseDate?: Date
   additionalInformation?: string
 }

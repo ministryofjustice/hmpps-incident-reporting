@@ -268,8 +268,9 @@ export class QuestionsController extends BaseController<FormWizard.MultiValues> 
             }
 
             const response: AddOrUpdateQuestionResponseRequest = {
-              response: answerResponse,
               code: answerConfig.code,
+              response: answerResponse,
+              label: answerConfig.label,
               responseDate: null,
               additionalInformation: null,
             }

@@ -60,7 +60,6 @@ export function mockReport({
     reportedBy: reportingUsername,
     reportedAt: format.isoDateTime(reportDateAndTime),
     status,
-    assignedTo: reportingUsername,
     createdAt: format.isoDateTime(reportDateAndTime),
     modifiedAt: format.isoDateTime(reportDateAndTime),
     modifiedBy: reportingUsername,

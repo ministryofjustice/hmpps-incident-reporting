@@ -71,7 +71,6 @@ export type ReportBasic = {
   reportedBy: string
   reportedAt: Date
   status: Status
-  assignedTo: string | null
   createdAt: Date
   modifiedAt: Date
   modifiedBy: string

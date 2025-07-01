@@ -11,6 +11,7 @@ export function makeSimpleQuestion(code: string, question: string, ...responses:
   return {
     code,
     question,
+    label: question,
     additionalInformation: null,
     responses: responses.map(([responseResponse, responseCode]) => {
       const response: Response = {

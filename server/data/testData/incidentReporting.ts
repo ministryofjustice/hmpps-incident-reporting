@@ -93,12 +93,12 @@ export function mockReport({
         questions: buildArray(2, questionIndex => ({
           code: (questionIndex + 1).toString(),
           question: `Historic question #${questionIndex + 1}`,
-          label: `Historic question #${questionIndex + 1}`,
+          label: `Historic question label #${questionIndex + 1}`,
           additionalInformation: '',
           responses: buildArray(2, responseIndex => ({
             code: `${responseIndex + 1}`,
             response: `Historic response #${responseIndex + 1}`,
-            label: `Historic response #${responseIndex + 1}`,
+            label: `Historic response label #${responseIndex + 1}`,
             responseDate: format.isoDate(reportDateAndTime),
             additionalInformation: `Historic comment #${responseIndex + 1}`,
             recordedBy: 'some-user-2',
@@ -210,12 +210,12 @@ export function mockQuestion(
   return {
     code: (questionIndex + 1).toString(),
     question: `Question #${questionIndex + 1}`,
-    label: `Question #${questionIndex + 1}`,
+    label: `Question label #${questionIndex + 1}`,
     additionalInformation: `Explanation #${questionIndex + 1}`,
     responses: buildArray(numberOfResponses, responseIndex => ({
       code: `${responseIndex + 1}`,
       response: `Response #${responseIndex + 1}`,
-      label: `Response #${responseIndex + 1}`,
+      label: `Response label #${responseIndex + 1}`,
       responseDate: format.isoDate(responseDate),
       recordedBy: 'some-user',
       recordedAt: format.isoDateTime(responseDate),

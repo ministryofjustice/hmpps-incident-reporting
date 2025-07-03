@@ -36,6 +36,11 @@ export type Agency = {
   active: boolean
 }
 
+export type ServicePrison = {
+  prisonId: string
+  prison: string
+}
+
 export interface Staff {
   firstName: string
   lastName: string
@@ -182,6 +187,21 @@ export class PrisonApi extends RestClient {
 
     // Returns the agencies in an object for easy access
     return agencies.reduce((prev, agency) => ({ ...prev, [agency.agencyId]: agency }), {})
+  }
+
+  /**
+   * Returns a list of prisons switched on for the Incidents Reporting service.
+   *
+   * Requires role ROLE_PRISON_API__SERVICE_AGENCY_SWITCHES__RO
+   */
+  getServicePrisons(): Promise<ServicePrison[]> {
+    const SERVICE_CODE = 'INCIDENTS'
+    return this.get<ServicePrison[]>(
+      {
+        path: `/api/service-prisons/${encodeURIComponent(SERVICE_CODE)}`,
+      },
+      asSystem(),
+    )
   }
 
   async getPhoto(prisonerNumber: string): Promise<Buffer | null> {

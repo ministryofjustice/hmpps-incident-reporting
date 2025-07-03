@@ -1,8 +1,14 @@
 import nock from 'nock'
 
 import config from '../config'
-import { PrisonApi, type Agency, type IncidentTypeConfiguration, type ReferenceCode } from './prisonApi'
-import { leeds, moorland, pecsNorth, pecsSouth, staffMary } from './testData/prisonApi'
+import {
+  PrisonApi,
+  type ServicePrison,
+  type Agency,
+  type IncidentTypeConfiguration,
+  type ReferenceCode,
+} from './prisonApi'
+import { brixton, leeds, moorland, pecsNorth, pecsSouth, staffMary } from './testData/prisonApi'
 
 describe('prisonApi', () => {
   const accessToken = 'token'
@@ -67,6 +73,21 @@ describe('prisonApi', () => {
         LEI: leeds,
         MDI: moorland,
       })
+    })
+  })
+
+  describe('getServicePrisons', () => {
+    it('returns the list of prisons where INCIDENTS service is active', async () => {
+      const expectedResponse = [
+        { prisonId: moorland.agencyId, prison: moorland.description },
+        { prisonId: brixton.agencyId, prison: brixton.description },
+      ]
+      fakeApiClient
+        .get('/api/service-prisons/INCIDENTS')
+        .matchHeader('authorization', `Bearer ${accessToken}`)
+        .reply(200, expectedResponse satisfies ServicePrison[])
+
+      await expect(apiClient.getServicePrisons()).resolves.toEqual<Array<ServicePrison>>(expectedResponse)
     })
   })
 

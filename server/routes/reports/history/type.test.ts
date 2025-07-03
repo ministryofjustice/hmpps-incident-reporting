@@ -87,11 +87,13 @@ describe('Report incident type history', () => {
           {
             code: 'WHERE DID IT HAPPEN',
             question: 'Where did it happen?',
+            label: 'Where did it happen?',
             additionalInformation: null,
             responses: [
               {
-                response: 'CELL',
                 code: '212870',
+                response: 'CELL',
+                label: 'Cell',
                 responseDate: new Date(2023, 11, 4),
                 additionalInformation: 'A-003',
                 recordedBy: 'user1',
@@ -109,11 +111,13 @@ describe('Report incident type history', () => {
           {
             code: 'WAS ANYONE HURT',
             question: 'Was anyone hurt?',
+            label: 'Was anyone hurt?',
             additionalInformation: null,
             responses: [
               {
-                response: 'YES',
                 code: '179784',
+                response: 'YES',
+                label: 'Yes',
                 responseDate: null,
                 additionalInformation: null,
                 recordedBy: 'user2',

@@ -97,11 +97,13 @@ describe('Displaying questions and responses', () => {
         {
           code: '45054',
           question: 'WERE THE POLICE INFORMED OF THE INCIDENT',
+          label: 'Were the police informed of the incident?',
           additionalInformation: null,
           responses: [
             {
-              response: 'YES',
               code: '182204',
+              response: 'YES',
+              label: 'Yes',
               responseDate: now,
               additionalInformation: null,
               recordedBy: 'USER1',
@@ -260,11 +262,13 @@ describe('Displaying questions and responses', () => {
           {
             code: '67179',
             question: 'DESCRIBE HOW THE ITEM WAS FOUND (SELECT ALL THAT APPLY)',
+            label: 'Describe how the item was found (select all that apply)',
             additionalInformation: null,
             responses: [
               {
-                response: 'CELL SEARCH',
                 code: '218687',
+                response: 'CELL SEARCH',
+                label: 'Cell search',
                 responseDate: null,
                 additionalInformation: null,
                 recordedBy: 'USER_1',
@@ -573,11 +577,13 @@ describe('Submitting questions’ responses', () => {
         {
           code: '45054',
           question: 'WERE THE POLICE INFORMED OF THE INCIDENT',
+          label: 'Were the police informed of the incident?',
           additionalInformation: null,
           responses: [
             {
-              response: 'YES',
               code: '182204',
+              response: 'YES',
+              label: 'Yes',
               responseDate: parseDateInput(responseDate),
               additionalInformation: null,
             },
@@ -589,11 +595,13 @@ describe('Submitting questions’ responses', () => {
         {
           code: '45054',
           question: 'WERE THE POLICE INFORMED OF THE INCIDENT',
+          label: 'Were the police informed of the incident?',
           additionalInformation: null,
           responses: [
             {
-              response: 'YES',
               code: '182204',
+              response: 'YES',
+              label: 'Yes',
               responseDate: parseDateInput(responseDate),
               recordedAt: new Date(),
               recordedBy: 'USER_1',
@@ -634,17 +642,20 @@ describe('Submitting questions’ responses', () => {
         {
           code: '67179',
           question: 'DESCRIBE HOW THE ITEM WAS FOUND (SELECT ALL THAT APPLY)',
+          label: 'Describe how the item was found (select all that apply)',
           additionalInformation: null,
           responses: [
             {
-              response: 'BOSS CHAIR',
               code: '218686',
+              response: 'BOSS CHAIR',
+              label: 'Boss chair',
               responseDate: null,
               additionalInformation: null,
             },
             {
-              response: 'DOG SEARCH',
               code: '218688',
+              response: 'DOG SEARCH',
+              label: 'Dog search',
               responseDate: null,
               additionalInformation: null,
             },
@@ -700,11 +711,13 @@ describe('Submitting questions’ responses', () => {
         {
           code: '61279',
           question: 'WHAT WAS THE MAIN MANAGEMENT OUTCOME OF THE INCIDENT',
+          label: 'What was the main management outcome of the incident?',
           additionalInformation: null,
           responses: [
             {
-              response: 'POLICE REFERRAL',
               code: '213065',
+              response: 'POLICE REFERRAL',
+              label: 'Police referral',
               responseDate: null,
               additionalInformation: null,
             },
@@ -713,11 +726,13 @@ describe('Submitting questions’ responses', () => {
         {
           code: '61280',
           question: 'IS ANY MEMBER OF STAFF FACING DISCIPLINARY CHARGES',
+          label: 'Is any member of staff facing disciplinary charges?',
           additionalInformation: null,
           responses: [
             {
-              response: 'YES',
               code: '213066',
+              response: 'YES',
+              label: 'Yes',
               responseDate: null,
               additionalInformation: null,
             },
@@ -726,11 +741,13 @@ describe('Submitting questions’ responses', () => {
         {
           code: '61281',
           question: 'IS THERE ANY MEDIA INTEREST IN THIS INCIDENT',
+          label: 'Is there any media interest in this incident?',
           additionalInformation: null,
           responses: [
             {
-              response: 'NO',
               code: '213069',
+              response: 'NO',
+              label: 'No',
               responseDate: null,
               additionalInformation: null,
             },
@@ -739,11 +756,13 @@ describe('Submitting questions’ responses', () => {
         {
           code: '61282',
           question: 'HAS THE PRISON SERVICE PRESS OFFICE BEEN INFORMED',
+          label: 'Has the prison service press office been informed?',
           additionalInformation: null,
           responses: [
             {
-              response: 'YES',
               code: '213070',
+              response: 'YES',
+              label: 'Yes',
               responseDate: null,
               additionalInformation: null,
             },
@@ -752,11 +771,13 @@ describe('Submitting questions’ responses', () => {
         {
           code: '61283',
           question: 'IS THE LOCATION OF THE INCDENT KNOWN',
+          label: 'Is the location of the incident known?',
           additionalInformation: null,
           responses: [
             {
-              response: 'NO',
               code: '213073',
+              response: 'NO',
+              label: 'No',
               responseDate: null,
               additionalInformation: null,
             },

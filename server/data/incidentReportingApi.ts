@@ -71,7 +71,6 @@ export type ReportBasic = {
   reportedBy: string
   reportedAt: Date
   status: Status
-  assignedTo: string | null
   createdAt: Date
   modifiedAt: Date
   modifiedBy: string
@@ -124,13 +123,15 @@ export type DescriptionAddendum = {
 export type Question = {
   code: string
   question: string
+  label: string
   responses: Response[]
   additionalInformation: string | null
 }
 
 export type Response = {
-  response: string
   code: string
+  response: string
+  label: string
   responseDate: Date | null
   additionalInformation: string | null
   recordedBy: string
@@ -196,13 +197,15 @@ export type ChangeTypeRequest = { newType: Type }
 export type AddOrUpdateQuestionWithResponsesRequest = {
   code: string
   question: string
+  label: string
   responses: AddOrUpdateQuestionResponseRequest[]
   additionalInformation?: string
 }
 
 export type AddOrUpdateQuestionResponseRequest = {
-  response: string
   code: string
+  response: string
+  label: string
   responseDate?: Date
   additionalInformation?: string
 }

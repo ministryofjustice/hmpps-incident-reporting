@@ -415,16 +415,20 @@ context('Creating a completed draft report', () => {
 const apiQuestionResponse = (
   code: string,
   question: string,
-  response: string,
+  label: string,
   responseCode: string,
+  response: string,
+  responseLabel: string,
 ): DatesAsStrings<Question> => ({
   code,
   question,
+  label,
   additionalInformation: null,
   responses: [
     {
-      response,
       code: responseCode,
+      response,
+      label: responseLabel,
       responseDate: null,
       additionalInformation: null,
       recordedBy: 'user1',
@@ -447,40 +451,144 @@ const putQuestionRequest = (question: DatesAsStrings<Question>): unknown => ({
 })
 
 const questionsPage1 = [
-  apiQuestionResponse('44769', 'WERE THE POLICE INFORMED OF THE INCIDENT', 'NO', '181153'),
-  apiQuestionResponse('44919', 'THE INCIDENT IS SUBJECT TO', 'INVESTIGATION INTERNALLY', '181649'),
-  apiQuestionResponse('45033', 'IS ANY MEMBER OF STAFF FACING DISCIPLINARY CHARGES', 'NO', '182083'),
-  apiQuestionResponse('44636', 'IS THERE ANY MEDIA INTEREST IN THIS INCIDENT', 'NO', '180711'),
-  apiQuestionResponse('44749', 'HAS THE PRISON SERVICE PRESS OFFICE BEEN INFORMED', 'NO', '181103'),
+  apiQuestionResponse(
+    '44769',
+    'WERE THE POLICE INFORMED OF THE INCIDENT',
+    'Were the police informed of the incident?',
+    '181153',
+    'NO',
+    'No',
+  ),
+  apiQuestionResponse(
+    '44919',
+    'THE INCIDENT IS SUBJECT TO',
+    'The incident is subject to',
+    '181649',
+    'INVESTIGATION INTERNALLY',
+    'Investigation internally',
+  ),
+  apiQuestionResponse(
+    '45033',
+    'IS ANY MEMBER OF STAFF FACING DISCIPLINARY CHARGES',
+    'Is any member of staff facing disciplinary charges?',
+    '182083',
+    'NO',
+    'No',
+  ),
+  apiQuestionResponse(
+    '44636',
+    'IS THERE ANY MEDIA INTEREST IN THIS INCIDENT',
+    'Is there any media interest in this incident?',
+    '180711',
+    'NO',
+    'No',
+  ),
+  apiQuestionResponse(
+    '44749',
+    'HAS THE PRISON SERVICE PRESS OFFICE BEEN INFORMED',
+    'Has the prison service press office been informed?',
+    '181103',
+    'NO',
+    'No',
+  ),
 ]
 const questionsPage2 = [
   apiQuestionResponse(
     '44594',
     'WHERE WAS THE PRISONER PRIOR TO THE START OF THE ATTEMPTED ESCAPE',
-    'RECEPTION',
+    'Where was the prisoner prior to the start of the attempted escape?',
     '180586',
+    'RECEPTION',
+    'Reception',
   ),
 ]
 const questionsPage3 = [
-  apiQuestionResponse('44545', 'DID PRISONER GAIN ACCESS TO THE EXTERNAL PERIMETER', 'NO', '180421'),
+  apiQuestionResponse(
+    '44545',
+    'DID PRISONER GAIN ACCESS TO THE EXTERNAL PERIMETER',
+    'Did prisoner gain access to the external perimeter?',
+    '180421',
+    'NO',
+    'No',
+  ),
 ]
 const questionsPage4 = [
-  apiQuestionResponse('44441', 'DID THE PRISONER ATTEMPT TO GAIN ACCESS TO THE EXTERNAL PERIMETER', 'NO', '179954'),
+  apiQuestionResponse(
+    '44441',
+    'DID THE PRISONER ATTEMPT TO GAIN ACCESS TO THE EXTERNAL PERIMETER',
+    'Did the prisoner attempt to gain access to the external perimeter?',
+    '179954',
+    'NO',
+    'No',
+  ),
 ]
 const questionsPage5 = [
-  apiQuestionResponse('44746', 'ARE THE GROUNDS PATROLLED BY DOGS', 'NO', '181096'),
-  apiQuestionResponse('44595', 'WAS AN AIRCRAFT INVOLVED', 'NO', '180592'),
+  apiQuestionResponse(
+    '44746',
+    'ARE THE GROUNDS PATROLLED BY DOGS',
+    'Are the grounds patrolled by dogs?',
+    '181096',
+    'NO',
+    'No',
+  ),
+  apiQuestionResponse('44595', 'WAS AN AIRCRAFT INVOLVED', 'Was an aircraft involved?', '180592', 'NO', 'No'),
 ]
 const questionsPage6 = [
-  apiQuestionResponse('44983', 'WAS OUTSIDE ASSISTANCE INVOLVED IN THE ATTEMPTED ESCAPE', 'NO', '181911'),
+  apiQuestionResponse(
+    '44983',
+    'WAS OUTSIDE ASSISTANCE INVOLVED IN THE ATTEMPTED ESCAPE',
+    'Was outside assistance involved in the attempted escape?',
+    '181911',
+    'NO',
+    'No',
+  ),
 ]
-const questionsPage7 = [apiQuestionResponse('44320', 'WERE ANY WEAPONS USED', 'NO', '179561')]
-const questionsPage8 = [apiQuestionResponse('44731', 'WERE ANY INJURIES RECEIVED DURING THIS INCIDENT', 'NO', '181059')]
+const questionsPage7 = [
+  apiQuestionResponse('44320', 'WERE ANY WEAPONS USED', 'Were any weapons used?', '179561', 'NO', 'No'),
+]
+const questionsPage8 = [
+  apiQuestionResponse(
+    '44731',
+    'WERE ANY INJURIES RECEIVED DURING THIS INCIDENT',
+    'Were any injuries received during this incident?',
+    '181059',
+    'NO',
+    'No',
+  ),
+]
 const questionsPage9 = [
-  apiQuestionResponse('45073', 'HOW WAS THE ESCAPE ATTEMPT DISCOVERED', 'STAFF VIGILANCE', '182267'),
-  apiQuestionResponse('44349', 'HOW WAS THE ESCAPE ATTEMPT FOILED', 'STAFF INTERVENTION', '179676'),
-  apiQuestionResponse('44447', 'WAS DAMAGE CAUSED TO PRISON PROPERTY', 'NO', '179978'),
+  apiQuestionResponse(
+    '45073',
+    'HOW WAS THE ESCAPE ATTEMPT DISCOVERED',
+    'How was the escape attempt discovered?',
+    '182267',
+    'STAFF VIGILANCE',
+    'Staff vigilance',
+  ),
+  apiQuestionResponse(
+    '44349',
+    'HOW WAS THE ESCAPE ATTEMPT FOILED',
+    'How was the escape attempt foiled?',
+    '179676',
+    'STAFF INTERVENTION',
+    'Staff intervention',
+  ),
+  apiQuestionResponse(
+    '44447',
+    'WAS DAMAGE CAUSED TO PRISON PROPERTY',
+    'Was damage caused to prison property?',
+    '179978',
+    'NO',
+    'No',
+  ),
 ]
 const questionsPage10 = [
-  apiQuestionResponse('44863', 'WAS THE TELEPHONE/IT SYSTEM SHUT DOWN DURING THE INCIDENT?', 'NO', '181444'),
+  apiQuestionResponse(
+    '44863',
+    'WAS THE TELEPHONE/IT SYSTEM SHUT DOWN DURING THE INCIDENT?',
+    'Was the telephone/it system shut down during the incident?',
+    '181444',
+    'NO',
+    'No',
+  ),
 ]

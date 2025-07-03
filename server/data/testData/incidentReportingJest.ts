@@ -11,11 +11,13 @@ export function makeSimpleQuestion(code: string, question: string, ...responses:
   return {
     code,
     question,
+    label: question,
     additionalInformation: null,
     responses: responses.map(([responseResponse, responseCode]) => {
       const response: Response = {
-        response: responseResponse,
         code: responseCode,
+        response: responseResponse,
+        label: responseResponse,
         responseDate: null,
         additionalInformation: null,
         recordedBy: 'USER1',

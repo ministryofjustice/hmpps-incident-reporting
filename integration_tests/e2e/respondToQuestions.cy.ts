@@ -29,10 +29,12 @@ context('Responding to questions', () => {
       {
         code: '44769',
         question: 'WERE THE POLICE INFORMED OF THE INCIDENT',
+        label: 'Were the police informed of the incident?',
         responses: [
           {
-            response: 'NO',
             code: '181153',
+            response: 'NO',
+            label: 'No',
             responseDate: null,
             additionalInformation: null,
             recordedBy: 'user1',
@@ -44,18 +46,21 @@ context('Responding to questions', () => {
       {
         code: '44919',
         question: 'THE INCIDENT IS SUBJECT TO',
+        label: 'The incident is subject to',
         responses: [
           {
-            response: 'INVESTIGATION BY POLICE',
             code: '181648',
+            response: 'INVESTIGATION BY POLICE',
+            label: 'Investigation by police',
             responseDate: null,
             additionalInformation: null,
             recordedBy: 'user1',
             recordedAt: now.toISOString(),
           },
           {
-            response: 'INVESTIGATION INTERNALLY',
             code: '181649',
+            response: 'INVESTIGATION INTERNALLY',
+            label: 'Investigation internally',
             responseDate: null,
             additionalInformation: null,
             recordedBy: 'user1',
@@ -67,10 +72,12 @@ context('Responding to questions', () => {
       {
         code: '45033',
         question: 'IS ANY MEMBER OF STAFF FACING DISCIPLINARY CHARGES',
+        label: 'Is any member of staff facing disciplinary charges?',
         responses: [
           {
-            response: 'NO',
             code: '182083',
+            response: 'NO',
+            label: 'No',
             responseDate: null,
             additionalInformation: null,
             recordedBy: 'user1',
@@ -82,10 +89,12 @@ context('Responding to questions', () => {
       {
         code: '44636',
         question: 'IS THERE ANY MEDIA INTEREST IN THIS INCIDENT',
+        label: 'Is there any media interest in this incident?',
         responses: [
           {
-            response: 'NO',
             code: '180711',
+            response: 'NO',
+            label: 'No',
             responseDate: null,
             additionalInformation: null,
             recordedBy: 'user1',
@@ -97,10 +106,12 @@ context('Responding to questions', () => {
       {
         code: '44749',
         question: 'HAS THE PRISON SERVICE PRESS OFFICE BEEN INFORMED',
+        label: 'Has the prison service press office been informed?',
         responses: [
           {
-            response: 'YES',
             code: '181104',
+            response: 'YES',
+            label: 'Yes',
             responseDate: '2025-03-19',
             additionalInformation: null,
             recordedBy: 'user1',
@@ -191,11 +202,13 @@ context('Responding to questions', () => {
           {
             code: '44769',
             question: 'WERE THE POLICE INFORMED OF THE INCIDENT',
+            label: 'Were the police informed of the incident?',
             additionalInformation: null,
             responses: [
               {
-                response: 'NO',
                 code: '181153',
+                response: 'NO',
+                label: 'No',
                 responseDate: null,
                 additionalInformation: null,
               },
@@ -204,17 +217,20 @@ context('Responding to questions', () => {
           {
             code: '44919',
             question: 'THE INCIDENT IS SUBJECT TO',
+            label: 'The incident is subject to',
             additionalInformation: null,
             responses: [
               {
-                response: 'INVESTIGATION BY POLICE',
                 code: '181648',
+                response: 'INVESTIGATION BY POLICE',
+                label: 'Investigation by police',
                 responseDate: null,
                 additionalInformation: null,
               },
               {
-                response: 'INVESTIGATION INTERNALLY',
                 code: '181649',
+                response: 'INVESTIGATION INTERNALLY',
+                label: 'Investigation internally',
                 responseDate: null,
                 additionalInformation: null,
               },
@@ -223,11 +239,13 @@ context('Responding to questions', () => {
           {
             code: '45033',
             question: 'IS ANY MEMBER OF STAFF FACING DISCIPLINARY CHARGES',
+            label: 'Is any member of staff facing disciplinary charges?',
             additionalInformation: null,
             responses: [
               {
-                response: 'NO',
                 code: '182083',
+                response: 'NO',
+                label: 'No',
                 responseDate: null,
                 additionalInformation: null,
               },
@@ -236,11 +254,13 @@ context('Responding to questions', () => {
           {
             code: '44636',
             question: 'IS THERE ANY MEDIA INTEREST IN THIS INCIDENT',
+            label: 'Is there any media interest in this incident?',
             additionalInformation: null,
             responses: [
               {
-                response: 'NO',
                 code: '180711',
+                response: 'NO',
+                label: 'No',
                 responseDate: null,
                 additionalInformation: null,
               },
@@ -249,11 +269,13 @@ context('Responding to questions', () => {
           {
             code: '44749',
             question: 'HAS THE PRISON SERVICE PRESS OFFICE BEEN INFORMED',
+            label: 'Has the prison service press office been informed?',
             additionalInformation: null,
             responses: [
               {
-                response: 'YES',
                 code: '181104',
+                response: 'YES',
+                label: 'Yes',
                 responseDate: '2025-03-19',
                 additionalInformation: null,
               },
@@ -382,11 +404,13 @@ context('Responding to questions', () => {
           {
             code: '44769',
             question: 'WERE THE POLICE INFORMED OF THE INCIDENT',
+            label: 'Were the police informed of the incident?',
             additionalInformation: null,
             responses: [
               {
-                response: 'NO',
                 code: '181153',
+                response: 'NO',
+                label: 'No',
                 responseDate: null,
                 additionalInformation: null,
               },
@@ -395,17 +419,20 @@ context('Responding to questions', () => {
           {
             code: '44919',
             question: 'THE INCIDENT IS SUBJECT TO',
+            label: 'The incident is subject to',
             additionalInformation: null,
             responses: [
               {
-                response: 'INVESTIGATION INTERNALLY',
                 code: '181649',
+                response: 'INVESTIGATION INTERNALLY',
+                label: 'Investigation internally',
                 responseDate: null,
                 additionalInformation: null,
               },
               {
-                response: 'NO INVESTIGATION',
                 code: '181650',
+                response: 'NO INVESTIGATION',
+                label: 'No investigation',
                 responseDate: null,
                 additionalInformation: null,
               },
@@ -414,11 +441,13 @@ context('Responding to questions', () => {
           {
             code: '45033',
             question: 'IS ANY MEMBER OF STAFF FACING DISCIPLINARY CHARGES',
+            label: 'Is any member of staff facing disciplinary charges?',
             additionalInformation: null,
             responses: [
               {
-                response: 'NO',
                 code: '182083',
+                response: 'NO',
+                label: 'No',
                 responseDate: null,
                 additionalInformation: null,
               },
@@ -427,11 +456,13 @@ context('Responding to questions', () => {
           {
             code: '44636',
             question: 'IS THERE ANY MEDIA INTEREST IN THIS INCIDENT',
+            label: 'Is there any media interest in this incident?',
             additionalInformation: null,
             responses: [
               {
-                response: 'NO',
                 code: '180711',
+                response: 'NO',
+                label: 'No',
                 responseDate: null,
                 additionalInformation: null,
               },
@@ -440,11 +471,13 @@ context('Responding to questions', () => {
           {
             code: '44749',
             question: 'HAS THE PRISON SERVICE PRESS OFFICE BEEN INFORMED',
+            label: 'Has the prison service press office been informed?',
             additionalInformation: null,
             responses: [
               {
-                response: 'YES',
                 code: '181104',
+                response: 'YES',
+                label: 'Yes',
                 responseDate: '2025-03-19',
                 additionalInformation: null,
               },

@@ -250,7 +250,8 @@ describe('Incident reporting API client', () => {
             {
               code: '1',
               question: 'Was the police informed?',
-              responses: [{ code: '11', response: 'Yes', responseDate: now }],
+              label: 'Was the police informed?',
+              responses: [{ code: '11', response: 'Yes', label: 'Yes', responseDate: now }],
             },
           ]),
       },
@@ -462,7 +463,8 @@ describe('Incident reporting API client', () => {
             {
               code: '1',
               question: 'Was the police informed?',
-              responses: [{ code: '11', response: 'Yes', responseDate: now }],
+              label: 'Was the police informed?',
+              responses: [{ code: '11', response: 'Yes', label: 'Yes', responseDate: now }],
             },
           ]),
         mockResponse: { status: 201, data: [] },
@@ -595,7 +597,8 @@ describe('Incident reporting API client', () => {
             {
               code: '1',
               question: 'Was the police informed?',
-              responses: [{ code: '11', response: 'Yes', responseDate: now }],
+              label: 'Was the police informed?',
+              responses: [{ code: '11', response: 'Yes', label: 'Yes', responseDate: now }],
             },
           ]),
       },

@@ -125,10 +125,12 @@ context('View report', () => {
       {
         code: '63179',
         question: 'WHAT TYPE OF DISORDER INCIDENT WAS THIS?',
+        label: 'What type of disorder incident was this?',
         responses: [
           {
-            response: 'INCIDENT AT HEIGHT',
             code: '214687',
+            response: 'INCIDENT AT HEIGHT',
+            label: 'Incident at height',
             responseDate: null,
             additionalInformation: null,
             recordedBy: 'USER1',

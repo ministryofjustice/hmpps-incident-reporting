@@ -16,11 +16,13 @@ import { mockSharedUser } from '../../../data/testData/manageUsers'
 import { mockDataWarden, mockReportingOfficer, mockHqViewer, mockUnauthorisedUser } from '../../../data/testData/users'
 import UserService from '../../../services/userService'
 import type { Status } from '../../../reportConfiguration/constants'
+import { PrisonApi } from '../../../data/prisonApi'
 
 jest.mock('../../../data/incidentReportingApi')
 jest.mock('../../../services/userService')
 
 let app: Express
+let prisonApi: jest.Mocked<PrisonApi>
 let incidentReportingApi: jest.Mocked<IncidentReportingApi>
 let incidentReportingRelatedObjects: jest.Mocked<
   RelatedObjects<DescriptionAddendum, AddDescriptionAddendumRequest, UpdateDescriptionAddendumRequest>
@@ -28,6 +30,9 @@ let incidentReportingRelatedObjects: jest.Mocked<
 let userService: jest.Mocked<UserService>
 
 beforeEach(() => {
+  prisonApi = PrisonApi.prototype as jest.Mocked<PrisonApi>
+  prisonApi.getServicePrisonIds = jest.fn().mockResolvedValue(['MDI'])
+
   userService = UserService.prototype as jest.Mocked<UserService>
   userService.getUsers.mockResolvedValueOnce({
     [mockSharedUser.username]: mockSharedUser,

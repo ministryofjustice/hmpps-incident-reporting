@@ -10,15 +10,20 @@ import { mockDataWarden, mockReportingOfficer, mockHqViewer, mockUnauthorisedUse
 import UserService from '../../../services/userService'
 import { appWithAllRoutes } from '../../testutils/appSetup'
 import { now } from '../../../testutils/fakeClock'
+import { PrisonApi } from '../../../data/prisonApi'
 
 jest.mock('../../../data/incidentReportingApi')
 jest.mock('../../../services/userService')
 
 let app: Express
+let prisonApi: jest.Mocked<PrisonApi>
 let incidentReportingApi: jest.Mocked<IncidentReportingApi>
 let userService: jest.Mocked<UserService>
 
 beforeEach(() => {
+  prisonApi = PrisonApi.prototype as jest.Mocked<PrisonApi>
+  prisonApi.getServicePrisonIds = jest.fn().mockResolvedValue(['MDI'])
+
   incidentReportingApi = IncidentReportingApi.prototype as jest.Mocked<IncidentReportingApi>
   userService = UserService.prototype as jest.Mocked<UserService>
   app = appWithAllRoutes({ services: { userService } })

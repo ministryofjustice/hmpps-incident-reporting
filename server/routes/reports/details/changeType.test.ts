@@ -8,14 +8,20 @@ import { mockThrownError } from '../../../data/testData/thrownErrors'
 import { mockDataWarden, mockReportingOfficer, mockHqViewer, mockUnauthorisedUser } from '../../../data/testData/users'
 import { types } from '../../../reportConfiguration/constants'
 import { now } from '../../../testutils/fakeClock'
+import { PrisonApi } from '../../../data/prisonApi'
 
 jest.mock('../../../data/incidentReportingApi')
 
 let agent: Agent
+let prisonApi: jest.Mocked<PrisonApi>
 let incidentReportingApi: jest.Mocked<IncidentReportingApi>
 
 beforeEach(() => {
   agent = request.agent(appWithAllRoutes())
+
+  prisonApi = PrisonApi.prototype as jest.Mocked<PrisonApi>
+  prisonApi.getServicePrisonIds = jest.fn().mockResolvedValue(['MDI'])
+
   incidentReportingApi = IncidentReportingApi.prototype as jest.Mocked<IncidentReportingApi>
 })
 

@@ -194,14 +194,15 @@ export class PrisonApi extends RestClient {
    *
    * Requires role ROLE_PRISON_API__SERVICE_AGENCY_SWITCHES__RO
    */
-  getServicePrisons(): Promise<ServicePrison[]> {
+  async getServicePrisonIds(): Promise<string[]> {
     const SERVICE_CODE = 'INCIDENTS'
-    return this.get<ServicePrison[]>(
+    const servicePrisons = await this.get<ServicePrison[]>(
       {
         path: `/api/service-prisons/${encodeURIComponent(SERVICE_CODE)}`,
       },
       asSystem(),
     )
+    return servicePrisons.map(servicePrison => servicePrison.prisonId)
   }
 
   async getPhoto(prisonerNumber: string): Promise<Buffer | null> {

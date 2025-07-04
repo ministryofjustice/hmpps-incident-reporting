@@ -76,7 +76,7 @@ describe('prisonApi', () => {
     })
   })
 
-  describe('getServicePrisons', () => {
+  describe('getServicePrisonIds', () => {
     it('returns the list of prisons where INCIDENTS service is active', async () => {
       const expectedResponse = [
         { prisonId: moorland.agencyId, prison: moorland.description },
@@ -87,7 +87,7 @@ describe('prisonApi', () => {
         .matchHeader('authorization', `Bearer ${accessToken}`)
         .reply(200, expectedResponse satisfies ServicePrison[])
 
-      await expect(apiClient.getServicePrisons()).resolves.toEqual<Array<ServicePrison>>(expectedResponse)
+      await expect(apiClient.getServicePrisonIds()).resolves.toEqual<string[]>([moorland.agencyId, brixton.agencyId])
     })
   })
 

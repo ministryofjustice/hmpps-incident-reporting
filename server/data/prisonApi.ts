@@ -41,6 +41,9 @@ export type ServicePrison = {
   prison: string
 }
 
+// Special prisonId designates service active in all prisons
+export const SERVICE_ALL_PRISONS = '*ALL*'
+
 export interface Staff {
   firstName: string
   lastName: string

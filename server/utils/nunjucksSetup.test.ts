@@ -87,44 +87,40 @@ describe('nunjucks context', () => {
   })
 
   describe('active-in-service location globals', () => {
-    let previousActivePrisons: string[]
     let previousActiveForPecsRegions: boolean
 
     beforeAll(() => {
-      previousActivePrisons = config.activePrisons
       previousActiveForPecsRegions = config.activeForPecsRegions
       mockPecsRegions()
     })
 
     afterAll(() => {
-      config.activePrisons = previousActivePrisons
       config.activeForPecsRegions = previousActiveForPecsRegions
       resetPecsRegions()
     })
 
     it('should call helper function', () => {
-      config.activePrisons = ['MDI', 'LEI']
       config.activeForPecsRegions = false
 
       for (const template of [
-        `{{ isLocationActiveInService('MDI') }}`,
-        `{{ isPrisonActiveInService('MDI') }}`,
-        `{{ isPrisonActiveInService('LEI') }}`,
+        `{{ isLocationActiveInService(['MDI', 'LEI'], 'MDI') }}`,
+        `{{ isPrisonActiveInService(['MDI', 'LEI'], 'MDI') }}`,
+        `{{ isPrisonActiveInService(['MDI', 'LEI'], 'LEI') }}`,
       ]) {
         const output = nunjucks.renderString(template, {}).trim()
         expect(output).toEqual('true')
       }
       for (const template of [
-        `{{ isLocationActiveInService('NORTH') }}`,
-        `{{ isLocationActiveInService('BXI') }}`,
-        `{{ isPrisonActiveInService('BXI') }}`,
+        `{{ isLocationActiveInService(['MDI', 'LEI'], 'NORTH') }}`,
+        `{{ isLocationActiveInService(['MDI', 'LEI'], 'BXI') }}`,
+        `{{ isPrisonActiveInService(['MDI', 'LEI'], 'BXI') }}`,
       ]) {
         const output = nunjucks.renderString(template, {}).trim()
         expect(output).toEqual('false')
       }
 
       config.activeForPecsRegions = true
-      const output = nunjucks.renderString(`{{ isLocationActiveInService('NORTH') }}`, {}).trim()
+      const output = nunjucks.renderString(`{{ isLocationActiveInService(['MDI', 'LEI'], 'NORTH') }}`, {}).trim()
       expect(output).toEqual('true')
     })
   })

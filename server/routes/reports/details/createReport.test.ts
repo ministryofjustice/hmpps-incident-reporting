@@ -331,16 +331,6 @@ describe('Creating a report', () => {
   describe('Permissions', () => {
     // NB: these test cases are simplified because the permissions class methods are thoroughly tested elsewhere
 
-    let previousActivePrisons: string[]
-
-    beforeAll(() => {
-      previousActivePrisons = config.activePrisons
-    })
-
-    beforeEach(() => {
-      config.activePrisons = previousActivePrisons
-    })
-
     const granted = 'granted' as const
     const denied = 'denied' as const
     it.each([
@@ -364,9 +354,7 @@ describe('Creating a report', () => {
       { userType: 'reporting officer', user: mockReportingOfficer },
       { userType: 'data warden', user: mockDataWarden },
     ])('should be denied to $userType if active caseload is not an active prison', ({ user }) => {
-      config.activePrisons = ['LEI']
-
-      return request(appWithAllRoutes({ userSupplier: () => user }))
+      return request(appWithAllRoutes({ activePrisons: ['LEI'], userSupplier: () => user }))
         .get('/create-report')
         .redirects(1)
         .expect(res => {

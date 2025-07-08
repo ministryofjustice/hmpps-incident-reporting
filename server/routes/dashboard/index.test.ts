@@ -17,12 +17,6 @@ import { Status } from '../../reportConfiguration/constants'
 jest.mock('../../data/incidentReportingApi')
 jest.mock('../../services/userService')
 
-let previousActivePrisons: string[]
-
-beforeAll(() => {
-  previousActivePrisons = config.activePrisons
-})
-
 let app: Express
 let incidentReportingApi: jest.Mocked<IncidentReportingApi>
 let userService: jest.Mocked<UserService>
@@ -34,7 +28,6 @@ beforeEach(() => {
 })
 
 afterEach(() => {
-  config.activePrisons = previousActivePrisons
   jest.resetAllMocks()
 })
 
@@ -67,9 +60,9 @@ describe('Dashboard permissions', () => {
   })
 
   it('should hide report button for reporting officer when their active caseload in not active in the service', () => {
-    config.activePrisons = ['LEI']
-
-    return request(appWithAllRoutes({ services: { userService }, userSupplier: () => mockReportingOfficer }))
+    return request(
+      appWithAllRoutes({ activePrisons: ['LEI'], services: { userService }, userSupplier: () => mockReportingOfficer }),
+    )
       .get('/reports')
       .expect(res => {
         expect(res.text).not.toContain('Report an incident')

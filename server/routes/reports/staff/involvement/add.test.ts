@@ -23,13 +23,11 @@ import {
 import { appWithAllRoutes } from '../../../testutils/appSetup'
 import { now } from '../../../../testutils/fakeClock'
 import type { Values } from './fields'
-import { PrisonApi } from '../../../../data/prisonApi'
 
 jest.mock('../../../../data/incidentReportingApi')
 jest.mock('../../../../data/manageUsersApiClient')
 
 let app: Express
-let prisonApi: jest.Mocked<PrisonApi>
 let incidentReportingApi: jest.Mocked<IncidentReportingApi>
 let incidentReportingRelatedObjects: jest.Mocked<
   RelatedObjects<StaffInvolvement, AddStaffInvolvementRequest, UpdateStaffInvolvementRequest>
@@ -38,9 +36,6 @@ let manageUsersApiClient: jest.Mocked<ManageUsersApiClient>
 
 beforeEach(() => {
   app = appWithAllRoutes()
-
-  prisonApi = PrisonApi.prototype as jest.Mocked<PrisonApi>
-  prisonApi.getServicePrisonIds = jest.fn().mockResolvedValue(['MDI'])
 
   incidentReportingApi = IncidentReportingApi.prototype as jest.Mocked<IncidentReportingApi>
   incidentReportingRelatedObjects = RelatedObjects.prototype as jest.Mocked<

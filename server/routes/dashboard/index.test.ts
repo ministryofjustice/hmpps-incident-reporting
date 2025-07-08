@@ -1,6 +1,7 @@
 import type { Express } from 'express'
 import request from 'supertest'
 
+import config from '../../config'
 import { appWithAllRoutes } from '../testutils/appSetup'
 import { now } from '../../testutils/fakeClock'
 import { type GetReportsParams, IncidentReportingApi } from '../../data/incidentReportingApi'
@@ -12,27 +13,28 @@ import { mockDataWarden, mockReportingOfficer, mockHqViewer, mockUnauthorisedUse
 import { mockThrownError } from '../../data/testData/thrownErrors'
 import UserService from '../../services/userService'
 import { Status } from '../../reportConfiguration/constants'
-import { PrisonApi } from '../../data/prisonApi'
 
 jest.mock('../../data/incidentReportingApi')
 jest.mock('../../services/userService')
 
+let previousActivePrisons: string[]
+
+beforeAll(() => {
+  previousActivePrisons = config.activePrisons
+})
+
 let app: Express
-let prisonApi: jest.Mocked<PrisonApi>
 let incidentReportingApi: jest.Mocked<IncidentReportingApi>
 let userService: jest.Mocked<UserService>
 
 beforeEach(() => {
   userService = UserService.prototype as jest.Mocked<UserService>
   app = appWithAllRoutes({ services: { userService } })
-
-  prisonApi = PrisonApi.prototype as jest.Mocked<PrisonApi>
-  prisonApi.getServicePrisonIds = jest.fn().mockResolvedValue(['MDI'])
-
   incidentReportingApi = IncidentReportingApi.prototype as jest.Mocked<IncidentReportingApi>
 })
 
 afterEach(() => {
+  config.activePrisons = previousActivePrisons
   jest.resetAllMocks()
 })
 
@@ -65,7 +67,7 @@ describe('Dashboard permissions', () => {
   })
 
   it('should hide report button for reporting officer when their active caseload in not active in the service', () => {
-    prisonApi.getServicePrisonIds = jest.fn().mockResolvedValue(['LEI'])
+    config.activePrisons = ['LEI']
 
     return request(appWithAllRoutes({ services: { userService }, userSupplier: () => mockReportingOfficer }))
       .get('/reports')

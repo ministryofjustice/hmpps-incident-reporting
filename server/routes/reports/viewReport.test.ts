@@ -1,6 +1,7 @@
 import type { Express } from 'express'
 import request from 'supertest'
 
+import config from '../../config'
 import { PrisonApi } from '../../data/prisonApi'
 import { appWithAllRoutes } from '../testutils/appSetup'
 import { now } from '../../testutils/fakeClock'
@@ -39,7 +40,6 @@ beforeEach(() => {
     MDI: moorland,
   }
   prisonApi.getPrisons.mockResolvedValue(prisons)
-  prisonApi.getServicePrisonIds.mockResolvedValue(['MDI'])
 })
 
 afterEach(() => {
@@ -818,7 +818,15 @@ describe('View report page', () => {
   describe('Permissions', () => {
     // NB: these test cases are simplified because the permissions class methods are thoroughly tested elsewhere
 
+    let previousActivePrisons: string[]
+
+    beforeAll(() => {
+      previousActivePrisons = config.activePrisons
+    })
+
     beforeEach(() => {
+      config.activePrisons = previousActivePrisons
+
       mockedReport = convertReportWithDetailsDates(
         mockReport({ reportReference: '6543', reportDateAndTime: now, status: 'DRAFT', withDetails: true }),
       )
@@ -891,7 +899,7 @@ describe('View report page', () => {
       })
 
       it(`should ${canEdit ? 'warn' : 'not warn'} that report is only editable in NOMIS`, () => {
-        prisonApi.getServicePrisonIds.mockResolvedValue(['LEI'])
+        config.activePrisons = ['LEI']
 
         return request(appWithAllRoutes({ services: { userService }, userSupplier: () => user }))
           .get(viewReportUrl)

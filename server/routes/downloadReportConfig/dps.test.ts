@@ -10,20 +10,14 @@ import type {
 } from '../../data/incidentReportingApi'
 import { IncidentReportingApi } from '../../data/incidentReportingApi'
 import { appWithAllRoutes } from '../testutils/appSetup'
-import { PrisonApi } from '../../data/prisonApi'
 
 jest.mock('../../data/incidentReportingApi')
 
 let app: Express
-let prisonApi: jest.Mocked<PrisonApi>
 let incidentReportingApi: jest.Mocked<IncidentReportingApi>
 
 beforeEach(() => {
   app = appWithAllRoutes()
-
-  prisonApi = PrisonApi.prototype as jest.Mocked<PrisonApi>
-  prisonApi.getServicePrisonIds = jest.fn().mockResolvedValue(['MDI'])
-
   incidentReportingApi = IncidentReportingApi.prototype as jest.Mocked<IncidentReportingApi>
 })
 

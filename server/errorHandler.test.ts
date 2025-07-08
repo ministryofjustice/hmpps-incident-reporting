@@ -6,18 +6,13 @@ import request from 'supertest'
 import { EmptyController } from './controllers/empty'
 import { appWithAllRoutes } from './routes/testutils/appSetup'
 import * as routes from './routes'
-import { PrisonApi } from './data/prisonApi'
 
 jest.mock('./routes/index')
 
 let mockedRoutes: jest.Mocked<typeof routes>['default']
-let prisonApi: jest.Mocked<PrisonApi>
 
 beforeEach(() => {
   mockedRoutes = (routes as unknown as jest.Mocked<typeof routes>).default
-
-  prisonApi = PrisonApi.prototype as jest.Mocked<PrisonApi>
-  prisonApi.getServicePrisonIds = jest.fn().mockResolvedValue(['MDI'])
 })
 
 afterEach(() => {

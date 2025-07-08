@@ -661,16 +661,12 @@ describe('Permissions class', () => {
       dataWardenNotInLeeds,
       hqViewerNotInLeeds,
     ])('should attach permissions class to locals for $descriptionIgnoringCaseload', async ({ user }) => {
-      const prisonApi = new PrisonApi('token')
-      prisonApi.getServicePrisonIds = jest.fn().mockResolvedValue([SERVICE_ALL_PRISONS])
-
       const req = {} as Request
-      const res = { locals: { user, apis: { prisonApi } } } as Response
+      const res = { locals: { user, activePrisons: [SERVICE_ALL_PRISONS] } } as Response
       const next: NextFunction = jest.fn()
 
       await Permissions.middleware(req, res, next)
       expect(next).toHaveBeenCalledWith()
-      expect(prisonApi.getServicePrisonIds).toHaveBeenCalled()
       expect(res.locals.permissions).toBeInstanceOf(Permissions)
     })
   })

@@ -18,10 +18,9 @@ import type { UserType } from './userType'
 export class Permissions {
   /** Creates an instance of this class for the current user */
   static async middleware(_req: Request, res: Response, next: NextFunction): Promise<void> {
-    const { prisonApi } = res.locals.apis
-    const activePrisons = await prisonApi.getServicePrisonIds()
+    const { activePrisons, user } = res.locals
 
-    res.locals.permissions = new Permissions(activePrisons, res.locals.user)
+    res.locals.permissions = new Permissions(activePrisons, user)
     next()
   }
 

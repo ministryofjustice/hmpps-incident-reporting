@@ -1,7 +1,6 @@
 import type { Express } from 'express'
 import request from 'supertest'
 
-import config from '../../config'
 import { appWithAllRoutes } from '../testutils/appSetup'
 import { now } from '../../testutils/fakeClock'
 import { type GetReportsParams, IncidentReportingApi } from '../../data/incidentReportingApi'

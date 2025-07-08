@@ -1,7 +1,6 @@
 import type { Express } from 'express'
 import request, { type Agent, type Response } from 'supertest'
 
-import config from '../../../config'
 import format from '../../../utils/format'
 import { appWithAllRoutes } from '../../testutils/appSetup'
 import { IncidentReportingApi } from '../../../data/incidentReportingApi'

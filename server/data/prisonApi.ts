@@ -2,6 +2,7 @@ import { asSystem, RestClient } from '@ministryofjustice/hmpps-rest-client'
 import config from '../config'
 import { type NomisPrisonerInvolvementRole, type NomisType } from '../reportConfiguration/constants'
 import logger from '../../logger'
+import Cache from './cache'
 
 export enum AgencyType {
   /** Prison */
@@ -137,16 +138,8 @@ export interface ReferenceCode {
   subCodes: ReferenceCode[]
 }
 
-const activePrisonsCache: {
-  updatedAt: Date | null
-  activePrisons: string[] | null
-  durationMillisecs: number
-} = {
-  updatedAt: null,
-  activePrisons: null,
-  // 1 hour
-  durationMillisecs: 60 * 60 * 1000,
-}
+const ONE_HOUR = 60 * 60 * 1000
+const activePrisonsCache = new Cache<string[]>(ONE_HOUR)
 
 export class PrisonApi extends RestClient {
   constructor(systemToken: string) {
@@ -209,15 +202,13 @@ export class PrisonApi extends RestClient {
    * Requires role ROLE_PRISON_API__SERVICE_AGENCY_SWITCHES__RO
    */
   async getServicePrisonIds(): Promise<string[]> {
-    // try and use cache
-    const now = new Date()
-    const cacheAge: number = (now as unknown as number) - (activePrisonsCache.updatedAt as unknown as number)
-    const cacheValid = activePrisonsCache.updatedAt && cacheAge < activePrisonsCache.durationMillisecs
-    if (activePrisonsCache.activePrisons && cacheValid) {
-      return activePrisonsCache.activePrisons
+    // check if there is a fresh enough value in cache
+    const cachedActivePrisons = activePrisonsCache.get()
+    if (cachedActivePrisons) {
+      return cachedActivePrisons
     }
 
-    // invalid cache, get fresh value
+    // cache miss, get fresh value
     const SERVICE_CODE = 'INCIDENTS'
     const servicePrisons = await this.get<ServicePrison[]>(
       {
@@ -228,8 +219,7 @@ export class PrisonApi extends RestClient {
     const newActivePrisons = servicePrisons.map(servicePrison => servicePrison.prisonId)
 
     // update cache
-    activePrisonsCache.updatedAt = now
-    activePrisonsCache.activePrisons = newActivePrisons
+    activePrisonsCache.set(newActivePrisons)
 
     return newActivePrisons
   }

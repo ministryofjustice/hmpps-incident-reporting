@@ -14,6 +14,7 @@ import { mockReportingOfficer } from '../../data/testData/users'
 import { Permissions } from '../../middleware/permissions'
 import setApis from '../../middleware/setApis'
 
+const activePrisons = ['MDI', 'LEI']
 export const testAppInfo: ApplicationInfo = {
   applicationName: 'hmpps-incident-reporting',
   productId: 'test-product-id',
@@ -23,7 +24,7 @@ export const testAppInfo: ApplicationInfo = {
   branchName: 'main',
   assetsPath: './assets',
   additionalFields: {
-    activeAgencies: ['MDI', 'LEI'],
+    activeAgencies: activePrisons,
   },
 }
 
@@ -44,6 +45,7 @@ function appSetup(services: Services, production: boolean, userSupplier: () => E
     Object.assign(res.locals, {
       user: { ...req.user },
       systemToken,
+      activePrisons,
     })
 
     next()

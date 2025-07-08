@@ -137,6 +137,17 @@ export interface ReferenceCode {
   subCodes: ReferenceCode[]
 }
 
+const activePrisonsCache: {
+  updatedAt: Date | null
+  activePrisons: string[] | null
+  durationMillisecs: number
+} = {
+  updatedAt: null,
+  activePrisons: null,
+  // 1 hour
+  durationMillisecs: 60 * 60 * 1000,
+}
+
 export class PrisonApi extends RestClient {
   constructor(systemToken: string) {
     super('HMPPS Prison API', config.apis.hmppsPrisonApi, logger, {
@@ -198,6 +209,15 @@ export class PrisonApi extends RestClient {
    * Requires role ROLE_PRISON_API__SERVICE_AGENCY_SWITCHES__RO
    */
   async getServicePrisonIds(): Promise<string[]> {
+    // try and use cache
+    const now = new Date()
+    const cacheAge: number = (now as unknown as number) - (activePrisonsCache.updatedAt as unknown as number)
+    const cacheValid = activePrisonsCache.updatedAt && cacheAge < activePrisonsCache.durationMillisecs
+    if (activePrisonsCache.activePrisons && cacheValid) {
+      return activePrisonsCache.activePrisons
+    }
+
+    // invalid cache, get fresh value
     const SERVICE_CODE = 'INCIDENTS'
     const servicePrisons = await this.get<ServicePrison[]>(
       {
@@ -205,7 +225,13 @@ export class PrisonApi extends RestClient {
       },
       asSystem(),
     )
-    return servicePrisons.map(servicePrison => servicePrison.prisonId)
+    const newActivePrisons = servicePrisons.map(servicePrison => servicePrison.prisonId)
+
+    // update cache
+    activePrisonsCache.updatedAt = now
+    activePrisonsCache.activePrisons = newActivePrisons
+
+    return newActivePrisons
   }
 
   async getPhoto(prisonerNumber: string): Promise<Buffer | null> {

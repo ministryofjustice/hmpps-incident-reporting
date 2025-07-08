@@ -82,12 +82,21 @@ describe('prisonApi', () => {
         { prisonId: moorland.agencyId, prison: moorland.description },
         { prisonId: brixton.agencyId, prison: brixton.description },
       ]
+      const expectedActivePrisons = [moorland.agencyId, brixton.agencyId]
+      // Mock API request **once**
       fakeApiClient
         .get('/api/service-prisons/INCIDENTS')
         .matchHeader('authorization', `Bearer ${accessToken}`)
         .reply(200, expectedResponse satisfies ServicePrison[])
 
-      await expect(apiClient.getServicePrisonIds()).resolves.toEqual<string[]>([moorland.agencyId, brixton.agencyId])
+      // 1st invocation is a cache miss (make HTTP request)
+      const activePrisonsMiss = await apiClient.getServicePrisonIds()
+      expect(activePrisonsMiss).toEqual(expectedActivePrisons)
+
+      // 2nd invocation is a cache hit (HTTP request not made)
+      const activePrisonsHit = await apiClient.getServicePrisonIds()
+      // No exception raised means it didn't make HTTP request
+      expect(activePrisonsHit).toEqual(expectedActivePrisons)
     })
   })
 

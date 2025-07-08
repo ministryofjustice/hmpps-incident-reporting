@@ -138,8 +138,6 @@ export default {
   sqs: {
     audit: auditConfig(),
   },
-  /** List of prison ids where service is active (['***'] indicates all, [] indicates none) */
-  activePrisons: get('SERVICE_ACTIVE_PRISONS', '***').split(','),
   /** Whether service is active in all PECS regions or none */
   activeForPecsRegions: get('SERVICE_ACTIVE_PECS', 'true') === 'true',
   loadReportDefinitionsOnStartup: get('LOAD_DPR_ON_STARTUP', 'false') === 'true',

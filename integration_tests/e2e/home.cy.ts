@@ -12,7 +12,7 @@ context('Home page', () => {
     homePage.checkLastBreadcrumb('Digital Prison Services')
     homePage.cards.spread((...cards: HTMLDivElement[]) => {
       const titles = cards.map(card => card.getElementsByClassName('dps-card__heading')[0].textContent.trim())
-      expect(titles).to.deep.equal(['Report an incident', 'View incidents', 'Management reporting'])
+      expect(titles).to.deep.equal(['Create an incident report', 'Search incident reports', 'Management reporting'])
     })
   })
 })

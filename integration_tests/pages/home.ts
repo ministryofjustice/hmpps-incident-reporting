@@ -17,11 +17,15 @@ export default class HomePage extends Page {
     return cy.get('.dps-card')
   }
 
-  clickViewReportsCard(): Cypress.Chainable {
-    return cy.contains('View incidents').click()
+  clickCreateReportCard(): Cypress.Chainable {
+    return cy.contains('Create an incident report').click()
   }
 
-  clickCreateReportCard(): Cypress.Chainable {
-    return cy.contains('Report an incident').click()
+  clickViewReportsCard(): Cypress.Chainable {
+    return cy.contains('Search incident reports').click()
+  }
+
+  clickManagementReportsCard(): Cypress.Chainable {
+    return cy.contains('Management reporting').click()
   }
 }

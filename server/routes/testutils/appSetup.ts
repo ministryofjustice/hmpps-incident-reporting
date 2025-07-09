@@ -14,7 +14,7 @@ import { mockReportingOfficer } from '../../data/testData/users'
 import { Permissions } from '../../middleware/permissions'
 import setApis from '../../middleware/setApis'
 
-const defaultActivePrisons = ['MDI', 'LEI']
+const defaultActiveAgencies = ['MDI', 'LEI']
 export const testAppInfo: ApplicationInfo = {
   applicationName: 'hmpps-incident-reporting',
   productId: 'test-product-id',
@@ -24,14 +24,14 @@ export const testAppInfo: ApplicationInfo = {
   branchName: 'main',
   assetsPath: './assets',
   additionalFields: {
-    activeAgencies: defaultActivePrisons,
+    activeAgencies: defaultActiveAgencies,
   },
 }
 
 function appSetup(
   services: Services,
   production: boolean,
-  activePrisons: string[],
+  activeAgencies: string[],
   userSupplier: () => Express.User,
 ): Express {
   const app = express()
@@ -50,7 +50,7 @@ function appSetup(
     Object.assign(res.locals, {
       user: { ...req.user },
       systemToken,
-      activePrisons,
+      activeAgencies,
     })
 
     next()
@@ -71,13 +71,13 @@ function appSetup(
 export function appWithAllRoutes({
   production = false,
   services = { applicationInfo: testAppInfo },
-  activePrisons = defaultActivePrisons,
+  activeAgencies = defaultActiveAgencies,
   userSupplier = () => mockReportingOfficer,
 }: {
   production?: boolean
   services?: Partial<Services>
-  activePrisons?: string[]
+  activeAgencies?: string[]
   userSupplier?: () => Express.User
 } = {}): Express {
-  return appSetup(services as Services, production, activePrisons, userSupplier)
+  return appSetup(services as Services, production, activeAgencies, userSupplier)
 }

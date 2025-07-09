@@ -3,7 +3,7 @@ import nock from 'nock'
 import config from '../config'
 import {
   PrisonApi,
-  type ServicePrison,
+  type ServiceAgency,
   type Agency,
   type IncidentTypeConfiguration,
   type ReferenceCode,
@@ -76,27 +76,27 @@ describe('prisonApi', () => {
     })
   })
 
-  describe('getServicePrisonIds', () => {
+  describe('getAgenciesSwitchedOn', () => {
     it('returns the list of prisons where INCIDENTS service is active', async () => {
       const expectedResponse = [
-        { prisonId: moorland.agencyId, prison: moorland.description },
-        { prisonId: brixton.agencyId, prison: brixton.description },
+        { agencyId: moorland.agencyId, name: moorland.description },
+        { agencyId: brixton.agencyId, name: brixton.description },
       ]
-      const expectedActivePrisons = [moorland.agencyId, brixton.agencyId]
+      const expectedActiveAgencies = [moorland.agencyId, brixton.agencyId]
       // Mock API request **once**
       fakeApiClient
-        .get('/api/service-prisons/INCIDENTS')
+        .get('/api/agency-switches/INCIDENTS')
         .matchHeader('authorization', `Bearer ${accessToken}`)
-        .reply(200, expectedResponse satisfies ServicePrison[])
+        .reply(200, expectedResponse satisfies ServiceAgency[])
 
       // 1st invocation is a cache miss (make HTTP request)
-      const activePrisonsMiss = await apiClient.getServicePrisonIds()
-      expect(activePrisonsMiss).toEqual(expectedActivePrisons)
+      const activeAgenciesMiss = await apiClient.getAgenciesSwitchedOn()
+      expect(activeAgenciesMiss).toEqual(expectedActiveAgencies)
 
       // 2nd invocation is a cache hit (HTTP request not made)
-      const activePrisonsHit = await apiClient.getServicePrisonIds()
+      const activeAgenciesHit = await apiClient.getAgenciesSwitchedOn()
       // No exception raised means it didn't make HTTP request
-      expect(activePrisonsHit).toEqual(expectedActivePrisons)
+      expect(activeAgenciesHit).toEqual(expectedActiveAgencies)
     })
   })
 

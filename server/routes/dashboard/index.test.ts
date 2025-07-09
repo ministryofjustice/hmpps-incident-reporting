@@ -60,7 +60,11 @@ describe('Dashboard permissions', () => {
 
   it('should hide report button for reporting officer when their active caseload in not active in the service', () => {
     return request(
-      appWithAllRoutes({ activePrisons: ['LEI'], services: { userService }, userSupplier: () => mockReportingOfficer }),
+      appWithAllRoutes({
+        activeAgencies: ['LEI'],
+        services: { userService },
+        userSupplier: () => mockReportingOfficer,
+      }),
     )
       .get('/reports')
       .expect(res => {

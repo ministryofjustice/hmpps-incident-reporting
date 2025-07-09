@@ -4,22 +4,22 @@ import { PrisonApi } from '../data/prisonApi'
 import { type Services } from '../services'
 
 /**
- * Middleware to update the prisons where service is active
+ * Middleware to update the agencies where service is active
  *
- * Gets a fresh copy of the active prisons, using `prisonApi.getServicePrisonIds()`
- * Sets `res.locals.activePrisons` but also the `applicationInfo` (which is a
+ * Gets a fresh copy of the active agencies, using `prisonApi.getAgenciesSwitchedOn()`
+ * Sets `res.locals.activeAgencies` but also the `applicationInfo` (which is a
  * singleton with `the additionalFields.activeAgencies` being updated when
- * `activePrisons` change)
+ * `activeAgencies` change)
  */
-export default function updateActivePrisons({ hmppsAuthClient, applicationInfo }: Services): RequestHandler {
+export default function updateActiveAgencies({ hmppsAuthClient, applicationInfo }: Services): RequestHandler {
   return async (_req, res, next) => {
     const systemToken = await hmppsAuthClient.getToken()
     const prisonApi = new PrisonApi(systemToken)
 
-    const activePrisons = await prisonApi.getServicePrisonIds()
-    res.locals.activePrisons = activePrisons
+    const activeAgencies = await prisonApi.getAgenciesSwitchedOn()
+    res.locals.activeAgencies = activeAgencies
     // eslint-disable-next-line no-param-reassign
-    applicationInfo.additionalFields.activeAgencies = activePrisons
+    applicationInfo.additionalFields.activeAgencies = activeAgencies
 
     next()
   }

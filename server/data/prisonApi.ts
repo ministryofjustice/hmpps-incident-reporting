@@ -37,13 +37,13 @@ export type Agency = {
   active: boolean
 }
 
-export type ServicePrison = {
-  prisonId: string
-  prison: string
+export type ServiceAgency = {
+  agencyId: string
+  name: string
 }
 
-// Special prisonId designates service active in all prisons
-export const SERVICE_ALL_PRISONS = '*ALL*'
+// Special agencyId designates service active in all agencies
+export const SERVICE_ALL_AGENCIES = '*ALL*'
 
 export interface Staff {
   firstName: string
@@ -140,7 +140,7 @@ export interface ReferenceCode {
 
 const ONE_HOUR = 60 * 60 * 1000
 const THIRTY_SECS = 30 * 1000
-const activePrisonsCache = new Cache<string[]>(THIRTY_SECS)
+const activeAgenciesCache = new Cache<string[]>(THIRTY_SECS)
 
 export class PrisonApi extends RestClient {
   constructor(systemToken: string) {
@@ -202,27 +202,27 @@ export class PrisonApi extends RestClient {
    *
    * Requires role ROLE_PRISON_API__SERVICE_AGENCY_SWITCHES__RO
    */
-  async getServicePrisonIds(): Promise<string[]> {
+  async getAgenciesSwitchedOn(): Promise<string[]> {
     // check if there is a fresh enough value in cache
-    const cachedActivePrisons = activePrisonsCache.get()
-    if (cachedActivePrisons) {
-      return cachedActivePrisons
+    const cachedActiveAgencies = activeAgenciesCache.get()
+    if (cachedActiveAgencies) {
+      return cachedActiveAgencies
     }
 
     // cache miss, get fresh value
     const SERVICE_CODE = 'INCIDENTS'
-    const servicePrisons = await this.get<ServicePrison[]>(
+    const serviceAgencies = await this.get<ServiceAgency[]>(
       {
-        path: `/api/service-prisons/${encodeURIComponent(SERVICE_CODE)}`,
+        path: `/api/agency-switches/${encodeURIComponent(SERVICE_CODE)}`,
       },
       asSystem(),
     )
-    const newActivePrisons = servicePrisons.map(servicePrison => servicePrison.prisonId)
+    const newActiveAgencies = serviceAgencies.map(serviceAgency => serviceAgency.agencyId)
 
     // update cache
-    activePrisonsCache.set(newActivePrisons)
+    activeAgenciesCache.set(newActiveAgencies)
 
-    return newActivePrisons
+    return newActiveAgencies
   }
 
   async getPhoto(prisonerNumber: string): Promise<Buffer | null> {

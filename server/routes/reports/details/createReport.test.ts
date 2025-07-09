@@ -354,7 +354,7 @@ describe('Creating a report', () => {
       { userType: 'reporting officer', user: mockReportingOfficer },
       { userType: 'data warden', user: mockDataWarden },
     ])('should be denied to $userType if active caseload is not an active prison', ({ user }) => {
-      return request(appWithAllRoutes({ activePrisons: ['LEI'], userSupplier: () => user }))
+      return request(appWithAllRoutes({ activeAgencies: ['LEI'], userSupplier: () => user }))
         .get('/create-report')
         .redirects(1)
         .expect(res => {

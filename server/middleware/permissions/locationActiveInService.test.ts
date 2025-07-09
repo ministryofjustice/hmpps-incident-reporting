@@ -1,29 +1,29 @@
 import { isLocationActiveInService } from './locationActiveInService'
 import { pecsRegions } from '../../data/pecsRegions'
 import { pecsNorthRegion, pecsSouthRegion } from '../../data/testData/pecsRegions'
-import { SERVICE_ALL_PRISONS } from '../../data/prisonApi'
+import { SERVICE_ALL_AGENCIES } from '../../data/prisonApi'
 
 describe('Active location helper functions', () => {
-  it('should always return true if all prisons are permitted', () => {
-    const activePrisons = [SERVICE_ALL_PRISONS]
+  it('should always return true if all agencies are permitted', () => {
+    const activeAgencies = [SERVICE_ALL_AGENCIES]
 
-    const prisons = [undefined, null, '', 'MDI', 'LEI']
-    for (const prison of prisons) {
-      expect(isLocationActiveInService(activePrisons, prison)).toBe(true)
+    const agencies = [undefined, null, '', 'MDI', 'LEI']
+    for (const agencyId of agencies) {
+      expect(isLocationActiveInService(activeAgencies, agencyId)).toBe(true)
     }
   })
 
-  it('should always return false if no prisons are permitted', () => {
-    const activePrisons: string[] = []
+  it('should always return false if no agencies are permitted', () => {
+    const activeAgencies: string[] = []
 
-    const prisons = [undefined, null, '', 'MDI', 'LEI']
-    for (const prison of prisons) {
-      expect(isLocationActiveInService(activePrisons, prison)).toBe(false)
+    const agencies = [undefined, null, '', 'MDI', 'LEI']
+    for (const agencyId of agencies) {
+      expect(isLocationActiveInService(activeAgencies, agencyId)).toBe(false)
     }
   })
 
-  it('should check prison against configured list', () => {
-    const activePrisons = ['BXI', 'LEI']
+  it('should check agency against configured list', () => {
+    const activeAgencies = ['BXI', 'LEI']
 
     const textCases: [string, boolean][] = [
       [undefined, false],
@@ -35,7 +35,7 @@ describe('Active location helper functions', () => {
       ['OWI', false],
     ]
     for (const [code, active] of textCases) {
-      expect(isLocationActiveInService(activePrisons, code)).toBe(active)
+      expect(isLocationActiveInService(activeAgencies, code)).toBe(active)
     }
   })
 
@@ -45,10 +45,10 @@ describe('Active location helper functions', () => {
       description: 'Historic West region',
       active: false,
     })
-    const activePrisons: string[] = pecsRegions.map(region => region.code)
+    const activeAgencies: string[] = pecsRegions.map(region => region.code)
 
-    expect(isLocationActiveInService(activePrisons, 'NORTH')).toBe(true)
-    expect(isLocationActiveInService(activePrisons, 'SOUTH')).toBe(true)
-    expect(isLocationActiveInService(activePrisons, 'WEST')).toBe(true) // TODO: region itself is inactive
+    expect(isLocationActiveInService(activeAgencies, 'NORTH')).toBe(true)
+    expect(isLocationActiveInService(activeAgencies, 'SOUTH')).toBe(true)
+    expect(isLocationActiveInService(activeAgencies, 'WEST')).toBe(true) // TODO: region itself is inactive
   })
 })

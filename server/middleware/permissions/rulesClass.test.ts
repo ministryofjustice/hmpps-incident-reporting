@@ -16,7 +16,7 @@ import { mockPecsRegions, resetPecsRegions } from '../../data/testData/pecsRegio
 import { brixton, leeds, moorland } from '../../data/testData/prisonApi'
 import { Permissions } from './rulesClass'
 import type { UserAction } from './userActions'
-import { SERVICE_ALL_PRISONS } from '../../data/prisonApi'
+import { SERVICE_ALL_AGENCIES } from '../../data/prisonApi'
 
 const granted = 'granted' as const
 const denied = 'denied' as const
@@ -647,7 +647,7 @@ describe('Permissions class', () => {
       hqViewerNotInLeeds,
     ])('should attach permissions class to locals for $descriptionIgnoringCaseload', async ({ user }) => {
       const req = {} as Request
-      const res = { locals: { user, activePrisons: [SERVICE_ALL_PRISONS] } } as Response
+      const res = { locals: { user, activeAgencies: [SERVICE_ALL_AGENCIES] } } as Response
       const next: NextFunction = jest.fn()
 
       await Permissions.middleware(req, res, next)

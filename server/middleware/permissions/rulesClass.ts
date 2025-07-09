@@ -18,14 +18,14 @@ import type { UserType } from './userType'
 export class Permissions {
   /** Creates an instance of this class for the current user */
   static async middleware(_req: Request, res: Response, next: NextFunction): Promise<void> {
-    const { activePrisons, user } = res.locals
+    const { activeAgencies, user } = res.locals
 
-    res.locals.permissions = new Permissions(activePrisons, user)
+    res.locals.permissions = new Permissions(activeAgencies, user)
     next()
   }
 
   /** Prisons where service is active */
-  private readonly activePrisons: string[]
+  private readonly activeAgencies: string[]
 
   /** Current user’s active caseload */
   private readonly activeCaseloadId: string
@@ -33,8 +33,8 @@ export class Permissions {
   /** Current user’s caseloads */
   private readonly caseloadIds: Set<string>
 
-  constructor(activePrisons: string[], user: Express.User | undefined) {
-    this.activePrisons = activePrisons
+  constructor(activeAgencies: string[], user: Express.User | undefined) {
+    this.activeAgencies = activeAgencies
     this.activeCaseloadId = user?.activeCaseLoad?.caseLoadId ?? 'NO-CURRENT-CASELOAD'
     this.caseloadIds = new Set(user?.caseLoads?.map(caseLoad => caseLoad.caseLoadId) ?? [])
 
@@ -110,7 +110,7 @@ export class Permissions {
     const isPecsReport = isPecsRegionCode(reportLike.location)
     const { userType, canAccessService, hasPecsAccess } = this
     const canAccessLocation = isPecsReport ? hasPecsAccess : this.caseloadIds.has(reportLike.location)
-    const locationIsActive = isLocationActiveInService(this.activePrisons, reportLike.location)
+    const locationIsActive = isLocationActiveInService(this.activeAgencies, reportLike.location)
 
     if (!canAccessService || !canAccessLocation) {
       // insufficient roles or caseloads

@@ -891,7 +891,7 @@ describe('View report page', () => {
 
       it(`should ${canEdit ? 'warn' : 'not warn'} that report is only editable in NOMIS`, () => {
         return request(
-          appWithAllRoutes({ activePrisons: ['LEI'], services: { userService }, userSupplier: () => user }),
+          appWithAllRoutes({ activeAgencies: ['LEI'], services: { userService }, userSupplier: () => user }),
         )
           .get(viewReportUrl)
           .expect(res => {

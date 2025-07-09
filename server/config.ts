@@ -138,8 +138,6 @@ export default {
   sqs: {
     audit: auditConfig(),
   },
-  /** Whether service is active in all PECS regions or none */
-  activeForPecsRegions: get('SERVICE_ACTIVE_PECS', 'true') === 'true',
   loadReportDefinitionsOnStartup: get('LOAD_DPR_ON_STARTUP', 'false') === 'true',
   ingressUrl: get('INGRESS_URL', 'http://localhost:3000', requiredInProduction),
   dpsUrl: get('DPS_URL', 'http://dps.local', requiredInProduction),

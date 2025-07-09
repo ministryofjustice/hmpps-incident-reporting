@@ -96,8 +96,6 @@ describe('nunjucks context', () => {
     })
 
     it('should call helper function', () => {
-      config.activeForPecsRegions = false
-
       for (const template of [
         `{{ isLocationActiveInService(['MDI', 'LEI'], 'MDI') }}`,
         `{{ isLocationActiveInService(['MDI', 'LEI'], 'LEI') }}`,
@@ -113,7 +111,6 @@ describe('nunjucks context', () => {
         expect(output).toEqual('false')
       }
 
-      config.activeForPecsRegions = true
       const output = nunjucks
         .renderString(`{{ isLocationActiveInService(['MDI', 'LEI', 'NORTH', 'SOUTH'], 'NORTH') }}`, {})
         .trim()

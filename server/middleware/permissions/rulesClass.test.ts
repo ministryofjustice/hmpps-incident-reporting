@@ -8,7 +8,6 @@ import {
   mockHqViewer,
   mockUnauthorisedUser,
 } from '../../data/testData/users'
-import config from '../../config'
 import { roleReadOnly, roleReadWrite, roleApproveReject, rolePecs } from '../../data/constants'
 import { convertReportDates } from '../../data/incidentReportingApiUtils'
 import { mockReport } from '../../data/testData/incidentReporting'
@@ -21,6 +20,9 @@ import { SERVICE_ALL_PRISONS } from '../../data/prisonApi'
 
 const granted = 'granted' as const
 const denied = 'denied' as const
+
+const leedsAndMoorland = [leeds.agencyId, moorland.agencyId]
+const pecsCodes = ['NORTH', 'SOUTH']
 
 interface Scenario {
   /** Most tests use this description since they are affected by roles and caseloads */
@@ -79,19 +81,12 @@ const hqViewerInLeedsWithPecs: Scenario = {
 }
 
 describe('Permissions class', () => {
-  let previousActiveForPecsRegions: boolean
-
   beforeAll(() => {
-    previousActiveForPecsRegions = config.activeForPecsRegions
     mockPecsRegions()
   })
 
   afterAll(() => {
     resetPecsRegions()
-  })
-
-  afterEach(() => {
-    config.activeForPecsRegions = previousActiveForPecsRegions
   })
 
   describe('User types', () => {
@@ -158,10 +153,6 @@ describe('Permissions class', () => {
   })
 
   describe('Allowed actions', () => {
-    beforeEach(() => {
-      config.activeForPecsRegions = true
-    })
-
     // mock reports in Leeds
     const mockReports = [true, false].map(withDetails =>
       convertReportDates(mockReport({ reportReference: '6543', reportDateAndTime: now, location: 'LEI', withDetails })),
@@ -214,7 +205,7 @@ describe('Permissions class', () => {
         { userType: dataWardenNotInLeeds, action: granted },
         { userType: hqViewerNotInLeeds, action: granted },
       ])('should be $action to $userType.descriptionIgnoringCaseload', ({ userType: { user }, action }) => {
-        const permissions = new Permissions(['MDI', 'LEI'], user)
+        const permissions = new Permissions([...leedsAndMoorland], user)
         expect(permissions.canAccessService).toBe(action === granted)
       })
     })
@@ -235,7 +226,7 @@ describe('Permissions class', () => {
           { userType: hqViewerInLeeds, action: granted },
           { userType: hqViewerInLeedsWithPecs, action: granted },
         ])('should be $action to $userType.description', ({ userType: { user }, action }) => {
-          const permissions = new Permissions(['MDI', 'LEI'], user)
+          const permissions = new Permissions([...leedsAndMoorland], user)
           expectActionsOnPrisonReports({
             permissions,
             userActions: ['view'],
@@ -259,7 +250,7 @@ describe('Permissions class', () => {
           { userType: hqViewerInLeeds, action: denied },
           { userType: hqViewerInLeedsWithPecs, action: granted },
         ])('should be $action to $userType.description', ({ userType: { user }, action }) => {
-          const permissions = new Permissions(['MDI', 'LEI'], user)
+          const permissions = new Permissions([...leedsAndMoorland], user)
           expectActionsOnPecsReports({
             permissions,
             userActions: ['view'],
@@ -285,7 +276,7 @@ describe('Permissions class', () => {
           { userType: hqViewerInLeeds, action: denied },
           { userType: hqViewerInLeedsWithPecs, action: denied },
         ])('should be $action to $userType.description', ({ userType: { user }, action }) => {
-          const permissions = new Permissions(['MDI', 'LEI'], user)
+          const permissions = new Permissions([...leedsAndMoorland], user)
           expect(permissions.canCreateReportInLocation('LEI')).toBe(action === granted)
         })
 
@@ -346,7 +337,7 @@ describe('Permissions class', () => {
           },
           { userType: hqViewerNotInLeeds, action: denied },
         ])('should be $action to $userType.descriptionIgnoringCaseload', ({ userType: { user }, action }) => {
-          const permissions = new Permissions(['MDI', 'LEI'], user)
+          const permissions = new Permissions([...leedsAndMoorland], user)
           expect(permissions.canCreateReportInActiveCaseload).toBe(action === granted)
         })
 
@@ -381,7 +372,7 @@ describe('Permissions class', () => {
           { userType: hqViewerInLeeds, action: denied },
           { userType: hqViewerInLeedsWithPecs, action: denied },
         ])('should be $action to $userType.description', ({ userType: { user }, action }) => {
-          const permissions = new Permissions(['MDI', 'LEI'], user)
+          const permissions = new Permissions([...leedsAndMoorland, ...pecsCodes], user)
           expect(permissions.canCreateReportInLocation('NORTH')).toBe(action === granted)
         })
 
@@ -401,9 +392,7 @@ describe('Permissions class', () => {
         ])(
           'should be $action to $userType.description only in NOMIS when PECS reports are inactive in DPS',
           ({ userType: { user }, action }) => {
-            config.activeForPecsRegions = false
-
-            const permissions = new Permissions(['MDI', 'LEI'], user)
+            const permissions = new Permissions([...leedsAndMoorland], user)
             expect(permissions.canCreateReportInLocation('NORTH')).toBe(false)
             expect(permissions.canCreateReportInLocationInNomisOnly('NORTH')).toBe(action === granted)
           },
@@ -427,7 +416,7 @@ describe('Permissions class', () => {
           { userType: hqViewerInLeeds, action: denied },
           { userType: hqViewerInLeedsWithPecs, action: denied },
         ])('should be $action to $userType.description', ({ userType: { user }, action }) => {
-          const permissions = new Permissions(['MDI', 'LEI'], user)
+          const permissions = new Permissions([...leedsAndMoorland], user)
           expectActionsOnPrisonReports({
             permissions,
             userActions: ['edit'],
@@ -482,7 +471,7 @@ describe('Permissions class', () => {
           { userType: hqViewerInLeeds, action: denied },
           { userType: hqViewerInLeedsWithPecs, action: denied },
         ])('should be $action to $userType.description', ({ userType: { user }, action }) => {
-          const permissions = new Permissions([], user)
+          const permissions = new Permissions([...pecsCodes], user)
           expectActionsOnPecsReports({
             permissions,
             userActions: ['edit'],
@@ -506,8 +495,6 @@ describe('Permissions class', () => {
         ])(
           'should be $action to $userType.description only in NOMIS when PECS reports are inactive in DPS',
           ({ userType: { user }, action }) => {
-            config.activeForPecsRegions = false
-
             const permissions = new Permissions([], user)
             expectActionsOnPecsReports({
               permissions,
@@ -554,7 +541,7 @@ describe('Permissions class', () => {
           { userType: hqViewerInLeeds, action: denied },
           { userType: hqViewerInLeedsWithPecs, action: denied },
         ])('should be $action to $userType.description', ({ userType: { user }, action }) => {
-          const permissions = new Permissions(['MDI', 'LEI'], user)
+          const permissions = new Permissions([...leedsAndMoorland], user)
           expectActionsOnPrisonReports({
             permissions,
             userActions: ['close', 'markDuplicate', 'markNotReportable'],
@@ -609,7 +596,7 @@ describe('Permissions class', () => {
           { userType: hqViewerInLeeds, action: denied },
           { userType: hqViewerInLeedsWithPecs, action: denied },
         ])('should be $action to $userType.description', ({ userType: { user }, action }) => {
-          const permissions = new Permissions([], user)
+          const permissions = new Permissions([...pecsCodes], user)
           expectActionsOnPecsReports({
             permissions,
             userActions: ['close', 'markDuplicate', 'markNotReportable'],
@@ -633,8 +620,6 @@ describe('Permissions class', () => {
         ])(
           'should be $action to $userType.description only in NOMIS when active casload is inactive in DPS',
           ({ userType: { user }, action }) => {
-            config.activeForPecsRegions = false
-
             const permissions = new Permissions([], user)
             expectActionsOnPecsReports({
               permissions,

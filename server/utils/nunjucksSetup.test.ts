@@ -2,9 +2,9 @@ import express from 'express'
 import nunjucks from 'nunjucks'
 
 import config from '../config'
-import { mockPecsRegions, resetPecsRegions } from '../data/testData/pecsRegions'
 import { fakeClock, resetClock } from '../testutils/fakeJestClock'
 import nunjucksSetup from './nunjucksSetup'
+import { mockPecsRegions, resetPecsRegions } from '../data/testData/pecsRegions'
 
 describe('nunjucks context', () => {
   beforeAll(() => {
@@ -87,15 +87,11 @@ describe('nunjucks context', () => {
   })
 
   describe('active-in-service location globals', () => {
-    let previousActiveForPecsRegions: boolean
-
     beforeAll(() => {
-      previousActiveForPecsRegions = config.activeForPecsRegions
       mockPecsRegions()
     })
 
     afterAll(() => {
-      config.activeForPecsRegions = previousActiveForPecsRegions
       resetPecsRegions()
     })
 
@@ -104,8 +100,7 @@ describe('nunjucks context', () => {
 
       for (const template of [
         `{{ isLocationActiveInService(['MDI', 'LEI'], 'MDI') }}`,
-        `{{ isPrisonActiveInService(['MDI', 'LEI'], 'MDI') }}`,
-        `{{ isPrisonActiveInService(['MDI', 'LEI'], 'LEI') }}`,
+        `{{ isLocationActiveInService(['MDI', 'LEI'], 'LEI') }}`,
       ]) {
         const output = nunjucks.renderString(template, {}).trim()
         expect(output).toEqual('true')
@@ -113,14 +108,15 @@ describe('nunjucks context', () => {
       for (const template of [
         `{{ isLocationActiveInService(['MDI', 'LEI'], 'NORTH') }}`,
         `{{ isLocationActiveInService(['MDI', 'LEI'], 'BXI') }}`,
-        `{{ isPrisonActiveInService(['MDI', 'LEI'], 'BXI') }}`,
       ]) {
         const output = nunjucks.renderString(template, {}).trim()
         expect(output).toEqual('false')
       }
 
       config.activeForPecsRegions = true
-      const output = nunjucks.renderString(`{{ isLocationActiveInService(['MDI', 'LEI'], 'NORTH') }}`, {}).trim()
+      const output = nunjucks
+        .renderString(`{{ isLocationActiveInService(['MDI', 'LEI', 'NORTH', 'SOUTH'], 'NORTH') }}`, {})
+        .trim()
       expect(output).toEqual('true')
     })
   })

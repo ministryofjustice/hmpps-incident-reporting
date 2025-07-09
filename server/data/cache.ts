@@ -1,5 +1,3 @@
-import logger from '../../logger'
-
 /**
  * Caches a value of type T for `durationMillisecs` ms
  */
@@ -24,7 +22,6 @@ export default class Cache<T> {
   get(): T | null {
     // no value in cache yet
     if (this.value === null || this.updatedAt === null) {
-      logger.debug(`NO VALUE in cache`)
       return null
     }
 
@@ -33,11 +30,8 @@ export default class Cache<T> {
 
     // is value in cache still valid?
     if (msElapsed < this.durationMillisecs) {
-      logger.debug(`msElapsed = ${msElapsed} - CACHE STILL VALID`)
       return this.value
     }
-
-    logger.debug(`msElapsed = ${msElapsed} - CACHE EXPIRED`)
 
     return null
   }

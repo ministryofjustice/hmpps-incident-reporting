@@ -139,7 +139,8 @@ export interface ReferenceCode {
 }
 
 const ONE_HOUR = 60 * 60 * 1000
-const activePrisonsCache = new Cache<string[]>(ONE_HOUR)
+const THIRTY_SECS = 30 * 1000
+const activePrisonsCache = new Cache<string[]>(THIRTY_SECS)
 
 export class PrisonApi extends RestClient {
   constructor(systemToken: string) {

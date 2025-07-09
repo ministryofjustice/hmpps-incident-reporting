@@ -1,7 +1,6 @@
 import express from 'express'
 import nunjucks from 'nunjucks'
 
-import config from '../config'
 import { fakeClock, resetClock } from '../testutils/fakeJestClock'
 import nunjucksSetup from './nunjucksSetup'
 import { mockPecsRegions, resetPecsRegions } from '../data/testData/pecsRegions'

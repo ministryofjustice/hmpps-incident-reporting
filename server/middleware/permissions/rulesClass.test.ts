@@ -645,12 +645,12 @@ describe('Permissions class', () => {
       reportingOfficerNotInLeeds,
       dataWardenNotInLeeds,
       hqViewerNotInLeeds,
-    ])('should attach permissions class to locals for $descriptionIgnoringCaseload', async ({ user }) => {
+    ])('should attach permissions class to locals for $descriptionIgnoringCaseload', ({ user }) => {
       const req = {} as Request
       const res = { locals: { user, activeAgencies: [SERVICE_ALL_AGENCIES] } } as Response
       const next: NextFunction = jest.fn()
 
-      await Permissions.middleware(req, res, next)
+      Permissions.middleware(req, res, next)
       expect(next).toHaveBeenCalledWith()
       expect(res.locals.permissions).toBeInstanceOf(Permissions)
     })

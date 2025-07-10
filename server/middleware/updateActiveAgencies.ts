@@ -2,6 +2,7 @@ import type { RequestHandler } from 'express'
 
 import { PrisonApi } from '../data/prisonApi'
 import { type Services } from '../services'
+import { setActiveAgencies } from '../data/activeAgencies'
 
 /**
  * Middleware to update the agencies where service is active
@@ -16,10 +17,10 @@ export default function updateActiveAgencies({ hmppsAuthClient, applicationInfo 
     const systemToken = await hmppsAuthClient.getToken()
     const prisonApi = new PrisonApi(systemToken)
 
-    const activeAgencies = await prisonApi.getAgenciesSwitchedOn()
-    res.locals.activeAgencies = activeAgencies
+    const newActiveAgencies = await prisonApi.getAgenciesSwitchedOn()
+    setActiveAgencies(newActiveAgencies)
     // eslint-disable-next-line no-param-reassign
-    applicationInfo.additionalFields.activeAgencies = activeAgencies
+    applicationInfo.additionalFields.activeAgencies = newActiveAgencies
 
     next()
   }

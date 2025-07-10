@@ -50,7 +50,6 @@ export declare global {
     interface Locals {
       user: Express.User
       systemToken: string
-      activeAgencies: string[]
       /** All routes have permissions checker */
       permissions: Permissions
       /** All routes have api instances */

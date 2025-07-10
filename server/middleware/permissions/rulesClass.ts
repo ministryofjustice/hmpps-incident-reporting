@@ -17,15 +17,10 @@ import type { UserType } from './userType'
 // eslint-disable-next-line import/prefer-default-export
 export class Permissions {
   /** Creates an instance of this class for the current user */
-  static async middleware(_req: Request, res: Response, next: NextFunction): Promise<void> {
-    const { activeAgencies, user } = res.locals
-
-    res.locals.permissions = new Permissions(activeAgencies, user)
+  static middleware(_req: Request, res: Response, next: NextFunction): void {
+    res.locals.permissions = new Permissions(res.locals.user)
     next()
   }
-
-  /** Prisons where service is active */
-  private readonly activeAgencies: string[]
 
   /** Current user’s active caseload */
   private readonly activeCaseloadId: string
@@ -33,8 +28,7 @@ export class Permissions {
   /** Current user’s caseloads */
   private readonly caseloadIds: Set<string>
 
-  constructor(activeAgencies: string[], user: Express.User | undefined) {
-    this.activeAgencies = activeAgencies
+  constructor(user: Express.User | undefined) {
     this.activeCaseloadId = user?.activeCaseLoad?.caseLoadId ?? 'NO-CURRENT-CASELOAD'
     this.caseloadIds = new Set(user?.caseLoads?.map(caseLoad => caseLoad.caseLoadId) ?? [])
 
@@ -110,7 +104,7 @@ export class Permissions {
     const isPecsReport = isPecsRegionCode(reportLike.location)
     const { userType, canAccessService, hasPecsAccess } = this
     const canAccessLocation = isPecsReport ? hasPecsAccess : this.caseloadIds.has(reportLike.location)
-    const locationIsActive = isLocationActiveInService(this.activeAgencies, reportLike.location)
+    const locationIsActive = isLocationActiveInService(reportLike.location)
 
     if (!canAccessService || !canAccessLocation) {
       // insufficient roles or caseloads

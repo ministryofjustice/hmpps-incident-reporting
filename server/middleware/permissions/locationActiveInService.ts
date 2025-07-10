@@ -1,4 +1,4 @@
-import { SERVICE_ALL_AGENCIES } from '../../data/activeAgencies'
+import { activeAgencies, SERVICE_ALL_AGENCIES } from '../../data/activeAgencies'
 
 /**
  * Whether given prison or PECS region should have full access to incident report on DPS
@@ -7,7 +7,7 @@ import { SERVICE_ALL_AGENCIES } from '../../data/activeAgencies'
  * Otherwise, users are expected to continue using NOMIS.
  */
 // eslint-disable-next-line import/prefer-default-export
-export function isLocationActiveInService(activeAgencies: string[], agencyId: string): boolean {
+export function isLocationActiveInService(agencyId: string): boolean {
   // empty list permits none
   if (activeAgencies.length === 0) {
     return false

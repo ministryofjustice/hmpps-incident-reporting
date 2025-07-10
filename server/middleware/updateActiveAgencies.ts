@@ -2,7 +2,7 @@ import type { Request, Response, NextFunction, RequestHandler } from 'express'
 
 import { PrisonApi } from '../data/prisonApi'
 import { type Services } from '../services'
-import { setActiveAgencies } from '../data/activeAgencies'
+import { SERVICE_ALL_AGENCIES, setActiveAgencies } from '../data/activeAgencies'
 
 /**
  * Middleware to update the agencies where service is active
@@ -20,8 +20,21 @@ export default function updateActiveAgencies({ hmppsAuthClient, applicationInfo 
     const newActiveAgencies = await prisonApi.getAgenciesSwitchedOn()
     setActiveAgencies(newActiveAgencies)
     // eslint-disable-next-line no-param-reassign
-    applicationInfo.additionalFields.activeAgencies = newActiveAgencies
+    applicationInfo.additionalFields.activeAgencies = replaceStarAllForDps(newActiveAgencies)
 
     next()
   }
+}
+
+/**
+ * In DPS the `'***'` string in `applicationInfo.additionalFields.activeAgencies`
+ * means "all agencies". This function returns ['***'] when `activeAgencies` contains
+ * the Prison API special signifier `'*ALL*'` (which has the same meaning)
+ */
+function replaceStarAllForDps(activeAgencies: string[]): string[] {
+  if (activeAgencies.includes(SERVICE_ALL_AGENCIES)) {
+    return ['***']
+  }
+
+  return activeAgencies
 }

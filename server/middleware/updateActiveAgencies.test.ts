@@ -9,7 +9,7 @@ import { ActiveAgency } from '../data/prisonApi'
 import { brixton, moorland } from '../data/testData/prisonApi'
 import config from '../config'
 import logger from '../../logger'
-import { activeAgencies } from '../data/activeAgencies'
+import { activeAgencies, SERVICE_ALL_AGENCIES } from '../data/activeAgencies'
 
 const fakeApiServer: nock.Scope = nock(config.apis.hmppsPrisonApi.url)
 const fakeAuthServer: nock.Scope = nock(config.apis.hmppsAuth.url)
@@ -20,6 +20,7 @@ const hmppsAuthClient = new AuthenticationClient(config.apis.hmppsAuth, logger)
 const activeAgenciesResponse = [
   { agencyId: moorland.agencyId, name: moorland.description },
   { agencyId: brixton.agencyId, name: brixton.description },
+  { agencyId: SERVICE_ALL_AGENCIES, name: 'Service active in all agencies' },
 ]
 
 const applicationInfo: ApplicationInfo = {
@@ -68,7 +69,7 @@ describe('updateActiveAgencies', () => {
 
     // Check activeAgencies was update
     expect(activeAgencies).toEqual(newActiveAgencies)
-    expect(applicationInfo.additionalFields.activeAgencies).toEqual(newActiveAgencies)
+    expect(applicationInfo.additionalFields.activeAgencies).toEqual(['***'])
     expect(next).toHaveBeenCalledWith()
 
     // // Invoke middleware again to check caching

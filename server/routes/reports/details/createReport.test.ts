@@ -8,6 +8,7 @@ import { convertReportWithDetailsDates } from '../../../data/incidentReportingAp
 import { mockErrorResponse, mockReport } from '../../../data/testData/incidentReporting'
 import { mockThrownError } from '../../../data/testData/thrownErrors'
 import { mockDataWarden, mockReportingOfficer, mockHqViewer, mockUnauthorisedUser } from '../../../data/testData/users'
+import { setActiveAgencies } from '../../../data/activeAgencies'
 
 jest.mock('../../../data/incidentReportingApi')
 
@@ -354,7 +355,10 @@ describe('Creating a report', () => {
       { userType: 'reporting officer', user: mockReportingOfficer },
       { userType: 'data warden', user: mockDataWarden },
     ])('should be denied to $userType if active caseload is not an active prison', ({ user }) => {
-      return request(appWithAllRoutes({ activeAgencies: ['LEI'], userSupplier: () => user }))
+      const testApp = appWithAllRoutes({ userSupplier: () => user })
+      setActiveAgencies(['LEI'])
+
+      return request(testApp)
         .get('/create-report')
         .redirects(1)
         .expect(res => {

@@ -4,6 +4,8 @@ import nunjucks from 'nunjucks'
 import { fakeClock, resetClock } from '../testutils/fakeJestClock'
 import nunjucksSetup from './nunjucksSetup'
 import { mockPecsRegions, resetPecsRegions } from '../data/testData/pecsRegions'
+import { setActiveAgencies } from '../data/activeAgencies'
+import { defaultActiveAgencies } from '../routes/testutils/appSetup'
 
 describe('nunjucks context', () => {
   beforeAll(() => {
@@ -95,24 +97,18 @@ describe('nunjucks context', () => {
     })
 
     it('should call helper function', () => {
-      for (const template of [
-        `{{ isLocationActiveInService(['MDI', 'LEI'], 'MDI') }}`,
-        `{{ isLocationActiveInService(['MDI', 'LEI'], 'LEI') }}`,
-      ]) {
+      setActiveAgencies(['LEI', 'MDI'])
+      for (const template of [`{{ isLocationActiveInService('MDI') }}`, `{{ isLocationActiveInService('LEI') }}`]) {
         const output = nunjucks.renderString(template, {}).trim()
         expect(output).toEqual('true')
       }
-      for (const template of [
-        `{{ isLocationActiveInService(['MDI', 'LEI'], 'NORTH') }}`,
-        `{{ isLocationActiveInService(['MDI', 'LEI'], 'BXI') }}`,
-      ]) {
+      for (const template of [`{{ isLocationActiveInService('NORTH') }}`, `{{ isLocationActiveInService('BXI') }}`]) {
         const output = nunjucks.renderString(template, {}).trim()
         expect(output).toEqual('false')
       }
 
-      const output = nunjucks
-        .renderString(`{{ isLocationActiveInService(['MDI', 'LEI', 'NORTH', 'SOUTH'], 'NORTH') }}`, {})
-        .trim()
+      setActiveAgencies(defaultActiveAgencies)
+      const output = nunjucks.renderString(`{{ isLocationActiveInService('NORTH') }}`, {}).trim()
       expect(output).toEqual('true')
     })
   })

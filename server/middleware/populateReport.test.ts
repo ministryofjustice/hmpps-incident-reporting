@@ -11,7 +11,7 @@ import { populateReport } from './populateReport'
 describe('report-loading middleware', () => {
   let fakeApi: nock.Scope
 
-  const permissions = jest.mocked(new Permissions(['MDI'], undefined))
+  const permissions = jest.mocked(new Permissions(undefined))
   permissions.allowedActionsOnReport = jest.fn()
 
   beforeEach(() => {

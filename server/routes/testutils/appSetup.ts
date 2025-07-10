@@ -13,8 +13,9 @@ import type { Services } from '../../services'
 import { mockReportingOfficer } from '../../data/testData/users'
 import { Permissions } from '../../middleware/permissions'
 import setApis from '../../middleware/setApis'
+import { setActiveAgencies } from '../../data/activeAgencies'
 
-const defaultActiveAgencies = ['MDI', 'LEI']
+export const defaultActiveAgencies = ['LEI', 'MDI', 'NORTH', 'SOUTH']
 export const testAppInfo: ApplicationInfo = {
   applicationName: 'hmpps-incident-reporting',
   productId: 'test-product-id',
@@ -28,15 +29,11 @@ export const testAppInfo: ApplicationInfo = {
   },
 }
 
-function appSetup(
-  services: Services,
-  production: boolean,
-  activeAgencies: string[],
-  userSupplier: () => Express.User,
-): Express {
+function appSetup(services: Services, production: boolean, userSupplier: () => Express.User): Express {
   const app = express()
 
   const systemToken = 'test-system-token'
+  setActiveAgencies(defaultActiveAgencies)
 
   app.use(cookieSession({ keys: [''] }))
   app.use(flash())
@@ -50,7 +47,6 @@ function appSetup(
     Object.assign(res.locals, {
       user: { ...req.user },
       systemToken,
-      activeAgencies,
     })
 
     next()
@@ -71,13 +67,11 @@ function appSetup(
 export function appWithAllRoutes({
   production = false,
   services = { applicationInfo: testAppInfo },
-  activeAgencies = defaultActiveAgencies,
   userSupplier = () => mockReportingOfficer,
 }: {
   production?: boolean
   services?: Partial<Services>
-  activeAgencies?: string[]
   userSupplier?: () => Express.User
 } = {}): Express {
-  return appSetup(services as Services, production, activeAgencies, userSupplier)
+  return appSetup(services as Services, production, userSupplier)
 }

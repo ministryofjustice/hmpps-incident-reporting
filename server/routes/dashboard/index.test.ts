@@ -12,6 +12,7 @@ import { mockDataWarden, mockReportingOfficer, mockHqViewer, mockUnauthorisedUse
 import { mockThrownError } from '../../data/testData/thrownErrors'
 import UserService from '../../services/userService'
 import { Status } from '../../reportConfiguration/constants'
+import { setActiveAgencies } from '../../data/activeAgencies'
 
 jest.mock('../../data/incidentReportingApi')
 jest.mock('../../services/userService')
@@ -59,13 +60,13 @@ describe('Dashboard permissions', () => {
   })
 
   it('should hide report button for reporting officer when their active caseload in not active in the service', () => {
-    return request(
-      appWithAllRoutes({
-        activeAgencies: ['LEI'],
-        services: { userService },
-        userSupplier: () => mockReportingOfficer,
-      }),
-    )
+    const testApp = appWithAllRoutes({
+      services: { userService },
+      userSupplier: () => mockReportingOfficer,
+    })
+    setActiveAgencies(['LEI'])
+
+    return request(testApp)
       .get('/reports')
       .expect(res => {
         expect(res.text).not.toContain('Report an incident')

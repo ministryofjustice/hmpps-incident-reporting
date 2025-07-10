@@ -14,6 +14,7 @@ import { mockSharedUser } from '../../data/testData/manageUsers'
 import { leeds, moorland } from '../../data/testData/prisonApi'
 import { mockThrownError } from '../../data/testData/thrownErrors'
 import { mockDataWarden, mockReportingOfficer, mockHqViewer, mockUnauthorisedUser } from '../../data/testData/users'
+import { setActiveAgencies } from '../../data/activeAgencies'
 
 jest.mock('../../data/prisonApi')
 jest.mock('../../data/incidentReportingApi')
@@ -890,9 +891,10 @@ describe('View report page', () => {
       })
 
       it(`should ${canEdit ? 'warn' : 'not warn'} that report is only editable in NOMIS`, () => {
-        return request(
-          appWithAllRoutes({ activeAgencies: ['LEI'], services: { userService }, userSupplier: () => user }),
-        )
+        const testApp = appWithAllRoutes({ services: { userService }, userSupplier: () => user })
+        setActiveAgencies(['LEI'])
+
+        return request(testApp)
           .get(viewReportUrl)
           .expect(res => {
             const warningShows = res.text.includes('This report can only be amended in NOMIS')

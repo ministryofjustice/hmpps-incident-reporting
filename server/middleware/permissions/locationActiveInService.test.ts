@@ -1,29 +1,29 @@
 import { isLocationActiveInService } from './locationActiveInService'
 import { pecsRegions } from '../../data/pecsRegions'
 import { pecsNorthRegion, pecsSouthRegion } from '../../data/testData/pecsRegions'
-import { SERVICE_ALL_AGENCIES } from '../../data/activeAgencies'
+import { SERVICE_ALL_AGENCIES, setActiveAgencies } from '../../data/activeAgencies'
 
 describe('Active location helper functions', () => {
   it('should always return true if all agencies are permitted', () => {
-    const activeAgencies = [SERVICE_ALL_AGENCIES]
+    setActiveAgencies([SERVICE_ALL_AGENCIES])
 
     const agencies = [undefined, null, '', 'MDI', 'LEI']
     for (const agencyId of agencies) {
-      expect(isLocationActiveInService(activeAgencies, agencyId)).toBe(true)
+      expect(isLocationActiveInService(agencyId)).toBe(true)
     }
   })
 
   it('should always return false if no agencies are permitted', () => {
-    const activeAgencies: string[] = []
+    setActiveAgencies([])
 
     const agencies = [undefined, null, '', 'MDI', 'LEI']
     for (const agencyId of agencies) {
-      expect(isLocationActiveInService(activeAgencies, agencyId)).toBe(false)
+      expect(isLocationActiveInService(agencyId)).toBe(false)
     }
   })
 
   it('should check agency against configured list', () => {
-    const activeAgencies = ['BXI', 'LEI']
+    setActiveAgencies(['BXI', 'LEI'])
 
     const textCases: [string, boolean][] = [
       [undefined, false],
@@ -35,7 +35,7 @@ describe('Active location helper functions', () => {
       ['OWI', false],
     ]
     for (const [code, active] of textCases) {
-      expect(isLocationActiveInService(activeAgencies, code)).toBe(active)
+      expect(isLocationActiveInService(code)).toBe(active)
     }
   })
 
@@ -45,10 +45,11 @@ describe('Active location helper functions', () => {
       description: 'Historic West region',
       active: false,
     })
-    const activeAgencies: string[] = pecsRegions.map(region => region.code)
+    const pecsCodes = pecsRegions.map(region => region.code)
+    setActiveAgencies(pecsCodes)
 
-    expect(isLocationActiveInService(activeAgencies, 'NORTH')).toBe(true)
-    expect(isLocationActiveInService(activeAgencies, 'SOUTH')).toBe(true)
-    expect(isLocationActiveInService(activeAgencies, 'WEST')).toBe(true) // TODO: region itself is inactive
+    expect(isLocationActiveInService('NORTH')).toBe(true)
+    expect(isLocationActiveInService('SOUTH')).toBe(true)
+    expect(isLocationActiveInService('WEST')).toBe(true) // TODO: region itself is inactive
   })
 })

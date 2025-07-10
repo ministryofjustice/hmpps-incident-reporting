@@ -16,7 +16,7 @@ import { mockPecsRegions, resetPecsRegions } from '../../data/testData/pecsRegio
 import { brixton, leeds, moorland } from '../../data/testData/prisonApi'
 import { Permissions } from './rulesClass'
 import type { UserAction } from './userActions'
-import { SERVICE_ALL_AGENCIES } from '../../data/activeAgencies'
+import { setActiveAgencies } from '../../data/activeAgencies'
 
 const granted = 'granted' as const
 const denied = 'denied' as const
@@ -89,11 +89,15 @@ describe('Permissions class', () => {
     resetPecsRegions()
   })
 
+  beforeEach(() => {
+    setActiveAgencies([...leedsAndMoorland, ...pecsCodes])
+  })
+
   describe('User types', () => {
     it.each([dataWardenNotInLeeds, dataWardenNotInLeeds, dataWardenInLeedsWithoutPecs])(
       'should categorise $description',
       ({ user }) => {
-        const permissions = new Permissions([], user)
+        const permissions = new Permissions(user)
         expect(permissions.userType).toEqual('dataWarden')
         expect(permissions.isDataWarden).toBe(true)
         expect(permissions.isReportingOfficer).toBe(false)
@@ -104,7 +108,7 @@ describe('Permissions class', () => {
     it.each([reportingOfficerNotInLeeds, reportingOfficerInLeeds, reportingOfficerInLeedsWithPecs])(
       'should categorise $description',
       ({ user }) => {
-        const permissions = new Permissions([], user)
+        const permissions = new Permissions(user)
         expect(permissions.userType).toEqual('reportingOfficer')
         expect(permissions.isDataWarden).toBe(false)
         expect(permissions.isReportingOfficer).toBe(true)
@@ -115,7 +119,7 @@ describe('Permissions class', () => {
     it.each([hqViewerNotInLeeds, hqViewerInLeeds, hqViewerInLeedsWithPecs])(
       'should categorise $description',
       ({ user }) => {
-        const permissions = new Permissions([], user)
+        const permissions = new Permissions(user)
         expect(permissions.userType).toEqual('hqViewer')
         expect(permissions.isDataWarden).toBe(false)
         expect(permissions.isReportingOfficer).toBe(false)
@@ -126,7 +130,7 @@ describe('Permissions class', () => {
     it.each([notLoggedIn, unauthorisedNotInLeeds, unauthorisedInLeeds])(
       'should categorise $description',
       ({ user }) => {
-        const permissions = new Permissions([], user)
+        const permissions = new Permissions(user)
         expect(permissions.userType).toBeNull()
         expect(permissions.isDataWarden).toBe(false)
         expect(permissions.isReportingOfficer).toBe(false)
@@ -138,7 +142,7 @@ describe('Permissions class', () => {
     it.each([dataWardenNotInLeeds, dataWardenNotInLeeds, reportingOfficerInLeedsWithPecs, hqViewerInLeedsWithPecs])(
       'should grant PECS access to $description',
       ({ user }) => {
-        const permissions = new Permissions([], user)
+        const permissions = new Permissions(user)
         expect(permissions.hasPecsAccess).toBe(true)
       },
     )
@@ -146,7 +150,7 @@ describe('Permissions class', () => {
     it.each([dataWardenInLeedsWithoutPecs, reportingOfficerInLeeds, hqViewerInLeeds])(
       'should deny PECS access to $description',
       ({ user }) => {
-        const permissions = new Permissions([], user)
+        const permissions = new Permissions(user)
         expect(permissions.hasPecsAccess).toBe(false)
       },
     )
@@ -205,7 +209,7 @@ describe('Permissions class', () => {
         { userType: dataWardenNotInLeeds, action: granted },
         { userType: hqViewerNotInLeeds, action: granted },
       ])('should be $action to $userType.descriptionIgnoringCaseload', ({ userType: { user }, action }) => {
-        const permissions = new Permissions([...leedsAndMoorland], user)
+        const permissions = new Permissions(user)
         expect(permissions.canAccessService).toBe(action === granted)
       })
     })
@@ -226,7 +230,7 @@ describe('Permissions class', () => {
           { userType: hqViewerInLeeds, action: granted },
           { userType: hqViewerInLeedsWithPecs, action: granted },
         ])('should be $action to $userType.description', ({ userType: { user }, action }) => {
-          const permissions = new Permissions([...leedsAndMoorland], user)
+          const permissions = new Permissions(user)
           expectActionsOnPrisonReports({
             permissions,
             userActions: ['view'],
@@ -250,7 +254,7 @@ describe('Permissions class', () => {
           { userType: hqViewerInLeeds, action: denied },
           { userType: hqViewerInLeedsWithPecs, action: granted },
         ])('should be $action to $userType.description', ({ userType: { user }, action }) => {
-          const permissions = new Permissions([...leedsAndMoorland], user)
+          const permissions = new Permissions(user)
           expectActionsOnPecsReports({
             permissions,
             userActions: ['view'],
@@ -276,7 +280,7 @@ describe('Permissions class', () => {
           { userType: hqViewerInLeeds, action: denied },
           { userType: hqViewerInLeedsWithPecs, action: denied },
         ])('should be $action to $userType.description', ({ userType: { user }, action }) => {
-          const permissions = new Permissions([...leedsAndMoorland], user)
+          const permissions = new Permissions(user)
           expect(permissions.canCreateReportInLocation('LEI')).toBe(action === granted)
         })
 
@@ -296,7 +300,8 @@ describe('Permissions class', () => {
         ])(
           'should be $action to $userType.description only in NOMIS when Leeds is inactive in DPS',
           ({ userType: { user }, action }) => {
-            const permissions = new Permissions(['MDI'], user)
+            setActiveAgencies(['MDI'])
+            const permissions = new Permissions(user)
             expect(permissions.canCreateReportInLocation('LEI')).toBe(false)
             expect(permissions.canCreateReportInLocationInNomisOnly('LEI')).toBe(action === granted)
           },
@@ -337,7 +342,7 @@ describe('Permissions class', () => {
           },
           { userType: hqViewerNotInLeeds, action: denied },
         ])('should be $action to $userType.descriptionIgnoringCaseload', ({ userType: { user }, action }) => {
-          const permissions = new Permissions([...leedsAndMoorland], user)
+          const permissions = new Permissions(user)
           expect(permissions.canCreateReportInActiveCaseload).toBe(action === granted)
         })
 
@@ -350,7 +355,8 @@ describe('Permissions class', () => {
         ])(
           'should be $action to $userType.descriptionIgnoringCaseload only in NOMIS when active casload is inactive in DPS',
           ({ userType: { user }, action }) => {
-            const permissions = new Permissions([], user)
+            setActiveAgencies([])
+            const permissions = new Permissions(user)
             expect(permissions.canCreateReportInActiveCaseload).toBe(false)
             expect(permissions.canCreateReportInActiveCaseloadInNomisOnly).toBe(action === granted)
           },
@@ -372,7 +378,7 @@ describe('Permissions class', () => {
           { userType: hqViewerInLeeds, action: denied },
           { userType: hqViewerInLeedsWithPecs, action: denied },
         ])('should be $action to $userType.description', ({ userType: { user }, action }) => {
-          const permissions = new Permissions([...leedsAndMoorland, ...pecsCodes], user)
+          const permissions = new Permissions(user)
           expect(permissions.canCreateReportInLocation('NORTH')).toBe(action === granted)
         })
 
@@ -392,7 +398,8 @@ describe('Permissions class', () => {
         ])(
           'should be $action to $userType.description only in NOMIS when PECS reports are inactive in DPS',
           ({ userType: { user }, action }) => {
-            const permissions = new Permissions([...leedsAndMoorland], user)
+            setActiveAgencies(leedsAndMoorland)
+            const permissions = new Permissions(user)
             expect(permissions.canCreateReportInLocation('NORTH')).toBe(false)
             expect(permissions.canCreateReportInLocationInNomisOnly('NORTH')).toBe(action === granted)
           },
@@ -416,7 +423,7 @@ describe('Permissions class', () => {
           { userType: hqViewerInLeeds, action: denied },
           { userType: hqViewerInLeedsWithPecs, action: denied },
         ])('should be $action to $userType.description', ({ userType: { user }, action }) => {
-          const permissions = new Permissions([...leedsAndMoorland], user)
+          const permissions = new Permissions(user)
           expectActionsOnPrisonReports({
             permissions,
             userActions: ['edit'],
@@ -440,7 +447,8 @@ describe('Permissions class', () => {
         ])(
           'should be $action to $userType.description only in NOMIS when Leeds is inactive in DPS',
           ({ userType: { user }, action }) => {
-            const permissions = new Permissions(['MDI'], user)
+            setActiveAgencies(['MDI'])
+            const permissions = new Permissions(user)
             expectActionsOnPrisonReports({
               permissions,
               userActions: ['edit'],
@@ -471,7 +479,7 @@ describe('Permissions class', () => {
           { userType: hqViewerInLeeds, action: denied },
           { userType: hqViewerInLeedsWithPecs, action: denied },
         ])('should be $action to $userType.description', ({ userType: { user }, action }) => {
-          const permissions = new Permissions([...pecsCodes], user)
+          const permissions = new Permissions(user)
           expectActionsOnPecsReports({
             permissions,
             userActions: ['edit'],
@@ -495,7 +503,8 @@ describe('Permissions class', () => {
         ])(
           'should be $action to $userType.description only in NOMIS when PECS reports are inactive in DPS',
           ({ userType: { user }, action }) => {
-            const permissions = new Permissions([], user)
+            setActiveAgencies([])
+            const permissions = new Permissions(user)
             expectActionsOnPecsReports({
               permissions,
               userActions: ['edit'],
@@ -541,7 +550,7 @@ describe('Permissions class', () => {
           { userType: hqViewerInLeeds, action: denied },
           { userType: hqViewerInLeedsWithPecs, action: denied },
         ])('should be $action to $userType.description', ({ userType: { user }, action }) => {
-          const permissions = new Permissions([...leedsAndMoorland], user)
+          const permissions = new Permissions(user)
           expectActionsOnPrisonReports({
             permissions,
             userActions: ['close', 'markDuplicate', 'markNotReportable'],
@@ -565,7 +574,8 @@ describe('Permissions class', () => {
         ])(
           'should be $action to $userType.description only in NOMIS when Leeds is inactive in DPS',
           ({ userType: { user }, action }) => {
-            const permissions = new Permissions(['MDI'], user)
+            setActiveAgencies(['MDI'])
+            const permissions = new Permissions(user)
             expectActionsOnPrisonReports({
               permissions,
               userActions: ['close', 'markDuplicate', 'markNotReportable'],
@@ -596,7 +606,7 @@ describe('Permissions class', () => {
           { userType: hqViewerInLeeds, action: denied },
           { userType: hqViewerInLeedsWithPecs, action: denied },
         ])('should be $action to $userType.description', ({ userType: { user }, action }) => {
-          const permissions = new Permissions([...pecsCodes], user)
+          const permissions = new Permissions(user)
           expectActionsOnPecsReports({
             permissions,
             userActions: ['close', 'markDuplicate', 'markNotReportable'],
@@ -620,7 +630,8 @@ describe('Permissions class', () => {
         ])(
           'should be $action to $userType.description only in NOMIS when active casload is inactive in DPS',
           ({ userType: { user }, action }) => {
-            const permissions = new Permissions([], user)
+            setActiveAgencies(leedsAndMoorland)
+            const permissions = new Permissions(user)
             expectActionsOnPecsReports({
               permissions,
               userActions: ['close', 'markDuplicate', 'markNotReportable'],
@@ -647,7 +658,7 @@ describe('Permissions class', () => {
       hqViewerNotInLeeds,
     ])('should attach permissions class to locals for $descriptionIgnoringCaseload', ({ user }) => {
       const req = {} as Request
-      const res = { locals: { user, activeAgencies: [SERVICE_ALL_AGENCIES] } } as Response
+      const res = { locals: { user } } as Response
       const next: NextFunction = jest.fn()
 
       Permissions.middleware(req, res, next)

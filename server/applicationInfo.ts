@@ -32,7 +32,7 @@ export default (): ApplicationInfo => {
     branchName,
     assetsPath,
     additionalFields: {
-      // NOTE: activeAgencies is updated dynamically later on
+      // NOTE: activeAgencies is kept up-to-date by `updateActiveAgencies` middleware
       activeAgencies: [],
     },
   }

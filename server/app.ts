@@ -23,7 +23,7 @@ import frontendComponents from './middleware/frontendComponents'
 import config from './config'
 import routes from './routes'
 import type { Services } from './services'
-import updateActiveAgencies from './middleware/updateActivePrisons'
+import updateActiveAgencies from './middleware/updateActiveAgencies'
 
 export default function createApp(services: Services): express.Application {
   const app = express()

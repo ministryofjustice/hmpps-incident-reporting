@@ -37,7 +37,7 @@ export type Agency = {
   active: boolean
 }
 
-export type ServiceAgency = {
+export type ActiveAgency = {
   agencyId: string
   name: string
 }
@@ -210,7 +210,7 @@ export class PrisonApi extends RestClient {
 
     // cache miss, get fresh value
     const SERVICE_CODE = 'INCIDENTS'
-    const serviceAgencies = await this.get<ServiceAgency[]>(
+    const serviceAgencies = await this.get<ActiveAgency[]>(
       {
         path: `/api/agency-switches/${encodeURIComponent(SERVICE_CODE)}`,
       },

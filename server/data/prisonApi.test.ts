@@ -3,7 +3,7 @@ import nock from 'nock'
 import config from '../config'
 import {
   PrisonApi,
-  type ServiceAgency,
+  type ActiveAgency,
   type Agency,
   type IncidentTypeConfiguration,
   type ReferenceCode,
@@ -87,7 +87,7 @@ describe('prisonApi', () => {
       fakeApiClient
         .get('/api/agency-switches/INCIDENTS')
         .matchHeader('authorization', `Bearer ${accessToken}`)
-        .reply(200, expectedResponse satisfies ServiceAgency[])
+        .reply(200, expectedResponse satisfies ActiveAgency[])
 
       // 1st invocation is a cache miss (make HTTP request)
       const activeAgenciesMiss = await apiClient.getAgenciesSwitchedOn()

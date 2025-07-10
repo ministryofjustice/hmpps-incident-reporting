@@ -16,7 +16,7 @@ import { mockPecsRegions, resetPecsRegions } from '../../data/testData/pecsRegio
 import { brixton, leeds, moorland } from '../../data/testData/prisonApi'
 import { Permissions } from './rulesClass'
 import type { UserAction } from './userActions'
-import { SERVICE_ALL_AGENCIES } from '../../data/prisonApi'
+import { SERVICE_ALL_AGENCIES } from '../../data/activeAgencies'
 
 const granted = 'granted' as const
 const denied = 'denied' as const

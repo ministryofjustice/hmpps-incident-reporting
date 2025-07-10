@@ -42,9 +42,6 @@ export type ActiveAgency = {
   name: string
 }
 
-// Special agencyId designates service active in all agencies
-export const SERVICE_ALL_AGENCIES = '*ALL*'
-
 export interface Staff {
   firstName: string
   lastName: string

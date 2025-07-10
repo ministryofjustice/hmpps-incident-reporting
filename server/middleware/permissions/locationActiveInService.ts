@@ -1,4 +1,4 @@
-import { SERVICE_ALL_AGENCIES } from '../../data/prisonApi'
+import { SERVICE_ALL_AGENCIES } from '../../data/activeAgencies'
 
 /**
  * Whether given prison or PECS region should have full access to incident report on DPS

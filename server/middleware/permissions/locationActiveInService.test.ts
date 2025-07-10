@@ -1,7 +1,7 @@
 import { isLocationActiveInService } from './locationActiveInService'
 import { pecsRegions } from '../../data/pecsRegions'
 import { pecsNorthRegion, pecsSouthRegion } from '../../data/testData/pecsRegions'
-import { SERVICE_ALL_AGENCIES } from '../../data/prisonApi'
+import { SERVICE_ALL_AGENCIES } from '../../data/activeAgencies'
 
 describe('Active location helper functions', () => {
   it('should always return true if all agencies are permitted', () => {

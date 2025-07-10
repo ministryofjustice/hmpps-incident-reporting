@@ -12,10 +12,12 @@ export function isLocationActiveInService(agencyId: string): boolean {
   if (activeAgencies.length === 0) {
     return false
   }
-  // list with only "*ALL*" permits all
-  if (activeAgencies.length === 1 && activeAgencies[0] === SERVICE_ALL_AGENCIES) {
-    return true
-  }
-  // otherwise actually check
-  return activeAgencies.includes(agencyId)
+
+  return activeAgencies.some(
+    item =>
+      // list with only "*ALL*" permits all
+      item === SERVICE_ALL_AGENCIES ||
+      // list contains agencyId
+      item === agencyId,
+  )
 }

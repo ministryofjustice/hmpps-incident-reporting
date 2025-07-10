@@ -5,7 +5,7 @@ import { SERVICE_ALL_AGENCIES, setActiveAgencies } from '../../data/activeAgenci
 
 describe('Active location helper functions', () => {
   it('should always return true if all agencies are permitted', () => {
-    setActiveAgencies([SERVICE_ALL_AGENCIES])
+    setActiveAgencies(['XYZ', SERVICE_ALL_AGENCIES])
 
     const agencies = [undefined, null, '', 'MDI', 'LEI']
     for (const agencyId of agencies) {

@@ -69,7 +69,7 @@ describe('updateActiveAgencies', () => {
     // Check activeAgencies was update
     expect(activeAgencies).toEqual(newActiveAgencies)
     expect(applicationInfo.additionalFields.activeAgencies).toEqual(newActiveAgencies)
-    expect(next).toHaveBeenCalledTimes(1)
+    expect(next).toHaveBeenNthCalledWith(1)
   })
 
   it('uses cache', async () => {
@@ -90,7 +90,7 @@ describe('updateActiveAgencies', () => {
     // activeAgencies still the same
     expect(activeAgencies).toEqual(newActiveAgencies)
     expect(applicationInfo.additionalFields.activeAgencies).toEqual(newActiveAgencies)
-    expect(next).toHaveBeenCalledTimes(2)
+    expect(next).toHaveBeenNthCalledWith(2)
   })
 
   it("converts '*ALL*' to '***' in applicationInfo", async () => {
@@ -112,7 +112,25 @@ describe('updateActiveAgencies', () => {
     expect(activeAgencies).toEqual([SERVICE_ALL_AGENCIES])
     // applicationInfo's activeAgencies updated to contain only `'***'`
     expect(applicationInfo.additionalFields.activeAgencies).toEqual(['***'])
-    expect(next).toHaveBeenCalledTimes(1)
+    expect(next).toHaveBeenNthCalledWith(1)
+  })
+
+  it('handles failure to get a fresh activeAgencies list gracefully', async () => {
+    // Mock API error
+    fakeApiServer
+      .get('/api/agency-switches/INCIDENTS')
+      .matchHeader('authorization', `Bearer ${systemToken}`)
+      .replyWithError('503 SERVICE UNAVAILABLE')
+
+    const next: NextFunction = jest.fn()
+
+    // Check initial state (activeAgencies was populated before)
+    expect(activeAgencies.length).toBeGreaterThan(0)
+    expect(applicationInfo.additionalFields.activeAgencies.length).toBeGreaterThan(0)
+
+    await middleware(req, res, next)
+
+    expect(next).toHaveBeenNthCalledWith(1)
   })
 })
 

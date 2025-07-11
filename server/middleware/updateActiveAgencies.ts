@@ -4,6 +4,7 @@ import { PrisonApi } from '../data/prisonApi'
 import { type Services } from '../services'
 import { SERVICE_ALL_AGENCIES, setActiveAgencies } from '../data/activeAgencies'
 import Cache from '../data/cache'
+import logger from '../../logger'
 
 const ONE_HOUR = 60 * 60 * 1000
 const ACTIVE_AGENCIES_CACHE_UPDATED = Symbol('cached')
@@ -26,14 +27,20 @@ export default function updateActiveAgencies({ hmppsAuthClient, applicationInfo 
       const systemToken = await hmppsAuthClient.getToken()
       const prisonApi = new PrisonApi(systemToken)
 
-      const newActiveAgencies = shortenIfAllAgenciesActive(await prisonApi.getAgenciesSwitchedOn())
-      // update cache
-      activeAgenciesCache.set(ACTIVE_AGENCIES_CACHE_UPDATED)
+      try {
+        const prisonApiResponse = await prisonApi.getAgenciesSwitchedOn()
 
-      // update active agencies
-      setActiveAgencies(newActiveAgencies)
-      // eslint-disable-next-line no-param-reassign
-      applicationInfo.additionalFields.activeAgencies = replaceStarAllForDps(newActiveAgencies)
+        const newActiveAgencies = shortenIfAllAgenciesActive(prisonApiResponse)
+        // update cache
+        activeAgenciesCache.set(ACTIVE_AGENCIES_CACHE_UPDATED)
+
+        // update active agencies
+        setActiveAgencies(newActiveAgencies)
+        // eslint-disable-next-line no-param-reassign
+        applicationInfo.additionalFields.activeAgencies = replaceStarAllForDps(newActiveAgencies)
+      } catch (err) {
+        logger.error(`Failed to update activeAgencies (using existing list): ${err}`)
+      }
     }
 
     next()

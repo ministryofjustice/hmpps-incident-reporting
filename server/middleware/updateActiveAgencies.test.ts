@@ -72,12 +72,12 @@ describe('updateActiveAgencies', () => {
     expect(applicationInfo.additionalFields.activeAgencies).toEqual(['***'])
     expect(next).toHaveBeenCalledWith()
 
-    // // Invoke middleware again to check caching
-    // await middleware(req, res, next)
+    // Invoke middleware again to check caching
+    await middleware(req, res, next)
 
-    // // activeAgencies still the same
-    // expect(activeAgencies).toEqual(newActiveAgencies)
-    // expect(applicationInfo.additionalFields.activeAgencies).toEqual(newActiveAgencies)
-    // expect(next).toHaveBeenCalledWith()
+    // activeAgencies still the same
+    expect(activeAgencies).toEqual(newActiveAgencies)
+    expect(applicationInfo.additionalFields.activeAgencies).toEqual(['***'])
+    expect(next).toHaveBeenCalledWith()
   })
 })

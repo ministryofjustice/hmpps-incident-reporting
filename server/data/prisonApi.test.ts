@@ -89,14 +89,8 @@ describe('prisonApi', () => {
         .matchHeader('authorization', `Bearer ${accessToken}`)
         .reply(200, expectedResponse satisfies ActiveAgency[])
 
-      // 1st invocation is a cache miss (make HTTP request)
       const activeAgenciesMiss = await apiClient.getAgenciesSwitchedOn()
       expect(activeAgenciesMiss).toEqual(expectedActiveAgencies)
-
-      // 2nd invocation is a cache hit (HTTP request not made)
-      const activeAgenciesHit = await apiClient.getAgenciesSwitchedOn()
-      // No exception raised means it didn't make HTTP request
-      expect(activeAgenciesHit).toEqual(expectedActiveAgencies)
     })
   })
 

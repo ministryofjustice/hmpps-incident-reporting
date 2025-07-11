@@ -3,6 +3,11 @@ import type { Request, Response, NextFunction, RequestHandler } from 'express'
 import { PrisonApi } from '../data/prisonApi'
 import { type Services } from '../services'
 import { SERVICE_ALL_AGENCIES, setActiveAgencies } from '../data/activeAgencies'
+import Cache from '../data/cache'
+
+const ONE_HOUR = 60 * 60 * 1000
+const ACTIVE_AGENCIES_CACHE_UPDATED = Symbol('cached')
+const activeAgenciesCache: Cache<typeof ACTIVE_AGENCIES_CACHE_UPDATED> = new Cache(ONE_HOUR)
 
 /**
  * Middleware to update the agencies where service is active
@@ -14,13 +19,21 @@ import { SERVICE_ALL_AGENCIES, setActiveAgencies } from '../data/activeAgencies'
  */
 export default function updateActiveAgencies({ hmppsAuthClient, applicationInfo }: Services): RequestHandler {
   return async (_req: Request, _res: Response, next: NextFunction) => {
-    const systemToken = await hmppsAuthClient.getToken()
-    const prisonApi = new PrisonApi(systemToken)
+    // check if activeAgencies cache is fresh enough
+    const activeAgenciesCacheExpired = !activeAgenciesCache.get()
+    if (activeAgenciesCacheExpired) {
+      const systemToken = await hmppsAuthClient.getToken()
+      const prisonApi = new PrisonApi(systemToken)
 
-    const newActiveAgencies = await prisonApi.getAgenciesSwitchedOn()
-    setActiveAgencies(newActiveAgencies)
-    // eslint-disable-next-line no-param-reassign
-    applicationInfo.additionalFields.activeAgencies = replaceStarAllForDps(newActiveAgencies)
+      const newActiveAgencies = await prisonApi.getAgenciesSwitchedOn()
+      // update cache
+      activeAgenciesCache.set(ACTIVE_AGENCIES_CACHE_UPDATED)
+
+      // update active agencies
+      setActiveAgencies(newActiveAgencies)
+      // eslint-disable-next-line no-param-reassign
+      applicationInfo.additionalFields.activeAgencies = replaceStarAllForDps(newActiveAgencies)
+    }
 
     next()
   }

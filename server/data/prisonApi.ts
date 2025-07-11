@@ -2,7 +2,6 @@ import { asSystem, RestClient } from '@ministryofjustice/hmpps-rest-client'
 import config from '../config'
 import { type NomisPrisonerInvolvementRole, type NomisType } from '../reportConfiguration/constants'
 import logger from '../../logger'
-import Cache from './cache'
 
 export enum AgencyType {
   /** Prison */
@@ -135,9 +134,6 @@ export interface ReferenceCode {
   subCodes: ReferenceCode[]
 }
 
-const ONE_HOUR = 60 * 60 * 1000
-const activeAgenciesCache = new Cache<string[]>(ONE_HOUR)
-
 export class PrisonApi extends RestClient {
   constructor(systemToken: string) {
     super('HMPPS Prison API', config.apis.hmppsPrisonApi, logger, {
@@ -199,26 +195,14 @@ export class PrisonApi extends RestClient {
    * Requires role ROLE_PRISON_API__SERVICE_AGENCY_SWITCHES__RO
    */
   async getAgenciesSwitchedOn(): Promise<string[]> {
-    // check if there is a fresh enough value in cache
-    const cachedActiveAgencies = activeAgenciesCache.get()
-    if (cachedActiveAgencies) {
-      return cachedActiveAgencies
-    }
-
-    // cache miss, get fresh value
     const SERVICE_CODE = 'INCIDENTS'
-    const serviceAgencies = await this.get<ActiveAgency[]>(
+    const activeAgencies = await this.get<ActiveAgency[]>(
       {
         path: `/api/agency-switches/${encodeURIComponent(SERVICE_CODE)}`,
       },
       asSystem(),
     )
-    const newActiveAgencies = serviceAgencies.map(serviceAgency => serviceAgency.agencyId)
-
-    // update cache
-    activeAgenciesCache.set(newActiveAgencies)
-
-    return newActiveAgencies
+    return activeAgencies.map(activeAgency => activeAgency.agencyId)
   }
 
   async getPhoto(prisonerNumber: string): Promise<Buffer | null> {

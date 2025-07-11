@@ -108,8 +108,9 @@ describe('updateActiveAgencies', () => {
 
     await middleware(req, res, next)
 
-    // activeAgencies still the same
-    expect(activeAgencies).toEqual(newActiveAgencies)
+    // activeAgencies updated to contain only `'*ALL*'`
+    expect(activeAgencies).toEqual([SERVICE_ALL_AGENCIES])
+    // applicationInfo's activeAgencies updated to contain only `'***'`
     expect(applicationInfo.additionalFields.activeAgencies).toEqual(['***'])
     expect(next).toHaveBeenCalledTimes(1)
   })

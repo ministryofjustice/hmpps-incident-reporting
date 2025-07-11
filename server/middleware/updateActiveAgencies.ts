@@ -26,7 +26,7 @@ export default function updateActiveAgencies({ hmppsAuthClient, applicationInfo 
       const systemToken = await hmppsAuthClient.getToken()
       const prisonApi = new PrisonApi(systemToken)
 
-      const newActiveAgencies = await prisonApi.getAgenciesSwitchedOn()
+      const newActiveAgencies = shortenIfAllAgenciesActive(await prisonApi.getAgenciesSwitchedOn())
       // update cache
       activeAgenciesCache.set(ACTIVE_AGENCIES_CACHE_UPDATED)
 
@@ -48,6 +48,19 @@ export default function updateActiveAgencies({ hmppsAuthClient, applicationInfo 
 function replaceStarAllForDps(activeAgencies: string[]): string[] {
   if (activeAgencies.includes(SERVICE_ALL_AGENCIES)) {
     return ['***']
+  }
+
+  return activeAgencies
+}
+
+/**
+ * When the `activeAgencies` contains `*ALL*`, no point in keeping the
+ * other `activeAgencies`: Replace with a simple `['*ALL*']` list which
+ * makes lookup faster
+ */
+function shortenIfAllAgenciesActive(activeAgencies: string[]) {
+  if (activeAgencies.includes(SERVICE_ALL_AGENCIES)) {
+    return [SERVICE_ALL_AGENCIES]
   }
 
   return activeAgencies

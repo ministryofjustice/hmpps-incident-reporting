@@ -1,10 +1,11 @@
 import express from 'express'
 import nunjucks from 'nunjucks'
 
-import config from '../config'
-import { mockPecsRegions, resetPecsRegions } from '../data/testData/pecsRegions'
 import { fakeClock, resetClock } from '../testutils/fakeJestClock'
 import nunjucksSetup from './nunjucksSetup'
+import { mockPecsRegions, resetPecsRegions } from '../data/testData/pecsRegions'
+import { setActiveAgencies } from '../data/activeAgencies'
+import { defaultActiveAgencies } from '../routes/testutils/appSetup'
 
 describe('nunjucks context', () => {
   beforeAll(() => {
@@ -87,43 +88,26 @@ describe('nunjucks context', () => {
   })
 
   describe('active-in-service location globals', () => {
-    let previousActivePrisons: string[]
-    let previousActiveForPecsRegions: boolean
-
     beforeAll(() => {
-      previousActivePrisons = config.activePrisons
-      previousActiveForPecsRegions = config.activeForPecsRegions
       mockPecsRegions()
     })
 
     afterAll(() => {
-      config.activePrisons = previousActivePrisons
-      config.activeForPecsRegions = previousActiveForPecsRegions
       resetPecsRegions()
     })
 
     it('should call helper function', () => {
-      config.activePrisons = ['MDI', 'LEI']
-      config.activeForPecsRegions = false
-
-      for (const template of [
-        `{{ isLocationActiveInService('MDI') }}`,
-        `{{ isPrisonActiveInService('MDI') }}`,
-        `{{ isPrisonActiveInService('LEI') }}`,
-      ]) {
+      setActiveAgencies(['LEI', 'MDI'])
+      for (const template of [`{{ isLocationActiveInService('MDI') }}`, `{{ isLocationActiveInService('LEI') }}`]) {
         const output = nunjucks.renderString(template, {}).trim()
         expect(output).toEqual('true')
       }
-      for (const template of [
-        `{{ isLocationActiveInService('NORTH') }}`,
-        `{{ isLocationActiveInService('BXI') }}`,
-        `{{ isPrisonActiveInService('BXI') }}`,
-      ]) {
+      for (const template of [`{{ isLocationActiveInService('NORTH') }}`, `{{ isLocationActiveInService('BXI') }}`]) {
         const output = nunjucks.renderString(template, {}).trim()
         expect(output).toEqual('false')
       }
 
-      config.activeForPecsRegions = true
+      setActiveAgencies(defaultActiveAgencies)
       const output = nunjucks.renderString(`{{ isLocationActiveInService('NORTH') }}`, {}).trim()
       expect(output).toEqual('true')
     })

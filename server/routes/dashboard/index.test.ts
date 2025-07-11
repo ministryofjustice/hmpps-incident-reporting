@@ -1,7 +1,6 @@
 import type { Express } from 'express'
 import request from 'supertest'
 
-import config from '../../config'
 import { appWithAllRoutes } from '../testutils/appSetup'
 import { now } from '../../testutils/fakeClock'
 import { type GetReportsParams, IncidentReportingApi } from '../../data/incidentReportingApi'
@@ -13,15 +12,10 @@ import { mockDataWarden, mockReportingOfficer, mockHqViewer, mockUnauthorisedUse
 import { mockThrownError } from '../../data/testData/thrownErrors'
 import UserService from '../../services/userService'
 import { Status } from '../../reportConfiguration/constants'
+import { setActiveAgencies } from '../../data/activeAgencies'
 
 jest.mock('../../data/incidentReportingApi')
 jest.mock('../../services/userService')
-
-let previousActivePrisons: string[]
-
-beforeAll(() => {
-  previousActivePrisons = config.activePrisons
-})
 
 let app: Express
 let incidentReportingApi: jest.Mocked<IncidentReportingApi>
@@ -34,7 +28,6 @@ beforeEach(() => {
 })
 
 afterEach(() => {
-  config.activePrisons = previousActivePrisons
   jest.resetAllMocks()
 })
 
@@ -67,9 +60,13 @@ describe('Dashboard permissions', () => {
   })
 
   it('should hide report button for reporting officer when their active caseload in not active in the service', () => {
-    config.activePrisons = ['LEI']
+    const testApp = appWithAllRoutes({
+      services: { userService },
+      userSupplier: () => mockReportingOfficer,
+    })
+    setActiveAgencies(['LEI'])
 
-    return request(appWithAllRoutes({ services: { userService }, userSupplier: () => mockReportingOfficer }))
+    return request(testApp)
       .get('/reports')
       .expect(res => {
         expect(res.text).not.toContain('Report an incident')

@@ -10,8 +10,7 @@ export default class Cache<T> {
 
   constructor(durationMillisecs: number) {
     this.durationMillisecs = durationMillisecs
-    this.updatedAt = null
-    this.value = null
+    this.reset()
   }
 
   set(newValue: T) {
@@ -34,5 +33,10 @@ export default class Cache<T> {
     }
 
     return null
+  }
+
+  reset() {
+    this.updatedAt = null
+    this.value = null
   }
 }

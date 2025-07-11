@@ -7,7 +7,8 @@ import Cache from '../data/cache'
 
 const ONE_HOUR = 60 * 60 * 1000
 const ACTIVE_AGENCIES_CACHE_UPDATED = Symbol('cached')
-const activeAgenciesCache: Cache<typeof ACTIVE_AGENCIES_CACHE_UPDATED> = new Cache(ONE_HOUR)
+// NOTE: exported only to make testing/cache reset easier
+export const activeAgenciesCache: Cache<typeof ACTIVE_AGENCIES_CACHE_UPDATED> = new Cache(ONE_HOUR)
 
 /**
  * Middleware to update the agencies where service is active

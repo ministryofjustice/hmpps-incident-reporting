@@ -9,7 +9,7 @@ import { ActiveAgency } from '../data/prisonApi'
 import { brixton, moorland } from '../data/testData/prisonApi'
 import config from '../config'
 import logger from '../../logger'
-import { activeAgencies, SERVICE_ALL_AGENCIES } from '../data/activeAgencies'
+import { activeAgencies, SERVICE_ALL_AGENCIES, setActiveAgencies } from '../data/activeAgencies'
 
 const fakeApiServer: nock.Scope = nock(config.apis.hmppsPrisonApi.url)
 const fakeAuthServer: nock.Scope = nock(config.apis.hmppsAuth.url)
@@ -120,6 +120,10 @@ describe('updateActiveAgencies', () => {
   })
 
   it('handles failure to get a fresh activeAgencies list gracefully', async () => {
+    // Active agencies was set at some point before
+    setActiveAgencies(['MDI'])
+    applicationInfo.additionalFields.activeAgencies = ['MDI']
+
     // Mock API error
     fakeApiServer
       .get('/api/agency-switches/INCIDENTS')
@@ -128,9 +132,9 @@ describe('updateActiveAgencies', () => {
 
     const next: NextFunction = jest.fn()
 
-    // Check initial state (activeAgencies was populated before)
-    expect(activeAgencies.length).toBeGreaterThan(0)
-    expect(applicationInfo.additionalFields.activeAgencies.length).toBeGreaterThan(0)
+    // Check initial state (activeAgencies still matches state before error)
+    expect(activeAgencies).toEqual(['MDI'])
+    expect(applicationInfo.additionalFields.activeAgencies).toEqual(['MDI'])
 
     await middleware(req, res, next)
 

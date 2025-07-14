@@ -146,5 +146,5 @@ function mockAgenciesSwitchesRequest(activeAgenciesResponse: ActiveAgency[]) {
   fakeApiServer
     .get('/api/agency-switches/INCIDENTS')
     .matchHeader('authorization', `Bearer ${systemToken}`)
-    .reply(200, activeAgenciesResponse satisfies ActiveAgency[])
+    .reply(200, activeAgenciesResponse)
 }

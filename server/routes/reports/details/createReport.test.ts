@@ -1,7 +1,6 @@
 import type { Express } from 'express'
 import request, { type Agent, type Response } from 'supertest'
 
-import config from '../../../config'
 import format from '../../../utils/format'
 import { appWithAllRoutes } from '../../testutils/appSetup'
 import { IncidentReportingApi } from '../../../data/incidentReportingApi'
@@ -9,6 +8,7 @@ import { convertReportWithDetailsDates } from '../../../data/incidentReportingAp
 import { mockErrorResponse, mockReport } from '../../../data/testData/incidentReporting'
 import { mockThrownError } from '../../../data/testData/thrownErrors'
 import { mockDataWarden, mockReportingOfficer, mockHqViewer, mockUnauthorisedUser } from '../../../data/testData/users'
+import { setActiveAgencies } from '../../../data/activeAgencies'
 
 jest.mock('../../../data/incidentReportingApi')
 
@@ -332,16 +332,6 @@ describe('Creating a report', () => {
   describe('Permissions', () => {
     // NB: these test cases are simplified because the permissions class methods are thoroughly tested elsewhere
 
-    let previousActivePrisons: string[]
-
-    beforeAll(() => {
-      previousActivePrisons = config.activePrisons
-    })
-
-    beforeEach(() => {
-      config.activePrisons = previousActivePrisons
-    })
-
     const granted = 'granted' as const
     const denied = 'denied' as const
     it.each([
@@ -365,9 +355,10 @@ describe('Creating a report', () => {
       { userType: 'reporting officer', user: mockReportingOfficer },
       { userType: 'data warden', user: mockDataWarden },
     ])('should be denied to $userType if active caseload is not an active prison', ({ user }) => {
-      config.activePrisons = ['LEI']
+      const testApp = appWithAllRoutes({ userSupplier: () => user })
+      setActiveAgencies(['LEI'])
 
-      return request(appWithAllRoutes({ userSupplier: () => user }))
+      return request(testApp)
         .get('/create-report')
         .redirects(1)
         .expect(res => {

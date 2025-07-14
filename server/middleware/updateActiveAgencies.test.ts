@@ -54,6 +54,10 @@ describe('updateActiveAgencies', () => {
     activeAgenciesCache.reset()
   })
 
+  afterEach(() => {
+    nock.cleanAll()
+  })
+
   it('updates activeAgencies and applicationInfo singletons', async () => {
     // Mock Prison API request **once**
     mockAgenciesSwitchesRequest(activeAgenciesResponse)

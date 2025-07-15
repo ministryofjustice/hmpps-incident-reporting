@@ -5,7 +5,9 @@ export const userActions = [
   /** Change basic details, involvements and respond to questions */
   { code: 'edit', description: 'Edit' },
   /** Submit for review */
-  { code: 'requestReview', description: 'Request review' },
+  { code: 'requestReview', description: 'Submit' },
+  /** Submit for removal */
+  { code: 'requestRemoval', description: 'Request to remove report' },
   /** Submit for removal as duplicate */
   { code: 'requestDuplicate', description: 'Request to mark duplicate' },
   /** Submit for removal as not reportable */

@@ -1,0 +1,51 @@
+{% extends "partials/layout.njk" %}
+
+{% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/error-summary/macro.njk" import govukErrorSummary %}
+
+{% set pageTitle = "Reopen report " + report.reportReference %}
+{% set bodyClasses = "app-reopen-report" %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: reportUrl
+  }) }}
+{% endblock %}
+
+{% block content %}
+  {% if errors.length > 0 %}
+    {{ govukErrorSummary({
+      titleText: "There is a problem",
+      errorList: errors
+    }) }}
+  {% endif %}
+
+  <h1 class="govuk-heading-l">
+    Are you sure you want reopen this report?
+  </h1>
+  <p>
+    Once you have made changes, you’ll need to resubmit the report to be reviewed.
+  </p>
+
+<form id="reopen-report" method="post" novalidate>
+  <input type="hidden" name="_csrf" value="{{ csrfToken }}" />
+  <input type="hidden" name="x-csrf-token" value="{{ csrfToken }}" />
+
+  <div class="govuk-button-group">
+    {{ govukButton({
+      text: "Reopen report",
+      name: "userAction",
+      value: "reopenReport",
+      preventDoubleClick: true,
+      type: "submit"
+    }) }}
+
+    <a href="{{ reportUrl }}" class="govuk-link govuk-link--no-visited-state" data-qa="cancelLink">
+      Cancel
+    </a>
+  </div>
+</form>
+
+{% endblock %}

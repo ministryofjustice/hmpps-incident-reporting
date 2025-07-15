@@ -13,7 +13,15 @@ import {
   types,
   dwNotReviewed,
 } from '../../reportConfiguration/constants'
-import { logoutUnless, canViewReport } from '../../middleware/permissions'
+import {
+  logoutUnless,
+  canViewReport,
+  prisonReportTransitions,
+  userActions,
+  UserType,
+  UserAction,
+  Transition,
+} from '../../middleware/permissions'
 import { populateReport } from '../../middleware/populateReport'
 import { populateReportConfiguration } from '../../middleware/populateReportConfiguration'
 import type { ReportWithDetails } from '../../data/incidentReportingApi'
@@ -67,27 +75,126 @@ export function viewReportRouter(): Router {
       const canEditReport = allowedActions.has('edit')
       const allowedActionsInNomisOnly = permissions.allowedActionsOnReport(report, 'nomis')
       const canEditReportInNomisOnly = allowedActionsInNomisOnly.has('edit')
+      let userType: UserType = 'hqViewer'
+      if (permissions.isReportingOfficer) {
+        userType = 'reportingOfficer'
+      }
+      if (permissions.isDataWarden) {
+        userType = 'dataWarden'
+      }
+
+      const { userAction, incidentNumber } = req.body ?? {}
+      const submittedAction = (req.body ?? {}).submittedAction as UserAction | undefined
+
+      let comment: string
+      if (submittedAction) {
+        comment = req.body[`${submittedAction}Comment`]
+      }
+
+      const formValues = {
+        userAction,
+        submittedAction,
+        [`${submittedAction}Comment`]: comment,
+      }
+
+      const pageTransitions = prisonReportTransitions[userType][report.status]
+      const actionItems = Object.fromEntries(
+        userActions.map(action => [
+          action.code,
+          {
+            value: action.code,
+            text: action.description,
+          },
+        ]),
+      )
 
       const errors: GovukErrorSummaryItem[] = []
       if (req.method === 'POST') {
-        if (req.body?.userAction === 'submit') {
-          // TODO: will need to work for other statuses too once lifecycle confirmed
-          if (report.status !== 'DRAFT') {
-            // incorrect status; users would never reach here through normal actions
-            errors.push({
-              text: 'Only a draft report can be submitted',
-              href: '?',
+        const submittedTransition: Transition = pageTransitions[submittedAction]
+        if (['changeReport', 'dwChangeStatus', 'dwChangeClosed'].includes(req.body?.userAction)) {
+          try {
+            // TODO: PECS regions need a different lookup
+            const newTitle = regenerateTitleForReport(
+              report,
+              prisonsLookup[report.location].description || report.location,
+            )
+            await incidentReportingApi.updateReport(report.id, {
+              title: newTitle,
             })
-          } else if (!canEditReport) {
-            // missing edit permission; users would never reach here through normal actions
+
+            const { newStatus } = pageTransitions.recall
+            await incidentReportingApi.changeReportStatus(report.id, { newStatus })
+            // TODO: set report validation=true flag? not supported by api/db yet / ever will be?
+
+            logger.info(`Report ${report.reportReference} changed status from ${report.status} to ${newStatus}`)
+            res.redirect(`${reportUrl}`)
+            return
+          } catch (e) {
+            logger.error(e, `Report ${report.reportReference} status could not be changed: %j`, e)
             errors.push({
-              text: 'You do not have permission to submit this report',
-              href: '?',
+              text: 'Action could not be submitted, please try again',
+              href: '#user-actions',
             })
-          } else {
-            // allowed to submit so check report for validity
+          }
+        } else if (req.body?.userAction === 'reopenReport') {
+          res.redirect(`${reportUrl}/reopen`)
+          return
+        } else if (req.body?.userAction === 'submit') {
+          if (submittedAction === 'requestRemoval') {
+            res.redirect(`${reportUrl}/remove-report`)
+            return
+          }
+          if ('mustBeValid' in submittedTransition) {
             for (const error of checkReportIsComplete(report, reportConfig, questionProgressSteps, reportUrl)) {
               errors.push(error)
+            }
+          }
+
+          if ('commentRequired' in submittedTransition && !('incidentNumberRequired' in submittedTransition)) {
+            const alphaNum = /[a-zA-Z0-9]+'/
+            if (!comment || !alphaNum.test(comment)) {
+              if (submittedAction === 'requestReview') {
+                errors.push({
+                  text: 'Enter what has changed in the report',
+                  href: `#${submittedAction}Comment`,
+                })
+              } else if (submittedAction === 'markNotReportable') {
+                errors.push({
+                  text: 'Describe why incident is not reportable',
+                  href: `#${submittedAction}Comment`,
+                })
+              } else {
+                errors.push({
+                  text: 'Please enter a comment',
+                  href: `#${submittedAction}Comment`,
+                })
+              }
+            }
+          }
+
+          if ('incidentNumberRequired' in submittedTransition) {
+            const numbersOnly = /[0-9]+/
+            if (!numbersOnly.test(incidentNumber)) {
+              errors.push({
+                text: 'Please enter a numerical reference number',
+                href: `#incidentNumber`,
+              })
+            } else if (incidentNumber === report.reportReference) {
+              errors.push({
+                text: 'Enter a different report number',
+                href: `#incidentNumber`,
+              })
+            } else {
+              try {
+                await incidentReportingApi.getReportByReference(incidentNumber)
+                logger.info(`Duplicate report incident number ${incidentNumber} does belong to a valid report`)
+                // eslint-disable-next-line @typescript-eslint/no-unused-vars
+              } catch (e) {
+                errors.push({
+                  text: 'Enter a valid incident report number',
+                  href: `#incidentNumber`,
+                })
+              }
             }
           }
 
@@ -103,21 +210,21 @@ export function viewReportRouter(): Router {
                 title: newTitle,
               })
 
-              // TODO: will need to work for other statuses too once lifecycle confirmed
-              const newStatus: Status = 'AWAITING_REVIEW'
+              const { newStatus } = submittedTransition
               await incidentReportingApi.changeReportStatus(report.id, { newStatus })
               // TODO: set report validation=true flag? not supported by api/db yet / ever will be?
 
               logger.info(
-                `Report ${report.reportReference} submitted for review and changed status from ${report.status} to ${newStatus}`,
+                `Report ${report.reportReference} submitted the following action: ${actionItems[submittedAction].text}, and changed status from ${report.status} to ${newStatus}`,
               )
-              req.flash('success', { title: `You have submitted incident report ${report.reportReference}` })
+              const { bannerText } = submittedTransition
+              req.flash('success', { title: bannerText.replace('reportReference', `${report.reportReference}`) })
               res.redirect('/reports')
               return
             } catch (e) {
-              logger.error(e, `Report ${report.reportReference} could not be submitted: %j`, e)
+              logger.error(e, `Report ${report.reportReference} status could not be changed: %j`, e)
               errors.push({
-                text: 'Report could not be submitted, please try again',
+                text: 'Action could not be submitted, please try again',
                 href: '#user-actions',
               })
             }
@@ -147,6 +254,7 @@ export function viewReportRouter(): Router {
         report,
         reportConfig,
         questionProgressSteps,
+        userType,
         canEditReport,
         canEditReportInNomisOnly,
         descriptionAppendOnly,
@@ -157,6 +265,9 @@ export function viewReportRouter(): Router {
         staffInvolvementLookup,
         typesLookup,
         statusLookup,
+        pageTransitions,
+        actionItems,
+        formValues,
       })
     },
   )

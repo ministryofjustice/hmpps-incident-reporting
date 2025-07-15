@@ -4,6 +4,7 @@
 {% from "govuk/components/button/macro.njk" import govukButton %}
 {% from "govuk/components/error-summary/macro.njk" import govukErrorSummary %}
 {% from "govuk/components/warning-text/macro.njk" import govukWarningText %}
+{% from "moj/components/alert/macro.njk" import mojAlert %}
 
 {% set pageTitle = "Incident report " + report.reportReference %}
 {% set bodyClasses = "app-view-report" %}
@@ -26,6 +27,16 @@
 {% endblock %}
 
 {% block content %}
+  <!-- TODO: replace with link to actual email address -->
+  {% if (userType == 'reportingOfficer') and (report.status == 'ON_HOLD') %}
+    {{ mojAlert({
+      variant: "information",
+      title: "On hold",
+      showTitleAsHeading: true,
+      dismissible: false,
+      html: 'A data warden has placed this report on hold. If you need to make an update contact email address'
+    }) }}
+  {% endif %}
 
   {% if errors.length > 0 %}
     {{ govukErrorSummary({
@@ -69,26 +80,6 @@
   {% include "./_prisoners.njk" %}
   {% include "./_staff.njk" %}
   {% include "./_questions.njk" %}
-
-  <form id="user-actions" method="post" novalidate>
-    <input type="hidden" name="_csrf" value="{{ csrfToken }}" />
-
-    <div class="govuk-button-group">
-      {# TODO: will need to work for other statuses too once lifecycle confirmed #}
-      {% if report.status == "DRAFT" and canEditReport %}
-        {{ govukButton({
-          text: "Submit",
-          name: "userAction",
-          value: "submit",
-          preventDoubleClick: true,
-          type: "submit"
-        }) }}
-      {% endif %}
-
-      <a href="/reports" class="govuk-link govuk-link--no-visited-state">
-        Back to incidents
-      </a>
-    </div>
-  </form>
+  {% include "./_actions.njk" %}
 
 {% endblock %}

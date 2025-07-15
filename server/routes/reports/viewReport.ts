@@ -17,7 +17,6 @@ import {
   canViewReport,
   prisonReportTransitions,
   userActions,
-  UserType,
   UserAction,
   Transition,
 } from '../../middleware/permissions'
@@ -74,13 +73,7 @@ export function viewReportRouter(): Router {
       const canEditReport = allowedActions.has('edit')
       const allowedActionsInNomisOnly = permissions.allowedActionsOnReport(report, 'nomis')
       const canEditReportInNomisOnly = allowedActionsInNomisOnly.has('edit')
-      let userType: UserType = 'hqViewer'
-      if (permissions.isReportingOfficer) {
-        userType = 'reportingOfficer'
-      }
-      if (permissions.isDataWarden) {
-        userType = 'dataWarden'
-      }
+      const { userType } = permissions
 
       const { userAction, incidentNumber } = req.body ?? {}
       const submittedAction = (req.body ?? {}).submittedAction as UserAction | undefined

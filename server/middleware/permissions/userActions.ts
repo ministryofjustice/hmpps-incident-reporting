@@ -6,12 +6,8 @@ export const userActions = [
   { code: 'edit', description: 'Edit' },
   /** Submit for review */
   { code: 'requestReview', description: 'Submit' },
-  /** Submit for removal */
+  /** Submit request for removal */
   { code: 'requestRemoval', description: 'Request to remove report' },
-  /** Submit for removal as duplicate */
-  { code: 'requestDuplicate', description: 'Request to mark duplicate' },
-  /** Submit for removal as not reportable */
-  { code: 'requestNotReportable', description: 'Request to mark not reportable' },
   /** Send back for changes */
   { code: 'requestCorrection', description: 'Request correction' },
   /** Move into own column & appropriate status */

@@ -16,7 +16,7 @@ export const fields = {
     ],
   },
   incidentReportNumber: {
-    label: 'Enter incident number of the original report',
+    label: 'Enter incident report number of the original report',
     component: 'govukInput',
     validate: ['required', 'numeric'],
     dependent: {
@@ -25,7 +25,7 @@ export const fields = {
     },
   },
   duplicateComment: {
-    label: 'Describe why it is not reportable',
+    label: 'Describe why it is a duplicate report (optional)',
     component: 'govukTextarea',
     dependent: {
       field: 'removeReportMethod',

@@ -37,20 +37,20 @@
   {% call renderDpsCards() %}
     {% if permissions.canCreateReportInActiveCaseload %}
       {{ renderDpsCard({
-        heading: "Report an incident",
-        description: "TODO",
+        heading: "Create an incident report",
+        description: "Submit a report for an incident that has taken place in a prison.",
         href: "/create-report"
       }) }}
     {% endif %}
     {{ renderDpsCard({
-      heading: "View incidents",
-      description: "TODO",
+      heading: "Search incident reports",
+      description: "Review the details for incidents that have taken place in prisons.",
       href: "/reports"
     }) }}
     {# TODO: will the management reporting tile need a separate role? #}
     {{ renderDpsCard({
       heading: "Management reporting",
-      description: "Run management reports for printing or exporting.",
+      description: "Reports that include in-depth data about different incidents in prisons.",
       href: "/management-reporting"
     }) }}
   {% endcall %}

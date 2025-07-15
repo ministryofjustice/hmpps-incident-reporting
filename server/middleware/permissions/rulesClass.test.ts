@@ -8,7 +8,6 @@ import {
   mockHqViewer,
   mockUnauthorisedUser,
 } from '../../data/testData/users'
-import config from '../../config'
 import { roleReadOnly, roleReadWrite, roleApproveReject, rolePecs } from '../../data/constants'
 import { convertReportDates } from '../../data/incidentReportingApiUtils'
 import { mockReport } from '../../data/testData/incidentReporting'
@@ -17,9 +16,13 @@ import { mockPecsRegions, resetPecsRegions } from '../../data/testData/pecsRegio
 import { brixton, leeds, moorland } from '../../data/testData/prisonApi'
 import { Permissions } from './rulesClass'
 import type { UserAction } from './userActions'
+import { setActiveAgencies } from '../../data/activeAgencies'
 
 const granted = 'granted' as const
 const denied = 'denied' as const
+
+const leedsAndMoorland = [leeds.agencyId, moorland.agencyId]
+const pecsCodes = ['NORTH', 'SOUTH']
 
 interface Scenario {
   /** Most tests use this description since they are affected by roles and caseloads */
@@ -78,12 +81,7 @@ const hqViewerInLeedsWithPecs: Scenario = {
 }
 
 describe('Permissions class', () => {
-  let previousActivePrisons: string[]
-  let previousActiveForPecsRegions: boolean
-
   beforeAll(() => {
-    previousActivePrisons = config.activePrisons
-    previousActiveForPecsRegions = config.activeForPecsRegions
     mockPecsRegions()
   })
 
@@ -91,9 +89,8 @@ describe('Permissions class', () => {
     resetPecsRegions()
   })
 
-  afterEach(() => {
-    config.activePrisons = previousActivePrisons
-    config.activeForPecsRegions = previousActiveForPecsRegions
+  beforeEach(() => {
+    setActiveAgencies([...leedsAndMoorland, ...pecsCodes])
   })
 
   describe('User types', () => {
@@ -160,11 +157,6 @@ describe('Permissions class', () => {
   })
 
   describe('Allowed actions', () => {
-    beforeEach(() => {
-      config.activePrisons = ['MDI', 'LEI']
-      config.activeForPecsRegions = true
-    })
-
     // mock reports in Leeds
     const mockReports = [true, false].map(withDetails =>
       convertReportDates(mockReport({ reportReference: '6543', reportDateAndTime: now, location: 'LEI', withDetails })),
@@ -308,8 +300,7 @@ describe('Permissions class', () => {
         ])(
           'should be $action to $userType.description only in NOMIS when Leeds is inactive in DPS',
           ({ userType: { user }, action }) => {
-            config.activePrisons = ['MDI']
-
+            setActiveAgencies(['MDI'])
             const permissions = new Permissions(user)
             expect(permissions.canCreateReportInLocation('LEI')).toBe(false)
             expect(permissions.canCreateReportInLocationInNomisOnly('LEI')).toBe(action === granted)
@@ -364,8 +355,7 @@ describe('Permissions class', () => {
         ])(
           'should be $action to $userType.descriptionIgnoringCaseload only in NOMIS when active casload is inactive in DPS',
           ({ userType: { user }, action }) => {
-            config.activePrisons = []
-
+            setActiveAgencies([])
             const permissions = new Permissions(user)
             expect(permissions.canCreateReportInActiveCaseload).toBe(false)
             expect(permissions.canCreateReportInActiveCaseloadInNomisOnly).toBe(action === granted)
@@ -408,8 +398,7 @@ describe('Permissions class', () => {
         ])(
           'should be $action to $userType.description only in NOMIS when PECS reports are inactive in DPS',
           ({ userType: { user }, action }) => {
-            config.activeForPecsRegions = false
-
+            setActiveAgencies(leedsAndMoorland)
             const permissions = new Permissions(user)
             expect(permissions.canCreateReportInLocation('NORTH')).toBe(false)
             expect(permissions.canCreateReportInLocationInNomisOnly('NORTH')).toBe(action === granted)
@@ -458,8 +447,7 @@ describe('Permissions class', () => {
         ])(
           'should be $action to $userType.description only in NOMIS when Leeds is inactive in DPS',
           ({ userType: { user }, action }) => {
-            config.activePrisons = ['MDI']
-
+            setActiveAgencies(['MDI'])
             const permissions = new Permissions(user)
             expectActionsOnPrisonReports({
               permissions,
@@ -515,8 +503,7 @@ describe('Permissions class', () => {
         ])(
           'should be $action to $userType.description only in NOMIS when PECS reports are inactive in DPS',
           ({ userType: { user }, action }) => {
-            config.activeForPecsRegions = false
-
+            setActiveAgencies([])
             const permissions = new Permissions(user)
             expectActionsOnPecsReports({
               permissions,
@@ -587,8 +574,7 @@ describe('Permissions class', () => {
         ])(
           'should be $action to $userType.description only in NOMIS when Leeds is inactive in DPS',
           ({ userType: { user }, action }) => {
-            config.activePrisons = ['MDI']
-
+            setActiveAgencies(['MDI'])
             const permissions = new Permissions(user)
             expectActionsOnPrisonReports({
               permissions,
@@ -644,8 +630,7 @@ describe('Permissions class', () => {
         ])(
           'should be $action to $userType.description only in NOMIS when active casload is inactive in DPS',
           ({ userType: { user }, action }) => {
-            config.activeForPecsRegions = false
-
+            setActiveAgencies(leedsAndMoorland)
             const permissions = new Permissions(user)
             expectActionsOnPecsReports({
               permissions,
@@ -675,6 +660,7 @@ describe('Permissions class', () => {
       const req = {} as Request
       const res = { locals: { user } } as Response
       const next: NextFunction = jest.fn()
+
       Permissions.middleware(req, res, next)
       expect(next).toHaveBeenCalledWith()
       expect(res.locals.permissions).toBeInstanceOf(Permissions)

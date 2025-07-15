@@ -54,6 +54,31 @@ export default {
     }),
 
   /**
+   * Stub endpoint to determine where service is active
+   */
+  stubPrisonApiMockAgencySwitches: (): SuperAgentRequest =>
+    stubFor({
+      request: {
+        method: 'GET',
+        urlPath: '/prisonApi/api/agency-switches/INCIDENTS',
+      },
+      response: {
+        status: 200,
+        headers: { 'Content-Type': 'application/json;charset=UTF-8' },
+        jsonBody: [
+          {
+            agencyId: moorland.agencyId,
+            name: moorland.description,
+          },
+          {
+            agencyId: leeds.agencyId,
+            name: leeds.description,
+          },
+        ],
+      },
+    }),
+
+  /**
    * Stub getting details for all mock staff
    */
   stubPrisonApiMockStaff: (): Promise<SuperAgentResponse[]> =>

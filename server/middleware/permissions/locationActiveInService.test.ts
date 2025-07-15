@@ -1,31 +1,29 @@
-import config from '../../config'
-import { isLocationActiveInService, isPrisonActiveInService } from './locationActiveInService'
+import { isLocationActiveInService } from './locationActiveInService'
 import { pecsRegions } from '../../data/pecsRegions'
 import { pecsNorthRegion, pecsSouthRegion } from '../../data/testData/pecsRegions'
+import { SERVICE_ALL_AGENCIES, setActiveAgencies } from '../../data/activeAgencies'
 
 describe('Active location helper functions', () => {
-  it('should always return true if all prisons are permitted', () => {
-    config.activePrisons = ['***']
+  it('should always return true if all agencies are permitted', () => {
+    setActiveAgencies(['XYZ', SERVICE_ALL_AGENCIES])
 
-    const prisons = [undefined, null, '', 'MDI', 'LEI']
-    for (const prison of prisons) {
-      expect(isLocationActiveInService(prison)).toBe(true)
-      expect(isPrisonActiveInService(prison)).toBe(true)
+    const agencies = [undefined, null, '', 'MDI', 'LEI']
+    for (const agencyId of agencies) {
+      expect(isLocationActiveInService(agencyId)).toBe(true)
     }
   })
 
-  it('should always return false if no prisons are permitted', () => {
-    config.activePrisons = []
+  it('should always return false if no agencies are permitted', () => {
+    setActiveAgencies([])
 
-    const prisons = [undefined, null, '', 'MDI', 'LEI']
-    for (const prison of prisons) {
-      expect(isLocationActiveInService(prison)).toBe(false)
-      expect(isPrisonActiveInService(prison)).toBe(false)
+    const agencies = [undefined, null, '', 'MDI', 'LEI']
+    for (const agencyId of agencies) {
+      expect(isLocationActiveInService(agencyId)).toBe(false)
     }
   })
 
-  it('should check prison against configured list', () => {
-    config.activePrisons = ['BXI', 'LEI']
+  it('should check agency against configured list', () => {
+    setActiveAgencies(['BXI', 'LEI'])
 
     const textCases: [string, boolean][] = [
       [undefined, false],
@@ -38,18 +36,17 @@ describe('Active location helper functions', () => {
     ]
     for (const [code, active] of textCases) {
       expect(isLocationActiveInService(code)).toBe(active)
-      expect(isPrisonActiveInService(code)).toBe(active)
     }
   })
 
   it('should check if PECS regions are active', () => {
-    config.activePrisons = []
-    config.activeForPecsRegions = true
     pecsRegions.splice(0, pecsRegions.length, pecsNorthRegion, pecsSouthRegion, {
       code: 'WEST',
       description: 'Historic West region',
       active: false,
     })
+    const pecsCodes = pecsRegions.map(region => region.code)
+    setActiveAgencies(pecsCodes)
 
     expect(isLocationActiveInService('NORTH')).toBe(true)
     expect(isLocationActiveInService('SOUTH')).toBe(true)

@@ -89,8 +89,23 @@ describe('prisonApi', () => {
         .matchHeader('authorization', `Bearer ${accessToken}`)
         .reply(200, expectedResponse satisfies ActiveAgency[])
 
-      const activeAgenciesMiss = await apiClient.getAgenciesSwitchedOn()
-      expect(activeAgenciesMiss).toEqual(expectedActiveAgencies)
+      const activeAgencies = await apiClient.getAgenciesSwitchedOn()
+      expect(activeAgencies).toEqual(expectedActiveAgencies)
+    })
+
+    it('returns empty list when API responds 404 NOT FOUND', async () => {
+      // Mock API responding 404 NOT FOUND
+      fakeApiClient
+        .get('/api/agency-switches/INCIDENTS')
+        .matchHeader('authorization', `Bearer ${accessToken}`)
+        .reply(404, {
+          status: 404,
+          userMessage: 'Service code INCIDENTS does not exist',
+          developerMessage: 'Service code INCIDENTS does not exist',
+        })
+
+      const activeAgencies = await apiClient.getAgenciesSwitchedOn()
+      expect(activeAgencies).toEqual([])
     })
   })
 

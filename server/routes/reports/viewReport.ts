@@ -4,7 +4,6 @@ import { MethodNotAllowed } from 'http-errors'
 import logger from '../../../logger'
 import { regenerateTitleForReport } from '../../services/reportTitle'
 import {
-  type Status,
   aboutTheType,
   prisonerInvolvementOutcomes,
   prisonerInvolvementRoles,

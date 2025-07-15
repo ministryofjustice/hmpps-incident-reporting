@@ -5,7 +5,6 @@ import { BaseController } from '../../../../controllers'
 import type { ReportBasic } from '../../../../data/incidentReportingApi'
 import type { Values } from './fields'
 import logger from '../../../../../logger'
-import type { Status } from '../../../../reportConfiguration/constants'
 import { prisonReportTransitions } from '../../../../middleware/permissions'
 
 // eslint-disable-next-line import/prefer-default-export

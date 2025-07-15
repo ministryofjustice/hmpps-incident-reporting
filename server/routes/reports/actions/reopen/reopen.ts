@@ -3,7 +3,6 @@ import { MethodNotAllowed } from 'http-errors'
 
 import logger from '../../../../../logger'
 import { regenerateTitleForReport } from '../../../../services/reportTitle'
-import type { Status } from '../../../../reportConfiguration/constants'
 import { logoutUnless, canViewReport, prisonReportTransitions } from '../../../../middleware/permissions'
 import { populateReport } from '../../../../middleware/populateReport'
 import type { GovukErrorSummaryItem } from '../../../../utils/govukFrontend'

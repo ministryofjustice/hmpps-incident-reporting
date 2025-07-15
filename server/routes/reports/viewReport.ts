@@ -143,7 +143,7 @@ export function viewReportRouter(): Router {
           }
 
           if ('commentRequired' in submittedTransition && !('incidentNumberRequired' in submittedTransition)) {
-            const alphaNum = /[a-zA-Z0-9]+'/
+            const alphaNum = /[a-zA-Z0-9]+/
             if (!comment || !alphaNum.test(comment)) {
               if (submittedAction === 'requestReview') {
                 errors.push({

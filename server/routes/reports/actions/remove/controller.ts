@@ -6,6 +6,7 @@ import type { ReportBasic } from '../../../../data/incidentReportingApi'
 import type { Values } from './fields'
 import logger from '../../../../../logger'
 import type { Status } from '../../../../reportConfiguration/constants'
+import { prisonReportTransitions } from '../../../../middleware/permissions'
 
 // eslint-disable-next-line import/prefer-default-export
 export class RemoveReport extends BaseController<Values> {
@@ -76,13 +77,7 @@ export class RemoveReport extends BaseController<Values> {
     const report = res.locals.report as ReportBasic
 
     try {
-      let newStatus: Status = 'UPDATED'
-      if (report.status === 'DRAFT') {
-        newStatus = 'AWAITING_REVIEW'
-      }
-      if (report.status === 'REOPENED') {
-        newStatus = 'WAS_CLOSED'
-      }
+      const { newStatus } = prisonReportTransitions.reportingOfficer[report.status].requestRemoval
 
       await res.locals.apis.incidentReportingApi.changeReportStatus(report.id, { newStatus })
       // TODO: set report validation=true flag? not supported by api/db yet / ever will be?

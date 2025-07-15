@@ -67,7 +67,7 @@ export const prisonReportTransitions: Transitions = {
         commentBoxText: 'Describe what has changed in the report',
         bannerText: 'You have resubmitted incident report reportReference',
       },
-      requestRemoval: { newStatus: 'AWAITING_REVIEW', label: 'Request to remove report' },
+      requestRemoval: { newStatus: 'UPDATED', label: 'Request to remove report' },
     },
     ON_HOLD: {},
     UPDATED: {
@@ -92,7 +92,7 @@ export const prisonReportTransitions: Transitions = {
         commentBoxText: 'Describe what has changed in the report',
         bannerText: 'You have resubmitted incident report reportReference',
       },
-      requestRemoval: { newStatus: 'AWAITING_REVIEW', label: 'Request to remove report' },
+      requestRemoval: { newStatus: 'WAS_CLOSED', label: 'Request to remove report' },
     },
     WAS_CLOSED: {
       recall: { newStatus: 'DRAFT' },

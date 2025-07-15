@@ -196,13 +196,21 @@ export class PrisonApi extends RestClient {
    */
   async getAgenciesSwitchedOn(): Promise<string[]> {
     const SERVICE_CODE = 'INCIDENTS'
-    const activeAgencies = await this.get<ActiveAgency[]>(
-      {
-        path: `/api/agency-switches/${encodeURIComponent(SERVICE_CODE)}`,
-      },
-      asSystem(),
-    )
-    return activeAgencies.map(activeAgency => activeAgency.agencyId)
+    try {
+      const activeAgencies = await this.get<ActiveAgency[]>(
+        {
+          path: `/api/agency-switches/${encodeURIComponent(SERVICE_CODE)}`,
+        },
+        asSystem(),
+      )
+      return activeAgencies.map(activeAgency => activeAgency.agencyId)
+    } catch (error) {
+      if (error?.responseStatus === 404) {
+        // endpoint returns 404s when no agencies are active
+        return []
+      }
+      throw error
+    }
   }
 
   async getPhoto(prisonerNumber: string): Promise<Buffer | null> {

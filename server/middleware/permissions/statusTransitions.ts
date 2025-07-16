@@ -71,16 +71,16 @@ export const prisonReportTransitions: Transitions = {
     },
     ON_HOLD: {},
     UPDATED: {
-      recall: { newStatus: 'DRAFT' },
+      recall: { newStatus: 'NEEDS_UPDATING' },
     },
     CLOSED: {
-      recall: { newStatus: 'DRAFT' },
+      recall: { newStatus: 'REOPENED' },
     },
     DUPLICATE: {
-      recall: { newStatus: 'DRAFT' },
+      recall: { newStatus: 'NEEDS_UPDATING' },
     },
     NOT_REPORTABLE: {
-      recall: { newStatus: 'DRAFT' },
+      recall: { newStatus: 'NEEDS_UPDATING' },
     },
     REOPENED: {
       edit: {},
@@ -95,7 +95,7 @@ export const prisonReportTransitions: Transitions = {
       requestRemoval: { newStatus: 'WAS_CLOSED', label: 'Request to remove report' },
     },
     WAS_CLOSED: {
-      recall: { newStatus: 'DRAFT' },
+      recall: { newStatus: 'REOPENED' },
     },
   },
   dataWarden: {
@@ -230,18 +230,11 @@ export const prisonReportTransitions: Transitions = {
         bannerText: 'Incident report reportReference has been marked as closed',
       },
       requestCorrection: {
-        newStatus: 'NEEDS_UPDATING',
+        newStatus: 'REOPENED',
         label: 'Send back',
         commentRequired: true,
         commentBoxText: 'Describe why the report is being sent back',
         bannerText: 'Incident report reportReference has been sent back',
-      },
-      hold: {
-        newStatus: 'ON_HOLD',
-        label: 'Put on hold',
-        commentRequired: true,
-        commentBoxText: 'Describe why the report is being put on hold',
-        bannerText: 'Incident report reportReference has been put on hold',
       },
       markDuplicate: {
         newStatus: 'DUPLICATE',

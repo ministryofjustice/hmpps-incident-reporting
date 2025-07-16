@@ -2,15 +2,33 @@
 {% from "govuk/components/input/macro.njk" import govukInput %}
 {% from "govuk/components/textarea/macro.njk" import govukTextarea %}
 
-{% if (userType == 'reportingOfficer') and (report.status in ["AWAITING_REVIEW", "UPDATED", "WAS_CLOSED"]) %}
+{% if
+  (
+    (userType == 'reportingOfficer') and
+    (report.status in ["AWAITING_REVIEW", "UPDATED", "WAS_CLOSED", "CLOSED", "NOT_REPORTABLE", "DUPLICATE"])
+  )
+  or
+  (
+    (userType == 'dataWarden') and
+    (report.status in ["NEEDS_UPDATING", "REOPENED", "CLOSED", "NOT_REPORTABLE", "DUPLICATE"])
+  )
+%}
+  {% if (userType == 'reportingOfficer') and (report.status in ["AWAITING_REVIEW", "UPDATED", "WAS_CLOSED"]) %}
+    {% set buttonText = "Change report" %}
+  {% elseif (userType == 'reportingOfficer') and (report.status in ["CLOSED", "NOT_REPORTABLE", "DUPLICATE"]) %}
+    {% set buttonText = "Reopen and change report" %}
+  {% else %}
+    {% set buttonText = "Change report status" %}
+  {% endif %}
+
   <form id="app-view-report__user-action-form" method="post" novalidate>
     <input type="hidden" name="_csrf" value="{{ csrfToken }}" />
 
     <div class="govuk-button-group">
       {{ govukButton({
-        text: "Change report",
+        text: buttonText,
         name: "userAction",
-        value: "changeReport",
+        value: "recall",
         classes: "govuk-button--secondary",
         preventDoubleClick: true,
         type: "submit"
@@ -21,70 +39,6 @@
       </a>
     </div>
   </form>
-
-{% elseif (userType == 'reportingOfficer') and (report.status in ["CLOSED", "NOT_REPORTABLE", "DUPLICATE"]) %}
-
-  <form id="app-view-report__user-action-form" method="post" novalidate>
-    <input type="hidden" name="_csrf" value="{{ csrfToken }}" />
-
-    <div class="govuk-button-group">
-      {{ govukButton({
-        text: "Reopen and change report",
-        name: "userAction",
-        value: "reopenReport",
-        classes: "govuk-button--secondary",
-        preventDoubleClick: true,
-        type: "submit"
-      }) }}
-
-      <a href="/reports" class="govuk-link govuk-link--no-visited-state">
-        Back to incidents
-      </a>
-    </div>
-  </form>
-
-{% elseif (userType == 'dataWarden') and (report.status in ["NEEDS_UPDATING", "REOPENED"]) %}
-
-  <form id="app-view-report__user-action-form" method="post" novalidate>
-    <input type="hidden" name="_csrf" value="{{ csrfToken }}" />
-
-    <div class="govuk-button-group">
-      {{ govukButton({
-        text: "Change report status",
-        name: "userAction",
-        value: "dwChangeStatus",
-        classes: "govuk-button--secondary",
-        preventDoubleClick: true,
-        type: "submit"
-      }) }}
-
-      <a href="/reports" class="govuk-link govuk-link--no-visited-state">
-        Back to incidents
-      </a>
-    </div>
-  </form>
-
-{% elseif (userType == 'dataWarden') and (report.status in ["CLOSED", "NOT_REPORTABLE", "DUPLICATE"]) %}
-
-  <form id="app-view-report__user-action-form" method="post" novalidate>
-    <input type="hidden" name="_csrf" value="{{ csrfToken }}" />
-
-    <div class="govuk-button-group">
-      {{ govukButton({
-        text: "Change report status",
-        name: "userAction",
-        value: "dwChangeClosed",
-        classes: "govuk-button--secondary",
-        preventDoubleClick: true,
-        type: "submit"
-      }) }}
-
-      <a href="/reports" class="govuk-link govuk-link--no-visited-state">
-        Back to incidents
-      </a>
-    </div>
-  </form>
-
 
 {% else %}
 
@@ -145,7 +99,7 @@
     <input type="hidden" name="_csrf" value="{{ csrfToken }}" />
     {% if pageTransitions|length %}
       {{ govukRadios({
-        name: "submittedAction",
+        name: "userAction",
         fieldset: {
           legend: {
             text: "What do you want to do with this report?",
@@ -162,7 +116,7 @@
       {% if pageTransitions|length %}
         {{ govukButton({
           text: "Continue",
-          name: "userAction",
+          name: "submit",
           value: "submit",
           preventDoubleClick: true,
           type: "submit"

@@ -75,18 +75,18 @@ export function viewReportRouter(): Router {
       const canEditReportInNomisOnly = allowedActionsInNomisOnly.has('edit')
       const { userType } = permissions
 
-      const { userAction, incidentNumber } = req.body ?? {}
-      const submittedAction = (req.body ?? {}).submittedAction as UserAction | undefined
+      const { incidentNumber } = req.body ?? {}
+      const userAction = (req.body ?? {}).userAction as UserAction | undefined
 
       let comment: string
-      if (submittedAction) {
-        comment = req.body[`${submittedAction}Comment`]
+      if (userAction) {
+        comment = req.body[`${userAction}Comment`]
       }
 
       const formValues = {
         userAction,
-        submittedAction,
-        [`${submittedAction}Comment`]: comment,
+        [`${userAction}Comment`]: comment,
+        incidentNumber,
       }
 
       const pageTransitions = prisonReportTransitions[userType][report.status]
@@ -102,37 +102,17 @@ export function viewReportRouter(): Router {
 
       const errors: GovukErrorSummaryItem[] = []
       if (req.method === 'POST') {
-        const submittedTransition: Transition = pageTransitions[submittedAction]
-        if (['changeReport', 'dwChangeStatus', 'dwChangeClosed'].includes(req.body?.userAction)) {
-          try {
-            // TODO: PECS regions need a different lookup
-            const newTitle = regenerateTitleForReport(
-              report,
-              prisonsLookup[report.location].description || report.location,
-            )
-            await incidentReportingApi.updateReport(report.id, {
-              title: newTitle,
-            })
-
-            const { newStatus } = pageTransitions.recall
-            await incidentReportingApi.changeReportStatus(report.id, { newStatus })
-            // TODO: set report validation=true flag? not supported by api/db yet / ever will be?
-
-            logger.info(`Report ${report.reportReference} changed status from ${report.status} to ${newStatus}`)
-            res.redirect(`${reportUrl}`)
+        if (userAction === 'recall' || req.body?.submit === 'submit') {
+          const submittedTransition: Transition = pageTransitions[userAction]
+          if (
+            userAction === 'recall' &&
+            userType === 'reportingOfficer' &&
+            ['CLOSED', 'NOT_REPORTABLE', 'DUPLICATE'].includes(report.status)
+          ) {
+            res.redirect(`${reportUrl}/reopen`)
             return
-          } catch (e) {
-            logger.error(e, `Report ${report.reportReference} status could not be changed: %j`, e)
-            errors.push({
-              text: 'Action could not be submitted, please try again',
-              href: '#user-actions',
-            })
           }
-        } else if (req.body?.userAction === 'reopenReport') {
-          res.redirect(`${reportUrl}/reopen`)
-          return
-        } else if (req.body?.userAction === 'submit') {
-          if (submittedAction === 'requestRemoval') {
+          if (userAction === 'requestRemoval') {
             res.redirect(`${reportUrl}/remove-report`)
             return
           }
@@ -145,20 +125,20 @@ export function viewReportRouter(): Router {
           if ('commentRequired' in submittedTransition && !('incidentNumberRequired' in submittedTransition)) {
             const alphaNum = /[a-zA-Z0-9]+/
             if (!comment || !alphaNum.test(comment)) {
-              if (submittedAction === 'requestReview') {
+              if (userAction === 'requestReview') {
                 errors.push({
                   text: 'Enter what has changed in the report',
-                  href: `#${submittedAction}Comment`,
+                  href: `#${userAction}Comment`,
                 })
-              } else if (submittedAction === 'markNotReportable') {
+              } else if (userAction === 'markNotReportable') {
                 errors.push({
                   text: 'Describe why incident is not reportable',
-                  href: `#${submittedAction}Comment`,
+                  href: `#${userAction}Comment`,
                 })
               } else {
                 errors.push({
                   text: 'Please enter a comment',
-                  href: `#${submittedAction}Comment`,
+                  href: `#${userAction}Comment`,
                 })
               }
             }
@@ -207,11 +187,15 @@ export function viewReportRouter(): Router {
               // TODO: set report validation=true flag? not supported by api/db yet / ever will be?
 
               logger.info(
-                `Report ${report.reportReference} submitted the following action: ${actionItems[submittedAction].text}, and changed status from ${report.status} to ${newStatus}`,
+                `Report ${report.reportReference} submitted the following action: ${actionItems[userAction].text}, and changed status from ${report.status} to ${newStatus}`,
               )
               const { bannerText } = submittedTransition
-              req.flash('success', { title: bannerText.replace('reportReference', `${report.reportReference}`) })
-              res.redirect('/reports')
+              if (userAction === 'recall') {
+                res.redirect(reportUrl)
+              } else {
+                req.flash('success', { title: bannerText.replace('reportReference', `${report.reportReference}`) })
+                res.redirect('/reports')
+              }
               return
             } catch (e) {
               logger.error(e, `Report ${report.reportReference} status could not be changed: %j`, e)

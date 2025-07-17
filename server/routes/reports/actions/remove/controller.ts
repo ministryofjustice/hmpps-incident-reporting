@@ -10,7 +10,6 @@ import { prisonReportTransitions } from '../../../../middleware/permissions'
 // eslint-disable-next-line import/prefer-default-export
 export class RemoveReport extends BaseController<Values> {
   async validate(req: FormWizard.Request<Values>, res: express.Response, next: express.NextFunction): Promise<void> {
-    // if (and only if) incidentDate and incidentTime are valid, ensure that the combined date & time is in the past
     const report = res.locals.report as ReportWithDetails
     const { incidentReportNumber } = req.form.values
     if (incidentReportNumber) {

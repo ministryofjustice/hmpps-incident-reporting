@@ -69,7 +69,6 @@ export const prisonReportTransitions: Transitions = {
       },
       requestRemoval: { newStatus: 'UPDATED', label: 'Request to remove report' },
     },
-    ON_HOLD: {},
     UPDATED: {
       recall: { newStatus: 'NEEDS_UPDATING' },
     },
@@ -99,7 +98,6 @@ export const prisonReportTransitions: Transitions = {
     },
   },
   dataWarden: {
-    DRAFT: {},
     AWAITING_REVIEW: {
       close: {
         newStatus: 'CLOSED',
@@ -254,7 +252,6 @@ export const prisonReportTransitions: Transitions = {
       },
     },
   },
-  hqViewer: {},
 }
 
 /**

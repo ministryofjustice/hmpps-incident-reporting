@@ -15,10 +15,9 @@ import {
 import {
   logoutUnless,
   canViewReport,
+  parseUserActionCode,
   prisonReportTransitions,
   userActions,
-  UserAction,
-  Transition,
 } from '../../middleware/permissions'
 import { populateReport } from '../../middleware/populateReport'
 import { populateReportConfiguration } from '../../middleware/populateReportConfiguration'
@@ -36,6 +35,7 @@ const prisonerOutcomeLookup = Object.fromEntries(
   prisonerInvolvementOutcomes.map(outcome => [outcome.code, outcome.description]),
 )
 const staffInvolvementLookup = Object.fromEntries(staffInvolvementRoles.map(role => [role.code, role.description]))
+const userActionDescriptions = Object.fromEntries(userActions.map(action => [action.code, action.description]))
 
 // eslint-disable-next-line import/prefer-default-export
 export function viewReportRouter(): Router {
@@ -58,6 +58,7 @@ export function viewReportRouter(): Router {
 
       const report = res.locals.report as ReportWithDetails
       const { permissions, allowedActions, reportConfig, reportUrl, questionProgress } = res.locals
+      const { userType } = permissions
 
       const usernames = [report.reportedBy]
       if (report.correctionRequests) {
@@ -73,37 +74,27 @@ export function viewReportRouter(): Router {
       const canEditReport = allowedActions.has('edit')
       const allowedActionsInNomisOnly = permissions.allowedActionsOnReport(report, 'nomis')
       const canEditReportInNomisOnly = allowedActionsInNomisOnly.has('edit')
-      const { userType } = permissions
 
-      const { incidentNumber } = req.body ?? {}
-      const userAction = (req.body ?? {}).userAction as UserAction | undefined
+      // TODO: PECS lookup is different
+      const pageTransitions = prisonReportTransitions?.[userType]?.[report.status] ?? {}
 
-      let comment: string
-      if (userAction) {
-        comment = req.body[`${userAction}Comment`]
-      }
-
-      const formValues = {
-        userAction,
-        [`${userAction}Comment`]: comment,
-        incidentNumber,
-      }
-
-      const pageTransitions = prisonReportTransitions[userType][report.status]
-      const actionItems = Object.fromEntries(
-        userActions.map(action => [
-          action.code,
-          {
-            value: action.code,
-            text: action.description,
-          },
-        ]),
-      )
-
+      let formValues: object = {}
       const errors: GovukErrorSummaryItem[] = []
       if (req.method === 'POST') {
-        if (userAction) {
-          const submittedTransition: Transition = pageTransitions[userAction]
+        const { userAction } = req.body ?? {}
+        if (parseUserActionCode(userAction) && userAction in pageTransitions) {
+          let comment: string | undefined
+          if (userAction) {
+            comment = req.body[`${userAction}Comment`]
+          }
+          const { incidentNumber } = req.body ?? {}
+          formValues = {
+            userAction,
+            [`${userAction}Comment`]: comment,
+            incidentNumber,
+          }
+
+          const submittedTransition = pageTransitions[userAction]
           if (
             userAction === 'recall' &&
             userType === 'reportingOfficer' &&
@@ -123,7 +114,7 @@ export function viewReportRouter(): Router {
           }
 
           if ('commentRequired' in submittedTransition && !('incidentNumberRequired' in submittedTransition)) {
-            const alphaNum = /[a-zA-Z0-9]+/
+            const alphaNum = /\S+/
             if (!comment || !alphaNum.test(comment)) {
               if (userAction === 'requestReview') {
                 errors.push({
@@ -187,7 +178,7 @@ export function viewReportRouter(): Router {
               // TODO: set report validation=true flag? not supported by api/db yet / ever will be?
 
               logger.info(
-                `Report ${report.reportReference} submitted the following action: ${actionItems[userAction].text}, and changed status from ${report.status} to ${newStatus}`,
+                `Report ${report.reportReference} submitted the following action: ${userActionDescriptions[userAction]}, and changed status from ${report.status} to ${newStatus}`,
               )
               const { bannerText } = submittedTransition
               if (userAction === 'recall') {
@@ -242,7 +233,6 @@ export function viewReportRouter(): Router {
         typesLookup,
         statusLookup,
         pageTransitions,
-        actionItems,
         formValues,
       })
     },

@@ -47,7 +47,7 @@
     {% for action, transition in pageTransitions %}
       {% if transition.newStatus %}
         {% if transition.commentRequired %}
-            {% set inputName = actionItems[action].value + 'Comment' %}
+            {% set inputName = action + 'Comment' %}
             {% set textHtml %}
               {% if transition.incidentNumberRequired %}
                 {{ govukInput({
@@ -59,8 +59,7 @@
                   },
                   value: formValues["incidentNumber"],
                   errorMessage: errors | findFieldInGovukErrorSummary("incidentNumber")
-                })
-                }}
+                }) }}
               {% endif %}
 
               {{ govukTextarea({
@@ -72,8 +71,7 @@
                 },
                 value: formValues[inputName],
                 errorMessage: errors | findFieldInGovukErrorSummary(inputName)
-              })
-              }}
+              }) }}
             {% endset -%}
 
           {% set _ = formItems.push({

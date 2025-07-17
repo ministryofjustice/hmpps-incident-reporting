@@ -23,3 +23,7 @@ export const userActions = [
 ] as const
 
 export type UserAction = (typeof userActions)[number]['code']
+
+export function parseUserActionCode(code: unknown): code is UserAction {
+  return userActions.some(action => action.code === code)
+}

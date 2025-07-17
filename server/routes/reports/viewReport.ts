@@ -102,7 +102,7 @@ export function viewReportRouter(): Router {
 
       const errors: GovukErrorSummaryItem[] = []
       if (req.method === 'POST') {
-        if (userAction === 'recall' || req.body?.submit === 'submit') {
+        if (userAction) {
           const submittedTransition: Transition = pageTransitions[userAction]
           if (
             userAction === 'recall' &&

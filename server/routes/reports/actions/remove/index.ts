@@ -21,4 +21,4 @@ const removeReport = FormWizard(steps, fields, {
 removeReport.mergeParams = true
 // eslint-disable-next-line import/prefer-default-export
 export const removeReportRouter = express.Router({ mergeParams: true })
-removeReportRouter.use(populateReport(false), logoutUnless(canEditReport), removeReport)
+removeReportRouter.use(populateReport(true), logoutUnless(canEditReport), removeReport)

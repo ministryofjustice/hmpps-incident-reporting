@@ -2,7 +2,7 @@ import type express from 'express'
 import type FormWizard from 'hmpo-form-wizard'
 
 import { BaseController } from '../../../../controllers'
-import type { ReportBasic } from '../../../../data/incidentReportingApi'
+import type { ReportWithDetails } from '../../../../data/incidentReportingApi'
 import type { Values } from './fields'
 import logger from '../../../../../logger'
 import { prisonReportTransitions } from '../../../../middleware/permissions'
@@ -11,32 +11,34 @@ import { prisonReportTransitions } from '../../../../middleware/permissions'
 export class RemoveReport extends BaseController<Values> {
   async validate(req: FormWizard.Request<Values>, res: express.Response, next: express.NextFunction): Promise<void> {
     // if (and only if) incidentDate and incidentTime are valid, ensure that the combined date & time is in the past
-    const report = res.locals.report as ReportBasic
+    const report = res.locals.report as ReportWithDetails
     const { incidentReportNumber } = req.form.values
-    try {
-      if (incidentReportNumber === report.reportReference) {
-        const error = new this.Error('incidentReportNumber', {
-          message: 'Enter a different report number',
-          key: `incidentReportNumber`,
-        })
-        next({ incidentReportNumber: error })
-        return
-      }
+    if (incidentReportNumber) {
       try {
-        await res.locals.apis.incidentReportingApi.getReportByReference(incidentReportNumber)
-        logger.info(`Duplicate report incident number ${incidentReportNumber} does belong to a valid report`)
-      } catch (e) {
-        const error = new this.Error('incidentReportNumber', {
-          message: 'Enter a valid incident report number',
-          key: `incidentReportNumber`,
-        })
-        next({ incidentReportNumber: error })
-        return
-      }
+        if (incidentReportNumber === report.reportReference) {
+          const error = new this.Error('incidentReportNumber', {
+            message: 'Enter a different report number',
+            key: `incidentReportNumber`,
+          })
+          next({ incidentReportNumber: error })
+          return
+        }
+        try {
+          await res.locals.apis.incidentReportingApi.getReportByReference(incidentReportNumber)
+          logger.info(`Duplicate report incident number ${incidentReportNumber} does belong to a valid report`)
+        } catch (e) {
+          const error = new this.Error('incidentReportNumber', {
+            message: 'Enter a valid incident report number',
+            key: `incidentReportNumber`,
+          })
+          next({ incidentReportNumber: error })
+          return
+        }
 
-      // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    } catch (e) {
-      /* empty */
+        // eslint-disable-next-line @typescript-eslint/no-unused-vars
+      } catch (e) {
+        /* empty */
+      }
     }
 
     super.validate(req, res, next)
@@ -73,7 +75,7 @@ export class RemoveReport extends BaseController<Values> {
   }
 
   async saveValues(req: FormWizard.Request<Values>, res: express.Response, next: express.NextFunction): Promise<void> {
-    const report = res.locals.report as ReportBasic
+    const report = res.locals.report as ReportWithDetails
 
     try {
       const { newStatus } = prisonReportTransitions.reportingOfficer[report.status].requestRemoval
@@ -83,7 +85,6 @@ export class RemoveReport extends BaseController<Values> {
 
       logger.info(`Request to remove report ${report.reportReference} sent`)
       req.flash('success', { title: `Request to remove report ${report.reportReference} sent` })
-      res.redirect('/reports')
 
       // clear session since involvement has been saved
       res.locals.clearSessionOnSuccess = true

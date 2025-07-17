@@ -44,7 +44,7 @@ export function reopenReportRouter(): Router {
               title: newTitle,
             })
 
-            const { newStatus } = prisonReportTransitions.reportingOfficer.CLOSED.recall
+            const { newStatus } = prisonReportTransitions.reportingOfficer[report.status].recall
             await incidentReportingApi.changeReportStatus(report.id, { newStatus })
             // TODO: set report validation=true flag? not supported by api/db yet / ever will be?
 

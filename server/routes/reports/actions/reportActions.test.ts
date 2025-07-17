@@ -1,4 +1,3 @@
-import type { Express } from 'express'
 import request from 'supertest'
 
 import { PrisonApi } from '../../../data/prisonApi'
@@ -554,7 +553,7 @@ describe('Correct status submission or redirect for each form action', () => {
     )
   })
 
-  describe('Transitions with an additional comment and page redirects to reports page ', () => {
+  describe('Mark as a duplicate', () => {
     it.each([
       {
         userType: 'Data warden',

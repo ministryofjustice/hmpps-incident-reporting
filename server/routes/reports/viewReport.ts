@@ -149,12 +149,12 @@ export function viewReportRouter(): Router {
             if (!numbersOnly.test(incidentNumber)) {
               errors.push({
                 text: 'Please enter a numerical reference number',
-                href: `#incidentNumber`,
+                href: '#incidentNumber',
               })
             } else if (incidentNumber === report.reportReference) {
               errors.push({
                 text: 'Enter a different report number',
-                href: `#incidentNumber`,
+                href: '#incidentNumber',
               })
             } else {
               try {
@@ -164,7 +164,7 @@ export function viewReportRouter(): Router {
               } catch (e) {
                 errors.push({
                   text: 'Enter a valid incident report number',
-                  href: `#incidentNumber`,
+                  href: '#incidentNumber',
                 })
               }
             }

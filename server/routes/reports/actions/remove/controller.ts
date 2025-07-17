@@ -18,7 +18,7 @@ export class RemoveReport extends BaseController<Values> {
         if (incidentReportNumber === report.reportReference) {
           const error = new this.Error('incidentReportNumber', {
             message: 'Enter a different report number',
-            key: `incidentReportNumber`,
+            key: 'incidentReportNumber',
           })
           next({ incidentReportNumber: error })
           return
@@ -26,10 +26,11 @@ export class RemoveReport extends BaseController<Values> {
         try {
           await res.locals.apis.incidentReportingApi.getReportByReference(incidentReportNumber)
           logger.info(`Duplicate report incident number ${incidentReportNumber} does belong to a valid report`)
+          // eslint-disable-next-line @typescript-eslint/no-unused-vars
         } catch (e) {
           const error = new this.Error('incidentReportNumber', {
             message: 'Enter a valid incident report number',
-            key: `incidentReportNumber`,
+            key: 'incidentReportNumber',
           })
           next({ incidentReportNumber: error })
           return
@@ -60,18 +61,18 @@ export class RemoveReport extends BaseController<Values> {
   locals(req: FormWizard.Request<Values>, res: express.Response): Partial<FormWizard.Locals<Values>> {
     return {
       ...super.locals(req, res),
-      pageTitle: `Why do you want to remove this report?`,
-      saveButtonText: `Request to remove report`,
+      pageTitle: 'Why do you want to remove this report?',
+      saveButtonText: 'Request to remove report',
     }
   }
 
-  getBackLink(req: FormWizard.Request<Values>, res: express.Response): string {
+  getBackLink(_req: FormWizard.Request<Values>, res: express.Response): string {
     res.locals.cancelUrl = res.locals.reportUrl
     return res.locals.reportUrl
   }
 
-  getNextStep(req: FormWizard.Request<Values>, res: express.Response): string {
-    return `/reports`
+  getNextStep(_req: FormWizard.Request<Values>, _res: express.Response): string {
+    return '/reports'
   }
 
   async saveValues(req: FormWizard.Request<Values>, res: express.Response, next: express.NextFunction): Promise<void> {

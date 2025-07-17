@@ -51,7 +51,7 @@ export function reopenReportRouter(): Router {
             logger.info(
               `Report ${report.reportReference} has been reopened and changed status from ${report.status} to ${newStatus}`,
             )
-            res.redirect(`${reportUrl}`)
+            res.redirect(reportUrl)
             return
           } catch (e) {
             logger.error(e, `Report ${report.reportReference} status could not be changed: %j`, e)

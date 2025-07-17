@@ -1,27 +1,23 @@
-import config from '../../config'
-import { isPecsRegionCode } from '../../data/pecsRegions'
+import { activeAgencies, SERVICE_ALL_AGENCIES } from '../../data/activeAgencies'
 
 /**
- * If the location is a PECS region, is it enabled?
- * Otherwise, is the prison enabled?
- */
-export function isLocationActiveInService(code: string): boolean {
-  return (isPecsRegionCode(code) && config.activeForPecsRegions) || isPrisonActiveInService(code)
-}
-
-/**
- * Whether given prison should have full access to incident report on DPS, ie. the service has been rolled out there.
+ * Whether given prison or PECS region should have full access to incident report on DPS
+ *
+ * Meaning the service has been rolled out there.
  * Otherwise, users are expected to continue using NOMIS.
  */
-export function isPrisonActiveInService(prisonId: string): boolean {
+// eslint-disable-next-line import/prefer-default-export
+export function isLocationActiveInService(agencyId: string): boolean {
   // empty list permits none
-  if (config.activePrisons.length === 0) {
+  if (activeAgencies.length === 0) {
     return false
   }
-  // list with only "***" permits all
-  if (config.activePrisons.length === 1 && config.activePrisons[0] === '***') {
-    return true
-  }
-  // otherwise actually check
-  return config.activePrisons.includes(prisonId)
+
+  return activeAgencies.some(
+    item =>
+      // list with only "*ALL*" permits all
+      item === SERVICE_ALL_AGENCIES ||
+      // list contains agencyId
+      item === agencyId,
+  )
 }

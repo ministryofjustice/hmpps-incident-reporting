@@ -1,8 +1,14 @@
 import nock from 'nock'
 
 import config from '../config'
-import { PrisonApi, type Agency, type IncidentTypeConfiguration, type ReferenceCode } from './prisonApi'
-import { leeds, moorland, pecsNorth, pecsSouth, staffMary } from './testData/prisonApi'
+import {
+  PrisonApi,
+  type ActiveAgency,
+  type Agency,
+  type IncidentTypeConfiguration,
+  type ReferenceCode,
+} from './prisonApi'
+import { brixton, leeds, moorland, pecsNorth, pecsSouth, staffMary } from './testData/prisonApi'
 
 describe('prisonApi', () => {
   const accessToken = 'token'
@@ -67,6 +73,39 @@ describe('prisonApi', () => {
         LEI: leeds,
         MDI: moorland,
       })
+    })
+  })
+
+  describe('getAgenciesSwitchedOn', () => {
+    it('returns the list of prisons where INCIDENTS service is active', async () => {
+      const expectedResponse = [
+        { agencyId: moorland.agencyId, name: moorland.description },
+        { agencyId: brixton.agencyId, name: brixton.description },
+      ]
+      const expectedActiveAgencies = [moorland.agencyId, brixton.agencyId]
+      // Mock API request **once**
+      fakeApiClient
+        .get('/api/agency-switches/INCIDENTS')
+        .matchHeader('authorization', `Bearer ${accessToken}`)
+        .reply(200, expectedResponse satisfies ActiveAgency[])
+
+      const activeAgencies = await apiClient.getAgenciesSwitchedOn()
+      expect(activeAgencies).toEqual(expectedActiveAgencies)
+    })
+
+    it('returns empty list when API responds 404 NOT FOUND', async () => {
+      // Mock API responding 404 NOT FOUND
+      fakeApiClient
+        .get('/api/agency-switches/INCIDENTS')
+        .matchHeader('authorization', `Bearer ${accessToken}`)
+        .reply(404, {
+          status: 404,
+          userMessage: 'Service code INCIDENTS does not exist',
+          developerMessage: 'Service code INCIDENTS does not exist',
+        })
+
+      const activeAgencies = await apiClient.getAgenciesSwitchedOn()
+      expect(activeAgencies).toEqual([])
     })
   })
 

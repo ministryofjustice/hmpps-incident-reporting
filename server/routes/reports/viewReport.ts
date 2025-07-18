@@ -174,8 +174,10 @@ export function viewReportRouter(): Router {
               })
 
               const { newStatus } = submittedTransition
-              await incidentReportingApi.changeReportStatus(report.id, { newStatus })
-              // TODO: set report validation=true flag? not supported by api/db yet / ever will be?
+              if (newStatus && newStatus !== report.status) {
+                await incidentReportingApi.changeReportStatus(report.id, { newStatus })
+                // TODO: set report validation=true flag? not supported by api/db yet / ever will be?
+              }
 
               logger.info(
                 `Report ${report.reportReference} submitted the following action: ${userActionMapping[userAction].description}, and changed status from ${report.status} to ${newStatus}`,

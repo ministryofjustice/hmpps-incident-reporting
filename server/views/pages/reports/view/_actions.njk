@@ -1,129 +1,23 @@
-{% from "govuk/components/button/macro.njk" import govukButton %}
-{% from "govuk/components/input/macro.njk" import govukInput %}
-{% from "govuk/components/radios/macro.njk" import govukRadios %}
-{% from "govuk/components/textarea/macro.njk" import govukTextarea %}
+{% if allowedActionsNeedingForm.size > 0 %}
 
-{% if allowedActionsNeedingForm.size == 1 and allowedActionsNeedingForm.keys().next().value == "recall" %}
-  {% if userType == "reportingOfficer" %}
-    {% if report.status in ["CLOSED", "NOT_REPORTABLE", "DUPLICATE"] %}
-      {% set buttonText = "Reopen and change report" %}
-    {% else %}
-      {% set buttonText = "Change report" %}
-    {% endif %}
-  {% elseif userType == "dataWarden" %}
-    {% set buttonText = "Change report status" %}
-  {% else %}
-    {% panic "Recall form not implemented for " + userType %}
-  {% endif %}
-
-  <form id="app-view-report__user-action-form" method="post" novalidate>
+  <form id="app-view-report__user-action-form" class="govuk-!-display-none-print" method="post" novalidate>
     <input type="hidden" name="_csrf" value="{{ csrfToken }}" />
 
-    <div class="govuk-button-group">
-      {{ govukButton({
-        text: buttonText,
-        name: "userAction",
-        value: "recall",
-        classes: "govuk-button--secondary",
-        preventDoubleClick: true,
-        type: "submit"
-      }) }}
-
-      <a href="/reports" class="govuk-link govuk-link--no-visited-state">
-        Back to incidents
-      </a>
-    </div>
+    {% if allowedActionsNeedingForm.size == 1 and allowedActionsNeedingForm.keys().next().value == "recall" %}
+      {# `recall` is only allowed action #}
+      {% include "./_actions--recall.njk" %}
+    {% else %}
+      {# show radio buttons when there is more than one allowed action #}
+      {% include "./_actions--choices.njk" %}
+    {% endif %}
   </form>
 
 {% else %}
 
-  {% if reportTransitions|length %}
-    {% set formItems = [] %}
-    {% for action, transition in reportTransitions %}
-      {% if transition.newStatus %}
-        {% if transition.commentRequired %}
-            {% set inputName = action + "Comment" %}
-            {% set textHtml %}
-              {% if transition.incidentNumberRequired %}
-                {{ govukInput({
-                  id: "incidentNumber",
-                  name: "incidentNumber",
-                  classes: "govuk-!-width-one-third",
-                  label: {
-                    text: "Enter incident report number of the original report"
-                  },
-                  value: formValues["incidentNumber"],
-                  errorMessage: errors | findFieldInGovukErrorSummary("incidentNumber")
-                }) }}
-              {% endif %}
-
-              {{ govukTextarea({
-                id: inputName,
-                name: inputName,
-                classes: "govuk-!-width-one-third",
-                label: {
-                  text: transition.commentLabel or "Comment"
-                },
-                value: formValues[inputName],
-                errorMessage: errors | findFieldInGovukErrorSummary(inputName)
-              }) }}
-            {% endset %}
-
-          {% set _ = formItems.push({
-            value: action,
-            text: transition.label,
-            conditional: {
-              html: textHtml
-            }
-          }) %}
-
-        {% else %}
-          {% set _ = formItems.push({
-            value: action,
-            text: transition.label
-          }) %}
-
-        {% endif %}
-      {% endif %}
-    {% endfor %}
-  {% endif %}
-
-  <form id="app-view-report__user-action-form" method="post" novalidate>
-    <input type="hidden" name="_csrf" value="{{ csrfToken }}" />
-    {% if reportTransitions|length %}
-      {{ govukRadios({
-        name: "userAction",
-        attributes: {
-          id: "userAction"
-        },
-        fieldset: {
-          legend: {
-            text: "What do you want to do with this report?",
-            classes: "govuk-fieldset__legend--m"
-          }
-        },
-        idPrefix: "userAction-item",
-        items: formItems,
-        value: formValues.userAction,
-        errorMessage: errors | findFieldInGovukErrorSummary("userAction")
-      }) }}
-    {% endif %}
-
-    <div class="govuk-button-group">
-      {% if reportTransitions|length %}
-        {{ govukButton({
-          text: "Continue",
-          name: "submit",
-          value: "submit",
-          preventDoubleClick: true,
-          type: "submit"
-        }) }}
-      {% endif %}
-
-      <a href="/reports" class="govuk-link govuk-link--no-visited-state">
-        Back to incidents
-      </a>
-    </div>
-  </form>
+  <p class="govuk-!-display-none-print">
+    <a href="/reports" class="govuk-link govuk-link--no-visited-state">
+      Back to incidents
+    </a>
+  </p>
 
 {% endif %}

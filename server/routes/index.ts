@@ -13,6 +13,8 @@ import { addDescriptionRouter } from './reports/details/addDescription'
 import { historyRouter } from './reports/history'
 import { viewReportRouter } from './reports/viewReport'
 import { editReportRouter } from './reports/editReportRouter'
+import { removeReportRouter } from './reports/actions/remove'
+import { reopenReportRouter } from './reports/actions/reopen/reopen'
 import dashboard from './dashboard'
 import { dprRouter } from './dpr'
 
@@ -42,6 +44,8 @@ export default function routes(services: Services): Router {
   router.use('/create-report', createReportRouter)
   router.use('/reports/:reportId', viewReportRouter())
   router.use('/reports/:reportId/history', historyRouter())
+  router.use('/reports/:reportId/reopen', reopenReportRouter())
+  router.use('/reports/:reportId/remove-report', removeReportRouter)
   router.use('/reports/:reportId/change-type', changeTypeRouter)
   router.use('/reports/:reportId/update-details', updateDetailsRouter)
   router.use('/reports/:reportId/update-date-and-time', updateIncidentDateAndTimeRouter)

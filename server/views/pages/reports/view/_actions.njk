@@ -1,0 +1,23 @@
+{% if allowedActionsNeedingForm.size > 0 %}
+
+  <form id="app-view-report__user-action-form" class="govuk-!-display-none-print" method="post" novalidate>
+    <input type="hidden" name="_csrf" value="{{ csrfToken }}" />
+
+    {% if allowedActionsNeedingForm.size == 1 and allowedActionsNeedingForm.keys().next().value == "recall" %}
+      {# `recall` is only allowed action #}
+      {% include "./_actions--recall.njk" %}
+    {% else %}
+      {# show radio buttons when there is more than one allowed action #}
+      {% include "./_actions--choices.njk" %}
+    {% endif %}
+  </form>
+
+{% else %}
+
+  <p class="govuk-!-display-none-print">
+    <a href="/reports" class="govuk-link govuk-link--no-visited-state">
+      Back to incidents
+    </a>
+  </p>
+
+{% endif %}

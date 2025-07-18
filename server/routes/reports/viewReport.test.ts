@@ -301,8 +301,7 @@ describe('View report page', () => {
         .expect('Content-Type', /html/)
         .expect(200)
         .expect(res => {
-          expect(res.text).not.toContain('Check your answers – incident report 6543')
-          expect(res.text).toContain('Incident report 6543')
+          expect(res.text).toContain('Check your answers – incident report 6543')
           expect(res.text).toContain('John Smith')
           expect(res.text).toContain('Moorland (HMP &amp; YOI)')
           expect(res.text).toContain('Reopened')
@@ -521,7 +520,6 @@ describe('View report page', () => {
     })
   })
 
-  // TODO: will need to work for other statuses too once lifecycle confirmed
   describe('Reporting officer submits a report', () => {
     beforeEach(() => {
       mockedReport = convertReportWithDetailsDates(
@@ -563,20 +561,57 @@ describe('View report page', () => {
       incidentReportingApi.changeReportStatus.mockRejectedValue(new Error('should not be called'))
     })
 
-    it.each(statuses.map(s => s.code).filter(s => s !== 'DRAFT'))(
-      'should not allow submitting a non-draft report with status %s',
-      status => {
-        mockedReport.status = status
+    it.each(
+      statuses.map(status => ({
+        ...status,
+        visibility: ['DRAFT', 'NEEDS_UPDATING', 'REOPENED'].includes(status.code) ? 'see' : 'not see',
+      })),
+    )('should $visibility “Check your answers” for a report with status “$description”', ({ code, visibility }) => {
+      mockedReport.status = code
+
+      return request(app)
+        .get(viewReportUrl)
+        .expect(200)
+        .expect(res => {
+          if (visibility === 'see') {
+            expect(res.text).not.toContain('Incident report 6543')
+            expect(res.text).toContain('Check your answers – incident report 6543')
+          } else {
+            expect(res.text).toContain('Incident report 6543')
+            expect(res.text).not.toContain('Check your answers – incident report 6543')
+          }
+        })
+    })
+
+    it.each(
+      statuses
+        .filter(
+          // these _can_ be actioned
+          status => !['DRAFT', 'NEEDS_UPDATING', 'REOPENED'].includes(status.code),
+        )
+        .map(status => ({
+          ...status,
+          // no action at all is possible for these
+          noActionsPermitted: ['ON_HOLD', 'POST_INCIDENT_UPDATE'].includes(status.code),
+        })),
+    )(
+      'should not allow submitting a report with status “$description” because they’re not in their to-do list',
+      ({ code, noActionsPermitted }) => {
+        mockedReport.status = code
 
         return request
           .agent(app)
           .post(viewReportUrl)
-          .send({ userAction: 'submit' })
+          .send({ userAction: 'requestReview' })
           .redirects(1)
           .expect(200)
           .expect(res => {
             expect(res.text).toContain('There is a problem')
-            expect(res.text).toContain('Only a draft report can be submitted')
+            if (noActionsPermitted) {
+              expect(res.text).toContain('You do not have permission to action this report')
+            } else {
+              expect(res.text).toContain('Select an action to take')
+            }
           })
       },
     )
@@ -591,7 +626,7 @@ describe('View report page', () => {
         return request
           .agent(app)
           .post(viewReportUrl)
-          .send({ userAction: 'submit' })
+          .send({ userAction: 'requestReview' })
           .redirects(1)
           .expect(200)
           .expect(res => {
@@ -623,7 +658,7 @@ describe('View report page', () => {
           return request
             .agent(app)
             .post(viewReportUrl)
-            .send({ userAction: 'submit' })
+            .send({ userAction: 'requestReview' })
             .redirects(1)
             .expect(200)
             .expect(res => {
@@ -652,7 +687,7 @@ describe('View report page', () => {
           return request
             .agent(app)
             .post(viewReportUrl)
-            .send({ userAction: 'submit' })
+            .send({ userAction: 'requestReview' })
             .redirects(1)
             .expect(200)
             .expect(res => {
@@ -671,7 +706,7 @@ describe('View report page', () => {
         return request
           .agent(app)
           .post(viewReportUrl)
-          .send({ userAction: 'submit' })
+          .send({ userAction: 'requestReview' })
           .redirects(1)
           .expect(200)
           .expect(res => {
@@ -690,7 +725,7 @@ describe('View report page', () => {
         return request
           .agent(app)
           .post(viewReportUrl)
-          .send({ userAction: 'submit' })
+          .send({ userAction: 'requestReview' })
           .redirects(1)
           .expect(200)
           .expect(res => {
@@ -741,7 +776,7 @@ describe('View report page', () => {
         return request
           .agent(app)
           .post(viewReportUrl)
-          .send({ userAction: 'submit' })
+          .send({ userAction: 'requestReview' })
           .redirects(1)
           .expect(200)
           .expect(res => {
@@ -764,7 +799,7 @@ describe('View report page', () => {
         return request
           .agent(app)
           .post(viewReportUrl)
-          .send({ userAction: 'submit' })
+          .send({ userAction: 'requestReview' })
           .redirects(1)
           .expect(200)
           .expect(res => {
@@ -783,7 +818,7 @@ describe('View report page', () => {
         return request
           .agent(app)
           .post(viewReportUrl)
-          .send({ userAction: 'submit' })
+          .send({ userAction: 'requestReview' })
           .redirects(1)
           .expect(200)
           .expect(res => {
@@ -801,7 +836,7 @@ describe('View report page', () => {
         return request
           .agent(app)
           .post(viewReportUrl)
-          .send({ userAction: 'submit' })
+          .send({ userAction: 'requestReview' })
           .redirects(1)
           .expect(200)
           .expect(res => {
@@ -861,8 +896,6 @@ describe('View report page', () => {
           return testRequest.expect(200).expect(res => {
             const canEditTextMatcher = canEdit ? expect(res.text).toContain : expect(res.text).not.toContain
             ;[
-              // heading prefix
-              'Check your answers',
               // question page links
               'question responses',
               // change links
@@ -912,7 +945,7 @@ describe('View report page', () => {
         return request
           .agent(appWithAllRoutes({ services: { userService }, userSupplier: () => user }))
           .post(viewReportUrl)
-          .send({ userAction: 'submit' })
+          .send({ userAction: 'requestReview' })
           .redirects(1)
           .expect(res => {
             if (canSubmit) {
@@ -921,7 +954,7 @@ describe('View report page', () => {
               expect(incidentReportingApi.changeReportStatus).not.toHaveBeenCalled()
               if (canView) {
                 expect(res.text).toContain('There is a problem')
-                expect(res.text).toContain('You do not have permission to submit this report')
+                expect(res.text).toContain('You do not have permission to action this report')
               }
             }
           })

@@ -5,11 +5,9 @@ export const userActions = [
   /** Change basic details, involvements and respond to questions */
   { code: 'edit', description: 'Edit' },
   /** Submit for review */
-  { code: 'requestReview', description: 'Request review' },
-  /** Submit for removal as duplicate */
-  { code: 'requestDuplicate', description: 'Request to mark duplicate' },
-  /** Submit for removal as not reportable */
-  { code: 'requestNotReportable', description: 'Request to mark not reportable' },
+  { code: 'requestReview', description: 'Submit' },
+  /** Submit request for removal */
+  { code: 'requestRemoval', description: 'Request to remove report' },
   /** Send back for changes */
   { code: 'requestCorrection', description: 'Request correction' },
   /** Move into own column & appropriate status */
@@ -25,3 +23,9 @@ export const userActions = [
 ] as const
 
 export type UserAction = (typeof userActions)[number]['code']
+
+export const userActionMapping = Object.fromEntries(userActions.map(action => [action.code, action]))
+
+export function parseUserActionCode(code: unknown): code is UserAction {
+  return userActions.some(action => action.code === code)
+}

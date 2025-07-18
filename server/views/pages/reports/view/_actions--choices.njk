@@ -1,0 +1,86 @@
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/input/macro.njk" import govukInput %}
+{% from "govuk/components/radios/macro.njk" import govukRadios %}
+{% from "govuk/components/textarea/macro.njk" import govukTextarea %}
+
+{% set items = [] %}
+{% for action, transition in reportTransitions %}
+  {% if allowedActionsNeedingForm.has(action) %}
+    {% if transition.commentRequired %}
+      {% set inputName = action + "Comment" %}
+      {% set textHtml %}
+        {% if transition.incidentNumberRequired %}
+          {{ govukInput({
+            id: "incidentNumber",
+            name: "incidentNumber",
+            classes: "govuk-!-width-one-third",
+            label: {
+              text: "Enter incident report number of the original report"
+            },
+            value: formValues["incidentNumber"],
+            errorMessage: errors | findFieldInGovukErrorSummary("incidentNumber")
+          }) }}
+        {% endif %}
+
+        {{ govukTextarea({
+          id: inputName,
+          name: inputName,
+          classes: "govuk-!-width-one-third",
+          label: {
+            text: transition.commentLabel or "Comment"
+          },
+          value: formValues[inputName],
+          errorMessage: errors | findFieldInGovukErrorSummary(inputName)
+        }) }}
+      {% endset %}
+
+      {% set _ = items.push({
+        value: action,
+        text: transition.label,
+        conditional: {
+          html: textHtml
+        }
+      }) %}
+
+    {% else %}
+
+      {% set _ = items.push({
+        value: action,
+        text: transition.label
+      }) %}
+
+    {% endif %}
+
+  {% endif %}
+{% endfor %}
+
+{{ govukRadios({
+  name: "userAction",
+  attributes: {
+    id: "userAction"
+  },
+  fieldset: {
+    legend: {
+      text: "What do you want to do with this report?",
+      classes: "govuk-fieldset__legend--m"
+    }
+  },
+  idPrefix: "userAction-item",
+  items: items,
+  value: formValues.userAction,
+  errorMessage: errors | findFieldInGovukErrorSummary("userAction")
+}) }}
+
+<div class="govuk-button-group">
+  {{ govukButton({
+    text: "Continue",
+    name: "submit",
+    value: "submit",
+    preventDoubleClick: true,
+    type: "submit"
+  }) }}
+
+  <a href="/reports" class="govuk-link govuk-link--no-visited-state">
+    Back to incidents
+  </a>
+</div>

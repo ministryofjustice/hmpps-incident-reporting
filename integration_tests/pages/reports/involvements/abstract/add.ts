@@ -6,7 +6,7 @@ export abstract class AddInvolvementsPage extends FormWizardPage {
   protected abstract roleFieldName: string
 
   get roleChoices() {
-    return this.radioOrCheckboxOptions(this.roleFieldName)
+    return this.radioOrCheckboxChoices(this.roleFieldName)
   }
 
   protected selectRole(roleLabel: string): PageElement<HTMLLabelElement> {

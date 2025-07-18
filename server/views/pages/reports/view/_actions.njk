@@ -42,9 +42,9 @@
 
 {% else %}
 
-  {% if pageTransitions|length %}
+  {% if reportTransitions|length %}
     {% set formItems = [] %}
-    {% for action, transition in pageTransitions %}
+    {% for action, transition in reportTransitions %}
       {% if transition.newStatus %}
         {% if transition.commentRequired %}
             {% set inputName = action + "Comment" %}
@@ -55,7 +55,7 @@
                   name: "incidentNumber",
                   classes: "govuk-!-width-one-third",
                   label: {
-                    text: transition.duplicateIncidentNumberBoxText
+                    text: "Enter incident report number of the original report"
                   },
                   value: formValues["incidentNumber"],
                   errorMessage: errors | findFieldInGovukErrorSummary("incidentNumber")
@@ -67,7 +67,7 @@
                 name: inputName,
                 classes: "govuk-!-width-one-third",
                 label: {
-                  text: transition.commentBoxText
+                  text: transition.commentLabel or "Comment"
                 },
                 value: formValues[inputName],
                 errorMessage: errors | findFieldInGovukErrorSummary(inputName)
@@ -95,7 +95,7 @@
 
   <form id="app-view-report__user-action-form" method="post" novalidate>
     <input type="hidden" name="_csrf" value="{{ csrfToken }}" />
-    {% if pageTransitions|length %}
+    {% if reportTransitions|length %}
       {{ govukRadios({
         name: "userAction",
         attributes: {
@@ -115,7 +115,7 @@
     {% endif %}
 
     <div class="govuk-button-group">
-      {% if pageTransitions|length %}
+      {% if reportTransitions|length %}
         {{ govukButton({
           text: "Continue",
           name: "submit",

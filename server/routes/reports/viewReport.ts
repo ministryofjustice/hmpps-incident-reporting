@@ -17,7 +17,7 @@ import {
   canViewReport,
   parseUserActionCode,
   prisonReportTransitions,
-  userActions,
+  userActionMapping,
 } from '../../middleware/permissions'
 import { populateReport } from '../../middleware/populateReport'
 import { populateReportConfiguration } from '../../middleware/populateReportConfiguration'
@@ -35,7 +35,6 @@ const prisonerOutcomeLookup = Object.fromEntries(
   prisonerInvolvementOutcomes.map(outcome => [outcome.code, outcome.description]),
 )
 const staffInvolvementLookup = Object.fromEntries(staffInvolvementRoles.map(role => [role.code, role.description]))
-const userActionDescriptions = Object.fromEntries(userActions.map(action => [action.code, action.description]))
 
 // eslint-disable-next-line import/prefer-default-export
 export function viewReportRouter(): Router {
@@ -76,13 +75,13 @@ export function viewReportRouter(): Router {
       const canEditReportInNomisOnly = allowedActionsInNomisOnly.has('edit')
 
       // TODO: PECS lookup is different
-      const pageTransitions = prisonReportTransitions?.[userType]?.[report.status] ?? {}
+      const reportTransitions = prisonReportTransitions?.[userType]?.[report.status] ?? {}
 
       let formValues: object = {}
       const errors: GovukErrorSummaryItem[] = []
       if (req.method === 'POST') {
         const { userAction } = req.body ?? {}
-        if (parseUserActionCode(userAction) && userAction in pageTransitions) {
+        if (parseUserActionCode(userAction) && userAction in reportTransitions) {
           let comment: string | undefined
           if (userAction) {
             comment = req.body[`${userAction}Comment`]
@@ -94,7 +93,7 @@ export function viewReportRouter(): Router {
             incidentNumber,
           }
 
-          const submittedTransition = pageTransitions[userAction]
+          const submittedTransition = reportTransitions[userAction]
           if (
             userAction === 'recall' &&
             userType === 'reportingOfficer' &&
@@ -107,13 +106,13 @@ export function viewReportRouter(): Router {
             res.redirect(`${reportUrl}/remove-report`)
             return
           }
-          if ('mustBeValid' in submittedTransition) {
+          if (submittedTransition.mustBeValid) {
             for (const error of checkReportIsComplete(report, reportConfig, questionProgressSteps, reportUrl)) {
               errors.push(error)
             }
           }
 
-          if ('commentRequired' in submittedTransition && !('incidentNumberRequired' in submittedTransition)) {
+          if (submittedTransition.commentRequired && !submittedTransition.incidentNumberRequired) {
             const alphaNum = /\S+/
             if (!comment || !alphaNum.test(comment)) {
               if (userAction === 'requestReview') {
@@ -135,9 +134,9 @@ export function viewReportRouter(): Router {
             }
           }
 
-          if ('incidentNumberRequired' in submittedTransition) {
-            const numbersOnly = /[0-9]+/
-            if (!numbersOnly.test(incidentNumber)) {
+          if (submittedTransition.incidentNumberRequired) {
+            const numbersOnly = /^\d+$/
+            if (!incidentNumber || !numbersOnly.test(incidentNumber)) {
               errors.push({
                 text: 'Please enter a numerical reference number',
                 href: '#incidentNumber',
@@ -178,13 +177,15 @@ export function viewReportRouter(): Router {
               // TODO: set report validation=true flag? not supported by api/db yet / ever will be?
 
               logger.info(
-                `Report ${report.reportReference} submitted the following action: ${userActionDescriptions[userAction]}, and changed status from ${report.status} to ${newStatus}`,
+                `Report ${report.reportReference} submitted the following action: ${userActionMapping[userAction].description}, and changed status from ${report.status} to ${newStatus}`,
               )
-              const { bannerText } = submittedTransition
               if (userAction === 'recall') {
                 res.redirect(reportUrl)
               } else {
-                req.flash('success', { title: bannerText.replace('reportReference', `${report.reportReference}`) })
+                const { successBanner } = submittedTransition
+                if (successBanner) {
+                  req.flash('success', { title: successBanner.replace('$reportReference', report.reportReference) })
+                }
                 res.redirect('/reports')
               }
               return
@@ -232,7 +233,7 @@ export function viewReportRouter(): Router {
         staffInvolvementLookup,
         typesLookup,
         statusLookup,
-        pageTransitions,
+        reportTransitions,
         formValues,
       })
     },

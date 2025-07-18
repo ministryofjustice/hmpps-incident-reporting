@@ -18,20 +18,25 @@ export type Transition = {
   newStatus?: Status
   /** Is report required to be valid before action is performed? */
   mustBeValid?: boolean
-  /** Label as the users will see within the form on report page */
+  /** Radio button label as the users will see within the form on report page */
   label?: string
-  /** Is a comment required when submitting this action? */
-  commentRequired?: boolean
-  /** Associated text for comment box in form */
-  commentBoxText?: string
   /** Is a valid incident report number required to mark as duplicate? */
   incidentNumberRequired?: boolean
-  /** Associated text for duplicate incident number box in form */
-  duplicateIncidentNumberBoxText?: string
   /** Message in success banner when landing back onto reports screen.
-   * reportReference will be replaced with actual value during banner implementation */
-  bannerText?: string
-}
+   * `$reportReference` will be replaced with actual value during banner implementation */
+  successBanner?: string
+} & (
+  | {
+      /** Comment not required for this action */
+      commentRequired?: false
+    }
+  | {
+      /** Comment is required for this action */
+      commentRequired: true
+      /** Associated label for comment box */
+      commentLabel: string
+    }
+)
 
 /**
  * Given a prison report and a user of a particular type, what *modifying* actions are possible
@@ -49,7 +54,7 @@ export const prisonReportTransitions: Transitions = {
         newStatus: 'AWAITING_REVIEW',
         mustBeValid: true,
         label: 'Submit',
-        bannerText: 'You have submitted incident report reportReference',
+        successBanner: 'You have submitted incident report $reportReference',
       },
       requestRemoval: { newStatus: 'AWAITING_REVIEW', label: 'Request to remove report' },
     },
@@ -64,8 +69,8 @@ export const prisonReportTransitions: Transitions = {
         mustBeValid: true,
         label: 'Resubmit',
         commentRequired: true,
-        commentBoxText: 'Describe what has changed in the report',
-        bannerText: 'You have resubmitted incident report reportReference',
+        commentLabel: 'Describe what has changed in the report',
+        successBanner: 'You have resubmitted incident report $reportReference',
       },
       requestRemoval: { newStatus: 'UPDATED', label: 'Request to remove report' },
     },
@@ -88,8 +93,8 @@ export const prisonReportTransitions: Transitions = {
         mustBeValid: true,
         label: 'Resubmit',
         commentRequired: true,
-        commentBoxText: 'Describe what has changed in the report',
-        bannerText: 'You have resubmitted incident report reportReference',
+        commentLabel: 'Describe what has changed in the report',
+        successBanner: 'You have resubmitted incident report $reportReference',
       },
       requestRemoval: { newStatus: 'WAS_CLOSED', label: 'Request to remove report' },
     },
@@ -103,37 +108,36 @@ export const prisonReportTransitions: Transitions = {
         newStatus: 'CLOSED',
         mustBeValid: true,
         label: 'Close',
-        bannerText: 'Incident report reportReference has been marked as closed',
+        successBanner: 'Incident report $reportReference has been marked as closed',
       },
       requestCorrection: {
         newStatus: 'NEEDS_UPDATING',
         label: 'Send back',
         commentRequired: true,
-        commentBoxText: 'Describe why the report is being sent back',
-        bannerText: 'Incident report reportReference has been sent back',
+        commentLabel: 'Describe why the report is being sent back',
+        successBanner: 'Incident report $reportReference has been sent back',
       },
       hold: {
         newStatus: 'ON_HOLD',
         label: 'Put on hold',
         commentRequired: true,
-        commentBoxText: 'Describe why the report is being put on hold',
-        bannerText: 'Incident report reportReference has been put on hold',
+        commentLabel: 'Describe why the report is being put on hold',
+        successBanner: 'Incident report $reportReference has been put on hold',
       },
       markDuplicate: {
         newStatus: 'DUPLICATE',
-        commentRequired: true,
         label: 'Mark as a duplicate',
-        commentBoxText: 'Describe why it is a duplicate report (optional)',
+        commentRequired: true,
+        commentLabel: 'Describe why it is a duplicate report (optional)',
         incidentNumberRequired: true,
-        duplicateIncidentNumberBoxText: 'Enter incident report number of the original report',
-        bannerText: 'Report reportReference has been marked as duplicate',
+        successBanner: 'Report $reportReference has been marked as duplicate',
       },
       markNotReportable: {
         newStatus: 'NOT_REPORTABLE',
         label: 'Mark as not reportable',
         commentRequired: true,
-        commentBoxText: 'Describe why it is not reportable',
-        bannerText: 'Report reportReference has been marked as not reportable',
+        commentLabel: 'Describe why it is not reportable',
+        successBanner: 'Report $reportReference has been marked as not reportable',
       },
     },
     ON_HOLD: {
@@ -141,30 +145,29 @@ export const prisonReportTransitions: Transitions = {
         newStatus: 'CLOSED',
         mustBeValid: true,
         label: 'Close',
-        bannerText: 'Incident report reportReference has been marked as closed',
+        successBanner: 'Incident report $reportReference has been marked as closed',
       },
       requestCorrection: {
         newStatus: 'NEEDS_UPDATING',
         label: 'Send back',
         commentRequired: true,
-        commentBoxText: 'Describe why the report is being sent back',
-        bannerText: 'Incident report reportReference has been sent back',
+        commentLabel: 'Describe why the report is being sent back',
+        successBanner: 'Incident report $reportReference has been sent back',
       },
       markDuplicate: {
         newStatus: 'DUPLICATE',
-        commentRequired: true,
         label: 'Mark as a duplicate',
-        commentBoxText: 'Describe why it is a duplicate report (optional)',
+        commentRequired: true,
+        commentLabel: 'Describe why it is a duplicate report (optional)',
         incidentNumberRequired: true,
-        duplicateIncidentNumberBoxText: 'Enter incident report number of the original report',
-        bannerText: 'Report reportReference has been marked as duplicate',
+        successBanner: 'Report $reportReference has been marked as duplicate',
       },
       markNotReportable: {
         newStatus: 'NOT_REPORTABLE',
         label: 'Mark as not reportable',
         commentRequired: true,
-        commentBoxText: 'Describe why it is not reportable',
-        bannerText: 'Report reportReference has been marked as not reportable',
+        commentLabel: 'Describe why it is not reportable',
+        successBanner: 'Report $reportReference has been marked as not reportable',
       },
     },
     NEEDS_UPDATING: {
@@ -175,37 +178,36 @@ export const prisonReportTransitions: Transitions = {
         newStatus: 'CLOSED',
         mustBeValid: true,
         label: 'Close',
-        bannerText: 'Incident report reportReference has been marked as closed',
+        successBanner: 'Incident report $reportReference has been marked as closed',
       },
       requestCorrection: {
         newStatus: 'NEEDS_UPDATING',
         label: 'Send back',
         commentRequired: true,
-        commentBoxText: 'Describe why the report is being sent back',
-        bannerText: 'Incident report reportReference has been sent back',
+        commentLabel: 'Describe why the report is being sent back',
+        successBanner: 'Incident report $reportReference has been sent back',
       },
       hold: {
         newStatus: 'ON_HOLD',
         label: 'Put on hold',
         commentRequired: true,
-        commentBoxText: 'Describe why the report is being put on hold',
-        bannerText: 'Incident report reportReference has been put on hold',
+        commentLabel: 'Describe why the report is being put on hold',
+        successBanner: 'Incident report $reportReference has been put on hold',
       },
       markDuplicate: {
         newStatus: 'DUPLICATE',
-        commentRequired: true,
         label: 'Mark as a duplicate',
-        commentBoxText: 'Describe why it is a duplicate report (optional)',
+        commentRequired: true,
+        commentLabel: 'Describe why it is a duplicate report (optional)',
         incidentNumberRequired: true,
-        duplicateIncidentNumberBoxText: 'Enter incident report number of the original report',
-        bannerText: 'Report reportReference has been marked as duplicate',
+        successBanner: 'Report $reportReference has been marked as duplicate',
       },
       markNotReportable: {
         newStatus: 'NOT_REPORTABLE',
         label: 'Mark as not reportable',
         commentRequired: true,
-        commentBoxText: 'Describe why it is not reportable',
-        bannerText: 'Report reportReference has been marked as not reportable',
+        commentLabel: 'Describe why it is not reportable',
+        successBanner: 'Report $reportReference has been marked as not reportable',
       },
     },
     CLOSED: {
@@ -225,30 +227,29 @@ export const prisonReportTransitions: Transitions = {
         newStatus: 'CLOSED',
         mustBeValid: true,
         label: 'Close',
-        bannerText: 'Incident report reportReference has been marked as closed',
+        successBanner: 'Incident report $reportReference has been marked as closed',
       },
       requestCorrection: {
         newStatus: 'REOPENED',
         label: 'Send back',
         commentRequired: true,
-        commentBoxText: 'Describe why the report is being sent back',
-        bannerText: 'Incident report reportReference has been sent back',
+        commentLabel: 'Describe why the report is being sent back',
+        successBanner: 'Incident report $reportReference has been sent back',
       },
       markDuplicate: {
         newStatus: 'DUPLICATE',
-        commentRequired: true,
         label: 'Mark as a duplicate',
-        commentBoxText: 'Describe why it is a duplicate report (optional)',
+        commentRequired: true,
+        commentLabel: 'Describe why it is a duplicate report (optional)',
         incidentNumberRequired: true,
-        duplicateIncidentNumberBoxText: 'Enter incident report number of the original report',
-        bannerText: 'Report reportReference has been marked as duplicate',
+        successBanner: 'Report $reportReference has been marked as duplicate',
       },
       markNotReportable: {
         newStatus: 'NOT_REPORTABLE',
         label: 'Mark as not reportable',
         commentRequired: true,
-        commentBoxText: 'Describe why it is not reportable',
-        bannerText: 'Report reportReference has been marked as not reportable',
+        commentLabel: 'Describe why it is not reportable',
+        successBanner: 'Report $reportReference has been marked as not reportable',
       },
     },
   },

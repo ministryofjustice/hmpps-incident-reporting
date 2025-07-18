@@ -24,6 +24,8 @@ export const userActions = [
 
 export type UserAction = (typeof userActions)[number]['code']
 
+export const userActionMapping = Object.fromEntries(userActions.map(action => [action.code, action]))
+
 export function parseUserActionCode(code: unknown): code is UserAction {
   return userActions.some(action => action.code === code)
 }

@@ -563,10 +563,18 @@ describe('View report page', () => {
       incidentReportingApi.changeReportStatus.mockRejectedValue(new Error('should not be called'))
     })
 
-    it.each(statuses.map(s => s.code).filter(s => !['DRAFT', 'NEEDS_UPDATING', 'REOPENED'].includes(s)))(
-      'should not allow submitting a report with status %s because they not in the to-do column',
-      status => {
-        mockedReport.status = status
+    it.each(
+      statuses
+        // these _can_ be actioned
+        .filter(s => !['DRAFT', 'NEEDS_UPDATING', 'REOPENED'].includes(s.code))
+        .map(status => ({
+          ...status,
+          noActionsPermitted: ['ON_HOLD', 'POST_INCIDENT_UPDATE'].includes(status.code),
+        })),
+    )(
+      'should not allow submitting a report with status “$description” because they’re not in their to-do list',
+      ({ code, noActionsPermitted }) => {
+        mockedReport.status = code
 
         return request
           .agent(app)
@@ -576,7 +584,11 @@ describe('View report page', () => {
           .expect(200)
           .expect(res => {
             expect(res.text).toContain('There is a problem')
-            expect(res.text).toContain('Select an action to take')
+            if (noActionsPermitted) {
+              expect(res.text).toContain('You do not have permission to action this report')
+            } else {
+              expect(res.text).toContain('Select an action to take')
+            }
           })
       },
     )
@@ -921,7 +933,7 @@ describe('View report page', () => {
               expect(incidentReportingApi.changeReportStatus).not.toHaveBeenCalled()
               if (canView) {
                 expect(res.text).toContain('There is a problem')
-                expect(res.text).toContain('Select an action to take')
+                expect(res.text).toContain('You do not have permission to action this report')
               }
             }
           })

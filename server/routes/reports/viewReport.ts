@@ -18,6 +18,7 @@ import {
   parseUserActionCode,
   prisonReportTransitions,
   userActionMapping,
+  type UserAction,
 } from '../../middleware/permissions'
 import { populateReport } from '../../middleware/populateReport'
 import { populateReportConfiguration } from '../../middleware/populateReportConfiguration'
@@ -93,7 +94,7 @@ export function viewReportRouter(): Router {
             incidentNumber,
           }
 
-          const submittedTransition = reportTransitions[userAction]
+          const transition = reportTransitions[userAction]
           if (
             userAction === 'recall' &&
             userType === 'reportingOfficer' &&
@@ -106,14 +107,14 @@ export function viewReportRouter(): Router {
             res.redirect(`${reportUrl}/remove-report`)
             return
           }
-          if (submittedTransition.mustBeValid) {
+          if (transition.mustBeValid) {
             for (const error of checkReportIsComplete(report, reportConfig, questionProgressSteps, reportUrl)) {
               errors.push(error)
             }
           }
 
           // TODO: this should be in transition config: if a comment is optional!
-          if (submittedTransition.commentRequired && !submittedTransition.incidentNumberRequired) {
+          if (transition.commentRequired && !transition.incidentNumberRequired) {
             const nonWhitespace = /\S+/
             if (!comment || !nonWhitespace.test(comment)) {
               if (userAction === 'requestReview') {
@@ -135,7 +136,7 @@ export function viewReportRouter(): Router {
             }
           }
 
-          if (submittedTransition.incidentNumberRequired) {
+          if (transition.incidentNumberRequired) {
             const numbersOnly = /\d+/
             if (!incidentNumber || !numbersOnly.test(incidentNumber)) {
               errors.push({
@@ -173,7 +174,7 @@ export function viewReportRouter(): Router {
                 title: newTitle,
               })
 
-              const { newStatus } = submittedTransition
+              const { newStatus } = transition
               if (newStatus && newStatus !== report.status) {
                 await incidentReportingApi.changeReportStatus(report.id, { newStatus })
                 // TODO: set report validation=true flag? not supported by api/db yet / ever will be?
@@ -185,7 +186,7 @@ export function viewReportRouter(): Router {
               if (userAction === 'recall') {
                 res.redirect(reportUrl)
               } else {
-                const { successBanner } = submittedTransition
+                const { successBanner } = transition
                 if (successBanner) {
                   req.flash('success', { title: successBanner.replace('$reportReference', report.reportReference) })
                 }
@@ -201,9 +202,23 @@ export function viewReportRouter(): Router {
             }
           }
         } else {
-          // Ensures that users click an option before submitting
+          // submitted but action is not chosen, unknown or explicitly not allowed
+
+          const allowedActionsNeedingForm = new Set<UserAction>()
+          for (const action of allowedActions) {
+            // these user actions are not part of this form
+            if (!['view', 'edit'].includes(action)) {
+              allowedActionsNeedingForm.add(action)
+            }
+          }
+          const userActionError =
+            allowedActionsNeedingForm.size === 0
+              ? // User is not permitted to take any actions
+                'You do not have permission to action this report'
+              : // Ensures that users click an option before submitting
+                'Select an action to take'
           errors.push({
-            text: 'Select an action to take',
+            text: userActionError,
             href: '#user-actions',
           })
         }

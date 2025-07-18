@@ -2,10 +2,7 @@ import Page, { type PageElement } from '../page'
 
 export default class ReportPage extends Page {
   constructor(reference: string, unsubmitted = false) {
-    super(
-      unsubmitted ? `Check your answers – incident report ${reference}` : `Incident report ${reference}`,
-      `Incident report ${reference}`,
-    )
+    super(unsubmitted ? `Check your answers – incident report ${reference}` : `Incident report ${reference}`)
   }
 
   get location(): PageElement<HTMLSpanElement> {

@@ -301,8 +301,7 @@ describe('View report page', () => {
         .expect('Content-Type', /html/)
         .expect(200)
         .expect(res => {
-          expect(res.text).not.toContain('Check your answers – incident report 6543')
-          expect(res.text).toContain('Incident report 6543')
+          expect(res.text).toContain('Check your answers – incident report 6543')
           expect(res.text).toContain('John Smith')
           expect(res.text).toContain('Moorland (HMP &amp; YOI)')
           expect(res.text).toContain('Reopened')
@@ -521,7 +520,6 @@ describe('View report page', () => {
     })
   })
 
-  // TODO: will need to work for other statuses too once lifecycle confirmed
   describe('Reporting officer submits a report', () => {
     beforeEach(() => {
       mockedReport = convertReportWithDetailsDates(
@@ -564,11 +562,36 @@ describe('View report page', () => {
     })
 
     it.each(
+      statuses.map(status => ({
+        ...status,
+        visibility: ['DRAFT', 'NEEDS_UPDATING', 'REOPENED'].includes(status.code) ? 'see' : 'not see',
+      })),
+    )('should $visibility “Check your answers” for a report with status “$description”', ({ code, visibility }) => {
+      mockedReport.status = code
+
+      return request(app)
+        .get(viewReportUrl)
+        .expect(200)
+        .expect(res => {
+          if (visibility === 'see') {
+            expect(res.text).not.toContain('Incident report 6543')
+            expect(res.text).toContain('Check your answers – incident report 6543')
+          } else {
+            expect(res.text).toContain('Incident report 6543')
+            expect(res.text).not.toContain('Check your answers – incident report 6543')
+          }
+        })
+    })
+
+    it.each(
       statuses
-        // these _can_ be actioned
-        .filter(s => !['DRAFT', 'NEEDS_UPDATING', 'REOPENED'].includes(s.code))
+        .filter(
+          // these _can_ be actioned
+          status => !['DRAFT', 'NEEDS_UPDATING', 'REOPENED'].includes(status.code),
+        )
         .map(status => ({
           ...status,
+          // no action at all is possible for these
           noActionsPermitted: ['ON_HOLD', 'POST_INCIDENT_UPDATE'].includes(status.code),
         })),
     )(
@@ -873,8 +896,6 @@ describe('View report page', () => {
           return testRequest.expect(200).expect(res => {
             const canEditTextMatcher = canEdit ? expect(res.text).toContain : expect(res.text).not.toContain
             ;[
-              // heading prefix
-              'Check your answers',
               // question page links
               'question responses',
               // change links

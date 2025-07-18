@@ -6,7 +6,14 @@
 {% from "govuk/components/warning-text/macro.njk" import govukWarningText %}
 {% from "moj/components/alert/macro.njk" import mojAlert %}
 
-{% set pageTitle = "Incident report " + report.reportReference %}
+{% set pageTitle %}
+  {%- if canEditReport and report.status in workListMapping.toDo -%}
+    Check your answers – incident report {{ report.reportReference }}
+  {%- else -%}
+    Incident report {{ report.reportReference }}
+  {%- endif -%}
+{% endset %}
+
 {% set bodyClasses = "app-view-report" %}
 
 {% block beforeContent %}
@@ -27,14 +34,14 @@
 {% endblock %}
 
 {% block content %}
-  <!-- TODO: replace with link to actual email address -->
-  {% if (userType == 'reportingOfficer') and (report.status == 'ON_HOLD') %}
+  {% if userType == "reportingOfficer" and report.status == "ON_HOLD" %}
+    {# TODO: replace with link to actual email address #}
     {{ mojAlert({
       variant: "information",
       title: "On hold",
       showTitleAsHeading: true,
       dismissible: false,
-      html: 'A data warden has placed this report on hold, if you need to make an update contact email address'
+      html: "A data warden has placed this report on hold, if you need to make an update contact (email address)"
     }) }}
   {% endif %}
 
@@ -48,12 +55,7 @@
   {% include "partials/notificationBanner.njk" %}
 
   <h1 class="govuk-heading-l">
-    {% if report.status == "DRAFT" and canEditReport %}
-      {# TODO: this probably needs to show for certain other statuses too #}
-      Check your answers – incident report {{ report.reportReference }}
-    {% else %}
-      Incident report {{ report.reportReference }}
-    {% endif %}
+    {{ pageTitle }}
   </h1>
   <p>
     {# TODO: label will need to change for PECS regions #}

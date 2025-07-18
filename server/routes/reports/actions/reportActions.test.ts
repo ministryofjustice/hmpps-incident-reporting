@@ -235,7 +235,7 @@ describe('Action form options', () => {
       .expect(res => {
         expect(res.text).toContain('On hold')
         expect(res.text).toContain(
-          'A data warden has placed this report on hold, if you need to make an update contact email address',
+          'A data warden has placed this report on hold, if you need to make an update contact (email address)',
         )
         expect(res.text).not.toContain('Submit')
         expect(res.text).not.toContain('Resubmit')

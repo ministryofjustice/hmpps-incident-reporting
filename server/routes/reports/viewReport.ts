@@ -11,6 +11,7 @@ import {
   statuses,
   types,
   dwNotReviewed,
+  workListMapping,
 } from '../../reportConfiguration/constants'
 import {
   logoutUnless,
@@ -252,6 +253,7 @@ export function viewReportRouter(): Router {
         staffInvolvementLookup,
         typesLookup,
         statusLookup,
+        workListMapping,
         reportTransitions,
         formValues,
       })

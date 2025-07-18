@@ -75,6 +75,14 @@ export function viewReportRouter(): Router {
       const allowedActionsInNomisOnly = permissions.allowedActionsOnReport(report, 'nomis')
       const canEditReportInNomisOnly = allowedActionsInNomisOnly.has('edit')
 
+      const allowedActionsNeedingForm = new Set<UserAction>()
+      for (const action of allowedActions) {
+        // these user actions are not part of this form
+        if (!['view', 'edit'].includes(action)) {
+          allowedActionsNeedingForm.add(action)
+        }
+      }
+
       // TODO: PECS lookup is different
       const reportTransitions = prisonReportTransitions?.[userType]?.[report.status] ?? {}
 
@@ -203,14 +211,6 @@ export function viewReportRouter(): Router {
           }
         } else {
           // submitted but action is not chosen, unknown or explicitly not allowed
-
-          const allowedActionsNeedingForm = new Set<UserAction>()
-          for (const action of allowedActions) {
-            // these user actions are not part of this form
-            if (!['view', 'edit'].includes(action)) {
-              allowedActionsNeedingForm.add(action)
-            }
-          }
           const userActionError =
             allowedActionsNeedingForm.size === 0
               ? // User is not permitted to take any actions
@@ -241,6 +241,7 @@ export function viewReportRouter(): Router {
         reportConfig,
         questionProgressSteps,
         userType,
+        allowedActionsNeedingForm,
         canEditReport,
         canEditReportInNomisOnly,
         descriptionAppendOnly,

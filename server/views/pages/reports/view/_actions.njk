@@ -1,24 +1,19 @@
-{% from "govuk/components/radios/macro.njk" import govukRadios %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
 {% from "govuk/components/input/macro.njk" import govukInput %}
+{% from "govuk/components/radios/macro.njk" import govukRadios %}
 {% from "govuk/components/textarea/macro.njk" import govukTextarea %}
 
-{% if
-  (
-    (userType == "reportingOfficer") and
-    (report.status in ["AWAITING_REVIEW", "UPDATED", "WAS_CLOSED", "CLOSED", "NOT_REPORTABLE", "DUPLICATE"])
-  )
-  or
-  (
-    (userType == "dataWarden") and
-    (report.status in ["NEEDS_UPDATING", "REOPENED", "CLOSED", "NOT_REPORTABLE", "DUPLICATE"])
-  )
-%}
-  {% if (userType == "reportingOfficer") and (report.status in ["AWAITING_REVIEW", "UPDATED", "WAS_CLOSED"]) %}
-    {% set buttonText = "Change report" %}
-  {% elseif (userType == "reportingOfficer") and (report.status in ["CLOSED", "NOT_REPORTABLE", "DUPLICATE"]) %}
-    {% set buttonText = "Reopen and change report" %}
-  {% else %}
+{% if allowedActionsNeedingForm.size == 1 and allowedActionsNeedingForm.keys().next().value == "recall" %}
+  {% if userType == "reportingOfficer" %}
+    {% if report.status in ["CLOSED", "NOT_REPORTABLE", "DUPLICATE"] %}
+      {% set buttonText = "Reopen and change report" %}
+    {% else %}
+      {% set buttonText = "Change report" %}
+    {% endif %}
+  {% elseif userType == "dataWarden" %}
     {% set buttonText = "Change report status" %}
+  {% else %}
+    {% panic "Recall form not implemented for " + userType %}
   {% endif %}
 
   <form id="app-view-report__user-action-form" method="post" novalidate>
@@ -72,7 +67,7 @@
                 value: formValues[inputName],
                 errorMessage: errors | findFieldInGovukErrorSummary(inputName)
               }) }}
-            {% endset -%}
+            {% endset %}
 
           {% set _ = formItems.push({
             value: action,

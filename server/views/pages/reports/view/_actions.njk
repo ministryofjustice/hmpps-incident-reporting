@@ -4,18 +4,18 @@
 
 {% if
   (
-    (userType == 'reportingOfficer') and
+    (userType == "reportingOfficer") and
     (report.status in ["AWAITING_REVIEW", "UPDATED", "WAS_CLOSED", "CLOSED", "NOT_REPORTABLE", "DUPLICATE"])
   )
   or
   (
-    (userType == 'dataWarden') and
+    (userType == "dataWarden") and
     (report.status in ["NEEDS_UPDATING", "REOPENED", "CLOSED", "NOT_REPORTABLE", "DUPLICATE"])
   )
 %}
-  {% if (userType == 'reportingOfficer') and (report.status in ["AWAITING_REVIEW", "UPDATED", "WAS_CLOSED"]) %}
+  {% if (userType == "reportingOfficer") and (report.status in ["AWAITING_REVIEW", "UPDATED", "WAS_CLOSED"]) %}
     {% set buttonText = "Change report" %}
-  {% elseif (userType == 'reportingOfficer') and (report.status in ["CLOSED", "NOT_REPORTABLE", "DUPLICATE"]) %}
+  {% elseif (userType == "reportingOfficer") and (report.status in ["CLOSED", "NOT_REPORTABLE", "DUPLICATE"]) %}
     {% set buttonText = "Reopen and change report" %}
   {% else %}
     {% set buttonText = "Change report status" %}
@@ -47,7 +47,7 @@
     {% for action, transition in pageTransitions %}
       {% if transition.newStatus %}
         {% if transition.commentRequired %}
-            {% set inputName = action + 'Comment' %}
+            {% set inputName = action + "Comment" %}
             {% set textHtml %}
               {% if transition.incidentNumberRequired %}
                 {{ govukInput({
@@ -98,12 +98,16 @@
     {% if pageTransitions|length %}
       {{ govukRadios({
         name: "userAction",
+        attributes: {
+          id: "userAction"
+        },
         fieldset: {
           legend: {
             text: "What do you want to do with this report?",
             classes: "govuk-fieldset__legend--m"
           }
         },
+        idPrefix: "userAction-item",
         items: formItems,
         value: formValues.submittedAction,
         errorMessage: errors | findFieldInGovukErrorSummary("submittedAction")

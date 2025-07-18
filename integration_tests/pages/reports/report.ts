@@ -133,10 +133,18 @@ export default class ReportPage extends Page {
   }
 
   private get userActionsForm(): PageElement<HTMLFormElement> {
-    return cy.get('form#user-actions')
+    return cy.get('form#app-view-report__user-action-form')
   }
 
-  get submitButton(): PageElement<HTMLButtonElement> {
-    return this.userActionsForm.find<HTMLButtonElement>('.govuk-button').contains('Submit')
+  get userActionsChoices() {
+    return ReportPage.choicesFromRadioInputs(this.userActionsForm.find<HTMLInputElement>('[name="userAction"'))
+  }
+
+  selectAction(label: string): Cypress.Chainable {
+    return this.userActionsForm.find('#userAction').find<HTMLLabelElement>('label').contains(label).click()
+  }
+
+  get continueButton(): PageElement<HTMLButtonElement> {
+    return this.userActionsForm.find<HTMLButtonElement>('.govuk-button').contains('Continue')
   }
 }

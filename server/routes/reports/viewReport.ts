@@ -162,7 +162,7 @@ export function viewReportRouter(): Router {
           }
 
           if (errors.length === 0) {
-            // can submit for review
+            // can submit action
             try {
               // TODO: PECS regions need a different lookup
               const newTitle = regenerateTitleForReport(
@@ -199,10 +199,10 @@ export function viewReportRouter(): Router {
             }
           }
         } else {
-          // failsafe; users would never reach here through normal actions
+          // Ensures that users click an option before submitting
           errors.push({
-            text: 'Unknown action, please try again',
-            href: '?',
+            text: 'Select an action to take',
+            href: '#user-actions',
           })
         }
       }

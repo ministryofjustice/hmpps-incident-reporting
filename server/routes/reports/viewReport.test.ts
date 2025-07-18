@@ -576,7 +576,7 @@ describe('View report page', () => {
           .expect(200)
           .expect(res => {
             expect(res.text).toContain('There is a problem')
-            expect(res.text).toContain('Unknown action, please try again')
+            expect(res.text).toContain('Select an action to take')
           })
       },
     )
@@ -921,7 +921,7 @@ describe('View report page', () => {
               expect(incidentReportingApi.changeReportStatus).not.toHaveBeenCalled()
               if (canView) {
                 expect(res.text).toContain('There is a problem')
-                expect(res.text).toContain('Unknown action, please try again')
+                expect(res.text).toContain('Select an action to take')
               }
             }
           })

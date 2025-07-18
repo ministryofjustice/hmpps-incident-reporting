@@ -84,9 +84,9 @@ export function viewReportRouter(): Router {
         if (parseUserActionCode(userAction) && userAction in reportTransitions) {
           let comment: string | undefined
           if (userAction) {
-            comment = req.body[`${userAction}Comment`]
+            comment = req.body[`${userAction}Comment`]?.trim()
           }
-          const { incidentNumber } = req.body ?? {}
+          const incidentNumber: string = req.body?.incidentNumber?.trim()
           formValues = {
             userAction,
             [`${userAction}Comment`]: comment,
@@ -112,9 +112,10 @@ export function viewReportRouter(): Router {
             }
           }
 
+          // TODO: this should be in transition config: if a comment is optional!
           if (submittedTransition.commentRequired && !submittedTransition.incidentNumberRequired) {
-            const alphaNum = /\S+/
-            if (!comment || !alphaNum.test(comment)) {
+            const nonWhitespace = /\S+/
+            if (!comment || !nonWhitespace.test(comment)) {
               if (userAction === 'requestReview') {
                 errors.push({
                   text: 'Enter what has changed in the report',
@@ -135,7 +136,7 @@ export function viewReportRouter(): Router {
           }
 
           if (submittedTransition.incidentNumberRequired) {
-            const numbersOnly = /^\d+$/
+            const numbersOnly = /\d+/
             if (!incidentNumber || !numbersOnly.test(incidentNumber)) {
               errors.push({
                 text: 'Please enter a numerical reference number',

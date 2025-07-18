@@ -197,7 +197,7 @@ export function viewReportRouter(): Router {
               logger.error(e, `Report ${report.reportReference} status could not be changed: %j`, e)
               errors.push({
                 text: 'Action could not be submitted, please try again',
-                href: '#user-actions',
+                href: '#userAction',
               })
             }
           }
@@ -219,7 +219,7 @@ export function viewReportRouter(): Router {
                 'Select an action to take'
           errors.push({
             text: userActionError,
-            href: '#user-actions',
+            href: '#userAction',
           })
         }
       }

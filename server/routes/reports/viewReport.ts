@@ -92,22 +92,12 @@ export function viewReportRouter(): Router {
       if (req.method === 'POST') {
         const { userAction } = req.body ?? {}
         if (parseUserActionCode(userAction) && userAction in reportTransitions) {
-          let comment: string | undefined
-          if (userAction) {
-            comment = req.body[`${userAction}Comment`]?.trim()
-          }
-          const incidentNumber: string = req.body?.incidentNumber?.trim()
-          formValues = {
-            userAction,
-            [`${userAction}Comment`]: comment,
-            incidentNumber,
-          }
-
           const transition = reportTransitions[userAction]
+
           if (
             userAction === 'recall' &&
             userType === 'reportingOfficer' &&
-            ['CLOSED', 'NOT_REPORTABLE', 'DUPLICATE'].includes(report.status)
+            workListMapping.done.includes(report.status)
           ) {
             res.redirect(`${reportUrl}/reopen`)
             return
@@ -116,13 +106,25 @@ export function viewReportRouter(): Router {
             res.redirect(`${reportUrl}/remove-report`)
             return
           }
+
+          // check report is valid if required
+          // TODO: may need report.isValid flag or similar so that validation is forced when RO submits but is not repeated when DW closes
           if (transition.mustBeValid) {
             for (const error of checkReportIsComplete(report, reportConfig, questionProgressSteps, reportUrl)) {
               errors.push(error)
             }
           }
 
-          // TODO: this should be in transition config: if a comment is optional!
+          const comment: string | undefined = req.body[`${userAction}Comment`]?.trim()
+          const incidentNumber: string | undefined = req.body.incidentNumber?.trim()
+          formValues = {
+            userAction,
+            [`${userAction}Comment`]: comment,
+            incidentNumber,
+          }
+
+          // check comment if required
+          // TODO: this should be in transition config: if a comment is optional but permitted
           if (transition.commentRequired && !transition.incidentNumberRequired) {
             const nonWhitespace = /\S+/
             if (!comment || !nonWhitespace.test(comment)) {
@@ -145,6 +147,7 @@ export function viewReportRouter(): Router {
             }
           }
 
+          // check original incident number if required
           if (transition.incidentNumberRequired) {
             const numbersOnly = /\d+/
             if (!incidentNumber || !numbersOnly.test(incidentNumber)) {
@@ -281,6 +284,7 @@ function* checkReportIsComplete(
   questionProgressSteps: QuestionProgressStep[],
   reportUrl: string,
 ): Generator<GovukErrorSummaryItem, void, void> {
+  // TODO: involvement rules differ for PECS
   if (!report.prisonerInvolvementDone) {
     // prisoners skipped, so must return
     yield {
@@ -295,6 +299,7 @@ function* checkReportIsComplete(
     }
   }
 
+  // TODO: involvement rules differ for PECS
   if (!report.staffInvolvementDone) {
     // staff skipped, so must return
     yield {

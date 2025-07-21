@@ -160,9 +160,10 @@ export function viewReportRouter(): Router {
             } else {
               try {
                 await incidentReportingApi.getReportByReference(incidentNumber)
-                logger.info(`Duplicate report incident number ${incidentNumber} does belong to a valid report`)
+                logger.debug(`Original report incident number ${incidentNumber} does belong to a valid report`)
                 // eslint-disable-next-line @typescript-eslint/no-unused-vars
               } catch (e) {
+                logger.debug(`Original report incident number ${incidentNumber} does NOT belong to a valid report`)
                 errors.push({
                   text: 'Enter a valid incident report number',
                   href: '#incidentNumber',
@@ -183,6 +184,8 @@ export function viewReportRouter(): Router {
                 title: newTitle,
               })
 
+              // TODO: post comment (ie. correction request) if necessary; use a helper function to create it
+
               const { newStatus } = transition
               if (newStatus && newStatus !== report.status) {
                 await incidentReportingApi.changeReportStatus(report.id, { newStatus })
@@ -190,15 +193,16 @@ export function viewReportRouter(): Router {
               }
 
               logger.info(
-                `Report ${report.reportReference} submitted the following action: ${userActionMapping[userAction].description}, and changed status from ${report.status} to ${newStatus}`,
+                `Report ${report.reportReference} actioned: “${userActionMapping[userAction].description}” (${userAction}), and changed status from ${report.status} to ${newStatus}`,
               )
+              const { successBanner } = transition
+              if (successBanner) {
+                req.flash('success', { title: successBanner.replace('$reportReference', report.reportReference) })
+              }
+
               if (userAction === 'recall') {
                 res.redirect(reportUrl)
               } else {
-                const { successBanner } = transition
-                if (successBanner) {
-                  req.flash('success', { title: successBanner.replace('$reportReference', report.reportReference) })
-                }
                 res.redirect('/reports')
               }
               return

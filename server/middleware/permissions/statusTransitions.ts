@@ -21,7 +21,7 @@ export type Transition = {
   /** Radio button label as the users will see within the form on report page */
   label?: string
   /** Is a valid incident report number required to mark as duplicate? */
-  incidentNumberRequired?: boolean
+  originalReportReferenceRequired?: boolean
   /** Message in success banner when landing back onto reports screen.
    * `$reportReference` will be replaced with actual value during banner implementation */
   successBanner?: string
@@ -129,7 +129,7 @@ export const prisonReportTransitions: Transitions = {
         label: 'Mark as a duplicate',
         commentRequired: true,
         commentLabel: 'Describe why it is a duplicate report (optional)',
-        incidentNumberRequired: true,
+        originalReportReferenceRequired: true,
         successBanner: 'Report $reportReference has been marked as duplicate',
       },
       markNotReportable: {
@@ -159,7 +159,7 @@ export const prisonReportTransitions: Transitions = {
         label: 'Mark as a duplicate',
         commentRequired: true,
         commentLabel: 'Describe why it is a duplicate report (optional)',
-        incidentNumberRequired: true,
+        originalReportReferenceRequired: true,
         successBanner: 'Report $reportReference has been marked as duplicate',
       },
       markNotReportable: {
@@ -199,7 +199,7 @@ export const prisonReportTransitions: Transitions = {
         label: 'Mark as a duplicate',
         commentRequired: true,
         commentLabel: 'Describe why it is a duplicate report (optional)',
-        incidentNumberRequired: true,
+        originalReportReferenceRequired: true,
         successBanner: 'Report $reportReference has been marked as duplicate',
       },
       markNotReportable: {
@@ -241,7 +241,7 @@ export const prisonReportTransitions: Transitions = {
         label: 'Mark as a duplicate',
         commentRequired: true,
         commentLabel: 'Describe why it is a duplicate report (optional)',
-        incidentNumberRequired: true,
+        originalReportReferenceRequired: true,
         successBanner: 'Report $reportReference has been marked as duplicate',
       },
       markNotReportable: {

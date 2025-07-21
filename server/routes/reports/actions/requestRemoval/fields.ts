@@ -15,7 +15,7 @@ export const fields = {
       },
     ],
   },
-  incidentReportNumber: {
+  originalReportReference: {
     label: 'Enter incident report number of the original report',
     component: 'govukInput',
     validate: ['required', 'numeric'],

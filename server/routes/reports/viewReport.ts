@@ -116,16 +116,16 @@ export function viewReportRouter(): Router {
           }
 
           const comment: string | undefined = req.body[`${userAction}Comment`]?.trim()
-          const incidentNumber: string | undefined = req.body.incidentNumber?.trim()
+          const originalReportReference: string | undefined = req.body.originalReportReference?.trim()
           formValues = {
             userAction,
             [`${userAction}Comment`]: comment,
-            incidentNumber,
+            originalReportReference,
           }
 
           // check comment if required
           // TODO: this should be in transition config: if a comment is optional but permitted
-          if (transition.commentRequired && !transition.incidentNumberRequired) {
+          if (transition.commentRequired && !transition.originalReportReferenceRequired) {
             const nonWhitespace = /\S+/
             if (!comment || !nonWhitespace.test(comment)) {
               if (userAction === 'requestReview') {
@@ -148,28 +148,30 @@ export function viewReportRouter(): Router {
           }
 
           // check original incident number if required
-          if (transition.incidentNumberRequired) {
+          if (transition.originalReportReferenceRequired) {
             const numbersOnly = /\d+/
-            if (!incidentNumber || !numbersOnly.test(incidentNumber)) {
+            if (!originalReportReference || !numbersOnly.test(originalReportReference)) {
               errors.push({
                 text: 'Please enter a numerical reference number',
-                href: '#incidentNumber',
+                href: '#originalReportReference',
               })
-            } else if (incidentNumber === report.reportReference) {
+            } else if (originalReportReference === report.reportReference) {
               errors.push({
                 text: 'Enter a different report number',
-                href: '#incidentNumber',
+                href: '#originalReportReference',
               })
             } else {
               try {
-                await incidentReportingApi.getReportByReference(incidentNumber)
-                logger.debug(`Original report incident number ${incidentNumber} does belong to a valid report`)
+                await incidentReportingApi.getReportByReference(originalReportReference)
+                logger.debug(`Original report incident number ${originalReportReference} does belong to a valid report`)
                 // eslint-disable-next-line @typescript-eslint/no-unused-vars
               } catch (e) {
-                logger.debug(`Original report incident number ${incidentNumber} does NOT belong to a valid report`)
+                logger.debug(
+                  `Original report incident number ${originalReportReference} does NOT belong to a valid report`,
+                )
                 errors.push({
                   text: 'Enter a valid incident report number',
-                  href: '#incidentNumber',
+                  href: '#originalReportReference',
                 })
               }
             }

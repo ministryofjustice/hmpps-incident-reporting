@@ -70,7 +70,7 @@ describe('Request to remove report is submitted successfully and saves correct n
     {
       currentStatus: 'DRAFT',
       removalType: 'duplicate',
-      payload: { removeReportMethod: 'duplicate', incidentReportNumber: '1234', duplicateComment: 'Why it is' },
+      payload: { removeReportMethod: 'duplicate', originalReportReference: '1234', duplicateComment: 'Why it is' },
       newStatus: 'AWAITING_REVIEW',
     },
     {
@@ -82,7 +82,7 @@ describe('Request to remove report is submitted successfully and saves correct n
     {
       currentStatus: 'NEEDS_UPDATING',
       removalType: 'duplicate',
-      payload: { removeReportMethod: 'duplicate', incidentReportNumber: '1234', duplicateComment: 'Why it is' },
+      payload: { removeReportMethod: 'duplicate', originalReportReference: '1234', duplicateComment: 'Why it is' },
       newStatus: 'UPDATED',
     },
     {
@@ -94,7 +94,7 @@ describe('Request to remove report is submitted successfully and saves correct n
     {
       currentStatus: 'REOPENED',
       removalType: 'duplicate',
-      payload: { removeReportMethod: 'duplicate', incidentReportNumber: '1234', duplicateComment: 'Why it is' },
+      payload: { removeReportMethod: 'duplicate', originalReportReference: '1234', duplicateComment: 'Why it is' },
       newStatus: 'WAS_CLOSED',
     },
   ])(

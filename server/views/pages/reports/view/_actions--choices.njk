@@ -9,16 +9,16 @@
     {% if transition.commentRequired %}
       {% set inputName = action + "Comment" %}
       {% set textHtml %}
-        {% if transition.incidentNumberRequired %}
+        {% if transition.originalReportReferenceRequired %}
           {{ govukInput({
-            id: "incidentNumber",
-            name: "incidentNumber",
+            id: "originalReportReference",
+            name: "originalReportReference",
             classes: "govuk-!-width-one-third",
             label: {
               text: "Enter incident report number of the original report"
             },
-            value: formValues["incidentNumber"],
-            errorMessage: errors | findFieldInGovukErrorSummary("incidentNumber")
+            value: formValues["originalReportReference"],
+            errorMessage: errors | findFieldInGovukErrorSummary("originalReportReference")
           }) }}
         {% endif %}
 

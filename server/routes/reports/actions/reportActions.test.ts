@@ -560,7 +560,7 @@ describe('Correct status submission or redirect for each form action', () => {
         user: mockDataWarden,
         currentStatus: 'AWAITING_REVIEW',
         userAction: 'markDuplicate',
-        duplicateIncidentNumber: '1234',
+        originalReportReference: '1234',
         userComment: 'Additional info',
         newStatus: 'DUPLICATE',
       },
@@ -569,7 +569,7 @@ describe('Correct status submission or redirect for each form action', () => {
         user: mockDataWarden,
         currentStatus: 'ON_HOLD',
         userAction: 'markDuplicate',
-        duplicateIncidentNumber: '1234',
+        originalReportReference: '1234',
         userComment: 'Additional info',
         newStatus: 'DUPLICATE',
       },
@@ -578,7 +578,7 @@ describe('Correct status submission or redirect for each form action', () => {
         user: mockDataWarden,
         currentStatus: 'UPDATED',
         userAction: 'markDuplicate',
-        duplicateIncidentNumber: '1234',
+        originalReportReference: '1234',
         userComment: 'Additional info',
         newStatus: 'DUPLICATE',
       },
@@ -587,13 +587,13 @@ describe('Correct status submission or redirect for each form action', () => {
         user: mockDataWarden,
         currentStatus: 'WAS_CLOSED',
         userAction: 'markDuplicate',
-        duplicateIncidentNumber: '1234',
+        originalReportReference: '1234',
         userComment: 'Additional info',
         newStatus: 'DUPLICATE',
       },
     ])(
       '$userType submitting action $userAction for a report with status: $currentStatus should change status to $newStatus',
-      ({ user, currentStatus, userAction, duplicateIncidentNumber, userComment, newStatus }) => {
+      ({ user, currentStatus, userAction, originalReportReference, userComment, newStatus }) => {
         mockedReport.status = currentStatus as Status
 
         incidentReportingApi.changeReportStatus.mockResolvedValueOnce(mockedReport) // NB: response is ignored
@@ -605,7 +605,7 @@ describe('Correct status submission or redirect for each form action', () => {
 
         return request(appWithAllRoutes({ services: { userService }, userSupplier: () => user }))
           .post(viewReportUrl)
-          .send({ userAction, incidentNumber: duplicateIncidentNumber, [`${userAction}Comment`]: userComment })
+          .send({ userAction, originalReportReference, [`${userAction}Comment`]: userComment })
           .redirects(1)
           .expect(200)
           .expect(res => {

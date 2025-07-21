@@ -15,7 +15,7 @@ import {
 } from '../../reportConfiguration/constants'
 import {
   logoutUnless,
-  canViewReport,
+  hasPermissionTo,
   parseUserActionCode,
   prisonReportTransitions,
   userActionMapping,
@@ -52,7 +52,7 @@ export function viewReportRouter(): Router {
       }
     },
     populateReport(true),
-    logoutUnless(canViewReport),
+    logoutUnless(hasPermissionTo('view')),
     populateReportConfiguration(true),
     async (req, res) => {
       const { incidentReportingApi, prisonApi, userService } = res.locals.apis

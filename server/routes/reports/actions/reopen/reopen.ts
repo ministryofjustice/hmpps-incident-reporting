@@ -3,7 +3,7 @@ import { MethodNotAllowed } from 'http-errors'
 
 import logger from '../../../../../logger'
 import { regenerateTitleForReport } from '../../../../services/reportTitle'
-import { logoutUnless, canViewReport, prisonReportTransitions } from '../../../../middleware/permissions'
+import { logoutUnless, hasPermissionTo, prisonReportTransitions } from '../../../../middleware/permissions'
 import { populateReport } from '../../../../middleware/populateReport'
 import type { GovukErrorSummaryItem } from '../../../../utils/govukFrontend'
 import { ReportWithDetails } from '../../../../data/incidentReportingApi'
@@ -22,7 +22,8 @@ export function reopenReportRouter(): Router {
       }
     },
     populateReport(true),
-    logoutUnless(canViewReport),
+    // TODO: incorrect action check
+    logoutUnless(hasPermissionTo('view')),
     async (req, res) => {
       const { incidentReportingApi, prisonApi } = res.locals.apis
 

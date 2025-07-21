@@ -1,7 +1,7 @@
 import express from 'express'
 import FormWizard from 'hmpo-form-wizard'
 
-import { logoutUnless, canEditReport } from '../../../../middleware/permissions'
+import { logoutUnless, hasPermissionTo } from '../../../../middleware/permissions'
 import { populateReport } from '../../../../middleware/populateReport'
 
 import { RemoveReport } from './controller'
@@ -21,4 +21,9 @@ const removeReport = FormWizard(steps, fields, {
 removeReport.mergeParams = true
 // eslint-disable-next-line import/prefer-default-export
 export const removeReportRouter = express.Router({ mergeParams: true })
-removeReportRouter.use(populateReport(true), logoutUnless(canEditReport), removeReport)
+removeReportRouter.use(
+  populateReport(true),
+  // TODO: incorrect action check
+  logoutUnless(hasPermissionTo('edit')),
+  removeReport,
+)

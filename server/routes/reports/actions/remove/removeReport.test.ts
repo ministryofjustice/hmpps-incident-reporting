@@ -57,7 +57,7 @@ describe('Request to remove report is submitted successfully and saves correct n
     )
     incidentReportingApi.getReportWithDetailsById.mockReset()
     incidentReportingApi.getReportWithDetailsById.mockResolvedValueOnce(mockedReport)
-    requestRemoveReportUrl = `/reports/${mockedReport.id}/remove-report`
+    requestRemoveReportUrl = `/reports/${mockedReport.id}/request-remove`
   })
 
   it.each([

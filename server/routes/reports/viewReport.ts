@@ -103,7 +103,7 @@ export function viewReportRouter(): Router {
             return
           }
           if (userAction === 'requestRemoval') {
-            res.redirect(`${reportUrl}/remove-report`)
+            res.redirect(`${reportUrl}/request-remove`)
             return
           }
 

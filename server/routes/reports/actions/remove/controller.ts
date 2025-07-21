@@ -1,43 +1,38 @@
 import type express from 'express'
 import type FormWizard from 'hmpo-form-wizard'
 
-import { BaseController } from '../../../../controllers'
-import type { ReportWithDetails } from '../../../../data/incidentReportingApi'
-import type { Values } from './fields'
 import logger from '../../../../../logger'
+import { BaseController } from '../../../../controllers'
 import { prisonReportTransitions } from '../../../../middleware/permissions'
+import type { Values } from './fields'
 
 // eslint-disable-next-line import/prefer-default-export
-export class RemoveReport extends BaseController<Values> {
+export class RequestRemovalController extends BaseController<Values> {
   async validate(req: FormWizard.Request<Values>, res: express.Response, next: express.NextFunction): Promise<void> {
-    const report = res.locals.report as ReportWithDetails
+    const { report } = res.locals
+
     const { incidentReportNumber } = req.form.values
     if (incidentReportNumber) {
+      if (incidentReportNumber === report.reportReference) {
+        const error = new this.Error('incidentReportNumber', {
+          message: 'Enter a different report number',
+          key: 'incidentReportNumber',
+        })
+        next({ incidentReportNumber: error })
+        return
+      }
       try {
-        if (incidentReportNumber === report.reportReference) {
-          const error = new this.Error('incidentReportNumber', {
-            message: 'Enter a different report number',
-            key: 'incidentReportNumber',
-          })
-          next({ incidentReportNumber: error })
-          return
-        }
-        try {
-          await res.locals.apis.incidentReportingApi.getReportByReference(incidentReportNumber)
-          logger.info(`Duplicate report incident number ${incidentReportNumber} does belong to a valid report`)
-          // eslint-disable-next-line @typescript-eslint/no-unused-vars
-        } catch (e) {
-          const error = new this.Error('incidentReportNumber', {
-            message: 'Enter a valid incident report number',
-            key: 'incidentReportNumber',
-          })
-          next({ incidentReportNumber: error })
-          return
-        }
-
+        await res.locals.apis.incidentReportingApi.getReportByReference(incidentReportNumber)
+        logger.debug(`Original report incident number ${incidentReportNumber} does belong to a valid report`)
         // eslint-disable-next-line @typescript-eslint/no-unused-vars
       } catch (e) {
-        /* empty */
+        logger.debug(`Original report incident number ${incidentReportNumber} does NOT belong to a valid report`)
+        const error = new this.Error('incidentReportNumber', {
+          message: 'Enter a valid incident report number',
+          key: 'incidentReportNumber',
+        })
+        next({ incidentReportNumber: error })
+        return
       }
     }
 
@@ -75,13 +70,17 @@ export class RemoveReport extends BaseController<Values> {
   }
 
   async saveValues(req: FormWizard.Request<Values>, res: express.Response, next: express.NextFunction): Promise<void> {
-    const report = res.locals.report as ReportWithDetails
+    const { report, permissions } = res.locals
+    const { userType } = permissions
+
+    // TODO: PECS lookup is different
+    const { newStatus } = prisonReportTransitions[userType][report.status].requestRemoval
 
     try {
-      const { newStatus } = prisonReportTransitions.reportingOfficer[report.status].requestRemoval
-
       await res.locals.apis.incidentReportingApi.changeReportStatus(report.id, { newStatus })
-      // TODO: set report validation=true flag? not supported by api/db yet / ever will be?
+
+      // TODO: post comment (ie. correction request) if necessary; use a helper function to create it
+      // const { removeReportMethod, incidentReportNumber, duplicateComment, notReportableComment } = this.getAllValues(req)
 
       logger.info(`Request to remove report ${report.reportReference} sent`)
       req.flash('success', { title: `Request to remove report ${report.reportReference} sent` })

@@ -564,7 +564,9 @@ describe('View report page', () => {
     it.each(
       statuses.map(status => ({
         ...status,
-        visibility: ['DRAFT', 'NEEDS_UPDATING', 'REOPENED'].includes(status.code) ? 'see' : 'not see',
+        visibility: ['DRAFT', 'NEEDS_UPDATING', 'REOPENED'].includes(status.code)
+          ? ('see' as const)
+          : ('not see' as const),
       })),
     )('should $visibility “Check your answers” for a report with status “$description”', ({ code, visibility }) => {
       mockedReport.status = code

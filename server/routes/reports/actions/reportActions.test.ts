@@ -42,7 +42,7 @@ afterEach(() => {
   jest.resetAllMocks()
 })
 
-describe('Action form options', () => {
+describe('Report action form options', () => {
   let mockedReport: ReportWithDetails
   let viewReportUrl: string
 
@@ -56,26 +56,6 @@ describe('Action form options', () => {
         withDetails: true,
       }),
     )
-    mockedReport.questions = [
-      makeSimpleQuestion('61279', 'WHAT WAS THE MAIN MANAGEMENT OUTCOME OF THE INCIDENT', ['IEP REGRESSION', '213063']),
-      makeSimpleQuestion('61280', 'IS ANY MEMBER OF STAFF FACING DISCIPLINARY CHARGES', ['NO', '213067']),
-      makeSimpleQuestion('61281', 'IS THERE ANY MEDIA INTEREST IN THIS INCIDENT', ['NO', '213069']),
-      makeSimpleQuestion('61282', 'HAS THE PRISON SERVICE PRESS OFFICE BEEN INFORMED', ['NO', '213071']),
-      makeSimpleQuestion('61283', 'IS THE LOCATION OF THE INCDENT KNOWN', ['NO', '213073']),
-      makeSimpleQuestion('61285', 'WAS THIS A SEXUAL ASSAULT', ['NO', '213112']),
-      makeSimpleQuestion('61286', 'DID THE ASSAULT OCCUR DURING A FIGHT', ['NO', '213114']),
-      makeSimpleQuestion('61287', 'WHAT TYPE OF ASSAULT WAS IT', ['PRISONER ON STAFF', '213116']),
-      makeSimpleQuestion('61289', 'DESCRIBE THE TYPE OF STAFF', ['OPERATIONAL STAFF - OTHER', '213122']),
-      makeSimpleQuestion('61290', 'WAS SPITTING USED IN THIS INCIDENT', ['NO', '213125']),
-      makeSimpleQuestion('61294', 'WERE ANY WEAPONS USED', ['NO', '213136']),
-      makeSimpleQuestion('61296', 'WERE ANY INJURIES RECEIVED DURING THIS INCIDENT', ['NO', '213150']),
-      makeSimpleQuestion('61306', 'ARE THERE ANY STAFF NOW OFF DUTY AS A RESULT OF THIS INCIDENT', ['NO', '213200']),
-      makeSimpleQuestion('61307', 'ARE ANY STAFF ON SICK LEAVE AS A RESULT OF THIS INCIDENT', ['NO', '213202']),
-      makeSimpleQuestion('61308', 'DID THE ASSAULT OCCUR IN PUBLIC VIEW', ['YES', '213203']),
-      makeSimpleQuestion('61309', 'IS THERE ANY AUDIO OR VISUAL FOOTAGE OF THE ASSAULT', ['NO', '213205']),
-      makeSimpleQuestion('61311', 'WAS THERE AN APPARENT REASON FOR THE ASSAULT', ['NO', '213213']),
-    ]
-    incidentReportingApi.getReportWithDetailsById.mockReset()
     incidentReportingApi.getReportWithDetailsById.mockResolvedValueOnce(mockedReport)
     viewReportUrl = `/reports/${mockedReport.id}`
   })
@@ -294,7 +274,6 @@ describe('Correct status submission or redirect for each form action', () => {
       makeSimpleQuestion('61309', 'IS THERE ANY AUDIO OR VISUAL FOOTAGE OF THE ASSAULT', ['NO', '213205']),
       makeSimpleQuestion('61311', 'WAS THERE AN APPARENT REASON FOR THE ASSAULT', ['NO', '213213']),
     ]
-    incidentReportingApi.getReportWithDetailsById.mockReset()
     incidentReportingApi.getReportWithDetailsById.mockResolvedValueOnce(mockedReport)
     viewReportUrl = `/reports/${mockedReport.id}`
   })
@@ -336,10 +315,10 @@ describe('Correct status submission or redirect for each form action', () => {
         userAction: 'close',
         newStatus: 'CLOSED',
       },
-    ])(
+    ] as const)(
       '$userType submitting action $userAction for a report with status: $currentStatus should change status to $newStatus',
       ({ user, currentStatus, userAction, newStatus }) => {
-        mockedReport.status = currentStatus as Status
+        mockedReport.status = currentStatus
 
         incidentReportingApi.changeReportStatus.mockResolvedValueOnce(mockedReport) // NB: response is ignored
 
@@ -624,12 +603,13 @@ describe('Correct status submission or redirect for each form action', () => {
       { currentStatus: 'CLOSED', userAction: 'recall', redirectedPage: 'app-reopen-report' },
       { currentStatus: 'DUPLICATE', userAction: 'recall', redirectedPage: 'app-reopen-report' },
       { currentStatus: 'NOT_REPORTABLE', userAction: 'recall', redirectedPage: 'app-reopen-report' },
-    ])(
+    ] as const)(
       '$userType submitting action $userAction for a report with status: $currentStatus should change status to $newStatus',
       ({ currentStatus, userAction, redirectedPage }) => {
-        mockedReport.status = currentStatus as Status
+        mockedReport.status = currentStatus
 
         incidentReportingApi.getReportWithDetailsById.mockResolvedValueOnce(mockedReport)
+        incidentReportingApi.getReportById.mockResolvedValueOnce(mockedReport)
 
         return request(appWithAllRoutes({ services: { userService }, userSupplier: () => mockReportingOfficer }))
           .post(viewReportUrl)

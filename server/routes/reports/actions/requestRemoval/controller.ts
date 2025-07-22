@@ -24,11 +24,14 @@ export class RequestRemovalController extends BaseController<Values> {
       try {
         await res.locals.apis.incidentReportingApi.getReportByReference(originalReportReference)
         logger.debug(`Original report incident number ${originalReportReference} does belong to a valid report`)
-        // eslint-disable-next-line @typescript-eslint/no-unused-vars
       } catch (e) {
-        logger.debug(`Original report incident number ${originalReportReference} does NOT belong to a valid report`)
+        let errorMessage = 'Incident number could not be looked up, please try again'
+        if ('responseStatus' in e && e.responseStatus === 404) {
+          logger.debug(`Original report incident number ${originalReportReference} does NOT belong to a valid report`)
+          errorMessage = 'Enter a valid incident report number'
+        }
         const error = new this.Error('originalReportReference', {
-          message: 'Enter a valid incident report number',
+          message: errorMessage,
           key: 'originalReportReference',
         })
         next({ originalReportReference: error })

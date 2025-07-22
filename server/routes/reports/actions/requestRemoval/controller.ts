@@ -93,7 +93,7 @@ export class RequestRemovalController extends BaseController<Values> {
       logger.error(e, `Report ${report.reportReference} status could not be changed: %j`, e)
       const err = this.convertIntoValidationError(e)
       // TODO: find a different way to report whole-form errors rather than attaching to specific field
-      this.errorHandler({ originalReportReference: err }, req, res, next)
+      this.errorHandler({ removeReportMethod: err }, req, res, next)
     }
   }
 }

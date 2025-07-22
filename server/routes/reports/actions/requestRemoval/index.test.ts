@@ -1,40 +1,19 @@
 import request from 'supertest'
 
-import { PrisonApi } from '../../../../data/prisonApi'
 import { appWithAllRoutes } from '../../../testutils/appSetup'
 import { now } from '../../../../testutils/fakeClock'
-import UserService from '../../../../services/userService'
-import { type Status } from '../../../../reportConfiguration/constants'
-import { IncidentReportingApi, ReportWithDetails } from '../../../../data/incidentReportingApi'
+import { IncidentReportingApi, type ReportWithDetails } from '../../../../data/incidentReportingApi'
 import { convertBasicReportDates, convertReportWithDetailsDates } from '../../../../data/incidentReportingApiUtils'
 import { mockReport } from '../../../../data/testData/incidentReporting'
 
-import { mockSharedUser } from '../../../../data/testData/manageUsers'
-import { leeds, moorland } from '../../../../data/testData/prisonApi'
 import { mockReportingOfficer } from '../../../../data/testData/users'
 
-jest.mock('../../../../data/prisonApi')
 jest.mock('../../../../data/incidentReportingApi')
-jest.mock('../../../../services/userService')
 
 let incidentReportingApi: jest.Mocked<IncidentReportingApi>
-let userService: jest.Mocked<UserService>
-let prisonApi: jest.Mocked<PrisonApi>
 
 beforeEach(() => {
-  userService = UserService.prototype as jest.Mocked<UserService>
   incidentReportingApi = IncidentReportingApi.prototype as jest.Mocked<IncidentReportingApi>
-  prisonApi = PrisonApi.prototype as jest.Mocked<PrisonApi>
-
-  userService.getUsers.mockResolvedValueOnce({
-    [mockSharedUser.username]: mockSharedUser,
-  })
-
-  const prisons = {
-    LEI: leeds,
-    MDI: moorland,
-  }
-  prisonApi.getPrisons.mockResolvedValue(prisons)
 })
 
 afterEach(() => {
@@ -55,8 +34,7 @@ describe('Request to remove report is submitted successfully and saves correct n
         withDetails: true,
       }),
     )
-    incidentReportingApi.getReportWithDetailsById.mockReset()
-    incidentReportingApi.getReportWithDetailsById.mockResolvedValueOnce(mockedReport)
+    incidentReportingApi.getReportById.mockResolvedValueOnce(mockedReport)
     requestRemoveReportUrl = `/reports/${mockedReport.id}/request-remove`
   })
 
@@ -97,12 +75,11 @@ describe('Request to remove report is submitted successfully and saves correct n
       payload: { removeReportMethod: 'duplicate', originalReportReference: '1234', duplicateComment: 'Why it is' },
       newStatus: 'WAS_CLOSED',
     },
-  ])(
-    'RO requesting removal of type $removalType changes status: $currentStatus to $newStatus',
+  ] as const)(
+    'Reporting officer requesting removal of type $removalType changes status: $currentStatus to $newStatus',
     ({ currentStatus, payload, newStatus }) => {
-      mockedReport.status = currentStatus as Status
+      mockedReport.status = currentStatus
 
-      incidentReportingApi.getReportWithDetailsById.mockResolvedValueOnce(mockedReport)
       incidentReportingApi.changeReportStatus.mockResolvedValueOnce(mockedReport) // NB: response is ignored
 
       if (payload.removeReportMethod === 'duplicate') {
@@ -112,13 +89,14 @@ describe('Request to remove report is submitted successfully and saves correct n
         incidentReportingApi.getReportByReference.mockResolvedValueOnce(mockedDuplicateReport)
       }
 
-      return request(appWithAllRoutes({ services: { userService }, userSupplier: () => mockReportingOfficer }))
+      return request(appWithAllRoutes({ userSupplier: () => mockReportingOfficer }))
         .post(requestRemoveReportUrl)
         .send(payload)
-        .redirects(1)
-        .expect(200)
+        .redirects(0)
+        .expect(302)
         .expect(res => {
-          expect(res.text).toContain('app-dashboard')
+          expect(res.redirect).toBe(true)
+          expect(res.header.location).toEqual('/reports')
           expect(incidentReportingApi.changeReportStatus).toHaveBeenCalledWith(mockedReport.id, { newStatus })
         })
     },

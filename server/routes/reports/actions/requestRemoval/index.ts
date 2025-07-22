@@ -22,7 +22,7 @@ requestRemovalWizardRouter.mergeParams = true
 // eslint-disable-next-line import/prefer-default-export
 export const requestRemovalRouter = express.Router({ mergeParams: true })
 requestRemovalRouter.use(
-  populateReport(true),
+  populateReport(false),
   logoutUnless(hasPermissionTo('requestRemoval')),
   requestRemovalWizardRouter,
 )

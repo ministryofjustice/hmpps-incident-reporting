@@ -8,9 +8,7 @@ import { mockReport } from '../../../../data/testData/incidentReporting'
 
 import { mockReportingOfficer } from '../../../../data/testData/users'
 
-jest.mock('../../../../data/prisonApi')
 jest.mock('../../../../data/incidentReportingApi')
-jest.mock('../../../../services/userService')
 
 let incidentReportingApi: jest.Mocked<IncidentReportingApi>
 
@@ -22,7 +20,7 @@ afterEach(() => {
   jest.resetAllMocks()
 })
 
-describe('RO reopening a closed report', () => {
+describe('Reporting officer reopening a closed report', () => {
   let mockedReport: ReportWithDetails
   let reopenReportUrl: string
 
@@ -45,7 +43,7 @@ describe('RO reopening a closed report', () => {
     { currentStatus: 'DUPLICATE', newStatus: 'NEEDS_UPDATING' },
     { currentStatus: 'NOT_REPORTABLE', newStatus: 'NEEDS_UPDATING' },
   ] as const)(
-    'RO reopening a report with status: $currentStatus should change status to $newStatus',
+    'Reporting officer reopening a report with status: $currentStatus should change status to $newStatus',
     ({ currentStatus, newStatus }) => {
       mockedReport.status = currentStatus
       incidentReportingApi.changeReportStatus.mockResolvedValueOnce(undefined) // NB: response is ignored

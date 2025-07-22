@@ -21,4 +21,8 @@ const requestRemovalWizardRouter = FormWizard(steps, fields, {
 requestRemovalWizardRouter.mergeParams = true
 // eslint-disable-next-line import/prefer-default-export
 export const requestRemovalRouter = express.Router({ mergeParams: true })
-requestRemovalRouter.use(populateReport(), logoutUnless(hasPermissionTo('requestRemoval')), requestRemovalWizardRouter)
+requestRemovalRouter.use(
+  populateReport(true),
+  logoutUnless(hasPermissionTo('requestRemoval')),
+  requestRemovalWizardRouter,
+)

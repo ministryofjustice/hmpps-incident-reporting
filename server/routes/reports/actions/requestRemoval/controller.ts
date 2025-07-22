@@ -43,7 +43,7 @@ export class RequestRemovalController extends BaseController<Values> {
   }
 
   protected errorMessage(error: FormWizard.Error, req: FormWizard.Request<Values>, res: express.Response): string {
-    if (error.key === 'removeReportMethod' && error.type === 'required') {
+    if (error.key === 'reason' && error.type === 'required') {
       return 'Select why you want to remove this report'
     }
     if (error.key === 'notReportableComment') {
@@ -81,7 +81,7 @@ export class RequestRemovalController extends BaseController<Values> {
 
     try {
       // TODO: post comment (ie. correction request) if necessary; use a helper function to create it
-      // const { removeReportMethod, originalReportReference, duplicateComment, notReportableComment } = this.getAllValues(req)
+      // const { reason, originalReportReference, duplicateComment, notReportableComment } = this.getAllValues(req)
 
       await res.locals.apis.incidentReportingApi.changeReportStatus(report.id, { newStatus })
 
@@ -96,7 +96,7 @@ export class RequestRemovalController extends BaseController<Values> {
       logger.error(e, `Report ${report.reportReference} status could not be changed: %j`, e)
       const err = this.convertIntoValidationError(e)
       // TODO: find a different way to report whole-form errors rather than attaching to specific field
-      this.errorHandler({ removeReportMethod: err }, req, res, next)
+      this.errorHandler({ reason: err }, req, res, next)
     }
   }
 }

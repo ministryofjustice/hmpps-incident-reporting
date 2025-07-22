@@ -1,7 +1,7 @@
 import type FormWizard from 'hmpo-form-wizard'
 
 export const fields = {
-  removeReportMethod: {
+  reason: {
     component: 'govukRadios',
     validate: ['required'],
     items: [
@@ -20,7 +20,7 @@ export const fields = {
     component: 'govukInput',
     validate: ['required', 'numeric'],
     dependent: {
-      field: 'removeReportMethod',
+      field: 'reason',
       value: 'duplicate',
     },
   },
@@ -28,7 +28,7 @@ export const fields = {
     label: 'Describe why it is a duplicate report (optional)',
     component: 'govukTextarea',
     dependent: {
-      field: 'removeReportMethod',
+      field: 'reason',
       value: 'duplicate',
     },
   },
@@ -37,7 +37,7 @@ export const fields = {
     component: 'govukTextarea',
     validate: ['required'],
     dependent: {
-      field: 'removeReportMethod',
+      field: 'reason',
       value: 'notReportable',
     },
   },

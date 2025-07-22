@@ -18,13 +18,13 @@ $govuk-page-width: $moj-page-width;
 @import './components/header-bar';
 @import './components/prisoner-photo';
 @import './components/questions-list';
-@import './components/report-actions';
 @import './components/sortable-table';
 @import './components/involvement-table';
 
 @import './page/dashboard';
 @import './page/details';
 @import './page/involvement';
+@import './page/request-remove';
 @import './page/type';
 @import './page/view-report';
 

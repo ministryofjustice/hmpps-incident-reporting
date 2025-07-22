@@ -69,6 +69,7 @@ describe('Reopening a report', () => {
         .get(reopenReportUrl)
         .expect(200)
         .expect(res => {
+          expect(res.text).toContain('app-reopen-report')
           expect(res.text).toContain(confirmationMessage)
           expect(incidentReportingApi.changeReportStatus).not.toHaveBeenCalled()
         })
@@ -88,7 +89,7 @@ describe('Reopening a report', () => {
         })
     })
 
-    it('should show an error if API rejects request', () => {
+    it('should show an error if API rejects request to change status', () => {
       const error = mockThrownError(mockErrorResponse({ message: 'Comment is required' }))
       incidentReportingApi.changeReportStatus.mockRejectedValueOnce(error)
       incidentReportingApi.getReportById.mockResolvedValueOnce(mockedReport) // due to redirect
@@ -199,23 +200,12 @@ describe('Reopening a report', () => {
     )
   })
 
-  describe('by HQ viewers', () => {
+  describe.each([
+    { userType: 'HQ viewers', user: mockHqViewer },
+    { userType: 'unauthorised users', user: mockUnauthorisedUser },
+  ])('by $userType', ({ user }) => {
     beforeEach(() => {
-      setupAppForUser(mockHqViewer)
-    })
-
-    describe.each(statuses)('if the status is $code', ({ code: status }) => {
-      beforeEach(() => {
-        mockedReport.status = status
-      })
-
-      shouldNotBeAllowed()
-    })
-  })
-
-  describe('by unauthorised users', () => {
-    beforeEach(() => {
-      setupAppForUser(mockUnauthorisedUser)
+      setupAppForUser(user)
     })
 
     describe.each(statuses)('if the status is $code', ({ code: status }) => {

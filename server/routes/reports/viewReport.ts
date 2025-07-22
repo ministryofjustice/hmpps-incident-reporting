@@ -247,10 +247,7 @@ export function viewReportRouter(): Router {
       res.render('pages/reports/view/index', {
         errors,
         banners,
-        report,
-        reportConfig,
         questionProgressSteps,
-        userType,
         allowedActionsNeedingForm,
         canEditReport,
         canEditReportInNomisOnly,

@@ -19,7 +19,6 @@ export function historyRouter(): Router {
     const statusLookup = Object.fromEntries(statuses.map(status => [status.code, status.description]))
 
     res.render('pages/reports/history/status', {
-      report,
       usersLookup,
       statusLookup,
     })
@@ -33,7 +32,6 @@ export function historyRouter(): Router {
     const typesLookup = Object.fromEntries(types.map(type => [type.code, type.description]))
 
     res.render('pages/reports/history/type', {
-      report,
       usersLookup,
       typesLookup,
     })

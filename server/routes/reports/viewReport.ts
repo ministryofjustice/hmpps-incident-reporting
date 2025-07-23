@@ -152,7 +152,7 @@ export function viewReportRouter(): Router {
             const numbersOnly = /\d+/
             if (!originalReportReference || !numbersOnly.test(originalReportReference)) {
               errors.push({
-                text: 'Please enter a numerical reference number',
+                text: 'Enter a valid incident report number',
                 href: '#originalReportReference',
               })
             } else if (originalReportReference === report.reportReference) {
@@ -217,7 +217,7 @@ export function viewReportRouter(): Router {
             } catch (e) {
               logger.error(e, `Report ${report.reportReference} status could not be changed: %j`, e)
               errors.push({
-                text: 'Action could not be submitted, please try again',
+                text: 'Sorry, there was a problem with your request',
                 href: '#userAction',
               })
             }

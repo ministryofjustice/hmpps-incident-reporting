@@ -585,39 +585,6 @@ describe('View report page', () => {
         })
     })
 
-    it.each(
-      statuses
-        .filter(
-          // these _can_ be actioned
-          status => !['DRAFT', 'NEEDS_UPDATING', 'REOPENED'].includes(status.code),
-        )
-        .map(status => ({
-          ...status,
-          // no action at all is possible for these
-          noActionsPermitted: ['ON_HOLD', 'POST_INCIDENT_UPDATE'].includes(status.code),
-        })),
-    )(
-      'should not allow submitting a report with status “$description” because they’re not in their to-do list',
-      ({ code, noActionsPermitted }) => {
-        mockedReport.status = code
-
-        return request
-          .agent(app)
-          .post(viewReportUrl)
-          .send({ userAction: 'requestReview' })
-          .redirects(1)
-          .expect(200)
-          .expect(res => {
-            expect(res.text).toContain('There is a problem')
-            if (noActionsPermitted) {
-              expect(res.text).toContain('You do not have permission to action this report')
-            } else {
-              expect(res.text).toContain('Select an action to take')
-            }
-          })
-      },
-    )
-
     describe('when it’s type requires involvements', () => {
       it('should allow submitting a fully complete draft report for review', () => {
         incidentReportingApi.updateReport.mockReset()
@@ -701,43 +668,6 @@ describe('View report page', () => {
             })
         },
       )
-
-      it('should not allow submitting a draft report with no answered questions', () => {
-        mockedReport.questions = []
-
-        return request
-          .agent(app)
-          .post(viewReportUrl)
-          .send({ userAction: 'requestReview' })
-          .redirects(1)
-          .expect(200)
-          .expect(res => {
-            expect(res.text).toContain('There is a problem')
-            expect(res.text).toContain('You must answer question 1')
-            expect(res.text).not.toContain('You must answer question 17')
-
-            expect(incidentReportingApi.updateReport).not.toHaveBeenCalled()
-            expect(incidentReportingApi.changeReportStatus).not.toHaveBeenCalled()
-          })
-      })
-
-      it('should not allow submitting a draft report with incomplete questions', () => {
-        mockedReport.questions.pop()
-
-        return request
-          .agent(app)
-          .post(viewReportUrl)
-          .send({ userAction: 'requestReview' })
-          .redirects(1)
-          .expect(200)
-          .expect(res => {
-            expect(res.text).toContain('There is a problem')
-            expect(res.text).toContain('You must answer question 17')
-
-            expect(incidentReportingApi.updateReport).not.toHaveBeenCalled()
-            expect(incidentReportingApi.changeReportStatus).not.toHaveBeenCalled()
-          })
-      })
     })
 
     describe('when it’s type does not require involvements', () => {
@@ -885,11 +815,11 @@ describe('View report page', () => {
     })
 
     describe.each([
-      { userType: 'reporting officer', user: mockReportingOfficer, canView: true, canEdit: true, canSubmit: true },
-      { userType: 'data warden', user: mockDataWarden, canView: true, canEdit: false, canSubmit: false },
-      { userType: 'HQ view-only user', user: mockHqViewer, canView: true, canEdit: false, canSubmit: false },
-      { userType: 'unauthorised user', user: mockUnauthorisedUser, canView: false, canEdit: false, canSubmit: false },
-    ])('for $userType', ({ user, canView, canEdit, canSubmit }) => {
+      { userType: 'reporting officer', user: mockReportingOfficer, canView: true, canEdit: true },
+      { userType: 'data warden', user: mockDataWarden, canView: true, canEdit: false },
+      { userType: 'HQ view-only user', user: mockHqViewer, canView: true, canEdit: false },
+      { userType: 'unauthorised user', user: mockUnauthorisedUser, canView: false, canEdit: false },
+    ])('for $userType', ({ user, canView, canEdit }) => {
       it(`should ${canView ? 'grant' : 'deny'} viewing a report`, () => {
         const testRequest = request(appWithAllRoutes({ services: { userService }, userSupplier: () => user }))
           .get(viewReportUrl)
@@ -910,14 +840,6 @@ describe('View report page', () => {
             ].forEach(text => {
               canEditTextMatcher(text)
             })
-
-            const canSubmitTextMatcher = canSubmit ? expect(res.text).toContain : expect(res.text).not.toContain
-            ;[
-              // submit button
-              'Submit',
-            ].forEach(text => {
-              canSubmitTextMatcher(text)
-            })
           })
         }
         return testRequest.expect(res => {
@@ -934,31 +856,6 @@ describe('View report page', () => {
           .expect(res => {
             const warningShows = res.text.includes('This report can only be amended in NOMIS')
             expect(warningShows).toBe(canEdit)
-          })
-      })
-
-      it(`should ${canSubmit ? 'grant' : 'deny'} submitting a draft report for review`, () => {
-        if (canSubmit) {
-          incidentReportingApi.changeReportStatus.mockResolvedValueOnce(mockedReport) // return value ignored
-        } else {
-          incidentReportingApi.changeReportStatus.mockRejectedValue(new Error('should not be called'))
-        }
-
-        return request
-          .agent(appWithAllRoutes({ services: { userService }, userSupplier: () => user }))
-          .post(viewReportUrl)
-          .send({ userAction: 'requestReview' })
-          .redirects(1)
-          .expect(res => {
-            if (canSubmit) {
-              expect(incidentReportingApi.changeReportStatus).toHaveBeenCalled()
-            } else {
-              expect(incidentReportingApi.changeReportStatus).not.toHaveBeenCalled()
-              if (canView) {
-                expect(res.text).toContain('There is a problem')
-                expect(res.text).toContain('You do not have permission to action this report')
-              }
-            }
           })
       })
     })

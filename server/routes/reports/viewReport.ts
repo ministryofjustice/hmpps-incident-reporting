@@ -231,7 +231,7 @@ export function viewReportRouter(): Router {
               ? // User is not permitted to take any actions
                 'You do not have permission to action this report'
               : // Ensures that users click an option before submitting
-                'Select an action to take'
+                'Select what you want to do with this report'
           errors.push({
             text: userActionError,
             href: '#userAction',

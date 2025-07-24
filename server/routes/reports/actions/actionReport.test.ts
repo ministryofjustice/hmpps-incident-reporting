@@ -416,7 +416,7 @@ describe('Actioning reports', () => {
             if (noActionsPermitted) {
               expect(res.text).toContain('You do not have permission to action this report')
             } else {
-              expect(res.text).toContain('Select an action to take')
+              expect(res.text).toContain('Select what you want to do with this report')
             }
             expect(res.text).not.toContain('Enter a valid incident report number')
             expect(res.text).not.toContain('Describe why incident is not reportable')

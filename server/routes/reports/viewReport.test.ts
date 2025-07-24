@@ -73,6 +73,8 @@ describe('View report page', () => {
       makeSimpleQuestion('67180', 'IS THE LOCATION OF THE INCIDENT KNOWN?', ['YES', '218711']),
     ]
     incidentReportingApi.getReportWithDetailsById.mockResolvedValueOnce(mockedReport)
+    incidentReportingApi.updateReport.mockRejectedValue(new Error('should not be called'))
+    incidentReportingApi.changeReportStatus.mockRejectedValue(new Error('should not be called'))
     viewReportUrl = `/reports/${mockedReport.id}`
   })
 
@@ -527,35 +529,38 @@ describe('View report page', () => {
     })
   })
 
-  describe('Check your answers', () => {
+  describe.each([
+    {
+      userType: 'reporting officers',
+      user: mockReportingOfficer,
+      checkAnswersStatuses: ['DRAFT', 'NEEDS_UPDATING', 'REOPENED'],
+    },
+    {
+      userType: 'data wardens',
+      user: mockDataWarden,
+      checkAnswersStatuses: [
+        /* TODO: PECS */
+      ],
+    },
+    {
+      userType: 'HQ viewers',
+      user: mockHqViewer,
+      checkAnswersStatuses: [],
+    },
+  ])('“Check your answers” title', ({ userType, user, checkAnswersStatuses }) => {
     beforeEach(() => {
-      mockedReport = convertReportWithDetailsDates(
-        mockReport({
-          reportReference: '6543',
-          reportDateAndTime: now,
-          type: 'ASSAULT_5',
-          status: 'DRAFT',
-          withDetails: true,
-        }),
-      )
-      incidentReportingApi.getReportWithDetailsById.mockReset()
-      incidentReportingApi.getReportWithDetailsById.mockResolvedValueOnce(mockedReport)
-      viewReportUrl = `/reports/${mockedReport.id}`
-
-      incidentReportingApi.updateReport.mockRejectedValue(new Error('should not be called'))
-      incidentReportingApi.changeReportStatus.mockRejectedValue(new Error('should not be called'))
+      app = appWithAllRoutes({ services: { userService }, userSupplier: () => user })
     })
 
-    // TODO: test other users
     it.each(
-      statuses.map(status => ({
-        ...status,
-        visibility: ['DRAFT', 'NEEDS_UPDATING', 'REOPENED'].includes(status.code)
-          ? ('show' as const)
-          : ('not show' as const),
-      })),
-    )('should $visibility to reporting officers for a report with status $code', ({ code, visibility }) => {
-      mockedReport.status = code
+      statuses.map(({ code: status }) => {
+        return {
+          status,
+          visibility: checkAnswersStatuses.includes(status) ? ('show' as const) : ('not show' as const),
+        }
+      }),
+    )(`should $visibility on a report with status $status for ${userType}`, ({ status, visibility }) => {
+      mockedReport.status = status
 
       return request(app)
         .get(viewReportUrl)

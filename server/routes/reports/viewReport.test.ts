@@ -6,18 +6,20 @@ import { appWithAllRoutes } from '../testutils/appSetup'
 import { now } from '../../testutils/fakeClock'
 import UserService from '../../services/userService'
 import { type Status, statuses } from '../../reportConfiguration/constants'
+import { setActiveAgencies } from '../../data/activeAgencies'
 import { IncidentReportingApi, type ReportWithDetails } from '../../data/incidentReportingApi'
 import { convertReportWithDetailsDates } from '../../data/incidentReportingApiUtils'
+import * as reportValidity from '../../data/reportValidity'
 import { mockErrorResponse, mockReport } from '../../data/testData/incidentReporting'
 import { makeSimpleQuestion } from '../../data/testData/incidentReportingJest'
 import { mockSharedUser } from '../../data/testData/manageUsers'
 import { leeds, moorland } from '../../data/testData/prisonApi'
 import { mockThrownError } from '../../data/testData/thrownErrors'
 import { mockDataWarden, mockReportingOfficer, mockHqViewer, mockUnauthorisedUser } from '../../data/testData/users'
-import { setActiveAgencies } from '../../data/activeAgencies'
 
-jest.mock('../../data/prisonApi')
 jest.mock('../../data/incidentReportingApi')
+jest.mock('../../data/prisonApi')
+jest.mock('../../data/reportValidity')
 jest.mock('../../services/userService')
 
 let app: Express
@@ -40,6 +42,11 @@ beforeEach(() => {
     MDI: moorland,
   }
   prisonApi.getPrisons.mockResolvedValue(prisons)
+
+  // ban checking report validity – it (currently) should only happen on requestReview action
+  ;(reportValidity as jest.Mocked<typeof import('../../data/reportValidity')>).validateReport.mockImplementation(() => {
+    throw new Error('should not be called')
+  })
 })
 
 afterEach(() => {

@@ -9,15 +9,16 @@ import { type Status, statuses } from '../../../reportConfiguration/constants'
 import { type UserAction, userActions } from '../../../middleware/permissions'
 import { IncidentReportingApi, type ReportWithDetails } from '../../../data/incidentReportingApi'
 import { convertBasicReportDates, convertReportWithDetailsDates } from '../../../data/incidentReportingApiUtils'
+import * as reportValidity from '../../../data/reportValidity'
 import { mockErrorResponse, mockReport } from '../../../data/testData/incidentReporting'
-import { makeSimpleQuestion } from '../../../data/testData/incidentReportingJest'
 import { mockSharedUser } from '../../../data/testData/manageUsers'
 import { leeds, moorland } from '../../../data/testData/prisonApi'
 import { mockThrownError } from '../../../data/testData/thrownErrors'
 import { mockDataWarden, mockReportingOfficer, mockHqViewer, mockUnauthorisedUser } from '../../../data/testData/users'
 
-jest.mock('../../../data/prisonApi')
 jest.mock('../../../data/incidentReportingApi')
+jest.mock('../../../data/prisonApi')
+jest.mock('../../../data/reportValidity')
 jest.mock('../../../services/userService')
 
 let incidentReportingApi: jest.Mocked<IncidentReportingApi>
@@ -50,6 +51,20 @@ function setupAppForUser(user: Express.User): void {
   app = appWithAllRoutes({ services: { userService }, userSupplier: () => user })
 }
 
+const { validateReport } = reportValidity as jest.Mocked<typeof import('../../../data/reportValidity')>
+
+function makeReportValid() {
+  validateReport.mockImplementationOnce(function* generator() {
+    /* empty */
+  })
+}
+
+function makeReportInvalid() {
+  validateReport.mockImplementationOnce(function* generator() {
+    yield { text: 'Fill in missing details', href: '#' }
+  })
+}
+
 describe('Actioning reports', () => {
   let mockedReport: ReportWithDetails
   let viewReportUrl: string
@@ -68,13 +83,17 @@ describe('Actioning reports', () => {
   })
 
   describe('Action options', () => {
-    interface Scenario1 {
+    beforeEach(() => {
+      makeReportInvalid()
+    })
+
+    interface OptionsScenario {
       userType: string
       user: Express.User
       reportStatus: Status
       formOptions: string[]
     }
-    const scenarios1: Scenario1[] = [
+    const optionsScenarios: OptionsScenario[] = [
       {
         userType: 'reporting officers',
         user: mockReportingOfficer,
@@ -215,7 +234,7 @@ describe('Actioning reports', () => {
         formOptions: ['Change report status'],
       },
     ]
-    it.each(scenarios1)(
+    it.each(optionsScenarios)(
       'should show options to $userType when viewing reports with status $reportStatus',
       ({ user, reportStatus, formOptions }) => {
         setupAppForUser(user)
@@ -287,32 +306,7 @@ describe('Actioning reports', () => {
   })
 
   describe('Submitting actions', () => {
-    function makeReportSubmittable() {
-      mockedReport.questions = [
-        makeSimpleQuestion('61279', 'WHAT WAS THE MAIN MANAGEMENT OUTCOME OF THE INCIDENT', [
-          'IEP REGRESSION',
-          '213063',
-        ]),
-        makeSimpleQuestion('61280', 'IS ANY MEMBER OF STAFF FACING DISCIPLINARY CHARGES', ['NO', '213067']),
-        makeSimpleQuestion('61281', 'IS THERE ANY MEDIA INTEREST IN THIS INCIDENT', ['NO', '213069']),
-        makeSimpleQuestion('61282', 'HAS THE PRISON SERVICE PRESS OFFICE BEEN INFORMED', ['NO', '213071']),
-        makeSimpleQuestion('61283', 'IS THE LOCATION OF THE INCDENT KNOWN', ['NO', '213073']),
-        makeSimpleQuestion('61285', 'WAS THIS A SEXUAL ASSAULT', ['NO', '213112']),
-        makeSimpleQuestion('61286', 'DID THE ASSAULT OCCUR DURING A FIGHT', ['NO', '213114']),
-        makeSimpleQuestion('61287', 'WHAT TYPE OF ASSAULT WAS IT', ['PRISONER ON STAFF', '213116']),
-        makeSimpleQuestion('61289', 'DESCRIBE THE TYPE OF STAFF', ['OPERATIONAL STAFF - OTHER', '213122']),
-        makeSimpleQuestion('61290', 'WAS SPITTING USED IN THIS INCIDENT', ['NO', '213125']),
-        makeSimpleQuestion('61294', 'WERE ANY WEAPONS USED', ['NO', '213136']),
-        makeSimpleQuestion('61296', 'WERE ANY INJURIES RECEIVED DURING THIS INCIDENT', ['NO', '213150']),
-        makeSimpleQuestion('61306', 'ARE THERE ANY STAFF NOW OFF DUTY AS A RESULT OF THIS INCIDENT', ['NO', '213200']),
-        makeSimpleQuestion('61307', 'ARE ANY STAFF ON SICK LEAVE AS A RESULT OF THIS INCIDENT', ['NO', '213202']),
-        makeSimpleQuestion('61308', 'DID THE ASSAULT OCCUR IN PUBLIC VIEW', ['YES', '213203']),
-        makeSimpleQuestion('61309', 'IS THERE ANY AUDIO OR VISUAL FOOTAGE OF THE ASSAULT', ['NO', '213205']),
-        makeSimpleQuestion('61311', 'WAS THERE AN APPARENT REASON FOR THE ASSAULT', ['NO', '213213']),
-      ]
-    }
-
-    interface Scenario2 {
+    interface ForbiddenTransitionScenario {
       userType: string
       user: Express.User
       forbiddenTransitions:
@@ -322,7 +316,7 @@ describe('Actioning reports', () => {
             forbiddenStatuses: 'all' | Status[]
           }[]
     }
-    const scenarios2: Scenario2[] = [
+    const forbiddenTransitionScenarios: ForbiddenTransitionScenario[] = [
       {
         userType: 'reporting officers',
         user: mockReportingOfficer,
@@ -398,10 +392,10 @@ describe('Actioning reports', () => {
       },
       { userType: 'HQ viewers', user: mockHqViewer, forbiddenTransitions: 'all' },
     ]
-    describe.each(scenarios2)('when $userType', ({ userType, user, forbiddenTransitions }) => {
+    describe.each(forbiddenTransitionScenarios)('when $userType', ({ userType, user, forbiddenTransitions }) => {
       beforeEach(() => {
         setupAppForUser(user)
-        makeReportSubmittable()
+        makeReportInvalid()
       })
 
       function expectNotAllowedErrorMessages(status: Status, payload: object): request.Test {
@@ -428,6 +422,7 @@ describe('Actioning reports', () => {
             expect(res.text).not.toContain('Describe why incident is not reportable')
             expect(res.text).not.toContain('Enter what has changed in the report')
             expect(res.text).not.toContain('Please enter a comment')
+            expect(res.text).not.toContain('Fill in missing details') // report validity should not be checked
             expect(incidentReportingApi.changeReportStatus).not.toHaveBeenCalled()
           })
       }
@@ -455,7 +450,7 @@ describe('Actioning reports', () => {
     const actionsRequiringValidReports = ['requestReview', 'close']
     // TODO: this will probably turn into a flag on the report so closing will not need the checks
 
-    interface Scenario3 {
+    interface TransitionScenarios {
       userType: string
       user: Express.User
       currentStatus: Status
@@ -464,7 +459,7 @@ describe('Actioning reports', () => {
       newStatus: Status
       redirectedPage: 'dashboard' | 'view-report'
     }
-    const scenarios3: Scenario3[] = [
+    const transitionScenarios: TransitionScenarios[] = [
       // cannot add comment & redirect to dashboard
       {
         userType: 'reporting officers',
@@ -695,7 +690,7 @@ describe('Actioning reports', () => {
         redirectedPage: 'dashboard',
       },
     ]
-    describe.each(scenarios3)(
+    describe.each(transitionScenarios)(
       'when $userType try to perform $userAction on report with status $currentStatus when a comment is $comment',
       ({ user, currentStatus, userAction, comment, newStatus, redirectedPage }) => {
         let expectedRedirect: string
@@ -712,7 +707,7 @@ describe('Actioning reports', () => {
         }
 
         it(`should succeed changing the status to ${newStatus} if the report is valid`, () => {
-          makeReportSubmittable()
+          makeReportValid()
           incidentReportingApi.changeReportStatus.mockResolvedValueOnce(mockedReport) // NB: response is ignored
 
           return request(app)
@@ -734,7 +729,8 @@ describe('Actioning reports', () => {
         })
 
         if (actionsRequiringValidReports.includes(userAction)) {
-          it('should not be allowed if report has no answered questions', () => {
+          it('should not be allowed if report is invalid', () => {
+            makeReportInvalid()
             incidentReportingApi.changeReportStatus.mockRejectedValue(new Error('should not be called'))
 
             return request(app)
@@ -743,31 +739,14 @@ describe('Actioning reports', () => {
               .expect(200)
               .expect(res => {
                 expect(res.text).toContain('There is a problem')
-                expect(res.text).toContain('You must answer question 1')
-                expect(res.text).not.toContain('You must answer question 17')
-                expect(incidentReportingApi.updateReport).not.toHaveBeenCalled()
-                expect(incidentReportingApi.changeReportStatus).not.toHaveBeenCalled()
-              })
-          })
-
-          it('should not be allowed if report has some unanswered questions', () => {
-            makeReportSubmittable()
-            mockedReport.questions.pop()
-            incidentReportingApi.changeReportStatus.mockRejectedValue(new Error('should not be called'))
-
-            return request(app)
-              .post(viewReportUrl)
-              .send(validPayload)
-              .expect(200)
-              .expect(res => {
-                expect(res.text).toContain('There is a problem')
-                expect(res.text).toContain('You must answer question 17')
+                expect(res.text).toContain('Fill in missing details')
                 expect(incidentReportingApi.updateReport).not.toHaveBeenCalled()
                 expect(incidentReportingApi.changeReportStatus).not.toHaveBeenCalled()
               })
           })
         } else {
-          it(`should succeed changing the status to ${newStatus} if the report has no answered questions`, () => {
+          it(`should succeed changing the status to ${newStatus} even if the report is invalid`, () => {
+            makeReportInvalid()
             incidentReportingApi.changeReportStatus.mockResolvedValueOnce(mockedReport) // NB: response is ignored
 
             return request(app)
@@ -784,7 +763,7 @@ describe('Actioning reports', () => {
 
         if (comment === 'required') {
           it('should not be allowed if comment is missing', () => {
-            makeReportSubmittable()
+            makeReportValid()
             incidentReportingApi.changeReportStatus.mockRejectedValue(new Error('should not be called'))
 
             return request(app)
@@ -810,7 +789,7 @@ describe('Actioning reports', () => {
         }
 
         it('should show an error if API rejects request to change status', () => {
-          makeReportSubmittable()
+          makeReportValid()
           const error = mockThrownError(mockErrorResponse({ message: 'Comment is required' }))
           incidentReportingApi.changeReportStatus.mockRejectedValueOnce(error)
 
@@ -849,7 +828,9 @@ describe('Actioning reports', () => {
           'should succeed changing the status to DUPLICATE if the report is %s',
           validity => {
             if (validity === 'valid') {
-              makeReportSubmittable()
+              makeReportValid()
+            } else {
+              makeReportInvalid()
             }
             incidentReportingApi.getReportByReference.mockResolvedValueOnce(mockedDuplicateReport)
             incidentReportingApi.changeReportStatus.mockResolvedValueOnce(mockedReport) // NB: response is ignored
@@ -869,7 +850,7 @@ describe('Actioning reports', () => {
         )
 
         it('should still succeed if comment is left empty', () => {
-          makeReportSubmittable()
+          makeReportValid()
           incidentReportingApi.getReportByReference.mockResolvedValueOnce(mockedDuplicateReport)
           incidentReportingApi.changeReportStatus.mockResolvedValueOnce(mockedReport) // NB: response is ignored
 
@@ -890,7 +871,7 @@ describe('Actioning reports', () => {
         })
 
         it('should show an error if original reference of duplicate report is left empty', () => {
-          makeReportSubmittable()
+          makeReportValid()
           incidentReportingApi.getReportByReference.mockRejectedValueOnce(new Error('should not be called'))
           incidentReportingApi.changeReportStatus.mockRejectedValue(new Error('should not be called'))
 
@@ -910,7 +891,7 @@ describe('Actioning reports', () => {
         })
 
         it('should show an error if original reference of duplicate report is the same', () => {
-          makeReportSubmittable()
+          makeReportValid()
           incidentReportingApi.getReportByReference.mockRejectedValueOnce(new Error('should not be called'))
           incidentReportingApi.changeReportStatus.mockRejectedValue(new Error('should not be called'))
 
@@ -930,7 +911,7 @@ describe('Actioning reports', () => {
         })
 
         it('should show an error if original reference of duplicate report cannot be found', () => {
-          makeReportSubmittable()
+          makeReportValid()
           const error = mockThrownError(mockErrorResponse({ status: 404, message: 'Report not found' }), 404)
           incidentReportingApi.getReportByReference.mockRejectedValueOnce(error)
           incidentReportingApi.changeReportStatus.mockRejectedValue(new Error('should not be called'))
@@ -947,7 +928,7 @@ describe('Actioning reports', () => {
         })
 
         it('should show an error if original reference of duplicate report cannot be looked up', () => {
-          makeReportSubmittable()
+          makeReportValid()
           const error = mockThrownError(mockErrorResponse({ status: 500, message: 'External problem' }), 500)
           incidentReportingApi.getReportByReference.mockRejectedValueOnce(error)
           incidentReportingApi.changeReportStatus.mockRejectedValue(new Error('should not be called'))
@@ -966,7 +947,7 @@ describe('Actioning reports', () => {
         })
 
         it('should show an error if API rejects request to change status', () => {
-          makeReportSubmittable()
+          makeReportValid()
           incidentReportingApi.getReportByReference.mockResolvedValueOnce(mockedDuplicateReport)
           const error = mockThrownError(mockErrorResponse({ message: 'Comment is required' }))
           incidentReportingApi.changeReportStatus.mockRejectedValueOnce(error)
@@ -985,12 +966,12 @@ describe('Actioning reports', () => {
       },
     )
 
-    interface Scenario4 {
+    interface RedirectScenarios {
       currentStatus: Status
       userAction: UserAction
       redirectedPage: string
     }
-    const scenarios4: Scenario4[] = [
+    const redirectScenarios: RedirectScenarios[] = [
       { currentStatus: 'DRAFT', userAction: 'requestRemoval', redirectedPage: 'request-remove' },
       { currentStatus: 'NEEDS_UPDATING', userAction: 'requestRemoval', redirectedPage: 'request-remove' },
       { currentStatus: 'REOPENED', userAction: 'requestRemoval', redirectedPage: 'request-remove' },
@@ -998,7 +979,7 @@ describe('Actioning reports', () => {
       { currentStatus: 'DUPLICATE', userAction: 'recall', redirectedPage: 'reopen' },
       { currentStatus: 'NOT_REPORTABLE', userAction: 'recall', redirectedPage: 'reopen' },
     ]
-    describe.each(scenarios4)(
+    describe.each(redirectScenarios)(
       'when reporting officers try to perform $userAction on report with status $currentStatus',
       ({ currentStatus, userAction, redirectedPage }) => {
         beforeEach(() => {
@@ -1025,7 +1006,7 @@ describe('Actioning reports', () => {
     describe('unauthorised users', () => {
       beforeEach(() => {
         setupAppForUser(mockUnauthorisedUser)
-        makeReportSubmittable()
+        makeReportValid()
       })
 
       describe.each(userActions.filter(({ code: userAction }) => !['view', 'edit'].includes(userAction)))(

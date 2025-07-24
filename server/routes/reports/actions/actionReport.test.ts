@@ -580,7 +580,6 @@ describe('Actioning reports', () => {
         redirectedPage: 'view-report',
       },
       // comment required & redirect to dashboard
-      // TODO: for some of these, the comment is actually optional
       {
         userType: 'reporting officers',
         user: mockReportingOfficer,
@@ -622,7 +621,7 @@ describe('Actioning reports', () => {
         user: mockDataWarden,
         currentStatus: 'AWAITING_REVIEW',
         userAction: 'markNotReportable',
-        comment: 'required',
+        comment: 'not required',
         newStatus: 'NOT_REPORTABLE',
         redirectedPage: 'dashboard',
       },
@@ -640,7 +639,7 @@ describe('Actioning reports', () => {
         user: mockDataWarden,
         currentStatus: 'ON_HOLD',
         userAction: 'markNotReportable',
-        comment: 'required',
+        comment: 'not required',
         newStatus: 'NOT_REPORTABLE',
         redirectedPage: 'dashboard',
       },
@@ -667,7 +666,7 @@ describe('Actioning reports', () => {
         user: mockDataWarden,
         currentStatus: 'UPDATED',
         userAction: 'markNotReportable',
-        comment: 'required',
+        comment: 'not required',
         newStatus: 'NOT_REPORTABLE',
         redirectedPage: 'dashboard',
       },
@@ -685,7 +684,7 @@ describe('Actioning reports', () => {
         user: mockDataWarden,
         currentStatus: 'WAS_CLOSED',
         userAction: 'markNotReportable',
-        comment: 'required',
+        comment: 'not required',
         newStatus: 'NOT_REPORTABLE',
         redirectedPage: 'dashboard',
       },

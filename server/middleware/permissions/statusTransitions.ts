@@ -120,7 +120,7 @@ export const prisonReportTransitions: Transitions = {
       hold: {
         newStatus: 'ON_HOLD',
         label: 'Put on hold',
-        comment: 'required',
+        comment: 'required', // TODO: maybe this should be optional?
         commentLabel: 'Describe why the report is being put on hold',
         successBanner: 'Incident report $reportReference has been put on hold',
       },
@@ -135,8 +135,8 @@ export const prisonReportTransitions: Transitions = {
       markNotReportable: {
         newStatus: 'NOT_REPORTABLE',
         label: 'Mark as not reportable',
-        comment: 'required',
-        commentLabel: 'Describe why it is not reportable',
+        comment: 'optional',
+        commentLabel: 'Describe why it is not reportable (optional)',
         successBanner: 'Report $reportReference has been marked as not reportable',
       },
     },
@@ -165,8 +165,8 @@ export const prisonReportTransitions: Transitions = {
       markNotReportable: {
         newStatus: 'NOT_REPORTABLE',
         label: 'Mark as not reportable',
-        comment: 'required',
-        commentLabel: 'Describe why it is not reportable',
+        comment: 'optional',
+        commentLabel: 'Describe why it is not reportable (optional)',
         successBanner: 'Report $reportReference has been marked as not reportable',
       },
     },
@@ -190,7 +190,7 @@ export const prisonReportTransitions: Transitions = {
       hold: {
         newStatus: 'ON_HOLD',
         label: 'Put on hold',
-        comment: 'required',
+        comment: 'required', // TODO: maybe this should be optional?
         commentLabel: 'Describe why the report is being put on hold',
         successBanner: 'Incident report $reportReference has been put on hold',
       },
@@ -205,8 +205,8 @@ export const prisonReportTransitions: Transitions = {
       markNotReportable: {
         newStatus: 'NOT_REPORTABLE',
         label: 'Mark as not reportable',
-        comment: 'required',
-        commentLabel: 'Describe why it is not reportable',
+        comment: 'optional',
+        commentLabel: 'Describe why it is not reportable (optional)',
         successBanner: 'Report $reportReference has been marked as not reportable',
       },
     },
@@ -247,8 +247,8 @@ export const prisonReportTransitions: Transitions = {
       markNotReportable: {
         newStatus: 'NOT_REPORTABLE',
         label: 'Mark as not reportable',
-        comment: 'required',
-        commentLabel: 'Describe why it is not reportable',
+        comment: 'optional',
+        commentLabel: 'Describe why it is not reportable (optional)',
         successBanner: 'Report $reportReference has been marked as not reportable',
       },
     },

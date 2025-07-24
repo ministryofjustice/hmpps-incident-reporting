@@ -68,13 +68,13 @@ describe('Actioning reports', () => {
   })
 
   describe('Action options', () => {
-    interface Scenario {
+    interface Scenario1 {
       userType: string
       user: Express.User
       reportStatus: Status
       formOptions: string[]
     }
-    const scenarios: Scenario[] = [
+    const scenarios1: Scenario1[] = [
       {
         userType: 'reporting officers',
         user: mockReportingOfficer,
@@ -215,7 +215,7 @@ describe('Actioning reports', () => {
         formOptions: ['Change report status'],
       },
     ]
-    it.each(scenarios)(
+    it.each(scenarios1)(
       'should show options to $userType when viewing reports with status $reportStatus',
       ({ user, reportStatus, formOptions }) => {
         setupAppForUser(user)
@@ -312,7 +312,7 @@ describe('Actioning reports', () => {
       ]
     }
 
-    interface Scenario {
+    interface Scenario2 {
       userType: string
       user: Express.User
       forbiddenTransitions:
@@ -322,7 +322,7 @@ describe('Actioning reports', () => {
             forbiddenStatuses: 'all' | Status[]
           }[]
     }
-    const scenarios: Scenario[] = [
+    const scenarios2: Scenario2[] = [
       {
         userType: 'reporting officers',
         user: mockReportingOfficer,
@@ -398,7 +398,7 @@ describe('Actioning reports', () => {
       },
       { userType: 'HQ viewers', user: mockHqViewer, forbiddenTransitions: 'all' },
     ]
-    describe.each(scenarios)('when $userType', ({ userType, user, forbiddenTransitions }) => {
+    describe.each(scenarios2)('when $userType', ({ userType, user, forbiddenTransitions }) => {
       beforeEach(() => {
         setupAppForUser(user)
         makeReportSubmittable()
@@ -453,22 +453,25 @@ describe('Actioning reports', () => {
     })
 
     const actionsRequiringValidReports = ['requestReview', 'close']
+    // TODO: this will probably turn into a flag on the report so closing will not need the checks
 
-    interface Scenario1 {
+    interface Scenario3 {
       userType: string
       user: Express.User
       currentStatus: Status
       userAction: UserAction
+      comment: 'not required' | 'required'
       newStatus: Status
       redirectedPage: 'dashboard' | 'view-report'
     }
-    const scenarios1: Scenario1[] = [
-      // redirect to search page
+    const scenarios3: Scenario3[] = [
+      // cannot add comment & redirect to dashboard
       {
         userType: 'reporting officers',
         user: mockReportingOfficer,
         currentStatus: 'DRAFT',
         userAction: 'requestReview',
+        comment: 'not required',
         newStatus: 'AWAITING_REVIEW',
         redirectedPage: 'dashboard',
       },
@@ -477,6 +480,7 @@ describe('Actioning reports', () => {
         user: mockDataWarden,
         currentStatus: 'AWAITING_REVIEW',
         userAction: 'close',
+        comment: 'not required',
         newStatus: 'CLOSED',
         redirectedPage: 'dashboard',
       },
@@ -485,6 +489,7 @@ describe('Actioning reports', () => {
         user: mockDataWarden,
         currentStatus: 'ON_HOLD',
         userAction: 'close',
+        comment: 'not required',
         newStatus: 'CLOSED',
         redirectedPage: 'dashboard',
       },
@@ -493,6 +498,7 @@ describe('Actioning reports', () => {
         user: mockDataWarden,
         currentStatus: 'UPDATED',
         userAction: 'close',
+        comment: 'not required',
         newStatus: 'CLOSED',
         redirectedPage: 'dashboard',
       },
@@ -501,15 +507,17 @@ describe('Actioning reports', () => {
         user: mockDataWarden,
         currentStatus: 'WAS_CLOSED',
         userAction: 'close',
+        comment: 'not required',
         newStatus: 'CLOSED',
         redirectedPage: 'dashboard',
       },
-      // redirect to same page
+      // cannot add comment & refresh report page
       {
         userType: 'reporting officers',
         user: mockReportingOfficer,
         currentStatus: 'AWAITING_REVIEW',
         userAction: 'recall',
+        comment: 'not required',
         newStatus: 'DRAFT',
         redirectedPage: 'view-report',
       },
@@ -518,6 +526,7 @@ describe('Actioning reports', () => {
         user: mockReportingOfficer,
         currentStatus: 'UPDATED',
         userAction: 'recall',
+        comment: 'not required',
         newStatus: 'NEEDS_UPDATING',
         redirectedPage: 'view-report',
       },
@@ -526,6 +535,7 @@ describe('Actioning reports', () => {
         user: mockReportingOfficer,
         currentStatus: 'WAS_CLOSED',
         userAction: 'recall',
+        comment: 'not required',
         newStatus: 'REOPENED',
         redirectedPage: 'view-report',
       },
@@ -534,6 +544,7 @@ describe('Actioning reports', () => {
         user: mockDataWarden,
         currentStatus: 'NEEDS_UPDATING',
         userAction: 'recall',
+        comment: 'not required',
         newStatus: 'UPDATED',
         redirectedPage: 'view-report',
       },
@@ -542,6 +553,7 @@ describe('Actioning reports', () => {
         user: mockDataWarden,
         currentStatus: 'CLOSED',
         userAction: 'recall',
+        comment: 'not required',
         newStatus: 'UPDATED',
         redirectedPage: 'view-report',
       },
@@ -550,6 +562,7 @@ describe('Actioning reports', () => {
         user: mockDataWarden,
         currentStatus: 'DUPLICATE',
         userAction: 'recall',
+        comment: 'not required',
         newStatus: 'UPDATED',
         redirectedPage: 'view-report',
       },
@@ -558,6 +571,7 @@ describe('Actioning reports', () => {
         user: mockDataWarden,
         currentStatus: 'NOT_REPORTABLE',
         userAction: 'recall',
+        comment: 'not required',
         newStatus: 'UPDATED',
         redirectedPage: 'view-report',
       },
@@ -566,178 +580,135 @@ describe('Actioning reports', () => {
         user: mockDataWarden,
         currentStatus: 'REOPENED',
         userAction: 'recall',
+        comment: 'not required',
         newStatus: 'WAS_CLOSED',
         redirectedPage: 'view-report',
       },
-    ]
-    describe.each(scenarios1)(
-      'when $userType try to perform $userAction (which requires no extra fields) on report with status $currentStatus',
-      ({ user, currentStatus, userAction, newStatus, redirectedPage }) => {
-        beforeEach(() => {
-          setupAppForUser(user)
-          mockedReport.status = currentStatus
-        })
-
-        const validPayload = { userAction }
-
-        it(`should succeed changing the status to ${newStatus}`, () => {
-          makeReportSubmittable()
-          incidentReportingApi.changeReportStatus.mockResolvedValueOnce(mockedReport) // NB: response is ignored
-
-          return request(app)
-            .post(viewReportUrl)
-            .send(validPayload)
-            .expect(302)
-            .expect(res => {
-              expect(res.redirect).toBe(true)
-              if (redirectedPage === 'dashboard') {
-                expect(res.header.location).toEqual('/reports')
-              } else {
-                expect(res.header.location).toEqual(`/reports/${mockedReport.id}`)
-              }
-              expect(incidentReportingApi.changeReportStatus).toHaveBeenCalledWith(mockedReport.id, { newStatus })
-            })
-        })
-
-        if (actionsRequiringValidReports.includes(userAction)) {
-          it('should not be allowed if report is invalid (for example, missing questions)', () => {
-            incidentReportingApi.changeReportStatus.mockRejectedValue(new Error('should not be called'))
-
-            return request(app)
-              .post(viewReportUrl)
-              .send(validPayload)
-              .expect(200)
-              .expect(res => {
-                expect(res.text).toContain('There is a problem')
-                expect(res.text).toContain('You must answer question 1')
-                expect(incidentReportingApi.changeReportStatus).not.toHaveBeenCalled()
-              })
-          })
-        }
-
-        it('should show an error if API rejects request to change status', () => {
-          makeReportSubmittable()
-          const error = mockThrownError(mockErrorResponse({ message: 'Comment is required' }))
-          incidentReportingApi.changeReportStatus.mockRejectedValueOnce(error)
-
-          return request(app)
-            .post(viewReportUrl)
-            .send(validPayload)
-            .expect(200)
-            .expect(res => {
-              expect(res.text).toContain('There is a problem')
-              expect(res.text).toContain('Sorry, there was a problem with your request')
-              expect(res.text).not.toContain('Bad Request')
-              expect(res.text).not.toContain('Comment is required')
-            })
-        })
-      },
-    )
-
-    interface Scenario2 {
-      userType: string
-      user: Express.User
-      currentStatus: Status
-      userAction: UserAction
-      newStatus: Status
-    }
-    const scenarios2: Scenario2[] = [
+      // comment required & redirect to dashboard
+      // TODO: for some of these, the comment is actually optional
       {
         userType: 'reporting officers',
         user: mockReportingOfficer,
         currentStatus: 'NEEDS_UPDATING',
         userAction: 'requestReview',
+        comment: 'required',
         newStatus: 'UPDATED',
+        redirectedPage: 'dashboard',
       },
       {
         userType: 'reporting officers',
         user: mockReportingOfficer,
         currentStatus: 'REOPENED',
         userAction: 'requestReview',
+        comment: 'required',
         newStatus: 'WAS_CLOSED',
+        redirectedPage: 'dashboard',
       },
       {
         userType: 'data wardens',
         user: mockDataWarden,
         currentStatus: 'AWAITING_REVIEW',
         userAction: 'requestCorrection',
+        comment: 'required',
         newStatus: 'NEEDS_UPDATING',
+        redirectedPage: 'dashboard',
       },
       {
         userType: 'data wardens',
         user: mockDataWarden,
         currentStatus: 'AWAITING_REVIEW',
         userAction: 'hold',
+        comment: 'required',
         newStatus: 'ON_HOLD',
+        redirectedPage: 'dashboard',
       },
       {
         userType: 'data wardens',
         user: mockDataWarden,
         currentStatus: 'AWAITING_REVIEW',
         userAction: 'markNotReportable',
+        comment: 'required',
         newStatus: 'NOT_REPORTABLE',
+        redirectedPage: 'dashboard',
       },
       {
         userType: 'data wardens',
         user: mockDataWarden,
         currentStatus: 'ON_HOLD',
         userAction: 'requestCorrection',
+        comment: 'required',
         newStatus: 'NEEDS_UPDATING',
+        redirectedPage: 'dashboard',
       },
       {
         userType: 'data wardens',
         user: mockDataWarden,
         currentStatus: 'ON_HOLD',
         userAction: 'markNotReportable',
+        comment: 'required',
         newStatus: 'NOT_REPORTABLE',
+        redirectedPage: 'dashboard',
       },
       {
         userType: 'data wardens',
         user: mockDataWarden,
         currentStatus: 'UPDATED',
         userAction: 'requestCorrection',
+        comment: 'required',
         newStatus: 'NEEDS_UPDATING',
+        redirectedPage: 'dashboard',
       },
       {
         userType: 'data wardens',
         user: mockDataWarden,
         currentStatus: 'UPDATED',
         userAction: 'hold',
+        comment: 'required',
         newStatus: 'ON_HOLD',
+        redirectedPage: 'dashboard',
       },
       {
         userType: 'data wardens',
         user: mockDataWarden,
         currentStatus: 'UPDATED',
         userAction: 'markNotReportable',
+        comment: 'required',
         newStatus: 'NOT_REPORTABLE',
+        redirectedPage: 'dashboard',
       },
       {
         userType: 'data wardens',
         user: mockDataWarden,
         currentStatus: 'WAS_CLOSED',
         userAction: 'requestCorrection',
+        comment: 'required',
         newStatus: 'REOPENED',
+        redirectedPage: 'dashboard',
       },
       {
         userType: 'data wardens',
         user: mockDataWarden,
         currentStatus: 'WAS_CLOSED',
         userAction: 'markNotReportable',
+        comment: 'required',
         newStatus: 'NOT_REPORTABLE',
+        redirectedPage: 'dashboard',
       },
     ]
-    describe.each(scenarios2)(
-      'when $userType try to perform $userAction (which requires a comment) on report with status $currentStatus',
-      ({ user, currentStatus, userAction, newStatus }) => {
+    describe.each(scenarios3)(
+      'when $userType try to perform $userAction on report with status $currentStatus when a comment is $comment',
+      ({ user, currentStatus, userAction, comment, newStatus, redirectedPage }) => {
+        let expectedRedirect: string
+
         beforeEach(() => {
           setupAppForUser(user)
           mockedReport.status = currentStatus
+          expectedRedirect = redirectedPage === 'dashboard' ? '/reports' : `/reports/${mockedReport.id}`
         })
 
-        const validPayload = {
-          userAction,
-          [`${userAction}Comment`]: 'My comment on this action',
+        const validPayload: { userAction: UserAction } & { [C in `${UserAction}Comment`]?: string } = { userAction }
+        if (comment === 'required') {
+          validPayload[`${userAction}Comment`] = 'My comment on this action'
         }
 
         it(`should succeed changing the status to ${newStatus} if the report is valid`, () => {
@@ -750,13 +721,20 @@ describe('Actioning reports', () => {
             .expect(302)
             .expect(res => {
               expect(res.redirect).toBe(true)
-              expect(res.header.location).toEqual('/reports')
+              expect(res.header.location).toEqual(expectedRedirect)
+              if (userAction === 'requestReview') {
+                expect(incidentReportingApi.updateReport).toHaveBeenCalledWith(mockedReport.id, {
+                  title: 'Assault: Arnold A1111AA, Benjamin A2222BB (Moorland (HMP & YOI))',
+                })
+              } else {
+                expect(incidentReportingApi.updateReport).not.toHaveBeenCalled()
+              }
               expect(incidentReportingApi.changeReportStatus).toHaveBeenCalledWith(mockedReport.id, { newStatus })
             })
         })
 
         if (actionsRequiringValidReports.includes(userAction)) {
-          it('should not be allowed if report is invalid (for example, missing questions)', () => {
+          it('should not be allowed if report has no answered questions', () => {
             incidentReportingApi.changeReportStatus.mockRejectedValue(new Error('should not be called'))
 
             return request(app)
@@ -766,11 +744,30 @@ describe('Actioning reports', () => {
               .expect(res => {
                 expect(res.text).toContain('There is a problem')
                 expect(res.text).toContain('You must answer question 1')
+                expect(res.text).not.toContain('You must answer question 17')
+                expect(incidentReportingApi.updateReport).not.toHaveBeenCalled()
+                expect(incidentReportingApi.changeReportStatus).not.toHaveBeenCalled()
+              })
+          })
+
+          it('should not be allowed if report has some unanswered questions', () => {
+            makeReportSubmittable()
+            mockedReport.questions.pop()
+            incidentReportingApi.changeReportStatus.mockRejectedValue(new Error('should not be called'))
+
+            return request(app)
+              .post(viewReportUrl)
+              .send(validPayload)
+              .expect(200)
+              .expect(res => {
+                expect(res.text).toContain('There is a problem')
+                expect(res.text).toContain('You must answer question 17')
+                expect(incidentReportingApi.updateReport).not.toHaveBeenCalled()
                 expect(incidentReportingApi.changeReportStatus).not.toHaveBeenCalled()
               })
           })
         } else {
-          it(`should succeed changing the status to ${newStatus} if the report is invalid`, () => {
+          it(`should succeed changing the status to ${newStatus} if the report has no answered questions`, () => {
             incidentReportingApi.changeReportStatus.mockResolvedValueOnce(mockedReport) // NB: response is ignored
 
             return request(app)
@@ -779,35 +776,38 @@ describe('Actioning reports', () => {
               .expect(302)
               .expect(res => {
                 expect(res.redirect).toBe(true)
-                expect(res.header.location).toEqual('/reports')
+                expect(res.header.location).toEqual(expectedRedirect)
                 expect(incidentReportingApi.changeReportStatus).toHaveBeenCalledWith(mockedReport.id, { newStatus })
               })
           })
         }
 
-        it('should not be allowed if comment is missing', () => {
-          makeReportSubmittable()
-          incidentReportingApi.changeReportStatus.mockRejectedValue(new Error('should not be called'))
+        if (comment === 'required') {
+          it('should not be allowed if comment is missing', () => {
+            makeReportSubmittable()
+            incidentReportingApi.changeReportStatus.mockRejectedValue(new Error('should not be called'))
 
-          return request(app)
-            .post(viewReportUrl)
-            .send({
-              ...validPayload,
-              [`${userAction}Comment`]: '',
-            })
-            .expect(200)
-            .expect(res => {
-              expect(res.text).toContain('There is a problem')
-              if (userAction === 'requestReview') {
-                expect(res.text).toContain('Enter what has changed in the report')
-              } else if (userAction === 'markNotReportable') {
-                expect(res.text).toContain('Describe why incident is not reportable')
-              } else {
-                expect(res.text).toContain('Please enter a comment')
-              }
-              expect(incidentReportingApi.changeReportStatus).not.toHaveBeenCalled()
-            })
-        })
+            return request(app)
+              .post(viewReportUrl)
+              .send({
+                ...validPayload,
+                [`${userAction}Comment`]: '',
+              })
+              .expect(200)
+              .expect(res => {
+                expect(res.text).toContain('There is a problem')
+                if (userAction === 'requestReview') {
+                  expect(res.text).toContain('Enter what has changed in the report')
+                } else if (userAction === 'markNotReportable') {
+                  expect(res.text).toContain('Describe why incident is not reportable')
+                } else {
+                  expect(res.text).toContain('Please enter a comment')
+                }
+                expect(incidentReportingApi.updateReport).not.toHaveBeenCalled()
+                expect(incidentReportingApi.changeReportStatus).not.toHaveBeenCalled()
+              })
+          })
+        }
 
         it('should show an error if API rejects request to change status', () => {
           makeReportSubmittable()
@@ -985,12 +985,12 @@ describe('Actioning reports', () => {
       },
     )
 
-    interface Scenario3 {
+    interface Scenario4 {
       currentStatus: Status
       userAction: UserAction
       redirectedPage: string
     }
-    const scenarios3: Scenario3[] = [
+    const scenarios4: Scenario4[] = [
       { currentStatus: 'DRAFT', userAction: 'requestRemoval', redirectedPage: 'request-remove' },
       { currentStatus: 'NEEDS_UPDATING', userAction: 'requestRemoval', redirectedPage: 'request-remove' },
       { currentStatus: 'REOPENED', userAction: 'requestRemoval', redirectedPage: 'request-remove' },
@@ -998,7 +998,7 @@ describe('Actioning reports', () => {
       { currentStatus: 'DUPLICATE', userAction: 'recall', redirectedPage: 'reopen' },
       { currentStatus: 'NOT_REPORTABLE', userAction: 'recall', redirectedPage: 'reopen' },
     ]
-    describe.each(scenarios3)(
+    describe.each(scenarios4)(
       'when reporting officers try to perform $userAction on report with status $currentStatus',
       ({ currentStatus, userAction, redirectedPage }) => {
         beforeEach(() => {

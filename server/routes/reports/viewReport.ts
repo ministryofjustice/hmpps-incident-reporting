@@ -183,14 +183,17 @@ export function viewReportRouter(): Router {
           if (errors.length === 0) {
             // can submit action
             try {
-              // TODO: PECS regions need a different lookup
-              const newTitle = regenerateTitleForReport(
-                report,
-                prisonsLookup[report.location].description || report.location,
-              )
-              await incidentReportingApi.updateReport(report.id, {
-                title: newTitle,
-              })
+              if (userAction === 'requestReview') {
+                // TODO: regeneration will be moved elsewhere
+                // TODO: PECS regions need a different lookup
+                const newTitle = regenerateTitleForReport(
+                  report,
+                  prisonsLookup[report.location].description || report.location,
+                )
+                await incidentReportingApi.updateReport(report.id, {
+                  title: newTitle,
+                })
+              }
 
               // TODO: post comment (ie. correction request) if necessary; use a helper function to create it
 

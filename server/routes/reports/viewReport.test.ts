@@ -561,6 +561,7 @@ describe('View report page', () => {
       incidentReportingApi.changeReportStatus.mockRejectedValue(new Error('should not be called'))
     })
 
+    // TODO: test other users
     it.each(
       statuses.map(status => ({
         ...status,
@@ -586,6 +587,7 @@ describe('View report page', () => {
     })
 
     describe('when it’s type requires involvements', () => {
+      // TODO: move
       it('should allow submitting a fully complete draft report for review', () => {
         incidentReportingApi.updateReport.mockReset()
         incidentReportingApi.updateReport.mockResolvedValueOnce(mockedReport) // return value ignored
@@ -611,6 +613,7 @@ describe('View report page', () => {
           })
       })
 
+      // TODO: move
       it.each([
         {
           scenario: 'skipping prisoner involvements',
@@ -640,6 +643,7 @@ describe('View report page', () => {
         },
       )
 
+      // TODO: move
       it.each([
         {
           scenario: 'skipping staff involvements',
@@ -694,6 +698,7 @@ describe('View report page', () => {
         ]
       })
 
+      // TODO: move
       it('should allow submitting a draft report without any involvements', () => {
         mockedReport.prisonersInvolved = []
         mockedReport.prisonerInvolvementDone = true
@@ -724,6 +729,7 @@ describe('View report page', () => {
           })
       })
 
+      // TODO: move
       it('should still not allow submitting a draft report if prisoner involvements were skipped', () => {
         mockedReport.prisonersInvolved = []
         mockedReport.prisonerInvolvementDone = false
@@ -743,6 +749,7 @@ describe('View report page', () => {
           })
       })
 
+      // TODO: move
       it('should still not allow submitting a draft report if staff involvements were skipped', () => {
         mockedReport.staffInvolved = []
         mockedReport.staffInvolvementDone = false
@@ -762,6 +769,7 @@ describe('View report page', () => {
           })
       })
 
+      // TODO: move
       it('should still not allow submitting a draft report with incomplete questions', () => {
         mockedReport.questions.pop()
 

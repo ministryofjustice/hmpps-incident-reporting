@@ -520,7 +520,7 @@ describe('View report page', () => {
     })
   })
 
-  describe('Reporting officer submits a report', () => {
+  describe('Check your answers', () => {
     beforeEach(() => {
       mockedReport = convertReportWithDetailsDates(
         mockReport({
@@ -531,28 +531,6 @@ describe('View report page', () => {
           withDetails: true,
         }),
       )
-      mockedReport.questions = [
-        makeSimpleQuestion('61279', 'WHAT WAS THE MAIN MANAGEMENT OUTCOME OF THE INCIDENT', [
-          'IEP REGRESSION',
-          '213063',
-        ]),
-        makeSimpleQuestion('61280', 'IS ANY MEMBER OF STAFF FACING DISCIPLINARY CHARGES', ['NO', '213067']),
-        makeSimpleQuestion('61281', 'IS THERE ANY MEDIA INTEREST IN THIS INCIDENT', ['NO', '213069']),
-        makeSimpleQuestion('61282', 'HAS THE PRISON SERVICE PRESS OFFICE BEEN INFORMED', ['NO', '213071']),
-        makeSimpleQuestion('61283', 'IS THE LOCATION OF THE INCDENT KNOWN', ['NO', '213073']),
-        makeSimpleQuestion('61285', 'WAS THIS A SEXUAL ASSAULT', ['NO', '213112']),
-        makeSimpleQuestion('61286', 'DID THE ASSAULT OCCUR DURING A FIGHT', ['NO', '213114']),
-        makeSimpleQuestion('61287', 'WHAT TYPE OF ASSAULT WAS IT', ['PRISONER ON STAFF', '213116']),
-        makeSimpleQuestion('61289', 'DESCRIBE THE TYPE OF STAFF', ['OPERATIONAL STAFF - OTHER', '213122']),
-        makeSimpleQuestion('61290', 'WAS SPITTING USED IN THIS INCIDENT', ['NO', '213125']),
-        makeSimpleQuestion('61294', 'WERE ANY WEAPONS USED', ['NO', '213136']),
-        makeSimpleQuestion('61296', 'WERE ANY INJURIES RECEIVED DURING THIS INCIDENT', ['NO', '213150']),
-        makeSimpleQuestion('61306', 'ARE THERE ANY STAFF NOW OFF DUTY AS A RESULT OF THIS INCIDENT', ['NO', '213200']),
-        makeSimpleQuestion('61307', 'ARE ANY STAFF ON SICK LEAVE AS A RESULT OF THIS INCIDENT', ['NO', '213202']),
-        makeSimpleQuestion('61308', 'DID THE ASSAULT OCCUR IN PUBLIC VIEW', ['YES', '213203']),
-        makeSimpleQuestion('61309', 'IS THERE ANY AUDIO OR VISUAL FOOTAGE OF THE ASSAULT', ['NO', '213205']),
-        makeSimpleQuestion('61311', 'WAS THERE AN APPARENT REASON FOR THE ASSAULT', ['NO', '213213']),
-      ]
       incidentReportingApi.getReportWithDetailsById.mockReset()
       incidentReportingApi.getReportWithDetailsById.mockResolvedValueOnce(mockedReport)
       viewReportUrl = `/reports/${mockedReport.id}`
@@ -566,17 +544,17 @@ describe('View report page', () => {
       statuses.map(status => ({
         ...status,
         visibility: ['DRAFT', 'NEEDS_UPDATING', 'REOPENED'].includes(status.code)
-          ? ('see' as const)
-          : ('not see' as const),
+          ? ('show' as const)
+          : ('not show' as const),
       })),
-    )('should $visibility “Check your answers” for a report with status “$description”', ({ code, visibility }) => {
+    )('should $visibility to reporting officers for a report with status $code', ({ code, visibility }) => {
       mockedReport.status = code
 
       return request(app)
         .get(viewReportUrl)
         .expect(200)
         .expect(res => {
-          if (visibility === 'see') {
+          if (visibility === 'show') {
             expect(res.text).not.toContain('Incident report 6543')
             expect(res.text).toContain('Check your answers – incident report 6543')
           } else {
@@ -584,209 +562,6 @@ describe('View report page', () => {
             expect(res.text).not.toContain('Check your answers – incident report 6543')
           }
         })
-    })
-
-    describe('when it’s type requires involvements', () => {
-      // TODO: move
-      it('should allow submitting a fully complete draft report for review', () => {
-        incidentReportingApi.updateReport.mockReset()
-        incidentReportingApi.updateReport.mockResolvedValueOnce(mockedReport) // return value ignored
-        incidentReportingApi.changeReportStatus.mockReset()
-        incidentReportingApi.changeReportStatus.mockResolvedValueOnce(mockedReport) // return value ignored
-
-        return request
-          .agent(app)
-          .post(viewReportUrl)
-          .send({ userAction: 'requestReview' })
-          .redirects(1)
-          .expect(200)
-          .expect(res => {
-            expect(res.text).toContain('app-dashboard')
-            expect(res.text).toContain(`You have submitted incident report ${mockedReport.reportReference}`)
-
-            expect(incidentReportingApi.updateReport).toHaveBeenCalledWith(mockedReport.id, {
-              title: 'Assault: Arnold A1111AA, Benjamin A2222BB (Moorland (HMP & YOI))',
-            })
-            expect(incidentReportingApi.changeReportStatus).toHaveBeenCalledWith(mockedReport.id, {
-              newStatus: 'AWAITING_REVIEW',
-            })
-          })
-      })
-
-      // TODO: move
-      it.each([
-        {
-          scenario: 'skipping prisoner involvements',
-          skipped: true,
-          errorMessage: 'Please complete the prisoner involvement section',
-        },
-        { scenario: 'without prisoner involvements', skipped: false, errorMessage: 'You need to add a prisoner' },
-      ])(
-        'should not allow submitting a draft report $scenario when the type requires them',
-        ({ skipped, errorMessage }) => {
-          mockedReport.prisonersInvolved = []
-          mockedReport.prisonerInvolvementDone = !skipped
-
-          return request
-            .agent(app)
-            .post(viewReportUrl)
-            .send({ userAction: 'requestReview' })
-            .redirects(1)
-            .expect(200)
-            .expect(res => {
-              expect(res.text).toContain('There is a problem')
-              expect(res.text).toContain(errorMessage)
-
-              expect(incidentReportingApi.updateReport).not.toHaveBeenCalled()
-              expect(incidentReportingApi.changeReportStatus).not.toHaveBeenCalled()
-            })
-        },
-      )
-
-      // TODO: move
-      it.each([
-        {
-          scenario: 'skipping staff involvements',
-          skipped: true,
-          errorMessage: 'Please complete the staff involvement section',
-        },
-        { scenario: 'without staff involvements', skipped: false, errorMessage: 'You need to add a member of staff' },
-      ])(
-        'should not allow submitting a draft report $scenario when the type requires them',
-        ({ skipped, errorMessage }) => {
-          mockedReport.staffInvolved = []
-          mockedReport.staffInvolvementDone = !skipped
-
-          return request
-            .agent(app)
-            .post(viewReportUrl)
-            .send({ userAction: 'requestReview' })
-            .redirects(1)
-            .expect(200)
-            .expect(res => {
-              expect(res.text).toContain('There is a problem')
-              expect(res.text).toContain(errorMessage)
-
-              expect(incidentReportingApi.updateReport).not.toHaveBeenCalled()
-              expect(incidentReportingApi.changeReportStatus).not.toHaveBeenCalled()
-            })
-        },
-      )
-    })
-
-    describe('when it’s type does not require involvements', () => {
-      beforeEach(() => {
-        mockedReport.type = 'FIND_6'
-        mockedReport.questions = [
-          makeSimpleQuestion('67179', 'DESCRIBE HOW THE ITEM WAS FOUND (SELECT ALL THAT APPLY)', [
-            'INFORMATION RECEIVED',
-            '218695',
-          ]),
-          makeSimpleQuestion('67180', 'IS THE LOCATION OF THE INCIDENT KNOWN?', ['NO', '218710']),
-          makeSimpleQuestion('67182', 'DESCRIBE THE METHOD OF ENTRY INTO THE ESTABLISHMENT', ['UNKNOWN', '218741']),
-          makeSimpleQuestion('67184', 'IF FOUND IN POSSESSION, WHOSE WAS IT FOUND IN?', ['NOT APPLICABLE', '218756']),
-          makeSimpleQuestion('67186', 'WHAT WAS THE METHOD OF CONCEALMENT', ['IN HAND', '218774']),
-          makeSimpleQuestion('67187', 'PLEASE SELECT CATEGORY OF FIND', [
-            'OTHER REPORTABLE ITEMS (BY NATIONAL OR LOCAL POLICY)',
-            '218790',
-          ]),
-          makeSimpleQuestion('67204', 'OTHER REPORTABLE ITEMS FOUND (BY NATIONAL OR LOCAL POLICY)', [
-            'YES (NOOSE / LIGATURE)',
-            '218951',
-          ]),
-          makeSimpleQuestion('67226', 'WERE THE ITEMS OBTAINED ON TEMPORARY RELEASE?', ['NO', '219123']),
-        ]
-      })
-
-      // TODO: move
-      it('should allow submitting a draft report without any involvements', () => {
-        mockedReport.prisonersInvolved = []
-        mockedReport.prisonerInvolvementDone = true
-        mockedReport.staffInvolved = []
-        mockedReport.staffInvolvementDone = true
-
-        incidentReportingApi.updateReport.mockReset()
-        incidentReportingApi.updateReport.mockResolvedValueOnce(mockedReport) // return value ignored
-        incidentReportingApi.changeReportStatus.mockReset()
-        incidentReportingApi.changeReportStatus.mockResolvedValueOnce(mockedReport) // return value ignored
-
-        return request
-          .agent(app)
-          .post(viewReportUrl)
-          .send({ userAction: 'requestReview' })
-          .redirects(1)
-          .expect(200)
-          .expect(res => {
-            expect(res.text).toContain('app-dashboard')
-            expect(res.text).toContain(`You have submitted incident report ${mockedReport.reportReference}`)
-
-            expect(incidentReportingApi.updateReport).toHaveBeenCalledWith(mockedReport.id, {
-              title: 'Find of illicit items (Moorland (HMP & YOI))',
-            })
-            expect(incidentReportingApi.changeReportStatus).toHaveBeenCalledWith(mockedReport.id, {
-              newStatus: 'AWAITING_REVIEW',
-            })
-          })
-      })
-
-      // TODO: move
-      it('should still not allow submitting a draft report if prisoner involvements were skipped', () => {
-        mockedReport.prisonersInvolved = []
-        mockedReport.prisonerInvolvementDone = false
-
-        return request
-          .agent(app)
-          .post(viewReportUrl)
-          .send({ userAction: 'requestReview' })
-          .redirects(1)
-          .expect(200)
-          .expect(res => {
-            expect(res.text).toContain('There is a problem')
-            expect(res.text).toContain('Please complete the prisoner involvement section')
-
-            expect(incidentReportingApi.updateReport).not.toHaveBeenCalled()
-            expect(incidentReportingApi.changeReportStatus).not.toHaveBeenCalled()
-          })
-      })
-
-      // TODO: move
-      it('should still not allow submitting a draft report if staff involvements were skipped', () => {
-        mockedReport.staffInvolved = []
-        mockedReport.staffInvolvementDone = false
-
-        return request
-          .agent(app)
-          .post(viewReportUrl)
-          .send({ userAction: 'requestReview' })
-          .redirects(1)
-          .expect(200)
-          .expect(res => {
-            expect(res.text).toContain('There is a problem')
-            expect(res.text).toContain('Please complete the staff involvement section')
-
-            expect(incidentReportingApi.updateReport).not.toHaveBeenCalled()
-            expect(incidentReportingApi.changeReportStatus).not.toHaveBeenCalled()
-          })
-      })
-
-      // TODO: move
-      it('should still not allow submitting a draft report with incomplete questions', () => {
-        mockedReport.questions.pop()
-
-        return request
-          .agent(app)
-          .post(viewReportUrl)
-          .send({ userAction: 'requestReview' })
-          .redirects(1)
-          .expect(200)
-          .expect(res => {
-            expect(res.text).toContain('There is a problem')
-            expect(res.text).toContain('You must answer question 8')
-
-            expect(incidentReportingApi.updateReport).not.toHaveBeenCalled()
-            expect(incidentReportingApi.changeReportStatus).not.toHaveBeenCalled()
-          })
-      })
     })
   })
 

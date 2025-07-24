@@ -24,8 +24,7 @@ import {
 import { populateReport } from '../../middleware/populateReport'
 import { populateReportConfiguration } from '../../middleware/populateReportConfiguration'
 import type { ReportWithDetails } from '../../data/incidentReportingApi'
-import type { QuestionProgressStep } from '../../data/incidentTypeConfiguration/questionProgress'
-import type { IncidentTypeConfiguration } from '../../data/incidentTypeConfiguration/types'
+import { validateReport } from '../../data/reportValidity'
 import type { GovukErrorSummaryItem } from '../../utils/govukFrontend'
 
 const typesLookup = Object.fromEntries(types.map(type => [type.code, type.description]))
@@ -110,7 +109,7 @@ export function viewReportRouter(): Router {
           // check report is valid if required
           // TODO: may need report.isValid flag or similar so that validation is forced when RO submits but is not repeated when DW closes
           if (transition.mustBeValid) {
-            for (const error of checkReportIsComplete(report, reportConfig, questionProgressSteps, reportUrl)) {
+            for (const error of validateReport(report, reportConfig, questionProgressSteps, reportUrl)) {
               errors.push(error)
             }
           }
@@ -273,58 +272,4 @@ export function viewReportRouter(): Router {
   )
 
   return router
-}
-
-/**
- * Generates error messages for incomplete reports:
- * - not all questions are complete
- * - prisoner involvements skipped initially
- * - prisoner involvements not added but incident type requires some
- * - staff involvements skipped initially
- * - staff involvements not added but incident type requires some
- */
-function* checkReportIsComplete(
-  report: ReportWithDetails,
-  reportConfig: IncidentTypeConfiguration,
-  questionProgressSteps: QuestionProgressStep[],
-  reportUrl: string,
-): Generator<GovukErrorSummaryItem, void, void> {
-  // TODO: involvement rules differ for PECS
-  if (!report.prisonerInvolvementDone) {
-    // prisoners skipped, so must return
-    yield {
-      text: 'Please complete the prisoner involvement section',
-      href: `${reportUrl}/prisoners`,
-    }
-  } else if (report.prisonersInvolved.length === 0 && reportConfig.requiresPrisoners) {
-    // prisoner required
-    yield {
-      text: 'You need to add a prisoner',
-      href: `${reportUrl}/prisoners`,
-    }
-  }
-
-  // TODO: involvement rules differ for PECS
-  if (!report.staffInvolvementDone) {
-    // staff skipped, so must return
-    yield {
-      text: 'Please complete the staff involvement section',
-      href: `${reportUrl}/staff`,
-    }
-  } else if (report.staffInvolved.length === 0 && reportConfig.requiresStaff) {
-    // staff required
-    yield {
-      text: 'You need to add a member of staff',
-      href: `${reportUrl}/staff`,
-    }
-  }
-
-  const lastQuestion = questionProgressSteps.at(-1)
-  if (!lastQuestion.isComplete) {
-    // last question is incomplete
-    yield {
-      text: `You must answer question ${lastQuestion.questionNumber}`,
-      href: `${reportUrl}/questions${lastQuestion.urlSuffix}`,
-    }
-  }
 }

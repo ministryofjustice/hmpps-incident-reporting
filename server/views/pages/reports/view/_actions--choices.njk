@@ -6,7 +6,7 @@
 {% set items = [] %}
 {% for action, transition in reportTransitions %}
   {% if allowedActionsNeedingForm.has(action) %}
-    {% if transition.commentRequired %}
+    {% if transition.comment %}
       {% set inputName = action + "Comment" %}
       {% set textHtml %}
         {% if transition.originalReportReferenceRequired %}

@@ -123,8 +123,7 @@ export function viewReportRouter(): Router {
           }
 
           // check comment if required
-          // TODO: this should be in transition config: if a comment is optional but permitted
-          if (transition.commentRequired && !transition.originalReportReferenceRequired) {
+          if (transition.comment === 'required') {
             const nonWhitespace = /\S+/
             if (!comment || !nonWhitespace.test(comment)) {
               if (userAction === 'requestReview') {
@@ -138,6 +137,7 @@ export function viewReportRouter(): Router {
                   href: `#${userAction}Comment`,
                 })
               } else {
+                // fallback
                 errors.push({
                   text: 'Please enter a comment',
                   href: `#${userAction}Comment`,

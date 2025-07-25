@@ -400,7 +400,7 @@ describe('Actioning reports', () => {
 
       function expectNotAllowedErrorMessages(status: Status, payload: object): request.Test {
         mockedReport.status = status
-        incidentReportingApi.changeReportStatus.mockRejectedValue(new Error('should not be called'))
+        incidentReportingApi.changeReportStatus.mockRejectedValueOnce(new Error('should not be called'))
 
         return request(app)
           .post(viewReportUrl)
@@ -455,7 +455,8 @@ describe('Actioning reports', () => {
       user: Express.User
       currentStatus: Status
       userAction: UserAction
-      comment: 'not required' | 'required'
+      comment: 'not allowed' | 'optional' | 'required'
+      needsOriginalReportReference?: boolean
       newStatus: Status
       redirectedPage: 'dashboard' | 'view-report'
     }
@@ -466,7 +467,7 @@ describe('Actioning reports', () => {
         user: mockReportingOfficer,
         currentStatus: 'DRAFT',
         userAction: 'requestReview',
-        comment: 'not required',
+        comment: 'not allowed',
         newStatus: 'AWAITING_REVIEW',
         redirectedPage: 'dashboard',
       },
@@ -475,7 +476,7 @@ describe('Actioning reports', () => {
         user: mockDataWarden,
         currentStatus: 'AWAITING_REVIEW',
         userAction: 'close',
-        comment: 'not required',
+        comment: 'not allowed',
         newStatus: 'CLOSED',
         redirectedPage: 'dashboard',
       },
@@ -484,7 +485,7 @@ describe('Actioning reports', () => {
         user: mockDataWarden,
         currentStatus: 'ON_HOLD',
         userAction: 'close',
-        comment: 'not required',
+        comment: 'not allowed',
         newStatus: 'CLOSED',
         redirectedPage: 'dashboard',
       },
@@ -493,7 +494,7 @@ describe('Actioning reports', () => {
         user: mockDataWarden,
         currentStatus: 'UPDATED',
         userAction: 'close',
-        comment: 'not required',
+        comment: 'not allowed',
         newStatus: 'CLOSED',
         redirectedPage: 'dashboard',
       },
@@ -502,7 +503,7 @@ describe('Actioning reports', () => {
         user: mockDataWarden,
         currentStatus: 'WAS_CLOSED',
         userAction: 'close',
-        comment: 'not required',
+        comment: 'not allowed',
         newStatus: 'CLOSED',
         redirectedPage: 'dashboard',
       },
@@ -512,7 +513,7 @@ describe('Actioning reports', () => {
         user: mockReportingOfficer,
         currentStatus: 'AWAITING_REVIEW',
         userAction: 'recall',
-        comment: 'not required',
+        comment: 'not allowed',
         newStatus: 'DRAFT',
         redirectedPage: 'view-report',
       },
@@ -521,7 +522,7 @@ describe('Actioning reports', () => {
         user: mockReportingOfficer,
         currentStatus: 'UPDATED',
         userAction: 'recall',
-        comment: 'not required',
+        comment: 'not allowed',
         newStatus: 'NEEDS_UPDATING',
         redirectedPage: 'view-report',
       },
@@ -530,7 +531,7 @@ describe('Actioning reports', () => {
         user: mockReportingOfficer,
         currentStatus: 'WAS_CLOSED',
         userAction: 'recall',
-        comment: 'not required',
+        comment: 'not allowed',
         newStatus: 'REOPENED',
         redirectedPage: 'view-report',
       },
@@ -539,7 +540,7 @@ describe('Actioning reports', () => {
         user: mockDataWarden,
         currentStatus: 'NEEDS_UPDATING',
         userAction: 'recall',
-        comment: 'not required',
+        comment: 'not allowed',
         newStatus: 'UPDATED',
         redirectedPage: 'view-report',
       },
@@ -548,7 +549,7 @@ describe('Actioning reports', () => {
         user: mockDataWarden,
         currentStatus: 'CLOSED',
         userAction: 'recall',
-        comment: 'not required',
+        comment: 'not allowed',
         newStatus: 'UPDATED',
         redirectedPage: 'view-report',
       },
@@ -557,7 +558,7 @@ describe('Actioning reports', () => {
         user: mockDataWarden,
         currentStatus: 'DUPLICATE',
         userAction: 'recall',
-        comment: 'not required',
+        comment: 'not allowed',
         newStatus: 'UPDATED',
         redirectedPage: 'view-report',
       },
@@ -566,7 +567,7 @@ describe('Actioning reports', () => {
         user: mockDataWarden,
         currentStatus: 'NOT_REPORTABLE',
         userAction: 'recall',
-        comment: 'not required',
+        comment: 'not allowed',
         newStatus: 'UPDATED',
         redirectedPage: 'view-report',
       },
@@ -575,11 +576,11 @@ describe('Actioning reports', () => {
         user: mockDataWarden,
         currentStatus: 'REOPENED',
         userAction: 'recall',
-        comment: 'not required',
+        comment: 'not allowed',
         newStatus: 'WAS_CLOSED',
         redirectedPage: 'view-report',
       },
-      // comment required & redirect to dashboard
+      // comment may be required & redirect to dashboard
       {
         userType: 'reporting officers',
         user: mockReportingOfficer,
@@ -621,7 +622,7 @@ describe('Actioning reports', () => {
         user: mockDataWarden,
         currentStatus: 'AWAITING_REVIEW',
         userAction: 'markNotReportable',
-        comment: 'not required',
+        comment: 'optional',
         newStatus: 'NOT_REPORTABLE',
         redirectedPage: 'dashboard',
       },
@@ -639,7 +640,7 @@ describe('Actioning reports', () => {
         user: mockDataWarden,
         currentStatus: 'ON_HOLD',
         userAction: 'markNotReportable',
-        comment: 'not required',
+        comment: 'optional',
         newStatus: 'NOT_REPORTABLE',
         redirectedPage: 'dashboard',
       },
@@ -666,7 +667,7 @@ describe('Actioning reports', () => {
         user: mockDataWarden,
         currentStatus: 'UPDATED',
         userAction: 'markNotReportable',
-        comment: 'not required',
+        comment: 'optional',
         newStatus: 'NOT_REPORTABLE',
         redirectedPage: 'dashboard',
       },
@@ -684,29 +685,93 @@ describe('Actioning reports', () => {
         user: mockDataWarden,
         currentStatus: 'WAS_CLOSED',
         userAction: 'markNotReportable',
-        comment: 'not required',
+        comment: 'optional',
         newStatus: 'NOT_REPORTABLE',
+        redirectedPage: 'dashboard',
+      },
+      // original report reference is needed
+      {
+        userType: 'data wardens',
+        user: mockDataWarden,
+        currentStatus: 'AWAITING_REVIEW',
+        userAction: 'markDuplicate',
+        comment: 'optional',
+        needsOriginalReportReference: true,
+        newStatus: 'DUPLICATE',
+        redirectedPage: 'dashboard',
+      },
+      {
+        userType: 'data wardens',
+        user: mockDataWarden,
+        currentStatus: 'ON_HOLD',
+        userAction: 'markDuplicate',
+        comment: 'optional',
+        needsOriginalReportReference: true,
+        newStatus: 'DUPLICATE',
+        redirectedPage: 'dashboard',
+      },
+      {
+        userType: 'data wardens',
+        user: mockDataWarden,
+        currentStatus: 'UPDATED',
+        userAction: 'markDuplicate',
+        comment: 'optional',
+        needsOriginalReportReference: true,
+        newStatus: 'DUPLICATE',
+        redirectedPage: 'dashboard',
+      },
+      {
+        userType: 'data wardens',
+        user: mockDataWarden,
+        currentStatus: 'WAS_CLOSED',
+        userAction: 'markDuplicate',
+        comment: 'optional',
+        needsOriginalReportReference: true,
+        newStatus: 'DUPLICATE',
         redirectedPage: 'dashboard',
       },
     ]
     describe.each(transitionScenarios)(
       'when $userType try to perform $userAction on report with status $currentStatus when a comment is $comment',
-      ({ user, currentStatus, userAction, comment, newStatus, redirectedPage }) => {
+      ({ user, currentStatus, userAction, comment, needsOriginalReportReference, newStatus, redirectedPage }) => {
+        type Payload = {
+          userAction: UserAction
+          originalReportReference?: string
+        } & {
+          [C in `${UserAction}Comment`]?: string
+        }
+
+        const validPayload: Payload = { userAction }
+        if (comment === 'required') {
+          validPayload[`${userAction}Comment`] = 'My comment on this action'
+        }
+        if (needsOriginalReportReference) {
+          validPayload.originalReportReference = '1234'
+        }
+
         let expectedRedirect: string
 
         beforeEach(() => {
           setupAppForUser(user)
           mockedReport.status = currentStatus
           expectedRedirect = redirectedPage === 'dashboard' ? '/reports' : `/reports/${mockedReport.id}`
+
+          incidentReportingApi.getReportByReference.mockRejectedValueOnce(new Error('should not be called'))
         })
 
-        const validPayload: { userAction: UserAction } & { [C in `${UserAction}Comment`]?: string } = { userAction }
-        if (comment === 'required') {
-          validPayload[`${userAction}Comment`] = 'My comment on this action'
+        const mockedDuplicateReport = convertBasicReportDates(
+          mockReport({ reportReference: '1234', reportDateAndTime: now }),
+        )
+        function makeOriginalReportReferenceExistIfNeeded() {
+          if (needsOriginalReportReference) {
+            incidentReportingApi.getReportByReference.mockReset()
+            incidentReportingApi.getReportByReference.mockResolvedValueOnce(mockedDuplicateReport)
+          }
         }
 
         it(`should succeed changing the status to ${newStatus} if the report is valid`, () => {
           makeReportValid()
+          makeOriginalReportReferenceExistIfNeeded()
           incidentReportingApi.changeReportStatus.mockResolvedValueOnce(mockedReport) // NB: response is ignored
 
           return request(app)
@@ -716,6 +781,11 @@ describe('Actioning reports', () => {
             .expect(res => {
               expect(res.redirect).toBe(true)
               expect(res.header.location).toEqual(expectedRedirect)
+              if (needsOriginalReportReference) {
+                expect(incidentReportingApi.getReportByReference).toHaveBeenCalledWith('1234')
+              } else {
+                expect(incidentReportingApi.getReportByReference).not.toHaveBeenCalled()
+              }
               if (userAction === 'requestReview') {
                 expect(incidentReportingApi.updateReport).toHaveBeenCalledWith(mockedReport.id, {
                   title: 'Assault: Arnold A1111AA, Benjamin A2222BB (Moorland (HMP & YOI))',
@@ -730,6 +800,7 @@ describe('Actioning reports', () => {
         if (actionsRequiringValidReports.includes(userAction)) {
           it('should not be allowed if report is invalid', () => {
             makeReportInvalid()
+            makeOriginalReportReferenceExistIfNeeded()
             incidentReportingApi.changeReportStatus.mockRejectedValue(new Error('should not be called'))
 
             return request(app)
@@ -746,6 +817,7 @@ describe('Actioning reports', () => {
         } else {
           it(`should succeed changing the status to ${newStatus} even if the report is invalid`, () => {
             makeReportInvalid()
+            makeOriginalReportReferenceExistIfNeeded()
             incidentReportingApi.changeReportStatus.mockResolvedValueOnce(mockedReport) // NB: response is ignored
 
             return request(app)
@@ -763,6 +835,7 @@ describe('Actioning reports', () => {
         if (comment === 'required') {
           it('should not be allowed if comment is missing', () => {
             makeReportValid()
+            makeOriginalReportReferenceExistIfNeeded()
             incidentReportingApi.changeReportStatus.mockRejectedValue(new Error('should not be called'))
 
             return request(app)
@@ -770,7 +843,7 @@ describe('Actioning reports', () => {
               .send({
                 ...validPayload,
                 [`${userAction}Comment`]: '',
-              })
+              } satisfies Payload)
               .expect(200)
               .expect(res => {
                 expect(res.text).toContain('There is a problem')
@@ -785,10 +858,108 @@ describe('Actioning reports', () => {
                 expect(incidentReportingApi.changeReportStatus).not.toHaveBeenCalled()
               })
           })
+        } else if (comment === 'optional') {
+          it(`should succeed changing the status to ${newStatus} even if comment is left empty`, () => {
+            makeReportValid()
+            makeOriginalReportReferenceExistIfNeeded()
+            incidentReportingApi.changeReportStatus.mockResolvedValueOnce(mockedReport) // NB: response is ignored
+
+            return request(app)
+              .post(viewReportUrl)
+              .send({
+                ...validPayload,
+                [`${userAction}Comment`]: '',
+              } satisfies Payload)
+              .expect(302)
+              .expect(res => {
+                expect(res.redirect).toBe(true)
+                expect(res.header.location).toEqual(expectedRedirect)
+                expect(incidentReportingApi.changeReportStatus).toHaveBeenCalledWith(mockedReport.id, { newStatus })
+              })
+          })
+        }
+
+        if (needsOriginalReportReference) {
+          it('should show an error if original reference of duplicate report is left empty', () => {
+            makeReportValid()
+            incidentReportingApi.changeReportStatus.mockRejectedValue(new Error('should not be called'))
+
+            return request(app)
+              .post(viewReportUrl)
+              .send({
+                ...validPayload,
+                originalReportReference: '',
+              } satisfies Payload)
+              .expect(200)
+              .expect(res => {
+                expect(res.text).toContain('There is a problem')
+                expect(res.text).toContain('Enter a valid incident report number')
+                expect(incidentReportingApi.getReportByReference).not.toHaveBeenCalled()
+                expect(incidentReportingApi.changeReportStatus).not.toHaveBeenCalled()
+              })
+          })
+
+          it('should show an error if original reference of duplicate report is the same', () => {
+            makeReportValid()
+            incidentReportingApi.changeReportStatus.mockRejectedValue(new Error('should not be called'))
+
+            return request(app)
+              .post(viewReportUrl)
+              .send({
+                ...validPayload,
+                originalReportReference: '6543',
+              } satisfies Payload)
+              .expect(200)
+              .expect(res => {
+                expect(res.text).toContain('There is a problem')
+                expect(res.text).toContain('Enter a different report number')
+                expect(incidentReportingApi.getReportByReference).not.toHaveBeenCalled()
+                expect(incidentReportingApi.changeReportStatus).not.toHaveBeenCalled()
+              })
+          })
+
+          it('should show an error if original reference of duplicate report cannot be found', () => {
+            makeReportValid()
+            const error = mockThrownError(mockErrorResponse({ status: 404, message: 'Report not found' }), 404)
+            incidentReportingApi.getReportByReference.mockReset()
+            incidentReportingApi.getReportByReference.mockRejectedValueOnce(error)
+            incidentReportingApi.changeReportStatus.mockRejectedValue(new Error('should not be called'))
+
+            return request(app)
+              .post(viewReportUrl)
+              .send(validPayload)
+              .expect(200)
+              .expect(res => {
+                expect(res.text).toContain('There is a problem')
+                expect(res.text).toContain('Enter a valid incident report number')
+                expect(incidentReportingApi.changeReportStatus).not.toHaveBeenCalled()
+              })
+          })
+
+          it('should show an error if original reference of duplicate report cannot be looked up', () => {
+            makeReportValid()
+            const error = mockThrownError(mockErrorResponse({ status: 500, message: 'External problem' }), 500)
+            incidentReportingApi.getReportByReference.mockReset()
+            incidentReportingApi.getReportByReference.mockRejectedValueOnce(error)
+            incidentReportingApi.changeReportStatus.mockRejectedValue(new Error('should not be called'))
+
+            return request(app)
+              .post(viewReportUrl)
+              .send(validPayload)
+              .expect(200)
+              .expect(res => {
+                expect(res.text).toContain('There is a problem')
+                expect(res.text).toContain('Incident number could not be looked up')
+                expect(res.text).not.toContain('Enter a valid incident report number')
+                expect(res.text).not.toContain('External problem')
+                expect(incidentReportingApi.changeReportStatus).not.toHaveBeenCalled()
+              })
+          })
         }
 
         it('should show an error if API rejects request to change status', () => {
           makeReportValid()
+          makeOriginalReportReferenceExistIfNeeded()
           const error = mockThrownError(mockErrorResponse({ message: 'Comment is required' }))
           incidentReportingApi.changeReportStatus.mockRejectedValueOnce(error)
 
@@ -801,165 +972,6 @@ describe('Actioning reports', () => {
               expect(res.text).toContain('Sorry, there was a problem with your request')
               expect(res.text).not.toContain('Bad Request')
               expect(res.text).not.toContain('Comment is required')
-            })
-        })
-      },
-    )
-
-    describe.each(['AWAITING_REVIEW', 'ON_HOLD', 'UPDATED', 'WAS_CLOSED'] as const)(
-      'when data wardens try to perform markDuplicate (which requires original reference) on report with status %s',
-      status => {
-        beforeEach(() => {
-          setupAppForUser(mockDataWarden)
-          mockedReport.status = status
-        })
-
-        const validPayload = {
-          userAction: 'markDuplicate',
-          originalReportReference: '1234',
-          markDuplicateComment: 'My comment on this action',
-        }
-        const mockedDuplicateReport = convertBasicReportDates(
-          mockReport({ reportReference: '1234', reportDateAndTime: now }),
-        )
-
-        it.each(['valid', 'invalid'] as const)(
-          'should succeed changing the status to DUPLICATE if the report is %s',
-          validity => {
-            if (validity === 'valid') {
-              makeReportValid()
-            } else {
-              makeReportInvalid()
-            }
-            incidentReportingApi.getReportByReference.mockResolvedValueOnce(mockedDuplicateReport)
-            incidentReportingApi.changeReportStatus.mockResolvedValueOnce(mockedReport) // NB: response is ignored
-
-            return request(app)
-              .post(viewReportUrl)
-              .send(validPayload)
-              .expect(302)
-              .expect(res => {
-                expect(res.redirect).toBe(true)
-                expect(res.header.location).toEqual('/reports')
-                expect(incidentReportingApi.changeReportStatus).toHaveBeenCalledWith(mockedReport.id, {
-                  newStatus: 'DUPLICATE',
-                })
-              })
-          },
-        )
-
-        it('should still succeed if comment is left empty', () => {
-          makeReportValid()
-          incidentReportingApi.getReportByReference.mockResolvedValueOnce(mockedDuplicateReport)
-          incidentReportingApi.changeReportStatus.mockResolvedValueOnce(mockedReport) // NB: response is ignored
-
-          return request(app)
-            .post(viewReportUrl)
-            .send({
-              ...validPayload,
-              markDuplicateComment: '',
-            })
-            .expect(302)
-            .expect(res => {
-              expect(res.redirect).toBe(true)
-              expect(res.header.location).toEqual('/reports')
-              expect(incidentReportingApi.changeReportStatus).toHaveBeenCalledWith(mockedReport.id, {
-                newStatus: 'DUPLICATE',
-              })
-            })
-        })
-
-        it('should show an error if original reference of duplicate report is left empty', () => {
-          makeReportValid()
-          incidentReportingApi.getReportByReference.mockRejectedValueOnce(new Error('should not be called'))
-          incidentReportingApi.changeReportStatus.mockRejectedValue(new Error('should not be called'))
-
-          return request(app)
-            .post(viewReportUrl)
-            .send({
-              ...validPayload,
-              originalReportReference: '',
-            })
-            .expect(200)
-            .expect(res => {
-              expect(res.text).toContain('There is a problem')
-              expect(res.text).toContain('Enter a valid incident report number')
-              expect(incidentReportingApi.getReportByReference).not.toHaveBeenCalled()
-              expect(incidentReportingApi.changeReportStatus).not.toHaveBeenCalled()
-            })
-        })
-
-        it('should show an error if original reference of duplicate report is the same', () => {
-          makeReportValid()
-          incidentReportingApi.getReportByReference.mockRejectedValueOnce(new Error('should not be called'))
-          incidentReportingApi.changeReportStatus.mockRejectedValue(new Error('should not be called'))
-
-          return request(app)
-            .post(viewReportUrl)
-            .send({
-              ...validPayload,
-              originalReportReference: '6543',
-            })
-            .expect(200)
-            .expect(res => {
-              expect(res.text).toContain('There is a problem')
-              expect(res.text).toContain('Enter a different report number')
-              expect(incidentReportingApi.getReportByReference).not.toHaveBeenCalled()
-              expect(incidentReportingApi.changeReportStatus).not.toHaveBeenCalled()
-            })
-        })
-
-        it('should show an error if original reference of duplicate report cannot be found', () => {
-          makeReportValid()
-          const error = mockThrownError(mockErrorResponse({ status: 404, message: 'Report not found' }), 404)
-          incidentReportingApi.getReportByReference.mockRejectedValueOnce(error)
-          incidentReportingApi.changeReportStatus.mockRejectedValue(new Error('should not be called'))
-
-          return request(app)
-            .post(viewReportUrl)
-            .send(validPayload)
-            .expect(200)
-            .expect(res => {
-              expect(res.text).toContain('There is a problem')
-              expect(res.text).toContain('Enter a valid incident report number')
-              expect(incidentReportingApi.changeReportStatus).not.toHaveBeenCalled()
-            })
-        })
-
-        it('should show an error if original reference of duplicate report cannot be looked up', () => {
-          makeReportValid()
-          const error = mockThrownError(mockErrorResponse({ status: 500, message: 'External problem' }), 500)
-          incidentReportingApi.getReportByReference.mockRejectedValueOnce(error)
-          incidentReportingApi.changeReportStatus.mockRejectedValue(new Error('should not be called'))
-
-          return request(app)
-            .post(viewReportUrl)
-            .send(validPayload)
-            .expect(200)
-            .expect(res => {
-              expect(res.text).toContain('There is a problem')
-              expect(res.text).toContain('Incident number could not be looked up')
-              expect(res.text).not.toContain('Enter a valid incident report number')
-              expect(res.text).not.toContain('External problem')
-              expect(incidentReportingApi.changeReportStatus).not.toHaveBeenCalled()
-            })
-        })
-
-        it('should show an error if API rejects request to change status', () => {
-          makeReportValid()
-          incidentReportingApi.getReportByReference.mockResolvedValueOnce(mockedDuplicateReport)
-          const error = mockThrownError(mockErrorResponse({ message: 'Comment is required' }))
-          incidentReportingApi.changeReportStatus.mockRejectedValueOnce(error)
-
-          return request(app)
-            .post(viewReportUrl)
-            .send(validPayload)
-            .expect(200)
-            .expect(res => {
-              expect(res.text).toContain('There is a problem')
-              expect(res.text).toContain('Sorry, there was a problem with your request')
-              expect(res.text).not.toContain('Internal Server Error')
-              expect(res.text).not.toContain('External problem')
             })
         })
       },

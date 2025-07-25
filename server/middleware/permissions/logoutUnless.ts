@@ -2,6 +2,7 @@ import type { RequestHandler, Response } from 'express'
 import { Forbidden, NotImplemented } from 'http-errors'
 
 import { Permissions } from './rulesClass'
+import type { UserAction } from './userActions'
 
 /**
  * A condition function to check whether user is allowed to access a route using `logoutUnless` middleware.
@@ -36,12 +37,14 @@ export function logoutUnless(accessCondition: AccessCondition): RequestHandler {
 }
 
 /**
- * Used in `logoutUnless()` middleware to check that current user can view report in locals.
+ * Access condition the requires ability to perform given action on report in locals
  * Relies on `populatePrison()` middleware.
  */
-export const canViewReport: AccessCondition = (_permissions, res) => {
-  const { allowedActions } = res.locals
-  return allowedActions.has('view')
+export function hasPermissionTo(userAction: UserAction): AccessCondition {
+  return (_permissions, res) => {
+    const { allowedActions } = res.locals
+    return allowedActions.has(userAction)
+  }
 }
 
 /**
@@ -49,22 +52,4 @@ export const canViewReport: AccessCondition = (_permissions, res) => {
  */
 export const canCreateReportInActiveCaseload: AccessCondition = permissions => {
   return permissions.canCreateReportInActiveCaseload
-}
-
-/**
- * Used in `logoutUnless()` middleware to check that current user can edit report in locals.
- * Relies on `populatePrison()` middleware.
- */
-export const canEditReport: AccessCondition = (_permissions, res) => {
-  const { allowedActions } = res.locals
-  return allowedActions.has('edit')
-}
-
-/**
- * Used in `logoutUnless()` middleware to check that current user can review and close report in locals.
- * Relies on `populatePrison()` middleware.
- */
-export const canReviewReport: AccessCondition = (_permissions, res) => {
-  const { allowedActions } = res.locals
-  return allowedActions.has('close')
 }

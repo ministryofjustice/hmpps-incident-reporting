@@ -52,7 +52,7 @@ context('Update an existing report’s date after it’s been reviewed', () => {
 
     incidentDateTimePage.submit()
 
-    Page.verifyOnPage(ReportPage, reportWithDetails.reportReference)
+    Page.verifyOnPage(ReportPage, reportWithDetails.reportReference, true)
   })
 
   it('should show errors if information is missing', () => {

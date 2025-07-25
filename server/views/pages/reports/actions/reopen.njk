@@ -1,0 +1,15 @@
+{% extends "partials/formWizardLayout.njk" %}
+
+{% set bodyClasses = "app-reopen-report" %}
+
+{% block formFields %}
+  <p>
+    {% if permissions.userType == "reportingOfficer" %}
+      Once you have made changes, you’ll need to resubmit the report to be reviewed.
+    {% else %}
+      Once you have made changes, you’ll need to resubmit the report.
+    {% endif %}
+  </p>
+
+  {{ super() }}
+{% endblock %}

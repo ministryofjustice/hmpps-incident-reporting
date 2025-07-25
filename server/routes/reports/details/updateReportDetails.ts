@@ -4,7 +4,7 @@ import FormWizard from 'hmpo-form-wizard'
 import logger from '../../../../logger'
 import format from '../../../utils/format'
 import type { ReportBasic } from '../../../data/incidentReportingApi'
-import { logoutUnless, canEditReport } from '../../../middleware/permissions'
+import { logoutUnless, hasPermissionTo } from '../../../middleware/permissions'
 import { populateReport } from '../../../middleware/populateReport'
 import { dwNotReviewed } from '../../../reportConfiguration/constants'
 import { BaseDetailsController } from './detailsController'
@@ -118,4 +118,4 @@ const updateDetailsWizardRouter = FormWizard(updateDetailsSteps, updateDetailsFi
 updateDetailsWizardRouter.mergeParams = true
 // eslint-disable-next-line import/prefer-default-export
 export const updateDetailsRouter = express.Router({ mergeParams: true })
-updateDetailsRouter.use(populateReport(false), logoutUnless(canEditReport), updateDetailsWizardRouter)
+updateDetailsRouter.use(populateReport(false), logoutUnless(hasPermissionTo('edit')), updateDetailsWizardRouter)

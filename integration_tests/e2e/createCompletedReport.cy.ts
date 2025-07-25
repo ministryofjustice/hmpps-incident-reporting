@@ -402,7 +402,8 @@ context('Creating a completed draft report', () => {
       report: reportWithDetails,
     })
     cy.task('stubIncidentReportingApiGetReports')
-    reportPage.submitButton.click()
+    reportPage.selectAction('Submit')
+    reportPage.continueButton.click()
 
     const dashboardPage = Page.verifyOnPage(DashboardPage)
     dashboardPage.checkNotificationBannerContent(

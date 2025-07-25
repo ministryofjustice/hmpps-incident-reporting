@@ -67,7 +67,7 @@ describe('report-loading middleware', () => {
     } as unknown as Response
     const next: NextFunction = jest.fn()
 
-    await populateReport()(req, res, next)
+    await populateReport(true)(req, res, next)
     await populateReport(false)(req, res, next)
 
     expect(permissions.allowedActionsOnReport).not.toHaveBeenCalled()
@@ -92,7 +92,7 @@ describe('report-loading middleware', () => {
     } as unknown as Response
     const next: NextFunction = jest.fn()
 
-    await populateReport()(req, res, next)
+    await populateReport(true)(req, res, next)
     await populateReport(false)(req, res, next)
 
     expect(permissions.allowedActionsOnReport).not.toHaveBeenCalled()
@@ -115,7 +115,7 @@ describe('report-loading middleware', () => {
     } as unknown as Response
     const next: NextFunction = jest.fn()
 
-    await populateReport()(req, res, next)
+    await populateReport(true)(req, res, next)
 
     expect(getReportWithDetailsById).not.toHaveBeenCalled()
     expect(permissions.allowedActionsOnReport).not.toHaveBeenCalled()
@@ -139,7 +139,7 @@ describe('report-loading middleware', () => {
     } as unknown as Response
     const next: NextFunction = jest.fn()
 
-    await populateReport()(req, res, next)
+    await populateReport(true)(req, res, next)
 
     expect(getReportWithDetailsById).not.toHaveBeenCalled()
     expect(res.locals.report).toBeUndefined()

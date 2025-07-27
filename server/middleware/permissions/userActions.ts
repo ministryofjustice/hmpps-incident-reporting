@@ -27,6 +27,12 @@ export const userActions = [
 
 export type UserAction = (typeof userActions)[number]['code']
 
+/** IRS api has a different overlapping set of values */
+export type ApiUserAction =
+  | Exclude<UserAction, 'VIEW' | 'EDIT' | 'REQUEST_REMOVAL'>
+  | 'REQUEST_DUPLICATE'
+  | 'REQUEST_NOT_REPORTABLE'
+
 export const userActionMapping = Object.fromEntries(userActions.map(action => [action.code, action]))
 
 export function parseUserActionCode(code: unknown): code is UserAction {

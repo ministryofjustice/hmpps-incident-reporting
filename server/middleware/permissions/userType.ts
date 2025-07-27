@@ -9,3 +9,6 @@ export const userTypes = [
 ] as const
 
 export type UserType = (typeof userTypes)[number]['code']
+
+/** IRS api accepts a subset of user types */
+export type ApiUserType = Exclude<UserType, 'HQ_VIEWER'>

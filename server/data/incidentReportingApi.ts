@@ -12,6 +12,7 @@ import type {
   Status,
   Type,
 } from '../reportConfiguration/constants'
+import type { ApiUserAction, ApiUserType } from '../middleware/permissions'
 import {
   convertBasicReportDates,
   convertCorrectionRequestDates,
@@ -170,6 +171,9 @@ export type PrisonerInvolvement = {
 
 export type CorrectionRequest = {
   descriptionOfChange: string
+  userType?: ApiUserType
+  userAction?: ApiUserAction
+  originalReportReference?: string
   correctionRequestedBy: string
   correctionRequestedAt: Date
 }
@@ -559,10 +563,16 @@ export type UpdatePrisonerInvolvementRequest = {
 
 type AddCorrectionRequestRequest = {
   descriptionOfChange: string
+  userType?: ApiUserType
+  userAction?: ApiUserAction
+  originalReportReference?: string
 }
 
 type UpdateCorrectionRequestRequest = {
   descriptionOfChange?: string
+  userType?: ApiUserType | null
+  userAction?: ApiUserAction | null
+  originalReportReference?: string | null
 }
 
 export enum RelatedObjectUrlSlug {

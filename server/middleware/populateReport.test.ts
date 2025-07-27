@@ -16,7 +16,7 @@ describe('report-loading middleware', () => {
 
   beforeEach(() => {
     fakeApi = nock(config.apis.hmppsIncidentReportingApi.url)
-    permissions.allowedActionsOnReport.mockReturnValue(new Set(['view']))
+    permissions.allowedActionsOnReport.mockReturnValue(new Set(['VIEW']))
   })
 
   afterEach(() => {
@@ -49,7 +49,7 @@ describe('report-loading middleware', () => {
     expect(res.locals.report.reportReference).toEqual(report.reportReference)
     expect(res.locals.reportUrl).toEqual(`/reports/${report.id}`)
     expect(res.locals.reportSubUrlPrefix).toEqual(`/reports/${report.id}`)
-    expect(res.locals.allowedActions).toEqual(new Set(['view']))
+    expect(res.locals.allowedActions).toEqual(new Set(['VIEW']))
     expect(next).toHaveBeenCalledWith()
   })
 

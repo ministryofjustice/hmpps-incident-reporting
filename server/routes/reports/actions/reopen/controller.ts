@@ -60,7 +60,7 @@ export class ReopenController extends BaseController<Values> {
     const { userType } = permissions
 
     // TODO: PECS lookup is different
-    const { newStatus } = prisonReportTransitions[userType][report.status].recall
+    const { newStatus } = prisonReportTransitions[userType][report.status].RECALL
 
     try {
       await res.locals.apis.incidentReportingApi.changeReportStatus(report.id, { newStatus })

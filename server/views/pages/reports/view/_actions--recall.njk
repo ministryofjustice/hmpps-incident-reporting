@@ -1,12 +1,12 @@
 {% from "govuk/components/button/macro.njk" import govukButton %}
 
-{% if permissions.userType == "reportingOfficer" %}
+{% if permissions.userType == "REPORTING_OFFICER" %}
   {% if report.status in workListMapping.done %}
     {% set buttonText = "Reopen and change report" %}
   {% else %}
     {% set buttonText = "Change report" %}
   {% endif %}
-{% elif permissions.userType == "dataWarden" %}
+{% elif permissions.userType == "DATA_WARDEN" %}
   {% set buttonText = "Change report status" %}
 {% else %}
   {% panic "Recall form not implemented for " + permissions.userType %}

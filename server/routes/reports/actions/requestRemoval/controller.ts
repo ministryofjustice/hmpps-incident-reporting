@@ -77,7 +77,7 @@ export class RequestRemovalController extends BaseController<Values> {
     const { userType } = permissions
 
     // TODO: PECS lookup is different
-    const { newStatus } = prisonReportTransitions[userType][report.status].requestRemoval
+    const { newStatus } = prisonReportTransitions[userType][report.status].REQUEST_REMOVAL
 
     try {
       // TODO: post comment (ie. correction request) if necessary; use a helper function to create it

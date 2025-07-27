@@ -51,7 +51,7 @@ export function viewReportRouter(): Router {
       }
     },
     populateReport(true),
-    logoutUnless(hasPermissionTo('view')),
+    logoutUnless(hasPermissionTo('VIEW')),
     populateReportConfiguration(true),
     async (req, res) => {
       const { incidentReportingApi, prisonApi, userService } = res.locals.apis
@@ -71,14 +71,14 @@ export function viewReportRouter(): Router {
 
       const questionProgressSteps = Array.from(questionProgress)
 
-      const canEditReport = allowedActions.has('edit')
+      const canEditReport = allowedActions.has('EDIT')
       const allowedActionsInNomisOnly = permissions.allowedActionsOnReport(report, 'nomis')
-      const canEditReportInNomisOnly = allowedActionsInNomisOnly.has('edit')
+      const canEditReportInNomisOnly = allowedActionsInNomisOnly.has('EDIT')
 
       const allowedActionsNeedingForm = new Set<UserAction>()
       for (const action of allowedActions) {
         // these user actions are not part of this form
-        if (!['view', 'edit'].includes(action)) {
+        if (!['VIEW', 'EDIT'].includes(action)) {
           allowedActionsNeedingForm.add(action)
         }
       }
@@ -94,14 +94,14 @@ export function viewReportRouter(): Router {
           const transition = reportTransitions[userAction]
 
           if (
-            userAction === 'recall' &&
-            userType === 'reportingOfficer' &&
+            userAction === 'RECALL' &&
+            userType === 'REPORTING_OFFICER' &&
             workListMapping.done.includes(report.status)
           ) {
             res.redirect(`${reportUrl}/reopen`)
             return
           }
-          if (userAction === 'requestRemoval') {
+          if (userAction === 'REQUEST_REMOVAL') {
             res.redirect(`${reportUrl}/request-remove`)
             return
           }
@@ -114,11 +114,12 @@ export function viewReportRouter(): Router {
             }
           }
 
-          const comment: string | undefined = req.body[`${userAction}Comment`]?.trim()
+          const commentFieldName = `${userAction}_COMMENT`
+          const comment: string | undefined = req.body[commentFieldName]?.trim()
           const originalReportReference: string | undefined = req.body.originalReportReference?.trim()
           formValues = {
             userAction,
-            [`${userAction}Comment`]: comment,
+            [commentFieldName]: comment,
             originalReportReference,
           }
 
@@ -126,21 +127,21 @@ export function viewReportRouter(): Router {
           if (transition.comment === 'required') {
             const nonWhitespace = /\S+/
             if (!comment || !nonWhitespace.test(comment)) {
-              if (userAction === 'requestReview') {
+              if (userAction === 'REQUEST_REVIEW') {
                 errors.push({
                   text: 'Enter what has changed in the report',
-                  href: `#${userAction}Comment`,
+                  href: `#${commentFieldName}`,
                 })
-              } else if (userAction === 'markNotReportable') {
+              } else if (userAction === 'MARK_NOT_REPORTABLE') {
                 errors.push({
                   text: 'Describe why incident is not reportable',
-                  href: `#${userAction}Comment`,
+                  href: `#${commentFieldName}`,
                 })
               } else {
                 // fallback
                 errors.push({
                   text: 'Please enter a comment',
-                  href: `#${userAction}Comment`,
+                  href: `#${commentFieldName}`,
                 })
               }
             }
@@ -182,7 +183,7 @@ export function viewReportRouter(): Router {
           if (errors.length === 0) {
             // can submit action
             try {
-              if (userAction === 'requestReview') {
+              if (userAction === 'REQUEST_REVIEW') {
                 // TODO: regeneration will be moved elsewhere
                 // TODO: PECS regions need a different lookup
                 const newTitle = regenerateTitleForReport(
@@ -210,7 +211,7 @@ export function viewReportRouter(): Router {
                 req.flash('success', { title: successBanner.replace('$reportReference', report.reportReference) })
               }
 
-              if (userAction === 'recall') {
+              if (userAction === 'RECALL') {
                 res.redirect(reportUrl)
               } else {
                 res.redirect('/reports')

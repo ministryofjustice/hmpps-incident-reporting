@@ -4,6 +4,7 @@ import request, { type Test } from 'supertest'
 import { appWithAllRoutes } from '../../../testutils/appSetup'
 import { now } from '../../../../testutils/fakeClock'
 import { type Status, statuses } from '../../../../reportConfiguration/constants'
+import type { UserAction } from '../../../../middleware/permissions'
 import { IncidentReportingApi, type ReportWithDetails } from '../../../../data/incidentReportingApi'
 import { convertReportWithDetailsDates } from '../../../../data/incidentReportingApiUtils'
 import { mockErrorResponse, mockReport } from '../../../../data/testData/incidentReporting'
@@ -32,6 +33,8 @@ let app: Express
 function setupAppForUser(user: Express.User): void {
   app = appWithAllRoutes({ userSupplier: () => user })
 }
+
+const validPayload = { userAction: 'RECALL' satisfies UserAction } as const
 
 describe('Reopening a report', () => {
   let mockedReport: ReportWithDetails
@@ -80,7 +83,7 @@ describe('Reopening a report', () => {
 
       return request(app)
         .post(reopenReportUrl)
-        .send({ userAction: 'recall' })
+        .send(validPayload)
         .expect(302)
         .expect(res => {
           expect(res.redirect).toBe(true)
@@ -97,7 +100,7 @@ describe('Reopening a report', () => {
       return request
         .agent(app)
         .post(reopenReportUrl)
-        .send({ userAction: 'recall' })
+        .send(validPayload)
         .redirects(1)
         .expect(200)
         .expect(res => {
@@ -126,7 +129,7 @@ describe('Reopening a report', () => {
     it('should not be allowed', async () => {
       await expectSignOut(request(app).get(reopenReportUrl))
       incidentReportingApi.getReportById.mockResolvedValueOnce(mockedReport)
-      await expectSignOut(request(app).post(reopenReportUrl).send({ userAction: 'recall' }))
+      await expectSignOut(request(app).post(reopenReportUrl).send(validPayload))
     })
   }
 

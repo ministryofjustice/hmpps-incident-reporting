@@ -111,7 +111,7 @@ changeTypeWizardRouter.mergeParams = true
 export const changeTypeRouter = express.Router({ mergeParams: true })
 changeTypeRouter.use(
   populateReport(false),
-  logoutUnless(hasPermissionTo('edit')),
+  logoutUnless(hasPermissionTo('EDIT')),
   redirectIfStatusNot('DRAFT'),
   changeTypeWizardRouter,
 )

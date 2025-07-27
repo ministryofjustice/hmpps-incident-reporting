@@ -322,7 +322,7 @@ describe('Actioning reports', () => {
         user: mockReportingOfficer,
         forbiddenTransitions: [
           {
-            userAction: 'requestReview',
+            userAction: 'REQUEST_REVIEW',
             forbiddenStatuses: [
               'AWAITING_REVIEW',
               'UPDATED',
@@ -334,7 +334,7 @@ describe('Actioning reports', () => {
             ],
           },
           {
-            userAction: 'requestRemoval',
+            userAction: 'REQUEST_REMOVAL',
             forbiddenStatuses: [
               'AWAITING_REVIEW',
               'UPDATED',
@@ -345,39 +345,39 @@ describe('Actioning reports', () => {
               'CLOSED',
             ],
           },
-          { userAction: 'recall', forbiddenStatuses: ['DRAFT', 'NEEDS_UPDATING', 'REOPENED', 'ON_HOLD'] },
-          { userAction: 'requestCorrection', forbiddenStatuses: 'all' },
-          { userAction: 'close', forbiddenStatuses: 'all' },
-          { userAction: 'markDuplicate', forbiddenStatuses: 'all' },
-          { userAction: 'markNotReportable', forbiddenStatuses: 'all' },
-          { userAction: 'hold', forbiddenStatuses: 'all' },
+          { userAction: 'RECALL', forbiddenStatuses: ['DRAFT', 'NEEDS_UPDATING', 'REOPENED', 'ON_HOLD'] },
+          { userAction: 'REQUEST_CORRECTION', forbiddenStatuses: 'all' },
+          { userAction: 'CLOSE', forbiddenStatuses: 'all' },
+          { userAction: 'MARK_DUPLICATE', forbiddenStatuses: 'all' },
+          { userAction: 'MARK_NOT_REPORTABLE', forbiddenStatuses: 'all' },
+          { userAction: 'HOLD', forbiddenStatuses: 'all' },
         ],
       },
       {
         userType: 'data wardens',
         user: mockDataWarden,
         forbiddenTransitions: [
-          { userAction: 'requestReview', forbiddenStatuses: 'all' },
-          { userAction: 'requestRemoval', forbiddenStatuses: 'all' },
+          { userAction: 'REQUEST_REVIEW', forbiddenStatuses: 'all' },
+          { userAction: 'REQUEST_REMOVAL', forbiddenStatuses: 'all' },
           {
-            userAction: 'requestCorrection',
+            userAction: 'REQUEST_CORRECTION',
             forbiddenStatuses: ['DRAFT', 'NEEDS_UPDATING', 'REOPENED', 'DUPLICATE', 'NOT_REPORTABLE', 'CLOSED'],
           },
-          { userAction: 'recall', forbiddenStatuses: ['DRAFT', 'AWAITING_REVIEW', 'UPDATED', 'ON_HOLD', 'WAS_CLOSED'] },
+          { userAction: 'RECALL', forbiddenStatuses: ['DRAFT', 'AWAITING_REVIEW', 'UPDATED', 'ON_HOLD', 'WAS_CLOSED'] },
           {
-            userAction: 'close',
-            forbiddenStatuses: ['DRAFT', 'NEEDS_UPDATING', 'REOPENED', 'DUPLICATE', 'NOT_REPORTABLE', 'CLOSED'],
-          },
-          {
-            userAction: 'markDuplicate',
+            userAction: 'CLOSE',
             forbiddenStatuses: ['DRAFT', 'NEEDS_UPDATING', 'REOPENED', 'DUPLICATE', 'NOT_REPORTABLE', 'CLOSED'],
           },
           {
-            userAction: 'markNotReportable',
+            userAction: 'MARK_DUPLICATE',
             forbiddenStatuses: ['DRAFT', 'NEEDS_UPDATING', 'REOPENED', 'DUPLICATE', 'NOT_REPORTABLE', 'CLOSED'],
           },
           {
-            userAction: 'hold',
+            userAction: 'MARK_NOT_REPORTABLE',
+            forbiddenStatuses: ['DRAFT', 'NEEDS_UPDATING', 'REOPENED', 'DUPLICATE', 'NOT_REPORTABLE', 'CLOSED'],
+          },
+          {
+            userAction: 'HOLD',
             forbiddenStatuses: [
               'DRAFT',
               'NEEDS_UPDATING',
@@ -436,7 +436,7 @@ describe('Actioning reports', () => {
       describe.each(
         forbiddenTransitions === 'all'
           ? userActions
-              .filter(({ code: userAction }) => !['view', 'edit'].includes(userAction))
+              .filter(({ code: userAction }) => !['VIEW', 'EDIT'].includes(userAction))
               .map(({ code: userAction }) => ({ userAction, forbiddenStatuses: 'all' as const }))
           : forbiddenTransitions,
       )('try to perform $userAction', ({ userAction, forbiddenStatuses }) => {
@@ -447,7 +447,7 @@ describe('Actioning reports', () => {
       })
     })
 
-    const actionsRequiringValidReports = ['requestReview', 'close']
+    const actionsRequiringValidReports = ['REQUEST_REVIEW', 'CLOSE']
     // TODO: this will probably turn into a flag on the report so closing will not need the checks
 
     interface TransitionScenarios {
@@ -466,7 +466,7 @@ describe('Actioning reports', () => {
         userType: 'reporting officers',
         user: mockReportingOfficer,
         currentStatus: 'DRAFT',
-        userAction: 'requestReview',
+        userAction: 'REQUEST_REVIEW',
         comment: 'not allowed',
         newStatus: 'AWAITING_REVIEW',
         redirectedPage: 'dashboard',
@@ -475,7 +475,7 @@ describe('Actioning reports', () => {
         userType: 'data wardens',
         user: mockDataWarden,
         currentStatus: 'AWAITING_REVIEW',
-        userAction: 'close',
+        userAction: 'CLOSE',
         comment: 'not allowed',
         newStatus: 'CLOSED',
         redirectedPage: 'dashboard',
@@ -484,7 +484,7 @@ describe('Actioning reports', () => {
         userType: 'data wardens',
         user: mockDataWarden,
         currentStatus: 'ON_HOLD',
-        userAction: 'close',
+        userAction: 'CLOSE',
         comment: 'not allowed',
         newStatus: 'CLOSED',
         redirectedPage: 'dashboard',
@@ -493,7 +493,7 @@ describe('Actioning reports', () => {
         userType: 'data wardens',
         user: mockDataWarden,
         currentStatus: 'UPDATED',
-        userAction: 'close',
+        userAction: 'CLOSE',
         comment: 'not allowed',
         newStatus: 'CLOSED',
         redirectedPage: 'dashboard',
@@ -502,7 +502,7 @@ describe('Actioning reports', () => {
         userType: 'data wardens',
         user: mockDataWarden,
         currentStatus: 'WAS_CLOSED',
-        userAction: 'close',
+        userAction: 'CLOSE',
         comment: 'not allowed',
         newStatus: 'CLOSED',
         redirectedPage: 'dashboard',
@@ -512,7 +512,7 @@ describe('Actioning reports', () => {
         userType: 'reporting officers',
         user: mockReportingOfficer,
         currentStatus: 'AWAITING_REVIEW',
-        userAction: 'recall',
+        userAction: 'RECALL',
         comment: 'not allowed',
         newStatus: 'DRAFT',
         redirectedPage: 'view-report',
@@ -521,7 +521,7 @@ describe('Actioning reports', () => {
         userType: 'reporting officers',
         user: mockReportingOfficer,
         currentStatus: 'UPDATED',
-        userAction: 'recall',
+        userAction: 'RECALL',
         comment: 'not allowed',
         newStatus: 'NEEDS_UPDATING',
         redirectedPage: 'view-report',
@@ -530,7 +530,7 @@ describe('Actioning reports', () => {
         userType: 'reporting officers',
         user: mockReportingOfficer,
         currentStatus: 'WAS_CLOSED',
-        userAction: 'recall',
+        userAction: 'RECALL',
         comment: 'not allowed',
         newStatus: 'REOPENED',
         redirectedPage: 'view-report',
@@ -539,7 +539,7 @@ describe('Actioning reports', () => {
         userType: 'data wardens',
         user: mockDataWarden,
         currentStatus: 'NEEDS_UPDATING',
-        userAction: 'recall',
+        userAction: 'RECALL',
         comment: 'not allowed',
         newStatus: 'UPDATED',
         redirectedPage: 'view-report',
@@ -548,7 +548,7 @@ describe('Actioning reports', () => {
         userType: 'data wardens',
         user: mockDataWarden,
         currentStatus: 'CLOSED',
-        userAction: 'recall',
+        userAction: 'RECALL',
         comment: 'not allowed',
         newStatus: 'UPDATED',
         redirectedPage: 'view-report',
@@ -557,7 +557,7 @@ describe('Actioning reports', () => {
         userType: 'data wardens',
         user: mockDataWarden,
         currentStatus: 'DUPLICATE',
-        userAction: 'recall',
+        userAction: 'RECALL',
         comment: 'not allowed',
         newStatus: 'UPDATED',
         redirectedPage: 'view-report',
@@ -566,7 +566,7 @@ describe('Actioning reports', () => {
         userType: 'data wardens',
         user: mockDataWarden,
         currentStatus: 'NOT_REPORTABLE',
-        userAction: 'recall',
+        userAction: 'RECALL',
         comment: 'not allowed',
         newStatus: 'UPDATED',
         redirectedPage: 'view-report',
@@ -575,7 +575,7 @@ describe('Actioning reports', () => {
         userType: 'data wardens',
         user: mockDataWarden,
         currentStatus: 'REOPENED',
-        userAction: 'recall',
+        userAction: 'RECALL',
         comment: 'not allowed',
         newStatus: 'WAS_CLOSED',
         redirectedPage: 'view-report',
@@ -585,7 +585,7 @@ describe('Actioning reports', () => {
         userType: 'reporting officers',
         user: mockReportingOfficer,
         currentStatus: 'NEEDS_UPDATING',
-        userAction: 'requestReview',
+        userAction: 'REQUEST_REVIEW',
         comment: 'required',
         newStatus: 'UPDATED',
         redirectedPage: 'dashboard',
@@ -594,7 +594,7 @@ describe('Actioning reports', () => {
         userType: 'reporting officers',
         user: mockReportingOfficer,
         currentStatus: 'REOPENED',
-        userAction: 'requestReview',
+        userAction: 'REQUEST_REVIEW',
         comment: 'required',
         newStatus: 'WAS_CLOSED',
         redirectedPage: 'dashboard',
@@ -603,7 +603,7 @@ describe('Actioning reports', () => {
         userType: 'data wardens',
         user: mockDataWarden,
         currentStatus: 'AWAITING_REVIEW',
-        userAction: 'requestCorrection',
+        userAction: 'REQUEST_CORRECTION',
         comment: 'required',
         newStatus: 'NEEDS_UPDATING',
         redirectedPage: 'dashboard',
@@ -612,7 +612,7 @@ describe('Actioning reports', () => {
         userType: 'data wardens',
         user: mockDataWarden,
         currentStatus: 'AWAITING_REVIEW',
-        userAction: 'hold',
+        userAction: 'HOLD',
         comment: 'required',
         newStatus: 'ON_HOLD',
         redirectedPage: 'dashboard',
@@ -621,7 +621,7 @@ describe('Actioning reports', () => {
         userType: 'data wardens',
         user: mockDataWarden,
         currentStatus: 'AWAITING_REVIEW',
-        userAction: 'markNotReportable',
+        userAction: 'MARK_NOT_REPORTABLE',
         comment: 'optional',
         newStatus: 'NOT_REPORTABLE',
         redirectedPage: 'dashboard',
@@ -630,7 +630,7 @@ describe('Actioning reports', () => {
         userType: 'data wardens',
         user: mockDataWarden,
         currentStatus: 'ON_HOLD',
-        userAction: 'requestCorrection',
+        userAction: 'REQUEST_CORRECTION',
         comment: 'required',
         newStatus: 'NEEDS_UPDATING',
         redirectedPage: 'dashboard',
@@ -639,7 +639,7 @@ describe('Actioning reports', () => {
         userType: 'data wardens',
         user: mockDataWarden,
         currentStatus: 'ON_HOLD',
-        userAction: 'markNotReportable',
+        userAction: 'MARK_NOT_REPORTABLE',
         comment: 'optional',
         newStatus: 'NOT_REPORTABLE',
         redirectedPage: 'dashboard',
@@ -648,7 +648,7 @@ describe('Actioning reports', () => {
         userType: 'data wardens',
         user: mockDataWarden,
         currentStatus: 'UPDATED',
-        userAction: 'requestCorrection',
+        userAction: 'REQUEST_CORRECTION',
         comment: 'required',
         newStatus: 'NEEDS_UPDATING',
         redirectedPage: 'dashboard',
@@ -657,7 +657,7 @@ describe('Actioning reports', () => {
         userType: 'data wardens',
         user: mockDataWarden,
         currentStatus: 'UPDATED',
-        userAction: 'hold',
+        userAction: 'HOLD',
         comment: 'required',
         newStatus: 'ON_HOLD',
         redirectedPage: 'dashboard',
@@ -666,7 +666,7 @@ describe('Actioning reports', () => {
         userType: 'data wardens',
         user: mockDataWarden,
         currentStatus: 'UPDATED',
-        userAction: 'markNotReportable',
+        userAction: 'MARK_NOT_REPORTABLE',
         comment: 'optional',
         newStatus: 'NOT_REPORTABLE',
         redirectedPage: 'dashboard',
@@ -675,7 +675,7 @@ describe('Actioning reports', () => {
         userType: 'data wardens',
         user: mockDataWarden,
         currentStatus: 'WAS_CLOSED',
-        userAction: 'requestCorrection',
+        userAction: 'REQUEST_CORRECTION',
         comment: 'required',
         newStatus: 'REOPENED',
         redirectedPage: 'dashboard',
@@ -684,7 +684,7 @@ describe('Actioning reports', () => {
         userType: 'data wardens',
         user: mockDataWarden,
         currentStatus: 'WAS_CLOSED',
-        userAction: 'markNotReportable',
+        userAction: 'MARK_NOT_REPORTABLE',
         comment: 'optional',
         newStatus: 'NOT_REPORTABLE',
         redirectedPage: 'dashboard',
@@ -694,7 +694,7 @@ describe('Actioning reports', () => {
         userType: 'data wardens',
         user: mockDataWarden,
         currentStatus: 'AWAITING_REVIEW',
-        userAction: 'markDuplicate',
+        userAction: 'MARK_DUPLICATE',
         comment: 'optional',
         needsOriginalReportReference: true,
         newStatus: 'DUPLICATE',
@@ -704,7 +704,7 @@ describe('Actioning reports', () => {
         userType: 'data wardens',
         user: mockDataWarden,
         currentStatus: 'ON_HOLD',
-        userAction: 'markDuplicate',
+        userAction: 'MARK_DUPLICATE',
         comment: 'optional',
         needsOriginalReportReference: true,
         newStatus: 'DUPLICATE',
@@ -714,7 +714,7 @@ describe('Actioning reports', () => {
         userType: 'data wardens',
         user: mockDataWarden,
         currentStatus: 'UPDATED',
-        userAction: 'markDuplicate',
+        userAction: 'MARK_DUPLICATE',
         comment: 'optional',
         needsOriginalReportReference: true,
         newStatus: 'DUPLICATE',
@@ -724,7 +724,7 @@ describe('Actioning reports', () => {
         userType: 'data wardens',
         user: mockDataWarden,
         currentStatus: 'WAS_CLOSED',
-        userAction: 'markDuplicate',
+        userAction: 'MARK_DUPLICATE',
         comment: 'optional',
         needsOriginalReportReference: true,
         newStatus: 'DUPLICATE',
@@ -738,12 +738,12 @@ describe('Actioning reports', () => {
           userAction: UserAction
           originalReportReference?: string
         } & {
-          [C in `${UserAction}Comment`]?: string
+          [C in `${UserAction}_COMMENT`]?: string
         }
 
         const validPayload: Payload = { userAction }
         if (comment === 'required') {
-          validPayload[`${userAction}Comment`] = 'My comment on this action'
+          validPayload[`${userAction}_COMMENT`] = 'My comment on this action'
         }
         if (needsOriginalReportReference) {
           validPayload.originalReportReference = '1234'
@@ -786,7 +786,7 @@ describe('Actioning reports', () => {
               } else {
                 expect(incidentReportingApi.getReportByReference).not.toHaveBeenCalled()
               }
-              if (userAction === 'requestReview') {
+              if (userAction === 'REQUEST_REVIEW') {
                 expect(incidentReportingApi.updateReport).toHaveBeenCalledWith(mockedReport.id, {
                   title: 'Assault: Arnold A1111AA, Benjamin A2222BB (Moorland (HMP & YOI))',
                 })
@@ -842,14 +842,14 @@ describe('Actioning reports', () => {
               .post(viewReportUrl)
               .send({
                 ...validPayload,
-                [`${userAction}Comment`]: '',
+                [`${userAction}_COMMENT`]: '',
               } satisfies Payload)
               .expect(200)
               .expect(res => {
                 expect(res.text).toContain('There is a problem')
-                if (userAction === 'requestReview') {
+                if (userAction === 'REQUEST_REVIEW') {
                   expect(res.text).toContain('Enter what has changed in the report')
-                } else if (userAction === 'markNotReportable') {
+                } else if (userAction === 'MARK_NOT_REPORTABLE') {
                   expect(res.text).toContain('Describe why incident is not reportable')
                 } else {
                   expect(res.text).toContain('Please enter a comment')
@@ -868,7 +868,7 @@ describe('Actioning reports', () => {
               .post(viewReportUrl)
               .send({
                 ...validPayload,
-                [`${userAction}Comment`]: '',
+                [`${userAction}_COMMENT`]: '',
               } satisfies Payload)
               .expect(302)
               .expect(res => {
@@ -983,12 +983,12 @@ describe('Actioning reports', () => {
       redirectedPage: string
     }
     const redirectScenarios: RedirectScenarios[] = [
-      { currentStatus: 'DRAFT', userAction: 'requestRemoval', redirectedPage: 'request-remove' },
-      { currentStatus: 'NEEDS_UPDATING', userAction: 'requestRemoval', redirectedPage: 'request-remove' },
-      { currentStatus: 'REOPENED', userAction: 'requestRemoval', redirectedPage: 'request-remove' },
-      { currentStatus: 'CLOSED', userAction: 'recall', redirectedPage: 'reopen' },
-      { currentStatus: 'DUPLICATE', userAction: 'recall', redirectedPage: 'reopen' },
-      { currentStatus: 'NOT_REPORTABLE', userAction: 'recall', redirectedPage: 'reopen' },
+      { currentStatus: 'DRAFT', userAction: 'REQUEST_REMOVAL', redirectedPage: 'request-remove' },
+      { currentStatus: 'NEEDS_UPDATING', userAction: 'REQUEST_REMOVAL', redirectedPage: 'request-remove' },
+      { currentStatus: 'REOPENED', userAction: 'REQUEST_REMOVAL', redirectedPage: 'request-remove' },
+      { currentStatus: 'CLOSED', userAction: 'RECALL', redirectedPage: 'reopen' },
+      { currentStatus: 'DUPLICATE', userAction: 'RECALL', redirectedPage: 'reopen' },
+      { currentStatus: 'NOT_REPORTABLE', userAction: 'RECALL', redirectedPage: 'reopen' },
     ]
     describe.each(redirectScenarios)(
       'when reporting officers try to perform $userAction on report with status $currentStatus',
@@ -1020,7 +1020,7 @@ describe('Actioning reports', () => {
         makeReportValid()
       })
 
-      describe.each(userActions.filter(({ code: userAction }) => !['view', 'edit'].includes(userAction)))(
+      describe.each(userActions.filter(({ code: userAction }) => !['VIEW', 'EDIT'].includes(userAction)))(
         'cannot take action $code',
         ({ code: userAction }) => {
           it.each(statuses)('on a report with status $code', ({ code: status }) => {

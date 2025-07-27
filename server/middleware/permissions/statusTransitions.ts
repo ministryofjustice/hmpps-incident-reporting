@@ -47,24 +47,24 @@ export type Transition = {
  * - presence of a user action does not guarantee permission: report location and validity also matter
  */
 export const prisonReportTransitions: Transitions = {
-  reportingOfficer: {
+  REPORTING_OFFICER: {
     DRAFT: {
-      edit: {},
-      requestReview: {
+      EDIT: {},
+      REQUEST_REVIEW: {
         newStatus: 'AWAITING_REVIEW',
         mustBeValid: true,
         label: 'Submit',
         successBanner: 'You have submitted incident report $reportReference',
       },
-      requestRemoval: { newStatus: 'AWAITING_REVIEW', label: 'Request to remove report' },
+      REQUEST_REMOVAL: { newStatus: 'AWAITING_REVIEW', label: 'Request to remove report' },
     },
     AWAITING_REVIEW: {
-      edit: { newStatus: 'DRAFT' },
-      recall: { newStatus: 'DRAFT' },
+      EDIT: { newStatus: 'DRAFT' },
+      RECALL: { newStatus: 'DRAFT' },
     },
     NEEDS_UPDATING: {
-      edit: {},
-      requestReview: {
+      EDIT: {},
+      REQUEST_REVIEW: {
         newStatus: 'UPDATED',
         mustBeValid: true,
         label: 'Resubmit',
@@ -72,23 +72,23 @@ export const prisonReportTransitions: Transitions = {
         commentLabel: 'Describe what has changed in the report',
         successBanner: 'You have resubmitted incident report $reportReference',
       },
-      requestRemoval: { newStatus: 'UPDATED', label: 'Request to remove report' },
+      REQUEST_REMOVAL: { newStatus: 'UPDATED', label: 'Request to remove report' },
     },
     UPDATED: {
-      recall: { newStatus: 'NEEDS_UPDATING' },
+      RECALL: { newStatus: 'NEEDS_UPDATING' },
     },
     CLOSED: {
-      recall: { newStatus: 'REOPENED' },
+      RECALL: { newStatus: 'REOPENED' },
     },
     DUPLICATE: {
-      recall: { newStatus: 'NEEDS_UPDATING' },
+      RECALL: { newStatus: 'NEEDS_UPDATING' },
     },
     NOT_REPORTABLE: {
-      recall: { newStatus: 'NEEDS_UPDATING' },
+      RECALL: { newStatus: 'NEEDS_UPDATING' },
     },
     REOPENED: {
-      edit: {},
-      requestReview: {
+      EDIT: {},
+      REQUEST_REVIEW: {
         newStatus: 'WAS_CLOSED',
         mustBeValid: true,
         label: 'Resubmit',
@@ -96,35 +96,35 @@ export const prisonReportTransitions: Transitions = {
         commentLabel: 'Describe what has changed in the report',
         successBanner: 'You have resubmitted incident report $reportReference',
       },
-      requestRemoval: { newStatus: 'WAS_CLOSED', label: 'Request to remove report' },
+      REQUEST_REMOVAL: { newStatus: 'WAS_CLOSED', label: 'Request to remove report' },
     },
     WAS_CLOSED: {
-      recall: { newStatus: 'REOPENED' },
+      RECALL: { newStatus: 'REOPENED' },
     },
   },
-  dataWarden: {
+  DATA_WARDEN: {
     AWAITING_REVIEW: {
-      close: {
+      CLOSE: {
         newStatus: 'CLOSED',
         mustBeValid: true,
         label: 'Close',
         successBanner: 'Incident report $reportReference has been marked as closed',
       },
-      requestCorrection: {
+      REQUEST_CORRECTION: {
         newStatus: 'NEEDS_UPDATING',
         label: 'Send back',
         comment: 'required',
         commentLabel: 'Describe why the report is being sent back',
         successBanner: 'Incident report $reportReference has been sent back',
       },
-      hold: {
+      HOLD: {
         newStatus: 'ON_HOLD',
         label: 'Put on hold',
         comment: 'required', // TODO: maybe this should be optional?
         commentLabel: 'Describe why the report is being put on hold',
         successBanner: 'Incident report $reportReference has been put on hold',
       },
-      markDuplicate: {
+      MARK_DUPLICATE: {
         newStatus: 'DUPLICATE',
         label: 'Mark as a duplicate',
         comment: 'optional',
@@ -132,7 +132,7 @@ export const prisonReportTransitions: Transitions = {
         originalReportReferenceRequired: true,
         successBanner: 'Report $reportReference has been marked as duplicate',
       },
-      markNotReportable: {
+      MARK_NOT_REPORTABLE: {
         newStatus: 'NOT_REPORTABLE',
         label: 'Mark as not reportable',
         comment: 'optional',
@@ -141,20 +141,20 @@ export const prisonReportTransitions: Transitions = {
       },
     },
     ON_HOLD: {
-      close: {
+      CLOSE: {
         newStatus: 'CLOSED',
         mustBeValid: true,
         label: 'Close',
         successBanner: 'Incident report $reportReference has been marked as closed',
       },
-      requestCorrection: {
+      REQUEST_CORRECTION: {
         newStatus: 'NEEDS_UPDATING',
         label: 'Send back',
         comment: 'required',
         commentLabel: 'Describe why the report is being sent back',
         successBanner: 'Incident report $reportReference has been sent back',
       },
-      markDuplicate: {
+      MARK_DUPLICATE: {
         newStatus: 'DUPLICATE',
         label: 'Mark as a duplicate',
         comment: 'optional',
@@ -162,7 +162,7 @@ export const prisonReportTransitions: Transitions = {
         originalReportReferenceRequired: true,
         successBanner: 'Report $reportReference has been marked as duplicate',
       },
-      markNotReportable: {
+      MARK_NOT_REPORTABLE: {
         newStatus: 'NOT_REPORTABLE',
         label: 'Mark as not reportable',
         comment: 'optional',
@@ -171,30 +171,30 @@ export const prisonReportTransitions: Transitions = {
       },
     },
     NEEDS_UPDATING: {
-      recall: { newStatus: 'UPDATED' },
+      RECALL: { newStatus: 'UPDATED' },
     },
     UPDATED: {
-      close: {
+      CLOSE: {
         newStatus: 'CLOSED',
         mustBeValid: true,
         label: 'Close',
         successBanner: 'Incident report $reportReference has been marked as closed',
       },
-      requestCorrection: {
+      REQUEST_CORRECTION: {
         newStatus: 'NEEDS_UPDATING',
         label: 'Send back',
         comment: 'required',
         commentLabel: 'Describe why the report is being sent back',
         successBanner: 'Incident report $reportReference has been sent back',
       },
-      hold: {
+      HOLD: {
         newStatus: 'ON_HOLD',
         label: 'Put on hold',
         comment: 'required', // TODO: maybe this should be optional?
         commentLabel: 'Describe why the report is being put on hold',
         successBanner: 'Incident report $reportReference has been put on hold',
       },
-      markDuplicate: {
+      MARK_DUPLICATE: {
         newStatus: 'DUPLICATE',
         label: 'Mark as a duplicate',
         comment: 'optional',
@@ -202,7 +202,7 @@ export const prisonReportTransitions: Transitions = {
         originalReportReferenceRequired: true,
         successBanner: 'Report $reportReference has been marked as duplicate',
       },
-      markNotReportable: {
+      MARK_NOT_REPORTABLE: {
         newStatus: 'NOT_REPORTABLE',
         label: 'Mark as not reportable',
         comment: 'optional',
@@ -211,32 +211,32 @@ export const prisonReportTransitions: Transitions = {
       },
     },
     CLOSED: {
-      recall: { newStatus: 'UPDATED' },
+      RECALL: { newStatus: 'UPDATED' },
     },
     DUPLICATE: {
-      recall: { newStatus: 'UPDATED' },
+      RECALL: { newStatus: 'UPDATED' },
     },
     NOT_REPORTABLE: {
-      recall: { newStatus: 'UPDATED' },
+      RECALL: { newStatus: 'UPDATED' },
     },
     REOPENED: {
-      recall: { newStatus: 'WAS_CLOSED' },
+      RECALL: { newStatus: 'WAS_CLOSED' },
     },
     WAS_CLOSED: {
-      close: {
+      CLOSE: {
         newStatus: 'CLOSED',
         mustBeValid: true,
         label: 'Close',
         successBanner: 'Incident report $reportReference has been marked as closed',
       },
-      requestCorrection: {
+      REQUEST_CORRECTION: {
         newStatus: 'REOPENED',
         label: 'Send back',
         comment: 'required',
         commentLabel: 'Describe why the report is being sent back',
         successBanner: 'Incident report $reportReference has been sent back',
       },
-      markDuplicate: {
+      MARK_DUPLICATE: {
         newStatus: 'DUPLICATE',
         label: 'Mark as a duplicate',
         comment: 'optional',
@@ -244,7 +244,7 @@ export const prisonReportTransitions: Transitions = {
         originalReportReferenceRequired: true,
         successBanner: 'Report $reportReference has been marked as duplicate',
       },
-      markNotReportable: {
+      MARK_NOT_REPORTABLE: {
         newStatus: 'NOT_REPORTABLE',
         label: 'Mark as not reportable',
         comment: 'optional',
@@ -266,21 +266,21 @@ export const prisonReportTransitions: Transitions = {
  * TODO: not confirmed, eg: is on-hold needed?
  */
 export const pecsReportTransitions: Transitions = {
-  dataWarden: {
+  DATA_WARDEN: {
     DRAFT: {
-      edit: {},
-      close: { newStatus: 'CLOSED', mustBeValid: true },
-      markDuplicate: { newStatus: 'DUPLICATE' },
-      markNotReportable: { newStatus: 'NOT_REPORTABLE' },
+      EDIT: {},
+      CLOSE: { newStatus: 'CLOSED', mustBeValid: true },
+      MARK_DUPLICATE: { newStatus: 'DUPLICATE' },
+      MARK_NOT_REPORTABLE: { newStatus: 'NOT_REPORTABLE' },
     },
     CLOSED: {
-      recall: { newStatus: 'DRAFT' },
+      RECALL: { newStatus: 'DRAFT' },
     },
     DUPLICATE: {
-      recall: { newStatus: 'DRAFT' },
+      RECALL: { newStatus: 'DRAFT' },
     },
     NOT_REPORTABLE: {
-      recall: { newStatus: 'DRAFT' },
+      RECALL: { newStatus: 'DRAFT' },
     },
   },
 }

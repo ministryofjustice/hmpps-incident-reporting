@@ -21,4 +21,4 @@ const reopenWizardRouter = FormWizard(steps, fields, {
 reopenWizardRouter.mergeParams = true
 // eslint-disable-next-line import/prefer-default-export
 export const reopenRouter = express.Router({ mergeParams: true })
-reopenRouter.use(populateReport(false), logoutUnless(hasPermissionTo('recall')), reopenWizardRouter)
+reopenRouter.use(populateReport(false), logoutUnless(hasPermissionTo('RECALL')), reopenWizardRouter)

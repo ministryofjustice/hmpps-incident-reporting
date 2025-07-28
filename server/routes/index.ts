@@ -6,6 +6,7 @@ import type { Services } from '../services'
 import { PrisonApi } from '../data/prisonApi'
 import makeDownloadConfigRouter from './downloadReportConfig'
 import { createReportRouter } from './reports/createReportRouter'
+import { lookupReference } from './reports/lookupReference'
 import { changeTypeRouter } from './reports/details/changeType'
 import { updateDetailsRouter } from './reports/details/updateReportDetails'
 import { updateIncidentDateAndTimeRouter } from './reports/details/updateIncidentDateAndTime'
@@ -42,6 +43,7 @@ export default function routes(services: Services): Router {
   // creating and editing a report
   router.use('/reports', dashboard())
   router.use('/create-report', createReportRouter)
+  router.get('/reports/incident-number/:reference', lookupReference)
   router.use('/reports/:reportId', viewReportRouter())
   router.use('/reports/:reportId/history', historyRouter())
   router.use('/reports/:reportId/reopen', reopenRouter)

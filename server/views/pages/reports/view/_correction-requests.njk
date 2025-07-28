@@ -1,25 +1,53 @@
 {% from "moj/components/timeline/macro.njk" import mojTimeline %}
 
-{# TODO: does not match design since component requires date to be on separate line and by-line cannot be replaced with it #}
-
 {% if report.correctionRequests.length > 0 %}
 
   {% set items = [] %}
   {% for correctionRequest in report.correctionRequests | sortCorrectionRequests %}
-    {% set comment %}
-      {# TODO: preliminary build: does not support all possible forms of comments #}
+    {% set label %}
+      {%- if correctionRequest.userAction == "REQUEST_REVIEW" -%}
+        Resubmitted
+      {%- elif correctionRequest.userAction == "REQUEST_DUPLICATE" -%}
+        Request to remove duplicate report
+      {%- elif correctionRequest.userAction == "REQUEST_NOT_REPORTABLE" -%}
+        Request to remove not reportable incident
+      {%- elif correctionRequest.userAction == "REQUEST_CORRECTION" -%}
+        Sent back
+      {%- elif correctionRequest.userAction == "HOLD" -%}
+        Put on hold
+      {%- elif correctionRequest.userAction == "MARK_DUPLICATE" -%}
+        Report removed because of duplication
+      {%- elif correctionRequest.userAction == "MARK_NOT_REPORTABLE" -%}
+        Report removed because incident not reportable
+      {%- elif correctionRequest.userAction == "CLOSE" -%}
+        Closed
+      {%- else -%}
+        Comment
+      {%- endif -%}
+    {% endset %}
+
+    {% set commentHtml %}
+      {% if correctionRequest.originalReportReference %}
+        Original report: <a href="/reports/incident-number/{{ correctionRequest.originalReportReference }}">{{ correctionRequest.originalReportReference }}</a>
+        {% if correctionRequest.descriptionOfChange %}
+          <br />
+        {% endif %}
+      {% endif %}
       {{ correctionRequest.descriptionOfChange | escape | nl2br }}
     {% endset %}
 
     {% set _ = items.push({
       label: {
+        text: label
+      },
+      byline: {
         text: usersLookup[correctionRequest.correctionRequestedBy].name or correctionRequest.correctionRequestedBy
       },
       datetime: {
         timestamp: correctionRequest.correctionRequestedAt | longDateAndTime,
         type: "custom"
       },
-      html: comment
+      html: commentHtml
     }) %}
   {% endfor %}
 

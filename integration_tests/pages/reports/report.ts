@@ -24,6 +24,7 @@ export default class ReportPage extends Page {
   get commentsTimelineContents(): Cypress.Chainable<
     {
       title: string
+      byLine: string
       date: string
       description: string
     }[]
@@ -34,9 +35,10 @@ export default class ReportPage extends Page {
         .map((_, itemDiv: HTMLDivElement) => {
           const $itemDiv = Cypress.$(itemDiv)
           const title = $itemDiv.find('.moj-timeline__title').text().trim()
+          const byLine = $itemDiv.find('.moj-timeline__byline').text().trim()
           const date = $itemDiv.find('.moj-timeline__date').text().trim()
           const description = $itemDiv.find('.moj-timeline__description').text().trim()
-          return { title, date, description }
+          return { title, byLine, date, description }
         })
         .toArray()
     })

@@ -188,13 +188,17 @@ export function mockCorrectionRequest(index: number, correctionRequestedAt: Date
     case 0:
       return {
         descriptionOfChange: 'Please amend question 2',
+        userAction: 'REQUEST_CORRECTION',
+        userType: 'DATA_WARDEN',
         correctionRequestedBy: 'USER2',
         correctionRequestedAt: format.isoDateTime(correctionRequestedAt),
       }
     case 1:
       return {
-        descriptionOfChange: 'Name misspelled',
-        correctionRequestedBy: 'USER2',
+        descriptionOfChange: 'Q2 fixed',
+        userAction: 'REQUEST_REVIEW',
+        userType: 'REPORTING_OFFICER',
+        correctionRequestedBy: 'user1',
         correctionRequestedAt: format.isoDateTime(correctionRequestedAt),
       }
     default:

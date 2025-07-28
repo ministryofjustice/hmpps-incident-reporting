@@ -8,15 +8,35 @@ export type Transitions = {
     /** …and a report with this status… */
     [S in Status]?: {
       /** …they can possibly perform this action */
-      [A in UserAction]?: {
-        /** If action is performed, should report status also be changed? */
-        newStatus?: Status
-        /** Is report required to be valid before action is performed? */
-        mustBeValid?: boolean
-      }
+      [A in UserAction]?: Transition
     }
   }
 }
+
+export type Transition = {
+  /** If action is performed, should report status also be changed? */
+  newStatus?: Status
+  /** Is report required to be valid before action is performed? */
+  mustBeValid?: boolean
+  /** Radio button label as the users will see within the form on report page */
+  label?: string
+  /** Is a valid incident report number required to mark as duplicate? */
+  originalReportReferenceRequired?: boolean
+  /** Message in success banner when landing back onto reports screen.
+   * `$reportReference` will be replaced with actual value during banner implementation */
+  successBanner?: string
+} & (
+  | {
+      /** Action does not permit a comment */
+      comment?: undefined
+    }
+  | {
+      /** Action allows or requires a comment */
+      comment: 'optional' | 'required'
+      /** Associated label for comment box */
+      commentLabel: string
+    }
+)
 
 /**
  * Given a prison report and a user of a particular type, what *modifying* actions are possible
@@ -30,9 +50,13 @@ export const prisonReportTransitions: Transitions = {
   reportingOfficer: {
     DRAFT: {
       edit: {},
-      requestDuplicate: { newStatus: 'AWAITING_REVIEW' },
-      requestNotReportable: { newStatus: 'AWAITING_REVIEW' },
-      requestReview: { newStatus: 'AWAITING_REVIEW', mustBeValid: true },
+      requestReview: {
+        newStatus: 'AWAITING_REVIEW',
+        mustBeValid: true,
+        label: 'Submit',
+        successBanner: 'You have submitted incident report $reportReference',
+      },
+      requestRemoval: { newStatus: 'AWAITING_REVIEW', label: 'Request to remove report' },
     },
     AWAITING_REVIEW: {
       edit: { newStatus: 'DRAFT' },
@@ -40,55 +64,151 @@ export const prisonReportTransitions: Transitions = {
     },
     NEEDS_UPDATING: {
       edit: {},
-      requestDuplicate: { newStatus: 'UPDATED' },
-      requestNotReportable: { newStatus: 'UPDATED' },
-      requestReview: { newStatus: 'UPDATED', mustBeValid: true },
+      requestReview: {
+        newStatus: 'UPDATED',
+        mustBeValid: true,
+        label: 'Resubmit',
+        comment: 'required',
+        commentLabel: 'Describe what has changed in the report',
+        successBanner: 'You have resubmitted incident report $reportReference',
+      },
+      requestRemoval: { newStatus: 'UPDATED', label: 'Request to remove report' },
     },
     UPDATED: {
-      recall: { newStatus: 'DRAFT' },
+      recall: { newStatus: 'NEEDS_UPDATING' },
     },
     CLOSED: {
-      recall: { newStatus: 'DRAFT' },
+      recall: { newStatus: 'REOPENED' },
     },
     DUPLICATE: {
-      recall: { newStatus: 'DRAFT' },
+      recall: { newStatus: 'NEEDS_UPDATING' },
     },
     NOT_REPORTABLE: {
-      recall: { newStatus: 'DRAFT' },
+      recall: { newStatus: 'NEEDS_UPDATING' },
     },
     REOPENED: {
       edit: {},
-      requestDuplicate: { newStatus: 'WAS_CLOSED' },
-      requestNotReportable: { newStatus: 'WAS_CLOSED' },
-      requestReview: { newStatus: 'WAS_CLOSED', mustBeValid: true },
+      requestReview: {
+        newStatus: 'WAS_CLOSED',
+        mustBeValid: true,
+        label: 'Resubmit',
+        comment: 'required',
+        commentLabel: 'Describe what has changed in the report',
+        successBanner: 'You have resubmitted incident report $reportReference',
+      },
+      requestRemoval: { newStatus: 'WAS_CLOSED', label: 'Request to remove report' },
     },
     WAS_CLOSED: {
-      recall: { newStatus: 'DRAFT' },
+      recall: { newStatus: 'REOPENED' },
     },
   },
   dataWarden: {
     AWAITING_REVIEW: {
-      requestCorrection: { newStatus: 'NEEDS_UPDATING' },
-      close: { newStatus: 'CLOSED', mustBeValid: true },
-      markDuplicate: { newStatus: 'DUPLICATE' },
-      markNotReportable: { newStatus: 'NOT_REPORTABLE' },
-      hold: { newStatus: 'ON_HOLD' },
+      close: {
+        newStatus: 'CLOSED',
+        mustBeValid: true,
+        label: 'Close',
+        successBanner: 'Incident report $reportReference has been marked as closed',
+      },
+      requestCorrection: {
+        newStatus: 'NEEDS_UPDATING',
+        label: 'Send back',
+        comment: 'required',
+        commentLabel: 'Describe why the report is being sent back',
+        successBanner: 'Incident report $reportReference has been sent back',
+      },
+      hold: {
+        newStatus: 'ON_HOLD',
+        label: 'Put on hold',
+        comment: 'required', // TODO: maybe this should be optional?
+        commentLabel: 'Describe why the report is being put on hold',
+        successBanner: 'Incident report $reportReference has been put on hold',
+      },
+      markDuplicate: {
+        newStatus: 'DUPLICATE',
+        label: 'Mark as a duplicate',
+        comment: 'optional',
+        commentLabel: 'Describe why it is a duplicate report (optional)',
+        originalReportReferenceRequired: true,
+        successBanner: 'Report $reportReference has been marked as duplicate',
+      },
+      markNotReportable: {
+        newStatus: 'NOT_REPORTABLE',
+        label: 'Mark as not reportable',
+        comment: 'optional',
+        commentLabel: 'Describe why it is not reportable (optional)',
+        successBanner: 'Report $reportReference has been marked as not reportable',
+      },
     },
     ON_HOLD: {
-      requestCorrection: { newStatus: 'NEEDS_UPDATING' },
-      close: { newStatus: 'CLOSED', mustBeValid: true },
-      markDuplicate: { newStatus: 'DUPLICATE' },
-      markNotReportable: { newStatus: 'NOT_REPORTABLE' },
+      close: {
+        newStatus: 'CLOSED',
+        mustBeValid: true,
+        label: 'Close',
+        successBanner: 'Incident report $reportReference has been marked as closed',
+      },
+      requestCorrection: {
+        newStatus: 'NEEDS_UPDATING',
+        label: 'Send back',
+        comment: 'required',
+        commentLabel: 'Describe why the report is being sent back',
+        successBanner: 'Incident report $reportReference has been sent back',
+      },
+      markDuplicate: {
+        newStatus: 'DUPLICATE',
+        label: 'Mark as a duplicate',
+        comment: 'optional',
+        commentLabel: 'Describe why it is a duplicate report (optional)',
+        originalReportReferenceRequired: true,
+        successBanner: 'Report $reportReference has been marked as duplicate',
+      },
+      markNotReportable: {
+        newStatus: 'NOT_REPORTABLE',
+        label: 'Mark as not reportable',
+        comment: 'optional',
+        commentLabel: 'Describe why it is not reportable (optional)',
+        successBanner: 'Report $reportReference has been marked as not reportable',
+      },
     },
     NEEDS_UPDATING: {
       recall: { newStatus: 'UPDATED' },
     },
     UPDATED: {
-      requestCorrection: { newStatus: 'NEEDS_UPDATING' },
-      close: { newStatus: 'CLOSED', mustBeValid: true },
-      markDuplicate: { newStatus: 'DUPLICATE' },
-      markNotReportable: { newStatus: 'NOT_REPORTABLE' },
-      hold: { newStatus: 'ON_HOLD' },
+      close: {
+        newStatus: 'CLOSED',
+        mustBeValid: true,
+        label: 'Close',
+        successBanner: 'Incident report $reportReference has been marked as closed',
+      },
+      requestCorrection: {
+        newStatus: 'NEEDS_UPDATING',
+        label: 'Send back',
+        comment: 'required',
+        commentLabel: 'Describe why the report is being sent back',
+        successBanner: 'Incident report $reportReference has been sent back',
+      },
+      hold: {
+        newStatus: 'ON_HOLD',
+        label: 'Put on hold',
+        comment: 'required', // TODO: maybe this should be optional?
+        commentLabel: 'Describe why the report is being put on hold',
+        successBanner: 'Incident report $reportReference has been put on hold',
+      },
+      markDuplicate: {
+        newStatus: 'DUPLICATE',
+        label: 'Mark as a duplicate',
+        comment: 'optional',
+        commentLabel: 'Describe why it is a duplicate report (optional)',
+        originalReportReferenceRequired: true,
+        successBanner: 'Report $reportReference has been marked as duplicate',
+      },
+      markNotReportable: {
+        newStatus: 'NOT_REPORTABLE',
+        label: 'Mark as not reportable',
+        comment: 'optional',
+        commentLabel: 'Describe why it is not reportable (optional)',
+        successBanner: 'Report $reportReference has been marked as not reportable',
+      },
     },
     CLOSED: {
       recall: { newStatus: 'UPDATED' },
@@ -103,10 +223,34 @@ export const prisonReportTransitions: Transitions = {
       recall: { newStatus: 'WAS_CLOSED' },
     },
     WAS_CLOSED: {
-      requestCorrection: { newStatus: 'REOPENED' },
-      close: { newStatus: 'CLOSED', mustBeValid: true },
-      markDuplicate: { newStatus: 'DUPLICATE' },
-      markNotReportable: { newStatus: 'NOT_REPORTABLE' },
+      close: {
+        newStatus: 'CLOSED',
+        mustBeValid: true,
+        label: 'Close',
+        successBanner: 'Incident report $reportReference has been marked as closed',
+      },
+      requestCorrection: {
+        newStatus: 'REOPENED',
+        label: 'Send back',
+        comment: 'required',
+        commentLabel: 'Describe why the report is being sent back',
+        successBanner: 'Incident report $reportReference has been sent back',
+      },
+      markDuplicate: {
+        newStatus: 'DUPLICATE',
+        label: 'Mark as a duplicate',
+        comment: 'optional',
+        commentLabel: 'Describe why it is a duplicate report (optional)',
+        originalReportReferenceRequired: true,
+        successBanner: 'Report $reportReference has been marked as duplicate',
+      },
+      markNotReportable: {
+        newStatus: 'NOT_REPORTABLE',
+        label: 'Mark as not reportable',
+        comment: 'optional',
+        commentLabel: 'Describe why it is not reportable (optional)',
+        successBanner: 'Report $reportReference has been marked as not reportable',
+      },
     },
   },
 }

@@ -5,6 +5,23 @@ export default abstract class Page {
     return new constructor(...args)
   }
 
+  protected static choicesFromRadioInputs(inputElements: PageElement<HTMLInputElement>) {
+    return inputElements.then(inputs => {
+      return inputs
+        .map((_, input) => {
+          const $input = Cypress.$(input) as unknown as JQuery<HTMLInputElement>
+          return {
+            label: Cypress.$(`[for=${$input.attr('id')}]`)
+              .text()
+              .trim(),
+            value: $input.val(),
+            checked: $input.is(':checked'),
+          }
+        })
+        .toArray()
+    })
+  }
+
   protected constructor(
     protected readonly h1: string,
     protected readonly pageTitle?: string,

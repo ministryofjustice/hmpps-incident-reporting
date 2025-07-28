@@ -51,7 +51,7 @@ export function dprRouter(router: Router, services: Services): Router {
   router.get('/management-reporting', async (req, res) => {
     const { incidentReportingApi } = res.locals.apis
     const definitions = await populateRoutes(incidentReportingApi, router)
-    res.render('pages/managementReporting/index.njk', { definitions })
+    res.render('pages/managementReporting/index', { definitions })
   })
 
   return router

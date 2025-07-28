@@ -4,7 +4,6 @@ import { MethodNotAllowed } from 'http-errors'
 import logger from '../../../logger'
 import { regenerateTitleForReport } from '../../services/reportTitle'
 import {
-  type Status,
   aboutTheType,
   prisonerInvolvementOutcomes,
   prisonerInvolvementRoles,
@@ -12,13 +11,20 @@ import {
   statuses,
   types,
   dwNotReviewed,
+  workListMapping,
 } from '../../reportConfiguration/constants'
-import { logoutUnless, canViewReport } from '../../middleware/permissions'
+import {
+  logoutUnless,
+  hasPermissionTo,
+  parseUserActionCode,
+  prisonReportTransitions,
+  userActionMapping,
+  type UserAction,
+} from '../../middleware/permissions'
 import { populateReport } from '../../middleware/populateReport'
 import { populateReportConfiguration } from '../../middleware/populateReportConfiguration'
 import type { ReportWithDetails } from '../../data/incidentReportingApi'
-import type { QuestionProgressStep } from '../../data/incidentTypeConfiguration/questionProgress'
-import type { IncidentTypeConfiguration } from '../../data/incidentTypeConfiguration/types'
+import { validateReport } from '../../data/reportValidity'
 import type { GovukErrorSummaryItem } from '../../utils/govukFrontend'
 
 const typesLookup = Object.fromEntries(types.map(type => [type.code, type.description]))
@@ -45,13 +51,14 @@ export function viewReportRouter(): Router {
       }
     },
     populateReport(true),
-    logoutUnless(canViewReport),
+    logoutUnless(hasPermissionTo('view')),
     populateReportConfiguration(true),
     async (req, res) => {
       const { incidentReportingApi, prisonApi, userService } = res.locals.apis
 
       const report = res.locals.report as ReportWithDetails
       const { permissions, allowedActions, reportConfig, reportUrl, questionProgress } = res.locals
+      const { userType } = permissions
 
       const usernames = [report.reportedBy]
       if (report.correctionRequests) {
@@ -68,65 +75,166 @@ export function viewReportRouter(): Router {
       const allowedActionsInNomisOnly = permissions.allowedActionsOnReport(report, 'nomis')
       const canEditReportInNomisOnly = allowedActionsInNomisOnly.has('edit')
 
+      const allowedActionsNeedingForm = new Set<UserAction>()
+      for (const action of allowedActions) {
+        // these user actions are not part of this form
+        if (!['view', 'edit'].includes(action)) {
+          allowedActionsNeedingForm.add(action)
+        }
+      }
+
+      // TODO: PECS lookup is different
+      const reportTransitions = prisonReportTransitions?.[userType]?.[report.status] ?? {}
+
+      let formValues: object = {}
       const errors: GovukErrorSummaryItem[] = []
       if (req.method === 'POST') {
-        if (req.body?.userAction === 'submit') {
-          // TODO: will need to work for other statuses too once lifecycle confirmed
-          if (report.status !== 'DRAFT') {
-            // incorrect status; users would never reach here through normal actions
-            errors.push({
-              text: 'Only a draft report can be submitted',
-              href: '?',
-            })
-          } else if (!canEditReport) {
-            // missing edit permission; users would never reach here through normal actions
-            errors.push({
-              text: 'You do not have permission to submit this report',
-              href: '?',
-            })
-          } else {
-            // allowed to submit so check report for validity
-            for (const error of checkReportIsComplete(report, reportConfig, questionProgressSteps, reportUrl)) {
+        const { userAction } = req.body ?? {}
+        if (parseUserActionCode(userAction) && userAction in reportTransitions) {
+          const transition = reportTransitions[userAction]
+
+          if (
+            userAction === 'recall' &&
+            userType === 'reportingOfficer' &&
+            workListMapping.done.includes(report.status)
+          ) {
+            res.redirect(`${reportUrl}/reopen`)
+            return
+          }
+          if (userAction === 'requestRemoval') {
+            res.redirect(`${reportUrl}/request-remove`)
+            return
+          }
+
+          // check report is valid if required
+          // TODO: may need report.isValid flag or similar so that validation is forced when RO submits but is not repeated when DW closes
+          if (transition.mustBeValid) {
+            for (const error of validateReport(report, reportConfig, questionProgressSteps, reportUrl)) {
               errors.push(error)
             }
           }
 
-          if (errors.length === 0) {
-            // can submit for review
-            try {
-              // TODO: PECS regions need a different lookup
-              const newTitle = regenerateTitleForReport(
-                report,
-                prisonsLookup[report.location].description || report.location,
-              )
-              await incidentReportingApi.updateReport(report.id, {
-                title: newTitle,
-              })
+          const comment: string | undefined = req.body[`${userAction}Comment`]?.trim()
+          const originalReportReference: string | undefined = req.body.originalReportReference?.trim()
+          formValues = {
+            userAction,
+            [`${userAction}Comment`]: comment,
+            originalReportReference,
+          }
 
-              // TODO: will need to work for other statuses too once lifecycle confirmed
-              const newStatus: Status = 'AWAITING_REVIEW'
-              await incidentReportingApi.changeReportStatus(report.id, { newStatus })
-              // TODO: set report validation=true flag? not supported by api/db yet / ever will be?
+          // check comment if required
+          if (transition.comment === 'required') {
+            const nonWhitespace = /\S+/
+            if (!comment || !nonWhitespace.test(comment)) {
+              if (userAction === 'requestReview') {
+                errors.push({
+                  text: 'Enter what has changed in the report',
+                  href: `#${userAction}Comment`,
+                })
+              } else if (userAction === 'markNotReportable') {
+                errors.push({
+                  text: 'Describe why incident is not reportable',
+                  href: `#${userAction}Comment`,
+                })
+              } else {
+                // fallback
+                errors.push({
+                  text: 'Please enter a comment',
+                  href: `#${userAction}Comment`,
+                })
+              }
+            }
+          }
+
+          // check original incident number if required
+          if (transition.originalReportReferenceRequired) {
+            const numbersOnly = /\d+/
+            if (!originalReportReference || !numbersOnly.test(originalReportReference)) {
+              errors.push({
+                text: 'Enter a valid incident report number',
+                href: '#originalReportReference',
+              })
+            } else if (originalReportReference === report.reportReference) {
+              errors.push({
+                text: 'Enter a different report number',
+                href: '#originalReportReference',
+              })
+            } else {
+              try {
+                await incidentReportingApi.getReportByReference(originalReportReference)
+                logger.debug(`Original report incident number ${originalReportReference} does belong to a valid report`)
+              } catch (e) {
+                let errorMessage = 'Incident number could not be looked up, please try again'
+                if ('responseStatus' in e && e.responseStatus === 404) {
+                  logger.debug(
+                    `Original report incident number ${originalReportReference} does NOT belong to a valid report`,
+                  )
+                  errorMessage = 'Enter a valid incident report number'
+                }
+                errors.push({
+                  text: errorMessage,
+                  href: '#originalReportReference',
+                })
+              }
+            }
+          }
+
+          if (errors.length === 0) {
+            // can submit action
+            try {
+              if (userAction === 'requestReview') {
+                // TODO: regeneration will be moved elsewhere
+                // TODO: PECS regions need a different lookup
+                const newTitle = regenerateTitleForReport(
+                  report,
+                  prisonsLookup[report.location].description || report.location,
+                )
+                await incidentReportingApi.updateReport(report.id, {
+                  title: newTitle,
+                })
+              }
+
+              // TODO: post comment (ie. correction request) if necessary; use a helper function to create it
+
+              const { newStatus } = transition
+              if (newStatus && newStatus !== report.status) {
+                await incidentReportingApi.changeReportStatus(report.id, { newStatus })
+                // TODO: set report validation=true flag? not supported by api/db yet / ever will be?
+              }
 
               logger.info(
-                `Report ${report.reportReference} submitted for review and changed status from ${report.status} to ${newStatus}`,
+                `Report ${report.reportReference} actioned: “${userActionMapping[userAction].description}” (${userAction}), and changed status from ${report.status} to ${newStatus}`,
               )
-              req.flash('success', { title: `You have submitted incident report ${report.reportReference}` })
-              res.redirect('/reports')
+              const { successBanner } = transition
+              if (successBanner) {
+                req.flash('success', { title: successBanner.replace('$reportReference', report.reportReference) })
+              }
+
+              if (userAction === 'recall') {
+                res.redirect(reportUrl)
+              } else {
+                res.redirect('/reports')
+              }
               return
             } catch (e) {
-              logger.error(e, `Report ${report.reportReference} could not be submitted: %j`, e)
+              logger.error(e, `Report ${report.reportReference} status could not be changed: %j`, e)
               errors.push({
-                text: 'Report could not be submitted, please try again',
-                href: '#user-actions',
+                text: 'Sorry, there was a problem with your request',
+                href: '#userAction',
               })
             }
           }
         } else {
-          // failsafe; users would never reach here through normal actions
+          // submitted but action is not chosen, unknown or explicitly not allowed
+          const userActionError =
+            allowedActionsNeedingForm.size === 0
+              ? // User is not permitted to take any actions
+                'You do not have permission to action this report'
+              : // Ensures that users click an option before submitting
+                'Select what you want to do with this report'
           errors.push({
-            text: 'Unknown action, please try again',
-            href: '?',
+            text: userActionError,
+            href: '#userAction',
           })
         }
       }
@@ -144,9 +252,8 @@ export function viewReportRouter(): Router {
       res.render('pages/reports/view/index', {
         errors,
         banners,
-        report,
-        reportConfig,
         questionProgressSteps,
+        allowedActionsNeedingForm,
         canEditReport,
         canEditReportInNomisOnly,
         descriptionAppendOnly,
@@ -157,61 +264,12 @@ export function viewReportRouter(): Router {
         staffInvolvementLookup,
         typesLookup,
         statusLookup,
+        workListMapping,
+        reportTransitions,
+        formValues,
       })
     },
   )
 
   return router
-}
-
-/**
- * Generates error messages for incomplete reports:
- * - not all questions are complete
- * - prisoner involvements skipped initially
- * - prisoner involvements not added but incident type requires some
- * - staff involvements skipped initially
- * - staff involvements not added but incident type requires some
- */
-function* checkReportIsComplete(
-  report: ReportWithDetails,
-  reportConfig: IncidentTypeConfiguration,
-  questionProgressSteps: QuestionProgressStep[],
-  reportUrl: string,
-): Generator<GovukErrorSummaryItem, void, void> {
-  if (!report.prisonerInvolvementDone) {
-    // prisoners skipped, so must return
-    yield {
-      text: 'Please complete the prisoner involvement section',
-      href: `${reportUrl}/prisoners`,
-    }
-  } else if (report.prisonersInvolved.length === 0 && reportConfig.requiresPrisoners) {
-    // prisoner required
-    yield {
-      text: 'You need to add a prisoner',
-      href: `${reportUrl}/prisoners`,
-    }
-  }
-
-  if (!report.staffInvolvementDone) {
-    // staff skipped, so must return
-    yield {
-      text: 'Please complete the staff involvement section',
-      href: `${reportUrl}/staff`,
-    }
-  } else if (report.staffInvolved.length === 0 && reportConfig.requiresStaff) {
-    // staff required
-    yield {
-      text: 'You need to add a member of staff',
-      href: `${reportUrl}/staff`,
-    }
-  }
-
-  const lastQuestion = questionProgressSteps.at(-1)
-  if (!lastQuestion.isComplete) {
-    // last question is incomplete
-    yield {
-      text: `You must answer question ${lastQuestion.questionNumber}`,
-      href: `${reportUrl}/questions${lastQuestion.urlSuffix}`,
-    }
-  }
 }

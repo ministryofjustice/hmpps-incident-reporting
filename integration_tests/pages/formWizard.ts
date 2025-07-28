@@ -70,23 +70,10 @@ export default abstract class FormWizardPage extends Page {
   }
 
   /**
-   * Find the label for a radio or checkbox button
+   * Get the labels and values for a radio or checkbox button group
    */
-  protected radioOrCheckboxOptions(name: string) {
-    return this.findFormInput<HTMLInputElement>(name).then(inputs => {
-      return inputs
-        .map((_, input) => {
-          const $input = Cypress.$(input) as unknown as JQuery<HTMLInputElement>
-          return {
-            label: Cypress.$(`[for=${$input.attr('id')}]`)
-              .text()
-              .trim(),
-            value: $input.val(),
-            checked: $input.is(':checked'),
-          }
-        })
-        .toArray()
-    })
+  protected radioOrCheckboxChoices(name: string) {
+    return FormWizardPage.choicesFromRadioInputs(this.findFormInput<HTMLInputElement>(name))
   }
 
   protected saveAndContinueText = 'Continue'

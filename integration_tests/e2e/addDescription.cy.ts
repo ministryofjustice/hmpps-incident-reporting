@@ -69,7 +69,7 @@ context('Add to a report’s description after it’s been reviewed', () => {
 
     descriptionAddendumPage.submit()
 
-    const reportPage = Page.verifyOnPage(ReportPage, reportWithDetails.reportReference)
+    const reportPage = Page.verifyOnPage(ReportPage, reportWithDetails.reportReference, true)
     reportPage.checkNotificationBannerContent('You have added information to the description')
   })
 

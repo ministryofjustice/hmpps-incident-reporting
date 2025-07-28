@@ -1,7 +1,7 @@
 import express from 'express'
 
 import { populateReport } from '../../middleware/populateReport'
-import { logoutUnless, canCreateReportInActiveCaseload, canEditReport } from '../../middleware/permissions'
+import { logoutUnless, canCreateReportInActiveCaseload, hasPermissionTo } from '../../middleware/permissions'
 import { prisonerInvolvementRouter } from './prisoners'
 import { staffInvolvementRouter } from './staff'
 import { questionsRouter } from './questions'
@@ -26,7 +26,7 @@ const nestedRouter = express.Router({ mergeParams: true })
 createReportRouter.use('/:reportId', nestedRouter)
 
 // require report-editing permissions
-nestedRouter.use(populateReport(true), logoutUnless(canEditReport))
+nestedRouter.use(populateReport(true), logoutUnless(hasPermissionTo('edit')))
 
 // set url prefix for nested routes
 nestedRouter.use((req, res, next) => {

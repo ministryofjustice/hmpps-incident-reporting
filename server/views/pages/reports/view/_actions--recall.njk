@@ -1,0 +1,28 @@
+{% from "govuk/components/button/macro.njk" import govukButton %}
+
+{% if permissions.userType == "reportingOfficer" %}
+  {% if report.status in workListMapping.done %}
+    {% set buttonText = "Reopen and change report" %}
+  {% else %}
+    {% set buttonText = "Change report" %}
+  {% endif %}
+{% elif permissions.userType == "dataWarden" %}
+  {% set buttonText = "Change report status" %}
+{% else %}
+  {% panic "Recall form not implemented for " + permissions.userType %}
+{% endif %}
+
+<div class="govuk-button-group">
+  {{ govukButton({
+    text: buttonText,
+    name: "userAction",
+    value: "recall",
+    classes: "govuk-button--secondary",
+    preventDoubleClick: true,
+    type: "submit"
+  }) }}
+
+  <a href="/reports" class="govuk-link govuk-link--no-visited-state">
+    Back to incidents
+  </a>
+</div>

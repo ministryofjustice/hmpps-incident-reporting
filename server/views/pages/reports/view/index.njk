@@ -4,8 +4,17 @@
 {% from "govuk/components/button/macro.njk" import govukButton %}
 {% from "govuk/components/error-summary/macro.njk" import govukErrorSummary %}
 {% from "govuk/components/warning-text/macro.njk" import govukWarningText %}
+{% from "moj/components/alert/macro.njk" import mojAlert %}
 
-{% set pageTitle = "Incident report " + report.reportReference %}
+{% set pageTitle %}
+  {%- if canEditReport and report.status in workListMapping.toDo -%}
+    {#- TODO: consider location as well?  -#}
+    Check your answers – incident report {{ report.reportReference }}
+  {%- else -%}
+    Incident report {{ report.reportReference }}
+  {%- endif -%}
+{% endset %}
+
 {% set bodyClasses = "app-view-report" %}
 
 {% block beforeContent %}
@@ -26,6 +35,16 @@
 {% endblock %}
 
 {% block content %}
+  {% if permissions.userType == "reportingOfficer" and report.status == "ON_HOLD" %}
+    {# TODO: replace with link to actual email address #}
+    {{ mojAlert({
+      variant: "information",
+      title: "On hold",
+      showTitleAsHeading: true,
+      dismissible: false,
+      html: "A data warden has placed this report on hold, if you need to make an update contact (email address)"
+    }) }}
+  {% endif %}
 
   {% if errors.length > 0 %}
     {{ govukErrorSummary({
@@ -37,12 +56,7 @@
   {% include "partials/notificationBanner.njk" %}
 
   <h1 class="govuk-heading-l">
-    {% if report.status == "DRAFT" and canEditReport %}
-      {# TODO: this probably needs to show for certain other statuses too #}
-      Check your answers – incident report {{ report.reportReference }}
-    {% else %}
-      Incident report {{ report.reportReference }}
-    {% endif %}
+    {{ pageTitle }}
   </h1>
   <p>
     {# TODO: label will need to change for PECS regions #}
@@ -69,26 +83,6 @@
   {% include "./_prisoners.njk" %}
   {% include "./_staff.njk" %}
   {% include "./_questions.njk" %}
-
-  <form id="user-actions" method="post" novalidate>
-    <input type="hidden" name="_csrf" value="{{ csrfToken }}" />
-
-    <div class="govuk-button-group">
-      {# TODO: will need to work for other statuses too once lifecycle confirmed #}
-      {% if report.status == "DRAFT" and canEditReport %}
-        {{ govukButton({
-          text: "Submit",
-          name: "userAction",
-          value: "submit",
-          preventDoubleClick: true,
-          type: "submit"
-        }) }}
-      {% endif %}
-
-      <a href="/reports" class="govuk-link govuk-link--no-visited-state">
-        Back to incidents
-      </a>
-    </div>
-  </form>
+  {% include "./_actions.njk" %}
 
 {% endblock %}

@@ -627,7 +627,7 @@ describe('View report page', () => {
     it('should render a correction request for REQUEST_DUPLICATE action', () => {
       mockedReport.correctionRequests = [
         {
-          descriptionOfChange: 'Looks the same', // TODO: optional
+          descriptionOfChange: 'Looks the same',
           userType: 'REPORTING_OFFICER',
           userAction: 'REQUEST_DUPLICATE',
           originalReportReference: '1235',
@@ -721,7 +721,7 @@ describe('View report page', () => {
     it('should render a correction request for MARK_DUPLICATE action', () => {
       mockedReport.correctionRequests = [
         {
-          descriptionOfChange: 'Definitely the same', // TODO: optional
+          descriptionOfChange: 'Definitely the same',
           userType: 'DATA_WARDEN',
           userAction: 'MARK_DUPLICATE',
           originalReportReference: '1235',
@@ -746,7 +746,7 @@ describe('View report page', () => {
     it('should render a correction request for MARK_NOT_REPORTABLE action', () => {
       mockedReport.correctionRequests = [
         {
-          descriptionOfChange: 'Not a reportable type', // TODO: optional
+          descriptionOfChange: 'Not a reportable type',
           userType: 'DATA_WARDEN',
           userAction: 'MARK_NOT_REPORTABLE',
           correctionRequestedBy: 'user1',
@@ -770,7 +770,7 @@ describe('View report page', () => {
       // NB: included for completeness though users cannot create this type of correction request
       mockedReport.correctionRequests = [
         {
-          descriptionOfChange: 'No comments', // TODO: optional
+          descriptionOfChange: 'No comments',
           userType: 'DATA_WARDEN',
           userAction: 'CLOSE',
           correctionRequestedBy: 'user1',
@@ -787,6 +787,44 @@ describe('View report page', () => {
           expect(comments).toContain('John Smith')
           expect(comments).toContain('No comments')
           expect(comments).not.toContain('Original report')
+        })
+    })
+
+    it('should not render placeholder comments inside correction requests', () => {
+      mockedReport.correctionRequests = [
+        {
+          descriptionOfChange: '(Report is a duplicate of 1235)',
+          userType: 'REPORTING_OFFICER',
+          userAction: 'REQUEST_DUPLICATE',
+          originalReportReference: '1235',
+          correctionRequestedBy: 'user1',
+          correctionRequestedAt: now,
+        },
+        {
+          descriptionOfChange: '(Report is a duplicate of 1235)',
+          userType: 'DATA_WARDEN',
+          userAction: 'MARK_DUPLICATE',
+          originalReportReference: '1235',
+          correctionRequestedBy: 'user1',
+          correctionRequestedAt: now,
+        },
+        {
+          descriptionOfChange: '(Not reportable)',
+          userType: 'DATA_WARDEN',
+          userAction: 'MARK_NOT_REPORTABLE',
+          correctionRequestedBy: 'user1',
+          correctionRequestedAt: now,
+        },
+      ]
+
+      return request(app)
+        .get(viewReportUrl)
+        .expect(200)
+        .expect(res => {
+          const comments = extractCommentsSection(res.text)
+          for (const unexpected of ['(Report is a duplicate of 1235)', '(Not reportable)']) {
+            expect(comments).not.toContain(unexpected)
+          }
         })
     })
   })

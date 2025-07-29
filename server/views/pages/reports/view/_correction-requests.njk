@@ -29,11 +29,13 @@
     {% set commentHtml %}
       {% if correctionRequest.originalReportReference %}
         Original report: <a href="/reports/incident-number/{{ correctionRequest.originalReportReference }}">{{ correctionRequest.originalReportReference }}</a>
-        {% if correctionRequest.descriptionOfChange %}
+      {% endif %}
+      {% if not correctionRequest.descriptionOfChange | isCorrectionRequestPlaceholder %}
+        {% if correctionRequest.originalReportReference %}
           <br />
         {% endif %}
+        {{ correctionRequest.descriptionOfChange | escape | nl2br }}
       {% endif %}
-      {{ correctionRequest.descriptionOfChange | escape | nl2br }}
     {% endset %}
 
     {% set _ = items.push({

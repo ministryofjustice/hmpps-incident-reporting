@@ -19,6 +19,8 @@ import {
   parseUserActionCode,
   prisonReportTransitions,
   userActionMapping,
+  type ApiUserType,
+  type ApiUserAction,
   type UserAction,
 } from '../../middleware/permissions'
 import { populateReport } from '../../middleware/populateReport'
@@ -26,6 +28,7 @@ import { populateReportConfiguration } from '../../middleware/populateReportConf
 import type { ReportWithDetails } from '../../data/incidentReportingApi'
 import { validateReport } from '../../data/reportValidity'
 import type { GovukErrorSummaryItem } from '../../utils/govukFrontend'
+import { placeholderForCorrectionRequest } from './actions/correctionRequestPlaceholder'
 
 const typesLookup = Object.fromEntries(types.map(type => [type.code, type.description]))
 const statusLookup = Object.fromEntries(statuses.map(status => [status.code, status.description]))
@@ -115,7 +118,7 @@ export function viewReportRouter(): Router {
           }
 
           const commentFieldName = `${userAction}_COMMENT`
-          const comment: string | undefined = req.body[commentFieldName]?.trim()
+          let comment: string | undefined = req.body[commentFieldName]?.trim()
           const originalReportReference: string | undefined = req.body.originalReportReference?.trim()
           formValues = {
             userAction,
@@ -195,7 +198,23 @@ export function viewReportRouter(): Router {
                 })
               }
 
-              // TODO: post comment (ie. correction request) if necessary; use a helper function to create it
+              if (transition.postCorrectionRequest) {
+                const apiUserAction = userAction as ApiUserAction // transitions config ensures this is possible
+                if (!comment) {
+                  if (apiUserAction === 'MARK_DUPLICATE') {
+                    comment = placeholderForCorrectionRequest(apiUserAction, originalReportReference)
+                  }
+                  if (apiUserAction === 'MARK_NOT_REPORTABLE') {
+                    comment = placeholderForCorrectionRequest(apiUserAction)
+                  }
+                }
+                await incidentReportingApi.correctionRequests.addToReport(report.id, {
+                  userType: userType as ApiUserType, // HQ viewer can’t get here
+                  userAction: apiUserAction,
+                  descriptionOfChange: comment,
+                  originalReportReference,
+                })
+              }
 
               const { newStatus } = transition
               if (newStatus && newStatus !== report.status) {

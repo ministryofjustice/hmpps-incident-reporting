@@ -7,7 +7,14 @@ import { now } from '../../../testutils/fakeClock'
 import UserService from '../../../services/userService'
 import { type Status, statuses } from '../../../reportConfiguration/constants'
 import { type UserAction, userActions } from '../../../middleware/permissions'
-import { IncidentReportingApi, type ReportWithDetails } from '../../../data/incidentReportingApi'
+import {
+  IncidentReportingApi,
+  RelatedObjects,
+  type ReportWithDetails,
+  type CorrectionRequest,
+  type AddCorrectionRequestRequest,
+  type UpdateCorrectionRequestRequest,
+} from '../../../data/incidentReportingApi'
 import { convertBasicReportDates, convertReportWithDetailsDates } from '../../../data/incidentReportingApiUtils'
 import * as reportValidity from '../../../data/reportValidity'
 import { mockErrorResponse, mockReport } from '../../../data/testData/incidentReporting'
@@ -15,21 +22,35 @@ import { mockSharedUser } from '../../../data/testData/manageUsers'
 import { leeds, moorland } from '../../../data/testData/prisonApi'
 import { mockThrownError } from '../../../data/testData/thrownErrors'
 import { mockDataWarden, mockReportingOfficer, mockHqViewer, mockUnauthorisedUser } from '../../../data/testData/users'
+import * as correctionRequestPlaceholder from './correctionRequestPlaceholder'
 
 jest.mock('../../../data/incidentReportingApi')
 jest.mock('../../../data/prisonApi')
 jest.mock('../../../data/reportValidity')
 jest.mock('../../../services/userService')
+jest.mock('./correctionRequestPlaceholder')
 
 let incidentReportingApi: jest.Mocked<IncidentReportingApi>
+let incidentReportingRelatedObjects: jest.Mocked<
+  RelatedObjects<CorrectionRequest, AddCorrectionRequestRequest, UpdateCorrectionRequestRequest>
+>
 let userService: jest.Mocked<UserService>
 let prisonApi: jest.Mocked<PrisonApi>
 
-beforeEach(() => {
-  userService = UserService.prototype as jest.Mocked<UserService>
-  incidentReportingApi = IncidentReportingApi.prototype as jest.Mocked<IncidentReportingApi>
-  prisonApi = PrisonApi.prototype as jest.Mocked<PrisonApi>
+const { placeholderForCorrectionRequest } = correctionRequestPlaceholder as jest.Mocked<
+  typeof import('./correctionRequestPlaceholder')
+>
 
+beforeEach(() => {
+  incidentReportingApi = IncidentReportingApi.prototype as jest.Mocked<IncidentReportingApi>
+  incidentReportingRelatedObjects = RelatedObjects.prototype as jest.Mocked<
+    RelatedObjects<CorrectionRequest, AddCorrectionRequestRequest, UpdateCorrectionRequestRequest>
+  >
+  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+  // @ts-ignore need to mock a getter method
+  incidentReportingApi.correctionRequests = incidentReportingRelatedObjects
+
+  userService = UserService.prototype as jest.Mocked<UserService>
   userService.getUsers.mockResolvedValueOnce({
     [mockSharedUser.username]: mockSharedUser,
   })
@@ -38,7 +59,10 @@ beforeEach(() => {
     LEI: leeds,
     MDI: moorland,
   }
+  prisonApi = PrisonApi.prototype as jest.Mocked<PrisonApi>
   prisonApi.getPrisons.mockResolvedValue(prisons)
+
+  placeholderForCorrectionRequest.mockReturnValue('PLACEHOLDER')
 })
 
 afterEach(() => {
@@ -408,6 +432,7 @@ describe('Actioning reports', () => {
 
       function expectNotAllowedErrorMessages(status: Status, payload: object): request.Test {
         mockedReport.status = status
+        incidentReportingRelatedObjects.addToReport.mockRejectedValueOnce(new Error('should not be called'))
         incidentReportingApi.changeReportStatus.mockRejectedValueOnce(new Error('should not be called'))
 
         return request(app)
@@ -431,6 +456,7 @@ describe('Actioning reports', () => {
             expect(res.text).not.toContain('Enter what has changed in the report')
             expect(res.text).not.toContain('Please enter a comment')
             expect(res.text).not.toContain('Fill in missing details') // report validity should not be checked
+            expect(incidentReportingRelatedObjects.addToReport).not.toHaveBeenCalled()
             expect(incidentReportingApi.changeReportStatus).not.toHaveBeenCalled()
           })
       }
@@ -465,6 +491,7 @@ describe('Actioning reports', () => {
       userAction: UserAction
       comment: 'not allowed' | 'optional' | 'required'
       needsOriginalReportReference?: boolean
+      postsCorrectionRequest?: AddCorrectionRequestRequest
       newStatus: Status
       redirectedPage: 'dashboard' | 'view-report'
     }
@@ -595,6 +622,11 @@ describe('Actioning reports', () => {
         currentStatus: 'NEEDS_UPDATING',
         userAction: 'REQUEST_REVIEW',
         comment: 'required',
+        postsCorrectionRequest: {
+          userType: 'REPORTING_OFFICER',
+          userAction: 'REQUEST_REVIEW',
+          descriptionOfChange: 'My comment on this action',
+        },
         newStatus: 'UPDATED',
         redirectedPage: 'dashboard',
       },
@@ -604,6 +636,11 @@ describe('Actioning reports', () => {
         currentStatus: 'REOPENED',
         userAction: 'REQUEST_REVIEW',
         comment: 'required',
+        postsCorrectionRequest: {
+          userType: 'REPORTING_OFFICER',
+          userAction: 'REQUEST_REVIEW',
+          descriptionOfChange: 'My comment on this action',
+        },
         newStatus: 'WAS_CLOSED',
         redirectedPage: 'dashboard',
       },
@@ -613,6 +650,11 @@ describe('Actioning reports', () => {
         currentStatus: 'AWAITING_REVIEW',
         userAction: 'REQUEST_CORRECTION',
         comment: 'required',
+        postsCorrectionRequest: {
+          userType: 'DATA_WARDEN',
+          userAction: 'REQUEST_CORRECTION',
+          descriptionOfChange: 'My comment on this action',
+        },
         newStatus: 'NEEDS_UPDATING',
         redirectedPage: 'dashboard',
       },
@@ -622,6 +664,11 @@ describe('Actioning reports', () => {
         currentStatus: 'AWAITING_REVIEW',
         userAction: 'HOLD',
         comment: 'required',
+        postsCorrectionRequest: {
+          userType: 'DATA_WARDEN',
+          userAction: 'HOLD',
+          descriptionOfChange: 'My comment on this action',
+        },
         newStatus: 'ON_HOLD',
         redirectedPage: 'dashboard',
       },
@@ -631,6 +678,11 @@ describe('Actioning reports', () => {
         currentStatus: 'AWAITING_REVIEW',
         userAction: 'MARK_NOT_REPORTABLE',
         comment: 'optional',
+        postsCorrectionRequest: {
+          userType: 'DATA_WARDEN',
+          userAction: 'MARK_NOT_REPORTABLE',
+          descriptionOfChange: 'My comment on this action',
+        },
         newStatus: 'NOT_REPORTABLE',
         redirectedPage: 'dashboard',
       },
@@ -640,6 +692,11 @@ describe('Actioning reports', () => {
         currentStatus: 'ON_HOLD',
         userAction: 'REQUEST_CORRECTION',
         comment: 'required',
+        postsCorrectionRequest: {
+          userType: 'DATA_WARDEN',
+          userAction: 'REQUEST_CORRECTION',
+          descriptionOfChange: 'My comment on this action',
+        },
         newStatus: 'NEEDS_UPDATING',
         redirectedPage: 'dashboard',
       },
@@ -649,6 +706,11 @@ describe('Actioning reports', () => {
         currentStatus: 'ON_HOLD',
         userAction: 'MARK_NOT_REPORTABLE',
         comment: 'optional',
+        postsCorrectionRequest: {
+          userType: 'DATA_WARDEN',
+          userAction: 'MARK_NOT_REPORTABLE',
+          descriptionOfChange: 'My comment on this action',
+        },
         newStatus: 'NOT_REPORTABLE',
         redirectedPage: 'dashboard',
       },
@@ -658,6 +720,11 @@ describe('Actioning reports', () => {
         currentStatus: 'UPDATED',
         userAction: 'REQUEST_CORRECTION',
         comment: 'required',
+        postsCorrectionRequest: {
+          userType: 'DATA_WARDEN',
+          userAction: 'REQUEST_CORRECTION',
+          descriptionOfChange: 'My comment on this action',
+        },
         newStatus: 'NEEDS_UPDATING',
         redirectedPage: 'dashboard',
       },
@@ -667,6 +734,11 @@ describe('Actioning reports', () => {
         currentStatus: 'UPDATED',
         userAction: 'HOLD',
         comment: 'required',
+        postsCorrectionRequest: {
+          userType: 'DATA_WARDEN',
+          userAction: 'HOLD',
+          descriptionOfChange: 'My comment on this action',
+        },
         newStatus: 'ON_HOLD',
         redirectedPage: 'dashboard',
       },
@@ -676,6 +748,11 @@ describe('Actioning reports', () => {
         currentStatus: 'UPDATED',
         userAction: 'MARK_NOT_REPORTABLE',
         comment: 'optional',
+        postsCorrectionRequest: {
+          userType: 'DATA_WARDEN',
+          userAction: 'MARK_NOT_REPORTABLE',
+          descriptionOfChange: 'My comment on this action',
+        },
         newStatus: 'NOT_REPORTABLE',
         redirectedPage: 'dashboard',
       },
@@ -685,6 +762,11 @@ describe('Actioning reports', () => {
         currentStatus: 'WAS_CLOSED',
         userAction: 'REQUEST_CORRECTION',
         comment: 'required',
+        postsCorrectionRequest: {
+          userType: 'DATA_WARDEN',
+          userAction: 'REQUEST_CORRECTION',
+          descriptionOfChange: 'My comment on this action',
+        },
         newStatus: 'REOPENED',
         redirectedPage: 'dashboard',
       },
@@ -694,6 +776,11 @@ describe('Actioning reports', () => {
         currentStatus: 'WAS_CLOSED',
         userAction: 'MARK_NOT_REPORTABLE',
         comment: 'optional',
+        postsCorrectionRequest: {
+          userType: 'DATA_WARDEN',
+          userAction: 'MARK_NOT_REPORTABLE',
+          descriptionOfChange: 'My comment on this action',
+        },
         newStatus: 'NOT_REPORTABLE',
         redirectedPage: 'dashboard',
       },
@@ -705,6 +792,12 @@ describe('Actioning reports', () => {
         userAction: 'MARK_DUPLICATE',
         comment: 'optional',
         needsOriginalReportReference: true,
+        postsCorrectionRequest: {
+          userType: 'DATA_WARDEN',
+          userAction: 'MARK_DUPLICATE',
+          descriptionOfChange: 'My comment on this action',
+          originalReportReference: '1234',
+        },
         newStatus: 'DUPLICATE',
         redirectedPage: 'dashboard',
       },
@@ -715,6 +808,12 @@ describe('Actioning reports', () => {
         userAction: 'MARK_DUPLICATE',
         comment: 'optional',
         needsOriginalReportReference: true,
+        postsCorrectionRequest: {
+          userType: 'DATA_WARDEN',
+          userAction: 'MARK_DUPLICATE',
+          descriptionOfChange: 'My comment on this action',
+          originalReportReference: '1234',
+        },
         newStatus: 'DUPLICATE',
         redirectedPage: 'dashboard',
       },
@@ -725,6 +824,12 @@ describe('Actioning reports', () => {
         userAction: 'MARK_DUPLICATE',
         comment: 'optional',
         needsOriginalReportReference: true,
+        postsCorrectionRequest: {
+          userType: 'DATA_WARDEN',
+          userAction: 'MARK_DUPLICATE',
+          descriptionOfChange: 'My comment on this action',
+          originalReportReference: '1234',
+        },
         newStatus: 'DUPLICATE',
         redirectedPage: 'dashboard',
       },
@@ -735,13 +840,28 @@ describe('Actioning reports', () => {
         userAction: 'MARK_DUPLICATE',
         comment: 'optional',
         needsOriginalReportReference: true,
+        postsCorrectionRequest: {
+          userType: 'DATA_WARDEN',
+          userAction: 'MARK_DUPLICATE',
+          descriptionOfChange: 'My comment on this action',
+          originalReportReference: '1234',
+        },
         newStatus: 'DUPLICATE',
         redirectedPage: 'dashboard',
       },
     ]
     describe.each(transitionScenarios)(
       'when $userType try to perform $userAction on report with status $currentStatus when a comment is $comment',
-      ({ user, currentStatus, userAction, comment, needsOriginalReportReference, newStatus, redirectedPage }) => {
+      ({
+        user,
+        currentStatus,
+        userAction,
+        comment,
+        needsOriginalReportReference,
+        postsCorrectionRequest,
+        newStatus,
+        redirectedPage,
+      }) => {
         type Payload = {
           userAction: UserAction
           originalReportReference?: string
@@ -750,7 +870,7 @@ describe('Actioning reports', () => {
         }
 
         const validPayload: Payload = { userAction }
-        if (comment === 'required') {
+        if (comment !== 'not allowed') {
           validPayload[`${userAction}_COMMENT`] = 'My comment on this action'
         }
         if (needsOriginalReportReference) {
@@ -780,6 +900,7 @@ describe('Actioning reports', () => {
         it(`should succeed changing the status to ${newStatus} if the report is valid`, () => {
           makeReportValid()
           makeOriginalReportReferenceExistIfNeeded()
+          incidentReportingRelatedObjects.addToReport.mockResolvedValueOnce([]) // NB: response is ignored
           incidentReportingApi.changeReportStatus.mockResolvedValueOnce(mockedReport) // NB: response is ignored
 
           return request(app)
@@ -801,6 +922,14 @@ describe('Actioning reports', () => {
               } else {
                 expect(incidentReportingApi.updateReport).not.toHaveBeenCalled()
               }
+              if (postsCorrectionRequest !== undefined) {
+                expect(incidentReportingRelatedObjects.addToReport).toHaveBeenCalledWith(
+                  mockedReport.id,
+                  postsCorrectionRequest,
+                )
+              } else {
+                expect(incidentReportingRelatedObjects.addToReport).not.toHaveBeenCalled()
+              }
               expect(incidentReportingApi.changeReportStatus).toHaveBeenCalledWith(mockedReport.id, { newStatus })
             })
         })
@@ -809,6 +938,7 @@ describe('Actioning reports', () => {
           it('should not be allowed if report is invalid', () => {
             makeReportInvalid()
             makeOriginalReportReferenceExistIfNeeded()
+            incidentReportingRelatedObjects.addToReport.mockRejectedValue(new Error('should not be called'))
             incidentReportingApi.changeReportStatus.mockRejectedValue(new Error('should not be called'))
 
             return request(app)
@@ -819,6 +949,7 @@ describe('Actioning reports', () => {
                 expect(res.text).toContain('There is a problem')
                 expect(res.text).toContain('Fill in missing details')
                 expect(incidentReportingApi.updateReport).not.toHaveBeenCalled()
+                expect(incidentReportingRelatedObjects.addToReport).not.toHaveBeenCalled()
                 expect(incidentReportingApi.changeReportStatus).not.toHaveBeenCalled()
               })
           })
@@ -826,6 +957,7 @@ describe('Actioning reports', () => {
           it(`should succeed changing the status to ${newStatus} even if the report is invalid`, () => {
             makeReportInvalid()
             makeOriginalReportReferenceExistIfNeeded()
+            incidentReportingRelatedObjects.addToReport.mockResolvedValueOnce([]) // NB: response is ignore
             incidentReportingApi.changeReportStatus.mockResolvedValueOnce(mockedReport) // NB: response is ignored
 
             return request(app)
@@ -835,6 +967,14 @@ describe('Actioning reports', () => {
               .expect(res => {
                 expect(res.redirect).toBe(true)
                 expect(res.header.location).toEqual(expectedRedirect)
+                if (postsCorrectionRequest !== undefined) {
+                  expect(incidentReportingRelatedObjects.addToReport).toHaveBeenCalledWith(
+                    mockedReport.id,
+                    postsCorrectionRequest,
+                  )
+                } else {
+                  expect(incidentReportingRelatedObjects.addToReport).not.toHaveBeenCalled()
+                }
                 expect(incidentReportingApi.changeReportStatus).toHaveBeenCalledWith(mockedReport.id, { newStatus })
               })
           })
@@ -844,6 +984,7 @@ describe('Actioning reports', () => {
           it('should not be allowed if comment is missing', () => {
             makeReportValid()
             makeOriginalReportReferenceExistIfNeeded()
+            incidentReportingRelatedObjects.addToReport.mockRejectedValue(new Error('should not be called'))
             incidentReportingApi.changeReportStatus.mockRejectedValue(new Error('should not be called'))
 
             return request(app)
@@ -863,6 +1004,7 @@ describe('Actioning reports', () => {
                   expect(res.text).toContain('Please enter a comment')
                 }
                 expect(incidentReportingApi.updateReport).not.toHaveBeenCalled()
+                expect(incidentReportingRelatedObjects.addToReport).not.toHaveBeenCalled()
                 expect(incidentReportingApi.changeReportStatus).not.toHaveBeenCalled()
               })
           })
@@ -870,6 +1012,7 @@ describe('Actioning reports', () => {
           it(`should succeed changing the status to ${newStatus} even if comment is left empty`, () => {
             makeReportValid()
             makeOriginalReportReferenceExistIfNeeded()
+            incidentReportingRelatedObjects.addToReport.mockResolvedValueOnce([]) // NB: response is ignored
             incidentReportingApi.changeReportStatus.mockResolvedValueOnce(mockedReport) // NB: response is ignored
 
             return request(app)
@@ -882,6 +1025,14 @@ describe('Actioning reports', () => {
               .expect(res => {
                 expect(res.redirect).toBe(true)
                 expect(res.header.location).toEqual(expectedRedirect)
+                if (postsCorrectionRequest !== undefined) {
+                  expect(incidentReportingRelatedObjects.addToReport).toHaveBeenCalledWith(mockedReport.id, {
+                    ...postsCorrectionRequest,
+                    descriptionOfChange: 'PLACEHOLDER',
+                  })
+                } else {
+                  expect(incidentReportingRelatedObjects.addToReport).not.toHaveBeenCalled()
+                }
                 expect(incidentReportingApi.changeReportStatus).toHaveBeenCalledWith(mockedReport.id, { newStatus })
               })
           })
@@ -890,6 +1041,7 @@ describe('Actioning reports', () => {
         if (needsOriginalReportReference) {
           it('should show an error if original reference of duplicate report is left empty', () => {
             makeReportValid()
+            incidentReportingRelatedObjects.addToReport.mockRejectedValue(new Error('should not be called'))
             incidentReportingApi.changeReportStatus.mockRejectedValue(new Error('should not be called'))
 
             return request(app)
@@ -903,12 +1055,14 @@ describe('Actioning reports', () => {
                 expect(res.text).toContain('There is a problem')
                 expect(res.text).toContain('Enter a valid incident report number')
                 expect(incidentReportingApi.getReportByReference).not.toHaveBeenCalled()
+                expect(incidentReportingRelatedObjects.addToReport).not.toHaveBeenCalled()
                 expect(incidentReportingApi.changeReportStatus).not.toHaveBeenCalled()
               })
           })
 
           it('should show an error if original reference of duplicate report is the same', () => {
             makeReportValid()
+            incidentReportingRelatedObjects.addToReport.mockRejectedValue(new Error('should not be called'))
             incidentReportingApi.changeReportStatus.mockRejectedValue(new Error('should not be called'))
 
             return request(app)
@@ -922,6 +1076,7 @@ describe('Actioning reports', () => {
                 expect(res.text).toContain('There is a problem')
                 expect(res.text).toContain('Enter a different report number')
                 expect(incidentReportingApi.getReportByReference).not.toHaveBeenCalled()
+                expect(incidentReportingRelatedObjects.addToReport).not.toHaveBeenCalled()
                 expect(incidentReportingApi.changeReportStatus).not.toHaveBeenCalled()
               })
           })
@@ -931,6 +1086,7 @@ describe('Actioning reports', () => {
             const error = mockThrownError(mockErrorResponse({ status: 404, message: 'Report not found' }), 404)
             incidentReportingApi.getReportByReference.mockReset()
             incidentReportingApi.getReportByReference.mockRejectedValueOnce(error)
+            incidentReportingRelatedObjects.addToReport.mockRejectedValue(new Error('should not be called'))
             incidentReportingApi.changeReportStatus.mockRejectedValue(new Error('should not be called'))
 
             return request(app)
@@ -940,6 +1096,7 @@ describe('Actioning reports', () => {
               .expect(res => {
                 expect(res.text).toContain('There is a problem')
                 expect(res.text).toContain('Enter a valid incident report number')
+                expect(incidentReportingRelatedObjects.addToReport).not.toHaveBeenCalled()
                 expect(incidentReportingApi.changeReportStatus).not.toHaveBeenCalled()
               })
           })
@@ -949,6 +1106,7 @@ describe('Actioning reports', () => {
             const error = mockThrownError(mockErrorResponse({ status: 500, message: 'External problem' }), 500)
             incidentReportingApi.getReportByReference.mockReset()
             incidentReportingApi.getReportByReference.mockRejectedValueOnce(error)
+            incidentReportingRelatedObjects.addToReport.mockRejectedValue(new Error('should not be called'))
             incidentReportingApi.changeReportStatus.mockRejectedValue(new Error('should not be called'))
 
             return request(app)
@@ -960,14 +1118,38 @@ describe('Actioning reports', () => {
                 expect(res.text).toContain('Incident number could not be looked up')
                 expect(res.text).not.toContain('Enter a valid incident report number')
                 expect(res.text).not.toContain('External problem')
+                expect(incidentReportingRelatedObjects.addToReport).not.toHaveBeenCalled()
                 expect(incidentReportingApi.changeReportStatus).not.toHaveBeenCalled()
               })
           })
         }
 
-        it('should show an error if API rejects request to change status', () => {
+        if (postsCorrectionRequest !== undefined) {
+          it('should show an error if API rejects adding a correction request', () => {
+            makeReportValid()
+            makeOriginalReportReferenceExistIfNeeded()
+            const error = mockThrownError(mockErrorResponse({ message: 'Comment is required' }))
+            incidentReportingRelatedObjects.addToReport.mockRejectedValueOnce(error)
+            incidentReportingApi.changeReportStatus.mockResolvedValueOnce(mockedReport) // NB: response is ignored
+
+            return request(app)
+              .post(viewReportUrl)
+              .send(validPayload)
+              .expect(200)
+              .expect(res => {
+                expect(res.text).toContain('There is a problem')
+                expect(res.text).toContain('Sorry, there was a problem with your request')
+                expect(res.text).not.toContain('Bad Request')
+                expect(res.text).not.toContain('Comment is required')
+                expect(incidentReportingApi.changeReportStatus).not.toHaveBeenCalled()
+              })
+          })
+        }
+
+        it('should show an error if API rejects changing status', () => {
           makeReportValid()
           makeOriginalReportReferenceExistIfNeeded()
+          incidentReportingRelatedObjects.addToReport.mockResolvedValueOnce([]) // NB: response is ignored
           const error = mockThrownError(mockErrorResponse({ message: 'Comment is required' }))
           incidentReportingApi.changeReportStatus.mockRejectedValueOnce(error)
 
@@ -1007,6 +1189,7 @@ describe('Actioning reports', () => {
         })
 
         it('should succeed with no status change', () => {
+          incidentReportingRelatedObjects.addToReport.mockRejectedValue(new Error('should not be called'))
           incidentReportingApi.changeReportStatus.mockRejectedValue(new Error('should not be called'))
 
           return request(app)
@@ -1016,6 +1199,7 @@ describe('Actioning reports', () => {
             .expect(res => {
               expect(res.redirect).toBe(true)
               expect(res.header.location).toEqual(`/reports/${mockedReport.id}/${redirectedPage}`)
+              expect(incidentReportingRelatedObjects.addToReport).not.toHaveBeenCalled()
               expect(incidentReportingApi.changeReportStatus).not.toHaveBeenCalled()
             })
         })
@@ -1033,6 +1217,7 @@ describe('Actioning reports', () => {
         ({ code: userAction }) => {
           it.each(statuses)('on a report with status $code', ({ code: status }) => {
             mockedReport.status = status
+            incidentReportingRelatedObjects.addToReport.mockRejectedValue(new Error('should not be called'))
             incidentReportingApi.changeReportStatus.mockRejectedValue(new Error('should not be called'))
 
             const maybeValidPayload = { userAction } // doesn’t matter that it’s invalid since expectation is a specific error
@@ -1043,6 +1228,7 @@ describe('Actioning reports', () => {
               .expect(res => {
                 expect(res.redirect).toBe(true)
                 expect(res.header.location).toEqual('/sign-out')
+                expect(incidentReportingRelatedObjects.addToReport).not.toHaveBeenCalled()
                 expect(incidentReportingApi.changeReportStatus).not.toHaveBeenCalled()
               })
           })

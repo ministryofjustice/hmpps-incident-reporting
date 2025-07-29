@@ -43,7 +43,7 @@ export class RequestRemovalController extends BaseController<Values> {
   }
 
   protected errorMessage(error: FormWizard.Error, req: FormWizard.Request<Values>, res: express.Response): string {
-    if (error.key === 'reason' && error.type === 'required') {
+    if (error.key === 'userAction' && error.type === 'required') {
       return 'Select why you want to remove this report'
     }
     if (error.key === 'notReportableComment') {
@@ -74,19 +74,23 @@ export class RequestRemovalController extends BaseController<Values> {
 
   async saveValues(req: FormWizard.Request<Values>, res: express.Response, next: express.NextFunction): Promise<void> {
     const { report, permissions } = res.locals
+    const { incidentReportingApi } = res.locals.apis
     const { userType } = permissions
 
     // TODO: PECS lookup is different
-    const { newStatus } = prisonReportTransitions[userType][report.status].REQUEST_REMOVAL
+    const transition = prisonReportTransitions[userType][report.status].REQUEST_REMOVAL
+    const { newStatus, successBanner } = transition
 
     try {
       // TODO: post comment (ie. correction request) if necessary; use a helper function to create it
-      // const { reason, originalReportReference, duplicateComment, notReportableComment } = this.getAllValues(req)
+      // const { userAction, originalReportReference, duplicateComment, notReportableComment } = this.getAllValues(req)
 
-      await res.locals.apis.incidentReportingApi.changeReportStatus(report.id, { newStatus })
+      await incidentReportingApi.changeReportStatus(report.id, { newStatus })
 
       logger.info(`Request to remove report ${report.reportReference} sent`)
-      req.flash('success', { title: `Request to remove report ${report.reportReference} sent` })
+      if (successBanner) {
+        req.flash('success', { title: successBanner.replace('$reportReference', report.reportReference) })
+      }
 
       // clear session since involvement has been saved
       res.locals.clearSessionOnSuccess = true
@@ -96,7 +100,7 @@ export class RequestRemovalController extends BaseController<Values> {
       logger.error(e, `Report ${report.reportReference} status could not be changed: %j`, e)
       const err = this.convertIntoValidationError(e)
       // TODO: find a different way to report whole-form errors rather than attaching to specific field
-      this.errorHandler({ reason: err }, req, res, next)
+      this.errorHandler({ userAction: err }, req, res, next)
     }
   }
 }

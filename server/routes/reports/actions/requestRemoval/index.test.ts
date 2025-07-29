@@ -34,12 +34,12 @@ function setupAppForUser(user: Express.User): void {
 }
 
 const validPayloadWhenDuplicate = {
-  reason: 'duplicate' as const,
+  userAction: 'REQUEST_DUPLICATE' as const,
   originalReportReference: '1234',
   duplicateComment: 'A colleague already reported it this morning',
 }
 const validPayloadWhenNotReportable = {
-  reason: 'notReportable' as const,
+  userAction: 'REQUEST_NOT_REPORTABLE' as const,
   notReportableComment: 'This minor type of incident does not need recording according to policy',
 }
 

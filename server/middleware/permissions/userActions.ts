@@ -9,7 +9,7 @@ export const userActions = [
   { code: 'EDIT', description: 'Edit' },
   /** Submit for review */
   { code: 'REQUEST_REVIEW', description: 'Submit' },
-  /** Submit request for removal */
+  /** Submit request for removal (covers both requests to mark as duplicate or not reportable) */
   { code: 'REQUEST_REMOVAL', description: 'Request to remove report' },
   /** Send back for changes */
   { code: 'REQUEST_CORRECTION', description: 'Request correction' },
@@ -27,7 +27,7 @@ export const userActions = [
 
 export type UserAction = (typeof userActions)[number]['code']
 
-/** IRS api has a different overlapping set of values */
+/** IRS api has a different but overlapping set of values */
 export type ApiUserAction =
   | Exclude<UserAction, 'VIEW' | 'EDIT' | 'REQUEST_REMOVAL'>
   | 'REQUEST_DUPLICATE'

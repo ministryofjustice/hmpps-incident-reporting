@@ -47,6 +47,7 @@ export type Transition = {
  * NB:
  * - `VIEW` action is not included as it never changes a report nor transitions status
  * - presence of a user action does not guarantee permission: report location and validity also matter
+ * - `REQUEST_REMOVAL` action covers both `REQUEST_DUPLICATE` and `REQUEST_NOT_REPORTABLE` api calls
  */
 export const prisonReportTransitions: Transitions = {
   REPORTING_OFFICER: {
@@ -58,7 +59,12 @@ export const prisonReportTransitions: Transitions = {
         label: 'Submit',
         successBanner: 'You have submitted incident report $reportReference',
       },
-      REQUEST_REMOVAL: { newStatus: 'AWAITING_REVIEW', label: 'Request to remove report' },
+      REQUEST_REMOVAL: {
+        newStatus: 'AWAITING_REVIEW',
+        label: 'Request to remove report',
+        postCorrectionRequest: true,
+        successBanner: 'Request to remove report $reportReference sent',
+      },
     },
     AWAITING_REVIEW: {
       EDIT: { newStatus: 'DRAFT' },
@@ -75,7 +81,12 @@ export const prisonReportTransitions: Transitions = {
         postCorrectionRequest: true,
         successBanner: 'You have resubmitted incident report $reportReference',
       },
-      REQUEST_REMOVAL: { newStatus: 'UPDATED', label: 'Request to remove report' },
+      REQUEST_REMOVAL: {
+        newStatus: 'UPDATED',
+        label: 'Request to remove report',
+        postCorrectionRequest: true,
+        successBanner: 'Request to remove report $reportReference sent',
+      },
     },
     UPDATED: {
       RECALL: { newStatus: 'NEEDS_UPDATING' },
@@ -100,7 +111,12 @@ export const prisonReportTransitions: Transitions = {
         postCorrectionRequest: true,
         successBanner: 'You have resubmitted incident report $reportReference',
       },
-      REQUEST_REMOVAL: { newStatus: 'WAS_CLOSED', label: 'Request to remove report' },
+      REQUEST_REMOVAL: {
+        newStatus: 'WAS_CLOSED',
+        label: 'Request to remove report',
+        postCorrectionRequest: true,
+        successBanner: 'Request to remove report $reportReference sent',
+      },
     },
     WAS_CLOSED: {
       RECALL: { newStatus: 'REOPENED' },

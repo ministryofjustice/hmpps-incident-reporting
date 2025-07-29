@@ -333,8 +333,8 @@ describe('View report page', () => {
           expect(res.text).toContain('Description')
           expect(res.text).toContain('An old drone sighting')
 
-          expect(res.text).not.toContain(`${viewReportUrl}/change-type`)
           expect(res.text).not.toContain(`${viewReportUrl}/update-details`)
+          expect(res.text).toContain(`${viewReportUrl}/change-type`)
           expect(res.text).toContain(`${viewReportUrl}/update-date-and-time`)
           expect(res.text).toContain(`${viewReportUrl}/add-description`)
         })

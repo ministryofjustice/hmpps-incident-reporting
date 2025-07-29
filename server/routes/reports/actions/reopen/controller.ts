@@ -3,9 +3,9 @@ import type FormWizard from 'hmpo-form-wizard'
 
 import logger from '../../../../../logger'
 import { BaseController } from '../../../../controllers'
-import { prisonReportTransitions } from '../../../../middleware/permissions'
-import type { Values } from './fields'
+import { type ApiUserType, prisonReportTransitions } from '../../../../middleware/permissions'
 import { workListMapping } from '../../../../reportConfiguration/constants'
+import type { Values } from './fields'
 
 // eslint-disable-next-line import/prefer-default-export
 export class ReopenController extends BaseController<Values> {
@@ -57,16 +57,29 @@ export class ReopenController extends BaseController<Values> {
 
   async saveValues(req: FormWizard.Request<Values>, res: express.Response, next: express.NextFunction): Promise<void> {
     const { report, permissions } = res.locals
+    const { incidentReportingApi } = res.locals.apis
     const { userType } = permissions
 
+    const userAction = 'RECALL' as const
     // TODO: PECS lookup is different
-    const transition = prisonReportTransitions[userType][report.status].RECALL
+    const transition = prisonReportTransitions[userType][report.status][userAction]
     const { newStatus, successBanner } = transition
 
     try {
-      await res.locals.apis.incidentReportingApi.changeReportStatus(report.id, { newStatus })
+      if (transition.postCorrectionRequest) {
+        await incidentReportingApi.correctionRequests.addToReport(report.id, {
+          userType: userType as ApiUserType, // HQ viewer can’t get here
+          userAction,
+          descriptionOfChange: '', // TODO: remove once allowed
+          originalReportReference: null,
+        })
+      }
 
-      logger.info(`Report ${report.reportReference} recalled to ${newStatus}`)
+      if (newStatus && newStatus !== report.status) {
+        await incidentReportingApi.changeReportStatus(report.id, { newStatus })
+      }
+
+      logger.info(`Report ${report.reportReference} reopened to ${newStatus}`)
       if (successBanner) {
         req.flash('success', {
           title: successBanner.replace('$reportReference', report.reportReference).replace('$newStatus', newStatus),
@@ -78,7 +91,7 @@ export class ReopenController extends BaseController<Values> {
 
       next()
     } catch (e) {
-      logger.error(e, `Report ${report.reportReference} status could not be changed: %j`, e)
+      logger.error(e, `Reopening report ${report.reportReference} failed: %j`, e)
       const err = this.convertIntoValidationError(e)
       // TODO: find a different way to report whole-form errors rather than attaching to specific field
       this.errorHandler({ userAction: err }, req, res, next)

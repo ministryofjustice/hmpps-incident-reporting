@@ -561,14 +561,14 @@ export type UpdatePrisonerInvolvementRequest = {
   comment?: string | null
 }
 
-type AddCorrectionRequestRequest = {
-  descriptionOfChange: string
+export type AddCorrectionRequestRequest = {
+  descriptionOfChange: string // TODO: allow empty/missing IFF userAction is present
   userType?: ApiUserType
   userAction?: ApiUserAction
   originalReportReference?: string
 }
 
-type UpdateCorrectionRequestRequest = {
+export type UpdateCorrectionRequestRequest = {
   descriptionOfChange?: string
   userType?: ApiUserType | null
   userAction?: ApiUserAction | null

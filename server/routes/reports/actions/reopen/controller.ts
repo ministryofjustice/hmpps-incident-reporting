@@ -5,6 +5,7 @@ import logger from '../../../../../logger'
 import { BaseController } from '../../../../controllers'
 import { type ApiUserType, prisonReportTransitions } from '../../../../middleware/permissions'
 import { workListMapping } from '../../../../reportConfiguration/constants'
+import { placeholderForCorrectionRequest } from '../correctionRequestPlaceholder'
 import type { Values } from './fields'
 
 // eslint-disable-next-line import/prefer-default-export
@@ -67,10 +68,11 @@ export class ReopenController extends BaseController<Values> {
 
     try {
       if (transition.postCorrectionRequest) {
+        // NB: at present, no RECALL transition posts a correction request
         await incidentReportingApi.correctionRequests.addToReport(report.id, {
           userType: userType as ApiUserType, // HQ viewer can’t get here
           userAction,
-          descriptionOfChange: '', // TODO: remove once allowed
+          descriptionOfChange: placeholderForCorrectionRequest(userAction),
           originalReportReference: null,
         })
       }

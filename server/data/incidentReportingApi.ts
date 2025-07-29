@@ -562,7 +562,7 @@ export type UpdatePrisonerInvolvementRequest = {
 }
 
 export type AddCorrectionRequestRequest = {
-  descriptionOfChange: string // TODO: allow empty/missing IFF userAction is present
+  descriptionOfChange: string
   userType?: ApiUserType
   userAction?: ApiUserAction
   originalReportReference?: string

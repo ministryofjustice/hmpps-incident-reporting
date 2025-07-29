@@ -98,19 +98,27 @@ describe('Actioning reports', () => {
         userType: 'reporting officers',
         user: mockReportingOfficer,
         reportStatus: 'DRAFT',
-        formOptions: ['Submit', 'Request to remove report'],
+        formOptions: ['Submit', 'Remove it as it’s a duplicate or not reportable'],
       },
       {
         userType: 'reporting officers',
         user: mockReportingOfficer,
         reportStatus: 'NEEDS_UPDATING',
-        formOptions: ['Resubmit', 'Describe what has changed in the report', 'Request to remove report'],
+        formOptions: [
+          'Resubmit it with updated information',
+          'Explain what you have changed in the report',
+          'Remove it as it’s a duplicate or not reportable',
+        ],
       },
       {
         userType: 'reporting officers',
         user: mockReportingOfficer,
         reportStatus: 'REOPENED',
-        formOptions: ['Resubmit', 'Describe what has changed in the report', 'Request to remove report'],
+        formOptions: [
+          'Resubmit it with updated information',
+          'Explain what you have changed in the report',
+          'Remove it as it’s a duplicate or not reportable',
+        ],
       },
       {
         userType: 'reporting officers',

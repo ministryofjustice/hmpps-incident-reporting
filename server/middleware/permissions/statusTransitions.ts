@@ -56,7 +56,7 @@ export const prisonReportTransitions: Transitions = {
         label: 'Submit',
         successBanner: 'You have submitted incident report $reportReference',
       },
-      requestRemoval: { newStatus: 'AWAITING_REVIEW', label: 'Request to remove report' },
+      requestRemoval: { newStatus: 'AWAITING_REVIEW', label: "Remove it as it's a duplicate or not reportable" },
     },
     AWAITING_REVIEW: {
       edit: { newStatus: 'DRAFT' },
@@ -67,12 +67,12 @@ export const prisonReportTransitions: Transitions = {
       requestReview: {
         newStatus: 'UPDATED',
         mustBeValid: true,
-        label: 'Resubmit',
+        label: 'Resubmit it with updated information',
         comment: 'required',
-        commentLabel: 'Describe what has changed in the report',
+        commentLabel: 'Explain what you have changed in the report',
         successBanner: 'You have resubmitted incident report $reportReference',
       },
-      requestRemoval: { newStatus: 'UPDATED', label: 'Request to remove report' },
+      requestRemoval: { newStatus: 'UPDATED', label: "Remove it as it's a duplicate or not reportable" },
     },
     UPDATED: {
       recall: { newStatus: 'NEEDS_UPDATING' },
@@ -91,12 +91,12 @@ export const prisonReportTransitions: Transitions = {
       requestReview: {
         newStatus: 'WAS_CLOSED',
         mustBeValid: true,
-        label: 'Resubmit',
+        label: 'Resubmit it with updated information',
         comment: 'required',
-        commentLabel: 'Describe what has changed in the report',
+        commentLabel: 'Explain what you have changed in the report',
         successBanner: 'You have resubmitted incident report $reportReference',
       },
-      requestRemoval: { newStatus: 'WAS_CLOSED', label: 'Request to remove report' },
+      requestRemoval: { newStatus: 'WAS_CLOSED', label: "Remove it as it's a duplicate or not reportable" },
     },
     WAS_CLOSED: {
       recall: { newStatus: 'REOPENED' },

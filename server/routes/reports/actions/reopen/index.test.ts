@@ -8,12 +8,12 @@ import type { UserAction } from '../../../../middleware/permissions'
 import {
   IncidentReportingApi,
   RelatedObjects,
-  type ReportWithDetails,
+  type ReportBasic,
   type CorrectionRequest,
   type AddCorrectionRequestRequest,
   type UpdateCorrectionRequestRequest,
 } from '../../../../data/incidentReportingApi'
-import { convertReportWithDetailsDates } from '../../../../data/incidentReportingApiUtils'
+import { convertBasicReportDates } from '../../../../data/incidentReportingApiUtils'
 import { mockErrorResponse, mockReport } from '../../../../data/testData/incidentReporting'
 import { mockThrownError } from '../../../../data/testData/thrownErrors'
 import {
@@ -53,16 +53,15 @@ function setupAppForUser(user: Express.User): void {
 const validPayload = { userAction: 'RECALL' satisfies UserAction } as const
 
 describe('Reopening a report', () => {
-  let mockedReport: ReportWithDetails
+  let mockedReport: ReportBasic
   let reopenReportUrl: string
 
   beforeEach(() => {
-    mockedReport = convertReportWithDetailsDates(
+    mockedReport = convertBasicReportDates(
       mockReport({
         reportReference: '6543',
         reportDateAndTime: now,
         type: 'ASSAULT_5',
-        withDetails: true,
       }),
     )
     incidentReportingApi.getReportById.mockResolvedValueOnce(mockedReport)

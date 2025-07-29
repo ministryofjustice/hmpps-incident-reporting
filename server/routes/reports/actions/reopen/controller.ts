@@ -60,13 +60,18 @@ export class ReopenController extends BaseController<Values> {
     const { userType } = permissions
 
     // TODO: PECS lookup is different
-    const { newStatus } = prisonReportTransitions[userType][report.status].RECALL
+    const transition = prisonReportTransitions[userType][report.status].RECALL
+    const { newStatus, successBanner } = transition
 
     try {
       await res.locals.apis.incidentReportingApi.changeReportStatus(report.id, { newStatus })
 
       logger.info(`Report ${report.reportReference} recalled to ${newStatus}`)
-      req.flash('success', { title: `Report ${report.reportReference} recalled to ${newStatus}` })
+      if (successBanner) {
+        req.flash('success', {
+          title: successBanner.replace('$reportReference', report.reportReference).replace('$newStatus', newStatus),
+        })
+      }
 
       // clear session since involvement has been saved
       res.locals.clearSessionOnSuccess = true

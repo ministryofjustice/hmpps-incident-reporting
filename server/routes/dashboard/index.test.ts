@@ -4,7 +4,7 @@ import request from 'supertest'
 import { appWithAllRoutes } from '../testutils/appSetup'
 import { now } from '../../testutils/fakeClock'
 import { type GetReportsParams, IncidentReportingApi } from '../../data/incidentReportingApi'
-import { convertBasicReportDates } from '../../data/incidentReportingApiUtils'
+import { convertReportDates } from '../../data/incidentReportingApiUtils'
 import { mockErrorResponse, mockReport } from '../../data/testData/incidentReporting'
 import { unsortedPageOf } from '../../data/testData/paginatedResponses'
 import { mockSharedUser } from '../../data/testData/manageUsers'
@@ -78,8 +78,8 @@ describe('Dashboard permissions', () => {
 describe('GET dashboard', () => {
   beforeEach(() => {
     const mockedReports = [
-      convertBasicReportDates(mockReport({ reportReference: '6543', reportDateAndTime: now })),
-      convertBasicReportDates(mockReport({ reportReference: '6544', reportDateAndTime: now })),
+      convertReportDates(mockReport({ reportReference: '6543', reportDateAndTime: now })),
+      convertReportDates(mockReport({ reportReference: '6544', reportDateAndTime: now })),
     ]
     const pageOfReports = unsortedPageOf(mockedReports)
     incidentReportingApi.getReports.mockResolvedValueOnce(pageOfReports)
@@ -235,10 +235,10 @@ describe('GET dashboard', () => {
 
   it('should show actual name when username found, username if not', () => {
     const mockedReports = [
-      convertBasicReportDates(
+      convertReportDates(
         mockReport({ reportReference: '6543', reportDateAndTime: now, reportingUsername: 'JOHN_SMITH' }),
       ),
-      convertBasicReportDates(
+      convertReportDates(
         mockReport({ reportReference: '6544', reportDateAndTime: now, reportingUsername: 'JOHN_WICK' }),
       ),
     ]

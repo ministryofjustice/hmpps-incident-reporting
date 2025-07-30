@@ -2,7 +2,7 @@ import type { Express } from 'express'
 import request from 'supertest'
 
 import { IncidentReportingApi, type ReportWithDetails } from '../../../../data/incidentReportingApi'
-import { convertReportWithDetailsDates } from '../../../../data/incidentReportingApiUtils'
+import { convertReportDates } from '../../../../data/incidentReportingApiUtils'
 import ManageUsersApiClient, { type UsersSearchResponse } from '../../../../data/manageUsersApiClient'
 import { mockErrorResponse, mockReport } from '../../../../data/testData/incidentReporting'
 import { mockPrisonUserSearchResult } from '../../../../data/testData/manageUsers'
@@ -40,7 +40,7 @@ describe('Searching for a member of staff to add to a report', () => {
   let report: ReportWithDetails
 
   beforeEach(() => {
-    report = convertReportWithDetailsDates(
+    report = convertReportDates(
       mockReport({
         type: 'FIND_6',
         reportReference: '6544',

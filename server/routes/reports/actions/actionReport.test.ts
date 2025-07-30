@@ -15,7 +15,7 @@ import {
   type AddCorrectionRequestRequest,
   type UpdateCorrectionRequestRequest,
 } from '../../../data/incidentReportingApi'
-import { convertBasicReportDates, convertReportWithDetailsDates } from '../../../data/incidentReportingApiUtils'
+import { convertReportDates } from '../../../data/incidentReportingApiUtils'
 import * as reportValidity from '../../../data/reportValidity'
 import { mockErrorResponse, mockReport } from '../../../data/testData/incidentReporting'
 import { mockSharedUser } from '../../../data/testData/manageUsers'
@@ -94,7 +94,7 @@ describe('Actioning reports', () => {
   let viewReportUrl: string
 
   beforeEach(() => {
-    mockedReport = convertReportWithDetailsDates(
+    mockedReport = convertReportDates(
       mockReport({
         reportReference: '6543',
         reportDateAndTime: now,
@@ -887,7 +887,7 @@ describe('Actioning reports', () => {
           incidentReportingApi.getReportByReference.mockRejectedValueOnce(new Error('should not be called'))
         })
 
-        const mockedDuplicateReport = convertBasicReportDates(
+        const mockedDuplicateReport = convertReportDates(
           mockReport({ reportReference: '1234', reportDateAndTime: now }),
         )
         function makeOriginalReportReferenceExistIfNeeded() {

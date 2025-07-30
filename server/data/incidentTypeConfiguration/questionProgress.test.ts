@@ -1,6 +1,6 @@
 import { now } from '../../testutils/fakeClock'
 import type { Response } from '../incidentReportingApi'
-import { convertReportWithDetailsDates } from '../incidentReportingApiUtils'
+import { convertReportDates } from '../incidentReportingApiUtils'
 import { mockReport } from '../testData/incidentReporting'
 import type { IncidentTypeConfiguration } from './types'
 import { generateSteps } from './formWizard'
@@ -154,7 +154,7 @@ describe('Question progress', () => {
   const steps = generateSteps(config)
 
   describe('before any responses have been entered', () => {
-    const report = convertReportWithDetailsDates(
+    const report = convertReportDates(
       mockReport({ type: 'MISCELLANEOUS_1', reportReference: '6543', reportDateAndTime: now, withDetails: true }),
     )
     // no responses
@@ -188,7 +188,7 @@ describe('Question progress', () => {
   })
 
   describe('once a response has been entered', () => {
-    const report = convertReportWithDetailsDates(
+    const report = convertReportDates(
       mockReport({ type: 'MISCELLANEOUS_1', reportReference: '6543', reportDateAndTime: now, withDetails: true }),
     )
     // '11' response for question '1'
@@ -254,7 +254,7 @@ describe('Question progress', () => {
   })
 
   describe('once a differently branching response has been entered', () => {
-    const report = convertReportWithDetailsDates(
+    const report = convertReportDates(
       mockReport({ type: 'MISCELLANEOUS_1', reportReference: '6543', reportDateAndTime: now, withDetails: true }),
     )
     // '12' response for question '1'
@@ -320,7 +320,7 @@ describe('Question progress', () => {
   })
 
   describe('once all responses have been entered', () => {
-    const report = convertReportWithDetailsDates(
+    const report = convertReportDates(
       mockReport({ type: 'MISCELLANEOUS_1', reportReference: '6543', reportDateAndTime: now, withDetails: true }),
     )
     // '11' response for question '1'
@@ -475,7 +475,7 @@ describe('Question progress', () => {
 
   describe('should validate comment and/or date responses along the way', () => {
     it('when a response is not one of the possible choices', () => {
-      const report = convertReportWithDetailsDates(
+      const report = convertReportDates(
         mockReport({ type: 'MISCELLANEOUS_1', reportReference: '6543', reportDateAndTime: now, withDetails: true }),
       )
       // non-existent response for question '1'
@@ -561,7 +561,7 @@ describe('Question progress', () => {
         },
       }
       const simplestSteps = generateSteps(simplestConfig)
-      const report = convertReportWithDetailsDates(
+      const report = convertReportDates(
         mockReport({ type: 'MISCELLANEOUS_1', reportReference: '6543', reportDateAndTime: now, withDetails: true }),
       )
 
@@ -766,7 +766,7 @@ describe('Question progress', () => {
         },
       }
       const multiChoiceSteps = generateSteps(multiChoiceConfig)
-      const report = convertReportWithDetailsDates(
+      const report = convertReportDates(
         mockReport({ type: 'MISCELLANEOUS_1', reportReference: '6543', reportDateAndTime: now, withDetails: true }),
       )
 
@@ -891,7 +891,7 @@ describe('Question progress', () => {
         },
       }
       const stepsWithInactiveResponses = generateSteps(configWithInactiveResponses)
-      const report = convertReportWithDetailsDates(
+      const report = convertReportDates(
         mockReport({ type: 'MISCELLANEOUS_1', reportReference: '6543', reportDateAndTime: now, withDetails: true }),
       )
       report.questions = [

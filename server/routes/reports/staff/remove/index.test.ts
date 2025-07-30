@@ -9,7 +9,7 @@ import {
   type StaffInvolvement,
   type UpdateStaffInvolvementRequest,
 } from '../../../../data/incidentReportingApi'
-import { convertReportWithDetailsDates } from '../../../../data/incidentReportingApiUtils'
+import { convertReportDates } from '../../../../data/incidentReportingApiUtils'
 import { mockErrorResponse, mockReport } from '../../../../data/testData/incidentReporting'
 import { mockThrownError } from '../../../../data/testData/thrownErrors'
 import {
@@ -45,7 +45,7 @@ describe('Remove staff involvement', () => {
   let mockedReport: ReportWithDetails
 
   beforeEach(() => {
-    mockedReport = convertReportWithDetailsDates(
+    mockedReport = convertReportDates(
       mockReport({ reportReference: '6543', reportDateAndTime: now, withDetails: true }),
     )
     mockedReport.staffInvolved = [

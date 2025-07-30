@@ -4,7 +4,7 @@ import request, { type Agent, type Response } from 'supertest'
 import format from '../../../utils/format'
 import { appWithAllRoutes } from '../../testutils/appSetup'
 import { IncidentReportingApi } from '../../../data/incidentReportingApi'
-import { convertBasicReportDates } from '../../../data/incidentReportingApiUtils'
+import { convertReportDates } from '../../../data/incidentReportingApiUtils'
 import { mockErrorResponse, mockReport } from '../../../data/testData/incidentReporting'
 import { mockThrownError } from '../../../data/testData/thrownErrors'
 import { mockDataWarden, mockReportingOfficer, mockHqViewer, mockUnauthorisedUser } from '../../../data/testData/users'
@@ -26,7 +26,7 @@ afterEach(() => {
 
 describe('Updating report details', () => {
   const incidentDateAndTime = new Date('2024-10-21T16:32:00+01:00')
-  const reportBasic = convertBasicReportDates(
+  const reportBasic = convertReportDates(
     mockReport({
       type: 'DISORDER_2',
       reportReference: '6544',

@@ -2,7 +2,7 @@ import type { Express } from 'express'
 import request from 'supertest'
 
 import { IncidentReportingApi, ReportWithDetails } from '../../../../data/incidentReportingApi'
-import { convertReportWithDetailsDates } from '../../../../data/incidentReportingApiUtils'
+import { convertReportDates } from '../../../../data/incidentReportingApiUtils'
 import { mockErrorResponse, mockReport } from '../../../../data/testData/incidentReporting'
 import { mockThrownError } from '../../../../data/testData/thrownErrors'
 import {
@@ -32,7 +32,7 @@ describe('Prisoner involvement summary for report', () => {
   let mockedReport: ReportWithDetails
 
   beforeEach(() => {
-    mockedReport = convertReportWithDetailsDates(
+    mockedReport = convertReportDates(
       mockReport({ reportReference: '6543', reportDateAndTime: now, withDetails: true }),
     )
     incidentReportingApi.getReportWithDetailsById.mockResolvedValueOnce(mockedReport)
@@ -105,7 +105,7 @@ describe('Prisoner involvement summary for report', () => {
     ({ createJourney }) => {
       Object.assign(
         mockedReport,
-        convertReportWithDetailsDates(
+        convertReportDates(
           mockReport({ reportReference: '6543', reportDateAndTime: now, createdInNomis: true, withDetails: true }),
         ),
       )

@@ -2,7 +2,7 @@ import type { Express } from 'express'
 import request from 'supertest'
 
 import { IncidentReportingApi, type ReportWithDetails } from '../../../../data/incidentReportingApi'
-import { convertReportWithDetailsDates } from '../../../../data/incidentReportingApiUtils'
+import { convertReportDates } from '../../../../data/incidentReportingApiUtils'
 import { OffenderSearchApi, type OffenderSearchResults } from '../../../../data/offenderSearchApi'
 import { mockErrorResponse, mockReport } from '../../../../data/testData/incidentReporting'
 import { andrew, barry, chris, donald, ernie, fred } from '../../../../data/testData/offenderSearch'
@@ -39,7 +39,7 @@ describe('Searching for a prisoner to add to a report', () => {
   let report: ReportWithDetails
 
   beforeEach(() => {
-    report = convertReportWithDetailsDates(
+    report = convertReportDates(
       mockReport({
         type: 'FIND_6',
         reportReference: '6544',

@@ -35,6 +35,11 @@ export function convertReportWithDetailsDates(report: DatesAsStrings<ReportWithD
   }
 }
 
+export function convertReportDates(report: DatesAsStrings<ReportWithDetails>): ReportWithDetails
+export function convertReportDates(report: DatesAsStrings<ReportBasic>): ReportBasic
+export function convertReportDates(
+  report: DatesAsStrings<ReportBasic | ReportWithDetails>,
+): ReportBasic | ReportWithDetails
 export function convertReportDates(
   report: DatesAsStrings<ReportBasic | ReportWithDetails>,
 ): ReportBasic | ReportWithDetails {

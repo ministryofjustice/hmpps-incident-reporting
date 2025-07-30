@@ -3,7 +3,7 @@ import { getIncidentTypeConfiguration } from '../reportConfiguration/types'
 import { generateSteps } from './incidentTypeConfiguration/formWizard'
 import { QuestionProgress } from './incidentTypeConfiguration/questionProgress'
 import type { ReportWithDetails } from './incidentReportingApi'
-import { convertReportWithDetailsDates } from './incidentReportingApiUtils'
+import { convertReportDates } from './incidentReportingApiUtils'
 import { mockReport } from './testData/incidentReporting'
 import { makeSimpleQuestion } from './testData/incidentReportingJest'
 import { validateReport } from './reportValidity'
@@ -22,7 +22,7 @@ describe('Checking that a report can be submitted for review', () => {
     let report: ReportWithDetails
 
     beforeEach(() => {
-      report = convertReportWithDetailsDates(
+      report = convertReportDates(
         mockReport({
           reportReference: '6543',
           reportDateAndTime: now,
@@ -177,7 +177,7 @@ describe('Checking that a report can be submitted for review', () => {
     let report: ReportWithDetails
 
     beforeEach(() => {
-      report = convertReportWithDetailsDates(
+      report = convertReportDates(
         mockReport({
           reportReference: '6543',
           reportDateAndTime: now,

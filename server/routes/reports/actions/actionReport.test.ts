@@ -200,7 +200,7 @@ describe('Actioning reports', () => {
         formOptions: [
           'Close',
           'Send back',
-          'Describe why the report is being sent back',
+          'Explain why you’re sending the report back',
           'Put on hold',
           'Describe why the report is being put on hold',
           'Mark as a duplicate',
@@ -217,7 +217,7 @@ describe('Actioning reports', () => {
         formOptions: [
           'Close',
           'Send back',
-          'Describe why the report is being sent back',
+          'Explain why you’re sending the report back',
           'Mark as a duplicate',
           'Enter incident report number of the original report',
           'Describe why it is a duplicate report (optional)',
@@ -232,7 +232,7 @@ describe('Actioning reports', () => {
         formOptions: [
           'Close',
           'Send back',
-          'Describe why the report is being sent back',
+          'Explain why you’re sending the report back',
           'Mark as a duplicate',
           'Enter incident report number of the original report',
           'Describe why it is a duplicate report (optional)',
@@ -998,9 +998,18 @@ describe('Actioning reports', () => {
                 expect(res.text).toContain('There is a problem')
                 if (userAction === 'REQUEST_REVIEW') {
                   expect(res.text).toContain('Enter what has changed in the report')
+                  expect(res.text).not.toContain('Please enter a comment')
+                } else if (userAction === 'REQUEST_CORRECTION') {
+                  expect(res.text).toContain('Add information to explain why you’re sending the report back')
+                  expect(res.text).not.toContain('Please enter a comment')
+                } else if (userAction === 'HOLD') {
+                  expect(res.text).toContain('Add information to explain why you’re putting the report on hold')
+                  expect(res.text).not.toContain('Please enter a comment')
                 } else if (userAction === 'MARK_NOT_REPORTABLE') {
                   expect(res.text).toContain('Describe why incident is not reportable')
+                  expect(res.text).not.toContain('Please enter a comment')
                 } else {
+                  // fallback; doesn’t currently appear
                   expect(res.text).toContain('Please enter a comment')
                 }
                 expect(incidentReportingApi.updateReport).not.toHaveBeenCalled()

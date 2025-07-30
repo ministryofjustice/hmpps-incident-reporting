@@ -30,13 +30,21 @@ export type Transition = {
 } & (
   | {
       /** Action does not permit a comment */
-      comment?: undefined
+      comment?: never
     }
   | {
-      /** Action allows or requires a comment */
-      comment: 'optional' | 'required'
+      /** Action allows an optional comment */
+      comment: 'optional'
       /** Associated label for comment box */
       commentLabel: string
+    }
+  | {
+      /** Action requires a comment */
+      comment: 'required'
+      /** Associated label for comment box */
+      commentLabel: string
+      /** Associated error when comment is missing */
+      commentMissingError: string
     }
 )
 
@@ -78,6 +86,7 @@ export const prisonReportTransitions: Transitions = {
         label: 'Resubmit it with updated information',
         comment: 'required',
         commentLabel: 'Explain what you have changed in the report',
+        commentMissingError: 'Enter what has changed in the report',
         postCorrectionRequest: true,
         successBanner: 'You have resubmitted incident report $reportReference',
       },
@@ -108,6 +117,7 @@ export const prisonReportTransitions: Transitions = {
         label: 'Resubmit it with updated information',
         comment: 'required',
         commentLabel: 'Explain what you have changed in the report',
+        commentMissingError: 'Enter what has changed in the report',
         postCorrectionRequest: true,
         successBanner: 'You have resubmitted incident report $reportReference',
       },
@@ -135,6 +145,7 @@ export const prisonReportTransitions: Transitions = {
         label: 'Send back',
         comment: 'required',
         commentLabel: 'Explain why you’re sending the report back',
+        commentMissingError: 'Add information to explain why you’re sending the report back',
         postCorrectionRequest: true,
         successBanner: 'Incident report $reportReference has been sent back',
       },
@@ -143,6 +154,7 @@ export const prisonReportTransitions: Transitions = {
         label: 'Put on hold',
         comment: 'required', // TODO: maybe this should be optional?
         commentLabel: 'Describe why the report is being put on hold',
+        commentMissingError: 'Add information to explain why you’re putting the report on hold',
         postCorrectionRequest: true,
         successBanner: 'Incident report $reportReference has been put on hold',
       },
@@ -176,6 +188,7 @@ export const prisonReportTransitions: Transitions = {
         label: 'Send back',
         comment: 'required',
         commentLabel: 'Explain why you’re sending the report back',
+        commentMissingError: 'Add information to explain why you’re sending the report back',
         postCorrectionRequest: true,
         successBanner: 'Incident report $reportReference has been sent back',
       },
@@ -212,6 +225,7 @@ export const prisonReportTransitions: Transitions = {
         label: 'Send back',
         comment: 'required',
         commentLabel: 'Explain why you’re sending the report back',
+        commentMissingError: 'Add information to explain why you’re sending the report back',
         postCorrectionRequest: true,
         successBanner: 'Incident report $reportReference has been sent back',
       },
@@ -220,6 +234,7 @@ export const prisonReportTransitions: Transitions = {
         label: 'Put on hold',
         comment: 'required', // TODO: maybe this should be optional?
         commentLabel: 'Describe why the report is being put on hold',
+        commentMissingError: 'Add information to explain why you’re putting the report on hold',
         postCorrectionRequest: true,
         successBanner: 'Incident report $reportReference has been put on hold',
       },
@@ -265,6 +280,7 @@ export const prisonReportTransitions: Transitions = {
         label: 'Send back',
         comment: 'required',
         commentLabel: 'Explain why you’re sending the report back',
+        commentMissingError: 'Add information to explain why you’re sending the report back',
         postCorrectionRequest: true,
         successBanner: 'Incident report $reportReference has been sent back',
       },

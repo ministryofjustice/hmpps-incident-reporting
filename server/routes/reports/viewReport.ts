@@ -131,33 +131,14 @@ export function viewReportRouter(): Router {
           if (transition.comment === 'required') {
             const nonWhitespace = /\S+/
             if (!comment || !nonWhitespace.test(comment)) {
-              if (userAction === 'REQUEST_REVIEW') {
-                errors.push({
-                  text: 'Enter what has changed in the report',
-                  href: `#${commentFieldName}`,
-                })
-              } else if (userAction === 'REQUEST_CORRECTION') {
-                errors.push({
-                  text: 'Add information to explain why you’re sending the report back',
-                  href: `#${commentFieldName}`,
-                })
-              } else if (userAction === 'HOLD') {
-                errors.push({
-                  text: 'Add information to explain why you’re putting the report on hold',
-                  href: `#${commentFieldName}`,
-                })
-              } else if (userAction === 'MARK_NOT_REPORTABLE') {
-                errors.push({
-                  text: 'Describe why incident is not reportable',
-                  href: `#${commentFieldName}`,
-                })
-              } else {
+              const commentMissingError =
+                transition.commentMissingError ||
                 // fallback; doesn’t currently appear
-                errors.push({
-                  text: 'Please enter a comment',
-                  href: `#${commentFieldName}`,
-                })
-              }
+                'Please enter a comment'
+              errors.push({
+                text: commentMissingError,
+                href: `#${commentFieldName}`,
+              })
             }
           }
 

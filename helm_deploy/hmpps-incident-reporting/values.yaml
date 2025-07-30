@@ -39,11 +39,11 @@ generic-service:
     hmpps-incident-reporting-application-insights:
       APPLICATIONINSIGHTS_CONNECTION_STRING: "APPLICATIONINSIGHTS_CONNECTION_STRING"
     hmpps-incident-reporting-auth-code:
-      AUTH_CODE_CLIENT_ID: "AUTH_CODE_CLIENT_ID"
-      AUTH_CODE_CLIENT_SECRET: "AUTH_CODE_CLIENT_SECRET"
+      API_CLIENT_ID: "AUTH_CODE_CLIENT_ID"
+      API_CLIENT_SECRET: "AUTH_CODE_CLIENT_SECRET"
     hmpps-incident-reporting-client-creds:
-      CLIENT_CREDS_CLIENT_ID: "CLIENT_CREDS_CLIENT_ID"
-      CLIENT_CREDS_CLIENT_SECRET: "CLIENT_CREDS_CLIENT_SECRET"
+      SYSTEM_CLIENT_ID: "CLIENT_CREDS_CLIENT_ID"
+      SYSTEM_CLIENT_SECRET: "CLIENT_CREDS_CLIENT_SECRET"
     hmpps-incident-reporting-session-secret:
       SESSION_SECRET: 'SESSION_SECRET'
     elasticache-redis:

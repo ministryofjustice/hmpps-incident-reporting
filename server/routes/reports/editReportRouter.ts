@@ -10,7 +10,7 @@ import { questionsRouter } from './questions'
 export const editReportRouter = express.Router({ mergeParams: true })
 
 // require report-editing permissions
-editReportRouter.use(populateReport(true), logoutUnless(hasPermissionTo('edit')))
+editReportRouter.use(populateReport(true), logoutUnless(hasPermissionTo('EDIT')))
 
 // mark nested routes as NOT being part of report creation journey
 editReportRouter.use((_req, res, next) => {

@@ -1,28 +1,37 @@
-/** What can a user do to a report? */
+/**
+ * What can a user do to a report?
+ * NB: codes map to enumeration constant in API, except VIEW, EDIT & REQUEST_REMOVAL
+ */
 export const userActions = [
   /** View all details */
-  { code: 'view', description: 'View' },
+  { code: 'VIEW', description: 'View' },
   /** Change basic details, involvements and respond to questions */
-  { code: 'edit', description: 'Edit' },
+  { code: 'EDIT', description: 'Edit' },
   /** Submit for review */
-  { code: 'requestReview', description: 'Submit' },
-  /** Submit request for removal */
-  { code: 'requestRemoval', description: 'Request to remove report' },
+  { code: 'REQUEST_REVIEW', description: 'Submit' },
+  /** Submit request for removal (covers both requests to mark as duplicate or not reportable) */
+  { code: 'REQUEST_REMOVAL', description: 'Request to remove report' },
   /** Send back for changes */
-  { code: 'requestCorrection', description: 'Request correction' },
+  { code: 'REQUEST_CORRECTION', description: 'Request correction' },
   /** Move into own column & appropriate status */
-  { code: 'recall', description: 'Recall' },
+  { code: 'RECALL', description: 'Recall' },
   /** Review and close */
-  { code: 'close', description: 'Close' },
+  { code: 'CLOSE', description: 'Close' },
   /** Review and mark as duplicate */
-  { code: 'markDuplicate', description: 'Mark as duplicate' },
+  { code: 'MARK_DUPLICATE', description: 'Mark as duplicate' },
   /** Review and mark as not reportable */
-  { code: 'markNotReportable', description: 'Mark as not reportable' },
+  { code: 'MARK_NOT_REPORTABLE', description: 'Mark as not reportable' },
   /** Put on hold */
-  { code: 'hold', description: 'Put on hold' },
+  { code: 'HOLD', description: 'Put on hold' },
 ] as const
 
 export type UserAction = (typeof userActions)[number]['code']
+
+/** IRS api has a different but overlapping set of values */
+export type ApiUserAction =
+  | Exclude<UserAction, 'VIEW' | 'EDIT' | 'REQUEST_REMOVAL'>
+  | 'REQUEST_DUPLICATE'
+  | 'REQUEST_NOT_REPORTABLE'
 
 export const userActionMapping = Object.fromEntries(userActions.map(action => [action.code, action]))
 

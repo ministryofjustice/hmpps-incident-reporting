@@ -9,10 +9,10 @@ export const fields = {
     items: [
       {
         label: 'Reopen report',
-        value: 'recall' satisfies UserAction,
+        value: 'RECALL' satisfies UserAction,
       },
     ],
-    default: 'recall' satisfies UserAction,
+    default: 'RECALL' satisfies UserAction,
   },
 } satisfies FormWizard.Fields
 

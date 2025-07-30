@@ -4,8 +4,16 @@ import request, { type Test } from 'supertest'
 import { appWithAllRoutes } from '../../../testutils/appSetup'
 import { now } from '../../../../testutils/fakeClock'
 import { type Status, statuses } from '../../../../reportConfiguration/constants'
-import { IncidentReportingApi, type ReportWithDetails } from '../../../../data/incidentReportingApi'
-import { convertReportWithDetailsDates } from '../../../../data/incidentReportingApiUtils'
+import type { UserAction } from '../../../../middleware/permissions'
+import {
+  IncidentReportingApi,
+  RelatedObjects,
+  type ReportBasic,
+  type CorrectionRequest,
+  type AddCorrectionRequestRequest,
+  type UpdateCorrectionRequestRequest,
+} from '../../../../data/incidentReportingApi'
+import { convertBasicReportDates } from '../../../../data/incidentReportingApiUtils'
 import { mockErrorResponse, mockReport } from '../../../../data/testData/incidentReporting'
 import { mockThrownError } from '../../../../data/testData/thrownErrors'
 import {
@@ -18,9 +26,18 @@ import {
 jest.mock('../../../../data/incidentReportingApi')
 
 let incidentReportingApi: jest.Mocked<IncidentReportingApi>
+let incidentReportingRelatedObjects: jest.Mocked<
+  RelatedObjects<CorrectionRequest, AddCorrectionRequestRequest, UpdateCorrectionRequestRequest>
+>
 
 beforeEach(() => {
   incidentReportingApi = IncidentReportingApi.prototype as jest.Mocked<IncidentReportingApi>
+  incidentReportingRelatedObjects = RelatedObjects.prototype as jest.Mocked<
+    RelatedObjects<CorrectionRequest, AddCorrectionRequestRequest, UpdateCorrectionRequestRequest>
+  >
+  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+  // @ts-ignore need to mock a getter method
+  incidentReportingApi.correctionRequests = incidentReportingRelatedObjects
 })
 
 afterEach(() => {
@@ -33,17 +50,18 @@ function setupAppForUser(user: Express.User): void {
   app = appWithAllRoutes({ userSupplier: () => user })
 }
 
+const validPayload = { userAction: 'RECALL' satisfies UserAction } as const
+
 describe('Reopening a report', () => {
-  let mockedReport: ReportWithDetails
+  let mockedReport: ReportBasic
   let reopenReportUrl: string
 
   beforeEach(() => {
-    mockedReport = convertReportWithDetailsDates(
+    mockedReport = convertBasicReportDates(
       mockReport({
         reportReference: '6543',
         reportDateAndTime: now,
         type: 'ASSAULT_5',
-        withDetails: true,
       }),
     )
     incidentReportingApi.getReportById.mockResolvedValueOnce(mockedReport)
@@ -71,25 +89,29 @@ describe('Reopening a report', () => {
         .expect(res => {
           expect(res.text).toContain('app-reopen-report')
           expect(res.text).toContain(confirmationMessage)
+          expect(incidentReportingRelatedObjects.addToReport).not.toHaveBeenCalled()
           expect(incidentReportingApi.changeReportStatus).not.toHaveBeenCalled()
         })
     })
 
     it(`should be allowed resulting in a new status of ${newStatus}`, () => {
+      incidentReportingRelatedObjects.addToReport.mockResolvedValueOnce(undefined) // NB: never actually called but response would be ignored
       incidentReportingApi.changeReportStatus.mockResolvedValueOnce(undefined) // NB: response is ignored
 
       return request(app)
         .post(reopenReportUrl)
-        .send({ userAction: 'recall' })
+        .send(validPayload)
         .expect(302)
         .expect(res => {
           expect(res.redirect).toBe(true)
           expect(res.header.location).toEqual(`/reports/${mockedReport.id}`)
+          expect(incidentReportingRelatedObjects.addToReport).not.toHaveBeenCalled()
           expect(incidentReportingApi.changeReportStatus).toHaveBeenCalledWith(mockedReport.id, { newStatus })
         })
     })
 
     it('should show an error if API rejects request to change status', () => {
+      incidentReportingRelatedObjects.addToReport.mockResolvedValueOnce(undefined) // NB: never actually called but response would be ignored
       const error = mockThrownError(mockErrorResponse({ message: 'Comment is required' }))
       incidentReportingApi.changeReportStatus.mockRejectedValueOnce(error)
       incidentReportingApi.getReportById.mockResolvedValueOnce(mockedReport) // due to redirect
@@ -97,7 +119,7 @@ describe('Reopening a report', () => {
       return request
         .agent(app)
         .post(reopenReportUrl)
-        .send({ userAction: 'recall' })
+        .send(validPayload)
         .redirects(1)
         .expect(200)
         .expect(res => {
@@ -105,6 +127,7 @@ describe('Reopening a report', () => {
           expect(res.text).toContain('Sorry, there was a problem with your request')
           expect(res.text).not.toContain('Bad Request')
           expect(res.text).not.toContain('Comment is required')
+          expect(incidentReportingRelatedObjects.addToReport).not.toHaveBeenCalled()
         })
     })
   }
@@ -117,6 +140,7 @@ describe('Reopening a report', () => {
         .expect(res => {
           expect(res.redirect).toBe(true)
           expect(res.header.location).toEqual(`/reports/${mockedReport.id}`)
+          expect(incidentReportingRelatedObjects.addToReport).not.toHaveBeenCalled()
           expect(incidentReportingApi.changeReportStatus).not.toHaveBeenCalled()
         })
     })
@@ -126,7 +150,7 @@ describe('Reopening a report', () => {
     it('should not be allowed', async () => {
       await expectSignOut(request(app).get(reopenReportUrl))
       incidentReportingApi.getReportById.mockResolvedValueOnce(mockedReport)
-      await expectSignOut(request(app).post(reopenReportUrl).send({ userAction: 'recall' }))
+      await expectSignOut(request(app).post(reopenReportUrl).send(validPayload))
     })
   }
 
@@ -222,6 +246,7 @@ function expectSignOut(test: Test): Test {
   return test.expect(302).expect(res => {
     expect(res.redirect).toBe(true)
     expect(res.header.location).toEqual('/sign-out')
+    expect(incidentReportingRelatedObjects.addToReport).not.toHaveBeenCalled()
     expect(incidentReportingApi.changeReportStatus).not.toHaveBeenCalled()
   })
 }

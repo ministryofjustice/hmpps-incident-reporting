@@ -23,6 +23,6 @@ requestRemovalWizardRouter.mergeParams = true
 export const requestRemovalRouter = express.Router({ mergeParams: true })
 requestRemovalRouter.use(
   populateReport(false),
-  logoutUnless(hasPermissionTo('requestRemoval')),
+  logoutUnless(hasPermissionTo('REQUEST_REMOVAL')),
   requestRemovalWizardRouter,
 )

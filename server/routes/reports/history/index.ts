@@ -9,7 +9,7 @@ import { populateReportConfiguration } from '../../../middleware/populateReportC
 // eslint-disable-next-line import/prefer-default-export
 export function historyRouter(): Router {
   const router = Router({ mergeParams: true })
-  router.use(populateReport(true), logoutUnless(hasPermissionTo('view')))
+  router.use(populateReport(true), logoutUnless(hasPermissionTo('VIEW')))
 
   router.get('/status', async (_req, res) => {
     const report = res.locals.report as ReportWithDetails

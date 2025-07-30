@@ -26,7 +26,7 @@ const nestedRouter = express.Router({ mergeParams: true })
 createReportRouter.use('/:reportId', nestedRouter)
 
 // require report-editing permissions
-nestedRouter.use(populateReport(true), logoutUnless(hasPermissionTo('edit')))
+nestedRouter.use(populateReport(true), logoutUnless(hasPermissionTo('EDIT')))
 
 // set url prefix for nested routes
 nestedRouter.use((req, res, next) => {

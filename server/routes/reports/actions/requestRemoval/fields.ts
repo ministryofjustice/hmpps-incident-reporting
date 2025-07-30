@@ -1,17 +1,19 @@
 import type FormWizard from 'hmpo-form-wizard'
 
+import type { ApiUserAction } from '../../../../middleware/permissions'
+
 export const fields = {
-  reason: {
+  userAction: {
     component: 'govukRadios',
     validate: ['required'],
     items: [
       {
         label: 'It is a duplicate',
-        value: 'duplicate',
+        value: 'REQUEST_DUPLICATE' satisfies ApiUserAction,
       },
       {
         label: 'It is not reportable',
-        value: 'notReportable',
+        value: 'REQUEST_NOT_REPORTABLE' satisfies ApiUserAction,
       },
     ],
   },
@@ -20,16 +22,16 @@ export const fields = {
     component: 'govukInput',
     validate: ['required', 'numeric'],
     dependent: {
-      field: 'reason',
-      value: 'duplicate',
+      field: 'userAction',
+      value: 'REQUEST_DUPLICATE' satisfies ApiUserAction,
     },
   },
   duplicateComment: {
     label: 'Describe why it is a duplicate report (optional)',
     component: 'govukTextarea',
     dependent: {
-      field: 'reason',
-      value: 'duplicate',
+      field: 'userAction',
+      value: 'REQUEST_DUPLICATE' satisfies ApiUserAction,
     },
   },
   notReportableComment: {
@@ -37,8 +39,8 @@ export const fields = {
     component: 'govukTextarea',
     validate: ['required'],
     dependent: {
-      field: 'reason',
-      value: 'notReportable',
+      field: 'userAction',
+      value: 'REQUEST_NOT_REPORTABLE' satisfies ApiUserAction,
     },
   },
 } satisfies FormWizard.Fields

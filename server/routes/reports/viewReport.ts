@@ -19,6 +19,8 @@ import {
   parseUserActionCode,
   prisonReportTransitions,
   userActionMapping,
+  type ApiUserType,
+  type ApiUserAction,
   type UserAction,
 } from '../../middleware/permissions'
 import { populateReport } from '../../middleware/populateReport'
@@ -26,6 +28,8 @@ import { populateReportConfiguration } from '../../middleware/populateReportConf
 import type { ReportWithDetails } from '../../data/incidentReportingApi'
 import { validateReport } from '../../data/reportValidity'
 import type { GovukErrorSummaryItem } from '../../utils/govukFrontend'
+import { correctionRequestActionLabels } from './actions/correctionRequestLabels'
+import { placeholderForCorrectionRequest } from './actions/correctionRequestPlaceholder'
 
 const typesLookup = Object.fromEntries(types.map(type => [type.code, type.description]))
 const statusLookup = Object.fromEntries(statuses.map(status => [status.code, status.description]))
@@ -51,7 +55,7 @@ export function viewReportRouter(): Router {
       }
     },
     populateReport(true),
-    logoutUnless(hasPermissionTo('view')),
+    logoutUnless(hasPermissionTo('VIEW')),
     populateReportConfiguration(true),
     async (req, res) => {
       const { incidentReportingApi, prisonApi, userService } = res.locals.apis
@@ -71,14 +75,14 @@ export function viewReportRouter(): Router {
 
       const questionProgressSteps = Array.from(questionProgress)
 
-      const canEditReport = allowedActions.has('edit')
+      const canEditReport = allowedActions.has('EDIT')
       const allowedActionsInNomisOnly = permissions.allowedActionsOnReport(report, 'nomis')
-      const canEditReportInNomisOnly = allowedActionsInNomisOnly.has('edit')
+      const canEditReportInNomisOnly = allowedActionsInNomisOnly.has('EDIT')
 
       const allowedActionsNeedingForm = new Set<UserAction>()
       for (const action of allowedActions) {
         // these user actions are not part of this form
-        if (!['view', 'edit'].includes(action)) {
+        if (!['VIEW', 'EDIT'].includes(action)) {
           allowedActionsNeedingForm.add(action)
         }
       }
@@ -94,14 +98,14 @@ export function viewReportRouter(): Router {
           const transition = reportTransitions[userAction]
 
           if (
-            userAction === 'recall' &&
-            userType === 'reportingOfficer' &&
+            userAction === 'RECALL' &&
+            userType === 'REPORTING_OFFICER' &&
             workListMapping.done.includes(report.status)
           ) {
             res.redirect(`${reportUrl}/reopen`)
             return
           }
-          if (userAction === 'requestRemoval') {
+          if (userAction === 'REQUEST_REMOVAL') {
             res.redirect(`${reportUrl}/request-remove`)
             return
           }
@@ -114,11 +118,12 @@ export function viewReportRouter(): Router {
             }
           }
 
-          const comment: string | undefined = req.body[`${userAction}Comment`]?.trim()
+          const commentFieldName = `${userAction}_COMMENT`
+          let comment: string | undefined = req.body[commentFieldName]?.trim()
           const originalReportReference: string | undefined = req.body.originalReportReference?.trim()
           formValues = {
             userAction,
-            [`${userAction}Comment`]: comment,
+            [commentFieldName]: comment,
             originalReportReference,
           }
 
@@ -126,23 +131,14 @@ export function viewReportRouter(): Router {
           if (transition.comment === 'required') {
             const nonWhitespace = /\S+/
             if (!comment || !nonWhitespace.test(comment)) {
-              if (userAction === 'requestReview') {
-                errors.push({
-                  text: 'Enter what has changed in the report',
-                  href: `#${userAction}Comment`,
-                })
-              } else if (userAction === 'markNotReportable') {
-                errors.push({
-                  text: 'Describe why incident is not reportable',
-                  href: `#${userAction}Comment`,
-                })
-              } else {
-                // fallback
-                errors.push({
-                  text: 'Please enter a comment',
-                  href: `#${userAction}Comment`,
-                })
-              }
+              const commentMissingError =
+                transition.commentMissingError ||
+                // fallback; doesn’t currently appear
+                'Please enter a comment'
+              errors.push({
+                text: commentMissingError,
+                href: `#${commentFieldName}`,
+              })
             }
           }
 
@@ -182,7 +178,7 @@ export function viewReportRouter(): Router {
           if (errors.length === 0) {
             // can submit action
             try {
-              if (userAction === 'requestReview') {
+              if (userAction === 'REQUEST_REVIEW') {
                 // TODO: regeneration will be moved elsewhere
                 // TODO: PECS regions need a different lookup
                 const newTitle = regenerateTitleForReport(
@@ -194,7 +190,23 @@ export function viewReportRouter(): Router {
                 })
               }
 
-              // TODO: post comment (ie. correction request) if necessary; use a helper function to create it
+              if (transition.postCorrectionRequest) {
+                const apiUserAction = userAction as ApiUserAction // transitions config ensures this is possible
+                if (!comment) {
+                  if (apiUserAction === 'MARK_DUPLICATE') {
+                    comment = placeholderForCorrectionRequest(apiUserAction, originalReportReference)
+                  }
+                  if (apiUserAction === 'MARK_NOT_REPORTABLE') {
+                    comment = placeholderForCorrectionRequest(apiUserAction)
+                  }
+                }
+                await incidentReportingApi.correctionRequests.addToReport(report.id, {
+                  userType: userType as ApiUserType, // HQ viewer can’t get here
+                  userAction: apiUserAction,
+                  descriptionOfChange: comment,
+                  originalReportReference,
+                })
+              }
 
               const { newStatus } = transition
               if (newStatus && newStatus !== report.status) {
@@ -210,7 +222,7 @@ export function viewReportRouter(): Router {
                 req.flash('success', { title: successBanner.replace('$reportReference', report.reportReference) })
               }
 
-              if (userAction === 'recall') {
+              if (userAction === 'RECALL') {
                 res.redirect(reportUrl)
               } else {
                 res.redirect('/reports')
@@ -264,6 +276,7 @@ export function viewReportRouter(): Router {
         staffInvolvementLookup,
         typesLookup,
         statusLookup,
+        correctionRequestActionLabels,
         workListMapping,
         reportTransitions,
         formValues,

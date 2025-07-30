@@ -272,16 +272,13 @@ describe('View report page', () => {
         })
     })
 
-    it('should render correction requests', () => {
+    it('should render comments if there are correction requests', () => {
       return request(app)
         .get(viewReportUrl)
         .expect('Content-Type', /html/)
         .expect(res => {
           expect(res.text).toContain('Comments')
           expect(res.text).toContain('moj-timeline')
-          expect(res.text).toContain('USER2')
-          expect(res.text).toContain('Please amend question 2')
-          expect(res.text).toContain('5 December 2023 at 12:34')
         })
     })
   })
@@ -416,16 +413,13 @@ describe('View report page', () => {
         })
     })
 
-    it('should render correction requests', () => {
+    it('should render comments if there are correction requests', () => {
       return request(app)
         .get(viewReportUrl)
         .expect('Content-Type', /html/)
         .expect(res => {
           expect(res.text).toContain('Comments')
           expect(res.text).toContain('moj-timeline')
-          expect(res.text).toContain('USER2')
-          expect(res.text).toContain('Please amend question 2')
-          expect(res.text).toContain('5 December 2023 at 12:34')
         })
     })
   })
@@ -518,7 +512,7 @@ describe('View report page', () => {
         })
     })
 
-    it('should not render correction requests', () => {
+    it('should not render comments if there are no correction requests', () => {
       return request(app)
         .get(viewReportUrl)
         .expect('Content-Type', /html/)
@@ -572,6 +566,264 @@ describe('View report page', () => {
           } else {
             expect(res.text).toContain('Incident report 6543')
             expect(res.text).not.toContain('Check your answers – incident report 6543')
+          }
+        })
+    })
+  })
+
+  describe('Comments section', () => {
+    function extractCommentsSection(html: string): string {
+      const start = html.indexOf('app-correction-requests')
+      const end = html.indexOf('govuk-summary-card', start)
+      if (Number.isFinite(start) && Number.isFinite(end)) {
+        return html.substring(start, end)
+      }
+      return ''
+    }
+
+    it('should render a NOMIS-style correction request without an associated user action', () => {
+      mockedReport.correctionRequests = [
+        {
+          descriptionOfChange: 'NOMIS “requirements” may or may not be data wardens’ requests for amendments',
+          correctionRequestedBy: 'user1',
+          correctionRequestedAt: now,
+        },
+      ]
+
+      return request(app)
+        .get(viewReportUrl)
+        .expect(200)
+        .expect(res => {
+          const comments = extractCommentsSection(res.text)
+          expect(comments).toContain('>Comment<')
+          expect(comments).toContain('John Smith')
+          expect(comments).toContain('NOMIS “requirements” may or may not be data wardens’ requests for amendments')
+        })
+    })
+
+    it('should render a correction request for REQUEST_REVIEW action', () => {
+      mockedReport.correctionRequests = [
+        {
+          descriptionOfChange: 'Prisoner number added to description',
+          userType: 'REPORTING_OFFICER',
+          userAction: 'REQUEST_REVIEW',
+          correctionRequestedBy: 'user1',
+          correctionRequestedAt: now,
+        },
+      ]
+
+      return request(app)
+        .get(viewReportUrl)
+        .expect(200)
+        .expect(res => {
+          const comments = extractCommentsSection(res.text)
+          expect(comments).toContain('Resubmitted')
+          expect(comments).toContain('John Smith')
+          expect(comments).toContain('Prisoner number added to description')
+          expect(comments).not.toContain('Original report')
+        })
+    })
+
+    it('should render a correction request for REQUEST_DUPLICATE action', () => {
+      mockedReport.correctionRequests = [
+        {
+          descriptionOfChange: 'Looks the same',
+          userType: 'REPORTING_OFFICER',
+          userAction: 'REQUEST_DUPLICATE',
+          originalReportReference: '1235',
+          correctionRequestedBy: 'user1',
+          correctionRequestedAt: now,
+        },
+      ]
+
+      return request(app)
+        .get(viewReportUrl)
+        .expect(200)
+        .expect(res => {
+          const comments = extractCommentsSection(res.text)
+          expect(comments).toContain('Request to remove duplicate report')
+          expect(comments).toContain('John Smith')
+          expect(comments).toContain('Looks the same')
+          expect(comments).toContain('Original report')
+          expect(comments).toContain('1235')
+        })
+    })
+
+    it('should render a correction request for REQUEST_NOT_REPORTABLE action', () => {
+      mockedReport.correctionRequests = [
+        {
+          descriptionOfChange: 'Nobody was hurt',
+          userType: 'REPORTING_OFFICER',
+          userAction: 'REQUEST_NOT_REPORTABLE',
+          correctionRequestedBy: 'user1',
+          correctionRequestedAt: now,
+        },
+      ]
+
+      return request(app)
+        .get(viewReportUrl)
+        .expect(200)
+        .expect(res => {
+          const comments = extractCommentsSection(res.text)
+          expect(comments).toContain('Request to remove not reportable incident')
+          expect(comments).toContain('John Smith')
+          expect(comments).toContain('Nobody was hurt')
+          expect(comments).not.toContain('Original report')
+        })
+    })
+
+    it('should render a correction request for REQUEST_CORRECTION action', () => {
+      mockedReport.correctionRequests = [
+        {
+          descriptionOfChange: 'Add prisoner number to description',
+          userType: 'DATA_WARDEN',
+          userAction: 'REQUEST_CORRECTION',
+          correctionRequestedBy: 'user1',
+          correctionRequestedAt: now,
+        },
+      ]
+
+      return request(app)
+        .get(viewReportUrl)
+        .expect(200)
+        .expect(res => {
+          const comments = extractCommentsSection(res.text)
+          expect(comments).toContain('Sent back')
+          expect(comments).toContain('John Smith')
+          expect(comments).toContain('Add prisoner number to description')
+          expect(comments).not.toContain('Original report')
+        })
+    })
+
+    it('should render a correction request for HOLD action', () => {
+      mockedReport.correctionRequests = [
+        {
+          descriptionOfChange: 'Need to check latest policy',
+          userType: 'DATA_WARDEN',
+          userAction: 'HOLD',
+          correctionRequestedBy: 'user1',
+          correctionRequestedAt: now,
+        },
+      ]
+
+      return request(app)
+        .get(viewReportUrl)
+        .expect(200)
+        .expect(res => {
+          const comments = extractCommentsSection(res.text)
+          expect(comments).toContain('Put on hold')
+          expect(comments).toContain('John Smith')
+          expect(comments).toContain('Need to check latest policy')
+          expect(comments).not.toContain('Original report')
+        })
+    })
+
+    it('should render a correction request for MARK_DUPLICATE action', () => {
+      mockedReport.correctionRequests = [
+        {
+          descriptionOfChange: 'Definitely the same',
+          userType: 'DATA_WARDEN',
+          userAction: 'MARK_DUPLICATE',
+          originalReportReference: '1235',
+          correctionRequestedBy: 'user1',
+          correctionRequestedAt: now,
+        },
+      ]
+
+      return request(app)
+        .get(viewReportUrl)
+        .expect(200)
+        .expect(res => {
+          const comments = extractCommentsSection(res.text)
+          expect(comments).toContain('Report removed because of duplication')
+          expect(comments).toContain('John Smith')
+          expect(comments).toContain('Definitely the same')
+          expect(comments).toContain('Original report')
+          expect(comments).toContain('1235')
+        })
+    })
+
+    it('should render a correction request for MARK_NOT_REPORTABLE action', () => {
+      mockedReport.correctionRequests = [
+        {
+          descriptionOfChange: 'Not a reportable type',
+          userType: 'DATA_WARDEN',
+          userAction: 'MARK_NOT_REPORTABLE',
+          correctionRequestedBy: 'user1',
+          correctionRequestedAt: now,
+        },
+      ]
+
+      return request(app)
+        .get(viewReportUrl)
+        .expect(200)
+        .expect(res => {
+          const comments = extractCommentsSection(res.text)
+          expect(comments).toContain('Report removed because incident not reportable')
+          expect(comments).toContain('John Smith')
+          expect(comments).toContain('Not a reportable type')
+          expect(comments).not.toContain('Original report')
+        })
+    })
+
+    it('should render a correction request for CLOSE action', () => {
+      // NB: included for completeness though users cannot create this type of correction request
+      mockedReport.correctionRequests = [
+        {
+          descriptionOfChange: 'No comments',
+          userType: 'DATA_WARDEN',
+          userAction: 'CLOSE',
+          correctionRequestedBy: 'user1',
+          correctionRequestedAt: now,
+        },
+      ]
+
+      return request(app)
+        .get(viewReportUrl)
+        .expect(200)
+        .expect(res => {
+          const comments = extractCommentsSection(res.text)
+          expect(comments).toContain('Closed')
+          expect(comments).toContain('John Smith')
+          expect(comments).toContain('No comments')
+          expect(comments).not.toContain('Original report')
+        })
+    })
+
+    it('should not render placeholder comments inside correction requests', () => {
+      mockedReport.correctionRequests = [
+        {
+          descriptionOfChange: '(Report is a duplicate of 1235)',
+          userType: 'REPORTING_OFFICER',
+          userAction: 'REQUEST_DUPLICATE',
+          originalReportReference: '1235',
+          correctionRequestedBy: 'user1',
+          correctionRequestedAt: now,
+        },
+        {
+          descriptionOfChange: '(Report is a duplicate of 1235)',
+          userType: 'DATA_WARDEN',
+          userAction: 'MARK_DUPLICATE',
+          originalReportReference: '1235',
+          correctionRequestedBy: 'user1',
+          correctionRequestedAt: now,
+        },
+        {
+          descriptionOfChange: '(Not reportable)',
+          userType: 'DATA_WARDEN',
+          userAction: 'MARK_NOT_REPORTABLE',
+          correctionRequestedBy: 'user1',
+          correctionRequestedAt: now,
+        },
+      ]
+
+      return request(app)
+        .get(viewReportUrl)
+        .expect(200)
+        .expect(res => {
+          const comments = extractCommentsSection(res.text)
+          for (const unexpected of ['(Report is a duplicate of 1235)', '(Not reportable)']) {
+            expect(comments).not.toContain(unexpected)
           }
         })
     })

@@ -114,4 +114,4 @@ const addDescriptionWizardRouter = FormWizard(addDescriptionSteps, addDescriptio
 addDescriptionWizardRouter.mergeParams = true
 // eslint-disable-next-line import/prefer-default-export
 export const addDescriptionRouter = express.Router({ mergeParams: true })
-addDescriptionRouter.use(populateReport(true), logoutUnless(hasPermissionTo('edit')), addDescriptionWizardRouter)
+addDescriptionRouter.use(populateReport(true), logoutUnless(hasPermissionTo('EDIT')), addDescriptionWizardRouter)

@@ -7,9 +7,9 @@ import {
   type Transitions,
   prisonReportTransitions,
   pecsReportTransitions,
-} from '../server/middleware/permissions/statusTransitions'
-import { userActions } from '../server/middleware/permissions/userActions'
-import { userTypes } from '../server/middleware/permissions/userType'
+  userActions,
+  userTypes,
+} from '../server/middleware/permissions'
 import { printText, red } from './utils'
 
 const outputDir = path.resolve(__dirname, '../dist/status-diagrams')
@@ -41,9 +41,9 @@ function main(): void {
                 let colour: string
                 if (action === 'close' || action === 'requestReview') {
                   colour = 'forestgreen'
-                } else if (userType === 'dataWarden') {
+                } else if (userType === 'DATA_WARDEN') {
                   colour = 'dodgerblue'
-                } else if (userType === 'reportingOfficer') {
+                } else if (userType === 'REPORTING_OFFICER') {
                   colour = 'purple'
                 } else {
                   // if red comes up, something is misconfigured

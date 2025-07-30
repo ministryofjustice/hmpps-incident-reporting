@@ -4,7 +4,14 @@ import request, { type Test } from 'supertest'
 import { appWithAllRoutes } from '../../../testutils/appSetup'
 import { now } from '../../../../testutils/fakeClock'
 import { statuses } from '../../../../reportConfiguration/constants'
-import { IncidentReportingApi, type ReportBasic } from '../../../../data/incidentReportingApi'
+import {
+  IncidentReportingApi,
+  RelatedObjects,
+  type ReportBasic,
+  type CorrectionRequest,
+  type AddCorrectionRequestRequest,
+  type UpdateCorrectionRequestRequest,
+} from '../../../../data/incidentReportingApi'
 import { convertBasicReportDates } from '../../../../data/incidentReportingApiUtils'
 import { mockErrorResponse, mockReport } from '../../../../data/testData/incidentReporting'
 import { mockThrownError } from '../../../../data/testData/thrownErrors'
@@ -18,9 +25,18 @@ import {
 jest.mock('../../../../data/incidentReportingApi')
 
 let incidentReportingApi: jest.Mocked<IncidentReportingApi>
+let incidentReportingRelatedObjects: jest.Mocked<
+  RelatedObjects<CorrectionRequest, AddCorrectionRequestRequest, UpdateCorrectionRequestRequest>
+>
 
 beforeEach(() => {
   incidentReportingApi = IncidentReportingApi.prototype as jest.Mocked<IncidentReportingApi>
+  incidentReportingRelatedObjects = RelatedObjects.prototype as jest.Mocked<
+    RelatedObjects<CorrectionRequest, AddCorrectionRequestRequest, UpdateCorrectionRequestRequest>
+  >
+  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+  // @ts-ignore need to mock a getter method
+  incidentReportingApi.correctionRequests = incidentReportingRelatedObjects
 })
 
 afterEach(() => {
@@ -34,12 +50,12 @@ function setupAppForUser(user: Express.User): void {
 }
 
 const validPayloadWhenDuplicate = {
-  reason: 'duplicate' as const,
+  userAction: 'REQUEST_DUPLICATE' as const,
   originalReportReference: '1234',
   duplicateComment: 'A colleague already reported it this morning',
 }
 const validPayloadWhenNotReportable = {
-  reason: 'notReportable' as const,
+  userAction: 'REQUEST_NOT_REPORTABLE' as const,
   notReportableComment: 'This minor type of incident does not need recording according to policy',
 }
 
@@ -102,6 +118,7 @@ describe('Requesting removal of a report', () => {
           .expect(res => {
             expect(res.text).toContain('app-remove-report-request')
             expect(res.text).toContain('Why do you want to remove this report?')
+            expect(incidentReportingRelatedObjects.addToReport).not.toHaveBeenCalled()
             expect(incidentReportingApi.changeReportStatus).not.toHaveBeenCalled()
           })
       })
@@ -120,6 +137,7 @@ describe('Requesting removal of a report', () => {
             expect(res.text).toContain('Select why you want to remove this report')
             expect(res.text).not.toContain('Enter a valid incident report number')
             expect(res.text).not.toContain('Describe why incident is not reportable')
+            expect(incidentReportingRelatedObjects.addToReport).not.toHaveBeenCalled()
             expect(incidentReportingApi.changeReportStatus).not.toHaveBeenCalled()
           })
       })
@@ -130,6 +148,7 @@ describe('Requesting removal of a report', () => {
 
       it(`should allow requesting removal of a duplicate report changing the status to ${newStatus}`, () => {
         incidentReportingApi.getReportByReference.mockResolvedValueOnce(mockedDuplicateReport)
+        incidentReportingRelatedObjects.addToReport.mockResolvedValueOnce(undefined) // NB: response is ignored
         incidentReportingApi.changeReportStatus.mockResolvedValueOnce(undefined) // NB: response is ignored
 
         return request(app)
@@ -139,12 +158,19 @@ describe('Requesting removal of a report', () => {
           .expect(res => {
             expect(res.redirect).toBe(true)
             expect(res.header.location).toEqual('/reports')
+            expect(incidentReportingRelatedObjects.addToReport).toHaveBeenCalledWith(mockedReport.id, {
+              descriptionOfChange: 'A colleague already reported it this morning',
+              userAction: 'REQUEST_DUPLICATE',
+              userType: 'REPORTING_OFFICER',
+              originalReportReference: '1234',
+            } satisfies AddCorrectionRequestRequest)
             expect(incidentReportingApi.changeReportStatus).toHaveBeenCalledWith(mockedReport.id, { newStatus })
           })
       })
 
       it('should still allow requesting removal of a duplicate report if comment is left empty', () => {
         incidentReportingApi.getReportByReference.mockResolvedValueOnce(mockedDuplicateReport)
+        incidentReportingRelatedObjects.addToReport.mockResolvedValueOnce(undefined) // NB: response is ignored
         incidentReportingApi.changeReportStatus.mockResolvedValueOnce(undefined) // NB: response is ignored
 
         return request(app)
@@ -157,6 +183,12 @@ describe('Requesting removal of a report', () => {
           .expect(res => {
             expect(res.redirect).toBe(true)
             expect(res.header.location).toEqual('/reports')
+            expect(incidentReportingRelatedObjects.addToReport).toHaveBeenCalledWith(mockedReport.id, {
+              descriptionOfChange: '(Report is a duplicate of 1234)',
+              userAction: 'REQUEST_DUPLICATE',
+              userType: 'REPORTING_OFFICER',
+              originalReportReference: '1234',
+            } satisfies AddCorrectionRequestRequest)
             expect(incidentReportingApi.changeReportStatus).toHaveBeenCalledWith(mockedReport.id, { newStatus })
           })
       })
@@ -178,6 +210,7 @@ describe('Requesting removal of a report', () => {
             expect(res.text).toContain('There is a problem')
             expect(res.text).toContain('Enter a valid incident report number')
             expect(incidentReportingApi.getReportByReference).not.toHaveBeenCalled()
+            expect(incidentReportingRelatedObjects.addToReport).not.toHaveBeenCalled()
             expect(incidentReportingApi.changeReportStatus).not.toHaveBeenCalled()
           })
       })
@@ -200,6 +233,7 @@ describe('Requesting removal of a report', () => {
             expect(res.text).toContain('Enter a different report number')
             expect(res.text).not.toContain('Enter a valid incident report number')
             expect(incidentReportingApi.getReportByReference).not.toHaveBeenCalled()
+            expect(incidentReportingRelatedObjects.addToReport).not.toHaveBeenCalled()
             expect(incidentReportingApi.changeReportStatus).not.toHaveBeenCalled()
           })
       })
@@ -218,6 +252,7 @@ describe('Requesting removal of a report', () => {
           .expect(res => {
             expect(res.text).toContain('There is a problem')
             expect(res.text).toContain('Enter a valid incident report number')
+            expect(incidentReportingRelatedObjects.addToReport).not.toHaveBeenCalled()
             expect(incidentReportingApi.changeReportStatus).not.toHaveBeenCalled()
           })
       })
@@ -238,11 +273,34 @@ describe('Requesting removal of a report', () => {
             expect(res.text).toContain('Incident number could not be looked up')
             expect(res.text).not.toContain('Enter a valid incident report number')
             expect(res.text).not.toContain('External problem')
+            expect(incidentReportingRelatedObjects.addToReport).not.toHaveBeenCalled()
             expect(incidentReportingApi.changeReportStatus).not.toHaveBeenCalled()
           })
       })
 
-      it('should show an error if API rejects request to mark as duplicate', () => {
+      it('should show an error if API rejects adding a correction request when requesting to mark as duplicate', () => {
+        const error = mockThrownError(mockErrorResponse({ status: 500, message: 'External problem' }), 500)
+        incidentReportingRelatedObjects.addToReport.mockRejectedValueOnce(error)
+        incidentReportingApi.getReportByReference.mockResolvedValueOnce(mockedDuplicateReport)
+        incidentReportingApi.changeReportStatus.mockResolvedValueOnce(undefined) // NB: response is ignored
+        incidentReportingApi.getReportById.mockResolvedValueOnce(mockedReport) // due to redirect
+
+        return request
+          .agent(app)
+          .post(requestRemoveReportUrl)
+          .send(validPayloadWhenDuplicate)
+          .redirects(1)
+          .expect(200)
+          .expect(res => {
+            expect(res.text).toContain('There is a problem')
+            expect(res.text).toContain('Sorry, there was a problem with your request')
+            expect(res.text).not.toContain('Internal Server Error')
+            expect(res.text).not.toContain('External problem')
+            expect(incidentReportingApi.changeReportStatus).not.toHaveBeenCalled()
+          })
+      })
+
+      it('should show an error if API rejects changing status when requesting to mark as duplicate', () => {
         const error = mockThrownError(mockErrorResponse({ status: 500, message: 'External problem' }), 500)
         incidentReportingApi.getReportByReference.mockResolvedValueOnce(mockedDuplicateReport)
         incidentReportingApi.changeReportStatus.mockRejectedValueOnce(error)
@@ -263,6 +321,7 @@ describe('Requesting removal of a report', () => {
       })
 
       it(`should allow requesting removal of a non-reportable report changing the status to ${newStatus}`, () => {
+        incidentReportingRelatedObjects.addToReport.mockResolvedValueOnce(undefined) // NB: response is ignored
         incidentReportingApi.changeReportStatus.mockResolvedValueOnce(undefined) // NB: response is ignored
 
         return request(app)
@@ -272,7 +331,13 @@ describe('Requesting removal of a report', () => {
           .expect(res => {
             expect(res.redirect).toBe(true)
             expect(res.header.location).toEqual('/reports')
+            expect(incidentReportingRelatedObjects.addToReport).toHaveBeenCalledWith(mockedReport.id, {
+              descriptionOfChange: 'This minor type of incident does not need recording according to policy',
+              userAction: 'REQUEST_NOT_REPORTABLE',
+              userType: 'REPORTING_OFFICER',
+            } satisfies AddCorrectionRequestRequest)
             expect(incidentReportingApi.changeReportStatus).toHaveBeenCalledWith(mockedReport.id, { newStatus })
+            expect(incidentReportingApi.getReportByReference).not.toHaveBeenCalled()
           })
       })
 
@@ -291,11 +356,33 @@ describe('Requesting removal of a report', () => {
           .expect(res => {
             expect(res.text).toContain('There is a problem')
             expect(res.text).toContain('Describe why incident is not reportable')
+            expect(incidentReportingRelatedObjects.addToReport).not.toHaveBeenCalled()
             expect(incidentReportingApi.changeReportStatus).not.toHaveBeenCalled()
           })
       })
 
-      it('should show an error if API rejects request to mark as not reportable', () => {
+      it('should show an error if API rejects adding a correction request when requesting to mark as not reportable', () => {
+        const error = mockThrownError(mockErrorResponse({ status: 500, message: 'External problem' }), 500)
+        incidentReportingRelatedObjects.addToReport.mockRejectedValueOnce(error)
+        incidentReportingApi.changeReportStatus.mockResolvedValueOnce(undefined) // NB: response is ignored
+        incidentReportingApi.getReportById.mockResolvedValueOnce(mockedReport) // due to redirect
+
+        return request
+          .agent(app)
+          .post(requestRemoveReportUrl)
+          .send(validPayloadWhenNotReportable)
+          .redirects(1)
+          .expect(200)
+          .expect(res => {
+            expect(res.text).toContain('There is a problem')
+            expect(res.text).toContain('Sorry, there was a problem with your request')
+            expect(res.text).not.toContain('Internal Server Error')
+            expect(res.text).not.toContain('External problem')
+            expect(incidentReportingApi.changeReportStatus).not.toHaveBeenCalled()
+          })
+      })
+
+      it('should show an error if API rejects changing status when requesting to mark as not reportable', () => {
         const error = mockThrownError(mockErrorResponse({ status: 500, message: 'External problem' }), 500)
         incidentReportingApi.changeReportStatus.mockRejectedValueOnce(error)
         incidentReportingApi.getReportById.mockResolvedValueOnce(mockedReport) // due to redirect
@@ -356,6 +443,7 @@ function expectSignOut(test: Test): Test {
   return test.expect(302).expect(res => {
     expect(res.redirect).toBe(true)
     expect(res.header.location).toEqual('/sign-out')
+    expect(incidentReportingRelatedObjects.addToReport).not.toHaveBeenCalled()
     expect(incidentReportingApi.changeReportStatus).not.toHaveBeenCalled()
   })
 }

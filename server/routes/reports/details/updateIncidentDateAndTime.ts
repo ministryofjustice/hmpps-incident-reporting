@@ -125,6 +125,6 @@ updateIncidentDateAndTimeWizardRouter.mergeParams = true
 export const updateIncidentDateAndTimeRouter = express.Router({ mergeParams: true })
 updateIncidentDateAndTimeRouter.use(
   populateReport(false),
-  logoutUnless(hasPermissionTo('edit')),
+  logoutUnless(hasPermissionTo('EDIT')),
   updateIncidentDateAndTimeWizardRouter,
 )

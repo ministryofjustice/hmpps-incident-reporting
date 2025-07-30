@@ -57,27 +57,41 @@ describe('Changing incident type', () => {
       })
   })
 
-  it('should redirect if report is not a draft', () => {
-    mockedReport.status = 'AWAITING_REVIEW'
+  it.each([
+    'UPDATED',
+    'ON_HOLD',
+    'WAS_CLOSED',
+    'DUPLICATE',
+    'NOT_REPORTABLE',
+    'CLOSED',
+    'POST_INCIDENT_UPDATE',
+  ] as const)('should not be allowed if report has status %s', status => {
+    mockedReport.status = status
+
     return agent
       .get(confirmationUrl)
       .expect(302)
       .expect(res => {
         expect(res.redirect).toBe(true)
-        expect(res.header.location).toEqual(`/reports/${mockedReport.id}`)
+        expect(res.header.location).toEqual('/sign-out')
       })
   })
 
-  it('should show a confirmation page first', () => {
-    return agent
-      .get(confirmationUrl)
-      .expect(200)
-      .expect(res => {
-        expect(res.request.url.endsWith('/change-type')).toBe(true)
-        expect(res.text).toContain('app-confirm-change-type')
-        expect(res.text).toContain('Most of your answers will be deleted')
-      })
-  })
+  it.each(['DRAFT', 'AWAITING_REVIEW', 'NEEDS_UPDATING', 'REOPENED'] as const)(
+    'should show a confirmation page first if report status is %s',
+    status => {
+      mockedReport.status = status
+
+      return agent
+        .get(confirmationUrl)
+        .expect(200)
+        .expect(res => {
+          expect(res.request.url.endsWith('/change-type')).toBe(true)
+          expect(res.text).toContain('app-confirm-change-type')
+          expect(res.text).toContain('Most of your answers will be deleted')
+        })
+    },
+  )
 
   describe('After confirmation page', () => {
     beforeEach(async () => {

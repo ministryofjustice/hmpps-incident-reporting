@@ -9,7 +9,7 @@ export async function lookupReference(req: Request, res: Response): Promise<void
 
   const report = await incidentReportingApi.getReportByReference(reference)
   const allowedActions = permissions.allowedActionsOnReport(report)
-  if (allowedActions.has('view')) {
+  if (allowedActions.has('VIEW')) {
     res.redirect(`/reports/${report.id}`)
   } else {
     throw new NotFound()

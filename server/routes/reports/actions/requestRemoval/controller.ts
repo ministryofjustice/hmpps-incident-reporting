@@ -3,7 +3,8 @@ import type FormWizard from 'hmpo-form-wizard'
 
 import logger from '../../../../../logger'
 import { BaseController } from '../../../../controllers'
-import { prisonReportTransitions } from '../../../../middleware/permissions'
+import { type ApiUserType, prisonReportTransitions } from '../../../../middleware/permissions'
+import { placeholderForCorrectionRequest } from '../correctionRequestPlaceholder'
 import type { Values } from './fields'
 
 // eslint-disable-next-line import/prefer-default-export
@@ -43,7 +44,7 @@ export class RequestRemovalController extends BaseController<Values> {
   }
 
   protected errorMessage(error: FormWizard.Error, req: FormWizard.Request<Values>, res: express.Response): string {
-    if (error.key === 'reason' && error.type === 'required') {
+    if (error.key === 'userAction' && error.type === 'required') {
       return 'Select why you want to remove this report'
     }
     if (error.key === 'notReportableComment') {
@@ -74,29 +75,54 @@ export class RequestRemovalController extends BaseController<Values> {
 
   async saveValues(req: FormWizard.Request<Values>, res: express.Response, next: express.NextFunction): Promise<void> {
     const { report, permissions } = res.locals
+    const { incidentReportingApi } = res.locals.apis
     const { userType } = permissions
 
+    const formValues = this.getAllValues(req, false)
+    const { userAction, originalReportReference, duplicateComment, notReportableComment } = formValues
+    const apiUserAction = userAction as 'REQUEST_DUPLICATE' | 'REQUEST_NOT_REPORTABLE' // form validation ensures this is possible
     // TODO: PECS lookup is different
-    const { newStatus } = prisonReportTransitions[userType][report.status].requestRemoval
+    const transition = prisonReportTransitions[userType][report.status].REQUEST_REMOVAL
+    const { newStatus, successBanner } = transition
 
     try {
-      // TODO: post comment (ie. correction request) if necessary; use a helper function to create it
-      // const { reason, originalReportReference, duplicateComment, notReportableComment } = this.getAllValues(req)
+      if (transition.postCorrectionRequest) {
+        let comment = apiUserAction === 'REQUEST_DUPLICATE' ? duplicateComment : notReportableComment
+        if (!comment) {
+          if (apiUserAction === 'REQUEST_DUPLICATE') {
+            comment = placeholderForCorrectionRequest(apiUserAction, originalReportReference)
+          }
+          if (apiUserAction === 'REQUEST_NOT_REPORTABLE') {
+            // NB: at present, reporting officers are forced to provide a comment so this placeholder won’t appear
+            comment = placeholderForCorrectionRequest(apiUserAction)
+          }
+        }
+        await incidentReportingApi.correctionRequests.addToReport(report.id, {
+          userType: userType as ApiUserType, // HQ viewer can’t get here
+          userAction: apiUserAction,
+          descriptionOfChange: comment,
+          originalReportReference,
+        })
+      }
 
-      await res.locals.apis.incidentReportingApi.changeReportStatus(report.id, { newStatus })
+      if (newStatus && newStatus !== report.status) {
+        await incidentReportingApi.changeReportStatus(report.id, { newStatus })
+      }
 
       logger.info(`Request to remove report ${report.reportReference} sent`)
-      req.flash('success', { title: `Request to remove report ${report.reportReference} sent` })
+      if (successBanner) {
+        req.flash('success', { title: successBanner.replace('$reportReference', report.reportReference) })
+      }
 
       // clear session since involvement has been saved
       res.locals.clearSessionOnSuccess = true
 
       next()
     } catch (e) {
-      logger.error(e, `Report ${report.reportReference} status could not be changed: %j`, e)
+      logger.error(e, `Request to remove report ${report.reportReference} failed: %j`, e)
       const err = this.convertIntoValidationError(e)
       // TODO: find a different way to report whole-form errors rather than attaching to specific field
-      this.errorHandler({ reason: err }, req, res, next)
+      this.errorHandler({ userAction: err }, req, res, next)
     }
   }
 }

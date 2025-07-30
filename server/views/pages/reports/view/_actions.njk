@@ -5,7 +5,7 @@
       <form id="app-view-report__user-action-form" class="govuk-!-display-none-print" method="post" novalidate>
         <input type="hidden" name="_csrf" value="{{ csrfToken }}" />
 
-        {% if allowedActionsNeedingForm.size == 1 and allowedActionsNeedingForm.keys().next().value == "recall" %}
+        {% if allowedActionsNeedingForm.size == 1 and allowedActionsNeedingForm.keys().next().value == "RECALL" %}
           {# `recall` is only allowed action #}
           {% include "./_actions--recall.njk" %}
         {% else %}

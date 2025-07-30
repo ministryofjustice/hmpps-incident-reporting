@@ -168,10 +168,11 @@ context('View report', () => {
       reportPage.commentsTimeline.should('exist')
       reportPage.commentsTimelineContents.then(timeline => {
         expect(timeline).to.have.lengthOf(1)
-        const [item] = timeline
-        expect(item.title).to.equal('USER2')
-        expect(item.date).to.contain(now.getFullYear().toString())
-        expect(item.description).to.contain('Please amend question 2')
+        const [comment] = timeline
+        expect(comment.title).to.equal('Sent back')
+        expect(comment.byLine).to.equal('by USER2')
+        expect(comment.date).to.contain(now.getFullYear().toString())
+        expect(comment.description).to.contain('Please amend question 2')
       })
     })
 

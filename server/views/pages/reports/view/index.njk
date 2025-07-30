@@ -35,7 +35,7 @@
 {% endblock %}
 
 {% block content %}
-  {% if permissions.userType == "reportingOfficer" and report.status == "ON_HOLD" %}
+  {% if permissions.userType == "REPORTING_OFFICER" and report.status == "ON_HOLD" %}
     {# TODO: replace with link to actual email address #}
     {{ mojAlert({
       variant: "information",

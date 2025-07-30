@@ -118,4 +118,4 @@ const updateDetailsWizardRouter = FormWizard(updateDetailsSteps, updateDetailsFi
 updateDetailsWizardRouter.mergeParams = true
 // eslint-disable-next-line import/prefer-default-export
 export const updateDetailsRouter = express.Router({ mergeParams: true })
-updateDetailsRouter.use(populateReport(false), logoutUnless(hasPermissionTo('edit')), updateDetailsWizardRouter)
+updateDetailsRouter.use(populateReport(false), logoutUnless(hasPermissionTo('EDIT')), updateDetailsWizardRouter)

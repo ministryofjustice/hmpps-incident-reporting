@@ -98,7 +98,7 @@ describe('Permissions class', () => {
       'should categorise $description',
       ({ user }) => {
         const permissions = new Permissions(user)
-        expect(permissions.userType).toEqual('dataWarden')
+        expect(permissions.userType).toEqual('DATA_WARDEN')
         expect(permissions.isDataWarden).toBe(true)
         expect(permissions.isReportingOfficer).toBe(false)
         expect(permissions.isHqViewer).toBe(false)
@@ -109,7 +109,7 @@ describe('Permissions class', () => {
       'should categorise $description',
       ({ user }) => {
         const permissions = new Permissions(user)
-        expect(permissions.userType).toEqual('reportingOfficer')
+        expect(permissions.userType).toEqual('REPORTING_OFFICER')
         expect(permissions.isDataWarden).toBe(false)
         expect(permissions.isReportingOfficer).toBe(true)
         expect(permissions.isHqViewer).toBe(false)
@@ -120,7 +120,7 @@ describe('Permissions class', () => {
       'should categorise $description',
       ({ user }) => {
         const permissions = new Permissions(user)
-        expect(permissions.userType).toEqual('hqViewer')
+        expect(permissions.userType).toEqual('HQ_VIEWER')
         expect(permissions.isDataWarden).toBe(false)
         expect(permissions.isReportingOfficer).toBe(false)
         expect(permissions.isHqViewer).toBe(true)
@@ -233,7 +233,7 @@ describe('Permissions class', () => {
           const permissions = new Permissions(user)
           expectActionsOnPrisonReports({
             permissions,
-            userActions: ['view'],
+            userActions: ['VIEW'],
             all: action,
           })
         })
@@ -257,7 +257,7 @@ describe('Permissions class', () => {
           const permissions = new Permissions(user)
           expectActionsOnPecsReports({
             permissions,
-            userActions: ['view'],
+            userActions: ['VIEW'],
             all: action,
           })
         })
@@ -426,7 +426,7 @@ describe('Permissions class', () => {
           const permissions = new Permissions(user)
           expectActionsOnPrisonReports({
             permissions,
-            userActions: ['edit'],
+            userActions: ['EDIT'],
             all: action,
           })
         })
@@ -451,12 +451,12 @@ describe('Permissions class', () => {
             const permissions = new Permissions(user)
             expectActionsOnPrisonReports({
               permissions,
-              userActions: ['edit'],
+              userActions: ['EDIT'],
               all: denied,
             })
             expectActionsOnPrisonReports({
               permissions,
-              userActions: ['edit'],
+              userActions: ['EDIT'],
               all: action,
               onlyInNomis: true,
             })
@@ -482,7 +482,7 @@ describe('Permissions class', () => {
           const permissions = new Permissions(user)
           expectActionsOnPecsReports({
             permissions,
-            userActions: ['edit'],
+            userActions: ['EDIT'],
             all: action,
           })
         })
@@ -507,12 +507,12 @@ describe('Permissions class', () => {
             const permissions = new Permissions(user)
             expectActionsOnPecsReports({
               permissions,
-              userActions: ['edit'],
+              userActions: ['EDIT'],
               all: denied,
             })
             expectActionsOnPecsReports({
               permissions,
-              userActions: ['edit'],
+              userActions: ['EDIT'],
               all: action,
               onlyInNomis: true,
             })
@@ -553,7 +553,7 @@ describe('Permissions class', () => {
           const permissions = new Permissions(user)
           expectActionsOnPrisonReports({
             permissions,
-            userActions: ['close', 'markDuplicate', 'markNotReportable'],
+            userActions: ['CLOSE', 'MARK_DUPLICATE', 'MARK_NOT_REPORTABLE'],
             all: action,
           })
         })
@@ -578,12 +578,12 @@ describe('Permissions class', () => {
             const permissions = new Permissions(user)
             expectActionsOnPrisonReports({
               permissions,
-              userActions: ['close', 'markDuplicate', 'markNotReportable'],
+              userActions: ['CLOSE', 'MARK_DUPLICATE', 'MARK_NOT_REPORTABLE'],
               all: denied,
             })
             expectActionsOnPrisonReports({
               permissions,
-              userActions: ['close', 'markDuplicate', 'markNotReportable'],
+              userActions: ['CLOSE', 'MARK_DUPLICATE', 'MARK_NOT_REPORTABLE'],
               all: action,
               onlyInNomis: true,
             })
@@ -609,7 +609,7 @@ describe('Permissions class', () => {
           const permissions = new Permissions(user)
           expectActionsOnPecsReports({
             permissions,
-            userActions: ['close', 'markDuplicate', 'markNotReportable'],
+            userActions: ['CLOSE', 'MARK_DUPLICATE', 'MARK_NOT_REPORTABLE'],
             all: action,
           })
         })
@@ -634,12 +634,12 @@ describe('Permissions class', () => {
             const permissions = new Permissions(user)
             expectActionsOnPecsReports({
               permissions,
-              userActions: ['close', 'markDuplicate', 'markNotReportable'],
+              userActions: ['CLOSE', 'MARK_DUPLICATE', 'MARK_NOT_REPORTABLE'],
               all: denied,
             })
             expectActionsOnPecsReports({
               permissions,
-              userActions: ['close', 'markDuplicate', 'markNotReportable'],
+              userActions: ['CLOSE', 'MARK_DUPLICATE', 'MARK_NOT_REPORTABLE'],
               all: action,
               onlyInNomis: true,
             })

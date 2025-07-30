@@ -36,11 +36,11 @@ export class Permissions {
 
     // choose user type in descending abilities/trust based on role set
     if (roles.has(roleApproveReject)) {
-      this.userType = 'dataWarden'
+      this.userType = 'DATA_WARDEN'
     } else if (roles.has(roleReadWrite)) {
-      this.userType = 'reportingOfficer'
+      this.userType = 'REPORTING_OFFICER'
     } else if (roles.has(roleReadOnly)) {
-      this.userType = 'hqViewer'
+      this.userType = 'HQ_VIEWER'
     }
 
     // access to PECS is additionally granted to any user type
@@ -52,15 +52,15 @@ export class Permissions {
   readonly userType: UserType | null = null
 
   get isDataWarden(): boolean {
-    return this.userType === 'dataWarden'
+    return this.userType === 'DATA_WARDEN'
   }
 
   get isReportingOfficer(): boolean {
-    return this.userType === 'reportingOfficer'
+    return this.userType === 'REPORTING_OFFICER'
   }
 
   get isHqViewer(): boolean {
-    return this.userType === 'hqViewer'
+    return this.userType === 'HQ_VIEWER'
   }
 
   readonly hasPecsAccess: boolean = false
@@ -73,12 +73,12 @@ export class Permissions {
 
   /** Can create new report in given prison or PECS region */
   canCreateReportInLocation(location: string): boolean {
-    return this.allowedActionsOnReport({ status: 'DRAFT', location }).has('edit')
+    return this.allowedActionsOnReport({ status: 'DRAFT', location }).has('EDIT')
   }
 
   /** Could have created new report in DPS if given prison was active or PECS regions are enabled */
   canCreateReportInLocationInNomisOnly(location: string): boolean {
-    return this.allowedActionsOnReport({ status: 'DRAFT', location }, 'nomis').has('edit')
+    return this.allowedActionsOnReport({ status: 'DRAFT', location }, 'nomis').has('EDIT')
   }
 
   /** Can create new report in active caseload prison */
@@ -111,7 +111,7 @@ export class Permissions {
       return new Set<UserAction>()
     }
 
-    const allowedActions = new Set<UserAction>(['view'])
+    const allowedActions = new Set<UserAction>(['VIEW'])
 
     if ((where === 'dps' && !locationIsActive) || (where === 'nomis' && locationIsActive)) {
       // only modifiable in nomis

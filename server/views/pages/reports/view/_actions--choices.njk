@@ -7,7 +7,6 @@
 {% for action, transition in reportTransitions %}
   {% if allowedActionsNeedingForm.has(action) %}
     {% if transition.comment %}
-      {% set inputName = action + "Comment" %}
       {% set textHtml %}
         {% if transition.originalReportReferenceRequired %}
           {{ govukInput({
@@ -22,14 +21,15 @@
           }) }}
         {% endif %}
 
+        {% set commentFieldName = action + "_COMMENT" %}
         {{ govukTextarea({
-          id: inputName,
-          name: inputName,
+          id: commentFieldName,
+          name: commentFieldName,
           label: {
             text: transition.commentLabel or "Comment"
           },
-          value: formValues[inputName],
-          errorMessage: errors | findFieldInGovukErrorSummary(inputName)
+          value: formValues[commentFieldName],
+          errorMessage: errors | findFieldInGovukErrorSummary(commentFieldName)
         }) }}
       {% endset %}
 

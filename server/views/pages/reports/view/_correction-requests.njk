@@ -1,25 +1,35 @@
 {% from "moj/components/timeline/macro.njk" import mojTimeline %}
 
-{# TODO: does not match design since component requires date to be on separate line and by-line cannot be replaced with it #}
-
 {% if report.correctionRequests.length > 0 %}
 
   {% set items = [] %}
   {% for correctionRequest in report.correctionRequests | sortCorrectionRequests %}
-    {% set comment %}
-      {# TODO: preliminary build: does not support all possible forms of comments #}
-      {{ correctionRequest.descriptionOfChange | escape | nl2br }}
+    {% set label = correctionRequestActionLabels[correctionRequest.userAction] or "Comment" %}
+
+    {% set commentHtml %}
+      {% if correctionRequest.originalReportReference %}
+        Original report: <a href="/reports/incident-number/{{ correctionRequest.originalReportReference }}">{{ correctionRequest.originalReportReference }}</a>
+      {% endif %}
+      {% if not correctionRequest.descriptionOfChange | isCorrectionRequestPlaceholder %}
+        {% if correctionRequest.originalReportReference %}
+          <br />
+        {% endif %}
+        {{ correctionRequest.descriptionOfChange | escape | nl2br }}
+      {% endif %}
     {% endset %}
 
     {% set _ = items.push({
       label: {
+        text: label
+      },
+      byline: {
         text: usersLookup[correctionRequest.correctionRequestedBy].name or correctionRequest.correctionRequestedBy
       },
       datetime: {
         timestamp: correctionRequest.correctionRequestedAt | longDateAndTime,
         type: "custom"
       },
-      html: comment
+      html: commentHtml
     }) %}
   {% endfor %}
 

@@ -28,6 +28,7 @@ import { populateReportConfiguration } from '../../middleware/populateReportConf
 import type { ReportWithDetails } from '../../data/incidentReportingApi'
 import { validateReport } from '../../data/reportValidity'
 import type { GovukErrorSummaryItem } from '../../utils/govukFrontend'
+import { correctionRequestActionLabels } from './actions/correctionRequestLabels'
 import { placeholderForCorrectionRequest } from './actions/correctionRequestPlaceholder'
 
 const typesLookup = Object.fromEntries(types.map(type => [type.code, type.description]))
@@ -294,6 +295,7 @@ export function viewReportRouter(): Router {
         staffInvolvementLookup,
         typesLookup,
         statusLookup,
+        correctionRequestActionLabels,
         workListMapping,
         reportTransitions,
         formValues,

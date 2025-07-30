@@ -4,27 +4,7 @@
 
   {% set items = [] %}
   {% for correctionRequest in report.correctionRequests | sortCorrectionRequests %}
-    {% set label %}
-      {%- if correctionRequest.userAction == "REQUEST_REVIEW" -%}
-        Resubmitted
-      {%- elif correctionRequest.userAction == "REQUEST_DUPLICATE" -%}
-        Request to remove duplicate report
-      {%- elif correctionRequest.userAction == "REQUEST_NOT_REPORTABLE" -%}
-        Request to remove not reportable incident
-      {%- elif correctionRequest.userAction == "REQUEST_CORRECTION" -%}
-        Sent back
-      {%- elif correctionRequest.userAction == "HOLD" -%}
-        Put on hold
-      {%- elif correctionRequest.userAction == "MARK_DUPLICATE" -%}
-        Report removed because of duplication
-      {%- elif correctionRequest.userAction == "MARK_NOT_REPORTABLE" -%}
-        Report removed because incident not reportable
-      {%- elif correctionRequest.userAction == "CLOSE" -%}
-        Closed
-      {%- else -%}
-        Comment
-      {%- endif -%}
-    {% endset %}
+    {% set label = correctionRequestActionLabels[correctionRequest.userAction] or "Comment" %}
 
     {% set commentHtml %}
       {% if correctionRequest.originalReportReference %}

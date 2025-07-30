@@ -35,13 +35,17 @@ generic-service:
     AUDIT_SERVICE_NAME: "UNASSIGNED"
     LOAD_DPR_ON_STARTUP: "true"
 
-  envFrom:
-    - secretRef:
-        name: hmpps-incident-reporting
-    - secretRef:
-        name: hmpps-incident-reporting-application-insights
-
   namespace_secrets:
+    hmpps-incident-reporting-application-insights:
+      APPLICATIONINSIGHTS_CONNECTION_STRING: "APPLICATIONINSIGHTS_CONNECTION_STRING"
+    hmpps-incident-reporting-auth-code:
+      API_CLIENT_ID: "AUTH_CODE_CLIENT_ID"
+      API_CLIENT_SECRET: "AUTH_CODE_CLIENT_SECRET"
+    hmpps-incident-reporting-client-creds:
+      SYSTEM_CLIENT_ID: "CLIENT_CREDS_CLIENT_ID"
+      SYSTEM_CLIENT_SECRET: "CLIENT_CREDS_CLIENT_SECRET"
+    hmpps-incident-reporting-session-secret:
+      SESSION_SECRET: 'SESSION_SECRET'
     elasticache-redis:
       REDIS_HOST: "primary_endpoint_address"
       REDIS_AUTH_TOKEN: "auth_token"

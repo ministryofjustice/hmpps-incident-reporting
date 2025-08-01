@@ -77,6 +77,7 @@ export type ReportBasic = {
   modifiedBy: string
   createdInNomis: boolean
   lastModifiedInNomis: boolean
+  duplicatedReportId: string
 }
 
 export type ReportWithDetails = ReportBasic & {

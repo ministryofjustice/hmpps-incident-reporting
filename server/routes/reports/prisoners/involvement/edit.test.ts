@@ -10,8 +10,10 @@ import {
   type UpdatePrisonerInvolvementRequest,
 } from '../../../../data/incidentReportingApi'
 import { convertReportDates } from '../../../../data/incidentReportingApiUtils'
+import { PrisonApi } from '../../../../data/prisonApi'
 import { mockErrorResponse, mockReport } from '../../../../data/testData/incidentReporting'
 import { andrew, barry } from '../../../../data/testData/offenderSearch'
+import { moorland } from '../../../../data/testData/prisonApi'
 import { mockThrownError } from '../../../../data/testData/thrownErrors'
 import {
   mockDataWarden,
@@ -24,12 +26,14 @@ import { now } from '../../../../testutils/fakeClock'
 import type { Values } from './fields'
 
 jest.mock('../../../../data/incidentReportingApi')
+jest.mock('../../../../data/prisonApi')
 
 let app: Express
 let incidentReportingApi: jest.Mocked<IncidentReportingApi>
 let incidentReportingRelatedObjects: jest.Mocked<
   RelatedObjects<PrisonerInvolvement, AddPrisonerInvolvementRequest, UpdatePrisonerInvolvementRequest>
 >
+let prisonApi: jest.Mocked<PrisonApi>
 
 beforeEach(() => {
   app = appWithAllRoutes()
@@ -41,6 +45,8 @@ beforeEach(() => {
   // eslint-disable-next-line @typescript-eslint/ban-ts-comment
   // @ts-ignore need to mock a getter method
   incidentReportingApi.prisonersInvolved = incidentReportingRelatedObjects
+  prisonApi = PrisonApi.prototype as jest.Mocked<PrisonApi>
+  prisonApi.getPrison.mockResolvedValueOnce(moorland)
 })
 
 afterEach(() => {
@@ -304,6 +310,7 @@ describe('Editing an existing prisoner in a report', () => {
       ({ validPayload, expectedCall }) => {
         incidentReportingApi.getReportWithDetailsById.mockResolvedValueOnce(report)
         incidentReportingRelatedObjects.updateForReport.mockResolvedValueOnce([]) // NB: response is ignored
+        incidentReportingApi.updateReport.mockResolvedValueOnce(report) // NB: response is ignored
 
         return request(app)
           .post(editPageUrl(1))
@@ -315,6 +322,9 @@ describe('Editing an existing prisoner in a report', () => {
             expect(res.redirects[0]).toMatch(`/reports/${report.id}/prisoners`)
 
             expect(incidentReportingRelatedObjects.updateForReport).toHaveBeenCalledWith(report.id, 1, expectedCall)
+            expect(incidentReportingApi.updateReport).toHaveBeenCalledWith(report.id, {
+              title: expect.any(String),
+            })
           })
       },
     )
@@ -322,6 +332,7 @@ describe('Editing an existing prisoner in a report', () => {
     it('should allow exiting to report view when saving', () => {
       incidentReportingApi.getReportWithDetailsById.mockResolvedValueOnce(report)
       incidentReportingRelatedObjects.updateForReport.mockResolvedValueOnce([]) // NB: response is ignored
+      incidentReportingApi.updateReport.mockResolvedValueOnce(report) // NB: response is ignored
 
       return request(app)
         .post(editPageUrl(1))
@@ -336,6 +347,9 @@ describe('Editing an existing prisoner in a report', () => {
 
           expect(incidentReportingRelatedObjects.updateForReport).toHaveBeenCalledWith(report.id, 1, {
             ...validScenarios[0].expectedCall,
+          })
+          expect(incidentReportingApi.updateReport).toHaveBeenCalledWith(report.id, {
+            title: expect.any(String),
           })
         })
     })
@@ -407,10 +421,11 @@ describe('Editing an existing prisoner in a report', () => {
           expect(res.text).toContain(expectedError)
 
           expect(incidentReportingRelatedObjects.updateForReport).not.toHaveBeenCalled()
+          expect(incidentReportingApi.updateReport).not.toHaveBeenCalled()
         })
     })
 
-    it('should show an error if API rejects request', () => {
+    it('should show an error if API rejects editing involvement', () => {
       incidentReportingApi.getReportWithDetailsById.mockResolvedValueOnce(report)
       const error = mockThrownError(mockErrorResponse({ message: 'Comment is too short' }))
       incidentReportingRelatedObjects.updateForReport.mockRejectedValueOnce(error)
@@ -437,6 +452,41 @@ describe('Editing an existing prisoner in a report', () => {
           expect(res.text).toContain('Sorry, there was a problem with your request')
           expect(res.text).not.toContain('Bad Request')
           expect(res.text).not.toContain('Comment is too short')
+          expect(incidentReportingApi.updateReport).not.toHaveBeenCalled()
+        })
+    })
+
+    it('should not show an error if API rejects updating title', () => {
+      incidentReportingApi.getReportWithDetailsById.mockResolvedValueOnce(report)
+      incidentReportingRelatedObjects.updateForReport.mockResolvedValueOnce([]) // NB: response is ignored
+      const error = mockThrownError(mockErrorResponse({ message: 'Title is too long' }))
+      incidentReportingApi.updateReport.mockRejectedValueOnce(error)
+
+      return request
+        .agent(app)
+        .post(editPageUrl(1))
+        .send(
+          createdInNomis
+            ? {
+                prisonerRole: 'SUSPECTED_INVOLVED',
+                outcome: 'LOCAL_INVESTIGATION',
+                comment: 'See case notes',
+              }
+            : {
+                prisonerRole: 'SUSPECTED_INVOLVED',
+                comment: 'See case notes',
+              },
+        )
+        .redirects(1)
+        .expect(200)
+        .expect(res => {
+          expect(res.text).not.toContain('There is a problem')
+          expect(res.text).not.toContain('Sorry, there was a problem with your request')
+          expect(res.redirects[0]).toMatch(`/reports/${report.id}/prisoners`)
+
+          expect(incidentReportingApi.updateReport).toHaveBeenCalledWith(report.id, {
+            title: expect.any(String),
+          })
         })
     })
   })

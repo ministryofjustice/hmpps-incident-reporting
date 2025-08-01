@@ -1,6 +1,7 @@
 import { RelatedObjectUrlSlug } from '../../../../server/data/incidentReportingApi'
 import { mockReport } from '../../../../server/data/testData/incidentReporting'
 import { barry } from '../../../../server/data/testData/offenderSearch'
+import { moorland } from '../../../../server/data/testData/prisonApi'
 import Page from '../../../pages/page'
 import { EditPrisonerInvolvementPage, PrisonerInvolvementsPage } from '../../../pages/reports/involvements/prisoners'
 
@@ -35,6 +36,7 @@ context('Edit prisoner involvement page', () => {
 
     cy.signIn()
     cy.task('stubIncidentReportingApiGetReportWithDetailsById', { report: reportWithDetails })
+    cy.task('stubPrisonApiMockPrison', moorland)
     cy.visit(`/reports/${reportWithDetails.id}/prisoners`)
     Page.verifyOnPage(PrisonerInvolvementsPage).editLink(0).click()
     editPrisonerInvolvementPage = Page.verifyOnPage(EditPrisonerInvolvementPage, 'Barry Benjamin’s')
@@ -97,6 +99,10 @@ context('Edit prisoner involvement page', () => {
       },
       response: reportWithDetails.prisonersInvolved, // technically, missing update
     })
+    cy.task('stubIncidentReportingApiUpdateReport', {
+      request: { title: 'Miscellaneous: Benjamin A2222BB (Moorland (HMP & YOI))' },
+      report: reportWithDetails, // technically, missing title update
+    })
     editPrisonerInvolvementPage.selectRole('ACTIVE_INVOLVEMENT')
     editPrisonerInvolvementPage.enterComment('Was there')
     editPrisonerInvolvementPage.submit()
@@ -115,6 +121,10 @@ context('Edit prisoner involvement page', () => {
         comment: '',
       },
       response: reportWithDetails.prisonersInvolved, // technically, missing update
+    })
+    cy.task('stubIncidentReportingApiUpdateReport', {
+      request: { title: 'Miscellaneous: Benjamin A2222BB (Moorland (HMP & YOI))' },
+      report: reportWithDetails, // technically, missing title update
     })
     editPrisonerInvolvementPage.selectRole('SUSPECTED_INVOLVED')
     editPrisonerInvolvementPage.commentBox.clear()

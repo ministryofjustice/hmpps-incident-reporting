@@ -57,6 +57,7 @@ context('Prisoner involvements page', () => {
 
       cy.task('stubIncidentReportingApiGetReportById', { report: reportWithDetails })
       cy.task('stubPrisonApiMockPrisons')
+      cy.task('stubManageKnownUsers')
 
       prisonerInvolvementsPage.selectRadioButton('No')
       prisonerInvolvementsPage.submit()
@@ -67,6 +68,7 @@ context('Prisoner involvements page', () => {
     it('should return to report if skip is chosen', () => {
       cy.task('stubIncidentReportingApiGetReportById', { report: reportWithDetails })
       cy.task('stubPrisonApiMockPrisons')
+      cy.task('stubManageKnownUsers')
 
       prisonerInvolvementsPage.selectRadioButton('Skip for now')
       prisonerInvolvementsPage.submit()
@@ -117,6 +119,7 @@ context('Prisoner involvements page', () => {
 
       cy.task('stubIncidentReportingApiGetReportById', { report: reportWithDetails })
       cy.task('stubPrisonApiMockPrisons')
+      cy.task('stubManageKnownUsers')
 
       prisonerInvolvementsPage.selectRadioButton('No')
       prisonerInvolvementsPage.submit()
@@ -179,6 +182,7 @@ context('Prisoner involvements page', () => {
     it('should return to report if no is chosen', () => {
       cy.task('stubIncidentReportingApiGetReportById', { report: reportWithDetails })
       cy.task('stubPrisonApiMockPrisons')
+      cy.task('stubManageKnownUsers')
 
       prisonerInvolvementsPage.selectRadioButton('No')
       prisonerInvolvementsPage.submit()

@@ -105,6 +105,7 @@ context('Creating a completed draft report', () => {
     let prisonerSearchPage = Page.verifyOnPage(PrisonerSearchPage)
     prisonerSearchPage.enterQuery('Andrew Arnold')
     cy.task('stubOffenderSearchInPrison', { prisonId: 'MDI', term: 'Andrew Arnold', results: [andrew] })
+    cy.task('stubPrisonApiMockPrisonerPhoto', andrew.prisonerNumber)
     prisonerSearchPage.submit()
     prisonerSearchPage = Page.verifyOnPage(PrisonerSearchPage)
     cy.task('stubOffenderSearchMockPrisoners')

@@ -79,6 +79,26 @@ export default {
     }),
 
   /**
+   * Stub a plaholder JPEG photo
+   */
+  stubPrisonApiMockPrisonerPhoto: (prisonerNumber: string): SuperAgentRequest =>
+    stubFor({
+      request: {
+        method: 'GET',
+        urlPath: `/prisonApi/api/bookings/offenderNo/${prisonerNumber}/image/data`,
+        queryParameters: {
+          fullSizeImage: { equalTo: 'false' },
+        },
+      },
+      response: {
+        status: 200,
+        headers: { 'Content-Type': 'image/jpeg' },
+        base64Body:
+          '/9j/4AAQSkZJRgABAQEBLAEsAAD/2wCEAAMCAgICAgMCAgIDAwMDBAYEBAQEBAgGBgUGCQgKCgkICQkKDA8MCgsOCwkJDRENDg8QEBEQCgwSExIQEw8QEBABAwMDBAMECAQECBALCQsQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEP/AABEIAAEAAQMBEQACEQEDEQH/xABLAAEAAAAAAAAAAAAAAAAAAAAIEAEAAAAAAAAAAAAAAAAAAAAAAQEBAAAAAAAAAAAAAAAAAAAGCBEBAAAAAAAAAAAAAAAAAAAAAP/aAAwDAQACEQMRAD8AVqFyt//Z',
+      },
+    }),
+
+  /**
    * Stub getting details for all mock staff
    */
   stubPrisonApiMockStaff: (): Promise<SuperAgentResponse[]> =>
@@ -97,6 +117,10 @@ export default {
         }),
       ),
     ),
+
+  /**
+   * Health check
+   */
   stubPrisonApiPing: (): SuperAgentRequest =>
     stubFor({
       request: {

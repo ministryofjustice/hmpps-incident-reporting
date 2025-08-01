@@ -144,6 +144,11 @@ context('Creating a completed draft report', () => {
       },
       response: reportWithDetails.prisonersInvolved,
     })
+    cy.task('stubPrisonApiMockPrison', moorland)
+    cy.task('stubIncidentReportingApiUpdateReport', {
+      request: { title: 'Attempted escape from establishment: Arnold A1111AA (Moorland (HMP & YOI))' },
+      report: reportWithDetails, // technically, missing title update
+    })
     addPrisonerInvolvementsPage.submit()
 
     // choose to add no further prisoners

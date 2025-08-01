@@ -520,6 +520,7 @@ describe('Actioning reports', () => {
       comment: 'not allowed' | 'optional' | 'required'
       needsOriginalReportReference?: boolean
       postsCorrectionRequest?: AddCorrectionRequestRequest
+      updatesTitle?: boolean
       newStatus: Status
       redirectedPage: 'dashboard' | 'view-report'
     }
@@ -531,6 +532,7 @@ describe('Actioning reports', () => {
         currentStatus: 'DRAFT',
         userAction: 'REQUEST_REVIEW',
         comment: 'not allowed',
+        updatesTitle: true,
         newStatus: 'AWAITING_REVIEW',
         redirectedPage: 'dashboard',
       },
@@ -655,6 +657,7 @@ describe('Actioning reports', () => {
           userAction: 'REQUEST_REVIEW',
           descriptionOfChange: 'My comment on this action',
         },
+        updatesTitle: true,
         newStatus: 'UPDATED',
         redirectedPage: 'dashboard',
       },
@@ -669,6 +672,7 @@ describe('Actioning reports', () => {
           userAction: 'REQUEST_REVIEW',
           descriptionOfChange: 'My comment on this action',
         },
+        updatesTitle: true,
         newStatus: 'WAS_CLOSED',
         redirectedPage: 'dashboard',
       },
@@ -887,6 +891,7 @@ describe('Actioning reports', () => {
         comment,
         needsOriginalReportReference,
         postsCorrectionRequest,
+        updatesTitle,
         newStatus,
         redirectedPage,
       }) => {
@@ -912,6 +917,9 @@ describe('Actioning reports', () => {
           mockedReport.status = currentStatus
           expectedRedirect = redirectedPage === 'dashboard' ? '/reports' : `/reports/${mockedReport.id}`
 
+          if (updatesTitle) {
+            prisonApi.getPrison.mockResolvedValueOnce(moorland)
+          }
           incidentReportingApi.getReportByReference.mockRejectedValueOnce(new Error('should not be called'))
         })
 
@@ -928,6 +936,9 @@ describe('Actioning reports', () => {
         it(`should succeed changing the status to ${newStatus} if the report is valid`, () => {
           makeReportValid()
           makeOriginalReportReferenceExistIfNeeded()
+          if (updatesTitle) {
+            incidentReportingApi.updateReport.mockResolvedValueOnce(mockedReport) // NB: response is ignored
+          }
           incidentReportingRelatedObjects.addToReport.mockResolvedValueOnce([]) // NB: response is ignored
           incidentReportingApi.changeReportStatus.mockResolvedValueOnce(mockedReport) // NB: response is ignored
 
@@ -943,11 +954,13 @@ describe('Actioning reports', () => {
               } else {
                 expect(incidentReportingApi.getReportByReference).not.toHaveBeenCalled()
               }
-              if (userAction === 'REQUEST_REVIEW') {
+              if (updatesTitle) {
+                expect(prisonApi.getPrison).toHaveBeenCalledWith('MDI', false)
                 expect(incidentReportingApi.updateReport).toHaveBeenCalledWith(mockedReport.id, {
                   title: 'Assault: Arnold A1111AA, Benjamin A2222BB (Moorland (HMP & YOI))',
                 })
               } else {
+                expect(prisonApi.getPrison).not.toHaveBeenCalled()
                 expect(incidentReportingApi.updateReport).not.toHaveBeenCalled()
               }
               if (postsCorrectionRequest !== undefined) {
@@ -1155,6 +1168,30 @@ describe('Actioning reports', () => {
                 expect(res.text).toContain('Incident number could not be looked up')
                 expect(res.text).not.toContain('Enter a valid incident report number')
                 expect(res.text).not.toContain('External problem')
+                expect(incidentReportingRelatedObjects.addToReport).not.toHaveBeenCalled()
+                expect(incidentReportingApi.changeReportStatus).not.toHaveBeenCalled()
+              })
+          })
+        }
+
+        if (updatesTitle) {
+          it('should show an error if API rejects updating title', () => {
+            makeReportValid()
+            makeOriginalReportReferenceExistIfNeeded()
+            const error = mockThrownError(mockErrorResponse({ message: 'Title is too long' }))
+            incidentReportingApi.updateReport.mockRejectedValueOnce(error)
+            incidentReportingRelatedObjects.addToReport.mockResolvedValueOnce([]) // NB: response is ignored
+            incidentReportingApi.changeReportStatus.mockResolvedValueOnce(mockedReport) // NB: response is ignored
+
+            return request(app)
+              .post(viewReportUrl)
+              .send(validPayload)
+              .expect(200)
+              .expect(res => {
+                expect(res.text).toContain('There is a problem')
+                expect(res.text).toContain('Sorry, there was a problem with your request')
+                expect(res.text).not.toContain('Bad Request')
+                expect(res.text).not.toContain('Title is too long')
                 expect(incidentReportingRelatedObjects.addToReport).not.toHaveBeenCalled()
                 expect(incidentReportingApi.changeReportStatus).not.toHaveBeenCalled()
               })

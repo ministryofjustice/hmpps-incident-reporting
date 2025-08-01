@@ -1,6 +1,7 @@
 import { RelatedObjectUrlSlug } from '../../../../server/data/incidentReportingApi'
 import { mockReport } from '../../../../server/data/testData/incidentReporting'
 import { barry } from '../../../../server/data/testData/offenderSearch'
+import { moorland } from '../../../../server/data/testData/prisonApi'
 import Page from '../../../pages/page'
 import { PrisonerInvolvementsPage, RemovePrisonerInvolvementsPage } from '../../../pages/reports/involvements/prisoners'
 
@@ -35,6 +36,7 @@ context('Remove prisoner involvement page', () => {
 
     cy.signIn()
     cy.task('stubIncidentReportingApiGetReportWithDetailsById', { report: reportWithDetails })
+    cy.task('stubPrisonApiMockPrison', moorland)
     cy.visit(`/reports/${reportWithDetails.id}/prisoners`)
     Page.verifyOnPage(PrisonerInvolvementsPage).removeLink(0).click()
     removePrisonerInvolvementsPage = Page.verifyOnPage(RemovePrisonerInvolvementsPage, 'A2222BB', 'Barry Benjamin')
@@ -65,6 +67,10 @@ context('Remove prisoner involvement page', () => {
       reportId: reportWithDetails.id,
       index: 1,
       response: [],
+    })
+    cy.task('stubIncidentReportingApiUpdateReport', {
+      request: { title: 'Miscellaneous: Benjamin A2222BB (Moorland (HMP & YOI))' },
+      report: reportWithDetails, // technically, missing title update
     })
 
     removePrisonerInvolvementsPage.selectRadioButton('Yes')

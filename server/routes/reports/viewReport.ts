@@ -201,6 +201,11 @@ export function viewReportRouter(): Router {
                 if (!comment) {
                   if (apiUserAction === 'MARK_DUPLICATE') {
                     comment = placeholderForCorrectionRequest(apiUserAction, originalReportReference)
+                    // Add duplicated report id to the top level of the report
+                    const originalReport = await incidentReportingApi.getReportByReference(originalReportReference)
+                    await incidentReportingApi.updateReport(originalReport.id, {
+                      duplicatedReportId: report.id,
+                    })
                   }
                   if (apiUserAction === 'MARK_NOT_REPORTABLE') {
                     comment = placeholderForCorrectionRequest(apiUserAction)

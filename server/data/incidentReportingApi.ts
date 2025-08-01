@@ -193,6 +193,7 @@ export type UpdateReportRequest = {
   description?: string
   staffInvolvementDone?: boolean
   prisonerInvolvementDone?: boolean
+  duplicatedReportId?: string
 }
 
 export type ChangeStatusRequest = { newStatus: Status }

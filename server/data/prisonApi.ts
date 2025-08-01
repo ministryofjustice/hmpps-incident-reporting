@@ -141,12 +141,13 @@ export class PrisonApi extends RestClient {
     })
   }
 
-  async getPrison(prisonId: string, activeOnly = true): Promise<Agency | null> {
+  /** Look up agency details (can be a prison, a PECS region, etc) */
+  async getPrison(prisonId: string, activeOnly = true, agencyType?: AgencyType): Promise<Agency | null> {
     try {
       return await this.get<Agency>(
         {
           path: `/api/agencies/${encodeURIComponent(prisonId)}`,
-          query: { activeOnly: activeOnly.toString() },
+          query: { activeOnly: activeOnly.toString(), agencyType },
         },
         asSystem(),
       )
@@ -160,6 +161,7 @@ export class PrisonApi extends RestClient {
     }
   }
 
+  /** List all prisons */
   async getPrisons(): Promise<Record<string, Agency>> {
     const prisons = await this.get<Agency[]>(
       {
@@ -172,6 +174,7 @@ export class PrisonApi extends RestClient {
     return prisons.reduce((prev, prisonInfo) => ({ ...prev, [prisonInfo.agencyId]: prisonInfo }), {})
   }
 
+  /** List all PECS regions */
   async getPecsRegions(activeOnly = true): Promise<Record<string, Agency>> {
     return this.getAgencies(AgencyType.PECS, activeOnly)
   }

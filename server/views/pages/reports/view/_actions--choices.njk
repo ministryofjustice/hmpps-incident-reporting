@@ -9,16 +9,20 @@
     {% if transition.comment %}
       {% set textHtml %}
         {% if transition.originalReportReferenceRequired %}
-          {{ govukInput({
-            id: "originalReportReference",
-            name: "originalReportReference",
-            classes: "govuk-input--width-10",
-            label: {
-              text: "Enter incident report number of the original report"
-            },
-            value: formValues["originalReportReference"],
-            errorMessage: errors | findFieldInGovukErrorSummary("originalReportReference")
+          {% if requestedOriginalReportReference %}
+            <input type="hidden" name="originalReportReference" value="{{ requestedOriginalReportReference }}" />
+          {% else %}
+            {{ govukInput({
+              id: "originalReportReference",
+              name: "originalReportReference",
+              classes: "govuk-input--width-10",
+              label: {
+                text: "Enter incident report number of the original report"
+              },
+              value: formValues["originalReportReference"],
+              errorMessage: errors | findFieldInGovukErrorSummary("originalReportReference")
           }) }}
+          {% endif %}
         {% endif %}
 
         {% set commentFieldName = action + "_COMMENT" %}

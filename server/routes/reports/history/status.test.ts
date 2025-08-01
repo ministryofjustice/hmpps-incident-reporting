@@ -2,7 +2,7 @@ import type { Express } from 'express'
 import request from 'supertest'
 
 import { IncidentReportingApi, type ReportWithDetails } from '../../../data/incidentReportingApi'
-import { convertReportWithDetailsDates } from '../../../data/incidentReportingApiUtils'
+import { convertReportDates } from '../../../data/incidentReportingApiUtils'
 import { mockErrorResponse, mockReport } from '../../../data/testData/incidentReporting'
 import { mockSharedUser, mockUser } from '../../../data/testData/manageUsers'
 import { mockThrownError } from '../../../data/testData/thrownErrors'
@@ -37,7 +37,7 @@ describe('Report status history', () => {
   let statusHistoryUrl: string
 
   beforeEach(() => {
-    mockedReport = convertReportWithDetailsDates(
+    mockedReport = convertReportDates(
       mockReport({ reportReference: '6543', reportDateAndTime: now, withDetails: true }),
     )
     incidentReportingApi.getReportWithDetailsById.mockResolvedValueOnce(mockedReport)

@@ -9,7 +9,7 @@ import {
   type AddStaffInvolvementRequest,
   type UpdateStaffInvolvementRequest,
 } from '../../../../data/incidentReportingApi'
-import { convertReportWithDetailsDates } from '../../../../data/incidentReportingApiUtils'
+import { convertReportDates } from '../../../../data/incidentReportingApiUtils'
 import ManageUsersApiClient from '../../../../data/manageUsersApiClient'
 import { mockErrorResponse, mockReport } from '../../../../data/testData/incidentReporting'
 import { mockPrisonUser } from '../../../../data/testData/manageUsers'
@@ -57,7 +57,7 @@ describe('Adding a new staff member to a report', () => {
   let report: ReportWithDetails
 
   beforeEach(() => {
-    report = convertReportWithDetailsDates(
+    report = convertReportDates(
       mockReport({
         type: 'FIND_6',
         reportReference: '6544',

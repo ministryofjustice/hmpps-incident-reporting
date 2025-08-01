@@ -13,7 +13,7 @@ import {
   type AddCorrectionRequestRequest,
   type UpdateCorrectionRequestRequest,
 } from '../../../../data/incidentReportingApi'
-import { convertBasicReportDates } from '../../../../data/incidentReportingApiUtils'
+import { convertReportDates } from '../../../../data/incidentReportingApiUtils'
 import { mockErrorResponse, mockReport } from '../../../../data/testData/incidentReporting'
 import { mockThrownError } from '../../../../data/testData/thrownErrors'
 import {
@@ -57,7 +57,7 @@ describe('Reopening a report', () => {
   let reopenReportUrl: string
 
   beforeEach(() => {
-    mockedReport = convertBasicReportDates(
+    mockedReport = convertReportDates(
       mockReport({
         reportReference: '6543',
         reportDateAndTime: now,

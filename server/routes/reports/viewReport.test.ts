@@ -8,7 +8,7 @@ import UserService from '../../services/userService'
 import { type Status, statuses } from '../../reportConfiguration/constants'
 import { setActiveAgencies } from '../../data/activeAgencies'
 import { IncidentReportingApi, type ReportWithDetails } from '../../data/incidentReportingApi'
-import { convertReportWithDetailsDates } from '../../data/incidentReportingApiUtils'
+import { convertReportDates } from '../../data/incidentReportingApiUtils'
 import * as reportValidity from '../../data/reportValidity'
 import { mockErrorResponse, mockReport } from '../../data/testData/incidentReporting'
 import { makeSimpleQuestion } from '../../data/testData/incidentReportingJest'
@@ -60,7 +60,7 @@ describe('View report page', () => {
   let viewReportUrl: string
 
   beforeEach(() => {
-    mockedReport = convertReportWithDetailsDates(
+    mockedReport = convertReportDates(
       mockReport({ reportReference: '6543', reportDateAndTime: now, withDetails: true, withAddendums: true }),
     )
     mockedReport.questions = [
@@ -833,7 +833,7 @@ describe('View report page', () => {
     // NB: these test cases are simplified because the permissions class methods are thoroughly tested elsewhere
 
     beforeEach(() => {
-      mockedReport = convertReportWithDetailsDates(
+      mockedReport = convertReportDates(
         mockReport({ reportReference: '6543', reportDateAndTime: now, status: 'DRAFT', withDetails: true }),
       )
       mockedReport.questions = [

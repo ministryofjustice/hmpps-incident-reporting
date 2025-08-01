@@ -4,7 +4,7 @@ import request, { type Agent, type Response } from 'supertest'
 import format from '../../../utils/format'
 import { appWithAllRoutes } from '../../testutils/appSetup'
 import { IncidentReportingApi } from '../../../data/incidentReportingApi'
-import { convertReportWithDetailsDates } from '../../../data/incidentReportingApiUtils'
+import { convertReportDates } from '../../../data/incidentReportingApiUtils'
 import { mockErrorResponse, mockReport } from '../../../data/testData/incidentReporting'
 import { mockThrownError } from '../../../data/testData/thrownErrors'
 import { mockDataWarden, mockReportingOfficer, mockHqViewer, mockUnauthorisedUser } from '../../../data/testData/users'
@@ -239,7 +239,7 @@ describe('Creating a report', () => {
     })
 
     it('should send request to API if form is valid and proceed to next step', async () => {
-      const reportWithDetails = convertReportWithDetailsDates(
+      const reportWithDetails = convertReportDates(
         mockReport({
           reportReference: '6544',
           reportDateAndTime: incidentDateAndTime,
@@ -273,7 +273,7 @@ describe('Creating a report', () => {
     })
 
     it('should send request to API if form is valid and return to report view if user chose to exit', () => {
-      const reportWithDetails = convertReportWithDetailsDates(
+      const reportWithDetails = convertReportDates(
         mockReport({
           reportReference: '6544',
           reportDateAndTime: incidentDateAndTime,
@@ -313,7 +313,7 @@ describe('Creating a report', () => {
     })
 
     it('should redirect from URL base of nested routers to report view page', () => {
-      const reportWithDetails = convertReportWithDetailsDates(
+      const reportWithDetails = convertReportDates(
         mockReport({
           reportReference: '6544',
           reportDateAndTime: incidentDateAndTime,

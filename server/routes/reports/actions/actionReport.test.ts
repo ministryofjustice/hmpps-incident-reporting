@@ -15,7 +15,7 @@ import {
   type AddCorrectionRequestRequest,
   type UpdateCorrectionRequestRequest,
 } from '../../../data/incidentReportingApi'
-import { convertBasicReportDates, convertReportWithDetailsDates } from '../../../data/incidentReportingApiUtils'
+import { convertReportDates } from '../../../data/incidentReportingApiUtils'
 import * as reportValidity from '../../../data/reportValidity'
 import { mockErrorResponse, mockReport } from '../../../data/testData/incidentReporting'
 import { mockSharedUser } from '../../../data/testData/manageUsers'
@@ -94,7 +94,7 @@ describe('Actioning reports', () => {
   let viewReportUrl: string
 
   beforeEach(() => {
-    mockedReport = convertReportWithDetailsDates(
+    mockedReport = convertReportDates(
       mockReport({
         reportReference: '6543',
         reportDateAndTime: now,
@@ -187,10 +187,14 @@ describe('Actioning reports', () => {
         formOptions: [
           'Close',
           'Send back',
+          'Explain why you’re sending the report back',
           'Put on hold',
           'Describe why the report is being put on hold',
           'Mark as a duplicate',
+          'Enter incident report number of the original report',
+          'Describe why it is a duplicate report (optional)',
           'Mark as not reportable',
+          'Describe why it is not reportable',
         ],
       },
       {
@@ -278,6 +282,30 @@ describe('Actioning reports', () => {
           .expect(res => {
             expect(res.text).toContain('app-view-report__user-action-form')
             formOptions.forEach(option => expect(res.text).toContain(option))
+          })
+      },
+    )
+
+    it.each(['AWAITING_REVIEW', 'UPDATED', 'ON_HOLD', 'WAS_CLOSED'] as const)(
+      'should hide original incident number input from data wardens if there is a recent request to mark as duplicate',
+      status => {
+        setupAppForUser(mockDataWarden)
+        mockedReport.status = status
+        mockedReport.correctionRequests.push({
+          descriptionOfChange: '(Report is a duplicate of 1235)',
+          userAction: 'REQUEST_DUPLICATE',
+          userType: 'REPORTING_OFFICER',
+          originalReportReference: '1235',
+          correctionRequestedBy: 'user1',
+          correctionRequestedAt: now,
+        })
+
+        return request(app)
+          .get(viewReportUrl)
+          .expect(200)
+          .expect(res => {
+            expect(res.text).not.toContain('Enter incident report number of the original report')
+            expect(res.text).toContain('value="1235"')
           })
       },
     )
@@ -887,7 +915,7 @@ describe('Actioning reports', () => {
           incidentReportingApi.getReportByReference.mockRejectedValueOnce(new Error('should not be called'))
         })
 
-        const mockedDuplicateReport = convertBasicReportDates(
+        const mockedDuplicateReport = convertReportDates(
           mockReport({ reportReference: '1234', reportDateAndTime: now }),
         )
         function makeOriginalReportReferenceExistIfNeeded() {

@@ -12,7 +12,7 @@ import {
   type AddCorrectionRequestRequest,
   type UpdateCorrectionRequestRequest,
 } from '../../../../data/incidentReportingApi'
-import { convertBasicReportDates } from '../../../../data/incidentReportingApiUtils'
+import { convertReportDates } from '../../../../data/incidentReportingApiUtils'
 import { mockErrorResponse, mockReport } from '../../../../data/testData/incidentReporting'
 import { mockThrownError } from '../../../../data/testData/thrownErrors'
 import {
@@ -64,7 +64,7 @@ describe('Requesting removal of a report', () => {
   let requestRemoveReportUrl: string
 
   beforeEach(() => {
-    mockedReport = convertBasicReportDates(
+    mockedReport = convertReportDates(
       mockReport({
         reportReference: '6543',
         reportDateAndTime: now,
@@ -142,9 +142,7 @@ describe('Requesting removal of a report', () => {
           })
       })
 
-      const mockedDuplicateReport = convertBasicReportDates(
-        mockReport({ reportReference: '1234', reportDateAndTime: now }),
-      )
+      const mockedDuplicateReport = convertReportDates(mockReport({ reportReference: '1234', reportDateAndTime: now }))
 
       it(`should allow requesting removal of a duplicate report changing the status to ${newStatus}`, () => {
         incidentReportingApi.getReportByReference.mockResolvedValueOnce(mockedDuplicateReport)

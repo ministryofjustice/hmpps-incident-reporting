@@ -30,6 +30,7 @@ import { validateReport } from '../../data/reportValidity'
 import type { GovukErrorSummaryItem } from '../../utils/govukFrontend'
 import { correctionRequestActionLabels } from './actions/correctionRequestLabels'
 import { placeholderForCorrectionRequest } from './actions/correctionRequestPlaceholder'
+import { findRequestDuplicate } from './actions/findRequestDuplicate'
 
 const typesLookup = Object.fromEntries(types.map(type => [type.code, type.description]))
 const statusLookup = Object.fromEntries(statuses.map(status => [status.code, status.description]))
@@ -89,6 +90,11 @@ export function viewReportRouter(): Router {
 
       // TODO: PECS lookup is different
       const reportTransitions = prisonReportTransitions?.[userType]?.[report.status] ?? {}
+
+      let requestedOriginalReportReference: string | undefined
+      if (allowedActions.has('MARK_DUPLICATE')) {
+        requestedOriginalReportReference = findRequestDuplicate(report)?.originalReportReference
+      }
 
       let formValues: object = {}
       const errors: GovukErrorSummaryItem[] = []
@@ -280,6 +286,7 @@ export function viewReportRouter(): Router {
         workListMapping,
         reportTransitions,
         formValues,
+        requestedOriginalReportReference,
       })
     },
   )

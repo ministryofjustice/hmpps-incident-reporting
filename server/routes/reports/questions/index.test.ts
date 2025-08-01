@@ -10,7 +10,7 @@ import {
   type Question,
   type ReportWithDetails,
 } from '../../../data/incidentReportingApi'
-import { convertReportWithDetailsDates } from '../../../data/incidentReportingApiUtils'
+import { convertReportDates } from '../../../data/incidentReportingApiUtils'
 import { mockErrorResponse, mockReport } from '../../../data/testData/incidentReporting'
 import { makeSimpleQuestion } from '../../../data/testData/incidentReportingJest'
 import { mockThrownError } from '../../../data/testData/thrownErrors'
@@ -43,7 +43,7 @@ describe('Displaying questions and responses', () => {
   beforeEach(() => {
     agent = request.agent(app)
 
-    reportWithDetails = convertReportWithDetailsDates(
+    reportWithDetails = convertReportDates(
       mockReport({
         type: 'FIND_6',
         reportReference: '6544',
@@ -406,7 +406,7 @@ describe('Submitting questions’ responses', () => {
   let agent: Agent
 
   // Report type/answers updated in each test
-  const reportWithDetails: ReportWithDetails = convertReportWithDetailsDates(
+  const reportWithDetails = convertReportDates(
     mockReport({
       type: 'FIND_6',
       reportReference: '6544',
@@ -1009,7 +1009,7 @@ describe('Submitting questions’ responses', () => {
 describe('Question editing permissions', () => {
   // NB: these test cases are simplified because the permissions class methods are thoroughly tested elsewhere
 
-  const reportWithDetails = convertReportWithDetailsDates(
+  const reportWithDetails = convertReportDates(
     mockReport({
       reportReference: '6544',
       reportDateAndTime: now,

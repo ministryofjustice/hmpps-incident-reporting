@@ -1,4 +1,4 @@
-import { convertReportWithDetailsDates } from '../data/incidentReportingApiUtils'
+import { convertReportDates } from '../data/incidentReportingApiUtils'
 import { mockReport } from '../data/testData/incidentReporting'
 import { andrew } from '../data/testData/offenderSearch'
 import { newReportTitle, regenerateTitleForReport } from './reportTitle'
@@ -16,7 +16,7 @@ describe('Report title generation', () => {
   })
 
   it('should make a title from an existing report without prisoner involvements', () => {
-    const report = convertReportWithDetailsDates(
+    const report = convertReportDates(
       mockReport({
         type: 'FIND_6',
         reportReference: '6544',
@@ -30,7 +30,7 @@ describe('Report title generation', () => {
   })
 
   it('should make a title from an existing report with prisoner involvements', () => {
-    const report = convertReportWithDetailsDates(
+    const report = convertReportDates(
       mockReport({
         type: 'MISCELLANEOUS_1',
         location: 'LEI',

@@ -2,7 +2,7 @@ import request, { type Agent } from 'supertest'
 
 import { appWithAllRoutes } from '../../testutils/appSetup'
 import { IncidentReportingApi, type ReportBasic, ReportWithDetails } from '../../../data/incidentReportingApi'
-import { convertBasicReportDates } from '../../../data/incidentReportingApiUtils'
+import { convertReportDates } from '../../../data/incidentReportingApiUtils'
 import { mockErrorResponse, mockReport } from '../../../data/testData/incidentReporting'
 import { mockThrownError } from '../../../data/testData/thrownErrors'
 import { mockDataWarden, mockReportingOfficer, mockHqViewer, mockUnauthorisedUser } from '../../../data/testData/users'
@@ -30,7 +30,7 @@ describe('Changing incident type', () => {
   let selectUrl: string
 
   beforeEach(() => {
-    mockedReport = convertBasicReportDates(
+    mockedReport = convertReportDates(
       mockReport({
         type: 'DISORDER_2',
         reportReference: '6544',

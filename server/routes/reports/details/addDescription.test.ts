@@ -9,7 +9,7 @@ import {
   type AddDescriptionAddendumRequest,
   type UpdateDescriptionAddendumRequest,
 } from '../../../data/incidentReportingApi'
-import { convertReportWithDetailsDates } from '../../../data/incidentReportingApiUtils'
+import { convertReportDates } from '../../../data/incidentReportingApiUtils'
 import { mockErrorResponse, mockReport } from '../../../data/testData/incidentReporting'
 import { mockThrownError } from '../../../data/testData/thrownErrors'
 import { mockSharedUser } from '../../../data/testData/manageUsers'
@@ -49,7 +49,7 @@ afterEach(() => {
 
 describe('Adding a description addendum to report', () => {
   const incidentDateAndTime = new Date('2024-10-21T16:32:00+01:00')
-  const mockedReport = convertReportWithDetailsDates(
+  const mockedReport = convertReportDates(
     mockReport({
       type: 'DISORDER_2',
       status: 'NEEDS_UPDATING',

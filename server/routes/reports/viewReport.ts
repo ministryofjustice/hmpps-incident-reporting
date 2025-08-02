@@ -25,7 +25,7 @@ import {
 } from '../../middleware/permissions'
 import { populateReport } from '../../middleware/populateReport'
 import { populateReportConfiguration } from '../../middleware/populateReportConfiguration'
-import type { ReportWithDetails } from '../../data/incidentReportingApi'
+import type { ReportBasic, ReportWithDetails } from '../../data/incidentReportingApi'
 import { validateReport } from '../../data/reportValidity'
 import type { GovukErrorSummaryItem } from '../../utils/govukFrontend'
 import { correctionRequestActionLabels } from './actions/correctionRequestLabels'
@@ -149,6 +149,7 @@ export function viewReportRouter(): Router {
           }
 
           // check original incident number if required
+          let originalReport: ReportBasic | undefined
           if (transition.originalReportReferenceRequired) {
             const numbersOnly = /\d+/
             if (!originalReportReference || !numbersOnly.test(originalReportReference)) {
@@ -163,7 +164,7 @@ export function viewReportRouter(): Router {
               })
             } else {
               try {
-                await incidentReportingApi.getReportByReference(originalReportReference)
+                originalReport = await incidentReportingApi.getReportByReference(originalReportReference)
                 logger.debug(`Original report incident number ${originalReportReference} does belong to a valid report`)
               } catch (e) {
                 let errorMessage = 'Incident number could not be looked up, please try again'
@@ -194,11 +195,6 @@ export function viewReportRouter(): Router {
                 if (!comment) {
                   if (apiUserAction === 'MARK_DUPLICATE') {
                     comment = placeholderForCorrectionRequest(apiUserAction, originalReportReference)
-                    // Add duplicated report id to the top level of the report
-                    const originalReport = await incidentReportingApi.getReportByReference(originalReportReference)
-                    await incidentReportingApi.updateReport(originalReport.id, {
-                      duplicatedReportId: report.id,
-                    })
                   }
                   if (apiUserAction === 'MARK_NOT_REPORTABLE') {
                     comment = placeholderForCorrectionRequest(apiUserAction)
@@ -216,6 +212,13 @@ export function viewReportRouter(): Router {
               if (newStatus && newStatus !== report.status) {
                 await incidentReportingApi.changeReportStatus(report.id, { newStatus })
                 // TODO: set report validation=true flag? not supported by api/db yet / ever will be?
+              }
+
+              if (userAction === 'MARK_DUPLICATE' && originalReport) {
+                // link report to the original of which this is a duplicate
+                await incidentReportingApi.updateReport(report.id, {
+                  duplicatedReportId: originalReport.id,
+                })
               }
 
               logger.info(

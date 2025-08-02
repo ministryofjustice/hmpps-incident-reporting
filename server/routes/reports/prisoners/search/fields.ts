@@ -13,6 +13,7 @@ export const fields = {
       { label: 'In your active caseload', value: 'no' },
       { label: 'In any establishment (global)', value: 'yes' },
     ],
+    default: 'no',
     validate: ['required'],
   },
   page: {

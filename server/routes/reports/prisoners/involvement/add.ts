@@ -4,6 +4,7 @@ import FormWizard from 'hmpo-form-wizard'
 import logger from '../../../../../logger'
 import type { ReportWithDetails } from '../../../../data/incidentReportingApi'
 import type { OffenderSearchResult } from '../../../../data/offenderSearchApi'
+import { fallibleUpdateReportTitle } from '../../../../services/reportTitle'
 import { PrisonerInvolvementController } from './controller'
 import { fields, type Values } from './fields'
 import { steps } from './steps'
@@ -35,11 +36,12 @@ class AddPrisonerInvolvementController extends PrisonerInvolvementController {
   }
 
   async saveValues(req: FormWizard.Request<Values>, res: express.Response, next: express.NextFunction): Promise<void> {
-    const report = res.locals.report as ReportWithDetails
+    const { incidentReportingApi } = res.locals.apis
+    const { report } = res.locals
     const prisoner = res.locals.prisoner as OffenderSearchResult
     const allValues = this.getAllValues(req, false)
     try {
-      await res.locals.apis.incidentReportingApi.prisonersInvolved.addToReport(report.id, {
+      await incidentReportingApi.prisonersInvolved.addToReport(report.id, {
         prisonerNumber: prisoner.prisonerNumber,
         firstName: prisoner.firstName,
         lastName: prisoner.lastName,
@@ -48,6 +50,8 @@ class AddPrisonerInvolvementController extends PrisonerInvolvementController {
         comment: allValues.comment ?? '',
       })
       logger.info('Prisoner involvement added to report %s', report.id)
+
+      fallibleUpdateReportTitle(res) // NB: errors are logged but ignored!
 
       // clear session since involvement has been saved
       res.locals.clearSessionOnSuccess = true

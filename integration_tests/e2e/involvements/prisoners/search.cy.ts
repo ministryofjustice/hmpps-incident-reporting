@@ -64,6 +64,8 @@ context('Prisoner search page', () => {
     context('and results were returned', () => {
       beforeEach(() => {
         cy.task('stubOffenderSearchInPrison', { prisonId: 'MDI', term: 'AR', results: [andrew, barry] })
+        cy.task('stubPrisonApiMockPrisonerPhoto', andrew.prisonerNumber)
+        cy.task('stubPrisonApiMockPrisonerPhoto', barry.prisonerNumber)
 
         cy.visit(`/reports/${reportWithDetails.id}/prisoners/search?page=1&global=no&q=AR`)
         prisonerSearchPage = Page.verifyOnPage(PrisonerSearchPage)
@@ -121,6 +123,7 @@ context('Prisoner search page', () => {
     context('and results were returned', () => {
       beforeEach(() => {
         cy.task('stubOffenderSearchGlobally', { prisonerIdentifier: 'A1111', results: [andrew] })
+        cy.task('stubPrisonApiMockPrisonerPhoto', andrew.prisonerNumber)
 
         cy.visit(`/reports/${reportWithDetails.id}/prisoners/search?page=1&global=yes&q=A1111`)
         prisonerSearchPage = Page.verifyOnPage(PrisonerSearchPage)

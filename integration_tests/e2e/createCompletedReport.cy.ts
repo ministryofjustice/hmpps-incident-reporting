@@ -105,6 +105,7 @@ context('Creating a completed draft report', () => {
     let prisonerSearchPage = Page.verifyOnPage(PrisonerSearchPage)
     prisonerSearchPage.enterQuery('Andrew Arnold')
     cy.task('stubOffenderSearchInPrison', { prisonId: 'MDI', term: 'Andrew Arnold', results: [andrew] })
+    cy.task('stubPrisonApiMockPrisonerPhoto', andrew.prisonerNumber)
     prisonerSearchPage.submit()
     prisonerSearchPage = Page.verifyOnPage(PrisonerSearchPage)
     cy.task('stubOffenderSearchMockPrisoners')
@@ -143,6 +144,11 @@ context('Creating a completed draft report', () => {
         comment: 'Attempted to escape',
       },
       response: reportWithDetails.prisonersInvolved,
+    })
+    cy.task('stubPrisonApiMockPrison', moorland)
+    cy.task('stubIncidentReportingApiUpdateReport', {
+      request: { title: 'Attempted escape from establishment: Arnold A1111AA (Moorland (HMP & YOI))' },
+      report: reportWithDetails, // technically, missing title update
     })
     addPrisonerInvolvementsPage.submit()
 

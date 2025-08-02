@@ -10,8 +10,10 @@ import {
   type UpdatePrisonerInvolvementRequest,
 } from '../../../../data/incidentReportingApi'
 import { convertReportDates } from '../../../../data/incidentReportingApiUtils'
+import { PrisonApi } from '../../../../data/prisonApi'
 import { mockErrorResponse, mockReport } from '../../../../data/testData/incidentReporting'
 import { andrew } from '../../../../data/testData/offenderSearch'
+import { moorland } from '../../../../data/testData/prisonApi'
 import { mockThrownError } from '../../../../data/testData/thrownErrors'
 import {
   mockDataWarden,
@@ -23,12 +25,14 @@ import { appWithAllRoutes } from '../../../testutils/appSetup'
 import { now } from '../../../../testutils/fakeClock'
 
 jest.mock('../../../../data/incidentReportingApi')
+jest.mock('../../../../data/prisonApi')
 
 let app: Express
 let incidentReportingApi: jest.Mocked<IncidentReportingApi>
 let incidentReportingRelatedObjects: jest.Mocked<
   RelatedObjects<PrisonerInvolvement, AddPrisonerInvolvementRequest, UpdatePrisonerInvolvementRequest>
 >
+let prisonApi: jest.Mocked<PrisonApi>
 
 beforeEach(() => {
   app = appWithAllRoutes()
@@ -36,6 +40,8 @@ beforeEach(() => {
   incidentReportingRelatedObjects = RelatedObjects.prototype as jest.Mocked<
     RelatedObjects<PrisonerInvolvement, AddPrisonerInvolvementRequest, UpdatePrisonerInvolvementRequest>
   >
+  prisonApi = PrisonApi.prototype as jest.Mocked<PrisonApi>
+  prisonApi.getPrison.mockResolvedValueOnce(moorland)
 })
 
 afterEach(() => {
@@ -125,6 +131,7 @@ describe('Remove prisoner involvement', () => {
 
   it('should submit the correct delete request when "yes" selected', () => {
     incidentReportingApi.getReportWithDetailsById.mockResolvedValueOnce(mockedReport)
+    incidentReportingApi.updateReport.mockResolvedValueOnce(mockedReport) // NB: response is ignored
 
     return request
       .agent(app)
@@ -139,11 +146,15 @@ describe('Remove prisoner involvement', () => {
         expect(res.text).toContain('You have removed A1111AA: Andrew Arnold')
 
         expect(incidentReportingRelatedObjects.deleteFromReport).toHaveBeenCalledWith(mockedReport.id, 1)
+        expect(incidentReportingApi.updateReport).toHaveBeenCalledWith(mockedReport.id, {
+          title: expect.any(String),
+        })
       })
   })
 
   it('should allow exiting to report view when deleting', () => {
     incidentReportingApi.getReportWithDetailsById.mockResolvedValueOnce(mockedReport)
+    incidentReportingApi.updateReport.mockResolvedValueOnce(mockedReport) // NB: response is ignored
 
     return request
       .agent(app)
@@ -155,6 +166,9 @@ describe('Remove prisoner involvement', () => {
         expect(res.header.location).toEqual(`/reports/${mockedReport.id}`)
 
         expect(incidentReportingRelatedObjects.deleteFromReport).toHaveBeenCalledWith(mockedReport.id, 1)
+        expect(incidentReportingApi.updateReport).toHaveBeenCalledWith(mockedReport.id, {
+          title: expect.any(String),
+        })
       })
   })
 
@@ -174,6 +188,7 @@ describe('Remove prisoner involvement', () => {
         expect(res.text).not.toContain('You have removed')
 
         expect(incidentReportingRelatedObjects.deleteFromReport).not.toHaveBeenCalled()
+        expect(incidentReportingApi.updateReport).not.toHaveBeenCalled()
       })
   })
 
@@ -190,6 +205,7 @@ describe('Remove prisoner involvement', () => {
         expect(res.header.location).toEqual(`/reports/${mockedReport.id}`)
 
         expect(incidentReportingRelatedObjects.deleteFromReport).not.toHaveBeenCalled()
+        expect(incidentReportingApi.updateReport).not.toHaveBeenCalled()
       })
   })
 
@@ -209,10 +225,11 @@ describe('Remove prisoner involvement', () => {
         expect(res.text).toContain('Select yes if you want to remove the prisoner')
 
         expect(incidentReportingRelatedObjects.deleteFromReport).not.toHaveBeenCalled()
+        expect(incidentReportingApi.updateReport).not.toHaveBeenCalled()
       })
   })
 
-  it('should show an error if API rejects request', () => {
+  it('should show an error if API rejects removing involvement', () => {
     incidentReportingApi.getReportWithDetailsById.mockResolvedValueOnce(mockedReport)
     const error = mockThrownError(mockErrorResponse({ message: 'Missing comment' }))
     incidentReportingRelatedObjects.deleteFromReport.mockRejectedValueOnce(error)
@@ -228,6 +245,30 @@ describe('Remove prisoner involvement', () => {
         expect(res.text).toContain('Sorry, there was a problem with your request')
         expect(res.text).not.toContain('Bad Request')
         expect(res.text).not.toContain('Missing comment')
+        expect(incidentReportingApi.updateReport).not.toHaveBeenCalled()
+      })
+  })
+
+  it('should not show an error if API rejects updating title', () => {
+    incidentReportingApi.getReportWithDetailsById.mockResolvedValueOnce(mockedReport)
+    const error = mockThrownError(mockErrorResponse({ message: 'Title is too long' }))
+    incidentReportingApi.updateReport.mockRejectedValueOnce(error)
+
+    return request
+      .agent(app)
+      .post(removePrisonerUrl(1))
+      .send({ confirmRemove: 'yes' })
+      .redirects(1)
+      .expect(200)
+      .expect(res => {
+        expect(res.text).toContain('app-prisoner-summary')
+
+        expect(res.text).not.toContain('There is a problem')
+        expect(res.text).not.toContain('Sorry, there was a problem with your request')
+
+        expect(incidentReportingApi.updateReport).toHaveBeenCalledWith(mockedReport.id, {
+          title: expect.any(String),
+        })
       })
   })
 

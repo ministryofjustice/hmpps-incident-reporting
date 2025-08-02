@@ -2,7 +2,7 @@ import { Router } from 'express'
 import { MethodNotAllowed } from 'http-errors'
 
 import logger from '../../../logger'
-import { regenerateTitleForReport } from '../../services/reportTitle'
+import { updateReportTitle } from '../../services/reportTitle'
 import {
   aboutTheType,
   prisonerInvolvementOutcomes,
@@ -185,15 +185,8 @@ export function viewReportRouter(): Router {
             // can submit action
             try {
               if (userAction === 'REQUEST_REVIEW') {
-                // TODO: regeneration will be moved elsewhere
-                // TODO: PECS regions need a different lookup
-                const newTitle = regenerateTitleForReport(
-                  report,
-                  prisonsLookup[report.location].description || report.location,
-                )
-                await incidentReportingApi.updateReport(report.id, {
-                  title: newTitle,
-                })
+                // TODO: update for requesting duplicate/not-reportable?
+                await updateReportTitle(res)
               }
 
               if (transition.postCorrectionRequest) {

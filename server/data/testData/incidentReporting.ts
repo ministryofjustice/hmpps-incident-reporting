@@ -65,6 +65,7 @@ export function mockReport({
     modifiedBy: reportingUsername,
     createdInNomis,
     lastModifiedInNomis: createdInNomis,
+    duplicatedReportId: null,
   }
 
   if (withDetails) {
@@ -190,6 +191,7 @@ export function mockCorrectionRequest(index: number, correctionRequestedAt: Date
         descriptionOfChange: 'Please amend question 2',
         userAction: 'REQUEST_CORRECTION',
         userType: 'DATA_WARDEN',
+        originalReportReference: null,
         correctionRequestedBy: 'USER2',
         correctionRequestedAt: format.isoDateTime(correctionRequestedAt),
       }
@@ -198,6 +200,7 @@ export function mockCorrectionRequest(index: number, correctionRequestedAt: Date
         descriptionOfChange: 'Q2 fixed',
         userAction: 'REQUEST_REVIEW',
         userType: 'REPORTING_OFFICER',
+        originalReportReference: null,
         correctionRequestedBy: 'user1',
         correctionRequestedAt: format.isoDateTime(correctionRequestedAt),
       }

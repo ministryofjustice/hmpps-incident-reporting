@@ -923,13 +923,11 @@ describe('Actioning reports', () => {
           incidentReportingApi.getReportByReference.mockRejectedValueOnce(new Error('should not be called'))
         })
 
-        const mockedDuplicateReport = convertReportDates(
-          mockReport({ reportReference: '1234', reportDateAndTime: now }),
-        )
+        const mockedOriginalReport = convertReportDates(mockReport({ reportReference: '1234', reportDateAndTime: now }))
         function makeOriginalReportReferenceExistIfNeeded() {
           if (needsOriginalReportReference) {
             incidentReportingApi.getReportByReference.mockReset()
-            incidentReportingApi.getReportByReference.mockResolvedValueOnce(mockedDuplicateReport)
+            incidentReportingApi.getReportByReference.mockResolvedValueOnce(mockedOriginalReport)
           }
         }
 
@@ -961,7 +959,13 @@ describe('Actioning reports', () => {
                 })
               } else {
                 expect(prisonApi.getPrison).not.toHaveBeenCalled()
-                expect(incidentReportingApi.updateReport).not.toHaveBeenCalled()
+                if (userAction === 'MARK_DUPLICATE') {
+                  expect(incidentReportingApi.updateReport).toHaveBeenCalledWith(mockedReport.id, {
+                    duplicatedReportId: mockedOriginalReport.id,
+                  })
+                } else {
+                  expect(incidentReportingApi.updateReport).not.toHaveBeenCalled()
+                }
               }
               if (postsCorrectionRequest !== undefined) {
                 expect(incidentReportingRelatedObjects.addToReport).toHaveBeenCalledWith(

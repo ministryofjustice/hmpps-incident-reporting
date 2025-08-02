@@ -4,6 +4,7 @@ import type FormWizard from 'hmpo-form-wizard'
 import logger from '../../../../../logger'
 import type { PrisonerInvolvement } from '../../../../data/incidentReportingApi'
 import { RemoveInvolvement } from '../../../../controllers/involvements/remove'
+import { fallibleUpdateReportTitle } from '../../../../services/reportTitle'
 import { nameOfPerson } from '../../../../utils/utils'
 import type { Values } from './fields'
 
@@ -34,6 +35,20 @@ export class RemovePrisoner extends RemoveInvolvement<PrisonerInvolvement> {
 
     req.flash('success', {
       title: `You have removed ${this.getInvolvementName(prisonerInvolvement)}`,
+    })
+  }
+
+  async saveValues(req: FormWizard.Request<Values>, res: express.Response, next: express.NextFunction): Promise<void> {
+    return super.saveValues(req, res, errorOrDefer => {
+      if (errorOrDefer === undefined) {
+        // hooks title regeneration only on success
+        if (req.form.values.confirmRemove === 'yes') {
+          fallibleUpdateReportTitle(res) // NB: errors are logged but ignored!
+        }
+        next()
+      } else {
+        next(errorOrDefer)
+      }
     })
   }
 }

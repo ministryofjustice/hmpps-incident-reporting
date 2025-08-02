@@ -1,6 +1,7 @@
 import { RelatedObjectUrlSlug } from '../../../../server/data/incidentReportingApi'
 import { mockReport } from '../../../../server/data/testData/incidentReporting'
 import { andrew, barry } from '../../../../server/data/testData/offenderSearch'
+import { moorland } from '../../../../server/data/testData/prisonApi'
 import Page from '../../../pages/page'
 import { AddPrisonerInvolvementsPage, PrisonerInvolvementsPage } from '../../../pages/reports/involvements/prisoners'
 
@@ -36,6 +37,7 @@ context('Add prisoner involvement page', () => {
     cy.signIn()
     cy.task('stubIncidentReportingApiGetReportWithDetailsById', { report: reportWithDetails })
     cy.task('stubOffenderSearchMockPrisoners')
+    cy.task('stubPrisonApiMockPrison', moorland)
     cy.visit(`/reports/${reportWithDetails.id}/prisoners/add/${andrew.prisonerNumber}`)
     addPrisonerInvolvementsPage = Page.verifyOnPage(AddPrisonerInvolvementsPage, 'Andrew Arnold’s')
   })
@@ -95,6 +97,10 @@ context('Add prisoner involvement page', () => {
       },
       response: reportWithDetails.prisonersInvolved, // technically, missing new person
     })
+    cy.task('stubIncidentReportingApiUpdateReport', {
+      request: { title: 'Miscellaneous: Benjamin A2222BB (Moorland (HMP & YOI))' },
+      report: reportWithDetails, // technically, missing title update
+    })
     addPrisonerInvolvementsPage.selectRole('ACTIVE_INVOLVEMENT')
     addPrisonerInvolvementsPage.enterComment('Was there')
     addPrisonerInvolvementsPage.submit()
@@ -115,6 +121,10 @@ context('Add prisoner involvement page', () => {
         comment: '',
       },
       response: reportWithDetails.prisonersInvolved, // technically, missing new person
+    })
+    cy.task('stubIncidentReportingApiUpdateReport', {
+      request: { title: 'Miscellaneous: Benjamin A2222BB (Moorland (HMP & YOI))' },
+      report: reportWithDetails, // technically, missing title update
     })
     addPrisonerInvolvementsPage.selectRole('SUSPECTED_INVOLVED')
     addPrisonerInvolvementsPage.submit()

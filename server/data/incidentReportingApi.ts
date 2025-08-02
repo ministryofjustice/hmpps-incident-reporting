@@ -172,9 +172,9 @@ export type PrisonerInvolvement = {
 
 export type CorrectionRequest = {
   descriptionOfChange: string
-  userType?: ApiUserType
-  userAction?: ApiUserAction
-  originalReportReference?: string
+  userType: ApiUserType | null
+  userAction: ApiUserAction | null
+  originalReportReference: string | null
   correctionRequestedBy: string
   correctionRequestedAt: Date
 }

@@ -77,7 +77,7 @@ export type ReportBasic = {
   modifiedBy: string
   createdInNomis: boolean
   lastModifiedInNomis: boolean
-  duplicatedReportId: string
+  duplicatedReportId: string | null
 }
 
 export type ReportWithDetails = ReportBasic & {
@@ -194,7 +194,7 @@ export type UpdateReportRequest = {
   description?: string
   staffInvolvementDone?: boolean
   prisonerInvolvementDone?: boolean
-  duplicatedReportId?: string
+  duplicatedReportId?: string | null
 }
 
 export type ChangeStatusRequest = { newStatus: Status }

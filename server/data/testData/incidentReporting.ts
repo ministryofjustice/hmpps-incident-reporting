@@ -65,6 +65,7 @@ export function mockReport({
     modifiedBy: reportingUsername,
     createdInNomis,
     lastModifiedInNomis: createdInNomis,
+    duplicatedReportId: null,
   }
 
   if (withDetails) {

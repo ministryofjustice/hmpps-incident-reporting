@@ -11,6 +11,8 @@ import type { Values } from './fields'
 
 // eslint-disable-next-line import/prefer-default-export
 export class StaffSearchController extends GetBaseController<Values> {
+  protected keyField = 'q' as const
+
   protected shouldContinueRenderFlowOnSuccess = true
 
   locals(req: FormWizard.Request<Values>, res: express.Response): Partial<FormWizard.Locals<Values>> {
@@ -68,7 +70,6 @@ export class StaffSearchController extends GetBaseController<Values> {
     } catch (e) {
       logger.error(e, 'Staff search failed: %j', e)
       const err = this.convertIntoValidationError(e)
-      // TODO: find a different way to report whole-form errors rather than attaching to specific field
       this.setErrors({ q: err }, req, res)
       next()
       return

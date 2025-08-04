@@ -11,6 +11,8 @@ type Values = PrisonersValues | StaffValues
 
 // eslint-disable-next-line import/prefer-default-export
 export abstract class InvolvementSummary extends BaseController<Values> {
+  protected keyField = 'confirmAdd' as const
+
   /** Used as URL and template slug */
   protected abstract type: 'prisoners' | 'staff'
 
@@ -122,8 +124,7 @@ export abstract class InvolvementSummary extends BaseController<Values> {
           logger.info(`Report updated to flag %s involved as done`, this.type)
         } catch (error) {
           logger.error(error, `Report could not be updated to flag %s involved as done: %j`, this.type, error)
-          const err = this.convertIntoValidationError(error)
-          this.errorHandler({ confirmAdd: err }, req, res, next)
+          this.handleApiError(error, req, res, next)
           return
         }
       }

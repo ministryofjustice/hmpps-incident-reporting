@@ -306,10 +306,7 @@ export class QuestionsController extends BaseController<FormWizard.MultiValues> 
           res.locals.clearSessionOnSuccess = true
         } catch (e) {
           logger.error(e, 'Questions could not be updated in report %s: %j', report.id, e)
-          const err = this.convertIntoValidationError(e)
-          // TODO: find a different way to report whole-form errors rather than attaching to specific field
-          // eslint-disable-next-line prefer-destructuring
-          err.key = fieldNames[0]
+          const err = this.convertIntoValidationError(e, fieldNames[0])
           next(err)
           return
         }

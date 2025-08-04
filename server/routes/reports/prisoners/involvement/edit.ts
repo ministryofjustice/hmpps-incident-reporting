@@ -10,6 +10,8 @@ import { fields, type Values } from './fields'
 import { steps } from './steps'
 
 class EditPrisonerInvolvementController extends PrisonerInvolvementController {
+  protected keyField = 'prisonerRole' as const
+
   middlewareLocals(): void {
     this.use(this.choosePrisonerInvolvement)
     super.middlewareLocals()
@@ -103,9 +105,7 @@ class EditPrisonerInvolvementController extends PrisonerInvolvementController {
       next()
     } catch (e) {
       logger.error(e, 'Prisoner involvement %d could not be updated in report %s: %j', index, report.id, e)
-      const err = this.convertIntoValidationError(e)
-      // TODO: find a different way to report whole-form errors rather than attaching to specific field
-      this.errorHandler({ prisonerRole: err }, req, res, next)
+      this.handleApiError(e, req, res, next)
     }
   }
 }

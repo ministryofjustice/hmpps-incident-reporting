@@ -14,6 +14,8 @@ type CreateReportValues = TypeValues & DetailsValues
 class TypeController extends BaseTypeController<CreateReportValues> {}
 
 class DetailsController extends BaseDetailsController<CreateReportValues> {
+  protected keyField = 'incidentDate' as const
+
   async successHandler(
     req: FormWizard.Request<CreateReportValues, DetailsFieldNames>,
     res: express.Response,
@@ -46,9 +48,7 @@ class DetailsController extends BaseDetailsController<CreateReportValues> {
       super.successHandler(req, res, next)
     } catch (e) {
       logger.error(e, 'Report could not be created: %j', e)
-      const err = this.convertIntoValidationError(e)
-      // TODO: find a different way to report whole-form errors rather than attaching to specific field
-      this.errorHandler({ incidentDate: err }, req, res, next)
+      this.handleApiError(e, req, res, next)
     }
   }
 

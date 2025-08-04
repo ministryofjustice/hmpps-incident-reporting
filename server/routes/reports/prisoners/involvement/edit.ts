@@ -4,6 +4,7 @@ import { NotFound } from 'http-errors'
 
 import logger from '../../../../../logger'
 import type { PrisonerInvolvement, ReportWithDetails } from '../../../../data/incidentReportingApi'
+import { fallibleUpdateReportTitle } from '../../../../services/reportTitle'
 import { PrisonerInvolvementController } from './controller'
 import { fields, type Values } from './fields'
 import { steps } from './steps'
@@ -82,16 +83,19 @@ class EditPrisonerInvolvementController extends PrisonerInvolvementController {
   }
 
   async saveValues(req: FormWizard.Request<Values>, res: express.Response, next: express.NextFunction): Promise<void> {
-    const report = res.locals.report as ReportWithDetails
+    const { incidentReportingApi } = res.locals.apis
+    const { report } = res.locals
     const index = parseInt(req.params.index, 10)
     const allValues = this.getAllValues(req, false)
     try {
-      await res.locals.apis.incidentReportingApi.prisonersInvolved.updateForReport(report.id, index, {
+      await incidentReportingApi.prisonersInvolved.updateForReport(report.id, index, {
         prisonerRole: this.coercePrisonerRole(allValues.prisonerRole),
         outcome: report.createdInNomis ? this.coerceOutcome(allValues.outcome) : null,
         comment: allValues.comment ?? '',
       })
       logger.info('Prisoner involvement %d updated in report %s', index, report.id)
+
+      fallibleUpdateReportTitle(res) // NB: errors are logged but ignored!
 
       // clear session since involvement has been saved
       res.locals.clearSessionOnSuccess = true

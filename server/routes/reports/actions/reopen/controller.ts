@@ -10,6 +10,8 @@ import type { Values } from './fields'
 
 // eslint-disable-next-line import/prefer-default-export
 export class ReopenController extends BaseController<Values> {
+  protected keyField = 'userAction' as const
+
   middlewareLocals(): void {
     this.use(this.redirectIfStatusIsNotDone)
     super.middlewareLocals()
@@ -94,9 +96,7 @@ export class ReopenController extends BaseController<Values> {
       next()
     } catch (e) {
       logger.error(e, `Reopening report ${report.reportReference} failed: %j`, e)
-      const err = this.convertIntoValidationError(e)
-      // TODO: find a different way to report whole-form errors rather than attaching to specific field
-      this.errorHandler({ userAction: err }, req, res, next)
+      this.handleApiError(e, req, res, next)
     }
   }
 }

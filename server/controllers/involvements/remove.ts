@@ -14,6 +14,8 @@ type Values = PrisonersValues | StaffValues
 export abstract class RemoveInvolvement<
   I extends PrisonerInvolvement | StaffInvolvement,
 > extends BaseController<Values> {
+  protected keyField = 'confirmRemove' as const
+
   /** Used as URL slug */
   protected abstract type: 'prisoners' | 'staff'
 
@@ -73,8 +75,7 @@ export abstract class RemoveInvolvement<
       next()
     } catch (error) {
       logger.error(error, 'Involvement could not be deleted: %j', error)
-      const err = this.convertIntoValidationError(error)
-      this.errorHandler({ confirmRemove: err }, req, res, next)
+      this.handleApiError(error, req, res, next)
     }
   }
 

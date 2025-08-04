@@ -13,6 +13,8 @@ type OffenderSearchFilters = Parameters<OffenderSearchApi['searchGlobally']>[0]
 
 // eslint-disable-next-line import/prefer-default-export
 export class PrisonerSearchController extends GetBaseController<Values> {
+  protected keyField = 'q' as const
+
   middlewareLocals(): void {
     this.use(this.customiseFields)
     super.middlewareLocals()
@@ -88,7 +90,6 @@ export class PrisonerSearchController extends GetBaseController<Values> {
     } catch (e) {
       logger.error(e, 'Prisoner search failed: %j', e)
       const err = this.convertIntoValidationError(e)
-      // TODO: find a different way to report whole-form errors rather than attaching to specific field
       this.setErrors({ q: err }, req, res)
       next()
       return

@@ -10,6 +10,8 @@ import { dwNotReviewed } from '../../../reportConfiguration/constants'
 import { type AddDescriptionValues, addDescriptionFields } from './addDescriptionFields'
 
 class AddDescriptionAddendumController extends BaseController<AddDescriptionValues> {
+  protected keyField = 'descriptionAddendum' as const
+
   middlewareLocals(): void {
     super.middlewareLocals()
     this.use(this.checkReportStatus)
@@ -77,9 +79,7 @@ class AddDescriptionAddendumController extends BaseController<AddDescriptionValu
       super.successHandler(req, res, next)
     } catch (e) {
       logger.error(e, 'Additional description could not be added to report %s: %j', report.id, e)
-      const err = this.convertIntoValidationError(e)
-      // TODO: find a different way to report whole-form errors rather than attaching to specific field
-      this.errorHandler({ descriptionAddendum: err }, req, res, next)
+      this.handleApiError(e, req, res, next)
     }
   }
 

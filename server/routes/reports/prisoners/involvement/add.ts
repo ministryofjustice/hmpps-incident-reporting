@@ -10,6 +10,8 @@ import { fields, type Values } from './fields'
 import { steps } from './steps'
 
 class AddPrisonerInvolvementController extends PrisonerInvolvementController {
+  protected keyField = 'prisonerRole' as const
+
   protected getAllowedPrisonerRoles(_req: FormWizard.Request<Values>, res: express.Response): Set<string> {
     const report = res.locals.report as ReportWithDetails
     const { reportConfig } = res.locals
@@ -59,9 +61,7 @@ class AddPrisonerInvolvementController extends PrisonerInvolvementController {
       next()
     } catch (e) {
       logger.error(e, 'Prisoner involvement could not be added to report %s: %j', report.id, e)
-      const err = this.convertIntoValidationError(e)
-      // TODO: find a different way to report whole-form errors rather than attaching to specific field
-      this.errorHandler({ prisonerRole: err }, req, res, next)
+      this.handleApiError(e, req, res, next)
     }
   }
 }

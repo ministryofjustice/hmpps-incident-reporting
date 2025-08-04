@@ -196,7 +196,6 @@ export default function dashboard(): Router {
       })
     } catch (e) {
       logger.error(e, 'Search failed: %j', e)
-      // TODO: find a different way to report whole-form errors rather than attaching to specific field
       errors.push({ href: '#searchID', text: 'Sorry, there was a problem with your request' })
     }
 

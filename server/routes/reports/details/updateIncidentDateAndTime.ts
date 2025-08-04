@@ -17,6 +17,8 @@ import { BaseIncidentDateAndTimeController } from './incidentDateAndTimeControll
 import { dwNotReviewed } from '../../../reportConfiguration/constants'
 
 class UpdateIncidentDateAndTimeController extends BaseIncidentDateAndTimeController<IncidentDateAndTimeValues> {
+  protected keyField = 'incidentDate' as const
+
   middlewareLocals(): void {
     this.use(this.checkReportStatus)
     this.use(this.loadReportIntoSession)
@@ -77,9 +79,7 @@ class UpdateIncidentDateAndTimeController extends BaseIncidentDateAndTimeControl
       super.successHandler(req, res, next)
     } catch (e) {
       logger.error(e, `Report ${report.reportReference} details could not be updated: %j`, e)
-      const err = this.convertIntoValidationError(e)
-      // TODO: find a different way to report whole-form errors rather than attaching to specific field
-      this.errorHandler({ incidentDate: err }, req, res, next)
+      this.handleApiError(e, req, res, next)
     }
   }
 

@@ -9,6 +9,8 @@ import { fields, type Values } from './fields'
 import { steps } from './steps'
 
 export class AddStaffInvolvementController<V extends Values = Values> extends StaffInvolvementController<V> {
+  protected keyField = 'staffRole' as const
+
   protected getStaffMemberName(
     _req: FormWizard.Request<V>,
     res: express.Response,
@@ -33,11 +35,7 @@ export class AddStaffInvolvementController<V extends Values = Values> extends St
       next()
     } catch (e) {
       logger.error(e, 'Staff involvement could not be added to report %s: %j', report.id, e)
-      const err = this.convertIntoValidationError(e)
-      // TODO: find a different way to report whole-form errors rather than attaching to specific field
-      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-      // @ts-ignore for some reason typescript cannot figure out that `staffRole` is always a property in `V`
-      this.errorHandler({ staffRole: err }, req, res, next)
+      this.handleApiError(e, req, res, next)
     }
   }
 

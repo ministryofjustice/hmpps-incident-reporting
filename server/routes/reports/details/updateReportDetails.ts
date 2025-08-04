@@ -15,6 +15,8 @@ class DetailsController extends BaseDetailsController<DetailsValues> {
   // TODO: wizard namespace identifier is shared. consider generating it per request somehow?
   //       otherwise cannot edit 2 pages at once in different windows
 
+  protected keyField = 'incidentDate' as const
+
   middlewareLocals(): void {
     this.use(this.checkReportStatus)
     this.use(this.loadReportIntoSession)
@@ -77,9 +79,7 @@ class DetailsController extends BaseDetailsController<DetailsValues> {
       super.successHandler(req, res, next)
     } catch (e) {
       logger.error(e, `Report ${report.reportReference} details could not be updated: %j`, e)
-      const err = this.convertIntoValidationError(e)
-      // TODO: find a different way to report whole-form errors rather than attaching to specific field
-      this.errorHandler({ incidentDate: err }, req, res, next)
+      this.handleApiError(e, req, res, next)
     }
   }
 

@@ -67,8 +67,7 @@ class TypeController extends BaseTypeController<TypeValues> {
       super.successHandler(req, res, next)
     } catch (e) {
       logger.error(e, `Report ${report.reportReference} type could not be changed: %j`, e)
-      const err = this.convertIntoValidationError(e)
-      this.errorHandler({ type: err }, req, res, next)
+      this.handleApiError(e, req, res, next)
     }
   }
 

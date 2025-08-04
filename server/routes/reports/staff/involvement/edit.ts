@@ -9,6 +9,8 @@ import { fields, type Values } from './fields'
 import { steps } from './steps'
 
 class EditStaffInvolvementController extends StaffInvolvementController {
+  protected keyField = 'staffRole' as const
+
   middlewareLocals(): void {
     this.use(this.chooseStaffInvolvement)
     super.middlewareLocals()
@@ -78,8 +80,7 @@ class EditStaffInvolvementController extends StaffInvolvementController {
       next()
     } catch (e) {
       logger.error(e, 'Staff involvement %d could not be updated in report %s: %j', index, report.id, e)
-      const err = this.convertIntoValidationError(e)
-      this.errorHandler({ staffRole: err }, req, res, next)
+      this.handleApiError(e, req, res, next)
     }
   }
 }

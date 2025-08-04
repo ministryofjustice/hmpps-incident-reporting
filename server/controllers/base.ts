@@ -79,12 +79,44 @@ export abstract class BaseController<
     return error
   }
 
+  /** Name of main form field; used to attach whole-form errors */
+  protected keyField: K | undefined = undefined
+
   /**
    * Convert an API error into a FormWizard.Error so that a message can be presented to users in an error summary
    */
-  convertIntoValidationError(_error: SanitisedError): FormWizard.Error {
+  convertIntoValidationError(_error: SanitisedError, keyField?: K | undefined): FormWizard.Error {
     // TODO: also handle other error types too?
-    return new this.Error(null, { message: 'Sorry, there was a problem with your request' })
+    const fieldName = (keyField ?? this.keyField) as string
+    return new this.Error(fieldName, {
+      message: 'Sorry, there was a problem with your request',
+      field: fieldName,
+    })
+  }
+
+  /**
+   * Handle an API error by converting it into a validation error.
+   * Requires `keyField` to be specified to which the error is attached.
+   */
+  handleApiError(
+    error: SanitisedError,
+    req: FormWizard.Request<V, K>,
+    res: express.Response,
+    next: express.NextFunction,
+  ): void {
+    if (!this.keyField) {
+      throw new Error(`keyField must be set on ${this.constructor.name}`)
+    }
+    const validationError = this.convertIntoValidationError(error)
+    const formErrors: FormWizard.Errors = { [this.keyField]: validationError }
+    this.errorHandler(
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+      // @ts-ignore because type K is too open and includes number and symbol in this generic base controller
+      formErrors,
+      req,
+      res,
+      next,
+    )
   }
 
   csrfGenerateSecret(req: FormWizard.Request<V, K>, res: express.Response, next: express.NextFunction): void {

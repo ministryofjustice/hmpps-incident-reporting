@@ -11,6 +11,8 @@ import type { TypeFieldNames, TypeValues } from './typeFields'
  */
 // eslint-disable-next-line import/prefer-default-export
 export abstract class BaseTypeController<V extends TypeValues> extends BaseController<V, TypeFieldNames> {
+  protected keyField = 'type' as const
+
   protected errorMessage(
     error: FormWizard.Error,
     req: FormWizard.Request<V, TypeFieldNames>,

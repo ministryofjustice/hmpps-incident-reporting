@@ -9,6 +9,8 @@ import type { Values } from './fields'
 
 // eslint-disable-next-line import/prefer-default-export
 export class RequestRemovalController extends BaseController<Values> {
+  protected keyField = 'userAction' as const
+
   async validate(req: FormWizard.Request<Values>, res: express.Response, next: express.NextFunction): Promise<void> {
     const { report } = res.locals
 
@@ -120,9 +122,7 @@ export class RequestRemovalController extends BaseController<Values> {
       next()
     } catch (e) {
       logger.error(e, `Request to remove report ${report.reportReference} failed: %j`, e)
-      const err = this.convertIntoValidationError(e)
-      // TODO: find a different way to report whole-form errors rather than attaching to specific field
-      this.errorHandler({ userAction: err }, req, res, next)
+      this.handleApiError(e, req, res, next)
     }
   }
 }

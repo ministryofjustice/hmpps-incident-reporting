@@ -27,4 +27,4 @@ export const incidentDateAndTimeFieldNames = [
   hoursFieldName,
   minutesFieldName,
 ] as const satisfies (keyof typeof incidentDateAndTimeFields)[]
-export type IncidentDateAndTimeFieldNames = (typeof incidentDateAndTimeFieldNames)[number]
+export type IncidentDateAndTimeFieldNames = keyof typeof incidentDateAndTimeFields

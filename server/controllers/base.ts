@@ -121,13 +121,11 @@ export abstract class BaseController<
       if (Object.hasOwn(allFields, fieldName)) {
         const field = allFields[fieldName]
         if (
-          (typeof field.dependent === 'string' &&
-            field.dependent in allValues &&
-            allValues[field.dependent as keyof V]) ||
+          (typeof field.dependent === 'string' && field.dependent in allValues && allValues[field.dependent as K]) ||
           (typeof field.dependent === 'object' &&
             'field' in field.dependent &&
             field.dependent.field in allValues &&
-            allValues[field.dependent.field as keyof V] !== field.dependent.value)
+            allValues[field.dependent.field as K] !== field.dependent.value)
         ) {
           delete allValues[fieldName]
         }

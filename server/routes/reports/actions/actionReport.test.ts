@@ -510,7 +510,6 @@ describe('Actioning reports', () => {
     })
 
     const actionsRequiringValidReports = ['REQUEST_REVIEW', 'CLOSE']
-    // TODO: this will probably turn into a flag on the report so closing will not need the checks
 
     interface TransitionScenarios {
       userType: string
@@ -980,7 +979,7 @@ describe('Actioning reports', () => {
         })
 
         if (actionsRequiringValidReports.includes(userAction)) {
-          it('should not be allowed if report is invalid', () => {
+          it('should not be allowed if report, that was created in DPS, is invalid', () => {
             makeReportInvalid()
             makeOriginalReportReferenceExistIfNeeded()
             incidentReportingRelatedObjects.addToReport.mockRejectedValue(new Error('should not be called'))
@@ -996,6 +995,34 @@ describe('Actioning reports', () => {
                 expect(incidentReportingApi.updateReport).not.toHaveBeenCalled()
                 expect(incidentReportingRelatedObjects.addToReport).not.toHaveBeenCalled()
                 expect(incidentReportingApi.changeReportStatus).not.toHaveBeenCalled()
+              })
+          })
+
+          it('should succeed if report, that was created in NOMIS, is invalid', () => {
+            makeReportInvalid()
+            makeOriginalReportReferenceExistIfNeeded()
+            mockedReport.createdInNomis = true
+            mockedReport.lastModifiedInNomis = true
+            incidentReportingApi.updateReport.mockResolvedValueOnce(mockedReport) // NB: response is ignored
+            incidentReportingRelatedObjects.addToReport.mockResolvedValueOnce([]) // NB: response is ignored
+            incidentReportingApi.changeReportStatus.mockResolvedValueOnce(mockedReport) // NB: response is ignored
+
+            return request(app)
+              .post(viewReportUrl)
+              .send(validPayload)
+              .expect(302)
+              .expect(res => {
+                expect(res.redirect).toBe(true)
+                expect(res.header.location).toEqual(expectedRedirect)
+                if (postsCorrectionRequest !== undefined) {
+                  expect(incidentReportingRelatedObjects.addToReport).toHaveBeenCalledWith(
+                    mockedReport.id,
+                    postsCorrectionRequest,
+                  )
+                } else {
+                  expect(incidentReportingRelatedObjects.addToReport).not.toHaveBeenCalled()
+                }
+                expect(incidentReportingApi.changeReportStatus).toHaveBeenCalledWith(mockedReport.id, { newStatus })
               })
           })
         } else {

@@ -116,9 +116,8 @@ export function viewReportRouter(): Router {
             return
           }
 
-          // check report is valid if required
-          // TODO: may need report.isValid flag or similar so that validation is forced when RO submits but is not repeated when DW closes
-          if (transition.mustBeValid) {
+          // check DPS report is valid if required; reports made in NOMIS do not get validated
+          if (!report.createdInNomis && transition.mustBeValid) {
             for (const error of validateReport(report, reportConfig, questionProgressSteps, reportUrl)) {
               errors.push(error)
             }
@@ -211,7 +210,6 @@ export function viewReportRouter(): Router {
               const { newStatus } = transition
               if (newStatus && newStatus !== report.status) {
                 await incidentReportingApi.changeReportStatus(report.id, { newStatus })
-                // TODO: set report validation=true flag? not supported by api/db yet / ever will be?
               }
 
               if (userAction === 'MARK_DUPLICATE' && originalReport) {

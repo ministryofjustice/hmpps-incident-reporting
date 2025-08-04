@@ -1,4 +1,5 @@
 import { mockReport } from '../../server/data/testData/incidentReporting'
+import { moorland } from '../../server/data/testData/prisonApi'
 import Page from '../pages/page'
 import { ChangeTypeConfirmationPage, TypePage } from '../pages/reports/type'
 import { PrisonerInvolvementsPage } from '../pages/reports/involvements/prisoners'
@@ -9,7 +10,7 @@ context('Change incident type', () => {
     type: 'DISORDER_2',
     reportReference: '6544',
     reportDateAndTime: now,
-    withDetails: true, // needed when redirecting back to view page
+    withDetails: true,
   })
   reportWithDetails.prisonersInvolved = []
   reportWithDetails.prisonerInvolvementDone = false
@@ -22,7 +23,8 @@ context('Change incident type', () => {
     cy.resetBasicStubs()
 
     cy.signIn()
-    cy.task('stubIncidentReportingApiGetReportById', { report: reportWithDetails })
+    cy.task('stubIncidentReportingApiGetReportWithDetailsById', { report: reportWithDetails })
+    cy.task('stubPrisonApiMockPrison', moorland)
     cy.visit(`/reports/${reportWithDetails.id}/change-type`)
   })
 
@@ -166,9 +168,19 @@ context('Change incident type', () => {
 
     cy.task('stubIncidentReportingApiChangeReportType', {
       request: { newType: 'MISCELLANEOUS_1' },
-      report: reportWithDetails,
+      report: {
+        ...reportWithDetails,
+        type: 'MISCELLANEOUS_1',
+      },
     })
-    cy.task('stubIncidentReportingApiGetReportWithDetailsById', { report: reportWithDetails })
+    cy.task('stubIncidentReportingApiUpdateReport', {
+      request: { title: 'Disorder (Moorland (HMP & YOI))' }, // NB: still using old type because wiremock stubs are not changed mid-request
+      report: {
+        ...reportWithDetails,
+        type: 'MISCELLANEOUS_1',
+        title: 'Disorder (Moorland (HMP & YOI))',
+      },
+    })
     cy.task('stubPrisonApiMockPrisons')
     cy.task('stubManageKnownUsers')
 

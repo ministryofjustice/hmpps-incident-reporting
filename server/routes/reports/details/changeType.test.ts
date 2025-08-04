@@ -1,22 +1,28 @@
 import request, { type Agent } from 'supertest'
 
 import { appWithAllRoutes } from '../../testutils/appSetup'
-import { IncidentReportingApi, type ReportBasic, ReportWithDetails } from '../../../data/incidentReportingApi'
+import { IncidentReportingApi, type ReportWithDetails } from '../../../data/incidentReportingApi'
 import { convertReportDates } from '../../../data/incidentReportingApiUtils'
+import { PrisonApi } from '../../../data/prisonApi'
 import { mockErrorResponse, mockReport } from '../../../data/testData/incidentReporting'
+import { moorland } from '../../../data/testData/prisonApi'
 import { mockThrownError } from '../../../data/testData/thrownErrors'
 import { mockDataWarden, mockReportingOfficer, mockHqViewer, mockUnauthorisedUser } from '../../../data/testData/users'
 import { types } from '../../../reportConfiguration/constants'
 import { now } from '../../../testutils/fakeClock'
 
 jest.mock('../../../data/incidentReportingApi')
+jest.mock('../../../data/prisonApi')
 
 let agent: Agent
 let incidentReportingApi: jest.Mocked<IncidentReportingApi>
+let prisonApi: jest.Mocked<PrisonApi>
 
 beforeEach(() => {
   agent = request.agent(appWithAllRoutes())
   incidentReportingApi = IncidentReportingApi.prototype as jest.Mocked<IncidentReportingApi>
+  prisonApi = PrisonApi.prototype as jest.Mocked<PrisonApi>
+  prisonApi.getPrison.mockResolvedValueOnce(moorland)
 })
 
 afterEach(() => {
@@ -24,7 +30,7 @@ afterEach(() => {
 })
 
 describe('Changing incident type', () => {
-  let mockedReport: ReportBasic
+  let mockedReport: ReportWithDetails
 
   let confirmationUrl: string
   let selectUrl: string
@@ -35,19 +41,20 @@ describe('Changing incident type', () => {
         type: 'DISORDER_2',
         reportReference: '6544',
         reportDateAndTime: now,
+        withDetails: true,
       }),
     )
     confirmationUrl = `/reports/${mockedReport.id}/change-type`
     selectUrl = `/reports/${mockedReport.id}/change-type/select`
 
-    incidentReportingApi.getReportById.mockResolvedValueOnce(mockedReport)
+    incidentReportingApi.getReportWithDetailsById.mockResolvedValueOnce(mockedReport)
     incidentReportingApi.changeReportType.mockRejectedValue(new Error('should not be called'))
   })
 
   it('should 404 if report is not found', () => {
     const error = mockThrownError(mockErrorResponse({ status: 404, message: 'Report not found' }), 404)
-    incidentReportingApi.getReportById.mockReset()
-    incidentReportingApi.getReportById.mockRejectedValueOnce(error)
+    incidentReportingApi.getReportWithDetailsById.mockReset()
+    incidentReportingApi.getReportWithDetailsById.mockRejectedValueOnce(error)
 
     return agent
       .get(confirmationUrl)
@@ -96,7 +103,7 @@ describe('Changing incident type', () => {
   describe('After confirmation page', () => {
     beforeEach(async () => {
       await agent.post(confirmationUrl).send({})
-      incidentReportingApi.getReportById.mockResolvedValueOnce(mockedReport)
+      incidentReportingApi.getReportWithDetailsById.mockResolvedValueOnce(mockedReport)
     })
 
     it('should list active incident types apart from current one', () => {
@@ -130,7 +137,7 @@ describe('Changing incident type', () => {
       { scenario: 'an inactive type is submitted', invalidPayload: { type: 'DISORDER_1' } },
       { scenario: 'current type is submitted', invalidPayload: { type: 'DISORDER_2' } },
     ])('should show an error if $scenario', ({ invalidPayload }) => {
-      incidentReportingApi.getReportById.mockResolvedValueOnce(mockedReport) // due to redirect
+      incidentReportingApi.getReportWithDetailsById.mockResolvedValueOnce(mockedReport) // due to redirect
 
       return agent
         .post(selectUrl)
@@ -142,31 +149,38 @@ describe('Changing incident type', () => {
           expect(res.text).toContain('app-type')
           expect(res.text).toContain('There is a problem')
           expect(res.text).toContain('Select the incident type')
+          expect(incidentReportingApi.changeReportType).not.toHaveBeenCalled()
+          expect(incidentReportingApi.updateReport).not.toHaveBeenCalled()
         })
     })
 
     it('should send request to API if form is valid and proceed to next step', () => {
       incidentReportingApi.changeReportType.mockReset()
-      incidentReportingApi.changeReportType.mockResolvedValueOnce(mockedReport as ReportWithDetails) // mock is basic but value is unused anyway
+      incidentReportingApi.changeReportType.mockResolvedValueOnce(mockedReport) // NB: response is ignored
+      incidentReportingApi.updateReport.mockResolvedValueOnce(mockedReport) // NB: response is ignored
+      incidentReportingApi.getReportWithDetailsById.mockResolvedValueOnce(mockedReport) // due to redirect
 
       return agent
         .post(selectUrl)
         .send({ type: 'MISCELLANEOUS_1' })
-        .expect(302)
+        .redirects(1)
+        .expect(200)
         .expect(res => {
-          expect(res.redirect).toBe(true)
-          expect(res.header.location).toEqual(`/create-report/${mockedReport.id}/prisoners`)
+          expect(res.request.url.endsWith(`/create-report/${mockedReport.id}/prisoners`)).toBe(true)
           expect(incidentReportingApi.changeReportType).toHaveBeenCalledWith(mockedReport.id, {
             newType: 'MISCELLANEOUS_1',
+          })
+          expect(incidentReportingApi.updateReport).toHaveBeenCalledWith(mockedReport.id, {
+            title: expect.any(String),
           })
         })
     })
 
-    it('should show an error if API rejects request', () => {
+    it('should show an error if API rejects changing type', () => {
       const error = mockThrownError(mockErrorResponse({ message: 'Type is inactive' }))
       incidentReportingApi.changeReportType.mockReset()
       incidentReportingApi.changeReportType.mockRejectedValueOnce(error)
-      incidentReportingApi.getReportById.mockResolvedValueOnce(mockedReport) // due to redirect
+      incidentReportingApi.getReportWithDetailsById.mockResolvedValueOnce(mockedReport) // due to redirect
 
       return agent
         .post(selectUrl)
@@ -178,6 +192,29 @@ describe('Changing incident type', () => {
           expect(res.text).toContain('Sorry, there was a problem with your request')
           expect(res.text).not.toContain('Bad Request')
           expect(res.text).not.toContain('Type is inactive')
+          expect(incidentReportingApi.updateReport).not.toHaveBeenCalled()
+        })
+    })
+
+    it('should not show an error if API rejects updating title', () => {
+      incidentReportingApi.changeReportType.mockReset()
+      incidentReportingApi.changeReportType.mockResolvedValueOnce(mockedReport) // NB: response is ignored
+      const error = mockThrownError(mockErrorResponse({ message: 'Title is too long' }))
+      incidentReportingApi.updateReport.mockRejectedValueOnce(error)
+
+      return agent
+        .post(selectUrl)
+        .send({ type: 'MISCELLANEOUS_1' })
+        .expect(302)
+        .expect(res => {
+          expect(res.text).not.toContain('There is a problem')
+          expect(res.text).not.toContain('Sorry, there was a problem with your request')
+          expect(res.redirect).toBe(true)
+          expect(res.header.location).toEqual(`/create-report/${mockedReport.id}/prisoners`)
+
+          expect(incidentReportingApi.updateReport).toHaveBeenCalledWith(mockedReport.id, {
+            title: expect.any(String),
+          })
         })
     })
   })

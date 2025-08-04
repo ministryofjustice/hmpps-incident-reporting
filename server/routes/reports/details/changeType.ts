@@ -7,6 +7,7 @@ import { BaseController } from '../../../controllers'
 import type { ReportBasic } from '../../../data/incidentReportingApi'
 import { logoutUnless, hasPermissionTo } from '../../../middleware/permissions'
 import { populateReport } from '../../../middleware/populateReport'
+import { fallibleUpdateReportTitle } from '../../../services/reportTitle'
 import { BaseTypeController } from './typeController'
 import { type TypeValues, typeFields, typeFieldNames } from './typeFields'
 
@@ -50,12 +51,15 @@ class TypeController extends BaseTypeController<TypeValues> {
     res: express.Response,
     next: express.NextFunction,
   ): Promise<void> {
-    const report = res.locals.report as ReportBasic
+    const { incidentReportingApi } = res.locals.apis
+    const { report } = res.locals
     const { type } = req.form.values
 
     try {
-      await res.locals.apis.incidentReportingApi.changeReportType(report.id, { newType: type })
+      await incidentReportingApi.changeReportType(report.id, { newType: type })
       logger.info(`Report ${report.reportReference} type changed to ${type}`)
+
+      fallibleUpdateReportTitle(res) // NB: errors are logged but ignored!
 
       // clear session since report has been saved
       res.locals.clearSessionOnSuccess = true
@@ -108,4 +112,4 @@ const changeTypeWizardRouter = FormWizard(changeTypeSteps, changeTypeFields, cha
 changeTypeWizardRouter.mergeParams = true
 // eslint-disable-next-line import/prefer-default-export
 export const changeTypeRouter = express.Router({ mergeParams: true })
-changeTypeRouter.use(populateReport(false), logoutUnless(hasPermissionTo('EDIT')), changeTypeWizardRouter)
+changeTypeRouter.use(populateReport(true), logoutUnless(hasPermissionTo('EDIT')), changeTypeWizardRouter)

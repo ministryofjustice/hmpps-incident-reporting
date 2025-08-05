@@ -69,9 +69,9 @@ export function viewReportRouter(): Router {
       if (report.correctionRequests) {
         usernames.push(...report.correctionRequests.map(correctionRequest => correctionRequest.correctionRequestedBy))
       }
-      const [usersLookup, locationLookup] = await Promise.all([
+      const [usersLookup, locationDescription] = await Promise.all([
         userService.getUsers(res.locals.systemToken, usernames),
-        prisonApi.getPrisons(), // TODO: wait why is this looking up ALL prisons?
+        prisonApi.getPrison(report.location, false).then(agency => agency?.description || report.location),
       ])
 
       const questionProgressSteps = Array.from(questionProgress)
@@ -289,7 +289,6 @@ export function viewReportRouter(): Router {
         canEditReportInNomisOnly,
         descriptionAppendOnly,
         usersLookup,
-        locationLookup,
         prisonerInvolvementLookup,
         prisonerOutcomeLookup,
         staffInvolvementLookup,
@@ -297,6 +296,7 @@ export function viewReportRouter(): Router {
         statusLookup,
         correctionRequestActionLabels,
         workListMapping,
+        locationDescription,
         reportTransitions,
         formValues,
         requestedOriginalReportReference,

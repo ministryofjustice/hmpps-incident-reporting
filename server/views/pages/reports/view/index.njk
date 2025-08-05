@@ -60,7 +60,7 @@
   </h1>
   <p>
     <strong>Location:</strong>
-    <span data-qa="report-location">{{ locationLookup[report.location].description or report.location }}</span>
+    <span data-qa="report-location">{{ locationDescription }}</span>
     <br />
     <strong>Reported by:</strong>
     <span data-qa="report-reported-by">{{ usersLookup[report.reportedBy].name or report.reportedBy }} on {{ report.reportedAt | longDate }}</span>

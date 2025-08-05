@@ -27,6 +27,8 @@ let incidentReportingApi: jest.Mocked<IncidentReportingApi>
 let userService: jest.Mocked<UserService>
 let prisonApi: jest.Mocked<PrisonApi>
 
+const { validateReport } = reportValidity as jest.Mocked<typeof import('../../data/reportValidity')>
+
 beforeEach(() => {
   userService = UserService.prototype as jest.Mocked<UserService>
   app = appWithAllRoutes({ services: { userService } })
@@ -43,8 +45,7 @@ beforeEach(() => {
   }
   prisonApi.getPrisons.mockResolvedValue(prisons)
 
-  // ban checking report validity – it (currently) should only happen on requestReview action
-  ;(reportValidity as jest.Mocked<typeof import('../../data/reportValidity')>).validateReport.mockImplementation(() => {
+  validateReport.mockImplementationOnce(() => {
     throw new Error('should not be called')
   })
 })
@@ -52,6 +53,13 @@ beforeEach(() => {
 afterEach(() => {
   jest.resetAllMocks()
 })
+
+function makeReportValid() {
+  validateReport.mockReset()
+  validateReport.mockImplementationOnce(function* generator() {
+    /* empty */
+  })
+}
 
 // TODO: links need checking. especially when they appear and when they hide
 
@@ -544,6 +552,7 @@ describe('View report page', () => {
   ])('“Check your answers” title', ({ userType, user, checkAnswersStatuses }) => {
     beforeEach(() => {
       app = appWithAllRoutes({ services: { userService }, userSupplier: () => user })
+      makeReportValid()
     })
 
     it.each(

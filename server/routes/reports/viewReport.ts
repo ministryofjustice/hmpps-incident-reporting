@@ -254,6 +254,17 @@ export function viewReportRouter(): Router {
             href: '#userAction',
           })
         }
+      } else if (
+        !report.createdInNomis &&
+        reportTransitions.CLOSE?.mustBeValid &&
+        allowedActionsNeedingForm.has('CLOSE')
+      ) {
+        // check DPS report is valid and hide “Close” option otherwise; reports made in NOMIS do not get validated
+        // TODO: conflicts with PECS journey
+        const errorGenerator = validateReport(report, reportConfig, questionProgressSteps, reportUrl)
+        if (errorGenerator.next().value) {
+          allowedActionsNeedingForm.delete('CLOSE')
+        }
       }
 
       // Gather notification banner entries if they exist

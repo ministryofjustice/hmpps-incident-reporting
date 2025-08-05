@@ -78,12 +78,14 @@ function setupAppForUser(user: Express.User): void {
 const { validateReport } = reportValidity as jest.Mocked<typeof import('../../../data/reportValidity')>
 
 function makeReportValid() {
+  validateReport.mockReset()
   validateReport.mockImplementationOnce(function* generator() {
     /* empty */
   })
 }
 
 function makeReportInvalid() {
+  validateReport.mockReset()
   validateReport.mockImplementationOnce(function* generator() {
     yield { text: 'Fill in missing details', href: '#' }
   })
@@ -108,7 +110,7 @@ describe('Actioning reports', () => {
 
   describe('Action options', () => {
     beforeEach(() => {
-      makeReportInvalid()
+      makeReportValid()
     })
 
     interface OptionsScenario {
@@ -282,6 +284,42 @@ describe('Actioning reports', () => {
           .expect(res => {
             expect(res.text).toContain('app-view-report__user-action-form')
             formOptions.forEach(option => expect(res.text).toContain(option))
+          })
+      },
+    )
+
+    it.each(['AWAITING_REVIEW', 'UPDATED', 'ON_HOLD', 'WAS_CLOSED'] as const)(
+      'should hide CLOSE option from data wardens if a DPS report with status %s is invalid',
+      status => {
+        setupAppForUser(mockDataWarden)
+        makeReportInvalid()
+        mockedReport.status = status
+
+        return request(app)
+          .get(viewReportUrl)
+          .expect(200)
+          .expect(res => {
+            expect(res.text).toContain('app-view-report__user-action-form')
+            expect(res.text).not.toContain('Close')
+          })
+      },
+    )
+
+    it.each(['AWAITING_REVIEW', 'UPDATED', 'ON_HOLD', 'WAS_CLOSED'] as const)(
+      'should show CLOSE option from data wardens if a NOMIS report with status %s is invalid',
+      status => {
+        setupAppForUser(mockDataWarden)
+        makeReportInvalid()
+        mockedReport.status = status
+        mockedReport.createdInNomis = true
+        mockedReport.lastModifiedInNomis = true
+
+        return request(app)
+          .get(viewReportUrl)
+          .expect(200)
+          .expect(res => {
+            expect(res.text).toContain('app-view-report__user-action-form')
+            expect(res.text).toContain('Close')
           })
       },
     )

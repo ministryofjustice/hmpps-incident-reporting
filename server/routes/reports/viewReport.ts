@@ -25,7 +25,7 @@ import {
 } from '../../middleware/permissions'
 import { populateReport } from '../../middleware/populateReport'
 import { populateReportConfiguration } from '../../middleware/populateReportConfiguration'
-import type { ReportBasic, ReportWithDetails } from '../../data/incidentReportingApi'
+import type { AddCorrectionRequestRequest, ReportBasic, ReportWithDetails } from '../../data/incidentReportingApi'
 import { validateReport } from '../../data/reportValidity'
 import type { GovukErrorSummaryItem } from '../../utils/govukFrontend'
 import { correctionRequestActionLabels } from './actions/correctionRequestLabels'
@@ -199,12 +199,15 @@ export function viewReportRouter(): Router {
                     comment = placeholderForCorrectionRequest(apiUserAction)
                   }
                 }
-                await incidentReportingApi.correctionRequests.addToReport(report.id, {
+                const addCorrectionRequest: AddCorrectionRequestRequest = {
                   userType: userType as ApiUserType, // HQ viewer can’t get here
                   userAction: apiUserAction,
                   descriptionOfChange: comment,
-                  originalReportReference,
-                })
+                }
+                if (originalReportReference) {
+                  addCorrectionRequest.originalReportReference = originalReportReference
+                }
+                await incidentReportingApi.correctionRequests.addToReport(report.id, addCorrectionRequest)
               }
 
               const { newStatus } = transition

@@ -49,10 +49,10 @@ export default function dashboard(): Router {
     const { activeCaseLoad, caseLoads: userCaseloads } = res.locals.user
     const userCaseloadIds = userCaseloads.map(caseload => caseload.caseLoadId)
 
-    let showEstablishmentsFilter = false
-    // TODO: add PECS regions for users with permissions.hasPecsAccess
+    let showLocationFilter = false
+    // TODO: check permissions.hasPecsAccess
     if (userCaseloadIds.length > 1) {
-      showEstablishmentsFilter = true
+      showLocationFilter = true
     }
 
     const { location, fromDate: fromDateInput, toDate: toDateInput, page }: ListFormData = req.query
@@ -71,7 +71,7 @@ export default function dashboard(): Router {
 
     // Select relevant table columns
     let tableColumns: ColumnEntry[]
-    if (showEstablishmentsFilter) {
+    if (showLocationFilter) {
       tableColumns = multiCaseloadColumns
     } else {
       tableColumns = singleCaseloadColumns
@@ -172,11 +172,11 @@ export default function dashboard(): Router {
     if (location && userCaseloadIds.includes(location)) {
       searchLocations = location
     }
-    // Show error message when user tries to select an establishment outside their caseload via the url query
+    // Show error message when user tries to select a location outside their caseload / role
     if (location && !userCaseloadIds.includes(location)) {
       errors.push({
         href: '#location',
-        text: 'Establishments can only be selected if they exist in the user’s caseload',
+        text: 'Location must be in your caseloads',
       })
     }
 
@@ -266,17 +266,15 @@ export default function dashboard(): Router {
       }))
       statusCheckboxLabel = 'Status'
     }
-    // TODO: PECS
-    const establishments: GovukSelectItem[] = userCaseloads.map(caseload => ({
+    // TODO: merge in PECS regions if has role
+    const allLocations: GovukSelectItem[] = userCaseloads.map(caseload => ({
       value: caseload.caseLoadId,
       text: caseload.description,
     }))
 
     const typesLookup = Object.fromEntries(types.map(type => [type.code, type.description]))
     const statusLookup = Object.fromEntries(statuses.map(status => [status.code, status.description]))
-    const establishmentLookup = Object.fromEntries(
-      establishments.map(establishment => [establishment.value, establishment.text]),
-    )
+    const locationLookup = Object.fromEntries(allLocations.map(loc => [loc.value, loc.text]))
 
     let tableHead: HeaderCell[] | undefined
     let paginationParams: LegacyPagination
@@ -304,8 +302,9 @@ export default function dashboard(): Router {
       activeCaseLoad,
       banners,
       reports,
-      establishments,
-      establishmentLookup,
+      showLocationFilter,
+      allLocations,
+      locationLookup,
       usersLookup,
       typeFamilyItems,
       statusItems,
@@ -318,7 +317,6 @@ export default function dashboard(): Router {
       noFiltersSupplied,
       tableHead,
       paginationParams,
-      showEstablishmentsFilter,
     })
   })
 

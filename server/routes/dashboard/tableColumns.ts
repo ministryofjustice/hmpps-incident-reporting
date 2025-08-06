@@ -50,10 +50,10 @@ const statusColumn: ColumnEntry = {
   classes: 'govuk-table__cell--status',
 }
 
-const establishmentColumn: ColumnEntry = {
+const locationColumn: ColumnEntry = {
   column: 'location',
-  escapedHtml: 'Establishment',
-  classes: 'govuk-table__cell--establishment',
+  escapedHtml: 'Location',
+  classes: 'govuk-table__cell--location',
 }
 
 export const singleCaseloadColumns: ColumnEntry[] = [
@@ -70,6 +70,6 @@ export const multiCaseloadColumns: ColumnEntry[] = [
   incidentTypeColumn,
   incidentDateAndTimeColumn,
   descriptionColumn,
-  establishmentColumn,
+  locationColumn,
   statusColumn,
 ]

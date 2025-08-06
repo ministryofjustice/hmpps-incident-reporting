@@ -12,7 +12,7 @@ export const incidentDateAndTimeFields = {
   },
   incidentTime: {
     label: 'Time of incident',
-    hint: 'Use the 24 hour clock. For example, 09 08 or 17 32',
+    hint: 'Use the 24 hour time format. For example, 09 08 or 17 32',
     component: 'appTime',
     validate: ['required', 'ukTime'],
   },

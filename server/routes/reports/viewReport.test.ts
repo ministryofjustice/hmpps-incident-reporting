@@ -27,24 +27,28 @@ let incidentReportingApi: jest.Mocked<IncidentReportingApi>
 let userService: jest.Mocked<UserService>
 let prisonApi: jest.Mocked<PrisonApi>
 
+const { validateReport } = reportValidity as jest.Mocked<typeof import('../../data/reportValidity')>
+
 beforeEach(() => {
   userService = UserService.prototype as jest.Mocked<UserService>
   app = appWithAllRoutes({ services: { userService } })
   incidentReportingApi = IncidentReportingApi.prototype as jest.Mocked<IncidentReportingApi>
-  prisonApi = PrisonApi.prototype as jest.Mocked<PrisonApi>
 
   userService.getUsers.mockResolvedValueOnce({
     [mockSharedUser.username]: mockSharedUser,
   })
 
-  const prisons = {
-    LEI: leeds,
-    MDI: moorland,
-  }
-  prisonApi.getPrisons.mockResolvedValue(prisons)
+  prisonApi = PrisonApi.prototype as jest.Mocked<PrisonApi>
+  prisonApi.getPrison.mockImplementation(locationCode =>
+    Promise.resolve(
+      {
+        LEI: leeds,
+        MDI: moorland,
+      }[locationCode],
+    ),
+  )
 
-  // ban checking report validity – it (currently) should only happen on requestReview action
-  ;(reportValidity as jest.Mocked<typeof import('../../data/reportValidity')>).validateReport.mockImplementation(() => {
+  validateReport.mockImplementationOnce(() => {
     throw new Error('should not be called')
   })
 })
@@ -52,6 +56,13 @@ beforeEach(() => {
 afterEach(() => {
   jest.resetAllMocks()
 })
+
+function makeReportValid() {
+  validateReport.mockReset()
+  validateReport.mockImplementationOnce(function* generator() {
+    /* empty */
+  })
+}
 
 // TODO: links need checking. especially when they appear and when they hide
 
@@ -544,6 +555,7 @@ describe('View report page', () => {
   ])('“Check your answers” title', ({ userType, user, checkAnswersStatuses }) => {
     beforeEach(() => {
       app = appWithAllRoutes({ services: { userService }, userSupplier: () => user })
+      makeReportValid()
     })
 
     it.each(

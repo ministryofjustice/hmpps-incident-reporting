@@ -1,5 +1,6 @@
 import { mockReport } from '../../server/data/testData/incidentReporting'
 import { andrew, barry } from '../../server/data/testData/offenderSearch'
+import { moorland } from '../../server/data/testData/prisonApi'
 import Page from '../pages/page'
 import ReportPage from '../pages/reports/report'
 
@@ -27,7 +28,7 @@ context('View report', () => {
 
       cy.signIn()
       cy.task('stubIncidentReportingApiGetReportWithDetailsById', { report: reportWithDetails })
-      cy.task('stubPrisonApiMockPrisons')
+      cy.task('stubPrisonApiMockPrison', moorland)
       cy.task('stubManageKnownUsers')
       cy.visit(`/reports/${reportWithDetails.id}`)
 
@@ -149,7 +150,7 @@ context('View report', () => {
       cy.signIn()
       cy.task('stubIncidentReportingApiGetReportWithDetailsById', { report: reportWithDetails })
       cy.task('stubOffenderSearchByNumber', [andrew, barry])
-      cy.task('stubPrisonApiMockPrisons')
+      cy.task('stubPrisonApiMockPrison', moorland)
       cy.task('stubManageKnownUsers')
       cy.visit(`/reports/${reportWithDetails.id}`)
 

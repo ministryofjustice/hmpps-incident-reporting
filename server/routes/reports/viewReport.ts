@@ -25,7 +25,7 @@ import {
 } from '../../middleware/permissions'
 import { populateReport } from '../../middleware/populateReport'
 import { populateReportConfiguration } from '../../middleware/populateReportConfiguration'
-import type { ReportBasic, ReportWithDetails } from '../../data/incidentReportingApi'
+import type { AddCorrectionRequestRequest, ReportBasic, ReportWithDetails } from '../../data/incidentReportingApi'
 import { validateReport } from '../../data/reportValidity'
 import type { GovukErrorSummaryItem } from '../../utils/govukFrontend'
 import { correctionRequestActionLabels } from './actions/correctionRequestLabels'
@@ -69,9 +69,9 @@ export function viewReportRouter(): Router {
       if (report.correctionRequests) {
         usernames.push(...report.correctionRequests.map(correctionRequest => correctionRequest.correctionRequestedBy))
       }
-      const [usersLookup, prisonsLookup] = await Promise.all([
+      const [usersLookup, locationDescription] = await Promise.all([
         userService.getUsers(res.locals.systemToken, usernames),
-        prisonApi.getPrisons(),
+        prisonApi.getPrison(report.location, false).then(agency => agency?.description || report.location),
       ])
 
       const questionProgressSteps = Array.from(questionProgress)
@@ -116,9 +116,8 @@ export function viewReportRouter(): Router {
             return
           }
 
-          // check report is valid if required
-          // TODO: may need report.isValid flag or similar so that validation is forced when RO submits but is not repeated when DW closes
-          if (transition.mustBeValid) {
+          // check DPS report is valid if required; reports made in NOMIS do not get validated
+          if (!report.createdInNomis && transition.mustBeValid) {
             for (const error of validateReport(report, reportConfig, questionProgressSteps, reportUrl)) {
               errors.push(error)
             }
@@ -200,18 +199,20 @@ export function viewReportRouter(): Router {
                     comment = placeholderForCorrectionRequest(apiUserAction)
                   }
                 }
-                await incidentReportingApi.correctionRequests.addToReport(report.id, {
+                const addCorrectionRequest: AddCorrectionRequestRequest = {
                   userType: userType as ApiUserType, // HQ viewer can’t get here
                   userAction: apiUserAction,
                   descriptionOfChange: comment,
-                  originalReportReference,
-                })
+                }
+                if (originalReportReference) {
+                  addCorrectionRequest.originalReportReference = originalReportReference
+                }
+                await incidentReportingApi.correctionRequests.addToReport(report.id, addCorrectionRequest)
               }
 
               const { newStatus } = transition
               if (newStatus && newStatus !== report.status) {
                 await incidentReportingApi.changeReportStatus(report.id, { newStatus })
-                // TODO: set report validation=true flag? not supported by api/db yet / ever will be?
               }
 
               if (userAction === 'MARK_DUPLICATE' && originalReport) {
@@ -256,6 +257,17 @@ export function viewReportRouter(): Router {
             href: '#userAction',
           })
         }
+      } else if (
+        !report.createdInNomis &&
+        reportTransitions.CLOSE?.mustBeValid &&
+        allowedActionsNeedingForm.has('CLOSE')
+      ) {
+        // check DPS report is valid and hide “Close” option otherwise; reports made in NOMIS do not get validated
+        // TODO: conflicts with PECS journey
+        const errorGenerator = validateReport(report, reportConfig, questionProgressSteps, reportUrl)
+        if (errorGenerator.next().value) {
+          allowedActionsNeedingForm.delete('CLOSE')
+        }
       }
 
       // Gather notification banner entries if they exist
@@ -277,7 +289,6 @@ export function viewReportRouter(): Router {
         canEditReportInNomisOnly,
         descriptionAppendOnly,
         usersLookup,
-        prisonsLookup,
         prisonerInvolvementLookup,
         prisonerOutcomeLookup,
         staffInvolvementLookup,
@@ -285,6 +296,7 @@ export function viewReportRouter(): Router {
         statusLookup,
         correctionRequestActionLabels,
         workListMapping,
+        locationDescription,
         reportTransitions,
         formValues,
         requestedOriginalReportReference,

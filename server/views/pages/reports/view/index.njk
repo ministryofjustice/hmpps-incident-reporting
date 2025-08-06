@@ -59,9 +59,8 @@
     {{ pageTitle }}
   </h1>
   <p>
-    {# TODO: label will need to change for PECS regions #}
-    <strong>Establishment:</strong>
-    <span data-qa="report-location">{{ prisonsLookup[report.location].description or report.location }}</span>
+    <strong>Location:</strong>
+    <span data-qa="report-location">{{ locationDescription }}</span>
     <br />
     <strong>Reported by:</strong>
     <span data-qa="report-reported-by">{{ usersLookup[report.reportedBy].name or report.reportedBy }} on {{ report.reportedAt | longDate }}</span>

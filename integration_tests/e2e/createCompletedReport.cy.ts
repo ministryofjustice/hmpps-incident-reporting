@@ -388,7 +388,7 @@ context('Creating a completed draft report', () => {
     stubReport()
 
     // end of questions so prepare for report view
-    cy.task('stubPrisonApiMockPrisons')
+    cy.task('stubPrisonApiMockPrison', moorland)
     cy.task('stubManageKnownUsers')
     questionPage.submit()
 

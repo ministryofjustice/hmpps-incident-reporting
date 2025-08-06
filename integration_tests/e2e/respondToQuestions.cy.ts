@@ -1,6 +1,7 @@
 import type { Response as SuperAgentResponse } from 'superagent'
 
 import { mockReport } from '../../server/data/testData/incidentReporting'
+import { moorland } from '../../server/data/testData/prisonApi'
 import Page from '../pages/page'
 import ReportPage from '../pages/reports/report'
 import { QuestionPage } from '../pages/reports/question'
@@ -128,7 +129,7 @@ context('Responding to questions', () => {
     cy.resetBasicStubs()
 
     cy.signIn()
-    cy.task('stubPrisonApiMockPrisons')
+    cy.task('stubPrisonApiMockPrison', moorland)
     cy.task('stubManageKnownUsers')
   })
 

@@ -55,12 +55,15 @@ beforeEach(() => {
     [mockSharedUser.username]: mockSharedUser,
   })
 
-  const prisons = {
-    LEI: leeds,
-    MDI: moorland,
-  }
   prisonApi = PrisonApi.prototype as jest.Mocked<PrisonApi>
-  prisonApi.getPrisons.mockResolvedValue(prisons)
+  prisonApi.getPrison.mockImplementation(locationCode =>
+    Promise.resolve(
+      {
+        LEI: leeds,
+        MDI: moorland,
+      }[locationCode],
+    ),
+  )
 
   placeholderForCorrectionRequest.mockReturnValue('PLACEHOLDER')
 })
@@ -78,12 +81,14 @@ function setupAppForUser(user: Express.User): void {
 const { validateReport } = reportValidity as jest.Mocked<typeof import('../../../data/reportValidity')>
 
 function makeReportValid() {
+  validateReport.mockReset()
   validateReport.mockImplementationOnce(function* generator() {
     /* empty */
   })
 }
 
 function makeReportInvalid() {
+  validateReport.mockReset()
   validateReport.mockImplementationOnce(function* generator() {
     yield { text: 'Fill in missing details', href: '#' }
   })
@@ -108,7 +113,7 @@ describe('Actioning reports', () => {
 
   describe('Action options', () => {
     beforeEach(() => {
-      makeReportInvalid()
+      makeReportValid()
     })
 
     interface OptionsScenario {
@@ -282,6 +287,42 @@ describe('Actioning reports', () => {
           .expect(res => {
             expect(res.text).toContain('app-view-report__user-action-form')
             formOptions.forEach(option => expect(res.text).toContain(option))
+          })
+      },
+    )
+
+    it.each(['AWAITING_REVIEW', 'UPDATED', 'ON_HOLD', 'WAS_CLOSED'] as const)(
+      'should hide CLOSE option from data wardens if a DPS report with status %s is invalid',
+      status => {
+        setupAppForUser(mockDataWarden)
+        makeReportInvalid()
+        mockedReport.status = status
+
+        return request(app)
+          .get(viewReportUrl)
+          .expect(200)
+          .expect(res => {
+            expect(res.text).toContain('app-view-report__user-action-form')
+            expect(res.text).not.toContain('Close')
+          })
+      },
+    )
+
+    it.each(['AWAITING_REVIEW', 'UPDATED', 'ON_HOLD', 'WAS_CLOSED'] as const)(
+      'should show CLOSE option from data wardens if a NOMIS report with status %s is invalid',
+      status => {
+        setupAppForUser(mockDataWarden)
+        makeReportInvalid()
+        mockedReport.status = status
+        mockedReport.createdInNomis = true
+        mockedReport.lastModifiedInNomis = true
+
+        return request(app)
+          .get(viewReportUrl)
+          .expect(200)
+          .expect(res => {
+            expect(res.text).toContain('app-view-report__user-action-form')
+            expect(res.text).toContain('Close')
           })
       },
     )
@@ -510,7 +551,6 @@ describe('Actioning reports', () => {
     })
 
     const actionsRequiringValidReports = ['REQUEST_REVIEW', 'CLOSE']
-    // TODO: this will probably turn into a flag on the report so closing will not need the checks
 
     interface TransitionScenarios {
       userType: string
@@ -916,10 +956,6 @@ describe('Actioning reports', () => {
           setupAppForUser(user)
           mockedReport.status = currentStatus
           expectedRedirect = redirectedPage === 'dashboard' ? '/reports' : `/reports/${mockedReport.id}`
-
-          if (updatesTitle) {
-            prisonApi.getPrison.mockResolvedValueOnce(moorland)
-          }
           incidentReportingApi.getReportByReference.mockRejectedValueOnce(new Error('should not be called'))
         })
 
@@ -953,12 +989,15 @@ describe('Actioning reports', () => {
                 expect(incidentReportingApi.getReportByReference).not.toHaveBeenCalled()
               }
               if (updatesTitle) {
-                expect(prisonApi.getPrison).toHaveBeenCalledWith('MDI', false)
+                expect(prisonApi.getPrison).toHaveBeenCalledTimes(2)
+                expect(prisonApi.getPrison).toHaveBeenNthCalledWith(1, 'MDI', false) // to display report location
+                expect(prisonApi.getPrison).toHaveBeenNthCalledWith(2, 'MDI', false) // to regenerate title
                 expect(incidentReportingApi.updateReport).toHaveBeenCalledWith(mockedReport.id, {
                   title: 'Assault: Arnold A1111AA, Benjamin A2222BB (Moorland (HMP & YOI))',
                 })
               } else {
-                expect(prisonApi.getPrison).not.toHaveBeenCalled()
+                expect(prisonApi.getPrison).toHaveBeenCalledTimes(1)
+                expect(prisonApi.getPrison).toHaveBeenCalledWith('MDI', false) // to display report location
                 if (userAction === 'MARK_DUPLICATE') {
                   expect(incidentReportingApi.updateReport).toHaveBeenCalledWith(mockedReport.id, {
                     duplicatedReportId: mockedOriginalReport.id,
@@ -980,7 +1019,7 @@ describe('Actioning reports', () => {
         })
 
         if (actionsRequiringValidReports.includes(userAction)) {
-          it('should not be allowed if report is invalid', () => {
+          it('should not be allowed if report, that was created in DPS, is invalid', () => {
             makeReportInvalid()
             makeOriginalReportReferenceExistIfNeeded()
             incidentReportingRelatedObjects.addToReport.mockRejectedValue(new Error('should not be called'))
@@ -996,6 +1035,34 @@ describe('Actioning reports', () => {
                 expect(incidentReportingApi.updateReport).not.toHaveBeenCalled()
                 expect(incidentReportingRelatedObjects.addToReport).not.toHaveBeenCalled()
                 expect(incidentReportingApi.changeReportStatus).not.toHaveBeenCalled()
+              })
+          })
+
+          it('should succeed if report, that was created in NOMIS, is invalid', () => {
+            makeReportInvalid()
+            makeOriginalReportReferenceExistIfNeeded()
+            mockedReport.createdInNomis = true
+            mockedReport.lastModifiedInNomis = true
+            incidentReportingApi.updateReport.mockResolvedValueOnce(mockedReport) // NB: response is ignored
+            incidentReportingRelatedObjects.addToReport.mockResolvedValueOnce([]) // NB: response is ignored
+            incidentReportingApi.changeReportStatus.mockResolvedValueOnce(mockedReport) // NB: response is ignored
+
+            return request(app)
+              .post(viewReportUrl)
+              .send(validPayload)
+              .expect(302)
+              .expect(res => {
+                expect(res.redirect).toBe(true)
+                expect(res.header.location).toEqual(expectedRedirect)
+                if (postsCorrectionRequest !== undefined) {
+                  expect(incidentReportingRelatedObjects.addToReport).toHaveBeenCalledWith(
+                    mockedReport.id,
+                    postsCorrectionRequest,
+                  )
+                } else {
+                  expect(incidentReportingRelatedObjects.addToReport).not.toHaveBeenCalled()
+                }
+                expect(incidentReportingApi.changeReportStatus).toHaveBeenCalledWith(mockedReport.id, { newStatus })
               })
           })
         } else {

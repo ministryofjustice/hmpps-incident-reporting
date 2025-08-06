@@ -12,11 +12,7 @@ import { TypePage } from '../pages/reports/type'
 context('Searching for a report', () => {
   beforeEach(() => {
     cy.resetBasicStubs()
-
     cy.signIn()
-
-    // populate prisons filter
-    cy.task('stubPrisonApiMockPrisons')
   })
 
   it('should be accessible from home page', () => {

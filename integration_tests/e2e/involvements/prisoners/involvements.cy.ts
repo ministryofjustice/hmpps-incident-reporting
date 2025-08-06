@@ -1,5 +1,6 @@
 import { mockReport } from '../../../../server/data/testData/incidentReporting'
 import { andrew, barry } from '../../../../server/data/testData/offenderSearch'
+import { moorland } from '../../../../server/data/testData/prisonApi'
 import Page from '../../../pages/page'
 import { PrisonerInvolvementsPage, PrisonerSearchPage } from '../../../pages/reports/involvements/prisoners'
 import ReportPage from '../../../pages/reports/report'
@@ -56,7 +57,7 @@ context('Prisoner involvements page', () => {
       })
 
       cy.task('stubIncidentReportingApiGetReportById', { report: reportWithDetails })
-      cy.task('stubPrisonApiMockPrisons')
+      cy.task('stubPrisonApiMockPrison', moorland)
       cy.task('stubManageKnownUsers')
 
       prisonerInvolvementsPage.selectRadioButton('No')
@@ -67,7 +68,7 @@ context('Prisoner involvements page', () => {
 
     it('should return to report if skip is chosen', () => {
       cy.task('stubIncidentReportingApiGetReportById', { report: reportWithDetails })
-      cy.task('stubPrisonApiMockPrisons')
+      cy.task('stubPrisonApiMockPrison', moorland)
       cy.task('stubManageKnownUsers')
 
       prisonerInvolvementsPage.selectRadioButton('Skip for now')
@@ -118,7 +119,7 @@ context('Prisoner involvements page', () => {
       })
 
       cy.task('stubIncidentReportingApiGetReportById', { report: reportWithDetails })
-      cy.task('stubPrisonApiMockPrisons')
+      cy.task('stubPrisonApiMockPrison', moorland)
       cy.task('stubManageKnownUsers')
 
       prisonerInvolvementsPage.selectRadioButton('No')
@@ -181,7 +182,7 @@ context('Prisoner involvements page', () => {
 
     it('should return to report if no is chosen', () => {
       cy.task('stubIncidentReportingApiGetReportById', { report: reportWithDetails })
-      cy.task('stubPrisonApiMockPrisons')
+      cy.task('stubPrisonApiMockPrison', moorland)
       cy.task('stubManageKnownUsers')
 
       prisonerInvolvementsPage.selectRadioButton('No')

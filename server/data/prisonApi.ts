@@ -141,6 +141,7 @@ export class PrisonApi extends RestClient {
     })
   }
 
+  // TODO: rename method to reflect that it could be more than just a prison
   /** Look up agency details (can be a prison, a PECS region, etc) */
   async getPrison(prisonId: string, activeOnly = true, agencyType?: AgencyType): Promise<Agency | null> {
     try {

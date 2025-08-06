@@ -55,12 +55,15 @@ beforeEach(() => {
     [mockSharedUser.username]: mockSharedUser,
   })
 
-  const prisons = {
-    LEI: leeds,
-    MDI: moorland,
-  }
   prisonApi = PrisonApi.prototype as jest.Mocked<PrisonApi>
-  prisonApi.getPrisons.mockResolvedValue(prisons)
+  prisonApi.getPrison.mockImplementation(locationCode =>
+    Promise.resolve(
+      {
+        LEI: leeds,
+        MDI: moorland,
+      }[locationCode],
+    ),
+  )
 
   placeholderForCorrectionRequest.mockReturnValue('PLACEHOLDER')
 })
@@ -953,10 +956,6 @@ describe('Actioning reports', () => {
           setupAppForUser(user)
           mockedReport.status = currentStatus
           expectedRedirect = redirectedPage === 'dashboard' ? '/reports' : `/reports/${mockedReport.id}`
-
-          if (updatesTitle) {
-            prisonApi.getPrison.mockResolvedValueOnce(moorland)
-          }
           incidentReportingApi.getReportByReference.mockRejectedValueOnce(new Error('should not be called'))
         })
 
@@ -990,12 +989,15 @@ describe('Actioning reports', () => {
                 expect(incidentReportingApi.getReportByReference).not.toHaveBeenCalled()
               }
               if (updatesTitle) {
-                expect(prisonApi.getPrison).toHaveBeenCalledWith('MDI', false)
+                expect(prisonApi.getPrison).toHaveBeenCalledTimes(2)
+                expect(prisonApi.getPrison).toHaveBeenNthCalledWith(1, 'MDI', false) // to display report location
+                expect(prisonApi.getPrison).toHaveBeenNthCalledWith(2, 'MDI', false) // to regenerate title
                 expect(incidentReportingApi.updateReport).toHaveBeenCalledWith(mockedReport.id, {
                   title: 'Assault: Arnold A1111AA, Benjamin A2222BB (Moorland (HMP & YOI))',
                 })
               } else {
-                expect(prisonApi.getPrison).not.toHaveBeenCalled()
+                expect(prisonApi.getPrison).toHaveBeenCalledTimes(1)
+                expect(prisonApi.getPrison).toHaveBeenCalledWith('MDI', false) // to display report location
                 if (userAction === 'MARK_DUPLICATE') {
                   expect(incidentReportingApi.updateReport).toHaveBeenCalledWith(mockedReport.id, {
                     duplicatedReportId: mockedOriginalReport.id,

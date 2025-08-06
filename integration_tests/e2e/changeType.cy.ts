@@ -181,7 +181,7 @@ context('Change incident type', () => {
         title: 'Disorder (Moorland (HMP & YOI))',
       },
     })
-    cy.task('stubPrisonApiMockPrisons')
+    cy.task('stubPrisonApiMockPrison', moorland)
     cy.task('stubManageKnownUsers')
 
     typePage.submit()

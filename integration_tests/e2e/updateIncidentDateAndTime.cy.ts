@@ -1,4 +1,5 @@
 import { mockReport } from '../../server/data/testData/incidentReporting'
+import { moorland } from '../../server/data/testData/prisonApi'
 import Page from '../pages/page'
 import { IncidentDateTimePage } from '../pages/reports/incidentDateTime'
 import ReportPage from '../pages/reports/report'
@@ -47,7 +48,7 @@ context('Update an existing report’s date after it’s been reviewed', () => {
     })
     // stub lookups from next page, the report view
     cy.task('stubIncidentReportingApiGetReportWithDetailsById', { report: reportWithDetails })
-    cy.task('stubPrisonApiMockPrisons')
+    cy.task('stubPrisonApiMockPrison', moorland)
     cy.task('stubManageKnownUsers')
 
     incidentDateTimePage.submit()

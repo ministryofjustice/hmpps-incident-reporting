@@ -102,13 +102,13 @@
 
       <div class="govuk-grid-row">
 
-        {% if showEstablishmentsFilter %}
+        {% if showLocationFilter %}
           <div class="govuk-grid-column-one-half-from-desktop">
             {{ accessibleAutocomplete({
               id: "location",
               name: "location",
-              label: {text: "Establishment"},
-              items: establishments | govukSelectInsertDefault("All establishments") | govukSelectSetSelected(formValues.location),
+              label: {text: "Location"},
+              items: allLocations | govukSelectInsertDefault("All locations") | govukSelectSetSelected(formValues.location),
               value: formValues.location or "",
               errorMessage: errors | findFieldInGovukErrorSummary("location")
             }) }}
@@ -186,14 +186,14 @@
         </div>
       {% endset %}
 
-      {% if showEstablishmentsFilter %}
+      {% if showLocationFilter %}
         {% set rows = (rows.push(
           [
             { html: link },
             { text: typesLookup[report.type] or report.type },
             { text: report.incidentDateAndTime | shortDateAndTime },
             { html: description },
-            { text: establishmentLookup[report.location] or report.location },
+            { text: locationLookup[report.location] or report.location },
             { text: statusLookup[report.status] or report.status }
           ]
         ), rows) %}

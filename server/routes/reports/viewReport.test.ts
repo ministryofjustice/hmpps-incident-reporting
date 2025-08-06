@@ -33,17 +33,20 @@ beforeEach(() => {
   userService = UserService.prototype as jest.Mocked<UserService>
   app = appWithAllRoutes({ services: { userService } })
   incidentReportingApi = IncidentReportingApi.prototype as jest.Mocked<IncidentReportingApi>
-  prisonApi = PrisonApi.prototype as jest.Mocked<PrisonApi>
 
   userService.getUsers.mockResolvedValueOnce({
     [mockSharedUser.username]: mockSharedUser,
   })
 
-  const prisons = {
-    LEI: leeds,
-    MDI: moorland,
-  }
-  prisonApi.getPrisons.mockResolvedValue(prisons)
+  prisonApi = PrisonApi.prototype as jest.Mocked<PrisonApi>
+  prisonApi.getPrison.mockImplementation(locationCode =>
+    Promise.resolve(
+      {
+        LEI: leeds,
+        MDI: moorland,
+      }[locationCode],
+    ),
+  )
 
   validateReport.mockImplementationOnce(() => {
     throw new Error('should not be called')

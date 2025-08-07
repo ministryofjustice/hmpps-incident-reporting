@@ -12,9 +12,11 @@ import {
   mockUnauthorisedUser,
 } from '../../../../data/testData/users'
 import { appWithAllRoutes } from '../../../testutils/appSetup'
+import { mockHandleReportEdit } from '../../../testutils/handleReportEdit'
 import { now } from '../../../../testutils/fakeClock'
 
 jest.mock('../../../../data/incidentReportingApi')
+jest.mock('../../actions/handleReportEdit')
 
 let app: Express
 let incidentReportingApi: jest.Mocked<IncidentReportingApi>
@@ -22,6 +24,7 @@ let incidentReportingApi: jest.Mocked<IncidentReportingApi>
 beforeEach(() => {
   app = appWithAllRoutes()
   incidentReportingApi = IncidentReportingApi.prototype as jest.Mocked<IncidentReportingApi>
+  mockHandleReportEdit.withoutSideEffect()
 })
 
 afterEach(() => {
@@ -89,6 +92,7 @@ describe('Staff involvement summary for report', () => {
 
         expect(incidentReportingApi.getReportWithDetailsById).toHaveBeenCalledTimes(1)
         expect(incidentReportingApi.updateReport).not.toHaveBeenCalled()
+        mockHandleReportEdit.expectNotCalled()
       })
   })
 
@@ -114,6 +118,7 @@ describe('Staff involvement summary for report', () => {
 
         expect(incidentReportingApi.getReportWithDetailsById).toHaveBeenCalledTimes(1)
         expect(incidentReportingApi.updateReport).not.toHaveBeenCalled()
+        mockHandleReportEdit.expectNotCalled()
       })
   })
 
@@ -136,6 +141,7 @@ describe('Staff involvement summary for report', () => {
         expect(res.text).toContain('Select yes if you want to add a member of staff')
 
         expect(incidentReportingApi.updateReport).not.toHaveBeenCalled()
+        mockHandleReportEdit.expectNotCalled()
       })
   })
 
@@ -154,6 +160,7 @@ describe('Staff involvement summary for report', () => {
           expect(res.headers.location).toEqual(`/reports/${mockedReport.id}/staff/search`)
         }
         expect(incidentReportingApi.updateReport).not.toHaveBeenCalled()
+        mockHandleReportEdit.expectNotCalled()
       })
   })
 
@@ -177,6 +184,7 @@ describe('Staff involvement summary for report', () => {
           expect(res.headers.location).toEqual(`/reports/${mockedReport.id}`)
         }
         expect(incidentReportingApi.updateReport).not.toHaveBeenCalled()
+        mockHandleReportEdit.expectNotCalled()
       })
   })
 
@@ -205,6 +213,7 @@ describe('Staff involvement summary for report', () => {
 
           expect(incidentReportingApi.getReportWithDetailsById).toHaveBeenCalledTimes(1)
           expect(incidentReportingApi.updateReport).not.toHaveBeenCalled()
+          mockHandleReportEdit.expectNotCalled()
         })
     })
 
@@ -224,6 +233,7 @@ describe('Staff involvement summary for report', () => {
           expect(res.text).toContain('Select yes if you want to add a member of staff')
 
           expect(incidentReportingApi.updateReport).not.toHaveBeenCalled()
+          mockHandleReportEdit.expectNotCalled()
         })
     })
 
@@ -242,6 +252,7 @@ describe('Staff involvement summary for report', () => {
             expect(res.headers.location).toEqual(`/reports/${mockedReport.id}/staff/search`)
           }
           expect(incidentReportingApi.updateReport).not.toHaveBeenCalled()
+          mockHandleReportEdit.expectNotCalled()
         })
     })
 
@@ -267,13 +278,14 @@ describe('Staff involvement summary for report', () => {
           expect(incidentReportingApi.updateReport).toHaveBeenCalledWith(mockedReport.id, {
             staffInvolvementDone: true,
           })
+          mockHandleReportEdit.expectCalled()
         })
     })
 
     it.each([
       { scenario: 'during create journey', createJourney: true },
       { scenario: 'normally', createJourney: false },
-    ])('should show an error if API rejects request $scenario', ({ createJourney }) => {
+    ])('should show an error if API rejects update $scenario', ({ createJourney }) => {
       const error = mockThrownError(mockErrorResponse({ message: 'Confirmation took too long' }))
       incidentReportingApi.updateReport.mockRejectedValueOnce(error)
       incidentReportingApi.getReportWithDetailsById.mockResolvedValueOnce(mockedReport) // due to redirect
@@ -289,6 +301,25 @@ describe('Staff involvement summary for report', () => {
           expect(res.text).toContain('Sorry, there was a problem with your request')
           expect(res.text).not.toContain('Bad Request')
           expect(res.text).not.toContain('Confirmation took too long')
+        })
+    })
+
+    it.each([
+      { scenario: 'during create journey', createJourney: true },
+      { scenario: 'normally', createJourney: false },
+    ])('should show an error if API rejects (possible) status change $scenario', ({ createJourney }) => {
+      mockHandleReportEdit.failure()
+      incidentReportingApi.getReportWithDetailsById.mockResolvedValueOnce(mockedReport) // due to redirect
+
+      return request
+        .agent(app)
+        .post(summaryUrl(createJourney))
+        .send({ confirmAdd: 'no' })
+        .redirects(1)
+        .expect(200)
+        .expect(res => {
+          expect(res.text).toContain('There is a problem')
+          expect(res.text).toContain('Sorry, there was a problem with your request')
         })
     })
 
@@ -312,6 +343,7 @@ describe('Staff involvement summary for report', () => {
             expect(res.headers.location).toEqual(`/reports/${mockedReport.id}`)
           }
           expect(incidentReportingApi.updateReport).not.toHaveBeenCalled()
+          mockHandleReportEdit.expectNotCalled()
         })
     })
   })

@@ -3,6 +3,7 @@ import type FormWizard from 'hmpo-form-wizard'
 
 import logger from '../../../logger'
 import type { ReportWithDetails } from '../../data/incidentReportingApi'
+import { handleReportEdit } from '../../routes/reports/actions/handleReportEdit'
 import { Values as PrisonersValues } from '../../routes/reports/prisoners/summary/fields'
 import { Values as StaffValues } from '../../routes/reports/staff/summary/fields'
 import { BaseController } from '../base'
@@ -117,9 +118,12 @@ export abstract class InvolvementSummary extends BaseController<Values> {
     } else {
       if (confirmAdd === 'no' && report[this.involvementField].length === 0) {
         try {
-          await res.locals.apis.incidentReportingApi.updateReport(report.id, {
-            [this.involvementDoneField]: true,
-          })
+          await Promise.all([
+            res.locals.apis.incidentReportingApi.updateReport(report.id, {
+              [this.involvementDoneField]: true,
+            }),
+            handleReportEdit(res),
+          ])
           logger.info(`Report updated to flag %s involved as done`, this.type)
         } catch (error) {
           logger.error(error, `Report could not be updated to flag %s involved as done: %j`, this.type, error)

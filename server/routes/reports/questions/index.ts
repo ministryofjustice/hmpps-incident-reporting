@@ -4,7 +4,6 @@ import { NotFound } from 'http-errors'
 
 import { populateReportConfiguration } from '../../../middleware/populateReportConfiguration'
 
-// eslint-disable-next-line import/prefer-default-export
 export const questionsRouter = express.Router({ mergeParams: true })
 // NB: questionsRouter is unprotected with permissions checks
 

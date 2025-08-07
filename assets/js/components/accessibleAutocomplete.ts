@@ -1,7 +1,6 @@
 import accessibleAutocomplete from 'accessible-autocomplete'
 import { Component } from 'govuk-frontend'
 
-// eslint-disable-next-line import/prefer-default-export
 export class AccessibleAutocompleteEnhancedSelect extends Component<HTMLSelectElement> {
   static moduleName = 'autocomplete-enhanced-select'
 

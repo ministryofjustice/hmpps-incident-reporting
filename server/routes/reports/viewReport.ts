@@ -42,7 +42,6 @@ const prisonerOutcomeLookup = Object.fromEntries(
 )
 const staffInvolvementLookup = Object.fromEntries(staffInvolvementRoles.map(role => [role.code, role.description]))
 
-// eslint-disable-next-line import/prefer-default-export
 export function viewReportRouter(): Router {
   const router = Router({ mergeParams: true })
 

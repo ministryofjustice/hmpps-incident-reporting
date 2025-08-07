@@ -1,6 +1,5 @@
 import { InvolvementsPage } from '../abstract'
 
-// eslint-disable-next-line import/prefer-default-export
 export class StaffInvolvementsPage extends InvolvementsPage {
   constructor(involvementsDone = true) {
     super(involvementsDone ? 'Staff involved' : 'Do you want to add a member of staff to the report?')

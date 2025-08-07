@@ -6,7 +6,6 @@ import { BaseController } from '../../../../controllers'
 import { convertToTitleCase, nameOfPerson, possessive } from '../../../../utils/utils'
 import type { Values } from './fields'
 
-// eslint-disable-next-line import/prefer-default-export
 export abstract class StaffInvolvementController<V extends Values = Values> extends BaseController<V> {
   middlewareLocals(): void {
     this.use(this.customiseFields)

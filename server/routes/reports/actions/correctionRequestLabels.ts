@@ -1,6 +1,5 @@
-import { ApiUserAction } from '../../../middleware/permissions'
+import type { ApiUserAction } from '../../../middleware/permissions'
 
-// eslint-disable-next-line import/prefer-default-export
 export const correctionRequestActionLabels: Record<ApiUserAction, string> = {
   REQUEST_REVIEW: 'Resubmitted',
   REQUEST_CORRECTION: 'Sent back',

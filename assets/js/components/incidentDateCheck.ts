@@ -1,7 +1,6 @@
 import { parseDateInput } from '../../../server/utils/parseDateTime'
 import { Dialogue } from './dialogue'
 
-// eslint-disable-next-line import/prefer-default-export
 export class IncidentDateCheck extends Dialogue {
   static moduleName = 'incident-date-check'
 

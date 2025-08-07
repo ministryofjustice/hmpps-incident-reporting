@@ -6,7 +6,6 @@ import logger from '../../logger'
 /**
  * Loads a report by id from `req.params.reportId`
  */
-// eslint-disable-next-line import/prefer-default-export
 export function populateReport(withDetails: boolean) {
   return async (req: Request, res: Response, next: NextFunction): Promise<void> => {
     const { reportId } = req.params

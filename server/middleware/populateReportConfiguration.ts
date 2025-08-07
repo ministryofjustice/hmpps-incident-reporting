@@ -11,7 +11,6 @@ import { QuestionProgress } from '../data/incidentTypeConfiguration/questionProg
  * Loads report configuration for a report in `res.locals.report`.
  * Must come after populateReport() middleware.
  */
-// eslint-disable-next-line import/prefer-default-export
 export function populateReportConfiguration(generateQuestionSteps = true) {
   return async (_req: Request, res: Response, next: NextFunction): Promise<void> => {
     const { report } = res.locals

@@ -9,7 +9,6 @@ import ManageUsersApiClient, { type UsersSearchResponse } from '../../../../data
 import { pagination } from '../../../../utils/pagination'
 import type { Values } from './fields'
 
-// eslint-disable-next-line import/prefer-default-export
 export class StaffSearchController extends GetBaseController<Values> {
   protected keyField = 'q' as const
 

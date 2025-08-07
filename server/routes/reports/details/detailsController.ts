@@ -8,7 +8,6 @@ import { BaseIncidentDateAndTimeController } from './incidentDateAndTimeControll
  * Controller for adding or updating the date and description of an incident report.
  * The generic V parameter is for specifying all steps’ values, not just this one.
  */
-// eslint-disable-next-line import/prefer-default-export
 export abstract class BaseDetailsController<V extends DetailsValues> extends BaseIncidentDateAndTimeController<V> {
   protected errorMessage(
     error: FormWizard.Error,

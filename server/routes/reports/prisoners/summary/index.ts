@@ -4,7 +4,6 @@ import PrisonerSummary from './controller'
 import { fields } from './fields'
 import { steps } from './steps'
 
-// eslint-disable-next-line import/prefer-default-export
 export const summaryRouter = FormWizard(steps, fields, {
   name: 'prisonerSummary',
   journeyName: 'prisonerSummary',

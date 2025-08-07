@@ -85,7 +85,6 @@ class EditStaffInvolvementController extends StaffInvolvementController {
   }
 }
 
-// eslint-disable-next-line import/prefer-default-export
 export const editRouter = FormWizard(steps, fields, {
   name: 'editStaffInvolvement',
   journeyName: 'editStaffInvolvement',

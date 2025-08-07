@@ -4,7 +4,6 @@ import { RemovePrisoner } from './controller'
 import { fields } from './fields'
 import { steps } from './steps'
 
-// eslint-disable-next-line import/prefer-default-export
 export const removeRouter = FormWizard(steps, fields, {
   name: 'removePrisoner',
   journeyName: 'removePrisoner',

@@ -110,7 +110,6 @@ class EditPrisonerInvolvementController extends PrisonerInvolvementController {
   }
 }
 
-// eslint-disable-next-line import/prefer-default-export
 export const editRouter = FormWizard(steps, fields, {
   name: 'editPrisonerInvolvement',
   journeyName: 'editPrisonerInvolvement',

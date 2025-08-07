@@ -1,6 +1,5 @@
 import { SearchPage } from '../abstract'
 
-// eslint-disable-next-line import/prefer-default-export
 export class StaffSearchPage extends SearchPage {
   constructor(results?: { found: true } | { notFound: string }) {
     let pageTitle: string

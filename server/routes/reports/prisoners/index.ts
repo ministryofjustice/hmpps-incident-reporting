@@ -7,7 +7,6 @@ import { searchRouter } from './search'
 import { summaryRouter } from './summary'
 import { removeRouter } from './remove'
 
-// eslint-disable-next-line import/prefer-default-export
 export const prisonerInvolvementRouter = express.Router({ mergeParams: true })
 // NB: prisonerInvolvementRouter is unprotected with permissions checks
 

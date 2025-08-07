@@ -2,7 +2,6 @@ import format from '../../../server/utils/format'
 import FormWizardPage from '../formWizard'
 import type { PageElement } from '../page'
 
-// eslint-disable-next-line import/prefer-default-export
 export class IncidentDateTimePage extends FormWizardPage {
   constructor(h1: string = 'Incident date and time') {
     super(h1)

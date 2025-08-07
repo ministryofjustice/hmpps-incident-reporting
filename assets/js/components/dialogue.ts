@@ -1,6 +1,5 @@
 import { Component } from 'govuk-frontend'
 
-// eslint-disable-next-line import/prefer-default-export
 export abstract class Dialogue extends Component<HTMLDialogElement> {
   static elementType = HTMLDialogElement
 

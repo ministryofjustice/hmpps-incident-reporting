@@ -1,7 +1,6 @@
 import FormWizardPage from '../../../formWizard'
 import type { PageElement } from '../../../page'
 
-// eslint-disable-next-line import/prefer-default-export
 export abstract class SearchPage extends FormWizardPage {
   enterQuery(query: string): PageElement<HTMLInputElement> {
     return this.textInput('q').clear().type(query)

@@ -4,6 +4,7 @@ import request, { type Agent } from 'supertest'
 import { parseDateInput } from '../../../utils/parseDateTime'
 import { appWithAllRoutes } from '../../testutils/appSetup'
 import { now } from '../../../testutils/fakeClock'
+import { mockHandleReportEdit } from '../../testutils/handleReportEdit'
 import {
   type AddOrUpdateQuestionWithResponsesRequest,
   IncidentReportingApi,
@@ -21,6 +22,7 @@ import { DEATH_OTHER_1 } from '../../../reportConfiguration/types/DEATH_OTHER_1'
 import { FIND_6 } from '../../../reportConfiguration/types/FIND_6'
 
 jest.mock('../../../data/incidentReportingApi')
+jest.mock('../actions/handleReportEdit')
 
 let app: Express
 let incidentReportingApi: jest.Mocked<IncidentReportingApi>
@@ -28,6 +30,7 @@ let incidentReportingApi: jest.Mocked<IncidentReportingApi>
 beforeEach(() => {
   app = appWithAllRoutes()
   incidentReportingApi = IncidentReportingApi.prototype as jest.Mocked<IncidentReportingApi>
+  mockHandleReportEdit.withoutSideEffect()
 })
 
 afterEach(() => {
@@ -451,6 +454,7 @@ describe('Submitting questions’ responses', () => {
         .expect(res => {
           expect(incidentReportingApi.addOrUpdateQuestionsWithResponses).not.toHaveBeenCalled()
           expect(incidentReportingApi.deleteQuestionsAndTheirResponses).not.toHaveBeenCalled()
+          mockHandleReportEdit.expectNotCalled()
           expect(res.text).toContain('There is a problem')
           expect(fieldNames(res.text)).toEqual(['45054'])
           expect(res.text).toContain(
@@ -487,6 +491,7 @@ describe('Submitting questions’ responses', () => {
         .expect(res => {
           expect(incidentReportingApi.addOrUpdateQuestionsWithResponses).not.toHaveBeenCalled()
           expect(incidentReportingApi.deleteQuestionsAndTheirResponses).not.toHaveBeenCalled()
+          mockHandleReportEdit.expectNotCalled()
           expect(res.text).toContain('There is a problem')
           expect(fieldNames(res.text)).toEqual(['44769', '44919', '45033', '44636', '44749'])
           expect(res.text).toContain('<a href="#44919">Select one or more options for ‘The incident is subject to’</a>')
@@ -522,6 +527,7 @@ describe('Submitting questions’ responses', () => {
         .expect(res => {
           expect(incidentReportingApi.addOrUpdateQuestionsWithResponses).not.toHaveBeenCalled()
           expect(incidentReportingApi.deleteQuestionsAndTheirResponses).not.toHaveBeenCalled()
+          mockHandleReportEdit.expectNotCalled()
           expect(res.text).toContain('There is a problem')
           expect(fieldNames(res.text)).toEqual(['44594'])
           expect(res.text).toContain(
@@ -552,6 +558,7 @@ describe('Submitting questions’ responses', () => {
         .expect(res => {
           expect(incidentReportingApi.addOrUpdateQuestionsWithResponses).not.toHaveBeenCalled()
           expect(incidentReportingApi.deleteQuestionsAndTheirResponses).not.toHaveBeenCalled()
+          mockHandleReportEdit.expectNotCalled()
           expect(res.text).toContain('There is a problem')
           expect(fieldNames(res.text)).toEqual(['45054'])
           expect(res.text).toContain(
@@ -625,6 +632,7 @@ describe('Submitting questions’ responses', () => {
             expectedRequest,
           )
           expect(incidentReportingApi.deleteQuestionsAndTheirResponses).not.toHaveBeenCalled()
+          mockHandleReportEdit.expectCalled()
           expect(res.text).not.toContain('There is a problem')
           expect(res.redirects[0]).toMatch(`/${followingStep}`)
         })
@@ -686,6 +694,7 @@ describe('Submitting questions’ responses', () => {
             expectedRequest,
           )
           expect(incidentReportingApi.deleteQuestionsAndTheirResponses).not.toHaveBeenCalled()
+          mockHandleReportEdit.expectCalled()
           expect(res.text).not.toContain('There is a problem')
           expect(res.redirects[0]).toMatch(`/${followingStep}`)
         })
@@ -819,6 +828,7 @@ describe('Submitting questions’ responses', () => {
           expect(incidentReportingApi.deleteQuestionsAndTheirResponses).toHaveBeenCalledWith(reportWithDetails.id, [
             '61284',
           ])
+          mockHandleReportEdit.expectCalled()
           expect(res.text).not.toContain('There is a problem')
           expect(res.redirects[0]).toMatch(`/${followingStep}`)
         })
@@ -983,7 +993,39 @@ describe('Submitting questions’ responses', () => {
         })
     })
 
-    it('should show a message for API errors', () => {
+    it.each([
+      {
+        scenario: 'adding/updating questions',
+        setupFailure() {
+          const error = mockThrownError(mockErrorResponse({ status: 500, message: 'External problem' }), 500)
+          incidentReportingApi.addOrUpdateQuestionsWithResponses.mockRejectedValueOnce(error)
+        },
+        extraChecks() {
+          expect(incidentReportingApi.deleteQuestionsAndTheirResponses).not.toHaveBeenCalled()
+        },
+      },
+      {
+        scenario: 'deleting old questions',
+        setupFailure: () => {
+          incidentReportingApi.addOrUpdateQuestionsWithResponses.mockResolvedValueOnce([])
+          const error = mockThrownError(mockErrorResponse({ status: 500, message: 'External problem' }), 500)
+          incidentReportingApi.deleteQuestionsAndTheirResponses.mockRejectedValueOnce(error)
+        },
+        extraChecks() {
+          mockHandleReportEdit.expectCalled()
+        },
+      },
+      {
+        scenario: '(possible) status change',
+        setupFailure: () => {
+          incidentReportingApi.addOrUpdateQuestionsWithResponses.mockResolvedValueOnce([])
+          mockHandleReportEdit.failure()
+        },
+        extraChecks() {
+          expect(incidentReportingApi.deleteQuestionsAndTheirResponses).not.toHaveBeenCalled()
+        },
+      },
+    ])('should show an error if API rejects $scenario', ({ setupFailure, extraChecks }) => {
       reportWithDetails.type = 'FIND_6'
       const firstQuestionStep = FIND_6.startingQuestionCode
       const submittedAnswers = {
@@ -991,8 +1033,7 @@ describe('Submitting questions’ responses', () => {
         '67179': ['BOSS CHAIR', 'DOG SEARCH'],
       }
 
-      const error = mockThrownError(mockErrorResponse({ status: 500, message: 'External problem' }), 500)
-      incidentReportingApi.addOrUpdateQuestionsWithResponses.mockRejectedValue(error)
+      setupFailure()
 
       return agent
         .post(`${reportQuestionsUrl(createJourney)}/${firstQuestionStep}`)
@@ -1001,6 +1042,7 @@ describe('Submitting questions’ responses', () => {
         .expect(res => {
           expect(res.text).toContain('Sorry, there is a problem with the service')
           // NB: because each page is an entrypoint, cannot use form wizard to display error summary
+          extraChecks()
         })
     })
   })

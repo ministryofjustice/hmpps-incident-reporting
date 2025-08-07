@@ -171,7 +171,7 @@ context('View report', () => {
         expect(timeline).to.have.lengthOf(1)
         const [comment] = timeline
         expect(comment.title).to.equal('Sent back')
-        expect(comment.byLine).to.equal('by USER2')
+        expect(comment.byLine).to.equal('by Mary Johnson')
         expect(comment.date).to.contain(now.getFullYear().toString())
         expect(comment.description).to.contain('Please amend question 2')
       })

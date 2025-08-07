@@ -65,7 +65,7 @@ export function viewReportRouter(): Router {
       const { userType } = permissions
 
       const usernames = [report.reportedBy]
-      if (report.correctionRequests) {
+      if (report.correctionRequests?.length) {
         usernames.push(...report.correctionRequests.map(correctionRequest => correctionRequest.correctionRequestedBy))
       }
       const [usersLookup, locationDescription] = await Promise.all([

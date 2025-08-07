@@ -176,7 +176,7 @@ describe('Adding a description addendum to report', () => {
       })
   })
 
-  it('should show an error if API rejects status change', () => {
+  it('should show an error if API rejects (possible) status change', () => {
     incidentReportingRelatedObjects.addToReport.mockResolvedValueOnce([]) // NB: response is ignored
     mockHandleReportEdit.failure()
 

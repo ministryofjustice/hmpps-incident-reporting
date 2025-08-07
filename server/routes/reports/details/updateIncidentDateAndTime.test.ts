@@ -250,7 +250,7 @@ describe('Updating report incident date and time', () => {
       })
   })
 
-  it('should show an error if API rejects status change', () => {
+  it('should show an error if API rejects (possible) status change', () => {
     incidentReportingApi.updateReport.mockResolvedValueOnce(reportBasic) // NB: response is ignored
     mockHandleReportEdit.failure()
 

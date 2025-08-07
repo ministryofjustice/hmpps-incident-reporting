@@ -4,6 +4,7 @@ import { NotFound } from 'http-errors'
 
 import logger from '../../../logger'
 import type { PrisonerInvolvement, ReportWithDetails, StaffInvolvement } from '../../data/incidentReportingApi'
+import { handleReportEdit } from '../../routes/reports/actions/handleReportEdit'
 import { Values as PrisonersValues } from '../../routes/reports/prisoners/remove/fields'
 import { Values as StaffValues } from '../../routes/reports/staff/remove/fields'
 import { BaseController } from '../base'
@@ -65,7 +66,7 @@ export abstract class RemoveInvolvement<
       const { confirmRemove } = req.form.values
 
       if (confirmRemove === 'yes') {
-        await this.deleteInvolvement(req, res)
+        await Promise.all([this.deleteInvolvement(req, res), handleReportEdit(res)])
 
         // clear session since involvement has been saved
         res.locals.clearSessionOnSuccess = true

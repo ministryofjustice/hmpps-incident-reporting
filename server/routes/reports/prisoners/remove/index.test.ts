@@ -22,10 +22,12 @@ import {
   mockUnauthorisedUser,
 } from '../../../../data/testData/users'
 import { appWithAllRoutes } from '../../../testutils/appSetup'
+import { mockHandleReportEdit } from '../../../testutils/handleReportEdit'
 import { now } from '../../../../testutils/fakeClock'
 
 jest.mock('../../../../data/incidentReportingApi')
 jest.mock('../../../../data/prisonApi')
+jest.mock('../../actions/handleReportEdit')
 
 let app: Express
 let incidentReportingApi: jest.Mocked<IncidentReportingApi>
@@ -40,6 +42,7 @@ beforeEach(() => {
   incidentReportingRelatedObjects = RelatedObjects.prototype as jest.Mocked<
     RelatedObjects<PrisonerInvolvement, AddPrisonerInvolvementRequest, UpdatePrisonerInvolvementRequest>
   >
+  mockHandleReportEdit.withoutSideEffect()
   prisonApi = PrisonApi.prototype as jest.Mocked<PrisonApi>
   prisonApi.getPrison.mockResolvedValueOnce(moorland)
 })
@@ -126,11 +129,13 @@ describe('Remove prisoner involvement', () => {
 
         expect(incidentReportingApi.getReportWithDetailsById).toHaveBeenCalledTimes(1)
         expect(incidentReportingRelatedObjects.deleteFromReport).not.toHaveBeenCalled()
+        mockHandleReportEdit.expectNotCalled()
       })
   })
 
   it('should submit the correct delete request when "yes" selected', () => {
     incidentReportingApi.getReportWithDetailsById.mockResolvedValueOnce(mockedReport)
+    incidentReportingRelatedObjects.deleteFromReport.mockResolvedValueOnce([]) // NB: response is ignored
     incidentReportingApi.updateReport.mockResolvedValueOnce(mockedReport) // NB: response is ignored
 
     return request
@@ -146,6 +151,7 @@ describe('Remove prisoner involvement', () => {
         expect(res.text).toContain('You have removed A1111AA: Andrew Arnold')
 
         expect(incidentReportingRelatedObjects.deleteFromReport).toHaveBeenCalledWith(mockedReport.id, 1)
+        mockHandleReportEdit.expectCalled()
         expect(incidentReportingApi.updateReport).toHaveBeenCalledWith(mockedReport.id, {
           title: expect.any(String),
         })
@@ -154,6 +160,7 @@ describe('Remove prisoner involvement', () => {
 
   it('should allow exiting to report view when deleting', () => {
     incidentReportingApi.getReportWithDetailsById.mockResolvedValueOnce(mockedReport)
+    incidentReportingRelatedObjects.deleteFromReport.mockResolvedValueOnce([]) // NB: response is ignored
     incidentReportingApi.updateReport.mockResolvedValueOnce(mockedReport) // NB: response is ignored
 
     return request
@@ -166,6 +173,7 @@ describe('Remove prisoner involvement', () => {
         expect(res.header.location).toEqual(`/reports/${mockedReport.id}`)
 
         expect(incidentReportingRelatedObjects.deleteFromReport).toHaveBeenCalledWith(mockedReport.id, 1)
+        mockHandleReportEdit.expectCalled()
         expect(incidentReportingApi.updateReport).toHaveBeenCalledWith(mockedReport.id, {
           title: expect.any(String),
         })
@@ -188,6 +196,7 @@ describe('Remove prisoner involvement', () => {
         expect(res.text).not.toContain('You have removed')
 
         expect(incidentReportingRelatedObjects.deleteFromReport).not.toHaveBeenCalled()
+        mockHandleReportEdit.expectNotCalled()
         expect(incidentReportingApi.updateReport).not.toHaveBeenCalled()
       })
   })
@@ -205,6 +214,7 @@ describe('Remove prisoner involvement', () => {
         expect(res.header.location).toEqual(`/reports/${mockedReport.id}`)
 
         expect(incidentReportingRelatedObjects.deleteFromReport).not.toHaveBeenCalled()
+        mockHandleReportEdit.expectNotCalled()
         expect(incidentReportingApi.updateReport).not.toHaveBeenCalled()
       })
   })
@@ -225,6 +235,7 @@ describe('Remove prisoner involvement', () => {
         expect(res.text).toContain('Select yes if you want to remove the prisoner')
 
         expect(incidentReportingRelatedObjects.deleteFromReport).not.toHaveBeenCalled()
+        mockHandleReportEdit.expectNotCalled()
         expect(incidentReportingApi.updateReport).not.toHaveBeenCalled()
       })
   })
@@ -249,8 +260,30 @@ describe('Remove prisoner involvement', () => {
       })
   })
 
+  it('should show an error if API rejects (possible) status change', () => {
+    incidentReportingApi.getReportWithDetailsById.mockResolvedValueOnce(mockedReport)
+    incidentReportingRelatedObjects.deleteFromReport.mockResolvedValueOnce([]) // NB: response is ignored
+    mockHandleReportEdit.failure()
+    incidentReportingApi.updateReport.mockResolvedValueOnce(mockedReport) // NB: response is ignored
+
+    return request
+      .agent(app)
+      .post(removePrisonerUrl(1))
+      .send({ confirmRemove: 'yes' })
+      .redirects(1)
+      .expect(200)
+      .expect(res => {
+        expect(res.text).toContain('There is a problem')
+        expect(res.text).toContain('Sorry, there was a problem with your request')
+        expect(incidentReportingApi.updateReport).toHaveBeenCalledWith(mockedReport.id, {
+          title: expect.any(String),
+        })
+      })
+  })
+
   it('should not show an error if API rejects updating title', () => {
     incidentReportingApi.getReportWithDetailsById.mockResolvedValueOnce(mockedReport)
+    incidentReportingRelatedObjects.deleteFromReport.mockResolvedValueOnce([]) // NB: response is ignored
     const error = mockThrownError(mockErrorResponse({ message: 'Title is too long' }))
     incidentReportingApi.updateReport.mockRejectedValueOnce(error)
 

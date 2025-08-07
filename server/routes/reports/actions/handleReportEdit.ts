@@ -3,7 +3,7 @@ import { prisonReportTransitions } from '../../../middleware/permissions'
 
 /**
  * Users can edit report in various states, but sometimes this results in a status transition.
- * Call `handleReportEdit(res)` whenever a report is edited to ensure this is handled.
+ * NB: Ensure there is a call to `handleReportEdit(res)` whenever a report is edited so this is handled!
  */
 export async function handleReportEdit(res: Response): Promise<void> {
   const {

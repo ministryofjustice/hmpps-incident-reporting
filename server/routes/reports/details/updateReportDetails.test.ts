@@ -3,6 +3,7 @@ import request, { type Agent, type Response } from 'supertest'
 
 import format from '../../../utils/format'
 import { appWithAllRoutes } from '../../testutils/appSetup'
+import { mockHandleReportEdit } from '../../testutils/handleReportEdit'
 import { IncidentReportingApi } from '../../../data/incidentReportingApi'
 import { convertReportDates } from '../../../data/incidentReportingApiUtils'
 import { mockErrorResponse, mockReport } from '../../../data/testData/incidentReporting'
@@ -11,6 +12,7 @@ import { mockDataWarden, mockReportingOfficer, mockHqViewer, mockUnauthorisedUse
 import type { Status } from '../../../reportConfiguration/constants'
 
 jest.mock('../../../data/incidentReportingApi')
+jest.mock('../actions/handleReportEdit')
 
 let app: Express
 let incidentReportingApi: jest.Mocked<IncidentReportingApi>
@@ -18,6 +20,7 @@ let incidentReportingApi: jest.Mocked<IncidentReportingApi>
 beforeEach(() => {
   app = appWithAllRoutes()
   incidentReportingApi = IncidentReportingApi.prototype as jest.Mocked<IncidentReportingApi>
+  mockHandleReportEdit.withoutSideEffect()
 })
 
 afterEach(() => {
@@ -186,6 +189,8 @@ describe('Updating report details', () => {
         expectOnDetailsPage(res)
         expect(res.text).toContain('There is a problem')
         expect(res.text).toContain(errorMessage)
+        expect(incidentReportingApi.updateReport).not.toHaveBeenCalled()
+        mockHandleReportEdit.expectNotCalled()
       })
   })
 
@@ -210,7 +215,7 @@ describe('Updating report details', () => {
   })
 
   it('should send request to API if form is valid and proceed to next step', () => {
-    incidentReportingApi.updateReport.mockResolvedValueOnce(reportBasic)
+    incidentReportingApi.updateReport.mockResolvedValueOnce(reportBasic) // NB: response is ignored
 
     return agent
       .post(updateDetailsUrl)
@@ -223,10 +228,11 @@ describe('Updating report details', () => {
           description: 'Disorder took place on A wing',
           incidentDateAndTime,
         })
+        mockHandleReportEdit.expectCalled()
       })
   })
 
-  it('should show an error if API rejects request', () => {
+  it('should show an error if API rejects update', () => {
     const error = mockThrownError(mockErrorResponse({ message: 'Description is too short' }))
     incidentReportingApi.updateReport.mockRejectedValueOnce(error)
 
@@ -241,6 +247,22 @@ describe('Updating report details', () => {
         expect(res.text).toContain('Sorry, there was a problem with your request')
         expect(res.text).not.toContain('Bad Request')
         expect(res.text).not.toContain('Description is too short')
+      })
+  })
+
+  it('should show an error if API rejects status change', () => {
+    incidentReportingApi.updateReport.mockResolvedValueOnce(reportBasic) // NB: response is ignored
+    mockHandleReportEdit.failure()
+
+    return agent
+      .post(updateDetailsUrl)
+      .send(validPayload)
+      .redirects(1)
+      .expect(200)
+      .expect(res => {
+        expectOnDetailsPage(res)
+        expect(res.text).toContain('There is a problem')
+        expect(res.text).toContain('Sorry, there was a problem with your request')
       })
   })
 

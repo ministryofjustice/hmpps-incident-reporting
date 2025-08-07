@@ -6,7 +6,7 @@ export const detailsFields = {
   description: {
     label: 'Incident description',
     hint:
-      'Include enough detail that the description can stand alone as a report. ' +
+      'Include details in the answer so the description can stand alone as a report. ' +
       'Do not include sensitive information.',
     component: 'govukTextarea',
     validate: ['required'],

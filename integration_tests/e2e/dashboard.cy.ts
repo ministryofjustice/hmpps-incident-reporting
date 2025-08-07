@@ -2,6 +2,7 @@ import type { Response as SuperAgentResponse } from 'superagent'
 
 import type { GetReportsParams } from '../../server/data/incidentReportingApi'
 import { mockReport } from '../../server/data/testData/incidentReporting'
+import { moorland } from '../../server/data/testData/prisonApi'
 import { now } from '../../server/testutils/fakeClock'
 import { DashboardPage } from '../pages/dashboard'
 import HomePage from '../pages/home'
@@ -238,6 +239,7 @@ context('Searching for a report', () => {
           ...reports[0],
         },
       })
+      cy.task('stubPrisonApiMockPrison', moorland)
       dashboardPage.tableContents.then(rows => {
         expect(rows).to.have.lengthOf(2)
         const [row1] = rows

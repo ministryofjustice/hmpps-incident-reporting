@@ -6,6 +6,8 @@ import format from '../../../utils/format'
 import type { ReportBasic } from '../../../data/incidentReportingApi'
 import { logoutUnless, hasPermissionTo } from '../../../middleware/permissions'
 import { populateReport } from '../../../middleware/populateReport'
+import { dwNotReviewed } from '../../../reportConfiguration/constants'
+import { handleReportEdit } from '../actions/handleReportEdit'
 import {
   type IncidentDateAndTimeValues,
   hoursFieldName,
@@ -14,7 +16,6 @@ import {
   incidentDateAndTimeFields,
 } from './incidentDateAndTimeFields'
 import { BaseIncidentDateAndTimeController } from './incidentDateAndTimeController'
-import { dwNotReviewed } from '../../../reportConfiguration/constants'
 
 class UpdateIncidentDateAndTimeController extends BaseIncidentDateAndTimeController<IncidentDateAndTimeValues> {
   protected keyField = 'incidentDate' as const
@@ -67,10 +68,10 @@ class UpdateIncidentDateAndTimeController extends BaseIncidentDateAndTimeControl
     const incidentDateAndTime = this.buildIncidentDateAndTime(incidentDate, incidentTime)
 
     try {
-      await res.locals.apis.incidentReportingApi.updateReport(report.id, {
-        // TODO: maybe title needs to change, depending on how it's generated
-        incidentDateAndTime,
-      })
+      await Promise.all([
+        res.locals.apis.incidentReportingApi.updateReport(report.id, { incidentDateAndTime }),
+        handleReportEdit(res),
+      ])
       logger.info(`Report ${report.reportReference} details updated`)
 
       // clear session since report has been saved

@@ -14,7 +14,6 @@ import type { UserType } from './userType'
  *
  * See roles constants for explanation of their permissions.
  */
-// eslint-disable-next-line import/prefer-default-export
 export class Permissions {
   /** Creates an instance of this class for the current user */
   static middleware(_req: Request, res: Response, next: NextFunction): void {

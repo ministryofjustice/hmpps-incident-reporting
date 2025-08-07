@@ -1,7 +1,6 @@
 import FormWizardPage from '../../../formWizard'
 import type { PageElement } from '../../../page'
 
-// eslint-disable-next-line import/prefer-default-export
 export abstract class InvolvementsPage extends FormWizardPage {
   get radioButtonChoices() {
     return this.radioOrCheckboxChoices('confirmAdd')

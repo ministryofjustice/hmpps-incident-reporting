@@ -4,7 +4,6 @@ import { StaffSearchController } from './controller'
 import { fields } from './fields'
 import { steps } from './steps'
 
-// eslint-disable-next-line import/prefer-default-export
 export const searchRouter = FormWizard(steps, fields, {
   name: 'staffInvolvementSearch',
   journeyName: 'staffInvolvementSearch',

@@ -16,7 +16,6 @@ import {
  * Handles error messages and validating combined date and time fields.
  * The generic V parameter is for specifying all steps’ values, not just this one.
  */
-// eslint-disable-next-line import/prefer-default-export
 export abstract class BaseIncidentDateAndTimeController<V extends IncidentDateAndTimeValues> extends BaseController<
   V,
   IncidentDateAndTimeFieldNames

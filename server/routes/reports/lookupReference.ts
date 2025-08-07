@@ -1,7 +1,6 @@
 import type { Request, Response } from 'express'
 import { NotFound } from 'http-errors'
 
-// eslint-disable-next-line import/prefer-default-export
 export async function lookupReference(req: Request, res: Response): Promise<void> {
   const { reference } = req.params
   const { permissions } = res.locals

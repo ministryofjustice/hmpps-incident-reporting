@@ -4,7 +4,6 @@ import { AccessibleAutocompleteEnhancedSelect } from './accessibleAutocomplete'
 import { DpsCard } from './dpsCard'
 import { IncidentDateCheck } from './incidentDateCheck'
 
-// eslint-disable-next-line import/prefer-default-export
 export function initApplicationComponents() {
   try {
     Component.checkSupport()

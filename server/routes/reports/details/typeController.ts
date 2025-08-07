@@ -9,7 +9,6 @@ import type { TypeFieldNames, TypeValues } from './typeFields'
  * Handles error messages only.
  * The generic V parameter is for specifying all steps’ values, not just this one.
  */
-// eslint-disable-next-line import/prefer-default-export
 export abstract class BaseTypeController<V extends TypeValues> extends BaseController<V, TypeFieldNames> {
   protected keyField = 'type' as const
 

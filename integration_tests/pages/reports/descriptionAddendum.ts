@@ -1,7 +1,6 @@
 import FormWizardPage from '../formWizard'
 import type { PageElement } from '../page'
 
-// eslint-disable-next-line import/prefer-default-export
 export class DescriptionAddendumPage extends FormWizardPage {
   constructor() {
     super('Incident description')

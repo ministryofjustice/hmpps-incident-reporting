@@ -116,6 +116,5 @@ const updateDetailsWizardRouter = FormWizard(updateDetailsSteps, updateDetailsFi
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore because express types do not mention this property and form wizard does not allow you to pass in config for it's root router
 updateDetailsWizardRouter.mergeParams = true
-// eslint-disable-next-line import/prefer-default-export
 export const updateDetailsRouter = express.Router({ mergeParams: true })
 updateDetailsRouter.use(populateReport(false), logoutUnless(hasPermissionTo('EDIT')), updateDetailsWizardRouter)

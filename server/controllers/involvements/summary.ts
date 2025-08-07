@@ -9,7 +9,6 @@ import { BaseController } from '../base'
 
 type Values = PrisonersValues | StaffValues
 
-// eslint-disable-next-line import/prefer-default-export
 export abstract class InvolvementSummary extends BaseController<Values> {
   protected keyField = 'confirmAdd' as const
 

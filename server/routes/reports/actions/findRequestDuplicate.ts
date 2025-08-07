@@ -10,7 +10,6 @@ import { workListMapping } from '../../../reportConfiguration/constants'
  *
  * Assumes the list is presorted in ascending date order (as currently returned by api; though that is technically insertion order).
  */
-// eslint-disable-next-line import/prefer-default-export
 export function findRequestDuplicate(report: ReportWithDetails): CorrectionRequest | null {
   if (!workListMapping.submitted.includes(report.status)) {
     // not in submitted work list so there cannot be a recent enough request

@@ -112,6 +112,5 @@ const addDescriptionWizardRouter = FormWizard(addDescriptionSteps, addDescriptio
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore because express types do not mention this property and form wizard does not allow you to pass in config for it's root router
 addDescriptionWizardRouter.mergeParams = true
-// eslint-disable-next-line import/prefer-default-export
 export const addDescriptionRouter = express.Router({ mergeParams: true })
 addDescriptionRouter.use(populateReport(true), logoutUnless(hasPermissionTo('EDIT')), addDescriptionWizardRouter)

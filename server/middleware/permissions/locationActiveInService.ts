@@ -6,7 +6,6 @@ import { activeAgencies, SERVICE_ALL_AGENCIES } from '../../data/activeAgencies'
  * Meaning the service has been rolled out there.
  * Otherwise, users are expected to continue using NOMIS.
  */
-// eslint-disable-next-line import/prefer-default-export
 export function isLocationActiveInService(agencyId: string): boolean {
   // empty list permits none
   if (activeAgencies.length === 0) {

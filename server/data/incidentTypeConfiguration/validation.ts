@@ -1,4 +1,3 @@
-/* eslint-disable import/prefer-default-export */
 import { setToString } from '../../utils/setUtils'
 import { DfsResult, Graph } from './directedGraphs'
 import { type IncidentTypeConfiguration } from './types'

@@ -6,7 +6,6 @@ import { populateReport } from '../../../middleware/populateReport'
 import { statuses, types } from '../../../reportConfiguration/constants'
 import { populateReportConfiguration } from '../../../middleware/populateReportConfiguration'
 
-// eslint-disable-next-line import/prefer-default-export
 export function historyRouter(): Router {
   const router = Router({ mergeParams: true })
   router.use(populateReport(true), logoutUnless(hasPermissionTo('VIEW')))

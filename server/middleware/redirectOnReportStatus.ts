@@ -4,7 +4,6 @@ import { NotImplemented } from 'http-errors'
 import logger from '../../logger'
 import type { Status } from '../reportConfiguration/constants'
 
-// eslint-disable-next-line import/prefer-default-export
 export function redirectIfStatusNot(...statuses: Status[]): RequestHandler {
   if (!statuses.length) {
     throw new NotImplemented('redirectIfStatusNot() requires at least one status')

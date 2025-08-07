@@ -40,7 +40,6 @@ async function populateRoutes(
   return allDefinitions
 }
 
-// eslint-disable-next-line import/prefer-default-export
 export function dprRouter(router: Router, services: Services): Router {
   if (config.loadReportDefinitionsOnStartup === true && definitionsRoutesInitialised === false) {
     getIncidentReportingApi(services).then(incidentReportingApi => populateRoutes(incidentReportingApi, router))

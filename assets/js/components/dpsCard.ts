@@ -4,7 +4,6 @@ import { Component } from 'govuk-frontend'
  * DPS cards that have a heading link only accept clinks on the heading text itself.
  * This forwards a click anywhere inside the card to this heading link.
  */
-// eslint-disable-next-line import/prefer-default-export
 export class DpsCard extends Component<HTMLDivElement> {
   static moduleName = 'dps-card'
 

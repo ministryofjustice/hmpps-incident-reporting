@@ -10,7 +10,6 @@ import { BaseController } from '../base'
 
 type Values = PrisonersValues | StaffValues
 
-// eslint-disable-next-line import/prefer-default-export
 export abstract class RemoveInvolvement<
   I extends PrisonerInvolvement | StaffInvolvement,
 > extends BaseController<Values> {

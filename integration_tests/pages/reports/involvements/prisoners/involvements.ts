@@ -1,6 +1,5 @@
 import { InvolvementsPage } from '../abstract'
 
-// eslint-disable-next-line import/prefer-default-export
 export class PrisonerInvolvementsPage extends InvolvementsPage {
   constructor(involvementsDone = true) {
     super(involvementsDone ? 'Prisoners involved' : 'Do you want to add a prisoner to the report?')

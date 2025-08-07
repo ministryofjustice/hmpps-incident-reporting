@@ -7,7 +7,6 @@ import { staffInvolvementRouter } from './staff'
 import { questionsRouter } from './questions'
 import { createReportWizardRouter } from './details/createReport'
 
-// eslint-disable-next-line import/prefer-default-export
 export const createReportRouter = express.Router({ mergeParams: true })
 
 // form wizard to save minimal report details

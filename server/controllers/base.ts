@@ -8,7 +8,6 @@ import { parseDateInput, parseTimeInput } from '../utils/parseDateTime'
  * The super-class form wizard controller with functionality that should be shared
  * amongst all forms in this application.
  */
-// eslint-disable-next-line import/prefer-default-export
 export abstract class BaseController<
   /**
    * The type of all values handled by the form wizard, typically a record with specific field names mapping to strings.

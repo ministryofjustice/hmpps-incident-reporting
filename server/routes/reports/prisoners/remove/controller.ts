@@ -8,7 +8,6 @@ import { fallibleUpdateReportTitle } from '../../../../services/reportTitle'
 import { nameOfPerson } from '../../../../utils/utils'
 import type { Values } from './fields'
 
-// eslint-disable-next-line import/prefer-default-export
 export class RemovePrisoner extends RemoveInvolvement<PrisonerInvolvement> {
   protected type = 'prisoners' as const
 

@@ -8,7 +8,6 @@ import type { ReportWithDetails } from '../../../../data/incidentReportingApi'
 import { populateReportConfiguration } from '../../../../middleware/populateReportConfiguration'
 import type { Values } from './fields'
 
-// eslint-disable-next-line import/prefer-default-export
 export abstract class PrisonerInvolvementController extends BaseController<Values> {
   middlewareLocals(): void {
     this.router.use(populateReportConfiguration(false))

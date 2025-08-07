@@ -19,7 +19,6 @@ import { aboutTheType } from '../../../reportConfiguration/constants'
 import QuestionsToDelete from '../../../services/questionsToDelete'
 import { BaseController } from '../../../controllers'
 
-// eslint-disable-next-line import/prefer-default-export
 export class QuestionsController extends BaseController<FormWizard.MultiValues> {
   middlewareLocals(): void {
     super.middlewareLocals()

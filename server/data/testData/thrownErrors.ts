@@ -6,7 +6,6 @@ import { SanitisedError } from '@ministryofjustice/hmpps-rest-client'
  *
  * NB: some fields are omitted, in reality these are built out of superagent.ResponseError
  */
-// eslint-disable-next-line import/prefer-default-export
 export function mockThrownError<T>(responseBody: T, status: number = 400): SanitisedError<T> {
   const error = new SanitisedError<T>(`Error: ${status}`)
   error.responseStatus = status

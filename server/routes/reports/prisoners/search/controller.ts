@@ -11,7 +11,6 @@ import type { Values } from './fields'
 
 type OffenderSearchFilters = Parameters<OffenderSearchApi['searchGlobally']>[0]
 
-// eslint-disable-next-line import/prefer-default-export
 export class PrisonerSearchController extends GetBaseController<Values> {
   protected keyField = 'q' as const
 

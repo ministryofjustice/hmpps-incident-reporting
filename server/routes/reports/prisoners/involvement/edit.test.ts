@@ -22,11 +22,13 @@ import {
   mockUnauthorisedUser,
 } from '../../../../data/testData/users'
 import { appWithAllRoutes } from '../../../testutils/appSetup'
+import { mockHandleReportEdit } from '../../../testutils/handleReportEdit'
 import { now } from '../../../../testutils/fakeClock'
 import type { Values } from './fields'
 
 jest.mock('../../../../data/incidentReportingApi')
 jest.mock('../../../../data/prisonApi')
+jest.mock('../../actions/handleReportEdit')
 
 let app: Express
 let incidentReportingApi: jest.Mocked<IncidentReportingApi>
@@ -45,6 +47,8 @@ beforeEach(() => {
   // eslint-disable-next-line @typescript-eslint/ban-ts-comment
   // @ts-ignore need to mock a getter method
   incidentReportingApi.prisonersInvolved = incidentReportingRelatedObjects
+  mockHandleReportEdit.withoutSideEffect()
+
   prisonApi = PrisonApi.prototype as jest.Mocked<PrisonApi>
   prisonApi.getPrison.mockResolvedValueOnce(moorland)
 })
@@ -151,6 +155,7 @@ describe('Editing an existing prisoner in a report', () => {
           expect(res.text).toContain('Some comments')
 
           expect(incidentReportingRelatedObjects.updateForReport).not.toHaveBeenCalled()
+          mockHandleReportEdit.expectNotCalled()
         })
     })
 
@@ -322,6 +327,7 @@ describe('Editing an existing prisoner in a report', () => {
             expect(res.redirects[0]).toMatch(`/reports/${report.id}/prisoners`)
 
             expect(incidentReportingRelatedObjects.updateForReport).toHaveBeenCalledWith(report.id, 1, expectedCall)
+            mockHandleReportEdit.expectCalled()
             expect(incidentReportingApi.updateReport).toHaveBeenCalledWith(report.id, {
               title: expect.any(String),
             })
@@ -348,6 +354,7 @@ describe('Editing an existing prisoner in a report', () => {
           expect(incidentReportingRelatedObjects.updateForReport).toHaveBeenCalledWith(report.id, 1, {
             ...validScenarios[0].expectedCall,
           })
+          mockHandleReportEdit.expectCalled()
           expect(incidentReportingApi.updateReport).toHaveBeenCalledWith(report.id, {
             title: expect.any(String),
           })
@@ -421,6 +428,7 @@ describe('Editing an existing prisoner in a report', () => {
           expect(res.text).toContain(expectedError)
 
           expect(incidentReportingRelatedObjects.updateForReport).not.toHaveBeenCalled()
+          mockHandleReportEdit.expectNotCalled()
           expect(incidentReportingApi.updateReport).not.toHaveBeenCalled()
         })
     })
@@ -452,6 +460,36 @@ describe('Editing an existing prisoner in a report', () => {
           expect(res.text).toContain('Sorry, there was a problem with your request')
           expect(res.text).not.toContain('Bad Request')
           expect(res.text).not.toContain('Comment is too short')
+          expect(incidentReportingApi.updateReport).not.toHaveBeenCalled()
+        })
+    })
+
+    it('should show an error if API rejects (possible) status change', () => {
+      incidentReportingApi.getReportWithDetailsById.mockResolvedValueOnce(report)
+      incidentReportingRelatedObjects.updateForReport.mockResolvedValueOnce([]) // NB: response is ignored
+      mockHandleReportEdit.failure()
+      incidentReportingApi.updateReport.mockResolvedValueOnce(report) // NB: response is ignored
+
+      return request
+        .agent(app)
+        .post(editPageUrl(1))
+        .send(
+          createdInNomis
+            ? {
+                prisonerRole: 'SUSPECTED_INVOLVED',
+                outcome: 'LOCAL_INVESTIGATION',
+                comment: 'See case notes',
+              }
+            : {
+                prisonerRole: 'SUSPECTED_INVOLVED',
+                comment: 'See case notes',
+              },
+        )
+        .redirects(1)
+        .expect(200)
+        .expect(res => {
+          expect(res.text).toContain('There is a problem')
+          expect(res.text).toContain('Sorry, there was a problem with your request')
           expect(incidentReportingApi.updateReport).not.toHaveBeenCalled()
         })
     })

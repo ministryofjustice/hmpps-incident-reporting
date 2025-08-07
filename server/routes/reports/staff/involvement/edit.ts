@@ -4,6 +4,7 @@ import { NotFound } from 'http-errors'
 
 import logger from '../../../../../logger'
 import type { ReportWithDetails, StaffInvolvement } from '../../../../data/incidentReportingApi'
+import { handleReportEdit } from '../../actions/handleReportEdit'
 import { StaffInvolvementController } from './controller'
 import { fields, type Values } from './fields'
 import { steps } from './steps'
@@ -68,10 +69,13 @@ class EditStaffInvolvementController extends StaffInvolvementController {
     const index = parseInt(req.params.index, 10)
     const allValues = this.getAllValues(req, false)
     try {
-      await res.locals.apis.incidentReportingApi.staffInvolved.updateForReport(report.id, index, {
-        staffRole: this.coerceStaffRole(allValues.staffRole),
-        comment: allValues.comment ?? '',
-      })
+      await Promise.all([
+        res.locals.apis.incidentReportingApi.staffInvolved.updateForReport(report.id, index, {
+          staffRole: this.coerceStaffRole(allValues.staffRole),
+          comment: allValues.comment ?? '',
+        }),
+        handleReportEdit(res),
+      ])
       logger.info('Staff involvement %d updated in report %s', index, report.id)
 
       // clear session since involvement has been saved

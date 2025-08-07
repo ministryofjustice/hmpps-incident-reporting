@@ -2,6 +2,7 @@ import type { Express } from 'express'
 import request, { type Agent, type Response } from 'supertest'
 
 import { appWithAllRoutes } from '../../testutils/appSetup'
+import { mockHandleReportEdit } from '../../testutils/handleReportEdit'
 import {
   IncidentReportingApi,
   RelatedObjects,
@@ -19,6 +20,7 @@ import type { Status } from '../../../reportConfiguration/constants'
 
 jest.mock('../../../data/incidentReportingApi')
 jest.mock('../../../services/userService')
+jest.mock('../actions/handleReportEdit')
 
 let app: Express
 let incidentReportingApi: jest.Mocked<IncidentReportingApi>
@@ -34,6 +36,7 @@ beforeEach(() => {
   })
 
   app = appWithAllRoutes({ services: { userService } })
+
   incidentReportingApi = IncidentReportingApi.prototype as jest.Mocked<IncidentReportingApi>
   incidentReportingRelatedObjects = RelatedObjects.prototype as jest.Mocked<
     RelatedObjects<DescriptionAddendum, AddDescriptionAddendumRequest, UpdateDescriptionAddendumRequest>
@@ -41,6 +44,7 @@ beforeEach(() => {
   // eslint-disable-next-line @typescript-eslint/ban-ts-comment
   // @ts-ignore need to mock a getter method
   incidentReportingApi.descriptionAddendums = incidentReportingRelatedObjects
+  mockHandleReportEdit.withoutSideEffect()
 })
 
 afterEach(() => {
@@ -130,6 +134,8 @@ describe('Adding a description addendum to report', () => {
         expectOnDescriptionAddendumPage(res)
         expect(res.text).toContain('There is a problem')
         expect(res.text).toContain('Enter some additional information')
+        expect(incidentReportingRelatedObjects.addToReport).not.toHaveBeenCalled()
+        mockHandleReportEdit.expectNotCalled()
       })
   })
 
@@ -148,10 +154,11 @@ describe('Adding a description addendum to report', () => {
           lastName: 'SMITH',
           text: 'Additional information',
         })
+        mockHandleReportEdit.expectCalled()
       })
   })
 
-  it('should show an error if API rejects request', () => {
+  it('should show an error if API rejects description addendum', () => {
     const error = mockThrownError(mockErrorResponse({ message: 'Description is too short' }))
     incidentReportingRelatedObjects.addToReport.mockRejectedValueOnce(error)
 
@@ -166,6 +173,22 @@ describe('Adding a description addendum to report', () => {
         expect(res.text).toContain('Sorry, there was a problem with your request')
         expect(res.text).not.toContain('Bad Request')
         expect(res.text).not.toContain('Description is too short')
+      })
+  })
+
+  it('should show an error if API rejects status change', () => {
+    incidentReportingRelatedObjects.addToReport.mockResolvedValueOnce([]) // NB: response is ignored
+    mockHandleReportEdit.failure()
+
+    return agent
+      .post(addDescriptionAddendumUrl)
+      .send(validPayload)
+      .redirects(1)
+      .expect(200)
+      .expect(res => {
+        expectOnDescriptionAddendumPage(res)
+        expect(res.text).toContain('There is a problem')
+        expect(res.text).toContain('Sorry, there was a problem with your request')
       })
   })
 

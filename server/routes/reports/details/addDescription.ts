@@ -7,6 +7,7 @@ import type { ReportWithDetails } from '../../../data/incidentReportingApi'
 import { logoutUnless, hasPermissionTo } from '../../../middleware/permissions'
 import { populateReport } from '../../../middleware/populateReport'
 import { dwNotReviewed } from '../../../reportConfiguration/constants'
+import { handleReportEdit } from '../actions/handleReportEdit'
 import { type AddDescriptionValues, addDescriptionFields } from './addDescriptionFields'
 
 class AddDescriptionAddendumController extends BaseController<AddDescriptionValues> {
@@ -64,11 +65,14 @@ class AddDescriptionAddendumController extends BaseController<AddDescriptionValu
     const lastName = lastNames.join(' ')
 
     try {
-      await res.locals.apis.incidentReportingApi.descriptionAddendums.addToReport(report.id, {
-        firstName: firstName || 'not specified',
-        lastName: lastName || 'not specified',
-        text: allValues.descriptionAddendum,
-      })
+      await Promise.all([
+        res.locals.apis.incidentReportingApi.descriptionAddendums.addToReport(report.id, {
+          firstName: firstName || 'not specified',
+          lastName: lastName || 'not specified',
+          text: allValues.descriptionAddendum,
+        }),
+        handleReportEdit(res),
+      ])
       logger.info('Additional description added to report %s', report.id)
 
       // clear session since involvement has been saved

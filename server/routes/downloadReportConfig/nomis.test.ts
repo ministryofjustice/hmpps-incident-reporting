@@ -8,12 +8,12 @@ import { NomisType } from '../../reportConfiguration/constants'
 
 jest.mock('../../data/prisonApi')
 
+const prisonApi = PrisonApi.prototype as jest.Mocked<PrisonApi>
+
 let app: Express
-let prisonApi: jest.Mocked<PrisonApi>
 
 beforeEach(() => {
   app = appWithAllRoutes()
-  prisonApi = PrisonApi.prototype as jest.Mocked<PrisonApi>
 })
 
 afterEach(() => {

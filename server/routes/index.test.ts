@@ -7,6 +7,8 @@ import { appWithAllRoutes } from './testutils/appSetup'
 
 jest.mock('../data/prisonApi')
 
+const prisonApi = PrisonApi.prototype as jest.Mocked<PrisonApi>
+
 let app: Express
 
 beforeEach(() => {
@@ -40,11 +42,6 @@ describe('GET /', () => {
 })
 
 describe('prisoner photos', () => {
-  let prisonApi: jest.Mocked<PrisonApi>
-  beforeEach(() => {
-    prisonApi = PrisonApi.prototype as jest.Mocked<PrisonApi>
-  })
-
   const prisonerNumber = 'A1234BC'
   const imageData = Buffer.from('image data')
 

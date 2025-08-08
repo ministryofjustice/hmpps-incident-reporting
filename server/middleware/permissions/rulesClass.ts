@@ -1,4 +1,4 @@
-import type { NextFunction, Request, Response } from 'express'
+import type { Express, NextFunction, Request, Response } from 'express'
 
 import { roleReadOnly, roleReadWrite, roleApproveReject, rolePecs } from '../../data/constants'
 import type { ReportBasic } from '../../data/incidentReportingApi'

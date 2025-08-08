@@ -25,20 +25,13 @@ import {
 
 jest.mock('../../../../data/incidentReportingApi')
 
-let incidentReportingApi: jest.Mocked<IncidentReportingApi>
-let incidentReportingRelatedObjects: jest.Mocked<
+const incidentReportingApi = IncidentReportingApi.prototype as jest.Mocked<IncidentReportingApi>
+const incidentReportingRelatedObjects = RelatedObjects.prototype as jest.Mocked<
   RelatedObjects<CorrectionRequest, AddCorrectionRequestRequest, UpdateCorrectionRequestRequest>
 >
-
-beforeEach(() => {
-  incidentReportingApi = IncidentReportingApi.prototype as jest.Mocked<IncidentReportingApi>
-  incidentReportingRelatedObjects = RelatedObjects.prototype as jest.Mocked<
-    RelatedObjects<CorrectionRequest, AddCorrectionRequestRequest, UpdateCorrectionRequestRequest>
-  >
-  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-  // @ts-ignore need to mock a getter method
-  incidentReportingApi.correctionRequests = incidentReportingRelatedObjects
-})
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-ignore need to mock a getter method
+incidentReportingApi.correctionRequests = incidentReportingRelatedObjects
 
 afterEach(() => {
   jest.resetAllMocks()

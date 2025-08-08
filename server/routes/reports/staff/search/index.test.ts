@@ -21,15 +21,13 @@ import type { Values } from './fields'
 jest.mock('../../../../data/incidentReportingApi')
 jest.mock('../../../../data/manageUsersApiClient')
 
+const incidentReportingApi = IncidentReportingApi.prototype as jest.Mocked<IncidentReportingApi>
+const manageUsersApiClient = ManageUsersApiClient.prototype as jest.Mocked<ManageUsersApiClient>
+
 let app: Express
-let incidentReportingApi: jest.Mocked<IncidentReportingApi>
-let manageUsersApiClient: jest.Mocked<ManageUsersApiClient>
 
 beforeEach(() => {
   app = appWithAllRoutes()
-
-  incidentReportingApi = IncidentReportingApi.prototype as jest.Mocked<IncidentReportingApi>
-  manageUsersApiClient = ManageUsersApiClient.prototype as jest.Mocked<ManageUsersApiClient>
 })
 
 afterEach(() => {

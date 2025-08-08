@@ -24,12 +24,13 @@ import { FIND_6 } from '../../../reportConfiguration/types/FIND_6'
 jest.mock('../../../data/incidentReportingApi')
 jest.mock('../actions/handleReportEdit')
 
+const incidentReportingApi = IncidentReportingApi.prototype as jest.Mocked<IncidentReportingApi>
+
 let app: Express
-let incidentReportingApi: jest.Mocked<IncidentReportingApi>
 
 beforeEach(() => {
   app = appWithAllRoutes()
-  incidentReportingApi = IncidentReportingApi.prototype as jest.Mocked<IncidentReportingApi>
+
   mockHandleReportEdit.withoutSideEffect()
 })
 

@@ -5,15 +5,11 @@ import request from 'supertest'
 
 import { EmptyController } from './controllers/empty'
 import { appWithAllRoutes } from './routes/testutils/appSetup'
-import * as routes from './routes'
+import routes from './routes'
 
 jest.mock('./routes/index')
 
-let mockedRoutes: jest.Mocked<typeof routes>['default']
-
-beforeEach(() => {
-  mockedRoutes = (routes as unknown as jest.Mocked<typeof routes>).default
-})
+const mockedRoutes = routes as jest.Mocked<typeof import('./routes')>['default']
 
 afterEach(() => {
   jest.resetAllMocks()
@@ -62,7 +58,7 @@ describe('Error handling', () => {
         // eslint-disable-next-line new-cap
         throw new error()
       })
-      router.get('/sign-out', (req, res) => {
+      router.get('/sign-out', (_req, res) => {
         res.send('signed out')
       })
       mockedRoutes.mockReturnValue(router)

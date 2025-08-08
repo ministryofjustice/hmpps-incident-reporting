@@ -26,22 +26,19 @@ import type { Values } from './fields'
 jest.mock('../../../../data/incidentReportingApi')
 jest.mock('../../actions/handleReportEdit')
 
-let app: Express
-let incidentReportingApi: jest.Mocked<IncidentReportingApi>
-let incidentReportingRelatedObjects: jest.Mocked<
+const incidentReportingApi = IncidentReportingApi.prototype as jest.Mocked<IncidentReportingApi>
+const incidentReportingRelatedObjects = RelatedObjects.prototype as jest.Mocked<
   RelatedObjects<StaffInvolvement, AddStaffInvolvementRequest, UpdateStaffInvolvementRequest>
 >
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-ignore need to mock a getter method
+incidentReportingApi.staffInvolved = incidentReportingRelatedObjects
+
+let app: Express
 
 beforeEach(() => {
   app = appWithAllRoutes()
 
-  incidentReportingApi = IncidentReportingApi.prototype as jest.Mocked<IncidentReportingApi>
-  incidentReportingRelatedObjects = RelatedObjects.prototype as jest.Mocked<
-    RelatedObjects<StaffInvolvement, AddStaffInvolvementRequest, UpdateStaffInvolvementRequest>
-  >
-  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-  // @ts-ignore need to mock a getter method
-  incidentReportingApi.staffInvolved = incidentReportingRelatedObjects
   mockHandleReportEdit.withoutSideEffect()
 })
 

@@ -30,32 +30,26 @@ jest.mock('../../../data/reportValidity')
 jest.mock('../../../services/userService')
 jest.mock('./correctionRequestPlaceholder')
 
-let incidentReportingApi: jest.Mocked<IncidentReportingApi>
-let incidentReportingRelatedObjects: jest.Mocked<
+const incidentReportingApi = IncidentReportingApi.prototype as jest.Mocked<IncidentReportingApi>
+const incidentReportingRelatedObjects = RelatedObjects.prototype as jest.Mocked<
   RelatedObjects<CorrectionRequest, AddCorrectionRequestRequest, UpdateCorrectionRequestRequest>
 >
-let userService: jest.Mocked<UserService>
-let prisonApi: jest.Mocked<PrisonApi>
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-ignore need to mock a getter method
+incidentReportingApi.correctionRequests = incidentReportingRelatedObjects
+const userService = UserService.prototype as jest.Mocked<UserService>
+const prisonApi = PrisonApi.prototype as jest.Mocked<PrisonApi>
 
+const { validateReport } = reportValidity as jest.Mocked<typeof import('../../../data/reportValidity')>
 const { placeholderForCorrectionRequest } = correctionRequestPlaceholder as jest.Mocked<
   typeof import('./correctionRequestPlaceholder')
 >
 
 beforeEach(() => {
-  incidentReportingApi = IncidentReportingApi.prototype as jest.Mocked<IncidentReportingApi>
-  incidentReportingRelatedObjects = RelatedObjects.prototype as jest.Mocked<
-    RelatedObjects<CorrectionRequest, AddCorrectionRequestRequest, UpdateCorrectionRequestRequest>
-  >
-  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-  // @ts-ignore need to mock a getter method
-  incidentReportingApi.correctionRequests = incidentReportingRelatedObjects
-
-  userService = UserService.prototype as jest.Mocked<UserService>
   userService.getUsers.mockResolvedValueOnce({
     [mockSharedUser.username]: mockSharedUser,
   })
 
-  prisonApi = PrisonApi.prototype as jest.Mocked<PrisonApi>
   prisonApi.getPrison.mockImplementation(locationCode =>
     Promise.resolve(
       {
@@ -77,8 +71,6 @@ let app: Express
 function setupAppForUser(user: Express.User): void {
   app = appWithAllRoutes({ services: { userService }, userSupplier: () => user })
 }
-
-const { validateReport } = reportValidity as jest.Mocked<typeof import('../../../data/reportValidity')>
 
 function makeReportValid() {
   validateReport.mockReset()

@@ -22,23 +22,21 @@ jest.mock('../../data/prisonApi')
 jest.mock('../../data/reportValidity')
 jest.mock('../../services/userService')
 
-let app: Express
-let incidentReportingApi: jest.Mocked<IncidentReportingApi>
-let userService: jest.Mocked<UserService>
-let prisonApi: jest.Mocked<PrisonApi>
+const incidentReportingApi = IncidentReportingApi.prototype as jest.Mocked<IncidentReportingApi>
+const prisonApi = PrisonApi.prototype as jest.Mocked<PrisonApi>
+const userService = UserService.prototype as jest.Mocked<UserService>
 
 const { validateReport } = reportValidity as jest.Mocked<typeof import('../../data/reportValidity')>
 
+let app: Express
+
 beforeEach(() => {
-  userService = UserService.prototype as jest.Mocked<UserService>
   app = appWithAllRoutes({ services: { userService } })
-  incidentReportingApi = IncidentReportingApi.prototype as jest.Mocked<IncidentReportingApi>
 
   userService.getUsers.mockResolvedValueOnce({
     [mockSharedUser.username]: mockSharedUser,
   })
 
-  prisonApi = PrisonApi.prototype as jest.Mocked<PrisonApi>
   prisonApi.getPrison.mockImplementation(locationCode =>
     Promise.resolve(
       {

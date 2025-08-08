@@ -29,21 +29,21 @@ jest.mock('../../../../data/incidentReportingApi')
 jest.mock('../../../../data/prisonApi')
 jest.mock('../../actions/handleReportEdit')
 
-let app: Express
-let incidentReportingApi: jest.Mocked<IncidentReportingApi>
-let incidentReportingRelatedObjects: jest.Mocked<
+const incidentReportingApi = IncidentReportingApi.prototype as jest.Mocked<IncidentReportingApi>
+const incidentReportingRelatedObjects = RelatedObjects.prototype as jest.Mocked<
   RelatedObjects<PrisonerInvolvement, AddPrisonerInvolvementRequest, UpdatePrisonerInvolvementRequest>
 >
-let prisonApi: jest.Mocked<PrisonApi>
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-ignore need to mock a getter method
+incidentReportingApi.prisonersInvolved = incidentReportingRelatedObjects
+const prisonApi = PrisonApi.prototype as jest.Mocked<PrisonApi>
+
+let app: Express
 
 beforeEach(() => {
   app = appWithAllRoutes()
-  incidentReportingApi = IncidentReportingApi.prototype as jest.Mocked<IncidentReportingApi>
-  incidentReportingRelatedObjects = RelatedObjects.prototype as jest.Mocked<
-    RelatedObjects<PrisonerInvolvement, AddPrisonerInvolvementRequest, UpdatePrisonerInvolvementRequest>
-  >
+
   mockHandleReportEdit.withoutSideEffect()
-  prisonApi = PrisonApi.prototype as jest.Mocked<PrisonApi>
   prisonApi.getPrison.mockResolvedValueOnce(moorland)
 })
 
@@ -69,9 +69,6 @@ describe('Remove prisoner involvement', () => {
       },
     ]
     incidentReportingApi.getReportWithDetailsById.mockResolvedValueOnce(mockedReport)
-    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-    // @ts-ignore need to mock a getter method
-    incidentReportingApi.prisonersInvolved = incidentReportingRelatedObjects
   })
 
   function removePrisonerUrl(index: number): string {

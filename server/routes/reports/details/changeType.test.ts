@@ -16,14 +16,13 @@ jest.mock('../../../data/incidentReportingApi')
 jest.mock('../../../data/prisonApi')
 jest.mock('../actions/handleReportEdit')
 
+const incidentReportingApi = IncidentReportingApi.prototype as jest.Mocked<IncidentReportingApi>
+const prisonApi = PrisonApi.prototype as jest.Mocked<PrisonApi>
+
 let agent: Agent
-let incidentReportingApi: jest.Mocked<IncidentReportingApi>
-let prisonApi: jest.Mocked<PrisonApi>
 
 beforeEach(() => {
   agent = request.agent(appWithAllRoutes())
-  incidentReportingApi = IncidentReportingApi.prototype as jest.Mocked<IncidentReportingApi>
-  prisonApi = PrisonApi.prototype as jest.Mocked<PrisonApi>
   prisonApi.getPrison.mockResolvedValueOnce(moorland)
 })
 

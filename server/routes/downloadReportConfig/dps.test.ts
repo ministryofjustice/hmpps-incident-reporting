@@ -13,12 +13,12 @@ import { appWithAllRoutes } from '../testutils/appSetup'
 
 jest.mock('../../data/incidentReportingApi')
 
+const incidentReportingApi = IncidentReportingApi.prototype as jest.Mocked<IncidentReportingApi>
+
 let app: Express
-let incidentReportingApi: jest.Mocked<IncidentReportingApi>
 
 beforeEach(() => {
   app = appWithAllRoutes()
-  incidentReportingApi = IncidentReportingApi.prototype as jest.Mocked<IncidentReportingApi>
 })
 
 afterEach(() => {

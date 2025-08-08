@@ -32,30 +32,23 @@ jest.mock('../../../../data/offenderSearchApi')
 jest.mock('../../../../data/prisonApi')
 jest.mock('../../actions/handleReportEdit')
 
-let app: Express
-let incidentReportingApi: jest.Mocked<IncidentReportingApi>
-let incidentReportingRelatedObjects: jest.Mocked<
+const incidentReportingApi = IncidentReportingApi.prototype as jest.Mocked<IncidentReportingApi>
+const incidentReportingRelatedObjects = RelatedObjects.prototype as jest.Mocked<
   RelatedObjects<PrisonerInvolvement, AddPrisonerInvolvementRequest, UpdatePrisonerInvolvementRequest>
 >
-let offenderSearchApi: jest.Mocked<OffenderSearchApi>
-let prisonApi: jest.Mocked<PrisonApi>
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-ignore need to mock a getter method
+incidentReportingApi.prisonersInvolved = incidentReportingRelatedObjects
+const offenderSearchApi = OffenderSearchApi.prototype as jest.Mocked<OffenderSearchApi>
+const prisonApi = PrisonApi.prototype as jest.Mocked<PrisonApi>
+
+let app: Express
 
 beforeEach(() => {
   app = appWithAllRoutes()
 
-  incidentReportingApi = IncidentReportingApi.prototype as jest.Mocked<IncidentReportingApi>
-  incidentReportingRelatedObjects = RelatedObjects.prototype as jest.Mocked<
-    RelatedObjects<PrisonerInvolvement, AddPrisonerInvolvementRequest, UpdatePrisonerInvolvementRequest>
-  >
-  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-  // @ts-ignore need to mock a getter method
-  incidentReportingApi.prisonersInvolved = incidentReportingRelatedObjects
   mockHandleReportEdit.withoutSideEffect()
-
-  offenderSearchApi = OffenderSearchApi.prototype as jest.Mocked<OffenderSearchApi>
   offenderSearchApi.getPrisoner.mockResolvedValueOnce(andrew)
-
-  prisonApi = PrisonApi.prototype as jest.Mocked<PrisonApi>
   prisonApi.getPrison.mockResolvedValueOnce(moorland)
 })
 

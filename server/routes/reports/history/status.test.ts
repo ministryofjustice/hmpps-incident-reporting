@@ -14,13 +14,12 @@ import { now } from '../../../testutils/fakeClock'
 jest.mock('../../../data/incidentReportingApi')
 jest.mock('../../../services/userService')
 
+const incidentReportingApi = IncidentReportingApi.prototype as jest.Mocked<IncidentReportingApi>
+const userService = UserService.prototype as jest.Mocked<UserService>
+
 let app: Express
-let incidentReportingApi: jest.Mocked<IncidentReportingApi>
-let userService: jest.Mocked<UserService>
 
 beforeEach(() => {
-  incidentReportingApi = IncidentReportingApi.prototype as jest.Mocked<IncidentReportingApi>
-  userService = UserService.prototype as jest.Mocked<UserService>
   app = appWithAllRoutes({ services: { userService } })
   userService.getUsers.mockResolvedValueOnce({
     [mockSharedUser.username]: mockSharedUser,

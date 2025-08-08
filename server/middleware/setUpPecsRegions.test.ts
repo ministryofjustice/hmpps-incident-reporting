@@ -13,6 +13,9 @@ import setUpPecsRegions from './setUpPecsRegions'
 jest.mock('@ministryofjustice/hmpps-auth-clients')
 jest.mock('../data/prisonApi')
 
+const hmppsAuthClient = AuthenticationClient.prototype as jest.Mocked<AuthenticationClient>
+const prisonApi = PrisonApi.prototype as jest.Mocked<PrisonApi>
+
 describe('Loading PECS regions', () => {
   let previousPecsRegions: PecsRegion[]
 
@@ -24,14 +27,8 @@ describe('Loading PECS regions', () => {
     pecsRegions.splice(0, pecsRegions.length, ...previousPecsRegions)
   })
 
-  let hmppsAuthClient: jest.Mocked<AuthenticationClient>
-  let prisonApi: jest.Mocked<PrisonApi>
-
   beforeEach(() => {
-    hmppsAuthClient = AuthenticationClient.prototype as jest.Mocked<AuthenticationClient>
     hmppsAuthClient.getToken.mockResolvedValueOnce('test-system-token')
-
-    prisonApi = PrisonApi.prototype as jest.Mocked<PrisonApi>
     prisonApi.getPecsRegions.mockResolvedValueOnce({
       [pecsNorth.agencyId]: pecsNorth,
       [pecsSouth.agencyId]: pecsSouth,

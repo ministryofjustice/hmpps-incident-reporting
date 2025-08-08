@@ -9,11 +9,7 @@ import { now } from '../../testutils/fakeClock'
 
 jest.mock('../../data/incidentReportingApi')
 
-let incidentReportingApi: jest.Mocked<IncidentReportingApi>
-
-beforeEach(() => {
-  incidentReportingApi = IncidentReportingApi.prototype as jest.Mocked<IncidentReportingApi>
-})
+const incidentReportingApi = IncidentReportingApi.prototype as jest.Mocked<IncidentReportingApi>
 
 afterEach(() => {
   jest.resetAllMocks()

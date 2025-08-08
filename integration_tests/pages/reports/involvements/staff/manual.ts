@@ -1,7 +1,6 @@
 import FormWizardPage from '../../../formWizard'
 import type { PageElement } from '../../../page'
 
-// eslint-disable-next-line import/prefer-default-export
 export class ManualStaffEntryPage extends FormWizardPage {
   constructor() {
     super('Manually add a member of staff')

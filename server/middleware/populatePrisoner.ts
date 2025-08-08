@@ -3,7 +3,6 @@ import { NotImplemented } from 'http-errors'
 
 import logger from '../../logger'
 
-// eslint-disable-next-line import/prefer-default-export
 export function populatePrisoner() {
   return async (req: Request, res: Response, next: NextFunction): Promise<void> => {
     const { prisonerNumber } = req.params

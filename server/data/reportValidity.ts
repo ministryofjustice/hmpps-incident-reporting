@@ -15,7 +15,6 @@ import type { QuestionProgressStep } from './incidentTypeConfiguration/questionP
  *
  * TODO: adapt for PECS reports
  */
-// eslint-disable-next-line import/prefer-default-export
 export function* validateReport(
   report: ReportWithDetails,
   reportConfig: IncidentTypeConfiguration,

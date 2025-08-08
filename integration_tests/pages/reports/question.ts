@@ -2,7 +2,6 @@ import format from '../../../server/utils/format'
 import FormWizardPage from '../formWizard'
 import type { PageElement } from '../page'
 
-// eslint-disable-next-line import/prefer-default-export
 export class QuestionPage extends FormWizardPage {
   constructor(questionRange: [number, number], incidentName: string = 'incident') {
     let pageTitle: string

@@ -19,10 +19,12 @@ import {
   mockUnauthorisedUser,
 } from '../../../../data/testData/users'
 import { appWithAllRoutes } from '../../../testutils/appSetup'
+import { mockHandleReportEdit } from '../../../testutils/handleReportEdit'
 import { now } from '../../../../testutils/fakeClock'
 import type { Values } from './fields'
 
 jest.mock('../../../../data/incidentReportingApi')
+jest.mock('../../actions/handleReportEdit')
 
 let app: Express
 let incidentReportingApi: jest.Mocked<IncidentReportingApi>
@@ -40,6 +42,7 @@ beforeEach(() => {
   // eslint-disable-next-line @typescript-eslint/ban-ts-comment
   // @ts-ignore need to mock a getter method
   incidentReportingApi.staffInvolved = incidentReportingRelatedObjects
+  mockHandleReportEdit.withoutSideEffect()
 })
 
 afterEach(() => {
@@ -119,6 +122,7 @@ describe('Editing an existing staff member in a report', () => {
         expect(res.text).toContain('See duty log')
 
         expect(incidentReportingRelatedObjects.updateForReport).not.toHaveBeenCalled()
+        mockHandleReportEdit.expectNotCalled()
       })
   })
 
@@ -166,6 +170,7 @@ describe('Editing an existing staff member in a report', () => {
           expect(res.redirects[0]).toMatch(`/reports/${report.id}/staff`)
 
           expect(incidentReportingRelatedObjects.updateForReport).toHaveBeenCalledWith(report.id, 1, expectedCall)
+          mockHandleReportEdit.expectCalled()
         })
     },
   )
@@ -188,6 +193,7 @@ describe('Editing an existing staff member in a report', () => {
         expect(incidentReportingRelatedObjects.updateForReport).toHaveBeenCalledWith(report.id, 1, {
           ...validScenarios[0].expectedCall,
         })
+        mockHandleReportEdit.expectCalled()
       })
   })
 
@@ -222,10 +228,11 @@ describe('Editing an existing staff member in a report', () => {
         expect(res.text).toContain(expectedError)
 
         expect(incidentReportingRelatedObjects.updateForReport).not.toHaveBeenCalled()
+        mockHandleReportEdit.expectNotCalled()
       })
   })
 
-  it('should show an error if API rejects request', () => {
+  it('should show an error if API rejects editing involvement', () => {
     incidentReportingApi.getReportWithDetailsById.mockResolvedValueOnce(report)
     const error = mockThrownError(mockErrorResponse({ message: 'Comment is too short' }))
     incidentReportingRelatedObjects.updateForReport.mockRejectedValueOnce(error)
@@ -244,6 +251,26 @@ describe('Editing an existing staff member in a report', () => {
         expect(res.text).toContain('Sorry, there was a problem with your request')
         expect(res.text).not.toContain('Bad Request')
         expect(res.text).not.toContain('Comment is too short')
+      })
+  })
+
+  it('should show an error if API rejects (possible) status change', () => {
+    incidentReportingApi.getReportWithDetailsById.mockResolvedValueOnce(report)
+    incidentReportingRelatedObjects.updateForReport.mockResolvedValueOnce([]) // NB: response is ignored
+    mockHandleReportEdit.failure()
+
+    return request
+      .agent(app)
+      .post(editPageUrl(1))
+      .send({
+        staffRole: 'NEGOTIATOR',
+        comment: 'See duty log',
+      })
+      .redirects(1)
+      .expect(200)
+      .expect(res => {
+        expect(res.text).toContain('There is a problem')
+        expect(res.text).toContain('Sorry, there was a problem with your request')
       })
   })
 

@@ -5,6 +5,7 @@ import { NotFound } from 'http-errors'
 import logger from '../../../../../logger'
 import type { PrisonerInvolvement, ReportWithDetails } from '../../../../data/incidentReportingApi'
 import { fallibleUpdateReportTitle } from '../../../../services/reportTitle'
+import { handleReportEdit } from '../../actions/handleReportEdit'
 import { PrisonerInvolvementController } from './controller'
 import { fields, type Values } from './fields'
 import { steps } from './steps'
@@ -90,11 +91,14 @@ class EditPrisonerInvolvementController extends PrisonerInvolvementController {
     const index = parseInt(req.params.index, 10)
     const allValues = this.getAllValues(req, false)
     try {
-      await incidentReportingApi.prisonersInvolved.updateForReport(report.id, index, {
-        prisonerRole: this.coercePrisonerRole(allValues.prisonerRole),
-        outcome: report.createdInNomis ? this.coerceOutcome(allValues.outcome) : null,
-        comment: allValues.comment ?? '',
-      })
+      await Promise.all([
+        incidentReportingApi.prisonersInvolved.updateForReport(report.id, index, {
+          prisonerRole: this.coercePrisonerRole(allValues.prisonerRole),
+          outcome: report.createdInNomis ? this.coerceOutcome(allValues.outcome) : null,
+          comment: allValues.comment ?? '',
+        }),
+        handleReportEdit(res),
+      ])
       logger.info('Prisoner involvement %d updated in report %s', index, report.id)
 
       fallibleUpdateReportTitle(res) // NB: errors are logged but ignored!
@@ -110,7 +114,6 @@ class EditPrisonerInvolvementController extends PrisonerInvolvementController {
   }
 }
 
-// eslint-disable-next-line import/prefer-default-export
 export const editRouter = FormWizard(steps, fields, {
   name: 'editPrisonerInvolvement',
   journeyName: 'editPrisonerInvolvement',

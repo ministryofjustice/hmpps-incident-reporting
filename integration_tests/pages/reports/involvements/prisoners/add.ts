@@ -5,7 +5,6 @@ import {
 import { AddInvolvementsPage } from '../abstract'
 import type { PageElement } from '../../../page'
 
-// eslint-disable-next-line import/prefer-default-export
 export class AddPrisonerInvolvementsPage extends AddInvolvementsPage {
   protected roleFieldName = 'prisonerRole'
 

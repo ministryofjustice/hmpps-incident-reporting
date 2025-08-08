@@ -7,7 +7,6 @@ import { RemoveInvolvement } from '../../../../controllers/involvements/remove'
 import { nameOfPerson } from '../../../../utils/utils'
 import type { Values } from './fields'
 
-// eslint-disable-next-line import/prefer-default-export
 export class RemoveStaff extends RemoveInvolvement<StaffInvolvement> {
   protected type = 'staff' as const
 

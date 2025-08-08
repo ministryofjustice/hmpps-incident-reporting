@@ -6,7 +6,6 @@ this function cannot go into server/data/testData/incidentReporting.ts because c
 but typescript thinks that jest types are needed
 */
 
-// eslint-disable-next-line import/prefer-default-export
 export function makeSimpleQuestion(code: string, question: string, ...responses: [string, string][]): Question {
   return {
     code,

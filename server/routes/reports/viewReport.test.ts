@@ -119,7 +119,7 @@ describe('View report page', () => {
           expect(userService.getUsers.mock.calls).toHaveLength(1)
           const users = userService.getUsers.mock.calls[0][1]
           users.sort()
-          expect(users).toEqual(['USER2', 'user1'])
+          expect(users).toEqual(['abc12a', 'user1'])
         })
     })
 
@@ -328,7 +328,7 @@ describe('View report page', () => {
           expect(userService.getUsers.mock.calls).toHaveLength(1)
           const users = userService.getUsers.mock.calls[0][1]
           users.sort()
-          expect(users).toEqual(['USER2', 'user1'])
+          expect(users).toEqual(['abc12a', 'user1'])
         })
     })
 

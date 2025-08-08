@@ -1,12 +1,14 @@
 import type { Response as SuperAgentResponse, SuperAgentRequest } from 'superagent'
 
 import { stubFor } from './wiremock'
+import type { Staff } from '../../server/data/prisonApi'
 import { mockUser, mockSharedUser, mockPrisonUserSearchResult } from '../../server/data/testData/manageUsers'
 import { staffBarry, staffMary } from '../../server/data/testData/prisonApi'
 import ManageUsersApiClient, {
   type UsersSearchResponse,
   type UsersSearchResult,
 } from '../../server/data/manageUsersApiClient'
+import { nameOfPerson } from '../../server/utils/utils'
 
 export default {
   /** Current user */
@@ -27,7 +29,12 @@ export default {
 
   /** Add all known users from test data */
   stubManageKnownUsers: (
-    users: { username: string; name?: string }[] = [mockSharedUser, staffBarry, staffMary],
+    users: {
+      username: string
+      name?: string
+      firstName?: string
+      lastName?: string
+    }[] = [mockSharedUser, staffBarry, staffMary],
   ): Promise<SuperAgentResponse[]> =>
     Promise.all(
       users.map(user =>
@@ -41,7 +48,10 @@ export default {
             headers: {
               'Content-Type': 'application/json;charset=UTF-8',
             },
-            jsonBody: mockUser(user.username, user.name),
+            jsonBody: mockUser(
+              user.username,
+              user.firstName && user.lastName ? nameOfPerson(user as Staff) : user.name,
+            ),
           },
         }),
       ),

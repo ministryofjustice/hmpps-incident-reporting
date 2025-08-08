@@ -9,7 +9,6 @@ import { BaseController } from './base'
  * NB: GET methods are called as normal, but some POST methods are conditionally called first
  * if some fields have been submitted.
  */
-// eslint-disable-next-line import/prefer-default-export
 export abstract class GetBaseController<
   V extends object = FormWizard.Values,
   K extends keyof V = keyof V,

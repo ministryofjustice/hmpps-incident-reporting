@@ -7,7 +7,6 @@ import { type ApiUserType, prisonReportTransitions } from '../../../../middlewar
 import { placeholderForCorrectionRequest } from '../correctionRequestPlaceholder'
 import type { Values } from './fields'
 
-// eslint-disable-next-line import/prefer-default-export
 export class RequestRemovalController extends BaseController<Values> {
   protected keyField = 'userAction' as const
 

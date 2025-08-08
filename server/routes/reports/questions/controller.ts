@@ -18,8 +18,8 @@ import {
 import { aboutTheType } from '../../../reportConfiguration/constants'
 import QuestionsToDelete from '../../../services/questionsToDelete'
 import { BaseController } from '../../../controllers'
+import { handleReportEdit } from '../actions/handleReportEdit'
 
-// eslint-disable-next-line import/prefer-default-export
 export class QuestionsController extends BaseController<FormWizard.MultiValues> {
   middlewareLocals(): void {
     super.middlewareLocals()
@@ -292,7 +292,10 @@ export class QuestionsController extends BaseController<FormWizard.MultiValues> 
 
         try {
           // Update questions' answers
-          const currentQuestions = await incidentReportingApi.addOrUpdateQuestionsWithResponses(report.id, updates)
+          const [currentQuestions] = await Promise.all([
+            incidentReportingApi.addOrUpdateQuestionsWithResponses(report.id, updates),
+            handleReportEdit(res),
+          ])
           logger.info('Updated questions in report %s', report.id)
 
           // Delete any potential now-irrelevant questions

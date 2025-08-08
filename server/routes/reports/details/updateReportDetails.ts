@@ -7,6 +7,7 @@ import type { ReportBasic } from '../../../data/incidentReportingApi'
 import { logoutUnless, hasPermissionTo } from '../../../middleware/permissions'
 import { populateReport } from '../../../middleware/populateReport'
 import { dwNotReviewed } from '../../../reportConfiguration/constants'
+import { handleReportEdit } from '../actions/handleReportEdit'
 import { BaseDetailsController } from './detailsController'
 import { hoursFieldName, minutesFieldName } from './incidentDateAndTimeFields'
 import { type DetailsValues, detailsFields, detailsFieldNames } from './detailsFields'
@@ -66,11 +67,10 @@ class DetailsController extends BaseDetailsController<DetailsValues> {
     const incidentDateAndTime = this.buildIncidentDateAndTime(incidentDate, incidentTime)
 
     try {
-      await res.locals.apis.incidentReportingApi.updateReport(report.id, {
-        // TODO: maybe title needs to change, depending on how it's generated
-        description,
-        incidentDateAndTime,
-      })
+      await Promise.all([
+        res.locals.apis.incidentReportingApi.updateReport(report.id, { description, incidentDateAndTime }),
+        handleReportEdit(res),
+      ])
       logger.info(`Report ${report.reportReference} details updated`)
 
       // clear session since report has been saved
@@ -116,6 +116,5 @@ const updateDetailsWizardRouter = FormWizard(updateDetailsSteps, updateDetailsFi
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore because express types do not mention this property and form wizard does not allow you to pass in config for it's root router
 updateDetailsWizardRouter.mergeParams = true
-// eslint-disable-next-line import/prefer-default-export
 export const updateDetailsRouter = express.Router({ mergeParams: true })
 updateDetailsRouter.use(populateReport(false), logoutUnless(hasPermissionTo('EDIT')), updateDetailsWizardRouter)

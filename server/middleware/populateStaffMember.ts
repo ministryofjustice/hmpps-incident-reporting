@@ -7,7 +7,6 @@ import ManageUsersApiClient from '../data/manageUsersApiClient'
 /**
  * Loads a staff member by username from `req.params.username`
  */
-// eslint-disable-next-line import/prefer-default-export
 export function populateStaffMember() {
   return async (req: Request, res: Response, next: NextFunction): Promise<void> => {
     const { username } = req.params

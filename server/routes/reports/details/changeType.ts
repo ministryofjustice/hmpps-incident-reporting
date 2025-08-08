@@ -8,6 +8,7 @@ import type { ReportBasic } from '../../../data/incidentReportingApi'
 import { logoutUnless, hasPermissionTo } from '../../../middleware/permissions'
 import { populateReport } from '../../../middleware/populateReport'
 import { fallibleUpdateReportTitle } from '../../../services/reportTitle'
+import { handleReportEdit } from '../actions/handleReportEdit'
 import { BaseTypeController } from './typeController'
 import { type TypeValues, typeFields, typeFieldNames } from './typeFields'
 
@@ -56,7 +57,7 @@ class TypeController extends BaseTypeController<TypeValues> {
     const { type } = req.form.values
 
     try {
-      await incidentReportingApi.changeReportType(report.id, { newType: type })
+      await Promise.all([incidentReportingApi.changeReportType(report.id, { newType: type }), handleReportEdit(res)])
       logger.info(`Report ${report.reportReference} type changed to ${type}`)
 
       fallibleUpdateReportTitle(res) // NB: errors are logged but ignored!
@@ -109,6 +110,5 @@ const changeTypeWizardRouter = FormWizard(changeTypeSteps, changeTypeFields, cha
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore because express types do not mention this property and form wizard does not allow you to pass in config for it's root router
 changeTypeWizardRouter.mergeParams = true
-// eslint-disable-next-line import/prefer-default-export
 export const changeTypeRouter = express.Router({ mergeParams: true })
 changeTypeRouter.use(populateReport(true), logoutUnless(hasPermissionTo('EDIT')), changeTypeWizardRouter)

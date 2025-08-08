@@ -6,7 +6,6 @@ import { prisonerInvolvementRouter } from './prisoners'
 import { staffInvolvementRouter } from './staff'
 import { questionsRouter } from './questions'
 
-// eslint-disable-next-line import/prefer-default-export
 export const editReportRouter = express.Router({ mergeParams: true })
 
 // require report-editing permissions

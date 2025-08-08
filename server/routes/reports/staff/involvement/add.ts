@@ -4,6 +4,7 @@ import FormWizard from 'hmpo-form-wizard'
 import logger from '../../../../../logger'
 import type { AddStaffInvolvementRequest, ReportWithDetails } from '../../../../data/incidentReportingApi'
 import type { PrisonUser } from '../../../../data/manageUsersApiClient'
+import { handleReportEdit } from '../../actions/handleReportEdit'
 import { StaffInvolvementController } from './controller'
 import { fields, type Values } from './fields'
 import { steps } from './steps'
@@ -22,11 +23,14 @@ export class AddStaffInvolvementController<V extends Values = Values> extends St
     const report = res.locals.report as ReportWithDetails
     const allValues = this.getAllValues(req, false)
     try {
-      await res.locals.apis.incidentReportingApi.staffInvolved.addToReport(report.id, {
-        ...this.staffMemberPayload(req, res),
-        staffRole: this.coerceStaffRole(allValues.staffRole),
-        comment: allValues.comment ?? '',
-      })
+      await Promise.all([
+        res.locals.apis.incidentReportingApi.staffInvolved.addToReport(report.id, {
+          ...this.staffMemberPayload(req, res),
+          staffRole: this.coerceStaffRole(allValues.staffRole),
+          comment: allValues.comment ?? '',
+        }),
+        handleReportEdit(res),
+      ])
       logger.info('Staff involvement added to report %s', report.id)
 
       // clear session since involvement has been saved

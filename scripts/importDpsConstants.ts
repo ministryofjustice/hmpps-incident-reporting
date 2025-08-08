@@ -78,7 +78,6 @@ function main() {
     // error codes are numbers so need special treatment
 
     fs.writeSync(outputFile, `/** ${documentation} */\n`)
-    fs.writeSync(outputFile, '// eslint-disable-next-line import/prefer-default-export\n')
     fs.writeSync(outputFile, `export enum ${identifier} {\n`)
     constants.forEach(constant => {
       fs.writeSync(outputFile, `${constant.description} = ${constant.code},\n`)

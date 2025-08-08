@@ -21,11 +21,13 @@ import {
   mockUnauthorisedUser,
 } from '../../../../data/testData/users'
 import { appWithAllRoutes } from '../../../testutils/appSetup'
+import { mockHandleReportEdit } from '../../../testutils/handleReportEdit'
 import { now } from '../../../../testutils/fakeClock'
 import type { Values } from './fields'
 
 jest.mock('../../../../data/incidentReportingApi')
 jest.mock('../../../../data/manageUsersApiClient')
+jest.mock('../../actions/handleReportEdit')
 
 let app: Express
 let incidentReportingApi: jest.Mocked<IncidentReportingApi>
@@ -44,6 +46,7 @@ beforeEach(() => {
   // eslint-disable-next-line @typescript-eslint/ban-ts-comment
   // @ts-ignore need to mock a getter method
   incidentReportingApi.staffInvolved = incidentReportingRelatedObjects
+  mockHandleReportEdit.withoutSideEffect()
 
   manageUsersApiClient = ManageUsersApiClient.prototype as jest.Mocked<ManageUsersApiClient>
   manageUsersApiClient.getPrisonUser.mockResolvedValueOnce(mockPrisonUser)
@@ -112,6 +115,7 @@ describe('Adding a new staff member to a report', () => {
         expect(res.text).toContain('Details of John’s involvement')
 
         expect(incidentReportingRelatedObjects.addToReport).not.toHaveBeenCalled()
+        mockHandleReportEdit.expectNotCalled()
       })
   })
 
@@ -166,6 +170,7 @@ describe('Adding a new staff member to a report', () => {
           expect(res.redirects[0]).toMatch(`/reports/${report.id}/staff`)
 
           expect(incidentReportingRelatedObjects.addToReport).toHaveBeenCalledWith(report.id, expectedCall)
+          mockHandleReportEdit.expectCalled()
         })
     },
   )
@@ -189,6 +194,7 @@ describe('Adding a new staff member to a report', () => {
         expect(incidentReportingRelatedObjects.addToReport).toHaveBeenCalledWith(report.id, {
           ...validScenarios[0].expectedCall,
         })
+        mockHandleReportEdit.expectCalled()
       })
   })
 
@@ -224,10 +230,11 @@ describe('Adding a new staff member to a report', () => {
         expect(res.text).toContain(expectedError)
 
         expect(incidentReportingRelatedObjects.addToReport).not.toHaveBeenCalled()
+        mockHandleReportEdit.expectNotCalled()
       })
   })
 
-  it('should show an error if API rejects request', () => {
+  it('should show an error if API rejects adding involvement', () => {
     incidentReportingApi.getReportWithDetailsById.mockResolvedValueOnce(report)
     const error = mockThrownError(mockErrorResponse({ message: 'Comment is too short' }))
     incidentReportingRelatedObjects.addToReport.mockRejectedValueOnce(error)
@@ -247,6 +254,27 @@ describe('Adding a new staff member to a report', () => {
         expect(res.text).toContain('Sorry, there was a problem with your request')
         expect(res.text).not.toContain('Bad Request')
         expect(res.text).not.toContain('Comment is too short')
+      })
+  })
+
+  it('should show an error if API rejects (possible) status change', () => {
+    incidentReportingApi.getReportWithDetailsById.mockResolvedValueOnce(report)
+    incidentReportingRelatedObjects.addToReport.mockResolvedValueOnce([]) // NB: response is ignored
+    mockHandleReportEdit.failure()
+    manageUsersApiClient.getPrisonUser.mockResolvedValueOnce(mockPrisonUser)
+
+    return request
+      .agent(app)
+      .post(addPageUrl(mockPrisonUser.username))
+      .send({
+        staffRole: 'NEGOTIATOR',
+        comment: 'See duty log',
+      })
+      .redirects(1)
+      .expect(200)
+      .expect(res => {
+        expect(res.text).toContain('There is a problem')
+        expect(res.text).toContain('Sorry, there was a problem with your request')
       })
   })
 

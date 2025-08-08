@@ -5,6 +5,7 @@ import logger from '../../../../../logger'
 import type { ReportWithDetails } from '../../../../data/incidentReportingApi'
 import type { OffenderSearchResult } from '../../../../data/offenderSearchApi'
 import { fallibleUpdateReportTitle } from '../../../../services/reportTitle'
+import { handleReportEdit } from '../../actions/handleReportEdit'
 import { PrisonerInvolvementController } from './controller'
 import { fields, type Values } from './fields'
 import { steps } from './steps'
@@ -43,14 +44,17 @@ class AddPrisonerInvolvementController extends PrisonerInvolvementController {
     const prisoner = res.locals.prisoner as OffenderSearchResult
     const allValues = this.getAllValues(req, false)
     try {
-      await incidentReportingApi.prisonersInvolved.addToReport(report.id, {
-        prisonerNumber: prisoner.prisonerNumber,
-        firstName: prisoner.firstName,
-        lastName: prisoner.lastName,
-        prisonerRole: this.coercePrisonerRole(allValues.prisonerRole),
-        outcome: report.createdInNomis ? this.coerceOutcome(allValues.outcome) : null,
-        comment: allValues.comment ?? '',
-      })
+      await Promise.all([
+        incidentReportingApi.prisonersInvolved.addToReport(report.id, {
+          prisonerNumber: prisoner.prisonerNumber,
+          firstName: prisoner.firstName,
+          lastName: prisoner.lastName,
+          prisonerRole: this.coercePrisonerRole(allValues.prisonerRole),
+          outcome: report.createdInNomis ? this.coerceOutcome(allValues.outcome) : null,
+          comment: allValues.comment ?? '',
+        }),
+        handleReportEdit(res),
+      ])
       logger.info('Prisoner involvement added to report %s', report.id)
 
       fallibleUpdateReportTitle(res) // NB: errors are logged but ignored!

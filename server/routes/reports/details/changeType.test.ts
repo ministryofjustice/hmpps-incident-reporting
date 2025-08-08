@@ -1,6 +1,7 @@
 import request, { type Agent } from 'supertest'
 
 import { appWithAllRoutes } from '../../testutils/appSetup'
+import { mockHandleReportEdit } from '../../testutils/handleReportEdit'
 import { IncidentReportingApi, type ReportWithDetails } from '../../../data/incidentReportingApi'
 import { convertReportDates } from '../../../data/incidentReportingApiUtils'
 import { PrisonApi } from '../../../data/prisonApi'
@@ -13,6 +14,7 @@ import { now } from '../../../testutils/fakeClock'
 
 jest.mock('../../../data/incidentReportingApi')
 jest.mock('../../../data/prisonApi')
+jest.mock('../actions/handleReportEdit')
 
 let agent: Agent
 let incidentReportingApi: jest.Mocked<IncidentReportingApi>
@@ -104,6 +106,7 @@ describe('Changing incident type', () => {
     beforeEach(async () => {
       await agent.post(confirmationUrl).send({})
       incidentReportingApi.getReportWithDetailsById.mockResolvedValueOnce(mockedReport)
+      mockHandleReportEdit.withoutSideEffect()
     })
 
     it('should list active incident types apart from current one', () => {
@@ -150,6 +153,7 @@ describe('Changing incident type', () => {
           expect(res.text).toContain('There is a problem')
           expect(res.text).toContain('Select the incident type')
           expect(incidentReportingApi.changeReportType).not.toHaveBeenCalled()
+          mockHandleReportEdit.expectNotCalled()
           expect(incidentReportingApi.updateReport).not.toHaveBeenCalled()
         })
     })
@@ -170,6 +174,7 @@ describe('Changing incident type', () => {
           expect(incidentReportingApi.changeReportType).toHaveBeenCalledWith(mockedReport.id, {
             newType: 'MISCELLANEOUS_1',
           })
+          mockHandleReportEdit.expectCalled()
           expect(incidentReportingApi.updateReport).toHaveBeenCalledWith(mockedReport.id, {
             title: expect.any(String),
           })
@@ -192,6 +197,24 @@ describe('Changing incident type', () => {
           expect(res.text).toContain('Sorry, there was a problem with your request')
           expect(res.text).not.toContain('Bad Request')
           expect(res.text).not.toContain('Type is inactive')
+          expect(incidentReportingApi.updateReport).not.toHaveBeenCalled()
+        })
+    })
+
+    it('should show an error if API rejects (possible) status change', () => {
+      incidentReportingApi.changeReportType.mockReset()
+      incidentReportingApi.changeReportType.mockResolvedValueOnce(mockedReport) // NB: response is ignored
+      mockHandleReportEdit.failure()
+      incidentReportingApi.getReportWithDetailsById.mockResolvedValueOnce(mockedReport) // due to redirect
+
+      return agent
+        .post(selectUrl)
+        .send({ type: 'MISCELLANEOUS_1' })
+        .redirects(1)
+        .expect(200)
+        .expect(res => {
+          expect(res.text).toContain('There is a problem')
+          expect(res.text).toContain('Sorry, there was a problem with your request')
           expect(incidentReportingApi.updateReport).not.toHaveBeenCalled()
         })
     })

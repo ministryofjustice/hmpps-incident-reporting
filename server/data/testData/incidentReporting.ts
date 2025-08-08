@@ -192,7 +192,7 @@ export function mockCorrectionRequest(index: number, correctionRequestedAt: Date
         userAction: 'REQUEST_CORRECTION',
         userType: 'DATA_WARDEN',
         originalReportReference: null,
-        correctionRequestedBy: 'USER2',
+        correctionRequestedBy: 'abc12a',
         correctionRequestedAt: format.isoDateTime(correctionRequestedAt),
       }
     case 1:

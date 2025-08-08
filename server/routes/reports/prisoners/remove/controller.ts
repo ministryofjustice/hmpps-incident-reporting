@@ -32,22 +32,10 @@ export class RemovePrisoner extends RemoveInvolvement<PrisonerInvolvement> {
     await incidentReportingApi.prisonersInvolved.deleteFromReport(reportId, parseInt(index, 10))
     logger.info('Prisoner involvement %d removed from report %s', index, reportId)
 
+    fallibleUpdateReportTitle(res) // NB: errors are logged but ignored!
+
     req.flash('success', {
       title: `You have removed ${this.getInvolvementName(prisonerInvolvement)}`,
-    })
-  }
-
-  async saveValues(req: FormWizard.Request<Values>, res: express.Response, next: express.NextFunction): Promise<void> {
-    return super.saveValues(req, res, errorOrDefer => {
-      if (errorOrDefer === undefined) {
-        // hooks title regeneration only on success
-        if (req.form.values.confirmRemove === 'yes') {
-          fallibleUpdateReportTitle(res) // NB: errors are logged but ignored!
-        }
-        next()
-      } else {
-        next(errorOrDefer)
-      }
     })
   }
 }

@@ -19,9 +19,11 @@ import {
   mockUnauthorisedUser,
 } from '../../../../data/testData/users'
 import { appWithAllRoutes } from '../../../testutils/appSetup'
+import { mockHandleReportEdit } from '../../../testutils/handleReportEdit'
 import { now } from '../../../../testutils/fakeClock'
 
 jest.mock('../../../../data/incidentReportingApi')
+jest.mock('../../actions/handleReportEdit')
 
 let app: Express
 let incidentReportingApi: jest.Mocked<IncidentReportingApi>
@@ -35,6 +37,7 @@ beforeEach(() => {
   incidentReportingRelatedObjects = RelatedObjects.prototype as jest.Mocked<
     RelatedObjects<StaffInvolvement, AddStaffInvolvementRequest, UpdateStaffInvolvementRequest>
   >
+  mockHandleReportEdit.withoutSideEffect()
 })
 
 afterEach(() => {
@@ -118,11 +121,13 @@ describe('Remove staff involvement', () => {
 
         expect(incidentReportingApi.getReportWithDetailsById).toHaveBeenCalledTimes(1)
         expect(incidentReportingRelatedObjects.deleteFromReport).not.toHaveBeenCalled()
+        mockHandleReportEdit.expectNotCalled()
       })
   })
 
   it('should submit the correct delete request when "yes" selected', () => {
     incidentReportingApi.getReportWithDetailsById.mockResolvedValueOnce(mockedReport)
+    incidentReportingRelatedObjects.deleteFromReport.mockResolvedValueOnce([]) // NB: response is ignored
 
     return request
       .agent(app)
@@ -137,11 +142,13 @@ describe('Remove staff involvement', () => {
         expect(res.text).toContain('You have removed Mary Johnson')
 
         expect(incidentReportingRelatedObjects.deleteFromReport).toHaveBeenCalledWith(mockedReport.id, 1)
+        mockHandleReportEdit.expectCalled()
       })
   })
 
   it('should allow exiting to report view when deleting', () => {
     incidentReportingApi.getReportWithDetailsById.mockResolvedValueOnce(mockedReport)
+    incidentReportingRelatedObjects.deleteFromReport.mockResolvedValueOnce([]) // NB: response is ignored
 
     return request
       .agent(app)
@@ -153,6 +160,7 @@ describe('Remove staff involvement', () => {
         expect(res.header.location).toEqual(`/reports/${mockedReport.id}`)
 
         expect(incidentReportingRelatedObjects.deleteFromReport).toHaveBeenCalledWith(mockedReport.id, 1)
+        mockHandleReportEdit.expectCalled()
       })
   })
 
@@ -172,6 +180,7 @@ describe('Remove staff involvement', () => {
         expect(res.text).not.toContain('You have removed')
 
         expect(incidentReportingRelatedObjects.deleteFromReport).not.toHaveBeenCalled()
+        mockHandleReportEdit.expectNotCalled()
       })
   })
 
@@ -188,6 +197,7 @@ describe('Remove staff involvement', () => {
         expect(res.header.location).toEqual(`/reports/${mockedReport.id}`)
 
         expect(incidentReportingRelatedObjects.deleteFromReport).not.toHaveBeenCalled()
+        mockHandleReportEdit.expectNotCalled()
       })
   })
 
@@ -207,10 +217,11 @@ describe('Remove staff involvement', () => {
         expect(res.text).toContain('Select yes if you want to remove the member of staff')
 
         expect(incidentReportingRelatedObjects.deleteFromReport).not.toHaveBeenCalled()
+        mockHandleReportEdit.expectNotCalled()
       })
   })
 
-  it('should show an error if API rejects request', () => {
+  it('should show an error if API rejects removing involvement', () => {
     incidentReportingApi.getReportWithDetailsById.mockResolvedValueOnce(mockedReport)
     const error = mockThrownError(mockErrorResponse({ message: 'Missing comment' }))
     incidentReportingRelatedObjects.deleteFromReport.mockRejectedValueOnce(error)
@@ -226,6 +237,23 @@ describe('Remove staff involvement', () => {
         expect(res.text).toContain('Sorry, there was a problem with your request')
         expect(res.text).not.toContain('Bad Request')
         expect(res.text).not.toContain('Missing comment')
+      })
+  })
+
+  it('should show an error if API rejects (possible) status change', () => {
+    incidentReportingApi.getReportWithDetailsById.mockResolvedValueOnce(mockedReport)
+    incidentReportingRelatedObjects.deleteFromReport.mockResolvedValueOnce([]) // NB: response is ignored
+    mockHandleReportEdit.failure()
+
+    return request
+      .agent(app)
+      .post(removeStaffUrl(1))
+      .send({ confirmRemove: 'yes' })
+      .redirects(1)
+      .expect(200)
+      .expect(res => {
+        expect(res.text).toContain('There is a problem')
+        expect(res.text).toContain('Sorry, there was a problem with your request')
       })
   })
 

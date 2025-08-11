@@ -53,28 +53,17 @@ export default function dashboard(): Router {
     const { activeCaseLoad, caseLoads: userCaseloads } = res.locals.user
     const userCaseloadIds = userCaseloads.map(caseload => caseload.caseLoadId)
 
-    const showLocationFilter = userCaseloadIds.length > 1 || permissions.hasPecsAccess
-
     const { location, fromDate: fromDateInput, toDate: toDateInput, page }: ListFormData = req.query
     let { searchID, typeFamily, incidentStatuses, sort, order }: ListFormData = req.query
 
     if (searchID) {
       searchID = searchID.trim()
     }
-
     if (!sort) {
       sort = 'incidentDateAndTime'
     }
     if (!orderOptions.includes(order)) {
       order = 'DESC'
-    }
-
-    // Select relevant table columns
-    let tableColumns: ColumnEntry[]
-    if (showLocationFilter) {
-      tableColumns = multiCaseloadColumns
-    } else {
-      tableColumns = singleCaseloadColumns
     }
 
     // Parse params
@@ -293,9 +282,16 @@ export default function dashboard(): Router {
       })
     }
 
+    const showLocationFilter = userCaseloadIds.length > 1 || permissions.hasPecsAccess
     let tableHead: HeaderCell[] | undefined
     let paginationParams: LegacyPagination
     if (reportsResponse) {
+      let tableColumns: ColumnEntry[]
+      if (showLocationFilter) {
+        tableColumns = multiCaseloadColumns
+      } else {
+        tableColumns = singleCaseloadColumns
+      }
       tableHead = sortableTableHead({
         columns: tableColumns,
         sortColumn: sort,

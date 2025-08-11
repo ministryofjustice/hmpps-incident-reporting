@@ -4,6 +4,7 @@ import request from 'supertest'
 import { appWithAllRoutes } from '../testutils/appSetup'
 import { now } from '../../testutils/fakeClock'
 import { setActiveAgencies } from '../../data/activeAgencies'
+import { rolePecs } from '../../data/constants'
 import { type GetReportsParams, IncidentReportingApi } from '../../data/incidentReportingApi'
 import { convertReportDates } from '../../data/incidentReportingApiUtils'
 import { mockErrorResponse, mockReport } from '../../data/testData/incidentReporting'
@@ -13,7 +14,7 @@ import { mockSharedUser } from '../../data/testData/manageUsers'
 import { mockDataWarden, mockReportingOfficer, mockHqViewer, mockUnauthorisedUser } from '../../data/testData/users'
 import { mockThrownError } from '../../data/testData/thrownErrors'
 import UserService from '../../services/userService'
-import { Status } from '../../reportConfiguration/constants'
+import type { Status } from '../../reportConfiguration/constants'
 
 jest.mock('../../data/incidentReportingApi')
 jest.mock('../../services/userService')
@@ -83,7 +84,7 @@ describe('Dashboard permissions', () => {
   })
 })
 
-describe('GET dashboard', () => {
+describe('Dashboard', () => {
   beforeEach(() => {
     const mockedReports = [
       convertReportDates(mockReport({ reportReference: '6543', reportDateAndTime: now })),
@@ -150,7 +151,7 @@ describe('GET dashboard', () => {
       })
   })
 
-  it('should submit query values correctly into the api call for reporting officer', () => {
+  it('should submit query values correctly to api call for reporting officer', () => {
     const expectedParams: Partial<GetReportsParams> = {
       location: 'MDI',
       incidentDateFrom: new Date(2025, 0, 1, 12, 0, 0),
@@ -185,7 +186,7 @@ describe('GET dashboard', () => {
       })
   })
 
-  it('should submit query values correctly into the api call for data warden', () => {
+  it('should submit query values correctly to api call for data warden', () => {
     const expectedParams: Partial<GetReportsParams> = {
       location: 'LEI',
       incidentDateFrom: new Date(2025, 0, 1, 12, 0, 0),
@@ -219,6 +220,42 @@ describe('GET dashboard', () => {
         expect(incidentReportingApi.getReports).toHaveBeenCalledWith(expectedParams)
       })
   })
+
+  it.each([
+    {
+      userType: 'reporting officer',
+      user: {
+        ...mockReportingOfficer,
+        roles: [...mockReportingOfficer.roles, rolePecs],
+      },
+    },
+    { userType: 'data warden', user: mockDataWarden },
+    {
+      userType: 'HQ view-only user',
+      user: {
+        ...mockHqViewer,
+        roles: [...mockHqViewer.roles, rolePecs],
+      },
+    },
+  ])(
+    'should submit query values correctly to api for $userType (with PECS role) when searching for PECS reports only',
+    ({ user }) => {
+      return request(appWithAllRoutes({ services: { userService }, userSupplier: () => user }))
+        .get('/reports')
+        .query({ location: '.PECS' })
+        .expect('Content-Type', /html/)
+        .expect(200)
+        .expect(res => {
+          expect(res.text).not.toContain('There is a problem')
+          expect(res.text).toContain('Clear filters')
+          expect(incidentReportingApi.getReports).toHaveBeenCalledWith(
+            expect.objectContaining({
+              location: ['NORTH', 'SOUTH'],
+            }),
+          )
+        })
+    },
+  )
 
   it('should submit query values correctly when selected type family has several types in it', () => {
     const queryParams = {
@@ -440,7 +477,7 @@ describe('GET dashboard', () => {
   })
 })
 
-describe('search validations', () => {
+describe('Search validation', () => {
   beforeEach(() => {
     // actual table doesn't matter for these tests
     incidentReportingApi.getReports.mockResolvedValueOnce(unsortedPageOf([]))
@@ -600,7 +637,7 @@ describe('search validations', () => {
   })
 })
 
-describe('date validation', () => {
+describe('Date validation', () => {
   beforeEach(() => {
     // actual table doesn't matter for these tests
     incidentReportingApi.getReports.mockResolvedValueOnce(unsortedPageOf([]))
@@ -640,7 +677,7 @@ describe('date validation', () => {
   })
 })
 
-describe('work list filter validations in reporting officer view', () => {
+describe('Work list filter validations in reporting officer view', () => {
   beforeEach(() => {
     // actual table doesn't matter for these tests
     incidentReportingApi.getReports.mockResolvedValueOnce(unsortedPageOf([]))
@@ -680,7 +717,7 @@ describe('work list filter validations in reporting officer view', () => {
   })
 })
 
-describe('work list filter validations in data warden view', () => {
+describe('Work list filter validations in data warden view', () => {
   beforeEach(() => {
     // actual table doesn't matter for these tests
     incidentReportingApi.getReports.mockResolvedValueOnce(unsortedPageOf([]))
@@ -724,21 +761,31 @@ describe('Location filter validation', () => {
 
   it.each([
     {
-      usertype: 'reporting officer',
+      scenario: 'location outside of caseload',
+      userType: 'reporting officer',
       queryLocation: 'ASH',
       expectedLocations: ['MDI'],
       user: mockReportingOfficer,
       expectedStatus: undefined,
     },
     {
-      usertype: 'data warden',
+      scenario: 'PECS',
+      userType: 'reporting officer',
+      queryLocation: '.PECS',
+      expectedLocations: ['MDI'],
+      user: mockReportingOfficer,
+      expectedStatus: undefined,
+    },
+    {
+      scenario: 'location outside of caseload',
+      userType: 'data warden',
       queryLocation: 'ASH',
       expectedLocations: ['MDI', 'LEI', 'NORTH', 'SOUTH'],
       user: mockDataWarden,
       expectedStatus: undefined,
     },
   ])(
-    'Locations should default to caseload locations and show error if query is set to location outside of caseload for $usertype',
+    'should default to caseload locations and show error if query is set to $scenario for $userType',
     ({ queryLocation, expectedLocations, user, expectedStatus }) => {
       const expectedParams: Partial<GetReportsParams> = {
         location: expectedLocations,
@@ -783,7 +830,7 @@ describe('Type family filter validations', () => {
   })
 })
 
-describe('Status/work list filter validations', () => {
+describe('Status/work list filter validation', () => {
   beforeEach(() => {
     // actual table doesn't matter for these tests
     incidentReportingApi.getReports.mockResolvedValueOnce(unsortedPageOf([]))
@@ -792,7 +839,7 @@ describe('Status/work list filter validations', () => {
   it.each([
     {
       scenario: 'single invalid entry',
-      usertype: 'reporting officer',
+      userType: 'reporting officer',
       expectedLocations: ['MDI'],
       user: mockReportingOfficer,
       queryStatus: 'DRAFT',
@@ -801,7 +848,7 @@ describe('Status/work list filter validations', () => {
     },
     {
       scenario: 'multiple invalid entries',
-      usertype: 'reporting officer',
+      userType: 'reporting officer',
       expectedLocations: ['MDI'],
       user: mockReportingOfficer,
       queryStatus: ['DRAFT', 'AWAITING_REVIEW'],
@@ -810,7 +857,7 @@ describe('Status/work list filter validations', () => {
     },
     {
       scenario: 'invalid entries alongside valid entries',
-      usertype: 'reporting officer',
+      userType: 'reporting officer',
       expectedLocations: ['MDI'],
       user: mockReportingOfficer,
       queryStatus: ['submitted', 'done', 'DRAFT', 'AWAITING_REVIEW'],
@@ -819,7 +866,7 @@ describe('Status/work list filter validations', () => {
     },
     {
       scenario: 'entry entirely invalid for any user',
-      usertype: 'reporting officer',
+      userType: 'reporting officer',
       expectedLocations: ['MDI'],
       user: mockReportingOfficer,
       queryStatus: 'random_status',
@@ -828,7 +875,7 @@ describe('Status/work list filter validations', () => {
     },
     {
       scenario: 'entries entirely invalid for any user',
-      usertype: 'reporting officer',
+      userType: 'reporting officer',
       expectedLocations: ['MDI'],
       user: mockReportingOfficer,
       queryStatus: ['random_status', 'another_option'],
@@ -837,7 +884,7 @@ describe('Status/work list filter validations', () => {
     },
     {
       scenario: 'single invalid entry',
-      usertype: 'data warden',
+      userType: 'data warden',
       expectedLocations: ['MDI', 'LEI', 'NORTH', 'SOUTH'],
       user: mockDataWarden,
       queryStatus: 'toDo',
@@ -846,7 +893,7 @@ describe('Status/work list filter validations', () => {
     },
     {
       scenario: 'multiple invalid entries',
-      usertype: 'data warden',
+      userType: 'data warden',
       expectedLocations: ['MDI', 'LEI', 'NORTH', 'SOUTH'],
       user: mockDataWarden,
       queryStatus: ['toDo', 'done'],
@@ -855,7 +902,7 @@ describe('Status/work list filter validations', () => {
     },
     {
       scenario: 'invalid entries alongside valid entries',
-      usertype: 'data warden',
+      userType: 'data warden',
       expectedLocations: ['MDI', 'LEI', 'NORTH', 'SOUTH'],
       user: mockDataWarden,
       queryStatus: ['submitted', 'done', 'DRAFT', 'AWAITING_REVIEW'],
@@ -864,7 +911,7 @@ describe('Status/work list filter validations', () => {
     },
     {
       scenario: 'entry entirely invalid for any user',
-      usertype: 'data warden',
+      userType: 'data warden',
       expectedLocations: ['MDI', 'LEI', 'NORTH', 'SOUTH'],
       user: mockDataWarden,
       queryStatus: 'random_status',
@@ -873,7 +920,7 @@ describe('Status/work list filter validations', () => {
     },
     {
       scenario: 'entries entirely invalid for any user',
-      usertype: 'data warden',
+      userType: 'data warden',
       expectedLocations: ['MDI', 'LEI', 'NORTH', 'SOUTH'],
       user: mockDataWarden,
       queryStatus: ['random_status', 'another_option'],
@@ -881,7 +928,7 @@ describe('Status/work list filter validations', () => {
       expectedError: 'Status filter submitted contains invalid values',
     },
   ])(
-    'Status/work list should default to undefined and show error if query is set to option invalid for $usertype with $scenario',
+    'should default to undefined and show error if query is set to option invalid for $userType with $scenario',
     ({ queryStatus, expectedLocations, user, expectedStatus, expectedError }) => {
       const expectedParams: Partial<GetReportsParams> = {
         location: expectedLocations,

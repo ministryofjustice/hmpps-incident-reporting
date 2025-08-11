@@ -7,12 +7,13 @@ type ColumnNames =
   | 'status'
   | 'location'
 
-export type ColumnEntry = {
+interface ColumnEntry {
   column: ColumnNames
   escapedHtml: string
   classes: string
   unsortable?: true
 }
+
 const reportReferenceColumn: ColumnEntry = {
   column: 'reportReference',
   escapedHtml: 'Reference number',

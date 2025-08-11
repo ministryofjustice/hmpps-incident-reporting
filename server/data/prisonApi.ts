@@ -1,7 +1,8 @@
 import { asSystem, RestClient } from '@ministryofjustice/hmpps-rest-client'
-import config from '../config'
-import { type NomisPrisonerInvolvementRole, type NomisType } from '../reportConfiguration/constants'
+
 import logger from '../../logger'
+import config from '../config'
+import type { NomisPrisonerInvolvementRole, NomisType } from '../reportConfiguration/constants'
 
 export enum AgencyType {
   /** Prison */

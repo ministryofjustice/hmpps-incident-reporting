@@ -677,7 +677,7 @@ describe('Date validation', () => {
   })
 })
 
-describe('Work list filter validations in reporting officer view', () => {
+describe('Work list filter validation in reporting officer view', () => {
   beforeEach(() => {
     // actual table doesn't matter for these tests
     incidentReportingApi.getReports.mockResolvedValueOnce(unsortedPageOf([]))
@@ -717,7 +717,7 @@ describe('Work list filter validations in reporting officer view', () => {
   })
 })
 
-describe('Work list filter validations in data warden view', () => {
+describe('Work list filter validation in data warden view', () => {
   beforeEach(() => {
     // actual table doesn't matter for these tests
     incidentReportingApi.getReports.mockResolvedValueOnce(unsortedPageOf([]))
@@ -811,7 +811,7 @@ describe('Location filter validation', () => {
   )
 })
 
-describe('Type family filter validations', () => {
+describe('Type family filter validation', () => {
   it.each([
     { scenario: 'unknown family code was supplied', query: { typeFamily: ['MISSING'] } },
     { scenario: 'mistakenly filtering by type, not family', query: { typeFamily: ['DAMAGE_1'] } },

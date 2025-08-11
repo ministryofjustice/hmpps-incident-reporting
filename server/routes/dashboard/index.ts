@@ -24,7 +24,7 @@ import { parseDateInput } from '../../utils/parseDateTime'
 import { hasInvalidValues } from '../../utils/utils'
 import { sortableTableHead } from '../../utils/sortableTable'
 import { type LegacyPagination, pagination } from '../../utils/pagination'
-import { type ColumnEntry, multiCaseloadColumns, singleCaseloadColumns } from './tableColumns'
+import { multiCaseloadColumns, singleCaseloadColumns } from './tableColumns'
 
 export type IncidentStatuses = Status | WorkList
 
@@ -286,14 +286,9 @@ export default function dashboard(): Router {
     let tableHead: HeaderCell[] | undefined
     let paginationParams: LegacyPagination
     if (reportsResponse) {
-      let tableColumns: ColumnEntry[]
-      if (showLocationFilter) {
-        tableColumns = multiCaseloadColumns
-      } else {
-        tableColumns = singleCaseloadColumns
-      }
+      const columns = showLocationFilter ? multiCaseloadColumns : singleCaseloadColumns
       tableHead = sortableTableHead({
-        columns: tableColumns,
+        columns,
         sortColumn: sort,
         order,
         urlPrefix: tableHeadUrlPrefix,

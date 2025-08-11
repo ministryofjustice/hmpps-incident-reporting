@@ -8,6 +8,7 @@ import { type GetReportsParams, IncidentReportingApi } from '../../data/incident
 import { convertReportDates } from '../../data/incidentReportingApiUtils'
 import { mockErrorResponse, mockReport } from '../../data/testData/incidentReporting'
 import { unsortedPageOf } from '../../data/testData/paginatedResponses'
+import { mockPecsRegions, resetPecsRegions } from '../../data/testData/pecsRegions'
 import { mockSharedUser } from '../../data/testData/manageUsers'
 import { mockDataWarden, mockReportingOfficer, mockHqViewer, mockUnauthorisedUser } from '../../data/testData/users'
 import { mockThrownError } from '../../data/testData/thrownErrors'
@@ -19,6 +20,14 @@ jest.mock('../../services/userService')
 
 const incidentReportingApi = IncidentReportingApi.prototype as jest.Mocked<IncidentReportingApi>
 const userService = UserService.prototype as jest.Mocked<UserService>
+
+beforeAll(() => {
+  mockPecsRegions()
+})
+
+afterAll(() => {
+  resetPecsRegions()
+})
 
 let app: Express
 
@@ -366,7 +375,7 @@ describe('GET dashboard', () => {
 
   it('should render expected columns for a user with a multiple establishment caseload', () => {
     const expectedParams: Partial<GetReportsParams> = {
-      location: ['MDI', 'LEI'],
+      location: ['MDI', 'LEI', 'NORTH', 'SOUTH'],
       incidentDateFrom: undefined,
       incidentDateUntil: undefined,
       involvingPrisonerNumber: undefined,
@@ -394,7 +403,7 @@ describe('GET dashboard', () => {
 
   it('should render expected filters for a data warden where caseload is multiple establishments', () => {
     const expectedParams: Partial<GetReportsParams> = {
-      location: ['MDI', 'LEI'],
+      location: ['MDI', 'LEI', 'NORTH', 'SOUTH'],
       incidentDateFrom: undefined,
       incidentDateUntil: undefined,
       involvingPrisonerNumber: undefined,
@@ -687,7 +696,7 @@ describe('work list filter validations in data warden view', () => {
     },
   ])('should submit correct status args when $scenario', ({ statusQuery, expectedArgs }) => {
     const expectedParams: Partial<GetReportsParams> = {
-      location: ['MDI', 'LEI'],
+      location: ['MDI', 'LEI', 'NORTH', 'SOUTH'],
       incidentDateFrom: undefined,
       incidentDateUntil: undefined,
       involvingPrisonerNumber: undefined,
@@ -724,7 +733,7 @@ describe('Location filter validation', () => {
     {
       usertype: 'data warden',
       queryLocation: 'ASH',
-      expectedLocations: ['MDI', 'LEI'],
+      expectedLocations: ['MDI', 'LEI', 'NORTH', 'SOUTH'],
       user: mockDataWarden,
       expectedStatus: undefined,
     },
@@ -748,7 +757,7 @@ describe('Location filter validation', () => {
         .expect('Content-Type', /html/)
         .expect(200)
         .expect(res => {
-          expect(res.text).toContain('Location must be in your caseloads')
+          expect(res.text).toContain('Select a location to search')
           expect(incidentReportingApi.getReports).toHaveBeenCalledWith(expectedParams)
         })
     },
@@ -829,7 +838,7 @@ describe('Status/work list filter validations', () => {
     {
       scenario: 'single invalid entry',
       usertype: 'data warden',
-      expectedLocations: ['MDI', 'LEI'],
+      expectedLocations: ['MDI', 'LEI', 'NORTH', 'SOUTH'],
       user: mockDataWarden,
       queryStatus: 'toDo',
       expectedStatus: undefined,
@@ -838,7 +847,7 @@ describe('Status/work list filter validations', () => {
     {
       scenario: 'multiple invalid entries',
       usertype: 'data warden',
-      expectedLocations: ['MDI', 'LEI'],
+      expectedLocations: ['MDI', 'LEI', 'NORTH', 'SOUTH'],
       user: mockDataWarden,
       queryStatus: ['toDo', 'done'],
       expectedStatus: undefined,
@@ -847,7 +856,7 @@ describe('Status/work list filter validations', () => {
     {
       scenario: 'invalid entries alongside valid entries',
       usertype: 'data warden',
-      expectedLocations: ['MDI', 'LEI'],
+      expectedLocations: ['MDI', 'LEI', 'NORTH', 'SOUTH'],
       user: mockDataWarden,
       queryStatus: ['submitted', 'done', 'DRAFT', 'AWAITING_REVIEW'],
       expectedStatus: undefined,
@@ -856,7 +865,7 @@ describe('Status/work list filter validations', () => {
     {
       scenario: 'entry entirely invalid for any user',
       usertype: 'data warden',
-      expectedLocations: ['MDI', 'LEI'],
+      expectedLocations: ['MDI', 'LEI', 'NORTH', 'SOUTH'],
       user: mockDataWarden,
       queryStatus: 'random_status',
       expectedStatus: undefined,
@@ -865,7 +874,7 @@ describe('Status/work list filter validations', () => {
     {
       scenario: 'entries entirely invalid for any user',
       usertype: 'data warden',
-      expectedLocations: ['MDI', 'LEI'],
+      expectedLocations: ['MDI', 'LEI', 'NORTH', 'SOUTH'],
       user: mockDataWarden,
       queryStatus: ['random_status', 'another_option'],
       expectedStatus: undefined,

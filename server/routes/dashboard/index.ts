@@ -16,6 +16,7 @@ import {
 } from '../../reportConfiguration/constants'
 import type { PaginatedBasicReports } from '../../data/incidentReportingApi'
 import { type Order, orderOptions } from '../../data/offenderSearchApi'
+import { pecsRegions } from '../../data/pecsRegions'
 import type { HeaderCell } from '../../utils/sortableTable'
 import format from '../../utils/format'
 import type { GovukCheckboxesItem, GovukErrorSummaryItem, GovukSelectItem } from '../../utils/govukFrontend'
@@ -39,6 +40,9 @@ interface ListFormData {
   page?: string
 }
 
+/** Location search filter which is replaced by all PECS regions when performing search */
+const allPecsRegionsFlag = '.PECS' as const
+
 export default function dashboard(): Router {
   const router = Router({ mergeParams: true })
 
@@ -49,11 +53,7 @@ export default function dashboard(): Router {
     const { activeCaseLoad, caseLoads: userCaseloads } = res.locals.user
     const userCaseloadIds = userCaseloads.map(caseload => caseload.caseLoadId)
 
-    let showLocationFilter = false
-    // TODO: check permissions.hasPecsAccess
-    if (userCaseloadIds.length > 1) {
-      showLocationFilter = true
-    }
+    const showLocationFilter = userCaseloadIds.length > 1 || permissions.hasPecsAccess
 
     const { location, fromDate: fromDateInput, toDate: toDateInput, page }: ListFormData = req.query
     let { searchID, typeFamily, incidentStatuses, sort, order }: ListFormData = req.query
@@ -166,22 +166,27 @@ export default function dashboard(): Router {
       pageNumber = 1
     }
 
-    // Set locations to user's caseload by default
+    // Set locations to user’s caseloads by default and PECS regions if allowed
     let searchLocations: string[] | string = userCaseloadIds
-    // Overwrite locations with chosen filter if it exists and location is in user's caseload
-    if (location && userCaseloadIds.includes(location)) {
-      searchLocations = location
+    if (permissions.hasPecsAccess) {
+      searchLocations.push(...pecsRegions.map(pecsRegion => pecsRegion.code))
     }
-    // Show error message when user tries to select a location outside their caseload / role
-    if (location && !userCaseloadIds.includes(location)) {
-      errors.push({
-        href: '#location',
-        text: 'Location must be in your caseloads',
-      })
+    if (location) {
+      if (userCaseloadIds.includes(location)) {
+        searchLocations = location
+      } else if (location === allPecsRegionsFlag && permissions.hasPecsAccess) {
+        searchLocations = pecsRegions.map(pecsRegion => pecsRegion.code)
+      } else {
+        errors.push({
+          href: '#location',
+          text: 'Select a location to search',
+        })
+      }
     }
 
     // Get reports from API
     let reportsResponse: PaginatedBasicReports
+    // TODO: should probably not search if there are errors, because what’ll show will not match apparent filters
     try {
       reportsResponse = await incidentReportingApi.getReports({
         reference: referenceNumber,
@@ -266,15 +271,27 @@ export default function dashboard(): Router {
       }))
       statusCheckboxLabel = 'Status'
     }
-    // TODO: merge in PECS regions if has role
     const allLocations: GovukSelectItem[] = userCaseloads.map(caseload => ({
       value: caseload.caseLoadId,
       text: caseload.description,
     }))
+    if (permissions.hasPecsAccess) {
+      allLocations.unshift({
+        value: allPecsRegionsFlag,
+        text: 'PECS',
+      })
+    }
 
     const typesLookup = Object.fromEntries(types.map(type => [type.code, type.description]))
     const statusLookup = Object.fromEntries(statuses.map(status => [status.code, status.description]))
-    const locationLookup = Object.fromEntries(allLocations.map(loc => [loc.value, loc.text]))
+    const locationLookup = Object.fromEntries(
+      userCaseloads.map(caseload => [caseload.caseLoadId, caseload.description]),
+    )
+    if (permissions.hasPecsAccess) {
+      pecsRegions.forEach(pecsRegion => {
+        locationLookup[pecsRegion.code] = pecsRegion.description
+      })
+    }
 
     let tableHead: HeaderCell[] | undefined
     let paginationParams: LegacyPagination

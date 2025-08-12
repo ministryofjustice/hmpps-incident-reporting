@@ -2,12 +2,12 @@ import type { Response as SuperAgentResponse } from 'superagent'
 
 import { mockReport } from '../../server/data/testData/incidentReporting'
 import { moorland } from '../../server/data/testData/prisonApi'
+import { now } from '../../server/testutils/fakeClock'
 import Page from '../pages/page'
 import { QuestionPage } from '../pages/reports/question'
 import { ReportPage } from '../pages/reports/report'
 
 context('Responding to questions', () => {
-  const now = new Date()
   const reportWithDetails = mockReport({
     type: 'ATTEMPTED_ESCAPE_FROM_PRISON_1',
     reportReference: '6544',

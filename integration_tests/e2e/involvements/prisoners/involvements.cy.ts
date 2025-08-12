@@ -1,12 +1,12 @@
 import { mockReport } from '../../../../server/data/testData/incidentReporting'
 import { andrew, barry } from '../../../../server/data/testData/offenderSearch'
 import { moorland } from '../../../../server/data/testData/prisonApi'
+import { now } from '../../../../server/testutils/fakeClock'
 import Page from '../../../pages/page'
 import { PrisonerInvolvementsPage, PrisonerSearchPage } from '../../../pages/reports/involvements/prisoners'
 import { ReportPage } from '../../../pages/reports/report'
 
 context('Prisoner involvements page', () => {
-  const now = new Date()
   const reportWithDetails = mockReport({
     type: 'MISCELLANEOUS_1',
     reportReference: '6544',

@@ -1,5 +1,5 @@
-import format from '../../../server/utils/format'
 import { mockReport } from '../../../server/data/testData/incidentReporting'
+import { now } from '../../../server/testutils/fakeClock'
 import Page from '../../pages/page'
 import { HomePage } from '../../pages/home'
 import { TypePage } from '../../pages/reports/type'
@@ -7,7 +7,6 @@ import { DetailsPage } from '../../pages/reports/details'
 import { PrisonerInvolvementsPage } from '../../pages/reports/involvements/prisoners'
 
 context('Creating a new minimal draft report', () => {
-  const now = new Date()
   const reportWithDetails = mockReport({
     type: 'MISCELLANEOUS_1',
     reportReference: '6544',
@@ -22,6 +21,7 @@ context('Creating a new minimal draft report', () => {
   reportWithDetails.correctionRequests = []
 
   beforeEach(() => {
+    cy.clock(now)
     cy.resetBasicStubs()
 
     cy.signIn()
@@ -37,9 +37,8 @@ context('Creating a new minimal draft report', () => {
 
     const detailsPage = Page.verifyOnPage(DetailsPage)
     detailsPage.checkBackLink('/create-report')
-    detailsPage.enterDate(new Date(reportWithDetails.incidentDateAndTime))
-    const time = /(?<hours>\d\d):(?<minutes>\d\d)/.exec(reportWithDetails.incidentDateAndTime)
-    detailsPage.enterTime(time.groups.hours, time.groups.minutes)
+    detailsPage.enterDate('05/12/2023')
+    detailsPage.enterTime('11', '34')
     detailsPage.enterDescription(reportWithDetails.description)
 
     // stub report creation
@@ -60,12 +59,6 @@ context('Creating a new minimal draft report', () => {
     Page.verifyOnPage(PrisonerInvolvementsPage, false)
   })
 
-  const longAgo = new Date()
-  longAgo.setFullYear(longAgo.getFullYear() - 1)
-  longAgo.setDate(longAgo.getDate() - 1)
-  longAgo.setSeconds(0)
-  longAgo.setMilliseconds(0)
-
   it('should allow confirming entry of a date that’s over a year in the past', () => {
     const typePage = Page.verifyOnPage(TypePage)
     typePage.checkBackLink('/')
@@ -74,8 +67,8 @@ context('Creating a new minimal draft report', () => {
 
     const detailsPage = Page.verifyOnPage(DetailsPage)
     detailsPage.checkBackLink('/create-report')
-    detailsPage.enterDate(longAgo)
-    detailsPage.enterTime(longAgo.getHours().toString(), longAgo.getMinutes().toString())
+    detailsPage.enterDate('5/10/2022')
+    detailsPage.enterTime('10', '30')
     detailsPage.enterDescription(reportWithDetails.description)
 
     detailsPage.dialogue.should('not.be.visible')
@@ -87,7 +80,7 @@ context('Creating a new minimal draft report', () => {
     cy.task('stubIncidentReportingApiCreateReport', {
       request: {
         type: reportWithDetails.type,
-        incidentDateAndTime: format.isoDateTime(longAgo),
+        incidentDateAndTime: '2022-10-05T10:30:00',
         location: 'MDI',
         title: 'Miscellaneous (Moorland (HMP & YOI))',
         description: reportWithDetails.description,
@@ -109,8 +102,8 @@ context('Creating a new minimal draft report', () => {
 
     const detailsPage = Page.verifyOnPage(DetailsPage)
     detailsPage.checkBackLink('/create-report')
-    detailsPage.enterDate(longAgo)
-    detailsPage.enterTime(longAgo.getHours().toString(), longAgo.getMinutes().toString())
+    detailsPage.enterDate('5/10/2022')
+    detailsPage.enterTime('10', '30')
     detailsPage.enterDescription(reportWithDetails.description)
 
     detailsPage.dialogue.should('not.be.visible')

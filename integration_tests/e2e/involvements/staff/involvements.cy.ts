@@ -1,11 +1,11 @@
 import { mockReport } from '../../../../server/data/testData/incidentReporting'
 import { staffMary, staffBarry, moorland } from '../../../../server/data/testData/prisonApi'
+import { now } from '../../../../server/testutils/fakeClock'
 import Page from '../../../pages/page'
 import { StaffInvolvementsPage, StaffSearchPage } from '../../../pages/reports/involvements/staff'
 import { ReportPage } from '../../../pages/reports/report'
 
 context('Staff involvements page', () => {
-  const now = new Date()
   const reportWithDetails = mockReport({
     type: 'MISCELLANEOUS_1',
     reportReference: '6544',

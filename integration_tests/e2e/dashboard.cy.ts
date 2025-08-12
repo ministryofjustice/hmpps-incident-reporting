@@ -232,7 +232,7 @@ context('Searching for a report', () => {
           ...mockReport({
             type: 'ATTEMPTED_ESCAPE_FROM_PRISON_1',
             reportReference: '6544',
-            reportDateAndTime: new Date(),
+            reportDateAndTime: now,
             withDetails: true,
           }),
           // and override with basic report

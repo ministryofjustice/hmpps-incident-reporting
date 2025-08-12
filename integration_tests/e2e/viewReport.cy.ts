@@ -1,12 +1,11 @@
 import { mockReport } from '../../server/data/testData/incidentReporting'
 import { andrew, barry } from '../../server/data/testData/offenderSearch'
 import { moorland } from '../../server/data/testData/prisonApi'
+import { now } from '../../server/testutils/fakeClock'
 import Page from '../pages/page'
 import { ReportPage } from '../pages/reports/report'
 
 context('View report', () => {
-  const now = new Date()
-
   context('With only minimal details', () => {
     const reportWithDetails = mockReport({
       type: 'DISORDER_2',

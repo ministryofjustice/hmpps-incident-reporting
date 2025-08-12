@@ -1,11 +1,11 @@
 import type { Response as SuperAgentResponse } from 'superagent'
 
-import format from '../../../server/utils/format'
 import { Question, RelatedObjectUrlSlug, type ReportWithDetails } from '../../../server/data/incidentReportingApi'
 import type { UsersSearchResult } from '../../../server/data/manageUsersApiClient'
 import { mockReport } from '../../../server/data/testData/incidentReporting'
 import { andrew } from '../../../server/data/testData/offenderSearch'
 import { moorland, staffMary } from '../../../server/data/testData/prisonApi'
+import { now } from '../../../server/testutils/fakeClock'
 import Page from '../../pages/page'
 import { HomePage } from '../../pages/home'
 import { DashboardPage } from '../../pages/dashboard'
@@ -24,14 +24,6 @@ import {
 import { QuestionPage } from '../../pages/reports/question'
 import { ReportPage } from '../../pages/reports/report'
 
-const now = new Date()
-const incidentDate = new Date() // can't use artificial date to prevent hitting 1-year warning
-incidentDate.setDate(incidentDate.getDate() - 1)
-incidentDate.setHours(10)
-incidentDate.setMinutes(30)
-incidentDate.setSeconds(0)
-incidentDate.setMilliseconds(0)
-
 context('Creating a completed draft report', () => {
   let reportWithDetails: DatesAsStrings<ReportWithDetails>
   // report gets updated throughout so keep track of stub mapping id
@@ -49,6 +41,7 @@ context('Creating a completed draft report', () => {
   }
 
   it('should happen in one journey', () => {
+    cy.clock(now)
     cy.resetBasicStubs()
 
     // log in
@@ -66,8 +59,8 @@ context('Creating a completed draft report', () => {
 
     // enter details
     const detailsPage = Page.verifyOnPage(DetailsPage)
-    detailsPage.enterDate(incidentDate)
-    detailsPage.enterTime('10', '30')
+    detailsPage.enterDate('5/12/2023')
+    detailsPage.enterTime('11', '34')
     detailsPage.enterDescription('Arnold (A1111AA) attempted to escape')
 
     // on submission, this report would be created
@@ -77,7 +70,6 @@ context('Creating a completed draft report', () => {
       reportDateAndTime: now,
       withDetails: true,
     })
-    reportWithDetails.incidentDateAndTime = format.isoDateTime(incidentDate)
     reportWithDetails.title = 'Report: attempted escape from establishment'
     reportWithDetails.description = 'Arnold (A1111AA) attempted to escape'
     reportWithDetails.prisonersInvolved = []
@@ -443,7 +435,7 @@ const apiQuestionResponse = (
       responseDate: null,
       additionalInformation: null,
       recordedBy: 'user1',
-      recordedAt: format.isoDateTime(now),
+      recordedAt: '2023-12-05T12:34:56',
     },
   ],
 })

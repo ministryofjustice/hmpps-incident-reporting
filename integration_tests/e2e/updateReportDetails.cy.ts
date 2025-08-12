@@ -1,11 +1,11 @@
 import { mockReport } from '../../server/data/testData/incidentReporting'
 import { moorland } from '../../server/data/testData/prisonApi'
+import { now } from '../../server/testutils/fakeClock'
 import Page from '../pages/page'
 import { DetailsPage } from '../pages/reports/details'
 import { ReportPage } from '../pages/reports/report'
 
 context('Update an existing report’s details', () => {
-  const now = new Date()
   const reportWithDetails = mockReport({
     type: 'DISORDER_2',
     reportReference: '6544',
@@ -20,6 +20,7 @@ context('Update an existing report’s details', () => {
   reportWithDetails.correctionRequests = []
 
   beforeEach(() => {
+    cy.clock(now)
     cy.resetBasicStubs()
 
     cy.signIn()
@@ -30,9 +31,9 @@ context('Update an existing report’s details', () => {
   it('should allow entering the basic information', () => {
     const detailsPage = Page.verifyOnPage(DetailsPage)
     detailsPage.checkBackLink(`/reports/${reportWithDetails.id}`)
-    detailsPage.enterDate(new Date(reportWithDetails.incidentDateAndTime))
-    const time = /(?<hours>\d\d):(?<minutes>\d\d)/.exec(reportWithDetails.incidentDateAndTime)
-    detailsPage.enterTime(time.groups.hours, time.groups.minutes)
+
+    detailsPage.enterDate('5/12/2023')
+    detailsPage.enterTime('11', '34')
     detailsPage.enterDescription(reportWithDetails.description)
 
     // stub report details update

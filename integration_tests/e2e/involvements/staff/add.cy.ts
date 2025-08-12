@@ -2,6 +2,7 @@ import { RelatedObjectUrlSlug } from '../../../../server/data/incidentReportingA
 import type { UsersSearchResult } from '../../../../server/data/manageUsersApiClient'
 import { mockReport } from '../../../../server/data/testData/incidentReporting'
 import { moorland, staffBarry, staffMary } from '../../../../server/data/testData/prisonApi'
+import { now } from '../../../../server/testutils/fakeClock'
 import Page from '../../../pages/page'
 import {
   AddStaffInvolvementsPage,
@@ -10,7 +11,6 @@ import {
 } from '../../../pages/reports/involvements/staff'
 
 context('Add staff involvement page', () => {
-  const now = new Date()
   const reportWithDetails = mockReport({
     type: 'MISCELLANEOUS_1',
     reportReference: '6544',

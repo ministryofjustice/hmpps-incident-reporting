@@ -1,12 +1,12 @@
 import { RelatedObjectUrlSlug } from '../../server/data/incidentReportingApi'
 import { mockReport } from '../../server/data/testData/incidentReporting'
 import { moorland } from '../../server/data/testData/prisonApi'
+import { now } from '../../server/testutils/fakeClock'
 import Page from '../pages/page'
 import { DescriptionAddendumPage } from '../pages/reports/descriptionAddendum'
 import { ReportPage } from '../pages/reports/report'
 
 context('Add to a report’s description after it’s been reviewed', () => {
-  const now = new Date()
   const reportWithDetails = mockReport({
     type: 'DISORDER_2',
     status: 'NEEDS_UPDATING',

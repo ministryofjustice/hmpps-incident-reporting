@@ -2,11 +2,11 @@ import { RelatedObjectUrlSlug } from '../../../../server/data/incidentReportingA
 import { mockReport } from '../../../../server/data/testData/incidentReporting'
 import { barry } from '../../../../server/data/testData/offenderSearch'
 import { moorland } from '../../../../server/data/testData/prisonApi'
+import { now } from '../../../../server/testutils/fakeClock'
 import Page from '../../../pages/page'
 import { PrisonerInvolvementsPage, RemovePrisonerInvolvementsPage } from '../../../pages/reports/involvements/prisoners'
 
 context('Remove prisoner involvement page', () => {
-  const now = new Date()
   const reportWithDetails = mockReport({
     type: 'MISCELLANEOUS_1',
     reportReference: '6544',

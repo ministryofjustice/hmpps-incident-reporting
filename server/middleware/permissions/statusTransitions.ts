@@ -2,17 +2,19 @@ import type { Status } from '../../reportConfiguration/constants'
 import type { UserAction } from './userActions'
 import type { UserType } from './userType'
 
+/** Given a user type, what actions can they potentially perform on a report? */
 export type Transitions = {
-  /** Given a user type… */
   [U in UserType]?: {
-    /** …and a report with this status… */
-    [S in Status]?: {
-      /** …they can possibly perform this action */
-      [A in UserAction]?: Transition
-    }
+    [S in Status]?: ReportTransitions
   }
 }
 
+/** Given a report with a particular status, which actions can this user possibly perform? */
+export type ReportTransitions = {
+  [A in UserAction]?: Transition
+}
+
+/** Configuration for, and side effects of, a report’s status transition */
 export type Transition = {
   /** If action is performed, should report status also be changed? */
   newStatus?: Status

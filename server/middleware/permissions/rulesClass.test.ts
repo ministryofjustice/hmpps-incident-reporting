@@ -9,6 +9,7 @@ import {
   mockUnauthorisedUser,
 } from '../../data/testData/users'
 import { roleReadOnly, roleReadWrite, roleApproveReject, rolePecs } from '../../data/constants'
+import type { ReportBasic } from '../../data/incidentReportingApi'
 import { convertReportDates } from '../../data/incidentReportingApiUtils'
 import { mockReport } from '../../data/testData/incidentReporting'
 import { makeMockCaseload } from '../../data/testData/frontendComponents'
@@ -156,26 +157,40 @@ describe('Permissions class', () => {
     )
   })
 
-  describe('Allowed actions', () => {
-    // mock reports in Leeds
-    const mockReports = [true, false].map(withDetails =>
-      convertReportDates(mockReport({ reportReference: '6543', reportDateAndTime: now, location: 'LEI', withDetails })),
-    )
-    function expectActionsOnPrisonReports({
-      permissions,
-      userActions,
-      all,
-      onlyInNomis,
-    }: {
+  describe('Allowed actions and transitions', () => {
+    interface Expectation {
       permissions: Permissions
       userActions: UserAction[]
       all: 'granted' | 'denied'
       onlyInNomis?: true
-    }) {
-      for (const report of mockReports) {
+    }
+
+    function expectActionsOnReports(
+      reports: ReportBasic[],
+      { permissions, userActions, all, onlyInNomis }: Expectation,
+    ) {
+      for (const report of reports) {
         const allowedActions = permissions.allowedActionsOnReport(report, onlyInNomis ? 'nomis' : 'dps')
         expect(userActions.every(userAction => allowedActions.has(userAction))).toBe(all === granted)
+
+        if (!onlyInNomis && all === 'granted') {
+          const transitions = permissions.possibleTransitions(report)
+          userActions
+            .filter(userAction => userAction !== 'VIEW')
+            .forEach(userAction => {
+              expect(transitions).toHaveProperty(userAction)
+              // not checking for absence if action is denied because transitions object does not consider report locations
+            })
+        }
       }
+    }
+
+    // mock reports in Leeds
+    const mockReports = [true, false].map(withDetails =>
+      convertReportDates(mockReport({ reportReference: '6543', reportDateAndTime: now, location: 'LEI', withDetails })),
+    )
+    function expectActionsOnPrisonReports(expectation: Expectation) {
+      expectActionsOnReports(mockReports, expectation)
     }
 
     // mock reports in a PECS region
@@ -184,21 +199,8 @@ describe('Permissions class', () => {
         mockReport({ reportReference: '6544', reportDateAndTime: now, location: 'NORTH', withDetails }),
       ),
     )
-    function expectActionsOnPecsReports({
-      permissions,
-      userActions,
-      all,
-      onlyInNomis,
-    }: {
-      permissions: Permissions
-      userActions: UserAction[]
-      all: 'granted' | 'denied'
-      onlyInNomis?: true
-    }) {
-      for (const report of mockPecsReports) {
-        const allowedActions = permissions.allowedActionsOnReport(report, onlyInNomis ? 'nomis' : 'dps')
-        expect(userActions.every(userAction => allowedActions.has(userAction))).toBe(all === granted)
-      }
+    function expectActionsOnPecsReports(expectation: Expectation) {
+      expectActionsOnReports(mockPecsReports, expectation)
     }
 
     describe('Access to the service', () => {

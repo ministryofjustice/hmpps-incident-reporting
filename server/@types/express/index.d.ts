@@ -7,7 +7,7 @@ import type { QuestionProgress } from '../../data/incidentTypeConfiguration/ques
 import type { IncidentTypeConfiguration } from '../../data/incidentTypeConfiguration/types'
 import type { OffenderSearchApi } from '../../data/offenderSearchApi'
 import type { PrisonApi } from '../../data/prisonApi'
-import type { Permissions, UserAction } from '../../middleware/permissions'
+import type { Permissions, UserAction, ReportTransitions } from '../../middleware/permissions'
 
 export default {}
 
@@ -69,6 +69,8 @@ export declare global {
       reportConfig?: IncidentTypeConfiguration
       /** Set of actions user can perform on current report (if loaded) */
       allowedActions?: ReadonlySet<UserAction>
+      /** Status transitions the user can possibly perform on current report (if loaded) */
+      possibleTransitions?: ReportTransitions
       /** Form wizard controllers can reset the journey session on success by setting this to true */
       clearSessionOnSuccess?: boolean
       /** Some routes load question form wizard steps into locals */

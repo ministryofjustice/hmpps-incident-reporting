@@ -3,7 +3,7 @@ import type FormWizard from 'hmpo-form-wizard'
 
 import logger from '../../../../../logger'
 import { BaseController } from '../../../../controllers'
-import { type ApiUserType, prisonReportTransitions } from '../../../../middleware/permissions'
+import type { ApiUserType } from '../../../../middleware/permissions'
 import { placeholderForCorrectionRequest } from '../correctionRequestPlaceholder'
 import type { Values } from './fields'
 
@@ -82,8 +82,9 @@ export class RequestRemovalController extends BaseController<Values> {
     const formValues = this.getAllValues(req, false)
     const { userAction, originalReportReference, duplicateComment, notReportableComment } = formValues
     const apiUserAction = userAction as 'REQUEST_DUPLICATE' | 'REQUEST_NOT_REPORTABLE' // form validation ensures this is possible
-    // TODO: PECS lookup is different
-    const transition = prisonReportTransitions[userType][report.status].REQUEST_REMOVAL
+
+    // NB: transition is not being used for permissions check; middleware already ensured this is possible
+    const transition = res.locals.possibleTransitions.REQUEST_REMOVAL
     const { newStatus, successBanner } = transition
 
     try {

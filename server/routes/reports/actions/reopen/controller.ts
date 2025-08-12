@@ -3,7 +3,7 @@ import type FormWizard from 'hmpo-form-wizard'
 
 import logger from '../../../../../logger'
 import { BaseController } from '../../../../controllers'
-import { type ApiUserType, prisonReportTransitions } from '../../../../middleware/permissions'
+import type { ApiUserType } from '../../../../middleware/permissions'
 import { workListMapping } from '../../../../reportConfiguration/constants'
 import { placeholderForCorrectionRequest } from '../correctionRequestPlaceholder'
 import type { Values } from './fields'
@@ -63,8 +63,8 @@ export class ReopenController extends BaseController<Values> {
     const { userType } = permissions
 
     const userAction = 'RECALL' as const
-    // TODO: PECS lookup is different
-    const transition = prisonReportTransitions[userType][report.status][userAction]
+    // NB: transition is not being used for permissions check; middleware already ensured this is possible
+    const transition = res.locals.possibleTransitions[userAction]
     const { newStatus, successBanner } = transition
 
     try {

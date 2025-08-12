@@ -2,7 +2,7 @@ import { mockReport } from '../../server/data/testData/incidentReporting'
 import { moorland } from '../../server/data/testData/prisonApi'
 import Page from '../pages/page'
 import { IncidentDateTimePage } from '../pages/reports/incidentDateTime'
-import ReportPage from '../pages/reports/report'
+import { ReportPage } from '../pages/reports/report'
 
 context('Update an existing report’s date after it’s been reviewed', () => {
   const now = new Date()

@@ -4,10 +4,10 @@ import type { GetReportsParams } from '../../server/data/incidentReportingApi'
 import { mockReport } from '../../server/data/testData/incidentReporting'
 import { moorland } from '../../server/data/testData/prisonApi'
 import { now } from '../../server/testutils/fakeClock'
-import { DashboardPage } from '../pages/dashboard'
-import HomePage from '../pages/home'
 import Page from '../pages/page'
-import ReportPage from '../pages/reports/report'
+import { DashboardPage } from '../pages/dashboard'
+import { HomePage } from '../pages/home'
+import { ReportPage } from '../pages/reports/report'
 import { TypePage } from '../pages/reports/type'
 
 context('Searching for a report', () => {

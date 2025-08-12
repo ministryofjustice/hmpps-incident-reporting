@@ -3,7 +3,7 @@ import { andrew, barry } from '../../../../server/data/testData/offenderSearch'
 import { moorland } from '../../../../server/data/testData/prisonApi'
 import Page from '../../../pages/page'
 import { PrisonerInvolvementsPage, PrisonerSearchPage } from '../../../pages/reports/involvements/prisoners'
-import ReportPage from '../../../pages/reports/report'
+import { ReportPage } from '../../../pages/reports/report'
 
 context('Prisoner involvements page', () => {
   const now = new Date()

@@ -2,7 +2,7 @@ import { mockReport } from '../../server/data/testData/incidentReporting'
 import { andrew, barry } from '../../server/data/testData/offenderSearch'
 import { moorland } from '../../server/data/testData/prisonApi'
 import Page from '../pages/page'
-import ReportPage from '../pages/reports/report'
+import { ReportPage } from '../pages/reports/report'
 
 context('View report', () => {
   const now = new Date()

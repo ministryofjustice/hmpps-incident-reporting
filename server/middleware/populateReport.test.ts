@@ -13,10 +13,12 @@ describe('report-loading middleware', () => {
 
   const permissions = jest.mocked(new Permissions(undefined))
   permissions.allowedActionsOnReport = jest.fn()
+  permissions.possibleTransitions = jest.fn()
 
   beforeEach(() => {
     fakeApi = nock(config.apis.hmppsIncidentReportingApi.url)
     permissions.allowedActionsOnReport.mockReturnValue(new Set(['VIEW']))
+    permissions.possibleTransitions.mockReturnValue({})
   })
 
   afterEach(() => {
@@ -50,6 +52,7 @@ describe('report-loading middleware', () => {
     expect(res.locals.reportUrl).toEqual(`/reports/${report.id}`)
     expect(res.locals.reportSubUrlPrefix).toEqual(`/reports/${report.id}`)
     expect(res.locals.allowedActions).toEqual(new Set(['VIEW']))
+    expect(res.locals.possibleTransitions).toEqual({})
     expect(next).toHaveBeenCalledWith()
   })
 
@@ -71,10 +74,12 @@ describe('report-loading middleware', () => {
     await populateReport(false)(req, res, next)
 
     expect(permissions.allowedActionsOnReport).not.toHaveBeenCalled()
+    expect(permissions.possibleTransitions).not.toHaveBeenCalled()
     expect(res.locals.report).toBeUndefined()
     expect(res.locals.reportUrl).toBeUndefined()
     expect(res.locals.reportSubUrlPrefix).toBeUndefined()
     expect(res.locals.allowedActions).toBeUndefined()
+    expect(res.locals.possibleTransitions).toBeUndefined()
     expect(next).toHaveBeenCalledWith(expect.objectContaining({ message: 'Not Found', responseStatus: 404 }))
   })
 
@@ -96,10 +101,12 @@ describe('report-loading middleware', () => {
     await populateReport(false)(req, res, next)
 
     expect(permissions.allowedActionsOnReport).not.toHaveBeenCalled()
+    expect(permissions.possibleTransitions).not.toHaveBeenCalled()
     expect(res.locals.report).toBeUndefined()
     expect(res.locals.reportUrl).toBeUndefined()
     expect(res.locals.reportSubUrlPrefix).toBeUndefined()
     expect(res.locals.allowedActions).toBeUndefined()
+    expect(res.locals.possibleTransitions).toBeUndefined()
     expect(next).toHaveBeenCalledWith(expect.objectContaining({ message: 'Bad Request', responseStatus: 404 }))
   })
 
@@ -119,10 +126,12 @@ describe('report-loading middleware', () => {
 
     expect(getReportWithDetailsById).not.toHaveBeenCalled()
     expect(permissions.allowedActionsOnReport).not.toHaveBeenCalled()
+    expect(permissions.possibleTransitions).not.toHaveBeenCalled()
     expect(res.locals.report).toBeUndefined()
     expect(res.locals.reportUrl).toBeUndefined()
     expect(res.locals.reportSubUrlPrefix).toBeUndefined()
     expect(res.locals.allowedActions).toBeUndefined()
+    expect(res.locals.possibleTransitions).toBeUndefined()
     expect(next).toHaveBeenCalledWith(
       expect.objectContaining({ message: 'populateReport() requires req.params.reportId', status: 501 }),
     )
@@ -146,6 +155,7 @@ describe('report-loading middleware', () => {
     expect(res.locals.reportUrl).toBeUndefined()
     expect(res.locals.reportSubUrlPrefix).toBeUndefined()
     expect(res.locals.allowedActions).toBeUndefined()
+    expect(res.locals.possibleTransitions).toBeUndefined()
     expect(next).toHaveBeenCalledWith(
       expect.objectContaining({ message: 'populateReport() requires permissions middleware', status: 501 }),
     )

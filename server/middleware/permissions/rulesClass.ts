@@ -4,7 +4,7 @@ import { roleReadOnly, roleReadWrite, roleApproveReject, rolePecs } from '../../
 import type { ReportBasic } from '../../data/incidentReportingApi'
 import { isPecsRegionCode } from '../../data/pecsRegions'
 import { isLocationActiveInService } from './locationActiveInService'
-import { prisonReportTransitions, pecsReportTransitions } from './statusTransitions'
+import { type ReportTransitions, prisonReportTransitions, pecsReportTransitions } from './statusTransitions'
 import type { UserAction } from './userActions'
 import type { UserType } from './userType'
 
@@ -95,13 +95,15 @@ export class Permissions {
    * Actions that change a report are permitted either only on DPS or only in NOMIS.
    * Set `where` to “nomis” to get actions that would have been allowed if the location were active in DPS –
    * this indicates that users should go to NOMIS to complete their intended work.
+   *
+   * NB: this does NOT perform report validity checks!
    */
   allowedActionsOnReport(
     reportLike: Pick<ReportBasic, 'status' | 'location'>,
     where: 'dps' | 'nomis' = 'dps',
   ): ReadonlySet<UserAction> {
     const isPecsReport = isPecsRegionCode(reportLike.location)
-    const { userType, canAccessService, hasPecsAccess } = this
+    const { canAccessService, hasPecsAccess } = this
     const canAccessLocation = isPecsReport ? hasPecsAccess : this.caseloadIds.has(reportLike.location)
     const locationIsActive = isLocationActiveInService(reportLike.location)
 
@@ -117,12 +119,22 @@ export class Permissions {
       return allowedActions
     }
 
-    const transitions = isPecsReport ? pecsReportTransitions : prisonReportTransitions
-    const modifyingAllowedActions = transitions[userType]?.[reportLike.status] ?? {}
+    const modifyingAllowedActions = this.possibleTransitions(reportLike)
     Object.keys(modifyingAllowedActions).forEach((action: UserAction) => allowedActions.add(action))
 
-    // TODO: require valid report for certain actions
-
     return allowedActions
+  }
+
+  /**
+   * Returns an object describing the status transitions this report can potentially go through
+   * based on user type and status. Only report-modifying user actions will be included.
+   *
+   * NB: this does NOT perform location-based or report validity checks! See `allowedActionsOnReport`…
+   */
+  possibleTransitions(reportLike: Pick<ReportBasic, 'status' | 'location'>): ReportTransitions {
+    const { userType } = this
+    const isPecsReport = isPecsRegionCode(reportLike.location)
+    const transitions = isPecsReport ? pecsReportTransitions : prisonReportTransitions
+    return transitions[userType]?.[reportLike.status] ?? {}
   }
 }

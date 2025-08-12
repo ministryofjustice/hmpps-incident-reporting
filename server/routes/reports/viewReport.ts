@@ -17,7 +17,6 @@ import {
   logoutUnless,
   hasPermissionTo,
   parseUserActionCode,
-  prisonReportTransitions,
   userActionMapping,
   type ApiUserType,
   type ApiUserAction,
@@ -87,8 +86,7 @@ export function viewReportRouter(): Router {
         }
       }
 
-      // TODO: PECS lookup is different
-      const reportTransitions = prisonReportTransitions?.[userType]?.[report.status] ?? {}
+      const reportTransitions = res.locals.possibleTransitions
 
       let requestedOriginalReportReference: string | undefined
       if (allowedActions.has('MARK_DUPLICATE')) {

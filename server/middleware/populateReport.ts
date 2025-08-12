@@ -31,6 +31,7 @@ export function populateReport(withDetails: boolean) {
       res.locals.reportSubUrlPrefix = res.locals.reportUrl
 
       res.locals.allowedActions = permissions.allowedActionsOnReport(res.locals.report)
+      res.locals.possibleTransitions = permissions.possibleTransitions(res.locals.report)
 
       next()
     } catch (error) {

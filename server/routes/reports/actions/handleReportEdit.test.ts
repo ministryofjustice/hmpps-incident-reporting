@@ -1,8 +1,11 @@
-import type { Response } from 'express'
+import type { Express, Response } from 'express'
 
-import { IncidentReportingApi } from '../../../data/incidentReportingApi'
+import { IncidentReportingApi, type ReportBasic } from '../../../data/incidentReportingApi'
 import { convertReportDates } from '../../../data/incidentReportingApiUtils'
 import { mockReport } from '../../../data/testData/incidentReporting'
+import { mockPecsRegions, resetPecsRegions } from '../../../data/testData/pecsRegions'
+import { mockDataWarden, mockReportingOfficer } from '../../../data/testData/users'
+import { Permissions } from '../../../middleware/permissions'
 import { now } from '../../../testutils/fakeClock'
 import { handleReportEdit } from './handleReportEdit'
 
@@ -14,66 +17,114 @@ afterEach(() => {
   jest.resetAllMocks()
 })
 
-const mockedReport = convertReportDates(
-  mockReport({
-    reportReference: '6543',
-    reportDateAndTime: now,
-  }),
-)
+function mockResponse(user: Express.User, report: ReportBasic): Response {
+  const permissions = new Permissions(user)
+  return {
+    locals: {
+      apis: { incidentReportingApi },
+      report,
+      possibleTransitions: permissions.possibleTransitions(report),
+    },
+  } as unknown as Response
+}
 
 describe('Report editing side effects', () => {
-  describe.each([
-    {
-      userType: 'REPORTING_OFFICER',
-      statuses: [
-        'DRAFT',
-        'NEEDS_UPDATING',
-        'REOPENED',
-        // technically, not allowed to edit below
-        'UPDATED',
-        'ON_HOLD',
-        'WAS_CLOSED',
-        'DUPLICATE',
-        'NOT_REPORTABLE',
-        'CLOSED',
-      ],
-    },
-    {
-      userType: 'DATA_WARDEN',
-      statuses: [
-        // technically, not allowed to edit below
-        'DRAFT',
-        'NEEDS_UPDATING',
-        'REOPENED',
-        'AWAITING_REVIEW',
-        'UPDATED',
-        'ON_HOLD',
-        'WAS_CLOSED',
-        'DUPLICATE',
-        'NOT_REPORTABLE',
-        'CLOSED',
-      ],
-    },
-  ] as const)(
-    'when a $userType edits a prison report (assuming they are even allowed to)',
-    ({ userType, statuses }) => {
+  describe('Prison reports', () => {
+    const mockedReport = convertReportDates(
+      mockReport({
+        reportReference: '6543',
+        reportDateAndTime: now,
+      }),
+    )
+
+    describe.each([
+      {
+        userType: 'reporting officer',
+        user: mockReportingOfficer,
+        statuses: [
+          'DRAFT',
+          'NEEDS_UPDATING',
+          'REOPENED',
+          // technically, not allowed to edit below
+          'UPDATED',
+          'ON_HOLD',
+          'WAS_CLOSED',
+          'DUPLICATE',
+          'NOT_REPORTABLE',
+          'CLOSED',
+        ],
+      },
+      {
+        userType: 'data warden',
+        user: mockDataWarden,
+        statuses: [
+          // technically, not allowed to edit below
+          'DRAFT',
+          'NEEDS_UPDATING',
+          'REOPENED',
+          'AWAITING_REVIEW',
+          'UPDATED',
+          'ON_HOLD',
+          'WAS_CLOSED',
+          'DUPLICATE',
+          'NOT_REPORTABLE',
+          'CLOSED',
+        ],
+      },
+    ] as const)('when a $userType edits a report (assuming they are even allowed to)', ({ user, statuses }) => {
       it.each(statuses)('should not cause status to change from %s', async status => {
         mockedReport.status = status
-        const res = {
-          locals: { apis: { incidentReportingApi }, permissions: { userType }, report: mockedReport },
-        } as unknown as Response
+        const res = mockResponse(user, mockedReport)
         await handleReportEdit(res)
         expect(incidentReportingApi.changeReportStatus).not.toHaveBeenCalled()
       })
-    },
-  )
+    })
 
-  it('should change status from AWAITING_REVIEW to DRAFT when REPORTING_OFFICER edits a prison report', async () => {
-    mockedReport.status = 'AWAITING_REVIEW'
-    const res = {
-      locals: { apis: { incidentReportingApi }, permissions: { userType: 'REPORTING_OFFICER' }, report: mockedReport },
-    } as unknown as Response
-    await handleReportEdit(res)
-    expect(incidentReportingApi.changeReportStatus).toHaveBeenCalledWith(mockedReport.id, { newStatus: 'DRAFT' })
+    it('should change status from AWAITING_REVIEW to DRAFT when reporting officer edits a report', async () => {
+      mockedReport.status = 'AWAITING_REVIEW'
+      const res = mockResponse(mockReportingOfficer, mockedReport)
+      await handleReportEdit(res)
+      expect(incidentReportingApi.changeReportStatus).toHaveBeenCalledWith(mockedReport.id, { newStatus: 'DRAFT' })
+    })
+  })
+
+  describe('PECS reports', () => {
+    const mockedReport = convertReportDates(
+      mockReport({
+        reportReference: '6543',
+        reportDateAndTime: now,
+        location: 'NORTH',
+      }),
+    )
+
+    beforeAll(() => {
+      mockPecsRegions()
+    })
+
+    afterAll(() => {
+      resetPecsRegions()
+    })
+
+    describe('when a data warden edits a report (assuming they are even allowed to)', () => {
+      it.each([
+        'DRAFT',
+        'REOPENED',
+        // technically, not allowed to edit below
+        'DUPLICATE',
+        'NOT_REPORTABLE',
+        'CLOSED',
+        // technically, PECS reports should not exist in these statuses
+        'AWAITING_REVIEW',
+        'NEEDS_UPDATING',
+        'UPDATED',
+        'ON_HOLD',
+        'WAS_CLOSED',
+      ] as const)('should not cause status to change from %s', async status => {
+        mockedReport.status = status
+        const res = mockResponse(mockDataWarden, mockedReport)
+        await handleReportEdit(res)
+        expect(incidentReportingApi.changeReportStatus).not.toHaveBeenCalled()
+      })
+    })
   })
 })

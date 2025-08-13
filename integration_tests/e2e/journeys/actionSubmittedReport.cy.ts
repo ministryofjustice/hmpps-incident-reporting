@@ -128,6 +128,24 @@ describe('Actioning submitted reports', () => {
         cy.visit(`/reports/${reportWithDetails.id}`)
       })
 
+      it('should see a list of actions', () => {
+        const reportPage = Page.verifyOnPage(ReportPage, reportWithDetails.reportReference)
+        reportPage.userActionsChoices.then(choices => {
+          const expectedChoices: typeof choices = [
+            { label: 'Close', value: 'CLOSE', checked: false },
+            { label: 'Send back', value: 'REQUEST_CORRECTION', checked: false },
+          ]
+          if (!['ON_HOLD', 'WAS_CLOSED'].includes(currentStatus)) {
+            expectedChoices.push({ label: 'Put on hold', value: 'HOLD', checked: false })
+          }
+          expectedChoices.push(
+            { label: 'Mark as a duplicate', value: 'MARK_DUPLICATE', checked: false },
+            { label: 'Mark as not reportable', value: 'MARK_NOT_REPORTABLE', checked: false },
+          )
+          expect(choices).to.deep.equal(expectedChoices)
+        })
+      })
+
       it(`should be able to send it back to ${sentBackTo}`, () => {
         actionTestCase(
           reportWithDetails,

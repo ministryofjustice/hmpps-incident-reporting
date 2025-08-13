@@ -5,6 +5,7 @@ import { mockDataWarden } from '../../../server/data/testData/users'
 import type { UserAction } from '../../../server/middleware/permissions'
 import type { Status } from '../../../server/reportConfiguration/constants'
 import { now } from '../../../server/testutils/fakeClock'
+import { apiQuestionResponse } from '../../support/utils'
 import Page from '../../pages/page'
 import { DashboardPage } from '../../pages/dashboard'
 import { ReportPage } from '../../pages/reports/report'
@@ -14,6 +15,99 @@ describe('Actioning submitted reports', () => {
     cy.clock(now)
   })
 
+  const validReport = mockReport({
+    type: 'FOOD_REFUSAL_1',
+    reportReference: '6544',
+    reportDateAndTime: now,
+    withDetails: true,
+  })
+  validReport.questions = [
+    // <editor-fold desc="questions">
+    apiQuestionResponse(
+      '44990',
+      'IS THERE ANY MEDIA INTEREST IN THIS INCIDENT',
+      'Is there any media interest in this incident?',
+      '181927',
+      'NO',
+      'No',
+    ),
+    apiQuestionResponse(
+      '44575',
+      'HAS THE PRISON SERVICE PRESS OFFICE BEEN INFORMED',
+      'Has the prison service press office been informed?',
+      '180502',
+      'NO',
+      'No',
+    ),
+    apiQuestionResponse(
+      '44887',
+      'WHAT IS THE REASON FOR THIS FOOD REFUSAL',
+      'What is the reason for this food refusal?',
+      '181546',
+      'VISITS',
+      'Visits',
+    ),
+    apiQuestionResponse(
+      '44768',
+      'DESCRIBE THE TYPE OF FOOD REFUSAL',
+      'Describe the type of food refusal',
+      '181149',
+      'ALL FOOD AND LIQUIDS',
+      'All food and liquids',
+    ),
+    apiQuestionResponse(
+      '44319',
+      'WHERE IS THE PRISONER CURRENTLY LOCATED',
+      'Where is the prisoner currently located?',
+      '179556',
+      'NORMAL LOCATION',
+      'Normal location',
+    ),
+    apiQuestionResponse(
+      '44399',
+      'IS THE PRISONER THOUGHT TO BE OBTAINING FOOD FROM OTHER SOURCES',
+      'Is the prisoner thought to be obtaining food from other sources?',
+      '179840',
+      'NO',
+      'No',
+    ),
+    apiQuestionResponse(
+      '44688',
+      'IS THE FOOD REFUSAL CONTINUING',
+      'Is the food refusal continuing?',
+      '180875',
+      'YES',
+      'Yes',
+    ),
+    apiQuestionResponse(
+      '44989',
+      'DURATION OF FOOD REFUSAL',
+      'Duration of food refusal',
+      '181926',
+      'ENTER HOURS',
+      'Enter hours',
+      null,
+      '26',
+    ),
+    apiQuestionResponse(
+      '44199',
+      'IS THE FOOD REFUSAL EFFECTING ANY OTHER MEDICAL CONDITION',
+      'Is the food refusal effecting any other medical condition?',
+      '179163',
+      'NO',
+      'No',
+    ),
+    apiQuestionResponse(
+      '44427',
+      'IS THE FOOD REFUSAL CURRENTLY CONSIDERED LIFE THREATENING',
+      'Is the food refusal currently considered life threatening?',
+      '179912',
+      'NO',
+      'No',
+    ),
+    // </editor-fold>
+  ]
+
   const scenarios = [
     { currentStatus: 'AWAITING_REVIEW', sentBackTo: 'NEEDS_UPDATING' },
     { currentStatus: 'UPDATED', sentBackTo: 'NEEDS_UPDATING' },
@@ -22,13 +116,7 @@ describe('Actioning submitted reports', () => {
   ] as const
   scenarios.forEach(({ currentStatus, sentBackTo }) => {
     context(`a data warden viewing a report with status ${currentStatus}`, () => {
-      const reportWithDetails = mockReport({
-        type: 'DISORDER_2',
-        status: currentStatus,
-        reportReference: '6544',
-        reportDateAndTime: now,
-        withDetails: true,
-      })
+      const reportWithDetails = { ...validReport, status: currentStatus }
 
       beforeEach(() => {
         cy.resetBasicStubs({ user: mockDataWarden })
@@ -48,6 +136,17 @@ describe('Actioning submitted reports', () => {
           sentBackTo,
           'Add prisoner number to description',
           'Incident report 6544 has been sent back',
+        )
+      })
+
+      it(`should be able to close it`, () => {
+        actionTestCase(
+          reportWithDetails,
+          'Close',
+          'CLOSE',
+          'CLOSED',
+          noComment,
+          'Incident report 6544 has been marked as closed',
         )
       })
 
@@ -72,12 +171,14 @@ function actionTestCase(
   actionLabel: string,
   userAction: UserAction,
   newStatus: Status,
-  comment: string,
+  comment: string | typeof noComment,
   banner: string,
 ) {
   const reportPage = Page.verifyOnPage(ReportPage, report.reportReference)
   reportPage.selectAction(actionLabel)
-  reportPage.enterComment(userAction, comment)
+  if (comment !== noComment) {
+    reportPage.enterComment(userAction, comment)
+  }
 
   cy.task('stubIncidentReportingApiCreateRelatedObject', {
     urlSlug: RelatedObjectUrlSlug.correctionRequests,
@@ -103,3 +204,5 @@ function actionTestCase(
   const dashboardPage = Page.verifyOnPage(DashboardPage)
   dashboardPage.checkNotificationBannerContent(banner)
 }
+
+const noComment = Symbol('noComment')

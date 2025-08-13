@@ -6,6 +6,7 @@ import { mockReport } from '../../../server/data/testData/incidentReporting'
 import { andrew } from '../../../server/data/testData/offenderSearch'
 import { moorland, staffMary } from '../../../server/data/testData/prisonApi'
 import { now } from '../../../server/testutils/fakeClock'
+import { apiQuestionResponse } from '../../support/utils'
 import Page from '../../pages/page'
 import { HomePage } from '../../pages/home'
 import { DashboardPage } from '../../pages/dashboard'
@@ -502,32 +503,6 @@ context('Creating a completed draft report', () => {
         )
       })
   })
-})
-
-/** Question as returned by API */
-const apiQuestionResponse = (
-  code: string,
-  question: string,
-  label: string,
-  responseCode: string,
-  response: string,
-  responseLabel: string,
-): DatesAsStrings<Question> => ({
-  code,
-  question,
-  label,
-  additionalInformation: null,
-  responses: [
-    {
-      code: responseCode,
-      response,
-      label: responseLabel,
-      responseDate: null,
-      additionalInformation: null,
-      recordedBy: 'user1',
-      recordedAt: '2023-12-05T12:34:56',
-    },
-  ],
 })
 
 /** Question as submitted to API */

@@ -1,8 +1,12 @@
-import { RelatedObjectUrlSlug, type ReportWithDetails } from '../../../server/data/incidentReportingApi'
+import {
+  RelatedObjectUrlSlug,
+  type AddCorrectionRequestRequest,
+  type ReportWithDetails,
+} from '../../../server/data/incidentReportingApi'
 import { mockReport } from '../../../server/data/testData/incidentReporting'
 import { moorland } from '../../../server/data/testData/prisonApi'
 import { mockDataWarden } from '../../../server/data/testData/users'
-import type { UserAction } from '../../../server/middleware/permissions'
+import type { ApiUserAction, UserAction } from '../../../server/middleware/permissions'
 import type { Status } from '../../../server/reportConfiguration/constants'
 import { now } from '../../../server/testutils/fakeClock'
 import { apiQuestionResponse } from '../../support/utils'
@@ -147,80 +151,135 @@ describe('Actioning submitted reports', () => {
       })
 
       it(`should be able to send it back to ${sentBackTo}`, () => {
-        actionTestCase(
+        actionTestCase({
           reportWithDetails,
-          'Send back',
-          'REQUEST_CORRECTION',
-          sentBackTo,
-          'Add prisoner number to description',
-          'Incident report 6544 has been sent back',
-        )
+          actionLabel: 'Send back',
+          userAction: 'REQUEST_CORRECTION',
+          newStatus: sentBackTo,
+          comment: 'Add prisoner number to description',
+          banner: 'Incident report 6544 has been sent back',
+        })
       })
 
       it(`should be able to close it`, () => {
-        actionTestCase(
+        actionTestCase({
           reportWithDetails,
-          'Close',
-          'CLOSE',
-          'CLOSED',
-          noComment,
-          'Incident report 6544 has been marked as closed',
-        )
+          actionLabel: 'Close',
+          userAction: 'CLOSE',
+          newStatus: 'CLOSED',
+          banner: 'Incident report 6544 has been marked as closed',
+        })
       })
 
       if (['AWAITING_REVIEW', 'UPDATED'].includes(currentStatus)) {
         it('should be able to put it on hold', () => {
-          actionTestCase(
+          actionTestCase({
             reportWithDetails,
-            'Put on hold',
-            'HOLD',
-            'ON_HOLD',
-            'Checking policy…',
-            'Incident report 6544 has been put on hold',
-          )
+            actionLabel: 'Put on hold',
+            userAction: 'HOLD',
+            newStatus: 'ON_HOLD',
+            comment: 'Checking policy…',
+            banner: 'Incident report 6544 has been put on hold',
+          })
         })
       }
+
+      it('should be able to mark it as a duplicate (without being requested to do so)', () => {
+        const duplicatedReportId = '0198a59c-1111-2222-3333-444444444444'
+        cy.task('stubIncidentReportingApiGetReportByReference', {
+          report: {
+            ...reportWithDetails,
+            id: duplicatedReportId,
+            reportReference: '6543',
+          },
+        })
+        cy.task('stubIncidentReportingApiUpdateReport', {
+          request: { duplicatedReportId },
+          report: {
+            ...reportWithDetails,
+            duplicatedReportId,
+          },
+        })
+
+        actionTestCase({
+          reportWithDetails,
+          actionLabel: 'Mark as a duplicate',
+          userAction: 'MARK_DUPLICATE',
+          newStatus: 'DUPLICATE',
+          originalReportReference: '6543',
+          commentPlaceholder: '(Report is a duplicate of 6543)',
+          banner: 'Report 6544 has been marked as duplicate',
+        })
+      })
+
+      it('should be able to mark it as not reportable (without being requested to do so)', () => {
+        actionTestCase({
+          reportWithDetails,
+          actionLabel: 'Mark as not reportable',
+          userAction: 'MARK_NOT_REPORTABLE',
+          newStatus: 'NOT_REPORTABLE',
+          commentPlaceholder: '(Not reportable)',
+          banner: 'Report 6544 has been marked as not reportable',
+        })
+      })
     })
   })
 })
 
-function actionTestCase(
-  report: DatesAsStrings<ReportWithDetails>,
-  actionLabel: string,
-  userAction: UserAction,
-  newStatus: Status,
-  comment: string | typeof noComment,
-  banner: string,
-) {
-  const reportPage = Page.verifyOnPage(ReportPage, report.reportReference)
+function actionTestCase({
+  reportWithDetails,
+  actionLabel,
+  userAction,
+  newStatus,
+  comment,
+  commentPlaceholder,
+  originalReportReference,
+  banner,
+}: {
+  reportWithDetails: DatesAsStrings<ReportWithDetails>
+  actionLabel: string
+  userAction: ApiUserAction & UserAction
+  newStatus: Status
+  comment?: string
+  commentPlaceholder?: string
+  originalReportReference?: string
+  banner: string
+}) {
+  const reportPage = Page.verifyOnPage(ReportPage, reportWithDetails.reportReference)
   reportPage.selectAction(actionLabel)
-  if (comment !== noComment) {
+  if (originalReportReference) {
+    reportPage.enterOriginalReportReference(originalReportReference)
+  }
+  if (comment) {
     reportPage.enterComment(userAction, comment)
   }
 
+  const correctionRequestPayload: AddCorrectionRequestRequest = {
+    userType: 'DATA_WARDEN',
+    userAction,
+    descriptionOfChange: comment ?? commentPlaceholder,
+  }
+  if (originalReportReference) {
+    correctionRequestPayload.originalReportReference = originalReportReference
+  }
   cy.task('stubIncidentReportingApiCreateRelatedObject', {
     urlSlug: RelatedObjectUrlSlug.correctionRequests,
-    reportId: report.id,
-    request: {
-      userType: 'DATA_WARDEN',
-      userAction,
-      descriptionOfChange: comment,
-    },
-    response: report.correctionRequests, // technically, missing new comment
+    reportId: reportWithDetails.id,
+    request: correctionRequestPayload,
+    response: reportWithDetails.correctionRequests, // technically, missing new comment
   })
   cy.task('stubIncidentReportingApiChangeReportStatus', {
     request: { newStatus },
     report: {
-      ...report,
+      ...reportWithDetails,
       status: newStatus,
     },
   })
-  cy.task('stubIncidentReportingApiGetReports')
+
+  cy.task('stubIncidentReportingApiGetReports') // for empty dashboard page
 
   reportPage.continueButton.click()
 
   const dashboardPage = Page.verifyOnPage(DashboardPage)
   dashboardPage.checkNotificationBannerContent(banner)
 }
-
-const noComment = Symbol('noComment')

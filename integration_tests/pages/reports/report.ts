@@ -144,6 +144,10 @@ export class ReportPage extends Page {
     return this.userActionsForm.find('#userAction').find<HTMLLabelElement>('label').contains(label).click()
   }
 
+  enterOriginalReportReference(reference: string): PageElement<HTMLInputElement> {
+    return this.userActionsForm.find<HTMLInputElement>('[name="originalReportReference"]').type(reference)
+  }
+
   enterComment(userAction: UserAction, comment: string): PageElement<HTMLTextAreaElement> {
     return this.userActionsForm.find<HTMLTextAreaElement>(`[name="${userAction}_COMMENT"]`).type(comment)
   }

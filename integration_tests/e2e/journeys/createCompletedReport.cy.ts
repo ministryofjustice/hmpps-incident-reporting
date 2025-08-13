@@ -25,23 +25,26 @@ import { QuestionPage } from '../../pages/reports/question'
 import { ReportPage } from '../../pages/reports/report'
 
 context('Creating a completed draft report', () => {
-  let reportWithDetails: DatesAsStrings<ReportWithDetails>
-  // report gets updated throughout so keep track of stub mapping id
-  let getReportWithDetailsByIdStubId: string = null
-
-  function stubReport() {
-    if (getReportWithDetailsByIdStubId) {
-      cy.task('deleteStub', getReportWithDetailsByIdStubId)
-    }
-    cy.task('stubIncidentReportingApiGetReportWithDetailsById', { report: reportWithDetails }).then(
-      (res: SuperAgentResponse) => {
-        getReportWithDetailsByIdStubId = JSON.parse(res.text).id
-      },
-    )
-  }
-
-  it('should happen in one journey', () => {
+  beforeEach(() => {
     cy.clock(now)
+    cy.wrap(null).as('reportWithDetailsStub')
+  })
+
+  let reportWithDetails: DatesAsStrings<ReportWithDetails>
+
+  /** report gets updated throughout so keep track of stub mapping id */
+  const stubReport = () =>
+    cy.get('@reportWithDetailsStub').then(id => {
+      if (id) {
+        cy.task('deleteStub', id)
+      }
+      return cy
+        .task('stubIncidentReportingApiGetReportWithDetailsById', { report: reportWithDetails })
+        .then((res: SuperAgentResponse) => JSON.parse(res.text).id)
+        .as('reportWithDetailsStub')
+    })
+
+  function startCreatingReport() {
     cy.resetBasicStubs()
 
     // log in
@@ -51,13 +54,19 @@ context('Creating a completed draft report', () => {
     const indexPage = Page.verifyOnPage(HomePage)
     indexPage.clickCreateReportCard()
 
-    // select type
+    return cy.end()
+  }
+
+  function selectType() {
     const typePage = Page.verifyOnPage(TypePage)
     typePage.checkBackLink('/')
     typePage.selectType('ATTEMPTED_ESCAPE_FROM_PRISON_1')
     typePage.submit()
 
-    // enter details
+    return cy.end()
+  }
+
+  function enterDetails() {
     const detailsPage = Page.verifyOnPage(DetailsPage)
     detailsPage.enterDate('5/12/2023')
     detailsPage.enterTime('11', '34')
@@ -92,7 +101,10 @@ context('Creating a completed draft report', () => {
     // minimal draft report is saved
     detailsPage.submit()
 
-    // choose to add a prisoner
+    return cy.end()
+  }
+
+  function addPrisoners() {
     let prisonerInvolvementsPage = Page.verifyOnPage(PrisonerInvolvementsPage, false)
     prisonerInvolvementsPage.selectRadioButton('Yes')
     prisonerInvolvementsPage.submit()
@@ -153,7 +165,10 @@ context('Creating a completed draft report', () => {
     prisonerInvolvementsPage.selectRadioButton('No')
     prisonerInvolvementsPage.submit()
 
-    // choose to add a member of staff
+    return cy.end()
+  }
+
+  function addStaffMembers() {
     let staffInvolvementsPage = Page.verifyOnPage(StaffInvolvementsPage, false)
     staffInvolvementsPage.selectRadioButton('Yes')
     staffInvolvementsPage.submit()
@@ -215,8 +230,11 @@ context('Creating a completed draft report', () => {
     staffInvolvementsPage.selectRadioButton('No')
     staffInvolvementsPage.submit()
 
-    // respond to questions
-    let questionPage = Page.verifyOnPage(QuestionPage, [1, 5], 'attempted escape from establishment')
+    return cy.end()
+  }
+
+  function respondToQuestionPage1() {
+    const questionPage = Page.verifyOnPage(QuestionPage, [1, 5], 'attempted escape from establishment')
 
     // page 1
     questionPage.selectResponses('44769', 'No')
@@ -224,6 +242,7 @@ context('Creating a completed draft report', () => {
     questionPage.selectResponses('45033', 'No')
     questionPage.selectResponses('44636', 'No')
     questionPage.selectResponses('44749', 'No')
+
     // report is about to be updated…
     reportWithDetails = {
       ...reportWithDetails,
@@ -237,9 +256,14 @@ context('Creating a completed draft report', () => {
     stubReport()
     questionPage.submit()
 
-    // page 2
-    questionPage = Page.verifyOnPage(QuestionPage, [6, 6], 'attempted escape from establishment')
+    return cy.end()
+  }
+
+  function respondToQuestionPage2() {
+    const questionPage = Page.verifyOnPage(QuestionPage, [6, 6], 'attempted escape from establishment')
+
     questionPage.selectResponses('44594', 'Reception')
+
     // report is about to be updated…
     reportWithDetails = {
       ...reportWithDetails,
@@ -253,9 +277,14 @@ context('Creating a completed draft report', () => {
     stubReport()
     questionPage.submit()
 
-    // page 3
-    questionPage = Page.verifyOnPage(QuestionPage, [7, 7], 'attempted escape from establishment')
+    return cy.end()
+  }
+
+  function respondToQuestionPage3() {
+    const questionPage = Page.verifyOnPage(QuestionPage, [7, 7], 'attempted escape from establishment')
+
     questionPage.selectResponses('44545', 'No')
+
     // report is about to be updated…
     reportWithDetails = {
       ...reportWithDetails,
@@ -269,9 +298,14 @@ context('Creating a completed draft report', () => {
     stubReport()
     questionPage.submit()
 
-    // page 4
-    questionPage = Page.verifyOnPage(QuestionPage, [8, 8], 'attempted escape from establishment')
+    return cy.end()
+  }
+
+  function respondToQuestionPage4() {
+    const questionPage = Page.verifyOnPage(QuestionPage, [8, 8], 'attempted escape from establishment')
+
     questionPage.selectResponses('44441', 'No')
+
     // report is about to be updated…
     reportWithDetails = {
       ...reportWithDetails,
@@ -285,10 +319,15 @@ context('Creating a completed draft report', () => {
     stubReport()
     questionPage.submit()
 
-    // page 5
-    questionPage = Page.verifyOnPage(QuestionPage, [9, 10], 'attempted escape from establishment')
+    return cy.end()
+  }
+
+  function respondToQuestionPage5() {
+    const questionPage = Page.verifyOnPage(QuestionPage, [9, 10], 'attempted escape from establishment')
+
     questionPage.selectResponses('44746', 'No')
     questionPage.selectResponses('44595', 'No')
+
     // report is about to be updated…
     reportWithDetails = {
       ...reportWithDetails,
@@ -302,9 +341,14 @@ context('Creating a completed draft report', () => {
     stubReport()
     questionPage.submit()
 
-    // page 6
-    questionPage = Page.verifyOnPage(QuestionPage, [11, 11], 'attempted escape from establishment')
+    return cy.end()
+  }
+
+  function respondToQuestionPage6() {
+    const questionPage = Page.verifyOnPage(QuestionPage, [11, 11], 'attempted escape from establishment')
+
     questionPage.selectResponses('44983', 'No')
+
     // report is about to be updated…
     reportWithDetails = {
       ...reportWithDetails,
@@ -318,9 +362,14 @@ context('Creating a completed draft report', () => {
     stubReport()
     questionPage.submit()
 
-    // page 7
-    questionPage = Page.verifyOnPage(QuestionPage, [12, 12], 'attempted escape from establishment')
+    return cy.end()
+  }
+
+  function respondToQuestionPage7() {
+    const questionPage = Page.verifyOnPage(QuestionPage, [12, 12], 'attempted escape from establishment')
+
     questionPage.selectResponses('44320', 'No')
+
     // report is about to be updated…
     reportWithDetails = {
       ...reportWithDetails,
@@ -334,9 +383,14 @@ context('Creating a completed draft report', () => {
     stubReport()
     questionPage.submit()
 
-    // page 8
-    questionPage = Page.verifyOnPage(QuestionPage, [13, 13], 'attempted escape from establishment')
+    return cy.end()
+  }
+
+  function respondToQuestionPage8() {
+    const questionPage = Page.verifyOnPage(QuestionPage, [13, 13], 'attempted escape from establishment')
+
     questionPage.selectResponses('44731', 'No')
+
     // report is about to be updated…
     reportWithDetails = {
       ...reportWithDetails,
@@ -350,11 +404,16 @@ context('Creating a completed draft report', () => {
     stubReport()
     questionPage.submit()
 
-    // page 9
-    questionPage = Page.verifyOnPage(QuestionPage, [14, 16], 'attempted escape from establishment')
+    return cy.end()
+  }
+
+  function respondToQuestionPage9() {
+    const questionPage = Page.verifyOnPage(QuestionPage, [14, 16], 'attempted escape from establishment')
+
     questionPage.selectResponses('45073', 'Staff vigilance')
     questionPage.selectResponses('44349', 'Staff intervention')
     questionPage.selectResponses('44447', 'No')
+
     // report is about to be updated…
     reportWithDetails = {
       ...reportWithDetails,
@@ -368,9 +427,14 @@ context('Creating a completed draft report', () => {
     stubReport()
     questionPage.submit()
 
-    // page 10
-    questionPage = Page.verifyOnPage(QuestionPage, [17, 17], 'attempted escape from establishment')
+    return cy.end()
+  }
+
+  function respondToQuestionPage10() {
+    const questionPage = Page.verifyOnPage(QuestionPage, [17, 17], 'attempted escape from establishment')
+
     questionPage.selectResponses('44863', 'No')
+
     // report is about to be updated…
     reportWithDetails = {
       ...reportWithDetails,
@@ -388,6 +452,10 @@ context('Creating a completed draft report', () => {
     cy.task('stubManageKnownUsers')
     questionPage.submit()
 
+    return cy.end()
+  }
+
+  function submitReportForReview() {
     const reportPage = Page.verifyOnPage(ReportPage, '6544', true)
 
     // report is about to be updated…
@@ -407,10 +475,32 @@ context('Creating a completed draft report', () => {
     reportPage.selectAction('Submit')
     reportPage.continueButton.click()
 
-    const dashboardPage = Page.verifyOnPage(DashboardPage)
-    dashboardPage.checkNotificationBannerContent(
-      `You have submitted incident report ${reportWithDetails.reportReference}`,
-    )
+    return cy.end()
+  }
+
+  it('should happen in one journey', () => {
+    startCreatingReport()
+      .then(selectType)
+      .then(enterDetails)
+      .then(addPrisoners)
+      .then(addStaffMembers)
+      .then(respondToQuestionPage1)
+      .then(respondToQuestionPage2)
+      .then(respondToQuestionPage3)
+      .then(respondToQuestionPage4)
+      .then(respondToQuestionPage5)
+      .then(respondToQuestionPage6)
+      .then(respondToQuestionPage7)
+      .then(respondToQuestionPage8)
+      .then(respondToQuestionPage9)
+      .then(respondToQuestionPage10)
+      .then(submitReportForReview)
+      .then(() => {
+        const dashboardPage = Page.verifyOnPage(DashboardPage)
+        dashboardPage.checkNotificationBannerContent(
+          `You have submitted incident report ${reportWithDetails.reportReference}`,
+        )
+      })
   })
 })
 

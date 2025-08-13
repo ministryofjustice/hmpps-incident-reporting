@@ -1,6 +1,6 @@
 import type { Response as SuperAgentResponse } from 'superagent'
 
-import { Question, RelatedObjectUrlSlug, type ReportWithDetails } from '../../../server/data/incidentReportingApi'
+import { RelatedObjectUrlSlug, type Question, type ReportWithDetails } from '../../../server/data/incidentReportingApi'
 import type { UsersSearchResult } from '../../../server/data/manageUsersApiClient'
 import { mockReport } from '../../../server/data/testData/incidentReporting'
 import { andrew } from '../../../server/data/testData/offenderSearch'

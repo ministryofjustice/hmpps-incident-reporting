@@ -1,3 +1,4 @@
+import type { UserAction } from '../../../server/middleware/permissions'
 import Page, { type PageElement } from '../page'
 
 export class ReportPage extends Page {
@@ -141,6 +142,10 @@ export class ReportPage extends Page {
 
   selectAction(label: string): Cypress.Chainable {
     return this.userActionsForm.find('#userAction').find<HTMLLabelElement>('label').contains(label).click()
+  }
+
+  enterComment(userAction: UserAction, comment: string): PageElement<HTMLTextAreaElement> {
+    return this.userActionsForm.find<HTMLTextAreaElement>(`[name="${userAction}_COMMENT"]`).type(comment)
   }
 
   get continueButton(): PageElement<HTMLButtonElement> {

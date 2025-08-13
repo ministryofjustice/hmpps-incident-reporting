@@ -65,25 +65,20 @@ describe('Changing incident type', () => {
       })
   })
 
-  it.each([
-    'UPDATED',
-    'ON_HOLD',
-    'WAS_CLOSED',
-    'DUPLICATE',
-    'NOT_REPORTABLE',
-    'CLOSED',
-    'POST_INCIDENT_UPDATE',
-  ] as const)('should not be allowed if report has status %s', status => {
-    mockedReport.status = status
+  it.each(['UPDATED', 'ON_HOLD', 'WAS_CLOSED', 'DUPLICATE', 'NOT_REPORTABLE', 'CLOSED'] as const)(
+    'should not be allowed if report has status %s',
+    status => {
+      mockedReport.status = status
 
-    return agent
-      .get(confirmationUrl)
-      .expect(302)
-      .expect(res => {
-        expect(res.redirect).toBe(true)
-        expect(res.header.location).toEqual('/sign-out')
-      })
-  })
+      return agent
+        .get(confirmationUrl)
+        .expect(302)
+        .expect(res => {
+          expect(res.redirect).toBe(true)
+          expect(res.header.location).toEqual('/sign-out')
+        })
+    },
+  )
 
   it.each(['DRAFT', 'AWAITING_REVIEW', 'NEEDS_UPDATING', 'REOPENED'] as const)(
     'should show a confirmation page first if report status is %s',

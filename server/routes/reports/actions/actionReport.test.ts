@@ -505,8 +505,7 @@ describe('Actioning reports', () => {
             const noActionsPermitted =
               (userType === 'reporting officers' && status === 'ON_HOLD') ||
               (userType === 'data wardens' && status === 'DRAFT') ||
-              userType === 'HQ viewers' ||
-              status === 'POST_INCIDENT_UPDATE'
+              userType === 'HQ viewers'
             if (noActionsPermitted) {
               expect(res.text).toContain('You do not have permission to action this report')
             } else {

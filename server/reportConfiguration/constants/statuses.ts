@@ -10,7 +10,6 @@ export const statuses = [
   { code: 'NEEDS_UPDATING', description: 'Needs updating', nomisCode: 'INREQ' },
   { code: 'UPDATED', description: 'Updated', nomisCode: 'INAME' },
   { code: 'CLOSED', description: 'Closed', nomisCode: 'CLOSE' },
-  { code: 'POST_INCIDENT_UPDATE', description: 'Post-incident update', nomisCode: 'PIU' },
   { code: 'DUPLICATE', description: 'Duplicate', nomisCode: 'DUP' },
   // eslint-disable-next-line @typescript-eslint/ban-ts-comment
   // @ts-ignore because typescript treats nomisCode as `any`

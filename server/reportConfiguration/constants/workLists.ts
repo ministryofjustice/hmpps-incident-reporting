@@ -25,3 +25,6 @@ export const workListMapping = workLists.reduce(
 
 /** Work list codes */
 export const workListCodes = workLists.map(workList => workList.code)
+
+// TODO: map these final statuses appropriately if necessary – not needed yet and they will eventually be removed from NOMIS
+// { code: 'POST_INCIDENT_UPDATE', description: 'Post-incident update', nomisCode: 'PIU' },

@@ -398,6 +398,7 @@ describe('Requesting removal of a report', () => {
       'ON_HOLD',
       'UPDATED',
       'CLOSED',
+      'POST_INCIDENT_UPDATE',
       'DUPLICATE',
       'NOT_REPORTABLE',
       'WAS_CLOSED',

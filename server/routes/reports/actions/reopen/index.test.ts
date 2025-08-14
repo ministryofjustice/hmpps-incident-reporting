@@ -172,13 +172,16 @@ describe('Reopening a report', () => {
       shouldRedirectToReportPage()
     })
 
-    describe.each(['DRAFT', 'ON_HOLD', 'NEEDS_UPDATING', 'REOPENED'] as const)('if the status is %s', status => {
-      beforeEach(() => {
-        mockedReport.status = status
-      })
+    describe.each(['DRAFT', 'ON_HOLD', 'NEEDS_UPDATING', 'POST_INCIDENT_UPDATE', 'REOPENED'] as const)(
+      'if the status is %s',
+      status => {
+        beforeEach(() => {
+          mockedReport.status = status
+        })
 
-      shouldNotBeAllowed()
-    })
+        shouldNotBeAllowed()
+      },
+    )
   })
 
   describe('by data wardens', () => {
@@ -202,7 +205,7 @@ describe('Reopening a report', () => {
       shouldRedirectToReportPage()
     })
 
-    describe.each(['DRAFT', 'AWAITING_REVIEW', 'ON_HOLD', 'UPDATED', 'WAS_CLOSED'] as const)(
+    describe.each(['DRAFT', 'AWAITING_REVIEW', 'ON_HOLD', 'UPDATED', 'POST_INCIDENT_UPDATE', 'WAS_CLOSED'] as const)(
       'if the status is %s',
       status => {
         beforeEach(() => {

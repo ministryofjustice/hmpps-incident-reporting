@@ -213,7 +213,7 @@ describe('Actioning submitted reports', () => {
             userAction: 'MARK_DUPLICATE',
             newStatus: 'DUPLICATE',
             originalReportReference: '6543',
-            commentPlaceholder: '(Report is a duplicate of 6543)',
+            comment: 'Definitely same incident as 6543',
             banner: 'Report 6544 has been marked as duplicate',
           })
         })
@@ -224,7 +224,84 @@ describe('Actioning submitted reports', () => {
             actionLabel: 'Mark as not reportable',
             userAction: 'MARK_NOT_REPORTABLE',
             newStatus: 'NOT_REPORTABLE',
-            commentPlaceholder: '(Not reportable)',
+            comment: 'Severity of incident does not necessitate a report',
+            banner: 'Report 6544 has been marked as not reportable',
+          })
+        })
+      })
+
+      context('after a reporting officer’s request to remove', () => {
+        it('should be able to mark it as a duplicate', () => {
+          const reportWithDetails: DatesAsStrings<ReportWithDetails> = {
+            ...validReport,
+            status: currentStatus,
+            correctionRequests: [
+              {
+                descriptionOfChange: '(Report is a duplicate of 6543)',
+                userAction: 'REQUEST_DUPLICATE',
+                userType: 'REPORTING_OFFICER',
+                originalReportReference: '6543',
+                correctionRequestedBy: 'user1',
+                correctionRequestedAt: '2023-12-05T09:20:03',
+              },
+            ],
+          }
+
+          cy.task('stubIncidentReportingApiGetReportWithDetailsById', { report: reportWithDetails })
+          cy.visit(`/reports/${reportWithDetails.id}`)
+
+          const duplicatedReportId = '0198a59c-1111-2222-3333-444444444444'
+          cy.task('stubIncidentReportingApiGetReportByReference', {
+            report: {
+              ...reportWithDetails,
+              id: duplicatedReportId,
+              reportReference: '6543',
+            },
+          })
+          cy.task('stubIncidentReportingApiUpdateReport', {
+            request: { duplicatedReportId },
+            report: {
+              ...reportWithDetails,
+              duplicatedReportId,
+            },
+          })
+
+          actionTestCase({
+            reportWithDetails,
+            actionLabel: 'Mark as a duplicate',
+            userAction: 'MARK_DUPLICATE',
+            newStatus: 'DUPLICATE',
+            originalReportReferenceSentToApi: '6543',
+            commentSentToApi: '(Report is a duplicate of 6543)',
+            banner: 'Report 6544 has been marked as duplicate',
+          })
+        })
+
+        it('should be able to mark it as not reportable', () => {
+          const reportWithDetails: DatesAsStrings<ReportWithDetails> = {
+            ...validReport,
+            status: currentStatus,
+            correctionRequests: [
+              {
+                descriptionOfChange: 'Nobody was hurt',
+                userType: 'REPORTING_OFFICER',
+                userAction: 'REQUEST_NOT_REPORTABLE',
+                originalReportReference: null,
+                correctionRequestedBy: 'user1',
+                correctionRequestedAt: '2023-12-05T09:20:03',
+              },
+            ],
+          }
+
+          cy.task('stubIncidentReportingApiGetReportWithDetailsById', { report: reportWithDetails })
+          cy.visit(`/reports/${reportWithDetails.id}`)
+
+          actionTestCase({
+            reportWithDetails,
+            actionLabel: 'Mark as not reportable',
+            userAction: 'MARK_NOT_REPORTABLE',
+            newStatus: 'NOT_REPORTABLE',
+            commentSentToApi: '(Not reportable)',
             banner: 'Report 6544 has been marked as not reportable',
           })
         })
@@ -269,17 +346,23 @@ function actionTestCase({
   userAction,
   newStatus,
   comment,
-  commentPlaceholder,
+  commentSentToApi,
   originalReportReference,
+  originalReportReferenceSentToApi,
   banner,
 }: {
   reportWithDetails: DatesAsStrings<ReportWithDetails>
   actionLabel: string
   userAction: ApiUserAction & UserAction
   newStatus: Status
+  /** Comment entered by user */
   comment?: string
-  commentPlaceholder?: string
+  /** Comment sent to api if different from that entered by user */
+  commentSentToApi?: string
+  /** Reference entered by user */
   originalReportReference?: string
+  /** Reference sent to api if different from that entered by user */
+  originalReportReferenceSentToApi?: string
   banner: string
 }) {
   const reportPage = Page.verifyOnPage(ReportPage, reportWithDetails.reportReference)
@@ -294,10 +377,10 @@ function actionTestCase({
   const correctionRequestPayload: AddCorrectionRequestRequest = {
     userType: 'DATA_WARDEN',
     userAction,
-    descriptionOfChange: comment ?? commentPlaceholder,
+    descriptionOfChange: commentSentToApi ?? comment,
   }
-  if (originalReportReference) {
-    correctionRequestPayload.originalReportReference = originalReportReference
+  if (originalReportReferenceSentToApi ?? originalReportReference) {
+    correctionRequestPayload.originalReportReference = originalReportReferenceSentToApi ?? originalReportReference
   }
   cy.task('stubIncidentReportingApiCreateRelatedObject', {
     urlSlug: RelatedObjectUrlSlug.correctionRequests,

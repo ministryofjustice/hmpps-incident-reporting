@@ -112,8 +112,6 @@ describe('Submitting “to do” reports', () => {
             expect(choices).to.deep.equal([
               { label: 'It is a duplicate', value: 'REQUEST_DUPLICATE', checked: false },
               { label: 'It is not reportable', value: 'REQUEST_NOT_REPORTABLE', checked: false },
-              // TODO: this should not be here! submit button has name clash!
-              { label: '', value: 'continue', checked: false },
             ])
           })
 

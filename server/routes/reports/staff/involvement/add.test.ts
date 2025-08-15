@@ -179,7 +179,7 @@ describe('Adding a new staff member to a report', () => {
       .post(addPageUrl(mockPrisonUser.username))
       .send({
         ...validScenarios[0].validPayload,
-        userAction: 'exit',
+        formAction: 'exit',
       })
       .expect(302)
       .expect(res => {

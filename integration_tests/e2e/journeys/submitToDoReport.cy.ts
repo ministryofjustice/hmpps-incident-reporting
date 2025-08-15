@@ -5,6 +5,7 @@ import { now } from '../../../server/testutils/fakeClock'
 import Page from '../../pages/page'
 import { DashboardPage } from '../../pages/dashboard'
 import { ReportPage } from '../../pages/reports/report'
+import { RequestRemovalPage } from '../../pages/reports/requestRemoval'
 import { validReport } from './validReport'
 
 describe('Submitting “to do” reports', () => {
@@ -92,6 +93,64 @@ describe('Submitting “to do” reports', () => {
         dashboardPage.checkNotificationBannerContent(
           isDraft ? 'You have submitted incident report 6544' : 'You have resubmitted incident report 6544',
         )
+      })
+
+      context('choosing to remove a report', () => {
+        beforeEach(() => {
+          const reportPage = Page.verifyOnPage(ReportPage, reportWithDetails.reportReference, true)
+          reportPage.selectAction('Remove it as it’s a duplicate or not reportable')
+
+          cy.task('stubIncidentReportingApiGetReportById', { report: reportWithDetails })
+
+          reportPage.continueButton.click()
+        })
+
+        it('should be able to request marking it as a duplicate', () => {
+          const requestRemovalPage = Page.verifyOnPage(RequestRemovalPage)
+
+          requestRemovalPage.actionChoices.then(choices => {
+            expect(choices).to.deep.equal([
+              { label: 'It is a duplicate', value: 'REQUEST_DUPLICATE', checked: false },
+              { label: 'It is not reportable', value: 'REQUEST_NOT_REPORTABLE', checked: false },
+              // TODO: this should not be here! submit button has name clash!
+              { label: '', value: 'continue', checked: false },
+            ])
+          })
+
+          requestRemovalPage.selectAction('It is a duplicate')
+          requestRemovalPage.enterOriginalReportReference('6543')
+          requestRemovalPage.enterDuplicateComment('Looks the same to me')
+
+          const duplicatedReportId = '0198a59c-1111-2222-3333-444444444444'
+          cy.task('stubIncidentReportingApiGetReportByReference', {
+            report: {
+              ...reportWithDetails,
+              id: duplicatedReportId,
+              reportReference: '6543',
+            },
+          })
+          cy.task('stubIncidentReportingApiCreateRelatedObject', {
+            urlSlug: RelatedObjectUrlSlug.correctionRequests,
+            reportId: reportWithDetails.id,
+            request: {
+              userType: 'REPORTING_OFFICER',
+              userAction: 'REQUEST_DUPLICATE',
+              originalReportReference: '6543',
+              descriptionOfChange: 'Looks the same to me',
+            },
+            response: [], // technically, missing new comment
+          })
+          cy.task('stubIncidentReportingApiChangeReportStatus', {
+            request: { newStatus },
+            report: {
+              ...reportWithDetails,
+              status: newStatus,
+            },
+          })
+          cy.task('stubIncidentReportingApiGetReports') // for empty dashboard page
+
+          requestRemovalPage.submit()
+        })
       })
     })
   })

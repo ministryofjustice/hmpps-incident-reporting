@@ -150,6 +150,39 @@ describe('Submitting “to do” reports', () => {
           cy.task('stubIncidentReportingApiGetReports') // for empty dashboard page
 
           requestRemovalPage.submit()
+
+          const dashboardPage = Page.verifyOnPage(DashboardPage)
+          dashboardPage.checkNotificationBannerContent('Request to remove report 6544 sent')
+        })
+
+        it('should be able to request marking it as not reportable', () => {
+          const requestRemovalPage = Page.verifyOnPage(RequestRemovalPage)
+          requestRemovalPage.selectAction('It is not reportable')
+          requestRemovalPage.enterNotReportableComment('Nobody was hurt')
+
+          cy.task('stubIncidentReportingApiCreateRelatedObject', {
+            urlSlug: RelatedObjectUrlSlug.correctionRequests,
+            reportId: reportWithDetails.id,
+            request: {
+              userType: 'REPORTING_OFFICER',
+              userAction: 'REQUEST_NOT_REPORTABLE',
+              descriptionOfChange: 'Nobody was hurt',
+            },
+            response: [], // technically, missing new comment
+          })
+          cy.task('stubIncidentReportingApiChangeReportStatus', {
+            request: { newStatus },
+            report: {
+              ...reportWithDetails,
+              status: newStatus,
+            },
+          })
+          cy.task('stubIncidentReportingApiGetReports') // for empty dashboard page
+
+          requestRemovalPage.submit()
+
+          const dashboardPage = Page.verifyOnPage(DashboardPage)
+          dashboardPage.checkNotificationBannerContent('Request to remove report 6544 sent')
         })
       })
     })

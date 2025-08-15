@@ -22,5 +22,9 @@ export class RequestRemovalPage extends FormWizardPage {
     return this.textareaInput('duplicateComment').clear().type(comment)
   }
 
+  enterNotReportableComment(comment: string): PageElement<HTMLTextAreaElement> {
+    return this.textareaInput('notReportableComment').clear().type(comment)
+  }
+
   protected saveAndContinueText = 'Request to remove report'
 }

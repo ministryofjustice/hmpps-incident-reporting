@@ -152,7 +152,11 @@ export class ReportPage extends Page {
     return this.userActionsForm.find<HTMLTextAreaElement>(`[name="${userAction}_COMMENT"]`).type(comment)
   }
 
+  get submitButtons(): PageElement<HTMLButtonElement> {
+    return this.userActionsForm.find<HTMLButtonElement>('.govuk-button')
+  }
+
   get continueButton(): PageElement<HTMLButtonElement> {
-    return this.userActionsForm.find<HTMLButtonElement>('.govuk-button').contains('Continue')
+    return this.submitButtons.contains('Continue')
   }
 }

@@ -19,7 +19,7 @@ describe('Actioning submitted reports', () => {
     cy.clock(now)
   })
 
-  const validReport = mockReport({
+  const validReport: DatesAsStrings<ReportWithDetails> = mockReport({
     type: 'FOOD_REFUSAL_1',
     reportReference: '6544',
     reportDateAndTime: now,

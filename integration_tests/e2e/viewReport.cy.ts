@@ -35,7 +35,7 @@ context('View report', () => {
     })
 
     it('should show basic report info', () => {
-      reportPage.checkLastBreadcrumb('Incident reporting', '/')
+      reportPage.checkLastBreadcrumb('Incident reports', '/reports')
 
       reportPage.location.should('contain.text', 'Moorland')
       reportPage.reportedBy.should('contain.text', 'John Smith')
@@ -157,7 +157,7 @@ context('View report', () => {
     })
 
     it('should show basic report info', () => {
-      reportPage.checkLastBreadcrumb('Incident reporting', '/')
+      reportPage.checkLastBreadcrumb('Incident reports', '/reports')
 
       reportPage.location.should('contain.text', 'Moorland')
       reportPage.reportedBy.should('contain.text', 'John Smith')

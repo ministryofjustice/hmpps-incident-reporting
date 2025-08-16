@@ -155,8 +155,8 @@ context('Change incident type', () => {
 
     const typePage = Page.verifyOnPage(TypePage)
     typePage.submit()
-    typePage.errorSummary.contains('There is a problem')
-    typePage.errorSummary.contains('Select the incident type')
+    typePage.errorSummary.should('contain.text', 'There is a problem')
+    typePage.errorSummary.should('contain.text', 'Select the incident type')
   })
 
   it('should allow changing type', () => {

@@ -135,8 +135,8 @@ context('Add prisoner involvement page', () => {
   it('should show errors if information is missing', () => {
     addPrisonerInvolvementsPage.enterComment('Some comments')
     addPrisonerInvolvementsPage.submit()
-    addPrisonerInvolvementsPage.errorSummary.contains('There is a problem')
-    addPrisonerInvolvementsPage.errorSummary.contains('Select the prisoner’s role in the incident')
+    addPrisonerInvolvementsPage.errorSummary.should('contain.text', 'There is a problem')
+    addPrisonerInvolvementsPage.errorSummary.should('contain.text', 'Select the prisoner’s role in the incident')
     Page.verifyOnPage(AddPrisonerInvolvementsPage, 'Andrew Arnold’s')
   })
 })

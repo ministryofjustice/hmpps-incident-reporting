@@ -48,8 +48,8 @@ context('Remove prisoner involvement page', () => {
 
   it('should show an error if not confirmed', () => {
     removePrisonerInvolvementsPage.submit()
-    removePrisonerInvolvementsPage.errorSummary.contains('There is a problem')
-    removePrisonerInvolvementsPage.errorSummary.contains('Select yes if you want to remove the prisoner')
+    removePrisonerInvolvementsPage.errorSummary.should('contain.text', 'There is a problem')
+    removePrisonerInvolvementsPage.errorSummary.should('contain.text', 'Select yes if you want to remove the prisoner')
     Page.verifyOnPage(RemovePrisonerInvolvementsPage, 'A2222BB', 'Barry Benjamin')
   })
 

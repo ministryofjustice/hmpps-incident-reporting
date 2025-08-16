@@ -90,6 +90,6 @@ context('Sign in', () => {
     cy.task('stubManageUserMe', 'bobby brown')
     cy.signIn()
 
-    homePage.headerUserName.contains('B. Brown')
+    homePage.headerUserName.should('contain.text', 'B. Brown')
   })
 })

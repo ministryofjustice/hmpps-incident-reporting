@@ -10,6 +10,6 @@ declare namespace Cypress {
      * Set up stubs needed for all interactions.
      * By default, the user acts like a reporting officer with access to Moorland only.
      */
-    resetBasicStubs(options?: { roles?: string[] }): Chainable<AUTWindow>
+    resetBasicStubs(options?: { user?: Express.User }): Chainable<AUTWindow>
   }
 }

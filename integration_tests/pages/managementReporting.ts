@@ -1,6 +1,6 @@
 import Page, { PageElement } from './page'
 
-export default class ManagementReportingPage extends Page {
+export class ManagementReportingPage extends Page {
   constructor() {
     super('Management reporting', 'Management reporting')
   }

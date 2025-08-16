@@ -1,15 +1,18 @@
-import { roleReadWrite } from '../../server/data/constants'
+import type { Express } from 'express'
+
+import { mockReportingOfficer } from '../../server/data/testData/users'
 
 Cypress.Commands.add('signIn', (options = { failOnStatusCode: true }) => {
   cy.request('/')
   return cy.task('getSignInUrl').then((url: string) => cy.visit(url, options))
 })
 
-Cypress.Commands.add('resetBasicStubs', ({ roles = ['PRISON', roleReadWrite] }: { roles?: string[] } = {}) => {
+Cypress.Commands.add('resetBasicStubs', ({ user = mockReportingOfficer }: { user?: Express.User } = {}) => {
   cy.task('resetStubs')
-  cy.task('stubSignIn', roles)
+  cy.task('stubSignIn', user.roles)
   cy.task('stubManageUserMe')
   cy.task('stubFallbackHeaderAndFooter')
   cy.task('stubPrisonApiMockPecsRegions')
   cy.task('stubPrisonApiMockAgencySwitches')
+  return cy.end()
 })

@@ -1,10 +1,10 @@
 import { mockReport } from '../../../../server/data/testData/incidentReporting'
 import { andrew, barry } from '../../../../server/data/testData/offenderSearch'
+import { now } from '../../../../server/testutils/fakeClock'
 import Page from '../../../pages/page'
 import { PrisonerSearchPage } from '../../../pages/reports/involvements/prisoners'
 
 context('Prisoner search page', () => {
-  const now = new Date()
   const reportWithDetails = mockReport({
     type: 'MISCELLANEOUS_1',
     reportReference: '6544',

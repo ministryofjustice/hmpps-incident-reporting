@@ -1,11 +1,11 @@
 import { RelatedObjectUrlSlug } from '../../../../server/data/incidentReportingApi'
 import { mockReport } from '../../../../server/data/testData/incidentReporting'
 import { staffBarry } from '../../../../server/data/testData/prisonApi'
+import { now } from '../../../../server/testutils/fakeClock'
 import Page from '../../../pages/page'
 import { RemoveStaffInvolvementsPage, StaffInvolvementsPage } from '../../../pages/reports/involvements/staff'
 
 context('Remove staff involvement page', () => {
-  const now = new Date()
   const reportWithDetails = mockReport({
     type: 'MISCELLANEOUS_1',
     reportReference: '6544',
@@ -45,8 +45,11 @@ context('Remove staff involvement page', () => {
 
   it('should show an error if not confirmed', () => {
     removeStaffInvolvementsPage.submit()
-    removeStaffInvolvementsPage.errorSummary.contains('There is a problem')
-    removeStaffInvolvementsPage.errorSummary.contains('Select yes if you want to remove the member of staff')
+    removeStaffInvolvementsPage.errorSummary.should('contain.text', 'There is a problem')
+    removeStaffInvolvementsPage.errorSummary.should(
+      'contain.text',
+      'Select yes if you want to remove the member of staff',
+    )
     Page.verifyOnPage(RemoveStaffInvolvementsPage, 'Barry Harrison')
   })
 

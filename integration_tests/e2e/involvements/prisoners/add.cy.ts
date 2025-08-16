@@ -2,11 +2,11 @@ import { RelatedObjectUrlSlug } from '../../../../server/data/incidentReportingA
 import { mockReport } from '../../../../server/data/testData/incidentReporting'
 import { andrew, barry } from '../../../../server/data/testData/offenderSearch'
 import { moorland } from '../../../../server/data/testData/prisonApi'
+import { now } from '../../../../server/testutils/fakeClock'
 import Page from '../../../pages/page'
 import { AddPrisonerInvolvementsPage, PrisonerInvolvementsPage } from '../../../pages/reports/involvements/prisoners'
 
 context('Add prisoner involvement page', () => {
-  const now = new Date()
   const reportWithDetails = mockReport({
     type: 'MISCELLANEOUS_1',
     reportReference: '6544',
@@ -135,8 +135,8 @@ context('Add prisoner involvement page', () => {
   it('should show errors if information is missing', () => {
     addPrisonerInvolvementsPage.enterComment('Some comments')
     addPrisonerInvolvementsPage.submit()
-    addPrisonerInvolvementsPage.errorSummary.contains('There is a problem')
-    addPrisonerInvolvementsPage.errorSummary.contains('Select the prisoner’s role in the incident')
+    addPrisonerInvolvementsPage.errorSummary.should('contain.text', 'There is a problem')
+    addPrisonerInvolvementsPage.errorSummary.should('contain.text', 'Select the prisoner’s role in the incident')
     Page.verifyOnPage(AddPrisonerInvolvementsPage, 'Andrew Arnold’s')
   })
 })

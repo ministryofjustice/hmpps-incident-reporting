@@ -1,7 +1,7 @@
-import HomePage from '../pages/home'
-import AuthSignInPage from '../pages/authSignIn'
 import Page from '../pages/page'
-import AuthManageDetailsPage from '../pages/authManageDetails'
+import { HomePage } from '../pages/home'
+import { AuthSignInPage } from '../pages/authSignIn'
+import { AuthManageDetailsPage } from '../pages/authManageDetails'
 import { roleReadWrite } from '../../server/data/constants'
 
 context('Sign in', () => {
@@ -90,6 +90,6 @@ context('Sign in', () => {
     cy.task('stubManageUserMe', 'bobby brown')
     cy.signIn()
 
-    homePage.headerUserName.contains('B. Brown')
+    homePage.headerUserName.should('contain.text', 'B. Brown')
   })
 })

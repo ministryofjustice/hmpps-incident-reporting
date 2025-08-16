@@ -59,7 +59,7 @@ class DetailsController extends BaseDetailsController<CreateReportValues> {
     // if a report was successfully created…
     if (res.locals.createdReport) {
       // …go to report view if user chose to exit
-      if (req.body?.userAction === 'exit') {
+      if (req.body?.formAction === 'exit') {
         return res.locals.reportUrl
       }
 

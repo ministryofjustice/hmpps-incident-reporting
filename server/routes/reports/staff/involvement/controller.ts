@@ -54,7 +54,7 @@ export abstract class StaffInvolvementController<V extends Values = Values> exte
 
   getNextStep(req: FormWizard.Request<V>, res: express.Response): string {
     // go to report view if user chose to exit
-    if (req.body?.userAction === 'exit') {
+    if (req.body?.formAction === 'exit') {
       return res.locals.reportUrl
     }
     // …or return to involvements summary

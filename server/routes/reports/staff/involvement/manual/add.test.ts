@@ -206,7 +206,7 @@ describe('Adding a new staff member to a report who does not have a DPS/NOMIS ac
         .post(detailsPageUrl())
         .send({
           ...validScenarios[0].validPayload,
-          userAction: 'exit',
+          formAction: 'exit',
         })
         .expect(302)
         .expect(res => {

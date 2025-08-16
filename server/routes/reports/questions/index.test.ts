@@ -855,7 +855,7 @@ describe('Submitting questions’ responses', () => {
           '45033': ['NO'],
           '44636': ['NO'],
           '44749': ['NO'],
-          userAction: 'exit',
+          formAction: 'exit',
         })
         .expect(302)
         .expect(res => {

@@ -6,7 +6,7 @@ export abstract class Dialogue extends Component<HTMLDialogElement> {
   constructor(root: HTMLDialogElement) {
     super(root)
 
-    root.querySelectorAll('button[name="userAction"]').forEach((button: HTMLButtonElement) => {
+    root.querySelectorAll('button[name="formAction"]').forEach((button: HTMLButtonElement) => {
       button.addEventListener('click', event => {
         event.preventDefault()
         root.close(button.value)

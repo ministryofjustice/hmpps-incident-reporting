@@ -335,7 +335,7 @@ describe('Adding a new prisoner to a report', () => {
         .post(addPageUrl(andrew.prisonerNumber))
         .send({
           ...validScenarios[0].validPayload,
-          userAction: 'exit',
+          formAction: 'exit',
         })
         .expect(302)
         .expect(res => {

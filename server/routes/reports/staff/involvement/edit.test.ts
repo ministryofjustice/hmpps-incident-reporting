@@ -180,7 +180,7 @@ describe('Editing an existing staff member in a report', () => {
       .post(editPageUrl(1))
       .send({
         ...validScenarios[0].validPayload,
-        userAction: 'exit',
+        formAction: 'exit',
       })
       .expect(302)
       .expect(res => {

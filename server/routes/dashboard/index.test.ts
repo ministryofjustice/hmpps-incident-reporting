@@ -48,22 +48,25 @@ describe('Dashboard permissions', () => {
     incidentReportingApi.getReports.mockResolvedValueOnce(unsortedPageOf([]))
   })
 
-  const show = 'show' as const
-  const hide = 'hide' as const
-
   it.each([
-    { userType: 'reporting officer', user: mockReportingOfficer, action: show },
-    { userType: 'data warden', user: mockDataWarden, action: hide },
-    { userType: 'HQ view-only user', user: mockHqViewer, action: hide },
-    { userType: 'unauthorised user', user: mockUnauthorisedUser, action: hide },
-  ])('should $action report button for $userType', ({ user, action }) => {
+    {
+      userType: 'reporting officer',
+      user: mockReportingOfficer,
+      action: 'show',
+      buttonText: 'Create a report for Moorland',
+    },
+    { userType: 'data warden', user: mockDataWarden, action: 'show', buttonText: 'Create a PECS report' },
+    { userType: 'HQ view-only user', user: mockHqViewer, action: 'not show' },
+    { userType: 'unauthorised user', user: mockUnauthorisedUser, action: 'not show' },
+  ])('should $action create report button for $userType', ({ user, buttonText }) => {
     return request(appWithAllRoutes({ services: { userService }, userSupplier: () => user }))
       .get('/reports')
       .expect(res => {
-        if (action === show) {
-          expect(res.text).toContain('Create a report for Moorland')
+        if (buttonText) {
+          expect(res.text).toContain(buttonText)
         } else {
           expect(res.text).not.toContain('Create a report')
+          expect(res.text).not.toContain('Create a PECS report')
         }
       })
   })

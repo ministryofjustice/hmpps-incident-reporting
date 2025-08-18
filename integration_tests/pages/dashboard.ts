@@ -9,6 +9,10 @@ export class DashboardPage extends Page {
     return cy.get('a').contains('Create a report')
   }
 
+  get createPecsReportLink(): PageElement<HTMLAnchorElement> {
+    return cy.get('a').contains('Create a PECS report')
+  }
+
   private get searchForm(): PageElement<HTMLFormElement> {
     return cy.get('form#app-dashboard__search-form')
   }

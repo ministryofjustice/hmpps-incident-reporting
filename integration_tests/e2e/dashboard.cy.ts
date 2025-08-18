@@ -37,6 +37,7 @@ context('Searching for a report', () => {
     cy.task('stubIncidentReportingApiGetReports')
     cy.visit('/reports')
     const dashboardPage = Page.verifyOnPage(DashboardPage)
+    dashboardPage.createPecsReportLink.should('not.exist')
     dashboardPage.createReportLink.click()
     Page.verifyOnPage(TypePage)
   })

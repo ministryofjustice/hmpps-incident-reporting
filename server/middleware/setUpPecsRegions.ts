@@ -20,7 +20,12 @@ export default function setUpPecsRegions(services: Services): RequestHandler {
             pecsRegions.push(
               ...Object.values(regionMap)
                 .map(fromAgency)
-                .sort((region1, region2) => region1.description.localeCompare(region2.description)),
+                .sort((region1, region2) => {
+                  if (region1.active !== region2.active) {
+                    return region1.active ? -1 : 1
+                  }
+                  return region1.description.localeCompare(region2.description)
+                }),
             )
             next()
           },

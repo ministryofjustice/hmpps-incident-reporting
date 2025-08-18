@@ -3,6 +3,7 @@ import { Router } from 'express'
 import config from '../config'
 import { logoutUnless } from '../middleware/permissions'
 import type { Services } from '../services'
+import { pecsRegions } from '../data/pecsRegions'
 import { PrisonApi } from '../data/prisonApi'
 import makeDownloadConfigRouter from './downloadReportConfig'
 import { createReportRouter } from './reports/createReportRouter'
@@ -26,7 +27,15 @@ export default function routes(services: Services): Router {
   router.use(logoutUnless(permissions => permissions.canAccessService))
 
   router.get('/', (_req, res) => {
-    res.render('pages/index')
+    const { permissions } = res.locals
+
+    let canCreatePecsReport = false
+    const somePecsRegion = pecsRegions[0]
+    if (somePecsRegion) {
+      canCreatePecsReport = permissions.canCreateReportInLocation(somePecsRegion.code)
+    }
+
+    res.render('pages/index', { canCreatePecsReport })
   })
 
   // view-only debug pages

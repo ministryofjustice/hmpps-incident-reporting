@@ -17,15 +17,29 @@ export class HomePage extends Page {
     return cy.get('.dps-card')
   }
 
+  get cardDetails() {
+    return this.cards.then($cards =>
+      $cards
+        .map((_, card) => {
+          const $card = Cypress.$(card) as unknown as JQuery<HTMLDivElement>
+          return {
+            title: $card.find('.dps-card__heading').text().trim(),
+            url: $card.find('.dps-card__link').attr('href'),
+          }
+        })
+        .toArray(),
+    )
+  }
+
   clickCreateReportCard(): Cypress.Chainable {
-    return cy.contains('Create an incident report').click()
+    return this.cards.contains('Create an incident report').click()
   }
 
   clickViewReportsCard(): Cypress.Chainable {
-    return cy.contains('Search incident reports').click()
+    return this.cards.contains('Search incident reports').click()
   }
 
   clickManagementReportsCard(): Cypress.Chainable {
-    return cy.contains('Management reporting').click()
+    return this.cards.contains('Management reporting').click()
   }
 }

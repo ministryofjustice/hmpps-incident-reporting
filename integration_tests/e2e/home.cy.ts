@@ -10,9 +10,12 @@ context('Home page', () => {
   it('should show tiles & breadcrumbs', () => {
     const homePage = Page.verifyOnPage(HomePage)
     homePage.checkLastBreadcrumb('Digital Prison Services')
-    homePage.cards.spread((...cards: HTMLDivElement[]) => {
-      const titles = cards.map(card => card.getElementsByClassName('dps-card__heading')[0].textContent.trim())
-      expect(titles).to.deep.equal(['Create an incident report', 'Search incident reports', 'Management reporting'])
+    homePage.cardDetails.then(cards => {
+      expect(cards).to.deep.equal([
+        { title: 'Create an incident report', url: '/create-report' },
+        { title: 'Search incident reports', url: '/reports' },
+        { title: 'Management reporting', url: '/management-reporting' },
+      ])
     })
   })
 })

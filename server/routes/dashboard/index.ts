@@ -52,6 +52,7 @@ export default function dashboard(): Router {
     const { permissions } = res.locals
     const { activeCaseLoad, caseLoads: userCaseloads } = res.locals.user
     const userCaseloadIds = userCaseloads.map(caseload => caseload.caseLoadId)
+    const pecsRegionCodes = pecsRegions.map(pecsRegion => pecsRegion.code)
 
     const { location, fromDate: fromDateInput, toDate: toDateInput, page }: ListFormData = req.query
     let { searchID, typeFamily, incidentStatuses, sort, order }: ListFormData = req.query
@@ -156,15 +157,17 @@ export default function dashboard(): Router {
     }
 
     // Set locations to user’s caseloads by default and PECS regions if allowed
-    let searchLocations: string[] | string = userCaseloadIds
+    let searchLocations: string[] = userCaseloadIds
     if (permissions.hasPecsAccess) {
-      searchLocations.push(...pecsRegions.map(pecsRegion => pecsRegion.code))
+      searchLocations.push(...pecsRegionCodes)
     }
     if (location) {
       if (userCaseloadIds.includes(location)) {
-        searchLocations = location
-      } else if (location === allPecsRegionsFlag && permissions.hasPecsAccess) {
-        searchLocations = pecsRegions.map(pecsRegion => pecsRegion.code)
+        searchLocations = [location]
+      } else if (permissions.hasPecsAccess && pecsRegionCodes.includes(location)) {
+        searchLocations = [location]
+      } else if (permissions.hasPecsAccess && location === allPecsRegionsFlag) {
+        searchLocations = pecsRegionCodes
       } else {
         errors.push({
           href: '#location',
@@ -260,29 +263,36 @@ export default function dashboard(): Router {
       }))
       statusCheckboxLabel = 'Status'
     }
+
+    const typesLookup = Object.fromEntries(types.map(type => [type.code, type.description]))
+    const statusLookup = Object.fromEntries(statuses.map(status => [status.code, status.description]))
+
+    /** location choices for auto-complete */
     const allLocations: GovukSelectItem[] = userCaseloads.map(caseload => ({
       value: caseload.caseLoadId,
       text: caseload.description,
     }))
-    if (permissions.hasPecsAccess) {
-      allLocations.unshift({
-        value: allPecsRegionsFlag,
-        text: 'PECS',
-      })
-    }
-
-    const typesLookup = Object.fromEntries(types.map(type => [type.code, type.description]))
-    const statusLookup = Object.fromEntries(statuses.map(status => [status.code, status.description]))
+    /** location map for code-to-description display */
     const locationLookup = Object.fromEntries(
       userCaseloads.map(caseload => [caseload.caseLoadId, caseload.description]),
     )
     if (permissions.hasPecsAccess) {
+      allLocations.unshift({
+        value: allPecsRegionsFlag,
+        text: 'All PECS regions',
+      })
+      allLocations.push(
+        ...pecsRegions.map(pecsRegion => ({
+          value: pecsRegion.code,
+          text: pecsRegion.description,
+        })),
+      )
       pecsRegions.forEach(pecsRegion => {
         locationLookup[pecsRegion.code] = pecsRegion.description
       })
     }
 
-    const showLocationFilter = userCaseloadIds.length > 1 || permissions.hasPecsAccess
+    const showLocationFilter = allLocations.length > 1
     let tableHead: HeaderCell[] | undefined
     let paginationParams: LegacyPagination
     if (reportsResponse) {

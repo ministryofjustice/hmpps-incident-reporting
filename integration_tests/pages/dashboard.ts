@@ -29,6 +29,21 @@ export class DashboardPage extends Page {
     return this.searchForm.find('#location')
   }
 
+  get locationSelect(): PageElement<HTMLSelectElement> {
+    return this.searchForm.find('#location-select')
+  }
+
+  get locationOptions() {
+    return this.locationSelect.find<HTMLOptionElement>('option').then($options =>
+      $options
+        .map((_, option) => ({
+          label: option.textContent.trim(),
+          value: option.value,
+        }))
+        .toArray(),
+    )
+  }
+
   get type(): PageElement<HTMLInputElement> {
     return this.searchForm.find('#typeFamily')
   }

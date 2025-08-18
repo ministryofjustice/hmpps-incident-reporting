@@ -153,7 +153,7 @@ describe('Dashboard', () => {
 
   it('should submit query values correctly to api call for reporting officer', () => {
     const expectedParams: Partial<GetReportsParams> = {
-      location: 'MDI',
+      location: ['MDI'],
       incidentDateFrom: new Date(2025, 0, 1, 12, 0, 0),
       incidentDateUntil: new Date(2025, 0, 14, 12, 0, 0),
       involvingPrisonerNumber: 'A0011BC',
@@ -188,7 +188,7 @@ describe('Dashboard', () => {
 
   it('should submit query values correctly to api call for data warden', () => {
     const expectedParams: Partial<GetReportsParams> = {
-      location: 'LEI',
+      location: ['LEI'],
       incidentDateFrom: new Date(2025, 0, 1, 12, 0, 0),
       incidentDateUntil: new Date(2025, 0, 4, 12, 0, 0),
       involvingPrisonerNumber: 'A0011BC',
@@ -238,7 +238,7 @@ describe('Dashboard', () => {
       },
     },
   ])(
-    'should submit query values correctly to api for $userType (with PECS role) when searching for PECS reports only',
+    'should submit query values correctly to api for $userType (with PECS role) when searching for all PECS reports',
     ({ user }) => {
       return request(appWithAllRoutes({ services: { userService }, userSupplier: () => user }))
         .get('/reports')
@@ -251,6 +251,42 @@ describe('Dashboard', () => {
           expect(incidentReportingApi.getReports).toHaveBeenCalledWith(
             expect.objectContaining({
               location: ['NORTH', 'SOUTH'],
+            }),
+          )
+        })
+    },
+  )
+
+  it.each([
+    {
+      userType: 'reporting officer',
+      user: {
+        ...mockReportingOfficer,
+        roles: [...mockReportingOfficer.roles, rolePecs],
+      },
+    },
+    { userType: 'data warden', user: mockDataWarden },
+    {
+      userType: 'HQ view-only user',
+      user: {
+        ...mockHqViewer,
+        roles: [...mockHqViewer.roles, rolePecs],
+      },
+    },
+  ])(
+    'should submit query values correctly to api for $userType (with PECS role) when filtering by a single PECS region',
+    ({ user }) => {
+      return request(appWithAllRoutes({ services: { userService }, userSupplier: () => user }))
+        .get('/reports')
+        .query({ location: 'SOUTH' })
+        .expect('Content-Type', /html/)
+        .expect(200)
+        .expect(res => {
+          expect(res.text).not.toContain('There is a problem')
+          expect(res.text).toContain('Clear filters')
+          expect(incidentReportingApi.getReports).toHaveBeenCalledWith(
+            expect.objectContaining({
+              location: ['SOUTH'],
             }),
           )
         })

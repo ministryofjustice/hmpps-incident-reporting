@@ -262,7 +262,7 @@ export function viewReportRouter(): Router {
 
       // “About the [incident]”
       res.locals.aboutTheType = aboutTheType(res.locals.report.type)
-      const descriptionAppendOnly = dwNotReviewed.includes(report.status)
+      const descriptionAppendOnly = !dwNotReviewed.includes(report.status)
 
       res.render('pages/reports/view/index', {
         errors,

@@ -17,6 +17,7 @@ import {
 import type { PaginatedBasicReports } from '../../data/incidentReportingApi'
 import { type Order, orderOptions } from '../../data/offenderSearchApi'
 import { pecsRegions } from '../../data/pecsRegions'
+import { isLocationActiveInService } from '../../middleware/permissions'
 import type { HeaderCell } from '../../utils/sortableTable'
 import format from '../../utils/format'
 import type { GovukCheckboxesItem, GovukErrorSummaryItem, GovukSelectItem } from '../../utils/govukFrontend'
@@ -42,6 +43,8 @@ interface ListFormData {
 
 /** Location search filter which is replaced by all PECS regions when performing search */
 const allPecsRegionsFlag = '.PECS' as const
+/** Location search filter which is replaced by all active locations when performing search */
+const activeLocationsFlag = '.ACTIVE' as const // TODO: remove after rollout
 
 export default function dashboard(): Router {
   const router = Router({ mergeParams: true })
@@ -168,6 +171,9 @@ export default function dashboard(): Router {
         searchLocations = [location]
       } else if (permissions.hasPecsAccess && location === allPecsRegionsFlag) {
         searchLocations = pecsRegionCodes
+      } else if (location === activeLocationsFlag) {
+        // TODO: remove after rollout
+        searchLocations = searchLocations.filter(isLocationActiveInService)
       } else {
         errors.push({
           href: '#location',
@@ -293,6 +299,14 @@ export default function dashboard(): Router {
     }
 
     const showLocationFilter = allLocations.length > 1
+    if (showLocationFilter) {
+      // TODO: remove after rollout
+      allLocations.unshift({
+        value: activeLocationsFlag,
+        text: 'All locations active in the service', // TODO: confirm text
+      })
+    }
+
     let tableHead: HeaderCell[] | undefined
     let paginationParams: LegacyPagination
     if (reportsResponse) {

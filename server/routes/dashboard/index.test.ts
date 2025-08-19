@@ -22,22 +22,16 @@ jest.mock('../../services/userService')
 const incidentReportingApi = IncidentReportingApi.prototype as jest.Mocked<IncidentReportingApi>
 const userService = UserService.prototype as jest.Mocked<UserService>
 
-beforeAll(() => {
-  mockPecsRegions()
-})
-
-afterAll(() => {
-  resetPecsRegions()
-})
-
 let app: Express
 
 beforeEach(() => {
+  mockPecsRegions()
   app = appWithAllRoutes({ services: { userService } })
 })
 
 afterEach(() => {
   jest.resetAllMocks()
+  resetPecsRegions()
 })
 
 describe('Dashboard permissions', () => {
@@ -290,6 +284,36 @@ describe('Dashboard', () => {
           expect(incidentReportingApi.getReports).toHaveBeenCalledWith(
             expect.objectContaining({
               location: ['SOUTH'],
+            }),
+          )
+        })
+    },
+  )
+
+  it.each([
+    // has access to only 1 prison (enabled in service)
+    { userType: 'reporting officer', user: mockReportingOfficer, expectedLocations: ['MDI'] },
+    // has access to 2 prisons (1 enabled) and all PECS regions (1 enabled)
+    { userType: 'data warden', user: mockDataWarden, expectedLocations: ['MDI', 'NORTH'] },
+    // has access to 2 prisons (1 enabled)
+    { userType: 'HQ view-only user', user: mockHqViewer, expectedLocations: ['MDI'] },
+  ])(
+    'should submit query values correctly to api for $userType when searching for all active locations',
+    ({ user, expectedLocations }) => {
+      const testApp = appWithAllRoutes({ services: { userService }, userSupplier: () => user })
+      setActiveAgencies(['MDI', 'NORTH']) // turns off LEI and SOUTH which some users could have accessed
+
+      return request(testApp)
+        .get('/reports')
+        .query({ location: '.ACTIVE' })
+        .expect('Content-Type', /html/)
+        .expect(200)
+        .expect(res => {
+          expect(res.text).not.toContain('There is a problem')
+          expect(res.text).toContain('Clear filters')
+          expect(incidentReportingApi.getReports).toHaveBeenCalledWith(
+            expect.objectContaining({
+              location: expectedLocations,
             }),
           )
         })

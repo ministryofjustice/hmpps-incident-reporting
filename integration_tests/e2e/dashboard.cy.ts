@@ -163,6 +163,7 @@ context('Searching for a report', () => {
     dashboardPage.locationOptions.then(locationOptions => {
       expect(locationOptions).to.deep.equal([
         { label: 'All locations', value: '' },
+        { label: 'All locations active in the service', value: '.ACTIVE' }, // TODO: remove after rollout
         { label: 'All PECS regions', value: '.PECS' },
         { label: 'Moorland (HMP & YOI)', value: 'MDI' },
         { label: 'PECS North', value: 'NORTH' },

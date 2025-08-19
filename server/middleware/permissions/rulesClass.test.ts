@@ -382,6 +382,7 @@ describe('Permissions class', () => {
         ])('should be $action to $userType.description', ({ userType: { user }, action }) => {
           const permissions = new Permissions(user)
           expect(permissions.canCreateReportInLocation('NORTH')).toBe(action === granted)
+          expect(permissions.canCreatePecsReport).toBe(action === granted)
         })
 
         it.each([
@@ -404,6 +405,8 @@ describe('Permissions class', () => {
             const permissions = new Permissions(user)
             expect(permissions.canCreateReportInLocation('NORTH')).toBe(false)
             expect(permissions.canCreateReportInLocationInNomisOnly('NORTH')).toBe(action === granted)
+            expect(permissions.canCreatePecsReport).toBe(false)
+            expect(permissions.canCreatePecsReportInNomisOnly).toBe(action === granted)
           },
         )
       })

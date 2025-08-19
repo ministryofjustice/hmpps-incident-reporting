@@ -3,6 +3,7 @@ import type { Response as SuperAgentResponse } from 'superagent'
 import type { GetReportsParams } from '../../server/data/incidentReportingApi'
 import { mockReport } from '../../server/data/testData/incidentReporting'
 import { moorland } from '../../server/data/testData/prisonApi'
+import { mockDataWarden } from '../../server/data/testData/users'
 import { now } from '../../server/testutils/fakeClock'
 import Page from '../pages/page'
 import { DashboardPage } from '../pages/dashboard'
@@ -36,6 +37,7 @@ context('Searching for a report', () => {
     cy.task('stubIncidentReportingApiGetReports')
     cy.visit('/reports')
     const dashboardPage = Page.verifyOnPage(DashboardPage)
+    dashboardPage.createPecsReportLink.should('not.exist')
     dashboardPage.createReportLink.click()
     Page.verifyOnPage(TypePage)
   })
@@ -148,6 +150,26 @@ context('Searching for a report', () => {
         searchScenario.testPage(dashboardPage)
       })
     }
+  })
+
+  it('should include location options to filter by', () => {
+    cy.clearCookies()
+    cy.resetBasicStubs({ user: mockDataWarden })
+    cy.signIn()
+
+    cy.task('stubIncidentReportingApiGetReports')
+    cy.visit('/reports')
+    const dashboardPage = Page.verifyOnPage(DashboardPage)
+    dashboardPage.locationOptions.then(locationOptions => {
+      expect(locationOptions).to.deep.equal([
+        { label: 'All locations', value: '' },
+        { label: 'All locations active in the service', value: '.ACTIVE' }, // TODO: remove after rollout
+        { label: 'All PECS regions', value: '.PECS' },
+        { label: 'Moorland (HMP & YOI)', value: 'MDI' },
+        { label: 'PECS North', value: 'NORTH' },
+        { label: 'PECS South', value: 'SOUTH' },
+      ])
+    })
   })
 
   it('should allow clearing filters', () => {

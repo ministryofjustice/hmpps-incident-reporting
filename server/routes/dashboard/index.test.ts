@@ -22,22 +22,16 @@ jest.mock('../../services/userService')
 const incidentReportingApi = IncidentReportingApi.prototype as jest.Mocked<IncidentReportingApi>
 const userService = UserService.prototype as jest.Mocked<UserService>
 
-beforeAll(() => {
-  mockPecsRegions()
-})
-
-afterAll(() => {
-  resetPecsRegions()
-})
-
 let app: Express
 
 beforeEach(() => {
+  mockPecsRegions()
   app = appWithAllRoutes({ services: { userService } })
 })
 
 afterEach(() => {
   jest.resetAllMocks()
+  resetPecsRegions()
 })
 
 describe('Dashboard permissions', () => {
@@ -48,22 +42,25 @@ describe('Dashboard permissions', () => {
     incidentReportingApi.getReports.mockResolvedValueOnce(unsortedPageOf([]))
   })
 
-  const show = 'show' as const
-  const hide = 'hide' as const
-
   it.each([
-    { userType: 'reporting officer', user: mockReportingOfficer, action: show },
-    { userType: 'data warden', user: mockDataWarden, action: hide },
-    { userType: 'HQ view-only user', user: mockHqViewer, action: hide },
-    { userType: 'unauthorised user', user: mockUnauthorisedUser, action: hide },
-  ])('should $action report button for $userType', ({ user, action }) => {
+    {
+      userType: 'reporting officer',
+      user: mockReportingOfficer,
+      action: 'show',
+      buttonText: 'Create a report for Moorland',
+    },
+    { userType: 'data warden', user: mockDataWarden, action: 'show', buttonText: 'Create a PECS report' },
+    { userType: 'HQ view-only user', user: mockHqViewer, action: 'not show' },
+    { userType: 'unauthorised user', user: mockUnauthorisedUser, action: 'not show' },
+  ])('should $action create report button for $userType', ({ user, buttonText }) => {
     return request(appWithAllRoutes({ services: { userService }, userSupplier: () => user }))
       .get('/reports')
       .expect(res => {
-        if (action === show) {
-          expect(res.text).toContain('Create a report for Moorland')
+        if (buttonText) {
+          expect(res.text).toContain(buttonText)
         } else {
           expect(res.text).not.toContain('Create a report')
+          expect(res.text).not.toContain('Create a PECS report')
         }
       })
   })
@@ -153,7 +150,7 @@ describe('Dashboard', () => {
 
   it('should submit query values correctly to api call for reporting officer', () => {
     const expectedParams: Partial<GetReportsParams> = {
-      location: 'MDI',
+      location: ['MDI'],
       incidentDateFrom: new Date(2025, 0, 1, 12, 0, 0),
       incidentDateUntil: new Date(2025, 0, 14, 12, 0, 0),
       involvingPrisonerNumber: 'A0011BC',
@@ -188,7 +185,7 @@ describe('Dashboard', () => {
 
   it('should submit query values correctly to api call for data warden', () => {
     const expectedParams: Partial<GetReportsParams> = {
-      location: 'LEI',
+      location: ['LEI'],
       incidentDateFrom: new Date(2025, 0, 1, 12, 0, 0),
       incidentDateUntil: new Date(2025, 0, 4, 12, 0, 0),
       involvingPrisonerNumber: 'A0011BC',
@@ -238,7 +235,7 @@ describe('Dashboard', () => {
       },
     },
   ])(
-    'should submit query values correctly to api for $userType (with PECS role) when searching for PECS reports only',
+    'should submit query values correctly to api for $userType (with PECS role) when searching for all PECS reports',
     ({ user }) => {
       return request(appWithAllRoutes({ services: { userService }, userSupplier: () => user }))
         .get('/reports')
@@ -251,6 +248,72 @@ describe('Dashboard', () => {
           expect(incidentReportingApi.getReports).toHaveBeenCalledWith(
             expect.objectContaining({
               location: ['NORTH', 'SOUTH'],
+            }),
+          )
+        })
+    },
+  )
+
+  it.each([
+    {
+      userType: 'reporting officer',
+      user: {
+        ...mockReportingOfficer,
+        roles: [...mockReportingOfficer.roles, rolePecs],
+      },
+    },
+    { userType: 'data warden', user: mockDataWarden },
+    {
+      userType: 'HQ view-only user',
+      user: {
+        ...mockHqViewer,
+        roles: [...mockHqViewer.roles, rolePecs],
+      },
+    },
+  ])(
+    'should submit query values correctly to api for $userType (with PECS role) when filtering by a single PECS region',
+    ({ user }) => {
+      return request(appWithAllRoutes({ services: { userService }, userSupplier: () => user }))
+        .get('/reports')
+        .query({ location: 'SOUTH' })
+        .expect('Content-Type', /html/)
+        .expect(200)
+        .expect(res => {
+          expect(res.text).not.toContain('There is a problem')
+          expect(res.text).toContain('Clear filters')
+          expect(incidentReportingApi.getReports).toHaveBeenCalledWith(
+            expect.objectContaining({
+              location: ['SOUTH'],
+            }),
+          )
+        })
+    },
+  )
+
+  it.each([
+    // has access to only 1 prison (enabled in service)
+    { userType: 'reporting officer', user: mockReportingOfficer, expectedLocations: ['MDI'] },
+    // has access to 2 prisons (1 enabled) and all PECS regions (1 enabled)
+    { userType: 'data warden', user: mockDataWarden, expectedLocations: ['MDI', 'NORTH'] },
+    // has access to 2 prisons (1 enabled)
+    { userType: 'HQ view-only user', user: mockHqViewer, expectedLocations: ['MDI'] },
+  ])(
+    'should submit query values correctly to api for $userType when searching for all active locations',
+    ({ user, expectedLocations }) => {
+      const testApp = appWithAllRoutes({ services: { userService }, userSupplier: () => user })
+      setActiveAgencies(['MDI', 'NORTH']) // turns off LEI and SOUTH which some users could have accessed
+
+      return request(testApp)
+        .get('/reports')
+        .query({ location: '.ACTIVE' })
+        .expect('Content-Type', /html/)
+        .expect(200)
+        .expect(res => {
+          expect(res.text).not.toContain('There is a problem')
+          expect(res.text).toContain('Clear filters')
+          expect(incidentReportingApi.getReports).toHaveBeenCalledWith(
+            expect.objectContaining({
+              location: expectedLocations,
             }),
           )
         })

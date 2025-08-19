@@ -26,8 +26,7 @@ export default function routes(services: Services): Router {
   router.use(logoutUnless(permissions => permissions.canAccessService))
 
   router.get('/', (_req, res) => {
-    const { canCreatePecsReport } = res.locals.permissions
-    res.render('pages/index', { canCreatePecsReport })
+    res.render('pages/index')
   })
 
   // view-only debug pages

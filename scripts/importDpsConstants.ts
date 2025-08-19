@@ -3,6 +3,7 @@ import fs from 'node:fs'
 import path from 'node:path'
 
 import nunjucks from 'nunjucks'
+
 import { printText } from './utils'
 import type {
   IncidentReportingApi,

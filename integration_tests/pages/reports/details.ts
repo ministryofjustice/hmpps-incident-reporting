@@ -1,7 +1,7 @@
 import type { PageElement } from '../page'
 import { IncidentDateTimePage } from './incidentDateTime'
 
-export default class DetailsPage extends IncidentDateTimePage {
+export class DetailsPage extends IncidentDateTimePage {
   constructor() {
     super('Incident summary')
   }

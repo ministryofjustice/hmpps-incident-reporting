@@ -2,7 +2,8 @@ import type { Express } from 'express'
 import request from 'supertest'
 
 import { PrisonApi } from '../data/prisonApi'
-import { mockUnauthorisedUser } from '../data/testData/users'
+import { mockPecsRegions, resetPecsRegions } from '../data/testData/pecsRegions'
+import { mockDataWarden, mockReportingOfficer, mockHqViewer, mockUnauthorisedUser } from '../data/testData/users'
 import { appWithAllRoutes } from './testutils/appSetup'
 
 jest.mock('../data/prisonApi')
@@ -10,6 +11,10 @@ jest.mock('../data/prisonApi')
 const prisonApi = PrisonApi.prototype as jest.Mocked<PrisonApi>
 
 let app: Express
+
+beforeAll(() => {
+  mockPecsRegions()
+})
 
 beforeEach(() => {
   app = appWithAllRoutes()
@@ -19,14 +24,39 @@ afterEach(() => {
   jest.resetAllMocks()
 })
 
-describe('GET /', () => {
-  it('should render index page', () => {
-    return request(app)
+afterAll(() => {
+  resetPecsRegions()
+})
+
+describe('Home page', () => {
+  it.each([
+    {
+      userType: 'HQ viewer',
+      user: mockHqViewer,
+      expectedText: [],
+    },
+    {
+      userType: 'reporting officer',
+      user: mockReportingOfficer,
+      expectedText: ['Create an incident report'],
+    },
+    {
+      userType: 'data warden',
+      user: mockDataWarden,
+      expectedText: ['Create a PECS incident report'],
+    },
+  ])('should render tiles for $userType', ({ user, expectedText }) => {
+    return request(appWithAllRoutes({ userSupplier: () => user }))
       .get('/')
       .expect('Content-Type', /html/)
       .expect(res => {
         expect(res.text).toContain('Digital Prison Services')
         expect(res.text).toContain('Incident reporting')
+        expect(res.text).toContain('Search incident reports')
+        expect(res.text).toContain('Management reporting')
+        expectedText.forEach(text => {
+          expect(res.text).toContain(text)
+        })
       })
   })
 

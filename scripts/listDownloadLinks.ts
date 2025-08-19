@@ -16,6 +16,7 @@ function main() {
 
   const dpsUrlSlugs = [
     'types',
+    'typeFamilies',
     'statuses',
     'informationSources',
     'staffInvolvementRoles',

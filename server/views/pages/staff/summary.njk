@@ -15,7 +15,7 @@
     {% set rows = (rows.push(
       [
         { text: (staff | nameOfPerson) },
-        { text: staffInvolvementLookup[staff.staffRole] or staff.staffRole },
+        { text: staffInvolvementRolesDescriptions[staff.staffRole] or staff.staffRole },
         { text: staff.comment | escape | nl2br },
         { html: actionCell }
       ]

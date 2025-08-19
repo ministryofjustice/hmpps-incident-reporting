@@ -2,6 +2,7 @@
 import fs from 'node:fs'
 import path from 'node:path'
 
+import nunjucks from 'nunjucks'
 import { printText } from './utils'
 import type {
   IncidentReportingApi,
@@ -58,6 +59,66 @@ const templates: Template[] = [
   },
 ]
 
+const constantTemplate = `
+// Generated with {{ scriptName }} at {{ generatedTimestamp }}
+
+/** {{ documentation }} */
+export const {{ method }} = [
+  {%- for constant in constants %}
+    {%- if constant.nomisCode === null %}
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore because typescript treats nomisCode as \`any\`
+    {%- endif %}
+    {{ constant | dump }},
+  {%- endfor %}
+] as const
+
+/** {{ documentation }} */
+type {{ identifier }}Details = (typeof {{ method }})[number]
+
+/** Codes for {{ documentation.toLowerCase() }} */
+export type {{ identifier }} = {{ identifier }}Details['code']
+
+/** Code to description mapping for {{ documentation.toLowerCase() }} */
+export const {{ method }}Descriptions: Record<{{ identifier }}, string> = {
+  {%- for constant in constants %}
+    {{ constant.code }}: '{{ constant.description }}',
+  {%- endfor %}
+}
+
+{% if includeNomisCode %}
+/**
+ * NOMIS codes for {{ documentation }}
+ * @deprecated
+ */
+export type Nomis{{ identifier }} = {{ identifier }}Details['nomisCode']
+{% endif %}
+
+{% if includeNomisCodes %}
+/**
+ * NOMIS codes for {{ documentation }}
+ * @deprecated
+ */
+export type Nomis{{ identifier }} = {{ identifier }}Details['nomisCodes'][number]
+{% endif %}
+
+/** Lookup for {{ documentation.toLowerCase() }} */
+export function get{{ identifier }}Details(code: string): {{ identifier }}Details | null {
+ return {{ method }}.find(item => item.code === code) ?? null
+}
+`
+
+const enumConstantTemplate = `
+// Generated with {{ scriptName }} at {{ generatedTimestamp }}
+
+/** {{ documentation }} */
+export enum {{ identifier }} {
+  {%- for constant in constants %}
+    {{ constant.description }} = {{ constant.code }},
+  {%- endfor %}
+}
+`
+
 main()
 
 function main() {
@@ -72,56 +133,20 @@ function main() {
   const outputPath = path.resolve(__dirname, `../server/reportConfiguration/constants/${method}.ts`)
   const outputFile = fs.openSync(outputPath, 'w')
 
-  fs.writeSync(outputFile, `// Generated with ${scriptName} at ${new Date().toISOString()}\n\n`)
-
-  if (asEnum) {
-    // error codes are numbers so need special treatment
-
-    fs.writeSync(outputFile, `/** ${documentation} */\n`)
-    fs.writeSync(outputFile, `export enum ${identifier} {\n`)
-    constants.forEach(constant => {
-      fs.writeSync(outputFile, `${constant.description} = ${constant.code},\n`)
-    })
-    fs.writeSync(outputFile, '}\n')
-  } else {
-    // other constants are strings with extra info
-
-    fs.writeSync(outputFile, `/** ${documentation} */\n`)
-    fs.writeSync(outputFile, `export const ${method} = [\n`)
-    constants.forEach(constant => {
-      if ('nomisCode' in constant && constant.nomisCode === null) {
-        fs.writeSync(
-          outputFile,
-          '// eslint-disable-next-line @typescript-eslint/ban-ts-comment\n// @ts-ignore because typescript treats nomisCode as `any`\n',
-        )
-      }
-      fs.writeSync(outputFile, `${JSON.stringify(constant)},\n`)
-    })
-    fs.writeSync(outputFile, '] as const\n\n')
-
-    fs.writeSync(outputFile, `/** ${documentation} */\n`)
-    fs.writeSync(outputFile, `export type ${identifier}Details = (typeof ${method})[number]\n\n`)
-
-    fs.writeSync(outputFile, `/** Codes for ${documentation.toLowerCase()} */\n`)
-    fs.writeSync(outputFile, `export type ${identifier} = ${identifier}Details['code']\n\n`)
-
-    if (includeNomisCode) {
-      fs.writeSync(outputFile, `\n/**\n * NOMIS codes for ${documentation}\n * @deprecated\n */\n`)
-      fs.writeSync(outputFile, `export type Nomis${identifier} = ${identifier}Details['nomisCode']\n\n`)
-    }
-    if (includeNomisCodes) {
-      fs.writeSync(outputFile, `\n/**\n * NOMIS codes for ${documentation}\n * @deprecated\n */\n`)
-      fs.writeSync(outputFile, `export type Nomis${identifier} = ${identifier}Details['nomisCodes'][number]\n\n`)
-    }
-
-    fs.writeSync(outputFile, `/** Lookup for ${documentation.toLowerCase()} */\n`)
-    fs.writeSync(
-      outputFile,
-      `export function get${identifier}Details(code: string): ${identifier}Details | null {
-         return ${method}.find(item => item.code === code) ?? null
-       }\n`,
-    )
-  }
+  const nunjucksEnv = nunjucks.configure({ autoescape: false })
+  fs.writeSync(
+    outputFile,
+    nunjucksEnv.renderString(asEnum ? enumConstantTemplate : constantTemplate, {
+      scriptName,
+      generatedTimestamp: new Date().toISOString(),
+      method,
+      identifier,
+      documentation,
+      constants,
+      includeNomisCode,
+      includeNomisCodes,
+    }),
+  )
 
   fs.closeSync(outputFile)
 

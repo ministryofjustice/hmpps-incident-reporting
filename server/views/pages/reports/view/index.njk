@@ -70,7 +70,7 @@
     <span data-qa="report-reported-by">{{ usersLookup[report.reportedBy].name or report.reportedBy }} on {{ report.reportedAt | longDate }}</span>
     <br />
     <strong>Status:</strong>
-    <span data-qa="report-status">{{ statusLookup[report.status] or report.status }}</span>
+    <span data-qa="report-status">{{ statusesDescriptions[report.status] or report.status }}</span>
   </p>
 
   {% include "./_correction-requests.njk" %}

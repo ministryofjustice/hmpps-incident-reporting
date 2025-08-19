@@ -3,7 +3,7 @@ import { Router } from 'express'
 import type { ReportWithDetails } from '../../../data/incidentReportingApi'
 import { logoutUnless, hasPermissionTo } from '../../../middleware/permissions'
 import { populateReport } from '../../../middleware/populateReport'
-import { statuses, types } from '../../../reportConfiguration/constants'
+import { statusesDescriptions, typesDescriptions } from '../../../reportConfiguration/constants'
 import { populateReportConfiguration } from '../../../middleware/populateReportConfiguration'
 
 export function historyRouter(): Router {
@@ -15,11 +15,10 @@ export function historyRouter(): Router {
 
     const usernames = report.historyOfStatuses.map(status => status.changedBy)
     const usersLookup = await res.locals.apis.userService.getUsers(res.locals.systemToken, usernames)
-    const statusLookup = Object.fromEntries(statuses.map(status => [status.code, status.description]))
 
     res.render('pages/reports/history/status', {
       usersLookup,
-      statusLookup,
+      statusesDescriptions,
     })
   })
 
@@ -28,11 +27,10 @@ export function historyRouter(): Router {
 
     const usernames = report.history.map(history => history.changedBy)
     const usersLookup = await res.locals.apis.userService.getUsers(res.locals.systemToken, usernames)
-    const typesLookup = Object.fromEntries(types.map(type => [type.code, type.description]))
 
     res.render('pages/reports/history/type', {
       usersLookup,
-      typesLookup,
+      typesDescriptions,
     })
   })
 

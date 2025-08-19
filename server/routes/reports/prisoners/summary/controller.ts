@@ -2,7 +2,10 @@ import type express from 'express'
 import type FormWizard from 'hmpo-form-wizard'
 
 import { InvolvementSummary } from '../../../../controllers/involvements/summary'
-import { prisonerInvolvementOutcomes, prisonerInvolvementRoles } from '../../../../reportConfiguration/constants'
+import {
+  prisonerInvolvementOutcomesDescriptions,
+  prisonerInvolvementRolesDescriptions,
+} from '../../../../reportConfiguration/constants'
 import type { Values } from './fields'
 
 export default class PrisonerSummary extends InvolvementSummary {
@@ -21,15 +24,9 @@ export default class PrisonerSummary extends InvolvementSummary {
   protected confirmError = 'Select yes if you want to add a prisoner'
 
   protected localsForLookups(): Record<string, unknown> {
-    const prisonerInvolvementLookup = Object.fromEntries(
-      prisonerInvolvementRoles.map(role => [role.code, role.description]),
-    )
-    const prisonerOutcomeLookup = Object.fromEntries(
-      prisonerInvolvementOutcomes.map(outcome => [outcome.code, outcome.description]),
-    )
     return {
-      prisonerInvolvementLookup,
-      prisonerOutcomeLookup,
+      prisonerInvolvementOutcomesDescriptions,
+      prisonerInvolvementRolesDescriptions,
     }
   }
 

@@ -6,7 +6,7 @@
 
     {% set comment = staffInvolved.comment if staffInvolved.comment else "No comment" %}
     {% set staffValues %}
-      Role: {{ staffInvolvementLookup[staffInvolved.staffRole] or staffInvolved.staffRole }}
+      Role: {{ staffInvolvementRolesDescriptions[staffInvolved.staffRole] or staffInvolved.staffRole }}
       <br />
       Details: {{ comment | escape | nl2br }}
     {% endset %}

@@ -74,7 +74,7 @@
 
           {% set _ = items.push({
             label: {
-              text: typesLookup[item.type] or item.type
+              text: typesDescriptions[item.type] or item.type
             },
             datetime: {
               timestamp: item.changedAt | longDateAndTime,

@@ -1,6 +1,6 @@
 import Page from '../pages/page'
-import ManagementReportingPage from '../pages/managementReporting'
-import ManagementReportingSampleReportPage from '../pages/managementReportingSampleReport'
+import { ManagementReportingPage } from '../pages/managementReporting'
+import { ManagementReportingSampleReportPage } from '../pages/managementReportingSampleReport'
 
 context('View management reports', () => {
   beforeEach(() => {

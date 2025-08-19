@@ -163,7 +163,7 @@ describe('Remove prisoner involvement', () => {
     return request
       .agent(app)
       .post(removePrisonerUrl(1))
-      .send({ confirmRemove: 'yes', userAction: 'exit' })
+      .send({ confirmRemove: 'yes', formAction: 'exit' })
       .expect(302)
       .expect(res => {
         expect(res.redirect).toBe(true)
@@ -204,7 +204,7 @@ describe('Remove prisoner involvement', () => {
     return request
       .agent(app)
       .post(removePrisonerUrl(1))
-      .send({ confirmRemove: 'no', userAction: 'exit' })
+      .send({ confirmRemove: 'no', formAction: 'exit' })
       .expect(302)
       .expect(res => {
         expect(res.redirect).toBe(true)

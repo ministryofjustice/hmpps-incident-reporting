@@ -1,5 +1,5 @@
-import HomePage from '../pages/home'
 import Page from '../pages/page'
+import { HomePage } from '../pages/home'
 
 context('Home page', () => {
   beforeEach(() => {

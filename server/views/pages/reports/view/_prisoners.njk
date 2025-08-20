@@ -11,12 +11,12 @@
     {% endif %}
 
     {% set prisonerValues %}
-      Role: {{ prisonerInvolvementLookup[prisonerInvolved.prisonerRole] or prisonerInvolved.prisonerRole }}
+      Role: {{ prisonerInvolvementRolesDescriptions[prisonerInvolved.prisonerRole] or prisonerInvolved.prisonerRole }}
 
       {% if report.createdInNomis %}
         <br />
         Outcome: {% if prisonerInvolved.outcome -%}
-          {{ prisonerOutcomeLookup[prisonerInvolved.outcome] or prisonerInvolved.outcome }}
+          {{ prisonerInvolvementOutcomesDescriptions[prisonerInvolved.outcome] or prisonerInvolved.outcome }}
         {%- else -%}
           No outcome
         {%- endif %}

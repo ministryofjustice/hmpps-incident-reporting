@@ -204,22 +204,22 @@
         {% set rows = (rows.push(
           [
             { html: link },
-            { text: typesLookup[report.type] or report.type },
+            { text: typesDescriptions[report.type] or report.type },
             { text: report.incidentDateAndTime | shortDateAndTime },
             { html: description },
             { text: locationLookup[report.location] or report.location },
-            { text: statusLookup[report.status] or report.status }
+            { text: statusesDescriptions[report.status] or report.status }
           ]
         ), rows) %}
       {% else %}
         {% set rows = (rows.push(
           [
             { html: link },
-            { text: typesLookup[report.type] or report.type },
+            { text: typesDescriptions[report.type] or report.type },
             { text: report.incidentDateAndTime | shortDateAndTime },
             { html: description },
             { text: usersLookup[report.reportedBy].name or report.reportedBy },
-            { text: statusLookup[report.status] or report.status }
+            { text: statusesDescriptions[report.status] or report.status }
           ]
         ), rows) %}
       {% endif %}

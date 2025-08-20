@@ -5,11 +5,11 @@ import logger from '../../../logger'
 import { updateReportTitle } from '../../services/reportTitle'
 import {
   aboutTheType,
-  prisonerInvolvementOutcomes,
-  prisonerInvolvementRoles,
-  staffInvolvementRoles,
-  statuses,
-  types,
+  prisonerInvolvementOutcomesDescriptions,
+  prisonerInvolvementRolesDescriptions,
+  staffInvolvementRolesDescriptions,
+  statusesDescriptions,
+  typesDescriptions,
   dwNotReviewed,
   workListMapping,
 } from '../../reportConfiguration/constants'
@@ -30,16 +30,6 @@ import type { GovukErrorSummaryItem } from '../../utils/govukFrontend'
 import { correctionRequestActionLabels } from './actions/correctionRequestLabels'
 import { placeholderForCorrectionRequest } from './actions/correctionRequestPlaceholder'
 import { findRequestDuplicate } from './actions/findRequestDuplicate'
-
-const typesLookup = Object.fromEntries(types.map(type => [type.code, type.description]))
-const statusLookup = Object.fromEntries(statuses.map(status => [status.code, status.description]))
-const prisonerInvolvementLookup = Object.fromEntries(
-  prisonerInvolvementRoles.map(role => [role.code, role.description]),
-)
-const prisonerOutcomeLookup = Object.fromEntries(
-  prisonerInvolvementOutcomes.map(outcome => [outcome.code, outcome.description]),
-)
-const staffInvolvementLookup = Object.fromEntries(staffInvolvementRoles.map(role => [role.code, role.description]))
 
 export function viewReportRouter(): Router {
   const router = Router({ mergeParams: true })
@@ -272,10 +262,7 @@ export function viewReportRouter(): Router {
 
       // “About the [incident]”
       res.locals.aboutTheType = aboutTheType(res.locals.report.type)
-      let descriptionAppendOnly: boolean = false
-      if (dwNotReviewed.includes(report.status)) {
-        descriptionAppendOnly = true
-      }
+      const descriptionAppendOnly = !dwNotReviewed.includes(report.status)
 
       res.render('pages/reports/view/index', {
         errors,
@@ -286,11 +273,11 @@ export function viewReportRouter(): Router {
         canEditReportInNomisOnly,
         descriptionAppendOnly,
         usersLookup,
-        prisonerInvolvementLookup,
-        prisonerOutcomeLookup,
-        staffInvolvementLookup,
-        typesLookup,
-        statusLookup,
+        prisonerInvolvementOutcomesDescriptions,
+        prisonerInvolvementRolesDescriptions,
+        staffInvolvementRolesDescriptions,
+        statusesDescriptions,
+        typesDescriptions,
         correctionRequestActionLabels,
         workListMapping,
         locationDescription,

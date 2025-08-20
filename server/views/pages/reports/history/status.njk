@@ -36,7 +36,7 @@
       {% for item in report.historyOfStatuses %}
         {% set _ = items.push({
           label: {
-            text: statusLookup[item.status] or item.status
+            text: statusesDescriptions[item.status] or item.status
           },
           datetime: {
             timestamp: item.changedAt | longDateAndTime,

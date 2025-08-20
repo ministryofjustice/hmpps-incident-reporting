@@ -84,11 +84,18 @@ Import the DPS JSON files downloaded above with:
 ```
 
 This will create typescript definitions for the latest constants and enumerations.
-Make sure to check these into git.
+NB: Make sure to check diffs for previous customisations before checking into git repository.
 
 #### Import NOMIS configuration JSON files
 
-TODO: not yet implemented
+Import the NOMIS JSON incident types file downloaded above with:
+
+```shell
+./scripts/updateNomisIncidentTypeConfigurations.ts  <nomisConfigFile>
+```
+
+This will create typescript configuration for every known incident type in NOMIS including inactive ones.
+NB: Make sure to check diffs for previous customisations (which do exist!) before checking into git repository.
 
 ### Updating dependencies
 

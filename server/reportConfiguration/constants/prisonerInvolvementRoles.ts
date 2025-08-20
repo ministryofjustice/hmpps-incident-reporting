@@ -1,4 +1,4 @@
-// Generated with ./scripts/importDpsConstants.ts at 2024-10-23T09:57:40.531Z
+// Generated with ./scripts/importDpsConstants.ts at 2025-08-19T16:39:00.078Z
 
 /** Roles of a prisoner’s involvement in an incident */
 export const prisonerInvolvementRoles = [
@@ -23,10 +23,32 @@ export const prisonerInvolvementRoles = [
 ] as const
 
 /** Roles of a prisoner’s involvement in an incident */
-export type PrisonerInvolvementRoleDetails = (typeof prisonerInvolvementRoles)[number]
+type PrisonerInvolvementRoleDetails = (typeof prisonerInvolvementRoles)[number]
 
 /** Codes for roles of a prisoner’s involvement in an incident */
 export type PrisonerInvolvementRole = PrisonerInvolvementRoleDetails['code']
+
+/** Code to description mapping for roles of a prisoner’s involvement in an incident */
+export const prisonerInvolvementRolesDescriptions: Record<PrisonerInvolvementRole, string> = {
+  ABSCONDER: 'Absconder',
+  ACTIVE_INVOLVEMENT: 'Active involvement',
+  ASSAILANT: 'Assailant',
+  ASSISTED_STAFF: 'Assisted staff',
+  DECEASED: 'Deceased',
+  ESCAPE: 'Escapee',
+  FIGHTER: 'Fighter',
+  HOSTAGE: 'Hostage',
+  IMPEDED_STAFF: 'Impeded staff',
+  IN_POSSESSION: 'In possession',
+  INTENDED_RECIPIENT: 'Intended recipient',
+  LICENSE_FAILURE: 'License failure',
+  PERPETRATOR: 'Perpetrator',
+  PRESENT_AT_SCENE: 'Present at scene',
+  SUSPECTED_ASSAILANT: 'Suspected assailant',
+  SUSPECTED_INVOLVED: 'Suspected involved',
+  TEMPORARY_RELEASE_FAILURE: 'Temporary release failure',
+  VICTIM: 'Victim',
+}
 
 /**
  * NOMIS codes for Roles of a prisoner’s involvement in an incident

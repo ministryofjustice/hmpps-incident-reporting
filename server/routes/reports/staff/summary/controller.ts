@@ -2,7 +2,7 @@ import type express from 'express'
 import type FormWizard from 'hmpo-form-wizard'
 
 import { InvolvementSummary } from '../../../../controllers/involvements/summary'
-import { staffInvolvementRoles } from '../../../../reportConfiguration/constants'
+import { staffInvolvementRolesDescriptions } from '../../../../reportConfiguration/constants'
 import type { Values } from './fields'
 
 export default class StaffSummary extends InvolvementSummary {
@@ -21,9 +21,8 @@ export default class StaffSummary extends InvolvementSummary {
   protected confirmError = 'Select yes if you want to add a member of staff'
 
   protected localsForLookups(): Record<string, unknown> {
-    const staffInvolvementLookup = Object.fromEntries(staffInvolvementRoles.map(role => [role.code, role.description]))
     return {
-      staffInvolvementLookup,
+      staffInvolvementRolesDescriptions,
     }
   }
 

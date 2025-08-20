@@ -1,4 +1,4 @@
-// Generated with ./scripts/importDpsConstants.ts at 2024-11-06T10:46:42.719Z
+// Generated with ./scripts/importDpsConstants.ts at 2025-08-19T16:39:01.117Z
 
 /** Outcomes from a prisoner’s involvement in an incident */
 export const prisonerInvolvementOutcomes = [
@@ -22,10 +22,31 @@ export const prisonerInvolvementOutcomes = [
 ] as const
 
 /** Outcomes from a prisoner’s involvement in an incident */
-export type PrisonerInvolvementOutcomeDetails = (typeof prisonerInvolvementOutcomes)[number]
+type PrisonerInvolvementOutcomeDetails = (typeof prisonerInvolvementOutcomes)[number]
 
 /** Codes for outcomes from a prisoner’s involvement in an incident */
 export type PrisonerInvolvementOutcome = PrisonerInvolvementOutcomeDetails['code']
+
+/** Code to description mapping for outcomes from a prisoner’s involvement in an incident */
+export const prisonerInvolvementOutcomesDescriptions: Record<PrisonerInvolvementOutcome, string> = {
+  ACCT: 'ACCT',
+  CHARGED_BY_POLICE: 'Charged by Police',
+  CONVICTED: 'Convicted',
+  CORONER_INFORMED: 'Coroner informed',
+  DEATH: 'Death',
+  FURTHER_CHARGES: 'Further charges',
+  LOCAL_INVESTIGATION: 'Investigation (local)',
+  NEXT_OF_KIN_INFORMED: 'Next of kin informed',
+  PLACED_ON_REPORT: 'Placed on report',
+  POLICE_INVESTIGATION: 'Investigation (Police)',
+  REMAND: 'Remand',
+  SEEN_DUTY_GOV: 'Seen by Duty Governor',
+  SEEN_HEALTHCARE: 'Seen by Healthcare',
+  SEEN_IMB: 'Seen by IMB',
+  SEEN_OUTSIDE_HOSP: 'Seen by outside hospital',
+  TRANSFER: 'Transfer',
+  TRIAL: 'Trial',
+}
 
 /**
  * NOMIS codes for Outcomes from a prisoner’s involvement in an incident

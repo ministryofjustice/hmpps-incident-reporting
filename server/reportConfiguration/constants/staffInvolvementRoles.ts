@@ -1,4 +1,4 @@
-// Generated with ./scripts/importDpsConstants.ts at 2024-11-06T10:46:41.177Z
+// Generated with ./scripts/importDpsConstants.ts at 2025-08-19T16:38:58.998Z
 
 /** Roles of staff involvement in an incident */
 export const staffInvolvementRoles = [
@@ -22,10 +22,31 @@ export const staffInvolvementRoles = [
 ] as const
 
 /** Roles of staff involvement in an incident */
-export type StaffInvolvementRoleDetails = (typeof staffInvolvementRoles)[number]
+type StaffInvolvementRoleDetails = (typeof staffInvolvementRoles)[number]
 
 /** Codes for roles of staff involvement in an incident */
 export type StaffInvolvementRole = StaffInvolvementRoleDetails['code']
+
+/** Code to description mapping for roles of staff involvement in an incident */
+export const staffInvolvementRolesDescriptions: Record<StaffInvolvementRole, string> = {
+  ACTIVELY_INVOLVED: 'Actively involved',
+  AUTHORISING_OFFICER: 'Authorising officer',
+  CR_HEAD: 'Control and restraint - head',
+  CR_LEFT_ARM: 'Control and restraint - left arm',
+  CR_LEGS: 'Control and restraint - legs',
+  CR_RIGHT_ARM: 'Control and restraint - right arm',
+  CR_SUPERVISOR: 'Control and restraint - supervisor',
+  DECEASED: 'Deceased',
+  FIRST_ON_SCENE: 'First on scene',
+  HEALTHCARE: 'Healthcare',
+  HOSTAGE: 'Hostage',
+  IN_POSSESSION: 'In possession',
+  NEGOTIATOR: 'Negotiator',
+  PRESENT_AT_SCENE: 'Present at scene',
+  SUSPECTED_INVOLVEMENT: 'Suspected involvement',
+  VICTIM: 'Victim',
+  WITNESS: 'Witness',
+}
 
 /**
  * NOMIS codes for Roles of staff involvement in an incident

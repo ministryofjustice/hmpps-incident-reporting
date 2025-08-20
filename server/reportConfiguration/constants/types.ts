@@ -1,4 +1,4 @@
-// Generated with ./scripts/importDpsConstants.ts at 2025-04-01T17:15:27.753Z
+// Generated with ./scripts/importDpsConstants.ts at 2025-08-19T16:38:54.769Z
 
 /** Types of reportable incidents */
 export const types = [
@@ -45,13 +45,7 @@ export const types = [
     active: false,
     nomisCode: 'CON_INDISC',
   },
-  {
-    familyCode: 'DAMAGE',
-    code: 'DAMAGE_1',
-    description: 'Deliberate damage',
-    active: false,
-    nomisCode: 'DAMAGE',
-  },
+  { familyCode: 'DAMAGE', code: 'DAMAGE_1', description: 'Deliberate damage', active: false, nomisCode: 'DAMAGE' },
   {
     familyCode: 'DEATH_PRISONER',
     code: 'DEATH_PRISONER_1',
@@ -214,10 +208,61 @@ export const types = [
 ] as const
 
 /** Types of reportable incidents */
-export type TypeDetails = (typeof types)[number]
+type TypeDetails = (typeof types)[number]
 
 /** Codes for types of reportable incidents */
 export type Type = TypeDetails['code']
+
+/** Code to description mapping for types of reportable incidents */
+export const typesDescriptions: Record<Type, string> = {
+  ABSCOND_1: 'Abscond',
+  ASSAULT_1: 'Assault',
+  ASSAULT_2: 'Assault',
+  ASSAULT_3: 'Assault',
+  ASSAULT_4: 'Assault',
+  ASSAULT_5: 'Assault',
+  ATTEMPTED_ESCAPE_FROM_PRISON_1: 'Attempted escape from establishment',
+  ATTEMPTED_ESCAPE_FROM_ESCORT_1: 'Attempted escape from escort',
+  BARRICADE_1: 'Barricade',
+  BOMB_1: 'Bomb explosion or threat',
+  BREACH_OF_SECURITY_1: 'Breach or attempted breach of security',
+  CLOSE_DOWN_SEARCH_1: 'Close down search',
+  CONCERTED_INDISCIPLINE_1: 'Incident involving 2 or more prisioners acting together',
+  DAMAGE_1: 'Deliberate damage',
+  DEATH_PRISONER_1: 'Death of prisoner',
+  DEATH_OTHER_1: 'Death of other person',
+  DISORDER_1: 'Disorder',
+  DISORDER_2: 'Disorder',
+  DRONE_SIGHTING_1: 'Drone sighting',
+  DRONE_SIGHTING_2: 'Drone sighting',
+  DRONE_SIGHTING_3: 'Drone sighting',
+  DRUGS_1: 'Drugs',
+  ESCAPE_FROM_PRISON_1: 'Escape from establishment',
+  ESCAPE_FROM_ESCORT_1: 'Escape from escort',
+  FIND_1: 'Find of illicit items',
+  FIND_2: 'Find of illicit items',
+  FIND_3: 'Find of illicit items',
+  FIND_4: 'Find of illicit items',
+  FIND_5: 'Find of illicit items',
+  FIND_6: 'Find of illicit items',
+  FIRE_1: 'Fire',
+  FIREARM_1: 'Firearm, ammunition or chemical incapacitant',
+  FOOD_REFUSAL_1: 'Food or liquid refusual',
+  HOSTAGE_1: 'Hostage incident',
+  INCIDENT_AT_HEIGHT_1: 'Incident at height',
+  KEY_OR_LOCK_1: 'Key or lock compromise',
+  KEY_OR_LOCK_2: 'Key or lock compromise',
+  MISCELLANEOUS_1: 'Miscellaneous',
+  MOBILE_PHONE_1: 'Mobile phone',
+  RADIO_COMPROMISE_1: 'Radio compromise',
+  RELEASE_IN_ERROR_1: 'Release in error',
+  SELF_HARM_1: 'Self harm',
+  TEMPORARY_RELEASE_FAILURE_1: 'Temporary release failure',
+  TEMPORARY_RELEASE_FAILURE_2: 'Temporary release failure',
+  TEMPORARY_RELEASE_FAILURE_3: 'Temporary release failure',
+  TEMPORARY_RELEASE_FAILURE_4: 'Temporary release failure',
+  TOOL_LOSS_1: 'Tool or implement loss',
+}
 
 /**
  * NOMIS codes for Types of reportable incidents

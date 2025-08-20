@@ -84,8 +84,8 @@ describe('Report incident type history', () => {
         changedBy: 'user1',
         questions: [
           {
-            code: 'WHERE DID IT HAPPEN',
-            question: 'Where did it happen?',
+            code: '5385',
+            question: 'WHERE DID IT HAPPEN',
             label: 'Where did it happen?',
             additionalInformation: null,
             responses: [
@@ -108,8 +108,8 @@ describe('Report incident type history', () => {
         changedBy: 'user2',
         questions: [
           {
-            code: 'WAS ANYONE HURT',
-            question: 'Was anyone hurt?',
+            code: '8242',
+            question: 'WAS ANYONE HURT',
             label: 'Was anyone hurt?',
             additionalInformation: null,
             responses: [
@@ -140,12 +140,17 @@ describe('Report incident type history', () => {
         expect(res.text).toContain('by John Smith')
         expect(res.text).toContain('Where did it happen?')
         expect(res.text).toContain('4 December 2023')
+        expect(res.text).toContain('Cell')
         expect(res.text).toContain('A-003')
+        expect(res.text).not.toContain('WHERE DID IT HAPPEN')
+        expect(res.text).not.toContain('CELL')
 
         expect(res.text).toContain('Deliberate damage')
         expect(res.text).toContain('by Mary Johnson')
         expect(res.text).toContain('Was anyone hurt?')
-        expect(res.text).toContain('YES')
+        expect(res.text).toContain('Yes')
+        expect(res.text).not.toContain('WAS ANYONE HURT')
+        expect(res.text).not.toContain('YES')
 
         // current type not listed
         expect(res.text).not.toContain('MISCELLANEOUS_1')

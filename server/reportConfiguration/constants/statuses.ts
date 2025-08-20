@@ -1,4 +1,4 @@
-// Generated with ./scripts/importDpsConstants.ts at 2025-05-20T13:40:05.081Z
+// Generated with ./scripts/importDpsConstants.ts at 2025-08-19T16:38:56.902Z
 
 /** Report statuses */
 export const statuses = [
@@ -23,10 +23,24 @@ export const statuses = [
 ] as const
 
 /** Report statuses */
-export type StatusDetails = (typeof statuses)[number]
+type StatusDetails = (typeof statuses)[number]
 
 /** Codes for report statuses */
 export type Status = StatusDetails['code']
+
+/** Code to description mapping for report statuses */
+export const statusesDescriptions: Record<Status, string> = {
+  DRAFT: 'Draft',
+  AWAITING_REVIEW: 'Awaiting review',
+  ON_HOLD: 'On hold',
+  NEEDS_UPDATING: 'Needs updating',
+  UPDATED: 'Updated',
+  CLOSED: 'Closed',
+  DUPLICATE: 'Duplicate',
+  NOT_REPORTABLE: 'Not reportable',
+  REOPENED: 'Reopened',
+  WAS_CLOSED: 'Was closed',
+}
 
 /**
  * NOMIS codes for Report statuses

@@ -10,17 +10,16 @@
 {% endif %}
 
 {% if descriptionAppendOnly %}
-  {% set descriptionLink = reportUrl + "/update-details" %}
-  {% set descriptionHiddenText = "incident summary" %}
-  {% set dateAndTimeLink = reportUrl + "/update-details" %}
-  {% set dateAndTimeHiddenText = "incident summary" %}
-{% else %}
   {% set descriptionLink = reportUrl + "/add-description" %}
   {% set descriptionHiddenText = "description" %}
   {% set dateAndTimeLink = reportUrl + "/update-date-and-time" %}
   {% set dateAndTimeHiddenText = "incident date and time" %}
+{% else %}
+  {% set descriptionLink = reportUrl + "/update-details" %}
+  {% set descriptionHiddenText = "incident summary" %}
+  {% set dateAndTimeLink = reportUrl + "/update-details" %}
+  {% set dateAndTimeHiddenText = "incident summary" %}
 {% endif %}
-
 
 {{ govukSummaryList({
   card: {
@@ -30,7 +29,7 @@
     {
       key: { text: "Type" },
       value: {
-        text: typesLookup[report.type] or report.type
+        text: typesDescriptions[report.type] or report.type
       },
       actions: {
         items: [

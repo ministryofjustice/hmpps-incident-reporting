@@ -11,7 +11,9 @@ import {
   workListCodes,
   workListMapping,
   statuses,
+  statusesDescriptions,
   types,
+  typesDescriptions,
   typeFamilies,
 } from '../../reportConfiguration/constants'
 import type { PaginatedBasicReports } from '../../data/incidentReportingApi'
@@ -270,9 +272,6 @@ export default function dashboard(): Router {
       statusCheckboxLabel = 'Status'
     }
 
-    const typesLookup = Object.fromEntries(types.map(type => [type.code, type.description]))
-    const statusLookup = Object.fromEntries(statuses.map(status => [status.code, status.description]))
-
     /** location choices for auto-complete */
     const allLocations: GovukSelectItem[] = userCaseloads.map(caseload => ({
       value: caseload.caseLoadId,
@@ -340,9 +339,9 @@ export default function dashboard(): Router {
       usersLookup,
       typeFamilyItems,
       statusItems,
-      typesLookup,
       statusCheckboxLabel,
-      statusLookup,
+      statusesDescriptions,
+      typesDescriptions,
       formValues,
       errors,
       todayAsShortDate,

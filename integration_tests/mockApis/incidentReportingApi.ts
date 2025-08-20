@@ -312,7 +312,7 @@ export default {
             variants: [
               {
                 id: 'summary',
-                name: 'Incident Report Summary',
+                name: 'Incident report summary',
                 description: 'List of all incidents filtered by dates, types, status and locations',
               },
             ],
@@ -337,7 +337,7 @@ export default {
           description: 'List of all incidents filtered by dates, types, status and locations (INC0009)',
           variant: {
             id: 'summary',
-            name: 'Incident Report Summary',
+            name: 'Incident report summary',
             resourceName: 'reports/incident-report/summary',
             description: 'List of all incidents filtered by dates, types, status and locations',
             specification: {

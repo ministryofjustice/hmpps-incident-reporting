@@ -1,7 +1,7 @@
 {% macro renderDpsCard(params) %}
 
   <li class="govuk-grid-column-one-third dps-card-group__item">
-    <div class="dps-card {% if params.href %}dps-card--clickable{% endif %}" data-module="dps-card">
+    <div {% if params.id %} id="{{ params.id }}" {% endif %} class="dps-card {% if params.href %}dps-card--clickable{% endif %}" data-module="dps-card">
       <h2 class="govuk-heading-m dps-card__heading">
         {% if params.href %}
           <a class="dps-card__link" href="{{ params.href }}">{{ params.heading }}</a>

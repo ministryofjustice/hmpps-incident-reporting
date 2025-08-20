@@ -2,7 +2,7 @@ import Page, { PageElement } from './page'
 
 export class ManagementReportingSampleReportPage extends Page {
   constructor() {
-    super('Incident Report Summary', 'View management report')
+    super('Incident report summary', 'View management report')
   }
 
   get title(): PageElement<HTMLSpanElement> {

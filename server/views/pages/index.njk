@@ -35,6 +35,8 @@
   <h1 class="govuk-heading-l">Incident reporting</h1>
 
   {% call renderDpsCards() %}
+
+    {# create #}
     {% if permissions.canCreateReportInActiveCaseload %}
       {{ renderDpsCard({
         heading: "Create an incident report",
@@ -42,17 +44,29 @@
         href: "/create-report"
       }) }}
     {% endif %}
+    {% if permissions.canCreatePecsReport %}
+      {{ renderDpsCard({
+        heading: "Create a PECS incident report",
+        description: "Raise a report for an incident in the Prisoner Escort and Custody Services.",
+        href: "/create-report/pecs"
+      }) }}
+    {% endif %}
+
+    {# search / “dashboard” #}
     {{ renderDpsCard({
       heading: "Search incident reports",
       description: "Review the details for incidents that have taken place in prisons.",
       href: "/reports"
     }) }}
+
+    {# stats reports #}
     {# TODO: will the management reporting tile need a separate role? #}
     {{ renderDpsCard({
       heading: "Management reporting",
       description: "Reports that include in-depth data about different incidents in prisons.",
       href: "/management-reporting"
     }) }}
+
   {% endcall %}
 
 {% endblock %}

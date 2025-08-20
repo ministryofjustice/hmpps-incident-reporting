@@ -17,6 +17,7 @@ import {
 import type { PaginatedBasicReports } from '../../data/incidentReportingApi'
 import { type Order, orderOptions } from '../../data/offenderSearchApi'
 import { pecsRegions } from '../../data/pecsRegions'
+import { isLocationActiveInService } from '../../middleware/permissions'
 import type { HeaderCell } from '../../utils/sortableTable'
 import format from '../../utils/format'
 import type { GovukCheckboxesItem, GovukErrorSummaryItem, GovukSelectItem } from '../../utils/govukFrontend'
@@ -42,6 +43,8 @@ interface ListFormData {
 
 /** Location search filter which is replaced by all PECS regions when performing search */
 const allPecsRegionsFlag = '.PECS' as const
+/** Location search filter which is replaced by all active locations when performing search */
+const activeLocationsFlag = '.ACTIVE' as const // TODO: remove after rollout
 
 export default function dashboard(): Router {
   const router = Router({ mergeParams: true })
@@ -52,6 +55,7 @@ export default function dashboard(): Router {
     const { permissions } = res.locals
     const { activeCaseLoad, caseLoads: userCaseloads } = res.locals.user
     const userCaseloadIds = userCaseloads.map(caseload => caseload.caseLoadId)
+    const pecsRegionCodes = pecsRegions.map(pecsRegion => pecsRegion.code)
 
     const { location, fromDate: fromDateInput, toDate: toDateInput, page }: ListFormData = req.query
     let { searchID, typeFamily, incidentStatuses, sort, order }: ListFormData = req.query
@@ -156,15 +160,20 @@ export default function dashboard(): Router {
     }
 
     // Set locations to user’s caseloads by default and PECS regions if allowed
-    let searchLocations: string[] | string = userCaseloadIds
+    let searchLocations: string[] = userCaseloadIds
     if (permissions.hasPecsAccess) {
-      searchLocations.push(...pecsRegions.map(pecsRegion => pecsRegion.code))
+      searchLocations.push(...pecsRegionCodes)
     }
     if (location) {
       if (userCaseloadIds.includes(location)) {
-        searchLocations = location
-      } else if (location === allPecsRegionsFlag && permissions.hasPecsAccess) {
-        searchLocations = pecsRegions.map(pecsRegion => pecsRegion.code)
+        searchLocations = [location]
+      } else if (permissions.hasPecsAccess && pecsRegionCodes.includes(location)) {
+        searchLocations = [location]
+      } else if (permissions.hasPecsAccess && location === allPecsRegionsFlag) {
+        searchLocations = pecsRegionCodes
+      } else if (location === activeLocationsFlag) {
+        // TODO: remove after rollout
+        searchLocations = searchLocations.filter(isLocationActiveInService)
       } else {
         errors.push({
           href: '#location',
@@ -260,29 +269,44 @@ export default function dashboard(): Router {
       }))
       statusCheckboxLabel = 'Status'
     }
+
+    const typesLookup = Object.fromEntries(types.map(type => [type.code, type.description]))
+    const statusLookup = Object.fromEntries(statuses.map(status => [status.code, status.description]))
+
+    /** location choices for auto-complete */
     const allLocations: GovukSelectItem[] = userCaseloads.map(caseload => ({
       value: caseload.caseLoadId,
       text: caseload.description,
     }))
-    if (permissions.hasPecsAccess) {
-      allLocations.unshift({
-        value: allPecsRegionsFlag,
-        text: 'PECS',
-      })
-    }
-
-    const typesLookup = Object.fromEntries(types.map(type => [type.code, type.description]))
-    const statusLookup = Object.fromEntries(statuses.map(status => [status.code, status.description]))
+    /** location map for code-to-description display */
     const locationLookup = Object.fromEntries(
       userCaseloads.map(caseload => [caseload.caseLoadId, caseload.description]),
     )
     if (permissions.hasPecsAccess) {
+      allLocations.unshift({
+        value: allPecsRegionsFlag,
+        text: 'All PECS regions',
+      })
+      allLocations.push(
+        ...pecsRegions.map(pecsRegion => ({
+          value: pecsRegion.code,
+          text: pecsRegion.description,
+        })),
+      )
       pecsRegions.forEach(pecsRegion => {
         locationLookup[pecsRegion.code] = pecsRegion.description
       })
     }
 
-    const showLocationFilter = userCaseloadIds.length > 1 || permissions.hasPecsAccess
+    const showLocationFilter = allLocations.length > 1
+    if (showLocationFilter) {
+      // TODO: remove after rollout
+      allLocations.unshift({
+        value: activeLocationsFlag,
+        text: 'All locations active in the service', // TODO: confirm text
+      })
+    }
+
     let tableHead: HeaderCell[] | undefined
     let paginationParams: LegacyPagination
     if (reportsResponse) {

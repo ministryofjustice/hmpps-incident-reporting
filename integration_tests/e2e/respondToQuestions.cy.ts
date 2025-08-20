@@ -2,12 +2,12 @@ import type { Response as SuperAgentResponse } from 'superagent'
 
 import { mockReport } from '../../server/data/testData/incidentReporting'
 import { moorland } from '../../server/data/testData/prisonApi'
+import { now } from '../../server/testutils/fakeClock'
 import Page from '../pages/page'
-import ReportPage from '../pages/reports/report'
 import { QuestionPage } from '../pages/reports/question'
+import { ReportPage } from '../pages/reports/report'
 
 context('Responding to questions', () => {
-  const now = new Date()
   const reportWithDetails = mockReport({
     type: 'ATTEMPTED_ESCAPE_FROM_PRISON_1',
     reportReference: '6544',
@@ -303,8 +303,11 @@ context('Responding to questions', () => {
       questionPage.submit()
 
       Page.verifyOnPage(QuestionPage, [1, 5], 'attempted escape from establishment')
-      questionPage.errorSummary.contains('There is a problem')
-      questionPage.errorSummary.contains('Select an answer for ‘Has the prison service press office been informed?’')
+      questionPage.errorSummary.should('contain.text', 'There is a problem')
+      questionPage.errorSummary.should(
+        'contain.text',
+        'Select an answer for ‘Has the prison service press office been informed?’',
+      )
     })
 
     it('should show an error if a multi-response question is missed', () => {
@@ -319,8 +322,8 @@ context('Responding to questions', () => {
       questionPage.submit()
 
       Page.verifyOnPage(QuestionPage, [1, 5], 'attempted escape from establishment')
-      questionPage.errorSummary.contains('There is a problem')
-      questionPage.errorSummary.contains('Select one or more options for ‘The incident is subject to’')
+      questionPage.errorSummary.should('contain.text', 'There is a problem')
+      questionPage.errorSummary.should('contain.text', 'Select one or more options for ‘The incident is subject to’')
     })
 
     it('should show an error if a required date is missing', () => {
@@ -335,8 +338,11 @@ context('Responding to questions', () => {
       questionPage.submit()
 
       Page.verifyOnPage(QuestionPage, [1, 5], 'attempted escape from establishment')
-      questionPage.errorSummary.contains('There is a problem')
-      questionPage.errorSummary.contains('Enter a date for ‘Has the prison service press office been informed?’')
+      questionPage.errorSummary.should('contain.text', 'There is a problem')
+      questionPage.errorSummary.should(
+        'contain.text',
+        'Enter a date for ‘Has the prison service press office been informed?’',
+      )
     })
   })
 
@@ -501,8 +507,9 @@ context('Responding to questions', () => {
       questionPage.submit()
 
       Page.verifyOnPage(QuestionPage, [6, 6], 'attempted escape from establishment')
-      questionPage.errorSummary.contains('There is a problem')
-      questionPage.errorSummary.contains(
+      questionPage.errorSummary.should('contain.text', 'There is a problem')
+      questionPage.errorSummary.should(
+        'contain.text',
         'Enter a comment for ‘Where was the prisoner prior to the start of the attempted escape?’',
       )
     })

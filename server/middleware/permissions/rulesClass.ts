@@ -2,7 +2,7 @@ import type { Express, NextFunction, Request, Response } from 'express'
 
 import { roleReadOnly, roleReadWrite, roleApproveReject, rolePecs } from '../../data/constants'
 import type { ReportBasic } from '../../data/incidentReportingApi'
-import { isPecsRegionCode } from '../../data/pecsRegions'
+import { isPecsRegionCode, pecsRegions } from '../../data/pecsRegions'
 import { isLocationActiveInService } from './locationActiveInService'
 import { type ReportTransitions, prisonReportTransitions, pecsReportTransitions } from './statusTransitions'
 import type { UserAction } from './userActions'
@@ -88,6 +88,18 @@ export class Permissions {
   /** Could have created new report in active caseload prison were it enabled */
   get canCreateReportInActiveCaseloadInNomisOnly(): boolean {
     return this.canCreateReportInLocationInNomisOnly(this.activeCaseloadId)
+  }
+
+  /** Can create new PECS report */
+  get canCreatePecsReport(): boolean {
+    const somePecsRegion = pecsRegions[0]
+    return somePecsRegion?.code ? this.canCreateReportInLocation(somePecsRegion.code) : false
+  }
+
+  /** Could have created new PECS report if it was enabled */
+  get canCreatePecsReportInNomisOnly(): boolean {
+    const somePecsRegion = pecsRegions[0]
+    return somePecsRegion?.code ? this.canCreateReportInLocationInNomisOnly(somePecsRegion.code) : false
   }
 
   /**

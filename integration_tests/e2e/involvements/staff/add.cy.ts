@@ -2,6 +2,7 @@ import { RelatedObjectUrlSlug } from '../../../../server/data/incidentReportingA
 import type { UsersSearchResult } from '../../../../server/data/manageUsersApiClient'
 import { mockReport } from '../../../../server/data/testData/incidentReporting'
 import { moorland, staffBarry, staffMary } from '../../../../server/data/testData/prisonApi'
+import { now } from '../../../../server/testutils/fakeClock'
 import Page from '../../../pages/page'
 import {
   AddStaffInvolvementsPage,
@@ -10,7 +11,6 @@ import {
 } from '../../../pages/reports/involvements/staff'
 
 context('Add staff involvement page', () => {
-  const now = new Date()
   const reportWithDetails = mockReport({
     type: 'MISCELLANEOUS_1',
     reportReference: '6544',
@@ -197,8 +197,11 @@ context('Add staff involvement page', () => {
     it('should show errors if information is missing', () => {
       addStaffInvolvementsPage.enterComment('Some comments')
       addStaffInvolvementsPage.submit()
-      addStaffInvolvementsPage.errorSummary.contains('There is a problem')
-      addStaffInvolvementsPage.errorSummary.contains('Select how the member of staff was involved in the incident')
+      addStaffInvolvementsPage.errorSummary.should('contain.text', 'There is a problem')
+      addStaffInvolvementsPage.errorSummary.should(
+        'contain.text',
+        'Select how the member of staff was involved in the incident',
+      )
       Page.verifyOnPage(AddStaffInvolvementsPage, 'Mary Johnson', 'Mary Johnson’s')
     })
   })
@@ -218,8 +221,8 @@ context('Add staff involvement page', () => {
     it('should show errors if information is missing', () => {
       manualStaffEntryPage.enterLastName('Johnson')
       manualStaffEntryPage.submit()
-      manualStaffEntryPage.errorSummary.contains('There is a problem')
-      manualStaffEntryPage.errorSummary.contains('Enter their first name')
+      manualStaffEntryPage.errorSummary.should('contain.text', 'There is a problem')
+      manualStaffEntryPage.errorSummary.should('contain.text', 'Enter their first name')
       Page.verifyOnPage(ManualStaffEntryPage)
     })
 

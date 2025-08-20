@@ -1,11 +1,11 @@
 import { mockReport } from '../../server/data/testData/incidentReporting'
 import { moorland } from '../../server/data/testData/prisonApi'
+import { now } from '../../server/testutils/fakeClock'
 import Page from '../pages/page'
 import { ChangeTypeConfirmationPage, TypePage } from '../pages/reports/type'
 import { PrisonerInvolvementsPage } from '../pages/reports/involvements/prisoners'
 
 context('Change incident type', () => {
-  const now = new Date()
   const reportWithDetails = mockReport({
     type: 'DISORDER_2',
     reportReference: '6544',
@@ -155,8 +155,8 @@ context('Change incident type', () => {
 
     const typePage = Page.verifyOnPage(TypePage)
     typePage.submit()
-    typePage.errorSummary.contains('There is a problem')
-    typePage.errorSummary.contains('Select the incident type')
+    typePage.errorSummary.should('contain.text', 'There is a problem')
+    typePage.errorSummary.should('contain.text', 'Select the incident type')
   })
 
   it('should allow changing type', () => {

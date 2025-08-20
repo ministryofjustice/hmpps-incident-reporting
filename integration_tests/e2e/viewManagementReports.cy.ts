@@ -16,7 +16,7 @@ context('View management reports', () => {
     const managementReportingPage = Page.verifyOnPage(ManagementReportingPage)
 
     managementReportingPage.title.should('contain.text', 'Management reporting')
-    managementReportingPage.reportLink.should('contain.text', 'Incident Report Summary')
+    managementReportingPage.reportLink.should('contain.text', 'Incident report summary')
     managementReportingPage.checkLastBreadcrumb('Incident reporting', '/')
   })
 
@@ -28,7 +28,7 @@ context('View management reports', () => {
     const managementReportingPage = Page.verifyOnPage(ManagementReportingPage)
     managementReportingPage.reportLink.click()
     const managementReportingSampleReportPage = Page.verifyOnPage(ManagementReportingSampleReportPage)
-    managementReportingSampleReportPage.title.should('contain.text', 'Incident Report Summary')
+    managementReportingSampleReportPage.title.should('contain.text', 'Incident report summary')
     managementReportingPage.checkLastBreadcrumb('Management reporting', '/management-reporting')
   })
 })
